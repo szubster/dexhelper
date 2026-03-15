@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { parseSaveFile, SaveData, GameVersion as GameVersionType } from './utils/saveParser';
 
 export type GameVersion = GameVersionType;
-export type FilterType = 'caught' | 'uncaught' | 'lost';
+export type FilterType = 'secured' | 'missing' | 'dex-only';
 export type PokeballType = 'poke' | 'great' | 'ultra' | 'safari' | 'heavy' | 'lure' | 'fast' | 'friend' | 'moon' | 'love' | 'level';
 
 interface AppState {

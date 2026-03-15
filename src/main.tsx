@@ -30,6 +30,7 @@ const router = createRouter({
     queryClient,
   },
   basepath: '/dexhelper',
+  defaultViewTransition: true,
 });
 
 declare module '@tanstack/react-router' {

@@ -36,6 +36,7 @@ export interface PokemonInstance {
   dvs: { hp: number, atk: number, def: number, spd: number, spc: number };
   otName?: string;
   storageLocation: string;
+  slot?: number; // 1-indexed slot in party or box
 }
 
 export interface SaveData {
@@ -262,7 +263,7 @@ function parseGen1(u8: Uint8Array): SaveData {
     const isShiny = checkShiny(dvs);
     const otName = decodeGen12String(u8, partyOTOffset + (i * 11));
 
-    partyDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: 'Party' });
+    partyDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: 'Party', slot: i + 1 });
   }
 
   const currentBoxNum = u8[0x284C] & 0x7F;
@@ -287,7 +288,7 @@ function parseGen1(u8: Uint8Array): SaveData {
     const isShiny = checkShiny(dvs);
     const otName = decodeGen12String(u8, currentBoxOTOffset + (i * 11));
 
-    pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: `Box ${currentBoxNum + 1}` });
+    pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: `Box ${currentBoxNum + 1}`, slot: i + 1 });
   }
 
   const boxOffsets = [
@@ -317,7 +318,7 @@ function parseGen1(u8: Uint8Array): SaveData {
       const isShiny = checkShiny(dvs);
       const otName = decodeGen12String(u8, boxOTOffset + (j * 11));
 
-      pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: `Box ${i + 1}` });
+      pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: `Box ${i + 1}`, slot: j + 1 });
     }
   }
 
@@ -449,7 +450,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     const caughtData = isCrystal ? parseCaughtData(u8, offset) : undefined;
     const otName = decodeGen12String(u8, partyOTOffset + (i * 11));
 
-    partyDetails.push({ speciesId, level, isShiny, item, moves, friendship, pokerus, caughtData, dvs, otName, storageLocation: 'Party' });
+    partyDetails.push({ speciesId, level, isShiny, item, moves, friendship, pokerus, caughtData, dvs, otName, storageLocation: 'Party', slot: i + 1 });
   }
 
   const currentBoxNum = u8[offsets.currentBoxNum] & 0x0F;
@@ -475,7 +476,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     const caughtData = isCrystal ? parseCaughtData(u8, offset) : undefined;
     const otName = decodeGen12String(u8, currentBoxOTOffset + (i * 11));
 
-    pcDetails.push({ speciesId, level, isShiny, item, moves, friendship, pokerus, caughtData, dvs, otName, storageLocation: `Box ${currentBoxNum + 1}` });
+    pcDetails.push({ speciesId, level, isShiny, item, moves, friendship, pokerus, caughtData, dvs, otName, storageLocation: `Box ${currentBoxNum + 1}`, slot: i + 1 });
   }
 
   const boxOffsets = [
@@ -508,7 +509,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
       const caughtData = isCrystal ? parseCaughtData(u8, pOffset) : undefined;
       const otName = decodeGen12String(u8, boxOTOffset + (j * 11));
 
-      pcDetails.push({ speciesId, level, isShiny, item, moves, friendship, pokerus, caughtData, dvs, otName, storageLocation: `Box ${i + 1}` });
+      pcDetails.push({ speciesId, level, isShiny, item, moves, friendship, pokerus, caughtData, dvs, otName, storageLocation: `Box ${i + 1}`, slot: j + 1 });
     }
   }
 

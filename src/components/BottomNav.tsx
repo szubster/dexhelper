@@ -2,6 +2,12 @@ import { motion } from 'motion/react';
 import { LayoutGrid, Database, Settings2 } from 'lucide-react';
 import { useAppState } from '../state';
 import { Link, useLocation } from '@tanstack/react-router';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 export function BottomNav() {
   const { saveData, setIsSettingsOpen } = useAppState();
@@ -13,43 +19,50 @@ export function BottomNav() {
   const isStorage = location.pathname === '/storage';
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-xl border-t border-zinc-900/50 px-8 py-3 sm:hidden shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.5)]">
-      <div className="flex justify-between items-center max-w-sm mx-auto">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-zinc-950/60 backdrop-blur-2xl border-t border-white/5 px-6 pb-[env(safe-area-inset-bottom,20px)] pt-3 sm:hidden shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+      <div className="flex justify-around items-center max-w-sm mx-auto relative px-2">
+        {/* Active Indicator Background */}
+        <motion.div 
+          layoutId="active-pill"
+          className="absolute h-12 w-[28%] bg-[var(--theme-primary)]/10 rounded-2xl border border-[var(--theme-primary)]/20 -z-10"
+          animate={{ x: isDex ? '-125%' : isStorage ? '0%' : '125%' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        />
+
         <Link 
           to="/"
-          className={`group flex flex-col items-center gap-1.5 transition-all ${isDex ? 'text-red-500' : 'text-zinc-500'}`}
+          className={cn(
+            "flex flex-col items-center gap-1 transition-all duration-300 py-1",
+            isDex ? 'text-[var(--theme-primary)]' : 'text-zinc-500'
+          )}
         >
-          <motion.div 
-            whileTap={{ scale: 0.9 }}
-            className={`p-2 rounded-xl transition-all ${isDex ? 'bg-red-500/10 shadow-lg shadow-red-500/10' : 'group-hover:bg-zinc-900'}`}
-          >
-            <LayoutGrid size={20} />
+          <motion.div whileTap={{ scale: 0.8 }}>
+            <LayoutGrid size={22} className={cn(isDex && "drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]")} />
           </motion.div>
-          <span className={`text-[9px] font-black uppercase tracking-widest ${isDex ? 'opacity-100' : 'opacity-60'}`}>Dex</span>
+          <span className="text-[8px] font-black uppercase tracking-[0.2em]">Pokedex</span>
         </Link>
+
         <Link 
           to="/storage"
-          className={`group flex flex-col items-center gap-1.5 transition-all ${isStorage ? 'text-red-500' : 'text-zinc-500'}`}
+          className={cn(
+            "flex flex-col items-center gap-1 transition-all duration-300 py-1",
+            isStorage ? 'text-[var(--theme-primary)]' : 'text-zinc-500'
+          )}
         >
-          <motion.div 
-            whileTap={{ scale: 0.9 }}
-            className={`p-2 rounded-xl transition-all ${isStorage ? 'bg-red-500/10 shadow-lg shadow-red-500/10' : 'group-hover:bg-zinc-900'}`}
-          >
-            <Database size={20} />
+          <motion.div whileTap={{ scale: 0.8 }}>
+            <Database size={22} className={cn(isStorage && "drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]")} />
           </motion.div>
-          <span className={`text-[9px] font-black uppercase tracking-widest ${isStorage ? 'opacity-100' : 'opacity-60'}`}>Storage</span>
+          <span className="text-[8px] font-black uppercase tracking-[0.2em]">Storage</span>
         </Link>
+
         <button 
           onClick={() => setIsSettingsOpen(true)}
-          className={`group flex flex-col items-center gap-1.5 transition-all text-zinc-500`}
+          className="flex flex-col items-center gap-1 transition-all duration-300 py-1 text-zinc-500"
         >
-          <motion.div 
-            whileTap={{ scale: 0.9 }}
-            className={`p-2 rounded-xl transition-all group-hover:bg-zinc-900`}
-          >
-            <Settings2 size={20} />
+          <motion.div whileTap={{ scale: 0.8 }}>
+            <Settings2 size={22} />
           </motion.div>
-          <span className="text-[9px] font-black uppercase tracking-widest opacity-60">Menu</span>
+          <span className="text-[8px] font-black uppercase tracking-[0.2em]">Menu</span>
         </button>
       </div>
     </nav>

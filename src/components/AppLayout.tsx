@@ -1,15 +1,31 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Upload, Settings2, RefreshCw, AlertTriangle, LayoutGrid, Database
+  Upload, Settings2, RefreshCw, AlertTriangle, LayoutGrid, Database, ChevronRight, Zap
 } from 'lucide-react';
-import { useAppState } from '../state';
+import { useAppState, GameVersion } from '../state';
 import { parseSaveFile } from '../utils/saveParser';
 import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
 import { BottomNav } from './BottomNav';
-import { SearchAndFilters } from './SearchAndFilters';
 import { Link, useLocation } from '@tanstack/react-router';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+const VERSION_THEMES: Record<string, string> = {
+  'red': 'theme-red',
+  'blue': 'theme-blue',
+  'yellow': 'theme-yellow',
+  'gold': 'theme-gold',
+  'silver': 'theme-silver',
+  'crystal': 'theme-crystal',
+  'unsupported': '',
+  'unknown': ''
+};
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const { 
@@ -35,7 +51,6 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           setManualVersion(null);
         }
 
-        // Save to localStorage
         let binary = '';
         const bytes = new Uint8Array(buffer);
         const len = bytes.byteLength;
@@ -52,40 +67,59 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   };
 
   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
+  const themeClass = VERSION_THEMES[effectiveVersion.toLowerCase()] || '';
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-red-500/30 pb-24 sm:pb-0">
+    <div className={cn(
+      "min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-[var(--theme-primary)]/30 pb-24 lg:pb-0 transition-colors duration-500",
+      themeClass
+    )}>
+      {/* Pokedex Top Bar (Status indicators) */}
+      <div className="h-2 w-full bg-[var(--theme-primary)] sticky top-0 z-50">
+        <div className="absolute inset-0 bg-white/10 lcd-flicker pointer-events-none" />
+      </div>
+
       <div className="max-w-[1600px] mx-auto min-h-screen flex flex-col">
-        <header className="p-4 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 border-b border-zinc-900/50 bg-zinc-950/50 sticky top-0 z-30 backdrop-blur-md">
-          <div className="flex items-center justify-between w-full lg:w-auto gap-8">
+        <header className="px-4 py-6 sm:px-8 sm:py-10 flex flex-col lg:flex-row items-center justify-between gap-6 border-b border-white/5 bg-zinc-950/80 sticky top-2 z-40 backdrop-blur-xl">
+          <div className="flex items-center justify-between w-full lg:w-auto gap-12">
             <Link to="/">
-              <motion.h1 
+              <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-2xl sm:text-3xl font-display font-black tracking-tighter text-white hover:text-red-500 transition-colors"
+                className="group flex flex-col pt-2"
               >
-                {saveData ? (saveData.generation === 2 ? 'GEN II' : 'GEN I') : 'RETRO'}
-                <span className="text-red-600">DEX</span>
-              </motion.h1>
+                <div className="flex items-end gap-2">
+                  <span className="text-4xl font-black tracking-tighter text-white group-hover:text-[var(--theme-primary)] transition-colors">
+                    DEX<span className="text-[var(--theme-primary)] group-hover:text-white transition-colors">HELPER</span>
+                  </span>
+                  <div className="h-1.5 w-1.5 rounded-full bg-[var(--theme-primary)] mb-2 animate-pulse" />
+                </div>
+                <div className="flex items-center gap-2 mt-[-4px]">
+                  <span className="text-[10px] font-retro uppercase tracking-[0.2em] text-zinc-500">
+                    {saveData ? (saveData.generation === 2 ? 'Gen II' : 'Gen I') : 'Protocol X'}
+                  </span>
+                  <div className="h-[1px] flex-1 bg-zinc-800" />
+                </div>
+              </motion.div>
             </Link>
 
             {/* Desktop Navigation */}
             {saveData && (
-              <nav className="hidden sm:flex items-center gap-1 bg-zinc-900/50 p-1 rounded-xl border border-zinc-800/50">
+              <nav className="hidden sm:flex items-center gap-2 bg-white/5 p-1 rounded-2xl border border-white/5">
                 <Link 
                   to="/" 
-                  activeProps={{ className: 'bg-red-500/10 text-red-500 border-red-500/20' }}
-                  inactiveProps={{ className: 'text-zinc-500 hover:text-zinc-300 border-transparent shadow-none' }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg border text-[11px] font-black uppercase tracking-widest transition-all shadow-lg shadow-red-500/5"
+                  activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
+                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
+                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
                 >
                   <LayoutGrid size={16} />
-                  Dex
+                  Pokedex
                 </Link>
                 <Link 
                   to="/storage" 
-                  activeProps={{ className: 'bg-red-500/10 text-red-500 border-red-500/20' }}
-                  inactiveProps={{ className: 'text-zinc-500 hover:text-zinc-300 border-transparent shadow-none' }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg border text-[11px] font-black uppercase tracking-widest transition-all shadow-lg shadow-red-500/5"
+                  activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
+                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
+                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
                 >
                   <Database size={16} />
                   Storage
@@ -95,54 +129,87 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           </div>
 
           {saveData ? (
-            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-2 sm:gap-4 w-full lg:w-auto">
+            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-3 sm:gap-6 w-full lg:w-auto">
                <motion.div 
                  initial={{ opacity: 0, scale: 0.95 }}
                  animate={{ opacity: 1, scale: 1 }}
-                 className="flex items-center gap-1.5 px-3 py-2 bg-zinc-900/50 border border-zinc-800/50 rounded-xl group"
+                 className="glass-card flex items-center gap-4 px-5 py-2.5 rounded-2xl border-white/10"
                >
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-[9px] font-black text-zinc-600 uppercase tracking-widest group-hover:text-zinc-500 transition-colors">Trainer</span>
-                    <span className="text-[10px] font-mono font-bold text-zinc-300 uppercase">
-                      {saveData.trainerName || '???'}
+                  <div className="flex flex-col">
+                    <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Trainer</span>
+                    <span className="text-xs font-mono font-black text-[var(--theme-primary)] uppercase tracking-tight">
+                      {saveData.trainerName || 'UNKNOWN'}
                     </span>
                   </div>
-                  <div className="w-1 h-1 rounded-full bg-zinc-800 mx-0.5" />
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-[9px] font-black text-zinc-600 uppercase tracking-widest group-hover:text-zinc-500 transition-colors">ID</span>
-                    <span className="text-[10px] font-mono font-bold text-zinc-300 uppercase">
-                      {saveData.trainerId}
+                  <div className="w-[1px] h-6 bg-white/5" />
+                  <div className="flex flex-col">
+                    <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">ID</span>
+                    <span className="text-xs font-mono font-bold text-zinc-300">
+                      {String(saveData.trainerId).padStart(5, '0')}
                     </span>
+                  </div>
+
+                  {/* Living Dex Progress */}
+                  <div className="w-[1px] h-6 bg-white/5 mx-1" />
+                  <div className="flex flex-col min-w-[120px]">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Living Dex</span>
+                      <span className="text-[10px] font-mono font-black text-[var(--theme-primary)]">
+                        {(() => {
+                           const securedIds = new Set([...saveData.party, ...saveData.pc]);
+                           const total = saveData.generation === 2 ? 251 : 151;
+                           const percent = Math.floor((securedIds.size / total) * 100);
+                           return `${percent}%`;
+                        })()}
+                      </span>
+                    </div>
+                    <div className="h-1 bg-white/5 rounded-full overflow-hidden border border-white/5">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        animate={{ width: `${(() => {
+                          const securedIds = new Set([...saveData.party, ...saveData.pc]);
+                          const total = saveData.generation === 2 ? 251 : 151;
+                          return (securedIds.size / total) * 100;
+                        })()}%` }}
+                        className="h-full bg-[var(--theme-primary)] shadow-[0_0_10px_var(--theme-primary)]"
+                      />
+                    </div>
                   </div>
                </motion.div>
                
-               <motion.div 
+               <motion.button 
+                 onClick={() => setIsVersionModalOpen(true)}
                  initial={{ opacity: 0, scale: 0.95 }}
                  animate={{ opacity: 1, scale: 1 }}
-                 className={`px-3 py-2 rounded-xl text-[10px] font-mono font-bold uppercase tracking-widest border transition-colors ${
-                  effectiveVersion === 'unknown' 
-                    ? 'bg-amber-500/5 border-amber-500/20 text-amber-500/80' 
-                    : 'bg-red-500/5 border-red-500/20 text-red-500/80'
-                }`}
+                 className={cn(
+                   "group relative px-5 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest border transition-all overflow-hidden",
+                   effectiveVersion === 'unknown' 
+                     ? 'bg-amber-500/10 border-amber-500/20 text-amber-500' 
+                     : 'bg-[var(--theme-primary)]/10 border-[var(--theme-primary)]/20 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-white'
+                 )}
                >
-                  {effectiveVersion}
-                </motion.div>
+                  <div className="relative z-10 flex items-center gap-2">
+                    <Zap size={12} className="group-hover:animate-bounce" />
+                    {effectiveVersion}
+                  </div>
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity lcd-flicker" />
+                </motion.button>
 
-                <div className="h-6 w-[1px] bg-zinc-900 mx-1 hidden lg:block" />
+                <div className="h-8 w-[1px] bg-white/5 mx-2 hidden lg:block" />
 
                 <div className="flex gap-2">
                   <button 
                     onClick={() => setIsSettingsOpen(true)}
-                    className="p-2.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white rounded-xl border border-zinc-800 transition-all flex items-center justify-center"
-                    title="Settings"
+                    className="p-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white rounded-2xl border border-white/5 transition-all flex items-center justify-center retro-button"
+                    title="System Settings"
                   >
-                    <Settings2 size={18} />
+                    <Settings2 size={20} />
                   </button>
                   <label 
-                    className="p-2.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white rounded-xl border border-zinc-800 cursor-pointer transition-all flex items-center justify-center"
-                    title="Switch Save File"
+                    className="p-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white rounded-2xl border border-white/5 cursor-pointer transition-all flex items-center justify-center retro-button"
+                    title="Import New Save"
                   >
-                    <RefreshCw size={18} />
+                    <RefreshCw size={20} />
                     <input type="file" accept=".sav" className="hidden" onChange={handleFileUpload} />
                   </label>
                 </div>
@@ -153,25 +220,31 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-red-600 hover:bg-red-500 text-white px-8 py-3.5 rounded-2xl cursor-pointer transition-all shadow-xl shadow-red-600/20 font-bold uppercase tracking-widest text-xs"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-4 bg-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/90 text-white px-10 py-4 rounded-2xl cursor-pointer transition-all shadow-[0_20px_40px_rgba(var(--theme-primary-rgb),0.2)] font-black uppercase tracking-widest text-[11px] border-b-4 border-black/20"
             >
               <Upload size={20} />
-              Upload Save File
+              Initialize Pokedex
               <input type="file" accept=".sav" className="hidden" onChange={handleFileUpload} />
             </motion.label>
           )}
         </header>
 
         {error && (
-          <div className="mx-4 mb-4 text-red-400 bg-red-400/10 p-4 rounded-xl border border-red-400/20 flex items-center gap-3">
-            <AlertTriangle size={20} />
-            <span className="text-sm font-medium">{error}</span>
-          </div>
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            className="mx-4 mt-4 mb-0 text-red-400 bg-red-400/10 p-5 rounded-2xl border border-red-400/20 flex items-center gap-4 glass-card"
+          >
+            <AlertTriangle size={24} className="flex-shrink-0" />
+            <div className="flex flex-col">
+              <span className="text-[10px] font-black uppercase tracking-tighter">System Error</span>
+              <span className="text-sm font-medium">{error}</span>
+            </div>
+          </motion.div>
         )}
 
-        <SearchAndFilters />
 
-        <main className="px-4 pb-12 flex-1">
+        <main className="px-4 pb-12 flex-1 pt-4">
           {children}
         </main>
       </div>
@@ -179,6 +252,16 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       <BottomNav />
       <SettingsModal />
       <VersionModal />
+
+      {/* Retro Background Pattern */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1] overflow-hidden">
+        <div className="absolute inset-0 scanline-overlay" />
+        <div className="p-20 flex flex-wrap gap-40 rotate-[30deg] scale-150">
+          {Array.from({ length: 151 }).map((_, i) => (
+            <span key={i} className="text-4xl font-retro text-white">#{(i+1).toString().padStart(3, '0')}</span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
