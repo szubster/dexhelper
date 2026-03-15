@@ -3,10 +3,10 @@ import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
-// Register Service Worker
-if ('serviceWorker' in navigator) {
+// Register Service Worker (production only — SW breaks Vite HMR in dev)
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(err => {
+    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(err => {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
