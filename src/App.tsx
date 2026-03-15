@@ -3,13 +3,12 @@ import { useQuery } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Upload, Monitor, CircleDot, Eye, Check, Ghost, Filter, 
-  Settings2, Archive, Bot, AlertTriangle, Sparkles, 
-  LayoutGrid, Database, MessageSquare, X, ChevronRight,
+  Settings2, Archive, AlertTriangle, Sparkles, 
+  LayoutGrid, Database, X, ChevronRight,
   Info, Trash2, RefreshCw
 } from 'lucide-react';
 import { parseSaveFile, SaveData, GameVersion } from './utils/saveParser';
 import { PokemonDetails } from './components/PokemonDetails';
-import { AIChat } from './components/AIChat';
 import { pokeapi } from './utils/pokeapi';
 
 interface Pokemon {
@@ -56,7 +55,6 @@ export default function App() {
     const saved = localStorage.getItem('globalPokeball');
     return saved ? (saved as PokeballType) : 'poke';
   });
-  const [isChatOpen, setIsChatOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'pokedex' | 'storage'>(() => {
     const saved = localStorage.getItem('viewMode');
     return saved ? (saved as 'pokedex' | 'storage') : 'pokedex';
@@ -534,15 +532,6 @@ export default function App() {
               <span className="text-[9px] font-black uppercase tracking-widest">Storage</span>
             </button>
             <button 
-              onClick={() => setIsChatOpen(true)}
-              className={`flex flex-col items-center gap-1.5 transition-all ${isChatOpen ? 'text-purple-500' : 'text-zinc-600'}`}
-            >
-              <div className={`p-1 rounded-lg transition-colors ${isChatOpen ? 'bg-purple-500/10' : ''}`}>
-                <MessageSquare size={22} />
-              </div>
-              <span className="text-[9px] font-black uppercase tracking-widest">AI</span>
-            </button>
-            <button 
               onClick={() => setIsSettingsOpen(true)}
               className={`flex flex-col items-center gap-1.5 transition-all ${isSettingsOpen ? 'text-blue-500' : 'text-zinc-600'}`}
             >
@@ -690,15 +679,6 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {isChatOpen && saveData && (
-        <AIChat 
-          saveData={saveData}
-          gameVersion={effectiveVersion}
-          uncaughtPokemon={pokemonList.slice(0, displayLimit).filter(p => !saveData.owned.has(p.id))}
-          selectedPokemon={selectedPokemon}
-          onClose={() => setIsChatOpen(false)}
-        />
-      )}
     </div>
   );
 }
