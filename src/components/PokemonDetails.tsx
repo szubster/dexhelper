@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useQuery, useQueries } from '@tanstack/react-query';
 import { X, MapPin, AlertCircle, Info, ArrowUpCircle, CheckCircle2, XCircle, Target, AlertTriangle, Sparkles, Package, Heart, Activity, Zap, ChevronRight, CircleDot, Monitor, Ghost, Eye, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SaveData } from '../utils/saveParser';
@@ -187,99 +188,101 @@ const gen2Locations: Record<number, string> = {
 };
 
 export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, isLivingDex, pokeball, onClose }: PokemonDetailsProps) {
-  const [encounters, setEncounters] = useState<any[]>([]);
-  const [evoReq, setEvoReq] = useState<EvoRequirement | null>(null);
-  const [catchRate, setCatchRate] = useState<number | null>(null);
-  const [pokemonData, setPokemonData] = useState<any>(null);
-  const [genderRate, setGenderRate] = useState<number>(-1);
-  const [breedingInfo, setBreedingInfo] = useState<{ parentIds: number[], parentNames: string[], method: string } | null>(null);
-  const [loading, setLoading] = useState(true);
-  
+  const queries = useQueries({
+    queries: [
+      {
+        queryKey: ['encounters', pokemonId],
+        queryFn: () => pokeapi.getPokemonEncounterAreasByName(pokemonId),
+      },
+      {
+        queryKey: ['pokemon', pokemonId],
+        queryFn: () => pokeapi.getPokemonByName(pokemonId),
+      },
+      {
+        queryKey: ['species', pokemonId],
+        queryFn: () => pokeapi.getPokemonSpeciesByName(pokemonId),
+      }
+    ]
+  });
+
   // Calculator state
   const [hpPercent, setHpPercent] = useState<number>(100);
   const [status, setStatus] = useState<'none' | 'sleep_freeze' | 'paralyze_burn_poison'>('none');
 
-  useEffect(() => {
-    setLoading(true);
+  const encountersReady = queries[0].isSuccess;
+  const pokemonReady = queries[1].isSuccess;
+  const speciesReady = queries[2].isSuccess;
+
+  const encounters = queries[0].data || [];
+  const pokemonData = queries[1].data;
+  const speciesData = queries[2].data;
+
+  const catchRate = speciesData?.capture_rate ?? null;
+  const genderRate = speciesData?.gender_rate ?? -1;
+
+  const { data: evolutionData } = useQuery({
+    queryKey: ['evolution', speciesData?.evolution_chain?.url],
+    queryFn: () => pokeapi.resource(speciesData!.evolution_chain.url),
+    enabled: !!speciesData?.evolution_chain?.url,
+  });
+
+  const evoReq = React.useMemo(() => {
+    if (!speciesData?.evolves_from_species || !evolutionData) return null;
     
-    const fetchDetails = async () => {
-      try {
-        const encounterData = await pokeapi.getPokemonEncounterAreasByName(pokemonId);
-        setEncounters(encounterData as any);
-
-        const pData = await pokeapi.getPokemonByName(pokemonId);
-        setPokemonData(pData);
-
-        const speciesData = await pokeapi.getPokemonSpeciesByName(pokemonId);
-        setCatchRate(speciesData.capture_rate);
-        setGenderRate(speciesData.gender_rate);
-        if (speciesData.evolves_from_species) {
-          const fromName = speciesData.evolves_from_species.name;
-          const fromId = parseInt(speciesData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0');
-          
-          const evoChain = await pokeapi.resource(speciesData.evolution_chain.url);
-          
-          let methodStr = 'Unknown';
-          const findEvoDetails = (chain: any): any => {
-            if (chain.species.name === pokemonName.toLowerCase()) {
-              return chain.evolution_details[0];
-            }
-            for (const next of chain.evolves_to) {
-              const found = findEvoDetails(next);
-              if (found) return found;
-            }
-            return null;
-          };
-
-          const details = findEvoDetails(evoChain.chain);
-          if (details) {
-            if (details.trigger.name === 'level-up') {
-              methodStr = details.min_level ? `Level ${details.min_level}` : 'Level up';
-            } else if (details.trigger.name === 'use-item') {
-              methodStr = details.item.name.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
-            } else if (details.trigger.name === 'trade') {
-              methodStr = 'Trade';
-            }
-          }
-
-          setEvoReq({
-            fromId,
-            fromName: fromName.charAt(0).toUpperCase() + fromName.slice(1),
-            method: methodStr
-          });
-        } else {
-          setEvoReq(null);
-        }
-
-        if (speciesData.is_baby) {
-          const evoChain = await pokeapi.resource(speciesData.evolution_chain.url);
-          const parents: { id: number, name: string }[] = [];
-          const traverse = (node: any) => {
-            if (node.species.name !== speciesData.name) {
-              const id = parseInt(node.species.url.split('/').filter(Boolean).pop() || '0');
-              parents.push({ id, name: node.species.name.charAt(0).toUpperCase() + node.species.name.slice(1) });
-            }
-            node.evolves_to.forEach(traverse);
-          };
-          traverse(evoChain.chain);
-          
-          setBreedingInfo({
-            parentIds: parents.map(p => p.id),
-            parentNames: parents.map(p => p.name),
-            method: 'Breed evolved form with Ditto or same egg group'
-          });
-        } else {
-          setBreedingInfo(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch details:", err);
-      } finally {
-        setLoading(false);
+    const fromName = speciesData.evolves_from_species.name;
+    const fromId = parseInt(speciesData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0');
+    
+    let methodStr = 'Unknown';
+    const findEvoDetails = (chain: any): any => {
+      if (chain.species.name === pokemonName.toLowerCase()) {
+        return chain.evolution_details[0];
       }
+      for (const next of chain.evolves_to) {
+        const found = findEvoDetails(next);
+        if (found) return found;
+      }
+      return null;
     };
 
-    fetchDetails();
-  }, [pokemonId, pokemonName]);
+    const details = findEvoDetails(evolutionData.chain);
+    if (details) {
+      if (details.trigger?.name === 'level-up') {
+        methodStr = details.min_level ? `Level ${details.min_level}` : 'Level up';
+      } else if (details.trigger?.name === 'use-item') {
+        methodStr = details.item?.name?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
+      } else if (details.trigger?.name === 'trade') {
+        methodStr = 'Trade';
+      }
+    }
+
+    return {
+      fromId,
+      fromName: fromName.charAt(0).toUpperCase() + fromName.slice(1),
+      method: methodStr
+    };
+  }, [speciesData, evolutionData, pokemonName]);
+
+  const breedingInfo = React.useMemo(() => {
+    if (!speciesData?.is_baby || !evolutionData) return null;
+    
+    const parents: { id: number, name: string }[] = [];
+    const traverse = (node: any) => {
+      if (node.species.name !== speciesData.name) {
+        const id = parseInt(node.species.url.split('/').filter(Boolean).pop() || '0');
+        parents.push({ id, name: node.species.name.charAt(0).toUpperCase() + node.species.name.slice(1) });
+      }
+      node.evolves_to?.forEach(traverse);
+    };
+    traverse(evolutionData.chain);
+    
+    return {
+      parentIds: parents.map(p => p.id),
+      parentNames: parents.map(p => p.name),
+      method: 'Breed evolved form with Ditto or same egg group'
+    };
+  }, [speciesData, evolutionData]);
+
+  const loading = queries.some(q => q.isLoading) || (!!speciesData?.evolution_chain?.url && !evolutionData);
 
   const getLocationsForVersion = (version: string) => {
     const locations: { name: string, details: string }[] = [];

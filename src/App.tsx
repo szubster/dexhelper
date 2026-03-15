@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Upload, Monitor, CircleDot, Eye, Check, Ghost, Filter, 
@@ -29,7 +30,6 @@ const missingPokemon: Record<string, number[]> = {
 };
 
 export default function App() {
-  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [saveData, setSaveData] = useState<SaveData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState<Set<FilterType>>(() => {
@@ -105,18 +105,18 @@ export default function App() {
         localStorage.removeItem('last_save_file');
       }
     }
-
-    // Fetch all 251 Pokemon using pokeapi-js-wrapper
-    pokeapi.getPokemonsList({ limit: 251, offset: 0 })
-      .then((data: any) => {
-        const list = data.results.map((p: any, index: number) => ({
-          id: index + 1,
-          name: p.name.charAt(0).toUpperCase() + p.name.slice(1),
-        }));
-        setPokemonList(list);
-      })
-      .catch((err: any) => console.error("Failed to fetch Pokemon:", err));
   }, []);
+
+  const { data: pokemonList = [] } = useQuery({
+    queryKey: ['pokemonList'],
+    queryFn: async () => {
+      const data = await pokeapi.getPokemonsList({ limit: 251, offset: 0 });
+      return data.results.map((p: any, index: number) => ({
+        id: index + 1,
+        name: p.name.charAt(0).toUpperCase() + p.name.slice(1),
+      }));
+    }
+  });
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
