@@ -60,6 +60,9 @@ export default function App() {
     return saved ? (saved as 'pokedex' | 'storage') : 'pokedex';
   });
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isVersionModalOpen, setIsVersionModalOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+
 
   useEffect(() => {
     localStorage.setItem('filters', JSON.stringify(Array.from(filters)));
@@ -128,7 +131,13 @@ export default function App() {
         setSaveData(data);
         setError(null);
         setSelectedPokemon(null);
-        setManualVersion(null);
+        
+        if (data.gameVersion === 'unknown') {
+          setIsVersionModalOpen(true);
+        } else {
+          setManualVersion(null);
+        }
+
 
         // Save to localStorage
         let binary = '';
@@ -176,7 +185,12 @@ export default function App() {
     if (filters.has('lost') && hadButLost) return true;
     
     return false;
+  }).filter(pokemon => {
+    if (!searchTerm) return true;
+    const term = searchTerm.toLowerCase();
+    return pokemon.name.toLowerCase().includes(term) || pokemon.id.toString().includes(term);
   });
+
 
   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
 
@@ -196,17 +210,33 @@ export default function App() {
             </h1>
             {saveData && (
               <div className="flex items-center justify-center sm:justify-start gap-2 mt-2">
-                <span className="px-2 py-0.5 bg-zinc-900 border border-zinc-800 rounded text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest">
-                  {saveData.trainerName}
-                </span>
-                <span className="px-2 py-0.5 bg-zinc-900 border border-zinc-800 rounded text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest">
-                  ID: {saveData.trainerId}
-                </span>
-                <span className="px-2 py-0.5 bg-red-900/20 border border-red-900/30 rounded text-[10px] font-mono font-bold text-red-400 uppercase tracking-widest">
-                  {effectiveVersion}
-                </span>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Trainer</span>
+                    <span className="px-2 py-0.5 bg-zinc-900 border border-zinc-800 rounded text-[10px] font-mono font-bold text-zinc-200 uppercase tracking-widest">
+                      {saveData.trainerName || '???'}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">ID</span>
+                    <span className="px-2 py-0.5 bg-zinc-900 border border-zinc-800 rounded text-[10px] font-mono font-bold text-zinc-200 uppercase tracking-widest">
+                      {saveData.trainerId}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Version</span>
+                    <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest ${
+                      effectiveVersion === 'unknown' 
+                        ? 'bg-amber-900/20 border border-amber-900/30 text-amber-400' 
+                        : 'bg-red-900/20 border border-red-900/30 text-red-400'
+                    }`}>
+                      {effectiveVersion}
+                    </span>
+                  </div>
+                </div>
               </div>
             )}
+
           </motion.div>
 
           {!saveData ? (
@@ -244,36 +274,57 @@ export default function App() {
           </div>
         )}
 
-        {/* Quick Filters - Horizontal Scroll on Mobile */}
+        {/* Quick Filters & Search */}
         {saveData && (
-          <div className="px-6 mb-8 overflow-x-auto no-scrollbar">
-            <div className="flex gap-3 min-w-max pb-2">
-              <button
-                onClick={() => setFilters(new Set())}
-                className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 border-2 ${
-                  filters.size === 0 
-                    ? 'bg-red-600 border-red-500 text-white shadow-lg shadow-red-600/20' 
-                    : 'bg-zinc-900 border-zinc-800 text-zinc-500 hover:text-zinc-300'
-                }`}
-              >
-                All
-              </button>
-              {(['caught', 'uncaught', 'lost'] as FilterType[]).map(f => (
+          <div className="px-6 mb-8 space-y-4">
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex-1 relative group">
+                <Filter className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-red-500 transition-colors" size={16} />
+                <input 
+                  type="text"
+                  placeholder="Search by name or ID..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl py-3 pl-12 pr-4 text-sm font-bold text-white placeholder:text-zinc-600 focus:border-red-500 outline-none transition-all shadow-inner"
+                />
+                {searchTerm && (
+                  <button 
+                    onClick={() => setSearchTerm('')}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
+              <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
                 <button
-                  key={f}
-                  onClick={() => toggleFilter(f)}
-                  className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 border-2 ${
-                    filters.has(f)
+                  onClick={() => setFilters(new Set())}
+                  className={`px-6 py-2.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 border-2 shrink-0 ${
+                    filters.size === 0 
                       ? 'bg-red-600 border-red-500 text-white shadow-lg shadow-red-600/20' 
                       : 'bg-zinc-900 border-zinc-800 text-zinc-500 hover:text-zinc-300'
                   }`}
                 >
-                  {f}
+                  All
                 </button>
-              ))}
+                {(['caught', 'uncaught', 'lost'] as FilterType[]).map(f => (
+                  <button
+                    key={f}
+                    onClick={() => toggleFilter(f)}
+                    className={`px-6 py-2.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 border-2 shrink-0 ${
+                      filters.has(f)
+                        ? 'bg-red-600 border-red-500 text-white shadow-lg shadow-red-600/20' 
+                        : 'bg-zinc-900 border-zinc-800 text-zinc-500 hover:text-zinc-300'
+                    }`}
+                  >
+                    {f}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}
+
 
         <main className="px-4 pb-12">
           {viewMode === 'pokedex' ? (
@@ -336,8 +387,9 @@ export default function App() {
                   onClick={() => setSelectedPokemon(pokemon)}
                   whileHover={{ y: -4 }}
                   whileTap={{ scale: 0.96 }}
-                  className={`relative flex flex-col items-center p-5 rounded-2xl transition-all cursor-pointer ${cardStyle}`}
+                  className={`relative flex flex-col items-center p-5 rounded-2xl transition-all cursor-pointer aspect-[1/1.2] ${cardStyle}`}
                 >
+
                   <div className="absolute top-3 left-3 text-[10px] font-mono font-bold text-zinc-600">
                     #{pokemon.id.toString().padStart(3, '0')}
                   </div>
@@ -496,14 +548,18 @@ export default function App() {
           {selectedPokemon && (
             <div className="fixed inset-0 z-50 md:relative md:inset-auto md:z-auto md:w-[400px] lg:w-[500px] xl:w-[600px] shrink-0 md:sticky md:top-8">
               <PokemonDetails 
+                key={selectedPokemon.id}
                 pokemonId={selectedPokemon.id}
+
                 pokemonName={selectedPokemon.name}
                 gameVersion={effectiveVersion}
                 saveData={saveData}
                 isLivingDex={isLivingDex}
                 pokeball={globalPokeball}
                 onClose={() => setSelectedPokemon(null)}
+                onNavigate={(id, name) => setSelectedPokemon({ id, name })}
               />
+
             </div>
           )}
         </main>
@@ -679,6 +735,51 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      {/* Version Selection Modal */}
+      <AnimatePresence>
+        {isVersionModalOpen && (
+          <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/90 backdrop-blur-md"
+            />
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-lg bg-zinc-900 rounded-[2.5rem] border border-zinc-800 p-10 space-y-8"
+            >
+              <div className="text-center space-y-2">
+                <div className="inline-flex p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20 mb-4">
+                  <AlertTriangle className="text-amber-500" size={24} />
+                </div>
+                <h2 className="text-2xl font-display font-black uppercase tracking-tight text-white">Select Game Version</h2>
+                <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest leading-relaxed">We couldn't confidently detect your game version. Please select it manually.</p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3">
+                {saveData?.generation === 1 ? (
+                  <>
+                    <button onClick={() => { setManualVersion('red'); setIsVersionModalOpen(false); }} className="w-full p-4 bg-red-600/10 hover:bg-red-600/20 border border-red-600/20 rounded-2xl text-red-500 font-black uppercase tracking-widest text-[10px] transition-all">Pokémon Red</button>
+                    <button onClick={() => { setManualVersion('blue'); setIsVersionModalOpen(false); }} className="w-full p-4 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-600/20 rounded-2xl text-blue-500 font-black uppercase tracking-widest text-[10px] transition-all">Pokémon Blue</button>
+                    <button onClick={() => { setManualVersion('yellow'); setIsVersionModalOpen(false); }} className="w-full p-4 bg-yellow-600/10 hover:bg-yellow-600/20 border border-yellow-600/20 rounded-2xl text-yellow-500 font-black uppercase tracking-widest text-[10px] transition-all">Pokémon Yellow</button>
+                  </>
+                ) : (
+                  <>
+                    <button onClick={() => { setManualVersion('gold'); setIsVersionModalOpen(false); }} className="w-full p-4 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/20 rounded-2xl text-yellow-500 font-black uppercase tracking-widest text-[10px] transition-all">Pokémon Gold</button>
+                    <button onClick={() => { setManualVersion('silver'); setIsVersionModalOpen(false); }} className="w-full p-4 bg-zinc-500/10 hover:bg-zinc-500/20 border border-zinc-500/20 rounded-2xl text-zinc-300 font-black uppercase tracking-widest text-[10px] transition-all">Pokémon Silver</button>
+                    <button onClick={() => { setManualVersion('crystal'); setIsVersionModalOpen(false); }} className="w-full p-4 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 rounded-2xl text-cyan-400 font-black uppercase tracking-widest text-[10px] transition-all">Pokémon Crystal</button>
+                  </>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 }
+

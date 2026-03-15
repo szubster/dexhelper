@@ -110,7 +110,9 @@ interface PokemonDetailsProps {
   isLivingDex: boolean;
   pokeball: PokeballType;
   onClose: () => void;
+  onNavigate: (id: number, name: string) => void;
 }
+
 
 const gen2Items: Record<number, string> = {
   1: 'Master Ball', 2: 'Ultra Ball', 3: 'BrightPowder', 4: 'Great Ball', 5: 'Poké Ball',
@@ -187,7 +189,8 @@ const gen2Locations: Record<number, string> = {
   86: 'Route 26', 87: 'Route 27', 88: 'Tohjo Falls', 89: 'Route 28', 90: 'Fast Ship',
 };
 
-export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, isLivingDex, pokeball, onClose }: PokemonDetailsProps) {
+export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, isLivingDex, pokeball, onClose, onNavigate }: PokemonDetailsProps) {
+
   const queries = useQueries({
     queries: [
       {
@@ -232,7 +235,11 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
     const fromName = speciesData.evolves_from_species.name;
     const fromId = parseInt(speciesData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0');
     
+    // For Gen 1 saves, ignore pre-evolutions from later generations (babies)
+    if (saveData?.generation === 1 && fromId > 151) return null;
+    
     let methodStr = 'Unknown';
+
     const findEvoDetails = (chain: any): any => {
       if (chain.species.name === pokemonName.toLowerCase()) {
         return chain.evolution_details[0];
@@ -260,12 +267,55 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
       fromName: fromName.charAt(0).toUpperCase() + fromName.slice(1),
       method: methodStr
     };
-  }, [speciesData, evolutionData, pokemonName]);
+  }, [speciesData, evolutionData, pokemonName, saveData]);
+
+  const evolvesTo = React.useMemo(() => {
+    if (!speciesData || !evolutionData) return null;
+    
+    const findEvolutions = (chain: any): any[] => {
+      if (chain.species.name === pokemonName.toLowerCase()) {
+        return chain.evolves_to.map((evo: any) => {
+          const id = parseInt(evo.species.url.split('/').filter(Boolean).pop() || '0');
+          // For Gen 1 saves, ignore Gen 2 evolutions
+          if (saveData?.generation === 1 && id > 151) return null;
+          
+          let methodStr = 'Unknown';
+          const details = evo.evolution_details[0];
+          if (details) {
+            if (details.trigger?.name === 'level-up') {
+              methodStr = details.min_level ? `Level ${details.min_level}` : 'Level up';
+            } else if (details.trigger?.name === 'use-item') {
+              methodStr = details.item?.name?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
+            } else if (details.trigger?.name === 'trade') {
+              methodStr = 'Trade';
+            }
+          }
+          return {
+            id,
+            name: evo.species.name.charAt(0).toUpperCase() + evo.species.name.slice(1),
+            method: methodStr
+          };
+        }).filter(Boolean);
+      }
+      for (const next of chain.evolves_to) {
+        const found = findEvolutions(next);
+        if (found.length > 0) return found;
+      }
+      return [];
+    };
+
+    return findEvolutions(evolutionData.chain);
+  }, [speciesData, evolutionData, pokemonName, saveData]);
 
   const breedingInfo = React.useMemo(() => {
+
     if (!speciesData?.is_baby || !evolutionData) return null;
     
+    // For Gen 1 saves, don't show baby breeding info (it's Gen 2 content)
+    if (saveData?.generation === 1) return null;
+    
     const parents: { id: number, name: string }[] = [];
+
     const traverse = (node: any) => {
       if (node.species.name !== speciesData.name) {
         const id = parseInt(node.species.url.split('/').filter(Boolean).pop() || '0');
@@ -608,7 +658,7 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                       <ArrowUpCircle size={14} /> Evolution
                     </h3>
                     <div className="text-xs font-bold text-zinc-300 leading-relaxed">
-                      From <span className="text-white">{evoReq.fromName}</span> via <span className="text-purple-400">{evoReq.method}</span>
+                      From <button onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)} className="text-white hover:text-purple-400 underline decoration-purple-500/30 underline-offset-4 transition-colors">{evoReq.fromName}</button> via <span className="text-purple-400">{evoReq.method}</span>
                     </div>
                     <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest ${hasPreEvo ? 'bg-emerald-500/10 text-emerald-500' : 'bg-red-500/10 text-red-500'}`}>
                       {hasPreEvo ? <Check size={12} /> : <X size={12} />} {hasPreEvo ? 'Available' : 'Missing'}
@@ -616,19 +666,46 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                   </div>
                 )}
 
+                {evolvesTo && evolvesTo.length > 0 && (
+                  <div className="bg-blue-950/10 border border-blue-900/30 rounded-3xl p-6 space-y-4">
+                    <h3 className="text-[10px] font-black text-blue-400 uppercase tracking-widest flex items-center gap-2">
+                      <ChevronRight size={14} /> Evolves Into
+                    </h3>
+                    <div className="space-y-3">
+                      {evolvesTo.map(evo => (
+                        <div key={evo.id} className="text-xs font-bold text-zinc-300 leading-relaxed">
+                          To <button onClick={() => onNavigate(evo.id, evo.name)} className="text-white hover:text-blue-400 underline decoration-blue-500/30 underline-offset-4 transition-colors">{evo.name}</button> via <span className="text-blue-400">{evo.method}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {breedingInfo && (
+
                   <div className="bg-pink-950/10 border border-pink-900/30 rounded-3xl p-6 space-y-4">
                     <h3 className="text-[10px] font-black text-pink-400 uppercase tracking-widest flex items-center gap-2">
                       <Heart size={14} /> Breeding
                     </h3>
                     <div className="text-xs font-bold text-zinc-300 leading-relaxed">
-                      Parents: <span className="text-white">{breedingInfo.parentNames.join(', ')}</span>
+                      Parents: {breedingInfo.parentNames.map((name, i) => (
+                        <React.Fragment key={name}>
+                          <button 
+                            onClick={() => onNavigate(breedingInfo.parentIds[i], name)}
+                            className="text-white hover:text-pink-400 underline decoration-pink-500/30 underline-offset-4 transition-colors"
+                          >
+                            {name}
+                          </button>
+                          {i < breedingInfo.parentNames.length - 1 ? ', ' : ''}
+                        </React.Fragment>
+                      ))}
                     </div>
                     <div className="text-[9px] font-black text-pink-500 uppercase tracking-widest bg-pink-500/5 p-2 rounded-lg border border-pink-500/10">
                       {breedingInfo.method}
                     </div>
                   </div>
                 )}
+
               </div>
 
               {/* Locations */}

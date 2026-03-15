@@ -84,8 +84,9 @@ function checkShiny(dvs: { atk: number, def: number, spd: number, spc: number })
 }
 
 function detectGen1GameVersion(owned: Set<number>, seen: Set<number>): GameVersion {
-  const redExclusives = [23, 24, 43, 44, 45, 56, 57, 58, 59, 123, 125];
-  const blueExclusives = [27, 28, 37, 38, 52, 53, 69, 70, 71, 127, 126];
+  // Version exclusives that are unlikely to be traded in bulk early game
+  const redExclusives = [23, 24, 43, 44, 45, 56, 57, 58, 59, 123, 125]; // Ekans, Oddish, Mankey, Growlithe, Scyther, Electabuzz
+  const blueExclusives = [27, 28, 37, 38, 52, 53, 69, 70, 71, 127, 126]; // Sandshrew, Vulpix, Meowth, Bellsprout, Pinsir, Magmar
   const yellowMissing = [13, 14, 15, 23, 24, 26, 52, 53, 109, 110, 124, 125, 126];
 
   let redScore = 0;
@@ -105,15 +106,31 @@ function detectGen1GameVersion(owned: Set<number>, seen: Set<number>): GameVersi
     else if (seen.has(id)) yellowPenalty += 1;
   }
 
-  if (redScore > 0 && blueScore > 0 && yellowPenalty === 0) {
-    return 'yellow';
+  // Yellow detection: missing several common Gen 1 Pokemon 
+  // and has Pikachu (usually) or other gift Pokemon
+  const isPikachuStarter = owned.has(25);
+  
+  if (yellowPenalty === 0 && (redScore > 0 || blueScore > 0 || isPikachuStarter)) {
+    // If we have some exclusives from both R and B, it's likely Yellow (since it has many from both)
+    if (redScore > 0 && blueScore > 0) return 'yellow';
+    // If it's early game and we have Pikachu but no exclusives, it's likely Yellow
+    if (isPikachuStarter && redScore === 0 && blueScore === 0) return 'yellow';
   }
   
+  // High confidence detection
+  if (redScore > blueScore + 2) return 'red';
+  if (blueScore > redScore + 2) return 'blue';
+
+  // If scores are very close or zero, return unknown to trigger manual selection
+  if (Math.abs(redScore - blueScore) < 2 && redScore < 4 && !isPikachuStarter) return 'unknown';
+
   if (redScore > blueScore) return 'red';
   if (blueScore > redScore) return 'blue';
   
   return 'unknown';
+
 }
+
 
 function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersion {
   const goldExclusives = [56, 57, 58, 59, 167, 168, 190, 207, 249];
