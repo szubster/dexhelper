@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery, useQueries } from '@tanstack/react-query';
 import { X, MapPin, AlertCircle, Info, ArrowUpCircle, CheckCircle2, XCircle, Target, AlertTriangle, Sparkles, Package, Heart, Activity, Zap, ChevronRight, CircleDot, Monitor, Ghost, Eye, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -220,7 +220,15 @@ const contentVariants = {
   }
 };
 
-export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, isLivingDex, pokeball, onClose, onNavigate }: PokemonDetailsProps) {
+export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, isLivingDex, pokeball: defaultPokeball, onClose, onNavigate }: PokemonDetailsProps) {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
 
   const queries = useQueries({
     queries: [
@@ -448,6 +456,23 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
   };
 
   const displayVersion = gameVersion === 'unknown' ? (saveData?.generation === 2 ? 'gold' : 'red') : gameVersion;
+
+  const currentGenVersions = saveData?.generation === 2 
+    ? ['gold', 'silver', 'crystal'] 
+    : ['red', 'blue', 'yellow'];
+
+  const allVersionLocations = currentGenVersions.reduce((acc, v) => {
+    acc[v] = getLocationsForVersion(v);
+    return acc;
+  }, {} as Record<string, {name: string, details: string}[]>);
+
+  const isSafariNative = React.useMemo(() => {
+    const locations = allVersionLocations[displayVersion] || [];
+    return locations.some(loc => loc.name.toLowerCase().includes('safari zone'));
+  }, [allVersionLocations, displayVersion]);
+
+  const effectivePokeball = isSafariNative ? 'safari' : defaultPokeball;
+
   
   let hasPreEvo = false;
   if (evoReq && saveData) {
@@ -498,12 +523,14 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/90 backdrop-blur-xl p-0 sm:p-4"
+      onClick={onClose}
     >
       <motion.div 
         variants={modalVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
+        onClick={(e) => e.stopPropagation()}
         className="bg-zinc-900 w-full h-[90vh] sm:h-auto sm:max-h-[85vh] sm:max-w-5xl rounded-t-[3rem] sm:rounded-[3rem] border-t sm:border border-zinc-800 shadow-2xl overflow-hidden flex flex-col"
       >
         {/* Header */}
@@ -542,6 +569,13 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
             <div>
               <div className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">#{pokemonId.toString().padStart(3, '0')}</div>
               <h2 className="text-3xl font-display font-black uppercase tracking-tight text-white leading-none">{pokemonName}</h2>
+              {stadiumReward && (
+                <div className="mt-2 flex items-center gap-2">
+                  <div className="px-2 py-0.5 bg-blue-500/10 border border-blue-500/20 rounded text-[9px] font-black text-blue-400 uppercase tracking-widest flex items-center gap-1.5">
+                    <Monitor size={10} /> Stadium: {stadiumReward}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           <button 
@@ -639,8 +673,8 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                     <span className="text-4xl font-display font-black text-emerald-400">
                       {(() => {
                         let ballMult = 1;
-                        if (pokeball === 'great') ballMult = 1.5;
-                        if (pokeball === 'ultra' || pokeball === 'safari') ballMult = 2;
+                        if (effectivePokeball === 'great') ballMult = 1.5;
+                        if (effectivePokeball === 'ultra' || effectivePokeball === 'safari') ballMult = 2;
                         let statusBonus = 0;
                         if (status === 'sleep_freeze') statusBonus = 10;
                         if (status === 'paralyze_burn_poison') statusBonus = 5;
@@ -649,6 +683,11 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                         return Math.min(100, (baseChance * 100) + statusBonus).toFixed(1);
                       })()}%
                     </span>
+                    <div className="text-[9px] font-black text-emerald-500/40 uppercase tracking-widest mt-1">
+                      Using {effectivePokeball === 'safari' ? 'Safari Ball' : 
+                             effectivePokeball === 'ultra' ? 'Ultra Ball' : 
+                             effectivePokeball === 'great' ? 'Great Ball' : 'Poké Ball'}
+                    </div>
                   </div>
                 </div>
               )}
@@ -762,13 +801,30 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                 {loading ? (
                   <div className="h-32 bg-zinc-950 rounded-3xl border border-zinc-900 animate-pulse"></div>
                 ) : (
-                  <div className="space-y-4">
-                    {gameVersion === 'red' && renderLocations(redLocations, 'text-red-400')}
-                    {gameVersion === 'blue' && renderLocations(blueLocations, 'text-blue-400')}
-                    {gameVersion === 'yellow' && renderLocations(yellowLocations, 'text-yellow-400')}
-                    {gameVersion === 'gold' && renderLocations(goldLocations, 'text-yellow-500')}
-                    {gameVersion === 'silver' && renderLocations(silverLocations, 'text-zinc-300')}
-                    {gameVersion === 'crystal' && renderLocations(crystalLocations, 'text-cyan-400')}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {currentGenVersions.map(v => (
+                      <div key={v} className="space-y-4">
+                        <div className="flex items-center gap-2 px-1">
+                          <div className={`w-1.5 h-1.5 rounded-full ${
+                            v === 'red' ? 'bg-red-500' : 
+                            v === 'blue' ? 'bg-blue-500' : 
+                            v === 'yellow' ? 'bg-yellow-400' : 
+                            v === 'gold' ? 'bg-yellow-500' : 
+                            v === 'silver' ? 'bg-zinc-400' : 
+                            v === 'crystal' ? 'bg-cyan-400' : 'bg-zinc-500'
+                          }`} />
+                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">{v}</span>
+                        </div>
+                        {renderLocations(allVersionLocations[v], 
+                          v === 'red' ? 'text-red-400' : 
+                          v === 'blue' ? 'text-blue-400' : 
+                          v === 'yellow' ? 'text-yellow-400' : 
+                          v === 'gold' ? 'text-yellow-500' : 
+                          v === 'silver' ? 'text-zinc-300' : 
+                          v === 'crystal' ? 'text-cyan-400' : 'text-zinc-500'
+                        )}
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>

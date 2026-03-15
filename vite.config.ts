@@ -1,3 +1,4 @@
+import { tanstackRouter } from '@tanstack/router-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
@@ -9,6 +10,7 @@ export default defineConfig(({ mode }) => {
     base: '/dexhelper/',
     plugins: [
       react(),
+      tanstackRouter(),
       tailwindcss(),
     ],
     define: {
