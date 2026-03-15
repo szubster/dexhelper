@@ -27,6 +27,30 @@ const missingPokemon: Record<string, number[]> = {
   silver: [10, 11, 12, 56, 57, 58, 59, 167, 168, 207, 216, 217, 226],
   crystal: [37, 38, 56, 57, 179, 180, 181, 203, 223, 224]
 };
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.02,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: {
+      type: "spring",
+      damping: 20,
+      stiffness: 100
+    }
+  }
+};
 
 export default function App() {
   const [saveData, setSaveData] = useState<SaveData | null>(null);
@@ -328,11 +352,9 @@ export default function App() {
 
         <main className="px-4 pb-12">
           {viewMode === 'pokedex' ? (
-            <motion.div 
-              layout
-              className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 ${selectedPokemon ? 'hidden md:grid' : ''}`}
-            >
-              {filteredPokemon.map(pokemon => {
+            <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 ${selectedPokemon ? 'hidden md:grid' : ''}`}>
+              <AnimatePresence mode="popLayout">
+                {filteredPokemon.map(pokemon => {
               const inParty = saveData ? saveData.party.includes(pokemon.id) : false;
               const inPC = saveData ? saveData.pc.includes(pokemon.id) : false;
               const hasInStorage = inParty || inPC;
@@ -383,10 +405,21 @@ export default function App() {
               return (
                 <motion.div 
                   layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ 
+                    layout: { type: "spring", damping: 25, stiffness: 300 },
+                    opacity: { duration: 0.2 }
+                  }}
                   key={pokemon.id} 
                   onClick={() => setSelectedPokemon(pokemon)}
-                  whileHover={{ y: -4 }}
-                  whileTap={{ scale: 0.96 }}
+                  whileHover={{ 
+                    y: -8,
+                    scale: 1.02,
+                    transition: { duration: 0.2, ease: "easeOut" }
+                  }}
+                  whileTap={{ scale: 0.98 }}
                   className={`relative flex flex-col items-center p-5 rounded-2xl transition-all cursor-pointer aspect-[1/1.2] ${cardStyle}`}
                 >
 
@@ -404,8 +437,15 @@ export default function App() {
                   <div className="w-20 h-20 sm:w-24 sm:h-24 mb-4 flex items-center justify-center relative">
                     {isShiny && (
                       <motion.div 
-                        animate={{ scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }}
-                        transition={{ repeat: Infinity, duration: 2 }}
+                        animate={{ 
+                          opacity: [0.4, 1, 0.4],
+                          scale: [0.8, 1.2, 0.8],
+                        }}
+                        transition={{ 
+                          repeat: Infinity, 
+                          duration: 3,
+                          ease: "easeInOut"
+                        }}
                         className="absolute -top-2 -right-2 text-amber-400 drop-shadow-sm"
                       >
                         <Sparkles size={16} />
@@ -457,11 +497,13 @@ export default function App() {
                 </motion.div>
               );
             })}
-            </motion.div>
+            </AnimatePresence>
+            </div>
           ) : (
             <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
               className={`flex-1 space-y-16 ${selectedPokemon ? 'hidden md:block' : ''}`}
             >
               {saveData && (
@@ -472,7 +514,7 @@ export default function App() {
                   if (pokemonInLocation.length === 0) return null;
 
                   return (
-                    <div key={location} className="space-y-8">
+                    <motion.div variants={itemVariants} key={location} className="space-y-8">
                       <div className="flex items-center gap-6">
                         <h2 className="text-3xl font-display font-black uppercase tracking-tight text-white">
                           {location}
@@ -538,30 +580,29 @@ export default function App() {
                           );
                         })}
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })
               )}
             </motion.div>
           )}
 
-          {selectedPokemon && (
-            <div className="fixed inset-0 z-50 md:relative md:inset-auto md:z-auto md:w-[400px] lg:w-[500px] xl:w-[600px] shrink-0 md:sticky md:top-8">
-              <PokemonDetails 
-                key={selectedPokemon.id}
-                pokemonId={selectedPokemon.id}
-
-                pokemonName={selectedPokemon.name}
-                gameVersion={effectiveVersion}
-                saveData={saveData}
-                isLivingDex={isLivingDex}
-                pokeball={globalPokeball}
-                onClose={() => setSelectedPokemon(null)}
-                onNavigate={(id, name) => setSelectedPokemon({ id, name })}
-              />
-
-            </div>
-          )}
+          <AnimatePresence>
+            {selectedPokemon && (
+              <div className="fixed inset-0 z-50 md:relative md:inset-auto md:z-auto md:w-[400px] lg:w-[500px] xl:w-[600px] shrink-0 md:sticky md:top-8">
+                <PokemonDetails 
+                  pokemonId={selectedPokemon.id}
+                  pokemonName={selectedPokemon.name}
+                  gameVersion={effectiveVersion}
+                  saveData={saveData}
+                  isLivingDex={isLivingDex}
+                  pokeball={globalPokeball}
+                  onClose={() => setSelectedPokemon(null)}
+                  onNavigate={(id: number, name: string) => setSelectedPokemon({ id, name })}
+                />
+              </div>
+            )}
+          </AnimatePresence>
         </main>
       </div>
 

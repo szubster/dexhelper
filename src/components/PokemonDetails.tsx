@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useQueries } from '@tanstack/react-query';
 import { X, MapPin, AlertCircle, Info, ArrowUpCircle, CheckCircle2, XCircle, Target, AlertTriangle, Sparkles, Package, Heart, Activity, Zap, ChevronRight, CircleDot, Monitor, Ghost, Eye, Check } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { SaveData } from '../utils/saveParser';
 import { pokeapi } from '../utils/pokeapi';
 import { PokeballType } from '../App';
@@ -187,6 +187,37 @@ const gen2Locations: Record<number, string> = {
   76: 'Fuchsia City', 77: 'Safari Zone', 78: 'Route 19', 79: 'Route 20', 80: 'Seafoam Islands',
   81: 'Route 21', 82: 'Cinnabar Island', 83: 'Route 22', 84: 'Route 23', 85: 'Victory Road',
   86: 'Route 26', 87: 'Route 27', 88: 'Tohjo Falls', 89: 'Route 28', 90: 'Fast Ship',
+};
+
+const modalVariants = {
+  hidden: { opacity: 0, scale: 0.95, y: 40 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0,
+    transition: {
+      type: "spring",
+      damping: 25,
+      stiffness: 300,
+      staggerChildren: 0.05,
+      delayChildren: 0.1
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    scale: 0.95, 
+    y: 40,
+    transition: { duration: 0.2 }
+  }
+};
+
+const contentVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { type: "spring", damping: 20, stiffness: 100 }
+  }
 };
 
 export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, isLivingDex, pokeball, onClose, onNavigate }: PokemonDetailsProps) {
@@ -469,17 +500,17 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
       className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/90 backdrop-blur-xl p-0 sm:p-4"
     >
       <motion.div 
-        initial={{ y: '100%' }}
-        animate={{ y: 0 }}
-        exit={{ y: '100%' }}
-        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+        variants={modalVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
         className="bg-zinc-900 w-full h-[90vh] sm:h-auto sm:max-h-[85vh] sm:max-w-5xl rounded-t-[3rem] sm:rounded-[3rem] border-t sm:border border-zinc-800 shadow-2xl overflow-hidden flex flex-col"
       >
         {/* Header */}
         <div className="p-8 border-b border-zinc-800 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-6">
             <div className="relative">
-              <div className="w-16 h-16 bg-zinc-950 rounded-2xl border border-zinc-800 flex items-center justify-center overflow-hidden">
+              <motion.div variants={contentVariants} className="w-16 h-16 bg-zinc-950 rounded-2xl border border-zinc-800 flex items-center justify-center overflow-hidden">
                 <img 
                   src={saveData?.generation === 2 
                     ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/crystal/transparent/${isShiny ? 'shiny/' : ''}${pokemonId}.png`
@@ -490,11 +521,22 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                   style={{ imageRendering: 'pixelated' }}
                   referrerPolicy="no-referrer"
                 />
-              </div>
+              </motion.div>
               {isShiny && (
-                <div className="absolute -top-2 -right-2 text-amber-400">
+                <motion.div 
+                  animate={{ 
+                    opacity: [0.4, 1, 0.4],
+                    scale: [0.8, 1.2, 0.8],
+                  }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 3,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute -top-2 -right-2 text-amber-400"
+                >
                   <Sparkles size={16} />
-                </div>
+                </motion.div>
               )}
             </div>
             <div>
@@ -517,17 +559,17 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
               {/* Types & Stats */}
               <div className="space-y-6">
                 {pokemonData && (
-                  <div className="flex gap-2">
+                  <motion.div variants={contentVariants} className="flex gap-2">
                     {pokemonData.types.map((t: any) => (
                       <span key={t.type.name} className="px-3 py-1 bg-zinc-950 border border-zinc-800 rounded-lg text-[10px] font-black uppercase tracking-widest text-zinc-400">
                         {t.type.name}
                       </span>
                     ))}
-                  </div>
+                  </motion.div>
                 )}
 
                 {pokemonData && (
-                  <div className="grid grid-cols-3 gap-4">
+                  <motion.div variants={contentVariants} className="grid grid-cols-3 gap-4">
                     {pokemonData.stats.map((s: any) => {
                       const statName = s.stat.name === 'special-attack' ? 'SPA' : 
                                       s.stat.name === 'special-defense' ? 'SPD' : 
@@ -551,19 +593,19 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                         </div>
                       );
                     })}
-                  </div>
+                  </motion.div>
                 )}
               </div>
 
               {/* Catch Rate Calc */}
               {catchRate !== null && (
                 <div className="bg-emerald-950/10 border border-emerald-900/30 rounded-3xl p-8 space-y-8">
-                  <div className="flex items-center justify-between">
+                  <motion.div variants={contentVariants} className="flex items-center justify-between">
                     <h3 className="text-[10px] font-black text-emerald-500 uppercase tracking-widest flex items-center gap-2">
                       <Target size={14} /> Catch Probability
                     </h3>
                     <div className="text-xs font-mono font-bold text-emerald-500/50">{catchRate}/255</div>
-                  </div>
+                  </motion.div>
 
                   <div className="space-y-4">
                     <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-zinc-500">
@@ -617,10 +659,10 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
               {/* Your Pokemon */}
               {yourPokemon.length > 0 && (
                 <div className="space-y-6">
-                  <h3 className="text-[10px] font-black text-zinc-500 uppercase tracking-widest flex items-center gap-2">
+                  <motion.h3 variants={contentVariants} className="text-[10px] font-black text-zinc-500 uppercase tracking-widest flex items-center gap-2">
                     <CheckCircle2 size={14} className="text-emerald-500" /> Your Units
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  </motion.h3>
+                  <motion.div variants={contentVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {yourPokemon.map((p, i) => (
                       <div key={i} className="bg-zinc-950 p-6 rounded-3xl border border-zinc-900 space-y-4">
                         <div className="flex justify-between items-start">
@@ -646,7 +688,7 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                         )}
                       </div>
                     ))}
-                  </div>
+                  </motion.div>
                 </div>
               )}
 
