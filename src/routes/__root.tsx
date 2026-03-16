@@ -1,9 +1,18 @@
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/router-devtools';
+import React, { Suspense } from 'react';
 import { QueryClient } from '@tanstack/react-query';
 import { AppProvider } from '../state';
 import { AppLayout } from '../components/AppLayout';
 import { pokeapi } from '../utils/pokeapi';
+
+const TanStackRouterDevtools =
+  process.env.NODE_ENV === 'production'
+    ? () => null // Render nothing in production
+    : React.lazy(() =>
+        import('@tanstack/router-devtools').then((res) => ({
+          default: res.TanStackRouterDevtools,
+        })),
+      );
 
 export interface RootContext {
   queryClient: QueryClient;
@@ -41,7 +50,9 @@ function RootComponent() {
       <AppLayout>
         <Outlet context={{ pokemonList }} />
       </AppLayout>
-      {process.env.NODE_ENV === 'development' && <TanStackRouterDevtools />}
+      <Suspense>
+        <TanStackRouterDevtools />
+      </Suspense>
     </AppProvider>
   );
 }

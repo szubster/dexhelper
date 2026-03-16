@@ -21,6 +21,16 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      target: ['es2022', 'edge100', 'firefox100', 'chrome100', 'safari15'],
+      cssCodeSplit: false,
+      reportCompressedSize: true,
+      rollupOptions: {
+        output: {
+          manualChunks: undefined, // Ensure single chunk is prioritized where possible
+        },
+      },
+    },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modify—file watching is disabled to prevent flickering during agent edits.

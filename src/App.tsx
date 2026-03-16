@@ -10,6 +10,7 @@ import {
 import { parseSaveFile, SaveData, GameVersion } from './utils/saveParser';
 import { PokemonDetails } from './components/PokemonDetails';
 import { pokeapi } from './utils/pokeapi';
+import { missingPokemon } from './utils/data';
 
 interface Pokemon {
   id: number;
@@ -19,14 +20,6 @@ interface Pokemon {
 type FilterType = 'caught' | 'uncaught' | 'lost';
 export type PokeballType = 'poke' | 'great' | 'ultra' | 'safari' | 'heavy' | 'lure' | 'fast' | 'friend' | 'moon' | 'love' | 'level';
 
-const missingPokemon: Record<string, number[]> = {
-  red: [27, 28, 37, 38, 52, 53, 69, 70, 71, 126, 127],
-  blue: [23, 24, 43, 44, 45, 56, 57, 58, 59, 123, 125],
-  yellow: [13, 14, 15, 23, 24, 26, 52, 53, 109, 110, 124, 125, 126],
-  gold: [13, 14, 15, 37, 38, 52, 53, 165, 166, 225, 227, 231, 232],
-  silver: [10, 11, 12, 56, 57, 58, 59, 167, 168, 207, 216, 217, 226],
-  crystal: [37, 38, 56, 57, 179, 180, 181, 203, 223, 224]
-};
 const containerVariants = {
   hidden: { opacity: 0 },
   show: {
