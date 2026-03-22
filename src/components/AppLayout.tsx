@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Upload, Settings2, RefreshCw, AlertTriangle, LayoutGrid, Database, ChevronRight, Zap
+  Upload, Settings2, RefreshCw, AlertTriangle, LayoutGrid, Database, ChevronRight, Zap, Sparkles
 } from 'lucide-react';
 import { useAppState, GameVersion } from '../state';
 import { parseSaveFile } from '../utils/saveParser';
@@ -123,6 +123,15 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 >
                   <Database size={16} />
                   Storage
+                </Link>
+                <Link 
+                  to="/assistant" 
+                  activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
+                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
+                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
+                >
+                  <Sparkles size={16} />
+                  Assistant
                 </Link>
               </nav>
             )}

@@ -43,7 +43,13 @@ function PokemonPage() {
           saveData={saveData}
           isLivingDex={isLivingDex}
           pokeball={globalPokeball}
-          onClose={() => navigate({ to: '/' })}
+          onClose={() => {
+            if (window.history.length > 2) {
+              window.history.back();
+            } else {
+              navigate({ to: '/' });
+            }
+          }}
           onNavigate={(id, name) => navigate({ to: `/pokemon/${id}` })}
         />
       )}

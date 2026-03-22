@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { staticEncounters, stadiumRewardsData, stadiumRewardsSummary, gen2Items, gen2Locations } from '../utils/data';
 import { SaveData } from '../utils/saveParser';
 import { pokeapi } from '../utils/pokeapi';
-import { PokeballType } from '../App';
+import { PokeballType } from '../state';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 

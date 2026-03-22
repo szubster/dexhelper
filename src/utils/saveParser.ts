@@ -51,6 +51,11 @@ export interface SaveData {
   badges: number;
   trainerName: string;
   trainerId: number;
+  currentMapId: number;
+  mapGroup?: number;
+  johtoBadges?: number;
+  kantoBadges?: number;
+  inventory: { id: number, quantity: number }[];
 }
 
 const GEN12_CHAR_MAP: Record<number, string> = {
@@ -349,6 +354,19 @@ function parseGen1(u8: Uint8Array): SaveData {
   const trainerName = decodeGen12String(u8, 0x2598);
   const trainerId = (u8[0x2605] << 8) | u8[0x2606];
 
+  const currentMapId = u8[0x260A]; // WRAM 0xD35E -> SRAM 0x260A
+  
+  const inventory: { id: number, quantity: number }[] = [];
+  const itemCount = u8[0x25C9];
+  for (let i = 0; i < itemCount; i++) {
+    const itemOffset = 0x25CA + (i * 2);
+    const itemId = u8[itemOffset];
+    const quantity = u8[itemOffset + 1];
+    if (itemId !== 0xFF) {
+      inventory.push({ id: itemId, quantity });
+    }
+  }
+
   return {
     generation: 1,
     owned,
@@ -359,8 +377,11 @@ function parseGen1(u8: Uint8Array): SaveData {
     pcDetails,
     gameVersion,
     badges,
+    kantoBadges: badges,
     trainerName,
-    trainerId
+    trainerId,
+    currentMapId,
+    inventory
   };
 }
 
@@ -545,6 +566,17 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   const trainerName = decodeGen12String(u8, 0x200B);
   const trainerId = (u8[0x2009] << 8) | u8[0x200A];
 
+  const mapBankOffset = isCrystal ? 0x25C6 : 0x25B3;
+  const mapIdOffset = isCrystal ? 0x25C7 : 0x25B4;
+  const mapGroup = u8[mapBankOffset];
+  const currentMapId = u8[mapIdOffset];
+
+  // Detailed inventory parsing for Gen 2 could be added here later
+  const inventory: { id: number, quantity: number }[] = [];
+
+  let johtoBadgesValue = u8[johtoBadgesOffset];
+  let kantoBadgesValue = u8[kantoBadgesOffset];
+
   return {
     generation: 2,
     owned,
@@ -555,7 +587,12 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     pcDetails,
     gameVersion: gameVersion as GameVersion,
     badges,
+    johtoBadges: johtoBadgesValue,
+    kantoBadges: kantoBadgesValue,
     trainerName,
-    trainerId
+    trainerId,
+    currentMapId,
+    mapGroup,
+    inventory
   };
 }
