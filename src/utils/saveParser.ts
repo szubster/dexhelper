@@ -56,6 +56,7 @@ export interface SaveData {
   johtoBadges?: number;
   kantoBadges?: number;
   inventory: { id: number, quantity: number }[];
+  currentBoxCount: number;
 }
 
 const GEN12_CHAR_MAP: Record<number, string> = {
@@ -381,7 +382,8 @@ function parseGen1(u8: Uint8Array): SaveData {
     trainerName,
     trainerId,
     currentMapId,
-    inventory
+    inventory,
+    currentBoxCount
   };
 }
 
@@ -593,6 +595,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     trainerId,
     currentMapId,
     mapGroup,
-    inventory
+    inventory,
+    currentBoxCount: 0
   };
 }

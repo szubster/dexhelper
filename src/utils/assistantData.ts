@@ -1,7 +1,6 @@
 // This file maps internal game IDs to standard names or PokeAPI slugs
 
 export const GEN1_MAP_TO_SLUG: Record<number, string> = {
-  // Common Gen 1 Maps -> PokeAPI location-area slugs
   0x00: 'pallet-town-area',
   0x01: 'viridian-city-area',
   0x02: 'pewter-city-area',
@@ -37,21 +36,18 @@ export const GEN1_MAP_TO_SLUG: Record<number, string> = {
   0x22: 'route-23-area',
   0x23: 'route-24-area',
   0x24: 'route-25-area',
-  0x28: 'route-8-area', // Example fallback
+  0x28: 'route-8-area', 
   0x5A: 'viridian-forest-area',
-  0x5C: 'mt-moon-b1f', // Using closest approximation or region
+  0x5C: 'mt-moon-b1f', 
   0xCA: 'rock-tunnel-1f',
   0xC1: 'power-plant-area',
-  0xD4: 'saffron-city-area', // Silph Co maps to Saffron since there are no encounters in Silph Co normally, but it resolves the map location.
+  0xD4: 'saffron-city-area', 
   0xD6: 'kanto-safari-zone-center',
   0xE2: 'cerulean-cave-1f',
-  // Note: There are many more map IDs; these represent a mapping foundation.
 };
 
 export const GEN2_MAP_TO_SLUG: Record<number, Record<number, string>> = {
-  // Map Group -> Map Number -> slug
-  // Simplified mapping for demonstration/core areas 
-  3: { // Group 3 often correlates with Johto towns
+  3: { 
     1: 'new-bark-town-area',
     2: 'cherrygrove-city-area',
     3: 'violet-city-area',
@@ -64,42 +60,35 @@ export const GEN2_MAP_TO_SLUG: Record<number, Record<number, string>> = {
     10: 'lake-of-rage-area',
     11: 'blackthorn-city-area',
   },
-  // Route Group mappings can be similarly structured. We fallback gracefully if not found.
 };
 
-// Internal Gen 1 Key/Evolution Items
 export const GEN1_ITEMS = {
   MOON_STONE: 0x0A,
   FIRE_STONE: 0x20,
   THUNDER_STONE: 0x21,
   WATER_STONE: 0x22,
   LEAF_STONE: 0x2F,
-  OLD_ROD: 0x3F,
-  GOOD_ROD: 0x40,
-  SUPER_ROD: 0x41,
 };
 
-export const GEN2_ITEMS = {
-  MOON_STONE: 0x08,
-  FIRE_STONE: 0x16,
-  THUNDER_STONE: 0x17,
-  WATER_STONE: 0x18,
-  LEAF_STONE: 0x22,
-  SUN_STONE: 0xB0,
-  KINGS_ROCK: 0x51,
-  METAL_COAT: 0x94,
-  DRAGON_SCALE: 0x9C,
-  UP_GRADE: 0xB3,
-  OLD_ROD: 0x39,
-  GOOD_ROD: 0x3A,
-  SUPER_ROD: 0x3C,
+export const OBEDIENCE_CAPS = [
+  { badges: 0, level: 10 },
+  { badges: 2, level: 30 }, 
+  { badges: 4, level: 50 }, 
+  { badges: 6, level: 70 }, 
+  { badges: 8, level: 100 }, 
+];
+
+export const STATIC_GIFT_DATA: Record<number, { name: string, location: string, reason: string }> = {
+  131: { name: 'Lapras', location: 'Silph Co. 7F', reason: 'Gift from NPC during Silph Co. invasion' },
+  133: { name: 'Eevee', location: 'Celadon Mansion', reason: 'Gift from the back entrance' },
+  106: { name: 'Hitmonlee', location: 'Saffron Fighting Dojo', reason: 'Reward' },
+  107: { name: 'Hitmonchan', location: 'Saffron Fighting Dojo', reason: 'Reward' },
+  138: { name: 'Omanyte', location: 'Cinnabar Lab', reason: 'Fossil' },
+  140: { name: 'Kabuto', location: 'Cinnabar Lab', reason: 'Fossil' },
+  142: { name: 'Aerodactyl', location: 'Cinnabar Lab', reason: 'Fossil' },
+  143: { name: 'Snorlax', location: 'Route 12 / 16', reason: 'Static' },
+  144: { name: 'Articuno', location: 'Seafoam', reason: 'Static' },
+  145: { name: 'Zapdos', location: 'Power Plant', reason: 'Static' },
+  146: { name: 'Moltres', location: 'Victory Road', reason: 'Static' },
+  150: { name: 'Mewtwo', location: 'Cerulean Cave', reason: 'Static' },
 };
-
-// Useful lists for checking logic
-export const EVOLUTION_STONES_SLUGS = [
-  'moon-stone', 'fire-stone', 'thunder-stone', 'water-stone', 'leaf-stone', 'sun-stone'
-];
-
-export const TRADE_EVOLUTION_ITEMS_SLUGS = [
-  'kings-rock', 'metal-coat', 'dragon-scale', 'up-grade'
-];

@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { SaveData } from '../utils/saveParser';
 import { pokeapi } from '../utils/pokeapi';
-import { GEN1_MAP_TO_SLUG, GEN2_MAP_TO_SLUG } from '../utils/assistantData';
+import { GEN1_MAP_TO_SLUG, GEN2_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA } from '../utils/assistantData';
 import { getDistanceToMap } from '../utils/mapGraphGen1';
 import { getUnobtainableReason } from '../utils/versionExclusives';
 
-export type SuggestionCategory = 'Catch' | 'Evolve' | 'Breed' | 'Progress' | 'Event' | 'Utility' | 'Trade';
+export type SuggestionCategory = 'Catch' | 'Evolve' | 'Breed' | 'Progress' | 'Event' | 'Utility' | 'Trade' | 'Gift';
 
 export interface Suggestion {
   id: string;
@@ -13,13 +13,12 @@ export interface Suggestion {
   title: string;
   description: string;
   pokemonId?: number;
-  pokemonIds?: number[]; // For aggregated locations
-  priority: number; // Higher is more important
+  pokemonIds?: number[]; 
+  priority: number; 
 }
 
 export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, manualVersion?: string | null) {
   
-  // 1. Calculate missing IDs synchronously
   const maxDex = saveData?.generation === 1 ? 151 : (saveData?.generation === 2 ? 251 : 0);
   const missingIds: number[] = [];
   const ownedCount = saveData ? (isLivingDex ? (new Set([...saveData.party, ...saveData.pc])).size : saveData.owned.size) : 0;
@@ -33,19 +32,17 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
   const effectiveVersion = manualVersion || saveData?.gameVersion;
   const displayVersion = effectiveVersion === 'unknown' ? (saveData?.generation === 2 ? 'gold' : 'red') : effectiveVersion;
 
-  // Filter out unobtainable so we don't query for things we can't catch
   const catchableMissingIds = missingIds.filter(pid => {
     if (saveData?.generation === 1) {
        return !getUnobtainableReason(pid, displayVersion || 'red', ownedCount, ownedSet);
     }
-    return true; // No gen 2 filters yet
+    return true; 
   });
 
-  const queryTargets = catchableMissingIds.slice(0, 30); // batch up to 30 missing Pokémon
+  const queryTargets = catchableMissingIds.slice(0, 30); 
 
-  // 2. Fetch data from PokeAPI dynamically
   const { data: apiData, isLoading: isLoadingEncounters } = useQuery({
-    queryKey: ['assistantData', saveData?.generation, saveData?.currentMapId, queryTargets.join(',')],
+    queryKey: ['assistantData', saveData?.generation, saveData?.currentMapId, queryTargets.join(','), saveData?.party?.join(',')],
     queryFn: async () => {
       if (!saveData) return null;
       
@@ -53,10 +50,9 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
       if (saveData.generation === 1) {
         localSlug = GEN1_MAP_TO_SLUG[saveData.currentMapId] || '';
       } else {
-        localSlug = 'new-bark-town-area'; // Gen 2 fallback
+        localSlug = 'new-bark-town-area'; 
       }
 
-      // Fetch local area encounters
       let localEncounters: any[] = [];
       if (localSlug) {
         try {
@@ -67,9 +63,8 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
         }
       }
 
-      // Fetch encounter areas for the top 3 missing Pokemon
       const missingEncounters: Record<number, any[]> = {};
-      const promises = queryTargets.map(async (pid) => {
+      const missingPromises = queryTargets.map(async (pid) => {
          try {
            const encs = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${pid}/encounters`);
            missingEncounters[pid] = encs;
@@ -77,204 +72,211 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
            missingEncounters[pid] = [];
          }
       });
-      await Promise.all(promises);
 
-      return { localEncounters, missingEncounters };
+      const partyEvolutions: Record<number, any> = {};
+      const partyPromises = (saveData.party || []).map(async (pid) => {
+        try {
+          const species = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`);
+          const chainUrl = species.evolution_chain.url;
+          const chain = await pokeapi.resource(chainUrl);
+          partyEvolutions[pid] = chain;
+        } catch (e) {
+          console.error("Evo fetch failed", pid, e);
+        }
+      });
+
+      await Promise.all([...missingPromises, ...partyPromises]);
+      return { localEncounters, missingEncounters, partyEvolutions };
     },
     enabled: !!saveData,
   });
 
   const suggestions: Suggestion[] = [];
-
-  if (!saveData) {
-    return { suggestions, isLoading: false };
-  }
+  if (!saveData) return { suggestions, isLoading: false };
 
   const totalBadges = saveData.generation === 1 
     ? saveData.badges 
     : (saveData.johtoBadges || 0) + (saveData.kantoBadges || 0);
 
-  // A. GEN 1 INTELLIGENCE
+  // A. GEN 1 / GEN 2 COMMON INTELLIGENCE
   if (saveData.generation === 1) {
     let localCatchFound = false;
-
-    // 1. Group Local Catches
-    if (apiData?.localEncounters && apiData.localEncounters.length > 0) {
+    if (apiData?.localEncounters) {
       const localPids: number[] = [];
       for (const encounter of apiData.localEncounters) {
          const urlParts = encounter.pokemon.url.split('/');
          const pid = parseInt(urlParts[urlParts.length - 2]);
-         
          const isValidVersion = encounter.version_details.some((vd: any) => vd.version.name === displayVersion);
-         if (isValidVersion && missingIds.includes(pid)) {
-             localPids.push(pid);
-         }
+         if (isValidVersion && missingIds.includes(pid)) localPids.push(pid);
       }
-
       if (localPids.length > 0) {
           suggestions.push({
-            id: 'catch-local',
-            category: 'Catch',
-            title: 'Local Catches',
+            id: 'catch-local', category: 'Catch', title: 'Catch Right Here',
             description: `You are exactly where you need to be! There are ${localPids.length} missing Pokémon right here.`,
-            pokemonIds: localPids,
-            priority: 100
+            pokemonIds: localPids, priority: 120
           });
           localCatchFound = true;
       }
     }
 
-    // 2. Aggregate Nearest Encounter Pathfinding
     if (apiData?.missingEncounters) {
       const locationMap: Record<string, { name: string, distance: number, pids: Set<number> }> = {};
-      
       for (const pid of queryTargets) {
          const encounters = apiData.missingEncounters[pid] || [];
          for (const enc of encounters) {
             const isValidVersion = enc.version_details.some((vd: any) => vd.version.name === displayVersion);
             if (!isValidVersion) continue;
-
             const targetAreaSlug = enc.location_area.name;
-            
             if (!locationMap[targetAreaSlug]) {
                 const route = getDistanceToMap(saveData.currentMapId, targetAreaSlug);
-                if (route) {
-                    locationMap[targetAreaSlug] = { name: route.name, distance: route.distance, pids: new Set() };
-                }
+                if (route) locationMap[targetAreaSlug] = { name: route.name, distance: route.distance, pids: new Set() };
             }
-            
-            if (locationMap[targetAreaSlug]) {
-                locationMap[targetAreaSlug].pids.add(pid);
-            }
+            if (locationMap[targetAreaSlug]) locationMap[targetAreaSlug].pids.add(pid);
          }
       }
-
-      const locations = Object.values(locationMap).map(loc => ({
-          ...loc,
-          yield: loc.pids.size
-      }));
-
-      // Time optimization: If user has a Pokémon in their party with Fly (move ID 19)
+      const locations = Object.values(locationMap).map(loc => ({ ...loc, yield: loc.pids.size }));
       const partyHasFly = saveData.partyDetails?.some(p => p.moves && p.moves.includes(19));
-
-      locations.sort((a, b) => {
-          if (partyHasFly) {
-              // Prioritize highest yield. If tie, closest distance.
-              if (b.yield !== a.yield) return b.yield - a.yield;
-              return a.distance - b.distance; 
-          } else {
-              // Early game: prioritize shortest distance. If tie, highest yield.
-              if (a.distance !== b.distance) return a.distance - b.distance;
-              return b.yield - a.yield;
-          }
-      });
-
-      const topLocations = locations.slice(0, 4); // Show top 4 destinations
-      for (const loc of topLocations) {
+      locations.sort((a, b) => partyHasFly ? (b.yield !== a.yield ? b.yield - a.yield : a.distance - b.distance) : (a.distance !== b.distance ? a.distance - b.distance : b.yield - a.yield));
+      locations.slice(0, 4).forEach(loc => {
           const pids = Array.from(loc.pids);
-          // Deduplicate if the local catches perfectly map to this location (distance 0)
-          if (loc.distance === 0 && localCatchFound) continue;
-
+          if (loc.distance === 0) {
+              // Higher priority for stuff "right here" even if it's from the distance logic
+              suggestions.push({
+                  id: `catch-loc-${loc.name}`, category: 'Catch', title: 'Catch Right Here',
+                  description: `Catch ${pids.length} missing Pokémon available at ${loc.name}.`,
+                  pokemonIds: pids, priority: 115
+              });
+              return;
+          }
           suggestions.push({
-              id: `catch-loc-${loc.name}`,
-              category: 'Catch',
-              title: `Travel to ${loc.name}`,
-              description: partyHasFly 
-                ? (loc.distance === 0 
-                   ? `Catch ${pids.length} missing Pokémon right here at ${loc.name}.`
-                   : `Use Fly to easily travel to ${loc.name} and catch ${pids.length} missing Pokémon!`)
-                : `You can catch ${pids.length} missing Pokémon at ${loc.name}, which is ${
-                    loc.distance === 0 ? 'right here' :
-                    loc.distance === 1 ? 'just 1 connection away' : 
-                    `${loc.distance} connections away`
-                  }.`,
-              pokemonIds: pids,
-              priority: 80 + loc.yield - (partyHasFly ? 0 : loc.distance)
+              id: `catch-loc-${loc.name}`, category: 'Catch', title: `Travel to ${loc.name}`,
+              description: partyHasFly ? `Use Fly to easily travel to ${loc.name} and catch ${pids.length} missing Pokémon!` : `Catch ${pids.length} missing Pokémon at ${loc.name}, only ${loc.distance === 1 ? '1 connection away' : `${loc.distance} connections away`}.`,
+              pokemonIds: pids, priority: 80 + loc.yield - (partyHasFly ? 0 : loc.distance)
           });
-      }
+      });
     }
 
-    // Unobtainables & Dead Ends
     let unobtainableCount = 0;
     for (const pid of missingIds) {
       if (unobtainableCount >= 4) break; 
       const reason = getUnobtainableReason(pid, displayVersion || 'red', ownedCount, ownedSet);
       if (reason) {
-        suggestions.push({
-           id: `trade-${pid}`,
-           category: 'Trade',
-           title: `Trade Required: #${pid}`,
-           description: reason,
-           pokemonId: pid,
-           priority: 60 - unobtainableCount
-        });
+        suggestions.push({ id: `trade-${pid}`, category: 'Trade', title: `Trade Required: #${pid}`, description: reason, pokemonId: pid, priority: 60 - unobtainableCount });
         unobtainableCount++;
       }
     }
+
+    // Gift/Statics
+    for (const [pidStr, gift] of Object.entries(STATIC_GIFT_DATA)) {
+      const pid = parseInt(pidStr);
+      // Special logic for family: If they have any evolution, they likely got the gift
+      const familyIds = pid === 133 ? [133, 134, 135, 136] : // Eevee family
+                        pid === 138 ? [138, 139] : // Omanyte
+                        pid === 140 ? [140, 141] : // Kabuto
+                        pid === 147 ? [147, 148, 149] : // Dratini
+                        [pid];
+      
+      const hasAnyFamily = familyIds.some(fid => ownedSet.has(fid));
+      
+      if (!hasAnyFamily && missingIds.includes(pid)) {
+        suggestions.push({ id: `gift-${pid}`, category: 'Gift', title: `Secure Gift: ${gift.name}`, description: `Location: ${gift.location}. ${gift.reason}`, pokemonId: pid, priority: 85 });
+      }
+    }
+
+    // Box Full
+    if (saveData.currentBoxCount >= 20) {
+      suggestions.push({ id: 'utility-box-full', category: 'Utility', title: 'CRITICAL: PC Box Full!', description: 'Your current PC box is at 20/20. Switch boxes via Bill\'s PC.', priority: 150 });
+    } else if (saveData.currentBoxCount >= 18) {
+      suggestions.push({ id: 'utility-box-near-full', category: 'Utility', title: 'PC Box Almost Full', description: `${20 - saveData.currentBoxCount} slots remaining.`, priority: 95 });
+    }
   }
 
-  // B. Progression / Utility (Examples)
-  if (totalBadges < 8 && saveData.generation === 1) {
-    suggestions.push({
-      id: 'progress-badge',
-      category: 'Progress',
-      title: 'Collect Next Badge',
-      description: `You have ${totalBadges} badges. Continue your Gym challenge!`,
-      priority: 50
+  // B. Evolutions, Obedience & Gen 2 Planning
+  if (saveData) {
+    // 1. Obedience Cap Monitor
+    const caps = OBEDIENCE_CAPS.filter(c => totalBadges >= c.badges);
+    const currentCap = caps.length > 0 ? caps[caps.length - 1].level : 10;
+    const disobedient = saveData.partyDetails.filter(p => p.otName && p.otName !== saveData.trainerName && p.level > currentCap);
+    const nearLimit = saveData.partyDetails.filter(p => p.otName && p.otName !== saveData.trainerName && p.level > currentCap - 5 && p.level <= currentCap);
+
+    if (disobedient.length > 0) {
+      suggestions.push({ id: 'utility-obedience-danger', category: 'Utility', title: 'Obedience Danger!', description: `You have traded Pokémon above Lv. ${currentCap}. They may not obey you!`, priority: 110 });
+    } else if (nearLimit.length > 0) {
+      const nextBadge = OBEDIENCE_CAPS.find(c => c.level > currentCap);
+      suggestions.push({ id: 'utility-obedience-warn', category: 'Utility', title: 'Obedience Warning', description: `Limit: Lv. ${currentCap}. ${nextBadge ? `Defeat ${nextBadge.badges} gyms to raise it to Lv. ${nextBadge.level}.` : ''}`, priority: 70 });
+    }
+
+    // 2. Gen 2 Time Forecasting
+    if (saveData.generation === 2) {
+      const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const today = dayNames[new Date().getDay()];
+      const events = [
+        { day: 'Friday', title: 'Lapras in Union Cave', desc: 'Every Friday, a Lapras appears in the depths of Union Cave.' },
+        { day: 'Tuesday', title: 'Bug-Catching Contest', desc: 'Compete in National Park for rare Bug Pokémon.' },
+        { day: 'Thursday', title: 'Bug-Catching Contest', desc: 'Compete in National Park for rare Bug Pokémon.' },
+        { day: 'Saturday', title: 'Bug-Catching Contest', desc: 'Compete in National Park for rare Bug Pokémon.' },
+        { day: 'Monday', title: 'Mt. Moon Square', desc: 'Clefairy dance at night! Shop opens then.' },
+      ];
+      events.forEach(ev => {
+        const isToday = ev.day === today;
+        suggestions.push({
+          id: `event-${ev.day}-${ev.title}`, category: 'Event',
+          title: isToday ? `TODAY: ${ev.title}` : `UPCOMING: ${ev.title}`,
+          description: isToday ? `${ev.desc} (Available Now!)` : `Planned for ${ev.day}. ${ev.desc}`,
+          priority: isToday ? 90 : 30
+        });
+      });
+    }
+
+    // 3. Dynamic Evolution Logic (PokeAPI)
+    saveData.partyDetails.forEach((p, idx) => {
+      const chain = apiData?.partyEvolutions?.[p.speciesId];
+      if (!chain) return;
+
+      const findInChain = (node: any): any => {
+        const urlParts = node.species.url.split('/');
+        const id = parseInt(urlParts[urlParts.length - 2]);
+        if (id === p.speciesId) return node;
+        for (const child of node.evolves_to) {
+          const res = findInChain(child);
+          if (res) return res;
+        }
+        return null;
+      };
+
+      const currentNode = findInChain(chain.chain);
+      if (currentNode && currentNode.evolves_to.length > 0) {
+        currentNode.evolves_to.forEach((evoNode: any) => {
+          const details = evoNode.evolution_details[0];
+          if (!details) return;
+
+          if (details.trigger.name === 'level-up' && details.min_level) {
+            if (p.level >= details.min_level - 3) {
+              const isReady = p.level >= details.min_level;
+              suggestions.push({
+                id: `evo-lvl-${p.speciesId}-${idx}`, category: 'Evolve', title: `Level Up Evolution`,
+                description: isReady ? `Lv. ${p.level} is ready to evolve (needs Lv. ${details.min_level})!` : `Your Lv. ${p.level} Pokémon evolves at Lv. ${details.min_level}.`,
+                pokemonId: p.speciesId, priority: isReady ? 90 : 75
+              });
+            }
+          } else if (details.trigger.name === 'use-item') {
+            const itemName = details.item.name;
+            
+            // Special Rule: Pikachu cannot evolve in Yellow if it's the player's starter
+            const isYellowStarterPikachu = displayVersion === 'yellow' && p.speciesId === 25 && p.otName === saveData.trainerName;
+            
+            if (isYellowStarterPikachu) return;
+
+            const hasStone = saveData.inventory.some(i => i.id === (itemName.includes('fire') ? 32 : itemName.includes('thunder') ? 33 : itemName.includes('water') ? 34 : itemName.includes('leaf') ? 46 : 10)); 
+            if (hasStone) suggestions.push({ id: `evo-stn-${p.speciesId}-${idx}`, category: 'Evolve', title: `Ready to Evolve!`, description: `Use ${itemName.replace('-', ' ')} on your Pokémon!`, pokemonId: p.speciesId, priority: 95 });
+            else if (!itemName.includes('moon')) suggestions.push({ id: `evo-buy-${p.speciesId}-${idx}`, category: 'Evolve', title: `Buy ${itemName.replace('-', ' ')}`, description: `Visit Celadon Dept. Store to evolve your Pokémon.`, pokemonId: p.speciesId, priority: 40 });
+          }
+        });
+      }
     });
   }
 
-  if (saveData.pc.length > (saveData.generation === 1 ? 230 : 270)) {
-     suggestions.push({
-      id: 'utility-storage',
-      category: 'Utility',
-      title: 'PC Storage Dangerously Low',
-      description: `You have almost filled all your PC boxes. Prepare to switch boxes.`,
-      priority: 95
-    });
-  }
-
-  // C. Event Pokemon
-  if (saveData.generation === 1 && missingIds.includes(151)) {
-    suggestions.push({
-      id: 'event-mew',
-      category: 'Event',
-      title: 'Looking for Mew?',
-      description: 'Mew is an Event Pokémon and cannot be caught normally without glitches or official distributions.',
-      pokemonId: 151,
-      priority: 10
-    });
-  }
-
-  if (saveData.generation === 2 && missingIds.includes(251)) {
-    suggestions.push({
-      id: 'event-celebi',
-      category: 'Event',
-      title: 'Looking for Celebi?',
-      description: 'Celebi can only be encountered through the GS Ball event in Pokémon Crystal Virtual Console, or via event distributions.',
-      pokemonId: 251,
-      priority: 10
-    });
-  }
-
-  // NEVER EMPTY GUARANTEE
-  if (suggestions.length === 0 && missingIds.length > 0) {
-    suggestions.push({
-      id: 'fallback',
-      category: 'Utility',
-      title: 'Database Sync Completed',
-      description: `You are missing ${missingIds.length} Pokémon. Level up your current team to evolve them, or trade with other games to complete your Living Dex.`,
-      priority: 1
-    });
-  }
-
-  // Sort by priority descending
-  // Filter out duplicates by ID
   const uniqueSuggestions = Array.from(new Map(suggestions.map(item => [item.id, item])).values());
   uniqueSuggestions.sort((a, b) => b.priority - a.priority);
-
-  return {
-    suggestions: uniqueSuggestions,
-    isLoading: isLoadingEncounters
-  };
+  return { suggestions: uniqueSuggestions, isLoading: isLoadingEncounters };
 }

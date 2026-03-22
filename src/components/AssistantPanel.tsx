@@ -19,6 +19,7 @@ const CATEGORY_STYLES: Record<string, { icon: React.ReactNode, color: string, bg
   Breed: { icon: <Egg size={16} className="text-pink-400" />, color: 'border-pink-500/30 text-pink-100', bg: 'bg-pink-500/10' },
   Progress: { icon: <Flag size={16} className="text-red-400" />, color: 'border-red-500/30 text-red-100', bg: 'bg-red-500/10' },
   Event: { icon: <Sparkles size={16} className="text-purple-400" />, color: 'border-purple-500/30 text-purple-100', bg: 'bg-purple-500/10' },
+  Gift: { icon: <Zap size={16} className="text-indigo-400" />, color: 'border-indigo-500/30 text-indigo-100', bg: 'bg-indigo-500/10' },
   Utility: { icon: <Info size={16} className="text-zinc-400" />, color: 'border-zinc-500/30 text-zinc-100', bg: 'bg-zinc-500/10' },
 };
 
@@ -70,7 +71,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
             }, {} as Record<string, Suggestion[]>)
           // Custom sort order for categories
           ).sort(([a], [b]) => {
-             const order = ['Catch', 'Evolve', 'Trade', 'Progress', 'Event', 'Utility'];
+             const order = ['Catch', 'Gift', 'Evolve', 'Trade', 'Progress', 'Event', 'Utility'];
              return (order.indexOf(a) !== -1 ? order.indexOf(a) : 99) - (order.indexOf(b) !== -1 ? order.indexOf(b) : 99);
           }).map(([category, items]) => {
             const catStyle = CATEGORY_STYLES[category] || CATEGORY_STYLES.Utility;
@@ -179,6 +180,8 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                         </>
                       );
 
+                      const isCritical = title.includes('CRITICAL');
+
                       return (
                         <motion.div
                           key={s.id}
@@ -189,7 +192,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                           }}
                           whileHover={{ y: -4, scale: 1.02 }}
                           // only pointer cursor if it's a single item link
-                          className={`relative rounded-2xl border ${style.color} bg-zinc-900 shadow-lg transition-all overflow-hidden group ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
+                          className={`relative rounded-2xl border ${isCritical ? 'border-red-500 animate-[pulse_2s_infinite]' : style.color} bg-zinc-900 shadow-lg transition-all overflow-hidden group ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
                         >
                           {!hasMultiple && s.pokemonId ? (
                             <Link to="/pokemon/$pokemonId" params={{ pokemonId: s.pokemonId.toString() }} className="block w-full h-full">
