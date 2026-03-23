@@ -24,6 +24,16 @@ export interface Suggestion {
   pokemonIds?: number[]; 
   priority: number; 
   encounterInfo?: Record<number, EncounterDetail[]>;
+  debugInfo?: {
+    priorityScore: number;
+    reasoning?: string;
+  };
+}
+
+export interface RejectedSuggestion {
+  pokemonId: number;
+  reason: string;
+  code: 'VERSION_EXCLUSIVE' | 'GIFT_CLAIMED' | 'EVO_ALREADY_OWNED' | 'HOF_LOCKED' | 'CHOICE_TAKEN' | 'MISSING_DATA';
 }
 
 /**
@@ -116,9 +126,10 @@ export function generateSuggestions(
   isLivingDex: boolean, 
   manualVersion: string | null | undefined,
   apiData: any
-): Suggestion[] {
+): { suggestions: Suggestion[], debug: { rejected: RejectedSuggestion[] } } {
   const suggestions: Suggestion[] = [];
-  if (!saveData || !apiData) return suggestions;
+  const rejected: RejectedSuggestion[] = [];
+  if (!saveData || !apiData) return { suggestions, debug: { rejected } };
 
   const genConfig = getGenerationConfig(saveData.generation);
   const maxDex = genConfig.maxDex;
@@ -135,6 +146,7 @@ export function generateSuggestions(
   for (let i = 1; i <= maxDex; i++) {
     if (!ownedSet.has(i)) {
       if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0) {
+          rejected.push({ pokemonId: i, reason: 'Hall of Fame count is 0. Mewtwo is locked.', code: 'HOF_LOCKED' });
           continue;
       }
       missingIds.push(i);
@@ -155,11 +167,17 @@ export function generateSuggestions(
        const pid = parseInt(urlParts[urlParts.length - 2]);
        
        const isFinite = !!STATIC_GIFT_DATA[pid];
-       if (isFinite && myOtIds.has(pid)) continue;
+       if (isFinite && myOtIds.has(pid)) {
+          rejected.push({ pokemonId: pid, reason: 'You already own this one-time gift (matched by Trainer Name).', code: 'GIFT_CLAIMED' });
+          continue;
+       }
 
        const gift = STATIC_GIFT_DATA[pid];
        if (saveData.eventFlags && gift?.eventFlag) {
-          if ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)] & (1 << (gift.eventFlag % 8))) !== 0) continue;
+          if ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)] & (1 << (gift.eventFlag % 8))) !== 0) {
+            rejected.push({ pokemonId: pid, reason: `Event flag ${gift.eventFlag} is set. Gift already claimed.`, code: 'GIFT_CLAIMED' });
+            continue;
+          }
        }
 
        const versionDetail = encounter.version_details.find((vd: any) => vd.version.name === displayVersion);
@@ -199,7 +217,11 @@ export function generateSuggestions(
        const encounters = apiData.missingEncounters[pid] || [];
        const logicReason = getUnobtainableReason(pid, displayVersion || 'red', ownedCount, ownedSet);
        if (logicReason) {
-           suggestions.push({ id: `trade-${pid}`, category: 'Trade', title: `Trade Required: #${pid}`, description: logicReason, pokemonId: pid, priority: 60 - unobtainableCount });
+           rejected.push({ pokemonId: pid, reason: logicReason, code: 'CHOICE_TAKEN' });
+           suggestions.push({ 
+             id: `trade-${pid}`, category: 'Trade', title: `Trade Required: #${pid}`, description: logicReason, pokemonId: pid, priority: 60 - unobtainableCount,
+             debugInfo: { priorityScore: 60 - unobtainableCount, reasoning: 'Explicit unobtainable logic rule' }
+           });
            unobtainableCount++;
            continue;
        }
@@ -242,10 +264,12 @@ export function generateSuggestions(
        }
 
        if (!isCatchableSomewhere && !ownedSet.has(pid)) {
+           rejected.push({ pokemonId: pid, reason: `Not catchable in ${displayVersion} version.`, code: 'VERSION_EXCLUSIVE' });
            suggestions.push({ 
                id: `trade-${pid}`, category: 'Trade', title: `Version Exclusive: #${pid}`, 
                description: `This Pokémon is not available in ${displayVersion}. You must trade for it.`, 
-               pokemonId: pid, priority: 50 - unobtainableCount 
+               pokemonId: pid, priority: 50 - unobtainableCount,
+               debugInfo: { priorityScore: 50 - unobtainableCount, reasoning: 'Version exclusivity check' }
            });
            unobtainableCount++;
            continue;
@@ -414,7 +438,7 @@ export function generateSuggestions(
 
   const uniqueSuggestions = Array.from(new Map(suggestions.map(item => [item.id, item])).values());
   uniqueSuggestions.sort((a, b) => b.priority - a.priority);
-  return uniqueSuggestions;
+  return { suggestions: uniqueSuggestions, debug: { rejected } };
 }
 
 export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, manualVersion?: string | null) {
@@ -437,6 +461,6 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
     enabled: !!saveData,
   });
 
-  const suggestions = generateSuggestions(saveData, isLivingDex, manualVersion, apiData);
-  return { suggestions, isLoading: isLoadingEncounters };
+  const { suggestions, debug } = generateSuggestions(saveData, isLivingDex, manualVersion, apiData);
+  return { suggestions, debug, isLoading: isLoadingEncounters };
 }

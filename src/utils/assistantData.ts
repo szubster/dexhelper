@@ -116,6 +116,49 @@ export const STATIC_GIFT_DATA: Record<number, { name: string, location: string, 
   147: { name: 'Dratini', location: "Dragon's Den", reason: 'Gift from Dragon Elder', gen: 2 },
 };
 
+/**
+ * In-game NPC trades (not via link cable). These are one-time trades with NPCs in the game world.
+ * `receivedId`   — pokémon species ID you receive
+ * `offeredId`    — pokémon species ID you must hand over
+ * `location`     — human-readable location description
+ * `versions`     — which game versions this trade exists in (empty = all versions in that gen)
+ * `receivedOtName` — the OT name the game assigns to the received pokémon (used to detect if claimed)
+ * `gen`          — generation the trade belongs to
+ */
+export interface NpcTradeEntry {
+  receivedId: number;
+  offeredId: number;
+  location: string;
+  versions?: string[];
+  receivedOtName: string;
+  gen: number;
+}
+
+export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
+  // ── Gen 1 ────────────────────────────────────────────────────────────────
+  // Farfetch'd for Spearow — Vermilion City
+  { receivedId: 83,  offeredId: 21,  location: 'Vermilion City (trade house)', receivedOtName: 'DEX',  gen: 1 },
+  // Jynx for Poliwhirl — Cerulean City (underground path house)
+  { receivedId: 124, offeredId: 60,  location: 'Cerulean City (trade house)', receivedOtName: 'MARCEL', gen: 1 },
+  // Mr. Mime for Clefairy — Route 2 (south gate)
+  { receivedId: 122, offeredId: 35,  location: 'Route 2 (south gate)',        receivedOtName: 'MARC',  gen: 1 },
+  // Lickitung for Slowbro — Cinnabar Island (trade house)
+  { receivedId: 108, offeredId: 80,  location: 'Cinnabar Island (trade house)', receivedOtName: 'BILL', gen: 1 },
+  // Tangela for Venonat — Route 18 (trade house) — Yellow version only
+  { receivedId: 114, offeredId: 49,  location: 'Route 18 (trade house)',      receivedOtName: 'LINDA', gen: 1, versions: ['yellow'] },
+
+  // ── Gen 2 ────────────────────────────────────────────────────────────────
+  // Machop for Drowzee — Goldenrod City (trade house) — Gold/Silver/Crystal
+  { receivedId: 66,  offeredId: 96,  location: 'Goldenrod City (trade house)', receivedOtName: 'KYLE',  gen: 2 },
+  // Onix for Bellsprout — Violet City (trade house) — Gold/Silver/Crystal
+  { receivedId: 95,  offeredId: 69,  location: 'Violet City (trade house)',   receivedOtName: 'KYLE',  gen: 2 },
+  // Haunter for Drowzee — Sprout Tower? No — actually Goldenrod trade house has Abra trade too
+  // Abra for Drowzee — Goldenrod City (2F of trade house) — Gold/Silver/Crystal
+  { receivedId: 63,  offeredId: 96,  location: 'Goldenrod City (trade center, 2F)', receivedOtName: 'NOB', gen: 2 },
+  // Voltorb for Krabby — New Bark Town neighbor — Crystal only
+  { receivedId: 100, offeredId: 98,  location: "Fisher's house (Route 30 area)", receivedOtName: 'TOM', gen: 2, versions: ['crystal'] },
+];
+
 /** Rod item IDs keyed by generation number */
 export const ROD_IDS: Record<number, { OLD: number; GOOD: number; SUPER: number }> = {
   1: { OLD: 76, GOOD: 77, SUPER: 78 },

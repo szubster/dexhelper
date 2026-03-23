@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, Target, Zap, Egg, Flag, Info, Loader2, Waves, Fish, Trees } from 'lucide-react';
-import { Suggestion, useAssistant, EncounterDetail } from '../hooks/useAssistant';
+import { Suggestion, useAssistant, EncounterDetail, RejectedSuggestion } from '../hooks/useAssistant';
+import { Bug, Sparkles, Target, Zap, Egg, Flag, Info, Loader2, Waves, Fish, Trees, AlertCircle } from 'lucide-react';
 import { ROD_IDS } from '../utils/assistantData';
 import { SaveData } from '../utils/saveParser';
 import { Link } from '@tanstack/react-router';
@@ -27,7 +27,8 @@ const CATEGORY_STYLES: Record<string, { icon: React.ReactNode, color: string, bg
 };
 
 export function AssistantPanel({ saveData, isLivingDex, manualVersion }: AssistantPanelProps) {
-  const { suggestions, isLoading } = useAssistant(saveData, isLivingDex, manualVersion);
+  const { suggestions, debug, isLoading } = useAssistant(saveData, isLivingDex, manualVersion);
+  const [showDebug, setShowDebug] = React.useState(false);
   
   const { data: pokemonList } = useQuery<{ id: number; name: string }[]>({
     queryKey: ['pokemonList'],
@@ -46,11 +47,20 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-zinc-900 border border-zinc-800 p-6 rounded-[2rem] shadow-xl relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-amber-500 to-purple-500" />
         
-        <div>
-          <h2 className="text-2xl font-display font-black uppercase tracking-tight text-white flex items-center gap-3">
-            <Sparkles className="text-amber-400" size={24} />
-            AI Assistant
-          </h2>
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-3">
+            <h2 className="text-2xl font-display font-black uppercase tracking-tight text-white flex items-center gap-3">
+              <Sparkles className="text-amber-400" size={24} />
+              AI Assistant
+            </h2>
+            <button 
+              onClick={() => setShowDebug(!showDebug)}
+              className={`p-2 rounded-xl border transition-all ${showDebug ? 'bg-amber-500/20 border-amber-500/50 text-amber-400' : 'bg-zinc-800 border-zinc-700 text-zinc-500 hover:text-zinc-300'}`}
+              title="Toggle Debug Mode"
+            >
+              <Bug size={18} />
+            </button>
+          </div>
           <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest mt-1">Smart suggestions based on your save file</p>
         </div>
       </div>
@@ -129,6 +139,11 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                                 <div className={`px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-widest flex items-center gap-1.5 border border-white/10 ${style.bg} ${style.color.replace('border-', 'text-')}`}>
                                   {style.icon}
                                   {s.category}
+                                  {showDebug && (
+                                    <span className="ml-1 text-[8px] opacity-70 border-l border-white/20 pl-1">
+                                      P: {s.priority}
+                                    </span>
+                                  )}
                                 </div>
                                 {s.pokemonId && (
                                   <div className="text-[10px] font-mono font-bold text-zinc-500">#{s.pokemonId.toString().padStart(3, '0')}</div>
@@ -290,6 +305,46 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
               </div>
             );
           })}
+        </div>
+      )}
+
+      {showDebug && debug && debug.rejected.length > 0 && (
+        <div className="mt-12 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <div className="flex items-center gap-3 px-2">
+            <div className="p-2 rounded-xl border bg-amber-500/10 border-amber-500/30 text-amber-400">
+              <Bug size={16} />
+            </div>
+            <h3 className="text-xl font-display font-black text-white uppercase tracking-widest">
+              Debug: Rejected Suggestions
+            </h3>
+          </div>
+          
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+            {debug.rejected.map((r, i) => (
+              <div key={`${r.pokemonId}-${i}`} className="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-4 flex items-start gap-4 hover:border-zinc-700 transition-colors">
+                <div className="w-12 h-12 bg-zinc-800 rounded-xl p-1 flex-shrink-0 border border-white/5 relative">
+                  <img 
+                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${r.pokemonId}.png`}
+                    alt="Sprite"
+                    className="w-full h-full object-contain pixelated grayscale opacity-50"
+                  />
+                  <div className="absolute -top-1 -right-1">
+                    <AlertCircle size={14} className="text-amber-500 fill-zinc-900" />
+                  </div>
+                </div>
+                <div className="space-y-1 overflow-hidden">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono font-bold text-zinc-500">#{r.pokemonId.toString().padStart(3, '0')}</span>
+                    <span className="text-xs font-black text-zinc-300 uppercase tracking-tight truncate">{getPokemonName(r.pokemonId)}</span>
+                    <span className="text-[8px] font-black bg-zinc-800 text-zinc-500 px-1 py-0.5 rounded border border-white/5 uppercase">{r.code}</span>
+                  </div>
+                  <p className="text-[10px] font-medium text-zinc-500 leading-tight italic">
+                    "{r.reason}"
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
