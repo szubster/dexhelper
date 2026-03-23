@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Info, Settings2, Archive, CircleDot, Trash2, Check, Ghost, Monitor, AlertTriangle } from 'lucide-react';
 import { useAppState, PokeballType, GameVersion } from '../state';
+import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig';
 
 export function SettingsModal() {
   const { 
@@ -14,27 +15,11 @@ export function SettingsModal() {
 
   if (!isSettingsOpen) return null;
 
-  const pokeballs: { value: PokeballType; label: string; gen: 1 | 2 }[] = [
-    { value: 'poke', label: 'Poké Ball', gen: 1 },
-    { value: 'great', label: 'Great Ball', gen: 1 },
-    { value: 'ultra', label: 'Ultra Ball', gen: 1 },
-    { value: 'safari', label: 'Safari Ball', gen: 1 },
-    { value: 'heavy', label: 'Heavy Ball', gen: 2 },
-    { value: 'lure', label: 'Lure Ball', gen: 2 },
-    { value: 'fast', label: 'Fast Ball', gen: 2 },
-    { value: 'friend', label: 'Friend Ball', gen: 2 },
-    { value: 'moon', label: 'Moon Ball', gen: 2 },
-    { value: 'love', label: 'Love Ball', gen: 2 },
-    { value: 'level', label: 'Level Ball', gen: 2 },
-  ];
+  const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
 
-  const filteredPokeballs = pokeballs.filter(pb => {
-    // Safari Ball cannot be a default
-    if (pb.value === 'safari') return false;
-    // Filter by generation
-    if (saveData?.generation === 1 && pb.gen === 2) return false;
-    return true;
-  });
+  const filteredPokeballs = (genConfig?.pokeballs ?? ['poke', 'great', 'ultra'])
+    .filter(pb => pb !== 'safari') // Safari Ball cannot be a default
+    .map(value => ({ value, label: POKEBALL_LABELS[value] }));
 
   return (
     <AnimatePresence>
@@ -96,20 +81,9 @@ export function SettingsModal() {
                   className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-xs font-bold text-zinc-200 outline-none focus:border-blue-500 transition-colors"
                 >
                   <option value="unknown">Auto</option>
-                  {(!saveData || saveData.generation === 1) && (
-                    <>
-                      <option value="red">Red</option>
-                      <option value="blue">Blue</option>
-                      <option value="yellow">Yellow</option>
-                    </>
-                  )}
-                  {(!saveData || saveData.generation === 2) && (
-                    <>
-                      <option value="gold">Gold</option>
-                      <option value="silver">Silver</option>
-                      <option value="crystal">Crystal</option>
-                    </>
-                  )}
+                  {(genConfig?.versions ?? [...getGenerationConfig(1).versions, ...getGenerationConfig(2).versions]).map(v => (
+                    <option key={v.id} value={v.id}>{v.label}</option>
+                  ))}
                 </select>
               </div>
 

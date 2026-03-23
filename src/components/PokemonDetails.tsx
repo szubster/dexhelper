@@ -7,6 +7,7 @@ import { gen2Items, gen2Locations } from '../utils/legacyNameMap';
 import { SaveData } from '../utils/saveParser';
 import { pokeapi } from '../utils/pokeapi';
 import { PokeballType } from '../state';
+import { getGenerationConfig } from '../utils/generationConfig';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -156,8 +157,8 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
     const fromName = speciesData.evolves_from_species.name;
     const fromId = parseInt(speciesData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0');
     
-    // For Gen 1 saves, ignore pre-evolutions from later generations (babies)
-    if (saveData?.generation === 1 && fromId > 151) return null;
+    // For saves from gens that don't have this pre-evolution, ignore it (e.g., baby Pokemon in Gen 1)
+    if (saveData && fromId > getGenerationConfig(saveData.generation).maxDex) return null;
     
     let methodStr = 'Unknown';
 
@@ -197,8 +198,8 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
       if (chain.species.name === pokemonName.toLowerCase()) {
         return chain.evolves_to.map((evo: any) => {
           const id = parseInt(evo.species.url.split('/').filter(Boolean).pop() || '0');
-          // For Gen 1 saves, ignore Gen 2 evolutions
-          if (saveData?.generation === 1 && id > 151) return null;
+          // For saves from gens that don't have this evolution, ignore it
+          if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
           
           let methodStr = 'Unknown';
           const details = evo.evolution_details[0];
@@ -232,8 +233,8 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
 
     if (!speciesData?.is_baby || !evolutionData) return null;
     
-    // For Gen 1 saves, don't show baby breeding info (it's Gen 2 content)
-    if (saveData?.generation === 1) return null;
+    // Only show breeding info for gens that support it
+    if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
     
     const parents: { id: number, name: string }[] = [];
 
@@ -337,11 +338,11 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
     );
   };
 
-  const displayVersion = gameVersion === 'unknown' ? (saveData?.generation === 2 ? 'gold' : 'red') : gameVersion;
+  const genConfig = saveData ? getGenerationConfig(saveData.generation) : getGenerationConfig(1);
 
-  const currentGenVersions = saveData?.generation === 2 
-    ? ['gold', 'silver', 'crystal'] 
-    : ['red', 'blue', 'yellow'];
+  const displayVersion = gameVersion === 'unknown' ? genConfig.defaultVersion : gameVersion;
+
+  const currentGenVersions = genConfig.versions.map(v => v.id);
 
   const allVersionLocations = currentGenVersions.reduce((acc, v) => {
     acc[v] = getLocationsForVersion(v);
@@ -415,10 +416,7 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                 >
                   <div className="absolute inset-0 bg-gradient-to-tr from-[var(--theme-primary)]/10 to-transparent" />
                   <img 
-                    src={saveData?.generation === 2 
-                      ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/crystal/transparent/${isShiny ? 'shiny/' : ''}${pokemonId}.png`
-                      : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pokemonId}.png`
-                    }
+                    src={genConfig.spriteUrl(pokemonId, isShiny)}
                     alt={pokemonName}
                     className="w-24 h-24 sm:w-32 sm:h-32 object-contain pixelated drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] relative z-10"
                     style={{ imageRendering: 'pixelated' }}
@@ -517,8 +515,7 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                                         s.stat.name === 'defense' ? 'DEF' :
                                         s.stat.name === 'speed' ? 'SPE' : s.stat.name;
                         
-                        // Handle Gen 1 Special stat consolidation
-                        if (saveData?.generation === 1 && s.stat.name === 'special-defense') return null;
+                        if (saveData && getGenerationConfig(saveData.generation).hasUnifiedSpecial && s.stat.name === 'special-defense') return null;
                         
                         const maxVal = 255;
                         const percentage = (s.base_stat / maxVal) * 100;
@@ -686,7 +683,7 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                               <span className="text-[10px] font-bold text-rose-400">{p.friendship} pt</span>
                             </div>
                           )}
-                          {saveData?.generation === 2 && p.dvs && (
+                          {saveData && getGenerationConfig(saveData.generation).hasHiddenPower && p.dvs && (
                             <div className="flex flex-col">
                               <span className="text-[8px] font-black text-zinc-500 uppercase tracking-widest">Hidden Power</span>
                               <span className="text-[10px] font-bold text-blue-400 uppercase">{calculateHiddenPower(p.dvs).type}</span>

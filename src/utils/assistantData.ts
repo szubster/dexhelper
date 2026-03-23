@@ -1,66 +1,72 @@
 // This file maps internal game IDs to standard names or PokeAPI slugs
 
-export const GEN1_MAP_TO_SLUG: Record<number, string> = {
-  0x00: 'pallet-town-area',
-  0x01: 'viridian-city-area',
-  0x02: 'pewter-city-area',
-  0x03: 'cerulean-city-area',
-  0x04: 'lavender-town-area',
-  0x05: 'vermilion-city-area',
-  0x06: 'celadon-city-area',
-  0x07: 'fuchsia-city-area',
-  0x08: 'cinnabar-island-area',
-  0x0A: 'saffron-city-area',
-  0x0C: 'route-1-area',
-  0x0D: 'route-2-area',
-  0x0E: 'route-3-area',
-  0x0F: 'route-4-area',
-  0x10: 'route-5-area',
-  0x11: 'route-6-area',
-  0x12: 'route-7-area',
-  0x13: 'route-8-area',
-  0x14: 'route-9-area',
-  0x15: 'kanto-route-10-area',
-  0x16: 'kanto-route-11-area',
-  0x17: 'kanto-route-12-area',
-  0x18: 'kanto-route-13-area',
-  0x19: 'kanto-route-14-area',
-  0x1A: 'kanto-route-15-area',
-  0x1B: 'kanto-route-16-area',
-  0x1C: 'kanto-route-17-area',
-  0x1D: 'kanto-route-18-area',
-  0x1E: 'kanto-route-19-area',
-  0x1F: 'kanto-route-20-area',
-  0x20: 'kanto-route-21-area',
-  0x21: 'kanto-route-22-area',
-  0x22: 'kanto-route-23-area',
-  0x23: 'kanto-route-24-area',
-  0x24: 'kanto-route-25-area',
-  0x28: 'route-8-area', 
-  0x5A: 'viridian-forest-area',
-  0x5C: 'mt-moon-b1f', 
-  0xCA: 'rock-tunnel-1f',
-  0xC1: 'power-plant-area',
-  0xD4: 'saffron-city-area', 
-  0xD6: 'kanto-safari-zone-center',
-  0xE2: 'cerulean-cave-1f',
+/** Map slugs keyed by generation number. Gen 1 uses flat mapId→slug, Gen 2 uses mapGroup→mapId→slug */
+export const MAP_TO_SLUG: Record<number, Record<number, string> | Record<number, Record<number, string>>> = {
+  1: {
+    0x00: 'pallet-town-area',
+    0x01: 'viridian-city-area',
+    0x02: 'pewter-city-area',
+    0x03: 'cerulean-city-area',
+    0x04: 'lavender-town-area',
+    0x05: 'vermilion-city-area',
+    0x06: 'celadon-city-area',
+    0x07: 'fuchsia-city-area',
+    0x08: 'cinnabar-island-area',
+    0x0A: 'saffron-city-area',
+    0x0C: 'route-1-area',
+    0x0D: 'route-2-area',
+    0x0E: 'route-3-area',
+    0x0F: 'route-4-area',
+    0x10: 'route-5-area',
+    0x11: 'route-6-area',
+    0x12: 'route-7-area',
+    0x13: 'route-8-area',
+    0x14: 'route-9-area',
+    0x15: 'kanto-route-10-area',
+    0x16: 'kanto-route-11-area',
+    0x17: 'kanto-route-12-area',
+    0x18: 'kanto-route-13-area',
+    0x19: 'kanto-route-14-area',
+    0x1A: 'kanto-route-15-area',
+    0x1B: 'kanto-route-16-area',
+    0x1C: 'kanto-route-17-area',
+    0x1D: 'kanto-route-18-area',
+    0x1E: 'kanto-route-19-area',
+    0x1F: 'kanto-route-20-area',
+    0x20: 'kanto-route-21-area',
+    0x21: 'kanto-route-22-area',
+    0x22: 'kanto-route-23-area',
+    0x23: 'kanto-route-24-area',
+    0x24: 'kanto-route-25-area',
+    0x28: 'route-8-area', 
+    0x5A: 'viridian-forest-area',
+    0x5C: 'mt-moon-b1f', 
+    0xCA: 'rock-tunnel-1f',
+    0xC1: 'power-plant-area',
+    0xD4: 'saffron-city-area', 
+    0xD6: 'kanto-safari-zone-center',
+    0xE2: 'cerulean-cave-1f',
+  } as Record<number, string>,
+  2: {
+    3: { 
+      1: 'new-bark-town-area',
+      2: 'cherrygrove-city-area',
+      3: 'violet-city-area',
+      4: 'azalea-town-area',
+      5: 'cianwood-city-area',
+      6: 'goldenrod-city-area',
+      7: 'olivine-city-area',
+      8: 'ecruteak-city-area',
+      9: 'mahogany-town-area',
+      10: 'lake-of-rage-area',
+      11: 'blackthorn-city-area',
+    },
+  } as Record<number, Record<number, string>>,
 };
 
-export const GEN2_MAP_TO_SLUG: Record<number, Record<number, string>> = {
-  3: { 
-    1: 'new-bark-town-area',
-    2: 'cherrygrove-city-area',
-    3: 'violet-city-area',
-    4: 'azalea-town-area',
-    5: 'cianwood-city-area',
-    6: 'goldenrod-city-area',
-    7: 'olivine-city-area',
-    8: 'ecruteak-city-area',
-    9: 'mahogany-town-area',
-    10: 'lake-of-rage-area',
-    11: 'blackthorn-city-area',
-  },
-};
+// Convenience re-exports for backward compatibility
+export const GEN1_MAP_TO_SLUG = MAP_TO_SLUG[1] as Record<number, string>;
+export const GEN2_MAP_TO_SLUG = MAP_TO_SLUG[2] as Record<number, Record<number, string>>;
 
 export const GEN1_ITEMS = {
   MOON_STONE: 0x0A,
@@ -110,14 +116,12 @@ export const STATIC_GIFT_DATA: Record<number, { name: string, location: string, 
   147: { name: 'Dratini', location: "Dragon's Den", reason: 'Gift from Dragon Elder', gen: 2 },
 };
 
-export const GEN1_ROD_IDS = {
-  OLD: 76,
-  GOOD: 77,
-  SUPER: 78
+/** Rod item IDs keyed by generation number */
+export const ROD_IDS: Record<number, { OLD: number; GOOD: number; SUPER: number }> = {
+  1: { OLD: 76, GOOD: 77, SUPER: 78 },
+  2: { OLD: 57, GOOD: 58, SUPER: 60 },
 };
 
-export const GEN2_ROD_IDS = {
-  OLD: 57,
-  GOOD: 58,
-  SUPER: 60
-};
+// Convenience re-exports for backward compatibility
+export const GEN1_ROD_IDS = ROD_IDS[1];
+export const GEN2_ROD_IDS = ROD_IDS[2];

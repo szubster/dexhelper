@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { SaveData } from '../utils/saveParser';
 import { pokeapi } from '../utils/pokeapi';
-import { GEN1_MAP_TO_SLUG, GEN2_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA } from '../utils/assistantData';
+import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA, ROD_IDS } from '../utils/assistantData';
 import { getDistanceToMap } from '../utils/mapGraphGen1';
 import { getUnobtainableReason } from '../utils/versionExclusives';
+import { getGenerationConfig } from '../utils/generationConfig';
 
 export type SuggestionCategory = 'Catch' | 'Evolve' | 'Breed' | 'Progress' | 'Event' | 'Utility' | 'Trade' | 'Gift';
 
@@ -34,6 +35,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   if (saveData.generation === 1) {
     localSlug = GEN1_MAP_TO_SLUG[saveData.currentMapId] || '';
   } else {
+    // For Gen 2+, use a default slug (map graph is Gen 1-only for now)
     localSlug = 'new-bark-town-area'; 
   }
 
@@ -118,7 +120,8 @@ export function generateSuggestions(
   const suggestions: Suggestion[] = [];
   if (!saveData || !apiData) return suggestions;
 
-  const maxDex = saveData.generation === 1 ? 151 : (saveData.generation === 2 ? 251 : 0);
+  const genConfig = getGenerationConfig(saveData.generation);
+  const maxDex = genConfig.maxDex;
   const missingIds: number[] = [];
   
   const ownedSet = isLivingDex 
@@ -139,7 +142,7 @@ export function generateSuggestions(
   }
 
   const effectiveVersion = manualVersion || saveData.gameVersion;
-  const displayVersion = effectiveVersion === 'unknown' ? (saveData.generation === 2 ? 'gold' : 'red') : effectiveVersion;
+  const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
   const queryTargets = missingIds.slice(0, 30); 
 
   // A. Catch logic
@@ -415,7 +418,7 @@ export function generateSuggestions(
 }
 
 export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, manualVersion?: string | null) {
-  const maxDex = saveData?.generation === 1 ? 151 : (saveData?.generation === 2 ? 251 : 0);
+  const maxDex = saveData ? getGenerationConfig(saveData.generation).maxDex : 0;
   const missingIds: number[] = [];
   const ownedSet = saveData ? (isLivingDex ? new Set([...saveData.party, ...saveData.pc]) : saveData.owned) : new Set<number>();
   if (saveData) {

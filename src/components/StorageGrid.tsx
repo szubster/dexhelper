@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Monitor, CircleDot, Sparkles } from 'lucide-react';
 import { useAppState } from '../state';
 import { useNavigate } from '@tanstack/react-router';
+import { getGenerationConfig } from '../utils/generationConfig';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -20,7 +21,10 @@ export function StorageGrid({ pokemonList }: { pokemonList: any[] }) {
 
   if (!saveData) return null;
 
-  const storageLocations = ['Party', 'Daycare', ...Array.from({ length: saveData.generation === 2 ? 14 : 12 }, (_, i) => `Box ${i + 1}`)];
+  const genConfig = getGenerationConfig(saveData.generation);
+  // Gen 2 has 14 boxes, Gen 1 has 12. Future gens may vary.
+  const boxCount = saveData.generation === 2 ? 14 : 12;
+  const storageLocations = ['Party', 'Daycare', ...Array.from({ length: boxCount }, (_, i) => `Box ${i + 1}`)];
 
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="show" className="space-y-16">
@@ -66,10 +70,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: any[] }) {
                     </div>
                     <div className="w-20 h-20 sm:w-24 sm:h-24 mb-4 flex items-center justify-center relative">
                       <img 
-                        src={saveData?.generation === 2 
-                          ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/crystal/transparent/${p.isShiny ? 'shiny/' : ''}${pokemon.id}.png`
-                          : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pokemon.id}.png`
-                        }
+                        src={genConfig.spriteUrl(pokemon.id, p.isShiny)}
                         alt={pokemon.name}
                         className="w-full h-full object-contain drop-shadow-xl pixelated"
                         style={{ imageRendering: 'pixelated' }}

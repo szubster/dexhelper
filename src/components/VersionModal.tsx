@@ -2,15 +2,15 @@ import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AlertTriangle } from 'lucide-react';
 import { useAppState, GameVersion } from '../state';
+import { getGenerationConfig } from '../utils/generationConfig';
 
 export function VersionModal() {
   const { isVersionModalOpen, setIsVersionModalOpen, setManualVersion, saveData } = useAppState();
 
   if (!isVersionModalOpen) return null;
 
-  const versions = saveData?.generation === 2 
-    ? ['gold', 'silver', 'crystal'] 
-    : ['red', 'blue', 'yellow'];
+  const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
+  const versions = genConfig?.versions ?? [...getGenerationConfig(1).versions, ...getGenerationConfig(2).versions];
 
   return (
     <AnimatePresence>
@@ -38,23 +38,16 @@ export function VersionModal() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {versions.map(v => (
               <button
-                key={v}
+                key={v.id}
                 onClick={() => {
-                  setManualVersion(v as GameVersion);
+                  setManualVersion(v.id as GameVersion);
                   setIsVersionModalOpen(false);
                 }}
                 className="group relative overflow-hidden p-6 bg-zinc-950 border border-zinc-800 rounded-3xl hover:border-red-500/50 transition-all text-center"
               >
                 <div className="relative z-10 flex flex-col items-center gap-3">
-                  <div className={`w-3 h-3 rounded-full shadow-lg ${
-                    v === 'red' ? 'bg-red-500 shadow-red-500/20' : 
-                    v === 'blue' ? 'bg-blue-500 shadow-blue-500/20' : 
-                    v === 'yellow' ? 'bg-yellow-400 shadow-yellow-400/20' :
-                    v === 'gold' ? 'bg-yellow-500' :
-                    v === 'silver' ? 'bg-zinc-400' :
-                    v === 'crystal' ? 'bg-cyan-400' : ''
-                  }`} />
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-100 group-hover:text-red-400 transition-colors">{v}</span>
+                  <div className={`w-3 h-3 rounded-full shadow-lg ${v.dotColor}`} />
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-100 group-hover:text-red-400 transition-colors">{v.label}</span>
                 </div>
               </button>
             ))}

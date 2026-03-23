@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Upload, Settings2, RefreshCw, AlertTriangle, LayoutGrid, Database, ChevronRight, Zap, Sparkles
 } from 'lucide-react';
-import { useAppState, GameVersion } from '../state';
+import { useAppState } from '../state';
 import { parseSaveFile } from '../utils/saveParser';
+import { getGenerationConfig, VERSION_THEMES } from '../utils/generationConfig';
 import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
 import { BottomNav } from './BottomNav';
@@ -16,16 +17,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const VERSION_THEMES: Record<string, string> = {
-  'red': 'theme-red',
-  'blue': 'theme-blue',
-  'yellow': 'theme-yellow',
-  'gold': 'theme-gold',
-  'silver': 'theme-silver',
-  'crystal': 'theme-crystal',
-  'unsupported': '',
-  'unknown': ''
-};
+
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const { 
@@ -96,7 +88,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 </div>
                 <div className="flex items-center gap-2 mt-[-4px]">
                   <span className="text-[10px] font-retro uppercase tracking-[0.2em] text-zinc-500">
-                    {saveData ? (saveData.generation === 2 ? 'Gen II' : 'Gen I') : 'Protocol X'}
+                    {saveData ? getGenerationConfig(saveData.generation).label : 'Protocol X'}
                   </span>
                   <div className="h-[1px] flex-1 bg-zinc-800" />
                 </div>
@@ -166,7 +158,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                       <span className="text-[10px] font-mono font-black text-[var(--theme-primary)]">
                         {(() => {
                            const securedIds = new Set([...saveData.party, ...saveData.pc]);
-                           const total = saveData.generation === 2 ? 251 : 151;
+                           const total = getGenerationConfig(saveData.generation).maxDex;
                            const percent = Math.floor((securedIds.size / total) * 100);
                            return `${percent}%`;
                         })()}
@@ -177,7 +169,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                         initial={{ width: 0 }}
                         animate={{ width: `${(() => {
                           const securedIds = new Set([...saveData.party, ...saveData.pc]);
-                          const total = saveData.generation === 2 ? 251 : 151;
+                          const total = getGenerationConfig(saveData.generation).maxDex;
                           return (securedIds.size / total) * 100;
                         })()}%` }}
                         className="h-full bg-[var(--theme-primary)] shadow-[0_0_10px_var(--theme-primary)]"
@@ -266,7 +258,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1] overflow-hidden">
         <div className="absolute inset-0 scanline-overlay" />
         <div className="p-20 flex flex-wrap gap-40 rotate-[30deg] scale-150">
-          {Array.from({ length: 151 }).map((_, i) => (
+          {Array.from({ length: getGenerationConfig(saveData?.generation ?? 1).maxDex }).map((_, i) => (
             <span key={i} className="text-4xl font-retro text-white">#{(i+1).toString().padStart(3, '0')}</span>
           ))}
         </div>

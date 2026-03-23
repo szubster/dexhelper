@@ -2,11 +2,12 @@ import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, Target, Zap, Egg, Flag, Info, Loader2, Waves, Fish, Trees } from 'lucide-react';
 import { Suggestion, useAssistant, EncounterDetail } from '../hooks/useAssistant';
-import { GEN1_ROD_IDS, GEN2_ROD_IDS } from '../utils/assistantData';
+import { ROD_IDS } from '../utils/assistantData';
 import { SaveData } from '../utils/saveParser';
 import { Link } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { pokeapi } from '../utils/pokeapi';
+import { getGenerationConfig, MAX_DEX_ACROSS_GENS } from '../utils/generationConfig';
 
 interface AssistantPanelProps {
   saveData: SaveData;
@@ -30,7 +31,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
   
   const { data: pokemonList } = useQuery<{ id: number; name: string }[]>({
     queryKey: ['pokemonList'],
-    queryFn: () => pokeapi.getPokemonsList({ limit: 251, offset: 0 }).then(res => res.results.map((p: any, i: number) => ({ id: i + 1, name: p.name }))),
+    queryFn: () => pokeapi.getPokemonsList({ limit: MAX_DEX_ACROSS_GENS, offset: 0 }).then(res => res.results.map((p: any, i: number) => ({ id: i + 1, name: p.name }))),
     staleTime: Infinity,
   });
 
@@ -174,7 +175,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                                     // Check ownership
                                     let isOwned = true;
                                     if (isRod) {
-                                      const rodIds = saveData.generation === 1 ? GEN1_ROD_IDS : GEN2_ROD_IDS;
+                                      const rodIds = ROD_IDS[saveData.generation] ?? ROD_IDS[1];
                                       const rodId = method.includes('old') ? rodIds.OLD : 
                                                     method.includes('good') ? rodIds.GOOD : 
                                                     rodIds.SUPER;
@@ -207,7 +208,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                                                 onClick={(e) => e.stopPropagation()} 
                                               >
                                                 <img 
-                                                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pid}.png`}
+                                                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pid}.png`}
                                                   alt={getPokemonName(pid)}
                                                   className="w-full h-full object-contain pixelated"
                                                 />

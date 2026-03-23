@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Monitor, CircleDot, Sparkles, ChevronRight, Hash } from 'lucide-react';
 import { useAppState } from '../state';
 import { useNavigate } from '@tanstack/react-router';
+import { getGenerationConfig } from '../utils/generationConfig';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -14,7 +15,8 @@ export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
   const { saveData, isLivingDex, searchTerm, filters } = useAppState();
   const navigate = useNavigate();
 
-  const displayLimit = saveData?.generation === 2 ? 251 : 151;
+  const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
+  const displayLimit = genConfig?.maxDex ?? 151;
   
   const finalPokemon = pokemonList.slice(0, displayLimit).filter(pokemon => {
     if (!saveData || filters.size === 0) return true;
@@ -111,8 +113,8 @@ export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
                 )}
 
                 <img 
-                  src={saveData?.generation === 2 
-                    ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/crystal/transparent/${isShiny ? 'shiny/' : ''}${pokemon.id}.png`
+                  src={genConfig
+                    ? genConfig.spriteUrl(pokemon.id, isShiny)
                     : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pokemon.id}.png`
                   }
                   alt={pokemon.name}
@@ -122,7 +124,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
                   )}
                   loading="lazy"
                   onError={(e) => {
-                    e.currentTarget.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
+                    e.currentTarget.src = (genConfig?.fallbackSpriteUrl ?? getGenerationConfig(1).fallbackSpriteUrl)(pokemon.id);
                   }}
                 />
                 

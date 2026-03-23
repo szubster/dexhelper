@@ -3,6 +3,7 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { PokedexGrid } from '../components/PokedexGrid';
 import { SearchAndFilters } from '../components/SearchAndFilters';
 import { pokeapi } from '../utils/pokeapi';
+import { MAX_DEX_ACROSS_GENS } from '../utils/generationConfig';
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -11,7 +12,7 @@ export const Route = createFileRoute('/')({
 const pokemonQueryOptions = {
   queryKey: ['pokemonList'],
   queryFn: async () => {
-    const data = await pokeapi.getPokemonsList({ limit: 251, offset: 0 });
+    const data = await pokeapi.getPokemonsList({ limit: MAX_DEX_ACROSS_GENS, offset: 0 });
     return data.results.map((p: any) => {
       const urlParts = p.url.split('/').filter(Boolean);
       const id = parseInt(urlParts[urlParts.length - 1]);

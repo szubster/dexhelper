@@ -18,7 +18,7 @@ export const INTERNAL_ID_TO_DEX: Record<number, number> = {
 };
 
 export type GameVersion = 'red' | 'blue' | 'yellow' | 'gold' | 'silver' | 'crystal' | 'unknown';
-export type Generation = 1 | 2;
+export type Generation = number;
 
 export interface PokemonInstance {
   speciesId: number;
