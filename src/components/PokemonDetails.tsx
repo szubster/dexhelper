@@ -91,7 +91,7 @@ const modalVariants = {
     y: 40,
     transition: { duration: 0.2 }
   }
-};
+} as const;
 
 const contentVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -100,7 +100,7 @@ const contentVariants = {
     y: 0,
     transition: { type: "spring", damping: 20, stiffness: 100 }
   }
-};
+} as const;
 
 export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, isLivingDex, pokeball: defaultPokeball, onClose, onNavigate }: PokemonDetailsProps) {
   useEffect(() => {

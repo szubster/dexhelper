@@ -7,12 +7,12 @@ import { useNavigate } from '@tanstack/react-router';
 const containerVariants = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.02, delayChildren: 0.1 } }
-};
+} as const;
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
   show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", damping: 20, stiffness: 100 } }
-};
+} as const;
 
 export function StorageGrid({ pokemonList }: { pokemonList: any[] }) {
   const { saveData } = useAppState();
@@ -54,7 +54,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: any[] }) {
                   <motion.div 
                     layout
                     key={`${location}-${idx}`} 
-                    onClick={() => navigate({ to: `/pokemon/${pokemon.id}` })}
+                    onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}
                     whileHover={{ y: -4 }}
                     whileTap={{ scale: 0.96 }}
                     className={`relative flex flex-col items-center p-5 rounded-2xl transition-all cursor-pointer ${cardStyle}`}

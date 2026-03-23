@@ -310,12 +310,7 @@ export function generateSuggestions(
         });
 
         if (loc.distance === 0) {
-            suggestions.push({
-                id: `catch-loc-${loc.name}`, category: 'Catch', title: 'Catch Right Here',
-                description: `Catch ${pids.length} missing Pokémon available at ${loc.name}.`,
-                pokemonIds: pids, priority: 115,
-                encounterInfo: locEncounterInfo
-            });
+            // This is already handled by the localEncounters block at the top with higher priority
             return;
         }
         suggestions.push({

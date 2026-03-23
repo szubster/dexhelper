@@ -85,4 +85,36 @@ describe('useAssistant - generateSuggestions logic', () => {
     expect(weedleTrade).toBeDefined();
     expect(weedleTrade?.title).toContain('Version Exclusive');
   });
+
+  it('should NOT duplicate "Catch Right Here" when found in both local and nearby logic', () => {
+    const duplicateApiData = {
+      ...mockApiData,
+      localEncounters: [
+        {
+          pokemon: { name: 'pidgey', url: 'https://pokeapi.co/api/v2/pokemon/16/' },
+          version_details: [{
+            version: { name: 'yellow' },
+            encounter_details: [{ chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 }]
+          }]
+        }
+      ],
+      missingEncounters: {
+        16: [{
+          location_area: { name: 'pallet-town-area' },
+          version_details: [{
+            version: { name: 'yellow' },
+            encounter_details: [{ chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 }]
+          }]
+        }]
+      }
+    };
+
+    // Pallet Town (id 0) + pallet-town-area slug = distance 0
+    const testSaveData = { ...mockSaveData, currentMapId: 0, owned: new Set([25]) };
+    const suggestions = generateSuggestions(testSaveData, false, 'yellow', duplicateApiData);
+    
+    const catchRightHereTips = suggestions.filter(s => s.title === 'Catch Right Here');
+    expect(catchRightHereTips.length).toBe(1);
+    expect(catchRightHereTips[0].id).toBe('catch-local');
+  });
 });

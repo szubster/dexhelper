@@ -48,7 +48,7 @@ function RootComponent() {
   return (
     <AppProvider>
       <AppLayout>
-        <Outlet context={{ pokemonList }} />
+        <Outlet />
       </AppLayout>
       <Suspense>
         <TanStackRouterDevtools />

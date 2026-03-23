@@ -65,7 +65,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ delay: (idx % 20) * 0.02 }}
               key={pokemon.id} 
-              onClick={() => navigate({ to: `/pokemon/${pokemon.id}` })}
+              onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
               whileHover={{ 
                 y: -6,
                 transition: { duration: 0.15 }

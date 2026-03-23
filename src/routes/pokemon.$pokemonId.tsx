@@ -5,6 +5,11 @@ import { useAppState } from '../state';
 import { pokeapi } from '../utils/pokeapi';
 
 export const Route = createFileRoute('/pokemon/$pokemonId')({
+  validateSearch: (search: Record<string, unknown>) => {
+    return {
+      from: (search.from as string) || '/',
+    };
+  },
   component: PokemonPage,
 });
 
@@ -25,6 +30,7 @@ const pokemonQueryOptions = {
 
 function PokemonPage() {
   const { pokemonId } = Route.useParams();
+  const { from } = Route.useSearch();
   const navigate = useNavigate();
   const { saveData, isLivingDex, globalPokeball, manualVersion } = useAppState();
 
@@ -43,14 +49,11 @@ function PokemonPage() {
           saveData={saveData}
           isLivingDex={isLivingDex}
           pokeball={globalPokeball}
-          onClose={() => {
-            if (window.history.length > 2) {
-              window.history.back();
-            } else {
-              navigate({ to: '/' });
-            }
-          }}
-          onNavigate={(id, name) => navigate({ to: `/pokemon/${id}` })}
+          onClose={() => navigate({ to: from })}
+          onNavigate={(id, name) => navigate({ 
+            to: `/pokemon/${id}`,
+            search: { from }
+          })}
         />
       )}
     </>
