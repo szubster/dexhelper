@@ -17,7 +17,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.95.0",
     "@tanstack/react-router": "^1.167.4",
-    "@tanstack/router-devtools": "^1.166.9",
+    "@tanstack/router-devtools": "^1.166.11",
     "@tanstack/router-vite-plugin": "^1.166.12",
     "clsx": "^2.1.1",
     "lucide-react": "^0.577.0",
