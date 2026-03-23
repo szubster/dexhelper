@@ -25,5 +25,15 @@ export const pokeapi = {
     const res = await fetch(url);
     if (!res.ok) throw new Error('Network response was not ok');
     return res.json();
+  },
+  getItem: async (id: number | string) => {
+    const res = await fetch(`${BASE_URL}/item/${id}`);
+    if (!res.ok) throw new Error('Network response was not ok');
+    return res.json();
+  },
+  getLocationArea: async (idOrSlug: number | string) => {
+    const res = await fetch(`${BASE_URL}/location-area/${idOrSlug}`);
+    if (!res.ok) throw new Error('Network response was not ok');
+    return res.json();
   }
 };

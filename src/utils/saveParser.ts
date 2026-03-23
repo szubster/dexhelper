@@ -57,6 +57,8 @@ export interface SaveData {
   kantoBadges?: number;
   inventory: { id: number, quantity: number }[];
   currentBoxCount: number;
+  hallOfFameCount: number;
+  eventFlags?: Uint8Array;
 }
 
 const GEN12_CHAR_MAP: Record<number, string> = {
@@ -67,7 +69,7 @@ const GEN12_CHAR_MAP: Record<number, string> = {
   0xE0: "'", 0xE1: 'PK', 0xE2: 'MN', 0xE3: '-', 0xE6: '?', 0xE7: '!', 0xE8: '♂', 0xE9: '/', 0xEA: ',', 0xED: '♀', 0xEE: '0', 0xEF: '1', 0xF0: '2', 0xF1: '3', 0xF2: '4', 0xF3: '5', 0xF4: '6', 0xF5: '7', 0xF6: '8', 0xF7: '9'
 };
 
-function decodeGen12String(u8: Uint8Array, offset: number, maxLength: number = 11): string {
+export function decodeGen12String(u8: Uint8Array, offset: number, maxLength: number = 11): string {
   let result = '';
   for (let i = 0; i < maxLength; i++) {
     const charCode = u8[offset + i];
@@ -187,7 +189,7 @@ function isGen2Save(u8: Uint8Array, crystal: boolean): boolean {
   return true;
 }
 
-export function parseSaveFile(buffer: ArrayBuffer): SaveData {
+export function parseSaveFile(buffer: ArrayBuffer, forcedVersion?: GameVersion): SaveData {
   const u8 = new Uint8Array(buffer);
 
   if (buffer.byteLength < 32768) {
@@ -210,7 +212,7 @@ export function parseSaveFile(buffer: ArrayBuffer): SaveData {
   const isGen2ChecksumValid = (gen2Sum & 0xFFFF) === gen2Checksum;
 
   if (isGen1ChecksumValid && isGen1Save(u8)) {
-    return parseGen1(u8);
+    return parseGen1(u8, forcedVersion);
   } else if (isGen2ChecksumValid) {
     if (isGen2Save(u8, true)) return parseGen2(u8, true);
     if (isGen2Save(u8, false)) return parseGen2(u8, false);
@@ -219,7 +221,7 @@ export function parseSaveFile(buffer: ArrayBuffer): SaveData {
   } else {
     // Fallback for saves with broken checksums but valid structure
     if (isGen1Save(u8)) {
-      return parseGen1(u8);
+      return parseGen1(u8, forcedVersion);
     } else if (isGen2Save(u8, true)) {
       return parseGen2(u8, true);
     } else if (isGen2Save(u8, false)) {
@@ -229,46 +231,67 @@ export function parseSaveFile(buffer: ArrayBuffer): SaveData {
   }
 }
 
-function parseGen1(u8: Uint8Array): SaveData {
-  const ownedBytes = u8.slice(0x25A3, 0x25A3 + 19);
-  const seenBytes = u8.slice(0x25B6, 0x25B6 + 19);
-
-  const owned = new Set<number>();
-  const seen = new Set<number>();
-
-  for (let dexId = 1; dexId <= 151; dexId++) {
-    const byteIdx = Math.floor((dexId - 1) / 8);
-    const bitIdx = (dexId - 1) % 8;
+function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
+  // Try to detect version by checking Pokedex at both possible offsets (0 and +1)
+  // Yellow shifted by +1 after PlayerName (offset 0x2598 + 11 = 0x25A3).
+  
+  const detectForOffset = (ownedBase: number) => {
+    const owned = new Set<number>();
+    const seen = new Set<number>();
+    const ownedBytes = u8.slice(ownedBase, ownedBase + 19);
+    const seenBytes = u8.slice(ownedBase + (0x25B6 - 0x25A3), ownedBase + (0x25B6 - 0x25A3) + 19);
     
-    if ((ownedBytes[byteIdx] & (1 << bitIdx)) !== 0) {
-      owned.add(dexId);
+    for (let i = 1; i <= 151; i++) {
+      const byteIdx = Math.floor((i - 1) / 8);
+      const bitIdx = (i - 1) % 8;
+      if ((ownedBytes[byteIdx] & (1 << bitIdx)) !== 0) owned.add(i);
+      if ((seenBytes[byteIdx] & (1 << bitIdx)) !== 0) seen.add(i);
     }
-    if ((seenBytes[byteIdx] & (1 << bitIdx)) !== 0) {
-      seen.add(dexId);
+    // High-confidence Yellow indicators: bit 152 (last bit of 19-byte Pokedex) must be 0.
+    // In Yellow, the Happiness byte (at A3) is often FF or high value, which would make bit 7 of the "shifted-Pokedex-last-byte" 1 if we read from A3.
+    const paddingBitIsCorrect = (ownedBytes[18] & 0x80) === 0;
+    const version = detectGen1GameVersion(owned, seen);
+    return { version, owned, seen, paddingBitIsCorrect };
+  };
+
+  const res0 = detectForOffset(0x25A3);
+  const res1 = detectForOffset(0x25A4);
+
+  // If forcedVersion is provided, respect it. Otherwise use robust indicators.
+  let isYellow = forcedVersion === 'yellow';
+  if (!forcedVersion) {
+    if (!res0.paddingBitIsCorrect && res1.paddingBitIsCorrect) {
+      isYellow = true;
+    } else if (res1.version === 'yellow') {
+      isYellow = true;
+    } else if (res0.version === 'unknown' && res1.version !== 'unknown') {
+      isYellow = true;
     }
   }
+  
+  const offsetShift = 0; // English R/B/Y saves don't actually shift these offsets in SRAM
+  const gameVersion = isYellow ? 'yellow' : (forcedVersion && forcedVersion !== 'unknown' ? forcedVersion : res0.version);
+  const { owned, seen } = res0;
 
   const partyCount = u8[0x2F2C];
   const partySpecies = u8.slice(0x2F2D, 0x2F2D + partyCount);
   const party = Array.from(partySpecies)
     .map(id => INTERNAL_ID_TO_DEX[id])
-    .filter(Boolean);
+    .filter((id): id is number => id !== undefined);
 
   const partyDetails: PokemonInstance[] = [];
-  const partyDataOffset = 0x2F2D + 7; // After species list
+  const partyDataOffset = 0x2F2D + 7;
   const partyOTOffset = partyDataOffset + (6 * 44);
   for (let i = 0; i < partyCount; i++) {
     const offset = partyDataOffset + (i * 44);
     const internalId = u8[offset];
     const speciesId = INTERNAL_ID_TO_DEX[internalId];
     if (!speciesId) continue;
-    
-    const level = u8[offset + 33]; // Level is at 0x21 in the struct
+    const level = u8[offset + 33];
     const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter(m => m > 0);
-    const dvs = parseDVs(u8.slice(offset + 27, offset + 29)); // DVs at 0x1B
+    const dvs = parseDVs(u8.slice(offset + 27, offset + 29));
     const isShiny = checkShiny(dvs);
     const otName = decodeGen12String(u8, partyOTOffset + (i * 11));
-
     partyDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: 'Party', slot: i + 1 });
   }
 
@@ -277,95 +300,43 @@ function parseGen1(u8: Uint8Array): SaveData {
   const currentBoxSpecies = u8.slice(0x30C1, 0x30C1 + currentBoxCount);
   const pc = Array.from(currentBoxSpecies)
     .map(id => INTERNAL_ID_TO_DEX[id])
-    .filter(Boolean);
+    .filter((id): id is number => id !== undefined);
 
   const pcDetails: PokemonInstance[] = [];
-  const currentBoxDataOffset = 0x30C1 + 21; // After species list
+  const currentBoxDataOffset = 0x30C1 + 21;
   const currentBoxOTOffset = currentBoxDataOffset + (20 * 33);
   for (let i = 0; i < currentBoxCount; i++) {
-    const offset = currentBoxDataOffset + (i * 33); // PC struct is 33 bytes
+    const offset = currentBoxDataOffset + (i * 33);
     const internalId = u8[offset];
     const speciesId = INTERNAL_ID_TO_DEX[internalId];
     if (!speciesId) continue;
-    
-    const level = u8[offset + 3]; // Level is at 0x03 in PC struct
+    const level = u8[offset + 3];
     const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter(m => m > 0);
-    const dvs = parseDVs(u8.slice(offset + 27, offset + 29)); // DVs at 0x1B
+    const dvs = parseDVs(u8.slice(offset + 27, offset + 29));
     const isShiny = checkShiny(dvs);
     const otName = decodeGen12String(u8, currentBoxOTOffset + (i * 11));
-
     pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: `Box ${currentBoxNum + 1}`, slot: i + 1 });
   }
 
-  const boxOffsets = [
-    0x4000, 0x4462, 0x48C4, 0x4D26, 0x5188, 0x55EA, // Bank 2
-    0x6000, 0x6462, 0x68C4, 0x6D26, 0x7188, 0x75EA  // Bank 3
-  ];
-
+  const boxOffsets = [0x4000, 0x4462, 0x48C4, 0x4D26, 0x5188, 0x55EA, 0x6000, 0x6462, 0x68C4, 0x6D26, 0x7188, 0x75EA];
   for (let i = 0; i < 12; i++) {
     if (i === currentBoxNum) continue;
     const offset = boxOffsets[i];
     const count = u8[offset];
     if (count > 20) continue;
     const species = u8.slice(offset + 1, offset + 1 + count);
-    pc.push(...Array.from(species).map(id => INTERNAL_ID_TO_DEX[id]).filter(Boolean));
-    
-    const boxDataOffset = offset + 22;
-    const boxOTOffset = boxDataOffset + (20 * 33);
-    for (let j = 0; j < count; j++) {
-      const pOffset = boxDataOffset + (j * 33);
-      const internalId = u8[pOffset];
-      const speciesId = INTERNAL_ID_TO_DEX[internalId];
-      if (!speciesId) continue;
-      
-      const level = u8[pOffset + 3];
-      const moves = Array.from(u8.slice(pOffset + 8, pOffset + 12)).filter(m => m > 0);
-      const dvs = parseDVs(u8.slice(pOffset + 27, pOffset + 29));
-      const isShiny = checkShiny(dvs);
-      const otName = decodeGen12String(u8, boxOTOffset + (j * 11));
-
-      pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: `Box ${i + 1}`, slot: j + 1 });
-    }
+    pc.push(...Array.from(species).map(id => INTERNAL_ID_TO_DEX[id]).filter((id): id is number => id !== undefined));
   }
 
-  const daycareSpecies = u8[0x2CF4];
-  if (daycareSpecies !== 0x00 && daycareSpecies !== 0xFF) {
-    const dexId = INTERNAL_ID_TO_DEX[daycareSpecies];
-    if (dexId) {
-      pc.push(dexId);
-      // Daycare struct is 33 bytes at 0x2CF4
-      const level = u8[0x2CF4 + 3];
-      const moves = Array.from(u8.slice(0x2CF4 + 8, 0x2CF4 + 12)).filter(m => m > 0);
-      const dvs = parseDVs(u8.slice(0x2CF4 + 27, 0x2CF4 + 29));
-      const isShiny = checkShiny(dvs);
-      const otName = decodeGen12String(u8, 0x2CF4 + (1 * 44)); // This might be wrong for daycare, let's check
-      // Actually daycare OT is at 0x2CF4 + 12? No.
-      // Daycare struct: Species (1), HP (2), Level (1), Status (1), Type (2), Catch (1), Moves (4), OT ID (2), Exp (3), HP EV (2), Atk EV (2), Def EV (2), Spd EV (2), Spc EV (2), DVs (2).
-      // Total: 1+2+1+1+2+1+4+2+3+10+2 = 29 bytes?
-      // Wait, 0x2CF4 is the start of the daycare data.
-      // The OT name is usually stored separately.
-      // For daycare, the OT name is at 0x2D2C.
-      const daycareOTName = decodeGen12String(u8, 0x2D2C);
-      pcDetails.push({ speciesId: dexId, level, isShiny, moves, dvs, otName: daycareOTName, storageLocation: 'Daycare' });
-    }
-  }
-
-  const gameVersion = detectGen1GameVersion(owned, seen);
-  const badges = u8[0x2602];
   const trainerName = decodeGen12String(u8, 0x2598);
+  const badges = u8[0x2602];
   const trainerId = (u8[0x2605] << 8) | u8[0x2606];
-
-  const currentMapId = u8[0x260A]; // WRAM 0xD35E -> SRAM 0x260A
-  
+  const currentMapId = u8[0x260A]; 
   const inventory: { id: number, quantity: number }[] = [];
   const itemCount = u8[0x25C9];
   for (let i = 0; i < itemCount; i++) {
     const itemOffset = 0x25CA + (i * 2);
-    const itemId = u8[itemOffset];
-    const quantity = u8[itemOffset + 1];
-    if (itemId !== 0xFF) {
-      inventory.push({ id: itemId, quantity });
-    }
+    inventory.push({ id: u8[itemOffset], quantity: u8[itemOffset + 1] });
   }
 
   return {
@@ -383,7 +354,9 @@ function parseGen1(u8: Uint8Array): SaveData {
     trainerId,
     currentMapId,
     inventory,
-    currentBoxCount
+    currentBoxCount,
+    hallOfFameCount: u8[0x25B3 + offsetShift] === 0xFF ? 0 : u8[0x25B3 + offsetShift],
+    eventFlags: u8.slice(0x29E6 + offsetShift, 0x29E6 + offsetShift + 0x118)
   };
 }
 
@@ -596,6 +569,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     currentMapId,
     mapGroup,
     inventory,
-    currentBoxCount: 0
+    currentBoxCount: 0,
+    hallOfFameCount: 0 // Default for Gen 2 for now
   };
 }

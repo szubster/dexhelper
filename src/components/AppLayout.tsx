@@ -41,7 +41,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     reader.onload = (e) => {
       try {
         const buffer = e.target?.result as ArrayBuffer;
-        const data = parseSaveFile(buffer);
+        const data = parseSaveFile(buffer, manualVersion || undefined);
         setSaveData(data);
         setError(null);
         

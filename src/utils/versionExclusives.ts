@@ -1,33 +1,3 @@
-// Pokemon that are absolutely unobtainable in the given version without trading
-export const VERSION_UNOBTAINABLE = {
-  red: [
-    27, 28, // Sandshrew, Sandslash
-    37, 38, // Vulpix, Ninetales
-    52, 53, // Meowth, Persian
-    69, 70, 71, // Bellsprout, Weepinbell, Victreebel
-    126, // Magmar
-    127, // Pinsir
-  ],
-  blue: [
-    23, 24, // Ekans, Arbok
-    43, 44, 45, // Oddish, Gloom, Vileplume
-    56, 57, // Mankey, Primeape
-    58, 59, // Growlithe, Arcanine
-    123, // Scyther
-    125, // Electabuzz
-  ],
-  yellow: [
-    13, 14, 15, // Weedle, Kakuna, Beedrill
-    23, 24, // Ekans, Arbok
-    26, // Raichu (cannot be evolved in Yellow natively)
-    52, 53, // Meowth, Persian
-    109, 110, // Koffing, Weezing
-    124, // Jynx
-    125, // Electabuzz
-    126, // Magmar
-  ]
-};
-
 // One-time static choices (if you miss the pre-evolution without breeding, you're locked out)
 export const ONE_TIME_CHOICES = {
   starters: [1, 4, 7], // Bulbasaur, Charmander, Squirtle families
@@ -42,12 +12,6 @@ export function getUnobtainableReason(
   ownedCount: number, // Total current caught count
   ownedSet: Set<number>
 ): string | null {
-  // Check Unobtainables
-  const unobtainables: number[] = VERSION_UNOBTAINABLE[gameVersion as keyof typeof VERSION_UNOBTAINABLE] || [];
-  if (unobtainables.includes(pokemonId)) {
-    return `Version Exclusive. Must be traded from another version.`;
-  }
-
   // Yellow specific - Raichu
   if (gameVersion === 'yellow' && pokemonId === 26 && !ownedSet.has(26)) {
       return `Starter Pikachu refuses Thunder Stone. Must be traded.`;

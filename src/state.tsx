@@ -90,7 +90,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         for (let i = 0; i < len; i++) {
           bytes[i] = binaryString.charCodeAt(i);
         }
-        const data = parseSaveFile(bytes.buffer);
+        const data = parseSaveFile(bytes.buffer, manualVersion || undefined);
         setSaveData(data);
       } catch (err) {
         console.error("Failed to load saved file from localStorage:", err);

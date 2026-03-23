@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, Target, Zap, Egg, Flag, Info, Loader2 } from 'lucide-react';
-import { Suggestion, useAssistant } from '../hooks/useAssistant';
+import { Sparkles, Target, Zap, Egg, Flag, Info, Loader2, Waves, Fish, Trees } from 'lucide-react';
+import { Suggestion, useAssistant, EncounterDetail } from '../hooks/useAssistant';
+import { GEN1_ROD_IDS, GEN2_ROD_IDS } from '../utils/assistantData';
 import { SaveData } from '../utils/saveParser';
 import { Link } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
+import { pokeapi } from '../utils/pokeapi';
 
 interface AssistantPanelProps {
   saveData: SaveData;
@@ -28,7 +30,8 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
   
   const { data: pokemonList } = useQuery<{ id: number; name: string }[]>({
     queryKey: ['pokemonList'],
-    enabled: false, // Don't fetch if missing, just read from cache
+    queryFn: () => pokeapi.getPokemonsList({ limit: 251, offset: 0 }).then(res => res.results.map((p: any, i: number) => ({ id: i + 1, name: p.name }))),
+    staleTime: Infinity,
   });
 
   const getPokemonName = (id: number) => {
@@ -99,7 +102,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                       transition: { staggerChildren: 0.1 }
                     }
                   }}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                  className={`grid gap-6 ${category === 'Catch' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
                 >
                   <AnimatePresence>
                     {items.map((s) => {
@@ -119,9 +122,9 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                         <>
                           <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full blur-[40px] opacity-20 group-hover:opacity-40 transition-opacity ${style.bg.replace('bg-', 'bg-')}`} />
                           
-                          <div className="relative z-10 flex flex-col h-full justify-between p-5">
-                            <div>
-                              <div className="flex items-center justify-between mb-3">
+                          <div className="relative z-10 flex flex-col h-full p-5 gap-4">
+                            <div className="space-y-3">
+                              <div className="flex items-center justify-between">
                                 <div className={`px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-widest flex items-center gap-1.5 border border-white/10 ${style.bg} ${style.color.replace('border-', 'text-')}`}>
                                   {style.icon}
                                   {s.category}
@@ -131,17 +134,17 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                                 )}
                               </div>
 
-                              <h3 className="text-sm font-bold text-white mb-2 leading-tight">
+                              <h3 className={`font-bold text-white leading-tight ${s.category === 'Catch' ? 'text-xl' : 'text-sm'}`}>
                                 {title}
                               </h3>
                               
-                              <p className="text-xs font-medium text-zinc-400 leading-relaxed max-w-[90%]">
+                              <p className="text-xs font-medium text-zinc-400 leading-relaxed max-w-[95%]">
                                 {desc}
                               </p>
                             </div>
 
                             {s.pokemonId && (
-                              <div className="absolute bottom-2 right-2 w-16 h-16 opacity-30 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 transform origin-bottom-right">
+                              <div className="absolute bottom-4 right-4 w-20 h-20 opacity-30 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 transform origin-bottom-right">
                                 <img 
                                   src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${s.pokemonId}.png`}
                                   alt="Sprite"
@@ -151,27 +154,100 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                             )}
 
                             {hasMultiple && (
-                              <div className="mt-4 flex flex-wrap gap-2 relative z-20">
-                                {s.pokemonIds!.slice(0, 8).map(pid => (
-                                  <Link 
-                                    key={pid} 
-                                    to="/pokemon/$pokemonId" 
-                                    params={{ pokemonId: pid.toString() }}
-                                    className="w-10 h-10 bg-black/40 rounded-lg p-1 border border-white/5 hover:border-white/40 hover:scale-110 hover:bg-black/60 transition-all group/sprite relative"
-                                    title={getPokemonName(pid)}
-                                    // Make sure clicking the inline link doesn't trigger parent clicks (though parent isn't clickable here anymore)
-                                    onClick={(e) => e.stopPropagation()} 
-                                  >
-                                    <img 
-                                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pid}.png`}
-                                      alt={getPokemonName(pid)}
-                                      className="w-full h-full object-contain pixelated"
-                                    />
-                                  </Link>
-                                ))}
-                                {s.pokemonIds!.length > 8 && (
-                                  <div className="w-10 h-10 bg-black/40 rounded-lg flex items-center justify-center border border-white/5 text-xs font-bold text-zinc-500">
-                                    +{s.pokemonIds!.length - 8}
+                              <div className={`flex flex-col gap-4 relative z-20 ${s.category === 'Catch' ? 'mt-0' : 'mt-0'}`}>
+                                {s.category === 'Catch' ? (
+                                  Object.entries(
+                                    s.pokemonIds!.reduce((acc, pid) => {
+                                      const encs = s.encounterInfo?.[pid];
+                                      if (!encs) return acc;
+                                      const mainEnc = [...encs].sort((a,b) => b.chance - a.chance)[0];
+                                      const method = mainEnc.method;
+                                      if (!acc[method]) acc[method] = [];
+                                      acc[method].push({ pid, enc: mainEnc });
+                                      return acc;
+                                    }, {} as Record<string, { pid: number, enc: EncounterDetail }[]>)
+                                  ).map(([method, pokes]) => {
+                                    const isRod = method.includes('rod');
+                                    const isSurf = method === 'surf';
+                                    const isGrass = method === 'walk';
+                                    
+                                    // Check ownership
+                                    let isOwned = true;
+                                    if (isRod) {
+                                      const rodIds = saveData.generation === 1 ? GEN1_ROD_IDS : GEN2_ROD_IDS;
+                                      const rodId = method.includes('old') ? rodIds.OLD : 
+                                                    method.includes('good') ? rodIds.GOOD : 
+                                                    rodIds.SUPER;
+                                      isOwned = saveData.inventory.some(i => i.id === rodId);
+                                    }
+
+                                    const Icon = isRod ? Fish : isSurf ? Waves : isGrass ? Trees : Target;
+                                    const label = method.replace(/-/g, ' ').toUpperCase();
+                                    
+                                    return (
+                                      <div key={method} className={`space-y-3 bg-black/30 p-4 rounded-2xl border border-white/5 transition-opacity ${!isOwned ? 'opacity-40 grayscale-[0.5]' : ''}`}>
+                                        <div className="flex items-center justify-between px-1">
+                                          <div className="flex items-center gap-2">
+                                            <Icon size={14} className={isOwned ? 'text-emerald-400' : 'text-zinc-500'} />
+                                            <span className={`text-[10px] font-black tracking-wider font-mono ${isOwned ? 'text-zinc-300' : 'text-zinc-500'}`}>{label}</span>
+                                          </div>
+                                          {!isOwned && (
+                                            <span className="text-[8px] font-black bg-red-500/20 text-red-400 px-1.5 py-0.5 rounded border border-red-500/30 uppercase tracking-tighter">Rod Missing</span>
+                                          )}
+                                        </div>
+                                        <div className="flex flex-wrap gap-4">
+                                          {pokes.map(({ pid, enc }) => (
+                                            <div key={pid} className="flex flex-col items-center gap-1.5 group/sprite min-w-[56px]">
+                                              <Link 
+                                                to="/pokemon/$pokemonId" 
+                                                params={{ pokemonId: pid.toString() }}
+                                                className="w-14 h-14 bg-zinc-800/80 rounded-2xl p-2 border border-white/10 hover:border-emerald-500/50 hover:scale-110 hover:bg-zinc-700 transition-all relative flex items-center justify-center shadow-md"
+                                                title={getPokemonName(pid)}
+                                                onClick={(e) => e.stopPropagation()} 
+                                              >
+                                                <img 
+                                                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pid}.png`}
+                                                  alt={getPokemonName(pid)}
+                                                  className="w-full h-full object-contain pixelated"
+                                                />
+                                                <div className="absolute -top-1.5 -right-1.5 bg-emerald-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded-lg border border-white/20 shadow-lg">
+                                                  {enc.chance}%
+                                                </div>
+                                              </Link>
+                                              <div className="flex flex-col items-center leading-none">
+                                                <span className="text-[9px] font-black text-white group-hover/sprite:text-emerald-400 transition-colors">
+                                                  Lv. {enc.minLevel === enc.maxLevel ? enc.minLevel : `${enc.minLevel}-${enc.maxLevel}`}
+                                                </span>
+                                              </div>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    );
+                                  })
+                                ) : (
+                                  <div className="flex flex-wrap gap-2">
+                                    {s.pokemonIds!.slice(0, 8).map(pid => (
+                                      <Link 
+                                        key={pid} 
+                                        to="/pokemon/$pokemonId" 
+                                        params={{ pokemonId: pid.toString() }}
+                                        className="w-10 h-10 bg-black/40 rounded-lg p-1 border border-white/5 hover:border-white/40 hover:scale-110 hover:bg-black/60 transition-all group/sprite relative"
+                                        title={getPokemonName(pid)}
+                                        onClick={(e) => e.stopPropagation()} 
+                                      >
+                                        <img 
+                                          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pid}.png`}
+                                          alt={getPokemonName(pid)}
+                                          className="w-full h-full object-contain pixelated"
+                                        />
+                                      </Link>
+                                    ))}
+                                    {s.pokemonIds!.length > 8 && (
+                                      <div className="w-10 h-10 bg-black/40 rounded-lg flex items-center justify-center border border-white/5 text-xs font-bold text-zinc-500">
+                                        +{s.pokemonIds!.length - 8}
+                                      </div>
+                                    )}
                                   </div>
                                 )}
                               </div>

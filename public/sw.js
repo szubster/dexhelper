@@ -37,6 +37,33 @@ self.addEventListener('activate', (event) => {
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
+// staleWhileRevalidate: serve from cache, but always fetch in background to update
+async function staleWhileRevalidate(request, cacheName, maxEntries) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(request);
+
+  const fetchPromise = fetch(request).then(async (response) => {
+    if (response.ok || response.status === 0) {
+      const headers = new Headers(response.headers);
+      headers.set('sw-fetched-at', String(Date.now()));
+      const stamped = new Response(await response.clone().arrayBuffer(), {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      });
+      await cache.put(request, stamped);
+      
+      const keys = await cache.keys();
+      if (keys.length > maxEntries) {
+        await Promise.all(keys.slice(0, keys.length - maxEntries).map((k) => cache.delete(k)));
+      }
+    }
+    return response;
+  }).catch(() => cached || fetch(request));
+
+  return cached || fetchPromise;
+}
+
 // CacheFirst: serve from cache, fall back to network and store result
 async function cacheFirst(request, cacheName, maxEntries, maxAgeMs) {
   const cache = await caches.open(cacheName);
@@ -99,10 +126,10 @@ self.addEventListener('fetch', (event) => {
   // Only handle http(s) — skip chrome-extension://, data:, etc.
   if (!url.startsWith('http')) return;
 
-  // PokeAPI JSON — CacheFirst, 1 year TTL, up to 1000 entries
+  // PokeAPI JSON — StaleWhileRevalidate, up to 1000 entries
   if (/^https:\/\/pokeapi\.co\/api\/v2\//i.test(url)) {
     event.respondWith(
-      cacheFirst(request, API_CACHE, 1000, 365 * 24 * 60 * 60 * 1000)
+      staleWhileRevalidate(request, API_CACHE, 1000)
     );
     return;
   }
