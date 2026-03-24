@@ -344,33 +344,55 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
 
   const currentGenVersions = genConfig.versions.map(v => v.id);
 
-  const allVersionLocations = currentGenVersions.reduce((acc, v) => {
-    acc[v] = getLocationsForVersion(v);
-    return acc;
-  }, {} as Record<string, {name: string, details: string}[]>);
+  const getLocationsForVersion = (version: string) => {
+    // Only return locations if the version belongs to the current generation
+    if (!currentGenVersions.includes(version)) return [];
+    
+    const locations: { name: string, details: string }[] = [];
+    
+    const staticData = staticEncounters[pokemonId];
+    if (staticData && staticData[version as keyof typeof staticData]) {
+      staticData[version as keyof typeof staticData]!.forEach(loc => {
+        locations.push({ name: loc, details: 'Static Encounter / Gift / Trade' });
+      });
+    }
 
-  const isSafariNative = React.useMemo(() => {
-    const locations = allVersionLocations[displayVersion] || [];
-    return locations.some(loc => loc.name.toLowerCase().includes('safari zone'));
-  }, [allVersionLocations, displayVersion]);
+    encounters.forEach(enc => {
+      const versionDetail = enc.version_details.find(vd => vd.version.name === version);
+      if (versionDetail) {
+        let name = enc.location_area.name
+          .replace(/-/g, ' ')
+          .replace(/\b\w/g, l => l.toUpperCase())
+          .replace(' Area', '')
+          .replace('Kanto ', '')
+          .replace('Johto ', '');
 
-  const effectivePokeball = isSafariNative ? 'safari' : defaultPokeball;
+        const methodMap = new Map<string, { chance: number, min: number, max: number, conditions: string[] }>();
+        versionDetail.encounter_details.forEach((detail: any) => {
+          const method = detail.method.name.replace(/-/g, ' ');
+          const conditions = detail.condition_values.map((cv: any) => cv.name.replace(/-/g, ' '));
+          const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
+          
+          const existing = methodMap.get(key);
+          if (existing) {
+            existing.chance += detail.chance;
+            existing.min = Math.min(existing.min, detail.min_level);
+            existing.max = Math.max(existing.max, detail.max_level);
+          } else {
+            methodMap.set(key, { chance: detail.chance, min: detail.min_level, max: detail.max_level, conditions });
+          }
+        });
 
-  
-  let hasPreEvo = false;
-  if (evoReq && saveData) {
-    const preEvoInStorage = saveData.party.includes(evoReq.fromId) || saveData.pc.includes(evoReq.fromId);
-    const preEvoOwned = saveData.owned.has(evoReq.fromId);
-    hasPreEvo = isLivingDex ? preEvoInStorage : preEvoOwned;
-  }
+        const detailStrings = Array.from(methodMap.entries()).map(([key, data]) => {
+          const lvl = data.min === data.max ? `Lv ${data.min}` : `Lv ${data.min}-${data.max}`;
+          return `${data.chance}% chance, ${lvl} (${key})`;
+        });
 
-  const stadiumReward = stadiumRewardsSummary[pokemonId];
-
-  const getGender = (atkDV: number, rate: number) => {
-    if (rate === -1) return 'Genderless';
-    if (rate === 0) return 'Male';
-    if (rate === 8) return 'Female';
-    return atkDV < (rate * 2) ? 'Female' : 'Male';
+        locations.push({ name, details: detailStrings.join(' | ') });
+      }
+    });
+    
+    return locations;
   };
 
   const getUnownForm = (dvs: { atk: number, def: number, spd: number, spc: number }) => {

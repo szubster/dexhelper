@@ -136,7 +136,7 @@ export function generateSuggestions(
   const missingIds: number[] = [];
   
   const ownedSet = isLivingDex 
-    ? new Set([...(saveData.party || []), ...(saveData.pc || [])]) 
+    ? new Set([...(saveData.partyDetails || []).map(p => p.speciesId), ...(saveData.pcDetails || []).map(p => p.speciesId)]) 
     : saveData.owned || new Set<number>();
   
   const ownedCount = ownedSet.size;
@@ -362,15 +362,15 @@ export function generateSuggestions(
                       pid === 147 ? [147, 148, 149] : 
                       [pid];
     
-    const hasAnyFamily = familyIds.some(fid => ownedSet.has(fid));
-    const hasAnyWithMyOT = familyIds.some(fid => myOtIds.has(fid));
+    const hasFamilyMember = familyIds.some(fid => ownedSet.has(fid));
+    const allFamilyMembersPresent = isLivingDex ? familyIds.every(fid => ownedSet.has(fid)) : hasFamilyMember;
     
     let isClaimedByEvent = false;
     if (saveData.eventFlags && gift.eventFlag) {
       isClaimedByEvent = (saveData.eventFlags[Math.floor(gift.eventFlag / 8)] & (1 << (gift.eventFlag % 8))) !== 0;
     }
     
-    if (!isClaimedByEvent && !hasAnyWithMyOT && !hasAnyFamily && missingIds.includes(pid)) {
+    if (!isClaimedByEvent && missingIds.includes(pid) && !allFamilyMembersPresent) {
       suggestions.push({ id: `gift-${pid}`, category: 'Gift', title: `Secure Gift: ${gift.name}`, description: `Location: ${gift.location}. ${gift.reason}`, pokemonId: pid, priority: 85 });
     }
   }
