@@ -131,7 +131,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
 
                       const CardContent = (
                         <>
-                          <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full blur-[40px] opacity-20 group-hover:opacity-40 transition-opacity ${style.bg.replace('bg-', 'bg-')}`} />
+                          <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full blur-[40px] opacity-20 group-hover:opacity-40 transition-opacity ${style.bg}`} />
                           
                           <div className="relative z-10 flex flex-col h-full p-5 gap-4">
                             <div className="space-y-3">
