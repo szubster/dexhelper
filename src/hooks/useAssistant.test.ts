@@ -55,13 +55,13 @@ describe('useAssistant - generateSuggestions logic', () => {
   };
 
   it('should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)', () => {
-    const suggestions = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
     const wigglyTrade = suggestions.find(s => s.pokemonId === 40 && s.category === 'Trade');
     expect(wigglyTrade).toBeUndefined();
   });
 
   it('should NOT mark Poliwrath as Trade Required in Pokémon Yellow if Poliwag is catchable', () => {
-    const suggestions = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
     const poliTrade = suggestions.find(s => s.pokemonId === 62 && s.category === 'Trade');
     expect(poliTrade).toBeUndefined();
   });
@@ -80,7 +80,7 @@ describe('useAssistant - generateSuggestions logic', () => {
       }
     };
     
-    const suggestions = generateSuggestions(mockSaveData, false, 'yellow', exclusiveApiData);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', exclusiveApiData);
     const weedleTrade = suggestions.find(s => s.pokemonId === 13 && s.category === 'Trade');
     expect(weedleTrade).toBeDefined();
     expect(weedleTrade?.title).toContain('Version Exclusive');
@@ -111,7 +111,7 @@ describe('useAssistant - generateSuggestions logic', () => {
 
     // Pallet Town (id 0) + pallet-town-area slug = distance 0
     const testSaveData = { ...mockSaveData, currentMapId: 0, owned: new Set([25]) };
-    const suggestions = generateSuggestions(testSaveData, false, 'yellow', duplicateApiData);
+    const { suggestions } = generateSuggestions(testSaveData, false, 'yellow', duplicateApiData);
     
     const catchRightHereTips = suggestions.filter(s => s.title === 'Catch Right Here');
     expect(catchRightHereTips.length).toBe(1);
