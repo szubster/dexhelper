@@ -20,7 +20,7 @@ const router = createRouter({
   context: {
     queryClient,
   },
-  basepath: '/dexhelper',
+  basepath: import.meta.env.BASE_URL,
   defaultViewTransition: true,
 });
 
