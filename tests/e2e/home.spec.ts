@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { argosScreenshot } from '@argos-ci/playwright';
 
 test.describe('Dexhelper App', () => {
-  test('should load the main page', async ({ page }) => {
+  test('should load the main page', async ({ page }, testInfo) => {
     await page.goto('/');
 
     // Wait for the container we expect to be visible, or at least the body
@@ -14,6 +14,6 @@ test.describe('Dexhelper App', () => {
     await expect(page.locator('#root')).toBeAttached();
 
     // Take a screenshot of the whole page automatically processed via Argos
-    await argosScreenshot(page, 'home-page', { fullPage: true });
+    await argosScreenshot(page, `${testInfo.project.name}-home-page`, { fullPage: true });
   });
 });

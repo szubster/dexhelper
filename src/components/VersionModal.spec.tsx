@@ -6,7 +6,7 @@ import { VersionModalStory } from './VersionModal.story';
 // Component tests run in a real browser context
 // With Zustand, no Provider wrapper is needed
 test.describe('VersionModal', () => {
-  test('should render and display visual state accurately', async ({ mount, page }) => {
+  test('should render and display visual state accurately', async ({ mount, page }, testInfo) => {
     const component = await mount(
       <VersionModalStory />
     );
@@ -18,6 +18,6 @@ test.describe('VersionModal', () => {
     await page.waitForTimeout(500);
 
     // Verify it doesn't just crash but also looks exactly as expected
-    await argosScreenshot(page, 'version-modal');
+    await argosScreenshot(page, `${testInfo.project.name}-version-modal`);
   });
 });

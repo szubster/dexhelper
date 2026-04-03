@@ -16,7 +16,10 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [
     ['html'],
-    ['@argos-ci/playwright/reporter', { uploadToArgos: !!process.env.CI }]
+    ['@argos-ci/playwright/reporter', { 
+      uploadToArgos: !!process.env.CI,
+      buildName: 'E2E',
+    }]
   ],
   use: {
     actionTimeout: 0,
