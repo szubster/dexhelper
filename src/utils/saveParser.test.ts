@@ -48,3 +48,45 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     expect(data.gameVersion).toBe('yellow');
   });
 });
+
+describe('decodeGen12String', () => {
+  it('should decode a simple string correctly', () => {
+    const u8 = new Uint8Array([0x80, 0x92, 0x87, 0x50]); // "ASH@"
+    expect(decodeGen12String(u8, 0)).toBe('ASH');
+  });
+
+  it('should handle unmapped characters with "?"', () => {
+    const u8 = new Uint8Array([0x01, 0x02, 0x50]);
+    expect(decodeGen12String(u8, 0)).toBe('??');
+  });
+
+  it('should stop at terminator 0x50', () => {
+    const u8 = new Uint8Array([0x80, 0x50, 0x81]);
+    expect(decodeGen12String(u8, 0)).toBe('A');
+  });
+
+  it('should stop at terminator 0x00', () => {
+    const u8 = new Uint8Array([0x80, 0x00, 0x81]);
+    expect(decodeGen12String(u8, 0)).toBe('A');
+  });
+
+  it('should stop at terminator 0xFF', () => {
+    const u8 = new Uint8Array([0x80, 0xFF, 0x81]);
+    expect(decodeGen12String(u8, 0)).toBe('A');
+  });
+
+  it('should respect maxLength', () => {
+    const u8 = new Uint8Array([0x80, 0x81, 0x82, 0x83]);
+    expect(decodeGen12String(u8, 0, 2)).toBe('AB');
+  });
+
+  it('should trim the resulting string', () => {
+    const u8 = new Uint8Array([0x7F, 0x80, 0x7F, 0x50]); // " A @"
+    expect(decodeGen12String(u8, 0)).toBe('A');
+  });
+
+  it('should handle strings that fill maxLength without a terminator', () => {
+    const u8 = new Uint8Array([0x80, 0x81, 0x82]);
+    expect(decodeGen12String(u8, 0, 3)).toBe('ABC');
+  });
+});
