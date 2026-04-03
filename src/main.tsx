@@ -1,7 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from './queryClient';
 import { routeTree } from './routeTree.gen';
 import './index.css';
 
@@ -13,16 +14,6 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
     });
   });
 }
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: Infinity,
-      gcTime: 1000 * 60 * 60 * 24,
-      refetchOnWindowFocus: false,
-    },
-  },
-});
 
 const router = createRouter({
   routeTree,
