@@ -1,13 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { AssistantPanel } from '../components/AssistantPanel';
-import { useAppState } from '../state';
+import { useStore } from '../store';
 
 export const Route = createFileRoute('/assistant')({
   component: AssistantPage,
 });
 
 function AssistantPage() {
-  const { saveData, isLivingDex, manualVersion } = useAppState();
+  const saveData = useStore((s) => s.saveData);
+  const isLivingDex = useStore((s) => s.isLivingDex);
+  const manualVersion = useStore((s) => s.manualVersion);
 
   if (!saveData) {
     return null;

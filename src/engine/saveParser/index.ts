@@ -69,21 +69,29 @@ const GEN12_CHAR_MAP: Record<number, string> = {
   0xE0: "'", 0xE1: 'PK', 0xE2: 'MN', 0xE3: '-', 0xE6: '?', 0xE7: '!', 0xE8: '♂', 0xE9: '/', 0xEA: ',', 0xED: '♀', 0xEE: '0', 0xEF: '1', 0xF0: '2', 0xF1: '3', 0xF2: '4', 0xF3: '5', 0xF4: '6', 0xF5: '7', 0xF6: '8', 0xF7: '9'
 };
 
+/** Read a byte from a Uint8Array, returning 0 for out-of-bounds access. Used throughout
+ *  binary parsing to satisfy noUncheckedIndexedAccess without littering `!` everywhere. */
+function byte(u8: Uint8Array, offset: number): number {
+  return u8[offset] ?? 0;
+}
+
 export function decodeGen12String(u8: Uint8Array, offset: number, maxLength: number = 11): string {
   let result = '';
   for (let i = 0; i < maxLength; i++) {
     const charCode = u8[offset + i];
-    if (charCode === 0x50 || charCode === 0x00 || charCode === 0xFF) break;
-    result += GEN12_CHAR_MAP[charCode] || '?';
+    if (charCode === undefined || charCode === 0x50 || charCode === 0x00 || charCode === 0xFF) break;
+    result += GEN12_CHAR_MAP[charCode] ?? '?';
   }
   return result.trim();
 }
 
 function parseDVs(dvBytes: Uint8Array) {
-  const atk = dvBytes[0] >> 4;
-  const def = dvBytes[0] & 0x0F;
-  const spd = dvBytes[1] >> 4;
-  const spc = dvBytes[1] & 0x0F;
+  const b0 = dvBytes[0] ?? 0;
+  const b1 = dvBytes[1] ?? 0;
+  const atk = b0 >> 4;
+  const def = b0 & 0x0F;
+  const spd = b1 >> 4;
+  const spc = b1 & 0x0F;
   const hp = ((atk & 1) << 3) | ((def & 1) << 2) | ((spd & 1) << 1) | (spc & 1);
   return { hp, atk, def, spd, spc };
 }
@@ -164,13 +172,11 @@ function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersi
 }
 
 function isGen1Save(u8: Uint8Array): boolean {
-  const partyCount = u8[0x2F2C];
+  const partyCount = byte(u8, 0x2F2C) ?? 0;
   if (partyCount > 6) return false;
-  // Check party species list terminator
-  if (u8[0x2F2D + partyCount] !== 0xFF) return false;
-  // Check some species IDs are valid
+  if ((u8[0x2F2D + partyCount] ?? 0) !== 0xFF) return false;
   for (let i = 0; i < partyCount; i++) {
-    const id = u8[0x2F2D + i];
+    const id = u8[0x2F2D + i] ?? 0;
     if (id === 0 || id === 0xFF) return false;
   }
   return true;
@@ -179,11 +185,11 @@ function isGen1Save(u8: Uint8Array): boolean {
 function isGen2Save(u8: Uint8Array, crystal: boolean): boolean {
   const countOffset = crystal ? 0x2865 : 0x288A;
   const speciesOffset = crystal ? 0x2866 : 0x288B;
-  const partyCount = u8[countOffset];
+  const partyCount = u8[countOffset] ?? 0;
   if (partyCount > 6) return false;
-  if (u8[speciesOffset + partyCount] !== 0xFF) return false;
+  if ((u8[speciesOffset + partyCount] ?? 0) !== 0xFF) return false;
   for (let i = 0; i < partyCount; i++) {
-    const id = u8[speciesOffset + i];
+    const id = u8[speciesOffset + i] ?? 0;
     if (id === 0 || id > 251) return false;
   }
   return true;
@@ -199,16 +205,16 @@ export function parseSaveFile(buffer: ArrayBuffer, forcedVersion?: GameVersion):
   // Gen 1 Checksum
   let gen1Sum = 255;
   for (let i = 0x2598; i <= 0x3522; i++) {
-    gen1Sum -= u8[i];
+    gen1Sum -= u8[i]!;
   }
-  const isGen1ChecksumValid = (gen1Sum & 0xFF) === u8[0x3523];
+  const isGen1ChecksumValid = (gen1Sum & 0xFF) === u8[0x3523]!;
 
   // Gen 2 Checksum
   let gen2Sum = 0;
   for (let i = 0x2009; i <= 0x2D0C; i++) {
-    gen2Sum += u8[i];
+    gen2Sum += u8[i]!;
   }
-  const gen2Checksum = (u8[0x2D0E] << 8) | u8[0x2D0D];
+  const gen2Checksum = (u8[0x2D0E]! << 8) | u8[0x2D0D]!;
   const isGen2ChecksumValid = (gen2Sum & 0xFFFF) === gen2Checksum;
 
   if (isGen1ChecksumValid && isGen1Save(u8)) {
@@ -244,12 +250,12 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     for (let i = 1; i <= 151; i++) {
       const byteIdx = Math.floor((i - 1) / 8);
       const bitIdx = (i - 1) % 8;
-      if ((ownedBytes[byteIdx] & (1 << bitIdx)) !== 0) owned.add(i);
-      if ((seenBytes[byteIdx] & (1 << bitIdx)) !== 0) seen.add(i);
+      if (((ownedBytes[byteIdx] ?? 0) & (1 << bitIdx)) !== 0) owned.add(i);
+      if (((seenBytes[byteIdx] ?? 0) & (1 << bitIdx)) !== 0) seen.add(i);
     }
     // High-confidence Yellow indicators: bit 152 (last bit of 19-byte Pokedex) must be 0.
     // In Yellow, the Happiness byte (at A3) is often FF or high value, which would make bit 7 of the "shifted-Pokedex-last-byte" 1 if we read from A3.
-    const paddingBitIsCorrect = (ownedBytes[18] & 0x80) === 0;
+    const paddingBitIsCorrect = ((ownedBytes[18] ?? 0) & 0x80) === 0;
     const version = detectGen1GameVersion(owned, seen);
     return { version, owned, seen, paddingBitIsCorrect };
   };
@@ -273,7 +279,7 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const gameVersion = isYellow ? 'yellow' : (forcedVersion && forcedVersion !== 'unknown' ? forcedVersion : res0.version);
   const { owned, seen } = res0;
 
-  const partyCount = u8[0x2F2C];
+  const partyCount = byte(u8, 0x2F2C);
   const partySpecies = u8.slice(0x2F2D, 0x2F2D + partyCount);
   const party = Array.from(partySpecies)
     .map(id => INTERNAL_ID_TO_DEX[id])
@@ -284,10 +290,10 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const partyOTOffset = partyDataOffset + (6 * 44);
   for (let i = 0; i < partyCount; i++) {
     const offset = partyDataOffset + (i * 44);
-    const internalId = u8[offset];
+    const internalId = byte(u8, offset);
     const speciesId = INTERNAL_ID_TO_DEX[internalId];
     if (!speciesId) continue;
-    const level = u8[offset + 33];
+    const level = byte(u8, offset + 33);
     const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter(m => m > 0);
     const dvs = parseDVs(u8.slice(offset + 27, offset + 29));
     const isShiny = checkShiny(dvs);
@@ -295,8 +301,8 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     partyDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: 'Party', slot: i + 1 });
   }
 
-  const currentBoxNum = u8[0x284C] & 0x7F;
-  const currentBoxCount = u8[0x30C0];
+  const currentBoxNum = byte(u8, 0x284C) & 0x7F;
+  const currentBoxCount = byte(u8, 0x30C0);
   const currentBoxSpecies = u8.slice(0x30C1, 0x30C1 + currentBoxCount);
   const pc = Array.from(currentBoxSpecies)
     .map(id => INTERNAL_ID_TO_DEX[id])
@@ -307,10 +313,10 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const currentBoxOTOffset = currentBoxDataOffset + (20 * 33);
   for (let i = 0; i < currentBoxCount; i++) {
     const offset = currentBoxDataOffset + (i * 33);
-    const internalId = u8[offset];
+    const internalId = byte(u8, offset);
     const speciesId = INTERNAL_ID_TO_DEX[internalId];
     if (!speciesId) continue;
-    const level = u8[offset + 3];
+    const level = byte(u8, offset + 3);
     const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter(m => m > 0);
     const dvs = parseDVs(u8.slice(offset + 27, offset + 29));
     const isShiny = checkShiny(dvs);
@@ -321,22 +327,22 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const boxOffsets = [0x4000, 0x4462, 0x48C4, 0x4D26, 0x5188, 0x55EA, 0x6000, 0x6462, 0x68C4, 0x6D26, 0x7188, 0x75EA];
   for (let i = 0; i < 12; i++) {
     if (i === currentBoxNum) continue;
-    const offset = boxOffsets[i];
-    const count = u8[offset];
+    const offset = boxOffsets[i]!;
+    const count = byte(u8, offset);
     if (count > 20) continue;
     const species = u8.slice(offset + 1, offset + 1 + count);
     pc.push(...Array.from(species).map(id => INTERNAL_ID_TO_DEX[id]).filter((id): id is number => id !== undefined));
   }
 
   const trainerName = decodeGen12String(u8, 0x2598);
-  const badges = u8[0x2602];
-  const trainerId = (u8[0x2605] << 8) | u8[0x2606];
-  const currentMapId = u8[0x260A]; 
+  const badges = byte(u8, 0x2602);
+  const trainerId = (byte(u8, 0x2605) << 8) | byte(u8, 0x2606);
+  const currentMapId = byte(u8, 0x260A); 
   const inventory: { id: number, quantity: number }[] = [];
-  const itemCount = u8[0x25C9];
+  const itemCount = byte(u8, 0x25C9);
   for (let i = 0; i < itemCount; i++) {
     const itemOffset = 0x25CA + (i * 2);
-    inventory.push({ id: u8[itemOffset], quantity: u8[itemOffset + 1] });
+    inventory.push({ id: byte(u8, itemOffset), quantity: byte(u8, itemOffset + 1) });
   }
 
   return {
@@ -355,14 +361,14 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     currentMapId,
     inventory,
     currentBoxCount,
-    hallOfFameCount: u8[0x25B3 + offsetShift] === 0xFF ? 0 : u8[0x25B3 + offsetShift],
+    hallOfFameCount: byte(u8, 0x25B3 + offsetShift) === 0xFF ? 0 : byte(u8, 0x25B3 + offsetShift),
     eventFlags: u8.slice(0x29E6 + offsetShift, 0x29E6 + offsetShift + 0x118)
   };
 }
 
 function parseCaughtData(u8: Uint8Array, offset: number) {
-  const caughtByte1 = u8[offset + 29]; // 0x1D
-  const caughtByte2 = u8[offset + 30]; // 0x1E
+  const caughtByte1 = byte(u8, offset + 29);
+  const caughtByte2 = byte(u8, offset + 30);
   
   if (caughtByte1 === 0 && caughtByte2 === 0) return undefined;
   
@@ -381,8 +387,8 @@ function parseCaughtData(u8: Uint8Array, offset: number) {
 function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   let isCrystal = forceCrystal;
   if (!isCrystal) {
-    const gsPartyCount = u8[0x288A];
-    const cPartyCount = u8[0x2865];
+    const gsPartyCount = byte(u8, 0x288A);
+    const cPartyCount = byte(u8, 0x2865);
     if (cPartyCount <= 6 && cPartyCount > 0 && gsPartyCount > 6) {
       isCrystal = true;
     }
@@ -416,15 +422,15 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     const byteIdx = Math.floor((dexId - 1) / 8);
     const bitIdx = (dexId - 1) % 8;
     
-    if ((ownedBytes[byteIdx] & (1 << bitIdx)) !== 0) {
+    if (((ownedBytes[byteIdx] ?? 0) & (1 << bitIdx)) !== 0) {
       owned.add(dexId);
     }
-    if ((seenBytes[byteIdx] & (1 << bitIdx)) !== 0) {
+    if (((seenBytes[byteIdx] ?? 0) & (1 << bitIdx)) !== 0) {
       seen.add(dexId);
     }
   }
 
-  const partyCount = u8[offsets.partyCount];
+  const partyCount = byte(u8, offsets.partyCount);
   const partySpecies = u8.slice(offsets.partySpecies, offsets.partySpecies + partyCount);
   const party = Array.from(partySpecies).filter(id => id > 0 && id <= 251);
 
@@ -433,24 +439,24 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   const partyOTOffset = partyDataOffset + (6 * 48);
   for (let i = 0; i < partyCount; i++) {
     const offset = partyDataOffset + (i * 48); // Gen 2 party struct is 48 bytes
-    const speciesId = u8[offset];
+    const speciesId = byte(u8, offset);
     if (!speciesId || speciesId > 251) continue;
     
-    const item = u8[offset + 1];
+    const item = byte(u8, offset + 1);
     const moves = Array.from(u8.slice(offset + 2, offset + 6)).filter(m => m > 0);
     const dvs = parseDVs(u8.slice(offset + 21, offset + 23)); // DVs at 0x15
     const isShiny = checkShiny(dvs);
-    const friendship = u8[offset + 27]; // 0x1B
-    const pokerus = u8[offset + 28]; // 0x1C
-    const level = u8[offset + 31]; // 0x1F
+    const friendship = byte(u8, offset + 27); // 0x1B
+    const pokerus = byte(u8, offset + 28); // 0x1C
+    const level = byte(u8, offset + 31); // 0x1F
     const caughtData = isCrystal ? parseCaughtData(u8, offset) : undefined;
     const otName = decodeGen12String(u8, partyOTOffset + (i * 11));
 
     partyDetails.push({ speciesId, level, isShiny, item, moves, friendship, pokerus, caughtData, dvs, otName, storageLocation: 'Party', slot: i + 1 });
   }
 
-  const currentBoxNum = u8[offsets.currentBoxNum] & 0x0F;
-  const currentBoxCount = u8[offsets.currentBoxCount];
+  const currentBoxNum = byte(u8, offsets.currentBoxNum) & 0x0F;
+  const currentBoxCount = byte(u8, offsets.currentBoxCount);
   const currentBoxSpecies = u8.slice(offsets.currentBoxSpecies, offsets.currentBoxSpecies + currentBoxCount);
   const pc = Array.from(currentBoxSpecies).filter(id => id > 0 && id <= 251);
 
@@ -459,16 +465,16 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   const currentBoxOTOffset = currentBoxDataOffset + (20 * 32);
   for (let i = 0; i < currentBoxCount; i++) {
     const offset = currentBoxDataOffset + (i * 32); // Gen 2 PC struct is 32 bytes
-    const speciesId = u8[offset];
+    const speciesId = byte(u8, offset);
     if (!speciesId || speciesId > 251) continue;
     
-    const item = u8[offset + 1];
+    const item = byte(u8, offset + 1);
     const moves = Array.from(u8.slice(offset + 2, offset + 6)).filter(m => m > 0);
     const dvs = parseDVs(u8.slice(offset + 21, offset + 23)); // DVs at 0x15
     const isShiny = checkShiny(dvs);
-    const friendship = u8[offset + 27]; // 0x1B
-    const pokerus = u8[offset + 28]; // 0x1C
-    const level = u8[offset + 31]; // 0x1F
+    const friendship = byte(u8, offset + 27); // 0x1B
+    const pokerus = byte(u8, offset + 28); // 0x1C
+    const level = byte(u8, offset + 31); // 0x1F
     const caughtData = isCrystal ? parseCaughtData(u8, offset) : undefined;
     const otName = decodeGen12String(u8, currentBoxOTOffset + (i * 11));
 
@@ -482,8 +488,8 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
 
   for (let i = 0; i < 14; i++) {
     if (i === currentBoxNum) continue;
-    const offset = boxOffsets[i];
-    const count = u8[offset];
+    const offset = boxOffsets[i]!;
+    const count = byte(u8, offset);
     if (count > 20) continue;
     const species = u8.slice(offset + 1, offset + 1 + count);
     pc.push(...Array.from(species).filter(id => id > 0 && id <= 251));
@@ -491,18 +497,18 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     const boxDataOffset = offset + 22;
     const boxOTOffset = boxDataOffset + (20 * 32);
     for (let j = 0; j < count; j++) {
-      const pOffset = boxDataOffset + (j * 32);
-      const speciesId = u8[pOffset];
+      const pOff = boxDataOffset + (j * 32);
+      const speciesId = byte(u8, pOff);
       if (!speciesId || speciesId > 251) continue;
       
-      const item = u8[pOffset + 1];
-      const moves = Array.from(u8.slice(pOffset + 2, pOffset + 6)).filter(m => m > 0);
-      const dvs = parseDVs(u8.slice(pOffset + 21, pOffset + 23));
+      const item = byte(u8, pOff + 1);
+      const moves = Array.from(u8.slice(pOff + 2, pOff + 6)).filter(m => m > 0);
+      const dvs = parseDVs(u8.slice(pOff + 21, pOff + 23));
       const isShiny = checkShiny(dvs);
-      const friendship = u8[pOffset + 27];
-      const pokerus = u8[pOffset + 28];
-      const level = u8[pOffset + 31];
-      const caughtData = isCrystal ? parseCaughtData(u8, pOffset) : undefined;
+      const friendship = byte(u8, pOff + 27);
+      const pokerus = byte(u8, pOff + 28);
+      const level = byte(u8, pOff + 31);
+      const caughtData = isCrystal ? parseCaughtData(u8, pOff) : undefined;
       const otName = decodeGen12String(u8, boxOTOffset + (j * 11));
 
       pcDetails.push({ speciesId, level, isShiny, item, moves, friendship, pokerus, caughtData, dvs, otName, storageLocation: `Box ${i + 1}`, slot: j + 1 });
@@ -514,23 +520,23 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   
   // Daycare Gen 2
   const daycare1Offset = isCrystal ? 0x282C : 0x2850;
-  if (u8[daycare1Offset] !== 0 && u8[daycare1Offset] !== 0xFF) {
-    const speciesId = u8[daycare1Offset];
-    const item = u8[daycare1Offset + 1];
+  if (byte(u8, daycare1Offset) !== 0 && byte(u8, daycare1Offset) !== 0xFF) {
+    const speciesId = byte(u8, daycare1Offset);
+    const item = byte(u8, daycare1Offset + 1);
     const moves = Array.from(u8.slice(daycare1Offset + 2, daycare1Offset + 6)).filter(m => m > 0);
     const dvs = parseDVs(u8.slice(daycare1Offset + 21, daycare1Offset + 23));
     const isShiny = checkShiny(dvs);
-    const friendship = u8[daycare1Offset + 27];
-    const pokerus = u8[daycare1Offset + 28];
-    const level = u8[daycare1Offset + 31];
+    const friendship = byte(u8, daycare1Offset + 27);
+    const pokerus = byte(u8, daycare1Offset + 28);
+    const level = byte(u8, daycare1Offset + 31);
     const otName = decodeGen12String(u8, daycare1Offset + 32);
     pcDetails.push({ speciesId, level, isShiny, item, moves, friendship, pokerus, dvs, otName, storageLocation: 'Daycare' });
   }
 
   let badges = 0;
   for (let i = 0; i < 8; i++) {
-    if ((u8[johtoBadgesOffset] & (1 << i)) !== 0) badges++;
-    if ((u8[kantoBadgesOffset] & (1 << i)) !== 0) badges++;
+    if ((byte(u8, johtoBadgesOffset) & (1 << i)) !== 0) badges++;
+    if ((byte(u8, kantoBadgesOffset) & (1 << i)) !== 0) badges++;
   }
 
   let gameVersion = isCrystal ? 'crystal' : detectGen2GameVersion(owned, seen);
@@ -539,18 +545,18 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   }
 
   const trainerName = decodeGen12String(u8, 0x200B);
-  const trainerId = (u8[0x2009] << 8) | u8[0x200A];
+  const trainerId = (byte(u8, 0x2009) << 8) | byte(u8, 0x200A);
 
   const mapBankOffset = isCrystal ? 0x25C6 : 0x25B3;
   const mapIdOffset = isCrystal ? 0x25C7 : 0x25B4;
-  const mapGroup = u8[mapBankOffset];
-  const currentMapId = u8[mapIdOffset];
+  const mapGroup = byte(u8, mapBankOffset);
+  const currentMapId = byte(u8, mapIdOffset);
 
   // Detailed inventory parsing for Gen 2 could be added here later
   const inventory: { id: number, quantity: number }[] = [];
 
-  let johtoBadgesValue = u8[johtoBadgesOffset];
-  let kantoBadgesValue = u8[kantoBadgesOffset];
+  let johtoBadgesValue = byte(u8, johtoBadgesOffset);
+  let kantoBadgesValue = byte(u8, kantoBadgesOffset);
 
   return {
     generation: 2,

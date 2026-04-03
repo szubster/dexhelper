@@ -1,10 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { parseSaveFile, decodeGen12String, GameVersion } from '../engine/saveParser/index';
+import { parseSaveFile, decodeGen12String } from './index';
+import type { GameVersion } from './index';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
 describe('saveParser - Pokémon Gen 1 Validation', () => {
-  const yellowSavPath = join(__dirname, '../../tests/fixtures/yellow.sav');
+  const yellowSavPath = join(__dirname, '../../../tests/fixtures/yellow.sav');
   const buffer = readFileSync(yellowSavPath).buffer;
 
   it('should correctly detect and parse the provided yellow.sav (R/B layout)', () => {

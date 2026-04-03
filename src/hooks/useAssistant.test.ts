@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { generateSuggestions } from './useAssistant';
-import { SaveData } from '../utils/saveParser';
+import { generateSuggestions } from '../engine/assistant/suggestionEngine';
+import { SaveData } from '../engine/saveParser/index';
 
 describe('useAssistant - generateSuggestions logic', () => {
   const mockSaveData: SaveData = {
@@ -115,6 +115,6 @@ describe('useAssistant - generateSuggestions logic', () => {
     
     const catchRightHereTips = suggestions.filter(s => s.title === 'Catch Right Here');
     expect(catchRightHereTips.length).toBe(1);
-    expect(catchRightHereTips[0].id).toBe('catch-local');
+    expect(catchRightHereTips[0]!.id).toBe('catch-local');
   });
 });

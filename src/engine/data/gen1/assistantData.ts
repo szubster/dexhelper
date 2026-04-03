@@ -159,12 +159,3 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
   { receivedId: 100, offeredId: 98,  location: "Fisher's house (Route 30 area)", receivedOtName: 'TOM', gen: 2, versions: ['crystal'] },
 ];
 
-/** Rod item IDs keyed by generation number */
-export const ROD_IDS: Record<number, { OLD: number; GOOD: number; SUPER: number }> = {
-  1: { OLD: 76, GOOD: 77, SUPER: 78 },
-  2: { OLD: 57, GOOD: 58, SUPER: 60 },
-};
-
-// Convenience re-exports for backward compatibility
-export const GEN1_ROD_IDS = ROD_IDS[1];
-export const GEN2_ROD_IDS = ROD_IDS[2];

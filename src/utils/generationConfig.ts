@@ -1,4 +1,4 @@
-import type { PokeballType } from '../state';
+import type { PokeballType } from '../store';
 
 // ─── Core Types ──────────────────────────────────────────────────────
 
@@ -32,6 +32,12 @@ export interface GenerationConfig {
   hasUnifiedSpecial: boolean;
   /** Whether breeding exists in this generation */
   hasBreeding: boolean;
+  /** Number of PC storage boxes */
+  boxCount: number;
+  /** Capacity of each PC box */
+  boxCapacity: number;
+  /** At this box count, warn the player to switch boxes */
+  boxWarningThreshold: number;
 }
 
 // ─── Gen 1 Config ────────────────────────────────────────────────────
@@ -56,6 +62,9 @@ const gen1Config: GenerationConfig = {
   hasHiddenPower: false,
   hasUnifiedSpecial: true,
   hasBreeding: false,
+  boxCount: 12,
+  boxCapacity: 20,
+  boxWarningThreshold: 19,
 };
 
 // ─── Gen 2 Config ────────────────────────────────────────────────────
@@ -80,6 +89,9 @@ const gen2Config: GenerationConfig = {
   hasHiddenPower: true,
   hasUnifiedSpecial: false,
   hasBreeding: true,
+  boxCount: 14,
+  boxCapacity: 20,
+  boxWarningThreshold: 19,
 };
 
 // ─── Registry ────────────────────────────────────────────────────────
@@ -93,7 +105,7 @@ export const GENERATION_CONFIGS: Record<number, GenerationConfig> = {
 
 /** Get the config for a generation with a safe fallback to Gen 1 */
 export function getGenerationConfig(gen: number): GenerationConfig {
-  return GENERATION_CONFIGS[gen] ?? GENERATION_CONFIGS[1];
+  return GENERATION_CONFIGS[gen] ?? GENERATION_CONFIGS[1]!;
 }
 
 /** Reverse lookup: given a version ID like 'red', find its generation config and version info */

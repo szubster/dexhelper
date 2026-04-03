@@ -88,7 +88,7 @@ export function getDistanceToMap(
 
   let startId = currentMapId;
   if (INDOOR_TO_PARENT_MAP[startId] !== undefined) {
-    startId = INDOOR_TO_PARENT_MAP[startId];
+    startId = INDOOR_TO_PARENT_MAP[startId]!;
   }
   
   if (!GEN1_MAPS[startId]) {
