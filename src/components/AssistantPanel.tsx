@@ -38,11 +38,20 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
     staleTime: Infinity,
   });
 
-  const getPokemonName = (id: number) => {
+  const pokemonMap = React.useMemo(() => {
+    const map = new Map<number, string>();
+    if (pokemonList) {
+      for (const p of pokemonList) {
+        map.set(p.id, p.name);
+      }
+    }
+    return map;
+  }, [pokemonList]);
+
+  const getPokemonName = React.useCallback((id: number) => {
     if (!pokemonList) return `#${id}`;
-    const p = pokemonList.find(x => x.id === id);
-    return p ? p.name : `#${id}`;
-  };
+    return pokemonMap.get(id) ?? `#${id}`;
+  }, [pokemonList, pokemonMap]);
 
   return (
     <div className="flex-1 space-y-6">
