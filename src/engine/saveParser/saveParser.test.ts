@@ -49,3 +49,71 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     expect(data.gameVersion).toBe('yellow');
   });
 });
+
+describe('decodeGen12String', () => {
+  it('should decode a simple string correctly', () => {
+    const u8 = new Uint8Array([0x80, 0x92, 0x87, 0x50]); // "ASH@"
+    expect(decodeGen12String(u8, 0)).toBe('ASH');
+  });
+
+  it('should handle non-zero offsets correctly', () => {
+    const u8 = new Uint8Array([0x00, 0x00, 0x80, 0x92, 0x87, 0x50]); // Pad + "ASH@"
+    expect(decodeGen12String(u8, 2)).toBe('ASH');
+  });
+
+  it('should handle unmapped characters with "?"', () => {
+    const u8 = new Uint8Array([0x01, 0x02, 0x50]);
+    expect(decodeGen12String(u8, 0)).toBe('??');
+  });
+
+  it('should handle special multi-character mappings', () => {
+    const u8 = new Uint8Array([0xE1, 0xE2, 0xE8, 0x50]); // "PK" "MN" "♂" "@"
+    expect(decodeGen12String(u8, 0)).toBe('PKMN♂');
+  });
+
+  it('should stop at terminator 0x50', () => {
+    const u8 = new Uint8Array([0x80, 0x50, 0x81]);
+    expect(decodeGen12String(u8, 0)).toBe('A');
+  });
+
+  it('should stop at terminator 0x00', () => {
+    const u8 = new Uint8Array([0x80, 0x00, 0x81]);
+    expect(decodeGen12String(u8, 0)).toBe('A');
+  });
+
+  it('should stop at terminator 0xFF', () => {
+    const u8 = new Uint8Array([0x80, 0xFF, 0x81]);
+    expect(decodeGen12String(u8, 0)).toBe('A');
+  });
+
+  it('should respect maxLength', () => {
+    const u8 = new Uint8Array([0x80, 0x81, 0x82, 0x83]);
+    expect(decodeGen12String(u8, 0, 2)).toBe('AB');
+  });
+
+  it('should default to maxLength 11', () => {
+    const u8 = new Uint8Array([
+      0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, // 10 'A's
+      0x80, 0x80, 0x80, 0x80 // more 'A's
+    ]);
+    expect(decodeGen12String(u8, 0)).toBe('AAAAAAAAAAA');
+    expect(decodeGen12String(u8, 0).length).toBe(11);
+  });
+
+  it('should trim the resulting string', () => {
+    const u8 = new Uint8Array([0x7F, 0x80, 0x7F, 0x50]); // " A @"
+    expect(decodeGen12String(u8, 0)).toBe('A');
+  });
+
+  it('should handle strings that fill maxLength without a terminator', () => {
+    const u8 = new Uint8Array([0x80, 0x81, 0x82]);
+    expect(decodeGen12String(u8, 0, 3)).toBe('ABC');
+  });
+
+  it('should stop gracefully when reaching out-of-bounds array access (undefined byte)', () => {
+    const u8 = new Uint8Array([0x80, 0x81]);
+    // The array only has 2 bytes, but we ask it to read up to 11.
+    // u8[2] will be undefined, triggering the break condition.
+    expect(decodeGen12String(u8, 0)).toBe('AB');
+  });
+});
