@@ -92,7 +92,7 @@ export function getDistanceToMap(
   }
   
   if (!GEN1_MAPS[startId]) {
-    startId = 0x00;
+    startId = 0x0A; // Saffron City
   }
 
   // Clean the pokeapi slug to match our internal slugs
