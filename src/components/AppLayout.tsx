@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { useStore } from '../store';
 import type { GameVersion } from '../store';
-import { parseSaveFile } from '../utils/saveParser';
+import { parseSaveFile } from '../engine/saveParser/index';
 import { getGenerationConfig, VERSION_THEMES } from '../utils/generationConfig';
 import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';

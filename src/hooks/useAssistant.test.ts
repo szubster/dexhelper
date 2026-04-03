@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { generateSuggestions } from './useAssistant';
-import { SaveData } from '../utils/saveParser';
+import { SaveData } from '../engine/saveParser/index';
 
 describe('useAssistant - generateSuggestions logic', () => {
   const mockSaveData: SaveData = {

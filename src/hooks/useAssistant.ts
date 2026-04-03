@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { SaveData } from '../utils/saveParser';
+import { SaveData } from '../engine/saveParser/index';
 import { pokeapi } from '../utils/pokeapi';
-import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA, ROD_IDS } from '../utils/assistantData';
-import { getDistanceToMap } from '../utils/mapGraphGen1';
-import { getUnobtainableReason } from '../utils/versionExclusives';
+import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA } from '../engine/data/gen1/assistantData';
+import { getDistanceToMap } from '../engine/mapGraph/gen1Graph';
+import { getUnobtainableReason } from '../engine/exclusives/gen1Exclusives';
 import { getGenerationConfig } from '../utils/generationConfig';
 
 export type SuggestionCategory = 'Catch' | 'Evolve' | 'Breed' | 'Progress' | 'Event' | 'Utility' | 'Trade' | 'Gift';

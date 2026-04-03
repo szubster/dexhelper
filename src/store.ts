@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { parseSaveFile } from './utils/saveParser';
-import type { SaveData, GameVersion as GameVersionType } from './utils/saveParser';
+import { parseSaveFile } from './engine/saveParser/index';
+import type { SaveData, GameVersion as GameVersionType } from './engine/saveParser/index';
 
 // ─── Types ───────────────────────────────────────────────────────────
 export type GameVersion = GameVersionType;

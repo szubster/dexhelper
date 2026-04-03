@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseSaveFile, decodeGen12String, GameVersion } from './saveParser';
+import { parseSaveFile, decodeGen12String, GameVersion } from '../engine/saveParser/index';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 

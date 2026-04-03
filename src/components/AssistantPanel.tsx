@@ -2,8 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Suggestion, useAssistant, EncounterDetail, RejectedSuggestion } from '../hooks/useAssistant';
 import { Bug, Sparkles, Target, Zap, Egg, Flag, Info, Loader2, Waves, Fish, Trees, AlertCircle } from 'lucide-react';
-import { ROD_IDS } from '../utils/assistantData';
-import { SaveData } from '../utils/saveParser';
+import { SaveData } from '../engine/saveParser/index';
 import { Link } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { pokeapi } from '../utils/pokeapi';
@@ -193,13 +192,16 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                                     // Check ownership
                                     let isOwned = true;
                                     if (isRod) {
-                                      const rodIds = ROD_IDS[saveData.generation] ?? ROD_IDS[1]!;
-                                      const rodId = method.includes('old') ? rodIds!.OLD : 
-                                                    method.includes('good') ? rodIds!.GOOD : 
-                                                    rodIds!.SUPER;
-                                      isOwned = saveData.inventory.some(i => i.id === rodId);
+                                      const genConfig = getGenerationConfig(saveData.generation);
+                                      const rodIds = genConfig.rodIds;
+                                      if (!rodIds) { isOwned = false; }
+                                      else {
+                                        const rodId = method.includes('old') ? rodIds.OLD : 
+                                                      method.includes('good') ? rodIds.GOOD : 
+                                                      rodIds.SUPER;
+                                        isOwned = saveData.inventory.some(i => i.id === rodId);
+                                      }
                                     }
-
                                     const Icon = isRod ? Fish : isSurf ? Waves : isGrass ? Trees : Target;
                                     const label = method.replace(/-/g, ' ').toUpperCase();
                                     
