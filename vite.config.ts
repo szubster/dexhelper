@@ -7,7 +7,7 @@ import { defineConfig, loadEnv } from 'vite';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/dexhelper/',
+    base: process.env.CF_PAGES === 'true' ? '/' : '/dexhelper/',
     plugins: [
       react(),
       tanstackRouter(),

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Monitor, CircleDot, Sparkles, ChevronRight } from 'lucide-react';
 import { useStore } from '../store';
@@ -40,6 +40,19 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
     return pokemon.name.toLowerCase().includes(term) || pokemon.id.toString().includes(term);
   });
 
+  const shinySpeciesIds = useMemo(() => {
+    const set = new Set<number>();
+    if (saveData) {
+      saveData.partyDetails.forEach(p => {
+        if (p.isShiny) set.add(p.speciesId);
+      });
+      saveData.pcDetails.forEach(p => {
+        if (p.isShiny) set.add(p.speciesId);
+      });
+    }
+    return set;
+  }, [saveData]);
+
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-5 px-1 pb-10">
       <AnimatePresence mode="popLayout">
@@ -58,9 +71,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
           const isUnseen = saveData && !isSeen;
           const isSeenNotOwned = saveData && isSeen && !isOwned;
 
-          const isShiny = saveData ? (
-            shinyPartySet.has(pokemon.id) || shinyPcSet.has(pokemon.id)
-          ) : false;
+          const isShiny = shinySpeciesIds.has(pokemon.id);
 
           return (
             <motion.div

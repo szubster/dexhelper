@@ -23,6 +23,9 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright E2E tests
       run: npm run test:e2e
+      env:
+        ARGOS_BUILD_NAME: "E2E"
+        ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
     - uses: actions/upload-artifact@v7
       if: ${{ !cancelled() }}
       with:
@@ -45,6 +48,9 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright CT tests
       run: npm run test:ct
+      env:
+        ARGOS_BUILD_NAME: "Component"
+        ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
     - uses: actions/upload-artifact@v7
       if: ${{ !cancelled() }}
       with:
