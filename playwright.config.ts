@@ -30,11 +30,21 @@ export default defineConfig({
   },
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'Desktop FullHD',
+      use: { 
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 },
+      },
     },
     {
-      name: 'Mobile Chrome',
+      name: 'Desktop 1440p',
+      use: { 
+        ...devices['Desktop Chrome'],
+        viewport: { width: 2560, height: 1440 },
+      },
+    },
+    {
+      name: 'Mobile Pixel 9',
       use: { ...devices['Pixel 9'] },
     },
   ],
