@@ -12,10 +12,6 @@ jobs:
     name: "End-to-End Tests"
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        project: [ 'Desktop FullHD', 'Desktop 1440p', 'Mobile Pixel 9' ]
     steps:
     - uses: actions/checkout@v6
     - uses: actions/setup-node@v6
@@ -26,14 +22,14 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright E2E tests
-      run: npx playwright test --project="${{ matrix.project }}"
+      run: npm run test:e2e
       env:
-        ARGOS_BUILD_NAME: "E2E ${{ matrix.project }}"
+        ARGOS_BUILD_NAME: "E2E"
         ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
     - uses: actions/upload-artifact@v7
       if: ${{ !cancelled() }}
       with:
-        name: playwright-e2e-report-${{ matrix.project }}
+        name: playwright-e2e-report
         path: playwright-report/
         retention-days: 30
 
@@ -41,10 +37,6 @@ jobs:
     name: "Component Tests"
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        project: [ 'Desktop FullHD', 'Desktop 1440p', 'Mobile Pixel 9' ]
     steps:
     - uses: actions/checkout@v6
     - uses: actions/setup-node@v6
@@ -55,13 +47,13 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright CT tests
-      run: npx playwright test -c playwright-ct.config.ts --project="${{ matrix.project }}"
+      run: npm run test:ct
       env:
-        ARGOS_BUILD_NAME: "Component ${{ matrix.project }}"
+        ARGOS_BUILD_NAME: "Component"
         ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
     - uses: actions/upload-artifact@v7
       if: ${{ !cancelled() }}
       with:
-        name: playwright-ct-report-${{ matrix.project }}
+        name: playwright-ct-report
         path: playwright-report/
         retention-days: 30
