@@ -49,7 +49,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   });
   const [isLivingDex, setIsLivingDex] = useState(() => {
     const saved = localStorage.getItem('isLivingDex');
-    return saved ? JSON.parse(saved) : false;
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        return false;
+      }
+    }
+    return false;
   });
   const [globalPokeball, setGlobalPokeball] = useState<PokeballType>(() => {
     const saved = localStorage.getItem('globalPokeball');
