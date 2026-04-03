@@ -302,6 +302,7 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   }
 
   const currentBoxNum = byte(u8, 0x284C) & 0x7F;
+  const currentBoxCount = byte(u8, 0x30C0);
   const pc: number[] = [];
   const pcDetails: PokemonInstance[] = [];
 
