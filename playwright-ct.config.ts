@@ -22,7 +22,7 @@ export default defineConfig({
     ['html'],
     ['@argos-ci/playwright/reporter', { 
       uploadToArgos: !!process.env.CI,
-      buildName: 'Component',
+      buildName: process.env.ARGOS_BUILD_NAME || 'Component',
     }]
   ],
   use: {
