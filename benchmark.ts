@@ -22,8 +22,7 @@ function benchFind() {
 function benchMap() {
   const start = performance.now();
   const pokemonMap = new Map();
-  for (let i = 0; i < pokemonList.length; i++) {
-    const p = pokemonList[i];
+  for (const p of pokemonList) {
     pokemonMap.set(p.id, p.name);
   }
   for (let i = 0; i < NUM_LOOKUPS; i++) {
