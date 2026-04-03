@@ -200,6 +200,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 <div className="flex gap-2">
                   <button
                     onClick={() => setIsSettingsOpen(true)}
+                    aria-label="System Settings"
                     className="p-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white rounded-2xl border border-white/5 transition-all flex items-center justify-center retro-button"
                     title="System Settings"
                   >

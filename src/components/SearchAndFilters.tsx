@@ -27,6 +27,7 @@ export function SearchAndFilters() {
           <input
             type="text"
             placeholder="Search Pokedex by name or ID..."
+            aria-label="Search Pokedex by name or ID"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full glass-card bg-zinc-900/40 border-white/5 rounded-2xl py-4 pl-14 pr-12 text-xs font-black text-white placeholder:text-zinc-600 focus:border-[var(--theme-primary)]/50 focus:bg-zinc-900/60 outline-none transition-all shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] tracking-widest uppercase font-mono"
@@ -34,6 +35,7 @@ export function SearchAndFilters() {
           {searchTerm && (
             <button
               onClick={() => setSearchTerm('')}
+              aria-label="Clear search"
               className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-zinc-500 hover:text-white hover:bg-white/5 rounded-xl transition-all"
             >
               <X size={14} />
