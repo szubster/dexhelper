@@ -1,24 +1,14 @@
 import { test, expect } from '@playwright/experimental-ct-react';
-import React, { useEffect } from 'react';
-import { VersionModal } from './VersionModal';
-import { useStore } from '../store';
-
-function TestWrapper() {
-  const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
-  
-  useEffect(() => {
-    setIsVersionModalOpen(true);
-  }, [setIsVersionModalOpen]);
-
-  return <VersionModal />;
-}
+import { argosScreenshot } from '@argos-ci/playwright';
+import React from 'react';
+import { VersionModalStory } from './VersionModal.story';
 
 // Component tests run in a real browser context
 // With Zustand, no Provider wrapper is needed
 test.describe('VersionModal', () => {
   test('should render and display visual state accurately', async ({ mount, page }) => {
     const component = await mount(
-      <TestWrapper />
+      <VersionModalStory />
     );
 
     // Ensure the modal has animated in and is visible
@@ -28,6 +18,6 @@ test.describe('VersionModal', () => {
     await page.waitForTimeout(500);
 
     // Verify it doesn't just crash but also looks exactly as expected
-    await expect(page).toHaveScreenshot('version-modal.png');
+    await argosScreenshot(page, 'version-modal');
   });
 });

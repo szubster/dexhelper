@@ -12,7 +12,8 @@ Whenever a new feature is implemented, you **must** add appropriate tests. Choos
 - **Component Tests**: For UI components to verify rendering and interaction (use Playwright Component Testing `@playwright/experimental-ct-react`).
 - **Integration Tests**: For complex features that involve multiple parts of the application working together.
 - **E2E Tests**: For critical user journeys and cross-page flows (use Playwright `@playwright/test`).
-- **Screenshot Tests (Visual Regression)**: For components or pages where visual accuracy is critical, use Playwright's native visual comparisons (`expect(page).toHaveScreenshot()`).
+- **Screenshot Tests (Visual Regression)**: For components or pages where visual accuracy is critical, use Argos CI with `argosScreenshot(page, 'name')`.
+- **Resolution Standards**: Always capture screenshots at FullHD (1920x1080), 1440p (2560x1440), and Mobile (Pixel 9).
 
 ## 2. Bug & Regression Prevention
 When a bug or regression is reported:
@@ -34,7 +35,11 @@ When refactoring existing code, tests are mandatory:
 ## 5. Documentation & Standard Patterns
 - **Unit Testing Framework**: [Vitest](https://vitest.dev/) for hooks, utilities, and isolated logic.
 - **Component & E2E Tests**: [Playwright](https://playwright.dev/) and `@playwright/experimental-ct-react` for component and full application testing.
-- **Screenshot Tests**: Use `toHaveScreenshot()` built directly into Playwright. Ensure that screenshots are generated consistently (e.g. disable animations where needed) and that diffs are reviewed during PRs.
+- **Screenshot Tests**: Use `argosScreenshot()` from `@argos-ci/playwright`. Ensure that screenshots are generated consistently (e.g. disable animations where needed). Diffs are reviewed and approved directly in the Argos CI dashboard.
+- **Visual Resolutions**:
+  - Desktop FullHD: 1920x1080
+  - Desktop 1440p: 2560x1440
+  - Mobile Pixel 9: Pixel 9 standard viewport
 - **Existing Patterns**: Follow patterns in `src/**/*.test.ts` for unit tests. Use mock data strategies as seen in `src/hooks/useAssistant.test.ts`.
 - **Test Commands**: 
   - Unit tests: `npm run test`
