@@ -19,6 +19,12 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
   const saveData = useStore((s) => s.saveData);
   const navigate = useNavigate();
 
+  const pokemonMap = React.useMemo(() => {
+    const map = new Map<number, { id: number; name: string }>();
+    pokemonList.forEach(p => map.set(p.id, p));
+    return map;
+  }, [pokemonList]);
+
   if (!saveData) return null;
 
   const genConfig = getGenerationConfig(saveData.generation);
@@ -40,7 +46,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
               {pokemonInLocation.map((p, idx) => {
-                const pokemon = pokemonList.find(pl => pl.id === p.speciesId);
+                const pokemon = pokemonMap.get(p.speciesId);
                 if (!pokemon) return null;
 
                 let cardStyle = 'bg-zinc-900 border border-zinc-800 hover:border-zinc-700 shadow-sm';
