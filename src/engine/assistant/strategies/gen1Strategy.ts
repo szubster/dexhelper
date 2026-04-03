@@ -43,7 +43,7 @@ export const gen1Strategy: AssistantStrategy = {
         title: 'Current Box Almost Full',
         category: 'Event',
         priority: 1000,
-        warning: `Your current box has ${saveData.currentBoxCount}/${genConfig.boxCapacity} Pokémon. Switch boxes at a Pokémon Center PC or new catches will fail!`,
+        description: `Your current box has ${saveData.currentBoxCount}/${genConfig.boxCapacity} Pokémon. Switch boxes at a Pokémon Center PC or new catches will fail!`,
       });
     }
 

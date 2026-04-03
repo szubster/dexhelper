@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { generateSuggestions } from './useAssistant';
+import { generateSuggestions } from '../engine/assistant/suggestionEngine';
 import { SaveData } from '../engine/saveParser/index';
 
 describe('useAssistant - generateSuggestions logic', () => {
