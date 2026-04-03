@@ -54,32 +54,35 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                     <span className="text-[8px] font-black text-red-500/60 uppercase tracking-widest px-2 py-1 bg-red-500/5 rounded-lg border border-red-500/10">STATIONARY</span>
                   </div>
                 ))}
-                {versionEnc.map((e: LocationAreaEncounter, i: number) => (
-                  <div key={i} className="flex flex-col p-4 bg-zinc-900 border border-white/5 rounded-2xl group hover:border-[var(--theme-primary)]/30 transition-all space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-[var(--theme-primary)]/10 rounded-lg text-[var(--theme-primary)]"><MapPin size={14} /></div>
-                        <span className="text-xs font-bold uppercase tracking-wide group-hover:text-white transition-colors">
-                          {e.location_area.name.replace(/-/g, ' ').toUpperCase()}
-                        </span>
+                {versionEnc.map((e: LocationAreaEncounter, i: number) => {
+                  const versionDetail = e.version_details.find((v: VersionEncounterDetail) => v.version.name === gameVersion);
+                  return (
+                    <div key={i} className="flex flex-col p-4 bg-zinc-900 border border-white/5 rounded-2xl group hover:border-[var(--theme-primary)]/30 transition-all space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 bg-[var(--theme-primary)]/10 rounded-lg text-[var(--theme-primary)]"><MapPin size={14} /></div>
+                          <span className="text-xs font-bold uppercase tracking-wide group-hover:text-white transition-colors">
+                            {e.location_area.name.replace(/-/g, ' ').toUpperCase()}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
+                            <span key={di} className="text-[8px] font-black text-zinc-500 uppercase tracking-widest px-2 py-0.5 bg-white/5 rounded-md border border-white/5">
+                              LV.{d.min_level}-{d.max_level}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        {e.version_details.find((v: VersionEncounterDetail) => v.version.name === gameVersion)?.encounter_details.map((d: PokeEncounter, di: number) => (
-                          <span key={di} className="text-[8px] font-black text-zinc-500 uppercase tracking-widest px-2 py-0.5 bg-white/5 rounded-md border border-white/5">
-                            LV.{d.min_level}-{d.max_level}
+                      <div className="flex flex-wrap gap-1.5 pl-1.5 border-l-2 border-[var(--theme-primary)]/20">
+                        {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
+                          <span key={di} className="text-[8px] font-black text-[var(--theme-primary)]/70 uppercase">
+                            • {d.method.name.replace('-', ' ')} ({d.chance}%)
                           </span>
                         ))}
                       </div>
                     </div>
-                    <div className="flex flex-wrap gap-1.5 pl-1.5 border-l-2 border-[var(--theme-primary)]/20">
-                      {e.version_details.find((v: VersionEncounterDetail) => v.version.name === gameVersion)?.encounter_details.map((d: PokeEncounter, di: number) => (
-                        <span key={di} className="text-[8px] font-black text-[var(--theme-primary)]/70 uppercase">
-                          • {d.method.name.replace('-', ' ')} ({d.chance}%)
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </>
             );
           }
