@@ -11,5 +11,10 @@ test.describe('Dexhelper App', () => {
     // by ensuring some content is there. We'll check for the app container.
     // The main application container id is 'root'.
     await expect(page.locator('#root')).toBeAttached();
+
+    // Take a screenshot of the whole page
+    await expect(page).toHaveScreenshot('home-page.png', {
+      fullPage: true
+    });
   });
 });
