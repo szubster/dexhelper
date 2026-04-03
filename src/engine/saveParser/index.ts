@@ -302,36 +302,57 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   }
 
   const currentBoxNum = byte(u8, 0x284C) & 0x7F;
-  const currentBoxCount = byte(u8, 0x30C0);
-  const currentBoxSpecies = u8.slice(0x30C1, 0x30C1 + currentBoxCount);
-  const pc = Array.from(currentBoxSpecies)
-    .map(id => INTERNAL_ID_TO_DEX[id])
-    .filter((id): id is number => id !== undefined);
-
+  const pc: number[] = [];
   const pcDetails: PokemonInstance[] = [];
-  const currentBoxDataOffset = 0x30C1 + 21;
-  const currentBoxOTOffset = currentBoxDataOffset + (20 * 33);
-  for (let i = 0; i < currentBoxCount; i++) {
-    const offset = currentBoxDataOffset + (i * 33);
-    const internalId = byte(u8, offset);
-    const speciesId = INTERNAL_ID_TO_DEX[internalId];
-    if (!speciesId) continue;
-    const level = byte(u8, offset + 3);
-    const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter(m => m > 0);
-    const dvs = parseDVs(u8.slice(offset + 27, offset + 29));
-    const isShiny = checkShiny(dvs);
-    const otName = decodeGen12String(u8, currentBoxOTOffset + (i * 11));
-    pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: `Box ${currentBoxNum + 1}`, slot: i + 1 });
-  }
 
+  const parseBox = (boxOffset: number, boxNum: number) => {
+    const count = byte(u8, boxOffset);
+    if (count > 20) return;
+
+    const speciesList = u8.slice(boxOffset + 1, boxOffset + 1 + count);
+    pc.push(...Array.from(speciesList).map(id => INTERNAL_ID_TO_DEX[id]).filter((id): id is number => id !== undefined));
+
+    const boxDataOffset = boxOffset + 22;
+    const boxOTOffset = boxDataOffset + (20 * 33);
+    for (let j = 0; j < count; j++) {
+      const pOff = boxDataOffset + (j * 33);
+      const internalId = byte(u8, pOff);
+      const speciesId = INTERNAL_ID_TO_DEX[internalId];
+      if (!speciesId) continue;
+
+      const level = byte(u8, pOff + 3);
+      const moves = Array.from(u8.slice(pOff + 8, pOff + 12)).filter(m => m > 0);
+      const dvs = parseDVs(u8.slice(pOff + 27, pOff + 29));
+      const isShiny = checkShiny(dvs);
+      const otName = decodeGen12String(u8, boxOTOffset + (j * 11));
+
+      pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: `Box ${boxNum + 1}`, slot: j + 1 });
+    }
+  };
+
+  // Parse active box
+  parseBox(0x30C0, currentBoxNum);
+
+  // Parse other boxes
   const boxOffsets = [0x4000, 0x4462, 0x48C4, 0x4D26, 0x5188, 0x55EA, 0x6000, 0x6462, 0x68C4, 0x6D26, 0x7188, 0x75EA];
   for (let i = 0; i < 12; i++) {
     if (i === currentBoxNum) continue;
-    const offset = boxOffsets[i]!;
-    const count = byte(u8, offset);
-    if (count > 20) continue;
-    const species = u8.slice(offset + 1, offset + 1 + count);
-    pc.push(...Array.from(species).map(id => INTERNAL_ID_TO_DEX[id]).filter((id): id is number => id !== undefined));
+    parseBox(boxOffsets[i]!, i);
+  }
+
+  // Daycare Gen 1
+  if (byte(u8, 0x2CF4) !== 0) {
+    const daycareDataOffset = 0x2D0B;
+    const internalId = byte(u8, daycareDataOffset);
+    const speciesId = INTERNAL_ID_TO_DEX[internalId];
+    if (speciesId) {
+      const level = byte(u8, daycareDataOffset + 3);
+      const moves = Array.from(u8.slice(daycareDataOffset + 8, daycareDataOffset + 12)).filter(m => m > 0);
+      const dvs = parseDVs(u8.slice(daycareDataOffset + 27, daycareDataOffset + 29));
+      const isShiny = checkShiny(dvs);
+      const otName = decodeGen12String(u8, 0x2CF5);
+      pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: 'Daycare' });
+    }
   }
 
   const trainerName = decodeGen12String(u8, 0x2598);
@@ -432,7 +453,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
 
   const partyCount = byte(u8, offsets.partyCount);
   const partySpecies = u8.slice(offsets.partySpecies, offsets.partySpecies + partyCount);
-  const party = Array.from(partySpecies).filter(id => id > 0 && id <= 251);
+  const party = Array.from(partySpecies).filter(id => id > 0 && (id <= 251 || id === 253));
 
   const partyDetails: PokemonInstance[] = [];
   const partyDataOffset = offsets.partySpecies + 7; // After species list
@@ -458,7 +479,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   const currentBoxNum = byte(u8, offsets.currentBoxNum) & 0x0F;
   const currentBoxCount = byte(u8, offsets.currentBoxCount);
   const currentBoxSpecies = u8.slice(offsets.currentBoxSpecies, offsets.currentBoxSpecies + currentBoxCount);
-  const pc = Array.from(currentBoxSpecies).filter(id => id > 0 && id <= 251);
+  const pc = Array.from(currentBoxSpecies).filter(id => id > 0 && (id <= 251 || id === 253));
 
   const pcDetails: PokemonInstance[] = [];
   const currentBoxDataOffset = offsets.currentBoxSpecies + 21; // After species list
@@ -492,7 +513,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     const count = byte(u8, offset);
     if (count > 20) continue;
     const species = u8.slice(offset + 1, offset + 1 + count);
-    pc.push(...Array.from(species).filter(id => id > 0 && id <= 251));
+    pc.push(...Array.from(species).filter(id => id > 0 && (id <= 251 || id === 253)));
     
     const boxDataOffset = offset + 22;
     const boxOTOffset = boxDataOffset + (20 * 32);
@@ -575,7 +596,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     currentMapId,
     mapGroup,
     inventory,
-    currentBoxCount: 0,
+    currentBoxCount,
     hallOfFameCount: 0 // Default for Gen 2 for now
   };
 }
