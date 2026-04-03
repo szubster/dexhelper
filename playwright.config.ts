@@ -48,7 +48,15 @@ export default defineConfig({
     },
     {
       name: 'Mobile Pixel 9',
-      use: { ...devices['Pixel 9'] },
+      use: { 
+        ...devices['Pixel 7'], // Fallback base
+        viewport: { width: 393, height: 852 },
+        deviceScaleFactor: 3,
+        isMobile: true,
+        hasTouch: true,
+        defaultBrowserType: 'chromium',
+        userAgent: 'Mozilla/5.0 (Linux; Android 14; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36',
+      },
     },
   ],
   webServer: {
