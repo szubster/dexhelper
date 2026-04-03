@@ -157,7 +157,7 @@ export function SettingsModal() {
               <h2 className="text-2xl font-display font-black uppercase tracking-tight">Menu</h2>
               <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mt-1">Configure your experience</p>
             </div>
-            <button onClick={() => setIsSettingsOpen(false)} className="p-3 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors text-zinc-400">
+            <button onClick={() => setIsSettingsOpen(false)} aria-label="Close settings" className="p-3 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors text-zinc-400">
               <X size={20} />
             </button>
           </div>

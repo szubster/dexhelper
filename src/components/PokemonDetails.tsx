@@ -466,6 +466,7 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
 
             <button 
               onClick={onClose}
+              aria-label="Close details"
               className="absolute top-6 right-6 sm:relative sm:top-auto sm:right-auto p-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl transition-all group active:scale-95"
             >
               <X size={24} className="text-zinc-400 group-hover:text-white transition-colors" />
