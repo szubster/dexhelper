@@ -1,15 +1,21 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Info, Settings2, Archive, CircleDot, Trash2, Check, Ghost, Monitor, AlertTriangle } from 'lucide-react';
-import { useAppState, PokeballType, GameVersion } from '../state';
+import { X, Info, Settings2, Archive, CircleDot, Trash2, Check, Ghost, Monitor } from 'lucide-react';
+import { useStore } from '../store';
+import type { PokeballType, GameVersion } from '../store';
 import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig';
 
 export function SettingsModal() {
-  const { 
-    isSettingsOpen, setIsSettingsOpen, saveData, setSaveData,
-    manualVersion, setManualVersion, isLivingDex, setIsLivingDex,
-    globalPokeball, setGlobalPokeball
-  } = useAppState();
+  const isSettingsOpen = useStore((s) => s.isSettingsOpen);
+  const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
+  const saveData = useStore((s) => s.saveData);
+  const setSaveData = useStore((s) => s.setSaveData);
+  const manualVersion = useStore((s) => s.manualVersion);
+  const setManualVersion = useStore((s) => s.setManualVersion);
+  const isLivingDex = useStore((s) => s.isLivingDex);
+  const setIsLivingDex = useStore((s) => s.setIsLivingDex);
+  const globalPokeball = useStore((s) => s.globalPokeball);
+  const setGlobalPokeball = useStore((s) => s.setGlobalPokeball);
 
   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
 
@@ -24,14 +30,14 @@ export function SettingsModal() {
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="absolute inset-0 bg-black/80 backdrop-blur-sm" 
-          onClick={() => setIsSettingsOpen(false)} 
+          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+          onClick={() => setIsSettingsOpen(false)}
         />
-        <motion.div 
+        <motion.div
           initial={{ y: '100%' }}
           animate={{ y: 0 }}
           exit={{ y: '100%' }}
@@ -47,7 +53,7 @@ export function SettingsModal() {
               <X size={20} />
             </button>
           </div>
-          
+
           <div className="p-8 space-y-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
             {/* Legend */}
             <div className="space-y-4">
@@ -75,7 +81,7 @@ export function SettingsModal() {
                   <div className="p-2 bg-blue-500/10 rounded-lg"><Settings2 size={18} className="text-blue-500" /></div>
                   <span className="text-xs font-bold uppercase tracking-wider">Version</span>
                 </div>
-                <select 
+                <select
                   value={effectiveVersion}
                   onChange={(e) => setManualVersion(e.target.value as GameVersion)}
                   className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-xs font-bold text-zinc-200 outline-none focus:border-blue-500 transition-colors"
@@ -92,7 +98,7 @@ export function SettingsModal() {
                   <div className="p-2 bg-purple-500/10 rounded-lg"><Archive size={18} className="text-purple-500" /></div>
                   <span className="text-xs font-bold uppercase tracking-wider">Living Dex</span>
                 </div>
-                <button 
+                <button
                   onClick={() => setIsLivingDex(!isLivingDex)}
                   className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors ${isLivingDex ? 'bg-emerald-600' : 'bg-zinc-800'}`}
                 >
@@ -105,7 +111,7 @@ export function SettingsModal() {
                   <div className="p-2 bg-amber-500/10 rounded-lg"><CircleDot size={18} className="text-amber-500" /></div>
                   <span className="text-xs font-bold uppercase tracking-wider">Ball Style</span>
                 </div>
-                <select 
+                <select
                   value={globalPokeball}
                   onChange={(e) => setGlobalPokeball(e.target.value as PokeballType)}
                   className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-xs font-bold text-zinc-200 outline-none focus:border-amber-500 transition-colors"
@@ -117,7 +123,7 @@ export function SettingsModal() {
               </div>
             </div>
 
-            <button 
+            <button
               onClick={() => {
                 localStorage.removeItem('last_save_file');
                 setSaveData(null);
@@ -126,7 +132,7 @@ export function SettingsModal() {
               }}
               className="w-full flex items-center justify-center gap-3 p-5 bg-red-600/10 text-red-500 rounded-2xl border border-red-600/20 font-bold uppercase tracking-widest text-[10px] hover:bg-red-600/20 transition-all group"
             >
-              <Trash2 size={16} className="group-hover:rotate-12 transition-transform" /> 
+              <Trash2 size={16} className="group-hover:rotate-12 transition-transform" />
               Clear Stored Save
             </button>
           </div>

@@ -1,8 +1,8 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { PokemonDetails } from '../components/PokemonDetails';
-import { useAppState } from '../state';
-import { pokeapi } from '../utils/pokeapi';
+import { useStore } from '../store';
+import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
 export const Route = createFileRoute('/pokemon/$pokemonId')({
   validateSearch: (search: Record<string, unknown>) => {
@@ -13,28 +13,16 @@ export const Route = createFileRoute('/pokemon/$pokemonId')({
   component: PokemonPage,
 });
 
-const pokemonQueryOptions = {
-  queryKey: ['pokemonList'],
-  queryFn: async () => {
-    const data = await pokeapi.getPokemonsList({ limit: 251, offset: 0 });
-    return data.results.map((p: any) => {
-      const urlParts = p.url.split('/').filter(Boolean);
-      const id = parseInt(urlParts[urlParts.length - 1]);
-      return {
-        id,
-        name: p.name.charAt(0).toUpperCase() + p.name.slice(1),
-      };
-    }).sort((a: any, b: any) => a.id - b.id);
-  }
-};
-
 function PokemonPage() {
   const { pokemonId } = Route.useParams();
   const { from } = Route.useSearch();
   const navigate = useNavigate();
-  const { saveData, isLivingDex, globalPokeball, manualVersion } = useAppState();
+  const saveData = useStore((s) => s.saveData);
+  const isLivingDex = useStore((s) => s.isLivingDex);
+  const globalPokeball = useStore((s) => s.globalPokeball);
+  const manualVersion = useStore((s) => s.manualVersion);
 
-  const { data: pokemonList } = useSuspenseQuery(pokemonQueryOptions);
+  const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
 
   const selectedPokemon = pokemonList.find(p => p.id === parseInt(pokemonId));
   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
@@ -42,7 +30,7 @@ function PokemonPage() {
   return (
     <>
       {selectedPokemon && (
-        <PokemonDetails 
+        <PokemonDetails
           pokemonId={selectedPokemon.id}
           pokemonName={selectedPokemon.name}
           gameVersion={effectiveVersion}
@@ -50,7 +38,7 @@ function PokemonPage() {
           isLivingDex={isLivingDex}
           pokeball={globalPokeball}
           onClose={() => navigate({ to: from })}
-          onNavigate={(id, name) => navigate({ 
+          onNavigate={(id) => navigate({
             to: `/pokemon/${id}`,
             search: { from }
           })}

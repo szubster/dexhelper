@@ -8,6 +8,7 @@ import { Link } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { pokeapi } from '../utils/pokeapi';
 import { getGenerationConfig, MAX_DEX_ACROSS_GENS } from '../utils/generationConfig';
+import { PokemonSprite } from './pokemon/PokemonSprite';
 
 interface AssistantPanelProps {
   saveData: SaveData;
@@ -80,7 +81,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
           {Object.entries(
             suggestions.reduce((acc, s) => {
               if (!acc[s.category]) acc[s.category] = [];
-              acc[s.category].push(s);
+              acc[s.category]!.push(s);
               return acc;
             }, {} as Record<string, Suggestion[]>)
           // Custom sort order for categories
@@ -88,7 +89,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
              const order = ['Catch', 'Gift', 'Evolve', 'Trade', 'Progress', 'Event', 'Utility'];
              return (order.indexOf(a) !== -1 ? order.indexOf(a) : 99) - (order.indexOf(b) !== -1 ? order.indexOf(b) : 99);
           }).map(([category, items]) => {
-            const catStyle = CATEGORY_STYLES[category] || CATEGORY_STYLES.Utility;
+            const catStyle = CATEGORY_STYLES[category] ?? CATEGORY_STYLES.Utility!;
             
             return (
               <div key={category} className="space-y-4">
@@ -117,7 +118,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                 >
                   <AnimatePresence>
                     {items.map((s) => {
-                      const style = CATEGORY_STYLES[s.category] || CATEGORY_STYLES.Utility;
+                      const style = CATEGORY_STYLES[s.category] ?? CATEGORY_STYLES.Utility!;
                       
                       let title = s.title;
                       let desc = s.description;
@@ -161,10 +162,11 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
 
                             {s.pokemonId && (
                               <div className="absolute bottom-4 right-4 w-20 h-20 opacity-30 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 transform origin-bottom-right">
-                                <img 
-                                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${s.pokemonId}.png`}
+                                <PokemonSprite
+                                  pokemonId={s.pokemonId}
+                                  generation={saveData.generation}
                                   alt="Sprite"
-                                  className="w-full h-full object-contain pixelated drop-shadow-lg"
+                                  className="w-full h-full object-contain drop-shadow-lg"
                                 />
                               </div>
                             )}
@@ -177,9 +179,10 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                                       const encs = s.encounterInfo?.[pid];
                                       if (!encs) return acc;
                                       const mainEnc = [...encs].sort((a,b) => b.chance - a.chance)[0];
+                                      if (!mainEnc) return acc;
                                       const method = mainEnc.method;
                                       if (!acc[method]) acc[method] = [];
-                                      acc[method].push({ pid, enc: mainEnc });
+                                      acc[method]!.push({ pid, enc: mainEnc });
                                       return acc;
                                     }, {} as Record<string, { pid: number, enc: EncounterDetail }[]>)
                                   ).map(([method, pokes]) => {
@@ -190,10 +193,10 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                                     // Check ownership
                                     let isOwned = true;
                                     if (isRod) {
-                                      const rodIds = ROD_IDS[saveData.generation] ?? ROD_IDS[1];
-                                      const rodId = method.includes('old') ? rodIds.OLD : 
-                                                    method.includes('good') ? rodIds.GOOD : 
-                                                    rodIds.SUPER;
+                                      const rodIds = ROD_IDS[saveData.generation] ?? ROD_IDS[1]!;
+                                      const rodId = method.includes('old') ? rodIds!.OLD : 
+                                                    method.includes('good') ? rodIds!.GOOD : 
+                                                    rodIds!.SUPER;
                                       isOwned = saveData.inventory.some(i => i.id === rodId);
                                     }
 

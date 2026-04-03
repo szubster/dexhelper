@@ -93,7 +93,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
          ancestralEncounters[pid] = {};
          await Promise.all(ancestors.map(async (aid) => {
            const aEncs = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`);
-           ancestralEncounters[pid][aid] = aEncs;
+           ancestralEncounters[pid]![aid] = aEncs;
          }));
        }
      } catch (e) {
@@ -174,7 +174,7 @@ export function generateSuggestions(
 
        const gift = STATIC_GIFT_DATA[pid];
        if (saveData.eventFlags && gift?.eventFlag) {
-          if ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)] & (1 << (gift.eventFlag % 8))) !== 0) {
+          if ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !== 0) {
             rejected.push({ pokemonId: pid, reason: `Event flag ${gift.eventFlag} is set. Gift already claimed.`, code: 'GIFT_CLAIMED' });
             continue;
           }
@@ -211,7 +211,7 @@ export function generateSuggestions(
        
        const gift = STATIC_GIFT_DATA[pid];
        if (saveData.eventFlags && gift?.eventFlag) {
-          if ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)] & (1 << (gift.eventFlag % 8))) !== 0) continue;
+          if ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !== 0) continue;
        }
 
        const encounters = apiData.missingEncounters[pid] || [];
@@ -367,7 +367,7 @@ export function generateSuggestions(
     
     let isClaimedByEvent = false;
     if (saveData.eventFlags && gift.eventFlag) {
-      isClaimedByEvent = (saveData.eventFlags[Math.floor(gift.eventFlag / 8)] & (1 << (gift.eventFlag % 8))) !== 0;
+      isClaimedByEvent = (saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !== 0;
     }
     
     if (!isClaimedByEvent && !hasAnyWithMyOT && !hasAnyFamily && missingIds.includes(pid)) {
@@ -387,7 +387,7 @@ export function generateSuggestions(
   // Obedience
   const totalBadges = saveData.generation === 1 ? saveData.badges : (saveData.johtoBadges || 0) + (saveData.kantoBadges || 0);
   const caps = OBEDIENCE_CAPS.filter(c => totalBadges >= c.badges);
-  const currentCap = caps.length > 0 ? caps[caps.length - 1].level : 10;
+  const currentCap = caps.length > 0 ? caps[caps.length - 1]!.level : 10;
   const disobedient = saveData.partyDetails.filter(p => p.otName && p.otName !== saveData.trainerName && p.level > currentCap);
   if (disobedient.length > 0) {
     suggestions.push({ id: 'utility-obedience-danger', category: 'Utility', title: 'Obedience Danger!', description: `You have traded Pokémon above Lv. ${currentCap}. They may not obey you!`, priority: 110 });

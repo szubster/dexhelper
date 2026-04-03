@@ -18,14 +18,19 @@ When a bug or regression is reported:
 - **Comprehensive Testing**: Write tests at **all relevant layers** (unit, component, integration, and E2E) that could have caught the bug.
 - **Regression Suite**: Ensure these tests are integrated into the test suite so the bug cannot be reintroduced in the future.
 
-## 3. Mandatory Test Validation
+## 3. Refactoring Requirements
+When refactoring existing code, tests are mandatory:
+- **Ensure Coverage First**: If the code being refactored doesn't have sufficient tests, write tests for the existing behavior *before* beginning the refactoring.
+- **Preserve Functionality**: After refactoring, all relevant tests must pass to prove no regressions were introduced.
+
+## 4. Mandatory Test Validation
 - Always **run and check test results** before finalizing any task.
 - You must verify that:
     1. Your new tests pass.
     2. No existing tests are broken by your changes.
     3. The application is in a stable state.
 
-## 4. Documentation & Standard Patterns
+## 5. Documentation & Standard Patterns
 - **Testing Framework**: [Vitest](https://vitest.dev/) with `jsdom` environment.
 - **Component Tests**: [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro).
 - **Setup File**: Found at `src/test/setup.ts`.

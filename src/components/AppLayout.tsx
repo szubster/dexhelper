@@ -1,29 +1,27 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Upload, Settings2, RefreshCw, AlertTriangle, LayoutGrid, Database, ChevronRight, Zap, Sparkles
+import { motion } from 'motion/react';
+import {
+  Upload, Settings2, RefreshCw, AlertTriangle, LayoutGrid, Database, Zap, Sparkles
 } from 'lucide-react';
-import { useAppState } from '../state';
+import { useStore } from '../store';
+import type { GameVersion } from '../store';
 import { parseSaveFile } from '../utils/saveParser';
 import { getGenerationConfig, VERSION_THEMES } from '../utils/generationConfig';
 import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
 import { BottomNav } from './BottomNav';
-import { Link, useLocation } from '@tanstack/react-router';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-
+import { Link } from '@tanstack/react-router';
+import { cn } from '../utils/cn';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
-  const { 
-    saveData, setSaveData, error, setError, manualVersion, setManualVersion,
-    setIsSettingsOpen, setIsVersionModalOpen
-  } = useAppState();
+  const saveData = useStore((s) => s.saveData);
+  const setSaveData = useStore((s) => s.setSaveData);
+  const error = useStore((s) => s.error);
+  const setError = useStore((s) => s.setError);
+  const manualVersion = useStore((s) => s.manualVersion);
+  const setManualVersion = useStore((s) => s.setManualVersion);
+  const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
+  const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -36,7 +34,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         const data = parseSaveFile(buffer, manualVersion || undefined);
         setSaveData(data);
         setError(null);
-        
+
         if (data.gameVersion === 'unknown') {
           setIsVersionModalOpen(true);
         } else {
@@ -47,11 +45,12 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         const bytes = new Uint8Array(buffer);
         const len = bytes.byteLength;
         for (let i = 0; i < len; i++) {
-          binary += String.fromCharCode(bytes[i]);
+          binary += String.fromCharCode(bytes[i]!);
         }
         localStorage.setItem('last_save_file', window.btoa(binary));
-      } catch (err: any) {
-        setError(err.message || "Failed to parse save file.");
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : 'Failed to parse save file.';
+        setError(message);
         setSaveData(null);
       }
     };
@@ -75,7 +74,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <header className="px-4 py-6 sm:px-8 sm:py-10 flex flex-col lg:flex-row items-center justify-between gap-6 border-b border-white/5 bg-zinc-950/80 sticky top-2 z-40 backdrop-blur-xl">
           <div className="flex items-center justify-between w-full lg:w-auto gap-12">
             <Link to="/">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 className="group flex flex-col pt-2"
@@ -98,8 +97,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             {/* Desktop Navigation */}
             {saveData && (
               <nav className="hidden sm:flex items-center gap-2 bg-white/5 p-1 rounded-2xl border border-white/5">
-                <Link 
-                  to="/" 
+                <Link
+                  to="/"
                   activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
                   inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
                   className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
@@ -107,17 +106,17 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   <LayoutGrid size={16} />
                   Pokedex
                 </Link>
-                <Link 
-                  to="/storage" 
+                <Link
+                  to="/storage"
                   activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
                   inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
                   className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
                 >
-                  <Database size={16} />
+                  <LayoutGrid size={16} />
                   Storage
                 </Link>
-                <Link 
-                  to="/assistant" 
+                <Link
+                  to="/assistant"
                   activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
                   inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
                   className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
@@ -131,7 +130,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
           {saveData ? (
             <div className="flex flex-wrap items-center justify-center lg:justify-end gap-3 sm:gap-6 w-full lg:w-auto">
-               <motion.div 
+               <motion.div
                  initial={{ opacity: 0, scale: 0.95 }}
                  animate={{ opacity: 1, scale: 1 }}
                  className="glass-card flex items-center gap-4 px-5 py-2.5 rounded-2xl border-white/10"
@@ -165,7 +164,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                       </span>
                     </div>
                     <div className="h-1 bg-white/5 rounded-full overflow-hidden border border-white/5">
-                      <motion.div 
+                      <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${(() => {
                           const securedIds = new Set([...saveData.party, ...saveData.pc]);
@@ -177,15 +176,15 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     </div>
                   </div>
                </motion.div>
-               
-               <motion.button 
+
+               <motion.button
                  onClick={() => setIsVersionModalOpen(true)}
                  initial={{ opacity: 0, scale: 0.95 }}
                  animate={{ opacity: 1, scale: 1 }}
                  className={cn(
                    "group relative px-5 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest border transition-all overflow-hidden",
-                   effectiveVersion === 'unknown' 
-                     ? 'bg-amber-500/10 border-amber-500/20 text-amber-500' 
+                   effectiveVersion === 'unknown'
+                     ? 'bg-amber-500/10 border-amber-500/20 text-amber-500'
                      : 'bg-[var(--theme-primary)]/10 border-[var(--theme-primary)]/20 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-white'
                  )}
                >
@@ -199,14 +198,14 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 <div className="h-8 w-[1px] bg-white/5 mx-2 hidden lg:block" />
 
                 <div className="flex gap-2">
-                  <button 
+                  <button
                     onClick={() => setIsSettingsOpen(true)}
                     className="p-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white rounded-2xl border border-white/5 transition-all flex items-center justify-center retro-button"
                     title="System Settings"
                   >
                     <Settings2 size={20} />
                   </button>
-                  <label 
+                  <label
                     className="p-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white rounded-2xl border border-white/5 cursor-pointer transition-all flex items-center justify-center retro-button"
                     title="Import New Save"
                   >
@@ -216,7 +215,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 </div>
             </div>
           ) : (
-            <motion.label 
+            <motion.label
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, y: 10 }}
@@ -231,7 +230,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         </header>
 
         {error && (
-          <motion.div 
+          <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             className="mx-4 mt-4 mb-0 text-red-400 bg-red-400/10 p-5 rounded-2xl border border-red-400/20 flex items-center gap-4 glass-card"
@@ -243,7 +242,6 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             </div>
           </motion.div>
         )}
-
 
         <main className="px-4 pb-12 flex-1 pt-4">
           {children}

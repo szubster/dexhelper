@@ -1,11 +1,15 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AlertTriangle } from 'lucide-react';
-import { useAppState, GameVersion } from '../state';
+import { useStore } from '../store';
+import type { GameVersion } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 
 export function VersionModal() {
-  const { isVersionModalOpen, setIsVersionModalOpen, setManualVersion, saveData } = useAppState();
+  const isVersionModalOpen = useStore((s) => s.isVersionModalOpen);
+  const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
+  const setManualVersion = useStore((s) => s.setManualVersion);
+  const saveData = useStore((s) => s.saveData);
 
   if (!isVersionModalOpen) return null;
 
@@ -15,13 +19,13 @@ export function VersionModal() {
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="absolute inset-0 bg-black/90 backdrop-blur-md"
         />
-        <motion.div 
+        <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
@@ -34,7 +38,7 @@ export function VersionModal() {
             <h2 className="text-2xl font-display font-black uppercase tracking-tight text-white">Select Game Version</h2>
             <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest leading-relaxed">We couldn't confidently detect your game version. Please select it manually.</p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {versions.map(v => (
               <button

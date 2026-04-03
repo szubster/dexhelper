@@ -1,34 +1,33 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Monitor, CircleDot, Sparkles, ChevronRight, Hash } from 'lucide-react';
-import { useAppState } from '../state';
+import { Monitor, CircleDot, Sparkles, ChevronRight } from 'lucide-react';
+import { useStore } from '../store';
 import { useNavigate } from '@tanstack/react-router';
 import { getGenerationConfig } from '../utils/generationConfig';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '../utils/cn';
 
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
-  const { saveData, isLivingDex, searchTerm, filters } = useAppState();
+export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
+  const saveData = useStore((s) => s.saveData);
+  const isLivingDex = useStore((s) => s.isLivingDex);
+  const searchTerm = useStore((s) => s.searchTerm);
+  const filters = useStore((s) => s.filters);
   const navigate = useNavigate();
 
+  const filtersSet = new Set(filters);
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
   const displayLimit = genConfig?.maxDex ?? 151;
-  
+
   const finalPokemon = pokemonList.slice(0, displayLimit).filter(pokemon => {
-    if (!saveData || filters.size === 0) return true;
-    
+    if (!saveData || filtersSet.size === 0) return true;
+
     const inParty = saveData.party.includes(pokemon.id);
     const inPC = saveData.pc.includes(pokemon.id);
     const hasInStorage = inParty || inPC;
 
-    if (filters.has('secured') && hasInStorage) return true;
-    if (filters.has('missing') && !hasInStorage) return true;
-    if (filters.has('dex-only') && (saveData.owned.has(pokemon.id) && !hasInStorage)) return true;
-    
+    if (filtersSet.has('secured') && hasInStorage) return true;
+    if (filtersSet.has('missing') && !hasInStorage) return true;
+    if (filtersSet.has('dex-only') && (saveData.owned.has(pokemon.id) && !hasInStorage)) return true;
+
     return false;
   }).filter(pokemon => {
     if (!searchTerm) return true;
@@ -43,32 +42,32 @@ export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
           const inParty = saveData ? saveData.party.includes(pokemon.id) : false;
           const inPC = saveData ? saveData.pc.includes(pokemon.id) : false;
           const hasInStorage = inParty || inPC;
-          
+
           const isOwnedInDex = saveData ? saveData.owned.has(pokemon.id) : false;
           const isSeenInDex = saveData ? saveData.seen.has(pokemon.id) : false;
 
           const isOwned = saveData ? (isLivingDex ? hasInStorage : (isOwnedInDex || hasInStorage)) : false;
           const hadButLost = saveData ? (isOwnedInDex && !hasInStorage) : false;
-          
+
           const isSeen = saveData ? (isSeenInDex || isOwned || hasInStorage) : false;
           const isUnseen = saveData && !isSeen;
           const isSeenNotOwned = saveData && isSeen && !isOwned;
-          
+
           const isShiny = saveData ? (
-            saveData.partyDetails.some(p => p.speciesId === pokemon.id && p.isShiny) || 
+            saveData.partyDetails.some(p => p.speciesId === pokemon.id && p.isShiny) ||
             saveData.pcDetails.some(p => p.speciesId === pokemon.id && p.isShiny)
           ) : false;
 
           return (
-            <motion.div 
+            <motion.div
               layout
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ delay: (idx % 20) * 0.02 }}
-              key={pokemon.id} 
+              key={pokemon.id}
               onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
-              whileHover={{ 
+              whileHover={{
                 y: -6,
                 transition: { duration: 0.15 }
               }}
@@ -87,7 +86,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
                     {pokemon.id.toString().padStart(3, '0')}
                   </span>
                 </div>
-                
+
                 {saveData && !isUnseen && (
                   <div className="flex gap-1">
                     {inParty && <CircleDot size={12} className="text-rose-500 animate-pulse" />}
@@ -99,11 +98,11 @@ export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
               {/* Sprite Container */}
               <div className="relative aspect-square mb-4 flex items-center justify-center rounded-2xl bg-black/20 overflow-hidden group-hover:bg-black/40 transition-colors">
                 {/* LCD Grid Background */}
-                <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
+                <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
                      style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '4px 4px' }} />
-                
+
                 {isShiny && (
-                  <motion.div 
+                  <motion.div
                     animate={{ rotate: 360, scale: [1, 1.2, 1] }}
                     transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
                     className="absolute -top-1 -right-1 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] z-10"
@@ -112,7 +111,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
                   </motion.div>
                 )}
 
-                <img 
+                <img
                   src={genConfig
                     ? genConfig.spriteUrl(pokemon.id, isShiny)
                     : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pokemon.id}.png`
@@ -127,7 +126,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
                     e.currentTarget.src = (genConfig?.fallbackSpriteUrl ?? getGenerationConfig(1).fallbackSpriteUrl)(pokemon.id);
                   }}
                 />
-                
+
                 {/* Scanline overlay for sprite */}
                 <div className="absolute inset-0 scanline-overlay opacity-20 pointer-events-none" />
               </div>
@@ -140,7 +139,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: any[] }) {
                 )}>
                   {pokemon.name}
                 </h3>
-                
+
                 {saveData && (
                   <div className="flex justify-center">
                     {hasInStorage ? (

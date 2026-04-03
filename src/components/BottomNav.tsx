@@ -1,16 +1,12 @@
 import { motion } from 'motion/react';
 import { LayoutGrid, Database, Settings2, Sparkles } from 'lucide-react';
-import { useAppState } from '../state';
+import { useStore } from '../store';
 import { Link, useLocation } from '@tanstack/react-router';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+import { cn } from '../utils/cn';
 
 export function BottomNav() {
-  const { saveData, setIsSettingsOpen } = useAppState();
+  const saveData = useStore((s) => s.saveData);
+  const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
   const location = useLocation();
 
   if (!saveData) return null;
@@ -23,14 +19,14 @@ export function BottomNav() {
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-zinc-950/60 backdrop-blur-2xl border-t border-white/5 px-6 pb-[env(safe-area-inset-bottom,20px)] pt-3 sm:hidden shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
       <div className="flex justify-around items-center max-w-sm mx-auto relative px-2">
         {/* Active Indicator Background */}
-        <motion.div 
+        <motion.div
           layoutId="active-pill"
           className="absolute h-12 w-[22%] bg-[var(--theme-primary)]/10 rounded-2xl border border-[var(--theme-primary)]/20 -z-10"
           animate={{ x: isDex ? '-150%' : isStorage ? '-50%' : isAssistant ? '50%' : '150%' }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         />
 
-        <Link 
+        <Link
           to="/"
           className={cn(
             "flex flex-col items-center gap-1 transition-all duration-300 py-1",
@@ -43,7 +39,7 @@ export function BottomNav() {
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Pokedex</span>
         </Link>
 
-        <Link 
+        <Link
           to="/storage"
           className={cn(
             "flex flex-col items-center gap-1 transition-all duration-300 py-1",
@@ -55,8 +51,8 @@ export function BottomNav() {
           </motion.div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Storage</span>
         </Link>
-        
-        <Link 
+
+        <Link
           to="/assistant"
           className={cn(
             "flex flex-col items-center gap-1 transition-all duration-300 py-1",
@@ -69,7 +65,7 @@ export function BottomNav() {
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Assistant</span>
         </Link>
 
-        <button 
+        <button
           onClick={() => setIsSettingsOpen(true)}
           className="flex flex-col items-center gap-1 transition-all duration-300 py-1 text-zinc-500"
         >
