@@ -8,6 +8,21 @@ import { getGenerationConfig } from '../../utils/generationConfig';
 import { Suggestion, EncounterDetail, RejectedSuggestion } from './strategies/types';
 
 /**
+ * Helper function to find all ancestors of a target Pokemon ID in an evolution chain.
+ */
+function getAncestors(node: any, target: number, path: number[] = []): number[] | null {
+  const id = parseInt(node.species.url.split('/').slice(-2, -1)[0]);
+  if (id === target) {
+    return path;
+  }
+  for (const child of node.evolves_to) {
+    const result = getAncestors(child, target, [...path, id]);
+    if (result) return result;
+  }
+  return null;
+}
+
+/**
  * Fetches all necessary data from PokéAPI for the assistant to make suggestions.
  * This is decoupled from the React hook for easier testing.
  */
@@ -45,20 +60,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
        const chain = await pokeapi.resource(species.evolution_chain.url);
        missingChains[pid] = chain;
 
-       // Find all ancestors of pid in the chain
-       const ancestors: number[] = [];
-       const findAncestors = (node: any, target: number, path: number[]): boolean => {
-         const id = parseInt(node.species.url.split('/').slice(-2, -1)[0]);
-         if (id === target) {
-           ancestors.push(...path);
-           return true;
-         }
-         for (const child of node.evolves_to) {
-           if (findAncestors(child, target, [...path, id])) return true;
-         }
-         return false;
-       };
-       findAncestors(chain.chain, pid, []);
+       const ancestors = getAncestors(chain.chain, pid) || [];
 
        if (ancestors.length > 0) {
          ancestralEncounters[pid] = {};
