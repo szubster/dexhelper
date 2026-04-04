@@ -20,7 +20,7 @@ export function PokemonDetailsView({ pokemonId, pokemonName }: Props) {
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
       const fromParam = urlParams.get('from');
-      if (fromParam) {
+      if (fromParam && fromParam.startsWith('/') && !fromParam.startsWith('//') && !fromParam.startsWith('/\\')) {
         setFrom(fromParam);
       }
     }
@@ -38,7 +38,7 @@ export function PokemonDetailsView({ pokemonId, pokemonName }: Props) {
         isLivingDex={isLivingDex}
         pokeball={globalPokeball}
         onClose={() => { if (typeof window !== 'undefined') window.location.assign(from); }}
-        onNavigate={(id) => { if (typeof window !== 'undefined') window.location.assign(`/pokemon/${id}?from=${from}`); }}
+        onNavigate={(id) => { if (typeof window !== 'undefined') window.location.assign(`/pokemon/${id}?from=${encodeURIComponent(from)}`); }}
       />
     </ReactQueryProvider>
   );
