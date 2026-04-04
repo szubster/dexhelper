@@ -190,7 +190,7 @@ function isGen2Save(u8: Uint8Array, crystal: boolean): boolean {
   if ((u8[speciesOffset + partyCount] ?? 0) !== 0xFF) return false;
   for (let i = 0; i < partyCount; i++) {
     const id = u8[speciesOffset + i] ?? 0;
-    if (id === 0 || id > 251) return false;
+    if (id === 0 || (id > 251 && id !== 253)) return false;
   }
   return true;
 }

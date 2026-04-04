@@ -63,6 +63,7 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     mockBuffer[0x30C0] = 1;
     // Box 1 Species 1 = Pikachu (internal 0x54)
     mockBuffer[0x30C1] = 0x54;
+    mockBuffer[0x30C1 + 1] = 0xFF; // Terminator
     // Box 1 Data 1 Internal ID = Pikachu (0x54)
     mockBuffer[0x30C1 + 21] = 0x54;
     // Box 1 Data 1 Level = 5
@@ -72,6 +73,7 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     mockBuffer[0x4000] = 1;
     // Box 2 Species 1 = Charmander (internal 0xB0)
     mockBuffer[0x4001] = 0xB0;
+    mockBuffer[0x4002] = 0xFF; // Terminator
     // Box 2 Data 1 Internal ID = Charmander (0xB0)
     mockBuffer[0x4022] = 0xB0;
     // Box 2 Data 1 Level = 10
@@ -113,16 +115,17 @@ describe('saveParser - Pokémon Gen 2 Validation', () => {
     // Mark as valid GS save
     mockBuffer[0x288A] = 1; // Party count
     mockBuffer[0x288B] = 253; // Egg
-    mockBuffer[0x288B + 1] = 0xFF; // Terminator
+    mockBuffer[0x288C] = 0xFF; // Terminator
 
-    // Party data starts at 0x288B + 7 = 0x2892
+    // Party data starts at speciesOffset + 1 + 6 = 0x288B + 7 = 0x2892
     mockBuffer[0x2892] = 253; // Species ID in data
     mockBuffer[0x2892 + 31] = 5; // Level
 
     // PC Active box count at 0x2D10
     mockBuffer[0x2D10] = 1;
     mockBuffer[0x2D11] = 253; // Egg
-    // PC Data starts at 0x2D11 + 21 = 0x2D26
+    mockBuffer[0x2D12] = 0xFF; // Terminator
+    // PC Data starts at currentBoxSpecies + 1 + 20 = 0x2D11 + 21 = 0x2D26
     mockBuffer[0x2D26] = 253; // Species ID in data
     mockBuffer[0x2D26 + 31] = 5; // Level
 
@@ -137,7 +140,7 @@ describe('saveParser - Pokémon Gen 2 Validation', () => {
     const mockBuffer = new Uint8Array(32768);
     mockBuffer[0x288A] = 1;
     mockBuffer[0x288B] = 1;
-    mockBuffer[0x288B + 1] = 0xFF;
+    mockBuffer[0x288C] = 0xFF;
 
     mockBuffer[0x2D10] = 5; // 5 Pokémon in active box
 
