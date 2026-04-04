@@ -4,7 +4,6 @@ import { Monitor, CircleDot, Sparkles, ChevronRight } from 'lucide-react';
 import { useStore } from '../store';
 import { useNavigate } from '@tanstack/react-router';
 import { getGenerationConfig } from '../utils/generationConfig';
-import { cn } from '../utils/cn';
 
 export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
   const saveData = useStore((s) => s.saveData);
@@ -54,7 +53,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
   }, [saveData]);
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-5 px-1 pb-10">
+    <div className="grid-container grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 pb-20">
       <AnimatePresence mode="popLayout">
         {finalPokemon.map((pokemon, idx) => {
           const inParty = saveData ? partySet.has(pokemon.id) : false;
@@ -82,45 +81,42 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
               transition={{ delay: (idx % 20) * 0.02 }}
               key={pokemon.id}
               onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
-              whileHover={{
-                y: -6,
-                transition: { duration: 0.15 }
-              }}
+              whileHover={{ y: -6, transition: { duration: 0.15 } }}
               whileTap={{ scale: 0.97 }}
-              className={cn(
-                "group relative flex flex-col p-4 rounded-[2rem] transition-all cursor-pointer overflow-hidden glass-card",
-                hadButLost ? "border-purple-500/30" : isOwned ? (isShiny ? "border-amber-500/30" : "border-[var(--theme-primary)]/30") : "border-white/5",
-                isUnseen && "opacity-40 grayscale"
-              )}
+              className={`glass-card pokemon-card flex-col flex relative ${
+                isUnseen ? 'pokemon-card-unseen' : ''
+              } ${
+                hadButLost ? "pokemon-card-had-lost" : isOwned ? (isShiny ? "pokemon-card-owned-shiny" : "pokemon-card-owned") : ""
+              }`}
             >
               {/* Card Header: Num & Icons */}
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/5 border border-white/5">
-                  <span className="text-[9px] font-black text-zinc-500 uppercase tracking-tighter">ID</span>
-                  <span className="text-[10px] font-mono font-black text-zinc-300">
+              <div className="pokemon-card-header">
+                <div className="pokemon-id-badge">
+                  <span className="text-[9px] font-black uppercase tracking-tighter" style={{ color: '#71717a' }}>ID</span>
+                  <span className="text-[10px] font-mono font-black" style={{ color: '#d4d4d8' }}>
                     {pokemon.id.toString().padStart(3, '0')}
                   </span>
                 </div>
 
                 {saveData && !isUnseen && (
                   <div className="flex gap-1">
-                    {inParty && <CircleDot size={12} className="text-rose-500 animate-pulse" />}
-                    {inPC && <Monitor size={12} className="text-[var(--theme-primary)]" />}
+                    {inParty && <CircleDot size={12} color="#f43f5e" className="animate-pulse" />}
+                    {inPC && <Monitor size={12} color="var(--theme-primary)" />}
                   </div>
                 )}
               </div>
 
               {/* Sprite Container */}
-              <div className="relative aspect-square mb-4 flex items-center justify-center rounded-2xl bg-black/20 overflow-hidden group-hover:bg-black/40 transition-colors">
+              <div className="pokemon-sprite-container">
                 {/* LCD Grid Background */}
-                <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
-                     style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '4px 4px' }} />
+                <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.05, backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '4px 4px' }} />
 
                 {isShiny && (
                   <motion.div
                     animate={{ rotate: 360, scale: [1, 1.2, 1] }}
                     transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
-                    className="absolute -top-1 -right-1 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] z-10"
+                    className="absolute z-10"
+                    style={{ top: '-0.25rem', right: '-0.25rem', color: '#fbbf24', filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.5))' }}
                   >
                     <Sparkles size={16} fill="currentColor" />
                   </motion.div>
@@ -132,10 +128,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
                     : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pokemon.id}.png`
                   }
                   alt={pokemon.name}
-                  className={cn(
-                    "w-[85%] h-[85%] object-contain transition-all duration-500 pixelated z-10",
-                    isUnseen ? "brightness-0 opacity-10" : (isSeenNotOwned ? "grayscale opacity-50" : "drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:scale-110")
-                  )}
+                  className={`pixelated pokemon-sprite ${isUnseen ? 'unseen' : ''} ${isSeenNotOwned ? 'seen-not-owned' : ''}`}
                   loading="lazy"
                   onError={(e) => {
                     e.currentTarget.src = (genConfig?.fallbackSpriteUrl ?? getGenerationConfig(1).fallbackSpriteUrl)(pokemon.id);
@@ -143,44 +136,35 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
                 />
 
                 {/* Scanline overlay for sprite */}
-                <div className="absolute inset-0 scanline-overlay opacity-20 pointer-events-none" />
+                <div className="scanline-overlay absolute inset-0 pointer-events-none" style={{ opacity: 0.2 }} />
               </div>
 
               {/* Card Footer: Name & Status */}
-              <div className="space-y-2">
-                <h3 className={cn(
-                  "text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-center truncate",
-                  isUnseen ? 'text-zinc-700' : isShiny ? 'text-amber-400' : 'text-white'
-                )}>
+              <div className="flex-col flex gap-2">
+                <h3 className={`pokemon-name ${isUnseen ? 'unseen' : ''} ${isShiny ? 'shiny' : ''}`}>
                   {pokemon.name}
                 </h3>
 
                 {saveData && (
                   <div className="flex justify-center">
                     {hasInStorage ? (
-                      <div className={cn(
-                        "flex items-center gap-1.5 px-2.5 py-1 rounded-lg border",
-                        isShiny ? "bg-amber-500/10 border-amber-500/20" : "bg-emerald-500/10 border-emerald-500/20"
-                      )}>
-                        <div className={cn("w-1 h-1 rounded-full", isShiny ? "bg-amber-400" : "bg-emerald-500")} />
-                        <span className={cn(
-                          "text-[8px] font-black uppercase tracking-tighter",
-                          isShiny ? "text-amber-400" : "text-emerald-400"
-                        )}>Secured</span>
+                      <div className={`status-badge ${isShiny ? 'status-badge-secured-shiny' : 'status-badge-secured'}`}>
+                        <div className="dot" style={{ width: '4px', height: '4px', borderRadius: '9999px' }} />
+                        <span className="text text-[8px] font-black uppercase tracking-tighter">Secured</span>
                       </div>
                     ) : isOwnedInDex ? (
-                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/20">
-                        <div className="w-1 h-1 rounded-full bg-amber-500" />
-                        <span className="text-[8px] font-black uppercase tracking-tighter text-amber-400">Dex Only</span>
+                      <div className="status-badge status-badge-dex-only">
+                        <div className="dot" style={{ width: '4px', height: '4px', borderRadius: '9999px' }} />
+                        <span className="text text-[8px] font-black uppercase tracking-tighter">Dex Only</span>
                       </div>
                     ) : isSeenInDex ? (
-                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-rose-500/10 border border-rose-500/20">
-                        <div className="w-1 h-1 rounded-full bg-rose-500" />
-                        <span className="text-[8px] font-black uppercase tracking-tighter text-rose-400">Seen</span>
+                      <div className="status-badge status-badge-seen">
+                        <div className="dot" style={{ width: '4px', height: '4px', borderRadius: '9999px' }} />
+                        <span className="text text-[8px] font-black uppercase tracking-tighter">Seen</span>
                       </div>
                     ) : (
-                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/5">
-                        <span className="text-[8px] font-black uppercase tracking-tighter text-zinc-600">Unknown</span>
+                      <div className="status-badge status-badge-unknown">
+                        <span className="text text-[8px] font-black uppercase tracking-tighter">Unknown</span>
                       </div>
                     )}
                   </div>
@@ -188,8 +172,8 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
               </div>
 
               {/* Corner Accent */}
-              <div className="absolute bottom-[-10px] right-[-10px] p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <ChevronRight size={14} className="text-[var(--theme-primary)]" />
+              <div className="card-chevron">
+                <ChevronRight size={14} color="var(--theme-primary)" />
               </div>
             </motion.div>
           );

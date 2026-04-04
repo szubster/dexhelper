@@ -11,7 +11,6 @@ import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
 import { BottomNav } from './BottomNav';
 import { Link } from '@tanstack/react-router';
-import { cn } from '../utils/cn';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const saveData = useStore((s) => s.saveData);
@@ -61,159 +60,138 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const themeClass = VERSION_THEMES[effectiveVersion.toLowerCase()] || '';
 
   return (
-    <div className={cn(
-      "min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-[var(--theme-primary)]/30 pb-24 lg:pb-0 transition-colors duration-500",
-      themeClass
-    )}>
-      {/* Pokedex Top Bar (Status indicators) */}
-      <div className="h-2 w-full bg-[var(--theme-primary)] sticky top-0 z-50">
-        <div className="absolute inset-0 bg-white/10 lcd-flicker pointer-events-none" />
+    <div className={`app-layout ${themeClass}`}>
+      {/* Top Bar Indicator */}
+      {/* Top Bar Indicator */}
+      <div className="fixed inset-0 z-50 pointer-events-none" style={{ height: '0.5rem', backgroundColor: 'var(--theme-primary)' }}>
+        <div className="absolute inset-0 lcd-flicker" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }} />
       </div>
 
-      <div className="max-w-[1600px] mx-auto min-h-screen flex flex-col">
-        <header className="px-4 py-6 sm:px-8 sm:py-10 flex flex-col lg:flex-row items-center justify-between gap-6 border-b border-white/5 bg-zinc-950/80 sticky top-2 z-40 backdrop-blur-xl">
-          <div className="flex items-center justify-between w-full lg:w-auto gap-12">
-            <Link to="/">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="group flex flex-col pt-2"
-              >
-                <div className="flex items-end gap-2">
-                  <span className="text-4xl font-black tracking-tighter text-white group-hover:text-[var(--theme-primary)] transition-colors">
-                    DEX<span className="text-[var(--theme-primary)] group-hover:text-white transition-colors">HELPER</span>
+      <div className="app-container">
+        <header className="glass-card app-header">
+
+          <div className="header-left">
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex-col flex">
+                <div className="flex items-center gap-2">
+                  <span className="brand-title">
+                    DEX<span className="text-primary">HELPER</span>
                   </span>
-                  <div className="h-1.5 w-1.5 rounded-full bg-[var(--theme-primary)] mb-2 animate-pulse" />
                 </div>
-                <div className="flex items-center gap-2 mt-[-4px]">
-                  <span className="text-[10px] font-retro uppercase tracking-[0.2em] text-zinc-500">
+                <div className="flex items-center gap-2" style={{ marginTop: '-4px' }}>
+                  <span className="font-retro brand-subtitle">
                     {saveData ? getGenerationConfig(saveData.generation).label : 'Protocol X'}
                   </span>
-                  <div className="h-[1px] flex-1 bg-zinc-800" />
+                  <div style={{ height: '1px', flex: 1, backgroundColor: '#27272a' }} />
                 </div>
               </motion.div>
             </Link>
 
             {/* Desktop Navigation */}
             {saveData && (
-              <nav className="hidden sm:flex items-center gap-2 bg-white/5 p-1 rounded-2xl border border-white/5">
+              <nav className="desktop-nav">
                 <Link
                   to="/"
-                  activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
-                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
+                  activeProps={{ className: 'active' }}
+                  className="desktop-nav-link"
                 >
-                  <LayoutGrid size={16} />
-                  Pokedex
+                  <LayoutGrid size={16} /> Pokedex
                 </Link>
                 <Link
                   to="/storage"
-                  activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
-                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
+                  activeProps={{ className: 'active' }}
+                  className="desktop-nav-link"
                 >
-                  <LayoutGrid size={16} />
-                  Storage
+                  <Database size={16} /> Storage
                 </Link>
                 <Link
                   to="/assistant"
-                  activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
-                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
+                  activeProps={{ className: 'active' }}
+                  className="desktop-nav-link"
                 >
-                  <Sparkles size={16} />
-                  Assistant
+                  <Sparkles size={16} /> Assistant
                 </Link>
               </nav>
             )}
           </div>
 
           {saveData ? (
-            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-3 sm:gap-6 w-full lg:w-auto">
-               <motion.div
-                 initial={{ opacity: 0, scale: 0.95 }}
-                 animate={{ opacity: 1, scale: 1 }}
-                 className="glass-card flex items-center gap-4 px-5 py-2.5 rounded-2xl border-white/10"
-               >
-                  <div className="flex flex-col">
-                    <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Trainer</span>
-                    <span className="text-xs font-mono font-black text-[var(--theme-primary)] uppercase tracking-tight">
-                      {saveData.trainerName || 'UNKNOWN'}
+            <div className="header-right">
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="glass-card trainer-card">
+                <div className="flex-col flex">
+                  <span className="text-[9px] font-black uppercase tracking-widest" style={{ color: '#71717a' }}>Trainer</span>
+                  <span className="text-xs font-mono font-black text-primary uppercase">
+                    {saveData.trainerName || 'UNKNOWN'}
+                  </span>
+                </div>
+                <div className="trainer-card-divider" />
+                <div className="flex-col flex">
+                  <span className="text-[9px] font-black uppercase tracking-widest" style={{ color: '#71717a' }}>ID</span>
+                  <span className="text-xs font-mono font-bold" style={{ color: '#d4d4d8' }}>
+                    {String(saveData.trainerId).padStart(5, '0')}
+                  </span>
+                </div>
+
+                {/* Living Dex Progress */}
+                <div className="trainer-card-divider mx-1" />
+                <div className="flex-col flex" style={{ minWidth: '120px' }}>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-[9px] font-black uppercase tracking-widest" style={{ color: '#71717a' }}>Living Dex</span>
+                    <span className="text-[10px] font-mono font-black text-primary">
+                      {(() => {
+                         const securedIds = new Set([...saveData.party, ...saveData.pc]);
+                         const total = getGenerationConfig(saveData.generation).maxDex;
+                         const percent = Math.floor((securedIds.size / total) * 100);
+                         return `${percent}%`;
+                      })()}
                     </span>
                   </div>
-                  <div className="w-[1px] h-6 bg-white/5" />
-                  <div className="flex flex-col">
-                    <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">ID</span>
-                    <span className="text-xs font-mono font-bold text-zinc-300">
-                      {String(saveData.trainerId).padStart(5, '0')}
-                    </span>
+                  <div style={{ height: '0.25rem', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '9999px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)' }}>
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(() => {
+                        const securedIds = new Set([...saveData.party, ...saveData.pc]);
+                        const total = getGenerationConfig(saveData.generation).maxDex;
+                        return (securedIds.size / total) * 100;
+                      })()}%` }}
+                      style={{ height: '100%', backgroundColor: 'var(--theme-primary)', boxShadow: '0 0 10px var(--theme-primary)' }}
+                    />
                   </div>
+                </div>
+              </motion.div>
 
-                  {/* Living Dex Progress */}
-                  <div className="w-[1px] h-6 bg-white/5 mx-1" />
-                  <div className="flex flex-col min-w-[120px]">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Living Dex</span>
-                      <span className="text-[10px] font-mono font-black text-[var(--theme-primary)]">
-                        {(() => {
-                           const securedIds = new Set([...saveData.party, ...saveData.pc]);
-                           const total = getGenerationConfig(saveData.generation).maxDex;
-                           const percent = Math.floor((securedIds.size / total) * 100);
-                           return `${percent}%`;
-                        })()}
-                      </span>
-                    </div>
-                    <div className="h-1 bg-white/5 rounded-full overflow-hidden border border-white/5">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${(() => {
-                          const securedIds = new Set([...saveData.party, ...saveData.pc]);
-                          const total = getGenerationConfig(saveData.generation).maxDex;
-                          return (securedIds.size / total) * 100;
-                        })()}%` }}
-                        className="h-full bg-[var(--theme-primary)] shadow-[0_0_10px_var(--theme-primary)]"
-                      />
-                    </div>
-                  </div>
-               </motion.div>
-
-               <motion.button
+              <motion.button
                  onClick={() => setIsVersionModalOpen(true)}
                  initial={{ opacity: 0, scale: 0.95 }}
                  animate={{ opacity: 1, scale: 1 }}
-                 className={cn(
-                   "group relative px-5 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest border transition-all overflow-hidden",
-                   effectiveVersion === 'unknown'
-                     ? 'bg-amber-500/10 border-amber-500/20 text-amber-500'
-                     : 'bg-[var(--theme-primary)]/10 border-[var(--theme-primary)]/20 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-white'
-                 )}
+                 className="retro-button version-btn"
+                 style={{
+                   backgroundColor: effectiveVersion === 'unknown' ? 'rgba(245, 158, 11, 0.1)' : 'rgba(var(--theme-primary-rgb), 0.1)',
+                   color: effectiveVersion === 'unknown' ? '#f59e0b' : 'var(--theme-primary)',
+                   borderColor: effectiveVersion === 'unknown' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(var(--theme-primary-rgb), 0.2)'
+                 }}
                >
-                  <div className="relative z-10 flex items-center gap-2">
-                    <Zap size={12} className="group-hover:animate-bounce" />
-                    {effectiveVersion}
-                  </div>
-                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity lcd-flicker" />
-                </motion.button>
+                  <Zap size={12} />
+                  {effectiveVersion}
+              </motion.button>
 
-                <div className="h-8 w-[1px] bg-white/5 mx-2 hidden lg:block" />
-
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => setIsSettingsOpen(true)}
-                    aria-label="System Settings"
-                    className="p-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white rounded-2xl border border-white/5 transition-all flex items-center justify-center retro-button"
-                    title="System Settings"
-                  >
-                    <Settings2 size={20} />
-                  </button>
-                  <label
-                    className="p-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white rounded-2xl border border-white/5 cursor-pointer transition-all flex items-center justify-center retro-button"
-                    title="Import New Save"
-                  >
-                    <RefreshCw size={20} />
-                    <input type="file" accept=".sav" className="hidden" onChange={handleFileUpload} />
-                  </label>
-                </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setIsSettingsOpen(true)}
+                  aria-label="System Settings"
+                  className="retro-button btn-icon"
+                  title="System Settings"
+                >
+                  <Settings2 size={20} />
+                </button>
+                <label
+                  className="retro-button btn-icon"
+                  title="Import New Save"
+                >
+                  <RefreshCw size={20} />
+                  <input type="file" accept=".sav" style={{ display: 'none' }} onChange={handleFileUpload} />
+                </label>
+              </div>
             </div>
           ) : (
             <motion.label
@@ -221,11 +199,12 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-4 bg-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/90 text-white px-10 py-4 rounded-2xl cursor-pointer transition-all shadow-[0_20px_40px_rgba(var(--theme-primary-rgb),0.2)] font-black uppercase tracking-widest text-[11px] border-b-4 border-black/20"
+              role="button"
+              className="btn-init"
             >
               <Upload size={20} />
               Initialize Pokedex
-              <input type="file" accept=".sav" className="hidden" onChange={handleFileUpload} />
+              <input type="file" accept=".sav" style={{ display: 'none' }} onChange={handleFileUpload} />
             </motion.label>
           )}
         </header>
@@ -234,17 +213,17 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
-            className="mx-4 mt-4 mb-0 text-red-400 bg-red-400/10 p-5 rounded-2xl border border-red-400/20 flex items-center gap-4 glass-card"
+            className="glass-card system-error"
           >
-            <AlertTriangle size={24} className="flex-shrink-0" />
-            <div className="flex flex-col">
+            <AlertTriangle size={24} style={{ flexShrink: 0 }} />
+            <div className="flex-col flex">
               <span className="text-[10px] font-black uppercase tracking-tighter">System Error</span>
-              <span className="text-sm font-medium">{error}</span>
+              <span className="text-sm font-bold">{error}</span>
             </div>
           </motion.div>
         )}
 
-        <main className="px-4 pb-12 flex-1 pt-4">
+        <main className="main-content">
           {children}
         </main>
       </div>
@@ -254,13 +233,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       <VersionModal />
 
       {/* Retro Background Pattern */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1] overflow-hidden">
-        <div className="absolute inset-0 scanline-overlay" />
-        <div className="p-20 flex flex-wrap gap-40 rotate-[30deg] scale-150">
-          {Array.from({ length: getGenerationConfig(saveData?.generation ?? 1).maxDex }).map((_, i) => (
-            <span key={i} className="text-4xl font-retro text-white">#{(i+1).toString().padStart(3, '0')}</span>
-          ))}
-        </div>
+      <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', opacity: 0.03, zIndex: -1, overflow: 'hidden' }}>
+        <div className="scanline-overlay" style={{ position: 'absolute', inset: 0 }} />
       </div>
     </div>
   );

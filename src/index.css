@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Press+Start+2P&display=swap');
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
+@import "@picocss/pico/css/pico.min.css";
 
-@theme {
+:root {
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
@@ -15,28 +14,34 @@
 
   --color-pokedex: #e51d20;
   --color-pokedex-dark: #8c1012;
-}
 
-:root {
   --theme-primary: #e51d20;
   --theme-primary-rgb: 229, 29, 32;
   --theme-bg: #09090b;
   --theme-surface: rgba(18, 18, 21, 0.8);
   --theme-border: rgba(255, 255, 255, 0.1);
+
+  /* Pico overrides */
+  --pico-font-family: var(--font-sans);
+  --pico-primary: var(--theme-primary);
+  --pico-primary-hover: var(--color-pokedex-dark);
+  --pico-background-color: var(--theme-bg);
+  --pico-color: #fafafa;
+  --pico-form-element-background-color: var(--theme-surface);
+  --pico-form-element-border-color: var(--theme-border);
+  --pico-form-element-active-border-color: var(--theme-primary);
+  --pico-form-element-focus-color: rgba(var(--theme-primary-rgb), 0.125);
 }
 
 /* Version Themes */
-.theme-red { --theme-primary: #ef4444; --theme-primary-rgb: 239, 68, 68; }
-.theme-blue { --theme-primary: #3b82f6; --theme-primary-rgb: 59, 130, 246; }
-.theme-yellow { --theme-primary: #eab308; --theme-primary-rgb: 234, 179, 8; }
-.theme-gold { --theme-primary: #d4af37; --theme-primary-rgb: 212, 175, 55; }
-.theme-silver { --theme-primary: #a8a9ad; --theme-primary-rgb: 168, 169, 173; }
-.theme-crystal { --theme-primary: #4ade80; --theme-primary-rgb: 74, 222, 128; }
+.theme-red { --theme-primary: #ef4444; --theme-primary-rgb: 239, 68, 68; --pico-primary: #ef4444; }
+.theme-blue { --theme-primary: #3b82f6; --theme-primary-rgb: 59, 130, 246; --pico-primary: #3b82f6; }
+.theme-yellow { --theme-primary: #eab308; --theme-primary-rgb: 234, 179, 8; --pico-primary: #eab308; }
+.theme-gold { --theme-primary: #d4af37; --theme-primary-rgb: 212, 175, 55; --pico-primary: #d4af37; }
+.theme-silver { --theme-primary: #a8a9ad; --theme-primary-rgb: 168, 169, 173; --pico-primary: #a8a9ad; }
+.theme-crystal { --theme-primary: #4ade80; --theme-primary-rgb: 74, 222, 128; --pico-primary: #4ade80; }
 
 body {
-  background-color: var(--theme-bg);
-  color: #fafafa;
-  font-family: var(--font-sans);
   overflow-x: hidden;
 }
 
@@ -78,6 +83,8 @@ body {
   backdrop-filter: blur(12px);
   border: 1px solid var(--theme-border);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border-radius: var(--pico-border-radius);
+  padding: var(--pico-spacing);
 }
 
 .pixel-shadow {

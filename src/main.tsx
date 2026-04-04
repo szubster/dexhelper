@@ -5,6 +5,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './queryClient';
 import { routeTree } from './routeTree.gen';
 import './index.css';
+import './layout.css';
 
 // Register Service Worker (production only — SW breaks Vite HMR in dev)
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
