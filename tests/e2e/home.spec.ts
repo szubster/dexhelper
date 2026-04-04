@@ -13,6 +13,9 @@ test.describe('Dexhelper App', () => {
     // The main application container id is 'root'.
     await expect(page.locator('#root')).toBeAttached();
 
+    // Give mobile layout time to settle
+    await page.waitForTimeout(1000);
+
     // Take a screenshot of the whole page automatically processed via Argos
     await argosScreenshot(page, 'home-page', { fullPage: true });
   });

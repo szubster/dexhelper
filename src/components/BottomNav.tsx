@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import { LayoutGrid, Database, Settings2, Sparkles } from 'lucide-react';
 import { useStore } from '../store';
 import { Link, useLocation } from '@tanstack/react-router';
@@ -19,11 +18,9 @@ export function BottomNav() {
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-zinc-950/60 backdrop-blur-2xl border-t border-white/5 px-6 pb-[env(safe-area-inset-bottom,20px)] pt-3 sm:hidden shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
       <div className="flex justify-around items-center max-w-sm mx-auto relative px-2">
         {/* Active Indicator Background */}
-        <motion.div
-          layoutId="active-pill"
-          className="absolute h-12 w-[22%] bg-[var(--theme-primary)]/10 rounded-2xl border border-[var(--theme-primary)]/20 -z-10"
-          animate={{ x: isDex ? '-150%' : isStorage ? '-50%' : isAssistant ? '50%' : '150%' }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        <div
+          className="absolute h-12 w-[22%] bg-[var(--theme-primary)]/10 rounded-2xl border border-[var(--theme-primary)]/20 -z-10 transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(${isDex ? '-150%' : isStorage ? '-50%' : isAssistant ? '50%' : '150%'})` }}
         />
 
         <Link
@@ -33,9 +30,9 @@ export function BottomNav() {
             isDex ? 'text-[var(--theme-primary)]' : 'text-zinc-500'
           )}
         >
-          <motion.div whileTap={{ scale: 0.8 }}>
+          <div className="active:scale-80 transition-transform">
             <LayoutGrid size={22} className={cn(isDex && "drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]")} />
-          </motion.div>
+          </div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Pokedex</span>
         </Link>
 
@@ -46,9 +43,9 @@ export function BottomNav() {
             isStorage ? 'text-[var(--theme-primary)]' : 'text-zinc-500'
           )}
         >
-          <motion.div whileTap={{ scale: 0.8 }}>
+          <div className="active:scale-80 transition-transform">
             <Database size={22} className={cn(isStorage && "drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]")} />
-          </motion.div>
+          </div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Storage</span>
         </Link>
 
@@ -59,9 +56,9 @@ export function BottomNav() {
             isAssistant ? 'text-[var(--theme-primary)]' : 'text-zinc-500'
           )}
         >
-          <motion.div whileTap={{ scale: 0.8 }}>
+          <div className="active:scale-80 transition-transform">
             <Sparkles size={22} className={cn(isAssistant && "drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]")} />
-          </motion.div>
+          </div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Assistant</span>
         </Link>
 
@@ -69,9 +66,9 @@ export function BottomNav() {
           onClick={() => setIsSettingsOpen(true)}
           className="flex flex-col items-center gap-1 transition-all duration-300 py-1 text-zinc-500"
         >
-          <motion.div whileTap={{ scale: 0.8 }}>
+          <div className="active:scale-80 transition-transform">
             <Settings2 size={22} />
-          </motion.div>
+          </div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Menu</span>
         </button>
       </div>

@@ -12,6 +12,7 @@ export default defineConfig({
   expect: {
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.05,
+      animations: 'disabled',
     },
   },
   fullyParallel: true,
