@@ -1,4 +1,4 @@
-import { queryOptions } from '@tanstack/react-query';
+import { queryOptions } from '@tanstack/solid-query';
 import { pokeapi } from './pokeapi';
 import { MAX_DEX_ACROSS_GENS } from './generationConfig';
 

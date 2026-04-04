@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import { SaveData, PokemonInstance } from '../saveParser/index';
 import { pokeapi } from '../../utils/pokeapi';
 import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA } from '../data/gen1/assistantData';

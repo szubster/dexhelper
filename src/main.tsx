@@ -1,10 +1,11 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { RouterProvider, createRouter } from '@tanstack/react-router';
-import { QueryClientProvider } from '@tanstack/react-query';
+import { render } from 'solid-js/web';
+import { Router, Route } from '@solidjs/router';
+import { QueryClientProvider } from '@tanstack/solid-query';
 import { queryClient } from './queryClient';
-import { routeTree } from './routeTree.gen';
 import './index.css';
+
+import { AppLayout } from './components/AppLayout';
+import { IndexRoute } from './routes/index';
 
 // Register Service Worker (production only — SW breaks Vite HMR in dev)
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
@@ -15,25 +16,20 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   });
 }
 
-const router = createRouter({
-  routeTree,
-  context: {
-    queryClient,
-  },
-  basepath: import.meta.env.BASE_URL,
-  defaultViewTransition: true,
-});
+const root = document.getElementById('root');
 
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router;
-  }
+if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
+  throw new Error('Root element not found');
 }
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+render(
+  () => (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <Router base={import.meta.env.BASE_URL} root={AppLayout}>
+        <Route path="/" component={IndexRoute} />
+        {/* Other routes are stubbed out for this prototype */}
+      </Router>
     </QueryClientProvider>
-  </StrictMode>,
+  ),
+  root!
 );

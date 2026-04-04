@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { createQuery } from '@tanstack/solid-query';
 import { SaveData } from '../engine/saveParser/index';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { fetchAssistantApiData, generateSuggestions } from '../engine/assistant/suggestionEngine';
@@ -20,12 +20,12 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
   }
   const queryTargetsSlice = missingIds.slice(0, 30);
 
-  const { data: apiData, isLoading: isLoadingEncounters } = useQuery({
+  const query = createQuery(() => ({
     queryKey: ['assistantData', saveData?.generation, saveData?.currentMapId, queryTargetsSlice.join(','), saveData?.party?.join(',')],
     queryFn: () => fetchAssistantApiData(saveData!, queryTargetsSlice),
     enabled: !!saveData,
-  });
+  }));
 
-  const { suggestions, debug } = generateSuggestions(saveData, isLivingDex, manualVersion, apiData);
-  return { suggestions, debug, isLoading: isLoadingEncounters };
+  const { suggestions, debug } = generateSuggestions(saveData, isLivingDex, manualVersion, query.data);
+  return { suggestions, debug, isLoading: query.isLoading };
 }

@@ -1,20 +1,18 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { useSuspenseQuery } from '@tanstack/react-query';
+import { createQuery } from '@tanstack/solid-query';
 import { PokedexGrid } from '../components/PokedexGrid';
 import { SearchAndFilters } from '../components/SearchAndFilters';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
+import { Show } from 'solid-js';
 
-export const Route = createFileRoute('/')(  {
-  component: Index,
-});
-
-function Index() {
-  const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
+export function IndexRoute() {
+  const query = createQuery(() => pokemonListQueryOptions);
 
   return (
     <>
       <SearchAndFilters />
-      <PokedexGrid pokemonList={pokemonList} />
+      <Show when={query.data} fallback={<div class="p-8 text-center text-zinc-500">Loading Pokedex Data...</div>}>
+        {(data) => <PokedexGrid pokemonList={data()} />}
+      </Show>
     </>
   );
 }

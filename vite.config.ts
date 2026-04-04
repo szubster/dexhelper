@@ -1,6 +1,5 @@
-import { tanstackRouter } from '@tanstack/router-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react';
+import solid from 'vite-plugin-solid';
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 
@@ -9,8 +8,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: process.env.CF_PAGES === 'true' ? '/' : '/dexhelper/',
     plugins: [
-      react(),
-      tanstackRouter(),
+      solid(),
       tailwindcss(),
     ],
     define: {
