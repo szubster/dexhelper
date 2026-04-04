@@ -9,13 +9,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: process.env.CF_PAGES === 'true' ? '/' : '/dexhelper/',
     plugins: [
-      react({
-        babel: {
-          plugins: [
-            ["babel-plugin-react-compiler", {}]
-          ]
-        }
-      } as any),
+      react(),
       tanstackRouter(),
       tailwindcss(),
     ],
