@@ -12,10 +12,10 @@ export default defineConfig(({ mode }) => {
       react({
         babel: {
           plugins: [
-            ["babel-plugin-react-compiler"]
+            ["babel-plugin-react-compiler", {}]
           ]
         }
-      }),
+      } as any),
       tanstackRouter(),
       tailwindcss(),
     ],
