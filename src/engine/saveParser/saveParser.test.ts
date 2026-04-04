@@ -48,6 +48,102 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     const data = parseSaveFile(buffer, 'yellow' as GameVersion);
     expect(data.gameVersion).toBe('yellow');
   });
+
+  it('should parse Pokémon from multiple PC boxes in Gen 1', () => {
+    // Create a mock buffer with Pokémon in Box 1 and Box 2
+    const mockBuffer = new Uint8Array(32768);
+    // Mark as valid Gen 1 save to pass isGen1Save detection
+    mockBuffer[0x2F2C] = 1; // Party count
+    mockBuffer[0x2F2D] = 0x54; // Pikachu in party
+    mockBuffer[0x2F2D + 1] = 0xFF; // Terminator
+
+    // Active box is Box 1 (index 0)
+    mockBuffer[0x284C] = 0;
+    // Box 1 count = 1
+    mockBuffer[0x30C0] = 1;
+    // Box 1 Species 1 = Pikachu (internal 0x54)
+    mockBuffer[0x30C1] = 0x54;
+    // Box 1 Data 1 Internal ID = Pikachu (0x54)
+    mockBuffer[0x30C1 + 21] = 0x54;
+    // Box 1 Data 1 Level = 5
+    mockBuffer[0x30C1 + 21 + 3] = 5;
+
+    // Box 2 (offset 0x4000) count = 1
+    mockBuffer[0x4000] = 1;
+    // Box 2 Species 1 = Charmander (internal 0xB0)
+    mockBuffer[0x4001] = 0xB0;
+    // Box 2 Data 1 Internal ID = Charmander (0xB0)
+    mockBuffer[0x4022] = 0xB0;
+    // Box 2 Data 1 Level = 10
+    mockBuffer[0x4022 + 3] = 10;
+
+    const data = parseSaveFile(mockBuffer.buffer);
+    expect(data.pcDetails).toHaveLength(2);
+    expect(data.pcDetails[0].speciesId).toBe(25); // Pikachu
+    expect(data.pcDetails[0].storageLocation).toBe('Box 1');
+    expect(data.pcDetails[1].speciesId).toBe(4); // Charmander
+    expect(data.pcDetails[1].storageLocation).toBe('Box 2');
+  });
+
+  it('should parse Pokémon from Daycare in Gen 1', () => {
+    const mockBuffer = new Uint8Array(32768);
+    // Mark as valid Gen 1 save
+    mockBuffer[0x2F2C] = 1;
+    mockBuffer[0x2F2D] = 0x54;
+    mockBuffer[0x2F2D + 1] = 0xFF;
+
+    // Daycare Species = Pikachu (0x54)
+    mockBuffer[0x2CF4] = 0x54;
+    // Daycare Data Internal ID = Pikachu (0x54)
+    mockBuffer[0x2D0B] = 0x54;
+    // Daycare Data Level = 20
+    mockBuffer[0x2D0B + 3] = 20;
+
+    const data = parseSaveFile(mockBuffer.buffer);
+    const daycareMon = data.pcDetails.find(p => p.storageLocation === 'Daycare');
+    expect(daycareMon).toBeDefined();
+    expect(daycareMon?.speciesId).toBe(25);
+    expect(daycareMon?.level).toBe(20);
+  });
+});
+
+describe('saveParser - Pokémon Gen 2 Validation', () => {
+  it('should include Eggs (ID 253) in Gen 2 party and PC', () => {
+    const mockBuffer = new Uint8Array(32768);
+    // Mark as valid GS save
+    mockBuffer[0x288A] = 1; // Party count
+    mockBuffer[0x288B] = 253; // Egg
+    mockBuffer[0x288B + 1] = 0xFF; // Terminator
+
+    // Party data starts at 0x288B + 7 = 0x2892
+    mockBuffer[0x2892] = 253; // Species ID in data
+    mockBuffer[0x2892 + 31] = 5; // Level
+
+    // PC Active box count at 0x2D10
+    mockBuffer[0x2D10] = 1;
+    mockBuffer[0x2D11] = 253; // Egg
+    // PC Data starts at 0x2D11 + 21 = 0x2D26
+    mockBuffer[0x2D26] = 253; // Species ID in data
+    mockBuffer[0x2D26 + 31] = 5; // Level
+
+    const data = parseSaveFile(mockBuffer.buffer);
+    expect(data.party).toContain(253);
+    expect(data.pc).toContain(253);
+    expect(data.partyDetails[0].speciesId).toBe(253);
+    expect(data.pcDetails[0].speciesId).toBe(253);
+  });
+
+  it('should correctly report currentBoxCount for Gen 2', () => {
+    const mockBuffer = new Uint8Array(32768);
+    mockBuffer[0x288A] = 1;
+    mockBuffer[0x288B] = 1;
+    mockBuffer[0x288B + 1] = 0xFF;
+
+    mockBuffer[0x2D10] = 5; // 5 Pokémon in active box
+
+    const data = parseSaveFile(mockBuffer.buffer);
+    expect(data.currentBoxCount).toBe(5);
+  });
 });
 
 describe('decodeGen12String', () => {
