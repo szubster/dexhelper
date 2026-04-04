@@ -351,8 +351,8 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
       const moves = Array.from(u8.slice(daycareDataOffset + 8, daycareDataOffset + 12)).filter(m => m > 0);
       const dvs = parseDVs(u8.slice(daycareDataOffset + 27, daycareDataOffset + 29));
       const isShiny = checkShiny(dvs);
-      const otName = decodeGen12String(u8, 0x2CF5);
-      pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: 'Daycare' });
+      const otName = decodeGen12String(u8, 0x2D00);
+      pc.push(speciesId); pcDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: 'Daycare', slot: 1 });
     }
   }
 

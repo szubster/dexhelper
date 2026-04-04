@@ -52,19 +52,18 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
   it('should parse Pokémon from multiple PC boxes in Gen 1', () => {
     // Create a mock buffer with Pokémon in Box 1 and Box 2
     const mockBuffer = new Uint8Array(32768);
-    // Mark as valid Gen 1 save to pass isGen1Save detection
+    // Required header for parseGen1
+    mockBuffer[0x2598] = 0x80; // A
+    mockBuffer[0x2599] = 0x50; // @
+
     mockBuffer[0x2F2C] = 1; // Party count
     mockBuffer[0x2F2D] = 0x54; // Pikachu in party
     mockBuffer[0x2F2D + 1] = 0xFF; // Terminator
-
-    // Set Pikachu (ID 25) as owned in pokedex to help auto-detection
-    mockBuffer[0x25A3 + 3] = 1;
 
     // Active box is Box 1 (index 0)
     mockBuffer[0x284C] = 0;
     // Box 1 count = 1
     mockBuffer[0x30C0] = 1;
-    // Box 1 Species 1 = Pikachu (internal 0x54)
     mockBuffer[0x30C1] = 0x54;
     mockBuffer[0x30C1 + 1] = 0xFF; // Terminator
     // Box 1 Data 1 Internal ID = Pikachu (0x54)
@@ -72,15 +71,14 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     // Box 1 Data 1 Level = 5
     mockBuffer[0x30C0 + 22 + 3] = 5;
 
-    // Box 2 (offset 0x4000) count = 1
-    mockBuffer[0x4000] = 1;
-    // Box 2 Species 1 = Charmander (internal 0xB0)
-    mockBuffer[0x4001] = 0xB0;
-    mockBuffer[0x4002] = 0xFF; // Terminator
+    // Box 2 (offset 0x4462 is index 1 in boxOffsets)
+    mockBuffer[0x4462] = 1;
+    mockBuffer[0x4463] = 0xB0;
+    mockBuffer[0x4464] = 0xFF; // Terminator
     // Box 2 Data 1 Internal ID = Charmander (0xB0)
-    mockBuffer[0x4000 + 22] = 0xB0;
+    mockBuffer[0x4462 + 22] = 0xB0;
     // Box 2 Data 1 Level = 10
-    mockBuffer[0x4000 + 22 + 3] = 10;
+    mockBuffer[0x4462 + 22 + 3] = 10;
 
     const data = parseSaveFile(mockBuffer.buffer, 'red');
     expect(data.pcDetails).toHaveLength(2);
@@ -92,11 +90,11 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
 
   it('should parse Pokémon from Daycare in Gen 1', () => {
     const mockBuffer = new Uint8Array(32768);
-    // Mark as valid Gen 1 save
+    mockBuffer[0x2598] = 0x80;
+    mockBuffer[0x2599] = 0x50;
     mockBuffer[0x2F2C] = 1;
     mockBuffer[0x2F2D] = 0x54;
     mockBuffer[0x2F2D + 1] = 0xFF;
-    mockBuffer[0x25A3 + 3] = 1; // Pikachu owned
 
     // Daycare Species = Pikachu (0x54)
     mockBuffer[0x2CF4] = 0x54;
@@ -116,6 +114,10 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
 describe('saveParser - Pokémon Gen 2 Validation', () => {
   it('should include Eggs (ID 253) in Gen 2 party and PC', () => {
     const mockBuffer = new Uint8Array(32768);
+    // Required header for parseGen2
+    mockBuffer[0x200B] = 0x80; // A
+    mockBuffer[0x200C] = 0x50; // @
+
     // Mark as valid GS save
     mockBuffer[0x288A] = 1; // Party count
     mockBuffer[0x288B] = 253; // Egg
