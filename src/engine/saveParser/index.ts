@@ -462,7 +462,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   for (let i = 0; i < partyCount; i++) {
     const offset = partyDataOffset + (i * 48); // Gen 2 party struct is 48 bytes
     const speciesId = byte(u8, offset);
-    if (!speciesId || speciesId > 251) continue;
+    if (!speciesId || (speciesId > 251 && speciesId !== 253)) continue;
     
     const item = byte(u8, offset + 1);
     const moves = Array.from(u8.slice(offset + 2, offset + 6)).filter(m => m > 0);
@@ -488,7 +488,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   for (let i = 0; i < currentBoxCount; i++) {
     const offset = currentBoxDataOffset + (i * 32); // Gen 2 PC struct is 32 bytes
     const speciesId = byte(u8, offset);
-    if (!speciesId || speciesId > 251) continue;
+    if (!speciesId || (speciesId > 251 && speciesId !== 253)) continue;
     
     const item = byte(u8, offset + 1);
     const moves = Array.from(u8.slice(offset + 2, offset + 6)).filter(m => m > 0);
@@ -521,7 +521,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     for (let j = 0; j < count; j++) {
       const pOff = boxDataOffset + (j * 32);
       const speciesId = byte(u8, pOff);
-      if (!speciesId || speciesId > 251) continue;
+      if (!speciesId || (speciesId > 251 && speciesId !== 253)) continue;
       
       const item = byte(u8, pOff + 1);
       const moves = Array.from(u8.slice(pOff + 2, pOff + 6)).filter(m => m > 0);

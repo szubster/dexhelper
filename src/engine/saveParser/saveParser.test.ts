@@ -57,6 +57,9 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     mockBuffer[0x2F2D] = 0x54; // Pikachu in party
     mockBuffer[0x2F2D + 1] = 0xFF; // Terminator
 
+    // Set Pikachu (ID 25) as owned in pokedex to help auto-detection
+    mockBuffer[0x25A3 + 3] = 1;
+
     // Active box is Box 1 (index 0)
     mockBuffer[0x284C] = 0;
     // Box 1 count = 1
@@ -65,9 +68,9 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     mockBuffer[0x30C1] = 0x54;
     mockBuffer[0x30C1 + 1] = 0xFF; // Terminator
     // Box 1 Data 1 Internal ID = Pikachu (0x54)
-    mockBuffer[0x30C1 + 21] = 0x54;
+    mockBuffer[0x30C0 + 22] = 0x54;
     // Box 1 Data 1 Level = 5
-    mockBuffer[0x30C1 + 21 + 3] = 5;
+    mockBuffer[0x30C0 + 22 + 3] = 5;
 
     // Box 2 (offset 0x4000) count = 1
     mockBuffer[0x4000] = 1;
@@ -75,11 +78,11 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     mockBuffer[0x4001] = 0xB0;
     mockBuffer[0x4002] = 0xFF; // Terminator
     // Box 2 Data 1 Internal ID = Charmander (0xB0)
-    mockBuffer[0x4022] = 0xB0;
+    mockBuffer[0x4000 + 22] = 0xB0;
     // Box 2 Data 1 Level = 10
-    mockBuffer[0x4022 + 3] = 10;
+    mockBuffer[0x4000 + 22 + 3] = 10;
 
-    const data = parseSaveFile(mockBuffer.buffer);
+    const data = parseSaveFile(mockBuffer.buffer, 'red');
     expect(data.pcDetails).toHaveLength(2);
     expect(data.pcDetails[0].speciesId).toBe(25); // Pikachu
     expect(data.pcDetails[0].storageLocation).toBe('Box 1');
@@ -93,6 +96,7 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     mockBuffer[0x2F2C] = 1;
     mockBuffer[0x2F2D] = 0x54;
     mockBuffer[0x2F2D + 1] = 0xFF;
+    mockBuffer[0x25A3 + 3] = 1; // Pikachu owned
 
     // Daycare Species = Pikachu (0x54)
     mockBuffer[0x2CF4] = 0x54;
@@ -101,7 +105,7 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     // Daycare Data Level = 20
     mockBuffer[0x2D0B + 3] = 20;
 
-    const data = parseSaveFile(mockBuffer.buffer);
+    const data = parseSaveFile(mockBuffer.buffer, 'red');
     const daycareMon = data.pcDetails.find(p => p.storageLocation === 'Daycare');
     expect(daycareMon).toBeDefined();
     expect(daycareMon?.speciesId).toBe(25);
@@ -117,7 +121,10 @@ describe('saveParser - Pokémon Gen 2 Validation', () => {
     mockBuffer[0x288B] = 253; // Egg
     mockBuffer[0x288C] = 0xFF; // Terminator
 
-    // Party data starts at speciesOffset + 1 + 6 = 0x288B + 7 = 0x2892
+    // Ensure it's not detected as Gen 1
+    mockBuffer[0x2F2C] = 0xFF;
+
+    // Party data starts at speciesOffset + 7 = 0x288B + 7 = 0x2892
     mockBuffer[0x2892] = 253; // Species ID in data
     mockBuffer[0x2892 + 31] = 5; // Level
 
@@ -125,13 +132,16 @@ describe('saveParser - Pokémon Gen 2 Validation', () => {
     mockBuffer[0x2D10] = 1;
     mockBuffer[0x2D11] = 253; // Egg
     mockBuffer[0x2D12] = 0xFF; // Terminator
-    // PC Data starts at currentBoxSpecies + 1 + 20 = 0x2D11 + 21 = 0x2D26
+    // PC Data starts at currentBoxSpecies + 21 = 0x2D11 + 21 = 0x2D26
     mockBuffer[0x2D26] = 253; // Species ID in data
     mockBuffer[0x2D26 + 31] = 5; // Level
 
-    const data = parseSaveFile(mockBuffer.buffer);
+    // Force version to Gold to bypass detection issues with empty mock
+    const data = parseSaveFile(mockBuffer.buffer, 'gold');
     expect(data.party).toContain(253);
     expect(data.pc).toContain(253);
+    expect(data.partyDetails).toHaveLength(1);
+    expect(data.pcDetails).toHaveLength(1);
     expect(data.partyDetails[0].speciesId).toBe(253);
     expect(data.pcDetails[0].speciesId).toBe(253);
   });
