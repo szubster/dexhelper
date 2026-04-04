@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Sparkles } from 'lucide-react';
-import { useStore } from '../store';
-import { useNavigate } from '@tanstack/react-router';
+import { useStore } from '@nanostores/react';
+import * as Store from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
+import { ReactQueryProvider } from './ReactQueryProvider';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -16,8 +17,7 @@ const itemVariants = {
 } as const;
 
 export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
-  const saveData = useStore((s) => s.saveData);
-  const navigate = useNavigate();
+  const saveData = useStore(Store.saveData);
 
   const pokemonMap = React.useMemo(() => {
     const map = new Map<number, { id: number; name: string }>();
@@ -31,6 +31,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
   const storageLocations = ['Party', 'Daycare', ...Array.from({ length: genConfig.boxCount }, (_, i) => `Box ${i + 1}`)];
 
   return (
+    <ReactQueryProvider>
     <motion.div variants={containerVariants} initial="hidden" animate="show" className="space-y-16">
       {storageLocations.map(location => {
         const pokemonInLocation = [...saveData.partyDetails, ...saveData.pcDetails].filter(p => p.storageLocation === location);
@@ -62,11 +63,13 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                   <motion.div
                     layout
                     key={`${location}-${idx}`}
-                    onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}
                     whileHover={{ y: -4 }}
                     whileTap={{ scale: 0.96 }}
                     className={`relative flex flex-col items-center p-5 rounded-2xl transition-all cursor-pointer ${cardStyle}`}
                   >
+                    <a href={`/pokemon/${pokemon.id}?from=/storage`} className="absolute inset-0 z-20">
+                      <span className="sr-only">View {pokemon.name}</span>
+                    </a>
                     <div className="absolute top-3 left-3 text-[10px] font-mono font-bold text-zinc-600">LV.{p.level}</div>
                     <div className="absolute top-3 right-3 flex flex-col gap-1.5 items-end">
                       {p.isShiny && <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />}
@@ -89,5 +92,6 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
         );
       })}
     </motion.div>
+    </ReactQueryProvider>
   );
 }

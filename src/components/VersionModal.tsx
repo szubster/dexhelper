@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AlertTriangle } from 'lucide-react';
-import { useStore } from '../store';
+import { useStore } from '@nanostores/react';
+import * as Store from '../store';
 import type { GameVersion } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 
 export function VersionModal() {
-  const isVersionModalOpen = useStore((s) => s.isVersionModalOpen);
-  const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
-  const setManualVersion = useStore((s) => s.setManualVersion);
-  const saveData = useStore((s) => s.saveData);
+  const isVersionModalOpen = useStore(Store.isVersionModalOpen);
+  const setIsVersionModalOpen = Store.setIsVersionModalOpen;
+  const setManualVersion = Store.setManualVersion;
+  const saveData = useStore(Store.saveData);
 
   if (!isVersionModalOpen) return null;
 

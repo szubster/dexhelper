@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Link } from '@tanstack/react-router';
 import { Fish, Waves, Trees, Target } from 'lucide-react';
 import { Suggestion, EncounterDetail } from '../../hooks/useAssistant';
 import { SaveData } from '../../engine/saveParser/index';
@@ -121,10 +120,8 @@ export function AssistantSuggestionCard({
                     <div className="flex flex-wrap gap-4">
                       {pokes.map(({ pid, enc }) => (
                         <div key={pid} className="flex flex-col items-center gap-1.5 group/sprite min-w-[56px]">
-                          <Link 
-                            to="/pokemon/$pokemonId" 
-                            params={{ pokemonId: pid.toString() }}
-                            search={{ from: '/assistant' }}
+                          <a
+                            href={`/pokemon/${pid}?from=/assistant`}
                             className="w-14 h-14 bg-zinc-800/80 rounded-2xl p-2 border border-white/10 hover:border-emerald-500/50 hover:scale-110 hover:bg-zinc-700 transition-all relative flex items-center justify-center shadow-md"
                             title={getPokemonName(pid)}
                             onClick={(e) => e.stopPropagation()} 
@@ -137,7 +134,7 @@ export function AssistantSuggestionCard({
                             <div className="absolute -top-1.5 -right-1.5 bg-emerald-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded-lg border border-white/20 shadow-lg">
                               {enc.chance}%
                             </div>
-                          </Link>
+                          </a>
                           <div className="flex flex-col items-center leading-none">
                             <span className="text-[9px] font-black text-white group-hover/sprite:text-emerald-400 transition-colors">
                               Lv. {enc.minLevel === enc.maxLevel ? enc.minLevel : `${enc.minLevel}-${enc.maxLevel}`}
@@ -152,11 +149,9 @@ export function AssistantSuggestionCard({
             ) : (
               <div className="flex flex-wrap gap-2">
                 {s.pokemonIds!.slice(0, 8).map(pid => (
-                  <Link 
+                  <a
                     key={pid} 
-                    to="/pokemon/$pokemonId" 
-                    params={{ pokemonId: pid.toString() }}
-                    search={{ from: '/assistant' }}
+                    href={`/pokemon/${pid}?from=/assistant`}
                     className="w-10 h-10 bg-black/40 rounded-lg p-1 border border-white/5 hover:border-white/40 hover:scale-110 hover:bg-black/60 transition-all group/sprite relative"
                     title={getPokemonName(pid)}
                     onClick={(e) => e.stopPropagation()} 
@@ -166,7 +161,7 @@ export function AssistantSuggestionCard({
                       alt={getPokemonName(pid)}
                       className="w-full h-full object-contain pixelated"
                     />
-                  </Link>
+                  </a>
                 ))}
                 {s.pokemonIds!.length > 8 && (
                   <div className="w-10 h-10 bg-black/40 rounded-lg flex items-center justify-center border border-white/5 text-xs font-bold text-zinc-500">
@@ -194,9 +189,9 @@ export function AssistantSuggestionCard({
       className={`relative rounded-2xl border ${isCritical ? 'border-red-500 animate-[pulse_2s_infinite]' : style.color} bg-zinc-900 shadow-lg transition-all overflow-hidden group ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
     >
       {!hasMultiple && s.pokemonId ? (
-        <Link to="/pokemon/$pokemonId" params={{ pokemonId: s.pokemonId.toString() }} search={{ from: '/assistant' }} className="block w-full h-full">
+        <a href={`/pokemon/${s.pokemonId}?from=/assistant`} className="block w-full h-full">
           {CardContent}
-        </Link>
+        </a>
       ) : (
         <div className="w-full h-full">
           {CardContent}

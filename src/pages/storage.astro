@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { StorageGrid } from '../components/StorageGrid';
+import { fetchPokemonList } from '../utils/pokemonQueries';
+
+const pokemonList = await fetchPokemonList();
+---
+
+<Layout title="Storage - Retro Save Reader">
+  <StorageGrid client:load pokemonList={pokemonList} />
+</Layout>

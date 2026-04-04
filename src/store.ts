@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { atom, map, computed } from 'nanostores';
+import { persistentMap } from '@nanostores/persistent';
 import { parseSaveFile } from './engine/saveParser/index';
 import type { SaveData, GameVersion as GameVersionType } from './engine/saveParser/index';
 
@@ -19,110 +19,120 @@ export type PokeballType =
   | 'love'
   | 'level';
 
-// ─── Store Interface ─────────────────────────────────────────────────
-interface AppStore {
-  // Save data
-  saveData: SaveData | null;
-  error: string | null;
-  setSaveData: (data: SaveData | null) => void;
-  setError: (v: string | null) => void;
-
-  // Persisted settings
+export interface SettingsValue {
   filters: FilterType[];
   manualVersion: GameVersion | null;
   isLivingDex: boolean;
   globalPokeball: PokeballType;
-  toggleFilter: (f: FilterType) => void;
-  setFilters: (f: FilterType[]) => void;
-  setManualVersion: (v: GameVersion | null) => void;
-  setIsLivingDex: (v: boolean) => void;
-  setGlobalPokeball: (v: PokeballType) => void;
-
-  // Transient UI state (not persisted)
-  searchTerm: string;
-  isSettingsOpen: boolean;
-  isVersionModalOpen: boolean;
-  setSearchTerm: (v: string) => void;
-  setIsSettingsOpen: (v: boolean) => void;
-  setIsVersionModalOpen: (v: boolean) => void;
-
-  // Derived helpers
-  filtersSet: () => Set<FilterType>;
-
-  // Actions
-  loadSaveFromStorage: () => void;
 }
 
-// ─── Store ───────────────────────────────────────────────────────────
-export const useStore = create<AppStore>()(
-  persist(
-    (set, get) => ({
-      // Save data
-      saveData: null,
-      error: null,
-      setSaveData: (data) => set({ saveData: data }),
-      setError: (v) => set({ error: v }),
+// ─── State ───────────────────────────────────────────────────────────
 
-      // Settings
-      filters: [],
-      manualVersion: null,
-      isLivingDex: false,
-      globalPokeball: 'poke',
+// Save data
+export const saveData = atom<SaveData | null>(null);
+export const error = atom<string | null>(null);
 
-      toggleFilter: (f) => {
-        const current = get().filters;
-        if (current.includes(f)) {
-          set({ filters: current.filter((x) => x !== f) });
-        } else {
-          set({ filters: [...current, f] });
-        }
-      },
-      setFilters: (f) => set({ filters: f }),
-      setManualVersion: (v) => set({ manualVersion: v }),
-      setIsLivingDex: (v) => set({ isLivingDex: v }),
-      setGlobalPokeball: (v) => set({ globalPokeball: v }),
+// Transient UI state
+export const searchTerm = atom<string>('');
+export const isSettingsOpen = atom<boolean>(false);
+export const isVersionModalOpen = atom<boolean>(false);
 
-      // Transient UI
-      searchTerm: '',
-      isSettingsOpen: false,
-      isVersionModalOpen: false,
-      setSearchTerm: (v) => set({ searchTerm: v }),
-      setIsSettingsOpen: (v) => set({ isSettingsOpen: v }),
-      setIsVersionModalOpen: (v) => set({ isVersionModalOpen: v }),
-
-      // Derived
-      filtersSet: () => new Set(get().filters),
-
-      // Actions
-      loadSaveFromStorage: () => {
-        const savedFile = localStorage.getItem('last_save_file');
-        if (savedFile) {
-          try {
-            const binaryString = window.atob(savedFile);
-            const len = binaryString.length;
-            const bytes = new Uint8Array(len);
-            for (let i = 0; i < len; i++) {
-              bytes[i] = binaryString.charCodeAt(i);
-            }
-            const { manualVersion } = get();
-            const data = parseSaveFile(bytes.buffer, manualVersion || undefined);
-            set({ saveData: data });
-          } catch (err) {
-            console.error('Failed to load saved file from localStorage:', err);
-            localStorage.removeItem('last_save_file');
-          }
-        }
-      },
-    }),
-    {
-      name: 'dexhelper-settings',
-      // Only persist settings, not save data or UI state
-      partialize: (state) => ({
-        filters: state.filters,
-        manualVersion: state.manualVersion,
-        isLivingDex: state.isLivingDex,
-        globalPokeball: state.globalPokeball,
-      }),
+// Persisted settings
+export const settings = persistentMap<SettingsValue>(
+  'dexhelper-settings:',
+  {
+    filters: [],
+    manualVersion: null,
+    isLivingDex: false,
+    globalPokeball: 'poke',
+  },
+  {
+    encode: JSON.stringify,
+    decode: (val: string) => {
+      try {
+        return JSON.parse(val);
+      } catch (e) {
+        return {
+          filters: [],
+          manualVersion: null,
+          isLivingDex: false,
+          globalPokeball: 'poke',
+        };
+      }
     },
-  ),
+  }
 );
+
+// ─── Derived state ───────────────────────────────────────────────────
+export const filtersSet = computed(settings, ($settings) => new Set($settings.filters));
+
+// ─── Actions ─────────────────────────────────────────────────────────
+export function setSaveData(data: SaveData | null) {
+  saveData.set(data);
+}
+
+export function setError(v: string | null) {
+  error.set(v);
+}
+
+export function toggleFilter(f: FilterType) {
+  const current = settings.get().filters;
+  if (current.includes(f)) {
+    settings.setKey('filters', current.filter((x: string) => x !== f));
+  } else {
+    settings.setKey('filters', [...current, f]);
+  }
+}
+
+export function setFilters(f: FilterType[]) {
+  settings.setKey('filters', f);
+}
+
+export function setManualVersion(v: GameVersion | null) {
+  settings.setKey('manualVersion', v);
+}
+
+export function setIsLivingDex(v: boolean) {
+  settings.setKey('isLivingDex', v);
+}
+
+export function setGlobalPokeball(v: PokeballType) {
+  settings.setKey('globalPokeball', v);
+}
+
+export function setSearchTerm(v: string) {
+  searchTerm.set(v);
+}
+
+export function setIsSettingsOpen(v: boolean) {
+  isSettingsOpen.set(v);
+}
+
+export function setIsVersionModalOpen(v: boolean) {
+  isVersionModalOpen.set(v);
+}
+
+export function loadSaveFromStorage() {
+  if (typeof window === 'undefined') return;
+  const savedFile = localStorage.getItem('last_save_file');
+  if (savedFile) {
+    try {
+      const binaryString = window.atob(savedFile);
+      const len = binaryString.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      const mv = settings.get().manualVersion;
+      const data = parseSaveFile(bytes.buffer, mv || undefined);
+      saveData.set(data);
+    } catch (err) {
+      console.error('Failed to load saved file from localStorage:', err);
+      localStorage.removeItem('last_save_file');
+    }
+  }
+}
+
+export function useStore<T>(selector: (state: any) => T): T {
+  throw new Error("useStore is deprecated. Use useStore from @nanostores/react and individual atoms directly.");
+}
