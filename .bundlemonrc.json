@@ -1,5 +1,6 @@
 {
   "baseDir": "./dist",
+  "defaultCompression": "none",
   "files": [
     {
       "path": "assets/index-<hash>.js",
