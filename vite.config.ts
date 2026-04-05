@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
+import { analyzer } from 'vite-bundle-analyzer';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
@@ -12,7 +13,8 @@ export default defineConfig(({ mode }) => {
       react(),
       tanstackRouter(),
       tailwindcss(),
-    ],
+      process.env.ANALYZE === 'true' && analyzer({ openAnalyzer: false, analyzerMode: 'static' }),
+    ].filter(Boolean),
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
@@ -22,7 +24,8 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
-      target: ['es2022', 'edge100', 'firefox100', 'chrome100', 'safari15'],
+      //target: ['es2022', 'edge100', 'firefox100', 'chrome100', 'safari15'],
+      sourcemap: process.env.ANALYZE === 'true',
       cssCodeSplit: false,
       reportCompressedSize: true,
       rollupOptions: {
