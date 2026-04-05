@@ -1,16 +1,17 @@
 import React, { useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Monitor, CircleDot, Sparkles, ChevronRight } from 'lucide-react';
-import { useStore } from '@nanostores/react';
-import * as Store from '../store';
+import { useStore } from '../store';
+import { useNavigate } from '@tanstack/react-router';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { cn } from '../utils/cn';
 
 export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
-  const saveData = useStore(Store.saveData);
-  const $settings = useStore(Store.settings);
-  const { isLivingDex, filters } = $settings;
-  const searchTerm = useStore(Store.searchTerm);
+  const saveData = useStore((s) => s.saveData);
+  const isLivingDex = useStore((s) => s.isLivingDex);
+  const searchTerm = useStore((s) => s.searchTerm);
+  const filters = useStore((s) => s.filters);
+  const navigate = useNavigate();
 
   const filtersSet = React.useMemo(() => new Set(filters), [filters]);
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
@@ -80,6 +81,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ delay: (idx % 20) * 0.02 }}
               key={pokemon.id}
+              onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
               whileHover={{
                 y: -6,
                 transition: { duration: 0.15 }
@@ -91,9 +93,6 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
                 isUnseen && "opacity-40 grayscale"
               )}
             >
-              <a href={`/pokemon/${pokemon.id}?from=/`} className="absolute inset-0 z-20">
-                <span className="sr-only">View {pokemon.name}</span>
-              </a>
               {/* Card Header: Num & Icons */}
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/5 border border-white/5">

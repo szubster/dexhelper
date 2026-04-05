@@ -1,92 +1,87 @@
-import { expect, test, describe, beforeEach } from 'vitest';
-import * as Store from './store';
+import { describe, it, expect, beforeEach } from 'vitest';
+import { useStore } from './store';
 
-// Helper to reset stores for tests
-function resetStores() {
-  Store.saveData.set(null);
-  Store.error.set(null);
-  Store.searchTerm.set('');
-  Store.isSettingsOpen.set(false);
-  Store.isVersionModalOpen.set(false);
-  Store.settings.set({
-    filters: [],
-    manualVersion: null,
-    isLivingDex: false,
-    globalPokeball: 'poke',
-  });
-}
-
-describe('AppStore (Nano Stores)', () => {
+describe('Zustand Store', () => {
   beforeEach(() => {
-    resetStores();
-  });
-
-  describe('Transient UI State', () => {
-    test('searchTerm updates correctly', () => {
-      expect(Store.searchTerm.get()).toBe('');
-      Store.setSearchTerm('pikachu');
-      expect(Store.searchTerm.get()).toBe('pikachu');
-    });
-
-    test('isSettingsOpen updates correctly', () => {
-      expect(Store.isSettingsOpen.get()).toBe(false);
-      Store.setIsSettingsOpen(true);
-      expect(Store.isSettingsOpen.get()).toBe(true);
-    });
-
-    test('isVersionModalOpen updates correctly', () => {
-      expect(Store.isVersionModalOpen.get()).toBe(false);
-      Store.setIsVersionModalOpen(true);
-      expect(Store.isVersionModalOpen.get()).toBe(true);
+    // Reset the store state before each test
+    useStore.setState({
+      saveData: null,
+      error: null,
+      filters: [],
+      manualVersion: null,
+      isLivingDex: false,
+      globalPokeball: 'poke',
+      searchTerm: '',
+      isSettingsOpen: false,
+      isVersionModalOpen: false,
     });
   });
 
-  describe('Persisted Settings', () => {
-    test('toggleFilter works correctly', () => {
-      Store.toggleFilter('secured');
-      expect(Store.settings.get().filters).toContain('secured');
-
-      Store.toggleFilter('missing');
-      expect(Store.settings.get().filters).toContain('secured');
-      expect(Store.settings.get().filters).toContain('missing');
-
-      // Toggle off 'secured'
-      Store.toggleFilter('secured');
-      expect(Store.settings.get().filters).not.toContain('secured');
-      expect(Store.settings.get().filters).toContain('missing');
+  describe('UI state', () => {
+    it('should toggle search term', () => {
+      useStore.getState().setSearchTerm('pikachu');
+      expect(useStore.getState().searchTerm).toBe('pikachu');
     });
 
-    test('setFilters replaces array', () => {
-      Store.setFilters(['secured', 'dex-only']);
-      expect(Store.settings.get().filters).toEqual(['secured', 'dex-only']);
+    it('should toggle settings modal', () => {
+      expect(useStore.getState().isSettingsOpen).toBe(false);
+      useStore.getState().setIsSettingsOpen(true);
+      expect(useStore.getState().isSettingsOpen).toBe(true);
     });
 
-    test('setFilters to empty array', () => {
-      Store.setFilters(['secured', 'missing']);
-      Store.setFilters([]);
-      expect(Store.settings.get().filters).toEqual([]);
-    });
-
-    test('manualVersion updates correctly', () => {
-      Store.setManualVersion('red');
-      expect(Store.settings.get().manualVersion).toBe('red');
-    });
-
-    test('isLivingDex updates correctly', () => {
-      Store.setIsLivingDex(true);
-      expect(Store.settings.get().isLivingDex).toBe(true);
-    });
-
-    test('globalPokeball updates correctly', () => {
-      Store.setGlobalPokeball('ultra');
-      expect(Store.settings.get().globalPokeball).toBe('ultra');
+    it('should toggle version modal', () => {
+      expect(useStore.getState().isVersionModalOpen).toBe(false);
+      useStore.getState().setIsVersionModalOpen(true);
+      expect(useStore.getState().isVersionModalOpen).toBe(true);
     });
   });
 
-  describe('Derived State', () => {
-    test('filtersSet computes correctly', () => {
-      Store.setFilters(['secured', 'missing']);
-      const result = Store.filtersSet.get();
+  describe('Settings state', () => {
+    it('should toggle filters', () => {
+      useStore.getState().toggleFilter('secured');
+      expect(useStore.getState().filters).toContain('secured');
+
+      useStore.getState().toggleFilter('missing');
+      expect(useStore.getState().filters).toContain('secured');
+      expect(useStore.getState().filters).toContain('missing');
+
+      // Toggle off
+      useStore.getState().toggleFilter('secured');
+      expect(useStore.getState().filters).not.toContain('secured');
+      expect(useStore.getState().filters).toContain('missing');
+    });
+
+    it('should set filters directly', () => {
+      useStore.getState().setFilters(['secured', 'dex-only']);
+      expect(useStore.getState().filters).toEqual(['secured', 'dex-only']);
+    });
+
+    it('should clear filters', () => {
+      useStore.getState().setFilters(['secured', 'missing']);
+      useStore.getState().setFilters([]);
+      expect(useStore.getState().filters).toEqual([]);
+    });
+
+    it('should set manual version', () => {
+      useStore.getState().setManualVersion('red');
+      expect(useStore.getState().manualVersion).toBe('red');
+    });
+
+    it('should set living dex mode', () => {
+      useStore.getState().setIsLivingDex(true);
+      expect(useStore.getState().isLivingDex).toBe(true);
+    });
+
+    it('should set global pokeball', () => {
+      useStore.getState().setGlobalPokeball('ultra');
+      expect(useStore.getState().globalPokeball).toBe('ultra');
+    });
+  });
+
+  describe('filtersSet helper', () => {
+    it('should return a Set of the current filters', () => {
+      useStore.getState().setFilters(['secured', 'missing']);
+      const result = useStore.getState().filtersSet();
       expect(result).toBeInstanceOf(Set);
       expect(result.has('secured')).toBe(true);
       expect(result.has('missing')).toBe(true);
@@ -94,26 +89,41 @@ describe('AppStore (Nano Stores)', () => {
     });
   });
 
-  describe('Save Data', () => {
-    test('saveData sets correctly', () => {
+  describe('Save data', () => {
+    it('should set and clear save data', () => {
       const mockSave = {
+        generation: 1,
+        gameVersion: 'red' as const,
         trainerName: 'RED',
-      } as any;
+        trainerId: 12345,
+        badges: 8,
+        owned: new Set([1, 4, 7]),
+        seen: new Set([1, 4, 7, 25]),
+        party: [25],
+        pc: [1, 4],
+        inventory: [],
+        currentMapId: 0,
+        currentBoxCount: 1,
+        hallOfFameCount: 0,
+        eventFlags: new Uint8Array(300),
+        partyDetails: [],
+        pcDetails: [],
+      };
 
-      Store.setSaveData(mockSave);
-      expect(Store.saveData.get()).toBe(mockSave);
-      expect(Store.saveData.get()?.trainerName).toBe('RED');
+      useStore.getState().setSaveData(mockSave);
+      expect(useStore.getState().saveData).toBe(mockSave);
+      expect(useStore.getState().saveData?.trainerName).toBe('RED');
 
-      Store.setSaveData(null);
-      expect(Store.saveData.get()).toBeNull();
+      useStore.getState().setSaveData(null);
+      expect(useStore.getState().saveData).toBeNull();
     });
 
-    test('error updates correctly', () => {
-      Store.setError('Parse failed');
-      expect(Store.error.get()).toBe('Parse failed');
+    it('should set and clear error', () => {
+      useStore.getState().setError('Parse failed');
+      expect(useStore.getState().error).toBe('Parse failed');
 
-      Store.setError(null);
-      expect(Store.error.get()).toBeNull();
+      useStore.getState().setError(null);
+      expect(useStore.getState().error).toBeNull();
     });
   });
 });

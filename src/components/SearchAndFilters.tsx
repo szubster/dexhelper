@@ -1,18 +1,16 @@
 import React from 'react';
 import { Search, X } from 'lucide-react';
-import { useStore } from '@nanostores/react';
-import * as Store from '../store';
+import { useStore } from '../store';
 import type { FilterType } from '../store';
 import { cn } from '../utils/cn';
 
 export function SearchAndFilters() {
-  const saveData = useStore(Store.saveData);
-  const searchTerm = useStore(Store.searchTerm);
-  const setSearchTerm = Store.setSearchTerm;
-  const $settings = useStore(Store.settings);
-  const filters = $settings.filters;
-  const toggleFilter = Store.toggleFilter;
-  const setFilters = Store.setFilters;
+  const saveData = useStore((s) => s.saveData);
+  const searchTerm = useStore((s) => s.searchTerm);
+  const setSearchTerm = useStore((s) => s.setSearchTerm);
+  const filters = useStore((s) => s.filters);
+  const toggleFilter = useStore((s) => s.toggleFilter);
+  const setFilters = useStore((s) => s.setFilters);
 
   if (!saveData) return null;
 

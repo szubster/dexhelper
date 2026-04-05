@@ -3,27 +3,25 @@ import { motion } from 'motion/react';
 import {
   Upload, Settings2, RefreshCw, AlertTriangle, LayoutGrid, Database, Zap, Sparkles
 } from 'lucide-react';
-import { useStore } from '@nanostores/react';
-import * as Store from '../store';
+import { useStore } from '../store';
 import type { GameVersion } from '../store';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { getGenerationConfig, VERSION_THEMES } from '../utils/generationConfig';
 import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
 import { BottomNav } from './BottomNav';
+import { Link } from '@tanstack/react-router';
 import { cn } from '../utils/cn';
-import { ReactQueryProvider } from './ReactQueryProvider';
 
-export function AppLayout({ children, currentPath = '/' }: { children: React.ReactNode, currentPath?: string }) {
-  const saveData = useStore(Store.saveData);
-  const setSaveData = Store.setSaveData;
-  const error = useStore(Store.error);
-  const setError = Store.setError;
-  const $settings = useStore(Store.settings);
-  const manualVersion = $settings.manualVersion;
-  const setManualVersion = Store.setManualVersion;
-  const setIsSettingsOpen = Store.setIsSettingsOpen;
-  const setIsVersionModalOpen = Store.setIsVersionModalOpen;
+export function AppLayout({ children }: { children: React.ReactNode }) {
+  const saveData = useStore((s) => s.saveData);
+  const setSaveData = useStore((s) => s.setSaveData);
+  const error = useStore((s) => s.error);
+  const setError = useStore((s) => s.setError);
+  const manualVersion = useStore((s) => s.manualVersion);
+  const setManualVersion = useStore((s) => s.setManualVersion);
+  const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
+  const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -75,7 +73,7 @@ export function AppLayout({ children, currentPath = '/' }: { children: React.Rea
       <div className="max-w-[1600px] mx-auto min-h-screen flex flex-col">
         <header className="px-4 py-6 sm:px-8 sm:py-10 flex flex-col lg:flex-row items-center justify-between gap-6 border-b border-white/5 bg-zinc-950/80 sticky top-2 z-40 backdrop-blur-xl">
           <div className="flex items-center justify-between w-full lg:w-auto gap-12">
-            <a href="/">
+            <Link to="/">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -94,32 +92,38 @@ export function AppLayout({ children, currentPath = '/' }: { children: React.Rea
                   <div className="h-[1px] flex-1 bg-zinc-800" />
                 </div>
               </motion.div>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             {saveData && (
               <nav className="hidden sm:flex items-center gap-2 bg-white/5 p-1 rounded-2xl border border-white/5">
-                <a
-                  href="/"
-                  className={cn("flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all", (currentPath.replace('/dexhelper', '') === '/' || currentPath.replace('/dexhelper', '') === '' || currentPath.replace('/dexhelper', '').startsWith('/pokemon')) ? 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' : 'text-zinc-500 hover:text-white hover:bg-white/5')}
+                <Link
+                  to="/"
+                  activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
+                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
+                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
                 >
                   <LayoutGrid size={16} />
                   Pokedex
-                </a>
-                <a
-                  href="/storage"
-                  className={cn("flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all", currentPath.replace('/dexhelper', '').startsWith('/storage') ? 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' : 'text-zinc-500 hover:text-white hover:bg-white/5')}
+                </Link>
+                <Link
+                  to="/storage"
+                  activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
+                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
+                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
                 >
                   <LayoutGrid size={16} />
                   Storage
-                </a>
-                <a
-                  href="/assistant"
-                  className={cn("flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all", currentPath.replace('/dexhelper', '').startsWith('/assistant') ? 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' : 'text-zinc-500 hover:text-white hover:bg-white/5')}
+                </Link>
+                <Link
+                  to="/assistant"
+                  activeProps={{ className: 'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]' }}
+                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
+                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
                 >
                   <Sparkles size={16} />
                   Assistant
-                </a>
+                </Link>
               </nav>
             )}
           </div>
@@ -245,11 +249,9 @@ export function AppLayout({ children, currentPath = '/' }: { children: React.Rea
         </main>
       </div>
 
-      <BottomNav currentPath={currentPath} />
-      <ReactQueryProvider>
-        <SettingsModal />
-        <VersionModal />
-      </ReactQueryProvider>
+      <BottomNav />
+      <SettingsModal />
+      <VersionModal />
 
       {/* Retro Background Pattern */}
       <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1] overflow-hidden">

@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Info, Settings2, Archive, CircleDot, Trash2, Check, Ghost, Monitor } from 'lucide-react';
-import { useStore } from '@nanostores/react';
-import * as Store from '../store';
+import { useStore } from '../store';
 import type { PokeballType, GameVersion } from '../store';
 import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig';
 
@@ -115,17 +114,16 @@ function ClearStorageButton({ onClear }: { onClear: () => void }) {
 }
 
 export function SettingsModal() {
-  const isSettingsOpen = useStore(Store.isSettingsOpen);
-  const setIsSettingsOpen = Store.setIsSettingsOpen;
-  const saveData = useStore(Store.saveData);
-  const setSaveData = Store.setSaveData;
-  const $settings = useStore(Store.settings);
-  const { manualVersion, isLivingDex, globalPokeball } = $settings;
-  const setManualVersion = Store.setManualVersion;
-
-  const setIsLivingDex = Store.setIsLivingDex;
-
-  const setGlobalPokeball = Store.setGlobalPokeball;
+  const isSettingsOpen = useStore((s) => s.isSettingsOpen);
+  const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
+  const saveData = useStore((s) => s.saveData);
+  const setSaveData = useStore((s) => s.setSaveData);
+  const manualVersion = useStore((s) => s.manualVersion);
+  const setManualVersion = useStore((s) => s.setManualVersion);
+  const isLivingDex = useStore((s) => s.isLivingDex);
+  const setIsLivingDex = useStore((s) => s.setIsLivingDex);
+  const globalPokeball = useStore((s) => s.globalPokeball);
+  const setGlobalPokeball = useStore((s) => s.setGlobalPokeball);
 
   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
 

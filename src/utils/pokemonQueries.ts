@@ -7,22 +7,20 @@ export interface PokemonListItem {
   name: string;
 }
 
-export async function fetchPokemonList(): Promise<PokemonListItem[]> {
-  const data = await pokeapi.getPokemonsList({ limit: MAX_DEX_ACROSS_GENS, offset: 0 });
-  return data.results
-    .map((p: { name: string; url: string }) => {
-      const urlParts = p.url.split('/').filter(Boolean);
-      const id = parseInt(urlParts[urlParts.length - 1]!);
-      return {
-        id,
-        name: p.name.charAt(0).toUpperCase() + p.name.slice(1),
-      };
-    })
-    .sort((a: PokemonListItem, b: PokemonListItem) => a.id - b.id);
-}
-
 export const pokemonListQueryOptions = queryOptions({
   queryKey: ['pokemonList'],
-  queryFn: fetchPokemonList,
+  queryFn: async (): Promise<PokemonListItem[]> => {
+    const data = await pokeapi.getPokemonsList({ limit: MAX_DEX_ACROSS_GENS, offset: 0 });
+    return data.results
+      .map((p: { name: string; url: string }) => {
+        const urlParts = p.url.split('/').filter(Boolean);
+        const id = parseInt(urlParts[urlParts.length - 1]!);
+        return {
+          id,
+          name: p.name.charAt(0).toUpperCase() + p.name.slice(1),
+        };
+      })
+      .sort((a: PokemonListItem, b: PokemonListItem) => a.id - b.id);
+  },
   staleTime: Infinity,
 });

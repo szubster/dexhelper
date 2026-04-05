@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Suggestion, useAssistant, EncounterDetail, RejectedSuggestion } from '../hooks/useAssistant';
 import { Bug, Sparkles, Target, Zap, Egg, Flag, Info, Loader2, Waves, Fish, Trees, AlertCircle } from 'lucide-react';
 import { SaveData } from '../engine/saveParser/index';
+import { Link } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
 import { pokeapi } from '../utils/pokeapi';
 import { getGenerationConfig, MAX_DEX_ACROSS_GENS } from '../utils/generationConfig';
