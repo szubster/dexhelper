@@ -1,3 +1,3 @@
-## 2024-05-18 - [React Query for API Caching]
-**Learning:** The initial manual Promise cache deduplicated identical requests successfully but circumvented robust cache expiration and hydration tracking features that TanStack query already possesses. Service workers operate on the network layer and do not prevent redundant JS execution and queuing inside the browser before hitting the worker.
-**Action:** Always extract the React `QueryClient` into a separate singleton module (`queryClient.ts`) so that it can be imported and shared by pure functions and non-React files without relying on hooks. Use `queryClient.fetchQuery` to seamlessly leverage its out-of-the-box deduplication and configurable cache timers globally.
+## 2025-05-18 - [Optimized O(N²) array filtering in StorageGrid.tsx]
+**Learning:** Found an expensive nested array filter within the React component render loop mapping over `storageLocations`. Combining large arrays using the spread operator (`[...party, ...pc]`) repeatedly inside the mapping loop generated significant garbage overhead and computational lag.
+**Action:** Used `React.useMemo` to pre-process the combined array into a Map grouped by location in a single O(N) pass. Replaced the nested `.filter()` iteration inside the render loop with an O(1) Map lookup, greatly enhancing the component's rendering performance.
