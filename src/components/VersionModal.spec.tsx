@@ -5,19 +5,19 @@ import { VersionModalStory } from "./VersionModal.story";
 // Component tests run in a real browser context
 // With Zustand, no Provider wrapper is needed
 test.describe("VersionModal", () => {
-	test("should render and display visual state accurately", async ({
-		mount,
-		page,
-	}) => {
-		const _component = await mount(<VersionModalStory />);
+  test("should render and display visual state accurately", async ({
+    mount,
+    page,
+  }) => {
+    const _component = await mount(<VersionModalStory />);
 
-		// Ensure the modal has animated in and is visible
-		await expect(page.locator("text=Select Game Version")).toBeVisible();
+    // Ensure the modal has animated in and is visible
+    await expect(page.locator("text=Select Game Version")).toBeVisible();
 
-		// Small delay to ensure framer-motion animations have settled
-		await page.waitForTimeout(500);
+    // Small delay to ensure framer-motion animations have settled
+    await page.waitForTimeout(500);
 
-		// Verify it doesn't just crash but also looks exactly as expected
-		await argosScreenshot(page, "version-modal");
-	});
+    // Verify it doesn't just crash but also looks exactly as expected
+    await argosScreenshot(page, "version-modal");
+  });
 });

@@ -8,34 +8,34 @@ import "./index.css";
 
 // Register Service Worker (production only — SW breaks Vite HMR in dev)
 if (import.meta.env.PROD && "serviceWorker" in navigator) {
-	window.addEventListener("load", () => {
-		navigator.serviceWorker
-			.register(`${import.meta.env.BASE_URL}sw.js`)
-			.catch((err) => {
-				console.error("ServiceWorker registration failed: ", err);
-			});
-	});
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register(`${import.meta.env.BASE_URL}sw.js`)
+      .catch((err) => {
+        console.error("ServiceWorker registration failed: ", err);
+      });
+  });
 }
 
 const router = createRouter({
-	routeTree,
-	context: {
-		queryClient,
-	},
-	basepath: import.meta.env.BASE_URL,
-	defaultViewTransition: true,
+  routeTree,
+  context: {
+    queryClient,
+  },
+  basepath: import.meta.env.BASE_URL,
+  defaultViewTransition: true,
 });
 
 declare module "@tanstack/react-router" {
-	interface Register {
-		router: typeof router;
-	}
+  interface Register {
+    router: typeof router;
+  }
 }
 
 createRoot(document.getElementById("root")!).render(
-	<StrictMode>
-		<QueryClientProvider client={queryClient}>
-			<RouterProvider router={router} />
-		</QueryClientProvider>
-	</StrictMode>,
+  <StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  </StrictMode>,
 );

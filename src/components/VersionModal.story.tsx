@@ -3,11 +3,11 @@ import { useStore } from "../store";
 import { VersionModal } from "./VersionModal";
 
 export function VersionModalStory() {
-	const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
+  const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
 
-	useEffect(() => {
-		setIsVersionModalOpen(true);
-	}, [setIsVersionModalOpen]);
+  useEffect(() => {
+    setIsVersionModalOpen(true);
+  }, [setIsVersionModalOpen]);
 
-	return <VersionModal />;
+  return <VersionModal />;
 }

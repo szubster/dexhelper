@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
 interface Window {
-	gapi: any;
-	google: any;
+  gapi: any;
+  google: any;
 }

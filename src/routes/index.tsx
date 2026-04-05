@@ -5,16 +5,16 @@ import { SearchAndFilters } from "../components/SearchAndFilters";
 import { pokemonListQueryOptions } from "../utils/pokemonQueries";
 
 export const Route = createFileRoute("/")({
-	component: Index,
+  component: Index,
 });
 
 function Index() {
-	const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
+  const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
 
-	return (
-		<>
-			<SearchAndFilters />
-			<PokedexGrid pokemonList={pokemonList} />
-		</>
-	);
+  return (
+    <>
+      <SearchAndFilters />
+      <PokedexGrid pokemonList={pokemonList} />
+    </>
+  );
 }

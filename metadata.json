@@ -1,5 +1,5 @@
 {
-	"name": "Retro Save Reader",
-	"description": "A premium Pokédex and storage viewer for Gen 1 and Gen 2 save files. Track your progress, view detailed stats, and use AI to complete your collection.",
-	"requestFramePermissions": []
+  "name": "Retro Save Reader",
+  "description": "A premium Pokédex and storage viewer for Gen 1 and Gen 2 save files. Track your progress, view detailed stats, and use AI to complete your collection.",
+  "requestFramePermissions": []
 }

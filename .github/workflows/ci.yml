@@ -28,6 +28,9 @@ jobs:
       - name: Test
         run: npm test
         
+      - name: Type Check
+        run: npx tsc --noEmit
+
       - name: Check Formatting & Linting
         run: npx @biomejs/biome ci .
         
