@@ -23,7 +23,6 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
     <div className="space-y-16 animate-in fade-in duration-500">
       {storageLocations.map(location => {
         const pokemonInLocation = [...saveData.partyDetails, ...saveData.pcDetails].filter(p => p.storageLocation === location);
-        if (pokemonInLocation.length === 0) return null;
 
         return (
           <div key={location} className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
@@ -34,42 +33,48 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-              {pokemonInLocation.map((p, idx) => {
-                const pokemon = pokemonMap.get(p.speciesId);
-                if (!pokemon) return null;
+              {pokemonInLocation.length === 0 ? (
+                <div className="col-span-full py-12 flex flex-col items-center justify-center bg-zinc-900/10 border border-zinc-900/50 rounded-2xl text-center">
+                  <span className="text-zinc-700 font-black tracking-widest uppercase text-xs italic">EMPTY</span>
+                </div>
+              ) : (
+                pokemonInLocation.map((p, idx) => {
+                  const pokemon = pokemonMap.get(p.speciesId);
+                  if (!pokemon) return null;
 
-                let cardStyle = 'bg-zinc-900 border border-zinc-800 hover:border-zinc-700 shadow-sm';
-                if (p.isShiny) {
-                  cardStyle = 'bg-amber-900/10 border border-amber-500/30 hover:bg-amber-900/20';
-                } else if (location === 'Party') {
-                  cardStyle = 'bg-red-900/10 border border-red-900/30 hover:bg-red-900/20';
-                } else {
-                  cardStyle = 'bg-emerald-900/10 border border-emerald-900/30 hover:bg-emerald-900/20';
-                }
+                  let cardStyle = 'bg-zinc-900 border border-zinc-800 hover:border-zinc-700 shadow-sm';
+                  if (p.isShiny) {
+                    cardStyle = 'bg-amber-900/10 border border-amber-500/30 hover:bg-amber-900/20';
+                  } else if (location === 'Party') {
+                    cardStyle = 'bg-red-900/10 border border-red-900/30 hover:bg-red-900/20';
+                  } else {
+                    cardStyle = 'bg-emerald-900/10 border border-emerald-900/30 hover:bg-emerald-900/20';
+                  }
 
-                return (
-                  <div
-                    key={`${location}-${p.speciesId}-${idx}`}
-                    onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}
-                    className={`relative flex flex-col items-center p-5 rounded-2xl transition-all duration-200 cursor-pointer hover:-translate-y-1 active:scale-95 ${cardStyle}`}
-                  >
-                    <div className="absolute top-3 left-3 text-[10px] font-mono font-bold text-zinc-600">LV.{p.level}</div>
-                    <div className="absolute top-3 right-3 flex flex-col gap-1.5 items-end">
-                      {p.isShiny && <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />}
-                      {p.otName && <div className="text-[8px] font-black text-zinc-500 bg-zinc-950 px-1.5 py-0.5 rounded border border-zinc-800 truncate max-w-[60px]">{p.otName}</div>}
+                  return (
+                    <div
+                      key={`${location}-${p.speciesId}-${idx}`}
+                      onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}
+                      className={`relative flex flex-col items-center p-5 rounded-2xl transition-all duration-200 cursor-pointer hover:-translate-y-1 active:scale-95 ${cardStyle}`}
+                    >
+                      <div className="absolute top-3 left-3 text-[10px] font-mono font-bold text-zinc-600">LV.{p.level}</div>
+                      <div className="absolute top-3 right-3 flex flex-col gap-1.5 items-end">
+                        {p.isShiny && <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />}
+                        {p.otName && <div className="text-[8px] font-black text-zinc-500 bg-zinc-950 px-1.5 py-0.5 rounded border border-zinc-800 truncate max-w-[60px]">{p.otName}</div>}
+                      </div>
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 mb-4 flex items-center justify-center relative">
+                        <img
+                          src={genConfig.spriteUrl(pokemon.id, p.isShiny)}
+                          alt={pokemon.name}
+                          className="w-full h-full object-contain drop-shadow-xl pixelated"
+                          style={{ imageRendering: 'pixelated' }}
+                        />
+                      </div>
+                      <div className="text-center font-bold uppercase tracking-wider text-[10px] text-zinc-100 truncate w-full px-1">{pokemon.name}</div>
                     </div>
-                    <div className="w-20 h-20 sm:w-24 sm:h-24 mb-4 flex items-center justify-center relative">
-                      <img
-                        src={genConfig.spriteUrl(pokemon.id, p.isShiny)}
-                        alt={pokemon.name}
-                        className="w-full h-full object-contain drop-shadow-xl pixelated"
-                        style={{ imageRendering: 'pixelated' }}
-                      />
-                    </div>
-                    <div className="text-center font-bold uppercase tracking-wider text-[10px] text-zinc-100 truncate w-full px-1">{pokemon.name}</div>
-                  </div>
-                );
-              })}
+                  );
+                })
+              )}
             </div>
           </div>
         );
