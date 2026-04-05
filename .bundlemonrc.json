@@ -1,0 +1,13 @@
+{
+  "baseDir": "./dist",
+  "files": [
+    {
+      "path": "assets/index-<hash>.js",
+      "maxSize": "650kb"
+    },
+    {
+      "path": "assets/style-<hash>.css",
+      "maxSize": "100kb"
+    }
+  ]
+}
