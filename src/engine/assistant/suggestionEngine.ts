@@ -165,9 +165,10 @@ export function generateSuggestions(
        }
     }
     if (localPids.length > 0) {
+        const areaName = saveData.currentMapName || 'where you need to be';
         suggestions.push({
           id: 'catch-local', category: 'Catch', title: 'Catch Right Here',
-          description: `You are exactly where you need to be! There are ${localPids.length} missing Pokémon right here.`,
+          description: `You are exactly ${areaName}! There are ${localPids.length} missing Pokémon right here.`,
           pokemonIds: localPids, priority: 120,
           encounterInfo: localEncounterInfo
         });
