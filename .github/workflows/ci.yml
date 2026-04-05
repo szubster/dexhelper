@@ -36,3 +36,5 @@ jobs:
         
       - name: BundleMon
         uses: lironer/bundlemon-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

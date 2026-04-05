@@ -9,5 +9,15 @@
       "path": "assets/style-<hash>.css",
       "maxSize": "100kb"
     }
+  ],
+  "reportOutput": [
+    [
+      "github",
+      {
+        "checkRun": true,
+        "commitStatus": true,
+        "prComment": true
+      }
+    ]
   ]
 }
