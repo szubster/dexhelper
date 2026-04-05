@@ -103,6 +103,15 @@ body {
   background: rgba(var(--theme-primary-rgb), 0.5);
 }
 
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
 @keyframes screen-flicker {
   0% { opacity: 0.98; }
   5% { opacity: 0.95; }

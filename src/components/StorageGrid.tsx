@@ -34,8 +34,11 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
               {pokemonInLocation.length === 0 ? (
-                <div className="col-span-full py-12 flex flex-col items-center justify-center bg-zinc-900/10 border border-zinc-900/50 rounded-2xl text-center">
-                  <span className="text-zinc-700 font-black tracking-widest uppercase text-xs italic">EMPTY</span>
+                <div className="flex flex-col items-center justify-center p-5 rounded-3xl bg-zinc-900/20 border-2 border-dashed border-zinc-800/30 text-center min-h-[180px] group transition-all duration-300 hover:border-zinc-700/50">
+                  <div className="w-12 h-12 rounded-full bg-zinc-900/50 flex items-center justify-center mb-3 border border-zinc-800/50 group-hover:scale-110 transition-transform">
+                    <div className="w-6 h-6 border-2 border-zinc-700/30 rounded-full border-t-zinc-500/50 animate-spin-slow" />
+                  </div>
+                  <span className="text-zinc-600 font-black tracking-[0.3em] uppercase text-[10px] italic">EMPTY</span>
                 </div>
               ) : (
                 pokemonInLocation.map((p, idx) => {
