@@ -1,49 +1,52 @@
 {
-  "name": "dexhelper",
-  "private": true,
-  "version": "0.0.0",
-  "engines": {
-    "node": ">=24.0.0"
-  },
-  "type": "module",
-  "scripts": {
-    "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build",
-    "preview": "vite preview",
-    "clean": "rm -rf dist",
-    "lint": "tsc --noEmit",
-    "test": "vitest run",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test:ct": "playwright test -c playwright-ct.config.ts"
-  },
-  "dependencies": {
-    "@tanstack/react-query": "^5.96.1",
-    "@tanstack/react-router": "^1.168.10",
-    "@tanstack/react-router-devtools": "^1.166.11",
-    "@tanstack/router-vite-plugin": "^1.166.27",
-    "clsx": "^2.1.1",
-    "lucide-react": "^1.7.0",
-    "motion": "^12.38.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "tailwind-merge": "^3.5.0",
-    "zustand": "^5.0.12"
-  },
-  "devDependencies": {
-    "@argos-ci/playwright": "^6.6.1",
-    "@playwright/experimental-ct-react": "^1.59.1",
-    "@playwright/test": "^1.59.1",
-    "@tailwindcss/typography": "0.5.19",
-    "@tailwindcss/vite": "4.2.2",
-    "@types/node": "^25.5.0",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "pokenode-ts": "^1.20.0",
-    "tailwindcss": "4.2.2",
-    "typescript": "~6.0.2",
-    "vite": "^8.0.3",
-    "vitest": "^4.1.2"
-  }
+	"name": "dexhelper",
+	"private": true,
+	"version": "0.0.0",
+	"engines": {
+		"node": ">=24.0.0"
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "vite --port=3000 --host=0.0.0.0",
+		"build": "vite build",
+		"preview": "vite preview",
+		"clean": "rm -rf dist",
+		"lint": "biome lint . && tsc --noEmit",
+		"test": "vitest run",
+		"test:e2e": "playwright test",
+		"test:e2e:ui": "playwright test --ui",
+		"test:ct": "playwright test -c playwright-ct.config.ts",
+		"check": "biome check .",
+		"format": "biome format --write ."
+	},
+	"dependencies": {
+		"@tanstack/react-query": "^5.96.1",
+		"@tanstack/react-router": "^1.168.10",
+		"@tanstack/react-router-devtools": "^1.166.11",
+		"@tanstack/router-vite-plugin": "^1.166.27",
+		"clsx": "^2.1.1",
+		"lucide-react": "^1.7.0",
+		"motion": "^12.38.0",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"tailwind-merge": "^3.5.0",
+		"zustand": "^5.0.12"
+	},
+	"devDependencies": {
+		"@argos-ci/playwright": "^6.6.1",
+		"@biomejs/biome": "^2.4.10",
+		"@playwright/experimental-ct-react": "^1.59.1",
+		"@playwright/test": "^1.59.1",
+		"@tailwindcss/typography": "0.5.19",
+		"@tailwindcss/vite": "4.2.2",
+		"@types/node": "^25.5.0",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^6.0.1",
+		"pokenode-ts": "^1.20.0",
+		"tailwindcss": "4.2.2",
+		"typescript": "~6.0.2",
+		"vite": "^8.0.3",
+		"vitest": "^4.1.2"
+	}
 }

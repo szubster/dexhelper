@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Press+Start+2P&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -18,101 +18,144 @@
 }
 
 :root {
-  --theme-primary: #e51d20;
-  --theme-primary-rgb: 229, 29, 32;
-  --theme-bg: #09090b;
-  --theme-surface: rgba(18, 18, 21, 0.8);
-  --theme-border: rgba(255, 255, 255, 0.1);
+	--theme-primary: #e51d20;
+	--theme-primary-rgb: 229, 29, 32;
+	--theme-bg: #09090b;
+	--theme-surface: rgba(18, 18, 21, 0.8);
+	--theme-border: rgba(255, 255, 255, 0.1);
 }
 
 /* Version Themes */
-.theme-red { --theme-primary: #ef4444; --theme-primary-rgb: 239, 68, 68; }
-.theme-blue { --theme-primary: #3b82f6; --theme-primary-rgb: 59, 130, 246; }
-.theme-yellow { --theme-primary: #eab308; --theme-primary-rgb: 234, 179, 8; }
-.theme-gold { --theme-primary: #d4af37; --theme-primary-rgb: 212, 175, 55; }
-.theme-silver { --theme-primary: #a8a9ad; --theme-primary-rgb: 168, 169, 173; }
-.theme-crystal { --theme-primary: #4ade80; --theme-primary-rgb: 74, 222, 128; }
-
-body {
-  background-color: var(--theme-bg);
-  color: #fafafa;
-  font-family: var(--font-sans);
-  overflow-x: hidden;
+.theme-red {
+	--theme-primary: #ef4444;
+	--theme-primary-rgb: 239, 68, 68;
+}
+.theme-blue {
+	--theme-primary: #3b82f6;
+	--theme-primary-rgb: 59, 130, 246;
+}
+.theme-yellow {
+	--theme-primary: #eab308;
+	--theme-primary-rgb: 234, 179, 8;
+}
+.theme-gold {
+	--theme-primary: #d4af37;
+	--theme-primary-rgb: 212, 175, 55;
+}
+.theme-silver {
+	--theme-primary: #a8a9ad;
+	--theme-primary-rgb: 168, 169, 173;
+}
+.theme-crystal {
+	--theme-primary: #4ade80;
+	--theme-primary-rgb: 74, 222, 128;
 }
 
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+body {
+	background-color: var(--theme-bg);
+	color: #fafafa;
+	font-family: var(--font-sans);
+	overflow-x: hidden;
+}
 
-.pixelated { image-rendering: pixelated; }
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.pixelated {
+	image-rendering: pixelated;
+}
 
 /* Retro Effects */
 .scanline-overlay {
-  position: relative;
-  overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
 .scanline-overlay::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.05) 50%
-  ),
-  linear-gradient(
-    90deg,
-    rgba(255, 0, 0, 0.02),
-    rgba(0, 255, 0, 0.01),
-    rgba(0, 0, 255, 0.02)
-  );
-  z-index: 2;
-  background-size: 100% 3px, 3px 100%;
-  pointer-events: none;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:
+		linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%),
+		linear-gradient(
+			90deg,
+			rgba(255, 0, 0, 0.02),
+			rgba(0, 255, 0, 0.01),
+			rgba(0, 0, 255, 0.02)
+		);
+	z-index: 2;
+	background-size:
+		100% 3px,
+		3px 100%;
+	pointer-events: none;
 }
 
 .glass-card {
-  background: var(--theme-surface);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--theme-border);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+	background: var(--theme-surface);
+	backdrop-filter: blur(12px);
+	border: 1px solid var(--theme-border);
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .pixel-shadow {
-  box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.5);
+	box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 .retro-button {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid transparent;
+	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	border: 2px solid transparent;
 }
 
 .retro-button:active {
-  transform: scale(0.95);
+	transform: scale(0.95);
 }
 
-.custom-scrollbar::-webkit-scrollbar { width: 4px; }
-.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar {
+	width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: transparent;
+}
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(var(--theme-primary-rgb), 0.3);
-  border-radius: 10px;
+	background: rgba(var(--theme-primary-rgb), 0.3);
+	border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(var(--theme-primary-rgb), 0.5);
+	background: rgba(var(--theme-primary-rgb), 0.5);
 }
 
 @keyframes screen-flicker {
-  0% { opacity: 0.98; }
-  5% { opacity: 0.95; }
-  10% { opacity: 1; }
-  15% { opacity: 0.97; }
-  25% { opacity: 0.99; }
-  30% { opacity: 0.94; }
-  100% { opacity: 1; }
+	0% {
+		opacity: 0.98;
+	}
+	5% {
+		opacity: 0.95;
+	}
+	10% {
+		opacity: 1;
+	}
+	15% {
+		opacity: 0.97;
+	}
+	25% {
+		opacity: 0.99;
+	}
+	30% {
+		opacity: 0.94;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .lcd-flicker {
-  animation: screen-flicker 0.1s infinite;
+	animation: screen-flicker 0.1s infinite;
 }

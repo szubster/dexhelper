@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { VersionModal } from './VersionModal';
-import { useStore } from '../store';
+import { useEffect } from "react";
+import { useStore } from "../store";
+import { VersionModal } from "./VersionModal";
 
 export function VersionModalStory() {
-  const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
-  
-  useEffect(() => {
-    setIsVersionModalOpen(true);
-  }, [setIsVersionModalOpen]);
+	const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
 
-  return <VersionModal />;
+	useEffect(() => {
+		setIsVersionModalOpen(true);
+	}, [setIsVersionModalOpen]);
+
+	return <VersionModal />;
 }
