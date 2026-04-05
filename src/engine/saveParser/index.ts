@@ -317,7 +317,7 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     const speciesId = INTERNAL_ID_TO_DEX[internalId];
     if (!speciesId) continue;
     const level = byte(u8, offset + 3);
-    const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter(m => m > 0);
+    const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter((m) => m > 0);
     const dvs = parseDVs(u8.slice(offset + 27, offset + 29));
     const isShiny = checkShiny(dvs);
     const otName = decodeGen12String(u8, currentBoxOTOffset + (i * 11));
@@ -331,7 +331,33 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     const count = byte(u8, offset);
     if (count > 20) continue;
     const species = u8.slice(offset + 1, offset + 1 + count);
-    pc.push(...Array.from(species).map(id => INTERNAL_ID_TO_DEX[id]).filter((id): id is number => id !== undefined));
+    pc.push(...Array.from(species).map((id) => INTERNAL_ID_TO_DEX[id]).filter((id): id is number => id !== undefined));
+
+    const boxDataOffset = offset + 22; // Offset 21 is species list end (FF), 22 is first Pokemon
+    const boxOTOffset = boxDataOffset + (20 * 33);
+    for (let j = 0; j < count; j++) {
+      const pOff = boxDataOffset + (j * 33);
+      const internalId = byte(u8, pOff);
+      const speciesId = INTERNAL_ID_TO_DEX[internalId];
+      if (!speciesId) continue;
+
+      const level = byte(u8, pOff + 3);
+      const moves = Array.from(u8.slice(pOff + 8, pOff + 12)).filter((m) => m > 0);
+      const dvs = parseDVs(u8.slice(pOff + 27, pOff + 29));
+      const isShiny = checkShiny(dvs);
+      const otName = decodeGen12String(u8, boxOTOffset + (j * 11));
+
+      pcDetails.push({
+        speciesId,
+        level,
+        isShiny,
+        moves,
+        dvs,
+        otName,
+        storageLocation: `Box ${i + 1}`,
+        slot: j + 1,
+      });
+    }
   }
 
   const trainerName = decodeGen12String(u8, 0x2598);
