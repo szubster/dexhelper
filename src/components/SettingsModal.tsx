@@ -75,6 +75,9 @@ function SettingsControls({
           <span className="text-xs font-bold uppercase tracking-wider">Living Dex</span>
         </div>
         <button
+          role="switch"
+          aria-checked={isLivingDex}
+          aria-label="Toggle Living Dex Mode"
           onClick={() => setIsLivingDex(!isLivingDex)}
           className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors ${isLivingDex ? 'bg-emerald-600' : 'bg-zinc-800'}`}
         >
