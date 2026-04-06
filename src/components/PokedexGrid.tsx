@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Monitor, CircleDot, Sparkles, ChevronRight } from 'lucide-react';
 import { useStore } from '../store';
 import { useNavigate } from '@tanstack/react-router';
@@ -53,7 +54,8 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
   }, [saveData]);
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-5 px-1 pb-10 animate-in fade-in duration-500">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-5 px-1 pb-10">
+      <AnimatePresence mode="popLayout">
         {finalPokemon.map((pokemon, idx) => {
           const inParty = saveData ? partySet.has(pokemon.id) : false;
           const inPC = saveData ? pcSet.has(pokemon.id) : false;
@@ -72,15 +74,24 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
           const isShiny = shinySpeciesIds.has(pokemon.id);
 
           return (
-            <div
+            <motion.div
+              layout
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ delay: (idx % 20) * 0.02 }}
               key={pokemon.id}
               onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
+              whileHover={{
+                y: -6,
+                transition: { duration: 0.15 }
+              }}
+              whileTap={{ scale: 0.97 }}
               className={cn(
-                "group relative flex flex-col p-4 rounded-[2rem] transition-all duration-300 cursor-pointer overflow-hidden glass-card hover:-translate-y-1.5 active:scale-95 animate-in slide-in-from-bottom-4 zoom-in-95 fill-mode-both",
+                "group relative flex flex-col p-4 rounded-[2rem] transition-all cursor-pointer overflow-hidden glass-card",
                 hadButLost ? "border-purple-500/30" : isOwned ? (isShiny ? "border-amber-500/30" : "border-[var(--theme-primary)]/30") : "border-white/5",
                 isUnseen && "opacity-40 grayscale"
               )}
-              style={{ animationDelay: `${(idx % 20) * 0.02}s` }}
             >
               {/* Card Header: Num & Icons */}
               <div className="flex items-center justify-between mb-3">
@@ -106,11 +117,13 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
                      style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '4px 4px' }} />
 
                 {isShiny && (
-                  <div
-                    className="absolute -top-1 -right-1 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] z-10 animate-[spin_4s_linear_infinite]"
+                  <motion.div
+                    animate={{ rotate: 360, scale: [1, 1.2, 1] }}
+                    transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+                    className="absolute -top-1 -right-1 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] z-10"
                   >
-                    <Sparkles size={16} fill="currentColor" className="animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
-                  </div>
+                    <Sparkles size={16} fill="currentColor" />
+                  </motion.div>
                 )}
 
                 <img
@@ -178,9 +191,10 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
               <div className="absolute bottom-[-10px] right-[-10px] p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                 <ChevronRight size={14} className="text-[var(--theme-primary)]" />
               </div>
-            </div>
+            </motion.div>
           );
         })}
+      </AnimatePresence>
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { AlertTriangle } from 'lucide-react';
 import { useStore } from '../store';
 import type { GameVersion } from '../store';
@@ -16,12 +17,21 @@ export function VersionModal() {
   const versions = genConfig?.versions ?? [...getGenerationConfig(1).versions, ...getGenerationConfig(2).versions];
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/90 backdrop-blur-md animate-in fade-in duration-300" />
-      <div
-        className="relative w-full max-w-lg bg-zinc-900 rounded-[2.5rem] border border-zinc-800 p-10 space-y-8 text-center animate-in zoom-in-95 duration-300"
-      >
-        <div className="space-y-2">
+    <AnimatePresence>
+      <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute inset-0 bg-black/90 backdrop-blur-md"
+        />
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          className="relative w-full max-w-lg bg-zinc-900 rounded-[2.5rem] border border-zinc-800 p-10 space-y-8 text-center"
+        >
+          <div className="space-y-2">
             <div className="inline-flex p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20 mb-4">
               <AlertTriangle className="text-amber-500" size={24} />
             </div>
@@ -46,7 +56,8 @@ export function VersionModal() {
               </button>
             ))}
           </div>
+        </motion.div>
       </div>
-    </div>
+    </AnimatePresence>
   );
 }

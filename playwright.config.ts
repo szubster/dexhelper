@@ -8,7 +8,6 @@ export default defineConfig({
     timeout: 5000,
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.05,
-      animations: 'disabled',
     },
   },
   fullyParallel: true,

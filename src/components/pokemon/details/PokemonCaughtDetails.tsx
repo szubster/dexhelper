@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, CircleDot, MapPin, CheckCircle2 } from 'lucide-react';
+import { motion } from 'motion/react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 
@@ -7,6 +8,15 @@ interface PokemonCaughtDetailsProps {
   yourPokemon: any[];
   saveData: any;
 }
+
+const contentVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", damping: 20, stiffness: 100 }
+  }
+} as const;
 
 function calculateHiddenPower(dvs: { atk: number, def: number, spd: number, spc: number }) {
   const typeMap = [
@@ -32,11 +42,11 @@ export function PokemonCaughtDetails({ yourPokemon, saveData }: PokemonCaughtDet
   if (yourPokemon.length === 0) return null;
 
   return (
-    <div className="space-y-6 animate-in slide-in-from-bottom-4 fade-in duration-500 fill-mode-both">
-      <h3 className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] flex items-center gap-2">
+    <div className="space-y-6">
+      <motion.h3 variants={contentVariants} className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] flex items-center gap-2">
         <CheckCircle2 size={14} className="text-emerald-500" /> Discovered Units
-      </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      </motion.h3>
+      <motion.div variants={contentVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {yourPokemon.map((p, i) => (
           <div key={i} className="glass-card bg-white/5 p-6 rounded-[2rem] border border-white/10 space-y-5 relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:scale-110 transition-transform">
@@ -96,7 +106,7 @@ export function PokemonCaughtDetails({ yourPokemon, saveData }: PokemonCaughtDet
             )}
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

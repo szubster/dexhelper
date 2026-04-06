@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Suggestion, useAssistant, EncounterDetail, RejectedSuggestion } from '../hooks/useAssistant';
 import { Bug, Sparkles, Target, Zap, Egg, Flag, Info, Loader2, Waves, Fish, Trees, AlertCircle } from 'lucide-react';
 import { SaveData } from '../engine/saveParser/index';
@@ -37,20 +38,11 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
     staleTime: Infinity,
   });
 
-  const pokemonMap = React.useMemo(() => {
-    const map = new Map<number, string>();
-    if (pokemonList) {
-      for (const p of pokemonList) {
-        map.set(p.id, p.name);
-      }
-    }
-    return map;
-  }, [pokemonList]);
-
-  const getPokemonName = React.useCallback((id: number) => {
+  const getPokemonName = (id: number) => {
     if (!pokemonList) return `#${id}`;
-    return pokemonMap.get(id) ?? `#${id}`;
-  }, [pokemonList, pokemonMap]);
+    const p = pokemonList.find(x => x.id === id);
+    return p ? p.name : `#${id}`;
+  };
 
   return (
     <div className="flex-1 space-y-6">
@@ -113,24 +105,34 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                   </h3>
                 </div>
 
-                <div
-                  className={`grid gap-6 animate-in fade-in duration-500 ${category === 'Catch' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
+                <motion.div
+                  initial="hidden"
+                  animate="show"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    show: {
+                      opacity: 1,
+                      transition: { staggerChildren: 0.1 }
+                    }
+                  }}
+                  className={`grid gap-6 ${category === 'Catch' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
                 >
-                    {items.map((s, idx) => {
+                  <AnimatePresence>
+                    {items.map((s) => {
                       const style = CATEGORY_STYLES[s.category] ?? CATEGORY_STYLES.Utility!;
                       return (
-                        <div key={s.id} className="animate-in slide-in-from-bottom-4 duration-500 fill-mode-both" style={{ animationDelay: `${idx * 100}ms` }}>
-                          <AssistantSuggestionCard
-                            suggestion={s}
-                            style={style}
-                            showDebug={showDebug}
-                            saveData={saveData}
-                            getPokemonName={getPokemonName}
-                          />
-                        </div>
+                        <AssistantSuggestionCard
+                          key={s.id}
+                          suggestion={s}
+                          style={style}
+                          showDebug={showDebug}
+                          saveData={saveData}
+                          getPokemonName={getPokemonName}
+                        />
                       );
                     })}
-                </div>
+                  </AnimatePresence>
+                </motion.div>
               </div>
             );
           })}

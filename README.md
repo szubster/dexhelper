@@ -1,57 +1,20 @@
-# DexHelper
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-A premium Pokédex and storage viewer for Gen 1 and Gen 2 save files. Track your progress, view detailed stats, and use AI to complete your collection.
+# Run and deploy your AI Studio app
 
-[View your app in AI Studio](https://ai.studio/apps/ee4bbb7f-4976-4972-af63-9c1344a51a04)
+This contains everything you need to run your app locally.
 
-## Features
-- **Save File Parsing**: Read Gen 1 and Gen 2 `.sav` files to analyze your collection and stats.
-- **AI-Powered Insights**: Get tailored advice on completing your Pokédex using the Gemini API.
-- **Detailed Storage Viewer**: Explore your PC boxes, party, and individual Pokémon stats.
-- **Offline First**: Works locally and parses saves entirely in your browser.
+View your app in AI Studio: https://ai.studio/apps/ee4bbb7f-4976-4972-af63-9c1344a51a04
 
-## Tech Stack
-- **Framework**: React 19, Vite
-- **Styling**: Tailwind CSS v4
-- **State Management**: Zustand
-- **Routing & Data Fetching**: TanStack Router, TanStack Query
-- **Testing**: Vitest, Playwright
+## Run Locally
 
-## Getting Started
+**Prerequisites:**  Node.js
 
-**Prerequisites:**
-- Node.js (>=24.0.0)
-- npm
 
-### 1. Install dependencies
-```bash
-npm install
-```
-
-### 2. Configure Environment Variables
-Copy `.env.example` to `.env.local` (or create one) and set your Gemini API key:
-```bash
-GEMINI_API_KEY=your_api_key_here
-```
-
-### 3. Run the Development Server
-```bash
-npm run dev
-```
-The app will be available at `http://localhost:3000`.
-
-## Available Scripts
-
-- `npm run dev`: Starts the Vite development server.
-- `npm run build`: Builds the app for production.
-- `npm run preview`: Locally previews the production build.
-- `npm run lint`: Runs TypeScript type checking.
-
-## Testing
-
-This project uses **Vitest** for unit testing and **Playwright** for end-to-end (E2E) testing.
-
-- `npm run test`: Run unit tests using Vitest.
-- `npm run test:e2e`: Run Playwright E2E tests.
-- `npm run test:e2e:ui`: Run Playwright E2E tests in UI mode.
-- `npm run test:ct`: Run Playwright component tests.
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

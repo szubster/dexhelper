@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import {
   Upload, Settings2, RefreshCw, AlertTriangle, LayoutGrid, Database, Zap, Sparkles
 } from 'lucide-react';
@@ -73,8 +74,10 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <header className="px-4 py-6 sm:px-8 sm:py-10 flex flex-col lg:flex-row items-center justify-between gap-6 border-b border-white/5 bg-zinc-950/80 sticky top-2 z-40 backdrop-blur-xl">
           <div className="flex items-center justify-between w-full lg:w-auto gap-12">
             <Link to="/">
-              <div
-                className="group flex flex-col pt-2 animate-in slide-in-from-left-4 fade-in duration-500"
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="group flex flex-col pt-2"
               >
                 <div className="flex items-end gap-2">
                   <span className="text-4xl font-black tracking-tighter text-white group-hover:text-[var(--theme-primary)] transition-colors">
@@ -88,7 +91,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   </span>
                   <div className="h-[1px] flex-1 bg-zinc-800" />
                 </div>
-              </div>
+              </motion.div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -127,8 +130,10 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
           {saveData ? (
             <div className="flex flex-wrap items-center justify-center lg:justify-end gap-3 sm:gap-6 w-full lg:w-auto">
-               <div
-                 className="glass-card flex items-center gap-4 px-5 py-2.5 rounded-2xl border-white/10 animate-in zoom-in-95 fade-in duration-500"
+               <motion.div
+                 initial={{ opacity: 0, scale: 0.95 }}
+                 animate={{ opacity: 1, scale: 1 }}
+                 className="glass-card flex items-center gap-4 px-5 py-2.5 rounded-2xl border-white/10"
                >
                   <div className="flex flex-col">
                     <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Trainer</span>
@@ -159,22 +164,25 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                       </span>
                     </div>
                     <div className="h-1 bg-white/5 rounded-full overflow-hidden border border-white/5">
-                      <div
-                        style={{ width: `${(() => {
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: `${(() => {
                           const securedIds = new Set([...saveData.party, ...saveData.pc]);
                           const total = getGenerationConfig(saveData.generation).maxDex;
                           return (securedIds.size / total) * 100;
                         })()}%` }}
-                        className="h-full bg-[var(--theme-primary)] shadow-[0_0_10px_var(--theme-primary)] transition-all duration-1000"
+                        className="h-full bg-[var(--theme-primary)] shadow-[0_0_10px_var(--theme-primary)]"
                       />
                     </div>
                   </div>
-               </div>
+               </motion.div>
 
-               <button
+               <motion.button
                  onClick={() => setIsVersionModalOpen(true)}
+                 initial={{ opacity: 0, scale: 0.95 }}
+                 animate={{ opacity: 1, scale: 1 }}
                  className={cn(
-                   "group relative px-5 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest border transition-all overflow-hidden animate-in zoom-in-95 fade-in duration-500",
+                   "group relative px-5 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest border transition-all overflow-hidden",
                    effectiveVersion === 'unknown'
                      ? 'bg-amber-500/10 border-amber-500/20 text-amber-500'
                      : 'bg-[var(--theme-primary)]/10 border-[var(--theme-primary)]/20 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-white'
@@ -185,7 +193,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     {effectiveVersion}
                   </div>
                   <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity lcd-flicker" />
-                </button>
+                </motion.button>
 
                 <div className="h-8 w-[1px] bg-white/5 mx-2 hidden lg:block" />
 
@@ -208,26 +216,32 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 </div>
             </div>
           ) : (
-            <label
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-4 bg-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/90 text-white px-10 py-4 rounded-2xl cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_20px_40px_rgba(var(--theme-primary-rgb),0.2)] font-black uppercase tracking-widest text-[11px] border-b-4 border-black/20 animate-in slide-in-from-bottom-2 fade-in"
+            <motion.label
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-4 bg-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/90 text-white px-10 py-4 rounded-2xl cursor-pointer transition-all shadow-[0_20px_40px_rgba(var(--theme-primary-rgb),0.2)] font-black uppercase tracking-widest text-[11px] border-b-4 border-black/20"
             >
               <Upload size={20} />
               Initialize Pokedex
               <input type="file" accept=".sav" className="hidden" onChange={handleFileUpload} />
-            </label>
+            </motion.label>
           )}
         </header>
 
         {error && (
-          <div
-            className="mx-4 mt-4 mb-0 text-red-400 bg-red-400/10 p-5 rounded-2xl border border-red-400/20 flex items-center gap-4 glass-card animate-in fade-in slide-in-from-top-2"
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            className="mx-4 mt-4 mb-0 text-red-400 bg-red-400/10 p-5 rounded-2xl border border-red-400/20 flex items-center gap-4 glass-card"
           >
             <AlertTriangle size={24} className="flex-shrink-0" />
             <div className="flex flex-col">
               <span className="text-[10px] font-black uppercase tracking-tighter">System Error</span>
               <span className="text-sm font-medium">{error}</span>
             </div>
-          </div>
+          </motion.div>
         )}
 
         <main className="px-4 pb-12 flex-1 pt-4">

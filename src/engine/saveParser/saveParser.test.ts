@@ -48,22 +48,6 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     const data = parseSaveFile(buffer, 'yellow' as GameVersion);
     expect(data.gameVersion).toBe('yellow');
   });
-
-  it('should parse full pcDetails for all 12 boxes', () => {
-    const data = parseSaveFile(buffer);
-    expect(data.pcDetails.length).toBeGreaterThan(0);
-    
-    // Check that we have boxes other than the current one (if any)
-    const boxNames = new Set(data.pcDetails.map(p => p.storageLocation));
-    expect(boxNames.size).toBeGreaterThan(0);
-    
-    // Verify each entry has essential details
-    const firstEntry = data.pcDetails[0]!;
-    expect(firstEntry.level).toBeDefined();
-    expect(firstEntry.moves).toBeDefined();
-    expect(firstEntry.dvs).toBeDefined();
-    expect(firstEntry.storageLocation).toMatch(/Box \d+/);
-  });
 });
 
 describe('decodeGen12String', () => {

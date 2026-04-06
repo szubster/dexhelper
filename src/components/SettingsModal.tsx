@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { X, Info, Settings2, Archive, CircleDot, Trash2, Check, Ghost, Monitor } from 'lucide-react';
 import { useStore } from '../store';
 import type { PokeballType, GameVersion } from '../store';
@@ -75,14 +76,11 @@ function SettingsControls({
           <span className="text-xs font-bold uppercase tracking-wider">Living Dex</span>
         </div>
         <button
-          role="switch"
-          aria-checked={isLivingDex}
-          aria-label="Toggle Living Dex Mode"
           onClick={() => setIsLivingDex(!isLivingDex)}
           aria-label="Toggle Living Dex"
           role="switch"
           aria-checked={isLivingDex}
-          className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${isLivingDex ? 'bg-emerald-600' : 'bg-zinc-800'}`}
+          className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors ${isLivingDex ? 'bg-emerald-600' : 'bg-zinc-800'}`}
         >
           <span className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${isLivingDex ? 'translate-x-6' : 'translate-x-1'}`} />
         </button>
@@ -143,15 +141,23 @@ export function SettingsModal() {
     .map(value => ({ value, label: POKEBALL_LABELS[value] }));
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
-      <div
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300"
-        onClick={() => setIsSettingsOpen(false)}
-      />
-      <div
-        className="relative w-full sm:max-w-md bg-zinc-900 rounded-t-[2.5rem] sm:rounded-[2.5rem] border-t sm:border border-zinc-800 shadow-2xl overflow-hidden animate-in slide-in-from-bottom-[100%] duration-300 sm:zoom-in-95"
-      >
-        <div className="p-8 border-b border-zinc-800 flex items-center justify-between">
+    <AnimatePresence>
+      <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+          onClick={() => setIsSettingsOpen(false)}
+        />
+        <motion.div
+          initial={{ y: '100%' }}
+          animate={{ y: 0 }}
+          exit={{ y: '100%' }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+          className="relative w-full sm:max-w-md bg-zinc-900 rounded-t-[2.5rem] sm:rounded-[2.5rem] border-t sm:border border-zinc-800 shadow-2xl overflow-hidden"
+        >
+          <div className="p-8 border-b border-zinc-800 flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-display font-black uppercase tracking-tight">Menu</h2>
               <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mt-1">Configure your experience</p>
@@ -181,8 +187,9 @@ export function SettingsModal() {
                 setIsSettingsOpen(false);
               }}
             />
-        </div>
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </AnimatePresence>
   );
 }

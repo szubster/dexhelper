@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Target } from 'lucide-react';
+import { motion } from 'motion/react';
 import { cn } from '../../../utils/cn';
 import type { PokeballType } from '../../../store';
 
@@ -7,6 +8,15 @@ interface PokemonCatchProbabilityProps {
   catchRate: number;
   effectivePokeball: PokeballType;
 }
+
+const contentVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", damping: 20, stiffness: 100 }
+  }
+} as const;
 
 export function PokemonCatchProbability({ catchRate, effectivePokeball }: PokemonCatchProbabilityProps) {
   const [hpPercent, setHpPercent] = useState<number>(100);
@@ -17,14 +27,14 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
       <div className="absolute top-0 right-0 p-4 opacity-5">
         <Target size={120} />
       </div>
-      <div className="flex items-center justify-between">
+      <motion.div variants={contentVariants} className="flex items-center justify-between">
         <h3 className="text-[10px] font-black text-emerald-400 uppercase tracking-[0.3em] flex items-center gap-2">
           <Target size={14} /> Catch Probability
         </h3>
         <div className="px-3 py-1 bg-emerald-500/20 rounded-full text-[10px] font-mono font-black text-emerald-400 border border-emerald-500/30">
           RATING: {catchRate}
         </div>
-      </div>
+      </motion.div>
 
       <div className="space-y-6">
         <div className="space-y-3">

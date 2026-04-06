@@ -17,7 +17,6 @@ Whenever a new feature is implemented, you **must** add appropriate tests. Choos
 
 ## 2. Bug & Regression Prevention
 When a bug or regression is reported:
-- **Test-First Approach**: Always write tests **first** before attempting to fix the bug. This makes it easier to discover which component or logic phase contains the bug and ensures the bug is reproducible.
 - **Comprehensive Testing**: Write tests at **all relevant layers** (unit, component, integration, and E2E) that could have caught the bug.
 - **Regression Suite**: Ensure these tests are integrated into the test suite so the bug cannot be reintroduced in the future.
 
@@ -46,8 +45,3 @@ When refactoring existing code, tests are mandatory:
   - Unit tests: `npm run test`
   - Component tests: `npm run test:ct`
   - E2E tests: `npm run test:e2e`
-
-## 6. Real Game Saves for Testing
-To ensure tests accurately reflect the actual gameplay experience:
-- **Use Real Saves**: Leverage real game saves located in `tests/fixtures` whenever relevant for reproducing bugs or testing features.
-- **Missing Regressions**: If a reported bug or regression is not reproducible with existing saves, **ask the USER to share a new save file** from their currently played game to help with reproduction.

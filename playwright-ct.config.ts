@@ -1,5 +1,4 @@
 import { defineConfig, devices } from '@playwright/experimental-ct-react';
-import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -13,7 +12,6 @@ export default defineConfig({
   expect: {
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.05,
-      animations: 'disabled',
     },
   },
   fullyParallel: true,
@@ -33,7 +31,6 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     ctPort: 3100,
     ctViteConfig: {
-      plugins: [tailwindcss() as any],
       resolve: {
         alias: {
           '@': path.resolve(__dirname, './src'),
