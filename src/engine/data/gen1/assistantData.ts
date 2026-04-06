@@ -132,20 +132,22 @@ export interface NpcTradeEntry {
   versions?: string[];
   receivedOtName: string;
   gen: number;
+  tradeIndex?: number; // The index of the trade in wCompletedInGameTradeFlags
 }
 
 export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
   // ── Gen 1 ────────────────────────────────────────────────────────────────
-  // Farfetch'd for Spearow — Vermilion City
-  { receivedId: 83,  offeredId: 21,  location: 'Vermilion City (trade house)', receivedOtName: 'DEX',  gen: 1 },
-  // Jynx for Poliwhirl — Cerulean City (underground path house)
-  { receivedId: 124, offeredId: 60,  location: 'Cerulean City (trade house)', receivedOtName: 'MARCEL', gen: 1 },
-  // Mr. Mime for Clefairy — Route 2 (south gate)
-  { receivedId: 122, offeredId: 35,  location: 'Route 2 (south gate)',        receivedOtName: 'MARC',  gen: 1 },
-  // Lickitung for Slowbro — Cinnabar Island (trade house)
-  { receivedId: 108, offeredId: 80,  location: 'Cinnabar Island (trade house)', receivedOtName: 'BILL', gen: 1 },
-  // Tangela for Venonat — Route 18 (trade house) — Yellow version only
-  { receivedId: 114, offeredId: 49,  location: 'Route 18 (trade house)',      receivedOtName: 'LINDA', gen: 1, versions: ['yellow'] },
+  // The bit indices correspond to the order in data/events/trades.asm in the pokered disassembly.
+  // Farfetch'd for Spearow — Vermilion City (TRADE_FOR_DUX)
+  { receivedId: 83,  offeredId: 21,  location: 'Vermilion City (trade house)', receivedOtName: 'DUX',  gen: 1, tradeIndex: 4 },
+  // Jynx for Poliwhirl — Cerulean City (underground path house) (TRADE_FOR_LOLA)
+  { receivedId: 124, offeredId: 60,  location: 'Cerulean City (trade house)', receivedOtName: 'LOLA', gen: 1, tradeIndex: 6 },
+  // Mr. Mime for Clefairy — Route 2 (south gate) (TRADE_FOR_MARCEL)
+  { receivedId: 122, offeredId: 35,  location: 'Route 2 (south gate)',        receivedOtName: 'MARCEL',  gen: 1, tradeIndex: 1 },
+  // Lickitung for Slowbro — Cinnabar Island (trade house) (TRADE_FOR_MARC)
+  { receivedId: 108, offeredId: 80,  location: 'Cinnabar Island (trade house)', receivedOtName: 'MARC', gen: 1, tradeIndex: 5 },
+  // Tangela for Venonat — Route 18 (trade house) — Yellow version only (TRADE_FOR_CRINKLES)
+  { receivedId: 114, offeredId: 49,  location: 'Route 18 (trade house)',      receivedOtName: 'CRINKLES', gen: 1, versions: ['yellow'], tradeIndex: 8 },
 
   // ── Gen 2 ────────────────────────────────────────────────────────────────
   // Machop for Drowzee — Goldenrod City (trade house) — Gold/Silver/Crystal

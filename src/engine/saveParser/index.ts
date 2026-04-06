@@ -65,6 +65,7 @@ export interface SaveData {
   currentBoxCount: number;
   hallOfFameCount: number;
   eventFlags?: Uint8Array;
+  npcTradeFlags?: number;
 }
 
 const GEN12_CHAR_MAP: Record<number, string> = {
@@ -396,7 +397,8 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     inventory,
     currentBoxCount,
     hallOfFameCount: byte(u8, 0x25B3 + offsetShift) === 0xFF ? 0 : byte(u8, 0x25B3 + offsetShift),
-    eventFlags: u8.slice(0x29E6 + offsetShift, 0x29E6 + offsetShift + 0x118)
+    eventFlags: u8.slice(0x29E6 + offsetShift, 0x29E6 + offsetShift + 0x118),
+    npcTradeFlags: byte(u8, 0x29E6 + offsetShift - 16) | (byte(u8, 0x29E6 + offsetShift - 15) << 8)
   };
 }
 

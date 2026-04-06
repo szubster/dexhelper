@@ -23,11 +23,17 @@ export function AssistantSuggestionCard({
 }: AssistantSuggestionCardProps) {
   let title = s.title;
   let desc = s.description;
-  if (s.pokemonId) {
-    const name = getPokemonName(s.pokemonId);
-    title = title.replace(new RegExp(`#${s.pokemonId}`, 'g'), name);
-    desc = desc.replace(new RegExp(`#${s.pokemonId}`, 'g'), name);
-  }
+
+  // Replace all occurrences of #<id> with the actual Pokémon name
+  const replacePids = (text: string) => {
+    return text.replace(/#(\d+)/g, (_, idStr) => {
+      const id = parseInt(idStr, 10);
+      return getPokemonName(id);
+    });
+  };
+
+  title = replacePids(title);
+  desc = replacePids(desc);
 
   const hasMultiple = s.pokemonIds && s.pokemonIds.length > 0;
 
