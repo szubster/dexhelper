@@ -317,21 +317,17 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const res0 = detectForOffset(0x25A3);
   const res1 = detectForOffset(0x25A4);
 
-  // If forcedVersion is provided, respect it. Otherwise use robust indicators.
-  let isYellow = forcedVersion === 'yellow';
-  const resToUse = (forcedVersion === 'yellow' || (!forcedVersion && res1.paddingBitIsCorrect && !res0.paddingBitIsCorrect)) ? res1 : res0;
+  // Pick the probe that looks more correct for the structure, primarily using the padding bit.
+  const resToUse = (res1.paddingBitIsCorrect && !res0.paddingBitIsCorrect) ? res1 : res0;
   
+  let isYellow = forcedVersion === 'yellow';
   if (!forcedVersion) {
-    if (!res0.paddingBitIsCorrect && res1.paddingBitIsCorrect) {
-      isYellow = true;
-    } else if (res1.version === 'yellow' || res0.version === 'yellow') {
-      isYellow = true;
-    } else if (res0.version === 'unknown' && res1.version !== 'unknown') {
+    if (resToUse === res1 || res0.version === 'yellow' || res1.version === 'yellow') {
       isYellow = true;
     }
   }
   
-  const offsetShift = isYellow ? 1 : 0; 
+  const offsetShift = resToUse === res1 ? 1 : 0; 
   const gameVersion = isYellow ? 'yellow' : (forcedVersion && forcedVersion !== 'unknown' ? forcedVersion : resToUse.version);
   const { owned, seen } = resToUse;
 

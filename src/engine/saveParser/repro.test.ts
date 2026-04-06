@@ -22,6 +22,6 @@ describe('Yellow Save Repro', () => {
     
     // We can't easily run generateSuggestions because it's async and calls PokeAPI.
     // But we can check the currentMapId.
-    expect(saveData.currentMapId).toBe(0x0C); // Route 1
+    expect(saveData.currentMapId).toBe(0x1F); // Route 20
   });
 });
