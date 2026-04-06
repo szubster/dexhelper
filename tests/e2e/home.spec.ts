@@ -17,6 +17,6 @@ test.describe('Dexhelper App', () => {
     await page.waitForTimeout(1000);
 
     // Take a screenshot of the whole page automatically processed via Argos
-    await argosScreenshot(page, 'home-page', { fullPage: true });
+    await argosScreenshot(page, 'home-page');
   });
 });
