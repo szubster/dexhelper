@@ -280,7 +280,7 @@ export function PokemonDetails({
       parentNames: parents.map((p) => p.name),
       method: 'Breed evolved form with Ditto or same egg group',
     };
-  }, [speciesData, evolutionData, saveData.generation, saveData]);
+  }, [speciesData, evolutionData, saveData?.generation, saveData]);
 
   const loading =
     queries.some((q) => q.isLoading) ||

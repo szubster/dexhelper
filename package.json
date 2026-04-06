@@ -12,7 +12,7 @@
     "build:analyze": "ANALYZE=true vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit && biome check",
+    "lint": "tsc --noEmit && biome check --diagnostic-level=error",
     "format": "biome format --write .",
     "test": "vitest run",
     "test:e2e": "playwright test",
