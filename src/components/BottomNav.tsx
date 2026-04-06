@@ -64,6 +64,7 @@ export function BottomNav() {
 
         <button
           onClick={() => setIsSettingsOpen(true)}
+          aria-label="Open settings menu"
           className="flex flex-col items-center gap-1 transition-all duration-300 py-1 text-zinc-500"
         >
           <div className="active:scale-80 transition-transform">

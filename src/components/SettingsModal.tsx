@@ -59,6 +59,7 @@ function SettingsControls({
         <select
           value={effectiveVersion}
           onChange={(e) => setManualVersion(e.target.value as GameVersion)}
+          aria-label="Select Game Version"
           className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-xs font-bold text-zinc-200 outline-none focus:border-blue-500 transition-colors"
         >
           <option value="unknown">Auto</option>
@@ -78,6 +79,9 @@ function SettingsControls({
           aria-checked={isLivingDex}
           aria-label="Toggle Living Dex Mode"
           onClick={() => setIsLivingDex(!isLivingDex)}
+          aria-label="Toggle Living Dex"
+          role="switch"
+          aria-checked={isLivingDex}
           className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${isLivingDex ? 'bg-emerald-600' : 'bg-zinc-800'}`}
         >
           <span className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${isLivingDex ? 'translate-x-6' : 'translate-x-1'}`} />
@@ -92,6 +96,7 @@ function SettingsControls({
         <select
           value={globalPokeball}
           onChange={(e) => setGlobalPokeball(e.target.value as PokeballType)}
+          aria-label="Select Ball Style"
           className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-xs font-bold text-zinc-200 outline-none focus:border-amber-500 transition-colors"
         >
           {filteredPokeballs.map(pb => (
