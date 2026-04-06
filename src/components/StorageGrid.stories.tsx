@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { StorageGrid } from './StorageGrid';
 import { useStore } from '../store';
 import type { SaveData } from '../engine/saveParser';
+import { expect, within } from '@storybook/test';
 
 const mockPokemonList = [
   { id: 1, name: 'Bulbasaur' },
@@ -65,12 +66,36 @@ const meta = {
 
 export default meta;
 
-export const Default = () => {
-  const setSaveData = useStore((s) => s.setSaveData);
+export const Default = {
+  render: () => {
+    const setSaveData = useStore((s) => s.setSaveData);
 
-  useEffect(() => {
-    setSaveData(mockSaveData);
-  }, [setSaveData]);
+    useEffect(() => {
+      setSaveData(mockSaveData);
+    }, [setSaveData]);
 
-  return <StorageGrid pokemonList={mockPokemonList} />;
+    return <StorageGrid pokemonList={mockPokemonList} />;
+  },
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const canvas = within(canvasElement);
+
+    // Check for filled locations
+    const party = await canvas.findByText('Party');
+    await expect(party).toBeInTheDocument();
+
+    const units = await canvas.findAllByText('1 Units');
+    await expect(units).toHaveLength(3); // Party, Box 1, Box 3 each have 1
+
+    // Check for empty locations
+    const box2 = await canvas.findByText('Box 2');
+    await expect(box2).toBeInTheDocument();
+
+    const box4 = await canvas.findByText('Box 4');
+    await expect(box4).toBeInTheDocument();
+
+    // Check for "EMPTY" text in empty boxes (there should be many in Gen 1 except Box 1 and Box 3)
+    // Box 2, 4, 5, 6, 7, 8, 9, 10, 11, 12 and Daycare are empty.
+    const emptyBoxes = await canvas.findAllByText('EMPTY');
+    await expect(emptyBoxes).toHaveLength(11);
+  }
 };
