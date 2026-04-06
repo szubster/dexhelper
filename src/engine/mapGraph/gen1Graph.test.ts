@@ -55,4 +55,18 @@ describe('getDistanceToMap', () => {
     const result = getDistanceToMap(0x00, 'invalid-target-slug');
     expect(result).toBeNull();
   });
+
+  it('avoids partial matches (regression: Route 1 mismatching Route 10, 11, 12)', () => {
+    // Current is Pallet Town (0x00).
+    // Route 1 is next to Pallet Town (distance 1).
+    // Route 12 is VERY far away. 
+    // Before fix, route-12 matched route-1, returning distance 1.
+    // Now it should correctly search the whole graph or return the correct distance.
+    const result = getDistanceToMap(0x00, 'route-12-area');
+    // Pallet (0x00) -> Route 1 (0x0C) -> Viridian (0x01) -> Route 22 (0x21) ... is wrong direction.
+    // Pallet -> Route 21 -> Cinnabar ... is also long.
+    // Safe to say it's NOT 1. Distance should be around 7-10.
+    expect(result?.distance).toBeGreaterThan(1);
+    expect(result?.name).not.toBe('Route 1');
+  });
 });
