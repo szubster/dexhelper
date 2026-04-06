@@ -175,7 +175,7 @@ export function generateSuggestions(
   }
 
   if (apiData.missingEncounters) {
-    const locationMap: Record<string, { name: string, distance: number, pids: Set<number>, slug: string }> = {};
+    const locationMap: Record<string, { name: string, distance: number, pids: Set<number>, slug: string, encounterMap: Map<number, EncounterDetail[]> }> = {};
     let unobtainableCount = 0;
 
     for (const pid of queryTargets) {
@@ -256,9 +256,20 @@ export function generateSuggestions(
            const targetAreaSlug = enc.location_area.name;
            if (!locationMap[targetAreaSlug]) {
                const route = getDistanceToMap(saveData.currentMapId, targetAreaSlug);
-               if (route) locationMap[targetAreaSlug] = { name: route.name, distance: route.distance, pids: new Set(), slug: targetAreaSlug };
+               if (route) locationMap[targetAreaSlug] = { name: route.name, distance: route.distance, pids: new Set(), slug: targetAreaSlug, encounterMap: new Map() };
            }
-           if (locationMap[targetAreaSlug]) locationMap[targetAreaSlug].pids.add(pid);
+           if (locationMap[targetAreaSlug]) {
+               locationMap[targetAreaSlug].pids.add(pid);
+               const versionDetail = enc.version_details.find((vd: any) => vd.version.name === displayVersion);
+               if (versionDetail) {
+                   locationMap[targetAreaSlug].encounterMap.set(pid, versionDetail.encounter_details.map((ed: any) => ({
+                       chance: ed.chance,
+                       method: ed.method.name,
+                       minLevel: ed.min_level,
+                       maxLevel: ed.max_level
+                   })));
+               }
+           }
         }
     }
     const locations = Object.values(locationMap as Record<string, any>).map(loc => ({ ...loc, yield: loc.pids.size }));
@@ -269,22 +280,9 @@ export function generateSuggestions(
         const locEncounterInfo: Record<number, EncounterDetail[]> = {};
         
         pids.forEach(pid => {
-            const pidEncounters = apiData.missingEncounters[pid] || [];
-            const areaEncounter = pidEncounters.find((enc: any) => 
-                enc.location_area.name === loc.slug && 
-                enc.version_details.some((vd: any) => vd.version.name === displayVersion)
-            );
-
-            if (areaEncounter) {
-                const versionDetail = areaEncounter.version_details.find((vd: any) => vd.version.name === displayVersion);
-                if (versionDetail) {
-                    locEncounterInfo[pid] = versionDetail.encounter_details.map((ed: any) => ({
-                        chance: ed.chance,
-                        method: ed.method.name,
-                        minLevel: ed.min_level,
-                        maxLevel: ed.max_level
-                    }));
-                }
+            const mappedEncounter = loc.encounterMap.get(pid);
+            if (mappedEncounter) {
+                locEncounterInfo[pid] = mappedEncounter;
             } else {
                 // Check ancestral encounters if not found directly
                 const aEncsMap = apiData.ancestralEncounters?.[pid] || {};
