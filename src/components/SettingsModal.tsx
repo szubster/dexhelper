@@ -79,9 +79,6 @@ function SettingsControls({
           aria-checked={isLivingDex}
           aria-label="Toggle Living Dex Mode"
           onClick={() => setIsLivingDex(!isLivingDex)}
-          aria-label="Toggle Living Dex"
-          role="switch"
-          aria-checked={isLivingDex}
           className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${isLivingDex ? 'bg-emerald-600' : 'bg-zinc-800'}`}
         >
           <span className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${isLivingDex ? 'translate-x-6' : 'translate-x-1'}`} />
@@ -152,35 +149,35 @@ export function SettingsModal() {
         className="relative w-full sm:max-w-md bg-zinc-900 rounded-t-[2.5rem] sm:rounded-[2.5rem] border-t sm:border border-zinc-800 shadow-2xl overflow-hidden animate-in slide-in-from-bottom-[100%] duration-300 sm:zoom-in-95"
       >
         <div className="p-8 border-b border-zinc-800 flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl font-display font-black uppercase tracking-tight">Menu</h2>
-              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mt-1">Configure your experience</p>
-            </div>
-            <button onClick={() => setIsSettingsOpen(false)} aria-label="Close settings" className="p-3 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors text-zinc-400">
-              <X size={20} />
-            </button>
+          <div>
+            <h2 className="text-2xl font-display font-black uppercase tracking-tight">Menu</h2>
+            <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mt-1">Configure your experience</p>
           </div>
+          <button onClick={() => setIsSettingsOpen(false)} aria-label="Close settings" className="p-3 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors text-zinc-400">
+            <X size={20} />
+          </button>
+        </div>
 
-          <div className="p-8 space-y-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
-            <SettingsLegend />
-            <SettingsControls
-              effectiveVersion={effectiveVersion}
-              setManualVersion={setManualVersion}
-              isLivingDex={isLivingDex}
-              setIsLivingDex={setIsLivingDex}
-              globalPokeball={globalPokeball}
-              setGlobalPokeball={setGlobalPokeball}
-              filteredPokeballs={filteredPokeballs}
-              genConfig={genConfig}
-            />
-            <ClearStorageButton
-              onClear={() => {
-                localStorage.removeItem('last_save_file');
-                setSaveData(null);
-                setManualVersion(null);
-                setIsSettingsOpen(false);
-              }}
-            />
+        <div className="p-8 space-y-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
+          <SettingsLegend />
+          <SettingsControls
+            effectiveVersion={effectiveVersion}
+            setManualVersion={setManualVersion}
+            isLivingDex={isLivingDex}
+            setIsLivingDex={setIsLivingDex}
+            globalPokeball={globalPokeball}
+            setGlobalPokeball={setGlobalPokeball}
+            filteredPokeballs={filteredPokeballs}
+            genConfig={genConfig}
+          />
+          <ClearStorageButton
+            onClear={() => {
+              localStorage.removeItem('last_save_file');
+              setSaveData(null);
+              setManualVersion(null);
+              setIsSettingsOpen(false);
+            }}
+          />
         </div>
       </div>
     </div>
