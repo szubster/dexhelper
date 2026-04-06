@@ -58,7 +58,14 @@ const mockSaveData: SaveData = {
   hallOfFameCount: 0,
 };
 
-export function StorageGridStory() {
+const meta = {
+  title: 'Components/StorageGrid',
+  component: StorageGrid,
+};
+
+export default meta;
+
+export const Default = () => {
   const setSaveData = useStore((s) => s.setSaveData);
 
   useEffect(() => {
@@ -66,4 +73,4 @@ export function StorageGridStory() {
   }, [setSaveData]);
 
   return <StorageGrid pokemonList={mockPokemonList} />;
-}
+};

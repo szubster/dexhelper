@@ -46,14 +46,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright CT tests
+    - name: Run Vitest Storybook Component tests
       run: npm run test:ct
       env:
         ARGOS_BUILD_NAME: "Component"
         ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
-    - uses: actions/upload-artifact@v7
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-ct-report
-        path: playwright-report/
-        retention-days: 30

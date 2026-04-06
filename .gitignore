@@ -13,3 +13,6 @@ playwright-report/
 blob-report/
 playwright/.cache/
 stats.html
+
+*storybook.log
+storybook-static
