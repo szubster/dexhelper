@@ -108,7 +108,10 @@ export function getDistanceToMap(
     
     if (!node) continue;
 
-    if (cleanTarget.startsWith(node.slug.replace('-area', ''))) {
+    const nodeBase = node.slug.replace('-area', '');
+    const targetBase = cleanTarget.replace('-area', '');
+
+    if (nodeBase === targetBase || targetBase.startsWith(nodeBase + '-')) {
       return { distance, name: node.name };
     }
 
