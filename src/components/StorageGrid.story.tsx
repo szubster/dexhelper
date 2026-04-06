@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { StorageGrid } from './StorageGrid';
-import { useStore } from '../store';
+import { useEffect } from 'react';
 import type { SaveData } from '../engine/saveParser';
+import { useStore } from '../store';
+import { StorageGrid } from './StorageGrid';
 
 const mockPokemonList = [
   { id: 1, name: 'Bulbasaur' },

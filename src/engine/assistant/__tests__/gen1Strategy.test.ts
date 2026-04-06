@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { gen1Strategy } from '../strategies/gen1Strategy';
+import { describe, expect, it } from 'vitest';
 import type { SaveData } from '../../saveParser/index';
+import { gen1Strategy } from '../strategies/gen1Strategy';
 
 const makeSaveData = (overrides: Partial<SaveData> = {}): SaveData => ({
   generation: 1,
@@ -67,7 +67,12 @@ describe('Gen 1 AssistantStrategy', () => {
 
   describe('getUnobtainableReason', () => {
     it('should detect Raichu lock in Yellow', () => {
-      const reason = gen1Strategy.getUnobtainableReason(26, 'yellow', 1, new Set([25]));
+      const reason = gen1Strategy.getUnobtainableReason(
+        26,
+        'yellow',
+        1,
+        new Set([25]),
+      );
       expect(reason).toBeTruthy();
       expect(reason).toContain('Thunder Stone');
     });

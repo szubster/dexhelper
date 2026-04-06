@@ -16,7 +16,13 @@ const fetchQuery = async (url: string) => {
 };
 
 export const pokeapi = {
-  getPokemonsList: async ({ limit, offset }: { limit: number; offset: number }) => {
+  getPokemonsList: async ({
+    limit,
+    offset,
+  }: {
+    limit: number;
+    offset: number;
+  }) => {
     return fetchQuery(`${BASE_URL}/pokemon?limit=${limit}&offset=${offset}`);
   },
   getPokemonEncounterAreasByName: async (idOrName: string | number) => {
@@ -36,5 +42,5 @@ export const pokeapi = {
   },
   getLocationArea: async (idOrSlug: number | string) => {
     return fetchQuery(`${BASE_URL}/location-area/${idOrSlug}`);
-  }
+  },
 };

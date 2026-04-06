@@ -1,13 +1,15 @@
-import React from 'react';
-import { Bug, AlertCircle } from 'lucide-react';
-import { RejectedSuggestion } from '../../hooks/useAssistant';
+import { AlertCircle, Bug } from 'lucide-react';
+import type { RejectedSuggestion } from '../../hooks/useAssistant';
 
 interface AssistantDebugViewProps {
   rejected: RejectedSuggestion[];
   getPokemonName: (id: number) => string;
 }
 
-export function AssistantDebugView({ rejected, getPokemonName }: AssistantDebugViewProps) {
+export function AssistantDebugView({
+  rejected,
+  getPokemonName,
+}: AssistantDebugViewProps) {
   if (rejected.length === 0) return null;
 
   return (
@@ -20,25 +22,37 @@ export function AssistantDebugView({ rejected, getPokemonName }: AssistantDebugV
           Debug: Rejected Suggestions
         </h3>
       </div>
-      
+
       <div className="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {rejected.map((r, i) => (
-          <div key={`${r.pokemonId}-${i}`} className="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-4 flex items-start gap-4 hover:border-zinc-700 transition-colors">
+          <div
+            key={`${r.pokemonId}-${i}`}
+            className="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-4 flex items-start gap-4 hover:border-zinc-700 transition-colors"
+          >
             <div className="w-12 h-12 bg-zinc-800 rounded-xl p-1 flex-shrink-0 border border-white/5 relative">
-              <img 
+              <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${r.pokemonId}.png`}
                 alt="Sprite"
                 className="w-full h-full object-contain pixelated grayscale opacity-50"
               />
               <div className="absolute -top-1 -right-1">
-                <AlertCircle size={14} className="text-amber-500 fill-zinc-900" />
+                <AlertCircle
+                  size={14}
+                  className="text-amber-500 fill-zinc-900"
+                />
               </div>
             </div>
             <div className="space-y-1 overflow-hidden">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold text-zinc-500">#{r.pokemonId.toString().padStart(3, '0')}</span>
-                <span className="text-xs font-black text-zinc-300 uppercase tracking-tight truncate">{getPokemonName(r.pokemonId)}</span>
-                <span className="text-[8px] font-black bg-zinc-800 text-zinc-500 px-1 py-0.5 rounded border border-white/5 uppercase">{r.code}</span>
+                <span className="text-[10px] font-mono font-bold text-zinc-500">
+                  #{r.pokemonId.toString().padStart(3, '0')}
+                </span>
+                <span className="text-xs font-black text-zinc-300 uppercase tracking-tight truncate">
+                  {getPokemonName(r.pokemonId)}
+                </span>
+                <span className="text-[8px] font-black bg-zinc-800 text-zinc-500 px-1 py-0.5 rounded border border-white/5 uppercase">
+                  {r.code}
+                </span>
               </div>
               <p className="text-[10px] font-medium text-zinc-500 leading-tight italic">
                 "{r.reason}"

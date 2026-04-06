@@ -1,12 +1,15 @@
-import type { MapGraph, MapDistanceResult } from './types';
-import { GEN1_MAPS, INDOOR_TO_PARENT_MAP, getDistanceToMap } from './gen1Graph';
+import { getDistanceToMap, INDOOR_TO_PARENT_MAP } from './gen1Graph';
+import type { MapDistanceResult, MapGraph } from './types';
 
 // Re-export for backward compat
-export { GEN1_MAPS, INDOOR_TO_PARENT_MAP, getDistanceToMap } from './gen1Graph';
-export type { MapNode, MapDistanceResult, MapGraph } from './types';
+export { GEN1_MAPS, getDistanceToMap, INDOOR_TO_PARENT_MAP } from './gen1Graph';
+export type { MapDistanceResult, MapGraph, MapNode } from './types';
 
 const gen1MapGraph: MapGraph = {
-  getDistanceToMap: (currentMapId: number, targetSlug: string): MapDistanceResult | null => {
+  getDistanceToMap: (
+    currentMapId: number,
+    targetSlug: string,
+  ): MapDistanceResult | null => {
     return getDistanceToMap(currentMapId, targetSlug);
   },
   resolveOutdoorMapId: (mapId: number): number => {

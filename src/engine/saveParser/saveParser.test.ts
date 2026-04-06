@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest';
-import { parseSaveFile, decodeGen12String } from './index';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { describe, expect, it } from 'vitest';
 import type { GameVersion } from './index';
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { decodeGen12String, parseSaveFile } from './index';
 
 describe('saveParser - Pokémon Gen 1 Validation', () => {
   const yellowSavPath = join(__dirname, '../../../tests/fixtures/yellow.sav');
@@ -12,11 +12,11 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     // Note: The sample yellow.sav provided uses a Red/Blue memory layout (no +1 shift).
     // Our parser should detect this automatically and parse it correctly.
     const data = parseSaveFile(buffer);
-    
+
     // Auto-detection might see it as 'blue' because of the layout and traded mons,
     // but the important thing is that the offsetShift is 0 and it reads real data.
     expect(data.generation).toBe(1);
-    
+
     // Pokedex should show starters as owned
     expect(data.owned.has(1)).toBe(true); // Bulbasaur
     expect(data.owned.has(4)).toBe(true); // Charmander
@@ -52,11 +52,11 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
   it('should parse full pcDetails for all 12 boxes', () => {
     const data = parseSaveFile(buffer);
     expect(data.pcDetails.length).toBeGreaterThan(0);
-    
+
     // Check that we have boxes other than the current one (if any)
-    const boxNames = new Set(data.pcDetails.map(p => p.storageLocation));
+    const boxNames = new Set(data.pcDetails.map((p) => p.storageLocation));
     expect(boxNames.size).toBeGreaterThan(0);
-    
+
     // Verify each entry has essential details
     const firstEntry = data.pcDetails[0]!;
     expect(firstEntry.level).toBeDefined();
@@ -83,7 +83,7 @@ describe('decodeGen12String', () => {
   });
 
   it('should handle special multi-character mappings', () => {
-    const u8 = new Uint8Array([0xE1, 0xE2, 0xE8, 0x50]); // "PK" "MN" "♂" "@"
+    const u8 = new Uint8Array([0xe1, 0xe2, 0xe8, 0x50]); // "PK" "MN" "♂" "@"
     expect(decodeGen12String(u8, 0)).toBe('PKMN♂');
   });
 
@@ -98,7 +98,7 @@ describe('decodeGen12String', () => {
   });
 
   it('should stop at terminator 0xFF', () => {
-    const u8 = new Uint8Array([0x80, 0xFF, 0x81]);
+    const u8 = new Uint8Array([0x80, 0xff, 0x81]);
     expect(decodeGen12String(u8, 0)).toBe('A');
   });
 
@@ -109,15 +109,27 @@ describe('decodeGen12String', () => {
 
   it('should default to maxLength 11', () => {
     const u8 = new Uint8Array([
-      0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, // 10 'A's
-      0x80, 0x80, 0x80, 0x80 // more 'A's
+      0x80,
+      0x80,
+      0x80,
+      0x80,
+      0x80,
+      0x80,
+      0x80,
+      0x80,
+      0x80,
+      0x80, // 10 'A's
+      0x80,
+      0x80,
+      0x80,
+      0x80, // more 'A's
     ]);
     expect(decodeGen12String(u8, 0)).toBe('AAAAAAAAAAA');
     expect(decodeGen12String(u8, 0).length).toBe(11);
   });
 
   it('should trim the resulting string', () => {
-    const u8 = new Uint8Array([0x7F, 0x80, 0x7F, 0x50]); // " A @"
+    const u8 = new Uint8Array([0x7f, 0x80, 0x7f, 0x50]); // " A @"
     expect(decodeGen12String(u8, 0)).toBe('A');
   });
 
