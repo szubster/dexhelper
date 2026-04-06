@@ -1,3 +1,7 @@
+import gen1MapLocations from '../data/gen1/mapLocations.json';
+import gen2MapLocations from '../data/gen2/mapLocations.json';
+import gen2Landmarks from '../data/gen2/landmarks.json';
+
 export const INTERNAL_ID_TO_DEX: Record<number, number> = {
   1: 112, 2: 115, 3: 32, 4: 35, 5: 21, 6: 100, 7: 34, 8: 80, 9: 2, 10: 103,
   11: 108, 12: 102, 13: 88, 14: 94, 15: 29, 16: 31, 17: 104, 18: 111, 19: 131, 20: 59,
@@ -32,6 +36,7 @@ export interface PokemonInstance {
     time: 'Morning' | 'Day' | 'Night' | 'Unknown';
     level: number;
     location: number;
+    locationName?: string;
   };
   dvs: { hp: number, atk: number, def: number, spd: number, spc: number };
   otName?: string;
@@ -52,6 +57,7 @@ export interface SaveData {
   trainerName: string;
   trainerId: number;
   currentMapId: number;
+  currentMapName?: string;
   mapGroup?: number;
   johtoBadges?: number;
   kantoBadges?: number;
@@ -363,7 +369,8 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const trainerName = decodeGen12String(u8, 0x2598);
   const badges = byte(u8, 0x2602);
   const trainerId = (byte(u8, 0x2605) << 8) | byte(u8, 0x2606);
-  const currentMapId = byte(u8, 0x260A); 
+  const currentMapId = byte(u8, 0x260A);
+  const currentMapName = (gen1MapLocations as Record<string, string>)[currentMapId.toString()] || 'Unknown Map';
   const inventory: { id: number, quantity: number }[] = [];
   const itemCount = byte(u8, 0x25C9);
   for (let i = 0; i < itemCount; i++) {
@@ -385,6 +392,7 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     trainerName,
     trainerId,
     currentMapId,
+    currentMapName,
     inventory,
     currentBoxCount,
     hallOfFameCount: byte(u8, 0x25B3 + offsetShift) === 0xFF ? 0 : byte(u8, 0x25B3 + offsetShift),
@@ -406,8 +414,15 @@ function parseCaughtData(u8: Uint8Array, offset: number) {
   if (timeBits === 1) time = 'Morning';
   else if (timeBits === 2) time = 'Day';
   else if (timeBits === 3) time = 'Night';
+
+  let locationName: string | undefined = undefined;
+  if (location === 0x7E) locationName = 'Event/Gift';
+  else if (location === 0x7F) locationName = 'Special Event/Traded';
+  else {
+    locationName = (gen2Landmarks as Record<string, string>)[location.toString()];
+  }
   
-  return { time, level: caughtLevel, location };
+  return { time, level: caughtLevel, location, locationName };
 }
 
 function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
@@ -578,6 +593,12 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   const mapGroup = byte(u8, mapBankOffset);
   const currentMapId = byte(u8, mapIdOffset);
 
+  let currentMapName = 'Unknown Map';
+  const gen2Maps = (gen2MapLocations as Record<string, Record<string, string>>);
+  if (gen2Maps[mapGroup.toString()] && gen2Maps[mapGroup.toString()]![currentMapId.toString()]) {
+    currentMapName = gen2Maps[mapGroup.toString()]![currentMapId.toString()]!;
+  }
+
   // Detailed inventory parsing for Gen 2 could be added here later
   const inventory: { id: number, quantity: number }[] = [];
 
@@ -599,6 +620,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     trainerName,
     trainerId,
     currentMapId,
+    currentMapName,
     mapGroup,
     inventory,
     currentBoxCount: 0,
