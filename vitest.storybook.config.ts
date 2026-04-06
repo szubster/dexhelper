@@ -17,6 +17,7 @@ export default defineConfig({
           argosVitestPlugin({
             uploadToArgos: !!process.env.CI,
             token: process.env.ARGOS_TOKEN,
+            buildName: process.env.ARGOS_BUILD_NAME || 'Component',
           }),
         ],
         test: {
