@@ -1,9 +1,9 @@
-import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
+import { CheckCircle2, CircleDot, MapPin, Sparkles } from "lucide-react";
 import {
   gen2Items,
   gen2Locations,
-} from '../../../engine/data/gen2/legacyNameMap';
-import { getGenerationConfig } from '../../../utils/generationConfig';
+} from "../../../engine/data/gen2/legacyNameMap";
+import { getGenerationConfig } from "../../../utils/generationConfig";
 
 interface PokemonCaughtDetailsProps {
   yourPokemon: any[];
@@ -17,22 +17,22 @@ function calculateHiddenPower(dvs: {
   spc: number;
 }) {
   const typeMap = [
-    'Fighting',
-    'Flying',
-    'Poison',
-    'Ground',
-    'Rock',
-    'Bug',
-    'Ghost',
-    'Steel',
-    'Fire',
-    'Water',
-    'Grass',
-    'Electric',
-    'Psychic',
-    'Ice',
-    'Dragon',
-    'Dark',
+    "Fighting",
+    "Flying",
+    "Poison",
+    "Ground",
+    "Rock",
+    "Bug",
+    "Ghost",
+    "Steel",
+    "Fire",
+    "Water",
+    "Grass",
+    "Electric",
+    "Psychic",
+    "Ice",
+    "Dragon",
+    "Dark",
   ];
 
   const typeIndex = 4 * (dvs.atk % 4) + (dvs.def % 4);
@@ -147,7 +147,7 @@ export function PokemonCaughtDetails({
                   <MapPin size={8} /> Origin Point
                 </span>
                 <div className="text-[10px] font-black text-zinc-300 uppercase tracking-tight truncate">
-                  {gen2Locations[p.caughtData.location] || 'UNKNOWN ZONE'}
+                  {gen2Locations[p.caughtData.location] || "UNKNOWN ZONE"}
                 </div>
               </div>
             )}

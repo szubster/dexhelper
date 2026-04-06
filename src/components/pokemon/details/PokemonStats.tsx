@@ -1,6 +1,6 @@
-import { Activity } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { getGenerationConfig } from '../../../utils/generationConfig';
+import { Activity } from "lucide-react";
+import { useEffect, useState } from "react";
+import { getGenerationConfig } from "../../../utils/generationConfig";
 
 interface PokemonStatsProps {
   pokemonData: any;
@@ -25,24 +25,24 @@ export function PokemonStats({ pokemonData, saveData }: PokemonStatsProps) {
       <div className="grid grid-cols-1 gap-3">
         {pokemonData.stats.map((s: any) => {
           const statName =
-            s.stat.name === 'special-attack'
-              ? 'SPC'
-              : s.stat.name === 'special-defense'
-                ? 'SPD'
-                : s.stat.name === 'hp'
-                  ? 'HP'
-                  : s.stat.name === 'attack'
-                    ? 'ATK'
-                    : s.stat.name === 'defense'
-                      ? 'DEF'
-                      : s.stat.name === 'speed'
-                        ? 'SPE'
+            s.stat.name === "special-attack"
+              ? "SPC"
+              : s.stat.name === "special-defense"
+                ? "SPD"
+                : s.stat.name === "hp"
+                  ? "HP"
+                  : s.stat.name === "attack"
+                    ? "ATK"
+                    : s.stat.name === "defense"
+                      ? "DEF"
+                      : s.stat.name === "speed"
+                        ? "SPE"
                         : s.stat.name;
 
           if (
             saveData &&
             getGenerationConfig(saveData.generation).hasUnifiedSpecial &&
-            s.stat.name === 'special-defense'
+            s.stat.name === "special-defense"
           )
             return null;
 
@@ -57,7 +57,7 @@ export function PokemonStats({ pokemonData, saveData }: PokemonStatsProps) {
               <div className="flex-1 h-2 bg-zinc-900 rounded-full overflow-hidden border border-white/5 relative">
                 <div
                   className="h-full bg-gradient-to-r from-[var(--theme-primary)]/50 to-[var(--theme-primary)] relative transition-all duration-1000 ease-out"
-                  style={{ width: mounted ? `${percentage}%` : '0%' }}
+                  style={{ width: mounted ? `${percentage}%` : "0%" }}
                 >
                   <div className="absolute inset-0 lcd-flicker opacity-30" />
                 </div>

@@ -1,5 +1,5 @@
-import { gen1Strategy } from './gen1Strategy';
-import type { AssistantStrategy } from './types';
+import { gen1Strategy } from "./gen1Strategy";
+import type { AssistantStrategy } from "./types";
 
 const STRATEGIES: Record<number, AssistantStrategy> = {
   1: gen1Strategy,

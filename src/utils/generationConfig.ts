@@ -1,4 +1,4 @@
-import type { PokeballType } from '../store';
+import type { PokeballType } from "../store";
 
 // ─── Core Types ──────────────────────────────────────────────────────
 
@@ -44,35 +44,35 @@ export interface GenerationConfig {
 
 const gen1Config: GenerationConfig = {
   id: 1,
-  label: 'Gen I',
-  shortLabel: 'I',
+  label: "Gen I",
+  shortLabel: "I",
   maxDex: 151,
   versions: [
     {
-      id: 'red',
-      label: 'Red',
-      themeClass: 'theme-red',
-      dotColor: 'bg-red-500 shadow-red-500/20',
+      id: "red",
+      label: "Red",
+      themeClass: "theme-red",
+      dotColor: "bg-red-500 shadow-red-500/20",
     },
     {
-      id: 'blue',
-      label: 'Blue',
-      themeClass: 'theme-blue',
-      dotColor: 'bg-blue-500 shadow-blue-500/20',
+      id: "blue",
+      label: "Blue",
+      themeClass: "theme-blue",
+      dotColor: "bg-blue-500 shadow-blue-500/20",
     },
     {
-      id: 'yellow',
-      label: 'Yellow',
-      themeClass: 'theme-yellow',
-      dotColor: 'bg-yellow-400 shadow-yellow-400/20',
+      id: "yellow",
+      label: "Yellow",
+      themeClass: "theme-yellow",
+      dotColor: "bg-yellow-400 shadow-yellow-400/20",
     },
   ],
-  defaultVersion: 'red',
+  defaultVersion: "red",
   spriteUrl: (id) =>
     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${id}.png`,
   fallbackSpriteUrl: (id) =>
     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
-  pokeballs: ['poke', 'great', 'ultra'],
+  pokeballs: ["poke", "great", "ultra"],
   rodIds: { OLD: 76, GOOD: 77, SUPER: 78 },
   hasHiddenPower: false,
   hasUnifiedSpecial: true,
@@ -86,45 +86,45 @@ const gen1Config: GenerationConfig = {
 
 const gen2Config: GenerationConfig = {
   id: 2,
-  label: 'Gen II',
-  shortLabel: 'II',
+  label: "Gen II",
+  shortLabel: "II",
   maxDex: 251,
   versions: [
     {
-      id: 'gold',
-      label: 'Gold',
-      themeClass: 'theme-gold',
-      dotColor: 'bg-yellow-500',
+      id: "gold",
+      label: "Gold",
+      themeClass: "theme-gold",
+      dotColor: "bg-yellow-500",
     },
     {
-      id: 'silver',
-      label: 'Silver',
-      themeClass: 'theme-silver',
-      dotColor: 'bg-zinc-400',
+      id: "silver",
+      label: "Silver",
+      themeClass: "theme-silver",
+      dotColor: "bg-zinc-400",
     },
     {
-      id: 'crystal',
-      label: 'Crystal',
-      themeClass: 'theme-crystal',
-      dotColor: 'bg-cyan-400',
+      id: "crystal",
+      label: "Crystal",
+      themeClass: "theme-crystal",
+      dotColor: "bg-cyan-400",
     },
   ],
-  defaultVersion: 'gold',
+  defaultVersion: "gold",
   spriteUrl: (id, isShiny) =>
-    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/crystal/transparent/${isShiny ? 'shiny/' : ''}${id}.png`,
+    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/crystal/transparent/${isShiny ? "shiny/" : ""}${id}.png`,
   fallbackSpriteUrl: (id) =>
     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
   pokeballs: [
-    'poke',
-    'great',
-    'ultra',
-    'heavy',
-    'lure',
-    'fast',
-    'friend',
-    'moon',
-    'love',
-    'level',
+    "poke",
+    "great",
+    "ultra",
+    "heavy",
+    "lure",
+    "fast",
+    "friend",
+    "moon",
+    "love",
+    "level",
   ],
   rodIds: { OLD: 57, GOOD: 58, SUPER: 60 },
   hasHiddenPower: true,
@@ -170,8 +170,8 @@ export const VERSION_THEMES: Record<string, string> = Object.fromEntries([
   ...Object.values(GENERATION_CONFIGS).flatMap((gc) =>
     gc.versions.map((v) => [v.id, v.themeClass]),
   ),
-  ['unsupported', ''],
-  ['unknown', ''],
+  ["unsupported", ""],
+  ["unknown", ""],
 ]);
 
 /** All known version IDs across all registered generations */
@@ -181,15 +181,15 @@ export const ALL_VERSION_IDS: string[] = Object.values(
 
 /** Pokeball display labels (generation-independent) */
 export const POKEBALL_LABELS: Record<PokeballType, string> = {
-  poke: 'Poké Ball',
-  great: 'Great Ball',
-  ultra: 'Ultra Ball',
-  safari: 'Safari Ball',
-  heavy: 'Heavy Ball',
-  lure: 'Lure Ball',
-  fast: 'Fast Ball',
-  friend: 'Friend Ball',
-  moon: 'Moon Ball',
-  love: 'Love Ball',
-  level: 'Level Ball',
+  poke: "Poké Ball",
+  great: "Great Ball",
+  ultra: "Ultra Ball",
+  safari: "Safari Ball",
+  heavy: "Heavy Ball",
+  lure: "Lure Ball",
+  fast: "Fast Ball",
+  friend: "Friend Ball",
+  moon: "Moon Ball",
+  love: "Love Ball",
+  level: "Level Ball",
 };

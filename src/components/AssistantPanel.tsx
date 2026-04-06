@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
 import {
   Bug,
   Egg,
@@ -8,14 +8,14 @@ import {
   Sparkles,
   Target,
   Zap,
-} from 'lucide-react';
-import React from 'react';
-import type { SaveData } from '../engine/saveParser/index';
-import { type Suggestion, useAssistant } from '../hooks/useAssistant';
-import { MAX_DEX_ACROSS_GENS } from '../utils/generationConfig';
-import { pokeapi } from '../utils/pokeapi';
-import { AssistantDebugView } from './assistant/AssistantDebugView';
-import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
+} from "lucide-react";
+import React from "react";
+import type { SaveData } from "../engine/saveParser/index";
+import { type Suggestion, useAssistant } from "../hooks/useAssistant";
+import { MAX_DEX_ACROSS_GENS } from "../utils/generationConfig";
+import { pokeapi } from "../utils/pokeapi";
+import { AssistantDebugView } from "./assistant/AssistantDebugView";
+import { AssistantSuggestionCard } from "./assistant/AssistantSuggestionCard";
 
 interface AssistantPanelProps {
   saveData: SaveData;
@@ -29,43 +29,43 @@ const CATEGORY_STYLES: Record<
 > = {
   Catch: {
     icon: <Target size={16} className="text-emerald-400" />,
-    color: 'border-emerald-500/30 text-emerald-100',
-    bg: 'bg-emerald-500/10',
+    color: "border-emerald-500/30 text-emerald-100",
+    bg: "bg-emerald-500/10",
   },
   Evolve: {
     icon: <Zap size={16} className="text-blue-400" />,
-    color: 'border-blue-500/30 text-blue-100',
-    bg: 'bg-blue-500/10',
+    color: "border-blue-500/30 text-blue-100",
+    bg: "bg-blue-500/10",
   },
   Trade: {
     icon: <Zap size={16} className="text-amber-400" />,
-    color: 'border-amber-500/30 text-amber-100',
-    bg: 'bg-amber-500/10',
+    color: "border-amber-500/30 text-amber-100",
+    bg: "bg-amber-500/10",
   },
   Breed: {
     icon: <Egg size={16} className="text-pink-400" />,
-    color: 'border-pink-500/30 text-pink-100',
-    bg: 'bg-pink-500/10',
+    color: "border-pink-500/30 text-pink-100",
+    bg: "bg-pink-500/10",
   },
   Progress: {
     icon: <Flag size={16} className="text-red-400" />,
-    color: 'border-red-500/30 text-red-100',
-    bg: 'bg-red-500/10',
+    color: "border-red-500/30 text-red-100",
+    bg: "bg-red-500/10",
   },
   Event: {
     icon: <Sparkles size={16} className="text-purple-400" />,
-    color: 'border-purple-500/30 text-purple-100',
-    bg: 'bg-purple-500/10',
+    color: "border-purple-500/30 text-purple-100",
+    bg: "bg-purple-500/10",
   },
   Gift: {
     icon: <Zap size={16} className="text-indigo-400" />,
-    color: 'border-indigo-500/30 text-indigo-100',
-    bg: 'bg-indigo-500/10',
+    color: "border-indigo-500/30 text-indigo-100",
+    bg: "bg-indigo-500/10",
   },
   Utility: {
     icon: <Info size={16} className="text-zinc-400" />,
-    color: 'border-zinc-500/30 text-zinc-100',
-    bg: 'bg-zinc-500/10',
+    color: "border-zinc-500/30 text-zinc-100",
+    bg: "bg-zinc-500/10",
   },
 };
 
@@ -82,7 +82,7 @@ export function AssistantPanel({
   const [showDebug, setShowDebug] = React.useState(false);
 
   const { data: pokemonList } = useQuery<{ id: number; name: string }[]>({
-    queryKey: ['pokemonList'],
+    queryKey: ["pokemonList"],
     queryFn: () =>
       pokeapi
         .getPokemonsList({ limit: MAX_DEX_ACROSS_GENS, offset: 0 })
@@ -111,7 +111,7 @@ export function AssistantPanel({
             </h2>
             <button
               onClick={() => setShowDebug(!showDebug)}
-              className={`p-2 rounded-xl border transition-all ${showDebug ? 'bg-amber-500/20 border-amber-500/50 text-amber-400' : 'bg-zinc-800 border-zinc-700 text-zinc-500 hover:text-zinc-300'}`}
+              className={`p-2 rounded-xl border transition-all ${showDebug ? "bg-amber-500/20 border-amber-500/50 text-amber-400" : "bg-zinc-800 border-zinc-700 text-zinc-500 hover:text-zinc-300"}`}
               title="Toggle Debug Mode"
             >
               <Bug size={18} />
@@ -153,13 +153,13 @@ export function AssistantPanel({
           )
             .sort(([a], [b]) => {
               const order = [
-                'Catch',
-                'Gift',
-                'Evolve',
-                'Trade',
-                'Progress',
-                'Event',
-                'Utility',
+                "Catch",
+                "Gift",
+                "Evolve",
+                "Trade",
+                "Progress",
+                "Event",
+                "Utility",
               ];
               return (
                 (order.indexOf(a) !== -1 ? order.indexOf(a) : 99) -
@@ -174,21 +174,21 @@ export function AssistantPanel({
                 <div key={category} className="space-y-4">
                   <div className="flex items-center gap-3 px-2">
                     <div
-                      className={`p-2 rounded-xl border ${catStyle.bg} ${catStyle.color.replace('border-', 'text-')}`}
+                      className={`p-2 rounded-xl border ${catStyle.bg} ${catStyle.color.replace("border-", "text-")}`}
                     >
                       {catStyle.icon}
                     </div>
                     <h3 className="text-xl font-display font-black text-white uppercase tracking-widest">
-                      {category === 'Catch'
-                        ? 'Wild Encounters'
-                        : category === 'Trade'
-                          ? 'Trade Required'
+                      {category === "Catch"
+                        ? "Wild Encounters"
+                        : category === "Trade"
+                          ? "Trade Required"
                           : category}
                     </h3>
                   </div>
 
                   <div
-                    className={`grid gap-6 animate-in fade-in duration-500 ${category === 'Catch' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
+                    className={`grid gap-6 animate-in fade-in duration-500 ${category === "Catch" ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"}`}
                   >
                     {items.map((s, idx) => {
                       const style =

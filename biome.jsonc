@@ -48,11 +48,6 @@
       "enabled": false
     }
   },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "single"
-    }
-  },
   "assist": {
     "enabled": true,
     "actions": {

@@ -1,5 +1,5 @@
-import type React from 'react';
-import { getGenerationConfig } from '../../utils/generationConfig';
+import type React from "react";
+import { getGenerationConfig } from "../../utils/generationConfig";
 
 interface PokemonSpriteProps {
   pokemonId: number;
@@ -10,7 +10,7 @@ interface PokemonSpriteProps {
   /** Custom CSS styles to apply */
   style?: React.CSSProperties;
   /** Loading strategy for the img element */
-  loading?: 'lazy' | 'eager';
+  loading?: "lazy" | "eager";
   /** Optional error handler */
   onError?: (e: React.SyntheticEvent<HTMLImageElement>) => void;
 }
@@ -24,9 +24,9 @@ export function PokemonSprite({
   generation,
   isShiny = false,
   alt,
-  className = '',
+  className = "",
   style,
-  loading = 'lazy',
+  loading = "lazy",
   onError,
 }: PokemonSpriteProps) {
   const genConfig = getGenerationConfig(generation);
@@ -43,7 +43,7 @@ export function PokemonSprite({
       src={genConfig.spriteUrl(pokemonId, isShiny)}
       alt={alt ?? `Pokémon #${pokemonId}`}
       className={`pixelated ${className}`}
-      style={{ imageRendering: 'pixelated', ...style }}
+      style={{ imageRendering: "pixelated", ...style }}
       loading={loading}
       onError={handleError}
     />

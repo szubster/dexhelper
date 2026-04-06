@@ -8,14 +8,14 @@ import {
   Settings2,
   Trash2,
   X,
-} from 'lucide-react';
-import type { GameVersion, PokeballType } from '../store';
-import { useStore } from '../store';
-import type { GenerationConfig } from '../utils/generationConfig';
+} from "lucide-react";
+import type { GameVersion, PokeballType } from "../store";
+import { useStore } from "../store";
+import type { GenerationConfig } from "../utils/generationConfig";
 import {
   getGenerationConfig,
   POKEBALL_LABELS,
-} from '../utils/generationConfig';
+} from "../utils/generationConfig";
 
 function SettingsLegend() {
   return (
@@ -27,19 +27,19 @@ function SettingsLegend() {
         {[
           {
             icon: <CircleDot size={14} className="text-rose-500" />,
-            label: 'In Party',
+            label: "In Party",
           },
           {
             icon: <Monitor size={14} className="text-blue-400" />,
-            label: 'In PC',
+            label: "In PC",
           },
           {
             icon: <Check size={14} className="text-emerald-400" />,
-            label: 'Owned',
+            label: "Owned",
           },
           {
             icon: <Ghost size={14} className="text-purple-400" />,
-            label: 'Lost',
+            label: "Lost",
           },
         ].map((item, i) => (
           <div
@@ -116,10 +116,10 @@ function SettingsControls({
         </div>
         <button
           onClick={() => setIsLivingDex(!isLivingDex)}
-          className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors ${isLivingDex ? 'bg-emerald-600' : 'bg-zinc-800'}`}
+          className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors ${isLivingDex ? "bg-emerald-600" : "bg-zinc-800"}`}
         >
           <span
-            className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${isLivingDex ? 'translate-x-6' : 'translate-x-1'}`}
+            className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${isLivingDex ? "translate-x-6" : "translate-x-1"}`}
           />
         </button>
       </div>
@@ -176,14 +176,14 @@ export function SettingsModal() {
   const globalPokeball = useStore((s) => s.globalPokeball);
   const setGlobalPokeball = useStore((s) => s.setGlobalPokeball);
 
-  const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
+  const effectiveVersion = manualVersion || saveData?.gameVersion || "unknown";
 
   if (!isSettingsOpen) return null;
 
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
 
-  const filteredPokeballs = (genConfig?.pokeballs ?? ['poke', 'great', 'ultra'])
-    .filter((pb) => pb !== 'safari') // Safari Ball cannot be a default
+  const filteredPokeballs = (genConfig?.pokeballs ?? ["poke", "great", "ultra"])
+    .filter((pb) => pb !== "safari") // Safari Ball cannot be a default
     .map((value) => ({ value, label: POKEBALL_LABELS[value] }));
 
   return (
@@ -225,7 +225,7 @@ export function SettingsModal() {
           />
           <ClearStorageButton
             onClear={() => {
-              localStorage.removeItem('last_save_file');
+              localStorage.removeItem("last_save_file");
               setSaveData(null);
               setManualVersion(null);
               setIsSettingsOpen(false);

@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
-import type { SaveData } from '../engine/saveParser';
-import { useStore } from '../store';
-import { StorageGrid } from './StorageGrid';
+import { useEffect } from "react";
+import type { SaveData } from "../engine/saveParser";
+import { useStore } from "../store";
+import { StorageGrid } from "./StorageGrid";
 
 const mockPokemonList = [
-  { id: 1, name: 'Bulbasaur' },
-  { id: 4, name: 'Charmander' },
-  { id: 7, name: 'Squirtle' },
-  { id: 25, name: 'Pikachu' },
+  { id: 1, name: "Bulbasaur" },
+  { id: 4, name: "Charmander" },
+  { id: 7, name: "Squirtle" },
+  { id: 25, name: "Pikachu" },
 ];
 
 const mockSaveData: SaveData = {
@@ -23,7 +23,7 @@ const mockSaveData: SaveData = {
       isShiny: false,
       moves: [1],
       dvs: { hp: 10, atk: 10, def: 10, spd: 10, spc: 10 },
-      storageLocation: 'Party',
+      storageLocation: "Party",
       slot: 1,
     },
   ],
@@ -34,7 +34,7 @@ const mockSaveData: SaveData = {
       isShiny: false,
       moves: [3],
       dvs: { hp: 10, atk: 10, def: 10, spd: 10, spc: 10 },
-      storageLocation: 'Box 1',
+      storageLocation: "Box 1",
       slot: 1,
     },
     // Box 2 is empty
@@ -44,13 +44,13 @@ const mockSaveData: SaveData = {
       isShiny: true,
       moves: [5],
       dvs: { hp: 15, atk: 15, def: 15, spd: 15, spc: 15 },
-      storageLocation: 'Box 3',
+      storageLocation: "Box 3",
       slot: 1,
     },
   ],
-  gameVersion: 'yellow',
+  gameVersion: "yellow",
   badges: 0,
-  trainerName: 'ASH',
+  trainerName: "ASH",
   trainerId: 12345,
   currentMapId: 1,
   inventory: [],

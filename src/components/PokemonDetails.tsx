@@ -1,4 +1,4 @@
-import { useQueries, useQuery } from '@tanstack/react-query';
+import { useQueries, useQuery } from "@tanstack/react-query";
 import {
   AlertCircle,
   CheckCircle2,
@@ -6,23 +6,23 @@ import {
   Monitor,
   Sparkles,
   X,
-} from 'lucide-react';
+} from "lucide-react";
 import type {
   LocationAreaEncounter,
   VersionEncounterDetail,
-} from 'pokenode-ts';
-import React, { useEffect } from 'react';
-import type { SaveData } from '../engine/saveParser/index';
-import type { PokeballType } from '../store';
-import { cn } from '../utils/cn';
-import { stadiumRewardsSummary, staticEncounters } from '../utils/data';
-import { getGenerationConfig } from '../utils/generationConfig';
-import { pokeapi } from '../utils/pokeapi';
-import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbability';
-import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
-import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
-import { PokemonLocations } from './pokemon/details/PokemonLocations';
-import { PokemonStats } from './pokemon/details/PokemonStats';
+} from "pokenode-ts";
+import React, { useEffect } from "react";
+import type { SaveData } from "../engine/saveParser/index";
+import type { PokeballType } from "../store";
+import { cn } from "../utils/cn";
+import { stadiumRewardsSummary, staticEncounters } from "../utils/data";
+import { getGenerationConfig } from "../utils/generationConfig";
+import { pokeapi } from "../utils/pokeapi";
+import { PokemonCatchProbability } from "./pokemon/details/PokemonCatchProbability";
+import { PokemonCaughtDetails } from "./pokemon/details/PokemonCaughtDetails";
+import { PokemonEvolutions } from "./pokemon/details/PokemonEvolutions";
+import { PokemonLocations } from "./pokemon/details/PokemonLocations";
+import { PokemonStats } from "./pokemon/details/PokemonStats";
 
 // Static data moved to data.ts
 
@@ -67,7 +67,7 @@ const _modalVariants = {
     scale: 1,
     y: 0,
     transition: {
-      type: 'spring',
+      type: "spring",
       damping: 25,
       stiffness: 300,
       staggerChildren: 0.05,
@@ -87,7 +87,7 @@ const _contentVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', damping: 20, stiffness: 100 },
+    transition: { type: "spring", damping: 20, stiffness: 100 },
   },
 } as const;
 
@@ -103,24 +103,24 @@ export function PokemonDetails({
 }: PokemonDetailsProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === "Escape") onClose();
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
   const queries = useQueries({
     queries: [
       {
-        queryKey: ['encounters', pokemonId],
+        queryKey: ["encounters", pokemonId],
         queryFn: () => pokeapi.getPokemonEncounterAreasByName(pokemonId),
       },
       {
-        queryKey: ['pokemon', pokemonId],
+        queryKey: ["pokemon", pokemonId],
         queryFn: () => pokeapi.getPokemonByName(pokemonId),
       },
       {
-        queryKey: ['species', pokemonId],
+        queryKey: ["species", pokemonId],
         queryFn: () => pokeapi.getPokemonSpeciesByName(pokemonId),
       },
     ],
@@ -140,7 +140,7 @@ export function PokemonDetails({
   const _genderRate = speciesData?.gender_rate ?? -1;
 
   const { data: evolutionData } = useQuery({
-    queryKey: ['evolution', speciesData?.evolution_chain?.url],
+    queryKey: ["evolution", speciesData?.evolution_chain?.url],
     queryFn: () => pokeapi.resource(speciesData!.evolution_chain.url),
     enabled: !!speciesData?.evolution_chain?.url,
   });
@@ -150,8 +150,8 @@ export function PokemonDetails({
 
     const fromName = speciesData.evolves_from_species.name;
     const fromId = parseInt(
-      speciesData.evolves_from_species.url.split('/').filter(Boolean).pop() ||
-        '0',
+      speciesData.evolves_from_species.url.split("/").filter(Boolean).pop() ||
+        "0",
       10,
     );
 
@@ -159,7 +159,7 @@ export function PokemonDetails({
     if (saveData && fromId > getGenerationConfig(saveData.generation).maxDex)
       return null;
 
-    let methodStr = 'Unknown';
+    let methodStr = "Unknown";
 
     const findEvoDetails = (chain: any): any => {
       if (chain.species.name === pokemonName.toLowerCase()) {
@@ -174,17 +174,17 @@ export function PokemonDetails({
 
     const details = findEvoDetails(evolutionData.chain);
     if (details) {
-      if (details.trigger?.name === 'level-up') {
+      if (details.trigger?.name === "level-up") {
         methodStr = details.min_level
           ? `Level ${details.min_level}`
-          : 'Level up';
-      } else if (details.trigger?.name === 'use-item') {
+          : "Level up";
+      } else if (details.trigger?.name === "use-item") {
         methodStr =
           details.item?.name
-            ?.replace(/-/g, ' ')
-            .replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
-      } else if (details.trigger?.name === 'trade') {
-        methodStr = 'Trade';
+            ?.replace(/-/g, " ")
+            .replace(/\b\w/g, (l: string) => l.toUpperCase()) || "Item";
+      } else if (details.trigger?.name === "trade") {
+        methodStr = "Trade";
       }
     }
 
@@ -203,7 +203,7 @@ export function PokemonDetails({
         return chain.evolves_to
           .map((evo: any) => {
             const id = parseInt(
-              evo.species.url.split('/').filter(Boolean).pop() || '0',
+              evo.species.url.split("/").filter(Boolean).pop() || "0",
               10,
             );
             // For saves from gens that don't have this evolution, ignore it
@@ -213,20 +213,20 @@ export function PokemonDetails({
             )
               return null;
 
-            let methodStr = 'Unknown';
+            let methodStr = "Unknown";
             const details = evo.evolution_details[0];
             if (details) {
-              if (details.trigger?.name === 'level-up') {
+              if (details.trigger?.name === "level-up") {
                 methodStr = details.min_level
                   ? `Level ${details.min_level}`
-                  : 'Level up';
-              } else if (details.trigger?.name === 'use-item') {
+                  : "Level up";
+              } else if (details.trigger?.name === "use-item") {
                 methodStr =
                   details.item?.name
-                    ?.replace(/-/g, ' ')
-                    .replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
-              } else if (details.trigger?.name === 'trade') {
-                methodStr = 'Trade';
+                    ?.replace(/-/g, " ")
+                    .replace(/\b\w/g, (l: string) => l.toUpperCase()) || "Item";
+              } else if (details.trigger?.name === "trade") {
+                methodStr = "Trade";
               }
             }
             return {
@@ -261,7 +261,7 @@ export function PokemonDetails({
     const traverse = (node: any) => {
       if (node.species.name !== speciesData.name) {
         const id = parseInt(
-          node.species.url.split('/').filter(Boolean).pop() || '0',
+          node.species.url.split("/").filter(Boolean).pop() || "0",
           10,
         );
         parents.push({
@@ -278,7 +278,7 @@ export function PokemonDetails({
     return {
       parentIds: parents.map((p) => p.id),
       parentNames: parents.map((p) => p.name),
-      method: 'Breed evolved form with Ditto or same egg group',
+      method: "Breed evolved form with Ditto or same egg group",
     };
   }, [speciesData, evolutionData, saveData?.generation, saveData]);
 
@@ -294,7 +294,7 @@ export function PokemonDetails({
       staticData[version as keyof typeof staticData]!.forEach((loc) => {
         locations.push({
           name: loc,
-          details: 'Static Encounter / Gift / Trade',
+          details: "Static Encounter / Gift / Trade",
         });
       });
     }
@@ -305,22 +305,22 @@ export function PokemonDetails({
       );
       if (versionDetail) {
         const name = enc.location_area.name
-          .replace(/-/g, ' ')
+          .replace(/-/g, " ")
           .replace(/\b\w/g, (l: string) => l.toUpperCase())
-          .replace(' Area', '')
-          .replace('Kanto ', '')
-          .replace('Johto ', '');
+          .replace(" Area", "")
+          .replace("Kanto ", "")
+          .replace("Johto ", "");
 
         const methodMap = new Map<
           string,
           { chance: number; min: number; max: number; conditions: string[] }
         >();
         versionDetail.encounter_details.forEach((detail: any) => {
-          const method = detail.method.name.replace(/-/g, ' ');
+          const method = detail.method.name.replace(/-/g, " ");
           const conditions = detail.condition_values.map((cv: any) =>
-            cv.name.replace(/-/g, ' '),
+            cv.name.replace(/-/g, " "),
           );
-          const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
+          const key = `${method}${conditions.length > 0 ? ` (${conditions.join(", ")})` : ""}`;
 
           const existing = methodMap.get(key);
           if (existing) {
@@ -347,19 +347,19 @@ export function PokemonDetails({
           },
         );
 
-        locations.push({ name, details: detailStrings.join(' | ') });
+        locations.push({ name, details: detailStrings.join(" | ") });
       }
     });
 
     return locations;
   };
 
-  const _redLocations = getLocationsForVersion('red');
-  const _blueLocations = getLocationsForVersion('blue');
-  const _yellowLocations = getLocationsForVersion('yellow');
-  const _goldLocations = getLocationsForVersion('gold');
-  const _silverLocations = getLocationsForVersion('silver');
-  const _crystalLocations = getLocationsForVersion('crystal');
+  const _redLocations = getLocationsForVersion("red");
+  const _blueLocations = getLocationsForVersion("blue");
+  const _yellowLocations = getLocationsForVersion("yellow");
+  const _goldLocations = getLocationsForVersion("gold");
+  const _silverLocations = getLocationsForVersion("silver");
+  const _crystalLocations = getLocationsForVersion("crystal");
 
   const _renderLocations = (
     locations: { name: string; details: string }[],
@@ -401,7 +401,7 @@ export function PokemonDetails({
     : getGenerationConfig(1);
 
   const displayVersion =
-    gameVersion === 'unknown' ? genConfig.defaultVersion : gameVersion;
+    gameVersion === "unknown" ? genConfig.defaultVersion : gameVersion;
 
   const currentGenVersions = genConfig.versions.map((v) => v.id);
 
@@ -416,11 +416,11 @@ export function PokemonDetails({
   const isSafariNative = React.useMemo(() => {
     const locations = allVersionLocations[displayVersion] || [];
     return locations.some((loc) =>
-      loc.name.toLowerCase().includes('safari zone'),
+      loc.name.toLowerCase().includes("safari zone"),
     );
   }, [allVersionLocations, displayVersion]);
 
-  const effectivePokeball = isSafariNative ? 'safari' : defaultPokeball;
+  const effectivePokeball = isSafariNative ? "safari" : defaultPokeball;
 
   let hasPreEvo = false;
   if (evoReq && saveData) {
@@ -434,10 +434,10 @@ export function PokemonDetails({
   const stadiumReward = stadiumRewardsSummary[pokemonId];
 
   const _getGender = (atkDV: number, rate: number) => {
-    if (rate === -1) return 'Genderless';
-    if (rate === 0) return 'Male';
-    if (rate === 8) return 'Female';
-    return atkDV < rate * 2 ? 'Female' : 'Male';
+    if (rate === -1) return "Genderless";
+    if (rate === 0) return "Male";
+    if (rate === 8) return "Female";
+    return atkDV < rate * 2 ? "Female" : "Male";
   };
 
   const _getUnownForm = (dvs: {
@@ -459,10 +459,10 @@ export function PokemonDetails({
     ? [
         ...saveData.partyDetails
           .filter((p) => p.speciesId === pokemonId)
-          .map((p) => ({ ...p, location: 'Party' })),
+          .map((p) => ({ ...p, location: "Party" })),
         ...saveData.pcDetails
           .filter((p) => p.speciesId === pokemonId)
-          .map((p) => ({ ...p, location: 'PC' })),
+          .map((p) => ({ ...p, location: "PC" })),
       ]
     : [];
 
@@ -492,7 +492,7 @@ export function PokemonDetails({
                     src={genConfig.spriteUrl(pokemonId, isShiny)}
                     alt={pokemonName}
                     className="w-24 h-24 sm:w-32 sm:h-32 object-contain pixelated drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] relative z-10"
-                    style={{ imageRendering: 'pixelated' }}
+                    style={{ imageRendering: "pixelated" }}
                     referrerPolicy="no-referrer"
                   />
                   {/* Digital corner accents */}
@@ -512,7 +512,7 @@ export function PokemonDetails({
               <div className="text-center sm:text-left">
                 <div className="flex flex-col animate-in slide-in-from-bottom-4 fade-in duration-500 delay-200 fill-mode-both">
                   <span className="text-xs font-black text-zinc-500 uppercase tracking-[0.4em] mb-2 font-mono">
-                    Index No. {pokemonId.toString().padStart(3, '0')}
+                    Index No. {pokemonId.toString().padStart(3, "0")}
                   </span>
                   <h2 className="text-4xl sm:text-6xl font-display font-black uppercase tracking-tighter text-white leading-none mb-4 drop-shadow-sm">
                     {pokemonName}
@@ -535,10 +535,10 @@ export function PokemonDetails({
                     {saveData && (
                       <div
                         className={cn(
-                          'px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2 backdrop-blur-md border',
+                          "px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2 backdrop-blur-md border",
                           yourPokemon.length > 0
-                            ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
-                            : 'bg-red-500/10 border-red-500/30 text-red-500',
+                            ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
+                            : "bg-red-500/10 border-red-500/30 text-red-500",
                         )}
                       >
                         {yourPokemon.length > 0 ? (

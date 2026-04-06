@@ -1,8 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { AssistantPanel } from '../components/AssistantPanel';
-import { useStore } from '../store';
+import { createFileRoute } from "@tanstack/react-router";
+import { AssistantPanel } from "../components/AssistantPanel";
+import { useStore } from "../store";
 
-export const Route = createFileRoute('/assistant')({
+export const Route = createFileRoute("/assistant")({
   component: AssistantPage,
 });
 

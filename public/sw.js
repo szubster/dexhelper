@@ -2,19 +2,19 @@
 // Strategy: CacheFirst for API data & sprites, NetworkFirst for app shell
 // NOTE: Only active in production builds (registration is guarded by import.meta.env.PROD)
 
-const SHELL_CACHE = 'shell-v2';
-const API_CACHE = 'pokeapi-data-v1';
-const IMG_CACHE = 'pokeapi-sprites-v1';
+const SHELL_CACHE = "shell-v2";
+const API_CACHE = "pokeapi-data-v1";
+const IMG_CACHE = "pokeapi-sprites-v1";
 
 const SHELL_ASSETS = [
-  '/dexhelper/',
-  '/dexhelper/index.html',
-  '/dexhelper/manifest.json',
-  'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&display=swap',
+  "/dexhelper/",
+  "/dexhelper/index.html",
+  "/dexhelper/manifest.json",
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&display=swap",
 ];
 
 // ── Install: pre-cache app shell ─────────────────────────────────────────────
-self.addEventListener('install', (event) => {
+self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(SHELL_CACHE).then((cache) =>
       // Use individual adds so one failure doesn't block the whole install
@@ -25,7 +25,7 @@ self.addEventListener('install', (event) => {
 });
 
 // ── Activate: clean up old caches ────────────────────────────────────────────
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
   const CURRENT = new Set([SHELL_CACHE, API_CACHE, IMG_CACHE]);
   event.waitUntil(
     caches
@@ -50,7 +50,7 @@ async function staleWhileRevalidate(request, cacheName, maxEntries) {
     .then(async (response) => {
       if (response.ok || response.status === 0) {
         const headers = new Headers(response.headers);
-        headers.set('sw-fetched-at', String(Date.now()));
+        headers.set("sw-fetched-at", String(Date.now()));
         const stamped = new Response(await response.clone().arrayBuffer(), {
           status: response.status,
           statusText: response.statusText,
@@ -78,7 +78,7 @@ async function cacheFirst(request, cacheName, maxEntries, maxAgeMs) {
   const cached = await cache.match(request);
 
   if (cached) {
-    const fetched = cached.headers.get('sw-fetched-at');
+    const fetched = cached.headers.get("sw-fetched-at");
     if (fetched && Date.now() - Number(fetched) < maxAgeMs) {
       return cached;
     }
@@ -88,7 +88,7 @@ async function cacheFirst(request, cacheName, maxEntries, maxAgeMs) {
     const response = await fetch(request);
     if (response.ok || response.status === 0) {
       const headers = new Headers(response.headers);
-      headers.set('sw-fetched-at', String(Date.now()));
+      headers.set("sw-fetched-at", String(Date.now()));
       const stamped = new Response(await response.clone().arrayBuffer(), {
         status: response.status,
         statusText: response.statusText,
@@ -121,20 +121,20 @@ async function networkFirst(request) {
     const cached = await cache.match(request);
     // Return cache hit, or re-throw to let the browser show its own offline page
     if (cached) return cached;
-    throw new Error('Offline and no cached response available');
+    throw new Error("Offline and no cached response available");
   }
 }
 
 // ── Fetch ─────────────────────────────────────────────────────────────────────
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
   const { request } = event;
   const { url } = request;
 
   // Only handle GET requests — skip POST, PUT, etc.
-  if (request.method !== 'GET') return;
+  if (request.method !== "GET") return;
 
   // Only handle http(s) — skip chrome-extension://, data:, etc.
-  if (!url.startsWith('http')) return;
+  if (!url.startsWith("http")) return;
 
   // PokeAPI JSON — StaleWhileRevalidate, up to 1000 entries
   if (/^https:\/\/pokeapi\.co\/api\/v2\//i.test(url)) {
@@ -159,13 +159,13 @@ self.addEventListener('fetch', (event) => {
   }
 
   // App shell navigation — NetworkFirst
-  if (request.mode === 'navigate') {
+  if (request.mode === "navigate") {
     event.respondWith(networkFirst(request));
     return;
   }
 
   // Same-origin static assets (JS, CSS, fonts) — NetworkFirst
-  if (url.includes('/dexhelper/') && !url.includes('?')) {
+  if (url.includes("/dexhelper/") && !url.includes("?")) {
     event.respondWith(networkFirst(request));
     return;
   }

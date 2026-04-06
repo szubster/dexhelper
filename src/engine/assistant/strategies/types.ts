@@ -1,14 +1,14 @@
-import type { SaveData } from '../../saveParser/index';
+import type { SaveData } from "../../saveParser/index";
 
 export type SuggestionCategory =
-  | 'Catch'
-  | 'Evolve'
-  | 'Breed'
-  | 'Progress'
-  | 'Event'
-  | 'Utility'
-  | 'Trade'
-  | 'Gift';
+  | "Catch"
+  | "Evolve"
+  | "Breed"
+  | "Progress"
+  | "Event"
+  | "Utility"
+  | "Trade"
+  | "Gift";
 
 export interface EncounterDetail {
   chance: number;
@@ -37,12 +37,12 @@ export interface RejectedSuggestion {
   pokemonId: number;
   reason: string;
   code:
-    | 'VERSION_EXCLUSIVE'
-    | 'GIFT_CLAIMED'
-    | 'EVO_ALREADY_OWNED'
-    | 'HOF_LOCKED'
-    | 'CHOICE_TAKEN'
-    | 'MISSING_DATA';
+    | "VERSION_EXCLUSIVE"
+    | "GIFT_CLAIMED"
+    | "EVO_ALREADY_OWNED"
+    | "HOF_LOCKED"
+    | "CHOICE_TAKEN"
+    | "MISSING_DATA";
 }
 
 export interface AssistantStrategy {

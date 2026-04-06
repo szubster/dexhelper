@@ -1,12 +1,12 @@
-import { describe, expect, it } from 'vitest';
-import { generateSuggestions } from '../engine/assistant/suggestionEngine';
-import type { SaveData } from '../engine/saveParser/index';
+import { describe, expect, it } from "vitest";
+import { generateSuggestions } from "../engine/assistant/suggestionEngine";
+import type { SaveData } from "../engine/saveParser/index";
 
-describe('useAssistant - generateSuggestions logic', () => {
+describe("useAssistant - generateSuggestions logic", () => {
   const mockSaveData: SaveData = {
     generation: 1,
-    gameVersion: 'yellow',
-    trainerName: 'YELLOW',
+    gameVersion: "yellow",
+    trainerName: "YELLOW",
     trainerId: 12345,
     badges: 0,
     owned: new Set([25]), // Only Pikachu
@@ -22,11 +22,11 @@ describe('useAssistant - generateSuggestions logic', () => {
       {
         speciesId: 25,
         level: 5,
-        otName: 'YELLOW',
+        otName: "YELLOW",
         moves: [],
         isShiny: false,
         dvs: { hp: 10, atk: 10, def: 10, spd: 10, spc: 10 },
-        storageLocation: 'Party',
+        storageLocation: "Party",
       },
     ],
     pcDetails: [],
@@ -41,29 +41,29 @@ describe('useAssistant - generateSuggestions logic', () => {
     },
     ancestralEncounters: {
       40: {
-        39: [{ version_details: [{ version: { name: 'yellow' } }] }], // Jigglypuff is catchable in Yellow
+        39: [{ version_details: [{ version: { name: "yellow" } }] }], // Jigglypuff is catchable in Yellow
       },
       62: {
-        60: [{ version_details: [{ version: { name: 'yellow' } }] }], // Poliwag catchable
+        60: [{ version_details: [{ version: { name: "yellow" } }] }], // Poliwag catchable
         61: [], // Poliwhirl not directly catchable in this mock
       },
     },
     missingChains: {
       39: {
         chain: {
-          species: { url: 'https://pokeapi.co/api/v2/pokemon-species/39/' },
+          species: { url: "https://pokeapi.co/api/v2/pokemon-species/39/" },
           evolves_to: [],
         },
       },
       40: {
         chain: {
-          species: { url: 'https://pokeapi.co/api/v2/pokemon-species/39/' },
+          species: { url: "https://pokeapi.co/api/v2/pokemon-species/39/" },
           evolves_to: [],
         },
       },
       62: {
         chain: {
-          species: { url: 'https://pokeapi.co/api/v2/pokemon-species/60/' },
+          species: { url: "https://pokeapi.co/api/v2/pokemon-species/60/" },
           evolves_to: [],
         },
       },
@@ -71,33 +71,33 @@ describe('useAssistant - generateSuggestions logic', () => {
     partyEvolutions: {},
   };
 
-  it('should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)', () => {
+  it("should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)", () => {
     const { suggestions } = generateSuggestions(
       mockSaveData,
       false,
-      'yellow',
+      "yellow",
       mockApiData,
     );
     const wigglyTrade = suggestions.find(
-      (s) => s.pokemonId === 40 && s.category === 'Trade',
+      (s) => s.pokemonId === 40 && s.category === "Trade",
     );
     expect(wigglyTrade).toBeUndefined();
   });
 
-  it('should NOT mark Poliwrath as Trade Required in Pokémon Yellow if Poliwag is catchable', () => {
+  it("should NOT mark Poliwrath as Trade Required in Pokémon Yellow if Poliwag is catchable", () => {
     const { suggestions } = generateSuggestions(
       mockSaveData,
       false,
-      'yellow',
+      "yellow",
       mockApiData,
     );
     const poliTrade = suggestions.find(
-      (s) => s.pokemonId === 62 && s.category === 'Trade',
+      (s) => s.pokemonId === 62 && s.category === "Trade",
     );
     expect(poliTrade).toBeUndefined();
   });
 
-  it('should mark Version Exclusives as Trade Required', () => {
+  it("should mark Version Exclusives as Trade Required", () => {
     const exclusiveApiData = {
       ...mockApiData,
       missingEncounters: {
@@ -109,7 +109,7 @@ describe('useAssistant - generateSuggestions logic', () => {
       missingChains: {
         13: {
           chain: {
-            species: { url: 'https://pokeapi.co/api/v2/pokemon-species/13/' },
+            species: { url: "https://pokeapi.co/api/v2/pokemon-species/13/" },
             evolves_to: [],
           },
         },
@@ -119,14 +119,14 @@ describe('useAssistant - generateSuggestions logic', () => {
     const { suggestions } = generateSuggestions(
       mockSaveData,
       false,
-      'yellow',
+      "yellow",
       exclusiveApiData,
     );
     const weedleTrade = suggestions.find(
-      (s) => s.pokemonId === 13 && s.category === 'Trade',
+      (s) => s.pokemonId === 13 && s.category === "Trade",
     );
     expect(weedleTrade).toBeDefined();
-    expect(weedleTrade?.title).toContain('Version Exclusive');
+    expect(weedleTrade?.title).toContain("Version Exclusive");
   });
 
   it('should NOT duplicate "Catch Right Here" when found in both local and nearby logic', () => {
@@ -135,16 +135,16 @@ describe('useAssistant - generateSuggestions logic', () => {
       localEncounters: [
         {
           pokemon: {
-            name: 'pidgey',
-            url: 'https://pokeapi.co/api/v2/pokemon/16/',
+            name: "pidgey",
+            url: "https://pokeapi.co/api/v2/pokemon/16/",
           },
           version_details: [
             {
-              version: { name: 'yellow' },
+              version: { name: "yellow" },
               encounter_details: [
                 {
                   chance: 50,
-                  method: { name: 'walk' },
+                  method: { name: "walk" },
                   min_level: 2,
                   max_level: 4,
                 },
@@ -156,14 +156,14 @@ describe('useAssistant - generateSuggestions logic', () => {
       missingEncounters: {
         16: [
           {
-            location_area: { name: 'pallet-town-area' },
+            location_area: { name: "pallet-town-area" },
             version_details: [
               {
-                version: { name: 'yellow' },
+                version: { name: "yellow" },
                 encounter_details: [
                   {
                     chance: 50,
-                    method: { name: 'walk' },
+                    method: { name: "walk" },
                     min_level: 2,
                     max_level: 4,
                   },
@@ -184,14 +184,14 @@ describe('useAssistant - generateSuggestions logic', () => {
     const { suggestions } = generateSuggestions(
       testSaveData,
       false,
-      'yellow',
+      "yellow",
       duplicateApiData,
     );
 
     const catchRightHereTips = suggestions.filter(
-      (s) => s.title === 'Catch Right Here',
+      (s) => s.title === "Catch Right Here",
     );
     expect(catchRightHereTips.length).toBe(1);
-    expect(catchRightHereTips[0]!.id).toBe('catch-local');
+    expect(catchRightHereTips[0]!.id).toBe("catch-local");
   });
 });

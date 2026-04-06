@@ -13,7 +13,7 @@ export function getUnobtainableReason(
   ownedSet: Set<number>,
 ): string | null {
   // Yellow specific - Raichu
-  if (gameVersion === 'yellow' && pokemonId === 26 && !ownedSet.has(26)) {
+  if (gameVersion === "yellow" && pokemonId === 26 && !ownedSet.has(26)) {
     return `Starter Pikachu refuses Thunder Stone. Must be traded.`;
   }
 

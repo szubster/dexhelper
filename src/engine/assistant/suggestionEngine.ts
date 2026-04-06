@@ -1,18 +1,18 @@
-import { getGenerationConfig } from '../../utils/generationConfig';
-import { pokeapi } from '../../utils/pokeapi';
+import { getGenerationConfig } from "../../utils/generationConfig";
+import { pokeapi } from "../../utils/pokeapi";
 import {
   GEN1_MAP_TO_SLUG,
   OBEDIENCE_CAPS,
   STATIC_GIFT_DATA,
-} from '../data/gen1/assistantData';
-import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
-import { getDistanceToMap } from '../mapGraph/gen1Graph';
-import type { PokemonInstance, SaveData } from '../saveParser/index';
+} from "../data/gen1/assistantData";
+import { getUnobtainableReason } from "../exclusives/gen1Exclusives";
+import { getDistanceToMap } from "../mapGraph/gen1Graph";
+import type { PokemonInstance, SaveData } from "../saveParser/index";
 import type {
   EncounterDetail,
   RejectedSuggestion,
   Suggestion,
-} from './strategies/types';
+} from "./strategies/types";
 
 /**
  * Helper function to find all ancestors of a target Pokemon ID in an evolution chain.
@@ -22,7 +22,7 @@ function getAncestors(
   target: number,
   path: number[] = [],
 ): number[] | null {
-  const id = parseInt(node.species.url.split('/').slice(-2, -1)[0], 10);
+  const id = parseInt(node.species.url.split("/").slice(-2, -1)[0], 10);
   if (id === target) {
     return path;
   }
@@ -41,12 +41,12 @@ export async function fetchAssistantApiData(
   saveData: SaveData,
   queryTargets: number[],
 ) {
-  let localSlug = '';
+  let localSlug = "";
   if (saveData.generation === 1) {
-    localSlug = GEN1_MAP_TO_SLUG[saveData.currentMapId] || '';
+    localSlug = GEN1_MAP_TO_SLUG[saveData.currentMapId] || "";
   } else {
     // For Gen 2+, use a default slug (map graph is Gen 1-only for now)
-    localSlug = 'new-bark-town-area';
+    localSlug = "new-bark-town-area";
   }
 
   let localEncounters: any[] = [];
@@ -57,7 +57,7 @@ export async function fetchAssistantApiData(
       );
       localEncounters = areaData.pokemon_encounters || [];
     } catch (e) {
-      console.error('Local area fetch failed', e);
+      console.error("Local area fetch failed", e);
     }
   }
 
@@ -104,7 +104,7 @@ export async function fetchAssistantApiData(
       const chain = await pokeapi.resource(chainUrl);
       partyEvolutions[pid] = chain;
     } catch (e) {
-      console.error('Evo fetch failed', pid, e);
+      console.error("Evo fetch failed", pid, e);
     }
   });
 
@@ -160,8 +160,8 @@ export function generateSuggestions(
       ) {
         rejected.push({
           pokemonId: i,
-          reason: 'Hall of Fame count is 0. Mewtwo is locked.',
-          code: 'HOF_LOCKED',
+          reason: "Hall of Fame count is 0. Mewtwo is locked.",
+          code: "HOF_LOCKED",
         });
         continue;
       }
@@ -171,7 +171,7 @@ export function generateSuggestions(
 
   const effectiveVersion = manualVersion || saveData.gameVersion;
   const displayVersion =
-    effectiveVersion === 'unknown'
+    effectiveVersion === "unknown"
       ? genConfig.defaultVersion
       : effectiveVersion;
   const queryTargets = missingIds.slice(0, 30);
@@ -182,7 +182,7 @@ export function generateSuggestions(
     const localEncounterInfo: Record<number, EncounterDetail[]> = {};
 
     for (const encounter of apiData.localEncounters) {
-      const urlParts = encounter.pokemon.url.split('/');
+      const urlParts = encounter.pokemon.url.split("/");
       const pid = parseInt(urlParts[urlParts.length - 2], 10);
 
       const isFiniteEncounter = !!STATIC_GIFT_DATA[pid];
@@ -190,8 +190,8 @@ export function generateSuggestions(
         rejected.push({
           pokemonId: pid,
           reason:
-            'You already own this one-time gift (matched by Trainer Name).',
-          code: 'GIFT_CLAIMED',
+            "You already own this one-time gift (matched by Trainer Name).",
+          code: "GIFT_CLAIMED",
         });
         continue;
       }
@@ -206,7 +206,7 @@ export function generateSuggestions(
           rejected.push({
             pokemonId: pid,
             reason: `Event flag ${gift.eventFlag} is set. Gift already claimed.`,
-            code: 'GIFT_CLAIMED',
+            code: "GIFT_CLAIMED",
           });
           continue;
         }
@@ -229,9 +229,9 @@ export function generateSuggestions(
     }
     if (localPids.length > 0) {
       suggestions.push({
-        id: 'catch-local',
-        category: 'Catch',
-        title: 'Catch Right Here',
+        id: "catch-local",
+        category: "Catch",
+        title: "Catch Right Here",
         description: `You are exactly where you need to be! There are ${localPids.length} missing Pokémon right here.`,
         pokemonIds: localPids,
         priority: 120,
@@ -264,7 +264,7 @@ export function generateSuggestions(
       const encounters = apiData.missingEncounters[pid] || [];
       const logicReason = getUnobtainableReason(
         pid,
-        displayVersion || 'red',
+        displayVersion || "red",
         ownedCount,
         ownedSet,
       );
@@ -272,18 +272,18 @@ export function generateSuggestions(
         rejected.push({
           pokemonId: pid,
           reason: logicReason,
-          code: 'CHOICE_TAKEN',
+          code: "CHOICE_TAKEN",
         });
         suggestions.push({
           id: `trade-${pid}`,
-          category: 'Trade',
+          category: "Trade",
           title: `Trade Required: #${pid}`,
           description: logicReason,
           pokemonId: pid,
           priority: 60 - unobtainableCount,
           debugInfo: {
             priorityScore: 60 - unobtainableCount,
-            reasoning: 'Explicit unobtainable logic rule',
+            reasoning: "Explicit unobtainable logic rule",
           },
         });
         unobtainableCount++;
@@ -314,7 +314,7 @@ export function generateSuggestions(
         if (!isCatchableSomewhere) {
           const chain = apiData.missingChains?.[pid];
           const baseId = chain
-            ? parseInt(chain.chain.species.url.split('/').slice(-2, -1)[0], 10)
+            ? parseInt(chain.chain.species.url.split("/").slice(-2, -1)[0], 10)
             : pid;
           const isInternalObtainable = [
             1,
@@ -343,7 +343,7 @@ export function generateSuggestions(
           ].includes(baseId);
 
           if (isInternalObtainable) {
-            const isYellow = displayVersion === 'yellow';
+            const isYellow = displayVersion === "yellow";
             const isRedBlueStarter = [1, 4, 7].includes(baseId);
             if (isYellow && isRedBlueStarter) isCatchableSomewhere = true;
             else if (isInternalObtainable) isCatchableSomewhere = true;
@@ -355,18 +355,18 @@ export function generateSuggestions(
         rejected.push({
           pokemonId: pid,
           reason: `Not catchable in ${displayVersion} version.`,
-          code: 'VERSION_EXCLUSIVE',
+          code: "VERSION_EXCLUSIVE",
         });
         suggestions.push({
           id: `trade-${pid}`,
-          category: 'Trade',
+          category: "Trade",
           title: `Version Exclusive: #${pid}`,
           description: `This Pokémon is not available in ${displayVersion}. You must trade for it.`,
           pokemonId: pid,
           priority: 50 - unobtainableCount,
           debugInfo: {
             priorityScore: 50 - unobtainableCount,
-            reasoning: 'Version exclusivity check',
+            reasoning: "Version exclusivity check",
           },
         });
         unobtainableCount++;
@@ -475,11 +475,11 @@ export function generateSuggestions(
       }
       suggestions.push({
         id: `catch-loc-${loc.name}`,
-        category: 'Catch',
+        category: "Catch",
         title: `Travel to ${loc.name}`,
         description: partyHasFly
           ? `Use Fly to easily travel to ${loc.name} and catch ${pids.length} missing Pokémon!`
-          : `Catch ${pids.length} missing Pokémon at ${loc.name}, only ${loc.distance === 1 ? '1 connection away' : `${loc.distance} connections away`}.`,
+          : `Catch ${pids.length} missing Pokémon at ${loc.name}, only ${loc.distance === 1 ? "1 connection away" : `${loc.distance} connections away`}.`,
         pokemonIds: pids,
         priority: 80 + loc.yield - (partyHasFly ? 0 : loc.distance),
         encounterInfo: locEncounterInfo,
@@ -491,9 +491,9 @@ export function generateSuggestions(
   for (const [pidStr, gift] of Object.entries(STATIC_GIFT_DATA)) {
     const pid = parseInt(pidStr, 10);
     if (gift.gen && gift.gen !== saveData.generation) continue;
-    if (gift.name.includes('Yellow only') && displayVersion !== 'yellow')
+    if (gift.name.includes("Yellow only") && displayVersion !== "yellow")
       continue;
-    if (gift.reason.includes('Crystal') && displayVersion !== 'crystal')
+    if (gift.reason.includes("Crystal") && displayVersion !== "crystal")
       continue;
 
     const familyIds =
@@ -526,7 +526,7 @@ export function generateSuggestions(
     ) {
       suggestions.push({
         id: `gift-${pid}`,
-        category: 'Gift',
+        category: "Gift",
         title: `Secure Gift: ${gift.name}`,
         description: `Location: ${gift.location}. ${gift.reason}`,
         pokemonId: pid,
@@ -539,18 +539,18 @@ export function generateSuggestions(
   if (saveData.generation === 1) {
     if (saveData.currentBoxCount >= 20) {
       suggestions.push({
-        id: 'utility-box-full',
-        category: 'Utility',
-        title: 'CRITICAL: PC Box Full!',
+        id: "utility-box-full",
+        category: "Utility",
+        title: "CRITICAL: PC Box Full!",
         description:
           "Your current PC box is at 20/20. Switch boxes via Bill's PC.",
         priority: 150,
       });
     } else if (saveData.currentBoxCount >= 18) {
       suggestions.push({
-        id: 'utility-box-near-full',
-        category: 'Utility',
-        title: 'PC Box Almost Full',
+        id: "utility-box-near-full",
+        category: "Utility",
+        title: "PC Box Almost Full",
         description: `${20 - saveData.currentBoxCount} slots remaining.`,
         priority: 95,
       });
@@ -570,9 +570,9 @@ export function generateSuggestions(
   );
   if (disobedient.length > 0) {
     suggestions.push({
-      id: 'utility-obedience-danger',
-      category: 'Utility',
-      title: 'Obedience Danger!',
+      id: "utility-obedience-danger",
+      category: "Utility",
+      title: "Obedience Danger!",
       description: `You have traded Pokémon above Lv. ${currentCap}. They may not obey you!`,
       priority: 110,
     });
@@ -584,7 +584,7 @@ export function generateSuggestions(
     if (!chain) return;
 
     const findInChain = (node: any): any => {
-      const id = parseInt(node.species.url.split('/').slice(-2, -1)[0], 10);
+      const id = parseInt(node.species.url.split("/").slice(-2, -1)[0], 10);
       if (id === p.speciesId) return node;
       for (const child of node.evolves_to) {
         const res = findInChain(child);
@@ -599,12 +599,12 @@ export function generateSuggestions(
         const details = evoNode.evolution_details[0];
         if (!details) return;
 
-        if (details.trigger.name === 'level-up' && details.min_level) {
+        if (details.trigger.name === "level-up" && details.min_level) {
           if (p.level >= details.min_level - 3) {
             const isReady = p.level >= details.min_level;
             suggestions.push({
               id: `evo-lvl-${p.speciesId}-${idx}`,
-              category: 'Evolve',
+              category: "Evolve",
               title: `Level Up Evolution`,
               description: isReady
                 ? `Lv. ${p.level} is ready to evolve (needs Lv. ${details.min_level})!`
@@ -613,10 +613,10 @@ export function generateSuggestions(
               priority: isReady ? 90 : 75,
             });
           }
-        } else if (details.trigger.name === 'use-item') {
+        } else if (details.trigger.name === "use-item") {
           const itemName = details.item.name;
           const isYellowStarterPikachu =
-            displayVersion === 'yellow' &&
+            displayVersion === "yellow" &&
             p.speciesId === 25 &&
             p.otName === saveData.trainerName;
           if (isYellowStarterPikachu) return;
@@ -624,30 +624,30 @@ export function generateSuggestions(
           const hasStone = saveData.inventory.some(
             (i: any) =>
               i.id ===
-              (itemName.includes('fire')
+              (itemName.includes("fire")
                 ? 32
-                : itemName.includes('thunder')
+                : itemName.includes("thunder")
                   ? 33
-                  : itemName.includes('water')
+                  : itemName.includes("water")
                     ? 34
-                    : itemName.includes('leaf')
+                    : itemName.includes("leaf")
                       ? 46
                       : 10),
           );
           if (hasStone)
             suggestions.push({
               id: `evo-stn-${p.speciesId}-${idx}`,
-              category: 'Evolve',
+              category: "Evolve",
               title: `Ready to Evolve!`,
-              description: `Use ${itemName.replace('-', ' ')} on your Pokémon!`,
+              description: `Use ${itemName.replace("-", " ")} on your Pokémon!`,
               pokemonId: p.speciesId,
               priority: 95,
             });
-          else if (!itemName.includes('moon'))
+          else if (!itemName.includes("moon"))
             suggestions.push({
               id: `evo-buy-${p.speciesId}-${idx}`,
-              category: 'Evolve',
-              title: `Buy ${itemName.replace('-', ' ')}`,
+              category: "Evolve",
+              title: `Buy ${itemName.replace("-", " ")}`,
               description: `Visit Celadon Dept. Store to evolve your Pokémon.`,
               pokemonId: p.speciesId,
               priority: 40,

@@ -1,8 +1,8 @@
-import { useNavigate } from '@tanstack/react-router';
-import { Sparkles } from 'lucide-react';
-import React from 'react';
-import { useStore } from '../store';
-import { getGenerationConfig } from '../utils/generationConfig';
+import { useNavigate } from "@tanstack/react-router";
+import { Sparkles } from "lucide-react";
+import React from "react";
+import { useStore } from "../store";
+import { getGenerationConfig } from "../utils/generationConfig";
 
 export function StorageGrid({
   pokemonList,
@@ -24,8 +24,8 @@ export function StorageGrid({
 
   const genConfig = getGenerationConfig(saveData.generation);
   const storageLocations = [
-    'Party',
-    'Daycare',
+    "Party",
+    "Daycare",
     ...Array.from({ length: genConfig.boxCount }, (_, i) => `Box ${i + 1}`),
   ];
 
@@ -68,16 +68,16 @@ export function StorageGrid({
                   if (!pokemon) return null;
 
                   let cardStyle =
-                    'bg-zinc-900 border border-zinc-800 hover:border-zinc-700 shadow-sm';
+                    "bg-zinc-900 border border-zinc-800 hover:border-zinc-700 shadow-sm";
                   if (p.isShiny) {
                     cardStyle =
-                      'bg-amber-900/10 border border-amber-500/30 hover:bg-amber-900/20';
-                  } else if (location === 'Party') {
+                      "bg-amber-900/10 border border-amber-500/30 hover:bg-amber-900/20";
+                  } else if (location === "Party") {
                     cardStyle =
-                      'bg-red-900/10 border border-red-900/30 hover:bg-red-900/20';
+                      "bg-red-900/10 border border-red-900/30 hover:bg-red-900/20";
                   } else {
                     cardStyle =
-                      'bg-emerald-900/10 border border-emerald-900/30 hover:bg-emerald-900/20';
+                      "bg-emerald-900/10 border border-emerald-900/30 hover:bg-emerald-900/20";
                   }
 
                   return (
@@ -86,7 +86,7 @@ export function StorageGrid({
                       onClick={() =>
                         navigate({
                           to: `/pokemon/${pokemon.id}`,
-                          search: { from: '/storage' },
+                          search: { from: "/storage" },
                         })
                       }
                       className={`relative flex flex-col items-center p-5 rounded-2xl transition-all duration-200 cursor-pointer hover:-translate-y-1 active:scale-95 ${cardStyle}`}
@@ -112,7 +112,7 @@ export function StorageGrid({
                           src={genConfig.spriteUrl(pokemon.id, p.isShiny)}
                           alt={pokemon.name}
                           className="w-full h-full object-contain drop-shadow-xl pixelated"
-                          style={{ imageRendering: 'pixelated' }}
+                          style={{ imageRendering: "pixelated" }}
                         />
                       </div>
                       <div className="text-center font-bold uppercase tracking-wider text-[10px] text-zinc-100 truncate w-full px-1">

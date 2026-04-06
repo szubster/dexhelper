@@ -3,4 +3,4 @@ export {
   stadiumRewardsData,
   stadiumRewardsSummary,
   staticEncounters,
-} from '../engine/data/shared/staticData';
+} from "../engine/data/shared/staticData";

@@ -5,10 +5,10 @@ import {
   ChevronRight,
   Heart,
   X,
-} from 'lucide-react';
-import React from 'react';
-import { cn } from '../../../utils/cn';
-import { stadiumRewardsData } from '../../../utils/data';
+} from "lucide-react";
+import React from "react";
+import { cn } from "../../../utils/cn";
+import { stadiumRewardsData } from "../../../utils/data";
 
 interface PokemonEvolutionsProps {
   evoReq: any;
@@ -47,7 +47,7 @@ export function PokemonEvolutions({
             Species missing from Living Dex. Priority retrieval recommended via
             {evoReq ? (
               <>
-                {' '}
+                {" "}
                 <button
                   onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
                   className="text-red-400 hover:text-white underline decoration-red-500/30 underline-offset-4 transition-colors"
@@ -66,7 +66,7 @@ export function PokemonEvolutions({
               if (!rewardObj) return null;
               const gen =
                 saveData?.generation ||
-                (['gold', 'silver', 'crystal'].includes(gameVersion) ? 2 : 1);
+                (["gold", "silver", "crystal"].includes(gameVersion) ? 2 : 1);
               const rewards = (
                 gen === 2 ? rewardObj.stadium2 : rewardObj.stadium1
               ) as string[] | undefined;
@@ -97,7 +97,7 @@ export function PokemonEvolutions({
             <ArrowUpCircle size={14} /> Evolution
           </h3>
           <div className="text-xs font-bold text-zinc-300 leading-relaxed relative z-10">
-            FROM{' '}
+            FROM{" "}
             <button
               onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
               className="text-white hover:text-purple-400 underline decoration-purple-500/30 underline-offset-4 transition-colors"
@@ -110,14 +110,14 @@ export function PokemonEvolutions({
           </div>
           <div
             className={cn(
-              'inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest relative z-10',
+              "inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest relative z-10",
               hasPreEvo
-                ? 'bg-emerald-500/10 text-emerald-500'
-                : 'bg-red-500/10 text-red-500',
+                ? "bg-emerald-500/10 text-emerald-500"
+                : "bg-red-500/10 text-red-500",
             )}
           >
-            {hasPreEvo ? <Check size={12} /> : <X size={12} />}{' '}
-            {hasPreEvo ? 'OWNED' : 'UNAVAILABLE'}
+            {hasPreEvo ? <Check size={12} /> : <X size={12} />}{" "}
+            {hasPreEvo ? "OWNED" : "UNAVAILABLE"}
           </div>
         </div>
       )}
@@ -136,7 +136,7 @@ export function PokemonEvolutions({
                 key={evo.id}
                 className="text-xs font-bold text-zinc-300 leading-relaxed"
               >
-                TO{' '}
+                TO{" "}
                 <button
                   onClick={() => onNavigate(evo.id, evo.name)}
                   className="text-white hover:text-blue-400 underline decoration-blue-500/30 underline-offset-4 transition-colors"
@@ -161,7 +161,7 @@ export function PokemonEvolutions({
             <Heart size={14} /> Breeding Protocol
           </h3>
           <div className="text-xs font-bold text-zinc-300 leading-relaxed relative z-10">
-            CROSS-REF:{' '}
+            CROSS-REF:{" "}
             {breedingInfo.parentNames.map((name: string, i: number) => (
               <React.Fragment key={name}>
                 <button
@@ -170,7 +170,7 @@ export function PokemonEvolutions({
                 >
                   {name.toUpperCase()}
                 </button>
-                {i < breedingInfo.parentNames.length - 1 ? ', ' : ''}
+                {i < breedingInfo.parentNames.length - 1 ? ", " : ""}
               </React.Fragment>
             ))}
           </div>

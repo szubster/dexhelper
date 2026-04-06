@@ -1,12 +1,12 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
 import {
   fetchAssistantApiData,
   generateSuggestions,
-} from '../engine/assistant/suggestionEngine';
-import type { SaveData } from '../engine/saveParser/index';
-import { getGenerationConfig } from '../utils/generationConfig';
+} from "../engine/assistant/suggestionEngine";
+import type { SaveData } from "../engine/saveParser/index";
+import { getGenerationConfig } from "../utils/generationConfig";
 
-export * from '../engine/assistant/strategies/types';
+export * from "../engine/assistant/strategies/types";
 
 export function useAssistant(
   saveData: SaveData | null,
@@ -38,11 +38,11 @@ export function useAssistant(
 
   const { data: apiData, isLoading: isLoadingEncounters } = useQuery({
     queryKey: [
-      'assistantData',
+      "assistantData",
       saveData?.generation,
       saveData?.currentMapId,
-      queryTargetsSlice.join(','),
-      saveData?.party?.join(','),
+      queryTargetsSlice.join(","),
+      saveData?.party?.join(","),
     ],
     queryFn: () => fetchAssistantApiData(saveData!, queryTargetsSlice),
     enabled: !!saveData,

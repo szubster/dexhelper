@@ -1,5 +1,5 @@
-import { AlertCircle, Bug } from 'lucide-react';
-import type { RejectedSuggestion } from '../../hooks/useAssistant';
+import { AlertCircle, Bug } from "lucide-react";
+import type { RejectedSuggestion } from "../../hooks/useAssistant";
 
 interface AssistantDebugViewProps {
   rejected: RejectedSuggestion[];
@@ -45,7 +45,7 @@ export function AssistantDebugView({
             <div className="space-y-1 overflow-hidden">
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-mono font-bold text-zinc-500">
-                  #{r.pokemonId.toString().padStart(3, '0')}
+                  #{r.pokemonId.toString().padStart(3, "0")}
                 </span>
                 <span className="text-xs font-black text-zinc-300 uppercase tracking-tight truncate">
                   {getPokemonName(r.pokemonId)}

@@ -1,7 +1,7 @@
-import { AlertTriangle } from 'lucide-react';
-import type { GameVersion } from '../store';
-import { useStore } from '../store';
-import { getGenerationConfig } from '../utils/generationConfig';
+import { AlertTriangle } from "lucide-react";
+import type { GameVersion } from "../store";
+import { useStore } from "../store";
+import { getGenerationConfig } from "../utils/generationConfig";
 
 export function VersionModal() {
   const isVersionModalOpen = useStore((s) => s.isVersionModalOpen);

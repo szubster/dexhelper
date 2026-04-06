@@ -1,7 +1,7 @@
-import { Target } from 'lucide-react';
-import { useState } from 'react';
-import type { PokeballType } from '../../../store';
-import { cn } from '../../../utils/cn';
+import { Target } from "lucide-react";
+import { useState } from "react";
+import type { PokeballType } from "../../../store";
+import { cn } from "../../../utils/cn";
 
 interface PokemonCatchProbabilityProps {
   catchRate: number;
@@ -14,8 +14,8 @@ export function PokemonCatchProbability({
 }: PokemonCatchProbabilityProps) {
   const [hpPercent, setHpPercent] = useState<number>(100);
   const [status, setStatus] = useState<
-    'none' | 'sleep_freeze' | 'paralyze_burn_poison'
-  >('none');
+    "none" | "sleep_freeze" | "paralyze_burn_poison"
+  >("none");
 
   return (
     <div className="glass-card bg-emerald-500/5 border-emerald-500/10 rounded-[2.5rem] p-8 space-y-8 relative overflow-hidden">
@@ -49,18 +49,18 @@ export function PokemonCatchProbability({
 
         <div className="grid grid-cols-3 gap-2">
           {[
-            { id: 'none', label: 'Healthy' },
-            { id: 'paralyze_burn_poison', label: 'Debuff' },
-            { id: 'sleep_freeze', label: 'Incapacitated' },
+            { id: "none", label: "Healthy" },
+            { id: "paralyze_burn_poison", label: "Debuff" },
+            { id: "sleep_freeze", label: "Incapacitated" },
           ].map((item) => (
             <button
               key={item.id}
               onClick={() => setStatus(item.id as any)}
               className={cn(
-                'py-3 text-[9px] font-black uppercase tracking-widest rounded-2xl border transition-all active:scale-95',
+                "py-3 text-[9px] font-black uppercase tracking-widest rounded-2xl border transition-all active:scale-95",
                 status === item.id
-                  ? 'bg-emerald-500 border-emerald-400 text-white shadow-[0_5px_15px_rgba(16,185,129,0.3)]'
-                  : 'bg-black/20 border-white/5 text-emerald-500/50 hover:border-emerald-500/20',
+                  ? "bg-emerald-500 border-emerald-400 text-white shadow-[0_5px_15px_rgba(16,185,129,0.3)]"
+                  : "bg-black/20 border-white/5 text-emerald-500/50 hover:border-emerald-500/20",
               )}
             >
               {item.label}
@@ -78,15 +78,15 @@ export function PokemonCatchProbability({
             <span className="text-5xl font-display font-black text-emerald-400 tracking-tighter">
               {(() => {
                 let ballMult = 1;
-                if (effectivePokeball === 'great') ballMult = 1.5;
+                if (effectivePokeball === "great") ballMult = 1.5;
                 if (
-                  effectivePokeball === 'ultra' ||
-                  effectivePokeball === 'safari'
+                  effectivePokeball === "ultra" ||
+                  effectivePokeball === "safari"
                 )
                   ballMult = 2;
                 let statusBonus = 0;
-                if (status === 'sleep_freeze') statusBonus = 10;
-                if (status === 'paralyze_burn_poison') statusBonus = 5;
+                if (status === "sleep_freeze") statusBonus = 10;
+                if (status === "paralyze_burn_poison") statusBonus = 5;
                 const hpFactor = 1 + ((100 - hpPercent) / 100) * 2;
                 const baseChance = (catchRate * ballMult * hpFactor) / 255;
                 return Math.min(100, baseChance * 100 + statusBonus).toFixed(1);
@@ -97,14 +97,14 @@ export function PokemonCatchProbability({
             <div className="w-10 h-10 rounded-full bg-black/40 border border-white/10 flex items-center justify-center mb-2">
               <div
                 className={cn(
-                  'w-6 h-6 rounded-full border-2',
-                  effectivePokeball === 'safari'
-                    ? 'bg-emerald-500/20 border-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]'
-                    : effectivePokeball === 'ultra'
-                      ? 'bg-yellow-500/20 border-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]'
-                      : effectivePokeball === 'great'
-                        ? 'bg-blue-500/20 border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]'
-                        : 'bg-red-500/20 border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]',
+                  "w-6 h-6 rounded-full border-2",
+                  effectivePokeball === "safari"
+                    ? "bg-emerald-500/20 border-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+                    : effectivePokeball === "ultra"
+                      ? "bg-yellow-500/20 border-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]"
+                      : effectivePokeball === "great"
+                        ? "bg-blue-500/20 border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+                        : "bg-red-500/20 border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]",
                 )}
               />
             </div>

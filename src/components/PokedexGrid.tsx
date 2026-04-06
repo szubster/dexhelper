@@ -1,9 +1,9 @@
-import { useNavigate } from '@tanstack/react-router';
-import { ChevronRight, CircleDot, Monitor, Sparkles } from 'lucide-react';
-import React, { useMemo } from 'react';
-import { useStore } from '../store';
-import { cn } from '../utils/cn';
-import { getGenerationConfig } from '../utils/generationConfig';
+import { useNavigate } from "@tanstack/react-router";
+import { ChevronRight, CircleDot, Monitor, Sparkles } from "lucide-react";
+import React, { useMemo } from "react";
+import { useStore } from "../store";
+import { cn } from "../utils/cn";
+import { getGenerationConfig } from "../utils/generationConfig";
 
 export function PokedexGrid({
   pokemonList,
@@ -55,10 +55,10 @@ export function PokedexGrid({
       const inPC = pcSet.has(pokemon.id);
       const hasInStorage = inParty || inPC;
 
-      if (filtersSet.has('secured') && hasInStorage) return true;
-      if (filtersSet.has('missing') && !hasInStorage) return true;
+      if (filtersSet.has("secured") && hasInStorage) return true;
+      if (filtersSet.has("missing") && !hasInStorage) return true;
       if (
-        filtersSet.has('dex-only') &&
+        filtersSet.has("dex-only") &&
         saveData.owned.has(pokemon.id) &&
         !hasInStorage
       )
@@ -117,18 +117,18 @@ export function PokedexGrid({
           <div
             key={pokemon.id}
             onClick={() =>
-              navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })
+              navigate({ to: `/pokemon/${pokemon.id}`, search: { from: "/" } })
             }
             className={cn(
-              'group relative flex flex-col p-4 rounded-[2rem] transition-all duration-300 cursor-pointer overflow-hidden glass-card hover:-translate-y-1.5 active:scale-95 animate-in slide-in-from-bottom-4 zoom-in-95 fill-mode-both',
+              "group relative flex flex-col p-4 rounded-[2rem] transition-all duration-300 cursor-pointer overflow-hidden glass-card hover:-translate-y-1.5 active:scale-95 animate-in slide-in-from-bottom-4 zoom-in-95 fill-mode-both",
               hadButLost
-                ? 'border-purple-500/30'
+                ? "border-purple-500/30"
                 : isOwned
                   ? isShiny
-                    ? 'border-amber-500/30'
-                    : 'border-[var(--theme-primary)]/30'
-                  : 'border-white/5',
-              isUnseen && 'opacity-40 grayscale',
+                    ? "border-amber-500/30"
+                    : "border-[var(--theme-primary)]/30"
+                  : "border-white/5",
+              isUnseen && "opacity-40 grayscale",
             )}
             style={{ animationDelay: `${(idx % 20) * 0.02}s` }}
           >
@@ -139,7 +139,7 @@ export function PokedexGrid({
                   ID
                 </span>
                 <span className="text-[10px] font-mono font-black text-zinc-300">
-                  {pokemon.id.toString().padStart(3, '0')}
+                  {pokemon.id.toString().padStart(3, "0")}
                 </span>
               </div>
 
@@ -168,8 +168,8 @@ export function PokedexGrid({
                 className="absolute inset-0 opacity-[0.05] pointer-events-none"
                 style={{
                   backgroundImage:
-                    'radial-gradient(circle, white 1px, transparent 1px)',
-                  backgroundSize: '4px 4px',
+                    "radial-gradient(circle, white 1px, transparent 1px)",
+                  backgroundSize: "4px 4px",
                 }}
               />
 
@@ -191,12 +191,12 @@ export function PokedexGrid({
                 }
                 alt={pokemon.name}
                 className={cn(
-                  'w-[85%] h-[85%] object-contain transition-all duration-500 pixelated z-10',
+                  "w-[85%] h-[85%] object-contain transition-all duration-500 pixelated z-10",
                   isUnseen
-                    ? 'brightness-0 opacity-10'
+                    ? "brightness-0 opacity-10"
                     : isSeenNotOwned
-                      ? 'grayscale opacity-50'
-                      : 'drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:scale-110',
+                      ? "grayscale opacity-50"
+                      : "drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:scale-110",
                 )}
                 loading="lazy"
                 onError={(e) => {
@@ -215,12 +215,12 @@ export function PokedexGrid({
             <div className="space-y-2">
               <h3
                 className={cn(
-                  'text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-center truncate',
+                  "text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-center truncate",
                   isUnseen
-                    ? 'text-zinc-700'
+                    ? "text-zinc-700"
                     : isShiny
-                      ? 'text-amber-400'
-                      : 'text-white',
+                      ? "text-amber-400"
+                      : "text-white",
                 )}
               >
                 {pokemon.name}
@@ -231,22 +231,22 @@ export function PokedexGrid({
                   {hasInStorage ? (
                     <div
                       className={cn(
-                        'flex items-center gap-1.5 px-2.5 py-1 rounded-lg border',
+                        "flex items-center gap-1.5 px-2.5 py-1 rounded-lg border",
                         isShiny
-                          ? 'bg-amber-500/10 border-amber-500/20'
-                          : 'bg-emerald-500/10 border-emerald-500/20',
+                          ? "bg-amber-500/10 border-amber-500/20"
+                          : "bg-emerald-500/10 border-emerald-500/20",
                       )}
                     >
                       <div
                         className={cn(
-                          'w-1 h-1 rounded-full',
-                          isShiny ? 'bg-amber-400' : 'bg-emerald-500',
+                          "w-1 h-1 rounded-full",
+                          isShiny ? "bg-amber-400" : "bg-emerald-500",
                         )}
                       />
                       <span
                         className={cn(
-                          'text-[8px] font-black uppercase tracking-tighter',
-                          isShiny ? 'text-amber-400' : 'text-emerald-400',
+                          "text-[8px] font-black uppercase tracking-tighter",
+                          isShiny ? "text-amber-400" : "text-emerald-400",
                         )}
                       >
                         Secured

@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router';
+import { Link } from "@tanstack/react-router";
 import {
   AlertTriangle,
   LayoutGrid,
@@ -7,15 +7,15 @@ import {
   Sparkles,
   Upload,
   Zap,
-} from 'lucide-react';
-import type React from 'react';
-import { parseSaveFile } from '../engine/saveParser/index';
-import { useStore } from '../store';
-import { cn } from '../utils/cn';
-import { getGenerationConfig, VERSION_THEMES } from '../utils/generationConfig';
-import { BottomNav } from './BottomNav';
-import { SettingsModal } from './SettingsModal';
-import { VersionModal } from './VersionModal';
+} from "lucide-react";
+import type React from "react";
+import { parseSaveFile } from "../engine/saveParser/index";
+import { useStore } from "../store";
+import { cn } from "../utils/cn";
+import { getGenerationConfig, VERSION_THEMES } from "../utils/generationConfig";
+import { BottomNav } from "./BottomNav";
+import { SettingsModal } from "./SettingsModal";
+import { VersionModal } from "./VersionModal";
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const saveData = useStore((s) => s.saveData);
@@ -39,22 +39,22 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         setSaveData(data);
         setError(null);
 
-        if (data.gameVersion === 'unknown') {
+        if (data.gameVersion === "unknown") {
           setIsVersionModalOpen(true);
         } else {
           setManualVersion(null);
         }
 
-        let binary = '';
+        let binary = "";
         const bytes = new Uint8Array(buffer);
         const len = bytes.byteLength;
         for (let i = 0; i < len; i++) {
           binary += String.fromCharCode(bytes[i]!);
         }
-        localStorage.setItem('last_save_file', window.btoa(binary));
+        localStorage.setItem("last_save_file", window.btoa(binary));
       } catch (err: unknown) {
         const message =
-          err instanceof Error ? err.message : 'Failed to parse save file.';
+          err instanceof Error ? err.message : "Failed to parse save file.";
         setError(message);
         setSaveData(null);
       }
@@ -62,13 +62,13 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     reader.readAsArrayBuffer(file);
   };
 
-  const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
-  const themeClass = VERSION_THEMES[effectiveVersion.toLowerCase()] || '';
+  const effectiveVersion = manualVersion || saveData?.gameVersion || "unknown";
+  const themeClass = VERSION_THEMES[effectiveVersion.toLowerCase()] || "";
 
   return (
     <div
       className={cn(
-        'min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-[var(--theme-primary)]/30 pb-24 lg:pb-0 transition-colors duration-500',
+        "min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-[var(--theme-primary)]/30 pb-24 lg:pb-0 transition-colors duration-500",
         themeClass,
       )}
     >
@@ -95,7 +95,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   <span className="text-[10px] font-retro uppercase tracking-[0.2em] text-zinc-500">
                     {saveData
                       ? getGenerationConfig(saveData.generation).label
-                      : 'Protocol X'}
+                      : "Protocol X"}
                   </span>
                   <div className="h-[1px] flex-1 bg-zinc-800" />
                 </div>
@@ -109,11 +109,11 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   to="/"
                   activeProps={{
                     className:
-                      'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+                      "bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]",
                   }}
                   inactiveProps={{
                     className:
-                      'text-zinc-500 hover:text-white hover:bg-white/5',
+                      "text-zinc-500 hover:text-white hover:bg-white/5",
                   }}
                   className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
                 >
@@ -124,11 +124,11 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   to="/storage"
                   activeProps={{
                     className:
-                      'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+                      "bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]",
                   }}
                   inactiveProps={{
                     className:
-                      'text-zinc-500 hover:text-white hover:bg-white/5',
+                      "text-zinc-500 hover:text-white hover:bg-white/5",
                   }}
                   className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
                 >
@@ -139,11 +139,11 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   to="/assistant"
                   activeProps={{
                     className:
-                      'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+                      "bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]",
                   }}
                   inactiveProps={{
                     className:
-                      'text-zinc-500 hover:text-white hover:bg-white/5',
+                      "text-zinc-500 hover:text-white hover:bg-white/5",
                   }}
                   className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all"
                 >
@@ -162,7 +162,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     Trainer
                   </span>
                   <span className="text-xs font-mono font-black text-[var(--theme-primary)] uppercase tracking-tight">
-                    {saveData.trainerName || 'UNKNOWN'}
+                    {saveData.trainerName || "UNKNOWN"}
                   </span>
                 </div>
                 <div className="w-[1px] h-6 bg-white/5" />
@@ -171,7 +171,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     ID
                   </span>
                   <span className="text-xs font-mono font-bold text-zinc-300">
-                    {String(saveData.trainerId).padStart(5, '0')}
+                    {String(saveData.trainerId).padStart(5, "0")}
                   </span>
                 </div>
 
@@ -221,10 +221,10 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               <button
                 onClick={() => setIsVersionModalOpen(true)}
                 className={cn(
-                  'group relative px-5 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest border transition-all overflow-hidden animate-in zoom-in-95 fade-in duration-500',
-                  effectiveVersion === 'unknown'
-                    ? 'bg-amber-500/10 border-amber-500/20 text-amber-500'
-                    : 'bg-[var(--theme-primary)]/10 border-[var(--theme-primary)]/20 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-white',
+                  "group relative px-5 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest border transition-all overflow-hidden animate-in zoom-in-95 fade-in duration-500",
+                  effectiveVersion === "unknown"
+                    ? "bg-amber-500/10 border-amber-500/20 text-amber-500"
+                    : "bg-[var(--theme-primary)]/10 border-[var(--theme-primary)]/20 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-white",
                 )}
               >
                 <div className="relative z-10 flex items-center gap-2">
@@ -300,7 +300,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             length: getGenerationConfig(saveData?.generation ?? 1).maxDex,
           }).map((_, i) => (
             <span key={i} className="text-4xl font-retro text-white">
-              #{(i + 1).toString().padStart(3, '0')}
+              #{(i + 1).toString().padStart(3, "0")}
             </span>
           ))}
         </div>

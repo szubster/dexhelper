@@ -1,10 +1,10 @@
-import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
+import { AlertTriangle, ArrowUpCircle, MapPin, Target } from "lucide-react";
 import type {
   LocationAreaEncounter,
   Encounter as PokeEncounter,
   VersionEncounterDetail,
-} from 'pokenode-ts';
-import { staticEncounters } from '../../../utils/data';
+} from "pokenode-ts";
+import { staticEncounters } from "../../../utils/data";
 
 interface PokemonLocationsProps {
   pokemonId: number;
@@ -104,7 +104,7 @@ export function PokemonLocations({
                             </div>
                             <span className="text-xs font-bold uppercase tracking-wide group-hover:text-white transition-colors">
                               {e.location_area.name
-                                .replace(/-/g, ' ')
+                                .replace(/-/g, " ")
                                 .toUpperCase()}
                             </span>
                           </div>
@@ -128,7 +128,7 @@ export function PokemonLocations({
                                 key={di}
                                 className="text-[8px] font-black text-[var(--theme-primary)]/70 uppercase"
                               >
-                                • {d.method.name.replace('-', ' ')} ({d.chance}
+                                • {d.method.name.replace("-", " ")} ({d.chance}
                                 %)
                               </span>
                             ),
@@ -145,7 +145,7 @@ export function PokemonLocations({
             return (
               <div className="space-y-3">
                 <div className="text-[10px] font-black text-amber-500/60 uppercase tracking-widest flex items-center gap-2 mb-2 italic">
-                  <AlertTriangle size={12} /> Species unavailable in{' '}
+                  <AlertTriangle size={12} /> Species unavailable in{" "}
                   {gameVersion.toUpperCase()}. External cross-version extraction
                   required.
                 </div>
@@ -156,7 +156,7 @@ export function PokemonLocations({
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase text-zinc-500">
-                        {e.location_area.name.replace(/-/g, ' ').toUpperCase()}
+                        {e.location_area.name.replace(/-/g, " ").toUpperCase()}
                       </span>
                       <div className="flex gap-1">
                         {e.version_details.map((v: VersionEncounterDetail) => (

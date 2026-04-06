@@ -153,13 +153,13 @@ export const INTERNAL_ID_TO_DEX: Record<number, number> = {
 };
 
 export type GameVersion =
-  | 'red'
-  | 'blue'
-  | 'yellow'
-  | 'gold'
-  | 'silver'
-  | 'crystal'
-  | 'unknown';
+  | "red"
+  | "blue"
+  | "yellow"
+  | "gold"
+  | "silver"
+  | "crystal"
+  | "unknown";
 export type Generation = number;
 
 export interface PokemonInstance {
@@ -171,7 +171,7 @@ export interface PokemonInstance {
   friendship?: number;
   pokerus?: number;
   caughtData?: {
-    time: 'Morning' | 'Day' | 'Night' | 'Unknown';
+    time: "Morning" | "Day" | "Night" | "Unknown";
     level: number;
     location: number;
   };
@@ -204,85 +204,85 @@ export interface SaveData {
 }
 
 const GEN12_CHAR_MAP: Record<number, string> = {
-  127: ' ',
-  128: 'A',
-  129: 'B',
-  130: 'C',
-  131: 'D',
-  132: 'E',
-  133: 'F',
-  134: 'G',
-  135: 'H',
-  136: 'I',
-  137: 'J',
-  138: 'K',
-  139: 'L',
-  140: 'M',
-  141: 'N',
-  142: 'O',
-  143: 'P',
-  144: 'Q',
-  145: 'R',
-  146: 'S',
-  147: 'T',
-  148: 'U',
-  149: 'V',
-  150: 'W',
-  151: 'X',
-  152: 'Y',
-  153: 'Z',
-  154: '(',
-  155: ')',
-  156: ':',
-  157: ';',
-  158: '[',
-  159: ']',
-  160: 'a',
-  161: 'b',
-  162: 'c',
-  163: 'd',
-  164: 'e',
-  165: 'f',
-  166: 'g',
-  167: 'h',
-  168: 'i',
-  169: 'j',
-  170: 'k',
-  171: 'l',
-  172: 'm',
-  173: 'n',
-  174: 'o',
-  175: 'p',
-  176: 'q',
-  177: 'r',
-  178: 's',
-  179: 't',
-  180: 'u',
-  181: 'v',
-  182: 'w',
-  183: 'x',
-  184: 'y',
-  185: 'z',
+  127: " ",
+  128: "A",
+  129: "B",
+  130: "C",
+  131: "D",
+  132: "E",
+  133: "F",
+  134: "G",
+  135: "H",
+  136: "I",
+  137: "J",
+  138: "K",
+  139: "L",
+  140: "M",
+  141: "N",
+  142: "O",
+  143: "P",
+  144: "Q",
+  145: "R",
+  146: "S",
+  147: "T",
+  148: "U",
+  149: "V",
+  150: "W",
+  151: "X",
+  152: "Y",
+  153: "Z",
+  154: "(",
+  155: ")",
+  156: ":",
+  157: ";",
+  158: "[",
+  159: "]",
+  160: "a",
+  161: "b",
+  162: "c",
+  163: "d",
+  164: "e",
+  165: "f",
+  166: "g",
+  167: "h",
+  168: "i",
+  169: "j",
+  170: "k",
+  171: "l",
+  172: "m",
+  173: "n",
+  174: "o",
+  175: "p",
+  176: "q",
+  177: "r",
+  178: "s",
+  179: "t",
+  180: "u",
+  181: "v",
+  182: "w",
+  183: "x",
+  184: "y",
+  185: "z",
   224: "'",
-  225: 'PK',
-  226: 'MN',
-  227: '-',
-  230: '?',
-  231: '!',
-  232: '♂',
-  233: '/',
-  234: ',',
-  237: '♀',
-  238: '0',
-  239: '1',
-  240: '2',
-  241: '3',
-  242: '4',
-  243: '5',
-  244: '6',
-  245: '7',
-  246: '8',
-  247: '9',
+  225: "PK",
+  226: "MN",
+  227: "-",
+  230: "?",
+  231: "!",
+  232: "♂",
+  233: "/",
+  234: ",",
+  237: "♀",
+  238: "0",
+  239: "1",
+  240: "2",
+  241: "3",
+  242: "4",
+  243: "5",
+  244: "6",
+  245: "7",
+  246: "8",
+  247: "9",
 };
 
 /** Read a byte from a Uint8Array, returning 0 for out-of-bounds access. Used throughout
@@ -296,7 +296,7 @@ export function decodeGen12String(
   offset: number,
   maxLength: number = 11,
 ): string {
-  let result = '';
+  let result = "";
   for (let i = 0; i < maxLength; i++) {
     const charCode = u8[offset + i];
     if (
@@ -306,7 +306,7 @@ export function decodeGen12String(
       charCode === 0xff
     )
       break;
-    result += GEN12_CHAR_MAP[charCode] ?? '?';
+    result += GEN12_CHAR_MAP[charCode] ?? "?";
   }
   return result.trim();
 }
@@ -373,23 +373,23 @@ function detectGen1GameVersion(
     (redScore > 0 || blueScore > 0 || isPikachuStarter)
   ) {
     // If we have some exclusives from both R and B, it's likely Yellow (since it has many from both)
-    if (redScore > 0 && blueScore > 0) return 'yellow';
+    if (redScore > 0 && blueScore > 0) return "yellow";
     // If it's early game and we have Pikachu but no exclusives, it's likely Yellow
-    if (isPikachuStarter && redScore === 0 && blueScore === 0) return 'yellow';
+    if (isPikachuStarter && redScore === 0 && blueScore === 0) return "yellow";
   }
 
   // High confidence detection
-  if (redScore > blueScore + 2) return 'red';
-  if (blueScore > redScore + 2) return 'blue';
+  if (redScore > blueScore + 2) return "red";
+  if (blueScore > redScore + 2) return "blue";
 
   // If scores are very close or zero, return unknown to trigger manual selection
   if (Math.abs(redScore - blueScore) < 2 && redScore < 4 && !isPikachuStarter)
-    return 'unknown';
+    return "unknown";
 
-  if (redScore > blueScore) return 'red';
-  if (blueScore > redScore) return 'blue';
+  if (redScore > blueScore) return "red";
+  if (blueScore > redScore) return "blue";
 
-  return 'unknown';
+  return "unknown";
 }
 
 function detectGen2GameVersion(
@@ -411,10 +411,10 @@ function detectGen2GameVersion(
     else if (seen.has(id)) silverScore += 1;
   }
 
-  if (goldScore > silverScore) return 'gold';
-  if (silverScore > goldScore) return 'silver';
+  if (goldScore > silverScore) return "gold";
+  if (silverScore > goldScore) return "silver";
 
-  return 'unknown';
+  return "unknown";
 }
 
 function isGen1Save(u8: Uint8Array): boolean {
@@ -448,7 +448,7 @@ export function parseSaveFile(
   const u8 = new Uint8Array(buffer);
 
   if (buffer.byteLength < 32768) {
-    throw new Error('Invalid save file size. Expected at least 32KB.');
+    throw new Error("Invalid save file size. Expected at least 32KB.");
   }
 
   // Gen 1 Checksum
@@ -483,7 +483,7 @@ export function parseSaveFile(
       return parseGen2(u8, false);
     }
     throw new Error(
-      'Could not detect a valid Pokémon Red/Blue/Yellow or Gold/Silver/Crystal save file. Please ensure you are uploading a .sav file from a Gen 1 or Gen 2 game.',
+      "Could not detect a valid Pokémon Red/Blue/Yellow or Gold/Silver/Crystal save file. Please ensure you are uploading a .sav file from a Gen 1 or Gen 2 game.",
     );
   }
 }
@@ -518,21 +518,21 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const res1 = detectForOffset(0x25a4);
 
   // If forcedVersion is provided, respect it. Otherwise use robust indicators.
-  let isYellow = forcedVersion === 'yellow';
+  let isYellow = forcedVersion === "yellow";
   if (!forcedVersion) {
     if (!res0.paddingBitIsCorrect && res1.paddingBitIsCorrect) {
       isYellow = true;
-    } else if (res1.version === 'yellow') {
+    } else if (res1.version === "yellow") {
       isYellow = true;
-    } else if (res0.version === 'unknown' && res1.version !== 'unknown') {
+    } else if (res0.version === "unknown" && res1.version !== "unknown") {
       isYellow = true;
     }
   }
 
   const offsetShift = 0; // English R/B/Y saves don't actually shift these offsets in SRAM
   const gameVersion = isYellow
-    ? 'yellow'
-    : forcedVersion && forcedVersion !== 'unknown'
+    ? "yellow"
+    : forcedVersion && forcedVersion !== "unknown"
       ? forcedVersion
       : res0.version;
   const { owned, seen } = res0;
@@ -565,7 +565,7 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
       moves,
       dvs,
       otName,
-      storageLocation: 'Party',
+      storageLocation: "Party",
       slot: i + 1,
     });
   }
@@ -697,10 +697,10 @@ function parseCaughtData(u8: Uint8Array, offset: number) {
   const caughtLevel = caughtByte1 & 0x3f;
   const location = caughtByte2;
 
-  let time: 'Morning' | 'Day' | 'Night' | 'Unknown' = 'Unknown';
-  if (timeBits === 1) time = 'Morning';
-  else if (timeBits === 2) time = 'Day';
-  else if (timeBits === 3) time = 'Night';
+  let time: "Morning" | "Day" | "Night" | "Unknown" = "Unknown";
+  if (timeBits === 1) time = "Morning";
+  else if (timeBits === 2) time = "Day";
+  else if (timeBits === 3) time = "Night";
 
   return { time, level: caughtLevel, location };
 }
@@ -791,7 +791,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
       caughtData,
       dvs,
       otName,
-      storageLocation: 'Party',
+      storageLocation: "Party",
       slot: i + 1,
     });
   }
@@ -928,7 +928,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
       pokerus,
       dvs,
       otName,
-      storageLocation: 'Daycare',
+      storageLocation: "Daycare",
     });
   }
 
@@ -938,9 +938,9 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     if ((byte(u8, kantoBadgesOffset) & (1 << i)) !== 0) badges++;
   }
 
-  let gameVersion = isCrystal ? 'crystal' : detectGen2GameVersion(owned, seen);
-  if (gameVersion === 'unknown' && !isCrystal) {
-    gameVersion = 'gold';
+  let gameVersion = isCrystal ? "crystal" : detectGen2GameVersion(owned, seen);
+  if (gameVersion === "unknown" && !isCrystal) {
+    gameVersion = "gold";
   }
 
   const trainerName = decodeGen12String(u8, 0x200b);

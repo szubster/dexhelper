@@ -1,26 +1,26 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import type {
   GameVersion as GameVersionType,
   SaveData,
-} from './engine/saveParser/index';
-import { parseSaveFile } from './engine/saveParser/index';
+} from "./engine/saveParser/index";
+import { parseSaveFile } from "./engine/saveParser/index";
 
 // ─── Types ───────────────────────────────────────────────────────────
 export type GameVersion = GameVersionType;
-export type FilterType = 'secured' | 'missing' | 'dex-only';
+export type FilterType = "secured" | "missing" | "dex-only";
 export type PokeballType =
-  | 'poke'
-  | 'great'
-  | 'ultra'
-  | 'safari'
-  | 'heavy'
-  | 'lure'
-  | 'fast'
-  | 'friend'
-  | 'moon'
-  | 'love'
-  | 'level';
+  | "poke"
+  | "great"
+  | "ultra"
+  | "safari"
+  | "heavy"
+  | "lure"
+  | "fast"
+  | "friend"
+  | "moon"
+  | "love"
+  | "level";
 
 // ─── Store Interface ─────────────────────────────────────────────────
 interface AppStore {
@@ -70,7 +70,7 @@ export const useStore = create<AppStore>()(
       filters: [],
       manualVersion: null,
       isLivingDex: false,
-      globalPokeball: 'poke',
+      globalPokeball: "poke",
 
       toggleFilter: (f) => {
         const current = get().filters;
@@ -86,7 +86,7 @@ export const useStore = create<AppStore>()(
       setGlobalPokeball: (v) => set({ globalPokeball: v }),
 
       // Transient UI
-      searchTerm: '',
+      searchTerm: "",
       isSettingsOpen: false,
       isVersionModalOpen: false,
       setSearchTerm: (v) => set({ searchTerm: v }),
@@ -98,7 +98,7 @@ export const useStore = create<AppStore>()(
 
       // Actions
       loadSaveFromStorage: () => {
-        const savedFile = localStorage.getItem('last_save_file');
+        const savedFile = localStorage.getItem("last_save_file");
         if (savedFile) {
           try {
             const binaryString = window.atob(savedFile);
@@ -114,14 +114,14 @@ export const useStore = create<AppStore>()(
             );
             set({ saveData: data });
           } catch (err) {
-            console.error('Failed to load saved file from localStorage:', err);
-            localStorage.removeItem('last_save_file');
+            console.error("Failed to load saved file from localStorage:", err);
+            localStorage.removeItem("last_save_file");
           }
         }
       },
     }),
     {
-      name: 'dexhelper-settings',
+      name: "dexhelper-settings",
       // Only persist settings, not save data or UI state
       partialize: (state) => ({
         filters: state.filters,
