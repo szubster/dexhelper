@@ -14,6 +14,31 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
     return map;
   }, [pokemonList]);
 
+  const pokemonByLocation = React.useMemo(() => {
+    const map = new Map<string, NonNullable<typeof saveData>['partyDetails']>();
+    if (!saveData) return map;
+
+    for (const p of saveData.partyDetails) {
+      if (!p.storageLocation) continue;
+      let list = map.get(p.storageLocation);
+      if (!list) {
+        list = [];
+        map.set(p.storageLocation, list);
+      }
+      list.push(p);
+    }
+    for (const p of saveData.pcDetails) {
+      if (!p.storageLocation) continue;
+      let list = map.get(p.storageLocation);
+      if (!list) {
+        list = [];
+        map.set(p.storageLocation, list);
+      }
+      list.push(p);
+    }
+    return map;
+  }, [saveData?.partyDetails, saveData?.pcDetails]);
+
   if (!saveData) return null;
 
   const genConfig = getGenerationConfig(saveData.generation);
@@ -22,7 +47,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
   return (
     <div className="space-y-16 animate-in fade-in duration-500">
       {storageLocations.map(location => {
-        const pokemonInLocation = [...saveData.partyDetails, ...saveData.pcDetails].filter(p => p.storageLocation === location);
+        const pokemonInLocation = pokemonByLocation.get(location) || [];
 
         return (
           <div key={location} className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">

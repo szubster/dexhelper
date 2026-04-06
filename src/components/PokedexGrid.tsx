@@ -18,8 +18,6 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
   const partySet = React.useMemo(() => new Set(saveData?.party || []), [saveData?.party]);
   const pcSet = React.useMemo(() => new Set(saveData?.pc || []), [saveData?.pc]);
-  const shinyPartySet = React.useMemo(() => new Set(saveData?.partyDetails.filter(p => p.isShiny).map(p => p.speciesId) || []), [saveData?.partyDetails]);
-  const shinyPcSet = React.useMemo(() => new Set(saveData?.pcDetails.filter(p => p.isShiny).map(p => p.speciesId) || []), [saveData?.pcDetails]);
 
   const finalPokemon = pokemonList.slice(0, displayLimit).filter(pokemon => {
     if (!saveData || filtersSet.size === 0) return true;
