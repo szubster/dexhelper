@@ -278,6 +278,10 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const quickParty: { speciesId: number, otName: string }[] = [];
   const partyDataOffset = 0x2F2D + 7;
   const partyOTOffset = partyDataOffset + (6 * 44);
+  
+  // Note: we don't know the shift yet, so we try both for quick party if needed,
+  // but usually OTs don't move or we can guess. For now, let's just use the default
+  // and hope it's enough for version detection.
   for (let i = 0; i < partyCount; i++) {
     const offset = partyDataOffset + (i * 44);
     const internalId = byte(u8, offset);
@@ -315,6 +319,8 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
 
   // If forcedVersion is provided, respect it. Otherwise use robust indicators.
   let isYellow = forcedVersion === 'yellow';
+  const resToUse = (forcedVersion === 'yellow' || (!forcedVersion && res1.paddingBitIsCorrect && !res0.paddingBitIsCorrect)) ? res1 : res0;
+  
   if (!forcedVersion) {
     if (!res0.paddingBitIsCorrect && res1.paddingBitIsCorrect) {
       isYellow = true;
@@ -325,13 +331,16 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     }
   }
   
-  const offsetShift = 0; // English R/B/Y saves don't actually shift these offsets in SRAM
-  const gameVersion = isYellow ? 'yellow' : (forcedVersion && forcedVersion !== 'unknown' ? forcedVersion : res0.version);
-  const { owned, seen } = res0;
+  const offsetShift = isYellow ? 1 : 0; 
+  const gameVersion = isYellow ? 'yellow' : (forcedVersion && forcedVersion !== 'unknown' ? forcedVersion : resToUse.version);
+  const { owned, seen } = resToUse;
 
   const partyDetails: PokemonInstance[] = [];
+  const shiftedPartyDataOffset = 0x2F2D + offsetShift + 7;
+  const shiftedPartyOTOffset = shiftedPartyDataOffset + (6 * 44);
+  
   for (let i = 0; i < partyCount; i++) {
-    const offset = partyDataOffset + (i * 44);
+    const offset = shiftedPartyDataOffset + (i * 44);
     const internalId = byte(u8, offset);
     const speciesId = INTERNAL_ID_TO_DEX[internalId];
     if (!speciesId) continue;
@@ -339,21 +348,21 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter(m => m > 0);
     const dvs = parseDVs(u8.slice(offset + 27, offset + 29));
     const isShiny = checkShiny(dvs);
-    const otName = decodeGen12String(u8, partyOTOffset + (i * 11));
+    const otName = decodeGen12String(u8, shiftedPartyOTOffset + (i * 11));
     partyDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: 'Party', slot: i + 1 });
   }
 
-  const party = quickParty.map(p => p.speciesId);
+  const party = partyDetails.map(p => p.speciesId);
 
-  const currentBoxNum = byte(u8, 0x284C) & 0x7F;
-  const currentBoxCount = byte(u8, 0x30C0);
-  const currentBoxSpecies = u8.slice(0x30C1, 0x30C1 + currentBoxCount);
+  const currentBoxNum = byte(u8, 0x284C + offsetShift) & 0x7F;
+  const currentBoxCount = byte(u8, 0x30C0 + offsetShift);
+  const currentBoxSpecies = u8.slice(0x30C1 + offsetShift, 0x30C1 + offsetShift + currentBoxCount);
   const pc = Array.from(currentBoxSpecies)
     .map(id => INTERNAL_ID_TO_DEX[id])
     .filter((id): id is number => id !== undefined);
 
   const pcDetails: PokemonInstance[] = [];
-  const currentBoxDataOffset = 0x30C1 + 21;
+  const currentBoxDataOffset = 0x30C1 + offsetShift + 21;
   const currentBoxOTOffset = currentBoxDataOffset + (20 * 33);
   for (let i = 0; i < currentBoxCount; i++) {
     const offset = currentBoxDataOffset + (i * 33);
@@ -404,14 +413,14 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     }
   }
 
-  const badges = byte(u8, 0x2602);
-  const trainerId = (byte(u8, 0x2605) << 8) | byte(u8, 0x2606);
-  const currentMapId = byte(u8, 0x260A);
+  const badges = byte(u8, 0x2602 + offsetShift);
+  const trainerId = (byte(u8, 0x2605 + offsetShift) << 8) | byte(u8, 0x2606 + offsetShift);
+  const currentMapId = byte(u8, 0x260A + offsetShift);
   const currentMapName = (gen1MapLocations as Record<string, string>)[currentMapId.toString()] || 'Unknown Map';
   const inventory: { id: number, quantity: number }[] = [];
-  const itemCount = byte(u8, 0x25C9);
+  const itemCount = byte(u8, 0x25C9 + offsetShift);
   for (let i = 0; i < itemCount; i++) {
-    const itemOffset = 0x25CA + (i * 2);
+    const itemOffset = 0x25CA + offsetShift + (i * 2);
     inventory.push({ id: byte(u8, itemOffset), quantity: byte(u8, itemOffset + 1) });
   }
 

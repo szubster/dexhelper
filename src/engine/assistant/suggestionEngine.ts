@@ -128,7 +128,11 @@ export function generateSuggestions(
 
   const effectiveVersion = manualVersion || saveData.gameVersion;
   const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
-  const queryTargets = missingIds.slice(0, 30); 
+  const queryTargets = missingIds.slice(0, 100); 
+
+  const localSlug = saveData.generation === 1 
+    ? (GEN1_MAP_TO_SLUG[saveData.currentMapId] || '')
+    : 'new-bark-town-area';
 
   // A. Catch logic
   if (apiData.localEncounters) {
