@@ -16,9 +16,7 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:ct": "vitest run --config=vitest.storybook.config.ts",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "test:ct": "vitest run --config=vitest.storybook.config.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.96.1",
@@ -36,11 +34,7 @@
   "devDependencies": {
     "@argos-ci/playwright": "^6.6.1",
     "@argos-ci/storybook": "^5.3.1",
-    "@chromatic-com/storybook": "^5.1.1",
     "@playwright/test": "^1.59.1",
-    "@storybook/addon-a11y": "^10.3.4",
-    "@storybook/addon-docs": "^10.3.4",
-    "@storybook/addon-onboarding": "^10.3.4",
     "@storybook/addon-vitest": "^10.3.4",
     "@storybook/react-vite": "^10.3.4",
     "@storybook/test": "^8.6.15",
@@ -50,10 +44,9 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/browser": "^4.1.2",
     "@vitest/browser-playwright": "^4.1.2",
-    "@vitest/coverage-v8": "^4.1.2",
     "bundlemon": "^3.1.0",
-    "playwright": "^1.59.1",
     "pokenode-ts": "^1.20.0",
     "rollup-plugin-visualizer": "^7.0.1",
     "storybook": "^10.3.4",

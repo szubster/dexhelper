@@ -3,6 +3,7 @@ import { StorageGrid } from './StorageGrid';
 import { useStore } from '../store';
 import type { SaveData } from '../engine/saveParser';
 import { expect, within } from '@storybook/test';
+import { argosScreenshot } from '@argos-ci/storybook/vitest';
 
 const mockPokemonList = [
   { id: 1, name: 'Bulbasaur' },
@@ -76,8 +77,8 @@ export const Default = {
 
     return <StorageGrid pokemonList={mockPokemonList} />;
   },
-  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
-    const canvas = within(canvasElement);
+  play: async (ctx: any) => {
+    const canvas = within(ctx.canvasElement);
 
     // Check for filled locations
     const party = await canvas.findByText('Party');
@@ -97,5 +98,7 @@ export const Default = {
     // Box 2, 4, 5, 6, 7, 8, 9, 10, 11, 12 and Daycare are empty.
     const emptyBoxes = await canvas.findAllByText('EMPTY');
     await expect(emptyBoxes).toHaveLength(11);
+
+    await argosScreenshot(ctx, "storage-grid-default");
   }
 };
