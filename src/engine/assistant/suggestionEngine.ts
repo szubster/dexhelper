@@ -49,6 +49,8 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const missingChains: Record<number, any> = {};
   const ancestralEncounters: Record<number, Record<number, any[]>> = {}; 
 
+  const speciesData: Record<number, any> = {};
+
   const missingPromises = queryTargets.map(async (pid: number) => {
      try {
        const [encs, species] = await Promise.all([
@@ -56,37 +58,102 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
          pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`)
        ]);
        missingEncounters[pid] = encs;
-       
-       const chain = await pokeapi.resource(species.evolution_chain.url);
-       missingChains[pid] = chain;
-
-       const ancestors = getAncestors(chain.chain, pid) || [];
-
-       if (ancestors.length > 0) {
-         ancestralEncounters[pid] = {};
-         await Promise.all(ancestors.map(async (aid) => {
-           const aEncs = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`);
-           ancestralEncounters[pid]![aid] = aEncs;
-         }));
-       }
+       speciesData[pid] = species;
      } catch (e) {
        missingEncounters[pid] = [];
      }
   });
 
   const partyEvolutions: Record<number, any> = {};
+  const partySpeciesData: Record<number, any> = {};
   const partyPromises = (saveData.party || []).map(async (pid: number) => {
     try {
       const species = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`);
-      const chainUrl = species.evolution_chain.url;
-      const chain = await pokeapi.resource(chainUrl);
-      partyEvolutions[pid] = chain;
+      partySpeciesData[pid] = species;
     } catch (e) {
       console.error("Evo fetch failed", pid, e);
     }
   });
 
   await Promise.all([...missingPromises, ...partyPromises]);
+
+  // Phase 2: Collect unique evolution chain URLs
+  const uniqueChainUrls = new Set<string>();
+  for (const pid of queryTargets) {
+    if (speciesData[pid]?.evolution_chain?.url) {
+      uniqueChainUrls.add(speciesData[pid].evolution_chain.url);
+    }
+  }
+  for (const pid of saveData.party || []) {
+    if (partySpeciesData[pid]?.evolution_chain?.url) {
+      uniqueChainUrls.add(partySpeciesData[pid].evolution_chain.url);
+    }
+  }
+
+  // Fetch unique chains
+  const chainsData: Record<string, any> = {};
+  await Promise.all(Array.from(uniqueChainUrls).map(async (url) => {
+    try {
+      chainsData[url] = await pokeapi.resource(url);
+    } catch (e) {
+      console.error("Chain fetch failed", url, e);
+    }
+  }));
+
+  // Assign chains back to Pokemon
+  for (const pid of queryTargets) {
+    const url = speciesData[pid]?.evolution_chain?.url;
+    if (url && chainsData[url]) {
+      missingChains[pid] = chainsData[url];
+    }
+  }
+  for (const pid of saveData.party || []) {
+    const url = partySpeciesData[pid]?.evolution_chain?.url;
+    if (url && chainsData[url]) {
+      partyEvolutions[pid] = chainsData[url];
+    }
+  }
+
+  // Phase 3: Fetch unique ancestor encounters
+  const uniqueAncestorIds = new Set<number>();
+  const pidToAncestors: Record<number, number[]> = {};
+
+  for (const pid of queryTargets) {
+    const chain = missingChains[pid];
+    if (chain && chain.chain) {
+      const ancestors = getAncestors(chain.chain, pid) || [];
+      pidToAncestors[pid] = ancestors;
+      for (const aid of ancestors) {
+        uniqueAncestorIds.add(aid);
+      }
+    }
+  }
+
+  const ancestorEncounterData: Record<number, any[]> = {};
+  await Promise.all(Array.from(uniqueAncestorIds).map(async (aid) => {
+    try {
+      // If we already fetched it as part of queryTargets, use it!
+      if (missingEncounters[aid]) {
+        ancestorEncounterData[aid] = missingEncounters[aid];
+      } else {
+        ancestorEncounterData[aid] = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`);
+      }
+    } catch (e) {
+      console.error("Ancestor encounter fetch failed", aid, e);
+      ancestorEncounterData[aid] = [];
+    }
+  }));
+
+  for (const pid of queryTargets) {
+    const ancestors = pidToAncestors[pid];
+    if (ancestors && ancestors.length > 0) {
+      ancestralEncounters[pid] = {};
+      for (const aid of ancestors) {
+        ancestralEncounters[pid]![aid] = ancestorEncounterData[aid] || [];
+      }
+    }
+  }
+
   return { localEncounters, missingEncounters, missingChains, ancestralEncounters, partyEvolutions };
 }
 
