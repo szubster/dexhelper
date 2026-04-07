@@ -48,7 +48,7 @@ export default defineConfig(({ mode }) => {
     test: {
       projects: [
         {
-          name: 'default',
+          name: 'unit',
           include: ['**/*.test.ts', '**/*.test.tsx'],
           environment: 'happy-dom',
           globals: true,
