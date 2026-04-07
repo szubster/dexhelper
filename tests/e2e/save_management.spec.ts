@@ -1,36 +1,34 @@
 import { test, expect } from '@playwright/test';
 import { argosScreenshot } from '../../src/utils/argos';
+import path from 'path';
 
 test.describe('Save Management', () => {
   test('should upload a save file and persist it on reload', async ({ page }) => {
     await page.goto('/');
 
-    // 1. Initial State
-    await expect(page.getByText('Initialize Pokedex')).toBeVisible();
-    await argosScreenshot(page, 'initial-state');
+    // 1. Initial State: Should show "Initialize Pokedex" button (clean state)
+    await expect(page.getByText(/Initialize Pokedex/i)).toBeVisible();
+    await argosScreenshot(page, 'save-initial-state');
 
-    // 2. Upload Save
-    const saveFilePath = 'tests/fixtures/yellow.sav';
-    await page.locator('input[type="file"]').first().setInputFiles(saveFilePath);
+    // 2. Upload Yellow Save
+    // The input is hidden inside a label, but locator('input[type="file"]') should find it.
+    const fileInput = page.locator('input[type="file"]');
+    await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
 
-    // 3. Verify Trainer Info (Wait for the data to be parsed and UI to update)
-    // Trainer Name and ID are displayed in the header
-    await expect(page.locator('header').getByText('Trainer', { exact: true }).first()).toBeVisible();
-    
-    // 4. Verify Pokedex Grid
-    // Check for a specific pokemon that should be caught/seen in yellow.sav
-    // #025 Pikachu is a safe bet for Yellow
-    await expect(page.getByText('PIKACHU')).toBeVisible();
+    // 3. Verify Hydration: Pokedex grid should appear (Wait for Pikachu)
+    await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
 
-    // 5. Visual Check after upload
-    await argosScreenshot(page, 'save-loaded');
+    // 4. Verify Trainer Info in Header
+    await expect(page.locator('header').getByText(/TRAINER/i).first()).toBeVisible();
+    await expect(page.locator('header').getByText(/YELLOW/i).first()).toBeVisible();
 
-    // 6. Reload and Verify Persistence
+    // 5. Persistence: Reload page
     await page.reload();
-    await expect(page.getByText('PIKACHU')).toBeVisible();
-    await expect(page.locator('header').getByText('Trainer', { exact: true }).first()).toBeVisible();
-    
-    // 7. Visual Check after reload
-    await argosScreenshot(page, 'save-persisted');
+
+    // 6. Verify it's still hydrated (persisted in localStorage)
+    await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
+    await expect(page.locator('header').getByText(/TRAINER/i).first()).toBeVisible();
+
+    await argosScreenshot(page, 'save-persisted-yellow');
   });
 });

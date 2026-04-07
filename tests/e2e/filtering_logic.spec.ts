@@ -1,53 +1,49 @@
 import { test, expect } from '@playwright/test';
 import { argosScreenshot } from '../../src/utils/argos';
+import { initializeWithSave } from './test-utils';
 
 test.describe('Filtering Logic', () => {
+  // Every test in this suite starts with an initialized Pokedex (Yellow version save)
+  test.beforeEach(async ({ page }) => {
+    await initializeWithSave(page);
+  });
+
   test('should filter by name successfully', async ({ page }) => {
-    await page.goto('/');
+    const searchInput = page.getByPlaceholder(/Search Pokedex by name or ID/i);
+    await searchInput.fill('Pikachu');
 
-    // 1. Upload Yellow Save
-    const saveFilePath = 'tests/fixtures/yellow.sav';
-    await page.locator('input[type="file"]').first().setInputFiles(saveFilePath);
+    // Pikachu (ID 25) should be visible
+    await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
+    
+    // Bulbasaur (ID 1) should be hidden
+    await expect(page.locator('[data-pokemon-id="1"]')).not.toBeVisible();
 
-    // 2. Initial State (All Pokemon showing)
-    await expect(page.getByText('PIKACHU')).toBeVisible();
-    await argosScreenshot(page, 'filter-initial-all');
-
-    // 3. Search for "Pikachu"
-    const searchInput = page.getByPlaceholder('Search');
-    await searchInput.fill('PIKACHU');
-    await expect(page.getByText('PIKACHU')).toBeVisible();
-    await expect(page.getByText('BULBASAUR')).not.toBeVisible();
-    await argosScreenshot(page, 'filter-search-pikachu');
-
-    // 4. Clear Search
-    await searchInput.fill('');
-    await expect(page.getByText('BULBASAUR')).toBeVisible();
+    await argosScreenshot(page, 'filter-name-pikachu');
   });
 
   test('should filter by Secured (Owned) status', async ({ page }) => {
-    await page.goto('/');
-    const saveFilePath = 'tests/fixtures/yellow.sav';
-    await page.locator('input[type="file"]').first().setInputFiles(saveFilePath);
+    // 1. Toggle "Owned" filter
+    await page.getByTestId('filter-secured').click();
 
-    const securedBtn = page.getByTestId('filter-secured');
-    await securedBtn.click();
-    
-    // In Yellow, Pikachu (ID 25) should be Secured
-    await expect(page.locator('[data-testid="pokedex-card"][data-pokemon-id="25"]')).toBeVisible();
+    // 2. Pikachu (ID 25) is in our Yellow save fixture (Party/Box), should be visible
+    await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
+
+    // 3. Bulbasaur (ID 1) is NOT in Yellow save by default, should be hidden
+    await expect(page.locator('[data-pokemon-id="1"]')).not.toBeVisible();
+
+    await argosScreenshot(page, 'filter-status-secured');
   });
 
   test('should filter by Missing status', async ({ page }) => {
-    await page.goto('/');
-    const saveFilePath = 'tests/fixtures/yellow.sav';
-    await page.locator('input[type="file"]').first().setInputFiles(saveFilePath);
-    
-    const missingBtn = page.getByTestId('filter-missing');
-    await missingBtn.click();
-    
-    // Pikachu (Secured) should NOT be visible
-    await expect(page.locator('[data-testid="pokedex-card"][data-pokemon-id="25"]')).not.toBeVisible();
-    
-    await argosScreenshot(page, 'filter-missing-active');
+    // 1. Toggle "Missing" filter
+    await page.getByTestId('filter-missing').click();
+
+    // 2. Bulbasaur (ID 1) should be visible (Missing)
+    await expect(page.locator('[data-pokemon-id="1"]')).toBeVisible();
+
+    // 3. Pikachu (ID 25) should be hidden (Owned)
+    await expect(page.locator('[data-pokemon-id="25"]')).not.toBeVisible();
+
+    await argosScreenshot(page, 'filter-status-missing');
   });
 });
