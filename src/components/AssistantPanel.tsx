@@ -137,7 +137,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
         </div>
       )}
 
-      {showDebug && debug && <AssistantDebugView rejected={debug.rejected} getPokemonName={getPokemonName} />}
+      {showDebug && debug && <AssistantDebugView rejected={debug.rejected} getPokemonName={getPokemonName} saveData={saveData} />}
     </div>
   );
 }
