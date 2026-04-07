@@ -106,10 +106,32 @@ function SettingsControls({
 }
 
 function ClearStorageButton({ onClear }: { onClear: () => void }) {
+  const [isConfirming, setIsConfirming] = React.useState(false);
+
+  if (isConfirming) {
+    return (
+      <div className="flex gap-2 w-full animate-in fade-in zoom-in-95 duration-200">
+        <button
+          onClick={() => setIsConfirming(false)}
+          className="flex-1 p-5 bg-zinc-800 text-zinc-300 rounded-2xl border border-zinc-700 font-bold uppercase tracking-widest text-[10px] hover:bg-zinc-700 transition-all"
+        >
+          Cancel
+        </button>
+        <button
+          onClick={onClear}
+          className="flex-1 flex items-center justify-center gap-2 p-5 bg-red-600 text-white rounded-2xl border border-red-500 font-bold uppercase tracking-widest text-[10px] hover:bg-red-500 transition-all group"
+        >
+          <Trash2 size={14} className="group-hover:rotate-12 transition-transform" />
+          Confirm Delete
+        </button>
+      </div>
+    );
+  }
+
   return (
     <button
-      onClick={onClear}
-      className="w-full flex items-center justify-center gap-3 p-5 bg-red-600/10 text-red-500 rounded-2xl border border-red-600/20 font-bold uppercase tracking-widest text-[10px] hover:bg-red-600/20 transition-all group"
+      onClick={() => setIsConfirming(true)}
+      className="w-full flex items-center justify-center gap-3 p-5 bg-red-600/10 text-red-500 rounded-2xl border border-red-600/20 font-bold uppercase tracking-widest text-[10px] hover:bg-red-600/20 transition-all group animate-in fade-in zoom-in-95 duration-200"
     >
       <Trash2 size={16} className="group-hover:rotate-12 transition-transform" />
       Clear Stored Save
