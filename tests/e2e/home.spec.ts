@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { argosScreenshot } from '@argos-ci/playwright';
+import { argosScreenshot } from '../../src/utils/argos';
 
 test.describe('Dexhelper App', () => {
   test('should load the main page', async ({ page }) => {
