@@ -59,6 +59,7 @@ export default defineConfig(({ mode }) => {
             storybookTest({ configDir: path.join(__dirname, ".storybook") }) as any,
             argosVitestPlugin({
               uploadToArgos: !!process.env.CI,
+              buildName: "Storybook",
             }) as any,
           ],
           test: {
