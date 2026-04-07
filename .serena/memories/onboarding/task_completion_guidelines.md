@@ -6,11 +6,11 @@ Before finalizing any task, the following steps must be completed:
     - Ensure code adheres to defined styles and conventions.
     - Use `src/utils/cn.ts` for consistent Tailwind class management.
 
-2.  **Testing**:
-    - Run `npm run test` for unit tests.
-    - Run `npm run test:ct` for component tests if UI was changed.
-    - Run `npm run test:e2e` for critical flows.
-    - Verify that no existing tests are broken.
+2. **Testing**:
+    - Run `npm run test` (Vitest) for unit tests.
+    - Run `npm run test:e2e` (Playwright) for all UI changes.
+    - Ensure tests handle uninitialized state using `initializeWithSave`.
+    - Verify that no existing tests or visual regressions are broken.
 
 3.  **Type Safety**:
     - Run `npm run lint` (`tsc --noEmit`) to ensure no TypeScript errors were introduced.

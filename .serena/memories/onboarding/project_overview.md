@@ -11,8 +11,7 @@
 - **Data Fetching**: TanStack React Query & `pokenode-ts`.
 - **Testing**:
   - **Unit Tests**: Vitest.
-  - **Component Tests**: Playwright Component Testing (`@playwright/experimental-ct-react`).
-  - **E2E Tests**: Playwright.
+  - **E2E Tests (Primary)**: Playwright (E2E-first strategy).
   - **Visual Regression**: Argos CI (with `argosScreenshot`).
 - **Game Engine**: Custom logic for parsing saves (`engine/saveParser`), navigating maps (`engine/mapGraph`), and suggesting actions (`engine/assistant`).
 
