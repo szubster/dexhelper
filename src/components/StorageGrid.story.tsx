@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import type { SaveData } from "../engine/saveParser";
 import { useStore } from "../store";
 import { StorageGrid } from "./StorageGrid";

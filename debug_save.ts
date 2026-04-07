@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs";
 import { parseSaveFile } from "./src/engine/saveParser/index.js";
 
 const buffer = fs.readFileSync("tests/fixtures/yellow-2026-03-30.sav");

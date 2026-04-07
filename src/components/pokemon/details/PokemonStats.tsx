@@ -1,5 +1,5 @@
 import { Activity } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getGenerationConfig } from "../../../utils/generationConfig";
 
 interface PokemonStatsProps {

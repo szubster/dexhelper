@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { getGenerationConfig } from "../../utils/generationConfig";
 import { pokeapi } from "../../utils/pokeapi";
 import {
@@ -24,7 +23,7 @@ function getAncestors(
   target: number,
   path: number[] = [],
 ): number[] | null {
-  const id = parseInt(node.species.url.split("/").slice(-2, -1)[0]);
+  const id = parseInt(node.species.url.split("/").slice(-2, -1)[0], 10);
   if (id === target) {
     return path;
   }
@@ -91,7 +90,7 @@ export async function fetchAssistantApiData(
           }),
         );
       }
-    } catch (e) {
+    } catch (_e) {
       missingEncounters[pid] = [];
     }
   });
@@ -178,7 +177,7 @@ export function generateSuggestions(
       : effectiveVersion;
   const queryTargets = missingIds.slice(0, 100);
 
-  const localSlug =
+  const _localSlug =
     saveData.generation === 1
       ? GEN1_MAP_TO_SLUG[saveData.currentMapId] || ""
       : "new-bark-town-area";
@@ -190,7 +189,7 @@ export function generateSuggestions(
 
     for (const encounter of apiData.localEncounters) {
       const urlParts = encounter.pokemon.url.split("/");
-      const pid = parseInt(urlParts[urlParts.length - 2]);
+      const pid = parseInt(urlParts[urlParts.length - 2], 10);
 
       const isFinite = !!STATIC_GIFT_DATA[pid];
       if (isFinite && myOtIds.has(pid)) {
@@ -328,7 +327,7 @@ export function generateSuggestions(
         if (!isCatchableSomewhere) {
           const chain = apiData.missingChains?.[pid];
           const baseId = chain
-            ? parseInt(chain.chain.species.url.split("/").slice(-2, -1)[0])
+            ? parseInt(chain.chain.species.url.split("/").slice(-2, -1)[0], 10)
             : pid;
           const isInternalObtainable = [
             1,
@@ -428,8 +427,8 @@ export function generateSuggestions(
     const locations = Object.values(locationMap as Record<string, any>).map(
       (loc) => ({ ...loc, yield: loc.pids.size }),
     );
-    const partyHasFly = saveData.partyDetails?.some(
-      (p: PokemonInstance) => p.moves && p.moves.includes(19),
+    const partyHasFly = saveData.partyDetails?.some((p: PokemonInstance) =>
+      p.moves?.includes(19),
     );
     locations.sort((a, b) =>
       partyHasFly
@@ -545,7 +544,7 @@ export function generateSuggestions(
 
   // Gifts/Statics
   for (const [pidStr, gift] of Object.entries(STATIC_GIFT_DATA)) {
-    const pid = parseInt(pidStr);
+    const pid = parseInt(pidStr, 10);
     if (gift.gen && gift.gen !== saveData.generation) continue;
     if (gift.name.includes("Yellow only") && displayVersion !== "yellow")
       continue;
@@ -619,7 +618,7 @@ export function generateSuggestions(
       ? saveData.badges
       : (saveData.johtoBadges || 0) + (saveData.kantoBadges || 0);
   const caps = OBEDIENCE_CAPS.filter((c) => totalBadges >= c.badges);
-  const currentCap = caps.length > 0 ? caps[caps.length - 1]!.level : 10;
+  const currentCap = caps.length > 0 ? (caps[caps.length - 1]?.level ?? 10) : 10;
   const disobedient = saveData.partyDetails.filter(
     (p) =>
       p.otName && p.otName !== saveData.trainerName && p.level > currentCap,
@@ -640,7 +639,7 @@ export function generateSuggestions(
     if (!chain) return;
 
     const findInChain = (node: any): any => {
-      const id = parseInt(node.species.url.split("/").slice(-2, -1)[0]);
+      const id = parseInt(node.species.url.split("/").slice(-2, -1)[0], 10);
       if (id === p.speciesId) return node;
       for (const child of node.evolves_to) {
         const res = findInChain(child);

@@ -17,7 +17,7 @@ export const pokemonListQueryOptions = queryOptions({
     return data.results
       .map((p: { name: string; url: string }) => {
         const urlParts = p.url.split("/").filter(Boolean);
-        const id = parseInt(urlParts[urlParts.length - 1]!);
+        const id = parseInt(urlParts[urlParts.length - 1]!, 10);
         return {
           id,
           name: p.name.charAt(0).toUpperCase() + p.name.slice(1),

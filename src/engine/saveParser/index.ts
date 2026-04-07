@@ -1039,9 +1039,9 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   const gen2Maps = gen2MapLocations as Record<string, Record<string, string>>;
   if (
     gen2Maps[mapGroup.toString()] &&
-    gen2Maps[mapGroup.toString()]![currentMapId.toString()]
+    gen2Maps[mapGroup.toString()]?.[currentMapId.toString()]
   ) {
-    currentMapName = gen2Maps[mapGroup.toString()]![currentMapId.toString()]!;
+    currentMapName = gen2Maps[mapGroup.toString()]?.[currentMapId.toString()]!;
   }
 
   // Detailed inventory parsing for Gen 2 could be added here later

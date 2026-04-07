@@ -1,6 +1,5 @@
 import { argosScreenshot } from "@argos-ci/playwright";
 import { expect, test } from "@playwright/experimental-ct-react";
-import React from "react";
 import { VersionModalStory } from "./VersionModal.story";
 
 // Component tests run in a real browser context
@@ -10,7 +9,7 @@ test.describe("VersionModal", () => {
     mount,
     page,
   }) => {
-    const component = await mount(<VersionModalStory />);
+    const _component = await mount(<VersionModalStory />);
 
     // Ensure the modal has animated in and is visible
     await expect(page.locator("text=Select Game Version")).toBeVisible();

@@ -1,5 +1,4 @@
 import { Search, X } from "lucide-react";
-import React from "react";
 import type { FilterType } from "../store";
 import { useStore } from "../store";
 import { cn } from "../utils/cn";

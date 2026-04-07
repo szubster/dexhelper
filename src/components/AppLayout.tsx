@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import {
   AlertTriangle,
-  Database,
   LayoutGrid,
   RefreshCw,
   Settings2,
@@ -11,7 +10,6 @@ import {
 } from "lucide-react";
 import type React from "react";
 import { parseSaveFile } from "../engine/saveParser/index";
-import type { GameVersion } from "../store";
 import { useStore } from "../store";
 import { cn } from "../utils/cn";
 import { getGenerationConfig, VERSION_THEMES } from "../utils/generationConfig";

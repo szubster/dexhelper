@@ -4,7 +4,6 @@ import type {
   Encounter as PokeEncounter,
   VersionEncounterDetail,
 } from "pokenode-ts";
-import React from "react";
 import { staticEncounters } from "../../../utils/data";
 
 interface PokemonLocationsProps {

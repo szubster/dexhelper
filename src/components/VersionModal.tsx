@@ -1,5 +1,4 @@
 import { AlertTriangle } from "lucide-react";
-import React, { useEffect, useState } from "react";
 import type { GameVersion } from "../store";
 import { useStore } from "../store";
 import { getGenerationConfig } from "../utils/generationConfig";

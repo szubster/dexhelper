@@ -1,5 +1,4 @@
 import { CheckCircle2, CircleDot, MapPin, Sparkles } from "lucide-react";
-import React from "react";
 import {
   gen2Items,
   gen2Locations,

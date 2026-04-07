@@ -192,6 +192,6 @@ describe("useAssistant - generateSuggestions logic", () => {
       (s) => s.title === "Catch Right Here",
     );
     expect(catchRightHereTips.length).toBe(1);
-    expect(catchRightHereTips[0]!.id).toBe("catch-local");
+    expect(catchRightHereTips[0]?.id).toBe("catch-local");
   });
 });

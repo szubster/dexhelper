@@ -1,35 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "@tanstack/react-router";
 import {
-  AlertCircle,
   Bug,
   Egg,
-  Fish,
   Flag,
   Info,
   Loader2,
   Sparkles,
   Target,
-  Trees,
-  Waves,
   Zap,
 } from "lucide-react";
 import React from "react";
 import type { SaveData } from "../engine/saveParser/index";
-import {
-  EncounterDetail,
-  RejectedSuggestion,
-  type Suggestion,
-  useAssistant,
-} from "../hooks/useAssistant";
-import {
-  getGenerationConfig,
-  MAX_DEX_ACROSS_GENS,
-} from "../utils/generationConfig";
+import { type Suggestion, useAssistant } from "../hooks/useAssistant";
+import { MAX_DEX_ACROSS_GENS } from "../utils/generationConfig";
 import { pokeapi } from "../utils/pokeapi";
 import { AssistantDebugView } from "./assistant/AssistantDebugView";
 import { AssistantSuggestionCard } from "./assistant/AssistantSuggestionCard";
-import { PokemonSprite } from "./pokemon/PokemonSprite";
 
 interface AssistantPanelProps {
   saveData: SaveData;
@@ -170,7 +156,7 @@ export function AssistantPanel({
             suggestions.reduce(
               (acc, s) => {
                 if (!acc[s.category]) acc[s.category] = [];
-                acc[s.category]!.push(s);
+                acc[s.category]?.push(s);
                 return acc;
               },
               {} as Record<string, Suggestion[]>,

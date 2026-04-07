@@ -1,5 +1,4 @@
 import { AlertCircle, Bug } from "lucide-react";
-import React from "react";
 import type { RejectedSuggestion } from "../../hooks/useAssistant";
 
 interface AssistantDebugViewProps {

@@ -1,40 +1,21 @@
 import { useQueries, useQuery } from "@tanstack/react-query";
 import {
-  Activity,
   AlertCircle,
-  AlertTriangle,
-  ArrowUpCircle,
-  Check,
   CheckCircle2,
-  ChevronRight,
-  CircleDot,
-  Eye,
-  Ghost,
-  Heart,
-  Info,
   MapPin,
   Monitor,
-  Package,
   Sparkles,
-  Target,
   X,
-  XCircle,
-  Zap,
 } from "lucide-react";
 import type {
   LocationAreaEncounter,
-  Encounter as PokeEncounter,
   VersionEncounterDetail,
 } from "pokenode-ts";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import type { SaveData } from "../engine/saveParser/index";
 import type { PokeballType } from "../store";
 import { cn } from "../utils/cn";
-import {
-  stadiumRewardsData,
-  stadiumRewardsSummary,
-  staticEncounters,
-} from "../utils/data";
+import { stadiumRewardsSummary, staticEncounters } from "../utils/data";
 import { getGenerationConfig } from "../utils/generationConfig";
 import { pokeapi } from "../utils/pokeapi";
 import { PokemonCatchProbability } from "./pokemon/details/PokemonCatchProbability";
@@ -79,7 +60,7 @@ interface PokemonDetailsProps {
 
 // gen2Items and gen2Locations moved to data.ts
 
-const modalVariants = {
+const _modalVariants = {
   hidden: { opacity: 0, scale: 0.95, y: 40 },
   visible: {
     opacity: 1,
@@ -101,7 +82,7 @@ const modalVariants = {
   },
 } as const;
 
-const contentVariants = {
+const _contentVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -147,20 +128,20 @@ export function PokemonDetails({
 
   // Calculator state moved to PokemonCatchProbability
 
-  const encountersReady = queries[0].isSuccess;
-  const pokemonReady = queries[1].isSuccess;
-  const speciesReady = queries[2].isSuccess;
+  const _encountersReady = queries[0].isSuccess;
+  const _pokemonReady = queries[1].isSuccess;
+  const _speciesReady = queries[2].isSuccess;
 
   const encounters = queries[0].data || [];
   const pokemonData = queries[1].data;
   const speciesData = queries[2].data;
 
   const catchRate = speciesData?.capture_rate ?? null;
-  const genderRate = speciesData?.gender_rate ?? -1;
+  const _genderRate = speciesData?.gender_rate ?? -1;
 
   const { data: evolutionData } = useQuery({
     queryKey: ["evolution", speciesData?.evolution_chain?.url],
-    queryFn: () => pokeapi.resource(speciesData!.evolution_chain.url),
+    queryFn: () => pokeapi.resource(speciesData?.evolution_chain.url),
     enabled: !!speciesData?.evolution_chain?.url,
   });
 
@@ -171,6 +152,7 @@ export function PokemonDetails({
     const fromId = parseInt(
       speciesData.evolves_from_species.url.split("/").filter(Boolean).pop() ||
         "0",
+      10,
     );
 
     // For saves from gens that don't have this pre-evolution, ignore it (e.g., baby Pokemon in Gen 1)
@@ -222,6 +204,7 @@ export function PokemonDetails({
           .map((evo: any) => {
             const id = parseInt(
               evo.species.url.split("/").filter(Boolean).pop() || "0",
+              10,
             );
             // For saves from gens that don't have this evolution, ignore it
             if (
@@ -279,6 +262,7 @@ export function PokemonDetails({
       if (node.species.name !== speciesData.name) {
         const id = parseInt(
           node.species.url.split("/").filter(Boolean).pop() || "0",
+          10,
         );
         parents.push({
           id,
@@ -296,7 +280,7 @@ export function PokemonDetails({
       parentNames: parents.map((p) => p.name),
       method: "Breed evolved form with Ditto or same egg group",
     };
-  }, [speciesData, evolutionData]);
+  }, [speciesData, evolutionData, saveData?.generation, saveData]);
 
   const loading =
     queries.some((q) => q.isLoading) ||
@@ -306,8 +290,8 @@ export function PokemonDetails({
     const locations: { name: string; details: string }[] = [];
 
     const staticData = staticEncounters[pokemonId];
-    if (staticData && staticData[version as keyof typeof staticData]) {
-      staticData[version as keyof typeof staticData]!.forEach((loc) => {
+    if (staticData?.[version as keyof typeof staticData]) {
+      staticData[version as keyof typeof staticData]?.forEach((loc) => {
         locations.push({
           name: loc,
           details: "Static Encounter / Gift / Trade",
@@ -370,14 +354,14 @@ export function PokemonDetails({
     return locations;
   };
 
-  const redLocations = getLocationsForVersion("red");
-  const blueLocations = getLocationsForVersion("blue");
-  const yellowLocations = getLocationsForVersion("yellow");
-  const goldLocations = getLocationsForVersion("gold");
-  const silverLocations = getLocationsForVersion("silver");
-  const crystalLocations = getLocationsForVersion("crystal");
+  const _redLocations = getLocationsForVersion("red");
+  const _blueLocations = getLocationsForVersion("blue");
+  const _yellowLocations = getLocationsForVersion("yellow");
+  const _goldLocations = getLocationsForVersion("gold");
+  const _silverLocations = getLocationsForVersion("silver");
+  const _crystalLocations = getLocationsForVersion("crystal");
 
-  const renderLocations = (
+  const _renderLocations = (
     locations: { name: string; details: string }[],
     colorClass: string,
   ) => {
@@ -449,14 +433,14 @@ export function PokemonDetails({
 
   const stadiumReward = stadiumRewardsSummary[pokemonId];
 
-  const getGender = (atkDV: number, rate: number) => {
+  const _getGender = (atkDV: number, rate: number) => {
     if (rate === -1) return "Genderless";
     if (rate === 0) return "Male";
     if (rate === 8) return "Female";
     return atkDV < rate * 2 ? "Female" : "Male";
   };
 
-  const getUnownForm = (dvs: {
+  const _getUnownForm = (dvs: {
     atk: number;
     def: number;
     spd: number;

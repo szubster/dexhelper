@@ -9,7 +9,7 @@ export const ONE_TIME_CHOICES = {
 export function getUnobtainableReason(
   pokemonId: number,
   gameVersion: string,
-  ownedCount: number, // Total current caught count
+  _ownedCount: number, // Total current caught count
   ownedSet: Set<number>,
 ): string | null {
   // Yellow specific - Raichu

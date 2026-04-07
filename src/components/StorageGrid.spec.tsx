@@ -1,6 +1,5 @@
 import { argosScreenshot } from "@argos-ci/playwright";
 import { expect, test } from "@playwright/experimental-ct-react";
-import React from "react";
 import { StorageGridStory } from "./StorageGrid.story";
 
 test.describe("StorageGrid", () => {
@@ -8,7 +7,7 @@ test.describe("StorageGrid", () => {
     mount,
     page,
   }) => {
-    const component = await mount(<StorageGridStory />);
+    const _component = await mount(<StorageGridStory />);
 
     // Check for filled locations
     await expect(page.getByText("Party", { exact: true })).toBeVisible();

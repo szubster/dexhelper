@@ -1,5 +1,5 @@
 import { Target } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import type { PokeballType } from "../../../store";
 import { cn } from "../../../utils/cn";
 

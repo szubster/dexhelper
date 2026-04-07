@@ -1,4 +1,4 @@
-import { GEN1_MAPS, getDistanceToMap, INDOOR_TO_PARENT_MAP } from "./gen1Graph";
+import { getDistanceToMap, INDOOR_TO_PARENT_MAP } from "./gen1Graph";
 import type { MapDistanceResult, MapGraph } from "./types";
 
 // Re-export for backward compat

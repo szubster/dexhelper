@@ -1,10 +1,6 @@
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from "node:fs";
+import * as path from "node:path";
 import { describe, expect, it } from "vitest";
-import {
-  fetchAssistantApiData,
-  generateSuggestions,
-} from "../assistant/suggestionEngine";
 import { parseSaveFile } from "./index";
 
 describe("Yellow Save Repro", () => {
