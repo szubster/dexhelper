@@ -71,16 +71,20 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
           const isShiny = shinySpeciesIds.has(pokemon.id);
 
           return (
-            <div
-              key={pokemon.id}
-              onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
-              className={cn(
-                "group relative flex flex-col p-4 rounded-[2rem] transition-all duration-300 cursor-pointer overflow-hidden glass-card hover:-translate-y-1.5 active:scale-95 animate-in slide-in-from-bottom-4 zoom-in-95 fill-mode-both",
-                hadButLost ? "border-purple-500/30" : isOwned ? (isShiny ? "border-amber-500/30" : "border-[var(--theme-primary)]/30") : "border-white/5",
-                isUnseen && "opacity-40 grayscale"
-              )}
-              style={{ animationDelay: `${(idx % 20) * 0.02}s` }}
-            >
+              <div
+                data-testid="pokedex-card"
+                data-pokemon-id={pokemon.id}
+                key={pokemon.id}
+                onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
+                className={cn(
+                  "group relative p-4 rounded-3xl transition-all duration-500 cursor-pointer border-2 hover:scale-[1.02] active:scale-[0.98]",
+                  hasInStorage 
+                    ? "bg-zinc-900 border-emerald-500/30 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]" 
+                    : "bg-zinc-900 border-white/5 hover:border-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]",
+                  saveData?.owned.has(pokemon.id) && !hasInStorage && "border-amber-500/30 hover:border-amber-500/50"
+                )}
+                style={{ animationDelay: `${(idx % 20) * 0.02}s` }}
+              >
               {/* Card Header: Num & Icons */}
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/5 border border-white/5">

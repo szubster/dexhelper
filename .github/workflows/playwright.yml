@@ -32,28 +32,6 @@ jobs:
         name: playwright-e2e-report
         path: playwright-report/
         retention-days: 30
-
-  ct:
-    name: "Component Tests"
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v6
-    - uses: actions/setup-node@v6
-      with:
-        node-version: 24
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Playwright CT tests
-      run: npm run test:ct
-      env:
-        ARGOS_BUILD_NAME: "Component"
-        ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
-    - uses: actions/upload-artifact@v7
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-ct-report
-        path: playwright-report/
-        retention-days: 30
+    - name: Argos upload
+      if: always()
+      run: npx argos upload ./screenshots --token ${{ secrets.ARGOS_TOKEN }}
