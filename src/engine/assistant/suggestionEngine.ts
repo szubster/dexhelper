@@ -428,6 +428,12 @@ export function generateSuggestions(
     const currentNode = findInChain(chain.chain);
     if (currentNode && currentNode.evolves_to.length > 0) {
       currentNode.evolves_to.forEach((evoNode: any) => {
+        const evoId = parseInt(evoNode.species.url.split('/').slice(-2, -1)[0]);
+        if (ownedSet.has(evoId)) {
+          rejected.push({ pokemonId: evoId, reason: 'Already own evolved form', code: 'EVO_ALREADY_OWNED' });
+          return;
+        }
+
         const details = evoNode.evolution_details[0];
         if (!details) return;
 
