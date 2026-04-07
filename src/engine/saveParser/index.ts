@@ -1,3 +1,7 @@
+import gen1MapLocations from '../data/gen1/mapLocations.json';
+import gen2MapLocations from '../data/gen2/mapLocations.json';
+import gen2Landmarks from '../data/gen2/landmarks.json';
+
 export const INTERNAL_ID_TO_DEX: Record<number, number> = {
   1: 112, 2: 115, 3: 32, 4: 35, 5: 21, 6: 100, 7: 34, 8: 80, 9: 2, 10: 103,
   11: 108, 12: 102, 13: 88, 14: 94, 15: 29, 16: 31, 17: 104, 18: 111, 19: 131, 20: 59,
@@ -32,6 +36,7 @@ export interface PokemonInstance {
     time: 'Morning' | 'Day' | 'Night' | 'Unknown';
     level: number;
     location: number;
+    locationName?: string;
   };
   dvs: { hp: number, atk: number, def: number, spd: number, spc: number };
   otName?: string;
@@ -52,6 +57,7 @@ export interface SaveData {
   trainerName: string;
   trainerId: number;
   currentMapId: number;
+  currentMapName?: string;
   mapGroup?: number;
   johtoBadges?: number;
   kantoBadges?: number;
@@ -59,6 +65,7 @@ export interface SaveData {
   currentBoxCount: number;
   hallOfFameCount: number;
   eventFlags?: Uint8Array;
+  npcTradeFlags?: number;
 }
 
 const GEN12_CHAR_MAP: Record<number, string> = {
@@ -100,52 +107,78 @@ function checkShiny(dvs: { atk: number, def: number, spd: number, spc: number })
   return dvs.def === 10 && dvs.spd === 10 && dvs.spc === 10 && [2, 3, 6, 7, 10, 11, 14, 15].includes(dvs.atk);
 }
 
-function detectGen1GameVersion(owned: Set<number>, seen: Set<number>): GameVersion {
-  // Version exclusives that are unlikely to be traded in bulk early game
-  const redExclusives = [23, 24, 43, 44, 45, 56, 57, 58, 59, 123, 125]; // Ekans, Oddish, Mankey, Growlithe, Scyther, Electabuzz
-  const blueExclusives = [27, 28, 37, 38, 52, 53, 69, 70, 71, 127, 126]; // Sandshrew, Vulpix, Meowth, Bellsprout, Pinsir, Magmar
+function detectGen1GameVersion(
+  u8: Uint8Array,
+  owned: Set<number>,
+  seen: Set<number>,
+  trainerName: string,
+  partyDetails: { speciesId: number, otName: string }[]
+): GameVersion {
+  // 1. High-confidence Yellow markers in English version
+  // 0x271C: Following Pikachu status, 0x271D: Pikachu Happiness
+  const followingPikachu = u8[0x271C];
+  const pikachuHappiness = u8[0x271D];
+  
+  // If these are non-zero and not FF (unitialized), it's almost certainly Yellow.
+  // We use > 0 and < 0xFF to be safe against garbage data.
+  if ((followingPikachu !== undefined && followingPikachu > 0 && followingPikachu < 0xFF) || 
+      (pikachuHappiness !== undefined && pikachuHappiness > 0 && pikachuHappiness < 0xFF)) {
+    return 'yellow';
+  }
+
+  // 2. Version exclusives scoring
+  const redExclusives = [23, 24, 43, 44, 45, 56, 57, 58, 59, 123, 125]; 
+  const blueExclusives = [27, 28, 37, 38, 52, 53, 69, 70, 71, 127, 126];
   const yellowMissing = [13, 14, 15, 23, 24, 26, 52, 53, 109, 110, 124, 125, 126];
 
   let redScore = 0;
   let blueScore = 0;
   let yellowPenalty = 0;
 
+  // Function to check if a species is actually "native" (not traded)
+  const isNative = (id: number) => {
+    // Check if it's in the current party with matching OT
+    const inParty = partyDetails.find(p => p.speciesId === id);
+    if (inParty) return inParty.otName === trainerName;
+    // If not in party, we assume native if it's just 'seen' or 'owned' but we can't verify OT easily without parsing everything.
+    // However, if we HAVE it and it's traded, we shouldn't count it.
+    return true; 
+  };
+
   for (const id of redExclusives) {
-    if (owned.has(id)) redScore += 2;
+    if (owned.has(id) && isNative(id)) redScore += 2;
     else if (seen.has(id)) redScore += 1;
   }
   for (const id of blueExclusives) {
-    if (owned.has(id)) blueScore += 2;
+    if (owned.has(id) && isNative(id)) blueScore += 2;
     else if (seen.has(id)) blueScore += 1;
   }
   for (const id of yellowMissing) {
-    if (owned.has(id)) yellowPenalty += 2;
+    if (owned.has(id) && isNative(id)) yellowPenalty += 2;
     else if (seen.has(id)) yellowPenalty += 1;
   }
 
-  // Yellow detection: missing several common Gen 1 Pokemon 
-  // and has Pikachu (usually) or other gift Pokemon
   const isPikachuStarter = owned.has(25);
   
+  // Extra check: Pikachu starter in party with matching OT
+  const pikachuInParty = partyDetails.find(p => p.speciesId === 25);
+  const isNativePikachu = pikachuInParty && pikachuInParty.otName === trainerName;
+
   if (yellowPenalty === 0 && (redScore > 0 || blueScore > 0 || isPikachuStarter)) {
-    // If we have some exclusives from both R and B, it's likely Yellow (since it has many from both)
     if (redScore > 0 && blueScore > 0) return 'yellow';
-    // If it's early game and we have Pikachu but no exclusives, it's likely Yellow
-    if (isPikachuStarter && redScore === 0 && blueScore === 0) return 'yellow';
+    if (isNativePikachu && redScore === 0 && blueScore === 0) return 'yellow';
   }
   
-  // High confidence detection
+  // If scores are very close or zero, return unknown to trigger manual selection
+  if (Math.abs(redScore - blueScore) < 2 && redScore < 4 && !isNativePikachu) return 'unknown';
+
   if (redScore > blueScore + 2) return 'red';
   if (blueScore > redScore + 2) return 'blue';
-
-  // If scores are very close or zero, return unknown to trigger manual selection
-  if (Math.abs(redScore - blueScore) < 2 && redScore < 4 && !isPikachuStarter) return 'unknown';
 
   if (redScore > blueScore) return 'red';
   if (blueScore > redScore) return 'blue';
   
   return 'unknown';
-
 }
 
 
@@ -238,6 +271,27 @@ export function parseSaveFile(buffer: ArrayBuffer, forcedVersion?: GameVersion):
 }
 
 function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
+  const trainerName = decodeGen12String(u8, 0x2598);
+
+  // Quick parse of party to get OTs for accurate version detection
+  const partyCount = byte(u8, 0x2F2C);
+  const quickParty: { speciesId: number, otName: string }[] = [];
+  const partyDataOffset = 0x2F2D + 7;
+  const partyOTOffset = partyDataOffset + (6 * 44);
+  
+  // Note: we don't know the shift yet, so we try both for quick party if needed,
+  // but usually OTs don't move or we can guess. For now, let's just use the default
+  // and hope it's enough for version detection.
+  for (let i = 0; i < partyCount; i++) {
+    const offset = partyDataOffset + (i * 44);
+    const internalId = byte(u8, offset);
+    const speciesId = INTERNAL_ID_TO_DEX[internalId];
+    if (speciesId) {
+      const otName = decodeGen12String(u8, partyOTOffset + (i * 11));
+      quickParty.push({ speciesId, otName });
+    }
+  }
+
   // Try to detect version by checking Pokedex at both possible offsets (0 and +1)
   // Yellow shifted by +1 after PlayerName (offset 0x2598 + 11 = 0x25A3).
   
@@ -256,40 +310,33 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     // High-confidence Yellow indicators: bit 152 (last bit of 19-byte Pokedex) must be 0.
     // In Yellow, the Happiness byte (at A3) is often FF or high value, which would make bit 7 of the "shifted-Pokedex-last-byte" 1 if we read from A3.
     const paddingBitIsCorrect = ((ownedBytes[18] ?? 0) & 0x80) === 0;
-    const version = detectGen1GameVersion(owned, seen);
+    const version = detectGen1GameVersion(u8, owned, seen, trainerName, quickParty);
     return { version, owned, seen, paddingBitIsCorrect };
   };
 
   const res0 = detectForOffset(0x25A3);
   const res1 = detectForOffset(0x25A4);
 
-  // If forcedVersion is provided, respect it. Otherwise use robust indicators.
+  // Pick the probe that looks more correct for the structure, primarily using the padding bit.
+  const resToUse = (res1.paddingBitIsCorrect && !res0.paddingBitIsCorrect) ? res1 : res0;
+  
   let isYellow = forcedVersion === 'yellow';
   if (!forcedVersion) {
-    if (!res0.paddingBitIsCorrect && res1.paddingBitIsCorrect) {
-      isYellow = true;
-    } else if (res1.version === 'yellow') {
-      isYellow = true;
-    } else if (res0.version === 'unknown' && res1.version !== 'unknown') {
+    if (resToUse === res1 || res0.version === 'yellow' || res1.version === 'yellow') {
       isYellow = true;
     }
   }
   
-  const offsetShift = 0; // English R/B/Y saves don't actually shift these offsets in SRAM
-  const gameVersion = isYellow ? 'yellow' : (forcedVersion && forcedVersion !== 'unknown' ? forcedVersion : res0.version);
-  const { owned, seen } = res0;
-
-  const partyCount = byte(u8, 0x2F2C);
-  const partySpecies = u8.slice(0x2F2D, 0x2F2D + partyCount);
-  const party = Array.from(partySpecies)
-    .map(id => INTERNAL_ID_TO_DEX[id])
-    .filter((id): id is number => id !== undefined);
+  const offsetShift = resToUse === res1 ? 1 : 0; 
+  const gameVersion = isYellow ? 'yellow' : (forcedVersion && forcedVersion !== 'unknown' ? forcedVersion : resToUse.version);
+  const { owned, seen } = resToUse;
 
   const partyDetails: PokemonInstance[] = [];
-  const partyDataOffset = 0x2F2D + 7;
-  const partyOTOffset = partyDataOffset + (6 * 44);
+  const shiftedPartyDataOffset = 0x2F2D + offsetShift + 7;
+  const shiftedPartyOTOffset = shiftedPartyDataOffset + (6 * 44);
+  
   for (let i = 0; i < partyCount; i++) {
-    const offset = partyDataOffset + (i * 44);
+    const offset = shiftedPartyDataOffset + (i * 44);
     const internalId = byte(u8, offset);
     const speciesId = INTERNAL_ID_TO_DEX[internalId];
     if (!speciesId) continue;
@@ -297,19 +344,21 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter(m => m > 0);
     const dvs = parseDVs(u8.slice(offset + 27, offset + 29));
     const isShiny = checkShiny(dvs);
-    const otName = decodeGen12String(u8, partyOTOffset + (i * 11));
+    const otName = decodeGen12String(u8, shiftedPartyOTOffset + (i * 11));
     partyDetails.push({ speciesId, level, isShiny, moves, dvs, otName, storageLocation: 'Party', slot: i + 1 });
   }
 
-  const currentBoxNum = byte(u8, 0x284C) & 0x7F;
-  const currentBoxCount = byte(u8, 0x30C0);
-  const currentBoxSpecies = u8.slice(0x30C1, 0x30C1 + currentBoxCount);
+  const party = partyDetails.map(p => p.speciesId);
+
+  const currentBoxNum = byte(u8, 0x284C + offsetShift) & 0x7F;
+  const currentBoxCount = byte(u8, 0x30C0 + offsetShift);
+  const currentBoxSpecies = u8.slice(0x30C1 + offsetShift, 0x30C1 + offsetShift + currentBoxCount);
   const pc = Array.from(currentBoxSpecies)
     .map(id => INTERNAL_ID_TO_DEX[id])
     .filter((id): id is number => id !== undefined);
 
   const pcDetails: PokemonInstance[] = [];
-  const currentBoxDataOffset = 0x30C1 + 21;
+  const currentBoxDataOffset = 0x30C1 + offsetShift + 21;
   const currentBoxOTOffset = currentBoxDataOffset + (20 * 33);
   for (let i = 0; i < currentBoxCount; i++) {
     const offset = currentBoxDataOffset + (i * 33);
@@ -360,14 +409,14 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     }
   }
 
-  const trainerName = decodeGen12String(u8, 0x2598);
-  const badges = byte(u8, 0x2602);
-  const trainerId = (byte(u8, 0x2605) << 8) | byte(u8, 0x2606);
-  const currentMapId = byte(u8, 0x260A); 
+  const badges = byte(u8, 0x2602 + offsetShift);
+  const trainerId = (byte(u8, 0x2605 + offsetShift) << 8) | byte(u8, 0x2606 + offsetShift);
+  const currentMapId = byte(u8, 0x260A + offsetShift);
+  const currentMapName = (gen1MapLocations as Record<string, string>)[currentMapId.toString()] || 'Unknown Map';
   const inventory: { id: number, quantity: number }[] = [];
-  const itemCount = byte(u8, 0x25C9);
+  const itemCount = byte(u8, 0x25C9 + offsetShift);
   for (let i = 0; i < itemCount; i++) {
-    const itemOffset = 0x25CA + (i * 2);
+    const itemOffset = 0x25CA + offsetShift + (i * 2);
     inventory.push({ id: byte(u8, itemOffset), quantity: byte(u8, itemOffset + 1) });
   }
 
@@ -385,10 +434,12 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     trainerName,
     trainerId,
     currentMapId,
+    currentMapName,
     inventory,
     currentBoxCount,
     hallOfFameCount: byte(u8, 0x25B3 + offsetShift) === 0xFF ? 0 : byte(u8, 0x25B3 + offsetShift),
-    eventFlags: u8.slice(0x29E6 + offsetShift, 0x29E6 + offsetShift + 0x118)
+    eventFlags: u8.slice(0x29E6 + offsetShift, 0x29E6 + offsetShift + 0x118),
+    npcTradeFlags: byte(u8, 0x29E6 + offsetShift - 16) | (byte(u8, 0x29E6 + offsetShift - 15) << 8)
   };
 }
 
@@ -406,8 +457,15 @@ function parseCaughtData(u8: Uint8Array, offset: number) {
   if (timeBits === 1) time = 'Morning';
   else if (timeBits === 2) time = 'Day';
   else if (timeBits === 3) time = 'Night';
+
+  let locationName: string | undefined = undefined;
+  if (location === 0x7E) locationName = 'Event/Gift';
+  else if (location === 0x7F) locationName = 'Special Event/Traded';
+  else {
+    locationName = (gen2Landmarks as Record<string, string>)[location.toString()];
+  }
   
-  return { time, level: caughtLevel, location };
+  return { time, level: caughtLevel, location, locationName };
 }
 
 function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
@@ -578,6 +636,12 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   const mapGroup = byte(u8, mapBankOffset);
   const currentMapId = byte(u8, mapIdOffset);
 
+  let currentMapName = 'Unknown Map';
+  const gen2Maps = (gen2MapLocations as Record<string, Record<string, string>>);
+  if (gen2Maps[mapGroup.toString()] && gen2Maps[mapGroup.toString()]![currentMapId.toString()]) {
+    currentMapName = gen2Maps[mapGroup.toString()]![currentMapId.toString()]!;
+  }
+
   // Detailed inventory parsing for Gen 2 could be added here later
   const inventory: { id: number, quantity: number }[] = [];
 
@@ -599,6 +663,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     trainerName,
     trainerId,
     currentMapId,
+    currentMapName,
     mapGroup,
     inventory,
     currentBoxCount: 0,

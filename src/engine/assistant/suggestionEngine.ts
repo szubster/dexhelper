@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { SaveData, PokemonInstance } from '../saveParser/index';
 import { pokeapi } from '../../utils/pokeapi';
-import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA } from '../data/gen1/assistantData';
+import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
 import { getDistanceToMap } from '../mapGraph/gen1Graph';
 import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
 import { getGenerationConfig } from '../../utils/generationConfig';
@@ -128,7 +128,11 @@ export function generateSuggestions(
 
   const effectiveVersion = manualVersion || saveData.gameVersion;
   const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
-  const queryTargets = missingIds.slice(0, 30); 
+  const queryTargets = missingIds.slice(0, 100); 
+
+  const localSlug = saveData.generation === 1 
+    ? (GEN1_MAP_TO_SLUG[saveData.currentMapId] || '')
+    : 'new-bark-town-area';
 
   // A. Catch logic
   if (apiData.localEncounters) {
@@ -165,9 +169,10 @@ export function generateSuggestions(
        }
     }
     if (localPids.length > 0) {
+        const areaName = saveData.currentMapName || 'where you need to be';
         suggestions.push({
           id: 'catch-local', category: 'Catch', title: 'Catch Right Here',
-          description: `You are exactly where you need to be! There are ${localPids.length} missing Pokémon right here.`,
+          description: `You are exactly ${areaName}! There are ${localPids.length} missing Pokémon right here.`,
           pokemonIds: localPids, priority: 120,
           encounterInfo: localEncounterInfo
         });
@@ -175,7 +180,7 @@ export function generateSuggestions(
   }
 
   if (apiData.missingEncounters) {
-    const locationMap: Record<string, { name: string, distance: number, pids: Set<number>, slug: string }> = {};
+    const locationMap: Record<string, { name: string, distance: number, pids: Set<number>, slug: string, encounterMap: Map<number, EncounterDetail[]> }> = {};
     let unobtainableCount = 0;
 
     for (const pid of queryTargets) {
@@ -236,16 +241,30 @@ export function generateSuggestions(
           }
        }
 
-       if (!isCatchableSomewhere && !ownedSet.has(pid)) {
-           rejected.push({ pokemonId: pid, reason: `Not catchable in ${displayVersion} version.`, code: 'VERSION_EXCLUSIVE' });
-           suggestions.push({ 
-               id: `trade-${pid}`, category: 'Trade', title: `Version Exclusive: #${pid}`, 
-               description: `This Pokémon is not available in ${displayVersion}. You must trade for it.`, 
-               pokemonId: pid, priority: 50 - unobtainableCount,
-               debugInfo: { priorityScore: 50 - unobtainableCount, reasoning: 'Version exclusivity check' }
-           });
-           unobtainableCount++;
-           continue;
+        if (!isCatchableSomewhere && !ownedSet.has(pid)) {
+           // Suppress version exclusive if it can be obtained via NPC trade or Gift
+           const isTradeAvailable = STATIC_NPC_TRADE_DATA.some(t => 
+             t.gen === saveData.generation && 
+             t.receivedId === pid && 
+             (!t.versions || t.versions.includes(displayVersion))
+           );
+           
+           const giftEntry = STATIC_GIFT_DATA[pid];
+           const hasDirectGift = !!giftEntry && 
+             (!giftEntry.gen || giftEntry.gen === saveData.generation) &&
+             (!giftEntry.name.includes('Yellow only') || displayVersion === 'yellow');
+
+           if (!isTradeAvailable && !hasDirectGift) {
+             rejected.push({ pokemonId: pid, reason: `Not catchable in ${displayVersion} version.`, code: 'VERSION_EXCLUSIVE' });
+             suggestions.push({ 
+                 id: `trade-${pid}`, category: 'Trade', title: `Version Exclusive: #${pid}`, 
+                 description: `This Pokémon is not available in ${displayVersion}. You must trade for it.`, 
+                 pokemonId: pid, priority: 50 - unobtainableCount,
+                 debugInfo: { priorityScore: 50 - unobtainableCount, reasoning: 'Version exclusivity check' }
+             });
+             unobtainableCount++;
+             continue;
+           }
        }
 
        const versionEncounters = encounters.filter((enc: any) => 
@@ -256,9 +275,20 @@ export function generateSuggestions(
            const targetAreaSlug = enc.location_area.name;
            if (!locationMap[targetAreaSlug]) {
                const route = getDistanceToMap(saveData.currentMapId, targetAreaSlug);
-               if (route) locationMap[targetAreaSlug] = { name: route.name, distance: route.distance, pids: new Set(), slug: targetAreaSlug };
+               if (route) locationMap[targetAreaSlug] = { name: route.name, distance: route.distance, pids: new Set(), slug: targetAreaSlug, encounterMap: new Map() };
            }
-           if (locationMap[targetAreaSlug]) locationMap[targetAreaSlug].pids.add(pid);
+           if (locationMap[targetAreaSlug]) {
+               locationMap[targetAreaSlug].pids.add(pid);
+               const versionDetail = enc.version_details.find((vd: any) => vd.version.name === displayVersion);
+               if (versionDetail) {
+                   locationMap[targetAreaSlug].encounterMap.set(pid, versionDetail.encounter_details.map((ed: any) => ({
+                       chance: ed.chance,
+                       method: ed.method.name,
+                       minLevel: ed.min_level,
+                       maxLevel: ed.max_level
+                   })));
+               }
+           }
         }
     }
     const locations = Object.values(locationMap as Record<string, any>).map(loc => ({ ...loc, yield: loc.pids.size }));
@@ -269,22 +299,9 @@ export function generateSuggestions(
         const locEncounterInfo: Record<number, EncounterDetail[]> = {};
         
         pids.forEach(pid => {
-            const pidEncounters = apiData.missingEncounters[pid] || [];
-            const areaEncounter = pidEncounters.find((enc: any) => 
-                enc.location_area.name === loc.slug && 
-                enc.version_details.some((vd: any) => vd.version.name === displayVersion)
-            );
-
-            if (areaEncounter) {
-                const versionDetail = areaEncounter.version_details.find((vd: any) => vd.version.name === displayVersion);
-                if (versionDetail) {
-                    locEncounterInfo[pid] = versionDetail.encounter_details.map((ed: any) => ({
-                        chance: ed.chance,
-                        method: ed.method.name,
-                        minLevel: ed.min_level,
-                        maxLevel: ed.max_level
-                    }));
-                }
+            const mappedEncounter = loc.encounterMap.get(pid);
+            if (mappedEncounter) {
+                locEncounterInfo[pid] = mappedEncounter;
             } else {
                 // Check ancestral encounters if not found directly
                 const aEncsMap = apiData.ancestralEncounters?.[pid] || {};
@@ -320,6 +337,47 @@ export function generateSuggestions(
             encounterInfo: locEncounterInfo
         });
     });
+  }
+
+  // NPC Trades
+  for (const trade of STATIC_NPC_TRADE_DATA) {
+    if (trade.gen !== saveData.generation) continue;
+    if (trade.versions && !trade.versions.includes(displayVersion)) continue;
+
+    let isClaimed = false;
+
+    // Gen 1 specific bit flag check
+    if (saveData.generation === 1 && trade.tradeIndex !== undefined && saveData.npcTradeFlags !== undefined) {
+      isClaimed = (saveData.npcTradeFlags & (1 << trade.tradeIndex)) !== 0;
+    } else {
+      // Fallback for Gen 2 or if bit flags are missing
+      isClaimed = allInstances.some((p: PokemonInstance) =>
+        p.speciesId === trade.receivedId && p.otName === trade.receivedOtName
+      );
+    }
+
+    if (!isClaimed && missingIds.includes(trade.receivedId)) {
+      const hasOffered = ownedSet.has(trade.offeredId);
+      if (hasOffered) {
+        suggestions.push({
+          id: `npc-trade-${trade.receivedId}`,
+          category: 'Trade',
+          title: `Trade for #${trade.receivedId}`,
+          description: `You have #${trade.offeredId}! Trade it at ${trade.location} for #${trade.receivedId}.`,
+          pokemonId: trade.receivedId,
+          priority: 85
+        });
+      } else {
+        suggestions.push({
+          id: `npc-trade-${trade.receivedId}`,
+          category: 'Trade',
+          title: `Trade for #${trade.receivedId}`,
+          description: `Catch #${trade.offeredId} and trade it at ${trade.location} for #${trade.receivedId}.`,
+          pokemonId: trade.receivedId,
+          priority: 65
+        });
+      }
+    }
   }
 
   // Gifts/Statics
@@ -384,6 +442,12 @@ export function generateSuggestions(
     const currentNode = findInChain(chain.chain);
     if (currentNode && currentNode.evolves_to.length > 0) {
       currentNode.evolves_to.forEach((evoNode: any) => {
+        const evoId = parseInt(evoNode.species.url.split('/').slice(-2, -1)[0]);
+        if (ownedSet.has(evoId)) {
+          rejected.push({ pokemonId: evoId, reason: 'Already own evolved form', code: 'EVO_ALREADY_OWNED' });
+          return;
+        }
+
         const details = evoNode.evolution_details[0];
         if (!details) return;
 

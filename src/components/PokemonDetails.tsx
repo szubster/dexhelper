@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useQueries } from '@tanstack/react-query';
 import { X, MapPin, AlertCircle, Info, ArrowUpCircle, CheckCircle2, XCircle, Target, AlertTriangle, Sparkles, Package, Heart, Activity, Zap, ChevronRight, CircleDot, Monitor, Ghost, Eye, Check } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import { staticEncounters, stadiumRewardsData, stadiumRewardsSummary } from '../utils/data';
 import { SaveData } from '../engine/saveParser/index';
 import { pokeapi } from '../utils/pokeapi';
@@ -365,20 +364,14 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
   const isShiny = yourPokemon.some(p => p.isShiny);
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/90 backdrop-blur-xl p-0 sm:p-4"
+    <div
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 animate-in fade-in duration-300"
       onClick={onClose}
     >
-      <motion.div 
-        variants={modalVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
+      <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" />
+      <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-zinc-950/90 w-full h-[95vh] sm:h-[85vh] sm:max-w-5xl rounded-t-[2.5rem] sm:rounded-[3rem] border-t sm:border border-white/10 shadow-2xl overflow-hidden flex flex-col relative"
+        className="bg-zinc-950/90 w-full h-[95vh] sm:h-[85vh] sm:max-w-5xl rounded-t-[2.5rem] sm:rounded-[3rem] border-t sm:border border-white/10 shadow-2xl overflow-hidden flex flex-col relative animate-in slide-in-from-bottom-[100%] sm:zoom-in-95 duration-500 ease-out"
       >
         {/* Scanline Overlay */}
         <div className="absolute inset-0 pointer-events-none scanline-overlay opacity-20" />
@@ -388,9 +381,8 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
           <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-center sm:items-center gap-6 sm:gap-10">
               <div className="relative group">
-                <motion.div 
-                  variants={contentVariants} 
-                  className="w-32 h-32 sm:w-40 sm:h-40 glass-card bg-zinc-900/50 rounded-3xl border-white/10 flex items-center justify-center overflow-hidden relative shadow-2xl"
+                <div
+                  className="w-32 h-32 sm:w-40 sm:h-40 glass-card bg-zinc-900/50 rounded-3xl border-white/10 flex items-center justify-center overflow-hidden relative shadow-2xl animate-in zoom-in-50 fade-in duration-500 delay-100 fill-mode-both"
                 >
                   <div className="absolute inset-0 bg-gradient-to-tr from-[var(--theme-primary)]/10 to-transparent" />
                   <img 
@@ -405,24 +397,19 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                   <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-white/20" />
                   <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-white/20" />
                   <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-white/20" />
-                </motion.div>
+                </div>
                 
                 {isShiny && (
-                  <motion.div 
-                    animate={{ 
-                      opacity: [0.6, 1, 0.6],
-                      scale: [0.9, 1.1, 0.9],
-                    }}
-                    transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                    className="absolute -top-3 -right-3 p-2 bg-amber-500 rounded-xl shadow-[0_0_20px_rgba(245,158,11,0.5)] text-white z-20"
+                  <div
+                    className="absolute -top-3 -right-3 p-2 bg-amber-500 rounded-xl shadow-[0_0_20px_rgba(245,158,11,0.5)] text-white z-20 animate-[pulse_3s_ease-in-out_infinite]"
                   >
                     <Sparkles size={18} />
-                  </motion.div>
+                  </div>
                 )}
               </div>
 
               <div className="text-center sm:text-left">
-                <motion.div variants={contentVariants} className="flex flex-col">
+                <div className="flex flex-col animate-in slide-in-from-bottom-4 fade-in duration-500 delay-200 fill-mode-both">
                   <span className="text-xs font-black text-zinc-500 uppercase tracking-[0.4em] mb-2 font-mono">Index No. {pokemonId.toString().padStart(3, '0')}</span>
                   <h2 className="text-4xl sm:text-6xl font-display font-black uppercase tracking-tighter text-white leading-none mb-4 drop-shadow-sm">
                     {pokemonName}
@@ -460,7 +447,7 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
                       </div>
                     )}
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
 
@@ -521,7 +508,7 @@ export function PokemonDetails({ pokemonId, pokemonName, gameVersion, saveData, 
             </div>
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }

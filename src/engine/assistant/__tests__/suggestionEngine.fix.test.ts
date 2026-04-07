@@ -1,0 +1,50 @@
+import { describe, it, expect } from 'vitest';
+import { generateSuggestions } from '../suggestionEngine';
+
+describe('suggestionEngine - Redundancy Fix Verification', () => {
+  const mockSaveData: any = {
+    generation: 1,
+    gameVersion: 'yellow',
+    // Own 1-50 so that Jynx (124) is within the first 100 missing (100 is the slice limit in engine)
+    owned: new Set([...Array.from({ length: 50 }, (_, i) => i + 1), 25]),
+    seen: new Set([25]),
+    party: [],
+    inventory: [],
+    currentMapId: 0, // Pallet Town
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: []
+  };
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {
+      124: [], // Jynx (not catchable in Yellow, and no NPC trade)
+      122: []  // Mr. Mime (not catchable in Yellow, but NPC trade EXISTS)
+    },
+    ancestralEncounters: { 124: {}, 122: {} },
+    missingChains: {
+      124: { chain: { species: { url: '.../124/' }, evolves_to: [] } },
+      122: { chain: { species: { url: '.../122/' }, evolves_to: [] } }
+    },
+    partyEvolutions: {}
+  };
+
+  it('should only show "Version Exclusive" for Jynx in Yellow', () => {
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
+    const jynxSuggestions = suggestions.filter(s => s.pokemonId === 124);
+    
+    // Jynx: 1 suggestion (Version Exclusive)
+    expect(jynxSuggestions).toHaveLength(1);
+    expect(jynxSuggestions[0]!.title).toContain('Version Exclusive');
+  });
+
+  it('should suppress "Version Exclusive" for Mr. Mime and only show NPC trade', () => {
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
+    const mimeSuggestions = suggestions.filter(s => s.pokemonId === 122);
+    
+    // Mr. Mime: 1 suggestion (NPC Trade)
+    expect(mimeSuggestions).toHaveLength(1);
+    expect(mimeSuggestions[0]!.title).toContain('Trade for #122');
+  });
+});

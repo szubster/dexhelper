@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import { X, Info, Settings2, Archive, CircleDot, Trash2, Check, Ghost, Monitor } from 'lucide-react';
 import { useStore } from '../store';
 import type { PokeballType, GameVersion } from '../store';
@@ -60,6 +59,7 @@ function SettingsControls({
         <select
           value={effectiveVersion}
           onChange={(e) => setManualVersion(e.target.value as GameVersion)}
+          aria-label="Select Game Version"
           className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-xs font-bold text-zinc-200 outline-none focus:border-blue-500 transition-colors"
         >
           <option value="unknown">Auto</option>
@@ -79,7 +79,7 @@ function SettingsControls({
           aria-checked={isLivingDex}
           aria-label="Toggle Living Dex Mode"
           onClick={() => setIsLivingDex(!isLivingDex)}
-          className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors ${isLivingDex ? 'bg-emerald-600' : 'bg-zinc-800'}`}
+          className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${isLivingDex ? 'bg-emerald-600' : 'bg-zinc-800'}`}
         >
           <span className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${isLivingDex ? 'translate-x-6' : 'translate-x-1'}`} />
         </button>
@@ -93,6 +93,7 @@ function SettingsControls({
         <select
           value={globalPokeball}
           onChange={(e) => setGlobalPokeball(e.target.value as PokeballType)}
+          aria-label="Select Ball Style"
           className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-xs font-bold text-zinc-200 outline-none focus:border-amber-500 transition-colors"
         >
           {filteredPokeballs.map(pb => (
@@ -105,10 +106,32 @@ function SettingsControls({
 }
 
 function ClearStorageButton({ onClear }: { onClear: () => void }) {
+  const [isConfirming, setIsConfirming] = React.useState(false);
+
+  if (isConfirming) {
+    return (
+      <div className="flex gap-2 w-full animate-in fade-in zoom-in-95 duration-200">
+        <button
+          onClick={() => setIsConfirming(false)}
+          className="flex-1 p-5 bg-zinc-800 text-zinc-300 rounded-2xl border border-zinc-700 font-bold uppercase tracking-widest text-[10px] hover:bg-zinc-700 transition-all"
+        >
+          Cancel
+        </button>
+        <button
+          onClick={onClear}
+          className="flex-1 flex items-center justify-center gap-2 p-5 bg-red-600 text-white rounded-2xl border border-red-500 font-bold uppercase tracking-widest text-[10px] hover:bg-red-500 transition-all group"
+        >
+          <Trash2 size={14} className="group-hover:rotate-12 transition-transform" />
+          Confirm Delete
+        </button>
+      </div>
+    );
+  }
+
   return (
     <button
-      onClick={onClear}
-      className="w-full flex items-center justify-center gap-3 p-5 bg-red-600/10 text-red-500 rounded-2xl border border-red-600/20 font-bold uppercase tracking-widest text-[10px] hover:bg-red-600/20 transition-all group"
+      onClick={() => setIsConfirming(true)}
+      className="w-full flex items-center justify-center gap-3 p-5 bg-red-600/10 text-red-500 rounded-2xl border border-red-600/20 font-bold uppercase tracking-widest text-[10px] hover:bg-red-600/20 transition-all group animate-in fade-in zoom-in-95 duration-200"
     >
       <Trash2 size={16} className="group-hover:rotate-12 transition-transform" />
       Clear Stored Save
@@ -139,55 +162,46 @@ export function SettingsModal() {
     .map(value => ({ value, label: POKEBALL_LABELS[value] }));
 
   return (
-    <AnimatePresence>
-      <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-          onClick={() => setIsSettingsOpen(false)}
-        />
-        <motion.div
-          initial={{ y: '100%' }}
-          animate={{ y: 0 }}
-          exit={{ y: '100%' }}
-          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          className="relative w-full sm:max-w-md bg-zinc-900 rounded-t-[2.5rem] sm:rounded-[2.5rem] border-t sm:border border-zinc-800 shadow-2xl overflow-hidden"
-        >
-          <div className="p-8 border-b border-zinc-800 flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl font-display font-black uppercase tracking-tight">Menu</h2>
-              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mt-1">Configure your experience</p>
-            </div>
-            <button onClick={() => setIsSettingsOpen(false)} aria-label="Close settings" className="p-3 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors text-zinc-400">
-              <X size={20} />
-            </button>
+    <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
+      <div
+        className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300"
+        onClick={() => setIsSettingsOpen(false)}
+      />
+      <div
+        className="relative w-full sm:max-w-md bg-zinc-900 rounded-t-[2.5rem] sm:rounded-[2.5rem] border-t sm:border border-zinc-800 shadow-2xl overflow-hidden animate-in slide-in-from-bottom-[100%] duration-300 sm:zoom-in-95"
+      >
+        <div className="p-8 border-b border-zinc-800 flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-display font-black uppercase tracking-tight">Menu</h2>
+            <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mt-1">Configure your experience</p>
           </div>
+          <button onClick={() => setIsSettingsOpen(false)} aria-label="Close settings" className="p-3 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors text-zinc-400">
+            <X size={20} />
+          </button>
+        </div>
 
-          <div className="p-8 space-y-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
-            <SettingsLegend />
-            <SettingsControls
-              effectiveVersion={effectiveVersion}
-              setManualVersion={setManualVersion}
-              isLivingDex={isLivingDex}
-              setIsLivingDex={setIsLivingDex}
-              globalPokeball={globalPokeball}
-              setGlobalPokeball={setGlobalPokeball}
-              filteredPokeballs={filteredPokeballs}
-              genConfig={genConfig}
-            />
-            <ClearStorageButton
-              onClear={() => {
-                localStorage.removeItem('last_save_file');
-                setSaveData(null);
-                setManualVersion(null);
-                setIsSettingsOpen(false);
-              }}
-            />
-          </div>
-        </motion.div>
+        <div className="p-8 space-y-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
+          <SettingsLegend />
+          <SettingsControls
+            effectiveVersion={effectiveVersion}
+            setManualVersion={setManualVersion}
+            isLivingDex={isLivingDex}
+            setIsLivingDex={setIsLivingDex}
+            globalPokeball={globalPokeball}
+            setGlobalPokeball={setGlobalPokeball}
+            filteredPokeballs={filteredPokeballs}
+            genConfig={genConfig}
+          />
+          <ClearStorageButton
+            onClear={() => {
+              localStorage.removeItem('last_save_file');
+              setSaveData(null);
+              setManualVersion(null);
+              setIsSettingsOpen(false);
+            }}
+          />
+        </div>
       </div>
-    </AnimatePresence>
+    </div>
   );
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Link } from '@tanstack/react-router';
 import { Fish, Waves, Trees, Target } from 'lucide-react';
 import { Suggestion, EncounterDetail } from '../../hooks/useAssistant';
@@ -24,11 +23,17 @@ export function AssistantSuggestionCard({
 }: AssistantSuggestionCardProps) {
   let title = s.title;
   let desc = s.description;
-  if (s.pokemonId) {
-    const name = getPokemonName(s.pokemonId);
-    title = title.replace(new RegExp(`#${s.pokemonId}`, 'g'), name);
-    desc = desc.replace(new RegExp(`#${s.pokemonId}`, 'g'), name);
-  }
+
+  // Replace all occurrences of #<id> with the actual Pokémon name
+  const replacePids = (text: string) => {
+    return text.replace(/#(\d+)/g, (_, idStr) => {
+      const id = parseInt(idStr, 10);
+      return getPokemonName(id);
+    });
+  };
+
+  title = replacePids(title);
+  desc = replacePids(desc);
 
   const hasMultiple = s.pokemonIds && s.pokemonIds.length > 0;
 
@@ -184,14 +189,8 @@ export function AssistantSuggestionCard({
   const isCritical = title.includes('CRITICAL');
 
   return (
-    <motion.div
-      layout
-      variants={{
-        hidden: { opacity: 0, scale: 0.9, y: 20 },
-        show: { opacity: 1, scale: 1, y: 0, transition: { type: 'spring', damping: 20 } }
-      }}
-      whileHover={{ y: -4, scale: 1.02 }}
-      className={`relative rounded-2xl border ${isCritical ? 'border-red-500 animate-[pulse_2s_infinite]' : style.color} bg-zinc-900 shadow-lg transition-all overflow-hidden group ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
+    <div
+      className={`relative rounded-2xl border ${isCritical ? 'border-red-500 animate-[pulse_2s_infinite]' : style.color} bg-zinc-900 shadow-lg transition-all duration-300 overflow-hidden group hover:-translate-y-1 hover:scale-[1.02] ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
     >
       {!hasMultiple && s.pokemonId ? (
         <Link to="/pokemon/$pokemonId" params={{ pokemonId: s.pokemonId.toString() }} search={{ from: '/assistant' }} className="block w-full h-full">
@@ -202,6 +201,6 @@ export function AssistantSuggestionCard({
           {CardContent}
         </div>
       )}
-    </motion.div>
+    </div>
   );
 }
