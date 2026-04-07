@@ -21,3 +21,7 @@ Before finalizing any task, the following steps must be completed:
 
 5.  **Documentation**:
     - Update `README.md` or other documentation if public APIs or major features changed.
+
+6.  **Memory Maintenance**:
+    - Reflect on the session and update Serena memories (`.serena/memories`) with new architectural decisions, bug patterns, or feature knowledge.
+    - Ensure onboarding memories remain the source of truth for the project.
