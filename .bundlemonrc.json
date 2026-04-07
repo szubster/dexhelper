@@ -1,5 +1,8 @@
 {
   "baseDir": "./dist",
+  "pathLabels": {
+    "hash": "[a-zA-Z0-9-_]+"
+  },
   "defaultCompression": "none",
   "files": [
     {
