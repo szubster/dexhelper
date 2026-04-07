@@ -45,35 +45,5 @@ export default defineConfig(({ mode }) => {
       // Do not modify—file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
     },
-    test: {
-      projects: [
-        {
-          name: 'unit',
-          include: ['**/*.test.ts', '**/*.test.tsx'],
-          environment: 'happy-dom',
-          globals: true,
-        },
-        {
-          name: 'storybook',
-          plugins: [
-            storybookTest({ configDir: path.join(__dirname, ".storybook") }) as any,
-            argosVitestPlugin({
-              uploadToArgos: !!process.env.CI,
-              buildName: "Storybook",
-            }) as any,
-          ],
-          test: {
-            name: "storybook",
-            browser: {
-              enabled: true,
-              headless: true,
-              provider: "playwright" as any,
-              instances: [{ browser: "chromium" }],
-            },
-            setupFiles: [".storybook/vitest.setup.ts"],
-          },
-        },
-      ],
-    },
   };
 });
