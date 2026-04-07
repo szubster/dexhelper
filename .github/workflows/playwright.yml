@@ -49,7 +49,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Storybook Tests
-      run: npx vitest run --project=storybook
+      run: npx vitest run --project=visual
       env:
         ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
 

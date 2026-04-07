@@ -1,19 +1,12 @@
 import path from 'path';
+import { defineConfig, mergeConfig } from 'vitest/config';
+import viteConfig from './vite.config.ts';
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { argosVitestPlugin } from "@argos-ci/storybook/vitest-plugin";
 
-export default [
-  {
-    extends: './vite.config.ts',
-    test: {
-      name: 'unit',
-      include: ['**/*.test.ts', '**/*.test.tsx'],
-      environment: 'happy-dom',
-      globals: true,
-    },
-  },
-  {
-    extends: './vite.config.ts',
+export default mergeConfig(
+  viteConfig({ mode: 'test', command: 'serve' }),
+  defineConfig({
     plugins: [
       storybookTest({ configDir: path.join(__dirname, ".storybook") }) as any,
       argosVitestPlugin({
@@ -22,14 +15,15 @@ export default [
       }) as any,
     ],
     test: {
-      name: 'storybook',
+      name: 'visual',
       browser: {
         enabled: true,
         headless: true,
         provider: "playwright" as any,
         instances: [{ browser: "chromium" }],
       },
+      exclude: ['tests/e2e/**', 'playwright.config.ts', 'node_modules/**', 'dist/**'],
       setupFiles: [".storybook/vitest.setup.ts"],
     },
-  },
-];
+  })
+);
