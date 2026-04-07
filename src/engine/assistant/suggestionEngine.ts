@@ -618,7 +618,8 @@ export function generateSuggestions(
       ? saveData.badges
       : (saveData.johtoBadges || 0) + (saveData.kantoBadges || 0);
   const caps = OBEDIENCE_CAPS.filter((c) => totalBadges >= c.badges);
-  const currentCap = caps.length > 0 ? (caps[caps.length - 1]?.level ?? 10) : 10;
+  const currentCap =
+    caps.length > 0 ? (caps[caps.length - 1]?.level ?? 10) : 10;
   const disobedient = saveData.partyDetails.filter(
     (p) =>
       p.otName && p.otName !== saveData.trainerName && p.level > currentCap,
