@@ -1,5 +1,6 @@
-import { getUnobtainableReason as gen1UnobtainableReason } from './gen1Exclusives';
-export { ONE_TIME_CHOICES, getUnobtainableReason } from './gen1Exclusives';
+import { getUnobtainableReason as gen1UnobtainableReason } from "./gen1Exclusives";
+
+export { getUnobtainableReason, ONE_TIME_CHOICES } from "./gen1Exclusives";
 
 export type UnobtainableChecker = (
   pokemonId: number,
@@ -14,6 +15,8 @@ const EXCLUSIVES_CHECKERS: Record<number, UnobtainableChecker> = {
 };
 
 /** Get the version-exclusives checker for a generation. Returns null if none exists. */
-export function getExclusivesChecker(generation: number): UnobtainableChecker | null {
+export function getExclusivesChecker(
+  generation: number,
+): UnobtainableChecker | null {
   return EXCLUSIVES_CHECKERS[generation] ?? null;
 }

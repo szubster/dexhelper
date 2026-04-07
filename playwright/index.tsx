@@ -1,2 +1,2 @@
 // Import global styles for component tests
-import '../src/index.css';
+import "../src/index.css";

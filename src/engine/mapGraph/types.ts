@@ -11,6 +11,9 @@ export interface MapDistanceResult {
 }
 
 export interface MapGraph {
-  getDistanceToMap(currentMapId: number, targetSlug: string): MapDistanceResult | null;
+  getDistanceToMap(
+    currentMapId: number,
+    targetSlug: string,
+  ): MapDistanceResult | null;
   resolveOutdoorMapId(mapId: number): number;
 }

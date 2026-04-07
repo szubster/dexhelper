@@ -1,2 +1,6 @@
 // Re-export from engine location for backward compatibility
-export { staticEncounters, stadiumRewardsData, stadiumRewardsSummary } from '../engine/data/shared/staticData';
+export {
+  stadiumRewardsData,
+  stadiumRewardsSummary,
+  staticEncounters,
+} from "../engine/data/shared/staticData";

@@ -1,13 +1,13 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { PokemonDetails } from '../components/PokemonDetails';
-import { useStore } from '../store';
-import { pokemonListQueryOptions } from '../utils/pokemonQueries';
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { PokemonDetails } from "../components/PokemonDetails";
+import { useStore } from "../store";
+import { pokemonListQueryOptions } from "../utils/pokemonQueries";
 
-export const Route = createFileRoute('/pokemon/$pokemonId')({
+export const Route = createFileRoute("/pokemon/$pokemonId")({
   validateSearch: (search: Record<string, unknown>) => {
     return {
-      from: (search.from as string) || '/',
+      from: (search.from as string) || "/",
     };
   },
   component: PokemonPage,
@@ -24,8 +24,8 @@ function PokemonPage() {
 
   const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
 
-  const selectedPokemon = pokemonList.find(p => p.id === parseInt(pokemonId));
-  const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
+  const selectedPokemon = pokemonList.find((p) => p.id === parseInt(pokemonId));
+  const effectiveVersion = manualVersion || saveData?.gameVersion || "unknown";
 
   return (
     <>
@@ -38,10 +38,12 @@ function PokemonPage() {
           isLivingDex={isLivingDex}
           pokeball={globalPokeball}
           onClose={() => navigate({ to: from })}
-          onNavigate={(id) => navigate({
-            to: `/pokemon/${id}`,
-            search: { from }
-          })}
+          onNavigate={(id) =>
+            navigate({
+              to: `/pokemon/${id}`,
+              search: { from },
+            })
+          }
         />
       )}
     </>

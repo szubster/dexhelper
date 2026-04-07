@@ -1,13 +1,13 @@
-import { queryClient } from '../queryClient';
+import { queryClient } from "../queryClient";
 
-const BASE_URL = 'https://pokeapi.co/api/v2';
+const BASE_URL = "https://pokeapi.co/api/v2";
 
 const fetchQuery = async (url: string) => {
   return queryClient.fetchQuery({
-    queryKey: ['pokeapi', url],
+    queryKey: ["pokeapi", url],
     queryFn: async () => {
       const res = await fetch(url);
-      if (!res.ok) throw new Error('Network response was not ok');
+      if (!res.ok) throw new Error("Network response was not ok");
       return res.json();
     },
     staleTime: Infinity,
@@ -16,7 +16,13 @@ const fetchQuery = async (url: string) => {
 };
 
 export const pokeapi = {
-  getPokemonsList: async ({ limit, offset }: { limit: number; offset: number }) => {
+  getPokemonsList: async ({
+    limit,
+    offset,
+  }: {
+    limit: number;
+    offset: number;
+  }) => {
     return fetchQuery(`${BASE_URL}/pokemon?limit=${limit}&offset=${offset}`);
   },
   getPokemonEncounterAreasByName: async (idOrName: string | number) => {
@@ -36,5 +42,5 @@ export const pokeapi = {
   },
   getLocationArea: async (idOrSlug: number | string) => {
     return fetchQuery(`${BASE_URL}/location-area/${idOrSlug}`);
-  }
+  },
 };

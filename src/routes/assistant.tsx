@@ -1,8 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { AssistantPanel } from '../components/AssistantPanel';
-import { useStore } from '../store';
+import { createFileRoute } from "@tanstack/react-router";
+import { AssistantPanel } from "../components/AssistantPanel";
+import { useStore } from "../store";
 
-export const Route = createFileRoute('/assistant')({
+export const Route = createFileRoute("/assistant")({
   component: AssistantPage,
 });
 
@@ -17,7 +17,11 @@ function AssistantPage() {
 
   return (
     <div className="pt-4 h-full flex flex-col">
-      <AssistantPanel saveData={saveData} isLivingDex={isLivingDex} manualVersion={manualVersion} />
+      <AssistantPanel
+        saveData={saveData}
+        isLivingDex={isLivingDex}
+        manualVersion={manualVersion}
+      />
     </div>
   );
 }

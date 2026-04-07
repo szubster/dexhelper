@@ -1,8 +1,8 @@
-import React from 'react';
-import { Search, X } from 'lucide-react';
-import { useStore } from '../store';
-import type { FilterType } from '../store';
-import { cn } from '../utils/cn';
+import { Search, X } from "lucide-react";
+import React from "react";
+import type { FilterType } from "../store";
+import { useStore } from "../store";
+import { cn } from "../utils/cn";
 
 export function SearchAndFilters() {
   const saveData = useStore((s) => s.saveData);
@@ -22,7 +22,10 @@ export function SearchAndFilters() {
         {/* Modern Search Bar with Retro Flair */}
         <div className="flex-1 relative group">
           <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center p-1.5 rounded-lg bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] group-focus-within:bg-[var(--theme-primary)] group-focus-within:text-white transition-all duration-300">
-            <Search size={14} className="group-focus-within:scale-110 transition-transform" />
+            <Search
+              size={14}
+              className="group-focus-within:scale-110 transition-transform"
+            />
           </div>
           <input
             type="text"
@@ -34,7 +37,7 @@ export function SearchAndFilters() {
           />
           {searchTerm && (
             <button
-              onClick={() => setSearchTerm('')}
+              onClick={() => setSearchTerm("")}
               aria-label="Clear search"
               className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-zinc-500 hover:text-white hover:bg-white/5 rounded-xl transition-all"
             >
@@ -52,29 +55,37 @@ export function SearchAndFilters() {
             className={cn(
               "px-5 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-3 border-2 shrink-0 retro-button relative overflow-hidden",
               filtersSet.size === 0
-                ? 'bg-[var(--theme-primary)] border-[var(--theme-primary)] text-white shadow-[0_10px_20px_rgba(var(--theme-primary-rgb),0.3)]'
-                : 'bg-zinc-900 border-white/5 text-zinc-500 hover:text-white hover:bg-zinc-800'
+                ? "bg-[var(--theme-primary)] border-[var(--theme-primary)] text-white shadow-[0_10px_20px_rgba(var(--theme-primary-rgb),0.3)]"
+                : "bg-zinc-900 border-white/5 text-zinc-500 hover:text-white hover:bg-zinc-800",
             )}
           >
             <span className="relative z-10">All</span>
-            {filtersSet.size === 0 && <div className="absolute inset-0 bg-white/10 lcd-flicker" />}
+            {filtersSet.size === 0 && (
+              <div className="absolute inset-0 bg-white/10 lcd-flicker" />
+            )}
           </button>
 
-          {(['secured', 'missing', 'dex-only'] as FilterType[]).map(f => (
+          {(["secured", "missing", "dex-only"] as FilterType[]).map((f) => (
             <button
               key={f}
               onClick={() => toggleFilter(f)}
               className={cn(
                 "px-5 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-3 border-2 shrink-0 retro-button relative overflow-hidden",
                 filtersSet.has(f)
-                  ? 'bg-[var(--theme-primary)] border-[var(--theme-primary)] text-white shadow-[0_10px_20px_rgba(var(--theme-primary-rgb),0.3)]'
-                  : 'bg-zinc-900 border-white/5 text-zinc-500 hover:text-white hover:bg-zinc-800'
+                  ? "bg-[var(--theme-primary)] border-[var(--theme-primary)] text-white shadow-[0_10px_20px_rgba(var(--theme-primary-rgb),0.3)]"
+                  : "bg-zinc-900 border-white/5 text-zinc-500 hover:text-white hover:bg-zinc-800",
               )}
             >
               <span className="relative z-10">
-                {f === 'secured' ? 'Secured' : f === 'missing' ? 'Missing' : 'Dex Only'}
+                {f === "secured"
+                  ? "Secured"
+                  : f === "missing"
+                    ? "Missing"
+                    : "Dex Only"}
               </span>
-              {filtersSet.has(f) && <div className="absolute inset-0 bg-white/10 lcd-flicker" />}
+              {filtersSet.has(f) && (
+                <div className="absolute inset-0 bg-white/10 lcd-flicker" />
+              )}
             </button>
           ))}
         </div>

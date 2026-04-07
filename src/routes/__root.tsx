@@ -1,15 +1,15 @@
-import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
-import React, { Suspense, useEffect } from 'react';
-import { QueryClient } from '@tanstack/react-query';
-import { AppLayout } from '../components/AppLayout';
-import { pokemonListQueryOptions } from '../utils/pokemonQueries';
-import { useStore } from '../store';
+import type { QueryClient } from "@tanstack/react-query";
+import { createRootRouteWithContext, Outlet } from "@tanstack/react-router";
+import React, { Suspense, useEffect } from "react";
+import { AppLayout } from "../components/AppLayout";
+import { useStore } from "../store";
+import { pokemonListQueryOptions } from "../utils/pokemonQueries";
 
 const TanStackRouterDevtools =
-  process.env.NODE_ENV === 'production' || !!window.navigator.webdriver
+  process.env.NODE_ENV === "production" || !!window.navigator.webdriver
     ? () => null // Render nothing in production or automated tests
     : React.lazy(() =>
-        import('@tanstack/react-router-devtools').then((res) => ({
+        import("@tanstack/react-router-devtools").then((res) => ({
           default: res.TanStackRouterDevtools,
         })),
       );
@@ -20,7 +20,9 @@ export interface RootContext {
 
 export const Route = createRootRouteWithContext<RootContext>()({
   loader: async ({ context }) => {
-    const pokemonList = await context.queryClient.ensureQueryData(pokemonListQueryOptions);
+    const pokemonList = await context.queryClient.ensureQueryData(
+      pokemonListQueryOptions,
+    );
     return { pokemonList };
   },
   component: RootComponent,
