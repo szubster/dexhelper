@@ -59,16 +59,6 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
        
        const chain = await pokeapi.resource(species.evolution_chain.url);
        missingChains[pid] = chain;
-
-       const ancestors = getAncestors(chain.chain, pid) || [];
-
-       if (ancestors.length > 0) {
-         ancestralEncounters[pid] = {};
-         await Promise.all(ancestors.map(async (aid) => {
-           const aEncs = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`);
-           ancestralEncounters[pid]![aid] = aEncs;
-         }));
-       }
      } catch (e) {
        missingEncounters[pid] = [];
      }
@@ -87,6 +77,38 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   });
 
   await Promise.all([...missingPromises, ...partyPromises]);
+
+  const uniqueAncestors = new Set<number>();
+  const pidAncestors: Record<number, number[]> = {};
+
+  for (const pid of queryTargets) {
+     if (missingChains[pid]) {
+        const ancestors = getAncestors(missingChains[pid].chain, pid) || [];
+        if (ancestors.length > 0) {
+          pidAncestors[pid] = ancestors;
+          ancestors.forEach(a => uniqueAncestors.add(a));
+        }
+     }
+  }
+
+  const ancestorData: Record<number, any[]> = {};
+  await Promise.all(Array.from(uniqueAncestors).map(async (aid) => {
+     try {
+       ancestorData[aid] = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`);
+     } catch (e) {
+       ancestorData[aid] = [];
+     }
+  }));
+
+  for (const pid of queryTargets) {
+     if (pidAncestors[pid]) {
+        ancestralEncounters[pid] = {};
+        for (const aid of pidAncestors[pid]) {
+           ancestralEncounters[pid][aid] = ancestorData[aid] || [];
+        }
+     }
+  }
+
   return { localEncounters, missingEncounters, missingChains, ancestralEncounters, partyEvolutions };
 }
 
