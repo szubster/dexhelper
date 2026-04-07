@@ -57,13 +57,14 @@ export function SearchAndFilters() {
             )}
           >
             <span className="relative z-10">All</span>
-            {filtersSet.size === 0 && <div className="absolute inset-0 bg-white/10 lcd-flicker" />}
+            {filtersSet.size === 0 && <div className="absolute inset-0 bg-white/10 lcd-flicker pointer-events-none" />}
           </button>
 
           {(['secured', 'missing', 'dex-only'] as FilterType[]).map(f => (
             <button
               key={f}
               onClick={() => toggleFilter(f)}
+              data-testid={`filter-${f}`}
               className={cn(
                 "px-5 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-3 border-2 shrink-0 retro-button relative overflow-hidden",
                 filtersSet.has(f)
@@ -74,7 +75,7 @@ export function SearchAndFilters() {
               <span className="relative z-10">
                 {f === 'secured' ? 'Secured' : f === 'missing' ? 'Missing' : 'Dex Only'}
               </span>
-              {filtersSet.has(f) && <div className="absolute inset-0 bg-white/10 lcd-flicker" />}
+              {filtersSet.has(f) && <div className="absolute inset-0 bg-white/10 lcd-flicker pointer-events-none" />}
             </button>
           ))}
         </div>
