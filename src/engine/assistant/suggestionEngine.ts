@@ -51,26 +51,29 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
 
   const missingPromises = queryTargets.map(async (pid: number) => {
      try {
-       const [encs, species] = await Promise.all([
-         pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${pid}/encounters`),
-         pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`)
-       ]);
-       missingEncounters[pid] = encs;
+       const encsPromise = pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${pid}/encounters`)
+         .then(encs => { missingEncounters[pid] = encs; })
+         .catch(() => { missingEncounters[pid] = []; });
        
-       const chain = await pokeapi.resource(species.evolution_chain.url);
-       missingChains[pid] = chain;
+       const chainPromise = pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`)
+         .then(async (species) => {
+           const chain = await pokeapi.resource(species.evolution_chain.url);
+           missingChains[pid] = chain;
 
-       const ancestors = getAncestors(chain.chain, pid) || [];
+           const ancestors = getAncestors(chain.chain, pid) || [];
 
-       if (ancestors.length > 0) {
-         ancestralEncounters[pid] = {};
-         await Promise.all(ancestors.map(async (aid) => {
-           const aEncs = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`);
-           ancestralEncounters[pid]![aid] = aEncs;
-         }));
-       }
+           if (ancestors.length > 0) {
+             ancestralEncounters[pid] = {};
+             await Promise.all(ancestors.map(async (aid) => {
+               const aEncs = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`);
+               ancestralEncounters[pid]![aid] = aEncs;
+             }));
+           }
+         });
+
+       await Promise.all([encsPromise, chainPromise]);
      } catch (e) {
-       missingEncounters[pid] = [];
+       if (!missingEncounters[pid]) missingEncounters[pid] = [];
      }
   });
 
