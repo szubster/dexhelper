@@ -17,6 +17,7 @@ jobs:
     - uses: actions/setup-node@v6
       with:
         node-version: 24
+        cache: 'npm'
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
@@ -33,27 +34,23 @@ jobs:
         path: playwright-report/
         retention-days: 30
 
-  ct:
-    name: "Component Tests"
-    timeout-minutes: 60
+  storybook:
+    name: "Storybook Visual Tests"
+    timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
     - uses: actions/setup-node@v6
       with:
         node-version: 24
+        cache: 'npm'
     - name: Install dependencies
       run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Playwright CT tests
-      run: npm run test:ct
+    - name: Build Storybook
+      run: npm run build-storybook
+    - name: Upload to Argos
+      run: npx argos upload storybook-static
       env:
-        ARGOS_BUILD_NAME: "Component"
+        ARGOS_BUILD_NAME: "Storybook"
         ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
-    - uses: actions/upload-artifact@v7
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-ct-report
-        path: playwright-report/
-        retention-days: 30
+

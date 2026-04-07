@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import React, { useEffect } from 'react';
 import { StorageGrid } from './StorageGrid';
 import { useStore } from '../store';
@@ -37,7 +38,6 @@ const mockSaveData: SaveData = {
       storageLocation: 'Box 1',
       slot: 1,
     },
-    // Box 2 is empty
     {
       speciesId: 4,
       level: 5,
@@ -58,12 +58,25 @@ const mockSaveData: SaveData = {
   hallOfFameCount: 0,
 };
 
-export function StorageGridStory() {
-  const setSaveData = useStore((s) => s.setSaveData);
+const meta: Meta<typeof StorageGrid> = {
+  title: 'Components/StorageGrid',
+  component: StorageGrid,
+};
 
-  useEffect(() => {
-    setSaveData(mockSaveData);
-  }, [setSaveData]);
+export default meta;
+type Story = StoryObj<typeof StorageGrid>;
 
-  return <StorageGrid pokemonList={mockPokemonList} />;
-}
+export const Default: Story = {
+  args: {
+    pokemonList: mockPokemonList,
+  },
+  decorators: [
+    (Story) => {
+      const setSaveData = useStore((s) => s.setSaveData);
+      useEffect(() => {
+        setSaveData(mockSaveData);
+      }, [setSaveData]);
+      return <Story />;
+    },
+  ],
+};
