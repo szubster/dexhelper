@@ -3,6 +3,7 @@ import { Sparkles } from 'lucide-react';
 import { useStore } from '../store';
 import { useNavigate } from '@tanstack/react-router';
 import { getGenerationConfig } from '../utils/generationConfig';
+import type { PokemonInstance } from '../engine/saveParser/index';
 
 export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
   const saveData = useStore((s) => s.saveData);
@@ -14,6 +15,24 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
     return map;
   }, [pokemonList]);
 
+  const pokemonByLocation = React.useMemo(() => {
+    const map = new Map<string, PokemonInstance[]>();
+    if (!saveData) return map;
+
+    // Group all pokemon by their storage location in a single pass O(N)
+    const allPokemon = [...saveData.partyDetails, ...saveData.pcDetails];
+    for (const p of allPokemon) {
+      if (!p.storageLocation) continue;
+      let current = map.get(p.storageLocation);
+      if (!current) {
+        current = [];
+        map.set(p.storageLocation, current);
+      }
+      current.push(p);
+    }
+    return map;
+  }, [saveData]);
+
   if (!saveData) return null;
 
   const genConfig = getGenerationConfig(saveData.generation);
@@ -22,7 +41,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
   return (
     <div className="space-y-16 animate-in fade-in duration-500">
       {storageLocations.map(location => {
-        const pokemonInLocation = [...saveData.partyDetails, ...saveData.pcDetails].filter(p => p.storageLocation === location);
+        const pokemonInLocation = pokemonByLocation.get(location) || [];
 
         return (
           <div key={location} className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
