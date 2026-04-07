@@ -32,6 +32,3 @@ jobs:
         name: playwright-e2e-report
         path: playwright-report/
         retention-days: 30
-    - name: Argos upload
-      if: always()
-      run: npx argos upload ./screenshots --token ${{ secrets.ARGOS_TOKEN }}
