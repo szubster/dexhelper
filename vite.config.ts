@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
+import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
+import { argosVitestPlugin } from "@argos-ci/storybook/vitest-plugin";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
@@ -44,8 +46,33 @@ export default defineConfig(({ mode }) => {
       hmr: process.env.DISABLE_HMR !== 'true',
     },
     test: {
-      globals: true,
-      include: ['**/*.test.ts', '**/*.test.tsx'],
+      projects: [
+        {
+          name: 'default',
+          include: ['**/*.test.ts', '**/*.test.tsx'],
+          environment: 'happy-dom',
+          globals: true,
+        },
+        {
+          name: 'storybook',
+          plugins: [
+            storybookTest({ configDir: path.join(__dirname, ".storybook") }) as any,
+            argosVitestPlugin({
+              uploadToArgos: !!process.env.CI,
+            }) as any,
+          ],
+          test: {
+            name: "storybook",
+            browser: {
+              enabled: true,
+              headless: true,
+              provider: "playwright" as any,
+              instances: [{ browser: "chromium" }],
+            },
+            setupFiles: [".storybook/vitest.setup.ts"],
+          },
+        },
+      ],
     },
   };
 });
