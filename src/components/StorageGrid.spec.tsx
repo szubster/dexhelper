@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/experimental-ct-react';
-import { argosScreenshot } from '@argos-ci/playwright';
+import { argosScreenshot } from '../utils/argos';
 import React from 'react';
 import { StorageGridStory } from './StorageGrid.story';
 
