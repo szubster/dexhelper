@@ -16,15 +16,16 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
   const displayLimit = genConfig?.maxDex ?? 151;
 
-  const partySet = React.useMemo(() => new Set(saveData?.party || []), [saveData?.party]);
-  const pcSet = React.useMemo(() => new Set(saveData?.pc || []), [saveData?.pc]);
-  // ⚡ Bolt: Removed redundant shinyPartySet and shinyPcSet which were unused and doing O(N) operations.
+  // Optimization: Convert saveData.party and saveData.pc to Sets once at the top of the component
+  // to change O(N) array .includes() lookups to O(1) .has() checks.
+  const partyIdSet = React.useMemo(() => new Set(saveData?.party || []), [saveData?.party]);
+  const pcIdSet = React.useMemo(() => new Set(saveData?.pc || []), [saveData?.pc]);
 
   const finalPokemon = pokemonList.slice(0, displayLimit).filter(pokemon => {
     if (!saveData || filtersSet.size === 0) return true;
 
-    const inParty = partySet.has(pokemon.id);
-    const inPC = pcSet.has(pokemon.id);
+    const inParty = partyIdSet.has(pokemon.id);
+    const inPC = pcIdSet.has(pokemon.id);
     const hasInStorage = inParty || inPC;
 
     if (filtersSet.has('secured') && hasInStorage) return true;
@@ -54,15 +55,15 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-5 px-1 pb-10 animate-in fade-in duration-500">
         {finalPokemon.map((pokemon, idx) => {
-          const inParty = saveData ? partySet.has(pokemon.id) : false;
-          const inPC = saveData ? pcSet.has(pokemon.id) : false;
+          // Optimized: O(1) check instead of saveData.party.includes()
+          const inParty = saveData ? partyIdSet.has(pokemon.id) : false;
+          const inPC = saveData ? pcIdSet.has(pokemon.id) : false;
           const hasInStorage = inParty || inPC;
 
           const isOwnedInDex = saveData ? saveData.owned.has(pokemon.id) : false;
           const isSeenInDex = saveData ? saveData.seen.has(pokemon.id) : false;
 
           const isOwned = saveData ? (isLivingDex ? hasInStorage : (isOwnedInDex || hasInStorage)) : false;
-          const hadButLost = saveData ? (isOwnedInDex && !hasInStorage) : false;
 
           const isSeen = saveData ? (isSeenInDex || isOwned || hasInStorage) : false;
           const isUnseen = saveData && !isSeen;

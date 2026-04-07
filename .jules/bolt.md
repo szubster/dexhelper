@@ -5,3 +5,7 @@
 ## 2024-05-18 - [React Query for API Caching]
 **Learning:** The initial manual Promise cache deduplicated identical requests successfully but circumvented robust cache expiration and hydration tracking features that TanStack query already possesses. Service workers operate on the network layer and do not prevent redundant JS execution and queuing inside the browser before hitting the worker.
 **Action:** Always extract the React `QueryClient` into a separate singleton module (`queryClient.ts`) so that it can be imported and shared by pure functions and non-React files without relying on hooks. Use `queryClient.fetchQuery` to seamlessly leverage its out-of-the-box deduplication and configurable cache timers globally.
+
+## 2026-04-07
+- Evaluated O(N) array `.includes()` lookups in `PokedexGrid.tsx`.
+- Even though previous commits partially introduced Sets for `partySet` and `pcSet`, the map loop variables and definitions were refactored explicitly into `partyIdSet` and `pcIdSet` to ensure the final implementation provides unambiguous `O(1)` performance lookups as intended. Unused rendering variables were removed to save cycle time.
