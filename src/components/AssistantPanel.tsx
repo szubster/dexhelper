@@ -38,10 +38,10 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
   });
 
   const pokemonMap = React.useMemo(() => {
-    const map = new Map<number, string>();
+    const map: Record<number, string> = {};
     if (pokemonList) {
       for (const p of pokemonList) {
-        map.set(p.id, p.name);
+        map[p.id] = p.name;
       }
     }
     return map;
@@ -49,7 +49,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
 
   const getPokemonName = React.useCallback((id: number) => {
     if (!pokemonList) return `#${id}`;
-    return pokemonMap.get(id) ?? `#${id}`;
+    return pokemonMap[id] ?? `#${id}`;
   }, [pokemonList, pokemonMap]);
 
   return (
