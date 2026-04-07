@@ -241,16 +241,30 @@ export function generateSuggestions(
           }
        }
 
-       if (!isCatchableSomewhere && !ownedSet.has(pid)) {
-           rejected.push({ pokemonId: pid, reason: `Not catchable in ${displayVersion} version.`, code: 'VERSION_EXCLUSIVE' });
-           suggestions.push({ 
-               id: `trade-${pid}`, category: 'Trade', title: `Version Exclusive: #${pid}`, 
-               description: `This Pokémon is not available in ${displayVersion}. You must trade for it.`, 
-               pokemonId: pid, priority: 50 - unobtainableCount,
-               debugInfo: { priorityScore: 50 - unobtainableCount, reasoning: 'Version exclusivity check' }
-           });
-           unobtainableCount++;
-           continue;
+        if (!isCatchableSomewhere && !ownedSet.has(pid)) {
+           // Suppress version exclusive if it can be obtained via NPC trade or Gift
+           const isTradeAvailable = STATIC_NPC_TRADE_DATA.some(t => 
+             t.gen === saveData.generation && 
+             t.receivedId === pid && 
+             (!t.versions || t.versions.includes(displayVersion))
+           );
+           
+           const giftEntry = STATIC_GIFT_DATA[pid];
+           const hasDirectGift = !!giftEntry && 
+             (!giftEntry.gen || giftEntry.gen === saveData.generation) &&
+             (!giftEntry.name.includes('Yellow only') || displayVersion === 'yellow');
+
+           if (!isTradeAvailable && !hasDirectGift) {
+             rejected.push({ pokemonId: pid, reason: `Not catchable in ${displayVersion} version.`, code: 'VERSION_EXCLUSIVE' });
+             suggestions.push({ 
+                 id: `trade-${pid}`, category: 'Trade', title: `Version Exclusive: #${pid}`, 
+                 description: `This Pokémon is not available in ${displayVersion}. You must trade for it.`, 
+                 pokemonId: pid, priority: 50 - unobtainableCount,
+                 debugInfo: { priorityScore: 50 - unobtainableCount, reasoning: 'Version exclusivity check' }
+             });
+             unobtainableCount++;
+             continue;
+           }
        }
 
        const versionEncounters = encounters.filter((enc: any) => 
