@@ -468,6 +468,12 @@ export function generateSuggestions(
           const hasStone = saveData.inventory.some((i: any) => i.id === (itemName.includes('fire') ? 32 : itemName.includes('thunder') ? 33 : itemName.includes('water') ? 34 : itemName.includes('leaf') ? 46 : 10)); 
           if (hasStone) suggestions.push({ id: `evo-stn-${p.speciesId}-${idx}`, category: 'Evolve', title: `Ready to Evolve!`, description: `Use ${itemName.replace('-', ' ')} on your Pokémon!`, pokemonId: p.speciesId, priority: 95 });
           else if (!itemName.includes('moon')) suggestions.push({ id: `evo-buy-${p.speciesId}-${idx}`, category: 'Evolve', title: `Buy ${itemName.replace('-', ' ')}`, description: `Visit Celadon Dept. Store to evolve your Pokémon.`, pokemonId: p.speciesId, priority: 40 });
+        } else if (details.trigger.name === 'trade') {
+          if (details.held_item) {
+            suggestions.push({ id: `evo-trade-${p.speciesId}-${idx}`, category: 'Evolve', title: `Trade to Evolve!`, description: `Trade this Pokémon while holding ${details.held_item.name.replace('-', ' ')} to trigger its evolution.`, pokemonId: p.speciesId, priority: 80 });
+          } else {
+            suggestions.push({ id: `evo-trade-${p.speciesId}-${idx}`, category: 'Evolve', title: `Trade to Evolve!`, description: `Trade this Pokémon to trigger its evolution.`, pokemonId: p.speciesId, priority: 80 });
+          }
         }
       });
     }
