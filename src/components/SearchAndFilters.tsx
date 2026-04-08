@@ -49,6 +49,7 @@ export function SearchAndFilters() {
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-2 px-1">
           <button
             onClick={() => setFilters([])}
+            aria-pressed={filtersSet.size === 0}
             className={cn(
               "px-5 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-3 border-2 shrink-0 retro-button relative overflow-hidden",
               filtersSet.size === 0
@@ -64,6 +65,7 @@ export function SearchAndFilters() {
             <button
               key={f}
               onClick={() => toggleFilter(f)}
+              aria-pressed={filtersSet.has(f)}
               data-testid={`filter-${f}`}
               className={cn(
                 "px-5 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-3 border-2 shrink-0 retro-button relative overflow-hidden",
