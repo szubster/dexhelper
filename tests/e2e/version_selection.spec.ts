@@ -17,7 +17,7 @@ test.describe('Version Selection', () => {
 
     // 3. Check if the version indicator updated
     await expect(page.getByText(/RED/i).first()).toBeVisible();
-    
+
     // 4. Toggle back to YELLOW via header
     await page.getByRole('button', { name: /RED/i }).first().click();
     await page.getByRole('button', { name: 'Yellow', exact: true }).click();
@@ -30,7 +30,10 @@ test.describe('Version Selection', () => {
     await initializeWithSave(page);
 
     // Select Blue
-    await page.getByRole('button', { name: /YELLOW/i }).first().click();
+    await page
+      .getByRole('button', { name: /YELLOW/i })
+      .first()
+      .click();
     await page.getByRole('button', { name: 'Blue', exact: true }).click();
     await expect(page.getByText(/BLUE/i).first()).toBeVisible();
 

@@ -7,15 +7,15 @@ import path from 'path';
  */
 export async function initializeWithSave(page: Page) {
   await page.goto('/');
-  
+
   // Locate the file input (hidden inside the label)
   const fileInput = page.locator('input[type="file"]');
-  
+
   // Upload the yellow.sav fixture
   // Note: Path is relative to the project root where playwright is executed
   await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
-  
-  // Wait for the app to hydrate (the "Initialize Pokedex" label should disappear, 
+
+  // Wait for the app to hydrate (the "Initialize Pokedex" label should disappear,
   // and the Trainer card should appear).
   await expect(page.getByText(/TRAINER/i).first()).toBeVisible({ timeout: 10000 });
 }

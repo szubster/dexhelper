@@ -24,7 +24,7 @@ function PokemonPage() {
 
   const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
 
-  const selectedPokemon = pokemonList.find(p => p.id === parseInt(pokemonId));
+  const selectedPokemon = pokemonList.find((p) => p.id === parseInt(pokemonId));
   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
 
   return (
@@ -38,10 +38,12 @@ function PokemonPage() {
           isLivingDex={isLivingDex}
           pokeball={globalPokeball}
           onClose={() => navigate({ to: from })}
-          onNavigate={(id) => navigate({
-            to: `/pokemon/${id}`,
-            search: { from }
-          })}
+          onNavigate={(id) =>
+            navigate({
+              to: `/pokemon/${id}`,
+              search: { from },
+            })
+          }
         />
       )}
     </>

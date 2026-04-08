@@ -14,7 +14,7 @@ test.describe('Filtering Logic', () => {
 
     // Pikachu (ID 25) should be visible
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
-    
+
     // Bulbasaur (ID 1) should be hidden
     await expect(page.locator('[data-pokemon-id="1"]')).not.toBeVisible();
 

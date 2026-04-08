@@ -36,5 +36,5 @@ export const pokeapi = {
   },
   getLocationArea: async (idOrSlug: number | string) => {
     return fetchQuery(`${BASE_URL}/location-area/${idOrSlug}`);
-  }
+  },
 };

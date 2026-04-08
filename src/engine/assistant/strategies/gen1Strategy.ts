@@ -27,7 +27,12 @@ export const gen1Strategy: AssistantStrategy = {
     return getDistanceToMap(currentMapId, targetSlug);
   },
 
-  getUnobtainableReason(pokemonId: number, version: string, ownedCount: number, ownedSet: Set<number>) {
+  getUnobtainableReason(
+    pokemonId: number,
+    version: string,
+    ownedCount: number,
+    ownedSet: Set<number>,
+  ) {
     return getUnobtainableReason(pokemonId, version, ownedCount, ownedSet);
   },
 
