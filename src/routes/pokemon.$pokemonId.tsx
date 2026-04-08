@@ -24,7 +24,11 @@ function PokemonPage() {
 
   const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
 
-  const selectedPokemon = pokemonList.find(p => p.id === parseInt(pokemonId));
+  const targetId = parseInt(pokemonId);
+  const selectedPokemon = pokemonList[targetId - 1]?.id === targetId
+    ? pokemonList[targetId - 1]
+    : pokemonList.find(p => p.id === targetId);
+
   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
 
   return (
