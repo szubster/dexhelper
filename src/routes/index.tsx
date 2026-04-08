@@ -4,7 +4,7 @@ import { PokedexGrid } from '../components/PokedexGrid';
 import { SearchAndFilters } from '../components/SearchAndFilters';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
-export const Route = createFileRoute('/')(  {
+export const Route = createFileRoute('/')({
   component: Index,
 });
 

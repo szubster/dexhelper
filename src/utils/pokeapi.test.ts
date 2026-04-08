@@ -33,7 +33,9 @@ describe('pokeapi', () => {
         ok: false,
       });
 
-      await expect(pokeapi.getPokemonsList({ limit: 10, offset: 0 })).rejects.toThrow('Network response was not ok');
+      await expect(pokeapi.getPokemonsList({ limit: 10, offset: 0 })).rejects.toThrow(
+        'Network response was not ok',
+      );
     });
 
     it('getPokemonEncounterAreasByName throws when response is not ok', async () => {
@@ -41,7 +43,9 @@ describe('pokeapi', () => {
         ok: false,
       });
 
-      await expect(pokeapi.getPokemonEncounterAreasByName('pikachu')).rejects.toThrow('Network response was not ok');
+      await expect(pokeapi.getPokemonEncounterAreasByName('pikachu')).rejects.toThrow(
+        'Network response was not ok',
+      );
     });
 
     it('getPokemonByName throws when response is not ok', async () => {
@@ -49,7 +53,9 @@ describe('pokeapi', () => {
         ok: false,
       });
 
-      await expect(pokeapi.getPokemonByName('mewtwo')).rejects.toThrow('Network response was not ok');
+      await expect(pokeapi.getPokemonByName('mewtwo')).rejects.toThrow(
+        'Network response was not ok',
+      );
     });
 
     it('getPokemonSpeciesByName throws when response is not ok', async () => {
@@ -57,7 +63,9 @@ describe('pokeapi', () => {
         ok: false,
       });
 
-      await expect(pokeapi.getPokemonSpeciesByName(151)).rejects.toThrow('Network response was not ok');
+      await expect(pokeapi.getPokemonSpeciesByName(151)).rejects.toThrow(
+        'Network response was not ok',
+      );
     });
 
     it('resource throws when response is not ok', async () => {
@@ -65,7 +73,9 @@ describe('pokeapi', () => {
         ok: false,
       });
 
-      await expect(pokeapi.resource('https://pokeapi.co/api/v2/evolution-chain/1/')).rejects.toThrow('Network response was not ok');
+      await expect(
+        pokeapi.resource('https://pokeapi.co/api/v2/evolution-chain/1/'),
+      ).rejects.toThrow('Network response was not ok');
     });
 
     it('getItem throws when response is not ok', async () => {
@@ -81,7 +91,9 @@ describe('pokeapi', () => {
         ok: false,
       });
 
-      await expect(pokeapi.getLocationArea('pallet-town-area')).rejects.toThrow('Network response was not ok');
+      await expect(pokeapi.getLocationArea('pallet-town-area')).rejects.toThrow(
+        'Network response was not ok',
+      );
     });
   });
 });

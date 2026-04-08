@@ -10,7 +10,5 @@ export const Route = createFileRoute('/storage')({
 function StoragePage() {
   const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
 
-  return (
-    <StorageGrid pokemonList={pokemonList} />
-  );
+  return <StorageGrid pokemonList={pokemonList} />;
 }

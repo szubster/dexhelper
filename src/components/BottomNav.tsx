@@ -20,18 +20,23 @@ export function BottomNav() {
         {/* Active Indicator Background */}
         <div
           className="absolute h-12 w-[22%] bg-[var(--theme-primary)]/10 rounded-2xl border border-[var(--theme-primary)]/20 -z-10 transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(${isDex ? '-150%' : isStorage ? '-50%' : isAssistant ? '50%' : '150%'})` }}
+          style={{
+            transform: `translateX(${isDex ? '-150%' : isStorage ? '-50%' : isAssistant ? '50%' : '150%'})`,
+          }}
         />
 
         <Link
           to="/"
           className={cn(
-            "flex flex-col items-center gap-1 transition-all duration-300 py-1",
-            isDex ? 'text-[var(--theme-primary)]' : 'text-zinc-500'
+            'flex flex-col items-center gap-1 transition-all duration-300 py-1',
+            isDex ? 'text-[var(--theme-primary)]' : 'text-zinc-500',
           )}
         >
           <div className="active:scale-80 transition-transform">
-            <LayoutGrid size={22} className={cn(isDex && "drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]")} />
+            <LayoutGrid
+              size={22}
+              className={cn(isDex && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]')}
+            />
           </div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Pokedex</span>
         </Link>
@@ -39,12 +44,17 @@ export function BottomNav() {
         <Link
           to="/storage"
           className={cn(
-            "flex flex-col items-center gap-1 transition-all duration-300 py-1",
-            isStorage ? 'text-[var(--theme-primary)]' : 'text-zinc-500'
+            'flex flex-col items-center gap-1 transition-all duration-300 py-1',
+            isStorage ? 'text-[var(--theme-primary)]' : 'text-zinc-500',
           )}
         >
           <div className="active:scale-80 transition-transform">
-            <Database size={22} className={cn(isStorage && "drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]")} />
+            <Database
+              size={22}
+              className={cn(
+                isStorage && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]',
+              )}
+            />
           </div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Storage</span>
         </Link>
@@ -52,12 +62,17 @@ export function BottomNav() {
         <Link
           to="/assistant"
           className={cn(
-            "flex flex-col items-center gap-1 transition-all duration-300 py-1",
-            isAssistant ? 'text-[var(--theme-primary)]' : 'text-zinc-500'
+            'flex flex-col items-center gap-1 transition-all duration-300 py-1',
+            isAssistant ? 'text-[var(--theme-primary)]' : 'text-zinc-500',
           )}
         >
           <div className="active:scale-80 transition-transform">
-            <Sparkles size={22} className={cn(isAssistant && "drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]")} />
+            <Sparkles
+              size={22}
+              className={cn(
+                isAssistant && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]',
+              )}
+            />
           </div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Assistant</span>
         </Link>

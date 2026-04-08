@@ -19,15 +19,30 @@ test.describe('Save Management', () => {
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
 
     // 4. Verify Trainer Info in Header
-    await expect(page.locator('header').getByText(/TRAINER/i).first()).toBeVisible();
-    await expect(page.locator('header').getByText(/YELLOW/i).first()).toBeVisible();
+    await expect(
+      page
+        .locator('header')
+        .getByText(/TRAINER/i)
+        .first(),
+    ).toBeVisible();
+    await expect(
+      page
+        .locator('header')
+        .getByText(/YELLOW/i)
+        .first(),
+    ).toBeVisible();
 
     // 5. Persistence: Reload page
     await page.reload();
 
     // 6. Verify it's still hydrated (persisted in localStorage)
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
-    await expect(page.locator('header').getByText(/TRAINER/i).first()).toBeVisible();
+    await expect(
+      page
+        .locator('header')
+        .getByText(/TRAINER/i)
+        .first(),
+    ).toBeVisible();
 
     await argosScreenshot(page, 'save-persisted-yellow');
   });

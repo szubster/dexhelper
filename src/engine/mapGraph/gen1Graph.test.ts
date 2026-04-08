@@ -59,7 +59,7 @@ describe('getDistanceToMap', () => {
   it('avoids partial matches (regression: Route 1 mismatching Route 10, 11, 12)', () => {
     // Current is Pallet Town (0x00).
     // Route 1 is next to Pallet Town (distance 1).
-    // Route 12 is VERY far away. 
+    // Route 12 is VERY far away.
     // Before fix, route-12 matched route-1, returning distance 1.
     // Now it should correctly search the whole graph or return the correct distance.
     const result = getDistanceToMap(0x00, 'route-12-area');
