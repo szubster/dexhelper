@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useDeferredValue } from 'react';
 import { Monitor, CircleDot, Sparkles, ChevronRight } from 'lucide-react';
 import { useStore } from '../store';
 import { useNavigate } from '@tanstack/react-router';
@@ -20,23 +20,33 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
   const pcSet = React.useMemo(() => new Set(saveData?.pc || []), [saveData?.pc]);
   // ⚡ Bolt: Removed redundant shinyPartySet and shinyPcSet which were unused and doing O(N) operations.
 
-  const finalPokemon = pokemonList.slice(0, displayLimit).filter(pokemon => {
-    if (!saveData || filtersSet.size === 0) return true;
+  const deferredSearchTerm = useDeferredValue(searchTerm);
 
-    const inParty = partySet.has(pokemon.id);
-    const inPC = pcSet.has(pokemon.id);
-    const hasInStorage = inParty || inPC;
+  const finalPokemon = useMemo(() => {
+    const term = deferredSearchTerm.toLowerCase();
 
-    if (filtersSet.has('secured') && hasInStorage) return true;
-    if (filtersSet.has('missing') && !hasInStorage) return true;
-    if (filtersSet.has('dex-only') && (saveData.owned.has(pokemon.id) && !hasInStorage)) return true;
+    return pokemonList.slice(0, displayLimit).filter(pokemon => {
+      // Search filter check first as it's the fastest way to drop items
+      if (term) {
+        const matchesName = pokemon.name.toLowerCase().includes(term);
+        const matchesId = pokemon.id.toString().includes(term);
+        if (!matchesName && !matchesId) return false;
+      }
 
-    return false;
-  }).filter(pokemon => {
-    if (!searchTerm) return true;
-    const term = searchTerm.toLowerCase();
-    return pokemon.name.toLowerCase().includes(term) || pokemon.id.toString().includes(term);
-  });
+      // If no save data or no filters, allow the item
+      if (!saveData || filtersSet.size === 0) return true;
+
+      const inParty = partySet.has(pokemon.id);
+      const inPC = pcSet.has(pokemon.id);
+      const hasInStorage = inParty || inPC;
+
+      if (filtersSet.has('secured') && hasInStorage) return true;
+      if (filtersSet.has('missing') && !hasInStorage) return true;
+      if (filtersSet.has('dex-only') && (saveData.owned.has(pokemon.id) && !hasInStorage)) return true;
+
+      return false;
+    });
+  }, [pokemonList, displayLimit, deferredSearchTerm, saveData, filtersSet, partySet, pcSet]);
 
   const shinySpeciesIds = useMemo(() => {
     const set = new Set<number>();

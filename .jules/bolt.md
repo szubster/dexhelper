@@ -5,3 +5,7 @@
 ## 2024-05-18 - [React Query for API Caching]
 **Learning:** The initial manual Promise cache deduplicated identical requests successfully but circumvented robust cache expiration and hydration tracking features that TanStack query already possesses. Service workers operate on the network layer and do not prevent redundant JS execution and queuing inside the browser before hitting the worker.
 **Action:** Always extract the React `QueryClient` into a separate singleton module (`queryClient.ts`) so that it can be imported and shared by pure functions and non-React files without relying on hooks. Use `queryClient.fetchQuery` to seamlessly leverage its out-of-the-box deduplication and configurable cache timers globally.
+
+## 2026-04-08 - [React List Filtering Performance]
+**Learning:** Chained `.filter()` operations on arrays inside React components execute multiple O(N) passes. When this is coupled with unfiltered user input (like a search bar missing `useDeferredValue` or debouncing), the main thread gets blocked, leading to typing jank and dropped frames, especially with complex list elements.
+**Action:** Combine chained array passes where possible. Always hoist invariant computations (like string `.toLowerCase()`) outside the loop. Most importantly, decouple state that drives text inputs from state that drives expensive list renders using `useDeferredValue(searchTerm)` or `useMemo`.
