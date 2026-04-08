@@ -1,5 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-import path from 'path';
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -17,10 +16,13 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [
     ['html'],
-    ['@argos-ci/playwright/reporter', { 
-      uploadToArgos: !!process.env.CI,
-      buildName: process.env.ARGOS_BUILD_NAME || 'E2E',
-    }]
+    [
+      '@argos-ci/playwright/reporter',
+      {
+        uploadToArgos: !!process.env.CI,
+        buildName: process.env.ARGOS_BUILD_NAME || 'E2E',
+      },
+    ],
   ],
   use: {
     actionTimeout: 0,
@@ -35,33 +37,36 @@ export default defineConfig({
   projects: [
     {
       name: 'Desktop FullHD',
-      use: { 
+      use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 1920, height: 1080 },
       },
     },
     {
       name: 'Desktop 1440p',
-      use: { 
+      use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 2560, height: 1440 },
       },
     },
     {
       name: 'Mobile Pixel 9',
-      use: { 
+      use: {
         ...devices['Pixel 7'], // Fallback base
         viewport: { width: 393, height: 852 },
         deviceScaleFactor: 3,
         isMobile: true,
         hasTouch: true,
         defaultBrowserType: 'chromium',
-        userAgent: 'Mozilla/5.0 (Linux; Android 14; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36',
+        userAgent:
+          'Mozilla/5.0 (Linux; Android 14; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36',
       },
     },
   ],
   webServer: {
-    command: process.env.CI ? 'npm run build && npm run preview -- --port 3000' : 'npm run dev',
+    command: process.env.CI
+      ? 'npm run build && npm run preview -- --port 3000'
+      : 'npm run dev',
     port: 3000,
     reuseExistingServer: !process.env.CI,
     timeout: 120000,

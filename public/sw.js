@@ -3,8 +3,8 @@
 // NOTE: Only active in production builds (registration is guarded by import.meta.env.PROD)
 
 const SHELL_CACHE = 'shell-v2';
-const API_CACHE   = 'pokeapi-data-v1';
-const IMG_CACHE   = 'pokeapi-sprites-v1';
+const API_CACHE = 'pokeapi-data-v1';
+const IMG_CACHE = 'pokeapi-sprites-v1';
 
 const SHELL_ASSETS = [
   '/dexhelper/',
@@ -18,8 +18,8 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(SHELL_CACHE).then((cache) =>
       // Use individual adds so one failure doesn't block the whole install
-      Promise.allSettled(SHELL_ASSETS.map((url) => cache.add(url)))
-    )
+      Promise.allSettled(SHELL_ASSETS.map((url) => cache.add(url))),
+    ),
   );
   self.skipWaiting();
 });
@@ -28,9 +28,13 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   const CURRENT = new Set([SHELL_CACHE, API_CACHE, IMG_CACHE]);
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => !CURRENT.has(k)).map((k) => caches.delete(k)))
-    )
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys.filter((k) => !CURRENT.has(k)).map((k) => caches.delete(k)),
+        ),
+      ),
   );
   self.clients.claim();
 });
@@ -42,24 +46,28 @@ async function staleWhileRevalidate(request, cacheName, maxEntries) {
   const cache = await caches.open(cacheName);
   const cached = await cache.match(request);
 
-  const fetchPromise = fetch(request).then(async (response) => {
-    if (response.ok || response.status === 0) {
-      const headers = new Headers(response.headers);
-      headers.set('sw-fetched-at', String(Date.now()));
-      const stamped = new Response(await response.clone().arrayBuffer(), {
-        status: response.status,
-        statusText: response.statusText,
-        headers,
-      });
-      await cache.put(request, stamped);
-      
-      const keys = await cache.keys();
-      if (keys.length > maxEntries) {
-        await Promise.all(keys.slice(0, keys.length - maxEntries).map((k) => cache.delete(k)));
+  const fetchPromise = fetch(request)
+    .then(async (response) => {
+      if (response.ok || response.status === 0) {
+        const headers = new Headers(response.headers);
+        headers.set('sw-fetched-at', String(Date.now()));
+        const stamped = new Response(await response.clone().arrayBuffer(), {
+          status: response.status,
+          statusText: response.statusText,
+          headers,
+        });
+        await cache.put(request, stamped);
+
+        const keys = await cache.keys();
+        if (keys.length > maxEntries) {
+          await Promise.all(
+            keys.slice(0, keys.length - maxEntries).map((k) => cache.delete(k)),
+          );
+        }
       }
-    }
-    return response;
-  }).catch(() => cached || fetch(request));
+      return response;
+    })
+    .catch(() => cached || fetch(request));
 
   return cached || fetchPromise;
 }
@@ -90,7 +98,9 @@ async function cacheFirst(request, cacheName, maxEntries, maxAgeMs) {
 
       const keys = await cache.keys();
       if (keys.length > maxEntries) {
-        await Promise.all(keys.slice(0, keys.length - maxEntries).map((k) => cache.delete(k)));
+        await Promise.all(
+          keys.slice(0, keys.length - maxEntries).map((k) => cache.delete(k)),
+        );
       }
     }
     return response;
@@ -128,16 +138,14 @@ self.addEventListener('fetch', (event) => {
 
   // PokeAPI JSON — StaleWhileRevalidate, up to 1000 entries
   if (/^https:\/\/pokeapi\.co\/api\/v2\//i.test(url)) {
-    event.respondWith(
-      staleWhileRevalidate(request, API_CACHE, 1000)
-    );
+    event.respondWith(staleWhileRevalidate(request, API_CACHE, 1000));
     return;
   }
 
   // PokeAPI sprites — CacheFirst, 1 year TTL, up to 2000 entries
   if (/^https:\/\/raw\.githubusercontent\.com\/PokeAPI\/sprites\//i.test(url)) {
     event.respondWith(
-      cacheFirst(request, IMG_CACHE, 2000, 365 * 24 * 60 * 60 * 1000)
+      cacheFirst(request, IMG_CACHE, 2000, 365 * 24 * 60 * 60 * 1000),
     );
     return;
   }
@@ -145,7 +153,7 @@ self.addEventListener('fetch', (event) => {
   // Google Fonts — CacheFirst, 30 days
   if (/^https:\/\/fonts\.(googleapis|gstatic)\.com\//i.test(url)) {
     event.respondWith(
-      cacheFirst(request, SHELL_CACHE, 50, 30 * 24 * 60 * 60 * 1000)
+      cacheFirst(request, SHELL_CACHE, 50, 30 * 24 * 60 * 60 * 1000),
     );
     return;
   }

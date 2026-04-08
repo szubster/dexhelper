@@ -1,7 +1,10 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import type {
+  GameVersion as GameVersionType,
+  SaveData,
+} from './engine/saveParser/index';
 import { parseSaveFile } from './engine/saveParser/index';
-import type { SaveData, GameVersion as GameVersionType } from './engine/saveParser/index';
 
 // ─── Types ───────────────────────────────────────────────────────────
 export type GameVersion = GameVersionType;
@@ -105,7 +108,10 @@ export const useStore = create<AppStore>()(
               bytes[i] = binaryString.charCodeAt(i);
             }
             const { manualVersion } = get();
-            const data = parseSaveFile(bytes.buffer, manualVersion || undefined);
+            const data = parseSaveFile(
+              bytes.buffer,
+              manualVersion || undefined,
+            );
             set({ saveData: data });
           } catch (err) {
             console.error('Failed to load saved file from localStorage:', err);

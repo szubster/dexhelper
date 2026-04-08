@@ -1,9 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { getUnobtainableReason } from '../gen1Exclusives';
 
 describe('gen1Exclusives', () => {
   describe('getUnobtainableReason', () => {
-
     describe('Yellow Raichu', () => {
       it('should lock Raichu (26) in Yellow if Pikachu (25) was not evolved', () => {
         const ownedSet = new Set([25]); // Own Pikachu
@@ -123,6 +122,5 @@ describe('gen1Exclusives', () => {
         expect(reason).toBeNull();
       });
     });
-
   });
 });

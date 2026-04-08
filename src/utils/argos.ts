@@ -9,7 +9,7 @@ import type { Page } from '@playwright/test';
 export async function argosScreenshot(
   page: Page,
   name: string,
-  options: Parameters<typeof originalArgosScreenshot>[2] = {}
+  options: Parameters<typeof originalArgosScreenshot>[2] = {},
 ) {
   return originalArgosScreenshot(page, name, {
     fullPage: false,

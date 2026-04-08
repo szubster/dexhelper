@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { gen1Strategy } from '../strategies/gen1Strategy';
+import { describe, expect, it } from 'vitest';
 import type { SaveData } from '../../saveParser/index';
+import { gen1Strategy } from '../strategies/gen1Strategy';
 
 const makeSaveData = (overrides: Partial<SaveData> = {}): SaveData => ({
   generation: 1,
@@ -49,14 +49,14 @@ describe('Gen 1 AssistantStrategy', () => {
     it('should return distance 0 for current location', () => {
       const result = gen1Strategy.getMapDistance(0x00, 'pallet-town-area');
       expect(result).not.toBeNull();
-      expect(result!.distance).toBe(0);
+      expect(result?.distance).toBe(0);
     });
 
     it('should return positive distance for adjacent locations', () => {
       // Pallet Town -> Route 1 (adjacent)
       const result = gen1Strategy.getMapDistance(0x00, 'route-1');
       expect(result).not.toBeNull();
-      expect(result!.distance).toBe(1);
+      expect(result?.distance).toBe(1);
     });
 
     it('should return null for unknown target slugs', () => {
@@ -67,7 +67,12 @@ describe('Gen 1 AssistantStrategy', () => {
 
   describe('getUnobtainableReason', () => {
     it('should detect Raichu lock in Yellow', () => {
-      const reason = gen1Strategy.getUnobtainableReason(26, 'yellow', 1, new Set([25]));
+      const reason = gen1Strategy.getUnobtainableReason(
+        26,
+        'yellow',
+        1,
+        new Set([25]),
+      );
       expect(reason).toBeTruthy();
       expect(reason).toContain('Thunder Stone');
     });
@@ -83,7 +88,7 @@ describe('Gen 1 AssistantStrategy', () => {
       const save = makeSaveData({ currentBoxCount: 19 });
       const suggestions = gen1Strategy.getSpecialSuggestions(save, []);
       expect(suggestions).toHaveLength(1);
-      expect(suggestions[0]!.id).toBe('box-full-warning');
+      expect(suggestions[0]?.id).toBe('box-full-warning');
     });
 
     it('should not warn when box has space', () => {

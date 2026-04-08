@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { argosScreenshot } from '../../src/utils/argos';
 import { initializeWithSave } from './test-utils';
 
@@ -14,7 +14,7 @@ test.describe('Filtering Logic', () => {
 
     // Pikachu (ID 25) should be visible
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
-    
+
     // Bulbasaur (ID 1) should be hidden
     await expect(page.locator('[data-pokemon-id="1"]')).not.toBeVisible();
 

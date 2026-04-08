@@ -17,7 +17,11 @@ function AssistantPage() {
 
   return (
     <div className="pt-4 h-full flex flex-col">
-      <AssistantPanel saveData={saveData} isLivingDex={isLivingDex} manualVersion={manualVersion} />
+      <AssistantPanel
+        saveData={saveData}
+        isLivingDex={isLivingDex}
+        manualVersion={manualVersion}
+      />
     </div>
   );
 }

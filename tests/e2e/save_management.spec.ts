@@ -1,9 +1,11 @@
-import { test, expect } from '@playwright/test';
+import path from 'node:path';
+import { expect, test } from '@playwright/test';
 import { argosScreenshot } from '../../src/utils/argos';
-import path from 'path';
 
 test.describe('Save Management', () => {
-  test('should upload a save file and persist it on reload', async ({ page }) => {
+  test('should upload a save file and persist it on reload', async ({
+    page,
+  }) => {
     await page.goto('/');
 
     // 1. Initial State: Should show "Initialize Pokedex" button (clean state)
@@ -19,15 +21,30 @@ test.describe('Save Management', () => {
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
 
     // 4. Verify Trainer Info in Header
-    await expect(page.locator('header').getByText(/TRAINER/i).first()).toBeVisible();
-    await expect(page.locator('header').getByText(/YELLOW/i).first()).toBeVisible();
+    await expect(
+      page
+        .locator('header')
+        .getByText(/TRAINER/i)
+        .first(),
+    ).toBeVisible();
+    await expect(
+      page
+        .locator('header')
+        .getByText(/YELLOW/i)
+        .first(),
+    ).toBeVisible();
 
     // 5. Persistence: Reload page
     await page.reload();
 
     // 6. Verify it's still hydrated (persisted in localStorage)
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
-    await expect(page.locator('header').getByText(/TRAINER/i).first()).toBeVisible();
+    await expect(
+      page
+        .locator('header')
+        .getByText(/TRAINER/i)
+        .first(),
+    ).toBeVisible();
 
     await argosScreenshot(page, 'save-persisted-yellow');
   });
