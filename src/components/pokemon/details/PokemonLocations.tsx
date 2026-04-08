@@ -56,6 +56,8 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                 ))}
                 {versionEnc.map((e: LocationAreaEncounter, i: number) => {
                   const versionDetail = e.version_details.find((v: VersionEncounterDetail) => v.version.name === gameVersion);
+                  const encounterDetails = versionDetail?.encounter_details;
+
                   return (
                     <div key={i} className="flex flex-col p-4 bg-zinc-900 border border-white/5 rounded-2xl group hover:border-[var(--theme-primary)]/30 transition-all space-y-3">
                       <div className="flex items-center justify-between">
@@ -66,7 +68,7 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
+                          {encounterDetails?.map((d: PokeEncounter, di: number) => (
                             <span key={di} className="text-[8px] font-black text-zinc-500 uppercase tracking-widest px-2 py-0.5 bg-white/5 rounded-md border border-white/5">
                               LV.{d.min_level}-{d.max_level}
                             </span>
@@ -74,7 +76,7 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                         </div>
                       </div>
                       <div className="flex flex-wrap gap-1.5 pl-1.5 border-l-2 border-[var(--theme-primary)]/20">
-                        {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
+                        {encounterDetails?.map((d: PokeEncounter, di: number) => (
                           <span key={di} className="text-[8px] font-black text-[var(--theme-primary)]/70 uppercase">
                             • {d.method.name.replace('-', ' ')} ({d.chance}%)
                           </span>
