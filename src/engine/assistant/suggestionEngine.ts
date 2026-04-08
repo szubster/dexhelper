@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import { SaveData, PokemonInstance } from '../saveParser/index';
 import { pokeapi } from '../../utils/pokeapi';
 import {
@@ -66,7 +65,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
 
       const chain = await pokeapi.resource(species.evolution_chain.url);
       missingChains[pid] = chain;
-    } catch (e) {
+    } catch (_e) {
       missingEncounters[pid] = [];
     }
   });
@@ -105,7 +104,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
         ancestorData[aid] = await pokeapi.resource(
           `https://pokeapi.co/api/v2/pokemon/${aid}/encounters`,
         );
-      } catch (e) {
+      } catch (_e) {
         ancestorData[aid] = [];
       }
     }),
@@ -178,7 +177,7 @@ export function generateSuggestions(
     effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
   const queryTargets = missingIds.slice(0, 100);
 
-  const localSlug =
+  const _localSlug =
     saveData.generation === 1
       ? GEN1_MAP_TO_SLUG[saveData.currentMapId] || ''
       : 'new-bark-town-area';

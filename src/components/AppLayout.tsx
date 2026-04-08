@@ -5,12 +5,10 @@ import {
   RefreshCw,
   AlertTriangle,
   LayoutGrid,
-  Database,
   Zap,
   Sparkles,
 } from 'lucide-react';
 import { useStore } from '../store';
-import type { GameVersion } from '../store';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { getGenerationConfig, VERSION_THEMES } from '../utils/generationConfig';
 import { SettingsModal } from './SettingsModal';

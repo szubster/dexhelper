@@ -70,7 +70,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
             ? hasInStorage
             : isOwnedInDex || hasInStorage
           : false;
-        const hadButLost = saveData ? isOwnedInDex && !hasInStorage : false;
+        const _hadButLost = saveData ? isOwnedInDex && !hasInStorage : false;
 
         const isSeen = saveData ? isSeenInDex || isOwned || hasInStorage : false;
         const isUnseen = saveData && !isSeen;

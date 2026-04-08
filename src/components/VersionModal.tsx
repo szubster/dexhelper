@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { AlertTriangle } from 'lucide-react';
 import { useStore } from '../store';
 import type { GameVersion } from '../store';

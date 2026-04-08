@@ -1,38 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useQuery, useQueries } from '@tanstack/react-query';
-import {
-  X,
-  MapPin,
-  AlertCircle,
-  Info,
-  ArrowUpCircle,
-  CheckCircle2,
-  XCircle,
-  Target,
-  AlertTriangle,
-  Sparkles,
-  Package,
-  Heart,
-  Activity,
-  Zap,
-  ChevronRight,
-  CircleDot,
-  Monitor,
-  Ghost,
-  Eye,
-  Check,
-} from 'lucide-react';
-import { staticEncounters, stadiumRewardsData, stadiumRewardsSummary } from '../utils/data';
+import { X, MapPin, AlertCircle, CheckCircle2, Sparkles, Monitor } from 'lucide-react';
+import { staticEncounters, stadiumRewardsSummary } from '../utils/data';
 import { SaveData } from '../engine/saveParser/index';
 import { pokeapi } from '../utils/pokeapi';
 import { PokeballType } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { cn } from '../utils/cn';
-import type {
-  LocationAreaEncounter,
-  VersionEncounterDetail,
-  Encounter as PokeEncounter,
-} from 'pokenode-ts';
+import type { LocationAreaEncounter, VersionEncounterDetail } from 'pokenode-ts';
 import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbability';
 import { PokemonStats } from './pokemon/details/PokemonStats';
 import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
@@ -41,26 +16,7 @@ import { PokemonLocations } from './pokemon/details/PokemonLocations';
 
 // Static data moved to data.ts
 
-interface EncounterDetail {
-  chance: number;
-  max_level: number;
-  min_level: number;
-  method: { name: string };
-}
-
-interface Encounter {
-  location_area: { name: string };
-  version_details: {
-    version: { name: string };
-    encounter_details: EncounterDetail[];
-  }[];
-}
-
-interface EvoRequirement {
-  fromId: number;
-  fromName: string;
-  method: string;
-}
+// Static data moved to data.ts
 
 interface PokemonDetailsProps {
   pokemonId: number;
@@ -75,7 +31,7 @@ interface PokemonDetailsProps {
 
 // gen2Items and gen2Locations moved to data.ts
 
-const modalVariants = {
+const _modalVariants = {
   hidden: { opacity: 0, scale: 0.95, y: 40 },
   visible: {
     opacity: 1,
@@ -97,7 +53,7 @@ const modalVariants = {
   },
 } as const;
 
-const contentVariants = {
+const _contentVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -143,16 +99,16 @@ export function PokemonDetails({
 
   // Calculator state moved to PokemonCatchProbability
 
-  const encountersReady = queries[0].isSuccess;
-  const pokemonReady = queries[1].isSuccess;
-  const speciesReady = queries[2].isSuccess;
+  const _encountersReady = queries[0].isSuccess;
+  const _pokemonReady = queries[1].isSuccess;
+  const _speciesReady = queries[2].isSuccess;
 
   const encounters = queries[0].data || [];
   const pokemonData = queries[1].data;
   const speciesData = queries[2].data;
 
   const catchRate = speciesData?.capture_rate ?? null;
-  const genderRate = speciesData?.gender_rate ?? -1;
+  const _genderRate = speciesData?.gender_rate ?? -1;
 
   const { data: evolutionData } = useQuery({
     queryKey: ['evolution', speciesData?.evolution_chain?.url],
@@ -335,14 +291,14 @@ export function PokemonDetails({
     return locations;
   };
 
-  const redLocations = getLocationsForVersion('red');
-  const blueLocations = getLocationsForVersion('blue');
-  const yellowLocations = getLocationsForVersion('yellow');
-  const goldLocations = getLocationsForVersion('gold');
-  const silverLocations = getLocationsForVersion('silver');
-  const crystalLocations = getLocationsForVersion('crystal');
+  const _redLocations = getLocationsForVersion('red');
+  const _blueLocations = getLocationsForVersion('blue');
+  const _yellowLocations = getLocationsForVersion('yellow');
+  const _goldLocations = getLocationsForVersion('gold');
+  const _silverLocations = getLocationsForVersion('silver');
+  const _crystalLocations = getLocationsForVersion('crystal');
 
-  const renderLocations = (locations: { name: string; details: string }[], colorClass: string) => {
+  const _renderLocations = (locations: { name: string; details: string }[], colorClass: string) => {
     if (locations.length === 0) {
       return (
         <div className="text-[10px] text-zinc-600 uppercase tracking-widest font-black flex items-center gap-2 py-4">
@@ -405,14 +361,14 @@ export function PokemonDetails({
 
   const stadiumReward = stadiumRewardsSummary[pokemonId];
 
-  const getGender = (atkDV: number, rate: number) => {
+  const _getGender = (atkDV: number, rate: number) => {
     if (rate === -1) return 'Genderless';
     if (rate === 0) return 'Male';
     if (rate === 8) return 'Female';
     return atkDV < rate * 2 ? 'Female' : 'Male';
   };
 
-  const getUnownForm = (dvs: { atk: number; def: number; spd: number; spc: number }) => {
+  const _getUnownForm = (dvs: { atk: number; def: number; spd: number; spc: number }) => {
     const formValue =
       ((dvs.atk & 0x06) << 5) |
       ((dvs.def & 0x06) << 3) |

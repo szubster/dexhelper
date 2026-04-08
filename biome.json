@@ -34,9 +34,9 @@
         "useOptionalChain": "off"
       },
       "correctness": {
-        "noUnusedImports": "off",
-        "noUnusedVariables": "off",
-        "noUnusedPrivateClassMembers": "off",
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error",
+        "noUnusedPrivateClassMembers": "error",
         "useJsxKeyInIterable": "off",
         "useParseIntRadix": "off",
         "noUnusedFunctionParameters": "off",
@@ -57,6 +57,9 @@
         "noImplicitAnyLet": "off",
         "noShadowRestrictedNames": "off",
         "noCommentText": "off"
+      },
+      "security": {
+        "recommended": true
       },
       "performance": {
         "noAccumulatingSpread": "off"

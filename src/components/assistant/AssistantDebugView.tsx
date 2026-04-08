@@ -1,4 +1,3 @@
-import React from 'react';
 import { Bug, AlertCircle } from 'lucide-react';
 import { RejectedSuggestion } from '../../hooks/useAssistant';
 
