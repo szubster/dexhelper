@@ -13,7 +13,7 @@ export const gen1Strategy: AssistantStrategy = {
 
     // Resolve indoor maps to their parent outdoor area
     if (INDOOR_TO_PARENT_MAP[mapId] !== undefined) {
-      mapId = INDOOR_TO_PARENT_MAP[mapId]!;
+      mapId = INDOOR_TO_PARENT_MAP[mapId] ?? mapId;
     }
 
     const node = GEN1_MAPS[mapId];

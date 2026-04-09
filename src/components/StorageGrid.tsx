@@ -11,7 +11,9 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
   const pokemonMap = React.useMemo(() => {
     const map = new Map<number, { id: number; name: string }>();
-    pokemonList.forEach((p) => map.set(p.id, p));
+    pokemonList.forEach((p) => {
+      map.set(p.id, p);
+    });
     return map;
   }, [pokemonList]);
 
@@ -81,6 +83,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
                   return (
                     <div
+                      // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                       key={`${location}-${p.speciesId}-${idx}`}
                       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}
                       className={`relative flex flex-col items-center p-5 rounded-2xl transition-all duration-200 cursor-pointer hover:-translate-y-1 active:scale-95 ${cardStyle}`}

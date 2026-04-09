@@ -16,7 +16,7 @@ describe('pokeapi', () => {
   describe('success cases', () => {
     it('returns json on successful fetch', async () => {
       const mockData = { name: 'bulbasaur' };
-      (global.fetch as any).mockResolvedValue({
+      (global.fetch as import('vitest').Mock).mockResolvedValue({
         ok: true,
         json: async () => mockData,
       });
@@ -29,7 +29,7 @@ describe('pokeapi', () => {
 
   describe('error handling', () => {
     it('getPokemonsList throws when response is not ok', async () => {
-      (global.fetch as any).mockResolvedValue({
+      (global.fetch as import('vitest').Mock).mockResolvedValue({
         ok: false,
       });
 
@@ -37,7 +37,7 @@ describe('pokeapi', () => {
     });
 
     it('getPokemonEncounterAreasByName throws when response is not ok', async () => {
-      (global.fetch as any).mockResolvedValue({
+      (global.fetch as import('vitest').Mock).mockResolvedValue({
         ok: false,
       });
 
@@ -45,7 +45,7 @@ describe('pokeapi', () => {
     });
 
     it('getPokemonByName throws when response is not ok', async () => {
-      (global.fetch as any).mockResolvedValue({
+      (global.fetch as import('vitest').Mock).mockResolvedValue({
         ok: false,
       });
 
@@ -53,7 +53,7 @@ describe('pokeapi', () => {
     });
 
     it('getPokemonSpeciesByName throws when response is not ok', async () => {
-      (global.fetch as any).mockResolvedValue({
+      (global.fetch as import('vitest').Mock).mockResolvedValue({
         ok: false,
       });
 
@@ -61,7 +61,7 @@ describe('pokeapi', () => {
     });
 
     it('resource throws when response is not ok', async () => {
-      (global.fetch as any).mockResolvedValue({
+      (global.fetch as import('vitest').Mock).mockResolvedValue({
         ok: false,
       });
 
@@ -71,7 +71,7 @@ describe('pokeapi', () => {
     });
 
     it('getItem throws when response is not ok', async () => {
-      (global.fetch as any).mockResolvedValue({
+      (global.fetch as import('vitest').Mock).mockResolvedValue({
         ok: false,
       });
 
@@ -79,7 +79,7 @@ describe('pokeapi', () => {
     });
 
     it('getLocationArea throws when response is not ok', async () => {
-      (global.fetch as any).mockResolvedValue({
+      (global.fetch as import('vitest').Mock).mockResolvedValue({
         ok: false,
       });
 

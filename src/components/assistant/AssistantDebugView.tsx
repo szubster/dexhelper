@@ -1,13 +1,16 @@
 import { AlertCircle, Bug } from 'lucide-react';
+import type { SaveData } from '../../engine/saveParser/index';
 import type { RejectedSuggestion } from '../../hooks/useAssistant';
 
 interface AssistantDebugViewProps {
   rejected: RejectedSuggestion[];
   getPokemonName: (id: number) => string;
-  saveData: any;
+  saveData: SaveData | null;
 }
 
 export function AssistantDebugView({ rejected, getPokemonName, saveData }: AssistantDebugViewProps) {
+  if (!saveData) return null;
+
   return (
     <div className="mt-12 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex items-center gap-3 px-2">
@@ -61,6 +64,7 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
       <div className="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {rejected.map((r, i) => (
           <div
+            // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
             key={`${r.pokemonId}-${i}`}
             className="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-4 flex items-start gap-4 hover:border-zinc-700 transition-colors"
           >

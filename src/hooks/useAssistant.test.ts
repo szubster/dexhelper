@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import type { AssistantApiData } from '../engine/assistant/suggestionEngine';
 import { generateSuggestions } from '../engine/assistant/suggestionEngine';
 import type { SaveData } from '../engine/saveParser/index';
 
@@ -69,7 +70,7 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
     },
     partyEvolutions: {},
-  };
+  } as unknown as AssistantApiData;
 
   it('should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)', () => {
     const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
@@ -102,7 +103,12 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', exclusiveApiData);
+    const { suggestions } = generateSuggestions(
+      mockSaveData,
+      false,
+      'yellow',
+      exclusiveApiData as unknown as AssistantApiData,
+    );
     const weedleTrade = suggestions.find((s) => s.pokemonId === 13 && s.category === 'Trade');
     expect(weedleTrade).toBeDefined();
     expect(weedleTrade?.title).toContain('Version Exclusive');
@@ -139,10 +145,15 @@ describe('useAssistant - generateSuggestions logic', () => {
 
     // Pallet Town (id 0) + pallet-town-area slug = distance 0
     const testSaveData = { ...mockSaveData, currentMapId: 0, owned: new Set([25]) };
-    const { suggestions } = generateSuggestions(testSaveData, false, 'yellow', duplicateApiData);
+    const { suggestions } = generateSuggestions(
+      testSaveData,
+      false,
+      'yellow',
+      duplicateApiData as unknown as AssistantApiData,
+    );
 
     const catchRightHereTips = suggestions.filter((s) => s.title === 'Catch Right Here');
     expect(catchRightHereTips.length).toBe(1);
-    expect(catchRightHereTips[0]!.id).toBe('catch-local');
+    expect(catchRightHereTips[0]?.id).toBe('catch-local');
   });
 });

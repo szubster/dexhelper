@@ -32,10 +32,10 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
       queryTargetsSlice.join(','),
       saveData?.party?.join(','),
     ],
-    queryFn: () => fetchAssistantApiData(saveData!, queryTargetsSlice),
+    queryFn: () => (saveData ? fetchAssistantApiData(saveData, queryTargetsSlice) : Promise.reject('No save data')),
     enabled: !!saveData,
   });
 
-  const { suggestions, debug } = generateSuggestions(saveData, isLivingDex, manualVersion, apiData);
+  const { suggestions, debug } = generateSuggestions(saveData, isLivingDex, manualVersion, apiData ?? null);
   return { suggestions, debug, isLoading: isLoadingEncounters };
 }
