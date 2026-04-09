@@ -6,7 +6,9 @@ import {
   OBEDIENCE_CAPS,
   STATIC_GIFT_DATA,
   STATIC_NPC_TRADE_DATA,
+  GEN1_ITEMS,
 } from '../data/gen1/assistantData';
+import { GEN2_ITEMS } from '../data/gen2/assistantData';
 import { getDistanceToMap } from '../mapGraph/gen1Graph';
 import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
 import { getGenerationConfig } from '../../utils/generationConfig';
@@ -667,20 +669,21 @@ export function generateSuggestions(
             displayVersion === 'yellow' && p.speciesId === 25 && p.otName === saveData.trainerName;
           if (isYellowStarterPikachu) return;
 
-          const hasStone = saveData.inventory.some(
-            (i: any) =>
-              i.id ===
-              (itemName.includes('fire')
-                ? 32
-                : itemName.includes('thunder')
-                  ? 33
-                  : itemName.includes('water')
-                    ? 34
-                    : itemName.includes('leaf')
-                      ? 46
-                      : 10),
-          );
-          if (hasStone)
+          const stoneItems = saveData.generation === 1 ? GEN1_ITEMS : GEN2_ITEMS;
+          const targetStoneId = itemName.includes('fire')
+            ? stoneItems.FIRE_STONE
+            : itemName.includes('thunder')
+              ? stoneItems.THUNDER_STONE
+              : itemName.includes('water')
+                ? stoneItems.WATER_STONE
+                : itemName.includes('leaf')
+                  ? stoneItems.LEAF_STONE
+                  : itemName.includes('sun')
+                    ? (stoneItems as any).SUN_STONE
+                    : stoneItems.MOON_STONE;
+
+          const hasStone = saveData.inventory.some((i: any) => i.id === targetStoneId);
+          if (hasStone) {
             suggestions.push({
               id: `evo-stn-${p.speciesId}-${idx}`,
               category: 'Evolve',
@@ -689,15 +692,32 @@ export function generateSuggestions(
               pokemonId: p.speciesId,
               priority: 95,
             });
-          else if (!itemName.includes('moon'))
-            suggestions.push({
-              id: `evo-buy-${p.speciesId}-${idx}`,
-              category: 'Evolve',
-              title: `Buy ${itemName.replace('-', ' ')}`,
-              description: `Visit Celadon Dept. Store to evolve your Pokémon.`,
-              pokemonId: p.speciesId,
-              priority: 40,
-            });
+          } else {
+            const isBuyableGen1 =
+              saveData.generation === 1 &&
+              !itemName.includes('moon') &&
+              !itemName.includes('sun');
+
+            if (isBuyableGen1) {
+              suggestions.push({
+                id: `evo-buy-${p.speciesId}-${idx}`,
+                category: 'Evolve',
+                title: `Buy ${itemName.replace('-', ' ')}`,
+                description: `Visit Celadon Dept. Store to evolve your Pokémon.`,
+                pokemonId: p.speciesId,
+                priority: 40,
+              });
+            } else {
+              suggestions.push({
+                id: `evo-find-${p.speciesId}-${idx}`,
+                category: 'Evolve',
+                title: `Find ${itemName.replace('-', ' ')}`,
+                description: `Find a ${itemName.replace('-', ' ')} to evolve your Pokémon.`,
+                pokemonId: p.speciesId,
+                priority: 40,
+              });
+            }
+          }
         } else if (details.trigger.name === 'trade') {
           if (details.held_item) {
             suggestions.push({

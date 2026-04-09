@@ -1,0 +1,8 @@
+export const GEN2_ITEMS = {
+  MOON_STONE: 8,
+  FIRE_STONE: 22,
+  THUNDER_STONE: 23,
+  WATER_STONE: 24,
+  LEAF_STONE: 34,
+  SUN_STONE: 176,
+};

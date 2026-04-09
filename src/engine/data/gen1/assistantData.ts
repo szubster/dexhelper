@@ -76,7 +76,7 @@ export const GEN1_ITEMS = {
   FIRE_STONE: 0x20,
   THUNDER_STONE: 0x21,
   WATER_STONE: 0x22,
-  LEAF_STONE: 0x2f,
+  LEAF_STONE: 0x2f, // 47
 };
 
 export const OBEDIENCE_CAPS = [
