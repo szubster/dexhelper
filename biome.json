@@ -10,6 +10,17 @@
     "ignoreUnknown": false,
     "includes": ["src/**/*", "tests/**/*"]
   },
+  "overrides": [
+    {
+      "includes": ["src/routeTree.gen.ts"],
+      "linter": {
+        "enabled": false
+      },
+      "formatter": {
+        "enabled": false
+      }
+    }
+  ],
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
