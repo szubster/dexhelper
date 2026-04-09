@@ -5,3 +5,6 @@
 ## 2024-05-18 - [React Query for API Caching]
 **Learning:** The initial manual Promise cache deduplicated identical requests successfully but circumvented robust cache expiration and hydration tracking features that TanStack query already possesses. Service workers operate on the network layer and do not prevent redundant JS execution and queuing inside the browser before hitting the worker.
 **Action:** Always extract the React `QueryClient` into a separate singleton module (`queryClient.ts`) so that it can be imported and shared by pure functions and non-React files without relying on hooks. Use `queryClient.fetchQuery` to seamlessly leverage its out-of-the-box deduplication and configurable cache timers globally.
+## 2025-02-18 - Optimize concurrent API fetch with Promise overhead
+**Learning:** Even with a caching layer like `@tanstack/react-query`, sequentially executing `Promise.all` inside a `.map` loop creates significant promise creation overhead and sequential blocking (particularly when URLs overlap, like `evolution_chain` where multiple species map to the same URL).
+**Action:** Always extract unique identifiers from arrays or loops and batch them in sequential phases using Sets before firing a new `Promise.all` wave, avoiding duplicate network or cache lookups entirely.
