@@ -198,8 +198,8 @@ export function generateSuggestions(
     for (const encounter of apiData.localEncounters) {
       const pid = parseIdFromUrl(encounter.pokemon.url);
 
-      const isFinite = !!STATIC_GIFT_DATA[pid];
-      if (isFinite && myOtIds.has(pid)) {
+      const isStaticGift = !!STATIC_GIFT_DATA[pid];
+      if (isStaticGift && myOtIds.has(pid)) {
         rejected.push({
           pokemonId: pid,
           reason: 'You already own this one-time gift (matched by Trainer Name).',
@@ -261,8 +261,8 @@ export function generateSuggestions(
     let unobtainableCount = 0;
 
     for (const pid of queryTargets) {
-      const isFinite = !!STATIC_GIFT_DATA[pid];
-      if (isFinite && myOtIds.has(pid)) continue;
+      const isStaticGift = !!STATIC_GIFT_DATA[pid];
+      if (isStaticGift && myOtIds.has(pid)) continue;
 
       const gift = STATIC_GIFT_DATA[pid];
       if (saveData.eventFlags && gift?.eventFlag) {
@@ -422,7 +422,7 @@ export function generateSuggestions(
       ...loc,
       yield: loc.pids.size,
     }));
-    const partyHasFly = saveData.partyDetails?.some((p: PokemonInstance) => p.moves && p.moves.includes(19));
+    const partyHasFly = saveData.partyDetails?.some((p: PokemonInstance) => p.moves?.includes(19));
     locations.sort((a, b) =>
       partyHasFly
         ? b.yield !== a.yield

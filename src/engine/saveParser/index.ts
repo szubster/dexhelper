@@ -951,8 +951,8 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   // Detailed inventory parsing for Gen 2 could be added here later
   const inventory: { id: number; quantity: number }[] = [];
 
-  let johtoBadgesValue = byte(u8, johtoBadgesOffset);
-  let kantoBadgesValue = byte(u8, kantoBadgesOffset);
+  const johtoBadgesValue = byte(u8, johtoBadgesOffset);
+  const kantoBadgesValue = byte(u8, kantoBadgesOffset);
 
   return {
     generation: 2,
