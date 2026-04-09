@@ -1,10 +1,10 @@
-import React from 'react';
-import { Suggestion, useAssistant } from '../hooks/useAssistant';
-import { Bug, Sparkles, Target, Zap, Egg, Flag, Info, Loader2 } from 'lucide-react';
-import { SaveData } from '../engine/saveParser/index';
 import { useQuery } from '@tanstack/react-query';
-import { pokeapi } from '../utils/pokeapi';
+import { Bug, Egg, Flag, Info, Loader2, Sparkles, Target, Zap } from 'lucide-react';
+import React from 'react';
+import type { SaveData } from '../engine/saveParser/index';
+import { type Suggestion, useAssistant } from '../hooks/useAssistant';
 import { MAX_DEX_ACROSS_GENS } from '../utils/generationConfig';
+import { pokeapi } from '../utils/pokeapi';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
 
@@ -120,9 +120,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
       ) : suggestions.length === 0 ? (
         <div className="flex flex-col items-center justify-center p-12 bg-zinc-900/50 rounded-[2rem] border border-zinc-800/50 text-center">
           <Sparkles className="text-zinc-700 mb-4" size={48} />
-          <h3 className="text-lg font-bold text-zinc-400 uppercase tracking-wide">
-            You're all caught up!
-          </h3>
+          <h3 className="text-lg font-bold text-zinc-400 uppercase tracking-wide">You're all caught up!</h3>
           <p className="text-sm font-medium text-zinc-600 mt-2 max-w-sm">
             No new suggestions at the moment. Keep exploring to discover more Pokémon!
           </p>
@@ -143,8 +141,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
             .sort(([a], [b]) => {
               const order = ['Catch', 'Gift', 'Evolve', 'Trade', 'Progress', 'Event', 'Utility'];
               return (
-                (order.indexOf(a) !== -1 ? order.indexOf(a) : 99) -
-                (order.indexOf(b) !== -1 ? order.indexOf(b) : 99)
+                (order.indexOf(a) !== -1 ? order.indexOf(a) : 99) - (order.indexOf(b) !== -1 ? order.indexOf(b) : 99)
               );
             })
             .map(([category, items]) => {
@@ -159,11 +156,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                       {catStyle.icon}
                     </div>
                     <h3 className="text-xl font-display font-black text-white uppercase tracking-widest">
-                      {category === 'Catch'
-                        ? 'Wild Encounters'
-                        : category === 'Trade'
-                          ? 'Trade Required'
-                          : category}
+                      {category === 'Catch' ? 'Wild Encounters' : category === 'Trade' ? 'Trade Required' : category}
                     </h3>
                   </div>
 
@@ -196,11 +189,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
       )}
 
       {showDebug && debug && (
-        <AssistantDebugView
-          rejected={debug.rejected}
-          getPokemonName={getPokemonName}
-          saveData={saveData}
-        />
+        <AssistantDebugView rejected={debug.rejected} getPokemonName={getPokemonName} saveData={saveData} />
       )}
     </div>
   );

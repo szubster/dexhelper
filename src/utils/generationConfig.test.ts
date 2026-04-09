@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { getGenerationConfig, GENERATION_CONFIGS } from './generationConfig';
+import { describe, expect, it } from 'vitest';
+import { GENERATION_CONFIGS, getGenerationConfig } from './generationConfig';
 
 describe('getGenerationConfig', () => {
   it('should return the correct configuration for an existing generation (Gen 1)', () => {

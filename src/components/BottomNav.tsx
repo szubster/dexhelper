@@ -1,6 +1,6 @@
-import { LayoutGrid, Database, Settings2, Sparkles } from 'lucide-react';
-import { useStore } from '../store';
 import { Link, useLocation } from '@tanstack/react-router';
+import { Database, LayoutGrid, Settings2, Sparkles } from 'lucide-react';
+import { useStore } from '../store';
 import { cn } from '../utils/cn';
 
 export function BottomNav() {
@@ -33,10 +33,7 @@ export function BottomNav() {
           )}
         >
           <div className="active:scale-80 transition-transform">
-            <LayoutGrid
-              size={22}
-              className={cn(isDex && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]')}
-            />
+            <LayoutGrid size={22} className={cn(isDex && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]')} />
           </div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Pokedex</span>
         </Link>
@@ -51,9 +48,7 @@ export function BottomNav() {
           <div className="active:scale-80 transition-transform">
             <Database
               size={22}
-              className={cn(
-                isStorage && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]',
-              )}
+              className={cn(isStorage && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]')}
             />
           </div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Storage</span>
@@ -69,9 +64,7 @@ export function BottomNav() {
           <div className="active:scale-80 transition-transform">
             <Sparkles
               size={22}
-              className={cn(
-                isAssistant && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]',
-              )}
+              className={cn(isAssistant && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]')}
             />
           </div>
           <span className="text-[8px] font-black uppercase tracking-[0.2em]">Assistant</span>

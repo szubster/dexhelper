@@ -6,9 +6,9 @@ The project has transitioned from no formal linting/formatting to a unified tool
 - **Phase 1 (Merged)**: Infrastructure set up. `biome.json` baseline, Lefthook hooks, GHA CI.
 - **Phase 2 (Merged)**: Global formatting enforced across 69 files.
 - **Phase 3 (In Progress)**: Enabling Core Linter Rules.
-    - **Phase 3.1 (Completed)**: Security and Critical Correctness (unused code) enabled. 15 files fixed.
-    - **Phase 3.2 (Pending)**: General Correctness & Imports.
-    - **Phase 3.3 (Pending)**: Suspicious & Style Rules.
+    - **Phase 3.1 (Completed)**: Security and Critical Correctness (unused code) enabled.
+- **Phase 3.2 (Completed)**: General Correctness & Imports (parseInt radix, exhaustive deps, import sorting, import type). 61 files fixed.
+- **Phase 3.3 (Pending)**: Suspicious & Style Rules.
 
 ## Configuration Details
 - **Tool**: Biome v2.4.10

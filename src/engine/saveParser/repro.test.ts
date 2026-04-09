@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { parseSaveFile } from './index';
 import * as fs from 'fs';
 import * as path from 'path';
+import { describe, expect, it } from 'vitest';
+import { parseSaveFile } from './index';
 
 describe('Yellow Save Repro', () => {
   it('should parse the user provided yellow save', async () => {

@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { Activity } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 
 interface PokemonStatsProps {
@@ -50,9 +50,7 @@ export function PokemonStats({ pokemonData, saveData }: PokemonStatsProps) {
 
           return (
             <div key={s.stat.name} className="flex items-center gap-4">
-              <div className="w-8 text-[10px] font-black text-zinc-400 uppercase font-mono">
-                {statName}
-              </div>
+              <div className="w-8 text-[10px] font-black text-zinc-400 uppercase font-mono">{statName}</div>
               <div className="flex-1 h-2 bg-zinc-900 rounded-full overflow-hidden border border-white/5 relative">
                 <div
                   className="h-full bg-gradient-to-r from-[var(--theme-primary)]/50 to-[var(--theme-primary)] relative transition-all duration-1000 ease-out"
@@ -61,9 +59,7 @@ export function PokemonStats({ pokemonData, saveData }: PokemonStatsProps) {
                   <div className="absolute inset-0 lcd-flicker opacity-30" />
                 </div>
               </div>
-              <div className="w-10 text-right text-xs font-mono font-black text-white">
-                {s.base_stat}
-              </div>
+              <div className="w-10 text-right text-xs font-mono font-black text-white">{s.base_stat}</div>
             </div>
           );
         })}

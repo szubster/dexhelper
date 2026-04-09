@@ -1,6 +1,6 @@
 import gen1MapLocations from '../data/gen1/mapLocations.json';
-import gen2MapLocations from '../data/gen2/mapLocations.json';
 import gen2Landmarks from '../data/gen2/landmarks.json';
+import gen2MapLocations from '../data/gen2/mapLocations.json';
 
 export const INTERNAL_ID_TO_DEX: Record<number, number> = {
   1: 112,
@@ -295,8 +295,7 @@ export function decodeGen12String(u8: Uint8Array, offset: number, maxLength: num
   let result = '';
   for (let i = 0; i < maxLength; i++) {
     const charCode = u8[offset + i];
-    if (charCode === undefined || charCode === 0x50 || charCode === 0x00 || charCode === 0xff)
-      break;
+    if (charCode === undefined || charCode === 0x50 || charCode === 0x00 || charCode === 0xff) break;
     result += GEN12_CHAR_MAP[charCode] ?? '?';
   }
   return result.trim();
@@ -314,12 +313,7 @@ function parseDVs(dvBytes: Uint8Array) {
 }
 
 function checkShiny(dvs: { atk: number; def: number; spd: number; spc: number }) {
-  return (
-    dvs.def === 10 &&
-    dvs.spd === 10 &&
-    dvs.spc === 10 &&
-    [2, 3, 6, 7, 10, 11, 14, 15].includes(dvs.atk)
-  );
+  return dvs.def === 10 && dvs.spd === 10 && dvs.spc === 10 && [2, 3, 6, 7, 10, 11, 14, 15].includes(dvs.atk);
 }
 
 function detectGen1GameVersion(
@@ -613,9 +607,7 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
     });
   }
 
-  const boxOffsets = [
-    0x4000, 0x4462, 0x48c4, 0x4d26, 0x5188, 0x55ea, 0x6000, 0x6462, 0x68c4, 0x6d26, 0x7188, 0x75ea,
-  ];
+  const boxOffsets = [0x4000, 0x4462, 0x48c4, 0x4d26, 0x5188, 0x55ea, 0x6000, 0x6462, 0x68c4, 0x6d26, 0x7188, 0x75ea];
   for (let i = 0; i < 12; i++) {
     if (i === currentBoxNum) continue;
     const offset = boxOffsets[i]!;
@@ -658,8 +650,7 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const badges = byte(u8, 0x2602 + offsetShift);
   const trainerId = (byte(u8, 0x2605 + offsetShift) << 8) | byte(u8, 0x2606 + offsetShift);
   const currentMapId = byte(u8, 0x260a + offsetShift);
-  const currentMapName =
-    (gen1MapLocations as Record<string, string>)[currentMapId.toString()] || 'Unknown Map';
+  const currentMapName = (gen1MapLocations as Record<string, string>)[currentMapId.toString()] || 'Unknown Map';
   const inventory: { id: number; quantity: number }[] = [];
   const itemCount = byte(u8, 0x25c9 + offsetShift);
   for (let i = 0; i < itemCount; i++) {
@@ -803,10 +794,7 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
 
   const currentBoxNum = byte(u8, offsets.currentBoxNum) & 0x0f;
   const currentBoxCount = byte(u8, offsets.currentBoxCount);
-  const currentBoxSpecies = u8.slice(
-    offsets.currentBoxSpecies,
-    offsets.currentBoxSpecies + currentBoxCount,
-  );
+  const currentBoxSpecies = u8.slice(offsets.currentBoxSpecies, offsets.currentBoxSpecies + currentBoxCount);
   const pc = Array.from(currentBoxSpecies).filter((id) => id > 0 && id <= 251);
 
   const pcDetails: PokemonInstance[] = [];

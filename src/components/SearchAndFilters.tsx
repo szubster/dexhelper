@@ -1,6 +1,6 @@
 import { Search, X } from 'lucide-react';
-import { useStore } from '../store';
 import type { FilterType } from '../store';
+import { useStore } from '../store';
 import { cn } from '../utils/cn';
 
 export function SearchAndFilters() {
@@ -57,9 +57,7 @@ export function SearchAndFilters() {
             )}
           >
             <span className="relative z-10">All</span>
-            {filtersSet.size === 0 && (
-              <div className="absolute inset-0 bg-white/10 lcd-flicker pointer-events-none" />
-            )}
+            {filtersSet.size === 0 && <div className="absolute inset-0 bg-white/10 lcd-flicker pointer-events-none" />}
           </button>
 
           {(['secured', 'missing', 'dex-only'] as FilterType[]).map((f) => (
@@ -78,9 +76,7 @@ export function SearchAndFilters() {
               <span className="relative z-10">
                 {f === 'secured' ? 'Secured' : f === 'missing' ? 'Missing' : 'Dex Only'}
               </span>
-              {filtersSet.has(f) && (
-                <div className="absolute inset-0 bg-white/10 lcd-flicker pointer-events-none" />
-              )}
+              {filtersSet.has(f) && <div className="absolute inset-0 bg-white/10 lcd-flicker pointer-events-none" />}
             </button>
           ))}
         </div>

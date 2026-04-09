@@ -1,14 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { parseSaveFile } from './index';
 
 describe('saveParser - Dynamic Offset Shift Detection', () => {
   const HEADER_SIZE = 32768;
 
-  function createMockSave(
-    paddingBytes: Record<number, number>,
-    mapId: number,
-    mapIdx: number,
-  ): ArrayBuffer {
+  function createMockSave(paddingBytes: Record<number, number>, mapId: number, mapIdx: number): ArrayBuffer {
     const buffer = new Uint8Array(HEADER_SIZE);
 
     // Set padding bits for Pokedex

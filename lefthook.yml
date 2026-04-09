@@ -9,3 +9,5 @@ pre-commit:
       run: npx --no-install biome check --write --no-errors-on-unmatched {staged_files}
       stage_fixed: true
       fail_on_changes: ci
+    type-check:
+      run: npm run lint

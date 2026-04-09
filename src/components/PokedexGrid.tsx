@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react';
-import { Monitor, CircleDot, Sparkles, ChevronRight } from 'lucide-react';
-import { useStore } from '../store';
 import { useNavigate } from '@tanstack/react-router';
-import { getGenerationConfig } from '../utils/generationConfig';
+import { ChevronRight, CircleDot, Monitor, Sparkles } from 'lucide-react';
+import React, { useMemo } from 'react';
+import { useStore } from '../store';
 import { cn } from '../utils/cn';
+import { getGenerationConfig } from '../utils/generationConfig';
 
 export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
   const saveData = useStore((s) => s.saveData);
@@ -31,8 +31,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
       if (filtersSet.has('secured') && hasInStorage) return true;
       if (filtersSet.has('missing') && !hasInStorage) return true;
-      if (filtersSet.has('dex-only') && saveData.owned.has(pokemon.id) && !hasInStorage)
-        return true;
+      if (filtersSet.has('dex-only') && saveData.owned.has(pokemon.id) && !hasInStorage) return true;
 
       return false;
     })
@@ -65,11 +64,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
         const isOwnedInDex = saveData ? saveData.owned.has(pokemon.id) : false;
         const isSeenInDex = saveData ? saveData.seen.has(pokemon.id) : false;
 
-        const isOwned = saveData
-          ? isLivingDex
-            ? hasInStorage
-            : isOwnedInDex || hasInStorage
-          : false;
+        const isOwned = saveData ? (isLivingDex ? hasInStorage : isOwnedInDex || hasInStorage) : false;
         const _hadButLost = saveData ? isOwnedInDex && !hasInStorage : false;
 
         const isSeen = saveData ? isSeenInDex || isOwned || hasInStorage : false;
@@ -89,18 +84,14 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
               hasInStorage
                 ? 'bg-zinc-900 border-emerald-500/30 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]'
                 : 'bg-zinc-900 border-white/5 hover:border-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]',
-              saveData?.owned.has(pokemon.id) &&
-                !hasInStorage &&
-                'border-amber-500/30 hover:border-amber-500/50',
+              saveData?.owned.has(pokemon.id) && !hasInStorage && 'border-amber-500/30 hover:border-amber-500/50',
             )}
             style={{ animationDelay: `${(idx % 20) * 0.02}s` }}
           >
             {/* Card Header: Num & Icons */}
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/5 border border-white/5">
-                <span className="text-[9px] font-black text-zinc-500 uppercase tracking-tighter">
-                  ID
-                </span>
+                <span className="text-[9px] font-black text-zinc-500 uppercase tracking-tighter">ID</span>
                 <span className="text-[10px] font-mono font-black text-zinc-300">
                   {pokemon.id.toString().padStart(3, '0')}
                 </span>
@@ -152,9 +143,9 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
                 )}
                 loading="lazy"
                 onError={(e) => {
-                  e.currentTarget.src = (
-                    genConfig?.fallbackSpriteUrl ?? getGenerationConfig(1).fallbackSpriteUrl
-                  )(pokemon.id);
+                  e.currentTarget.src = (genConfig?.fallbackSpriteUrl ?? getGenerationConfig(1).fallbackSpriteUrl)(
+                    pokemon.id,
+                  );
                 }}
               />
 
@@ -179,17 +170,10 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
                     <div
                       className={cn(
                         'flex items-center gap-1.5 px-2.5 py-1 rounded-lg border',
-                        isShiny
-                          ? 'bg-amber-500/10 border-amber-500/20'
-                          : 'bg-emerald-500/10 border-emerald-500/20',
+                        isShiny ? 'bg-amber-500/10 border-amber-500/20' : 'bg-emerald-500/10 border-emerald-500/20',
                       )}
                     >
-                      <div
-                        className={cn(
-                          'w-1 h-1 rounded-full',
-                          isShiny ? 'bg-amber-400' : 'bg-emerald-500',
-                        )}
-                      />
+                      <div className={cn('w-1 h-1 rounded-full', isShiny ? 'bg-amber-400' : 'bg-emerald-500')} />
                       <span
                         className={cn(
                           'text-[8px] font-black uppercase tracking-tighter',
@@ -202,22 +186,16 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
                   ) : isOwnedInDex ? (
                     <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/20">
                       <div className="w-1 h-1 rounded-full bg-amber-500" />
-                      <span className="text-[8px] font-black uppercase tracking-tighter text-amber-400">
-                        Dex Only
-                      </span>
+                      <span className="text-[8px] font-black uppercase tracking-tighter text-amber-400">Dex Only</span>
                     </div>
                   ) : isSeenInDex ? (
                     <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-rose-500/10 border border-rose-500/20">
                       <div className="w-1 h-1 rounded-full bg-rose-500" />
-                      <span className="text-[8px] font-black uppercase tracking-tighter text-rose-400">
-                        Seen
-                      </span>
+                      <span className="text-[8px] font-black uppercase tracking-tighter text-rose-400">Seen</span>
                     </div>
                   ) : (
                     <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/5">
-                      <span className="text-[8px] font-black uppercase tracking-tighter text-zinc-600">
-                        Unknown
-                      </span>
+                      <span className="text-[8px] font-black uppercase tracking-tighter text-zinc-600">Unknown</span>
                     </div>
                   )}
                 </div>

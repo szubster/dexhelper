@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { parseSaveFile } from '../../saveParser/index';
-import { readFileSync, existsSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 import { resolve } from 'path';
+import { describe, expect, it } from 'vitest';
+import { parseSaveFile } from '../../saveParser/index';
 
 describe('suggestionEngine - Jynx Double Suggestion Repro', () => {
   const savPath = resolve(__dirname, '../../../../tests/fixtures/yellow-2026-03-30.sav');

@@ -2,7 +2,7 @@
 export { getStrategy } from './strategies/index';
 export type {
   AssistantStrategy,
-  Suggestion,
   EncounterDetail,
   RejectedSuggestion,
+  Suggestion,
 } from './strategies/types';

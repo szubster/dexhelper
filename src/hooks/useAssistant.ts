@@ -1,15 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import { SaveData } from '../engine/saveParser/index';
-import { getGenerationConfig } from '../utils/generationConfig';
 import { fetchAssistantApiData, generateSuggestions } from '../engine/assistant/suggestionEngine';
+import type { SaveData } from '../engine/saveParser/index';
+import { getGenerationConfig } from '../utils/generationConfig';
 
 export * from '../engine/assistant/strategies/types';
 
-export function useAssistant(
-  saveData: SaveData | null,
-  isLivingDex: boolean,
-  manualVersion?: string | null,
-) {
+export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, manualVersion?: string | null) {
   const maxDex = saveData ? getGenerationConfig(saveData.generation).maxDex : 0;
   const missingIds: number[] = [];
   const ownedSet = saveData
@@ -21,8 +17,7 @@ export function useAssistant(
   if (saveData) {
     for (let i = 1; i <= maxDex; i++) {
       if (!ownedSet.has(i)) {
-        if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0)
-          continue;
+        if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0) continue;
         missingIds.push(i);
       }
     }

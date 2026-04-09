@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { getUnobtainableReason } from '../gen1Exclusives';
 
 describe('gen1Exclusives', () => {

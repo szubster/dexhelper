@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest';
-import { parseSaveFile, decodeGen12String } from './index';
-import type { GameVersion } from './index';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { describe, expect, it } from 'vitest';
+import type { GameVersion } from './index';
+import { decodeGen12String, parseSaveFile } from './index';
 
 describe('saveParser - Pokémon Gen 1 Validation', () => {
   const yellowSavPath = join(__dirname, '../../../tests/fixtures/yellow.sav');

@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test';
-import { argosScreenshot } from '../../src/utils/argos';
+import { expect, test } from '@playwright/test';
 import path from 'path';
+import { argosScreenshot } from '../../src/utils/argos';
 
 test.describe('Save Management', () => {
   test('should upload a save file and persist it on reload', async ({ page }) => {
