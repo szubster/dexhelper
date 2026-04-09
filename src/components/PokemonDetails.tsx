@@ -241,7 +241,7 @@ export function PokemonDetails({
     const locations: { name: string; details: string }[] = [];
 
     const staticData = staticEncounters[pokemonId];
-    if (staticData && staticData[version as keyof typeof staticData]) {
+    if (staticData?.[version as keyof typeof staticData]) {
       staticData[version as keyof typeof staticData]?.forEach((loc) => {
         locations.push({ name: loc, details: 'Static Encounter / Gift / Trade' });
       });
@@ -250,7 +250,7 @@ export function PokemonDetails({
     encounters.forEach((enc: LocationAreaEncounter) => {
       const versionDetail = enc.version_details.find((vd: VersionEncounterDetail) => vd.version.name === version);
       if (versionDetail) {
-        let name = enc.location_area.name
+        const name = enc.location_area.name
           .replace(/-/g, ' ')
           .replace(/\b\w/g, (l: string) => l.toUpperCase())
           .replace(' Area', '')

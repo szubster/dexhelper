@@ -21,6 +21,7 @@
     "rules": {
       "recommended": true,
       "a11y": {
+        // TODO: Re-evaluate and enable accessibility rules in the future once UI baseline is solid
         "useKeyWithClickEvents": "off",
         "useButtonType": "off",
         "useAltText": "off",
@@ -29,28 +30,14 @@
         "noStaticElementInteractions": "off"
       },
       "complexity": {
-        "noUselessFragments": "off",
-        "useSimpleNumberKeys": "off",
-        "useOptionalChain": "off"
+        // Allow hexadecimal number literals for object keys, parsing binary saves depends on mapping hex addresses
+        "useSimpleNumberKeys": "off"
       },
       "correctness": {
         "recommended": true
       },
-      "style": {
-        "useNodejsImportProtocol": "off",
-        "useConst": "off",
-        "noParameterAssign": "off"
-      },
-      "suspicious": {
-        "noImplicitAnyLet": "off",
-        "noShadowRestrictedNames": "off",
-        "noCommentText": "off"
-      },
       "security": {
         "recommended": true
-      },
-      "performance": {
-        "noAccumulatingSpread": "off"
       }
     }
   },

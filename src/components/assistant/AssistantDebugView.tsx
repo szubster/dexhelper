@@ -49,16 +49,12 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
       </div>
 
       {rejected.length > 0 && (
-        <>
-          <div className="flex items-center gap-3 px-2 pt-4">
-            <div className="p-2 rounded-xl border bg-amber-500/10 border-amber-500/30 text-amber-400">
-              <AlertCircle size={16} />
-            </div>
-            <h4 className="text-lg font-display font-black text-white uppercase tracking-widest">
-              Rejected Suggestions
-            </h4>
+        <div className="flex items-center gap-3 px-2 pt-4">
+          <div className="p-2 rounded-xl border bg-amber-500/10 border-amber-500/30 text-amber-400">
+            <AlertCircle size={16} />
           </div>
-        </>
+          <h4 className="text-lg font-display font-black text-white uppercase tracking-widest">Rejected Suggestions</h4>
+        </div>
       )}
 
       <div className="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
