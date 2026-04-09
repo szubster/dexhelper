@@ -17,10 +17,10 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "lint:biome": "biome lint .",
+    "lint:biome": "biome lint --error-on-warnings .",
     "format:biome": "biome format .",
-    "check:biome": "biome check .",
-    "check:fix": "biome check --apply .",
+    "check:biome": "biome check --error-on-warnings .",
+    "check:fix": "biome check --write --unsafe .",
     "postinstall": "lefthook install"
   },
   "dependencies": {

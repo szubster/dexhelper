@@ -1,5 +1,5 @@
+import path from 'node:path';
 import { expect, type Page } from '@playwright/test';
-import path from 'path';
 
 /**
  * Initializes the Dexhelper app with a standard save file (Yellow version).

@@ -36,6 +36,9 @@
       "correctness": {
         "recommended": true
       },
+      "style": {
+        "useNodejsImportProtocol": "error"
+      },
       "security": {
         "recommended": true
       }
