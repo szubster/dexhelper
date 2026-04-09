@@ -1,5 +1,5 @@
+import path from 'node:path';
 import { expect, test } from '@playwright/test';
-import path from 'path';
 import { argosScreenshot } from '../../src/utils/argos';
 
 test.describe('Save Management', () => {
