@@ -1,5 +1,5 @@
-import { Bug, AlertCircle } from 'lucide-react';
-import { RejectedSuggestion } from '../../hooks/useAssistant';
+import { AlertCircle, Bug } from 'lucide-react';
+import type { RejectedSuggestion } from '../../hooks/useAssistant';
 
 interface AssistantDebugViewProps {
   rejected: RejectedSuggestion[];
@@ -7,28 +7,20 @@ interface AssistantDebugViewProps {
   saveData: any;
 }
 
-export function AssistantDebugView({
-  rejected,
-  getPokemonName,
-  saveData,
-}: AssistantDebugViewProps) {
+export function AssistantDebugView({ rejected, getPokemonName, saveData }: AssistantDebugViewProps) {
   return (
     <div className="mt-12 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex items-center gap-3 px-2">
         <div className="p-2 rounded-xl border bg-zinc-800 border-zinc-700 text-zinc-400">
           <Bug size={16} />
         </div>
-        <h3 className="text-xl font-display font-black text-white uppercase tracking-widest">
-          Assistant Diagnostics
-        </h3>
+        <h3 className="text-xl font-display font-black text-white uppercase tracking-widest">Assistant Diagnostics</h3>
       </div>
 
       <div className="bg-zinc-900/60 border border-zinc-800 p-6 rounded-[2rem] space-y-4 shadow-inner">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           <div className="bg-zinc-800/50 p-4 rounded-2xl border border-white/5 shadow-sm">
-            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">
-              Current Map
-            </p>
+            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">Current Map</p>
             <p className="text-lg font-display font-black text-white">{saveData.currentMapName}</p>
             <p className="text-[10px] font-mono text-zinc-600">
               ID: {saveData.currentMapId} (0x
@@ -36,28 +28,18 @@ export function AssistantDebugView({
             </p>
           </div>
           <div className="bg-zinc-800/50 p-4 rounded-2xl border border-white/5 shadow-sm">
-            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">
-              Game Version
-            </p>
-            <p className="text-lg font-display font-black text-white uppercase">
-              {saveData.gameVersion}
-            </p>
+            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">Game Version</p>
+            <p className="text-lg font-display font-black text-white uppercase">{saveData.gameVersion}</p>
             <p className="text-[10px] font-mono text-zinc-600">Gen: {saveData.generation}</p>
           </div>
           <div className="bg-zinc-800/50 p-4 rounded-2xl border border-white/5 shadow-sm">
-            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">
-              Pokédex
-            </p>
+            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">Pokédex</p>
             <p className="text-lg font-display font-black text-white">{saveData.owned.size}</p>
             <p className="text-[10px] font-mono text-zinc-600">Owned</p>
           </div>
           <div className="bg-zinc-800/50 p-4 rounded-2xl border border-white/5 shadow-sm">
-            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">
-              Trainer
-            </p>
-            <p className="text-lg font-display font-black text-white truncate px-2">
-              {saveData.trainerName}
-            </p>
+            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">Trainer</p>
+            <p className="text-lg font-display font-black text-white truncate px-2">{saveData.trainerName}</p>
             <p className="text-[10px] font-mono text-zinc-600">ID: {saveData.trainerId}</p>
           </div>
         </div>
@@ -104,9 +86,7 @@ export function AssistantDebugView({
                   {r.code}
                 </span>
               </div>
-              <p className="text-[10px] font-medium text-zinc-500 leading-tight italic">
-                "{r.reason}"
-              </p>
+              <p className="text-[10px] font-medium text-zinc-500 leading-tight italic">"{r.reason}"</p>
             </div>
           </div>
         ))}

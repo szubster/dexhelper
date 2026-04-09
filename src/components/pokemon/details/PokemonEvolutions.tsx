@@ -1,5 +1,5 @@
+import { AlertTriangle, ArrowUpCircle, Check, ChevronRight, Heart, X } from 'lucide-react';
 import React from 'react';
-import { ChevronRight, ArrowUpCircle, Heart, AlertTriangle, Check, X } from 'lucide-react';
 import { cn } from '../../../utils/cn';
 import { stadiumRewardsData } from '../../../utils/data';
 
@@ -55,12 +55,8 @@ export function PokemonEvolutions({
             {(() => {
               const rewardObj = (stadiumRewardsData as Record<number, any>)[pokemonId];
               if (!rewardObj) return null;
-              const gen =
-                saveData?.generation ||
-                (['gold', 'silver', 'crystal'].includes(gameVersion) ? 2 : 1);
-              const rewards = (gen === 2 ? rewardObj.stadium2 : rewardObj.stadium1) as
-                | string[]
-                | undefined;
+              const gen = saveData?.generation || (['gold', 'silver', 'crystal'].includes(gameVersion) ? 2 : 1);
+              const rewards = (gen === 2 ? rewardObj.stadium2 : rewardObj.stadium1) as string[] | undefined;
               if (!rewards || rewards.length === 0) return null;
               return (
                 <div className="mt-2 flex flex-wrap gap-2">
@@ -95,9 +91,7 @@ export function PokemonEvolutions({
             >
               {evoReq.fromName.toUpperCase()}
             </button>
-            <div className="text-[10px] text-purple-400/60 mt-1 uppercase font-black">
-              METHOD: {evoReq.method}
-            </div>
+            <div className="text-[10px] text-purple-400/60 mt-1 uppercase font-black">METHOD: {evoReq.method}</div>
           </div>
           <div
             className={cn(
@@ -105,8 +99,7 @@ export function PokemonEvolutions({
               hasPreEvo ? 'bg-emerald-500/10 text-emerald-500' : 'bg-red-500/10 text-red-500',
             )}
           >
-            {hasPreEvo ? <Check size={12} /> : <X size={12} />}{' '}
-            {hasPreEvo ? 'OWNED' : 'UNAVAILABLE'}
+            {hasPreEvo ? <Check size={12} /> : <X size={12} />} {hasPreEvo ? 'OWNED' : 'UNAVAILABLE'}
           </div>
         </div>
       )}
@@ -129,9 +122,7 @@ export function PokemonEvolutions({
                 >
                   {evo.name.toUpperCase()}
                 </button>
-                <div className="text-[10px] text-blue-400/60 mt-1 uppercase font-black">
-                  VIA {evo.method}
-                </div>
+                <div className="text-[10px] text-blue-400/60 mt-1 uppercase font-black">VIA {evo.method}</div>
               </div>
             ))}
           </div>

@@ -1,5 +1,5 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useSuspenseQuery } from '@tanstack/react-query';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { PokemonDetails } from '../components/PokemonDetails';
 import { useStore } from '../store';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
@@ -24,7 +24,7 @@ function PokemonPage() {
 
   const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
 
-  const selectedPokemon = pokemonList.find((p) => p.id === parseInt(pokemonId));
+  const selectedPokemon = pokemonList.find((p) => p.id === parseInt(pokemonId, 10));
   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
 
   return (

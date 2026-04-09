@@ -1,17 +1,14 @@
-import { useState } from 'react';
 import { Target } from 'lucide-react';
-import { cn } from '../../../utils/cn';
+import { useState } from 'react';
 import type { PokeballType } from '../../../store';
+import { cn } from '../../../utils/cn';
 
 interface PokemonCatchProbabilityProps {
   catchRate: number;
   effectivePokeball: PokeballType;
 }
 
-export function PokemonCatchProbability({
-  catchRate,
-  effectivePokeball,
-}: PokemonCatchProbabilityProps) {
+export function PokemonCatchProbability({ catchRate, effectivePokeball }: PokemonCatchProbabilityProps) {
   const [hpPercent, setHpPercent] = useState<number>(100);
   const [status, setStatus] = useState<'none' | 'sleep_freeze' | 'paralyze_burn_poison'>('none');
 

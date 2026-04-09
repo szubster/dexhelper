@@ -1,6 +1,6 @@
 import { AlertTriangle } from 'lucide-react';
-import { useStore } from '../store';
 import type { GameVersion } from '../store';
+import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 
 export function VersionModal() {
@@ -12,10 +12,7 @@ export function VersionModal() {
   if (!isVersionModalOpen) return null;
 
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
-  const versions = genConfig?.versions ?? [
-    ...getGenerationConfig(1).versions,
-    ...getGenerationConfig(2).versions,
-  ];
+  const versions = genConfig?.versions ?? [...getGenerationConfig(1).versions, ...getGenerationConfig(2).versions];
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
@@ -25,9 +22,7 @@ export function VersionModal() {
           <div className="inline-flex p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20 mb-4">
             <AlertTriangle className="text-amber-500" size={24} />
           </div>
-          <h2 className="text-2xl font-display font-black uppercase tracking-tight text-white">
-            Select Game Version
-          </h2>
+          <h2 className="text-2xl font-display font-black uppercase tracking-tight text-white">Select Game Version</h2>
           <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest leading-relaxed">
             We couldn't confidently detect your game version. Please select it manually.
           </p>

@@ -1,21 +1,13 @@
-import React from 'react';
-import {
-  Upload,
-  Settings2,
-  RefreshCw,
-  AlertTriangle,
-  LayoutGrid,
-  Zap,
-  Sparkles,
-} from 'lucide-react';
-import { useStore } from '../store';
+import { Link } from '@tanstack/react-router';
+import { AlertTriangle, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
+import type React from 'react';
 import { parseSaveFile } from '../engine/saveParser/index';
+import { useStore } from '../store';
+import { cn } from '../utils/cn';
 import { getGenerationConfig, VERSION_THEMES } from '../utils/generationConfig';
+import { BottomNav } from './BottomNav';
 import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
-import { BottomNav } from './BottomNav';
-import { Link } from '@tanstack/react-router';
-import { cn } from '../utils/cn';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const saveData = useStore((s) => s.saveData);
@@ -84,9 +76,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 <div className="flex items-end gap-2">
                   <span className="text-4xl font-black tracking-tighter text-white group-hover:text-[var(--theme-primary)] transition-colors">
                     DEX
-                    <span className="text-[var(--theme-primary)] group-hover:text-white transition-colors">
-                      HELPER
-                    </span>
+                    <span className="text-[var(--theme-primary)] group-hover:text-white transition-colors">HELPER</span>
                   </span>
                   <div className="h-1.5 w-1.5 rounded-full bg-[var(--theme-primary)] mb-2 animate-pulse" />
                 </div>
@@ -146,18 +136,14 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             <div className="flex flex-wrap items-center justify-center lg:justify-end gap-3 sm:gap-6 w-full lg:w-auto">
               <div className="glass-card flex items-center gap-4 px-5 py-2.5 rounded-2xl border-white/10 animate-in zoom-in-95 fade-in duration-500">
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">
-                    Trainer
-                  </span>
+                  <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Trainer</span>
                   <span className="text-xs font-mono font-black text-[var(--theme-primary)] uppercase tracking-tight">
                     {saveData.trainerName || 'UNKNOWN'}
                   </span>
                 </div>
                 <div className="w-[1px] h-6 bg-white/5" />
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">
-                    ID
-                  </span>
+                  <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">ID</span>
                   <span className="text-xs font-mono font-bold text-zinc-300">
                     {String(saveData.trainerId).padStart(5, '0')}
                   </span>
@@ -167,9 +153,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 <div className="w-[1px] h-6 bg-white/5 mx-1" />
                 <div className="flex flex-col min-w-[120px]">
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">
-                      Living Dex
-                    </span>
+                    <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Living Dex</span>
                     <span className="text-[10px] font-mono font-black text-[var(--theme-primary)]">
                       {(() => {
                         const securedIds = new Set([...saveData.party, ...saveData.pc]);
@@ -243,9 +227,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           <div className="mx-4 mt-4 mb-0 text-red-400 bg-red-400/10 p-5 rounded-2xl border border-red-400/20 flex items-center gap-4 glass-card animate-in fade-in slide-in-from-top-2">
             <AlertTriangle size={24} className="flex-shrink-0" />
             <div className="flex flex-col">
-              <span className="text-[10px] font-black uppercase tracking-tighter">
-                System Error
-              </span>
+              <span className="text-[10px] font-black uppercase tracking-tighter">System Error</span>
               <span className="text-sm font-medium">{error}</span>
             </div>
           </div>
@@ -262,13 +244,11 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1] overflow-hidden">
         <div className="absolute inset-0 scanline-overlay" />
         <div className="p-20 flex flex-wrap gap-40 rotate-[30deg] scale-150">
-          {Array.from({ length: getGenerationConfig(saveData?.generation ?? 1).maxDex }).map(
-            (_, i) => (
-              <span key={i} className="text-4xl font-retro text-white">
-                #{(i + 1).toString().padStart(3, '0')}
-              </span>
-            ),
-          )}
+          {Array.from({ length: getGenerationConfig(saveData?.generation ?? 1).maxDex }).map((_, i) => (
+            <span key={i} className="text-4xl font-retro text-white">
+              #{(i + 1).toString().padStart(3, '0')}
+            </span>
+          ))}
         </div>
       </div>
     </div>

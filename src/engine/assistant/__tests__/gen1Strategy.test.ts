@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { gen1Strategy } from '../strategies/gen1Strategy';
+import { describe, expect, it } from 'vitest';
 import type { SaveData } from '../../saveParser/index';
+import { gen1Strategy } from '../strategies/gen1Strategy';
 
 const makeSaveData = (overrides: Partial<SaveData> = {}): SaveData => ({
   generation: 1,

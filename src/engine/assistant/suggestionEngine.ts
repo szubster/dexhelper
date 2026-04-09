@@ -1,21 +1,16 @@
-import { SaveData, PokemonInstance } from '../saveParser/index';
-import { pokeapi } from '../../utils/pokeapi';
-import {
-  GEN1_MAP_TO_SLUG,
-  OBEDIENCE_CAPS,
-  STATIC_GIFT_DATA,
-  STATIC_NPC_TRADE_DATA,
-} from '../data/gen1/assistantData';
-import { getDistanceToMap } from '../mapGraph/gen1Graph';
-import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
 import { getGenerationConfig } from '../../utils/generationConfig';
-import { Suggestion, EncounterDetail, RejectedSuggestion } from './strategies/types';
+import { pokeapi } from '../../utils/pokeapi';
+import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
+import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
+import { getDistanceToMap } from '../mapGraph/gen1Graph';
+import type { PokemonInstance, SaveData } from '../saveParser/index';
+import type { EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
 
 /**
  * Helper function to find all ancestors of a target Pokemon ID in an evolution chain.
  */
 function getAncestors(node: any, target: number, path: number[] = []): number[] | null {
-  const id = parseInt(node.species.url.split('/').slice(-2, -1)[0]);
+  const id = parseInt(node.species.url.split('/').slice(-2, -1)[0], 10);
   if (id === target) {
     return path;
   }
@@ -42,9 +37,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   let localEncounters: any[] = [];
   if (localSlug) {
     try {
-      const areaData = await pokeapi.resource(
-        `https://pokeapi.co/api/v2/location-area/${localSlug}`,
-      );
+      const areaData = await pokeapi.resource(`https://pokeapi.co/api/v2/location-area/${localSlug}`);
       localEncounters = areaData.pokemon_encounters || [];
     } catch (e) {
       console.error('Local area fetch failed', e);
@@ -101,9 +94,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   await Promise.all(
     Array.from(uniqueAncestors).map(async (aid) => {
       try {
-        ancestorData[aid] = await pokeapi.resource(
-          `https://pokeapi.co/api/v2/pokemon/${aid}/encounters`,
-        );
+        ancestorData[aid] = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`);
       } catch (_e) {
         ancestorData[aid] = [];
       }
@@ -153,9 +144,7 @@ export function generateSuggestions(
   const ownedCount = ownedSet.size;
   const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
   const myOtIds = new Set(
-    allInstances
-      .filter((p) => p.otName === saveData.trainerName)
-      .map((p: PokemonInstance) => p.speciesId),
+    allInstances.filter((p) => p.otName === saveData.trainerName).map((p: PokemonInstance) => p.speciesId),
   );
 
   for (let i = 1; i <= maxDex; i++) {
@@ -173,14 +162,10 @@ export function generateSuggestions(
   }
 
   const effectiveVersion = manualVersion || saveData.gameVersion;
-  const displayVersion =
-    effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
+  const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
   const queryTargets = missingIds.slice(0, 100);
 
-  const _localSlug =
-    saveData.generation === 1
-      ? GEN1_MAP_TO_SLUG[saveData.currentMapId] || ''
-      : 'new-bark-town-area';
+  const _localSlug = saveData.generation === 1 ? GEN1_MAP_TO_SLUG[saveData.currentMapId] || '' : 'new-bark-town-area';
 
   // A. Catch logic
   if (apiData.localEncounters) {
@@ -189,7 +174,7 @@ export function generateSuggestions(
 
     for (const encounter of apiData.localEncounters) {
       const urlParts = encounter.pokemon.url.split('/');
-      const pid = parseInt(urlParts[urlParts.length - 2]);
+      const pid = parseInt(urlParts[urlParts.length - 2], 10);
 
       const isFinite = !!STATIC_GIFT_DATA[pid];
       if (isFinite && myOtIds.has(pid)) {
@@ -203,10 +188,7 @@ export function generateSuggestions(
 
       const gift = STATIC_GIFT_DATA[pid];
       if (saveData.eventFlags && gift?.eventFlag) {
-        if (
-          (saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !==
-          0
-        ) {
+        if ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !== 0) {
           rejected.push({
             pokemonId: pid,
             reason: `Event flag ${gift.eventFlag} is set. Gift already claimed.`,
@@ -216,9 +198,7 @@ export function generateSuggestions(
         }
       }
 
-      const versionDetail = encounter.version_details.find(
-        (vd: any) => vd.version.name === displayVersion,
-      );
+      const versionDetail = encounter.version_details.find((vd: any) => vd.version.name === displayVersion);
       if (versionDetail && missingIds.includes(pid)) {
         localPids.push(pid);
         localEncounterInfo[pid] = versionDetail.encounter_details.map((ed: any) => ({
@@ -262,11 +242,7 @@ export function generateSuggestions(
 
       const gift = STATIC_GIFT_DATA[pid];
       if (saveData.eventFlags && gift?.eventFlag) {
-        if (
-          (saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !==
-          0
-        )
-          continue;
+        if ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !== 0) continue;
       }
 
       const encounters = apiData.missingEncounters[pid] || [];
@@ -297,9 +273,7 @@ export function generateSuggestions(
         const aEncsMap = apiData.ancestralEncounters?.[pid] || {};
         for (const aid in aEncsMap) {
           if (
-            aEncsMap[aid].some((enc: any) =>
-              enc.version_details.some((vd: any) => vd.version.name === displayVersion),
-            )
+            aEncsMap[aid].some((enc: any) => enc.version_details.some((vd: any) => vd.version.name === displayVersion))
           ) {
             isCatchableSomewhere = true;
             break;
@@ -308,9 +282,7 @@ export function generateSuggestions(
 
         if (!isCatchableSomewhere) {
           const chain = apiData.missingChains?.[pid];
-          const baseId = chain
-            ? parseInt(chain.chain.species.url.split('/').slice(-2, -1)[0])
-            : pid;
+          const baseId = chain ? parseInt(chain.chain.species.url.split('/').slice(-2, -1)[0], 10) : pid;
           const isInternalObtainable = [
             1,
             4,
@@ -403,9 +375,7 @@ export function generateSuggestions(
         }
         if (locationMap[targetAreaSlug]) {
           locationMap[targetAreaSlug].pids.add(pid);
-          const versionDetail = enc.version_details.find(
-            (vd: any) => vd.version.name === displayVersion,
-          );
+          const versionDetail = enc.version_details.find((vd: any) => vd.version.name === displayVersion);
           if (versionDetail) {
             locationMap[targetAreaSlug].encounterMap.set(
               pid,
@@ -424,9 +394,7 @@ export function generateSuggestions(
       ...loc,
       yield: loc.pids.size,
     }));
-    const partyHasFly = saveData.partyDetails?.some(
-      (p: PokemonInstance) => p.moves && p.moves.includes(19),
-    );
+    const partyHasFly = saveData.partyDetails?.some((p: PokemonInstance) => p.moves && p.moves.includes(19));
     locations.sort((a, b) =>
       partyHasFly
         ? b.yield !== a.yield
@@ -497,17 +465,12 @@ export function generateSuggestions(
     let isClaimed = false;
 
     // Gen 1 specific bit flag check
-    if (
-      saveData.generation === 1 &&
-      trade.tradeIndex !== undefined &&
-      saveData.npcTradeFlags !== undefined
-    ) {
+    if (saveData.generation === 1 && trade.tradeIndex !== undefined && saveData.npcTradeFlags !== undefined) {
       isClaimed = (saveData.npcTradeFlags & (1 << trade.tradeIndex)) !== 0;
     } else {
       // Fallback for Gen 2 or if bit flags are missing
       isClaimed = allInstances.some(
-        (p: PokemonInstance) =>
-          p.speciesId === trade.receivedId && p.otName === trade.receivedOtName,
+        (p: PokemonInstance) => p.speciesId === trade.receivedId && p.otName === trade.receivedOtName,
       );
     }
 
@@ -537,7 +500,7 @@ export function generateSuggestions(
 
   // Gifts/Statics
   for (const [pidStr, gift] of Object.entries(STATIC_GIFT_DATA)) {
-    const pid = parseInt(pidStr);
+    const pid = parseInt(pidStr, 10);
     if (gift.gen && gift.gen !== saveData.generation) continue;
     if (gift.name.includes('Yellow only') && displayVersion !== 'yellow') continue;
     if (gift.reason.includes('Crystal') && displayVersion !== 'crystal') continue;
@@ -558,8 +521,7 @@ export function generateSuggestions(
 
     let isClaimedByEvent = false;
     if (saveData.eventFlags && gift.eventFlag) {
-      isClaimedByEvent =
-        (saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !== 0;
+      isClaimedByEvent = (saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !== 0;
     }
 
     if (!isClaimedByEvent && !hasAnyWithMyOT && !hasAnyFamily && missingIds.includes(pid)) {
@@ -597,9 +559,7 @@ export function generateSuggestions(
 
   // Obedience
   const totalBadges =
-    saveData.generation === 1
-      ? saveData.badges
-      : (saveData.johtoBadges || 0) + (saveData.kantoBadges || 0);
+    saveData.generation === 1 ? saveData.badges : (saveData.johtoBadges || 0) + (saveData.kantoBadges || 0);
   const caps = OBEDIENCE_CAPS.filter((c) => totalBadges >= c.badges);
   const currentCap = caps.length > 0 ? caps[caps.length - 1]!.level : 10;
   const disobedient = saveData.partyDetails.filter(
@@ -621,7 +581,7 @@ export function generateSuggestions(
     if (!chain) return;
 
     const findInChain = (node: any): any => {
-      const id = parseInt(node.species.url.split('/').slice(-2, -1)[0]);
+      const id = parseInt(node.species.url.split('/').slice(-2, -1)[0], 10);
       if (id === p.speciesId) return node;
       for (const child of node.evolves_to) {
         const res = findInChain(child);
@@ -633,7 +593,7 @@ export function generateSuggestions(
     const currentNode = findInChain(chain.chain);
     if (currentNode && currentNode.evolves_to.length > 0) {
       currentNode.evolves_to.forEach((evoNode: any) => {
-        const evoId = parseInt(evoNode.species.url.split('/').slice(-2, -1)[0]);
+        const evoId = parseInt(evoNode.species.url.split('/').slice(-2, -1)[0], 10);
         if (ownedSet.has(evoId)) {
           rejected.push({
             pokemonId: evoId,
@@ -722,9 +682,7 @@ export function generateSuggestions(
     }
   });
 
-  const uniqueSuggestions = Array.from(
-    new Map(suggestions.map((item) => [item.id, item])).values(),
-  );
+  const uniqueSuggestions = Array.from(new Map(suggestions.map((item) => [item.id, item])).values());
   uniqueSuggestions.sort((a, b) => b.priority - a.priority);
   return { suggestions: uniqueSuggestions, debug: { rejected } };
 }

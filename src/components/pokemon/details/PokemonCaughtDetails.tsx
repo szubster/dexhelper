@@ -1,4 +1,4 @@
-import { Sparkles, CircleDot, MapPin, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 
@@ -65,9 +65,7 @@ export function PokemonCaughtDetails({ yourPokemon, saveData }: PokemonCaughtDet
 
             <div className="flex justify-between items-start relative z-10">
               <div>
-                <div className="text-2xl font-display font-black text-white tracking-tighter">
-                  LV.{p.level}
-                </div>
+                <div className="text-2xl font-display font-black text-white tracking-tighter">LV.{p.level}</div>
                 <div className="flex gap-2 items-center mt-1">
                   <div className="px-2 py-0.5 bg-[var(--theme-primary)]/20 rounded-md border border-[var(--theme-primary)]/30">
                     <span className="text-[9px] font-black text-[var(--theme-primary)] uppercase tracking-widest leading-none">
@@ -91,34 +89,24 @@ export function PokemonCaughtDetails({ yourPokemon, saveData }: PokemonCaughtDet
                   <span className="text-[8px] font-black text-zinc-500 uppercase tracking-widest">
                     Original Trainer
                   </span>
-                  <span className="text-[10px] font-bold text-zinc-200 uppercase truncate">
-                    {p.otName}
-                  </span>
+                  <span className="text-[10px] font-bold text-zinc-200 uppercase truncate">{p.otName}</span>
                 </div>
               )}
               {p.item !== undefined && p.item > 0 && (
                 <div className="flex flex-col">
-                  <span className="text-[8px] font-black text-zinc-500 uppercase tracking-widest">
-                    Held Item
-                  </span>
-                  <span className="text-[10px] font-bold text-zinc-200 uppercase truncate">
-                    {gen2Items[p.item]}
-                  </span>
+                  <span className="text-[8px] font-black text-zinc-500 uppercase tracking-widest">Held Item</span>
+                  <span className="text-[10px] font-bold text-zinc-200 uppercase truncate">{gen2Items[p.item]}</span>
                 </div>
               )}
               {p.friendship !== undefined && (
                 <div className="flex flex-col">
-                  <span className="text-[8px] font-black text-zinc-500 uppercase tracking-widest">
-                    Friendship
-                  </span>
+                  <span className="text-[8px] font-black text-zinc-500 uppercase tracking-widest">Friendship</span>
                   <span className="text-[10px] font-bold text-rose-400">{p.friendship} pt</span>
                 </div>
               )}
               {saveData && getGenerationConfig(saveData.generation).hasHiddenPower && p.dvs && (
                 <div className="flex flex-col">
-                  <span className="text-[8px] font-black text-zinc-500 uppercase tracking-widest">
-                    Hidden Power
-                  </span>
+                  <span className="text-[8px] font-black text-zinc-500 uppercase tracking-widest">Hidden Power</span>
                   <span className="text-[10px] font-bold text-blue-400 uppercase">
                     {calculateHiddenPower(p.dvs).type}
                   </span>

@@ -1,10 +1,6 @@
-import { MapPin, ArrowUpCircle, Target, AlertTriangle } from 'lucide-react';
+import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
+import type { LocationAreaEncounter, Encounter as PokeEncounter, VersionEncounterDetail } from 'pokenode-ts';
 import { staticEncounters } from '../../../utils/data';
-import type {
-  LocationAreaEncounter,
-  VersionEncounterDetail,
-  Encounter as PokeEncounter,
-} from 'pokenode-ts';
 
 interface PokemonLocationsProps {
   pokemonId: number;
@@ -14,13 +10,7 @@ interface PokemonLocationsProps {
   loading: boolean;
 }
 
-export function PokemonLocations({
-  pokemonId,
-  gameVersion,
-  encounters,
-  evoReq,
-  loading,
-}: PokemonLocationsProps) {
+export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, loading }: PokemonLocationsProps) {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between border-b border-white/5 pb-4">
@@ -37,8 +27,7 @@ export function PokemonLocations({
       ) : (
         <div className="grid grid-cols-1 gap-3 relative z-10">
           {(() => {
-            const staticEnc =
-              staticEncounters[pokemonId]?.[gameVersion as keyof (typeof staticEncounters)[number]];
+            const staticEnc = staticEncounters[pokemonId]?.[gameVersion as keyof (typeof staticEncounters)[number]];
             const versionEnc = encounters.filter((e: LocationAreaEncounter) =>
               e.version_details.some((v: VersionEncounterDetail) => v.version.name === gameVersion),
             );
@@ -98,24 +87,19 @@ export function PokemonLocations({
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
-                            {versionDetail?.encounter_details.map(
-                              (d: PokeEncounter, di: number) => (
-                                <span
-                                  key={di}
-                                  className="text-[8px] font-black text-zinc-500 uppercase tracking-widest px-2 py-0.5 bg-white/5 rounded-md border border-white/5"
-                                >
-                                  LV.{d.min_level}-{d.max_level}
-                                </span>
-                              ),
-                            )}
+                            {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
+                              <span
+                                key={di}
+                                className="text-[8px] font-black text-zinc-500 uppercase tracking-widest px-2 py-0.5 bg-white/5 rounded-md border border-white/5"
+                              >
+                                LV.{d.min_level}-{d.max_level}
+                              </span>
+                            ))}
                           </div>
                         </div>
                         <div className="flex flex-wrap gap-1.5 pl-1.5 border-l-2 border-[var(--theme-primary)]/20">
                           {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
-                            <span
-                              key={di}
-                              className="text-[8px] font-black text-[var(--theme-primary)]/70 uppercase"
-                            >
+                            <span key={di} className="text-[8px] font-black text-[var(--theme-primary)]/70 uppercase">
                               • {d.method.name.replace('-', ' ')} ({d.chance}%)
                             </span>
                           ))}
@@ -131,8 +115,8 @@ export function PokemonLocations({
             return (
               <div className="space-y-3">
                 <div className="text-[10px] font-black text-amber-500/60 uppercase tracking-widest flex items-center gap-2 mb-2 italic">
-                  <AlertTriangle size={12} /> Species unavailable in {gameVersion.toUpperCase()}.
-                  External cross-version extraction required.
+                  <AlertTriangle size={12} /> Species unavailable in {gameVersion.toUpperCase()}. External cross-version
+                  extraction required.
                 </div>
                 {encounters.map((e: LocationAreaEncounter, i: number) => (
                   <div

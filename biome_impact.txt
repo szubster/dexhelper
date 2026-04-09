@@ -1,0 +1,1686 @@
+src/components/AppLayout.tsx:1:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+  > 1 │ import React from 'react';
+      │        ^^^^^^^^^^^^^^^^^^
+    2 │ import {
+    3 │   Upload,
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    1 │ import·type·React·from·'react';
+      │        +++++                   
+
+src/components/AppLayout.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import React from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import {
+    3 │   Upload,
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·React·from·'react';
+          1 │ + import·{·Link·}·from·'@tanstack/react-router';
+      2   2 │   import {
+      3   3 │     Upload,
+    ······· │ 
+      9   9 │     Sparkles,
+     10  10 │   } from 'lucide-react';
+     11     │ - import·{·useStore·}·from·'../store';
+         11 │ + import·React·from·'react';
+     12  12 │   import { parseSaveFile } from '../engine/saveParser/index';
+     13     │ - import·{·getGenerationConfig,·VERSION_THEMES·}·from·'../utils/generationConfig';
+     14     │ - import·{·SettingsModal·}·from·'./SettingsModal';
+     15     │ - import·{·VersionModal·}·from·'./VersionModal';
+         13 │ + import·{·useStore·}·from·'../store';
+         14 │ + import·{·cn·}·from·'../utils/cn';
+         15 │ + import·{·getGenerationConfig,·VERSION_THEMES·}·from·'../utils/generationConfig';
+     16  16 │   import { BottomNav } from './BottomNav';
+     17     │ - import·{·Link·}·from·'@tanstack/react-router';
+     18     │ - import·{·cn·}·from·'../utils/cn';
+         17 │ + import·{·SettingsModal·}·from·'./SettingsModal';
+         18 │ + import·{·VersionModal·}·from·'./VersionModal';
+     19  19 │   
+     20  20 │   export function AppLayout({ children }: { children: React.ReactNode }) {
+  
+
+src/components/AssistantPanel.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import React from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { Suggestion, useAssistant } from '../hooks/useAssistant';
+    3 │ import { Bug, Sparkles, Target, Zap, Egg, Flag, Info, Loader2 } from 'lucide-react';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·React·from·'react';
+      2     │ - import·{·Suggestion,·useAssistant·}·from·'../hooks/useAssistant';
+      3     │ - import·{·Bug,·Sparkles,·Target,·Zap,·Egg,·Flag,·Info,·Loader2·}·from·'lucide-react';
+          1 │ + import·{·useQuery·}·from·'@tanstack/react-query';
+          2 │ + import·{·Bug,·Egg,·Flag,·Info,·Loader2,·Sparkles,·Target,·Zap·}·from·'lucide-react';
+          3 │ + import·React·from·'react';
+      4   4 │   import { SaveData } from '../engine/saveParser/index';
+      5     │ - import·{·useQuery·}·from·'@tanstack/react-query';
+      6     │ - import·{·pokeapi·}·from·'../utils/pokeapi';
+      7     │ - import·{·MAX_DEX_ACROSS_GENS·}·from·'../utils/generationConfig';
+          5 │ + import·{·Suggestion,·useAssistant·}·from·'../hooks/useAssistant';
+          6 │ + import·{·MAX_DEX_ACROSS_GENS·}·from·'../utils/generationConfig';
+          7 │ + import·{·pokeapi·}·from·'../utils/pokeapi';
+      8   8 │   import { AssistantDebugView } from './assistant/AssistantDebugView';
+      9   9 │   import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
+  
+
+src/components/AssistantPanel.tsx:2:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × Some named imports are only used as types.
+  
+    1 │ import React from 'react';
+  > 2 │ import { Suggestion, useAssistant } from '../hooks/useAssistant';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    3 │ import { Bug, Sparkles, Target, Zap, Egg, Flag, Info, Loader2 } from 'lucide-react';
+    4 │ import { SaveData } from '../engine/saveParser/index';
+  
+  i This import is only used as a type.
+  
+    1 │ import React from 'react';
+  > 2 │ import { Suggestion, useAssistant } from '../hooks/useAssistant';
+      │          ^^^^^^^^^^
+    3 │ import { Bug, Sparkles, Target, Zap, Egg, Flag, Info, Loader2 } from 'lucide-react';
+    4 │ import { SaveData } from '../engine/saveParser/index';
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Add inline type keywords.
+  
+    2 │ import·{·type·Suggestion,·useAssistant·}·from·'../hooks/useAssistant';
+      │          +++++                                                        
+
+src/components/AssistantPanel.tsx:4:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+    2 │ import { Suggestion, useAssistant } from '../hooks/useAssistant';
+    3 │ import { Bug, Sparkles, Target, Zap, Egg, Flag, Info, Loader2 } from 'lucide-react';
+  > 4 │ import { SaveData } from '../engine/saveParser/index';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    5 │ import { useQuery } from '@tanstack/react-query';
+    6 │ import { pokeapi } from '../utils/pokeapi';
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    4 │ import·type·{·SaveData·}·from·'../engine/saveParser/index';
+      │        +++++                                               
+
+src/components/BottomNav.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { LayoutGrid, Database, Settings2, Sparkles } from 'lucide-react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { useStore } from '../store';
+    3 │ import { Link, useLocation } from '@tanstack/react-router';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·LayoutGrid,·Database,·Settings2,·Sparkles·}·from·'lucide-react';
+     2    │ - import·{·useStore·}·from·'../store';
+     3    │ - import·{·Link,·useLocation·}·from·'@tanstack/react-router';
+        1 │ + import·{·Link,·useLocation·}·from·'@tanstack/react-router';
+        2 │ + import·{·Database,·LayoutGrid,·Settings2,·Sparkles·}·from·'lucide-react';
+        3 │ + import·{·useStore·}·from·'../store';
+     4  4 │   import { cn } from '../utils/cn';
+     5  5 │   
+  
+
+src/components/PokedexGrid.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import React, { useMemo } from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { Monitor, CircleDot, Sparkles, ChevronRight } from 'lucide-react';
+    3 │ import { useStore } from '../store';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·React,·{·useMemo·}·from·'react';
+          1 │ + import·{·useNavigate·}·from·'@tanstack/react-router';
+      2   2 │   import { Monitor, CircleDot, Sparkles, ChevronRight } from 'lucide-react';
+      3     │ - import·{·useStore·}·from·'../store';
+      4     │ - import·{·useNavigate·}·from·'@tanstack/react-router';
+      5     │ - import·{·getGenerationConfig·}·from·'../utils/generationConfig';
+      6     │ - import·{·cn·}·from·'../utils/cn';
+          3 │ + import·React,·{·useMemo·}·from·'react';
+          4 │ + import·{·useStore·}·from·'../store';
+          5 │ + import·{·cn·}·from·'../utils/cn';
+          6 │ + import·{·getGenerationConfig·}·from·'../utils/generationConfig';
+      7   7 │   
+      8   8 │   export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
+  
+
+src/components/PokemonDetails.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import React, { useEffect } from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { useQuery, useQueries } from '@tanstack/react-query';
+    3 │ import { X, MapPin, AlertCircle, CheckCircle2, Sparkles, Monitor } from 'lucide-react';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·React,·{·useEffect·}·from·'react';
+      2     │ - import·{·useQuery,·useQueries·}·from·'@tanstack/react-query';
+      3     │ - import·{·X,·MapPin,·AlertCircle,·CheckCircle2,·Sparkles,·Monitor·}·from·'lucide-react';
+      4     │ - import·{·staticEncounters,·stadiumRewardsSummary·}·from·'../utils/data';
+          1 │ + import·{·useQueries,·useQuery·}·from·'@tanstack/react-query';
+          2 │ + import·{·AlertCircle,·CheckCircle2,·MapPin,·Monitor,·Sparkles,·X·}·from·'lucide-react';
+          3 │ + import·type·{·LocationAreaEncounter,·VersionEncounterDetail·}·from·'pokenode-ts';
+          4 │ + import·React,·{·useEffect·}·from·'react';
+      5   5 │   import { SaveData } from '../engine/saveParser/index';
+      6     │ - import·{·pokeapi·}·from·'../utils/pokeapi';
+      7     │ - import·{·PokeballType·}·from·'../store';
+      8     │ - import·{·getGenerationConfig·}·from·'../utils/generationConfig';
+      9     │ - import·{·cn·}·from·'../utils/cn';
+     10     │ - import·type·{·LocationAreaEncounter,·VersionEncounterDetail·}·from·'pokenode-ts';
+          6 │ + import·{·PokeballType·}·from·'../store';
+          7 │ + import·{·cn·}·from·'../utils/cn';
+          8 │ + import·{·stadiumRewardsSummary,·staticEncounters·}·from·'../utils/data';
+          9 │ + import·{·getGenerationConfig·}·from·'../utils/generationConfig';
+         10 │ + import·{·pokeapi·}·from·'../utils/pokeapi';
+     11  11 │   import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbability';
+     12     │ - import·{·PokemonStats·}·from·'./pokemon/details/PokemonStats';
+     13     │ - import·{·PokemonCaughtDetails·}·from·'./pokemon/details/PokemonCaughtDetails';
+     14     │ - import·{·PokemonEvolutions·}·from·'./pokemon/details/PokemonEvolutions';
+     15     │ - import·{·PokemonLocations·}·from·'./pokemon/details/PokemonLocations';
+         12 │ + import·{·PokemonCaughtDetails·}·from·'./pokemon/details/PokemonCaughtDetails';
+         13 │ + import·{·PokemonEvolutions·}·from·'./pokemon/details/PokemonEvolutions';
+         14 │ + import·{·PokemonLocations·}·from·'./pokemon/details/PokemonLocations';
+         15 │ + import·{·PokemonStats·}·from·'./pokemon/details/PokemonStats';
+     16  16 │   
+     17  17 │   // Static data moved to data.ts
+  
+
+src/components/PokemonDetails.tsx:123:20 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    122 │     const fromName = speciesData.evolves_from_species.name;
+  > 123 │     const fromId = parseInt(
+        │                    ^^^^^^^^^
+  > 124 │       speciesData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0',
+  > 125 │     );
+        │     ^
+    126 │ 
+    127 │     // For saves from gens that don't have this pre-evolution, ignore it (e.g., baby Pokemon in Gen 1)
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    124 │ ······speciesData.evolves_from_species.url.split('/').filter(Boolean).pop()·||·'0',·10
+        │                                                                                    +++
+
+src/components/PokemonDetails.tsx:170:24 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    168 │         return chain.evolves_to
+    169 │           .map((evo: any) => {
+  > 170 │             const id = parseInt(evo.species.url.split('/').filter(Boolean).pop() || '0');
+        │                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    171 │             // For saves from gens that don't have this evolution, ignore it
+    172 │             if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    170 │ ············const·id·=·parseInt(evo.species.url.split('/').filter(Boolean).pop()·||·'0',·10);
+        │                                                                                        ++++  
+
+src/components/PokemonDetails.tsx:216:20 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    214 │     const traverse = (node: any) => {
+    215 │       if (node.species.name !== speciesData.name) {
+  > 216 │         const id = parseInt(node.species.url.split('/').filter(Boolean).pop() || '0');
+        │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    217 │         parents.push({
+    218 │           id,
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    216 │ ········const·id·=·parseInt(node.species.url.split('/').filter(Boolean).pop()·||·'0',·10);
+        │                                                                                     ++++  
+
+src/components/PokemonDetails.tsx:5:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+    3 │ import { X, MapPin, AlertCircle, CheckCircle2, Sparkles, Monitor } from 'lucide-react';
+    4 │ import { staticEncounters, stadiumRewardsSummary } from '../utils/data';
+  > 5 │ import { SaveData } from '../engine/saveParser/index';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    6 │ import { pokeapi } from '../utils/pokeapi';
+    7 │ import { PokeballType } from '../store';
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    5 │ import·type·{·SaveData·}·from·'../engine/saveParser/index';
+      │        +++++                                               
+
+src/components/PokemonDetails.tsx:7:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+    5 │ import { SaveData } from '../engine/saveParser/index';
+    6 │ import { pokeapi } from '../utils/pokeapi';
+  > 7 │ import { PokeballType } from '../store';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    8 │ import { getGenerationConfig } from '../utils/generationConfig';
+    9 │ import { cn } from '../utils/cn';
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    7 │ import·type·{·PokeballType·}·from·'../store';
+      │        +++++                                 
+
+src/components/PokemonDetails.tsx:206:30 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━
+
+  × This hook does not specify its dependency on saveData.
+  
+    204 │   }, [speciesData, evolutionData, pokemonName, saveData]);
+    205 │ 
+  > 206 │   const breedingInfo = React.useMemo(() => {
+        │                              ^^^^^^^
+    207 │     if (!speciesData?.is_baby || !evolutionData) return null;
+    208 │ 
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    209 │     // Only show breeding info for gens that support it
+  > 210 │     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
+        │         ^^^^^^^^
+    211 │ 
+    212 │     const parents: { id: number; name: string }[] = [];
+  
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Failing to specify dependencies can result in Effects not updating correctly when state changes.
+    These "stale closures" are a common source of surprising bugs.
+  
+  i Unsafe fix: Add the missing dependency saveData to the list.
+  
+    231 │ ··},·[speciesData,·evolutionData,·saveData]);
+        │                                 ++++++++++   
+
+src/components/PokemonDetails.tsx:206:30 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━
+
+  × This hook does not specify its dependency on saveData.generation.
+  
+    204 │   }, [speciesData, evolutionData, pokemonName, saveData]);
+    205 │ 
+  > 206 │   const breedingInfo = React.useMemo(() => {
+        │                              ^^^^^^^
+    207 │     if (!speciesData?.is_baby || !evolutionData) return null;
+    208 │ 
+  
+  i This dependency is being used here, but is not specified in the hook dependency list.
+  
+    209 │     // Only show breeding info for gens that support it
+  > 210 │     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
+        │                                          ^^^^^^^^^^^^^^^^^^^
+    211 │ 
+    212 │     const parents: { id: number; name: string }[] = [];
+  
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Failing to specify dependencies can result in Effects not updating correctly when state changes.
+    These "stale closures" are a common source of surprising bugs.
+  
+  i Unsafe fix: Add the missing dependency saveData.generation to the list.
+  
+    231 │ ··},·[speciesData,·evolutionData,·saveData.generation]);
+        │                                 +++++++++++++++++++++   
+
+src/components/SearchAndFilters.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { Search, X } from 'lucide-react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { useStore } from '../store';
+    3 │ import type { FilterType } from '../store';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1  1 │   import { Search, X } from 'lucide-react';
+     2    │ - import·{·useStore·}·from·'../store';
+     3    │ - import·type·{·FilterType·}·from·'../store';
+        2 │ + import·type·{·FilterType·}·from·'../store';
+        3 │ + import·{·useStore·}·from·'../store';
+     4  4 │   import { cn } from '../utils/cn';
+     5  5 │   
+  
+
+src/components/SettingsModal.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import React from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import {
+    3 │   X,
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·React·from·'react';
+      2     │ - import·{
+      3     │ - ··X,
+      4     │ - ··Info,
+      5     │ - ··Settings2,
+      6     │ - ··Archive,
+      7     │ - ··CircleDot,
+      8     │ - ··Trash2,
+      9     │ - ··Check,
+     10     │ - ··Ghost,
+     11     │ - ··Monitor,
+     12     │ - }·from·'lucide-react';
+     13     │ - import·{·useStore·}·from·'../store';
+     14     │ - import·type·{·PokeballType,·GameVersion·}·from·'../store';
+     15     │ - import·{·getGenerationConfig,·POKEBALL_LABELS·}·from·'../utils/generationConfig';
+     16     │ - 
+     17     │ - import·type·{·GenerationConfig·}·from·'../utils/generationConfig';
+          1 │ + import·{
+          2 │ + ··Archive,
+          3 │ + ··Check,
+          4 │ + ··CircleDot,
+          5 │ + ··Ghost,
+          6 │ + ··Info,
+          7 │ + ··Monitor,
+          8 │ + ··Settings2,
+          9 │ + ··Trash2,
+         10 │ + ··X,
+         11 │ + }·from·'lucide-react';
+         12 │ + import·React·from·'react';
+         13 │ + import·type·{·GameVersion,·PokeballType·}·from·'../store';
+         14 │ + import·{·useStore·}·from·'../store';
+         15 │ + import·type·{·GenerationConfig·}·from·'../utils/generationConfig';
+         16 │ + import·{·getGenerationConfig,·POKEBALL_LABELS·}·from·'../utils/generationConfig';
+     18  17 │   
+     19  18 │   function SettingsLegend() {
+  
+
+src/components/StorageGrid.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import React from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { Sparkles } from 'lucide-react';
+    3 │ import { useStore } from '../store';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·React·from·'react';
+          1 │ + import·{·useNavigate·}·from·'@tanstack/react-router';
+      2   2 │   import { Sparkles } from 'lucide-react';
+      3     │ - import·{·useStore·}·from·'../store';
+      4     │ - import·{·useNavigate·}·from·'@tanstack/react-router';
+      5     │ - import·{·getGenerationConfig·}·from·'../utils/generationConfig';
+      6     │ - import·type·{·PokemonInstance·}·from·'../engine/saveParser/index';
+          3 │ + import·React·from·'react';
+          4 │ + import·type·{·PokemonInstance·}·from·'../engine/saveParser/index';
+          5 │ + import·{·useStore·}·from·'../store';
+          6 │ + import·{·getGenerationConfig·}·from·'../utils/generationConfig';
+      7   7 │   
+      8   8 │   export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
+  
+
+src/components/VersionModal.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { AlertTriangle } from 'lucide-react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { useStore } from '../store';
+    3 │ import type { GameVersion } from '../store';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1  1 │   import { AlertTriangle } from 'lucide-react';
+     2    │ - import·{·useStore·}·from·'../store';
+     3    │ - import·type·{·GameVersion·}·from·'../store';
+        2 │ + import·type·{·GameVersion·}·from·'../store';
+        3 │ + import·{·useStore·}·from·'../store';
+     4  4 │   import { getGenerationConfig } from '../utils/generationConfig';
+     5  5 │   
+  
+
+src/components/assistant/AssistantDebugView.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { Bug, AlertCircle } from 'lucide-react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { RejectedSuggestion } from '../../hooks/useAssistant';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·{·Bug,·AlertCircle·}·from·'lucide-react';
+          1 │ + import·{·AlertCircle,·Bug·}·from·'lucide-react';
+      2   2 │   import { RejectedSuggestion } from '../../hooks/useAssistant';
+      3   3 │   
+  
+
+src/components/assistant/AssistantDebugView.tsx:2:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+    1 │ import { Bug, AlertCircle } from 'lucide-react';
+  > 2 │ import { RejectedSuggestion } from '../../hooks/useAssistant';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    3 │ 
+    4 │ interface AssistantDebugViewProps {
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    2 │ import·type·{·RejectedSuggestion·}·from·'../../hooks/useAssistant';
+      │        +++++                                                       
+
+src/components/assistant/AssistantSuggestionCard.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import React from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { Link } from '@tanstack/react-router';
+    3 │ import { Fish, Waves, Trees, Target } from 'lucide-react';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·React·from·'react';
+      2     │ - import·{·Link·}·from·'@tanstack/react-router';
+      3     │ - import·{·Fish,·Waves,·Trees,·Target·}·from·'lucide-react';
+      4     │ - import·{·Suggestion,·EncounterDetail·}·from·'../../hooks/useAssistant';
+      5     │ - import·{·SaveData·}·from·'../../engine/saveParser/index';
+          1 │ + import·{·Link·}·from·'@tanstack/react-router';
+          2 │ + import·{·Fish,·Target,·Trees,·Waves·}·from·'lucide-react';
+          3 │ + import·React·from·'react';
+          4 │ + import·{·SaveData·}·from·'../../engine/saveParser/index';
+          5 │ + import·{·EncounterDetail,·Suggestion·}·from·'../../hooks/useAssistant';
+      6   6 │   import { getGenerationConfig } from '../../utils/generationConfig';
+      7   7 │   import { PokemonSprite } from '../pokemon/PokemonSprite';
+  
+
+src/components/assistant/AssistantSuggestionCard.tsx:1:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+  > 1 │ import React from 'react';
+      │        ^^^^^^^^^^^^^^^^^^
+    2 │ import { Link } from '@tanstack/react-router';
+    3 │ import { Fish, Waves, Trees, Target } from 'lucide-react';
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    1 │ import·type·React·from·'react';
+      │        +++++                   
+
+src/components/assistant/AssistantSuggestionCard.tsx:4:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+    2 │ import { Link } from '@tanstack/react-router';
+    3 │ import { Fish, Waves, Trees, Target } from 'lucide-react';
+  > 4 │ import { Suggestion, EncounterDetail } from '../../hooks/useAssistant';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    5 │ import { SaveData } from '../../engine/saveParser/index';
+    6 │ import { getGenerationConfig } from '../../utils/generationConfig';
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    4 │ import·type·{·Suggestion,·EncounterDetail·}·from·'../../hooks/useAssistant';
+      │        +++++                                                                
+
+src/components/assistant/AssistantSuggestionCard.tsx:5:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+    3 │ import { Fish, Waves, Trees, Target } from 'lucide-react';
+    4 │ import { Suggestion, EncounterDetail } from '../../hooks/useAssistant';
+  > 5 │ import { SaveData } from '../../engine/saveParser/index';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    6 │ import { getGenerationConfig } from '../../utils/generationConfig';
+    7 │ import { PokemonSprite } from '../pokemon/PokemonSprite';
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    5 │ import·type·{·SaveData·}·from·'../../engine/saveParser/index';
+      │        +++++                                                  
+
+src/components/pokemon/PokemonSprite.tsx:1:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+  > 1 │ import React from 'react';
+      │        ^^^^^^^^^^^^^^^^^^
+    2 │ import { getGenerationConfig } from '../../utils/generationConfig';
+    3 │ 
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    1 │ import·type·React·from·'react';
+      │        +++++                   
+
+src/components/pokemon/details/PokemonCatchProbability.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { useState } from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { Target } from 'lucide-react';
+    3 │ import { cn } from '../../../utils/cn';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·{·useState·}·from·'react';
+      2     │ - import·{·Target·}·from·'lucide-react';
+      3     │ - import·{·cn·}·from·'../../../utils/cn';
+      4     │ - import·type·{·PokeballType·}·from·'../../../store';
+          1 │ + import·{·Target·}·from·'lucide-react';
+          2 │ + import·{·useState·}·from·'react';
+          3 │ + import·type·{·PokeballType·}·from·'../../../store';
+          4 │ + import·{·cn·}·from·'../../../utils/cn';
+      5   5 │   
+      6   6 │   interface PokemonCatchProbabilityProps {
+  
+
+src/components/pokemon/details/PokemonCaughtDetails.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { Sparkles, CircleDot, MapPin, CheckCircle2 } from 'lucide-react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
+    3 │ import { getGenerationConfig } from '../../../utils/generationConfig';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·{·Sparkles,·CircleDot,·MapPin,·CheckCircle2·}·from·'lucide-react';
+          1 │ + import·{·CheckCircle2,·CircleDot,·MapPin,·Sparkles·}·from·'lucide-react';
+      2   2 │   import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
+      3   3 │   import { getGenerationConfig } from '../../../utils/generationConfig';
+  
+
+src/components/pokemon/details/PokemonEvolutions.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import React from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { ChevronRight, ArrowUpCircle, Heart, AlertTriangle, Check, X } from 'lucide-react';
+    3 │ import { cn } from '../../../utils/cn';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·React·from·'react';
+      2     │ - import·{·ChevronRight,·ArrowUpCircle,·Heart,·AlertTriangle,·Check,·X·}·from·'lucide-react';
+          1 │ + import·{·AlertTriangle,·ArrowUpCircle,·Check,·ChevronRight,·Heart,·X·}·from·'lucide-react';
+          2 │ + import·React·from·'react';
+      3   3 │   import { cn } from '../../../utils/cn';
+      4   4 │   import { stadiumRewardsData } from '../../../utils/data';
+  
+
+src/components/pokemon/details/PokemonLocations.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { MapPin, ArrowUpCircle, Target, AlertTriangle } from 'lucide-react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { staticEncounters } from '../../../utils/data';
+    3 │ import type {
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1   1 │   import { MapPin, ArrowUpCircle, Target, AlertTriangle } from 'lucide-react';
+      2     │ - import·{·staticEncounters·}·from·'../../../utils/data';
+      3     │ - import·type·{
+      4     │ - ··LocationAreaEncounter,
+      5     │ - ··VersionEncounterDetail,
+      6     │ - ··Encounter·as·PokeEncounter,
+      7     │ - }·from·'pokenode-ts';
+          2 │ + import·type·{
+          3 │ + ··LocationAreaEncounter,
+          4 │ + ··Encounter·as·PokeEncounter,
+          5 │ + ··VersionEncounterDetail,
+          6 │ + }·from·'pokenode-ts';
+          7 │ + import·{·staticEncounters·}·from·'../../../utils/data';
+      8   8 │   
+      9   9 │   interface PokemonLocationsProps {
+  
+
+src/components/pokemon/details/PokemonStats.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { useEffect, useState } from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { Activity } from 'lucide-react';
+    3 │ import { getGenerationConfig } from '../../../utils/generationConfig';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·useEffect,·useState·}·from·'react';
+     2    │ - import·{·Activity·}·from·'lucide-react';
+        1 │ + import·{·Activity·}·from·'lucide-react';
+        2 │ + import·{·useEffect,·useState·}·from·'react';
+     3  3 │   import { getGenerationConfig } from '../../../utils/generationConfig';
+     4  4 │   
+  
+
+src/engine/assistant/__tests__/gen1Strategy.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { gen1Strategy } from '../strategies/gen1Strategy';
+    3 │ import type { SaveData } from '../../saveParser/index';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1  1 │   import { describe, it, expect } from 'vitest';
+     2    │ - import·{·gen1Strategy·}·from·'../strategies/gen1Strategy';
+     3    │ - import·type·{·SaveData·}·from·'../../saveParser/index';
+        2 │ + import·type·{·SaveData·}·from·'../../saveParser/index';
+        3 │ + import·{·gen1Strategy·}·from·'../strategies/gen1Strategy';
+     4  4 │   
+     5  5 │   const makeSaveData = (overrides: Partial<SaveData> = {}): SaveData => ({
+  
+
+src/engine/assistant/__tests__/suggestionEngine.fix.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { generateSuggestions } from '../suggestionEngine';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·describe,·it,·expect·}·from·'vitest';
+        1 │ + import·{·describe,·expect,·it·}·from·'vitest';
+     2  2 │   import { generateSuggestions } from '../suggestionEngine';
+     3  3 │   
+  
+
+src/engine/assistant/__tests__/suggestionEngine.repro.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { parseSaveFile } from '../../saveParser/index';
+    3 │ import { readFileSync, existsSync } from 'fs';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·describe,·it,·expect·}·from·'vitest';
+     2    │ - import·{·parseSaveFile·}·from·'../../saveParser/index';
+     3    │ - import·{·readFileSync,·existsSync·}·from·'fs';
+     4    │ - import·{·resolve·}·from·'path';
+        1 │ + import·{·existsSync,·readFileSync·}·from·'fs';
+        2 │ + import·{·resolve·}·from·'path';
+        3 │ + import·{·describe,·expect,·it·}·from·'vitest';
+        4 │ + import·{·parseSaveFile·}·from·'../../saveParser/index';
+     5  5 │   
+     6  6 │   describe('suggestionEngine - Jynx Double Suggestion Repro', () => {
+  
+
+src/engine/assistant/index.ts:2:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+    1 │ // Engine public API
+  > 2 │ export { getStrategy } from './strategies/index';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    3 │ export type {
+    4 │   AssistantStrategy,
+  
+  i Safe fix: Organize Imports (Biome)
+  
+    3 3 │   export type {
+    4 4 │     AssistantStrategy,
+    5   │ - ··Suggestion,
+    6   │ - ··EncounterDetail,
+    7   │ - ··RejectedSuggestion,
+      5 │ + ··EncounterDetail,
+      6 │ + ··RejectedSuggestion,
+      7 │ + ··Suggestion,
+    8 8 │   } from './strategies/types';
+    9 9 │   
+  
+
+src/engine/assistant/strategies/gen1Strategy.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import type { AssistantStrategy, Suggestion } from './types';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import type { SaveData } from '../../saveParser/index';
+    3 │ import { GEN1_MAPS, INDOOR_TO_PARENT_MAP, getDistanceToMap } from '../../mapGraph/gen1Graph';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·type·{·AssistantStrategy,·Suggestion·}·from·'./types';
+     2    │ - import·type·{·SaveData·}·from·'../../saveParser/index';
+     3    │ - import·{·GEN1_MAPS,·INDOOR_TO_PARENT_MAP,·getDistanceToMap·}·from·'../../mapGraph/gen1Graph';
+     4    │ - import·{·getUnobtainableReason·}·from·'../../exclusives/gen1Exclusives';
+     5    │ - import·{·GEN1_MAP_TO_SLUG·}·from·'../../data/gen1/assistantData';
+     6    │ - import·{·getGenerationConfig·}·from·'../../../utils/generationConfig';
+        1 │ + import·{·getGenerationConfig·}·from·'../../../utils/generationConfig';
+        2 │ + import·{·GEN1_MAP_TO_SLUG·}·from·'../../data/gen1/assistantData';
+        3 │ + import·{·getUnobtainableReason·}·from·'../../exclusives/gen1Exclusives';
+        4 │ + import·{·GEN1_MAPS,·getDistanceToMap,·INDOOR_TO_PARENT_MAP·}·from·'../../mapGraph/gen1Graph';
+        5 │ + import·type·{·SaveData·}·from·'../../saveParser/index';
+        6 │ + import·type·{·AssistantStrategy,·Suggestion·}·from·'./types';
+     7  7 │   
+     8  8 │   export const gen1Strategy: AssistantStrategy = {
+  
+
+src/engine/assistant/strategies/index.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import type { AssistantStrategy } from './types';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { gen1Strategy } from './gen1Strategy';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·type·{·AssistantStrategy·}·from·'./types';
+     2    │ - import·{·gen1Strategy·}·from·'./gen1Strategy';
+        1 │ + import·{·gen1Strategy·}·from·'./gen1Strategy';
+        2 │ + import·type·{·AssistantStrategy·}·from·'./types';
+     3  3 │   
+     4  4 │   const STRATEGIES: Record<number, AssistantStrategy> = {
+  
+
+src/engine/assistant/suggestionEngine.ts:540:17 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    538 │   // Gifts/Statics
+    539 │   for (const [pidStr, gift] of Object.entries(STATIC_GIFT_DATA)) {
+  > 540 │     const pid = parseInt(pidStr);
+        │                 ^^^^^^^^^^^^^^^^
+    541 │     if (gift.gen && gift.gen !== saveData.generation) continue;
+    542 │     if (gift.name.includes('Yellow only') && displayVersion !== 'yellow') continue;
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    540 │ ····const·pid·=·parseInt(pidStr,·10);
+        │                                ++++  
+
+src/engine/assistant/suggestionEngine.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { SaveData, PokemonInstance } from '../saveParser/index';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { pokeapi } from '../../utils/pokeapi';
+    3 │ import {
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·{·SaveData,·PokemonInstance·}·from·'../saveParser/index';
+          1 │ + import·{·getGenerationConfig·}·from·'../../utils/generationConfig';
+      2   2 │   import { pokeapi } from '../../utils/pokeapi';
+      3   3 │   import {
+    ······· │ 
+      7   7 │     STATIC_NPC_TRADE_DATA,
+      8   8 │   } from '../data/gen1/assistantData';
+      9     │ - import·{·getDistanceToMap·}·from·'../mapGraph/gen1Graph';
+     10     │ - import·{·getUnobtainableReason·}·from·'../exclusives/gen1Exclusives';
+     11     │ - import·{·getGenerationConfig·}·from·'../../utils/generationConfig';
+     12     │ - import·{·Suggestion,·EncounterDetail,·RejectedSuggestion·}·from·'./strategies/types';
+          9 │ + import·{·getUnobtainableReason·}·from·'../exclusives/gen1Exclusives';
+         10 │ + import·{·getDistanceToMap·}·from·'../mapGraph/gen1Graph';
+         11 │ + import·{·PokemonInstance,·SaveData·}·from·'../saveParser/index';
+         12 │ + import·{·EncounterDetail,·RejectedSuggestion,·Suggestion·}·from·'./strategies/types';
+     13  13 │   
+     14  14 │   /**
+  
+
+src/engine/assistant/suggestionEngine.ts:18:14 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    16 │  */
+    17 │ function getAncestors(node: any, target: number, path: number[] = []): number[] | null {
+  > 18 │   const id = parseInt(node.species.url.split('/').slice(-2, -1)[0]);
+       │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    19 │   if (id === target) {
+    20 │     return path;
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    18 │ ··const·id·=·parseInt(node.species.url.split('/').slice(-2,·-1)[0],·10);
+       │                                                                   ++++  
+
+src/engine/assistant/suggestionEngine.ts:192:19 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    190 │     for (const encounter of apiData.localEncounters) {
+    191 │       const urlParts = encounter.pokemon.url.split('/');
+  > 192 │       const pid = parseInt(urlParts[urlParts.length - 2]);
+        │                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    193 │ 
+    194 │       const isFinite = !!STATIC_GIFT_DATA[pid];
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    192 │ ······const·pid·=·parseInt(urlParts[urlParts.length·-·2],·10);
+        │                                                         ++++  
+
+src/engine/assistant/suggestionEngine.ts:312:15 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    310 │           const chain = apiData.missingChains?.[pid];
+    311 │           const baseId = chain
+  > 312 │             ? parseInt(chain.chain.species.url.split('/').slice(-2, -1)[0])
+        │               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    313 │             : pid;
+    314 │           const isInternalObtainable = [
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    312 │ ············?·parseInt(chain.chain.species.url.split('/').slice(-2,·-1)[0],·10)
+        │                                                                           ++++ 
+
+src/engine/assistant/suggestionEngine.ts:624:18 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    623 │     const findInChain = (node: any): any => {
+  > 624 │       const id = parseInt(node.species.url.split('/').slice(-2, -1)[0]);
+        │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    625 │       if (id === p.speciesId) return node;
+    626 │       for (const child of node.evolves_to) {
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    624 │ ······const·id·=·parseInt(node.species.url.split('/').slice(-2,·-1)[0],·10);
+        │                                                                       ++++  
+
+src/engine/assistant/suggestionEngine.ts:636:23 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    634 │     if (currentNode && currentNode.evolves_to.length > 0) {
+    635 │       currentNode.evolves_to.forEach((evoNode: any) => {
+  > 636 │         const evoId = parseInt(evoNode.species.url.split('/').slice(-2, -1)[0]);
+        │                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    637 │         if (ownedSet.has(evoId)) {
+    638 │           rejected.push({
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    636 │ ········const·evoId·=·parseInt(evoNode.species.url.split('/').slice(-2,·-1)[0],·10);
+        │                                                                               ++++  
+
+src/engine/assistant/suggestionEngine.ts:1:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+  > 1 │ import { SaveData, PokemonInstance } from '../saveParser/index';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { pokeapi } from '../../utils/pokeapi';
+    3 │ import {
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    1 │ import·type·{·SaveData,·PokemonInstance·}·from·'../saveParser/index';
+      │        +++++                                                         
+
+src/engine/assistant/suggestionEngine.ts:12:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+    10 │ import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
+    11 │ import { getGenerationConfig } from '../../utils/generationConfig';
+  > 12 │ import { Suggestion, EncounterDetail, RejectedSuggestion } from './strategies/types';
+       │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    13 │ 
+    14 │ /**
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    12 │ import·type·{·Suggestion,·EncounterDetail,·RejectedSuggestion·}·from·'./strategies/types';
+       │        +++++                                                                              
+
+src/engine/exclusives/__tests__/gen1Exclusives.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { getUnobtainableReason } from '../gen1Exclusives';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·{·describe,·it,·expect·}·from·'vitest';
+          1 │ + import·{·describe,·expect,·it·}·from·'vitest';
+      2   2 │   import { getUnobtainableReason } from '../gen1Exclusives';
+      3   3 │   
+  
+
+src/engine/exclusives/gen1Exclusives.ts:12:3 lint/correctness/noUnusedFunctionParameters  FIXABLE  ━━━━━━━━━━
+
+  × This parameter is unused.
+  
+    10 │   pokemonId: number,
+    11 │   gameVersion: string,
+  > 12 │   ownedCount: number, // Total current caught count
+       │   ^^^^^^^^^^
+    13 │   ownedSet: Set<number>,
+    14 │ ): string | null {
+  
+  i Unused parameters might be the result of an incomplete refactoring.
+  
+  i Unsafe fix: If this is intentional, prepend ownedCount with an underscore.
+  
+    10 10 │     pokemonId: number,
+    11 11 │     gameVersion: string,
+    12    │ - ··ownedCount:·number,·//·Total·current·caught·count
+       12 │ + ··_ownedCount:·number,·//·Total·current·caught·count
+    13 13 │     ownedSet: Set<number>,
+    14 14 │   ): string | null {
+  
+
+src/engine/exclusives/index.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { getUnobtainableReason as gen1UnobtainableReason } from './gen1Exclusives';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ export { ONE_TIME_CHOICES, getUnobtainableReason } from './gen1Exclusives';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1  1 │   import { getUnobtainableReason as gen1UnobtainableReason } from './gen1Exclusives';
+     2    │ - export·{·ONE_TIME_CHOICES,·getUnobtainableReason·}·from·'./gen1Exclusives';
+        2 │ + 
+        3 │ + export·{·getUnobtainableReason,·ONE_TIME_CHOICES·}·from·'./gen1Exclusives';
+     3  4 │   
+     4  5 │   export type UnobtainableChecker = (
+  
+
+src/engine/mapGraph/gen1Graph.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { getDistanceToMap } from './gen1Graph';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·describe,·it,·expect·}·from·'vitest';
+        1 │ + import·{·describe,·expect,·it·}·from·'vitest';
+     2  2 │   import { getDistanceToMap } from './gen1Graph';
+     3  3 │   
+  
+
+src/engine/mapGraph/index.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import type { MapGraph, MapDistanceResult } from './types';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { INDOOR_TO_PARENT_MAP, getDistanceToMap } from './gen1Graph';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·type·{·MapGraph,·MapDistanceResult·}·from·'./types';
+     2    │ - import·{·INDOOR_TO_PARENT_MAP,·getDistanceToMap·}·from·'./gen1Graph';
+        1 │ + import·{·getDistanceToMap,·INDOOR_TO_PARENT_MAP·}·from·'./gen1Graph';
+        2 │ + import·type·{·MapDistanceResult,·MapGraph·}·from·'./types';
+     3  3 │   
+     4  4 │   // Re-export for backward compat
+     5    │ - export·{·GEN1_MAPS,·INDOOR_TO_PARENT_MAP,·getDistanceToMap·}·from·'./gen1Graph';
+     6    │ - export·type·{·MapNode,·MapDistanceResult,·MapGraph·}·from·'./types';
+        5 │ + export·{·GEN1_MAPS,·getDistanceToMap,·INDOOR_TO_PARENT_MAP·}·from·'./gen1Graph';
+        6 │ + export·type·{·MapDistanceResult,·MapGraph,·MapNode·}·from·'./types';
+     7  7 │   
+     8  8 │   const gen1MapGraph: MapGraph = {
+  
+
+src/engine/saveParser/index.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { parseSaveFile } from './index';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·describe,·it,·expect·}·from·'vitest';
+        1 │ + import·{·describe,·expect,·it·}·from·'vitest';
+     2  2 │   import { parseSaveFile } from './index';
+     3  3 │   
+  
+
+src/engine/saveParser/index.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import gen1MapLocations from '../data/gen1/mapLocations.json';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import gen2MapLocations from '../data/gen2/mapLocations.json';
+    3 │ import gen2Landmarks from '../data/gen2/landmarks.json';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1   1 │   import gen1MapLocations from '../data/gen1/mapLocations.json';
+      2     │ - import·gen2MapLocations·from·'../data/gen2/mapLocations.json';
+      3     │ - import·gen2Landmarks·from·'../data/gen2/landmarks.json';
+          2 │ + import·gen2Landmarks·from·'../data/gen2/landmarks.json';
+          3 │ + import·gen2MapLocations·from·'../data/gen2/mapLocations.json';
+      4   4 │   
+      5   5 │   export const INTERNAL_ID_TO_DEX: Record<number, number> = {
+  
+
+src/engine/saveParser/repro.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { parseSaveFile } from './index';
+    3 │ import * as fs from 'fs';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·describe,·it,·expect·}·from·'vitest';
+     2    │ - import·{·parseSaveFile·}·from·'./index';
+     3    │ - import·*·as·fs·from·'fs';
+     4    │ - import·*·as·path·from·'path';
+        1 │ + import·*·as·fs·from·'fs';
+        2 │ + import·*·as·path·from·'path';
+        3 │ + import·{·describe,·expect,·it·}·from·'vitest';
+        4 │ + import·{·parseSaveFile·}·from·'./index';
+     5  5 │   
+     6  6 │   describe('Yellow Save Repro', () => {
+  
+
+src/engine/saveParser/saveParser.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { parseSaveFile, decodeGen12String } from './index';
+    3 │ import type { GameVersion } from './index';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·{·describe,·it,·expect·}·from·'vitest';
+      2     │ - import·{·parseSaveFile,·decodeGen12String·}·from·'./index';
+      3     │ - import·type·{·GameVersion·}·from·'./index';
+      4     │ - import·{·readFileSync·}·from·'fs';
+      5     │ - import·{·join·}·from·'path';
+          1 │ + import·{·readFileSync·}·from·'fs';
+          2 │ + import·{·join·}·from·'path';
+          3 │ + import·{·describe,·expect,·it·}·from·'vitest';
+          4 │ + import·type·{·GameVersion·}·from·'./index';
+          5 │ + import·{·decodeGen12String,·parseSaveFile·}·from·'./index';
+      6   6 │   
+      7   7 │   describe('saveParser - Pokémon Gen 1 Validation', () => {
+  
+
+src/hooks/useAssistant.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { generateSuggestions } from '../engine/assistant/suggestionEngine';
+    3 │ import { SaveData } from '../engine/saveParser/index';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·{·describe,·it,·expect·}·from·'vitest';
+          1 │ + import·{·describe,·expect,·it·}·from·'vitest';
+      2   2 │   import { generateSuggestions } from '../engine/assistant/suggestionEngine';
+      3   3 │   import { SaveData } from '../engine/saveParser/index';
+  
+
+src/hooks/useAssistant.test.ts:3:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+    1 │ import { describe, it, expect } from 'vitest';
+    2 │ import { generateSuggestions } from '../engine/assistant/suggestionEngine';
+  > 3 │ import { SaveData } from '../engine/saveParser/index';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    4 │ 
+    5 │ describe('useAssistant - generateSuggestions logic', () => {
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    3 │ import·type·{·SaveData·}·from·'../engine/saveParser/index';
+      │        +++++                                               
+
+src/hooks/useAssistant.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { useQuery } from '@tanstack/react-query';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { SaveData } from '../engine/saveParser/index';
+    3 │ import { getGenerationConfig } from '../utils/generationConfig';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1  1 │   import { useQuery } from '@tanstack/react-query';
+     2    │ - import·{·SaveData·}·from·'../engine/saveParser/index';
+     3    │ - import·{·getGenerationConfig·}·from·'../utils/generationConfig';
+     4    │ - import·{·fetchAssistantApiData,·generateSuggestions·}·from·'../engine/assistant/suggestionEngine';
+        2 │ + import·{·fetchAssistantApiData,·generateSuggestions·}·from·'../engine/assistant/suggestionEngine';
+        3 │ + import·{·SaveData·}·from·'../engine/saveParser/index';
+        4 │ + import·{·getGenerationConfig·}·from·'../utils/generationConfig';
+     5  5 │   
+     6  6 │   export * from '../engine/assistant/strategies/types';
+  
+
+src/hooks/useAssistant.ts:2:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+    1 │ import { useQuery } from '@tanstack/react-query';
+  > 2 │ import { SaveData } from '../engine/saveParser/index';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    3 │ import { getGenerationConfig } from '../utils/generationConfig';
+    4 │ import { fetchAssistantApiData, generateSuggestions } from '../engine/assistant/suggestionEngine';
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    2 │ import·type·{·SaveData·}·from·'../engine/saveParser/index';
+      │        +++++                                               
+
+src/main.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { StrictMode } from 'react';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { createRoot } from 'react-dom/client';
+    3 │ import { RouterProvider, createRouter } from '@tanstack/react-router';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·StrictMode·}·from·'react';
+     2    │ - import·{·createRoot·}·from·'react-dom/client';
+     3    │ - import·{·RouterProvider,·createRouter·}·from·'@tanstack/react-router';
+     4    │ - import·{·QueryClientProvider·}·from·'@tanstack/react-query';
+        1 │ + import·{·QueryClientProvider·}·from·'@tanstack/react-query';
+        2 │ + import·{·createRouter,·RouterProvider·}·from·'@tanstack/react-router';
+        3 │ + import·{·StrictMode·}·from·'react';
+        4 │ + import·{·createRoot·}·from·'react-dom/client';
+     5  5 │   import { queryClient } from './queryClient';
+     6  6 │   import { routeTree } from './routeTree.gen';
+  
+
+src/routes/__root.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import React, { Suspense, useEffect } from 'react';
+    3 │ import { QueryClient } from '@tanstack/react-query';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·createRootRouteWithContext,·Outlet·}·from·'@tanstack/react-router';
+     2    │ - import·React,·{·Suspense,·useEffect·}·from·'react';
+     3    │ - import·{·QueryClient·}·from·'@tanstack/react-query';
+        1 │ + import·{·QueryClient·}·from·'@tanstack/react-query';
+        2 │ + import·{·createRootRouteWithContext,·Outlet·}·from·'@tanstack/react-router';
+        3 │ + import·React,·{·Suspense,·useEffect·}·from·'react';
+     4  4 │   import { AppLayout } from '../components/AppLayout';
+     5    │ - import·{·pokemonListQueryOptions·}·from·'../utils/pokemonQueries';
+     6    │ - import·{·useStore·}·from·'../store';
+        5 │ + import·{·useStore·}·from·'../store';
+        6 │ + import·{·pokemonListQueryOptions·}·from·'../utils/pokemonQueries';
+     7  7 │   
+     8  8 │   const TanStackRouterDevtools =
+  
+
+src/routes/__root.tsx:3:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━━━━━━━━━━
+
+  × All these imports are only used as types.
+  
+    1 │ import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
+    2 │ import React, { Suspense, useEffect } from 'react';
+  > 3 │ import { QueryClient } from '@tanstack/react-query';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    4 │ import { AppLayout } from '../components/AppLayout';
+    5 │ import { pokemonListQueryOptions } from '../utils/pokemonQueries';
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Use import type.
+  
+    3 │ import·type·{·QueryClient·}·from·'@tanstack/react-query';
+      │        +++++                                             
+
+src/routes/index.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { createFileRoute } from '@tanstack/react-router';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { useSuspenseQuery } from '@tanstack/react-query';
+    3 │ import { PokedexGrid } from '../components/PokedexGrid';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·createFileRoute·}·from·'@tanstack/react-router';
+     2    │ - import·{·useSuspenseQuery·}·from·'@tanstack/react-query';
+        1 │ + import·{·useSuspenseQuery·}·from·'@tanstack/react-query';
+        2 │ + import·{·createFileRoute·}·from·'@tanstack/react-router';
+     3  3 │   import { PokedexGrid } from '../components/PokedexGrid';
+     4  4 │   import { SearchAndFilters } from '../components/SearchAndFilters';
+  
+
+src/routes/pokemon.$pokemonId.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { createFileRoute, useNavigate } from '@tanstack/react-router';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { useSuspenseQuery } from '@tanstack/react-query';
+    3 │ import { PokemonDetails } from '../components/PokemonDetails';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·createFileRoute,·useNavigate·}·from·'@tanstack/react-router';
+     2    │ - import·{·useSuspenseQuery·}·from·'@tanstack/react-query';
+        1 │ + import·{·useSuspenseQuery·}·from·'@tanstack/react-query';
+        2 │ + import·{·createFileRoute,·useNavigate·}·from·'@tanstack/react-router';
+     3  3 │   import { PokemonDetails } from '../components/PokemonDetails';
+     4  4 │   import { useStore } from '../store';
+  
+
+src/routes/pokemon.$pokemonId.tsx:27:60 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    25 │   const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
+    26 │ 
+  > 27 │   const selectedPokemon = pokemonList.find((p) => p.id === parseInt(pokemonId));
+       │                                                            ^^^^^^^^^^^^^^^^^^^
+    28 │   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
+    29 │ 
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    27 │ ··const·selectedPokemon·=·pokemonList.find((p)·=>·p.id·===·parseInt(pokemonId,·10));
+       │                                                                              ++++   
+
+src/routes/storage.tsx:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { createFileRoute } from '@tanstack/react-router';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { useSuspenseQuery } from '@tanstack/react-query';
+    3 │ import { StorageGrid } from '../components/StorageGrid';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·createFileRoute·}·from·'@tanstack/react-router';
+     2    │ - import·{·useSuspenseQuery·}·from·'@tanstack/react-query';
+        1 │ + import·{·useSuspenseQuery·}·from·'@tanstack/react-query';
+        2 │ + import·{·createFileRoute·}·from·'@tanstack/react-router';
+     3  3 │   import { StorageGrid } from '../components/StorageGrid';
+     4  4 │   import { pokemonListQueryOptions } from '../utils/pokemonQueries';
+  
+
+src/store.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect, beforeEach } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { useStore } from './store';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·{·describe,·it,·expect,·beforeEach·}·from·'vitest';
+          1 │ + import·{·beforeEach,·describe,·expect,·it·}·from·'vitest';
+      2   2 │   import { useStore } from './store';
+      3   3 │   
+  
+
+src/store.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { create } from 'zustand';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { persist } from 'zustand/middleware';
+    3 │ import { parseSaveFile } from './engine/saveParser/index';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1   1 │   import { create } from 'zustand';
+      2   2 │   import { persist } from 'zustand/middleware';
+      3     │ - import·{·parseSaveFile·}·from·'./engine/saveParser/index';
+      4     │ - import·type·{·SaveData,·GameVersion·as·GameVersionType·}·from·'./engine/saveParser/index';
+          3 │ + import·type·{·GameVersion·as·GameVersionType,·SaveData·}·from·'./engine/saveParser/index';
+          4 │ + import·{·parseSaveFile·}·from·'./engine/saveParser/index';
+      5   5 │   
+      6   6 │   // ─── Types ───────────────────────────────────────────────────────────
+  
+
+src/utils/cn.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { clsx, type ClassValue } from 'clsx';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { twMerge } from 'tailwind-merge';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+    1   │ - import·{·clsx,·type·ClassValue·}·from·'clsx';
+      1 │ + import·{·type·ClassValue,·clsx·}·from·'clsx';
+    2 2 │   import { twMerge } from 'tailwind-merge';
+    3 3 │   
+  
+
+src/utils/data.ts:2:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+    1 │ // Re-export from engine location for backward compatibility
+  > 2 │ export {
+      │ ^^^^^^^^
+  > 3 │   staticEncounters,
+  > 4 │   stadiumRewardsData,
+  > 5 │   stadiumRewardsSummary,
+  > 6 │ } from '../engine/data/shared/staticData';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    7 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+    1 1 │   // Re-export from engine location for backward compatibility
+    2 2 │   export {
+    3   │ - ··staticEncounters,
+    4   │ - ··stadiumRewardsData,
+    5   │ - ··stadiumRewardsSummary,
+      3 │ + ··stadiumRewardsData,
+      4 │ + ··stadiumRewardsSummary,
+      5 │ + ··staticEncounters,
+    6 6 │   } from '../engine/data/shared/staticData';
+    7 7 │   
+  
+
+src/utils/generationConfig.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { getGenerationConfig, GENERATION_CONFIGS } from './generationConfig';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·describe,·it,·expect·}·from·'vitest';
+     2    │ - import·{·getGenerationConfig,·GENERATION_CONFIGS·}·from·'./generationConfig';
+        1 │ + import·{·describe,·expect,·it·}·from·'vitest';
+        2 │ + import·{·GENERATION_CONFIGS,·getGenerationConfig·}·from·'./generationConfig';
+     3  3 │   
+     4  4 │   describe('getGenerationConfig', () => {
+  
+
+src/utils/pokeapi.test.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { pokeapi } from './pokeapi';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+      1     │ - import·{·describe,·it,·expect,·vi,·beforeEach,·afterEach·}·from·'vitest';
+          1 │ + import·{·afterEach,·beforeEach,·describe,·expect,·it,·vi·}·from·'vitest';
+      2   2 │   import { pokeapi } from './pokeapi';
+      3   3 │   
+  
+
+src/utils/pokemonQueries.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { queryOptions } from '@tanstack/react-query';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { pokeapi } from './pokeapi';
+    3 │ import { MAX_DEX_ACROSS_GENS } from './generationConfig';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1  1 │   import { queryOptions } from '@tanstack/react-query';
+     2    │ - import·{·pokeapi·}·from·'./pokeapi';
+     3    │ - import·{·MAX_DEX_ACROSS_GENS·}·from·'./generationConfig';
+        2 │ + import·{·MAX_DEX_ACROSS_GENS·}·from·'./generationConfig';
+        3 │ + import·{·pokeapi·}·from·'./pokeapi';
+     4  4 │   
+     5  5 │   export interface PokemonListItem {
+  
+
+src/utils/pokemonQueries.ts:17:20 lint/correctness/useParseIntRadix  FIXABLE  ━━━━━━━━━━
+
+  × Missing radix parameter
+  
+    15 │       .map((p: { name: string; url: string }) => {
+    16 │         const urlParts = p.url.split('/').filter(Boolean);
+  > 17 │         const id = parseInt(urlParts[urlParts.length - 1]!);
+       │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    18 │         return {
+    19 │           id,
+  
+  i Add a non-fractional number between 2 and 36
+  
+  i Unsafe fix: Add a radix of 10
+  
+    17 │ ········const·id·=·parseInt(urlParts[urlParts.length·-·1]!,·10);
+       │                                                           ++++  
+
+tests/e2e/filtering_logic.spec.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { test, expect } from '@playwright/test';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { argosScreenshot } from '../../src/utils/argos';
+    3 │ import { initializeWithSave } from './test-utils';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·test,·expect·}·from·'@playwright/test';
+        1 │ + import·{·expect,·test·}·from·'@playwright/test';
+     2  2 │   import { argosScreenshot } from '../../src/utils/argos';
+     3  3 │   import { initializeWithSave } from './test-utils';
+  
+
+tests/e2e/home.spec.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { test, expect } from '@playwright/test';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { argosScreenshot } from '../../src/utils/argos';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·test,·expect·}·from·'@playwright/test';
+        1 │ + import·{·expect,·test·}·from·'@playwright/test';
+     2  2 │   import { argosScreenshot } from '../../src/utils/argos';
+     3  3 │   
+  
+
+tests/e2e/save_management.spec.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { test, expect } from '@playwright/test';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { argosScreenshot } from '../../src/utils/argos';
+    3 │ import path from 'path';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1  1 │   import { test, expect } from '@playwright/test';
+     2    │ - import·{·argosScreenshot·}·from·'../../src/utils/argos';
+     3    │ - import·path·from·'path';
+        2 │ + import·path·from·'path';
+        3 │ + import·{·argosScreenshot·}·from·'../../src/utils/argos';
+     4  4 │   
+     5  5 │   test.describe('Save Management', () => {
+  
+
+tests/e2e/test-utils.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { Page, expect } from '@playwright/test';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import path from 'path';
+    3 │ 
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·Page,·expect·}·from·'@playwright/test';
+        1 │ + import·{·expect,·Page·}·from·'@playwright/test';
+     2  2 │   import path from 'path';
+     3  3 │   
+  
+
+tests/e2e/test-utils.ts:1:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━━━━━━━━
+
+  × Some named imports are only used as types.
+  
+  > 1 │ import { Page, expect } from '@playwright/test';
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import path from 'path';
+    3 │ 
+  
+  i This import is only used as a type.
+  
+  > 1 │ import { Page, expect } from '@playwright/test';
+      │          ^^^^
+    2 │ import path from 'path';
+    3 │ 
+  
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+  
+  i Safe fix: Add inline type keywords.
+  
+    1 │ import·{·type·Page,·expect·}·from·'@playwright/test';
+      │          +++++                                       
+
+tests/e2e/version_selection.spec.ts:1:1 assist/source/organizeImports  FIXABLE  ━━━━━━━━━━
+
+  × The imports and exports are not sorted.
+  
+  > 1 │ import { test, expect } from '@playwright/test';
+      │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 │ import { argosScreenshot } from '../../src/utils/argos';
+    3 │ import { initializeWithSave } from './test-utils';
+  
+  i Safe fix: Organize Imports (Biome)
+  
+     1    │ - import·{·test,·expect·}·from·'@playwright/test';
+        1 │ + import·{·expect,·test·}·from·'@playwright/test';
+     2  2 │   import { argosScreenshot } from '../../src/utils/argos';
+     3  3 │   import { initializeWithSave } from './test-utils';
+  
+
+Checked 69 files in 35ms. No fixes applied.
+Found 80 errors.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while running checks.
+  
+

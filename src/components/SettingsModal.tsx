@@ -1,20 +1,9 @@
+import { Archive, Check, CircleDot, Ghost, Info, Monitor, Settings2, Trash2, X } from 'lucide-react';
 import React from 'react';
-import {
-  X,
-  Info,
-  Settings2,
-  Archive,
-  CircleDot,
-  Trash2,
-  Check,
-  Ghost,
-  Monitor,
-} from 'lucide-react';
+import type { GameVersion, PokeballType } from '../store';
 import { useStore } from '../store';
-import type { PokeballType, GameVersion } from '../store';
-import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig';
-
 import type { GenerationConfig } from '../utils/generationConfig';
+import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig';
 
 function SettingsLegend() {
   return (
@@ -78,16 +67,13 @@ function SettingsControls({
           className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-xs font-bold text-zinc-200 outline-none focus:border-blue-500 transition-colors"
         >
           <option value="unknown">Auto</option>
-          {(
-            genConfig?.versions ?? [
-              ...getGenerationConfig(1).versions,
-              ...getGenerationConfig(2).versions,
-            ]
-          ).map((v) => (
-            <option key={v.id} value={v.id}>
-              {v.label}
-            </option>
-          ))}
+          {(genConfig?.versions ?? [...getGenerationConfig(1).versions, ...getGenerationConfig(2).versions]).map(
+            (v) => (
+              <option key={v.id} value={v.id}>
+                {v.label}
+              </option>
+            ),
+          )}
         </select>
       </div>
 

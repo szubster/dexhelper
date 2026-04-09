@@ -1,10 +1,7 @@
 // This file maps internal game IDs to standard names or PokeAPI slugs
 
 /** Map slugs keyed by generation number. Gen 1 uses flat mapId→slug, Gen 2 uses mapGroup→mapId→slug */
-export const MAP_TO_SLUG: Record<
-  number,
-  Record<number, string> | Record<number, Record<number, string>>
-> = {
+export const MAP_TO_SLUG: Record<number, Record<number, string> | Record<number, Record<number, string>>> = {
   1: {
     0x00: 'pallet-town-area',
     0x01: 'viridian-city-area',

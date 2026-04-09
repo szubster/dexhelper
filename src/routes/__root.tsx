@@ -1,9 +1,9 @@
+import type { QueryClient } from '@tanstack/react-query';
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 import React, { Suspense, useEffect } from 'react';
-import { QueryClient } from '@tanstack/react-query';
 import { AppLayout } from '../components/AppLayout';
-import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 import { useStore } from '../store';
+import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === 'production' || !!window.navigator.webdriver

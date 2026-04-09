@@ -1,8 +1,8 @@
-import React from 'react';
 import { Link } from '@tanstack/react-router';
-import { Fish, Waves, Trees, Target } from 'lucide-react';
-import { Suggestion, EncounterDetail } from '../../hooks/useAssistant';
-import { SaveData } from '../../engine/saveParser/index';
+import { Fish, Target, Trees, Waves } from 'lucide-react';
+import type React from 'react';
+import type { SaveData } from '../../engine/saveParser/index';
+import type { EncounterDetail, Suggestion } from '../../hooks/useAssistant';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
 
@@ -52,9 +52,7 @@ export function AssistantSuggestionCard({
               {style.icon}
               {s.category}
               {showDebug && (
-                <span className="ml-1 text-[8px] opacity-70 border-l border-white/20 pl-1">
-                  P: {s.priority}
-                </span>
+                <span className="ml-1 text-[8px] opacity-70 border-l border-white/20 pl-1">P: {s.priority}</span>
               )}
             </div>
             {s.pokemonId && (
@@ -64,9 +62,7 @@ export function AssistantSuggestionCard({
             )}
           </div>
 
-          <h3
-            className={`font-bold text-white leading-tight ${s.category === 'Catch' ? 'text-xl' : 'text-sm'}`}
-          >
+          <h3 className={`font-bold text-white leading-tight ${s.category === 'Catch' ? 'text-xl' : 'text-sm'}`}>
             {title}
           </h3>
 
@@ -131,10 +127,7 @@ export function AssistantSuggestionCard({
                   >
                     <div className="flex items-center justify-between px-1">
                       <div className="flex items-center gap-2">
-                        <Icon
-                          size={14}
-                          className={isOwned ? 'text-emerald-400' : 'text-zinc-500'}
-                        />
+                        <Icon size={14} className={isOwned ? 'text-emerald-400' : 'text-zinc-500'} />
                         <span
                           className={`text-[10px] font-black tracking-wider font-mono ${isOwned ? 'text-zinc-300' : 'text-zinc-500'}`}
                         >
@@ -149,10 +142,7 @@ export function AssistantSuggestionCard({
                     </div>
                     <div className="flex flex-wrap gap-4">
                       {pokes.map(({ pid, enc }) => (
-                        <div
-                          key={pid}
-                          className="flex flex-col items-center gap-1.5 group/sprite min-w-[56px]"
-                        >
+                        <div key={pid} className="flex flex-col items-center gap-1.5 group/sprite min-w-[56px]">
                           <Link
                             to="/pokemon/$pokemonId"
                             params={{ pokemonId: pid.toString() }}
@@ -172,10 +162,7 @@ export function AssistantSuggestionCard({
                           </Link>
                           <div className="flex flex-col items-center leading-none">
                             <span className="text-[9px] font-black text-white group-hover/sprite:text-emerald-400 transition-colors">
-                              Lv.{' '}
-                              {enc.minLevel === enc.maxLevel
-                                ? enc.minLevel
-                                : `${enc.minLevel}-${enc.maxLevel}`}
+                              Lv. {enc.minLevel === enc.maxLevel ? enc.minLevel : `${enc.minLevel}-${enc.maxLevel}`}
                             </span>
                           </div>
                         </div>

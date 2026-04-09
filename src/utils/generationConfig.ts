@@ -119,9 +119,7 @@ export function getGenerationConfig(gen: number): GenerationConfig {
 }
 
 /** Reverse lookup: given a version ID like 'red', find its generation config and version info */
-export function getVersionInfo(
-  versionId: string,
-): { genConfig: GenerationConfig; version: VersionInfo } | null {
+export function getVersionInfo(versionId: string): { genConfig: GenerationConfig; version: VersionInfo } | null {
   for (const genConfig of Object.values(GENERATION_CONFIGS)) {
     const version = genConfig.versions.find((v) => v.id === versionId);
     if (version) return { genConfig, version };
@@ -130,15 +128,11 @@ export function getVersionInfo(
 }
 
 /** The maximum Pokédex number across all registered generations */
-export const MAX_DEX_ACROSS_GENS = Math.max(
-  ...Object.values(GENERATION_CONFIGS).map((c) => c.maxDex),
-);
+export const MAX_DEX_ACROSS_GENS = Math.max(...Object.values(GENERATION_CONFIGS).map((c) => c.maxDex));
 
 /** Pre-computed map of version ID → CSS theme class */
 export const VERSION_THEMES: Record<string, string> = Object.fromEntries([
-  ...Object.values(GENERATION_CONFIGS).flatMap((gc) =>
-    gc.versions.map((v) => [v.id, v.themeClass]),
-  ),
+  ...Object.values(GENERATION_CONFIGS).flatMap((gc) => gc.versions.map((v) => [v.id, v.themeClass])),
   ['unsupported', ''],
   ['unknown', ''],
 ]);

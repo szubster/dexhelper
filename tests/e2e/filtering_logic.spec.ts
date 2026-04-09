@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { argosScreenshot } from '../../src/utils/argos';
 import { initializeWithSave } from './test-utils';
 

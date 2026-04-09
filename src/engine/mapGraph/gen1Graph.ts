@@ -175,10 +175,7 @@ export const INDOOR_TO_PARENT_MAP: Record<number, number> = {
   // but the function below handles the fallback gracefully.
 };
 
-export function getDistanceToMap(
-  currentMapId: number,
-  targetSlug: string,
-): { distance: number; name: string } | null {
+export function getDistanceToMap(currentMapId: number, targetSlug: string): { distance: number; name: string } | null {
   let startId = currentMapId;
   if (INDOOR_TO_PARENT_MAP[startId] !== undefined) {
     startId = INDOOR_TO_PARENT_MAP[startId]!;

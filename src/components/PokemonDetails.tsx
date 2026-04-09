@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
-import { useQuery, useQueries } from '@tanstack/react-query';
-import { X, MapPin, AlertCircle, CheckCircle2, Sparkles, Monitor } from 'lucide-react';
-import { staticEncounters, stadiumRewardsSummary } from '../utils/data';
-import { SaveData } from '../engine/saveParser/index';
-import { pokeapi } from '../utils/pokeapi';
-import { PokeballType } from '../store';
-import { getGenerationConfig } from '../utils/generationConfig';
-import { cn } from '../utils/cn';
+import { useQueries, useQuery } from '@tanstack/react-query';
+import { AlertCircle, CheckCircle2, MapPin, Monitor, Sparkles, X } from 'lucide-react';
 import type { LocationAreaEncounter, VersionEncounterDetail } from 'pokenode-ts';
+import React, { useEffect } from 'react';
+import type { SaveData } from '../engine/saveParser/index';
+import type { PokeballType } from '../store';
+import { cn } from '../utils/cn';
+import { stadiumRewardsSummary, staticEncounters } from '../utils/data';
+import { getGenerationConfig } from '../utils/generationConfig';
+import { pokeapi } from '../utils/pokeapi';
 import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbability';
-import { PokemonStats } from './pokemon/details/PokemonStats';
 import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
 import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
 import { PokemonLocations } from './pokemon/details/PokemonLocations';
+import { PokemonStats } from './pokemon/details/PokemonStats';
 
 // Static data moved to data.ts
 
@@ -120,9 +120,7 @@ export function PokemonDetails({
     if (!speciesData?.evolves_from_species || !evolutionData) return null;
 
     const fromName = speciesData.evolves_from_species.name;
-    const fromId = parseInt(
-      speciesData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0',
-    );
+    const fromId = parseInt(speciesData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0', 10);
 
     // For saves from gens that don't have this pre-evolution, ignore it (e.g., baby Pokemon in Gen 1)
     if (saveData && fromId > getGenerationConfig(saveData.generation).maxDex) return null;
@@ -145,9 +143,7 @@ export function PokemonDetails({
       if (details.trigger?.name === 'level-up') {
         methodStr = details.min_level ? `Level ${details.min_level}` : 'Level up';
       } else if (details.trigger?.name === 'use-item') {
-        methodStr =
-          details.item?.name?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) ||
-          'Item';
+        methodStr = details.item?.name?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
       } else if (details.trigger?.name === 'trade') {
         methodStr = 'Trade';
       }
@@ -167,7 +163,7 @@ export function PokemonDetails({
       if (chain.species.name === pokemonName.toLowerCase()) {
         return chain.evolves_to
           .map((evo: any) => {
-            const id = parseInt(evo.species.url.split('/').filter(Boolean).pop() || '0');
+            const id = parseInt(evo.species.url.split('/').filter(Boolean).pop() || '0', 10);
             // For saves from gens that don't have this evolution, ignore it
             if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
 
@@ -178,9 +174,7 @@ export function PokemonDetails({
                 methodStr = details.min_level ? `Level ${details.min_level}` : 'Level up';
               } else if (details.trigger?.name === 'use-item') {
                 methodStr =
-                  details.item?.name
-                    ?.replace(/-/g, ' ')
-                    .replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
+                  details.item?.name?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
               } else if (details.trigger?.name === 'trade') {
                 methodStr = 'Trade';
               }
@@ -213,7 +207,7 @@ export function PokemonDetails({
 
     const traverse = (node: any) => {
       if (node.species.name !== speciesData.name) {
-        const id = parseInt(node.species.url.split('/').filter(Boolean).pop() || '0');
+        const id = parseInt(node.species.url.split('/').filter(Boolean).pop() || '0', 10);
         parents.push({
           id,
           name: node.species.name.charAt(0).toUpperCase() + node.species.name.slice(1),
@@ -228,10 +222,9 @@ export function PokemonDetails({
       parentNames: parents.map((p) => p.name),
       method: 'Breed evolved form with Ditto or same egg group',
     };
-  }, [speciesData, evolutionData]);
+  }, [speciesData, evolutionData, saveData.generation, saveData]);
 
-  const loading =
-    queries.some((q) => q.isLoading) || (!!speciesData?.evolution_chain?.url && !evolutionData);
+  const loading = queries.some((q) => q.isLoading) || (!!speciesData?.evolution_chain?.url && !evolutionData);
 
   const getLocationsForVersion = (version: string) => {
     const locations: { name: string; details: string }[] = [];
@@ -244,9 +237,7 @@ export function PokemonDetails({
     }
 
     encounters.forEach((enc: LocationAreaEncounter) => {
-      const versionDetail = enc.version_details.find(
-        (vd: VersionEncounterDetail) => vd.version.name === version,
-      );
+      const versionDetail = enc.version_details.find((vd: VersionEncounterDetail) => vd.version.name === version);
       if (versionDetail) {
         let name = enc.location_area.name
           .replace(/-/g, ' ')
@@ -255,10 +246,7 @@ export function PokemonDetails({
           .replace('Kanto ', '')
           .replace('Johto ', '');
 
-        const methodMap = new Map<
-          string,
-          { chance: number; min: number; max: number; conditions: string[] }
-        >();
+        const methodMap = new Map<string, { chance: number; min: number; max: number; conditions: string[] }>();
         versionDetail.encounter_details.forEach((detail: any) => {
           const method = detail.method.name.replace(/-/g, ' ');
           const conditions = detail.condition_values.map((cv: any) => cv.name.replace(/-/g, ' '));
@@ -317,13 +305,9 @@ export function PokemonDetails({
               <div className={`p-1.5 rounded-lg bg-zinc-900 ${colorClass}`}>
                 <MapPin size={14} />
               </div>
-              <span className="text-xs font-black uppercase tracking-tight text-zinc-100">
-                {loc.name}
-              </span>
+              <span className="text-xs font-black uppercase tracking-tight text-zinc-100">{loc.name}</span>
             </div>
-            <div className="text-[10px] text-zinc-500 pl-8 leading-relaxed font-mono font-bold">
-              {loc.details}
-            </div>
+            <div className="text-[10px] text-zinc-500 pl-8 leading-relaxed font-mono font-bold">{loc.details}</div>
           </div>
         ))}
       </div>
@@ -353,8 +337,7 @@ export function PokemonDetails({
 
   let hasPreEvo = false;
   if (evoReq && saveData) {
-    const preEvoInStorage =
-      saveData.party.includes(evoReq.fromId) || saveData.pc.includes(evoReq.fromId);
+    const preEvoInStorage = saveData.party.includes(evoReq.fromId) || saveData.pc.includes(evoReq.fromId);
     const preEvoOwned = saveData.owned.has(evoReq.fromId);
     hasPreEvo = isLivingDex ? preEvoInStorage : preEvoOwned;
   }
@@ -370,22 +353,15 @@ export function PokemonDetails({
 
   const _getUnownForm = (dvs: { atk: number; def: number; spd: number; spc: number }) => {
     const formValue =
-      ((dvs.atk & 0x06) << 5) |
-      ((dvs.def & 0x06) << 3) |
-      ((dvs.spd & 0x06) << 1) |
-      ((dvs.spc & 0x06) >> 1);
+      ((dvs.atk & 0x06) << 5) | ((dvs.def & 0x06) << 3) | ((dvs.spd & 0x06) << 1) | ((dvs.spc & 0x06) >> 1);
     const letterIndex = Math.floor(formValue / 10);
     return String.fromCharCode(65 + letterIndex);
   };
 
   const yourPokemon = saveData
     ? [
-        ...saveData.partyDetails
-          .filter((p) => p.speciesId === pokemonId)
-          .map((p) => ({ ...p, location: 'Party' })),
-        ...saveData.pcDetails
-          .filter((p) => p.speciesId === pokemonId)
-          .map((p) => ({ ...p, location: 'PC' })),
+        ...saveData.partyDetails.filter((p) => p.speciesId === pokemonId).map((p) => ({ ...p, location: 'Party' })),
+        ...saveData.pcDetails.filter((p) => p.speciesId === pokemonId).map((p) => ({ ...p, location: 'PC' })),
       ]
     : [];
 
@@ -503,10 +479,7 @@ export function PokemonDetails({
 
               {/* Catch Rate Calc */}
               {catchRate !== null && (
-                <PokemonCatchProbability
-                  catchRate={catchRate}
-                  effectivePokeball={effectivePokeball}
-                />
+                <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />
               )}
             </div>
 

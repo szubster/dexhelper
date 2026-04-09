@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { generateSuggestions } from '../engine/assistant/suggestionEngine';
-import { SaveData } from '../engine/saveParser/index';
+import type { SaveData } from '../engine/saveParser/index';
 
 describe('useAssistant - generateSuggestions logic', () => {
   const mockSaveData: SaveData = {
@@ -117,9 +117,7 @@ describe('useAssistant - generateSuggestions logic', () => {
           version_details: [
             {
               version: { name: 'yellow' },
-              encounter_details: [
-                { chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 },
-              ],
+              encounter_details: [{ chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 }],
             },
           ],
         },
@@ -131,9 +129,7 @@ describe('useAssistant - generateSuggestions logic', () => {
             version_details: [
               {
                 version: { name: 'yellow' },
-                encounter_details: [
-                  { chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 },
-                ],
+                encounter_details: [{ chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 }],
               },
             ],
           },
