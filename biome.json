@@ -34,17 +34,10 @@
         "useOptionalChain": "off"
       },
       "correctness": {
-        "noUnusedImports": "error",
-        "noUnusedVariables": "error",
-        "noUnusedPrivateClassMembers": "error",
-        "useJsxKeyInIterable": "error",
-        "useParseIntRadix": "error",
-        "noUnusedFunctionParameters": "error",
-        "useExhaustiveDependencies": "error"
+        "recommended": true
       },
       "style": {
         "noNonNullAssertion": "off",
-        "useImportType": "error",
         "useNodejsImportProtocol": "off",
         "useConst": "off",
         "useTemplate": "off",
