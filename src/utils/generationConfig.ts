@@ -119,7 +119,7 @@ export function getGenerationConfig(gen: number): GenerationConfig {
 }
 
 /** Reverse lookup: given a version ID like 'red', find its generation config and version info */
-export function getVersionInfo(
+function getVersionInfo(
   versionId: string,
 ): { genConfig: GenerationConfig; version: VersionInfo } | null {
   for (const genConfig of Object.values(GENERATION_CONFIGS)) {
@@ -144,7 +144,7 @@ export const VERSION_THEMES: Record<string, string> = Object.fromEntries([
 ]);
 
 /** All known version IDs across all registered generations */
-export const ALL_VERSION_IDS: string[] = Object.values(GENERATION_CONFIGS).flatMap((gc) =>
+const ALL_VERSION_IDS: string[] = Object.values(GENERATION_CONFIGS).flatMap((gc) =>
   gc.versions.map((v) => v.id),
 );
 

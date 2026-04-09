@@ -69,9 +69,9 @@ export const MAP_TO_SLUG: Record<
 
 // Convenience re-exports for backward compatibility
 export const GEN1_MAP_TO_SLUG = MAP_TO_SLUG[1] as Record<number, string>;
-export const GEN2_MAP_TO_SLUG = MAP_TO_SLUG[2] as Record<number, Record<number, string>>;
+const GEN2_MAP_TO_SLUG = MAP_TO_SLUG[2] as Record<number, Record<number, string>>;
 
-export const GEN1_ITEMS = {
+const GEN1_ITEMS = {
   MOON_STONE: 0x0a,
   FIRE_STONE: 0x20,
   THUNDER_STONE: 0x21,

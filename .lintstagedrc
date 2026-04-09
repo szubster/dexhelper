@@ -1,5 +1,0 @@
-{
-  "*.{js,ts,jsx,tsx,json,css}": [
-    "npx @biomejs/biome check --staged --write"
-  ]
-}

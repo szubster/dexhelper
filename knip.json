@@ -3,7 +3,13 @@
   "entry": [
     "public/sw.js",
     "scripts/generateMapLocations.cjs",
-    "tests/**/*.ts"
+    "src/engine/assistant/strategies/index.ts",
+    "src/engine/mapGraph/index.ts",
+    "src/engine/exclusives/index.ts",
+    "src/engine/assistant/index.ts",
+    "src/engine/mapGraph/types.ts",
+    "tests/**/*.ts",
+    "src/routes/**/*.tsx"
   ],
   "project": [
     "src/**/*.{ts,tsx}"
@@ -12,5 +18,6 @@
     "bundlemon",
     "@tailwindcss/typography",
     "tailwindcss"
-  ]
+  ],
+  "ignoreExportsUsedInFile": true
 }

@@ -705,7 +705,7 @@ function parseCaughtData(u8: Uint8Array, offset: number) {
   else if (timeBits === 2) time = 'Day';
   else if (timeBits === 3) time = 'Night';
 
-  let locationName: string | undefined = undefined;
+  let locationName: string | undefined;
   if (location === 0x7e) locationName = 'Event/Gift';
   else if (location === 0x7f) locationName = 'Special Event/Traded';
   else {

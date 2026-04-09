@@ -14,3 +14,4 @@ blob-report/
 playwright/.cache/
 screenshots/
 stats.html
+src/routeTree.gen.ts
