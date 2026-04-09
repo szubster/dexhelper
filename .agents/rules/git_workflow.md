@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # Git Operations & Session Workflow
 
 This mandatory rule defines the standard operational procedure for robust version control and state management using Git and the GitHub CLI (`gh`).
