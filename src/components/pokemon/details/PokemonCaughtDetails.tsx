@@ -1,4 +1,3 @@
-import React from 'react';
 import { Sparkles, CircleDot, MapPin, CheckCircle2 } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import { getGenerationConfig } from '../../../utils/generationConfig';

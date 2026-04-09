@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapPin, ArrowUpCircle, Target, AlertTriangle } from 'lucide-react';
 import { staticEncounters } from '../../../utils/data';
 import type {

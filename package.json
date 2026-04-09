@@ -20,7 +20,8 @@
     "lint:biome": "biome lint .",
     "format:biome": "biome format .",
     "check:biome": "biome check .",
-    "check:fix": "biome check --apply ."
+    "check:fix": "biome check --apply .",
+    "postinstall": "lefthook install"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.96.2",
