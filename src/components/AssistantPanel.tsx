@@ -90,22 +90,22 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
     staleTime: Infinity,
   });
 
-  const pokemonMap = React.useMemo(() => {
-    const map = new Map<number, string>();
+  const pokemonNameRecord = React.useMemo(() => {
+    const record: Record<number, string> = {};
     if (pokemonList) {
       for (const p of pokemonList) {
-        map.set(p.id, p.name);
+        record[p.id] = p.name;
       }
     }
-    return map;
+    return record;
   }, [pokemonList]);
 
   const getPokemonName = React.useCallback(
     (id: number) => {
       if (!pokemonList) return `#${id}`;
-      return pokemonMap.get(id) ?? `#${id}`;
+      return pokemonNameRecord[id] ?? `#${id}`;
     },
-    [pokemonList, pokemonMap],
+    [pokemonList, pokemonNameRecord],
   );
 
   return (
