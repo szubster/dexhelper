@@ -694,9 +694,7 @@ export function generateSuggestions(
             });
           } else {
             const isBuyableGen1 =
-              saveData.generation === 1 &&
-              !itemName.includes('moon') &&
-              !itemName.includes('sun');
+              saveData.generation === 1 && !itemName.includes('moon') && !itemName.includes('sun');
 
             if (isBuyableGen1) {
               suggestions.push({
