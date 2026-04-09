@@ -84,7 +84,7 @@ export function AssistantSuggestionCard({
           <div className={`flex flex-col gap-4 relative z-20 mt-0`}>
             {s.category === 'Catch' ? (
               Object.entries(
-                s.pokemonIds!.reduce(
+                (s.pokemonIds || []).reduce(
                   (acc: Record<string, { pid: number; enc: EncounterDetail }[]>, pid: number) => {
                     const encs = s.encounterInfo?.[pid];
                     if (!encs) return acc;
@@ -92,7 +92,7 @@ export function AssistantSuggestionCard({
                     if (!mainEnc) return acc;
                     const method = mainEnc.method;
                     if (!acc[method]) acc[method] = [];
-                    acc[method]!.push({ pid, enc: mainEnc });
+                    acc[method]?.push({ pid, enc: mainEnc });
                     return acc;
                   },
                   {} as Record<string, { pid: number; enc: EncounterDetail }[]>,
@@ -173,7 +173,7 @@ export function AssistantSuggestionCard({
               })
             ) : (
               <div className="flex flex-wrap gap-2">
-                {s.pokemonIds!.slice(0, 8).map((pid) => (
+                {(s.pokemonIds || []).slice(0, 8).map((pid) => (
                   <Link
                     key={pid}
                     to="/pokemon/$pokemonId"
@@ -190,9 +190,9 @@ export function AssistantSuggestionCard({
                     />
                   </Link>
                 ))}
-                {s.pokemonIds!.length > 8 && (
+                {(s.pokemonIds?.length ?? 0) > 8 && (
                   <div className="w-10 h-10 bg-black/40 rounded-lg flex items-center justify-center border border-white/5 text-xs font-bold text-zinc-500">
-                    +{s.pokemonIds!.length - 8}
+                    +{(s.pokemonIds?.length ?? 0) - 8}
                   </div>
                 )}
               </div>

@@ -1,18 +1,37 @@
 import { AlertTriangle, ArrowUpCircle, Check, ChevronRight, Heart, X } from 'lucide-react';
 import React from 'react';
+import type { SaveData } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
 import { stadiumRewardsData } from '../../../utils/data';
 
+interface EvoReq {
+  fromId: number;
+  fromName: string;
+  method: string;
+}
+
+interface EvoTarget {
+  id: number;
+  name: string;
+  method: string;
+}
+
+interface BreedingInfo {
+  parentIds: number[];
+  parentNames: string[];
+  method: string;
+}
+
 interface PokemonEvolutionsProps {
-  evoReq: any;
-  evolvesTo: any[];
-  breedingInfo: any;
+  evoReq: EvoReq | null;
+  evolvesTo: EvoTarget[];
+  breedingInfo: BreedingInfo | null;
   hasPreEvo: boolean;
   onNavigate: (id: number, name: string) => void;
   yourPokemonLength: number;
   pokemonId: number;
   gameVersion: string;
-  saveData: any;
+  saveData: SaveData | null;
 }
 
 export function PokemonEvolutions({
@@ -53,16 +72,16 @@ export function PokemonEvolutions({
               <> field capture or specialized interaction.</>
             )}
             {(() => {
-              const rewardObj = (stadiumRewardsData as Record<number, any>)[pokemonId];
+              const rewardObj = stadiumRewardsData[pokemonId];
               if (!rewardObj) return null;
               const gen = saveData?.generation || (['gold', 'silver', 'crystal'].includes(gameVersion) ? 2 : 1);
-              const rewards = (gen === 2 ? rewardObj.stadium2 : rewardObj.stadium1) as string[] | undefined;
+              const rewards = gen === 2 ? rewardObj.stadium2 : rewardObj.stadium1;
               if (!rewards || rewards.length === 0) return null;
               return (
                 <div className="mt-2 flex flex-wrap gap-2">
-                  {rewards.map((r, i) => (
+                  {rewards.map((r) => (
                     <span
-                      key={i}
+                      key={r}
                       className="px-2 py-0.5 bg-red-500/10 border border-red-500/20 text-[9px] font-black text-red-500 rounded-md"
                     >
                       STADIUM {gen} REWARD: {r.toUpperCase()}
@@ -142,7 +161,10 @@ export function PokemonEvolutions({
             {breedingInfo.parentNames.map((name: string, i: number) => (
               <React.Fragment key={name}>
                 <button
-                  onClick={() => onNavigate(breedingInfo.parentIds[i]!, name)}
+                  onClick={() => {
+                    const id = breedingInfo.parentIds[i];
+                    if (id) onNavigate(id, name);
+                  }}
                   className="text-white hover:text-pink-400 underline decoration-pink-500/30 underline-offset-4 transition-colors"
                 >
                   {name.toUpperCase()}

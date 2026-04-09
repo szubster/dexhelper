@@ -37,16 +37,11 @@
         "recommended": true
       },
       "style": {
-        "noNonNullAssertion": "off",
         "useNodejsImportProtocol": "off",
         "useConst": "off",
-        "useTemplate": "off",
         "noParameterAssign": "off"
       },
       "suspicious": {
-        "noArrayIndexKey": "off",
-        "noExplicitAny": "off",
-        "useIterableCallbackReturn": "off",
         "noImplicitAnyLet": "off",
         "noShadowRestrictedNames": "off",
         "noCommentText": "off"

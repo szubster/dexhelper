@@ -17,9 +17,9 @@ function SettingsLegend() {
           { icon: <Monitor size={14} className="text-blue-400" />, label: 'In PC' },
           { icon: <Check size={14} className="text-emerald-400" />, label: 'Owned' },
           { icon: <Ghost size={14} className="text-purple-400" />, label: 'Lost' },
-        ].map((item, i) => (
+        ].map((item) => (
           <div
-            key={i}
+            key={item.label}
             className="flex items-center gap-3 bg-zinc-950 p-3 rounded-xl border border-zinc-800 text-[11px] font-bold"
           >
             {item.icon} {item.label}

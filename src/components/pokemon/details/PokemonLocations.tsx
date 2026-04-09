@@ -2,11 +2,17 @@ import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
 import type { LocationAreaEncounter, Encounter as PokeEncounter, VersionEncounterDetail } from 'pokenode-ts';
 import { staticEncounters } from '../../../utils/data';
 
+interface EvoReq {
+  fromId: number;
+  fromName: string;
+  method: string;
+}
+
 interface PokemonLocationsProps {
   pokemonId: number;
   gameVersion: string;
   encounters: LocationAreaEncounter[];
-  evoReq: any;
+  evoReq: EvoReq | null;
   loading: boolean;
 }
 
@@ -52,6 +58,7 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                   )}
                   {staticEnc?.map((loc, i) => (
                     <div
+                      // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                       key={`static-${i}`}
                       className="flex items-center justify-between p-4 bg-zinc-900 border border-white/5 rounded-2xl group hover:border-[var(--theme-primary)]/30 transition-all"
                     >
@@ -68,13 +75,13 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                       </span>
                     </div>
                   ))}
-                  {versionEnc.map((e: LocationAreaEncounter, i: number) => {
+                  {versionEnc.map((e: LocationAreaEncounter) => {
                     const versionDetail = e.version_details.find(
                       (v: VersionEncounterDetail) => v.version.name === gameVersion,
                     );
                     return (
                       <div
-                        key={i}
+                        key={e.location_area.name}
                         className="flex flex-col p-4 bg-zinc-900 border border-white/5 rounded-2xl group hover:border-[var(--theme-primary)]/30 transition-all space-y-3"
                       >
                         <div className="flex items-center justify-between">
@@ -89,6 +96,7 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                           <div className="flex items-center gap-2">
                             {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
                               <span
+                                // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                                 key={di}
                                 className="text-[8px] font-black text-zinc-500 uppercase tracking-widest px-2 py-0.5 bg-white/5 rounded-md border border-white/5"
                               >
@@ -99,7 +107,11 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                         </div>
                         <div className="flex flex-wrap gap-1.5 pl-1.5 border-l-2 border-[var(--theme-primary)]/20">
                           {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
-                            <span key={di} className="text-[8px] font-black text-[var(--theme-primary)]/70 uppercase">
+                            <span
+                              // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
+                              key={di}
+                              className="text-[8px] font-black text-[var(--theme-primary)]/70 uppercase"
+                            >
                               • {d.method.name.replace('-', ' ')} ({d.chance}%)
                             </span>
                           ))}
@@ -118,9 +130,9 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                   <AlertTriangle size={12} /> Species unavailable in {gameVersion.toUpperCase()}. External cross-version
                   extraction required.
                 </div>
-                {encounters.map((e: LocationAreaEncounter, i: number) => (
+                {encounters.map((e: LocationAreaEncounter) => (
                   <div
-                    key={i}
+                    key={e.location_area.name}
                     className="flex flex-col p-4 bg-zinc-900/40 border border-white/5 rounded-2xl opacity-60"
                   >
                     <div className="flex items-center justify-between">

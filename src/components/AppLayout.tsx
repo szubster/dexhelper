@@ -41,7 +41,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         const bytes = new Uint8Array(buffer);
         const len = bytes.byteLength;
         for (let i = 0; i < len; i++) {
-          binary += String.fromCharCode(bytes[i]!);
+          binary += String.fromCharCode(bytes[i] ?? 0);
         }
         localStorage.setItem('last_save_file', window.btoa(binary));
       } catch (err: unknown) {
@@ -245,7 +245,11 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="absolute inset-0 scanline-overlay" />
         <div className="p-20 flex flex-wrap gap-40 rotate-[30deg] scale-150">
           {Array.from({ length: getGenerationConfig(saveData?.generation ?? 1).maxDex }).map((_, i) => (
-            <span key={i} className="text-4xl font-retro text-white">
+            <span
+              // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable representing pokedex number
+              key={`dex-bg-${i + 1}`}
+              className="text-4xl font-retro text-white"
+            >
               #{(i + 1).toString().padStart(3, '0')}
             </span>
           ))}

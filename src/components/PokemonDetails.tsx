@@ -1,6 +1,14 @@
 import { useQueries, useQuery } from '@tanstack/react-query';
 import { AlertCircle, CheckCircle2, MapPin, Monitor, Sparkles, X } from 'lucide-react';
-import type { LocationAreaEncounter, VersionEncounterDetail } from 'pokenode-ts';
+import type {
+  ChainLink,
+  Encounter,
+  EvolutionDetail,
+  LocationAreaEncounter,
+  NamedAPIResource,
+  PokemonType,
+  VersionEncounterDetail,
+} from 'pokenode-ts';
 import React, { useEffect } from 'react';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
@@ -112,7 +120,10 @@ export function PokemonDetails({
 
   const { data: evolutionData } = useQuery({
     queryKey: ['evolution', speciesData?.evolution_chain?.url],
-    queryFn: () => pokeapi.resource(speciesData!.evolution_chain.url),
+    queryFn: () => {
+      if (!speciesData?.evolution_chain?.url) return Promise.reject(new Error('No URL'));
+      return pokeapi.resource(speciesData.evolution_chain.url);
+    },
     enabled: !!speciesData?.evolution_chain?.url,
   });
 
@@ -127,9 +138,9 @@ export function PokemonDetails({
 
     let methodStr = 'Unknown';
 
-    const findEvoDetails = (chain: any): any => {
+    const findEvoDetails = (chain: ChainLink): EvolutionDetail | null => {
       if (chain.species.name === pokemonName.toLowerCase()) {
-        return chain.evolution_details[0];
+        return chain.evolution_details[0] ?? null;
       }
       for (const next of chain.evolves_to) {
         const found = findEvoDetails(next);
@@ -159,10 +170,10 @@ export function PokemonDetails({
   const evolvesTo = React.useMemo(() => {
     if (!speciesData || !evolutionData) return null;
 
-    const findEvolutions = (chain: any): any[] => {
+    const findEvolutions = (chain: ChainLink): { id: number; name: string; method: string }[] => {
       if (chain.species.name === pokemonName.toLowerCase()) {
         return chain.evolves_to
-          .map((evo: any) => {
+          .map((evo: ChainLink) => {
             const id = parseInt(evo.species.url.split('/').filter(Boolean).pop() || '0', 10);
             // For saves from gens that don't have this evolution, ignore it
             if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
@@ -185,7 +196,7 @@ export function PokemonDetails({
               method: methodStr,
             };
           })
-          .filter(Boolean);
+          .filter(Boolean) as { id: number; name: string; method: string }[];
       }
       for (const next of chain.evolves_to) {
         const found = findEvolutions(next);
@@ -205,7 +216,7 @@ export function PokemonDetails({
 
     const parents: { id: number; name: string }[] = [];
 
-    const traverse = (node: any) => {
+    const traverse = (node: ChainLink) => {
       if (node.species.name !== speciesData.name) {
         const id = parseInt(node.species.url.split('/').filter(Boolean).pop() || '0', 10);
         parents.push({
@@ -231,7 +242,7 @@ export function PokemonDetails({
 
     const staticData = staticEncounters[pokemonId];
     if (staticData && staticData[version as keyof typeof staticData]) {
-      staticData[version as keyof typeof staticData]!.forEach((loc) => {
+      staticData[version as keyof typeof staticData]?.forEach((loc) => {
         locations.push({ name: loc, details: 'Static Encounter / Gift / Trade' });
       });
     }
@@ -247,9 +258,9 @@ export function PokemonDetails({
           .replace('Johto ', '');
 
         const methodMap = new Map<string, { chance: number; min: number; max: number; conditions: string[] }>();
-        versionDetail.encounter_details.forEach((detail: any) => {
+        versionDetail.encounter_details.forEach((detail: Encounter) => {
           const method = detail.method.name.replace(/-/g, ' ');
-          const conditions = detail.condition_values.map((cv: any) => cv.name.replace(/-/g, ' '));
+          const conditions = detail.condition_values.map((cv: NamedAPIResource) => cv.name.replace(/-/g, ' '));
           const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
 
           const existing = methodMap.get(key);
@@ -296,9 +307,9 @@ export function PokemonDetails({
     }
     return (
       <div className="space-y-3 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
-        {locations.map((loc, i) => (
+        {locations.map((loc) => (
           <div
-            key={i}
+            key={loc.name}
             className="group bg-zinc-950 p-4 rounded-2xl border border-zinc-900 hover:border-zinc-800 transition-all"
           >
             <div className="flex items-center gap-3 mb-2">
@@ -417,7 +428,7 @@ export function PokemonDetails({
                     {pokemonName}
                   </h2>
                   <div className="flex flex-wrap justify-center sm:justify-start gap-2">
-                    {pokemonData?.types.map((t: any) => (
+                    {pokemonData?.types.map((t: PokemonType) => (
                       <span
                         key={t.type.name}
                         className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-zinc-300 backdrop-blur-md"

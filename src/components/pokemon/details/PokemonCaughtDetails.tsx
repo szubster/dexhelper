@@ -1,10 +1,11 @@
 import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
+import type { PokemonInstance, SaveData } from '../../../engine/saveParser/index';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 
 interface PokemonCaughtDetailsProps {
-  yourPokemon: any[];
-  saveData: any;
+  yourPokemon: (PokemonInstance & { location: string })[];
+  saveData: SaveData | null;
 }
 
 function calculateHiddenPower(dvs: { atk: number; def: number; spd: number; spc: number }) {
@@ -52,7 +53,7 @@ export function PokemonCaughtDetails({ yourPokemon, saveData }: PokemonCaughtDet
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {yourPokemon.map((p, i) => (
           <div
-            key={i}
+            key={`${p.storageLocation}-${p.slot || i}`}
             className="glass-card bg-white/5 p-6 rounded-[2rem] border border-white/10 space-y-5 relative overflow-hidden group"
           >
             <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:scale-110 transition-transform">

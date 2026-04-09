@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { Bug, Egg, Flag, Info, Loader2, Sparkles, Target, Zap } from 'lucide-react';
+import type { NamedAPIResource } from 'pokenode-ts';
 import React from 'react';
 import type { SaveData } from '../engine/saveParser/index';
 import { type Suggestion, useAssistant } from '../hooks/useAssistant';
@@ -66,7 +67,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
     queryFn: () =>
       pokeapi
         .getPokemonsList({ limit: MAX_DEX_ACROSS_GENS, offset: 0 })
-        .then((res) => res.results.map((p: any, i: number) => ({ id: i + 1, name: p.name }))),
+        .then((res) => res.results.map((p: NamedAPIResource, i: number) => ({ id: i + 1, name: p.name }))),
     staleTime: Infinity,
   });
 
@@ -131,7 +132,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
             suggestions.reduce(
               (acc, s) => {
                 if (!acc[s.category]) acc[s.category] = [];
-                acc[s.category]!.push(s);
+                acc[s.category]?.push(s);
                 return acc;
               },
               {} as Record<string, Suggestion[]>,
@@ -145,7 +146,8 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
               );
             })
             .map(([category, items]) => {
-              const catStyle = CATEGORY_STYLES[category] ?? CATEGORY_STYLES.Utility!;
+              const defaultStyle = CATEGORY_STYLES.Utility as { icon: React.ReactNode; color: string; bg: string };
+              const catStyle = CATEGORY_STYLES[category] ?? defaultStyle;
 
               return (
                 <div key={category} className="space-y-4">
@@ -164,7 +166,12 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                     className={`grid gap-6 animate-in fade-in duration-500 ${category === 'Catch' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
                   >
                     {items.map((s, idx) => {
-                      const style = CATEGORY_STYLES[s.category] ?? CATEGORY_STYLES.Utility!;
+                      const defaultStyle = CATEGORY_STYLES.Utility as {
+                        icon: React.ReactNode;
+                        color: string;
+                        bg: string;
+                      };
+                      const style = CATEGORY_STYLES[s.category] ?? defaultStyle;
                       return (
                         <div
                           key={s.id}

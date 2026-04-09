@@ -8,9 +8,11 @@ interface PokemonCatchProbabilityProps {
   effectivePokeball: PokeballType;
 }
 
+type StatusType = 'none' | 'sleep_freeze' | 'paralyze_burn_poison';
+
 export function PokemonCatchProbability({ catchRate, effectivePokeball }: PokemonCatchProbabilityProps) {
   const [hpPercent, setHpPercent] = useState<number>(100);
-  const [status, setStatus] = useState<'none' | 'sleep_freeze' | 'paralyze_burn_poison'>('none');
+  const [status, setStatus] = useState<StatusType>('none');
 
   return (
     <div className="glass-card bg-emerald-500/5 border-emerald-500/10 rounded-[2.5rem] p-8 space-y-8 relative overflow-hidden">
@@ -45,16 +47,16 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
         {/* biome-ignore lint/a11y/useSemanticElements: custom segmented control */}
         <div className="grid grid-cols-3 gap-2" role="group" aria-label="Target Status">
           {[
-            { id: 'none', label: 'Healthy' },
-            { id: 'paralyze_burn_poison', label: 'Debuff' },
-            { id: 'sleep_freeze', label: 'Incapacitated' },
+            { id: 'none' as StatusType, label: 'Healthy' },
+            { id: 'paralyze_burn_poison' as StatusType, label: 'Debuff' },
+            { id: 'sleep_freeze' as StatusType, label: 'Incapacitated' },
           ].map((item) => (
             <button
               type="button"
               key={item.id}
               role="switch"
               aria-checked={status === item.id}
-              onClick={() => setStatus(item.id as any)}
+              onClick={() => setStatus(item.id)}
               className={cn(
                 'py-3 text-[9px] font-black uppercase tracking-widest rounded-2xl border transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 outline-none',
                 status === item.id

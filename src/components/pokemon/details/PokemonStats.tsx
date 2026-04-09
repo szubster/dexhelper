@@ -1,10 +1,12 @@
 import { Activity } from 'lucide-react';
+import type { Pokemon, PokemonStat } from 'pokenode-ts';
 import { useEffect, useState } from 'react';
+import type { SaveData } from '../../../engine/saveParser/index';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 
 interface PokemonStatsProps {
-  pokemonData: any;
-  saveData: any;
+  pokemonData: Pokemon;
+  saveData: SaveData | null;
 }
 
 export function PokemonStats({ pokemonData, saveData }: PokemonStatsProps) {
@@ -22,7 +24,7 @@ export function PokemonStats({ pokemonData, saveData }: PokemonStatsProps) {
         <Activity size={14} className="text-[var(--theme-primary)]" /> Combat Analysis
       </h3>
       <div className="grid grid-cols-1 gap-3">
-        {pokemonData.stats.map((s: any) => {
+        {pokemonData.stats.map((s: PokemonStat) => {
           const statName =
             s.stat.name === 'special-attack'
               ? 'SPC'

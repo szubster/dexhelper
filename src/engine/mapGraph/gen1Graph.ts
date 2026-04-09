@@ -178,7 +178,7 @@ export const INDOOR_TO_PARENT_MAP: Record<number, number> = {
 export function getDistanceToMap(currentMapId: number, targetSlug: string): { distance: number; name: string } | null {
   let startId = currentMapId;
   if (INDOOR_TO_PARENT_MAP[startId] !== undefined) {
-    startId = INDOOR_TO_PARENT_MAP[startId]!;
+    startId = INDOOR_TO_PARENT_MAP[startId] ?? startId;
   }
 
   if (!GEN1_MAPS[startId]) {
@@ -193,7 +193,9 @@ export function getDistanceToMap(currentMapId: number, targetSlug: string): { di
   visited.add(startId);
 
   while (queue.length > 0) {
-    const { id, distance } = queue.shift()!;
+    const next = queue.shift();
+    if (!next) break;
+    const { id, distance } = next;
     const node = GEN1_MAPS[id];
 
     if (!node) continue;
@@ -201,7 +203,7 @@ export function getDistanceToMap(currentMapId: number, targetSlug: string): { di
     const nodeBase = node.slug.replace('-area', '');
     const targetBase = cleanTarget.replace('-area', '');
 
-    if (nodeBase === targetBase || targetBase.startsWith(nodeBase + '-')) {
+    if (nodeBase === targetBase || targetBase.startsWith(`${nodeBase}-`)) {
       return { distance, name: node.name };
     }
 

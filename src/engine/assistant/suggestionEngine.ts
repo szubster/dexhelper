@@ -1,3 +1,10 @@
+import type {
+  ChainLink,
+  EvolutionChain,
+  LocationAreaEncounter,
+  PokemonEncounter,
+  VersionEncounterDetail,
+} from 'pokenode-ts';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { pokeapi } from '../../utils/pokeapi';
 import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
@@ -6,11 +13,25 @@ import { getDistanceToMap } from '../mapGraph/gen1Graph';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
 import type { EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
 
+/** Data returned by fetchAssistantApiData */
+export interface AssistantApiData {
+  localEncounters: PokemonEncounter[];
+  missingEncounters: Record<number, LocationAreaEncounter[]>;
+  missingChains: Record<number, EvolutionChain>;
+  ancestralEncounters: Record<number, Record<number, LocationAreaEncounter[]>>;
+  partyEvolutions: Record<number, EvolutionChain>;
+}
+
+/** Safely extract a numeric ID from a PokéAPI resource URL */
+function parseIdFromUrl(url: string): number {
+  return parseInt(url.split('/').slice(-2, -1)[0] ?? '0', 10);
+}
+
 /**
  * Helper function to find all ancestors of a target Pokemon ID in an evolution chain.
  */
-function getAncestors(node: any, target: number, path: number[] = []): number[] | null {
-  const id = parseInt(node.species.url.split('/').slice(-2, -1)[0], 10);
+function getAncestors(node: ChainLink, target: number, path: number[] = []): number[] | null {
+  const id = parseIdFromUrl(node.species.url);
   if (id === target) {
     return path;
   }
@@ -34,7 +55,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     localSlug = 'new-bark-town-area';
   }
 
-  let localEncounters: any[] = [];
+  let localEncounters: PokemonEncounter[] = [];
   if (localSlug) {
     try {
       const areaData = await pokeapi.resource(`https://pokeapi.co/api/v2/location-area/${localSlug}`);
@@ -44,9 +65,9 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     }
   }
 
-  const missingEncounters: Record<number, any[]> = {};
-  const missingChains: Record<number, any> = {};
-  const ancestralEncounters: Record<number, Record<number, any[]>> = {};
+  const missingEncounters: Record<number, LocationAreaEncounter[]> = {};
+  const missingChains: Record<number, EvolutionChain> = {};
+  const ancestralEncounters: Record<number, Record<number, LocationAreaEncounter[]>> = {};
 
   const missingPromises = queryTargets.map(async (pid: number) => {
     try {
@@ -63,7 +84,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     }
   });
 
-  const partyEvolutions: Record<number, any> = {};
+  const partyEvolutions: Record<number, EvolutionChain> = {};
   const partyPromises = (saveData.party || []).map(async (pid: number) => {
     try {
       const species = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`);
@@ -85,12 +106,14 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
       const ancestors = getAncestors(missingChains[pid].chain, pid) || [];
       if (ancestors.length > 0) {
         pidAncestors[pid] = ancestors;
-        ancestors.forEach((a) => uniqueAncestors.add(a));
+        for (const a of ancestors) {
+          uniqueAncestors.add(a);
+        }
       }
     }
   }
 
-  const ancestorData: Record<number, any[]> = {};
+  const ancestorData: Record<number, LocationAreaEncounter[]> = {};
   await Promise.all(
     Array.from(uniqueAncestors).map(async (aid) => {
       try {
@@ -127,7 +150,7 @@ export function generateSuggestions(
   saveData: SaveData | null,
   isLivingDex: boolean,
   manualVersion: string | null | undefined,
-  apiData: any,
+  apiData: AssistantApiData | null,
 ): { suggestions: Suggestion[]; debug: { rejected: RejectedSuggestion[] } } {
   const suggestions: Suggestion[] = [];
   const rejected: RejectedSuggestion[] = [];
@@ -173,8 +196,7 @@ export function generateSuggestions(
     const localEncounterInfo: Record<number, EncounterDetail[]> = {};
 
     for (const encounter of apiData.localEncounters) {
-      const urlParts = encounter.pokemon.url.split('/');
-      const pid = parseInt(urlParts[urlParts.length - 2], 10);
+      const pid = parseIdFromUrl(encounter.pokemon.url);
 
       const isFinite = !!STATIC_GIFT_DATA[pid];
       if (isFinite && myOtIds.has(pid)) {
@@ -188,7 +210,7 @@ export function generateSuggestions(
 
       const gift = STATIC_GIFT_DATA[pid];
       if (saveData.eventFlags && gift?.eventFlag) {
-        if ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !== 0) {
+        if (((saveData.eventFlags[Math.floor(gift.eventFlag / 8)] ?? 0) & (1 << (gift.eventFlag % 8))) !== 0) {
           rejected.push({
             pokemonId: pid,
             reason: `Event flag ${gift.eventFlag} is set. Gift already claimed.`,
@@ -198,10 +220,12 @@ export function generateSuggestions(
         }
       }
 
-      const versionDetail = encounter.version_details.find((vd: any) => vd.version.name === displayVersion);
+      const versionDetail = encounter.version_details.find(
+        (vd: VersionEncounterDetail) => vd.version.name === displayVersion,
+      );
       if (versionDetail && missingIds.includes(pid)) {
         localPids.push(pid);
-        localEncounterInfo[pid] = versionDetail.encounter_details.map((ed: any) => ({
+        localEncounterInfo[pid] = versionDetail.encounter_details.map((ed) => ({
           chance: ed.chance,
           method: ed.method.name,
           minLevel: ed.min_level,
@@ -242,7 +266,7 @@ export function generateSuggestions(
 
       const gift = STATIC_GIFT_DATA[pid];
       if (saveData.eventFlags && gift?.eventFlag) {
-        if ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !== 0) continue;
+        if (((saveData.eventFlags[Math.floor(gift.eventFlag / 8)] ?? 0) & (1 << (gift.eventFlag % 8))) !== 0) continue;
       }
 
       const encounters = apiData.missingEncounters[pid] || [];
@@ -265,15 +289,17 @@ export function generateSuggestions(
         continue;
       }
 
-      let isCatchableSomewhere = encounters.some((enc: any) =>
-        enc.version_details.some((vd: any) => vd.version.name === displayVersion),
+      let isCatchableSomewhere = encounters.some((enc: LocationAreaEncounter) =>
+        enc.version_details.some((vd: VersionEncounterDetail) => vd.version.name === displayVersion),
       );
 
       if (!isCatchableSomewhere) {
         const aEncsMap = apiData.ancestralEncounters?.[pid] || {};
         for (const aid in aEncsMap) {
           if (
-            aEncsMap[aid].some((enc: any) => enc.version_details.some((vd: any) => vd.version.name === displayVersion))
+            aEncsMap[Number(aid)]?.some((enc: LocationAreaEncounter) =>
+              enc.version_details.some((vd: VersionEncounterDetail) => vd.version.name === displayVersion),
+            )
           ) {
             isCatchableSomewhere = true;
             break;
@@ -282,7 +308,7 @@ export function generateSuggestions(
 
         if (!isCatchableSomewhere) {
           const chain = apiData.missingChains?.[pid];
-          const baseId = chain ? parseInt(chain.chain.species.url.split('/').slice(-2, -1)[0], 10) : pid;
+          const baseId = chain ? parseIdFromUrl(chain.chain.species.url) : pid;
           const isInternalObtainable = [
             1,
             4,
@@ -356,8 +382,8 @@ export function generateSuggestions(
         }
       }
 
-      const versionEncounters = encounters.filter((enc: any) =>
-        enc.version_details.some((vd: any) => vd.version.name === displayVersion),
+      const versionEncounters = encounters.filter((enc: LocationAreaEncounter) =>
+        enc.version_details.some((vd: VersionEncounterDetail) => vd.version.name === displayVersion),
       );
 
       for (const enc of versionEncounters) {
@@ -375,11 +401,13 @@ export function generateSuggestions(
         }
         if (locationMap[targetAreaSlug]) {
           locationMap[targetAreaSlug].pids.add(pid);
-          const versionDetail = enc.version_details.find((vd: any) => vd.version.name === displayVersion);
+          const versionDetail = enc.version_details.find(
+            (vd: VersionEncounterDetail) => vd.version.name === displayVersion,
+          );
           if (versionDetail) {
             locationMap[targetAreaSlug].encounterMap.set(
               pid,
-              versionDetail.encounter_details.map((ed: any) => ({
+              versionDetail.encounter_details.map((ed) => ({
                 chance: ed.chance,
                 method: ed.method.name,
                 minLevel: ed.min_level,
@@ -390,7 +418,7 @@ export function generateSuggestions(
         }
       }
     }
-    const locations = Object.values(locationMap as Record<string, any>).map((loc) => ({
+    const locations = Object.values(locationMap).map((loc) => ({
       ...loc,
       yield: loc.pids.size,
     }));
@@ -416,17 +444,17 @@ export function generateSuggestions(
           // Check ancestral encounters if not found directly
           const aEncsMap = apiData.ancestralEncounters?.[pid] || {};
           for (const aid in aEncsMap) {
-            const ancestorAreaEncounter = aEncsMap[aid].find(
-              (enc: any) =>
+            const ancestorAreaEncounter = aEncsMap[Number(aid)]?.find(
+              (enc: LocationAreaEncounter) =>
                 enc.location_area.name === loc.slug &&
-                enc.version_details.some((vd: any) => vd.version.name === displayVersion),
+                enc.version_details.some((vd: VersionEncounterDetail) => vd.version.name === displayVersion),
             );
             if (ancestorAreaEncounter) {
               const versionDetail = ancestorAreaEncounter.version_details.find(
-                (vd: any) => vd.version.name === displayVersion,
+                (vd: VersionEncounterDetail) => vd.version.name === displayVersion,
               );
               if (versionDetail) {
-                locEncounterInfo[pid] = versionDetail.encounter_details.map((ed: any) => ({
+                locEncounterInfo[pid] = versionDetail.encounter_details.map((ed) => ({
                   chance: ed.chance,
                   method: ed.method.name,
                   minLevel: ed.min_level,
@@ -521,7 +549,8 @@ export function generateSuggestions(
 
     let isClaimedByEvent = false;
     if (saveData.eventFlags && gift.eventFlag) {
-      isClaimedByEvent = (saveData.eventFlags[Math.floor(gift.eventFlag / 8)]! & (1 << (gift.eventFlag % 8))) !== 0;
+      isClaimedByEvent =
+        ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)] ?? 0) & (1 << (gift.eventFlag % 8))) !== 0;
     }
 
     if (!isClaimedByEvent && !hasAnyWithMyOT && !hasAnyFamily && missingIds.includes(pid)) {
@@ -561,7 +590,7 @@ export function generateSuggestions(
   const totalBadges =
     saveData.generation === 1 ? saveData.badges : (saveData.johtoBadges || 0) + (saveData.kantoBadges || 0);
   const caps = OBEDIENCE_CAPS.filter((c) => totalBadges >= c.badges);
-  const currentCap = caps.length > 0 ? caps[caps.length - 1]!.level : 10;
+  const currentCap = caps[caps.length - 1]?.level ?? 10;
   const disobedient = saveData.partyDetails.filter(
     (p) => p.otName && p.otName !== saveData.trainerName && p.level > currentCap,
   );
@@ -580,8 +609,8 @@ export function generateSuggestions(
     const chain = apiData.partyEvolutions?.[p.speciesId];
     if (!chain) return;
 
-    const findInChain = (node: any): any => {
-      const id = parseInt(node.species.url.split('/').slice(-2, -1)[0], 10);
+    const findInChain = (node: ChainLink): ChainLink | null => {
+      const id = parseIdFromUrl(node.species.url);
       if (id === p.speciesId) return node;
       for (const child of node.evolves_to) {
         const res = findInChain(child);
@@ -592,8 +621,8 @@ export function generateSuggestions(
 
     const currentNode = findInChain(chain.chain);
     if (currentNode && currentNode.evolves_to.length > 0) {
-      currentNode.evolves_to.forEach((evoNode: any) => {
-        const evoId = parseInt(evoNode.species.url.split('/').slice(-2, -1)[0], 10);
+      currentNode.evolves_to.forEach((evoNode: ChainLink) => {
+        const evoId = parseIdFromUrl(evoNode.species.url);
         if (ownedSet.has(evoId)) {
           rejected.push({
             pokemonId: evoId,
@@ -620,14 +649,14 @@ export function generateSuggestions(
               priority: isReady ? 90 : 75,
             });
           }
-        } else if (details.trigger.name === 'use-item') {
+        } else if (details.trigger.name === 'use-item' && details.item) {
           const itemName = details.item.name;
           const isYellowStarterPikachu =
             displayVersion === 'yellow' && p.speciesId === 25 && p.otName === saveData.trainerName;
           if (isYellowStarterPikachu) return;
 
           const hasStone = saveData.inventory.some(
-            (i: any) =>
+            (i) =>
               i.id ===
               (itemName.includes('fire')
                 ? 32

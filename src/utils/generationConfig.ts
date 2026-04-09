@@ -115,7 +115,7 @@ export const GENERATION_CONFIGS: Record<number, GenerationConfig> = {
 
 /** Get the config for a generation with a safe fallback to Gen 1 */
 export function getGenerationConfig(gen: number): GenerationConfig {
-  return GENERATION_CONFIGS[gen] ?? GENERATION_CONFIGS[1]!;
+  return GENERATION_CONFIGS[gen] ?? (GENERATION_CONFIGS[1] as GenerationConfig);
 }
 
 /** Reverse lookup: given a version ID like 'red', find its generation config and version info */

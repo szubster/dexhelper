@@ -448,16 +448,16 @@ export function parseSaveFile(buffer: ArrayBuffer, forcedVersion?: GameVersion):
   // Gen 1 Checksum
   let gen1Sum = 255;
   for (let i = 0x2598; i <= 0x3522; i++) {
-    gen1Sum -= u8[i]!;
+    gen1Sum -= u8[i] ?? 0;
   }
-  const isGen1ChecksumValid = (gen1Sum & 0xff) === u8[0x3523]!;
+  const isGen1ChecksumValid = (gen1Sum & 0xff) === (u8[0x3523] ?? 0);
 
   // Gen 2 Checksum
   let gen2Sum = 0;
   for (let i = 0x2009; i <= 0x2d0c; i++) {
-    gen2Sum += u8[i]!;
+    gen2Sum += u8[i] ?? 0;
   }
-  const gen2Checksum = (u8[0x2d0e]! << 8) | u8[0x2d0d]!;
+  const gen2Checksum = ((u8[0x2d0e] ?? 0) << 8) | (u8[0x2d0d] ?? 0);
   const isGen2ChecksumValid = (gen2Sum & 0xffff) === gen2Checksum;
 
   if (isGen1ChecksumValid && isGen1Save(u8)) {
@@ -610,7 +610,8 @@ function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const boxOffsets = [0x4000, 0x4462, 0x48c4, 0x4d26, 0x5188, 0x55ea, 0x6000, 0x6462, 0x68c4, 0x6d26, 0x7188, 0x75ea];
   for (let i = 0; i < 12; i++) {
     if (i === currentBoxNum) continue;
-    const offset = boxOffsets[i]!;
+    const offset = boxOffsets[i];
+    if (offset === undefined) continue;
     const count = byte(u8, offset);
     if (count > 20) continue;
     const species = u8.slice(offset + 1, offset + 1 + count);
@@ -850,7 +851,8 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
 
   for (let i = 0; i < 14; i++) {
     if (i === currentBoxNum) continue;
-    const offset = boxOffsets[i]!;
+    const offset = boxOffsets[i];
+    if (offset === undefined) continue;
     const count = byte(u8, offset);
     if (count > 20) continue;
     const species = u8.slice(offset + 1, offset + 1 + count);
@@ -940,8 +942,10 @@ function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
 
   let currentMapName = 'Unknown Map';
   const gen2Maps = gen2MapLocations as Record<string, Record<string, string>>;
-  if (gen2Maps[mapGroup.toString()] && gen2Maps[mapGroup.toString()]![currentMapId.toString()]) {
-    currentMapName = gen2Maps[mapGroup.toString()]![currentMapId.toString()]!;
+  const mapGroupDict = gen2Maps[mapGroup.toString()];
+  const foundMap = mapGroupDict?.[currentMapId.toString()];
+  if (foundMap) {
+    currentMapName = foundMap;
   }
 
   // Detailed inventory parsing for Gen 2 could be added here later

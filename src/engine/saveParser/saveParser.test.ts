@@ -26,19 +26,20 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
   it('should correctly identify claimed gifts in the save file', () => {
     const data = parseSaveFile(buffer);
     expect(data.eventFlags).toBeDefined();
-    const flags = data.eventFlags!;
+    const flags = data.eventFlags;
+    if (!flags) throw new Error('eventFlags not found');
 
     // Bits should be set for claimed gifts
     // Bulbasaur: index 84, bit 1
-    const bulbasaurClaimed = (flags[84]! & (1 << 1)) !== 0;
+    const bulbasaurClaimed = ((flags[84] ?? 0) & (1 << 1)) !== 0;
     expect(bulbasaurClaimed).toBe(true);
 
     // Charmander: index 66, bit 7
-    const charmanderClaimed = (flags[66]! & (1 << 7)) !== 0;
+    const charmanderClaimed = ((flags[66] ?? 0) & (1 << 7)) !== 0;
     expect(charmanderClaimed).toBe(true);
 
     // Squirtle: index 68, bit 1
-    const squirtleClaimed = (flags[68]! & (1 << 1)) !== 0;
+    const squirtleClaimed = ((flags[68] ?? 0) & (1 << 1)) !== 0;
     expect(squirtleClaimed).toBe(true);
   });
 
@@ -58,7 +59,8 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     expect(boxNames.size).toBeGreaterThan(0);
 
     // Verify each entry has essential details
-    const firstEntry = data.pcDetails[0]!;
+    const firstEntry = data.pcDetails[0];
+    if (!firstEntry) throw new Error('pcDetails is empty');
     expect(firstEntry.level).toBeDefined();
     expect(firstEntry.moves).toBeDefined();
     expect(firstEntry.dvs).toBeDefined();
