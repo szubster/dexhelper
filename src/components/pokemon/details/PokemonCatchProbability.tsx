@@ -45,19 +45,17 @@ export function PokemonCatchProbability({
           />
         </div>
 
-        <div
-          className="grid grid-cols-3 gap-2"
-          role="radiogroup"
-          aria-label="Target Status"
-        >
+        {/* biome-ignore lint/a11y/useSemanticElements: custom segmented control */}
+        <div className="grid grid-cols-3 gap-2" role="group" aria-label="Target Status">
           {[
             { id: 'none', label: 'Healthy' },
             { id: 'paralyze_burn_poison', label: 'Debuff' },
             { id: 'sleep_freeze', label: 'Incapacitated' },
           ].map((item) => (
             <button
+              type="button"
               key={item.id}
-              role="radio"
+              role="switch"
               aria-checked={status === item.id}
               onClick={() => setStatus(item.id as any)}
               className={cn(
