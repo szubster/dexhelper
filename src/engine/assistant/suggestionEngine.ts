@@ -7,13 +7,28 @@ import type {
 } from 'pokenode-ts';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { pokeapi } from '../../utils/pokeapi';
-import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
+import {
+  GEN1_ITEMS,
+  GEN1_MAP_TO_SLUG,
+  OBEDIENCE_CAPS,
+  STATIC_GIFT_DATA,
+  STATIC_NPC_TRADE_DATA,
+} from '../data/gen1/assistantData';
+import { gen2Items } from '../data/gen2/legacyNameMap';
 import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
 import { getDistanceToMap } from '../mapGraph/gen1Graph';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
 import type { EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
 
 /** Data returned by fetchAssistantApiData */
+// Construct a reverse map for Gen 2 item names to their IDs.
+// Normalize names for easier matching from PokeAPI (e.g. "thunder-stone" matches "thunderstone")
+const GEN2_ITEM_IDS_BY_NAME: Record<string, number> = {};
+for (const [idStr, name] of Object.entries(gen2Items)) {
+  const normalizedName = name.toLowerCase().replace(/[-\s]/g, '');
+  GEN2_ITEM_IDS_BY_NAME[normalizedName] = parseInt(idStr, 10);
+}
+
 export interface AssistantApiData {
   localEncounters: PokemonEncounter[];
   missingEncounters: Record<number, LocationAreaEncounter[]>;
@@ -655,19 +670,20 @@ export function generateSuggestions(
             displayVersion === 'yellow' && p.speciesId === 25 && p.otName === saveData.trainerName;
           if (isYellowStarterPikachu) return;
 
-          const hasStone = saveData.inventory.some(
-            (i) =>
-              i.id ===
-              (itemName.includes('fire')
-                ? 32
-                : itemName.includes('thunder')
-                  ? 33
-                  : itemName.includes('water')
-                    ? 34
-                    : itemName.includes('leaf')
-                      ? 46
-                      : 10),
-          );
+          let targetItemId = -1;
+          if (saveData.generation === 1) {
+            if (itemName.includes('fire')) targetItemId = GEN1_ITEMS.FIRE_STONE;
+            else if (itemName.includes('thunder')) targetItemId = GEN1_ITEMS.THUNDER_STONE;
+            else if (itemName.includes('water')) targetItemId = GEN1_ITEMS.WATER_STONE;
+            else if (itemName.includes('leaf')) targetItemId = GEN1_ITEMS.LEAF_STONE;
+            else targetItemId = GEN1_ITEMS.MOON_STONE; // Default to moon stone
+          } else {
+            // Gen 2
+            const normalizedItemName = itemName.toLowerCase().replace(/[-\s]/g, '');
+            targetItemId = GEN2_ITEM_IDS_BY_NAME[normalizedItemName] || -1;
+          }
+
+          const hasStone = saveData.inventory.some((i) => i.id === targetItemId);
           if (hasStone)
             suggestions.push({
               id: `evo-stn-${p.speciesId}-${idx}`,
