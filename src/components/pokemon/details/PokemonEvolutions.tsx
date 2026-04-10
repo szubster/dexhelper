@@ -46,23 +46,23 @@ export function PokemonEvolutions({
   saveData,
 }: PokemonEvolutionsProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
       {yourPokemonLength === 0 && (
-        <div className="glass-card bg-red-500/5 border-red-500/10 rounded-[2rem] p-6 space-y-4 relative overflow-hidden group col-span-1 sm:col-span-2">
-          <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform">
+        <div className="glass-card group relative col-span-1 space-y-4 overflow-hidden rounded-[2rem] border-red-500/10 bg-red-500/5 p-6 sm:col-span-2">
+          <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:scale-110">
             <AlertTriangle size={80} />
           </div>
-          <h3 className="text-[10px] font-black text-red-400 uppercase tracking-[0.3em] flex items-center gap-2 relative z-10">
+          <h3 className="relative z-10 flex items-center gap-2 font-black text-[10px] text-red-400 uppercase tracking-[0.3em]">
             <AlertTriangle size={14} /> Procurement Strategy
           </h3>
-          <div className="text-sm font-bold text-zinc-300 leading-relaxed relative z-10 pr-12">
+          <div className="relative z-10 pr-12 font-bold text-sm text-zinc-300 leading-relaxed">
             Species missing from Living Dex. Priority retrieval recommended via
             {evoReq ? (
               <>
                 {' '}
                 <button
                   onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
-                  className="text-red-400 hover:text-white underline decoration-red-500/30 underline-offset-4 transition-colors"
+                  className="text-red-400 underline decoration-red-500/30 underline-offset-4 transition-colors hover:text-white"
                 >
                   Evolving {evoReq.fromName.toUpperCase()}
                 </button>
@@ -82,7 +82,7 @@ export function PokemonEvolutions({
                   {rewards.map((r) => (
                     <span
                       key={r}
-                      className="px-2 py-0.5 bg-red-500/10 border border-red-500/20 text-[9px] font-black text-red-500 rounded-md"
+                      className="rounded-md border border-red-500/20 bg-red-500/10 px-2 py-0.5 font-black text-[9px] text-red-500"
                     >
                       STADIUM {gen} REWARD: {r.toUpperCase()}
                     </span>
@@ -95,26 +95,26 @@ export function PokemonEvolutions({
       )}
 
       {evoReq && (
-        <div className="glass-card bg-purple-500/5 border-purple-500/10 rounded-[2rem] p-6 space-y-4 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
+        <div className="glass-card group relative space-y-4 overflow-hidden rounded-[2rem] border-purple-500/10 bg-purple-500/5 p-6">
+          <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:rotate-12">
             <ArrowUpCircle size={80} />
           </div>
-          <h3 className="text-[10px] font-black text-purple-400 uppercase tracking-[0.3em] flex items-center gap-2 relative z-10">
+          <h3 className="relative z-10 flex items-center gap-2 font-black text-[10px] text-purple-400 uppercase tracking-[0.3em]">
             <ArrowUpCircle size={14} /> Evolution
           </h3>
-          <div className="text-xs font-bold text-zinc-300 leading-relaxed relative z-10">
+          <div className="relative z-10 font-bold text-xs text-zinc-300 leading-relaxed">
             FROM{' '}
             <button
               onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
-              className="text-white hover:text-purple-400 underline decoration-purple-500/30 underline-offset-4 transition-colors"
+              className="text-white underline decoration-purple-500/30 underline-offset-4 transition-colors hover:text-purple-400"
             >
               {evoReq.fromName.toUpperCase()}
             </button>
-            <div className="text-[10px] text-purple-400/60 mt-1 uppercase font-black">METHOD: {evoReq.method}</div>
+            <div className="mt-1 font-black text-[10px] text-purple-400/60 uppercase">METHOD: {evoReq.method}</div>
           </div>
           <div
             className={cn(
-              'inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest relative z-10',
+              'relative z-10 inline-flex items-center gap-2 rounded-xl px-3 py-1.5 font-black text-[10px] uppercase tracking-widest',
               hasPreEvo ? 'bg-emerald-500/10 text-emerald-500' : 'bg-red-500/10 text-red-500',
             )}
           >
@@ -124,24 +124,24 @@ export function PokemonEvolutions({
       )}
 
       {evolvesTo && evolvesTo.length > 0 && (
-        <div className="glass-card bg-blue-500/5 border-blue-500/10 rounded-[2rem] p-6 space-y-4 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:-rotate-12 transition-transform">
+        <div className="glass-card group relative space-y-4 overflow-hidden rounded-[2rem] border-blue-500/10 bg-blue-500/5 p-6">
+          <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:-rotate-12">
             <ChevronRight size={80} />
           </div>
-          <h3 className="text-[10px] font-black text-blue-400 uppercase tracking-[0.3em] flex items-center gap-2 relative z-10">
+          <h3 className="relative z-10 flex items-center gap-2 font-black text-[10px] text-blue-400 uppercase tracking-[0.3em]">
             <ChevronRight size={14} /> Transformations
           </h3>
-          <div className="space-y-4 relative z-10">
+          <div className="relative z-10 space-y-4">
             {evolvesTo.map((evo) => (
-              <div key={evo.id} className="text-xs font-bold text-zinc-300 leading-relaxed">
+              <div key={evo.id} className="font-bold text-xs text-zinc-300 leading-relaxed">
                 TO{' '}
                 <button
                   onClick={() => onNavigate(evo.id, evo.name)}
-                  className="text-white hover:text-blue-400 underline decoration-blue-500/30 underline-offset-4 transition-colors"
+                  className="text-white underline decoration-blue-500/30 underline-offset-4 transition-colors hover:text-blue-400"
                 >
                   {evo.name.toUpperCase()}
                 </button>
-                <div className="text-[10px] text-blue-400/60 mt-1 uppercase font-black">VIA {evo.method}</div>
+                <div className="mt-1 font-black text-[10px] text-blue-400/60 uppercase">VIA {evo.method}</div>
               </div>
             ))}
           </div>
@@ -149,14 +149,14 @@ export function PokemonEvolutions({
       )}
 
       {breedingInfo && (
-        <div className="glass-card bg-pink-500/5 border-pink-500/10 rounded-[2rem] p-6 space-y-4 relative overflow-hidden group col-span-1 sm:col-span-2">
-          <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform">
+        <div className="glass-card group relative col-span-1 space-y-4 overflow-hidden rounded-[2rem] border-pink-500/10 bg-pink-500/5 p-6 sm:col-span-2">
+          <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:scale-110">
             <Heart size={80} />
           </div>
-          <h3 className="text-[10px] font-black text-pink-400 uppercase tracking-[0.3em] flex items-center gap-2 relative z-10">
+          <h3 className="relative z-10 flex items-center gap-2 font-black text-[10px] text-pink-400 uppercase tracking-[0.3em]">
             <Heart size={14} /> Breeding Protocol
           </h3>
-          <div className="text-xs font-bold text-zinc-300 leading-relaxed relative z-10">
+          <div className="relative z-10 font-bold text-xs text-zinc-300 leading-relaxed">
             CROSS-REF:{' '}
             {breedingInfo.parentNames.map((name: string, i: number) => (
               <React.Fragment key={name}>
@@ -165,7 +165,7 @@ export function PokemonEvolutions({
                     const id = breedingInfo.parentIds[i];
                     if (id) onNavigate(id, name);
                   }}
-                  className="text-white hover:text-pink-400 underline decoration-pink-500/30 underline-offset-4 transition-colors"
+                  className="text-white underline decoration-pink-500/30 underline-offset-4 transition-colors hover:text-pink-400"
                 >
                   {name.toUpperCase()}
                 </button>
@@ -173,7 +173,7 @@ export function PokemonEvolutions({
               </React.Fragment>
             ))}
           </div>
-          <div className="text-[9px] font-black text-pink-400/60 uppercase tracking-widest bg-pink-500/5 p-3 rounded-xl border border-pink-500/10 leading-relaxed relative z-10 italic">
+          <div className="relative z-10 rounded-xl border border-pink-500/10 bg-pink-500/5 p-3 font-black text-[9px] text-pink-400/60 uppercase italic leading-relaxed tracking-widest">
             {breedingInfo.method}
           </div>
         </div>

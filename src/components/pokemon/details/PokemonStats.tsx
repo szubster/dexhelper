@@ -19,8 +19,8 @@ export function PokemonStats({ pokemonData, saveData }: PokemonStatsProps) {
   if (!pokemonData) return null;
 
   return (
-    <div className="space-y-5 animate-in slide-in-from-bottom-4 fade-in duration-500 fill-mode-both">
-      <h3 className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] flex items-center gap-2">
+    <div className="slide-in-from-bottom-4 fade-in animate-in space-y-5 fill-mode-both duration-500">
+      <h3 className="flex items-center gap-2 font-black text-[10px] text-zinc-500 uppercase tracking-[0.3em]">
         <Activity size={14} className="text-[var(--theme-primary)]" /> Combat Analysis
       </h3>
       <div className="grid grid-cols-1 gap-3">
@@ -52,16 +52,16 @@ export function PokemonStats({ pokemonData, saveData }: PokemonStatsProps) {
 
           return (
             <div key={s.stat.name} className="flex items-center gap-4">
-              <div className="w-8 text-[10px] font-black text-zinc-400 uppercase font-mono">{statName}</div>
-              <div className="flex-1 h-2 bg-zinc-900 rounded-full overflow-hidden border border-white/5 relative">
+              <div className="w-8 font-black font-mono text-[10px] text-zinc-400 uppercase">{statName}</div>
+              <div className="relative h-2 flex-1 overflow-hidden rounded-full border border-white/5 bg-zinc-900">
                 <div
-                  className="h-full bg-gradient-to-r from-[var(--theme-primary)]/50 to-[var(--theme-primary)] relative transition-all duration-1000 ease-out"
+                  className="relative h-full bg-gradient-to-r from-[var(--theme-primary)]/50 to-[var(--theme-primary)] transition-all duration-1000 ease-out"
                   style={{ width: mounted ? `${percentage}%` : '0%' }}
                 >
-                  <div className="absolute inset-0 lcd-flicker opacity-30" />
+                  <div className="lcd-flicker absolute inset-0 opacity-30" />
                 </div>
               </div>
-              <div className="w-10 text-right text-xs font-mono font-black text-white">{s.base_stat}</div>
+              <div className="w-10 text-right font-black font-mono text-white text-xs">{s.base_stat}</div>
             </div>
           );
         })}

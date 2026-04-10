@@ -45,27 +45,27 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
   ];
 
   return (
-    <div className="space-y-16 animate-in fade-in duration-500">
+    <div className="fade-in animate-in space-y-16 duration-500">
       {storageLocations.map((location) => {
         const pokemonInLocation = pokemonByLocation.get(location) || [];
 
         return (
-          <div key={location} className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
+          <div key={location} className="slide-in-from-bottom-4 animate-in space-y-8 duration-500">
             <div className="flex items-center gap-6">
-              <h2 className="text-3xl font-display font-black uppercase tracking-tight text-white">{location}</h2>
+              <h2 className="font-black font-display text-3xl text-white uppercase tracking-tight">{location}</h2>
               <div className="h-px flex-1 bg-zinc-900"></div>
-              <span className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">
+              <span className="font-black text-[10px] text-zinc-600 uppercase tracking-widest">
                 {pokemonInLocation.length} Units
               </span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {pokemonInLocation.length === 0 ? (
-                <div className="flex flex-col items-center justify-center p-5 rounded-3xl bg-zinc-900/20 border-2 border-dashed border-zinc-800/30 text-center min-h-[180px] group transition-all duration-300 hover:border-zinc-700/50">
-                  <div className="w-12 h-12 rounded-full bg-zinc-900/50 flex items-center justify-center mb-3 border border-zinc-800/50 group-hover:scale-110 transition-transform">
-                    <div className="w-6 h-6 border-2 border-zinc-700/30 rounded-full border-t-zinc-500/50 animate-spin-slow" />
+                <div className="group flex min-h-[180px] flex-col items-center justify-center rounded-3xl border-2 border-zinc-800/30 border-dashed bg-zinc-900/20 p-5 text-center transition-all duration-300 hover:border-zinc-700/50">
+                  <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-zinc-800/50 bg-zinc-900/50 transition-transform group-hover:scale-110">
+                    <div className="h-6 w-6 animate-spin-slow rounded-full border-2 border-zinc-700/30 border-t-zinc-500/50" />
                   </div>
-                  <span className="text-zinc-600 font-black tracking-[0.3em] uppercase text-[10px] italic">EMPTY</span>
+                  <span className="font-black text-[10px] text-zinc-600 uppercase italic tracking-[0.3em]">EMPTY</span>
                 </div>
               ) : (
                 pokemonInLocation.map((p, idx) => {
@@ -86,28 +86,28 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                       key={`${location}-${p.speciesId}-${idx}`}
                       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}
-                      className={`relative flex flex-col items-center p-5 rounded-2xl transition-all duration-200 cursor-pointer hover:-translate-y-1 active:scale-95 ${cardStyle}`}
+                      className={`relative flex cursor-pointer flex-col items-center rounded-2xl p-5 transition-all duration-200 hover:-translate-y-1 active:scale-95 ${cardStyle}`}
                     >
-                      <div className="absolute top-3 left-3 text-[10px] font-mono font-bold text-zinc-600">
+                      <div className="absolute top-3 left-3 font-bold font-mono text-[10px] text-zinc-600">
                         LV.{p.level}
                       </div>
-                      <div className="absolute top-3 right-3 flex flex-col gap-1.5 items-end">
+                      <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5">
                         {p.isShiny && <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />}
                         {p.otName && (
-                          <div className="text-[8px] font-black text-zinc-500 bg-zinc-950 px-1.5 py-0.5 rounded border border-zinc-800 truncate max-w-[60px]">
+                          <div className="max-w-[60px] truncate rounded border border-zinc-800 bg-zinc-950 px-1.5 py-0.5 font-black text-[8px] text-zinc-500">
                             {p.otName}
                           </div>
                         )}
                       </div>
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 mb-4 flex items-center justify-center relative">
+                      <div className="relative mb-4 flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24">
                         <img
                           src={genConfig.spriteUrl(pokemon.id, p.isShiny)}
                           alt={pokemon.name}
-                          className="w-full h-full object-contain drop-shadow-xl pixelated"
+                          className="pixelated h-full w-full object-contain drop-shadow-xl"
                           style={{ imageRendering: 'pixelated' }}
                         />
                       </div>
-                      <div className="text-center font-bold uppercase tracking-wider text-[10px] text-zinc-100 truncate w-full px-1">
+                      <div className="w-full truncate px-1 text-center font-bold text-[10px] text-zinc-100 uppercase tracking-wider">
                         {pokemon.name}
                       </div>
                     </div>

@@ -12,81 +12,81 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
   if (!saveData) return null;
 
   return (
-    <div className="mt-12 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="fade-in slide-in-from-bottom-4 mt-12 animate-in space-y-6 duration-500">
       <div className="flex items-center gap-3 px-2">
-        <div className="p-2 rounded-xl border bg-zinc-800 border-zinc-700 text-zinc-400">
+        <div className="rounded-xl border border-zinc-700 bg-zinc-800 p-2 text-zinc-400">
           <Bug size={16} />
         </div>
-        <h3 className="text-xl font-display font-black text-white uppercase tracking-widest">Assistant Diagnostics</h3>
+        <h3 className="font-black font-display text-white text-xl uppercase tracking-widest">Assistant Diagnostics</h3>
       </div>
 
-      <div className="bg-zinc-900/60 border border-zinc-800 p-6 rounded-[2rem] space-y-4 shadow-inner">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div className="bg-zinc-800/50 p-4 rounded-2xl border border-white/5 shadow-sm">
-            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">Current Map</p>
-            <p className="text-lg font-display font-black text-white">{saveData.currentMapName}</p>
-            <p className="text-[10px] font-mono text-zinc-600">
+      <div className="space-y-4 rounded-[2rem] border border-zinc-800 bg-zinc-900/60 p-6 shadow-inner">
+        <div className="grid grid-cols-2 gap-4 text-center md:grid-cols-4">
+          <div className="rounded-2xl border border-white/5 bg-zinc-800/50 p-4 shadow-sm">
+            <p className="mb-1 font-black text-[10px] text-zinc-500 uppercase tracking-widest">Current Map</p>
+            <p className="font-black font-display text-lg text-white">{saveData.currentMapName}</p>
+            <p className="font-mono text-[10px] text-zinc-600">
               ID: {saveData.currentMapId} (0x
               {saveData.currentMapId.toString(16).toUpperCase().padStart(2, '0')})
             </p>
           </div>
-          <div className="bg-zinc-800/50 p-4 rounded-2xl border border-white/5 shadow-sm">
-            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">Game Version</p>
-            <p className="text-lg font-display font-black text-white uppercase">{saveData.gameVersion}</p>
-            <p className="text-[10px] font-mono text-zinc-600">Gen: {saveData.generation}</p>
+          <div className="rounded-2xl border border-white/5 bg-zinc-800/50 p-4 shadow-sm">
+            <p className="mb-1 font-black text-[10px] text-zinc-500 uppercase tracking-widest">Game Version</p>
+            <p className="font-black font-display text-lg text-white uppercase">{saveData.gameVersion}</p>
+            <p className="font-mono text-[10px] text-zinc-600">Gen: {saveData.generation}</p>
           </div>
-          <div className="bg-zinc-800/50 p-4 rounded-2xl border border-white/5 shadow-sm">
-            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">Pokédex</p>
-            <p className="text-lg font-display font-black text-white">{saveData.owned.size}</p>
-            <p className="text-[10px] font-mono text-zinc-600">Owned</p>
+          <div className="rounded-2xl border border-white/5 bg-zinc-800/50 p-4 shadow-sm">
+            <p className="mb-1 font-black text-[10px] text-zinc-500 uppercase tracking-widest">Pokédex</p>
+            <p className="font-black font-display text-lg text-white">{saveData.owned.size}</p>
+            <p className="font-mono text-[10px] text-zinc-600">Owned</p>
           </div>
-          <div className="bg-zinc-800/50 p-4 rounded-2xl border border-white/5 shadow-sm">
-            <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">Trainer</p>
-            <p className="text-lg font-display font-black text-white truncate px-2">{saveData.trainerName}</p>
-            <p className="text-[10px] font-mono text-zinc-600">ID: {saveData.trainerId}</p>
+          <div className="rounded-2xl border border-white/5 bg-zinc-800/50 p-4 shadow-sm">
+            <p className="mb-1 font-black text-[10px] text-zinc-500 uppercase tracking-widest">Trainer</p>
+            <p className="truncate px-2 font-black font-display text-lg text-white">{saveData.trainerName}</p>
+            <p className="font-mono text-[10px] text-zinc-600">ID: {saveData.trainerId}</p>
           </div>
         </div>
       </div>
 
       {rejected.length > 0 && (
         <div className="flex items-center gap-3 px-2 pt-4">
-          <div className="p-2 rounded-xl border bg-amber-500/10 border-amber-500/30 text-amber-400">
+          <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-2 text-amber-400">
             <AlertCircle size={16} />
           </div>
-          <h4 className="text-lg font-display font-black text-white uppercase tracking-widest">Rejected Suggestions</h4>
+          <h4 className="font-black font-display text-lg text-white uppercase tracking-widest">Rejected Suggestions</h4>
         </div>
       )}
 
-      <div className="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {rejected.map((r, i) => (
           <div
             // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
             key={`${r.pokemonId}-${i}`}
-            className="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-4 flex items-start gap-4 hover:border-zinc-700 transition-colors"
+            className="flex items-start gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 transition-colors hover:border-zinc-700"
           >
-            <div className="w-12 h-12 bg-zinc-800 rounded-xl p-1 flex-shrink-0 border border-white/5 relative">
+            <div className="relative h-12 w-12 flex-shrink-0 rounded-xl border border-white/5 bg-zinc-800 p-1">
               <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${r.pokemonId}.png`}
                 alt="Sprite"
-                className="w-full h-full object-contain pixelated grayscale opacity-50"
+                className="pixelated h-full w-full object-contain opacity-50 grayscale"
               />
               <div className="absolute -top-1 -right-1">
-                <AlertCircle size={14} className="text-amber-500 fill-zinc-900" />
+                <AlertCircle size={14} className="fill-zinc-900 text-amber-500" />
               </div>
             </div>
             <div className="space-y-1 overflow-hidden">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold text-zinc-500">
+                <span className="font-bold font-mono text-[10px] text-zinc-500">
                   #{r.pokemonId.toString().padStart(3, '0')}
                 </span>
-                <span className="text-xs font-black text-zinc-300 uppercase tracking-tight truncate">
+                <span className="truncate font-black text-xs text-zinc-300 uppercase tracking-tight">
                   {getPokemonName(r.pokemonId)}
                 </span>
-                <span className="text-[8px] font-black bg-zinc-800 text-zinc-500 px-1 py-0.5 rounded border border-white/5 uppercase">
+                <span className="rounded border border-white/5 bg-zinc-800 px-1 py-0.5 font-black text-[8px] text-zinc-500 uppercase">
                   {r.code}
                 </span>
               </div>
-              <p className="text-[10px] font-medium text-zinc-500 leading-tight italic">"{r.reason}"</p>
+              <p className="font-medium text-[10px] text-zinc-500 italic leading-tight">"{r.reason}"</p>
             </div>
           </div>
         ))}

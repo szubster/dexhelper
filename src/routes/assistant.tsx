@@ -16,7 +16,7 @@ function AssistantPage() {
   }
 
   return (
-    <div className="pt-4 h-full flex flex-col">
+    <div className="flex h-full flex-col pt-4">
       <AssistantPanel saveData={saveData} isLivingDex={isLivingDex} manualVersion={manualVersion} />
     </div>
   );
