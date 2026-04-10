@@ -300,25 +300,25 @@ export function PokemonDetails({
   const _renderLocations = (locations: { name: string; details: string }[], colorClass: string) => {
     if (locations.length === 0) {
       return (
-        <div className="text-[10px] text-zinc-600 uppercase tracking-widest font-black flex items-center gap-2 py-4">
+        <div className="flex items-center gap-2 py-4 font-black text-[10px] text-zinc-600 uppercase tracking-widest">
           <AlertCircle size={14} /> Not found in the wild
         </div>
       );
     }
     return (
-      <div className="space-y-3 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
+      <div className="custom-scrollbar max-h-64 space-y-3 overflow-y-auto pr-2">
         {locations.map((loc) => (
           <div
             key={loc.name}
-            className="group bg-zinc-950 p-4 rounded-2xl border border-zinc-900 hover:border-zinc-800 transition-all"
+            className="group rounded-2xl border border-zinc-900 bg-zinc-950 p-4 transition-all hover:border-zinc-800"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <div className={`p-1.5 rounded-lg bg-zinc-900 ${colorClass}`}>
+            <div className="mb-2 flex items-center gap-3">
+              <div className={`rounded-lg bg-zinc-900 p-1.5 ${colorClass}`}>
                 <MapPin size={14} />
               </div>
-              <span className="text-xs font-black uppercase tracking-tight text-zinc-100">{loc.name}</span>
+              <span className="font-black text-xs text-zinc-100 uppercase tracking-tight">{loc.name}</span>
             </div>
-            <div className="text-[10px] text-zinc-500 pl-8 leading-relaxed font-mono font-bold">{loc.details}</div>
+            <div className="pl-8 font-bold font-mono text-[10px] text-zinc-500 leading-relaxed">{loc.details}</div>
           </div>
         ))}
       </div>
@@ -380,64 +380,64 @@ export function PokemonDetails({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 animate-in fade-in duration-300"
+      className="fade-in fixed inset-0 z-50 flex animate-in items-end justify-center p-0 duration-300 sm:items-center sm:p-4"
       onClick={onClose}
     >
       <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" />
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-zinc-950/90 w-full h-[95vh] sm:h-[85vh] sm:max-w-5xl rounded-t-[2.5rem] sm:rounded-[3rem] border-t sm:border border-white/10 shadow-2xl overflow-hidden flex flex-col relative animate-in slide-in-from-bottom-[100%] sm:zoom-in-95 duration-500 ease-out"
+        className="slide-in-from-bottom-[100%] sm:zoom-in-95 relative flex h-[95vh] w-full animate-in flex-col overflow-hidden rounded-t-[2.5rem] border-white/10 border-t bg-zinc-950/90 shadow-2xl duration-500 ease-out sm:h-[85vh] sm:max-w-5xl sm:rounded-[3rem] sm:border"
       >
         {/* Scanline Overlay */}
-        <div className="absolute inset-0 pointer-events-none scanline-overlay opacity-20" />
+        <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
 
         {/* Header Section */}
-        <div className="relative p-6 sm:p-10 border-b border-white/5 bg-gradient-to-b from-white/5 to-transparent shrink-0">
-          <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6">
-            <div className="flex flex-col sm:flex-row items-center sm:items-center gap-6 sm:gap-10">
-              <div className="relative group">
-                <div className="w-32 h-32 sm:w-40 sm:h-40 glass-card bg-zinc-900/50 rounded-3xl border-white/10 flex items-center justify-center overflow-hidden relative shadow-2xl animate-in zoom-in-50 fade-in duration-500 delay-100 fill-mode-both">
+        <div className="relative shrink-0 border-white/5 border-b bg-gradient-to-b from-white/5 to-transparent p-6 sm:p-10">
+          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end">
+            <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-10">
+              <div className="group relative">
+                <div className="glass-card zoom-in-50 fade-in relative flex h-32 w-32 animate-in items-center justify-center overflow-hidden rounded-3xl border-white/10 bg-zinc-900/50 fill-mode-both shadow-2xl delay-100 duration-500 sm:h-40 sm:w-40">
                   <div className="absolute inset-0 bg-gradient-to-tr from-[var(--theme-primary)]/10 to-transparent" />
                   <img
                     src={genConfig.spriteUrl(pokemonId, isShiny)}
                     alt={pokemonName}
-                    className="w-24 h-24 sm:w-32 sm:h-32 object-contain pixelated drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] relative z-10"
+                    className="pixelated relative z-10 h-24 w-24 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] sm:h-32 sm:w-32"
                     style={{ imageRendering: 'pixelated' }}
                     referrerPolicy="no-referrer"
                   />
                   {/* Digital corner accents */}
-                  <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-white/20" />
-                  <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-white/20" />
-                  <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-white/20" />
-                  <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-white/20" />
+                  <div className="absolute top-2 left-2 h-3 w-3 border-white/20 border-t-2 border-l-2" />
+                  <div className="absolute top-2 right-2 h-3 w-3 border-white/20 border-t-2 border-r-2" />
+                  <div className="absolute bottom-2 left-2 h-3 w-3 border-white/20 border-b-2 border-l-2" />
+                  <div className="absolute right-2 bottom-2 h-3 w-3 border-white/20 border-r-2 border-b-2" />
                 </div>
 
                 {isShiny && (
-                  <div className="absolute -top-3 -right-3 p-2 bg-amber-500 rounded-xl shadow-[0_0_20px_rgba(245,158,11,0.5)] text-white z-20 animate-[pulse_3s_ease-in-out_infinite]">
+                  <div className="absolute -top-3 -right-3 z-20 animate-[pulse_3s_ease-in-out_infinite] rounded-xl bg-amber-500 p-2 text-white shadow-[0_0_20px_rgba(245,158,11,0.5)]">
                     <Sparkles size={18} />
                   </div>
                 )}
               </div>
 
               <div className="text-center sm:text-left">
-                <div className="flex flex-col animate-in slide-in-from-bottom-4 fade-in duration-500 delay-200 fill-mode-both">
-                  <span className="text-xs font-black text-zinc-500 uppercase tracking-[0.4em] mb-2 font-mono">
+                <div className="slide-in-from-bottom-4 fade-in flex animate-in flex-col fill-mode-both delay-200 duration-500">
+                  <span className="mb-2 font-black font-mono text-xs text-zinc-500 uppercase tracking-[0.4em]">
                     Index No. {pokemonId.toString().padStart(3, '0')}
                   </span>
-                  <h2 className="text-4xl sm:text-6xl font-display font-black uppercase tracking-tighter text-white leading-none mb-4 drop-shadow-sm">
+                  <h2 className="mb-4 font-black font-display text-4xl text-white uppercase leading-none tracking-tighter drop-shadow-sm sm:text-6xl">
                     {pokemonName}
                   </h2>
-                  <div className="flex flex-wrap justify-center sm:justify-start gap-2">
+                  <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
                     {pokemonData?.types.map((t: PokemonType) => (
                       <span
                         key={t.type.name}
-                        className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-zinc-300 backdrop-blur-md"
+                        className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-black text-[10px] text-zinc-300 uppercase tracking-widest backdrop-blur-md"
                       >
                         {t.type.name}
                       </span>
                     ))}
                     {stadiumReward && (
-                      <div className="px-4 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full text-[10px] font-black text-blue-400 uppercase tracking-widest flex items-center gap-1.5 backdrop-blur-md">
+                      <div className="flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 font-black text-[10px] text-blue-400 uppercase tracking-widest backdrop-blur-md">
                         <Monitor size={12} /> Stadium Reward
                       </div>
                     )}
@@ -445,10 +445,10 @@ export function PokemonDetails({
                     {saveData && (
                       <div
                         className={cn(
-                          'px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2 backdrop-blur-md border',
+                          'flex items-center gap-2 rounded-full border px-4 py-1.5 font-black text-[10px] uppercase tracking-[0.2em] backdrop-blur-md',
                           yourPokemon.length > 0
-                            ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
-                            : 'bg-red-500/10 border-red-500/30 text-red-500',
+                            ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400'
+                            : 'border-red-500/30 bg-red-500/10 text-red-500',
                         )}
                       >
                         {yourPokemon.length > 0 ? (
@@ -472,17 +472,17 @@ export function PokemonDetails({
             <button
               onClick={onClose}
               aria-label="Close details"
-              className="absolute top-6 right-6 sm:relative sm:top-auto sm:right-auto p-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl transition-all group active:scale-95"
+              className="group absolute top-6 right-6 rounded-2xl border border-white/10 bg-white/5 p-4 transition-all hover:bg-white/10 active:scale-95 sm:relative sm:top-auto sm:right-auto"
             >
-              <X size={24} className="text-zinc-400 group-hover:text-white transition-colors" />
+              <X size={24} className="text-zinc-400 transition-colors group-hover:text-white" />
             </button>
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto custom-scrollbar p-6 sm:p-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="custom-scrollbar flex-1 overflow-y-auto p-6 sm:p-10">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             {/* Left Column: Stats & Catching */}
-            <div className="lg:col-span-5 space-y-10">
+            <div className="space-y-10 lg:col-span-5">
               {/* Stats & Power Readout */}
               <div className="space-y-8">
                 {pokemonData && <PokemonStats pokemonData={pokemonData} saveData={saveData} />}
@@ -495,7 +495,7 @@ export function PokemonDetails({
             </div>
 
             {/* Right Column: Details & Locations */}
-            <div className="lg:col-span-7 space-y-12">
+            <div className="space-y-12 lg:col-span-7">
               <PokemonCaughtDetails yourPokemon={yourPokemon} saveData={saveData} />
 
               {/* Evolution & Procurement Strategy */}

@@ -19,19 +19,19 @@ interface PokemonLocationsProps {
 export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, loading }: PokemonLocationsProps) {
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/5 pb-4">
-        <h3 className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] flex items-center gap-2">
+      <div className="flex items-center justify-between border-white/5 border-b pb-4">
+        <h3 className="flex items-center gap-2 font-black text-[10px] text-zinc-500 uppercase tracking-[0.3em]">
           <MapPin size={14} /> Field Distribution
         </h3>
-        <div className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-black text-[var(--theme-primary)] uppercase tracking-widest border border-white/10 backdrop-blur-md">
+        <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-black text-[10px] text-[var(--theme-primary)] uppercase tracking-widest backdrop-blur-md">
           DATA-SRC: {gameVersion.toUpperCase()}
         </div>
       </div>
 
       {loading ? (
-        <div className="h-40 glass-card bg-white/5 rounded-3xl border border-white/5 animate-pulse" />
+        <div className="glass-card h-40 animate-pulse rounded-3xl border border-white/5 bg-white/5" />
       ) : (
-        <div className="grid grid-cols-1 gap-3 relative z-10">
+        <div className="relative z-10 grid grid-cols-1 gap-3">
           {(() => {
             const staticEnc = staticEncounters[pokemonId]?.[gameVersion as keyof (typeof staticEncounters)[number]];
             const versionEnc = encounters.filter((e: LocationAreaEncounter) =>
@@ -42,16 +42,16 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
               return (
                 <>
                   {evoReq && (
-                    <div className="flex items-center justify-between p-4 bg-zinc-900 border border-white/5 rounded-2xl group hover:border-[var(--theme-primary)]/30 transition-all">
+                    <div className="group flex items-center justify-between rounded-2xl border border-white/5 bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 bg-amber-500/10 rounded-lg text-amber-500">
+                        <div className="rounded-lg bg-amber-500/10 p-2 text-amber-500">
                           <ArrowUpCircle size={14} />
                         </div>
-                        <span className="text-xs font-bold uppercase tracking-wide group-hover:text-white transition-colors">
+                        <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
                           Available via Evolving {evoReq.fromName.toUpperCase()}
                         </span>
                       </div>
-                      <span className="text-[8px] font-black text-amber-500/60 uppercase tracking-widest px-2 py-1 bg-amber-500/5 rounded-lg border border-amber-500/10">
+                      <span className="rounded-lg border border-amber-500/10 bg-amber-500/5 px-2 py-1 font-black text-[8px] text-amber-500/60 uppercase tracking-widest">
                         EVOLUTION
                       </span>
                     </div>
@@ -60,17 +60,17 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                     <div
                       // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                       key={`static-${i}`}
-                      className="flex items-center justify-between p-4 bg-zinc-900 border border-white/5 rounded-2xl group hover:border-[var(--theme-primary)]/30 transition-all"
+                      className="group flex items-center justify-between rounded-2xl border border-white/5 bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="p-2 bg-red-500/10 rounded-lg text-red-500">
+                        <div className="rounded-lg bg-red-500/10 p-2 text-red-500">
                           <Target size={14} />
                         </div>
-                        <span className="text-xs font-bold uppercase tracking-wide group-hover:text-white transition-colors">
+                        <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
                           {loc}
                         </span>
                       </div>
-                      <span className="text-[8px] font-black text-red-500/60 uppercase tracking-widest px-2 py-1 bg-red-500/5 rounded-lg border border-red-500/10">
+                      <span className="rounded-lg border border-red-500/10 bg-red-500/5 px-2 py-1 font-black text-[8px] text-red-500/60 uppercase tracking-widest">
                         STATIONARY
                       </span>
                     </div>
@@ -82,14 +82,14 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                     return (
                       <div
                         key={e.location_area.name}
-                        className="flex flex-col p-4 bg-zinc-900 border border-white/5 rounded-2xl group hover:border-[var(--theme-primary)]/30 transition-all space-y-3"
+                        className="group flex flex-col space-y-3 rounded-2xl border border-white/5 bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="p-2 bg-[var(--theme-primary)]/10 rounded-lg text-[var(--theme-primary)]">
+                            <div className="rounded-lg bg-[var(--theme-primary)]/10 p-2 text-[var(--theme-primary)]">
                               <MapPin size={14} />
                             </div>
-                            <span className="text-xs font-bold uppercase tracking-wide group-hover:text-white transition-colors">
+                            <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
                               {e.location_area.name.replace(/-/g, ' ').toUpperCase()}
                             </span>
                           </div>
@@ -98,19 +98,19 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                               <span
                                 // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                                 key={di}
-                                className="text-[8px] font-black text-zinc-500 uppercase tracking-widest px-2 py-0.5 bg-white/5 rounded-md border border-white/5"
+                                className="rounded-md border border-white/5 bg-white/5 px-2 py-0.5 font-black text-[8px] text-zinc-500 uppercase tracking-widest"
                               >
                                 LV.{d.min_level}-{d.max_level}
                               </span>
                             ))}
                           </div>
                         </div>
-                        <div className="flex flex-wrap gap-1.5 pl-1.5 border-l-2 border-[var(--theme-primary)]/20">
+                        <div className="flex flex-wrap gap-1.5 border-[var(--theme-primary)]/20 border-l-2 pl-1.5">
                           {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
                             <span
                               // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                               key={di}
-                              className="text-[8px] font-black text-[var(--theme-primary)]/70 uppercase"
+                              className="font-black text-[8px] text-[var(--theme-primary)]/70 uppercase"
                             >
                               • {d.method.name.replace('-', ' ')} ({d.chance}%)
                             </span>
@@ -126,24 +126,24 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
             // Fallback to other versions ONLY if missing in current (and no evolution path)
             return (
               <div className="space-y-3">
-                <div className="text-[10px] font-black text-amber-500/60 uppercase tracking-widest flex items-center gap-2 mb-2 italic">
+                <div className="mb-2 flex items-center gap-2 font-black text-[10px] text-amber-500/60 uppercase italic tracking-widest">
                   <AlertTriangle size={12} /> Species unavailable in {gameVersion.toUpperCase()}. External cross-version
                   extraction required.
                 </div>
                 {encounters.map((e: LocationAreaEncounter) => (
                   <div
                     key={e.location_area.name}
-                    className="flex flex-col p-4 bg-zinc-900/40 border border-white/5 rounded-2xl opacity-60"
+                    className="flex flex-col rounded-2xl border border-white/5 bg-zinc-900/40 p-4 opacity-60"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase text-zinc-500">
+                      <span className="font-bold text-xs text-zinc-500 uppercase">
                         {e.location_area.name.replace(/-/g, ' ').toUpperCase()}
                       </span>
                       <div className="flex gap-1">
                         {e.version_details.map((v: VersionEncounterDetail) => (
                           <span
                             key={v.version.name}
-                            className="text-[7px] font-black bg-white/5 px-1.5 py-0.5 rounded border border-white/5 uppercase"
+                            className="rounded border border-white/5 bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase"
                           >
                             {v.version.name}
                           </span>

@@ -8,7 +8,7 @@ import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig'
 function SettingsLegend() {
   return (
     <div className="space-y-4">
-      <h3 className="text-[10px] font-black text-zinc-500 uppercase tracking-widest flex items-center gap-2">
+      <h3 className="flex items-center gap-2 font-black text-[10px] text-zinc-500 uppercase tracking-widest">
         <Info size={12} /> Legend
       </h3>
       <div className="grid grid-cols-2 gap-3">
@@ -20,7 +20,7 @@ function SettingsLegend() {
         ].map((item) => (
           <div
             key={item.label}
-            className="flex items-center gap-3 bg-zinc-950 p-3 rounded-xl border border-zinc-800 text-[11px] font-bold"
+            className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950 p-3 font-bold text-[11px]"
           >
             {item.icon} {item.label}
           </div>
@@ -53,18 +53,18 @@ function SettingsControls({
 }: SettingsControlsProps) {
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between p-4 bg-zinc-950 rounded-2xl border border-zinc-800">
+      <div className="flex items-center justify-between rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-blue-500/10 rounded-lg">
+          <div className="rounded-lg bg-blue-500/10 p-2">
             <Settings2 size={18} className="text-blue-500" />
           </div>
-          <span className="text-xs font-bold uppercase tracking-wider">Version</span>
+          <span className="font-bold text-xs uppercase tracking-wider">Version</span>
         </div>
         <select
           value={effectiveVersion}
           onChange={(e) => setManualVersion(e.target.value as GameVersion)}
           aria-label="Select Game Version"
-          className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-xs font-bold text-zinc-200 outline-none focus:border-blue-500 transition-colors"
+          className="rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 font-bold text-xs text-zinc-200 outline-none transition-colors focus:border-blue-500"
         >
           <option value="unknown">Auto</option>
           {(genConfig?.versions ?? [...getGenerationConfig(1).versions, ...getGenerationConfig(2).versions]).map(
@@ -77,12 +77,12 @@ function SettingsControls({
         </select>
       </div>
 
-      <div className="flex items-center justify-between p-4 bg-zinc-950 rounded-2xl border border-zinc-800">
+      <div className="flex items-center justify-between rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-purple-500/10 rounded-lg">
+          <div className="rounded-lg bg-purple-500/10 p-2">
             <Archive size={18} className="text-purple-500" />
           </div>
-          <span className="text-xs font-bold uppercase tracking-wider">Living Dex</span>
+          <span className="font-bold text-xs uppercase tracking-wider">Living Dex</span>
         </div>
         <button
           role="switch"
@@ -97,18 +97,18 @@ function SettingsControls({
         </button>
       </div>
 
-      <div className="flex items-center justify-between p-4 bg-zinc-950 rounded-2xl border border-zinc-800">
+      <div className="flex items-center justify-between rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-amber-500/10 rounded-lg">
+          <div className="rounded-lg bg-amber-500/10 p-2">
             <CircleDot size={18} className="text-amber-500" />
           </div>
-          <span className="text-xs font-bold uppercase tracking-wider">Ball Style</span>
+          <span className="font-bold text-xs uppercase tracking-wider">Ball Style</span>
         </div>
         <select
           value={globalPokeball}
           onChange={(e) => setGlobalPokeball(e.target.value as PokeballType)}
           aria-label="Select Ball Style"
-          className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-xs font-bold text-zinc-200 outline-none focus:border-amber-500 transition-colors"
+          className="rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 font-bold text-xs text-zinc-200 outline-none transition-colors focus:border-amber-500"
         >
           {filteredPokeballs.map((pb) => (
             <option key={pb.value} value={pb.value}>
@@ -126,18 +126,18 @@ function ClearStorageButton({ onClear }: { onClear: () => void }) {
 
   if (isConfirming) {
     return (
-      <div className="flex gap-2 w-full animate-in fade-in zoom-in-95 duration-200">
+      <div className="fade-in zoom-in-95 flex w-full animate-in gap-2 duration-200">
         <button
           onClick={() => setIsConfirming(false)}
-          className="flex-1 p-5 bg-zinc-800 text-zinc-300 rounded-2xl border border-zinc-700 font-bold uppercase tracking-widest text-[10px] hover:bg-zinc-700 transition-all"
+          className="flex-1 rounded-2xl border border-zinc-700 bg-zinc-800 p-5 font-bold text-[10px] text-zinc-300 uppercase tracking-widest transition-all hover:bg-zinc-700"
         >
           Cancel
         </button>
         <button
           onClick={onClear}
-          className="flex-1 flex items-center justify-center gap-2 p-5 bg-red-600 text-white rounded-2xl border border-red-500 font-bold uppercase tracking-widest text-[10px] hover:bg-red-500 transition-all group"
+          className="group flex flex-1 items-center justify-center gap-2 rounded-2xl border border-red-500 bg-red-600 p-5 font-bold text-[10px] text-white uppercase tracking-widest transition-all hover:bg-red-500"
         >
-          <Trash2 size={14} className="group-hover:rotate-12 transition-transform" />
+          <Trash2 size={14} className="transition-transform group-hover:rotate-12" />
           Confirm Delete
         </button>
       </div>
@@ -147,9 +147,9 @@ function ClearStorageButton({ onClear }: { onClear: () => void }) {
   return (
     <button
       onClick={() => setIsConfirming(true)}
-      className="w-full flex items-center justify-center gap-3 p-5 bg-red-600/10 text-red-500 rounded-2xl border border-red-600/20 font-bold uppercase tracking-widest text-[10px] hover:bg-red-600/20 transition-all group animate-in fade-in zoom-in-95 duration-200"
+      className="group fade-in zoom-in-95 flex w-full animate-in items-center justify-center gap-3 rounded-2xl border border-red-600/20 bg-red-600/10 p-5 font-bold text-[10px] text-red-500 uppercase tracking-widest transition-all duration-200 hover:bg-red-600/20"
     >
-      <Trash2 size={16} className="group-hover:rotate-12 transition-transform" />
+      <Trash2 size={16} className="transition-transform group-hover:rotate-12" />
       Clear Stored Save
     </button>
   );
@@ -178,29 +178,29 @@ export function SettingsModal() {
     .map((value) => ({ value, label: POKEBALL_LABELS[value] }));
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div className="fixed inset-0 z-[60] flex items-end justify-center p-0 sm:items-center sm:p-4">
       <div
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300"
+        className="fade-in absolute inset-0 animate-in bg-black/80 backdrop-blur-sm duration-300"
         onClick={() => setIsSettingsOpen(false)}
       />
-      <div className="relative w-full sm:max-w-md bg-zinc-900 rounded-t-[2.5rem] sm:rounded-[2.5rem] border-t sm:border border-zinc-800 shadow-2xl overflow-hidden animate-in slide-in-from-bottom-[100%] duration-300 sm:zoom-in-95">
-        <div className="p-8 border-b border-zinc-800 flex items-center justify-between">
+      <div className="slide-in-from-bottom-[100%] sm:zoom-in-95 relative w-full animate-in overflow-hidden rounded-t-[2.5rem] border-zinc-800 border-t bg-zinc-900 shadow-2xl duration-300 sm:max-w-md sm:rounded-[2.5rem] sm:border">
+        <div className="flex items-center justify-between border-zinc-800 border-b p-8">
           <div>
-            <h2 className="text-2xl font-display font-black uppercase tracking-tight">Menu</h2>
-            <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mt-1">
+            <h2 className="font-black font-display text-2xl uppercase tracking-tight">Menu</h2>
+            <p className="mt-1 font-bold text-[10px] text-zinc-500 uppercase tracking-widest">
               Configure your experience
             </p>
           </div>
           <button
             onClick={() => setIsSettingsOpen(false)}
             aria-label="Close settings"
-            className="p-3 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors text-zinc-400"
+            className="rounded-full bg-zinc-800 p-3 text-zinc-400 transition-colors hover:bg-zinc-700"
           >
             <X size={20} />
           </button>
         </div>
 
-        <div className="p-8 space-y-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
+        <div className="custom-scrollbar max-h-[70vh] space-y-8 overflow-y-auto p-8">
           <SettingsLegend />
           <SettingsControls
             effectiveVersion={effectiveVersion}

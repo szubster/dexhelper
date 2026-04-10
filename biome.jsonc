@@ -27,6 +27,14 @@
     },
     "rules": {
       "recommended": true,
+      "nursery": {
+        "useSortedClasses": {
+          "level": "warn",
+          "options": {
+            "functions": ["clsx", "twMerge", "cn"]
+          }
+        }
+      },
       "a11y": {
         // TODO: Re-evaluate and enable accessibility rules in the future once UI baseline is solid
         "useKeyWithClickEvents": "off",

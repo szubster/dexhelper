@@ -15,24 +15,24 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
   const [status, setStatus] = useState<StatusType>('none');
 
   return (
-    <div className="glass-card bg-emerald-500/5 border-emerald-500/10 rounded-[2.5rem] p-8 space-y-8 relative overflow-hidden">
+    <div className="glass-card relative space-y-8 overflow-hidden rounded-[2.5rem] border-emerald-500/10 bg-emerald-500/5 p-8">
       <div className="absolute top-0 right-0 p-4 opacity-5">
         <Target size={120} />
       </div>
       <div className="flex items-center justify-between">
-        <h3 className="text-[10px] font-black text-emerald-400 uppercase tracking-[0.3em] flex items-center gap-2">
+        <h3 className="flex items-center gap-2 font-black text-[10px] text-emerald-400 uppercase tracking-[0.3em]">
           <Target size={14} /> Catch Probability
         </h3>
-        <div className="px-3 py-1 bg-emerald-500/20 rounded-full text-[10px] font-mono font-black text-emerald-400 border border-emerald-500/30">
+        <div className="rounded-full border border-emerald-500/30 bg-emerald-500/20 px-3 py-1 font-black font-mono text-[10px] text-emerald-400">
           RATING: {catchRate}
         </div>
       </div>
 
       <div className="space-y-6">
         <div className="space-y-3">
-          <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-emerald-500/60">
+          <div className="flex justify-between font-black text-[10px] text-emerald-500/60 uppercase tracking-widest">
             <span>Target Integrity</span>
-            <span className="text-emerald-400 font-mono">{hpPercent}% HP</span>
+            <span className="font-mono text-emerald-400">{hpPercent}% HP</span>
           </div>
           <input
             type="range"
@@ -40,7 +40,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
             max="100"
             value={hpPercent}
             onChange={(e) => setHpPercent(Number(e.target.value))}
-            className="w-full accent-emerald-500 h-2 bg-black/40 rounded-full appearance-none cursor-pointer border border-white/5"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full border border-white/5 bg-black/40 accent-emerald-500"
           />
         </div>
 
@@ -58,10 +58,10 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
               aria-checked={status === item.id}
               onClick={() => setStatus(item.id)}
               className={cn(
-                'py-3 text-[9px] font-black uppercase tracking-widest rounded-2xl border transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 outline-none',
+                'rounded-2xl border py-3 font-black text-[9px] uppercase tracking-widest outline-none transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95',
                 status === item.id
-                  ? 'bg-emerald-500 border-emerald-400 text-white shadow-[0_5px_15px_rgba(16,185,129,0.3)]'
-                  : 'bg-black/20 border-white/5 text-emerald-500/50 hover:border-emerald-500/20',
+                  ? 'border-emerald-400 bg-emerald-500 text-white shadow-[0_5px_15px_rgba(16,185,129,0.3)]'
+                  : 'border-white/5 bg-black/20 text-emerald-500/50 hover:border-emerald-500/20',
               )}
             >
               {item.label}
@@ -70,13 +70,13 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
         </div>
       </div>
 
-      <div className="pt-8 border-t border-emerald-500/10 flex flex-col gap-2">
+      <div className="flex flex-col gap-2 border-emerald-500/10 border-t pt-8">
         <div className="flex items-end justify-between">
           <div className="flex flex-col">
-            <span className="text-[10px] font-black text-emerald-500/40 uppercase tracking-widest mb-1">
+            <span className="mb-1 font-black text-[10px] text-emerald-500/40 uppercase tracking-widest">
               Estimated Success
             </span>
-            <span className="text-5xl font-display font-black text-emerald-400 tracking-tighter">
+            <span className="font-black font-display text-5xl text-emerald-400 tracking-tighter">
               {(() => {
                 let ballMult = 1;
                 if (effectivePokeball === 'great') ballMult = 1.5;
@@ -91,21 +91,21 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
             </span>
           </div>
           <div className="flex flex-col items-end text-right">
-            <div className="w-10 h-10 rounded-full bg-black/40 border border-white/10 flex items-center justify-center mb-2">
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40">
               <div
                 className={cn(
-                  'w-6 h-6 rounded-full border-2',
+                  'h-6 w-6 rounded-full border-2',
                   effectivePokeball === 'safari'
-                    ? 'bg-emerald-500/20 border-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]'
+                    ? 'border-emerald-500 bg-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.5)]'
                     : effectivePokeball === 'ultra'
-                      ? 'bg-yellow-500/20 border-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]'
+                      ? 'border-yellow-500 bg-yellow-500/20 shadow-[0_0_10px_rgba(234,179,8,0.5)]'
                       : effectivePokeball === 'great'
-                        ? 'bg-blue-500/20 border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]'
-                        : 'bg-red-500/20 border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]',
+                        ? 'border-blue-500 bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.5)]'
+                        : 'border-red-500 bg-red-500/20 shadow-[0_0_10px_rgba(239,68,68,0.5)]',
                 )}
               />
             </div>
-            <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">
+            <span className="font-black text-[10px] text-zinc-500 uppercase tracking-widest">
               {effectivePokeball.toUpperCase()} BALL
             </span>
           </div>
