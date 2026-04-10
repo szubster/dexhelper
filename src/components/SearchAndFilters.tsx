@@ -33,6 +33,7 @@ export function SearchAndFilters() {
           />
           {searchTerm && (
             <button
+              type="button"
               onClick={() => setSearchTerm('')}
               aria-label="Clear search"
               className="absolute top-1/2 right-4 -translate-y-1/2 rounded-xl p-2 text-zinc-500 transition-all hover:bg-white/5 hover:text-white"
@@ -47,6 +48,7 @@ export function SearchAndFilters() {
         {/* Filter Buttons designed as Retro Console Switches */}
         <div className="no-scrollbar flex gap-2 overflow-x-auto px-1 pb-2">
           <button
+            type="button"
             onClick={() => setFilters([])}
             aria-pressed={filtersSet.size === 0}
             className={cn(
@@ -62,6 +64,7 @@ export function SearchAndFilters() {
 
           {(['secured', 'missing', 'dex-only'] as FilterType[]).map((f) => (
             <button
+              type="button"
               key={f}
               onClick={() => toggleFilter(f)}
               aria-pressed={filtersSet.has(f)}

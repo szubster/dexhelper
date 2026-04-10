@@ -61,6 +61,7 @@ export function PokemonEvolutions({
               <>
                 {' '}
                 <button
+                  type="button"
                   onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
                   className="text-red-400 underline decoration-red-500/30 underline-offset-4 transition-colors hover:text-white"
                 >
@@ -105,6 +106,7 @@ export function PokemonEvolutions({
           <div className="relative z-10 font-bold text-xs text-zinc-300 leading-relaxed">
             FROM{' '}
             <button
+              type="button"
               onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
               className="text-white underline decoration-purple-500/30 underline-offset-4 transition-colors hover:text-purple-400"
             >
@@ -136,6 +138,7 @@ export function PokemonEvolutions({
               <div key={evo.id} className="font-bold text-xs text-zinc-300 leading-relaxed">
                 TO{' '}
                 <button
+                  type="button"
                   onClick={() => onNavigate(evo.id, evo.name)}
                   className="text-white underline decoration-blue-500/30 underline-offset-4 transition-colors hover:text-blue-400"
                 >
@@ -161,6 +164,7 @@ export function PokemonEvolutions({
             {breedingInfo.parentNames.map((name: string, i: number) => (
               <React.Fragment key={name}>
                 <button
+                  type="button"
                   onClick={() => {
                     const id = breedingInfo.parentIds[i];
                     if (id) onNavigate(id, name);

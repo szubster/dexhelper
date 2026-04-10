@@ -83,13 +83,14 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
         const isShiny = shinySpeciesIds.has(pokemon.id);
 
         return (
-          <div
+          <button
+            type="button"
             data-testid="pokedex-card"
             data-pokemon-id={pokemon.id}
             key={pokemon.id}
             onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
             className={cn(
-              'group relative cursor-pointer rounded-3xl border-2 p-4 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]',
+              'group relative w-full cursor-pointer rounded-3xl border-2 p-4 text-left transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]',
               hasInStorage
                 ? 'border-emerald-500/30 bg-zinc-900 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]'
                 : 'border-white/5 bg-zinc-900 hover:border-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]',
@@ -215,7 +216,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
             <div className="absolute right-[-10px] bottom-[-10px] p-4 opacity-0 transition-opacity group-hover:opacity-100">
               <ChevronRight size={14} className="text-[var(--theme-primary)]" />
             </div>
-          </div>
+          </button>
         );
       })}
     </div>
