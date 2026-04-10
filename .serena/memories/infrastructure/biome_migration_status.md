@@ -10,6 +10,7 @@ The project has transitioned from no formal linting/formatting to a unified tool
 - **Phase 3.2 (Completed)**: General Correctness & Imports (parseInt radix, exhaustive deps, import sorting, import type). 61 files fixed.
 - **Phase 3.3 (Completed)**: Suspicious & Style Rules. Remaining warnings resolved and PR raised.
 - **Phase 4 (Completed)**: Configured `biome.jsonc`. Re-enabled all rules except for `a11y` (pending UI baseline stabilization) and `useSimpleNumberKeys` (required for binary save file hex parsing).
+- **Phase 5 (Completed)**: Domain Enablement / Activation based on project dependencies (e.g., project, react, test).
 
 ## Configuration Details
 - **Tool**: Biome v2.4.10
@@ -18,4 +19,6 @@ The project has transitioned from no formal linting/formatting to a unified tool
 - **Settings**: Single quotes for JS/TS, space indentation (2), Git-aware scanning.
 
 ## Future Phases
-- **Phase 5**: UI Baseline Stabilization / Enablement of `a11y` rules (Currently marked as TODO in `biome.jsonc`).
+- **Phase 6**: Comprehensive Rule Analysis (tuning existing rules and cautious evaluation of non-default/nursery rules).
+- **Phase 7**: Plugin & Tooling Exploration (exploring Biome's integration with Vite, Tailwind, Lefthook, and other stack tools).
+- **Phase 8**: UI Baseline Stabilization / Enablement of `a11y` rules (Currently marked as TODO in `biome.jsonc`).

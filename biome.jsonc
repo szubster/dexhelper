@@ -18,6 +18,13 @@
   },
   "linter": {
     "enabled": true,
+    "domains": {
+      "project": "recommended",
+      "react": "recommended",
+      "test": "recommended",
+      "playwright": "recommended",
+      "types": "recommended"
+    },
     "rules": {
       "recommended": true,
       "a11y": {
