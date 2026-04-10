@@ -19,12 +19,28 @@ describe('gen1Exclusives', () => {
 
       it('should not lock Raichu in Red/Blue even if not owned', () => {
         const ownedSet = new Set([25]); // Own Pikachu
-        const reason = getUnobtainableReason(26, 'red', 1, ownedSet);
-        expect(reason).toBeNull();
+        const reasonRed = getUnobtainableReason(26, 'red', 1, ownedSet);
+        const reasonBlue = getUnobtainableReason(26, 'blue', 1, ownedSet);
+        expect(reasonRed).toBeNull();
+        expect(reasonBlue).toBeNull();
       });
     });
 
     describe('Missed pre-evolutions (Starters/Eevee)', () => {
+      it('should lock Bulbasaur (1) if Ivysaur (2) is owned but Bulbasaur is not', () => {
+        const ownedSet = new Set([2]); // Own Ivysaur
+        const reason = getUnobtainableReason(1, 'red', 1, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('Pre-evolution missed');
+      });
+
+      it('should lock Squirtle (7) if Wartortle (8) is owned but Squirtle is not', () => {
+        const ownedSet = new Set([8]); // Own Wartortle
+        const reason = getUnobtainableReason(7, 'red', 1, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('Pre-evolution missed');
+      });
+
       it('should lock Charmander (4) if Charmeleon (5) is owned but Charmander is not', () => {
         const ownedSet = new Set([5]); // Own Charmeleon
         const reason = getUnobtainableReason(4, 'red', 1, ownedSet);
@@ -46,6 +62,20 @@ describe('gen1Exclusives', () => {
 
       it('should lock Eevee (133) if an evolution (Vaporeon 134) is owned but Eevee is not', () => {
         const ownedSet = new Set([134]); // Own Vaporeon
+        const reason = getUnobtainableReason(133, 'red', 1, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('Pre-evolution missed');
+      });
+
+      it('should lock Eevee (133) if Jolteon (135) is owned but Eevee is not', () => {
+        const ownedSet = new Set([135]); // Own Jolteon
+        const reason = getUnobtainableReason(133, 'red', 1, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('Pre-evolution missed');
+      });
+
+      it('should lock Eevee (133) if Flareon (136) is owned but Eevee is not', () => {
+        const ownedSet = new Set([136]); // Own Flareon
         const reason = getUnobtainableReason(133, 'red', 1, ownedSet);
         expect(typeof reason).toBe('string');
         expect(reason).toContain('Pre-evolution missed');
@@ -98,6 +128,20 @@ describe('gen1Exclusives', () => {
       it('should lock Kabuto (140) if Omastar (139) is owned', () => {
         const ownedSet = new Set([139]); // Own Omastar
         const reason = getUnobtainableReason(140, 'red', 1, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('other Fossil');
+      });
+
+      it('should lock Omastar (139) if Kabuto (140) is owned', () => {
+        const ownedSet = new Set([140]); // Own Kabuto
+        const reason = getUnobtainableReason(139, 'red', 1, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('other Fossil');
+      });
+
+      it('should lock Kabutops (141) if Omanyte (138) is owned', () => {
+        const ownedSet = new Set([138]); // Own Omanyte
+        const reason = getUnobtainableReason(141, 'red', 1, ownedSet);
         expect(typeof reason).toBe('string');
         expect(reason).toContain('other Fossil');
       });
