@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getDistanceToMap } from './gen1Graph';
+import { GEN1_MAPS, getDistanceToMap } from './gen1Graph';
 
 describe('getDistanceToMap', () => {
   it('returns distance 0 when starting map is the target', () => {
@@ -68,5 +68,17 @@ describe('getDistanceToMap', () => {
     // Safe to say it's NOT 1. Distance should be around 7-10.
     expect(result?.distance).toBeGreaterThan(1);
     expect(result?.name).not.toBe('Route 1');
+  });
+
+  it('handles graphs with missing connection nodes gracefully', () => {
+    // Temporarily add a map with a dangling connection
+    GEN1_MAPS[0x998] = { id: 0x998, slug: 'test-map', name: 'Test', connections: [0x999] }; // 0x999 does not exist
+
+    const result = getDistanceToMap(0x998, 'some-unreachable-target');
+
+    expect(result).toBeNull();
+
+    // Cleanup
+    delete GEN1_MAPS[0x998];
   });
 });
