@@ -34,9 +34,17 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
         <div className="relative z-10 grid grid-cols-1 gap-3">
           {(() => {
             const staticEnc = staticEncounters[pokemonId]?.[gameVersion as keyof (typeof staticEncounters)[number]];
-            const versionEnc = encounters.filter((e: LocationAreaEncounter) =>
-              e.version_details.some((v: VersionEncounterDetail) => v.version.name === gameVersion),
-            );
+            const versionEnc = encounters.reduce<
+              { encounter: LocationAreaEncounter; versionDetail: VersionEncounterDetail }[]
+            >((acc, e) => {
+              const versionDetail = e.version_details.find(
+                (v: VersionEncounterDetail) => v.version.name === gameVersion,
+              );
+              if (versionDetail) {
+                acc.push({ encounter: e, versionDetail });
+              }
+              return acc;
+            }, []);
 
             if ((staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq) {
               return (
@@ -75,10 +83,7 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                       </span>
                     </div>
                   ))}
-                  {versionEnc.map((e: LocationAreaEncounter) => {
-                    const versionDetail = e.version_details.find(
-                      (v: VersionEncounterDetail) => v.version.name === gameVersion,
-                    );
+                  {versionEnc.map(({ encounter: e, versionDetail }) => {
                     return (
                       <div
                         key={e.location_area.name}
