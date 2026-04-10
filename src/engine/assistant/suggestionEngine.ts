@@ -620,109 +620,115 @@ export function generateSuggestions(
   }
 
   // Evolutions
-  saveData.partyDetails.forEach((p: PokemonInstance, idx: number) => {
-    const chain = apiData.partyEvolutions?.[p.speciesId];
+  queryTargets.forEach((targetId: number) => {
+    const chain = apiData.missingChains?.[targetId];
     if (!chain) return;
 
-    const findInChain = (node: ChainLink): ChainLink | null => {
+    // Find the target node and its parent (pre-evolution)
+    const findNodeAndParent = (
+      node: ChainLink,
+      parent: ChainLink | null = null,
+    ): { targetNode: ChainLink; parentNode: ChainLink } | null => {
       const id = parseIdFromUrl(node.species.url);
-      if (id === p.speciesId) return node;
+      if (id === targetId) return { targetNode: node, parentNode: parent! };
       for (const child of node.evolves_to) {
-        const res = findInChain(child);
+        const res = findNodeAndParent(child, node);
         if (res) return res;
       }
       return null;
     };
 
-    const currentNode = findInChain(chain.chain);
-    if (currentNode && currentNode.evolves_to.length > 0) {
-      currentNode.evolves_to.forEach((evoNode: ChainLink) => {
-        const evoId = parseIdFromUrl(evoNode.species.url);
-        if (ownedSet.has(evoId)) {
-          rejected.push({
-            pokemonId: evoId,
-            reason: 'Already own evolved form',
-            code: 'EVO_ALREADY_OWNED',
-          });
-          return;
-        }
+    const nodes = findNodeAndParent(chain.chain);
+    if (!nodes || !nodes.parentNode) return;
 
-        const details = evoNode.evolution_details[0];
-        if (!details) return;
+    const parentId = parseIdFromUrl(nodes.parentNode.species.url);
 
-        if (details.trigger.name === 'level-up' && details.min_level) {
-          if (p.level >= details.min_level - 3) {
-            const isReady = p.level >= details.min_level;
-            suggestions.push({
-              id: `evo-lvl-${p.speciesId}-${idx}`,
-              category: 'Evolve',
-              title: `Level Up Evolution`,
-              description: isReady
-                ? `Lv. ${p.level} is ready to evolve (needs Lv. ${details.min_level})!`
-                : `Your Lv. ${p.level} Pokémon evolves at Lv. ${details.min_level}.`,
-              pokemonId: p.speciesId,
-              priority: isReady ? 90 : 75,
-            });
-          }
-        } else if (details.trigger.name === 'use-item' && details.item) {
-          const itemName = details.item.name;
-          const isYellowStarterPikachu =
-            displayVersion === 'yellow' && p.speciesId === 25 && p.otName === saveData.trainerName;
-          if (isYellowStarterPikachu) return;
+    // Check if we own the pre-evolution
+    const ownedInstances = allInstances.filter((p: PokemonInstance) => p.speciesId === parentId);
+    if (ownedInstances.length === 0) return;
 
-          let targetItemId = -1;
-          if (saveData.generation === 1) {
-            if (itemName.includes('fire')) targetItemId = GEN1_ITEMS.FIRE_STONE;
-            else if (itemName.includes('thunder')) targetItemId = GEN1_ITEMS.THUNDER_STONE;
-            else if (itemName.includes('water')) targetItemId = GEN1_ITEMS.WATER_STONE;
-            else if (itemName.includes('leaf')) targetItemId = GEN1_ITEMS.LEAF_STONE;
-            else targetItemId = GEN1_ITEMS.MOON_STONE; // Default to moon stone
-          } else {
-            // Gen 2
-            const normalizedItemName = itemName.toLowerCase().replace(/[-\s]/g, '');
-            targetItemId = GEN2_ITEM_IDS_BY_NAME[normalizedItemName] || -1;
-          }
+    // Get the highest level instance to give the most optimistic suggestion
+    const bestInstance = ownedInstances.reduce((prev, current) => (prev.level > current.level ? prev : current));
 
-          const hasStone = saveData.inventory.some((i) => i.id === targetItemId);
-          if (hasStone)
-            suggestions.push({
-              id: `evo-stn-${p.speciesId}-${idx}`,
-              category: 'Evolve',
-              title: `Ready to Evolve!`,
-              description: `Use ${itemName.replace('-', ' ')} on your Pokémon!`,
-              pokemonId: p.speciesId,
-              priority: 95,
-            });
-          else if (!itemName.includes('moon'))
-            suggestions.push({
-              id: `evo-buy-${p.speciesId}-${idx}`,
-              category: 'Evolve',
-              title: `Buy ${itemName.replace('-', ' ')}`,
-              description: `Visit Celadon Dept. Store to evolve your Pokémon.`,
-              pokemonId: p.speciesId,
-              priority: 40,
-            });
-        } else if (details.trigger.name === 'trade') {
-          if (details.held_item) {
-            suggestions.push({
-              id: `evo-trade-${p.speciesId}-${idx}`,
-              category: 'Evolve',
-              title: `Trade to Evolve!`,
-              description: `Trade this Pokémon while holding ${details.held_item.name.replace('-', ' ')} to trigger its evolution.`,
-              pokemonId: p.speciesId,
-              priority: 80,
-            });
-          } else {
-            suggestions.push({
-              id: `evo-trade-${p.speciesId}-${idx}`,
-              category: 'Evolve',
-              title: `Trade to Evolve!`,
-              description: `Trade this Pokémon to trigger its evolution.`,
-              pokemonId: p.speciesId,
-              priority: 80,
-            });
-          }
-        }
+    // Get evolution details from the target node
+    const details = nodes.targetNode.evolution_details[0];
+    if (!details) return;
+
+    const trigger = details.trigger.name;
+
+    if (trigger === 'level-up') {
+      if (details.min_level) {
+        const isReady = bestInstance.level >= details.min_level;
+        suggestions.push({
+          id: `evo-lvl-${targetId}`,
+          category: 'Evolve',
+          title: `Level Up Evolution: #${targetId}`,
+          description: isReady
+            ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve (needs Lv. ${details.min_level})!`
+            : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${details.min_level}.`,
+          pokemonId: targetId,
+          priority: isReady ? 90 : 75,
+        });
+      } else if (details.min_happiness) {
+        suggestions.push({
+          id: `evo-happy-${targetId}`,
+          category: 'Evolve',
+          title: `Happiness Evolution: #${targetId}`,
+          description: `Level up your pre-evolution with high happiness to evolve!`,
+          pokemonId: targetId,
+          priority: 80,
+        });
+      }
+    } else if (trigger === 'use-item' && details.item) {
+      const itemName = details.item.name;
+      const isYellowStarterPikachu =
+        displayVersion === 'yellow' && parentId === 25 && bestInstance.otName === saveData.trainerName;
+      if (isYellowStarterPikachu) return;
+
+      let targetItemId = -1;
+      if (saveData.generation === 1) {
+        if (itemName.includes('fire')) targetItemId = GEN1_ITEMS.FIRE_STONE;
+        else if (itemName.includes('thunder')) targetItemId = GEN1_ITEMS.THUNDER_STONE;
+        else if (itemName.includes('water')) targetItemId = GEN1_ITEMS.WATER_STONE;
+        else if (itemName.includes('leaf')) targetItemId = GEN1_ITEMS.LEAF_STONE;
+        else targetItemId = GEN1_ITEMS.MOON_STONE; // Default to moon stone
+      } else {
+        // Gen 2
+        const normalizedItemName = itemName.toLowerCase().replace(/[-\s]/g, '');
+        targetItemId = GEN2_ITEM_IDS_BY_NAME[normalizedItemName] || -1;
+      }
+
+      const hasStone = saveData.inventory.some((i) => i.id === targetItemId);
+      if (hasStone) {
+        suggestions.push({
+          id: `evo-stn-${targetId}`,
+          category: 'Evolve',
+          title: `Ready to Evolve: #${targetId}!`,
+          description: `Use ${itemName.replace('-', ' ')} on your pre-evolution!`,
+          pokemonId: targetId,
+          priority: 95,
+        });
+      } else {
+        suggestions.push({
+          id: `evo-buy-${targetId}`,
+          category: 'Evolve',
+          title: `Get ${itemName.replace('-', ' ')}`,
+          description: `Obtain a ${itemName.replace('-', ' ')} to evolve your pre-evolution into #${targetId}.`,
+          pokemonId: targetId,
+          priority: 40,
+        });
+      }
+    } else if (trigger === 'trade') {
+      const heldItem = details.held_item?.name;
+      suggestions.push({
+        id: `evo-trade-${targetId}`,
+        category: 'Evolve',
+        title: `Trade Evolution: #${targetId}`,
+        description: heldItem
+          ? `Trade your pre-evolution while holding ${heldItem.replace('-', ' ')}.`
+          : `Trade your pre-evolution to evolve it!`,
+        pokemonId: targetId,
+        priority: 85,
       });
     }
   });
