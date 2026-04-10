@@ -379,13 +379,11 @@ export function PokemonDetails({
   const isShiny = yourPokemon.some((p) => p.isShiny);
 
   return (
-    <div
-      className="fade-in fixed inset-0 z-50 flex animate-in items-end justify-center p-0 duration-300 sm:items-center sm:p-4"
-      onClick={onClose}
-    >
-      <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" />
+    <div className="fade-in fixed inset-0 z-50 flex animate-in items-end justify-center p-0 duration-300 sm:items-center sm:p-4">
+      <div aria-hidden="true" className="absolute inset-0 bg-black/90 backdrop-blur-xl" onClick={onClose} />
       <div
-        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
         className="slide-in-from-bottom-[100%] sm:zoom-in-95 relative flex h-[95vh] w-full animate-in flex-col overflow-hidden rounded-t-[2.5rem] border-white/10 border-t bg-zinc-950/90 shadow-2xl duration-500 ease-out sm:h-[85vh] sm:max-w-5xl sm:rounded-[3rem] sm:border"
       >
         {/* Scanline Overlay */}
@@ -470,6 +468,7 @@ export function PokemonDetails({
             </div>
 
             <button
+              type="button"
               onClick={onClose}
               aria-label="Close details"
               className="group absolute top-6 right-6 rounded-2xl border border-white/10 bg-white/5 p-4 transition-all hover:bg-white/10 active:scale-95 sm:relative sm:top-auto sm:right-auto"

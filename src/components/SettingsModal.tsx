@@ -85,6 +85,7 @@ function SettingsControls({
           <span className="font-bold text-xs uppercase tracking-wider">Living Dex</span>
         </div>
         <button
+          type="button"
           role="switch"
           aria-checked={isLivingDex}
           aria-label="Toggle Living Dex Mode"
@@ -128,12 +129,14 @@ function ClearStorageButton({ onClear }: { onClear: () => void }) {
     return (
       <div className="fade-in zoom-in-95 flex w-full animate-in gap-2 duration-200">
         <button
+          type="button"
           onClick={() => setIsConfirming(false)}
           className="flex-1 rounded-2xl border border-zinc-700 bg-zinc-800 p-5 font-bold text-[10px] text-zinc-300 uppercase tracking-widest transition-all hover:bg-zinc-700"
         >
           Cancel
         </button>
         <button
+          type="button"
           onClick={onClear}
           className="group flex flex-1 items-center justify-center gap-2 rounded-2xl border border-red-500 bg-red-600 p-5 font-bold text-[10px] text-white uppercase tracking-widest transition-all hover:bg-red-500"
         >
@@ -146,6 +149,7 @@ function ClearStorageButton({ onClear }: { onClear: () => void }) {
 
   return (
     <button
+      type="button"
       onClick={() => setIsConfirming(true)}
       className="group fade-in zoom-in-95 flex w-full animate-in items-center justify-center gap-3 rounded-2xl border border-red-600/20 bg-red-600/10 p-5 font-bold text-[10px] text-red-500 uppercase tracking-widest transition-all duration-200 hover:bg-red-600/20"
     >
@@ -180,6 +184,7 @@ export function SettingsModal() {
   return (
     <div className="fixed inset-0 z-[60] flex items-end justify-center p-0 sm:items-center sm:p-4">
       <div
+        aria-hidden="true"
         className="fade-in absolute inset-0 animate-in bg-black/80 backdrop-blur-sm duration-300"
         onClick={() => setIsSettingsOpen(false)}
       />
@@ -192,6 +197,7 @@ export function SettingsModal() {
             </p>
           </div>
           <button
+            type="button"
             onClick={() => setIsSettingsOpen(false)}
             aria-label="Close settings"
             className="rounded-full bg-zinc-800 p-3 text-zinc-400 transition-colors hover:bg-zinc-700"

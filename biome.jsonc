@@ -35,15 +35,6 @@
           }
         }
       },
-      "a11y": {
-        // TODO: Re-evaluate and enable accessibility rules in the future once UI baseline is solid
-        "useKeyWithClickEvents": "off",
-        "useButtonType": "off",
-        "useAltText": "off",
-        "useKeyWithMouseEvents": "off",
-        "useAnchorContent": "off",
-        "noStaticElementInteractions": "off"
-      },
       "complexity": {
         // Allow hexadecimal number literals for object keys, parsing binary saves depends on mapping hex addresses
         "useSimpleNumberKeys": "off"

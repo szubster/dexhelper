@@ -71,6 +71,7 @@ export function BottomNav() {
         </Link>
 
         <button
+          type="button"
           onClick={() => setIsSettingsOpen(true)}
           aria-label="Open settings menu"
           className="flex flex-col items-center gap-1 py-1 text-zinc-500 transition-all duration-300"

@@ -179,6 +179,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               </div>
 
               <button
+                type="button"
                 onClick={() => setIsVersionModalOpen(true)}
                 className={cn(
                   'group zoom-in-95 fade-in relative animate-in overflow-hidden rounded-2xl border px-5 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all duration-500',
@@ -198,6 +199,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
               <div className="flex gap-2">
                 <button
+                  type="button"
                   onClick={() => setIsSettingsOpen(true)}
                   aria-label="System Settings"
                   className="retro-button flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-3 text-zinc-400 transition-all hover:bg-white/10 hover:text-white"
