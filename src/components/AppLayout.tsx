@@ -206,19 +206,19 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   <Settings2 size={20} />
                 </button>
                 <label
-                  className="p-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white rounded-2xl border border-white/5 cursor-pointer transition-all flex items-center justify-center retro-button"
+                  className="p-3 bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white rounded-2xl border border-white/5 cursor-pointer transition-all flex items-center justify-center retro-button focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-zinc-950"
                   title="Import New Save"
                 >
                   <RefreshCw size={20} />
-                  <input type="file" accept=".sav" className="hidden" onChange={handleFileUpload} />
+                  <input type="file" accept=".sav" className="sr-only" onChange={handleFileUpload} />
                 </label>
               </div>
             </div>
           ) : (
-            <label className="w-full sm:w-auto inline-flex items-center justify-center gap-4 bg-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/90 text-white px-10 py-4 rounded-2xl cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_20px_40px_rgba(var(--theme-primary-rgb),0.2)] font-black uppercase tracking-widest text-[11px] border-b-4 border-black/20 animate-in slide-in-from-bottom-2 fade-in">
+            <label className="w-full sm:w-auto inline-flex items-center justify-center gap-4 bg-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/90 text-white px-10 py-4 rounded-2xl cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_20px_40px_rgba(var(--theme-primary-rgb),0.2)] font-black uppercase tracking-widest text-[11px] border-b-4 border-black/20 animate-in slide-in-from-bottom-2 fade-in focus-within:outline-none focus-within:ring-2 focus-within:ring-[var(--theme-primary)] focus-within:ring-offset-2 focus-within:ring-offset-zinc-950">
               <Upload size={20} />
               Initialize Pokedex
-              <input type="file" accept=".sav" className="hidden" onChange={handleFileUpload} />
+              <input type="file" accept=".sav" className="sr-only" onChange={handleFileUpload} />
             </label>
           )}
         </header>
