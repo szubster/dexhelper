@@ -12,6 +12,9 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
   const filters = useStore((s) => s.filters);
   const navigate = useNavigate();
 
+  // ⚡ Bolt: Decouple rapid search typing from expensive grid re-renders
+  const deferredSearchTerm = React.useDeferredValue(searchTerm);
+
   const filtersSet = React.useMemo(() => new Set(filters), [filters]);
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
   const displayLimit = genConfig?.maxDex ?? 151;
@@ -20,9 +23,19 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
   const pcSet = React.useMemo(() => new Set(saveData?.pc || []), [saveData?.pc]);
   // ⚡ Bolt: Removed redundant shinyPartySet and shinyPcSet which were unused and doing O(N) operations.
 
-  const finalPokemon = pokemonList
-    .slice(0, displayLimit)
-    .filter((pokemon) => {
+  const finalPokemon = React.useMemo(() => {
+    // ⚡ Bolt: Hoist string allocation outside the loop
+    const term = deferredSearchTerm ? deferredSearchTerm.toLowerCase() : '';
+
+    return pokemonList.slice(0, displayLimit).filter((pokemon) => {
+      // ⚡ Bolt: Combined filters into single pass to reduce O(N) iterations
+      // 1. Search term check
+      if (term) {
+        const matchesTerm = pokemon.name.toLowerCase().includes(term) || pokemon.id.toString().includes(term);
+        if (!matchesTerm) return false;
+      }
+
+      // 2. Storage/Dex filters check
       if (!saveData || filtersSet.size === 0) return true;
 
       const inParty = partySet.has(pokemon.id);
@@ -34,12 +47,8 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
       if (filtersSet.has('dex-only') && saveData.owned.has(pokemon.id) && !hasInStorage) return true;
 
       return false;
-    })
-    .filter((pokemon) => {
-      if (!searchTerm) return true;
-      const term = searchTerm.toLowerCase();
-      return pokemon.name.toLowerCase().includes(term) || pokemon.id.toString().includes(term);
     });
+  }, [pokemonList, displayLimit, deferredSearchTerm, saveData, filtersSet, partySet, pcSet]);
 
   const shinySpeciesIds = useMemo(() => {
     const set = new Set<number>();
