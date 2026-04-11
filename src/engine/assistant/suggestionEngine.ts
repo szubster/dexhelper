@@ -35,11 +35,20 @@ export interface AssistantApiData {
   missingChains: Record<number, EvolutionChain>;
   ancestralEncounters: Record<number, Record<number, LocationAreaEncounter[]>>;
   partyEvolutions: Record<number, EvolutionChain>;
+  giftChains: Record<number, EvolutionChain>;
 }
 
 /** Safely extract a numeric ID from a PokéAPI resource URL */
 function parseIdFromUrl(url: string): number {
   return parseInt(url.split('/').slice(-2, -1)[0] ?? '0', 10);
+}
+
+/**
+ * Helper function to find all Pokemon IDs in an evolution chain.
+ */
+function getChainIds(node: ChainLink): number[] {
+  const id = parseIdFromUrl(node.species.url);
+  return [id, ...node.evolves_to.flatMap(getChainIds)];
 }
 
 /**
@@ -111,7 +120,20 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     }
   });
 
-  await Promise.all([...missingPromises, ...partyPromises]);
+  const giftChains: Record<number, EvolutionChain> = {};
+  const giftPromises = Object.keys(STATIC_GIFT_DATA).map(async (pidStr) => {
+    const pid = parseInt(pidStr, 10);
+    try {
+      const species = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`);
+      const chainUrl = species.evolution_chain.url;
+      const chain = await pokeapi.resource(chainUrl);
+      giftChains[pid] = chain;
+    } catch (e) {
+      console.error('Gift fetch failed', pid, e);
+    }
+  });
+
+  await Promise.all([...missingPromises, ...partyPromises, ...giftPromises]);
 
   const uniqueAncestors = new Set<number>();
   const pidAncestors: Record<number, number[]> = {};
@@ -154,6 +176,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     missingChains,
     ancestralEncounters,
     partyEvolutions,
+    giftChains,
   };
 }
 
@@ -548,16 +571,8 @@ export function generateSuggestions(
     if (gift.name.includes('Yellow only') && displayVersion !== 'yellow') continue;
     if (gift.reason.includes('Crystal') && displayVersion !== 'crystal') continue;
 
-    const familyIds =
-      pid === 133
-        ? [133, 134, 135, 136]
-        : pid === 138
-          ? [138, 139]
-          : pid === 140
-            ? [140, 141]
-            : pid === 147
-              ? [147, 148, 149]
-              : [pid];
+    const giftChain = apiData.giftChains?.[pid];
+    const familyIds = giftChain ? getChainIds(giftChain.chain).filter((id) => id <= genConfig.maxDex) : [pid];
 
     const hasAnyFamily = familyIds.some((fid) => ownedSet.has(fid));
     const hasAnyWithMyOT = familyIds.some((fid) => myOtIds.has(fid));
