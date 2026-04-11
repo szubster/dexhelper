@@ -25,11 +25,9 @@ export default defineConfig(({ mode }) => {
         enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
         bundleName: "dexhelper",
         uploadToken: process.env.CODECOV_TOKEN,
+        gitService: "github",
       }),
     ].filter(Boolean),
-    define: {
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
