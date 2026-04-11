@@ -6,6 +6,7 @@ coverage/
 *.log
 .env*
 !.env.example
+test-report.junit.xml
 
 # Playwright
 test-results/

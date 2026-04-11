@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
+import { codecovVitePlugin } from "@codecov/vite-plugin";
+
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
@@ -18,6 +20,11 @@ export default defineConfig(({ mode }) => {
         open: false,
         gzipSize: true,
         brotliSize: true,
+      }),
+      codecovVitePlugin({
+        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+        bundleName: "dexhelper",
+        uploadToken: process.env.CODECOV_TOKEN,
       }),
     ].filter(Boolean),
     define: {
