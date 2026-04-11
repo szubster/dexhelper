@@ -237,58 +237,61 @@ export function PokemonDetails({
 
   const loading = queries.some((q) => q.isLoading) || (!!speciesData?.evolution_chain?.url && !evolutionData);
 
-  const getLocationsForVersion = (version: string) => {
-    const locations: { name: string; details: string }[] = [];
+  const getLocationsForVersion = React.useCallback(
+    (version: string) => {
+      const locations: { name: string; details: string }[] = [];
 
-    const staticData = staticEncounters[pokemonId];
-    if (staticData?.[version as keyof typeof staticData]) {
-      staticData[version as keyof typeof staticData]?.forEach((loc) => {
-        locations.push({ name: loc, details: 'Static Encounter / Gift / Trade' });
-      });
-    }
-
-    encounters.forEach((enc: LocationAreaEncounter) => {
-      const versionDetail = enc.version_details.find((vd: VersionEncounterDetail) => vd.version.name === version);
-      if (versionDetail) {
-        const name = enc.location_area.name
-          .replace(/-/g, ' ')
-          .replace(/\b\w/g, (l: string) => l.toUpperCase())
-          .replace(' Area', '')
-          .replace('Kanto ', '')
-          .replace('Johto ', '');
-
-        const methodMap = new Map<string, { chance: number; min: number; max: number; conditions: string[] }>();
-        versionDetail.encounter_details.forEach((detail: Encounter) => {
-          const method = detail.method.name.replace(/-/g, ' ');
-          const conditions = detail.condition_values.map((cv: NamedAPIResource) => cv.name.replace(/-/g, ' '));
-          const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
-
-          const existing = methodMap.get(key);
-          if (existing) {
-            existing.chance += detail.chance;
-            existing.min = Math.min(existing.min, detail.min_level);
-            existing.max = Math.max(existing.max, detail.max_level);
-          } else {
-            methodMap.set(key, {
-              chance: detail.chance,
-              min: detail.min_level,
-              max: detail.max_level,
-              conditions,
-            });
-          }
+      const staticData = staticEncounters[pokemonId];
+      if (staticData?.[version as keyof typeof staticData]) {
+        staticData[version as keyof typeof staticData]?.forEach((loc) => {
+          locations.push({ name: loc, details: 'Static Encounter / Gift / Trade' });
         });
-
-        const detailStrings = Array.from(methodMap.entries()).map(([key, data]) => {
-          const lvl = data.min === data.max ? `Lv ${data.min}` : `Lv ${data.min}-${data.max}`;
-          return `${data.chance}% chance, ${lvl} (${key})`;
-        });
-
-        locations.push({ name, details: detailStrings.join(' | ') });
       }
-    });
 
-    return locations;
-  };
+      encounters.forEach((enc: LocationAreaEncounter) => {
+        const versionDetail = enc.version_details.find((vd: VersionEncounterDetail) => vd.version.name === version);
+        if (versionDetail) {
+          const name = enc.location_area.name
+            .replace(/-/g, ' ')
+            .replace(/\b\w/g, (l: string) => l.toUpperCase())
+            .replace(' Area', '')
+            .replace('Kanto ', '')
+            .replace('Johto ', '');
+
+          const methodMap = new Map<string, { chance: number; min: number; max: number; conditions: string[] }>();
+          versionDetail.encounter_details.forEach((detail: Encounter) => {
+            const method = detail.method.name.replace(/-/g, ' ');
+            const conditions = detail.condition_values.map((cv: NamedAPIResource) => cv.name.replace(/-/g, ' '));
+            const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
+
+            const existing = methodMap.get(key);
+            if (existing) {
+              existing.chance += detail.chance;
+              existing.min = Math.min(existing.min, detail.min_level);
+              existing.max = Math.max(existing.max, detail.max_level);
+            } else {
+              methodMap.set(key, {
+                chance: detail.chance,
+                min: detail.min_level,
+                max: detail.max_level,
+                conditions,
+              });
+            }
+          });
+
+          const detailStrings = Array.from(methodMap.entries()).map(([key, data]) => {
+            const lvl = data.min === data.max ? `Lv ${data.min}` : `Lv ${data.min}-${data.max}`;
+            return `${data.chance}% chance, ${lvl} (${key})`;
+          });
+
+          locations.push({ name, details: detailStrings.join(' | ') });
+        }
+      });
+
+      return locations;
+    },
+    [encounters, pokemonId],
+  );
 
   const _redLocations = getLocationsForVersion('red');
   const _blueLocations = getLocationsForVersion('blue');
@@ -329,20 +332,10 @@ export function PokemonDetails({
 
   const displayVersion = gameVersion === 'unknown' ? genConfig.defaultVersion : gameVersion;
 
-  const currentGenVersions = genConfig.versions.map((v) => v.id);
-
-  const allVersionLocations = currentGenVersions.reduce(
-    (acc, v) => {
-      acc[v] = getLocationsForVersion(v);
-      return acc;
-    },
-    {} as Record<string, { name: string; details: string }[]>,
-  );
-
   const isSafariNative = React.useMemo(() => {
-    const locations = allVersionLocations[displayVersion] || [];
+    const locations = getLocationsForVersion(displayVersion) || [];
     return locations.some((loc) => loc.name.toLowerCase().includes('safari zone'));
-  }, [allVersionLocations, displayVersion]);
+  }, [displayVersion, getLocationsForVersion]);
 
   const effectivePokeball = isSafariNative ? 'safari' : defaultPokeball;
 
