@@ -1,0 +1,30 @@
+--- src/engine/assistant/suggestionEngine.ts
++++ src/engine/assistant/suggestionEngine.ts
+@@ -501,19 +501,7 @@
+         } else {
+           // Check ancestral encounters if not found directly
+-          const aEncsMap = apiData.ancestralEncounters?.[pid] || {};
+-          for (const aid in aEncsMap) {
+-            const ancestorAreaEncounter = aEncsMap[Number(aid)]?.find(
+-              (enc: LocationAreaEncounter) =>
+-                enc.location_area.name === loc.slug &&
+-                enc.version_details.some((vd: VersionEncounterDetail) => vd.version.name === displayVersion),
+-            );
+-            if (ancestorAreaEncounter) {
+-              const versionDetail = ancestorAreaEncounter.version_details.find(
+-                (vd: VersionEncounterDetail) => vd.version.name === displayVersion,
+-              );
+-              if (versionDetail) {
++          const versionDetail = ancestralEncounterMap.get(pid)?.get(loc.slug);
++          if (versionDetail) {
+                 locEncounterInfo[pid] = versionDetail.encounter_details.map((ed) => ({
+                   chance: ed.chance,
+                   method: ed.method.name,
+                   minLevel: ed.min_level,
+                   maxLevel: ed.max_level,
+                 }));
+-                break;
+-              }
+-            }
+-          }
+         }

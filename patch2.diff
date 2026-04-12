@@ -1,0 +1,30 @@
+--- src/engine/assistant/suggestionEngine.ts
++++ src/engine/assistant/suggestionEngine.ts
+@@ -470,9 +470,17 @@
+           ? a.distance - b.distance
+           : b.yield - a.yield,
+     );
+
++    const topLocations = locations.slice(0, 4);
++    const topLocationPids = new Set<number>();
++    topLocations.forEach((loc) => {
++      for (const pid of loc.pids as Set<number>) {
++        topLocationPids.add(pid);
++      }
++    });
++
+     // ⚡ Bolt: Pre-calculate ancestral encounters for O(1) lookup to replace nested finds
+     const ancestorEncounterMap = new Map<number, Map<string, VersionEncounterDetail>>();
+-    for (const pid of queryTargets) {
++    for (const pid of topLocationPids) {
+       const aEncsMap = apiData.ancestralEncounters?.[pid];
+       if (aEncsMap) {
+         const pidMap = new Map<string, VersionEncounterDetail>();
+@@ -490,7 +498,7 @@
+       }
+     }
+
+-    locations.slice(0, 4).forEach((loc) => {
++    topLocations.forEach((loc) => {
+       const pids = Array.from(loc.pids as Set<number>);
+       const locEncounterInfo: Record<number, EncounterDetail[]> = {};
