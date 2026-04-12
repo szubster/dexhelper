@@ -654,7 +654,7 @@ export function generateSuggestions(
     };
 
     const nodes = findNodeAndParent(chain.chain);
-    if (!nodes || !nodes.parentNode) return;
+    if (!nodes?.parentNode) return;
 
     const parentId = parseIdFromUrl(nodes.parentNode.species.url);
 

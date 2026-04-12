@@ -14,3 +14,6 @@
 ## 2024-04-11 - Focus Visible Styles for Retro Buttons
 **Learning:** The custom retro-button class and other interactive elements in this design system do not have default keyboard focus indicators. Tabbing through the interface without them makes the app inaccessible to keyboard users.
 **Action:** Always add `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` to interactive elements to ensure a consistent, themed focus state.
+## 2024-04-12 - Custom Segmented Control ARIA Roles
+**Learning:** When creating custom segmented controls with mutually exclusive options, using `role="switch"` is incorrect as switches imply an on/off state. `role="group"` is also too generic. A segmented control is conceptually a set of radio buttons.
+**Action:** Use `role="radiogroup"` for the container and `role="radio"` for the individual buttons, along with `aria-checked={boolean}` and proper `aria-label`s on the container, to ensure screen readers correctly interpret the mutually exclusive selection pattern.

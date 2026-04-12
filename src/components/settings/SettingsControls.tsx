@@ -1,5 +1,4 @@
 import { Archive, CircleDot, Settings2 } from 'lucide-react';
-import React from 'react';
 import type { GameVersion, PokeballType } from '../../store';
 import type { GenerationConfig } from '../../utils/generationConfig';
 import { getGenerationConfig } from '../../utils/generationConfig';

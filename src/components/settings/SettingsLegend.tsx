@@ -1,5 +1,4 @@
 import { Check, CircleDot, Ghost, Info, Monitor } from 'lucide-react';
-import React from 'react';
 
 export function SettingsLegend() {
   return (

@@ -39,22 +39,23 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
             min="1"
             max="100"
             value={hpPercent}
+            aria-label="Target HP Percentage"
             onChange={(e) => setHpPercent(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full border border-white/5 bg-black/40 accent-emerald-500"
+            className="h-2 w-full cursor-pointer appearance-none rounded-full border border-white/5 bg-black/40 accent-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           />
         </div>
 
-        {/* biome-ignore lint/a11y/useSemanticElements: custom segmented control */}
-        <div className="grid grid-cols-3 gap-2" role="group" aria-label="Target Status">
+        <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Target Status">
           {[
             { id: 'none' as StatusType, label: 'Healthy' },
             { id: 'paralyze_burn_poison' as StatusType, label: 'Debuff' },
             { id: 'sleep_freeze' as StatusType, label: 'Incapacitated' },
           ].map((item) => (
+            // biome-ignore lint/a11y/useSemanticElements: custom segmented control using radio role
             <button
               type="button"
               key={item.id}
-              role="switch"
+              role="radio"
               aria-checked={status === item.id}
               onClick={() => setStatus(item.id)}
               className={cn(
