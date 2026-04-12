@@ -1,4 +1,4 @@
-import { tanstackRouter } from '@tanstack/router-vite-plugin';
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
@@ -12,8 +12,8 @@ export default defineConfig(({ mode }) => {
   return {
     base: process.env.CF_PAGES === 'true' ? '/' : '/dexhelper/',
     plugins: [
+      TanStackRouterVite(),
       react(),
-      tanstackRouter(),
       tailwindcss(),
       process.env.ANALYZE === 'true' && visualizer({
         filename: 'stats.html',
