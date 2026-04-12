@@ -15,8 +15,8 @@ test('coverage for suggestionEngine new lines', () => {
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
     partyDetails: [
-      { speciesId: 133, level: 20, otName: 'PLAYER' } as PokemonInstance,
-      { speciesId: 236, level: 20, otName: 'PLAYER' } as PokemonInstance,
+      { speciesId: 133, level: 20, otName: 'PLAYER' } as unknown as PokemonInstance,
+      { speciesId: 236, level: 20, otName: 'PLAYER' } as unknown as PokemonInstance,
     ],
     pcDetails: [],
     trainerName: 'PLAYER',
@@ -171,7 +171,7 @@ test('coverage for missing locations', () => {
     inventory: [],
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
-    partyDetails: [{ speciesId: 1, level: 20, otName: 'PLAYER', moves: [19] } as PokemonInstance],
+    partyDetails: [{ speciesId: 1, level: 20, otName: 'PLAYER', moves: [19] } as unknown as PokemonInstance],
     pcDetails: [],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
@@ -223,7 +223,7 @@ test('coverage for local locations', () => {
     currentMapId: 31,
     currentMapName: 'Route 20',
     eventFlags: new Uint8Array(300),
-    partyDetails: [{ speciesId: 1, level: 20, otName: 'PLAYER', moves: [19] } as PokemonInstance],
+    partyDetails: [{ speciesId: 1, level: 20, otName: 'PLAYER', moves: [19] } as unknown as PokemonInstance],
     pcDetails: [],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
@@ -273,8 +273,8 @@ test('coverage for stones and trade evos', () => {
     currentMapName: 'Route 20',
     eventFlags: new Uint8Array(300),
     partyDetails: [
-      { speciesId: 133, level: 20, otName: 'PLAYER', moves: [] } as PokemonInstance,
-      { speciesId: 64, level: 20, otName: 'PLAYER', moves: [] } as PokemonInstance,
+      { speciesId: 133, level: 20, otName: 'PLAYER', moves: [] } as unknown as PokemonInstance,
+      { speciesId: 64, level: 20, otName: 'PLAYER', moves: [] } as unknown as PokemonInstance,
     ],
     pcDetails: [],
     trainerName: 'PLAYER',
@@ -352,8 +352,8 @@ test('coverage for stones gen 2 and trade evos', () => {
     currentMapName: 'Route 20',
     eventFlags: new Uint8Array(300),
     partyDetails: [
-      { speciesId: 133, level: 20, otName: 'PLAYER', moves: [] } as PokemonInstance,
-      { speciesId: 64, level: 20, otName: 'PLAYER', moves: [] } as PokemonInstance,
+      { speciesId: 133, level: 20, otName: 'PLAYER', moves: [] } as unknown as PokemonInstance,
+      { speciesId: 64, level: 20, otName: 'PLAYER', moves: [] } as unknown as PokemonInstance,
     ],
     pcDetails: [],
     trainerName: 'PLAYER',
@@ -402,7 +402,7 @@ test('coverage for stones and trade evos moon stone', () => {
     currentMapId: 31,
     currentMapName: 'Route 20',
     eventFlags: new Uint8Array(300),
-    partyDetails: [{ speciesId: 35, level: 20, otName: 'PLAYER', moves: [] } as PokemonInstance],
+    partyDetails: [{ speciesId: 35, level: 20, otName: 'PLAYER', moves: [] } as unknown as PokemonInstance],
     pcDetails: [],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
@@ -477,7 +477,7 @@ test('coverage for gen 2 trade logic no bit flag fallback', () => {
     currentMapName: 'Route 20',
     eventFlags: new Uint8Array(300),
     partyDetails: [],
-    pcDetails: [{ speciesId: 95, level: 20, otName: 'DON', moves: [] } as PokemonInstance], // Onix from Violet City
+    pcDetails: [{ speciesId: 95, level: 20, otName: 'DON', moves: [] } as unknown as PokemonInstance], // Onix from Violet City
     trainerName: 'PLAYER',
   } as unknown as SaveData;
 
