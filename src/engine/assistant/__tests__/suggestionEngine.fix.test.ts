@@ -49,4 +49,44 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
     expect(mimeSuggestions).toHaveLength(1);
     expect(mimeSuggestions[0]?.title).toContain('Trade for #122');
   });
+
+  it('should optimize ancestral encounters lookup map without crashing', () => {
+    const testApiData = {
+      localEncounters: [],
+      missingEncounters: {
+        100: [
+          {
+            location_area: { name: 'route-1' },
+            version_details: [
+              {
+                version: { name: 'yellow' },
+                encounter_details: [{ chance: 10, method: { name: 'walk' }, min_level: 2, max_level: 5 }],
+              },
+            ],
+          },
+        ],
+      },
+      ancestralEncounters: {
+        100: {
+          99: [
+            {
+              location_area: { name: 'route-1' },
+              version_details: [
+                {
+                  version: { name: 'yellow' },
+                  encounter_details: [{ chance: 10, method: { name: 'walk' }, min_level: 2, max_level: 5 }],
+                },
+              ],
+            },
+          ],
+        },
+      },
+      missingChains: {
+        100: { chain: { species: { url: '.../100/' }, evolves_to: [] } },
+      },
+    } as unknown as AssistantApiData;
+
+    const { suggestions } = generateSuggestions(mockSaveData as unknown as SaveData, false, 'yellow', testApiData);
+    expect(suggestions).toBeDefined();
+  });
 });
