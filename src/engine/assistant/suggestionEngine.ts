@@ -150,9 +150,24 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const uniqueAncestors = new Set<number>();
   const pidAncestors: Record<number, number[]> = {};
 
+  // Cache for ancestors mapped by chain URL to avoid repeatedly parsing identical chains
+  const ancestorsByChainUrl = new Map<string, Record<number, number[]>>();
+
   for (const pid of queryTargets) {
     if (missingChains[pid]) {
-      const ancestors = getAncestors(missingChains[pid].chain, pid) || [];
+      const chainUrl = missingChains[pid].chain.species.url;
+      let ancestorsMap = ancestorsByChainUrl.get(chainUrl);
+      if (!ancestorsMap) {
+        ancestorsMap = {};
+        ancestorsByChainUrl.set(chainUrl, ancestorsMap);
+      }
+
+      let ancestors = ancestorsMap[pid];
+      if (!ancestors) {
+        ancestors = getAncestors(missingChains[pid].chain, pid) || [];
+        ancestorsMap[pid] = ancestors;
+      }
+
       if (ancestors.length > 0) {
         pidAncestors[pid] = ancestors;
         for (const a of ancestors) {

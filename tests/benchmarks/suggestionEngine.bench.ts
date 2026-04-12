@@ -1,11 +1,11 @@
-import { afterEach, beforeEach, bench, describe, vi } from 'vitest';
+import { afterEach, beforeEach, bench, describe, type MockInstance, vi } from 'vitest';
 import { fetchAssistantApiData } from '../../src/engine/assistant/suggestionEngine';
 import type { SaveData } from '../../src/engine/saveParser';
 import { pokeapi } from '../../src/utils/pokeapi';
 
 // Create a spy to count how many times `pokeapi.resource` is called
 describe('fetchAssistantApiData', () => {
-  let resourceSpy: any;
+  let resourceSpy: MockInstance;
 
   beforeEach(() => {
     // We just return dummy data to make it run without network calls
