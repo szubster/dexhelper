@@ -2,9 +2,9 @@ name: Biome Verification
 
 on:
   push:
-    branches: [main]
+    branches: ["main", "master"]
   pull_request:
-    branches: [main]
+    branches: ["main", "master"]
 
 permissions:
   contents: read
@@ -22,4 +22,4 @@ jobs:
           version: latest
 
       - name: Run Biome
-        run: biome ci .
+        run: biome ci --error-on-warnings .
