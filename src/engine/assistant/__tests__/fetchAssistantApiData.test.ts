@@ -1,7 +1,7 @@
-import { describe, expect, it, vi, afterEach } from 'vitest';
-import { fetchAssistantApiData } from '../suggestionEngine';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { pokeapi } from '../../../utils/pokeapi';
 import type { SaveData } from '../../saveParser/index';
+import { fetchAssistantApiData } from '../suggestionEngine';
 
 vi.mock('../../../utils/pokeapi', () => ({
   pokeapi: {
