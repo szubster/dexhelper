@@ -634,6 +634,16 @@ export function generateSuggestions(
     });
   }
 
+  // Pre-calculate instances by species for O(1) lookup during evolution checks
+  // ⚡ Bolt: Replaces O(N*M) filtering inside the loop below
+  const instancesBySpecies = new Map<number, PokemonInstance[]>();
+  for (const p of allInstances) {
+    if (!instancesBySpecies.has(p.speciesId)) {
+      instancesBySpecies.set(p.speciesId, []);
+    }
+    instancesBySpecies.get(p.speciesId)!.push(p);
+  }
+
   // Evolutions
   queryTargets.forEach((targetId: number) => {
     const chain = apiData.missingChains?.[targetId];
@@ -660,7 +670,8 @@ export function generateSuggestions(
     const parentId = parseIdFromUrl(nodes.parentNode.species.url);
 
     // Check if we own the pre-evolution
-    const ownedInstances = allInstances.filter((p: PokemonInstance) => p.speciesId === parentId);
+    // ⚡ Bolt: Use pre-calculated map instead of array filter
+    const ownedInstances = instancesBySpecies.get(parentId) || [];
     if (ownedInstances.length === 0) return;
 
     // Get the highest level instance to give the most optimistic suggestion
