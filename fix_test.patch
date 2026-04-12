@@ -1,0 +1,11 @@
+--- src/engine/assistant/suggestionEngine.ts
++++ src/engine/assistant/suggestionEngine.ts
+@@ -641,7 +641,7 @@
+       if (!instancesBySpecies.has(p.speciesId)) {
+         instancesBySpecies.set(p.speciesId, []);
+       }
+-      instancesBySpecies.get(p.speciesId)!.push(p);
++      instancesBySpecies.get(p.speciesId)?.push(p);
+     }
+
+     // First, separate missing completely vs. missing specific forms/evolutions

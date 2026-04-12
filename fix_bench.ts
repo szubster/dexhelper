@@ -1,11 +1,13 @@
-import type { LocationAreaEncounter, VersionEncounterDetail } from 'pokenode-ts';
+import { writeFileSync } from 'fs';
+
+const content = `import type { LocationAreaEncounter, VersionEncounterDetail } from 'pokenode-ts';
 import { bench, describe } from 'vitest';
 
 // Mock data
 const mockEncounters: LocationAreaEncounter[] = [];
 for (let i = 0; i < 100; i++) {
   mockEncounters.push({
-    location_area: { name: `location-area-${i}`, url: '' },
+    location_area: { name: \`location-area-\${i}\`, url: '' },
     version_details: [
       {
         version: { name: 'red', url: '' },
@@ -75,7 +77,7 @@ function getLocationsForVersionOriginal(version: string, encounters: LocationAre
     if (versionDetail) {
       const name = enc.location_area.name
         .replace(/-/g, ' ')
-        .replace(/\b\w/g, (l) => l.toUpperCase())
+        .replace(/\\b\\w/g, (l) => l.toUpperCase())
         .replace(' Area', '')
         .replace('Kanto ', '')
         .replace('Johto ', '');
@@ -84,7 +86,7 @@ function getLocationsForVersionOriginal(version: string, encounters: LocationAre
       versionDetail.encounter_details.forEach((detail) => {
         const method = detail.method.name.replace(/-/g, ' ');
         const conditions = detail.condition_values.map((cv) => cv.name.replace(/-/g, ' '));
-        const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
+        const key = \`\${method}\${conditions.length > 0 ? \` (\${conditions.join(', ')})\` : ''}\`;
 
         const existing = methodMap.get(key);
         if (existing) {
@@ -102,8 +104,8 @@ function getLocationsForVersionOriginal(version: string, encounters: LocationAre
       });
 
       const detailStrings = Array.from(methodMap.entries()).map(([key, data]) => {
-        const lvl = data.min === data.max ? `Lv ${data.min}` : `Lv ${data.min}-${data.max}`;
-        return `${data.chance}% chance, ${lvl} (${key})`;
+        const lvl = data.min === data.max ? \`Lv \${data.min}\` : \`Lv \${data.min}-\${data.max}\`;
+        return \`\${data.chance}% chance, \${lvl} (\${key})\`;
       });
 
       locations.push({ name, details: detailStrings.join(' | ') });
@@ -144,7 +146,7 @@ function fullComponentMapOptimization(encounters: LocationAreaEncounter[]) {
       if (versionDetail) {
         const _name = enc.location_area.name
           .replace(/-/g, ' ')
-          .replace(/\b\w/g, (l) => l.toUpperCase())
+          .replace(/\\b\\w/g, (l) => l.toUpperCase())
           .replace(' Area', '')
           .replace('Kanto ', '')
           .replace('Johto ', '');
@@ -181,7 +183,7 @@ function fullComponentMapOptimizationV2(encounters: LocationAreaEncounter[]) {
     detailsList.forEach(({ enc, vd }) => {
       const name = enc.location_area.name
         .replace(/-/g, ' ')
-        .replace(/\b\w/g, (l) => l.toUpperCase())
+        .replace(/\\b\\w/g, (l) => l.toUpperCase())
         .replace(' Area', '')
         .replace('Kanto ', '')
         .replace('Johto ', '');
@@ -190,7 +192,7 @@ function fullComponentMapOptimizationV2(encounters: LocationAreaEncounter[]) {
       vd.encounter_details.forEach((detail) => {
         const method = detail.method.name.replace(/-/g, ' ');
         const conditions = detail.condition_values.map((cv) => cv.name.replace(/-/g, ' '));
-        const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
+        const key = \`\${method}\${conditions.length > 0 ? \` (\${conditions.join(', ')})\` : ''}\`;
 
         const existing = methodMap.get(key);
         if (existing) {
@@ -208,8 +210,8 @@ function fullComponentMapOptimizationV2(encounters: LocationAreaEncounter[]) {
       });
 
       const detailStrings = Array.from(methodMap.entries()).map(([key, data]) => {
-        const lvl = data.min === data.max ? `Lv ${data.min}` : `Lv ${data.min}-${data.max}`;
-        return `${data.chance}% chance, ${lvl} (${key})`;
+        const lvl = data.min === data.max ? \`Lv \${data.min}\` : \`Lv \${data.min}-\${data.max}\`;
+        return \`\${data.chance}% chance, \${lvl} (\${key})\`;
       });
 
       locations.push({ name, details: detailStrings.join(' | ') });
@@ -230,11 +232,11 @@ function memoizedHookStyleOptimization(encounters: LocationAreaEncounter[]) {
 
   encounters.forEach((enc) => {
     const name = enc.location_area.name
-      .replace(/-/g, ' ')
-      .replace(/\b\w/g, (l) => l.toUpperCase())
-      .replace(' Area', '')
-      .replace('Kanto ', '')
-      .replace('Johto ', '');
+        .replace(/-/g, ' ')
+        .replace(/\\b\\w/g, (l) => l.toUpperCase())
+        .replace(' Area', '')
+        .replace('Kanto ', '')
+        .replace('Johto ', '');
 
     enc.version_details.forEach((vd) => {
       const versionName = vd.version.name;
@@ -243,7 +245,7 @@ function memoizedHookStyleOptimization(encounters: LocationAreaEncounter[]) {
       vd.encounter_details.forEach((detail) => {
         const method = detail.method.name.replace(/-/g, ' ');
         const conditions = detail.condition_values.map((cv) => cv.name.replace(/-/g, ' '));
-        const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
+        const key = \`\${method}\${conditions.length > 0 ? \` (\${conditions.join(', ')})\` : ''}\`;
 
         const existing = methodMap.get(key);
         if (existing) {
@@ -261,8 +263,8 @@ function memoizedHookStyleOptimization(encounters: LocationAreaEncounter[]) {
       });
 
       const detailStrings = Array.from(methodMap.entries()).map(([key, data]) => {
-        const lvl = data.min === data.max ? `Lv ${data.min}` : `Lv ${data.min}-${data.max}`;
-        return `${data.chance}% chance, ${lvl} (${key})`;
+        const lvl = data.min === data.max ? \`Lv \${data.min}\` : \`Lv \${data.min}-\${data.max}\`;
+        return \`\${data.chance}% chance, \${lvl} (\${key})\`;
       });
 
       let locations = versionLocationsMap.get(versionName);
@@ -297,7 +299,7 @@ function hookPrecalculatedMap(encounters: LocationAreaEncounter[]) {
   encounters.forEach((enc) => {
     const name = enc.location_area.name
       .replace(/-/g, ' ')
-      .replace(/\b\w/g, (l) => l.toUpperCase())
+      .replace(/\\b\\w/g, (l) => l.toUpperCase())
       .replace(' Area', '')
       .replace('Kanto ', '')
       .replace('Johto ', '');
@@ -307,7 +309,7 @@ function hookPrecalculatedMap(encounters: LocationAreaEncounter[]) {
       vd.encounter_details.forEach((detail) => {
         const method = detail.method.name.replace(/-/g, ' ');
         const conditions = detail.condition_values.map((cv) => cv.name.replace(/-/g, ' '));
-        const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
+        const key = \`\${method}\${conditions.length > 0 ? \` (\${conditions.join(', ')})\` : ''}\`;
 
         const existing = methodMap.get(key);
         if (existing) {
@@ -325,8 +327,8 @@ function hookPrecalculatedMap(encounters: LocationAreaEncounter[]) {
       });
 
       const detailStrings = Array.from(methodMap.entries()).map(([key, data]) => {
-        const lvl = data.min === data.max ? `Lv ${data.min}` : `Lv ${data.min}-${data.max}`;
-        return `${data.chance}% chance, ${lvl} (${key})`;
+        const lvl = data.min === data.max ? \`Lv \${data.min}\` : \`Lv \${data.min}-\${data.max}\`;
+        return \`\${data.chance}% chance, \${lvl} (\${key})\`;
       });
 
       const versionName = vd.version.name;
@@ -369,11 +371,11 @@ function _memoizedHookStyleOptimizationV2(encounters: LocationAreaEncounter[]) {
 
   encounters.forEach((enc) => {
     const name = enc.location_area.name
-      .replace(/-/g, ' ')
-      .replace(/\b\w/g, (l) => l.toUpperCase())
-      .replace(' Area', '')
-      .replace('Kanto ', '')
-      .replace('Johto ', '');
+        .replace(/-/g, ' ')
+        .replace(/\\b\\w/g, (l) => l.toUpperCase())
+        .replace(' Area', '')
+        .replace('Kanto ', '')
+        .replace('Johto ', '');
 
     enc.version_details.forEach((vd) => {
       const versionName = vd.version.name;
@@ -382,7 +384,7 @@ function _memoizedHookStyleOptimizationV2(encounters: LocationAreaEncounter[]) {
       vd.encounter_details.forEach((detail) => {
         const method = detail.method.name.replace(/-/g, ' ');
         const conditions = detail.condition_values.map((cv) => cv.name.replace(/-/g, ' '));
-        const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
+        const key = \`\${method}\${conditions.length > 0 ? \` (\${conditions.join(', ')})\` : ''}\`;
 
         const existing = methodMap.get(key);
         if (existing) {
@@ -400,8 +402,8 @@ function _memoizedHookStyleOptimizationV2(encounters: LocationAreaEncounter[]) {
       });
 
       const detailStrings = Array.from(methodMap.entries()).map(([key, data]) => {
-        const lvl = data.min === data.max ? `Lv ${data.min}` : `Lv ${data.min}-${data.max}`;
-        return `${data.chance}% chance, ${lvl} (${key})`;
+        const lvl = data.min === data.max ? \`Lv \${data.min}\` : \`Lv \${data.min}-\${data.max}\`;
+        return \`\${data.chance}% chance, \${lvl} (\${key})\`;
       });
 
       let locations = versionLocationsMap.get(versionName);
@@ -457,3 +459,6 @@ describe('getLocationsForVersion', () => {
     hookPrecalculatedMap(mockEncounters);
   });
 });
+`
+
+writeFileSync('tests/benchmarks/getLocationsForVersion.bench.ts', content);
