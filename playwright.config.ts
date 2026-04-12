@@ -17,7 +17,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [
     ['html'],
-    ['@argos-ci/playwright/reporter', { 
+    ['@argos-ci/playwright/reporter', {
       uploadToArgos: !!process.env.CI,
       buildName: process.env.ARGOS_BUILD_NAME || 'E2E',
     }]
@@ -35,21 +35,21 @@ export default defineConfig({
   projects: [
     {
       name: 'Desktop FullHD',
-      use: { 
+      use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 1920, height: 1080 },
       },
     },
     {
       name: 'Desktop 1440p',
-      use: { 
+      use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 2560, height: 1440 },
       },
     },
     {
       name: 'Mobile Pixel 9',
-      use: { 
+      use: {
         ...devices['Pixel 7'], // Fallback base
         viewport: { width: 393, height: 852 },
         deviceScaleFactor: 3,
