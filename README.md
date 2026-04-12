@@ -21,11 +21,11 @@ A premium Pokédex and storage viewer for Gen 1 and Gen 2 save files. Track your
 
 **Prerequisites:**
 - Node.js (>=24.0.0)
-- npm
+- pnpm (>=10.33.0)
 
 ### 1. Install dependencies
 ```bash
-npm install
+pnpm install
 ```
 
 ### 2. Configure Environment Variables
@@ -36,22 +36,22 @@ GEMINI_API_KEY=your_api_key_here
 
 ### 3. Run the Development Server
 ```bash
-npm run dev
+pnpm dev
 ```
 The app will be available at `http://localhost:3000`.
 
 ## Available Scripts
 
-- `npm run dev`: Starts the Vite development server.
-- `npm run build`: Builds the app for production.
-- `npm run preview`: Locally previews the production build.
-- `npm run lint`: Runs TypeScript type checking.
+- `pnpm dev`: Starts the Vite development server.
+- `pnpm build`: Builds the app for production.
+- `pnpm preview`: Locally previews the production build.
+- `pnpm lint`: Runs TypeScript type checking and style verification.
 
 ## Testing
 
 This project uses **Vitest** for unit testing and **Playwright** for end-to-end (E2E) testing.
 
-- `npm run test`: Run unit tests using Vitest.
-- `npm run test:e2e`: Run Playwright E2E tests.
-- `npm run test:e2e:ui`: Run Playwright E2E tests in UI mode.
-- `npm run test:ct`: Run Playwright component tests.
+- `pnpm test`: Run unit tests using Vitest.
+- `pnpm test:e2e`: Run Playwright E2E tests.
+- `pnpm test:e2e:ui`: Run Playwright E2E tests in UI mode.
+- `pnpm test:ct`: Run Playwright component tests.
