@@ -28,7 +28,9 @@ Following the project's `testing_rules.md`:
 - **No Placeholders**: Never use placeholder images. Use `generate_image` or real assets.
 - **Animations**: Implement subtle micro-animations and interactive transitions (hover effects, smooth state changes) to make the UI feel "alive".
 
-## Code Formatting
+## Code Analysis and Formatting
 
-- Relies on Vite/TypeScript defaults.
-- Always run `npm run lint` (`tsc --noEmit`) to verify types.
+- **Biome**: Primary linter and formatter.
+  - All CI checks and Git Hooks are strictly enforced to treat both errors and warnings as failures (using `--error-on-warnings`).
+  - **Zero-Diagnostic Policy**: Even though `info` level diagnostics do not block the build, you MUST manually verify them during every check and fix them to maintain a zero-diagnostic state.
+- **TypeScript**: Always run `npm run lint` (`tsc --noEmit`) to verify types.
