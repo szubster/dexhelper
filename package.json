@@ -12,7 +12,7 @@
     "build:analyze": "ANALYZE=true vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit",
+    "lint": "tsc --noEmit && npm run check:biome",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
