@@ -12,7 +12,7 @@
     "build:analyze": "ANALYZE=true vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit",
+    "lint": "npm run type-check && npm run check:biome",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
@@ -20,6 +20,7 @@
     "lint:biome": "biome lint --error-on-warnings .",
     "format:biome": "biome format .",
     "check:biome": "biome check --error-on-warnings .",
+    "type-check": "tsc --noEmit",
     "check:fix": "biome check --write --unsafe .",
     "postinstall": "lefthook install"
   },

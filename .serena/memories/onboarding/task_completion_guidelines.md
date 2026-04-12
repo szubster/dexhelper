@@ -12,8 +12,9 @@ Before finalizing any task, the following steps must be completed:
     - Ensure tests handle uninitialized state using `initializeWithSave`.
     - Verify that no existing tests or visual regressions are broken.
 
-3.  **Type Safety**:
-    - Run `npm run lint` (`tsc --noEmit`) to ensure no TypeScript errors were introduced.
+3.  **Analysis and Type Safety**:
+    - Run `npm run lint` which triggers Type Checking (`tsc`) and Biome Checks (`biome check`).
+    - **Zero-Diagnostic Policy**: All Biome errors and warnings must be addressed. Additionally, you MUST manually verify and fix any `info` level diagnostics to ensure a completely clean output.
 
 4.  **Visual Verification**:
     - For UI changes, ensure Argos screenshot tests are updated or added where necessary.
