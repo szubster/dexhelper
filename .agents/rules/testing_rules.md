@@ -41,8 +41,8 @@ When a bug or regression is reported:
   - Desktop 1440p: 2560x1440
   - Mobile Pixel 9: Pixel 9 standard viewport
 - **Test Commands**: 
-  - Unit tests: `npm run test`
-  - E2E tests: `npm run test:e2e`
+  - Unit tests: `pnpm test`
+  - E2E tests: `pnpm test:e2e`
 
 ## 6. Real Game Saves for Testing
 - **Use Real Saves**: Leverage real game saves in `tests/fixtures`.

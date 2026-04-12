@@ -33,4 +33,4 @@ Following the project's `testing_rules.md`:
 - **Biome**: Primary linter and formatter.
   - All CI checks and Git Hooks are strictly enforced to treat both errors and warnings as failures (using `--error-on-warnings`).
   - **Zero-Diagnostic Policy**: Even though `info` level diagnostics do not block the build, you MUST manually verify them during every check and fix them to maintain a zero-diagnostic state.
-- **TypeScript**: Always run `npm run lint` (`tsc --noEmit`) to verify types.
+- **TypeScript**: Always run `pnpm lint` (`tsc --noEmit`) to verify types.

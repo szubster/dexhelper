@@ -8,4 +8,4 @@
 - **Biome**: Unified linter and formatter.
   - Configured in `biome.jsonc`.
   - Enforcement Level: **Strict (Errors only)**. All violations, including warnings and nursery rules (e.g., `useSortedClasses`), are treated as errors.
-  - Integration: Runs in CI via `npm run lint` which calls `biome check --error-on-warnings`.
+  - Integration: Runs in CI via `pnpm lint` which calls `biome check --error-on-warnings`.
