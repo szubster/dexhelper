@@ -1,7 +1,7 @@
-import { test, expect } from 'vitest';
-import { generateSuggestions } from '../suggestionEngine';
-import type { SaveData, PokemonInstance } from '../../saveParser/index';
+import { expect, test } from 'vitest';
+import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import type { AssistantApiData } from '../suggestionEngine';
+import { generateSuggestions } from '../suggestionEngine';
 
 test('coverage for suggestionEngine new lines', () => {
   const mockSaveData: SaveData = {
