@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useStore } from './store';
 
 describe('Zustand Store', () => {
@@ -124,6 +124,30 @@ describe('Zustand Store', () => {
 
       useStore.getState().setError(null);
       expect(useStore.getState().error).toBeNull();
+    });
+
+    it('should handle corrupted save file from localStorage', () => {
+      // Mock localStorage to return an invalid base64 string
+      const mockGetItem = vi.fn().mockReturnValue('invalid-base64-!');
+      const mockRemoveItem = vi.fn();
+      vi.stubGlobal('localStorage', {
+        getItem: mockGetItem,
+        removeItem: mockRemoveItem,
+      });
+
+      const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+      useStore.getState().loadSaveFromStorage();
+
+      // Verify that it caught the error, logged it, and removed the corrupted item
+      expect(mockConsoleError).toHaveBeenCalledWith(
+        'Failed to load saved file from localStorage:',
+        expect.any(Error)
+      );
+      expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
+
+      vi.restoreAllMocks();
+      vi.unstubAllGlobals();
     });
   });
 });
