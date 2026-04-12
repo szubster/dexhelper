@@ -93,6 +93,17 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const missingChains: Record<number, EvolutionChain> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounter[]>> = {};
 
+  // Local cache to deduplicate chain fetches across missing, party, and gifts
+  const chainPromises = new Map<string, Promise<EvolutionChain>>();
+  const getChain = (url: string) => {
+    let promise = chainPromises.get(url);
+    if (!promise) {
+      promise = pokeapi.resource(url);
+      chainPromises.set(url, promise);
+    }
+    return promise;
+  };
+
   const missingPromises = queryTargets.map(async (pid: number) => {
     try {
       const [encs, species] = await Promise.all([
@@ -101,8 +112,9 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
       ]);
       missingEncounters[pid] = encs;
 
-      const chain = await pokeapi.resource(species.evolution_chain.url);
-      missingChains[pid] = chain;
+      if (species.evolution_chain?.url) {
+        missingChains[pid] = await getChain(species.evolution_chain.url);
+      }
     } catch (_e) {
       missingEncounters[pid] = [];
     }
@@ -112,9 +124,9 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const partyPromises = (saveData.party || []).map(async (pid: number) => {
     try {
       const species = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`);
-      const chainUrl = species.evolution_chain.url;
-      const chain = await pokeapi.resource(chainUrl);
-      partyEvolutions[pid] = chain;
+      if (species.evolution_chain?.url) {
+        partyEvolutions[pid] = await getChain(species.evolution_chain.url);
+      }
     } catch (e) {
       console.error('Evo fetch failed', pid, e);
     }
@@ -125,9 +137,9 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     const pid = parseInt(pidStr, 10);
     try {
       const species = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`);
-      const chainUrl = species.evolution_chain.url;
-      const chain = await pokeapi.resource(chainUrl);
-      giftChains[pid] = chain;
+      if (species.evolution_chain?.url) {
+        giftChains[pid] = await getChain(species.evolution_chain.url);
+      }
     } catch (e) {
       console.error('Gift fetch failed', pid, e);
     }
