@@ -112,7 +112,7 @@ describe('gen2 parsers', () => {
 
       const data = parseGen2(u8, false);
       expect(data.party).toContain(1);
-      expect(data.partyDetails[0].speciesId).toBe(1);
+      expect(data.partyDetails[0]?.speciesId).toBe(1);
       expect(data.generation).toBe(2);
       expect(data.gameVersion).toBe('gold'); // As we haven't provided seen/owned data to identify gold/silver
     });
