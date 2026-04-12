@@ -1,5 +1,4 @@
 import { X } from 'lucide-react';
-import React from 'react';
 import { useStore } from '../store';
 import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig';
 import { ClearStorageButton } from './settings/ClearStorageButton';

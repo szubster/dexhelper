@@ -645,6 +645,7 @@ export function generateSuggestions(
       parent: ChainLink | null = null,
     ): { targetNode: ChainLink; parentNode: ChainLink } | null => {
       const id = parseIdFromUrl(node.species.url);
+      // biome-ignore lint/style/noNonNullAssertion: Guaranteed by recursive logic structure
       if (id === targetId) return { targetNode: node, parentNode: parent! };
       for (const child of node.evolves_to) {
         const res = findNodeAndParent(child, node);
@@ -654,7 +655,7 @@ export function generateSuggestions(
     };
 
     const nodes = findNodeAndParent(chain.chain);
-    if (!nodes || !nodes.parentNode) return;
+    if (!nodes?.parentNode) return;
 
     const parentId = parseIdFromUrl(nodes.parentNode.species.url);
 
@@ -691,8 +692,9 @@ export function generateSuggestions(
         });
       } else if (details.min_happiness) {
         let timeCondition = '';
-        if (details.time_of_day === 'Day' || details.time_of_day === ('day' as any)) timeCondition = ' during the day';
-        else if (details.time_of_day === 'Night' || details.time_of_day === ('night' as any))
+        if (details.time_of_day === 'Day' || (details.time_of_day as unknown as string) === 'day')
+          timeCondition = ' during the day';
+        else if (details.time_of_day === 'Night' || (details.time_of_day as unknown as string) === 'night')
           timeCondition = ' during the night';
 
         suggestions.push({
