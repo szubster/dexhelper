@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { queryClient } from './queryClient';
 import { QueryClient } from '@tanstack/react-query';
+import { describe, expect, it } from 'vitest';
+import { queryClient } from './queryClient';
 
 describe('queryClient', () => {
   it('should be an instance of QueryClient', () => {
