@@ -645,6 +645,7 @@ export function generateSuggestions(
       parent: ChainLink | null = null,
     ): { targetNode: ChainLink; parentNode: ChainLink } | null => {
       const id = parseIdFromUrl(node.species.url);
+      // biome-ignore lint/style/noNonNullAssertion: Guaranteed by recursive logic structure
       if (id === targetId) return { targetNode: node, parentNode: parent! };
       for (const child of node.evolves_to) {
         const res = findNodeAndParent(child, node);
@@ -674,22 +675,33 @@ export function generateSuggestions(
     if (trigger === 'level-up') {
       if (details.min_level) {
         const isReady = bestInstance.level >= details.min_level;
+        let statCondition = '';
+        if (details.relative_physical_stats === 1) statCondition = ' (needs Attack > Defense)';
+        else if (details.relative_physical_stats === -1) statCondition = ' (needs Attack < Defense)';
+        else if (details.relative_physical_stats === 0) statCondition = ' (needs Attack = Defense)';
+
         suggestions.push({
           id: `evo-lvl-${targetId}`,
           category: 'Evolve',
           title: `Level Up Evolution: #${targetId}`,
           description: isReady
-            ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve (needs Lv. ${details.min_level})!`
-            : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${details.min_level}.`,
+            ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve (needs Lv. ${details.min_level})${statCondition}!`
+            : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${details.min_level}${statCondition}.`,
           pokemonId: targetId,
           priority: isReady ? 90 : 75,
         });
       } else if (details.min_happiness) {
+        let timeCondition = '';
+        if (details.time_of_day === 'Day' || (details.time_of_day as unknown as string) === 'day')
+          timeCondition = ' during the day';
+        else if (details.time_of_day === 'Night' || (details.time_of_day as unknown as string) === 'night')
+          timeCondition = ' during the night';
+
         suggestions.push({
           id: `evo-happy-${targetId}`,
           category: 'Evolve',
           title: `Happiness Evolution: #${targetId}`,
-          description: `Level up your pre-evolution with high happiness to evolve!`,
+          description: `Level up your pre-evolution with high happiness${timeCondition} to evolve!`,
           pokemonId: targetId,
           priority: 80,
         });
