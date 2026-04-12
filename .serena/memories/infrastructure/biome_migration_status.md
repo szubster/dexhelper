@@ -22,3 +22,4 @@ The project has transitioned from no formal linting/formatting to a unified tool
 
 ## Future Phases
 - **Phase 8**: UI Baseline Stabilization / Enablement of `a11y` rules (Currently marked as TODO in `biome.jsonc`).
+- **Phase 9 (Completed)**: Enforce Errors. Escalated all violations to error severity in CI/CD via `package.json` and config.
