@@ -28,14 +28,24 @@ export const getDB = () => {
 export const syncData = async () => {
   const db = await getDB();
 
-  // 1. Fetch current data
-  const response = await fetch('/data/pokedata.json');
+  // 1. Check if already synced using build-time hash
+  const existingHash = await db.get(DB_CONFIG.STORES.METADATA, 'hash');
+  
+  // Skip fetch if the build-in hash matches what we have in indexedDB
+  if (existingHash === __POKEDATA_HASH__ && __POKEDATA_HASH__ !== 'initial') {
+    console.log('PokeDB: Already up to date (build hash match)');
+    return;
+  }
+
+  // 2. Fetch current data
+  const response = await fetch(`${import.meta.env.BASE_URL}data/pokedata.json`);
   const data: PokeDataExport = await response.json();
 
-  // 2. Check if already synced
-  const existingHash = await db.get(DB_CONFIG.STORES.METADATA, 'hash');
+  // Guard against outdated build hash vs actual data hash (rare edge case)
   if (existingHash === data.hash) {
-    console.log('PokeDB: Already up to date (hash match)');
+    console.log('PokeDB: Already up to date (data hash match)');
+    // Sync the build hash back to metadata just in case
+    await db.put(DB_CONFIG.STORES.METADATA, data.hash, 'hash');
     return;
   }
 
@@ -55,6 +65,9 @@ export const syncData = async () => {
       DB_CONFIG.STORES.SPECIES,
       DB_CONFIG.STORES.ENCOUNTERS,
       DB_CONFIG.STORES.CHAINS,
+      DB_CONFIG.STORES.LOCATIONS,
+      DB_CONFIG.STORES.AREAS,
+      DB_CONFIG.STORES.INDEX,
       DB_CONFIG.STORES.METADATA,
     ],
     'readwrite',
@@ -65,22 +78,46 @@ export const syncData = async () => {
   const sStore = tx.objectStore(DB_CONFIG.STORES.SPECIES);
   const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
   const cStore = tx.objectStore(DB_CONFIG.STORES.CHAINS);
+  const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
+  const aStore = tx.objectStore(DB_CONFIG.STORES.AREAS);
+  const iStore = tx.objectStore(DB_CONFIG.STORES.INDEX);
   const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
 
   // Clear old data
-  await Promise.all([pStore.clear(), sStore.clear(), eStore.clear(), cStore.clear(), mStore.clear()]);
+  await Promise.all([
+    pStore.clear(), 
+    sStore.clear(), 
+    eStore.clear(), 
+    cStore.clear(), 
+    lStore.clear(),
+    aStore.clear(),
+    iStore.clear(),
+    mStore.clear()
+  ]);
 
-  emit(1, 4, 'Pokemon');
+  const STAGES = 7;
+  emit(1, STAGES, 'Pokemon');
   for (const p of data.pokemon) pStore.put(p, p.id);
 
-  emit(2, 4, 'Species');
+  emit(2, STAGES, 'Species');
   for (const s of data.species) sStore.put(s, s.id);
 
-  emit(3, 4, 'Encounters');
+  emit(3, STAGES, 'Encounters');
   for (const e of data.encounters) eStore.put(e, e.pid);
 
-  emit(4, 4, 'Chains');
+  emit(4, STAGES, 'Chains');
   for (const c of data.chains) cStore.put(c, c.id);
+
+  emit(5, STAGES, 'Locations');
+  for (const l of data.locations) lStore.put(l, l.id);
+
+  emit(6, STAGES, 'Areas');
+  for (const a of data.areas) aStore.put(a, a.id);
+
+  emit(7, STAGES, 'Index');
+  for (const [lid, pids] of Object.entries(data.locationIndex)) {
+    iStore.put(pids, Number(lid));
+  }
 
   await mStore.put(data.hash, 'hash');
   await tx.done;
@@ -99,6 +136,15 @@ export const pokeDB = {
   getAllEncounters: async (): Promise<LocationAreaEncounters[]> => (await getDB()).getAll(DB_CONFIG.STORES.ENCOUNTERS),
   getChain: async (id: number): Promise<CompactEvolutionChain | undefined> =>
     (await getDB()).get(DB_CONFIG.STORES.CHAINS, id),
+  
+  // New location methods
+  getLocations: async () => (await getDB()).getAll(DB_CONFIG.STORES.LOCATIONS),
+  getLocation: async (id: number) => (await getDB()).get(DB_CONFIG.STORES.LOCATIONS, id),
+  getAreas: async (lid: number) => {
+    const areas = await (await getDB()).getAll(DB_CONFIG.STORES.AREAS);
+    return areas.filter(a => a.lid === lid);
+  },
+  getInverseIndex: async (lid: number) => (await getDB()).get(DB_CONFIG.STORES.INDEX, lid),
 
   // Bulk versions for DataLoader
   getPokemons: async (ids: number[]): Promise<(PokemonCompact | Error)[]> => {

@@ -27,7 +27,7 @@ export const pokeapi = {
     return {
       id: p.id,
       name: p.n,
-      types: p.t.map((typeName) => ({ type: { name: typeName } })),
+      types: [],
       stats: [
         { base_stat: p.s[0], stat: { name: 'hp' } },
         { base_stat: p.s[1], stat: { name: 'attack' } },

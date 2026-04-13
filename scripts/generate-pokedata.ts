@@ -2,20 +2,21 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execSync } from 'node:child_process';
-import type { 
-  CompactChainLink, 
-  CompactEncounterDetail, 
-  CompactEvolutionChain, 
-  LocationAreaEncounters, 
-  PokemonCompact, 
-  SpeciesCompact,
-  PokeDataExport
-} from '../src/db/schema';
 import { 
-  POKE_VERSION_MAP, 
-  ENCOUNTER_METHOD_MAP, 
-  EVO_TRIGGER_MAP 
-} from '../src/db/schema';
+  type CompactChainLink, 
+  type CompactEncounterDetail, 
+  type CompactEvolutionChain, 
+  type LocationAreaEncounters, 
+  type PokemonCompact, 
+  type SpeciesCompact,
+  type PokeDataExport,
+  type GenericLocation,
+  type SpecificArea,
+  type CompactEncounter,
+  POKE_VERSION_MAP,
+  ENCOUNTER_METHOD_MAP,
+  EVO_TRIGGER_MAP
+} from '../src/db/schema.ts';
 
 const POKEMON_COUNT = 251; // Gen 1 & 2
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
@@ -68,7 +69,12 @@ async function main() {
   const pokemon: PokemonCompact[] = [];
   const species: SpeciesCompact[] = [];
   const chains: CompactEvolutionChain[] = [];
-  const pokemonEncounterMap = new Map<number, LocationAreaEncounters[]>();
+  const pokemonEncounterMap = new Map<number, CompactEncounter[]>();
+  
+  // New structures
+  const locationMap = new Map<number, GenericLocation>();
+  const areaMap = new Map<number, SpecificArea>();
+  const inverseIndexMap = new Map<number, Set<number>>(); // lid -> Set<pid>
 
   const dataPath = path.join(TEMP_DIR, 'data/api/v2');
 
@@ -85,7 +91,6 @@ async function main() {
     const sData = readJson(sDataPath);
     
     if (!pData || !sData) {
-      console.warn(`\nMissing data for Pokémon ${i}, skipping.`);
       continue;
     }
 
@@ -96,7 +101,6 @@ async function main() {
       id: pData.id,
       sid: i,
       n: pData.name,
-      t: pData.types.map((t: any) => t.type.name),
       s: pData.stats.map((s: any) => s.base_stat),
     });
 
@@ -113,40 +117,84 @@ async function main() {
       pre: preEvoId,
     });
 
-    // Mirror PokeAPI encounter structure: pid -> list of areas with version details
-    // But we condense it to LocationAreaEncounters structure which our components expect
     const pokemonEncounters: any[] = [];
     for (const areaEnc of eData) {
-      const areaName = areaEnc.location_area.name;
-      const vDetails: any[] = [];
+      const areaUrl = areaEnc.location_area.url;
+      const areaId = parseInt(areaUrl.split('/').filter(Boolean).pop() || '0', 10);
+      const areaSlug = areaEnc.location_area.name;
 
+      // Extract location data if not seen
+      if (!areaMap.has(areaId)) {
+        const areaData = readJson(path.join(dataPath, `location-area/${areaId}/index.json`));
+        if (areaData) {
+          const locUrl = areaData.location.url;
+          const lid = parseInt(locUrl.split('/').filter(Boolean).pop() || '0', 10);
+          
+          if (!locationMap.has(lid)) {
+            const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
+            if (locData) {
+              locationMap.set(lid, {
+                id: lid,
+                n: locData.names.find((n: any) => n.language.name === 'en')?.name || locData.name,
+                slug: locData.name
+              });
+            }
+          }
+
+          areaMap.set(areaId, {
+            id: areaId,
+            lid: lid,
+            n: areaData.names.find((n: any) => n.language.name === 'en')?.name || areaData.name || areaSlug,
+            slug: areaSlug
+          });
+
+          // Update inverse index
+          if (!inverseIndexMap.has(lid)) inverseIndexMap.set(lid, new Set());
+          inverseIndexMap.get(lid)?.add(i);
+        }
+      } else {
+        const lid = areaMap.get(areaId)!.lid;
+        if (!inverseIndexMap.has(lid)) inverseIndexMap.set(lid, new Set());
+        inverseIndexMap.get(lid)?.add(i);
+      }
+
+      const vDetails: any[] = [];
       for (const vd of areaEnc.version_details) {
         const vId = POKE_VERSION_MAP[vd.version.name];
         if (!vId) continue;
 
         vDetails.push({
-          version: { name: vd.version.name },
-          max_chance: vd.max_chance,
-          encounter_details: vd.encounter_details.map((ed: any) => ({
-            min_level: ed.min_level,
-            max_level: ed.max_level,
-            chance: ed.chance,
-            method: { name: ed.method.name },
-            condition_values: ed.condition_values || []
+          v: vId,
+          d: vd.encounter_details.map((ed: any) => ({
+            c: ed.chance,
+            m: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
+            min: ed.min_level,
+            max: ed.max_level,
           }))
         });
       }
 
       if (vDetails.length > 0) {
         pokemonEncounters.push({
-          location_area: { name: areaName },
-          version_details: vDetails
+          slug: areaSlug,
+          version_details: vDetails // Still using old structure here for compatibility if needed, but we should match schema
         });
       }
     }
     
     if (pokemonEncounters.length > 0) {
-      pokemonEncounterMap.set(i, pokemonEncounters);
+      // Re-map to match CompactEncounter structure
+      const finalEncs: any[] = [];
+      for (const pe of pokemonEncounters) {
+        for (const vd of pe.version_details) {
+          finalEncs.push({
+            slug: pe.slug,
+            v: vd.v,
+            d: vd.d
+          });
+        }
+      }
+      pokemonEncounterMap.set(i, finalEncs);
     }
   }
 
@@ -177,17 +225,22 @@ async function main() {
     });
   }
 
-  // Finalize Encounters for Export
-  const encounters: any[] = Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
-    pid, 
-    encounters: encs
-  }));
-
-  const exportData: Omit<PokeDataExport, 'hash'> & { hash?: string } = {
+  const exportData: Omit<PokeDataExport, 'hash'> = {
     pokemon,
     species,
-    encounters,
+    encounters: Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
+      pid, 
+      encounters: encs
+    })),
     chains,
+    locations: Array.from(locationMap.values()),
+    areas: Array.from(areaMap.values()),
+    locationIndex: Object.fromEntries(
+      Array.from(inverseIndexMap.entries()).map(([lid, pids]) => [
+        lid,
+        Array.from(pids).sort((a, b) => a - b)
+      ])
+    ),
     sourceSha: upstreamSha,
   };
 
@@ -196,8 +249,12 @@ async function main() {
 
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(finalData));
+  
+  // Write hash-only file for quick check
+  const HASH_PATH = OUTPUT_PATH.replace('.json', '.hash');
+  fs.writeFileSync(HASH_PATH, hash);
 
-  console.log(`\nSuccess! Wrote ${OUTPUT_PATH}`);
+  console.log(`\nSuccess! Wrote ${OUTPUT_PATH} and ${HASH_PATH}`);
   console.log(`Hash: ${hash}`);
   console.log(`Source SHA: ${upstreamSha}`);
 }

@@ -1,7 +1,8 @@
-import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
+import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import fs from 'fs';
 import { defineConfig, loadEnv } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { codecovVitePlugin } from "@codecov/vite-plugin";
@@ -10,10 +11,24 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
+
+  let pokedataHash = 'initial';
+  try {
+    const hashPath = path.resolve(__dirname, 'public/data/pokedata.hash');
+    if (fs.existsSync(hashPath)) {
+      pokedataHash = fs.readFileSync(hashPath, 'utf-8').trim();
+    }
+  } catch (e) {
+    console.warn('Failed to read pokedata.hash, using fallback.');
+  }
+
   return {
+    define: {
+      __POKEDATA_HASH__: JSON.stringify(pokedataHash),
+    },
     base: process.env.CF_PAGES === 'true' ? '/' : '/dexhelper/',
     plugins: [
-      TanStackRouterVite(),
+      tanstackRouter(),
       react(),
       tailwindcss(),
       VitePWA({
