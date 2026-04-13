@@ -16,17 +16,17 @@ export const getDB = () => {
       upgrade(db) {
         // Automatically handle additions/removals based on DB_CONFIG.STORES
         const currentStores = Array.from(db.objectStoreNames);
-        const targetStores = Object.values(DB_CONFIG.STORES) as Array<keyof PokeDBSchema>;
+        const targetStores = Object.values(DB_CONFIG.STORES) as string[];
 
         for (const store of targetStores) {
-          if (!(currentStores as any[]).includes(store)) {
+          if (!(currentStores as string[]).includes(store)) {
             // biome-ignore lint/suspicious/noExplicitAny: Complex IDB schema upgrade logic
             (db as any).createObjectStore(store);
           }
         }
 
         for (const store of currentStores) {
-          if (!targetStores.includes(store as any)) {
+          if (!targetStores.includes(store)) {
             // biome-ignore lint/suspicious/noExplicitAny: Complex IDB schema upgrade logic
             (db as any).deleteObjectStore(store);
           }
@@ -64,11 +64,13 @@ export const syncData = async () => {
   console.log('PokeDB: Syncing new data...');
 
   const emit = (current: number, total: number, stage: string) => {
-    window.dispatchEvent(
-      new CustomEvent('pokedata-sync-progress', {
-        detail: { current, total, stage },
-      }),
-    );
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(
+        new CustomEvent('pokedata-sync-progress', {
+          detail: { current, total, stage },
+        }),
+      );
+    }
   };
 
   const tx = db.transaction(
