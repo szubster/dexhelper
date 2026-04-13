@@ -19,15 +19,15 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
   };
 
   const mockApiData = {
-    localEncounters: [],
+    localEncounters: { slug: 'pallet-town-area', encounters: [] },
     missingEncounters: {
       124: [], // Jynx (not catchable in Yellow, and no NPC trade)
       122: [], // Mr. Mime (not catchable in Yellow, but NPC trade EXISTS)
     },
     ancestralEncounters: { 124: {}, 122: {} },
     missingChains: {
-      124: { chain: { species: { url: '.../124/' }, evolves_to: [] } },
-      122: { chain: { species: { url: '.../122/' }, evolves_to: [] } },
+      124: { id: 1, chain: { sid: 124, evolves_to: [], details: [] } },
+      122: { id: 2, chain: { sid: 122, evolves_to: [], details: [] } },
     },
     partyEvolutions: {},
   } as unknown as AssistantApiData;

@@ -6,6 +6,51 @@ export const ONE_TIME_CHOICES = {
   eevee: [133],
 };
 
+const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
+  red: [
+    23,
+    24, // Ekans, Arbok
+    43,
+    44,
+    45, // Oddish, Gloom, Vileplume
+    56,
+    57, // Mankey, Primeape
+    58,
+    59, // Growlithe, Arcanine
+    123, // Scyther
+    125, // Electabuzz
+  ],
+  blue: [
+    27,
+    28, // Sandshrew, Sandslash
+    37,
+    38, // Vulpix, Ninetales
+    52,
+    53, // Meowth, Persian
+    69,
+    70,
+    71, // Bellsprout, Weepinbell, Victreebel
+    126, // Magmar
+    127, // Pinsir
+  ],
+  yellow: [
+    13,
+    14,
+    15, // Weedle, Kakuna, Beedrill
+    23,
+    24, // Ekans, Arbok
+    27,
+    28, // Sandshrew, Sandslash
+    52,
+    53, // Meowth, Persian
+    109,
+    110, // Koffing, Weezing
+    124, // Jynx
+    126, // Magmar
+    127, // Pinsir
+  ],
+};
+
 export function getUnobtainableReason(
   pokemonId: number,
   gameVersion: string,
@@ -53,6 +98,12 @@ export function getUnobtainableReason(
     if (ownedSet.has(otherFossilBase) || ownedSet.has(otherFossilEvo)) {
       return `You chose the other Fossil at Mt. Moon. Must trade for this one.`;
     }
+  }
+
+  // Version Exclusives
+  const exclusives = GEN1_VERSION_EXCLUSIVES[gameVersion] || [];
+  if (exclusives.includes(pokemonId) && !ownedSet.has(pokemonId)) {
+    return `This Pokémon is not available in ${gameVersion.charAt(0).toUpperCase() + gameVersion.slice(1)}. Must be traded from another version.`;
   }
 
   return null;

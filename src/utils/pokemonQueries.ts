@@ -1,6 +1,5 @@
 import { queryOptions } from '@tanstack/react-query';
-import { MAX_DEX_ACROSS_GENS } from './generationConfig';
-import { pokeapi } from './pokeapi';
+import { getDB } from '../db/PokeDB';
 
 export interface PokemonListItem {
   id: number;
@@ -10,18 +9,14 @@ export interface PokemonListItem {
 export const pokemonListQueryOptions = queryOptions({
   queryKey: ['pokemonList'],
   queryFn: async (): Promise<PokemonListItem[]> => {
-    const data = await pokeapi.getPokemonsList({ limit: MAX_DEX_ACROSS_GENS, offset: 0 });
-    return data.results
-      .map((p: { name: string; url: string }) => {
-        const urlParts = p.url.split('/').filter(Boolean);
-        const idString = urlParts[urlParts.length - 1];
-        const id = parseInt(idString ?? '0', 10);
-        return {
-          id,
-          name: p.name.charAt(0).toUpperCase() + p.name.slice(1),
-        };
-      })
-      .sort((a: PokemonListItem, b: PokemonListItem) => a.id - b.id);
+    const db = await getDB();
+    const data = await db.getAll('pokemon');
+    return data
+      .map((p) => ({
+        id: p.id,
+        name: p.n.charAt(0).toUpperCase() + p.n.slice(1),
+      }))
+      .sort((a, b) => a.id - b.id);
   },
   staleTime: Infinity,
 });

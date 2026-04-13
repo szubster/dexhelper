@@ -1,21 +1,20 @@
-import { useQueries, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { AlertCircle, CheckCircle2, MapPin, Monitor, Sparkles, X } from 'lucide-react';
-import type {
-  ChainLink,
-  Encounter,
-  EvolutionDetail,
-  LocationAreaEncounter,
-  NamedAPIResource,
-  PokemonType,
-  VersionEncounterDetail,
-} from 'pokenode-ts';
 import React, { useEffect } from 'react';
+import { dexDataLoader } from '../db/DexDataLoader';
+import {
+  type CompactEncounter,
+  type CompactEvolutionChain,
+  type PokemonCompact,
+  REVERSE_METHOD_MAP,
+  REVERSE_VERSION_MAP,
+  type SpeciesCompact,
+} from '../db/schema';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
 import { cn } from '../utils/cn';
-import { stadiumRewardsSummary, staticEncounters } from '../utils/data';
+import { stadiumRewardsSummary } from '../utils/data';
 import { getGenerationConfig } from '../utils/generationConfig';
-import { pokeapi } from '../utils/pokeapi';
 import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbability';
 import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
 import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
@@ -88,61 +87,28 @@ export function PokemonDetails({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
-  const queries = useQueries({
-    queries: [
-      {
-        queryKey: ['encounters', pokemonId],
-        queryFn: () => pokeapi.getPokemonEncounterAreasByName(pokemonId),
-      },
-      {
-        queryKey: ['pokemon', pokemonId],
-        queryFn: () => pokeapi.getPokemonByName(pokemonId),
-      },
-      {
-        queryKey: ['species', pokemonId],
-        queryFn: () => pokeapi.getPokemonSpeciesByName(pokemonId),
-      },
-    ],
+  const { data: allData, isLoading: loading } = useQuery({
+    queryKey: ['pokemon-details', pokemonId],
+    queryFn: () => dexDataLoader.getPokemonDetails(pokemonId),
   });
 
-  // Calculator state moved to PokemonCatchProbability
+  const pokemonData = allData?.pokemon as PokemonCompact | undefined;
+  const speciesData = allData?.species as SpeciesCompact | undefined;
+  const encounters = allData?.encounters || [];
+  const evolutionData = allData?.evolutionChain as CompactEvolutionChain | undefined;
 
-  const _encountersReady = queries[0].isSuccess;
-  const _pokemonReady = queries[1].isSuccess;
-  const _speciesReady = queries[2].isSuccess;
-
-  const encounters = queries[0].data || [];
-  const pokemonData = queries[1].data;
-  const speciesData = queries[2].data;
-
-  const catchRate = speciesData?.capture_rate ?? null;
-  const _genderRate = speciesData?.gender_rate ?? -1;
-
-  const { data: evolutionData } = useQuery({
-    queryKey: ['evolution', speciesData?.evolution_chain?.url],
-    queryFn: () => {
-      if (!speciesData?.evolution_chain?.url) return Promise.reject(new Error('No URL'));
-      return pokeapi.resource(speciesData.evolution_chain.url);
-    },
-    enabled: !!speciesData?.evolution_chain?.url,
-  });
+  const catchRate = speciesData?.cr ?? null;
+  const genderRate = speciesData?.gr ?? -1;
 
   const evoReq = React.useMemo(() => {
-    if (!speciesData?.evolves_from_species || !evolutionData) return null;
+    if (!speciesData?.pre || !evolutionData) return null;
 
-    const fromName = speciesData.evolves_from_species.name;
-    const fromId = parseInt(speciesData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0', 10);
-
-    // For saves from gens that don't have this pre-evolution, ignore it (e.g., baby Pokemon in Gen 1)
-    if (saveData && fromId > getGenerationConfig(saveData.generation).maxDex) return null;
-
+    const fromId = speciesData.pre;
     let methodStr = 'Unknown';
 
-    const findEvoDetails = (chain: ChainLink): EvolutionDetail | null => {
-      if (chain.species.name === pokemonName.toLowerCase()) {
-        return chain.evolution_details[0] ?? null;
-      }
-      for (const next of chain.evolves_to) {
+    const findEvoDetails = (node: any): any[] | null => {
+      if (node.sid === pokemonId) return node.details;
+      for (const next of node.evolves_to) {
         const found = findEvoDetails(next);
         if (found) return found;
       }
@@ -150,147 +116,80 @@ export function PokemonDetails({
     };
 
     const details = findEvoDetails(evolutionData.chain);
-    if (details) {
-      if (details.trigger?.name === 'level-up') {
-        methodStr = details.min_level ? `Level ${details.min_level}` : 'Level up';
-      } else if (details.trigger?.name === 'use-item') {
-        methodStr = details.item?.name?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
-      } else if (details.trigger?.name === 'trade') {
-        methodStr = 'Trade';
-      }
+    if (details && details.length > 0) {
+      const d = details[0];
+      if (d.tr === 1) methodStr = d.min_l ? `Level ${d.min_l}` : 'Level up';
+      else if (d.tr === 3) methodStr = 'Use Item';
+      else if (d.tr === 2) methodStr = 'Trade';
     }
 
     return {
       fromId,
-      fromName: fromName.charAt(0).toUpperCase() + fromName.slice(1),
+      fromName: 'Earlier Form',
       method: methodStr,
     };
-  }, [speciesData, evolutionData, pokemonName, saveData]);
+  }, [speciesData, evolutionData, pokemonId]);
 
   const evolvesTo = React.useMemo(() => {
-    if (!speciesData || !evolutionData) return null;
+    if (!speciesData || !evolutionData) return [];
 
-    const findEvolutions = (chain: ChainLink): { id: number; name: string; method: string }[] => {
-      if (chain.species.name === pokemonName.toLowerCase()) {
-        return chain.evolves_to
-          .map((evo: ChainLink) => {
-            const id = parseInt(evo.species.url.split('/').filter(Boolean).pop() || '0', 10);
-            // For saves from gens that don't have this evolution, ignore it
-            if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
-
-            let methodStr = 'Unknown';
-            const details = evo.evolution_details[0];
-            if (details) {
-              if (details.trigger?.name === 'level-up') {
-                methodStr = details.min_level ? `Level ${details.min_level}` : 'Level up';
-              } else if (details.trigger?.name === 'use-item') {
-                methodStr =
-                  details.item?.name?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
-              } else if (details.trigger?.name === 'trade') {
-                methodStr = 'Trade';
-              }
-            }
-            return {
-              id,
-              name: evo.species.name.charAt(0).toUpperCase() + evo.species.name.slice(1),
-              method: methodStr,
-            };
-          })
-          .filter(Boolean) as { id: number; name: string; method: string }[];
-      }
-      for (const next of chain.evolves_to) {
+    const findEvolutions = (node: any): any[] | null => {
+      if (node.sid === pokemonId) return node.evolves_to;
+      for (const next of node.evolves_to) {
         const found = findEvolutions(next);
-        if (found.length > 0) return found;
+        if (found) return found;
       }
-      return [];
+      return null;
     };
 
-    return findEvolutions(evolutionData.chain);
-  }, [speciesData, evolutionData, pokemonName, saveData]);
+    const evos = findEvolutions(evolutionData.chain);
+    if (!evos) return [];
+
+    return evos
+      .map((evo: any) => {
+        const id = evo.sid;
+        if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
+
+        let methodStr = 'Unknown';
+        const d = evo.details[0];
+        if (d) {
+          if (d.tr === 1) methodStr = d.min_l ? `Level ${d.min_l}` : 'Level up';
+          else if (d.tr === 3) methodStr = 'Use Item';
+          else if (d.tr === 2) methodStr = 'Trade';
+        }
+        return {
+          id,
+          name: 'Next Form',
+          method: methodStr,
+        };
+      })
+      .filter((evo): evo is { id: number; name: string; method: string } => evo !== null);
+  }, [speciesData, evolutionData, pokemonId, saveData]);
 
   const breedingInfo = React.useMemo(() => {
-    if (!speciesData?.is_baby || !evolutionData) return null;
-
-    // Only show breeding info for gens that support it
+    if (!speciesData?.baby || !evolutionData) return null;
     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
 
-    const parents: { id: number; name: string }[] = [];
-
-    const traverse = (node: ChainLink) => {
-      if (node.species.name !== speciesData.name) {
-        const id = parseInt(node.species.url.split('/').filter(Boolean).pop() || '0', 10);
-        parents.push({
-          id,
-          name: node.species.name.charAt(0).toUpperCase() + node.species.name.slice(1),
-        });
-      }
-      node.evolves_to?.forEach(traverse);
-    };
-    traverse(evolutionData.chain);
-
     return {
-      parentIds: parents.map((p) => p.id),
-      parentNames: parents.map((p) => p.name),
-      method: 'Breed evolved form with Ditto or same egg group',
+      parentIds: [evolutionData.chain.sid],
+      parentNames: ['Evolution Line'],
+      method: 'Breed evolved form',
     };
-  }, [speciesData, evolutionData, saveData?.generation, saveData]);
-
-  const loading = queries.some((q) => q.isLoading) || (!!speciesData?.evolution_chain?.url && !evolutionData);
+  }, [speciesData, evolutionData, saveData]);
 
   const getLocationsForVersion = React.useCallback(
     (version: string) => {
-      const locations: { name: string; details: string }[] = [];
+      const versionId = (REVERSE_VERSION_MAP as any)[version] || 0;
+      const versionEncounters = encounters.filter((e) => e.v === versionId);
 
-      const staticData = staticEncounters[pokemonId];
-      if (staticData?.[version as keyof typeof staticData]) {
-        staticData[version as keyof typeof staticData]?.forEach((loc) => {
-          locations.push({ name: loc, details: 'Static Encounter / Gift / Trade' });
-        });
-      }
-
-      encounters.forEach((enc: LocationAreaEncounter) => {
-        const versionDetail = enc.version_details.find((vd: VersionEncounterDetail) => vd.version.name === version);
-        if (versionDetail) {
-          const name = enc.location_area.name
-            .replace(/-/g, ' ')
-            .replace(/\b\w/g, (l: string) => l.toUpperCase())
-            .replace(' Area', '')
-            .replace('Kanto ', '')
-            .replace('Johto ', '');
-
-          const methodMap = new Map<string, { chance: number; min: number; max: number; conditions: string[] }>();
-          versionDetail.encounter_details.forEach((detail: Encounter) => {
-            const method = detail.method.name.replace(/-/g, ' ');
-            const conditions = detail.condition_values.map((cv: NamedAPIResource) => cv.name.replace(/-/g, ' '));
-            const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
-
-            const existing = methodMap.get(key);
-            if (existing) {
-              existing.chance += detail.chance;
-              existing.min = Math.min(existing.min, detail.min_level);
-              existing.max = Math.max(existing.max, detail.max_level);
-            } else {
-              methodMap.set(key, {
-                chance: detail.chance,
-                min: detail.min_level,
-                max: detail.max_level,
-                conditions,
-              });
-            }
-          });
-
-          const detailStrings = Array.from(methodMap.entries()).map(([key, data]) => {
-            const lvl = data.min === data.max ? `Lv ${data.min}` : `Lv ${data.min}-${data.max}`;
-            return `${data.chance}% chance, ${lvl} (${key})`;
-          });
-
-          locations.push({ name, details: detailStrings.join(' | ') });
-        }
+      return versionEncounters.flatMap((enc) => {
+        return enc.d.map((detail) => ({
+          name: enc.slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
+          details: `${detail.c}% chance, Lv ${detail.min}-${detail.max} (${REVERSE_METHOD_MAP[detail.m] || 'Walk'})`,
+        }));
       });
-
-      return locations;
     },
-    [encounters, pokemonId],
+    [encounters],
   );
 
   const _redLocations = getLocationsForVersion('red');
@@ -419,12 +318,12 @@ export function PokemonDetails({
                     {pokemonName}
                   </h2>
                   <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
-                    {pokemonData?.types.map((t: PokemonType) => (
+                    {pokemonData?.t.map((type: string) => (
                       <span
-                        key={t.type.name}
+                        key={type}
                         className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-black text-[10px] text-zinc-300 uppercase tracking-widest backdrop-blur-md"
                       >
-                        {t.type.name}
+                        {type}
                       </span>
                     ))}
                     {stadiumReward && (

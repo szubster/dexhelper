@@ -2,20 +2,18 @@ import path from 'node:path';
 import { expect, type Page } from '@playwright/test';
 
 /**
- * Initializes the Dexhelper app with a standard save file (Yellow version).
- * This transitions the app from the "Uninitialized" state to the active Pokedex grid.
+ * Initializes the Dexhelper app with a save file.
+ * Defaults to Yellow version if no path is provided.
  */
-export async function initializeWithSave(page: Page) {
+export async function initializeWithSave(page: Page, savePath: string = 'tests/fixtures/yellow.sav') {
   await page.goto('/');
 
   // Locate the file input (hidden inside the label)
   const fileInput = page.locator('input[type="file"]');
 
-  // Upload the yellow.sav fixture
-  // Note: Path is relative to the project root where playwright is executed
-  await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
+  // Upload the save fixture
+  await fileInput.setInputFiles(savePath);
 
-  // Wait for the app to hydrate (the "Initialize Pokedex" label should disappear,
-  // and the Trainer card should appear).
+  // Wait for the app to hydrate
   await expect(page.getByText(/TRAINER/i).first()).toBeVisible({ timeout: 10000 });
 }
