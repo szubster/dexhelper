@@ -12,6 +12,10 @@
     {
       "path": "assets/style-<hash>.css",
       "maxSize": "100kb"
+    },
+    {
+      "path": "data/pokedata.json",
+      "maxSize": "800kb"
     }
   ],
   "reportOutput": [
