@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { execSync } from 'node:child_process';
+import { execSync, execFileSync } from 'node:child_process';
 import { 
   type CompactChainLink, 
   type CompactEncounterDetail, 
@@ -37,7 +37,7 @@ async function main() {
   console.log('Checking upstream SHA...');
   let upstreamSha = '';
   try {
-    upstreamSha = execSync('gh api repos/PokeAPI/api-data/commits/master --jq .sha', { encoding: 'utf-8' }).trim();
+    upstreamSha = execFileSync('gh', ['api', 'repos/PokeAPI/api-data/commits/master', '--jq', '.sha'], { encoding: 'utf-8' }).trim();
   } catch (e) {
     console.warn('Failed to fetch upstream SHA via gh CLI. Proceeding with sync anyway.');
   }
@@ -55,7 +55,7 @@ async function main() {
   if (!fs.existsSync(TEMP_DIR)) {
     console.log('Cloning PokeAPI/api-data (shallow)...');
     fs.mkdirSync(path.dirname(TEMP_DIR), { recursive: true });
-    execSync(`git clone --depth 1 ${REPO_URL} ${TEMP_DIR}`);
+    execFileSync('git', ['clone', '--depth', '1', REPO_URL, TEMP_DIR]);
   } else {
     console.log('Updating local clone...');
     try {
@@ -63,7 +63,7 @@ async function main() {
     } catch (e) {
       console.warn('Git pull failed. Re-cloning...');
       fs.rmSync(TEMP_DIR, { recursive: true, force: true });
-      execSync(`git clone --depth 1 ${REPO_URL} ${TEMP_DIR}`);
+      execFileSync('git', ['clone', '--depth', '1', REPO_URL, TEMP_DIR]);
     }
   }
 

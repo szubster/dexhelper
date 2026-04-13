@@ -14,6 +14,7 @@ describe('PokeDB', () => {
     vi.clearAllMocks();
     const db = await getDB();
     const tx = db.transaction(Object.values(DB_CONFIG.STORES), 'readwrite');
+    // biome-ignore lint/suspicious/noExplicitAny: store name is dynamic
     await Promise.all(Object.values(DB_CONFIG.STORES).map((s) => tx.objectStore(s as any).clear()));
     await tx.done;
   });
@@ -40,9 +41,9 @@ describe('PokeDB', () => {
       locationIndex: { '1': [1] },
     };
 
-    (globalThis.fetch as any).mockResolvedValue({
+    vi.mocked(fetch).mockResolvedValue({
       json: async () => mockData,
-    });
+    } as Response);
 
     await pokeDB.sync();
 
@@ -66,21 +67,24 @@ describe('PokeDB', () => {
       locationIndex: {},
     };
 
-    (globalThis.fetch as any).mockResolvedValue({
+    vi.mocked(fetch).mockResolvedValue({
       json: async () => mockData,
-    });
+    } as Response);
 
     await pokeDB.sync();
 
     const results = await pokeDB.getPokemons([1, 2, 999]);
     expect(results).toHaveLength(3);
+    // biome-ignore lint/suspicious/noExplicitAny: test data access
     expect((results[0] as any).n).toBe('P1');
+    // biome-ignore lint/suspicious/noExplicitAny: test data access
     expect((results[1] as any).n).toBe('P2');
     expect(results[2]).toBeInstanceOf(Error);
   });
 
   it('handles invalid IDs gracefully', async () => {
     expect(await pokeDB.getPokemon(NaN)).toBeUndefined();
+    // biome-ignore lint/suspicious/noExplicitAny: deliberate invalid input for testing
     expect(await pokeDB.getPokemon(null as any)).toBeUndefined();
 
     const manyResult = await pokeDB.getPokemons([NaN]);

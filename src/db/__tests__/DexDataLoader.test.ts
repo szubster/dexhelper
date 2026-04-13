@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { dexDataLoader } from '../DexDataLoader';
 import { pokeDB } from '../PokeDB';
+import type { CompactChainLink, CompactEncounter, PokemonMetadata } from '../schema';
 
 // Mock pokeDB
 vi.mock('../PokeDB', () => ({
@@ -15,8 +16,11 @@ describe('DexDataLoader', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     // Clear DataLoader cache between tests
+    // biome-ignore lint/suspicious/noExplicitAny: accessing internal cache for testing
     (dexDataLoader.pokemon as any).clearAll();
+    // biome-ignore lint/suspicious/noExplicitAny: accessing internal cache for testing
     (dexDataLoader.chains as any).clearAll();
+    // biome-ignore lint/suspicious/noExplicitAny: accessing internal cache for testing
     (dexDataLoader.encounters as any).clearAll();
   });
 
@@ -25,7 +29,7 @@ describe('DexDataLoader', () => {
       { id: 1, n: 'P1' },
       { id: 2, n: 'P2' },
     ];
-    (pokeDB.getPokemons as any).mockResolvedValue(mockPokes);
+    vi.mocked(pokeDB.getPokemons).mockResolvedValue(mockPokes as unknown as PokemonMetadata[]);
 
     const [p1, p2] = await Promise.all([dexDataLoader.pokemon.load(1), dexDataLoader.pokemon.load(2)]);
 
@@ -36,13 +40,13 @@ describe('DexDataLoader', () => {
   });
 
   it('handles errors from pokeDB', async () => {
-    (pokeDB.getPokemons as any).mockResolvedValue([new Error('Not Found')]);
+    vi.mocked(pokeDB.getPokemons).mockResolvedValue([new Error('Not Found')]);
 
     await expect(dexDataLoader.pokemon.load(999)).rejects.toThrow('Not Found');
   });
 
   it('loads chains correctly', async () => {
-    (pokeDB.getChain as any).mockResolvedValue({ id: 10, chain: {} });
+    vi.mocked(pokeDB.getChain).mockResolvedValue({ id: 10, chain: {} as CompactChainLink });
 
     const c10 = await dexDataLoader.chains.load(10);
 
@@ -50,9 +54,12 @@ describe('DexDataLoader', () => {
   });
 
   it('getPokemonDetails aggregates data correctly', async () => {
-    (pokeDB.getPokemons as any).mockResolvedValue([{ id: 1, n: 'P1', cid: 10 }]);
-    (pokeDB.getEncounters as any).mockResolvedValue({ pid: 1, encounters: [{ slug: 'area-1' }] });
-    (pokeDB.getChain as any).mockResolvedValue({ id: 10, chain: {} });
+    vi.mocked(pokeDB.getPokemons).mockResolvedValue([{ id: 1, n: 'P1', cid: 10 } as unknown as PokemonMetadata]);
+    vi.mocked(pokeDB.getEncounters).mockResolvedValue({
+      pid: 1,
+      encounters: [{ slug: 'area-1' }] as unknown as CompactEncounter[],
+    });
+    vi.mocked(pokeDB.getChain).mockResolvedValue({ id: 10, chain: {} as CompactChainLink });
 
     const details = await dexDataLoader.getPokemonDetails(1);
 

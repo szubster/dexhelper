@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import { Bug, Egg, Flag, Info, Loader2, Sparkles, Target, Zap } from 'lucide-react';
 import React from 'react';
 import { pokeDB } from '../db/PokeDB';
-import type { PokemonCompact } from '../db/schema';
 import type { SaveData } from '../engine/saveParser/index';
 import { type Suggestion, useAssistant } from '../hooks/useAssistant';
 import { AssistantDebugView } from './assistant/AssistantDebugView';

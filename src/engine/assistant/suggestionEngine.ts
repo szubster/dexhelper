@@ -7,7 +7,6 @@ import {
   EVO_TRIGGER,
   type LocationAreaEncounters,
   POKE_VERSION_MAP,
-  type PokemonMetadata,
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 

@@ -19,12 +19,14 @@ export const getDB = () => {
 
         for (const store of targetStores) {
           if (!currentStores.has(store)) {
+            // biome-ignore lint/suspicious/noExplicitAny: store name is dynamic from DB_CONFIG
             db.createObjectStore(store as any);
           }
         }
 
         for (const store of currentStores) {
           if (!targetStores.has(store)) {
+            // biome-ignore lint/suspicious/noExplicitAny: store name is dynamic from DB_CONFIG
             db.deleteObjectStore(store as any);
           }
         }
