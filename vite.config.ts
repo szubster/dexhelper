@@ -5,6 +5,7 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { codecovVitePlugin } from "@codecov/vite-plugin";
+import { VitePWA } from 'vite-plugin-pwa';
 
 
 export default defineConfig(({ mode }) => {
@@ -15,6 +16,43 @@ export default defineConfig(({ mode }) => {
       TanStackRouterVite(),
       react(),
       tailwindcss(),
+      VitePWA({
+        registerType: 'autoUpdate',
+        manifest: {
+          name: 'DexHelper',
+          short_name: 'DexHelper',
+          description: 'A modern Pokedex with AI assistance',
+          theme_color: '#ef4444',
+          icons: [
+            {
+              src: 'pwa-192x192.png',
+              sizes: '192x192',
+              type: 'image/png'
+            },
+            {
+              src: 'pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png'
+            }
+          ]
+        },
+        workbox: {
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+          runtimeCaching: [
+            {
+              urlPattern: /^https:\/\/raw\.githubusercontent\.com\/PokeAPI\/sprites\/master\/sprites\/pokemon\/.*\.png$/,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'pokemon-sprites',
+                expiration: {
+                  maxEntries: 500,
+                  maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+                },
+              },
+            },
+          ],
+        },
+      }),
       process.env.ANALYZE === 'true' && visualizer({
         filename: 'stats.html',
         open: false,

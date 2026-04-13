@@ -2,6 +2,7 @@ import type { QueryClient } from '@tanstack/react-query';
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 import React, { Suspense, useEffect } from 'react';
 import { AppLayout } from '../components/AppLayout';
+import { SyncProgress } from '../components/SyncProgress';
 import { useStore } from '../store';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
@@ -38,6 +39,7 @@ function RootComponent() {
     <AppLayout>
       <Outlet />
       <Suspense>
+        <SyncProgress />
         <TanStackRouterDevtools />
       </Suspense>
     </AppLayout>
