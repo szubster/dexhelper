@@ -376,8 +376,11 @@ export function generateSuggestions(
           if (isInternalObtainable) {
             const isYellow = displayVersion === 'yellow';
             const isRedBlueStarter = [1, 4, 7].includes(baseId);
-            if (isYellow && isRedBlueStarter) isCatchableSomewhere = true;
-            else if (isInternalObtainable) isCatchableSomewhere = true;
+            if (isRedBlueStarter) {
+              if (isYellow) isCatchableSomewhere = true;
+            } else {
+              isCatchableSomewhere = true;
+            }
           }
         }
       }
