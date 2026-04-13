@@ -33,57 +33,67 @@ test('coverage for suggestionEngine new lines', () => {
     missingChains: {
       196: {
         chain: {
-          species: { url: '.../133/' },
+          sid: 133,
           evolves_to: [
             {
-              species: { url: '.../196/' },
-              evolution_details: [{ trigger: { name: 'level-up' }, min_happiness: 220, time_of_day: 'day' }],
+              sid: 196,
+              evolves_to: [],
+              details: [{ tr: 1, min_h: 220, time: 1 }],
             },
           ],
+          details: [],
         },
       }, // Espeon
       197: {
         chain: {
-          species: { url: '.../133/' },
+          sid: 133,
           evolves_to: [
             {
-              species: { url: '.../197/' },
-              evolution_details: [{ trigger: { name: 'level-up' }, min_happiness: 220, time_of_day: 'night' }],
+              sid: 197,
+              evolves_to: [],
+              details: [{ tr: 1, min_h: 220, time: 2 }],
             },
           ],
+          details: [],
         },
       }, // Umbreon
       106: {
         chain: {
-          species: { url: '.../236/' },
+          sid: 236,
           evolves_to: [
             {
-              species: { url: '.../106/' },
-              evolution_details: [{ trigger: { name: 'level-up' }, min_level: 20, relative_physical_stats: 1 }],
+              sid: 106,
+              evolves_to: [],
+              details: [{ tr: 1, min_l: 20, rel_s: 1 }],
             },
           ],
+          details: [],
         },
       }, // Hitmonlee
       107: {
         chain: {
-          species: { url: '.../236/' },
+          sid: 236,
           evolves_to: [
             {
-              species: { url: '.../107/' },
-              evolution_details: [{ trigger: { name: 'level-up' }, min_level: 20, relative_physical_stats: -1 }],
+              sid: 107,
+              evolves_to: [],
+              details: [{ tr: 1, min_l: 20, rel_s: -1 }],
             },
           ],
+          details: [],
         },
       }, // Hitmonchan
       237: {
         chain: {
-          species: { url: '.../236/' },
+          sid: 236,
           evolves_to: [
             {
-              species: { url: '.../237/' },
-              evolution_details: [{ trigger: { name: 'level-up' }, min_level: 20, relative_physical_stats: 0 }],
+              sid: 237,
+              evolves_to: [],
+              details: [{ tr: 1, min_l: 20, rel_s: 0 }],
             },
           ],
+          details: [],
         },
       }, // Hitmontop
     },

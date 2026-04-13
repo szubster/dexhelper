@@ -84,8 +84,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                   return (
                     <button
                       type="button"
-                      // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-                      key={`${location}-${p.speciesId}-${idx}`}
+                      key={`${p.storageLocation}-${p.slot || idx}`}
                       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}
                       className={`relative flex w-full cursor-pointer flex-col items-center rounded-2xl p-5 text-left transition-all duration-200 hover:-translate-y-1 active:scale-95 ${cardStyle}`}
                     >

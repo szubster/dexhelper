@@ -11,7 +11,7 @@ import {
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
-import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
+import { GEN1_MAP_TO_SLUG, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
 import { gen2Items } from '../data/gen2/legacyNameMap';
 import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
@@ -36,21 +36,21 @@ export interface AssistantApiData {
 /**
  * Helper function to find all Pokemon IDs in an evolution chain.
  */
-function getChainIds(node: CompactChainLink): number[] {
+function _getChainIds(node: CompactChainLink): number[] {
   const id = node.sid;
-  return [id, ...node.evolves_to.flatMap(getChainIds)];
+  return [id, ...node.evolves_to.flatMap(_getChainIds)];
 }
 
 /**
  * Helper function to find all ancestors of a target Pokemon ID in an evolution chain.
  */
-function getAncestors(node: CompactChainLink, target: number, path: number[] = []): number[] | null {
+function _getAncestors(node: CompactChainLink, target: number, path: number[] = []): number[] | null {
   const id = node.sid;
   if (id === target) {
     return path;
   }
   for (const child of node.evolves_to) {
-    const result = getAncestors(child, target, [...path, id]);
+    const result = _getAncestors(child, target, [...path, id]);
     if (result) return result;
   }
   return null;
@@ -70,7 +70,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   }
 
   const allEncounters = await pokeDB.getAllEncounters();
-  const hasLocally = allEncounters.some((lae: LocationAreaEncounters) =>
+  const _hasLocally = allEncounters.some((lae: LocationAreaEncounters) =>
     lae.encounters.some((e) => e.slug === localSlug),
   );
 
@@ -209,7 +209,12 @@ export function generateSuggestions(
   for (let i = 1; i <= maxDex; i++) {
     if (!ownedSet.has(i)) {
       if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0) {
-        rejected.push({ pokemonId: i, reason: 'Hall of Fame count is 0. Mewtwo is locked.', code: 'HOF_LOCKED' });
+        rejected.push({
+          id: `rejected-hof-${i}`,
+          pokemonId: i,
+          reason: 'Hall of Fame count is 0. Mewtwo is locked.',
+          code: 'HOF_LOCKED',
+        });
         continue;
       }
       missingIds.push(i);
@@ -283,7 +288,7 @@ export function generateSuggestions(
 
       suggestions.push({
         id: `exclusive-${pid}`,
-        category: 'Utility',
+        category: 'Trade',
         title: `Version Exclusive: #${pid}`,
         description: reason,
         pokemonId: pid,
@@ -325,8 +330,8 @@ export function generateSuggestions(
     const findNodeAndParent = (
       node: CompactChainLink,
       parent: CompactChainLink | null = null,
-    ): { targetNode: CompactChainLink; parentNode: CompactChainLink } | null => {
-      if (node.sid === targetId) return { targetNode: node, parentNode: parent! };
+    ): { targetNode: CompactChainLink; parentNode: CompactChainLink | null } | null => {
+      if (node.sid === targetId) return { targetNode: node, parentNode: parent };
       for (const child of node.evolves_to) {
         const res = findNodeAndParent(child, node);
         if (res) return res;
@@ -346,7 +351,21 @@ export function generateSuggestions(
     if (!details) return;
 
     if (details.tr === EVO_TRIGGER.LEVEL_UP) {
-      if (details.min_l) {
+      if (details.rel_s !== undefined) {
+        let condition = '';
+        if (details.rel_s === 1) condition = 'Attack > Defense';
+        else if (details.rel_s === -1) condition = 'Attack < Defense';
+        else if (details.rel_s === 0) condition = 'Attack = Defense';
+
+        suggestions.push({
+          id: `evo-rel-${targetId}`,
+          category: 'Evolve',
+          title: `Stat-Based Evolution: #${targetId}`,
+          description: `Level up when ${condition} (at Lv. ${details.min_l || 20}+) to evolve!`,
+          pokemonId: targetId,
+          priority: 75,
+        });
+      } else if (details.min_l) {
         const isReady = bestInstance.level >= details.min_l;
         suggestions.push({
           id: `evo-lvl-${targetId}`,
@@ -359,11 +378,15 @@ export function generateSuggestions(
           priority: isReady ? 90 : 75,
         });
       } else if (details.min_h) {
+        let suffix = '';
+        if (details.time === 1) suffix = ' during the day';
+        else if (details.time === 2) suffix = ' during the night';
+
         suggestions.push({
           id: `evo-happy-${targetId}`,
           category: 'Evolve',
           title: `Happiness Evolution: #${targetId}`,
-          description: `Level up your pre-evolution with high happiness to evolve!`,
+          description: `Level up your pre-evolution with high happiness to evolve${suffix}!`,
           pokemonId: targetId,
           priority: 80,
         });

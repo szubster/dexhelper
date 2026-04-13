@@ -51,22 +51,25 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
             { id: 'paralyze_burn_poison' as StatusType, label: 'Debuff' },
             { id: 'sleep_freeze' as StatusType, label: 'Incapacitated' },
           ].map((item) => (
-            // biome-ignore lint/a11y/useSemanticElements: custom segmented control using radio role
-            <button
-              type="button"
+            <label
               key={item.id}
-              role="radio"
-              aria-checked={status === item.id}
-              onClick={() => setStatus(item.id)}
               className={cn(
-                'rounded-2xl border py-3 font-black text-[9px] uppercase tracking-widest outline-none transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95',
+                'flex cursor-pointer items-center justify-center rounded-2xl border py-3 font-black text-[9px] uppercase tracking-widest transition-all focus-within:ring-2 focus-within:ring-emerald-500 focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 active:scale-95',
                 status === item.id
                   ? 'border-emerald-400 bg-emerald-500 text-white shadow-[0_5px_15px_rgba(16,185,129,0.3)]'
                   : 'border-white/5 bg-black/20 text-emerald-500/50 hover:border-emerald-500/20',
               )}
             >
+              <input
+                type="radio"
+                name="pokemon-status"
+                value={item.id}
+                checked={status === item.id}
+                onChange={() => setStatus(item.id)}
+                className="sr-only"
+              />
               {item.label}
-            </button>
+            </label>
           ))}
         </div>
       </div>

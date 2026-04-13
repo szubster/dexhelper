@@ -119,11 +119,12 @@ describe('useAssistant - generateSuggestions logic', () => {
       ...mockApiData,
       localEncounters: [
         {
-          pokemon: { name: 'pidgey', url: 'https://pokeapi.co/api/v2/pokemon/16/' },
-          version_details: [
+          pid: 16,
+          encounters: [
             {
-              version: { name: 'yellow' },
-              encounter_details: [{ chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 }],
+              slug: 'pallet-town-area',
+              v: 3, // yellow
+              d: [{ c: 50, m: 1, min: 2, max: 4 }],
             },
           ],
         },

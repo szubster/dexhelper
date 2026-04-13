@@ -1,4 +1,3 @@
-import path from 'node:path';
 import { expect, type Page } from '@playwright/test';
 
 /**

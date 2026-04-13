@@ -3,11 +3,12 @@ import { AlertCircle, CheckCircle2, MapPin, Monitor, Sparkles, X } from 'lucide-
 import React, { useEffect } from 'react';
 import { dexDataLoader } from '../db/DexDataLoader';
 import {
-  type CompactEncounter,
+  type CompactChainLink,
   type CompactEvolutionChain,
+  type CompactEvolutionDetail,
+  POKE_VERSION_MAP,
   type PokemonCompact,
   REVERSE_METHOD_MAP,
-  REVERSE_VERSION_MAP,
   type SpeciesCompact,
 } from '../db/schema';
 import type { SaveData } from '../engine/saveParser/index';
@@ -98,7 +99,7 @@ export function PokemonDetails({
   const evolutionData = allData?.evolutionChain as CompactEvolutionChain | undefined;
 
   const catchRate = speciesData?.cr ?? null;
-  const genderRate = speciesData?.gr ?? -1;
+  const _genderRate = speciesData?.gr ?? -1;
 
   const evoReq = React.useMemo(() => {
     if (!speciesData?.pre || !evolutionData) return null;
@@ -106,7 +107,7 @@ export function PokemonDetails({
     const fromId = speciesData.pre;
     let methodStr = 'Unknown';
 
-    const findEvoDetails = (node: any): any[] | null => {
+    const findEvoDetails = (node: CompactChainLink): CompactEvolutionDetail[] | null => {
       if (node.sid === pokemonId) return node.details;
       for (const next of node.evolves_to) {
         const found = findEvoDetails(next);
@@ -116,7 +117,7 @@ export function PokemonDetails({
     };
 
     const details = findEvoDetails(evolutionData.chain);
-    if (details && details.length > 0) {
+    if (details?.[0]) {
       const d = details[0];
       if (d.tr === 1) methodStr = d.min_l ? `Level ${d.min_l}` : 'Level up';
       else if (d.tr === 3) methodStr = 'Use Item';
@@ -133,7 +134,7 @@ export function PokemonDetails({
   const evolvesTo = React.useMemo(() => {
     if (!speciesData || !evolutionData) return [];
 
-    const findEvolutions = (node: any): any[] | null => {
+    const findEvolutions = (node: CompactChainLink): CompactChainLink[] | null => {
       if (node.sid === pokemonId) return node.evolves_to;
       for (const next of node.evolves_to) {
         const found = findEvolutions(next);
@@ -146,7 +147,7 @@ export function PokemonDetails({
     if (!evos) return [];
 
     return evos
-      .map((evo: any) => {
+      .map((evo: CompactChainLink) => {
         const id = evo.sid;
         if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
 
@@ -179,7 +180,7 @@ export function PokemonDetails({
 
   const getLocationsForVersion = React.useCallback(
     (version: string) => {
-      const versionId = (REVERSE_VERSION_MAP as any)[version] || 0;
+      const versionId = POKE_VERSION_MAP[version] || 0;
       const versionEncounters = encounters.filter((e) => e.v === versionId);
 
       return versionEncounters.flatMap((enc) => {

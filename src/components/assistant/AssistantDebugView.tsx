@@ -58,10 +58,9 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
       )}
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {rejected.map((r, i) => (
+        {rejected.map((r, _i) => (
           <div
-            // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-            key={`${r.pokemonId}-${i}`}
+            key={r.id}
             className="flex items-start gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 transition-colors hover:border-zinc-700"
           >
             <div className="relative h-12 w-12 flex-shrink-0 rounded-xl border border-white/5 bg-zinc-800 p-1">

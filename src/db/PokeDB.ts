@@ -8,6 +8,8 @@ import {
   type SpeciesCompact,
 } from './schema';
 
+export { DB_CONFIG };
+
 let dbPromise: Promise<IDBPDatabase> | null = null;
 
 export const getDB = () => {

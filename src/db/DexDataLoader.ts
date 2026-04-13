@@ -6,21 +6,21 @@ import type { CompactEvolutionChain, LocationAreaEncounters, PokemonCompact, Spe
  * Request Batching layer for IndexedDB.
  */
 export const dexDataLoader = {
-  pokemon: new DataLoader<number, PokemonCompact>(
+  pokemon: new DataLoader<number, PokemonCompact | undefined>(
     async (ids) => {
       return pokeDB.getPokemons([...ids]);
     },
     { cache: true },
   ),
 
-  species: new DataLoader<number, SpeciesCompact>(
+  species: new DataLoader<number, SpeciesCompact | undefined>(
     async (ids) => {
       return pokeDB.getManySpecies([...ids]);
     },
     { cache: true },
   ),
 
-  chains: new DataLoader<number, CompactEvolutionChain>(
+  chains: new DataLoader<number, CompactEvolutionChain | undefined>(
     async (ids) => {
       const db = await (await import('./PokeDB')).getDB();
       return Promise.all(ids.map((id) => db.get('chains', id)));
@@ -28,7 +28,7 @@ export const dexDataLoader = {
     { cache: true },
   ),
 
-  encounters: new DataLoader<number, LocationAreaEncounters>(
+  encounters: new DataLoader<number, LocationAreaEncounters | undefined>(
     async (ids) => {
       const db = await (await import('./PokeDB')).getDB();
       return Promise.all(ids.map((id) => db.get('encounters', id)));
@@ -40,7 +40,7 @@ export const dexDataLoader = {
     const [pokemon, species] = await Promise.all([dexDataLoader.pokemon.load(id), dexDataLoader.species.load(id)]);
 
     const encounters = await dexDataLoader.encounters.load(id);
-    const evolutionChain = species.cid ? await dexDataLoader.chains.load(species.cid) : undefined;
+    const evolutionChain = species?.cid ? await dexDataLoader.chains.load(species.cid) : undefined;
 
     return {
       pokemon,

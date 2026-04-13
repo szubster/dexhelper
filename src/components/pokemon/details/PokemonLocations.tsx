@@ -57,10 +57,9 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                       </span>
                     </div>
                   )}
-                  {staticEnc?.map((loc, i) => (
+                  {staticEnc?.map((loc) => (
                     <div
-                      // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-                      key={`static-${i}`}
+                      key={`static-${loc}`}
                       className="group flex items-center justify-between rounded-2xl border border-white/5 bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
                     >
                       <div className="flex items-center gap-3">
@@ -92,10 +91,9 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
-                            {e.d.map((d: CompactEncounterDetail, di: number) => (
+                            {e.d.map((d: CompactEncounterDetail) => (
                               <span
-                                // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-                                key={di}
+                                key={`${d.m}-${d.min}-${d.max}`}
                                 className="rounded-md border border-white/5 bg-white/5 px-2 py-0.5 font-black text-[8px] text-zinc-500 uppercase tracking-widest"
                               >
                                 LV.{d.min}-{d.max}
@@ -104,10 +102,9 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                           </div>
                         </div>
                         <div className="flex flex-wrap gap-1.5 border-[var(--theme-primary)]/20 border-l-2 pl-1.5">
-                          {e.d.map((d: CompactEncounterDetail, di: number) => (
+                          {e.d.map((d: CompactEncounterDetail) => (
                             <span
-                              // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-                              key={di}
+                              key={`${d.m}-${d.min}-${d.max}-method`}
                               className="font-black text-[8px] text-[var(--theme-primary)]/70 uppercase"
                             >
                               • {REVERSE_METHOD_MAP[d.m]?.replace('-', ' ')} ({d.c}%)

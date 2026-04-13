@@ -26,6 +26,7 @@ export interface Suggestion {
 }
 
 export interface RejectedSuggestion {
+  id: string;
   pokemonId: number;
   reason: string;
   code: 'VERSION_EXCLUSIVE' | 'GIFT_CLAIMED' | 'EVO_ALREADY_OWNED' | 'HOF_LOCKED' | 'CHOICE_TAKEN' | 'MISSING_DATA';
