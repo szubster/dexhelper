@@ -46,6 +46,7 @@ export function PokedexCard({
   return (
     <button
       type="button"
+      aria-label={`View details for ${pokemon.name}`}
       data-testid="pokedex-card"
       data-pokemon-id={pokemon.id}
       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
