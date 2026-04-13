@@ -4,8 +4,7 @@ import {
   DB_CONFIG,
   type LocationAreaEncounters,
   type PokeDataExport,
-  type PokemonCompact,
-  type SpeciesCompact,
+  type PokemonMetadata,
 } from './schema';
 
 let dbPromise: Promise<IDBPDatabase> | null = null;
@@ -14,11 +13,21 @@ export const getDB = () => {
   if (!dbPromise) {
     dbPromise = openDB(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
       upgrade(db) {
-        Object.values(DB_CONFIG.STORES).forEach((store) => {
-          if (!db.objectStoreNames.contains(store)) {
-            db.createObjectStore(store);
+        // Automatically handle additions/removals based on DB_CONFIG.STORES
+        const currentStores = new Set(db.objectStoreNames);
+        const targetStores = new Set(Object.values(DB_CONFIG.STORES));
+
+        for (const store of targetStores) {
+          if (!currentStores.has(store)) {
+            db.createObjectStore(store as any);
           }
-        });
+        }
+
+        for (const store of currentStores) {
+          if (!targetStores.has(store as any)) {
+            db.deleteObjectStore(store as any);
+          }
+        }
       },
     });
   }
@@ -62,7 +71,6 @@ export const syncData = async () => {
   const tx = db.transaction(
     [
       DB_CONFIG.STORES.POKEMON,
-      DB_CONFIG.STORES.SPECIES,
       DB_CONFIG.STORES.ENCOUNTERS,
       DB_CONFIG.STORES.CHAINS,
       DB_CONFIG.STORES.LOCATIONS,
@@ -75,7 +83,6 @@ export const syncData = async () => {
 
   // 3. Populate stores
   const pStore = tx.objectStore(DB_CONFIG.STORES.POKEMON);
-  const sStore = tx.objectStore(DB_CONFIG.STORES.SPECIES);
   const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
   const cStore = tx.objectStore(DB_CONFIG.STORES.CHAINS);
   const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
@@ -86,7 +93,6 @@ export const syncData = async () => {
   // Clear old data
   await Promise.all([
     pStore.clear(),
-    sStore.clear(),
     eStore.clear(),
     cStore.clear(),
     lStore.clear(),
@@ -95,26 +101,23 @@ export const syncData = async () => {
     mStore.clear(),
   ]);
 
-  const STAGES = 7;
+  const STAGES = 6;
   emit(1, STAGES, 'Pokemon');
   for (const p of data.pokemon) pStore.put(p, p.id);
 
-  emit(2, STAGES, 'Species');
-  for (const s of data.species) sStore.put(s, s.id);
-
-  emit(3, STAGES, 'Encounters');
+  emit(2, STAGES, 'Encounters');
   for (const e of data.encounters) eStore.put(e, e.pid);
 
-  emit(4, STAGES, 'Chains');
+  emit(3, STAGES, 'Chains');
   for (const c of data.chains) cStore.put(c, c.id);
 
-  emit(5, STAGES, 'Locations');
+  emit(4, STAGES, 'Locations');
   for (const l of data.locations) lStore.put(l, l.id);
 
-  emit(6, STAGES, 'Areas');
+  emit(5, STAGES, 'Areas');
   for (const a of data.areas) aStore.put(a, a.id);
 
-  emit(7, STAGES, 'Index');
+  emit(6, STAGES, 'Index');
   for (const [lid, pids] of Object.entries(data.locationIndex)) {
     iStore.put(pids, Number(lid));
   }
@@ -127,13 +130,9 @@ export const syncData = async () => {
 
 export const pokeDB = {
   sync: syncData,
-  getPokemon: async (id: number): Promise<PokemonCompact | undefined> => {
+  getPokemon: async (id: number): Promise<PokemonMetadata | undefined> => {
     if (id === undefined || id === null || Number.isNaN(id)) return undefined;
     return (await getDB()).get(DB_CONFIG.STORES.POKEMON, id);
-  },
-  getSpecies: async (id: number): Promise<SpeciesCompact | undefined> => {
-    if (id === undefined || id === null || Number.isNaN(id)) return undefined;
-    return (await getDB()).get(DB_CONFIG.STORES.SPECIES, id);
   },
   getEncounters: async (pid: number): Promise<LocationAreaEncounters | undefined> => {
     if (pid === undefined || pid === null || Number.isNaN(pid)) return undefined;
@@ -162,7 +161,7 @@ export const pokeDB = {
   },
 
   // Bulk versions for DataLoader
-  getPokemons: async (ids: number[]): Promise<(PokemonCompact | Error)[]> => {
+  getPokemons: async (ids: number[]): Promise<(PokemonMetadata | Error)[]> => {
     const db = await getDB();
     const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
     if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
@@ -175,10 +174,5 @@ export const pokeDB = {
       return found ?? new Error('Pokemon not found');
     });
   },
-  getManySpecies: async (ids: number[]): Promise<(SpeciesCompact | Error)[]> => {
-    const db = await getDB();
-    const results = await Promise.all(ids.map((id) => db.get(DB_CONFIG.STORES.SPECIES, id)));
-    return results.map((r) => r ?? new Error('Species not found'));
-  },
-  getAllPokemon: async (): Promise<PokemonCompact[]> => (await getDB()).getAll(DB_CONFIG.STORES.POKEMON),
+  getAllPokemon: async (): Promise<PokemonMetadata[]> => (await getDB()).getAll(DB_CONFIG.STORES.POKEMON),
 };

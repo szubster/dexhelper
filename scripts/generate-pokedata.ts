@@ -7,8 +7,7 @@ import {
   type CompactEncounterDetail, 
   type CompactEvolutionChain, 
   type LocationAreaEncounters, 
-  type PokemonCompact, 
-  type SpeciesCompact,
+  type PokemonMetadata, 
   type PokeDataExport,
   type GenericLocation,
   type SpecificArea,
@@ -17,6 +16,8 @@ import {
   ENCOUNTER_METHOD_MAP,
   EVO_TRIGGER_MAP
 } from '../src/db/schema.ts';
+import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from '../src/engine/mapGraph/gen1Graph.ts';
+import { GEN1_MAP_TO_SLUG } from '../src/engine/data/gen1/assistantData.ts';
 
 const POKEMON_COUNT = 251; // Gen 1 & 2
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
@@ -66,8 +67,7 @@ async function main() {
     }
   }
 
-  const pokemon: PokemonCompact[] = [];
-  const species: SpeciesCompact[] = [];
+  const pokemon: PokemonMetadata[] = [];
   const chains: CompactEvolutionChain[] = [];
   const pokemonEncounterMap = new Map<number, CompactEncounter[]>();
   
@@ -97,20 +97,15 @@ async function main() {
     const encounterPath = path.join(dataPath, `pokemon/${i}/encounters/index.json`);
     const eData = readJson(encounterPath) || [];
 
-    pokemon.push({
-      id: pData.id,
-      sid: i,
-      n: pData.name,
-      s: pData.stats.map((s: any) => s.base_stat),
-    });
-
     const chainId = parseInt(sData.evolution_chain.url.split('/').filter(Boolean).pop() || '0', 10);
     const preEvoId = sData.evolves_from_species ? parseInt(sData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0', 10) : undefined;
 
-    species.push({
-      id: sData.id,
-      cid: chainId,
+    pokemon.push({
+      id: pData.id,
+      sid: i,
       n: sData.names.find((n: any) => n.language.name === 'en')?.name || sData.name,
+      s: pData.stats.map((s: any) => s.base_stat),
+      cid: chainId,
       cr: sData.capture_rate,
       gr: sData.gender_rate,
       baby: sData.is_baby,
@@ -133,10 +128,31 @@ async function main() {
           if (!locationMap.has(lid)) {
             const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
             if (locData) {
+              const slug = locData.name;
+              
+              // Find matching gameId (ROM hex ID) from our static map
+              const gameIdStr = Object.keys(GEN1_MAP_TO_SLUG).find(k => GEN1_MAP_TO_SLUG[parseInt(k)] === slug);
+              const gameId = gameIdStr ? parseInt(gameIdStr) : undefined;
+              
+              // Find parentId if it's an indoor map
+              const parentGameId = gameId !== undefined ? INDOOR_TO_PARENT_MAP[gameId] : undefined;
+              
+              // We need another map to translate parentGameId back to PokéAPI lid if we want it fully linked.
+              // For now, let's just store the IDs we have. 
+              // Actually, GEN1_MAPS has the slugs too.
+              let parentId: number | undefined = undefined;
+              if (parentGameId !== undefined) {
+                 const parentSlug = GEN1_MAP_TO_SLUG[parentGameId];
+                 // This is tricky because we haven't seen all locations yet.
+                 // We'll do a second pass at the end to reconcile these.
+              }
+
               locationMap.set(lid, {
                 id: lid,
                 n: locData.names.find((n: any) => n.language.name === 'en')?.name || locData.name,
-                slug: locData.name
+                slug,
+                gameId,
+                connections: gameId !== undefined ? GEN1_MAPS[gameId]?.connections : undefined
               });
             }
           }
@@ -198,8 +214,23 @@ async function main() {
     }
   }
 
+  // Second pass on locations to reconcile parentIds
+  console.log('Reconciling location parents...');
+  for (const loc of locationMap.values()) {
+    if (loc.gameId !== undefined) {
+      const parentGameId = INDOOR_TO_PARENT_MAP[loc.gameId];
+      if (parentGameId !== undefined) {
+        const parentSlug = GEN1_MAP_TO_SLUG[parentGameId];
+        const parentLoc = Array.from(locationMap.values()).find(l => l.slug === parentSlug);
+        if (parentLoc) {
+          loc.parentId = parentLoc.id;
+        }
+      }
+    }
+  }
+
   console.log('\nProcessing Evolution Chains...');
-  const uniqueChainIds = Array.from(new Set(species.map(s => s.cid)));
+  const uniqueChainIds = Array.from(new Set(pokemon.map(p => p.cid)));
   for (const cid of uniqueChainIds) {
     const chainFilePath = path.join(dataPath, `evolution-chain/${cid}/index.json`);
     const cData = readJson(chainFilePath);
@@ -227,7 +258,6 @@ async function main() {
 
   const exportData: Omit<PokeDataExport, 'hash'> = {
     pokemon,
-    species,
     encounters: Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
       pid, 
       encounters: encs

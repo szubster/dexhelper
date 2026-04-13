@@ -25,7 +25,10 @@ export function SyncProgress() {
   const percentage = progress ? Math.round((progress.current / progress.total) * 100) : 100;
 
   return (
-    <div className="slide-in-from-right-10 fixed right-6 bottom-6 z-[100] flex animate-in items-center gap-4 rounded-3xl border border-white/10 bg-zinc-950/80 p-4 shadow-2xl backdrop-blur-xl duration-500">
+    <div 
+      data-testid="sync-status"
+      className="slide-in-from-right-10 fixed right-6 bottom-6 z-[100] flex animate-in items-center gap-4 rounded-3xl border border-white/10 bg-zinc-950/80 p-4 shadow-2xl backdrop-blur-xl duration-500"
+    >
       <div className="relative flex h-12 w-12 items-center justify-center">
         {isComplete ? (
           <CheckCircle2 className="zoom-in-50 animate-in text-emerald-500" size={24} />

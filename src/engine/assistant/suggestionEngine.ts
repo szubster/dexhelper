@@ -7,7 +7,7 @@ import {
   EVO_TRIGGER,
   type LocationAreaEncounters,
   POKE_VERSION_MAP,
-  type SpeciesCompact,
+  type PokemonMetadata,
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
@@ -68,91 +68,65 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const missingChains: Record<number, CompactEvolutionChain | null> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
 
-  // Fill missingEncounters (needed for distance-based sorting and catch suggestions)
+  // Fill missingEncounters
   for (const pid of queryTargets) {
     const enc = allEncounters.find((e) => e.pid === pid);
     if (enc) missingEncounters[pid] = enc;
   }
 
-  // 1. Get Pokemon details to find species IDs
+  // 1. Get Pokemon details (now includes CID directly)
   const pokemons = await dexDataLoader.pokemon.loadMany(queryTargets);
-  const sids = pokemons
+  const cids = pokemons
     .filter(isNotError)
-    .map((p) => p?.sid)
-    .filter((sid): sid is number => !!sid);
-
-  // 2. Load Species to get chain IDs
-  const species = await dexDataLoader.species.loadMany(sids);
-  const cids = species
-    .filter(isNotError)
-    .map((s) => s?.cid)
+    .map((p) => p?.cid)
     .filter((cid): cid is number => !!cid);
 
-  // 3. Load Chains
-  const chains = await dexDataLoader.chains.loadMany(cids);
+  // 2. Load Chains
+  const chains = await dexDataLoader.chains.loadMany([...new Set(cids)]);
   const validChains = chains.filter(isNotError);
 
   // Map back to pid -> chain
   queryTargets.forEach((pid, idx) => {
     const p = pokemons[idx];
     if (isNotError(p) && p) {
-      const s = species.find((spec) => isNotError(spec) && spec?.id === p.sid) as SpeciesCompact | undefined;
-      if (s) {
-        const chain = validChains.find((c) => c?.id === s.cid);
-        missingChains[pid] = chain ?? null;
-      }
+      const chain = validChains.find((c) => c?.id === p.cid);
+      missingChains[pid] = chain ?? null;
     }
   });
 
   const partyPids = saveData.party || [];
   const partyPokemons = await dexDataLoader.pokemon.loadMany(partyPids);
-  const partySids = partyPokemons
+  const partyCids = partyPokemons
     .filter(isNotError)
-    .map((p) => p?.sid)
-    .filter((sid): sid is number => !!sid);
-  const partySpeciesFull = await dexDataLoader.species.loadMany(partySids);
-  const partyCids = partySpeciesFull
-    .filter(isNotError)
-    .map((s) => s?.cid)
+    .map((p) => p?.cid)
     .filter((cid): cid is number => !!cid);
-  const partyChains = await dexDataLoader.chains.loadMany(partyCids);
+  const partyChains = await dexDataLoader.chains.loadMany([...new Set(partyCids)]);
   const validPartyChains = partyChains.filter(isNotError);
 
   const partyEvolutions: Record<number, CompactEvolutionChain | null> = {};
   partyPids.forEach((pid, idx) => {
     const p = partyPokemons[idx];
     if (isNotError(p) && p) {
-      const s = partySpeciesFull.find((spec) => isNotError(spec) && spec?.id === p.sid) as SpeciesCompact | undefined;
-      if (s) {
-        const chain = validPartyChains.find((c) => c?.id === s.cid);
-        partyEvolutions[pid] = chain ?? null;
-      }
+      const chain = validPartyChains.find((c) => c?.id === p.cid);
+      partyEvolutions[pid] = chain ?? null;
     }
   });
 
   const giftPids = Object.keys(STATIC_GIFT_DATA).map((id) => parseInt(id, 10));
   const giftPokemons = await dexDataLoader.pokemon.loadMany(giftPids);
-  const giftSids = giftPokemons
+  const giftCids = giftPokemons
     .filter(isNotError)
-    .map((p) => p?.sid)
-    .filter((sid): sid is number => !!sid);
-  const giftSpeciesFull = await dexDataLoader.species.loadMany(giftSids);
-  const giftCids = giftSpeciesFull
-    .filter(isNotError)
-    .map((s) => s?.cid)
+    .map((p) => p?.cid)
     .filter((cid): cid is number => !!cid);
-  const giftChainsFull = await dexDataLoader.chains.loadMany(giftCids);
+  const giftChainsFull = await dexDataLoader.chains.loadMany([...new Set(giftCids)]);
   const validGiftChains = giftChainsFull.filter(isNotError);
 
   const giftChains: Record<number, CompactEvolutionChain | null> = {};
   giftPids.forEach((pid, idx) => {
     const p = giftPokemons[idx];
     if (isNotError(p) && p) {
-      const s = giftSpeciesFull.find((spec) => isNotError(spec) && spec?.id === p.sid) as SpeciesCompact | undefined;
-      if (s) {
-        const chain = validGiftChains.find((c) => c?.id === s.cid);
-        giftChains[pid] = chain ?? null;
-      }
+      const chain = validGiftChains.find((c) => c?.id === p.cid);
+      giftChains[pid] = chain ?? null;
     }
   });
 

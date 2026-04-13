@@ -7,9 +7,8 @@ import {
   type CompactEvolutionChain,
   type CompactEvolutionDetail,
   POKE_VERSION_MAP,
-  type PokemonCompact,
+  type PokemonMetadata,
   REVERSE_METHOD_MAP,
-  type SpeciesCompact,
 } from '../db/schema';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
@@ -22,10 +21,6 @@ import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
 import { PokemonLocations } from './pokemon/details/PokemonLocations';
 import { PokemonStats } from './pokemon/details/PokemonStats';
 
-// Static data moved to data.ts
-
-// Static data moved to data.ts
-
 interface PokemonDetailsProps {
   pokemonId: number;
   pokemonName: string;
@@ -36,39 +31,6 @@ interface PokemonDetailsProps {
   onClose: () => void;
   onNavigate: (id: number, name: string) => void;
 }
-
-// gen2Items and gen2Locations moved to data.ts
-
-const _modalVariants = {
-  hidden: { opacity: 0, scale: 0.95, y: 40 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      damping: 25,
-      stiffness: 300,
-      staggerChildren: 0.05,
-      delayChildren: 0.1,
-    },
-  },
-  exit: {
-    opacity: 0,
-    scale: 0.95,
-    y: 40,
-    transition: { duration: 0.2 },
-  },
-} as const;
-
-const _contentVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: 'spring', damping: 20, stiffness: 100 },
-  },
-} as const;
 
 export function PokemonDetails({
   pokemonId,
@@ -93,18 +55,16 @@ export function PokemonDetails({
     queryFn: () => dexDataLoader.getPokemonDetails(pokemonId),
   });
 
-  const pokemonData = allData?.pokemon as PokemonCompact | undefined;
-  const speciesData = allData?.species as SpeciesCompact | undefined;
+  const pokemon = allData?.pokemon as PokemonMetadata | undefined;
   const encounters = allData?.encounters || [];
   const evolutionData = allData?.evolutionChain as CompactEvolutionChain | undefined;
 
-  const catchRate = speciesData?.cr ?? null;
-  const _genderRate = speciesData?.gr ?? -1;
+  const catchRate = pokemon?.cr ?? null;
 
   const evoReq = React.useMemo(() => {
-    if (!speciesData?.pre || !evolutionData) return null;
+    if (!pokemon?.pre || !evolutionData) return null;
 
-    const fromId = speciesData.pre;
+    const fromId = pokemon.pre;
     let methodStr = 'Unknown';
 
     const findEvoDetails = (node: CompactChainLink): CompactEvolutionDetail[] | null => {
@@ -130,10 +90,10 @@ export function PokemonDetails({
       fromName: 'Earlier Form',
       method: methodStr,
     };
-  }, [speciesData, evolutionData, pokemonId]);
+  }, [pokemon, evolutionData, pokemonId]);
 
   const evolvesTo = React.useMemo(() => {
-    if (!speciesData || !evolutionData) return [];
+    if (!pokemon || !evolutionData) return [];
 
     const findEvolutions = (node: CompactChainLink): CompactChainLink[] | null => {
       if (node.sid === pokemonId) return node.evolves_to;
@@ -166,10 +126,10 @@ export function PokemonDetails({
         };
       })
       .filter((evo): evo is { id: number; name: string; method: string } => evo !== null);
-  }, [speciesData, evolutionData, pokemonId, saveData]);
+  }, [pokemon, evolutionData, pokemonId, saveData]);
 
   const breedingInfo = React.useMemo(() => {
-    if (!speciesData?.baby || !evolutionData) return null;
+    if (!pokemon?.baby || !evolutionData) return null;
     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
 
     return {
@@ -177,7 +137,7 @@ export function PokemonDetails({
       parentNames: ['Evolution Line'],
       method: 'Breed evolved form',
     };
-  }, [speciesData, evolutionData, saveData]);
+  }, [pokemon, evolutionData, saveData]);
 
   const getLocationsForVersion = React.useCallback(
     (version: string) => {
@@ -194,43 +154,7 @@ export function PokemonDetails({
     [encounters],
   );
 
-  const _redLocations = getLocationsForVersion('red');
-  const _blueLocations = getLocationsForVersion('blue');
-  const _yellowLocations = getLocationsForVersion('yellow');
-  const _goldLocations = getLocationsForVersion('gold');
-  const _silverLocations = getLocationsForVersion('silver');
-  const _crystalLocations = getLocationsForVersion('crystal');
-
-  const _renderLocations = (locations: { name: string; details: string }[], colorClass: string) => {
-    if (locations.length === 0) {
-      return (
-        <div className="flex items-center gap-2 py-4 font-black text-[10px] text-zinc-600 uppercase tracking-widest">
-          <AlertCircle size={14} /> Not found in the wild
-        </div>
-      );
-    }
-    return (
-      <div className="custom-scrollbar max-h-64 space-y-3 overflow-y-auto pr-2">
-        {locations.map((loc) => (
-          <div
-            key={loc.name}
-            className="group rounded-2xl border border-zinc-900 bg-zinc-950 p-4 transition-all hover:border-zinc-800"
-          >
-            <div className="mb-2 flex items-center gap-3">
-              <div className={`rounded-lg bg-zinc-900 p-1.5 ${colorClass}`}>
-                <MapPin size={14} />
-              </div>
-              <span className="font-black text-xs text-zinc-100 uppercase tracking-tight">{loc.name}</span>
-            </div>
-            <div className="pl-8 font-bold font-mono text-[10px] text-zinc-500 leading-relaxed">{loc.details}</div>
-          </div>
-        ))}
-      </div>
-    );
-  };
-
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : getGenerationConfig(1);
-
   const displayVersion = gameVersion === 'unknown' ? genConfig.defaultVersion : gameVersion;
 
   const isSafariNative = React.useMemo(() => {
@@ -249,20 +173,6 @@ export function PokemonDetails({
 
   const stadiumReward = stadiumRewardsSummary[pokemonId];
 
-  const _getGender = (atkDV: number, rate: number) => {
-    if (rate === -1) return 'Genderless';
-    if (rate === 0) return 'Male';
-    if (rate === 8) return 'Female';
-    return atkDV < rate * 2 ? 'Female' : 'Male';
-  };
-
-  const _getUnownForm = (dvs: { atk: number; def: number; spd: number; spc: number }) => {
-    const formValue =
-      ((dvs.atk & 0x06) << 5) | ((dvs.def & 0x06) << 3) | ((dvs.spd & 0x06) << 1) | ((dvs.spc & 0x06) >> 1);
-    const letterIndex = Math.floor(formValue / 10);
-    return String.fromCharCode(65 + letterIndex);
-  };
-
   const yourPokemon = saveData
     ? [
         ...saveData.partyDetails.filter((p) => p.speciesId === pokemonId).map((p) => ({ ...p, location: 'Party' })),
@@ -280,7 +190,6 @@ export function PokemonDetails({
         aria-modal="true"
         className="slide-in-from-bottom-[100%] sm:zoom-in-95 relative flex h-[95vh] w-full animate-in flex-col overflow-hidden rounded-t-[2.5rem] border-white/10 border-t bg-zinc-950/90 shadow-2xl duration-500 ease-out sm:h-[85vh] sm:max-w-5xl sm:rounded-[3rem] sm:border"
       >
-        {/* Scanline Overlay */}
         <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
 
         {/* Header Section */}
@@ -297,7 +206,6 @@ export function PokemonDetails({
                     style={{ imageRendering: 'pixelated' }}
                     referrerPolicy="no-referrer"
                   />
-                  {/* Digital corner accents */}
                   <div className="absolute top-2 left-2 h-3 w-3 border-white/20 border-t-2 border-l-2" />
                   <div className="absolute top-2 right-2 h-3 w-3 border-white/20 border-t-2 border-r-2" />
                   <div className="absolute bottom-2 left-2 h-3 w-3 border-white/20 border-b-2 border-l-2" />
@@ -368,12 +276,10 @@ export function PokemonDetails({
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             {/* Left Column: Stats & Catching */}
             <div className="space-y-10 lg:col-span-5">
-              {/* Stats & Power Readout */}
               <div className="space-y-8">
-                {pokemonData && <PokemonStats pokemonData={pokemonData} saveData={saveData} />}
+                {pokemon && <PokemonStats pokemonData={pokemon} saveData={saveData} />}
               </div>
 
-              {/* Catch Rate Calc */}
               {catchRate !== null && (
                 <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />
               )}
@@ -383,7 +289,6 @@ export function PokemonDetails({
             <div className="space-y-12 lg:col-span-7">
               <PokemonCaughtDetails yourPokemon={yourPokemon} saveData={saveData} />
 
-              {/* Evolution & Procurement Strategy */}
               <PokemonEvolutions
                 evoReq={evoReq}
                 evolvesTo={evolvesTo || []}

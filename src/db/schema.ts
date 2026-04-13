@@ -5,10 +5,9 @@
 
 export const DB_CONFIG = {
   NAME: 'PokeDB',
-  VERSION: 1,
+  VERSION: 2,
   STORES: {
     POKEMON: 'pokemon',
-    SPECIES: 'species',
     ENCOUNTERS: 'encounters',
     CHAINS: 'chains',
     LOCATIONS: 'locations',
@@ -116,6 +115,9 @@ export interface GenericLocation {
   n: string; // display name
   slug: string; // location slug
   coords?: { x: number; y: number }; // town map coords
+  parentId?: number; // PokéAPI location ID of parent (e.g., city containing this building)
+  gameId?: number; // Game ROM map ID (hex)
+  connections?: number[]; // Connected gameId IDs for navigation
 }
 
 export interface SpecificArea {
@@ -151,26 +153,22 @@ export interface CompactEvolutionChain {
   chain: CompactChainLink;
 }
 
-export interface PokemonCompact {
-  id: number;
+export interface PokemonMetadata {
+  id: number; // pokemon id
   sid: number; // species id
   n: string; // name
   s: number[]; // stats: [hp, atk, def, spa, spd, spe]
-}
-
-export interface SpeciesCompact {
-  id: number;
-  cid: number; // chain id
-  n: string; // name
+  cid: number; // evolution chain id
   cr: number; // capture rate
   gr: number; // gender rate
   baby: boolean; // is baby
   pre?: number; // evolves from species id
 }
 
+export type PokemonCompact = PokemonMetadata;
+
 export interface PokeDataExport {
-  pokemon: PokemonCompact[];
-  species: SpeciesCompact[];
+  pokemon: PokemonMetadata[];
   encounters: LocationAreaEncounters[];
   chains: CompactEvolutionChain[];
   locations: GenericLocation[];

@@ -26,7 +26,7 @@ export function PokemonStats({ pokemonData, saveData }: PokemonStatsProps) {
         <Activity size={14} className="text-[var(--theme-primary)]" /> Combat Analysis
       </h3>
       <div className="grid grid-cols-1 gap-3">
-        {pokemonData.s.map((val, idx) => {
+        {pokemonData.s.map((val: number, idx: number) => {
           const statName = STAT_NAMES[idx];
           const isSpD = statName === 'SPD';
 
