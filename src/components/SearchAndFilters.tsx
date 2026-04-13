@@ -44,7 +44,7 @@ export function SearchAndFilters() {
           )}
           {/* LCD Effect on Input */}
           <div className="pointer-events-none absolute inset-x-4 top-0 h-[1px] bg-white/5" />
-          
+
           {/* Location Suggestions Dropdown */}
           <LocationSuggestions />
         </div>

@@ -11,21 +11,13 @@ import {
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
-import { GEN1_MAP_TO_SLUG, OBEDIENCE_CAPS, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
-import { gen2Items } from '../data/gen2/legacyNameMap';
+import { GEN1_MAP_TO_SLUG, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
 import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
 import type { EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
 
-// Construct a reverse map for Gen 2 item names to their IDs.
-const GEN2_ITEM_IDS_BY_NAME: Record<string, number> = {};
-for (const [idStr, name] of Object.entries(gen2Items)) {
-  const normalizedName = name.toLowerCase().replace(/[-\s]/g, '');
-  GEN2_ITEM_IDS_BY_NAME[normalizedName] = parseInt(idStr, 10);
-}
-
 export interface AssistantApiData {
-  localEncounters: LocationAreaEncounters[];
+  localEncounters: LocationAreaEncounters[] | null;
   missingEncounters: Record<number, LocationAreaEncounters | null>;
   missingChains: Record<number, CompactEvolutionChain | null>;
   ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>>;
@@ -36,21 +28,21 @@ export interface AssistantApiData {
 /**
  * Helper function to find all Pokemon IDs in an evolution chain.
  */
-function getChainIds(node: CompactChainLink): number[] {
+function _getChainIds(node: CompactChainLink): number[] {
   const id = node.sid;
-  return [id, ...node.evolves_to.flatMap(getChainIds)];
+  return [id, ...node.evolves_to.flatMap(_getChainIds)];
 }
 
 /**
  * Helper function to find all ancestors of a target Pokemon ID in an evolution chain.
  */
-function getAncestors(node: CompactChainLink, target: number, path: number[] = []): number[] | null {
+function _getAncestors(node: CompactChainLink, target: number, path: number[] = []): number[] | null {
   const id = node.sid;
   if (id === target) {
     return path;
   }
   for (const child of node.evolves_to) {
-    const result = getAncestors(child, target, [...path, id]);
+    const result = _getAncestors(child, target, [...path, id]);
     if (result) return result;
   }
   return null;
@@ -70,15 +62,17 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   }
 
   const allEncounters = await pokeDB.getAllEncounters();
-  const hasLocally = allEncounters.some((lae: LocationAreaEncounters) =>
-    lae.encounters.some((e) => e.slug === localSlug),
-  );
-
   const localEncounters = allEncounters.filter((lae) => lae.encounters.some((e) => e.slug === localSlug));
 
   const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
   const missingChains: Record<number, CompactEvolutionChain | null> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
+
+  // Fill missingEncounters (needed for distance-based sorting and catch suggestions)
+  for (const pid of queryTargets) {
+    const enc = allEncounters.find((e) => e.pid === pid);
+    if (enc) missingEncounters[pid] = enc;
+  }
 
   // 1. Get Pokemon details to find species IDs
   const pokemons = await dexDataLoader.pokemon.loadMany(queryTargets);
@@ -222,8 +216,7 @@ export function generateSuggestions(
   const queryTargets = missingIds.slice(0, 100);
 
   // A. Catch logic
-  if (apiData.localEncounters.length > 0) {
-    // Re-derive localSlug for filtering inside lae
+  if (apiData.localEncounters && apiData.localEncounters.length > 0) {
     let localSlug = '';
     if (saveData.generation === 1) {
       localSlug = GEN1_MAP_TO_SLUG[saveData.currentMapId] || '';
@@ -274,7 +267,6 @@ export function generateSuggestions(
     if (reason) {
       pidsWithExclusives.add(pid);
 
-      // Skip if it's an NPC trade we already handled or will handle
       const isNpcTrade = STATIC_NPC_TRADE_DATA.some(
         (t) =>
           t.receivedId === pid && t.gen === saveData.generation && (!t.versions || t.versions.includes(displayVersion)),
@@ -283,11 +275,11 @@ export function generateSuggestions(
 
       suggestions.push({
         id: `exclusive-${pid}`,
-        category: 'Utility',
+        category: 'Trade',
         title: `Version Exclusive: #${pid}`,
         description: reason,
         pokemonId: pid,
-        priority: 10, // Lowest priority
+        priority: 10,
       });
     }
   }
@@ -325,11 +317,14 @@ export function generateSuggestions(
     const findNodeAndParent = (
       node: CompactChainLink,
       parent: CompactChainLink | null = null,
-    ): { targetNode: CompactChainLink; parentNode: CompactChainLink } | null => {
-      if (node.sid === targetId) return { targetNode: node, parentNode: parent! };
-      for (const child of node.evolves_to) {
-        const res = findNodeAndParent(child, node);
-        if (res) return res;
+    ): { targetNode: CompactChainLink; parentNode: CompactChainLink | null } | null => {
+      if (!node) return null;
+      if (node.sid === targetId) return { targetNode: node, parentNode: parent };
+      if (node.evolves_to) {
+        for (const child of node.evolves_to) {
+          const res = findNodeAndParent(child, node);
+          if (res) return res;
+        }
       }
       return null;
     };
@@ -342,34 +337,53 @@ export function generateSuggestions(
     if (ownedInstances.length === 0) return;
 
     const bestInstance = ownedInstances.reduce((prev, current) => (prev.level > current.level ? prev : current));
-    const details = nodes.targetNode.details[0];
-    if (!details) return;
 
-    if (details.tr === EVO_TRIGGER.LEVEL_UP) {
-      if (details.min_l) {
-        const isReady = bestInstance.level >= details.min_l;
+    const details = nodes.targetNode.details;
+    const detail = details?.[0];
+    if (!detail) return;
+
+    const tr = detail.tr;
+    const min_l = detail.min_l;
+    const min_h = detail.min_h;
+    const item = detail.item;
+    const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
+
+    if (tr === EVO_TRIGGER.LEVEL_UP) {
+      if (min_l) {
+        const isReady = bestInstance.level >= min_l;
+        let specificReq = `(needs Lv. ${min_l})`;
+
+        // Handle stat-based (Tyrogue)
+        const stat = detail.rel_s;
+        if (stat !== undefined && stat !== null) {
+          const statMap = { 1: 'Attack > Defense', [-1]: 'Attack < Defense', 0: 'Attack = Defense' };
+          const statDesc = statMap[stat as keyof typeof statMap] || 'specific stats';
+          specificReq = `(needs Lv. ${min_l} and ${statDesc})`;
+        }
+
         suggestions.push({
           id: `evo-lvl-${targetId}`,
           category: 'Evolve',
           title: `Level Up Evolution: #${targetId}`,
           description: isReady
-            ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve (needs Lv. ${details.min_l})!`
-            : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${details.min_l}.`,
+            ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve ${specificReq}!`
+            : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${min_l} ${specificReq}.`,
           pokemonId: targetId,
           priority: isReady ? 90 : 75,
         });
-      } else if (details.min_h) {
+      } else if (min_h) {
+        const todMsg = tod ? ` during the ${tod}` : '';
         suggestions.push({
           id: `evo-happy-${targetId}`,
           category: 'Evolve',
           title: `Happiness Evolution: #${targetId}`,
-          description: `Level up your pre-evolution with high happiness to evolve!`,
+          description: `Level up your pre-evolution with high happiness to evolve${todMsg}!`,
           pokemonId: targetId,
           priority: 80,
         });
       }
-    } else if (details.tr === EVO_TRIGGER.USE_ITEM && details.item) {
-      const hasStone = saveData.inventory.some((i) => i.id === details.item);
+    } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
+      const hasStone = saveData.inventory.some((i) => i.id === item);
       suggestions.push({
         id: `evo-item-${targetId}`,
         category: 'Evolve',
@@ -378,7 +392,7 @@ export function generateSuggestions(
         pokemonId: targetId,
         priority: hasStone ? 95 : 40,
       });
-    } else if (details.tr === EVO_TRIGGER.TRADE) {
+    } else if (tr === EVO_TRIGGER.TRADE) {
       suggestions.push({
         id: `evo-trade-${targetId}`,
         category: 'Evolve',

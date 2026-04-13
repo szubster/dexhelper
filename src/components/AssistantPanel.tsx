@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { Bug, Egg, Flag, Info, Loader2, Sparkles, Target, Zap } from 'lucide-react';
-import type { NamedAPIResource } from 'pokenode-ts';
 import React from 'react';
+import { pokeDB } from '../db/PokeDB';
+import type { PokemonCompact } from '../db/schema';
 import type { SaveData } from '../engine/saveParser/index';
 import { type Suggestion, useAssistant } from '../hooks/useAssistant';
-import { MAX_DEX_ACROSS_GENS } from '../utils/generationConfig';
-import { pokeapi } from '../utils/pokeapi';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
 
@@ -65,9 +64,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
   const { data: pokemonList } = useQuery<{ id: number; name: string }[]>({
     queryKey: ['pokemonList'],
     queryFn: () =>
-      pokeapi
-        .getPokemonsList({ limit: MAX_DEX_ACROSS_GENS, offset: 0 })
-        .then((res) => res.results.map((p: NamedAPIResource, i: number) => ({ id: i + 1, name: p.name }))),
+      pokeDB.getAllPokemon().then((res: PokemonCompact[]) => res.map((p: PokemonCompact) => ({ id: p.id, name: p.n }))),
     staleTime: Infinity,
   });
 

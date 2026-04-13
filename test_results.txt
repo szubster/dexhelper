@@ -1,0 +1,352 @@
+
+ RUN  v4.1.4 /home/tszuba/projects/dexhelper
+
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Yellow Raichu > should lock Raichu (26) in Yellow if Pikachu (25) was not evolved 2ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Yellow Raichu > should not lock Raichu in Yellow if Raichu is already owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Yellow Raichu > should not lock Raichu in Red/Blue even if not owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Missed pre-evolutions (Starters/Eevee) > should lock Bulbasaur (1) if Ivysaur (2) is owned but Bulbasaur is not 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Missed pre-evolutions (Starters/Eevee) > should lock Squirtle (7) if Wartortle (8) is owned but Squirtle is not 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Missed pre-evolutions (Starters/Eevee) > should lock Squirtle (7) if Blastoise (9) is owned but Squirtle is not 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Missed pre-evolutions (Starters/Eevee) > should lock Charmander (4) if Charmeleon (5) is owned but Charmander is not 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Missed pre-evolutions (Starters/Eevee) > should not lock Charmander (4) if it is currently owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Missed pre-evolutions (Starters/Eevee) > should not lock Charmander (4) if no evolution is owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Missed pre-evolutions (Starters/Eevee) > should lock Eevee (133) if an evolution (Vaporeon 134) is owned but Eevee is not 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Missed pre-evolutions (Starters/Eevee) > should lock Eevee (133) if Jolteon (135) is owned but Eevee is not 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Missed pre-evolutions (Starters/Eevee) > should lock Eevee (133) if Flareon (136) is owned but Eevee is not 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Hitmons (Mutually Exclusive) > should lock Hitmonlee (106) if Hitmonchan (107) is owned and Hitmonlee is not 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Hitmons (Mutually Exclusive) > should lock Hitmonchan (107) if Hitmonlee (106) is owned and Hitmonchan is not 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Hitmons (Mutually Exclusive) > should not lock Hitmonlee (106) if neither is owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Hitmons (Mutually Exclusive) > should not lock Hitmonlee (106) if both are somehow owned (traded) 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Fossils (Mutually Exclusive) > should lock Omanyte (138) if Kabuto (140) is owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Fossils (Mutually Exclusive) > should lock Omanyte (138) if Kabutops (141) is owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Fossils (Mutually Exclusive) > should lock Kabuto (140) if Omastar (139) is owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Fossils (Mutually Exclusive) > should lock Omastar (139) if Kabuto (140) is owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Fossils (Mutually Exclusive) > should lock Kabutops (141) if Omanyte (138) is owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Fossils (Mutually Exclusive) > should lock Kabutops (141) if Omastar (139) is owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Fossils (Mutually Exclusive) > should not lock Omanyte (138) if neither is owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > Fossils (Mutually Exclusive) > should not lock Omanyte (138) if both are somehow owned 0ms
+ ✓ src/engine/exclusives/__tests__/gen1Exclusives.test.ts > gen1Exclusives > getUnobtainableReason > General Obtainable Pokémon > should return null for normally obtainable Pokémon (Pidgey 16) 0ms
+ ✓ src/engine/mapGraph/gen1Graph.test.ts > getDistanceToMap > returns distance 0 when starting map is the target 2ms
+ ✓ src/engine/mapGraph/gen1Graph.test.ts > getDistanceToMap > returns distance 1 for an adjacent map 0ms
+ ✓ src/engine/mapGraph/gen1Graph.test.ts > getDistanceToMap > returns distance 2 for a multi-hop distant map 0ms
+ ✓ src/engine/mapGraph/gen1Graph.test.ts > getDistanceToMap > gracefully falls back to parent map for indoor locations 0ms
+ ✓ src/engine/mapGraph/gen1Graph.test.ts > getDistanceToMap > defaults to Saffron City for an unknown starting map as per domain rules 0ms
+ ✓ src/engine/mapGraph/gen1Graph.test.ts > getDistanceToMap > handles slug cleaning correctly for pokeapi locations 0ms
+ ✓ src/engine/mapGraph/gen1Graph.test.ts > getDistanceToMap > returns null for an unreachable target or invalid target slug 0ms
+ ✓ src/engine/mapGraph/gen1Graph.test.ts > getDistanceToMap > avoids partial matches (regression: Route 1 mismatching Route 10, 11, 12) 1ms
+ ✓ src/engine/mapGraph/gen1Graph.test.ts > getDistanceToMap > handles graphs with missing connection nodes gracefully 0ms
+ ✓ src/utils/generationConfig.test.ts > getGenerationConfig > should return the correct configuration for an existing generation (Gen 1) 2ms
+ ✓ src/utils/generationConfig.test.ts > getGenerationConfig > should return the correct configuration for an existing generation (Gen 2) 0ms
+ ✓ src/utils/generationConfig.test.ts > getGenerationConfig > should fall back to Gen 1 configuration for an unknown generation (e.g. Gen 3) 0ms
+ ✓ src/utils/generationConfig.test.ts > getGenerationConfig > should fall back to Gen 1 configuration for generation 0 0ms
+ ✓ src/utils/generationConfig.test.ts > getGenerationConfig > should fall back to Gen 1 configuration for negative generation numbers 0ms
+ ✓ src/utils/generationConfig.test.ts > getGenerationConfig > should fall back to Gen 1 configuration for an arbitrarily large generation number 0ms
+ ✓ src/utils/generationConfig.test.ts > getVersionInfo > should return correct genConfig and version for known version id (red) 0ms
+ ✓ src/utils/generationConfig.test.ts > getVersionInfo > should return correct genConfig and version for known version id (crystal) 0ms
+ ✓ src/utils/generationConfig.test.ts > getVersionInfo > should return null for unknown version id 0ms
+ ✓ src/utils/generationConfig.test.ts > generation config sprite URLs > Gen 1 sprite URLs should be correct 0ms
+ ✓ src/utils/generationConfig.test.ts > generation config sprite URLs > Gen 2 sprite URLs should be correct 0ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > should have generation = 1 1ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > resolveMapSlug > should resolve Pallet Town (0x00) to pallet-town-area 1ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > resolveMapSlug > should resolve Cerulean City (0x03) to cerulean-city-area 0ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > resolveMapSlug > should resolve indoor maps to their parent outdoor area 1ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > getMapDistance > should return distance 0 for current location 0ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > getMapDistance > should return positive distance for adjacent locations 0ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > getMapDistance > should return null for unknown target slugs 0ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > getUnobtainableReason > should detect Raichu lock in Yellow 0ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > getUnobtainableReason > should return null for normal obtainable Pokémon 0ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > getSpecialSuggestions > should warn when box is nearly full 1ms
+ ✓ src/engine/assistant/__tests__/gen1Strategy.test.ts > Gen 1 AssistantStrategy > getSpecialSuggestions > should not warn when box has space 0ms
+stderr | src/store.test.ts > Zustand Store > UI state > should toggle search term
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+stderr | src/store.test.ts > Zustand Store > UI state > should toggle settings modal
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+ ✓ src/engine/saveParser/index.test.ts > saveParser - Dynamic Offset Shift Detection > should detect NO SHIFT when padding at 0x25B5 is correct 2ms
+ ✓ src/engine/saveParser/index.test.ts > saveParser - Dynamic Offset Shift Detection > should detect 1-BYTE SHIFT when padding at 0x25B5 is incorrect and 0x25B6 is correct 0ms
+ ✓ src/engine/saveParser/index.test.ts > saveParser - Dynamic Offset Shift Detection > should fallback to 0 shift if neither padding is correct (safest bet) 0ms
+stderr | src/store.test.ts > Zustand Store > UI state > should toggle version modal
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+stderr | src/store.test.ts > Zustand Store > Settings state > should toggle filters
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+stderr | src/store.test.ts > Zustand Store > Settings state > should set filters directly
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+stderr | src/store.test.ts > Zustand Store > Settings state > should clear filters
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+stderr | src/store.test.ts > Zustand Store > Settings state > should set manual version
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+stderr | src/store.test.ts > Zustand Store > Settings state > should set living dex mode
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+stderr | src/store.test.ts > Zustand Store > Settings state > should set global pokeball
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+stderr | src/store.test.ts > Zustand Store > filtersSet helper > should return a Set of the current filters
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+stderr | src/store.test.ts > Zustand Store > Save data > should set and clear save data
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+stderr | src/store.test.ts > Zustand Store > Save data > should set and clear error
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item 'dexhelper-settings', the given storage is currently unavailable.
+
+ ✓ src/store.test.ts > Zustand Store > UI state > should toggle search term 2ms
+ ✓ src/store.test.ts > Zustand Store > UI state > should toggle settings modal 0ms
+ ✓ src/store.test.ts > Zustand Store > UI state > should toggle version modal 0ms
+ ✓ src/store.test.ts > Zustand Store > Settings state > should toggle filters 1ms
+ ✓ src/store.test.ts > Zustand Store > Settings state > should set filters directly 1ms
+ ✓ src/store.test.ts > Zustand Store > Settings state > should clear filters 0ms
+ ✓ src/store.test.ts > Zustand Store > Settings state > should set manual version 0ms
+ ✓ src/store.test.ts > Zustand Store > Settings state > should set living dex mode 0ms
+ ✓ src/store.test.ts > Zustand Store > Settings state > should set global pokeball 0ms
+ ✓ src/store.test.ts > Zustand Store > filtersSet helper > should return a Set of the current filters 0ms
+ ✓ src/store.test.ts > Zustand Store > Save data > should set and clear save data 1ms
+ ✓ src/store.test.ts > Zustand Store > Save data > should set and clear error 0ms
+ ✓ src/store.test.ts > Zustand Store > Save data > should handle corrupted save file from localStorage 2ms
+ ✓ src/engine/assistant/__tests__/suggestionEngine.repro.test.ts > suggestionEngine - Jynx Double Suggestion Repro > should load and parse the save file 17ms
+ ✓ src/engine/saveParser/repro.test.ts > Yellow Save Repro > should parse the user provided yellow save 18ms
+ ✓ src/engine/saveParser/saveParser.test.ts > saveParser - Pokémon Gen 1 Validation > should correctly detect and parse the provided yellow.sav (R/B layout) 3ms
+ ✓ src/engine/saveParser/saveParser.test.ts > saveParser - Pokémon Gen 1 Validation > should correctly identify claimed gifts in the save file 1ms
+ ✓ src/engine/saveParser/saveParser.test.ts > saveParser - Pokémon Gen 1 Validation > should support manual version overrides 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > saveParser - Pokémon Gen 1 Validation > should parse full pcDetails for all 12 boxes 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should decode a simple string correctly 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should handle non-zero offsets correctly 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should handle unmapped characters with "?" 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should handle special multi-character mappings 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should stop at terminator 0x50 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should stop at terminator 0x00 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should stop at terminator 0xFF 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should respect maxLength 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should default to maxLength 11 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should trim the resulting string 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should handle strings that fill maxLength without a terminator 0ms
+ ✓ src/engine/saveParser/saveParser.test.ts > decodeGen12String > should stop gracefully when reaching out-of-bounds array access (undefined byte) 0ms
+ ✓ src/engine/assistant/__tests__/fetchAssistantApiData.test.ts > fetchAssistantApiData > should handle evolution fetch failure gracefully 3ms
+ ✓ src/engine/assistant/__tests__/suggestionEngine.fix.test.ts > suggestionEngine - Redundancy Fix Verification > should only show "Version Exclusive" for Jynx in Yellow 2ms
+ ✓ src/engine/assistant/__tests__/suggestionEngine.fix.test.ts > suggestionEngine - Redundancy Fix Verification > should suppress "Version Exclusive" for Mr. Mime and only show NPC trade 0ms
+ × src/engine/assistant/__tests__/test-coverage.test.ts > coverage for suggestionEngine new lines 5ms
+   → node.evolves_to is not iterable
+ × src/utils/pokeapi.test.ts > pokeapi > success cases > returns json on successful fetch 4ms
+   → indexedDB is not defined
+ × src/utils/pokeapi.test.ts > pokeapi > error handling > getPokemonsList throws when response is not ok 6ms
+   → expected [Function] to throw error including 'Network response was not ok' but got 'indexedDB is not defined'
+ × src/utils/pokeapi.test.ts > pokeapi > error handling > getPokemonEncounterAreasByName throws when response is not ok 1ms
+   → expected [Function] to throw error including 'Network response was not ok' but got 'indexedDB is not defined'
+ × src/utils/pokeapi.test.ts > pokeapi > error handling > getPokemonByName throws when response is not ok 1ms
+   → expected [Function] to throw error including 'Network response was not ok' but got 'indexedDB is not defined'
+ × src/utils/pokeapi.test.ts > pokeapi > error handling > getPokemonSpeciesByName throws when response is not ok 1ms
+   → expected [Function] to throw error including 'Network response was not ok' but got 'indexedDB is not defined'
+ × src/utils/pokeapi.test.ts > pokeapi > error handling > resource throws when response is not ok 1ms
+   → expected [Function] to throw error including 'Network response was not ok' but got 'indexedDB is not defined'
+ × src/utils/pokeapi.test.ts > pokeapi > error handling > getItem throws when response is not ok 2ms
+   → promise resolved "{}" instead of rejecting
+ × src/utils/pokeapi.test.ts > pokeapi > error handling > getLocationArea throws when response is not ok 1ms
+   → promise resolved "{}" instead of rejecting
+ ✓ src/hooks/useAssistant.test.ts > useAssistant - generateSuggestions logic > should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic) 2ms
+ ✓ src/hooks/useAssistant.test.ts > useAssistant - generateSuggestions logic > should NOT mark Poliwrath as Trade Required in Pokémon Yellow if Poliwag is catchable 0ms
+ × src/hooks/useAssistant.test.ts > useAssistant - generateSuggestions logic > should mark Version Exclusives as Trade Required 4ms
+   → expected undefined to be defined
+ × src/hooks/useAssistant.test.ts > useAssistant - generateSuggestions logic > should NOT duplicate "Catch Right Here" when found in both local and nearby logic 1ms
+   → Cannot read properties of undefined (reading 'filter')
+ ✓ src/queryClient.test.ts > queryClient > should be an instance of QueryClient 1ms
+ ✓ src/queryClient.test.ts > queryClient > should have the correct default options 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/hooks/useAssistant.test.ts > useAssistant - generateSuggestions logic > should mark Version Exclusives as Trade Required
+AssertionError: expected undefined to be defined
+ ❯ src/hooks/useAssistant.test.ts:113:25
+    111|     );
+    112|     const weedleTrade = suggestions.find((s) => s.pokemonId === 13 && …
+    113|     expect(weedleTrade).toBeDefined();
+       |                         ^
+    114|     expect(weedleTrade?.title).toContain('Version Exclusive');
+    115|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  src/hooks/useAssistant.test.ts > useAssistant - generateSuggestions logic > should NOT duplicate "Catch Right Here" when found in both local and nearby logic
+TypeError: Cannot read properties of undefined (reading 'filter')
+ ❯ generateSuggestions src/engine/assistant/suggestionEngine.ts:239:49
+    237|     for (const lae of apiData.localEncounters) {
+    238|       const pid = lae.pid;
+    239|       const relevantEncounters = lae.encounters.filter((e) => e.slug =…
+       |                                                 ^
+    240|       if (relevantEncounters.length === 0) continue;
+    241|
+ ❯ src/hooks/useAssistant.test.ts:148:29
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  src/utils/pokeapi.test.ts > pokeapi > success cases > returns json on successful fetch
+ReferenceError: indexedDB is not defined
+ ❯ openDB node_modules/.pnpm/idb@8.0.3/node_modules/idb/build/index.js:168:21
+ ❯ getDB src/db/PokeDB.ts:15:17
+     13| export const getDB = () => {
+     14|   if (!dbPromise) {
+     15|     dbPromise = openDB(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
+       |                 ^
+     16|       upgrade(db) {
+     17|         Object.values(DB_CONFIG.STORES).forEach((store) => {
+ ❯ Object.getPokemons src/db/PokeDB.ts:151:22
+ ❯ DataLoader.dexDataLoader.pokemon.default.cache [as _batchLoadFn] src/db/DexDataLoader.ts:11:21
+ ❯ dispatchBatch node_modules/.pnpm/dataloader@2.2.3/node_modules/dataloader/index.js:288:27
+ ❯ node_modules/.pnpm/dataloader@2.2.3/node_modules/dataloader/index.js:268:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  src/utils/pokeapi.test.ts > pokeapi > error handling > getPokemonsList throws when response is not ok
+AssertionError: expected [Function] to throw error including 'Network response was not ok' but got 'indexedDB is not defined'
+
+Expected: "Network response was not ok"
+Received: "indexedDB is not defined"
+
+ ❯ src/utils/pokeapi.test.ts:36:70
+     34|       });
+     35|
+     36|       await expect(pokeapi.getPokemonsList({ limit: 10, offset: 0 })).…
+       |                                                                      ^
+     37|     });
+     38|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  src/utils/pokeapi.test.ts > pokeapi > error handling > getPokemonEncounterAreasByName throws when response is not ok
+AssertionError: expected [Function] to throw error including 'Network response was not ok' but got 'indexedDB is not defined'
+
+Expected: "Network response was not ok"
+Received: "indexedDB is not defined"
+
+ ❯ src/utils/pokeapi.test.ts:44:70
+     42|       });
+     43|
+     44|       await expect(pokeapi.getPokemonEncounterAreasByName('pikachu')).…
+       |                                                                      ^
+     45|     });
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  src/utils/pokeapi.test.ts > pokeapi > error handling > getPokemonByName throws when response is not ok
+AssertionError: expected [Function] to throw error including 'Network response was not ok' but got 'indexedDB is not defined'
+
+Expected: "Network response was not ok"
+Received: "indexedDB is not defined"
+
+ ❯ src/utils/pokeapi.test.ts:52:55
+     50|       });
+     51|
+     52|       await expect(pokeapi.getPokemonByName('mewtwo')).rejects.toThrow…
+       |                                                       ^
+     53|     });
+     54|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+ FAIL  src/utils/pokeapi.test.ts > pokeapi > error handling > getPokemonSpeciesByName throws when response is not ok
+AssertionError: expected [Function] to throw error including 'Network response was not ok' but got 'indexedDB is not defined'
+
+Expected: "Network response was not ok"
+Received: "indexedDB is not defined"
+
+ ❯ src/utils/pokeapi.test.ts:60:57
+     58|       });
+     59|
+     60|       await expect(pokeapi.getPokemonSpeciesByName(151)).rejects.toThr…
+       |                                                         ^
+     61|     });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
+ FAIL  src/utils/pokeapi.test.ts > pokeapi > error handling > resource throws when response is not ok
+AssertionError: expected [Function] to throw error including 'Network response was not ok' but got 'indexedDB is not defined'
+
+Expected: "Network response was not ok"
+Received: "indexedDB is not defined"
+
+ ❯ src/utils/pokeapi.test.ts:68:85
+     66|       });
+     67|
+     68|       await expect(pokeapi.resource('https://pokeapi.co/api/v2/evoluti…
+       |                                                                                     ^
+     69|         'Network response was not ok',
+     70|       );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/11]⎯
+
+ FAIL  src/utils/pokeapi.test.ts > pokeapi > error handling > getItem throws when response is not ok
+AssertionError: promise resolved "{}" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
+- }
++ {}
+
+ ❯ src/utils/pokeapi.test.ts:78:39
+     76|       });
+     77|
+     78|       await expect(pokeapi.getItem(1)).rejects.toThrow('Network respon…
+       |                                       ^
+     79|     });
+     80|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/11]⎯
+
+ FAIL  src/utils/pokeapi.test.ts > pokeapi > error handling > getLocationArea throws when response is not ok
+AssertionError: promise resolved "{}" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
+- }
++ {}
+
+ ❯ src/utils/pokeapi.test.ts:86:64
+     84|       });
+     85|
+     86|       await expect(pokeapi.getLocationArea('pallet-town-area')).reject…
+       |                                                                ^
+     87|     });
+     88|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/11]⎯
+
+ FAIL  src/engine/assistant/__tests__/test-coverage.test.ts > coverage for suggestionEngine new lines
+TypeError: node.evolves_to is not iterable
+ ❯ findNodeAndParent src/engine/assistant/suggestionEngine.ts:330:32
+    328|     ): { targetNode: CompactChainLink; parentNode: CompactChainLink } …
+    329|       if (node.sid === targetId) return { targetNode: node, parentNode…
+    330|       for (const child of node.evolves_to) {
+       |                                ^
+    331|         const res = findNodeAndParent(child, node);
+    332|         if (res) return res;
+ ❯ findNodeAndParent src/engine/assistant/suggestionEngine.ts:331:21
+ ❯ src/engine/assistant/suggestionEngine.ts:337:19
+ ❯ generateSuggestions src/engine/assistant/suggestionEngine.ts:321:16
+ ❯ src/engine/assistant/__tests__/test-coverage.test.ts:94:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/11]⎯
+
+
+ Test Files  3 failed | 12 passed (15)
+      Tests  11 failed | 97 passed (108)
+   Start at  14:57:20
+   Duration  432ms (transform 1.66s, setup 0ms, import 2.34s, tests 130ms, environment 2ms)
+

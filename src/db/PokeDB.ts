@@ -30,7 +30,7 @@ export const syncData = async () => {
 
   // 1. Check if already synced using build-time hash
   const existingHash = await db.get(DB_CONFIG.STORES.METADATA, 'hash');
-  
+
   // Skip fetch if the build-in hash matches what we have in indexedDB
   if (existingHash === __POKEDATA_HASH__ && __POKEDATA_HASH__ !== 'initial') {
     console.log('PokeDB: Already up to date (build hash match)');
@@ -85,14 +85,14 @@ export const syncData = async () => {
 
   // Clear old data
   await Promise.all([
-    pStore.clear(), 
-    sStore.clear(), 
-    eStore.clear(), 
-    cStore.clear(), 
+    pStore.clear(),
+    sStore.clear(),
+    eStore.clear(),
+    cStore.clear(),
     lStore.clear(),
     aStore.clear(),
     iStore.clear(),
-    mStore.clear()
+    mStore.clear(),
   ]);
 
   const STAGES = 7;
@@ -127,34 +127,58 @@ export const syncData = async () => {
 
 export const pokeDB = {
   sync: syncData,
-  getPokemon: async (id: number): Promise<PokemonCompact | undefined> =>
-    (await getDB()).get(DB_CONFIG.STORES.POKEMON, id),
-  getSpecies: async (id: number): Promise<SpeciesCompact | undefined> =>
-    (await getDB()).get(DB_CONFIG.STORES.SPECIES, id),
-  getEncounters: async (pid: number): Promise<LocationAreaEncounters | undefined> =>
-    (await getDB()).get(DB_CONFIG.STORES.ENCOUNTERS, pid),
+  getPokemon: async (id: number): Promise<PokemonCompact | undefined> => {
+    if (id === undefined || id === null || Number.isNaN(id)) return undefined;
+    return (await getDB()).get(DB_CONFIG.STORES.POKEMON, id);
+  },
+  getSpecies: async (id: number): Promise<SpeciesCompact | undefined> => {
+    if (id === undefined || id === null || Number.isNaN(id)) return undefined;
+    return (await getDB()).get(DB_CONFIG.STORES.SPECIES, id);
+  },
+  getEncounters: async (pid: number): Promise<LocationAreaEncounters | undefined> => {
+    if (pid === undefined || pid === null || Number.isNaN(pid)) return undefined;
+    return (await getDB()).get(DB_CONFIG.STORES.ENCOUNTERS, pid);
+  },
   getAllEncounters: async (): Promise<LocationAreaEncounters[]> => (await getDB()).getAll(DB_CONFIG.STORES.ENCOUNTERS),
-  getChain: async (id: number): Promise<CompactEvolutionChain | undefined> =>
-    (await getDB()).get(DB_CONFIG.STORES.CHAINS, id),
-  
+  getChain: async (id: number): Promise<CompactEvolutionChain | undefined> => {
+    if (id === undefined || id === null || Number.isNaN(id)) return undefined;
+    return (await getDB()).get(DB_CONFIG.STORES.CHAINS, id);
+  },
+
   // New location methods
   getLocations: async () => (await getDB()).getAll(DB_CONFIG.STORES.LOCATIONS),
-  getLocation: async (id: number) => (await getDB()).get(DB_CONFIG.STORES.LOCATIONS, id),
-  getAreas: async (lid: number) => {
-    const areas = await (await getDB()).getAll(DB_CONFIG.STORES.AREAS);
-    return areas.filter(a => a.lid === lid);
+  getLocation: async (id: number) => {
+    if (id === undefined || id === null || Number.isNaN(id)) return undefined;
+    return (await getDB()).get(DB_CONFIG.STORES.LOCATIONS, id);
   },
-  getInverseIndex: async (lid: number) => (await getDB()).get(DB_CONFIG.STORES.INDEX, lid),
+  getAreas: async (lid: number) => {
+    if (lid === undefined || lid === null || Number.isNaN(lid)) return [];
+    const areas = await (await getDB()).getAll(DB_CONFIG.STORES.AREAS);
+    return areas.filter((a) => a.lid === lid);
+  },
+  getInverseIndex: async (lid: number) => {
+    if (lid === undefined || lid === null || Number.isNaN(lid)) return undefined;
+    return (await getDB()).get(DB_CONFIG.STORES.INDEX, lid);
+  },
 
   // Bulk versions for DataLoader
   getPokemons: async (ids: number[]): Promise<(PokemonCompact | Error)[]> => {
     const db = await getDB();
-    const results = await Promise.all(ids.map((id) => db.get(DB_CONFIG.STORES.POKEMON, id)));
-    return results.map((r) => r ?? new Error('Pokemon not found'));
+    const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
+    if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
+
+    const results = await Promise.all(validIds.map((id) => db.get(DB_CONFIG.STORES.POKEMON, id)));
+    // Map back to original order, filling in gaps
+    return ids.map((id) => {
+      if (typeof id !== 'number' || Number.isNaN(id)) return new Error('Invalid ID');
+      const found = results.find((r) => r?.id === id);
+      return found ?? new Error('Pokemon not found');
+    });
   },
   getManySpecies: async (ids: number[]): Promise<(SpeciesCompact | Error)[]> => {
     const db = await getDB();
     const results = await Promise.all(ids.map((id) => db.get(DB_CONFIG.STORES.SPECIES, id)));
     return results.map((r) => r ?? new Error('Species not found'));
   },
+  getAllPokemon: async (): Promise<PokemonCompact[]> => (await getDB()).getAll(DB_CONFIG.STORES.POKEMON),
 };
