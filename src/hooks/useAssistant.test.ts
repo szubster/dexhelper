@@ -36,40 +36,45 @@ describe('useAssistant - generateSuggestions logic', () => {
   const mockApiData = {
     localEncounters: [],
     missingEncounters: {
-      39: [], // Jigglypuff
-      40: [], // Wigglytuff
-      62: [], // Poliwrath
+      39: null, // Jigglypuff
+      40: null, // Wigglytuff
+      62: null, // Poliwrath
     },
     ancestralEncounters: {
       40: {
-        39: [{ version_details: [{ version: { name: 'yellow' } }] }], // Jigglypuff is catchable in Yellow
+        39: { pid: 39, encounters: [{ slug: 'kanto-route-3', v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Jigglypuff in Yellow
       },
       62: {
-        60: [{ version_details: [{ version: { name: 'yellow' } }] }], // Poliwag catchable
-        61: [], // Poliwhirl not directly catchable in this mock
+        60: { pid: 60, encounters: [{ slug: 'kanto-route-6', v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Poliwag catchable
+        61: null, // Poliwhirl not directly catchable
       },
     },
     missingChains: {
       39: {
-        chain: {
-          species: { url: 'https://pokeapi.co/api/v2/pokemon-species/39/' },
-          evolves_to: [],
-        },
+        id: 1,
+        chain: { sid: 39, evolves_to: [], details: [] },
       },
       40: {
-        chain: {
-          species: { url: 'https://pokeapi.co/api/v2/pokemon-species/39/' },
-          evolves_to: [],
-        },
+        id: 1,
+        chain: { sid: 39, evolves_to: [{ sid: 40, evolves_to: [], details: [{ tr: 3, item: 81 }] }], details: [] },
       },
       62: {
+        id: 2,
         chain: {
-          species: { url: 'https://pokeapi.co/api/v2/pokemon-species/60/' },
-          evolves_to: [],
+          sid: 60,
+          evolves_to: [
+            {
+              sid: 61,
+              evolves_to: [{ sid: 62, evolves_to: [], details: [{ tr: 3, item: 84 }] }],
+              details: [{ tr: 1, min_l: 25 }],
+            },
+          ],
+          details: [],
         },
       },
     },
     partyEvolutions: {},
+    giftChains: {},
   } as unknown as AssistantApiData;
 
   it('should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)', () => {
@@ -88,17 +93,15 @@ describe('useAssistant - generateSuggestions logic', () => {
     const exclusiveApiData = {
       ...mockApiData,
       missingEncounters: {
-        13: [],
+        13: null,
       },
       ancestralEncounters: {
         13: {}, // No ancestors catchable either
       },
       missingChains: {
         13: {
-          chain: {
-            species: { url: 'https://pokeapi.co/api/v2/pokemon-species/13/' },
-            evolves_to: [],
-          },
+          id: 3,
+          chain: { sid: 13, evolves_to: [], details: [] },
         },
       },
     };
@@ -119,31 +122,19 @@ describe('useAssistant - generateSuggestions logic', () => {
       ...mockApiData,
       localEncounters: [
         {
-          pokemon: { name: 'pidgey', url: 'https://pokeapi.co/api/v2/pokemon/16/' },
-          version_details: [
-            {
-              version: { name: 'yellow' },
-              encounter_details: [{ chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 }],
-            },
-          ],
+          pid: 16,
+          encounters: [{ slug: 'pallet-town-area', v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
         },
       ],
       missingEncounters: {
-        16: [
-          {
-            location_area: { name: 'pallet-town-area' },
-            version_details: [
-              {
-                version: { name: 'yellow' },
-                encounter_details: [{ chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 }],
-              },
-            ],
-          },
-        ],
+        16: {
+          pid: 16,
+          encounters: [{ slug: 'pallet-town-area', v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+        },
       },
     };
 
-    // Pallet Town (id 0) + pallet-town-area slug = distance 0
+    // Pallet Town (id 0) is mapped to 'pallet-town-area'
     const testSaveData = { ...mockSaveData, currentMapId: 0, owned: new Set([25]) };
     const { suggestions } = generateSuggestions(
       testSaveData,

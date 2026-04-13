@@ -1,14 +1,14 @@
 import { CheckCircle2, Database, Loader2 } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
-import { pokeDB } from '../db/PokeDB';
+import { useEffect, useState } from 'react';
 
 export function SyncProgress() {
   const [progress, setProgress] = useState<{ current: number; total: number; stage: string } | null>(null);
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    const handleProgress = (event: any) => {
-      const { current, total, stage } = event.detail;
+    const handleProgress = (event: Event) => {
+      const customEvent = event as CustomEvent<{ current: number; total: number; stage: string }>;
+      const { current, total, stage } = customEvent.detail;
       setProgress({ current, total, stage });
       if (current === total) {
         setIsComplete(true);
@@ -25,10 +25,10 @@ export function SyncProgress() {
   const percentage = progress ? Math.round((progress.current / progress.total) * 100) : 100;
 
   return (
-    <div className="fixed bottom-6 right-6 z-[100] flex animate-in slide-in-from-right-10 items-center gap-4 rounded-3xl border border-white/10 bg-zinc-950/80 p-4 shadow-2xl backdrop-blur-xl duration-500">
+    <div className="slide-in-from-right-10 fixed right-6 bottom-6 z-[100] flex animate-in items-center gap-4 rounded-3xl border border-white/10 bg-zinc-950/80 p-4 shadow-2xl backdrop-blur-xl duration-500">
       <div className="relative flex h-12 w-12 items-center justify-center">
         {isComplete ? (
-          <CheckCircle2 className="text-emerald-500 animate-in zoom-in-50" size={24} />
+          <CheckCircle2 className="zoom-in-50 animate-in text-emerald-500" size={24} />
         ) : (
           <>
             <Database className="text-blue-500/50" size={20} />
@@ -48,7 +48,7 @@ export function SyncProgress() {
               style={{ width: `${percentage}%` }}
             />
           </div>
-          <span className="font-black font-mono text-xs text-blue-400">{percentage}%</span>
+          <span className="font-black font-mono text-blue-400 text-xs">{percentage}%</span>
         </div>
       </div>
     </div>

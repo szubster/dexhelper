@@ -1,14 +1,15 @@
 import { beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
 import { dexDataLoader } from '../../../db/DexDataLoader';
 import { pokeDB } from '../../../db/PokeDB';
+import type { CompactEvolutionChain, PokemonCompact, SpeciesCompact } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import { fetchAssistantApiData } from '../suggestionEngine';
 
 describe('fetchAssistantApiData', () => {
-  let consoleErrorSpy: MockInstance;
+  let _consoleErrorSpy: MockInstance;
 
   beforeEach(() => {
-    consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    _consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   it('should handle evolution fetch failure gracefully', async () => {
@@ -22,16 +23,16 @@ describe('fetchAssistantApiData', () => {
 
     vi.spyOn(pokeDB, 'getAllEncounters').mockResolvedValue([]);
     vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockResolvedValue([
-      { id: 1, sid: 1, n: 'bulbasaur' } as any,
-      { id: 2, sid: 2, n: 'ivysaur' } as any,
+      { id: 1, sid: 1, n: 'bulbasaur' } as unknown as PokemonCompact,
+      { id: 2, sid: 2, n: 'ivysaur' } as unknown as PokemonCompact,
     ]);
     vi.spyOn(dexDataLoader.species, 'loadMany').mockResolvedValue([
-      { id: 1, cid: 101 } as any,
-      { id: 2, cid: 102 } as any,
+      { id: 1, cid: 101 } as unknown as SpeciesCompact,
+      { id: 2, cid: 102 } as unknown as SpeciesCompact,
     ]);
     vi.spyOn(dexDataLoader.chains, 'loadMany').mockResolvedValue([
       new Error('Database failure'),
-      { id: 102, chain: { sid: 2, evolves_to: [] } } as any,
+      { id: 102, chain: { sid: 2, evolves_to: [] } } as unknown as CompactEvolutionChain,
     ]);
 
     const result = await fetchAssistantApiData(mockSaveData, []);

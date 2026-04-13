@@ -185,7 +185,7 @@ export function getDistanceToMap(currentMapId: number, targetSlug: string): { di
     startId = 0x0a; // Saffron City
   }
 
-  // Clean the pokeapi slug to match our internal slugs
+  // Clean the target slug to match our internal naming conventions
   const cleanTarget = targetSlug.replace('kanto-', '').replace('sea-', '');
 
   const queue: { id: number; distance: number }[] = [{ id: startId, distance: 0 }];
