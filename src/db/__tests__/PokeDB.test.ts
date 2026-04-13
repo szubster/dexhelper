@@ -4,18 +4,15 @@ import 'fake-indexeddb/auto';
 import { DB_CONFIG } from '../schema';
 
 // Mock build hash
-// biome-ignore lint/suspicious/noExplicitAny: needed for test global setup
-(globalThis as any).__POKEDATA_HASH__ = 'test-hash';
-// biome-ignore lint/suspicious/noExplicitAny: needed for test global fetch mock
-(globalThis as any).fetch = vi.fn();
+vi.stubGlobal('__POKEDATA_HASH__', 'test-hash');
+vi.stubGlobal('fetch', vi.fn());
 
 describe('PokeDB', () => {
   beforeEach(async () => {
     vi.clearAllMocks();
     const db = await getDB();
     const tx = db.transaction(Object.values(DB_CONFIG.STORES), 'readwrite');
-    // biome-ignore lint/suspicious/noExplicitAny: store name is dynamic
-    await Promise.all(Object.values(DB_CONFIG.STORES).map((s) => tx.objectStore(s as any).clear()));
+    await Promise.all(Object.values(DB_CONFIG.STORES).map((s) => tx.objectStore(s).clear()));
     await tx.done;
   });
 
@@ -75,17 +72,21 @@ describe('PokeDB', () => {
 
     const results = await pokeDB.getPokemons([1, 2, 999]);
     expect(results).toHaveLength(3);
-    // biome-ignore lint/suspicious/noExplicitAny: test data access
-    expect((results[0] as any).n).toBe('P1');
-    // biome-ignore lint/suspicious/noExplicitAny: test data access
-    expect((results[1] as any).n).toBe('P2');
+
+    const r1 = results[0];
+    if (!r1 || r1 instanceof Error) throw r1 ?? new Error('r1 undefined');
+    expect(r1.n).toBe('P1');
+
+    const r2 = results[1];
+    if (!r2 || r2 instanceof Error) throw r2 ?? new Error('r2 undefined');
+    expect(r2.n).toBe('P2');
+
     expect(results[2]).toBeInstanceOf(Error);
   });
 
   it('handles invalid IDs gracefully', async () => {
     expect(await pokeDB.getPokemon(NaN)).toBeUndefined();
-    // biome-ignore lint/suspicious/noExplicitAny: deliberate invalid input for testing
-    expect(await pokeDB.getPokemon(null as any)).toBeUndefined();
+    expect(await pokeDB.getPokemon(null as unknown as number)).toBeUndefined();
 
     const manyResult = await pokeDB.getPokemons([NaN]);
     expect(manyResult[0]).toBeInstanceOf(Error);

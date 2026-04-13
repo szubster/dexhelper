@@ -27,7 +27,7 @@ export function LocationSuggestions() {
       const withCounts = await Promise.all(
         filtered.map(async (l) => {
           const index = await pokeDB.getInverseIndex(l.id);
-          return { ...l, count: index?.pids.length || 0 };
+          return { ...l, count: index?.length || 0 };
         }),
       );
 

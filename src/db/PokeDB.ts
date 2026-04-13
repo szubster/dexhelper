@@ -4,30 +4,31 @@ import {
   DB_CONFIG,
   type LocationAreaEncounters,
   type PokeDataExport,
+  type PokeDBSchema,
   type PokemonMetadata,
 } from './schema';
 
-let dbPromise: Promise<IDBPDatabase> | null = null;
+let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;
 
 export const getDB = () => {
   if (!dbPromise) {
-    dbPromise = openDB(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
+    dbPromise = openDB<PokeDBSchema>(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
       upgrade(db) {
         // Automatically handle additions/removals based on DB_CONFIG.STORES
-        const currentStores = new Set(db.objectStoreNames);
-        const targetStores = new Set<string>(Object.values(DB_CONFIG.STORES));
+        const currentStores = Array.from(db.objectStoreNames);
+        const targetStores = Object.values(DB_CONFIG.STORES) as Array<keyof PokeDBSchema>;
 
         for (const store of targetStores) {
-          if (!currentStores.has(store)) {
-            // biome-ignore lint/suspicious/noExplicitAny: store name is dynamic from DB_CONFIG
-            db.createObjectStore(store as any);
+          if (!(currentStores as any[]).includes(store)) {
+            // biome-ignore lint/suspicious/noExplicitAny: Complex IDB schema upgrade logic
+            (db as any).createObjectStore(store);
           }
         }
 
         for (const store of currentStores) {
-          if (!targetStores.has(store)) {
-            // biome-ignore lint/suspicious/noExplicitAny: store name is dynamic from DB_CONFIG
-            db.deleteObjectStore(store as any);
+          if (!targetStores.includes(store as any)) {
+            // biome-ignore lint/suspicious/noExplicitAny: Complex IDB schema upgrade logic
+            (db as any).deleteObjectStore(store);
           }
         }
       },

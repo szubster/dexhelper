@@ -27,7 +27,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
   const locationPokemonIds = useMemo(() => {
     if (!locationIndex) return null;
-    return new Set(locationIndex.pids);
+    return new Set(locationIndex);
   }, [locationIndex]);
 
   const filtersSet = React.useMemo(() => new Set(filters), [filters]);

@@ -9,7 +9,7 @@ test.describe('Filtering Logic', () => {
   });
 
   test('should filter by name successfully', async ({ page }) => {
-    const searchInput = page.getByPlaceholder(/Search Pokedex by name or ID/i);
+    const searchInput = page.getByTestId('search-input');
     await searchInput.fill('Pikachu');
 
     // Pikachu (ID 25) should be visible

@@ -189,8 +189,7 @@ test('coverage for suggestionEngine edge cases', () => {
     partyDetails: [{ speciesId: 133, level: 20, otName: 'PLAYER' }],
     pcDetails: [],
     trainerName: 'PLAYER',
-    // biome-ignore lint/suspicious/noExplicitAny: partial mock for simplified coverage test
-  } as any;
+  } as unknown as SaveData;
 
   const mockApiData = {
     localEncounters: [],
@@ -213,8 +212,7 @@ test('coverage for suggestionEngine edge cases', () => {
     },
     partyEvolutions: {},
     giftChains: {},
-    // biome-ignore lint/suspicious/noExplicitAny: partial mock for simplified coverage test
-  } as any;
+  } as unknown as AssistantApiData;
 
   const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData);
   const jolteon = suggestions.find((s) => s.pokemonId === 135);
