@@ -8,7 +8,9 @@ test('coverage for suggestionEngine new lines', () => {
     generation: 2,
     gameVersion: 'crystal',
     // Mock owned up to 251 except the ones we want to suggest (targets must be missing)
-    owned: new Set([...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237, 136, 68].includes(i))),
+    owned: new Set(
+      [...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237, 136, 68].includes(i)),
+    ),
     seen: new Set(),
     party: [],
     inventory: [{ id: 82, count: 1 }], // Fire Stone
@@ -175,43 +177,45 @@ test('coverage for suggestionEngine new lines', () => {
 });
 
 test('coverage for suggestionEngine edge cases', () => {
-    const mockSaveData = {
-        generation: 1,
-        gameVersion: 'yellow',
-        owned: new Set([...Array(134).keys()].map(i => i + 1)), // Covers 1-134, including 133
-        seen: new Set(),
-        party: [],
-        inventory: [],
-        currentMapId: 0,
-        eventFlags: new Uint8Array(300),
-        partyDetails: [{ speciesId: 133, level: 20, otName: 'PLAYER' }],
-        pcDetails: [],
-        trainerName: 'PLAYER'
-    } as any;
-    
-    const mockApiData = {
-        localEncounters: [],
-        missingEncounters: {},
-        ancestralEncounters: {},
-        missingChains: {
-            135: {
-                id: 1,
-                chain: {
-                    sid: 133,
-                    evolves_to: [{
-                        sid: 135,
-                        evolves_to: [],
-                        details: [{ tr: 3, item: 83 }] // Jolteon, but no stone in inventory
-                    }]
-                }
-            }
+  const mockSaveData = {
+    generation: 1,
+    gameVersion: 'yellow',
+    owned: new Set([...Array(134).keys()].map((i) => i + 1)), // Covers 1-134, including 133
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [{ speciesId: 133, level: 20, otName: 'PLAYER' }],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as any;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {},
+    ancestralEncounters: {},
+    missingChains: {
+      135: {
+        id: 1,
+        chain: {
+          sid: 133,
+          evolves_to: [
+            {
+              sid: 135,
+              evolves_to: [],
+              details: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
+            },
+          ],
         },
-        partyEvolutions: {},
-        giftChains: {},
-    } as any;
-    
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData);
-    const jolteon = suggestions.find(s => s.pokemonId === 135);
-    expect(jolteon).toBeDefined();
-    expect(jolteon?.title).toContain('Item Needed');
+      },
+    },
+    partyEvolutions: {},
+    giftChains: {},
+  } as any;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData);
+  const jolteon = suggestions.find((s) => s.pokemonId === 135);
+  expect(jolteon).toBeDefined();
+  expect(jolteon?.title).toContain('Item Needed');
 });

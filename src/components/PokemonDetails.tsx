@@ -276,9 +276,7 @@ export function PokemonDetails({
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             {/* Left Column: Stats & Catching */}
             <div className="space-y-10 lg:col-span-5">
-              <div className="space-y-8">
-                {pokemon && <PokemonStats pokemonData={pokemon} saveData={saveData} />}
-              </div>
+              <div className="space-y-8">{pokemon && <PokemonStats pokemonData={pokemon} saveData={saveData} />}</div>
 
               {catchRate !== null && (
                 <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />

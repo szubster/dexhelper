@@ -15,7 +15,7 @@ export async function initializeWithSave(page: Page, savePath: string = 'tests/f
 
   // Wait for the app to hydrate and the database to sync
   await expect(page.getByText(/TRAINER/i).first()).toBeVisible({ timeout: 10000 });
-  
+
   // Wait for database sync completion (the 'Database Ready' state in SyncProgress)
   await expect(page.getByTestId('sync-status')).toContainText(/Database Ready/i, { timeout: 15000 });
 }
