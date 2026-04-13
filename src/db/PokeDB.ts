@@ -15,7 +15,7 @@ export const getDB = () => {
       upgrade(db) {
         // Automatically handle additions/removals based on DB_CONFIG.STORES
         const currentStores = new Set(db.objectStoreNames);
-        const targetStores = new Set(Object.values(DB_CONFIG.STORES));
+        const targetStores = new Set<string>(Object.values(DB_CONFIG.STORES));
 
         for (const store of targetStores) {
           if (!currentStores.has(store)) {
@@ -24,7 +24,7 @@ export const getDB = () => {
         }
 
         for (const store of currentStores) {
-          if (!targetStores.has(store as any)) {
+          if (!targetStores.has(store)) {
             db.deleteObjectStore(store as any);
           }
         }

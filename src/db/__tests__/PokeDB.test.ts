@@ -1,10 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { pokeDB, getDB } from '../PokeDB';
+import { getDB, pokeDB } from '../PokeDB';
 import 'fake-indexeddb/auto';
 import { DB_CONFIG } from '../schema';
 
 // Mock build hash
+// biome-ignore lint/suspicious/noExplicitAny: needed for test global setup
 (globalThis as any).__POKEDATA_HASH__ = 'test-hash';
+// biome-ignore lint/suspicious/noExplicitAny: needed for test global fetch mock
 (globalThis as any).fetch = vi.fn();
 
 describe('PokeDB', () => {

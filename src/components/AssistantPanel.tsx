@@ -63,8 +63,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
 
   const { data: pokemonList } = useQuery<{ id: number; name: string }[]>({
     queryKey: ['pokemonList'],
-    queryFn: () =>
-      pokeDB.getAllPokemon().then((res: PokemonCompact[]) => res.map((p: PokemonCompact) => ({ id: p.id, name: p.n }))),
+    queryFn: () => pokeDB.getAllPokemon().then((res) => res.map((p) => ({ id: p.id, name: p.n }))),
     staleTime: Infinity,
   });
 
