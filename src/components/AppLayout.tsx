@@ -180,6 +180,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
               <button
                 type="button"
+                data-testid="version-selector"
                 onClick={() => setIsVersionModalOpen(true)}
                 className={cn(
                   'group zoom-in-95 fade-in relative animate-in overflow-hidden rounded-2xl border px-5 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all duration-500',

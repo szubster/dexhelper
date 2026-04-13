@@ -26,6 +26,7 @@ export function SearchAndFilters() {
           </div>
           <input
             type="text"
+            data-testid="search-input"
             placeholder="Search Pokedex by name, ID, or location..."
             aria-label="Search Pokedex by name, ID, or location"
             value={searchTerm}

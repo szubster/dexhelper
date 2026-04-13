@@ -9,7 +9,7 @@ test.describe('Version Selection', () => {
 
     // 1. Check that we can open the selector
     // The button displays the current version name (Yellow if fixture loaded)
-    const versionBtn = page.getByRole('button', { name: /YELLOW/i }).first();
+    const versionBtn = page.getByTestId('version-selector');
     await versionBtn.click();
 
     // 2. Select Red in the modal
@@ -19,7 +19,7 @@ test.describe('Version Selection', () => {
     await expect(page.getByText(/RED/i).first()).toBeVisible();
 
     // 4. Toggle back to YELLOW via header
-    await page.getByRole('button', { name: /RED/i }).first().click();
+    await page.getByTestId('version-selector').click();
     await page.getByRole('button', { name: 'Yellow', exact: true }).click();
     await expect(page.getByText(/YELLOW/i).first()).toBeVisible();
 
@@ -30,10 +30,7 @@ test.describe('Version Selection', () => {
     await initializeWithSave(page);
 
     // Select Blue
-    await page
-      .getByRole('button', { name: /YELLOW/i })
-      .first()
-      .click();
+    await page.getByTestId('version-selector').click();
     await page.getByRole('button', { name: 'Blue', exact: true }).click();
     await expect(page.getByText(/BLUE/i).first()).toBeVisible();
 

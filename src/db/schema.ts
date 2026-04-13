@@ -1,3 +1,5 @@
+import type { DBSchema } from 'idb';
+
 /**
  * Pokedex Data Schema - Numeric Constants & Interfaces
  * Used for both the generation script and the application runtime.
@@ -176,4 +178,35 @@ export interface PokeDataExport {
   locationIndex: Record<number, number[]>;
   hash: string;
   sourceSha?: string;
+}
+
+export interface PokeDBSchema extends DBSchema {
+  [DB_CONFIG.STORES.POKEMON]: {
+    key: number;
+    value: PokemonMetadata;
+  };
+  [DB_CONFIG.STORES.ENCOUNTERS]: {
+    key: number;
+    value: LocationAreaEncounters;
+  };
+  [DB_CONFIG.STORES.CHAINS]: {
+    key: number;
+    value: CompactEvolutionChain;
+  };
+  [DB_CONFIG.STORES.LOCATIONS]: {
+    key: number;
+    value: GenericLocation;
+  };
+  [DB_CONFIG.STORES.AREAS]: {
+    key: number;
+    value: SpecificArea;
+  };
+  [DB_CONFIG.STORES.INDEX]: {
+    key: number;
+    value: number[];
+  };
+  [DB_CONFIG.STORES.METADATA]: {
+    key: string;
+    value: string;
+  };
 }

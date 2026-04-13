@@ -16,7 +16,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: [
-    ['html'],
+    ['html', { open: 'never' }],
     ['@argos-ci/playwright/reporter', {
       uploadToArgos: !!process.env.CI,
       buildName: process.env.ARGOS_BUILD_NAME || 'E2E',
@@ -34,21 +34,30 @@ export default defineConfig({
   },
   projects: [
     {
+      name: 'setup',
+      testMatch: /setup\.spec\.ts/,
+    },
+    {
       name: 'Desktop FullHD',
+      dependencies: ['setup'],
       use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 1920, height: 1080 },
+        storageState: 'playwright/.auth/user.json',
       },
     },
     {
       name: 'Desktop 1440p',
+      dependencies: ['setup'],
       use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 2560, height: 1440 },
+        storageState: 'playwright/.auth/user.json',
       },
     },
     {
       name: 'Mobile Pixel 9',
+      dependencies: ['setup'],
       use: {
         ...devices['Pixel 7'], // Fallback base
         viewport: { width: 393, height: 852 },
@@ -57,6 +66,7 @@ export default defineConfig({
         hasTouch: true,
         defaultBrowserType: 'chromium',
         userAgent: 'Mozilla/5.0 (Linux; Android 14; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36',
+        storageState: 'playwright/.auth/user.json',
       },
     },
   ],
