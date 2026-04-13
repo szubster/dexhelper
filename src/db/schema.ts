@@ -11,6 +11,9 @@ export const DB_CONFIG = {
     SPECIES: 'species',
     ENCOUNTERS: 'encounters',
     CHAINS: 'chains',
+    LOCATIONS: 'locations',
+    AREAS: 'areas',
+    INDEX: 'index',
     METADATA: 'metadata',
   },
 } as const;
@@ -108,6 +111,25 @@ export interface LocationAreaEncounters {
   encounters: CompactEncounter[];
 }
 
+export interface GenericLocation {
+  id: number;
+  n: string; // display name
+  slug: string; // location slug
+  coords?: { x: number; y: number }; // town map coords
+}
+
+export interface SpecificArea {
+  id: number;
+  n: string; // display name
+  slug: string; // area slug
+  lid: number; // generic location id
+}
+
+export interface InverseLocationIndex {
+  lid: number; // generic location id
+  pids: number[]; // pokemon ids found here
+}
+
 export interface CompactEvolutionDetail {
   tr: number; // trigger (EVO_TRIGGER)
   min_l?: number; // min_level
@@ -133,7 +155,6 @@ export interface PokemonCompact {
   id: number;
   sid: number; // species id
   n: string; // name
-  t: string[]; // types
   s: number[]; // stats: [hp, atk, def, spa, spd, spe]
 }
 
@@ -152,6 +173,9 @@ export interface PokeDataExport {
   species: SpeciesCompact[];
   encounters: LocationAreaEncounters[];
   chains: CompactEvolutionChain[];
+  locations: GenericLocation[];
+  areas: SpecificArea[];
+  locationIndex: Record<number, number[]>;
   hash: string;
   sourceSha?: string;
 }

@@ -40,9 +40,11 @@ interface AppStore {
 
   // Transient UI state (not persisted)
   searchTerm: string;
+  selectedLocationId: number | null;
   isSettingsOpen: boolean;
   isVersionModalOpen: boolean;
   setSearchTerm: (v: string) => void;
+  setSelectedLocationId: (id: number | null) => void;
   setIsSettingsOpen: (v: boolean) => void;
   setIsVersionModalOpen: (v: boolean) => void;
 
@@ -84,9 +86,11 @@ export const useStore = create<AppStore>()(
 
       // Transient UI
       searchTerm: '',
+      selectedLocationId: null,
       isSettingsOpen: false,
       isVersionModalOpen: false,
       setSearchTerm: (v) => set({ searchTerm: v }),
+      setSelectedLocationId: (id) => set({ selectedLocationId: id }),
       setIsSettingsOpen: (v) => set({ isSettingsOpen: v }),
       setIsVersionModalOpen: (v) => set({ isVersionModalOpen: v }),
 

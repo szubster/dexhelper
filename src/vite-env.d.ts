@@ -6,3 +6,5 @@ interface Window {
   // biome-ignore lint/suspicious/noExplicitAny: External Google API globals loaded via script tag
   google: any;
 }
+
+declare const __POKEDATA_HASH__: string;
