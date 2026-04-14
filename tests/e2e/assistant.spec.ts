@@ -17,13 +17,11 @@ test.describe('Assistant Page', () => {
     await expect(page.getByText(/AI Assistant/i)).toBeVisible();
 
     // 4. Check for Wild Encounters category
-    // In Yellow, at the start (Pallet Town), there should be nearby suggestions even if not directly catchable in Pallet Town.
-    // Pallet Town has no encounters in Yellow, but Route 1 is nearby.
     await expect(page.getByText(/Wild Encounters/i)).toBeVisible({ timeout: 15000 });
 
-    // 5. Verify nearby suggestions (Route 1 is nearby)
-    // We expect "Nearby Pokémon" to be visible
-    await expect(page.getByText(/Nearby Pokémon/i)).toBeVisible();
+    // 5. Verify nearby suggestions
+    // In the rebased version, we expect "Nearby:" titles in the cards for nearby Pokemon
+    await expect(page.getByText(/Nearby:/i).first()).toBeVisible();
 
     // 6. Screenshot for visual regression
     await argosScreenshot(page, 'assistant-nearby-suggestions');
