@@ -1,26 +1,12 @@
 import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
-import type { PokemonInstance, SaveData } from '../../../engine/saveParser/index';
-import { getGenerationConfig } from '../../../utils/generationConfig';
+import type { PokemonInstance } from '../../../engine/saveParser/index';
 
 interface PokemonCaughtDetailsProps {
   yourPokemon: (PokemonInstance & { location: string })[];
-  saveData: SaveData | null;
 }
 
-function calculateHiddenPower(dvs: { atk: number; def: number; spd: number; spc: number }) {
-  const v = dvs.spc >= 8 ? 1 : 0;
-  const w = dvs.spd >= 8 ? 1 : 0;
-  const x = dvs.def >= 8 ? 1 : 0;
-  const y = dvs.atk >= 8 ? 1 : 0;
-  const z = dvs.spc % 4;
-
-  const hpPower = Math.floor((5 * (v + 2 * w + 4 * x + 8 * y) + z) / 2) + 31;
-
-  return { power: hpPower };
-}
-
-export function PokemonCaughtDetails({ yourPokemon, saveData }: PokemonCaughtDetailsProps) {
+export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps) {
   if (yourPokemon.length === 0) return null;
 
   return (

@@ -479,7 +479,7 @@ export function PokemonDetails({
 
             {/* Right Column: Details & Locations */}
             <div className="space-y-12 lg:col-span-7">
-              <PokemonCaughtDetails yourPokemon={yourPokemon} saveData={saveData} />
+              <PokemonCaughtDetails yourPokemon={yourPokemon} />
 
               {/* Evolution & Procurement Strategy */}
               <PokemonEvolutions
