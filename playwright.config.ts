@@ -20,6 +20,7 @@ export default defineConfig({
     ['@argos-ci/playwright/reporter', {
       uploadToArgos: !!process.env.CI,
       buildName: process.env.ARGOS_BUILD_NAME || 'E2E',
+      ignoreUploadFailures: true,
     }]
   ],
   use: {
