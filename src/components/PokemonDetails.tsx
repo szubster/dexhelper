@@ -6,7 +6,6 @@ import type {
   EvolutionDetail,
   LocationAreaEncounter,
   NamedAPIResource,
-  PokemonType,
   VersionEncounterDetail,
 } from 'pokenode-ts';
 import React, { useEffect } from 'react';
@@ -419,14 +418,6 @@ export function PokemonDetails({
                     {pokemonName}
                   </h2>
                   <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
-                    {pokemonData?.types.map((t: PokemonType) => (
-                      <span
-                        key={t.type.name}
-                        className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-black text-[10px] text-zinc-300 uppercase tracking-widest backdrop-blur-md"
-                      >
-                        {t.type.name}
-                      </span>
-                    ))}
                     {stadiumReward && (
                       <div className="flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 font-black text-[10px] text-blue-400 uppercase tracking-widest backdrop-blur-md">
                         <Monitor size={12} /> Stadium Reward
