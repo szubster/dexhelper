@@ -7,13 +7,14 @@ Before finalizing any task, the following steps must be completed:
     - Use `src/utils/cn.ts` for consistent Tailwind class management.
 
 2. **Testing**:
-    - Run `npm run test` (Vitest) for unit tests.
-    - Run `npm run test:e2e` (Playwright) for all UI changes.
+    - Run `pnpm test` (Vitest) for unit tests.
+    - Run `pnpm test:e2e` (Playwright) for all UI changes.
     - Ensure tests handle uninitialized state using `initializeWithSave`.
     - Verify that no existing tests or visual regressions are broken.
 
-3.  **Type Safety**:
-    - Run `npm run lint` (`tsc --noEmit`) to ensure no TypeScript errors were introduced.
+3.  **Analysis and Type Safety**:
+    - Run `pnpm lint` which triggers Type Checking (`tsc`) and Biome Checks (`biome check`).
+    - **Zero-Diagnostic Policy**: All Biome errors and warnings must be addressed. Additionally, you MUST manually verify and fix any `info` level diagnostics to ensure a completely clean output.
 
 4.  **Visual Verification**:
     - For UI changes, ensure Argos screenshot tests are updated or added where necessary.

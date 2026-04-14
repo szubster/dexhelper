@@ -18,22 +18,25 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
   }, [pokemonList]);
 
   const pokemonByLocation = React.useMemo(() => {
-    const map = new Map<string, PokemonInstance[]>();
+    const map = new Map<string, { p: PokemonInstance; pokemon: { id: number; name: string } }[]>();
     if (!saveData) return map;
 
     // Group all pokemon by their storage location in a single pass O(N)
     const allPokemon = [...saveData.partyDetails, ...saveData.pcDetails];
     for (const p of allPokemon) {
       if (!p.storageLocation) continue;
+      const pokemon = pokemonMap.get(p.speciesId);
+      if (!pokemon) continue;
+
       let current = map.get(p.storageLocation);
       if (!current) {
         current = [];
         map.set(p.storageLocation, current);
       }
-      current.push(p);
+      current.push({ p, pokemon });
     }
     return map;
-  }, [saveData]);
+  }, [saveData, pokemonMap]);
 
   if (!saveData) return null;
 
@@ -68,10 +71,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                   <span className="font-black text-[10px] text-zinc-600 uppercase italic tracking-[0.3em]">EMPTY</span>
                 </div>
               ) : (
-                pokemonInLocation.map((p, idx) => {
-                  const pokemon = pokemonMap.get(p.speciesId);
-                  if (!pokemon) return null;
-
+                pokemonInLocation.map(({ p, pokemon }, idx) => {
                   let cardStyle = 'bg-zinc-900 border border-zinc-800 hover:border-zinc-700 shadow-sm';
                   if (p.isShiny) {
                     cardStyle = 'bg-amber-900/10 border border-amber-500/30 hover:bg-amber-900/20';
@@ -84,6 +84,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                   return (
                     <button
                       type="button"
+                      aria-label={`View details for ${pokemon.name} in ${location}`}
                       // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                       key={`${location}-${p.speciesId}-${idx}`}
                       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}

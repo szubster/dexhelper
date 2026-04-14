@@ -41,6 +41,13 @@ describe('gen1Exclusives', () => {
         expect(reason).toContain('Pre-evolution missed');
       });
 
+      it('should lock Squirtle (7) if Blastoise (9) is owned but Squirtle is not', () => {
+        const ownedSet = new Set([9]); // Own Blastoise
+        const reason = getUnobtainableReason(7, 'red', 1, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('Pre-evolution missed');
+      });
+
       it('should lock Charmander (4) if Charmeleon (5) is owned but Charmander is not', () => {
         const ownedSet = new Set([5]); // Own Charmeleon
         const reason = getUnobtainableReason(4, 'red', 1, ownedSet);
@@ -141,6 +148,13 @@ describe('gen1Exclusives', () => {
 
       it('should lock Kabutops (141) if Omanyte (138) is owned', () => {
         const ownedSet = new Set([138]); // Own Omanyte
+        const reason = getUnobtainableReason(141, 'red', 1, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('other Fossil');
+      });
+
+      it('should lock Kabutops (141) if Omastar (139) is owned', () => {
+        const ownedSet = new Set([139]); // Own Omastar
         const reason = getUnobtainableReason(141, 'red', 1, ownedSet);
         expect(typeof reason).toBe('string');
         expect(reason).toContain('other Fossil');

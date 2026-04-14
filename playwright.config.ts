@@ -17,9 +17,10 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [
     ['html'],
-    ['@argos-ci/playwright/reporter', { 
+    ['@argos-ci/playwright/reporter', {
       uploadToArgos: !!process.env.CI,
       buildName: process.env.ARGOS_BUILD_NAME || 'E2E',
+      ignoreUploadFailures: true,
     }]
   ],
   use: {
@@ -35,21 +36,21 @@ export default defineConfig({
   projects: [
     {
       name: 'Desktop FullHD',
-      use: { 
+      use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 1920, height: 1080 },
       },
     },
     {
       name: 'Desktop 1440p',
-      use: { 
+      use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 2560, height: 1440 },
       },
     },
     {
       name: 'Mobile Pixel 9',
-      use: { 
+      use: {
         ...devices['Pixel 7'], // Fallback base
         viewport: { width: 393, height: 852 },
         deviceScaleFactor: 3,
@@ -61,7 +62,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: process.env.CI ? 'npm run build && npm run preview -- --port 3000' : 'npm run dev',
+    command: process.env.CI ? 'pnpm build && pnpm preview --port 3000' : 'pnpm dev',
     port: 3000,
     reuseExistingServer: !process.env.CI,
     timeout: 120000,

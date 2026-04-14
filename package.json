@@ -2,8 +2,10 @@
   "name": "dexhelper",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "pnpm@10.33.0",
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=24.0.0",
+    "pnpm": ">=10.33.0"
   },
   "type": "module",
   "scripts": {
@@ -12,7 +14,7 @@
     "build:analyze": "ANALYZE=true vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit",
+    "lint": "pnpm type-check && pnpm check:biome",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
@@ -20,13 +22,14 @@
     "lint:biome": "biome lint --error-on-warnings .",
     "format:biome": "biome format .",
     "check:biome": "biome check --error-on-warnings .",
+    "type-check": "tsc --noEmit",
     "check:fix": "biome check --write --unsafe .",
     "postinstall": "lefthook install"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.97.0",
-    "@tanstack/react-router": "^1.168.10",
-    "@tanstack/react-router-devtools": "^1.166.11",
+    "@tanstack/react-query": "^5.99.0",
+    "@tanstack/react-router": "^1.168.19",
+    "@tanstack/react-router-devtools": "^1.166.13",
     "clsx": "^2.1.1",
     "lucide-react": "^1.8.0",
     "react": "^19.2.5",
@@ -41,7 +44,7 @@
     "@playwright/test": "^1.59.1",
     "@tailwindcss/typography": "0.5.19",
     "@tailwindcss/vite": "4.2.2",
-    "@tanstack/router-plugin": "^1.167.18",
+    "@tanstack/router-plugin": "^1.167.20",
     "@types/node": "^25.5.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

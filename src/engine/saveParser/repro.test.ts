@@ -9,14 +9,6 @@ describe('Yellow Save Repro', () => {
     const buffer = fs.readFileSync(savePath);
     const saveData = parseSaveFile(buffer.buffer);
 
-    console.log('Parsed Save Data:', {
-      trainerName: saveData.trainerName,
-      gameVersion: saveData.gameVersion,
-      currentMapId: saveData.currentMapId,
-      currentMapName: saveData.currentMapName,
-      ownedSize: saveData.owned.size,
-    });
-
     expect(saveData.gameVersion).toBe('yellow');
 
     // We can't easily run generateSuggestions because it's async and calls PokeAPI.
