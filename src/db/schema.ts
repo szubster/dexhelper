@@ -102,7 +102,7 @@ export interface CompactEncounterDetail {
 }
 
 export interface CompactEncounter {
-  aid: number; // location area id
+  aid: number; // ROM Map ID (Primary key for encounters)
   v: number; // version (POKE_VERSION)
   d: CompactEncounterDetail[];
 }
@@ -113,18 +113,17 @@ export interface LocationAreaEncounters {
 }
 
 export interface GenericLocation {
-  id: number;
+  id: number; // ROM Map ID (e.g. 0x01 for Viridian City)
   n: string; // display name
   coords?: { x: number; y: number }; // town map coords
-  parentId?: number; // PokéAPI location ID of parent (e.g., city containing this building)
-  gameId?: number; // Game ROM map ID (hex)
-  connections?: number[]; // Connected gameId IDs for navigation
+  parentId?: number; // ROM Map ID of parent (e.g., city containing this building)
+  connections?: number[]; // Connected Map IDs for navigation
 }
 
 export interface SpecificArea {
-  id: number;
+  id: number; // ROM Map ID (same as GenericLocation.id if 1:1)
   n: string; // display name
-  lid: number; // generic location id
+  lid: number; // ROM Map ID of parent GenericLocation
 }
 
 export interface InverseLocationIndex {
@@ -173,7 +172,7 @@ export interface PokeDataExport {
   chains: CompactEvolutionChain[];
   locations: GenericLocation[];
   areas: SpecificArea[];
-  locationIndex: Record<number, number[]>;
+  locationIndex: InverseLocationIndex[];
   hash: string;
   sourceSha?: string;
 }
@@ -201,7 +200,7 @@ export interface PokeDBSchema extends DBSchema {
   };
   [DB_CONFIG.STORES.INDEX]: {
     key: number;
-    value: number[];
+    value: InverseLocationIndex;
   };
   [DB_CONFIG.STORES.METADATA]: {
     key: string;

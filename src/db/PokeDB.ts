@@ -15,14 +15,24 @@ export const getDB = () => {
   if (!dbPromise) {
     dbPromise = openDB<PokeDBSchema>(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
       upgrade(db) {
-        // Automatically handle additions/removals based on DB_CONFIG.STORES
-        const currentStores = Array.from(db.objectStoreNames);
+        const currentStores = Array.from(db.objectStoreNames) as string[];
         const targetStores = Object.values(DB_CONFIG.STORES) as string[];
 
+        // Define key paths for each store
+        const keyPaths: Record<string, string> = {
+          [DB_CONFIG.STORES.POKEMON]: 'id',
+          [DB_CONFIG.STORES.ENCOUNTERS]: 'pid',
+          [DB_CONFIG.STORES.CHAINS]: 'id',
+          [DB_CONFIG.STORES.LOCATIONS]: 'id',
+          [DB_CONFIG.STORES.AREAS]: 'id',
+          [DB_CONFIG.STORES.INDEX]: 'lid',
+        };
+
         for (const store of targetStores) {
-          if (!(currentStores as string[]).includes(store)) {
+          if (!currentStores.includes(store)) {
+            const options = keyPaths[store] ? { keyPath: keyPaths[store] } : undefined;
             // biome-ignore lint/suspicious/noExplicitAny: Complex IDB schema upgrade logic
-            (db as any).createObjectStore(store);
+            (db as any).createObjectStore(store, options);
           }
         }
 
@@ -116,24 +126,22 @@ export const syncData = async () => {
 
       const STAGES = 6;
       emit(1, STAGES, 'Pokemon');
-      for (const p of data.pokemon) pStore.put(p, p.id);
+      for (const p of data.pokemon) pStore.put(p);
 
       emit(2, STAGES, 'Encounters');
-      for (const e of data.encounters) eStore.put(e, e.pid);
+      for (const e of data.encounters) eStore.put(e);
 
       emit(3, STAGES, 'Chains');
-      for (const c of data.chains) cStore.put(c, c.id);
+      for (const c of data.chains) cStore.put(c);
 
       emit(4, STAGES, 'Locations');
-      for (const l of data.locations) lStore.put(l, l.id);
+      for (const l of data.locations) lStore.put(l);
 
       emit(5, STAGES, 'Areas');
-      for (const a of data.areas) aStore.put(a, a.id);
+      for (const a of data.areas) aStore.put(a);
 
       emit(6, STAGES, 'Index');
-      for (const [lid, pids] of Object.entries(data.locationIndex)) {
-        iStore.put(pids, Number(lid));
-      }
+      for (const i of data.locationIndex) iStore.put(i);
 
       await mStore.put(data.hash, 'hash');
       await tx.done;
@@ -207,7 +215,8 @@ export const pokeDB = {
   getInverseIndex: async (lid: number) => {
     await pokeDB.ready();
     if (lid === undefined || lid === null || Number.isNaN(lid)) return undefined;
-    return (await getDB()).get(DB_CONFIG.STORES.INDEX, lid);
+    const res = await (await getDB()).get(DB_CONFIG.STORES.INDEX, lid);
+    return res?.pids;
   },
   getAllAreas: async () => {
     await pokeDB.ready();

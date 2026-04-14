@@ -4,16 +4,16 @@ import type { SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
 
 const mockLocations: GenericLocation[] = [
-  { id: 1, n: 'Pallet Town', gameId: 0x00, connections: [0x01] },
-  { id: 2, n: 'Route 1', gameId: 0x01, connections: [0x00, 0x03] }, // Simplified path for test
-  { id: 3, n: 'Cerulean City', gameId: 0x03, connections: [0x01] },
-  { id: 4, n: 'Pallet House', gameId: 0x25, parentId: 1, connections: [] },
+  { id: 0x00, n: 'Pallet Town', connections: [0x01] },
+  { id: 0x01, n: 'Route 1', connections: [0x00, 0x03] }, // Simplified path for test
+  { id: 0x03, n: 'Cerulean City', connections: [0x01] },
+  { id: 0x25, n: 'Pallet House', parentId: 0x00, connections: [] },
 ];
 
 const mockAreas: SpecificArea[] = [
-  { id: 285, lid: 1, n: 'Pallet Town' },
-  { id: 281, lid: 3, n: 'Cerulean City' },
-  { id: 295, lid: 2, n: 'Route 1' },
+  { id: 285, lid: 0x00, n: 'Pallet Town' },
+  { id: 281, lid: 0x03, n: 'Cerulean City' },
+  { id: 295, lid: 0x01, n: 'Route 1' },
 ];
 
 const makeSaveData = (overrides: Partial<SaveData> = {}): SaveData => ({

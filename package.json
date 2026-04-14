@@ -10,6 +10,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
+    "data:gen": "node --experimental-strip-types scripts/generate-pokedata.ts",
     "build": "vite build",
     "build:analyze": "ANALYZE=true vite build",
     "preview": "vite preview",
@@ -24,7 +25,6 @@
     "check:biome": "biome check --error-on-warnings .",
     "type-check": "tsc --noEmit",
     "check:fix": "biome check --write --unsafe .",
-    "sync-pokedata": "node --experimental-strip-types scripts/generate-pokedata.ts",
     "postinstall": "lefthook install"
   },
   "dependencies": {

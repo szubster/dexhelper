@@ -11,13 +11,13 @@ export const gen1Strategy: AssistantStrategy = {
   resolveMapAid(saveData: SaveData, allLocations: GenericLocation[], allAreas: SpecificArea[]): number | null {
     const mapId = saveData.currentMapId;
 
-    // Find location for this mapId
-    const loc = allLocations.find((l) => l.gameId === mapId);
+    // Find location for this mapId (which is the GenericLocation id in Gen 1)
+    const loc = allLocations.find((l) => l.id === mapId);
     if (!loc) return null;
 
     // Resolve to parent if it's an indoor location
     let targetLoc = loc;
-    if (loc.parentId) {
+    if (loc.parentId !== undefined) {
       const parent = allLocations.find((p) => p.id === loc.parentId);
       if (parent) targetLoc = parent;
     }

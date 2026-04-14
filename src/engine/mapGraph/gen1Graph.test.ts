@@ -3,17 +3,17 @@ import type { GenericLocation, SpecificArea } from '../../db/schema';
 import { getDistanceToMap } from './gen1Graph';
 
 const mockLocations: GenericLocation[] = [
-  { id: 1, n: 'Pallet Town', gameId: 0x00, connections: [0x01] },
-  { id: 2, n: 'Route 1', gameId: 0x01, connections: [0x00, 0x02] },
-  { id: 3, n: 'Viridian City', gameId: 0x02, connections: [0x01, 0x03] },
-  { id: 4, n: 'Route 2', gameId: 0x03, connections: [0x02] },
-  { id: 5, n: "Player's House", gameId: 0x25, parentId: 1, connections: [] },
+  { id: 0x00, n: 'Pallet Town', connections: [0x01] },
+  { id: 0x01, n: 'Route 1', connections: [0x00, 0x02] },
+  { id: 0x02, n: 'Viridian City', connections: [0x01, 0x03] },
+  { id: 0x03, n: 'Route 2', connections: [0x02] },
+  { id: 0x25, n: "Player's House", parentId: 0x00, connections: [] },
 ];
 
 const mockAreas: SpecificArea[] = [
-  { id: 285, lid: 1, n: 'Pallet Town' },
-  { id: 295, lid: 2, n: 'Route 1' },
-  { id: 280, lid: 3, n: 'Viridian City' },
+  { id: 285, lid: 0x00, n: 'Pallet Town' },
+  { id: 295, lid: 0x01, n: 'Route 1' },
+  { id: 280, lid: 0x02, n: 'Viridian City' },
 ];
 
 describe('getDistanceToMap', () => {
@@ -45,10 +45,7 @@ describe('getDistanceToMap', () => {
     // Unknown ID (0x999) -> AID 280 (Viridian City)
     // Saffron is hardcoded as gameId 0x0A, but we can't mock that easily here unless we add it.
 
-    const locWithSaffron: GenericLocation[] = [
-      ...mockLocations,
-      { id: 10, n: 'Saffron City', gameId: 0x0a, connections: [2] },
-    ];
+    const locWithSaffron: GenericLocation[] = [...mockLocations, { id: 0x0a, n: 'Saffron City', connections: [2] }];
     const areasWithSaffron: SpecificArea[] = [...mockAreas, { id: 762, lid: 10, n: 'Saffron City' }];
 
     const result = getDistanceToMap(locWithSaffron, areasWithSaffron, 0x999, 762);

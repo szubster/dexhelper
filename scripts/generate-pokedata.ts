@@ -112,70 +112,64 @@ async function main() {
       pre: preEvoId,
     });
 
-    const pokemonEncounters: any[] = [];
+    const pokemonEncounters: CompactEncounter[] = [];
     for (const areaEnc of eData) {
       const areaUrl = areaEnc.location_area.url;
       const areaId = parseInt(areaUrl.split('/').filter(Boolean).pop() || '0', 10);
-      const areaSlug = areaEnc.location_area.name;
+      
+      // Find gameId for this area (Source of truth)
+      let gameId: number | undefined = undefined;
+      
+      // 1. Check Gen 1 mapping
+      const g1Match = Object.entries(GEN1_MAPS).find(([_, map]) => map.aid === areaId);
+      if (g1Match) {
+         gameId = parseInt(g1Match[0]);
+      } else {
+         // 2. Check Gen 2 mapping
+         for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
+            for (const [mid, mapAid] of Object.entries(maps)) {
+               if (mapAid === areaId) {
+                  gameId = (parseInt(group) << 8) | parseInt(mid);
+                  break;
+               }
+            }
+            if (gameId !== undefined) break;
+         }
+      }
 
-      // Extract location data if not seen
-      if (!areaMap.has(areaId)) {
+      // If no ROM map ID found, we skip this encounter as we only care about real in-game locations
+      if (gameId === undefined) continue;
+
+      if (!areaMap.has(gameId)) {
         const areaData = readJson(path.join(dataPath, `location-area/${areaId}/index.json`));
         if (areaData) {
           const locUrl = areaData.location.url;
           const lid = parseInt(locUrl.split('/').filter(Boolean).pop() || '0', 10);
           
-          if (!locationMap.has(lid)) {
+          if (!locationMap.has(gameId)) {
             const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
             if (locData) {
-              // Find gameId for Gen 1 (exact Area ID match)
-              let gameId: number | undefined = undefined;
-              const g1Match = Object.entries(GEN1_MAPS).find(([_, map]) => map.aid === areaId);
-              if (g1Match) {
-                gameId = parseInt(g1Match[0]);
-              }
-
-              // Find gameId for Gen 2 (group:id -> encoded 16-bit)
-              if (gameId === undefined) {
-                // Peek into areas for this location to find an AID match in GEN2
-                for (const area of locData.areas) {
-                   const aid = parseInt(area.url.split('/').filter(Boolean).pop() || '0', 10);
-                   for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
-                      for (const [mid, mapAid] of Object.entries(maps)) {
-                        if (mapAid === aid) {
-                          gameId = (parseInt(group) << 8) | parseInt(mid);
-                          break;
-                        }
-                      }
-                      if (gameId !== undefined) break;
-                   }
-                   if (gameId !== undefined) break;
-                }
-              }
-              
-              locationMap.set(lid, {
-                id: lid,
+              locationMap.set(gameId, {
+                id: gameId,
                 n: locData.names.find((n: any) => n.language.name === 'en')?.name || locData.name,
-                gameId,
-                connections: typeof gameId === 'number' && gameId < 256 ? GEN1_MAPS[gameId]?.connections : undefined
+                connections: gameId < 256 ? GEN1_MAPS[gameId]?.connections : undefined
               });
             }
           }
 
-          areaMap.set(areaId, {
-            id: areaId,
-            lid: lid,
-            n: areaData.names.find((n: any) => n.language.name === 'en')?.name || areaData.name || areaSlug,
+          areaMap.set(gameId, {
+            id: gameId,
+            lid: gameId, // For now, we use map ID as location ID too if they match
+            n: areaData.names.find((n: any) => n.language.name === 'en')?.name || areaData.name || areaId.toString(),
           });
 
           // Update inverse index
-          if (!inverseIndexMap.has(lid)) inverseIndexMap.set(lid, new Set());
-          inverseIndexMap.get(lid)?.add(i);
+          if (!inverseIndexMap.has(gameId)) inverseIndexMap.set(gameId, new Set());
+          inverseIndexMap.get(gameId)?.add(i);
         }
       } else {
-        const lid = areaMap.get(areaId)!.lid;
-        if (!inverseIndexMap.has(lid)) inverseIndexMap.set(lid, new Set());
-        inverseIndexMap.get(lid)?.add(i);
+        if (!inverseIndexMap.has(gameId)) inverseIndexMap.set(gameId, new Set());
+        inverseIndexMap.get(gameId)?.add(i);
       }
 
       const vDetails: any[] = [];
@@ -196,19 +190,18 @@ async function main() {
 
       if (vDetails.length > 0) {
         pokemonEncounters.push({
-          areaId: areaId,
+          aid: gameId,
           version_details: vDetails
-        });
+        } as any);
       }
     }
     
     if (pokemonEncounters.length > 0) {
-      // Re-map to match CompactEncounter structure
       const finalEncs: CompactEncounter[] = [];
       for (const pe of pokemonEncounters) {
-        for (const vd of pe.version_details) {
+        for (const vd of (pe as any).version_details) {
           finalEncs.push({
-            aid: pe.areaId,
+            aid: pe.aid,
             v: vd.v,
             d: vd.d
           });
@@ -218,25 +211,12 @@ async function main() {
     }
   }
 
-  // Second pass on locations to reconcile parentIds
-  console.log('Reconciling location parents...');
-  // Create an internal name-to-location mapping for reconciliation
-  const nameToLoc = new Map<string, GenericLocation>();
+  // Second pass on locations to reconcile parentIds for indoors
+  console.log('\nReconciling location parents...');
   for (const loc of locationMap.values()) {
-    // Note: We use the internal 'PokeAPI name' which we can get from PokeAPI files if needed, 
-    // but we saved it as 'n' (name). Let's use gameId mapping instead.
-  }
-
-  for (const loc of locationMap.values()) {
-    if (loc.gameId !== undefined) {
-      const parentGameId = INDOOR_TO_PARENT_MAP[loc.gameId];
-      if (parentGameId !== undefined) {
-        // Find the location that corresponds to the parentGameId
-        const parentLoc = Array.from(locationMap.values()).find(l => l.gameId === parentGameId);
-        if (parentLoc) {
-          loc.parentId = parentLoc.id;
-        }
-      }
+    const parentId = INDOOR_TO_PARENT_MAP[loc.id];
+    if (parentId !== undefined) {
+      loc.parentId = parentId;
     }
   }
 
@@ -276,12 +256,10 @@ async function main() {
     chains,
     locations: Array.from(locationMap.values()),
     areas: Array.from(areaMap.values()),
-    locationIndex: Object.fromEntries(
-      Array.from(inverseIndexMap.entries()).map(([lid, pids]) => [
-        lid,
-        Array.from(pids).sort((a, b) => a - b)
-      ])
-    ),
+    locationIndex: Array.from(inverseIndexMap.entries()).map(([lid, pids]) => ({
+      lid,
+      pids: Array.from(pids).sort((a, b) => a - b)
+    })),
     sourceSha: upstreamSha,
   };
 
