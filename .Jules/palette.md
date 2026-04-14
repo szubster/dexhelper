@@ -1,0 +1,3 @@
+## 2024-04-13 - Added aria-label to icon-only buttons
+**Learning:** For accessibility, ensure all icon-only interactive elements (like buttons) include an `aria-label` attribute, as relying solely on the `title` attribute is insufficient for screen readers. In Dexhelper, several key interactive elements like the Assistant Panel debug toggle, Pokedex Cards, and Storage Grid cards lacked proper screen reader announcements despite having visual cues or titles.
+**Action:** Always add `aria-label` attributes to icon-only buttons and interactive card elements that act as links or triggers, ensuring the label clearly describes the action or destination (e.g., `aria-label={"View details for " + pokemon.name}`).

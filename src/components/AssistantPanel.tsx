@@ -105,6 +105,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
               onClick={() => setShowDebug(!showDebug)}
               className={`rounded-xl border p-2 transition-all ${showDebug ? 'border-amber-500/50 bg-amber-500/20 text-amber-400' : 'border-zinc-700 bg-zinc-800 text-zinc-500 hover:text-zinc-300'}`}
               title="Toggle Debug Mode"
+              aria-label="Toggle Debug Mode"
             >
               <Bug size={18} />
             </button>
