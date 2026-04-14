@@ -202,16 +202,17 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   type="button"
                   onClick={() => setIsSettingsOpen(true)}
                   aria-label="System Settings"
-                  className="retro-button flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-3 text-zinc-400 transition-all hover:bg-white/10 hover:text-white"
+                  className="retro-button flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-3 text-zinc-400 transition-all hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                   title="System Settings"
                 >
                   <Settings2 size={20} />
                 </button>
                 <label
-                  className="retro-button flex cursor-pointer items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-3 text-zinc-400 transition-all focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 hover:bg-white/10 hover:text-white"
+                  className="retro-button flex cursor-pointer items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-3 text-zinc-400 transition-all focus-within:ring-2 focus-within:ring-[var(--theme-primary)] focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 hover:bg-white/10 hover:text-white"
                   title="Import New Save"
                 >
                   <RefreshCw size={20} />
+                  <span className="sr-only">Import New Save</span>
                   <input type="file" accept=".sav" className="sr-only" onChange={handleFileUpload} />
                 </label>
               </div>
