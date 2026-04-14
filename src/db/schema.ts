@@ -102,7 +102,7 @@ export interface CompactEncounterDetail {
 }
 
 export interface CompactEncounter {
-  slug: string; // location area slug
+  aid: number; // location area id
   v: number; // version (POKE_VERSION)
   d: CompactEncounterDetail[];
 }
@@ -115,7 +115,6 @@ export interface LocationAreaEncounters {
 export interface GenericLocation {
   id: number;
   n: string; // display name
-  slug: string; // location slug
   coords?: { x: number; y: number }; // town map coords
   parentId?: number; // PokéAPI location ID of parent (e.g., city containing this building)
   gameId?: number; // Game ROM map ID (hex)
@@ -125,7 +124,6 @@ export interface GenericLocation {
 export interface SpecificArea {
   id: number;
   n: string; // display name
-  slug: string; // area slug
   lid: number; // generic location id
 }
 

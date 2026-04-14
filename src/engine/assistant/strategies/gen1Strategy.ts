@@ -1,5 +1,4 @@
 import { getGenerationConfig } from '../../../utils/generationConfig';
-import { GEN1_MAP_TO_SLUG } from '../../data/gen1/assistantData';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
 import { GEN1_MAPS, getDistanceToMap, INDOOR_TO_PARENT_MAP } from '../../mapGraph/gen1Graph';
 import type { SaveData } from '../../saveParser/index';
@@ -8,7 +7,7 @@ import type { AssistantStrategy, Suggestion } from './types';
 export const gen1Strategy: AssistantStrategy = {
   generation: 1,
 
-  resolveMapSlug(saveData: SaveData): string {
+  resolveMapAid(saveData: SaveData): number {
     let mapId = saveData.currentMapId;
 
     // Resolve indoor maps to their parent outdoor area
@@ -17,14 +16,14 @@ export const gen1Strategy: AssistantStrategy = {
     }
 
     const node = GEN1_MAPS[mapId];
-    if (node) return node.slug;
+    if (node) return node.aid;
 
-    // Fall back to the assistantData map-to-slug lookup
-    return GEN1_MAP_TO_SLUG[saveData.currentMapId] ?? 'pallet-town-area';
+    // Fall back to Pallet if completely unknown
+    return 285; // pallet-town-area
   },
 
-  getMapDistance(currentMapId: number, targetSlug: string) {
-    return getDistanceToMap(currentMapId, targetSlug);
+  getMapDistance(currentMapId: number, targetAid: number) {
+    return getDistanceToMap(currentMapId, targetAid);
   },
 
   getUnobtainableReason(pokemonId: number, version: string, ownedCount: number, ownedSet: Set<number>) {

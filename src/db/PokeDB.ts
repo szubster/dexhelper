@@ -164,6 +164,7 @@ export const pokeDB = {
     if (lid === undefined || lid === null || Number.isNaN(lid)) return undefined;
     return (await getDB()).get(DB_CONFIG.STORES.INDEX, lid);
   },
+  getAllAreas: async () => (await getDB()).getAll(DB_CONFIG.STORES.AREAS),
 
   // Bulk versions for DataLoader
   getPokemons: async (ids: number[]): Promise<(PokemonMetadata | Error)[]> => {

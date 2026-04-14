@@ -54,7 +54,7 @@ describe('DexDataLoader', () => {
     vi.mocked(pokeDB.getPokemons).mockResolvedValue([{ id: 1, n: 'P1', cid: 10 } as PokemonMetadata]);
     vi.mocked(pokeDB.getEncounters).mockResolvedValue({
       pid: 1,
-      encounters: [{ slug: 'area-1', v: 1, d: [] }] as CompactEncounter[],
+      encounters: [{ aid: 1, v: 1, d: [] }] as CompactEncounter[],
     });
     vi.mocked(pokeDB.getChain).mockResolvedValue({
       id: 10,

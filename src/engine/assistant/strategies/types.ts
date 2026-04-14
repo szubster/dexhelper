@@ -7,6 +7,7 @@ export interface EncounterDetail {
   method: string;
   minLevel: number;
   maxLevel: number;
+  aid: number;
 }
 
 export interface Suggestion {
@@ -33,8 +34,8 @@ export interface RejectedSuggestion {
 
 export interface AssistantStrategy {
   generation: number;
-  resolveMapSlug(saveData: SaveData): string;
-  getMapDistance(currentMapId: number, targetSlug: string): { distance: number; name: string } | null;
+  resolveMapAid(saveData: SaveData): number;
+  getMapDistance(currentMapId: number, targetAid: number): { distance: number; name: string } | null;
   getUnobtainableReason(pokemonId: number, version: string, ownedCount: number, ownedSet: Set<number>): string | null;
   getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[];
   isInternallyObtainable(baseId: number, version: string): boolean;

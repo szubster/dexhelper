@@ -1,6 +1,7 @@
 import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
+import { GEN1_AID_TO_NAME } from '../../../engine/data/gen1/assistantData';
 import { staticEncounters } from '../../../utils/data';
 
 interface EvoReq {
@@ -79,7 +80,7 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                   {versionEnc.map((e) => {
                     return (
                       <div
-                        key={e.slug}
+                        key={`${e.aid}-${e.v}`}
                         className="group flex flex-col space-y-3 rounded-2xl border border-white/5 bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
                       >
                         <div className="flex items-center justify-between">
@@ -88,7 +89,7 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                               <MapPin size={14} />
                             </div>
                             <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
-                              {e.slug.replace(/-/g, ' ').toUpperCase()}
+                              {GEN1_AID_TO_NAME[e.aid]?.toUpperCase() || `AREA #${e.aid}`}
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
@@ -130,12 +131,12 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                 </div>
                 {encounters.map((e) => (
                   <div
-                    key={e.slug}
+                    key={`${e.aid}-${e.v}`}
                     className="flex flex-col rounded-2xl border border-white/5 bg-zinc-900/40 p-4 opacity-60"
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-xs text-zinc-500 uppercase">
-                        {e.slug.replace(/-/g, ' ').toUpperCase()}
+                        {GEN1_AID_TO_NAME[e.aid]?.toUpperCase() || `AREA #${e.aid}`}
                       </span>
                       <div className="flex gap-1">
                         <span className="rounded border border-white/5 bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase">

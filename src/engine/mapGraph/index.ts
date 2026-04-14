@@ -6,8 +6,8 @@ export { GEN1_MAPS, getDistanceToMap, INDOOR_TO_PARENT_MAP } from './gen1Graph';
 export type { MapDistanceResult, MapGraph, MapNode } from './types';
 
 const gen1MapGraph: MapGraph = {
-  getDistanceToMap: (currentMapId: number, targetSlug: string): MapDistanceResult | null => {
-    return getDistanceToMap(currentMapId, targetSlug);
+  getDistanceToMap: (currentMapId: number, targetAid: number): MapDistanceResult | null => {
+    return getDistanceToMap(currentMapId, targetAid);
   },
   resolveOutdoorMapId: (mapId: number): number => {
     return INDOOR_TO_PARENT_MAP[mapId] ?? mapId;

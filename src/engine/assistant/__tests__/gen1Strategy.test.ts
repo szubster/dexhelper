@@ -27,40 +27,41 @@ describe('Gen 1 AssistantStrategy', () => {
     expect(gen1Strategy.generation).toBe(1);
   });
 
-  describe('resolveMapSlug', () => {
-    it('should resolve Pallet Town (0x00) to pallet-town-area', () => {
+  describe('resolveMapAid', () => {
+    it('should resolve Pallet Town (0x00) to Pallet Town AID (285)', () => {
       const save = makeSaveData({ currentMapId: 0x00 });
-      expect(gen1Strategy.resolveMapSlug(save)).toBe('pallet-town-area');
+      expect(gen1Strategy.resolveMapAid(save)).toBe(285);
     });
 
-    it('should resolve Cerulean City (0x03) to cerulean-city-area', () => {
+    it('should resolve Cerulean City (0x03) to Cerulean City AID (281)', () => {
       const save = makeSaveData({ currentMapId: 0x03 });
-      expect(gen1Strategy.resolveMapSlug(save)).toBe('cerulean-city-area');
+      expect(gen1Strategy.resolveMapAid(save)).toBe(281);
     });
 
-    it('should resolve indoor maps to their parent outdoor area', () => {
-      // 0x25 is a Pallet Town interior -> resolves to 0x00 (Pallet Town)
+    it('should resolve indoor maps to their parent outdoor area aid', () => {
+      // 0x25 is a Pallet Town interior -> resolves to 0x00 (Pallet Town) -> AID 285
       const save = makeSaveData({ currentMapId: 0x25 });
-      expect(gen1Strategy.resolveMapSlug(save)).toBe('pallet-town-area');
+      expect(gen1Strategy.resolveMapAid(save)).toBe(285);
     });
   });
 
   describe('getMapDistance', () => {
     it('should return distance 0 for current location', () => {
-      const result = gen1Strategy.getMapDistance(0x00, 'pallet-town-area');
+      // Pallet Town (0x00) -> Pallet Town AID (285)
+      const result = gen1Strategy.getMapDistance(0x00, 285);
       expect(result).not.toBeNull();
       expect(result?.distance).toBe(0);
     });
 
     it('should return positive distance for adjacent locations', () => {
-      // Pallet Town -> Route 1 (adjacent)
-      const result = gen1Strategy.getMapDistance(0x00, 'route-1');
+      // Pallet Town (0x00) -> Route 1 AID (295)
+      const result = gen1Strategy.getMapDistance(0x00, 295);
       expect(result).not.toBeNull();
       expect(result?.distance).toBe(1);
     });
 
-    it('should return null for unknown target slugs', () => {
-      const result = gen1Strategy.getMapDistance(0x00, 'nonexistent-area');
+    it('should return null for unknown target aids', () => {
+      const result = gen1Strategy.getMapDistance(0x00, 9999);
       expect(result).toBeNull();
     });
   });

@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
+import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
@@ -142,9 +143,10 @@ test('coverage for suggestionEngine new lines', () => {
     },
     partyEvolutions: {},
     giftChains: {},
+    areaNames: {},
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
 
   const espeon = suggestions.find((s) => s.pokemonId === 196);
   expect(espeon).toBeDefined();
@@ -212,9 +214,10 @@ test('coverage for suggestionEngine edge cases', () => {
     },
     partyEvolutions: {},
     giftChains: {},
+    areaNames: {},
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, gen1Strategy);
   const jolteon = suggestions.find((s) => s.pokemonId === 135);
   expect(jolteon).toBeDefined();
   expect(jolteon?.title).toContain('Item Needed');

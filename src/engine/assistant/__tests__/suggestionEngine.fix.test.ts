@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { SaveData } from '../../saveParser/index';
+import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
@@ -30,10 +31,17 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
       122: { id: 2, chain: { sid: 122, evolves_to: [], details: [] } },
     },
     partyEvolutions: {},
+    areaNames: {},
   } as unknown as AssistantApiData;
 
   it('should only show "Version Exclusive" for Jynx in Yellow', () => {
-    const { suggestions } = generateSuggestions(mockSaveData as unknown as SaveData, false, 'yellow', mockApiData);
+    const { suggestions } = generateSuggestions(
+      mockSaveData as unknown as SaveData,
+      false,
+      'yellow',
+      mockApiData,
+      gen1Strategy,
+    );
     const jynxSuggestions = suggestions.filter((s) => s.pokemonId === 124);
 
     // Jynx: 1 suggestion (Version Exclusive)
@@ -42,7 +50,13 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
   });
 
   it('should suppress "Version Exclusive" for Mr. Mime and only show NPC trade', () => {
-    const { suggestions } = generateSuggestions(mockSaveData as unknown as SaveData, false, 'yellow', mockApiData);
+    const { suggestions } = generateSuggestions(
+      mockSaveData as unknown as SaveData,
+      false,
+      'yellow',
+      mockApiData,
+      gen1Strategy,
+    );
     const mimeSuggestions = suggestions.filter((s) => s.pokemonId === 122);
 
     // Mr. Mime: 1 suggestion (NPC Trade)

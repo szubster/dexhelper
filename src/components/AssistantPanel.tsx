@@ -57,7 +57,7 @@ const CATEGORY_STYLES: Record<string, { icon: React.ReactNode; color: string; bg
 };
 
 export function AssistantPanel({ saveData, isLivingDex, manualVersion }: AssistantPanelProps) {
-  const { suggestions, debug, isLoading } = useAssistant(saveData, isLivingDex, manualVersion);
+  const { suggestions, debug, isLoading, areaNames } = useAssistant(saveData, isLivingDex, manualVersion);
   const [showDebug, setShowDebug] = React.useState(false);
 
   const { data: pokemonList } = useQuery<{ id: number; name: string }[]>({
@@ -180,6 +180,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                             showDebug={showDebug}
                             saveData={saveData}
                             getPokemonName={getPokemonName}
+                            areaNames={areaNames}
                           />
                         </div>
                       );

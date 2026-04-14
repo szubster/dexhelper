@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { getStrategy } from '../engine/assistant/strategies/index';
 import { fetchAssistantApiData, generateSuggestions } from '../engine/assistant/suggestionEngine';
 import type { SaveData } from '../engine/saveParser/index';
 import { getGenerationConfig } from '../utils/generationConfig';
@@ -36,6 +37,12 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
     enabled: !!saveData,
   });
 
-  const { suggestions, debug } = generateSuggestions(saveData, isLivingDex, manualVersion, apiData ?? null);
-  return { suggestions, debug, isLoading: isLoadingEncounters };
+  const strategy = getStrategy(saveData?.generation || 1);
+  const { suggestions, debug } = generateSuggestions(saveData, isLivingDex, manualVersion, apiData ?? null, strategy);
+  return {
+    suggestions,
+    debug,
+    isLoading: isLoadingEncounters,
+    areaNames: apiData?.areaNames,
+  };
 }

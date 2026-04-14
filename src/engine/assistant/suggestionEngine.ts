@@ -10,18 +10,20 @@ import {
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
-import { GEN1_MAP_TO_SLUG, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
+import { MAP_TO_AID, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
 import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
-import type { EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
+import type { AssistantStrategy, EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
 
 export interface AssistantApiData {
+  localAid: number | null;
   localEncounters: LocationAreaEncounters[] | null;
   missingEncounters: Record<number, LocationAreaEncounters | null>;
   missingChains: Record<number, CompactEvolutionChain | null>;
   ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>>;
   partyEvolutions: Record<number, CompactEvolutionChain | null>;
   giftChains: Record<number, CompactEvolutionChain | null>;
+  areaNames: Record<number, string>;
 }
 
 /**
@@ -53,15 +55,28 @@ const isNotError = <T>(item: T | Error): item is T => !(item instanceof Error);
  * Fetches all necessary data from local IndexedDB using DataLoader for batching.
  */
 export async function fetchAssistantApiData(saveData: SaveData, queryTargets: number[]) {
-  let localSlug = '';
-  if (saveData.generation === 1) {
-    localSlug = GEN1_MAP_TO_SLUG[saveData.currentMapId] || '';
-  } else {
-    localSlug = 'new-bark-town-area';
+  let localAid: number | null = null;
+  const gen = saveData.generation as 1 | 2;
+  const mapId = saveData.currentMapId;
+
+  if (gen === 1) {
+    localAid = (MAP_TO_AID[1] as Record<number, number>)[mapId] || null;
+  } else if (gen === 2) {
+    const gen2MapGroups = MAP_TO_AID[2] as Record<number, Record<number, number>>;
+    // Gen 2 uses mapGroup for grouping, mapId is the actual ID within group
+    // We need to know which group we are in. For now, assume a default or pass it in?
+    // Looking at AssistantData, group 3 has cities, 4 has routes, 5 has dungeons.
+    // Helper to find it across groups:
+    for (const group of Object.values(gen2MapGroups)) {
+      if (group[mapId]) {
+        localAid = group[mapId];
+        break;
+      }
+    }
   }
 
   const allEncounters = await pokeDB.getAllEncounters();
-  const localEncounters = allEncounters.filter((lae) => lae.encounters.some((e) => e.slug === localSlug));
+  const localEncounters = localAid ? allEncounters.filter((lae) => lae.encounters.some((e) => e.aid === localAid)) : [];
 
   const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
   const missingChains: Record<number, CompactEvolutionChain | null> = {};
@@ -129,13 +144,17 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     }
   });
 
+  const allAreas = await pokeDB.getAllAreas();
+  const _allLocations = await pokeDB.getLocations();
   return {
+    localAid,
     localEncounters: localEncounters ?? null,
     missingEncounters,
     missingChains,
     ancestralEncounters,
     partyEvolutions,
     giftChains,
+    areaNames: Object.fromEntries(allAreas.map((a) => [a.id, a.n])),
   };
 }
 
@@ -155,6 +174,7 @@ export function generateSuggestions(
   isLivingDex: boolean,
   manualVersion: string | null | undefined,
   apiData: AssistantApiData | null,
+  strategy: AssistantStrategy,
 ): { suggestions: Suggestion[]; debug: { rejected: RejectedSuggestion[] } } {
   const suggestions: Suggestion[] = [];
   const rejected: RejectedSuggestion[] = [];
@@ -188,21 +208,16 @@ export function generateSuggestions(
   const displayVersionId = POKE_VERSION_MAP[displayVersion] || 1;
   const queryTargets = missingIds.slice(0, 100);
 
+  const localPids: number[] = [];
   // A. Catch logic
-  if (apiData.localEncounters && apiData.localEncounters.length > 0) {
-    let localSlug = '';
-    if (saveData.generation === 1) {
-      localSlug = GEN1_MAP_TO_SLUG[saveData.currentMapId] || '';
-    } else {
-      localSlug = 'new-bark-town-area';
-    }
+  if (apiData.localEncounters && apiData.localEncounters.length > 0 && apiData.localAid) {
+    const localAid = apiData.localAid;
 
-    const localPids: number[] = [];
     const localEncounterInfo: Record<number, EncounterDetail[]> = {};
 
     for (const lae of apiData.localEncounters) {
       const pid = lae.pid;
-      const relevantEncounters = lae.encounters.filter((e) => e.slug === localSlug && e.v === displayVersionId);
+      const relevantEncounters = lae.encounters.filter((e) => e.aid === localAid && e.v === displayVersionId);
       if (relevantEncounters.length === 0) continue;
 
       if (STATIC_GIFT_DATA[pid] && myOtIds.has(pid)) continue;
@@ -215,6 +230,7 @@ export function generateSuggestions(
             method: METHOD_NAMES[ed.m] || 'walk',
             minLevel: ed.min,
             maxLevel: ed.max,
+            aid: re.aid,
           })),
         );
       }
@@ -229,6 +245,47 @@ export function generateSuggestions(
         pokemonIds: localPids,
         priority: 120,
         encounterInfo: localEncounterInfo,
+      });
+    }
+  }
+
+  // A2. Nearby logic
+  for (const pid of queryTargets) {
+    if (localPids.includes(pid)) continue;
+
+    const encData = apiData.missingEncounters[pid];
+    if (!encData?.encounters) continue;
+
+    let bestDist = 999;
+    let bestAreaName = '';
+    let bestDetails: EncounterDetail[] = [];
+
+    for (const e of encData.encounters) {
+      if (e.v !== displayVersionId) continue;
+
+      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid);
+      if (distInfo && distInfo.distance < bestDist) {
+        bestDist = distInfo.distance;
+        bestAreaName = distInfo.name;
+        bestDetails = e.d.map((ed) => ({
+          chance: ed.c,
+          method: METHOD_NAMES[ed.m] || 'walk',
+          minLevel: ed.min,
+          maxLevel: ed.max,
+          aid: e.aid,
+        }));
+      }
+    }
+
+    if (bestDist < 8) {
+      suggestions.push({
+        id: `catch-nearby-${pid}`,
+        category: 'Catch',
+        title: `Nearby: #${pid}`,
+        description: `Found at ${bestAreaName} (${bestDist === 0 ? 'very close' : `${bestDist} areas away`}).`,
+        pokemonId: pid,
+        priority: Math.max(10, 110 - bestDist * 12),
+        encounterInfo: { [pid]: bestDetails },
       });
     }
   }
