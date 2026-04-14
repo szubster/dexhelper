@@ -1,29 +1,34 @@
+import type { GenericLocation, SpecificArea } from '../../../db/schema';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
-import { GEN1_MAPS, getDistanceToMap, INDOOR_TO_PARENT_MAP } from '../../mapGraph/gen1Graph';
+import { getDistanceToMap } from '../../mapGraph/gen1Graph';
 import type { SaveData } from '../../saveParser/index';
 import type { AssistantStrategy, Suggestion } from './types';
 
 export const gen1Strategy: AssistantStrategy = {
   generation: 1,
 
-  resolveMapAid(saveData: SaveData): number {
-    let mapId = saveData.currentMapId;
+  resolveMapAid(saveData: SaveData, allLocations: GenericLocation[], allAreas: SpecificArea[]): number | null {
+    const mapId = saveData.currentMapId;
 
-    // Resolve indoor maps to their parent outdoor area
-    if (INDOOR_TO_PARENT_MAP[mapId] !== undefined) {
-      mapId = INDOOR_TO_PARENT_MAP[mapId] ?? mapId;
+    // Find location for this mapId
+    const loc = allLocations.find((l) => l.gameId === mapId);
+    if (!loc) return null;
+
+    // Resolve to parent if it's an indoor location
+    let targetLoc = loc;
+    if (loc.parentId) {
+      const parent = allLocations.find((p) => p.id === loc.parentId);
+      if (parent) targetLoc = parent;
     }
 
-    const node = GEN1_MAPS[mapId];
-    if (node) return node.aid;
-
-    // Fall back to Pallet if completely unknown
-    return 285; // pallet-town-area
+    // Find first area in this location
+    const area = allAreas.find((a) => a.lid === targetLoc.id);
+    return area ? area.id : null;
   },
 
-  getMapDistance(currentMapId: number, targetAid: number) {
-    return getDistanceToMap(currentMapId, targetAid);
+  getMapDistance(currentMapId: number, targetAid: number, allLocations: GenericLocation[], allAreas: SpecificArea[]) {
+    return getDistanceToMap(allLocations, allAreas, currentMapId, targetAid);
   },
 
   getUnobtainableReason(pokemonId: number, version: string, ownedCount: number, ownedSet: Set<number>) {

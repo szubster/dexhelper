@@ -1,4 +1,4 @@
-import { GEN1_MAPS } from '../../mapGraph/gen1Graph';
+// src/engine/data/gen1/assistantData.ts
 
 // This file maps internal game IDs to standard names or PokeAPI slugs
 
@@ -70,11 +70,52 @@ export const MAP_TO_AID: Record<number, Record<number, number> | Record<number, 
 export const GEN1_MAP_TO_AID = MAP_TO_AID[1] as Record<number, number>;
 export const GEN2_MAP_TO_AID = MAP_TO_AID[2] as Record<number, Record<number, number>>;
 
-// Create a mapping from PokeAPI Area ID (aid) to human-readable names
-// This is used for UI components that display encounter locations
-export const GEN1_AID_TO_NAME: Record<number, string> = Object.fromEntries(
-  Object.entries(GEN1_MAP_TO_AID).map(([mid, aid]) => [aid, GEN1_MAPS[Number(mid)]?.name || 'Unknown Location']),
-);
+export const GEN1_AID_TO_NAME: Record<number, string> = {
+  285: 'Pallet Town',
+  280: 'Viridian City',
+  1200: 'Pewter City',
+  281: 'Cerulean City',
+  336: 'Pokémon Tower',
+  282: 'Vermilion City',
+  1300: 'Celadon City',
+  284: 'Fuchsia City',
+  279: 'Cinnabar Island',
+  762: 'Saffron City',
+  295: 'Route 1',
+  1040: 'Route 2',
+  297: 'Route 3',
+  298: 'Route 4',
+  1047: 'Route 5',
+  300: 'Route 6',
+  301: 'Route 7',
+  302: 'Route 8',
+  303: 'Route 9',
+  304: 'Route 10',
+  305: 'Route 11',
+  276: 'Route 12',
+  306: 'Route 13',
+  307: 'Route 14',
+  308: 'Route 15',
+  309: 'Route 16',
+  310: 'Route 17',
+  311: 'Route 18',
+  730: 'Route 19',
+  731: 'Route 20',
+  732: 'Route 21',
+  313: 'Route 22',
+  329: 'Route 23',
+  314: 'Route 24',
+  315: 'Route 25',
+  321: 'Viridian Forest',
+  290: 'Mt. Moon',
+  292: 'Rock Tunnel',
+  330: 'Power Plant',
+  431: 'Safari Zone',
+  323: 'Cerulean Cave',
+  277: 'Seafoam Islands',
+  332: 'Victory Road',
+  299: 'Diglett’s Cave',
+};
 
 export const GEN1_ITEMS = {
   MOON_STONE: 0x0a,

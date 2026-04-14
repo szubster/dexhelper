@@ -16,8 +16,8 @@ import {
   ENCOUNTER_METHOD_MAP,
   EVO_TRIGGER_MAP
 } from '../src/db/schema.ts';
-import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from '../src/engine/mapGraph/gen1Graph.ts';
-// Removed deleted GEN1_MAP_TO_SLUG import
+import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from './data/gen1/mapping.ts';
+import { GEN2_MAP_TO_AID } from './data/gen2/mapping.ts';
 
 const POKEMON_COUNT = 251; // Gen 1 & 2
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
@@ -128,14 +128,36 @@ async function main() {
           if (!locationMap.has(lid)) {
             const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
             if (locData) {
-              const gameIdStr = Object.entries(GEN1_MAPS).find(([_, map]) => map.slug === locData.name)?.[0];
-              const gameId = gameIdStr ? parseInt(gameIdStr) : undefined;
+              // Find gameId for Gen 1 (flat mapId)
+              let gameId: number | undefined = undefined;
+              const g1Match = Object.entries(GEN1_MAPS).find(([_, map]) => map.slug === locData.name);
+              if (g1Match) {
+                gameId = parseInt(g1Match[0]);
+              }
+
+              // Find gameId for Gen 2 (group:id -> encoded 16-bit)
+              if (gameId === undefined) {
+                // Peek into areas for this location to find an AID match in GEN2
+                for (const area of locData.areas) {
+                   const aid = parseInt(area.url.split('/').filter(Boolean).pop() || '0', 10);
+                   for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
+                      for (const [mid, mapAid] of Object.entries(maps)) {
+                        if (mapAid === aid) {
+                          gameId = (parseInt(group) << 8) | parseInt(mid);
+                          break;
+                        }
+                      }
+                      if (gameId !== undefined) break;
+                   }
+                   if (gameId !== undefined) break;
+                }
+              }
               
               locationMap.set(lid, {
                 id: lid,
                 n: locData.names.find((n: any) => n.language.name === 'en')?.name || locData.name,
                 gameId,
-                connections: gameId !== undefined ? GEN1_MAPS[gameId]?.connections : undefined
+                connections: typeof gameId === 'number' && gameId < 256 ? GEN1_MAPS[gameId]?.connections : undefined
               });
             }
           }
