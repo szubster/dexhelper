@@ -10,6 +10,7 @@ vi.stubGlobal('fetch', vi.fn());
 describe('PokeDB', () => {
   beforeEach(async () => {
     vi.clearAllMocks();
+    pokeDB._resetSync();
     const db = await getDB();
     const tx = db.transaction(Object.values(DB_CONFIG.STORES), 'readwrite');
     await Promise.all(Object.values(DB_CONFIG.STORES).map((s) => tx.objectStore(s).clear()));

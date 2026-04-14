@@ -3,6 +3,7 @@ import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 import React, { Suspense, useEffect } from 'react';
 import { AppLayout } from '../components/AppLayout';
 import { SyncProgress } from '../components/SyncProgress';
+import { pokeDB } from '../db/PokeDB';
 import { useStore } from '../store';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
@@ -21,9 +22,12 @@ export interface RootContext {
 
 export const Route = createRootRouteWithContext<RootContext>()({
   loader: async ({ context }) => {
+    // Ensure database is synchronized before initial data fetch
+    await pokeDB.ready();
     const pokemonList = await context.queryClient.ensureQueryData(pokemonListQueryOptions);
     return { pokemonList };
   },
+  pendingComponent: SyncProgress,
   component: RootComponent,
 });
 

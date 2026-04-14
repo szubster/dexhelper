@@ -128,9 +128,9 @@ async function main() {
           if (!locationMap.has(lid)) {
             const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
             if (locData) {
-              // Find gameId for Gen 1 (flat mapId)
+              // Find gameId for Gen 1 (exact Area ID match)
               let gameId: number | undefined = undefined;
-              const g1Match = Object.entries(GEN1_MAPS).find(([_, map]) => map.slug === locData.name);
+              const g1Match = Object.entries(GEN1_MAPS).find(([_, map]) => map.aid === areaId);
               if (g1Match) {
                 gameId = parseInt(g1Match[0]);
               }

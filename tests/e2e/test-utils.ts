@@ -23,7 +23,6 @@ export async function initializeWithSave(page: Page, savePath: string = 'tests/f
   // Wait for the app to hydrate and the trainer info to be visible
   await expect(page.getByText(/TRAINER/i).first()).toBeVisible({ timeout: 15000 });
 
-  // Final verification: Pokedex should should have some items if ready
-  // This is a more reliable way to know sync is done than checking the transient SyncProgress
-  await expect(page.getByTestId('pokedex-card').first()).toBeVisible({ timeout: 15000 });
+  // 3. Final verification: Pokedex should should have some items if ready
+  await expect(page.getByTestId('pokedex-card').first()).toBeVisible({ timeout: 30000 });
 }
