@@ -5,12 +5,14 @@ import {
   type CompactEvolutionChain,
   ENCOUNTER_METHOD,
   EVO_TRIGGER,
+  type GenericLocation,
   type LocationAreaEncounters,
   POKE_VERSION_MAP,
+  type SpecificArea,
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
-import { MAP_TO_AID, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
+import { STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
 import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
 import type { AssistantStrategy, EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
@@ -24,6 +26,8 @@ export interface AssistantApiData {
   partyEvolutions: Record<number, CompactEvolutionChain | null>;
   giftChains: Record<number, CompactEvolutionChain | null>;
   areaNames: Record<number, string>;
+  allLocations: GenericLocation[];
+  allAreas: SpecificArea[];
 }
 
 /**
@@ -55,25 +59,11 @@ const isNotError = <T>(item: T | Error): item is T => !(item instanceof Error);
  * Fetches all necessary data from local IndexedDB using DataLoader for batching.
  */
 export async function fetchAssistantApiData(saveData: SaveData, queryTargets: number[]) {
-  let localAid: number | null = null;
-  const gen = saveData.generation as 1 | 2;
-  const mapId = saveData.currentMapId;
+  const allAreas = await pokeDB.getAllAreas();
+  const allLocations = await pokeDB.getLocations();
 
-  if (gen === 1) {
-    localAid = (MAP_TO_AID[1] as Record<number, number>)[mapId] || null;
-  } else if (gen === 2) {
-    const gen2MapGroups = MAP_TO_AID[2] as Record<number, Record<number, number>>;
-    // Gen 2 uses mapGroup for grouping, mapId is the actual ID within group
-    // We need to know which group we are in. For now, assume a default or pass it in?
-    // Looking at AssistantData, group 3 has cities, 4 has routes, 5 has dungeons.
-    // Helper to find it across groups:
-    for (const group of Object.values(gen2MapGroups)) {
-      if (group[mapId]) {
-        localAid = group[mapId];
-        break;
-      }
-    }
-  }
+  const strategy = saveData.generation === 1 ? (await import('./strategies/gen1Strategy')).gen1Strategy : null;
+  const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations, allAreas) : null;
 
   const allEncounters = await pokeDB.getAllEncounters();
   const localEncounters = localAid ? allEncounters.filter((lae) => lae.encounters.some((e) => e.aid === localAid)) : [];
@@ -144,8 +134,6 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     }
   });
 
-  const allAreas = await pokeDB.getAllAreas();
-  const _allLocations = await pokeDB.getLocations();
   return {
     localAid,
     localEncounters: localEncounters ?? null,
@@ -155,6 +143,8 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     partyEvolutions,
     giftChains,
     areaNames: Object.fromEntries(allAreas.map((a) => [a.id, a.n])),
+    allLocations,
+    allAreas,
   };
 }
 
@@ -263,7 +253,7 @@ export function generateSuggestions(
     for (const e of encData.encounters) {
       if (e.v !== displayVersionId) continue;
 
-      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid);
+      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations, apiData.allAreas);
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
         bestAreaName = distInfo.name;
