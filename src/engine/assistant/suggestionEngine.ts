@@ -523,6 +523,16 @@ export function generateSuggestions(
     });
   }
 
+  // Pre-calculate instances by species for O(1) lookup during evolution and trade checks
+  // ⚡ Bolt: Replaces O(N*M) filtering inside the loops below
+  const instancesBySpecies = new Map<number, PokemonInstance[]>();
+  for (const p of allInstances) {
+    if (!instancesBySpecies.has(p.speciesId)) {
+      instancesBySpecies.set(p.speciesId, []);
+    }
+    instancesBySpecies.get(p.speciesId)?.push(p);
+  }
+
   // NPC Trades
   for (const trade of STATIC_NPC_TRADE_DATA) {
     if (trade.gen !== saveData.generation) continue;
@@ -535,8 +545,8 @@ export function generateSuggestions(
       isClaimed = (saveData.npcTradeFlags & (1 << trade.tradeIndex)) !== 0;
     } else {
       // Fallback for Gen 2 or if bit flags are missing
-      isClaimed = allInstances.some(
-        (p: PokemonInstance) => p.speciesId === trade.receivedId && p.otName === trade.receivedOtName,
+      isClaimed = (instancesBySpecies.get(trade.receivedId) || []).some(
+        (p: PokemonInstance) => p.otName === trade.receivedOtName,
       );
     }
 
@@ -632,16 +642,6 @@ export function generateSuggestions(
       description: `You have traded Pokémon above Lv. ${currentCap}. They may not obey you!`,
       priority: 110,
     });
-  }
-
-  // Pre-calculate instances by species for O(1) lookup during evolution checks
-  // ⚡ Bolt: Replaces O(N*M) filtering inside the loop below
-  const instancesBySpecies = new Map<number, PokemonInstance[]>();
-  for (const p of allInstances) {
-    if (!instancesBySpecies.has(p.speciesId)) {
-      instancesBySpecies.set(p.speciesId, []);
-    }
-    instancesBySpecies.get(p.speciesId)?.push(p);
   }
 
   // Evolutions
