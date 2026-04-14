@@ -357,6 +357,9 @@ export function generateSuggestions(
     if (ownedInstances.length === 0) return;
 
     const bestInstance = ownedInstances.reduce((prev, current) => (prev.level > current.level ? prev : current));
+    const isYellowStarterPikachu =
+      displayVersion === 'yellow' && parentId === 25 && bestInstance.otName === saveData.trainerName;
+    if (isYellowStarterPikachu) return;
 
     const details = nodes.targetNode.details;
     const detail = details?.[0];
