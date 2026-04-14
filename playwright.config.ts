@@ -18,7 +18,7 @@ export default defineConfig({
   reporter: [
     ['html'],
     ['@argos-ci/playwright/reporter', {
-      uploadToArgos: !!process.env.CI,
+      uploadToArgos: false,
       buildName: process.env.ARGOS_BUILD_NAME || 'E2E',
     }]
   ],
