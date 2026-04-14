@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { gen1Strategy } from '../engine/assistant/strategies/gen1Strategy';
 import type { AssistantApiData } from '../engine/assistant/suggestionEngine';
 import { generateSuggestions } from '../engine/assistant/suggestionEngine';
 import type { SaveData } from '../engine/saveParser/index';
@@ -31,7 +32,8 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
     ],
     pcDetails: [],
-  };
+    trainerIdRaw: new Uint8Array(2),
+  } as unknown as SaveData;
 
   const mockApiData = {
     localEncounters: [],
@@ -40,12 +42,13 @@ describe('useAssistant - generateSuggestions logic', () => {
       40: null, // Wigglytuff
       62: null, // Poliwrath
     },
+    areaNames: {},
     ancestralEncounters: {
       40: {
-        39: { pid: 39, encounters: [{ slug: 'kanto-route-3', v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Jigglypuff in Yellow
+        39: { pid: 39, encounters: [{ aid: 100, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Jigglypuff in Yellow
       },
       62: {
-        60: { pid: 60, encounters: [{ slug: 'kanto-route-6', v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Poliwag catchable
+        60: { pid: 60, encounters: [{ aid: 101, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Poliwag catchable
         61: null, // Poliwhirl not directly catchable
       },
     },
@@ -78,13 +81,13 @@ describe('useAssistant - generateSuggestions logic', () => {
   } as unknown as AssistantApiData;
 
   it('should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)', () => {
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData, gen1Strategy);
     const wigglyTrade = suggestions.find((s) => s.pokemonId === 40 && s.category === 'Trade');
     expect(wigglyTrade).toBeUndefined();
   });
 
   it('should NOT mark Poliwrath as Trade Required in Pokémon Yellow if Poliwag is catchable', () => {
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData, gen1Strategy);
     const poliTrade = suggestions.find((s) => s.pokemonId === 62 && s.category === 'Trade');
     expect(poliTrade).toBeUndefined();
   });
@@ -111,6 +114,7 @@ describe('useAssistant - generateSuggestions logic', () => {
       false,
       'yellow',
       exclusiveApiData as unknown as AssistantApiData,
+      gen1Strategy,
     );
     const weedleTrade = suggestions.find((s) => s.pokemonId === 13 && s.category === 'Trade');
     expect(weedleTrade).toBeDefined();
@@ -123,24 +127,26 @@ describe('useAssistant - generateSuggestions logic', () => {
       localEncounters: [
         {
           pid: 16,
-          encounters: [{ slug: 'pallet-town-area', v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+          encounters: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
         },
       ],
+      localAid: 1,
       missingEncounters: {
         16: {
           pid: 16,
-          encounters: [{ slug: 'pallet-town-area', v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+          encounters: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
         },
       },
     };
 
-    // Pallet Town (id 0) is mapped to 'pallet-town-area'
-    const testSaveData = { ...mockSaveData, currentMapId: 0, owned: new Set([25]) };
+    // Current map matches localAid slug
+    const testSaveData = { ...mockSaveData, currentMapId: 0x0c, owned: new Set([25]) } as unknown as SaveData;
     const { suggestions } = generateSuggestions(
       testSaveData,
       false,
       'yellow',
       duplicateApiData as unknown as AssistantApiData,
+      gen1Strategy,
     );
 
     const catchRightHereTips = suggestions.filter((s) => s.title === 'Catch Right Here');

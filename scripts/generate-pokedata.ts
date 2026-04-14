@@ -17,7 +17,7 @@ import {
   EVO_TRIGGER_MAP
 } from '../src/db/schema.ts';
 import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from '../src/engine/mapGraph/gen1Graph.ts';
-import { GEN1_MAP_TO_SLUG } from '../src/engine/data/gen1/assistantData.ts';
+// Removed deleted GEN1_MAP_TO_SLUG import
 
 const POKEMON_COUNT = 251; // Gen 1 & 2
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
@@ -128,29 +128,12 @@ async function main() {
           if (!locationMap.has(lid)) {
             const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
             if (locData) {
-              const slug = locData.name;
-              
-              // Find matching gameId (ROM hex ID) from our static map
-              const gameIdStr = Object.keys(GEN1_MAP_TO_SLUG).find(k => GEN1_MAP_TO_SLUG[parseInt(k)] === slug);
+              const gameIdStr = Object.entries(GEN1_MAPS).find(([_, map]) => map.slug === locData.name)?.[0];
               const gameId = gameIdStr ? parseInt(gameIdStr) : undefined;
               
-              // Find parentId if it's an indoor map
-              const parentGameId = gameId !== undefined ? INDOOR_TO_PARENT_MAP[gameId] : undefined;
-              
-              // We need another map to translate parentGameId back to PokéAPI lid if we want it fully linked.
-              // For now, let's just store the IDs we have. 
-              // Actually, GEN1_MAPS has the slugs too.
-              let parentId: number | undefined = undefined;
-              if (parentGameId !== undefined) {
-                 const parentSlug = GEN1_MAP_TO_SLUG[parentGameId];
-                 // This is tricky because we haven't seen all locations yet.
-                 // We'll do a second pass at the end to reconcile these.
-              }
-
               locationMap.set(lid, {
                 id: lid,
                 n: locData.names.find((n: any) => n.language.name === 'en')?.name || locData.name,
-                slug,
                 gameId,
                 connections: gameId !== undefined ? GEN1_MAPS[gameId]?.connections : undefined
               });
@@ -161,7 +144,6 @@ async function main() {
             id: areaId,
             lid: lid,
             n: areaData.names.find((n: any) => n.language.name === 'en')?.name || areaData.name || areaSlug,
-            slug: areaSlug
           });
 
           // Update inverse index
@@ -192,19 +174,19 @@ async function main() {
 
       if (vDetails.length > 0) {
         pokemonEncounters.push({
-          slug: areaSlug,
-          version_details: vDetails // Still using old structure here for compatibility if needed, but we should match schema
+          areaId: areaId,
+          version_details: vDetails
         });
       }
     }
     
     if (pokemonEncounters.length > 0) {
       // Re-map to match CompactEncounter structure
-      const finalEncs: any[] = [];
+      const finalEncs: CompactEncounter[] = [];
       for (const pe of pokemonEncounters) {
         for (const vd of pe.version_details) {
           finalEncs.push({
-            slug: pe.slug,
+            aid: pe.areaId,
             v: vd.v,
             d: vd.d
           });
@@ -216,12 +198,19 @@ async function main() {
 
   // Second pass on locations to reconcile parentIds
   console.log('Reconciling location parents...');
+  // Create an internal name-to-location mapping for reconciliation
+  const nameToLoc = new Map<string, GenericLocation>();
+  for (const loc of locationMap.values()) {
+    // Note: We use the internal 'PokeAPI name' which we can get from PokeAPI files if needed, 
+    // but we saved it as 'n' (name). Let's use gameId mapping instead.
+  }
+
   for (const loc of locationMap.values()) {
     if (loc.gameId !== undefined) {
       const parentGameId = INDOOR_TO_PARENT_MAP[loc.gameId];
       if (parentGameId !== undefined) {
-        const parentSlug = GEN1_MAP_TO_SLUG[parentGameId];
-        const parentLoc = Array.from(locationMap.values()).find(l => l.slug === parentSlug);
+        // Find the location that corresponds to the parentGameId
+        const parentLoc = Array.from(locationMap.values()).find(l => l.gameId === parentGameId);
         if (parentLoc) {
           loc.parentId = parentLoc.id;
         }

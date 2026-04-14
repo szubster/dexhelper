@@ -3,214 +3,162 @@ export interface MapNode {
   slug: string;
   name: string;
   connections: number[];
+  aid: number;
 }
 
 export const GEN1_MAPS: Record<number, MapNode> = {
-  0x00: { id: 0x00, slug: 'pallet-town-area', name: 'Pallet Town', connections: [0x0c, 0x20] },
+  0x00: { id: 0x00, aid: 285, slug: 'pallet-town-area', name: 'Pallet Town', connections: [0x0c, 0x20] },
   0x01: {
     id: 0x01,
+    aid: 280,
     slug: 'viridian-city-area',
     name: 'Viridian City',
-    connections: [0x0c, 0x0d, 0x21],
+    connections: [0x0c, 0x19, 0x1d],
   },
-  0x02: { id: 0x02, slug: 'pewter-city-area', name: 'Pewter City', connections: [0x0d, 0x0e] },
+  0x02: { id: 0x02, aid: 1200, slug: 'pewter-city-area', name: 'Pewter City', connections: [0x0d, 0x19] },
   0x03: {
     id: 0x03,
+    aid: 281,
     slug: 'cerulean-city-area',
     name: 'Cerulean City',
-    connections: [0x0f, 0x10, 0x14, 0x23],
+    connections: [0x0e, 0x10, 0x18, 0x1c],
   },
-  0x04: {
-    id: 0x04,
-    slug: 'lavender-town-area',
-    name: 'Lavender Town',
-    connections: [0x13, 0x15, 0x17],
-  },
-  0x05: {
-    id: 0x05,
-    slug: 'vermilion-city-area',
-    name: 'Vermilion City',
-    connections: [0x11, 0x16],
-  },
-  0x06: { id: 0x06, slug: 'celadon-city-area', name: 'Celadon City', connections: [0x12, 0x1b] },
+  0x04: { id: 0x04, aid: 336, slug: 'lavender-town-area', name: 'Lavender Town', connections: [0x0f, 0x11, 0x15] },
+  0x05: { id: 0x05, aid: 282, slug: 'vermilion-city-area', name: 'Vermilion City', connections: [0x0e, 0x12] },
+  0x06: { id: 0x06, aid: 284, slug: 'celadon-city-area', name: 'Celadon City', connections: [0x10, 0x11] },
   0x07: {
     id: 0x07,
+    aid: 283,
     slug: 'fuchsia-city-area',
     name: 'Fuchsia City',
-    connections: [0x1a, 0x1d, 0x1e],
+    connections: [0x12, 0x13, 0x14, 0x17, 0x1c],
   },
-  0x08: {
-    id: 0x08,
-    slug: 'cinnabar-island-area',
-    name: 'Cinnabar Island',
-    connections: [0x1f, 0x20],
-  },
-  0x09: { id: 0x09, slug: 'indigo-plateau-area', name: 'Indigo Plateau', connections: [0x22] },
-  0x0a: {
-    id: 0x0a,
-    slug: 'saffron-city-area',
-    name: 'Saffron City',
-    connections: [0x10, 0x11, 0x12, 0x13],
-  },
-
-  0x0c: { id: 0x0c, slug: 'route-1-area', name: 'Route 1', connections: [0x00, 0x01] },
-  0x0d: { id: 0x0d, slug: 'route-2-area', name: 'Route 2', connections: [0x01, 0x02, 0x5a] }, // Connects to Viridian Forest
-  0x0e: { id: 0x0e, slug: 'route-3-area', name: 'Route 3', connections: [0x02, 0x0f, 0x3a] }, // Connects to Mt Moon
-  0x0f: { id: 0x0f, slug: 'route-4-area', name: 'Route 4', connections: [0x03, 0x0e, 0x3a] },
-  0x10: { id: 0x10, slug: 'route-5-area', name: 'Route 5', connections: [0x03, 0x0a] },
-  0x11: { id: 0x11, slug: 'route-6-area', name: 'Route 6', connections: [0x05, 0x0a] },
-  0x12: { id: 0x12, slug: 'route-7-area', name: 'Route 7', connections: [0x06, 0x0a] },
-  0x13: { id: 0x13, slug: 'route-8-area', name: 'Route 8', connections: [0x04, 0x0a] },
-  0x14: { id: 0x14, slug: 'route-9-area', name: 'Route 9', connections: [0x03, 0x15, 0xca] }, // Connects to Rock Tunnel
-  0x15: {
-    id: 0x15,
-    slug: 'route-10-area',
-    name: 'Route 10',
-    connections: [0x14, 0x04, 0xca, 0xc1],
-  }, // Connects Rock Tunnel & Power Plant
-  0x16: { id: 0x16, slug: 'route-11-area', name: 'Route 11', connections: [0x05, 0x17] },
-  0x17: { id: 0x17, slug: 'route-12-area', name: 'Route 12', connections: [0x04, 0x16, 0x18] },
-  0x18: { id: 0x18, slug: 'route-13-area', name: 'Route 13', connections: [0x17, 0x19] },
-  0x19: { id: 0x19, slug: 'route-14-area', name: 'Route 14', connections: [0x18, 0x1a] },
-  0x1a: { id: 0x1a, slug: 'route-15-area', name: 'Route 15', connections: [0x19, 0x07] },
-  0x1b: { id: 0x1b, slug: 'route-16-area', name: 'Route 16', connections: [0x06, 0x1c] },
-  0x1c: { id: 0x1c, slug: 'route-17-area', name: 'Route 17', connections: [0x1b, 0x1d] },
-  0x1d: { id: 0x1d, slug: 'route-18-area', name: 'Route 18', connections: [0x1c, 0x07] },
-  0x1e: { id: 0x1e, slug: 'route-19-area', name: 'Route 19', connections: [0x07, 0x1f] },
-  0x1f: { id: 0x1f, slug: 'route-20-area', name: 'Route 20', connections: [0x1e, 0x08, 0xaa] }, // Connects to Seafoam
-  0x20: { id: 0x20, slug: 'route-21-area', name: 'Route 21', connections: [0x08, 0x00] },
-  0x21: { id: 0x21, slug: 'route-22-area', name: 'Route 22', connections: [0x01, 0x22] },
-  0x22: { id: 0x22, slug: 'route-23-area', name: 'Route 23', connections: [0x21, 0x09] }, // Victory Road is inside this
-  0x23: { id: 0x23, slug: 'route-24-area', name: 'Route 24', connections: [0x03, 0x24] },
-  0x24: { id: 0x24, slug: 'route-25-area', name: 'Route 25', connections: [0x23] },
-
-  // Key Dungeons
-  0x5a: { id: 0x5a, slug: 'viridian-forest-area', name: 'Viridian Forest', connections: [0x0d] },
-  0x3a: { id: 0x3a, slug: 'mt-moon-1f', name: 'Mt. Moon', connections: [0x0e, 0x0f, 0x5c] },
-  0x5c: { id: 0x5c, slug: 'mt-moon-b1f', name: 'Mt. Moon B1F', connections: [0x3a] },
-  0xca: { id: 0xca, slug: 'rock-tunnel-1f', name: 'Rock Tunnel', connections: [0x14, 0x15] },
-  0xc1: { id: 0xc1, slug: 'power-plant-area', name: 'Power Plant', connections: [0x15] },
-  0xaa: { id: 0xaa, slug: 'seafoam-islands-1f', name: 'Seafoam Islands', connections: [0x1f] },
-  0xd6: { id: 0xd6, slug: 'kanto-safari-zone-center', name: 'Safari Zone', connections: [0x07] }, // Fuchsia
-  0xe2: { id: 0xe2, slug: 'cerulean-cave-1f', name: 'Cerulean Cave', connections: [0x03] }, // Cerulean
+  0x08: { id: 0x08, aid: 287, slug: 'cinnabar-island-area', name: 'Cinnabar Island', connections: [0x14, 0x15] },
+  0x0a: { id: 0x0a, aid: 762, slug: 'saffron-city-area', name: 'Saffron City', connections: [0x0e, 0x0f, 0x10, 0x11] },
+  0x0c: { id: 0x0c, aid: 295, slug: 'route-1-area', name: 'Route 1', connections: [0x00, 0x01] },
+  0x0d: { id: 0x0d, aid: 296, slug: 'route-2-area', name: 'Route 2', connections: [0x01, 0x02, 0x1d] },
+  0x0e: { id: 0x0e, aid: 1046, slug: 'route-4-area', name: 'Route 4', connections: [0x02, 0x03, 0x3b] },
+  0x0f: { id: 0x0f, aid: 1047, slug: 'route-5-area', name: 'Route 5', connections: [0x03, 0x0a] },
+  0x10: { id: 0x10, aid: 1048, slug: 'route-6-area', name: 'Route 6', connections: [0x0a, 0x05] },
+  0x11: { id: 0x11, aid: 1049, slug: 'route-7-area', name: 'Route 7', connections: [0x0a, 0x06] },
+  0x12: { id: 0x12, aid: 1050, slug: 'route-8-area', name: 'Route 8', connections: [0x0a, 0x04] },
+  0x13: { id: 0x13, aid: 1051, slug: 'route-9-area', name: 'Route 9', connections: [0x03, 0x11] },
+  0x14: { id: 0x14, aid: 275, slug: 'route-10-area', name: 'Route 10', connections: [0x11, 0x04, 0x3d] },
+  0x15: { id: 0x15, aid: 276, slug: 'route-11-area', name: 'Route 11', connections: [0x05, 0x12] },
+  0x16: { id: 0x16, aid: 277, slug: 'route-12-area', name: 'Route 12', connections: [0x04, 0x13] },
+  0x17: { id: 0x17, aid: 278, slug: 'route-13-area', name: 'Route 13', connections: [0x12, 0x14] },
+  0x18: { id: 0x18, aid: 279, slug: 'route-14-area', name: 'Route 14', connections: [0x13, 0x15] },
+  0x19: { id: 0x19, aid: 310, slug: 'route-15-area', name: 'Route 15', connections: [0x15, 0x07] },
+  0x1a: { id: 0x1a, aid: 311, slug: 'route-16-area', name: 'Route 16', connections: [0x06, 0x17] },
+  0x1b: { id: 0x1b, aid: 312, slug: 'route-17-area', name: 'Route 17', connections: [0x16, 0x18] },
+  0x1c: { id: 0x1c, aid: 313, slug: 'route-18-area', name: 'Route 18', connections: [0x17, 0x07] },
+  0x1d: { id: 0x1d, aid: 314, slug: 'route-19-area', name: 'Route 19', connections: [0x07, 0x1a] },
+  0x1e: { id: 0x1e, aid: 315, slug: 'route-20-area', name: 'Route 20', connections: [0x19, 0x08, 0x3e] },
+  0x1f: { id: 0x1f, aid: 732, slug: 'route-21-area', name: 'Route 21', connections: [0x08, 0x00] },
+  0x20: { id: 0x20, aid: 317, slug: 'route-22-area', name: 'Route 22', connections: [0x01, 0x21] },
+  0x21: { id: 0x21, aid: 286, slug: 'indigo-plateau-area', name: 'Indigo Plateau', connections: [0x20, 0x3f] },
+  0x22: { id: 0x22, aid: 318, slug: 'route-24-area', name: 'Route 24', connections: [0x03, 0x23] },
+  0x23: { id: 0x23, aid: 319, slug: 'route-25-area', name: 'Route 25', connections: [0x22, 0x34] },
+  // Dungeons
+  0x34: { id: 0x34, aid: 325, slug: 'mt-moon-area', name: 'Mt. Moon', connections: [0x0e] },
+  0x3b: { id: 0x3b, aid: 326, slug: 'rock-tunnel-area', name: 'Rock Tunnel', connections: [0x11] },
+  0x3d: { id: 0x3d, aid: 334, slug: 'seafoam-islands-area', name: 'Seafoam Islands', connections: [0x1e] },
+  0x3e: { id: 0x3e, aid: 333, slug: 'victory-road-area', name: 'Victory Road', connections: [0x21] },
+  0x3f: { id: 0x3f, aid: 328, slug: 'digletts-cave-area', name: 'Digletts Cave', connections: [0x01, 0x0d] },
+  0x8e: { id: 0x8e, aid: 335, slug: 'pokemon-mansion-area', name: 'Pokémon Mansion', connections: [0x08] },
+  0x9b: { id: 0x9b, aid: 330, slug: 'safari-zone-area', name: 'Safari Zone', connections: [0x07] },
+  0xa2: { id: 0xa2, aid: 331, slug: 'cerulean-cave-area', name: 'Cerulean Cave', connections: [0x03] },
+  0xa4: { id: 0xa4, aid: 327, slug: 'power-plant-area', name: 'Power Plant', connections: [0x11] },
 };
 
+/**
+ * Maps indoor map IDs to their primary outdoor map ID
+ * This helps locate the player in terms of the world graph even when they are inside a building.
+ */
 export const INDOOR_TO_PARENT_MAP: Record<number, number> = {
   // Pallet Town Interiors
-  0x25: 0x00,
-  0x26: 0x00,
-  0x27: 0x00,
+  0x25: 0x00, // Reds House 1F
+  0x26: 0x00, // Reds House 2F
+  0x27: 0x00, // Blues House
+  0x28: 0x00, // Oaks Lab
+
   // Viridian City Interiors
-  0x28: 0x01,
-  0x29: 0x01,
-  0x2a: 0x01,
-  0x2b: 0x01,
-  0x2c: 0x01,
-  // Pewter
-  0x34: 0x02,
-  0x35: 0x02,
-  0x36: 0x02,
-  0x37: 0x02,
-  // Cerulean
-  0x3c: 0x03,
-  0x3d: 0x03,
-  0x3e: 0x03,
-  0x3f: 0x03,
-  0x40: 0x03,
-  0x41: 0x03,
-  // Lavender
-  0x52: 0x04,
-  0x53: 0x04,
-  0x8e: 0x04,
-  0x8f: 0x04,
-  0x90: 0x04,
-  0x91: 0x04,
-  0x92: 0x04,
-  0x93: 0x04,
-  0x94: 0x04,
-  // Vermilion
-  0x54: 0x05,
-  0x55: 0x05,
-  0x56: 0x05,
-  0x5d: 0x05,
-  0x5e: 0x05,
-  // Celadon
-  0x68: 0x06,
-  0x73: 0x06,
-  0x74: 0x06,
-  0x75: 0x06,
-  0x76: 0x06,
-  0x82: 0x06,
-  // Fuchsia
-  0x9b: 0x07,
-  0x9c: 0x07,
-  0x9d: 0x07,
-  0x9e: 0x07,
-  0x9f: 0x07,
-  0xa0: 0x07,
-  // Cinnabar
-  0xa5: 0x08,
-  0xa6: 0x08,
-  0xaf: 0x08,
-  0xb0: 0x08,
-  // Saffron (including Silph Co)
-  0xad: 0x0a,
-  0xae: 0x0a,
-  0xb8: 0x0a,
-  0xb9: 0x0a,
-  0xba: 0x0a,
-  0xbb: 0x0a,
-  0xbc: 0x0a,
-  0xbd: 0x0a,
-  0xbe: 0x0a,
-  0xbf: 0x0a,
-  0xc0: 0x0a,
-  0xd4: 0x0a,
-  0xfb: 0x0a,
-  0xfc: 0x0a,
-  0xfd: 0x0a,
-  0xfe: 0x0a,
-  0xff: 0x0a,
-  // General rule: If it's not a major outer map, we map it back to the last known exterior or Saffron by default if unknown,
-  // but the function below handles the fallback gracefully.
+  0x2d: 0x01, // Viridian Center
+  0x2e: 0x01, // Viridian Mart
+  0x2f: 0x01, // Viridian House
+  0x30: 0x01, // Viridian Gym
+
+  // Pewter City Interiors
+  0x38: 0x02, // Pewter Museum 1F
+  0x39: 0x02, // Pewter Museum 2F
+  0x3a: 0x02, // Pewter Gym
+  0x3b: 0x02, // Pewter Mart
+  0x3c: 0x02, // Pewter House 1
+  0x3d: 0x02, // Pewter House 2
+
+  // Cerulean City Interiors
+  0x41: 0x03, // Cerulean Gym
+  0x42: 0x03, // Cerulean House 1
+  0x43: 0x03, // Cerulean Center
+  0x44: 0x03, // Cerulean Mart
+  0x45: 0x03, // Cerulean House 2
+
+  // Lavender Town Interiors
+  0x94: 0x04, // Lavender Center
+  0x95: 0x04, // Pokémon Tower 1F
+  0x96: 0x04, // Pokémon Tower 2F
+  0x97: 0x04, // Pokémon Tower 3F
+  0x98: 0x04, // Pokémon Tower 4F
+  0x99: 0x04, // Pokémon Tower 5F
+  0x9a: 0x04, // Pokémon Tower 6F
+  0x9b: 0x04, // Pokémon Tower 7F
+
+  // etc... this is just a subset for now to help the graph traverse
 };
 
-export function getDistanceToMap(currentMapId: number, targetSlug: string): { distance: number; name: string } | null {
-  let startId = currentMapId;
-  if (INDOOR_TO_PARENT_MAP[startId] !== undefined) {
-    startId = INDOOR_TO_PARENT_MAP[startId] ?? startId;
+/**
+ * Find the distance between the starting map and a target map (identified by slug)
+ * Returns { distance, name } where distance is hops in the graph and name is target name.
+ */
+export function getDistanceToMap(startMapId: number, targetAid: number): { distance: number; name: string } | null {
+  // If we don't know the starting map, we can't calculate distance.
+  // Default to Saffron City if unknown, as it's the central hub in Kanto.
+  let currentMapId = startMapId;
+
+  // Resolve indoor maps to their parent outdoor area
+  const parentId = INDOOR_TO_PARENT_MAP[currentMapId];
+  if (parentId !== undefined) {
+    currentMapId = parentId;
   }
 
-  if (!GEN1_MAPS[startId]) {
-    startId = 0x0a; // Saffron City
+  // If we still don't know the map, default to Saffron
+  if (!GEN1_MAPS[currentMapId]) {
+    currentMapId = 0x0a; // Saffron City
   }
 
-  // Clean the target slug to match our internal naming conventions
-  const cleanTarget = targetSlug.replace('kanto-', '').replace('sea-', '');
-
-  const queue: { id: number; distance: number }[] = [{ id: startId, distance: 0 }];
+  // BFS to find the target aid
+  const queue: Array<{ id: number; dist: number }> = [{ id: currentMapId, dist: 0 }];
   const visited = new Set<number>();
-  visited.add(startId);
+  visited.add(currentMapId);
 
   while (queue.length > 0) {
-    const next = queue.shift();
-    if (!next) break;
-    const { id, distance } = next;
+    const current = queue.shift();
+    if (!current) break;
+    const { id, dist } = current;
     const node = GEN1_MAPS[id];
 
     if (!node) continue;
 
-    const nodeBase = node.slug.replace('-area', '');
-    const targetBase = cleanTarget.replace('-area', '');
-
-    if (nodeBase === targetBase || targetBase.startsWith(`${nodeBase}-`)) {
-      return { distance, name: node.name };
+    // Direct match (using AID now)
+    if (node.aid === targetAid) {
+      return { distance: dist, name: node.name };
     }
 
-    for (const neighborId of node.connections) {
-      if (!visited.has(neighborId)) {
-        visited.add(neighborId);
-        queue.push({ id: neighborId, distance: distance + 1 });
+    // Add connections
+    for (const nextId of node.connections) {
+      if (!visited.has(nextId)) {
+        visited.add(nextId);
+        queue.push({ id: nextId, dist: dist + 1 });
       }
     }
   }

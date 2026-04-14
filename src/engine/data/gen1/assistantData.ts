@@ -1,72 +1,80 @@
+import { GEN1_MAPS } from '../../mapGraph/gen1Graph';
+
 // This file maps internal game IDs to standard names or PokeAPI slugs
 
-/** Map slugs keyed by generation number. Gen 1 uses flat mapId→slug, Gen 2 uses mapGroup→mapId→slug */
-export const MAP_TO_SLUG: Record<number, Record<number, string> | Record<number, Record<number, string>>> = {
+/** Map Area IDs keyed by generation number. Gen 1 uses flat mapId→aid, Gen 2 uses mapGroup→mapId→aid */
+export const MAP_TO_AID: Record<number, Record<number, number> | Record<number, Record<number, number>>> = {
   1: {
-    0x00: 'pallet-town-area',
-    0x01: 'viridian-city-area',
-    0x02: 'pewter-city-area',
-    0x03: 'cerulean-city-area',
-    0x04: 'lavender-town-area',
-    0x05: 'vermilion-city-area',
-    0x06: 'celadon-city-area',
-    0x07: 'fuchsia-city-area',
-    0x08: 'cinnabar-island-area',
-    0x0a: 'saffron-city-area',
-    0x0c: 'route-1-area',
-    0x0d: 'route-2-area',
-    0x0e: 'route-3-area',
-    0x0f: 'route-4-area',
-    0x10: 'route-5-area',
-    0x11: 'route-6-area',
-    0x12: 'route-7-area',
-    0x13: 'route-8-area',
-    0x14: 'route-9-area',
-    0x15: 'kanto-route-10-area',
-    0x16: 'kanto-route-11-area',
-    0x17: 'kanto-route-12-area',
-    0x18: 'kanto-route-13-area',
-    0x19: 'kanto-route-14-area',
-    0x1a: 'kanto-route-15-area',
-    0x1b: 'kanto-route-16-area',
-    0x1c: 'kanto-route-17-area',
-    0x1d: 'kanto-route-18-area',
-    0x1e: 'kanto-route-19-area',
-    0x1f: 'kanto-route-20-area',
-    0x20: 'kanto-route-21-area',
-    0x21: 'kanto-route-22-area',
-    0x22: 'kanto-route-23-area',
-    0x23: 'kanto-route-24-area',
-    0x24: 'kanto-route-25-area',
-    0x28: 'route-8-area',
-    0x5a: 'viridian-forest-area',
-    0x5c: 'mt-moon-b1f',
-    0xca: 'rock-tunnel-1f',
-    0xc1: 'power-plant-area',
-    0xd4: 'saffron-city-area',
-    0xd6: 'kanto-safari-zone-center',
-    0xe2: 'cerulean-cave-1f',
-  } as Record<number, string>,
+    0x00: 285, // Pallet Town
+    0x01: 280, // Viridian City
+    0x02: 1200, // Pewter City
+    0x03: 281, // Cerulean City
+    0x04: 336, // Pokémon Tower (Closest for LavenderTown)
+    0x05: 282, // Vermilion City
+    0x06: 1300, // Celadon City
+    0x07: 284, // Fuchsia City
+    0x08: 279, // Cinnabar Island
+    0x0a: 762, // Saffron City
+    0x0c: 295, // Route 1
+    0x0d: 1040, // Route 2
+    0x0e: 297, // Route 3
+    0x0f: 298, // Route 4
+    0x10: 1047, // Route 5
+    0x11: 300, // Route 6
+    0x12: 301, // Route 7
+    0x13: 302, // Route 8
+    0x14: 303, // Route 9
+    0x15: 304, // Route 10
+    0x16: 305, // Route 11
+    0x17: 276, // Route 12
+    0x18: 306, // Route 13
+    0x19: 307, // Route 14
+    0x1a: 308, // Route 15
+    0x1b: 309, // Route 16
+    0x1c: 310, // Route 17
+    0x1d: 311, // Route 18
+    0x1e: 730, // Route 19
+    0x1f: 731, // Route 20
+    0x20: 732, // Route 21
+    0x21: 313, // Route 22
+    0x22: 329, // Route 23
+    0x23: 314, // Route 24
+    0x24: 315, // Route 25
+    0x28: 302, // Route 8
+    0x5a: 321, // Viridian Forest
+    0x5c: 290, // Mt. Moon
+    0xca: 292, // Rock Tunnel
+    0xc1: 330, // Power Plant
+    0xd4: 762, // Saffron City
+    0xd6: 431, // Safari Zone
+    0xe2: 323, // Cerulean Cave
+  } as Record<number, number>,
   2: {
     3: {
-      1: 'new-bark-town-area',
-      2: 'cherrygrove-city-area',
-      3: 'violet-city-area',
-      4: 'azalea-town-area',
-      5: 'cianwood-city-area',
-      6: 'goldenrod-city-area',
-      7: 'olivine-city-area',
-      8: 'ecruteak-city-area',
-      9: 'mahogany-town-area',
-      10: 'lake-of-rage-area',
-      11: 'blackthorn-city-area',
+      1: 184, // New Bark Town
+      2: 186, // Cherrygrove City
+      3: 189, // Violet City
+      4: 798, // Azalea Town
+      5: 235, // Cianwood City
+      6: 765, // Goldenrod City
+      7: 224, // Olivine City
+      8: 211, // Ecruteak City
+      9: 247, // Mahogany Town
+      10: 242, // Lake of Rage
+      11: 249, // Blackthorn City
     },
-  } as Record<number, Record<number, string>>,
+  } as Record<number, Record<number, number>>,
 };
 
-// Convenience re-exports for backward compatibility
-export const GEN1_MAP_TO_SLUG = MAP_TO_SLUG[1] as Record<number, string>;
-export const GEN2_MAP_TO_SLUG = MAP_TO_SLUG[2] as Record<number, Record<number, string>>;
+// Convenience re-exports for backward compatibility and internal tools
+export const GEN1_MAP_TO_AID = MAP_TO_AID[1] as Record<number, number>;
+export const GEN2_MAP_TO_AID = MAP_TO_AID[2] as Record<number, Record<number, number>>;
+
+// Create a mapping from PokeAPI Area ID (aid) to human-readable names
+// This is used for UI components that display encounter locations
+export const GEN1_AID_TO_NAME: Record<number, string> = Object.fromEntries(
+  Object.entries(GEN1_MAP_TO_AID).map(([mid, aid]) => [aid, GEN1_MAPS[Number(mid)]?.name || 'Unknown Location']),
+);
 
 export const GEN1_ITEMS = {
   MOON_STONE: 0x0a,

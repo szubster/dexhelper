@@ -1,3 +1,4 @@
+import 'fake-indexeddb/auto';
 import { beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
 import { dexDataLoader } from '../../../db/DexDataLoader';
 import { pokeDB } from '../../../db/PokeDB';
@@ -22,6 +23,7 @@ describe('fetchAssistantApiData', () => {
     } as unknown as SaveData;
 
     vi.spyOn(pokeDB, 'getAllEncounters').mockResolvedValue([]);
+    vi.spyOn(pokeDB, 'getAllAreas').mockResolvedValue([]);
     vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockResolvedValue([
       { id: 1, sid: 1, cid: 101, n: 'bulbasaur' } as unknown as PokemonMetadata,
       { id: 2, sid: 2, cid: 102, n: 'ivysaur' } as unknown as PokemonMetadata,

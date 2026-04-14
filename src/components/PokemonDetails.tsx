@@ -10,6 +10,7 @@ import {
   type PokemonMetadata,
   REVERSE_METHOD_MAP,
 } from '../db/schema';
+import { GEN1_AID_TO_NAME } from '../engine/data/gen1/assistantData';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
 import { cn } from '../utils/cn';
@@ -146,7 +147,7 @@ export function PokemonDetails({
 
       return versionEncounters.flatMap((enc) => {
         return enc.d.map((detail) => ({
-          name: enc.slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
+          name: GEN1_AID_TO_NAME[enc.aid] || `Area #${enc.aid}`,
           details: `${detail.c}% chance, Lv ${detail.min}-${detail.max} (${REVERSE_METHOD_MAP[detail.m] || 'Walk'})`,
         }));
       });
