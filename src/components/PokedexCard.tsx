@@ -1,5 +1,6 @@
 import { useNavigate } from '@tanstack/react-router';
 import { ChevronRight, CircleDot, Monitor, Sparkles } from 'lucide-react';
+import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
@@ -15,7 +16,9 @@ export interface PokedexCardProps {
   genConfig: ReturnType<typeof getGenerationConfig> | null;
 }
 
-export function PokedexCard({
+// ⚡ Bolt: Wrapped PokedexCard in React.memo to prevent unnecessary re-renders when parent PokedexGrid updates.
+// This prevents up to 251 (Gen 2 max dex) unneeded DOM re-evaluations on every search keystroke, significantly reducing main thread blocking time.
+export const PokedexCard = React.memo(function PokedexCard({
   pokemon,
   idx,
   saveData,
@@ -175,4 +178,4 @@ export function PokedexCard({
       </div>
     </button>
   );
-}
+});
