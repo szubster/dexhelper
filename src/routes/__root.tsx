@@ -14,6 +14,15 @@ const TanStackRouterDevtools =
         })),
       );
 
+const ReactQueryDevtools =
+  process.env.NODE_ENV === 'production' || !!window.navigator.webdriver
+    ? () => null // Render nothing in production or automated tests
+    : React.lazy(() =>
+        import('@tanstack/react-query-devtools').then((res) => ({
+          default: res.ReactQueryDevtools,
+        })),
+      );
+
 export interface RootContext {
   queryClient: QueryClient;
 }
@@ -39,6 +48,7 @@ function RootComponent() {
       <Outlet />
       <Suspense>
         <TanStackRouterDevtools />
+        <ReactQueryDevtools />
       </Suspense>
     </AppLayout>
   );
