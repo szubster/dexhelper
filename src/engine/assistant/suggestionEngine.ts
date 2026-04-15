@@ -79,10 +79,22 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     localSlug = 'new-bark-town-area';
   }
 
+  // ⚡ Bolt: Cache and deduplicate in-flight network promises to avoid redundant API calls
+  // Impact: Reduces duplicate network requests when fetching shared resources (like evolution chains)
+  // biome-ignore lint/suspicious/noExplicitAny: Cache value can be different Pokeapi objects
+  const resourceCache = new Map<string, Promise<any>>();
+  const getResource = (url: string) => {
+    if (!resourceCache.has(url)) {
+      resourceCache.set(url, pokeapi.resource(url));
+    }
+    // biome-ignore lint/style/noNonNullAssertion: Set on previous line
+    return resourceCache.get(url)!;
+  };
+
   let localEncounters: PokemonEncounter[] = [];
   if (localSlug) {
     try {
-      const areaData = await pokeapi.resource(`https://pokeapi.co/api/v2/location-area/${localSlug}`);
+      const areaData = await getResource(`https://pokeapi.co/api/v2/location-area/${localSlug}`);
       localEncounters = areaData.pokemon_encounters || [];
     } catch (e) {
       console.error('Local area fetch failed', e);
@@ -93,44 +105,51 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const missingChains: Record<number, EvolutionChain> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounter[]>> = {};
 
-  const missingPromises = queryTargets.map(async (pid: number) => {
-    try {
-      const [encs, species] = await Promise.all([
-        pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${pid}/encounters`),
-        pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`),
-      ]);
-      missingEncounters[pid] = encs;
+  const missingPromises = queryTargets.map((pid: number) => {
+    const encPromise = getResource(`https://pokeapi.co/api/v2/pokemon/${pid}/encounters`)
+      .then((encs) => {
+        missingEncounters[pid] = encs;
+      })
+      .catch((e) => {
+        console.error('Encounter fetch failed', pid, e);
+        missingEncounters[pid] = [];
+      });
 
-      const chain = await pokeapi.resource(species.evolution_chain.url);
-      missingChains[pid] = chain;
-    } catch (_e) {
-      missingEncounters[pid] = [];
-    }
+    const chainPromise = getResource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`)
+      .then((species) => getResource(species.evolution_chain.url))
+      .then((chain) => {
+        missingChains[pid] = chain;
+      })
+      .catch((e) => {
+        console.error('Missing chain fetch failed', pid, e);
+      });
+
+    return Promise.all([encPromise, chainPromise]);
   });
 
   const partyEvolutions: Record<number, EvolutionChain> = {};
-  const partyPromises = (saveData.party || []).map(async (pid: number) => {
-    try {
-      const species = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`);
-      const chainUrl = species.evolution_chain.url;
-      const chain = await pokeapi.resource(chainUrl);
-      partyEvolutions[pid] = chain;
-    } catch (e) {
-      console.error('Evo fetch failed', pid, e);
-    }
+  const partyPromises = (saveData.party || []).map((pid: number) => {
+    return getResource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`)
+      .then((species) => getResource(species.evolution_chain.url))
+      .then((chain) => {
+        partyEvolutions[pid] = chain;
+      })
+      .catch((e) => {
+        console.error('Evo fetch failed', pid, e);
+      });
   });
 
   const giftChains: Record<number, EvolutionChain> = {};
-  const giftPromises = Object.keys(STATIC_GIFT_DATA).map(async (pidStr) => {
+  const giftPromises = Object.keys(STATIC_GIFT_DATA).map((pidStr) => {
     const pid = parseInt(pidStr, 10);
-    try {
-      const species = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`);
-      const chainUrl = species.evolution_chain.url;
-      const chain = await pokeapi.resource(chainUrl);
-      giftChains[pid] = chain;
-    } catch (e) {
-      console.error('Gift fetch failed', pid, e);
-    }
+    return getResource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`)
+      .then((species) => getResource(species.evolution_chain.url))
+      .then((chain) => {
+        giftChains[pid] = chain;
+      })
+      .catch((e) => {
+        console.error('Gift fetch failed', pid, e);
+      });
   });
 
   await Promise.all([...missingPromises, ...partyPromises, ...giftPromises]);
@@ -152,12 +171,15 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
 
   const ancestorData: Record<number, LocationAreaEncounter[]> = {};
   await Promise.all(
-    Array.from(uniqueAncestors).map(async (aid) => {
-      try {
-        ancestorData[aid] = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`);
-      } catch (_e) {
-        ancestorData[aid] = [];
-      }
+    Array.from(uniqueAncestors).map((aid) => {
+      return getResource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`)
+        .then((encs) => {
+          ancestorData[aid] = encs;
+        })
+        .catch((e) => {
+          console.error('Ancestor fetch failed', aid, e);
+          ancestorData[aid] = [];
+        });
     }),
   );
 
