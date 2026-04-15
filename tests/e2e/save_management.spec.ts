@@ -1,10 +1,12 @@
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
 import { argosScreenshot } from '../../src/utils/argos';
+import { clearStorage, waitForSync } from './test-utils';
 
 test.describe('Save Management', () => {
   test('should upload a save file and persist it on reload', async ({ page }) => {
-    await page.goto('/');
+    await clearStorage(page);
+    await page.goto('.');
 
     // 1. Initial State: Should show "Initialize Pokedex" button (clean state)
     await expect(page.getByText(/Initialize Pokedex/i)).toBeVisible();
@@ -34,6 +36,7 @@ test.describe('Save Management', () => {
 
     // 5. Persistence: Reload page
     await page.reload();
+    await waitForSync(page);
 
     // 6. Verify it's still hydrated (persisted in localStorage)
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();

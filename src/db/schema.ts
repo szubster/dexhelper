@@ -7,7 +7,7 @@ import type { DBSchema } from 'idb';
 
 export const DB_CONFIG = {
   NAME: 'PokeDB',
-  VERSION: 2,
+  VERSION: 3,
   STORES: {
     POKEMON: 'pokemon',
     ENCOUNTERS: 'encounters',
@@ -138,7 +138,6 @@ export interface CompactEvolutionDetail {
   item?: number; // item id
   held?: number; // held item id
   time?: number; // 1: day, 2: night
-  rel_s?: number; // relative_physical_stats (-1, 0, 1)
 }
 
 export interface CompactChainLink {
@@ -156,7 +155,6 @@ export interface PokemonMetadata {
   id: number; // pokemon id
   sid: number; // species id
   n: string; // name
-  s: number[]; // stats: [hp, atk, def, spa, spd, spe]
   cid: number; // evolution chain id
   cr: number; // capture rate
   gr: number; // gender rate
@@ -204,6 +202,6 @@ export interface PokeDBSchema extends DBSchema {
   };
   [DB_CONFIG.STORES.METADATA]: {
     key: string;
-    value: string;
+    value: { key: string; value: string };
   };
 }

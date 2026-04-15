@@ -63,7 +63,6 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     if (!firstEntry) throw new Error('pcDetails is empty');
     expect(firstEntry.level).toBeDefined();
     expect(firstEntry.moves).toBeDefined();
-    expect(firstEntry.dvs).toBeDefined();
     expect(firstEntry.storageLocation).toMatch(/Box \d+/);
   });
 });

@@ -374,15 +374,7 @@ export function generateSuggestions(
     if (tr === EVO_TRIGGER.LEVEL_UP) {
       if (min_l) {
         const isReady = bestInstance.level >= min_l;
-        let specificReq = `(needs Lv. ${min_l})`;
-
-        // Handle stat-based (Tyrogue)
-        const stat = detail.rel_s;
-        if (stat !== undefined && stat !== null) {
-          const statMap = { 1: 'Attack > Defense', [-1]: 'Attack < Defense', 0: 'Attack = Defense' };
-          const statDesc = statMap[stat as keyof typeof statMap] || 'specific stats';
-          specificReq = `(needs Lv. ${min_l} and ${statDesc})`;
-        }
+        const specificReq = `(needs Lv. ${min_l})`;
 
         suggestions.push({
           id: `evo-lvl-${targetId}`,

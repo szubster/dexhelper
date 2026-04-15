@@ -3,7 +3,7 @@ import { argosScreenshot } from '../../src/utils/argos';
 
 test.describe('Dexhelper App', () => {
   test('should load the main page', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('.');
 
     // Wait for the container we expect to be visible, or at least the body
     await expect(page.locator('body')).toBeVisible();

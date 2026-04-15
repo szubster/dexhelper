@@ -214,6 +214,7 @@ export function AssistantSuggestionCard({
 
   return (
     <div
+      data-testid="assistant-suggestion-card"
       className={`relative rounded-2xl border ${isCritical ? 'animate-[pulse_2s_infinite] border-red-500' : style.color} group overflow-hidden bg-zinc-900 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
     >
       {!hasMultiple && s.pokemonId ? (

@@ -34,6 +34,10 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
   const displayLimit = genConfig?.maxDex ?? 151;
 
+  if (process.env.NODE_ENV === 'development') {
+    console.log('[PokedexGrid] saveData:', !!saveData, 'gen:', saveData?.generation, 'limit:', displayLimit);
+  }
+
   const partySet = React.useMemo(() => new Set(saveData?.party || []), [saveData?.party]);
   const pcSet = React.useMemo(() => new Set(saveData?.pc || []), [saveData?.pc]);
   // ⚡ Bolt: Removed redundant shinyPartySet and shinyPcSet which were unused and doing O(N) operations.

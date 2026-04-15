@@ -5,11 +5,37 @@ import { DB_CONFIG } from '../schema';
 
 // Mock build hash
 vi.stubGlobal('__POKEDATA_HASH__', 'test-hash');
-vi.stubGlobal('fetch', vi.fn());
+vi.stubGlobal(
+  'fetch',
+  vi.fn().mockResolvedValue({
+    ok: true,
+    json: async () => ({
+      hash: 'test-hash',
+      pokemon: [],
+      encounters: [],
+      chains: [],
+      locations: [],
+      areas: [],
+      locationIndex: [],
+    }),
+  } as Response),
+);
 
 describe('PokeDB', () => {
   beforeEach(async () => {
     vi.clearAllMocks();
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        hash: 'test-hash',
+        pokemon: [],
+        encounters: [],
+        chains: [],
+        locations: [],
+        areas: [],
+        locationIndex: [],
+      }),
+    } as Response);
     pokeDB._resetSync();
     const db = await getDB();
     const tx = db.transaction(Object.values(DB_CONFIG.STORES), 'readwrite');
@@ -25,7 +51,6 @@ describe('PokeDB', () => {
           id: 1,
           sid: 1,
           n: 'Bulbasaur',
-          s: [45, 49, 49, 65, 65, 45],
           cid: 1,
           cr: 45,
           gr: 1,
@@ -40,6 +65,7 @@ describe('PokeDB', () => {
     };
 
     vi.mocked(fetch).mockResolvedValue({
+      ok: true,
       json: async () => mockData,
     } as Response);
 
@@ -55,8 +81,8 @@ describe('PokeDB', () => {
     const mockData = {
       hash: 'bulk-hash',
       pokemon: [
-        { id: 1, sid: 1, n: 'P1', s: [1, 1, 1, 1, 1, 1], cid: 1, cr: 10, gr: 1, baby: false },
-        { id: 2, sid: 2, n: 'P2', s: [2, 2, 2, 2, 2, 2], cid: 1, cr: 10, gr: 1, baby: false },
+        { id: 1, sid: 1, n: 'P1', cid: 1, cr: 10, gr: 1, baby: false },
+        { id: 2, sid: 2, n: 'P2', cid: 1, cr: 10, gr: 1, baby: false },
       ],
       encounters: [],
       chains: [],
@@ -66,6 +92,7 @@ describe('PokeDB', () => {
     };
 
     vi.mocked(fetch).mockResolvedValue({
+      ok: true,
       json: async () => mockData,
     } as Response);
 

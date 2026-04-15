@@ -21,6 +21,7 @@ test.describe('Assistant Page', () => {
 
     // 5. Verify nearby suggestions
     // In the rebased version, we expect "Nearby:" titles in the cards for nearby Pokemon
+    await expect(page.locator('[data-testid="assistant-suggestion-card"]').first()).toBeVisible();
     await expect(page.getByText(/Nearby:/i).first()).toBeVisible();
 
     // 6. Screenshot for visual regression
@@ -30,7 +31,7 @@ test.describe('Assistant Page', () => {
   test('should show local catch suggestions if applicable', async ({ page }) => {
     // This would require a save at a specific location, but we can verify the UI structure even with just nearby.
     await initializeWithSave(page);
-    await page.goto('/assistant');
+    await page.goto('assistant');
 
     await expect(page.getByText(/Wild Encounters/i)).toBeVisible({ timeout: 15000 });
 

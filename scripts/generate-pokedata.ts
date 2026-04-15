@@ -104,7 +104,6 @@ async function main() {
       id: pData.id,
       sid: i,
       n: sData.names.find((n: any) => n.language.name === 'en')?.name || sData.name,
-      s: pData.stats.map((s: any) => s.base_stat),
       cid: chainId,
       cr: sData.capture_rate,
       gr: sData.gender_rate,
@@ -237,7 +236,6 @@ async function main() {
         item: ed.item ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
         held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
         time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
-        rel_s: ed.relative_physical_stats ?? undefined,
       })),
     });
 

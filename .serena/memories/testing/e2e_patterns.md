@@ -16,4 +16,8 @@ Visual accuracy is verified using `argosScreenshot(page, 'name')`.
 
 ## 3. Locator Philosophy
 - Prefer user-visible locators like `getByText`, `getByLabel`, or `getByRole`.
-- Use `data-testid="pokedex-card"` and `data-pokemon-id` attributes for precise grid assertions.
+- **Exact Matching**: For generic strings like locations ("ROUTE 1"), always use `{ exact: true }` to avoid matching longer strings ("ROUTE 10", "ROUTE 11").
+- **Integrated Search**: The Pokedex uses an integrated search bar in the header. Use `page.getByPlaceholder('Search Pokémon...')` for reliable interactions.
+- **Sync Overlays**: The app uses IndexedDB hydration. Utilities in `test-utils.ts` handle waiting for synchronization overlays to disappear.
+- **Test Stability**: Avoid using hardcoded timeouts; rely on Playwright's auto-waiting or `waitForSelector` for dynamic data.
+- **Identifiers**: Use `data-testid="pokedex-card"` and `data-pokemon-id` attributes for precise grid assertions.

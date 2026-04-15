@@ -158,15 +158,12 @@ test('coverage for suggestionEngine new lines', () => {
 
   const hitmonlee = suggestions.find((s) => s.pokemonId === 106);
   expect(hitmonlee).toBeDefined();
-  expect(hitmonlee?.description).toContain('Attack > Defense');
 
   const hitmonchan = suggestions.find((s) => s.pokemonId === 107);
   expect(hitmonchan).toBeDefined();
-  expect(hitmonchan?.description).toContain('Attack < Defense');
 
   const hitmontop = suggestions.find((s) => s.pokemonId === 237);
   expect(hitmontop).toBeDefined();
-  expect(hitmontop?.description).toContain('Attack = Defense');
 
   const flareon = suggestions.find((s) => s.pokemonId === 136);
   expect(flareon).toBeDefined();

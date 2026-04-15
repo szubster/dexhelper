@@ -1,6 +1,6 @@
 import DataLoader from 'dataloader';
 import { pokeDB } from './PokeDB';
-import type { CompactEvolutionChain, LocationAreaEncounters, PokemonMetadata } from './schema';
+import type { CompactChainLink, CompactEvolutionChain, LocationAreaEncounters, PokemonMetadata } from './schema';
 
 /**
  * Request Batching layer for IndexedDB.
@@ -29,14 +29,31 @@ export const dexDataLoader = {
 
   getPokemonDetails: async (id: number) => {
     const pokemon = await dexDataLoader.pokemon.load(id);
-
     const encounters = await dexDataLoader.encounters.load(id);
     const evolutionChain = pokemon.cid ? await dexDataLoader.chains.load(pokemon.cid) : undefined;
+
+    // Build a map of names for all species in the evolution chain
+    const nameMap: Record<number, string> = {};
+    if (evolutionChain) {
+      const traverse = (node: CompactChainLink) => {
+        nameMap[node.sid] = ''; // Placeholder
+        node.evolves_to.forEach(traverse);
+      };
+      traverse(evolutionChain.chain);
+    }
+    if (pokemon.pre) nameMap[pokemon.pre] = '';
+
+    const sids = Object.keys(nameMap).map(Number);
+    const chainSpecies = await Promise.all(sids.map((sid) => dexDataLoader.pokemon.load(sid)));
+    for (const p of chainSpecies) {
+      if (p) nameMap[p.id] = p.n;
+    }
 
     return {
       pokemon,
       encounters: encounters?.encounters || [],
       evolutionChain,
+      nameMap,
     };
   },
 };

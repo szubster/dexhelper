@@ -10,7 +10,7 @@ import {
   type PokemonMetadata,
   REVERSE_METHOD_MAP,
 } from '../db/schema';
-import { GEN1_AID_TO_NAME } from '../engine/data/gen1/assistantData';
+import { GEN1_AID_TO_NAME, GEN1_MAP_TO_AID } from '../engine/data/gen1/assistantData';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
 import { cn } from '../utils/cn';
@@ -20,7 +20,6 @@ import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbabili
 import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
 import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
 import { PokemonLocations } from './pokemon/details/PokemonLocations';
-import { PokemonStats } from './pokemon/details/PokemonStats';
 
 interface PokemonDetailsProps {
   pokemonId: number;
@@ -59,6 +58,8 @@ export function PokemonDetails({
   const pokemon = allData?.pokemon as PokemonMetadata | undefined;
   const encounters = allData?.encounters || [];
   const evolutionData = allData?.evolutionChain as CompactEvolutionChain | undefined;
+  // biome-ignore lint/suspicious/noExplicitAny: nameMap is injected for UI convenience
+  const nameMap = (allData as any)?.nameMap as Record<number, string> | undefined;
 
   const catchRate = pokemon?.cr ?? null;
 
@@ -88,10 +89,10 @@ export function PokemonDetails({
 
     return {
       fromId,
-      fromName: 'Earlier Form',
+      fromName: nameMap?.[fromId] || 'Earlier Form',
       method: methodStr,
     };
-  }, [pokemon, evolutionData, pokemonId]);
+  }, [pokemon, evolutionData, pokemonId, nameMap]);
 
   const evolvesTo = React.useMemo(() => {
     if (!pokemon || !evolutionData) return [];
@@ -122,12 +123,12 @@ export function PokemonDetails({
         }
         return {
           id,
-          name: 'Next Form',
+          name: nameMap?.[id] || 'Next Form',
           method: methodStr,
         };
       })
       .filter((evo): evo is { id: number; name: string; method: string } => evo !== null);
-  }, [pokemon, evolutionData, pokemonId, saveData]);
+  }, [pokemon, evolutionData, nameMap, saveData, pokemonId]);
 
   const breedingInfo = React.useMemo(() => {
     if (!pokemon?.baby || !evolutionData) return null;
@@ -135,21 +136,29 @@ export function PokemonDetails({
 
     return {
       parentIds: [evolutionData.chain.sid],
-      parentNames: ['Evolution Line'],
+      parentNames: [nameMap?.[evolutionData.chain.sid] || 'Evolution Line'],
       method: 'Breed evolved form',
     };
-  }, [pokemon, evolutionData, saveData]);
+  }, [pokemon, evolutionData, saveData, nameMap]);
 
   const getLocationsForVersion = React.useCallback(
     (version: string) => {
       const versionId = (POKE_VERSION_MAP as Record<string, number>)[version] || 0;
       const versionEncounters = encounters.filter((e) => e.v === versionId);
+      const aidToName = GEN1_AID_TO_NAME as Record<number, string>;
+      const mapToAid = GEN1_MAP_TO_AID as Record<number, number>;
 
       return versionEncounters.flatMap((enc) => {
-        return enc.d.map((detail) => ({
-          name: GEN1_AID_TO_NAME[enc.aid] || `Area #${enc.aid}`,
-          details: `${detail.c}% chance, Lv ${detail.min}-${detail.max} (${REVERSE_METHOD_MAP[detail.m] || 'Walk'})`,
-        }));
+        return enc.d.map((detail) => {
+          const aid = enc.aid;
+          const mappedAid = mapToAid[aid];
+          const name = (mappedAid !== undefined ? aidToName[mappedAid] : null) || aidToName[aid] || `Area #${aid}`;
+
+          return {
+            name,
+            details: `${detail.c}% chance, Lv ${detail.min}-${detail.max} (${REVERSE_METHOD_MAP[detail.m] || 'Walk'})`,
+          };
+        });
       });
     },
     [encounters],
@@ -275,10 +284,8 @@ export function PokemonDetails({
 
         <div className="custom-scrollbar flex-1 overflow-y-auto p-6 sm:p-10">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-            {/* Left Column: Stats & Catching */}
+            {/* Left Column: Catching */}
             <div className="space-y-10 lg:col-span-5">
-              <div className="space-y-8">{pokemon && <PokemonStats pokemonData={pokemon} saveData={saveData} />}</div>
-
               {catchRate !== null && (
                 <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />
               )}
@@ -286,7 +293,7 @@ export function PokemonDetails({
 
             {/* Right Column: Details & Locations */}
             <div className="space-y-12 lg:col-span-7">
-              <PokemonCaughtDetails yourPokemon={yourPokemon} saveData={saveData} />
+              <PokemonCaughtDetails yourPokemon={yourPokemon} />
 
               <PokemonEvolutions
                 evoReq={evoReq}
