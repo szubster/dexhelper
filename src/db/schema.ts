@@ -115,7 +115,6 @@ export interface LocationAreaEncounters {
 export interface GenericLocation {
   id: number; // ROM Map ID (e.g. 0x01 for Viridian City)
   n: string; // display name
-  coords?: { x: number; y: number }; // town map coords
   parentId?: number; // ROM Map ID of parent (e.g., city containing this building)
   connections?: number[]; // Connected Map IDs for navigation
 }
@@ -141,7 +140,7 @@ export interface CompactEvolutionDetail {
 }
 
 export interface CompactChainLink {
-  sid: number; // species id
+  id: number; // species id
   evolves_to: CompactChainLink[];
   details: CompactEvolutionDetail[];
 }
@@ -153,7 +152,6 @@ export interface CompactEvolutionChain {
 
 export interface PokemonMetadata {
   id: number; // pokemon id
-  sid: number; // species id
   n: string; // name
   cid: number; // evolution chain id
   cr: number; // capture rate

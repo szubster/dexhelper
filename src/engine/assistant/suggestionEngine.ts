@@ -34,7 +34,7 @@ export interface AssistantApiData {
  * Helper function to find all Pokemon IDs in an evolution chain.
  */
 function _getChainIds(node: CompactChainLink): number[] {
-  const id = node.sid;
+  const id = node.id;
   return [id, ...node.evolves_to.flatMap(_getChainIds)];
 }
 
@@ -42,7 +42,7 @@ function _getChainIds(node: CompactChainLink): number[] {
  * Helper function to find all ancestors of a target Pokemon ID in an evolution chain.
  */
 function _getAncestors(node: CompactChainLink, target: number, path: number[] = []): number[] | null {
-  const id = node.sid;
+  const id = node.id;
   if (id === target) {
     return path;
   }
@@ -339,7 +339,7 @@ export function generateSuggestions(
       parent: CompactChainLink | null = null,
     ): { targetNode: CompactChainLink; parentNode: CompactChainLink | null } | null => {
       if (!node) return null;
-      if (node.sid === targetId) return { targetNode: node, parentNode: parent };
+      if (node.id === targetId) return { targetNode: node, parentNode: parent };
       if (node.evolves_to) {
         for (const child of node.evolves_to) {
           const res = findNodeAndParent(child, node);
@@ -352,7 +352,7 @@ export function generateSuggestions(
     const nodes = findNodeAndParent(chain.chain);
     if (!nodes?.parentNode) return;
 
-    const parentId = nodes.parentNode.sid;
+    const parentId = nodes.parentNode.id;
     const ownedInstances = instancesBySpecies.get(parentId) || [];
     if (ownedInstances.length === 0) return;
 

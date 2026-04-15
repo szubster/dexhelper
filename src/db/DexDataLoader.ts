@@ -46,15 +46,15 @@ export const dexDataLoader = {
     const nameMap: Record<number, string> = {};
     if (evolutionChain) {
       const traverse = (node: CompactChainLink) => {
-        nameMap[node.sid] = ''; // Placeholder
+        nameMap[node.id] = ''; // Placeholder
         node.evolves_to.forEach(traverse);
       };
       traverse(evolutionChain.chain);
     }
     if (pokemon.pre) nameMap[pokemon.pre] = '';
 
-    const sids = Object.keys(nameMap).map(Number);
-    const chainSpecies = await Promise.all(sids.map((sid) => dexDataLoader.pokemon.load(sid)));
+    const ids = Object.keys(nameMap).map(Number);
+    const chainSpecies = await Promise.all(ids.map((id) => dexDataLoader.pokemon.load(id)));
     for (const p of chainSpecies) {
       if (p) nameMap[p.id] = p.n;
     }

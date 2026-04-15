@@ -26,12 +26,12 @@ describe('fetchAssistantApiData', () => {
     vi.spyOn(pokeDB, 'getAllAreas').mockResolvedValue([]);
     vi.spyOn(pokeDB, 'getLocations').mockResolvedValue([]);
     vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockResolvedValue([
-      { id: 1, sid: 1, cid: 101, n: 'bulbasaur' } as unknown as PokemonMetadata,
-      { id: 2, sid: 2, cid: 102, n: 'ivysaur' } as unknown as PokemonMetadata,
+      { id: 1, cid: 101, n: 'bulbasaur' } as unknown as PokemonMetadata,
+      { id: 2, cid: 102, n: 'ivysaur' } as unknown as PokemonMetadata,
     ]);
     vi.spyOn(dexDataLoader.chains, 'loadMany').mockResolvedValue([
       new Error('Database failure'),
-      { id: 102, chain: { sid: 2, evolves_to: [] } } as unknown as CompactEvolutionChain,
+      { id: 102, chain: { id: 2, evolves_to: [] } } as unknown as CompactEvolutionChain,
     ]);
 
     const result = await fetchAssistantApiData(mockSaveData, []);

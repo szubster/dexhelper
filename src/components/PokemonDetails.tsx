@@ -69,7 +69,7 @@ export function PokemonDetails({
     let methodStr = 'Unknown';
 
     const findEvoDetails = (node: CompactChainLink): CompactEvolutionDetail[] | null => {
-      if (node.sid === pokemonId) return node.details;
+      if (node.id === pokemonId) return node.details;
       for (const next of node.evolves_to) {
         const found = findEvoDetails(next);
         if (found) return found;
@@ -97,7 +97,7 @@ export function PokemonDetails({
     if (!pokemon || !evolutionData) return [];
 
     const findEvolutions = (node: CompactChainLink): CompactChainLink[] | null => {
-      if (node.sid === pokemonId) return node.evolves_to;
+      if (node.id === pokemonId) return node.evolves_to;
       for (const next of node.evolves_to) {
         const found = findEvolutions(next);
         if (found) return found;
@@ -110,7 +110,7 @@ export function PokemonDetails({
 
     return evos
       .map((evo: CompactChainLink) => {
-        const id = evo.sid;
+        const id = evo.id;
         if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
 
         let methodStr = 'Unknown';
@@ -134,8 +134,8 @@ export function PokemonDetails({
     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
 
     return {
-      parentIds: [evolutionData.chain.sid],
-      parentNames: [nameMap?.[evolutionData.chain.sid] || 'Evolution Line'],
+      parentIds: [evolutionData.chain.id],
+      parentNames: [nameMap?.[evolutionData.chain.id] || 'Evolution Line'],
       method: 'Breed evolved form',
     };
   }, [pokemon, evolutionData, saveData, nameMap]);

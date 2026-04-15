@@ -134,7 +134,6 @@ async function main() {
 
     pokemon.push({
       id: pData.id,
-      sid: i,
       n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
       cid: chainId,
       cr: sData.capture_rate,
@@ -263,7 +262,7 @@ async function main() {
     if (!cData) continue;
     
     const mapLink = (link: PokeApiChainLink): CompactChainLink => ({
-      sid: parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10),
+      id: parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10),
       evolves_to: link.evolves_to.map(mapLink),
       details: link.evolution_details.map((ed) => ({
         tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,

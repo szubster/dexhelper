@@ -39,10 +39,10 @@ test('coverage for suggestionEngine new lines', () => {
       196: {
         id: 1,
         chain: {
-          sid: 133,
+          id: 133,
           evolves_to: [
             {
-              sid: 196,
+              id: 196,
               evolves_to: [],
               details: [{ tr: 1, min_h: 220, time: 1 }],
             },
@@ -53,10 +53,10 @@ test('coverage for suggestionEngine new lines', () => {
       197: {
         id: 1,
         chain: {
-          sid: 133,
+          id: 133,
           evolves_to: [
             {
-              sid: 197,
+              id: 197,
               evolves_to: [],
               details: [{ tr: 1, min_h: 220, time: 2 }],
             },
@@ -67,10 +67,10 @@ test('coverage for suggestionEngine new lines', () => {
       106: {
         id: 2,
         chain: {
-          sid: 236,
+          id: 236,
           evolves_to: [
             {
-              sid: 106,
+              id: 106,
               evolves_to: [],
               details: [{ tr: 1, min_l: 20, rel_s: 1 }],
             },
@@ -81,10 +81,10 @@ test('coverage for suggestionEngine new lines', () => {
       107: {
         id: 2,
         chain: {
-          sid: 236,
+          id: 236,
           evolves_to: [
             {
-              sid: 107,
+              id: 107,
               evolves_to: [],
               details: [{ tr: 1, min_l: 20, rel_s: -1 }],
             },
@@ -95,10 +95,10 @@ test('coverage for suggestionEngine new lines', () => {
       237: {
         id: 2,
         chain: {
-          sid: 236,
+          id: 236,
           evolves_to: [
             {
-              sid: 237,
+              id: 237,
               evolves_to: [],
               details: [{ tr: 1, min_l: 20, rel_s: 0 }],
             },
@@ -109,10 +109,10 @@ test('coverage for suggestionEngine new lines', () => {
       136: {
         id: 1,
         chain: {
-          sid: 133,
+          id: 133,
           evolves_to: [
             {
-              sid: 136,
+              id: 136,
               evolves_to: [],
               details: [{ tr: 3, item: 82 }], // Fire Stone
             },
@@ -123,13 +123,13 @@ test('coverage for suggestionEngine new lines', () => {
       68: {
         id: 3,
         chain: {
-          sid: 66,
+          id: 66,
           evolves_to: [
             {
-              sid: 67,
+              id: 67,
               evolves_to: [
                 {
-                  sid: 68,
+                  id: 68,
                   evolves_to: [],
                   details: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
                 },
@@ -198,10 +198,10 @@ test('coverage for suggestionEngine edge cases', () => {
       135: {
         id: 1,
         chain: {
-          sid: 133,
+          id: 133,
           evolves_to: [
             {
-              sid: 135,
+              id: 135,
               evolves_to: [],
               details: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
             },

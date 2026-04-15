@@ -55,20 +55,20 @@ describe('useAssistant - generateSuggestions logic', () => {
     missingChains: {
       39: {
         id: 1,
-        chain: { sid: 39, evolves_to: [], details: [] },
+        chain: { id: 13, evolves_to: [], details: [] },
       },
       40: {
         id: 1,
-        chain: { sid: 39, evolves_to: [{ sid: 40, evolves_to: [], details: [{ tr: 3, item: 81 }] }], details: [] },
+        chain: { id: 39, evolves_to: [{ id: 40, evolves_to: [], details: [{ tr: 3, item: 81 }] }], details: [] },
       },
       62: {
         id: 2,
         chain: {
-          sid: 60,
+          id: 60,
           evolves_to: [
             {
-              sid: 61,
-              evolves_to: [{ sid: 62, evolves_to: [], details: [{ tr: 3, item: 84 }] }],
+              id: 61,
+              evolves_to: [{ id: 62, evolves_to: [], details: [{ tr: 3, item: 84 }] }],
               details: [{ tr: 1, min_l: 25 }],
             },
           ],

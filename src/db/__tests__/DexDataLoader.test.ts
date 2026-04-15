@@ -43,7 +43,7 @@ describe('DexDataLoader', () => {
   it('loads chains correctly', async () => {
     vi.mocked(pokeDB.getChain).mockResolvedValue({
       id: 10,
-      chain: { sid: 1, evolves_to: [], details: [] },
+      chain: { id: 1, evolves_to: [], details: [] },
     } as CompactEvolutionChain);
 
     const c10 = await dexDataLoader.chains.load(10);
@@ -59,7 +59,7 @@ describe('DexDataLoader', () => {
     });
     vi.mocked(pokeDB.getChain).mockResolvedValue({
       id: 10,
-      chain: { sid: 1, evolves_to: [], details: [] },
+      chain: { id: 1, evolves_to: [], details: [] },
     } as CompactEvolutionChain);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({ 1: 'Area 1' });
 
