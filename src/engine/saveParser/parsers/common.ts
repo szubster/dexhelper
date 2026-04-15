@@ -15,7 +15,6 @@ export interface PokemonInstance {
     location: number;
     locationName?: string;
   };
-  dvs: { hp: number; atk: number; def: number; spd: number; spc: number };
   otName?: string;
   storageLocation: string;
   slot?: number; // 1-indexed slot in party or box

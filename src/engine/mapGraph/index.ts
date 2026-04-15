@@ -1,16 +1,22 @@
-import { getDistanceToMap, INDOOR_TO_PARENT_MAP } from './gen1Graph';
+import type { GenericLocation, SpecificArea } from '../../db/schema';
+import { getDistanceToMap, getOutdoorMapId } from './gen1Graph';
 import type { MapDistanceResult, MapGraph } from './types';
 
 // Re-export for backward compat
-export { GEN1_MAPS, getDistanceToMap, INDOOR_TO_PARENT_MAP } from './gen1Graph';
+export { getDistanceToMap, getOutdoorMapId as resolveOutdoorMapId } from './gen1Graph';
 export type { MapDistanceResult, MapGraph, MapNode } from './types';
 
 const gen1MapGraph: MapGraph = {
-  getDistanceToMap: (currentMapId: number, targetSlug: string): MapDistanceResult | null => {
-    return getDistanceToMap(currentMapId, targetSlug);
+  getDistanceToMap: (
+    locations: GenericLocation[],
+    areas: SpecificArea[],
+    currentMapId: number,
+    targetAid: number,
+  ): MapDistanceResult | null => {
+    return getDistanceToMap(locations, areas, currentMapId, targetAid);
   },
-  resolveOutdoorMapId: (mapId: number): number => {
-    return INDOOR_TO_PARENT_MAP[mapId] ?? mapId;
+  resolveOutdoorMapId: (locations: GenericLocation[], mapId: number): number => {
+    return getOutdoorMapId(locations, mapId);
   },
 };
 

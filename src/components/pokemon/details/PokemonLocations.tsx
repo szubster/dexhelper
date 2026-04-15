@@ -1,5 +1,6 @@
 import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
-import type { LocationAreaEncounter, Encounter as PokeEncounter, VersionEncounterDetail } from 'pokenode-ts';
+import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
+import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { staticEncounters } from '../../../utils/data';
 
 interface EvoReq {
@@ -11,12 +12,22 @@ interface EvoReq {
 interface PokemonLocationsProps {
   pokemonId: number;
   gameVersion: string;
-  encounters: LocationAreaEncounter[];
+  encounters: CompactEncounter[];
+  areaNames: Record<number, string> | undefined;
   evoReq: EvoReq | null;
   loading: boolean;
 }
 
-export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, loading }: PokemonLocationsProps) {
+export function PokemonLocations({
+  pokemonId,
+  gameVersion,
+  encounters,
+  areaNames,
+  evoReq,
+  loading,
+}: PokemonLocationsProps) {
+  const currentVersionId = POKE_VERSION_MAP[gameVersion.toLowerCase()];
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between border-white/5 border-b pb-4">
@@ -34,17 +45,7 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
         <div className="relative z-10 grid grid-cols-1 gap-3">
           {(() => {
             const staticEnc = staticEncounters[pokemonId]?.[gameVersion as keyof (typeof staticEncounters)[number]];
-            const versionEnc = encounters.reduce<
-              { encounter: LocationAreaEncounter; versionDetail: VersionEncounterDetail }[]
-            >((acc, e) => {
-              const versionDetail = e.version_details.find(
-                (v: VersionEncounterDetail) => v.version.name === gameVersion,
-              );
-              if (versionDetail) {
-                acc.push({ encounter: e, versionDetail });
-              }
-              return acc;
-            }, []);
+            const versionEnc = encounters.filter((e) => e.v === currentVersionId);
 
             if ((staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq) {
               return (
@@ -83,10 +84,10 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                       </span>
                     </div>
                   ))}
-                  {versionEnc.map(({ encounter: e, versionDetail }) => {
+                  {versionEnc.map((e) => {
                     return (
                       <div
-                        key={e.location_area.name}
+                        key={`${e.aid}-${e.v}`}
                         className="group flex flex-col space-y-3 rounded-2xl border border-white/5 bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
                       >
                         <div className="flex items-center justify-between">
@@ -95,29 +96,29 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                               <MapPin size={14} />
                             </div>
                             <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
-                              {e.location_area.name.replace(/-/g, ' ').toUpperCase()}
+                              {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
-                            {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
+                            {e.d.map((d: CompactEncounterDetail, di: number) => (
                               <span
                                 // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                                 key={di}
                                 className="rounded-md border border-white/5 bg-white/5 px-2 py-0.5 font-black text-[8px] text-zinc-500 uppercase tracking-widest"
                               >
-                                LV.{d.min_level}-{d.max_level}
+                                LV.{d.min}-{d.max}
                               </span>
                             ))}
                           </div>
                         </div>
                         <div className="flex flex-wrap gap-1.5 border-[var(--theme-primary)]/20 border-l-2 pl-1.5">
-                          {versionDetail?.encounter_details.map((d: PokeEncounter, di: number) => (
+                          {e.d.map((d: CompactEncounterDetail, di: number) => (
                             <span
                               // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                               key={di}
                               className="font-black text-[8px] text-[var(--theme-primary)]/70 uppercase"
                             >
-                              • {d.method.name.replace('-', ' ')} ({d.chance}%)
+                              • {REVERSE_METHOD_MAP[d.m]?.replace('-', ' ')} ({d.c}%)
                             </span>
                           ))}
                         </div>
@@ -135,24 +136,19 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                   <AlertTriangle size={12} /> Species unavailable in {gameVersion.toUpperCase()}. External cross-version
                   extraction required.
                 </div>
-                {encounters.map((e: LocationAreaEncounter) => (
+                {encounters.map((e) => (
                   <div
-                    key={e.location_area.name}
+                    key={`${e.aid}-${e.v}`}
                     className="flex flex-col rounded-2xl border border-white/5 bg-zinc-900/40 p-4 opacity-60"
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-xs text-zinc-500 uppercase">
-                        {e.location_area.name.replace(/-/g, ' ').toUpperCase()}
+                        {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
                       </span>
                       <div className="flex gap-1">
-                        {e.version_details.map((v: VersionEncounterDetail) => (
-                          <span
-                            key={v.version.name}
-                            className="rounded border border-white/5 bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase"
-                          >
-                            {v.version.name}
-                          </span>
-                        ))}
+                        <span className="rounded border border-white/5 bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase">
+                          V-ID: {e.v}
+                        </span>
                       </div>
                     </div>
                   </div>

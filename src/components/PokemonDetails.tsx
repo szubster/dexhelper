@@ -1,30 +1,17 @@
-import { useQueries, useQuery } from '@tanstack/react-query';
-import { AlertCircle, CheckCircle2, MapPin, Monitor, Sparkles, X } from 'lucide-react';
-import type {
-  ChainLink,
-  Encounter,
-  EvolutionDetail,
-  LocationAreaEncounter,
-  NamedAPIResource,
-  PokemonType,
-  VersionEncounterDetail,
-} from 'pokenode-ts';
+import { useQuery } from '@tanstack/react-query';
+import { AlertCircle, CheckCircle2, Monitor, Sparkles, X } from 'lucide-react';
 import React, { useEffect } from 'react';
+import { dexDataLoader } from '../db/DexDataLoader';
+import { type CompactChainLink, POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../db/schema';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
 import { cn } from '../utils/cn';
-import { stadiumRewardsSummary, staticEncounters } from '../utils/data';
+import { stadiumRewardsSummary } from '../utils/data';
 import { getGenerationConfig } from '../utils/generationConfig';
-import { pokeapi } from '../utils/pokeapi';
 import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbability';
 import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
 import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
 import { PokemonLocations } from './pokemon/details/PokemonLocations';
-import { PokemonStats } from './pokemon/details/PokemonStats';
-
-// Static data moved to data.ts
-
-// Static data moved to data.ts
 
 interface PokemonDetailsProps {
   pokemonId: number;
@@ -36,39 +23,6 @@ interface PokemonDetailsProps {
   onClose: () => void;
   onNavigate: (id: number, name: string) => void;
 }
-
-// gen2Items and gen2Locations moved to data.ts
-
-const _modalVariants = {
-  hidden: { opacity: 0, scale: 0.95, y: 40 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      damping: 25,
-      stiffness: 300,
-      staggerChildren: 0.05,
-      delayChildren: 0.1,
-    },
-  },
-  exit: {
-    opacity: 0,
-    scale: 0.95,
-    y: 40,
-    transition: { duration: 0.2 },
-  },
-} as const;
-
-const _contentVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: 'spring', damping: 20, stiffness: 100 },
-  },
-} as const;
 
 export function PokemonDetails({
   pokemonId,
@@ -88,248 +42,104 @@ export function PokemonDetails({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
-  const queries = useQueries({
-    queries: [
-      {
-        queryKey: ['encounters', pokemonId],
-        queryFn: () => pokeapi.getPokemonEncounterAreasByName(pokemonId),
-      },
-      {
-        queryKey: ['pokemon', pokemonId],
-        queryFn: () => pokeapi.getPokemonByName(pokemonId),
-      },
-      {
-        queryKey: ['species', pokemonId],
-        queryFn: () => pokeapi.getPokemonSpeciesByName(pokemonId),
-      },
-    ],
+  const { data: allData, isLoading: loading } = useQuery({
+    queryKey: ['pokemon-details', pokemonId],
+    queryFn: () => dexDataLoader.getPokemonDetails(pokemonId),
   });
 
-  // Calculator state moved to PokemonCatchProbability
+  const pokemon = allData?.pokemon;
+  const encounters = allData?.encounters || [];
+  const nameMap = allData?.nameMap;
+  const areaNames = allData?.areaNames;
 
-  const _encountersReady = queries[0].isSuccess;
-  const _pokemonReady = queries[1].isSuccess;
-  const _speciesReady = queries[2].isSuccess;
-
-  const encounters = queries[0].data || [];
-  const pokemonData = queries[1].data;
-  const speciesData = queries[2].data;
-
-  const catchRate = speciesData?.capture_rate ?? null;
-  const _genderRate = speciesData?.gender_rate ?? -1;
-
-  const { data: evolutionData } = useQuery({
-    queryKey: ['evolution', speciesData?.evolution_chain?.url],
-    queryFn: () => {
-      if (!speciesData?.evolution_chain?.url) return Promise.reject(new Error('No URL'));
-      return pokeapi.resource(speciesData.evolution_chain.url);
-    },
-    enabled: !!speciesData?.evolution_chain?.url,
-  });
+  const catchRate = pokemon?.cr ?? null;
 
   const evoReq = React.useMemo(() => {
-    if (!speciesData?.evolves_from_species || !evolutionData) return null;
+    if (!pokemon || pokemon.evolves_from.length === 0) return null;
 
-    const fromName = speciesData.evolves_from_species.name;
-    const fromId = parseInt(speciesData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0', 10);
-
-    // For saves from gens that don't have this pre-evolution, ignore it (e.g., baby Pokemon in Gen 1)
-    if (saveData && fromId > getGenerationConfig(saveData.generation).maxDex) return null;
+    const fromId = pokemon.evolves_from[0];
+    if (fromId === undefined) return null;
 
     let methodStr = 'Unknown';
 
-    const findEvoDetails = (chain: ChainLink): EvolutionDetail | null => {
-      if (chain.species.name === pokemonName.toLowerCase()) {
-        return chain.evolution_details[0] ?? null;
-      }
-      for (const next of chain.evolves_to) {
-        const found = findEvoDetails(next);
-        if (found) return found;
-      }
-      return null;
-    };
-
-    const details = findEvoDetails(evolutionData.chain);
-    if (details) {
-      if (details.trigger?.name === 'level-up') {
-        methodStr = details.min_level ? `Level ${details.min_level}` : 'Level up';
-      } else if (details.trigger?.name === 'use-item') {
-        methodStr = details.item?.name?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
-      } else if (details.trigger?.name === 'trade') {
-        methodStr = 'Trade';
-      }
+    const details = pokemon.details;
+    if (details && details.length > 0) {
+      const d = details[0];
+      if (!d) return null;
+      if (d.tr === 1) methodStr = d.min_l ? `Level ${d.min_l}` : 'Level up';
+      else if (d.tr === 3) methodStr = 'Use Item';
+      else if (d.tr === 2) methodStr = 'Trade';
     }
 
     return {
       fromId,
-      fromName: fromName.charAt(0).toUpperCase() + fromName.slice(1),
+      fromName: nameMap?.[fromId] || 'Earlier Form',
       method: methodStr,
     };
-  }, [speciesData, evolutionData, pokemonName, saveData]);
+  }, [pokemon, nameMap]);
 
   const evolvesTo = React.useMemo(() => {
-    if (!speciesData || !evolutionData) return null;
+    if (!pokemon) return [];
 
-    const findEvolutions = (chain: ChainLink): { id: number; name: string; method: string }[] => {
-      if (chain.species.name === pokemonName.toLowerCase()) {
-        return chain.evolves_to
-          .map((evo: ChainLink) => {
-            const id = parseInt(evo.species.url.split('/').filter(Boolean).pop() || '0', 10);
-            // For saves from gens that don't have this evolution, ignore it
-            if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
+    const evos = pokemon.evolves_to;
+    if (!evos || evos.length === 0) return [];
 
-            let methodStr = 'Unknown';
-            const details = evo.evolution_details[0];
-            if (details) {
-              if (details.trigger?.name === 'level-up') {
-                methodStr = details.min_level ? `Level ${details.min_level}` : 'Level up';
-              } else if (details.trigger?.name === 'use-item') {
-                methodStr =
-                  details.item?.name?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Item';
-              } else if (details.trigger?.name === 'trade') {
-                methodStr = 'Trade';
-              }
-            }
-            return {
-              id,
-              name: evo.species.name.charAt(0).toUpperCase() + evo.species.name.slice(1),
-              method: methodStr,
-            };
-          })
-          .filter(Boolean) as { id: number; name: string; method: string }[];
-      }
-      for (const next of chain.evolves_to) {
-        const found = findEvolutions(next);
-        if (found.length > 0) return found;
-      }
-      return [];
-    };
+    return evos
+      .map((evo: CompactChainLink) => {
+        const id = evo.id;
+        if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
 
-    return findEvolutions(evolutionData.chain);
-  }, [speciesData, evolutionData, pokemonName, saveData]);
+        let methodStr = 'Unknown';
+        const d = evo.details[0];
+        if (d) {
+          if (d.tr === 1) methodStr = d.min_l ? `Level ${d.min_l}` : 'Level up';
+          else if (d.tr === 3) methodStr = 'Use Item';
+          else if (d.tr === 2) methodStr = 'Trade';
+        }
+        return {
+          id,
+          name: nameMap?.[id] || 'Next Form',
+          method: methodStr,
+        };
+      })
+      .filter((evo): evo is { id: number; name: string; method: string } => evo !== null);
+  }, [pokemon, nameMap, saveData]);
 
   const breedingInfo = React.useMemo(() => {
-    if (!speciesData?.is_baby || !evolutionData) return null;
-
-    // Only show breeding info for gens that support it
+    if (!pokemon?.baby) return null;
     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
 
-    const parents: { id: number; name: string }[] = [];
+    const rootId = pokemon.evolves_from.length > 0 ? pokemon.evolves_from[pokemon.evolves_from.length - 1] : pokemon.id;
 
-    const traverse = (node: ChainLink) => {
-      if (node.species.name !== speciesData.name) {
-        const id = parseInt(node.species.url.split('/').filter(Boolean).pop() || '0', 10);
-        parents.push({
-          id,
-          name: node.species.name.charAt(0).toUpperCase() + node.species.name.slice(1),
-        });
-      }
-      node.evolves_to?.forEach(traverse);
-    };
-    traverse(evolutionData.chain);
+    if (rootId === undefined) return null;
 
     return {
-      parentIds: parents.map((p) => p.id),
-      parentNames: parents.map((p) => p.name),
-      method: 'Breed evolved form with Ditto or same egg group',
+      parentIds: [rootId],
+      parentNames: [nameMap?.[rootId] || 'Evolution Line'],
+      method: 'Breed evolved form',
     };
-  }, [speciesData, evolutionData, saveData?.generation, saveData]);
-
-  const loading = queries.some((q) => q.isLoading) || (!!speciesData?.evolution_chain?.url && !evolutionData);
+  }, [pokemon, saveData, nameMap]);
 
   const getLocationsForVersion = React.useCallback(
     (version: string) => {
-      const locations: { name: string; details: string }[] = [];
+      const versionId = (POKE_VERSION_MAP as Record<string, number>)[version] || 0;
+      const versionEncounters = encounters.filter((e) => e.v === versionId);
 
-      const staticData = staticEncounters[pokemonId];
-      if (staticData?.[version as keyof typeof staticData]) {
-        staticData[version as keyof typeof staticData]?.forEach((loc) => {
-          locations.push({ name: loc, details: 'Static Encounter / Gift / Trade' });
+      return versionEncounters.flatMap((enc) => {
+        return enc.d.map((detail) => {
+          const name = areaNames?.[enc.aid] || `Area #${enc.aid}`;
+
+          return {
+            name,
+            details: `${detail.c}% chance, Lv ${detail.min}-${detail.max} (${REVERSE_METHOD_MAP[detail.m] || 'Walk'})`,
+          };
         });
-      }
-
-      encounters.forEach((enc: LocationAreaEncounter) => {
-        const versionDetail = enc.version_details.find((vd: VersionEncounterDetail) => vd.version.name === version);
-        if (versionDetail) {
-          const name = enc.location_area.name
-            .replace(/-/g, ' ')
-            .replace(/\b\w/g, (l: string) => l.toUpperCase())
-            .replace(' Area', '')
-            .replace('Kanto ', '')
-            .replace('Johto ', '');
-
-          const methodMap = new Map<string, { chance: number; min: number; max: number; conditions: string[] }>();
-          versionDetail.encounter_details.forEach((detail: Encounter) => {
-            const method = detail.method.name.replace(/-/g, ' ');
-            const conditions = detail.condition_values.map((cv: NamedAPIResource) => cv.name.replace(/-/g, ' '));
-            const key = `${method}${conditions.length > 0 ? ` (${conditions.join(', ')})` : ''}`;
-
-            const existing = methodMap.get(key);
-            if (existing) {
-              existing.chance += detail.chance;
-              existing.min = Math.min(existing.min, detail.min_level);
-              existing.max = Math.max(existing.max, detail.max_level);
-            } else {
-              methodMap.set(key, {
-                chance: detail.chance,
-                min: detail.min_level,
-                max: detail.max_level,
-                conditions,
-              });
-            }
-          });
-
-          const detailStrings = Array.from(methodMap.entries()).map(([key, data]) => {
-            const lvl = data.min === data.max ? `Lv ${data.min}` : `Lv ${data.min}-${data.max}`;
-            return `${data.chance}% chance, ${lvl} (${key})`;
-          });
-
-          locations.push({ name, details: detailStrings.join(' | ') });
-        }
       });
-
-      return locations;
     },
-    [encounters, pokemonId],
+    [encounters, areaNames],
   );
 
-  const _redLocations = getLocationsForVersion('red');
-  const _blueLocations = getLocationsForVersion('blue');
-  const _yellowLocations = getLocationsForVersion('yellow');
-  const _goldLocations = getLocationsForVersion('gold');
-  const _silverLocations = getLocationsForVersion('silver');
-  const _crystalLocations = getLocationsForVersion('crystal');
-
-  const _renderLocations = (locations: { name: string; details: string }[], colorClass: string) => {
-    if (locations.length === 0) {
-      return (
-        <div className="flex items-center gap-2 py-4 font-black text-[10px] text-zinc-600 uppercase tracking-widest">
-          <AlertCircle size={14} /> Not found in the wild
-        </div>
-      );
-    }
-    return (
-      <div className="custom-scrollbar max-h-64 space-y-3 overflow-y-auto pr-2">
-        {locations.map((loc) => (
-          <div
-            key={loc.name}
-            className="group rounded-2xl border border-zinc-900 bg-zinc-950 p-4 transition-all hover:border-zinc-800"
-          >
-            <div className="mb-2 flex items-center gap-3">
-              <div className={`rounded-lg bg-zinc-900 p-1.5 ${colorClass}`}>
-                <MapPin size={14} />
-              </div>
-              <span className="font-black text-xs text-zinc-100 uppercase tracking-tight">{loc.name}</span>
-            </div>
-            <div className="pl-8 font-bold font-mono text-[10px] text-zinc-500 leading-relaxed">{loc.details}</div>
-          </div>
-        ))}
-      </div>
-    );
-  };
-
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : getGenerationConfig(1);
-
   const displayVersion = gameVersion === 'unknown' ? genConfig.defaultVersion : gameVersion;
 
   const isSafariNative = React.useMemo(() => {
@@ -348,20 +158,6 @@ export function PokemonDetails({
 
   const stadiumReward = stadiumRewardsSummary[pokemonId];
 
-  const _getGender = (atkDV: number, rate: number) => {
-    if (rate === -1) return 'Genderless';
-    if (rate === 0) return 'Male';
-    if (rate === 8) return 'Female';
-    return atkDV < rate * 2 ? 'Female' : 'Male';
-  };
-
-  const _getUnownForm = (dvs: { atk: number; def: number; spd: number; spc: number }) => {
-    const formValue =
-      ((dvs.atk & 0x06) << 5) | ((dvs.def & 0x06) << 3) | ((dvs.spd & 0x06) << 1) | ((dvs.spc & 0x06) >> 1);
-    const letterIndex = Math.floor(formValue / 10);
-    return String.fromCharCode(65 + letterIndex);
-  };
-
   const yourPokemon = saveData
     ? [
         ...saveData.partyDetails.filter((p) => p.speciesId === pokemonId).map((p) => ({ ...p, location: 'Party' })),
@@ -379,7 +175,6 @@ export function PokemonDetails({
         aria-modal="true"
         className="slide-in-from-bottom-[100%] sm:zoom-in-95 relative flex h-[95vh] w-full animate-in flex-col overflow-hidden rounded-t-[2.5rem] border-white/10 border-t bg-zinc-950/90 shadow-2xl duration-500 ease-out sm:h-[85vh] sm:max-w-5xl sm:rounded-[3rem] sm:border"
       >
-        {/* Scanline Overlay */}
         <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
 
         {/* Header Section */}
@@ -396,7 +191,6 @@ export function PokemonDetails({
                     style={{ imageRendering: 'pixelated' }}
                     referrerPolicy="no-referrer"
                   />
-                  {/* Digital corner accents */}
                   <div className="absolute top-2 left-2 h-3 w-3 border-white/20 border-t-2 border-l-2" />
                   <div className="absolute top-2 right-2 h-3 w-3 border-white/20 border-t-2 border-r-2" />
                   <div className="absolute bottom-2 left-2 h-3 w-3 border-white/20 border-b-2 border-l-2" />
@@ -419,14 +213,6 @@ export function PokemonDetails({
                     {pokemonName}
                   </h2>
                   <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
-                    {pokemonData?.types.map((t: PokemonType) => (
-                      <span
-                        key={t.type.name}
-                        className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-black text-[10px] text-zinc-300 uppercase tracking-widest backdrop-blur-md"
-                      >
-                        {t.type.name}
-                      </span>
-                    ))}
                     {stadiumReward && (
                       <div className="flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 font-black text-[10px] text-blue-400 uppercase tracking-widest backdrop-blur-md">
                         <Monitor size={12} /> Stadium Reward
@@ -473,14 +259,8 @@ export function PokemonDetails({
 
         <div className="custom-scrollbar flex-1 overflow-y-auto p-6 sm:p-10">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-            {/* Left Column: Stats & Catching */}
+            {/* Left Column: Catching */}
             <div className="space-y-10 lg:col-span-5">
-              {/* Stats & Power Readout */}
-              <div className="space-y-8">
-                {pokemonData && <PokemonStats pokemonData={pokemonData} saveData={saveData} />}
-              </div>
-
-              {/* Catch Rate Calc */}
               {catchRate !== null && (
                 <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />
               )}
@@ -488,9 +268,8 @@ export function PokemonDetails({
 
             {/* Right Column: Details & Locations */}
             <div className="space-y-12 lg:col-span-7">
-              <PokemonCaughtDetails yourPokemon={yourPokemon} saveData={saveData} />
+              <PokemonCaughtDetails yourPokemon={yourPokemon} />
 
-              {/* Evolution & Procurement Strategy */}
               <PokemonEvolutions
                 evoReq={evoReq}
                 evolvesTo={evolvesTo || []}
@@ -507,6 +286,7 @@ export function PokemonDetails({
                 pokemonId={pokemonId}
                 gameVersion={gameVersion}
                 encounters={encounters}
+                areaNames={areaNames}
                 evoReq={evoReq}
                 loading={loading}
               />

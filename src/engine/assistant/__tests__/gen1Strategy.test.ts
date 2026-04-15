@@ -1,6 +1,20 @@
 import { describe, expect, it } from 'vitest';
+import type { GenericLocation, SpecificArea } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
+
+const mockLocations: GenericLocation[] = [
+  { id: 0x00, n: 'Pallet Town', connections: [0x01] },
+  { id: 0x01, n: 'Route 1', connections: [0x00, 0x03] }, // Simplified path for test
+  { id: 0x03, n: 'Cerulean City', connections: [0x01] },
+  { id: 0x25, n: 'Pallet House', parentId: 0x00, connections: [] },
+];
+
+const mockAreas: SpecificArea[] = [
+  { id: 0x00, n: 'Pallet Town' },
+  { id: 0x03, n: 'Cerulean City' },
+  { id: 0x01, n: 'Route 1' },
+];
 
 const makeSaveData = (overrides: Partial<SaveData> = {}): SaveData => ({
   generation: 1,
@@ -27,40 +41,41 @@ describe('Gen 1 AssistantStrategy', () => {
     expect(gen1Strategy.generation).toBe(1);
   });
 
-  describe('resolveMapSlug', () => {
-    it('should resolve Pallet Town (0x00) to pallet-town-area', () => {
+  describe('resolveMapAid', () => {
+    it('should resolve Pallet Town (0x00) to Pallet Town Map ID (0x00)', () => {
       const save = makeSaveData({ currentMapId: 0x00 });
-      expect(gen1Strategy.resolveMapSlug(save)).toBe('pallet-town-area');
+      expect(gen1Strategy.resolveMapAid(save, mockLocations, mockAreas)).toBe(0x00);
     });
 
-    it('should resolve Cerulean City (0x03) to cerulean-city-area', () => {
+    it('should resolve Cerulean City (0x03) to Cerulean City Map ID (0x03)', () => {
       const save = makeSaveData({ currentMapId: 0x03 });
-      expect(gen1Strategy.resolveMapSlug(save)).toBe('cerulean-city-area');
+      expect(gen1Strategy.resolveMapAid(save, mockLocations, mockAreas)).toBe(0x03);
     });
 
-    it('should resolve indoor maps to their parent outdoor area', () => {
-      // 0x25 is a Pallet Town interior -> resolves to 0x00 (Pallet Town)
+    it('should resolve indoor maps to their parent outdoor area map id', () => {
+      // 0x25 is a Pallet Town interior -> resolves to 0x00 (Pallet Town) -> Map ID 0x00
       const save = makeSaveData({ currentMapId: 0x25 });
-      expect(gen1Strategy.resolveMapSlug(save)).toBe('pallet-town-area');
+      expect(gen1Strategy.resolveMapAid(save, mockLocations, mockAreas)).toBe(0x00);
     });
   });
 
   describe('getMapDistance', () => {
     it('should return distance 0 for current location', () => {
-      const result = gen1Strategy.getMapDistance(0x00, 'pallet-town-area');
+      // Pallet Town (0x00) -> Pallet Town Map ID (0x00)
+      const result = gen1Strategy.getMapDistance(0x00, 0x00, mockLocations, mockAreas);
       expect(result).not.toBeNull();
       expect(result?.distance).toBe(0);
     });
 
     it('should return positive distance for adjacent locations', () => {
-      // Pallet Town -> Route 1 (adjacent)
-      const result = gen1Strategy.getMapDistance(0x00, 'route-1');
+      // Pallet Town (0x00) -> Route 1 Map ID (0x01)
+      const result = gen1Strategy.getMapDistance(0x00, 0x01, mockLocations, mockAreas);
       expect(result).not.toBeNull();
       expect(result?.distance).toBe(1);
     });
 
-    it('should return null for unknown target slugs', () => {
-      const result = gen1Strategy.getMapDistance(0x00, 'nonexistent-area');
+    it('should return null for unknown target aids', () => {
+      const result = gen1Strategy.getMapDistance(0x00, 9999, mockLocations, mockAreas);
       expect(result).toBeNull();
     });
   });

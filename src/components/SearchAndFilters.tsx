@@ -2,6 +2,7 @@ import { Search, X } from 'lucide-react';
 import type { FilterType } from '../store';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
+import { LocationSuggestions } from './LocationSuggestions';
 
 export function SearchAndFilters() {
   const saveData = useStore((s) => s.saveData);
@@ -25,8 +26,9 @@ export function SearchAndFilters() {
           </div>
           <input
             type="text"
-            placeholder="Search Pokedex by name or ID..."
-            aria-label="Search Pokedex by name or ID"
+            data-testid="search-input"
+            placeholder="Search Pokedex by name, ID, or location..."
+            aria-label="Search Pokedex by name, ID, or location"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="glass-card w-full rounded-2xl border-white/5 bg-zinc-900/40 py-4 pr-12 pl-14 font-black font-mono text-white text-xs uppercase tracking-widest shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] outline-none transition-all placeholder:text-zinc-600 focus:border-[var(--theme-primary)]/50 focus:bg-zinc-900/60"
@@ -43,6 +45,9 @@ export function SearchAndFilters() {
           )}
           {/* LCD Effect on Input */}
           <div className="pointer-events-none absolute inset-x-4 top-0 h-[1px] bg-white/5" />
+
+          {/* Location Suggestions Dropdown */}
+          <LocationSuggestions />
         </div>
 
         {/* Filter Buttons designed as Retro Console Switches */}

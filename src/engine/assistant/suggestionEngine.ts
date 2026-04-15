@@ -1,194 +1,105 @@
-import type {
-  ChainLink,
-  EvolutionChain,
-  LocationAreaEncounter,
-  PokemonEncounter,
-  VersionEncounterDetail,
-} from 'pokenode-ts';
-import { getGenerationConfig } from '../../utils/generationConfig';
-import { pokeapi } from '../../utils/pokeapi';
+import { dexDataLoader } from '../../db/DexDataLoader';
+import { pokeDB } from '../../db/PokeDB';
 import {
-  GEN1_ITEMS,
-  GEN1_MAP_TO_SLUG,
-  OBEDIENCE_CAPS,
-  STATIC_GIFT_DATA,
-  STATIC_NPC_TRADE_DATA,
-} from '../data/gen1/assistantData';
-import { gen2Items } from '../data/gen2/legacyNameMap';
-import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
-import { getDistanceToMap } from '../mapGraph/gen1Graph';
-import type { PokemonInstance, SaveData } from '../saveParser/index';
-import type { EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
+  type CompactChainLink,
+  ENCOUNTER_METHOD,
+  EVO_TRIGGER,
+  type GenericLocation,
+  type LocationAreaEncounters,
+  POKE_VERSION_MAP,
+  type PokemonMetadata,
+  type SpecificArea,
+} from '../../db/schema';
+import { getGenerationConfig } from '../../utils/generationConfig';
 
-/** Data returned by fetchAssistantApiData */
-// Construct a reverse map for Gen 2 item names to their IDs.
-// Normalize names for easier matching from PokeAPI (e.g. "thunder-stone" matches "thunderstone")
-const GEN2_ITEM_IDS_BY_NAME: Record<string, number> = {};
-for (const [idStr, name] of Object.entries(gen2Items)) {
-  const normalizedName = name.toLowerCase().replace(/[-\s]/g, '');
-  GEN2_ITEM_IDS_BY_NAME[normalizedName] = parseInt(idStr, 10);
-}
+import { STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
+import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
+import type { PokemonInstance, SaveData } from '../saveParser/index';
+import type { AssistantStrategy, EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
 
 export interface AssistantApiData {
-  localEncounters: PokemonEncounter[];
-  missingEncounters: Record<number, LocationAreaEncounter[]>;
-  missingChains: Record<number, EvolutionChain>;
-  ancestralEncounters: Record<number, Record<number, LocationAreaEncounter[]>>;
-  partyEvolutions: Record<number, EvolutionChain>;
-  giftChains: Record<number, EvolutionChain>;
-}
-
-/** Safely extract a numeric ID from a PokéAPI resource URL */
-function parseIdFromUrl(url: string): number {
-  return parseInt(url.split('/').slice(-2, -1)[0] ?? '0', 10);
+  localAid: number | null;
+  localEncounters: LocationAreaEncounters[] | null;
+  missingEncounters: Record<number, LocationAreaEncounters | null>;
+  pokemonMetadata: Record<number, PokemonMetadata | null>;
+  ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>>;
+  areaNames: Record<number, string>;
+  allLocations: GenericLocation[];
+  allAreas: SpecificArea[];
 }
 
 /**
  * Helper function to find all Pokemon IDs in an evolution chain.
+ * Note: Since we now use localized chains, we walk the evolves_to tree from the current node.
  */
-function getChainIds(node: ChainLink): number[] {
-  const id = parseIdFromUrl(node.species.url);
-  return [id, ...node.evolves_to.flatMap(getChainIds)];
+function _getChainIds(node: { id: number; evolves_to: CompactChainLink[] }): number[] {
+  return [node.id, ...node.evolves_to.flatMap(_getChainIds)];
 }
 
 /**
- * Helper function to find all ancestors of a target Pokemon ID in an evolution chain.
- */
-function getAncestors(node: ChainLink, target: number, path: number[] = []): number[] | null {
-  const id = parseIdFromUrl(node.species.url);
-  if (id === target) {
-    return path;
-  }
-  for (const child of node.evolves_to) {
-    const result = getAncestors(child, target, [...path, id]);
-    if (result) return result;
-  }
-  return null;
-}
-
-/**
- * Fetches all necessary data from PokéAPI for the assistant to make suggestions.
- * This is decoupled from the React hook for easier testing.
+ * Fetches all necessary data from local IndexedDB using DataLoader for batching.
  */
 export async function fetchAssistantApiData(saveData: SaveData, queryTargets: number[]) {
-  let localSlug = '';
-  if (saveData.generation === 1) {
-    localSlug = GEN1_MAP_TO_SLUG[saveData.currentMapId] || '';
-  } else {
-    // For Gen 2+, use a default slug (map graph is Gen 1-only for now)
-    localSlug = 'new-bark-town-area';
-  }
+  const allAreas = await pokeDB.getAllAreas();
+  const allLocations = await pokeDB.getLocations();
 
-  let localEncounters: PokemonEncounter[] = [];
-  if (localSlug) {
-    try {
-      const areaData = await pokeapi.resource(`https://pokeapi.co/api/v2/location-area/${localSlug}`);
-      localEncounters = areaData.pokemon_encounters || [];
-    } catch (e) {
-      console.error('Local area fetch failed', e);
-    }
-  }
+  const strategy = saveData.generation === 1 ? (await import('./strategies/gen1Strategy')).gen1Strategy : null;
+  const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations, allAreas) : null;
 
-  const missingEncounters: Record<number, LocationAreaEncounter[]> = {};
-  const missingChains: Record<number, EvolutionChain> = {};
-  const ancestralEncounters: Record<number, Record<number, LocationAreaEncounter[]>> = {};
+  const allEncounters = await pokeDB.getAllEncounters();
+  const localEncounters = localAid ? allEncounters.filter((lae) => lae.encounters.some((e) => e.aid === localAid)) : [];
 
-  const missingPromises = queryTargets.map(async (pid: number) => {
-    try {
-      const [encs, species] = await Promise.all([
-        pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${pid}/encounters`),
-        pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`),
-      ]);
-      missingEncounters[pid] = encs;
+  const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
+  const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
 
-      const chain = await pokeapi.resource(species.evolution_chain.url);
-      missingChains[pid] = chain;
-    } catch (_e) {
-      missingEncounters[pid] = [];
-    }
-  });
-
-  const partyEvolutions: Record<number, EvolutionChain> = {};
-  const partyPromises = (saveData.party || []).map(async (pid: number) => {
-    try {
-      const species = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`);
-      const chainUrl = species.evolution_chain.url;
-      const chain = await pokeapi.resource(chainUrl);
-      partyEvolutions[pid] = chain;
-    } catch (e) {
-      console.error('Evo fetch failed', pid, e);
-    }
-  });
-
-  const giftChains: Record<number, EvolutionChain> = {};
-  const giftPromises = Object.keys(STATIC_GIFT_DATA).map(async (pidStr) => {
-    const pid = parseInt(pidStr, 10);
-    try {
-      const species = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon-species/${pid}`);
-      const chainUrl = species.evolution_chain.url;
-      const chain = await pokeapi.resource(chainUrl);
-      giftChains[pid] = chain;
-    } catch (e) {
-      console.error('Gift fetch failed', pid, e);
-    }
-  });
-
-  await Promise.all([...missingPromises, ...partyPromises, ...giftPromises]);
-
-  const uniqueAncestors = new Set<number>();
-  const pidAncestors: Record<number, number[]> = {};
-
+  // Fill missingEncounters
   for (const pid of queryTargets) {
-    if (missingChains[pid]) {
-      const ancestors = getAncestors(missingChains[pid].chain, pid) || [];
-      if (ancestors.length > 0) {
-        pidAncestors[pid] = ancestors;
-        for (const a of ancestors) {
-          uniqueAncestors.add(a);
-        }
-      }
-    }
+    const enc = allEncounters.find((e) => e.pid === pid);
+    if (enc) missingEncounters[pid] = enc;
   }
 
-  const ancestorData: Record<number, LocationAreaEncounter[]> = {};
-  await Promise.all(
-    Array.from(uniqueAncestors).map(async (aid) => {
-      try {
-        ancestorData[aid] = await pokeapi.resource(`https://pokeapi.co/api/v2/pokemon/${aid}/encounters`);
-      } catch (_e) {
-        ancestorData[aid] = [];
-      }
-    }),
-  );
+  // 1. Get all relevant Pokemon details (Target, Party, Gifts)
+  const partyPids = saveData.party || [];
+  const giftPids = Object.keys(STATIC_GIFT_DATA).map((id) => parseInt(id, 10));
+  const allNeededPids = [...new Set([...queryTargets, ...partyPids, ...giftPids])];
 
-  for (const pid of queryTargets) {
-    if (pidAncestors[pid]) {
-      ancestralEncounters[pid] = {};
-      for (const aid of pidAncestors[pid]) {
-        ancestralEncounters[pid][aid] = ancestorData[aid] || [];
-      }
-    }
-  }
+  const allPokemon = await dexDataLoader.pokemon.loadMany(allNeededPids);
+  const pokemonMetadata: Record<number, PokemonMetadata | null> = {};
+
+  allNeededPids.forEach((pid, idx) => {
+    const p = allPokemon[idx];
+    pokemonMetadata[pid] = p && !(p instanceof Error) ? p : null;
+  });
 
   return {
-    localEncounters,
+    localAid,
+    localEncounters: localEncounters ?? null,
     missingEncounters,
-    missingChains,
+    pokemonMetadata,
     ancestralEncounters,
-    partyEvolutions,
-    giftChains,
+    areaNames: Object.fromEntries(allAreas.map((a) => [a.id, a.n])),
+    allLocations,
+    allAreas,
   };
 }
 
-/**
- * Pure logic function to generate suggestions based on save data and API data.
- * No React or Hook dependencies.
- */
+const METHOD_NAMES: Record<number, string> = {
+  [ENCOUNTER_METHOD.WALK]: 'walk',
+  [ENCOUNTER_METHOD.SURF]: 'surf',
+  [ENCOUNTER_METHOD.OLD_ROD]: 'old-rod',
+  [ENCOUNTER_METHOD.GOOD_ROD]: 'good-rod',
+  [ENCOUNTER_METHOD.SUPER_ROD]: 'super-rod',
+  [ENCOUNTER_METHOD.GIFT]: 'gift',
+  [ENCOUNTER_METHOD.ROCK_SMASH]: 'rock-smash',
+  [ENCOUNTER_METHOD.HEADBUTT]: 'headbutt',
+};
+
 export function generateSuggestions(
   saveData: SaveData | null,
   isLivingDex: boolean,
   manualVersion: string | null | undefined,
   apiData: AssistantApiData | null,
+  strategy: AssistantStrategy,
 ): { suggestions: Suggestion[]; debug: { rejected: RejectedSuggestion[] } } {
   const suggestions: Suggestion[] = [];
   const rejected: RejectedSuggestion[] = [];
@@ -202,7 +113,6 @@ export function generateSuggestions(
     ? new Set([...(saveData.party || []), ...(saveData.pc || [])])
     : saveData.owned || new Set<number>();
 
-  const ownedCount = ownedSet.size;
   const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
   const myOtIds = new Set(
     allInstances.filter((p) => p.otName === saveData.trainerName).map((p: PokemonInstance) => p.speciesId),
@@ -211,11 +121,7 @@ export function generateSuggestions(
   for (let i = 1; i <= maxDex; i++) {
     if (!ownedSet.has(i)) {
       if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0) {
-        rejected.push({
-          pokemonId: i,
-          reason: 'Hall of Fame count is 0. Mewtwo is locked.',
-          code: 'HOF_LOCKED',
-        });
+        rejected.push({ pokemonId: i, reason: 'Hall of Fame count is 0. Mewtwo is locked.', code: 'HOF_LOCKED' });
         continue;
       }
       missingIds.push(i);
@@ -224,60 +130,43 @@ export function generateSuggestions(
 
   const effectiveVersion = manualVersion || saveData.gameVersion;
   const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
+  const displayVersionId = POKE_VERSION_MAP[displayVersion] || 1;
   const queryTargets = missingIds.slice(0, 100);
 
-  const _localSlug = saveData.generation === 1 ? GEN1_MAP_TO_SLUG[saveData.currentMapId] || '' : 'new-bark-town-area';
-
+  const localPids: number[] = [];
   // A. Catch logic
-  if (apiData.localEncounters) {
-    const localPids: number[] = [];
+  if (apiData.localEncounters && apiData.localEncounters.length > 0 && apiData.localAid) {
+    const localAid = apiData.localAid;
+
     const localEncounterInfo: Record<number, EncounterDetail[]> = {};
 
-    for (const encounter of apiData.localEncounters) {
-      const pid = parseIdFromUrl(encounter.pokemon.url);
+    for (const lae of apiData.localEncounters) {
+      const pid = lae.pid;
+      const relevantEncounters = lae.encounters.filter((e) => e.aid === localAid && e.v === displayVersionId);
+      if (relevantEncounters.length === 0) continue;
 
-      const isStaticGift = !!STATIC_GIFT_DATA[pid];
-      if (isStaticGift && myOtIds.has(pid)) {
-        rejected.push({
-          pokemonId: pid,
-          reason: 'You already own this one-time gift (matched by Trainer Name).',
-          code: 'GIFT_CLAIMED',
-        });
-        continue;
-      }
+      if (STATIC_GIFT_DATA[pid] && myOtIds.has(pid)) continue;
 
-      const gift = STATIC_GIFT_DATA[pid];
-      if (saveData.eventFlags && gift?.eventFlag) {
-        if (((saveData.eventFlags[Math.floor(gift.eventFlag / 8)] ?? 0) & (1 << (gift.eventFlag % 8))) !== 0) {
-          rejected.push({
-            pokemonId: pid,
-            reason: `Event flag ${gift.eventFlag} is set. Gift already claimed.`,
-            code: 'GIFT_CLAIMED',
-          });
-          continue;
-        }
-      }
-
-      const versionDetail = encounter.version_details.find(
-        (vd: VersionEncounterDetail) => vd.version.name === displayVersion,
-      );
-      if (versionDetail && missingIds.includes(pid)) {
+      if (missingIds.includes(pid)) {
         localPids.push(pid);
-        localEncounterInfo[pid] = versionDetail.encounter_details.map((ed) => ({
-          chance: ed.chance,
-          method: ed.method.name,
-          minLevel: ed.min_level,
-          maxLevel: ed.max_level,
-        }));
+        localEncounterInfo[pid] = relevantEncounters.flatMap((re) =>
+          re.d.map((ed) => ({
+            chance: ed.c,
+            method: METHOD_NAMES[ed.m] || 'walk',
+            minLevel: ed.min,
+            maxLevel: ed.max,
+            aid: re.aid,
+          })),
+        );
       }
     }
+
     if (localPids.length > 0) {
-      const areaName = saveData.currentMapName || 'where you need to be';
       suggestions.push({
         id: 'catch-local',
         category: 'Catch',
         title: 'Catch Right Here',
-        description: `You are exactly ${areaName}! There are ${localPids.length} missing Pokémon right here.`,
+        description: `You are at ${saveData.currentMapName || 'your current location'}! There are ${localPids.length} missing Pokémon right here.`,
         pokemonIds: localPids,
         priority: 120,
         encounterInfo: localEncounterInfo,
@@ -285,489 +174,163 @@ export function generateSuggestions(
     }
   }
 
-  if (apiData.missingEncounters) {
-    const locationMap: Record<
-      string,
-      {
-        name: string;
-        distance: number;
-        pids: Set<number>;
-        slug: string;
-        encounterMap: Map<number, EncounterDetail[]>;
-      }
-    > = {};
-    let unobtainableCount = 0;
+  // A2. Nearby logic
+  for (const pid of queryTargets) {
+    if (localPids.includes(pid)) continue;
 
-    for (const pid of queryTargets) {
-      const isStaticGift = !!STATIC_GIFT_DATA[pid];
-      if (isStaticGift && myOtIds.has(pid)) continue;
+    const encData = apiData.missingEncounters[pid];
+    if (!encData?.encounters) continue;
 
-      const gift = STATIC_GIFT_DATA[pid];
-      if (saveData.eventFlags && gift?.eventFlag) {
-        if (((saveData.eventFlags[Math.floor(gift.eventFlag / 8)] ?? 0) & (1 << (gift.eventFlag % 8))) !== 0) continue;
-      }
+    let bestDist = 999;
+    let bestAreaName = '';
+    let bestDetails: EncounterDetail[] = [];
 
-      const encounters = apiData.missingEncounters[pid] || [];
-      const logicReason = getUnobtainableReason(pid, displayVersion || 'red', ownedCount, ownedSet);
-      if (logicReason) {
-        rejected.push({ pokemonId: pid, reason: logicReason, code: 'CHOICE_TAKEN' });
-        suggestions.push({
-          id: `trade-${pid}`,
-          category: 'Trade',
-          title: `Trade Required: #${pid}`,
-          description: logicReason,
-          pokemonId: pid,
-          priority: 60 - unobtainableCount,
-          debugInfo: {
-            priorityScore: 60 - unobtainableCount,
-            reasoning: 'Explicit unobtainable logic rule',
-          },
-        });
-        unobtainableCount++;
-        continue;
-      }
+    for (const e of encData.encounters) {
+      if (e.v !== displayVersionId) continue;
 
-      let isCatchableSomewhere = encounters.some((enc: LocationAreaEncounter) =>
-        enc.version_details.some((vd: VersionEncounterDetail) => vd.version.name === displayVersion),
-      );
-
-      if (!isCatchableSomewhere) {
-        const aEncsMap = apiData.ancestralEncounters?.[pid] || {};
-        for (const aid in aEncsMap) {
-          if (
-            aEncsMap[Number(aid)]?.some((enc: LocationAreaEncounter) =>
-              enc.version_details.some((vd: VersionEncounterDetail) => vd.version.name === displayVersion),
-            )
-          ) {
-            isCatchableSomewhere = true;
-            break;
-          }
-        }
-
-        if (!isCatchableSomewhere) {
-          const chain = apiData.missingChains?.[pid];
-          const baseId = chain ? parseIdFromUrl(chain.chain.species.url) : pid;
-          const isInternalObtainable = [
-            1,
-            4,
-            7, // Gen 1 Starters
-            152,
-            155,
-            158, // Gen 2 Starters
-            131,
-            133, // Lapras, Eevee
-            138,
-            140,
-            142, // Fossils
-            106,
-            107, // Hitmons
-            143,
-            144,
-            145,
-            146,
-            150, // Gen 1 Legendaries/Snorlax
-            130,
-            185,
-            245,
-            249,
-            250, // Gen 2 Statics
-          ].includes(baseId);
-
-          if (isInternalObtainable) {
-            const isYellow = displayVersion === 'yellow';
-            const isRedBlueStarter = [1, 4, 7].includes(baseId);
-            if (isRedBlueStarter) {
-              if (isYellow) isCatchableSomewhere = true;
-            } else {
-              isCatchableSomewhere = true;
-            }
-          }
-        }
-      }
-
-      if (!isCatchableSomewhere && !ownedSet.has(pid)) {
-        // Suppress version exclusive if it can be obtained via NPC trade or Gift
-        const isTradeAvailable = STATIC_NPC_TRADE_DATA.some(
-          (t) =>
-            t.gen === saveData.generation &&
-            t.receivedId === pid &&
-            (!t.versions || t.versions.includes(displayVersion)),
-        );
-
-        const giftEntry = STATIC_GIFT_DATA[pid];
-        const hasDirectGift =
-          !!giftEntry &&
-          (!giftEntry.gen || giftEntry.gen === saveData.generation) &&
-          (!giftEntry.name.includes('Yellow only') || displayVersion === 'yellow');
-
-        if (!isTradeAvailable && !hasDirectGift) {
-          rejected.push({
-            pokemonId: pid,
-            reason: `Not catchable in ${displayVersion} version.`,
-            code: 'VERSION_EXCLUSIVE',
-          });
-          suggestions.push({
-            id: `trade-${pid}`,
-            category: 'Trade',
-            title: `Version Exclusive: #${pid}`,
-            description: `This Pokémon is not available in ${displayVersion}. You must trade for it.`,
-            pokemonId: pid,
-            priority: 50 - unobtainableCount,
-            debugInfo: {
-              priorityScore: 50 - unobtainableCount,
-              reasoning: 'Version exclusivity check',
-            },
-          });
-          unobtainableCount++;
-          continue;
-        }
-      }
-
-      const versionEncounters = encounters.filter((enc: LocationAreaEncounter) =>
-        enc.version_details.some((vd: VersionEncounterDetail) => vd.version.name === displayVersion),
-      );
-
-      for (const enc of versionEncounters) {
-        const targetAreaSlug = enc.location_area.name;
-        if (!locationMap[targetAreaSlug]) {
-          const route = getDistanceToMap(saveData.currentMapId, targetAreaSlug);
-          if (route)
-            locationMap[targetAreaSlug] = {
-              name: route.name,
-              distance: route.distance,
-              pids: new Set(),
-              slug: targetAreaSlug,
-              encounterMap: new Map(),
-            };
-        }
-        if (locationMap[targetAreaSlug]) {
-          locationMap[targetAreaSlug].pids.add(pid);
-          const versionDetail = enc.version_details.find(
-            (vd: VersionEncounterDetail) => vd.version.name === displayVersion,
-          );
-          if (versionDetail) {
-            locationMap[targetAreaSlug].encounterMap.set(
-              pid,
-              versionDetail.encounter_details.map((ed) => ({
-                chance: ed.chance,
-                method: ed.method.name,
-                minLevel: ed.min_level,
-                maxLevel: ed.max_level,
-              })),
-            );
-          }
-        }
+      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations, apiData.allAreas);
+      if (distInfo && distInfo.distance < bestDist) {
+        bestDist = distInfo.distance;
+        bestAreaName = distInfo.name;
+        bestDetails = e.d.map((ed) => ({
+          chance: ed.c,
+          method: METHOD_NAMES[ed.m] || 'walk',
+          minLevel: ed.min,
+          maxLevel: ed.max,
+          aid: e.aid,
+        }));
       }
     }
-    const locations = Object.values(locationMap).map((loc) => ({
-      ...loc,
-      yield: loc.pids.size,
-    }));
-    const partyHasFly = saveData.partyDetails?.some((p: PokemonInstance) => p.moves?.includes(19));
-    locations.sort((a, b) =>
-      partyHasFly
-        ? b.yield !== a.yield
-          ? b.yield - a.yield
-          : a.distance - b.distance
-        : a.distance !== b.distance
-          ? a.distance - b.distance
-          : b.yield - a.yield,
-    );
-    locations.slice(0, 4).forEach((loc) => {
-      const pids = Array.from(loc.pids as Set<number>);
-      const locEncounterInfo: Record<number, EncounterDetail[]> = {};
 
-      pids.forEach((pid) => {
-        const mappedEncounter = loc.encounterMap.get(pid);
-        if (mappedEncounter) {
-          locEncounterInfo[pid] = mappedEncounter;
-        } else {
-          // Check ancestral encounters if not found directly
-          const aEncsMap = apiData.ancestralEncounters?.[pid] || {};
-          for (const aid in aEncsMap) {
-            const ancestorAreaEncounter = aEncsMap[Number(aid)]?.find(
-              (enc: LocationAreaEncounter) =>
-                enc.location_area.name === loc.slug &&
-                enc.version_details.some((vd: VersionEncounterDetail) => vd.version.name === displayVersion),
-            );
-            if (ancestorAreaEncounter) {
-              const versionDetail = ancestorAreaEncounter.version_details.find(
-                (vd: VersionEncounterDetail) => vd.version.name === displayVersion,
-              );
-              if (versionDetail) {
-                locEncounterInfo[pid] = versionDetail.encounter_details.map((ed) => ({
-                  chance: ed.chance,
-                  method: ed.method.name,
-                  minLevel: ed.min_level,
-                  maxLevel: ed.max_level,
-                }));
-                break;
-              }
-            }
-          }
-        }
-      });
-
-      if (loc.distance === 0) {
-        // This is already handled by the localEncounters block at the top with higher priority
-        return;
-      }
+    if (bestDist < 8) {
       suggestions.push({
-        id: `catch-loc-${loc.name}`,
+        id: `catch-nearby-${pid}`,
         category: 'Catch',
-        title: `Travel to ${loc.name}`,
-        description: partyHasFly
-          ? `Use Fly to easily travel to ${loc.name} and catch ${pids.length} missing Pokémon!`
-          : `Catch ${pids.length} missing Pokémon at ${loc.name}, only ${loc.distance === 1 ? '1 connection away' : `${loc.distance} connections away`}.`,
-        pokemonIds: pids,
-        priority: 80 + loc.yield - (partyHasFly ? 0 : loc.distance),
-        encounterInfo: locEncounterInfo,
+        title: `Nearby: #${pid}`,
+        description: `Found at ${bestAreaName} (${bestDist === 0 ? 'very close' : `${bestDist} areas away`}).`,
+        pokemonId: pid,
+        priority: Math.max(10, 110 - bestDist * 12),
+        encounterInfo: { [pid]: bestDetails },
       });
-    });
+    }
   }
 
-  // NPC Trades
+  // B. Unobtainable / Exclusive logic
+  const pidsWithExclusives = new Set<number>();
+  for (const pid of queryTargets) {
+    const reason = getUnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
+    if (reason) {
+      pidsWithExclusives.add(pid);
+
+      const isNpcTrade = STATIC_NPC_TRADE_DATA.some(
+        (t) =>
+          t.receivedId === pid && t.gen === saveData.generation && (!t.versions || t.versions.includes(displayVersion)),
+      );
+      if (isNpcTrade) continue;
+
+      suggestions.push({
+        id: `exclusive-${pid}`,
+        category: 'Trade',
+        title: `Version Exclusive: #${pid}`,
+        description: reason,
+        pokemonId: pid,
+        priority: 10,
+      });
+    }
+  }
+
+  // Trades
   for (const trade of STATIC_NPC_TRADE_DATA) {
     if (trade.gen !== saveData.generation) continue;
     if (trade.versions && !trade.versions.includes(displayVersion)) continue;
+    if (!missingIds.includes(trade.receivedId)) continue;
 
-    let isClaimed = false;
-
-    // Gen 1 specific bit flag check
-    if (saveData.generation === 1 && trade.tradeIndex !== undefined && saveData.npcTradeFlags !== undefined) {
-      isClaimed = (saveData.npcTradeFlags & (1 << trade.tradeIndex)) !== 0;
-    } else {
-      // Fallback for Gen 2 or if bit flags are missing
-      isClaimed = allInstances.some(
-        (p: PokemonInstance) => p.speciesId === trade.receivedId && p.otName === trade.receivedOtName,
-      );
-    }
-
-    if (!isClaimed && missingIds.includes(trade.receivedId)) {
-      const hasOffered = ownedSet.has(trade.offeredId);
-      if (hasOffered) {
-        suggestions.push({
-          id: `npc-trade-${trade.receivedId}`,
-          category: 'Trade',
-          title: `Trade for #${trade.receivedId}`,
-          description: `You have #${trade.offeredId}! Trade it at ${trade.location} for #${trade.receivedId}.`,
-          pokemonId: trade.receivedId,
-          priority: 85,
-        });
-      } else {
-        suggestions.push({
-          id: `npc-trade-${trade.receivedId}`,
-          category: 'Trade',
-          title: `Trade for #${trade.receivedId}`,
-          description: `Catch #${trade.offeredId} and trade it at ${trade.location} for #${trade.receivedId}.`,
-          pokemonId: trade.receivedId,
-          priority: 65,
-        });
-      }
-    }
-  }
-
-  // Gifts/Statics
-  for (const [pidStr, gift] of Object.entries(STATIC_GIFT_DATA)) {
-    const pid = parseInt(pidStr, 10);
-    if (gift.gen && gift.gen !== saveData.generation) continue;
-    if (gift.name.includes('Yellow only') && displayVersion !== 'yellow') continue;
-    if (gift.reason.includes('Crystal') && displayVersion !== 'crystal') continue;
-
-    const giftChain = apiData.giftChains?.[pid];
-    const familyIds = giftChain ? getChainIds(giftChain.chain).filter((id) => id <= genConfig.maxDex) : [pid];
-
-    const hasAnyFamily = familyIds.some((fid) => ownedSet.has(fid));
-    const hasAnyWithMyOT = familyIds.some((fid) => myOtIds.has(fid));
-
-    let isClaimedByEvent = false;
-    if (saveData.eventFlags && gift.eventFlag) {
-      isClaimedByEvent =
-        ((saveData.eventFlags[Math.floor(gift.eventFlag / 8)] ?? 0) & (1 << (gift.eventFlag % 8))) !== 0;
-    }
-
-    if (!isClaimedByEvent && !hasAnyWithMyOT && !hasAnyFamily && missingIds.includes(pid)) {
-      suggestions.push({
-        id: `gift-${pid}`,
-        category: 'Gift',
-        title: `Secure Gift: ${gift.name}`,
-        description: `Location: ${gift.location}. ${gift.reason}`,
-        pokemonId: pid,
-        priority: 85,
-      });
-    }
-  }
-
-  // Box Full
-  if (saveData.generation === 1) {
-    if (saveData.currentBoxCount >= 20) {
-      suggestions.push({
-        id: 'utility-box-full',
-        category: 'Utility',
-        title: 'CRITICAL: PC Box Full!',
-        description: "Your current PC box is at 20/20. Switch boxes via Bill's PC.",
-        priority: 150,
-      });
-    } else if (saveData.currentBoxCount >= 18) {
-      suggestions.push({
-        id: 'utility-box-near-full',
-        category: 'Utility',
-        title: 'PC Box Almost Full',
-        description: `${20 - saveData.currentBoxCount} slots remaining.`,
-        priority: 95,
-      });
-    }
-  }
-
-  // Obedience
-  const totalBadges =
-    saveData.generation === 1 ? saveData.badges : (saveData.johtoBadges || 0) + (saveData.kantoBadges || 0);
-  const caps = OBEDIENCE_CAPS.filter((c) => totalBadges >= c.badges);
-  const currentCap = caps[caps.length - 1]?.level ?? 10;
-  const disobedient = saveData.partyDetails.filter(
-    (p) => p.otName && p.otName !== saveData.trainerName && p.level > currentCap,
-  );
-  if (disobedient.length > 0) {
+    const hasOffered = ownedSet.has(trade.offeredId);
     suggestions.push({
-      id: 'utility-obedience-danger',
-      category: 'Utility',
-      title: 'Obedience Danger!',
-      description: `You have traded Pokémon above Lv. ${currentCap}. They may not obey you!`,
-      priority: 110,
+      id: `npc-trade-${trade.receivedId}`,
+      category: 'Trade',
+      title: `Trade for #${trade.receivedId}`,
+      description: hasOffered
+        ? `You have #${trade.offeredId}! Trade it at ${trade.location} for #${trade.receivedId}.`
+        : `Catch #${trade.offeredId} and trade it at ${trade.location} for #${trade.receivedId}.`,
+      pokemonId: trade.receivedId,
+      priority: hasOffered ? 85 : 65,
     });
   }
 
-  // Pre-calculate instances by species for O(1) lookup during evolution checks
-  // ⚡ Bolt: Replaces O(N*M) filtering inside the loop below
+  // Evolutions
   const instancesBySpecies = new Map<number, PokemonInstance[]>();
   for (const p of allInstances) {
-    if (!instancesBySpecies.has(p.speciesId)) {
-      instancesBySpecies.set(p.speciesId, []);
-    }
+    if (!instancesBySpecies.has(p.speciesId)) instancesBySpecies.set(p.speciesId, []);
     instancesBySpecies.get(p.speciesId)?.push(p);
   }
 
-  // Evolutions
   queryTargets.forEach((targetId: number) => {
-    const chain = apiData.missingChains?.[targetId];
-    if (!chain) return;
+    const p = apiData.pokemonMetadata?.[targetId];
+    if (!p) return;
 
-    // Find the target node and its parent (pre-evolution)
-    const findNodeAndParent = (
-      node: ChainLink,
-      parent: ChainLink | null = null,
-    ): { targetNode: ChainLink; parentNode: ChainLink } | null => {
-      const id = parseIdFromUrl(node.species.url);
-      // biome-ignore lint/style/noNonNullAssertion: Guaranteed by recursive logic structure
-      if (id === targetId) return { targetNode: node, parentNode: parent! };
-      for (const child of node.evolves_to) {
-        const res = findNodeAndParent(child, node);
-        if (res) return res;
-      }
-      return null;
-    };
-
-    const nodes = findNodeAndParent(chain.chain);
-    if (!nodes?.parentNode) return;
-
-    const parentId = parseIdFromUrl(nodes.parentNode.species.url);
-
-    // Check if we own the pre-evolution
-    // ⚡ Bolt: Use pre-calculated map instead of array filter
+    const parentId = p.evolves_from[0];
+    if (parentId === undefined) return;
     const ownedInstances = instancesBySpecies.get(parentId) || [];
     if (ownedInstances.length === 0) return;
 
-    // Get the highest level instance to give the most optimistic suggestion
     const bestInstance = ownedInstances.reduce((prev, current) => (prev.level > current.level ? prev : current));
+    const isYellowStarterPikachu =
+      displayVersion === 'yellow' && parentId === 25 && bestInstance.otName === saveData.trainerName;
+    if (isYellowStarterPikachu) return;
 
-    // Get evolution details from the target node
-    const details = nodes.targetNode.evolution_details[0];
-    if (!details) return;
+    const details = p.details;
+    const detail = details?.[0];
+    if (!detail) return;
 
-    const trigger = details.trigger.name;
+    const tr = detail.tr;
+    const min_l = detail.min_l;
+    const min_h = detail.min_h;
+    const item = detail.item;
+    const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
 
-    if (trigger === 'level-up') {
-      if (details.min_level) {
-        const isReady = bestInstance.level >= details.min_level;
-        let statCondition = '';
-        if (details.relative_physical_stats === 1) statCondition = ' (needs Attack > Defense)';
-        else if (details.relative_physical_stats === -1) statCondition = ' (needs Attack < Defense)';
-        else if (details.relative_physical_stats === 0) statCondition = ' (needs Attack = Defense)';
+    if (tr === EVO_TRIGGER.LEVEL_UP) {
+      if (min_l) {
+        const isReady = bestInstance.level >= min_l;
+        const specificReq = `(needs Lv. ${min_l})`;
 
         suggestions.push({
           id: `evo-lvl-${targetId}`,
           category: 'Evolve',
           title: `Level Up Evolution: #${targetId}`,
           description: isReady
-            ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve (needs Lv. ${details.min_level})${statCondition}!`
-            : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${details.min_level}${statCondition}.`,
+            ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve ${specificReq}!`
+            : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${min_l} ${specificReq}.`,
           pokemonId: targetId,
           priority: isReady ? 90 : 75,
         });
-      } else if (details.min_happiness) {
-        let timeCondition = '';
-        if (details.time_of_day === 'Day' || (details.time_of_day as unknown as string) === 'day')
-          timeCondition = ' during the day';
-        else if (details.time_of_day === 'Night' || (details.time_of_day as unknown as string) === 'night')
-          timeCondition = ' during the night';
-
+      } else if (min_h) {
+        const todMsg = tod ? ` during the ${tod}` : '';
         suggestions.push({
           id: `evo-happy-${targetId}`,
           category: 'Evolve',
           title: `Happiness Evolution: #${targetId}`,
-          description: `Level up your pre-evolution with high happiness${timeCondition} to evolve!`,
+          description: `Level up your pre-evolution with high happiness to evolve${todMsg}!`,
           pokemonId: targetId,
           priority: 80,
         });
       }
-    } else if (trigger === 'use-item' && details.item) {
-      const itemName = details.item.name;
-      const isYellowStarterPikachu =
-        displayVersion === 'yellow' && parentId === 25 && bestInstance.otName === saveData.trainerName;
-      if (isYellowStarterPikachu) return;
-
-      let targetItemId = -1;
-      if (saveData.generation === 1) {
-        if (itemName.includes('fire')) targetItemId = GEN1_ITEMS.FIRE_STONE;
-        else if (itemName.includes('thunder')) targetItemId = GEN1_ITEMS.THUNDER_STONE;
-        else if (itemName.includes('water')) targetItemId = GEN1_ITEMS.WATER_STONE;
-        else if (itemName.includes('leaf')) targetItemId = GEN1_ITEMS.LEAF_STONE;
-        else targetItemId = GEN1_ITEMS.MOON_STONE; // Default to moon stone
-      } else {
-        // Gen 2
-        const normalizedItemName = itemName.toLowerCase().replace(/[-\s]/g, '');
-        targetItemId = GEN2_ITEM_IDS_BY_NAME[normalizedItemName] || -1;
-      }
-
-      const hasStone = saveData.inventory.some((i) => i.id === targetItemId);
-      if (hasStone) {
-        suggestions.push({
-          id: `evo-stn-${targetId}`,
-          category: 'Evolve',
-          title: `Ready to Evolve: #${targetId}!`,
-          description: `Use ${itemName.replace('-', ' ')} on your pre-evolution!`,
-          pokemonId: targetId,
-          priority: 95,
-        });
-      } else {
-        suggestions.push({
-          id: `evo-buy-${targetId}`,
-          category: 'Evolve',
-          title: `Get ${itemName.replace('-', ' ')}`,
-          description: `Obtain a ${itemName.replace('-', ' ')} to evolve your pre-evolution into #${targetId}.`,
-          pokemonId: targetId,
-          priority: 40,
-        });
-      }
-    } else if (trigger === 'trade') {
-      const heldItem = details.held_item?.name;
+    } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
+      const hasStone = saveData.inventory.some((i) => i.id === item);
+      suggestions.push({
+        id: `evo-item-${targetId}`,
+        category: 'Evolve',
+        title: hasStone ? `Ready to Evolve: #${targetId}!` : `Item Needed: #${targetId}`,
+        description: hasStone ? `Use your item to evolve it!` : `Find the right item to evolve it.`,
+        pokemonId: targetId,
+        priority: hasStone ? 95 : 40,
+      });
+    } else if (tr === EVO_TRIGGER.TRADE) {
       suggestions.push({
         id: `evo-trade-${targetId}`,
         category: 'Evolve',
         title: `Trade Evolution: #${targetId}`,
-        description: heldItem
-          ? `Trade your pre-evolution while holding ${heldItem.replace('-', ' ')}.`
-          : `Trade your pre-evolution to evolve it!`,
+        description: `Trade your pre-evolution to evolve it!`,
         pokemonId: targetId,
         priority: 85,
       });

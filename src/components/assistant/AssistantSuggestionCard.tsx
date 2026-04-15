@@ -12,6 +12,7 @@ interface AssistantSuggestionCardProps {
   showDebug: boolean;
   saveData: SaveData;
   getPokemonName: (id: number) => string;
+  areaNames?: Record<number, string>;
 }
 
 export function AssistantSuggestionCard({
@@ -20,6 +21,7 @@ export function AssistantSuggestionCard({
   showDebug,
   saveData,
   getPokemonName,
+  areaNames,
 }: AssistantSuggestionCardProps) {
   let title = s.title;
   let desc = s.description;
@@ -164,6 +166,11 @@ export function AssistantSuggestionCard({
                             <span className="font-black text-[9px] text-white transition-colors group-hover/sprite:text-emerald-400">
                               Lv. {enc.minLevel === enc.maxLevel ? enc.minLevel : `${enc.minLevel}-${enc.maxLevel}`}
                             </span>
+                            {areaNames?.[enc.aid] && (
+                              <span className="max-w-[80px] truncate text-center text-[8px] text-zinc-500 uppercase">
+                                {areaNames[enc.aid]}
+                              </span>
+                            )}
                           </div>
                         </div>
                       ))}
@@ -207,6 +214,7 @@ export function AssistantSuggestionCard({
 
   return (
     <div
+      data-testid="assistant-suggestion-card"
       className={`relative rounded-2xl border ${isCritical ? 'animate-[pulse_2s_infinite] border-red-500' : style.color} group overflow-hidden bg-zinc-900 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
     >
       {!hasMultiple && s.pokemonId ? (

@@ -2,18 +2,13 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { pokeDB } from './db/PokeDB';
 import { queryClient } from './queryClient';
 import { routeTree } from './routeTree.gen';
 import './index.css';
 
-// Register Service Worker (production only — SW breaks Vite HMR in dev)
-if (import.meta.env.PROD && 'serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch((err) => {
-      console.error('ServiceWorker registration failed: ', err);
-    });
-  });
-}
+// Initialize and sync PokeData
+pokeDB.sync().catch(console.error);
 
 const router = createRouter({
   routeTree,

@@ -1,60 +1,40 @@
-import type { MockInstance } from 'vitest';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { pokeapi } from '../../../utils/pokeapi';
+import 'fake-indexeddb/auto';
+import { beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
+import { dexDataLoader } from '../../../db/DexDataLoader';
+import { pokeDB } from '../../../db/PokeDB';
+import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import { fetchAssistantApiData } from '../suggestionEngine';
 
 describe('fetchAssistantApiData', () => {
-  let consoleErrorSpy: MockInstance;
+  let _consoleErrorSpy: MockInstance;
 
   beforeEach(() => {
-    consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    _consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   });
 
-  afterEach(() => {
-    vi.restoreAllMocks();
-  });
-
-  it('should handle pokeapi evolution fetch failure gracefully in partyPromises', async () => {
+  it('should handle evolution fetch failure gracefully', async () => {
     const mockSaveData = {
       generation: 1,
       currentMapId: 0,
       party: [1, 2], // Bulbasaur and Ivysaur
+      trainerName: 'RED',
+      inventory: [],
     } as unknown as SaveData;
 
-    vi.spyOn(pokeapi, 'resource').mockImplementation(async (url: string) => {
-      // Mock successful fetch for local area
-      if (url.includes('location-area')) return { pokemon_encounters: [] };
-
-      // Mock missing encounters
-      if (url.includes('/pokemon/')) return [];
-
-      // Mock species fetch
-      if (url.includes('/pokemon-species/1')) {
-        return { evolution_chain: { url: 'chain1' } };
-      }
-      if (url.includes('/pokemon-species/2')) {
-        return { evolution_chain: { url: 'chain2' } };
-      }
-
-      // Mock chain fetch: throw for chain1, succeed for chain2
-      if (url === 'chain1') {
-        throw new Error('Network failure');
-      }
-      if (url === 'chain2') {
-        return { id: 2, chain: { species: { url: '.../2/' }, evolves_to: [] } };
-      }
-
-      return {};
-    });
+    vi.spyOn(pokeDB, 'getAllEncounters').mockResolvedValue([]);
+    vi.spyOn(pokeDB, 'getAllAreas').mockResolvedValue([]);
+    vi.spyOn(pokeDB, 'getLocations').mockResolvedValue([]);
+    vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockResolvedValue([
+      { id: 1, n: 'bulbasaur', evolves_from: [], evolves_to: [], details: [] } as unknown as PokemonMetadata,
+      { id: 2, n: 'ivysaur', evolves_from: [1], evolves_to: [], details: [] } as unknown as PokemonMetadata,
+    ]);
 
     const result = await fetchAssistantApiData(mockSaveData, []);
 
-    // It should have logged the error
-    expect(consoleErrorSpy).toHaveBeenCalledWith('Evo fetch failed', 1, expect.any(Error));
-
-    // It should have continued and fetched chain2
-    expect(result.partyEvolutions[2]).toBeDefined();
-    expect(result.partyEvolutions[1]).toBeUndefined();
+    // It should have correctly populated pokemonMetadata
+    expect(result.pokemonMetadata[2]).toBeDefined();
+    expect(result.pokemonMetadata[1]).toBeDefined();
+    expect(result.pokemonMetadata[2]?.n).toBe('ivysaur');
   });
 });

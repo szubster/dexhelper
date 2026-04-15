@@ -1,4 +1,6 @@
+import { useSuspenseQuery } from '@tanstack/react-query';
 import React, { useMemo } from 'react';
+import { pokeDB } from '../db/PokeDB';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { PokedexCard } from './PokedexCard';
@@ -8,9 +10,25 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
   const isLivingDex = useStore((s) => s.isLivingDex);
   const searchTerm = useStore((s) => s.searchTerm);
   const filters = useStore((s) => s.filters);
+  const selectedLocationId = useStore((s) => s.selectedLocationId);
 
   // ⚡ Bolt: Decouple rapid search typing from expensive grid re-renders
   const deferredSearchTerm = React.useDeferredValue(searchTerm);
+
+  // Fetch pokemon IDs for the selected location if any
+  const { data: locationIndex } = useSuspenseQuery({
+    queryKey: ['locationIndex', selectedLocationId],
+    queryFn: async () => {
+      if (!selectedLocationId) return null;
+      return pokeDB.getInverseIndex(selectedLocationId);
+    },
+    staleTime: Infinity,
+  });
+
+  const locationPokemonIds = useMemo(() => {
+    if (!locationIndex) return null;
+    return new Set(locationIndex);
+  }, [locationIndex]);
 
   const filtersSet = React.useMemo(() => new Set(filters), [filters]);
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
@@ -32,7 +50,12 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
         if (!matchesTerm) return false;
       }
 
-      // 2. Storage/Dex filters check
+      // 2. Location filter check
+      if (locationPokemonIds && !locationPokemonIds.has(pokemon.id)) {
+        return false;
+      }
+
+      // 3. Storage/Dex filters check
       if (!saveData || filtersSet.size === 0) return true;
 
       const inParty = partySet.has(pokemon.id);
@@ -45,7 +68,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
       return false;
     });
-  }, [pokemonList, displayLimit, deferredSearchTerm, saveData, filtersSet, partySet, pcSet]);
+  }, [pokemonList, displayLimit, deferredSearchTerm, saveData, filtersSet, partySet, pcSet, locationPokemonIds]);
 
   const shinySpeciesIds = useMemo(() => {
     const set = new Set<number>();

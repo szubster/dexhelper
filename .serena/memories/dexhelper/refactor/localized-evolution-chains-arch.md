@@ -1,0 +1,11 @@
+### Evolution Chain Architecture Refactor (April 2026)
+- **Problem**: Evolution chains were previously stored as fully duplicated trees for each Pokémon species, leading to data redundancy and requiring expensive recursive tree-walking at runtime for simple queries (e.g., "what does this evolve from?").
+- **Solution**: Migrated to a localized, ID-centric model.
+- **Key Features**:
+    - **Localized Schema**: Individual Pokémon store their specific evolution context:
+        - `evolves_from`: Flat array of ancestor IDs for $O(1)$ ancestry lookup.
+        - `evolves_to`: Localized sub-tree of immediate paths.
+        - `details`: Evolution requirements from the immediate parent.
+    - **Runtime Optimization**: Removed all recursive tree-walking logic from `suggestionEngine.ts` and `PokemonDetails.tsx`.
+    - **Database Migration**: Bumped `DB_CONFIG.VERSION` to `5`.
+- **Impact**: Improved UI responsiveness on the Assistant page and simplified data traversal logic.

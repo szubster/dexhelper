@@ -1,48 +1,12 @@
 import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
-import type { PokemonInstance, SaveData } from '../../../engine/saveParser/index';
-import { getGenerationConfig } from '../../../utils/generationConfig';
+import type { PokemonInstance } from '../../../engine/saveParser/index';
 
 interface PokemonCaughtDetailsProps {
   yourPokemon: (PokemonInstance & { location: string })[];
-  saveData: SaveData | null;
 }
 
-function calculateHiddenPower(dvs: { atk: number; def: number; spd: number; spc: number }) {
-  const typeMap = [
-    'Fighting',
-    'Flying',
-    'Poison',
-    'Ground',
-    'Rock',
-    'Bug',
-    'Ghost',
-    'Steel',
-    'Fire',
-    'Water',
-    'Grass',
-    'Electric',
-    'Psychic',
-    'Ice',
-    'Dragon',
-    'Dark',
-  ];
-
-  const typeIndex = 4 * (dvs.atk % 4) + (dvs.def % 4);
-  const hpType = typeMap[typeIndex];
-
-  const v = dvs.spc >= 8 ? 1 : 0;
-  const w = dvs.spd >= 8 ? 1 : 0;
-  const x = dvs.def >= 8 ? 1 : 0;
-  const y = dvs.atk >= 8 ? 1 : 0;
-  const z = dvs.spc % 4;
-
-  const hpPower = Math.floor((5 * (v + 2 * w + 4 * x + 8 * y) + z) / 2) + 31;
-
-  return { type: hpType, power: hpPower };
-}
-
-export function PokemonCaughtDetails({ yourPokemon, saveData }: PokemonCaughtDetailsProps) {
+export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps) {
   if (yourPokemon.length === 0) return null;
 
   return (
@@ -103,14 +67,6 @@ export function PokemonCaughtDetails({ yourPokemon, saveData }: PokemonCaughtDet
                 <div className="flex flex-col">
                   <span className="font-black text-[8px] text-zinc-500 uppercase tracking-widest">Friendship</span>
                   <span className="font-bold text-[10px] text-rose-400">{p.friendship} pt</span>
-                </div>
-              )}
-              {saveData && getGenerationConfig(saveData.generation).hasHiddenPower && p.dvs && (
-                <div className="flex flex-col">
-                  <span className="font-black text-[8px] text-zinc-500 uppercase tracking-widest">Hidden Power</span>
-                  <span className="font-bold text-[10px] text-blue-400 uppercase">
-                    {calculateHiddenPower(p.dvs).type}
-                  </span>
                 </div>
               )}
             </div>

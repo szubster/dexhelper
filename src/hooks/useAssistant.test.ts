@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { gen1Strategy } from '../engine/assistant/strategies/gen1Strategy';
 import type { AssistantApiData } from '../engine/assistant/suggestionEngine';
 import { generateSuggestions } from '../engine/assistant/suggestionEngine';
 import type { SaveData } from '../engine/saveParser/index';
@@ -31,55 +32,53 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
     ],
     pcDetails: [],
-  };
+    trainerIdRaw: new Uint8Array(2),
+  } as unknown as SaveData;
 
   const mockApiData = {
     localEncounters: [],
     missingEncounters: {
-      39: [], // Jigglypuff
-      40: [], // Wigglytuff
-      62: [], // Poliwrath
+      39: null, // Jigglypuff
+      40: null, // Wigglytuff
+      62: null, // Poliwrath
     },
+    areaNames: {},
     ancestralEncounters: {
       40: {
-        39: [{ version_details: [{ version: { name: 'yellow' } }] }], // Jigglypuff is catchable in Yellow
+        39: { pid: 39, encounters: [{ aid: 100, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Jigglypuff in Yellow
       },
       62: {
-        60: [{ version_details: [{ version: { name: 'yellow' } }] }], // Poliwag catchable
-        61: [], // Poliwhirl not directly catchable in this mock
+        60: { pid: 60, encounters: [{ aid: 101, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Poliwag catchable
+        61: null, // Poliwhirl not directly catchable
       },
     },
     missingChains: {
-      39: {
-        chain: {
-          species: { url: 'https://pokeapi.co/api/v2/pokemon-species/39/' },
-          evolves_to: [],
-        },
-      },
+      39: { id: 39, evolves_from: [], details: [], evolves_to: [] },
       40: {
-        chain: {
-          species: { url: 'https://pokeapi.co/api/v2/pokemon-species/39/' },
-          evolves_to: [],
-        },
+        id: 40,
+        evolves_from: [39],
+        details: [{ tr: 3, item: 81 }],
+        evolves_to: [],
       },
       62: {
-        chain: {
-          species: { url: 'https://pokeapi.co/api/v2/pokemon-species/60/' },
-          evolves_to: [],
-        },
+        id: 62,
+        evolves_from: [61, 60],
+        details: [{ tr: 3, item: 84 }],
+        evolves_to: [],
       },
     },
     partyEvolutions: {},
+    giftChains: {},
   } as unknown as AssistantApiData;
 
   it('should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)', () => {
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData, gen1Strategy);
     const wigglyTrade = suggestions.find((s) => s.pokemonId === 40 && s.category === 'Trade');
     expect(wigglyTrade).toBeUndefined();
   });
 
   it('should NOT mark Poliwrath as Trade Required in Pokémon Yellow if Poliwag is catchable', () => {
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData, gen1Strategy);
     const poliTrade = suggestions.find((s) => s.pokemonId === 62 && s.category === 'Trade');
     expect(poliTrade).toBeUndefined();
   });
@@ -88,18 +87,13 @@ describe('useAssistant - generateSuggestions logic', () => {
     const exclusiveApiData = {
       ...mockApiData,
       missingEncounters: {
-        13: [],
+        13: null,
       },
       ancestralEncounters: {
         13: {}, // No ancestors catchable either
       },
       missingChains: {
-        13: {
-          chain: {
-            species: { url: 'https://pokeapi.co/api/v2/pokemon-species/13/' },
-            evolves_to: [],
-          },
-        },
+        13: { id: 13, evolves_from: [], details: [], evolves_to: [] },
       },
     };
 
@@ -108,6 +102,7 @@ describe('useAssistant - generateSuggestions logic', () => {
       false,
       'yellow',
       exclusiveApiData as unknown as AssistantApiData,
+      gen1Strategy,
     );
     const weedleTrade = suggestions.find((s) => s.pokemonId === 13 && s.category === 'Trade');
     expect(weedleTrade).toBeDefined();
@@ -119,37 +114,27 @@ describe('useAssistant - generateSuggestions logic', () => {
       ...mockApiData,
       localEncounters: [
         {
-          pokemon: { name: 'pidgey', url: 'https://pokeapi.co/api/v2/pokemon/16/' },
-          version_details: [
-            {
-              version: { name: 'yellow' },
-              encounter_details: [{ chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 }],
-            },
-          ],
+          pid: 16,
+          encounters: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
         },
       ],
+      localAid: 1,
       missingEncounters: {
-        16: [
-          {
-            location_area: { name: 'pallet-town-area' },
-            version_details: [
-              {
-                version: { name: 'yellow' },
-                encounter_details: [{ chance: 50, method: { name: 'walk' }, min_level: 2, max_level: 4 }],
-              },
-            ],
-          },
-        ],
+        16: {
+          pid: 16,
+          encounters: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+        },
       },
     };
 
-    // Pallet Town (id 0) + pallet-town-area slug = distance 0
-    const testSaveData = { ...mockSaveData, currentMapId: 0, owned: new Set([25]) };
+    // Current map matches localAid slug
+    const testSaveData = { ...mockSaveData, currentMapId: 0x0c, owned: new Set([25]) } as unknown as SaveData;
     const { suggestions } = generateSuggestions(
       testSaveData,
       false,
       'yellow',
       duplicateApiData as unknown as AssistantApiData,
+      gen1Strategy,
     );
 
     const catchRightHereTips = suggestions.filter((s) => s.title === 'Catch Right Here');

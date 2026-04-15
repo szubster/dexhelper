@@ -1,84 +1,59 @@
 import { describe, expect, it } from 'vitest';
-import { GEN1_MAPS, getDistanceToMap } from './gen1Graph';
+import type { GenericLocation, SpecificArea } from '../../db/schema';
+import { getDistanceToMap } from './gen1Graph';
+
+const mockLocations: GenericLocation[] = [
+  { id: 0x00, n: 'Pallet Town', connections: [0x01] },
+  { id: 0x01, n: 'Route 1', connections: [0x00, 0x02] },
+  { id: 0x02, n: 'Viridian City', connections: [0x01, 0x03] },
+  { id: 0x03, n: 'Route 2', connections: [0x02] },
+  { id: 0x25, n: "Player's House", parentId: 0x00, connections: [] },
+];
+
+const mockAreas: SpecificArea[] = [
+  { id: 0x00, n: 'Pallet Town' },
+  { id: 0x01, n: 'Route 1' },
+  { id: 0x02, n: 'Viridian City' },
+];
 
 describe('getDistanceToMap', () => {
   it('returns distance 0 when starting map is the target', () => {
-    // Pallet Town (0x00) -> pallet-town-area
-    const result = getDistanceToMap(0x00, 'pallet-town-area');
+    // Pallet Town (0x00) -> pallet-town-area (Map ID 0x00)
+    const result = getDistanceToMap(mockLocations, mockAreas, 0x00, 0x00);
     expect(result).toEqual({ distance: 0, name: 'Pallet Town' });
   });
 
   it('returns distance 1 for an adjacent map', () => {
-    // Pallet Town (0x00) -> route-1-area
-    const result = getDistanceToMap(0x00, 'route-1-area');
+    // Pallet Town (0x00) -> route-1-area (Map ID 0x01)
+    const result = getDistanceToMap(mockLocations, mockAreas, 0x00, 0x01);
     expect(result).toEqual({ distance: 1, name: 'Route 1' });
   });
 
   it('returns distance 2 for a multi-hop distant map', () => {
-    // Pallet Town (0x00) -> viridian-city-area
-    const result = getDistanceToMap(0x00, 'viridian-city-area');
+    // Pallet Town (0x00) -> viridian-city-area (Map ID 0x02)
+    const result = getDistanceToMap(mockLocations, mockAreas, 0x00, 0x02);
     expect(result).toEqual({ distance: 2, name: 'Viridian City' });
   });
 
   it('gracefully falls back to parent map for indoor locations', () => {
-    // Pallet Town Interior (0x25) -> pallet-town-area should be 0 distance since parent is Pallet Town (0x00)
-    const result = getDistanceToMap(0x25, 'pallet-town-area');
+    // Pallet Town Interior (0x25) -> Map ID 0x00 (Pallet Town)
+    const result = getDistanceToMap(mockLocations, mockAreas, 0x25, 0x00);
     expect(result).toEqual({ distance: 0, name: 'Pallet Town' });
-
-    // Viridian City Interior (0x28) -> pallet-town-area
-    // Parent is Viridian City (0x01). Distance to Pallet Town is 2.
-    const result2 = getDistanceToMap(0x28, 'pallet-town-area');
-    expect(result2).toEqual({ distance: 2, name: 'Pallet Town' });
   });
 
-  it('defaults to Saffron City for an unknown starting map as per domain rules', () => {
-    // Unknown ID (0x999) -> saffron-city-area should be 0 since it defaults to Saffron City (0x0A)
-    const result = getDistanceToMap(0x999, 'saffron-city-area');
+  it('defaults to Saffron City (mocked as Viridian for this test) for an unknown starting map', () => {
+    // Unknown ID (0x999) -> AID 280 (Viridian City)
+    // Saffron is hardcoded as gameId 0x0A, but we can't mock that easily here unless we add it.
+
+    const locWithSaffron: GenericLocation[] = [...mockLocations, { id: 10, n: 'Saffron City', connections: [2] }];
+    const areasWithSaffron: SpecificArea[] = [...mockAreas, { id: 10, n: 'Saffron City' }];
+
+    const result = getDistanceToMap(locWithSaffron, areasWithSaffron, 0x999, 10);
     expect(result).toEqual({ distance: 0, name: 'Saffron City' });
-
-    // Saffron City (0x0A) -> route-5-area is adjacent
-    const result2 = getDistanceToMap(0x999, 'route-5-area');
-    expect(result2).toEqual({ distance: 1, name: 'Route 5' });
   });
 
-  it('handles slug cleaning correctly for pokeapi locations', () => {
-    // kanto-route-1
-    const resultKanto = getDistanceToMap(0x00, 'kanto-route-1');
-    expect(resultKanto).toEqual({ distance: 1, name: 'Route 1' });
-
-    // sea-route-21
-    const resultSea = getDistanceToMap(0x00, 'sea-route-21');
-    expect(resultSea).toEqual({ distance: 1, name: 'Route 21' });
-  });
-
-  it('returns null for an unreachable target or invalid target slug', () => {
-    const result = getDistanceToMap(0x00, 'invalid-target-slug');
+  it('returns null for an unknown target aid', () => {
+    const result = getDistanceToMap(mockLocations, mockAreas, 0x00, 9999);
     expect(result).toBeNull();
-  });
-
-  it('avoids partial matches (regression: Route 1 mismatching Route 10, 11, 12)', () => {
-    // Current is Pallet Town (0x00).
-    // Route 1 is next to Pallet Town (distance 1).
-    // Route 12 is VERY far away.
-    // Before fix, route-12 matched route-1, returning distance 1.
-    // Now it should correctly search the whole graph or return the correct distance.
-    const result = getDistanceToMap(0x00, 'route-12-area');
-    // Pallet (0x00) -> Route 1 (0x0C) -> Viridian (0x01) -> Route 22 (0x21) ... is wrong direction.
-    // Pallet -> Route 21 -> Cinnabar ... is also long.
-    // Safe to say it's NOT 1. Distance should be around 7-10.
-    expect(result?.distance).toBeGreaterThan(1);
-    expect(result?.name).not.toBe('Route 1');
-  });
-
-  it('handles graphs with missing connection nodes gracefully', () => {
-    // Temporarily add a map with a dangling connection
-    GEN1_MAPS[0x998] = { id: 0x998, slug: 'test-map', name: 'Test', connections: [0x999] }; // 0x999 does not exist
-
-    const result = getDistanceToMap(0x998, 'some-unreachable-target');
-
-    expect(result).toBeNull();
-
-    // Cleanup
-    delete GEN1_MAPS[0x998];
   });
 });

@@ -1,30 +1,34 @@
+import type { GenericLocation, SpecificArea } from '../../../db/schema';
 import { getGenerationConfig } from '../../../utils/generationConfig';
-import { GEN1_MAP_TO_SLUG } from '../../data/gen1/assistantData';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
-import { GEN1_MAPS, getDistanceToMap, INDOOR_TO_PARENT_MAP } from '../../mapGraph/gen1Graph';
+import { getDistanceToMap } from '../../mapGraph/gen1Graph';
 import type { SaveData } from '../../saveParser/index';
 import type { AssistantStrategy, Suggestion } from './types';
 
 export const gen1Strategy: AssistantStrategy = {
   generation: 1,
 
-  resolveMapSlug(saveData: SaveData): string {
-    let mapId = saveData.currentMapId;
+  resolveMapAid(saveData: SaveData, allLocations: GenericLocation[], allAreas: SpecificArea[]): number | null {
+    const mapId = saveData.currentMapId;
 
-    // Resolve indoor maps to their parent outdoor area
-    if (INDOOR_TO_PARENT_MAP[mapId] !== undefined) {
-      mapId = INDOOR_TO_PARENT_MAP[mapId] ?? mapId;
+    // Find location for this mapId (which is the GenericLocation id in Gen 1)
+    const loc = allLocations.find((l) => l.id === mapId);
+    if (!loc) return null;
+
+    // Resolve to parent if it's an indoor location
+    let targetLoc = loc;
+    if (loc.parentId !== undefined) {
+      const parent = allLocations.find((p) => p.id === loc.parentId);
+      if (parent) targetLoc = parent;
     }
 
-    const node = GEN1_MAPS[mapId];
-    if (node) return node.slug;
-
-    // Fall back to the assistantData map-to-slug lookup
-    return GEN1_MAP_TO_SLUG[saveData.currentMapId] ?? 'pallet-town-area';
+    // Find first area in this location
+    const area = allAreas.find((a) => a.id === targetLoc.id);
+    return area ? area.id : null;
   },
 
-  getMapDistance(currentMapId: number, targetSlug: string) {
-    return getDistanceToMap(currentMapId, targetSlug);
+  getMapDistance(currentMapId: number, targetAid: number, allLocations: GenericLocation[], allAreas: SpecificArea[]) {
+    return getDistanceToMap(allLocations, allAreas, currentMapId, targetAid);
   },
 
   getUnobtainableReason(pokemonId: number, version: string, ownedCount: number, ownedSet: Set<number>) {

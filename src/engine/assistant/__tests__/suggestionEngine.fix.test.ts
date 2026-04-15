@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { SaveData } from '../../saveParser/index';
+import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
@@ -19,21 +20,28 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
   };
 
   const mockApiData = {
-    localEncounters: [],
+    localEncounters: { slug: 'pallet-town-area', encounters: [] },
     missingEncounters: {
       124: [], // Jynx (not catchable in Yellow, and no NPC trade)
       122: [], // Mr. Mime (not catchable in Yellow, but NPC trade EXISTS)
     },
     ancestralEncounters: { 124: {}, 122: {} },
     missingChains: {
-      124: { chain: { species: { url: '.../124/' }, evolves_to: [] } },
-      122: { chain: { species: { url: '.../122/' }, evolves_to: [] } },
+      124: { id: 124, evolves_from: [], details: [], evolves_to: [] },
+      122: { id: 122, evolves_from: [], details: [], evolves_to: [] },
     },
     partyEvolutions: {},
+    areaNames: {},
   } as unknown as AssistantApiData;
 
   it('should only show "Version Exclusive" for Jynx in Yellow', () => {
-    const { suggestions } = generateSuggestions(mockSaveData as unknown as SaveData, false, 'yellow', mockApiData);
+    const { suggestions } = generateSuggestions(
+      mockSaveData as unknown as SaveData,
+      false,
+      'yellow',
+      mockApiData,
+      gen1Strategy,
+    );
     const jynxSuggestions = suggestions.filter((s) => s.pokemonId === 124);
 
     // Jynx: 1 suggestion (Version Exclusive)
@@ -42,7 +50,13 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
   });
 
   it('should suppress "Version Exclusive" for Mr. Mime and only show NPC trade', () => {
-    const { suggestions } = generateSuggestions(mockSaveData as unknown as SaveData, false, 'yellow', mockApiData);
+    const { suggestions } = generateSuggestions(
+      mockSaveData as unknown as SaveData,
+      false,
+      'yellow',
+      mockApiData,
+      gen1Strategy,
+    );
     const mimeSuggestions = suggestions.filter((s) => s.pokemonId === 122);
 
     // Mr. Mime: 1 suggestion (NPC Trade)

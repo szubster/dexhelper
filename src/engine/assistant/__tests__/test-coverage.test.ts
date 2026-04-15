@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
+import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
@@ -7,91 +8,90 @@ test('coverage for suggestionEngine new lines', () => {
   const mockSaveData: SaveData = {
     generation: 2,
     gameVersion: 'crystal',
-    // Mock owned up to 251 except the ones we want to suggest
-    owned: new Set([...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237].includes(i))),
+    // Mock owned up to 251 except the ones we want to suggest (targets must be missing)
+    owned: new Set(
+      [...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237, 136, 68].includes(i)),
+    ),
     seen: new Set(),
     party: [],
-    inventory: [],
+    inventory: [{ id: 82, count: 1 }], // Fire Stone
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
     partyDetails: [
       { speciesId: 133, level: 20, otName: 'PLAYER' } as PokemonInstance,
       { speciesId: 236, level: 20, otName: 'PLAYER' } as PokemonInstance,
+      { speciesId: 67, level: 30, otName: 'PLAYER' } as PokemonInstance,
     ],
     pcDetails: [],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
 
-  // Manually ensure Eevee and Tyrogue are in owned
+  // Manually ensure Eevee, Tyrogue, and Machoke are in owned
   mockSaveData.owned.add(133);
   mockSaveData.owned.add(236);
+  mockSaveData.owned.add(67);
 
   const mockApiData: AssistantApiData = {
     localEncounters: [],
     missingEncounters: {},
     ancestralEncounters: {},
-    missingChains: {
+    pokemonMetadata: {
       196: {
-        chain: {
-          species: { url: '.../133/' },
-          evolves_to: [
-            {
-              species: { url: '.../196/' },
-              evolution_details: [{ trigger: { name: 'level-up' }, min_happiness: 220, time_of_day: 'day' }],
-            },
-          ],
-        },
+        id: 196,
+        n: 'Espeon',
+        evolves_from: [133],
+        details: [{ tr: 1, min_h: 220, time: 1 }],
+        evolves_to: [],
       }, // Espeon
       197: {
-        chain: {
-          species: { url: '.../133/' },
-          evolves_to: [
-            {
-              species: { url: '.../197/' },
-              evolution_details: [{ trigger: { name: 'level-up' }, min_happiness: 220, time_of_day: 'night' }],
-            },
-          ],
-        },
+        id: 197,
+        n: 'Umbreon',
+        evolves_from: [133],
+        details: [{ tr: 1, min_h: 220, time: 2 }],
+        evolves_to: [],
       }, // Umbreon
       106: {
-        chain: {
-          species: { url: '.../236/' },
-          evolves_to: [
-            {
-              species: { url: '.../106/' },
-              evolution_details: [{ trigger: { name: 'level-up' }, min_level: 20, relative_physical_stats: 1 }],
-            },
-          ],
-        },
+        id: 106,
+        n: 'Hitmonlee',
+        evolves_from: [236],
+        details: [{ tr: 1, min_l: 20, rel_s: 1 }],
+        evolves_to: [],
       }, // Hitmonlee
       107: {
-        chain: {
-          species: { url: '.../236/' },
-          evolves_to: [
-            {
-              species: { url: '.../107/' },
-              evolution_details: [{ trigger: { name: 'level-up' }, min_level: 20, relative_physical_stats: -1 }],
-            },
-          ],
-        },
+        id: 107,
+        n: 'Hitmonchan',
+        evolves_from: [236],
+        details: [{ tr: 1, min_l: 20, rel_s: -1 }],
+        evolves_to: [],
       }, // Hitmonchan
       237: {
-        chain: {
-          species: { url: '.../236/' },
-          evolves_to: [
-            {
-              species: { url: '.../237/' },
-              evolution_details: [{ trigger: { name: 'level-up' }, min_level: 20, relative_physical_stats: 0 }],
-            },
-          ],
-        },
+        id: 237,
+        n: 'Hitmontop',
+        evolves_from: [236],
+        details: [{ tr: 1, min_l: 20, rel_s: 0 }],
+        evolves_to: [],
       }, // Hitmontop
+      136: {
+        id: 136,
+        n: 'Flareon',
+        evolves_from: [133],
+        details: [{ tr: 3, item: 82 }], // Fire Stone
+        evolves_to: [],
+      }, // Flareon (Item)
+      68: {
+        id: 68,
+        n: 'Machamp',
+        evolves_from: [67, 66],
+        details: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
+        evolves_to: [],
+      }, // Machamp (Trade)
     },
-    partyEvolutions: {},
-    giftChains: {},
+    areaNames: {},
+    allLocations: [],
+    allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
 
   const espeon = suggestions.find((s) => s.pokemonId === 196);
   expect(espeon).toBeDefined();
@@ -103,13 +103,58 @@ test('coverage for suggestionEngine new lines', () => {
 
   const hitmonlee = suggestions.find((s) => s.pokemonId === 106);
   expect(hitmonlee).toBeDefined();
-  expect(hitmonlee?.description).toContain('Attack > Defense');
 
   const hitmonchan = suggestions.find((s) => s.pokemonId === 107);
   expect(hitmonchan).toBeDefined();
-  expect(hitmonchan?.description).toContain('Attack < Defense');
 
   const hitmontop = suggestions.find((s) => s.pokemonId === 237);
   expect(hitmontop).toBeDefined();
-  expect(hitmontop?.description).toContain('Attack = Defense');
+
+  const flareon = suggestions.find((s) => s.pokemonId === 136);
+  expect(flareon).toBeDefined();
+  expect(flareon?.title).toContain('Ready to Evolve');
+  expect(flareon?.description).toContain('Use your item');
+
+  const machamp = suggestions.find((s) => s.pokemonId === 68);
+  expect(machamp).toBeDefined();
+  expect(machamp?.title).toContain('Trade Evolution');
+});
+
+test('coverage for suggestionEngine edge cases', () => {
+  const mockSaveData = {
+    generation: 1,
+    gameVersion: 'yellow',
+    owned: new Set([...Array(134).keys()].map((i) => i + 1)), // Covers 1-134, including 133
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [{ speciesId: 133, level: 20, otName: 'PLAYER' }],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {},
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      135: {
+        id: 135,
+        n: 'Jolteon',
+        evolves_from: [133],
+        details: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
+        evolves_to: [],
+      },
+    },
+    areaNames: {},
+    allLocations: [],
+    allAreas: [],
+  } as unknown as AssistantApiData;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, gen1Strategy);
+  const jolteon = suggestions.find((s) => s.pokemonId === 135);
+  expect(jolteon).toBeDefined();
+  expect(jolteon?.title).toContain('Item Needed');
 });

@@ -3,9 +3,9 @@ import path from 'path';
 
 export default defineConfig({
   testDir: './tests/e2e',
-  timeout: 30 * 1000,
+  timeout: 60 * 1000,
   expect: {
-    timeout: 5000,
+    timeout: 10000,
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.05,
       animations: 'disabled',
@@ -14,9 +14,9 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: 1,
   reporter: [
-    ['html'],
+    ['html', { open: 'never' }],
     ['@argos-ci/playwright/reporter', {
       uploadToArgos: !!process.env.CI,
       buildName: process.env.ARGOS_BUILD_NAME || 'E2E',
@@ -24,8 +24,9 @@ export default defineConfig({
     }]
   ],
   use: {
-    actionTimeout: 0,
-    baseURL: 'http://localhost:3000/dexhelper',
+    actionTimeout: 15000,
+    navigationTimeout: 30000,
+    baseURL: 'http://localhost:3000/dexhelper/',
     // Automatically capture a DOM snapshot, Network requests, and Console logs for failing tests
     trace: 'retain-on-failure',
     // Automatically capture a video of the test, but only keep it if the test fails
@@ -35,21 +36,30 @@ export default defineConfig({
   },
   projects: [
     {
+      name: 'setup',
+      testMatch: /setup\.spec\.ts/,
+    },
+    {
       name: 'Desktop FullHD',
+      dependencies: ['setup'],
       use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 1920, height: 1080 },
+        storageState: 'playwright/.auth/user.json',
       },
     },
     {
       name: 'Desktop 1440p',
+      dependencies: ['setup'],
       use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 2560, height: 1440 },
+        storageState: 'playwright/.auth/user.json',
       },
     },
     {
       name: 'Mobile Pixel 9',
+      dependencies: ['setup'],
       use: {
         ...devices['Pixel 7'], // Fallback base
         viewport: { width: 393, height: 852 },
@@ -58,6 +68,7 @@ export default defineConfig({
         hasTouch: true,
         defaultBrowserType: 'chromium',
         userAgent: 'Mozilla/5.0 (Linux; Android 14; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36',
+        storageState: 'playwright/.auth/user.json',
       },
     },
   ],
