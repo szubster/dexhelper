@@ -56,9 +56,42 @@ export const gen1Strategy: AssistantStrategy = {
     return suggestions;
   },
 
-  isInternallyObtainable(_baseId: number, _version: string): boolean {
-    // Gen 1 doesn't have breeding, so obtainability is purely based on
-    // encounter data + static encounters. The main engine handles this.
-    return true;
+  isInternallyObtainable(baseId: number, version: string): boolean {
+    const isInternalObtainable = [
+      1,
+      4,
+      7, // Gen 1 Starters
+      152,
+      155,
+      158, // Gen 2 Starters
+      131,
+      133, // Lapras, Eevee
+      138,
+      140,
+      142, // Fossils
+      106,
+      107, // Hitmons
+      143,
+      144,
+      145,
+      146,
+      150, // Gen 1 Legendaries/Snorlax
+      130,
+      185,
+      245,
+      249,
+      250, // Gen 2 Statics
+    ].includes(baseId);
+
+    if (isInternalObtainable) {
+      const isYellow = version === 'yellow';
+      const isRedBlueStarter = [1, 4, 7].includes(baseId);
+      if (isRedBlueStarter) {
+        if (isYellow) return true;
+      } else {
+        return true;
+      }
+    }
+    return false;
   },
 };

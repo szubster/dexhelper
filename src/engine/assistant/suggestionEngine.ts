@@ -7,17 +7,10 @@ import type {
 } from 'pokenode-ts';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { pokeapi } from '../../utils/pokeapi';
-import {
-  GEN1_ITEMS,
-  GEN1_MAP_TO_SLUG,
-  OBEDIENCE_CAPS,
-  STATIC_GIFT_DATA,
-  STATIC_NPC_TRADE_DATA,
-} from '../data/gen1/assistantData';
+import { GEN1_ITEMS, OBEDIENCE_CAPS, STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
 import { gen2Items } from '../data/gen2/legacyNameMap';
-import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
-import { getDistanceToMap } from '../mapGraph/gen1Graph';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
+import { getStrategy } from './strategies/index';
 import type { EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
 
 /** Data returned by fetchAssistantApiData */
@@ -71,13 +64,8 @@ function getAncestors(node: ChainLink, target: number, path: number[] = []): num
  * This is decoupled from the React hook for easier testing.
  */
 export async function fetchAssistantApiData(saveData: SaveData, queryTargets: number[]) {
-  let localSlug = '';
-  if (saveData.generation === 1) {
-    localSlug = GEN1_MAP_TO_SLUG[saveData.currentMapId] || '';
-  } else {
-    // For Gen 2+, use a default slug (map graph is Gen 1-only for now)
-    localSlug = 'new-bark-town-area';
-  }
+  const strategy = getStrategy(saveData.generation);
+  const localSlug = strategy.resolveMapSlug(saveData);
 
   let localEncounters: PokemonEncounter[] = [];
   if (localSlug) {
@@ -195,6 +183,7 @@ export function generateSuggestions(
   if (!saveData || !apiData) return { suggestions, debug: { rejected } };
 
   const genConfig = getGenerationConfig(saveData.generation);
+  const strategy = getStrategy(saveData.generation);
   const maxDex = genConfig.maxDex;
   const missingIds: number[] = [];
 
@@ -226,7 +215,7 @@ export function generateSuggestions(
   const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
   const queryTargets = missingIds.slice(0, 100);
 
-  const _localSlug = saveData.generation === 1 ? GEN1_MAP_TO_SLUG[saveData.currentMapId] || '' : 'new-bark-town-area';
+  const _localSlug = strategy.resolveMapSlug(saveData);
 
   // A. Catch logic
   if (apiData.localEncounters) {
@@ -308,7 +297,7 @@ export function generateSuggestions(
       }
 
       const encounters = apiData.missingEncounters[pid] || [];
-      const logicReason = getUnobtainableReason(pid, displayVersion || 'red', ownedCount, ownedSet);
+      const logicReason = strategy.getUnobtainableReason(pid, displayVersion || 'red', ownedCount, ownedSet);
       if (logicReason) {
         rejected.push({ pokemonId: pid, reason: logicReason, code: 'CHOICE_TAKEN' });
         suggestions.push({
@@ -347,40 +336,10 @@ export function generateSuggestions(
         if (!isCatchableSomewhere) {
           const chain = apiData.missingChains?.[pid];
           const baseId = chain ? parseIdFromUrl(chain.chain.species.url) : pid;
-          const isInternalObtainable = [
-            1,
-            4,
-            7, // Gen 1 Starters
-            152,
-            155,
-            158, // Gen 2 Starters
-            131,
-            133, // Lapras, Eevee
-            138,
-            140,
-            142, // Fossils
-            106,
-            107, // Hitmons
-            143,
-            144,
-            145,
-            146,
-            150, // Gen 1 Legendaries/Snorlax
-            130,
-            185,
-            245,
-            249,
-            250, // Gen 2 Statics
-          ].includes(baseId);
+          const isInternalObtainable = strategy.isInternallyObtainable(baseId, displayVersion || 'red');
 
           if (isInternalObtainable) {
-            const isYellow = displayVersion === 'yellow';
-            const isRedBlueStarter = [1, 4, 7].includes(baseId);
-            if (isRedBlueStarter) {
-              if (isYellow) isCatchableSomewhere = true;
-            } else {
-              isCatchableSomewhere = true;
-            }
+            isCatchableSomewhere = true;
           }
         }
       }
@@ -430,7 +389,7 @@ export function generateSuggestions(
       for (const enc of versionEncounters) {
         const targetAreaSlug = enc.location_area.name;
         if (!locationMap[targetAreaSlug]) {
-          const route = getDistanceToMap(saveData.currentMapId, targetAreaSlug);
+          const route = strategy.getMapDistance(saveData.currentMapId, targetAreaSlug);
           if (route)
             locationMap[targetAreaSlug] = {
               name: route.name,
@@ -598,26 +557,9 @@ export function generateSuggestions(
     }
   }
 
-  // Box Full
-  if (saveData.generation === 1) {
-    if (saveData.currentBoxCount >= 20) {
-      suggestions.push({
-        id: 'utility-box-full',
-        category: 'Utility',
-        title: 'CRITICAL: PC Box Full!',
-        description: "Your current PC box is at 20/20. Switch boxes via Bill's PC.",
-        priority: 150,
-      });
-    } else if (saveData.currentBoxCount >= 18) {
-      suggestions.push({
-        id: 'utility-box-near-full',
-        category: 'Utility',
-        title: 'PC Box Almost Full',
-        description: `${20 - saveData.currentBoxCount} slots remaining.`,
-        priority: 95,
-      });
-    }
-  }
+  // Special Suggestions (Box Full, etc.)
+  const specialSuggestions = strategy.getSpecialSuggestions(saveData, missingIds);
+  suggestions.push(...specialSuggestions);
 
   // Obedience
   const totalBadges =
