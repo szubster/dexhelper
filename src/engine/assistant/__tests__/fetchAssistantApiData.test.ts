@@ -117,7 +117,7 @@ describe('fetchAssistantApiData', () => {
 
     expect(consoleErrorSpy).toHaveBeenCalledWith('Missing chain fetch failed', 1, expect.any(Error));
     expect(result.missingEncounters[1]).toBeDefined(); // Encounter should still load
-    expect(result.missingEncounters[1].length).toBe(1);
+    expect(result.missingEncounters[1]?.length).toBe(1);
     expect(result.missingChains[1]).toBeUndefined();
   });
 
@@ -148,7 +148,8 @@ describe('fetchAssistantApiData', () => {
 
     vi.spyOn(pokeapi, 'resource').mockImplementation(async (url: string) => {
       if (url.includes('location-area')) return { pokemon_encounters: [] };
-      if (url.includes('/pokemon-species/133')) { // Eevee
+      if (url.includes('/pokemon-species/133')) {
+        // Eevee
         return { evolution_chain: { url: 'chain133' } };
       }
       if (url === 'chain133') {
@@ -182,7 +183,7 @@ describe('fetchAssistantApiData', () => {
     await fetchAssistantApiData(mockSaveData, []);
 
     // It should have called the chain URL exactly once because it is cached
-    const chainCalls = resourceSpy.mock.calls.filter(call => call[0] === 'chain_bulbasaur');
+    const chainCalls = resourceSpy.mock.calls.filter((call) => call[0] === 'chain_bulbasaur');
     expect(chainCalls.length).toBe(1);
   });
 
@@ -208,15 +209,15 @@ describe('fetchAssistantApiData', () => {
             evolves_to: [
               {
                 species: { url: 'https://pokeapi.co/api/v2/pokemon-species/2/' },
-                evolves_to: []
-              }
-            ]
-          }
+                evolves_to: [],
+              },
+            ],
+          },
         };
       }
 
       if (url.includes('/pokemon/1/encounters')) {
-         throw new Error('Ancestor encounter fetch failed');
+        throw new Error('Ancestor encounter fetch failed');
       }
 
       return {};
@@ -225,6 +226,6 @@ describe('fetchAssistantApiData', () => {
     const result = await fetchAssistantApiData(mockSaveData, [2]);
 
     expect(consoleErrorSpy).toHaveBeenCalledWith('Ancestor fetch failed', 1, expect.any(Error));
-    expect(result.ancestralEncounters[2][1]).toEqual([]);
+    expect(result.ancestralEncounters[2]?.[1]).toEqual([]);
   });
 });
