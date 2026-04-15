@@ -7,7 +7,7 @@ import {
   type GenericLocation,
   type LocationAreaEncounters,
   POKE_VERSION_MAP,
-  type PokemonEvolutionChain,
+  type PokemonMetadata,
   type SpecificArea,
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
@@ -21,10 +21,8 @@ export interface AssistantApiData {
   localAid: number | null;
   localEncounters: LocationAreaEncounters[] | null;
   missingEncounters: Record<number, LocationAreaEncounters | null>;
-  missingChains: Record<number, PokemonEvolutionChain | null>;
+  pokemonMetadata: Record<number, PokemonMetadata | null>;
   ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>>;
-  partyEvolutions: Record<number, PokemonEvolutionChain | null>;
-  giftChains: Record<number, PokemonEvolutionChain | null>;
   areaNames: Record<number, string>;
   allLocations: GenericLocation[];
   allAreas: SpecificArea[];
@@ -37,8 +35,6 @@ export interface AssistantApiData {
 function _getChainIds(node: { id: number; evolves_to: CompactChainLink[] }): number[] {
   return [node.id, ...node.evolves_to.flatMap(_getChainIds)];
 }
-
-const isNotError = <T>(item: T | Error): item is T => !(item instanceof Error);
 
 /**
  * Fetches all necessary data from local IndexedDB using DataLoader for batching.
@@ -54,7 +50,6 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const localEncounters = localAid ? allEncounters.filter((lae) => lae.encounters.some((e) => e.aid === localAid)) : [];
 
   const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
-  const missingChains: Record<number, PokemonEvolutionChain | null> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
 
   // Fill missingEncounters
@@ -63,47 +58,25 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     if (enc) missingEncounters[pid] = enc;
   }
 
-  // 1. Get Pokemon details (pre-warming cache)
-  await dexDataLoader.pokemon.loadMany(queryTargets);
-
-  // 2. Load Chains (keyed by pid)
-  const chains = await dexDataLoader.chains.loadMany(queryTargets);
-  const validChains = chains.filter(isNotError);
-
-  // Map back to pid -> chain
-  queryTargets.forEach((pid) => {
-    const chain = validChains.find((c) => c?.id === pid);
-    missingChains[pid] = chain ?? null;
-  });
-
+  // 1. Get all relevant Pokemon details (Target, Party, Gifts)
   const partyPids = saveData.party || [];
-  const partyChains = await dexDataLoader.chains.loadMany(partyPids);
-  const validPartyChains = partyChains.filter(isNotError);
-
-  const partyEvolutions: Record<number, PokemonEvolutionChain | null> = {};
-  partyPids.forEach((pid) => {
-    const chain = validPartyChains.find((c) => c?.id === pid);
-    partyEvolutions[pid] = chain ?? null;
-  });
-
   const giftPids = Object.keys(STATIC_GIFT_DATA).map((id) => parseInt(id, 10));
-  const giftChainsFull = await dexDataLoader.chains.loadMany(giftPids);
-  const validGiftChains = giftChainsFull.filter(isNotError);
+  const allNeededPids = [...new Set([...queryTargets, ...partyPids, ...giftPids])];
 
-  const giftChains: Record<number, PokemonEvolutionChain | null> = {};
-  giftPids.forEach((pid) => {
-    const chain = validGiftChains.find((c) => c?.id === pid);
-    giftChains[pid] = chain ?? null;
+  const allPokemon = await dexDataLoader.pokemon.loadMany(allNeededPids);
+  const pokemonMetadata: Record<number, PokemonMetadata | null> = {};
+
+  allNeededPids.forEach((pid, idx) => {
+    const p = allPokemon[idx];
+    pokemonMetadata[pid] = p && !(p instanceof Error) ? p : null;
   });
 
   return {
     localAid,
     localEncounters: localEncounters ?? null,
     missingEncounters,
-    missingChains,
+    pokemonMetadata,
     ancestralEncounters,
-    partyEvolutions,
-    giftChains,
     areaNames: Object.fromEntries(allAreas.map((a) => [a.id, a.n])),
     allLocations,
     allAreas,
@@ -293,10 +266,10 @@ export function generateSuggestions(
   }
 
   queryTargets.forEach((targetId: number) => {
-    const chain = apiData.missingChains?.[targetId];
-    if (!chain) return;
+    const p = apiData.pokemonMetadata?.[targetId];
+    if (!p) return;
 
-    const parentId = chain.evolves_from[0];
+    const parentId = p.evolves_from[0];
     if (parentId === undefined) return;
     const ownedInstances = instancesBySpecies.get(parentId) || [];
     if (ownedInstances.length === 0) return;
@@ -306,7 +279,7 @@ export function generateSuggestions(
       displayVersion === 'yellow' && parentId === 25 && bestInstance.otName === saveData.trainerName;
     if (isYellowStarterPikachu) return;
 
-    const details = chain.details;
+    const details = p.details;
     const detail = details?.[0];
     if (!detail) return;
 

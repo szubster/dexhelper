@@ -5,7 +5,6 @@ import { execSync, execFileSync } from 'node:child_process';
 import { 
   type CompactChainLink, 
   type CompactEncounterDetail, 
-  type PokemonEvolutionChain, 
   type LocationAreaEncounters, 
   type PokemonMetadata, 
   type PokeDataExport,
@@ -108,7 +107,6 @@ async function main() {
   }
 
   const pokemon: PokemonMetadata[] = [];
-  const chains: PokemonEvolutionChain[] = [];
   const pokemonEncounterMap = new Map<number, CompactEncounter[]>();
   
   // New structures
@@ -138,17 +136,17 @@ async function main() {
     const eData = readJson(encounterPath) || [];
 
     const chainId = parseInt(sData.evolution_chain.url.split('/').filter(Boolean).pop() || '0', 10);
-    const preEvoId = sData.evolves_from_species ? parseInt(sData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0', 10) : undefined;
-
     pokemon.push(sortObj({
       id: pData.id,
       n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
-      cid: chainId,
       cr: sData.capture_rate,
       gr: sData.gender_rate,
       baby: sData.is_baby,
-      pre: preEvoId,
-    }, ['id', 'n', 'cid']));
+      // Temporaries to be filled in second pass
+      evolves_to: [],
+      evolves_from: [],
+      details: [],
+    }, ['id', 'n']));
 
     const pokemonEncounters: { aid: number; version_details: { v: number; d: CompactEncounterDetail[] }[] }[] = [];
     for (const areaEnc of eData) {
@@ -262,7 +260,17 @@ async function main() {
   }
 
   console.log('\nProcessing Evolution Chains...');
-  const uniqueChainIds = Array.from(new Set(pokemon.map(p => p.cid)));
+  // We need cid temporarily for the pass, so we extract it again (could have stored it in a map)
+  const pokemonSpeciesToChain = new Map<number, number>();
+  for (let i = 1; i <= POKEMON_COUNT; i++) {
+    const sData = readJson(path.join(dataPath, `pokemon-species/${i}/index.json`));
+    if (sData) {
+      const cid = parseInt(sData.evolution_chain.url.split('/').filter(Boolean).pop() || '0', 10);
+      pokemonSpeciesToChain.set(i, cid);
+    }
+  }
+
+  const uniqueChainIds = Array.from(new Set(pokemonSpeciesToChain.values()));
   for (const cid of uniqueChainIds) {
     const chainFilePath = path.join(dataPath, `evolution-chain/${cid}/index.json`);
     const cData = readJson(chainFilePath);
@@ -288,12 +296,12 @@ async function main() {
     const fullChain = mapLink(cData.chain);
     
     const registerChain = (node: CompactChainLink, ancestors: number[]) => {
-      chains.push(sortObj({
-        id: node.id,
-        evolves_to: node.evolves_to,
-        evolves_from: ancestors,
-        details: node.details
-      }, ['id', 'evolves_from', 'details', 'evolves_to']));
+      const p = pokemon.find(p => p.id === node.id);
+      if (p) {
+        p.evolves_to = node.evolves_to;
+        p.evolves_from = ancestors;
+        p.details = node.details;
+      }
       
       node.evolves_to.forEach(child => registerChain(child, [node.id, ...ancestors]));
     };
@@ -309,7 +317,6 @@ async function main() {
     pid, 
     encounters: encs
   })));
-  writeJsonl(path.join(OUTPUT_DIR, 'chains.jsonl'), chains.sort((a, b) => a.id - b.id));
   writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).sort((a, b) => a.id - b.id));
   writeJsonl(path.join(OUTPUT_DIR, 'areas.jsonl'), Array.from(areaMap.values()).sort((a, b) => a.id - b.id));
   writeJsonl(path.join(OUTPUT_DIR, 'location_index.jsonl'), Array.from(inverseIndexMap.entries()).map(([id, pids]) => sortObj({

@@ -2,36 +2,21 @@ import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import fs from 'fs';
 import { defineConfig, loadEnv } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { codecovVitePlugin } from "@codecov/vite-plugin";
 import { VitePWA } from 'vite-plugin-pwa';
 
-import { pokedataPlugin, getPokeDataHash } from './vite-plugins/pokedata-plugin';
+import { pokedataPlugin } from './vite-plugins/pokedata-plugin';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
-
   const sourceDir = path.resolve(__dirname, 'data/db');
-  const outputPath = path.resolve(__dirname, 'public/data/pokedata.json');
-  
-  let pokedataHash = 'initial';
-  try {
-    if (fs.existsSync(sourceDir)) {
-      pokedataHash = getPokeDataHash(sourceDir);
-    }
-  } catch (e) {
-    console.warn('Failed to compute pokedata hash, using fallback.');
-  }
 
   return {
-    define: {
-      __POKEDATA_HASH__: JSON.stringify(pokedataHash),
-    },
     base: process.env.CF_PAGES === 'true' ? '/' : '/dexhelper/',
     plugins: [
-      pokedataPlugin({ sourceDir, outputPath }),
+      pokedataPlugin({ sourceDir }),
       tanstackRouter(),
       react(),
       tailwindcss(),

@@ -35,53 +35,60 @@ test('coverage for suggestionEngine new lines', () => {
     localEncounters: [],
     missingEncounters: {},
     ancestralEncounters: {},
-    missingChains: {
+    pokemonMetadata: {
       196: {
         id: 196,
+        n: 'Espeon',
         evolves_from: [133],
         details: [{ tr: 1, min_h: 220, time: 1 }],
         evolves_to: [],
       }, // Espeon
       197: {
         id: 197,
+        n: 'Umbreon',
         evolves_from: [133],
         details: [{ tr: 1, min_h: 220, time: 2 }],
         evolves_to: [],
       }, // Umbreon
       106: {
         id: 106,
+        n: 'Hitmonlee',
         evolves_from: [236],
         details: [{ tr: 1, min_l: 20, rel_s: 1 }],
         evolves_to: [],
       }, // Hitmonlee
       107: {
         id: 107,
+        n: 'Hitmonchan',
         evolves_from: [236],
         details: [{ tr: 1, min_l: 20, rel_s: -1 }],
         evolves_to: [],
       }, // Hitmonchan
       237: {
         id: 237,
+        n: 'Hitmontop',
         evolves_from: [236],
         details: [{ tr: 1, min_l: 20, rel_s: 0 }],
         evolves_to: [],
       }, // Hitmontop
       136: {
         id: 136,
+        n: 'Flareon',
         evolves_from: [133],
         details: [{ tr: 3, item: 82 }], // Fire Stone
         evolves_to: [],
       }, // Flareon (Item)
       68: {
         id: 68,
+        n: 'Machamp',
         evolves_from: [67, 66],
         details: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
         evolves_to: [],
       }, // Machamp (Trade)
     },
-    partyEvolutions: {},
-    giftChains: {},
     areaNames: {},
+    allLocations: [],
+    allAreas: [],
   } as unknown as AssistantApiData;
 
   const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
@@ -132,17 +139,18 @@ test('coverage for suggestionEngine edge cases', () => {
     localEncounters: [],
     missingEncounters: {},
     ancestralEncounters: {},
-    missingChains: {
+    pokemonMetadata: {
       135: {
         id: 135,
+        n: 'Jolteon',
         evolves_from: [133],
         details: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
         evolves_to: [],
       },
     },
-    partyEvolutions: {},
-    giftChains: {},
     areaNames: {},
+    allLocations: [],
+    allAreas: [],
   } as unknown as AssistantApiData;
 
   const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, gen1Strategy);

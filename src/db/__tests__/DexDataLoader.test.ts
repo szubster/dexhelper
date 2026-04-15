@@ -1,13 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { dexDataLoader } from '../DexDataLoader';
 import { pokeDB } from '../PokeDB';
-import type { CompactEncounter, PokemonEvolutionChain, PokemonMetadata } from '../schema';
+import type { CompactEncounter, PokemonMetadata } from '../schema';
 
 // Mock pokeDB
 vi.mock('../PokeDB', () => ({
   pokeDB: {
     getPokemons: vi.fn(),
-    getChain: vi.fn(),
     getEncounters: vi.fn(),
     getAreaNames: vi.fn(),
   },
@@ -18,7 +17,6 @@ describe('DexDataLoader', () => {
     vi.clearAllMocks();
     // Clear DataLoader cache between tests
     dexDataLoader.pokemon.clearAll();
-    dexDataLoader.chains.clearAll();
     dexDataLoader.encounters.clearAll();
   });
 
@@ -40,38 +38,29 @@ describe('DexDataLoader', () => {
     await expect(dexDataLoader.pokemon.load(999)).rejects.toThrow('Not Found');
   });
 
-  it('loads chains correctly', async () => {
-    vi.mocked(pokeDB.getChain).mockResolvedValue({
-      id: 10,
-      evolves_from: [],
-      details: [],
-      evolves_to: [],
-    } as PokemonEvolutionChain);
-
-    const c10 = await dexDataLoader.chains.load(10);
-
-    expect(c10.id).toBe(10);
-  });
-
   it('getPokemonDetails aggregates data correctly', async () => {
-    vi.mocked(pokeDB.getPokemons).mockResolvedValue([{ id: 1, n: 'P1', cid: 10 } as PokemonMetadata]);
+    vi.mocked(pokeDB.getPokemons).mockResolvedValue([
+      {
+        id: 1,
+        n: 'P1',
+        cr: 45,
+        gr: 1,
+        baby: false,
+        evolves_to: [],
+        evolves_from: [],
+        details: [],
+      } as PokemonMetadata,
+    ]);
     vi.mocked(pokeDB.getEncounters).mockResolvedValue({
       pid: 1,
       encounters: [{ aid: 1, v: 1, d: [] }] as CompactEncounter[],
     });
-    vi.mocked(pokeDB.getChain).mockResolvedValue({
-      id: 10,
-      evolves_from: [],
-      details: [],
-      evolves_to: [],
-    } as PokemonEvolutionChain);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({ 1: 'Area 1' });
 
     const details = await dexDataLoader.getPokemonDetails(1);
 
     expect(details.pokemon.n).toBe('P1');
     expect(details.encounters).toHaveLength(1);
-    expect(details.evolutionChain?.id).toBe(10);
     expect(details.areaNames).toEqual({ 1: 'Area 1' });
   });
 });

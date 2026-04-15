@@ -13,7 +13,6 @@ vi.stubGlobal(
       hash: 'test-hash',
       pokemon: [],
       encounters: [],
-      chains: [],
       locations: [],
       areas: [],
       locationIndex: [],
@@ -30,7 +29,6 @@ describe('PokeDB', () => {
         hash: 'test-hash',
         pokemon: [],
         encounters: [],
-        chains: [],
         locations: [],
         areas: [],
         locationIndex: [],
@@ -50,14 +48,15 @@ describe('PokeDB', () => {
         {
           id: 1,
           n: 'Bulbasaur',
-          cid: 1,
           cr: 45,
           gr: 1,
           baby: false,
+          evolves_to: [],
+          evolves_from: [],
+          details: [],
         },
       ],
       encounters: [{ pid: 1, encounters: [] }],
-      chains: [{ id: 1, chain: { id: 1, evolves_to: [], details: [] } }],
       locations: [{ id: 1, n: 'Pallet Town' }],
       areas: [{ id: 1, n: 'Area 1' }],
       locationIndex: [{ id: 1, pids: [1] }],
@@ -72,7 +71,6 @@ describe('PokeDB', () => {
 
     const p = await pokeDB.getPokemon(1);
     expect(p?.n).toBe('Bulbasaur');
-    expect(p?.cid).toBe(1);
     expect(p?.cr).toBe(45);
   });
 
@@ -80,11 +78,10 @@ describe('PokeDB', () => {
     const mockData = {
       hash: 'bulk-hash',
       pokemon: [
-        { id: 1, n: 'P1', cid: 1, cr: 10, gr: 1, baby: false },
-        { id: 2, n: 'P2', cid: 1, cr: 10, gr: 1, baby: false },
+        { id: 1, n: 'P1', cr: 10, gr: 1, baby: false, evolves_to: [], evolves_from: [], details: [] },
+        { id: 2, n: 'P2', cr: 10, gr: 1, baby: false, evolves_to: [], evolves_from: [], details: [] },
       ],
       encounters: [],
-      chains: [],
       locations: [],
       areas: [],
       locationIndex: [],
@@ -124,7 +121,6 @@ describe('PokeDB', () => {
       hash: 'area-hash',
       pokemon: [],
       encounters: [],
-      chains: [],
       locations: [],
       areas: [
         { id: 1, n: 'Viridian Forest' },

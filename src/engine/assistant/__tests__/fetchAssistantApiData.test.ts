@@ -2,7 +2,7 @@ import 'fake-indexeddb/auto';
 import { beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
 import { dexDataLoader } from '../../../db/DexDataLoader';
 import { pokeDB } from '../../../db/PokeDB';
-import type { PokemonEvolutionChain, PokemonMetadata } from '../../../db/schema';
+import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import { fetchAssistantApiData } from '../suggestionEngine';
 
@@ -26,18 +26,15 @@ describe('fetchAssistantApiData', () => {
     vi.spyOn(pokeDB, 'getAllAreas').mockResolvedValue([]);
     vi.spyOn(pokeDB, 'getLocations').mockResolvedValue([]);
     vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockResolvedValue([
-      { id: 1, cid: 101, n: 'bulbasaur' } as unknown as PokemonMetadata,
-      { id: 2, cid: 102, n: 'ivysaur' } as unknown as PokemonMetadata,
-    ]);
-    vi.spyOn(dexDataLoader.chains, 'loadMany').mockResolvedValue([
-      new Error('Database failure'),
-      { id: 2, evolves_from: [1], details: [], evolves_to: [] } as unknown as PokemonEvolutionChain,
+      { id: 1, n: 'bulbasaur', evolves_from: [], evolves_to: [], details: [] } as unknown as PokemonMetadata,
+      { id: 2, n: 'ivysaur', evolves_from: [1], evolves_to: [], details: [] } as unknown as PokemonMetadata,
     ]);
 
     const result = await fetchAssistantApiData(mockSaveData, []);
 
-    // It should have continued and fetched chain2 for Ivysaur (at index 1 of party, which is id 2)
-    expect(result.partyEvolutions[2]).toBeDefined();
-    expect(result.partyEvolutions[1]).toBeNull();
+    // It should have correctly populated pokemonMetadata
+    expect(result.pokemonMetadata[2]).toBeDefined();
+    expect(result.pokemonMetadata[1]).toBeDefined();
+    expect(result.pokemonMetadata[2]?.n).toBe('ivysaur');
   });
 });

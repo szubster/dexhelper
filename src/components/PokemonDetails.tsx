@@ -49,19 +49,20 @@ export function PokemonDetails({
 
   const pokemon = allData?.pokemon;
   const encounters = allData?.encounters || [];
-  const evolutionData = allData?.evolutionChain;
   const nameMap = allData?.nameMap;
   const areaNames = allData?.areaNames;
 
   const catchRate = pokemon?.cr ?? null;
 
   const evoReq = React.useMemo(() => {
-    if (!pokemon?.pre || !evolutionData) return null;
+    if (!pokemon || pokemon.evolves_from.length === 0) return null;
 
-    const fromId = pokemon.pre;
+    const fromId = pokemon.evolves_from[0];
+    if (fromId === undefined) return null;
+
     let methodStr = 'Unknown';
 
-    const details = evolutionData.details;
+    const details = pokemon.details;
     if (details && details.length > 0) {
       const d = details[0];
       if (!d) return null;
@@ -75,12 +76,12 @@ export function PokemonDetails({
       fromName: nameMap?.[fromId] || 'Earlier Form',
       method: methodStr,
     };
-  }, [pokemon, evolutionData, nameMap]);
+  }, [pokemon, nameMap]);
 
   const evolvesTo = React.useMemo(() => {
-    if (!pokemon || !evolutionData) return [];
+    if (!pokemon) return [];
 
-    const evos = evolutionData.evolves_to;
+    const evos = pokemon.evolves_to;
     if (!evos || evos.length === 0) return [];
 
     return evos
@@ -102,16 +103,13 @@ export function PokemonDetails({
         };
       })
       .filter((evo): evo is { id: number; name: string; method: string } => evo !== null);
-  }, [pokemon, evolutionData, nameMap, saveData]);
+  }, [pokemon, nameMap, saveData]);
 
   const breedingInfo = React.useMemo(() => {
-    if (!pokemon?.baby || !evolutionData) return null;
+    if (!pokemon?.baby) return null;
     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
 
-    const rootId =
-      evolutionData.evolves_from.length > 0
-        ? evolutionData.evolves_from[evolutionData.evolves_from.length - 1]
-        : evolutionData.id;
+    const rootId = pokemon.evolves_from.length > 0 ? pokemon.evolves_from[pokemon.evolves_from.length - 1] : pokemon.id;
 
     if (rootId === undefined) return null;
 
@@ -120,7 +118,7 @@ export function PokemonDetails({
       parentNames: [nameMap?.[rootId] || 'Evolution Line'],
       method: 'Breed evolved form',
     };
-  }, [pokemon, evolutionData, saveData, nameMap]);
+  }, [pokemon, saveData, nameMap]);
 
   const getLocationsForVersion = React.useCallback(
     (version: string) => {

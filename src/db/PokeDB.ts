@@ -4,7 +4,6 @@ import {
   type LocationAreaEncounters,
   type PokeDataExport,
   type PokeDBSchema,
-  type PokemonEvolutionChain,
   type PokemonMetadata,
 } from './schema';
 
@@ -22,7 +21,6 @@ export const getDB = () => {
         const keyPaths: Record<string, string> = {
           [DB_CONFIG.STORES.POKEMON]: 'id',
           [DB_CONFIG.STORES.ENCOUNTERS]: 'pid',
-          [DB_CONFIG.STORES.CHAINS]: 'id',
           [DB_CONFIG.STORES.LOCATIONS]: 'id',
           [DB_CONFIG.STORES.AREAS]: 'id',
           [DB_CONFIG.STORES.INDEX]: 'id',
@@ -92,7 +90,6 @@ export const syncData = async () => {
         [
           DB_CONFIG.STORES.POKEMON,
           DB_CONFIG.STORES.ENCOUNTERS,
-          DB_CONFIG.STORES.CHAINS,
           DB_CONFIG.STORES.LOCATIONS,
           DB_CONFIG.STORES.AREAS,
           DB_CONFIG.STORES.INDEX,
@@ -104,7 +101,6 @@ export const syncData = async () => {
       // 3. Populate stores
       const pStore = tx.objectStore(DB_CONFIG.STORES.POKEMON);
       const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
-      const cStore = tx.objectStore(DB_CONFIG.STORES.CHAINS);
       const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
       const aStore = tx.objectStore(DB_CONFIG.STORES.AREAS);
       const iStore = tx.objectStore(DB_CONFIG.STORES.INDEX);
@@ -114,30 +110,26 @@ export const syncData = async () => {
       await Promise.all([
         pStore.clear(),
         eStore.clear(),
-        cStore.clear(),
         lStore.clear(),
         aStore.clear(),
         iStore.clear(),
         mStore.clear(),
       ]);
 
-      const STAGES = 6;
+      const STAGES = 5;
       emit(1, STAGES, 'Pokemon');
       for (const p of data.pokemon) pStore.put(p);
 
       emit(2, STAGES, 'Encounters');
       for (const e of data.encounters) eStore.put(e);
 
-      emit(3, STAGES, 'Chains');
-      for (const c of data.chains) cStore.put(c);
-
-      emit(4, STAGES, 'Locations');
+      emit(3, STAGES, 'Locations');
       for (const l of data.locations) lStore.put(l);
 
-      emit(5, STAGES, 'Areas');
+      emit(4, STAGES, 'Areas');
       for (const a of data.areas) aStore.put(a);
 
-      emit(6, STAGES, 'Index');
+      emit(5, STAGES, 'Index');
       for (const i of data.locationIndex) iStore.put(i);
 
       await mStore.put({ key: 'hash', value: data.hash });
@@ -187,13 +179,6 @@ export const pokeDB = {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.ENCOUNTERS);
   },
-  getChain: async (pid: number): Promise<PokemonEvolutionChain | undefined> => {
-    await pokeDB.ready();
-    if (pid === undefined || pid === null || Number.isNaN(pid)) return undefined;
-    return (await getDB()).get(DB_CONFIG.STORES.CHAINS, pid);
-  },
-
-  // New location methods
   getLocations: async () => {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.LOCATIONS);
