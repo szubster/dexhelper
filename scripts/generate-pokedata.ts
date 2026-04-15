@@ -29,6 +29,38 @@ function readJson(filePath: string) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 }
 
+interface PokeApiName {
+  language: { name: string };
+  name: string;
+}
+
+interface PokeApiEncounterDetail {
+  chance: number;
+  method: { name: string };
+  min_level: number;
+  max_level: number;
+}
+
+interface PokeApiVersionDetail {
+  version: { name: string };
+  encounter_details: PokeApiEncounterDetail[];
+}
+
+interface PokeApiEvolutionDetail {
+  trigger: { name: string };
+  min_level?: number;
+  min_happiness?: number;
+  item?: { url: string };
+  held_item?: { url: string };
+  time_of_day?: string;
+}
+
+interface PokeApiChainLink {
+  species: { url: string };
+  evolves_to: PokeApiChainLink[];
+  evolution_details: PokeApiEvolutionDetail[];
+}
+
 async function main() {
   const force = process.argv.includes('--force');
   console.log('--- PokéAPI Data Pipeline (GitHub Source) ---');
@@ -103,7 +135,7 @@ async function main() {
     pokemon.push({
       id: pData.id,
       sid: i,
-      n: sData.names.find((n: any) => n.language.name === 'en')?.name || sData.name,
+      n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
       cid: chainId,
       cr: sData.capture_rate,
       gr: sData.gender_rate,
@@ -111,7 +143,7 @@ async function main() {
       pre: preEvoId,
     });
 
-    const pokemonEncounters: CompactEncounter[] = [];
+    const pokemonEncounters: { aid: number; version_details: { v: number; d: CompactEncounterDetail[] }[] }[] = [];
     for (const areaEnc of eData) {
       const areaUrl = areaEnc.location_area.url;
       const areaId = parseInt(areaUrl.split('/').filter(Boolean).pop() || '0', 10);
@@ -150,7 +182,7 @@ async function main() {
             if (locData) {
               locationMap.set(gameId, {
                 id: gameId,
-                n: locData.names.find((n: any) => n.language.name === 'en')?.name || locData.name,
+                n: locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
                 connections: gameId < 256 ? GEN1_MAPS[gameId]?.connections : undefined
               });
             }
@@ -159,7 +191,7 @@ async function main() {
           areaMap.set(gameId, {
             id: gameId,
             lid: gameId, // For now, we use map ID as location ID too if they match
-            n: areaData.names.find((n: any) => n.language.name === 'en')?.name || areaData.name || areaId.toString(),
+            n: areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || areaData.name || areaId.toString(),
           });
 
           // Update inverse index
@@ -171,14 +203,14 @@ async function main() {
         inverseIndexMap.get(gameId)?.add(i);
       }
 
-      const vDetails: any[] = [];
-      for (const vd of areaEnc.version_details) {
+      const vDetails: { v: number; d: CompactEncounterDetail[] }[] = [];
+      for (const vd of (areaEnc.version_details as PokeApiVersionDetail[])) {
         const vId = POKE_VERSION_MAP[vd.version.name];
         if (!vId) continue;
 
         vDetails.push({
           v: vId,
-          d: vd.encounter_details.map((ed: any) => ({
+          d: vd.encounter_details.map((ed) => ({
             c: ed.chance,
             m: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
             min: ed.min_level,
@@ -191,14 +223,14 @@ async function main() {
         pokemonEncounters.push({
           aid: gameId,
           version_details: vDetails
-        } as any);
+        });
       }
     }
     
     if (pokemonEncounters.length > 0) {
       const finalEncs: CompactEncounter[] = [];
       for (const pe of pokemonEncounters) {
-        for (const vd of (pe as any).version_details) {
+        for (const vd of pe.version_details) {
           finalEncs.push({
             aid: pe.aid,
             v: vd.v,
@@ -226,10 +258,10 @@ async function main() {
     const cData = readJson(chainFilePath);
     if (!cData) continue;
     
-    const mapLink = (link: any): CompactChainLink => ({
+    const mapLink = (link: PokeApiChainLink): CompactChainLink => ({
       sid: parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10),
       evolves_to: link.evolves_to.map(mapLink),
-      details: link.evolution_details.map((ed: any) => ({
+      details: link.evolution_details.map((ed) => ({
         tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
         min_l: ed.min_level || undefined,
         min_h: ed.min_happiness || undefined,

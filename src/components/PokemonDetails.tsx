@@ -58,8 +58,7 @@ export function PokemonDetails({
   const pokemon = allData?.pokemon as PokemonMetadata | undefined;
   const encounters = allData?.encounters || [];
   const evolutionData = allData?.evolutionChain as CompactEvolutionChain | undefined;
-  // biome-ignore lint/suspicious/noExplicitAny: nameMap is injected for UI convenience
-  const nameMap = (allData as any)?.nameMap as Record<number, string> | undefined;
+  const nameMap = allData?.nameMap;
 
   const catchRate = pokemon?.cr ?? null;
 

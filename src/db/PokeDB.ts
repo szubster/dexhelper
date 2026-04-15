@@ -54,37 +54,29 @@ export const syncData = async () => {
   syncPromise = (async () => {
     try {
       const db = await getDB();
-      console.log(`PokeDB: Starting sync... (Stage: ${__POKEDATA_HASH__})`);
 
       // 1. Check if already synced using build-time hash
       const existingHash = await db.get(DB_CONFIG.STORES.METADATA, 'hash');
-      console.log('PokeDB: Existing hash check:', existingHash);
 
       // Skip fetch if the build-in hash matches what we have in indexedDB
       if (existingHash?.value === __POKEDATA_HASH__ && __POKEDATA_HASH__ !== 'initial') {
-        console.log('PokeDB: Already up to date (build hash match)');
         return;
       }
 
       // 2. Fetch current data
       const baseUrl = typeof window !== 'undefined' ? import.meta.env.BASE_URL : 'http://localhost:3000/dexhelper/';
-      console.log(`PokeDB: Fetching data from ${baseUrl}data/pokedata.json`);
       const response = await fetch(`${baseUrl}data/pokedata.json`);
       if (!response.ok) {
         throw new Error(`Failed to fetch pokedata.json: ${response.status} ${response.statusText}`);
       }
       const data: PokeDataExport = await response.json();
-      console.log(`PokeDB: Data fetched (hash: ${data.hash})`);
 
       // Guard against outdated build hash vs actual data hash (rare edge case)
       if (existingHash?.value === data.hash) {
-        console.log('PokeDB: Already up to date (data hash match)');
         // Sync the build hash back to metadata just in case
         await db.put(DB_CONFIG.STORES.METADATA, { key: 'hash', value: data.hash });
         return;
       }
-
-      console.log('PokeDB: Syncing new data...');
 
       const emit = (current: number, total: number, stage: string) => {
         if (typeof window !== 'undefined') {
@@ -131,33 +123,25 @@ export const syncData = async () => {
 
       const STAGES = 6;
       emit(1, STAGES, 'Pokemon');
-      console.log(`PokeDB: Syncing ${data.pokemon.length} Pokemon...`);
       for (const p of data.pokemon) pStore.put(p);
 
       emit(2, STAGES, 'Encounters');
-      console.log(`PokeDB: Syncing ${data.encounters.length} Encounters...`);
       for (const e of data.encounters) eStore.put(e);
 
       emit(3, STAGES, 'Chains');
-      console.log(`PokeDB: Syncing ${data.chains.length} Chains...`);
       for (const c of data.chains) cStore.put(c);
 
       emit(4, STAGES, 'Locations');
-      console.log(`PokeDB: Syncing ${data.locations.length} Locations...`);
       for (const l of data.locations) lStore.put(l);
 
       emit(5, STAGES, 'Areas');
-      console.log(`PokeDB: Syncing ${data.areas.length} Areas...`);
       for (const a of data.areas) aStore.put(a);
 
       emit(6, STAGES, 'Index');
-      console.log(`PokeDB: Syncing ${data.locationIndex.length} Index items...`);
       for (const i of data.locationIndex) iStore.put(i);
 
       await mStore.put({ key: 'hash', value: data.hash });
       await tx.done;
-
-      console.log('PokeDB: Sync complete.');
     } catch (err) {
       console.error('PokeDB: Sync failed', err);
       // Reset promise so we can retry later if needed

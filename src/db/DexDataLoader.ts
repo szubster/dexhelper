@@ -27,8 +27,17 @@ export const dexDataLoader = {
     { cache: true },
   ),
 
-  getPokemonDetails: async (id: number) => {
+  getPokemonDetails: async (
+    id: number,
+  ): Promise<{
+    pokemon: PokemonMetadata;
+    encounters: LocationAreaEncounters['encounters'];
+    evolutionChain: CompactEvolutionChain | undefined;
+    nameMap: Record<number, string>;
+  }> => {
     const pokemon = await dexDataLoader.pokemon.load(id);
+    if (!pokemon) throw new Error(`Pokemon #${id} not found`);
+
     const encounters = await dexDataLoader.encounters.load(id);
     const evolutionChain = pokemon.cid ? await dexDataLoader.chains.load(pokemon.cid) : undefined;
 

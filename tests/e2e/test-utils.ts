@@ -43,9 +43,7 @@ export async function waitForSync(page: Page) {
     // We check visibility with a reasonable timeout
     const isVisible = await overlay.isVisible({ timeout: 5000 });
     if (isVisible) {
-      console.log('E2E: Sync overlay detected, waiting for completion...');
       await expect(overlay).toBeHidden({ timeout: 60000 });
-      console.log('E2E: Sync completion detected.');
     }
   } catch (_e) {
     // If it never appeared, it's either already synced or sync hasn't started.
