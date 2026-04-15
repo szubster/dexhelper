@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { dexDataLoader } from '../DexDataLoader';
 import { pokeDB } from '../PokeDB';
-import type { CompactEncounter, CompactEvolutionChain, PokemonMetadata } from '../schema';
+import type { CompactEncounter, PokemonEvolutionChain, PokemonMetadata } from '../schema';
 
 // Mock pokeDB
 vi.mock('../PokeDB', () => ({
@@ -43,8 +43,10 @@ describe('DexDataLoader', () => {
   it('loads chains correctly', async () => {
     vi.mocked(pokeDB.getChain).mockResolvedValue({
       id: 10,
-      chain: { id: 1, evolves_to: [], details: [] },
-    } as CompactEvolutionChain);
+      evolves_from: [],
+      details: [],
+      evolves_to: [],
+    } as PokemonEvolutionChain);
 
     const c10 = await dexDataLoader.chains.load(10);
 
@@ -59,8 +61,10 @@ describe('DexDataLoader', () => {
     });
     vi.mocked(pokeDB.getChain).mockResolvedValue({
       id: 10,
-      chain: { id: 1, evolves_to: [], details: [] },
-    } as CompactEvolutionChain);
+      evolves_from: [],
+      details: [],
+      evolves_to: [],
+    } as PokemonEvolutionChain);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({ 1: 'Area 1' });
 
     const details = await dexDataLoader.getPokemonDetails(1);

@@ -2,14 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { AlertCircle, CheckCircle2, Monitor, Sparkles, X } from 'lucide-react';
 import React, { useEffect } from 'react';
 import { dexDataLoader } from '../db/DexDataLoader';
-import {
-  type CompactChainLink,
-  type CompactEvolutionChain,
-  type CompactEvolutionDetail,
-  POKE_VERSION_MAP,
-  type PokemonMetadata,
-  REVERSE_METHOD_MAP,
-} from '../db/schema';
+import { type CompactChainLink, POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../db/schema';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
 import { cn } from '../utils/cn';
@@ -54,9 +47,9 @@ export function PokemonDetails({
     queryFn: () => dexDataLoader.getPokemonDetails(pokemonId),
   });
 
-  const pokemon = allData?.pokemon as PokemonMetadata | undefined;
+  const pokemon = allData?.pokemon;
   const encounters = allData?.encounters || [];
-  const evolutionData = allData?.evolutionChain as CompactEvolutionChain | undefined;
+  const evolutionData = allData?.evolutionChain;
   const nameMap = allData?.nameMap;
   const areaNames = allData?.areaNames;
 
@@ -68,16 +61,7 @@ export function PokemonDetails({
     const fromId = pokemon.pre;
     let methodStr = 'Unknown';
 
-    const findEvoDetails = (node: CompactChainLink): CompactEvolutionDetail[] | null => {
-      if (node.id === pokemonId) return node.details;
-      for (const next of node.evolves_to) {
-        const found = findEvoDetails(next);
-        if (found) return found;
-      }
-      return null;
-    };
-
-    const details = findEvoDetails(evolutionData.chain);
+    const details = evolutionData.details;
     if (details && details.length > 0) {
       const d = details[0];
       if (!d) return null;
@@ -91,22 +75,13 @@ export function PokemonDetails({
       fromName: nameMap?.[fromId] || 'Earlier Form',
       method: methodStr,
     };
-  }, [pokemon, evolutionData, pokemonId, nameMap]);
+  }, [pokemon, evolutionData, nameMap]);
 
   const evolvesTo = React.useMemo(() => {
     if (!pokemon || !evolutionData) return [];
 
-    const findEvolutions = (node: CompactChainLink): CompactChainLink[] | null => {
-      if (node.id === pokemonId) return node.evolves_to;
-      for (const next of node.evolves_to) {
-        const found = findEvolutions(next);
-        if (found) return found;
-      }
-      return null;
-    };
-
-    const evos = findEvolutions(evolutionData.chain);
-    if (!evos) return [];
+    const evos = evolutionData.evolves_to;
+    if (!evos || evos.length === 0) return [];
 
     return evos
       .map((evo: CompactChainLink) => {
@@ -127,15 +102,22 @@ export function PokemonDetails({
         };
       })
       .filter((evo): evo is { id: number; name: string; method: string } => evo !== null);
-  }, [pokemon, evolutionData, nameMap, saveData, pokemonId]);
+  }, [pokemon, evolutionData, nameMap, saveData]);
 
   const breedingInfo = React.useMemo(() => {
     if (!pokemon?.baby || !evolutionData) return null;
     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
 
+    const rootId =
+      evolutionData.evolves_from.length > 0
+        ? evolutionData.evolves_from[evolutionData.evolves_from.length - 1]
+        : evolutionData.id;
+
+    if (rootId === undefined) return null;
+
     return {
-      parentIds: [evolutionData.chain.id],
-      parentNames: [nameMap?.[evolutionData.chain.id] || 'Evolution Line'],
+      parentIds: [rootId],
+      parentNames: [nameMap?.[rootId] || 'Evolution Line'],
       method: 'Breed evolved form',
     };
   }, [pokemon, evolutionData, saveData, nameMap]);

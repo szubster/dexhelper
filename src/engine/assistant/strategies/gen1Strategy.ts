@@ -23,7 +23,7 @@ export const gen1Strategy: AssistantStrategy = {
     }
 
     // Find first area in this location
-    const area = allAreas.find((a) => a.lid === targetLoc.id);
+    const area = allAreas.find((a) => a.id === targetLoc.id);
     return area ? area.id : null;
   },
 

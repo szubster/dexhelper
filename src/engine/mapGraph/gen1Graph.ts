@@ -15,7 +15,7 @@ export function getDistanceToMap(
   const targetArea = allAreas.find((a) => a.id === targetAid);
   if (!targetArea) return null;
 
-  let targetLoc = allLocations.find((l) => l.id === targetArea.lid);
+  let targetLoc = allLocations.find((l) => l.id === targetArea.id);
   if (!targetLoc) return null;
 
   const targetDisplayName = targetLoc.n;

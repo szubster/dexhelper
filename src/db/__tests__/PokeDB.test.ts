@@ -59,8 +59,8 @@ describe('PokeDB', () => {
       encounters: [{ pid: 1, encounters: [] }],
       chains: [{ id: 1, chain: { id: 1, evolves_to: [], details: [] } }],
       locations: [{ id: 1, n: 'Pallet Town' }],
-      areas: [{ id: 1, n: 'Area 1', lid: 1 }],
-      locationIndex: [{ lid: 1, pids: [1] }],
+      areas: [{ id: 1, n: 'Area 1' }],
+      locationIndex: [{ id: 1, pids: [1] }],
     };
 
     vi.mocked(fetch).mockResolvedValue({
@@ -127,8 +127,8 @@ describe('PokeDB', () => {
       chains: [],
       locations: [],
       areas: [
-        { id: 1, n: 'Viridian Forest', lid: 10 },
-        { id: 2, n: 'Route 1', lid: 11 },
+        { id: 1, n: 'Viridian Forest' },
+        { id: 2, n: 'Route 1' },
       ],
       locationIndex: [],
     };

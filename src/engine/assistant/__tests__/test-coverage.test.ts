@@ -37,109 +37,47 @@ test('coverage for suggestionEngine new lines', () => {
     ancestralEncounters: {},
     missingChains: {
       196: {
-        id: 1,
-        chain: {
-          id: 133,
-          evolves_to: [
-            {
-              id: 196,
-              evolves_to: [],
-              details: [{ tr: 1, min_h: 220, time: 1 }],
-            },
-          ],
-          details: [],
-        },
+        id: 196,
+        evolves_from: [133],
+        details: [{ tr: 1, min_h: 220, time: 1 }],
+        evolves_to: [],
       }, // Espeon
       197: {
-        id: 1,
-        chain: {
-          id: 133,
-          evolves_to: [
-            {
-              id: 197,
-              evolves_to: [],
-              details: [{ tr: 1, min_h: 220, time: 2 }],
-            },
-          ],
-          details: [],
-        },
+        id: 197,
+        evolves_from: [133],
+        details: [{ tr: 1, min_h: 220, time: 2 }],
+        evolves_to: [],
       }, // Umbreon
       106: {
-        id: 2,
-        chain: {
-          id: 236,
-          evolves_to: [
-            {
-              id: 106,
-              evolves_to: [],
-              details: [{ tr: 1, min_l: 20, rel_s: 1 }],
-            },
-          ],
-          details: [],
-        },
+        id: 106,
+        evolves_from: [236],
+        details: [{ tr: 1, min_l: 20, rel_s: 1 }],
+        evolves_to: [],
       }, // Hitmonlee
       107: {
-        id: 2,
-        chain: {
-          id: 236,
-          evolves_to: [
-            {
-              id: 107,
-              evolves_to: [],
-              details: [{ tr: 1, min_l: 20, rel_s: -1 }],
-            },
-          ],
-          details: [],
-        },
+        id: 107,
+        evolves_from: [236],
+        details: [{ tr: 1, min_l: 20, rel_s: -1 }],
+        evolves_to: [],
       }, // Hitmonchan
       237: {
-        id: 2,
-        chain: {
-          id: 236,
-          evolves_to: [
-            {
-              id: 237,
-              evolves_to: [],
-              details: [{ tr: 1, min_l: 20, rel_s: 0 }],
-            },
-          ],
-          details: [],
-        },
+        id: 237,
+        evolves_from: [236],
+        details: [{ tr: 1, min_l: 20, rel_s: 0 }],
+        evolves_to: [],
       }, // Hitmontop
       136: {
-        id: 1,
-        chain: {
-          id: 133,
-          evolves_to: [
-            {
-              id: 136,
-              evolves_to: [],
-              details: [{ tr: 3, item: 82 }], // Fire Stone
-            },
-          ],
-          details: [],
-        },
+        id: 136,
+        evolves_from: [133],
+        details: [{ tr: 3, item: 82 }], // Fire Stone
+        evolves_to: [],
       }, // Flareon (Item)
       68: {
-        id: 3,
-        chain: {
-          id: 66,
-          evolves_to: [
-            {
-              id: 67,
-              evolves_to: [
-                {
-                  id: 68,
-                  evolves_to: [],
-                  details: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
-                },
-              ],
-              details: [{ tr: 1, min_l: 28 }],
-            },
-          ],
-          details: [],
-        },
-      }, // Machamp (Trade) - triggers recursion test for findNodeAndParent
+        id: 68,
+        evolves_from: [67, 66],
+        details: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
+        evolves_to: [],
+      }, // Machamp (Trade)
     },
     partyEvolutions: {},
     giftChains: {},
@@ -196,17 +134,10 @@ test('coverage for suggestionEngine edge cases', () => {
     ancestralEncounters: {},
     missingChains: {
       135: {
-        id: 1,
-        chain: {
-          id: 133,
-          evolves_to: [
-            {
-              id: 135,
-              evolves_to: [],
-              details: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
-            },
-          ],
-        },
+        id: 135,
+        evolves_from: [133],
+        details: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
+        evolves_to: [],
       },
     },
     partyEvolutions: {},

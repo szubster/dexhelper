@@ -53,27 +53,18 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
     },
     missingChains: {
-      39: {
-        id: 1,
-        chain: { id: 13, evolves_to: [], details: [] },
-      },
+      39: { id: 39, evolves_from: [], details: [], evolves_to: [] },
       40: {
-        id: 1,
-        chain: { id: 39, evolves_to: [{ id: 40, evolves_to: [], details: [{ tr: 3, item: 81 }] }], details: [] },
+        id: 40,
+        evolves_from: [39],
+        details: [{ tr: 3, item: 81 }],
+        evolves_to: [],
       },
       62: {
-        id: 2,
-        chain: {
-          id: 60,
-          evolves_to: [
-            {
-              id: 61,
-              evolves_to: [{ id: 62, evolves_to: [], details: [{ tr: 3, item: 84 }] }],
-              details: [{ tr: 1, min_l: 25 }],
-            },
-          ],
-          details: [],
-        },
+        id: 62,
+        evolves_from: [61, 60],
+        details: [{ tr: 3, item: 84 }],
+        evolves_to: [],
       },
     },
     partyEvolutions: {},
@@ -102,10 +93,7 @@ describe('useAssistant - generateSuggestions logic', () => {
         13: {}, // No ancestors catchable either
       },
       missingChains: {
-        13: {
-          id: 3,
-          chain: { sid: 13, evolves_to: [], details: [] },
-        },
+        13: { id: 13, evolves_from: [], details: [], evolves_to: [] },
       },
     };
 

@@ -5,7 +5,7 @@ import { execSync, execFileSync } from 'node:child_process';
 import { 
   type CompactChainLink, 
   type CompactEncounterDetail, 
-  type CompactEvolutionChain, 
+  type PokemonEvolutionChain, 
   type LocationAreaEncounters, 
   type PokemonMetadata, 
   type PokeDataExport,
@@ -108,7 +108,7 @@ async function main() {
   }
 
   const pokemon: PokemonMetadata[] = [];
-  const chains: CompactEvolutionChain[] = [];
+  const chains: PokemonEvolutionChain[] = [];
   const pokemonEncounterMap = new Map<number, CompactEncounter[]>();
   
   // New structures
@@ -201,9 +201,8 @@ async function main() {
 
           areaMap.set(gameId, sortObj({
             id: gameId,
-            lid: gameId, // For now, we use map ID as location ID too if they match
             n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || areaData.name || areaId.toString(),
-          }, ['id', 'n', 'lid']));
+          }, ['id', 'n']));
 
           // Update inverse index
           if (!inverseIndexMap.has(gameId)) inverseIndexMap.set(gameId, new Set());
@@ -269,23 +268,37 @@ async function main() {
     const cData = readJson(chainFilePath);
     if (!cData) continue;
     
-    const mapLink = (link: PokeApiChainLink): CompactChainLink => ({
-      id: parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10),
-      evolves_to: link.evolves_to.map(mapLink),
-      details: link.evolution_details.map((ed) => ({
-        tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
-        min_l: ed.min_level || undefined,
-        min_h: ed.min_happiness || undefined,
-        item: ed.item ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
-        held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
-        time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
-      })),
-    });
-
-    chains.push(sortObj({
-      id: cData.id,
-      chain: mapLink(cData.chain),
-    }, ['id', 'chain']));
+    const mapLink = (link: PokeApiChainLink, ef?: number): CompactChainLink => {
+      const id = parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10);
+      return {
+        id,
+        evolves_to: link.evolves_to.map(l => mapLink(l, id)),
+        details: link.evolution_details.map((ed) => ({
+          tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
+          min_l: ed.min_level || undefined,
+          min_h: ed.min_happiness || undefined,
+          item: ed.item ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
+          held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
+          time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
+        })),
+        ef,
+      };
+    };
+    
+    const fullChain = mapLink(cData.chain);
+    
+    const registerChain = (node: CompactChainLink, ancestors: number[]) => {
+      chains.push(sortObj({
+        id: node.id,
+        evolves_to: node.evolves_to,
+        evolves_from: ancestors,
+        details: node.details
+      }, ['id', 'evolves_from', 'details', 'evolves_to']));
+      
+      node.evolves_to.forEach(child => registerChain(child, [node.id, ...ancestors]));
+    };
+    
+    registerChain(fullChain, []);
   }
 
   console.log('\nWriting split JSONL files...');
@@ -296,13 +309,13 @@ async function main() {
     pid, 
     encounters: encs
   })));
-  writeJsonl(path.join(OUTPUT_DIR, 'chains.jsonl'), chains);
-  writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()));
-  writeJsonl(path.join(OUTPUT_DIR, 'areas.jsonl'), Array.from(areaMap.values()));
-  writeJsonl(path.join(OUTPUT_DIR, 'location_index.jsonl'), Array.from(inverseIndexMap.entries()).map(([lid, pids]) => sortObj({
-    lid,
+  writeJsonl(path.join(OUTPUT_DIR, 'chains.jsonl'), chains.sort((a, b) => a.id - b.id));
+  writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).sort((a, b) => a.id - b.id));
+  writeJsonl(path.join(OUTPUT_DIR, 'areas.jsonl'), Array.from(areaMap.values()).sort((a, b) => a.id - b.id));
+  writeJsonl(path.join(OUTPUT_DIR, 'location_index.jsonl'), Array.from(inverseIndexMap.entries()).map(([id, pids]) => sortObj({
+    id,
     pids: Array.from(pids).sort((a, b) => a - b)
-  }, ['lid', 'pids'])));
+  }, ['id', 'pids'])).sort((a, b) => a.id - b.id));
 
   // Write metadata
   fs.writeFileSync(path.join(OUTPUT_DIR, 'metadata.json'), JSON.stringify({

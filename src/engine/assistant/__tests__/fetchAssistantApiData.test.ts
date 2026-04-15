@@ -2,7 +2,7 @@ import 'fake-indexeddb/auto';
 import { beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
 import { dexDataLoader } from '../../../db/DexDataLoader';
 import { pokeDB } from '../../../db/PokeDB';
-import type { CompactEvolutionChain, PokemonMetadata } from '../../../db/schema';
+import type { PokemonEvolutionChain, PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import { fetchAssistantApiData } from '../suggestionEngine';
 
@@ -31,7 +31,7 @@ describe('fetchAssistantApiData', () => {
     ]);
     vi.spyOn(dexDataLoader.chains, 'loadMany').mockResolvedValue([
       new Error('Database failure'),
-      { id: 102, chain: { id: 2, evolves_to: [] } } as unknown as CompactEvolutionChain,
+      { id: 2, evolves_from: [1], details: [], evolves_to: [] } as unknown as PokemonEvolutionChain,
     ]);
 
     const result = await fetchAssistantApiData(mockSaveData, []);

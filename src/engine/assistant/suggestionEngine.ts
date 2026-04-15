@@ -2,12 +2,12 @@ import { dexDataLoader } from '../../db/DexDataLoader';
 import { pokeDB } from '../../db/PokeDB';
 import {
   type CompactChainLink,
-  type CompactEvolutionChain,
   ENCOUNTER_METHOD,
   EVO_TRIGGER,
   type GenericLocation,
   type LocationAreaEncounters,
   POKE_VERSION_MAP,
+  type PokemonEvolutionChain,
   type SpecificArea,
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
@@ -21,10 +21,10 @@ export interface AssistantApiData {
   localAid: number | null;
   localEncounters: LocationAreaEncounters[] | null;
   missingEncounters: Record<number, LocationAreaEncounters | null>;
-  missingChains: Record<number, CompactEvolutionChain | null>;
+  missingChains: Record<number, PokemonEvolutionChain | null>;
   ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>>;
-  partyEvolutions: Record<number, CompactEvolutionChain | null>;
-  giftChains: Record<number, CompactEvolutionChain | null>;
+  partyEvolutions: Record<number, PokemonEvolutionChain | null>;
+  giftChains: Record<number, PokemonEvolutionChain | null>;
   areaNames: Record<number, string>;
   allLocations: GenericLocation[];
   allAreas: SpecificArea[];
@@ -32,25 +32,10 @@ export interface AssistantApiData {
 
 /**
  * Helper function to find all Pokemon IDs in an evolution chain.
+ * Note: Since we now use localized chains, we walk the evolves_to tree from the current node.
  */
-function _getChainIds(node: CompactChainLink): number[] {
-  const id = node.id;
-  return [id, ...node.evolves_to.flatMap(_getChainIds)];
-}
-
-/**
- * Helper function to find all ancestors of a target Pokemon ID in an evolution chain.
- */
-function _getAncestors(node: CompactChainLink, target: number, path: number[] = []): number[] | null {
-  const id = node.id;
-  if (id === target) {
-    return path;
-  }
-  for (const child of node.evolves_to) {
-    const result = _getAncestors(child, target, [...path, id]);
-    if (result) return result;
-  }
-  return null;
+function _getChainIds(node: { id: number; evolves_to: CompactChainLink[] }): number[] {
+  return [node.id, ...node.evolves_to.flatMap(_getChainIds)];
 }
 
 const isNotError = <T>(item: T | Error): item is T => !(item instanceof Error);
@@ -69,7 +54,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const localEncounters = localAid ? allEncounters.filter((lae) => lae.encounters.some((e) => e.aid === localAid)) : [];
 
   const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
-  const missingChains: Record<number, CompactEvolutionChain | null> = {};
+  const missingChains: Record<number, PokemonEvolutionChain | null> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
 
   // Fill missingEncounters
@@ -78,60 +63,37 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     if (enc) missingEncounters[pid] = enc;
   }
 
-  // 1. Get Pokemon details (now includes CID directly)
-  const pokemons = await dexDataLoader.pokemon.loadMany(queryTargets);
-  const cids = pokemons
-    .filter(isNotError)
-    .map((p) => p?.cid)
-    .filter((cid): cid is number => !!cid);
+  // 1. Get Pokemon details (pre-warming cache)
+  await dexDataLoader.pokemon.loadMany(queryTargets);
 
-  // 2. Load Chains
-  const chains = await dexDataLoader.chains.loadMany([...new Set(cids)]);
+  // 2. Load Chains (keyed by pid)
+  const chains = await dexDataLoader.chains.loadMany(queryTargets);
   const validChains = chains.filter(isNotError);
 
   // Map back to pid -> chain
-  queryTargets.forEach((pid, idx) => {
-    const p = pokemons[idx];
-    if (isNotError(p) && p) {
-      const chain = validChains.find((c) => c?.id === p.cid);
-      missingChains[pid] = chain ?? null;
-    }
+  queryTargets.forEach((pid) => {
+    const chain = validChains.find((c) => c?.id === pid);
+    missingChains[pid] = chain ?? null;
   });
 
   const partyPids = saveData.party || [];
-  const partyPokemons = await dexDataLoader.pokemon.loadMany(partyPids);
-  const partyCids = partyPokemons
-    .filter(isNotError)
-    .map((p) => p?.cid)
-    .filter((cid): cid is number => !!cid);
-  const partyChains = await dexDataLoader.chains.loadMany([...new Set(partyCids)]);
+  const partyChains = await dexDataLoader.chains.loadMany(partyPids);
   const validPartyChains = partyChains.filter(isNotError);
 
-  const partyEvolutions: Record<number, CompactEvolutionChain | null> = {};
-  partyPids.forEach((pid, idx) => {
-    const p = partyPokemons[idx];
-    if (isNotError(p) && p) {
-      const chain = validPartyChains.find((c) => c?.id === p.cid);
-      partyEvolutions[pid] = chain ?? null;
-    }
+  const partyEvolutions: Record<number, PokemonEvolutionChain | null> = {};
+  partyPids.forEach((pid) => {
+    const chain = validPartyChains.find((c) => c?.id === pid);
+    partyEvolutions[pid] = chain ?? null;
   });
 
   const giftPids = Object.keys(STATIC_GIFT_DATA).map((id) => parseInt(id, 10));
-  const giftPokemons = await dexDataLoader.pokemon.loadMany(giftPids);
-  const giftCids = giftPokemons
-    .filter(isNotError)
-    .map((p) => p?.cid)
-    .filter((cid): cid is number => !!cid);
-  const giftChainsFull = await dexDataLoader.chains.loadMany([...new Set(giftCids)]);
+  const giftChainsFull = await dexDataLoader.chains.loadMany(giftPids);
   const validGiftChains = giftChainsFull.filter(isNotError);
 
-  const giftChains: Record<number, CompactEvolutionChain | null> = {};
-  giftPids.forEach((pid, idx) => {
-    const p = giftPokemons[idx];
-    if (isNotError(p) && p) {
-      const chain = validGiftChains.find((c) => c?.id === p.cid);
-      giftChains[pid] = chain ?? null;
-    }
+  const giftChains: Record<number, PokemonEvolutionChain | null> = {};
+  giftPids.forEach((pid) => {
+    const chain = validGiftChains.find((c) => c?.id === pid);
+    giftChains[pid] = chain ?? null;
   });
 
   return {
@@ -334,25 +296,8 @@ export function generateSuggestions(
     const chain = apiData.missingChains?.[targetId];
     if (!chain) return;
 
-    const findNodeAndParent = (
-      node: CompactChainLink,
-      parent: CompactChainLink | null = null,
-    ): { targetNode: CompactChainLink; parentNode: CompactChainLink | null } | null => {
-      if (!node) return null;
-      if (node.id === targetId) return { targetNode: node, parentNode: parent };
-      if (node.evolves_to) {
-        for (const child of node.evolves_to) {
-          const res = findNodeAndParent(child, node);
-          if (res) return res;
-        }
-      }
-      return null;
-    };
-
-    const nodes = findNodeAndParent(chain.chain);
-    if (!nodes?.parentNode) return;
-
-    const parentId = nodes.parentNode.id;
+    const parentId = chain.evolves_from[0];
+    if (parentId === undefined) return;
     const ownedInstances = instancesBySpecies.get(parentId) || [];
     if (ownedInstances.length === 0) return;
 
@@ -361,7 +306,7 @@ export function generateSuggestions(
       displayVersion === 'yellow' && parentId === 25 && bestInstance.otName === saveData.trainerName;
     if (isYellowStarterPikachu) return;
 
-    const details = nodes.targetNode.details;
+    const details = chain.details;
     const detail = details?.[0];
     if (!detail) return;
 

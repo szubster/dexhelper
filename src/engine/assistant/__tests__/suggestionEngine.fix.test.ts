@@ -27,8 +27,8 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
     },
     ancestralEncounters: { 124: {}, 122: {} },
     missingChains: {
-      124: { id: 1, chain: { id: 124, evolves_to: [], details: [] } },
-      122: { id: 2, chain: { id: 122, evolves_to: [], details: [] } },
+      124: { id: 124, evolves_from: [], details: [], evolves_to: [] },
+      122: { id: 122, evolves_from: [], details: [], evolves_to: [] },
     },
     partyEvolutions: {},
     areaNames: {},

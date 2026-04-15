@@ -1,10 +1,10 @@
 import { type IDBPDatabase, openDB } from 'idb';
 import {
-  type CompactEvolutionChain,
   DB_CONFIG,
   type LocationAreaEncounters,
   type PokeDataExport,
   type PokeDBSchema,
+  type PokemonEvolutionChain,
   type PokemonMetadata,
 } from './schema';
 
@@ -25,7 +25,7 @@ export const getDB = () => {
           [DB_CONFIG.STORES.CHAINS]: 'id',
           [DB_CONFIG.STORES.LOCATIONS]: 'id',
           [DB_CONFIG.STORES.AREAS]: 'id',
-          [DB_CONFIG.STORES.INDEX]: 'lid',
+          [DB_CONFIG.STORES.INDEX]: 'id',
           [DB_CONFIG.STORES.METADATA]: 'key',
         };
 
@@ -187,10 +187,10 @@ export const pokeDB = {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.ENCOUNTERS);
   },
-  getChain: async (id: number): Promise<CompactEvolutionChain | undefined> => {
+  getChain: async (pid: number): Promise<PokemonEvolutionChain | undefined> => {
     await pokeDB.ready();
-    if (id === undefined || id === null || Number.isNaN(id)) return undefined;
-    return (await getDB()).get(DB_CONFIG.STORES.CHAINS, id);
+    if (pid === undefined || pid === null || Number.isNaN(pid)) return undefined;
+    return (await getDB()).get(DB_CONFIG.STORES.CHAINS, pid);
   },
 
   // New location methods
@@ -203,16 +203,18 @@ export const pokeDB = {
     if (id === undefined || id === null || Number.isNaN(id)) return undefined;
     return (await getDB()).get(DB_CONFIG.STORES.LOCATIONS, id);
   },
-  getAreas: async (lid: number) => {
+  getAreas: async (mid: number) => {
     await pokeDB.ready();
-    if (lid === undefined || lid === null || Number.isNaN(lid)) return [];
-    const areas = await (await getDB()).getAll(DB_CONFIG.STORES.AREAS);
-    return areas.filter((a) => a.lid === lid);
+    if (mid === undefined || mid === null || Number.isNaN(mid)) return [];
+    // Currently areas are 1:1 with map IDs (id), so we can just return the area with that id
+    const db = await getDB();
+    const area = await db.get(DB_CONFIG.STORES.AREAS, mid);
+    return area ? [area] : [];
   },
-  getInverseIndex: async (lid: number) => {
+  getInverseIndex: async (mid: number) => {
     await pokeDB.ready();
-    if (lid === undefined || lid === null || Number.isNaN(lid)) return undefined;
-    const res = await (await getDB()).get(DB_CONFIG.STORES.INDEX, lid);
+    if (mid === undefined || mid === null || Number.isNaN(mid)) return undefined;
+    const res = await (await getDB()).get(DB_CONFIG.STORES.INDEX, mid);
     return res?.pids;
   },
   getAllAreas: async () => {

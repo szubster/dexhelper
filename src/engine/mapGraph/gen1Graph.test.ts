@@ -11,33 +11,33 @@ const mockLocations: GenericLocation[] = [
 ];
 
 const mockAreas: SpecificArea[] = [
-  { id: 285, lid: 0x00, n: 'Pallet Town' },
-  { id: 295, lid: 0x01, n: 'Route 1' },
-  { id: 280, lid: 0x02, n: 'Viridian City' },
+  { id: 0x00, n: 'Pallet Town' },
+  { id: 0x01, n: 'Route 1' },
+  { id: 0x02, n: 'Viridian City' },
 ];
 
 describe('getDistanceToMap', () => {
   it('returns distance 0 when starting map is the target', () => {
-    // Pallet Town (0x00) -> pallet-town-area (AID 285)
-    const result = getDistanceToMap(mockLocations, mockAreas, 0x00, 285);
+    // Pallet Town (0x00) -> pallet-town-area (Map ID 0x00)
+    const result = getDistanceToMap(mockLocations, mockAreas, 0x00, 0x00);
     expect(result).toEqual({ distance: 0, name: 'Pallet Town' });
   });
 
   it('returns distance 1 for an adjacent map', () => {
-    // Pallet Town (0x00) -> route-1-area (AID 295)
-    const result = getDistanceToMap(mockLocations, mockAreas, 0x00, 295);
+    // Pallet Town (0x00) -> route-1-area (Map ID 0x01)
+    const result = getDistanceToMap(mockLocations, mockAreas, 0x00, 0x01);
     expect(result).toEqual({ distance: 1, name: 'Route 1' });
   });
 
   it('returns distance 2 for a multi-hop distant map', () => {
-    // Pallet Town (0x00) -> viridian-city-area (AID 280)
-    const result = getDistanceToMap(mockLocations, mockAreas, 0x00, 280);
+    // Pallet Town (0x00) -> viridian-city-area (Map ID 0x02)
+    const result = getDistanceToMap(mockLocations, mockAreas, 0x00, 0x02);
     expect(result).toEqual({ distance: 2, name: 'Viridian City' });
   });
 
   it('gracefully falls back to parent map for indoor locations', () => {
-    // Pallet Town Interior (0x25) -> AID 285 (Pallet Town)
-    const result = getDistanceToMap(mockLocations, mockAreas, 0x25, 285);
+    // Pallet Town Interior (0x25) -> Map ID 0x00 (Pallet Town)
+    const result = getDistanceToMap(mockLocations, mockAreas, 0x25, 0x00);
     expect(result).toEqual({ distance: 0, name: 'Pallet Town' });
   });
 
@@ -45,10 +45,10 @@ describe('getDistanceToMap', () => {
     // Unknown ID (0x999) -> AID 280 (Viridian City)
     // Saffron is hardcoded as gameId 0x0A, but we can't mock that easily here unless we add it.
 
-    const locWithSaffron: GenericLocation[] = [...mockLocations, { id: 0x0a, n: 'Saffron City', connections: [2] }];
-    const areasWithSaffron: SpecificArea[] = [...mockAreas, { id: 762, lid: 10, n: 'Saffron City' }];
+    const locWithSaffron: GenericLocation[] = [...mockLocations, { id: 10, n: 'Saffron City', connections: [2] }];
+    const areasWithSaffron: SpecificArea[] = [...mockAreas, { id: 10, n: 'Saffron City' }];
 
-    const result = getDistanceToMap(locWithSaffron, areasWithSaffron, 0x999, 762);
+    const result = getDistanceToMap(locWithSaffron, areasWithSaffron, 0x999, 10);
     expect(result).toEqual({ distance: 0, name: 'Saffron City' });
   });
 

@@ -7,7 +7,7 @@ import type { DBSchema } from 'idb';
 
 export const DB_CONFIG = {
   NAME: 'PokeDB',
-  VERSION: 3,
+  VERSION: 5,
   STORES: {
     POKEMON: 'pokemon',
     ENCOUNTERS: 'encounters',
@@ -120,13 +120,12 @@ export interface GenericLocation {
 }
 
 export interface SpecificArea {
-  id: number; // ROM Map ID (same as GenericLocation.id if 1:1)
+  id: number; // ROM Map ID
   n: string; // display name
-  lid: number; // ROM Map ID of parent GenericLocation
 }
 
 export interface InverseLocationIndex {
-  lid: number; // generic location id
+  id: number; // generic location id (Map ID)
   pids: number[]; // pokemon ids found here
 }
 
@@ -143,11 +142,14 @@ export interface CompactChainLink {
   id: number; // species id
   evolves_to: CompactChainLink[];
   details: CompactEvolutionDetail[];
+  ef?: number; // evolves from species id
 }
 
-export interface CompactEvolutionChain {
-  id: number;
-  chain: CompactChainLink;
+export interface PokemonEvolutionChain {
+  id: number; // pokemon id (Primary Key)
+  evolves_to: CompactChainLink[];
+  evolves_from: number[]; // Parent, Grandparent, etc.
+  details: CompactEvolutionDetail[]; // Evolutionary requirements to reach THIS pokemon from parent
 }
 
 export interface PokemonMetadata {
@@ -165,7 +167,7 @@ export type PokemonCompact = PokemonMetadata;
 export interface PokeDataExport {
   pokemon: PokemonMetadata[];
   encounters: LocationAreaEncounters[];
-  chains: CompactEvolutionChain[];
+  chains: PokemonEvolutionChain[];
   locations: GenericLocation[];
   areas: SpecificArea[];
   locationIndex: InverseLocationIndex[];
@@ -184,7 +186,7 @@ export interface PokeDBSchema extends DBSchema {
   };
   [DB_CONFIG.STORES.CHAINS]: {
     key: number;
-    value: CompactEvolutionChain;
+    value: PokemonEvolutionChain;
   };
   [DB_CONFIG.STORES.LOCATIONS]: {
     key: number;

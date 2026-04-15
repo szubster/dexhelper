@@ -1,6 +1,6 @@
 import DataLoader from 'dataloader';
 import { pokeDB } from './PokeDB';
-import type { CompactChainLink, CompactEvolutionChain, LocationAreaEncounters, PokemonMetadata } from './schema';
+import type { CompactChainLink, LocationAreaEncounters, PokemonEvolutionChain, PokemonMetadata } from './schema';
 
 /**
  * Request Batching layer for IndexedDB.
@@ -13,9 +13,9 @@ export const dexDataLoader = {
     { cache: true },
   ),
 
-  chains: new DataLoader<number, CompactEvolutionChain>(
+  chains: new DataLoader<number, PokemonEvolutionChain>(
     async (ids) => {
-      return Promise.all(ids.map((id) => pokeDB.getChain(id) as Promise<CompactEvolutionChain>));
+      return Promise.all(ids.map((id) => pokeDB.getChain(id) as Promise<PokemonEvolutionChain>));
     },
     { cache: true },
   ),
@@ -32,7 +32,7 @@ export const dexDataLoader = {
   ): Promise<{
     pokemon: PokemonMetadata;
     encounters: LocationAreaEncounters['encounters'];
-    evolutionChain: CompactEvolutionChain | undefined;
+    evolutionChain: PokemonEvolutionChain | undefined;
     nameMap: Record<number, string>;
     areaNames: Record<number, string>;
   }> => {
@@ -40,18 +40,24 @@ export const dexDataLoader = {
     if (!pokemon) throw new Error(`Pokemon #${id} not found`);
 
     const encounters = await dexDataLoader.encounters.load(id);
-    const evolutionChain = pokemon.cid ? await dexDataLoader.chains.load(pokemon.cid) : undefined;
+    const evolutionChain = await dexDataLoader.chains.load(id);
 
     // Build a map of names for all species in the evolution chain
     const nameMap: Record<number, string> = {};
     if (evolutionChain) {
+      // Current species
+      nameMap[evolutionChain.id] = '';
+      // Ancestors
+      for (const ancestorId of evolutionChain.evolves_from) {
+        nameMap[ancestorId] = '';
+      }
+      // Descendants
       const traverse = (node: CompactChainLink) => {
-        nameMap[node.id] = ''; // Placeholder
+        nameMap[node.id] = '';
         node.evolves_to.forEach(traverse);
       };
-      traverse(evolutionChain.chain);
+      evolutionChain.evolves_to.forEach(traverse);
     }
-    if (pokemon.pre) nameMap[pokemon.pre] = '';
 
     const ids = Object.keys(nameMap).map(Number);
     const chainSpecies = await Promise.all(ids.map((id) => dexDataLoader.pokemon.load(id)));
