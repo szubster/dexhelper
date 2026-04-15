@@ -130,18 +130,18 @@ export interface InverseLocationIndex {
 
 export interface CompactEvolutionDetail {
   tr: number; // trigger (EVO_TRIGGER)
-  min_l?: number; // min_level
-  min_h?: number; // min_happiness
-  item?: number; // item id
-  held?: number; // held item id
-  time?: number; // 1: day, 2: night
+  min_l?: number | undefined; // min_level
+  min_h?: number | undefined; // min_happiness
+  item?: number | undefined; // item id
+  held?: number | undefined; // held item id
+  time?: number | undefined; // 1: day, 2: night
 }
 
 export interface CompactChainLink {
   id: number; // species id
   evolves_to: CompactChainLink[];
   details: CompactEvolutionDetail[];
-  ef?: number; // evolves from species id
+  ef?: number | undefined; // evolves from species id
 }
 
 export interface PokemonMetadata {

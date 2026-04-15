@@ -12,7 +12,7 @@ interface AssistantSuggestionCardProps {
   showDebug: boolean;
   saveData: SaveData;
   getPokemonName: (id: number) => string;
-  areaNames?: Record<number, string>;
+  areaNames?: Record<number, string> | undefined;
 }
 
 export function AssistantSuggestionCard({

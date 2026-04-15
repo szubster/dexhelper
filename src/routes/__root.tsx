@@ -8,7 +8,7 @@ import { useStore } from '../store';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
 const TanStackRouterDevtools =
-  process.env.NODE_ENV === 'production' || !!window.navigator.webdriver
+  process.env['NODE_ENV'] === 'production' || !!window.navigator.webdriver
     ? () => null // Render nothing in production or automated tests
     : React.lazy(() =>
         import('@tanstack/react-router-devtools').then((res) => ({

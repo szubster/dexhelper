@@ -1,5 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-import path from 'path';
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -12,14 +11,14 @@ export default defineConfig({
     },
   },
   fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  forbidOnly: !!process.env['CI'],
+  retries: process.env['CI'] ? 2 : 0,
   workers: 1,
   reporter: [
     ['html', { open: 'never' }],
     ['@argos-ci/playwright/reporter', {
-      uploadToArgos: !!process.env.CI,
-      buildName: process.env.ARGOS_BUILD_NAME || 'E2E',
+      uploadToArgos: !!process.env['CI'],
+      buildName: process.env['ARGOS_BUILD_NAME'] || 'E2E',
       ignoreUploadFailures: true,
     }]
   ],
@@ -73,9 +72,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: process.env.CI ? 'pnpm build && pnpm preview --port 3000' : 'pnpm dev',
+    command: process.env['CI'] ? 'pnpm build && pnpm preview --port 3000' : 'pnpm dev',
     port: 3000,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !process.env['CI'],
     timeout: 120000,
   },
 });

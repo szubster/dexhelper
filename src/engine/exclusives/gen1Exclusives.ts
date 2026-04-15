@@ -73,6 +73,7 @@ export function getUnobtainableReason(
     // Also, if you picked the OTHER choice, you can't get this one.
     // For hitmons: If evaluating 106, and you own 107 but not 106, it's locked.
     // Actually, fossils and hitmons are mutually exclusive choices.
+    return null;
   };
 
   const lockObj =

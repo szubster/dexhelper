@@ -1,7 +1,7 @@
-const fs = require('fs');
-const https = require('https');
+import fs from 'node:fs';
+import https from 'node:https';
 
-function download(url) {
+function download(url: string): Promise<string> {
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
       let data = '';
@@ -11,8 +11,14 @@ function download(url) {
   });
 }
 
-function capitalize(str) {
+function capitalize(str: string): string {
   return str.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+}
+
+interface Gen1MapInfo {
+  name: string;
+  id: number;
+  group: string | null;
 }
 
 async function run() {
@@ -28,13 +34,16 @@ async function run() {
   // === GEN 1 ===
   console.log('Generating Gen 1 mapping...');
 
-  const gen1MapToLocation = {};
-  const indoorGroupToName = {};
+  const gen1MapToLocation: Record<number, Gen1MapInfo> = {};
+  const indoorGroupToName: Record<string, string> = {};
 
   // Parse indoor groups
   const indoorMatches = [...gen1TownMapEntries.matchAll(/indoor_map\s+(\w+),\s*\d+,\s*\d+,\s*(\w+)/g)];
   for (const match of indoorMatches) {
-    let [_, group, name] = match;
+    const group = match[1];
+    let name = match[2];
+    if (!group || !name) continue;
+
     if (name.endsWith('Name')) name = name.slice(0, -4);
 
     if (name === 'SeaCottage') name = 'Sea Cottage';
@@ -50,8 +59,8 @@ async function run() {
 
   // Parse outdoor maps manually for gen 1 based on actual file ordering
 
-  let activeGroup = null;
-  let mapsSinceLastGroup = [];
+  let activeGroup: string | null = null;
+  let mapsSinceLastGroup: number[] = [];
   let currentMapConstId = 0;
 
   const gen1Lines = gen1MapConstants.split('\n');
@@ -63,6 +72,8 @@ async function run() {
     const mapConstMatch = line.match(/^\s*map_const\s+(\w+),/);
     if (mapConstMatch) {
       let mapName = mapConstMatch[1];
+      if (!mapName) continue;
+      
       gen1MapToLocation[currentMapConstId] = { name: mapName, id: currentMapConstId, group: null };
 
       // Before FIRST_INDOOR_MAP (roughly map ID 37), maps are just outdoor
@@ -71,7 +82,7 @@ async function run() {
            // Capitalize nicely: e.g. ROUTE_1 -> Route 1
            mapName = mapName.replace(/_/g, ' ');
            mapName = mapName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-           gen1MapToLocation[currentMapConstId].group = mapName;
+           gen1MapToLocation[currentMapConstId]!.group = mapName;
         }
       } else {
         mapsSinceLastGroup.push(currentMapConstId);
@@ -81,28 +92,37 @@ async function run() {
 
     const endGroupMatch = line.match(/^\s*end_indoor_group\s+(\w+)/);
     if (endGroupMatch) {
-      activeGroup = endGroupMatch[1];
+      activeGroup = endGroupMatch[1] ?? null;
       for (const id of mapsSinceLastGroup) {
-        if (gen1MapToLocation[id]) {
-          gen1MapToLocation[id].group = activeGroup;
+        const item = gen1MapToLocation[id];
+        if (item) {
+          item.group = activeGroup;
         }
       }
       mapsSinceLastGroup = [];
     }
   }
 
-  for (const id in gen1MapToLocation) {
-    if (!gen1MapToLocation[id].group) {
-        let mapName = gen1MapToLocation[id].name;
+  for (const idStr in gen1MapToLocation) {
+    const id = parseInt(idStr);
+    const item = gen1MapToLocation[id];
+    if (item && !item.group) {
+        let mapName = item.name;
         mapName = mapName.replace(/_/g, ' ');
         mapName = mapName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-        gen1MapToLocation[id].group = mapName;
+        item.group = mapName;
     }
   }
 
-  const finalGen1Mapping = {};
-  for (const id in gen1MapToLocation) {
-     let group = gen1MapToLocation[id].group;
+  const finalGen1Mapping: Record<number, string> = {};
+  for (const idStr in gen1MapToLocation) {
+     const id = parseInt(idStr);
+     const item = gen1MapToLocation[id];
+     if (!item) continue;
+     
+     const group = item.group;
+     if (!group) continue;
+     
      let finalName = indoorGroupToName[group] || capitalize(group.replace(/ /g, '_'));
      // Clean up
      finalName = finalName.replace(/ \d+$/, '');
@@ -133,12 +153,14 @@ async function run() {
   // === GEN 2 ===
   console.log('Generating Gen 2 mapping...');
 
-  const gen2LandmarkConstToName = {};
+  const gen2LandmarkConstToName: Record<string, { id: number, name: string }> = {};
   let currentLandmarkId2 = 0;
   for (const line of gen2LandmarksLines.split('\n')) {
     const match = line.match(/^\s*const\s+(LANDMARK_\w+)/);
     if (match) {
        const constName = match[1];
+       if (!constName) continue;
+       
        let name = constName.replace('LANDMARK_', '');
        name = capitalize(name);
        if (name === 'Special') {
@@ -168,7 +190,7 @@ async function run() {
     }
   }
 
-  const finalGen2Mapping = {};
+  const finalGen2Mapping: Record<number, Record<number, string>> = {};
 
   let currentGroup2 = 0;
   let mapIdInGroup = 1;
@@ -184,6 +206,7 @@ async function run() {
       const mapConstMatch = line.match(/^\s*map_const\s+(\w+),/);
       if (mapConstMatch) {
          const mapName = mapConstMatch[1];
+         if (!mapName) continue;
 
          const mapNameRegexStr = mapName.replace(/_/g, '');
          const mapRegex = new RegExp(`^\\s*map\\s+${mapNameRegexStr}\\s*,[^,]*,[^,]*,\\s*(LANDMARK_\\w+)`, 'im');
@@ -192,18 +215,20 @@ async function run() {
          let landmarkName = "Unknown";
          if (mapAsmMatch) {
              const landmarkConst = mapAsmMatch[1];
-             if (gen2LandmarkConstToName[landmarkConst]) {
-                 landmarkName = gen2LandmarkConstToName[landmarkConst].name;
+             if (landmarkConst && gen2LandmarkConstToName[landmarkConst]) {
+                 landmarkName = gen2LandmarkConstToName[landmarkConst]!.name;
              }
          }
 
-         finalGen2Mapping[currentGroup2][mapIdInGroup] = landmarkName;
+         if (finalGen2Mapping[currentGroup2]) {
+             finalGen2Mapping[currentGroup2]![mapIdInGroup] = landmarkName;
+         }
          mapIdInGroup++;
       }
   }
 
-  const finalGen2Landmarks = {};
-  for (const [key, value] of Object.entries(gen2LandmarkConstToName)) {
+  const finalGen2Landmarks: Record<number, string> = {};
+  for (const value of Object.values(gen2LandmarkConstToName)) {
     finalGen2Landmarks[value.id] = value.name;
   }
   // Gen 2 location catch maps 126 to Event/Gift and 127 to Special

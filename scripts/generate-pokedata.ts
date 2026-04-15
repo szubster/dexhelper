@@ -1,13 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
 import { execSync, execFileSync } from 'node:child_process';
 import { 
   type CompactChainLink, 
-  type CompactEncounterDetail, 
-  type LocationAreaEncounters, 
+  type CompactEncounterDetail,
   type PokemonMetadata, 
-  type PokeDataExport,
   type GenericLocation,
   type SpecificArea,
   type CompactEncounter,
@@ -78,7 +75,7 @@ function sortObj(obj: any, order: string[]): any {
 }
 
 async function main() {
-  const force = process.argv.includes('--force');
+  // const _force = process.argv.includes('--force');
   console.log('--- PokéAPI Data Pipeline (GitHub Source) ---');
 
   // 1. Get Latest Commit SHA
@@ -135,7 +132,7 @@ async function main() {
     const encounterPath = path.join(dataPath, `pokemon/${i}/encounters/index.json`);
     const eData = readJson(encounterPath) || [];
 
-    const chainId = parseInt(sData.evolution_chain.url.split('/').filter(Boolean).pop() || '0', 10);
+    // const _chainId = parseInt(sData.evolution_chain.url.split('/').filter(Boolean).pop() || '0', 10);
     pokemon.push(sortObj({
       id: pData.id,
       n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
@@ -283,8 +280,8 @@ async function main() {
         evolves_to: link.evolves_to.map(l => mapLink(l, id)),
         details: link.evolution_details.map((ed) => ({
           tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
-          min_l: ed.min_level || undefined,
-          min_h: ed.min_happiness || undefined,
+          min_l: ed.min_level ?? undefined,
+          min_h: ed.min_happiness ?? undefined,
           item: ed.item ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
           held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
           time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,

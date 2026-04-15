@@ -1,7 +1,6 @@
 import { dexDataLoader } from '../../db/DexDataLoader';
 import { pokeDB } from '../../db/PokeDB';
 import {
-  type CompactChainLink,
   ENCOUNTER_METHOD,
   EVO_TRIGGER,
   type GenericLocation,
@@ -26,14 +25,6 @@ export interface AssistantApiData {
   areaNames: Record<number, string>;
   allLocations: GenericLocation[];
   allAreas: SpecificArea[];
-}
-
-/**
- * Helper function to find all Pokemon IDs in an evolution chain.
- * Note: Since we now use localized chains, we walk the evolves_to tree from the current node.
- */
-function _getChainIds(node: { id: number; evolves_to: CompactChainLink[] }): number[] {
-  return [node.id, ...node.evolves_to.flatMap(_getChainIds)];
 }
 
 /**
