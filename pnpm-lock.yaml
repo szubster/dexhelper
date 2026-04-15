@@ -102,6 +102,9 @@ importers:
       lefthook:
         specifier: ^2.1.5
         version: 2.1.5
+      lightningcss:
+        specifier: ^1.32.0
+        version: 1.32.0
       rollup-plugin-visualizer:
         specifier: ^7.0.1
         version: 7.0.1(rolldown@1.0.0-rc.15)(rollup@2.80.0)
