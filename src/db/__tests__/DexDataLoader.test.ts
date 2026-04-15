@@ -9,6 +9,7 @@ vi.mock('../PokeDB', () => ({
     getPokemons: vi.fn(),
     getChain: vi.fn(),
     getEncounters: vi.fn(),
+    getAreaNames: vi.fn(),
   },
 }));
 
@@ -60,11 +61,13 @@ describe('DexDataLoader', () => {
       id: 10,
       chain: { sid: 1, evolves_to: [], details: [] },
     } as CompactEvolutionChain);
+    vi.mocked(pokeDB.getAreaNames).mockResolvedValue({ 1: 'Area 1' });
 
     const details = await dexDataLoader.getPokemonDetails(1);
 
     expect(details.pokemon.n).toBe('P1');
     expect(details.encounters).toHaveLength(1);
     expect(details.evolutionChain?.id).toBe(10);
+    expect(details.areaNames).toEqual({ 1: 'Area 1' });
   });
 });

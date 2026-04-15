@@ -119,4 +119,32 @@ describe('PokeDB', () => {
     const manyResult = await pokeDB.getPokemons([NaN]);
     expect(manyResult[0]).toBeInstanceOf(Error);
   });
+
+  it('resolves area names correctly', async () => {
+    const mockData = {
+      hash: 'area-hash',
+      pokemon: [],
+      encounters: [],
+      chains: [],
+      locations: [],
+      areas: [
+        { id: 1, n: 'Viridian Forest', lid: 10 },
+        { id: 2, n: 'Route 1', lid: 11 },
+      ],
+      locationIndex: [],
+    };
+
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      json: async () => mockData,
+    } as Response);
+
+    await pokeDB.sync();
+
+    const names = await pokeDB.getAreaNames([1, 2, 999]);
+    expect(names).toEqual({
+      1: 'Viridian Forest',
+      2: 'Route 1',
+    });
+  });
 });
