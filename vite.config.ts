@@ -8,18 +8,21 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { codecovVitePlugin } from "@codecov/vite-plugin";
 import { VitePWA } from 'vite-plugin-pwa';
 
+import { pokedataPlugin, getPokeDataHash } from './vite-plugins/pokedata-plugin';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
 
+  const sourceDir = path.resolve(__dirname, 'data/db');
+  const outputPath = path.resolve(__dirname, 'public/data/pokedata.json');
+  
   let pokedataHash = 'initial';
   try {
-    const hashPath = path.resolve(__dirname, 'public/data/pokedata.hash');
-    if (fs.existsSync(hashPath)) {
-      pokedataHash = fs.readFileSync(hashPath, 'utf-8').trim();
+    if (fs.existsSync(sourceDir)) {
+      pokedataHash = getPokeDataHash(sourceDir);
     }
   } catch (e) {
-    console.warn('Failed to read pokedata.hash, using fallback.');
+    console.warn('Failed to compute pokedata hash, using fallback.');
   }
 
   return {
@@ -28,6 +31,7 @@ export default defineConfig(({ mode }) => {
     },
     base: process.env.CF_PAGES === 'true' ? '/' : '/dexhelper/',
     plugins: [
+      pokedataPlugin({ sourceDir, outputPath }),
       tanstackRouter(),
       react(),
       tailwindcss(),

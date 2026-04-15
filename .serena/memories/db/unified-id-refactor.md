@@ -13,3 +13,8 @@ The application has been unified to use a single `id` field for Pokémon identif
 - Reduced data payload in `pokedata.json`.
 - Simplified traversal logic for evolution chains.
 - Consistent property naming across the entire codebase.
+
+## Status: Completed (2026-04-15)
+- All identification and lookups now exclusively use the ROM-native `id`.
+- Data pipeline and tests fully updated and verified.
+- PR #209 updated with final changes.

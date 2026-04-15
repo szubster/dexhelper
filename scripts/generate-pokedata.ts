@@ -22,7 +22,7 @@ import { GEN2_MAP_TO_AID } from './data/gen2/mapping.ts';
 const POKEMON_COUNT = 251; // Gen 1 & 2
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
 const TEMP_DIR = path.join(process.cwd(), 'scratch/temp_pokeapi');
-const OUTPUT_PATH = path.join(process.cwd(), 'public/data/pokedata.json');
+const OUTPUT_DIR = path.join(process.cwd(), 'data/db');
 
 function readJson(filePath: string) {
   if (!fs.existsSync(filePath)) return null;
@@ -61,6 +61,23 @@ interface PokeApiChainLink {
   evolution_details: PokeApiEvolutionDetail[];
 }
 
+function writeJsonl(filePath: string, data: any[]) {
+  const content = data.map(item => JSON.stringify(item)).join('\n');
+  fs.writeFileSync(filePath, content + '\n');
+}
+
+// Helper to ensure stable object key order for better readability/diffs
+function sortObj(obj: any, order: string[]): any {
+  const result: any = {};
+  for (const key of order) {
+    if (key in obj) result[key] = obj[key];
+  }
+  for (const key in obj) {
+    if (!(key in result)) result[key] = obj[key];
+  }
+  return result;
+}
+
 async function main() {
   const force = process.argv.includes('--force');
   console.log('--- PokéAPI Data Pipeline (GitHub Source) ---');
@@ -74,16 +91,7 @@ async function main() {
     console.warn('Failed to fetch upstream SHA via gh CLI. Proceeding with sync anyway.');
   }
 
-  // 2. Check current SHA
-  if (!force && fs.existsSync(OUTPUT_PATH)) {
-    const currentData: PokeDataExport = readJson(OUTPUT_PATH);
-    if (currentData.sourceSha === upstreamSha && upstreamSha !== '') {
-      console.log(`Data is already up to date (SHA: ${upstreamSha}). Use --force to override.`);
-      return;
-    }
-  }
-
-  // 3. Clone or Update Repo
+  // 2. Clone or Update Repo
   if (!fs.existsSync(TEMP_DIR)) {
     console.log('Cloning PokeAPI/api-data (shallow)...');
     fs.mkdirSync(path.dirname(TEMP_DIR), { recursive: true });
@@ -132,7 +140,7 @@ async function main() {
     const chainId = parseInt(sData.evolution_chain.url.split('/').filter(Boolean).pop() || '0', 10);
     const preEvoId = sData.evolves_from_species ? parseInt(sData.evolves_from_species.url.split('/').filter(Boolean).pop() || '0', 10) : undefined;
 
-    pokemon.push({
+    pokemon.push(sortObj({
       id: pData.id,
       n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
       cid: chainId,
@@ -140,7 +148,7 @@ async function main() {
       gr: sData.gender_rate,
       baby: sData.is_baby,
       pre: preEvoId,
-    });
+    }, ['id', 'n', 'cid']));
 
     const pokemonEncounters: { aid: number; version_details: { v: number; d: CompactEncounterDetail[] }[] }[] = [];
     for (const areaEnc of eData) {
@@ -183,19 +191,19 @@ async function main() {
           if (!locationMap.has(gameId)) {
             const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
             if (locData) {
-              locationMap.set(gameId, {
+              locationMap.set(gameId, sortObj({
                 id: gameId,
                 n: locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
                 connections: gameId < 256 ? GEN1_MAPS[gameId]?.connections : undefined
-              });
+              }, ['id', 'n']));
             }
           }
 
-          areaMap.set(gameId, {
+          areaMap.set(gameId, sortObj({
             id: gameId,
             lid: gameId, // For now, we use map ID as location ID too if they match
             n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || areaData.name || areaId.toString(),
-          });
+          }, ['id', 'n', 'lid']));
 
           // Update inverse index
           if (!inverseIndexMap.has(gameId)) inverseIndexMap.set(gameId, new Set());
@@ -274,40 +282,35 @@ async function main() {
       })),
     });
 
-    chains.push({
+    chains.push(sortObj({
       id: cData.id,
       chain: mapLink(cData.chain),
-    });
+    }, ['id', 'chain']));
   }
 
-  const exportData: Omit<PokeDataExport, 'hash'> = {
-    pokemon,
-    encounters: Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
-      pid, 
-      encounters: encs
-    })),
-    chains,
-    locations: Array.from(locationMap.values()),
-    areas: Array.from(areaMap.values()),
-    locationIndex: Array.from(inverseIndexMap.entries()).map(([lid, pids]) => ({
-      lid,
-      pids: Array.from(pids).sort((a, b) => a - b)
-    })),
+  console.log('\nWriting split JSONL files...');
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+
+  writeJsonl(path.join(OUTPUT_DIR, 'pokemon.jsonl'), pokemon);
+  writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
+    pid, 
+    encounters: encs
+  })));
+  writeJsonl(path.join(OUTPUT_DIR, 'chains.jsonl'), chains);
+  writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()));
+  writeJsonl(path.join(OUTPUT_DIR, 'areas.jsonl'), Array.from(areaMap.values()));
+  writeJsonl(path.join(OUTPUT_DIR, 'location_index.jsonl'), Array.from(inverseIndexMap.entries()).map(([lid, pids]) => sortObj({
+    lid,
+    pids: Array.from(pids).sort((a, b) => a - b)
+  }, ['lid', 'pids'])));
+
+  // Write metadata
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'metadata.json'), JSON.stringify({
     sourceSha: upstreamSha,
-  };
+    generatedAt: new Date().toISOString(),
+  }, null, 2));
 
-  const hash = crypto.createHash('sha256').update(JSON.stringify(exportData)).digest('hex');
-  const finalData: PokeDataExport = { ...exportData, hash };
-
-  fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
-  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(finalData));
-  
-  // Write hash-only file for quick check
-  const HASH_PATH = OUTPUT_PATH.replace('.json', '.hash');
-  fs.writeFileSync(HASH_PATH, hash);
-
-  console.log(`\nSuccess! Wrote ${OUTPUT_PATH} and ${HASH_PATH}`);
-  console.log(`Hash: ${hash}`);
+  console.log(`\nSuccess! Wrote data files to ${OUTPUT_DIR}`);
   console.log(`Source SHA: ${upstreamSha}`);
 }
 
