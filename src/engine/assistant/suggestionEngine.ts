@@ -27,6 +27,8 @@ export interface AssistantApiData {
   allAreas: SpecificArea[];
 }
 
+import { getStrategy } from './strategies';
+
 /**
  * Fetches all necessary data from local IndexedDB using DataLoader for batching.
  */
@@ -34,7 +36,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const allAreas = await pokeDB.getAllAreas();
   const allLocations = await pokeDB.getLocations();
 
-  const strategy = saveData.generation === 1 ? (await import('./strategies/gen1Strategy')).gen1Strategy : null;
+  const strategy = getStrategy(saveData.generation);
   const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations, allAreas) : null;
 
   const allEncounters = await pokeDB.getAllEncounters();
