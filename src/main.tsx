@@ -7,8 +7,6 @@ import { queryClient } from './queryClient';
 import { routeTree } from './routeTree.gen';
 import './index.css';
 
-import './index.css';
-
 // Initialize and sync PokeData
 pokeDB.sync().catch(console.error);
 
