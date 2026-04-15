@@ -43,7 +43,7 @@
   "devDependencies": {
     "@argos-ci/playwright": "^6.6.1",
     "@biomejs/biome": "^2.4.12",
-    "@codecov/vite-plugin": "^2.0.0",
+    "@codecov/vite-plugin": "^2.0.1",
     "@playwright/test": "^1.59.1",
     "@tailwindcss/typography": "0.5.19",
     "@tailwindcss/vite": "4.2.2",
