@@ -153,14 +153,18 @@ async function main() {
       
       // 1. Check Gen 1 mapping
       const g1Match = Object.entries(GEN1_MAPS).find(([_, map]) => map.aid === areaId);
+      let localName: string | undefined = undefined;
+      
       if (g1Match) {
          gameId = parseInt(g1Match[0]);
+         localName = g1Match[1].name;
       } else {
          // 2. Check Gen 2 mapping
          for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
-            for (const [mid, mapAid] of Object.entries(maps)) {
-               if (mapAid === areaId) {
+            for (const [mid, mapNode] of Object.entries(maps)) {
+               if (mapNode.aid === areaId) {
                   gameId = (parseInt(group) << 8) | parseInt(mid);
+                  localName = mapNode.name;
                   break;
                }
             }
@@ -191,7 +195,7 @@ async function main() {
           areaMap.set(gameId, {
             id: gameId,
             lid: gameId, // For now, we use map ID as location ID too if they match
-            n: areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || areaData.name || areaId.toString(),
+            n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || areaData.name || areaId.toString(),
           });
 
           // Update inverse index

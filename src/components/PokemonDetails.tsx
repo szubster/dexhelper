@@ -10,7 +10,6 @@ import {
   type PokemonMetadata,
   REVERSE_METHOD_MAP,
 } from '../db/schema';
-import { GEN1_AID_TO_NAME, GEN1_MAP_TO_AID } from '../engine/data/gen1/assistantData';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
 import { cn } from '../utils/cn';
@@ -59,6 +58,7 @@ export function PokemonDetails({
   const encounters = allData?.encounters || [];
   const evolutionData = allData?.evolutionChain as CompactEvolutionChain | undefined;
   const nameMap = allData?.nameMap;
+  const areaNames = allData?.areaNames;
 
   const catchRate = pokemon?.cr ?? null;
 
@@ -144,14 +144,10 @@ export function PokemonDetails({
     (version: string) => {
       const versionId = (POKE_VERSION_MAP as Record<string, number>)[version] || 0;
       const versionEncounters = encounters.filter((e) => e.v === versionId);
-      const aidToName = GEN1_AID_TO_NAME as Record<number, string>;
-      const mapToAid = GEN1_MAP_TO_AID as Record<number, number>;
 
       return versionEncounters.flatMap((enc) => {
         return enc.d.map((detail) => {
-          const aid = enc.aid;
-          const mappedAid = mapToAid[aid];
-          const name = (mappedAid !== undefined ? aidToName[mappedAid] : null) || aidToName[aid] || `Area #${aid}`;
+          const name = areaNames?.[enc.aid] || `Area #${enc.aid}`;
 
           return {
             name,
@@ -160,7 +156,7 @@ export function PokemonDetails({
         });
       });
     },
-    [encounters],
+    [encounters, areaNames],
   );
 
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : getGenerationConfig(1);
@@ -310,6 +306,7 @@ export function PokemonDetails({
                 pokemonId={pokemonId}
                 gameVersion={gameVersion}
                 encounters={encounters}
+                areaNames={areaNames}
                 evoReq={evoReq}
                 loading={loading}
               />

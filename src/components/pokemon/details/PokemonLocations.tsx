@@ -1,7 +1,6 @@
 import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
-import { GEN1_AID_TO_NAME, GEN1_MAP_TO_AID } from '../../../engine/data/gen1/assistantData';
 import { staticEncounters } from '../../../utils/data';
 
 interface EvoReq {
@@ -14,11 +13,19 @@ interface PokemonLocationsProps {
   pokemonId: number;
   gameVersion: string;
   encounters: CompactEncounter[];
+  areaNames: Record<number, string> | undefined;
   evoReq: EvoReq | null;
   loading: boolean;
 }
 
-export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, loading }: PokemonLocationsProps) {
+export function PokemonLocations({
+  pokemonId,
+  gameVersion,
+  encounters,
+  areaNames,
+  evoReq,
+  loading,
+}: PokemonLocationsProps) {
   const currentVersionId = POKE_VERSION_MAP[gameVersion.toLowerCase()];
 
   return (
@@ -89,16 +96,7 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                               <MapPin size={14} />
                             </div>
                             <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
-                              {(() => {
-                                const aidToName = GEN1_AID_TO_NAME as Record<number, string>;
-                                const mapToAid = GEN1_MAP_TO_AID as Record<number, number>;
-                                const mappedAid = mapToAid[e.aid];
-                                return (
-                                  (mappedAid !== undefined ? aidToName[mappedAid] : null) ||
-                                  aidToName[e.aid] ||
-                                  `AREA #${e.aid}`
-                                ).toUpperCase();
-                              })()}
+                              {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
@@ -145,16 +143,7 @@ export function PokemonLocations({ pokemonId, gameVersion, encounters, evoReq, l
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-xs text-zinc-500 uppercase">
-                        {(() => {
-                          const aidToName = GEN1_AID_TO_NAME as Record<number, string>;
-                          const mapToAid = GEN1_MAP_TO_AID as Record<number, number>;
-                          const mappedAid = mapToAid[e.aid];
-                          return (
-                            (mappedAid !== undefined ? aidToName[mappedAid] : null) ||
-                            aidToName[e.aid] ||
-                            `AREA #${e.aid}`
-                          ).toUpperCase();
-                        })()}
+                        {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
                       </span>
                       <div className="flex gap-1">
                         <span className="rounded border border-white/5 bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase">

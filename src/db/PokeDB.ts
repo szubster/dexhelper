@@ -219,6 +219,18 @@ export const pokeDB = {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.AREAS);
   },
+  getAreaNames: async (ids: number[]): Promise<Record<number, string>> => {
+    await pokeDB.ready();
+    const db = await getDB();
+    const names: Record<number, string> = {};
+    const areas = await Promise.all(ids.map((id) => db.get(DB_CONFIG.STORES.AREAS, id)));
+    for (const area of areas) {
+      if (area) {
+        names[area.id] = area.n;
+      }
+    }
+    return names;
+  },
 
   // Bulk versions for DataLoader
   getPokemons: async (ids: number[]): Promise<(PokemonMetadata | Error)[]> => {

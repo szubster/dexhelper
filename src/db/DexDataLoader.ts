@@ -34,6 +34,7 @@ export const dexDataLoader = {
     encounters: LocationAreaEncounters['encounters'];
     evolutionChain: CompactEvolutionChain | undefined;
     nameMap: Record<number, string>;
+    areaNames: Record<number, string>;
   }> => {
     const pokemon = await dexDataLoader.pokemon.load(id);
     if (!pokemon) throw new Error(`Pokemon #${id} not found`);
@@ -58,11 +59,16 @@ export const dexDataLoader = {
       if (p) nameMap[p.id] = p.n;
     }
 
+    // Resolve area names for all encounters
+    const areaIds = [...new Set((encounters?.encounters || []).map((e) => e.aid))];
+    const areaNames = await pokeDB.getAreaNames(areaIds);
+
     return {
       pokemon,
       encounters: encounters?.encounters || [],
       evolutionChain,
       nameMap,
+      areaNames,
     };
   },
 };
