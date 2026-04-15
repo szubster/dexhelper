@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.99.0",
-    "@tanstack/react-router": "^1.168.19",
+    "@tanstack/react-router": "^1.168.22",
     "@tanstack/react-router-devtools": "^1.166.13",
     "clsx": "^2.1.1",
     "lucide-react": "^1.8.0",
@@ -44,7 +44,7 @@
     "@playwright/test": "^1.59.1",
     "@tailwindcss/typography": "0.5.19",
     "@tailwindcss/vite": "4.2.2",
-    "@tanstack/router-plugin": "^1.167.20",
+    "@tanstack/router-plugin": "^1.167.22",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
