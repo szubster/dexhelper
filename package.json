@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "data:gen": "node --experimental-strip-types scripts/generate-pokedata.ts",
+    "data:gen-maps": "node --experimental-strip-types scripts/generateMapLocations.ts",
     "build": "vite build",
     "build:analyze": "ANALYZE=true vite build",
     "preview": "vite preview",
@@ -48,6 +49,8 @@
     "@tailwindcss/typography": "0.5.19",
     "@tailwindcss/vite": "4.2.2",
     "@tanstack/router-plugin": "^1.167.22",
+    "@tsconfig/strictest": "^2.0.8",
+    "@tsconfig/vite-react": "^7.0.2",
     "@types/crypto-js": "^4.2.2",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",

@@ -1,5 +1,5 @@
 import 'fake-indexeddb/auto';
-import { beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { dexDataLoader } from '../../../db/DexDataLoader';
 import { pokeDB } from '../../../db/PokeDB';
 import type { PokemonMetadata } from '../../../db/schema';
@@ -7,10 +7,8 @@ import type { SaveData } from '../../saveParser/index';
 import { fetchAssistantApiData } from '../suggestionEngine';
 
 describe('fetchAssistantApiData', () => {
-  let _consoleErrorSpy: MockInstance;
-
   beforeEach(() => {
-    _consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   it('should handle evolution fetch failure gracefully', async () => {

@@ -5,19 +5,21 @@ export interface PokemonInstance {
   speciesId: number;
   level: number;
   isShiny: boolean;
-  item?: number;
+  item?: number | undefined;
   moves: number[];
-  friendship?: number;
-  pokerus?: number;
-  caughtData?: {
-    time: 'Morning' | 'Day' | 'Night' | 'Unknown';
-    level: number;
-    location: number;
-    locationName?: string;
-  };
-  otName?: string;
+  friendship?: number | undefined;
+  pokerus?: number | undefined;
+  caughtData?:
+    | {
+        time: 'Morning' | 'Day' | 'Night' | 'Unknown';
+        level: number;
+        location: number;
+        locationName?: string | undefined;
+      }
+    | undefined;
+  otName?: string | undefined;
   storageLocation: string;
-  slot?: number; // 1-indexed slot in party or box
+  slot?: number | undefined; // 1-indexed slot in party or box
 }
 
 export interface SaveData {

@@ -38,7 +38,6 @@ export const PokedexCard = React.memo(function PokedexCard({
   const isSeenInDex = saveData ? saveData.seen.has(pokemon.id) : false;
 
   const isOwned = saveData ? (isLivingDex ? hasInStorage : isOwnedInDex || hasInStorage) : false;
-  const _hadButLost = saveData ? isOwnedInDex && !hasInStorage : false;
 
   const isSeen = saveData ? isSeenInDex || isOwned || hasInStorage : false;
   const isUnseen = saveData && !isSeen;
