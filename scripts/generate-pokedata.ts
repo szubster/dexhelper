@@ -1,10 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync, execFileSync } from 'node:child_process';
-import { 
-  type CompactChainLink, 
+import {
+  type CompactChainLink,
   type CompactEncounterDetail,
-  type PokemonMetadata, 
+  type PokemonMetadata,
   type GenericLocation,
   type SpecificArea,
   type CompactEncounter,
@@ -75,7 +75,6 @@ function sortObj(obj: any, order: string[]): any {
 }
 
 async function main() {
-  // const _force = process.argv.includes('--force');
   console.log('--- PokéAPI Data Pipeline (GitHub Source) ---');
 
   // 1. Get Latest Commit SHA
@@ -105,7 +104,7 @@ async function main() {
 
   const pokemon: PokemonMetadata[] = [];
   const pokemonEncounterMap = new Map<number, CompactEncounter[]>();
-  
+
   // New structures
   const locationMap = new Map<number, GenericLocation>();
   const areaMap = new Map<number, SpecificArea>();
@@ -118,13 +117,13 @@ async function main() {
     if (i % 10 === 0 || i === POKEMON_COUNT) {
       process.stdout.write(`\rProgress: ${Math.round((i / POKEMON_COUNT) * 100)}% (${i}/${POKEMON_COUNT})`);
     }
-    
+
     const pDataPath = path.join(dataPath, `pokemon/${i}/index.json`);
     const sDataPath = path.join(dataPath, `pokemon-species/${i}/index.json`);
-    
+
     const pData = readJson(pDataPath);
     const sData = readJson(sDataPath);
-    
+
     if (!pData || !sData) {
       continue;
     }
@@ -132,7 +131,6 @@ async function main() {
     const encounterPath = path.join(dataPath, `pokemon/${i}/encounters/index.json`);
     const eData = readJson(encounterPath) || [];
 
-    // const _chainId = parseInt(sData.evolution_chain.url.split('/').filter(Boolean).pop() || '0', 10);
     pokemon.push(sortObj({
       id: pData.id,
       n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
@@ -149,29 +147,29 @@ async function main() {
     for (const areaEnc of eData) {
       const areaUrl = areaEnc.location_area.url;
       const areaId = parseInt(areaUrl.split('/').filter(Boolean).pop() || '0', 10);
-      
+
       // Find gameId for this area (Source of truth)
       let gameId: number | undefined = undefined;
-      
+
       // 1. Check Gen 1 mapping
       const g1Match = Object.entries(GEN1_MAPS).find(([_, map]) => map.aid === areaId);
       let localName: string | undefined = undefined;
-      
+
       if (g1Match) {
-         gameId = parseInt(g1Match[0]);
-         localName = g1Match[1].name;
+        gameId = parseInt(g1Match[0]);
+        localName = g1Match[1].name;
       } else {
-         // 2. Check Gen 2 mapping
-         for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
-            for (const [mid, mapNode] of Object.entries(maps)) {
-               if (mapNode.aid === areaId) {
-                  gameId = (parseInt(group) << 8) | parseInt(mid);
-                  localName = mapNode.name;
-                  break;
-               }
+        // 2. Check Gen 2 mapping
+        for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
+          for (const [mid, mapNode] of Object.entries(maps)) {
+            if (mapNode.aid === areaId) {
+              gameId = (parseInt(group) << 8) | parseInt(mid);
+              localName = mapNode.name;
+              break;
             }
-            if (gameId !== undefined) break;
-         }
+          }
+          if (gameId !== undefined) break;
+        }
       }
 
       // If no ROM map ID found, we skip this encounter as we only care about real in-game locations
@@ -182,7 +180,7 @@ async function main() {
         if (areaData) {
           const locUrl = areaData.location.url;
           const lid = parseInt(locUrl.split('/').filter(Boolean).pop() || '0', 10);
-          
+
           if (!locationMap.has(gameId)) {
             const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
             if (locData) {
@@ -231,7 +229,7 @@ async function main() {
         });
       }
     }
-    
+
     if (pokemonEncounters.length > 0) {
       const finalEncs: CompactEncounter[] = [];
       for (const pe of pokemonEncounters) {
@@ -272,7 +270,7 @@ async function main() {
     const chainFilePath = path.join(dataPath, `evolution-chain/${cid}/index.json`);
     const cData = readJson(chainFilePath);
     if (!cData) continue;
-    
+
     const mapLink = (link: PokeApiChainLink, ef?: number): CompactChainLink => {
       const id = parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10);
       return {
@@ -289,9 +287,9 @@ async function main() {
         ef,
       };
     };
-    
+
     const fullChain = mapLink(cData.chain);
-    
+
     const registerChain = (node: CompactChainLink, ancestors: number[]) => {
       const p = pokemon.find(p => p.id === node.id);
       if (p) {
@@ -299,10 +297,10 @@ async function main() {
         p.evolves_from = ancestors;
         p.details = node.details;
       }
-      
+
       node.evolves_to.forEach(child => registerChain(child, [node.id, ...ancestors]));
     };
-    
+
     registerChain(fullChain, []);
   }
 
@@ -311,7 +309,7 @@ async function main() {
 
   writeJsonl(path.join(OUTPUT_DIR, 'pokemon.jsonl'), pokemon);
   writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
-    pid, 
+    pid,
     encounters: encs
   })));
   writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).sort((a, b) => a.id - b.id));

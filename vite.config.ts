@@ -6,11 +6,14 @@ import { defineConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { codecovVitePlugin } from "@codecov/vite-plugin";
 import { VitePWA } from 'vite-plugin-pwa';
+import { browserslistToTargets } from 'lightningcss';
+import browserslist from 'browserslist';
 
 import { pokedataPlugin } from './vite-plugins/pokedata-plugin';
 
 export default defineConfig(() => {
   const sourceDir = path.resolve(__dirname, 'data/db');
+  const target = 'chrome130';
 
   return {
     base: process.env['CF_PAGES'] === 'true' ? '/' : '/dexhelper/',
@@ -74,13 +77,21 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    css: {
+      transformer: 'lightningcss' as const,
+      lightningcss: {
+        targets: browserslistToTargets(browserslist(`chrome >= ${target.replace('chrome', '')}`)),
+      },
+    },
     build: {
-      sourcemap: process.env['ANALYZE'] === 'true',
+      target,
+      cssMinify: 'lightningcss' as const,
       cssCodeSplit: false,
+      assetsInlineLimit: 102400, // Inline assets up to 100KB
+      sourcemap: process.env['ANALYZE'] === 'true',
       reportCompressedSize: true,
       rollupOptions: {
         output: {
-          // manualChunks: undefined,
         },
       },
     },
