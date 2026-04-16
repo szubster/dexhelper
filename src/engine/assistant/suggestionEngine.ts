@@ -168,6 +168,12 @@ export function generateSuggestions(
   }
 
   // A2. Nearby logic
+  // ⚡ Bolt: Cache map distance calculations to prevent redundant BFS graph traversals.
+  // The player's current map ID is constant per generation cycle, so we only need to compute the
+  // distance to each target Area ID once, turning O(N*M) redundant graph searches into O(K) where
+  // K is the number of unique areas encountered.
+  const distanceCache = new Map<number, { distance: number; name: string } | null>();
+
   for (const pid of queryTargets) {
     if (localPids.includes(pid)) continue;
 
@@ -181,7 +187,12 @@ export function generateSuggestions(
     for (const e of encData.encounters) {
       if (e.v !== displayVersionId) continue;
 
-      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations, apiData.allAreas);
+      let distInfo: { distance: number; name: string } | null | undefined = distanceCache.get(e.aid);
+      if (distInfo === undefined) {
+        distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations, apiData.allAreas);
+        distanceCache.set(e.aid, distInfo);
+      }
+
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
         bestAreaName = distInfo.name;
