@@ -16,6 +16,15 @@ const TanStackRouterDevtools =
         })),
       );
 
+const ReactQueryDevtools =
+  import.meta.env.PROD || !!window.navigator.webdriver
+    ? () => null
+    : React.lazy(() =>
+        import('@tanstack/react-query-devtools').then((res) => ({
+          default: res.ReactQueryDevtools,
+        })),
+      );
+
 export interface RootContext {
   queryClient: QueryClient;
 }
@@ -45,6 +54,7 @@ function RootComponent() {
       <Suspense>
         <SyncProgress />
         <TanStackRouterDevtools />
+        <ReactQueryDevtools />
       </Suspense>
     </AppLayout>
   );
