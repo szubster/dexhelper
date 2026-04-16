@@ -37,7 +37,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations) : null;
 
   const allEncounters = await pokeDB.getAllEncounters();
-  const localEncounters = localAid ? allEncounters.filter((lae) => lae.encounters.some((e) => e.aid === localAid)) : [];
+  const localEncounters = localAid ? allEncounters.filter((lae) => lae.enc.some((e) => e.aid === localAid)) : [];
 
   const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
@@ -135,7 +135,7 @@ export function generateSuggestions(
 
     for (const lae of apiData.localEncounters) {
       const pid = lae.pid;
-      const relevantEncounters = lae.encounters.filter((e) => e.aid === localAid && e.v === displayVersionId);
+      const relevantEncounters = lae.enc.filter((e) => e.aid === localAid && e.v === displayVersionId);
       if (relevantEncounters.length === 0) continue;
 
       if (STATIC_GIFT_DATA[pid] && myOtIds.has(pid)) continue;
@@ -172,13 +172,13 @@ export function generateSuggestions(
     if (localPids.includes(pid)) continue;
 
     const encData = apiData.missingEncounters[pid];
-    if (!encData?.encounters) continue;
+    if (!encData?.enc) continue;
 
     let bestDist = 999;
     let bestAreaName = '';
     let bestDetails: EncounterDetail[] = [];
 
-    for (const e of encData.encounters) {
+    for (const e of encData.enc) {
       if (e.v !== displayVersionId) continue;
 
       const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
@@ -262,7 +262,7 @@ export function generateSuggestions(
     const p = apiData.pokemonMetadata?.[targetId];
     if (!p) return;
 
-    const parentId = p.evolves_from[0];
+    const parentId = p.efrm[0];
     if (parentId === undefined) return;
     const ownedInstances = instancesBySpecies.get(parentId) || [];
     if (ownedInstances.length === 0) return;
@@ -272,13 +272,13 @@ export function generateSuggestions(
       displayVersion === 'yellow' && parentId === 25 && bestInstance.otName === saveData.trainerName;
     if (isYellowStarterPikachu) return;
 
-    const details = p.details;
+    const details = p.det;
     const detail = details?.[0];
     if (!detail) return;
 
     const tr = detail.tr;
-    const min_l = detail.min_l;
-    const min_h = detail.min_h;
+    const min_l = detail.ml;
+    const min_h = detail.mh;
     const item = detail.item;
     const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
 

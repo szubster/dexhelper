@@ -11,11 +11,9 @@ vi.stubGlobal(
     ok: true,
     json: async () => ({
       hash: 'test-hash',
-      pokemon: [],
-      encounters: [],
-      locations: [],
-      areas: [],
-      locationIndex: [],
+      poke: [],
+      enc: [],
+      loc: [],
     }),
   } as Response),
 );
@@ -27,9 +25,9 @@ describe('PokeDB', () => {
       ok: true,
       json: async () => ({
         hash: 'test-hash',
-        pokemon: [],
-        encounters: [],
-        locations: [],
+        poke: [],
+        enc: [],
+        loc: [],
       }),
     } as Response);
     pokeDB._resetSync();
@@ -49,20 +47,20 @@ describe('PokeDB', () => {
   it('syncs data correctly', async () => {
     const mockData = {
       hash: 'new-hash',
-      pokemon: [
+      poke: [
         {
           id: 1,
           n: 'Bulbasaur',
           cr: 45,
           gr: 1,
           baby: false,
-          evolves_to: [],
-          evolves_from: [],
-          details: [],
+          eto: [],
+          efrm: [],
+          det: [],
         },
       ],
-      encounters: [{ pid: 1, encounters: [] }],
-      locations: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
+      enc: [{ pid: 1, enc: [] }],
+      loc: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
     };
 
     vi.mocked(fetch).mockResolvedValue({
@@ -80,12 +78,12 @@ describe('PokeDB', () => {
   it('performs bulk operations for pokemons', async () => {
     const mockData = {
       hash: 'bulk-hash',
-      pokemon: [
-        { id: 1, n: 'P1', cr: 10, gr: 1, baby: false, evolves_to: [], evolves_from: [], details: [] },
-        { id: 2, n: 'P2', cr: 10, gr: 1, baby: false, evolves_to: [], evolves_from: [], details: [] },
+      poke: [
+        { id: 1, n: 'P1', cr: 10, gr: 1, baby: false, eto: [], efrm: [], det: [] },
+        { id: 2, n: 'P2', cr: 10, gr: 1, baby: false, eto: [], efrm: [], det: [] },
       ],
-      encounters: [],
-      locations: [],
+      enc: [],
+      loc: [],
     };
 
     vi.mocked(fetch).mockResolvedValue({
@@ -120,9 +118,9 @@ describe('PokeDB', () => {
   it('resolves area names correctly', async () => {
     const mockData = {
       hash: 'area-hash',
-      pokemon: [],
-      encounters: [],
-      locations: [
+      poke: [],
+      enc: [],
+      loc: [
         { id: 1, n: 'Viridian Forest', pids: [], dist: {} },
         { id: 2, n: 'Route 1', pids: [], dist: {} },
       ],

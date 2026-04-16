@@ -131,7 +131,7 @@ export function PokemonEvolutions({
             <ChevronRight size={80} />
           </div>
           <h3 className="relative z-10 flex items-center gap-2 font-black text-[10px] text-blue-400 uppercase tracking-[0.3em]">
-            <ChevronRight size={14} /> Transformations
+            <ChevronRight size={14} /> Evolution
           </h3>
           <div className="relative z-10 space-y-4">
             {evolvesTo.map((evo) => (

@@ -19,27 +19,28 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
     pcDetails: [],
   };
 
-  const mockApiData = {
-    localEncounters: { slug: 'pallet-town-area', encounters: [] },
+  const mockApiData: Partial<AssistantApiData> = {
+    localAid: 1,
+    localEncounters: [],
     missingEncounters: {
-      124: [], // Jynx (not catchable in Yellow, and no NPC trade)
-      122: [], // Mr. Mime (not catchable in Yellow, but NPC trade EXISTS)
+      124: { pid: 124, enc: [] },
+      122: { pid: 122, enc: [] },
+    },
+    pokemonMetadata: {
+      124: { id: 124, n: 'Jynx', cr: 45, gr: 4, baby: false, eto: [], efrm: [], det: [] } as any,
+      122: { id: 122, n: 'Mr. Mime', cr: 45, gr: 4, baby: false, eto: [], efrm: [], det: [] } as any,
     },
     ancestralEncounters: { 124: {}, 122: {} },
-    missingChains: {
-      124: { id: 124, evolves_from: [], details: [], evolves_to: [] },
-      122: { id: 122, evolves_from: [], details: [], evolves_to: [] },
-    },
-    partyEvolutions: {},
     areaNames: {},
-  } as unknown as AssistantApiData;
+    allLocations: [],
+  };
 
   it('should only show "Version Exclusive" for Jynx in Yellow', () => {
     const { suggestions } = generateSuggestions(
       mockSaveData as unknown as SaveData,
       false,
       'yellow',
-      mockApiData,
+      mockApiData as any,
       gen1Strategy,
     );
     const jynxSuggestions = suggestions.filter((s) => s.pokemonId === 124);
@@ -54,7 +55,7 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
       mockSaveData as unknown as SaveData,
       false,
       'yellow',
-      mockApiData,
+      mockApiData as any,
       gen1Strategy,
     );
     const mimeSuggestions = suggestions.filter((s) => s.pokemonId === 122);

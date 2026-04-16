@@ -11,6 +11,28 @@ import {
 let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;
 let syncPromise: Promise<void> | null = null;
 
+const DEFAULT_POKEMON_METADATA = {
+  gr: 4,
+  baby: false,
+  eto: [],
+  efrm: [],
+};
+
+const DEFAULT_EVO_DETAIL = {
+  tr: 1,
+  mh: 160,
+};
+
+const DEFAULT_ENCOUNTER_DETAIL = {
+  m: 1,
+};
+
+const DEFAULT_LOCATION = {
+  conn: [],
+  pids: [],
+  dist: {},
+};
+
 export const getDB = () => {
   if (!dbPromise) {
     dbPromise = openDB<PokeDBSchema>(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
@@ -90,7 +112,7 @@ export const syncData = async () => {
         'readwrite',
       );
 
-      // 3. Populate stores
+      // 3. Populate stores with inflated data
       const pStore = tx.objectStore(DB_CONFIG.STORES.POKEMON);
       const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
       const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
@@ -100,13 +122,40 @@ export const syncData = async () => {
       await Promise.all([pStore.clear(), eStore.clear(), lStore.clear(), mStore.clear()]);
 
       emit(1, 3, 'Pokemon');
-      for (const p of data.pokemon) pStore.put(p);
+      for (const p of data.poke) {
+        const inflatedDet = (p.det || []).map((d) => ({
+          ...DEFAULT_EVO_DETAIL,
+          ...d,
+        }));
+
+        pStore.put({
+          ...DEFAULT_POKEMON_METADATA,
+          ...p,
+          det: inflatedDet,
+        });
+      }
 
       emit(2, 3, 'Encounters');
-      for (const e of data.encounters) eStore.put(e);
+      for (const e of data.enc) {
+        const inflatedEnc = e.enc.map((enc) => ({
+          ...enc,
+          d: (enc.d || []).map((d) => ({
+          max: d.min,
+          ...DEFAULT_ENCOUNTER_DETAIL,
+          ...d,
+          })),
+        }));
+        eStore.put({ pid: e.pid, enc: inflatedEnc });
+      }
 
       emit(3, 3, 'Locations');
-      for (const l of data.locations) lStore.put(l);
+      for (const l of data.loc) {
+        lStore.put({
+          ...DEFAULT_LOCATION,
+          ...l,
+          prnt: l.prnt, // stay undefined if omitted
+        });
+      }
 
       await mStore.put({ key: 'hash', value: data.hash });
       await tx.done;
