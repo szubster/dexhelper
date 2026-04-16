@@ -126,6 +126,10 @@ export function generateSuggestions(
   const displayVersionId = POKE_VERSION_MAP[displayVersion] || 1;
   const queryTargets = missingIds.slice(0, 100);
 
+  // Special Strategy-Specific Suggestions (e.g. Box full warning)
+  const specialSuggestions = strategy.getSpecialSuggestions(saveData, missingIds);
+  suggestions.push(...specialSuggestions);
+
   const localPids: number[] = [];
   // A. Catch logic
   if (apiData.localEncounters && apiData.localEncounters.length > 0 && apiData.localAid) {
