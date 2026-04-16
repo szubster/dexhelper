@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { AssistantApiData } from '../suggestionEngine';
@@ -118,6 +118,24 @@ test('coverage for suggestionEngine new lines', () => {
   const machamp = suggestions.find((s) => s.pokemonId === 68);
   expect(machamp).toBeDefined();
   expect(machamp?.title).toContain('Trade Evolution');
+
+  // Test map distance caching in A2 logic
+  const distanceSpy = vi
+    .spyOn(gen1Strategy, 'getMapDistance')
+    .mockImplementation(() => ({ distance: 2, name: 'Test' }));
+
+  const mockApiDataWithMap = {
+    ...mockApiData,
+    missingEncounters: {
+      196: { encounters: [{ v: 6, aid: 5, d: [{ c: 10, m: 1, min: 2, max: 4 }] }] },
+      197: { encounters: [{ v: 6, aid: 5, d: [{ c: 10, m: 1, min: 2, max: 4 }] }] },
+    },
+  } as unknown as AssistantApiData;
+
+  generateSuggestions(mockSaveData, false, 'crystal', mockApiDataWithMap, gen1Strategy);
+  // It should be called exactly once because aid 5 is cached
+  expect(distanceSpy).toHaveBeenCalledTimes(1);
+  distanceSpy.mockRestore();
 });
 
 test('coverage for suggestionEngine edge cases', () => {
