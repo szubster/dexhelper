@@ -59,6 +59,7 @@ export function PokemonDetails({
 
     const fromId = pokemon.efrm[0];
     if (fromId === undefined) return null;
+    if (saveData && fromId > getGenerationConfig(saveData.generation).maxDex) return null;
 
     let methodStr = 'Unknown';
 
@@ -76,7 +77,7 @@ export function PokemonDetails({
       fromName: nameMap?.[fromId] || 'Earlier Form',
       method: methodStr,
     };
-  }, [pokemon, nameMap]);
+  }, [pokemon, nameMap, saveData]);
 
   const evolvesTo = React.useMemo(() => {
     if (!pokemon) return [];

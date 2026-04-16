@@ -1,5 +1,6 @@
 import { type IDBPDatabase, openDB } from 'idb';
 import {
+  type CompactChainLink,
   DB_CONFIG,
   type LocationAreaEncounters,
   type PokeDataExport,
@@ -16,6 +17,7 @@ const DEFAULT_POKEMON_METADATA = {
   baby: false,
   eto: [],
   efrm: [],
+  det: [],
 };
 
 const DEFAULT_EVO_DETAIL = {
@@ -122,6 +124,17 @@ export const syncData = async () => {
       await Promise.all([pStore.clear(), eStore.clear(), lStore.clear(), mStore.clear()]);
 
       emit(1, 3, 'Pokemon');
+      const inflateChain = (links: CompactChainLink[]): CompactChainLink[] => {
+        return links.map((l) => ({
+          ...l,
+          det: l.det.map((d) => ({
+            ...DEFAULT_EVO_DETAIL,
+            ...d,
+          })),
+          eto: inflateChain(l.eto),
+        }));
+      };
+
       for (const p of data.poke) {
         const inflatedDet = (p.det || []).map((d) => ({
           ...DEFAULT_EVO_DETAIL,
@@ -132,6 +145,7 @@ export const syncData = async () => {
           ...DEFAULT_POKEMON_METADATA,
           ...p,
           det: inflatedDet,
+          eto: inflateChain(p.eto),
         });
       }
 
@@ -140,9 +154,9 @@ export const syncData = async () => {
         const inflatedEnc = e.enc.map((enc) => ({
           ...enc,
           d: (enc.d || []).map((d) => ({
-            max: d.min,
             ...DEFAULT_ENCOUNTER_DETAIL,
             ...d,
+            max: d.max ?? d.min,
           })),
         }));
         eStore.put({ pid: e.pid, enc: inflatedEnc });

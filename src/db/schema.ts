@@ -7,7 +7,7 @@ import type { DBSchema } from 'idb';
 
 export const DB_CONFIG = {
   NAME: 'PokeDB',
-  VERSION: 7,
+  VERSION: 9,
   STORES: {
     POKEMON: 'pokemon',
     ENCOUNTERS: 'encounters',
