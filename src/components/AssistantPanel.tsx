@@ -143,7 +143,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
               );
             })
             .map(([category, items]) => {
-              const defaultStyle = CATEGORY_STYLES['Utility'] as { icon: React.ReactNode; color: string; bg: string };
+              const defaultStyle = CATEGORY_STYLES.Utility as { icon: React.ReactNode; color: string; bg: string };
               const catStyle = CATEGORY_STYLES[category] ?? defaultStyle;
 
               return (
@@ -163,7 +163,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                     className={`fade-in grid animate-in gap-6 duration-500 ${category === 'Catch' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
                   >
                     {items.map((s, idx) => {
-                      const defaultStyle = CATEGORY_STYLES['Utility'] as {
+                      const defaultStyle = CATEGORY_STYLES.Utility as {
                         icon: React.ReactNode;
                         color: string;
                         bg: string;

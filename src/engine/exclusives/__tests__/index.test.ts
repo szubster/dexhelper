@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { getExclusivesChecker } from '../index';
 import { getUnobtainableReason } from '../gen1Exclusives';
+import { getExclusivesChecker } from '../index';
 
 describe('getExclusivesChecker', () => {
   it('returns gen1UnobtainableReason for generation 1', () => {
