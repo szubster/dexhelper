@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { AssistantApiData } from '../suggestionEngine';
@@ -27,8 +28,8 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
       122: { pid: 122, enc: [] },
     },
     pokemonMetadata: {
-      124: { id: 124, n: 'Jynx', cr: 45, gr: 4, baby: false, eto: [], efrm: [], det: [] } as any,
-      122: { id: 122, n: 'Mr. Mime', cr: 45, gr: 4, baby: false, eto: [], efrm: [], det: [] } as any,
+      124: { id: 124, n: 'Jynx', cr: 45, gr: 4, baby: false, eto: [], efrm: [], det: [] } as PokemonMetadata,
+      122: { id: 122, n: 'Mr. Mime', cr: 45, gr: 4, baby: false, eto: [], efrm: [], det: [] } as PokemonMetadata,
     },
     ancestralEncounters: { 124: {}, 122: {} },
     areaNames: {},
@@ -40,7 +41,7 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
       mockSaveData as unknown as SaveData,
       false,
       'yellow',
-      mockApiData as any,
+      mockApiData as AssistantApiData,
       gen1Strategy,
     );
     const jynxSuggestions = suggestions.filter((s) => s.pokemonId === 124);
@@ -55,7 +56,7 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
       mockSaveData as unknown as SaveData,
       false,
       'yellow',
-      mockApiData as any,
+      mockApiData as AssistantApiData,
       gen1Strategy,
     );
     const mimeSuggestions = suggestions.filter((s) => s.pokemonId === 122);

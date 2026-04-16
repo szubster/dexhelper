@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import type { PokemonMetadata } from '../db/schema';
 import { gen1Strategy } from '../engine/assistant/strategies/gen1Strategy';
 import type { AssistantApiData } from '../engine/assistant/suggestionEngine';
 import { generateSuggestions } from '../engine/assistant/suggestionEngine';
@@ -53,7 +54,7 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
     },
     pokemonMetadata: {
-      39: { id: 39, n: 'Jigglypuff', cr: 170, gr: 6, baby: false, efrm: [], det: [], eto: [] } as any,
+      39: { id: 39, n: 'Jigglypuff', cr: 170, gr: 6, baby: false, efrm: [], det: [], eto: [] } as PokemonMetadata,
       40: {
         id: 40,
         n: 'Wigglytuff',
@@ -63,7 +64,7 @@ describe('useAssistant - generateSuggestions logic', () => {
         efrm: [39],
         det: [{ tr: 3, item: 81 }],
         eto: [],
-      } as any,
+      } as PokemonMetadata,
       62: {
         id: 62,
         n: 'Poliwrath',
@@ -73,19 +74,31 @@ describe('useAssistant - generateSuggestions logic', () => {
         efrm: [61, 60],
         det: [{ tr: 3, item: 84 }],
         eto: [],
-      } as any,
+      } as PokemonMetadata,
     },
     allLocations: [],
   };
 
   it('should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)', () => {
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData as any, gen1Strategy);
+    const { suggestions } = generateSuggestions(
+      mockSaveData,
+      false,
+      'yellow',
+      mockApiData as AssistantApiData,
+      gen1Strategy,
+    );
     const wigglyTrade = suggestions.find((s) => s.pokemonId === 40 && s.category === 'Trade');
     expect(wigglyTrade).toBeUndefined();
   });
 
   it('should NOT mark Poliwrath as Trade Required in Pokémon Yellow if Poliwag is catchable', () => {
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData as any, gen1Strategy);
+    const { suggestions } = generateSuggestions(
+      mockSaveData,
+      false,
+      'yellow',
+      mockApiData as AssistantApiData,
+      gen1Strategy,
+    );
     const poliTrade = suggestions.find((s) => s.pokemonId === 62 && s.category === 'Trade');
     expect(poliTrade).toBeUndefined();
   });
@@ -101,7 +114,7 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
       pokemonMetadata: {
         ...mockApiData.pokemonMetadata,
-        13: { id: 13, n: 'Weedle', cr: 255, gr: 4, baby: false, efrm: [], det: [], eto: [] } as any,
+        13: { id: 13, n: 'Weedle', cr: 255, gr: 4, baby: false, efrm: [], det: [], eto: [] } as PokemonMetadata,
       },
     };
 
