@@ -43,6 +43,6 @@ test.describe('Pokemon Details Modal', () => {
     // The UI transforms names to uppercase, wait for load
     const locationList = page.getByTestId('location-list');
     await expect(locationList).toBeVisible({ timeout: 15000 });
-    await expect(locationList.getByText('ROUTE 1')).toBeVisible({ timeout: 10000 });
+    await expect(locationList.getByText('ROUTE 1', { exact: true })).toBeVisible({ timeout: 10000 });
   });
 });

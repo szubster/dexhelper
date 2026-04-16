@@ -124,10 +124,10 @@ export const syncData = async () => {
       await Promise.all([pStore.clear(), eStore.clear(), lStore.clear(), mStore.clear()]);
 
       emit(1, 3, 'Pokemon');
-      const inflateChain = (links: CompactChainLink[]): CompactChainLink[] => {
-        return links.map((l) => ({
+      const inflateChain = (links: CompactChainLink[] | undefined): CompactChainLink[] => {
+        return (links || []).map((l) => ({
           ...l,
-          det: l.det.map((d) => ({
+          det: (l.det || []).map((d) => ({
             ...DEFAULT_EVO_DETAIL,
             ...d,
           })),
