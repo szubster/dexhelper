@@ -100,7 +100,7 @@ export interface CompactEncounterDetail {
 
 export interface CompactEncounter {
   aid: number; // area id (gameId)
-  v: number;   // version id
+  v: number; // version id
   d: CompactEncounterDetail[];
 }
 

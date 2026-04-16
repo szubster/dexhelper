@@ -140,9 +140,9 @@ export const syncData = async () => {
         const inflatedEnc = e.enc.map((enc) => ({
           ...enc,
           d: (enc.d || []).map((d) => ({
-          max: d.min,
-          ...DEFAULT_ENCOUNTER_DETAIL,
-          ...d,
+            max: d.min,
+            ...DEFAULT_ENCOUNTER_DETAIL,
+            ...d,
           })),
         }));
         eStore.put({ pid: e.pid, enc: inflatedEnc });

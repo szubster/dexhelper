@@ -7,7 +7,7 @@ import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 export const Route = createFileRoute('/pokemon/$pokemonId')({
   validateSearch: (search: Record<string, unknown>) => {
     return {
-      from: (search['from'] as string) || '/',
+      from: (search.from as string) || '/',
     };
   },
   component: PokemonPage,
