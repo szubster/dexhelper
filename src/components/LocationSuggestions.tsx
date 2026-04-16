@@ -1,4 +1,4 @@
-import { MapPin, Search } from 'lucide-react';
+import { MapPin, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import type { GenericLocation } from '../db/schema';
@@ -49,9 +49,10 @@ export function LocationSuggestions() {
           <button
             type="button"
             onClick={() => setSelectedLocationId(null)}
-            className="ml-1 rounded-full p-0.5 transition-colors hover:bg-[var(--theme-primary)] hover:text-white"
+            aria-label="Clear location filter"
+            className="ml-1 rounded-full p-0.5 transition-colors hover:bg-[var(--theme-primary)] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           >
-            <Search size={10} />
+            <X size={10} />
           </button>
         </div>
       </div>
@@ -71,7 +72,7 @@ export function LocationSuggestions() {
               setSearchTerm('');
               setIsOpen(false);
             }}
-            className="group flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition-all hover:bg-[var(--theme-primary)]/10"
+            className="group flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition-all hover:bg-[var(--theme-primary)]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/5 bg-zinc-900 text-zinc-500 transition-colors duration-300 group-hover:bg-[var(--theme-primary)] group-hover:text-white">
               <MapPin size={14} />
