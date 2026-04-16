@@ -177,6 +177,23 @@ export const pokeDB = {
     const res = await (await getDB()).get(DB_CONFIG.STORES.LOCATIONS, mid);
     return res?.pids;
   },
+  getInverseIndices: async (mids: number[]): Promise<(number[] | undefined)[]> => {
+    await pokeDB.ready();
+    const db = await getDB();
+    const validIds = mids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
+    if (validIds.length === 0) return mids.map(() => undefined);
+
+    const fetched = await Promise.all(validIds.map((id) => db.get(DB_CONFIG.STORES.LOCATIONS, id)));
+    const resultMap = new Map<number, number[] | undefined>();
+    for (const loc of fetched) {
+      if (loc) resultMap.set(loc.id, loc.pids);
+    }
+
+    return mids.map((id) => {
+      if (typeof id !== 'number' || Number.isNaN(id)) return undefined;
+      return resultMap.get(id);
+    });
+  },
   getAllAreas: async (): Promise<UnifiedLocation[]> => {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.LOCATIONS);

@@ -24,12 +24,11 @@ export function LocationSuggestions() {
       const locations = await pokeDB.getLocations();
       const filtered = locations.filter((l) => l.n.toLowerCase().includes(searchTerm.toLowerCase())).slice(0, 5);
 
-      const withCounts = await Promise.all(
-        filtered.map(async (l) => {
-          const index = await pokeDB.getInverseIndex(l.id);
-          return { ...l, count: index?.length || 0 };
-        }),
-      );
+      // ⚡ Bolt: Fixed N+1 query by using pre-fetched pids directly instead of querying DB again for each location
+      const withCounts = filtered.map((l) => ({
+        ...l,
+        count: l.pids?.length || 0,
+      }));
 
       setSuggestions(withCounts);
       setIsOpen(withCounts.length > 0);
