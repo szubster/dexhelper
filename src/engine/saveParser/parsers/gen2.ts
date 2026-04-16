@@ -300,11 +300,11 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     currentMapName = foundMap;
   }
 
-  // Detailed inventory parsing for Gen 2 could be added here later
-  const inventory: { id: number; quantity: number }[] = [];
-
   const johtoBadgesValue = byte(u8, johtoBadgesOffset);
   const kantoBadgesValue = byte(u8, kantoBadgesOffset);
+
+  // Detailed inventory parsing for Gen 2 could be added here later
+  const inventory: { id: number; quantity: number }[] = [];
 
   return {
     generation: 2,
@@ -325,6 +325,6 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     mapGroup,
     inventory,
     currentBoxCount: 0,
-    hallOfFameCount: 0, // Default for Gen 2 for now
+    hallOfFameCount: 0,
   };
 }

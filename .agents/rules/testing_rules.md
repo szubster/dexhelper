@@ -47,3 +47,6 @@ When a bug or regression is reported:
 ## 6. Real Game Saves for Testing
 - **Use Real Saves**: Leverage real game saves in `tests/fixtures`.
 - **Initialization**: Every full-app test must handle the "Uninitialized" state correctly by using provided test utilities to upload a save fixture.
+## 7. Memory Persistence & Version Control
+- **Persistence**: Always update Serena memories (`.serena/memories`) to reflect new architectural decisions, bug patterns, or feature knowledge.
+- **Commitment**: Every memory update MUST be committed to the repository in the same branch/PR as the associated code changes to ensure transparency and versioning.
