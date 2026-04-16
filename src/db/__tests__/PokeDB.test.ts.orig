@@ -141,24 +141,4 @@ describe('PokeDB', () => {
       2: 'Route 1',
     });
   });
-
-  it('performs bulk operations for inverse indices', async () => {
-    const mockData = {
-      hash: 'index-hash',
-      pokemon: [],
-      encounters: [],
-      locations: [
-        { id: 1, n: 'Viridian Forest', pids: [1, 2, 3], dist: {} },
-        { id: 2, n: 'Route 1', pids: [4, 5], dist: {} },
-      ],
-    };
-    vi.mocked(fetch).mockResolvedValue({
-      ok: true,
-      json: async () => mockData,
-    } as Response);
-    await pokeDB.sync();
-
-    const results = await pokeDB.getInverseIndices([1, 2, NaN, 999]);
-    expect(results).toEqual([[1, 2, 3], [4, 5], undefined, undefined]);
-  });
 });
