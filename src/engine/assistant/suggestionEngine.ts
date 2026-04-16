@@ -87,6 +87,15 @@ const METHOD_NAMES: Record<number, string> = {
   [ENCOUNTER_METHOD.HEADBUTT]: 'headbutt',
 };
 
+function getOrInsertComputed<K, V>(map: Map<K, V>, key: K, computer: () => V): V {
+  if (map.has(key)) {
+    return map.get(key) as V;
+  }
+  const value = computer();
+  map.set(key, value);
+  return value;
+}
+
 export function generateSuggestions(
   saveData: SaveData | null,
   isLivingDex: boolean,
@@ -187,11 +196,9 @@ export function generateSuggestions(
     for (const e of encData.encounters) {
       if (e.v !== displayVersionId) continue;
 
-      let distInfo: { distance: number; name: string } | null | undefined = distanceCache.get(e.aid);
-      if (distInfo === undefined) {
-        distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations, apiData.allAreas);
-        distanceCache.set(e.aid, distInfo);
-      }
+      const distInfo = getOrInsertComputed(distanceCache, e.aid, () =>
+        strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations, apiData.allAreas),
+      );
 
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
