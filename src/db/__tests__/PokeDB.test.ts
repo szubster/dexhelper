@@ -30,14 +30,19 @@ describe('PokeDB', () => {
         pokemon: [],
         encounters: [],
         locations: [],
-        areas: [],
-        locationIndex: [],
       }),
     } as Response);
     pokeDB._resetSync();
     const db = await getDB();
     const tx = db.transaction(Object.values(DB_CONFIG.STORES), 'readwrite');
-    await Promise.all(Object.values(DB_CONFIG.STORES).map((s) => tx.objectStore(s).clear()));
+    await Promise.all(
+      [
+        DB_CONFIG.STORES.POKEMON,
+        DB_CONFIG.STORES.ENCOUNTERS,
+        DB_CONFIG.STORES.LOCATIONS,
+        DB_CONFIG.STORES.METADATA,
+      ].map((s) => tx.objectStore(s).clear()),
+    );
     await tx.done;
   });
 
@@ -57,9 +62,7 @@ describe('PokeDB', () => {
         },
       ],
       encounters: [{ pid: 1, encounters: [] }],
-      locations: [{ id: 1, n: 'Pallet Town' }],
-      areas: [{ id: 1, n: 'Area 1' }],
-      locationIndex: [{ id: 1, pids: [1] }],
+      locations: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
     };
 
     vi.mocked(fetch).mockResolvedValue({
@@ -83,8 +86,6 @@ describe('PokeDB', () => {
       ],
       encounters: [],
       locations: [],
-      areas: [],
-      locationIndex: [],
     };
 
     vi.mocked(fetch).mockResolvedValue({
@@ -121,12 +122,10 @@ describe('PokeDB', () => {
       hash: 'area-hash',
       pokemon: [],
       encounters: [],
-      locations: [],
-      areas: [
-        { id: 1, n: 'Viridian Forest' },
-        { id: 2, n: 'Route 1' },
+      locations: [
+        { id: 1, n: 'Viridian Forest', pids: [], dist: {} },
+        { id: 2, n: 'Route 1', pids: [], dist: {} },
       ],
-      locationIndex: [],
     };
 
     vi.mocked(fetch).mockResolvedValue({

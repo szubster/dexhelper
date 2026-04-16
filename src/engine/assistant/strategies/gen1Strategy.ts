@@ -1,4 +1,4 @@
-import type { GenericLocation, SpecificArea } from '../../../db/schema';
+import type { UnifiedLocation } from '../../../db/schema';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
 import { getDistanceToMap } from '../../mapGraph/gen1Graph';
@@ -8,27 +8,24 @@ import type { AssistantStrategy, Suggestion } from './types';
 export const gen1Strategy: AssistantStrategy = {
   generation: 1,
 
-  resolveMapAid(saveData: SaveData, allLocations: GenericLocation[], allAreas: SpecificArea[]): number | null {
+  resolveMapAid(saveData: SaveData, allLocations: UnifiedLocation[]): number | null {
     const mapId = saveData.currentMapId;
 
-    // Find location for this mapId (which is the GenericLocation id in Gen 1)
+    // Find location for this mapId
     const loc = allLocations.find((l) => l.id === mapId);
     if (!loc) return null;
 
     // Resolve to parent if it's an indoor location
-    let targetLoc = loc;
     if (loc.parentId !== undefined) {
       const parent = allLocations.find((p) => p.id === loc.parentId);
-      if (parent) targetLoc = parent;
+      if (parent) return parent.id;
     }
 
-    // Find first area in this location
-    const area = allAreas.find((a) => a.id === targetLoc.id);
-    return area ? area.id : null;
+    return loc.id;
   },
 
-  getMapDistance(currentMapId: number, targetAid: number, allLocations: GenericLocation[], allAreas: SpecificArea[]) {
-    return getDistanceToMap(allLocations, allAreas, currentMapId, targetAid);
+  getMapDistance(currentMapId: number, targetAid: number, allLocations: UnifiedLocation[]) {
+    return getDistanceToMap(allLocations, currentMapId, targetAid);
   },
 
   getUnobtainableReason(pokemonId: number, version: string, ownedCount: number, ownedSet: Set<number>) {

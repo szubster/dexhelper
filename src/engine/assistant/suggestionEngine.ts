@@ -3,11 +3,10 @@ import { pokeDB } from '../../db/PokeDB';
 import {
   ENCOUNTER_METHOD,
   EVO_TRIGGER,
-  type GenericLocation,
   type LocationAreaEncounters,
   POKE_VERSION_MAP,
   type PokemonMetadata,
-  type SpecificArea,
+  type UnifiedLocation,
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
@@ -23,8 +22,7 @@ export interface AssistantApiData {
   pokemonMetadata: Record<number, PokemonMetadata | null>;
   ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>>;
   areaNames: Record<number, string>;
-  allLocations: GenericLocation[];
-  allAreas: SpecificArea[];
+  allLocations: UnifiedLocation[];
 }
 
 import { getStrategy } from './strategies';
@@ -33,11 +31,10 @@ import { getStrategy } from './strategies';
  * Fetches all necessary data from local IndexedDB using DataLoader for batching.
  */
 export async function fetchAssistantApiData(saveData: SaveData, queryTargets: number[]) {
-  const allAreas = await pokeDB.getAllAreas();
   const allLocations = await pokeDB.getLocations();
 
   const strategy = getStrategy(saveData.generation);
-  const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations, allAreas) : null;
+  const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations) : null;
 
   const allEncounters = await pokeDB.getAllEncounters();
   const localEncounters = localAid ? allEncounters.filter((lae) => lae.encounters.some((e) => e.aid === localAid)) : [];
@@ -70,9 +67,8 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     missingEncounters,
     pokemonMetadata,
     ancestralEncounters,
-    areaNames: Object.fromEntries(allAreas.map((a) => [a.id, a.n])),
+    areaNames: Object.fromEntries(allLocations.map((a) => [a.id, a.n])),
     allLocations,
-    allAreas,
   };
 }
 
@@ -185,7 +181,7 @@ export function generateSuggestions(
     for (const e of encData.encounters) {
       if (e.v !== displayVersionId) continue;
 
-      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations, apiData.allAreas);
+      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
         bestAreaName = distInfo.name;

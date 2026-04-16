@@ -1,4 +1,4 @@
-import type { GenericLocation, SpecificArea } from '../../db/schema';
+import type { UnifiedLocation } from '../../db/schema';
 import { getDistanceToMap, getOutdoorMapId } from './gen1Graph';
 import type { MapDistanceResult, MapGraph } from './types';
 
@@ -8,14 +8,13 @@ export type { MapDistanceResult, MapGraph, MapNode } from './types';
 
 const gen1MapGraph: MapGraph = {
   getDistanceToMap: (
-    locations: GenericLocation[],
-    areas: SpecificArea[],
+    locations: UnifiedLocation[],
     currentMapId: number,
     targetAid: number,
   ): MapDistanceResult | null => {
-    return getDistanceToMap(locations, areas, currentMapId, targetAid);
+    return getDistanceToMap(locations, currentMapId, targetAid);
   },
-  resolveOutdoorMapId: (locations: GenericLocation[], mapId: number): number => {
+  resolveOutdoorMapId: (locations: UnifiedLocation[], mapId: number): number => {
     return getOutdoorMapId(locations, mapId);
   },
 };

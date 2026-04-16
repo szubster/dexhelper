@@ -7,13 +7,11 @@ import type { DBSchema } from 'idb';
 
 export const DB_CONFIG = {
   NAME: 'PokeDB',
-  VERSION: 6,
+  VERSION: 7,
   STORES: {
     POKEMON: 'pokemon',
     ENCOUNTERS: 'encounters',
     LOCATIONS: 'locations',
-    AREAS: 'areas',
-    INDEX: 'index',
     METADATA: 'metadata',
   },
 } as const;
@@ -111,22 +109,18 @@ export interface LocationAreaEncounters {
   encounters: CompactEncounter[];
 }
 
-export interface GenericLocation {
-  id: number; // ROM Map ID (e.g. 0x01 for Viridian City)
+export interface UnifiedLocation {
+  id: number; // ROM Map ID
   n: string; // display name
   parentId?: number; // ROM Map ID of parent (e.g., city containing this building)
   connections?: number[]; // Connected Map IDs for navigation
+  pids?: number[]; // Pokémon IDs found here
+  dist?: Record<number, number>; // Precomputed distance matrix (targetId -> hops)
 }
 
-export interface SpecificArea {
-  id: number; // ROM Map ID
-  n: string; // display name
-}
-
-export interface InverseLocationIndex {
-  id: number; // generic location id (Map ID)
-  pids: number[]; // pokemon ids found here
-}
+export type GenericLocation = UnifiedLocation;
+export type SpecificArea = UnifiedLocation;
+export type InverseLocationIndex = UnifiedLocation;
 
 export interface CompactEvolutionDetail {
   tr: number; // trigger (EVO_TRIGGER)
@@ -161,9 +155,7 @@ export type PokemonCompact = PokemonMetadata;
 export interface PokeDataExport {
   pokemon: PokemonMetadata[];
   encounters: LocationAreaEncounters[];
-  locations: GenericLocation[];
-  areas: SpecificArea[];
-  locationIndex: InverseLocationIndex[];
+  locations: UnifiedLocation[];
   hash: string;
   sourceSha?: string;
 }
@@ -179,15 +171,7 @@ export interface PokeDBSchema extends DBSchema {
   };
   [DB_CONFIG.STORES.LOCATIONS]: {
     key: number;
-    value: GenericLocation;
-  };
-  [DB_CONFIG.STORES.AREAS]: {
-    key: number;
-    value: SpecificArea;
-  };
-  [DB_CONFIG.STORES.INDEX]: {
-    key: number;
-    value: InverseLocationIndex;
+    value: UnifiedLocation;
   };
   [DB_CONFIG.STORES.METADATA]: {
     key: string;
