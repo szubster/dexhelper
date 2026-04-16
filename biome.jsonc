@@ -37,7 +37,8 @@
       },
       "complexity": {
         // Allow hexadecimal number literals for object keys, parsing binary saves depends on mapping hex addresses
-        "useSimpleNumberKeys": "off"
+        "useSimpleNumberKeys": "off",
+        "useLiteralKeys": "off"
       },
       "correctness": {
         "recommended": true
