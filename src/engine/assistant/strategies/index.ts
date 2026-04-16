@@ -1,10 +1,13 @@
-import { AssistantStrategy } from './types';
 import { gen1Strategy } from './gen1Strategy';
+import type { AssistantStrategy } from './types';
 
 const fallbackStrategy: AssistantStrategy = {
-  generateLocationSuggestions: () => [],
-  getExclusivesChecker: () => null,
-  getMapGraph: () => null,
+  generation: 1,
+  resolveMapAid: () => null,
+  getMapDistance: () => null,
+  getUnobtainableReason: () => null,
+  getSpecialSuggestions: () => [],
+  isInternallyObtainable: () => false,
 };
 
 export function getStrategy(generation: number): AssistantStrategy {

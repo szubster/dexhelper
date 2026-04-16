@@ -143,6 +143,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
               );
             })
             .map(([category, items]) => {
+              // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
               const defaultStyle = CATEGORY_STYLES['Utility'] as { icon: React.ReactNode; color: string; bg: string };
               const catStyle = CATEGORY_STYLES[category] ?? defaultStyle;
 
@@ -163,6 +164,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                     className={`fade-in grid animate-in gap-6 duration-500 ${category === 'Catch' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
                   >
                     {items.map((s, idx) => {
+                      // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
                       const defaultStyle = CATEGORY_STYLES['Utility'] as {
                         icon: React.ReactNode;
                         color: string;
