@@ -1,24 +1,17 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, test } from 'vitest';
 import { detectGen2GameVersion, isGen2Save, parseCaughtData, parseGen2 } from './gen2';
 
 describe('gen2 parsers', () => {
   describe('detectGen2GameVersion', () => {
-    it('should detect gold version', () => {
-      const owned = new Set([56, 58, 167, 168]); // gold exclusives
-      const seen = new Set<number>();
-      expect(detectGen2GameVersion(owned, seen)).toBe('gold');
-    });
+    const cases = [
+      { owned: new Set([56, 58, 167, 168]), expected: 'gold' },
+      { owned: new Set([37, 38, 165, 166]), expected: 'silver' },
+      { owned: new Set<number>(), expected: 'unknown' },
+    ];
 
-    it('should detect silver version', () => {
-      const owned = new Set([37, 38, 165, 166]); // silver exclusives
+    test.for(cases)('should detect $expected version', ({ owned, expected }) => {
       const seen = new Set<number>();
-      expect(detectGen2GameVersion(owned, seen)).toBe('silver');
-    });
-
-    it('should return unknown if cannot determine', () => {
-      const owned = new Set<number>();
-      const seen = new Set<number>();
-      expect(detectGen2GameVersion(owned, seen)).toBe('unknown');
+      expect(detectGen2GameVersion(owned, seen)).toBe(expected);
     });
   });
 

@@ -25,4 +25,5 @@ Before finalizing any task, the following steps must be completed:
 
 6.  **Memory Maintenance**:
     - Reflect on the session and update Serena memories (`.serena/memories`) with new architectural decisions, bug patterns, or feature knowledge.
+    - **Commit Memories**: Always commit updated memory files to the repository in the same branch/PR as the associated code changes.
     - Ensure onboarding memories remain the source of truth for the project.
