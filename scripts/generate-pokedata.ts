@@ -5,15 +5,14 @@ import {
   type CompactChainLink,
   type CompactEncounterDetail,
   type PokemonMetadata,
-  type GenericLocation,
-  type SpecificArea,
+  type UnifiedLocation,
   type CompactEncounter,
   POKE_VERSION_MAP,
   ENCOUNTER_METHOD_MAP,
   EVO_TRIGGER_MAP
 } from '../src/db/schema.ts';
 import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from './data/gen1/mapping.ts';
-import { GEN2_MAP_TO_AID } from './data/gen2/mapping.ts';
+import { GEN2_MAP_TO_AID, decodeGen2Id } from './data/gen2/mapping.ts';
 
 const POKEMON_COUNT = 251; // Gen 1 & 2
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
@@ -105,10 +104,8 @@ async function main() {
   const pokemon: PokemonMetadata[] = [];
   const pokemonEncounterMap = new Map<number, CompactEncounter[]>();
 
-  // New structures
-  const locationMap = new Map<number, GenericLocation>();
-  const areaMap = new Map<number, SpecificArea>();
-  const inverseIndexMap = new Map<number, Set<number>>(); // lid -> Set<pid>
+  // Unified structures
+  const locationMap = new Map<number, UnifiedLocation>();
 
   const dataPath = path.join(TEMP_DIR, 'data/api/v2');
 
@@ -175,35 +172,41 @@ async function main() {
       // If no ROM map ID found, we skip this encounter as we only care about real in-game locations
       if (gameId === undefined) continue;
 
-      if (!areaMap.has(gameId)) {
+      if (!locationMap.has(gameId)) {
         const areaData = readJson(path.join(dataPath, `location-area/${areaId}/index.json`));
         if (areaData) {
           const locUrl = areaData.location.url;
           const lid = parseInt(locUrl.split('/').filter(Boolean).pop() || '0', 10);
 
-          if (!locationMap.has(gameId)) {
-            const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
-            if (locData) {
-              locationMap.set(gameId, sortObj({
-                id: gameId,
-                n: locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
-                connections: gameId < 256 ? GEN1_MAPS[gameId]?.connections : undefined
-              }, ['id', 'n']));
+          const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
+          if (locData) {
+            let connections: number[] | undefined = undefined;
+            if (gameId < 256) {
+              connections = GEN1_MAPS[gameId]?.connections;
+            } else {
+              const { group, id: mid } = decodeGen2Id(gameId);
+              connections = GEN2_MAP_TO_AID[group]?.[mid]?.connections;
             }
+
+            locationMap.set(gameId, sortObj({
+              id: gameId,
+              n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
+              connections,
+              pids: [],
+              dist: {}
+            }, ['id', 'n']));
           }
-
-          areaMap.set(gameId, sortObj({
-            id: gameId,
-            n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || areaData.name || areaId.toString(),
-          }, ['id', 'n']));
-
-          // Update inverse index
-          if (!inverseIndexMap.has(gameId)) inverseIndexMap.set(gameId, new Set());
-          inverseIndexMap.get(gameId)?.add(i);
         }
-      } else {
-        if (!inverseIndexMap.has(gameId)) inverseIndexMap.set(gameId, new Set());
-        inverseIndexMap.get(gameId)?.add(i);
+      }
+
+      // Update Pokémon index
+      const loc = locationMap.get(gameId);
+      if (loc) {
+        if (!loc.pids) loc.pids = [];
+        if (!loc.pids.includes(i)) {
+          loc.pids.push(i);
+          loc.pids.sort((a, b) => a - b);
+        }
       }
 
       const vDetails: { v: number; d: CompactEncounterDetail[] }[] = [];
@@ -252,6 +255,77 @@ async function main() {
     if (parentId !== undefined) {
       loc.parentId = parentId;
     }
+  }
+
+  console.log('Computing All-Pairs Shortest Paths...');
+  const locations = Array.from(locationMap.values());
+  const ids = locations.map(l => l.id);
+  const dist: Record<number, Record<number, number>> = {};
+
+  // Initialize distance matrix
+  for (const i of ids) {
+    dist[i] = {};
+    for (const j of ids) {
+      dist[i][j] = (i === j) ? 0 : Infinity;
+    }
+  }
+
+  // Set direct edges from connections and parent relations
+  for (const loc of locations) {
+    const distLoc = dist[loc.id];
+    if (distLoc) {
+      if (loc.connections) {
+        for (const target of loc.connections) {
+          const distTarget = dist[target];
+          if (distTarget) {
+            distLoc[target] = 1;
+            distTarget[loc.id] = 1;
+          }
+        }
+      }
+      if (loc.parentId !== undefined) {
+        const p = loc.parentId;
+        const distP = dist[p];
+        if (distP) {
+          distLoc[p] = 0; // Indoors are effectively "at" the town
+          distP[loc.id] = 0;
+        }
+      }
+    }
+  }
+
+  // Floyd-Warshall algorithm
+  for (const k of ids) {
+    const distK = dist[k];
+    if (!distK) continue;
+    for (const i of ids) {
+      const distI = dist[i];
+      if (!distI) continue;
+      const dIK = distI[k];
+      if (dIK === undefined || dIK === Infinity) continue;
+      for (const j of ids) {
+        const dKJ = distK[j];
+        const dIJ = distI[j];
+        if (dKJ !== undefined && dIJ !== undefined && dIK + dKJ < dIJ) {
+          distI[j] = dIK + dKJ;
+        }
+      }
+    }
+  }
+
+  // Attach computed distances to locations (reachable only, excluding 0 self-dist)
+  for (const loc of locations) {
+    const reachable: Record<number, number> = {};
+    const distLoc = dist[loc.id];
+    if (distLoc) {
+      for (const target of ids) {
+        const d = distLoc[target];
+        if (d !== undefined && d !== Infinity && d > 0) {
+          reachable[target] = d;
+        }
+      }
+    }
+    loc.dist = reachable;
   }
 
   console.log('\nProcessing Evolution Chains...');
@@ -313,11 +387,6 @@ async function main() {
     encounters: encs
   })));
   writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).sort((a, b) => a.id - b.id));
-  writeJsonl(path.join(OUTPUT_DIR, 'areas.jsonl'), Array.from(areaMap.values()).sort((a, b) => a.id - b.id));
-  writeJsonl(path.join(OUTPUT_DIR, 'location_index.jsonl'), Array.from(inverseIndexMap.entries()).map(([id, pids]) => sortObj({
-    id,
-    pids: Array.from(pids).sort((a, b) => a - b)
-  }, ['id', 'pids'])).sort((a, b) => a.id - b.id));
 
   // Write metadata
   fs.writeFileSync(path.join(OUTPUT_DIR, 'metadata.json'), JSON.stringify({

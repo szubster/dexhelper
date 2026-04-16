@@ -1,4 +1,4 @@
-import type { GenericLocation, SpecificArea } from '../../db/schema';
+import type { UnifiedLocation } from '../../db/schema';
 
 export interface MapNode {
   id: number;
@@ -13,11 +13,6 @@ export interface MapDistanceResult {
 }
 
 export interface MapGraph {
-  getDistanceToMap(
-    locations: GenericLocation[],
-    areas: SpecificArea[],
-    currentMapId: number,
-    targetAid: number,
-  ): MapDistanceResult | null;
-  resolveOutdoorMapId(locations: GenericLocation[], mapId: number): number;
+  getDistanceToMap(locations: UnifiedLocation[], currentMapId: number, targetAid: number): MapDistanceResult | null;
+  resolveOutdoorMapId(locations: UnifiedLocation[], mapId: number): number;
 }

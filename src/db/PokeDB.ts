@@ -5,6 +5,7 @@ import {
   type PokeDataExport,
   type PokeDBSchema,
   type PokemonMetadata,
+  type UnifiedLocation,
 } from './schema';
 
 let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;
@@ -22,8 +23,6 @@ export const getDB = () => {
           [DB_CONFIG.STORES.POKEMON]: 'id',
           [DB_CONFIG.STORES.ENCOUNTERS]: 'pid',
           [DB_CONFIG.STORES.LOCATIONS]: 'id',
-          [DB_CONFIG.STORES.AREAS]: 'id',
-          [DB_CONFIG.STORES.INDEX]: 'id',
           [DB_CONFIG.STORES.METADATA]: 'key',
         };
 
@@ -87,14 +86,7 @@ export const syncData = async () => {
       };
 
       const tx = db.transaction(
-        [
-          DB_CONFIG.STORES.POKEMON,
-          DB_CONFIG.STORES.ENCOUNTERS,
-          DB_CONFIG.STORES.LOCATIONS,
-          DB_CONFIG.STORES.AREAS,
-          DB_CONFIG.STORES.INDEX,
-          DB_CONFIG.STORES.METADATA,
-        ],
+        [DB_CONFIG.STORES.POKEMON, DB_CONFIG.STORES.ENCOUNTERS, DB_CONFIG.STORES.LOCATIONS, DB_CONFIG.STORES.METADATA],
         'readwrite',
       );
 
@@ -102,35 +94,19 @@ export const syncData = async () => {
       const pStore = tx.objectStore(DB_CONFIG.STORES.POKEMON);
       const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
       const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-      const aStore = tx.objectStore(DB_CONFIG.STORES.AREAS);
-      const iStore = tx.objectStore(DB_CONFIG.STORES.INDEX);
       const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
 
       // Clear old data
-      await Promise.all([
-        pStore.clear(),
-        eStore.clear(),
-        lStore.clear(),
-        aStore.clear(),
-        iStore.clear(),
-        mStore.clear(),
-      ]);
+      await Promise.all([pStore.clear(), eStore.clear(), lStore.clear(), mStore.clear()]);
 
-      const STAGES = 5;
-      emit(1, STAGES, 'Pokemon');
+      emit(1, 3, 'Pokemon');
       for (const p of data.pokemon) pStore.put(p);
 
-      emit(2, STAGES, 'Encounters');
+      emit(2, 3, 'Encounters');
       for (const e of data.encounters) eStore.put(e);
 
-      emit(3, STAGES, 'Locations');
+      emit(3, 3, 'Locations');
       for (const l of data.locations) lStore.put(l);
-
-      emit(4, STAGES, 'Areas');
-      for (const a of data.areas) aStore.put(a);
-
-      emit(5, STAGES, 'Index');
-      for (const i of data.locationIndex) iStore.put(i);
 
       await mStore.put({ key: 'hash', value: data.hash });
       await tx.done;
@@ -188,32 +164,31 @@ export const pokeDB = {
     if (id === undefined || id === null || Number.isNaN(id)) return undefined;
     return (await getDB()).get(DB_CONFIG.STORES.LOCATIONS, id);
   },
-  getAreas: async (mid: number) => {
+  getAreas: async (mid: number): Promise<UnifiedLocation[]> => {
     await pokeDB.ready();
     if (mid === undefined || mid === null || Number.isNaN(mid)) return [];
-    // Currently areas are 1:1 with map IDs (id), so we can just return the area with that id
     const db = await getDB();
-    const area = await db.get(DB_CONFIG.STORES.AREAS, mid);
-    return area ? [area] : [];
+    const loc = await db.get(DB_CONFIG.STORES.LOCATIONS, mid);
+    return loc ? [loc] : [];
   },
-  getInverseIndex: async (mid: number) => {
+  getInverseIndex: async (mid: number): Promise<number[] | undefined> => {
     await pokeDB.ready();
     if (mid === undefined || mid === null || Number.isNaN(mid)) return undefined;
-    const res = await (await getDB()).get(DB_CONFIG.STORES.INDEX, mid);
+    const res = await (await getDB()).get(DB_CONFIG.STORES.LOCATIONS, mid);
     return res?.pids;
   },
-  getAllAreas: async () => {
+  getAllAreas: async (): Promise<UnifiedLocation[]> => {
     await pokeDB.ready();
-    return (await getDB()).getAll(DB_CONFIG.STORES.AREAS);
+    return (await getDB()).getAll(DB_CONFIG.STORES.LOCATIONS);
   },
   getAreaNames: async (ids: number[]): Promise<Record<number, string>> => {
     await pokeDB.ready();
     const db = await getDB();
     const names: Record<number, string> = {};
-    const areas = await Promise.all(ids.map((id) => db.get(DB_CONFIG.STORES.AREAS, id)));
-    for (const area of areas) {
-      if (area) {
-        names[area.id] = area.n;
+    const locations = await Promise.all(ids.map((id) => db.get(DB_CONFIG.STORES.LOCATIONS, id)));
+    for (const loc of locations) {
+      if (loc) {
+        names[loc.id] = loc.n;
       }
     }
     return names;

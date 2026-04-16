@@ -1,4 +1,4 @@
-import type { GenericLocation, SpecificArea } from '../../../db/schema';
+import type { UnifiedLocation } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 
 export type SuggestionCategory = 'Catch' | 'Evolve' | 'Breed' | 'Progress' | 'Event' | 'Utility' | 'Trade' | 'Gift';
@@ -35,12 +35,11 @@ export interface RejectedSuggestion {
 
 export interface AssistantStrategy {
   generation: number;
-  resolveMapAid(saveData: SaveData, allLocations: GenericLocation[], allAreas: SpecificArea[]): number | null;
+  resolveMapAid(saveData: SaveData, allLocations: UnifiedLocation[]): number | null;
   getMapDistance(
     currentMapId: number,
     targetAid: number,
-    allLocations: GenericLocation[],
-    allAreas: SpecificArea[],
+    allLocations: UnifiedLocation[],
   ): { distance: number; name: string } | null;
   getUnobtainableReason(pokemonId: number, version: string, ownedCount: number, ownedSet: Set<number>): string | null;
   getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[];
