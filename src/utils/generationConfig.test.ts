@@ -14,25 +14,20 @@ describe('getGenerationConfig', () => {
     expect(config.id).toBe(2);
   });
 
-  it('should fall back to Gen 1 configuration for an unknown generation (e.g. Gen 3)', () => {
-    const config = getGenerationConfig(3);
-    // Since Gen 3 is not yet implemented/registered, it should return Gen 1 fallback.
-    expect(config).toBe(GENERATION_CONFIGS[1]);
+  it('should throw an error for an unknown generation (e.g. Gen 3)', () => {
+    expect(() => getGenerationConfig(3)).toThrow('Unknown generation: 3');
   });
 
-  it('should fall back to Gen 1 configuration for generation 0', () => {
-    const config = getGenerationConfig(0);
-    expect(config).toBe(GENERATION_CONFIGS[1]);
+  it('should throw an error for generation 0', () => {
+    expect(() => getGenerationConfig(0)).toThrow('Unknown generation: 0');
   });
 
-  it('should fall back to Gen 1 configuration for negative generation numbers', () => {
-    const config = getGenerationConfig(-1);
-    expect(config).toBe(GENERATION_CONFIGS[1]);
+  it('should throw an error for negative generation numbers', () => {
+    expect(() => getGenerationConfig(-1)).toThrow('Unknown generation: -1');
   });
 
-  it('should fall back to Gen 1 configuration for an arbitrarily large generation number', () => {
-    const config = getGenerationConfig(999);
-    expect(config).toBe(GENERATION_CONFIGS[1]);
+  it('should throw an error for an arbitrarily large generation number', () => {
+    expect(() => getGenerationConfig(999)).toThrow('Unknown generation: 999');
   });
 });
 
@@ -54,6 +49,17 @@ describe('getVersionInfo', () => {
   it('should return null for unknown version id', () => {
     const info = getVersionInfo('emerald');
     expect(info).toBeNull();
+  });
+
+  it('should return null for empty string version id', () => {
+    const info = getVersionInfo('');
+    expect(info).toBeNull();
+  });
+
+  it('should return null for undefined or null version id values', () => {
+    // using 'as string' to test runtime behavior against undefined/null-ish inputs
+    expect(getVersionInfo(undefined as unknown as string)).toBeNull();
+    expect(getVersionInfo(null as unknown as string)).toBeNull();
   });
 });
 
