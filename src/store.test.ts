@@ -148,3 +148,61 @@ describe('Zustand Store', () => {
     });
   });
 });
+
+describe('Persist Hydration Error Handling', () => {
+  it('should handle corrupted persist storage gracefully when getItem throws', async () => {
+    // We must reset modules to force Zustand to re-evaluate and re-hydrate
+    vi.resetModules();
+
+    const mockGetItem = vi.fn().mockImplementation((key) => {
+      if (key === 'dexhelper-settings') {
+        throw new Error('Simulated storage error');
+      }
+      return null;
+    });
+
+    vi.stubGlobal('localStorage', {
+      getItem: mockGetItem,
+      setItem: vi.fn(),
+      removeItem: vi.fn(),
+    });
+
+    // Dynamically import to trigger store creation and hydration
+    const { useStore: freshStore } = await import('./store');
+
+    // The store should not crash, but initialize with defaults
+    expect(freshStore.getState().filters).toEqual([]);
+    expect(freshStore.getState().manualVersion).toBeNull();
+
+    // Zustand persist logs a warning internally when getItem throws
+
+    vi.restoreAllMocks();
+    vi.unstubAllGlobals();
+  });
+
+  it('should handle corrupted persist storage gracefully when JSON is invalid', async () => {
+    vi.resetModules();
+
+    const mockGetItem = vi.fn().mockImplementation((key) => {
+      if (key === 'dexhelper-settings') {
+        return '{ invalid json';
+      }
+      return null;
+    });
+
+    vi.stubGlobal('localStorage', {
+      getItem: mockGetItem,
+      setItem: vi.fn(),
+      removeItem: vi.fn(),
+    });
+
+    const { useStore: freshStore } = await import('./store');
+
+    // The store should not crash, but initialize with defaults
+    expect(freshStore.getState().filters).toEqual([]);
+    expect(freshStore.getState().isLivingDex).toBe(false);
+
+    vi.restoreAllMocks();
+    vi.unstubAllGlobals();
+  });
+});
