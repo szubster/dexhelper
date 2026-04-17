@@ -25,9 +25,9 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
     const metadata = fs.existsSync(metadataPath) ? JSON.parse(fs.readFileSync(metadataPath, 'utf-8')) : {};
 
     const exportData = {
-      pokemon,
-      encounters,
-      locations,
+      poke: pokemon,
+      enc: encounters,
+      loc: locations,
       sourceSha: metadata.sourceSha,
     };
 

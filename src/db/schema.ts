@@ -7,7 +7,7 @@ import type { DBSchema } from 'idb';
 
 export const DB_CONFIG = {
   NAME: 'PokeDB',
-  VERSION: 7,
+  VERSION: 9,
   STORES: {
     POKEMON: 'pokemon',
     ENCOUNTERS: 'encounters',
@@ -95,27 +95,27 @@ export interface CompactEncounterDetail {
   c: number; // chance
   m: number; // method (ENCOUNTER_METHOD)
   min: number; // min_level
-  max: number; // max_level
+  max?: number | undefined; // max_level
 }
 
 export interface CompactEncounter {
-  aid: number; // ROM Map ID (Primary key for encounters)
-  v: number; // version (POKE_VERSION)
+  aid: number; // area id (gameId)
+  v: number; // version id
   d: CompactEncounterDetail[];
 }
 
 export interface LocationAreaEncounters {
   pid: number;
-  encounters: CompactEncounter[];
+  enc: CompactEncounter[];
 }
 
 export interface UnifiedLocation {
   id: number; // ROM Map ID
   n: string; // display name
-  parentId?: number; // ROM Map ID of parent (e.g., city containing this building)
-  connections?: number[]; // Connected Map IDs for navigation
-  pids?: number[]; // Pokémon IDs found here
-  dist?: Record<number, number>; // Precomputed distance matrix (targetId -> hops)
+  prnt?: number | undefined; // ROM Map ID of parent (e.g., city containing this building)
+  conn?: number[] | undefined; // Connected Map IDs for navigation
+  pids?: number[] | undefined; // Pokémon IDs found here
+  dist?: Record<number, number> | undefined; // Precomputed distance matrix (targetId -> hops)
 }
 
 export type GenericLocation = UnifiedLocation;
@@ -123,9 +123,9 @@ export type SpecificArea = UnifiedLocation;
 export type InverseLocationIndex = UnifiedLocation;
 
 export interface CompactEvolutionDetail {
-  tr: number; // trigger (EVO_TRIGGER)
-  min_l?: number | undefined; // min_level
-  min_h?: number | undefined; // min_happiness
+  tr?: number | undefined; // trigger (EVO_TRIGGER)
+  ml?: number | undefined; // min_level
+  mh?: number | undefined; // min_happiness
   item?: number | undefined; // item id
   held?: number | undefined; // held item id
   time?: number | undefined; // 1: day, 2: night
@@ -133,8 +133,8 @@ export interface CompactEvolutionDetail {
 
 export interface CompactChainLink {
   id: number; // species id
-  evolves_to: CompactChainLink[];
-  details: CompactEvolutionDetail[];
+  eto: CompactChainLink[];
+  det: CompactEvolutionDetail[];
   ef?: number | undefined; // evolves from species id
 }
 
@@ -142,20 +142,20 @@ export interface PokemonMetadata {
   id: number; // pokemon id
   n: string; // name
   cr: number; // capture rate
-  gr: number; // gender rate
+  gr?: number | undefined; // gender rate
   baby: boolean; // is baby
   // Embedded evolution data
-  evolves_to: CompactChainLink[];
-  evolves_from: number[]; // Parent, Grandparent, etc.
-  details: CompactEvolutionDetail[]; // Evolutionary requirements to reach THIS pokemon from parent
+  eto: CompactChainLink[];
+  efrm: number[]; // Parent, Grandparent, etc.
+  det: CompactEvolutionDetail[]; // Evolutionary requirements to reach THIS pokemon from parent
 }
 
 export type PokemonCompact = PokemonMetadata;
 
 export interface PokeDataExport {
-  pokemon: PokemonMetadata[];
-  encounters: LocationAreaEncounters[];
-  locations: UnifiedLocation[];
+  poke: PokemonMetadata[];
+  enc: LocationAreaEncounters[];
+  loc: UnifiedLocation[];
   hash: string;
   sourceSha?: string;
 }

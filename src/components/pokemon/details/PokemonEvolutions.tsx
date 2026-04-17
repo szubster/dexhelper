@@ -46,7 +46,7 @@ export function PokemonEvolutions({
   saveData,
 }: PokemonEvolutionsProps) {
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2" data-testid="evolution-section">
       {yourPokemonLength === 0 && (
         <div className="glass-card group relative col-span-1 space-y-4 overflow-hidden rounded-[2rem] border-red-500/10 bg-red-500/5 p-6 sm:col-span-2">
           <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:scale-110">
@@ -131,7 +131,7 @@ export function PokemonEvolutions({
             <ChevronRight size={80} />
           </div>
           <h3 className="relative z-10 flex items-center gap-2 font-black text-[10px] text-blue-400 uppercase tracking-[0.3em]">
-            <ChevronRight size={14} /> Transformations
+            <ChevronRight size={14} /> Evolution
           </h3>
           <div className="relative z-10 space-y-4">
             {evolvesTo.map((evo) => (

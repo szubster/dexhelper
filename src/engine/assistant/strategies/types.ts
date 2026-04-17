@@ -7,7 +7,7 @@ export interface EncounterDetail {
   chance: number;
   method: string;
   minLevel: number;
-  maxLevel: number;
+  maxLevel?: number | undefined;
   aid: number;
 }
 

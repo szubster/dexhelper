@@ -7,6 +7,7 @@ import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 export const Route = createFileRoute('/pokemon/$pokemonId')({
   validateSearch: (search: Record<string, unknown>) => {
     return {
+      // biome-ignore lint/complexity/useLiteralKeys: Bracket notation required for index signature under noPropertyAccessFromIndexSignature
       from: (search['from'] as string) || '/',
     };
   },

@@ -48,25 +48,26 @@ export function PokemonDetails({
   });
 
   const pokemon = allData?.pokemon;
-  const encounters = allData?.encounters || [];
+  const encounters = allData?.enc || [];
   const nameMap = allData?.nameMap;
   const areaNames = allData?.areaNames;
 
   const catchRate = pokemon?.cr ?? null;
 
   const evoReq = React.useMemo(() => {
-    if (!pokemon || pokemon.evolves_from.length === 0) return null;
+    if (!pokemon || pokemon.efrm.length === 0) return null;
 
-    const fromId = pokemon.evolves_from[0];
+    const fromId = pokemon.efrm[0];
     if (fromId === undefined) return null;
+    if (saveData && fromId > getGenerationConfig(saveData.generation).maxDex) return null;
 
     let methodStr = 'Unknown';
 
-    const details = pokemon.details;
+    const details = pokemon.det;
     if (details && details.length > 0) {
       const d = details[0];
       if (!d) return null;
-      if (d.tr === 1) methodStr = d.min_l ? `Level ${d.min_l}` : 'Level up';
+      if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
       else if (d.tr === 3) methodStr = 'Use Item';
       else if (d.tr === 2) methodStr = 'Trade';
     }
@@ -76,12 +77,12 @@ export function PokemonDetails({
       fromName: nameMap?.[fromId] || 'Earlier Form',
       method: methodStr,
     };
-  }, [pokemon, nameMap]);
+  }, [pokemon, nameMap, saveData]);
 
   const evolvesTo = React.useMemo(() => {
     if (!pokemon) return [];
 
-    const evos = pokemon.evolves_to;
+    const evos = pokemon.eto;
     if (!evos || evos.length === 0) return [];
 
     return evos
@@ -90,9 +91,9 @@ export function PokemonDetails({
         if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
 
         let methodStr = 'Unknown';
-        const d = evo.details[0];
+        const d = evo.det[0];
         if (d) {
-          if (d.tr === 1) methodStr = d.min_l ? `Level ${d.min_l}` : 'Level up';
+          if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
           else if (d.tr === 3) methodStr = 'Use Item';
           else if (d.tr === 2) methodStr = 'Trade';
         }
@@ -109,7 +110,7 @@ export function PokemonDetails({
     if (!pokemon?.baby) return null;
     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
 
-    const rootId = pokemon.evolves_from.length > 0 ? pokemon.evolves_from[pokemon.evolves_from.length - 1] : pokemon.id;
+    const rootId = pokemon.efrm.length > 0 ? pokemon.efrm[pokemon.efrm.length - 1] : pokemon.id;
 
     if (rootId === undefined) return null;
 

@@ -4,7 +4,7 @@ export interface MapNode {
   id: number;
   slug: string;
   name: string;
-  connections: number[];
+  conn: number[];
 }
 
 export interface MapDistanceResult {
