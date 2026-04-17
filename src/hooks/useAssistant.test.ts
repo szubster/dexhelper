@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import type { PokemonMetadata } from '../db/schema';
 import { gen1Strategy } from '../engine/assistant/strategies/gen1Strategy';
 import type { AssistantApiData } from '../engine/assistant/suggestionEngine';
 import { generateSuggestions } from '../engine/assistant/suggestionEngine';
@@ -35,7 +36,7 @@ describe('useAssistant - generateSuggestions logic', () => {
     trainerIdRaw: new Uint8Array(2),
   } as unknown as SaveData;
 
-  const mockApiData = {
+  const mockApiData: Partial<AssistantApiData> = {
     localEncounters: [],
     missingEncounters: {
       39: null, // Jigglypuff
@@ -45,40 +46,59 @@ describe('useAssistant - generateSuggestions logic', () => {
     areaNames: {},
     ancestralEncounters: {
       40: {
-        39: { pid: 39, encounters: [{ aid: 100, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Jigglypuff in Yellow
+        39: { pid: 39, enc: [{ aid: 100, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Jigglypuff in Yellow
       },
       62: {
-        60: { pid: 60, encounters: [{ aid: 101, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Poliwag catchable
+        60: { pid: 60, enc: [{ aid: 101, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Poliwag catchable
         61: null, // Poliwhirl not directly catchable
       },
     },
-    missingChains: {
-      39: { id: 39, evolves_from: [], details: [], evolves_to: [] },
+    pokemonMetadata: {
+      39: { id: 39, n: 'Jigglypuff', cr: 170, gr: 6, baby: false, efrm: [], det: [], eto: [] } as PokemonMetadata,
       40: {
         id: 40,
-        evolves_from: [39],
-        details: [{ tr: 3, item: 81 }],
-        evolves_to: [],
-      },
+        n: 'Wigglytuff',
+        cr: 50,
+        gr: 6,
+        baby: false,
+        efrm: [39],
+        det: [{ tr: 3, item: 81 }],
+        eto: [],
+      } as PokemonMetadata,
       62: {
         id: 62,
-        evolves_from: [61, 60],
-        details: [{ tr: 3, item: 84 }],
-        evolves_to: [],
-      },
+        n: 'Poliwrath',
+        cr: 45,
+        gr: 4,
+        baby: false,
+        efrm: [61, 60],
+        det: [{ tr: 3, item: 84 }],
+        eto: [],
+      } as PokemonMetadata,
     },
-    partyEvolutions: {},
-    giftChains: {},
-  } as unknown as AssistantApiData;
+    allLocations: [],
+  };
 
   it('should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)', () => {
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData, gen1Strategy);
+    const { suggestions } = generateSuggestions(
+      mockSaveData,
+      false,
+      'yellow',
+      mockApiData as AssistantApiData,
+      gen1Strategy,
+    );
     const wigglyTrade = suggestions.find((s) => s.pokemonId === 40 && s.category === 'Trade');
     expect(wigglyTrade).toBeUndefined();
   });
 
   it('should NOT mark Poliwrath as Trade Required in Pokémon Yellow if Poliwag is catchable', () => {
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData, gen1Strategy);
+    const { suggestions } = generateSuggestions(
+      mockSaveData,
+      false,
+      'yellow',
+      mockApiData as AssistantApiData,
+      gen1Strategy,
+    );
     const poliTrade = suggestions.find((s) => s.pokemonId === 62 && s.category === 'Trade');
     expect(poliTrade).toBeUndefined();
   });
@@ -92,8 +112,9 @@ describe('useAssistant - generateSuggestions logic', () => {
       ancestralEncounters: {
         13: {}, // No ancestors catchable either
       },
-      missingChains: {
-        13: { id: 13, evolves_from: [], details: [], evolves_to: [] },
+      pokemonMetadata: {
+        ...mockApiData.pokemonMetadata,
+        13: { id: 13, n: 'Weedle', cr: 255, gr: 4, baby: false, efrm: [], det: [], eto: [] } as PokemonMetadata,
       },
     };
 
@@ -115,14 +136,14 @@ describe('useAssistant - generateSuggestions logic', () => {
       localEncounters: [
         {
           pid: 16,
-          encounters: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+          enc: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
         },
       ],
       localAid: 1,
       missingEncounters: {
         16: {
           pid: 16,
-          encounters: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+          enc: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
         },
       },
     };

@@ -3,11 +3,11 @@ import type { UnifiedLocation } from '../../db/schema';
 import { getDistanceToMap } from './gen1Graph';
 
 const mockLocations: UnifiedLocation[] = [
-  { id: 0x00, n: 'Pallet Town', connections: [0x01], dist: { 0x00: 0, 0x01: 1, 0x02: 2 } },
-  { id: 0x01, n: 'Route 1', connections: [0x00, 0x02], dist: { 0x01: 0, 0x00: 1, 0x02: 1 } },
-  { id: 0x02, n: 'Viridian City', connections: [0x01, 0x03], dist: { 0x02: 0, 0x01: 1, 0x00: 2, 0x03: 1 } },
-  { id: 0x03, n: 'Route 2', connections: [0x02], dist: { 0x03: 0, 0x02: 1 } },
-  { id: 0x25, n: "Player's House", parentId: 0x00, connections: [], dist: {} },
+  { id: 0x00, n: 'Pallet Town', conn: [0x01], dist: { 0x00: 0, 0x01: 1, 0x02: 2 } },
+  { id: 0x01, n: 'Route 1', conn: [0x00, 0x02], dist: { 0x01: 0, 0x00: 1, 0x02: 1 } },
+  { id: 0x02, n: 'Viridian City', conn: [0x01, 0x03], dist: { 0x02: 0, 0x01: 1, 0x00: 2, 0x03: 1 } },
+  { id: 0x03, n: 'Route 2', conn: [0x02], dist: { 0x03: 0, 0x02: 1 } },
+  { id: 0x25, n: "Player's House", prnt: 0x00, conn: [], dist: {} },
 ];
 
 describe('getDistanceToMap', () => {
@@ -40,7 +40,7 @@ describe('getDistanceToMap', () => {
     // Unknown ID (0x999) -> resolving to start map 10 (Saffron)
     const locWithSaffron: UnifiedLocation[] = [
       ...mockLocations,
-      { id: 10, n: 'Saffron City', connections: [2], dist: { 10: 0 } },
+      { id: 10, n: 'Saffron City', conn: [2], dist: { 10: 0 } },
     ];
 
     const result = getDistanceToMap(locWithSaffron, 0x999, 10);

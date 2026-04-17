@@ -46,21 +46,21 @@ describe('DexDataLoader', () => {
         cr: 45,
         gr: 1,
         baby: false,
-        evolves_to: [],
-        evolves_from: [],
-        details: [],
+        eto: [],
+        efrm: [],
+        det: [],
       } as PokemonMetadata,
     ]);
     vi.mocked(pokeDB.getEncounters).mockResolvedValue({
       pid: 1,
-      encounters: [{ aid: 1, v: 1, d: [] }] as CompactEncounter[],
+      enc: [{ aid: 1, v: 1, d: [] }] as CompactEncounter[],
     });
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({ 1: 'Area 1' });
 
     const details = await dexDataLoader.getPokemonDetails(1);
 
     expect(details.pokemon.n).toBe('P1');
-    expect(details.encounters).toHaveLength(1);
+    expect(details.enc).toHaveLength(1);
     expect(details.areaNames).toEqual({ 1: 'Area 1' });
   });
 });

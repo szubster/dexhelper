@@ -39,51 +39,51 @@ test('coverage for suggestionEngine new lines', () => {
       196: {
         id: 196,
         n: 'Espeon',
-        evolves_from: [133],
-        details: [{ tr: 1, min_h: 220, time: 1 }],
-        evolves_to: [],
+        efrm: [133],
+        det: [{ tr: 1, mh: 220, time: 1 }],
+        eto: [],
       }, // Espeon
       197: {
         id: 197,
         n: 'Umbreon',
-        evolves_from: [133],
-        details: [{ tr: 1, min_h: 220, time: 2 }],
-        evolves_to: [],
+        efrm: [133],
+        det: [{ tr: 1, mh: 220, time: 2 }],
+        eto: [],
       }, // Umbreon
       106: {
         id: 106,
         n: 'Hitmonlee',
-        evolves_from: [236],
-        details: [{ tr: 1, min_l: 20, rel_s: 1 }],
-        evolves_to: [],
+        efrm: [236],
+        det: [{ tr: 1, ml: 20, rel_s: 1 }],
+        eto: [],
       }, // Hitmonlee
       107: {
         id: 107,
         n: 'Hitmonchan',
-        evolves_from: [236],
-        details: [{ tr: 1, min_l: 20, rel_s: -1 }],
-        evolves_to: [],
+        efrm: [236],
+        det: [{ tr: 1, ml: 20, rel_s: -1 }],
+        eto: [],
       }, // Hitmonchan
       237: {
         id: 237,
         n: 'Hitmontop',
-        evolves_from: [236],
-        details: [{ tr: 1, min_l: 20, rel_s: 0 }],
-        evolves_to: [],
+        efrm: [236],
+        det: [{ tr: 1, ml: 20, rel_s: 0 }],
+        eto: [],
       }, // Hitmontop
       136: {
         id: 136,
         n: 'Flareon',
-        evolves_from: [133],
-        details: [{ tr: 3, item: 82 }], // Fire Stone
-        evolves_to: [],
+        efrm: [133],
+        det: [{ tr: 3, item: 82 }], // Fire Stone
+        eto: [],
       }, // Flareon (Item)
       68: {
         id: 68,
         n: 'Machamp',
-        evolves_from: [67, 66],
-        details: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
-        evolves_to: [],
+        efrm: [67, 66],
+        det: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
+        eto: [],
       }, // Machamp (Trade)
     },
     areaNames: {},
@@ -143,9 +143,9 @@ test('coverage for suggestionEngine edge cases', () => {
       135: {
         id: 135,
         n: 'Jolteon',
-        evolves_from: [133],
-        details: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
-        evolves_to: [],
+        efrm: [133],
+        det: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
+        eto: [],
       },
     },
     areaNames: {},

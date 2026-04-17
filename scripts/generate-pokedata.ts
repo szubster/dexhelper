@@ -135,9 +135,9 @@ async function main() {
       gr: sData.gender_rate,
       baby: sData.is_baby,
       // Temporaries to be filled in second pass
-      evolves_to: [],
-      evolves_from: [],
-      details: [],
+      eto: [],
+      efrm: [],
+      det: [],
     }, ['id', 'n']));
 
     const pokemonEncounters: { aid: number; version_details: { v: number; d: CompactEncounterDetail[] }[] }[] = [];
@@ -191,7 +191,7 @@ async function main() {
             locationMap.set(gameId, sortObj({
               id: gameId,
               n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
-              connections,
+              conn: connections,
               pids: [],
               dist: {}
             }, ['id', 'n']));
@@ -216,12 +216,15 @@ async function main() {
 
         vDetails.push({
           v: vId,
-          d: vd.encounter_details.map((ed) => ({
-            c: ed.chance,
-            m: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
-            min: ed.min_level,
-            max: ed.max_level,
-          }))
+          d: vd.encounter_details.map((ed) => {
+            const det: CompactEncounterDetail = {
+              c: ed.chance,
+              m: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
+              min: ed.min_level,
+              max: ed.max_level,
+            };
+            return det;
+          })
         });
       }
 
@@ -248,145 +251,180 @@ async function main() {
     }
   }
 
-  // Second pass on locations to reconcile parentIds for indoors
-  console.log('\nReconciling location parents...');
-  for (const loc of locationMap.values()) {
-    const parentId = INDOOR_TO_PARENT_MAP[loc.id];
-    if (parentId !== undefined) {
-      loc.parentId = parentId;
+// Second pass on locations to reconcile prnt for indoors
+console.log('\nReconciling location parents...');
+for (const loc of locationMap.values()) {
+  const parentId = INDOOR_TO_PARENT_MAP[loc.id];
+  if (parentId !== undefined) {
+    loc.prnt = parentId;
+  }
+}
+
+console.log('Computing All-Pairs Shortest Paths...');
+const locations = Array.from(locationMap.values());
+const ids = locations.map(l => l.id);
+const dist: Record<number, Record<number, number>> = {};
+
+// Initialize distance matrix
+for (const i of ids) {
+  dist[i] = {};
+  for (const j of ids) {
+    dist[i][j] = (i === j) ? 0 : Infinity;
+  }
+}
+
+// Set direct edges from conn and parent relations
+for (const loc of locations) {
+  const distLoc = dist[loc.id];
+  if (distLoc) {
+    if (loc.conn) {
+      for (const target of loc.conn) {
+        const distTarget = dist[target];
+        if (distTarget) {
+          distLoc[target] = 1;
+          distTarget[loc.id] = 1;
+        }
+      }
+    }
+    if (loc.prnt !== undefined) {
+      const p = loc.prnt;
+      const distP = dist[p];
+      if (distP) {
+        distLoc[p] = 0; // Indoors are effectively "at" the town
+        distP[loc.id] = 0;
+      }
     }
   }
+}
 
-  console.log('Computing All-Pairs Shortest Paths...');
-  const locations = Array.from(locationMap.values());
-  const ids = locations.map(l => l.id);
-  const dist: Record<number, Record<number, number>> = {};
-
-  // Initialize distance matrix
+// Floyd-Warshall algorithm
+for (const k of ids) {
+  const distK = dist[k];
+  if (!distK) continue;
   for (const i of ids) {
-    dist[i] = {};
+    const distI = dist[i];
+    if (!distI) continue;
+    const dIK = distI[k];
+    if (dIK === undefined || dIK === Infinity) continue;
     for (const j of ids) {
-      dist[i][j] = (i === j) ? 0 : Infinity;
-    }
-  }
-
-  // Set direct edges from connections and parent relations
-  for (const loc of locations) {
-    const distLoc = dist[loc.id];
-    if (distLoc) {
-      if (loc.connections) {
-        for (const target of loc.connections) {
-          const distTarget = dist[target];
-          if (distTarget) {
-            distLoc[target] = 1;
-            distTarget[loc.id] = 1;
-          }
-        }
-      }
-      if (loc.parentId !== undefined) {
-        const p = loc.parentId;
-        const distP = dist[p];
-        if (distP) {
-          distLoc[p] = 0; // Indoors are effectively "at" the town
-          distP[loc.id] = 0;
-        }
+      const dKJ = distK[j];
+      const dIJ = distI[j];
+      if (dKJ !== undefined && dIJ !== undefined && dIK + dKJ < dIJ) {
+        distI[j] = dIK + dKJ;
       }
     }
   }
+}
 
-  // Floyd-Warshall algorithm
-  for (const k of ids) {
-    const distK = dist[k];
-    if (!distK) continue;
-    for (const i of ids) {
-      const distI = dist[i];
-      if (!distI) continue;
-      const dIK = distI[k];
-      if (dIK === undefined || dIK === Infinity) continue;
-      for (const j of ids) {
-        const dKJ = distK[j];
-        const dIJ = distI[j];
-        if (dKJ !== undefined && dIJ !== undefined && dIK + dKJ < dIJ) {
-          distI[j] = dIK + dKJ;
-        }
+// Attach computed distances to locations (reachable only, excluding 0 self-dist)
+for (const loc of locations) {
+  const reachable: Record<number, number> = {};
+  const distLoc = dist[loc.id];
+  if (distLoc) {
+    for (const target of ids) {
+      const d = distLoc[target];
+      if (d !== undefined && d !== Infinity && d > 0) {
+        reachable[target] = d;
       }
     }
   }
+  loc.dist = reachable;
+}
 
-  // Attach computed distances to locations (reachable only, excluding 0 self-dist)
-  for (const loc of locations) {
-    const reachable: Record<number, number> = {};
-    const distLoc = dist[loc.id];
-    if (distLoc) {
-      for (const target of ids) {
-        const d = distLoc[target];
-        if (d !== undefined && d !== Infinity && d > 0) {
-          reachable[target] = d;
-        }
-      }
-    }
-    loc.dist = reachable;
+console.log('\nProcessing Evolution Chains...');
+// We need cid temporarily for the pass, so we extract it again (could have stored it in a map)
+const pokemonSpeciesToChain = new Map<number, number>();
+for (let i = 1; i <= POKEMON_COUNT; i++) {
+  const sData = readJson(path.join(dataPath, `pokemon-species/${i}/index.json`));
+  if (sData) {
+    const cid = parseInt(sData.evolution_chain.url.split('/').filter(Boolean).pop() || '0', 10);
+    pokemonSpeciesToChain.set(i, cid);
   }
+}
 
-  console.log('\nProcessing Evolution Chains...');
-  // We need cid temporarily for the pass, so we extract it again (could have stored it in a map)
-  const pokemonSpeciesToChain = new Map<number, number>();
-  for (let i = 1; i <= POKEMON_COUNT; i++) {
-    const sData = readJson(path.join(dataPath, `pokemon-species/${i}/index.json`));
-    if (sData) {
-      const cid = parseInt(sData.evolution_chain.url.split('/').filter(Boolean).pop() || '0', 10);
-      pokemonSpeciesToChain.set(i, cid);
-    }
-  }
+const uniqueChainIds = Array.from(new Set(pokemonSpeciesToChain.values()));
+for (const cid of uniqueChainIds) {
+  const chainFilePath = path.join(dataPath, `evolution-chain/${cid}/index.json`);
+  const cData = readJson(chainFilePath);
+  if (!cData) continue;
 
-  const uniqueChainIds = Array.from(new Set(pokemonSpeciesToChain.values()));
-  for (const cid of uniqueChainIds) {
-    const chainFilePath = path.join(dataPath, `evolution-chain/${cid}/index.json`);
-    const cData = readJson(chainFilePath);
-    if (!cData) continue;
-
-    const mapLink = (link: PokeApiChainLink, ef?: number): CompactChainLink => {
-      const id = parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10);
-      return {
-        id,
-        evolves_to: link.evolves_to.map(l => mapLink(l, id)),
-        details: link.evolution_details.map((ed) => ({
-          tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
-          min_l: ed.min_level ?? undefined,
-          min_h: ed.min_happiness ?? undefined,
-          item: ed.item ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
-          held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
-          time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
-        })),
-        ef,
-      };
+  const mapLink = (link: PokeApiChainLink, ef?: number): CompactChainLink => {
+    const id = parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10);
+    return {
+      id,
+      eto: link.evolves_to.map(l => mapLink(l, id)),
+      det: link.evolution_details.map((ed) => ({
+        tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
+        ml: ed.min_level ?? undefined,
+        mh: ed.min_happiness ?? undefined,
+        item: ed.item ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
+        held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
+        time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
+      })),
+      ef,
     };
+  };
 
-    const fullChain = mapLink(cData.chain);
+  const fullChain = mapLink(cData.chain);
 
-    const registerChain = (node: CompactChainLink, ancestors: number[]) => {
-      const p = pokemon.find(p => p.id === node.id);
-      if (p) {
-        p.evolves_to = node.evolves_to;
-        p.evolves_from = ancestors;
-        p.details = node.details;
-      }
+  const registerChain = (node: CompactChainLink, ancestors: number[]) => {
+    const p = pokemon.find(p => p.id === node.id);
+    if (p) {
+      p.eto = node.eto;
+      p.efrm = ancestors;
+      p.det = node.det;
+    }
 
-      node.evolves_to.forEach(child => registerChain(child, [node.id, ...ancestors]));
-    };
+    node.eto.forEach(child => registerChain(child, [node.id, ...ancestors]));
+  };
 
-    registerChain(fullChain, []);
+  registerChain(fullChain, []);
+}
+
+/**
+ * Compacts an object by removing default values.
+ */
+function compact(obj: any): any {
+  if (Array.isArray(obj)) {
+    return obj.map(compact);
   }
+  if (obj !== null && typeof obj === 'object') {
+    const result: any = {};
+    for (const [key, value] of Object.entries(obj)) {
+      // Omit empty arrays
+      if (Array.isArray(value) && value.length === 0) continue;
+      // Omit baby: false
+      if (key === 'baby' && value === false) continue;
+      // Omit m: 1 (WALK)
+      if (key === 'm' && value === 1) continue;
+      // Omit empty objects (dist: {})
+      if (value !== null && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) continue;
 
-  console.log('\nWriting split JSONL files...');
-  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+      // Omit gr: 4 (gender_rate default)
+      if (key === 'gr' && value === 4) continue;
+      // Omit tr: 1 (EVO_TRIGGER.LEVEL_UP default)
+      if (key === 'tr' && value === 1) continue;
+      // Omit mh: 160 (min_happiness default)
+      if (key === 'mh' && value === 160) continue;
+      // Omit max if same as min (encounter levels)
+      if (key === 'max' && value === obj.min) continue;
 
-  writeJsonl(path.join(OUTPUT_DIR, 'pokemon.jsonl'), pokemon);
-  writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
-    pid,
-    encounters: encs
-  })));
-  writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).sort((a, b) => a.id - b.id));
+      result[key] = compact(value);
+    }
+    return result;
+  }
+  return obj;
+}
+
+console.log('\nWriting split JSONL files...');
+fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+
+writeJsonl(path.join(OUTPUT_DIR, 'pokemon.jsonl'), pokemon.map(compact));
+writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
+  pid,
+  enc: encs.map(compact)
+})));
+writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => a.id - b.id));
 
   // Write metadata
   fs.writeFileSync(path.join(OUTPUT_DIR, 'metadata.json'), JSON.stringify({

@@ -102,6 +102,10 @@ export const useStore = create<AppStore>()(
         const savedFile = localStorage.getItem('last_save_file');
         if (savedFile) {
           try {
+            const base64Regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
+            if (!base64Regex.test(savedFile)) {
+              throw new Error('Invalid Base64 string');
+            }
             const binaryString = window.atob(savedFile);
             const len = binaryString.length;
             const bytes = new Uint8Array(len);
@@ -112,7 +116,10 @@ export const useStore = create<AppStore>()(
             const data = parseSaveFile(bytes.buffer, manualVersion || undefined);
             set({ saveData: data });
           } catch (err) {
-            console.error('Failed to load saved file from localStorage:', err);
+            console.error(
+              'Failed to load saved file from localStorage:',
+              err instanceof Error ? err.message : String(err),
+            );
             localStorage.removeItem('last_save_file');
           }
         }

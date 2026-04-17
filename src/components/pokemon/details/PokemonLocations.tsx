@@ -42,7 +42,7 @@ export function PokemonLocations({
       {loading ? (
         <div className="glass-card h-40 animate-pulse rounded-3xl border border-white/5 bg-white/5" />
       ) : (
-        <div className="relative z-10 grid grid-cols-1 gap-3">
+        <div className="relative z-10 grid grid-cols-1 gap-3" data-testid="location-list">
           {(() => {
             const staticEnc = staticEncounters[pokemonId]?.[gameVersion as keyof (typeof staticEncounters)[number]];
             const versionEnc = encounters.filter((e) => e.v === currentVersionId);

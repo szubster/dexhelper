@@ -4,10 +4,10 @@ import type { SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
 
 const mockLocations: UnifiedLocation[] = [
-  { id: 0x00, n: 'Pallet Town', connections: [0x01], dist: { 0x00: 0, 0x01: 1 } },
-  { id: 0x01, n: 'Route 1', connections: [0x00, 0x03], dist: { 0x01: 0, 0x00: 1, 0x03: 1 } },
-  { id: 0x03, n: 'Cerulean City', connections: [0x01], dist: { 0x03: 0, 0x01: 1 } },
-  { id: 0x25, n: 'Pallet House', parentId: 0x00, connections: [], dist: {} },
+  { id: 0x00, n: 'Pallet Town', conn: [0x01], dist: { 0x00: 0, 0x01: 1 } },
+  { id: 0x01, n: 'Route 1', conn: [0x00, 0x03], dist: { 0x01: 0, 0x00: 1, 0x03: 1 } },
+  { id: 0x03, n: 'Cerulean City', conn: [0x01], dist: { 0x03: 0, 0x01: 1 } },
+  { id: 0x25, n: 'Pallet House', prnt: 0x00, conn: [], dist: {} },
 ];
 
 const makeSaveData = (overrides: Partial<SaveData> = {}): SaveData => ({

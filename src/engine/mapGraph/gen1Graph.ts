@@ -46,8 +46,8 @@ export function getDistanceToMap(
  */
 export function getOutdoorMapId(allLocations: UnifiedLocation[], mapId: number): number {
   const loc = allLocations.find((l) => l.id === mapId);
-  if (loc?.parentId !== undefined) {
-    return loc.parentId;
+  if (loc?.prnt !== undefined) {
+    return loc.prnt;
   }
   return mapId;
 }

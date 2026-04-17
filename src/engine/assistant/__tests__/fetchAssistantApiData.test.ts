@@ -24,8 +24,8 @@ describe('fetchAssistantApiData', () => {
     vi.spyOn(pokeDB, 'getAllAreas').mockResolvedValue([]);
     vi.spyOn(pokeDB, 'getLocations').mockResolvedValue([]);
     vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockResolvedValue([
-      { id: 1, n: 'bulbasaur', evolves_from: [], evolves_to: [], details: [] } as unknown as PokemonMetadata,
-      { id: 2, n: 'ivysaur', evolves_from: [1], evolves_to: [], details: [] } as unknown as PokemonMetadata,
+      { id: 1, n: 'bulbasaur', efrm: [], eto: [], det: [] } as unknown as PokemonMetadata,
+      { id: 2, n: 'ivysaur', efrm: [1], eto: [], det: [] } as unknown as PokemonMetadata,
     ]);
 
     const result = await fetchAssistantApiData(mockSaveData, []);

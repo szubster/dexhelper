@@ -24,7 +24,7 @@ export const dexDataLoader = {
     id: number,
   ): Promise<{
     pokemon: PokemonMetadata;
-    encounters: LocationAreaEncounters['encounters'];
+    enc: LocationAreaEncounters['enc'];
     nameMap: Record<number, string>;
     areaNames: Record<number, string>;
   }> => {
@@ -38,15 +38,15 @@ export const dexDataLoader = {
     // Current species
     nameMap[pokemon.id] = pokemon.n;
     // Ancestors
-    for (const ancestorId of pokemon.evolves_from) {
+    for (const ancestorId of pokemon.efrm) {
       nameMap[ancestorId] = '';
     }
     // Descendants
     const traverse = (node: CompactChainLink) => {
       nameMap[node.id] = '';
-      node.evolves_to.forEach(traverse);
+      node.eto.forEach(traverse);
     };
-    pokemon.evolves_to.forEach(traverse);
+    pokemon.eto.forEach(traverse);
 
     const ids = Object.keys(nameMap)
       .filter((idStr) => nameMap[Number(idStr)] === '')
@@ -58,13 +58,13 @@ export const dexDataLoader = {
 
     // Resolve area names for all encounters
     const areaIds = [
-      ...new Set((encounters && !(encounters instanceof Error) ? encounters.encounters : []).map((e) => e.aid)),
+      ...new Set((encounters && !(encounters instanceof Error) ? encounters.enc : []).map((e) => e.aid)),
     ];
     const areaNames = await pokeDB.getAreaNames(areaIds);
 
     return {
       pokemon,
-      encounters: encounters && !(encounters instanceof Error) ? encounters.encounters : [],
+      enc: encounters && !(encounters instanceof Error) ? encounters.enc : [],
       nameMap,
       areaNames,
     };
