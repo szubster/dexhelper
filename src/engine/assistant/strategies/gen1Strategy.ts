@@ -1,9 +1,19 @@
 import type { UnifiedLocation } from '../../../db/schema';
 import { getGenerationConfig } from '../../../utils/generationConfig';
+import { GEN1_ITEMS } from '../../data/gen1/assistantData';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
 import { getDistanceToMap } from '../../mapGraph/gen1Graph';
 import type { SaveData } from '../../saveParser/index';
 import type { AssistantStrategy, Suggestion } from './types';
+
+// Map PokeAPI Item IDs to internal Game Item IDs
+const EVO_ITEM_MAP: Record<number, number> = {
+  81: GEN1_ITEMS.MOON_STONE, // moon-stone
+  82: GEN1_ITEMS.FIRE_STONE, // fire-stone
+  83: GEN1_ITEMS.THUNDER_STONE, // thunder-stone
+  84: GEN1_ITEMS.WATER_STONE, // water-stone
+  85: GEN1_ITEMS.LEAF_STONE, // leaf-stone
+};
 
 export const gen1Strategy: AssistantStrategy = {
   generation: 1,
@@ -61,5 +71,14 @@ export const gen1Strategy: AssistantStrategy = {
     // Gen 1 doesn't have breeding, so obtainability is purely based on
     // encounter data + static encounters. The main engine handles this.
     return true;
+  },
+
+  hasEvolutionItem(saveData: SaveData, itemId: number): boolean {
+    const gameItemId = EVO_ITEM_MAP[itemId];
+    if (!gameItemId) return false;
+    // Check for `i.id` matching `gameItemId`.
+    // Some tests mock the inventory array with a `count` property instead of `quantity`
+    // We treat any presence in the inventory array as having the item.
+    return saveData.inventory.some((i) => i.id === gameItemId);
   },
 };
