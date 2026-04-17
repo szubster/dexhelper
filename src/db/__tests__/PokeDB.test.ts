@@ -75,6 +75,38 @@ describe('PokeDB', () => {
     expect(p?.cr).toBe(45);
   });
 
+  it('performs bulk operations for encounters', async () => {
+    const mockData = {
+      hash: 'bulk-hash',
+      poke: [],
+      enc: [
+        { pid: 1, enc: [] },
+        { pid: 2, enc: [] },
+      ],
+      loc: [],
+    };
+
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      json: async () => mockData,
+    } as Response);
+
+    await pokeDB.sync();
+
+    const results = await pokeDB.getEncountersBatch([1, 2, 999]);
+    expect(results).toHaveLength(3);
+
+    const r1 = results[0];
+    if (!r1 || r1 instanceof Error) throw r1 ?? new Error('r1 undefined');
+    expect(r1.pid).toBe(1);
+
+    const r2 = results[1];
+    if (!r2 || r2 instanceof Error) throw r2 ?? new Error('r2 undefined');
+    expect(r2.pid).toBe(2);
+
+    expect(results[2]).toBeInstanceOf(Error);
+  });
+
   it('performs bulk operations for pokemons', async () => {
     const mockData = {
       hash: 'bulk-hash',
@@ -113,6 +145,9 @@ describe('PokeDB', () => {
 
     const manyResult = await pokeDB.getPokemons([NaN]);
     expect(manyResult[0]).toBeInstanceOf(Error);
+
+    const manyEncResult = await pokeDB.getEncountersBatch([NaN]);
+    expect(manyEncResult[0]).toBeInstanceOf(Error);
   });
 
   it('resolves area names correctly', async () => {
