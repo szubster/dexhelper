@@ -168,6 +168,8 @@ export function generateSuggestions(
   }
 
   // A2. Nearby logic
+  // ⚡ Bolt: Cache map distance computations to prevent redundant graph traversals.
+  const distanceCache = new Map<number, ReturnType<AssistantStrategy['getMapDistance']>>();
   for (const pid of queryTargets) {
     if (localPids.includes(pid)) continue;
 
@@ -181,7 +183,13 @@ export function generateSuggestions(
     for (const e of encData.encounters) {
       if (e.v !== displayVersionId) continue;
 
-      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
+      let distInfo: ReturnType<AssistantStrategy['getMapDistance']>;
+      if (distanceCache.has(e.aid)) {
+        distInfo = distanceCache.get(e.aid) as ReturnType<AssistantStrategy['getMapDistance']>;
+      } else {
+        distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
+        distanceCache.set(e.aid, distInfo);
+      }
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
         bestAreaName = distInfo.name;
