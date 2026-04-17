@@ -4,10 +4,12 @@ import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
+
 test('coverage for suggestionEngine new lines', () => {
   const mockSaveData: SaveData = {
     generation: 2,
-    gameVersion: 'crystal',
+    gameVersion: 'red',
+    currentMapId: 0,
     // Mock owned up to 251 except the ones we want to suggest (targets must be missing)
     owned: new Set(
       [...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237, 136, 68].includes(i)),
@@ -32,10 +34,51 @@ test('coverage for suggestionEngine new lines', () => {
   mockSaveData.owned.add(67);
 
   const mockApiData: AssistantApiData = {
+    localAid: null,
     localEncounters: [],
-    missingEncounters: {},
+    missingEncounters: {
+      133: {
+        id: 133,
+        pid: 133,
+        encounters: [
+          { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] }
+        ]
+      },
+      133: {
+        id: 133,
+        pid: 133,
+        encounters: [
+          { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] }
+        ]
+      },
+      1: {
+        id: 1,
+        pid: 1,
+        encounters: [
+          { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] },
+          { aid: 5, v: 1, d: [{ c: 20, m: 1, min: 2, max: 4, l: [] }] },
+          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] }
+        ]
+      },
+      2: {
+        id: 2,
+        pid: 2,
+        encounters: [
+          { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] },
+          { aid: 5, v: 1, d: [{ c: 20, m: 1, min: 2, max: 4, l: [] }] },
+          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] }
+        ]
+      }
+    },
     ancestralEncounters: {},
     pokemonMetadata: {
+      1: {
+        id: 1,
+        n: 'Bulbasaur',
+        evolves_from: [],
+        details: [],
+        evolves_to: [],
+      },
       196: {
         id: 196,
         n: 'Espeon',
@@ -87,11 +130,15 @@ test('coverage for suggestionEngine new lines', () => {
       }, // Machamp (Trade)
     },
     areaNames: {},
-    allLocations: [],
+    allLocations: [
+      { id: 0, n: 'Start', pids: [], dist: { 5: 2, 6: 5 }, parentId: undefined },
+      { id: 5, n: 'Route 1', pids: [], dist: { 0: 2, 5: 0 }, parentId: undefined },
+      { id: 6, n: 'Route 2', pids: [], dist: { 0: 5, 6: 0 }, parentId: undefined }
+    ],
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
 
   const espeon = suggestions.find((s) => s.pokemonId === 196);
   expect(espeon).toBeDefined();
@@ -118,6 +165,78 @@ test('coverage for suggestionEngine new lines', () => {
   const machamp = suggestions.find((s) => s.pokemonId === 68);
   expect(machamp).toBeDefined();
   expect(machamp?.title).toContain('Trade Evolution');
+
+  // expect nearbyCatch removed for main lines
+});
+
+test('coverage for suggestionEngine catch coverage', () => {
+  const mockSaveData = {
+    generation: 1,
+    gameVersion: 'red',
+    owned: new Set([4, 5, 6]), // Has Charmander
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localAid: null,
+    localEncounters: [],
+    missingEncounters: {
+      1: {
+        id: 1,
+        pid: 1,
+        encounters: [
+          { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] },
+          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] }
+        ]
+      },
+      2: {
+        id: 2,
+        pid: 2,
+        encounters: [
+          { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] },
+          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] }
+        ]
+      }
+    },
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      1: {
+        id: 1,
+        n: 'Bulbasaur',
+        evolves_from: [],
+        details: [],
+        evolves_to: [],
+      },
+      2: {
+        id: 2,
+        n: 'Ivysaur',
+        evolves_from: [1],
+        details: [],
+        evolves_to: [],
+      }
+    },
+    areaNames: {},
+    allLocations: [
+      { id: 0, n: 'Start', pids: [], dist: { 5: 2, 6: 5 }, parentId: undefined },
+      { id: 5, n: 'Route 1', pids: [], dist: { 0: 2, 5: 0 }, parentId: undefined },
+      { id: 6, n: 'Route 2', pids: [], dist: { 0: 5, 6: 0 }, parentId: undefined }
+    ],
+    allAreas: [],
+  } as unknown as AssistantApiData;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+  const nearbyCatch1 = suggestions.find((s) => s.pokemonId === 1);
+  expect(nearbyCatch1).toBeDefined();
+
+  const nearbyCatch2 = suggestions.find((s) => s.pokemonId === 2);
+  expect(nearbyCatch2).toBeDefined();
 });
 
 test('coverage for suggestionEngine edge cases', () => {
