@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { AlertTriangle, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
-import React, { useEffect } from 'react';
+import type React from 'react';
+import { useEffect } from 'react';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
@@ -10,7 +11,6 @@ import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
-
   useEffect(() => {
     // Catch chunk load errors from Vite
     const handleChunkError = (e: ErrorEvent) => {

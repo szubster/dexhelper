@@ -2,7 +2,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
 import { act, render, waitFor } from '@testing-library/react';
-import React from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { AppLayout } from '../AppLayout';
 
@@ -12,7 +11,11 @@ describe('AppLayout chunk error handling', () => {
   });
 
   const rootRoute = createRootRoute({
-    component: () => <AppLayout><div>Test Child</div></AppLayout>,
+    component: () => (
+      <AppLayout>
+        <div>Test Child</div>
+      </AppLayout>
+    ),
   });
 
   const router = createRouter({
@@ -43,7 +46,7 @@ describe('AppLayout chunk error handling', () => {
       render(
         <QueryClientProvider client={queryClient}>
           <RouterProvider router={router} />
-        </QueryClientProvider>
+        </QueryClientProvider>,
       );
     });
 
@@ -64,7 +67,7 @@ describe('AppLayout chunk error handling', () => {
       render(
         <QueryClientProvider client={queryClient}>
           <RouterProvider router={router} />
-        </QueryClientProvider>
+        </QueryClientProvider>,
       );
     });
 
@@ -76,7 +79,7 @@ describe('AppLayout chunk error handling', () => {
     });
 
     // Wait slightly to ensure it's not called
-    await new Promise(r => setTimeout(r, 50));
+    await new Promise((r) => setTimeout(r, 50));
     expect(window.location.reload).not.toHaveBeenCalled();
   });
 });
