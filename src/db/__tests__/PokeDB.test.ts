@@ -44,7 +44,6 @@ describe('PokeDB', () => {
     await tx.done;
   });
 
-
   it('skips fetch if IndexedDB has the same build hash', async () => {
     const db = await getDB();
     const tx = db.transaction(DB_CONFIG.STORES.METADATA, 'readwrite');
@@ -62,7 +61,7 @@ describe('PokeDB', () => {
     vi.mocked(fetch).mockResolvedValueOnce({
       ok: false,
       status: 500,
-      statusText: 'Internal Server Error'
+      statusText: 'Internal Server Error',
     } as Response);
 
     await expect(pokeDB.sync()).rejects.toThrow('Failed to fetch pokedata.json: 500 Internal Server Error');
@@ -70,7 +69,7 @@ describe('PokeDB', () => {
     // Verify it was reset by calling again with a successful fetch
     vi.mocked(fetch).mockResolvedValueOnce({
       ok: true,
-      json: async () => ({ hash: 'test-hash-2', poke: [], enc: [], loc: [] })
+      json: async () => ({ hash: 'test-hash-2', poke: [], enc: [], loc: [] }),
     } as Response);
 
     await pokeDB.sync();
@@ -87,7 +86,7 @@ describe('PokeDB', () => {
 
     vi.mocked(fetch).mockResolvedValueOnce({
       ok: true,
-      json: async () => ({ hash: 'old-hash', poke: [], enc: [], loc: [] })
+      json: async () => ({ hash: 'old-hash', poke: [], enc: [], loc: [] }),
     } as Response);
 
     const transactionSpy = vi.spyOn(db, 'transaction');
@@ -96,7 +95,12 @@ describe('PokeDB', () => {
 
     expect(fetch).toHaveBeenCalledTimes(1);
 
-    const allStoreNames = [DB_CONFIG.STORES.POKEMON, DB_CONFIG.STORES.ENCOUNTERS, DB_CONFIG.STORES.LOCATIONS, DB_CONFIG.STORES.METADATA];
+    const allStoreNames = [
+      DB_CONFIG.STORES.POKEMON,
+      DB_CONFIG.STORES.ENCOUNTERS,
+      DB_CONFIG.STORES.LOCATIONS,
+      DB_CONFIG.STORES.METADATA,
+    ];
     expect(transactionSpy).not.toHaveBeenCalledWith(allStoreNames, 'readwrite');
 
     transactionSpy.mockRestore();
@@ -118,7 +122,7 @@ describe('PokeDB', () => {
     const originalWindow = global.window;
     const dispatchEventMock = vi.fn();
 
-    // @ts-ignore
+    // @ts-expect-error
     global.window = { dispatchEvent: dispatchEventMock };
 
     await pokeDB.sync();
@@ -127,9 +131,9 @@ describe('PokeDB', () => {
     const progressEvents = events.filter((e) => e.type === 'pokedata-sync-progress');
 
     expect(progressEvents).toHaveLength(3);
-    expect(progressEvents[0].detail).toEqual({ current: 1, total: 3, stage: 'Pokemon' });
-    expect(progressEvents[1].detail).toEqual({ current: 2, total: 3, stage: 'Encounters' });
-    expect(progressEvents[2].detail).toEqual({ current: 3, total: 3, stage: 'Locations' });
+    expect(progressEvents[0]?.detail).toEqual({ current: 1, total: 3, stage: 'Pokemon' });
+    expect(progressEvents[1]?.detail).toEqual({ current: 2, total: 3, stage: 'Encounters' });
+    expect(progressEvents[2]?.detail).toEqual({ current: 3, total: 3, stage: 'Locations' });
 
     global.window = originalWindow;
   });
