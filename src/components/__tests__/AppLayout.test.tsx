@@ -41,7 +41,7 @@ describe('AppLayout chunk error handling', () => {
   });
 
   it('should reload the page when a chunk load error occurs', async () => {
-    const { getByText } = render(
+    const { getByText } = await render(
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>,
@@ -60,7 +60,7 @@ describe('AppLayout chunk error handling', () => {
   });
 
   it('should not reload the page for other errors', async () => {
-    const { getByText } = render(
+    const { getByText } = await render(
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>,
