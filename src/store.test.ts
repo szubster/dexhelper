@@ -1,7 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { useStore } from './store';
 import * as secureStorage from './db/secureStorage';
-import { storeSaveData } from './db/secureStorage';
+import { useStore } from './store';
 
 vi.mock('./db/secureStorage', () => ({
   loadSaveData: vi.fn(),
