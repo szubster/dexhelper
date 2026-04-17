@@ -4,12 +4,10 @@ import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
-
 test('coverage for suggestionEngine new lines', () => {
   const mockSaveData: SaveData = {
     generation: 2,
     gameVersion: 'red',
-    currentMapId: 0,
     // Mock owned up to 251 except the ones we want to suggest (targets must be missing)
     owned: new Set(
       [...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237, 136, 68].includes(i)),
@@ -40,16 +38,7 @@ test('coverage for suggestionEngine new lines', () => {
       133: {
         id: 133,
         pid: 133,
-        encounters: [
-          { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] }
-        ]
-      },
-      133: {
-        id: 133,
-        pid: 133,
-        encounters: [
-          { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] }
-        ]
+        encounters: [{ aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] }],
       },
       1: {
         id: 1,
@@ -57,8 +46,8 @@ test('coverage for suggestionEngine new lines', () => {
         encounters: [
           { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] },
           { aid: 5, v: 1, d: [{ c: 20, m: 1, min: 2, max: 4, l: [] }] },
-          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] }
-        ]
+          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] },
+        ],
       },
       2: {
         id: 2,
@@ -66,9 +55,9 @@ test('coverage for suggestionEngine new lines', () => {
         encounters: [
           { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] },
           { aid: 5, v: 1, d: [{ c: 20, m: 1, min: 2, max: 4, l: [] }] },
-          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] }
-        ]
-      }
+          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] },
+        ],
+      },
     },
     ancestralEncounters: {},
     pokemonMetadata: {
@@ -133,7 +122,7 @@ test('coverage for suggestionEngine new lines', () => {
     allLocations: [
       { id: 0, n: 'Start', pids: [], dist: { 5: 2, 6: 5 }, parentId: undefined },
       { id: 5, n: 'Route 1', pids: [], dist: { 0: 2, 5: 0 }, parentId: undefined },
-      { id: 6, n: 'Route 2', pids: [], dist: { 0: 5, 6: 0 }, parentId: undefined }
+      { id: 6, n: 'Route 2', pids: [], dist: { 0: 5, 6: 0 }, parentId: undefined },
     ],
     allAreas: [],
   } as unknown as AssistantApiData;
@@ -193,17 +182,17 @@ test('coverage for suggestionEngine catch coverage', () => {
         pid: 1,
         encounters: [
           { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] },
-          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] }
-        ]
+          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] },
+        ],
       },
       2: {
         id: 2,
         pid: 2,
         encounters: [
           { aid: 5, v: 1, d: [{ c: 10, m: 1, min: 2, max: 4, l: [] }] },
-          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] }
-        ]
-      }
+          { aid: 6, v: 1, d: [{ c: 5, m: 1, min: 2, max: 4, l: [] }] },
+        ],
+      },
     },
     ancestralEncounters: {},
     pokemonMetadata: {
@@ -220,13 +209,13 @@ test('coverage for suggestionEngine catch coverage', () => {
         evolves_from: [1],
         details: [],
         evolves_to: [],
-      }
+      },
     },
     areaNames: {},
     allLocations: [
       { id: 0, n: 'Start', pids: [], dist: { 5: 2, 6: 5 }, parentId: undefined },
       { id: 5, n: 'Route 1', pids: [], dist: { 0: 2, 5: 0 }, parentId: undefined },
-      { id: 6, n: 'Route 2', pids: [], dist: { 0: 5, 6: 0 }, parentId: undefined }
+      { id: 6, n: 'Route 2', pids: [], dist: { 0: 5, 6: 0 }, parentId: undefined },
     ],
     allAreas: [],
   } as unknown as AssistantApiData;
