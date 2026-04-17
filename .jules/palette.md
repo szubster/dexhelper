@@ -25,3 +25,6 @@
 ## 2024-04-12 - Custom Segmented Control ARIA Roles
 **Learning:** When creating custom segmented controls with mutually exclusive options, using `role="switch"` is incorrect as switches imply an on/off state. `role="group"` is also too generic. A segmented control is conceptually a set of radio buttons.
 **Action:** Use `role="radiogroup"` for the container and `role="radio"` for the individual buttons, along with `aria-checked={boolean}` and proper `aria-label`s on the container, to ensure screen readers correctly interpret the mutually exclusive selection pattern.
+## 2026-04-09 - Accessible Search Inputs
+**Learning:** Standard text inputs used for searching often lack intuitive keyboard navigation and immediate visual feedback when clearing text. Without focus returning to the input after clearing, users must manually re-focus the input to start a new search, disrupting the workflow.
+**Action:** Always add keyboard shortcuts (like `Escape`) to clear search inputs. When a clear button is used, ensure it has visible focus styles and that its `onClick` handler programmatically returns focus back to the search input.
