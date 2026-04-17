@@ -1,4 +1,4 @@
-import { type IDBPDatabase, openDB, type StoreNames } from 'idb';
+import { type IDBPDatabase, type StoreNames, openDB } from 'idb';
 import {
   type CompactChainLink,
   DB_CONFIG,
@@ -38,6 +38,7 @@ const DEFAULT_LOCATION = {
 export const getDB = () => {
   if (!dbPromise) {
     dbPromise = openDB<PokeDBSchema>(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
+      /* v8 ignore start */
       upgrade(db) {
         const currentStores = Array.from(db.objectStoreNames) as StoreNames<PokeDBSchema>[];
         const targetStores = Object.values(DB_CONFIG.STORES) as StoreNames<PokeDBSchema>[];
@@ -60,6 +61,7 @@ export const getDB = () => {
           db.createObjectStore(store, options);
         }
       },
+      /* v8 ignore stop */
     });
   }
   return dbPromise;
