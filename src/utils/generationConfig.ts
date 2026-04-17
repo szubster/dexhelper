@@ -113,9 +113,11 @@ export const GENERATION_CONFIGS: Record<number, GenerationConfig> = {
   // Future: 3: gen3Config, 4: gen4Config, etc.
 };
 
-/** Get the config for a generation with a safe fallback to Gen 1 */
+/** Get the config for a generation */
 export function getGenerationConfig(gen: number): GenerationConfig {
-  return GENERATION_CONFIGS[gen] ?? (GENERATION_CONFIGS[1] as GenerationConfig);
+  const config = GENERATION_CONFIGS[gen];
+  if (!config) throw new Error(`Unknown generation: ${gen}`);
+  return config;
 }
 
 /** Reverse lookup: given a version ID like 'red', find its generation config and version info */
