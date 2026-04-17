@@ -1,4 +1,4 @@
-import { type IDBPDatabase, type StoreNames, openDB } from 'idb';
+import { type IDBPDatabase, openDB, type StoreNames } from 'idb';
 import {
   type CompactChainLink,
   DB_CONFIG,
