@@ -36,16 +36,23 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const strategy = getStrategy(saveData.generation);
   const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations) : null;
 
-  const allEncounters = await pokeDB.getAllEncounters();
-  const localEncounters = localAid ? allEncounters.filter((lae) => lae.encounters.some((e) => e.aid === localAid)) : [];
-
+  const loadedEncounters = await dexDataLoader.encounters.loadMany(queryTargets);
   const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
 
-  // Fill missingEncounters
-  for (const pid of queryTargets) {
-    const enc = allEncounters.find((e) => e.pid === pid);
-    if (enc) missingEncounters[pid] = enc;
+  queryTargets.forEach((pid, idx) => {
+    const enc = loadedEncounters[idx];
+    if (enc && !(enc instanceof Error)) missingEncounters[pid] = enc;
+  });
+
+  // Fetch local encounters based on location's pids
+  let localEncounters: LocationAreaEncounters[] = [];
+  if (localAid !== null) {
+    const loc = allLocations.find((l) => l.id === localAid);
+    if (loc?.pids && loc.pids.length > 0) {
+      const localEncs = await dexDataLoader.encounters.loadMany(loc.pids);
+      localEncounters = localEncs.filter((enc) => enc && !(enc instanceof Error)) as LocationAreaEncounters[];
+    }
   }
 
   // 1. Get all relevant Pokemon details (Target, Party, Gifts)
