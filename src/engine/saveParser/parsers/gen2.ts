@@ -28,6 +28,43 @@ export function parseCaughtData(u8: Uint8Array, offset: number) {
   return { time, level: caughtLevel, location, locationName };
 }
 
+export function parseGen2PokemonInstance(
+  u8: Uint8Array,
+  offset: number,
+  isCrystal: boolean,
+  storageLocation: string,
+  slot?: number,
+): PokemonInstance | undefined {
+  const speciesId = byte(u8, offset);
+  if (!speciesId || (speciesId > 251 && speciesId !== 253)) return undefined;
+
+  const item = byte(u8, offset + 1);
+  const moves = Array.from(u8.slice(offset + 2, offset + 6)).filter((m) => m > 0);
+  const dvs = parseDVs(u8.slice(offset + 21, offset + 23));
+  const isShiny = checkShiny(dvs);
+  const friendship = byte(u8, offset + 27);
+  const pokerus = byte(u8, offset + 28);
+  const level = byte(u8, offset + 31);
+  const caughtData = isCrystal ? parseCaughtData(u8, offset) : undefined;
+
+  // OT names in daycare are immediately after the data block
+  const otName = storageLocation === 'Daycare' ? decodeGen12String(u8, offset + 32) : undefined;
+
+  return {
+    speciesId,
+    level,
+    isShiny,
+    item,
+    moves,
+    friendship,
+    pokerus,
+    caughtData,
+    otName,
+    storageLocation,
+    slot,
+  };
+}
+
 export function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersion {
   const goldExclusives = [56, 57, 58, 59, 167, 168, 190, 207, 249];
   const silverExclusives = [37, 38, 52, 53, 165, 166, 216, 217, 227, 250];
@@ -117,35 +154,12 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
 
   const partyDetails: PokemonInstance[] = [];
   const partyDataOffset = offsets.partySpecies + 7; // After species list
-  const partyOTOffset = partyDataOffset + 6 * 48;
   for (let i = 0; i < partyCount; i++) {
-    const offset = partyDataOffset + i * 48; // Gen 2 party struct is 48 bytes
-    const speciesId = byte(u8, offset);
-    if (!speciesId || speciesId > 251) continue;
-
-    const item = byte(u8, offset + 1);
-    const moves = Array.from(u8.slice(offset + 2, offset + 6)).filter((m) => m > 0);
-    const dvs = parseDVs(u8.slice(offset + 21, offset + 23)); // DVs at 0x15
-    const isShiny = checkShiny(dvs);
-    const friendship = byte(u8, offset + 27); // 0x1B
-    const pokerus = byte(u8, offset + 28); // 0x1C
-    const level = byte(u8, offset + 31); // 0x1F
-    const caughtData = isCrystal ? parseCaughtData(u8, offset) : undefined;
-    const otName = decodeGen12String(u8, partyOTOffset + i * 11);
-
-    partyDetails.push({
-      speciesId,
-      level,
-      isShiny,
-      item,
-      moves,
-      friendship,
-      pokerus,
-      caughtData,
-      otName,
-      storageLocation: 'Party',
-      slot: i + 1,
-    });
+    const offset = partyDataOffset + i * 48;
+    const p = parseGen2PokemonInstance(u8, offset, isCrystal, 'Party', i + 1);
+    if (p) {
+      partyDetails.push(p);
+    }
   }
 
   const currentBoxNum = byte(u8, offsets.currentBoxNum) & 0x0f;
@@ -155,35 +169,12 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
 
   const pcDetails: PokemonInstance[] = [];
   const currentBoxDataOffset = offsets.currentBoxSpecies + 21; // After species list
-  const currentBoxOTOffset = currentBoxDataOffset + 20 * 32;
   for (let i = 0; i < currentBoxCount; i++) {
-    const offset = currentBoxDataOffset + i * 32; // Gen 2 PC struct is 32 bytes
-    const speciesId = byte(u8, offset);
-    if (!speciesId || speciesId > 251) continue;
-
-    const item = byte(u8, offset + 1);
-    const moves = Array.from(u8.slice(offset + 2, offset + 6)).filter((m) => m > 0);
-    const dvs = parseDVs(u8.slice(offset + 21, offset + 23)); // DVs at 0x15
-    const isShiny = checkShiny(dvs);
-    const friendship = byte(u8, offset + 27); // 0x1B
-    const pokerus = byte(u8, offset + 28); // 0x1C
-    const level = byte(u8, offset + 31); // 0x1F
-    const caughtData = isCrystal ? parseCaughtData(u8, offset) : undefined;
-    const otName = decodeGen12String(u8, currentBoxOTOffset + i * 11);
-
-    pcDetails.push({
-      speciesId,
-      level,
-      isShiny,
-      item,
-      moves,
-      friendship,
-      pokerus,
-      caughtData,
-      otName,
-      storageLocation: `Box ${currentBoxNum + 1}`,
-      slot: i + 1,
-    });
+    const offset = currentBoxDataOffset + i * 32;
+    const p = parseGen2PokemonInstance(u8, offset, isCrystal, `Box ${currentBoxNum + 1}`, i + 1);
+    if (p) {
+      pcDetails.push(p);
+    }
   }
 
   const boxOffsets = [
@@ -213,35 +204,12 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     pc.push(...Array.from(species).filter((id) => id > 0 && id <= 251));
 
     const boxDataOffset = offset + 22;
-    const boxOTOffset = boxDataOffset + 20 * 32;
     for (let j = 0; j < count; j++) {
       const pOff = boxDataOffset + j * 32;
-      const speciesId = byte(u8, pOff);
-      if (!speciesId || speciesId > 251) continue;
-
-      const item = byte(u8, pOff + 1);
-      const moves = Array.from(u8.slice(pOff + 2, pOff + 6)).filter((m) => m > 0);
-      const dvs = parseDVs(u8.slice(pOff + 21, pOff + 23));
-      const isShiny = checkShiny(dvs);
-      const friendship = byte(u8, pOff + 27);
-      const pokerus = byte(u8, pOff + 28);
-      const level = byte(u8, pOff + 31);
-      const caughtData = isCrystal ? parseCaughtData(u8, pOff) : undefined;
-      const otName = decodeGen12String(u8, boxOTOffset + j * 11);
-
-      pcDetails.push({
-        speciesId,
-        level,
-        isShiny,
-        item,
-        moves,
-        friendship,
-        pokerus,
-        caughtData,
-        otName,
-        storageLocation: `Box ${i + 1}`,
-        slot: j + 1,
-      });
+      const p = parseGen2PokemonInstance(u8, pOff, isCrystal, `Box ${i + 1}`, j + 1);
+      if (p) {
+        pcDetails.push(p);
+      }
     }
   }
 
@@ -250,28 +218,23 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
 
   // Daycare Gen 2
   const daycare1Offset = isCrystal ? 0x282c : 0x2850;
-  if (byte(u8, daycare1Offset) !== 0 && byte(u8, daycare1Offset) !== 0xff) {
-    const speciesId = byte(u8, daycare1Offset);
-    const item = byte(u8, daycare1Offset + 1);
-    const moves = Array.from(u8.slice(daycare1Offset + 2, daycare1Offset + 6)).filter((m) => m > 0);
-    const dvs = parseDVs(u8.slice(daycare1Offset + 21, daycare1Offset + 23));
-    const isShiny = checkShiny(dvs);
-    const friendship = byte(u8, daycare1Offset + 27);
-    const pokerus = byte(u8, daycare1Offset + 28);
-    const level = byte(u8, daycare1Offset + 31);
-    const otName = decodeGen12String(u8, daycare1Offset + 32);
-    pcDetails.push({
-      speciesId,
-      level,
-      isShiny,
-      item,
-      moves,
-      friendship,
-      pokerus,
-      otName,
-      storageLocation: 'Daycare',
-    });
+  const daycare2Offset = daycare1Offset - 57;
+  const daycareEggOffset = daycare1Offset - 1;
+
+  const daycare: PokemonInstance[] = [];
+
+  for (const offset of [daycare1Offset, daycare2Offset]) {
+    const speciesId = byte(u8, offset);
+    if (speciesId !== 0 && speciesId !== 0xff) {
+      const p = parseGen2PokemonInstance(u8, offset, isCrystal, 'Daycare');
+      if (p) {
+        daycare.push(p);
+        pcDetails.push(p);
+      }
+    }
   }
+
+  const daycareHasEgg = (byte(u8, daycareEggOffset) & 0x01) !== 0;
 
   let badges = 0;
   for (let i = 0; i < 8; i++) {
@@ -324,6 +287,8 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     currentMapName,
     mapGroup,
     inventory,
+    daycare,
+    daycareHasEgg,
     currentBoxCount: 0,
     hallOfFameCount: 0,
   };

@@ -44,6 +44,8 @@ export interface SaveData {
   hallOfFameCount: number;
   eventFlags?: Uint8Array;
   npcTradeFlags?: number;
+  daycare?: PokemonInstance[];
+  daycareHasEgg?: boolean;
 }
 
 export function byte(u8: Uint8Array, offset: number): number {
