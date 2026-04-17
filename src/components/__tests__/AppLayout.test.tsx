@@ -1,13 +1,8 @@
-/** @vitest-environment jsdom */
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
-import { act } from 'react';
-import { createRoot, type Root } from 'react-dom/client';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { render } from 'vitest-browser-react';
 import { AppLayout } from '../AppLayout';
-
-// biome-ignore lint/suspicious/noExplicitAny: Required for React 19 testing in JSDOM
-(globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
 describe('AppLayout chunk error handling', () => {
   const queryClient = new QueryClient({
@@ -28,14 +23,8 @@ describe('AppLayout chunk error handling', () => {
   });
 
   let originalLocation: Location;
-  let container: HTMLDivElement | null = null;
-  let root: Root | null = null;
 
   beforeEach(() => {
-    container = document.createElement('div');
-    document.body.appendChild(container);
-    root = createRoot(container);
-
     originalLocation = window.location;
     Object.defineProperty(window, 'location', {
       configurable: true,
@@ -44,16 +33,6 @@ describe('AppLayout chunk error handling', () => {
   });
 
   afterEach(() => {
-    if (root) {
-      act(() => {
-        root?.unmount();
-      });
-    }
-    if (container) {
-      document.body.removeChild(container);
-      container = null;
-    }
-
     Object.defineProperty(window, 'location', {
       configurable: true,
       value: originalLocation,
@@ -62,41 +41,37 @@ describe('AppLayout chunk error handling', () => {
   });
 
   it('should reload the page when a chunk load error occurs', async () => {
-    await act(async () => {
-      root?.render(
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-        </QueryClientProvider>,
-      );
-    });
+    const { getByText } = render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    await expect.element(getByText('Test Child')).toBeInTheDocument();
 
     const errorEvent = new window.ErrorEvent('error', {
       message: 'Failed to fetch dynamically imported module',
     });
+    window.dispatchEvent(errorEvent);
 
-    await act(async () => {
-      window.dispatchEvent(errorEvent);
+    await vi.waitFor(() => {
+      expect(window.location.reload).toHaveBeenCalledTimes(1);
     });
-
-    expect(window.location.reload).toHaveBeenCalledTimes(1);
   });
 
   it('should not reload the page for other errors', async () => {
-    await act(async () => {
-      root?.render(
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-        </QueryClientProvider>,
-      );
-    });
+    const { getByText } = render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    await expect.element(getByText('Test Child')).toBeInTheDocument();
 
     const errorEvent = new window.ErrorEvent('error', {
       message: 'Some other random error',
     });
-
-    await act(async () => {
-      window.dispatchEvent(errorEvent);
-    });
+    window.dispatchEvent(errorEvent);
 
     await new Promise((r) => setTimeout(r, 50));
     expect(window.location.reload).not.toHaveBeenCalled();

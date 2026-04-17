@@ -103,6 +103,7 @@ export default defineConfig(() => {
     test: {
       globals: true,
       include: ['**/*.test.ts', '**/*.test.tsx'],
+      exclude: ['node_modules', 'dist', 'tests/e2e', 'src/components/__tests__/**/*.tsx'],
     },
   };
 });
