@@ -9,7 +9,8 @@ import {
   type CompactEncounter,
   POKE_VERSION_MAP,
   ENCOUNTER_METHOD_MAP,
-  EVO_TRIGGER_MAP
+  EVO_TRIGGER_MAP,
+  ITEM_MAP
 } from '../src/db/schema.ts';
 import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from './data/gen1/mapping.ts';
 import { GEN2_MAP_TO_AID, decodeGen2Id } from './data/gen2/mapping.ts';
@@ -350,14 +351,35 @@ async function main() {
       return {
         id,
         evolves_to: link.evolves_to.map(l => mapLink(l, id)),
-        details: link.evolution_details.map((ed) => ({
-          tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
-          min_l: ed.min_level ?? undefined,
-          min_h: ed.min_happiness ?? undefined,
-          item: ed.item ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
-          held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
-          time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
-        })),
+        details: link.evolution_details.map((ed) => {
+          let itemObj = undefined;
+          let heldObj = undefined;
+
+          if (ed.item) {
+             const itemId = parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10);
+             // Skip pokeapi item layer entirely if it's not mapped in ITEM_MAP
+             // as we only care about mapping to internal games and unsupported ones are useless
+             if (ITEM_MAP[itemId]) {
+                 itemObj = itemId;
+             }
+          }
+
+          if (ed.held_item) {
+             const heldId = parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10);
+             if (ITEM_MAP[heldId]) {
+                 heldObj = heldId;
+             }
+          }
+
+          return {
+            tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
+            min_l: ed.min_level ?? undefined,
+            min_h: ed.min_happiness ?? undefined,
+            item: itemObj,
+            held: heldObj,
+            time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
+          };
+        }),
         ef,
       };
     };
