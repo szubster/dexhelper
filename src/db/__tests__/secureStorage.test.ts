@@ -1,7 +1,7 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import 'fake-indexeddb/auto';
-import { storeSaveData, loadSaveData, clearSaveData } from '../secureStorage';
 import { openDB } from 'idb';
+import { clearSaveData, loadSaveData, storeSaveData } from '../secureStorage';
 
 describe('secureStorage', () => {
   beforeEach(async () => {

@@ -144,7 +144,7 @@ describe('Zustand Store', () => {
         removeItem: mockRemoveItem,
       });
 
-      const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+      vi.spyOn(console, 'error').mockImplementation(() => {});
 
       await useStore.getState().loadSaveFromStorage();
 
@@ -152,7 +152,7 @@ describe('Zustand Store', () => {
       expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
 
       // Verify that it caught the error, logged it, and cleared secure storage
-      expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file from secure storage:', 'Corrupted data');
+      expect(console.error).toHaveBeenCalledWith('Failed to load saved file from secure storage:', 'Corrupted data');
       expect(secureStorage.clearSaveData).toHaveBeenCalled();
 
       vi.restoreAllMocks();
@@ -166,7 +166,7 @@ describe('Zustand Store', () => {
         removeItem: mockRemoveItem,
       });
 
-      const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+      vi.spyOn(console, 'error').mockImplementation(() => {});
 
       await useStore.getState().loadSaveFromStorage();
 
