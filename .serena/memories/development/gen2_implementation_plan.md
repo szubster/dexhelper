@@ -18,8 +18,8 @@ While the current app has basic support for parsing Gen 2 (Gold/Silver/Crystal) 
 ### Phase 1: Save Parser Expansion (Engine Data Layer)
 *The parsing engine (`src/engine/saveParser/parsers/gen2.ts`) is currently missing critical Gen 2 structs.*
 * [x] ~~**Real-Time Clock Extraction**~~ (Skipped/Not Needed): Assistant will simply state the time/day requirements to the user, allowing them to wait for the appropriate period instead of restricting suggestions based on emulator-specific RTC metadata.
-* [ ] **Secondary Daycare Slot:** The current parser only reads `daycare1Offset`. Add parsing for the second slot to support breeding detection and egg prediction.
-* [ ] **Egg State Detection:** Party parsing currently just loads species. Need to flag if a party member is currently an Egg (Species ID 253 in RAM, or checking the egg flag) so suggestions don't treat it as a hatched Pokémon.
+* [x] **Secondary Daycare Slot:** (Implemented in PR #251) The current parser only reads `daycare1Offset`. Add parsing for the second slot to support breeding detection and egg prediction.
+* [x] **Egg State Detection:** (Implemented in PR #251) Party parsing currently just loads species. Need to flag if a party member is currently an Egg (Species ID 253 in RAM, or checking the egg flag) so suggestions don't treat it as a hatched Pokémon.
 * [ ] **Detailed Inventory Parsing:** Extract Key Items (Squirtbottle, special Rods), TM/HMs (Headbutt, Rock Smash), Apricorns, and Evolution Items.
 * [ ] **Hall of Fame & Roamers:** Extract Hall of fame count (currently hardcoded) and the specific map locations of roaming legendaries from RAM.
 
