@@ -264,7 +264,10 @@ export const pokeDB = {
     const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
     if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
 
-    const fetched = await Promise.all(validIds.map((id) => db.get(DB_CONFIG.STORES.POKEMON, id)));
+    const tx = db.transaction(DB_CONFIG.STORES.POKEMON, 'readonly');
+    const store = tx.objectStore(DB_CONFIG.STORES.POKEMON);
+    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    await tx.done;
     const resultMap = new Map<number, PokemonMetadata>();
     for (const p of fetched) {
       if (p) resultMap.set(p.id, p);
