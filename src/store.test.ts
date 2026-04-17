@@ -159,6 +159,48 @@ describe('Zustand Store', () => {
       vi.unstubAllGlobals();
     });
 
+    it('should handle invalid base64 during legacy save migration', async () => {
+      const mockRemoveItem = vi.fn();
+      vi.stubGlobal('localStorage', {
+        getItem: vi.fn().mockReturnValue('invalid-base64-!@#'),
+        removeItem: mockRemoveItem,
+      });
+
+      const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+      await useStore.getState().loadSaveFromStorage();
+
+      // Verify that it skipped migration and cleared the key
+      expect(secureStorage.storeSaveData).not.toHaveBeenCalled();
+      expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
+      // It should still log because the *next* block (loadSaveData) fails in our mocks
+      // expect(mockConsoleError).not.toHaveBeenCalled(); // The regex just skips it without throwing
+
+      vi.restoreAllMocks();
+      vi.unstubAllGlobals();
+    });
+
+    it('should catch and log error during legacy migration if parsing fails', async () => {
+      const mockRemoveItem = vi.fn();
+      vi.stubGlobal('localStorage', {
+        getItem: vi.fn().mockReturnValue('aGVsbG8='), // valid base64
+        removeItem: mockRemoveItem,
+      });
+
+      // Force storeSaveData to fail
+      vi.mocked(secureStorage.storeSaveData).mockRejectedValueOnce(new Error('Storage full'));
+
+      const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+      await useStore.getState().loadSaveFromStorage();
+
+      expect(mockConsoleError).toHaveBeenCalledWith('Failed to migrate legacy save file:', expect.any(Error));
+      expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
+
+      vi.restoreAllMocks();
+      vi.unstubAllGlobals();
+    });
+
     it('should migrate legacy save file successfully', async () => {
       vi.mocked(secureStorage.loadSaveData).mockResolvedValue(undefined);
 
