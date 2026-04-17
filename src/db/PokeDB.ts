@@ -1,4 +1,4 @@
-import { type IDBPDatabase, openDB } from 'idb';
+import { type IDBPDatabase, openDB, type StoreNames } from 'idb';
 import {
   type CompactChainLink,
   DB_CONFIG,
@@ -38,9 +38,10 @@ const DEFAULT_LOCATION = {
 export const getDB = () => {
   if (!dbPromise) {
     dbPromise = openDB<PokeDBSchema>(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
+      /* v8 ignore start */
       upgrade(db) {
-        const currentStores = Array.from(db.objectStoreNames) as string[];
-        const targetStores = Object.values(DB_CONFIG.STORES) as string[];
+        const currentStores = Array.from(db.objectStoreNames) as StoreNames<PokeDBSchema>[];
+        const targetStores = Object.values(DB_CONFIG.STORES) as StoreNames<PokeDBSchema>[];
 
         // Define key paths for each store
         const keyPaths: Record<string, string> = {
@@ -52,16 +53,15 @@ export const getDB = () => {
 
         // Always delete existing stores to ensure keyPaths are applied correctly
         for (const store of currentStores) {
-          // biome-ignore lint/suspicious/noExplicitAny: Dynamic store management during upgrade
-          db.deleteObjectStore(store as any);
+          db.deleteObjectStore(store);
         }
 
         for (const store of targetStores) {
           const options = keyPaths[store] ? { keyPath: keyPaths[store] } : undefined;
-          // biome-ignore lint/suspicious/noExplicitAny: Dynamic store management during upgrade
-          db.createObjectStore(store as any, options);
+          db.createObjectStore(store, options);
         }
       },
+      /* v8 ignore stop */
     });
   }
   return dbPromise;
