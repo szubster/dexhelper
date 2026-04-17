@@ -35,6 +35,9 @@ jobs:
       - name: Type Check
         run: pnpm type-check
 
+      - name: Knip
+        run: pnpm run knip
+
       - name: Test
         run: pnpm test --coverage --reporter=junit --outputFile=test-report.junit.xml
 
@@ -54,6 +57,3 @@ jobs:
         run: pnpm build
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: BundleMon
-        uses: lironer/bundlemon-action@v1

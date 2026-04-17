@@ -26,7 +26,8 @@
     "check:biome": "biome check --error-on-warnings .",
     "type-check": "tsc --noEmit",
     "check:fix": "biome check --write --unsafe .",
-    "postinstall": "lefthook install"
+    "postinstall": "lefthook install",
+    "knip": "knip"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.99.0",
@@ -52,7 +53,6 @@
     "@tanstack/router-plugin": "^1.167.22",
     "@tsconfig/strictest": "^2.0.8",
     "@tsconfig/vite-react": "^7.0.2",
-    "@types/crypto-js": "^4.2.2",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -60,9 +60,8 @@
     "@vitest/coverage-v8": "^4.1.4",
     "@vitest/ui": "^4.1.4",
     "browserslist": "^4.28.2",
-    "bundlemon": "^3.1.0",
-    "crypto-js": "^4.2.0",
     "fake-indexeddb": "^6.2.5",
+    "knip": "^6.4.1",
     "lefthook": "^2.1.5",
     "lightningcss": "^1.32.0",
     "rollup-plugin-visualizer": "^7.0.1",
