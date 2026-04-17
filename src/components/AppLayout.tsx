@@ -5,6 +5,7 @@ import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
 import { getGenerationConfig, VERSION_THEMES } from '../utils/generationConfig';
+import { storeSaveData } from '../db/secureStorage';
 import { BottomNav } from './BottomNav';
 import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
@@ -24,7 +25,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = async (e) => {
       try {
         const buffer = e.target?.result as ArrayBuffer;
         const data = parseSaveFile(buffer, manualVersion || undefined);
@@ -37,13 +38,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           setManualVersion(null);
         }
 
-        let binary = '';
-        const bytes = new Uint8Array(buffer);
-        const len = bytes.byteLength;
-        for (let i = 0; i < len; i++) {
-          binary += String.fromCharCode(bytes[i] ?? 0);
-        }
-        localStorage.setItem('last_save_file', window.btoa(binary));
+        await storeSaveData(buffer);
       } catch (err: unknown) {
         const message = err instanceof Error ? err.message : 'Failed to parse save file.';
         setError(message);

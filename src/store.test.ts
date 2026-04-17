@@ -1,5 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useStore } from './store';
+import * as secureStorage from './db/secureStorage';
+import { storeSaveData } from './db/secureStorage';
+
+vi.mock('./db/secureStorage', () => ({
+  loadSaveData: vi.fn(),
+  clearSaveData: vi.fn(),
+  storeSaveData: vi.fn(),
+}));
 
 describe('Zustand Store', () => {
   beforeEach(() => {
@@ -126,21 +134,46 @@ describe('Zustand Store', () => {
       expect(useStore.getState().error).toBeNull();
     });
 
-    it('should handle corrupted save file from localStorage', () => {
-      // Mock localStorage to return an invalid base64 string
-      const mockGetItem = vi.fn().mockReturnValue('invalid-base64-!');
+    it('should handle corrupted save file from secure storage', async () => {
+      // Mock secure storage to throw an error
+      vi.mocked(secureStorage.loadSaveData).mockRejectedValue(new Error('Corrupted data'));
+
+      // Mock localStorage to ensure it handles legacy cleanup
       const mockRemoveItem = vi.fn();
       vi.stubGlobal('localStorage', {
-        getItem: mockGetItem,
+        getItem: vi.fn().mockReturnValue('legacy-data'),
         removeItem: mockRemoveItem,
       });
 
       const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-      useStore.getState().loadSaveFromStorage();
+      await useStore.getState().loadSaveFromStorage();
 
-      // Verify that it caught the error, logged it, and removed the corrupted item
-      expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file from localStorage:', expect.any(String));
+      // Verify legacy cleanup
+      expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
+
+      // Verify that it caught the error, logged it, and cleared secure storage
+      expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file from secure storage:', 'Corrupted data');
+      expect(secureStorage.clearSaveData).toHaveBeenCalled();
+
+      vi.restoreAllMocks();
+      vi.unstubAllGlobals();
+    });
+
+    it('should migrate legacy save file successfully', async () => {
+      vi.mocked(secureStorage.loadSaveData).mockResolvedValue(undefined);
+
+      const validBase64 = 'aGVsbG8='; // 'hello' in base64
+      const mockRemoveItem = vi.fn();
+      vi.stubGlobal('localStorage', {
+        getItem: vi.fn().mockReturnValue(validBase64),
+        removeItem: mockRemoveItem,
+      });
+
+      await useStore.getState().loadSaveFromStorage();
+
+      // Verify that storeSaveData was called with the decoded buffer
+      expect(secureStorage.storeSaveData).toHaveBeenCalled();
       expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
 
       vi.restoreAllMocks();
