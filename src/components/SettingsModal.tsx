@@ -1,5 +1,4 @@
 import { X } from 'lucide-react';
-import { clearSaveData } from '../db/secureStorage';
 import { useStore } from '../store';
 import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig';
 import { ClearStorageButton } from './settings/ClearStorageButton';
@@ -67,7 +66,6 @@ export function SettingsModal() {
           />
           <ClearStorageButton
             onClear={() => {
-              clearSaveData();
               localStorage.removeItem('last_save_file');
               setSaveData(null);
               setManualVersion(null);

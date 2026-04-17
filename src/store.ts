@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { clearSaveData, loadSaveData, storeSaveData } from './db/secureStorage';
 import type { GameVersion as GameVersionType, SaveData } from './engine/saveParser/index';
 import { parseSaveFile } from './engine/saveParser/index';
 
@@ -99,41 +98,30 @@ export const useStore = create<AppStore>()(
       filtersSet: () => new Set(get().filters),
 
       // Actions
-      loadSaveFromStorage: async () => {
-        // Migrate legacy insecure save if it exists
+      loadSaveFromStorage: () => {
         const savedFile = localStorage.getItem('last_save_file');
         if (savedFile) {
           try {
             const base64Regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
-            if (base64Regex.test(savedFile)) {
-              const binaryString = atob(savedFile);
-              const len = binaryString.length;
-              const bytes = new Uint8Array(len);
-              for (let i = 0; i < len; i++) {
-                bytes[i] = binaryString.charCodeAt(i);
-              }
-              await storeSaveData(bytes.buffer);
+            if (!base64Regex.test(savedFile)) {
+              throw new Error('Invalid Base64 string');
             }
+            const binaryString = window.atob(savedFile);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+              bytes[i] = binaryString.charCodeAt(i);
+            }
+            const { manualVersion } = get();
+            const data = parseSaveFile(bytes.buffer, manualVersion || undefined);
+            set({ saveData: data });
           } catch (err) {
-            console.error('Failed to migrate legacy save file:', err);
-          } finally {
+            console.error(
+              'Failed to load saved file from localStorage:',
+              err instanceof Error ? err.message : String(err),
+            );
             localStorage.removeItem('last_save_file');
           }
-        }
-
-        try {
-          const buffer = await loadSaveData();
-          if (buffer) {
-            const { manualVersion } = get();
-            const data = parseSaveFile(buffer, manualVersion || undefined);
-            set({ saveData: data });
-          }
-        } catch (err) {
-          console.error(
-            'Failed to load saved file from secure storage:',
-            err instanceof Error ? err.message : String(err),
-          );
-          await clearSaveData();
         }
       },
     }),
