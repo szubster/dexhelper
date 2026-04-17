@@ -1,0 +1,31 @@
+{
+  "baseDir": "./dist",
+  "pathLabels": {
+    "hash": "[a-zA-Z0-9-_]+"
+  },
+  "defaultCompression": "none",
+  "files": [
+    {
+      "path": "assets/index-<hash>.js",
+      "maxSize": "650kb"
+    },
+    {
+      "path": "assets/style-<hash>.css",
+      "maxSize": "100kb"
+    },
+    {
+      "path": "data/pokedata.json",
+      "maxSize": "800kb"
+    }
+  ],
+  "reportOutput": [
+    [
+      "github",
+      {
+        "checkRun": true,
+        "commitStatus": true,
+        "prComment": true
+      }
+    ]
+  ]
+}

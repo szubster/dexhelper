@@ -26,8 +26,7 @@
     "check:biome": "biome check --error-on-warnings .",
     "type-check": "tsc --noEmit",
     "check:fix": "biome check --write --unsafe .",
-    "postinstall": "lefthook install",
-    "knip": "knip"
+    "postinstall": "lefthook install"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.99.0",
@@ -60,8 +59,8 @@
     "@vitest/coverage-v8": "^4.1.4",
     "@vitest/ui": "^4.1.4",
     "browserslist": "^4.28.2",
+    "bundlemon": "^3.1.0",
     "fake-indexeddb": "^6.2.5",
-    "knip": "^6.4.1",
     "lefthook": "^2.1.5",
     "lightningcss": "^1.32.0",
     "rollup-plugin-visualizer": "^7.0.1",
