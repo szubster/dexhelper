@@ -248,12 +248,22 @@ export const pokeDB = {
     await pokeDB.ready();
     const db = await getDB();
     const names: Record<number, string> = {};
-    const locations = await Promise.all(ids.map((id) => db.get(DB_CONFIG.STORES.LOCATIONS, id)));
-    for (const loc of locations) {
-      if (loc) {
+
+    if (ids.length === 0) return names;
+
+    // ⚡ Bolt: Bulk fetch all locations instead of individual N+1 DB transactions
+    // Since the locations store contains a relatively small number of items (~1000),
+    // a single getAll() and in-memory filter is significantly faster than firing hundreds of
+    // individual IndexedDB transactions (db.get() internally creates a new transaction per call).
+    const idSet = new Set(ids);
+    const allLocations = await db.getAll(DB_CONFIG.STORES.LOCATIONS);
+
+    for (const loc of allLocations) {
+      if (idSet.has(loc.id)) {
         names[loc.id] = loc.n;
       }
     }
+
     return names;
   },
 
@@ -264,10 +274,15 @@ export const pokeDB = {
     const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
     if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
 
-    const fetched = await Promise.all(validIds.map((id) => db.get(DB_CONFIG.STORES.POKEMON, id)));
+    // ⚡ Bolt: Bulk fetch all pokemon instead of individual N+1 DB transactions
+    // Since the pokemon store contains a manageable number of items (~1500),
+    // a single getAll() and in-memory filter is faster than individual get() calls.
+    const idSet = new Set(validIds);
+    const allPokemon = await db.getAll(DB_CONFIG.STORES.POKEMON);
+
     const resultMap = new Map<number, PokemonMetadata>();
-    for (const p of fetched) {
-      if (p) resultMap.set(p.id, p);
+    for (const p of allPokemon) {
+      if (idSet.has(p.id)) resultMap.set(p.id, p);
     }
 
     // Map back to original order, filling in gaps
