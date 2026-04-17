@@ -214,6 +214,29 @@ export const pokeDB = {
     if (pid === undefined || pid === null || Number.isNaN(pid)) return undefined;
     return (await getDB()).get(DB_CONFIG.STORES.ENCOUNTERS, pid);
   },
+  getEncountersBatch: async (ids: number[]): Promise<(LocationAreaEncounters | Error)[]> => {
+    await pokeDB.ready();
+    const db = await getDB();
+    const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
+    if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
+
+    const tx = db.transaction(DB_CONFIG.STORES.ENCOUNTERS, 'readonly');
+    const store = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
+
+    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    await tx.done;
+
+    const resultMap = new Map<number, LocationAreaEncounters>();
+    for (const e of fetched) {
+      if (e) resultMap.set(e.pid, e);
+    }
+
+    return ids.map((id) => {
+      if (typeof id !== 'number' || Number.isNaN(id)) return new Error('Invalid ID');
+      const found = resultMap.get(id);
+      return found ?? new Error('Encounter not found');
+    });
+  },
   getAllEncounters: async (): Promise<LocationAreaEncounters[]> => {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.ENCOUNTERS);
@@ -264,7 +287,12 @@ export const pokeDB = {
     const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
     if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
 
-    const fetched = await Promise.all(validIds.map((id) => db.get(DB_CONFIG.STORES.POKEMON, id)));
+    const tx = db.transaction(DB_CONFIG.STORES.POKEMON, 'readonly');
+    const store = tx.objectStore(DB_CONFIG.STORES.POKEMON);
+
+    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    await tx.done;
+
     const resultMap = new Map<number, PokemonMetadata>();
     for (const p of fetched) {
       if (p) resultMap.set(p.id, p);

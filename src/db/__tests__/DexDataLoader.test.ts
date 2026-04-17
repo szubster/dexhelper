@@ -8,6 +8,7 @@ vi.mock('../PokeDB', () => ({
   pokeDB: {
     getPokemons: vi.fn(),
     getEncounters: vi.fn(),
+    getEncountersBatch: vi.fn(),
     getAreaNames: vi.fn(),
   },
 }));
@@ -51,10 +52,12 @@ describe('DexDataLoader', () => {
         det: [],
       } as PokemonMetadata,
     ]);
-    vi.mocked(pokeDB.getEncounters).mockResolvedValue({
-      pid: 1,
-      enc: [{ aid: 1, v: 1, d: [] }] as CompactEncounter[],
-    });
+    vi.mocked(pokeDB.getEncountersBatch).mockResolvedValue([
+      {
+        pid: 1,
+        enc: [{ aid: 1, v: 1, d: [] }] as CompactEncounter[],
+      },
+    ]);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({ 1: 'Area 1' });
 
     const details = await dexDataLoader.getPokemonDetails(1);

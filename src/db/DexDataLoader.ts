@@ -15,7 +15,7 @@ export const dexDataLoader = {
 
   encounters: new DataLoader<number, LocationAreaEncounters>(
     async (ids) => {
-      return Promise.all(ids.map((id) => pokeDB.getEncounters(id) as Promise<LocationAreaEncounters>));
+      return pokeDB.getEncountersBatch([...ids]);
     },
     { cache: true },
   ),
