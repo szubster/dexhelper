@@ -26,7 +26,7 @@ describe('generateSuggestions', () => {
         {
           slug: 'pallet-town-area',
           pid: 16, // Pidgey
-          encounters: [
+          enc: [
             {
               aid: 1, // localAid matches
               v: 1, // Red version (POKE_VERSION_MAP['red'] == 1)
@@ -73,7 +73,7 @@ describe('generateSuggestions', () => {
         19: {
           slug: 'route-1-area',
           pid: 19,
-          encounters: [
+          enc: [
             {
               aid: 2, // nearby aid
               v: 1, // Red
