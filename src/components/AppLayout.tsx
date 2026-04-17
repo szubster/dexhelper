@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { AlertTriangle, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
+import { useEffect } from 'react';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
@@ -10,6 +11,24 @@ import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    // Catch chunk load errors from Vite
+    const handleChunkError = (e: ErrorEvent) => {
+      if (e.message?.includes('Failed to fetch dynamically imported module')) {
+        try {
+          const chunkFailedMessage = /Failed to fetch dynamically imported module/.test(e.message);
+          if (chunkFailedMessage) {
+            window.location.reload();
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    };
+    window.addEventListener('error', handleChunkError);
+    return () => window.removeEventListener('error', handleChunkError);
+  }, []);
+
   const saveData = useStore((s) => s.saveData);
   const setSaveData = useStore((s) => s.setSaveData);
   const error = useStore((s) => s.error);
