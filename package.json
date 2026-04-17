@@ -67,7 +67,6 @@
     "lightningcss": "^1.32.0",
     "rollup-plugin-visualizer": "^7.0.1",
     "tailwindcss": "4.2.2",
-    "tsx": "^4.21.0",
     "typescript": "~6.0.2",
     "vite": "^8.0.8",
     "vite-plugin-pwa": "^1.2.0",
