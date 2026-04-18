@@ -6,8 +6,8 @@ export const ONE_TIME_CHOICES = {
   eevee: [133],
 };
 
-const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
-  red: [
+const GEN1_UNOBTAINABLE: Record<string, number[]> = {
+  blue: [
     23,
     24, // Ekans, Arbok
     43,
@@ -20,7 +20,7 @@ const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
     123, // Scyther
     125, // Electabuzz
   ],
-  blue: [
+  red: [
     27,
     28, // Sandshrew, Sandslash
     37,
@@ -39,15 +39,13 @@ const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
     15, // Weedle, Kakuna, Beedrill
     23,
     24, // Ekans, Arbok
-    27,
-    28, // Sandshrew, Sandslash
     52,
     53, // Meowth, Persian
     109,
     110, // Koffing, Weezing
     124, // Jynx
+    125, // Electabuzz
     126, // Magmar
-    127, // Pinsir
   ],
 };
 
@@ -102,7 +100,7 @@ export function getUnobtainableReason(
   }
 
   // Version Exclusives
-  const exclusives = GEN1_VERSION_EXCLUSIVES[gameVersion] || [];
+  const exclusives = GEN1_UNOBTAINABLE[gameVersion] || [];
   if (exclusives.includes(pokemonId) && !ownedSet.has(pokemonId)) {
     return `This Pokémon is not available in ${gameVersion.charAt(0).toUpperCase() + gameVersion.slice(1)}. Must be traded from another version.`;
   }

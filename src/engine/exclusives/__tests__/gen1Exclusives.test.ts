@@ -173,6 +173,28 @@ describe('gen1Exclusives', () => {
       });
     });
 
+    describe('Version Exclusives', () => {
+      it('should lock Blue exclusives in Red (e.g., Sandshrew - 27)', () => {
+        const ownedSet = new Set<number>();
+        const reason = getUnobtainableReason(27, 'red', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('Red');
+      });
+
+      it('should lock Red exclusives in Blue (e.g., Ekans - 23)', () => {
+        const ownedSet = new Set<number>();
+        const reason = getUnobtainableReason(23, 'blue', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('Blue');
+      });
+
+      it('should not lock version exclusives if they are already owned', () => {
+        const ownedSet = new Set([23]); // Own Ekans
+        const reason = getUnobtainableReason(23, 'blue', 1, ownedSet);
+        expect(reason).toBeNull();
+      });
+    });
+
     describe('General Obtainable Pokémon', () => {
       it('should return null for normally obtainable Pokémon (Pidgey 16)', () => {
         const ownedSet = new Set<number>();

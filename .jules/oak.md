@@ -1,0 +1,3 @@
+## 2024-04-18 - Swap Gen 1 Exclusives
+**Learning:** The previous implementation stored version exclusives in an object named `GEN1_VERSION_EXCLUSIVES`, mapping each version to the list of Pokemon *unobtainable* in that version. However, the lists for `red` and `blue` were swapped, so that checking if `Sandshrew` was available in `blue` would incorrectly return `null` and return a lock string for `red`. Additionally, `Electabuzz` was missing from `yellow`'s unobtainable list.
+**Action:** When adding or verifying Pokemon unobtainables based on version exclusions, strictly check that they represent unobtainable statuses, not obtainable statuses. Ensure comprehensive lists are cross-referenced with PokeAPI and relevant game wiki.
