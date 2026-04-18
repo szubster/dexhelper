@@ -3,7 +3,7 @@ import { Bug, Egg, Flag, Info, Loader2, Sparkles, Target, Zap } from 'lucide-rea
 import React from 'react';
 import { pokeDB } from '../db/PokeDB';
 import type { SaveData } from '../engine/saveParser/index';
-import { type Suggestion, useAssistant } from '../hooks/useAssistant';
+import { type Suggestion, type SuggestionCategory, useAssistant } from '../hooks/useAssistant';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
 
@@ -13,7 +13,7 @@ interface AssistantPanelProps {
   manualVersion: string | null;
 }
 
-const CATEGORY_STYLES: Record<string, { icon: React.ReactNode; color: string; bg: string }> = {
+const CATEGORY_STYLES: Record<SuggestionCategory, { icon: React.ReactNode; color: string; bg: string }> = {
   Catch: {
     icon: <Target size={16} className="text-emerald-400" />,
     color: 'border-emerald-500/30 text-emerald-100',
@@ -132,7 +132,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                 acc[s.category]?.push(s);
                 return acc;
               },
-              {} as Record<string, Suggestion[]>,
+              {} as Partial<Record<SuggestionCategory, Suggestion[]>>,
             ),
             // Custom sort order for categories
           )
@@ -142,10 +142,9 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                 (order.indexOf(a) !== -1 ? order.indexOf(a) : 99) - (order.indexOf(b) !== -1 ? order.indexOf(b) : 99)
               );
             })
-            .map(([category, items]) => {
-              // biome-ignore lint/complexity/useLiteralKeys: Bracket notation required for index signature under noPropertyAccessFromIndexSignature
-              const defaultStyle = CATEGORY_STYLES['Utility'] as { icon: React.ReactNode; color: string; bg: string };
-              const catStyle = CATEGORY_STYLES[category] ?? defaultStyle;
+            .map(([categoryStr, items]) => {
+              const category = categoryStr as SuggestionCategory;
+              const catStyle = CATEGORY_STYLES[category] ?? CATEGORY_STYLES.Utility;
 
               return (
                 <div key={category} className="space-y-4">
@@ -164,13 +163,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                     className={`fade-in grid animate-in gap-6 duration-500 ${category === 'Catch' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
                   >
                     {items.map((s, idx) => {
-                      // biome-ignore lint/complexity/useLiteralKeys: Bracket notation required for index signature under noPropertyAccessFromIndexSignature
-                      const defaultStyle = CATEGORY_STYLES['Utility'] as {
-                        icon: React.ReactNode;
-                        color: string;
-                        bg: string;
-                      };
-                      const style = CATEGORY_STYLES[s.category] ?? defaultStyle;
+                      const style = CATEGORY_STYLES[s.category] ?? CATEGORY_STYLES.Utility;
                       return (
                         <div
                           key={s.id}
