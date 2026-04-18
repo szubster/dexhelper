@@ -44,4 +44,5 @@ export interface AssistantStrategy {
   getUnobtainableReason(pokemonId: number, version: string, ownedCount: number, ownedSet: Set<number>): string | null;
   getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[];
   isInternallyObtainable(baseId: number, version: string): boolean;
+  hasEvolutionItem?(inventory: { id: number; quantity: number }[], pokeApiItemId: number): boolean;
 }
