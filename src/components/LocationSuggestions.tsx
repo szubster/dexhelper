@@ -22,17 +22,16 @@ export function LocationSuggestions() {
 
     const fetchSuggestions = async () => {
       const locations = await pokeDB.getLocations();
-      const filtered = locations.filter((l) => l.n.toLowerCase().includes(searchTerm.toLowerCase())).slice(0, 5);
 
-      const withCounts = await Promise.all(
-        filtered.map(async (l) => {
-          const index = await pokeDB.getInverseIndex(l.id);
-          return { ...l, count: index?.length || 0 };
-        }),
-      );
+      // ⚡ Bolt: Hoisted string allocation outside the loop and removed N+1 IDB queries
+      const term = searchTerm.toLowerCase();
+      const filteredWithCounts = locations
+        .filter((l) => l.n.toLowerCase().includes(term))
+        .slice(0, 5)
+        .map((l) => ({ ...l, count: l.pids?.length || 0 }));
 
-      setSuggestions(withCounts);
-      setIsOpen(withCounts.length > 0);
+      setSuggestions(filteredWithCounts);
+      setIsOpen(filteredWithCounts.length > 0);
     };
 
     fetchSuggestions();
