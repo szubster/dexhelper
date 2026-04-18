@@ -14,7 +14,7 @@ test('coverage for suggestionEngine new lines', () => {
     ),
     seen: new Set(),
     party: [],
-    inventory: [{ id: 0x20, quantity: 1 }], // Fire Stone (Gen 1 ID)
+    inventory: [{ id: 82, count: 1 }], // Fire Stone
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
     partyDetails: [

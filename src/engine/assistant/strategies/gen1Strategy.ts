@@ -1,18 +1,9 @@
 import type { UnifiedLocation } from '../../../db/schema';
 import { getGenerationConfig } from '../../../utils/generationConfig';
-import { GEN1_ITEMS } from '../../data/gen1/assistantData';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
 import { getDistanceToMap } from '../../mapGraph/gen1Graph';
 import type { SaveData } from '../../saveParser/index';
 import type { AssistantStrategy, Suggestion } from './types';
-
-const POKEAPI_TO_GEN1_ITEM: Record<number, number> = {
-  81: GEN1_ITEMS.MOON_STONE,
-  82: GEN1_ITEMS.FIRE_STONE,
-  83: GEN1_ITEMS.THUNDER_STONE,
-  84: GEN1_ITEMS.WATER_STONE,
-  85: GEN1_ITEMS.LEAF_STONE,
-};
 
 export const gen1Strategy: AssistantStrategy = {
   generation: 1,
@@ -70,11 +61,5 @@ export const gen1Strategy: AssistantStrategy = {
     // Gen 1 doesn't have breeding, so obtainability is purely based on
     // encounter data + static encounters. The main engine handles this.
     return true;
-  },
-
-  hasEvolutionItem(inventory: { id: number; quantity: number }[], pokeApiItemId: number): boolean {
-    const internalId = POKEAPI_TO_GEN1_ITEM[pokeApiItemId];
-    if (internalId === undefined) return false;
-    return inventory.some((item) => item.id === internalId && item.quantity > 0);
   },
 };
