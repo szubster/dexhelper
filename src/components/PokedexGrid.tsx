@@ -1,4 +1,5 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
+import { SearchX } from 'lucide-react';
 import React, { useMemo } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { useStore } from '../store';
@@ -82,6 +83,18 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
     }
     return set;
   }, [saveData]);
+
+  if (finalPokemon.length === 0) {
+    return (
+      <div className="fade-in mx-1 mt-4 flex animate-in flex-col items-center justify-center rounded-[2rem] border border-zinc-800/50 bg-zinc-900/50 p-12 text-center duration-500">
+        <SearchX className="mb-4 text-zinc-600" size={48} />
+        <h3 className="font-bold text-lg text-zinc-400 uppercase tracking-wide">No Pokémon Found</h3>
+        <p className="mt-2 max-w-sm font-medium text-sm text-zinc-600">
+          Try adjusting your search terms or clearing your filters to see more results.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="fade-in grid animate-in grid-cols-2 gap-5 px-1 pb-10 duration-500 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
