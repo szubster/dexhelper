@@ -171,94 +171,109 @@ export function PokemonDetails({
   return (
     <div className="fade-in fixed inset-0 z-50 flex animate-in items-end justify-center p-0 duration-300 sm:items-center sm:p-4">
       <div aria-hidden="true" className="absolute inset-0 bg-black/90 backdrop-blur-xl" onClick={onClose} />
+
+      {/* Dynamic Ambient Glow Backdrop */}
+      <img
+        src={genConfig.spriteUrl(pokemonId, isShiny)}
+        alt=""
+        className="pointer-events-none fixed inset-0 -z-10 h-full w-full object-cover opacity-20 blur-[100px] saturate-200"
+        aria-hidden="true"
+      />
+
       <div
         role="dialog"
         aria-modal="true"
-        className="slide-in-from-bottom-[100%] sm:zoom-in-95 relative flex h-[95vh] w-full animate-in flex-col overflow-hidden rounded-t-[2.5rem] border-white/10 border-t bg-zinc-950/90 shadow-2xl duration-500 ease-out sm:h-[85vh] sm:max-w-5xl sm:rounded-[3rem] sm:border"
+        className="slide-in-from-bottom-[100%] sm:zoom-in-95 relative flex h-[95vh] w-full animate-in flex-col overflow-hidden rounded-t-[2.5rem] border-white/10 border-t bg-zinc-950/80 shadow-2xl backdrop-blur-md duration-500 ease-out sm:h-[85vh] sm:max-w-5xl sm:rounded-[3rem] sm:border"
       >
         <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
 
-        {/* Header Section */}
-        <div className="relative shrink-0 border-white/5 border-b bg-gradient-to-b from-white/5 to-transparent p-6 sm:p-10">
-          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end">
-            <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-10">
-              <div className="group relative">
-                <div className="glass-card zoom-in-50 fade-in relative flex h-32 w-32 animate-in items-center justify-center overflow-hidden rounded-3xl border-white/10 bg-zinc-900/50 fill-mode-both shadow-2xl delay-100 duration-500 sm:h-40 sm:w-40">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[var(--theme-primary)]/10 to-transparent" />
-                  <img
-                    src={genConfig.spriteUrl(pokemonId, isShiny)}
-                    alt={pokemonName}
-                    className="pixelated relative z-10 h-24 w-24 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] sm:h-32 sm:w-32"
-                    style={{ imageRendering: 'pixelated' }}
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute top-2 left-2 h-3 w-3 border-white/20 border-t-2 border-l-2" />
-                  <div className="absolute top-2 right-2 h-3 w-3 border-white/20 border-t-2 border-r-2" />
-                  <div className="absolute bottom-2 left-2 h-3 w-3 border-white/20 border-b-2 border-l-2" />
-                  <div className="absolute right-2 bottom-2 h-3 w-3 border-white/20 border-r-2 border-b-2" />
-                </div>
+        {/* Holographic Projection Hero Section */}
+        <div className="relative flex min-h-[40vh] shrink-0 flex-col items-center justify-center border-white/5 border-b bg-gradient-to-b from-white/5 to-transparent p-6 pb-8 sm:min-h-[45vh] sm:p-12 sm:pb-12">
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close details"
+            className="group absolute top-6 right-6 z-50 rounded-2xl border border-white/10 bg-white/5 p-4 transition-all hover:bg-white/10 active:scale-95"
+          >
+            <X size={24} className="text-zinc-400 transition-colors group-hover:text-white" />
+          </button>
+
+          <div className="relative mt-8 flex w-full max-w-lg flex-col items-center justify-center sm:mt-4">
+            {/* Holographic Projector Base & Sprite */}
+            <div className="relative mb-10 flex h-48 w-full items-center justify-center sm:h-56">
+              {/* Glow Pillar */}
+              <div className="pointer-events-none absolute bottom-0 h-[150%] w-32 bg-gradient-to-t from-[var(--theme-primary)]/30 to-transparent blur-xl sm:w-48" />
+
+              {/* Projector Base */}
+              <div className="absolute bottom-0 flex h-8 w-40 -translate-y-1/2 transform items-center justify-center rounded-[100%] border border-[var(--theme-primary)]/40 bg-zinc-900 shadow-[0_0_30px_rgba(var(--theme-primary-rgb),0.5)] sm:w-56">
+                <div className="h-4 w-32 animate-pulse rounded-[100%] bg-[var(--theme-primary)]/30 blur-sm sm:w-48" />
+                <div className="absolute inset-0 rounded-[100%] border-[var(--theme-primary)]/60 border-t" />
+              </div>
+
+              {/* The Hologram Sprite */}
+              <div className="relative z-10 animate-[float_4s_ease-in-out_infinite]">
+                <img
+                  src={genConfig.spriteUrl(pokemonId, isShiny)}
+                  alt={pokemonName}
+                  className="pixelated relative z-10 h-32 w-32 object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)] sm:h-48 sm:w-48"
+                  style={{ imageRendering: 'pixelated' }}
+                  referrerPolicy="no-referrer"
+                />
+                {/* Holographic Scanlines overlay on sprite */}
+                <div className="pointer-events-none absolute inset-0 bg-[length:100%_4px] bg-[linear-gradient(transparent_50%,rgba(var(--theme-primary-rgb),0.1)_50%)] mix-blend-overlay" />
 
                 {isShiny && (
-                  <div className="absolute -top-3 -right-3 z-20 animate-[pulse_3s_ease-in-out_infinite] rounded-xl bg-amber-500 p-2 text-white shadow-[0_0_20px_rgba(245,158,11,0.5)]">
-                    <Sparkles size={18} />
+                  <div className="absolute -top-4 -right-4 z-20 animate-[pulse_3s_ease-in-out_infinite] rounded-full border border-amber-500/30 bg-amber-500/20 p-2 text-amber-300 shadow-[0_0_30px_rgba(245,158,11,0.6)] backdrop-blur-sm">
+                    <Sparkles size={24} />
                   </div>
                 )}
               </div>
-
-              <div className="text-center sm:text-left">
-                <div className="slide-in-from-bottom-4 fade-in flex animate-in flex-col fill-mode-both delay-200 duration-500">
-                  <span className="mb-2 font-black font-mono text-xs text-zinc-500 uppercase tracking-[0.4em]">
-                    Index No. {pokemonId.toString().padStart(3, '0')}
-                  </span>
-                  <h2 className="mb-4 font-black font-display text-4xl text-white uppercase leading-none tracking-tighter drop-shadow-sm sm:text-6xl">
-                    {pokemonName}
-                  </h2>
-                  <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
-                    {stadiumReward && (
-                      <div className="flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 font-black text-[10px] text-blue-400 uppercase tracking-widest backdrop-blur-md">
-                        <Monitor size={12} /> Stadium Reward
-                      </div>
-                    )}
-
-                    {saveData && (
-                      <div
-                        className={cn(
-                          'flex items-center gap-2 rounded-full border px-4 py-1.5 font-black text-[10px] uppercase tracking-[0.2em] backdrop-blur-md',
-                          yourPokemon.length > 0
-                            ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400'
-                            : 'border-red-500/30 bg-red-500/10 text-red-500',
-                        )}
-                      >
-                        {yourPokemon.length > 0 ? (
-                          <>
-                            <CheckCircle2 size={12} className="animate-pulse" />
-                            Collection Secured
-                          </>
-                        ) : (
-                          <>
-                            <AlertCircle size={12} />
-                            Missing from Collection
-                          </>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <button
-              type="button"
-              onClick={onClose}
-              aria-label="Close details"
-              className="group absolute top-6 right-6 rounded-2xl border border-white/10 bg-white/5 p-4 transition-all hover:bg-white/10 active:scale-95 sm:relative sm:top-auto sm:right-auto"
-            >
-              <X size={24} className="text-zinc-400 transition-colors group-hover:text-white" />
-            </button>
+            {/* Typography */}
+            <div className="slide-in-from-bottom-4 fade-in flex w-full animate-in flex-col items-center fill-mode-both text-center delay-200 duration-500">
+              <span className="mb-3 rounded-full border border-[var(--theme-primary)]/20 bg-[var(--theme-primary)]/10 px-4 py-1 font-black font-mono text-[var(--theme-primary)] text-sm uppercase tracking-[0.5em] shadow-[0_0_15px_rgba(var(--theme-primary-rgb),0.2)]">
+                Index No. {pokemonId.toString().padStart(3, '0')}
+              </span>
+              <h2 className="mb-6 font-black font-display text-5xl text-white uppercase leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] sm:text-7xl">
+                {pokemonName}
+              </h2>
+
+              <div className="flex flex-wrap justify-center gap-3">
+                {stadiumReward && (
+                  <div className="flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/20 px-5 py-2 font-black text-blue-300 text-xs uppercase tracking-widest shadow-[0_0_15px_rgba(59,130,246,0.3)] backdrop-blur-md">
+                    <Monitor size={14} /> Stadium Reward
+                  </div>
+                )}
+
+                {saveData && (
+                  <div
+                    className={cn(
+                      'flex items-center gap-2 rounded-full border px-5 py-2 font-black text-xs uppercase tracking-[0.2em] shadow-lg backdrop-blur-md',
+                      yourPokemon.length > 0
+                        ? 'border-emerald-500/40 bg-emerald-500/20 text-emerald-300 shadow-emerald-500/20'
+                        : 'border-red-500/40 bg-red-500/20 text-red-400 shadow-red-500/20',
+                    )}
+                  >
+                    {yourPokemon.length > 0 ? (
+                      <>
+                        <CheckCircle2 size={14} className="animate-pulse" />
+                        Collection Secured
+                      </>
+                    ) : (
+                      <>
+                        <AlertCircle size={14} />
+                        Missing from Collection
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="custom-scrollbar flex-1 overflow-y-auto p-6 sm:p-10">
+        <div className="custom-scrollbar flex-1 overflow-y-auto bg-zinc-950/40 p-6 sm:p-10">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             {/* Left Column: Catching */}
             <div className="space-y-10 lg:col-span-5">
