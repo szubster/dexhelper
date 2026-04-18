@@ -28,3 +28,7 @@
 ## 2026-04-09 - Accessible Search Inputs
 **Learning:** Standard text inputs used for searching often lack intuitive keyboard navigation and immediate visual feedback when clearing text. Without focus returning to the input after clearing, users must manually re-focus the input to start a new search, disrupting the workflow.
 **Action:** Always add keyboard shortcuts (like `Escape`) to clear search inputs. When a clear button is used, ensure it has visible focus styles and that its `onClick` handler programmatically returns focus back to the search input.
+
+## 2026-04-10 - Empty States in Heavily Filtered Lists
+**Learning:** When grids or lists implement complex or combined filtering logic (such as searching by name + status filters), users can quickly hit zero results. Without a distinct empty state, an empty screen can confuse users, causing them to believe the app broke rather than their search yielding no matches.
+**Action:** Always provide explicit empty states for heavily filterable/searchable lists, including clear messaging ("No results found") and actionable advice on how to recover context ("Try adjusting your search filters").
