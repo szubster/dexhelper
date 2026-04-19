@@ -19,6 +19,14 @@ const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
 const TEMP_DIR = path.join(process.cwd(), 'scratch/temp_pokeapi');
 const OUTPUT_DIR = path.join(process.cwd(), 'data/db');
 
+const POKEAPI_TO_GEN1_ITEM: Record<number, number> = {
+  81: 0x0a, // Moon Stone
+  82: 0x20, // Fire Stone
+  83: 0x21, // Thunder Stone
+  84: 0x22, // Water Stone
+  85: 0x2f, // Leaf Stone
+};
+
 function readJson(filePath: string) {
   if (!fs.existsSync(filePath)) return null;
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -357,7 +365,10 @@ for (const cid of uniqueChainIds) {
         tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
         ml: ed.min_level ?? undefined,
         mh: ed.min_happiness ?? undefined,
-        item: ed.item ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
+        item: ed.item
+          ? POKEAPI_TO_GEN1_ITEM[parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10)] ||
+            parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10)
+          : undefined,
         held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
         time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
       })),

@@ -39,15 +39,13 @@ const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
     15, // Weedle, Kakuna, Beedrill
     23,
     24, // Ekans, Arbok
-    27,
-    28, // Sandshrew, Sandslash
     52,
     53, // Meowth, Persian
     109,
     110, // Koffing, Weezing
     124, // Jynx
+    125, // Electabuzz
     126, // Magmar
-    127, // Pinsir
   ],
 };
 

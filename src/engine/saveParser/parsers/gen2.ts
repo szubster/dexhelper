@@ -3,6 +3,15 @@ import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { byte, checkShiny, decodeGen12String, parseDVs } from './common';
 
+/**
+ * Extracts the caught data (time of day, level, and location) from a Generation 2 Pokémon structure.
+ * Caught data is only populated in Crystal version; Gold and Silver leave these bytes as 0.
+ * Time and level are packed into a single byte via bitwise operations.
+ *
+ * @param u8 - The raw save file array.
+ * @param offset - The memory offset of the specific Pokémon structure.
+ * @returns An object containing the time, level, location ID, and location name, or undefined if missing.
+ */
 export function parseCaughtData(u8: Uint8Array, offset: number) {
   const caughtByte1 = byte(u8, offset + 29);
   const caughtByte2 = byte(u8, offset + 30);
@@ -28,6 +37,16 @@ export function parseCaughtData(u8: Uint8Array, offset: number) {
   return { time, level: caughtLevel, location, locationName };
 }
 
+/**
+ * Extracts details for a single Pokémon from a Generation 2 save block.
+ *
+ * @param u8 - The raw save file array.
+ * @param offset - The memory offset for the start of the Pokémon's 32-byte data block.
+ * @param isCrystal - Whether the save file is from Pokémon Crystal (determines if caught data exists).
+ * @param storageLocation - A string indicating where the Pokémon is stored (e.g., 'Party', 'Box 1').
+ * @param slot - The 1-indexed slot the Pokémon occupies in its storage container.
+ * @returns A fully constructed PokemonInstance object, or undefined if the species ID is invalid.
+ */
 export function parseGen2PokemonInstance(
   u8: Uint8Array,
   offset: number,
@@ -65,6 +84,15 @@ export function parseGen2PokemonInstance(
   };
 }
 
+/**
+ * Attempts to heuristically determine whether a Generation 2 save is Gold or Silver.
+ * This is done by checking the player's Pokédex (owned and seen) against known
+ * version-exclusive Pokémon.
+ *
+ * @param owned - A set of Pokémon Pokédex IDs the player has caught.
+ * @param seen - A set of Pokémon Pokédex IDs the player has seen.
+ * @returns 'gold', 'silver', or 'unknown'.
+ */
 export function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersion {
   const goldExclusives = [56, 57, 58, 59, 167, 168, 190, 207, 249];
   const silverExclusives = [37, 38, 52, 53, 165, 166, 216, 217, 227, 250];
@@ -87,6 +115,15 @@ export function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): Ga
   return 'unknown';
 }
 
+/**
+ * Performs a structural check to verify if the save file is a valid Generation 2 save.
+ * It dynamically checks the party offset based on the `crystal` flag, ensuring the party count
+ * is valid (<= 6), correctly terminated with 0xFF, and contains valid internal Pokémon IDs.
+ *
+ * @param u8 - The raw save file array.
+ * @param crystal - Whether to test offsets specific to Pokémon Crystal.
+ * @returns True if the structure looks like a valid Gen 2 save for the specified game type.
+ */
 export function isGen2Save(u8: Uint8Array, crystal: boolean): boolean {
   const countOffset = crystal ? 0x2865 : 0x288a;
   const speciesOffset = crystal ? 0x2866 : 0x288b;
@@ -100,6 +137,16 @@ export function isGen2Save(u8: Uint8Array, crystal: boolean): boolean {
   return true;
 }
 
+/**
+ * Extracts all relevant game data (party, PC boxes, inventory, Pokédex, etc.) from a Gen 2 save.
+ * Memory offsets differ significantly between Gold/Silver and Crystal. This function detects Crystal
+ * by checking party sizes at the different offset locations, and dynamically selects the correct
+ * memory map before extraction.
+ *
+ * @param u8 - The raw save file array.
+ * @param forceCrystal - An optional flag to force the parser to use Crystal memory offsets.
+ * @returns The structured SaveData object.
+ */
 export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   let isCrystal = forceCrystal;
   if (!isCrystal) {
@@ -242,7 +289,7 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     if ((byte(u8, kantoBadgesOffset) & (1 << i)) !== 0) badges++;
   }
 
-  let gameVersion = isCrystal ? 'crystal' : detectGen2GameVersion(owned, seen);
+  let gameVersion: GameVersion = isCrystal ? 'crystal' : detectGen2GameVersion(owned, seen);
   if (gameVersion === 'unknown' && !isCrystal) {
     gameVersion = 'gold';
   }
@@ -277,7 +324,7 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     pc,
     partyDetails,
     pcDetails,
-    gameVersion: gameVersion as GameVersion,
+    gameVersion,
     badges,
     johtoBadges: johtoBadgesValue,
     kantoBadges: kantoBadgesValue,
