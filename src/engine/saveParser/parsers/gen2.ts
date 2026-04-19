@@ -251,10 +251,10 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     0x79d4, // Bank 2
   ];
 
-  boxOffsets.forEach((offset, i) => {
-    if (i === currentBoxNum) return;
+  for (const [i, offset] of boxOffsets.entries()) {
+    if (i === currentBoxNum) continue;
     const count = view.getUint8(offset);
-    if (count > 20) return;
+    if (count > 20) continue;
     for (let j = 0; j < count; j++) {
       const id = view.getUint8(offset + 1 + j);
       if (id > 0 && id <= 251) pc.push(id);
@@ -268,7 +268,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
         pcDetails.push(p);
       }
     }
-  });
+  }
 
   const johtoBadgesOffset = isCrystal ? 0x23e5 : 0x23e4;
   const kantoBadgesOffset = isCrystal ? 0x23e6 : 0x23e5;
