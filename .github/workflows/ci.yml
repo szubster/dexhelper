@@ -54,3 +54,6 @@ jobs:
         run: pnpm build
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: BundleMon
+        uses: lironer/bundlemon-action@v1
