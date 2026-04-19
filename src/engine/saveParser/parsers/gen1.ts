@@ -405,12 +405,10 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
   }
 
   const boxOffsets = [0x4000, 0x4462, 0x48c4, 0x4d26, 0x5188, 0x55ea, 0x6000, 0x6462, 0x68c4, 0x6d26, 0x7188, 0x75ea];
-  for (let i = 0; i < 12; i++) {
-    if (i === currentBoxNum) continue;
-    const offset = boxOffsets[i];
-    if (offset === undefined) continue;
+  boxOffsets.forEach((offset, i) => {
+    if (i === currentBoxNum) return;
     const count = view.getUint8(offset);
-    if (count > 20) continue;
+    if (count > 20) return;
 
     for (let j = 0; j < count; j++) {
       const id = view.getUint8(offset + 1 + j);
@@ -446,7 +444,7 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
         slot: j + 1,
       });
     }
-  }
+  });
 
   const badges = view.getUint8(0x2602 + offsetShift);
   const trainerId = view.getUint16(0x2605 + offsetShift, false);
