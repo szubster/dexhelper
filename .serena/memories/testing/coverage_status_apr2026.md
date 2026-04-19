@@ -8,7 +8,6 @@ Documenting the successful coverage boost for core logic and infrastructure.
 
 ## Core Logic
 - **suggestionEngine.ts**: 42% Line coverage. Added comprehensive unit tests for complex evolutionary triggers (Happiness, Stats, Items, Trading).
-- **gen2Exclusives.ts**: 100% coverage. Verified all version-exclusive mappings.
 
 ## E2E Status
 - All core user journeys stabilized using consistent state hydration (`initializeWithSave`).
