@@ -1,0 +1,57 @@
+name: "🤖 Jules Agents"
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # Daily at 2:00 UTC
+  workflow_dispatch:
+
+jobs:
+  discover:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    outputs:
+      agents: ${{ steps.list.outputs.agents }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: .jules/schedules
+
+      - name: List agent schedules
+        id: list
+        run: |
+          agents=$(find .jules/schedules -maxdepth 1 -name '*.md' -type f -printf '"%f"\n' | jq -s -c '.')
+          echo "agents=$agents" >> "$GITHUB_OUTPUT"
+
+  invoke:
+    needs: discover
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        agent: ${{ fromJSON(needs.discover.outputs.agents) }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: .jules/schedules
+
+      - name: Invoke Jules — ${{ matrix.agent }}
+        env:
+          JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
+        run: |
+          jq -n \
+            --rawfile prompt ".jules/schedules/${{ matrix.agent }}" \
+            --arg repo "${{ github.repository }}" \
+            '{
+              prompt: $prompt,
+              sourceContext: {
+                source: "sources/github/\($repo)",
+                githubRepoContext: { startingBranch: "main" }
+              },
+              requirePlanApproval: false,
+              automationMode: "AUTO_CREATE_PR"
+            }' \
+          | curl -fsS 'https://jules.googleapis.com/v1alpha/sessions' \
+              -X POST \
+              -H 'Content-Type: application/json' \
+              -H "X-Goog-Api-Key: $JULES_API_KEY" \
+              -d @-
