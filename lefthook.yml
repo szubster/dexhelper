@@ -9,4 +9,4 @@ pre-commit:
       stage_fixed: true
       fail_on_changes: ci
     type-check:
-      run: pnpm lint
+      run: pnpm exec tsc-files --noEmit {staged_files}
