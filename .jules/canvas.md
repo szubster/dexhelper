@@ -3,3 +3,9 @@
 **Outcome:** Rejected → journaled
 **Why:** Maintainer felt the previous design was better as it looked more like "snooping for Pokémon", aligning better with the app's core fantasy/feel than a polished high-tech hologram.
 **Pattern:** Avoid overly slick, polished "high-tech" designs. The UI should prioritize the "snooping" / utility-driven feel of an actual Pokédex over flashy holographic effects.
+
+## 2025-05-15 - [Pending] - 🖼️ Canvas: StorageGrid Terminal Layout
+**What:** Redesigned StorageGrid to use a split PC Terminal layout with a sidebar for locations, replacing the endless scrolling list.
+**Outcome:** Pending
+**Why:** Awaiting maintainer review. Aiming to improve information architecture and reduce cognitive load when navigating many boxes.
+**Pattern:** Shifted from linear scroll to categorical navigation.
