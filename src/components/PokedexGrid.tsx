@@ -37,7 +37,6 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
   const partySet = React.useMemo(() => new Set(saveData?.party || []), [saveData?.party]);
   const pcSet = React.useMemo(() => new Set(saveData?.pc || []), [saveData?.pc]);
-  // ⚡ Bolt: Removed redundant shinyPartySet and shinyPcSet which were unused and doing O(N) operations.
 
   const finalPokemon = React.useMemo(() => {
     // ⚡ Bolt: Hoist string allocation outside the loop
