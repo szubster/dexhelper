@@ -55,3 +55,48 @@ describe('saveParser - Dynamic Offset Shift Detection', () => {
     expect(data.currentMapId).toBe(0x1f);
   });
 });
+
+describe('saveParser - Error Handling and Fallbacks', () => {
+  const HEADER_SIZE = 32768;
+
+  it('should throw if buffer is too small', () => {
+    const smallBuffer = new Uint8Array(100).buffer;
+    expect(() => parseSaveFile(smallBuffer)).toThrow('Invalid save file size. Expected at least 32KB.');
+  });
+
+  it('should fallback to gen1 if checksum invalid but structurally valid', () => {
+    const buffer = new Uint8Array(HEADER_SIZE);
+    buffer[0x2f2c] = 0; // party count
+    buffer[0x2f2d] = 0xff; // party terminator
+    const data = parseSaveFile(buffer.buffer);
+    expect(data.generation).toBe(1);
+  });
+
+  it('should fallback to gen2 (crystal) if checksum invalid but structurally valid', () => {
+    const buffer = new Uint8Array(HEADER_SIZE);
+    buffer[0x2f2d] = 0x00;
+    buffer[0x288a] = 0; // party count
+    buffer[0x288b] = 0xff; // terminator
+    const data = parseSaveFile(buffer.buffer);
+    expect(data.generation).toBe(2);
+  });
+
+  it('should throw if no valid structure is found', () => {
+    const buffer = new Uint8Array(HEADER_SIZE);
+
+    // Clear gen1 check
+    buffer[0x2f2d] = 0x00;
+
+    // Clear gen2 true check
+    buffer[0x2865] = 0x01; // Party count 1 (to bypass party count 0 check)
+    buffer[0x2866] = 0x00; // terminator not 0xFF
+
+    // Clear gen2 false check
+    buffer[0x288a] = 0x01;
+    buffer[0x288b] = 0x00;
+
+    expect(() => parseSaveFile(buffer.buffer)).toThrow(
+      'Could not detect a valid Pokémon Red/Blue/Yellow or Gold/Silver/Crystal save file. Please ensure you are uploading a .sav file from a Gen 1 or Gen 2 game.',
+    );
+  });
+});
