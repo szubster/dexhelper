@@ -11,3 +11,7 @@
 ## 2024-05-24 - Prevent N+1 queries in LocationSuggestions
 **Learning:** IDB queries using `pokeDB.getInverseIndex` inside `.map` over filtered elements can trigger N+1 synchronous database overhead in React useEffects on every keystroke, causing severe UI blocking despite `await`.
 **Action:** When working with objects returned by `pokeDB.getLocations()`, access the pre-computed `pids` array directly (`l.pids?.length`) rather than firing off individual IndexedDB queries for `pokeDB.getInverseIndex(l.id)`. This removes Promises entirely from the render iteration.
+## 2024-05-19 - ⚡ Bolt: Use cached pokemonList in AssistantPanel
+
+**Learning:** When data is prefetched and cached at the root route level via `queryClient.ensureQueryData` (e.g., `pokemonListQueryOptions`), child components like `AssistantPanel` shouldn't re-fetch it independently via `useQuery` or `pokeDB` calls. This causes redundant IndexedDB access, duplicative cache memory allocation, and blocks the main thread with unnecessary array mapping.
+**Action:** Replace `useQuery` with `useSuspenseQuery` utilizing the exact same pre-defined `queryOptions` object from `pokemonQueries.ts`. `useSuspenseQuery` safely eliminates the need for manual `undefined` checks since the data presence is guaranteed by the route loader.

@@ -11,3 +11,6 @@ Removed the cast, awaited the result, and mapped `undefined` results to an `Erro
 
 **What the compiler now catches:**
 The compiler ensures that DataLoader batch functions return valid values or Errors, preventing unexpected `undefined` results downstream.
+## 2026-04-19 - Nurse: Remove redundant cast in gen2 save parser
+**Learning:** When a variable matches the return type exactly or correctly infers it, redundant `as Type` casts should be removed as they circumvent type narrowing and can hide true typing misalignments in future refactors.
+**Action:** Replaced unsafe cast with strict explicit variable typing.
