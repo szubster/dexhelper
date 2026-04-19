@@ -242,7 +242,7 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     if ((byte(u8, kantoBadgesOffset) & (1 << i)) !== 0) badges++;
   }
 
-  let gameVersion = isCrystal ? 'crystal' : detectGen2GameVersion(owned, seen);
+  let gameVersion: GameVersion = isCrystal ? 'crystal' : detectGen2GameVersion(owned, seen);
   if (gameVersion === 'unknown' && !isCrystal) {
     gameVersion = 'gold';
   }
@@ -277,7 +277,7 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     pc,
     partyDetails,
     pcDetails,
-    gameVersion: gameVersion as GameVersion,
+    gameVersion,
     badges,
     johtoBadges: johtoBadgesValue,
     kantoBadges: kantoBadgesValue,
