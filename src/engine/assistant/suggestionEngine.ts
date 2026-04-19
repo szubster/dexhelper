@@ -28,16 +28,7 @@ export interface AssistantApiData {
 import { getStrategy } from './strategies';
 
 /**
- * Fetches all necessary background data from local IndexedDB to power the suggestion engine.
- *
- * @param saveData - The parsed save data containing the player's current state, inventory, and party.
- * @param queryTargets - An array of Pokemon IDs (Pokedex numbers) the engine is actively trying to find suggestions for.
- * @returns An object containing grouped maps, locations, encounters, and pokemon metadata required for the engine's synchronous pass.
- *
- * @remarks
- * This function handles database fetching, leveraging `DataLoader` (via `dexDataLoader`) for batched requests.
- * By pulling all structural, encounter, and metadata into a single memory object upfront, the `generateSuggestions`
- * function can execute purely synchronously without N+1 query overhead.
+ * Fetches all necessary data from local IndexedDB using DataLoader for batching.
  */
 export async function fetchAssistantApiData(saveData: SaveData, queryTargets: number[]) {
   const allLocations = await pokeDB.getLocations();
@@ -92,25 +83,6 @@ const METHOD_NAMES: Record<number, string> = {
   [ENCOUNTER_METHOD.HEADBUTT]: 'headbutt',
 };
 
-/**
- * Core recommendation algorithm for the Assistant.
- * Generates actionable suggestions (Catch, Trade, Evolve) for the player based on missing Pokemon.
- *
- * @param saveData - The parsed save file containing the player's inventory, current location, and party.
- * @param isLivingDex - If true, checks the box and party for the physical presence of a Pokemon rather than just the 'owned' dex flag.
- * @param manualVersion - An optional version string used to override the default display version.
- * @param apiData - The pre-fetched dataset produced by `fetchAssistantApiData`.
- * @param strategy - The generation-specific strategy implementation handling unique mechanics (e.g. Map IDs, special box warnings).
- * @returns An object containing an array of unique `Suggestion` objects sorted by priority descending, and a `debug` payload with rejected suggestions.
- *
- * @remarks
- * Priorities are assigned contextually:
- * - Local encounters (same map): ~120
- * - Evolutions ready to trigger (level reached, item owned): ~90-95
- * - Nearby encounters (1-8 areas away): Scales from ~110 down to ~14
- * - NPC Trades (missing offered Pokemon): ~65 (goes up to ~85 if offered Pokemon is owned)
- * - Exclusives / Unobtainables: ~10
- */
 export function generateSuggestions(
   saveData: SaveData | null,
   isLivingDex: boolean,
@@ -155,8 +127,7 @@ export function generateSuggestions(
   suggestions.push(...specialSuggestions);
 
   const localPids: number[] = [];
-  // A. Catch logic (Local Map)
-  // Highest priority (120) is given to Pokemon found on the exact same map the player is currently standing on.
+  // A. Catch logic
   if (apiData.localEncounters && apiData.localEncounters.length > 0 && apiData.localAid) {
     const localAid = apiData.localAid;
 
@@ -196,9 +167,7 @@ export function generateSuggestions(
     }
   }
 
-  // A2. Nearby logic (1-8 areas away)
-  // Distance is calculated via graph traversal in the generation's strategy.
-  // Priority dynamically scales inversely with distance (closer = higher priority).
+  // A2. Nearby logic
   for (const pid of queryTargets) {
     if (localPids.includes(pid)) continue;
 
@@ -240,8 +209,6 @@ export function generateSuggestions(
   }
 
   // B. Unobtainable / Exclusive logic
-  // Checks if the target is completely locked out of the current version (e.g. Red exclusives on Blue).
-  // These are assigned the lowest base priority (10) since they require external action (link cable trades).
   const pidsWithExclusives = new Set<number>();
   for (const pid of queryTargets) {
     const reason = getUnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
@@ -265,8 +232,7 @@ export function generateSuggestions(
     }
   }
 
-  // C. In-Game NPC Trades
-  // Priority boosts if the player already physically possesses the required "offered" Pokemon (65 -> 85).
+  // Trades
   for (const trade of STATIC_NPC_TRADE_DATA) {
     if (trade.gen !== saveData.generation) continue;
     if (trade.versions && !trade.versions.includes(displayVersion)) continue;
@@ -285,9 +251,7 @@ export function generateSuggestions(
     });
   }
 
-  // D. Evolutions
-  // Evaluates the player's current boxes and party to find pre-evolutions.
-  // Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached, evolution stone in inventory).
+  // Evolutions
   const instancesBySpecies = new Map<number, PokemonInstance[]>();
   for (const p of allInstances) {
     if (!instancesBySpecies.has(p.speciesId)) instancesBySpecies.set(p.speciesId, []);
@@ -345,7 +309,7 @@ export function generateSuggestions(
         });
       }
     } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
-      const hasStone = saveData.inventory.some((i) => i.id === item && i.quantity > 0);
+      const hasStone = saveData.inventory.some((i) => i.id === item);
       suggestions.push({
         id: `evo-item-${targetId}`,
         category: 'Evolve',

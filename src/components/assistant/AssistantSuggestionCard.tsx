@@ -151,7 +151,6 @@ export function AssistantSuggestionCard({
                             search={{ from: '/assistant' }}
                             className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-zinc-800/80 p-2 shadow-md transition-all hover:scale-110 hover:border-emerald-500/50 hover:bg-zinc-700"
                             title={getPokemonName(pid)}
-                            aria-label={`View details for ${getPokemonName(pid)}`}
                             onClick={(e) => e.stopPropagation()}
                           >
                             <img
@@ -189,7 +188,6 @@ export function AssistantSuggestionCard({
                     search={{ from: '/assistant' }}
                     className="group/sprite relative h-10 w-10 rounded-lg border border-white/5 bg-black/40 p-1 transition-all hover:scale-110 hover:border-white/40 hover:bg-black/60"
                     title={getPokemonName(pid)}
-                    aria-label={`View details for ${getPokemonName(pid)}`}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <img

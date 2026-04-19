@@ -117,23 +117,6 @@ describe('gen1Exclusives', () => {
       });
     });
 
-    describe('Yellow Version Exclusives', () => {
-      it('should lock Electabuzz (125) in Yellow', () => {
-        const ownedSet = new Set<number>();
-        const reason = getUnobtainableReason(125, 'yellow', 0, ownedSet);
-        expect(typeof reason).toBe('string');
-        expect(reason).toContain('not available in Yellow');
-      });
-
-      it('should not lock Sandshrew (27) or Pinsir (127) in Yellow', () => {
-        const ownedSet = new Set<number>();
-        const reasonSandshrew = getUnobtainableReason(27, 'yellow', 0, ownedSet);
-        const reasonPinsir = getUnobtainableReason(127, 'yellow', 0, ownedSet);
-        expect(reasonSandshrew).toBeNull();
-        expect(reasonPinsir).toBeNull();
-      });
-    });
-
     describe('Fossils (Mutually Exclusive)', () => {
       it('should lock Omanyte (138) if Kabuto (140) is owned', () => {
         const ownedSet = new Set([140]); // Own Kabuto

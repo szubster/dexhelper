@@ -2,6 +2,22 @@
 
 // This file maps internal game IDs to standard names or PokeAPI slugs
 
+export const GEN1_ITEMS = {
+  MOON_STONE: 0x0a,
+  FIRE_STONE: 0x20,
+  THUNDER_STONE: 0x21,
+  WATER_STONE: 0x22,
+  LEAF_STONE: 0x2f,
+};
+
+export const OBEDIENCE_CAPS = [
+  { badges: 0, level: 10 },
+  { badges: 2, level: 30 },
+  { badges: 4, level: 50 },
+  { badges: 6, level: 70 },
+  { badges: 8, level: 100 },
+];
+
 export const STATIC_GIFT_DATA: Record<
   number,
   { name: string; location: string; reason: string; gen?: number; eventFlag?: number }

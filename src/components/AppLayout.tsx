@@ -230,16 +230,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 <label
                   className="retro-button flex cursor-pointer items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-3 text-zinc-400 transition-all focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 hover:bg-white/10 hover:text-white"
                   title="Import New Save"
-                  aria-label="Import New Save"
                 >
                   <RefreshCw size={20} />
-                  <input
-                    type="file"
-                    aria-label="Import New Save"
-                    accept=".sav"
-                    className="sr-only"
-                    onChange={handleFileUpload}
-                  />
+                  <input type="file" accept=".sav" className="sr-only" onChange={handleFileUpload} />
                 </label>
               </div>
             </div>
@@ -247,13 +240,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             <label className="slide-in-from-bottom-2 fade-in inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-2xl border-black/20 border-b-4 bg-[var(--theme-primary)] px-10 py-4 font-black text-[11px] text-white uppercase tracking-widest shadow-[0_20px_40px_rgba(var(--theme-primary-rgb),0.2)] transition-all duration-300 focus-within:outline-none focus-within:ring-2 focus-within:ring-[var(--theme-primary)] focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 hover:scale-105 hover:bg-[var(--theme-primary)]/90 active:scale-95 sm:w-auto">
               <Upload size={20} />
               Initialize Pokedex
-              <input
-                type="file"
-                aria-label="Initialize Pokedex"
-                accept=".sav"
-                className="sr-only"
-                onChange={handleFileUpload}
-              />
+              <input type="file" accept=".sav" className="sr-only" onChange={handleFileUpload} />
             </label>
           )}
         </header>

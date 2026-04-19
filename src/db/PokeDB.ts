@@ -248,11 +248,7 @@ export const pokeDB = {
     await pokeDB.ready();
     const db = await getDB();
     const names: Record<number, string> = {};
-    // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead
-    const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
-    const store = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    const locations = await Promise.all(ids.map((id) => store.get(id)));
-    await tx.done;
+    const locations = await Promise.all(ids.map((id) => db.get(DB_CONFIG.STORES.LOCATIONS, id)));
     for (const loc of locations) {
       if (loc) {
         names[loc.id] = loc.n;

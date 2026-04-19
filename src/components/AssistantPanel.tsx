@@ -1,9 +1,9 @@
-import { useSuspenseQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { Bug, Egg, Flag, Info, Loader2, Sparkles, Target, Zap } from 'lucide-react';
 import React from 'react';
+import { pokeDB } from '../db/PokeDB';
 import type { SaveData } from '../engine/saveParser/index';
 import { type Suggestion, type SuggestionCategory, useAssistant } from '../hooks/useAssistant';
-import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
 
@@ -60,22 +60,28 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
   const { suggestions, debug, isLoading, areaNames } = useAssistant(saveData, isLivingDex, manualVersion);
   const [showDebug, setShowDebug] = React.useState(false);
 
-  // ⚡ Bolt: Removed redundant IDB query, use cached data from root route loader
-  const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
+  const { data: pokemonList } = useQuery<{ id: number; name: string }[]>({
+    queryKey: ['pokemonList'],
+    queryFn: () => pokeDB.getAllPokemon().then((res) => res.map((p) => ({ id: p.id, name: p.n }))),
+    staleTime: Infinity,
+  });
 
   const pokemonNameRecord = React.useMemo(() => {
     const record: Record<number, string> = {};
-    for (const p of pokemonList) {
-      record[p.id] = p.name;
+    if (pokemonList) {
+      for (const p of pokemonList) {
+        record[p.id] = p.name;
+      }
     }
     return record;
   }, [pokemonList]);
 
   const getPokemonName = React.useCallback(
     (id: number) => {
+      if (!pokemonList) return `#${id}`;
       return pokemonNameRecord[id] ?? `#${id}`;
     },
-    [pokemonNameRecord],
+    [pokemonList, pokemonNameRecord],
   );
 
   return (
