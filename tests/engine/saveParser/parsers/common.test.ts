@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { byte, decodeGen12String, parseDVs, checkShiny } from '../../../../src/engine/saveParser/parsers/common';
+import { describe, expect, it } from 'vitest';
+import { byte, checkShiny, decodeGen12String, parseDVs } from '../../../../src/engine/saveParser/parsers/common';
 
 describe('common parsers', () => {
   describe('byte', () => {
