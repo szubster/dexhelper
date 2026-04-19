@@ -66,8 +66,8 @@ export function parseGen2PokemonInstance(
 }
 
 export function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersion {
-  const goldExclusives = [56, 57, 58, 59, 167, 168, 190, 207, 249];
-  const silverExclusives = [37, 38, 52, 53, 165, 166, 216, 217, 227, 250];
+  const goldExclusives = [56, 57, 58, 59, 167, 168, 207, 216, 217, 226]; // Mankey, Primeape, Growlithe, Arcanine, Spinarak, Ariados, Gligar, Teddiursa, Ursaring, Mantine
+  const silverExclusives = [37, 38, 52, 53, 165, 166, 225, 227, 231, 232]; // Vulpix, Ninetales, Meowth, Persian, Ledyba, Ledian, Delibird, Skarmory, Phanpy, Donphan
 
   let goldScore = 0;
   let silverScore = 0;

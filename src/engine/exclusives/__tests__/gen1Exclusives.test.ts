@@ -117,6 +117,20 @@ describe('gen1Exclusives', () => {
       });
     });
 
+    describe('Red Version Exclusives', () => {
+      it('should not lock Ekans (23) in Red', () => {
+        const ownedSet = new Set<number>();
+        const reason = getUnobtainableReason(23, 'red', 0, ownedSet);
+        expect(reason).toBeNull();
+      });
+
+      it('should lock Sandshrew (27) in Red', () => {
+        const ownedSet = new Set<number>();
+        const reason = getUnobtainableReason(27, 'red', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+      });
+    });
+
     describe('Yellow Version Exclusives', () => {
       it('should lock Electabuzz (125) in Yellow', () => {
         const ownedSet = new Set<number>();
