@@ -20,21 +20,26 @@ export function LocationSuggestions() {
       return;
     }
 
-    const fetchSuggestions = async () => {
-      const locations = await pokeDB.getLocations();
+    // ⚡ Bolt: Debounce the IDB fetch to avoid blocking the main thread with rapid queries while typing
+    const timeoutId = setTimeout(() => {
+      const fetchSuggestions = async () => {
+        const locations = await pokeDB.getLocations();
 
-      // ⚡ Bolt: Hoisted string allocation outside the loop and removed N+1 IDB queries
-      const term = searchTerm.toLowerCase();
-      const filteredWithCounts = locations
-        .filter((l) => l.n.toLowerCase().includes(term))
-        .slice(0, 5)
-        .map((l) => ({ ...l, count: l.pids?.length || 0 }));
+        // ⚡ Bolt: Hoisted string allocation outside the loop and removed N+1 IDB queries
+        const term = searchTerm.toLowerCase();
+        const filteredWithCounts = locations
+          .filter((l) => l.n.toLowerCase().includes(term))
+          .slice(0, 5)
+          .map((l) => ({ ...l, count: l.pids?.length || 0 }));
 
-      setSuggestions(filteredWithCounts);
-      setIsOpen(filteredWithCounts.length > 0);
-    };
+        setSuggestions(filteredWithCounts);
+        setIsOpen(filteredWithCounts.length > 0);
+      };
 
-    fetchSuggestions();
+      fetchSuggestions();
+    }, 150);
+
+    return () => clearTimeout(timeoutId);
   }, [searchTerm, selectedLocationId]);
 
   if (!isOpen && !selectedLocationId) return null;

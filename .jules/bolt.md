@@ -11,3 +11,6 @@
 ## 2024-05-24 - Prevent N+1 queries in LocationSuggestions
 **Learning:** IDB queries using `pokeDB.getInverseIndex` inside `.map` over filtered elements can trigger N+1 synchronous database overhead in React useEffects on every keystroke, causing severe UI blocking despite `await`.
 **Action:** When working with objects returned by `pokeDB.getLocations()`, access the pre-computed `pids` array directly (`l.pids?.length`) rather than firing off individual IndexedDB queries for `pokeDB.getInverseIndex(l.id)`. This removes Promises entirely from the render iteration.
+## 2026-04-19 - [Debounce IDB Queries in LocationSuggestions]
+**Learning:** `pokeDB.getLocations()` fetches all map locations from IDB on every keystroke when searching. This causes main thread blocking while typing quickly due to repeated unnecessary `getAll` and `filter` operations.
+**Action:** Introduced a 150ms debounce with `setTimeout` to batch IDB query execution, minimizing lag and keeping keystrokes responsive.
