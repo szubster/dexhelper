@@ -7,7 +7,8 @@ describe('Yellow Save Repro', () => {
   it('should parse the user provided yellow save', async () => {
     const savePath = path.resolve(__dirname, '../../../tests/fixtures/yellow-2026-03-30.sav');
     const buffer = fs.readFileSync(savePath);
-    const saveData = parseSaveFile(buffer.buffer);
+    const arrayBuffer = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+    const saveData = parseSaveFile(arrayBuffer);
 
     expect(saveData.gameVersion).toBe('yellow');
 

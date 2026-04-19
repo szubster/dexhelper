@@ -18,50 +18,57 @@ export { INTERNAL_ID_TO_DEX };
  * @throws An Error if the file size is invalid or if neither Gen 1 nor Gen 2 structures could be matched.
  */
 export function parseSaveFile(buffer: ArrayBuffer, forcedVersion?: GameVersion): SaveData {
-  const u8 = new Uint8Array(buffer);
+  const view = new DataView(buffer);
 
   if (buffer.byteLength < 32768) {
     throw new Error('Invalid save file size. Expected at least 32KB.');
   }
 
-  // Gen 1 Checksum
-  // Gen 1 calculates its checksum by iterating over the main save data block (0x2598 to 0x3522),
-  // subtracting each byte's value from an initial value of 255 (0xFF).
-  // The result is stored at 0x3523.
-  let gen1Sum = 255;
-  for (let i = 0x2598; i <= 0x3522; i++) {
-    gen1Sum -= u8[i] ?? 0;
-  }
-  const isGen1ChecksumValid = (gen1Sum & 0xff) === (u8[0x3523] ?? 0);
-
-  // Gen 2 Checksum
-  // Gen 2 calculates its checksum by summing up the bytes in the main save data block (0x2009 to 0x2D0C).
-  // The expected total is stored as a 16-bit little-endian integer at 0x2D0D.
-  let gen2Sum = 0;
-  for (let i = 0x2009; i <= 0x2d0c; i++) {
-    gen2Sum += u8[i] ?? 0;
-  }
-  const gen2Checksum = ((u8[0x2d0e] ?? 0) << 8) | (u8[0x2d0d] ?? 0);
-  const isGen2ChecksumValid = (gen2Sum & 0xffff) === gen2Checksum;
-
-  if (isGen1ChecksumValid && isGen1Save(u8)) {
-    return parseGen1(u8, forcedVersion);
-  } else if (isGen2ChecksumValid) {
-    if (isGen2Save(u8, true)) return parseGen2(u8, true);
-    if (isGen2Save(u8, false)) return parseGen2(u8, false);
-    // If checksum is valid but structure is weird, still try to parse
-    return parseGen2(u8);
-  } else {
-    // Fallback for saves with broken checksums but valid structure
-    if (isGen1Save(u8)) {
-      return parseGen1(u8, forcedVersion);
-    } else if (isGen2Save(u8, true)) {
-      return parseGen2(u8, true);
-    } else if (isGen2Save(u8, false)) {
-      return parseGen2(u8, false);
+  try {
+    // Gen 1 Checksum
+    // Gen 1 calculates its checksum by iterating over the main save data block (0x2598 to 0x3522),
+    // subtracting each byte's value from an initial value of 255 (0xFF).
+    // The result is stored at 0x3523.
+    let gen1Sum = 255;
+    for (let i = 0x2598; i <= 0x3522; i++) {
+      gen1Sum -= view.getUint8(i);
     }
-    throw new Error(
-      'Could not detect a valid Pokémon Red/Blue/Yellow or Gold/Silver/Crystal save file. Please ensure you are uploading a .sav file from a Gen 1 or Gen 2 game.',
-    );
+    const isGen1ChecksumValid = (gen1Sum & 0xff) === view.getUint8(0x3523);
+
+    // Gen 2 Checksum
+    // Gen 2 calculates its checksum by summing up the bytes in the main save data block (0x2009 to 0x2D0C).
+    // The expected total is stored as a 16-bit little-endian integer at 0x2D0D.
+    let gen2Sum = 0;
+    for (let i = 0x2009; i <= 0x2d0c; i++) {
+      gen2Sum += view.getUint8(i);
+    }
+    const gen2Checksum = view.getUint16(0x2d0d, true);
+    const isGen2ChecksumValid = (gen2Sum & 0xffff) === gen2Checksum;
+
+    if (isGen1ChecksumValid && isGen1Save(view)) {
+      return parseGen1(view, forcedVersion);
+    } else if (isGen2ChecksumValid) {
+      if (isGen2Save(view, true)) return parseGen2(view, true);
+      if (isGen2Save(view, false)) return parseGen2(view, false);
+      // If checksum is valid but structure is weird, still try to parse
+      return parseGen2(view);
+    } else {
+      // Fallback for saves with broken checksums but valid structure
+      if (isGen1Save(view)) {
+        return parseGen1(view, forcedVersion);
+      } else if (isGen2Save(view, true)) {
+        return parseGen2(view, true);
+      } else if (isGen2Save(view, false)) {
+        return parseGen2(view, false);
+      }
+      throw new Error(
+        'Could not detect a valid Pokémon Red/Blue/Yellow or Gold/Silver/Crystal save file. Please ensure you are uploading a .sav file from a Gen 1 or Gen 2 game.',
+      );
+    }
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
   }
 }

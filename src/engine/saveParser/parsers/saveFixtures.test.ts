@@ -16,8 +16,10 @@ const test = baseTest.extend<ParserFixtures>({
     // Provide a loader utility that abstracts disk I/O and root parsing
     const loader = (fileName: string, gen: 1 | 2) => {
       const buffer = fs.readFileSync(`tests/fixtures/${fileName}`);
-      const u8 = new Uint8Array(buffer);
-      return gen === 1 ? parseGen1(u8) : parseGen2(u8);
+      // Use the actual ArrayBuffer from the Buffer
+      const arrayBuffer = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+      const view = new DataView(arrayBuffer);
+      return gen === 1 ? parseGen1(view) : parseGen2(view);
     };
     await use(loader); // inject provider into tests
   },
@@ -47,6 +49,14 @@ describe('Real Save Fixtures Verification', () => {
       expectedVersion: 'unknown', // Valid fallback for very early-game states where unique exclusives or Pikachu status offsets aren't sufficient indicators
       expectedTrainer: 'Carlyle',
       expectedId: 20590,
+      expectedPartyLength: 1,
+    },
+    {
+      file: 'blue-complete.sav',
+      gen: 1 as const,
+      expectedVersion: 'blue',
+      expectedTrainer: 'BLUE',
+      expectedId: 61477,
       expectedPartyLength: 1,
     },
     {
