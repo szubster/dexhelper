@@ -14,3 +14,7 @@
 ## 2026-04-19 - [Debounce IDB Queries in LocationSuggestions]
 **Learning:** `pokeDB.getLocations()` fetches all map locations from IDB on every keystroke when searching. This causes main thread blocking while typing quickly due to repeated unnecessary `getAll` and `filter` operations.
 **Action:** Introduced a 150ms debounce with `setTimeout` to batch IDB query execution, minimizing lag and keeping keystrokes responsive.
+## 2024-05-19 - ⚡ Bolt: Use cached pokemonList in AssistantPanel
+
+**Learning:** When data is prefetched and cached at the root route level via `queryClient.ensureQueryData` (e.g., `pokemonListQueryOptions`), child components like `AssistantPanel` shouldn't re-fetch it independently via `useQuery` or `pokeDB` calls. This causes redundant IndexedDB access, duplicative cache memory allocation, and blocks the main thread with unnecessary array mapping.
+**Action:** Replace `useQuery` with `useSuspenseQuery` utilizing the exact same pre-defined `queryOptions` object from `pokemonQueries.ts`. `useSuspenseQuery` safely eliminates the need for manual `undefined` checks since the data presence is guaranteed by the route loader.

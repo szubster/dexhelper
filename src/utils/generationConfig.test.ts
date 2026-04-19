@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { GENERATION_CONFIGS, getGenerationConfig, getVersionInfo } from './generationConfig';
+import {
+  ALL_VERSION_IDS,
+  GENERATION_CONFIGS,
+  getGenerationConfig,
+  getVersionInfo,
+  MAX_DEX_ACROSS_GENS,
+  POKEBALL_LABELS,
+  VERSION_THEMES,
+} from './generationConfig';
 
 describe('getGenerationConfig', () => {
   it('should return the correct configuration for an existing generation (Gen 1)', () => {
@@ -92,5 +100,47 @@ describe('generation config sprite URLs', () => {
     expect(gen2.fallbackSpriteUrl(25)).toBe(
       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png',
     );
+  });
+});
+
+describe('generation config constants', () => {
+  it('MAX_DEX_ACROSS_GENS should be the maximum of maxDex across all generations', () => {
+    // Dynamically test MAX_DEX_ACROSS_GENS based on GENERATION_CONFIGS
+    const expectedMaxDex = Math.max(...Object.values(GENERATION_CONFIGS).map((c) => c.maxDex));
+    expect(MAX_DEX_ACROSS_GENS).toBe(expectedMaxDex);
+  });
+
+  it('VERSION_THEMES should contain entries for all versions, unsupported, and unknown', () => {
+    // Assert known values
+    // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
+    expect(VERSION_THEMES['red']).toBe('theme-red');
+    // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
+    expect(VERSION_THEMES['gold']).toBe('theme-gold');
+    // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
+    expect(VERSION_THEMES['unsupported']).toBe('');
+    // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
+    expect(VERSION_THEMES['unknown']).toBe('');
+
+    // Dynamically assert that all version IDs have a theme class
+    Object.values(GENERATION_CONFIGS).forEach((gc) => {
+      gc.versions.forEach((v) => {
+        expect(VERSION_THEMES[v.id]).toBe(v.themeClass);
+      });
+    });
+  });
+
+  it('ALL_VERSION_IDS should contain all known version IDs across all registered generations', () => {
+    const expectedIds = Object.values(GENERATION_CONFIGS).flatMap((gc) => gc.versions.map((v) => v.id));
+    expect(ALL_VERSION_IDS).toEqual(expectedIds);
+    expect(ALL_VERSION_IDS.includes('red')).toBe(true);
+    expect(ALL_VERSION_IDS.includes('crystal')).toBe(true);
+  });
+
+  it('POKEBALL_LABELS should contain labels for all known pokeball types', () => {
+    expect(POKEBALL_LABELS.poke).toBe('Poké Ball');
+    expect(POKEBALL_LABELS.great).toBe('Great Ball');
+    expect(POKEBALL_LABELS.safari).toBe('Safari Ball');
+    // Ensure it's an object with the correct structure
+    expect(typeof POKEBALL_LABELS).toBe('object');
   });
 });

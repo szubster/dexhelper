@@ -28,3 +28,7 @@
 ## 2026-04-10 - Empty States for Search and Filters
 **Learning:** Data grids and lists that can be heavily filtered or searched often lack empty states. When a user applies a combination of filters that yields no results, presenting an empty UI implies a bug or broken data load.
 **Action:** Always implement a distinct empty state for filtered lists. Use appropriate icons, clear messaging ("No results found"), and actionable advice (e.g., "Try adjusting your filters") to maintain context and guide the user.
+
+## 2026-04-10 - Palette: Add missing focus-visible to grid buttons
+**Learning:** The application had missing `focus-visible` styles on core grid interactive elements (`PokedexCard` and `StorageGrid` main buttons), which breaks keyboard navigation visibility.
+**Action:** Always include the standard `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` classes when adding or updating interactive list/grid items.
