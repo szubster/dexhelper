@@ -7,6 +7,28 @@ export const ONE_TIME_CHOICES = {
   spearow: [21], // Kenya the Spearow
 };
 
+// Gen 1 starters, fossils, and legendaries are unobtainable in Gen 2 without trading
+const GEN1_MISSING = [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9, // Starters
+  138,
+  139,
+  140,
+  141, // Fossils
+  144,
+  145,
+  146, // Birds
+  150,
+  151, // Mewtwo, Mew
+];
+
 const GEN2_VERSION_EXCLUSIVES: Record<string, number[]> = {
   // Lists of Pokemon MISSING from each version
   gold: [
@@ -91,28 +113,7 @@ export function getUnobtainableReason(
     return `This Pokémon is not available in ${gameVersion.charAt(0).toUpperCase() + gameVersion.slice(1)}. Must be traded from another version.`;
   }
 
-  // Gen 1 starters, fossils, and legendaries are unobtainable in Gen 2 without trading
-  const gen1Missing = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9, // Starters
-    138,
-    139,
-    140,
-    141, // Fossils
-    144,
-    145,
-    146, // Birds
-    150,
-    151, // Mewtwo, Mew
-  ];
-  if (gen1Missing.includes(pokemonId) && !ownedSet.has(pokemonId)) {
+  if (GEN1_MISSING.includes(pokemonId) && !ownedSet.has(pokemonId)) {
     return `Not found in Johto or Kanto in Generation 2. Must be traded from Generation 1 via Time Capsule.`;
   }
 
