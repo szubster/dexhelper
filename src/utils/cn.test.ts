@@ -23,13 +23,12 @@ describe('cn utility', () => {
     const isError = true;
     const isPrimary = false;
 
-    expect(cn(
-      'base-class',
-      isError && 'text-red-500',
-      isPrimary && 'bg-blue-500',
-      { 'opacity-50': !isError },
-      ['array-class', 'another-class']
-    )).toBe('base-class text-red-500 array-class another-class');
+    expect(
+      cn('base-class', isError && 'text-red-500', isPrimary && 'bg-blue-500', { 'opacity-50': !isError }, [
+        'array-class',
+        'another-class',
+      ]),
+    ).toBe('base-class text-red-500 array-class another-class');
   });
 
   it('should handle tailwind colors correctly', () => {
