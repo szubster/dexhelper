@@ -1,19 +1,17 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, test } from 'vitest';
 import { byte, checkShiny, decodeGen12String, parseDVs } from '../../../../src/engine/saveParser/parsers/common';
 
 describe('common parsers', () => {
   describe('byte', () => {
-    it('should return byte at offset', () => {
+    test.each([
+      [0, 10],
+      [1, 20],
+      [2, 30],
+      [3, 0],
+      [-1, 0],
+    ])('at offset %i returns %i', (offset, expected) => {
       const u8 = new Uint8Array([10, 20, 30]);
-      expect(byte(u8, 0)).toBe(10);
-      expect(byte(u8, 1)).toBe(20);
-      expect(byte(u8, 2)).toBe(30);
-    });
-
-    it('should return 0 for out of bounds offset', () => {
-      const u8 = new Uint8Array([10, 20, 30]);
-      expect(byte(u8, 3)).toBe(0);
-      expect(byte(u8, -1)).toBe(0);
+      expect(byte(u8, offset)).toBe(expected);
     });
   });
 
@@ -71,25 +69,22 @@ describe('common parsers', () => {
   });
 
   describe('checkShiny', () => {
-    it('should return true for valid shiny DVs', () => {
-      // def, spd, spc must be 10. atk can be 2, 3, 6, 7, 10, 11, 14, 15
-      const shinyAtks = [2, 3, 6, 7, 10, 11, 14, 15];
-      for (const atk of shinyAtks) {
-        expect(checkShiny({ atk, def: 10, spd: 10, spc: 10 })).toBe(true);
-      }
+    test.each([2, 3, 6, 7, 10, 11, 14, 15])('should return true for valid shiny DVs (atk=%i)', (atk) => {
+      expect(checkShiny({ atk, def: 10, spd: 10, spc: 10 })).toBe(true);
     });
 
-    it('should return false if any required DV is not 10', () => {
-      expect(checkShiny({ atk: 10, def: 9, spd: 10, spc: 10 })).toBe(false);
-      expect(checkShiny({ atk: 10, def: 10, spd: 9, spc: 10 })).toBe(false);
-      expect(checkShiny({ atk: 10, def: 10, spd: 10, spc: 9 })).toBe(false);
+    test.each([
+      [{ atk: 10, def: 9, spd: 10, spc: 10 }],
+      [{ atk: 10, def: 10, spd: 9, spc: 10 }],
+      [{ atk: 10, def: 10, spd: 10, spc: 9 }],
+    ])('should return false if any required DV is not 10 (%o)', (dvs) => {
+      expect(checkShiny(dvs)).toBe(false);
     });
 
-    it('should return false if atk is not one of the shiny values', () => {
-      const nonShinyAtks = [0, 1, 4, 5, 8, 9, 12, 13];
-      for (const atk of nonShinyAtks) {
-        expect(checkShiny({ atk, def: 10, spd: 10, spc: 10 })).toBe(false);
-      }
+    test.each([
+      0, 1, 4, 5, 8, 9, 12, 13,
+    ])('should return false if atk is not one of the shiny values (atk=%i)', (atk) => {
+      expect(checkShiny({ atk, def: 10, spd: 10, spc: 10 })).toBe(false);
     });
   });
 });
