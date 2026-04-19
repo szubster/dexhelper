@@ -88,7 +88,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                       key={`${location}-${p.speciesId}-${idx}`}
                       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}
-                      className={`relative flex w-full cursor-pointer flex-col items-center rounded-2xl p-5 text-left transition-all duration-200 hover:-translate-y-1 active:scale-95 ${cardStyle}`}
+                      className={`relative flex w-full cursor-pointer flex-col items-center rounded-2xl p-5 text-left transition-all duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 ${cardStyle}`}
                     >
                       <div className="absolute top-3 left-3 font-bold font-mono text-[10px] text-zinc-600">
                         LV.{p.level}

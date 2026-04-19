@@ -53,7 +53,7 @@ export const PokedexCard = React.memo(function PokedexCard({
       data-pokemon-id={pokemon.id}
       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
       className={cn(
-        'group relative w-full cursor-pointer rounded-3xl border-2 p-4 text-left transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]',
+        'group relative w-full cursor-pointer rounded-3xl border-2 p-4 text-left transition-all duration-500 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-[0.98]',
         hasInStorage
           ? 'border-emerald-500/30 bg-zinc-900 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]'
           : 'border-white/5 bg-zinc-900 hover:border-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]',
