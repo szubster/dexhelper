@@ -156,6 +156,19 @@ export const INTERNAL_ID_TO_DEX: Record<number, number> = {
   190: 71,
 };
 
+/**
+ * Attempts to heuristically determine the specific Generation 1 game version (Red, Blue, or Yellow).
+ * It first checks for high-confidence Yellow markers (Pikachu friendship/status bytes).
+ * If those are inconclusive, it falls back to a scoring system based on version-exclusive
+ * Pokémon found in the player's Pokédex and party.
+ *
+ * @param u8 - The raw save file array.
+ * @param owned - A set of Pokémon Pokédex IDs the player has caught.
+ * @param seen - A set of Pokémon Pokédex IDs the player has seen.
+ * @param trainerName - The player's Original Trainer (OT) name.
+ * @param partyDetails - A quick parsing of the player's party to verify if Pikachu is a native starter.
+ * @returns 'red', 'blue', 'yellow', or 'unknown' if it cannot confidently decide.
+ */
 export function detectGen1GameVersion(
   u8: Uint8Array,
   owned: Set<number>,
@@ -232,6 +245,14 @@ export function detectGen1GameVersion(
   return 'unknown';
 }
 
+/**
+ * Performs a structural check to verify if the save file is a valid Generation 1 save.
+ * It checks the party count (must be <= 6), ensures the party list is correctly terminated with 0xFF,
+ * and validates that the internal IDs in the party are within the expected range.
+ *
+ * @param u8 - The raw save file array.
+ * @returns True if the structure looks like a valid Gen 1 save.
+ */
 export function isGen1Save(u8: Uint8Array): boolean {
   const partyCount = byte(u8, 0x2f2c) ?? 0;
   if (partyCount > 6) return false;
@@ -243,6 +264,16 @@ export function isGen1Save(u8: Uint8Array): boolean {
   return true;
 }
 
+/**
+ * Extracts all relevant game data (party, PC boxes, inventory, Pokédex, etc.) from a Gen 1 save.
+ * Yellow version shifted many memory offsets by +1 byte compared to Red/Blue. This parser probes both
+ * potential Pokédex offsets (0x25A3 for R/B, 0x25A4 for Yellow) and uses padding bit correctness to
+ * dynamically detect the offset shift before extracting the rest of the save data.
+ *
+ * @param u8 - The raw save file array.
+ * @param forcedVersion - An optional version override provided by the user.
+ * @returns The structured SaveData object.
+ */
 export function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
   const trainerName = decodeGen12String(u8, 0x2598);
 
