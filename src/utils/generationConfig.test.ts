@@ -2,11 +2,11 @@ import { describe, expect, it } from 'vitest';
 import {
   ALL_VERSION_IDS,
   GENERATION_CONFIGS,
+  getGenerationConfig,
+  getVersionInfo,
   MAX_DEX_ACROSS_GENS,
   POKEBALL_LABELS,
   VERSION_THEMES,
-  getGenerationConfig,
-  getVersionInfo,
 } from './generationConfig';
 
 describe('getGenerationConfig', () => {
@@ -112,10 +112,10 @@ describe('generation config constants', () => {
 
   it('VERSION_THEMES should contain entries for all versions, unsupported, and unknown', () => {
     // Assert known values
-    expect(VERSION_THEMES['red']).toBe('theme-red');
-    expect(VERSION_THEMES['gold']).toBe('theme-gold');
-    expect(VERSION_THEMES['unsupported']).toBe('');
-    expect(VERSION_THEMES['unknown']).toBe('');
+    expect(VERSION_THEMES.red).toBe('theme-red');
+    expect(VERSION_THEMES.gold).toBe('theme-gold');
+    expect(VERSION_THEMES.unsupported).toBe('');
+    expect(VERSION_THEMES.unknown).toBe('');
 
     // Dynamically assert that all version IDs have a theme class
     Object.values(GENERATION_CONFIGS).forEach((gc) => {
@@ -126,18 +126,16 @@ describe('generation config constants', () => {
   });
 
   it('ALL_VERSION_IDS should contain all known version IDs across all registered generations', () => {
-    const expectedIds = Object.values(GENERATION_CONFIGS).flatMap((gc) =>
-      gc.versions.map((v) => v.id),
-    );
+    const expectedIds = Object.values(GENERATION_CONFIGS).flatMap((gc) => gc.versions.map((v) => v.id));
     expect(ALL_VERSION_IDS).toEqual(expectedIds);
     expect(ALL_VERSION_IDS.includes('red')).toBe(true);
     expect(ALL_VERSION_IDS.includes('crystal')).toBe(true);
   });
 
   it('POKEBALL_LABELS should contain labels for all known pokeball types', () => {
-    expect(POKEBALL_LABELS['poke']).toBe('Poké Ball');
-    expect(POKEBALL_LABELS['great']).toBe('Great Ball');
-    expect(POKEBALL_LABELS['safari']).toBe('Safari Ball');
+    expect(POKEBALL_LABELS.poke).toBe('Poké Ball');
+    expect(POKEBALL_LABELS.great).toBe('Great Ball');
+    expect(POKEBALL_LABELS.safari).toBe('Safari Ball');
     // Ensure it's an object with the correct structure
     expect(typeof POKEBALL_LABELS).toBe('object');
   });
