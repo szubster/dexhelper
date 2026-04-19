@@ -112,10 +112,14 @@ describe('generation config constants', () => {
 
   it('VERSION_THEMES should contain entries for all versions, unsupported, and unknown', () => {
     // Assert known values
-    expect(VERSION_THEMES.red).toBe('theme-red');
-    expect(VERSION_THEMES.gold).toBe('theme-gold');
-    expect(VERSION_THEMES.unsupported).toBe('');
-    expect(VERSION_THEMES.unknown).toBe('');
+    // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
+    expect(VERSION_THEMES['red']).toBe('theme-red');
+    // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
+    expect(VERSION_THEMES['gold']).toBe('theme-gold');
+    // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
+    expect(VERSION_THEMES['unsupported']).toBe('');
+    // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
+    expect(VERSION_THEMES['unknown']).toBe('');
 
     // Dynamically assert that all version IDs have a theme class
     Object.values(GENERATION_CONFIGS).forEach((gc) => {
