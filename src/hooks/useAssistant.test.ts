@@ -62,7 +62,7 @@ describe('useAssistant - generateSuggestions logic', () => {
         gr: 6,
         baby: false,
         efrm: [39],
-        det: [{ tr: 3, item: 81 }],
+        det: [{ tr: 3, item: [0x0a, 8] }],
         eto: [],
       } as PokemonMetadata,
       62: {
@@ -72,7 +72,7 @@ describe('useAssistant - generateSuggestions logic', () => {
         gr: 4,
         baby: false,
         efrm: [61, 60],
-        det: [{ tr: 3, item: 84 }],
+        det: [{ tr: 3, item: [0x22, 24] }],
         eto: [],
       } as PokemonMetadata,
     },

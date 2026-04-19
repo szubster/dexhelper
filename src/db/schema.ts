@@ -126,8 +126,8 @@ export interface CompactEvolutionDetail {
   tr?: number | undefined; // trigger (EVO_TRIGGER)
   ml?: number | undefined; // min_level
   mh?: number | undefined; // min_happiness
-  item?: number | undefined; // item id
-  held?: number | undefined; // held item id
+  item?: number[] | undefined; // item ids (array of internal ROM IDs for gen1/gen2, 0 if not applicable)
+  held?: number[] | undefined; // held item id
   time?: number | undefined; // 1: day, 2: night
 }
 

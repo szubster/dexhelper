@@ -19,6 +19,19 @@ const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
 const TEMP_DIR = path.join(process.cwd(), 'scratch/temp_pokeapi');
 const OUTPUT_DIR = path.join(process.cwd(), 'data/db');
 
+const INGAME_ITEM_MAP: Record<number, number[]> = {
+  81: [0x0a, 8],     // Moon Stone
+  82: [0x20, 22],    // Fire Stone
+  83: [0x21, 23],    // Thunder Stone
+  84: [0x22, 24],    // Water Stone
+  85: [0x2f, 34],    // Leaf Stone
+  191: [0, 176],     // Sun Stone
+  198: [0, 81],      // King's Rock
+  210: [0, 148],     // Metal Coat
+  211: [0, 156],     // Dragon Scale
+  212: [0, 179],     // Up-Grade
+};
+
 function readJson(filePath: string) {
   if (!fs.existsSync(filePath)) return null;
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -357,8 +370,8 @@ for (const cid of uniqueChainIds) {
         tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
         ml: ed.min_level ?? undefined,
         mh: ed.min_happiness ?? undefined,
-        item: ed.item ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
-        held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
+        item: ed.item ? (INGAME_ITEM_MAP[parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10)] || [parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10)]) : undefined,
+        held: ed.held_item ? (INGAME_ITEM_MAP[parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10)] || [parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10)]) : undefined,
         time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
       })),
       ef,

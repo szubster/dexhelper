@@ -309,7 +309,7 @@ export function generateSuggestions(
         });
       }
     } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
-      const hasStone = saveData.inventory.some((i) => i.id === item);
+      const hasStone = saveData.inventory.some((i) => i.id === item[saveData.generation - 1]);
       suggestions.push({
         id: `evo-item-${targetId}`,
         category: 'Evolve',

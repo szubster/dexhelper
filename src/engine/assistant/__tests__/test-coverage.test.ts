@@ -14,7 +14,7 @@ test('coverage for suggestionEngine new lines', () => {
     ),
     seen: new Set(),
     party: [],
-    inventory: [{ id: 82, count: 1 }], // Fire Stone
+    inventory: [{ id: 22, quantity: 1 }], // Fire Stone (Gen 2 is 22)
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
     partyDetails: [
@@ -75,7 +75,7 @@ test('coverage for suggestionEngine new lines', () => {
         id: 136,
         n: 'Flareon',
         efrm: [133],
-        det: [{ tr: 3, item: 82 }], // Fire Stone
+        det: [{ tr: 3, item: [0x20, 22] }], // Fire Stone
         eto: [],
       }, // Flareon (Item)
       68: {
@@ -144,7 +144,7 @@ test('coverage for suggestionEngine edge cases', () => {
         id: 135,
         n: 'Jolteon',
         efrm: [133],
-        det: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
+        det: [{ tr: 3, item: [0x21, 23] }], // Jolteon, but no stone in inventory
         eto: [],
       },
     },
