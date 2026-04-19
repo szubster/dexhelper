@@ -17,93 +17,103 @@ describe('gen2 parsers', () => {
 
   describe('isGen2Save', () => {
     it('should return false for invalid party count', () => {
-      const u8 = new Uint8Array(32768);
-      u8[0x288a] = 7; // GS party count
-      expect(isGen2Save(u8, false)).toBe(false);
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 7); // GS party count
+      expect(isGen2Save(view, false)).toBe(false);
 
-      u8[0x2865] = 7; // Crystal party count
-      expect(isGen2Save(u8, true)).toBe(false);
+      view.setUint8(0x2865, 7); // Crystal party count
+      expect(isGen2Save(view, true)).toBe(false);
     });
 
     it('should return false for invalid terminator', () => {
-      const u8 = new Uint8Array(32768);
-      u8[0x288a] = 1; // GS
-      u8[0x288b + 1] = 0x00; // Not 0xff terminator
-      expect(isGen2Save(u8, false)).toBe(false);
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1); // GS
+      view.setUint8(0x288b + 1, 0xff); // Terminator (correct one)
+      // wait, the test was testing invalid terminator, so let's set it to 0
+      view.setUint8(0x288b + 1, 0x00);
+      expect(isGen2Save(view, false)).toBe(false);
     });
 
     it('should return false for invalid species id', () => {
-      const u8 = new Uint8Array(32768);
-      u8[0x288a] = 1; // GS
-      u8[0x288b + 1] = 0xff; // Terminator
-      u8[0x288b] = 0; // ID 0 is invalid
-      expect(isGen2Save(u8, false)).toBe(false);
-      u8[0x288b] = 252; // Out of bounds
-      expect(isGen2Save(u8, false)).toBe(false);
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1); // GS
+      view.setUint8(0x288b + 1, 0xff); // Terminator
+      view.setUint8(0x288b, 0); // ID 0 is invalid
+      expect(isGen2Save(view, false)).toBe(false);
+      view.setUint8(0x288b, 252); // Out of bounds
+      expect(isGen2Save(view, false)).toBe(false);
     });
 
     it('should return true for valid looking save', () => {
-      const u8 = new Uint8Array(32768);
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
 
-      u8[0x288a] = 1; // GS party count
-      u8[0x288b + 1] = 0xff; // Terminator
-      u8[0x288b] = 1; // Bulbasaur
-      expect(isGen2Save(u8, false)).toBe(true);
+      view.setUint8(0x288a, 1); // GS party count
+      view.setUint8(0x288b + 1, 0xff); // Terminator
+      view.setUint8(0x288b, 1); // Bulbasaur
+      expect(isGen2Save(view, false)).toBe(true);
 
-      u8[0x2865] = 1; // Crystal party count
-      u8[0x2866 + 1] = 0xff; // Terminator
-      u8[0x2866] = 1; // Bulbasaur
-      expect(isGen2Save(u8, true)).toBe(true);
+      view.setUint8(0x2865, 1); // Crystal party count
+      view.setUint8(0x2866 + 1, 0xff); // Terminator
+      view.setUint8(0x2866, 1); // Bulbasaur
+      expect(isGen2Save(view, true)).toBe(true);
     });
   });
 
   describe('parseCaughtData', () => {
     it('should return undefined if both bytes are 0', () => {
-      const u8 = new Uint8Array(31);
-      u8[29] = 0;
-      u8[30] = 0;
-      expect(parseCaughtData(u8, 0)).toBeUndefined();
+      const buffer = new ArrayBuffer(31);
+      const view = new DataView(buffer);
+      view.setUint8(29, 0);
+      view.setUint8(30, 0);
+      expect(parseCaughtData(view, 0)).toBeUndefined();
     });
 
     it('should parse time correctly', () => {
-      const u8 = new Uint8Array(31);
+      const buffer = new ArrayBuffer(31);
+      const view = new DataView(buffer);
       // timeBits 1 = Morning
-      u8[29] = (1 << 6) | 5; // Level 5
-      u8[30] = 1;
-      expect(parseCaughtData(u8, 0)).toMatchObject({ time: 'Morning', level: 5 });
+      view.setUint8(29, (1 << 6) | 5); // Level 5
+      view.setUint8(30, 1);
+      expect(parseCaughtData(view, 0)).toMatchObject({ time: 'Morning', level: 5 });
 
-      u8[29] = (2 << 6) | 5; // Day
-      expect(parseCaughtData(u8, 0)).toMatchObject({ time: 'Day' });
+      view.setUint8(29, (2 << 6) | 5); // Day
+      expect(parseCaughtData(view, 0)).toMatchObject({ time: 'Day' });
 
-      u8[29] = (3 << 6) | 5; // Night
-      expect(parseCaughtData(u8, 0)).toMatchObject({ time: 'Night' });
+      view.setUint8(29, (3 << 6) | 5); // Night
+      expect(parseCaughtData(view, 0)).toMatchObject({ time: 'Night' });
     });
 
     it('should parse location correctly', () => {
-      const u8 = new Uint8Array(31);
-      u8[29] = (1 << 6) | 5;
+      const buffer = new ArrayBuffer(31);
+      const view = new DataView(buffer);
+      view.setUint8(29, (1 << 6) | 5);
 
-      u8[30] = 0x7e;
-      expect(parseCaughtData(u8, 0)).toMatchObject({ locationName: 'Event/Gift' });
+      view.setUint8(30, 0x7e);
+      expect(parseCaughtData(view, 0)).toMatchObject({ locationName: 'Event/Gift' });
 
-      u8[30] = 0x7f;
-      expect(parseCaughtData(u8, 0)).toMatchObject({ locationName: 'Special Event/Traded' });
+      view.setUint8(30, 0x7f);
+      expect(parseCaughtData(view, 0)).toMatchObject({ locationName: 'Special Event/Traded' });
 
-      u8[30] = 1; // Assuming 1 is mapped in landmarks
-      expect(parseCaughtData(u8, 0)?.locationName).toBeDefined();
+      view.setUint8(30, 1); // Assuming 1 is mapped in landmarks
+      expect(parseCaughtData(view, 0)?.locationName).toBeDefined();
     });
   });
 
   describe('parseGen2', () => {
     it('should parse GS party', () => {
-      const u8 = new Uint8Array(32768);
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
       // Valid party of 1
-      u8[0x288a] = 1;
-      u8[0x288b] = 1; // Bulbasaur
-      u8[0x288b + 7] = 1; // speciesId inside struct
-      u8[0x288b + 7 + 31] = 5; // Level
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1); // Bulbasaur
+      view.setUint8(0x288b + 7, 1); // speciesId inside struct
+      view.setUint8(0x288b + 7 + 31, 5); // Level
 
-      const data = parseGen2(u8, false);
+      const data = parseGen2(view, false);
       expect(data.party).toContain(1);
       expect(data.partyDetails[0]?.speciesId).toBe(1);
       expect(data.generation).toBe(2);
@@ -111,26 +121,28 @@ describe('gen2 parsers', () => {
     });
 
     it('should detect Crystal and parse', () => {
-      const u8 = new Uint8Array(32768);
-      u8[0x288a] = 7; // invalid GS
-      u8[0x2865] = 1; // Valid Crystal
-      u8[0x2866] = 2; // Ivysaur
-      u8[0x2866 + 7] = 2; // speciesId inside struct
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 7); // invalid GS
+      view.setUint8(0x2865, 1); // Valid Crystal
+      view.setUint8(0x2866, 2); // Ivysaur
+      view.setUint8(0x2866 + 7, 2); // speciesId inside struct
 
-      const data = parseGen2(u8, false);
+      const data = parseGen2(view, false);
       expect(data.gameVersion).toBe('crystal');
       expect(data.party).toContain(2);
     });
 
     it('should fall back to gold if unknown GS', () => {
-      const u8 = new Uint8Array(32768);
-      u8[0x288a] = 1; // GS
-      u8[0x288b] = 1;
-      u8[0x288b + 7] = 1;
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1); // GS
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
 
       // detectGen2GameVersion will return 'unknown'.
       // Wait, in parseGen2, if (gameVersion === 'unknown' && !isCrystal) gameVersion = 'gold'.
-      const data = parseGen2(u8, false);
+      const data = parseGen2(view, false);
       expect(data.gameVersion).toBe('gold');
     });
   });

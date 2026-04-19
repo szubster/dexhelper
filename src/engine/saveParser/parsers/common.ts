@@ -48,9 +48,7 @@ export interface SaveData {
   daycareHasEgg?: boolean;
 }
 
-export function byte(u8: Uint8Array, offset: number): number {
-  return u8[offset] ?? 0;
-}
+// Removed byte helper as DataView provides getUint8 natively.
 
 const GEN12_CHAR_MAP: Record<number, string> = {
   0x7f: ' ',
@@ -134,19 +132,26 @@ const GEN12_CHAR_MAP: Record<number, string> = {
   0xf7: '9',
 };
 
-export function decodeGen12String(u8: Uint8Array, offset: number, maxLength: number = 11): string {
+export function decodeGen12String(view: DataView, offset: number, maxLength: number = 11): string {
   let result = '';
   for (let i = 0; i < maxLength; i++) {
-    const charCode = u8[offset + i];
-    if (charCode === undefined || charCode === 0x50 || charCode === 0x00 || charCode === 0xff) break;
+    let charCode: number;
+    try {
+      charCode = view.getUint8(offset + i);
+    } catch (e) {
+      if (e instanceof RangeError) break;
+      throw e;
+    }
+
+    if (charCode === 0x50 || charCode === 0x00 || charCode === 0xff) break;
     result += GEN12_CHAR_MAP[charCode] ?? '?';
   }
   return result.trim();
 }
 
-export function parseDVs(dvBytes: Uint8Array) {
-  const b0 = dvBytes[0] ?? 0;
-  const b1 = dvBytes[1] ?? 0;
+export function parseDVs(dvValue: number) {
+  const b0 = (dvValue >> 8) & 0xff;
+  const b1 = dvValue & 0xff;
   const atk = b0 >> 4;
   const def = b0 & 0x0f;
   const spd = b1 >> 4;

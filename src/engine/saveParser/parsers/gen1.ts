@@ -1,6 +1,6 @@
 import gen1MapLocations from '../../data/gen1/mapLocations.json';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
-import { byte, checkShiny, decodeGen12String, parseDVs } from './common';
+import { checkShiny, decodeGen12String, parseDVs } from './common';
 
 export const INTERNAL_ID_TO_DEX: Record<number, number> = {
   1: 112,
@@ -170,7 +170,7 @@ export const INTERNAL_ID_TO_DEX: Record<number, number> = {
  * @returns 'red', 'blue', 'yellow', or 'unknown' if it cannot confidently decide.
  */
 export function detectGen1GameVersion(
-  u8: Uint8Array,
+  view: DataView,
   owned: Set<number>,
   seen: Set<number>,
   trainerName: string,
@@ -178,15 +178,12 @@ export function detectGen1GameVersion(
 ): GameVersion {
   // 1. High-confidence Yellow markers in English version
   // 0x271C: Following Pikachu status, 0x271D: Pikachu Happiness
-  const followingPikachu = u8[0x271c];
-  const pikachuHappiness = u8[0x271d];
+  const followingPikachu = view.getUint8(0x271c);
+  const pikachuHappiness = view.getUint8(0x271d);
 
   // If these are non-zero and not FF (unitialized), it's almost certainly Yellow.
   // We use > 0 and < 0xFF to be safe against garbage data.
-  if (
-    (followingPikachu !== undefined && followingPikachu > 0 && followingPikachu < 0xff) ||
-    (pikachuHappiness !== undefined && pikachuHappiness > 0 && pikachuHappiness < 0xff)
-  ) {
+  if ((followingPikachu > 0 && followingPikachu < 0xff) || (pikachuHappiness > 0 && pikachuHappiness < 0xff)) {
     return 'yellow';
   }
 
@@ -250,15 +247,15 @@ export function detectGen1GameVersion(
  * It checks the party count (must be <= 6), ensures the party list is correctly terminated with 0xFF,
  * and validates that the internal IDs in the party are within the expected range.
  *
- * @param u8 - The raw save file array.
+ * @param view - The raw save file view.
  * @returns True if the structure looks like a valid Gen 1 save.
  */
-export function isGen1Save(u8: Uint8Array): boolean {
-  const partyCount = byte(u8, 0x2f2c) ?? 0;
+export function isGen1Save(view: DataView): boolean {
+  const partyCount = view.getUint8(0x2f2c);
   if (partyCount > 6) return false;
-  if ((u8[0x2f2d + partyCount] ?? 0) !== 0xff) return false;
+  if (view.getUint8(0x2f2d + partyCount) !== 0xff) return false;
   for (let i = 0; i < partyCount; i++) {
-    const id = u8[0x2f2d + i] ?? 0;
+    const id = view.getUint8(0x2f2d + i);
     if (id === 0 || id === 0xff) return false;
   }
   return true;
@@ -270,15 +267,15 @@ export function isGen1Save(u8: Uint8Array): boolean {
  * potential Pokédex offsets (0x25A3 for R/B, 0x25A4 for Yellow) and uses padding bit correctness to
  * dynamically detect the offset shift before extracting the rest of the save data.
  *
- * @param u8 - The raw save file array.
+ * @param view - The raw save file view.
  * @param forcedVersion - An optional version override provided by the user.
  * @returns The structured SaveData object.
  */
-export function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData {
-  const trainerName = decodeGen12String(u8, 0x2598);
+export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData {
+  const trainerName = decodeGen12String(view, 0x2598);
 
   // Quick parse of party to get OTs for accurate version detection
-  const partyCount = byte(u8, 0x2f2c);
+  const partyCount = view.getUint8(0x2f2c);
   const quickParty: { speciesId: number; otName: string }[] = [];
   const partyDataOffset = 0x2f2d + 7;
   const partyOTOffset = partyDataOffset + 6 * 44;
@@ -288,10 +285,10 @@ export function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData
   // and hope it's enough for version detection.
   for (let i = 0; i < partyCount; i++) {
     const offset = partyDataOffset + i * 44;
-    const internalId = byte(u8, offset);
+    const internalId = view.getUint8(offset);
     const speciesId = INTERNAL_ID_TO_DEX[internalId];
     if (speciesId) {
-      const otName = decodeGen12String(u8, partyOTOffset + i * 11);
+      const otName = decodeGen12String(view, partyOTOffset + i * 11);
       quickParty.push({ speciesId, otName });
     }
   }
@@ -302,19 +299,19 @@ export function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData
   const detectForOffset = (ownedBase: number) => {
     const owned = new Set<number>();
     const seen = new Set<number>();
-    const ownedBytes = u8.slice(ownedBase, ownedBase + 19);
-    const seenBytes = u8.slice(ownedBase + (0x25b6 - 0x25a3), ownedBase + (0x25b6 - 0x25a3) + 19);
 
     for (let i = 1; i <= 151; i++) {
       const byteIdx = Math.floor((i - 1) / 8);
       const bitIdx = (i - 1) % 8;
-      if (((ownedBytes[byteIdx] ?? 0) & (1 << bitIdx)) !== 0) owned.add(i);
-      if (((seenBytes[byteIdx] ?? 0) & (1 << bitIdx)) !== 0) seen.add(i);
+      const oByte = view.getUint8(ownedBase + byteIdx);
+      const sByte = view.getUint8(ownedBase + (0x25b6 - 0x25a3) + byteIdx);
+      if ((oByte & (1 << bitIdx)) !== 0) owned.add(i);
+      if ((sByte & (1 << bitIdx)) !== 0) seen.add(i);
     }
     // High-confidence Yellow indicators: bit 152 (last bit of 19-byte Pokedex) must be 0.
     // In Yellow, the Happiness byte (at A3) is often FF or high value, which would make bit 7 of the "shifted-Pokedex-last-byte" 1 if we read from A3.
-    const paddingBitIsCorrect = ((ownedBytes[18] ?? 0) & 0x80) === 0;
-    const version = detectGen1GameVersion(u8, owned, seen, trainerName, quickParty);
+    const paddingBitIsCorrect = (view.getUint8(ownedBase + 18) & 0x80) === 0;
+    const version = detectGen1GameVersion(view, owned, seen, trainerName, quickParty);
     return { version, owned, seen, paddingBitIsCorrect };
   };
 
@@ -345,14 +342,18 @@ export function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData
 
   for (let i = 0; i < partyCount; i++) {
     const offset = shiftedPartyDataOffset + i * 44;
-    const internalId = byte(u8, offset);
+    const internalId = view.getUint8(offset);
     const speciesId = INTERNAL_ID_TO_DEX[internalId];
     if (!speciesId) continue;
-    const level = byte(u8, offset + 33);
-    const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter((m) => m > 0);
-    const dvs = parseDVs(u8.slice(offset + 27, offset + 29));
+    const level = view.getUint8(offset + 33);
+    const moves: number[] = [];
+    for (let j = 0; j < 4; j++) {
+      const m = view.getUint8(offset + 8 + j);
+      if (m > 0) moves.push(m);
+    }
+    const dvs = parseDVs(view.getUint16(offset + 27, false));
     const isShiny = checkShiny(dvs);
-    const otName = decodeGen12String(u8, shiftedPartyOTOffset + i * 11);
+    const otName = decodeGen12String(view, shiftedPartyOTOffset + i * 11);
     partyDetails.push({
       speciesId,
       level,
@@ -366,26 +367,32 @@ export function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData
 
   const party = partyDetails.map((p) => p.speciesId);
 
-  const currentBoxNum = byte(u8, 0x284c + offsetShift) & 0x7f;
-  const currentBoxCount = byte(u8, 0x30c0 + offsetShift);
-  const currentBoxSpecies = u8.slice(0x30c1 + offsetShift, 0x30c1 + offsetShift + currentBoxCount);
-  const pc = Array.from(currentBoxSpecies)
-    .map((id) => INTERNAL_ID_TO_DEX[id])
-    .filter((id): id is number => id !== undefined);
+  const currentBoxNum = view.getUint8(0x284c + offsetShift) & 0x7f;
+  const currentBoxCount = view.getUint8(0x30c0 + offsetShift);
+  const pc: number[] = [];
+  for (let i = 0; i < currentBoxCount; i++) {
+    const id = view.getUint8(0x30c1 + offsetShift + i);
+    const dex = INTERNAL_ID_TO_DEX[id];
+    if (dex !== undefined) pc.push(dex);
+  }
 
   const pcDetails: PokemonInstance[] = [];
   const currentBoxDataOffset = 0x30c1 + offsetShift + 21;
   const currentBoxOTOffset = currentBoxDataOffset + 20 * 33;
   for (let i = 0; i < currentBoxCount; i++) {
     const offset = currentBoxDataOffset + i * 33;
-    const internalId = byte(u8, offset);
+    const internalId = view.getUint8(offset);
     const speciesId = INTERNAL_ID_TO_DEX[internalId];
     if (!speciesId) continue;
-    const level = byte(u8, offset + 3);
-    const moves = Array.from(u8.slice(offset + 8, offset + 12)).filter((m) => m > 0);
-    const dvs = parseDVs(u8.slice(offset + 27, offset + 29));
+    const level = view.getUint8(offset + 3);
+    const moves: number[] = [];
+    for (let j = 0; j < 4; j++) {
+      const m = view.getUint8(offset + 8 + j);
+      if (m > 0) moves.push(m);
+    }
+    const dvs = parseDVs(view.getUint16(offset + 27, false));
     const isShiny = checkShiny(dvs);
-    const otName = decodeGen12String(u8, currentBoxOTOffset + i * 11);
+    const otName = decodeGen12String(view, currentBoxOTOffset + i * 11);
     pcDetails.push({
       speciesId,
       level,
@@ -402,28 +409,32 @@ export function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData
     if (i === currentBoxNum) continue;
     const offset = boxOffsets[i];
     if (offset === undefined) continue;
-    const count = byte(u8, offset);
+    const count = view.getUint8(offset);
     if (count > 20) continue;
-    const species = u8.slice(offset + 1, offset + 1 + count);
-    pc.push(
-      ...Array.from(species)
-        .map((id) => INTERNAL_ID_TO_DEX[id])
-        .filter((id): id is number => id !== undefined),
-    );
+
+    for (let j = 0; j < count; j++) {
+      const id = view.getUint8(offset + 1 + j);
+      const dex = INTERNAL_ID_TO_DEX[id];
+      if (dex !== undefined) pc.push(dex);
+    }
 
     const boxDataOffset = offset + 22; // Offset 21 is species list end (FF), 22 is first Pokemon
     const boxOTOffset = boxDataOffset + 20 * 33;
     for (let j = 0; j < count; j++) {
       const pOff = boxDataOffset + j * 33;
-      const internalId = byte(u8, pOff);
+      const internalId = view.getUint8(pOff);
       const speciesId = INTERNAL_ID_TO_DEX[internalId];
       if (!speciesId) continue;
 
-      const level = byte(u8, pOff + 3);
-      const moves = Array.from(u8.slice(pOff + 8, pOff + 12)).filter((m) => m > 0);
-      const dvs = parseDVs(u8.slice(pOff + 27, pOff + 29));
+      const level = view.getUint8(pOff + 3);
+      const moves: number[] = [];
+      for (let k = 0; k < 4; k++) {
+        const m = view.getUint8(pOff + 8 + k);
+        if (m > 0) moves.push(m);
+      }
+      const dvs = parseDVs(view.getUint16(pOff + 27, false));
       const isShiny = checkShiny(dvs);
-      const otName = decodeGen12String(u8, boxOTOffset + j * 11);
+      const otName = decodeGen12String(view, boxOTOffset + j * 11);
 
       pcDetails.push({
         speciesId,
@@ -437,16 +448,20 @@ export function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData
     }
   }
 
-  const badges = byte(u8, 0x2602 + offsetShift);
-  const trainerId = (byte(u8, 0x2605 + offsetShift) << 8) | byte(u8, 0x2606 + offsetShift);
-  const currentMapId = byte(u8, 0x260a + offsetShift);
+  const badges = view.getUint8(0x2602 + offsetShift);
+  const trainerId = view.getUint16(0x2605 + offsetShift, false);
+  const currentMapId = view.getUint8(0x260a + offsetShift);
   const currentMapName = (gen1MapLocations as Record<string, string>)[currentMapId.toString()] || 'Unknown Map';
   const inventory: { id: number; quantity: number }[] = [];
-  const itemCount = byte(u8, 0x25c9 + offsetShift);
+  const itemCount = view.getUint8(0x25c9 + offsetShift);
   for (let i = 0; i < itemCount; i++) {
     const itemOffset = 0x25ca + offsetShift + i * 2;
-    inventory.push({ id: byte(u8, itemOffset), quantity: byte(u8, itemOffset + 1) });
+    inventory.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
   }
+
+  const hallOfFameRaw = view.getUint8(0x25b3 + offsetShift);
+  const eventFlagsOffset = 0x29e6 + offsetShift;
+  const eventFlags = new Uint8Array(view.buffer, eventFlagsOffset, 0x118);
 
   return {
     generation: 1,
@@ -465,8 +480,8 @@ export function parseGen1(u8: Uint8Array, forcedVersion?: GameVersion): SaveData
     currentMapName,
     inventory,
     currentBoxCount,
-    hallOfFameCount: byte(u8, 0x25b3 + offsetShift) === 0xff ? 0 : byte(u8, 0x25b3 + offsetShift),
-    eventFlags: u8.slice(0x29e6 + offsetShift, 0x29e6 + offsetShift + 0x118),
-    npcTradeFlags: byte(u8, 0x29e6 + offsetShift - 16) | (byte(u8, 0x29e6 + offsetShift - 15) << 8),
+    hallOfFameCount: hallOfFameRaw === 0xff ? 0 : hallOfFameRaw,
+    eventFlags,
+    npcTradeFlags: view.getUint8(eventFlagsOffset - 16) | (view.getUint8(eventFlagsOffset - 15) << 8),
   };
 }

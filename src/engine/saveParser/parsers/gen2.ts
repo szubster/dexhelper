@@ -1,20 +1,20 @@
 import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
-import { byte, checkShiny, decodeGen12String, parseDVs } from './common';
+import { checkShiny, decodeGen12String, parseDVs } from './common';
 
 /**
  * Extracts the caught data (time of day, level, and location) from a Generation 2 Pokémon structure.
  * Caught data is only populated in Crystal version; Gold and Silver leave these bytes as 0.
  * Time and level are packed into a single byte via bitwise operations.
  *
- * @param u8 - The raw save file array.
+ * @param view - The raw save file view.
  * @param offset - The memory offset of the specific Pokémon structure.
  * @returns An object containing the time, level, location ID, and location name, or undefined if missing.
  */
-export function parseCaughtData(u8: Uint8Array, offset: number) {
-  const caughtByte1 = byte(u8, offset + 29);
-  const caughtByte2 = byte(u8, offset + 30);
+export function parseCaughtData(view: DataView, offset: number) {
+  const caughtByte1 = view.getUint8(offset + 29);
+  const caughtByte2 = view.getUint8(offset + 30);
 
   if (caughtByte1 === 0 && caughtByte2 === 0) return undefined;
 
@@ -40,7 +40,7 @@ export function parseCaughtData(u8: Uint8Array, offset: number) {
 /**
  * Extracts details for a single Pokémon from a Generation 2 save block.
  *
- * @param u8 - The raw save file array.
+ * @param view - The raw save file view.
  * @param offset - The memory offset for the start of the Pokémon's 32-byte data block.
  * @param isCrystal - Whether the save file is from Pokémon Crystal (determines if caught data exists).
  * @param storageLocation - A string indicating where the Pokémon is stored (e.g., 'Party', 'Box 1').
@@ -48,26 +48,30 @@ export function parseCaughtData(u8: Uint8Array, offset: number) {
  * @returns A fully constructed PokemonInstance object, or undefined if the species ID is invalid.
  */
 export function parseGen2PokemonInstance(
-  u8: Uint8Array,
+  view: DataView,
   offset: number,
   isCrystal: boolean,
   storageLocation: string,
   slot?: number,
 ): PokemonInstance | undefined {
-  const speciesId = byte(u8, offset);
+  const speciesId = view.getUint8(offset);
   if (!speciesId || (speciesId > 251 && speciesId !== 253)) return undefined;
 
-  const item = byte(u8, offset + 1);
-  const moves = Array.from(u8.slice(offset + 2, offset + 6)).filter((m) => m > 0);
-  const dvs = parseDVs(u8.slice(offset + 21, offset + 23));
+  const item = view.getUint8(offset + 1);
+  const moves: number[] = [];
+  for (let i = 0; i < 4; i++) {
+    const m = view.getUint8(offset + 2 + i);
+    if (m > 0) moves.push(m);
+  }
+  const dvs = parseDVs(view.getUint16(offset + 21, false));
   const isShiny = checkShiny(dvs);
-  const friendship = byte(u8, offset + 27);
-  const pokerus = byte(u8, offset + 28);
-  const level = byte(u8, offset + 31);
-  const caughtData = isCrystal ? parseCaughtData(u8, offset) : undefined;
+  const friendship = view.getUint8(offset + 27);
+  const pokerus = view.getUint8(offset + 28);
+  const level = view.getUint8(offset + 31);
+  const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
 
   // OT names in daycare are immediately after the data block
-  const otName = storageLocation === 'Daycare' ? decodeGen12String(u8, offset + 32) : undefined;
+  const otName = storageLocation === 'Daycare' ? decodeGen12String(view, offset + 32) : undefined;
 
   return {
     speciesId,
@@ -120,18 +124,18 @@ export function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): Ga
  * It dynamically checks the party offset based on the `crystal` flag, ensuring the party count
  * is valid (<= 6), correctly terminated with 0xFF, and contains valid internal Pokémon IDs.
  *
- * @param u8 - The raw save file array.
+ * @param view - The raw save file view.
  * @param crystal - Whether to test offsets specific to Pokémon Crystal.
  * @returns True if the structure looks like a valid Gen 2 save for the specified game type.
  */
-export function isGen2Save(u8: Uint8Array, crystal: boolean): boolean {
+export function isGen2Save(view: DataView, crystal: boolean): boolean {
   const countOffset = crystal ? 0x2865 : 0x288a;
   const speciesOffset = crystal ? 0x2866 : 0x288b;
-  const partyCount = u8[countOffset] ?? 0;
+  const partyCount = view.getUint8(countOffset);
   if (partyCount > 6) return false;
-  if ((u8[speciesOffset + partyCount] ?? 0) !== 0xff) return false;
+  if (view.getUint8(speciesOffset + partyCount) !== 0xff) return false;
   for (let i = 0; i < partyCount; i++) {
-    const id = u8[speciesOffset + i] ?? 0;
+    const id = view.getUint8(speciesOffset + i);
     if (id === 0 || id > 251) return false;
   }
   return true;
@@ -143,15 +147,15 @@ export function isGen2Save(u8: Uint8Array, crystal: boolean): boolean {
  * by checking party sizes at the different offset locations, and dynamically selects the correct
  * memory map before extraction.
  *
- * @param u8 - The raw save file array.
+ * @param view - The raw save file view.
  * @param forceCrystal - An optional flag to force the parser to use Crystal memory offsets.
  * @returns The structured SaveData object.
  */
-export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
+export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   let isCrystal = forceCrystal;
   if (!isCrystal) {
-    const gsPartyCount = byte(u8, 0x288a);
-    const cPartyCount = byte(u8, 0x2865);
+    const gsPartyCount = view.getUint8(0x288a);
+    const cPartyCount = view.getUint8(0x2865);
     if (cPartyCount <= 6 && cPartyCount > 0 && gsPartyCount > 6) {
       isCrystal = true;
     }
@@ -177,9 +181,6 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
         currentBoxSpecies: 0x2d11,
       };
 
-  const ownedBytes = u8.slice(offsets.owned, offsets.owned + 32);
-  const seenBytes = u8.slice(offsets.seen, offsets.seen + 32);
-
   const owned = new Set<number>();
   const seen = new Set<number>();
 
@@ -187,38 +188,47 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     const byteIdx = Math.floor((dexId - 1) / 8);
     const bitIdx = (dexId - 1) % 8;
 
-    if (((ownedBytes[byteIdx] ?? 0) & (1 << bitIdx)) !== 0) {
+    const oByte = view.getUint8(offsets.owned + byteIdx);
+    const sByte = view.getUint8(offsets.seen + byteIdx);
+
+    if ((oByte & (1 << bitIdx)) !== 0) {
       owned.add(dexId);
     }
-    if (((seenBytes[byteIdx] ?? 0) & (1 << bitIdx)) !== 0) {
+    if ((sByte & (1 << bitIdx)) !== 0) {
       seen.add(dexId);
     }
   }
 
-  const partyCount = byte(u8, offsets.partyCount);
-  const partySpecies = u8.slice(offsets.partySpecies, offsets.partySpecies + partyCount);
-  const party = Array.from(partySpecies).filter((id) => id > 0 && id <= 251);
+  const partyCount = view.getUint8(offsets.partyCount);
+  const party: number[] = [];
+  for (let i = 0; i < partyCount; i++) {
+    const id = view.getUint8(offsets.partySpecies + i);
+    if (id > 0 && id <= 251) party.push(id);
+  }
 
   const partyDetails: PokemonInstance[] = [];
   const partyDataOffset = offsets.partySpecies + 7; // After species list
   for (let i = 0; i < partyCount; i++) {
     const offset = partyDataOffset + i * 48;
-    const p = parseGen2PokemonInstance(u8, offset, isCrystal, 'Party', i + 1);
+    const p = parseGen2PokemonInstance(view, offset, isCrystal, 'Party', i + 1);
     if (p) {
       partyDetails.push(p);
     }
   }
 
-  const currentBoxNum = byte(u8, offsets.currentBoxNum) & 0x0f;
-  const currentBoxCount = byte(u8, offsets.currentBoxCount);
-  const currentBoxSpecies = u8.slice(offsets.currentBoxSpecies, offsets.currentBoxSpecies + currentBoxCount);
-  const pc = Array.from(currentBoxSpecies).filter((id) => id > 0 && id <= 251);
+  const currentBoxNum = view.getUint8(offsets.currentBoxNum) & 0x0f;
+  const currentBoxCount = view.getUint8(offsets.currentBoxCount);
+  const pc: number[] = [];
+  for (let i = 0; i < currentBoxCount; i++) {
+    const id = view.getUint8(offsets.currentBoxSpecies + i);
+    if (id > 0 && id <= 251) pc.push(id);
+  }
 
   const pcDetails: PokemonInstance[] = [];
   const currentBoxDataOffset = offsets.currentBoxSpecies + 21; // After species list
   for (let i = 0; i < currentBoxCount; i++) {
     const offset = currentBoxDataOffset + i * 32;
-    const p = parseGen2PokemonInstance(u8, offset, isCrystal, `Box ${currentBoxNum + 1}`, i + 1);
+    const p = parseGen2PokemonInstance(view, offset, isCrystal, `Box ${currentBoxNum + 1}`, i + 1);
     if (p) {
       pcDetails.push(p);
     }
@@ -245,15 +255,17 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     if (i === currentBoxNum) continue;
     const offset = boxOffsets[i];
     if (offset === undefined) continue;
-    const count = byte(u8, offset);
+    const count = view.getUint8(offset);
     if (count > 20) continue;
-    const species = u8.slice(offset + 1, offset + 1 + count);
-    pc.push(...Array.from(species).filter((id) => id > 0 && id <= 251));
+    for (let j = 0; j < count; j++) {
+      const id = view.getUint8(offset + 1 + j);
+      if (id > 0 && id <= 251) pc.push(id);
+    }
 
     const boxDataOffset = offset + 22;
     for (let j = 0; j < count; j++) {
       const pOff = boxDataOffset + j * 32;
-      const p = parseGen2PokemonInstance(u8, pOff, isCrystal, `Box ${i + 1}`, j + 1);
+      const p = parseGen2PokemonInstance(view, pOff, isCrystal, `Box ${i + 1}`, j + 1);
       if (p) {
         pcDetails.push(p);
       }
@@ -271,9 +283,9 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   const daycare: PokemonInstance[] = [];
 
   for (const offset of [daycare1Offset, daycare2Offset]) {
-    const speciesId = byte(u8, offset);
+    const speciesId = view.getUint8(offset);
     if (speciesId !== 0 && speciesId !== 0xff) {
-      const p = parseGen2PokemonInstance(u8, offset, isCrystal, 'Daycare');
+      const p = parseGen2PokemonInstance(view, offset, isCrystal, 'Daycare');
       if (p) {
         daycare.push(p);
         pcDetails.push(p);
@@ -281,26 +293,28 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     }
   }
 
-  const daycareHasEgg = (byte(u8, daycareEggOffset) & 0x01) !== 0;
+  const daycareHasEgg = (view.getUint8(daycareEggOffset) & 0x01) !== 0;
 
   let badges = 0;
+  const jBadges = view.getUint8(johtoBadgesOffset);
+  const kBadges = view.getUint8(kantoBadgesOffset);
   for (let i = 0; i < 8; i++) {
-    if ((byte(u8, johtoBadgesOffset) & (1 << i)) !== 0) badges++;
-    if ((byte(u8, kantoBadgesOffset) & (1 << i)) !== 0) badges++;
+    if ((jBadges & (1 << i)) !== 0) badges++;
+    if ((kBadges & (1 << i)) !== 0) badges++;
   }
 
-  let gameVersion: GameVersion = isCrystal ? 'crystal' : detectGen2GameVersion(owned, seen);
+  let gameVersion = isCrystal ? 'crystal' : detectGen2GameVersion(owned, seen);
   if (gameVersion === 'unknown' && !isCrystal) {
     gameVersion = 'gold';
   }
 
-  const trainerName = decodeGen12String(u8, 0x200b);
-  const trainerId = (byte(u8, 0x2009) << 8) | byte(u8, 0x200a);
+  const trainerName = decodeGen12String(view, 0x200b);
+  const trainerId = view.getUint16(0x2009, false);
 
   const mapBankOffset = isCrystal ? 0x25c6 : 0x25b3;
   const mapIdOffset = isCrystal ? 0x25c7 : 0x25b4;
-  const mapGroup = byte(u8, mapBankOffset);
-  const currentMapId = byte(u8, mapIdOffset);
+  const mapGroup = view.getUint8(mapBankOffset);
+  const currentMapId = view.getUint8(mapIdOffset);
 
   let currentMapName = 'Unknown Map';
   const gen2Maps = gen2MapLocations as Record<string, Record<string, string>>;
@@ -309,9 +323,6 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
   if (foundMap) {
     currentMapName = foundMap;
   }
-
-  const johtoBadgesValue = byte(u8, johtoBadgesOffset);
-  const kantoBadgesValue = byte(u8, kantoBadgesOffset);
 
   // Detailed inventory parsing for Gen 2 could be added here later
   const inventory: { id: number; quantity: number }[] = [];
@@ -324,10 +335,10 @@ export function parseGen2(u8: Uint8Array, forceCrystal = false): SaveData {
     pc,
     partyDetails,
     pcDetails,
-    gameVersion,
+    gameVersion: gameVersion as GameVersion,
     badges,
-    johtoBadges: johtoBadgesValue,
-    kantoBadges: kantoBadgesValue,
+    johtoBadges: jBadges,
+    kantoBadges: kBadges,
     trainerName,
     trainerId,
     currentMapId,

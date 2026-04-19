@@ -39,11 +39,12 @@ describe('gen1 parsers', () => {
     ];
 
     test.for(cases)('should detect $name', ({ owned = [], u8Mods = {}, party = [], expected }) => {
-      const u8 = new Uint8Array(32768);
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
       for (const [offset, value] of Object.entries(u8Mods)) {
-        u8[Number(offset)] = value;
+        view.setUint8(Number(offset), value as number);
       }
-      expect(detectGen1GameVersion(u8, new Set(owned), new Set(), trainerName, party)).toBe(expected);
+      expect(detectGen1GameVersion(view, new Set(owned), new Set(), trainerName, party)).toBe(expected);
     });
   });
 
@@ -57,11 +58,12 @@ describe('gen1 parsers', () => {
     ];
 
     test.for(cases)('should return $expected for $name', ({ u8Mods, expected }) => {
-      const u8 = new Uint8Array(32768);
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
       for (const [offset, value] of Object.entries(u8Mods)) {
-        u8[Number(offset)] = value;
+        view.setUint8(Number(offset), value as number);
       }
-      expect(isGen1Save(u8)).toBe(expected);
+      expect(isGen1Save(view)).toBe(expected);
     });
   });
 });
