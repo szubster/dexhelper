@@ -2,7 +2,7 @@
 id: task-001-create-engine-yaml
 type: TASK
 title: "Core Foundry Orchestration Engine"
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"

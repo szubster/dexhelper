@@ -20,7 +20,6 @@ describe('foundry-orchestrator', () => {
     vi.spyOn(process, 'cwd').mockReturnValue(tmpDir);
     vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
     vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
-    vi.spyOn(console, 'log').mockImplementation(() => {});
   });
 
   afterEach(() => {
@@ -63,6 +62,7 @@ jules_session_id: null
 pr_number: null
     `);
 
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
 
     // Verify file mutation
@@ -70,7 +70,7 @@ pr_number: null
     expect(epicChar).toContain('status: READY');
 
     // Verify console output (JSON array of READY nodes)
-    const logSpy = vi.spyOn(console, 'log');
+    expect(logSpy).toHaveBeenCalled();
     const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
     const output = JSON.parse(lastCall);
     expect(output).toHaveLength(1);
@@ -106,13 +106,14 @@ jules_session_id: null
 pr_number: null
     `);
 
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
 
     const epicChar = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
     expect(epicChar).toContain('status: PENDING');
     
     // Output should be empty since nothing is READY
-    const logSpy = vi.spyOn(console, 'log');
+    expect(logSpy).toHaveBeenCalled();
     const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
     expect(JSON.parse(lastCall)).toHaveLength(0);
   });
@@ -121,10 +122,11 @@ pr_number: null
     const filePath = path.join(tmpDir, '.foundry/epics/bad-node.md');
     fs.writeFileSync(filePath, `---\nid: bad\nstatus: PENDING\n---`, 'utf-8'); // Missing required fields
 
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
 
     // Should not crash. stderr should have warned.
-    const logSpy = vi.spyOn(console, 'log');
+    expect(logSpy).toHaveBeenCalled();
     const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
     expect(JSON.parse(lastCall)).toHaveLength(0);
   });
