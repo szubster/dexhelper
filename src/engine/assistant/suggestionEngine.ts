@@ -124,7 +124,9 @@ export function generateSuggestions(
 
   const genConfig = getGenerationConfig(saveData.generation);
   const maxDex = genConfig.maxDex;
+  // ⚡ Bolt: Optimize O(n) array includes to O(1) Set has for missingIds and localPids
   const missingIds: number[] = [];
+  const missingIdsSet = new Set<number>();
 
   const ownedSet = isLivingDex
     ? new Set([...(saveData.party || []), ...(saveData.pc || [])])
@@ -142,6 +144,7 @@ export function generateSuggestions(
         continue;
       }
       missingIds.push(i);
+      missingIdsSet.add(i);
     }
   }
 
@@ -154,7 +157,7 @@ export function generateSuggestions(
   const specialSuggestions = strategy.getSpecialSuggestions(saveData, missingIds);
   suggestions.push(...specialSuggestions);
 
-  const localPids: number[] = [];
+  const localPids = new Set<number>();
   // A. Catch logic (Local Map)
   // Highest priority (120) is given to Pokemon found on the exact same map the player is currently standing on.
   if (apiData.localEncounters && apiData.localEncounters.length > 0 && apiData.localAid) {
@@ -169,8 +172,8 @@ export function generateSuggestions(
 
       if (STATIC_GIFT_DATA[pid] && myOtIds.has(pid)) continue;
 
-      if (missingIds.includes(pid)) {
-        localPids.push(pid);
+      if (missingIdsSet.has(pid)) {
+        localPids.add(pid);
         localEncounterInfo[pid] = relevantEncounters.flatMap((re) =>
           re.d.map((ed) => ({
             chance: ed.c,
@@ -183,13 +186,13 @@ export function generateSuggestions(
       }
     }
 
-    if (localPids.length > 0) {
+    if (localPids.size > 0) {
       suggestions.push({
         id: 'catch-local',
         category: 'Catch',
         title: 'Catch Right Here',
-        description: `You are at ${saveData.currentMapName || 'your current location'}! There are ${localPids.length} missing Pokémon right here.`,
-        pokemonIds: localPids,
+        description: `You are at ${saveData.currentMapName || 'your current location'}! There are ${localPids.size} missing Pokémon right here.`,
+        pokemonIds: Array.from(localPids),
         priority: 120,
         encounterInfo: localEncounterInfo,
       });
@@ -200,7 +203,7 @@ export function generateSuggestions(
   // Distance is calculated via graph traversal in the generation's strategy.
   // Priority dynamically scales inversely with distance (closer = higher priority).
   for (const pid of queryTargets) {
-    if (localPids.includes(pid)) continue;
+    if (localPids.has(pid)) continue;
 
     const encData = apiData.missingEncounters[pid];
     if (!encData?.enc) continue;
@@ -270,7 +273,7 @@ export function generateSuggestions(
   for (const trade of STATIC_NPC_TRADE_DATA) {
     if (trade.gen !== saveData.generation) continue;
     if (trade.versions && !trade.versions.includes(displayVersion)) continue;
-    if (!missingIds.includes(trade.receivedId)) continue;
+    if (!missingIdsSet.has(trade.receivedId)) continue;
 
     const hasOffered = ownedSet.has(trade.offeredId);
     suggestions.push({
