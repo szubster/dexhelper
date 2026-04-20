@@ -1,5 +1,5 @@
 import { useNavigate } from '@tanstack/react-router';
-import { ChevronRight, CircleDot, Monitor, Sparkles } from 'lucide-react';
+import { CircleDot, Monitor, Sparkles } from 'lucide-react';
 import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
@@ -53,33 +53,66 @@ export const PokedexCard = React.memo(function PokedexCard({
       data-pokemon-id={pokemon.id}
       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
       className={cn(
-        'group relative w-full cursor-pointer rounded-3xl border-2 p-4 text-left transition-all duration-500 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-[0.98]',
+        'group relative w-full cursor-pointer border-2 p-3 text-left transition-all duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-[0.98]',
         hasInStorage
-          ? 'border-emerald-500/30 bg-zinc-900 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]'
-          : 'border-white/5 bg-zinc-900 hover:border-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]',
+          ? 'border-emerald-500/30 bg-zinc-900/80 hover:border-emerald-500/50 hover:bg-emerald-950/30'
+          : 'border-white/5 bg-zinc-900/80 hover:border-white/20 hover:bg-zinc-800/80',
         saveData?.owned.has(pokemon.id) && !hasInStorage && 'border-amber-500/30 hover:border-amber-500/50',
       )}
       style={{ animationDelay: `${(idx % 20) * 0.02}s` }}
     >
+      {/* Viewfinder L-Brackets */}
+      <div
+        className={cn(
+          'absolute top-0 left-0 h-3 w-3 border-t-2 border-l-2 transition-colors',
+          hasInStorage ? 'border-emerald-500/50' : 'border-white/20',
+        )}
+      />
+      <div
+        className={cn(
+          'absolute top-0 right-0 h-3 w-3 border-t-2 border-r-2 transition-colors',
+          hasInStorage ? 'border-emerald-500/50' : 'border-white/20',
+        )}
+      />
+      <div
+        className={cn(
+          'absolute bottom-0 left-0 h-3 w-3 border-b-2 border-l-2 transition-colors',
+          hasInStorage ? 'border-emerald-500/50' : 'border-white/20',
+        )}
+      />
+      <div
+        className={cn(
+          'absolute right-0 bottom-0 h-3 w-3 border-r-2 border-b-2 transition-colors',
+          hasInStorage ? 'border-emerald-500/50' : 'border-white/20',
+        )}
+      />
+
       {/* Card Header: Num & Icons */}
-      <div className="mb-3 flex items-center justify-between">
-        <div className="flex items-center gap-1 rounded-full border border-white/5 bg-white/5 px-2 py-0.5">
-          <span className="font-black text-[9px] text-zinc-500 uppercase tracking-tighter">ID</span>
-          <span className="font-black font-mono text-[10px] text-zinc-300">
+      <div className="mb-2 flex items-center justify-between opacity-80 transition-opacity group-hover:opacity-100">
+        <div className="flex items-center gap-1">
+          <span className="font-black text-[9px] text-zinc-500 uppercase tracking-widest">NO.</span>
+          <span className={cn('font-black font-mono text-[10px]', hasInStorage ? 'text-emerald-400' : 'text-zinc-300')}>
             {pokemon.id.toString().padStart(3, '0')}
           </span>
         </div>
 
         {saveData && !isUnseen && (
           <div className="flex gap-1">
-            {inParty && <CircleDot size={12} className="animate-pulse text-rose-500" />}
-            {inPC && <Monitor size={12} className="text-[var(--theme-primary)]" />}
+            {inParty && <CircleDot size={10} className="animate-pulse text-rose-500" />}
+            {inPC && <Monitor size={10} className="text-[var(--theme-primary)]" />}
           </div>
         )}
       </div>
 
       {/* Sprite Container */}
-      <div className="relative mb-4 flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-black/20 transition-colors group-hover:bg-black/40">
+      <div className="relative mb-3 flex aspect-square items-center justify-center overflow-hidden border border-white/5 bg-black/40 transition-colors group-hover:bg-black/60">
+        {/* Reticle / Target lines */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-10 transition-opacity group-hover:opacity-30">
+          <div className="h-full w-[1px] bg-white" />
+          <div className="absolute h-[1px] w-full bg-white" />
+          <div className="absolute h-8 w-8 rounded-full border border-white" />
+        </div>
+
         {/* LCD Grid Background */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.05]"
@@ -90,8 +123,8 @@ export const PokedexCard = React.memo(function PokedexCard({
         />
 
         {isShiny && (
-          <div className="absolute -top-1 -right-1 z-10 animate-[spin_4s_linear_infinite] text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
-            <Sparkles size={16} fill="currentColor" className="animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+          <div className="absolute top-1 right-1 z-10 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
+            <Sparkles size={12} fill="currentColor" className="animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
           </div>
         )}
 
@@ -103,12 +136,12 @@ export const PokedexCard = React.memo(function PokedexCard({
           }
           alt={pokemon.name}
           className={cn(
-            'pixelated z-10 h-[85%] w-[85%] object-contain transition-all duration-500',
+            'pixelated z-10 h-[80%] w-[80%] object-contain transition-all duration-300',
             isUnseen
               ? 'opacity-10 brightness-0'
               : isSeenNotOwned
                 ? 'opacity-50 grayscale'
-                : 'drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:scale-110',
+                : 'drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] group-hover:scale-110',
           )}
           loading="lazy"
           onError={(e) => {
@@ -123,10 +156,10 @@ export const PokedexCard = React.memo(function PokedexCard({
       </div>
 
       {/* Card Footer: Name & Status */}
-      <div className="space-y-2">
+      <div className="flex flex-col gap-1.5">
         <h3
           className={cn(
-            'truncate text-center font-black text-[10px] uppercase tracking-widest sm:text-[11px]',
+            'truncate font-black font-mono text-[10px] uppercase tracking-widest',
             isUnseen ? 'text-zinc-700' : isShiny ? 'text-amber-400' : 'text-white',
           )}
         >
@@ -134,46 +167,30 @@ export const PokedexCard = React.memo(function PokedexCard({
         </h3>
 
         {saveData && (
-          <div className="flex justify-center">
+          <div className="flex">
             {hasInStorage ? (
-              <div
-                className={cn(
-                  'flex items-center gap-1.5 rounded-lg border px-2.5 py-1',
-                  isShiny ? 'border-amber-500/20 bg-amber-500/10' : 'border-emerald-500/20 bg-emerald-500/10',
-                )}
-              >
-                <div className={cn('h-1 w-1 rounded-full', isShiny ? 'bg-amber-400' : 'bg-emerald-500')} />
-                <span
-                  className={cn(
-                    'font-black text-[8px] uppercase tracking-tighter',
-                    isShiny ? 'text-amber-400' : 'text-emerald-400',
-                  )}
-                >
-                  Secured
-                </span>
+              <div className="flex w-full items-center justify-between border-emerald-500/20 border-t pt-1.5">
+                <span className="font-black text-[8px] text-emerald-500 uppercase tracking-widest">STATUS</span>
+                <span className="font-black font-mono text-[9px] text-emerald-400">SECURED</span>
               </div>
             ) : isOwnedInDex ? (
-              <div className="flex items-center gap-1.5 rounded-lg border border-amber-500/20 bg-amber-500/10 px-2.5 py-1">
-                <div className="h-1 w-1 rounded-full bg-amber-500" />
-                <span className="font-black text-[8px] text-amber-400 uppercase tracking-tighter">Dex Only</span>
+              <div className="flex w-full items-center justify-between border-amber-500/20 border-t pt-1.5">
+                <span className="font-black text-[8px] text-amber-500 uppercase tracking-widest">STATUS</span>
+                <span className="font-black font-mono text-[9px] text-amber-400">DEX_ONLY</span>
               </div>
             ) : isSeenInDex ? (
-              <div className="flex items-center gap-1.5 rounded-lg border border-rose-500/20 bg-rose-500/10 px-2.5 py-1">
-                <div className="h-1 w-1 rounded-full bg-rose-500" />
-                <span className="font-black text-[8px] text-rose-400 uppercase tracking-tighter">Seen</span>
+              <div className="flex w-full items-center justify-between border-rose-500/20 border-t pt-1.5">
+                <span className="font-black text-[8px] text-rose-500 uppercase tracking-widest">STATUS</span>
+                <span className="font-black font-mono text-[9px] text-rose-400">SEEN</span>
               </div>
             ) : (
-              <div className="flex items-center gap-1.5 rounded-lg border border-white/5 bg-white/5 px-2.5 py-1">
-                <span className="font-black text-[8px] text-zinc-600 uppercase tracking-tighter">Unknown</span>
+              <div className="flex w-full items-center justify-between border-white/5 border-t pt-1.5">
+                <span className="font-black text-[8px] text-zinc-600 uppercase tracking-widest">STATUS</span>
+                <span className="font-black font-mono text-[9px] text-zinc-500">UNKNOWN</span>
               </div>
             )}
           </div>
         )}
-      </div>
-
-      {/* Corner Accent */}
-      <div className="absolute right-[-10px] bottom-[-10px] p-4 opacity-0 transition-opacity group-hover:opacity-100">
-        <ChevronRight size={14} className="text-[var(--theme-primary)]" />
       </div>
     </button>
   );
