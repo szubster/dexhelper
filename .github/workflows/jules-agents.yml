@@ -2,7 +2,7 @@ name: "🤖 Jules Agents"
 
 on:
   schedule:
-    - cron: "0 2 * * *" # Daily at 2:00 UTC
+    - cron: "47 2 * * *" # Daily at 2:00 UTC
   workflow_dispatch:
 
 permissions:
@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   discover:
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     outputs:
       agents: ${{ steps.list.outputs.agents }}
