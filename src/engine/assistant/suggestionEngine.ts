@@ -125,8 +125,7 @@ export function generateSuggestions(
   const genConfig = getGenerationConfig(saveData.generation);
   const maxDex = genConfig.maxDex;
   // ⚡ Bolt: Optimize O(n) array includes to O(1) Set has for missingIds and localPids
-  const missingIds: number[] = [];
-  const missingIdsSet = new Set<number>();
+  const missingIds = new Set<number>();
 
   const ownedSet = isLivingDex
     ? new Set([...(saveData.party || []), ...(saveData.pc || [])])
@@ -143,18 +142,17 @@ export function generateSuggestions(
         rejected.push({ pokemonId: i, reason: 'Hall of Fame count is 0. Mewtwo is locked.', code: 'HOF_LOCKED' });
         continue;
       }
-      missingIds.push(i);
-      missingIdsSet.add(i);
+      missingIds.add(i);
     }
   }
 
   const effectiveVersion = manualVersion || saveData.gameVersion;
   const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
   const displayVersionId = POKE_VERSION_MAP[displayVersion] || 1;
-  const queryTargets = missingIds.slice(0, 100);
+  const queryTargets = Array.from(missingIds).slice(0, 100);
 
   // Special Strategy-Specific Suggestions (e.g. Box full warning)
-  const specialSuggestions = strategy.getSpecialSuggestions(saveData, missingIds);
+  const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds));
   suggestions.push(...specialSuggestions);
 
   const localPids = new Set<number>();
@@ -172,7 +170,7 @@ export function generateSuggestions(
 
       if (STATIC_GIFT_DATA[pid] && myOtIds.has(pid)) continue;
 
-      if (missingIdsSet.has(pid)) {
+      if (missingIds.has(pid)) {
         localPids.add(pid);
         localEncounterInfo[pid] = relevantEncounters.flatMap((re) =>
           re.d.map((ed) => ({
@@ -273,7 +271,7 @@ export function generateSuggestions(
   for (const trade of STATIC_NPC_TRADE_DATA) {
     if (trade.gen !== saveData.generation) continue;
     if (trade.versions && !trade.versions.includes(displayVersion)) continue;
-    if (!missingIdsSet.has(trade.receivedId)) continue;
+    if (!missingIds.has(trade.receivedId)) continue;
 
     const hasOffered = ownedSet.has(trade.offeredId);
     suggestions.push({
