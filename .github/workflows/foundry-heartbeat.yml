@@ -1,0 +1,53 @@
+name: Foundry Heartbeat
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  heartbeat:
+    name: Check for Stale Sessions
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        run: |
+          cd .github/scripts
+          npm install
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run Heartbeat Check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node --strip-types .github/scripts/foundry-heartbeat.ts
+
+      - name: Commit State Changes
+        run: |
+          if [[ -n $(git status --porcelain .foundry) ]]; then
+            git add .foundry
+            git commit -m "Foundry: Transition stale ACTIVE nodes to FAILED"
+            git pull --rebase origin main
+            git push origin main
+          else
+            echo "No stale nodes found."
+          fi
