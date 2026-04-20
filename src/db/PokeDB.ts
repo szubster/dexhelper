@@ -1,4 +1,4 @@
-import { type IDBPDatabase, openDB, type StoreNames } from 'idb';
+import { type IDBPDatabase, openDB } from 'idb';
 import {
   type CompactChainLink,
   DB_CONFIG,
@@ -35,16 +35,18 @@ const DEFAULT_LOCATION = {
   dist: {},
 };
 
+type ValidStoreName = (typeof DB_CONFIG.STORES)[keyof typeof DB_CONFIG.STORES];
+
 export const getDB = () => {
   if (!dbPromise) {
     dbPromise = openDB<PokeDBSchema>(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
       /* v8 ignore start */
       upgrade(db) {
-        const currentStores = Array.from(db.objectStoreNames) as StoreNames<PokeDBSchema>[];
-        const targetStores = Object.values(DB_CONFIG.STORES) as StoreNames<PokeDBSchema>[];
+        const currentStores = Array.from(db.objectStoreNames);
+        const targetStores = Object.values(DB_CONFIG.STORES) as readonly ValidStoreName[];
 
         // Define key paths for each store
-        const keyPaths: Record<string, string> = {
+        const keyPaths: Record<ValidStoreName, string> = {
           [DB_CONFIG.STORES.POKEMON]: 'id',
           [DB_CONFIG.STORES.ENCOUNTERS]: 'pid',
           [DB_CONFIG.STORES.LOCATIONS]: 'id',
