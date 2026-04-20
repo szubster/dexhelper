@@ -92,6 +92,21 @@ export default defineConfig(() => {
       reportCompressedSize: true,
       rollupOptions: {
         output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('@tanstack')) {
+                return 'vendor-tanstack';
+              }
+              if (id.includes('lucide-react')) {
+                return 'vendor-lucide';
+              }
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'vendor-react';
+              }
+              return 'vendor';
+            }
+            return undefined;
+          },
         },
       },
     },
