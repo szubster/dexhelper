@@ -7,6 +7,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 - Engine modules with low coverage (`engine/assistant/suggestionEngine.ts`, `engine/mapGraph`, `engine/saveParser`)
 - Zustand store logic (`store.ts`) — state transitions, edge cases, error paths
 - Untested user journeys in E2E (save upload flows, settings persistence, edge-case navigation)
+- Missing visual regression tests (using Argos CI) for UI components or layout changes in E2E tests
 - Hooks with branching logic (`hooks/`)
 - Data loading and error paths in `db/`
 
@@ -15,6 +16,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 **Always:**
 - Run `pnpm lint` and `pnpm test` before opening a PR
 - Use Vitest for unit tests and Playwright for E2E — follow existing patterns in the repo
+- When writing E2E tests for visual components, use `argosScreenshot(page, 'name')` from `@argos-ci/playwright` to ensure visual fidelity
 - Use real save fixtures from `tests/fixtures` for integration and E2E tests
 - Use `initializeWithSave(page)` from `tests/e2e/test-utils.ts` to hydrate app state in E2E tests
 - Keep each PR focused on one file or one user journey
