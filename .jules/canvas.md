@@ -10,8 +10,8 @@
 **Why:** Maintainer pointed out that clicking on boxes instead of scrolling is more problematic, especially on mobile devices.
 **Pattern:** Avoid replacing vertical scrolling with click-to-navigate tab/sidebar layouts when the number of items is high (like 14+ boxes), as it can degrade the mobile experience.
 
-## 2025-05-20 - [Pending] - 🖼️ Canvas: Viewfinder scan-target layout for PokedexCard
+## 2025-05-20 - [Rejected] - 🖼️ Canvas: Viewfinder scan-target layout for PokedexCard
 **What:** Redesigned the PokedexCard component into a "Camera Viewfinder / Scan Target" aesthetic. Removed rounded corners in favor of sharp L-brackets, introduced a crosshair/reticle overlay for the sprite, and transitioned to monospace typography for a raw data output look.
-**Outcome:** Pending
+**Outcome:** Rejected → journaled
 **Why:** Aiming for a more data-driven, "snooping" aesthetic over rounded, modern UI.
-**Pattern:** Pending
+**Pattern:** Avoid sharp, overly "technical" or aggressive data-driven aesthetics (like crosshairs and raw monospace readouts). The previous rounded, softer UI better balanced the snooping theme without feeling too austere.
