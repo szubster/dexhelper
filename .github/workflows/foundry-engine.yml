@@ -39,10 +39,9 @@ jobs:
       - name: Run Orchestrator
         id: set-matrix
         run: |
-          cd .github/scripts
           # Output is captured; diagnostic info goes to stderr.
           # The tail -n 1 captures the JSON output from console.log at the end.
-          output=$(node --strip-types foundry-orchestrator.ts --strict | tail -n 1)
+          output=$(node --strip-types .github/scripts/foundry-orchestrator.ts --strict | tail -n 1)
           echo "matrix=$output" >> $GITHUB_OUTPUT
 
       - name: Commit Promotions
