@@ -197,5 +197,33 @@ describe('gen1Exclusives', () => {
         expect(reason).toBeNull();
       });
     });
+
+    describe('Red and Blue Version Exclusives', () => {
+      it('should lock Sandshrew (27) in Red', () => {
+        const ownedSet = new Set<number>();
+        const reason = getUnobtainableReason(27, 'red', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('not available in Red');
+      });
+
+      it('should not lock Ekans (23) in Red', () => {
+        const ownedSet = new Set<number>();
+        const reason = getUnobtainableReason(23, 'red', 0, ownedSet);
+        expect(reason).toBeNull();
+      });
+
+      it('should lock Ekans (23) in Blue', () => {
+        const ownedSet = new Set<number>();
+        const reason = getUnobtainableReason(23, 'blue', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('not available in Blue');
+      });
+
+      it('should not lock Sandshrew (27) in Blue', () => {
+        const ownedSet = new Set<number>();
+        const reason = getUnobtainableReason(27, 'blue', 0, ownedSet);
+        expect(reason).toBeNull();
+      });
+    });
   });
 });

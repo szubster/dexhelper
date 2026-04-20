@@ -8,19 +8,6 @@ export const ONE_TIME_CHOICES = {
 
 const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
   red: [
-    23,
-    24, // Ekans, Arbok
-    43,
-    44,
-    45, // Oddish, Gloom, Vileplume
-    56,
-    57, // Mankey, Primeape
-    58,
-    59, // Growlithe, Arcanine
-    123, // Scyther
-    125, // Electabuzz
-  ],
-  blue: [
     27,
     28, // Sandshrew, Sandslash
     37,
@@ -32,6 +19,19 @@ const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
     71, // Bellsprout, Weepinbell, Victreebel
     126, // Magmar
     127, // Pinsir
+  ],
+  blue: [
+    23,
+    24, // Ekans, Arbok
+    43,
+    44,
+    45, // Oddish, Gloom, Vileplume
+    56,
+    57, // Mankey, Primeape
+    58,
+    59, // Growlithe, Arcanine
+    123, // Scyther
+    125, // Electabuzz
   ],
   yellow: [
     13,
