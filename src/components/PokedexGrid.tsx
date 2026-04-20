@@ -97,7 +97,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
   }
 
   return (
-    <div className="fade-in grid animate-in grid-cols-2 gap-3 px-1 pb-10 duration-500 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+    <div className="fade-in grid animate-in grid-cols-3 gap-3 px-1 pb-10 duration-500 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-9">
       {finalPokemon.map((pokemon, idx) => (
         <PokedexCard
           key={pokemon.id}
