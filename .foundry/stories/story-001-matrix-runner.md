@@ -2,7 +2,7 @@
 id: story-001-matrix-runner
 type: STORY
 title: "Matrix-based Parallel Dispatcher"
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"

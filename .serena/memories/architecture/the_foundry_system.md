@@ -76,7 +76,15 @@ The `.foundry/` monofolder has been scaffolded at the repository root. All 9 fil
 - **Automated Testing**: 5/5 Vitest unit tests implemented in `.github/scripts/foundry-orchestrator.test.ts`, covering DAG resolution, blocking, resilience, and dry-run logic.
 - Foundational `package.json` updated with test automation scripts.
 
+### ✅ Story 001 — COMPLETED (2026-04-20)
+**Foundry Architecture Initiation**
+- **Blueprint Writing**: Story 001 transformed into concrete engineering tasks (`task-001` through `task-003`).
+- **DAG State**: Story 001 transitioned to `COMPLETED`, successfully unblocking `task-001-create-engine-yaml` in the orchestrator graph.
+- **Blueprint Nodes**:
+    - `task-001`: Core Orchestration Engine (GitHub Actions YAML)
+    - `task-002`: Heartbeat & Stale Node Detection
+    - `task-003`: Resurrection & Rejection Loop
+
 ### 🔜 Next Steps
-1. Draft `.github/workflows/foundry-engine.yml` — the GHA workflow that invokes the orchestrator and feeds its JSON output into a `matrix` strategy to dispatch Jules sessions.
-2. Draft `.github/workflows/foundry-heartbeat.yml` — the scheduled heartbeat that detects crashed ACTIVE sessions and flips them to FAILED.
-3. Draft initial Persona `.md` frameworks inside `.github/agents/`.
+1. Technical implementation of the GitHub Actions engine (`task-001`).
+2. Draft initial Persona `.md` frameworks inside `.github/agents/`.

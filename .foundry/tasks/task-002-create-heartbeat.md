@@ -1,0 +1,28 @@
+---
+id: task-002-create-heartbeat
+type: TASK
+title: "Session Heartbeat & Stale Node Detection"
+status: PENDING
+owner_persona: tech_lead
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on:
+  - .foundry/tasks/task-001-create-engine-yaml.md
+jules_session_id: null
+pr_number: null
+parent: .foundry/stories/story-001-matrix-runner.md
+---
+
+# Session Heartbeat & Stale Node Detection
+
+Logic to monitor `ACTIVE` nodes and detect "zombie" sessions where the GitHub Action run has failed or been cancelled without updating the node status.
+
+## Acceptance Criteria
+- [ ] A script (or addition to the orchestrator) that lists all `ACTIVE` nodes.
+- [ ] Uses the GitHub API to check the status of `jules_session_id` (the `run_id`).
+- [ ] If the run is no longer in progress (e.g., `completed`, `cancelled`) and the node is still `ACTIVE`, transition it to `FAILED`.
+- [ ] Log stale transitions to the `tpm` journal.
+
+## Technical Notes
+- Requires `octokit` or `gh` CLI to query workflow run status.
+- Should run frequently (e.g., every 15-30 minutes).
