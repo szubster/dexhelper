@@ -16,7 +16,7 @@ The workflow is a directed acyclic graph (DAG):
 IDEA → PRD → EPIC → STORY → TASK
 ```
 
-A custom orchestrator (`.github/scripts/foundry-orchestrator.mjs`) parses the `depends_on` field across all files to find nodes with an **in-degree of zero** (all dependencies satisfied). These unblocked nodes are dispatched in parallel to Jules agent sessions via a GitHub Actions matrix. All PR transitions require explicit **CEO approval** — automerge is disabled.
+A custom orchestrator (`.github/scripts/foundry-orchestrator.ts`) parses the `depends_on` field across all files to find nodes with an **in-degree of zero** (all dependencies satisfied). These unblocked nodes are dispatched in parallel to Jules agent sessions via a GitHub Actions matrix. All PR transitions require explicit **CEO approval** — automerge is disabled.
 
 ---
 

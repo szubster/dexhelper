@@ -23,7 +23,7 @@ To prevent massive context bloat while keeping tasks context-aware, global syste
 
 ## 2. DAG Orchestrator & Massive Concurrency
 - Workflows are defined by `depends_on` arrays within the YAML frontmatter of the markdown files. Dependencies are universal across directories.
-- A custom Node.js orchestrator script (`.github/scripts/foundry-orchestrator.mjs`) parses frontmatter across all items to calculate an in-degree of `0` globally.
+- A custom Node.js orchestrator script (`.github/scripts/foundry-orchestrator.ts`) parses frontmatter across all items to calculate an in-degree of `0` globally.
 - It passes a JSON array of all unblocked nodes to a GitHub Action, which utilizes a `matrix` strategy to spawn dozens of Jules instances concurrently for parallel execution of all independent epics/stories/tasks.
 
 ## 3. The Resurrection Loop & Self-Healing
@@ -69,7 +69,19 @@ The `.foundry/` monofolder has been scaffolded at the repository root. All 9 fil
 - `status: READY` is orchestrator-authored only — never set manually by a persona
 - Journals are unstructured free-form Markdown; each persona decides its own structure/layout; `tpm` is responsible for archiving them
 
-### 🔜 Next Steps (Epic 1 remaining stories)
-1. Develop `.github/scripts/foundry-orchestrator.mjs` (the DAG matrix calculator in Node).
-2. Draft `.github/workflows/foundry-engine.yml` and the `foundry-heartbeat.yml`.
+### ✅ Epic 2, Story 2.1 — COMPLETED (2026-04-20)
+`.github/scripts/foundry-orchestrator.ts` implemented and verified (8/8 integration tests pass).
+
+**Key implementation details:**
+- **Runtime**: Node 24 native TypeScript via `node --strip-types` — no build step needed
+- **Parser**: `gray-matter` (ships its own types) installed in isolated `.github/scripts/package.json` (using **pnpm**)
+- **Discovery**: Recursive `readdirSync` walk; `journals/` and `docs/` subtrees are skipped at the directory level (not filtered post-walk)
+- **Mutation strategy**: Surgical regex replacement inside the raw frontmatter block — does NOT re-serialize YAML, preserving key order and avoiding diff noise
+- **Flags**: `--dry-run` (log only, no writes) and `--strict` (exit 1 on unresolvable dep paths)
+- **Stdout contract**: Exactly one line — a JSON array of READY node frontmatter objects (for GitHub Actions matrix consumption)
+- **Idempotent**: Re-running is always safe; pre-existing READY nodes are included in output without being re-written
+
+### 🔜 Next Steps
+1. Draft `.github/workflows/foundry-engine.yml` — the GHA workflow that invokes the orchestrator and feeds its JSON output into a `matrix` strategy to dispatch Jules sessions.
+2. Draft `.github/workflows/foundry-heartbeat.yml` — the scheduled heartbeat that detects crashed ACTIVE sessions and flips them to FAILED.
 3. Draft initial Persona `.md` frameworks inside `.github/agents/`.

@@ -1,0 +1,20 @@
+{
+  "name": "foundry-scripts",
+  "version": "1.0.0",
+  "description": "Foundry DAG orchestration scripts — run with Node 24 native TypeScript support.",
+  "type": "module",
+  "scripts": {
+    "orchestrate": "node --strip-types foundry-orchestrator.ts",
+    "orchestrate:dry": "node --strip-types foundry-orchestrator.ts --dry-run",
+    "orchestrate:strict": "node --strip-types foundry-orchestrator.ts --strict"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}
