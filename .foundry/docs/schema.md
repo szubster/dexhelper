@@ -1,0 +1,236 @@
+# The Foundry — Master Schema & System Rules
+
+> **Authority:** This document is the single source of truth for all Foundry agents and automation scripts.
+> **Owner:** `tech_lead` — any structural change to this document requires a PR authored by the Tech Lead persona.
+> **Last Updated:** 2026-04-20
+
+---
+
+## 1. System Overview
+
+The Foundry is an autonomous software factory layered on this repository. The **repository itself is the database**: every concept in the product lifecycle — from a raw CEO thought through to a shipped task — lives as a markdown file with YAML frontmatter under the `.foundry/` directory at the repository root.
+
+The workflow is a directed acyclic graph (DAG):
+
+```
+IDEA → PRD → EPIC → STORY → TASK
+```
+
+A custom orchestrator (`.github/scripts/foundry-orchestrator.mjs`) parses the `depends_on` field across all files to find nodes with an **in-degree of zero** (all dependencies satisfied). These unblocked nodes are dispatched in parallel to Jules agent sessions via a GitHub Actions matrix. All PR transitions require explicit **CEO approval** — automerge is disabled.
+
+---
+
+## 2. Directory Conventions
+
+| Directory | Node Type | Owning Persona | Description |
+|---|---|---|---|
+| `.foundry/ideas/` | `IDEA` | `product_manager` | Raw CEO thoughts, intake queue. |
+| `.foundry/prds/` | `PRD` | `product_manager` | Structured Product Requirements Documents. |
+| `.foundry/epics/` | `EPIC` | `epic_planner` | Macroscopic functional chunks derived from PRDs. |
+| `.foundry/stories/` | `STORY` | `story_owner` | Incremental, sequentially-planned delivery steps. Stories are late-binding: Story N+1 is only written after Story N completes so lessons are incorporated. |
+| `.foundry/tasks/` | `TASK` | `tech_lead` / `coder` / `qa` | Concrete engineering blueprints. The Tech Lead writes them; the Coder implements; QA validates. |
+| `.foundry/journals/` | — | `tpm` / all personas | Persistent agent learning logs. Each persona decides its own structure (single file, subdirectory, multiple files by domain, etc.). The `tpm` is responsible for archiving stale journal content. |
+| `.foundry/docs/adrs/` | ADR | `tech_lead` | Architecture Decision Records. The Tech Lead reads these before writing any Task to ensure consistency. |
+| `.foundry/docs/style_guides/` | Style Guide | `tech_lead` / `designer` | Global UX/UI constraints injected into designer tasks. |
+
+### File Naming Convention
+
+Files are named after their `id` field:
+
+```
+<type>-<NNN>-<slug>.md
+```
+
+Examples:
+- `.foundry/ideas/idea-001-auth-overhaul.md`
+- `.foundry/epics/epic-003-gen2-support.md`
+- `.foundry/tasks/task-012-parse-daycare-offsets.md`
+
+- `<type>` is lowercase (idea, prd, epic, story, task).
+- `<NNN>` is a zero-padded three-digit sequence number, unique **within** each directory.
+- `<slug>` is a short, kebab-case descriptor.
+
+---
+
+## 3. YAML Frontmatter Schema
+
+Every node file (idea, PRD, epic, story, task) **must** begin with a YAML frontmatter block. Fields marked **Required** will cause the orchestrator to skip or error on the node if absent.
+
+```yaml
+---
+id: ""                  # Required. Globally unique slug. Convention: <type>-<NNN>-<slug>
+type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK
+title: ""               # Required. Human-readable short title.
+status: ""              # Required. Enum: see Status Lifecycle section.
+owner_persona: ""       # Required. Enum: see Owner Persona section.
+created_at: ""          # Required. ISO-8601 date (YYYY-MM-DD). Set once, never edited.
+updated_at: ""          # Required. ISO-8601 date. Updated by any persona that edits the node.
+depends_on: []          # Required. Array of repo-relative file paths. Empty [] = unblocked.
+jules_session_id: null  # Required. Active Jules session ID string, or null when idle.
+pr_number: null         # Required. GitHub PR number (integer), or null when idle.
+parent: null            # Optional. Repo-relative path to the logical parent node. Used for context hydration only — does NOT block the DAG.
+tags: []                # Optional. Free-form string labels for filtering and context injection.
+rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes.
+notes: ""               # Optional. Free-form Markdown remarks.
+---
+```
+
+### 3.1 Field Reference
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `id` | `string` | ✅ | Globally unique. Convention: `<type>-<NNN>-<slug>`. Used by humans and search; the DAG uses file paths. |
+| `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK` |
+| `title` | `string` | ✅ | Short, human-readable description. |
+| `status` | `enum` | ✅ | Current lifecycle state. See §4. |
+| `owner_persona` | `enum` | ✅ | Persona responsible for progressing this node. See §5. |
+| `created_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Immutable after creation. |
+| `updated_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Must be updated whenever the file is edited. |
+| `depends_on` | `string[]` | ✅ | Repo-relative paths to blocking nodes (e.g., `.foundry/stories/story-001-scaffold.md`). **Empty array `[]` means the node has in-degree zero and is eligible for dispatch once all other preconditions are met.** |
+| `jules_session_id` | `string \| null` | ✅ | Jules session ID while `ACTIVE`. Always present; `null` when the node is not being processed. Monitored by the heartbeat workflow. |
+| `pr_number` | `integer \| null` | ✅ | GitHub PR number while `IN_REVIEW`. `null` otherwise. |
+| `parent` | `string \| null` | optional | Repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
+| `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
+| `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. |
+| `notes` | `string` | optional | Free-form Markdown for human remarks, caveats, or inline research. |
+
+---
+
+## 4. Status Lifecycle
+
+### 4.1 Status Enum
+
+| Status | Description |
+|---|---|
+| `PENDING` | Node exists but has unresolved `depends_on` entries — not yet eligible for dispatch. |
+| `READY` | **Orchestrator-written only.** All `depends_on` nodes are `COMPLETED`. Node is queued for the next dispatch cycle. |
+| `ACTIVE` | A Jules session (`jules_session_id`) is currently working on this node. |
+| `IN_REVIEW` | Jules has opened a PR (`pr_number`). Awaiting CEO merge or rejection. |
+| `COMPLETED` | PR merged. TPM archives the node. |
+| `FAILED` | Session crashed silently (detected by heartbeat) or CEO closed PR without comment. Resurrection Loop re-spawns a fresh session. |
+| `BLOCKED` | DAG deadlock or explicit TPM hold. Requires CEO or TPM intervention to resolve. |
+| `CANCELLED` | Node retired by CEO decision. Will never be dispatched. |
+
+### 4.2 Valid State Transitions
+
+```mermaid
+stateDiagram-v2
+    [*] --> PENDING : Node created
+    PENDING --> READY : Orchestrator confirms all depends_on = COMPLETED
+    READY --> ACTIVE : Orchestrator dispatches Jules session
+    ACTIVE --> IN_REVIEW : Jules opens PR
+    IN_REVIEW --> COMPLETED : CEO merges PR
+    IN_REVIEW --> FAILED : CEO closes PR (Resurrection Loop triggers)
+    ACTIVE --> FAILED : Heartbeat detects crashed session
+    FAILED --> READY : Resurrection Loop spawns fresh session (rejection feedback injected)
+    PENDING --> BLOCKED : TPM detects deadlock
+    READY --> BLOCKED : TPM places explicit hold
+    ACTIVE --> BLOCKED : TPM places explicit hold
+    BLOCKED --> PENDING : CEO / TPM resolves hold
+    IN_REVIEW --> CANCELLED : CEO decides to retire node
+    PENDING --> CANCELLED : CEO decides to retire node
+    COMPLETED --> [*]
+    CANCELLED --> [*]
+```
+
+### 4.3 `READY` Is Orchestrator-Authored — Never Set Manually
+
+No persona should ever manually set `status: READY`. The orchestrator calculates in-degree across the full graph and writes `READY` only when it has confirmed all dependencies are `COMPLETED`. Manual `READY` edits will be overwritten by the next orchestrator run.
+
+---
+
+## 5. Owner Persona Enum
+
+| Value | Role |
+|---|---|
+| `product_manager` | Transforms `IDEA` → `PRD`. |
+| `epic_planner` | Transforms `PRD` → `EPIC` breakdown. |
+| `story_owner` | Monitors active epics; writes `STORY` nodes dynamically (late-binding). |
+| `tech_lead` | Transforms `STORY` → `TASK` (technical blueprint). Reads ADRs. |
+| `coder` | Implements `TASK` nodes. |
+| `qa` | Validates `TASK` implementation against spec. |
+| `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor deadlocks, manages journals. |
+| `agile_coach` | Runs daily/weekly. Meta-agent: modifies persona prompts and system config based on CEO rejection patterns. |
+
+---
+
+## 6. Journal Convention
+
+> Journals live under `.foundry/journals/`. Beyond that, **structure is entirely up to each persona.**
+
+A persona may use:
+- A single file: `journals/coder.md`
+- A subdirectory: `journals/coder/frontend.md` + `journals/coder/backend.md`
+- Dated entries, topic-based files, or any other structure that serves their learning needs.
+
+The `tpm` persona is responsible for archiving stale journal content. The only invariant is that journal files **do not use YAML frontmatter** — they are plain Markdown and are not parsed by the orchestrator.
+
+---
+
+## 7. System Invariants
+
+These are the hard rules the orchestrator, heartbeat, and resurrection loop rely on. Violating them produces undefined behaviour.
+
+1. **`created_at` is immutable.** Set it once on node creation. Never edit it.
+2. **`updated_at` must be refreshed on every edit.** Any persona that modifies a node must bump this field.
+3. **`depends_on` uses repo-relative file paths.** Do not use `id` slugs or short names — the orchestrator resolves paths with `fs.readFile`, not a lookup table.
+4. **A node in `ACTIVE` status must have a non-null `jules_session_id`.** If it doesn't, the heartbeat will flip it to `FAILED`.
+5. **A node in `IN_REVIEW` status must have a non-null `pr_number`.** Same as above.
+6. **Only the orchestrator writes `READY`.** Personas must never set this status manually.
+7. **`COMPLETED` nodes are read-only.** Once a PR is merged, the node must not be edited. The TPM archives it.
+8. **`depends_on` paths must be resolvable.** The orchestrator will treat an unresolvable path as a permanent block (equivalent to `BLOCKED`). Always verify paths exist before committing.
+9. **Every `.foundry/**/*.md` file that is not a journal or doc must have valid YAML frontmatter.** The orchestrator will skip malformed files and log a warning — they will never be dispatched.
+10. **The `id` field must be globally unique across all `.foundry/` directories.** Duplicate IDs are undefined behaviour in the orchestrator.
+
+---
+
+## 8. New Node Template
+
+Copy-paste this block to start any new node. Fill in all required fields before committing.
+
+```yaml
+---
+id: "<type>-<NNN>-<slug>"
+type: ""
+title: ""
+status: PENDING
+owner_persona: ""
+created_at: "YYYY-MM-DD"
+updated_at: "YYYY-MM-DD"
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags: []
+rejection_count: 0
+notes: ""
+---
+
+# <Title>
+
+<!-- Node body: write your description, acceptance criteria, technical spec, etc. below -->
+```
+
+---
+
+## 9. `depends_on` Reference Examples
+
+```yaml
+# A story that is blocked by its parent epic being approved:
+depends_on:
+  - .foundry/epics/epic-001-auth-overhaul.md
+
+# A task blocked by two stories:
+depends_on:
+  - .foundry/stories/story-002-db-schema.md
+  - .foundry/stories/story-003-api-contract.md
+
+# An unblocked node (eligible for dispatch as soon as status = READY):
+depends_on: []
+```
+
+Paths are **always relative to the repository root**, starting with `.foundry/`.
+
+---
+
+*This document is the bedrock of the Foundry. Before modifying it, open a PR authored by the `tech_lead` persona and obtain CEO approval.*
