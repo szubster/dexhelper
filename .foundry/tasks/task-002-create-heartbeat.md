@@ -2,13 +2,13 @@
 id: task-002-create-heartbeat
 type: TASK
 title: "Session Heartbeat & Stale Node Detection"
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on:
   - .foundry/tasks/task-001-create-engine-yaml.md
-jules_session_id: null
+jules_session_id: "4392356162765776613"
 pr_number: null
 parent: .foundry/stories/story-001-matrix-runner.md
 ---
