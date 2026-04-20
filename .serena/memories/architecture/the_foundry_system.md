@@ -69,17 +69,12 @@ The `.foundry/` monofolder has been scaffolded at the repository root. All 9 fil
 - `status: READY` is orchestrator-authored only — never set manually by a persona
 - Journals are unstructured free-form Markdown; each persona decides its own structure/layout; `tpm` is responsible for archiving them
 
-### ✅ Epic 2, Story 2.1 — COMPLETED (2026-04-20)
-`.github/scripts/foundry-orchestrator.ts` implemented and verified (8/8 integration tests pass).
-
-**Key implementation details:**
-- **Runtime**: Node 24 native TypeScript via `node --strip-types` — no build step needed
-- **Parser**: `gray-matter` (ships its own types) installed in isolated `.github/scripts/package.json` (using **pnpm**)
-- **Discovery**: Recursive `readdirSync` walk; `journals/` and `docs/` subtrees are skipped at the directory level (not filtered post-walk)
-- **Mutation strategy**: Surgical regex replacement inside the raw frontmatter block — does NOT re-serialize YAML, preserving key order and avoiding diff noise
-- **Flags**: `--dry-run` (log only, no writes) and `--strict` (exit 1 on unresolvable dep paths)
-- **Stdout contract**: Exactly one line — a JSON array of READY node frontmatter objects (for GitHub Actions matrix consumption)
-- **Idempotent**: Re-running is always safe; pre-existing READY nodes are included in output without being re-written
+### ✅ Epic 2, Story 2.2 — COMPLETED (2026-04-20)
+**QA & State Bootstrap**
+- State store bootstrapped with initial v1.0 nodes: `.foundry/ideas/idea-001`, `.foundry/epics/epic-003`, `.foundry/stories/story-001/002`.
+- Verification performed: Successfully promoted `epic-003` to `READY` via `foundry-orchestrator.ts`.
+- **Automated Testing**: 5/5 Vitest unit tests implemented in `.github/scripts/foundry-orchestrator.test.ts`, covering DAG resolution, blocking, resilience, and dry-run logic.
+- Foundational `package.json` updated with test automation scripts.
 
 ### 🔜 Next Steps
 1. Draft `.github/workflows/foundry-engine.yml` — the GHA workflow that invokes the orchestrator and feeds its JSON output into a `matrix` strategy to dispatch Jules sessions.

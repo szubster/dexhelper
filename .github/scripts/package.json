@@ -6,13 +6,15 @@
   "scripts": {
     "orchestrate": "node --strip-types foundry-orchestrator.ts",
     "orchestrate:dry": "node --strip-types foundry-orchestrator.ts --dry-run",
-    "orchestrate:strict": "node --strip-types foundry-orchestrator.ts --strict"
+    "orchestrate:strict": "node --strip-types foundry-orchestrator.ts --strict",
+    "test": "vitest run"
   },
   "dependencies": {
     "gray-matter": "^4.0.3"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.0.0",
+    "vitest": "^3.0.0"
   },
   "engines": {
     "node": ">=24.0.0"
