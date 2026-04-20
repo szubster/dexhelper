@@ -1,5 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { parseSaveFile } from './engine/saveParser/index';
 import { useStore } from './store';
+
+vi.mock('./engine/saveParser/index', () => ({
+  parseSaveFile: vi.fn(),
+}));
 
 describe('Zustand Store', () => {
   beforeEach(() => {
@@ -18,6 +23,11 @@ describe('Zustand Store', () => {
   });
 
   describe('UI state', () => {
+    it('should set selected location id', () => {
+      useStore.getState().setSelectedLocationId(10);
+      expect(useStore.getState().selectedLocationId).toBe(10);
+    });
+
     it('should toggle search term', () => {
       useStore.getState().setSearchTerm('pikachu');
       expect(useStore.getState().searchTerm).toBe('pikachu');
@@ -124,6 +134,27 @@ describe('Zustand Store', () => {
 
       useStore.getState().setError(null);
       expect(useStore.getState().error).toBeNull();
+    });
+
+    it('should load a valid base64 save from storage successfully', () => {
+      const mockSaveData = { trainerName: 'ASH', generation: 1, gameVersion: 'red' };
+      vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
+
+      // valid base64 for "hello"
+      vi.stubGlobal('localStorage', {
+        getItem: vi.fn().mockReturnValue('aGVsbG8='),
+        removeItem: vi.fn(),
+      });
+      vi.stubGlobal('window', {
+        atob: vi.fn().mockReturnValue('hello'),
+      });
+
+      useStore.getState().loadSaveFromStorage();
+
+      expect(parseSaveFile).toHaveBeenCalled();
+      expect(useStore.getState().saveData).toEqual(mockSaveData);
+
+      vi.unstubAllGlobals();
     });
 
     it('should handle corrupted save file from localStorage', () => {
