@@ -15,7 +15,7 @@ jobs:
     outputs:
       agents: ${{ steps.list.outputs.agents }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           sparse-checkout: .jules/schedules
 
@@ -33,7 +33,7 @@ jobs:
       matrix:
         agent: ${{ fromJSON(needs.discover.outputs.agents) }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           sparse-checkout: .jules/schedules
 
