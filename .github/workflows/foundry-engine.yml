@@ -93,6 +93,39 @@ jobs:
           # 1. Capture task content for the prompt
           task_content=$(cat "${{ matrix.node.repo_path }}")
           
+          # 1.5 Map persona to prompt instructions
+          persona="${{ matrix.node.owner_persona }}"
+          persona_prompt=""
+          case "$persona" in
+            "tech_lead")
+              persona_prompt="As the Tech Lead of The Foundry, your task is to write a concrete engineering blueprint based on the provided story node. Read relevant ADRs and ensure consistency. Your task is described in the provided node file. Follow the schema rules and implementation guidelines."
+              ;;
+            "coder")
+              persona_prompt="As the Coder of The Foundry, your task is to implement the blueprint described in the provided task node file. Follow the schema rules, implementation guidelines, and write high-quality code."
+              ;;
+            "qa")
+              persona_prompt="As the QA engineer of The Foundry, your task is to validate the implementation against the spec described in the provided node file. Follow the schema rules and ensure robustness."
+              ;;
+            "product_manager")
+              persona_prompt="As the Product Manager of The Foundry, your task is to transform the provided IDEA node into a structured PRD. Follow the schema rules and focus on user value."
+              ;;
+            "epic_planner")
+              persona_prompt="As the Epic Planner of The Foundry, your task is to break down the provided PRD into Epic nodes. Follow the schema rules and ensure functional chunks are logically separated."
+              ;;
+            "story_owner")
+              persona_prompt="As the Story Owner of The Foundry, your task is to dynamically write the next STORY node based on the current Epic progress. Follow the schema rules and incorporate recent learnings."
+              ;;
+            "tpm")
+              persona_prompt="As the TPM of The Foundry, your task is to archive COMPLETED nodes, resolve deadlocks, and manage journals. Follow the schema rules to maintain DAG integrity."
+              ;;
+            "agile_coach")
+              persona_prompt="As the Agile Coach of The Foundry, your task is to modify persona prompts and system config based on CEO rejection patterns. Follow the schema rules."
+              ;;
+            *)
+              persona_prompt="As the $persona of The Foundry, your task is described in the provided node file. Follow the schema rules and implementation guidelines."
+              ;;
+          esac
+
           # 2. Construct the prompt JSON
           # source: sources/github/<owner>/<repo>
           prompt_json=$(jq -n \
@@ -100,8 +133,9 @@ jobs:
             --arg title "${{ matrix.node.title }}" \
             --arg repo "${{ github.repository }}" \
             --arg schema_url "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" \
+            --arg persona_prompt "$persona_prompt" \
             '{
-              "prompt": "As the coder of The Foundry, your task is described in the provided node file. Follow the schema rules and implementation guidelines.\n\n### TASK NODE\n\($task)\n\n### SCHEMA\n\($schema_url)",
+              "prompt": "\($persona_prompt)\n\n### TASK NODE\n\($task)\n\n### SCHEMA\n\($schema_url)",
               "sourceContext": {
                 "source": "sources/github/\($repo)",
                 "githubRepoContext": {
