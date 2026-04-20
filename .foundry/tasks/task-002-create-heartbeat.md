@@ -2,7 +2,7 @@
 id: task-002-create-heartbeat
 type: TASK
 title: "Session Heartbeat & Stale Node Detection"
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
