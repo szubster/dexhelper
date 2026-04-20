@@ -28,7 +28,7 @@ export function BottomNav() {
         <Link
           to="/"
           className={cn(
-            'flex flex-col items-center gap-1 py-1 transition-all duration-300',
+            'flex flex-col items-center gap-1 rounded-lg py-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
             isDex ? 'text-[var(--theme-primary)]' : 'text-zinc-500',
           )}
         >
@@ -41,7 +41,7 @@ export function BottomNav() {
         <Link
           to="/storage"
           className={cn(
-            'flex flex-col items-center gap-1 py-1 transition-all duration-300',
+            'flex flex-col items-center gap-1 rounded-lg py-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
             isStorage ? 'text-[var(--theme-primary)]' : 'text-zinc-500',
           )}
         >
@@ -57,7 +57,7 @@ export function BottomNav() {
         <Link
           to="/assistant"
           className={cn(
-            'flex flex-col items-center gap-1 py-1 transition-all duration-300',
+            'flex flex-col items-center gap-1 rounded-lg py-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
             isAssistant ? 'text-[var(--theme-primary)]' : 'text-zinc-500',
           )}
         >
@@ -74,7 +74,7 @@ export function BottomNav() {
           type="button"
           onClick={() => setIsSettingsOpen(true)}
           aria-label="Open settings menu"
-          className="flex flex-col items-center gap-1 py-1 text-zinc-500 transition-all duration-300"
+          className="flex flex-col items-center gap-1 rounded-lg py-1 text-zinc-500 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
         >
           <div className="transition-transform active:scale-80">
             <Settings2 size={22} />

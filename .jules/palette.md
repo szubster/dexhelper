@@ -25,6 +25,7 @@
 ## 2026-04-09 - Accessible Search Inputs
 **Learning:** Standard text inputs used for searching often lack intuitive keyboard navigation and immediate visual feedback when clearing text. Without focus returning to the input after clearing, users must manually re-focus the input to start a new search, disrupting the workflow.
 **Action:** Always add keyboard shortcuts (like `Escape`) to clear search inputs. When a clear button is used, ensure it has visible focus styles and that its `onClick` handler programmatically returns focus back to the search input.
+
 ## 2026-04-10 - Empty States for Search and Filters
 **Learning:** Data grids and lists that can be heavily filtered or searched often lack empty states. When a user applies a combination of filters that yields no results, presenting an empty UI implies a bug or broken data load.
 **Action:** Always implement a distinct empty state for filtered lists. Use appropriate icons, clear messaging ("No results found"), and actionable advice (e.g., "Try adjusting your filters") to maintain context and guide the user.
@@ -32,3 +33,9 @@
 ## 2026-04-10 - Palette: Add missing focus-visible to grid buttons
 **Learning:** The application had missing `focus-visible` styles on core grid interactive elements (`PokedexCard` and `StorageGrid` main buttons), which breaks keyboard navigation visibility.
 **Action:** Always include the standard `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` classes when adding or updating interactive list/grid items.
+
+# Palette UX/A11y Learnings
+
+## 2026-04-20 - Interactive Elements Focus Styles
+**Learning:** Standard HTML elements functioning as buttons or links in custom UI components (like `BottomNav`) sometimes omit standard focus indicators when customized heavily.
+**Action:** All interactive elements (e.g., links, buttons) must explicitly define focus styles using the standard utility class string: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950`. This ensures consistent keyboard navigation visibility across the app.
