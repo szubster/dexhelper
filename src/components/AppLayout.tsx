@@ -21,7 +21,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             window.location.reload();
           }
         } catch (err) {
-          console.error(err);
+          console.error(err instanceof Error ? err.message : String(err));
         }
       }
     };
