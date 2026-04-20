@@ -1,0 +1,145 @@
+name: The Foundry Engine
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Hourly sync
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  orchestrate:
+    name: Orchestrate DAG
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24' # Required for --strip-types
+
+      - name: Install dependencies
+        run: |
+          cd .github/scripts
+          npm install
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run Orchestrator
+        id: set-matrix
+        run: |
+          cd .github/scripts
+          # Output is captured; diagnostic info goes to stderr.
+          # The tail -n 1 captures the JSON output from console.log at the end.
+          output=$(node --strip-types foundry-orchestrator.ts --strict | tail -n 1)
+          echo "matrix=$output" >> $GITHUB_OUTPUT
+
+      - name: Commit Promotions
+        run: |
+          # Check for READY state changes promoted by the orchestrator
+          if [[ -n $(git status --porcelain .foundry) ]]; then
+            git add .foundry
+            git commit -m "Foundry: Promote unblocked nodes to READY"
+            git pull --rebase origin main
+            git push origin main
+          else
+            echo "No state changes to persist."
+          fi
+
+  execute:
+    name: Execute Task
+    needs: orchestrate
+    runs-on: ubuntu-latest
+    if: needs.orchestrate.outputs.matrix != '[]' && needs.orchestrate.outputs.matrix != '' && github.ref == 'refs/heads/main'
+    strategy:
+      max-parallel: 1 # Strictly sequential to prevent git push collisions
+      matrix:
+        node: ${{ fromJson(needs.orchestrate.outputs.matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        run: |
+          cd .github/scripts
+          npm install
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Invoke Jules Agent
+        env:
+          JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
+        run: |
+          # 1. Capture task content for the prompt
+          task_content=$(cat "${{ matrix.node.repo_path }}")
+          
+          # 2. Construct the prompt JSON
+          # source: sources/github/<owner>/<repo>
+          prompt_json=$(jq -n \
+            --arg task "$task_content" \
+            --arg title "${{ matrix.node.title }}" \
+            --arg repo "${{ github.repository }}" \
+            --arg schema_url "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" \
+            '{
+              "prompt": "As the coder of The Foundry, your task is described in the provided node file. Follow the schema rules and implementation guidelines.\n\n### TASK NODE\n\($task)\n\n### SCHEMA\n\($schema_url)",
+              "sourceContext": {
+                "source": "sources/github/\($repo)",
+                "githubRepoContext": {
+                  "startingBranch": "main"
+                }
+              },
+              "automationMode": "AUTO_CREATE_PR",
+              "title": $title
+            }')
+
+          # 3. Request session from Jules API
+          echo "Dispatching Jules session for: ${{ matrix.node.id }}"
+          response=$(curl -s -X POST "https://jules.googleapis.com/v1alpha/sessions" \
+            -H "Content-Type: application/json" \
+            -H "X-Goog-Api-Key: $JULES_API_KEY" \
+            -d "$prompt_json")
+
+          # 4. Extract and verify session ID
+          session_id=$(echo "$response" | jq -r '.id')
+          
+          if [[ -z "$session_id" || "$session_id" == "null" ]]; then
+            echo "::error::Failed to capture Jules session ID"
+            echo "Response: $response"
+            exit 1
+          fi
+          
+          echo "SESSION_ID=$session_id" >> $GITHUB_ENV
+          echo "Successfully spawned Jules session: $session_id"
+
+      - name: Transition node to ACTIVE
+        run: |
+          # Transition the file to ACTIVE state and inject the real Jules ID
+          node --strip-types .github/scripts/foundry-active.ts "${{ matrix.node.repo_path }}" "$SESSION_ID"
+
+      - name: Commit State Change
+        run: |
+          git add "${{ matrix.node.repo_path }}"
+          git commit -m "Foundry: Transition ${{ matrix.node.id }} -> ACTIVE [$SESSION_ID]"
+          git pull --rebase origin main
+          git push origin main

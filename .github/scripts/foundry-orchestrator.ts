@@ -377,16 +377,19 @@ function main(): void {
   info('Phase 6: Collecting all READY nodes for matrix output...');
   // Include both freshly-promoted nodes AND any that were already READY before
   // this run (idempotent: re-running the orchestrator is always safe).
-  const readyFrontmatters = nodes
+  const readyNodes = nodes
     .filter((n) => n.frontmatter.status === 'READY')
-    .map((n) => n.frontmatter);
+    .map((n) => ({
+      ...n.frontmatter,
+      repo_path: n.repoPath,
+    }));
 
-  info(`Total READY nodes: ${readyFrontmatters.length}`);
+  info(`Total READY nodes: ${readyNodes.length}`);
 
   // ── Phase 7: OUTPUT ────────────────────────────────────────────────────────
   // This is the ONLY line written to stdout. The GitHub Actions matrix step
   // captures this exact output via: matrix=$(node ... | tail -1)
-  console.log(JSON.stringify(readyFrontmatters));
+  console.log(JSON.stringify(readyNodes));
 
   // ── Phase 8: EXIT ──────────────────────────────────────────────────────────
   if (hasUnresolvableDeps && STRICT) {
