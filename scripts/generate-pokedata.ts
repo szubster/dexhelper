@@ -448,6 +448,6 @@ writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.valu
 }
 
 main().catch(err => {
-  console.error('\nGeneration failed:', err);
+  console.error('\nGeneration failed:', err instanceof Error ? err.message : String(err));
   process.exit(1);
 });
