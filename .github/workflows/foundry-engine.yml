@@ -1,8 +1,6 @@
 name: The Foundry Engine
 
 on:
-  schedule:
-    - cron: '0 * * * *' # Hourly sync
   workflow_dispatch:
 
 permissions:
