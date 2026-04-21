@@ -2,7 +2,7 @@
 id: epic-004-distributed-id-schema
 type: EPIC
 title: "Collision-Free ID Schema Implementation"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-21"
 updated_at: "2026-04-21"

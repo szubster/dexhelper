@@ -46,3 +46,19 @@
 - **2026-04-21**: PR #360 merged. `idea-002-tpm-scheduling` is now COMPLETED.
 
 - **2026-04-21**: PR #359 merged. `idea-003-atomic-handoff-foundation` is now COMPLETED.
+
+- **2026-04-21**: PR #367 merged. `idea-004-human-in-the-loop` is now COMPLETED.
+
+- **2026-04-21**: PR #365 merged. `idea-005-late-binding-orchestrator` is now COMPLETED.
+
+- **2026-04-21**: PR #368 merged. `prd-001-agent-scheduling` is now COMPLETED.
+
+- **2026-04-21**: PR #364 merged. `prd-001-distributed-ids` is now COMPLETED.
+
+- **2026-04-21**: PR #371 merged. `task-006-migrate-memory-system` is now COMPLETED.
+
+- **2026-04-21**: PR #366 merged. `task-013-scaffold-agile-coach` is now COMPLETED.
+
+- **2026-04-21**: PR #363 merged. `task-014-scaffold-architect` is now COMPLETED.
+
+- **2026-04-21**: PR #370 merged. `task-015-update-tech-lead-protocol` is now COMPLETED.

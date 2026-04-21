@@ -2,14 +2,14 @@
 id: task-013-scaffold-agile-coach
 type: TASK
 title: "Scaffold Agile Coach Persona"
-status: "ACTIVE"
+status: "COMPLETED"
 rejection_count: 1
 owner_persona: tech_lead
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on:
   - .foundry/stories/story-002-personas.md
-jules_session_id: "2426386873904756376"
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-002-personas.md
 ---

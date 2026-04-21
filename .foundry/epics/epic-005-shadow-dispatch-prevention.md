@@ -2,7 +2,7 @@
 id: epic-005-shadow-dispatch-prevention
 type: EPIC
 title: "Shadow Dispatch Prevention & Cross-Branch Locks"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
