@@ -18,5 +18,5 @@ parent: .foundry/stories/story-002-personas.md
 The product manager is responsible for transforming IDEA -> PRD.
 
 ## Acceptance Criteria
-- [ ] Create `.github/agents/product_manager.md`
-- [ ] Ensure it instructs the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
+- [x] Create `.github/agents/product_manager.md`
+- [x] Ensure it instructs the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
