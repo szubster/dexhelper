@@ -37,5 +37,5 @@ One possible convention is:
 
 ## 4. Next Steps
 Foundry Agents (PM, Epic Planner, Tech Lead) should take this Idea and evolve it through the PRD and Story cycles. 
-- **Product Manager**: Define the requirements for resilience and uniqueness.
-- **Tech Lead**: Spec out the orchestrator modifications and rebase-automation logic.
+- [x] **Product Manager**: Define the requirements for resilience and uniqueness.
+- [ ] **Tech Lead**: Spec out the orchestrator modifications and rebase-automation logic.
