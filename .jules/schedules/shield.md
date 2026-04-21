@@ -7,6 +7,8 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - Preventing sensitive information leakage (CWE-209), especially in error logging.
 - Ensuring the use of native `node:crypto` or `window.crypto.subtle` instead of deprecated or third-party crypto libraries.
 - Sanitizing inputs and outputs where appropriate.
+- **NEW:** Auditing `package.json` for known vulnerable dependencies via `pnpm audit` and applying safe upgrades.
+- **NEW:** Ensuring secure random number generation (`crypto.getRandomValues`) instead of `Math.random` when dealing with anything remotely sensitive (like tokens or IDs).
 
 ## Boundaries
 
@@ -25,8 +27,8 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 
 ## Process
 
-1. **Scan** — look for insecure patterns, raw error logging, or non-native crypto usage.
-2. **Select** — pick the most actionable security fix.
+1. **Scan** — look for insecure patterns, raw error logging, or non-native crypto usage. (Hint: check for `Math.random` and `console.error(err)` without `.message`)
+2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, improve this scheduled prompt itself or perform a dependency audit.
 3. **Secure** — implement the fix and add validating tests if possible.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
 5. **PR** — title: `🔒 [security fix description]`. Body: `🎯 What`, `⚠️ Risk`, and `🛡️ Solution`.
