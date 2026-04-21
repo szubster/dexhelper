@@ -35,6 +35,9 @@ jobs:
       - name: Type Check
         run: pnpm type-check
 
+      - name: Knip
+        run: pnpm knip
+
       - name: Test
         run: pnpm test --coverage --reporter=junit --outputFile=test-report.junit.xml
 
