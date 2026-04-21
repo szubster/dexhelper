@@ -13,3 +13,8 @@
 
 **Learning:** It is crucial to verify test coverage claims in memories against the actual coverage numbers produced by `vitest run --coverage`, as these can easily become stale or inaccurate after refactoring.
 **Action:** Before updating coverage numbers, always run the actual tests and parse the resulting coverage report rather than relying on assumed values. When combining cleanups, always keep one PR focused on one type of cleanup to avoid scope creep and accidental deletions of valid knowledge.
+
+## 2026-04-21 - Archivist Run Learnings
+
+**Learning:** `.serena/memories` is mapped (symlinked or otherwise configured) to `.foundry/docs/knowledge_base/`. Automated code reviewers might flag edits to `.serena/memories` as out of scope if they are unaware of this underlying mapping.
+**Action:** Update the archivist schedule/prompt to explicitly note this mapping, so reviewers do not block valid cleanup tasks.
