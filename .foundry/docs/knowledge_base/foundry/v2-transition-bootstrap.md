@@ -1,12 +1,14 @@
 # Foundry V2 Transition: Atomic Handoffs
 
-We have initiated the transition from Foundry V1 to V2 to resolve systemic DAG deadlocks.
+We are transitioning the Foundry infrastructure to a "Single Persona" node model to resolve DAG deadlocks.
 
-## Key Changes in V2
-1. **Atomic Ownership**: Strictly enforcing single-persona ownership per node. A node must be COMPLETED and a new one spawned if the persona changes (e.g., Idea/PRD by PM -> ADR by Architect).
-2. **Lifecycle V2**: Moving towards a more granular handoff: IDEA (PM) -> PRD (PM) -> ADR (Architect) -> EPIC (Planner) -> STORY -> TASK.
+## The Problem (V1)
+In V1, nodes like IDEA-002 were "Composite," containing tasks for both Product Managers and Tech Leads. This prevented the orchestrator from marking the node `COMPLETED` until all tasks were done, blocking downstream nodes (PRDs) that only needed the PM's portion.
 
-## Current State
-- `IDEA-003` has been created to bootstrap the Atomic Ownership rule.
-- Sequential numbering collisions are being addressed separately in `IDEA-002`.
-- Manual unblocking of `IDEA-002` is still required to clear V1 legacy states.
+## The Principle of Atomic Ownership
+1. **Single Owner**: Every `.foundry/` node file is owned by exactly ONE persona.
+2. **Automated Completion**: Status transitions are handled by the `foundry-heartbeat` (detecting merged PRs) and the `foundry-orchestrator` (promoting unblocked dependencies).
+3. **Implicit Handoff**: A persona "hands off" work by spawning a new node (e.g., IDEA -> PRD) and merging their current session.
+
+## Note on IDs
+Branch collisions and ID generation strategy are being addressed in **IDEA-002**. IDEA-003 focuses exclusively on the workflow and ownership model.

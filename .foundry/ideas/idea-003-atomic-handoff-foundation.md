@@ -14,17 +14,23 @@ jules_session_id: null
 
 ## Problem Statement
 
-The Foundry V1 suffers from **Composite Node Deadlocks**: Nodes containing tasks for multiple personas (e.g., PM + Tech Lead in one `IDEA`) cannot be marked `COMPLETED` until all tasks are done, but downstream nodes often depend on only a subset of those tasks being finished. This causes a DAG deadlock.
+The Foundry V1 infrastructure allows for "Composite Nodes"—files containing tasks for multiple personas (e.g., Product Manager and Tech Lead both acting on a single `IDEA` node). This causes **DAG Deadlocks**: the orchestrator cannot mark the node `COMPLETED` until *all* persona tasks are finished, even if downstream nodes (like a `PRD`) only require the PM's portion to be done.
 
-## Proposed Solution
+## Proposed Strategy: Atomic Handoffs
 
-This idea bootstraps the transition to **Foundry V2 Architecture**, enforcing the core invariant of **Atomic Node Ownership**.
+This idea establishes the **Atomic Ownership** invariant for all Foundry V2 nodes:
 
-### Atomic Node Ownership (Single-Persona Nodes)
-*   **Fundamental Rule**: A node MUST have exactly one `owner_persona`.
-*   A node is considered "In Review" or "Completed" once the specific owner has finished their portion.
-*   If the next step requires a different persona (e.g., an `IDEA` requiring an `ADR`), the first persona MUST mark their node `COMPLETED` and spawn a NEW successor node for the second persona.
-*   This prevents "leaking" responsibilities across nodes and ensures the Orchestrator can always promote downstream nodes as soon as the prerequisite work is truly done.
+### 1. Single Owner Persona
+Every node MUST have exactly one `owner_persona`. Responsibilities must not leak across different personas within the same file.
+
+### 2. Automated Completion Lifecycle
+The status lifecycle is enforced by system automation, not manual edits:
+- **Work Phase**: The `owner_persona` performs the task (e.g., drafting a new PRD) and opens a Pull Request.
+- **Completion**: Once the PR is merged into `main`, the `foundry-heartbeat` script automatically transitions the node status from `ACTIVE` to `COMPLETED`.
+- **Handoff**: Successor nodes (e.g., the newly created PRD) are then unblocked by the `foundry-orchestrator` once their dependencies reach the `COMPLETED` state.
+
+### 3. Clean Decoupling
+If a workflow step requires a transition from one persona to another, the first persona delivers their output as a new node and concludes their session. This ensures the DAG stays fluid and unblocked.
 
 ## Next Steps
-- [ ] **Product Manager**: Create a PRD for the V2 Atomic Handoff protocol and single-persona node enforcement.
+- [ ] **Product Manager**: Draft the V2 Lifecycle PRD specifying the formal transition requirements for each node type.
