@@ -26,3 +26,7 @@
 
 ## Parsing vitest coverage json
 When running vitest with `--reporter=json > cov.json`, the output often includes prefix lines from the test runner (like `> dexhelper@0.0.0 test`). If parsing via Node script, strip the leading text: `content.substring(content.indexOf('{'))`.
+
+## DataLoader mock patterns
+- When using TanStack's `DataLoader` that groups and maps batched database lookups (like `DexDataLoader.ts` calling IndexedDB), simulating an "item not found" requires mocking the underlying batch function (e.g. `vi.mocked(pokeDB.getPokemons).mockImplementation(...)`) to return an `Error` object for that specific ID rather than just throwing.
+- Conversely, if you want the `DataLoader.load(id)` function itself to throw and simulate an error occurring _during_ the batch process or network failure, you can use `vi.spyOn(dexDataLoader.encounters, 'load').mockResolvedValueOnce(new Error('Manual error') as any);` (or `.mockRejectedValueOnce()`) to bypass the actual batch function logic while keeping TypeScript happy.
