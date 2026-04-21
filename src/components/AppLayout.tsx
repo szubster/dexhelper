@@ -113,36 +113,39 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               <nav className="hidden items-center gap-2 rounded-2xl border border-white/5 bg-white/5 p-1 sm:flex">
                 <Link
                   to="/"
+                  aria-label="Pokedex"
                   activeProps={{
                     className:
                       'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
                   }}
                   inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all"
+                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                 >
                   <LayoutGrid size={16} />
                   Pokedex
                 </Link>
                 <Link
                   to="/storage"
+                  aria-label="Storage"
                   activeProps={{
                     className:
                       'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
                   }}
                   inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all"
+                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                 >
                   <LayoutGrid size={16} />
                   Storage
                 </Link>
                 <Link
                   to="/assistant"
+                  aria-label="Assistant"
                   activeProps={{
                     className:
                       'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
                   }}
                   inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all"
+                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                 >
                   <Sparkles size={16} />
                   Assistant

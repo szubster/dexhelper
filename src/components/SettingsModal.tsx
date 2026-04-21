@@ -46,7 +46,7 @@ export function SettingsModal() {
             type="button"
             onClick={() => setIsSettingsOpen(false)}
             aria-label="Close settings"
-            className="rounded-full bg-zinc-800 p-3 text-zinc-400 transition-colors hover:bg-zinc-700"
+            className="rounded-full bg-zinc-800 p-3 text-zinc-400 transition-colors hover:bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           >
             <X size={20} />
           </button>
