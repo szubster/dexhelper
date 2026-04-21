@@ -48,6 +48,9 @@ Currently, the Foundry orchestrates tasks dynamically based on dependencies (DAG
 - The TPM must be able to scan the `.foundry/` monofolder for `COMPLETED` nodes.
 - If found, it should move them to an archive structure or clean them up according to TPM rules.
 
+## Implementation Progress
+- [x] Transformed into EPIC breakdowns (`epic-004-generic-agent-scheduling.md`, `epic-005-tpm-agent-scheduling.md`).
+
 ## 5. Acceptance Criteria
 - [ ] A generic scheduling implementation is defined and documented.
 - [ ] The TPM agent is scheduled to run hourly.
