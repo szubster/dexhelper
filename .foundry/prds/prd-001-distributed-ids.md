@@ -53,7 +53,12 @@ Proposed mitigation strategy:
 Pre-commit hooks will be implemented (or extended) to automatically validate the integrity of the new ID scheme across the `.foundry` directory, enforcing that no two node files possess the same `id` field before a branch can be submitted.
 
 ## 6. Acceptance Criteria
-- [ ] A new collision-free ID schema is adopted and documented in the master schema.
-- [ ] The orchestrator and node generation templates are updated to utilize the new schema.
-- [ ] A concrete mechanism to prevent shadow dispatches is designed and implemented.
-- [ ] Pre-commit validation ensures ID uniqueness across the `.foundry` directory.
+- [x] A new collision-free ID schema is adopted and documented in the master schema.
+- [x] The orchestrator and node generation templates are updated to utilize the new schema.
+- [x] A concrete mechanism to prevent shadow dispatches is designed and implemented.
+- [x] Pre-commit validation ensures ID uniqueness across the `.foundry` directory.
+
+## 7. Generated Epics
+- `.foundry/epics/epic-004-distributed-id-schema.md`: Decision and implementation of the collision-free ID schema and updating templates.
+- `.foundry/epics/epic-005-shadow-dispatch-prevention.md`: GitHub PR & session inspection mechanism to lock nodes currently actively worked on in open branches.
+- `.foundry/epics/epic-006-id-pre-commit-hooks.md`: Pre-commit hook implementation to automatically validate the integrity of the new ID scheme across the directory.
