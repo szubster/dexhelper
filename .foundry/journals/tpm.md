@@ -14,3 +14,7 @@
 - **2026-04-21**: Resurrection Loop triggered for `story-002-personas`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-21**: Heartbeat detected completed session for `story-002-personas` (Session: 2745393184170604066). Transitioned to IN_REVIEW with PR #334.
+
+- **2026-04-21**: PR #340 merged. `story-002-personas` is now COMPLETED.
+
+- **2026-04-21**: Heartbeat detected zombie session for `task-013-scaffold-agile-coach`. Transitioned to FAILED.

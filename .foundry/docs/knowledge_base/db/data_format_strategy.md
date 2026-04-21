@@ -1,13 +1,14 @@
-### PokeDB Data Format Strategy
-- **Current Status**: Using JSON for Pokedex data (Gen 1 & 2).
-- **Size Constraint**: ~1MB is manageable with JSON + Brotli compression.
-- **Trigger for Revisit**:
-    1. If Gen 3 or later generations are added.
-    2. If the uncompressed JSON file exceeds 5MB or causes noticeable parsing lag on mobile.
-- **Future Alternative**: Switch to a binary buffer (Protobuf or BSON) or a compressed stream if the above triggers are met.
-
-### Runtime Inflation & Optimization (Patterns)
-- **Compact Storage**: Omit redundant default values (e.g., `tr: 1`, `gr: 4`, `mh: 160`) and symmetric level ranges (`max === min`) in the generation pipeline.
-- **Hydration**: Use `inflateChain` and `syncData` in `PokeDB.ts` to recursively restore these defaults at runtime via declarative object spreads. 
-- **Evolution Safety**: Evolution chains should be filtered by `maxDex` during rendering to prevent pre-evolutions from later generations bleeding into legacy views.
-- **Strict Matching**: Location verifying in E2E tests must use exact text matches to avoid partial string collisions.
+### PokeData Serialization Strategy (April 2026)
+- **Context**: Refactored pokedata to split JSONL files for source readability. Explored alternatives to JSON for PokeData storage.
+- **Key Findings**:
+    - Current JSON (Gen 1+2) is ~177 KB.
+    - Projected Gen 1-9 JSON is ~700 KB.
+    - MsgPack (`msgpackr`) offers ~35% reduction with low overhead (+3KB bundle).
+    - Protobuf offers ~50% reduction but high complexity (+6.5KB bundle + schema).
+- **Decision**: Stuck with minified JSON for now due to small size. Recommended switching to MsgPack when Gen 3 or performance limits (uncompressed JSON exceeds 5MB or noticeable parsing lag) are reached.
+- **Benefits of MsgPack**: Smaller binary footprint, faster parsing than `JSON.parse` for complex objects.
+- **Runtime Inflation & Optimization (Patterns)**:
+    - **Compact Storage**: Omit redundant default values (e.g., `tr: 1`, `gr: 4`, `mh: 160`) and symmetric level ranges (`max === min`) in the generation pipeline.
+    - **Hydration**: Use `inflateChain` and `syncData` in `PokeDB.ts` to recursively restore these defaults at runtime via declarative object spreads.
+    - **Evolution Safety**: Evolution chains should be filtered by `maxDex` during rendering to prevent pre-evolutions from later generations bleeding into legacy views.
+    - **Strict Matching**: Location verifying in E2E tests must use exact text matches to avoid partial string collisions.
