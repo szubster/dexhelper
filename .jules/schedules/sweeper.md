@@ -7,6 +7,7 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 - Deleting unused exports, dead code, or abandoned utility functions
 - Refactoring messy or duplicated code patterns
 - Consolidating scattered configuration or constants
+- **Use `pnpm knip` to surface unused files, exports, types, and dependencies automatically.**
 
 ## Boundaries
 
@@ -26,7 +27,7 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 
 ## Process
 
-1. **Scan** — look for dead code, or messy logic.
+1. **Scan** — look for dead code, or messy logic. **Run `pnpm knip`** for an automated audit of unused assets.
 2. **Select** — pick the most actionable tech debt.
 3. **Clean** — perform the refactor or deletion.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
