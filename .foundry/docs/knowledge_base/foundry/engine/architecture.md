@@ -13,7 +13,8 @@ The Foundry Engine automates the lifecycle of Foundry nodes (Ideas, Epics, Stori
 
 2.  **State Transition Script (`.github/scripts/foundry-active.ts`)**:
     *   Transitions a node from `READY` to `ACTIVE`.
-    *   **Strict "Dumb" Diff Verification**: Before saving, it performs a character-by-character comparison (via `gray-matter` parsing) to ensure ONLY the `status`, `jules_session_id`, and `updated_at` fields were modified. This prevents accidental metadata corruption by autonomous processes.
+    *   **Strict "Dumb" Diff Verification**: Before saving, it performs a character-by-character comparison (via `gray-matter` parsing) to ensure ONLY the `status`, `jules_session_id`, and `updated_at` fields were modified.
+    *   **Robust Metadata Handling**: The script uses regex patterns that handle optional quotes (e.g., `status: "READY"`) and implements an `upsertField` logic to gracefully handle missing fields by appending them to the frontmatter. This prevents transition failures due to minor formatting differences and accidental metadata corruption by autonomous processes.
 
 3.  **Foundry Engine Workflow (`.github/workflows/foundry-engine.yml`)**:
     *   **Orchestrate Job**: Runs the orchestrator and sets an output for the matrix.
@@ -23,5 +24,5 @@ The Foundry Engine automates the lifecycle of Foundry nodes (Ideas, Epics, Stori
 ## Best Practices
 
 *   **Idempotency**: The orchestrator is designed to be re-run safely. Any node already in `READY` status is included in the output matrix.
-*   **Audit Trail**: The `jules_session_id` is populated with the GitHub `run_id`, providing a direct link between the node state and the CI execution logs.
+*   **Audit Trail**: The `jules_session_id` is populated with the ID returned by the Jules API, providing a direct link between the node state and the automated agent session. The GitHub `run_id` is typically included in the commit message to provide secondary linkage to CI logs.
 *   **Security**: Workflow is restricted to the `main` branch.

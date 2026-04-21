@@ -186,11 +186,11 @@ Copy-paste this block to start any new node. Fill in all required fields before 
 
 ```yaml
 ---
-id: "<type>-<NNN>-<slug>"
-type: ""
+id: <type>-<NNN>-<slug>
+type: 
 title: ""
 status: PENDING
-owner_persona: ""
+owner_persona: 
 created_at: "YYYY-MM-DD"
 updated_at: "YYYY-MM-DD"
 depends_on: []
