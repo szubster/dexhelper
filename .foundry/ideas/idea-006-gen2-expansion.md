@@ -19,7 +19,7 @@ While the current application has basic support for parsing Gen 2 (Gold/Silver/C
 
 ## Proposed Strategy
 
-Convert the existing [Gen 2 Implementation Plan](file:///home/tszuba/projects/dexhelper/.foundry/docs/knowledge_base/development/gen2_implementation_plan.md) into a Foundry-orchestrated workflow. The strategy is broken down into four core phases:
+Convert the existing [Gen 2 Implementation Plan](.foundry/docs/knowledge_base/development/gen2_implementation_plan.md) into a Foundry-orchestrated workflow. The strategy is broken down into four core phases:
 
 ### 1. Save Parser Expansion (Engine Data Layer)
 Expand `src/engine/saveParser/parsers/gen2.ts` to include missing Gen 2 structs:
