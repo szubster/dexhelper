@@ -13,7 +13,8 @@ The Foundry Engine automates the lifecycle of Foundry nodes (Ideas, Epics, Stori
 
 2.  **State Transition Script (`.github/scripts/foundry-active.ts`)**:
     *   Transitions a node from `READY` to `ACTIVE`.
-    *   **Strict "Dumb" Diff Verification**: Before saving, it performs a character-by-character comparison (via `gray-matter` parsing) to ensure ONLY the `status`, `jules_session_id`, and `updated_at` fields were modified. This prevents accidental metadata corruption by autonomous processes.
+    *   **Strict "Dumb" Diff Verification**: Before saving, it performs a character-by-character comparison (via `gray-matter` parsing) to ensure ONLY the `status`, `jules_session_id`, and `updated_at` fields were modified.
+    *   **Robust Metadata Handling**: The script uses regex patterns that handle optional quotes (e.g., `status: "READY"`) and implements an `upsertField` logic to gracefully handle missing fields by appending them to the frontmatter. This prevents transition failures due to minor formatting differences and accidental metadata corruption by autonomous processes.
 
 3.  **Foundry Engine Workflow (`.github/workflows/foundry-engine.yml`)**:
     *   **Orchestrate Job**: Runs the orchestrator and sets an output for the matrix.
