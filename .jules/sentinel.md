@@ -26,3 +26,7 @@
 
 ## Parsing vitest coverage json
 When running vitest with `--reporter=json > cov.json`, the output often includes prefix lines from the test runner (like `> dexhelper@0.0.0 test`). If parsing via Node script, strip the leading text: `content.substring(content.indexOf('{'))`.
+
+## DexDataLoader and Mocking Dataloader Edge Cases
+- When testing `DataLoader` missing items or errors within React architectures, mocking the underlying API to return `null` might not trigger the correct application-level error catching if the DataLoader transforms that into an `Error` object that gets thrown implicitly upon `.load(id)`.
+- Ensure tests that verify fallback behaviors directly mock the `.load` method's Promise rejection or use `rejects.toThrow()` when testing error isolation in data aggregation layers like `DexDataLoader`.
