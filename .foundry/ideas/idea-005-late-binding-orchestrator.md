@@ -6,7 +6,7 @@ status: PENDING
 owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
-depends_on: []
+depends_on: [".foundry/ideas/idea-003-atomic-handoff-foundation.md"]
 jules_session_id: null
 tags: ["foundry-v2", "architecture", "orchestration"]
 ---
