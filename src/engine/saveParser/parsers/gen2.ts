@@ -301,7 +301,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     if ((kBadges & (1 << i)) !== 0) badges++;
   }
 
-  let gameVersion = isCrystal ? 'crystal' : detectGen2GameVersion(owned, seen);
+  let gameVersion: GameVersion = isCrystal ? 'crystal' : detectGen2GameVersion(owned, seen);
   if (gameVersion === 'unknown' && !isCrystal) {
     gameVersion = 'gold';
   }
@@ -333,7 +333,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     pc,
     partyDetails,
     pcDetails,
-    gameVersion: gameVersion as GameVersion,
+    gameVersion,
     badges,
     johtoBadges: jBadges,
     kantoBadges: kBadges,
