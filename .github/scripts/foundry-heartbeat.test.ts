@@ -16,7 +16,7 @@ describe('Foundry Heartbeat', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    process.env = { ...originalEnv, JULES_API_KEY: 'mock-api-key' };
+    process.env = { ...originalEnv, JULES_API_KEY: 'mock-api-key', GITHUB_TOKEN: 'mock-token' };
     vi.spyOn(process, 'cwd').mockReturnValue(mockRepoRoot);
 
     // Default: fs.existsSync returns true for .foundry
@@ -64,7 +64,7 @@ describe('Foundry Heartbeat', () => {
     expect(fs.writeFileSync).toHaveBeenCalled();
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
     expect(writeCall[0]).toBe(mockNode.filePath);
-    expect(writeCall[1]).toContain('status: FAILED');
+    expect(writeCall[1]).toContain('status: "FAILED"');
     expect(writeCall[1]).toContain('jules_session_id: null');
 
     expect(fs.appendFileSync).toHaveBeenCalled();

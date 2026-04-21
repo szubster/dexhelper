@@ -41,8 +41,8 @@ export async function transitionNodeToFailed(node: any, repoRoot: string): Promi
   const originalFmBlock = fmBlockMatch[0];
   let mutatedFmBlock = originalFmBlock;
 
-  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)ACTIVE([ \t]*)$/m, `$1FAILED$2`);
-  mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(["']?.*?["']?)([ \t]*)$/m, `$1null$3`);
+  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?ACTIVE["']?([ \t]*)$/m, `$1"FAILED"$2`);
+  mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);
   mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t]*)$/m, `$1"${dateStr}"$2`);
 
   const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
@@ -65,8 +65,8 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
   const originalFmBlock = fmBlockMatch[0];
   let mutatedFmBlock = originalFmBlock;
 
-  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)ACTIVE([ \t]*)$/m, `$1COMPLETED$2`);
-  mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(["']?.*?["']?)([ \t]*)$/m, `$1null$3`);
+  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?ACTIVE["']?([ \t]*)$/m, `$1"COMPLETED"$2`);
+  mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);
   mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t]*)$/m, `$1"${dateStr}"$2`);
 
   const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
@@ -89,11 +89,11 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
   const originalFmBlock = fmBlockMatch[0];
   let mutatedFmBlock = originalFmBlock;
 
-  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)(FAILED|ACTIVE)([ \it]*)$/m, `$1READY$3`);
-  mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(["']?.*?["']?)([ \t]*)$/m, `$1null$3`);
+  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?(?:FAILED|ACTIVE)["']?([ \t]*)$/m, `$1"READY"$2`);
+  mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);
 
   if (/^rejection_count:/m.test(mutatedFmBlock)) {
-    mutatedFmBlock = mutatedFmBlock.replace(/^rejection_count:\s*(\d+)/m, (_, count) => `rejection_count: ${parseInt(count, 10) + 1}`);
+    mutatedFmBlock = mutatedFmBlock.replace(/^rejection_count:\s*(\d+)/m, (_: string, count: string) => `rejection_count: ${parseInt(count, 10) + 1}`);
   } else {
     mutatedFmBlock = mutatedFmBlock.replace(/^status: READY/m, `status: READY\nrejection_count: 1`);
   }

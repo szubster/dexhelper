@@ -44,10 +44,25 @@ pr_number: null
     transitionNodeToActive(relPath, 'sessions/123456', tmpDir);
 
     const result = fs.readFileSync(path.join(tmpDir, relPath), 'utf-8');
-    expect(result).toContain('status: ACTIVE');
+    expect(result).toContain('status: "ACTIVE"');
     expect(result).toContain('jules_session_id: "sessions/123456"');
     expect(result).not.toContain('status: READY');
     expect(result).toContain('# Body content');
+  });
+
+  test('Quoted Values: handles READY in quotes correctly', () => {
+    const relPath = createNode('.foundry/tasks/task-quoted.md', `---
+id: task-quoted
+status: "READY"
+jules_session_id: null
+updated_at: "2026-04-20"
+---`);
+
+    transitionNodeToActive(relPath, 'run-quoted', tmpDir);
+
+    const result = fs.readFileSync(path.join(tmpDir, relPath), 'utf-8');
+    expect(result).toContain('status: "ACTIVE"');
+    expect(result).toContain('jules_session_id: "run-quoted"');
   });
 
   test('Validation: fails if node is not READY', () => {
