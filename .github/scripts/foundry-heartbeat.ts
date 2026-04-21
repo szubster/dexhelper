@@ -239,15 +239,17 @@ export async function main() {
   const filePaths = discoverNodeFiles(foundryDir);
   const activeNodes = [];
   const inReviewNodes = [];
+  const failedNodes = [];
 
   for (const fp of filePaths) {
     const node = parseNodeFile(fp, repoRoot);
     if (!node) continue;
     if (node.frontmatter.status === 'ACTIVE') activeNodes.push(node);
     if (node.frontmatter.status === 'IN_REVIEW') inReviewNodes.push(node);
+    if (node.frontmatter.status === 'FAILED') failedNodes.push(node);
   }
 
-  info(`Found ${activeNodes.length} ACTIVE and ${inReviewNodes.length} IN_REVIEW node(s).`);
+  info(`Found ${activeNodes.length} ACTIVE, ${inReviewNodes.length} IN_REVIEW, and ${failedNodes.length} FAILED node(s).`);
 
   // --- PASS 1: Check ACTIVE Nodes (Jules API) ---
   for (const node of activeNodes) {
@@ -328,6 +330,12 @@ export async function main() {
     } catch (err) {
       warn(`GitHub API check encountered an error for PR #${prNumber}: ${String(err)}`);
     }
+  }
+
+  // --- PASS 3: Check FAILED Nodes ---
+  for (const node of failedNodes) {
+    info(`Resurrecting FAILED node: ${node.repoPath}`);
+    await transitionNodeToReady(node, repoRoot, `Retry from FAILED status.`);
   }
 }
 
