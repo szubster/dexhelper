@@ -31,3 +31,8 @@ None. This epic can be implemented independently and serves as the foundation fo
 - [ ] An Architectural Decision Record (ADR) or schema document update confirms the chosen ID pattern.
 - [ ] `.foundry/docs/schema.md` accurately reflects the new ID format.
 - [ ] Boilerplate templates and generation scripts output the new ID format automatically.
+
+## Stories
+- [ ] .foundry/stories/story-004-id-pattern-adr.md
+- [ ] .foundry/stories/story-005-id-schema-doc-update.md
+- [ ] .foundry/stories/story-006-update-node-templates.md
