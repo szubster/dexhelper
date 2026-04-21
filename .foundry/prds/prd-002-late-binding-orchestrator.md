@@ -49,11 +49,14 @@ When an agent is blocked by new technical realities:
 
 ### 2.3 The "Impossible" Loop
 - If a node is fundamentally impossible, the agent transitions the node to `FAILED` with a `rejection_reason` in the frontmatter.
-- The Orchestrator detects this failure and "wakes up" the parent node or creates a feedback `IDEA` for the PM/CEO.
+- The Orchestrator detects this failure and "wakes up" the parent node, or flags it for the `tpm` to create a feedback `IDEA` for the PM/CEO.
 
-### 2.4 The "Gastown" Orchestrator (Cloudflare Worker)
-- **Migration:** Extract `foundry-orchestrator.ts` logic to a Cloudflare Worker.
-- **State Store:** Utilize Cloudflare D1 (SQL) or KV to persist node states.
+### 2.4 Evaluating the "Gastown" Orchestrator (Cloudflare Worker)
+> [!NOTE]
+> *This migration is pending deep evaluation to avoid overcomplicating the system. It may not be needed if GitHub Actions reliability can be improved natively.*
+
+- **Evaluation Goal:** Assess if extracting `foundry-orchestrator.ts` logic to a Cloudflare Worker provides necessary reliability.
+- **State Store (Proposed):** Utilize Cloudflare D1 (SQL) or KV to persist node states.
 - **Sync Mechanism:** The Worker must poll GitHub or receive Webhooks to sync the markdown file state with its internal database.
 - **Unreachable State Constraint:** Jules cannot access the Orchestrator DB. Hallucinations in markdown status will be detected during the sync, preventing agents from breaking the state logic.
 
