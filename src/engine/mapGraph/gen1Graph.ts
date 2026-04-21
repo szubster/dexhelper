@@ -1,9 +1,21 @@
 import type { UnifiedLocation } from '../../db/schema';
 
 /**
- * Find the distance between the starting map and a target area (aid).
- * Uses the provided list of locations as the graph.
- * Returns { distance, name } where distance is hops in the graph and name is target name.
+ * Calculates the shortest path distance (in graph edges/hops) between the player's
+ * current location and a target area.
+ *
+ * @param allLocations - The unified list of all map locations, pre-populated with Floyd-Warshall distances (`dist`).
+ * @param startMapId - The internal Map ID where the player is currently standing.
+ * @param targetAid - The location Area ID (aid) where the target Pokémon can be found.
+ * @returns An object containing the `distance` (number of hops) and the `name` of the target area, or `null` if unreachable.
+ *
+ * @remarks
+ * **Architecture Note:**
+ * This function does NOT perform real-time pathfinding (e.g., BFS or Dijkstra).
+ * Instead, it relies on the `dist` property of the `UnifiedLocation` objects, which contains
+ * a precomputed lookup table generated at build-time using the Floyd-Warshall algorithm.
+ * This ensures O(1) distance lookups during runtime, which is critical since the suggestion
+ * engine evaluates hundreds of potential encounters simultaneously.
  */
 export function getDistanceToMap(
   allLocations: UnifiedLocation[],
@@ -42,7 +54,18 @@ export function getDistanceToMap(
 }
 
 /**
- * Resolves a potentially indoor map ID to its nearest outdoor equivalent.
+ * Resolves an indoor map to its connected outdoor parent map.
+ *
+ * @param allLocations - The unified list of all map locations.
+ * @param mapId - The Map ID to resolve.
+ * @returns The parent outdoor Map ID, or the original ID if it is already an outdoor map.
+ *
+ * @remarks
+ * **Why this is needed:**
+ * The map graph distance matrix (`dist`) is only computed between major outdoor hubs and routes.
+ * Indoor maps (houses, caves, buildings) are structurally represented as children of these hubs via
+ * the `prnt` property. To calculate the distance to a target from inside a building, we must first
+ * "step outside" by resolving the current location to its parent map.
  */
 export function getOutdoorMapId(allLocations: UnifiedLocation[], mapId: number): number {
   const loc = allLocations.find((l) => l.id === mapId);
