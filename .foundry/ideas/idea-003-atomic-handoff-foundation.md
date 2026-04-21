@@ -7,7 +7,7 @@ owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on: []
-jules_session_id: "24741413813"
+jules_session_id: "14078626391991235454"
 ---
 
 # Foundry V2: Atomic Handoffs & Single-Persona Ownership

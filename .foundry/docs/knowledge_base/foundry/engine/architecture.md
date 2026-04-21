@@ -24,5 +24,5 @@ The Foundry Engine automates the lifecycle of Foundry nodes (Ideas, Epics, Stori
 ## Best Practices
 
 *   **Idempotency**: The orchestrator is designed to be re-run safely. Any node already in `READY` status is included in the output matrix.
-*   **Audit Trail**: The `jules_session_id` is populated with the GitHub `run_id`, providing a direct link between the node state and the CI execution logs.
+*   **Audit Trail**: The `jules_session_id` is populated with the ID returned by the Jules API, providing a direct link between the node state and the automated agent session. The GitHub `run_id` is typically included in the commit message to provide secondary linkage to CI logs.
 *   **Security**: Workflow is restricted to the `main` branch.
