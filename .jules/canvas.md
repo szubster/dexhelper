@@ -9,3 +9,9 @@
 **Outcome:** Rejected → journaled
 **Why:** Maintainer pointed out that clicking on boxes instead of scrolling is more problematic, especially on mobile devices.
 **Pattern:** Avoid replacing vertical scrolling with click-to-navigate tab/sidebar layouts when the number of items is high (like 14+ boxes), as it can degrade the mobile experience.
+
+## 2026-04-20 - [Accepted] - 🖼️ Canvas: Condensed Pokedex Grid Layout
+**What:** Redesigned the PokedexCard component to use a condensed layout, moving the sprite to fill the card bounds and making information float on top of it.
+**Outcome:** Accepted → journaled
+**Why:** The PR was merged, confirming that a more dense layout with imagery focused design works well for the Pokedex grid.
+**Pattern:** Strive for visual density and maximizing artwork visibility while keeping important data distinct through gradient overlays.
