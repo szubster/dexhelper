@@ -9,7 +9,6 @@ updated_at: "2026-04-21"
 depends_on:
   - .foundry/tasks/task-002-create-heartbeat.md
 jules_session_id: null
-pr_number: null
 rejection_count: 0
 parent: .foundry/stories/story-001-matrix-runner.md
 ---

@@ -67,7 +67,6 @@ created_at: ""          # Required. ISO-8601 date (YYYY-MM-DD). Set once, never 
 updated_at: ""          # Required. ISO-8601 date. Updated by any persona that edits the node.
 depends_on: []          # Required. Array of repo-relative file paths. Empty [] = unblocked.
 jules_session_id: null  # Required. Active Jules session ID string, or null when idle.
-pr_number: null         # Required. GitHub PR number (integer), or null when idle.
 parent: null            # Optional. Repo-relative path to the logical parent node. Used for context hydration only — does NOT block the DAG.
 tags: []                # Optional. Free-form string labels for filtering and context injection.
 rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes.
@@ -88,7 +87,6 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `updated_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Must be updated whenever the file is edited. |
 | `depends_on` | `string[]` | ✅ | Repo-relative paths to blocking nodes (e.g., `.foundry/stories/story-001-scaffold.md`). **Empty array `[]` means the node has in-degree zero and is eligible for dispatch once all other preconditions are met.** |
 | `jules_session_id` | `string \| null` | ✅ | Jules session ID while `ACTIVE`. Always present; `null` when the node is not being processed. Monitored by the heartbeat workflow. |
-| `pr_number` | `integer \| null` | ✅ | GitHub PR number while `IN_REVIEW`. `null` otherwise. |
 | `parent` | `string \| null` | optional | Repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
 | `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
 | `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. |
@@ -104,10 +102,9 @@ notes: ""               # Optional. Free-form Markdown remarks.
 |---|---|
 | `PENDING` | Node exists but has unresolved `depends_on` entries — not yet eligible for dispatch. |
 | `READY` | **Orchestrator-written only.** All `depends_on` nodes are `COMPLETED`. Node is queued for the next dispatch cycle. |
-| `ACTIVE` | A Jules session (`jules_session_id`) is currently working on this node. |
-| `IN_REVIEW` | Jules has opened a PR (`pr_number`). Awaiting CEO merge or rejection. |
+| `ACTIVE` | A Jules session (`jules_session_id`) is currently working on this node. This status persists if a PR is open for review. |
 | `COMPLETED` | PR merged. TPM archives the node. |
-| `FAILED` | Session crashed silently (detected by heartbeat) or CEO closed PR without comment. Resurrection Loop re-spawns a fresh session. |
+| `FAILED` | Session crashed silently or PR was rejected/closed without merge. Resurrection Loop re-spawns a fresh session. |
 | `BLOCKED` | DAG deadlock or explicit TPM hold. Requires CEO or TPM intervention to resolve. |
 | `CANCELLED` | Node retired by CEO decision. Will never be dispatched. |
 
@@ -118,16 +115,14 @@ stateDiagram-v2
     [*] --> PENDING : Node created
     PENDING --> READY : Orchestrator confirms all depends_on = COMPLETED
     READY --> ACTIVE : Orchestrator dispatches Jules session
-    ACTIVE --> IN_REVIEW : Jules opens PR
-    IN_REVIEW --> COMPLETED : CEO merges PR
-    IN_REVIEW --> FAILED : CEO closes PR (Resurrection Loop triggers)
-    ACTIVE --> FAILED : Heartbeat detects crashed session
+    ACTIVE --> COMPLETED : CEO merges PR
+    ACTIVE --> FAILED : Heartbeat detects crashed session or rejected PR
     FAILED --> READY : Resurrection Loop spawns fresh session (rejection feedback injected)
     PENDING --> BLOCKED : TPM detects deadlock
     READY --> BLOCKED : TPM places explicit hold
     ACTIVE --> BLOCKED : TPM places explicit hold
     BLOCKED --> PENDING : CEO / TPM resolves hold
-    IN_REVIEW --> CANCELLED : CEO decides to retire node
+    ACTIVE --> CANCELLED : CEO decides to retire node
     PENDING --> CANCELLED : CEO decides to retire node
     COMPLETED --> [*]
     CANCELLED --> [*]
@@ -146,11 +141,12 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `product_manager` | Transforms `IDEA` → `PRD`. |
 | `epic_planner` | Transforms `PRD` → `EPIC` breakdown. |
 | `story_owner` | Monitors active epics; writes `STORY` nodes dynamically (late-binding). |
-| `tech_lead` | Transforms `STORY` → `TASK` (technical blueprint). Reads ADRs. |
-| `coder` | Implements `TASK` nodes. |
-| `qa` | Validates `TASK` implementation against spec. |
-| `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor deadlocks, manages journals. |
-| `agile_coach` | Runs daily/weekly. Meta-agent: modifies persona prompts and system config based on CEO rejection patterns. |
+| `architect` | Master of the Blueprint. Maintains ADRs, schemas, and defines global App/Foundry architecture. |
+| `tech_lead` | Transforms `STORY` → `TASK` (technical implementation plans). |
+| `coder` | Implements individual `TASK` nodes. |
+| `qa` | Validates `TASK` implementation against technical contracts. |
+| `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
+| `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
 
 ---
 
@@ -175,8 +171,8 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
 2. **`updated_at` must be refreshed on every edit.** Any persona that modifies a node must bump this field.
 3. **`depends_on` uses repo-relative file paths.** Do not use `id` slugs or short names — the orchestrator resolves paths with `fs.readFile`, not a lookup table.
 4. **A node in `ACTIVE` status must have a non-null `jules_session_id`.** If it doesn't, the heartbeat will flip it to `FAILED`.
-5. **A node in `IN_REVIEW` status must have a non-null `pr_number`.** Same as above.
-6. **Only the orchestrator writes `READY`.** Personas must never set this status manually.
+5. **Only the orchestrator writes `READY`.** Personas must never set this status manually.
+6. **Implementers (Coder/QA) must NOT modify node frontmatter.** Jules is explicitly forbidden from touching the `status`, `jules_session_id`, or other metadata fields. They should only update the Markdown body.
 7. **`COMPLETED` nodes are read-only.** Once a PR is merged, the node must not be edited. The TPM archives it.
 8. **`depends_on` paths must be resolvable.** The orchestrator will treat an unresolvable path as a permanent block (equivalent to `BLOCKED`). Always verify paths exist before committing.
 9. **Every `.foundry/**/*.md` file that is not a journal or doc must have valid YAML frontmatter.** The orchestrator will skip malformed files and log a warning — they will never be dispatched.
@@ -199,7 +195,6 @@ created_at: "YYYY-MM-DD"
 updated_at: "YYYY-MM-DD"
 depends_on: []
 jules_session_id: null
-pr_number: null
 parent: null
 tags: []
 rejection_count: 0
