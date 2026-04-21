@@ -14,3 +14,6 @@ The compiler ensures that DataLoader batch functions return valid values or Erro
 ## 2026-04-19 - Nurse: Remove redundant cast in gen2 save parser
 **Learning:** When a variable matches the return type exactly or correctly infers it, redundant `as Type` casts should be removed as they circumvent type narrowing and can hide true typing misalignments in future refactors.
 **Action:** Replaced unsafe cast with strict explicit variable typing.
+## 2026-04-21 - Nurse: Explicitly typing variables removes need for type casting
+**Learning:** Sometimes the compiler loses track of a type after a reassignment if the variable wasn't explicitly typed. By explicitly typing `let variableName: TypeName`, we eliminate the need for downstream `as TypeName` assertions, making the code safer and more readable.
+**Action:** Replaced unsafe cast in `gen2.ts` by explicitly typing the `gameVersion` variable instead.
