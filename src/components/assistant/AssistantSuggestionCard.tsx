@@ -41,6 +41,14 @@ export function AssistantSuggestionCard({
 
   const CardContent = (
     <>
+      {/* Radar / Scanline Background */}
+      <div
+        className="absolute inset-0 z-0 opacity-10"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)',
+        }}
+      />
       <div
         className={`absolute -top-10 -right-10 h-32 w-32 rounded-full opacity-20 blur-[40px] transition-opacity group-hover:opacity-40 ${style.bg}`}
       />
@@ -49,7 +57,7 @@ export function AssistantSuggestionCard({
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <div
-              className={`flex items-center gap-1.5 rounded-md border border-white/10 px-2 py-1 font-black text-[9px] uppercase tracking-widest ${style.bg} ${style.color.replace('border-', 'text-')}`}
+              className={`flex items-center gap-1.5 border border-white/20 px-2 py-1 font-black text-[9px] uppercase tracking-widest ${style.bg} ${style.color.replace('border-', 'text-')} shadow-sm backdrop-blur-md`}
             >
               {style.icon}
               {s.category}
@@ -58,8 +66,13 @@ export function AssistantSuggestionCard({
               )}
             </div>
             {s.pokemonId && (
-              <div className="font-bold font-mono text-[10px] text-zinc-500">
-                #{s.pokemonId.toString().padStart(3, '0')}
+              <div className="flex flex-col items-end">
+                <span className="font-black font-mono text-[8px] text-[var(--theme-primary)] tracking-widest">
+                  [ TARGET ACQUIRED ]
+                </span>
+                <div className="font-bold font-mono text-[10px] text-zinc-400">
+                  #{s.pokemonId.toString().padStart(3, '0')}
+                </div>
               </div>
             )}
           </div>
@@ -217,8 +230,14 @@ export function AssistantSuggestionCard({
   return (
     <div
       data-testid="assistant-suggestion-card"
-      className={`relative rounded-2xl border ${isCritical ? 'animate-[pulse_2s_infinite] border-red-500' : style.color} group overflow-hidden bg-zinc-900 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
+      className={`relative border-2 border-dashed ${isCritical ? 'animate-[pulse_2s_infinite] border-red-500/80' : 'border-zinc-700/80'} group overflow-hidden bg-black/60 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[var(--theme-primary)]/50 ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
     >
+      {/* Tactical Corner Crosshairs */}
+      <div className="absolute top-0 left-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-t-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
+      <div className="absolute top-0 right-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-t-2 border-r-2 transition-colors group-hover:border-[var(--theme-primary)]" />
+      <div className="absolute bottom-0 left-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-b-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
+      <div className="absolute right-0 bottom-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-r-2 border-b-2 transition-colors group-hover:border-[var(--theme-primary)]" />
+
       {!hasMultiple && s.pokemonId ? (
         <Link
           to="/pokemon/$pokemonId"
