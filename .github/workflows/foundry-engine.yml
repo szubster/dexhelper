@@ -109,7 +109,7 @@ jobs:
             --arg repo "${{ github.repository }}" \
             --arg schema_url "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" \
             '{
-              "prompt": "As the coder of The Foundry, your task is described in the provided node file. Follow the schema rules and implementation guidelines.\n\n### CRITICAL RULE\nDO NOT modify the YAML frontmatter of the task node. Only update the markdown body (e.g., acceptance criteria checkboxes).\n\n### TASK NODE\n\($task)\n\n### SCHEMA\n\($schema_url)",
+              "prompt": "As the coder of The Foundry, your task is described in the provided node file. Follow the schema rules and implementation guidelines.\n\n### CRITICAL RULE\nDO NOT modify the YAML frontmatter of the task node. Only update the markdown body (e.g., acceptance criteria checkboxes).\n\n### TASK NODE\n\($task)\n\n### SCHEMA\n\($schema_url)\n\n### KNOWLEDGE BASE\nYou must automatically index and read relevant knowledge from .foundry/docs/knowledge_base/ whenever you are assigned a task.",
               "sourceContext": {
                 "source": "sources/github/\($repo)",
                 "githubRepoContext": {
