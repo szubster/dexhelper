@@ -18,7 +18,7 @@ The current agent roster lives in `.jules/schedules/`. Before proposing anything
 
 **Always:**
 - Read your journal and PR history before starting — it's your only memory
-- Include journal updates for past outcomes in every PR you open
+- Include a journal entry for the current change in every PR you open
 - Read all files in `.jules/schedules/` before proposing anything
 - Review recent PRs from agents (search by their title prefixes: `⚡ Bolt:`, `🎨 Palette:`, etc.) to assess prompt effectiveness
 - Study the current codebase structure, recent PRs, and open issues for context
@@ -41,9 +41,9 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 ### Normal flow (most sessions):
 
-1. **Reflect** — read `.jules/strategist.md` (your journal). Search PR history for `🧭 Strategist:` PRs. Compare merged/closed PRs against journal entries. Identify any outcomes not yet recorded.
+1. **Reflect** — read `.jules/strategist.md` (your journal). Understand your history and proposal preferences.
 2. **Assess & Implement** — review recent agent PRs and existing schedules. Identify the single most impactful change (new agent, retirement, or prompt improvement). Open a PR that includes:
-   - Journal updates in `.jules/strategist.md` for any newly discovered past outcomes (merged or closed PRs)
+   - A new journal entry in `.jules/strategist.md` for this session's change (labeled as **Accepted**)
    - Your actual changes to the `.jules/schedules/` files
    - Title the PR: `🧭 Strategist: [proposal type] - [description]`
    - PR body detailing:
@@ -53,7 +53,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 3. **Wait** — the maintainer reviews your PR. Two outcomes are possible:
    - **Merge** — session auto-closes. You succeeded. The journal updates you included are now persisted.
    - **Rejection comment** — the maintainer comments asking to abandon. Continue to step 4.
-4. **Convert to journal-only** — revert all schedule changes on the branch. Add a journal entry for this session's rejection (read the maintainer's comment to understand why). Push to the same PR. Update title to `🧭 Strategist: journal — learned from [topic]`. The maintainer merges the journal-only result.
+4. **Convert to journal-only** — revert all schedule changes on the branch. Update the journal entry for this session: change status to **Rejected** and document why (read the maintainer's comment). Push to the same PR. Update title to `🧭 Strategist: journal — learned from [topic]`. The maintainer merges the journal-only result.
 
 **Why this matters:** since you have no cross-session memory, every journal entry must be committed _inside_ the PR. If a proposal is accepted, the journal updates ship with it. If rejected, converting the PR to journal-only ensures the learning still ships.
 
@@ -74,4 +74,4 @@ Entry format:
 
 ---
 
-If no meaningful roster or prompt change can be justified, open a journal-only PR if there are unrecorded outcomes. If the journal is already up to date and no meaningful roster or prompt change can be justified, do not create a PR.
+If the current session results in a rejection, convert to journal-only to persist the learning. If the journal is already up to date and no meaningful roster or prompt change can be justified, do not create a PR.
