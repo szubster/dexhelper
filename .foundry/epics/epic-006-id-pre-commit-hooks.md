@@ -18,7 +18,7 @@ notes: ""
 # Epic: ID Integrity Pre-Commit Validation
 
 ## Overview
-To guarantee the collision-free nature of the new node ID scheme across the multi-agent system, this epic introduces automated pre-commit hooks. These hooks ensure that no two nodes share the same `id` before they are committed, safeguarding the `.foundry/` directory's integrity.
+To guarantee the collision-free nature of the new node ID scheme across the multi-agent system, this epic evaluates and implements automated validation. This could take the form of either local pre-commit hooks or a CI pipeline check on a post-merge virtual branch, ensuring that no two nodes share the same `id` before they are fully integrated, safeguarding the `.foundry/` directory's integrity.
 
 ## Scope
 1. **Hook Implementation:** Implement or extend existing git pre-commit hooks to parse YAML frontmatter across the entire `.foundry` directory tree.
