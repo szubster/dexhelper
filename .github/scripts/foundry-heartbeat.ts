@@ -202,7 +202,7 @@ export async function main() {
       if (res.status === 404 || data.error?.status === 'NOT_FOUND') {
         info(`Session ${sessionId} not found (404). Treating as FAILED.`);
         await transitionNodeToFailed(node, repoRoot);
-      } else if (res.ok && data.state && TERMINAL_STATES.includes(data.state)) {
+      } else if (res.ok && data) {
         let hasOpenPR = false;
 
         if (data.outputs && Array.isArray(data.outputs)) {
@@ -215,14 +215,14 @@ export async function main() {
         }
 
         if (hasOpenPR) {
-          info(`Session ${sessionId} is in terminal state '${data.state}' but created a PR. Transitioning to IN_REVIEW.`);
+          info(`Session ${sessionId} has created a PR (State: ${data.state}). Transitioning to IN_REVIEW.`);
           await transitionNodeToInReview(node, data.outputs, repoRoot);
-        } else {
+        } else if (data.state && TERMINAL_STATES.includes(data.state)) {
           info(`Session ${sessionId} is in terminal state '${data.state}' without a PR. Treating as FAILED.`);
           await transitionNodeToFailed(node, repoRoot);
+        } else {
+          info(`Session ${sessionId} is in state '${data.state || 'UNKNOWN'}'. Leaving as ACTIVE.`);
         }
-      } else {
-        info(`Session ${sessionId} is in state '${data.state || 'UNKNOWN'}'. Leaving as ACTIVE.`);
       }
     } catch (err) {
       warn(`Failed to check session ${sessionId}: ${String(err)}`);
