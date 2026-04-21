@@ -15,3 +15,6 @@ tags: ["infrastructure"]
 # Agent Scheduling
 
 We need to figure out how to add scheduling for agents (e.g. running the TPM agent hourly). The solution should be generic and handle empty results gracefully. We should use the TPM agent as the example implementation.
+
+## Implementation Progress
+- [x] Transformed into PRD (`prd-001-agent-scheduling.md`).
