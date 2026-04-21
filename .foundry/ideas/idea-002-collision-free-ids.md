@@ -2,13 +2,13 @@
 id: idea-002-collision-free-ids
 type: IDEA
 title: "Distributed IDs & Concurrency Resilience"
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on:
   - .foundry/ideas/idea-001-the-foundry.md
-jules_session_id: null
+jules_session_id: "15875158301388550638"
 ---
 
 # IDEA-002: Distributed IDs & Concurrency Resilience
