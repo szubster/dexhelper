@@ -2,12 +2,12 @@
 id: idea-004-human-in-the-loop
 type: IDEA
 title: "Human-in-the-Loop Handoff"
-status: READY
+status: "ACTIVE"
 owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on: [".foundry/ideas/idea-003-atomic-handoff-foundation.md"]
-jules_session_id: null
+jules_session_id: "10261211899914660090"
 ---
 
 # IDEA-004: Human-in-the-Loop Handoff
