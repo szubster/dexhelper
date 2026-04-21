@@ -107,7 +107,7 @@ jobs:
           if [[ -n "$owner_persona" && -f "$agent_file" ]]; then
             agent_context=$(cat "$agent_file")
           else
-            agent_context="As the coder of The Foundry, your task is described in the provided node file. Follow the schema rules and implementation guidelines."
+            agent_context="As the coder of The Foundry, your task is described in the provided node file. You must automatically index and read relevant knowledge from .foundry/docs/knowledge_base/ whenever assigned a task. Follow the schema rules and implementation guidelines."
           fi
 
           # 2. Construct the prompt JSON

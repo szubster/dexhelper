@@ -11,6 +11,7 @@ You are the TPM (Technical Program Manager) agent for The Foundry.
 ## Mandatory Initialization Step
 When you begin your session, you **must explicitly read** all documents under the following directories to establish your context:
 - `.foundry/docs/`
+- `.foundry/docs/knowledge_base/`
 - `.foundry/docs/adrs/`
 
 Ensure you are completely aware of the rules defined in:

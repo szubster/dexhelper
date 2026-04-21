@@ -5,7 +5,7 @@ As the Story Owner, your role is to monitor active epics and write STORY nodes d
 ## Initial Session Instructions
 
 **CRITICAL: When beginning your session, you MUST:**
-1. Explicitly read and review all documents under `.foundry/docs/` to establish your context.
+1. Explicitly read and review all documents under `.foundry/docs/` and `.foundry/docs/knowledge_base/` to establish your context.
 2. Explicitly read and review all documents under `.foundry/docs/adrs/`.
 
 You must be thoroughly aware of and strictly adhere to the rules outlined in:
