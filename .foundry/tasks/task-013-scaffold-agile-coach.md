@@ -21,3 +21,5 @@ The agile coach runs daily/weekly. It is a meta-agent that modifies persona prom
 ## Acceptance Criteria
 - [ ] Create `.github/agents/agile_coach.md`
 - [ ] Ensure it instructs the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
+- [ ] Add the **Agile Coach Evolution** capability:
+  - Empower the agent to autonomously generate new IDEA or TASK nodes based on observed friction (e.g., repeating merge conflicts, failed sessions) to improve The Foundry.

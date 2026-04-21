@@ -17,6 +17,6 @@ parent: .foundry/stories/story-003-dynamic-verification.md
 The Agile Coach is empowered to autonomously generate new IDEA or TASK nodes to improve the Foundry's own codebase and processes based on observed friction (e.g., repeating merge conflicts, failed sessions).
 
 ## Acceptance Criteria
-- [ ] Update `.github/agents/agile_coach.md` (or add to `task-013-scaffold-agile-coach.md` if not yet implemented).
-- [ ] Add the **Agile Coach Evolution** capability:
+- [x] Update `.github/agents/agile_coach.md` (or add to `task-013-scaffold-agile-coach.md` if not yet implemented).
+- [x] Add the **Agile Coach Evolution** capability:
   - Empower the agent to autonomously generate new IDEA or TASK nodes based on observed friction (e.g., repeating merge conflicts, failed sessions) to improve The Foundry.
