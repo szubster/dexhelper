@@ -32,19 +32,22 @@ Add `human` to the `owner_persona` enum.
 
 #### New Tracking Field
 Add `pr_number` to the global frontmatter schema.
-- **`pr_number`**: `integer | null`. Defaults to `null`. 
-- When a human (or an agent acting on behalf of a human) opens a PR to satisfy a node, they record the PR number here.
+- **`pr_number`**: `integer | null` (Optional). Defaults to `null`. 
+- When a human (or an agent acting on behalf of a human) opens a PR to satisfy a node, they may record the PR number here for system tracking. It is not required if work is committed directly to `main`.
 
 ### 2.2 Orchestrator Logic
 The `foundry-orchestrator.ts` and `foundry-heartbeat.ts` should be updated:
-1. **Bypass Dispatch**: If `owner_persona` is `human`, the orchestrator marks the node as `ACTIVE` but does **not** attempt to spawn a Jules session.
+1. **Bypass Dispatch**: If `owner_persona` is `human`, the orchestrator marks the node as `ACTIVE` but does **not** attempt to spawn a Jules session. Humans can identify `READY` tasks to "pick up" and implement on their own schedule (either via PR or direct commit to `main`).
 2. **PR Monitoring**: If a node is `ACTIVE` and has a `pr_number`, the heartbeat should poll the GitHub API for that PR's status.
-3. **Auto-Completion**: If the PR linked in `pr_number` is merged, the orchestrator/heartbeat should automatically transition the node to `COMPLETED`.
+3. **Completion States**:
+    - **Merged**: The orchestrator/heartbeat should automatically transition the node to `COMPLETED`.
+    - **Closed (Unmerged)**: Transition the node back to `READY` so it can be re-claimed or picked up again.
+    - **Manual**: Humans may manually transition a node from `ACTIVE` to `COMPLETED` if they committed directly to `main`.
 
 ## 3. Edge Cases & Considerations
 - **Multiple PRs**: A task might require multiple PRs. Should `pr_number` be an array? (Recommendation: Keep it single for now to maintain task atomicity. If it needs many PRs, it should be a Story or Epic).
 - **Validation**: Human tasks still need a `qa` node to follow them in the DAG to ensure even human work is verified by the system's standards.
-- **Timeout**: Human tasks shouldn't "fail" based on a session heartbeat, but they might need a "stale" warning if no PR is linked after X days.
+- **No Timeouts**: Human tasks do not expire or fail based on heartbeat loops. They remain `ACTIVE` until manually completed or their linked PR is merged.
 
 ## 4. Next Steps
 1. **Architect**: Update `schema.md` to include the new persona and field.
