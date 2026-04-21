@@ -1,0 +1,15 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignoreDependencies": ["bundlemon", "fake-indexeddb"],
+  "ignore": [".github/scripts/**"],
+  "rules": {
+    "files": "warn",
+    "exports": "warn",
+    "types": "warn",
+    "dependencies": "error",
+    "devDependencies": "error",
+    "unlisted": "error",
+    "binaries": "error",
+    "unresolved": "error"
+  }
+}
