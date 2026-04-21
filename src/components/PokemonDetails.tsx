@@ -251,6 +251,7 @@ export function PokemonDetails({
               type="button"
               onClick={onClose}
               aria-label="Close details"
+              title="Close details"
               className="group absolute top-6 right-6 rounded-2xl border border-white/10 bg-white/5 p-4 transition-all hover:bg-white/10 active:scale-95 sm:relative sm:top-auto sm:right-auto"
             >
               <X size={24} className="text-zinc-400 transition-colors group-hover:text-white" />

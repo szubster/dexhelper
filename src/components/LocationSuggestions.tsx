@@ -49,6 +49,7 @@ export function LocationSuggestions() {
             type="button"
             onClick={() => setSelectedLocationId(null)}
             aria-label="Clear location filter"
+            title="Clear location filter"
             className="ml-1 rounded-full p-0.5 transition-colors hover:bg-[var(--theme-primary)] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           >
             <X size={10} />
