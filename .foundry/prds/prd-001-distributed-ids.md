@@ -46,9 +46,8 @@ The chosen method must guarantee high entropy to prevent collisions when created
 
 To address Shadow Dispatches, the orchestrator needs a way to lock nodes that are currently being worked on in open branches, even if those branches haven't merged to `main` yet.
 
-Proposed mitigation strategies:
-- **Registry / Lock File:** Maintain a lightweight registry or pre-commit lock system that tracks the status of nodes across active branches.
-- **GitHub PR Inspection:** The orchestrator could query GitHub for open PRs and cross-reference which nodes are currently marked `ACTIVE` within those PRs, preventing re-dispatch.
+Proposed mitigation strategy:
+- **GitHub PR & Session Inspection:** Since we already monitor the status of Jules sessions, the orchestrator simply needs to query GitHub for open PRs and cross-reference which nodes are currently marked `ACTIVE` within those PRs (and verify their corresponding session is alive) to prevent re-dispatch. A separate lock file or registry is not required.
 
 ## 5. Pre-Commit Hooks
 Pre-commit hooks will be implemented (or extended) to automatically validate the integrity of the new ID scheme across the `.foundry` directory, enforcing that no two node files possess the same `id` field before a branch can be submitted.
