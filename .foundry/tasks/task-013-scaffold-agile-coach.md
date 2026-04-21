@@ -2,7 +2,8 @@
 id: task-013-scaffold-agile-coach
 type: TASK
 title: "Scaffold Agile Coach Persona"
-status: FAILED
+status: READY
+rejection_count: 1
 owner_persona: tech_lead
 created_at: "2026-04-21"
 updated_at: "2026-04-21"

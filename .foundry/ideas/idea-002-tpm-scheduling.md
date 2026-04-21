@@ -2,7 +2,7 @@
 id: idea-002-tpm-scheduling
 type: IDEA
 title: "Agent Scheduling"
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-04-21"

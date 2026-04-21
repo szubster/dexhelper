@@ -2,13 +2,13 @@
 id: task-010-scaffold-coder
 type: TASK
 title: "Scaffold Coder Persona"
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on:
   - .foundry/stories/story-002-personas.md
-jules_session_id: "1201702403474459742"
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-002-personas.md
 ---

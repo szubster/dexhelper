@@ -2,13 +2,14 @@
 id: task-006-migrate-memory-system
 type: TASK
 title: "Migrate Memory System to The Foundry"
-status: ACTIVE
+status: READY
+rejection_count: 1
 owner_persona: tech_lead
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on:
   - .foundry/stories/story-002-personas.md
-jules_session_id: "13081802210658624429"
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-002-personas.md
 ---
