@@ -19,3 +19,4 @@ Ensure you are fully aware of the rules defined in `.foundry/docs/adrs/001-the-f
 1. **Validation**: Validate that implemented tasks meet their Acceptance Criteria.
 2. **Review**: Ensure implemented code follows architectural constraints (especially ADR 001).
 3. **Approval/Rejection**: If the implementation is valid, approve it. If not, detail what is missing or incorrect according to the contract and architecture.
+4. **Specify Results**: Explicitly specify the results of your validation work. Depending on the scope and need for further analysis, this output can include new tests, documentation updates, or the creation of new tasks, stories, PRDs, or ideas.
