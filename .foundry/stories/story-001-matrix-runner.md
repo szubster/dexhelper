@@ -9,7 +9,6 @@ updated_at: "2026-04-20"
 depends_on:
   - .foundry/epics/epic-003-actions-engine.md
 jules_session_id: null
-pr_number: null
 ---
 
 # Matrix-based Parallel Dispatcher
