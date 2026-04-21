@@ -19,10 +19,10 @@ Logic to monitor `ACTIVE` nodes and detect "zombie" sessions where the GitHub Ac
 
 ## Acceptance Criteria
 - [ ] A script (or addition to the orchestrator) that lists all `ACTIVE` nodes.
-- [ ] Uses the GitHub API to check the status of `jules_session_id` (the `run_id`).
-- [ ] If the run is no longer in progress (e.g., `completed`, `cancelled`) and the node is still `ACTIVE`, transition it to `FAILED`.
+- [ ] Uses the Jules API to check the status of `jules_session_id`.
+- [ ] If the Jules session is in a terminal state (e.g., `FAILED`, `COMPLETED`) and the node is still `ACTIVE`, transition it to `FAILED`.
 - [ ] Log stale transitions to the `tpm` journal.
 
 ## Technical Notes
-- Requires `octokit` or `gh` CLI to query workflow run status.
+- Requires fetching `https://jules.googleapis.com/v1alpha/sessions/<id>` with `X-Goog-Api-Key`.
 - Should run frequently (e.g., every 15-30 minutes).
