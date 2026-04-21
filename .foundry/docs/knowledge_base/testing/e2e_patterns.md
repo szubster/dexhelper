@@ -5,8 +5,10 @@ Represents the primary testing strategy for the Dexhelper project, following the
 ## 1. State Initialization
 All E2E tests must transition the application from an "Uninitialized" state to a valid hydrated state.
 - **Utility**: `initializeWithSave(page)` from `tests/e2e/test-utils.ts`.
-- **Action**: This tool uploads the `tests/fixtures/yellow.sav` file to the app's hidden file input.
+- **Action**: This tool uses standard IndexedDB injection to hydrate state.
 - **Verification**: Tests should wait for the "TRAINER" card to be visible before proceeding.
+- **Playwright Setup project**: Added a `setup` project in `playwright.config.ts` that runs once (`tests/e2e/setup.spec.ts`). It uploads a save file (Blue version) and waits for the Pokedex to sync.
+- **storageState**: The resulting browser state (IndexedDB + LocalStorage) is saved to `playwright/.auth/user.json` and reused by all subsequent E2E tests via the `storageState` config.
 
 ## 2. Visual Regression (Argos CI)
 Visual accuracy is verified using `argosScreenshot(page, 'name')`.
@@ -21,3 +23,6 @@ Visual accuracy is verified using `argosScreenshot(page, 'name')`.
 - **Sync Overlays**: The app uses IndexedDB hydration. Utilities in `test-utils.ts` handle waiting for synchronization overlays to disappear.
 - **Test Stability**: Avoid using hardcoded timeouts; rely on Playwright's auto-waiting or `waitForSelector` for dynamic data.
 - **Identifiers**: Use `data-testid="pokedex-card"` and `data-pokemon-id` attributes for precise grid assertions.
+
+## 4. Playwright Configuration
+- **Open Reports**: In `playwright.config.ts`, explicitly set `open: 'never'` for the HTML reporter to ensure E2E suite completion and clean exits even on failure.
