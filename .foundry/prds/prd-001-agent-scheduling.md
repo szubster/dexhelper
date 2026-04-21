@@ -2,7 +2,7 @@
 id: "prd-001-agent-scheduling"
 type: "PRD"
 title: "Agent Scheduling"
-status: PENDING
+status: READY
 owner_persona: "epic_planner"
 created_at: "2026-04-21"
 updated_at: "2026-04-21"

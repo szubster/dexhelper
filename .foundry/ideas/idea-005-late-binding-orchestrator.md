@@ -2,7 +2,7 @@
 id: idea-005-late-binding-orchestrator
 type: IDEA
 title: "Late Binding Epics & Recursive Orchestration"
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-04-21"

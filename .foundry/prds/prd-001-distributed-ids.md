@@ -2,7 +2,7 @@
 id: prd-001-distributed-ids
 type: PRD
 title: "Distributed IDs & Concurrency Resilience"
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: "2026-04-21"
 updated_at: "2026-04-21"

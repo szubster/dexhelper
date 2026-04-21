@@ -40,3 +40,9 @@
 - **2026-04-21**: PR #343 merged. `task-012-scaffold-tpm` is now COMPLETED.
 
 - **2026-04-21**: Resurrection Loop triggered for `task-013-scaffold-agile-coach`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-21**: PR #355 merged. `idea-002-collision-free-ids` is now COMPLETED.
+
+- **2026-04-21**: PR #360 merged. `idea-002-tpm-scheduling` is now COMPLETED.
+
+- **2026-04-21**: PR #359 merged. `idea-003-atomic-handoff-foundation` is now COMPLETED.

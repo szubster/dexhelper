@@ -2,7 +2,7 @@
 id: idea-004-human-in-the-loop
 type: IDEA
 title: "Human-in-the-Loop Handoff"
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
