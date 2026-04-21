@@ -18,5 +18,5 @@ parent: .foundry/stories/story-002-personas.md
 The tech lead transforms STORY -> TASK (technical blueprint). Reads ADRs.
 
 ## Acceptance Criteria
-- [ ] Create `.github/agents/tech_lead.md`
-- [ ] Ensure it instructs the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
+- [x] Create `.github/agents/tech_lead.md`
+- [x] Ensure it instructs the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
