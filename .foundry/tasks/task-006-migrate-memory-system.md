@@ -18,5 +18,6 @@ parent: .foundry/stories/story-002-personas.md
 The standalone Jules instances do not have MCP access to Serena memories. We need to make these memories available via the file system for them to work effectively.
 
 ## Acceptance Criteria
+- [ ] NOTE: The migrate memory task might be already done. Check if this is obsolete.
 - [ ] We must migrate all content inside `.serena/memories/` into `.foundry/docs/` (e.g., as `.foundry/docs/knowledge_base/`).
 - [ ] The persona prompts must instruct Jules to automatically index and read relevant knowledge from this migrated directory whenever they are assigned a task.
