@@ -2,8 +2,8 @@
 id: story-002-personas
 type: STORY
 title: "Persona-aware Prompt Injection"
-status: FAILED
-rejection_count: 2
+status: READY
+rejection_count: 3
 owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-21"
