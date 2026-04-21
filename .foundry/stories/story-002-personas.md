@@ -2,14 +2,14 @@
 id: story-002-personas
 type: STORY
 title: "Persona-aware Prompt Injection"
-status: READY
+status: ACTIVE
 rejection_count: 1
 owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-21"
 depends_on:
   - .foundry/epics/epic-003-actions-engine.md
-jules_session_id: null
+jules_session_id: "9858835250152956765"
 pr_number: null
 ---
 
