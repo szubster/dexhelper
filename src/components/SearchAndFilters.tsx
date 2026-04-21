@@ -53,6 +53,7 @@ export function SearchAndFilters() {
               type="button"
               onClick={handleClearSearch}
               aria-label="Clear search"
+              title="Clear search"
               className="absolute top-1/2 right-4 -translate-y-1/2 rounded-xl p-2 text-zinc-500 transition-all hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
               <X size={14} />
