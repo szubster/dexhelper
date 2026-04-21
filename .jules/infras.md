@@ -9,3 +9,6 @@
 **Learning:** Separating `node_modules` dependencies into distinct manual chunks (e.g., `vendor-react`, `vendor-tanstack`, `vendor-lucide`) in `vite.config.ts` significantly improves browser caching behavior. Instead of one massive index chunk that invalidates entirely whenever app code changes, stable libraries can remain cached in user browsers, leading to faster load times on subsequent visits.
 ## 2026-04-20 - Rejected Vite Manual Chunking Strategy
 **Learning:** While manual chunking can improve caching, it was rejected for this project because the app is small enough that a single chunk is preferred, and the `@tanstack` dependencies are updated so frequently that the caching benefits are marginalized.
+
+## 2026-04-21 - Added Knip
+**Learning:** Added `knip` (configured via `knip.json` using schema v6 and integrated into CI via `pnpm check:knip`) to proactively detect unused files, exports, types, and dependencies. When configuring or running `knip`, ensure `bundlemon` is explicitly ignored as a dependency to avoid false positive errors in CI, as it is used dynamically.
