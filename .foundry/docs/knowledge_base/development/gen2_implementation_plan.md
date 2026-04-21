@@ -1,5 +1,9 @@
 # Gen 2 Complete Implementation Plan
 
+> [!NOTE]
+> This implementation plan has been converted to a **Foundry Idea** for autonomous execution.
+> Track progress here: [.foundry/ideas/idea-006-gen2-expansion.md](file:///home/tszuba/projects/dexhelper/.foundry/ideas/idea-006-gen2-expansion.md)
+
 ## Overview
 While the current app has basic support for parsing Gen 2 (Gold/Silver/Crystal) save files, it lacks the generation-specific logic for map traversal, assistance suggestions, mechanics, and accurate data handling. This document details the missing features and provides a phase-by-phase implementation plan.
 
