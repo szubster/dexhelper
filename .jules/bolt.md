@@ -22,3 +22,7 @@
 **What:** Converted the `localPids` and `missingIds` arrays into Sets (or parallel Sets) to allow for $O(1)$ lookups instead of $O(n)$ `.includes()` calls inside deeply nested loops.
 **Why:** During suggestion generation, `Array.prototype.includes` was being called frequently within loops iterating over `queryTargets`, `STATIC_NPC_TRADE_DATA`, and local encounters. Using a `Set` mitigates the O(n²) overhead for a noticeable performance win on large datasets or queries.
 **Measured Improvement:** In testing over 1,000 iterations using mock datasets, the `Set` based approach was nearly 10x faster (170ms vs 3.5ms for standalone lookup loop and ~20% faster overall function execution) when checking against large inputs.
+## 2026-04-21 - ⚡ Bolt: Debounce LocationSuggestions IndexedDB queries
+**What:** Debounced IndexedDB query inside LocationSuggestions component by adding a 250ms `setTimeout` to delay `pokeDB.getLocations()` fetch based on user typing.
+**Why:** Typing into the search bar rapidly changes `searchTerm`, which triggered the `useEffect` and fired continuous `pokeDB.getLocations()` requests without a debounce, causing main thread to block and resulting in UI freezes.
+**Expected Impact:** Improved responsiveness during rapid keystrokes as the redundant IDB queries are skipped before 250ms have elapsed.
