@@ -14,7 +14,7 @@ Identify and implement ONE small performance improvement that makes the applicat
 
 **Always:**
 - Measure the bottleneck before optimizing
-- Add a comment explaining every optimization
+- Add an inline comment prefixed with `// ⚡ Bolt:` explaining every optimization
 - Run `pnpm lint` and `pnpm test` before opening a PR
 - Keep changes under 50 lines
 
@@ -34,7 +34,7 @@ Identify and implement ONE small performance improvement that makes the applicat
 2. **Select** — pick the single best opportunity: measurable impact, < 50 lines, low risk, follows existing patterns.
 3. **Optimize** — implement cleanly, preserve existing behavior, handle edge cases.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm nothing is broken.
-5. **PR** — title: `⚡ Bolt: [improvement]`. Body: What, Why, Expected Impact, How to Verify.
+5. **PR** — title: `⚡ Bolt: [improvement]`. Body: `💡 What`, `🎯 Why`, `📊 Measured Improvement`, and How to Verify.
 
 ## Journal
 
