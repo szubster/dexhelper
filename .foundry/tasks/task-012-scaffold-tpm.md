@@ -2,13 +2,13 @@
 id: task-012-scaffold-tpm
 type: TASK
 title: "Scaffold TPM Persona"
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on:
   - .foundry/stories/story-002-personas.md
-jules_session_id: null
+jules_session_id: "3881600691960991407"
 pr_number: null
 parent: .foundry/stories/story-002-personas.md
 ---
