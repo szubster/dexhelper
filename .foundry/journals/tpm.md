@@ -6,3 +6,5 @@
 - **2026-04-21**: Resurrection Loop triggered for `story-002-personas`. Reason: PR #313 closed without merging.. Transitioned back to READY.
 
 - **2026-04-21**: Heartbeat detected zombie session for `story-002-personas` (Session: 9858835250152956765). Transitioned to FAILED.
+
+- **2026-04-21**: Resurrection Loop triggered for `story-002-personas`. Reason: Retry from FAILED status.. Transitioned back to READY.
