@@ -16,15 +16,6 @@ export const DB_CONFIG = {
   },
 } as const;
 
-export const POKE_VERSION = {
-  RED: 1,
-  BLUE: 2,
-  YELLOW: 3,
-  GOLD: 4,
-  SILVER: 5,
-  CRYSTAL: 6,
-} as const;
-
 export const POKE_VERSION_MAP: Record<string, number> = {
   red: 1,
   blue: 2,
@@ -33,10 +24,6 @@ export const POKE_VERSION_MAP: Record<string, number> = {
   silver: 5,
   crystal: 6,
 };
-
-export const REVERSE_VERSION_MAP: Record<number, string> = Object.fromEntries(
-  Object.entries(POKE_VERSION_MAP).map(([k, v]) => [v, k]),
-);
 
 export const ENCOUNTER_METHOD = {
   WALK: 1,
@@ -76,19 +63,6 @@ export const EVO_TRIGGER_MAP: Record<string, number> = {
   trade: 2,
   'use-item': 3,
   shed: 4,
-};
-
-export const ITEM_MAP: Record<number, string> = {
-  81: 'Moon Stone',
-  82: 'Fire Stone',
-  83: 'Thunder Stone',
-  84: 'Water Stone',
-  85: 'Leaf Stone',
-  191: 'Sun Stone',
-  198: "King's Rock",
-  210: 'Metal Coat',
-  211: 'Dragon Scale',
-  212: 'Up-Grade',
 };
 
 export interface CompactEncounterDetail {
