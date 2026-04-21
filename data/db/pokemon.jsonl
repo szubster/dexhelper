@@ -78,8 +78,8 @@
 {"id":78,"n":"Rapidash","cr":60,"efrm":[77],"det":[{"ml":40}]}
 {"id":79,"n":"Slowpoke","cr":190,"eto":[{"id":80,"det":[{"ml":37},{"tr":3,"item":1633}],"ef":79},{"id":199,"det":[{"tr":2,"held":198},{"tr":3,"item":1643}],"ef":79}]}
 {"id":80,"n":"Slowbro","cr":75,"efrm":[79],"det":[{"ml":37},{"tr":3,"item":1633}]}
-{"id":81,"n":"Magnemite","cr":190,"gr":-1,"eto":[{"id":82,"eto":[{"id":462,"det":[{},{},{},{},{},{"tr":3,"item":33}],"ef":82}],"det":[{"ml":30}],"ef":81}]}
-{"id":82,"n":"Magneton","cr":60,"gr":-1,"eto":[{"id":462,"det":[{},{},{},{},{},{"tr":3,"item":33}],"ef":82}],"efrm":[81],"det":[{"ml":30}]}
+{"id":81,"n":"Magnemite","cr":190,"gr":-1,"eto":[{"id":82,"eto":[{"id":462,"det":[{},{"tr":3,"item":33}],"ef":82}],"det":[{"ml":30}],"ef":81}]}
+{"id":82,"n":"Magneton","cr":60,"gr":-1,"eto":[{"id":462,"det":[{},{"tr":3,"item":33}],"ef":82}],"efrm":[81],"det":[{"ml":30}]}
 {"id":83,"n":"Farfetch’d","cr":45,"eto":[{"id":865,"det":[{"tr":0}],"ef":83}]}
 {"id":84,"n":"Doduo","cr":190,"eto":[{"id":85,"det":[{"ml":31}],"ef":84}]}
 {"id":85,"n":"Dodrio","cr":45,"efrm":[84],"det":[{"ml":31}]}
@@ -130,7 +130,7 @@
 {"id":130,"n":"Gyarados","cr":45,"efrm":[129],"det":[{"ml":20}]}
 {"id":131,"n":"Lapras","cr":45}
 {"id":132,"n":"Ditto","cr":35,"gr":-1}
-{"id":133,"n":"Eevee","cr":45,"gr":1,"eto":[{"id":134,"det":[{"tr":3,"item":34}],"ef":133},{"id":135,"det":[{"tr":3,"item":33}],"ef":133},{"id":136,"det":[{"tr":3,"item":32}],"ef":133},{"id":196,"det":[{"time":1}],"ef":133},{"id":197,"det":[{"time":2}],"ef":133},{"id":470,"det":[{},{},{},{"tr":3,"item":47}],"ef":133},{"id":471,"det":[{},{},{},{"tr":3,"item":885}],"ef":133},{"id":700,"det":[{},{}],"ef":133}]}
+{"id":133,"n":"Eevee","cr":45,"gr":1,"eto":[{"id":134,"det":[{"tr":3,"item":34}],"ef":133},{"id":135,"det":[{"tr":3,"item":33}],"ef":133},{"id":136,"det":[{"tr":3,"item":32}],"ef":133},{"id":196,"det":[{"time":1}],"ef":133},{"id":197,"det":[{"time":2}],"ef":133},{"id":470,"det":[{},{"tr":3,"item":47}],"ef":133},{"id":471,"det":[{},{"tr":3,"item":885}],"ef":133},{"id":700,"det":[{}],"ef":133}]}
 {"id":134,"n":"Vaporeon","cr":45,"gr":1,"efrm":[133],"det":[{"tr":3,"item":34}]}
 {"id":135,"n":"Jolteon","cr":45,"gr":1,"efrm":[133],"det":[{"tr":3,"item":33}]}
 {"id":136,"n":"Flareon","cr":45,"gr":1,"efrm":[133],"det":[{"tr":3,"item":32}]}
@@ -208,7 +208,7 @@
 {"id":208,"n":"Steelix","cr":25,"efrm":[95],"det":[{"tr":2,"held":210}]}
 {"id":209,"n":"Snubbull","cr":190,"gr":6,"eto":[{"id":210,"det":[{"ml":23}],"ef":209}]}
 {"id":210,"n":"Granbull","cr":75,"gr":6,"efrm":[209],"det":[{"ml":23}]}
-{"id":211,"n":"Qwilfish","cr":45,"eto":[{"id":904,"det":[{"tr":0},{},{"tr":0}],"ef":211}]}
+{"id":211,"n":"Qwilfish","cr":45,"eto":[{"id":904,"det":[{"tr":0},{}],"ef":211}]}
 {"id":212,"n":"Scizor","cr":25,"efrm":[123],"det":[{"tr":2,"held":210}]}
 {"id":213,"n":"Shuckle","cr":190}
 {"id":214,"n":"Heracross","cr":45}
