@@ -2,13 +2,13 @@
 id: prd-001-distributed-ids
 type: PRD
 title: "Distributed IDs & Concurrency Resilience"
-status: READY
+status: "ACTIVE"
 owner_persona: epic_planner
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on:
   - .foundry/ideas/idea-002-collision-free-ids.md
-jules_session_id: null
+jules_session_id: "12200486811939060835"
 parent: .foundry/ideas/idea-002-collision-free-ids.md
 ---
 
