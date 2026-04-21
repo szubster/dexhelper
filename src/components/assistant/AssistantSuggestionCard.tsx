@@ -235,8 +235,8 @@ export function AssistantSuggestionCard({
       {/* Tactical Corner Crosshairs */}
       <div className="absolute top-0 left-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-t-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
       <div className="absolute top-0 right-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-t-2 border-r-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-      <div className="absolute bottom-0 left-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-b-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
       <div className="absolute right-0 bottom-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-r-2 border-b-2 transition-colors group-hover:border-[var(--theme-primary)]" />
+      <div className="absolute bottom-0 left-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-b-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
 
       {!hasMultiple && s.pokemonId ? (
         <Link

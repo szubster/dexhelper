@@ -10,8 +10,8 @@
 **Why:** Maintainer pointed out that clicking on boxes instead of scrolling is more problematic, especially on mobile devices.
 **Pattern:** Avoid replacing vertical scrolling with click-to-navigate tab/sidebar layouts when the number of items is high (like 14+ boxes), as it can degrade the mobile experience.
 
-## 2026-04-20 - [Accepted] - 🖼️ Canvas: Condensed Pokedex Grid Layout
-**What:** Redesigned the PokedexCard component to use a condensed layout, moving the sprite to fill the card bounds and making information float on top of it.
-**Outcome:** Accepted → journaled
-**Why:** The layout is present on the main branch, confirming dense layouts work well.
-**Pattern:** Strive for visual density and maximizing artwork visibility while keeping important data distinct through gradient overlays.
+## 2026-04-21 - [Accepted] - 🖼️ Canvas: Tactical Assistant Target Lock Layout
+**What:** Redesigned the AssistantSuggestionCard component to use a tactical "Target Lock" aesthetic, utilizing dashed borders, radar scanlines, corner crosshairs, and monospaced telemetry fonts.
+**Outcome:** Accepted
+**Why:** The layout reinforces the "snooping" and utility-driven fantasy of a Pokédex, creating a more cohesive, high-contrast, and thematic presentation for the Assistant feature rather than a generic UI card.
+**Pattern:** Strive for visual density and maximizing thematic aesthetics (like radar/telemetry) while keeping important data readable through visual separation.
