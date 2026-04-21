@@ -9,6 +9,7 @@ Identify and implement ONE small performance improvement that makes the applicat
 - Inefficient algorithms or data structures (e.g. O(n²) → O(n))
 - Redundant computations, missing caching or lazy initialization
 - Synchronous work blocking the main thread
+- IndexedDB N+1 query overhead in loops
 
 ## Boundaries
 

@@ -9,3 +9,9 @@
 **Outcome:** Accepted
 **Why:** Proposal submitted to maintainer and maintainer instructed to add the agent directly.
 **Pattern:** Proposing based on hints in memory (CWE-209 prevention, native `node:crypto` usage, and security fix PR title format).
+
+## 2026-04-20 - [Accepted] - prompt improvement - Add visual regression testing to Sentinel
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** Proposal submitted to maintainer and maintainer merged the changes.
+**Pattern:** Proposing an improvement based on specific missing test strategies found in the ecosystem.
