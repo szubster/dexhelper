@@ -8,14 +8,14 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 ### Normal flow (most sessions):
 
-1. **Reflect** — read `.jules/canvas.md` (your journal). Search PR history for `🖼️ Canvas:` PRs. Compare merged/closed PRs against journal entries. Identify any outcomes not yet recorded.
+1. **Reflect** — read `.jules/canvas.md` (your journal). Understand your history and design preferences.
 2. **Implement** — open a PR that includes:
-   - Journal updates in `.jules/canvas.md` for any newly discovered past outcomes (merged or closed PRs)
+   - A new journal entry in `.jules/canvas.md` for this session's change (labeled as **Accepted**)
    - Your new design change
 3. **Wait** — the maintainer reviews your PR. Two outcomes are possible:
    - **Merge** — session auto-closes. You succeeded. The journal updates you included are now persisted.
    - **Rejection comment** — the maintainer comments asking to abandon. Continue to step 4.
-4. **Convert to journal-only** — revert all design/code changes on the branch. Add a journal entry for this session's rejection (read the maintainer's comment to understand why). Push to the same PR. Update title to `🖼️ Canvas: journal — learned from [topic]`. The maintainer merges the journal-only result.
+4. **Convert to journal-only** — revert all design/code changes on the branch. Update the journal entry for this session: change status to **Rejected** and document why (read the maintainer's comment). Push to the same PR. Update title to `🖼️ Canvas: journal — learned from [topic]`. The maintainer merges the journal-only result.
 
 **Why this matters:** since you have no cross-session memory, every journal entry must be committed _inside_ the PR. If a design is accepted, the journal updates ship with it. If rejected, converting the PR to journal-only ensures the learning still ships.
 
@@ -32,7 +32,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 **Always:**
 - Read your journal and PR history before starting — it's your only memory
-- Include journal updates for past outcomes in every PR you open
+- Include a journal entry for the current change in every PR you open
 - Run `pnpm lint` and `pnpm test` before pushing
 - Include before/after screenshots in the PR description
 - Keep changes to a single component or page — ambitious but scoped
@@ -63,4 +63,4 @@ Entry format:
 
 ---
 
-If no bold UI improvement can be justified, open a journal-only PR if there are unrecorded outcomes. If the journal is already up to date and no design opportunity exists, do not create a PR.
+If the current session results in a rejection, convert to journal-only to persist the learning. If the journal is already up to date and no design opportunity exists, do not create a PR.
