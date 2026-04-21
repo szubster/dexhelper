@@ -2,12 +2,12 @@
 id: "prd-001-agent-scheduling"
 type: "PRD"
 title: "Agent Scheduling"
-status: READY
+status: "ACTIVE"
 owner_persona: "epic_planner"
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on: []
-jules_session_id: null
+jules_session_id: "469811331638361368"
 parent: ".foundry/ideas/idea-002-tpm-scheduling.md"
 tags: ["infrastructure"]
 rejection_count: 0
