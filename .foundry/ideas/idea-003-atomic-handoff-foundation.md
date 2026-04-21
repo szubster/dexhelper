@@ -33,4 +33,4 @@ The status lifecycle is enforced by system automation, not manual edits:
 If a workflow step requires a transition from one persona to another, the first persona delivers their output as a new node and concludes their session. This ensures the DAG stays fluid and unblocked.
 
 ## Next Steps
-- [ ] **Product Manager**: Draft the V2 Lifecycle PRD specifying the formal transition requirements for each node type.
+- [x] **Product Manager**: Draft the V2 Lifecycle PRD specifying the formal transition requirements for each node type.
