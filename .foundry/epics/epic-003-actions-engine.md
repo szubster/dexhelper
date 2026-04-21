@@ -9,7 +9,6 @@ updated_at: "2026-04-20"
 depends_on:
   - .foundry/ideas/idea-001-the-foundry.md
 jules_session_id: null
-pr_number: null
 ---
 
 # GitHub Actions Orchestration Engine

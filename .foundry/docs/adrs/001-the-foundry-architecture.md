@@ -50,7 +50,8 @@ When the 'Resurrection Loop' runs, the returning agent updates its local journal
 
 **The Organization Team:**
 - `tpm.md`: Runs hourly. Archives `COMPLETED` nodes. Resolves minor graph deadlocks, file organization.
-- `agile_coach.md`: Runs daily/weekly. The meta-agent. Modifies `AGENTS.md`, scheduled agents, and persona prompts based on what the CEO rejects.
+- `architect.md` (NEW): Master of the Blueprint. Maintains ADRs and Schemas. Responsible for both Foundry and App architecture.
+- `agile_coach.md`: Runs daily/weekly. Master of the Process. Evolves persona prompts and system config based on CEO rejection patterns and learning logs.
 
 ## 5. Ongoing Evolution & Scheduled Agents (v1.5)
 - The existing fleet of standalone scheduled agents (`strategist`, `sweeper`) will remain on their current cron workflows for the immediate v1.0 release to preserve stability.

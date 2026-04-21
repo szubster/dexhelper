@@ -38,7 +38,6 @@ const VALID_STATUSES = [
   'PENDING',
   'READY',
   'ACTIVE',
-  'IN_REVIEW',
   'COMPLETED',
   'FAILED',
   'BLOCKED',
@@ -61,7 +60,6 @@ interface FoundryFrontmatter {
   updated_at: string;
   depends_on: string[];
   jules_session_id: string | null;
-  pr_number: number | null;
   parent?: string | null;
   tags?: string[];
   rejection_count?: number;
@@ -90,7 +88,6 @@ const REQUIRED_FIELDS: ReadonlyArray<keyof FoundryFrontmatter> = [
   'updated_at',
   'depends_on',
   'jules_session_id',
-  'pr_number',
 ];
 
 // ─── CLI flags ────────────────────────────────────────────────────────────────
