@@ -1,13 +1,13 @@
 ---
-id: "idea-003-atomic-handoff-foundation"
-type: "IDEA"
+id: idea-003-atomic-handoff-foundation
+type: IDEA
 title: "Foundry V2: Atomic Handoffs & Single-Persona Ownership"
-status: "READY"
-owner_persona: "product_manager"
+status: ACTIVE
+owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on: []
-jules_session_id: null
+jules_session_id: "24741413813"
 ---
 
 # Foundry V2: Atomic Handoffs & Single-Persona Ownership
