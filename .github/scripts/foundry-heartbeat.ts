@@ -81,6 +81,77 @@ export async function transitionNodeToFailed(node: any, repoRoot: string): Promi
   info(`${dryTag}Transitioned ACTIVE → FAILED: ${node.repoPath}`);
 }
 
+
+export async function transitionNodeToInReview(node: any, outputs: any[], repoRoot: string): Promise<void> {
+  const dateStr = todayISO();
+  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+
+  const fmBlockMatch = node.rawContent.match(/^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*/m);
+  if (!fmBlockMatch) {
+    warn(`${dryTag}Cannot locate frontmatter delimiters for mutation in: ${node.repoPath}`);
+    return;
+  }
+
+  const originalFmBlock = fmBlockMatch[0];
+  let mutatedFmBlock = originalFmBlock;
+
+  mutatedFmBlock = mutatedFmBlock.replace(
+    /^(status:\s*)ACTIVE([ \t]*)$/m,
+    `$1IN_REVIEW$2`,
+  );
+
+  let prUrl = null;
+  if (outputs && Array.isArray(outputs)) {
+    for (const output of outputs) {
+      if (output.pullRequest && output.pullRequest.url) {
+        prUrl = output.pullRequest.url;
+        break;
+      }
+    }
+  }
+
+  // Extract PR number from URL (e.g., https://github.com/owner/repo/pull/123)
+  let prNumberStr = 'null';
+  if (prUrl) {
+    const parts = prUrl.split('/');
+    const maybeNumber = parts[parts.length - 1];
+    if (maybeNumber && !isNaN(parseInt(maybeNumber, 10))) {
+      prNumberStr = maybeNumber;
+    }
+  }
+
+  mutatedFmBlock = mutatedFmBlock.replace(
+    /^(pr_number:\s*)(null|["']?.*?["']?)([ \t]*)$/m,
+    `$1${prNumberStr}$3`,
+  );
+
+  mutatedFmBlock = mutatedFmBlock.replace(
+    /^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t]*)$/m,
+    `$1"${dateStr}"$2`,
+  );
+
+  const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
+
+  if (!DRY_RUN) {
+    try {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+
+      const journalDir = path.join(repoRoot, '.foundry', 'journals');
+      if (!fs.existsSync(journalDir)) {
+        fs.mkdirSync(journalDir, { recursive: true });
+      }
+      const journalPath = path.join(journalDir, 'tpm.md');
+      const logEntry = `\n- **${dateStr}**: Heartbeat detected completed session for \`${node.frontmatter.id}\` (Session: ${node.frontmatter.jules_session_id}). Transitioned to IN_REVIEW with PR #${prNumberStr}.\n`;
+      fs.appendFileSync(journalPath, logEntry, 'utf-8');
+    } catch (e) {
+      warn(`Failed to write file or journal: ${node.repoPath} — ${String(e)}`);
+      return;
+    }
+  }
+
+  info(`${dryTag}Transitioned ACTIVE → IN_REVIEW: ${node.repoPath} (PR: ${prNumberStr})`);
+}
+
 export async function main() {
   const apiKey = process.env.JULES_API_KEY;
   if (!apiKey) {
@@ -132,8 +203,24 @@ export async function main() {
         info(`Session ${sessionId} not found (404). Treating as FAILED.`);
         await transitionNodeToFailed(node, repoRoot);
       } else if (res.ok && data.state && TERMINAL_STATES.includes(data.state)) {
-        info(`Session ${sessionId} is in terminal state '${data.state}'. Treating as FAILED.`);
-        await transitionNodeToFailed(node, repoRoot);
+        let hasOpenPR = false;
+
+        if (data.outputs && Array.isArray(data.outputs)) {
+          for (const output of data.outputs) {
+            if (output.pullRequest && output.pullRequest.url) {
+              hasOpenPR = true;
+              break;
+            }
+          }
+        }
+
+        if (hasOpenPR) {
+          info(`Session ${sessionId} is in terminal state '${data.state}' but created a PR. Transitioning to IN_REVIEW.`);
+          await transitionNodeToInReview(node, data.outputs, repoRoot);
+        } else {
+          info(`Session ${sessionId} is in terminal state '${data.state}' without a PR. Treating as FAILED.`);
+          await transitionNodeToFailed(node, repoRoot);
+        }
       } else {
         info(`Session ${sessionId} is in state '${data.state || 'UNKNOWN'}'. Leaving as ACTIVE.`);
       }
