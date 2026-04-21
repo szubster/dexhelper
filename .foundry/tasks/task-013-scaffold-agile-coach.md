@@ -19,5 +19,5 @@ parent: .foundry/stories/story-002-personas.md
 The agile coach runs daily/weekly. It is a meta-agent that modifies persona prompts and system config based on CEO rejection patterns.
 
 ## Acceptance Criteria
-- [ ] Create `.github/agents/agile_coach.md`
-- [ ] Ensure it instructs the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
+- [x] Create `.github/agents/agile_coach.md`
+- [x] Ensure it instructs the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
