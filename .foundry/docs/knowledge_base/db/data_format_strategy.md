@@ -1,1 +1,14 @@
-### PokeData Serialization Strategy (April 2026)\n- **Context**: Refactored pokedata to split JSONL files for source readability. Explored alternatives to JSON for PokeData storage.\n- **Key Findings**:\n    - Current JSON (Gen 1+2) is ~177 KB.\n    - Projected Gen 1-9 JSON is ~700 KB.\n    - MsgPack (`msgpackr`) offers ~35% reduction with low overhead (+3KB bundle).\n    - Protobuf offers ~50% reduction but high complexity (+6.5KB bundle + schema).\n- **Decision**: Stuck with minified JSON for now due to small size. Recommended switching to MsgPack when Gen 3 or performance limits (uncompressed JSON exceeds 5MB or noticeable parsing lag) are reached.\n- **Benefits of MsgPack**: Smaller binary footprint, faster parsing than `JSON.parse` for complex objects.\n- **Runtime Inflation & Optimization (Patterns)**:\n    - **Compact Storage**: Omit redundant default values (e.g., `tr: 1`, `gr: 4`, `mh: 160`) and symmetric level ranges (`max === min`) in the generation pipeline.\n    - **Hydration**: Use `inflateChain` and `syncData` in `PokeDB.ts` to recursively restore these defaults at runtime via declarative object spreads.\n    - **Evolution Safety**: Evolution chains should be filtered by `maxDex` during rendering to prevent pre-evolutions from later generations bleeding into legacy views.\n    - **Strict Matching**: Location verifying in E2E tests must use exact text matches to avoid partial string collisions.
+### PokeData Serialization Strategy (April 2026)
+- **Context**: Refactored pokedata to split JSONL files for source readability. Explored alternatives to JSON for PokeData storage.
+- **Key Findings**:
+    - Current JSON (Gen 1+2) is ~177 KB.
+    - Projected Gen 1-9 JSON is ~700 KB.
+    - MsgPack (`msgpackr`) offers ~35% reduction with low overhead (+3KB bundle).
+    - Protobuf offers ~50% reduction but high complexity (+6.5KB bundle + schema).
+- **Decision**: Stuck with minified JSON for now due to small size. Recommended switching to MsgPack when Gen 3 or performance limits (uncompressed JSON exceeds 5MB or noticeable parsing lag) are reached.
+- **Benefits of MsgPack**: Smaller binary footprint, faster parsing than `JSON.parse` for complex objects.
+- **Runtime Inflation & Optimization (Patterns)**:
+    - **Compact Storage**: Omit redundant default values (e.g., `tr: 1`, `gr: 4`, `mh: 160`) and symmetric level ranges (`max === min`) in the generation pipeline.
+    - **Hydration**: Use `inflateChain` and `syncData` in `PokeDB.ts` to recursively restore these defaults at runtime via declarative object spreads.
+    - **Evolution Safety**: Evolution chains should be filtered by `maxDex` during rendering to prevent pre-evolutions from later generations bleeding into legacy views.
+    - **Strict Matching**: Location verifying in E2E tests must use exact text matches to avoid partial string collisions.
