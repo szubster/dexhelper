@@ -18,5 +18,5 @@ parent: .foundry/stories/story-002-personas.md
 The QA agent validates TASK implementation against spec.
 
 ## Acceptance Criteria
-- [ ] Create `.github/agents/qa.md`
-- [ ] Ensure it instructs the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
+- [x] Create `.github/agents/qa.md`
+- [x] Ensure it instructs the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
