@@ -2,12 +2,12 @@
 id: idea-002-tpm-scheduling
 type: IDEA
 title: "Agent Scheduling"
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on: []
-jules_session_id: null
+jules_session_id: "15261175867702883140"
 parent: null
 tags: ["infrastructure"]
 ---
