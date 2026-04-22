@@ -31,3 +31,6 @@ Scheduled agents should execute using standard Jules prompt hydration logic.
 ## Acceptance Criteria
 - [ ] A generic scheduling implementation is defined and documented.
 - [ ] Tests confirm that the scheduled run exits successfully when there is no work to do.
+
+## Notes
+- Created stories: `story-004-generic-scheduling-workflow.md`, `story-005-empty-state-handling.md`, `story-006-scheduling-configuration.md`.
