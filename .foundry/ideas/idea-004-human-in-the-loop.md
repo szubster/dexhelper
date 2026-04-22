@@ -6,6 +6,7 @@ status: "COMPLETED"
 owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
+parent: ".foundry/ideas/idea-003-atomic-handoff-foundation.md"
 depends_on: [".foundry/ideas/idea-003-atomic-handoff-foundation.md"]
 jules_session_id: null
 ---

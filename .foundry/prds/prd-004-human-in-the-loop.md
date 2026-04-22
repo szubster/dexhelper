@@ -9,7 +9,7 @@ updated_at: "2026-04-21"
 depends_on:
   - .foundry/ideas/idea-004-human-in-the-loop.md
 jules_session_id: null
-parent: null
+parent: ".foundry/ideas/idea-004-human-in-the-loop.md"
 tags:
   - "human-in-the-loop"
 ---
