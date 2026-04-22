@@ -250,7 +250,7 @@ function promoteNodeToReady(node: ParsedNode): void {
   //    The 'm' flag makes ^ and $ match line boundaries within the block.
   mutatedFmBlock = mutatedFmBlock.replace(
     /^(status:\s*)["']?PENDING["']?([ \t]*)$/m,
-    `$1"READY"$2`,
+    `$1READY$2`,
   );
 
   // Sanity check — if PENDING wasn't found, something is wrong.
@@ -339,21 +339,109 @@ function main(): void {
   let hasUnresolvableDeps = false;
   const eligible: ParsedNode[] = [];
 
+  // Helper to recursively check if a node is blocked.
+  // A node is blocked if:
+  // 1. Its status is not COMPLETED (and it's not the target node we are evaluating).
+  // 2. ANY of its recursive dependencies are blocked.
+  // 3. ANY of its recursive children are blocked.
+  const evalCache = new Map<string, boolean>();
+
+  function isBlocked(nodePath: string, visited = new Set<string>()): boolean {
+    if (evalCache.has(nodePath)) return evalCache.get(nodePath)!;
+    if (visited.has(nodePath)) {
+      warn(`Circular dependency detected at ${nodePath}`);
+      return true;
+    }
+    visited.add(nodePath);
+
+    const node = nodeMap.get(nodePath);
+    if (!node) {
+      hasUnresolvableDeps = true;
+      evalCache.set(nodePath, true);
+      return true;
+    }
+
+    // Unresolved dependencies
+    for (const depPath of node.frontmatter.depends_on) {
+      const dep = nodeMap.get(depPath);
+      if (!dep) {
+        warn(`Unresolvable dependency '${depPath}' referenced by: ${nodePath}`);
+        hasUnresolvableDeps = true;
+        evalCache.set(nodePath, true);
+        return true;
+      }
+
+      if (dep.frontmatter.status !== 'COMPLETED') {
+        evalCache.set(nodePath, true);
+        return true;
+      }
+
+      if (isBlocked(depPath, visited)) {
+        evalCache.set(nodePath, true);
+        return true;
+      }
+    }
+
+    // Hierarchical blocking: ALL children must be COMPLETED
+    const children = parentToChildren.get(nodePath) || [];
+    for (const child of children) {
+      if (child.frontmatter.status !== 'COMPLETED') {
+        evalCache.set(nodePath, true);
+        return true;
+      }
+      if (isBlocked(child.repoPath, visited)) {
+        evalCache.set(nodePath, true);
+        return true;
+      }
+    }
+
+    visited.delete(nodePath);
+    evalCache.set(nodePath, false);
+    return false;
+  }
+
+  // Helper to safely check if 'child' is a deep descendant of 'ancestor'
+  function isDescendant(childPath: string, ancestorPath: string): boolean {
+    let curr = nodeMap.get(childPath)?.frontmatter.parent;
+    while (curr) {
+      if (curr === ancestorPath) return true;
+      curr = nodeMap.get(curr)?.frontmatter.parent;
+    }
+    return false;
+  }
+
   for (const node of nodes) {
     if (node.frontmatter.status !== 'PENDING') continue;
 
-    const deps = node.frontmatter.depends_on;
+    // A PENDING node is blocked if:
+    // 1. It has an unresolvable dependency.
+    // 2. Its parent is blocked (recursive).
+    // 3. Any of its explicit dependencies is blocked (recursive).
 
-    // Case A: Empty depends_on → in-degree zero → immediately eligible.
-    if (deps.length === 0) {
-      eligible.push(node);
-      continue;
+    let blocked = false;
+
+    // Check parent inheritance
+    let currParent = node.frontmatter.parent;
+    while (currParent) {
+      const parentNode = nodeMap.get(currParent);
+      if (!parentNode) break;
+
+      // Parent blocked by its own dependencies?
+      for (const depPath of parentNode.frontmatter.depends_on) {
+        const dep = nodeMap.get(depPath);
+        if (!dep || dep.frontmatter.status !== 'COMPLETED' || isBlocked(depPath)) {
+            blocked = true;
+            break;
+        }
+      }
+      if (blocked) break;
+      currParent = parentNode.frontmatter.parent;
     }
 
-    // Case B: All deps must exist in the graph AND be COMPLETED.
-    // AND: if the node is NOT a child of the dependency, then all children
-    // of that dependency must also be COMPLETED (Hierarchical Completion).
-    let blocked = false;
+    if (blocked) continue;
+
+    const deps = node.frontmatter.depends_on;
+
     for (const depPath of deps) {
       const dep = nodeMap.get(depPath);
       if (!dep) {
@@ -368,16 +456,31 @@ function main(): void {
         break;
       }
 
-      // Hierarchical Completion: Check if dependency's children are also completed.
-      // Skip this check if the current node IS a child of the dependency (it's unblocked by planning).
-      if (node.frontmatter.parent !== depPath) {
-        const children = parentToChildren.get(depPath) || [];
-        const incompleteChild = children.find((c) => c.frontmatter.status !== 'COMPLETED');
-        if (incompleteChild) {
-          // Dependency is "planned" but not "implemented".
-          blocked = true;
-          break;
-        }
+      // Is the dependency itself structurally blocked?
+      // For the dependency's children, skip checking children if the CURRENT node is a descendant of that dependency.
+      // E.g. Epic depends on Idea. Idea has no children. Not blocked.
+      // Story depends on Epic. Epic has Story as child. Story is descendant of Epic -> Skip child check for Epic.
+
+      // We do a custom check for the dependency so we can exclude checking the current node's path in the children.
+      let depStructurallyBlocked = false;
+      for(const innerDepPath of dep.frontmatter.depends_on) {
+         if(isBlocked(innerDepPath)) {
+            depStructurallyBlocked = true;
+            break;
+         }
+      }
+
+      if(depStructurallyBlocked) {
+         blocked = true;
+         break;
+      }
+
+      if (!isDescendant(node.repoPath, depPath)) {
+          // It's an external dependency. We must ensure the dependency and ALL its children are completed.
+          if(isBlocked(depPath)) {
+              blocked = true;
+              break;
+          }
       }
     }
 

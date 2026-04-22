@@ -67,7 +67,7 @@ created_at: ""          # Required. ISO-8601 date (YYYY-MM-DD). Set once, never 
 updated_at: ""          # Required. ISO-8601 date. Updated by any persona that edits the node.
 depends_on: []          # Required. Array of repo-relative file paths. Empty [] = unblocked.
 jules_session_id: null  # Required. Active Jules session ID string, or null when idle.
-parent: null            # Optional. Repo-relative path to the logical parent node. Used for context hydration only — does NOT block the DAG.
+parent: null            # Required if node is derived from another node (e.g. PRD from IDEA, EPIC from PRD). Repo-relative path to the logical parent node. Blocks the parent from completion if this node is incomplete.
 tags: []                # Optional. Free-form string labels for filtering and context injection.
 rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes.
 notes: ""               # Optional. Free-form Markdown remarks.

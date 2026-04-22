@@ -9,7 +9,7 @@ updated_at: "2026-04-21"
 depends_on:
   - .foundry/ideas/idea-005-late-binding-orchestrator.md
 jules_session_id: null
-parent: null
+parent: ".foundry/ideas/idea-005-late-binding-orchestrator.md"
 tags:
   - "foundry-v2"
   - "architecture"

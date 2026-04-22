@@ -9,7 +9,7 @@ updated_at: "2026-04-21"
 depends_on:
   - .foundry/ideas/idea-003-atomic-handoff-foundation.md
 jules_session_id: null
-parent: null
+parent: ".foundry/ideas/idea-003-atomic-handoff-foundation.md"
 tags:
   - "v2-architecture"
   - "lifecycle"
