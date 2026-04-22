@@ -317,6 +317,7 @@ export function generateSuggestions(
     const min_l = detail.ml;
     const min_h = detail.mh;
     const item = detail.item;
+    const held = detail.held;
     const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
 
     if (tr === EVO_TRIGGER.LEVEL_UP) {
@@ -356,14 +357,28 @@ export function generateSuggestions(
         priority: hasStone ? 95 : 40,
       });
     } else if (tr === EVO_TRIGGER.TRADE) {
-      suggestions.push({
-        id: `evo-trade-${targetId}`,
-        category: 'Evolve',
-        title: `Trade Evolution: #${targetId}`,
-        description: `Trade your pre-evolution to evolve it!`,
-        pokemonId: targetId,
-        priority: 85,
-      });
+      if (held) {
+        const hasHeldItem = saveData.inventory.some((i) => i.id === held && i.quantity > 0);
+        suggestions.push({
+          id: `evo-trade-held-${targetId}`,
+          category: 'Evolve',
+          title: hasHeldItem ? `Ready to Trade Evolve: #${targetId}!` : `Item Needed for Trade: #${targetId}`,
+          description: hasHeldItem
+            ? `Have your pre-evolution hold the item and trade it to evolve!`
+            : `Find the right item, have your pre-evolution hold it, and trade to evolve.`,
+          pokemonId: targetId,
+          priority: hasHeldItem ? 90 : 45,
+        });
+      } else {
+        suggestions.push({
+          id: `evo-trade-${targetId}`,
+          category: 'Evolve',
+          title: `Trade Evolution: #${targetId}`,
+          description: `Trade your pre-evolution to evolve it!`,
+          pokemonId: targetId,
+          priority: 85,
+        });
+      }
     }
   });
 

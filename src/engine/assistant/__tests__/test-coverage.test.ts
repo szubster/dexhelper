@@ -10,7 +10,7 @@ test('coverage for suggestionEngine new lines', () => {
     gameVersion: 'crystal',
     // Mock owned up to 251 except the ones we want to suggest (targets must be missing)
     owned: new Set(
-      [...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237, 136, 68].includes(i)),
+      [...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237, 136, 68, 208].includes(i)),
     ),
     seen: new Set(),
     party: [],
@@ -21,6 +21,7 @@ test('coverage for suggestionEngine new lines', () => {
       { speciesId: 133, level: 20, otName: 'PLAYER' } as PokemonInstance,
       { speciesId: 236, level: 20, otName: 'PLAYER' } as PokemonInstance,
       { speciesId: 67, level: 30, otName: 'PLAYER' } as PokemonInstance,
+      { speciesId: 95, level: 30, otName: 'PLAYER' } as PokemonInstance,
     ],
     pcDetails: [],
     trainerName: 'PLAYER',
@@ -30,6 +31,7 @@ test('coverage for suggestionEngine new lines', () => {
   mockSaveData.owned.add(133);
   mockSaveData.owned.add(236);
   mockSaveData.owned.add(67);
+  mockSaveData.owned.add(95);
 
   const mockApiData: AssistantApiData = {
     localEncounters: [],
@@ -85,6 +87,13 @@ test('coverage for suggestionEngine new lines', () => {
         det: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
         eto: [],
       }, // Machamp (Trade)
+      208: {
+        id: 208,
+        n: 'Steelix',
+        efrm: [95],
+        det: [{ tr: 2, held: 0x8f }], // Trade with Metal Coat
+        eto: [],
+      }, // Steelix
     },
     areaNames: {},
     allLocations: [],
@@ -118,6 +127,23 @@ test('coverage for suggestionEngine new lines', () => {
   const machamp = suggestions.find((s) => s.pokemonId === 68);
   expect(machamp).toBeDefined();
   expect(machamp?.title).toContain('Trade Evolution');
+
+  const steelix = suggestions.find((s) => s.pokemonId === 208);
+  expect(steelix).toBeDefined();
+  expect(steelix?.title).toContain('Item Needed for Trade');
+
+  // Verify ready trade evolve
+  mockSaveData.inventory.push({ id: 0x8f, quantity: 1 });
+  const { suggestions: readySuggestions } = generateSuggestions(
+    mockSaveData,
+    false,
+    'crystal',
+    mockApiData,
+    gen1Strategy,
+  );
+  const readySteelix = readySuggestions.find((s) => s.pokemonId === 208);
+  expect(readySteelix).toBeDefined();
+  expect(readySteelix?.title).toContain('Ready to Trade Evolve');
 });
 
 test('coverage for suggestionEngine edge cases', () => {
