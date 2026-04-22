@@ -15,8 +15,8 @@
 **Outcome:** Accepted
 **Why:** Proposal submitted to maintainer and maintainer merged the changes.
 **Pattern:** Proposing an improvement based on specific missing test strategies found in the ecosystem.
-## 2025-04-22 - [Accepted] - Prompt improvement - Ensure Strategist properly discovers and logs unrecorded past outcomes
+## 2025-04-22 - [Rejected] - Prompt improvement - Ensure Strategist properly discovers and logs unrecorded past outcomes
 **Type:** Prompt improvement
-**Outcome:** Accepted
-**Why:** Proposal aligns instructions with system guidelines specifying to "discover past outcomes via `git log` instead of preemptively logging current proposals".
-**Pattern:** Following the system guideline: "When searching for unrecorded PR outcomes via `git log`, note that a PR's commit hash might not exist in `main` if it was squashed or fast-forwarded. Verify integration by checking if the code changes actually exist in the `main` branch's files".
+**Outcome:** Rejected → journaled
+**Why:** The maintainer rejected the proposal to use `git log` to retroactively discover outcomes, stating explicitly: "They should not look at past commits to figure out their memory, as journal always has them. Every PR either has code changes + journal (optionally, if useful), or journal only with rejection statement and reason for future learning."
+**Pattern:** Do not propose tracking memory through past commits instead of the explicit journal mechanism defined in the "Wait and Convert" flow.
