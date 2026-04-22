@@ -68,7 +68,7 @@ jobs:
       - name: Report DAG Warnings
         if: always() && steps.set-matrix.outputs.dag_has_warnings == 'true'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_ISSUES_PAT }}
         run: |
           ISSUE_TITLE="Foundry Engine: DAG Resolution Warnings - ${{ github.run_id }}"
           RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
