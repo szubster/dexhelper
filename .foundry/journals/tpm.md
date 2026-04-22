@@ -90,3 +90,7 @@
 - **2026-04-22**: Resurrection Loop triggered for `story-005-empty-state-handling`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-22**: Resurrection Loop triggered for `story-006-scheduling-configuration`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-22**: Heartbeat detected zombie session for `story-005-empty-state-handling`. Transitioned to FAILED.
+
+- **2026-04-22**: Heartbeat detected zombie session for `story-006-scheduling-configuration`. Transitioned to FAILED.
