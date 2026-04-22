@@ -61,3 +61,8 @@ The `foundry-orchestrator.ts` and `foundry-heartbeat.ts` must be updated:
 
 ## Next Steps
 - **Epic Planner**: Break down this PRD into Epics mapping out the schema additions, orchestrator script modifications, and required testing.
+
+## Generated Epics
+- [.foundry/epics/epic-010-hitl-schema-extensions.md](../epics/epic-010-hitl-schema-extensions.md)
+- [.foundry/epics/epic-011-hitl-orchestrator-bypass.md](../epics/epic-011-hitl-orchestrator-bypass.md)
+- [.foundry/epics/epic-012-hitl-heartbeat-monitoring.md](../epics/epic-012-hitl-heartbeat-monitoring.md)
