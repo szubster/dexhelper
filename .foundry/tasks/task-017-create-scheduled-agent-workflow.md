@@ -34,9 +34,9 @@ Implement `.github/workflows/foundry-scheduled-agent.yml`, a reusable workflow t
    - Dispatch to `https://jules.googleapis.com/v1alpha/sessions`.
 
 ## Acceptance Criteria
-- [ ] Workflow correctly handles input `persona`.
-- [ ] Workflow successfully hydrates prompt from `.github/agents/<persona>.md`.
-- [ ] Workflow triggers Jules API correctly.
-- [ ] Code strictly follows existing patterns in `.github/workflows/foundry-engine.yml`.
+- [x] Workflow correctly handles input `persona`.
+- [x] Workflow successfully hydrates prompt from `.github/agents/<persona>.md`.
+- [x] Workflow triggers Jules API correctly.
+- [x] Code strictly follows existing patterns in `.github/workflows/foundry-engine.yml`.
 
 *Verification*: Automated verification might not be possible for this CI workflow. A human will verify manually and create a new task or provide a fix outside of the Foundry mechanism if needed.
