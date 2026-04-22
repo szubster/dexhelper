@@ -12,17 +12,18 @@ import indexeddb, {
 } from 'fake-indexeddb';
 import { vi } from 'vitest';
 
-globalThis.indexedDB = indexeddb as unknown as IDBFactory;
-globalThis.IDBRequest = IDBRequest as unknown as typeof globalThis.IDBRequest;
-globalThis.IDBCursor = IDBCursor as unknown as typeof globalThis.IDBCursor;
-globalThis.IDBCursorWithValue = IDBCursorWithValue as unknown as typeof globalThis.IDBCursorWithValue;
-globalThis.IDBDatabase = IDBDatabase as unknown as typeof globalThis.IDBDatabase;
-globalThis.IDBIndex = IDBIndex as unknown as typeof globalThis.IDBIndex;
-globalThis.IDBKeyRange = IDBKeyRange as unknown as typeof globalThis.IDBKeyRange;
-globalThis.IDBObjectStore = IDBObjectStore as unknown as typeof globalThis.IDBObjectStore;
-globalThis.IDBOpenDBRequest = IDBOpenDBRequest as unknown as typeof globalThis.IDBOpenDBRequest;
-globalThis.IDBTransaction = IDBTransaction as unknown as typeof globalThis.IDBTransaction;
-globalThis.IDBVersionChangeEvent = IDBVersionChangeEvent as unknown as typeof globalThis.IDBVersionChangeEvent;
+globalThis.indexedDB = indexeddb;
+globalThis.IDBRequest = IDBRequest;
+globalThis.IDBCursor = IDBCursor;
+globalThis.IDBCursorWithValue = IDBCursorWithValue;
+globalThis.IDBDatabase = IDBDatabase;
+globalThis.IDBIndex = IDBIndex;
+globalThis.IDBKeyRange = IDBKeyRange;
+globalThis.IDBObjectStore = IDBObjectStore;
+globalThis.IDBOpenDBRequest = IDBOpenDBRequest;
+globalThis.IDBRequest = IDBRequest;
+globalThis.IDBTransaction = IDBTransaction;
+globalThis.IDBVersionChangeEvent = IDBVersionChangeEvent;
 
 // Mock other browser APIs if needed
 Object.defineProperty(globalThis, 'matchMedia', {
