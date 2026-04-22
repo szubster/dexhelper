@@ -2,7 +2,7 @@
 id: story-006-scheduling-configuration
 type: STORY
 title: "Scheduling Configuration"
-status: "FAILED"
+status: "COMPLETED"
 owner_persona: tech_lead
 created_at: "2026-04-22"
 updated_at: "2026-04-22"
