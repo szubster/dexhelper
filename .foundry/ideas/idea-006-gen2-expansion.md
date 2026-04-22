@@ -45,5 +45,8 @@ Inject Gen 2 logic into the Assistant's core:
 - **Interaction Logic**: Handle Headbutt/Rock Smash encounters and stat-based evolutions (Tyrogue).
 
 ## Next Steps
-- [ ] **Product Manager**: Draft the Gen 2 Expansion PRD, formalizing the scope for Phase 1 and 2.
+- [x] **Product Manager**: Draft the Gen 2 Expansion PRD, formalizing the scope for Phase 1 and 2.
 - [ ] **Architect**: Review the Map Graph design to ensure it scales for dual-region routing.
+
+### Generated PRDs
+- [.foundry/prds/prd-005-gen2-expansion.md](.foundry/prds/prd-005-gen2-expansion.md)
