@@ -53,7 +53,7 @@ jobs:
             --arg schema_url "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" \
             --arg title "Scheduled Agent: $persona" \
             '{
-              "prompt": "\($agent_context)\n\n### SCHEMA\n\($schema_url)",
+              "prompt": "\($agent_context)\n\n### SCHEMA\n\($schema_url)\n\nIf you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session. An empty PR diff is acceptable and will be closed automatically.",
               "sourceContext": {
                 "source": "sources/github/\($repo)",
                 "githubRepoContext": {
