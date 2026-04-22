@@ -21,6 +21,16 @@ The Foundry Engine automates the lifecycle of Foundry nodes (Ideas, Epics, Stori
     *   **Execute Job**: Runs in parallel for each `READY` node.
     *   **Jules Invocation**: Generates a persona-aware prompt and calls the Jules API via `curl` with a reference to the main repository and specific node content.
 
+
+3. **Heartbeat Script (`.github/scripts/foundry-heartbeat.ts`)**:
+    *   Monitors `ACTIVE` nodes to verify they aren't "zombies" (active nodes with dead or missing PRs).
+    *   **Robust PR Discovery**: Uses a multi-layered lookup strategy:
+        1.  **Jules Session API**: Fetches the session object and extracts the PR URL from `outputs[].pullRequest.url`.
+        2.  **GitHub Search API**: Fallback search for the session ID in PRs.
+        3.  **GitHub List API**: Fallback scan of recent PR bodies/branches for the session ID.
+    *   **Zombie Detection Logic**: Only transitions a node to `FAILED` if the Jules session is in a terminal state (`FAILED`, `COMPLETED`) **and** no PR was discovered via any of the above methods. This prevents false-positives caused by GitHub Search indexing lag.
+    *   **Resurrection**: Automatically moves `FAILED` nodes back to `READY` to allow the engine to retry them in the next cycle.
+
 ## Best Practices
 
 *   **Idempotency**: The orchestrator is designed to be re-run safely. Any node already in `READY` status is included in the output matrix.
