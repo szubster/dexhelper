@@ -20,3 +20,8 @@
 
 **What:** Added JSDoc to `getDistanceToMap` and `getOutdoorMapId` in `src/engine/mapGraph/gen1Graph.ts`.
 **Why:** The distance calculation relies on a precomputed lookup table (the `dist` property) generated at build-time via the Floyd-Warshall algorithm, rather than performing real-time pathfinding (like BFS or Dijkstra). This architectural decision enables O(1) distance lookups, which is critical for performance since the suggestion engine evaluates hundreds of potential encounters simultaneously. Furthermore, because distance matrices only connect major outdoor hubs, indoor maps must dynamically resolve to their parent hub via the `prnt` property before calculations can occur. This documentation preserves the "why" behind the `dist` and `prnt` properties to prevent future maintainers from unnecessarily refactoring to real-time pathfinding.
+
+## 2025-01-24 - Data Pipeline Scripts Documentation
+
+**What:** Created `scripts/README.md` to document the data pipeline scripts (`generate-pokedata.ts`, `generateMapLocations.ts`, `sync-pokedata.sh`).
+**Why:** The `scripts/` directory handles complex data ingestion from third-party sources (PokeAPI and Pret decompiled ROMs). The outputs heavily influence the core internal database schema (`src/db/schema.ts`). Documenting the specific upstream dependencies, the logic of flattening/compacting data, and the CI-triggered regeneration process is crucial to ensure future maintainers know how the data layer is constructed and updated.
