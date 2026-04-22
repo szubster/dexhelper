@@ -90,7 +90,10 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       <div className="mx-auto flex min-h-screen max-w-[1600px] flex-col">
         <header className="sticky top-2 z-40 flex flex-col items-center justify-between gap-6 border-white/5 border-b bg-zinc-950/80 px-4 py-6 backdrop-blur-xl sm:px-8 sm:py-10 lg:flex-row">
           <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
-            <Link to="/">
+            <Link
+              to="/"
+              className="rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            >
               <div className="group slide-in-from-left-4 fade-in flex animate-in flex-col pt-2 duration-500">
                 <div className="flex items-end gap-2">
                   <span className="font-black text-4xl text-white tracking-tighter transition-colors group-hover:text-[var(--theme-primary)]">
@@ -118,7 +121,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                       'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
                   }}
                   inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all"
+                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                 >
                   <LayoutGrid size={16} />
                   Pokedex
@@ -130,7 +133,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                       'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
                   }}
                   inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all"
+                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                 >
                   <LayoutGrid size={16} />
                   Storage
@@ -142,7 +145,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                       'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
                   }}
                   inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all"
+                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                 >
                   <Sparkles size={16} />
                   Assistant
@@ -202,7 +205,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 data-testid="version-selector"
                 onClick={() => setIsVersionModalOpen(true)}
                 className={cn(
-                  'group zoom-in-95 fade-in relative animate-in overflow-hidden rounded-2xl border px-5 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all duration-500',
+                  'group zoom-in-95 fade-in relative animate-in overflow-hidden rounded-2xl border px-5 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
                   effectiveVersion === 'unknown'
                     ? 'border-amber-500/20 bg-amber-500/10 text-amber-500'
                     : 'border-[var(--theme-primary)]/20 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-white',
@@ -222,7 +225,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   type="button"
                   onClick={() => setIsSettingsOpen(true)}
                   aria-label="System Settings"
-                  className="retro-button flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-3 text-zinc-400 transition-all hover:bg-white/10 hover:text-white"
+                  className="retro-button flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-3 text-zinc-400 transition-all hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                   title="System Settings"
                 >
                   <Settings2 size={20} />
