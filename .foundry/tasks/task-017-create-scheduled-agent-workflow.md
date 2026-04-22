@@ -39,4 +39,4 @@ Implement `.github/workflows/foundry-scheduled-agent.yml`, a reusable workflow t
 - [ ] Workflow triggers Jules API correctly.
 - [ ] Code strictly follows existing patterns in `.github/workflows/foundry-engine.yml`.
 
-*Self-verification*: Since this task consists of writing a self-contained GitHub Actions workflow similar to existing ones and does not change application logic, the `coder` is authorized to self-verify by triggering the workflow manually via `workflow_dispatch` and confirming it runs.
+*Verification*: Automated verification might not be possible for this CI workflow. A human will verify manually and create a new task or provide a fix outside of the Foundry mechanism if needed.
