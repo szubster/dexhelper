@@ -82,3 +82,7 @@
 - **2026-04-22**: PR #392 merged. `story-004-generic-scheduling-workflow` is now COMPLETED.
 
 - **2026-04-22**: PR #395 merged. `task-017-create-scheduled-agent-workflow` is now COMPLETED.
+
+- **2026-04-22**: Heartbeat detected zombie session for `story-005-empty-state-handling`. Transitioned to FAILED.
+
+- **2026-04-22**: Heartbeat detected zombie session for `story-006-scheduling-configuration`. Transitioned to FAILED.
