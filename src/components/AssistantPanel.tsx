@@ -120,14 +120,11 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
       ) : (
         <div className="space-y-8">
           {Object.entries(
-            suggestions.reduce(
-              (acc, s) => {
-                if (!acc[s.category]) acc[s.category] = [];
-                acc[s.category]?.push(s);
-                return acc;
-              },
-              {} as Partial<Record<SuggestionCategory, Suggestion[]>>,
-            ),
+            suggestions.reduce<Partial<Record<SuggestionCategory, Suggestion[]>>>((acc, s) => {
+              if (!acc[s.category]) acc[s.category] = [];
+              acc[s.category]?.push(s);
+              return acc;
+            }, {}),
             // Custom sort order for categories
           )
             .sort(([a], [b]) => {
