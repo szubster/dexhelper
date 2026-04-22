@@ -28,6 +28,9 @@ This epic aims to solve the "Shadow Dispatch" problem where the orchestrator dis
 ## Dependencies
 None. This can be developed in parallel to the ID schema changes.
 
+## Stories
+- [ ] .foundry/stories/story-004-shadow-dispatch-verification.md
+
 ## High-Level Acceptance Criteria
 - [ ] The orchestrator logic successfully queries open PRs for `ACTIVE` nodes.
 - [ ] The orchestrator cross-references `ACTIVE` nodes with live Jules sessions to confirm activity.
