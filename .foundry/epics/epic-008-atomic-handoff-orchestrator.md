@@ -1,6 +1,7 @@
 ---
 id: "epic-008-atomic-handoff-orchestrator"
 type: "EPIC"
+title: "Epic: Orchestrator Script Refactor for Atomic Handoffs"
 status: "PENDING"
 owner_persona: "story_owner"
 created_at: "2026-04-22"
