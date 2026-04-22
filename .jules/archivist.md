@@ -19,7 +19,8 @@
 **Learning:** `.serena/memories` is mapped (symlinked or otherwise configured) to `.foundry/docs/knowledge_base/`. Automated code reviewers might flag edits to `.serena/memories` as out of scope if they are unaware of this underlying mapping.
 **Action:** Update the archivist schedule/prompt to explicitly note this mapping, so reviewers do not block valid cleanup tasks.
 
+
 ## 2026-04-22 - Archivist Run Learnings
 
-**Learning:** When cleaning up knowledge files, it is critical to address contradictions across files accurately.
-**Action:** Found contradictory references to `pr_number` usage in `human-in-the-loop.md` vs `conflict-resolution-v1.md` where the latter was correct. Also found that `jules_agents_dispatch.md` had an outdated list of agents.
+**Learning:** Keeping the single most impactful cleanup as the core focus is critical to respect boundaries.
+**Action:** Found that `jules_agents_dispatch.md` had an outdated list of agents. Updated it to properly reflect the 13 agents deployed, instead of 11.
