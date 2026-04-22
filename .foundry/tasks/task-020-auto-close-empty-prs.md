@@ -2,7 +2,7 @@
 id: task-020-auto-close-empty-prs
 type: TASK
 title: "Auto-close Empty PRs"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-22"
 updated_at: "2026-04-22"

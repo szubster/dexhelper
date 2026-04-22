@@ -2,7 +2,7 @@
 id: task-018-implement-scheduled-agent-registry
 type: TASK
 title: "Implement Scheduled Agent Registry"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-22"
 updated_at: "2026-04-22"
