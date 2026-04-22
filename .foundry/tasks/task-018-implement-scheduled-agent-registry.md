@@ -31,8 +31,8 @@ Create individual GitHub Actions workflow files for scheduled agents that invoke
    - Call the `foundry-scheduled-agent.yml` workflow and pass `persona: "agile_coach"`.
 
 ## Acceptance Criteria
-- [ ] `.github/workflows/schedule-tpm.yml` exists and has an hourly cron schedule.
-- [ ] `.github/workflows/schedule-agile-coach.yml` exists and has a daily cron schedule.
-- [ ] Both workflows correctly invoke `foundry-scheduled-agent.yml` with the correct inputs.
+- [x] `.github/workflows/schedule-tpm.yml` exists and has an hourly cron schedule.
+- [x] `.github/workflows/schedule-agile-coach.yml` exists and has a daily cron schedule.
+- [x] Both workflows correctly invoke `foundry-scheduled-agent.yml` with the correct inputs.
 
 *Verification*: This is a low-risk, declarative infrastructure task. The `coder` must verify the YAML syntax is correct and document completion in their journal. No separate QA task is required (Intelligent Verification Protocol: Self-verify).

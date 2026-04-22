@@ -1,0 +1,12 @@
+name: "Schedule Agile Coach"
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-agile-coach:
+    uses: ./.github/workflows/foundry-scheduled-agent.yml
+    with:
+      persona: agile_coach
+    secrets: inherit

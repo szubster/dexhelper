@@ -1,0 +1,12 @@
+name: "Schedule TPM"
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  run-tpm:
+    uses: ./.github/workflows/foundry-scheduled-agent.yml
+    with:
+      persona: tpm
+    secrets: inherit
