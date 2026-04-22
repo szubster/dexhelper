@@ -17,25 +17,40 @@ import type { UnifiedLocation } from '../../db/schema';
  * This ensures O(1) distance lookups during runtime, which is critical since the suggestion
  * engine evaluates hundreds of potential encounters simultaneously.
  */
+// ⚡ Bolt: Cache locations map to prevent O(N) Array.find calls on every lookup
+const locationCache = new Map<number, UnifiedLocation>();
+let lastLocationsRef: UnifiedLocation[] | null = null;
+
+function getLocation(allLocations: UnifiedLocation[], id: number): UnifiedLocation | undefined {
+  if (lastLocationsRef !== allLocations) {
+    locationCache.clear();
+    for (const loc of allLocations) {
+      locationCache.set(loc.id, loc);
+    }
+    lastLocationsRef = allLocations;
+  }
+  return locationCache.get(id);
+}
+
 export function getDistanceToMap(
   allLocations: UnifiedLocation[],
   startMapId: number,
   targetAid: number,
 ): { distance: number; name: string } | null {
   // 1. Resolve target location (where the Pokémon is found)
-  const targetLoc = allLocations.find((l) => l.id === targetAid);
+  const targetLoc = getLocation(allLocations, targetAid);
   if (!targetLoc) return null;
 
   const targetDisplayName = targetLoc.n;
 
   // 2. Resolve start location (where the player is)
   const outdoorStartMapId = getOutdoorMapId(allLocations, startMapId);
-  let startLoc = allLocations.find((l) => l.id === outdoorStartMapId);
+  let startLoc = getLocation(allLocations, outdoorStartMapId);
 
   // Fallback if unknown
   if (!startLoc) {
     // Saffron City (Map ID 10 in Kanto)
-    startLoc = allLocations.find((l) => l.id === 10);
+    startLoc = getLocation(allLocations, 10);
   }
 
   if (!startLoc) return null;
@@ -68,7 +83,7 @@ export function getDistanceToMap(
  * "step outside" by resolving the current location to its parent map.
  */
 export function getOutdoorMapId(allLocations: UnifiedLocation[], mapId: number): number {
-  const loc = allLocations.find((l) => l.id === mapId);
+  const loc = getLocation(allLocations, mapId);
   if (loc?.prnt !== undefined) {
     return loc.prnt;
   }
