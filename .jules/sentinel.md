@@ -30,3 +30,6 @@ When running vitest with `--reporter=json > cov.json`, the output often includes
 ## DataLoader mock patterns
 - When using TanStack's `DataLoader` that groups and maps batched database lookups (like `DexDataLoader.ts` calling IndexedDB), simulating an "item not found" requires mocking the underlying batch function (e.g. `vi.mocked(pokeDB.getPokemons).mockImplementation(...)`) to return an `Error` object for that specific ID rather than just throwing.
 - Conversely, if you want the `DataLoader.load(id)` function itself to throw and simulate an error occurring _during_ the batch process or network failure, you can use `vi.spyOn(dexDataLoader.encounters, 'load').mockResolvedValueOnce(new Error('Manual error') as any);` (or `.mockRejectedValueOnce()`) to bypass the actual batch function logic while keeping TypeScript happy.
+
+### Vitest Coverage Issues
+If you encounter `Error: Failed to load custom Reporter from text` when running `npx vitest run --coverage`, it's likely a mismatch or issue with the coverage reporter setup. Use `--reporter=default` as a workaround (e.g. `npx vitest run --coverage --reporter=default`).

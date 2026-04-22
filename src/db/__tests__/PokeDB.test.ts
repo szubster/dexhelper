@@ -233,4 +233,213 @@ describe('PokeDB', () => {
       2: 'Route 1',
     });
   });
+
+  describe('Queries', () => {
+    it('returns correct status when synced', async () => {
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => ({ hash: 'new-hash', poke: [], enc: [], loc: [] }),
+      } as Response);
+      const syncPromise = pokeDB.sync();
+
+      const statusSyncing = await pokeDB.getStatus();
+      expect(statusSyncing.isSyncing).toBe(true);
+
+      await syncPromise;
+      pokeDB._resetSync();
+
+      const status = await pokeDB.getStatus();
+      expect(status.isComplete).toBe(true);
+      expect(status.isSyncing).toBe(false);
+    });
+
+    it('returns correct status when hash is initial', async () => {
+      const db = await getDB();
+      const tx = db.transaction(DB_CONFIG.STORES.METADATA, 'readwrite');
+      await tx.objectStore(DB_CONFIG.STORES.METADATA).put({ key: 'hash', value: 'initial' });
+      await tx.done;
+
+      const status = await pokeDB.getStatus();
+      expect(status.isComplete).toBe(false);
+      expect(status.isSyncing).toBe(false);
+    });
+
+    it('handles ready() correctly when hash is initial or missing', async () => {
+      const db = await getDB();
+      const tx = db.transaction(DB_CONFIG.STORES.METADATA, 'readwrite');
+      await tx.objectStore(DB_CONFIG.STORES.METADATA).put({ key: 'hash', value: 'initial' });
+      await tx.done;
+
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => ({ hash: 'synced-hash', poke: [], enc: [], loc: [] }),
+      } as Response);
+
+      await pokeDB.ready();
+      expect(fetch).toHaveBeenCalled();
+    });
+
+    it('getAllPokemon returns all pokemon', async () => {
+      const mockData = {
+        hash: 'new-hash',
+        poke: [
+          { id: 1, n: 'Bulbasaur', cr: 45, gr: 1, baby: false, eto: [], efrm: [], det: [] },
+          { id: 2, n: 'Ivysaur', cr: 45, gr: 1, baby: false, eto: [], efrm: [], det: [] },
+        ],
+        enc: [],
+        loc: [],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const all = await pokeDB.getAllPokemon();
+      expect(all).toHaveLength(2);
+      expect(all[0]?.n).toBe('Bulbasaur');
+    });
+
+    it('getEncounters returns undefined for invalid id', async () => {
+      expect(await pokeDB.getEncounters(NaN)).toBeUndefined();
+    });
+
+    it('getEncounters returns encounter data', async () => {
+      const mockData = {
+        hash: 'new-hash',
+        poke: [],
+        enc: [{ pid: 1, enc: [] }],
+        loc: [],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const enc = await pokeDB.getEncounters(1);
+      expect(enc?.pid).toBe(1);
+    });
+
+    it('getAllEncounters returns all encounters', async () => {
+      const mockData = {
+        hash: 'new-hash',
+        poke: [],
+        enc: [
+          { pid: 1, enc: [] },
+          { pid: 2, enc: [] },
+        ],
+        loc: [],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const all = await pokeDB.getAllEncounters();
+      expect(all).toHaveLength(2);
+    });
+
+    it('getLocation returns undefined for invalid id', async () => {
+      expect(await pokeDB.getLocation(NaN)).toBeUndefined();
+    });
+
+    it('getLocation returns location', async () => {
+      const mockData = {
+        hash: 'new-hash',
+        poke: [],
+        enc: [],
+        loc: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const loc = await pokeDB.getLocation(1);
+      expect(loc?.n).toBe('Pallet Town');
+    });
+
+    it('getLocations returns all locations', async () => {
+      const mockData = {
+        hash: 'new-hash',
+        poke: [],
+        enc: [],
+        loc: [
+          { id: 1, n: 'Pallet Town', pids: [1], dist: {} },
+          { id: 2, n: 'Route 1', pids: [1], dist: {} },
+        ],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const locs = await pokeDB.getLocations();
+      expect(locs).toHaveLength(2);
+    });
+
+    it('getAreas returns empty array for invalid id', async () => {
+      expect(await pokeDB.getAreas(NaN)).toEqual([]);
+    });
+
+    it('getAreas returns area if found', async () => {
+      const mockData = {
+        hash: 'new-hash',
+        poke: [],
+        enc: [],
+        loc: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const areas = await pokeDB.getAreas(1);
+      expect(areas).toHaveLength(1);
+      expect(areas[0]?.n).toBe('Pallet Town');
+    });
+
+    it('getAllAreas returns all locations', async () => {
+      const mockData = {
+        hash: 'new-hash',
+        poke: [],
+        enc: [],
+        loc: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const areas = await pokeDB.getAllAreas();
+      expect(areas).toHaveLength(1);
+    });
+
+    it('getInverseIndex returns undefined for invalid id', async () => {
+      expect(await pokeDB.getInverseIndex(NaN)).toBeUndefined();
+    });
+
+    it('getInverseIndex returns pids array', async () => {
+      const mockData = {
+        hash: 'new-hash',
+        poke: [],
+        enc: [],
+        loc: [{ id: 1, n: 'Pallet Town', pids: [1, 2], dist: {} }],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const pids = await pokeDB.getInverseIndex(1);
+      expect(pids).toEqual([1, 2]);
+    });
+  });
 });
