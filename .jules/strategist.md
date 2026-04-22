@@ -15,3 +15,8 @@
 **Outcome:** Accepted
 **Why:** Proposal submitted to maintainer and maintainer merged the changes.
 **Pattern:** Proposing an improvement based on specific missing test strategies found in the ecosystem.
+## 2025-04-22 - [Rejected] - Prompt improvement - Ensure Strategist properly discovers and logs unrecorded past outcomes
+**Type:** Prompt improvement
+**Outcome:** Rejected → journaled
+**Why:** The maintainer rejected the proposal to use `git log` to retroactively discover outcomes, stating explicitly: "They should not look at past commits to figure out their memory, as journal always has them. Every PR either has code changes + journal (optionally, if useful), or journal only with rejection statement and reason for future learning."
+**Pattern:** Do not propose tracking memory through past commits instead of the explicit journal mechanism defined in the "Wait and Convert" flow.
