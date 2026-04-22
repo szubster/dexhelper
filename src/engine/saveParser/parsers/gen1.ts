@@ -2,7 +2,7 @@ import gen1MapLocations from '../../data/gen1/mapLocations.json';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { checkShiny, decodeGen12String, parseDVs } from './common';
 
-export const INTERNAL_ID_TO_DEX: Record<number, number> = {
+const INTERNAL_ID_TO_DEX: Record<number, number> = {
   1: 112,
   2: 115,
   3: 32,

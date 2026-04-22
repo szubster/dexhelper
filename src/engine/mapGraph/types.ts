@@ -1,12 +1,5 @@
 import type { UnifiedLocation } from '../../db/schema';
 
-export interface MapNode {
-  id: number;
-  slug: string;
-  name: string;
-  conn: number[];
-}
-
 export interface MapDistanceResult {
   distance: number;
   name: string;

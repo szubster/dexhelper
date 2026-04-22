@@ -47,7 +47,7 @@ export function parseCaughtData(view: DataView, offset: number) {
  * @param slot - The 1-indexed slot the Pokémon occupies in its storage container.
  * @returns A fully constructed PokemonInstance object, or undefined if the species ID is invalid.
  */
-export function parseGen2PokemonInstance(
+function parseGen2PokemonInstance(
   view: DataView,
   offset: number,
   isCrystal: boolean,

@@ -1,11 +1,3 @@
-// One-time static choices (if you miss the pre-evolution without breeding, you're locked out)
-export const ONE_TIME_CHOICES = {
-  starters: [1, 4, 7], // Bulbasaur, Charmander, Squirtle families
-  fossils: [138, 140], // Omanyte, Kabuto
-  hitmons: [106, 107], // Hitmonlee, Hitmonchan
-  eevee: [133],
-};
-
 const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
   red: [
     27,
