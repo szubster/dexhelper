@@ -17,3 +17,4 @@ The compiler ensures that DataLoader batch functions return valid values or Erro
 ## 2026-04-21 - Nurse: Explicitly typing variables removes need for type casting
 **Learning:** Sometimes the compiler loses track of a type after a reassignment if the variable wasn't explicitly typed. By explicitly typing `let variableName: TypeName`, we eliminate the need for downstream `as TypeName` assertions, making the code safer and more readable.
 **Action:** Replaced unsafe cast in `gen2.ts` by explicitly typing the `gameVersion` variable instead.
+- Replaced unsafe `{} as Partial<Record<...>>` with `reduce<Partial<Record<...>>>({}, ...)` to ensure the accumulator is strictly type-checked and properly tracks optional keys instead of forcing an unsafe cast in `AssistantPanel.tsx`.
