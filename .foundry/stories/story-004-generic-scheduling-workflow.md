@@ -14,3 +14,5 @@ parent: .foundry/epics/epic-004-generic-agent-scheduling.md
 # Generic Scheduling Mechanism Workflow
 
 Create a reusable GitHub Action workflow (`.github/workflows/foundry-scheduled-agent.yml`) that accepts inputs (agent/persona name) and runs on a schedule. It needs to utilize the existing Jules environment setup (reading `.github/agents/<persona>.md` for prompt hydration). This addresses the generic scheduling and standard hydration requirements.
+### Generated Tasks
+- [ ] `.foundry/tasks/task-017-create-scheduled-agent-workflow.md`
