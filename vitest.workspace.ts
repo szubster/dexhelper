@@ -5,6 +5,7 @@ export default [
       name: 'node',
       include: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
       exclude: ['src/components/**/*.test.tsx', 'tests/e2e/**/*'],
+      setupFiles: ['./src/node-setup.ts'],
       environment: 'node',
     },
   },
