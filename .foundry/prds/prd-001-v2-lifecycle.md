@@ -2,7 +2,7 @@
 id: "prd-001-v2-lifecycle"
 type: "PRD"
 title: "Foundry V2: Atomic Handoffs & Single-Persona Ownership Lifecycle"
-status: "FAILED"
+status: "READY"
 owner_persona: "epic_planner"
 created_at: "2026-04-21"
 updated_at: "2026-04-22"
