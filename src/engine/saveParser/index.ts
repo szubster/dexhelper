@@ -1,11 +1,10 @@
-import type { GameVersion, Generation, PokemonInstance, SaveData } from './parsers/common';
-import { INTERNAL_ID_TO_DEX, isGen1Save, parseGen1 } from './parsers/gen1';
+import type { GameVersion, PokemonInstance, SaveData } from './parsers/common';
+import { isGen1Save, parseGen1 } from './parsers/gen1';
 import { isGen2Save, parseGen2 } from './parsers/gen2';
 
 export { decodeGen12String } from './parsers/common';
 
-export type { GameVersion, Generation, PokemonInstance, SaveData };
-export { INTERNAL_ID_TO_DEX };
+export type { GameVersion, PokemonInstance, SaveData };
 
 /**
  * Main entry point for decoding a raw Pokémon save file buffer.

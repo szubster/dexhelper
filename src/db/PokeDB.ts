@@ -69,7 +69,7 @@ export const getDB = () => {
   return dbPromise;
 };
 
-export const syncData = async () => {
+const syncData = async () => {
   if (syncPromise) {
     return syncPromise;
   }

@@ -93,8 +93,6 @@ export interface UnifiedLocation {
 }
 
 export type GenericLocation = UnifiedLocation;
-export type SpecificArea = UnifiedLocation;
-export type InverseLocationIndex = UnifiedLocation;
 
 export interface CompactEvolutionDetail {
   tr?: number | undefined; // trigger (EVO_TRIGGER)
@@ -123,8 +121,6 @@ export interface PokemonMetadata {
   efrm: number[]; // Parent, Grandparent, etc.
   det: CompactEvolutionDetail[]; // Evolutionary requirements to reach THIS pokemon from parent
 }
-
-export type PokemonCompact = PokemonMetadata;
 
 export interface PokeDataExport {
   poke: PokemonMetadata[];

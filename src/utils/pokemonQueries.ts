@@ -1,7 +1,7 @@
 import { queryOptions } from '@tanstack/react-query';
 import { getDB } from '../db/PokeDB';
 
-export interface PokemonListItem {
+interface PokemonListItem {
   id: number;
   name: string;
 }

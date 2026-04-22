@@ -3,7 +3,7 @@
  * Maps mapGroup -> mapId -> PokeAPI Area ID (aid).
  */
 
-export interface Gen2MapNode {
+interface Gen2MapNode {
   name: string;
   aid: number;
   connections?: number[];
@@ -80,5 +80,4 @@ export const GEN2_MAP_TO_AID: Record<number, Record<number, Gen2MapNode>> = {
   },
 };
 
-export const encodeGen2Id = (group: number, id: number) => (group << 8) | id;
 export const decodeGen2Id = (encoded: number) => ({ group: encoded >> 8, id: encoded & 0xff });

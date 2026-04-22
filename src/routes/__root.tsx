@@ -25,7 +25,7 @@ const ReactQueryDevtools =
         })),
       );
 
-export interface RootContext {
+interface RootContext {
   queryClient: QueryClient;
 }
 

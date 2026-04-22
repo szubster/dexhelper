@@ -93,7 +93,7 @@ export const STATIC_GIFT_DATA: Record<
  * `receivedOtName` — the OT name the game assigns to the received pokémon (used to detect if claimed)
  * `gen`          — generation the trade belongs to
  */
-export interface NpcTradeEntry {
+interface NpcTradeEntry {
   receivedId: number;
   offeredId: number;
   location: string;

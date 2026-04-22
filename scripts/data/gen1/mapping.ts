@@ -3,7 +3,7 @@
  * Moved out of src/ to keep client bundle lean.
  */
 
-export interface MapNode {
+interface MapNode {
   id: number;
   aid: number;
   name: string;

@@ -5,7 +5,7 @@ import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 
-export interface PokedexCardProps {
+interface PokedexCardProps {
   pokemon: { id: number; name: string };
   idx: number;
   saveData: SaveData | null;

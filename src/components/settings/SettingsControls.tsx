@@ -3,7 +3,7 @@ import type { GameVersion, PokeballType } from '../../store';
 import type { GenerationConfig } from '../../utils/generationConfig';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
-export interface SettingsControlsProps {
+interface SettingsControlsProps {
   effectiveVersion: string;
   setManualVersion: (v: GameVersion | null) => void;
   isLivingDex: boolean;
