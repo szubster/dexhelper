@@ -1,7 +1,7 @@
 ---
 id: task-018-scheduled-agent-empty-state
 type: TASK
-title: "Scheduled Agent Workflow Empty State Support"
+title: "Scheduled Agent Workflow Empty State Support via Prompt"
 status: PENDING
 owner_persona: coder
 created_at: "2026-04-22"
@@ -15,26 +15,23 @@ rejection_count: 0
 notes: ""
 ---
 
-# Scheduled Agent Workflow Empty State Support
+# Scheduled Agent Workflow Empty State Support via Prompt
 
-Modify `.github/workflows/foundry-scheduled-agent.yml` to support skipping Jules agent execution when there is no actionable work. This addresses the empty state requirement.
+Modify `.github/workflows/foundry-scheduled-agent.yml` to support an agent-driven empty state, where the agent decides it has no work and creates an empty PR, which is then automatically closed.
 
 ## Technical Blueprint
 
-1. **Pre-check Script Execution**:
-   - Before invoking Jules API in the "Invoke Jules Agent" step, check if an executable script named `.github/agents/${persona}-precheck.sh` exists.
-   - If it exists, execute it.
+1. **Prompt Hydration Update**:
+   - In the "Invoke Jules Agent" step, modify the `jq` command that constructs the `prompt_json`.
+   - Append explicit instructions to the prompt telling the agent that lack of actionable work is acceptable.
+   - For example, append: `"If you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session. An empty PR diff is acceptable and will be closed automatically."`
 
-2. **Handle Pre-check Exit Codes**:
-   - If the pre-check script exits with status `2` (the standard exit code we will use for "no actionable work"), log a message (e.g., "No actionable work for ${persona}, exiting gracefully") and exit the step successfully (`exit 0`). This will skip the rest of the job and finish without error.
-   - If the pre-check script exits with `0`, proceed to spawn the Jules session normally.
-   - If the pre-check script exits with any other non-zero code, treat it as an error (`exit 1`).
+2. **Scope Limitation**:
+   - For this task, ONLY update the prompt in `.github/workflows/foundry-scheduled-agent.yml`.
+   - The auto-closing mechanism will be implemented in a separate task.
 
 ## Acceptance Criteria
-- [ ] Workflow correctly looks for and executes `.github/agents/${persona}-precheck.sh` if it exists.
-- [ ] Workflow gracefully exits with `0` without spawning Jules if the script returns `2`.
-- [ ] Workflow continues normal execution if the script returns `0`.
-- [ ] Workflow fails and exits with `1` if the script returns any other non-zero exit code.
+- [ ] The `foundry-scheduled-agent.yml` workflow prompt explicitly informs the agent how to handle lack of work.
 
 ## Verification Protocol
-Self-verification designated to the `coder`. The coder must verify the changes by creating a dummy precheck script and manually triggering the workflow to ensure the exit states match the specifications. Document the results in the task journal.
+Self-verification designated to the `coder`. Verify by triggering the workflow manually for a persona with no work and ensuring the prompt is formatted correctly in the Actions logs. Document the results in the task journal.

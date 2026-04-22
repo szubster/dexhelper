@@ -18,4 +18,4 @@ Implement logic within the orchestrator or agent runner script to gracefully han
 
 ## Generated Tasks
 - [ ] .foundry/tasks/task-018-scheduled-agent-empty-state.md
-- [ ] .foundry/tasks/task-019-tpm-precheck-script.md
+- [ ] .foundry/tasks/task-020-auto-close-empty-prs.md
