@@ -15,3 +15,7 @@ parent: .foundry/epics/epic-004-generic-agent-scheduling.md
 # Graceful Empty State Handling
 
 Implement logic within the orchestrator or agent runner script to gracefully handle cases where a scheduled agent (like TPM) finds no actionable work. It should exit successfully (0) without creating an empty PR or spamming logs. This addresses the empty state requirement.
+
+## Generated Tasks
+- [ ] .foundry/tasks/task-018-scheduled-agent-empty-state.md
+- [ ] .foundry/tasks/task-019-tpm-precheck-script.md
