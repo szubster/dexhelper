@@ -59,8 +59,9 @@ jobs:
           fi
 
           if [ $exit_code -ne 0 ]; then
-            # Do NOT fail the build for warnings/orchestrator issues, let it continue async
-            echo "Orchestrator returned $exit_code, treating as warning and proceeding."
+            # Fail the build for warnings/orchestrator issues as requested
+            sh -c "exit $exit_code" || true
+            kill -INT $
           fi
           echo "matrix=$output" >> $GITHUB_OUTPUT
 
@@ -69,7 +70,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ISSUE_TITLE="Foundry Engine: DAG Resolution Warnings"
+          ISSUE_TITLE="Foundry Engine: DAG Resolution Warnings - ${{ github.run_id }}"
           RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
           # Use EOF heredoc and multiline string injection for GH issue body to avoid format issues
@@ -84,14 +85,8 @@ jobs:
             echo '```'
           } > issue_body.md
 
-          # Check for existing open issue
-          EXISTING_ISSUE=$(gh issue list --state open --search "\"$ISSUE_TITLE\" in:title" --json number -q '.[0].number // empty')
-
-          if [ -n "$EXISTING_ISSUE" ]; then
-            gh issue comment "$EXISTING_ISSUE" --body "Repeat warnings detected: $RUN_URL"
-          else
-            gh issue create --title "$ISSUE_TITLE" --body-file issue_body.md --label "jules"
-          fi
+          # Always create a new issue for each warning occurrence
+          gh issue create --title "$ISSUE_TITLE" --body-file issue_body.md --label "jules"
 
       - name: Commit Promotions
         run: |
