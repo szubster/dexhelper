@@ -2,7 +2,7 @@
 id: story-004-shadow-dispatch-verification
 type: STORY
 title: "Shadow Dispatch Verification Phase"
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-22"
 updated_at: "2026-04-22"

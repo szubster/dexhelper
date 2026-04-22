@@ -2,7 +2,7 @@
 id: story-004-id-schema-decision
 type: STORY
 title: "Decide ID Schema and Update Documentation"
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-22"
 updated_at: "2026-04-22"
