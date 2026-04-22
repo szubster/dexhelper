@@ -348,13 +348,26 @@ function main(): void {
 
   function isBlocked(nodePath: string, visited = new Set<string>()): boolean {
     if (evalCache.has(nodePath)) return evalCache.get(nodePath)!;
+
+    const node = nodeMap.get(nodePath);
+
+    // If node is already COMPLETED, it cannot block anything.
+    if (node?.frontmatter.status === 'COMPLETED') {
+      evalCache.set(nodePath, false);
+      return false;
+    }
+
+    if (!node && fs.existsSync(path.join(repoRoot, nodePath))) {
+      evalCache.set(nodePath, false);
+      return false;
+    }
+
     if (visited.has(nodePath)) {
       warn(`Circular dependency detected at ${nodePath}`);
       return true;
     }
     visited.add(nodePath);
 
-    const node = nodeMap.get(nodePath);
     if (!node) {
       hasUnresolvableDeps = true;
       evalCache.set(nodePath, true);
@@ -365,6 +378,9 @@ function main(): void {
     for (const depPath of node.frontmatter.depends_on) {
       const dep = nodeMap.get(depPath);
       if (!dep) {
+        if (fs.existsSync(path.join(repoRoot, depPath))) {
+          continue;
+        }
         warn(`Unresolvable dependency '${depPath}' referenced by: ${nodePath}`);
         hasUnresolvableDeps = true;
         evalCache.set(nodePath, true);
@@ -429,7 +445,12 @@ function main(): void {
       // Parent blocked by its own dependencies?
       for (const depPath of parentNode.frontmatter.depends_on) {
         const dep = nodeMap.get(depPath);
-        if (!dep || dep.frontmatter.status !== 'COMPLETED' || isBlocked(depPath)) {
+        if (!dep) {
+          if (fs.existsSync(path.join(repoRoot, depPath))) continue;
+          blocked = true;
+          break;
+        }
+        if (dep.frontmatter.status !== 'COMPLETED' || isBlocked(depPath)) {
             blocked = true;
             break;
         }
@@ -445,6 +466,9 @@ function main(): void {
     for (const depPath of deps) {
       const dep = nodeMap.get(depPath);
       if (!dep) {
+        if (fs.existsSync(path.join(repoRoot, depPath))) {
+          continue;
+        }
         warn(`Unresolvable dependency '${depPath}' referenced by: ${node.repoPath}`);
         hasUnresolvableDeps = true;
         blocked = true;
