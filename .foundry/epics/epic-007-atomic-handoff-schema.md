@@ -26,3 +26,6 @@ This Epic covers the required updates to the `.foundry/docs/schema.md` and relat
 - [ ] `schema.md` is updated to explicitly define the single-owner invariant per node.
 - [ ] Examples in documentation reflect the new atomic file structure.
 - [ ] Any references to "composite nodes" are removed or marked deprecated.
+
+## Generated Stories
+- `.foundry/stories/story-007-update-schema-atomic-handoff.md`
