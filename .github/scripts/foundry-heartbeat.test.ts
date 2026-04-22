@@ -146,4 +146,91 @@ describe('Foundry Heartbeat', () => {
     expect(globalFetch).not.toHaveBeenCalled();
     expect(fs.writeFileSync).toHaveBeenCalled();
   });
+
+  it('should find PR from Jules session link and NOT transition to FAILED', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        status: 'ACTIVE',
+        jules_session_id: 'session-pr-link'
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-pr-link"\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    globalFetch.mockImplementation((url: string) => {
+      if (url.includes('jules.googleapis.com')) {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          json: async () => ({ 
+            state: 'COMPLETED', 
+            outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/402' } }] 
+          })
+        });
+      }
+      if (url.includes('pulls/402')) {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          json: async () => ({ number: 402, state: 'open', html_url: '...' })
+        });
+      }
+      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+    });
+
+    await main();
+
+    // Should NOT flip to FAILED because PR was found via Jules link
+    expect(fs.writeFileSync).not.toHaveBeenCalledWith(expect.any(String), expect.stringContaining('status: "FAILED"'), expect.any(String));
+  });
+
+  it('should find PR from fallback list and NOT transition to FAILED', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        status: 'ACTIVE',
+        jules_session_id: 'session-fallback'
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-fallback"\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    globalFetch.mockImplementation((url: string) => {
+      if (url.includes('jules.googleapis.com')) {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          json: async () => ({ state: 'COMPLETED' }) // No PR link here
+        });
+      }
+      if (url.includes('search/issues')) {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          json: async () => ({ items: [] }) // Search fails
+        });
+      }
+      if (url.includes('repos/szubster/dexhelper/pulls?state=all')) {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          json: async () => [{ number: 405, state: 'open', body: 'session-fallback' }] // Found in list!
+        });
+      }
+      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+    });
+
+    await main();
+
+    expect(fs.writeFileSync).not.toHaveBeenCalledWith(expect.any(String), expect.stringContaining('status: "FAILED"'), expect.any(String));
+  });
 });

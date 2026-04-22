@@ -28,7 +28,7 @@ function todayISO(): string {
   return `${yyyy}-${mm}-${dd}`;
 }
 
-const TERMINAL_STATES = ['FAILED', 'COMPLETED', 'CANCELLED', 'ERROR', 'ABORTED'];
+const TERMINAL_STATES = ['FAILED', 'COMPLETED'];
 
 /** Surgical mutation to FAILED */
 export async function transitionNodeToFailed(node: any, repoRoot: string): Promise<void> {
@@ -109,6 +109,75 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
   info(`${dryTag}Resurrected → READY: ${node.repoPath} (${reason})`);
 }
 
+/** Robust discovery: Jules Session -> GitHub Search -> GitHub List */
+async function findPRForSession(
+  repoFullName: string,
+  githubToken: string,
+  julesKey: string,
+  sessionId: string,
+  nodeId: string
+): Promise<{ pr: any; sessionStatus: string | null }> {
+  let sessionStatus: string | null = null;
+  let prData: any = null;
+
+  // 1. Fetch Jules session details (Primary Source of Truth)
+  try {
+    const res = await fetch(`https://jules.googleapis.com/v1alpha/sessions/${sessionId}`, {
+      headers: { 'X-Goog-Api-Key': julesKey }
+    });
+    if (res.ok) {
+      const data = await res.json() as any;
+      sessionStatus = data.state || null;
+      
+      const prUrl = data.outputs?.find((o: any) => o.pullRequest?.url)?.pullRequest.url;
+      if (prUrl) {
+        const match = prUrl.match(/pull\/(\d+)$/);
+        if (match) {
+          const prNumber = parseInt(match[1], 10);
+          const prRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls/${prNumber}`, {
+            headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+          });
+          if (prRes.ok) {
+            prData = await prRes.json();
+          }
+        }
+      }
+    } else if (res.status === 404) {
+      sessionStatus = 'NOT_FOUND';
+    }
+  } catch (err) {
+    process.stderr.write(`[heartbeat] Jules API error: ${String(err)}\n`);
+  }
+
+  if (prData) return { pr: prData, sessionStatus };
+
+  // 2. Fallback to GitHub Search API (Index-dependent)
+  try {
+    const searchRes = await fetch(`https://api.github.com/search/issues?q=repo:${repoFullName}+is:pr+${sessionId}`, {
+      headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    const searchJson = await searchRes.json() as any;
+    if (searchJson.items?.[0]) return { pr: searchJson.items[0], sessionStatus };
+  } catch (err) { /* ignore search error */ }
+
+  // 3. Fallback to listing recent PRs (Index-independent)
+  try {
+    const pullsRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls?state=all&per_page=30`, {
+      headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    const pulls = await pullsRes.json() as any;
+    if (Array.isArray(pulls)) {
+      for (const pr of pulls) {
+        if (pr.body?.includes(sessionId) || pr.head?.ref?.includes(sessionId)) {
+          return { pr, sessionStatus };
+        }
+      }
+    }
+  } catch (err) { /* ignore list error */ }
+
+  return { pr: null, sessionStatus };
+}
+
 function logToJournal(repoRoot: string, entry: string): void {
   const journalDir = path.join(repoRoot, '.foundry', 'journals');
   if (!fs.existsSync(journalDir)) fs.mkdirSync(journalDir, { recursive: true });
@@ -148,50 +217,38 @@ export async function main() {
       continue;
     }
 
-    // A. Check GitHub for PRs associated with this session
-    try {
-      const prRes = await fetch(`https://api.github.com/search/issues?q=repo:${repoFullName}+is:pr+${sessionId}`, {
-        headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
-      });
-      const prData = await prRes.json() as any;
-      const pr = prData.items?.[0];
+    // A. Robust PR Discovery
+    const { pr, sessionStatus } = await findPRForSession(repoFullName, githubToken, julesKey, sessionId, node.frontmatter.id);
 
-      if (pr) {
-        if (pr.state === 'closed') {
-          // Check if merged via the details API
+    if (pr) {
+      if (pr.state === 'closed') {
+        // If from search, it might lack 'merged' property. Ensure we have the detail.
+        let isMerged = pr.merged;
+        if (isMerged === undefined) {
           const detailRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls/${pr.number}`, {
             headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
           });
           const detail = await detailRes.json() as any;
-          if (detail.merged) {
-            await transitionNodeToCompleted(node, repoRoot, pr.number);
-            continue;
-          } else {
-            await transitionNodeToReady(node, repoRoot, `PR #${pr.number} closed without merging.`);
-            continue;
-          }
+          isMerged = detail.merged;
+        }
+
+        if (isMerged) {
+          await transitionNodeToCompleted(node, repoRoot, pr.number);
+          continue;
         } else {
-          info(`Node ${node.repoPath} has open PR #${pr.number}. Keeping ACTIVE.`);
+          await transitionNodeToReady(node, repoRoot, `PR #${pr.number} closed without merging.`);
           continue;
         }
+      } else {
+        info(`Node ${node.repoPath} has open PR #${pr.number}. Keeping ACTIVE.`);
+        continue;
       }
-    } catch (err) {
-      warn(`GitHub check failed for ${node.frontmatter.id}: ${String(err)}`);
     }
 
-    // B. If no PR found, check Jules Session state
-    try {
-      const res = await fetch(`https://jules.googleapis.com/v1alpha/sessions/${sessionId}`, {
-        headers: { 'X-Goog-Api-Key': julesKey }
-      });
-      const data = await res.json() as any;
-
-      if (res.status === 404 || (data.state && TERMINAL_STATES.includes(data.state))) {
-        info(`Session ${sessionId} terminated without PR. Failing.`);
-        await transitionNodeToFailed(node, repoRoot);
-      }
-    } catch (err) {
-      warn(`Jules check failed for ${sessionId}: ${String(err)}`);
+    // B. Terminal State check (Zombie detection)
+    if (sessionStatus === 'NOT_FOUND' || (sessionStatus && TERMINAL_STATES.includes(sessionStatus))) {
+      info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Failing.`);
+      await transitionNodeToFailed(node, repoRoot);
     }
   }
 
