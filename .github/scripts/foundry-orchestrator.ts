@@ -349,6 +349,11 @@ function main(): void {
   function isBlocked(nodePath: string, visited = new Set<string>()): boolean {
     if (evalCache.has(nodePath)) return evalCache.get(nodePath)!;
     if (visited.has(nodePath)) {
+      // If the node is already COMPLETED, a circular reference to it is safe.
+      const node = nodeMap.get(nodePath);
+      if (node?.frontmatter.status === 'COMPLETED') {
+        return false;
+      }
       warn(`Circular dependency detected at ${nodePath}`);
       return true;
     }
@@ -356,15 +361,25 @@ function main(): void {
 
     const node = nodeMap.get(nodePath);
     if (!node) {
+      // Check if it's a non-node file dependency (e.g. ADR)
+      if (fs.existsSync(path.join(repoRoot, nodePath))) {
+        evalCache.set(nodePath, false);
+        return false;
+      }
       hasUnresolvableDeps = true;
       evalCache.set(nodePath, true);
       return true;
     }
 
-    // Unresolved dependencies
-    for (const depPath of node.frontmatter.depends_on) {
+    // Unresolved dependencies: COMPLETED nodes have already satisfied their dependencies.
+    if (node.frontmatter.status !== 'COMPLETED') {
+      for (const depPath of node.frontmatter.depends_on) {
       const dep = nodeMap.get(depPath);
       if (!dep) {
+        // Check if it's a non-node file dependency (e.g. ADR)
+        if (fs.existsSync(path.join(repoRoot, depPath))) {
+          continue;
+        }
         warn(`Unresolvable dependency '${depPath}' referenced by: ${nodePath}`);
         hasUnresolvableDeps = true;
         evalCache.set(nodePath, true);
@@ -376,9 +391,10 @@ function main(): void {
         return true;
       }
 
-      if (isBlocked(depPath, visited)) {
-        evalCache.set(nodePath, true);
-        return true;
+        if (isBlocked(depPath, visited)) {
+          evalCache.set(nodePath, true);
+          return true;
+        }
       }
     }
 
@@ -429,9 +445,17 @@ function main(): void {
       // Parent blocked by its own dependencies?
       for (const depPath of parentNode.frontmatter.depends_on) {
         const dep = nodeMap.get(depPath);
-        if (!dep || dep.frontmatter.status !== 'COMPLETED' || isBlocked(depPath)) {
+        if (dep) {
+          if (dep.frontmatter.status !== 'COMPLETED' || isBlocked(depPath)) {
             blocked = true;
             break;
+          }
+        } else {
+          // Check if it's a non-node file dependency (e.g. ADR)
+          if (!fs.existsSync(path.join(repoRoot, depPath)) || isBlocked(depPath)) {
+            blocked = true;
+            break;
+          }
         }
       }
       if (blocked) break;
@@ -445,6 +469,10 @@ function main(): void {
     for (const depPath of deps) {
       const dep = nodeMap.get(depPath);
       if (!dep) {
+        // Check if it's a non-node file dependency (e.g. ADR)
+        if (fs.existsSync(path.join(repoRoot, depPath))) {
+          continue;
+        }
         warn(`Unresolvable dependency '${depPath}' referenced by: ${node.repoPath}`);
         hasUnresolvableDeps = true;
         blocked = true;
@@ -463,24 +491,24 @@ function main(): void {
 
       // We do a custom check for the dependency so we can exclude checking the current node's path in the children.
       let depStructurallyBlocked = false;
-      for(const innerDepPath of dep.frontmatter.depends_on) {
-         if(isBlocked(innerDepPath)) {
-            depStructurallyBlocked = true;
-            break;
-         }
+      for (const innerDepPath of dep.frontmatter.depends_on) {
+        if (isBlocked(innerDepPath)) {
+          depStructurallyBlocked = true;
+          break;
+        }
       }
 
-      if(depStructurallyBlocked) {
-         blocked = true;
-         break;
+      if (depStructurallyBlocked) {
+        blocked = true;
+        break;
       }
 
       if (!isDescendant(node.repoPath, depPath)) {
-          // It's an external dependency. We must ensure the dependency and ALL its children are completed.
-          if(isBlocked(depPath)) {
-              blocked = true;
-              break;
-          }
+        // It's an external dependency. We must ensure the dependency and ALL its children are completed.
+        if (isBlocked(depPath)) {
+          blocked = true;
+          break;
+        }
       }
     }
 

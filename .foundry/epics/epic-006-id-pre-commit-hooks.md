@@ -2,10 +2,10 @@
 id: epic-006-id-pre-commit-hooks
 type: EPIC
 title: "ID Integrity Pre-Commit Validation"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-21"
-updated_at: "2026-04-21"
+updated_at: "2026-04-22"
 depends_on:
   - .foundry/epics/epic-004-distributed-id-schema.md
 jules_session_id: null

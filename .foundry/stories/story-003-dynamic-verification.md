@@ -2,10 +2,10 @@
 id: story-003-dynamic-verification
 type: STORY
 title: "Intelligent Verification & Evolution"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-21"
-updated_at: "2026-04-21"
+updated_at: "2026-04-22"
 depends_on:
   - .foundry/docs/adrs/001-the-foundry-architecture.md
   - .foundry/stories/story-002-personas.md
