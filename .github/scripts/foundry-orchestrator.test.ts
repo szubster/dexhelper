@@ -15,6 +15,8 @@ describe('foundry-orchestrator', () => {
     fs.mkdirSync(foundryDir);
     fs.mkdirSync(path.join(foundryDir, 'ideas'));
     fs.mkdirSync(path.join(foundryDir, 'epics'));
+    fs.mkdirSync(path.join(foundryDir, 'stories'));
+    fs.mkdirSync(path.join(foundryDir, 'tasks'));
 
     // Mock process context
     vi.spyOn(process, 'cwd').mockReturnValue(tmpDir);
@@ -46,7 +48,7 @@ updated_at: "2026-04-20"
 depends_on: []
 jules_session_id: null
 pr_number: null
-    `);
+`);
 
     createNode('.foundry/epics/epic-001.md', `
 id: epic-001
@@ -60,7 +62,7 @@ depends_on:
   - .foundry/ideas/idea-001.md
 jules_session_id: null
 pr_number: null
-    `);
+`);
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
@@ -90,7 +92,7 @@ updated_at: "2026-04-20"
 depends_on: []
 jules_session_id: "sess-123"
 pr_number: null
-    `);
+`);
 
     createNode('.foundry/epics/epic-001.md', `
 id: epic-001
@@ -104,7 +106,7 @@ depends_on:
   - .foundry/ideas/idea-001.md
 jules_session_id: null
 pr_number: null
-    `);
+`);
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
@@ -143,7 +145,7 @@ updated_at: "2026-04-20"
 depends_on: []
 jules_session_id: null
 pr_number: null
-    `);
+`);
 
     main();
 
@@ -163,7 +165,7 @@ updated_at: "2026-04-20"
 depends_on:
   - .foundry/missing/ghost.md
 jules_session_id: null
-    `);
+`);
 
     main();
 
@@ -183,7 +185,7 @@ created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
 jules_session_id: null
-    `);
+`);
 
     // Task 1: Child of Story 1, PENDING
     createNode('.foundry/tasks/task-001.md', `
@@ -198,7 +200,7 @@ depends_on:
   - .foundry/stories/story-001.md
 parent: .foundry/stories/story-001.md
 jules_session_id: null
-    `);
+`);
 
     // Story 2: Depends on Story 1, PENDING (External dependent)
     createNode('.foundry/stories/story-002.md', `
@@ -212,7 +214,7 @@ updated_at: "2026-04-20"
 depends_on:
   - .foundry/stories/story-001.md
 jules_session_id: null
-    `);
+`);
 
     main();
 
@@ -224,4 +226,70 @@ jules_session_id: null
     const story2Content = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-002.md'), 'utf-8');
     expect(story2Content).toContain('status: PENDING');
   });
+
+  test('Deep Hierarchical Completion: blocks external dependent if dependency has deep incomplete children', () => {
+    // Story 1: COMPLETED
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story 1"
+status: COMPLETED
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    // Task 1: Child of Story 1, COMPLETED
+    createNode('.foundry/tasks/task-001.md', `
+id: task-001
+type: TASK
+title: "Task 1"
+status: COMPLETED
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on:
+  - .foundry/stories/story-001.md
+parent: .foundry/stories/story-001.md
+jules_session_id: null
+`);
+
+    // Subtask 1: Child of Task 1, PENDING
+    createNode('.foundry/tasks/subtask-001.md', `
+id: subtask-001
+type: TASK
+title: "Subtask 1"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on:
+  - .foundry/tasks/task-001.md
+parent: .foundry/tasks/task-001.md
+jules_session_id: null
+`);
+
+    // Story 2: Depends on Story 1, PENDING
+    createNode('.foundry/stories/story-002.md', `
+id: story-002
+type: STORY
+title: "Story 2"
+status: PENDING
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on:
+  - .foundry/stories/story-001.md
+jules_session_id: null
+`);
+
+    main();
+
+    // Story 2 SHOULD NOT be promoted (it waits for Subtask 1)
+    const story2Content = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-002.md'), 'utf-8');
+    expect(story2Content).toContain('status: PENDING');
+  });
+
 });
