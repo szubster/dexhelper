@@ -2,7 +2,7 @@
 id: task-017-create-scheduled-agent-workflow
 type: TASK
 title: "Create Scheduled Agent Workflow"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-22"
 updated_at: "2026-04-22"
