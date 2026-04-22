@@ -2,7 +2,7 @@
 id: story-003-dynamic-verification
 type: STORY
 title: "Intelligent Verification & Evolution"
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
