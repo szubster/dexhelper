@@ -16,13 +16,12 @@ notes: ""
 
 # Implement Graceful Empty State Handling
 
-Modify `.github/workflows/foundry-scheduled-agent.yml` to support a pre-check script (`.github/agents/${persona}-precheck.sh`).
-If the precheck script exists and returns exit code `2`, the workflow should exit gracefully (`0`) without spawning Jules.
+Instead of relying on static pre-check scripts, the agent itself must decide if there is actionable work. To handle lack of work gracefully without polluting the repository with empty PRs, implement the following:
 
 ## Acceptance Criteria
-- [ ] Workflow explicitly checks for the existence of `.github/agents/${persona}-precheck.sh`.
-- [ ] If found, it executes the script before dispatching Jules.
-- [ ] If the script exits with status `2`, the action exits with status `0` and does not spawn Jules.
-- [ ] If the script exits with another non-zero status, it errors out correctly.
+- [ ] Modify the prompt payload in `.github/workflows/foundry-scheduled-agent.yml` to explicitly instruct the agent that it is acceptable to find no work, and in such cases, it should output an empty result.
+- [ ] Implement a mechanism (e.g., a new GitHub action or a modification to an existing one) that automatically detects PRs opened by Jules with an empty diff (0 changed files) and closes them without merging.
+- [ ] (Optional) Retain a static check specifically for the `tpm` persona if applicable, but ensure all other scheduled agents rely on prompt-driven empty state handling.
+
 ## Verification Protocol
-As this is a relatively simple CI workflow conditional modification, the coder is designated to **self-verify**. The coder must document their verification results in their task journal before considering the task complete.
+As this involves CI workflow modifications, the coder is designated to **self-verify**. The coder must document their verification results in their task journal before considering the task complete.
