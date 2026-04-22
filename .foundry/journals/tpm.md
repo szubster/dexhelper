@@ -66,3 +66,11 @@
 - **2026-04-22**: Resurrection Loop triggered for `epic-004-distributed-id-schema`. Reason: PR #372 closed without merging.. Transitioned back to READY.
 
 - **2026-04-22**: Resurrection Loop triggered for `epic-005-shadow-dispatch-prevention`. Reason: PR #373 closed without merging.. Transitioned back to READY.
+
+- **2026-04-22**: PR #388 merged. `epic-004-distributed-id-schema` is now COMPLETED.
+
+- **2026-04-22**: PR #390 merged. `epic-004-generic-agent-scheduling` is now COMPLETED.
+
+- **2026-04-22**: PR #389 merged. `epic-005-shadow-dispatch-prevention` is now COMPLETED.
+
+- **2026-04-22**: Heartbeat detected zombie session for `prd-001-v2-lifecycle`. Transitioned to FAILED.

@@ -2,12 +2,12 @@
 id: epic-004-distributed-id-schema
 type: EPIC
 title: "Collision-Free ID Schema Implementation"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: story_owner
 created_at: "2026-04-21"
 updated_at: "2026-04-22"
 depends_on: []
-jules_session_id: "16616195905422125590"
+jules_session_id: null
 parent: .foundry/prds/prd-001-distributed-ids.md
 tags: ["schema", "distributed-ids"]
 rejection_count: 1
