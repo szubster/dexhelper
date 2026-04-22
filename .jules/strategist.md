@@ -15,3 +15,8 @@
 **Outcome:** Accepted
 **Why:** Proposal submitted to maintainer and maintainer merged the changes.
 **Pattern:** Proposing an improvement based on specific missing test strategies found in the ecosystem.
+## 2025-04-22 - [Accepted] - Prompt improvement - Ensure Strategist properly discovers and logs unrecorded past outcomes
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** Proposal aligns instructions with system guidelines specifying to "discover past outcomes via `git log` instead of preemptively logging current proposals".
+**Pattern:** Following the system guideline: "When searching for unrecorded PR outcomes via `git log`, note that a PR's commit hash might not exist in `main` if it was squashed or fast-forwarded. Verify integration by checking if the code changes actually exist in the `main` branch's files".
