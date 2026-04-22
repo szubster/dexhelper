@@ -71,4 +71,9 @@ To enforce Atomic Handoffs, the product lifecycle pipeline is strictly defined a
 - **Clear Traceability:** Every artifact in the project cleanly points to its direct upstream dependency via the `depends_on` property.
 
 ## 4. Next Steps
-- [ ] **Epic Planner:** Break down this PRD into Epics mapping out the necessary schema/doc updates, orchestration script refactors, and test coverage expansions to fully support Atomic Ownership.
+- [x] **Epic Planner:** Break down this PRD into Epics mapping out the necessary schema/doc updates, orchestration script refactors, and test coverage expansions to fully support Atomic Ownership.
+
+### Generated Epics
+- `.foundry/epics/epic-007-atomic-handoff-schema.md`
+- `.foundry/epics/epic-008-atomic-handoff-orchestrator.md`
+- `.foundry/epics/epic-009-atomic-handoff-testing.md`
