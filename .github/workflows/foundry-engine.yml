@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   orchestrate:
@@ -46,10 +47,46 @@ jobs:
       - name: Run Orchestrator
         id: set-matrix
         run: |
-          # Output is captured; diagnostic info goes to stderr.
-          # The tail -n 1 captures the JSON output from console.log at the end.
-          output=$(node --strip-types .github/scripts/foundry-orchestrator.ts --strict | tail -n 1)
+          set +e
+          output=$(node --strip-types .github/scripts/foundry-orchestrator.ts --strict 2> orchestrator-err.log | tail -n 1)
+          exit_code=${PIPESTATUS[0]}
+          set -e
+          cat orchestrator-err.log >&2
+
+          # Check for WARN messages indicating unresolvable/circular dependencies.
+          if grep -q "WARN" orchestrator-err.log; then
+            echo "dag_has_warnings=true" >> $GITHUB_OUTPUT
+          fi
+
+          if [ $exit_code -ne 0 ]; then
+            # Fail the build for warnings/orchestrator issues as requested
+            sh -c "exit $exit_code" || true
+            kill -INT $
+          fi
           echo "matrix=$output" >> $GITHUB_OUTPUT
+
+      - name: Report DAG Warnings
+        if: always() && steps.set-matrix.outputs.dag_has_warnings == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_TITLE="Foundry Engine: DAG Resolution Warnings - ${{ github.run_id }}"
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          # Use EOF heredoc and multiline string injection for GH issue body to avoid format issues
+          {
+            echo "The Foundry DAG orchestrator encountered warnings during resolution. This usually means there are missing or circular dependencies in the DAG."
+            echo ""
+            echo "**Run Details:** [View Action Run]($RUN_URL)"
+            echo ""
+            echo "**Error Log:**"
+            echo '```'
+            cat orchestrator-err.log
+            echo '```'
+          } > issue_body.md
+
+          # Always create a new issue for each warning occurrence
+          gh issue create --title "$ISSUE_TITLE" --body-file issue_body.md --label "jules"
 
       - name: Commit Promotions
         run: |
