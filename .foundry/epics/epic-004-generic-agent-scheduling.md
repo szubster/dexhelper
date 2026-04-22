@@ -2,10 +2,10 @@
 id: "epic-004-generic-agent-scheduling"
 type: "EPIC"
 title: "Generic Agent Scheduling"
-status: "PENDING"
+status: READY
 owner_persona: "story_owner"
 created_at: "2026-04-21"
-updated_at: "2026-04-21"
+updated_at: "2026-04-22"
 depends_on: []
 jules_session_id: null
 parent: ".foundry/prds/prd-001-agent-scheduling.md"

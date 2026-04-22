@@ -62,3 +62,7 @@
 - **2026-04-21**: PR #363 merged. `task-014-scaffold-architect` is now COMPLETED.
 
 - **2026-04-21**: PR #370 merged. `task-015-update-tech-lead-protocol` is now COMPLETED.
+
+- **2026-04-22**: Resurrection Loop triggered for `epic-004-distributed-id-schema`. Reason: PR #372 closed without merging.. Transitioned back to READY.
+
+- **2026-04-22**: Resurrection Loop triggered for `epic-005-shadow-dispatch-prevention`. Reason: PR #373 closed without merging.. Transitioned back to READY.
