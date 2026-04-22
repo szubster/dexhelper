@@ -1,0 +1,84 @@
+name: "🤖 Foundry Scheduled Agent"
+
+on:
+  workflow_call:
+    inputs:
+      persona:
+        description: "The persona of the agent to run (e.g., 'tpm', 'agile_coach')"
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      persona:
+        description: "The persona of the agent to run (e.g., 'tpm', 'agile_coach')"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  execute_scheduled_agent:
+    name: Execute Scheduled Agent
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Invoke Jules Agent
+        env:
+          JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
+        run: |
+          persona="${{ inputs.persona }}"
+          agent_file=".github/agents/${persona}.md"
+
+          if [[ ! -f "$agent_file" ]]; then
+            echo "::error::Agent file $agent_file not found."
+            exit 1
+          fi
+
+          agent_context=$(cat "$agent_file")
+
+          # Construct the prompt JSON
+          prompt_json=$(jq -n \
+            --arg agent_context "$agent_context" \
+            --arg repo "${{ github.repository }}" \
+            --arg schema_url "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" \
+            --arg title "Scheduled Agent: $persona" \
+            '{
+              "prompt": "\($agent_context)\n\n### SCHEMA\n\($schema_url)",
+              "sourceContext": {
+                "source": "sources/github/\($repo)",
+                "githubRepoContext": {
+                  "startingBranch": "main"
+                }
+              },
+              "automationMode": "AUTO_CREATE_PR",
+              "title": $title
+            }')
+
+          # Request session from Jules API
+          echo "Dispatching Jules session for: $persona"
+          response=$(curl -s -X POST "https://jules.googleapis.com/v1alpha/sessions" \
+            -H "Content-Type: application/json" \
+            -H "X-Goog-Api-Key: $JULES_API_KEY" \
+            -d "$prompt_json")
+
+          # Extract and verify session ID
+          session_id=$(echo "$response" | jq -r '.id')
+
+          if [[ -z "$session_id" || "$session_id" == "null" ]]; then
+            echo "::error::Failed to capture Jules session ID"
+            echo "Response: $response"
+            exit 1
+          fi
+
+          echo "SESSION_ID=$session_id" >> $GITHUB_ENV
+          echo "Successfully spawned Jules session: $session_id"
