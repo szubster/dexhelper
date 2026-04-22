@@ -163,12 +163,65 @@ updated_at: "2026-04-20"
 depends_on:
   - .foundry/missing/ghost.md
 jules_session_id: null
-pr_number: null
     `);
 
     main();
 
     const epicChar = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
     expect(epicChar).toContain('status: PENDING');
+  });
+
+  test('Hierarchical Completion: blocks external dependent if dependency has incomplete children', () => {
+    // Story 1: COMPLETED (Planned)
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story 1"
+status: COMPLETED
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+    `);
+
+    // Task 1: Child of Story 1, PENDING
+    createNode('.foundry/tasks/task-001.md', `
+id: task-001
+type: TASK
+title: "Task 1"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on:
+  - .foundry/stories/story-001.md
+parent: .foundry/stories/story-001.md
+jules_session_id: null
+    `);
+
+    // Story 2: Depends on Story 1, PENDING (External dependent)
+    createNode('.foundry/stories/story-002.md', `
+id: story-002
+type: STORY
+title: "Story 2"
+status: PENDING
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on:
+  - .foundry/stories/story-001.md
+jules_session_id: null
+    `);
+
+    main();
+
+    // Task 1 SHOULD be promoted to READY (it's a child)
+    const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-001.md'), 'utf-8');
+    expect(taskContent).toContain('status: READY');
+
+    // Story 2 SHOULD NOT be promoted (it waits for Story 1's children)
+    const story2Content = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-002.md'), 'utf-8');
+    expect(story2Content).toContain('status: PENDING');
   });
 });

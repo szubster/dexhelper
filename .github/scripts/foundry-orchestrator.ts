@@ -246,11 +246,11 @@ function promoteNodeToReady(node: ParsedNode): void {
   const originalFmBlock = fmBlockMatch[0];
   let mutatedFmBlock = originalFmBlock;
 
-  // ① Replace `status: PENDING` (unquoted, per schema template).
+  // ① Replace `status: PENDING` (handles optional single/double quotes).
   //    The 'm' flag makes ^ and $ match line boundaries within the block.
   mutatedFmBlock = mutatedFmBlock.replace(
-    /^(status:\s*)PENDING([ \t]*)$/m,
-    `$1READY$2`,
+    /^(status:\s*)["']?PENDING["']?([ \t]*)$/m,
+    `$1"READY"$2`,
   );
 
   // Sanity check — if PENDING wasn't found, something is wrong.
@@ -317,11 +317,21 @@ function main(): void {
   }
   info(`Successfully parsed ${nodes.length} valid node(s) (skipped ${filePaths.length - nodes.length}).`);
 
-  // ── Phase 3: BUILD MAP ─────────────────────────────────────────────────────
+  // ── Phase 3: BUILD MAPS ────────────────────────────────────────────────────
   info('Phase 3: Building dependency resolution map...');
   const nodeMap = new Map<string, ParsedNode>();
+  const parentToChildren = new Map<string, ParsedNode[]>();
+
   for (const node of nodes) {
     nodeMap.set(node.repoPath, node);
+
+    const parentPath = node.frontmatter.parent;
+    if (parentPath) {
+      if (!parentToChildren.has(parentPath)) {
+        parentToChildren.set(parentPath, []);
+      }
+      parentToChildren.get(parentPath)!.push(node);
+    }
   }
 
   // ── Phase 4: RESOLVE ───────────────────────────────────────────────────────
@@ -341,6 +351,8 @@ function main(): void {
     }
 
     // Case B: All deps must exist in the graph AND be COMPLETED.
+    // AND: if the node is NOT a child of the dependency, then all children
+    // of that dependency must also be COMPLETED (Hierarchical Completion).
     let blocked = false;
     for (const depPath of deps) {
       const dep = nodeMap.get(depPath);
@@ -350,10 +362,22 @@ function main(): void {
         blocked = true;
         break;
       }
+
       if (dep.frontmatter.status !== 'COMPLETED') {
-        // Not an error — just not yet unblocked.
         blocked = true;
         break;
+      }
+
+      // Hierarchical Completion: Check if dependency's children are also completed.
+      // Skip this check if the current node IS a child of the dependency (it's unblocked by planning).
+      if (node.frontmatter.parent !== depPath) {
+        const children = parentToChildren.get(depPath) || [];
+        const incompleteChild = children.find((c) => c.frontmatter.status !== 'COMPLETED');
+        if (incompleteChild) {
+          // Dependency is "planned" but not "implemented".
+          blocked = true;
+          break;
+        }
       }
     }
 
