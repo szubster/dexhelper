@@ -42,3 +42,7 @@
 
 ## 2026-05-15 - Tooltips for Icon-Only Interactive Elements
 **Learning:** Icon-only buttons (e.g. close buttons, clear input buttons) can be visually ambiguous. Always provide a `title` attribute for sighted users (especially on desktop where they can hover) alongside `aria-label` for screen readers. This makes the interface more intuitive and accessible without cluttering the visual design.
+
+## 2024-04-22 - Focus Styles on Complex App Layouts
+**Learning:** Standard HTML elements functioning as buttons or links in custom, complex UI components (like `AppLayout` Desktop Navigation or headers) sometimes omit standard focus indicators when customized heavily. This breaks keyboard navigation.
+**Action:** All interactive elements (e.g., links, buttons) across the main layout must explicitly define focus styles using the standard utility class string: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` to ensure consistent accessibility.
