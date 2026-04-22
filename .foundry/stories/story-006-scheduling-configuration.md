@@ -15,3 +15,6 @@ parent: .foundry/epics/epic-004-generic-agent-scheduling.md
 # Scheduling Configuration
 
 Define a configuration mechanism (e.g., a `.yml` config file or a registry within `.github/workflows/`) that allows easy addition of new scheduled agents with their respective cron expressions. This addresses the configurability requirement.
+
+### Generated Tasks
+- [ ] `.foundry/tasks/task-018-implement-scheduled-agent-registry.md`
