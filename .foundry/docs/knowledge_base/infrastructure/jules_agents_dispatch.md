@@ -20,7 +20,7 @@ Just add or remove a `.md` file in `.jules/schedules/`. No workflow changes need
 
 - `JULES_API_KEY` — set in repo Settings → Secrets → Actions
 
-### Current roster (11 agents)
+### Current roster (13 agents)
 
 | Agent | Emoji | Domain |
 |---|---|---|
@@ -33,7 +33,9 @@ Just add or remove a `.md` file in `.jules/schedules/`. No workflow changes need
 | palette | 🎨 | UX & accessibility |
 | scribe | 📜 | Documentation |
 | sentinel | 🧪 | Test coverage |
+| shield | 🔒 | Security & Cryptography |
 | strategist | 🧭 | Roster & prompt quality |
+| sweeper | 🧹 | Code Health & Tech Debt |
 | trainer | 🧠 | Assistant feature |
 
 ### Notes

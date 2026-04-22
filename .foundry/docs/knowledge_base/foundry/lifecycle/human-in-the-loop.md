@@ -5,12 +5,10 @@ The Foundry was originally designed for fully autonomous Jules sessions. IDEA-00
 
 ## Key Decisions
 - **`human` Persona**: A new valid `owner_persona` that bypasses the Jules session dispatcher and heartbeat failure loops.
-- **Optional `pr_number`**: An optional field for tracking PR links. Humans may bypass PRs entirely and commit directly to `main`.
 - **"Pick Up" Workflow**: `READY` tasks with `owner_persona: human` can be unblocked and assigned/claimed by humans.
 - **Closed PR Recovery**: If a linked PR is closed without being merged, the node transitions back to `READY` instead of `FAILED`, allowing it to be reclaimed.
 - **Manual Completion**: Humans can manually set `status: COMPLETED` in frontmatter for direct-to-main work, bypassing the requirement for a merged PR signal.
 
 ## Architectural Implications
 - Orchestrator must support `ACTIVE` nodes without a `jules_session_id` if the owner is `human`.
-- Heartbeat must poll GitHub PR status if `pr_number` is present.
 - Validation (`qa` nodes) is still required after human implementation nodes to maintain system-wide standards.
