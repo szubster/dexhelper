@@ -26,3 +26,6 @@
 **What:** Debounced IndexedDB query inside LocationSuggestions component by adding a 250ms `setTimeout` to delay `pokeDB.getLocations()` fetch based on user typing.
 **Why:** Typing into the search bar rapidly changes `searchTerm`, which triggered the `useEffect` and fired continuous `pokeDB.getLocations()` requests without a debounce, causing main thread to block and resulting in UI freezes.
 **Expected Impact:** Improved responsiveness during rapid keystrokes as the redundant IDB queries are skipped before 250ms have elapsed.
+## 2026-04-22 - [O(N) Map Graph Lookups]
+**Learning:** Calling `Array.prototype.find()` on `allLocations` inside `getDistanceToMap` caused significant $O(N)$ overhead, especially since this function is called inside a nested loop in the suggestion engine for every possible encounter of every missing Pokemon. This resulted in hundreds of redundant array scans.
+**Action:** Implemented a module-level `Map` cache in `gen1Graph.ts` to store locations, keying the cache validity by checking `allLocations` reference. This optimizes the lookup time from $O(N)$ to $O(1)$.
