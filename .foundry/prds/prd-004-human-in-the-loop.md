@@ -2,13 +2,13 @@
 id: "prd-004-human-in-the-loop"
 type: "PRD"
 title: "Human-in-the-Loop Handoff"
-status: "ACTIVE"
+status: READY
 owner_persona: "epic_planner"
 created_at: "2026-04-21"
 updated_at: "2026-04-22"
 depends_on:
   - .foundry/ideas/idea-004-human-in-the-loop.md
-jules_session_id: "13927079115328894118"
+jules_session_id: null
 parent: ".foundry/ideas/idea-004-human-in-the-loop.md"
 tags:
   - "human-in-the-loop"
