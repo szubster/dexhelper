@@ -24,3 +24,7 @@ Implement logic in the orchestrator to intercept `human` tasks that are moving f
 - [ ] Automatically mutate the node's status to `ACTIVE` on disk.
 - [ ] Explicitly omit these `human` nodes from the `readyNodes` JSON output array so GitHub Actions does not spawn a matrix runner for them.
 - [ ] Add a unit test in `.github/scripts/foundry-orchestrator.test.ts` to verify this behavior.
+
+## Generated Tasks
+- `.foundry/tasks/task-022-orchestrator-human-bypass.md`
+- `.foundry/tasks/task-023-qa-orchestrator-human-bypass.md`
