@@ -38,18 +38,19 @@ A custom orchestrator (`.github/scripts/foundry-orchestrator.ts`) parses the `de
 Files are named after their `id` field:
 
 ```
-<type>-<NNN>-<slug>-<hash>.md
+<type>-<parent_NNN>-<NNN>-<slug>.md
 ```
+*(Note: `IDEA` nodes do not have a parent and omit the `<parent_NNN>` segment.)*
 
 Examples:
-- `.foundry/ideas/idea-001-auth-overhaul-a1b2.md`
-- `.foundry/epics/epic-003-gen2-support-c3d4.md`
-- `.foundry/tasks/task-012-parse-daycare-offsets-e5f6.md`
+- `.foundry/ideas/idea-001-auth-overhaul.md` (Idea, no parent)
+- `.foundry/prds/prd-001-002-auth-spec.md` (PRD spawned from Idea 001)
+- `.foundry/tasks/task-010-042-parse-daycare-offsets.md` (Task spawned from Story 010)
 
 - `<type>` is lowercase (idea, prd, epic, story, task).
+- `<parent_NNN>` is the zero-padded three-digit sequence number of the parent node (use `000` if a non-IDEA node is orphaned).
 - `<NNN>` is a zero-padded three-digit sequence number.
 - `<slug>` is a short, kebab-case descriptor.
-- `<hash>` is a 4-character random hex string to ensure collision-free generation by concurrent agents.
 
 ---
 
@@ -59,7 +60,7 @@ Every node file (idea, PRD, epic, story, task) **must** begin with a YAML frontm
 
 ```yaml
 ---
-id: ""                  # Required. Globally unique slug. Convention: <type>-<NNN>-<slug>-<hash>
+id: ""                  # Required. Globally unique slug. Convention: <type>-<parent_NNN>-<NNN>-<slug>
 type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK
 title: ""               # Required. Human-readable short title.
 status: ""              # Required. Enum: see Status Lifecycle section.
@@ -79,7 +80,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `id` | `string` | ✅ | Globally unique. Convention: `<type>-<NNN>-<slug>-<hash>`. Used by humans and search; the DAG uses file paths. |
+| `id` | `string` | ✅ | Globally unique. Convention: `<type>-<parent_NNN>-<NNN>-<slug>`. Used by humans and search; the DAG uses file paths. |
 | `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK` |
 | `title` | `string` | ✅ | Short, human-readable description. |
 | `status` | `enum` | ✅ | Current lifecycle state. See §4. |
@@ -187,7 +188,7 @@ Copy-paste this block to start any new node. Fill in all required fields before 
 
 ```yaml
 ---
-id: <type>-<NNN>-<slug>-<hash>
+id: <type>-<parent_NNN>-<NNN>-<slug>
 type: 
 title: ""
 status: PENDING
