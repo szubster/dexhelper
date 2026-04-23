@@ -21,12 +21,16 @@ tags:
 Implement the strict permissions model for node creation per persona during late binding.
 
 ## Acceptance Criteria
-- [ ] `architect` can create `TASK`, `ADR`, and `IDEA` nodes.
-- [ ] `tech_lead` can create `TASK` and `ADR` nodes.
-- [ ] `story_owner` can create `STORY` and `EPIC` nodes.
-- [ ] `product_manager` can create `IDEA`, `PRD`, and `EPIC` nodes.
-- [ ] The system orchestrator and pre-commit hooks enforce these bounds.
-- [ ] Any unauthorized node creation attempts are cleanly rejected or failed.
+- [x] `architect` can create `TASK`, `ADR`, and `IDEA` nodes.
+- [x] `tech_lead` can create `TASK` and `ADR` nodes.
+- [x] `story_owner` can create `STORY` and `EPIC` nodes.
+- [x] `product_manager` can create `IDEA`, `PRD`, and `EPIC` nodes.
+- [x] The system orchestrator and pre-commit hooks enforce these bounds.
+- [x] Any unauthorized node creation attempts are cleanly rejected or failed.
 
 ## Context
 See `.foundry/epics/epic-010-persona-permissions.md` and `.foundry/docs/adrs/001-the-foundry-architecture.md` for background.
+
+### Generated Tasks
+- `.foundry/tasks/task-010-024-enforce-persona-permissions.md`
+- `.foundry/tasks/task-010-025-qa-persona-permissions.md`
