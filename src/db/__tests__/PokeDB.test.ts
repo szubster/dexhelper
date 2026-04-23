@@ -209,6 +209,51 @@ describe('PokeDB', () => {
     expect(manyResult[0]).toBeInstanceOf(Error);
   });
 
+  it('inflates recursive evo chains correctly', async () => {
+    const mockData = {
+      hash: 'evo-chain-hash',
+      poke: [
+        {
+          id: 1,
+          n: 'P1',
+          cr: 10,
+          gr: 1,
+          baby: false,
+          efrm: [],
+          det: [],
+          eto: [
+            {
+              id: 2,
+              det: [{ tr: 1 }],
+              eto: [
+                {
+                  id: 3,
+                  det: [{ tr: 2 }],
+                  eto: [],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      enc: [],
+      loc: [],
+    };
+
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      json: async () => mockData,
+    } as Response);
+
+    await pokeDB.sync();
+
+    const p1 = await pokeDB.getPokemon(1);
+    expect(p1?.eto?.[0]?.id).toBe(2);
+    expect(p1?.eto?.[0]?.det?.[0]?.tr).toBe(1);
+    expect(p1?.eto?.[0]?.eto?.[0]?.id).toBe(3);
+    expect(p1?.eto?.[0]?.eto?.[0]?.det?.[0]?.tr).toBe(2);
+  });
+
   it('resolves area names correctly', async () => {
     const mockData = {
       hash: 'area-hash',
