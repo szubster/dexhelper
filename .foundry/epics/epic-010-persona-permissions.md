@@ -2,7 +2,7 @@
 id: epic-010-persona-permissions
 type: EPIC
 title: "Persona Permissions Matrix for Late Binding"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-23"
 updated_at: "2026-04-23"

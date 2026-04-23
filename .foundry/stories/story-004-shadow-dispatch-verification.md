@@ -2,12 +2,12 @@
 id: story-004-shadow-dispatch-verification
 type: STORY
 title: "Shadow Dispatch Verification Phase"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: tech_lead
 created_at: "2026-04-22"
 updated_at: "2026-04-23"
 depends_on: []
-jules_session_id: "14695778296385308401"
+jules_session_id: null
 parent: .foundry/epics/epic-005-shadow-dispatch-prevention.md
 tags: ["orchestrator", "concurrency", "investigation"]
 rejection_count: 0

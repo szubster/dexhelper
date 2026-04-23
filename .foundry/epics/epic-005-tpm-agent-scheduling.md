@@ -2,10 +2,10 @@
 id: "epic-005-tpm-agent-scheduling"
 type: "EPIC"
 title: "TPM Agent Scheduling"
-status: "PENDING"
+status: READY
 owner_persona: "story_owner"
 created_at: "2026-04-21"
-updated_at: "2026-04-21"
+updated_at: "2026-04-23"
 depends_on:
   - ".foundry/epics/epic-004-generic-agent-scheduling.md"
 jules_session_id: null

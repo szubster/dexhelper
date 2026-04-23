@@ -2,7 +2,7 @@
 id: task-021-investigate-shadow-dispatch
 type: TASK
 title: "Document Shadow Dispatch Verification Findings"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-23"
 updated_at: "2026-04-23"

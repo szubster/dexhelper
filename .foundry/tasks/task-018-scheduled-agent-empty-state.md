@@ -2,13 +2,13 @@
 id: task-018-scheduled-agent-empty-state
 type: TASK
 title: "Scheduled Agent Workflow Empty State Support via Prompt"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: coder
 created_at: "2026-04-22"
 updated_at: "2026-04-23"
 depends_on:
   - .foundry/stories/story-005-empty-state-handling.md
-jules_session_id: "17599951470939532261"
+jules_session_id: null
 parent: .foundry/stories/story-005-empty-state-handling.md
 tags: []
 rejection_count: 1
