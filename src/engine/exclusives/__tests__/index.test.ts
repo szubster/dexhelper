@@ -7,6 +7,12 @@ describe('exclusives/index', () => {
     it('should return gen1UnobtainableReason for generation 1', () => {
       const checker = getExclusivesChecker(1);
       expect(checker).toBe(gen1UnobtainableReason);
+
+      if (checker) {
+        const ownedSet = new Set<number>();
+        const reason = checker(26, 'yellow', 1, ownedSet);
+        expect(reason).toContain('Thunder Stone');
+      }
     });
 
     it('should return null for unsupported generations', () => {
