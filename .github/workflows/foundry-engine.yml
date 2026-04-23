@@ -149,14 +149,23 @@ jobs:
 
           # 2. Construct the prompt JSON
           # source: sources/github/<owner>/<repo>
+
+          # Late Binding check
+          if [[ "$owner_persona" == "architect" || "$owner_persona" == "tech_lead" || "$owner_persona" == "story_owner" || "$owner_persona" == "product_manager" ]]; then
+            frontmatter_rule="### LATE BINDING PERMISSIONS\nYou are authorized to modify the YAML frontmatter of your node for Late Binding protocols (Wait & Wake, Impossible Loop), such as updating 'depends_on', changing status to PENDING or FAILED, and adding 'rejection_reason'."
+          else
+            frontmatter_rule="### CRITICAL RULE\nDO NOT modify the YAML frontmatter of the task node. Only update the markdown body (e.g., acceptance criteria checkboxes)."
+          fi
+
           prompt_json=$(jq -n \
             --arg task "$task_content" \
             --arg agent_context "$agent_context" \
+            --arg frontmatter_rule "$frontmatter_rule" \
             --arg title "${{ matrix.node.title }}" \
             --arg repo "${{ github.repository }}" \
             --arg schema_url "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" \
             '{
-              "prompt": "\($agent_context)\n\n### CRITICAL RULE\nDO NOT modify the YAML frontmatter of the task node. Only update the markdown body (e.g., acceptance criteria checkboxes).\n\n### TASK NODE\n\($task)\n\n### SCHEMA\n\($schema_url)",
+              "prompt": "\($agent_context)\n\n\($frontmatter_rule)\n\n### TASK NODE\n\($task)\n\n### SCHEMA\n\($schema_url)",
               "sourceContext": {
                 "source": "sources/github/\($repo)",
                 "githubRepoContext": {
