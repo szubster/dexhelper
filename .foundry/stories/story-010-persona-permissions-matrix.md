@@ -2,12 +2,12 @@
 id: story-010-persona-permissions-matrix
 type: STORY
 title: "Implement Persona Node Creation Permissions Matrix"
-status: "READY"
+status: "ACTIVE"
 owner_persona: tech_lead
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on: []
-jules_session_id: null
+jules_session_id: "11165832185709609742"
 parent: ".foundry/epics/epic-010-persona-permissions.md"
 tags:
   - foundry-v2
