@@ -321,6 +321,34 @@ describe('PokeDB', () => {
       expect(enc?.pid).toBe(1);
     });
 
+    it('getEncountersBulk returns correctly', async () => {
+      const mockData = {
+        hash: 'new-hash',
+        poke: [],
+        enc: [
+          { pid: 1, enc: [] },
+          { pid: 2, enc: [] },
+        ],
+        loc: [],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const results = await pokeDB.getEncountersBulk([1, 2, 999]);
+      expect(results).toHaveLength(3);
+      expect((results[0] as { pid: number }).pid).toBe(1);
+      expect((results[1] as { pid: number }).pid).toBe(2);
+      expect(results[2]).toBeInstanceOf(Error);
+    });
+
+    it('getEncountersBulk returns errors for invalid ids', async () => {
+      const manyResult = await pokeDB.getEncountersBulk([NaN]);
+      expect(manyResult[0]).toBeInstanceOf(Error);
+    });
+
     it('getAllEncounters returns all encounters', async () => {
       const mockData = {
         hash: 'new-hash',
