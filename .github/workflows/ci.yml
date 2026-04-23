@@ -35,6 +35,9 @@ jobs:
       - name: Type Check
         run: pnpm type-check
 
+      - name: Oxlint
+        run: pnpm exec oxlint .
+
       - name: Knip
         run: pnpm knip
 

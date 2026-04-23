@@ -8,5 +8,7 @@ pre-commit:
       run: pnpm exec biome check --write --error-on-warnings --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
       stage_fixed: true
       fail_on_changes: ci
+    oxlint:
+      run: pnpm exec oxlint {staged_files}
     type-check:
       run: pnpm lint
