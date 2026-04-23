@@ -2,13 +2,13 @@
 id: task-021-document-id-schema
 type: TASK
 title: "Finalize ID Schema and Update Documentation"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: coder
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on:
   - .foundry/stories/story-004-id-schema-decision.md
-jules_session_id: "14002777326962710211"
+jules_session_id: null
 parent: .foundry/stories/story-004-id-schema-decision.md
 ---
 

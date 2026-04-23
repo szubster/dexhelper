@@ -2,7 +2,7 @@
 id: "epic-005-tpm-agent-scheduling"
 type: "EPIC"
 title: "TPM Agent Scheduling"
-status: "FAILED"
+status: "READY"
 owner_persona: "story_owner"
 created_at: "2026-04-21"
 updated_at: "2026-04-23"
@@ -11,7 +11,7 @@ depends_on:
 jules_session_id: null
 parent: ".foundry/prds/prd-001-agent-scheduling.md"
 tags: ["infrastructure"]
-rejection_count: 0
+rejection_count: 1
 notes: ""
 ---
 

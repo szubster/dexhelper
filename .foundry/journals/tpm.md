@@ -134,3 +134,13 @@
 - **2026-04-23**: Heartbeat detected zombie session for `story-007-schema-invariant`. Transitioned to FAILED.
 
 - **2026-04-23**: Heartbeat detected zombie session for `task-021-investigate-shadow-dispatch`. Transitioned to FAILED.
+
+- **2026-04-23**: PR #451 merged. `task-021-document-id-schema` is now COMPLETED.
+
+- **2026-04-23**: Resurrection Loop triggered for `epic-005-tpm-agent-scheduling`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-23**: Resurrection Loop triggered for `epic-010-human-schema`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-23**: Resurrection Loop triggered for `story-007-schema-invariant`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-23**: Resurrection Loop triggered for `task-021-investigate-shadow-dispatch`. Reason: Retry from FAILED status.. Transitioned back to READY.

@@ -2,7 +2,7 @@
 id: epic-010-human-schema
 type: EPIC
 title: "Update Foundry Schema for Human Persona"
-status: "FAILED"
+status: "READY"
 owner_persona: story_owner
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
