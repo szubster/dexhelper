@@ -2,12 +2,12 @@
 id: story-011-human-heartbeat-script
 type: STORY
 title: "Update heartbeat script to support human tasks"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: tech_lead
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on: []
-jules_session_id: "13485292715122503337"
+jules_session_id: null
 parent: ".foundry/epics/epic-012-human-heartbeat.md"
 tags:
   - "human-in-the-loop"

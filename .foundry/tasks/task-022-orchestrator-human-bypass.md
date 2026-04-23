@@ -2,7 +2,7 @@
 id: task-022-orchestrator-human-bypass
 type: TASK
 title: "Implement Human Task Bypass in Orchestrator"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
