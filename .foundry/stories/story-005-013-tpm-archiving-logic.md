@@ -2,7 +2,7 @@
 id: story-005-013-tpm-archiving-logic
 type: STORY
 title: "TPM Archiving Logic"
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-23"
 updated_at: "2026-04-23"

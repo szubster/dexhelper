@@ -166,3 +166,13 @@
 - **2026-04-23**: Resurrection Loop triggered for `story-005-id-schema-templates`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-23**: Resurrection Loop triggered for `story-010-persona-permissions-matrix`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-23**: PR #459 merged. `epic-005-tpm-agent-scheduling` is now COMPLETED.
+
+- **2026-04-23**: Heartbeat detected zombie session for `epic-010-oxlint-config`. Transitioned to FAILED.
+
+- **2026-04-23**: Heartbeat detected zombie session for `story-005-id-schema-templates`. Transitioned to FAILED.
+
+- **2026-04-23**: Heartbeat detected zombie session for `story-007-schema-invariant`. Transitioned to FAILED.
+
+- **2026-04-23**: Resurrection Loop triggered for `task-021-investigate-shadow-dispatch`. Reason: Retry from FAILED status.. Transitioned back to READY.

@@ -2,7 +2,7 @@
 id: story-005-012-configure-tpm-schedule
 type: STORY
 title: "Configure TPM Schedule"
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
