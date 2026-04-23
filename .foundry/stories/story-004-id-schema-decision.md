@@ -32,3 +32,6 @@ Collaborate with the Architect/Tech Lead to finalize the new collision-free ID s
 - A new or updated ADR confirms the chosen ID pattern.
 - `.foundry/docs/schema.md` accurately describes the new ID format.
 - All technical contracts specify exactly how the IDs should be generated going forward.
+
+## Generated Tasks
+- .foundry/tasks/task-021-document-id-schema.md
