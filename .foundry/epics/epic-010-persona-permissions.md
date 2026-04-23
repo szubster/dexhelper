@@ -24,8 +24,11 @@ Implement the system permissions necessary for different personas to dynamically
 - Review `.foundry/docs/adrs/001-the-foundry-architecture.md` for current system architecture.
 
 ## High-level Acceptance Criteria
-- [ ] `architect` persona can create `TASK`, `ADR`, and `IDEA` nodes.
-- [ ] `tech_lead` persona can create `TASK` and `ADR` nodes to break down a Story.
-- [ ] `story_owner` persona can create `STORY` and `EPIC` nodes to expand requirements.
-- [ ] `product_manager` persona can create `IDEA`, `PRD`, and `EPIC` nodes for roadmap evolution.
-- [ ] System strictly enforces these permissions to prevent unauthorized node creation.
+- [x] `architect` persona can create `TASK`, `ADR`, and `IDEA` nodes.
+- [x] `tech_lead` persona can create `TASK` and `ADR` nodes to break down a Story.
+- [x] `story_owner` persona can create `STORY` and `EPIC` nodes to expand requirements.
+- [x] `product_manager` persona can create `IDEA`, `PRD`, and `EPIC` nodes for roadmap evolution.
+- [x] System strictly enforces these permissions to prevent unauthorized node creation.
+
+### Generated Stories
+- `.foundry/stories/story-010-persona-permissions-matrix.md`
