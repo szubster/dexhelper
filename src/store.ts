@@ -118,11 +118,18 @@ export const useStore = create<AppStore>()(
             if (!base64Regex.test(savedFile)) {
               throw new Error('Invalid Base64 string');
             }
-            const binaryString = window.atob(savedFile);
-            const len = binaryString.length;
-            const bytes = new Uint8Array(len);
-            for (let i = 0; i < len; i++) {
-              bytes[i] = binaryString.charCodeAt(i);
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+            const clean = savedFile.replace(/=+$/, '');
+            const bytes = new Uint8Array(Math.floor(clean.length * 0.75));
+            for (let i = 0, p = 0; i < clean.length; i += 4) {
+              const n =
+                (chars.indexOf(clean[i] as string) << 18) |
+                (chars.indexOf((clean[i + 1] || 'A') as string) << 12) |
+                (chars.indexOf((clean[i + 2] || 'A') as string) << 6) |
+                chars.indexOf((clean[i + 3] || 'A') as string);
+              bytes[p++] = (n >> 16) & 255;
+              if (i + 2 < clean.length) bytes[p++] = (n >> 8) & 255;
+              if (i + 3 < clean.length) bytes[p++] = n & 255;
             }
             const { manualVersion } = get();
             const data = parseSaveFile(bytes.buffer, manualVersion || undefined);
