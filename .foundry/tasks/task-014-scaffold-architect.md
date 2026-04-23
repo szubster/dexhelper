@@ -2,10 +2,10 @@
 id: task-014-scaffold-architect
 type: TASK
 title: "Scaffold Architect Persona"
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-21"
-updated_at: "2026-04-21"
+updated_at: "2026-04-23"
 depends_on:
   - .foundry/stories/story-003-dynamic-verification.md
 jules_session_id: null
