@@ -2,13 +2,13 @@
 id: "epic-007-atomic-handoff-schema"
 type: "EPIC"
 title: "Epic: Atomic Handoff Schema & Documentation"
-status: READY
+status: "ACTIVE"
 owner_persona: "story_owner"
 created_at: "2026-04-22"
 updated_at: "2026-04-23"
 depends_on:
   - .foundry/prds/prd-001-v2-lifecycle.md
-jules_session_id: null
+jules_session_id: "498764716216328200"
 parent: ".foundry/prds/prd-001-v2-lifecycle.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 ---
