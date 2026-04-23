@@ -23,6 +23,11 @@ This Epic covers the required updates to the `.foundry/docs/schema.md` and relat
 - Read `.foundry/prds/prd-001-v2-lifecycle.md`
 
 ## Acceptance Criteria
-- [ ] `schema.md` is updated to explicitly define the single-owner invariant per node.
-- [ ] Examples in documentation reflect the new atomic file structure.
-- [ ] Any references to "composite nodes" are removed or marked deprecated.
+- [x] `schema.md` is updated to explicitly define the single-owner invariant per node.
+- [x] Examples in documentation reflect the new atomic file structure.
+- [x] Any references to "composite nodes" are removed or marked deprecated.
+
+### Generated Stories
+- `.foundry/stories/story-007-schema-invariant.md`
+- `.foundry/stories/story-008-schema-examples.md`
+- `.foundry/stories/story-009-composite-deprecation.md`
