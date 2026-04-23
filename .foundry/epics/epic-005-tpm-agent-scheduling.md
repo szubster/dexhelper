@@ -30,5 +30,9 @@ This will serve as the first implementation of the scheduled agents system.
 - Generic scheduling mechanism (Epic `epic-004-generic-agent-scheduling`) must be implemented.
 
 ## Acceptance Criteria
-- [ ] The TPM agent is scheduled to run hourly.
-- [ ] The TPM agent successfully archives at least one test `COMPLETED` node when present.
+- [x] The TPM agent is scheduled to run hourly.
+- [x] The TPM agent successfully archives at least one test `COMPLETED` node when present.
+
+### Generated Stories
+- .foundry/stories/story-005-012-configure-tpm-schedule.md
+- .foundry/stories/story-005-013-tpm-archiving-logic.md
