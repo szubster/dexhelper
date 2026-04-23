@@ -19,3 +19,6 @@ notes: ""
 Implement logic in the TPM agent (`.github/agents/tpm.md` or a related task/script) to successfully identify and archive at least one test `COMPLETED` node when present.
 
 **Note:** The TPM agent should be designed to be conservative when archiving. Even if a node is marked `COMPLETED`, if the TPM determines it might still be relevant or needed, it should retain it. It's better to leave more nodes unarchived than to aggressively remove nodes that might still have value.
+
+## Generated Tasks
+- [.foundry/tasks/task-013-024-update-tpm-prompt.md](../../.foundry/tasks/task-013-024-update-tpm-prompt.md)
