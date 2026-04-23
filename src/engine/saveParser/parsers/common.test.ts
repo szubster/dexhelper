@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { checkShiny, decodeGen12String, parseDVs } from './common';
 
 describe('common parsers', () => {
@@ -72,6 +72,23 @@ describe('common parsers', () => {
       view.setUint8(3, 0x83);
       view.setUint8(4, 0x50);
       expect(decodeGen12String(view, 0, 2)).toBe('AB');
+    });
+
+    test('stops at end of buffer (RangeError)', () => {
+      const buffer = new ArrayBuffer(2);
+      const view = new DataView(buffer);
+      view.setUint8(0, 0x80);
+      view.setUint8(1, 0x81);
+      expect(decodeGen12String(view, 0)).toBe('AB');
+    });
+
+    test('rethrows non-RangeError exceptions', () => {
+      const buffer = new ArrayBuffer(4);
+      const view = new DataView(buffer);
+      vi.spyOn(view, 'getUint8').mockImplementation(() => {
+        throw new Error('Custom Error');
+      });
+      expect(() => decodeGen12String(view, 0)).toThrow('Custom Error');
     });
   });
 
