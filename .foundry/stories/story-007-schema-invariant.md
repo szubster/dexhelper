@@ -18,5 +18,8 @@ parent: ".foundry/epics/epic-007-atomic-handoff-schema.md"
 As part of the Atomic Handoffs transition, `schema.md` must be updated to strictly enforce the single-owner invariant per node.
 
 ## Acceptance Criteria
-- `schema.md` states that `owner_persona` must be exactly one assigned persona.
-- The single-owner invariant is added to the "System Invariants" section.
+- [x] `schema.md` states that `owner_persona` must be exactly one assigned persona.
+- [x] The single-owner invariant is added to the "System Invariants" section.
+
+## Generated Tasks
+- `.foundry/tasks/task-007-024-update-schema-owner-invariant.md`
