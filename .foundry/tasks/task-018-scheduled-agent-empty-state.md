@@ -31,7 +31,7 @@ Modify `.github/workflows/foundry-scheduled-agent.yml` to support an agent-drive
    - The auto-closing mechanism will be implemented in a separate task.
 
 ## Acceptance Criteria
-- [ ] The `foundry-scheduled-agent.yml` workflow prompt explicitly informs the agent how to handle lack of work.
+- [x] The `foundry-scheduled-agent.yml` workflow prompt explicitly informs the agent how to handle lack of work.
 
 ## Verification Protocol
 Self-verification designated to the `coder`. Verify by triggering the workflow manually for a persona with no work and ensuring the prompt is formatted correctly in the Actions logs. Document the results in the task journal.
