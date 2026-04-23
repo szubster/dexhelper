@@ -15,8 +15,8 @@ export const dexDataLoader = {
 
   encounters: new DataLoader<number, LocationAreaEncounters>(
     async (ids) => {
-      const encounters = await Promise.all(ids.map((id) => pokeDB.getEncounters(id)));
-      return encounters.map((enc, index) => enc ?? new Error(`Encounters not found for ${ids[index]}`));
+      // ⚡ Bolt: Use bulk fetch to prevent N+1 IDB queries
+      return pokeDB.getEncountersBulk([...ids]);
     },
     { cache: true },
   ),
