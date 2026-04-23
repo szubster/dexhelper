@@ -22,14 +22,21 @@ export type PokeballType =
 // ─── Store Interface ─────────────────────────────────────────────────
 interface AppStore {
   // Save data
+  /**
+   * The heavy, transient parsed save state.
+   * This is intentionally excluded from localStorage persistence (via `partialize`)
+   * to prevent bloating the storage quota and stale state bugs.
+   */
   saveData: SaveData | null;
   error: string | null;
   setSaveData: (data: SaveData | null) => void;
   setError: (v: string | null) => void;
 
   // Persisted settings
+  /** Active UI filters explicitly persisted to localStorage via partialize. */
   filters: FilterType[];
   manualVersion: GameVersion | null;
+  /** Whether the user is tracking a living dex (persisted via partialize). */
   isLivingDex: boolean;
   globalPokeball: PokeballType;
   toggleFilter: (f: FilterType) => void;
@@ -52,6 +59,11 @@ interface AppStore {
   filtersSet: () => Set<FilterType>;
 
   // Actions
+  /**
+   * Rehydrates `saveData` from a base64 encoded `last_save_file` in localStorage.
+   * Invariant: If the data is corrupted or parsing fails, the cached file is immediately
+   * deleted to prevent infinite crash loops on subsequent reloads.
+   */
   loadSaveFromStorage: () => void;
 }
 
