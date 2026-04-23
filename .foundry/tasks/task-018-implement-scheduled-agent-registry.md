@@ -2,12 +2,12 @@
 id: task-018-implement-scheduled-agent-registry
 type: TASK
 title: "Implement Scheduled Agent Registry"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: coder
 created_at: "2026-04-22"
 updated_at: "2026-04-23"
 depends_on: []
-jules_session_id: "12059888989811248189"
+jules_session_id: null
 parent: .foundry/stories/story-006-scheduling-configuration.md
 tags: ["infrastructure"]
 rejection_count: 1

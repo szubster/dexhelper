@@ -2,12 +2,12 @@
 id: task-021-investigate-shadow-dispatch
 type: TASK
 title: "Document Shadow Dispatch Verification Findings"
-status: PENDING
+status: "ACTIVE"
 owner_persona: coder
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on: []
-jules_session_id: null
+jules_session_id: "6525629102805167143"
 parent: .foundry/stories/story-004-shadow-dispatch-verification.md
 tags: ["orchestrator", "concurrency", "investigation"]
 rejection_count: 0
