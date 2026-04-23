@@ -12,11 +12,11 @@ test.describe('Pokemon Details Modal', () => {
 
     // 3. Verify Modal Headers
     await expect(page.getByRole('dialog')).toBeVisible();
-    await expect(page.getByText(/Index No\. 025/i)).toBeVisible();
+    await expect(page.getByText(/\[ SUBJECT_ID: 025 \]/i)).toBeVisible();
     await expect(page.getByText('Pikachu', { exact: true }).nth(0)).toBeVisible();
 
     // 5. Verify Collection Status
-    await expect(page.getByText(/Collection Secured/i)).toBeVisible();
+    await expect(page.getByText(/Status: Secured/i)).toBeVisible();
 
     // 6. Verify Evolution Section
     await expect(page.getByRole('heading', { name: /Evolution/i })).toBeVisible();
@@ -24,7 +24,7 @@ test.describe('Pokemon Details Modal', () => {
 
     // 7. Test Navigation (Click on Raichu in evolutions)
     await page.getByRole('button', { name: 'RAICHU' }).first().click();
-    await expect(page.getByText(/Index No\. 026/i)).toBeVisible();
+    await expect(page.getByText(/\[ SUBJECT_ID: 026 \]/i)).toBeVisible();
     await expect(page.getByText('Raichu', { exact: true }).nth(0)).toBeVisible();
   });
 

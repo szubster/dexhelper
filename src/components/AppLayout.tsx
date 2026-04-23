@@ -238,6 +238,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   <RefreshCw size={20} />
                   <input
                     type="file"
+                    tabIndex={-1}
                     aria-label="Import New Save"
                     accept=".sav"
                     className="sr-only"
@@ -252,6 +253,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               Initialize Pokedex
               <input
                 type="file"
+                tabIndex={-1}
                 aria-label="Initialize Pokedex"
                 accept=".sav"
                 className="sr-only"

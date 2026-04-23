@@ -290,6 +290,29 @@ export const pokeDB = {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.POKEMON);
   },
+  getEncountersBulk: async (ids: number[]): Promise<(LocationAreaEncounters | Error)[]> => {
+    await pokeDB.ready();
+    const db = await getDB();
+    const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
+    if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
+
+    // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead for encounters
+    const tx = db.transaction(DB_CONFIG.STORES.ENCOUNTERS, 'readonly');
+    const store = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
+    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    await tx.done;
+
+    const resultMap = new Map<number, LocationAreaEncounters>();
+    for (const e of fetched) {
+      if (e) resultMap.set(e.pid, e);
+    }
+
+    return ids.map((id) => {
+      if (typeof id !== 'number' || Number.isNaN(id)) return new Error('Invalid ID');
+      const found = resultMap.get(id);
+      return found ?? new Error(`Encounters not found for ${id}`);
+    });
+  },
 
   // Internal/Test helper to reset the sync state
   _resetSync: () => {

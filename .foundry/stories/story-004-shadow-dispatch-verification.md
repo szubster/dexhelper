@@ -28,3 +28,6 @@ Verify if "Shadow Dispatch" is actually a problem in practice, or if the current
 - [ ] Investigation is completed.
 - [ ] A summary of findings is provided.
 - [ ] A definitive conclusion on whether shadow dispatch is an issue is documented.
+
+## Generated Tasks
+- .foundry/tasks/task-021-investigate-shadow-dispatch.md
