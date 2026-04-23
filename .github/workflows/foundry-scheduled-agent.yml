@@ -49,11 +49,12 @@ jobs:
           # Construct the prompt JSON
           prompt_json=$(jq -n \
             --arg agent_context "$agent_context" \
+            --arg empty_state "If you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session. An empty PR diff is acceptable and will be closed automatically." \
             --arg repo "${{ github.repository }}" \
             --arg schema_url "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" \
             --arg title "Scheduled Agent: $persona" \
             '{
-              "prompt": "\($agent_context)\n\n### SCHEMA\n\($schema_url)",
+              "prompt": "\($agent_context)\n\n\($empty_state)\n\n### SCHEMA\n\($schema_url)",
               "sourceContext": {
                 "source": "sources/github/\($repo)",
                 "githubRepoContext": {
