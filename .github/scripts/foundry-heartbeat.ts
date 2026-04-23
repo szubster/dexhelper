@@ -254,6 +254,11 @@ export async function main() {
 
   // --- Pass 2: Check FAILED Nodes ---
   for (const node of failedNodes) {
+    if (node.frontmatter.rejection_reason) {
+      info(`Node ${node.repoPath} has a rejection_reason. Skipping resurrection (Impossible Loop).`);
+      logToJournal(repoRoot, `\n- **${todayISO()}**: Node \`${node.frontmatter.id}\` is in an Impossible Loop (rejection_reason present). Skipping resurrection.\n`);
+      continue;
+    }
     await transitionNodeToReady(node, repoRoot, `Retry from FAILED status.`);
   }
 }
