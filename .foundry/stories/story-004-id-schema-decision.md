@@ -2,13 +2,13 @@
 id: story-004-id-schema-decision
 type: STORY
 title: "Decide ID Schema and Update Documentation"
-status: "ACTIVE"
+status: PENDING
 owner_persona: tech_lead
 created_at: "2026-04-22"
 updated_at: "2026-04-22"
 depends_on:
   - .foundry/epics/epic-004-distributed-id-schema.md
-jules_session_id: "518362064212663558"
+jules_session_id: null
 parent: .foundry/epics/epic-004-distributed-id-schema.md
 ---
 

@@ -94,7 +94,3 @@
 - **2026-04-22**: Heartbeat detected zombie session for `story-005-empty-state-handling`. Transitioned to FAILED.
 
 - **2026-04-22**: Heartbeat detected zombie session for `story-006-scheduling-configuration`. Transitioned to FAILED.
-
-- **2026-04-22**: Heartbeat detected zombie session for `idea-006-gen2-expansion`. Transitioned to FAILED.
-
-- **2026-04-22**: Resurrection Loop triggered for `idea-006-gen2-expansion`. Reason: Retry from FAILED status.. Transitioned back to READY.

@@ -246,10 +246,10 @@ function promoteNodeToReady(node: ParsedNode): void {
   const originalFmBlock = fmBlockMatch[0];
   let mutatedFmBlock = originalFmBlock;
 
-  // ① Replace `status: PENDING` (handles optional single/double quotes).
+  // ① Replace `status: PENDING` (handles optional single/double quotes and trailing whitespace/CR).
   //    The 'm' flag makes ^ and $ match line boundaries within the block.
   mutatedFmBlock = mutatedFmBlock.replace(
-    /^(status:\s*)["']?PENDING["']?([ \t]*)$/m,
+    /^(status:\s*)["']?PENDING["']?([ \t\r]*)$/m,
     `$1READY$2`,
   );
 
@@ -261,7 +261,7 @@ function promoteNodeToReady(node: ParsedNode): void {
 
   // ② Replace `updated_at` — handles both quoted and unquoted date values.
   mutatedFmBlock = mutatedFmBlock.replace(
-    /^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t]*)$/m,
+    /^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t\r]*)$/m,
     `$1"${dateStr}"$2`,
   );
 
@@ -422,8 +422,8 @@ function main(): void {
         break;
       }
 
-      // A node is blocked if its parent is not COMPLETED
-      if (parentNode.frontmatter.status !== 'COMPLETED') {
+      // A node is blocked if its parent is not ACTIVE or COMPLETED
+      if (parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'COMPLETED') {
         blocked = true;
         break;
       }
@@ -447,15 +447,14 @@ function main(): void {
         break;
       }
 
-      // If it's an external dependency (not an ancestor), it must be hierarchically complete.
-      // If it is an ancestor, we only care that it is status COMPLETED.
+      // If it is an ancestor, we only care that it is status ACTIVE or COMPLETED.
       if (!isDescendant(node.repoPath, depPath)) {
         if (isHierarchicallyIncomplete(depPath)) {
           blocked = true;
           break;
         }
       } else {
-        if (dep.frontmatter.status !== 'COMPLETED') {
+        if (dep.frontmatter.status !== 'ACTIVE' && dep.frontmatter.status !== 'COMPLETED') {
           blocked = true;
           break;
         }
