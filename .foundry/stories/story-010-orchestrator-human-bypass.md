@@ -2,7 +2,7 @@
 id: story-010-orchestrator-human-bypass
 type: STORY
 title: "Implement Human Task Bypass in Orchestrator"
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-23"
 updated_at: "2026-04-23"

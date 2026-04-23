@@ -2,12 +2,12 @@
 id: epic-010-persona-permissions
 type: EPIC
 title: "Persona Permissions Matrix for Late Binding"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: story_owner
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on: []
-jules_session_id: "7897259212860446027"
+jules_session_id: null
 parent: ".foundry/prds/prd-002-late-binding-orchestrator.md"
 tags:
   - foundry-v2

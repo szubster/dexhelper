@@ -120,3 +120,17 @@
 - **2026-04-23**: PR #433 merged. `task-018-scheduled-agent-empty-state` is now COMPLETED.
 
 - **2026-04-23**: PR #438 merged. `task-020-auto-close-empty-prs` is now COMPLETED.
+
+- **2026-04-23**: Heartbeat detected zombie session for `epic-005-tpm-agent-scheduling`. Transitioned to FAILED.
+
+- **2026-04-23**: Heartbeat detected zombie session for `epic-010-human-schema`. Transitioned to FAILED.
+
+- **2026-04-23**: PR #449 merged. `epic-010-persona-permissions` is now COMPLETED.
+
+- **2026-04-23**: PR #452 merged. `epic-011-human-orchestrator` is now COMPLETED.
+
+- **2026-04-23**: PR #450 merged. `epic-012-human-heartbeat` is now COMPLETED.
+
+- **2026-04-23**: Heartbeat detected zombie session for `story-007-schema-invariant`. Transitioned to FAILED.
+
+- **2026-04-23**: Heartbeat detected zombie session for `task-021-investigate-shadow-dispatch`. Transitioned to FAILED.
