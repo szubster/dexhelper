@@ -35,3 +35,6 @@ Currently, any task that reaches `READY` status is collected by the orchestrator
 ## 5. Implementation Notes
 - Human nodes will still be tracked in the broader DAG resolution loop, they just take a different path at the exact moment of dispatch.
 - Ensure backwards compatibility with all other agent personas.
+
+## Generated Stories
+- `.foundry/stories/story-010-orchestrator-human-bypass.md`
