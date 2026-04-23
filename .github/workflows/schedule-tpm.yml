@@ -3,6 +3,9 @@ on:
   schedule:
     - cron: "0 * * * *"
   workflow_dispatch:
+permissions:
+  contents: read
+  packages: read
 jobs:
   run_tpm:
     uses: ./.github/workflows/foundry-scheduled-agent.yml
