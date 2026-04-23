@@ -36,3 +36,8 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 ## Learnings
 * Make sure `pnpm` resolves correct version compatibility warning, `vitest coverage` reporter configuration error (like loading `text` report module causing Startup Error, use `--reporter=default` instead).
 * `vi.mocked(fetch).mockResolvedValue` requires mocking properties appropriately for Deep Types (like `json: async () => mockData` to simulate Response Object resolving body mapping)
+
+## 2026-04-23 - Assistant routing fallback tests
+**What:** Added `fallbackStrategy` and its corresponding tests in `index.ts` and `index.test.ts`.
+**Coverage Before/After:** Test coverage for routing logic improved by verifying all methods of the returned fallback object safely return empty values instead of silently routing unsupported generations to gen 1 logic.
+**Why this target matters:** Ensures unknown generation queries return deterministic safe empties, preventing downstream engine crashes or misleading suggestions from bleeding across generations.
