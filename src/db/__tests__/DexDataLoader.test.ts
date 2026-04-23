@@ -7,7 +7,7 @@ import type { CompactEncounter, LocationAreaEncounters, PokemonMetadata } from '
 vi.mock('../PokeDB', () => ({
   pokeDB: {
     getPokemons: vi.fn(),
-    getEncounters: vi.fn(),
+    getEncountersBulk: vi.fn(),
     getAreaNames: vi.fn(),
   },
 }));
@@ -51,10 +51,12 @@ describe('DexDataLoader', () => {
         det: [],
       } as PokemonMetadata,
     ]);
-    vi.mocked(pokeDB.getEncounters).mockResolvedValue({
-      pid: 1,
-      enc: [{ aid: 1, v: 1, d: [] }] as CompactEncounter[],
-    });
+    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([
+      {
+        pid: 1,
+        enc: [{ aid: 1, v: 1, d: [] }] as CompactEncounter[],
+      },
+    ]);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({ 1: 'Area 1' });
 
     const details = await dexDataLoader.getPokemonDetails(1);
@@ -83,7 +85,7 @@ describe('DexDataLoader', () => {
     vi.mocked(pokeDB.getPokemons).mockImplementation(async (ids: number[]) => {
       return ids.map((id) => mockPokes.find((p) => p.id === id) || new Error('Not found'));
     });
-    vi.mocked(pokeDB.getEncounters).mockResolvedValue({ pid: 1, enc: [{ aid: 99, v: 1, d: [] }] });
+    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([{ pid: 1, enc: [{ aid: 99, v: 1, d: [] }] }]);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({ 99: 'Test Area' });
 
     const result = await dexDataLoader.getPokemonDetails(1);
@@ -114,7 +116,7 @@ describe('DexDataLoader', () => {
     // Wait, `await dexDataLoader.encounters.load(id)` will throw if DataLoader mapped it to an Error!
     // Since getPokemonDetails doesn't catch it internally, let's catch it in the test to ensure that logic wasn't fully tested or we should mock it returning an Error directly if possible...
     // Actually, DataLoader throws the error returned from the batch load function!
-    vi.mocked(pokeDB.getEncounters).mockResolvedValue(undefined);
+    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([new Error('Encounters not found for 1')]);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({});
 
     await expect(dexDataLoader.getPokemonDetails(1)).rejects.toThrow('Encounters not found for 1');

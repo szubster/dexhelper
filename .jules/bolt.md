@@ -29,3 +29,6 @@
 ## 2026-04-22 - [O(N) Map Graph Lookups]
 **Learning:** Calling `Array.prototype.find()` on `allLocations` inside `getDistanceToMap` caused significant $O(N)$ overhead, especially since this function is called inside a nested loop in the suggestion engine for every possible encounter of every missing Pokemon. This resulted in hundreds of redundant array scans.
 **Action:** Implemented a module-level `Map` cache in `gen1Graph.ts` to store locations, keying the cache validity by checking `allLocations` reference. This optimizes the lookup time from $O(N)$ to $O(1)$.
+
+### Encounter Bulk Loading
+Learned that the dex encounters DataLoader was firing individual getEncounters calls leading to N+1 IndexedDB query bottlenecks. Implemented a bulk loading function using Promise.all on a single transaction to eliminate N+1 overhead.
