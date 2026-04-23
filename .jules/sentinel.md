@@ -36,6 +36,8 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 ## Learnings
 * Make sure `pnpm` resolves correct version compatibility warning, `vitest coverage` reporter configuration error (like loading `text` report module causing Startup Error, use `--reporter=default` instead).
 * `vi.mocked(fetch).mockResolvedValue` requires mocking properties appropriately for Deep Types (like `json: async () => mockData` to simulate Response Object resolving body mapping)
+\n- Found discrepancy: The requested task and code reviewer assumed `UnobtainableChecker` takes 3 parameters (`pokemonId: number, version: GameVersion, saveData: SaveData | null`) and returns an object, but the actual source code at `src/engine/exclusives/index.ts` takes 4 parameters (`pokemonId: number, gameVersion: string, ownedCount: number, ownedSet: Set<number>`) and returns a string or null. Wrote the test accordingly.
+\n- Learning: The code review feedback was incorrect regarding the `UnobtainableChecker` signature. Always verify the current code state against feedback to ensure accuracy.
 
 ## 2026-04-23 - Assistant routing fallback tests
 **What:** Added `fallbackStrategy` and its corresponding tests in `index.ts` and `index.test.ts`.
