@@ -176,3 +176,11 @@
 - **2026-04-23**: Heartbeat detected zombie session for `story-007-schema-invariant`. Transitioned to FAILED.
 
 - **2026-04-23**: Resurrection Loop triggered for `task-021-investigate-shadow-dispatch`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-23**: Resurrection Loop triggered for `task-014-scaffold-architect`. Reason: PR #470 closed without merging.. Transitioned back to READY.
+
+- **2026-04-23**: Resurrection Loop triggered for `epic-010-oxlint-config`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-23**: Resurrection Loop triggered for `story-005-id-schema-templates`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-23**: Resurrection Loop triggered for `story-007-schema-invariant`. Reason: Retry from FAILED status.. Transitioned back to READY.
