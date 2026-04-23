@@ -20,16 +20,15 @@ export function LocationSuggestions() {
       return;
     }
 
-    // ⚡ Bolt: Debounce IndexedDB queries to prevent main thread blocking on rapid keystrokes
     const timeoutId = setTimeout(async () => {
       const locations = await pokeDB.getLocations();
 
-      // ⚡ Bolt: Hoisted string allocation outside the loop and removed N+1 IDB queries
       const term = searchTerm.toLowerCase();
-      const filteredWithCounts = locations
-        .filter((l) => l.n.toLowerCase().includes(term))
-        .slice(0, 5)
-        .map((l) => ({ ...l, count: l.pids?.length || 0 }));
+      const filtered = locations.filter((l) => l.n.toLowerCase().includes(term)).slice(0, 5);
+
+      // ⚡ Bolt: Implemented batched getInverseIndexBulk to clear N+1 queries
+      const indexes = await pokeDB.getInverseIndexBulk(filtered.map((l) => l.id));
+      const filteredWithCounts = filtered.map((l, i) => ({ ...l, count: indexes[i]?.length || 0 }));
 
       setSuggestions(filteredWithCounts);
       setIsOpen(filteredWithCounts.length > 0);
