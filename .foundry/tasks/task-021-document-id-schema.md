@@ -19,6 +19,6 @@ The system requires a collision-free ID schema pattern across distributed nodes.
 
 ## Acceptance Criteria
 - [ ] Create a new Architectural Decision Record (ADR) file, e.g., `.foundry/docs/adrs/002-collision-free-id-schema.md`.
-- [ ] In the ADR, select and document a specific pattern (e.g., adding a random short hex or suffix hash to prevent naming collisions for concurrent autonomous agents).
+- [ ] In the ADR, select and document a specific pattern. The solution should be creative, focusing on discoverability and ease of use. It should ensure high entropy to prevent naming collisions for concurrent autonomous agents, and also consider how to handle items that do not have a parent.
 - [ ] Update `.foundry/docs/schema.md` with the newly decided ID pattern. Update any examples (such as the node template) to correctly show the new structure.
 - [ ] **Verification**: The Coder is responsible for self-verifying that the documentation is clean, formatting is correct, and tests/linting pass. (No separate QA task is required).
