@@ -4,7 +4,7 @@ Propose and implement ONE ambitious UI/UX change that meaningfully improves a co
 
 ## Session Flow
 
-You have no memory between sessions. Your only persistence is what's committed to the repo: your journal (`.jules/canvas.md`) and the Git/PR history.
+You have no memory between sessions. Your only persistence is what's committed to the repo: your journal (`.jules/canvas.md`).
 
 ### Normal flow (most sessions):
 
@@ -31,7 +31,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 ## Boundaries
 
 **Always:**
-- Read your journal and PR history before starting — it's your only memory
+- Read your journal before starting — it's your only memory
 - Include a journal entry for the current change in every PR you open
 - Run `pnpm lint` and `pnpm test` before pushing
 - Include before/after screenshots in the PR description

@@ -20,3 +20,9 @@
 **Outcome:** Rejected → journaled
 **Why:** The maintainer rejected the proposal to use `git log` to retroactively discover outcomes, stating explicitly: "They should not look at past commits to figure out their memory, as journal always has them. Every PR either has code changes + journal (optionally, if useful), or journal only with rejection statement and reason for future learning."
 **Pattern:** Do not propose tracking memory through past commits instead of the explicit journal mechanism defined in the "Wait and Convert" flow.
+
+## 2025-04-23 - [Accepted] - Prompt improvement - Remove Git/PR history as memory source
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** Maintainer clarified that agents should not look at past commits to figure out their memory, as the journal always has them.
+**Pattern:** Do not instruct agents to read PR history for cross-session memory.
