@@ -38,17 +38,18 @@ A custom orchestrator (`.github/scripts/foundry-orchestrator.ts`) parses the `de
 Files are named after their `id` field:
 
 ```
-<type>-<NNN>-<slug>.md
+<type>-<NNN>-<slug>-<hash>.md
 ```
 
 Examples:
-- `.foundry/ideas/idea-001-auth-overhaul.md`
-- `.foundry/epics/epic-003-gen2-support.md`
-- `.foundry/tasks/task-012-parse-daycare-offsets.md`
+- `.foundry/ideas/idea-001-auth-overhaul-a1b2.md`
+- `.foundry/epics/epic-003-gen2-support-c3d4.md`
+- `.foundry/tasks/task-012-parse-daycare-offsets-e5f6.md`
 
 - `<type>` is lowercase (idea, prd, epic, story, task).
-- `<NNN>` is a zero-padded three-digit sequence number, unique **within** each directory.
+- `<NNN>` is a zero-padded three-digit sequence number.
 - `<slug>` is a short, kebab-case descriptor.
+- `<hash>` is a 4-character random hex string to ensure collision-free generation by concurrent agents.
 
 ---
 
@@ -58,7 +59,7 @@ Every node file (idea, PRD, epic, story, task) **must** begin with a YAML frontm
 
 ```yaml
 ---
-id: ""                  # Required. Globally unique slug. Convention: <type>-<NNN>-<slug>
+id: ""                  # Required. Globally unique slug. Convention: <type>-<NNN>-<slug>-<hash>
 type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK
 title: ""               # Required. Human-readable short title.
 status: ""              # Required. Enum: see Status Lifecycle section.
@@ -78,7 +79,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `id` | `string` | ✅ | Globally unique. Convention: `<type>-<NNN>-<slug>`. Used by humans and search; the DAG uses file paths. |
+| `id` | `string` | ✅ | Globally unique. Convention: `<type>-<NNN>-<slug>-<hash>`. Used by humans and search; the DAG uses file paths. |
 | `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK` |
 | `title` | `string` | ✅ | Short, human-readable description. |
 | `status` | `enum` | ✅ | Current lifecycle state. See §4. |
@@ -186,7 +187,7 @@ Copy-paste this block to start any new node. Fill in all required fields before 
 
 ```yaml
 ---
-id: <type>-<NNN>-<slug>
+id: <type>-<NNN>-<slug>-<hash>
 type: 
 title: ""
 status: PENDING
