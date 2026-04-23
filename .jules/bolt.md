@@ -30,6 +30,11 @@
 **Learning:** Calling `Array.prototype.find()` on `allLocations` inside `getDistanceToMap` caused significant $O(N)$ overhead, especially since this function is called inside a nested loop in the suggestion engine for every possible encounter of every missing Pokemon. This resulted in hundreds of redundant array scans.
 **Action:** Implemented a module-level `Map` cache in `gen1Graph.ts` to store locations, keying the cache validity by checking `allLocations` reference. This optimizes the lookup time from $O(N)$ to $O(1)$.
 
+### 2023-11-20 - Cache map distance calculation in suggestion engine
+
+*   **What:** Investigated adding a local `Map` cache inside `generateSuggestions` to store map distances (`strategy.getMapDistance`) keyed by `e.aid`.
+*   **Why:** Previously, the distance was recalculated for every potential encounter across hundreds of missing Pokémon. I thought caching them locally would eliminate redundant computations during nested loops. However, review feedback pointed out that `Dataloader` and existing caching layers are already handling this efficiently enough, and adding another manual cache layer provides almost no speed improvement while adding complexity to the app. The benchmark showed only a 3-4% improvement in isolated cases, which doesn't justify the added complexity.
+
 ### Encounter Bulk Loading
 Learned that the dex encounters DataLoader was firing individual getEncounters calls leading to N+1 IndexedDB query bottlenecks. Implemented a bulk loading function using Promise.all on a single transaction to eliminate N+1 overhead.
 
