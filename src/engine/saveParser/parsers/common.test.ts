@@ -1,7 +1,23 @@
 import { describe, expect, test, vi } from 'vitest';
-import { checkShiny, decodeGen12String, parseDVs } from './common';
+import { byte, checkShiny, decodeGen12String, parseDVs } from './common';
 
 describe('common parsers', () => {
+  describe('byte', () => {
+    test('returns byte at offset', () => {
+      const u8 = new Uint8Array([10, 20, 30]);
+      expect(byte(u8, 1)).toBe(20);
+    });
+
+    test('returns 0 for out of bounds offset', () => {
+      const u8 = new Uint8Array([10, 20, 30]);
+      expect(byte(u8, 5)).toBe(0);
+    });
+
+    test('returns 0 for undefined values', () => {
+      const u8 = new Uint8Array(2);
+      expect(byte(u8, 10)).toBe(0);
+    });
+  });
   describe('decodeGen12String', () => {
     test('decodes valid string', () => {
       // 0x80 -> A, 0x81 -> B, 0x82 -> C

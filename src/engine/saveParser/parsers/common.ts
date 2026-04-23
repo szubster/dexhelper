@@ -48,7 +48,9 @@ export interface SaveData {
   daycareHasEgg?: boolean;
 }
 
-// Removed byte helper as DataView provides getUint8 natively.
+export function byte(u8: Uint8Array, offset: number): number {
+  return u8[offset] ?? 0;
+}
 
 const GEN12_CHAR_MAP: Record<number, string> = {
   0x7f: ' ',
