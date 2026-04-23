@@ -19,7 +19,7 @@ For `IDEA` nodes, which are the root of the hierarchy and never have a parent, t
 
 - **`<type>`**: The file type (`prd`, `epic`, `story`, `task`).
 - **`<parent_NNN>`**: The three-digit sequence number of the parent node (e.g., the Story's NNN for a Task).
-- **`<NNN>`**: A zero-padded three-digit sequence number for this specific node.
+- **`<NNN>`**: A zero-padded three-digit sequence number for this specific node. This number must be uniquely incremented on a best-effort basis globally per node directory (e.g., all tasks share the same increment pool), not reset per parent.
 - **`<slug>`**: A short, kebab-case descriptive string (e.g., `parse-daycare-offsets`).
 
 ### Examples

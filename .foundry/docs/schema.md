@@ -49,7 +49,7 @@ Examples:
 
 - `<type>` is lowercase (idea, prd, epic, story, task).
 - `<parent_NNN>` is the zero-padded three-digit sequence number of the parent node (use `000` if a non-IDEA node is orphaned).
-- `<NNN>` is a zero-padded three-digit sequence number.
+- `<NNN>` is a zero-padded three-digit sequence number. This number must be uniquely incremented on a best-effort basis globally per node directory (e.g., all tasks share the same increment pool), not reset per parent.
 - `<slug>` is a short, kebab-case descriptor.
 
 ---
