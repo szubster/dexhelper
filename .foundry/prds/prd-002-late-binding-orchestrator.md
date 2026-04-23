@@ -66,4 +66,9 @@ When an agent is blocked by new technical realities:
 - **Error Recovery:** Reduction in manual PM intervention for deadlocked or impossible tasks due to the Resurrection Loop.
 
 ## 4. Next Steps
-- [ ] **Epic Planner:** Break down this PRD into Epics mapping out the persona permission implementations, the Wait & Wake protocol orchestration logic, and the Cloudflare Worker Gastown migration.
+- [x] **Epic Planner:** Break down this PRD into Epics mapping out the persona permission implementations, the Wait & Wake protocol orchestration logic, and the Cloudflare Worker Gastown migration.
+
+### Generated Epics
+- [.foundry/epics/epic-010-persona-permissions.md](../epics/epic-010-persona-permissions.md)
+- [.foundry/epics/epic-011-wait-and-wake-protocol.md](../epics/epic-011-wait-and-wake-protocol.md)
+- [.foundry/epics/epic-012-gastown-orchestrator.md](../epics/epic-012-gastown-orchestrator.md)
