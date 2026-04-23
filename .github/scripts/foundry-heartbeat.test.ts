@@ -233,4 +233,131 @@ describe('Foundry Heartbeat', () => {
 
     expect(fs.writeFileSync).not.toHaveBeenCalledWith(expect.any(String), expect.stringContaining('status: "FAILED"'), expect.any(String));
   });
+
+  describe('Human Tasks', () => {
+    it('should ignore missing jules_session_id for human tasks', async () => {
+      const mockNode = {
+        filePath: '/mock/repo/.foundry/tasks/task-human.md',
+        repoPath: '.foundry/tasks/task-human.md',
+        frontmatter: {
+          id: 'task-human',
+          status: 'ACTIVE',
+          jules_session_id: null,
+          owner_persona: 'human'
+        },
+        rawContent: '---\nstatus: ACTIVE\njules_session_id: null\nowner_persona: "human"\nupdated_at: "2023-01-01"\n---\nBody'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+      await main();
+
+      expect(globalFetch).not.toHaveBeenCalled();
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+    });
+
+    it('should transition an ACTIVE human task to COMPLETED if PR is merged', async () => {
+      const mockNode = {
+        filePath: '/mock/repo/.foundry/tasks/task-human.md',
+        repoPath: '.foundry/tasks/task-human.md',
+        frontmatter: {
+          id: 'task-human',
+          status: 'ACTIVE',
+          jules_session_id: null,
+          owner_persona: 'human',
+          pr_number: 999
+        },
+        rawContent: '---\nstatus: ACTIVE\njules_session_id: null\nowner_persona: "human"\npr_number: 999\nupdated_at: "2023-01-01"\n---\nBody'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+      globalFetch.mockImplementation((url: string) => {
+        if (url.includes('pulls/999')) {
+          return Promise.resolve({
+            ok: true,
+            status: 200,
+            json: async () => ({ number: 999, state: 'closed', merged: true })
+          });
+        }
+        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+      });
+
+      await main();
+
+      expect(fs.writeFileSync).toHaveBeenCalled();
+      const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+      expect(writeCall[1]).toContain('status: "COMPLETED"');
+    });
+
+    it('should transition an ACTIVE human task to READY if PR is closed but unmerged', async () => {
+      const mockNode = {
+        filePath: '/mock/repo/.foundry/tasks/task-human.md',
+        repoPath: '.foundry/tasks/task-human.md',
+        frontmatter: {
+          id: 'task-human',
+          status: 'ACTIVE',
+          jules_session_id: null,
+          owner_persona: 'human',
+          pr_number: 888
+        },
+        rawContent: '---\nstatus: ACTIVE\njules_session_id: null\nowner_persona: "human"\npr_number: 888\nupdated_at: "2023-01-01"\n---\nBody'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+      globalFetch.mockImplementation((url: string) => {
+        if (url.includes('pulls/888')) {
+          return Promise.resolve({
+            ok: true,
+            status: 200,
+            json: async () => ({ number: 888, state: 'closed', merged: false })
+          });
+        }
+        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+      });
+
+      await main();
+
+      expect(fs.writeFileSync).toHaveBeenCalled();
+      const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+      expect(writeCall[1]).toContain('status: "READY"');
+    });
+
+    it('should leave an ACTIVE human task as ACTIVE if PR is open', async () => {
+      const mockNode = {
+        filePath: '/mock/repo/.foundry/tasks/task-human.md',
+        repoPath: '.foundry/tasks/task-human.md',
+        frontmatter: {
+          id: 'task-human',
+          status: 'ACTIVE',
+          jules_session_id: null,
+          owner_persona: 'human',
+          pr_number: 777
+        },
+        rawContent: '---\nstatus: ACTIVE\njules_session_id: null\nowner_persona: "human"\npr_number: 777\nupdated_at: "2023-01-01"\n---\nBody'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+      globalFetch.mockImplementation((url: string) => {
+        if (url.includes('pulls/777')) {
+          return Promise.resolve({
+            ok: true,
+            status: 200,
+            json: async () => ({ number: 777, state: 'open' })
+          });
+        }
+        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+      });
+
+      await main();
+
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+    });
+  });
 });

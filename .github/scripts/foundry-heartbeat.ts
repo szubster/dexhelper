@@ -211,14 +211,37 @@ export async function main() {
   // --- Pass 1: Check ACTIVE Nodes ---
   for (const node of activeNodes) {
     const sessionId = node.frontmatter.jules_session_id;
-    if (!sessionId || sessionId === 'null') {
+    const isHuman = node.frontmatter.owner_persona === 'human';
+
+    if (!isHuman && (!sessionId || sessionId === 'null')) {
       warn(`Node ${node.repoPath} is ACTIVE but missing session ID. Failing.`);
       await transitionNodeToFailed(node, repoRoot);
       continue;
     }
 
-    // A. Robust PR Discovery
-    const { pr, sessionStatus } = await findPRForSession(repoFullName, githubToken, julesKey, sessionId, node.frontmatter.id);
+    let pr: any = null;
+    let sessionStatus: string | null = null;
+
+    if (isHuman) {
+      const prNumber = node.frontmatter.pr_number;
+      if (prNumber) {
+        try {
+          const prRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls/${prNumber}`, {
+            headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+          });
+          if (prRes.ok) {
+            pr = await prRes.json();
+          }
+        } catch (err) {
+          process.stderr.write(`[heartbeat] GitHub API error for human task: ${String(err)}\n`);
+        }
+      }
+    } else {
+      // A. Robust PR Discovery
+      const res = await findPRForSession(repoFullName, githubToken, julesKey, sessionId, node.frontmatter.id);
+      pr = res.pr;
+      sessionStatus = res.sessionStatus;
+    }
 
     if (pr) {
       if (pr.state === 'closed') {
@@ -246,9 +269,11 @@ export async function main() {
     }
 
     // B. Terminal State check (Zombie detection)
-    if (sessionStatus === 'NOT_FOUND' || (sessionStatus && TERMINAL_STATES.includes(sessionStatus))) {
-      info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Failing.`);
-      await transitionNodeToFailed(node, repoRoot);
+    if (!isHuman) {
+      if (sessionStatus === 'NOT_FOUND' || (sessionStatus && TERMINAL_STATES.includes(sessionStatus))) {
+        info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Failing.`);
+        await transitionNodeToFailed(node, repoRoot);
+      }
     }
   }
 
