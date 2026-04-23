@@ -33,3 +33,6 @@ When running vitest with `--reporter=json > cov.json`, the output often includes
 
 ### Vitest Coverage Issues
 If you encounter `Error: Failed to load custom Reporter from text` when running `npx vitest run --coverage`, it's likely a mismatch or issue with the coverage reporter setup. Use `--reporter=default` as a workaround (e.g. `npx vitest run --coverage --reporter=default`).
+## Learnings
+* Make sure `pnpm` resolves correct version compatibility warning, `vitest coverage` reporter configuration error (like loading `text` report module causing Startup Error, use `--reporter=default` instead).
+* `vi.mocked(fetch).mockResolvedValue` requires mocking properties appropriately for Deep Types (like `json: async () => mockData` to simulate Response Object resolving body mapping)
