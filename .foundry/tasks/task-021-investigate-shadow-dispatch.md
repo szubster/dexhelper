@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on: []
 jules_session_id: "9206545778423451464"
-parent: .foundry/stories/story-004-shadow-dispatch-verification.md
+parent: .foundry/archive/stories/story-004-shadow-dispatch-verification.md
 tags: ["orchestrator", "concurrency", "investigation"]
 rejection_count: 2
 notes: ""

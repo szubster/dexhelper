@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on: []
 jules_session_id: "15969432490887437472"
-parent: ".foundry/prds/prd-004-human-in-the-loop.md"
+parent: ".foundry/archive/prds/prd-004-human-in-the-loop.md"
 tags:
   - "human-in-the-loop"
   - "schema"

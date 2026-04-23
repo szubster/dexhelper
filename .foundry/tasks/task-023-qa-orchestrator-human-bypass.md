@@ -9,7 +9,7 @@ updated_at: "2026-04-23"
 depends_on:
   - ".foundry/tasks/task-022-orchestrator-human-bypass.md"
 jules_session_id: null
-parent: ".foundry/stories/story-010-orchestrator-human-bypass.md"
+parent: ".foundry/archive/stories/story-010-orchestrator-human-bypass.md"
 tags:
   - "human-in-the-loop"
   - "orchestrator"

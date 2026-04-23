@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on: []
 jules_session_id: "3723383166225851548"
-parent: ".foundry/stories/story-011-human-heartbeat-script.md"
+parent: ".foundry/archive/stories/story-011-human-heartbeat-script.md"
 tags:
   - "human-in-the-loop"
   - "heartbeat"

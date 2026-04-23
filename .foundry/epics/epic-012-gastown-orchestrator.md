@@ -9,7 +9,7 @@ updated_at: "2026-04-23"
 depends_on:
   - .foundry/epics/epic-011-wait-and-wake-protocol.md
 jules_session_id: null
-parent: ".foundry/prds/prd-002-late-binding-orchestrator.md"
+parent: ".foundry/archive/prds/prd-002-late-binding-orchestrator.md"
 tags:
   - foundry-v2
   - architecture
