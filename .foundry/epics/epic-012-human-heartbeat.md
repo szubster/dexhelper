@@ -37,3 +37,6 @@ The heartbeat script currently ensures that `ACTIVE` tasks have a living `jules_
 ## 5. Implementation Notes
 - The heartbeat should use standard GitHub Action environment variables (`GITHUB_TOKEN`, `GITHUB_REPOSITORY`) to make its API calls.
 - Direct-to-main commits (no `pr_number`) simply remain `ACTIVE` until manually moved to `COMPLETED` by a human. The heartbeat ignores them.
+
+## Generated Stories
+- [.foundry/stories/story-011-human-heartbeat-script.md](.foundry/stories/story-011-human-heartbeat-script.md)
