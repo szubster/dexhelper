@@ -514,5 +514,30 @@ describe('PokeDB', () => {
       const pids = await pokeDB.getInverseIndex(1);
       expect(pids).toEqual([1, 2]);
     });
+
+    it('getInverseIndexBulk returns array of pids or undefined', async () => {
+      const mockData = {
+        hash: 'new-hash-bulk',
+        poke: [],
+        enc: [],
+        loc: [
+          { id: 1, n: 'Pallet Town', pids: [1, 2], dist: {} },
+          { id: 2, n: 'Route 1', pids: [3], dist: {} },
+        ],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const results = await pokeDB.getInverseIndexBulk([1, 999, 2, NaN]);
+      expect(results).toEqual([[1, 2], undefined, [3], undefined]);
+    });
+
+    it('getInverseIndexBulk returns array of undefined for empty/invalid input', async () => {
+      expect(await pokeDB.getInverseIndexBulk([])).toEqual([]);
+      expect(await pokeDB.getInverseIndexBulk([NaN, NaN])).toEqual([undefined, undefined]);
+    });
   });
 });
