@@ -2,16 +2,16 @@
 id: task-020-auto-close-empty-prs
 type: TASK
 title: "Auto-close Empty PRs"
-status: "ACTIVE"
+status: "READY"
 owner_persona: coder
 created_at: "2026-04-22"
-updated_at: "2026-04-22"
+updated_at: "2026-04-23"
 depends_on:
   - .foundry/stories/story-005-empty-state-handling.md
-jules_session_id: "3802543872482768482"
+jules_session_id: null
 parent: .foundry/stories/story-005-empty-state-handling.md
 tags: []
-rejection_count: 0
+rejection_count: 1
 notes: ""
 ---
 
