@@ -100,3 +100,23 @@
 - **2026-04-23**: Resurrection Loop triggered for `task-018-scheduled-agent-empty-state`. Reason: PR #410 closed without merging.. Transitioned back to READY.
 
 - **2026-04-23**: Resurrection Loop triggered for `task-020-auto-close-empty-prs`. Reason: PR #408 closed without merging.. Transitioned back to READY.
+
+- **2026-04-23**: PR #437 merged. `epic-007-atomic-handoff-schema` is now COMPLETED.
+
+- **2026-04-23**: PR #431 merged. `prd-002-late-binding-orchestrator` is now COMPLETED.
+
+- **2026-04-23**: PR #436 merged. `prd-004-human-in-the-loop` is now COMPLETED.
+
+- **2026-04-23**: PR #439 merged. `story-003-dynamic-verification` is now COMPLETED.
+
+- **2026-04-23**: PR #428 merged. `story-004-id-schema-decision` is now COMPLETED.
+
+- **2026-04-23**: PR #430 merged. `story-004-shadow-dispatch-verification` is now COMPLETED.
+
+- **2026-04-23**: PR #440 merged. `task-016-update-agile-coach-evolution` is now COMPLETED.
+
+- **2026-04-23**: PR #434 merged. `task-018-implement-scheduled-agent-registry` is now COMPLETED.
+
+- **2026-04-23**: PR #433 merged. `task-018-scheduled-agent-empty-state` is now COMPLETED.
+
+- **2026-04-23**: PR #438 merged. `task-020-auto-close-empty-prs` is now COMPLETED.

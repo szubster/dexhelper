@@ -2,7 +2,7 @@
 id: task-021-document-id-schema
 type: TASK
 title: "Finalize ID Schema and Update Documentation"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-23"
 updated_at: "2026-04-23"

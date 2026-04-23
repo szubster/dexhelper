@@ -41,3 +41,6 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 **What:** Added `fallbackStrategy` and its corresponding tests in `index.ts` and `index.test.ts`.
 **Coverage Before/After:** Test coverage for routing logic improved by verifying all methods of the returned fallback object safely return empty values instead of silently routing unsupported generations to gen 1 logic.
 **Why this target matters:** Ensures unknown generation queries return deterministic safe empties, preventing downstream engine crashes or misleading suggestions from bleeding across generations.
+# Sentinel Learnings
+- Added tests to cover `RangeError` and other error paths in `decodeGen12String` by mocking `DataView.prototype.getUint8` to verify error bubbling.
+- Used `vi.spyOn` from vitest to explicitly mock native method throws.
