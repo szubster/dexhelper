@@ -200,9 +200,6 @@ export function generateSuggestions(
   // A2. Nearby logic (1-8 areas away)
   // Distance is calculated via graph traversal in the generation's strategy.
   // Priority dynamically scales inversely with distance (closer = higher priority).
-  // ⚡ Bolt: Cache distance results per map ID to avoid O(N) calculations in nested loops
-  const mapDistanceCache = new Map<number, { distance: number; name: string } | null>();
-
   for (const pid of queryTargets) {
     if (localPids.has(pid)) continue;
 
@@ -216,11 +213,7 @@ export function generateSuggestions(
     for (const e of encData.enc) {
       if (e.v !== displayVersionId) continue;
 
-      let distInfo = mapDistanceCache.get(e.aid);
-      if (distInfo === undefined) {
-        distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
-        mapDistanceCache.set(e.aid, distInfo);
-      }
+      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
         bestAreaName = distInfo.name;

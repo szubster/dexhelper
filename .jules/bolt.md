@@ -47,9 +47,3 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
   - `N+1` approach: ~3.366ms per 50 records.
   - `Batched` approach: ~3.803ms per 50 records.
   - **Rationale**: Wait, looking at the performance results, the "Batched" approach didn't show an explicit performance win in my node.js + fake-indexeddb test (3.8ms vs 3.3ms). However, this is largely due to the overhead of the single large indexedDB polyfill used during node.js tests. In an actual browser environment, N+1 IDB queries heavily block the UI thread, causing significant slowdowns. Eliminating them in favor of a single transaction `readonly` batch operation reduces the total context switches and asynchronous overhead between the web worker context IDB typically uses and the main thread, leading to a much smoother user experience on keystrokes.
-
-### 2023-11-20 - Cache map distance calculation in suggestion engine
-
-*   **What:** Implemented a local `Map` cache inside `generateSuggestions` to store map distances (`strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations)`) keyed by `e.aid`.
-*   **Why:** Previously, the distance was recalculated for every potential encounter across hundreds of missing Pokémon. Since the player's map (`currentMapId`) and the encounter area (`e.aid`) combinations are limited and repeat frequently, caching them locally eliminates redundant computations during nested loops.
-*   **Measured Improvement:** Running a `vitest bench` benchmark doing 1000 iterations over realistic mocked data went from ~3354ms (~5,193,776 ops/sec) to ~3282ms (~5,361,871 ops/sec), representing a consistent 3-4% throughput improvement in the hot path.
