@@ -99,19 +99,16 @@ export function AssistantSuggestionCard({
           <div className={`relative z-20 mt-0 flex flex-col gap-4`}>
             {s.category === 'Catch' ? (
               Object.entries(
-                (s.pokemonIds || []).reduce(
-                  (acc: Record<string, { pid: number; enc: EncounterDetail }[]>, pid: number) => {
-                    const encs = s.encounterInfo?.[pid];
-                    if (!encs) return acc;
-                    const mainEnc = [...encs].sort((a, b) => b.chance - a.chance)[0];
-                    if (!mainEnc) return acc;
-                    const method = mainEnc.method;
-                    if (!acc[method]) acc[method] = [];
-                    acc[method]?.push({ pid, enc: mainEnc });
-                    return acc;
-                  },
-                  {} as Record<string, { pid: number; enc: EncounterDetail }[]>,
-                ),
+                (s.pokemonIds || []).reduce<Record<string, { pid: number; enc: EncounterDetail }[]>>((acc, pid) => {
+                  const encs = s.encounterInfo?.[pid];
+                  if (!encs) return acc;
+                  const mainEnc = [...encs].sort((a, b) => b.chance - a.chance)[0];
+                  if (!mainEnc) return acc;
+                  const method = mainEnc.method;
+                  if (!acc[method]) acc[method] = [];
+                  acc[method]?.push({ pid, enc: mainEnc });
+                  return acc;
+                }, {}),
               ).map(([method, pokes]: [string, { pid: number; enc: EncounterDetail }[]]) => {
                 const isRod = method.includes('rod');
                 const isSurf = method === 'surf';
