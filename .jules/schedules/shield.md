@@ -9,6 +9,8 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - Sanitizing inputs and outputs where appropriate.
 - **NEW:** Auditing `package.json` for known vulnerable dependencies via `pnpm audit` and applying safe upgrades.
 - **NEW:** Ensuring secure random number generation (`crypto.getRandomValues`) instead of `Math.random` when dealing with anything remotely sensitive (like tokens or IDs).
+- **NEW:** Guard against Cross-Site Scripting (XSS) by auditing the use of `dangerouslySetInnerHTML`.
+- **NEW:** Ensure safe link handling by including `rel="noopener noreferrer"` for `target="_blank"` links.
 
 ## Boundaries
 
@@ -27,7 +29,7 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 
 ## Process
 
-1. **Scan** — look for insecure patterns, raw error logging, or non-native crypto usage. (Hint: check for `Math.random` and `console.error(err)` without `.message`)
+1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, or unsafe links. (Hint: check for `Math.random`, `console.error(err)` without `.message`, `dangerouslySetInnerHTML`, and `target="_blank"`)
 2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, improve this scheduled prompt itself or perform a dependency audit.
 3. **Secure** — implement the fix and add validating tests if possible.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
