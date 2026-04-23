@@ -4,5 +4,5 @@
 ## Transitive Dependency Audits
 **Pattern:** To resolve vulnerabilities inside deep or transitive dependencies found via `pnpm audit` (like `serialize-javascript` vulnerabilities), add a `pnpm.overrides` section to `package.json` with the safe version constraint, and then run `pnpm install` to enforce the resolution throughout the workspace.
 
-## Insecure `window.atob` usage
-**Pattern:** `window.atob` is insecure and can fail unexpectedly for certain Base64 representations. Since `atob` does native browser DOM string conversions, avoiding it handles decoding more robustly in memory. Replace `window.atob` with a robust base64 decoding library like `base-64`.
+## IndexedDB Save Storage
+**Pattern:** The `window.atob` Base64 decoder is insecure. Instead of doing base64 serialization with handwritten code, or installing base-64 dependencies, the save file storage logic should be migrated completely to `IndexedDB` which natively supports ArrayBuffers and avoids this issue altogether.

@@ -1,4 +1,3 @@
-import { decode as decodeBase64 } from 'base-64';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { GameVersion as GameVersionType, SaveData } from './engine/saveParser/index';
@@ -119,11 +118,11 @@ export const useStore = create<AppStore>()(
             if (!base64Regex.test(savedFile)) {
               throw new Error('Invalid Base64 string');
             }
-            const decodedString = decodeBase64(savedFile);
-            const len = decodedString.length;
+            const binaryString = window.atob(savedFile);
+            const len = binaryString.length;
             const bytes = new Uint8Array(len);
             for (let i = 0; i < len; i++) {
-              bytes[i] = decodedString.charCodeAt(i);
+              bytes[i] = binaryString.charCodeAt(i);
             }
             const { manualVersion } = get();
             const data = parseSaveFile(bytes.buffer, manualVersion || undefined);
