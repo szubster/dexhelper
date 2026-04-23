@@ -46,9 +46,9 @@ The Foundry orchestrator dispatches `READY` tasks to Jules agents. However, task
 - Test 2: Ensure an already `READY` node with `owner_persona: human` is caught and promoted to `ACTIVE`, keeping it out of the JSON output.
 
 ## 3. Acceptance Criteria
-- [ ] `promoteNodeToReady` is refactored to `promoteNodeStatus(node, currentStatus, targetStatus)`.
-- [ ] Phase 5 iterates through eligible nodes and promotes `human` nodes to `ACTIVE` instead of `READY`.
-- [ ] An additional check catches any existing `READY` `human` nodes and upgrades them to `ACTIVE`.
-- [ ] Human nodes do not appear in the JSON output array from the orchestrator.
-- [ ] Unit tests are added to verify the human bypass behavior in `foundry-orchestrator.test.ts`.
-- [ ] `pnpm lint`, `pnpm test`, and `pnpm test:e2e` pass successfully.
+- [x] `promoteNodeToReady` is refactored to `promoteNodeStatus(node, currentStatus, targetStatus)`.
+- [x] Phase 5 iterates through eligible nodes and promotes `human` nodes to `ACTIVE` instead of `READY`.
+- [x] An additional check catches any existing `READY` `human` nodes and upgrades them to `ACTIVE`.
+- [x] Human nodes do not appear in the JSON output array from the orchestrator.
+- [x] Unit tests are added to verify the human bypass behavior in `foundry-orchestrator.test.ts`.
+- [x] `pnpm lint`, `pnpm test`, and `pnpm test:e2e` pass successfully.
