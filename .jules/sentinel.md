@@ -14,7 +14,7 @@
 **Why:** Vitest features like `test.each` improve test reporting, readability, and traceablity for data-driven checks (like iterating variants). By utilizing them, tests become more robust and generate cleaner UI feedback.
 
 ## Tricky mocking patterns
-- When writing Vitest tests that interact with IndexedDB (like the suggestion engine or PokeDB), include `/** @vitest-environment jsdom */` at the top of the file and `import 'fake-indexeddb/auto';` to provide the required browser-like environment and prevent 'indexedDB is not defined' errors.
+- When writing Vitest tests that interact with IndexedDB (like the suggestion engine or PokeDB), `fakeIndexedDB` is polyfilled globally for the node environment via `src/node-setup.ts`, so you do NOT need to use `/** @vitest-environment jsdom */` or import `fake-indexeddb/auto` manually in individual test files.
 - Mocking functions imported from index files (like `parseSaveFile` from `./engine/saveParser/index`) requires defining the mock at the top level and using `vi.mocked()` to cast types locally:
   ```ts
   vi.mock('./engine/saveParser/index', () => ({

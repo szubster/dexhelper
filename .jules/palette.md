@@ -7,8 +7,8 @@
 **Action:** Use `role="radiogroup"` for the container and `role="radio"` for the individual buttons, along with `aria-checked={boolean}` and proper `aria-label`s on the container, to ensure screen readers correctly interpret the mutually exclusive selection pattern.
 
 ## 2024-04-13 - Added aria-label to icon-only buttons
-**Learning:** For accessibility, ensure all icon-only interactive elements (like buttons) include an `aria-label` attribute, as relying solely on the `title` attribute is insufficient for screen readers. In Dexhelper, several key interactive elements like the Assistant Panel debug toggle, Pokedex Cards, and Storage Grid cards lacked proper screen reader announcements despite having visual cues or titles.
-**Action:** Always add `aria-label` attributes to icon-only buttons and interactive card elements that act as links or triggers, ensuring the label clearly describes the action or destination (e.g., `aria-label={"View details for " + pokemon.name}`).
+**Learning:** For accessibility, ensure all icon-only interactive elements (like buttons) include an `aria-label` attribute, as relying solely on the `title` attribute is insufficient for screen readers. Icon-only buttons (e.g. close buttons, clear input buttons) can also be visually ambiguous. In Dexhelper, several key interactive elements like the Assistant Panel debug toggle, Pokedex Cards, and Storage Grid cards lacked proper screen reader announcements despite having visual cues or titles.
+**Action:** Always provide a `title` attribute for sighted users (especially on desktop where they can hover) alongside `aria-label` for screen readers to icon-only buttons and interactive card elements that act as links or triggers, ensuring the label clearly describes the action or destination (e.g., `aria-label={"View details for " + pokemon.name}`). This makes the interface more intuitive and accessible without cluttering the visual design.
 
 ## 2024-05-18 - [File Upload Input Accessibility]
 **Learning:** Using `className="hidden"` on `<input type="file">` elements within a `<label>` hides them completely from the accessibility tree, making it impossible for screen reader users to understand or interact with the file input properly, and preventing keyboard focus.
@@ -39,9 +39,6 @@
 ## 2026-04-20 - Interactive Elements Focus Styles
 **Learning:** Standard HTML elements functioning as buttons or links in custom UI components (like `BottomNav`) sometimes omit standard focus indicators when customized heavily.
 **Action:** All interactive elements (e.g., links, buttons) must explicitly define focus styles using the standard utility class string: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950`. This ensures consistent keyboard navigation visibility across the app.
-
-## 2026-05-15 - Tooltips for Icon-Only Interactive Elements
-**Learning:** Icon-only buttons (e.g. close buttons, clear input buttons) can be visually ambiguous. Always provide a `title` attribute for sighted users (especially on desktop where they can hover) alongside `aria-label` for screen readers. This makes the interface more intuitive and accessible without cluttering the visual design.
 
 ## 2024-04-22 - Focus Styles on Complex App Layouts
 **Learning:** Standard HTML elements functioning as buttons or links in custom, complex UI components (like `AppLayout` Desktop Navigation or headers) sometimes omit standard focus indicators when customized heavily. This breaks keyboard navigation.
