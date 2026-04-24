@@ -2,12 +2,12 @@
 id: task-005-025-update-orchestrator-validation
 type: TASK
 title: "Update Orchestrator Validation for Parent-Linked ID Schema"
-status: READY
+status: "ACTIVE"
 owner_persona: coder
 created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
-jules_session_id: null
+jules_session_id: "18267044109127171064"
 parent: .foundry/stories/story-005-id-schema-templates.md
 ---
 
