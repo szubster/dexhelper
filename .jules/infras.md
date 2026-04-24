@@ -18,3 +18,6 @@
 
 ## 2026-04-23 - Added oxlint
 **Learning:** Integrated `oxlint` as an additional ultra-fast linter in the linting pipeline (`lint` script, GitHub Actions, and Lefthook). Since `oxlint` is designed as a drop-in replacement for a subset of ESLint rules, it catches issues (like empty object destructuring or unused catch parameters) that Biome might miss or hasn't implemented yet, all while remaining extremely fast.
+
+## 2026-04-24 - Enabled TypeScript Incremental Builds
+**Learning:** Enabled `"incremental": true` in the base `tsconfig.json` to significantly improve local `pnpm type-check` performance (reducing run time from ~14s to ~4s on subsequent runs). This provides a massive developer experience improvement for local pre-commit hooks, allowing the system to maintain full project type safety (as originally desired) without the painful delay of a complete rebuild every time. Added `*.tsbuildinfo` to `.gitignore` to prevent cache file pollution.
