@@ -2,12 +2,12 @@
 id: story-006-015-implement-link-checker
 type: STORY
 title: "Implement Link Checker Pre-commit Hook"
-status: READY
+status: "ACTIVE"
 owner_persona: tech_lead
 created_at: "2026-04-24"
 updated_at: "2026-04-24"
 depends_on: []
-jules_session_id: null
+jules_session_id: "8553476047582013656"
 parent: .foundry/prds/prd-007-006-automated-link-checker.md
 tags: ["infras", "verification"]
 rejection_count: 0
