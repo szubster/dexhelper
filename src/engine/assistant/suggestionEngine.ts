@@ -51,9 +51,12 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
 
+  // ⚡ Bolt: Cache all encounters to a Map to prevent O(N) Array.find calls on every missing encounter lookup
+  const encountersByPid = new Map(allEncounters.map((e) => [e.pid, e]));
+
   // Fill missingEncounters
   for (const pid of queryTargets) {
-    const enc = allEncounters.find((e) => e.pid === pid);
+    const enc = encountersByPid.get(pid);
     if (enc) missingEncounters[pid] = enc;
   }
 
