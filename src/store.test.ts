@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { parseSaveFile } from './engine/saveParser/index';
 import { useStore } from './store';
 
@@ -20,6 +20,11 @@ describe('Zustand Store', () => {
       isSettingsOpen: false,
       isVersionModalOpen: false,
     });
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    vi.unstubAllGlobals();
   });
 
   describe('UI state', () => {
@@ -153,8 +158,6 @@ describe('Zustand Store', () => {
 
       expect(parseSaveFile).toHaveBeenCalled();
       expect(useStore.getState().saveData).toEqual(mockSaveData);
-
-      vi.unstubAllGlobals();
     });
 
     it('should handle corrupted save file from localStorage', () => {
@@ -173,14 +176,34 @@ describe('Zustand Store', () => {
       // Verify that it caught the error, logged it, and removed the corrupted item
       expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file from localStorage:', expect.any(String));
       expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
+    });
 
-      vi.restoreAllMocks();
-      vi.unstubAllGlobals();
+    it('should specifically catch invalid base64 regex failures', () => {
+      const mockRemoveItem = vi.fn();
+      vi.stubGlobal('localStorage', {
+        getItem: vi.fn().mockReturnValue('!!!'),
+        removeItem: mockRemoveItem,
+      });
+
+      const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+      useStore.getState().loadSaveFromStorage();
+
+      expect(mockConsoleError).toHaveBeenCalledWith(
+        'Failed to load saved file from localStorage:',
+        'Invalid Base64 string',
+      );
+      expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
     });
   });
 });
 
 describe('Persist Hydration Error Handling', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+    vi.unstubAllGlobals();
+  });
+
   it('should handle corrupted persist storage gracefully when getItem throws', async () => {
     // We must reset modules to force Zustand to re-evaluate and re-hydrate
     vi.resetModules();
@@ -206,9 +229,6 @@ describe('Persist Hydration Error Handling', () => {
     expect(freshStore.getState().manualVersion).toBeNull();
 
     // Zustand persist logs a warning internally when getItem throws
-
-    vi.restoreAllMocks();
-    vi.unstubAllGlobals();
   });
 
   it('should handle corrupted persist storage gracefully when JSON is invalid', async () => {
@@ -232,8 +252,5 @@ describe('Persist Hydration Error Handling', () => {
     // The store should not crash, but initialize with defaults
     expect(freshStore.getState().filters).toEqual([]);
     expect(freshStore.getState().isLivingDex).toBe(false);
-
-    vi.restoreAllMocks();
-    vi.unstubAllGlobals();
   });
 });
