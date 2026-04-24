@@ -33,5 +33,5 @@ This task will configure the scheduled workflow for the `tpm` persona. The targe
 - Since this is a simple low-risk workflow configuration change, a separate QA task is not needed. The `coder` can self-verify by checking the YAML syntax and test outputs.
 
 ## Acceptance Criteria
-- [ ] `.github/workflows/schedule-tpm.yml` is correctly configured to run daily.
-- [ ] The workflow successfully invokes the generic scheduled agent workflow for the TPM persona.
+- [x] `.github/workflows/schedule-tpm.yml` is correctly configured to run daily.
+- [x] The workflow successfully invokes the generic scheduled agent workflow for the TPM persona.
