@@ -21,5 +21,8 @@ In response to CEO feedback (PR comment 4303644512), we need to schedule work in
 - Relevant `oxlint` plugins (e.g., jest/vitest, react, jsx-a11y) must be enabled and configured to be "tight".
 
 ## Acceptance Criteria
-- [ ] Blueprint tasks are created to add and configure `.oxlintrc.json`.
-- [ ] Plugins configuration is explicitly addressed in the blueprint tasks.
+- [x] Blueprint tasks are created to add and configure `.oxlintrc.json`.
+- [x] Plugins configuration is explicitly addressed in the blueprint tasks.
+
+## Generated Tasks
+- .foundry/tasks/task-014-027-configure-oxlint-json.md
