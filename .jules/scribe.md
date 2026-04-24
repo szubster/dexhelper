@@ -25,3 +25,12 @@
 
 **What:** Created `scripts/README.md` to document the data pipeline scripts (`generate-pokedata.ts`, `generateMapLocations.ts`, `sync-pokedata.sh`).
 **Why:** The `scripts/` directory handles complex data ingestion from third-party sources (PokeAPI and Pret decompiled ROMs). The outputs heavily influence the core internal database schema (`src/db/schema.ts`). Documenting the specific upstream dependencies, the logic of flattening/compacting data, and the CI-triggered regeneration process is crucial to ensure future maintainers know how the data layer is constructed and updated.
+
+## 2025-01-28 - Common Save Parser Utilities Documentation
+
+**What:** Added JSDoc for `decodeGen12String`, `parseDVs`, and `checkShiny` in `src/engine/saveParser/parsers/common.ts`.
+**Why:** The binary bitwise operations and custom text encodings used in Gen 1 and 2 are non-obvious to modern developers.
+- `decodeGen12String`: Early Pokémon games do not use standard ASCII/UTF-8, but rather a custom character map (e.g., `0x80` = 'A', terminated by `0x50` or `0x00`/`0xFF`).
+- `parseDVs`: DVs are stored as 4-bit nibbles across two bytes. Crucially, the HP DV is not explicitly stored; it is calculated dynamically by extracting the least significant bit (LSB) from the Attack, Defense, Speed, and Special DVs.
+- `checkShiny`: In Gen 2, Shininess is determined entirely by stat DVs (making it retroactive and permanent across trades to Gen 1). A Pokémon is Shiny if Defense, Speed, and Special are exactly 10, and Attack is 2, 3, 6, 7, 10, 11, 14, or 15.
+Documenting these mechanical quirks is essential for future maintainability of the parsing engine.
