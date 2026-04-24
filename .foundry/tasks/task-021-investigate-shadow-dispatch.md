@@ -24,7 +24,7 @@ Initial architectural review by the Tech Lead suggests that Shadow Dispatch is i
 3. The only potential for duplicate dispatch is if two `foundry-engine.yml` workflows run concurrently and evaluate the node's state before either pushes the `ACTIVE` transition. This can be resolved trivially using GitHub Actions `concurrency` groups (e.g., `concurrency: group: foundry-engine`), rendering a complex GitHub PR inspection system unnecessary.
 
 ## Acceptance Criteria
-- [ ] Verify the Tech Lead's findings regarding the `foundry-engine.yml` concurrency behavior.
-- [ ] Update the acceptance criteria checkboxes in `.foundry/stories/story-004-shadow-dispatch-verification.md` to marked as completed.
-- [ ] Append a summary of these findings to the bottom of the `.foundry/stories/story-004-shadow-dispatch-verification.md` body.
-- [ ] Conclude in the documentation whether full implementation of GitHub PR inspection and Session Verification is actually necessary.
+- [x] Verify the Tech Lead's findings regarding the `foundry-engine.yml` concurrency behavior.
+- [x] Update the acceptance criteria checkboxes in `.foundry/stories/story-004-shadow-dispatch-verification.md` to marked as completed.
+- [x] Append a summary of these findings to the bottom of the `.foundry/stories/story-004-shadow-dispatch-verification.md` body.
+- [x] Conclude in the documentation whether full implementation of GitHub PR inspection and Session Verification is actually necessary.
