@@ -1,14 +1,14 @@
 ---
-id: idea-007-automated-link-checker
-type: IDEA
+id: prd-007-006-automated-link-checker
+type: PRD
 title: "Automated Link Checker Pre-commit Hook"
-status: "ACTIVE"
-owner_persona: product_manager
+status: PENDING
+owner_persona: story_owner
 created_at: "2026-04-24"
 updated_at: "2026-04-24"
 depends_on: []
-jules_session_id: "8659647860046752242"
-parent: null
+jules_session_id: null
+parent: .foundry/ideas/idea-007-automated-link-checker.md
 tags: ["infras", "verification"]
 notes: "Generated proactively by Agile Coach to reduce DAG orchestrator deadlocks caused by hallucinatory links."
 ---
@@ -20,6 +20,3 @@ Agents frequently hallucinate dead links when generating child nodes, which can 
 
 ## Value Proposition
 This will significantly reduce the number of orchestrator failures, reduce the burden on the TPM agent to resolve minor graph deadlocks, and improve overall repository hygiene.
-
-## Generated PRDs
-- [x] .foundry/prds/prd-007-006-automated-link-checker.md
