@@ -30,5 +30,8 @@ Implement the system permissions necessary for different personas to dynamically
 - [x] `product_manager` persona can create `IDEA`, `PRD`, and `EPIC` nodes for roadmap evolution.
 - [x] System strictly enforces these permissions to prevent unauthorized node creation.
 
+### Late Binding Update (Post-CEO Feedback)
+**Note:** The requirement for "strict enforcement" (the last AC above) was vetoed during the blueprint phase. The system should instead adopt a "soft direction/encouragement" approach solely through the respective agent's persona prompt (`.github/agents/*.md`), with no mechanical enforcement in the orchestrator.
+
 ### Generated Stories
 - `.foundry/stories/story-010-persona-permissions-matrix.md`
