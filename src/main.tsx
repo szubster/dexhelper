@@ -8,7 +8,7 @@ import { routeTree } from './routeTree.gen';
 import './index.css';
 
 // Initialize and sync PokeData
-pokeDB.sync().catch((err) => console.error(err instanceof Error ? err.message : String(err)));
+pokeDB.sync().catch(() => console.error('System: sync failed'));
 
 const router = createRouter({
   routeTree,

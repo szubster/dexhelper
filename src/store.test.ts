@@ -174,7 +174,7 @@ describe('Zustand Store', () => {
       useStore.getState().loadSaveFromStorage();
 
       // Verify that it caught the error, logged it, and removed the corrupted item
-      expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file from localStorage:', expect.any(String));
+      expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file');
       expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
     });
 
@@ -189,10 +189,7 @@ describe('Zustand Store', () => {
 
       useStore.getState().loadSaveFromStorage();
 
-      expect(mockConsoleError).toHaveBeenCalledWith(
-        'Failed to load saved file from localStorage:',
-        'Invalid Base64 string',
-      );
+      expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file');
       expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
     });
   });
