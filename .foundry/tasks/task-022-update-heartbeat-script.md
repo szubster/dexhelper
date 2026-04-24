@@ -20,9 +20,9 @@ tags:
 We need to modify the heartbeat script (`.github/scripts/foundry-heartbeat.ts`) to support `human` tasks. The heartbeat script should not automatically mark tasks with `owner_persona: human` as FAILED just because they lack a `jules_session_id`. Instead, if they have a `pr_number` specified in their frontmatter, it should query the GitHub API to check the PR status.
 
 ## Acceptance Criteria
-- [ ] Modify `foundry-heartbeat.ts` to ignore the missing `jules_session_id` for nodes where `owner_persona: human`.
-- [ ] If an `ACTIVE` human node has a `pr_number`, query the GitHub API to get its status.
-- [ ] If the PR is merged, transition the node to `COMPLETED`.
-- [ ] If the PR is closed but unmerged, transition the node to `READY` to be picked up again.
-- [ ] Add comprehensive unit tests in `.github/scripts/foundry-heartbeat.test.ts` to mock the GitHub API and verify these exact transitions for human tasks.
-- [ ] **Verification**: The Coder is responsible for self-verifying the logic. No separate QA task is required since it's a backend script and testable via vitest.
+- [x] Modify `foundry-heartbeat.ts` to ignore the missing `jules_session_id` for nodes where `owner_persona: human`.
+- [x] If an `ACTIVE` human node has a `pr_number`, query the GitHub API to get its status.
+- [x] If the PR is merged, transition the node to `COMPLETED`.
+- [x] If the PR is closed but unmerged, transition the node to `READY` to be picked up again.
+- [x] Add comprehensive unit tests in `.github/scripts/foundry-heartbeat.test.ts` to mock the GitHub API and verify these exact transitions for human tasks.
+- [x] **Verification**: The Coder is responsible for self-verifying the logic. No separate QA task is required since it's a backend script and testable via vitest.
