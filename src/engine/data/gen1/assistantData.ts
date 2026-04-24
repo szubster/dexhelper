@@ -4,7 +4,7 @@
 
 export const STATIC_GIFT_DATA: Record<
   number,
-  { name: string; location: string; reason: string; gen?: number; eventFlag?: number }
+  { name: string; location: string; reason: string; gen?: number; eventFlag?: number; requiredBadges?: number }
 > = {
   // Gen 1
   1: {
@@ -13,6 +13,7 @@ export const STATIC_GIFT_DATA: Record<
     reason: 'Gift from NPC (Yellow only)',
     gen: 1,
     eventFlag: 0x2a1,
+    requiredBadges: 1, // Need to reach Cerulean City (Brock)
   },
   4: {
     name: 'Charmander',
@@ -20,6 +21,7 @@ export const STATIC_GIFT_DATA: Record<
     reason: 'Gift from NPC (Yellow only)',
     gen: 1,
     eventFlag: 0x217,
+    requiredBadges: 1, // Need to reach Cerulean City (Brock)
   },
   7: {
     name: 'Squirtle',
@@ -27,6 +29,7 @@ export const STATIC_GIFT_DATA: Record<
     reason: 'Gift from Officer Jenny (Yellow only)',
     gen: 1,
     eventFlag: 0x221,
+    requiredBadges: 2, // Need Thunderbadge (Surge) actually not strictly required for city but makes sense
   },
   131: {
     name: 'Lapras',
@@ -34,6 +37,7 @@ export const STATIC_GIFT_DATA: Record<
     reason: 'Gift from NPC during Silph Co. invasion',
     gen: 1,
     eventFlag: 0x190,
+    requiredBadges: 4, // Needs to reach Saffron / Silph Co (usually requires 4 badges)
   },
   133: {
     name: 'Eevee',
@@ -41,6 +45,7 @@ export const STATIC_GIFT_DATA: Record<
     reason: 'Gift from the back entrance',
     gen: 1,
     eventFlag: 0x2fd,
+    requiredBadges: 2, // Reach Celadon City (usually 2+ badges)
   },
   106: {
     name: 'Hitmonlee',
@@ -48,6 +53,7 @@ export const STATIC_GIFT_DATA: Record<
     reason: 'Reward',
     gen: 1,
     eventFlag: 0x23b,
+    requiredBadges: 4, // Reach Saffron City
   },
   107: {
     name: 'Hitmonchan',
@@ -55,15 +61,16 @@ export const STATIC_GIFT_DATA: Record<
     reason: 'Reward',
     gen: 1,
     eventFlag: 0x23b,
+    requiredBadges: 4, // Reach Saffron City
   }, // Shared flag for Dojo? Yes, you pick one.
-  138: { name: 'Omanyte', location: 'Cinnabar Lab', reason: 'Fossil', gen: 1, eventFlag: 0x232 }, // Dome Fossil? No, shared flag for choosing fossil?
-  140: { name: 'Kabuto', location: 'Cinnabar Lab', reason: 'Fossil', gen: 1, eventFlag: 0x232 },
-  142: { name: 'Aerodactyl', location: 'Cinnabar Lab', reason: 'Fossil', gen: 1, eventFlag: 0x234 },
-  143: { name: 'Snorlax', location: 'Route 12 / 16', reason: 'Static', gen: 1, eventFlag: 0x23f }, // One of the Snorlaxes
-  144: { name: 'Articuno', location: 'Seafoam', reason: 'Static', gen: 1, eventFlag: 0x228 },
-  145: { name: 'Zapdos', location: 'Power Plant', reason: 'Static', gen: 1, eventFlag: 0x227 },
-  146: { name: 'Moltres', location: 'Victory Road', reason: 'Static', gen: 1, eventFlag: 0x230 },
-  150: { name: 'Mewtwo', location: 'Cerulean Cave', reason: 'Static', gen: 1, eventFlag: 0x231 },
+  138: { name: 'Omanyte', location: 'Cinnabar Lab', reason: 'Fossil', gen: 1, eventFlag: 0x232, requiredBadges: 6 }, // Reach Cinnabar (usually 6 badges)
+  140: { name: 'Kabuto', location: 'Cinnabar Lab', reason: 'Fossil', gen: 1, eventFlag: 0x232, requiredBadges: 6 },
+  142: { name: 'Aerodactyl', location: 'Cinnabar Lab', reason: 'Fossil', gen: 1, eventFlag: 0x234, requiredBadges: 6 },
+  143: { name: 'Snorlax', location: 'Route 12 / 16', reason: 'Static', gen: 1, eventFlag: 0x23f, requiredBadges: 3 }, // Need Poke Flute (Lavender Town, so 3+ badges usually)
+  144: { name: 'Articuno', location: 'Seafoam', reason: 'Static', gen: 1, eventFlag: 0x228, requiredBadges: 5 }, // Need Surf/Strength (5+ badges)
+  145: { name: 'Zapdos', location: 'Power Plant', reason: 'Static', gen: 1, eventFlag: 0x227, requiredBadges: 3 }, // Need Surf (from Safari Zone/Koga so usually 4, but let's say 3+)
+  146: { name: 'Moltres', location: 'Victory Road', reason: 'Static', gen: 1, eventFlag: 0x230, requiredBadges: 8 }, // Need all 8 badges to reach Victory Road
+  150: { name: 'Mewtwo', location: 'Cerulean Cave', reason: 'Static', gen: 1, eventFlag: 0x231, requiredBadges: 8 }, // Need to beat E4
 
   // Gen 2 (Placeholder: event flags for Gen 2 are at different offsets and not yet mapped)
   152: { name: 'Chikorita', location: 'New Bark Town', reason: 'Starter', gen: 2 },

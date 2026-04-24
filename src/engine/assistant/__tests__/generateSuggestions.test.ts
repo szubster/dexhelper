@@ -109,4 +109,114 @@ describe('generateSuggestions', () => {
     // Best distance is 1. Math.max(10, 110 - 1 * 12) = 110 - 12 = 98
     expect(nearbySuggestion?.priority).toBe(98);
   });
+
+  it('should generate "Gift" suggestions when event flag is not set and badges are sufficient', () => {
+    const eventFlags = new Uint8Array(300);
+    // Do not set 0x190 (Lapras gift flag)
+
+    const mockSaveData: SaveData = {
+      generation: 1,
+      gameVersion: 'red',
+      owned: new Set([1, 2, 3]), // Missing 131 (Lapras)
+      seen: new Set(),
+      party: [],
+      inventory: [],
+      currentMapId: 0,
+      badges: 4, // Enough badges for Lapras
+      eventFlags,
+      partyDetails: [],
+      pcDetails: [],
+      trainerName: 'ASH',
+    } as unknown as SaveData;
+
+    const mockApiData: AssistantApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {},
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+
+    const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
+    expect(giftSuggestion).toBeDefined();
+    expect(giftSuggestion?.title).toBe('Claim Gift: #131');
+    expect(giftSuggestion?.category).toBe('Gift');
+  });
+
+  it('should not generate "Gift" suggestions when badges are insufficient', () => {
+    const eventFlags = new Uint8Array(300);
+
+    const mockSaveData: SaveData = {
+      generation: 1,
+      gameVersion: 'red',
+      owned: new Set([1, 2, 3]), // Missing 131 (Lapras)
+      seen: new Set(),
+      party: [],
+      inventory: [],
+      currentMapId: 0,
+      badges: 3, // Not enough for Lapras (requires 4)
+      eventFlags,
+      partyDetails: [],
+      pcDetails: [],
+      trainerName: 'ASH',
+    } as unknown as SaveData;
+
+    const mockApiData: AssistantApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {},
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+
+    const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
+    expect(giftSuggestion).toBeUndefined();
+  });
+
+  it('should not generate "Gift" suggestions when event flag is set', () => {
+    const eventFlags = new Uint8Array(300);
+    // Set 0x190 (Lapras gift flag)
+    const byteIndex = 0x190 >> 3;
+    const bitIndex = 0x190 & 7;
+    // @ts-expect-error
+    eventFlags[byteIndex] |= 1 << bitIndex;
+
+    const mockSaveData: SaveData = {
+      generation: 1,
+      gameVersion: 'red',
+      owned: new Set([1, 2, 3]), // Missing 131 (Lapras)
+      seen: new Set(),
+      party: [],
+      inventory: [],
+      currentMapId: 0,
+      badges: 8, // Enough badges
+      eventFlags,
+      partyDetails: [],
+      pcDetails: [],
+      trainerName: 'ASH',
+    } as unknown as SaveData;
+
+    const mockApiData: AssistantApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {},
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+
+    const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
+    expect(giftSuggestion).toBeUndefined();
+  });
 });

@@ -81,6 +81,15 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   };
 }
 
+function checkFlag(flags: Uint8Array | undefined, flagId: number | undefined) {
+  if (!flags || flagId === undefined) return false;
+  const byteIndex = flagId >> 3;
+  const bitIndex = flagId & 7;
+  const byte = flags[byteIndex];
+  if (byte === undefined) return false;
+  return (byte & (1 << bitIndex)) !== 0;
+}
+
 const METHOD_NAMES: Record<number, string> = {
   [ENCOUNTER_METHOD.WALK]: 'walk',
   [ENCOUNTER_METHOD.SURF]: 'surf',
@@ -286,7 +295,30 @@ export function generateSuggestions(
     });
   }
 
-  // D. Evolutions
+  // D. Static Gifts
+  // Suggests available static encounters and gifts that haven't been claimed yet.
+  for (const [idStr, gift] of Object.entries(STATIC_GIFT_DATA)) {
+    const giftId = parseInt(idStr, 10);
+    if (gift.gen && gift.gen !== saveData.generation) continue;
+    if (!missingIds.has(giftId)) continue;
+
+    const requiredBadges = gift.requiredBadges || 0;
+    if (saveData.badges < requiredBadges) continue;
+
+    const hasClaimed = checkFlag(saveData.eventFlags, gift.eventFlag);
+    if (hasClaimed) continue;
+
+    suggestions.push({
+      id: `gift-${giftId}`,
+      category: 'Gift',
+      title: `Claim Gift: #${giftId}`,
+      description: `Get ${gift.name} at ${gift.location} (${gift.reason}).`,
+      pokemonId: giftId,
+      priority: 85,
+    });
+  }
+
+  // E. Evolutions
   // Evaluates the player's current boxes and party to find pre-evolutions.
   // Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached, evolution stone in inventory).
   const instancesBySpecies = new Map<number, PokemonInstance[]>();
