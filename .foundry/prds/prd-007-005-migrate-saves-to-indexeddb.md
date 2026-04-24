@@ -15,7 +15,7 @@ tags: []
 # PRD: Migrate Save Data Storage to IndexedDB
 
 ## Executive Summary
-The application currently stores parsed game save files as base64-encoded strings in `localStorage`. This approach presents two significant challenges: `localStorage` size constraints (~5MB) limit scalability and multi-save support, and the reliance on `window.atob` for base64 decoding introduces flagged security vulnerabilities. This PRD outlines the migration of the save data persistence layer to `IndexedDB`, enabling larger storage quotas and natively secure binary handling.
+The application currently stores parsed game save files as base64-encoded strings in `localStorage`. This approach presents two significant challenges: `localStorage` size constraints (~5MB) limit scalability and multi-save support, and the reliance on `window.atob` for base64 decoding introduces flagged security vulnerabilities. This PRD outlines the migration of the save data persistence layer to `IndexedDB`, enabling significantly larger storage quotas and natively secure binary handling.
 
 ## Problem Statement
 1. **Size Constraints**: `localStorage` is limited to ~5MB. Save files (SRAM dumps) for older generations are typically 32KB, but storing multiple saves, uncompressed structures, or future generation data will quickly exhaust this limit.

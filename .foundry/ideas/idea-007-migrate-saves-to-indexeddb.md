@@ -31,3 +31,4 @@ By switching to `IndexedDB`:
 
 ## Generated PRDs
 - .foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md
+- [x] Create PRD for IndexedDB migration
