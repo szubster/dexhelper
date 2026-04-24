@@ -37,7 +37,7 @@ The orchestrator was modified in `task-022` to bypass the `READY` state for huma
 - (Clean up dummy nodes after verification).
 
 ## 3. Acceptance Criteria
-- [ ] Automated orchestrator unit tests pass, including the new human bypass scenarios.
-- [ ] Dry-run execution confirms human tasks transition directly to `ACTIVE`.
-- [ ] Dry-run execution confirms human tasks are successfully omitted from the `readyNodes` matrix JSON output.
-- [ ] Global tests (`pnpm test`, `pnpm lint`, `pnpm test:e2e`) pass successfully.
+- [x] Automated orchestrator unit tests pass, including the new human bypass scenarios.
+- [x] Dry-run execution confirms human tasks transition directly to `ACTIVE`.
+- [x] Dry-run execution confirms human tasks are successfully omitted from the `readyNodes` matrix JSON output.
+- [x] Global tests (`pnpm test`, `pnpm lint`, `pnpm test:e2e`) pass successfully.
