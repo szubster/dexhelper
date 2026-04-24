@@ -1,6 +1,10 @@
 export type GameVersion = 'red' | 'blue' | 'yellow' | 'gold' | 'silver' | 'crystal' | 'unknown';
 export type Generation = number;
 
+/**
+ * Represents a single caught Pokémon found in the player's party, PC boxes, or Daycare.
+ * Extracted directly from the 32-byte (Gen 2) or 44-byte (Gen 1) internal save data blocks.
+ */
 export interface PokemonInstance {
   speciesId: number;
   level: number;
@@ -19,9 +23,14 @@ export interface PokemonInstance {
     | undefined;
   otName?: string | undefined;
   storageLocation: string;
-  slot?: number | undefined; // 1-indexed slot in party or box
+  /** The 1-indexed position of the Pokémon within its storage container. */
+  slot?: number | undefined;
 }
 
+/**
+ * The root container for all parsed save file data.
+ * Normalizes differences between Generation 1 and Generation 2 formats into a unified state structure.
+ */
 export interface SaveData {
   generation: Generation;
   owned: Set<number>;
@@ -132,6 +141,23 @@ const GEN12_CHAR_MAP: Record<number, string> = {
   0xf7: '9',
 };
 
+/**
+ * Decodes a custom character-encoded string from a Generation 1 or 2 save file.
+ *
+ * @param view - The DataView of the raw save buffer.
+ * @param offset - The memory offset where the string begins.
+ * @param maxLength - The maximum number of bytes to read (defaults to 11 for standard names).
+ * @returns The decoded, human-readable UTF-8 string.
+ *
+ * @remarks
+ * Early Pokémon games do not use standard ASCII or UTF-8. Instead, they use a custom character
+ * map where `0x80` is 'A', `0x81` is 'B', etc. The string is typically terminated by `0x50`
+ * (end of string indicator) or `0x00`/`0xFF`.
+ *
+ * @example
+ * // Decode a player name starting at offset 0x2598
+ * const playerName = decodeGen12String(view, 0x2598, 11);
+ */
 export function decodeGen12String(view: DataView, offset: number, maxLength: number = 11): string {
   let result = '';
   for (let i = 0; i < maxLength; i++) {
@@ -149,6 +175,22 @@ export function decodeGen12String(view: DataView, offset: number, maxLength: num
   return result.trim();
 }
 
+/**
+ * Unpacks a 16-bit DV (Determinant Value) integer into its constituent internal stat genes.
+ *
+ * @param dvValue - The 16-bit integer representing the combined DVs (extracted via `view.getUint16(offset, false)`).
+ * @returns An object containing the 4-bit DVs for HP, Attack, Defense, Speed, and Special.
+ *
+ * @remarks
+ * In Gen 1 and 2, DVs are stored as 4-bit nibbles across two bytes (e.g., Attack/Defense in the first byte,
+ * Speed/Special in the second).
+ * The HP DV is not stored directly; it is calculated dynamically by taking the least significant bit (LSB)
+ * of the other four stats and shifting them into a single 4-bit number.
+ *
+ * @example
+ * // Parse DVs from Gen 2 memory block
+ * const stats = parseDVs(view.getUint16(offset + 21, false));
+ */
 export function parseDVs(dvValue: number) {
   const b0 = (dvValue >> 8) & 0xff;
   const b1 = dvValue & 0xff;
@@ -160,6 +202,21 @@ export function parseDVs(dvValue: number) {
   return { hp, atk, def, spd, spc };
 }
 
+/**
+ * Evaluates whether a Pokémon is "Shiny" based solely on its Determinant Values (DVs).
+ *
+ * @param dvs - The unpacked stat DVs from `parseDVs`.
+ * @returns True if the DV combination meets the Gen 2 Shininess criteria.
+ *
+ * @remarks
+ * In Generation 2, Shininess is determined directly by stat DVs, meaning a Pokémon's
+ * shininess is permanent and can even be transferred retroactively to Gen 1.
+ * A Pokémon is Shiny if its Defense, Speed, and Special DVs are exactly `10`,
+ * and its Attack DV is `2`, `3`, `6`, `7`, `10`, `11`, `14`, or `15`.
+ *
+ * @example
+ * const isShiny = checkShiny({ atk: 10, def: 10, spd: 10, spc: 10 }); // true
+ */
 export function checkShiny(dvs: { atk: number; def: number; spd: number; spc: number }) {
   return dvs.def === 10 && dvs.spd === 10 && dvs.spc === 10 && [2, 3, 6, 7, 10, 11, 14, 15].includes(dvs.atk);
 }
