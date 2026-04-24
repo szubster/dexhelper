@@ -123,7 +123,7 @@ export function PokemonDetails({
 
   const getLocationsForVersion = React.useCallback(
     (version: string) => {
-      const versionId = (POKE_VERSION_MAP as Record<string, number>)[version] || 0;
+      const versionId = POKE_VERSION_MAP[version] || 0;
       const versionEncounters = encounters.filter((e) => e.v === versionId);
 
       return versionEncounters.flatMap((enc) => {
