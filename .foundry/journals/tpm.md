@@ -200,3 +200,11 @@
 - **2026-04-24**: PR #462 merged. `task-022-orchestrator-human-bypass` is now COMPLETED.
 
 - **2026-04-24**: PR #463 merged. `task-022-update-heartbeat-script` is now COMPLETED.
+
+- **2026-04-24**: PR #474 merged. `epic-010-oxlint-config` is now COMPLETED.
+
+- **2026-04-24**: PR #466 merged. `story-010-persona-permissions-matrix` is now COMPLETED.
+
+- **2026-04-24**: PR #475 merged. `task-014-scaffold-architect` is now COMPLETED.
+
+- **2026-04-24**: PR #473 merged. `task-015-update-tech-lead-protocol` is now COMPLETED.

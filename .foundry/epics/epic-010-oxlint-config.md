@@ -2,13 +2,13 @@
 id: "epic-010-oxlint-config"
 type: "EPIC"
 title: "Tighten oxlint configuration and enable plugins"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "story_owner"
 created_at: "2026-04-23"
-updated_at: "2026-04-23"
+updated_at: "2026-04-24"
 parent: ""
 depends_on: []
-jules_session_id: "4415664169684320614"
+jules_session_id: null
 ---
 
 ## Summary
