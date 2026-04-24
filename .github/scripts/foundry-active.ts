@@ -86,7 +86,7 @@ export function transitionNodeToActive(repoPath: string, sessionId: string, repo
     mutatedFmBlock,
     'updated_at',
     dateStr,
-    /^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t]*)$/m
+    /^(updated_at:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m
   );
 
   const newContent = rawContent.replace(originalFmBlock, mutatedFmBlock);

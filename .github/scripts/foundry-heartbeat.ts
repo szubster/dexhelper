@@ -43,7 +43,7 @@ export async function transitionNodeToFailed(node: any, repoRoot: string): Promi
 
   mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?ACTIVE["']?([ \t]*)$/m, `$1"FAILED"$2`);
   mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);
-  mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t]*)$/m, `$1"${dateStr}"$2`);
+  mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1"${dateStr}"$2`);
 
   const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
 
@@ -67,7 +67,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
 
   mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?ACTIVE["']?([ \t]*)$/m, `$1"COMPLETED"$2`);
   mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);
-  mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t]*)$/m, `$1"${dateStr}"$2`);
+  mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1"${dateStr}"$2`);
 
   const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
 
@@ -97,8 +97,7 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
   } else {
     mutatedFmBlock = mutatedFmBlock.replace(/^status: READY/m, `status: READY\nrejection_count: 1`);
   }
-
-  mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t]*)$/m, `$1"${dateStr}"$2`);
+  mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1"${dateStr}"$2`);
 
   const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
 
