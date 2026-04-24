@@ -69,6 +69,7 @@ created_at: ""          # Required. ISO-8601 date (YYYY-MM-DD). Set once, never 
 updated_at: ""          # Required. ISO-8601 date. Updated by any persona that edits the node.
 depends_on: []          # Required. Array of repo-relative file paths. Empty [] = unblocked.
 jules_session_id: null  # Required. Active Jules session ID string, or null when idle.
+pr_number: null         # Optional. PR number for human-in-the-loop tasks, or null.
 parent: null            # Required if node is derived from another node (e.g. PRD from IDEA, EPIC from PRD). Repo-relative path to the logical parent node. Blocks the parent from completion if this node is incomplete.
 tags: []                # Optional. Free-form string labels for filtering and context injection.
 rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes.
@@ -89,6 +90,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `updated_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Must be updated whenever the file is edited. |
 | `depends_on` | `string[]` | ✅ | Repo-relative paths to blocking nodes (e.g., `.foundry/stories/story-001-scaffold.md`). **Empty array `[]` means the node has in-degree zero and is eligible for dispatch once all other preconditions are met.** |
 | `jules_session_id` | `string \| null` | ✅ | Jules session ID while `ACTIVE`. Always present; `null` when the node is not being processed. Monitored by the heartbeat workflow. |
+| `pr_number` | `integer \| null` | optional | PR number for human-in-the-loop tasks, or `null`. |
 | `parent` | `string \| null` | optional | Repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
 | `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
 | `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. |
@@ -147,6 +149,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `tech_lead` | Transforms `STORY` → `TASK` (technical implementation plans). |
 | `coder` | Implements individual `TASK` nodes. |
 | `qa` | Validates `TASK` implementation against technical contracts. |
+| `human` | A human contributor. Bypasses Jules dispatch and heartbeat timeouts. |
 | `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
 | `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
 
@@ -180,6 +183,7 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
 9. **Every `.foundry/**/*.md` file that is not a journal or doc must have valid YAML frontmatter.** The orchestrator will skip malformed files and log a warning — they will never be dispatched.
 10. **The `id` field must be globally unique across all `.foundry/` directories.** Duplicate IDs are undefined behaviour in the orchestrator.
 11. **`owner_persona` must be exactly one persona.** The system enforces a single-owner invariant per node for atomic handoffs; arrays or multiple personas are invalid.
+12. **`human` persona bypasses Jules dispatch and heartbeat timeouts.** The orchestrator will not dispatch Jules for nodes owned by `human`, and the heartbeat will not fail them.
 
 ---
 
@@ -198,6 +202,7 @@ created_at: "YYYY-MM-DD"
 updated_at: "YYYY-MM-DD"
 depends_on: []
 jules_session_id: null
+pr_number: null
 parent: null
 tags: []
 rejection_count: 0
