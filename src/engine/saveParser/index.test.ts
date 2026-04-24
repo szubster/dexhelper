@@ -100,3 +100,90 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     );
   });
 });
+
+describe('saveParser - Missing coverage line 50-53', () => {
+  const HEADER_SIZE = 32768;
+
+  it('should detect valid gen2 checksum and valid true gen2 save', () => {
+    const buffer = new ArrayBuffer(HEADER_SIZE);
+    const view = new DataView(buffer);
+    view.setUint8(0x2009, 0x10);
+
+    let gen2Sum = 0;
+    for (let i = 0x2009; i <= 0x2d0c; i++) {
+      gen2Sum += view.getUint8(i);
+    }
+
+    view.setUint16(0x2d0d, gen2Sum, true);
+
+    view.setUint8(0x288a, 0);
+    view.setUint8(0x288b, 0xff);
+
+    const data = parseSaveFile(buffer);
+    expect(data.generation).toBe(2);
+  });
+
+  it('should detect valid gen2 checksum and valid false gen2 save', () => {
+    const buffer = new ArrayBuffer(HEADER_SIZE);
+    const view = new DataView(buffer);
+
+    view.setUint8(0x2009, 0x10);
+
+    let gen2Sum = 0;
+    for (let i = 0x2009; i <= 0x2d0c; i++) {
+      gen2Sum += view.getUint8(i);
+    }
+
+    view.setUint8(0x2d0d, gen2Sum & 0xff);
+    view.setUint8(0x2d0e, (gen2Sum >> 8) & 0xff);
+
+    view.setUint8(0x288a, 1);
+    view.setUint8(0x288b, 0x00);
+
+    view.setUint8(0x2865, 0);
+    view.setUint8(0x2866, 0xff);
+
+    const data = parseSaveFile(buffer);
+    expect(data.generation).toBe(2);
+  });
+});
+
+describe('saveParser - Error Handling and Fallbacks Gen 2 Non-Crystal', () => {
+  const HEADER_SIZE = 32768;
+
+  it('should fallback to gen2 (non-crystal) if checksum invalid but structurally valid', () => {
+    const buffer = new ArrayBuffer(HEADER_SIZE);
+    const view = new DataView(buffer);
+    view.setUint8(0x2f2d, 0x00);
+    view.setUint8(0x288a, 0x01);
+    view.setUint8(0x288b, 0x00);
+    view.setUint8(0x2865, 0);
+    view.setUint8(0x2866, 0xff);
+    const data = parseSaveFile(buffer);
+    expect(data.generation).toBe(2);
+  });
+});
+
+describe('saveParser - Missing coverage line 50-53 (Gen2 Checksum Valid but Fallback to default)', () => {
+  const HEADER_SIZE = 32768;
+
+  it('should fallback to default gen2 if checksum valid but structure is weird', () => {
+    const buffer = new ArrayBuffer(HEADER_SIZE);
+    const view = new DataView(buffer);
+    view.setUint8(0x2009, 0x10);
+
+    view.setUint8(0x288a, 10); // gsPartyCount = 10
+    view.setUint8(0x288b, 0x00); // gs terminator invalid
+    view.setUint8(0x2865, 1); // crystal partyCount = 1
+    view.setUint8(0x2866, 0x00); // crystal terminator invalid
+
+    let gen2Sum = 0;
+    for (let i = 0x2009; i <= 0x2d0c; i++) {
+      gen2Sum += view.getUint8(i);
+    }
+    view.setUint16(0x2d0d, gen2Sum, true);
+
+    const data = parseSaveFile(buffer);
+    expect(data.generation).toBe(2);
+  });
+});
