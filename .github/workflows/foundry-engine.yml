@@ -197,3 +197,20 @@ jobs:
           git commit -m "Foundry: Transition ${{ matrix.node.id }} -> ACTIVE [$SESSION_ID]"
           git pull --rebase origin main
           git push origin main
+
+      - name: Report Execution Failure
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_ISSUES_PAT }}
+        run: |
+          ISSUE_TITLE="Foundry Engine: Execution Failure (${{ matrix.node.id }}) - ${{ github.run_id }}"
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          {
+            echo "The Foundry Engine failed during the execution phase for \`${{ matrix.node.id }}\`."
+            echo ""
+            echo "**Jules Session ID:** \`${SESSION_ID:-Not generated or failed to capture}\`"
+            echo "**Run Details:** [View Action Run]($RUN_URL)"
+          } > issue_body.md
+
+          gh issue create --title "$ISSUE_TITLE" --body-file issue_body.md --label "jules"
