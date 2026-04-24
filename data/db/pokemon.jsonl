@@ -103,8 +103,8 @@
 {"id":103,"n":"Exeggutor","cr":45,"efrm":[102],"det":[{"tr":3,"item":47},{"tr":3,"item":47}]}
 {"id":104,"n":"Cubone","cr":190,"eto":[{"id":105,"det":[{"ml":28},{"ml":28,"time":2}],"ef":104}]}
 {"id":105,"n":"Marowak","cr":75,"efrm":[104],"det":[{"ml":28},{"ml":28,"time":2}]}
-{"id":106,"n":"Hitmonlee","cr":45,"gr":0,"efrm":[236],"det":[{"ml":20}]}
-{"id":107,"n":"Hitmonchan","cr":45,"gr":0,"efrm":[236],"det":[{"ml":20}]}
+{"id":106,"n":"Hitmonlee","cr":45,"gr":0,"efrm":[236],"det":[{"ml":20,"rps":1}]}
+{"id":107,"n":"Hitmonchan","cr":45,"gr":0,"efrm":[236],"det":[{"ml":20,"rps":-1}]}
 {"id":108,"n":"Lickitung","cr":45,"eto":[{"id":463,"det":[{}],"ef":108}]}
 {"id":109,"n":"Koffing","cr":190,"eto":[{"id":110,"det":[{"ml":35},{"ml":35}],"ef":109}]}
 {"id":110,"n":"Weezing","cr":60,"efrm":[109],"det":[{"ml":35},{"ml":35}]}
@@ -233,8 +233,8 @@
 {"id":233,"n":"Porygon2","cr":45,"gr":-1,"eto":[{"id":474,"det":[{"tr":2,"held":301}],"ef":233}],"efrm":[137],"det":[{"tr":2,"held":229}]}
 {"id":234,"n":"Stantler","cr":45,"eto":[{"id":899,"det":[{"tr":0}],"ef":234}]}
 {"id":235,"n":"Smeargle","cr":45}
-{"id":236,"n":"Tyrogue","cr":75,"gr":0,"baby":true,"eto":[{"id":106,"det":[{"ml":20}],"ef":236},{"id":107,"det":[{"ml":20}],"ef":236},{"id":237,"det":[{"ml":20}],"ef":236}]}
-{"id":237,"n":"Hitmontop","cr":45,"gr":0,"efrm":[236],"det":[{"ml":20}]}
+{"id":236,"n":"Tyrogue","cr":75,"gr":0,"baby":true,"eto":[{"id":106,"det":[{"ml":20,"rps":1}],"ef":236},{"id":107,"det":[{"ml":20,"rps":-1}],"ef":236},{"id":237,"det":[{"ml":20,"rps":0}],"ef":236}]}
+{"id":237,"n":"Hitmontop","cr":45,"gr":0,"efrm":[236],"det":[{"ml":20,"rps":0}]}
 {"id":238,"n":"Smoochum","cr":45,"gr":8,"baby":true,"eto":[{"id":124,"det":[{"ml":30}],"ef":238}]}
 {"id":239,"n":"Elekid","cr":45,"gr":2,"baby":true,"eto":[{"id":125,"eto":[{"id":466,"det":[{"tr":2,"held":299}],"ef":125}],"det":[{"ml":30}],"ef":239}]}
 {"id":240,"n":"Magby","cr":45,"gr":2,"baby":true,"eto":[{"id":126,"eto":[{"id":467,"det":[{"tr":2,"held":300}],"ef":126}],"det":[{"ml":30}],"ef":240}]}
