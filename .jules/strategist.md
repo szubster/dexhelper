@@ -26,3 +26,9 @@
 **Outcome:** Merged
 **Why:** Maintainer clarified that agents should not look at past commits to figure out their memory, as the journal always has them.
 **Pattern:** Do not instruct agents to read PR history for cross-session memory.
+
+## 2026-05-15 - [Accepted] - Prompt improvement - Update PR titles and bodies to match system memory
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The PR formatting rules in the agent prompts needed to match the explicit rules in the system memory.
+**Pattern:** Proposing changes to correctly format agent output based on the project's requirements.
