@@ -2,12 +2,12 @@
 id: epic-010-human-schema
 type: EPIC
 title: "Update Foundry Schema for Human Persona"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: story_owner
 created_at: "2026-04-23"
-updated_at: "2026-04-23"
+updated_at: "2026-04-24"
 depends_on: []
-jules_session_id: "15969432490887437472"
+jules_session_id: null
 parent: ".foundry/prds/prd-004-human-in-the-loop.md"
 tags:
   - "human-in-the-loop"

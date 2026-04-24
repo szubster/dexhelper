@@ -2,12 +2,12 @@
 id: story-005-013-tpm-archiving-logic
 type: STORY
 title: "TPM Archiving Logic"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: tech_lead
 created_at: "2026-04-23"
-updated_at: "2026-04-23"
+updated_at: "2026-04-24"
 depends_on: []
-jules_session_id: "12682969154199172711"
+jules_session_id: null
 parent: .foundry/epics/epic-005-tpm-agent-scheduling.md
 tags: ["infrastructure"]
 rejection_count: 0

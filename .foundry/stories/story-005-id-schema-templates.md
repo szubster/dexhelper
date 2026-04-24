@@ -2,13 +2,13 @@
 id: story-005-id-schema-templates
 type: STORY
 title: "Update Templates and Generation Scripts"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: tech_lead
 created_at: "2026-04-22"
-updated_at: "2026-04-23"
+updated_at: "2026-04-24"
 depends_on:
   - .foundry/stories/story-004-id-schema-decision.md
-jules_session_id: "9741922439502902273"
+jules_session_id: null
 parent: .foundry/epics/epic-004-distributed-id-schema.md
 ---
 

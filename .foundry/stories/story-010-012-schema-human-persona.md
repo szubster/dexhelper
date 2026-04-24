@@ -2,10 +2,10 @@
 id: story-010-012-schema-human-persona
 type: STORY
 title: "Update Foundry Schema for Human Persona"
-status: "PENDING"
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-23"
-updated_at: "2026-04-23"
+updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
 parent: ".foundry/epics/epic-010-human-schema.md"

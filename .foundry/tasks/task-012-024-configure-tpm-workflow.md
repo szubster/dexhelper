@@ -2,10 +2,10 @@
 id: task-012-024-configure-tpm-workflow
 type: TASK
 title: "Configure TPM Schedule Workflow"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-23"
-updated_at: "2026-04-23"
+updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-005-012-configure-tpm-schedule.md

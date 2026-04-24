@@ -184,3 +184,19 @@
 - **2026-04-23**: Resurrection Loop triggered for `story-005-id-schema-templates`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-23**: Resurrection Loop triggered for `story-007-schema-invariant`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-24**: PR #464 merged. `epic-010-human-schema` is now COMPLETED.
+
+- **2026-04-24**: PR #469 merged. `story-005-012-configure-tpm-schedule` is now COMPLETED.
+
+- **2026-04-24**: PR #468 merged. `story-005-013-tpm-archiving-logic` is now COMPLETED.
+
+- **2026-04-24**: PR #472 merged. `story-005-id-schema-templates` is now COMPLETED.
+
+- **2026-04-24**: PR #471 merged. `story-007-schema-invariant` is now COMPLETED.
+
+- **2026-04-24**: PR #467 merged. `task-021-investigate-shadow-dispatch` is now COMPLETED.
+
+- **2026-04-24**: PR #462 merged. `task-022-orchestrator-human-bypass` is now COMPLETED.
+
+- **2026-04-24**: PR #463 merged. `task-022-update-heartbeat-script` is now COMPLETED.
