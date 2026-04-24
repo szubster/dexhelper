@@ -2,13 +2,13 @@
 id: task-013-024-update-tpm-prompt
 type: TASK
 title: "Update TPM Prompt for Archiving Logic"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: coder
 created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on:
   - .foundry/stories/story-005-013-tpm-archiving-logic.md
-jules_session_id: "940115287298606683"
+jules_session_id: null
 parent: .foundry/stories/story-005-013-tpm-archiving-logic.md
 tags: ["infrastructure"]
 rejection_count: 0

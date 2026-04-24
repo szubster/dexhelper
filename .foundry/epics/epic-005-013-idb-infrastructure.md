@@ -2,7 +2,7 @@
 id: epic-005-013-idb-infrastructure
 type: EPIC
 title: "IndexedDB Infrastructure & Fallbacks"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-24"
 updated_at: "2026-04-24"

@@ -2,10 +2,10 @@
 id: "story-009-composite-deprecation"
 type: "STORY"
 title: "Deprecate Composite Nodes in Schema"
-status: "PENDING"
+status: READY
 owner_persona: "tech_lead"
 created_at: "2026-04-23"
-updated_at: "2026-04-23"
+updated_at: "2026-04-24"
 depends_on:
   - ".foundry/stories/story-007-schema-invariant.md"
 jules_session_id: null

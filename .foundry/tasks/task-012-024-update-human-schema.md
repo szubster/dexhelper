@@ -2,7 +2,7 @@
 id: task-012-024-update-human-schema
 type: TASK
 title: "Update Foundry Schema for Human Persona"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-24"
 updated_at: "2026-04-24"

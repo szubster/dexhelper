@@ -2,7 +2,7 @@
 id: "task-014-027-configure-oxlint-json"
 type: "TASK"
 title: "Configure .oxlintrc.json with strict rules and plugins"
-status: PENDING
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-24"
 updated_at: "2026-04-24"

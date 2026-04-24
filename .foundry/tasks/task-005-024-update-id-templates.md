@@ -2,12 +2,12 @@
 id: task-005-024-update-id-templates
 type: TASK
 title: "Update Generation Templates to Parent-Linked ID Schema"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: coder
 created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
-jules_session_id: "7820065613631510653"
+jules_session_id: null
 parent: .foundry/stories/story-005-id-schema-templates.md
 ---
 

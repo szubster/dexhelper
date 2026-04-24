@@ -2,10 +2,10 @@
 id: epic-011-wait-and-wake-protocol
 type: EPIC
 title: "Wait & Wake Protocol and Impossible Loop"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-23"
-updated_at: "2026-04-23"
+updated_at: "2026-04-24"
 depends_on:
   - .foundry/epics/epic-010-persona-permissions.md
 jules_session_id: null

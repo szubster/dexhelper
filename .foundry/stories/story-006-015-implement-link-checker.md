@@ -2,7 +2,7 @@
 id: story-006-015-implement-link-checker
 type: STORY
 title: "Implement Link Checker Pre-commit Hook"
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-24"
 updated_at: "2026-04-24"

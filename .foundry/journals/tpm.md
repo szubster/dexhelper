@@ -212,3 +212,23 @@
 - **2026-04-24**: PR #504 merged. `idea-007` is now COMPLETED.
 
 - **2026-04-24**: PR #503 merged. `idea-007-automated-link-checker` is now COMPLETED.
+
+- **2026-04-24**: PR #513 merged. `prd-007-005-migrate-saves-to-indexeddb` is now COMPLETED.
+
+- **2026-04-24**: PR #515 merged. `prd-007-006-automated-link-checker` is now COMPLETED.
+
+- **2026-04-24**: PR #512 merged. `story-010-012-schema-human-persona` is now COMPLETED.
+
+- **2026-04-24**: PR #514 merged. `story-010-014-implement-oxlint-config` is now COMPLETED.
+
+- **2026-04-24**: PR #509 merged. `task-005-024-update-id-templates` is now COMPLETED.
+
+- **2026-04-24**: PR #510 merged. `task-007-024-update-schema-owner-invariant` is now COMPLETED.
+
+- **2026-04-24**: PR #508 merged. `task-010-024-update-persona-prompts` is now COMPLETED.
+
+- **2026-04-24**: PR #507 merged. `task-012-024-configure-tpm-workflow` is now COMPLETED.
+
+- **2026-04-24**: PR #506 merged. `task-013-024-update-tpm-prompt` is now COMPLETED.
+
+- **2026-04-24**: PR #511 merged. `task-023-qa-orchestrator-human-bypass` is now COMPLETED.

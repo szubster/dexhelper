@@ -2,10 +2,10 @@
 id: "story-008-schema-examples"
 type: "STORY"
 title: "Update Documentation Examples for Atomic Files"
-status: "PENDING"
+status: READY
 owner_persona: "tech_lead"
 created_at: "2026-04-23"
-updated_at: "2026-04-23"
+updated_at: "2026-04-24"
 depends_on:
   - ".foundry/stories/story-007-schema-invariant.md"
 jules_session_id: null
