@@ -164,10 +164,11 @@ export function AssistantSuggestionCard({
                             aria-label={`View details for ${getPokemonName(pid)}`}
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <img
-                              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pid}.png`}
+                            <PokemonSprite
+                              pokemonId={pid}
+                              generation={saveData.generation}
                               alt={getPokemonName(pid)}
-                              className="pixelated h-full w-full object-contain"
+                              className="h-full w-full object-contain"
                             />
                             <div className="absolute -top-1.5 -right-1.5 rounded-lg border border-white/20 bg-emerald-500 px-1.5 py-0.5 font-black text-[9px] text-white shadow-lg">
                               {enc.chance}%
@@ -202,10 +203,11 @@ export function AssistantSuggestionCard({
                     aria-label={`View details for ${getPokemonName(pid)}`}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <img
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pid}.png`}
+                    <PokemonSprite
+                      pokemonId={pid}
+                      generation={saveData.generation}
                       alt={getPokemonName(pid)}
-                      className="pixelated h-full w-full object-contain"
+                      className="h-full w-full object-contain"
                     />
                   </Link>
                 ))}

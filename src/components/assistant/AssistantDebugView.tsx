@@ -1,6 +1,7 @@
 import { AlertCircle, Bug } from 'lucide-react';
 import type { SaveData } from '../../engine/saveParser/index';
 import type { RejectedSuggestion } from '../../hooks/useAssistant';
+import { PokemonSprite } from '../pokemon/PokemonSprite';
 
 interface AssistantDebugViewProps {
   rejected: RejectedSuggestion[];
@@ -65,10 +66,11 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
             className="flex items-start gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 transition-colors hover:border-zinc-700"
           >
             <div className="relative h-12 w-12 flex-shrink-0 rounded-xl border border-white/5 bg-zinc-800 p-1">
-              <img
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${r.pokemonId}.png`}
+              <PokemonSprite
+                pokemonId={r.pokemonId}
+                generation={saveData.generation ?? 1}
                 alt="Sprite"
-                className="pixelated h-full w-full object-contain opacity-50 grayscale"
+                className="h-full w-full object-contain opacity-50 grayscale"
               />
               <div className="absolute -top-1 -right-1">
                 <AlertCircle size={14} className="fill-zinc-900 text-amber-500" />

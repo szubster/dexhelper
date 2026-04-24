@@ -107,7 +107,6 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
           partySet={partySet}
           pcSet={pcSet}
           shinySpeciesIds={shinySpeciesIds}
-          genConfig={genConfig}
         />
       ))}
     </div>
