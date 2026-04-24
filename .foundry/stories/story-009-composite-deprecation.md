@@ -18,5 +18,8 @@ parent: ".foundry/epics/epic-007-atomic-handoff-schema.md"
 Any existing references to "composite nodes" in `.foundry/docs/schema.md` must be formally removed or marked as deprecated to prevent confusion.
 
 ## Acceptance Criteria
-- "Composite node" terminology is either scrubbed or explicitly flagged as an anti-pattern.
-- Add context explaining why composite nodes cause deadlocks.
+- [x] "Composite node" terminology is either scrubbed or explicitly flagged as an anti-pattern.
+- [x] Add context explaining why composite nodes cause deadlocks.
+
+## Generated Tasks
+- `.foundry/tasks/task-009-028-deprecate-composite-nodes.md`
