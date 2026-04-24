@@ -6,7 +6,8 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "incremental": true
   },
   "exclude": [".github/scripts"]
 }
