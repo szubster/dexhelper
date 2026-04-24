@@ -28,3 +28,6 @@ By switching to `IndexedDB`:
 - Utilize a lightweight wrapper like `idb` (already a project dependency) to interface with IndexedDB securely.
 - Remove `localStorage` save file persistence from the Zustand store's custom actions.
 - Update the store's hydration mechanism to asynchronously load binary save data from IndexedDB directly into the parser.
+
+### Generated PRD
+- `.foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md`
