@@ -25,7 +25,11 @@ Implement the orchestration logic required to support the "Wait & Wake" protocol
 - Completion of `epic-010-persona-permissions`.
 
 ## High-level Acceptance Criteria
-- [ ] When an agent spawns downstream nodes and adds them to `depends_on`, its session is suspended and the node status transitions to `PENDING`.
-- [ ] The Orchestrator correctly transitions the parent node back to `READY` and re-dispatches the agent once all newly spawned downstream tasks are `COMPLETED`.
-- [ ] If a node is fundamentally impossible, the agent transitions the node to `FAILED` with a `rejection_reason` in the frontmatter.
-- [ ] The Orchestrator detects `FAILED` nodes and either "wakes up" the parent node or flags it for the `tpm` to create a feedback `IDEA` for the PM/CEO.
+- [x] When an agent spawns downstream nodes and adds them to `depends_on`, its session is suspended and the node status transitions to `PENDING`.
+- [x] The Orchestrator correctly transitions the parent node back to `READY` and re-dispatches the agent once all newly spawned downstream tasks are `COMPLETED`.
+- [x] If a node is fundamentally impossible, the agent transitions the node to `FAILED` with a `rejection_reason` in the frontmatter.
+- [x] The Orchestrator detects `FAILED` nodes and either "wakes up" the parent node or flags it for the `tpm` to create a feedback `IDEA` for the PM/CEO.
+
+### Generated Stories
+- `.foundry/stories/story-011-016-wait-wake-implementation.md`
+- `.foundry/stories/story-011-017-impossible-loop.md`
