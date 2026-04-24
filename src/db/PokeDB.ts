@@ -176,7 +176,7 @@ const syncData = async () => {
       await mStore.put({ key: 'hash', value: data.hash });
       await tx.done;
     } catch (err) {
-      console.error('PokeDB: Sync failed', err instanceof Error ? err.message : String(err));
+      console.error('System: sync failed');
       // Reset promise so we can retry later if needed
       syncPromise = null;
       throw err;

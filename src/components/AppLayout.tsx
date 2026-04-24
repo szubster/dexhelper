@@ -20,8 +20,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           if (chunkFailedMessage) {
             window.location.reload();
           }
-        } catch (err) {
-          console.error(err instanceof Error ? err.message : String(err));
+        } catch {
+          console.error('System: chunk load error handler failed');
         }
       }
     };
