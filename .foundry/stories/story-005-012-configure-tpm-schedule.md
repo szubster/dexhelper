@@ -17,3 +17,6 @@ notes: ""
 # Configure TPM Schedule
 
 Configure the TPM agent to run on an hourly schedule utilizing the generic scheduled agent workflow.
+
+### Generated Tasks
+- .foundry/tasks/task-012-024-configure-tpm-workflow.md
