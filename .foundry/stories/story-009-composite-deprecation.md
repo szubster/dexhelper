@@ -2,13 +2,13 @@
 id: "story-009-composite-deprecation"
 type: "STORY"
 title: "Deprecate Composite Nodes in Schema"
-status: READY
+status: "ACTIVE"
 owner_persona: "tech_lead"
 created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on:
   - ".foundry/stories/story-007-schema-invariant.md"
-jules_session_id: null
+jules_session_id: "4351354076877014240"
 parent: ".foundry/epics/epic-007-atomic-handoff-schema.md"
 ---
 
