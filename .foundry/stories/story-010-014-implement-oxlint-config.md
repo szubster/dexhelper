@@ -2,12 +2,12 @@
 id: "story-010-014-implement-oxlint-config"
 type: "STORY"
 title: "Implement strict oxlint configuration"
-status: READY
+status: "ACTIVE"
 owner_persona: "tech_lead"
 created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
-jules_session_id: null
+jules_session_id: "17896389778239174900"
 parent: ".foundry/epics/epic-010-oxlint-config.md"
 ---
 
