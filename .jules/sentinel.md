@@ -46,3 +46,5 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 # Sentinel Learnings
 - Added tests to cover `RangeError` and other error paths in `decodeGen12String` by mocking `DataView.prototype.getUint8` to verify error bubbling.
 - Used `vi.spyOn` from vitest to explicitly mock native method throws.
+- Improved `src/store.test.ts` robustness by moving mock and global restoration to `afterEach` hooks, ensuring clean state even after test failures.
+- Covered untested error path in `loadSaveFromStorage` by simulating invalid base64 regex failures.
