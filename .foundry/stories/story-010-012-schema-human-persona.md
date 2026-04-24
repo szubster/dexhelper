@@ -20,10 +20,13 @@ tags:
 Extend the Foundry Master Schema to formally support human ownership of tasks, bypassing the standard Jules autonomous execution loop.
 
 ## 2. Acceptance Criteria
-- [ ] Update the `owner_persona` enum in `.foundry/docs/schema.md` to include `human`.
-- [ ] Define a new optional global frontmatter field `pr_number` in `.foundry/docs/schema.md`. It should be described as an integer or null, defaulting to null.
-- [ ] Add explicit notes in the schema that tasks owned by `human` bypass Jules dispatch and heartbeat failure timeouts.
+- [x] Update the `owner_persona` enum in `.foundry/docs/schema.md` to include `human`.
+- [x] Define a new optional global frontmatter field `pr_number` in `.foundry/docs/schema.md`. It should be described as an integer or null, defaulting to null.
+- [x] Add explicit notes in the schema that tasks owned by `human` bypass Jules dispatch and heartbeat failure timeouts.
 
 ## 3. Implementation Notes
 - Modify `.foundry/docs/schema.md`.
 - Ensure changes are communicated clearly so the orchestrator developers have a strict contract to follow.
+
+## Generated Tasks
+- [.foundry/tasks/task-012-024-update-human-schema.md](.foundry/tasks/task-012-024-update-human-schema.md)
