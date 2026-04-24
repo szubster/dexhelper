@@ -7,9 +7,9 @@ owner_persona: story_owner
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on:
-  - .foundry/epics/epic-010-persona-permissions.md
+  - .foundry/archive/epics/epic-010-persona-permissions.md
 jules_session_id: null
-parent: ".foundry/prds/prd-002-late-binding-orchestrator.md"
+parent: ".foundry/archive/prds/prd-002-late-binding-orchestrator.md"
 tags:
   - foundry-v2
   - architecture

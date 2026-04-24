@@ -7,10 +7,10 @@ owner_persona: "story_owner"
 created_at: "2026-04-22"
 updated_at: "2026-04-22"
 depends_on:
-  - .foundry/prds/prd-001-v2-lifecycle.md
-  - .foundry/epics/epic-007-atomic-handoff-schema.md
+  - .foundry/archive/prds/prd-001-v2-lifecycle.md
+  - .foundry/archive/epics/epic-007-atomic-handoff-schema.md
 jules_session_id: null
-parent: ".foundry/prds/prd-001-v2-lifecycle.md"
+parent: ".foundry/archive/prds/prd-001-v2-lifecycle.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 ---
 
@@ -20,8 +20,8 @@ tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 This Epic handles modifying orchestrator scripts to strictly enforce the atomic, single-persona rule and manage dependencies correctly without deadlocking.
 
 ## Prerequisites
-- Completion of Schema Updates (`.foundry/epics/epic-007-atomic-handoff-schema.md`)
-- Read `.foundry/prds/prd-001-v2-lifecycle.md`
+- Completion of Schema Updates (`.foundry/archive/epics/epic-007-atomic-handoff-schema.md`)
+- Read `.foundry/archive/prds/prd-001-v2-lifecycle.md`
 
 ## Acceptance Criteria
 - [ ] Orchestrator explicitly rejects or errors on files defining multiple `owner_persona`s.

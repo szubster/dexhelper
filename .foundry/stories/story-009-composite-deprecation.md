@@ -9,7 +9,7 @@ updated_at: "2026-04-23"
 depends_on:
   - ".foundry/stories/story-007-schema-invariant.md"
 jules_session_id: null
-parent: ".foundry/epics/epic-007-atomic-handoff-schema.md"
+parent: ".foundry/archive/epics/epic-007-atomic-handoff-schema.md"
 ---
 
 # Deprecate Composite Nodes in Schema

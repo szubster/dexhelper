@@ -7,9 +7,9 @@ owner_persona: tech_lead
 created_at: "2026-04-22"
 updated_at: "2026-04-23"
 depends_on:
-  - .foundry/stories/story-004-id-schema-decision.md
+  - .foundry/archive/stories/story-004-id-schema-decision.md
 jules_session_id: "9741922439502902273"
-parent: .foundry/epics/epic-004-distributed-id-schema.md
+parent: .foundry/archive/epics/epic-004-distributed-id-schema.md
 ---
 
 # Story: Update Templates and Generation Scripts

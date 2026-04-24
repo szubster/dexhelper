@@ -7,9 +7,9 @@ owner_persona: tech_lead
 created_at: "2026-04-21"
 updated_at: "2026-04-23"
 depends_on:
-  - .foundry/stories/story-003-dynamic-verification.md
+  - .foundry/archive/stories/story-003-dynamic-verification.md
 jules_session_id: "3341076832909534543"
-parent: .foundry/stories/story-003-dynamic-verification.md
+parent: .foundry/archive/stories/story-003-dynamic-verification.md
 ---
 
 # Scaffold Architect Persona

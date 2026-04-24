@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on: []
 jules_session_id: "11165832185709609742"
-parent: ".foundry/epics/epic-010-persona-permissions.md"
+parent: ".foundry/archive/epics/epic-010-persona-permissions.md"
 tags:
   - foundry-v2
   - architecture
@@ -29,4 +29,4 @@ Implement the strict permissions model for node creation per persona during late
 - [ ] Any unauthorized node creation attempts are cleanly rejected or failed.
 
 ## Context
-See `.foundry/epics/epic-010-persona-permissions.md` and `.foundry/docs/adrs/001-the-foundry-architecture.md` for background.
+See `.foundry/archive/epics/epic-010-persona-permissions.md` and `.foundry/docs/adrs/001-the-foundry-architecture.md` for background.

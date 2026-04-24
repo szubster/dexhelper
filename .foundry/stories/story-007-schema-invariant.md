@@ -7,9 +7,9 @@ owner_persona: "tech_lead"
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on:
-  - ".foundry/epics/epic-007-atomic-handoff-schema.md"
+  - ".foundry/archive/epics/epic-007-atomic-handoff-schema.md"
 jules_session_id: "3892603921378887484"
-parent: ".foundry/epics/epic-007-atomic-handoff-schema.md"
+parent: ".foundry/archive/epics/epic-007-atomic-handoff-schema.md"
 ---
 
 # Update Schema Invariants for Atomic Handoffs

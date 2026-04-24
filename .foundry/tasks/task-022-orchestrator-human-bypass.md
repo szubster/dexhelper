@@ -7,9 +7,9 @@ owner_persona: coder
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on:
-  - ".foundry/stories/story-010-orchestrator-human-bypass.md"
+  - ".foundry/archive/stories/story-010-orchestrator-human-bypass.md"
 jules_session_id: "13992972196049399213"
-parent: ".foundry/stories/story-010-orchestrator-human-bypass.md"
+parent: ".foundry/archive/stories/story-010-orchestrator-human-bypass.md"
 tags:
   - "human-in-the-loop"
   - "orchestrator"

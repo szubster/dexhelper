@@ -7,9 +7,9 @@ owner_persona: story_owner
 created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on:
-  - .foundry/epics/epic-004-distributed-id-schema.md
+  - .foundry/archive/epics/epic-004-distributed-id-schema.md
 jules_session_id: null
-parent: .foundry/prds/prd-001-distributed-ids.md
+parent: .foundry/archive/prds/prd-001-distributed-ids.md
 tags: ["ci", "pre-commit"]
 rejection_count: 0
 notes: ""
@@ -26,7 +26,7 @@ To guarantee the collision-free nature of the new node ID scheme across the mult
 3. **Format Validation:** Verify that newly created node IDs match the structural format chosen in `epic-004-distributed-id-schema`.
 
 ## Dependencies
-- `.foundry/epics/epic-004-distributed-id-schema.md` (Must finalize the ID pattern first).
+- `.foundry/archive/epics/epic-004-distributed-id-schema.md` (Must finalize the ID pattern first).
 
 ## High-Level Acceptance Criteria
 - [ ] A pre-commit hook runs on every commit affecting `.foundry/` files.
