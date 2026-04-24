@@ -33,3 +33,6 @@ This Epic is solely responsible for defining the structural rules and constraint
 ## 5. Implementation Notes
 - Modify `.foundry/docs/schema.md`.
 - Ensure changes are communicated clearly so the orchestrator developers (in subsequent Epics) have a strict contract to follow.
+
+## Generated Stories
+- [.foundry/stories/story-010-012-schema-human-persona.md](.foundry/stories/story-010-012-schema-human-persona.md)
