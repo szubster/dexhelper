@@ -2,13 +2,13 @@
 id: task-023-qa-orchestrator-human-bypass
 type: TASK
 title: "QA Verification: Human Task Bypass in Orchestrator"
-status: READY
+status: "ACTIVE"
 owner_persona: qa
 created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on:
   - ".foundry/tasks/task-022-orchestrator-human-bypass.md"
-jules_session_id: null
+jules_session_id: "14751418280542227036"
 parent: ".foundry/stories/story-010-orchestrator-human-bypass.md"
 tags:
   - "human-in-the-loop"
