@@ -135,61 +135,65 @@ jobs:
         env:
           JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
         run: |
-          # 1. Capture task content for the prompt
-          task_content=$(cat "${{ matrix.node.repo_path }}")
-          
-          owner_persona="${{ matrix.node.owner_persona }}"
-          agent_file=".github/agents/${owner_persona}.md"
+          set -o pipefail
+          {
+            # 1. Capture task content for the prompt
+            task_content=$(cat "${{ matrix.node.repo_path }}")
+            
+            owner_persona="${{ matrix.node.owner_persona }}"
+            agent_file=".github/agents/${owner_persona}.md"
 
-          if [[ -n "$owner_persona" && -f "$agent_file" ]]; then
-            agent_context=$(cat "$agent_file")
-          else
-            agent_context="As the coder of The Foundry, your task is described in the provided node file. You must automatically index and read relevant knowledge from .foundry/docs/knowledge_base/ whenever assigned a task. Follow the schema rules and implementation guidelines."
-          fi
+            if [[ -n "$owner_persona" && -f "$agent_file" ]]; then
+              agent_context=$(cat "$agent_file")
+            else
+              agent_context="As the coder of The Foundry, your task is described in the provided node file. You must automatically index and read relevant knowledge from .foundry/docs/knowledge_base/ whenever assigned a task. Follow the schema rules and implementation guidelines."
+            fi
 
-          # 2. Construct the prompt JSON
-          # source: sources/github/<owner>/<repo>
-          prompt_json=$(jq -n \
-            --arg task "$task_content" \
-            --arg agent_context "$agent_context" \
-            --arg title "${{ matrix.node.title }}" \
-            --arg repo "${{ github.repository }}" \
-            --arg schema_url "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" \
-            '{
-              "prompt": "\($agent_context)\n\n### CRITICAL RULE\nDO NOT modify the YAML frontmatter of the task node. Only update the markdown body (e.g., acceptance criteria checkboxes).\n\n### TASK NODE\n\($task)\n\n### SCHEMA\n\($schema_url)",
-              "sourceContext": {
-                "source": "sources/github/\($repo)",
-                "githubRepoContext": {
-                  "startingBranch": "main"
-                }
-              },
-              "automationMode": "AUTO_CREATE_PR",
-              "title": $title
-            }')
+            # 2. Construct the prompt JSON
+            # source: sources/github/<owner>/<repo>
+            prompt_json=$(jq -n \
+              --arg task "$task_content" \
+              --arg agent_context "$agent_context" \
+              --arg title "${{ matrix.node.title }}" \
+              --arg repo "${{ github.repository }}" \
+              --arg schema_url "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" \
+              '{
+                "prompt": "\($agent_context)\n\n### CRITICAL RULE\nDO NOT modify the YAML frontmatter of the task node. Only update the markdown body (e.g., acceptance criteria checkboxes).\n\n### TASK NODE\n\($task)\n\n### SCHEMA\n\($schema_url)",
+                "sourceContext": {
+                  "source": "sources/github/\($repo)",
+                  "githubRepoContext": {
+                    "startingBranch": "main"
+                  }
+                },
+                "automationMode": "AUTO_CREATE_PR",
+                "title": $title
+              }')
 
-          # 3. Request session from Jules API
-          echo "Dispatching Jules session for: ${{ matrix.node.id }}"
-          response=$(curl -s -X POST "https://jules.googleapis.com/v1alpha/sessions" \
-            -H "Content-Type: application/json" \
-            -H "X-Goog-Api-Key: $JULES_API_KEY" \
-            -d "$prompt_json")
+            # 3. Request session from Jules API
+            echo "Dispatching Jules session for: ${{ matrix.node.id }}"
+            response=$(curl -s -X POST "https://jules.googleapis.com/v1alpha/sessions" \
+              -H "Content-Type: application/json" \
+              -H "X-Goog-Api-Key: $JULES_API_KEY" \
+              -d "$prompt_json")
 
-          # 4. Extract and verify session ID
-          session_id=$(echo "$response" | jq -r '.id')
-          
-          if [[ -z "$session_id" || "$session_id" == "null" ]]; then
-            echo "::error::Failed to capture Jules session ID"
-            echo "Response: $response"
-            exit 1
-          fi
-          
-          echo "SESSION_ID=$session_id" >> $GITHUB_ENV
-          echo "Successfully spawned Jules session: $session_id"
+            # 4. Extract and verify session ID
+            session_id=$(echo "$response" | jq -r '.id')
+            
+            if [[ -z "$session_id" || "$session_id" == "null" ]]; then
+              echo "::error::Failed to capture Jules session ID"
+              echo "Response: $response"
+              exit 1
+            fi
+            
+            echo "SESSION_ID=$session_id" >> $GITHUB_ENV
+            echo "Successfully spawned Jules session: $session_id"
+          } 2>&1 | tee invoke-agent.log
 
       - name: Transition node to ACTIVE
         run: |
+          set -o pipefail
           # Transition the file to ACTIVE state and inject the real Jules ID
-          node --strip-types .github/scripts/foundry-active.ts "${{ matrix.node.repo_path }}" "$SESSION_ID"
+          node --strip-types .github/scripts/foundry-active.ts "${{ matrix.node.repo_path }}" "$SESSION_ID" 2>&1 | tee active-transition.log
 
       - name: Commit State Change
         run: |
@@ -211,6 +215,26 @@ jobs:
             echo ""
             echo "**Jules Session ID:** \`${SESSION_ID:-Not generated or failed to capture}\`"
             echo "**Run Details:** [View Action Run]($RUN_URL)"
+            echo ""
+            
+            if [ -f invoke-agent.log ]; then
+              echo "**Invoke Jules Agent Log:**"
+              echo ""
+              echo '```text'
+              cat invoke-agent.log
+              echo '```'
+              echo ""
+            fi
+
+            if [ -f active-transition.log ]; then
+              echo "**Transition to ACTIVE Log:**"
+              echo ""
+              echo '```text'
+              cat active-transition.log
+              echo '```'
+              echo ""
+            fi
+            
           } > issue_body.md
 
           gh issue create --title "$ISSUE_TITLE" --body-file issue_body.md --label "jules"
