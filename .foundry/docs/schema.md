@@ -80,7 +80,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `id` | `string` | ✅ | Globally unique. Convention: `<type>-<parent_NNN>-<NNN>-<slug>`. Used by humans and search; the DAG uses file paths. |
+| `id` | `string` | ✅ | Globally unique. Convention: `<type>-<parent_NNN>-<NNN>-<slug>` (IDEA nodes omit parent NNN). Used by humans and search; the DAG uses file paths. |
 | `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK` |
 | `title` | `string` | ✅ | Short, human-readable description. |
 | `status` | `enum` | ✅ | Current lifecycle state. See §4. |
@@ -188,7 +188,7 @@ Copy-paste this block to start any new node. Fill in all required fields before 
 
 ```yaml
 ---
-id: <type>-<parent_NNN>-<NNN>-<slug>
+id: <type>-<parent_NNN>-<NNN>-<slug> # e.g. task-001-002-implement-feature
 type: 
 title: ""
 status: PENDING
