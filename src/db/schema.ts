@@ -45,6 +45,15 @@ export const ENCOUNTER_METHOD_MAP: Record<string, number> = {
   gift: 6,
   'rock-smash': 7,
   headbutt: 8,
+  'headbutt-low': 9,
+  'headbutt-normal': 10,
+  'headbutt-high': 11,
+  'npc-trade': 12,
+  'only-one': 13,
+  pokeflute: 14,
+  'gift-egg': 15,
+  'squirt-bottle': 16,
+  'roaming-grass': 17,
 };
 
 export const REVERSE_METHOD_MAP: Record<number, string> = Object.fromEntries(

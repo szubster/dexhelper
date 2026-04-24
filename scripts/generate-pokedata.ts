@@ -358,10 +358,19 @@ for (const cid of uniqueChainIds) {
 
   const mapLink = (link: PokeApiChainLink, ef?: number): CompactChainLink => {
     const id = parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10);
+
+    // Filter out Alolan/Galarian/etc base forms.
+    // If an evolution detail has a `base_form`, it means it's a regional variant evolution.
+    // For Gen 1/2 DexHelper, we only care about base form null (original).
+    // Note: PokeAPI recently added base_form but older instances might not have it.
+    // A safe heuristic is to check if there are duplicate evolution details.
+
+    const validEvolutionDetails = link.evolution_details.filter((ed: any) => !ed.base_form || ed.base_form === null);
+
     return {
       id,
       eto: link.evolves_to.map(l => mapLink(l, id)),
-      det: link.evolution_details.map((ed) => ({
+      det: validEvolutionDetails.map((ed) => ({
         tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
         ml: ed.min_level ?? undefined,
         mh: ed.min_happiness ?? undefined,

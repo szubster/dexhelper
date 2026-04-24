@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "ignoreDependencies": ["bundlemon"],
-  "ignore": [".github/scripts/**"],
+  "ignore": [".github/scripts/**", "src/test-setup.ts"],
   "rules": {
     "files": "warn",
     "exports": "warn",
