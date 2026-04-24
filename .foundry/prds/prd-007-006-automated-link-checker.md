@@ -2,12 +2,12 @@
 id: prd-007-006-automated-link-checker
 type: PRD
 title: "Automated Link Checker Pre-commit Hook"
-status: READY
+status: "ACTIVE"
 owner_persona: story_owner
 created_at: "2026-04-24"
 updated_at: "2026-04-24"
 depends_on: []
-jules_session_id: null
+jules_session_id: "3799897130653957605"
 parent: .foundry/ideas/idea-007-automated-link-checker.md
 tags: ["infras", "verification"]
 notes: "Generated proactively by Agile Coach to reduce DAG orchestrator deadlocks caused by hallucinatory links."
