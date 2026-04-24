@@ -38,8 +38,8 @@ As refined in the story `.foundry/stories/story-010-persona-permissions-matrix.m
    - **Crucially: Do not touch `.github/scripts/foundry-orchestrator.ts` or `lefthook.yml`.** This requirement is strictly prompt-based.
 
 ## Acceptance Criteria
-- [ ] The `architect` prompt encourages creating `TASK`, `ADR`, and `IDEA` nodes.
-- [ ] The `tech_lead` prompt encourages creating `TASK` and `ADR` nodes.
-- [ ] The `story_owner` (or relevant) prompt encourages creating `STORY` and `EPIC` nodes.
-- [ ] The `product_manager` prompt encourages creating `IDEA`, `PRD`, and `EPIC` nodes.
-- [ ] No strict enforcement checks or orchestrator logs are added.
+- [x] The `architect` prompt encourages creating `TASK`, `ADR`, and `IDEA` nodes.
+- [x] The `tech_lead` prompt encourages creating `TASK` and `ADR` nodes.
+- [x] The `story_owner` (or relevant) prompt encourages creating `STORY` and `EPIC` nodes.
+- [x] The `product_manager` prompt encourages creating `IDEA`, `PRD`, and `EPIC` nodes.
+- [x] No strict enforcement checks or orchestrator logs are added.
