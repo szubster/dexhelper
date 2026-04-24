@@ -23,12 +23,19 @@ describe('fetchAssistantApiData', () => {
     vi.spyOn(pokeDB, 'getAllEncounters').mockResolvedValue([]);
     vi.spyOn(pokeDB, 'getAllAreas').mockResolvedValue([]);
     vi.spyOn(pokeDB, 'getLocations').mockResolvedValue([]);
-    vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockResolvedValue([
-      { id: 1, n: 'bulbasaur', efrm: [], eto: [], det: [] } as unknown as PokemonMetadata,
-      { id: 2, n: 'ivysaur', efrm: [1], eto: [], det: [] } as unknown as PokemonMetadata,
-    ]);
+    vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockImplementation(async (ids) => {
+      const all: Record<number, unknown> = {
+        1: { id: 1, n: 'bulbasaur', efrm: [], eto: [], det: [] },
+        2: { id: 2, n: 'ivysaur', efrm: [1], eto: [], det: [] },
+        4: { id: 4, n: 'charmander', efrm: [], eto: [], det: [] },
+        5: { id: 5, n: 'charmeleon', efrm: [4], eto: [], det: [] },
+      };
+      const arrIds = Array.from(ids) as number[];
+      return arrIds.map((id) => (all[id] as PokemonMetadata) || (new Error('not found') as unknown as PokemonMetadata));
+    });
 
-    const result = await fetchAssistantApiData(mockSaveData, []);
+    // Added queryTargets to ensure we hit the encounter Map mapping
+    const result = await fetchAssistantApiData(mockSaveData, [4, 5]);
 
     // It should have correctly populated pokemonMetadata
     expect(result.pokemonMetadata[2]).toBeDefined();
