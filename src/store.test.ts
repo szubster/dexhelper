@@ -171,7 +171,7 @@ describe('Zustand Store', () => {
       useStore.getState().loadSaveFromStorage();
 
       // Verify that it caught the error, logged it, and removed the corrupted item
-      expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file from localStorage:', expect.any(String));
+      expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file from localStorage');
       expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
 
       vi.restoreAllMocks();

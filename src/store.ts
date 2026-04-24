@@ -128,10 +128,7 @@ export const useStore = create<AppStore>()(
             const data = parseSaveFile(bytes.buffer, manualVersion || undefined);
             set({ saveData: data });
           } catch (err) {
-            console.error(
-              'Failed to load saved file from localStorage:',
-              err instanceof Error ? err.message : String(err),
-            );
+            console.error('Failed to load saved file from localStorage');
             localStorage.removeItem('last_save_file');
           }
         }
