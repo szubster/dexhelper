@@ -43,3 +43,7 @@
 ## 2024-04-22 - Focus Styles on Complex App Layouts
 **Learning:** Standard HTML elements functioning as buttons or links in custom, complex UI components (like `AppLayout` Desktop Navigation or headers) sometimes omit standard focus indicators when customized heavily. This breaks keyboard navigation.
 **Action:** All interactive elements (e.g., links, buttons) across the main layout must explicitly define focus styles using the standard utility class string: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` to ensure consistent accessibility.
+
+## 2026-04-23 - Role Group for Checkbox-like Filters
+**Learning:** Collections of buttons that act like a set of checkboxes (where multiple can be active simultaneously, indicated by `aria-pressed`) need a container role to group them semantically for screen readers.
+**Action:** When creating a row or container of toggle buttons (like multi-select filters), wrap them in a container with `role="group"` and an `aria-label` describing the filter's purpose (e.g., "Filter Pokémon").

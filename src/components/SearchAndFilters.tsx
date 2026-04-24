@@ -67,7 +67,8 @@ export function SearchAndFilters() {
         </div>
 
         {/* Filter Buttons designed as Retro Console Switches */}
-        <div className="no-scrollbar flex gap-2 overflow-x-auto px-1 pb-2">
+        {/* biome-ignore lint/a11y/useSemanticElements: semantic element breaks overflow styles */}
+        <div className="no-scrollbar flex gap-2 overflow-x-auto px-1 pb-2" role="group" aria-label="Filter Pokémon">
           <button
             type="button"
             onClick={() => setFilters([])}
