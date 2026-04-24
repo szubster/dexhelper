@@ -17,14 +17,14 @@ notes: ""
 # Configure TPM Schedule Workflow
 
 ## Objective
-Configure the TPM agent to run on an hourly schedule utilizing the generic scheduled agent workflow.
+Configure the TPM agent to run on a daily schedule utilizing the generic scheduled agent workflow.
 
 ## Details
-This task will configure the scheduled workflow for the `tpm` persona. The target file is `.github/workflows/schedule-tpm.yml`. The workflow needs to define a cron schedule (`0 * * * *`) and call the reusable workflow `.github/workflows/foundry-scheduled-agent.yml` passing `persona: "tpm"`.
+This task will configure the scheduled workflow for the `tpm` persona. The target file is `.github/workflows/schedule-tpm.yml`. The workflow needs to define a daily cron schedule (`0 0 * * *`) and call the reusable workflow `.github/workflows/foundry-scheduled-agent.yml` passing `persona: "tpm"`.
 
 ## Requirements
 - Edit `.github/workflows/schedule-tpm.yml`.
-- Ensure it uses `on: schedule: - cron: "0 * * * *"` and `workflow_dispatch:`.
+- Ensure it uses `on: schedule: - cron: "0 0 * * *"` and `workflow_dispatch:`.
 - Ensure it properly calls `.github/workflows/foundry-scheduled-agent.yml` with `persona: "tpm"`.
 
 ## Verification
@@ -33,5 +33,5 @@ This task will configure the scheduled workflow for the `tpm` persona. The targe
 - Since this is a simple low-risk workflow configuration change, a separate QA task is not needed. The `coder` can self-verify by checking the YAML syntax and test outputs.
 
 ## Acceptance Criteria
-- [ ] `.github/workflows/schedule-tpm.yml` is correctly configured to run hourly.
+- [ ] `.github/workflows/schedule-tpm.yml` is correctly configured to run daily.
 - [ ] The workflow successfully invokes the generic scheduled agent workflow for the TPM persona.
