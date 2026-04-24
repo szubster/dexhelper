@@ -18,6 +18,9 @@ In response to CEO feedback (PR comment 4303644512), we need to schedule work in
 - `oxlint` is installed in the repository (completed in `jules-infras-oxlint`).
 
 ## Acceptance Criteria
-- A `.oxlintrc.json` configuration file is added.
-- Relevant `oxlint` plugins (e.g. jest/vitest, react, jsx-a11y) are enabled and configured to be "tight".
-- A story is generated to execute this epic.
+- [ ] A `.oxlintrc.json` configuration file is added.
+- [ ] Relevant `oxlint` plugins (e.g. jest/vitest, react, jsx-a11y) are enabled and configured to be "tight".
+- [x] A story is generated to execute this epic.
+
+## Generated Stories
+- [.foundry/stories/story-010-014-implement-oxlint-config.md](../stories/story-010-014-implement-oxlint-config.md)
