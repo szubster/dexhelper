@@ -30,9 +30,7 @@ describe('gen2 parsers', () => {
       const buffer = new ArrayBuffer(32768);
       const view = new DataView(buffer);
       view.setUint8(0x288a, 1); // GS
-      view.setUint8(0x288b + 1, 0xff); // Terminator (correct one)
-      // wait, the test was testing invalid terminator, so let's set it to 0
-      view.setUint8(0x288b + 1, 0x00);
+      view.setUint8(0x288b + 1, 0x00); // Invalid terminator
       expect(isGen2Save(view, false)).toBe(false);
     });
 
@@ -141,7 +139,6 @@ describe('gen2 parsers', () => {
       view.setUint8(0x288b + 7, 1);
 
       // detectGen2GameVersion will return 'unknown'.
-      // Wait, in parseGen2, if (gameVersion === 'unknown' && !isCrystal) gameVersion = 'gold'.
       const data = parseGen2(view, false);
       expect(data.gameVersion).toBe('gold');
     });
