@@ -292,4 +292,59 @@ jules_session_id: null
     expect(story2Content).toContain('status: PENDING');
   });
 
+  test('Human Task Bypass: PENDING human task promotes directly to ACTIVE', () => {
+    createNode('.foundry/tasks/task-001.md', `
+id: task-001
+type: TASK
+title: "Human Task 1"
+status: PENDING
+owner_persona: human
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+
+    // Verify it promoted directly to ACTIVE
+    const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-001.md'), 'utf-8');
+    expect(taskContent).toContain('status: ACTIVE');
+
+    // Verify it was NOT included in the JSON matrix output (Phase 6 only collects READY)
+    expect(logSpy).toHaveBeenCalled();
+    const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
+    const output = JSON.parse(lastCall);
+    expect(output).toHaveLength(0);
+  });
+
+  test('Human Task Bypass: existing READY human task upgrades to ACTIVE', () => {
+    // Already READY, but owned by human
+    createNode('.foundry/tasks/task-002.md', `
+id: task-002
+type: TASK
+title: "Human Task 2"
+status: READY
+owner_persona: human
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+
+    // Verify Phase 5.1 upgraded it
+    const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
+    expect(taskContent).toContain('status: ACTIVE');
+
+    // Verify it was NOT included in the JSON matrix output
+    expect(logSpy).toHaveBeenCalled();
+    const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
+    const output = JSON.parse(lastCall);
+    expect(output).toHaveLength(0);
+  });
+
 });

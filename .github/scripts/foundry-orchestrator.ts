@@ -129,7 +129,7 @@ function discoverNodeFiles(dir: string): string[] {
     let entries: fs.Dirent[];
     try {
       entries = fs.readdirSync(current, { withFileTypes: true });
-    } catch (e) {
+  } catch (_e) {
       warn(`Cannot read directory: ${current}`);
       return;
     }
@@ -163,7 +163,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
   let rawContent: string;
   try {
     rawContent = fs.readFileSync(filePath, 'utf-8');
-  } catch (e) {
+  } catch (_e) {
     warn(`Cannot read file: ${repoPath}`);
     return null;
   }
@@ -172,7 +172,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
   let parsed: ReturnType<typeof matter>;
   try {
     parsed = matter(rawContent);
-  } catch (e) {
+  } catch (_e) {
     warn(`Malformed YAML frontmatter in: ${repoPath} — skipping`);
     return null;
   }
@@ -222,7 +222,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
 // ─── Phase 5: PROMOTE ────────────────────────────────────────────────────────
 
 /**
- * Mutates the on-disk markdown file to change `status: PENDING` → `status: READY`
+ * Mutates the on-disk markdown file to change `status: currentStatus` → `status: targetStatus`
  * and update `updated_at` to today's date.
  *
  * Strategy: surgical string replacement inside the raw frontmatter block only.
@@ -231,7 +231,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
  *
  * In --dry-run mode, logs the intended change but does NOT write to disk.
  */
-function promoteNodeToReady(node: ParsedNode): void {
+function promoteNodeStatus(node: ParsedNode, currentStatus: Status, targetStatus: Status): void {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
@@ -246,16 +246,16 @@ function promoteNodeToReady(node: ParsedNode): void {
   const originalFmBlock = fmBlockMatch[0];
   let mutatedFmBlock = originalFmBlock;
 
-  // ① Replace `status: PENDING` (handles optional single/double quotes and trailing whitespace/CR).
+  // ① Replace status (handles optional single/double quotes and trailing whitespace/CR).
   //    The 'm' flag makes ^ and $ match line boundaries within the block.
   mutatedFmBlock = mutatedFmBlock.replace(
-    /^(status:\s*)["']?PENDING["']?([ \t\r]*)$/m,
-    `$1READY$2`,
+    new RegExp(`^(status:\\s*)["']?${currentStatus}["']?([ \\t\\r]*)$`, 'm'),
+    `$1${targetStatus}$2`,
   );
 
-  // Sanity check — if PENDING wasn't found, something is wrong.
+  // Sanity check
   if (mutatedFmBlock === originalFmBlock) {
-    warn(`${dryTag}Could not find 'status: PENDING' line to replace in: ${node.repoPath}`);
+    warn(`${dryTag}Could not find 'status: ${currentStatus}' line to replace in: ${node.repoPath}`);
     return;
   }
 
@@ -277,11 +277,11 @@ function promoteNodeToReady(node: ParsedNode): void {
   }
 
   // Update in-memory state so downstream phases see the correct status.
-  node.frontmatter.status = 'READY';
+  node.frontmatter.status = targetStatus;
   node.frontmatter.updated_at = dateStr;
   node.rawContent = newContent;
 
-  info(`${dryTag}Promoted PENDING → READY: ${node.repoPath}`);
+  info(`${dryTag}Promoted ${currentStatus} → ${targetStatus}: ${node.repoPath}`);
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
@@ -471,7 +471,19 @@ function main(): void {
   // ── Phase 5: PROMOTE ───────────────────────────────────────────────────────
   info('Phase 5: Promoting eligible nodes...');
   for (const node of eligible) {
-    promoteNodeToReady(node);
+    if (node.frontmatter.owner_persona === 'human') {
+      promoteNodeStatus(node, 'PENDING', 'ACTIVE');
+    } else {
+      promoteNodeStatus(node, 'PENDING', 'READY');
+    }
+  }
+
+  // ── Phase 5.1: HANDLE EXISTING READY HUMAN TASKS ───────────────────────────
+  info('Phase 5.1: Upgrading existing READY human tasks to ACTIVE...');
+  for (const node of nodes) {
+    if (node.frontmatter.status === 'READY' && node.frontmatter.owner_persona === 'human') {
+      promoteNodeStatus(node, 'READY', 'ACTIVE');
+    }
   }
 
   // ── Phase 6: COLLECT ───────────────────────────────────────────────────────
@@ -505,4 +517,4 @@ if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith
   main();
 }
 
-export { discoverNodeFiles, parseNodeFile, promoteNodeToReady, main };
+export { discoverNodeFiles, parseNodeFile, promoteNodeStatus, main };
