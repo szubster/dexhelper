@@ -8,7 +8,7 @@ import { useStore } from '../store';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
 const TanStackRouterDevtools =
-  import.meta.env.PROD || !!window.navigator.webdriver
+  import.meta.env.PROD || window.navigator.webdriver
     ? () => null // Render nothing in production or automated tests
     : React.lazy(() =>
         import('@tanstack/react-router-devtools').then((res) => ({
@@ -17,7 +17,7 @@ const TanStackRouterDevtools =
       );
 
 const ReactQueryDevtools =
-  import.meta.env.PROD || !!window.navigator.webdriver
+  import.meta.env.PROD || window.navigator.webdriver
     ? () => null
     : React.lazy(() =>
         import('@tanstack/react-query-devtools').then((res) => ({

@@ -4,6 +4,7 @@ import React from 'react';
 import type { PokemonInstance } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
+import { PokemonSprite } from './pokemon/PokemonSprite';
 
 export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
   const saveData = useStore((s) => s.saveData);
@@ -102,11 +103,12 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                         )}
                       </div>
                       <div className="relative mb-4 flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24">
-                        <img
-                          src={genConfig.spriteUrl(pokemon.id, p.isShiny)}
+                        <PokemonSprite
+                          pokemonId={pokemon.id}
+                          generation={saveData?.generation ?? 1}
+                          isShiny={p.isShiny}
                           alt={pokemon.name}
-                          className="pixelated h-full w-full object-contain drop-shadow-xl"
-                          style={{ imageRendering: 'pixelated' }}
+                          className="h-full w-full object-contain drop-shadow-xl"
                         />
                       </div>
                       <div className="w-full truncate px-1 text-center font-bold text-[10px] text-zinc-100 uppercase tracking-wider">

@@ -12,6 +12,7 @@ import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbabili
 import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
 import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
 import { PokemonLocations } from './pokemon/details/PokemonLocations';
+import { PokemonSprite } from './pokemon/PokemonSprite';
 
 interface PokemonDetailsProps {
   pokemonId: number;
@@ -192,12 +193,12 @@ export function PokemonDetails({
                     }}
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[var(--theme-primary)]/20 to-transparent opacity-0 transition-opacity group-hover:animate-[scan_2s_linear_infinite] group-hover:opacity-100" />
-                  <img
-                    src={genConfig.spriteUrl(pokemonId, isShiny)}
+                  <PokemonSprite
+                    pokemonId={pokemonId}
+                    generation={saveData?.generation ?? 1}
+                    isShiny={isShiny}
                     alt={pokemonName}
-                    className="pixelated relative z-10 h-24 w-24 object-contain drop-shadow-[0_0_15px_rgba(var(--theme-primary-rgb),0.4)] transition-transform duration-500 group-hover:scale-110 sm:h-32 sm:w-32"
-                    style={{ imageRendering: 'pixelated' }}
-                    referrerPolicy="no-referrer"
+                    className="relative z-10 h-24 w-24 object-contain drop-shadow-[0_0_15px_rgba(var(--theme-primary-rgb),0.4)] transition-transform duration-500 group-hover:scale-110 sm:h-32 sm:w-32"
                   />
                   <div className="absolute top-0 left-0 h-3 w-3 border-[var(--theme-primary)]/60 border-t-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
                   <div className="absolute top-0 right-0 h-3 w-3 border-[var(--theme-primary)]/60 border-t-2 border-r-2 transition-colors group-hover:border-[var(--theme-primary)]" />

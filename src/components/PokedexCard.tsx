@@ -3,7 +3,7 @@ import { ChevronRight, CircleDot, Monitor, Sparkles } from 'lucide-react';
 import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
-import { getGenerationConfig } from '../utils/generationConfig';
+import { PokemonSprite } from './pokemon/PokemonSprite';
 
 interface PokedexCardProps {
   pokemon: { id: number; name: string };
@@ -13,7 +13,6 @@ interface PokedexCardProps {
   partySet: Set<number>;
   pcSet: Set<number>;
   shinySpeciesIds: Set<number>;
-  genConfig: ReturnType<typeof getGenerationConfig> | null;
 }
 
 // ⚡ Bolt: Wrapped PokedexCard in React.memo to prevent unnecessary re-renders when parent PokedexGrid updates.
@@ -26,7 +25,6 @@ export const PokedexCard = React.memo(function PokedexCard({
   partySet,
   pcSet,
   shinySpeciesIds,
-  genConfig,
 }: PokedexCardProps) {
   const navigate = useNavigate();
 
@@ -97,27 +95,19 @@ export const PokedexCard = React.memo(function PokedexCard({
           </div>
         )}
 
-        <img
-          src={
-            genConfig
-              ? genConfig.spriteUrl(pokemon.id, isShiny)
-              : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${pokemon.id}.png`
-          }
+        <PokemonSprite
+          pokemonId={pokemon.id}
+          generation={saveData?.generation ?? 1}
+          isShiny={isShiny}
           alt={pokemon.name}
           className={cn(
-            'pixelated z-10 h-[85%] w-[85%] object-contain transition-all duration-500',
+            'z-10 h-[85%] w-[85%] object-contain transition-all duration-500',
             isUnseen
               ? 'opacity-10 brightness-0'
               : isSeenNotOwned
                 ? 'opacity-50 grayscale'
                 : 'drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:scale-110',
           )}
-          loading="lazy"
-          onError={(e) => {
-            e.currentTarget.src = (genConfig?.fallbackSpriteUrl ?? getGenerationConfig(1).fallbackSpriteUrl)(
-              pokemon.id,
-            );
-          }}
         />
 
         {/* Scanline overlay for sprite */}
