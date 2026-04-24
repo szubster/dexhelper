@@ -51,6 +51,7 @@ type NodeType = (typeof VALID_TYPES)[number];
 
 /** Mirrors the YAML frontmatter schema defined in .foundry/docs/schema.md §3 */
 interface FoundryFrontmatter {
+  // Supports both <type>-<NNN>-<slug> and <type>-<parent_NNN>-<NNN>-<slug>
   id: string;
   type: NodeType;
   title: string;
