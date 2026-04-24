@@ -27,6 +27,10 @@ As part of the Atomic Handoffs transition, `schema.md` must strictly enforce tha
 ## Verification Protocol
 Since this task involves documentation updates and is extremely low-risk logic-wise, you will self-verify.
 
-- [ ] I have updated the `owner_persona` field documentation to specify a single persona.
-- [ ] I have added the single-owner invariant to the "System Invariants" list.
-- [ ] Document your verification directly in the task journal at the bottom of this file.
+- [x] I have updated the `owner_persona` field documentation to specify a single persona.
+- [x] I have added the single-owner invariant to the "System Invariants" list.
+- [x] Document your verification directly in the task journal at the bottom of this file.
+
+## Journal
+- Verified that `owner_persona` is updated to specify a single persona in `schema.md`.
+- Verified that the single-owner invariant is added to the "System Invariants" list in `schema.md`.

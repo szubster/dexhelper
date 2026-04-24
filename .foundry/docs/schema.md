@@ -84,7 +84,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK` |
 | `title` | `string` | ✅ | Short, human-readable description. |
 | `status` | `enum` | ✅ | Current lifecycle state. See §4. |
-| `owner_persona` | `enum` | ✅ | Persona responsible for progressing this node. See §5. |
+| `owner_persona` | `enum` | ✅ | Persona responsible for progressing this node. Must be exactly one assigned persona (no arrays or multiple personas). See §5. |
 | `created_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Immutable after creation. |
 | `updated_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Must be updated whenever the file is edited. |
 | `depends_on` | `string[]` | ✅ | Repo-relative paths to blocking nodes (e.g., `.foundry/stories/story-001-scaffold.md`). **Empty array `[]` means the node has in-degree zero and is eligible for dispatch once all other preconditions are met.** |
@@ -179,6 +179,7 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
 8. **`depends_on` paths must be resolvable.** The orchestrator will treat an unresolvable path as a permanent block (equivalent to `BLOCKED`). Always verify paths exist before committing.
 9. **Every `.foundry/**/*.md` file that is not a journal or doc must have valid YAML frontmatter.** The orchestrator will skip malformed files and log a warning — they will never be dispatched.
 10. **The `id` field must be globally unique across all `.foundry/` directories.** Duplicate IDs are undefined behaviour in the orchestrator.
+11. **`owner_persona` must be exactly one persona.** The system enforces a single-owner invariant per node for atomic handoffs; arrays or multiple personas are invalid.
 
 ---
 
