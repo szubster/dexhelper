@@ -18,19 +18,19 @@ tags:
 # Implement Persona Node Creation Permissions Matrix
 
 ## Goal
-Implement the strict permissions model for node creation per persona during late binding.
+Implement a guidelines/warnings model for node creation per persona during late binding, to gently remind agents of expected workflows.
 
 ## Acceptance Criteria
-- [x] `architect` can create `TASK`, `ADR`, and `IDEA` nodes.
-- [x] `tech_lead` can create `TASK` and `ADR` nodes.
-- [x] `story_owner` can create `STORY` and `EPIC` nodes.
-- [x] `product_manager` can create `IDEA`, `PRD`, and `EPIC` nodes.
-- [x] The system orchestrator and pre-commit hooks enforce these bounds.
-- [x] Any unauthorized node creation attempts are cleanly rejected or failed.
+- [x] `architect` typically creates `TASK`, `ADR`, and `IDEA` nodes.
+- [x] `tech_lead` typically creates `TASK` and `ADR` nodes.
+- [x] `story_owner` typically creates `STORY` and `EPIC` nodes.
+- [x] `product_manager` typically creates `IDEA`, `PRD`, and `EPIC` nodes.
+- [x] The system orchestrator logs helpful warnings when these bounds are exceeded.
+- [x] Any unusual node creation attempts log a helpful reminder but do not fail the process (non-blocking).
 
 ## Context
 See `.foundry/epics/epic-010-persona-permissions.md` and `.foundry/docs/adrs/001-the-foundry-architecture.md` for background.
 
 ### Generated Tasks
-- `.foundry/tasks/task-010-024-enforce-persona-permissions.md`
-- `.foundry/tasks/task-010-025-qa-persona-permissions.md`
+- `.foundry/tasks/task-010-024-remind-persona-permissions.md`
+- `.foundry/tasks/task-010-025-qa-persona-permissions-reminder.md`
