@@ -27,3 +27,9 @@
 **Outcome:** Accepted
 **Why:** The layout reinforces the "snooping" and utility-driven fantasy of a Pokédex, matching the success of the tactical grid views and correcting the failure of the previous "polished holographic" layout.
 **Pattern:** Continue expanding the tactical/hardware UI patterns (sharp borders, dashed outlines, corner crosshairs, monospace fonts) to major components, moving away from generic rounded "glassmorphism" web UI where appropriate.
+
+## 2025-05-26 - [Accepted] - 🖼️ Canvas: Tactical Search Console Redesign
+**What:** Redesigned the `SearchAndFilters` and `LocationSuggestions` components to match the tactical aesthetic. Replaced the modern glassmorphism search bar and rounded filter buttons with a command-line style input (`SYS.QUERY>`), bracketed tactical data tabs, and sharp borders with corner crosshairs.
+**Outcome:** Accepted
+**Why:** This change unifies the application's visual language by applying the successful tactical/hardware patterns to the primary navigation/search controls.
+**Pattern:** Continue expanding the tactical/hardware UI patterns (sharp borders, dashed outlines, corner crosshairs, monospace fonts) to all major components, moving away from generic rounded "glassmorphism" web UI where appropriate.
