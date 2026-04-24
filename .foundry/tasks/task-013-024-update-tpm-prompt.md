@@ -23,8 +23,8 @@ Update the `.github/agents/tpm.md` persona prompt to instruct the TPM agent on h
 As part of the scheduling improvements, we need to instruct the TPM agent to identify and archive at least one test `COMPLETED` node when present. The agent must be instructed to be conservative: even if marked `COMPLETED`, if it determines it might still be relevant or needed, it should retain it. It's better to leave more nodes unarchived than to aggressively remove nodes that might still have value.
 
 ## Acceptance Criteria
-- [ ] Update `.github/agents/tpm.md` to instruct the TPM to archive at least one `COMPLETED` test node.
-- [ ] Instruct the TPM to be conservative and prioritize retention over aggressive removal of nodes that might still be needed.
+- [x] Update `.github/agents/tpm.md` to instruct the TPM to archive at least one `COMPLETED` test node.
+- [x] Instruct the TPM to be conservative and prioritize retention over aggressive removal of nodes that might still be needed.
 
 ## Technical Contract
 - Modify `.github/agents/tpm.md` using the replace tool.
