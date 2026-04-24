@@ -210,3 +210,5 @@
 - **2026-04-24**: PR #473 merged. `task-015-update-tech-lead-protocol` is now COMPLETED.
 
 - **2026-04-24**: PR #504 merged. `idea-007` is now COMPLETED.
+
+- **2026-04-24**: PR #503 merged. `idea-007-automated-link-checker` is now COMPLETED.

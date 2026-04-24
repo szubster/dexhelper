@@ -2,12 +2,12 @@
 id: idea-007-automated-link-checker
 type: IDEA
 title: "Automated Link Checker Pre-commit Hook"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: product_manager
 created_at: "2026-04-24"
 updated_at: "2026-04-24"
 depends_on: []
-jules_session_id: "8659647860046752242"
+jules_session_id: null
 parent: null
 tags: ["infras", "verification"]
 notes: "Generated proactively by Agile Coach to reduce DAG orchestrator deadlocks caused by hallucinatory links."

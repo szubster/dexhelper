@@ -2,7 +2,7 @@
 id: prd-007-006-automated-link-checker
 type: PRD
 title: "Automated Link Checker Pre-commit Hook"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-24"
 updated_at: "2026-04-24"
