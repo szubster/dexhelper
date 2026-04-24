@@ -2,12 +2,12 @@
 id: epic-005-013-idb-infrastructure
 type: EPIC
 title: "IndexedDB Infrastructure & Fallbacks"
-status: READY
+status: "ACTIVE"
 owner_persona: story_owner
 created_at: "2026-04-24"
 updated_at: "2026-04-24"
 depends_on: []
-jules_session_id: null
+jules_session_id: "940592771383258530"
 parent: .foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md
 tags: ["indexeddb", "infrastructure", "persistence"]
 ---
