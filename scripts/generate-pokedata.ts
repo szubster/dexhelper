@@ -56,6 +56,7 @@ interface PokeApiEvolutionDetail {
   item?: { url: string };
   held_item?: { url: string };
   time_of_day?: string;
+  relative_physical_stats?: number;
 }
 
 interface PokeApiChainLink {
@@ -380,6 +381,7 @@ for (const cid of uniqueChainIds) {
           : undefined,
         held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
         time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
+        rps: ed.relative_physical_stats ?? undefined,
       })),
       ef,
     };

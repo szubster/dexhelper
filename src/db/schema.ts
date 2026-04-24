@@ -110,6 +110,7 @@ export interface CompactEvolutionDetail {
   item?: number | undefined; // item id
   held?: number | undefined; // held item id
   time?: number | undefined; // 1: day, 2: night
+  rps?: number | undefined; // relative_physical_stats (1: Atk > Def, -1: Atk < Def, 0: Atk == Def)
 }
 
 export interface CompactChainLink {
