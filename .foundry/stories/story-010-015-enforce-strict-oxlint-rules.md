@@ -8,7 +8,8 @@ created_at: "2026-04-24"
 updated_at: "2026-04-24"
 depends_on:
   - ".foundry/tasks/task-014-027-configure-oxlint-json.md"
-parent: ".foundry/epics/epic-002-005-static-analysis.md"
+parent: ".foundry/epics/epic-010-oxlint-config.md"
+jules_session_id: null
 ---
 
 # Fix disabled oxlint rules across the codebase
