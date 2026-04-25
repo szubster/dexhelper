@@ -53,3 +53,9 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 - When testing RangeError throwing inside DataView, avoid overriding `global.DataView` without `try...finally` as it breaks downstream tests if `expect().toThrow()` fails.
 - Be careful when replacing `as any` casting: use `as unknown as typeof DataView` to avoid Biome's `lint/suspicious/noExplicitAny`.
 - `noUncheckedIndexedAccess: true` requires indexing arrays using fallback (e.g., `buffer[i] ?? 0`) or checking for bounds to prevent TypeScript compilation errors (`TS2532`).
+
+## 2026-04-26 - Wait & Wake orchestration logic test
+**What:** Added test case for the Wake condition of the Wait & Wake orchestration protocol.
+**Coverage Before/After:** Increased coverage by ensuring the `PENDING` -> `READY` node transition functions as designed when dependencies are completed.
+**Why this target matters:** The DAG relies on strict state boundaries to ensure deterministic execution order and prevent deadlocks.
+**Learning:** The `foundry-orchestrator.ts` script iterates across different node structures mapping relationships, requiring mock markdown node files directly written to the sandbox fs to act as test fixtures.

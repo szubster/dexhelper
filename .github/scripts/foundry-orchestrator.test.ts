@@ -512,4 +512,35 @@ jules_session_id: null
     const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active.md'), 'utf-8');
     expect(result).toContain('status: ACTIVE');
   });
+
+  test('Wait and Wake: Wakes PENDING parent node to READY when its dependency is COMPLETED', () => {
+    createNode('.foundry/tasks/task-complete.md', `
+id: task-complete
+type: TASK
+title: "Complete Task"
+status: COMPLETED
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-parent.md', `
+id: task-parent
+type: TASK
+title: "Parent Task"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/tasks/task-complete.md"]
+jules_session_id: null
+`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-parent.md'), 'utf-8');
+    expect(result).toContain('status: READY');
+  });
 });
