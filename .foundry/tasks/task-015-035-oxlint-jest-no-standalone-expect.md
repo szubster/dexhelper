@@ -17,6 +17,6 @@ parent: ".foundry/stories/story-010-015-enforce-strict-oxlint-rules.md"
 As part of story `story-010-015-enforce-strict-oxlint-rules`, we are re-enabling strict oxlint rules that were temporarily disabled. This task focuses on `jest/no-standalone-expect`.
 
 ## Instructions
-1. In `.oxlintrc.json`, change `"jest/no-standalone-expect": "off"` to `"jest/no-standalone-expect": "error"`.
-2. Run `pnpm exec oxlint .` to identify violations.
-3. Fix all violations by wrapping floating `expect()` calls in `test` or `it` blocks.
+- [x] 1. In `.oxlintrc.json`, change `"jest/no-standalone-expect": "off"` to `"jest/no-standalone-expect": "error"`.
+- [x] 2. Run `pnpm exec oxlint .` to identify violations.
+- [x] 3. Fix all violations by wrapping floating `expect()` calls in `test` or `it` blocks.

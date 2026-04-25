@@ -14,7 +14,7 @@
   },
   "rules": {
     "vitest/require-mock-type-parameters": "off",
-    "jest/no-standalone-expect": "off",
+    "jest/no-standalone-expect": "error",
     "jest/expect-expect": "off",
     "jest/no-disabled-tests": "off",
     "jest/no-conditional-expect": "off",

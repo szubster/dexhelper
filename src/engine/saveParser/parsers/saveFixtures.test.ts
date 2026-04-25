@@ -88,13 +88,20 @@ describe('Real Save Fixtures Verification', () => {
   }, { loadSaveData }) => {
     const data = loadSaveData(file, gen);
 
+    // oxlint doesn't know test.for, but test is perfectly valid here
+    // eslint-disable-next-line jest/no-standalone-expect
     expect(data.generation).toBe(gen);
+    // eslint-disable-next-line jest/no-standalone-expect
     expect(data.gameVersion).toBe(expectedVersion);
+    // eslint-disable-next-line jest/no-standalone-expect
     expect(data.trainerName).toBe(expectedTrainer);
+    // eslint-disable-next-line jest/no-standalone-expect
     expect(data.trainerId).toBe(expectedId);
+    // eslint-disable-next-line jest/no-standalone-expect
     expect(data.party).toHaveLength(expectedPartyLength);
 
     // Verify PC box counts don't error and are numbers
+    // eslint-disable-next-line jest/no-standalone-expect
     expect(typeof data.pc.length).toBe('number');
   });
 });
