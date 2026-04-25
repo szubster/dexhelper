@@ -4,3 +4,5 @@
 ## 2024-04-22 - Assistant Trade Evolution Held Item Support
 **Learning:** The Trade evolution logic (`EVO_TRIGGER.TRADE`) was missing support for checking if a required `held` item was in the player's inventory, which is crucial for Gen 2 evolutions like Onix to Steelix.
 **Action:** Always check the `detail.held` property for Trade evolutions and verify the player has it in their `saveData.inventory`.
+
+- Learned: Gen 1 saves track completed in-game NPC trades using a bitfield at `0x29e6` (with `eventFlagsOffset - 16` logic in `saveParser`), exposing `npcTradeFlags` in the parsed state. It's crucial to mask this against the specific `tradeIndex` found in static data to prevent suggesting trades the user has already completed.
