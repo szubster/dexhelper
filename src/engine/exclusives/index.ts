@@ -1,4 +1,5 @@
 import { getUnobtainableReason as gen1UnobtainableReason } from './gen1Exclusives';
+import { getUnobtainableReason as gen2UnobtainableReason } from './gen2Exclusives';
 
 type UnobtainableChecker = (
   pokemonId: number,
@@ -9,7 +10,7 @@ type UnobtainableChecker = (
 
 const EXCLUSIVES_CHECKERS: Record<number, UnobtainableChecker> = {
   1: gen1UnobtainableReason,
-  // Future: 2: gen2UnobtainableReason, etc.
+  2: gen2UnobtainableReason,
 };
 
 /** Get the version-exclusives checker for a generation. Returns null if none exists. */

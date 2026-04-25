@@ -15,8 +15,12 @@ describe('exclusives/index', () => {
       }
     });
 
+    it('should return gen2UnobtainableReason for generation 2', () => {
+      const checker = getExclusivesChecker(2);
+      expect(typeof checker).toBe('function');
+    });
+
     it('should return null for unsupported generations', () => {
-      expect(getExclusivesChecker(2)).toBeNull();
       expect(getExclusivesChecker(9)).toBeNull();
       expect(getExclusivesChecker(-1)).toBeNull();
     });
