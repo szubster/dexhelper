@@ -18,7 +18,7 @@ parent: ".foundry/stories/story-011-016-wait-wake-implementation.md"
 Implement the Wait & Wake orchestration logic in `.github/scripts/foundry-orchestrator.ts`. The orchestrator needs to support suspending the current session by moving an `ACTIVE` node to `PENDING` if it dynamically adds incomplete downstream nodes to its `depends_on` array.
 
 ## Acceptance Criteria
-- [ ] Add a new phase (e.g., Phase 3.5: SUSPEND) to iterate through all `ACTIVE` nodes.
-- [ ] For each `ACTIVE` node, check its `depends_on` array.
-- [ ] If any of the paths in `depends_on` points to a node that is not `COMPLETED`, the `ACTIVE` node must be suspended.
-- [ ] Transition its status from `ACTIVE` to `PENDING` using `promoteNodeStatus(node, 'ACTIVE', 'PENDING')`.
+- [x] Add a new phase (e.g., Phase 3.5: SUSPEND) to iterate through all `ACTIVE` nodes.
+- [x] For each `ACTIVE` node, check its `depends_on` array.
+- [x] If any of the paths in `depends_on` points to a node that is not `COMPLETED`, the `ACTIVE` node must be suspended.
+- [x] Transition its status from `ACTIVE` to `PENDING` using `promoteNodeStatus(node, 'ACTIVE', 'PENDING')`.
