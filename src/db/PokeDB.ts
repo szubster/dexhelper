@@ -251,7 +251,7 @@ export const pokeDB = {
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = unwrap(tx.objectStore(DB_CONFIG.STORES.LOCATIONS));
     const fetched = await new Promise<UnifiedLocation[]>((resolve, reject) => {
-      const res = new Array(validIds.length);
+      const res = Array.from<UnifiedLocation>({ length: validIds.length });
       let pending = validIds.length;
       if (pending === 0) return resolve([]);
       for (let i = 0; i < validIds.length; i++) {
@@ -287,7 +287,7 @@ export const pokeDB = {
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = unwrap(tx.objectStore(DB_CONFIG.STORES.LOCATIONS));
     const locations = await new Promise<UnifiedLocation[]>((resolve, reject) => {
-      const res = new Array(ids.length);
+      const res = Array.from<UnifiedLocation>({ length: ids.length });
       let pending = ids.length;
       if (pending === 0) return resolve([]);
       for (let i = 0; i < ids.length; i++) {
@@ -318,7 +318,7 @@ export const pokeDB = {
     const tx = db.transaction(DB_CONFIG.STORES.POKEMON, 'readonly');
     const store = unwrap(tx.objectStore(DB_CONFIG.STORES.POKEMON));
     const fetched = await new Promise<PokemonMetadata[]>((resolve, reject) => {
-      const res = new Array(validIds.length);
+      const res = Array.from<PokemonMetadata>({ length: validIds.length });
       let pending = validIds.length;
       if (pending === 0) return resolve([]);
       for (let i = 0; i < validIds.length; i++) {
@@ -357,7 +357,7 @@ export const pokeDB = {
     const tx = db.transaction(DB_CONFIG.STORES.ENCOUNTERS, 'readonly');
     const store = unwrap(tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS));
     const fetched = await new Promise<LocationAreaEncounters[]>((resolve, reject) => {
-      const res = new Array(validIds.length);
+      const res = Array.from<LocationAreaEncounters>({ length: validIds.length });
       let pending = validIds.length;
       if (pending === 0) return resolve([]);
       for (let i = 0; i < validIds.length; i++) {
