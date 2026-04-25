@@ -17,5 +17,5 @@ parent: .foundry/stories/story-011-017-impossible-loop.md
 Update `.foundry/docs/schema.md` to document the new `rejection_reason` property. This property is used when a node is transitioned to `FAILED` because it is fundamentally impossible to complete.
 
 ## Acceptance Criteria
-- [ ] The `rejection_reason` property is added to the YAML Frontmatter Schema in `.foundry/docs/schema.md`.
-- [ ] The property is documented as an optional string.
+- [x] The `rejection_reason` property is added to the YAML Frontmatter Schema in `.foundry/docs/schema.md`.
+- [x] The property is documented as an optional string.
