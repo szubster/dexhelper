@@ -12,6 +12,22 @@ import {
 let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;
 let syncPromise: Promise<void> | null = null;
 
+async function bulkGet<T>(store: IDBObjectStore, ids: readonly number[]): Promise<T[]> {
+  return new Promise<T[]>((resolve, reject) => {
+    const res = Array.from<T>({ length: ids.length });
+    let pending = ids.length;
+    if (pending === 0) return resolve([]);
+    for (let i = 0; i < ids.length; i++) {
+      const req = store.get(ids[i] as IDBValidKey);
+      req.onsuccess = () => {
+        res[i] = req.result;
+        if (--pending === 0) resolve(res);
+      };
+      req.onerror = () => reject(req.error);
+    }
+  });
+}
+
 const DEFAULT_POKEMON_METADATA = {
   gr: 4,
   baby: false,
@@ -250,19 +266,7 @@ export const pokeDB = {
 
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = unwrap(tx.objectStore(DB_CONFIG.STORES.LOCATIONS));
-    const fetched = await new Promise<UnifiedLocation[]>((resolve, reject) => {
-      const res = Array.from<UnifiedLocation>({ length: validIds.length });
-      let pending = validIds.length;
-      if (pending === 0) return resolve([]);
-      for (let i = 0; i < validIds.length; i++) {
-        const req = store.get(validIds[i] as IDBValidKey);
-        req.onsuccess = () => {
-          res[i] = req.result;
-          if (--pending === 0) resolve(res);
-        };
-        req.onerror = () => reject(req.error);
-      }
-    });
+    const fetched = await bulkGet<UnifiedLocation>(store, validIds);
     await tx.done;
 
     const resultMap = new Map<number, number[] | undefined>();
@@ -286,19 +290,7 @@ export const pokeDB = {
     // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = unwrap(tx.objectStore(DB_CONFIG.STORES.LOCATIONS));
-    const locations = await new Promise<UnifiedLocation[]>((resolve, reject) => {
-      const res = Array.from<UnifiedLocation>({ length: ids.length });
-      let pending = ids.length;
-      if (pending === 0) return resolve([]);
-      for (let i = 0; i < ids.length; i++) {
-        const req = store.get(ids[i] as IDBValidKey);
-        req.onsuccess = () => {
-          res[i] = req.result;
-          if (--pending === 0) resolve(res);
-        };
-        req.onerror = () => reject(req.error);
-      }
-    });
+    const locations = await bulkGet<UnifiedLocation>(store, ids);
     await tx.done;
     for (const loc of locations) {
       if (loc) {
@@ -317,19 +309,7 @@ export const pokeDB = {
 
     const tx = db.transaction(DB_CONFIG.STORES.POKEMON, 'readonly');
     const store = unwrap(tx.objectStore(DB_CONFIG.STORES.POKEMON));
-    const fetched = await new Promise<PokemonMetadata[]>((resolve, reject) => {
-      const res = Array.from<PokemonMetadata>({ length: validIds.length });
-      let pending = validIds.length;
-      if (pending === 0) return resolve([]);
-      for (let i = 0; i < validIds.length; i++) {
-        const req = store.get(validIds[i] as IDBValidKey);
-        req.onsuccess = () => {
-          res[i] = req.result;
-          if (--pending === 0) resolve(res);
-        };
-        req.onerror = () => reject(req.error);
-      }
-    });
+    const fetched = await bulkGet<PokemonMetadata>(store, validIds);
     await tx.done;
     const resultMap = new Map<number, PokemonMetadata>();
     for (const p of fetched) {
@@ -356,19 +336,7 @@ export const pokeDB = {
     // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead for encounters
     const tx = db.transaction(DB_CONFIG.STORES.ENCOUNTERS, 'readonly');
     const store = unwrap(tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS));
-    const fetched = await new Promise<LocationAreaEncounters[]>((resolve, reject) => {
-      const res = Array.from<LocationAreaEncounters>({ length: validIds.length });
-      let pending = validIds.length;
-      if (pending === 0) return resolve([]);
-      for (let i = 0; i < validIds.length; i++) {
-        const req = store.get(validIds[i] as IDBValidKey);
-        req.onsuccess = () => {
-          res[i] = req.result;
-          if (--pending === 0) resolve(res);
-        };
-        req.onerror = () => reject(req.error);
-      }
-    });
+    const fetched = await bulkGet<LocationAreaEncounters>(store, validIds);
     await tx.done;
 
     const resultMap = new Map<number, LocationAreaEncounters>();
