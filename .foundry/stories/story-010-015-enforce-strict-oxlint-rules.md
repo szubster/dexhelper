@@ -2,10 +2,10 @@
 id: "story-010-015-enforce-strict-oxlint-rules"
 type: "STORY"
 title: "Fix disabled oxlint rules across the codebase"
-status: "PENDING"
+status: READY
 owner_persona: "story_owner"
 created_at: "2026-04-24"
-updated_at: "2026-04-24"
+updated_at: "2026-04-25"
 depends_on:
   - ".foundry/tasks/task-014-027-configure-oxlint-json.md"
 parent: ".foundry/epics/epic-010-oxlint-config.md"
