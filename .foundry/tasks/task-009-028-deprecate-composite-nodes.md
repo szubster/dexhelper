@@ -25,5 +25,5 @@ As defined in Story 009, we need to explicitly deprecate the concept of "composi
 3. The `coder` can self-verify this change since it is a simple documentation update.
 
 ## Acceptance Criteria
-- [ ] "Composite node" terminology is explicitly flagged as an anti-pattern in `.foundry/docs/schema.md`.
-- [ ] Context is added explaining why composite nodes cause deadlocks.
+- [x] "Composite node" terminology is explicitly flagged as an anti-pattern in `.foundry/docs/schema.md`.
+- [x] Context is added explaining why composite nodes cause deadlocks.
