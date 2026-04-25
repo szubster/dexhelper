@@ -18,7 +18,10 @@ tags: ["indexeddb", "infrastructure", "persistence"]
 This Epic establishes the foundational IndexedDB connection and basic read/write capabilities for game save files. It leverages the existing `idb` wrapper. Crucially, it must implement robust error handling for private browsing constraints (`QuotaExceededError`) and ensure any error logging uses non-revealing generic strings (e.g., "System: sync failed") to comply with CWE-209 mitigation guidelines.
 
 ## Acceptance Criteria
-- [ ] IndexedDB wrapper utility is created for accessing save data.
-- [ ] Safe read, write, and delete functions for binary `ArrayBuffer`/`Uint8Array` are implemented.
-- [ ] Graceful degradation and fallback handling is present when IndexedDB is inaccessible.
-- [ ] Error messages for persistence failures use generic strings (no internal error leakage).
+- [x] IndexedDB wrapper utility is created for accessing save data.
+- [x] Safe read, write, and delete functions for binary `ArrayBuffer`/`Uint8Array` are implemented.
+- [x] Graceful degradation and fallback handling is present when IndexedDB is inaccessible.
+- [x] Error messages for persistence failures use generic strings (no internal error leakage).
+
+## Generated Stories
+- .foundry/stories/story-013-021-indexeddb-wrapper-and-error-handling.md
