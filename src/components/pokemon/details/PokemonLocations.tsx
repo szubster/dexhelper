@@ -130,34 +130,46 @@ export function PokemonLocations({
             }
 
             // Fallback to other versions ONLY if missing in current (and no evolution path)
-            return (
-              <div className="space-y-3">
-                <div className="mb-2 flex items-center gap-2 font-black text-[10px] text-amber-500/60 uppercase italic tracking-widest">
-                  <AlertTriangle size={12} /> Species unavailable in {gameVersion.toUpperCase()}. External cross-version
-                  extraction required.
-                </div>
-                {encounters.map((e) => (
-                  <div
-                    key={`${e.aid}-${e.v}`}
-                    className="flex flex-col rounded-2xl border border-white/5 bg-zinc-900/40 p-4 opacity-60"
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-xs text-zinc-500 uppercase">
-                        {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
-                      </span>
-                      <div className="flex gap-1">
-                        <span className="rounded border border-white/5 bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase">
-                          V-ID: {e.v}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            );
+            return <FallbackLocations gameVersion={gameVersion} encounters={encounters} areaNames={areaNames} />;
           })()}
         </div>
       )}
+    </div>
+  );
+}
+
+function FallbackLocations({
+  gameVersion,
+  encounters,
+  areaNames,
+}: {
+  gameVersion: string;
+  encounters: CompactEncounter[];
+  areaNames: Record<number, string> | undefined;
+}) {
+  return (
+    <div className="space-y-3">
+      <div className="mb-2 flex items-center gap-2 font-black text-[10px] text-amber-500/60 uppercase italic tracking-widest">
+        <AlertTriangle size={12} /> Species unavailable in {gameVersion.toUpperCase()}. External cross-version
+        extraction required.
+      </div>
+      {encounters.map((e) => (
+        <div
+          key={`${e.aid}-${e.v}`}
+          className="flex flex-col rounded-2xl border border-white/5 bg-zinc-900/40 p-4 opacity-60"
+        >
+          <div className="flex items-center justify-between">
+            <span className="font-bold text-xs text-zinc-500 uppercase">
+              {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
+            </span>
+            <div className="flex gap-1">
+              <span className="rounded border border-white/5 bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase">
+                V-ID: {e.v}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
