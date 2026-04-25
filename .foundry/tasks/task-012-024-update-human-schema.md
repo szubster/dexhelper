@@ -27,3 +27,8 @@ Update `.foundry/docs/schema.md` to support human persona.
 
 ## Verification
 The `coder` can self-verify this change as it's a documentation schema update. No separate `qa` task needed.
+
+- [x] Update `owner_persona` enum to include `human`.
+- [x] Define `pr_number` (`integer | null`) in YAML frontmatter schema.
+- [x] Add explicit note in system invariants that `human` bypasses Jules dispatch and heartbeat timeouts.
+- [x] Update the new node template to include `pr_number`.
