@@ -17,8 +17,8 @@ parent: ".foundry/stories/story-008-schema-examples.md"
 The examples throughout `.foundry/docs/schema.md` must accurately reflect the new atomic file structure and naming conventions, specifically showcasing single-persona ownership rather than multiple personas.
 
 ## Acceptance Criteria
-- Update all examples in `schema.md` to showcase single-persona nodes.
-- Remove any examples that imply multiple personas operating in the same file.
+- [x] Update all examples in `schema.md` to showcase single-persona nodes.
+- [x] Remove any examples that imply multiple personas operating in the same file.
 
 ## Implementation Steps
 1. Search for examples in `.foundry/docs/schema.md` that list multiple roles in `owner_persona` or imply shared ownership.

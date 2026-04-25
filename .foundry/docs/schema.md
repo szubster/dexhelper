@@ -28,10 +28,10 @@ A custom orchestrator (`.github/scripts/foundry-orchestrator.ts`) parses the `de
 | `.foundry/prds/` | `PRD` | `product_manager` | Structured Product Requirements Documents. |
 | `.foundry/epics/` | `EPIC` | `epic_planner` | Macroscopic functional chunks derived from PRDs. |
 | `.foundry/stories/` | `STORY` | `story_owner` | Incremental, sequentially-planned delivery steps. Stories are late-binding: Story N+1 is only written after Story N completes so lessons are incorporated. |
-| `.foundry/tasks/` | `TASK` | `tech_lead` / `coder` / `qa` | Concrete engineering blueprints. The Tech Lead writes them; the Coder implements; QA validates. |
-| `.foundry/journals/` | — | `tpm` / all personas | Persistent agent learning logs. Each persona decides its own structure (single file, subdirectory, multiple files by domain, etc.). The `tpm` is responsible for archiving stale journal content. |
+| `.foundry/tasks/` | `TASK` | `coder` | Concrete engineering blueprints. The Tech Lead writes them; the Coder implements; QA validates. |
+| `.foundry/journals/` | — | `tpm` | Persistent agent learning logs. Each persona decides its own structure (single file, subdirectory, multiple files by domain, etc.). The `tpm` is responsible for archiving stale journal content. |
 | `.foundry/docs/adrs/` | ADR | `tech_lead` | Architecture Decision Records. The Tech Lead reads these before writing any Task to ensure consistency. |
-| `.foundry/docs/style_guides/` | Style Guide | `tech_lead` / `designer` | Global UX/UI constraints injected into designer tasks. |
+| `.foundry/docs/style_guides/` | Style Guide | `designer` | Global UX/UI constraints injected into designer tasks. |
 
 ### File Naming Convention
 
@@ -64,7 +64,7 @@ id: ""                  # Required. Globally unique slug. Convention: <type>-<pa
 type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK
 title: ""               # Required. Human-readable short title.
 status: ""              # Required. Enum: see Status Lifecycle section.
-owner_persona: ""       # Required. Enum: see Owner Persona section.
+owner_persona: "coder"  # Required. Enum: see Owner Persona section.
 created_at: ""          # Required. ISO-8601 date (YYYY-MM-DD). Set once, never edited.
 updated_at: ""          # Required. ISO-8601 date. Updated by any persona that edits the node.
 depends_on: []          # Required. Array of repo-relative file paths. Empty [] = unblocked.
@@ -197,7 +197,7 @@ id: <type>-<parent_NNN>-<NNN>-<slug> # e.g. task-001-002-implement-feature
 type: 
 title: ""
 status: PENDING
-owner_persona: 
+owner_persona: "coder"
 created_at: "YYYY-MM-DD"
 updated_at: "YYYY-MM-DD"
 depends_on: []
