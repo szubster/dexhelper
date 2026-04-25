@@ -31,8 +31,8 @@ Verify that the automated git pre-commit hook script implemented by the `coder` 
 This QA task ensures the requirements outlined in `.foundry/stories/story-006-015-implement-link-checker.md` and implemented in `.foundry/tasks/task-015-028-implement-link-checker.md` are met.
 
 ## Acceptance Criteria
-- [ ] Validated that broken `depends_on` links prevent commits.
-- [ ] Validated that broken `parent` links prevent commits.
-- [ ] Validated that broken inline markdown links prevent commits.
-- [ ] Validated that perfectly valid files can be committed successfully.
-- [ ] Verified that the hook runs correctly via `lefthook`.
+- [x] Validated that broken `depends_on` links prevent commits.
+- [x] Validated that broken `parent` links prevent commits.
+- [x] Validated that broken inline markdown links prevent commits.
+- [x] Validated that perfectly valid files can be committed successfully.
+- [x] Verified that the hook runs correctly via `lefthook`.
