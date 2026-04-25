@@ -250,13 +250,41 @@ export const pokeDB = {
 
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
-    await tx.done;
 
+    // ⚡ Bolt: Adaptive strategy using native cursor iteration for large queries
+    const totalRecords = await store.count();
+    const uniqueIds = Array.from(new Set(validIds)).sort((a, b) => a - b);
     const resultMap = new Map<number, number[] | undefined>();
-    for (const loc of fetched) {
-      if (loc) resultMap.set(loc.id, loc.pids);
+
+    if (uniqueIds.length > totalRecords / 4 && uniqueIds.length > 0) {
+      // For large queries, a single cursor pass is much faster than N get() promises
+      let cursor = await store.openCursor(IDBKeyRange.lowerBound(uniqueIds[0]));
+      let idx = 0;
+      while (cursor && idx < uniqueIds.length) {
+        const targetKey = uniqueIds[idx];
+        if (targetKey === undefined) break;
+
+        const currentKey = cursor.key as number;
+        if (currentKey === targetKey) {
+          resultMap.set(currentKey, cursor.value.pids);
+          idx++;
+          if (idx < uniqueIds.length && uniqueIds[idx] !== undefined) {
+            cursor = await cursor.continue(uniqueIds[idx]);
+          }
+        } else if (currentKey < targetKey) {
+          cursor = await cursor.continue(targetKey);
+        } else {
+          idx++;
+        }
+      }
+    } else {
+      // For small queries, parallel get() is efficient and avoids cursor instantiation overhead
+      const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+      for (const loc of fetched) {
+        if (loc) resultMap.set(loc.id, loc.pids);
+      }
     }
+    await tx.done;
 
     return mids.map((id) => {
       if (typeof id !== 'number' || Number.isNaN(id)) return undefined;
