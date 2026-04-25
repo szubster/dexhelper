@@ -8,7 +8,7 @@ owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-21"
 depends_on:
-  - .foundry/epics/epic-003-actions-engine.md
+  - .foundry/archive/epics/epic-003-actions-engine.md
 jules_session_id: null
 ---
 
@@ -43,4 +43,4 @@ This is a STORY. As per the schema, the `story_owner` must break this down into 
 
 ## Instructions for current agent
 
-Since you are running via the fallback prompt in `foundry-engine.yml`, you will act to break this Story down into the above Tasks. Create the `.foundry/tasks/` nodes reflecting the breakdown, set `depends_on: [".foundry/stories/story-002-personas.md"]`, and change this Story's status from `READY` to `COMPLETED`.
+Since you are running via the fallback prompt in `foundry-engine.yml`, you will act to break this Story down into the above Tasks. Create the `.foundry/tasks/` nodes reflecting the breakdown, set `depends_on: [".foundry/archive/stories/story-002-personas.md"]`, and change this Story's status from `READY` to `COMPLETED`.

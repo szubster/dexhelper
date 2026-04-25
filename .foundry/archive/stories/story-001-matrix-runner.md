@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on:
-  - .foundry/epics/epic-003-actions-engine.md
+  - .foundry/archive/epics/epic-003-actions-engine.md
 jules_session_id: null
 ---
 

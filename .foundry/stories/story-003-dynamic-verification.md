@@ -8,7 +8,7 @@ created_at: "2026-04-21"
 updated_at: "2026-04-23"
 depends_on:
   - .foundry/docs/adrs/001-the-foundry-architecture.md
-  - .foundry/stories/story-002-personas.md
+  - .foundry/archive/stories/story-002-personas.md
 jules_session_id: null
 ---
 
