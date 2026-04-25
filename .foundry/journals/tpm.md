@@ -276,3 +276,7 @@
 - **2026-04-25**: PR #562 merged. `task-017-030-update-schema-rejection-reason` is now COMPLETED.
 
 - **2026-04-25**: PR #564 merged. `task-021-030-implement-idb-wrapper` is now COMPLETED.
+
+- **2026-04-25**: Heartbeat detected zombie session for `task-015-033-oxlint-require-mock-type-parameters`. Transitioned to FAILED.
+
+- **2026-04-25**: Heartbeat detected zombie session for `task-015-034-oxlint-expect-expect`. Transitioned to FAILED.
