@@ -21,5 +21,9 @@ tags:
 Implement the Wait & Wake orchestration logic. When an agent dynamically spawns a downstream node, it updates its own `depends_on` array. The orchestrator needs to support suspending the current session by moving it to `PENDING` and then correctly transitioning it back to `READY` when all downstream dependencies are resolved as `COMPLETED`.
 
 ## Acceptance Criteria
-- [ ] When an agent spawns downstream nodes and adds them to `depends_on`, its session is suspended and the node status transitions to `PENDING`.
-- [ ] The Orchestrator correctly transitions the parent node back to `READY` and re-dispatches the agent once all newly spawned downstream tasks are `COMPLETED`.
+- [x] When an agent spawns downstream nodes and adds them to `depends_on`, its session is suspended and the node status transitions to `PENDING`.
+- [x] The Orchestrator correctly transitions the parent node back to `READY` and re-dispatches the agent once all newly spawned downstream tasks are `COMPLETED`.
+
+## Generated Tasks
+- `.foundry/tasks/task-016-030-implement-wait-wake.md`
+- `.foundry/tasks/task-016-031-qa-wait-wake.md`
