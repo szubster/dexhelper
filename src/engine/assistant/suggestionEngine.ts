@@ -285,6 +285,11 @@ export function generateSuggestions(
     if (trade.versions && !trade.versions.includes(displayVersion)) continue;
     if (!missingIds.has(trade.receivedId)) continue;
 
+    if (trade.tradeIndex !== undefined && saveData.npcTradeFlags !== undefined) {
+      const isClaimed = (saveData.npcTradeFlags & (1 << trade.tradeIndex)) !== 0;
+      if (isClaimed) continue;
+    }
+
     const hasOffered = ownedSet.has(trade.offeredId);
     suggestions.push({
       id: `npc-trade-${trade.receivedId}`,

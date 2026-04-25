@@ -219,4 +219,35 @@ describe('generateSuggestions', () => {
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeUndefined();
   });
+
+  it('should not generate "Trade" suggestions when tradeIndex flag is set', () => {
+    const mockSaveData: SaveData = {
+      generation: 1,
+      gameVersion: 'red',
+      owned: new Set([1, 2, 3]), // Missing 122 (Mr. Mime), requires trade index 1
+      seen: new Set(),
+      party: [],
+      inventory: [],
+      currentMapId: 0,
+      npcTradeFlags: 1 << 1, // Set tradeIndex 1
+      partyDetails: [],
+      pcDetails: [],
+      trainerName: 'ASH',
+    } as unknown as SaveData;
+
+    const mockApiData: AssistantApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {},
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+
+    const tradeSuggestion = suggestions.find((s) => s.id === 'npc-trade-122');
+    expect(tradeSuggestion).toBeUndefined();
+  });
 });
