@@ -2,13 +2,13 @@
 id: "story-008-schema-examples"
 type: "STORY"
 title: "Update Documentation Examples for Atomic Files"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "tech_lead"
 created_at: "2026-04-23"
-updated_at: "2026-04-24"
+updated_at: "2026-04-25"
 depends_on:
   - ".foundry/stories/story-007-schema-invariant.md"
-jules_session_id: "13101034599723754646"
+jules_session_id: null
 parent: ".foundry/epics/epic-007-atomic-handoff-schema.md"
 ---
 

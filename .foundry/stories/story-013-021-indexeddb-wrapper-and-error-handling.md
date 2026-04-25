@@ -2,10 +2,10 @@
 id: story-013-021-indexeddb-wrapper-and-error-handling
 type: STORY
 title: "Implement IndexedDB wrapper with robust error handling"
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-24"
-updated_at: "2026-04-24"
+updated_at: "2026-04-25"
 depends_on: []
 jules_session_id: null
 parent: .foundry/epics/epic-005-013-idb-infrastructure.md

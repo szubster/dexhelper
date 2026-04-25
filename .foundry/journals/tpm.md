@@ -236,3 +236,17 @@
 - **2026-04-24**: Heartbeat detected zombie session for `story-006-015-implement-link-checker`. Transitioned to FAILED.
 
 - **2026-04-25**: Resurrection Loop triggered for `story-006-015-implement-link-checker`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-25**: PR #519 merged. `epic-005-013-idb-infrastructure` is now COMPLETED.
+
+- **2026-04-25**: PR #520 merged. `epic-011-wait-and-wake-protocol` is now COMPLETED.
+
+- **2026-04-25**: PR #523 merged. `story-006-015-implement-link-checker` is now COMPLETED.
+
+- **2026-04-25**: PR #518 merged. `story-008-schema-examples` is now COMPLETED.
+
+- **2026-04-25**: PR #517 merged. `story-009-composite-deprecation` is now COMPLETED.
+
+- **2026-04-25**: PR #516 merged. `task-005-025-update-orchestrator-validation` is now COMPLETED.
+
+- **2026-04-25**: PR #521 merged. `task-012-024-update-human-schema` is now COMPLETED.

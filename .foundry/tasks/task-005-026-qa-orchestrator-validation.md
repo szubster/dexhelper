@@ -2,10 +2,10 @@
 id: task-005-026-qa-orchestrator-validation
 type: TASK
 title: "QA Verification: Orchestrator Validation for Parent-Linked ID Schema"
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: "2026-04-23"
-updated_at: "2026-04-23"
+updated_at: "2026-04-25"
 depends_on:
   - .foundry/tasks/task-005-025-update-orchestrator-validation.md
 jules_session_id: null

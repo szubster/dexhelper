@@ -2,7 +2,7 @@
 id: task-015-028-implement-link-checker
 type: TASK
 title: "Implement Link Checker Pre-commit Hook Script"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-25"
 updated_at: "2026-04-25"
