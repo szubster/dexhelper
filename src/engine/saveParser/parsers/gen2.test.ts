@@ -138,7 +138,6 @@ describe('gen2 parsers', () => {
       view.setUint8(0x288b, 1);
       view.setUint8(0x288b + 7, 1);
 
-      // detectGen2GameVersion will return 'unknown'.
       const data = parseGen2(view, false);
       expect(data.gameVersion).toBe('gold');
     });
