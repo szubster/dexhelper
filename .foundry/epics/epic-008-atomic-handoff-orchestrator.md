@@ -2,10 +2,10 @@
 id: "epic-008-atomic-handoff-orchestrator"
 type: "EPIC"
 title: "Epic: Orchestrator Script Refactor for Atomic Handoffs"
-status: "PENDING"
+status: READY
 owner_persona: "story_owner"
 created_at: "2026-04-22"
-updated_at: "2026-04-22"
+updated_at: "2026-04-25"
 depends_on:
   - .foundry/prds/prd-001-v2-lifecycle.md
   - .foundry/epics/epic-007-atomic-handoff-schema.md

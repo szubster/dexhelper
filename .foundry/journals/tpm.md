@@ -262,3 +262,17 @@
 - **2026-04-25**: PR #534 merged. `story-011-016-wait-wake-implementation` is now COMPLETED.
 
 - **2026-04-25**: PR #533 merged. `task-009-028-deprecate-composite-nodes` is now COMPLETED.
+
+- **2026-04-25**: PR #563 merged. `epic-006-id-pre-commit-hooks` is now COMPLETED.
+
+- **2026-04-25**: PR #579 merged. `story-010-015-enforce-strict-oxlint-rules` is now COMPLETED.
+
+- **2026-04-25**: PR #536 merged. `task-008-028-update-schema-examples` is now COMPLETED.
+
+- **2026-04-25**: PR #535 merged. `task-015-028-implement-link-checker` is now COMPLETED.
+
+- **2026-04-25**: PR #569 merged. `task-016-030-implement-wait-wake` is now COMPLETED.
+
+- **2026-04-25**: PR #562 merged. `task-017-030-update-schema-rejection-reason` is now COMPLETED.
+
+- **2026-04-25**: PR #564 merged. `task-021-030-implement-idb-wrapper` is now COMPLETED.

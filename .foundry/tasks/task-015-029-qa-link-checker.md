@@ -2,7 +2,7 @@
 id: task-015-029-qa-link-checker
 type: TASK
 title: "QA Validation: Link Checker Pre-commit Hook Script"
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: "2026-04-25"
 updated_at: "2026-04-25"

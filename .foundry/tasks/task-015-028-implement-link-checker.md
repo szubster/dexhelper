@@ -2,12 +2,12 @@
 id: task-015-028-implement-link-checker
 type: TASK
 title: "Implement Link Checker Pre-commit Hook Script"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: coder
 created_at: "2026-04-25"
 updated_at: "2026-04-25"
 depends_on: []
-jules_session_id: "4471598574628144123"
+jules_session_id: null
 parent: .foundry/stories/story-006-015-implement-link-checker.md
 tags: ["infras", "verification"]
 rejection_count: 0

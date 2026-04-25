@@ -2,12 +2,12 @@
 id: task-017-030-update-schema-rejection-reason
 type: TASK
 title: "Update Schema for rejection_reason"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: coder
 created_at: "2026-04-25"
 updated_at: "2026-04-25"
 depends_on: []
-jules_session_id: "14896202037716630630"
+jules_session_id: null
 parent: .foundry/stories/story-011-017-impossible-loop.md
 ---
 
