@@ -24,6 +24,11 @@ This Epic handles modifying orchestrator scripts to strictly enforce the atomic,
 - Read `.foundry/prds/prd-001-v2-lifecycle.md`
 
 ## Acceptance Criteria
-- [ ] Orchestrator explicitly rejects or errors on files defining multiple `owner_persona`s.
-- [ ] Orchestrator correctly marks nodes `COMPLETED` when their respective GitHub PR is merged.
-- [ ] DAG resolves without deadlocks given atomic files depending on one another.
+- [x] Orchestrator explicitly rejects or errors on files defining multiple `owner_persona`s.
+- [x] Orchestrator correctly marks nodes `COMPLETED` when their respective GitHub PR is merged.
+- [x] DAG resolves without deadlocks given atomic files depending on one another.
+
+### Generated Stories
+- `.foundry/stories/story-008-023-validate-single-owner.md`
+- `.foundry/stories/story-008-024-update-status-on-merge.md`
+- `.foundry/stories/story-008-025-verify-dag-resolution.md`
