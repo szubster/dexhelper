@@ -24,3 +24,7 @@ Implement an automated git pre-commit hook that validates all local markdown fil
 - [ ] The script checks `depends_on` and `parent` fields in the YAML frontmatter.
 - [ ] The script checks inline markdown links within the files.
 - [ ] The pre-commit hook is integrated and successfully rejects commits containing dead links.
+
+## Generated Tasks
+- .foundry/tasks/task-015-028-implement-link-checker.md
+- .foundry/tasks/task-015-029-qa-link-checker.md
