@@ -25,6 +25,6 @@ This task verifies the work completed in `task-005-025-update-orchestrator-valid
 4. **Dry-Run Validation:** Optionally perform a dry run of the orchestrator (`ts-node .github/scripts/foundry-orchestrator.ts --dry-run`) on the current `.foundry/` directory to ensure no new warnings or errors are surfaced for valid IDs.
 
 ## Acceptance Criteria
-- [ ] Code modifications align with ADR 002.
-- [ ] Test coverage includes the new ID schema.
-- [ ] All tests pass successfully and the orchestrator does not emit invalid validation warnings for correctly formatted IDs.
+- [x] Code modifications align with ADR 002.
+- [x] Test coverage includes the new ID schema.
+- [x] All tests pass successfully and the orchestrator does not emit invalid validation warnings for correctly formatted IDs.
