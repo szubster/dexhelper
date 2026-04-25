@@ -1,4 +1,4 @@
-import { type IDBPDatabase, openDB } from 'idb';
+import { type IDBPDatabase, openDB, unwrap } from 'idb';
 import {
   type CompactChainLink,
   DB_CONFIG,
@@ -249,8 +249,20 @@ export const pokeDB = {
     if (validIds.length === 0) return mids.map(() => undefined);
 
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
-    const store = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    const store = unwrap(tx.objectStore(DB_CONFIG.STORES.LOCATIONS));
+    const fetched = await new Promise<UnifiedLocation[]>((resolve, reject) => {
+      const res = new Array(validIds.length);
+      let pending = validIds.length;
+      if (pending === 0) return resolve([]);
+      for (let i = 0; i < validIds.length; i++) {
+        const req = store.get(validIds[i] as IDBValidKey);
+        req.onsuccess = () => {
+          res[i] = req.result;
+          if (--pending === 0) resolve(res);
+        };
+        req.onerror = () => reject(req.error);
+      }
+    });
     await tx.done;
 
     const resultMap = new Map<number, number[] | undefined>();
@@ -273,8 +285,20 @@ export const pokeDB = {
     const names: Record<number, string> = {};
     // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
-    const store = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    const locations = await Promise.all(ids.map((id) => store.get(id)));
+    const store = unwrap(tx.objectStore(DB_CONFIG.STORES.LOCATIONS));
+    const locations = await new Promise<UnifiedLocation[]>((resolve, reject) => {
+      const res = new Array(ids.length);
+      let pending = ids.length;
+      if (pending === 0) return resolve([]);
+      for (let i = 0; i < ids.length; i++) {
+        const req = store.get(ids[i] as IDBValidKey);
+        req.onsuccess = () => {
+          res[i] = req.result;
+          if (--pending === 0) resolve(res);
+        };
+        req.onerror = () => reject(req.error);
+      }
+    });
     await tx.done;
     for (const loc of locations) {
       if (loc) {
@@ -292,8 +316,20 @@ export const pokeDB = {
     if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
 
     const tx = db.transaction(DB_CONFIG.STORES.POKEMON, 'readonly');
-    const store = tx.objectStore(DB_CONFIG.STORES.POKEMON);
-    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    const store = unwrap(tx.objectStore(DB_CONFIG.STORES.POKEMON));
+    const fetched = await new Promise<PokemonMetadata[]>((resolve, reject) => {
+      const res = new Array(validIds.length);
+      let pending = validIds.length;
+      if (pending === 0) return resolve([]);
+      for (let i = 0; i < validIds.length; i++) {
+        const req = store.get(validIds[i] as IDBValidKey);
+        req.onsuccess = () => {
+          res[i] = req.result;
+          if (--pending === 0) resolve(res);
+        };
+        req.onerror = () => reject(req.error);
+      }
+    });
     await tx.done;
     const resultMap = new Map<number, PokemonMetadata>();
     for (const p of fetched) {
@@ -319,8 +355,20 @@ export const pokeDB = {
 
     // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead for encounters
     const tx = db.transaction(DB_CONFIG.STORES.ENCOUNTERS, 'readonly');
-    const store = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
-    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    const store = unwrap(tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS));
+    const fetched = await new Promise<LocationAreaEncounters[]>((resolve, reject) => {
+      const res = new Array(validIds.length);
+      let pending = validIds.length;
+      if (pending === 0) return resolve([]);
+      for (let i = 0; i < validIds.length; i++) {
+        const req = store.get(validIds[i] as IDBValidKey);
+        req.onsuccess = () => {
+          res[i] = req.result;
+          if (--pending === 0) resolve(res);
+        };
+        req.onerror = () => reject(req.error);
+      }
+    });
     await tx.done;
 
     const resultMap = new Map<number, LocationAreaEncounters>();
