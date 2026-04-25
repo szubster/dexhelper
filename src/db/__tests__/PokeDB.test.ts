@@ -201,6 +201,31 @@ describe('PokeDB', () => {
     expect(results[2]).toBeInstanceOf(Error);
   });
 
+  it('performs bulk operations for pokemons > 50', async () => {
+    const poke = Array.from({ length: 60 }, (_, i) => ({
+      id: i + 1,
+      n: `P${i + 1}`,
+      cr: 10,
+      gr: 1,
+      baby: false,
+      eto: [],
+      efrm: [],
+      det: [],
+    }));
+    const mockData = { hash: 'bulk-hash-60', poke, enc: [], loc: [] };
+
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      json: async () => mockData,
+    } as Response);
+
+    await pokeDB.sync();
+
+    const ids = Array.from({ length: 60 }, (_, i) => i + 1);
+    const results = await pokeDB.getPokemons(ids);
+    expect(results).toHaveLength(60);
+  });
+
   it('handles invalid IDs gracefully', async () => {
     expect(await pokeDB.getPokemon(NaN)).toBeUndefined();
     expect(await pokeDB.getPokemon(null as unknown as number)).toBeUndefined();
@@ -389,6 +414,21 @@ describe('PokeDB', () => {
       expect(results[2]).toBeInstanceOf(Error);
     });
 
+    it('getEncountersBulk returns correctly for > 50 ids', async () => {
+      const enc = Array.from({ length: 60 }, (_, i) => ({ pid: i + 1, enc: [] }));
+      const mockData = { hash: 'new-hash-bulk-enc', poke: [], enc, loc: [] };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const ids = Array.from({ length: 60 }, (_, i) => i + 1);
+      const results = await pokeDB.getEncountersBulk(ids);
+      expect(results).toHaveLength(60);
+      expect((results[0] as { pid: number }).pid).toBe(1);
+    });
+
     it('getEncountersBulk returns errors for invalid ids', async () => {
       const manyResult = await pokeDB.getEncountersBulk([NaN]);
       expect(manyResult[0]).toBeInstanceOf(Error);
@@ -515,6 +555,22 @@ describe('PokeDB', () => {
       expect(pids).toEqual([1, 2]);
     });
 
+    it('getInverseIndexBulk returns correctly for > 50 ids', async () => {
+      const loc = Array.from({ length: 60 }, (_, i) => ({ id: i + 1, n: `Loc${i + 1}`, pids: [i + 1], dist: {} }));
+      const mockData = { hash: 'new-hash-bulk-inv', poke: [], enc: [], loc };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const ids = Array.from({ length: 60 }, (_, i) => i + 1);
+      const results = await pokeDB.getInverseIndexBulk(ids);
+      expect(results).toHaveLength(60);
+      expect(results[0]).toEqual([1]);
+      expect(results[59]).toEqual([60]);
+    });
+
     it('getInverseIndexBulk returns array of pids or undefined', async () => {
       const mockData = {
         hash: 'new-hash-bulk',
@@ -533,6 +589,20 @@ describe('PokeDB', () => {
 
       const results = await pokeDB.getInverseIndexBulk([1, 999, 2, NaN]);
       expect(results).toEqual([[1, 2], undefined, [3], undefined]);
+    });
+
+    it('getAreaNames returns correctly for > 50 ids', async () => {
+      const loc = Array.from({ length: 60 }, (_, i) => ({ id: i + 1, n: `Loc${i + 1}`, pids: [i + 1], dist: {} }));
+      const mockData = { hash: 'new-hash-bulk-areas', poke: [], enc: [], loc };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      } as Response);
+      await pokeDB.sync();
+
+      const ids = Array.from({ length: 60 }, (_, i) => i + 1);
+      const names = await pokeDB.getAreaNames(ids);
+      expect(names[1]).toBe('Loc1');
     });
 
     it('getInverseIndexBulk returns array of undefined for empty/invalid input', async () => {
