@@ -26,3 +26,6 @@ In response to CEO feedback (PR comment 4303644512), we need to schedule work in
 
 ## Generated Tasks
 - .foundry/tasks/task-014-027-configure-oxlint-json.md
+
+## Generated Stories
+- .foundry/stories/story-010-015-enforce-strict-oxlint-rules.md

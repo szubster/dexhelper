@@ -51,7 +51,7 @@ export async function waitForSync(page: Page) {
     if (isVisible) {
       await expect(overlay).toBeHidden({ timeout: 60000 });
     }
-  } catch (_e) {
+  } catch {
     // Timeout waiting for visibility is fine - it means sync was fast or unnecessary.
   }
 

@@ -90,7 +90,7 @@ async function main() {
   let upstreamSha = '';
   try {
     upstreamSha = execFileSync('gh', ['api', 'repos/PokeAPI/api-data/commits/master', '--jq', '.sha'], { encoding: 'utf-8' }).trim();
-  } catch (e) {
+  } catch {
     console.warn('Failed to fetch upstream SHA via gh CLI. Proceeding with sync anyway.');
   }
 
@@ -103,7 +103,7 @@ async function main() {
     console.log('Updating local clone...');
     try {
       execSync('git pull', { cwd: TEMP_DIR });
-    } catch (e) {
+    } catch {
       console.warn('Git pull failed. Re-cloning...');
       fs.rmSync(TEMP_DIR, { recursive: true, force: true });
       execFileSync('git', ['clone', '--depth', '1', REPO_URL, TEMP_DIR]);

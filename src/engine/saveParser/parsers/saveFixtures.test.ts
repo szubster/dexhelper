@@ -11,8 +11,7 @@ interface ParserFixtures {
 
 // Extend base vitest test with our injected save loader
 const test = baseTest.extend<ParserFixtures>({
-  // biome-ignore lint/correctness/noEmptyPattern: Vitest requires object destructuring for fixtures
-  loadSaveData: async ({}, use) => {
+  loadSaveData: async ({ task: _task }, use) => {
     // Provide a loader utility that abstracts disk I/O and root parsing
     const loader = (fileName: string, gen: 1 | 2) => {
       const buffer = fs.readFileSync(`tests/fixtures/${fileName}`);

@@ -49,7 +49,8 @@ export function PokemonDetails({
   });
 
   const pokemon = allData?.pokemon;
-  const encounters = allData?.enc || [];
+  const encountersRaw = allData?.enc;
+  const encounters = React.useMemo(() => encountersRaw || [], [encountersRaw]);
   const nameMap = allData?.nameMap;
   const areaNames = allData?.areaNames;
 

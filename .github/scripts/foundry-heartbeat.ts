@@ -113,8 +113,7 @@ async function findPRForSession(
   repoFullName: string,
   githubToken: string,
   julesKey: string,
-  sessionId: string,
-  nodeId: string
+  sessionId: string
 ): Promise<{ pr: any; sessionStatus: string | null }> {
   let sessionStatus: string | null = null;
   let prData: any = null;
@@ -157,7 +156,7 @@ async function findPRForSession(
     });
     const searchJson = await searchRes.json() as any;
     if (searchJson.items?.[0]) return { pr: searchJson.items[0], sessionStatus };
-  } catch (err) { /* ignore search error */ }
+  } catch { /* ignore search error */ }
 
   // 3. Fallback to listing recent PRs (Index-independent)
   try {
@@ -172,7 +171,7 @@ async function findPRForSession(
         }
       }
     }
-  } catch (err) { /* ignore list error */ }
+  } catch { /* ignore list error */ }
 
   return { pr: null, sessionStatus };
 }
@@ -237,7 +236,7 @@ export async function main() {
       }
     } else {
       // A. Robust PR Discovery
-      const res = await findPRForSession(repoFullName, githubToken, julesKey, sessionId, node.frontmatter.id);
+      const res = await findPRForSession(repoFullName, githubToken, julesKey, sessionId);
       pr = res.pr;
       sessionStatus = res.sessionStatus;
     }
