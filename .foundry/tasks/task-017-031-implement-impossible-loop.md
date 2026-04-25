@@ -18,6 +18,6 @@ parent: .foundry/stories/story-011-017-impossible-loop.md
 Update `foundry-orchestrator.ts` to implement the "Impossible Loop". The orchestrator must detect nodes that are in `FAILED` status and have a `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] The orchestrator detects nodes that are `FAILED` and contain a `rejection_reason` in their frontmatter.
-- [ ] Upon detecting such a node, the orchestrator "wakes up" the parent node (transitions it to `ACTIVE`) if one exists.
-- [ ] If no parent exists, the orchestrator flags the node for the `tpm` to create a feedback `IDEA` for the PM/CEO.
+- [x] The orchestrator detects nodes that are `FAILED` and contain a `rejection_reason` in their frontmatter.
+- [x] Upon detecting such a node, the orchestrator "wakes up" the parent node (transitions it to `ACTIVE`) if one exists.
+- [x] If no parent exists, the orchestrator flags the node for the `tpm` to create a feedback `IDEA` for the PM/CEO.
