@@ -18,6 +18,6 @@ tags: ["indexeddb", "infrastructure", "persistence"]
 We need an IndexedDB wrapper for save data storage, ensuring safe binary read/write operations and implementing graceful fallbacks and secure error logging.
 
 ## Acceptance Criteria
-- [ ] Implement `idb` wrapper for binary read/write/delete.
-- [ ] Add graceful fallback handling (e.g., when `QuotaExceededError` occurs or in private browsing).
-- [ ] Implement generic error logging (e.g., "System: sync failed") to prevent internal error leakage. Do not log specific error messages.
+- [x] Implement `idb` wrapper for binary read/write/delete.
+- [x] Add graceful fallback handling (e.g., when `QuotaExceededError` occurs or in private browsing).
+- [x] Implement generic error logging (e.g., "System: sync failed") to prevent internal error leakage. Do not log specific error messages.
