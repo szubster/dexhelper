@@ -29,6 +29,9 @@ To guarantee the collision-free nature of the new node ID scheme across the mult
 - `.foundry/epics/epic-004-distributed-id-schema.md` (Must finalize the ID pattern first).
 
 ## High-Level Acceptance Criteria
-- [ ] A pre-commit hook runs on every commit affecting `.foundry/` files.
-- [ ] Commits are rejected if duplicate `id` fields are detected in the frontmatter.
-- [ ] Commits are rejected if the node ID format violates the new schema convention.
+- [x] A pre-commit hook runs on every commit affecting `.foundry/` files.
+- [x] Commits are rejected if duplicate `id` fields are detected in the frontmatter.
+- [x] Commits are rejected if the node ID format violates the new schema convention.
+
+## Generated Stories
+- `.foundry/stories/story-006-022-implement-id-validation-hook.md`: Implement a pre-commit hook that validates the ID uniqueness and format.
