@@ -280,3 +280,7 @@
 - **2026-04-25**: Heartbeat detected zombie session for `task-015-033-oxlint-require-mock-type-parameters`. Transitioned to FAILED.
 
 - **2026-04-25**: Heartbeat detected zombie session for `task-015-034-oxlint-expect-expect`. Transitioned to FAILED.
+
+- **2026-04-25**: Resurrection Loop triggered for `task-015-033-oxlint-require-mock-type-parameters`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-25**: Resurrection Loop triggered for `task-015-034-oxlint-expect-expect`. Reason: Retry from FAILED status.. Transitioned back to READY.
