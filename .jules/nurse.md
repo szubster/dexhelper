@@ -22,3 +22,10 @@ The compiler ensures that DataLoader batch functions return valid values or Erro
 ## 2025-04-23
 
 - **Type narrow arrays in `.reduce` calls directly:** Rather than explicitly typing function parameters and applying an `as` cast on the starting object (`{} as Record<...>`), it is safer and cleaner to provide the generic parameter directly to the reduce function `.reduce<Record<...>>((acc, val) => ... , {})`. This eliminates an unnecessary `as` cast and allows TypeScript to properly catch incorrect shape returns without bypassing type safety.
+# Nurse Learnings
+
+## 2026-04-25 - Fix missing jules_session_id and broken parent link in DAG node
+
+- **What was unsafe**: A DAG node (`.foundry/stories/story-010-015-enforce-strict-oxlint-rules.md`) was missing the mandatory `jules_session_id` field and had an incorrect `parent` reference. This caused the Foundry orchestrator to skip the node and fail to resolve the DAG.
+- **How it was fixed**: Added `jules_session_id: null` and corrected the `parent` field to point to an existing epic (`.foundry/epics/epic-010-oxlint-config.md`).
+- **What the compiler now catches**: The orchestrator's schema validation now properly validates the node, and the dependency resolver can correctly trace the hierarchy.
