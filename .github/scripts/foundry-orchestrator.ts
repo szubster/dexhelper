@@ -335,10 +335,7 @@ function main(): void {
     }
   }
 
-  // ── Phase 4: RESOLVE ───────────────────────────────────────────────────────
-  info('Phase 4: Resolving DAG — finding eligible PENDING nodes...');
   let hasUnresolvableDeps = false;
-  const eligible: ParsedNode[] = [];
 
   // Helper to recursively check if a node is blocked.
   // A node is blocked if:
@@ -402,6 +399,48 @@ function main(): void {
     evalCache.set(nodePath, false);
     return false;
   }
+
+  // ── Phase 3.5: SUSPEND (Wait & Wake) ───────────────────────────────────────
+  info('Phase 3.5: Checking ACTIVE nodes for suspension...');
+  for (const node of nodes) {
+    if (node.frontmatter.status !== 'ACTIVE') continue;
+
+    let shouldSuspend = false;
+    for (const depPath of node.frontmatter.depends_on) {
+      const dep = nodeMap.get(depPath);
+      if (!dep) {
+        if (fs.existsSync(path.join(repoRoot, depPath))) {
+          continue;
+        }
+        warn(`Unresolvable dependency '${depPath}' referenced by ACTIVE node: ${node.repoPath}`);
+        hasUnresolvableDeps = true;
+        shouldSuspend = true;
+        break;
+      }
+
+      // If it is an ancestor, we only care that it is status ACTIVE or COMPLETED.
+      if (!isDescendant(node.repoPath, depPath)) {
+        if (isHierarchicallyIncomplete(depPath)) {
+          shouldSuspend = true;
+          break;
+        }
+      } else {
+        if (dep.frontmatter.status !== 'ACTIVE' && dep.frontmatter.status !== 'COMPLETED') {
+          shouldSuspend = true;
+          break;
+        }
+      }
+    }
+
+    if (shouldSuspend) {
+      info(`Suspending ACTIVE node: ${node.repoPath}`);
+      promoteNodeStatus(node, 'ACTIVE', 'PENDING');
+    }
+  }
+
+  // ── Phase 4: RESOLVE ───────────────────────────────────────────────────────
+  info('Phase 4: Resolving DAG — finding eligible PENDING nodes...');
+  const eligible: ParsedNode[] = [];
 
   for (const node of nodes) {
     if (node.frontmatter.status !== 'PENDING') continue;

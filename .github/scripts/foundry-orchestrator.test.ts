@@ -387,4 +387,129 @@ jules_session_id: null
     expect(output[0].status).toBe('READY');
   });
 
+
+  test('Wait and Wake: Suspends ACTIVE node if dependencies are unresolvable', () => {
+    createNode('.foundry/tasks/task-active.md', `
+id: task-active
+type: TASK
+title: "Active Task"
+status: ACTIVE
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/tasks/task-missing.md"]
+jules_session_id: null
+`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active.md'), 'utf-8');
+    expect(result).toContain('status: PENDING');
+  });
+
+  test('Wait and Wake: Suspends ACTIVE node if dependency is incomplete', () => {
+    createNode('.foundry/tasks/task-incomplete.md', `
+id: task-incomplete
+type: TASK
+title: "Incomplete Task"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-active.md', `
+id: task-active
+type: TASK
+title: "Active Task"
+status: ACTIVE
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/tasks/task-incomplete.md"]
+jules_session_id: null
+`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active.md'), 'utf-8');
+    expect(result).toContain('status: PENDING');
+  });
+
+  test('Wait and Wake: Suspends ACTIVE node if dependency is hierarchically incomplete', () => {
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story"
+status: COMPLETED
+owner_persona: tech_lead
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-child.md', `
+id: task-child
+type: TASK
+title: "Child Task"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: ".foundry/stories/story-001.md"
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-active.md', `
+id: task-active
+type: TASK
+title: "Active Task"
+status: ACTIVE
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/stories/story-001.md"]
+jules_session_id: null
+`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active.md'), 'utf-8');
+    expect(result).toContain('status: PENDING');
+  });
+
+  test('Wait and Wake: Does not suspend ACTIVE node if all dependencies are COMPLETED', () => {
+    createNode('.foundry/tasks/task-complete.md', `
+id: task-complete
+type: TASK
+title: "Complete Task"
+status: COMPLETED
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-active.md', `
+id: task-active
+type: TASK
+title: "Active Task"
+status: ACTIVE
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/tasks/task-complete.md"]
+jules_session_id: null
+`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active.md'), 'utf-8');
+    expect(result).toContain('status: ACTIVE');
+  });
 });
