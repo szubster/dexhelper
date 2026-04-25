@@ -1,7 +1,7 @@
+import { userEvent } from '@vitest/browser/context';
 import { describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-react';
 import { SettingsControls } from '../SettingsControls';
-import { userEvent } from '@vitest/browser/context';
 
 describe('SettingsControls', () => {
   it('renders correctly and handles interactions', async () => {
@@ -9,20 +9,20 @@ describe('SettingsControls', () => {
     const setIsLivingDex = vi.fn();
     const setGlobalPokeball = vi.fn();
 
-    const { getByText, getByRole, getByLabelText } = render(
+    const { getByText, getByRole, getByLabelText } = await render(
       <SettingsControls
         effectiveVersion="scarlet-violet"
         setManualVersion={setManualVersion}
         isLivingDex={false}
         setIsLivingDex={setIsLivingDex}
-        globalPokeball="pokeball"
+        globalPokeball="poke"
         setGlobalPokeball={setGlobalPokeball}
         filteredPokeballs={[
-          { value: 'pokeball', label: 'Poké Ball' },
-          { value: 'greatball', label: 'Great Ball' },
+          { value: 'poke', label: 'Poké Ball' },
+          { value: 'great', label: 'Great Ball' },
         ]}
         genConfig={null}
-      />
+      />,
     );
 
     // Verify labels
@@ -42,7 +42,7 @@ describe('SettingsControls', () => {
 
     // Verify changing ball style
     const ballSelect = getByLabelText('Select Ball Style');
-    await userEvent.selectOptions(ballSelect, 'greatball');
-    expect(setGlobalPokeball).toHaveBeenCalledWith('greatball');
+    await userEvent.selectOptions(ballSelect, 'great');
+    expect(setGlobalPokeball).toHaveBeenCalledWith('great');
   });
 });
