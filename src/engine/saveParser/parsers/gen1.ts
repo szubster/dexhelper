@@ -173,25 +173,23 @@ const INTERNAL_ID_TO_DEX: Record<number, number> = {
  * @param partyDetails - A quick parsing of the player's party to verify if Pikachu is a native starter.
  * @returns 'red', 'blue', 'yellow', or 'unknown' if the heuristic scores are too close to confidently decide.
  */
-export function detectGen1GameVersion(
-  view: DataView,
-  owned: Set<number>,
-  seen: Set<number>,
-  trainerName: string,
-  partyDetails: { speciesId: number; otName: string }[],
-): GameVersion {
-  // 1. High-confidence Yellow markers in English version
+function hasYellowPikachuMarkers(view: DataView): boolean {
+  // High-confidence Yellow markers in English version
   // 0x271C: Following Pikachu status, 0x271D: Pikachu Happiness
   const followingPikachu = view.getUint8(0x271c);
   const pikachuHappiness = view.getUint8(0x271d);
 
   // If these are non-zero and not FF (unitialized), it's almost certainly Yellow.
   // We use > 0 and < 0xFF to be safe against garbage data.
-  if ((followingPikachu > 0 && followingPikachu < 0xff) || (pikachuHappiness > 0 && pikachuHappiness < 0xff)) {
-    return 'yellow';
-  }
+  return (followingPikachu > 0 && followingPikachu < 0xff) || (pikachuHappiness > 0 && pikachuHappiness < 0xff);
+}
 
-  // 2. Version exclusives scoring
+function calculateVersionScores(
+  owned: Set<number>,
+  seen: Set<number>,
+  trainerName: string,
+  partyDetails: { speciesId: number; otName: string }[],
+) {
   const redExclusives = [23, 24, 43, 44, 45, 56, 57, 58, 59, 123, 125];
   const blueExclusives = [27, 28, 37, 38, 52, 53, 69, 70, 71, 127, 126];
   const yellowMissing = [13, 14, 15, 23, 24, 26, 52, 53, 109, 110, 124, 125, 126];
@@ -200,13 +198,9 @@ export function detectGen1GameVersion(
   let blueScore = 0;
   let yellowPenalty = 0;
 
-  // Function to check if a species is actually "native" (not traded)
   const isNative = (id: number) => {
-    // Check if it's in the current party with matching OT
     const inParty = partyDetails.find((p) => p.speciesId === id);
     if (inParty) return inParty.otName === trainerName;
-    // If not in party, we assume native if it's just 'seen' or 'owned' but we can't verify OT easily without parsing everything.
-    // However, if we HAVE it and it's traded, we shouldn't count it.
     return true;
   };
 
@@ -223,9 +217,23 @@ export function detectGen1GameVersion(
     else if (seen.has(id)) yellowPenalty += 1;
   }
 
-  const isPikachuStarter = owned.has(25);
+  return { redScore, blueScore, yellowPenalty };
+}
 
-  // Extra check: Pikachu starter in party with matching OT
+export function detectGen1GameVersion(
+  view: DataView,
+  owned: Set<number>,
+  seen: Set<number>,
+  trainerName: string,
+  partyDetails: { speciesId: number; otName: string }[],
+): GameVersion {
+  if (hasYellowPikachuMarkers(view)) {
+    return 'yellow';
+  }
+
+  const { redScore, blueScore, yellowPenalty } = calculateVersionScores(owned, seen, trainerName, partyDetails);
+
+  const isPikachuStarter = owned.has(25);
   const pikachuInParty = partyDetails.find((p) => p.speciesId === 25);
   const isNativePikachu = pikachuInParty && pikachuInParty.otName === trainerName;
 
@@ -234,7 +242,6 @@ export function detectGen1GameVersion(
     if (isNativePikachu && redScore === 0 && blueScore === 0) return 'yellow';
   }
 
-  // If scores are very close or zero, return unknown to trigger manual selection
   if (Math.abs(redScore - blueScore) < 2 && redScore < 4 && !isNativePikachu) return 'unknown';
 
   if (redScore > blueScore + 2) return 'red';
