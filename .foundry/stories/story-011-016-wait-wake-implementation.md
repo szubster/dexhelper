@@ -2,12 +2,12 @@
 id: story-011-016-wait-wake-implementation
 type: STORY
 title: "Wait & Wake Protocol Orchestrator Implementation"
-status: READY
+status: "ACTIVE"
 owner_persona: tech_lead
 created_at: "2026-04-24"
 updated_at: "2026-04-25"
 depends_on: []
-jules_session_id: null
+jules_session_id: "1107883359252574246"
 parent: ".foundry/epics/epic-011-wait-and-wake-protocol.md"
 tags:
   - foundry-v2
