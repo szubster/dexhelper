@@ -36,23 +36,27 @@ export const dexDataLoader = {
 
     // Build a map of names for all species in the evolution chain
     const nameMap: Record<number, string> = {};
+    const idsToLoad: number[] = [];
     // Current species
     nameMap[pokemon.id] = pokemon.n;
     // Ancestors
     for (const ancestorId of pokemon.efrm) {
-      nameMap[ancestorId] = '';
+      if (nameMap[ancestorId] === undefined) {
+        nameMap[ancestorId] = '';
+        idsToLoad.push(ancestorId);
+      }
     }
     // Descendants
     const traverse = (node: CompactChainLink) => {
-      nameMap[node.id] = '';
+      if (nameMap[node.id] === undefined) {
+        nameMap[node.id] = '';
+        idsToLoad.push(node.id);
+      }
       node.eto.forEach(traverse);
     };
     pokemon.eto.forEach(traverse);
 
-    const ids = Object.keys(nameMap)
-      .filter((idStr) => nameMap[Number(idStr)] === '')
-      .map(Number);
-    const chainSpecies = await Promise.all(ids.map((id) => dexDataLoader.pokemon.load(id)));
+    const chainSpecies = await dexDataLoader.pokemon.loadMany(idsToLoad);
     for (const p of chainSpecies) {
       if (p && !(p instanceof Error)) nameMap[p.id] = p.n;
     }
