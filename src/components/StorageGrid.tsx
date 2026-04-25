@@ -23,19 +23,30 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
     if (!saveData) return map;
 
     // Group all pokemon by their storage location in a single pass O(N)
-    const allPokemon = [...saveData.partyDetails, ...saveData.pcDetails];
-    for (const p of allPokemon) {
-      if (!p.storageLocation) continue;
-      const pokemon = pokemonMap.get(p.speciesId);
-      if (!pokemon) continue;
+    let lastLocation: string | undefined;
+    let currentArray: { p: PokemonInstance; pokemon: { id: number; name: string } }[] | undefined;
 
-      let current = map.get(p.storageLocation);
-      if (!current) {
-        current = [];
-        map.set(p.storageLocation, current);
+    const processArray = (arr: PokemonInstance[]) => {
+      for (const p of arr) {
+        if (!p.storageLocation) continue;
+        const pokemon = pokemonMap.get(p.speciesId);
+        if (!pokemon) continue;
+
+        if (p.storageLocation !== lastLocation || currentArray === undefined) {
+          currentArray = map.get(p.storageLocation);
+          if (!currentArray) {
+            currentArray = [];
+            map.set(p.storageLocation, currentArray);
+          }
+          lastLocation = p.storageLocation;
+        }
+        currentArray.push({ p, pokemon });
       }
-      current.push({ p, pokemon });
-    }
+    };
+
+    processArray(saveData.partyDetails);
+    processArray(saveData.pcDetails);
+
     return map;
   }, [saveData, pokemonMap]);
 
