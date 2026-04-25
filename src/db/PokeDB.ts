@@ -43,7 +43,7 @@ export const getDB = () => {
       /* v8 ignore start */
       upgrade(db) {
         const currentStores = Array.from(db.objectStoreNames);
-        const targetStores = Object.values(DB_CONFIG.STORES) as readonly ValidStoreName[];
+        const targetStores: readonly ValidStoreName[] = Object.values(DB_CONFIG.STORES);
 
         // Define key paths for each store
         const keyPaths: Record<ValidStoreName, string> = {
