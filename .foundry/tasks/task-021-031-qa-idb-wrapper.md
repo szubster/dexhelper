@@ -19,6 +19,6 @@ tags: ["indexeddb", "infrastructure", "persistence", "qa"]
 Verify the IndexedDB wrapper implemented in `.foundry/tasks/task-021-030-implement-idb-wrapper.md`.
 
 ## Acceptance Criteria
-- [ ] Verify `idb` wrapper supports binary read/write/delete.
-- [ ] Verify graceful fallback handling when IndexedDB is inaccessible (e.g. `QuotaExceededError` or private mode).
-- [ ] Verify generic error logging (e.g., "System: sync failed") to prevent internal error leakage (CWE-209 mitigation).
+- [x] Verify `idb` wrapper supports binary read/write/delete.
+- [x] Verify graceful fallback handling when IndexedDB is inaccessible (e.g. `QuotaExceededError` or private mode).
+- [x] Verify generic error logging (e.g., "System: sync failed") to prevent internal error leakage (CWE-209 mitigation).
