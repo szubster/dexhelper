@@ -234,3 +234,5 @@
 - **2026-04-24**: PR #511 merged. `task-023-qa-orchestrator-human-bypass` is now COMPLETED.
 
 - **2026-04-24**: Heartbeat detected zombie session for `story-006-015-implement-link-checker`. Transitioned to FAILED.
+
+- **2026-04-25**: Resurrection Loop triggered for `story-006-015-implement-link-checker`. Reason: Retry from FAILED status.. Transitioned back to READY.
