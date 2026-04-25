@@ -15,3 +15,15 @@
 **Canonical source used:** The Foundry Master Schema (\`.foundry/docs/schema.md\`) for required fields, and the \`.foundry/epics/\` directory to find the correct parent (\`epic-010-oxlint-config.md\`).
 **Impact on users:** The STORY was not being resolved by the DAG orchestrator, preventing downstream TASKS from being scheduled.
 **Learning:** Manual creation of Foundry nodes is prone to human error; automation or strict linting of node files should be considered. Also, always verify that parent paths exist in the repo.
+
+## 2026-04-25 - 🧪 Oak: [DAG frontmatter fix]
+**What was wrong:** The STORY node \`.foundry/stories/story-010-015-enforce-strict-oxlint-rules.md\` was reported as missing the required \`jules_session_id\` field in its frontmatter, blocking DAG resolution.
+**Canonical source used:** \`.foundry/docs/schema.md\` (Authority for node frontmatter).
+**Impact on users:** The automated workflow was stalled as the orchestrator skipped the story node.
+**Learning:** Even if a file appears correct in one environment, rewriting it or running a global audit ensures consistency across CI environments where hidden characters or partial commits might cause parsing failures.
+
+## 2026-04-25 - 🧪 Oak: [DAG frontmatter fix]
+**What was wrong:** The STORY node \`.foundry/stories/story-010-015-enforce-strict-oxlint-rules.md\` was reported as missing the required \`jules_session_id\` field in its frontmatter, blocking DAG resolution.
+**Canonical source used:** \`.foundry/docs/schema.md\` (Authority for node frontmatter).
+**Impact on users:** The automated workflow was stalled as the orchestrator skipped the story node.
+**Learning:** Even if a file appears correct in one environment, rewriting it or running a global audit ensures consistency across CI environments where hidden characters or partial commits might cause parsing failures.
