@@ -29,3 +29,11 @@ All disabled oxlint rules should be enabled back. The tech lead should create a 
 ## Instructions for Tech Lead
 1. Create a series of TASK nodes, one for each disabled rule.
 2. Ensure each task focuses strictly on enabling that rule in `.oxlintrc.json` and fixing all corresponding violations across the codebase.
+
+## Generated Tasks
+- [.foundry/tasks/task-015-033-oxlint-require-mock-type-parameters.md](../tasks/task-015-033-oxlint-require-mock-type-parameters.md)
+- [.foundry/tasks/task-015-034-oxlint-expect-expect.md](../tasks/task-015-034-oxlint-expect-expect.md)
+- [.foundry/tasks/task-015-035-oxlint-jest-no-standalone-expect.md](../tasks/task-015-035-oxlint-jest-no-standalone-expect.md)
+- [.foundry/tasks/task-015-036-oxlint-jest-expect-expect.md](../tasks/task-015-036-oxlint-jest-expect-expect.md)
+- [.foundry/tasks/task-015-037-oxlint-jest-no-disabled-tests.md](../tasks/task-015-037-oxlint-jest-no-disabled-tests.md)
+- [.foundry/tasks/task-015-038-oxlint-jest-no-conditional-expect.md](../tasks/task-015-038-oxlint-jest-no-conditional-expect.md)
