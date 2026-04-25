@@ -21,6 +21,14 @@ export const dexDataLoader = {
     { cache: true },
   ),
 
+  areaNames: new DataLoader<number, string | null>(
+    async (ids) => {
+      const names = await pokeDB.getAreaNames([...ids]);
+      return ids.map((id) => names[id] ?? null);
+    },
+    { cache: true },
+  ),
+
   getPokemonDetails: async (
     id: number,
   ): Promise<{
@@ -61,7 +69,15 @@ export const dexDataLoader = {
     const areaIds = [
       ...new Set((encounters && !(encounters instanceof Error) ? encounters.enc : []).map((e) => e.aid)),
     ];
-    const areaNames = await pokeDB.getAreaNames(areaIds);
+    const namesArray = await dexDataLoader.areaNames.loadMany(areaIds);
+    const areaNames: Record<number, string> = {};
+    for (let i = 0; i < areaIds.length; i++) {
+      const name = namesArray[i];
+      const aid = areaIds[i];
+      if (typeof name === 'string' && aid !== undefined) {
+        areaNames[aid] = name;
+      }
+    }
 
     return {
       pokemon,
