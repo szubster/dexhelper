@@ -1,6 +1,6 @@
-## 2024-04-11 - Focus Visible Styles for Retro Buttons
-**Learning:** Some custom UI elements, like mapped list buttons or dynamically rendered list items (e.g., in LocationSuggestions), can easily omit standard focus indicators when custom styling is heavily applied, making keyboard navigation difficult or invisible.
-**Action:** Always ensure dynamic, mapped, or custom interactive elements explicitly include focus visible utilities (e.g., `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950`) to match the application's global focus style.
+## 2024-04-11 - Focus Visible Styles for Interactive Elements
+**Learning:** Custom UI elements, mapped list buttons, and standard HTML elements functioning as buttons/links in complex layouts (e.g., AppLayout, BottomNav) often omit focus indicators when custom styling is heavily applied. This breaks keyboard navigation.
+**Action:** Always ensure all interactive elements explicitly include the standard focus visible utilities (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950`) to maintain consistent accessibility and keyboard navigation across the application.
 
 ## 2024-04-12 - Custom Segmented Control ARIA Roles
 **Learning:** When creating custom segmented controls with mutually exclusive options, using `role="switch"` is incorrect as switches imply an on/off state. `role="group"` is also too generic. A segmented control is conceptually a set of radio buttons.
@@ -36,13 +36,6 @@
 
 # Palette UX/A11y Learnings
 
-## 2026-04-20 - Interactive Elements Focus Styles
-**Learning:** Standard HTML elements functioning as buttons or links in custom UI components (like `BottomNav`) sometimes omit standard focus indicators when customized heavily.
-**Action:** All interactive elements (e.g., links, buttons) must explicitly define focus styles using the standard utility class string: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950`. This ensures consistent keyboard navigation visibility across the app.
-
-## 2024-04-22 - Focus Styles on Complex App Layouts
-**Learning:** Standard HTML elements functioning as buttons or links in custom, complex UI components (like `AppLayout` Desktop Navigation or headers) sometimes omit standard focus indicators when customized heavily. This breaks keyboard navigation.
-**Action:** All interactive elements (e.g., links, buttons) across the main layout must explicitly define focus styles using the standard utility class string: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` to ensure consistent accessibility.
 
 ## 2026-04-23 - Role Group for Checkbox-like Filters
 **Learning:** Collections of buttons that act like a set of checkboxes (where multiple can be active simultaneously, indicated by `aria-pressed`) need a container role to group them semantically for screen readers.
