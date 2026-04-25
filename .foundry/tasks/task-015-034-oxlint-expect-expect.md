@@ -2,12 +2,12 @@
 id: "task-015-034-oxlint-expect-expect"
 type: "TASK"
 title: "Enable oxlint vitest/expect-expect"
-status: READY
+status: "ACTIVE"
 owner_persona: "coder"
 created_at: "2026-04-25"
 updated_at: "2026-04-25"
 depends_on: []
-jules_session_id: null
+jules_session_id: "10804429396306984670"
 parent: ".foundry/stories/story-010-015-enforce-strict-oxlint-rules.md"
 ---
 
