@@ -9,3 +9,9 @@
 
 ## Data Integrity - Evolution Chains
 *   **ROM parsing quirks / Data Pipeline Gotchas:** Some Gen 2 Pokémon evolutions (like Tyrogue -> Hitmonlee/Hitmonchan/Hitmontop) depend on the Pokémon's stats (Attack > Defense, Attack < Defense, or Attack == Defense). PokeAPI models this via `relative_physical_stats` in the `evolution_details`. Ensure the schema (`CompactEvolutionDetail`) and data generation script (`scripts/generate-pokedata.ts`) correctly map `relative_physical_stats` (to `rps`) so the application logic can accurately evaluate these conditional evolutions.
+
+## 2026-04-24 - 🧪 Oak: [data correction]
+**What was wrong:** The file \`.foundry/stories/story-010-015-enforce-strict-oxlint-rules.md\` was missing the mandatory \`jules_session_id\` frontmatter field, causing the orchestrator to skip the node during DAG resolution.
+**Canonical source used:** Foundry Orchestrator error logs and project frontmatter requirements.
+**Impact on users:** Restores the story node and its dependencies to the active DAG resolution, ensuring that the work planned for enforcing strict oxlint rules can proceed.
+**Learning:** The \`jules_session_id\` field is a hard requirement for the Foundry DAG orchestrator parser in strict mode. All node files under \`.foundry/\` (PRDs, Epics, Stories, Tasks) must include this field, even if set to \`null\`, to avoid being skipped during discovery.
