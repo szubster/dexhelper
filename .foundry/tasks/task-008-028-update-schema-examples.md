@@ -2,12 +2,12 @@
 id: "task-008-028-update-schema-examples"
 type: "TASK"
 title: "Update Documentation Examples for Atomic Files"
-status: READY
+status: "ACTIVE"
 owner_persona: "coder"
 created_at: "2026-04-24"
 updated_at: "2026-04-25"
 depends_on: []
-jules_session_id: null
+jules_session_id: "16916249611262202908"
 parent: ".foundry/stories/story-008-schema-examples.md"
 ---
 
