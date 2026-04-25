@@ -541,3 +541,33 @@ describe('PokeDB', () => {
     });
   });
 });
+
+describe('Performance strategies', () => {
+  it('getInverseIndexBulk uses adaptive cursor strategy for large queries', async () => {
+    pokeDB._resetSync();
+    // Mock db records with large counts
+    const mockData = {
+      hash: `new-hash-bulk-perf-${Date.now()}`,
+      poke: [],
+      enc: [],
+      loc: Array.from({ length: 100 }).map((_, i) => ({ id: i, n: `Area ${i}`, pids: [i], dist: {} })),
+    };
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      json: async () => mockData,
+    } as Response);
+    await pokeDB.sync();
+
+    // Trigger large query > 25% of 100
+    const idsToFetch = Array.from({ length: 30 }).map((_, i) => i);
+    const results = await pokeDB.getInverseIndexBulk(idsToFetch);
+
+    expect(results.length).toBe(30);
+    expect(results[0]).toEqual([0]);
+    expect(results[29]).toEqual([29]);
+
+    // Also test out of bounds missing ids
+    const resultsMissing = await pokeDB.getInverseIndexBulk([0, 999]);
+    expect(resultsMissing).toEqual([[0], undefined]);
+  });
+});
