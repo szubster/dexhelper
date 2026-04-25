@@ -48,3 +48,8 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 - Used `vi.spyOn` from vitest to explicitly mock native method throws.
 - Improved `src/store.test.ts` robustness by moving mock and global restoration to `afterEach` hooks, ensuring clean state even after test failures.
 - Covered untested error path in `loadSaveFromStorage` by simulating invalid base64 regex failures.
+
+### saveParser test coverage learnings
+- When testing RangeError throwing inside DataView, avoid overriding `global.DataView` without `try...finally` as it breaks downstream tests if `expect().toThrow()` fails.
+- Be careful when replacing `as any` casting: use `as unknown as typeof DataView` to avoid Biome's `lint/suspicious/noExplicitAny`.
+- `noUncheckedIndexedAccess: true` requires indexing arrays using fallback (e.g., `buffer[i] ?? 0`) or checking for bounds to prevent TypeScript compilation errors (`TS2532`).
