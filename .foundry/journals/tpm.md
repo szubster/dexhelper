@@ -258,3 +258,7 @@
 - **2026-04-25**: PR #531 merged. `task-005-026-qa-orchestrator-validation` is now COMPLETED.
 
 - **2026-04-25**: PR #526 merged. `task-014-027-configure-oxlint-json` is now COMPLETED.
+
+- **2026-04-25**: PR #534 merged. `story-011-016-wait-wake-implementation` is now COMPLETED.
+
+- **2026-04-25**: PR #533 merged. `task-009-028-deprecate-composite-nodes` is now COMPLETED.

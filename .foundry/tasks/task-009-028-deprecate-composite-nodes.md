@@ -2,12 +2,12 @@
 id: task-009-028-deprecate-composite-nodes
 type: TASK
 title: "Deprecate Composite Nodes in Schema"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: coder
 created_at: "2026-04-24"
 updated_at: "2026-04-25"
 depends_on: []
-jules_session_id: "14911875075999718464"
+jules_session_id: null
 parent: .foundry/stories/story-009-composite-deprecation.md
 tags: []
 rejection_count: 0
