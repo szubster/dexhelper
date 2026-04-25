@@ -82,6 +82,38 @@ describe('common parsers', () => {
       expect(decodeGen12String(view, 0)).toBe('AB');
     });
 
+    test('handles negative offset gracefully (RangeError)', () => {
+      const buffer = new ArrayBuffer(2);
+      const view = new DataView(buffer);
+      view.setUint8(0, 0x80);
+      view.setUint8(1, 0x81);
+      expect(decodeGen12String(view, -1)).toBe('');
+    });
+
+    test('handles offset beyond buffer length gracefully (RangeError)', () => {
+      const buffer = new ArrayBuffer(2);
+      const view = new DataView(buffer);
+      view.setUint8(0, 0x80);
+      view.setUint8(1, 0x81);
+      expect(decodeGen12String(view, 5)).toBe('');
+    });
+
+    test('handles zero maxLength', () => {
+      const buffer = new ArrayBuffer(2);
+      const view = new DataView(buffer);
+      view.setUint8(0, 0x80);
+      view.setUint8(1, 0x81);
+      expect(decodeGen12String(view, 0, 0)).toBe('');
+    });
+
+    test('handles negative maxLength', () => {
+      const buffer = new ArrayBuffer(2);
+      const view = new DataView(buffer);
+      view.setUint8(0, 0x80);
+      view.setUint8(1, 0x81);
+      expect(decodeGen12String(view, 0, -1)).toBe('');
+    });
+
     test('rethrows non-RangeError exceptions', () => {
       const buffer = new ArrayBuffer(4);
       const view = new DataView(buffer);
