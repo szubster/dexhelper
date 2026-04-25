@@ -47,3 +47,7 @@
 ## 2026-04-23 - Role Group for Checkbox-like Filters
 **Learning:** Collections of buttons that act like a set of checkboxes (where multiple can be active simultaneously, indicated by `aria-pressed`) need a container role to group them semantically for screen readers.
 **Action:** When creating a row or container of toggle buttons (like multi-select filters), wrap them in a container with `role="group"` and an `aria-label` describing the filter's purpose (e.g., "Filter Pokémon").
+
+## 2026-04-24 - Focus Visible on Modal and Custom Action Buttons
+**Learning:** Several custom action buttons in modals (like the Close buttons in `SettingsModal` and `PokemonDetails`, Confirmation buttons in `ClearStorageButton`, and choice selectors in `VersionModal`) were missing standard `focus-visible` styles, leading to poor keyboard navigation visibility.
+**Action:** Always ensure that every custom button, regardless of its context (modals, overlays, inline prompts), includes the standard focus indicator utility classes (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` or a context-appropriate color variant like `ring-red-500` for destructive actions).

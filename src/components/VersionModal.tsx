@@ -37,7 +37,7 @@ export function VersionModal() {
                 setManualVersion(v.id as GameVersion);
                 setIsVersionModalOpen(false);
               }}
-              className="group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 p-6 text-center transition-all hover:border-red-500/50"
+              className="group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 p-6 text-center transition-all hover:border-red-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
               <div className="relative z-10 flex flex-col items-center gap-3">
                 <div className={`h-3 w-3 rounded-full shadow-lg ${v.dotColor}`} />
