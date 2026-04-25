@@ -41,6 +41,9 @@ jobs:
       - name: Knip
         run: pnpm knip
 
+      - name: Cspell
+        run: pnpm lint:spell
+
       - name: Test
         run: pnpm test --coverage --reporter=junit --outputFile=test-report.junit.xml
 

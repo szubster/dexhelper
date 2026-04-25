@@ -21,3 +21,6 @@
 
 ## 2026-04-24 - Enabled TypeScript Incremental Builds
 **Learning:** Enabled `"incremental": true` in the base `tsconfig.json` to significantly improve local `pnpm type-check` performance (reducing run time from ~14s to ~4s on subsequent runs). This provides a massive developer experience improvement for local pre-commit hooks, allowing the system to maintain full project type safety (as originally desired) without the painful delay of a complete rebuild every time. Added `*.tsbuildinfo` to `.gitignore` to prevent cache file pollution.
+
+## 2026-04-25 - Added cspell
+**Learning:** Integrated `cspell` into the pipeline (`lint:spell` script, GitHub Actions, and Lefthook) to detect and prevent spelling errors in code, comments, and configuration files. This improves code health, documentation readability, and prevents typo-related bugs. Added a `cspell.json` configuration file with domain-specific Pokemon terms to avoid false positives.
