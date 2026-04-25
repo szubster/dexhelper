@@ -347,4 +347,44 @@ jules_session_id: null
     expect(output).toHaveLength(0);
   });
 
+  test('Schema Compatibility: works with Parent-Linked Distributed ID Schema', () => {
+    createNode('.foundry/epics/epic-001-002-feature.md', `
+id: epic-001-002-feature
+type: EPIC
+title: "Epic 2"
+status: COMPLETED
+owner_persona: epic_planner
+created_at: "2026-04-24"
+updated_at: "2026-04-24"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/stories/story-002-005-impl.md', `
+id: story-002-005-impl
+type: STORY
+title: "Story 5"
+status: PENDING
+owner_persona: story_owner
+created_at: "2026-04-24"
+updated_at: "2026-04-24"
+depends_on:
+  - .foundry/epics/epic-001-002-feature.md
+jules_session_id: null
+`);
+
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+
+    const storyChar = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-002-005-impl.md'), 'utf-8');
+    expect(storyChar).toContain('status: READY');
+
+    expect(logSpy).toHaveBeenCalled();
+    const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
+    const output = JSON.parse(lastCall);
+    expect(output).toHaveLength(1);
+    expect(output[0].id).toBe('story-002-005-impl');
+    expect(output[0].status).toBe('READY');
+  });
+
 });
