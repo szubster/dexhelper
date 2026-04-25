@@ -18,5 +18,8 @@ parent: ".foundry/epics/epic-007-atomic-handoff-schema.md"
 The examples throughout `.foundry/docs/schema.md` must accurately reflect the new atomic file structure and naming conventions.
 
 ## Acceptance Criteria
-- Examples in `schema.md` showcase single-persona nodes.
-- Remove any examples that contain multiple personas operating in the same file.
+- [x] Examples in `schema.md` showcase single-persona nodes.
+- [x] Remove any examples that contain multiple personas operating in the same file.
+
+## Generated Tasks
+- `.foundry/tasks/task-008-028-update-schema-examples.md`
