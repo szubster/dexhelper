@@ -34,3 +34,8 @@
 - `parseDVs`: DVs are stored as 4-bit nibbles across two bytes. Crucially, the HP DV is not explicitly stored; it is calculated dynamically by extracting the least significant bit (LSB) from the Attack, Defense, Speed, and Special DVs.
 - `checkShiny`: In Gen 2, Shininess is determined entirely by stat DVs (making it retroactive and permanent across trades to Gen 1). A Pokémon is Shiny if Defense, Speed, and Special are exactly 10, and Attack is 2, 3, 6, 7, 10, 11, 14, or 15.
 Documenting these mechanical quirks is essential for future maintainability of the parsing engine.
+
+## 2025-05-15 - Zustand Store State Separation
+
+**What:** Documented `src/store.ts` Zustand properties and actions.
+**Why:** The `AppStore` interface mixes persisted user settings (via localStorage `partialize`, like `isLivingDex` and `filters`) with heavy transient data (like the entire parsed `saveData`) and lightweight UI view state (like `isSettingsOpen`). Documenting which properties belong to which lifecycle prevents future developers from accidentally persisting the massive `saveData` object into localStorage, which would bloat the storage quota and cause stale state bugs on reload.
