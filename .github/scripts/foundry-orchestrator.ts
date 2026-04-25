@@ -130,7 +130,7 @@ function discoverNodeFiles(dir: string): string[] {
     let entries: fs.Dirent[];
     try {
       entries = fs.readdirSync(current, { withFileTypes: true });
-  } catch (_e) {
+  } catch {
       warn(`Cannot read directory: ${current}`);
       return;
     }
@@ -164,7 +164,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
   let rawContent: string;
   try {
     rawContent = fs.readFileSync(filePath, 'utf-8');
-  } catch (_e) {
+  } catch {
     warn(`Cannot read file: ${repoPath}`);
     return null;
   }
@@ -173,7 +173,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
   let parsed: ReturnType<typeof matter>;
   try {
     parsed = matter(rawContent);
-  } catch (_e) {
+  } catch {
     warn(`Malformed YAML frontmatter in: ${repoPath} — skipping`);
     return null;
   }

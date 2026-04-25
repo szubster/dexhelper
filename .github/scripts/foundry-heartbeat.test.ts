@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { main, transitionNodeToFailed } from './foundry-heartbeat.ts';
+import { main } from './foundry-heartbeat.ts';
 import * as orchestrator from './foundry-orchestrator.ts';
 
 vi.mock('node:fs');

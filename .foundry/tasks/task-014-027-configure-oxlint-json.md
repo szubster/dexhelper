@@ -28,6 +28,6 @@ As part of the Foundry architecture, we are improving our static analysis. The C
 6. Ensure `pnpm lint` fully passes.
 
 ## Acceptance Criteria
-- [ ] `.oxlintrc.json` is present and configured strictly.
-- [ ] `jest`/`vitest`, `react`, and `jsx-a11y` plugins are enabled.
-- [ ] `pnpm lint` and `pnpm exec oxlint .` run cleanly without errors.
+- [x] `.oxlintrc.json` is present and configured strictly.
+- [x] `jest`/`vitest`, `react`, and `jsx-a11y` plugins are enabled.
+- [x] `pnpm lint` and `pnpm exec oxlint .` run cleanly without errors.
