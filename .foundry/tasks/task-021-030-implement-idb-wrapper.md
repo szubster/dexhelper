@@ -2,10 +2,10 @@
 id: task-021-030-implement-idb-wrapper
 type: TASK
 title: "Implement IndexedDB wrapper with robust error handling"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-26"
-updated_at: "2026-04-26"
+updated_at: "2026-04-25"
 depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-013-021-indexeddb-wrapper-and-error-handling.md

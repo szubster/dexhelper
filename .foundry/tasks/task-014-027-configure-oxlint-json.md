@@ -2,12 +2,12 @@
 id: "task-014-027-configure-oxlint-json"
 type: "TASK"
 title: "Configure .oxlintrc.json with strict rules and plugins"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "coder"
 created_at: "2026-04-24"
-updated_at: "2026-04-24"
+updated_at: "2026-04-25"
 depends_on: []
-jules_session_id: "244138952619380543"
+jules_session_id: null
 parent: ".foundry/stories/story-010-014-implement-oxlint-config.md"
 ---
 
