@@ -5,7 +5,7 @@ title: "Tighten oxlint configuration and enable plugins"
 status: "COMPLETED"
 owner_persona: "story_owner"
 created_at: "2026-04-23"
-updated_at: "2026-04-24"
+updated_at: "2026-04-25"
 parent: ""
 depends_on: []
 jules_session_id: null

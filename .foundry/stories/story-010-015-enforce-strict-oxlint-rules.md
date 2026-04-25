@@ -5,7 +5,7 @@ title: "Fix disabled oxlint rules across the codebase"
 status: "PENDING"
 owner_persona: "story_owner"
 created_at: "2026-04-24"
-updated_at: "2026-04-24"
+updated_at: "2026-04-25"
 depends_on:
   - ".foundry/tasks/task-014-027-configure-oxlint-json.md"
 jules_session_id: null
