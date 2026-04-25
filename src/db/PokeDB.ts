@@ -250,7 +250,17 @@ export const pokeDB = {
 
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    let fetched: (UnifiedLocation | undefined)[] = [];
+    if (validIds.length > 50) {
+      const allItems = await store.getAll();
+      const allMap = new Map<number, UnifiedLocation>();
+      for (const item of allItems) {
+        allMap.set(item.id, item);
+      }
+      fetched = validIds.map((id) => allMap.get(id));
+    } else {
+      fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    }
     await tx.done;
 
     const resultMap = new Map<number, number[] | undefined>();
@@ -274,13 +284,23 @@ export const pokeDB = {
     // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    const locations = await Promise.all(ids.map((id) => store.get(id)));
-    await tx.done;
-    for (const loc of locations) {
-      if (loc) {
-        names[loc.id] = loc.n;
+    if (ids.length > 50) {
+      const allItems = await store.getAll();
+      const needed = new Set(ids);
+      for (const item of allItems) {
+        if (needed.has(item.id)) {
+          names[item.id] = item.n;
+        }
+      }
+    } else {
+      const locations = await Promise.all(ids.map((id) => store.get(id)));
+      for (const loc of locations) {
+        if (loc) {
+          names[loc.id] = loc.n;
+        }
       }
     }
+    await tx.done;
     return names;
   },
 
@@ -293,7 +313,17 @@ export const pokeDB = {
 
     const tx = db.transaction(DB_CONFIG.STORES.POKEMON, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.POKEMON);
-    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    let fetched: (PokemonMetadata | undefined)[] = [];
+    if (validIds.length > 50) {
+      const allItems = await store.getAll();
+      const allMap = new Map<number, PokemonMetadata>();
+      for (const item of allItems) {
+        allMap.set(item.id, item);
+      }
+      fetched = validIds.map((id) => allMap.get(id));
+    } else {
+      fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    }
     await tx.done;
     const resultMap = new Map<number, PokemonMetadata>();
     for (const p of fetched) {
@@ -320,7 +350,17 @@ export const pokeDB = {
     // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead for encounters
     const tx = db.transaction(DB_CONFIG.STORES.ENCOUNTERS, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
-    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    let fetched: (LocationAreaEncounters | undefined)[] = [];
+    if (validIds.length > 50) {
+      const allItems = await store.getAll();
+      const allMap = new Map<number, LocationAreaEncounters>();
+      for (const item of allItems) {
+        allMap.set(item.pid, item);
+      }
+      fetched = validIds.map((id) => allMap.get(id));
+    } else {
+      fetched = await Promise.all(validIds.map((id) => store.get(id)));
+    }
     await tx.done;
 
     const resultMap = new Map<number, LocationAreaEncounters>();
