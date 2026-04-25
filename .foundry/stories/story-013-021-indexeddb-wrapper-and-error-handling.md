@@ -18,6 +18,10 @@ tags: ["indexeddb", "infrastructure", "persistence"]
 Create the IndexedDB wrapper for save data storage, ensuring safe binary read/write operations and implementing graceful fallbacks and secure error logging.
 
 ## Acceptance Criteria
-- [ ] Implement `idb` wrapper for binary read/write/delete.
-- [ ] Add graceful fallback handling.
-- [ ] Implement generic error logging (e.g., "System: sync failed") to prevent internal error leakage.
+- [x] Implement `idb` wrapper for binary read/write/delete.
+- [x] Add graceful fallback handling.
+- [x] Implement generic error logging (e.g., "System: sync failed") to prevent internal error leakage.
+
+## Generated Tasks
+- .foundry/tasks/task-021-030-implement-idb-wrapper.md
+- .foundry/tasks/task-021-031-qa-idb-wrapper.md
