@@ -11,6 +11,7 @@ import {
 
 let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;
 let syncPromise: Promise<void> | null = null;
+let cachedLocations: UnifiedLocation[] | null = null;
 
 const DEFAULT_POKEMON_METADATA = {
   gr: 4,
@@ -75,6 +76,7 @@ const syncData = async () => {
   }
 
   syncPromise = (async () => {
+    cachedLocations = null;
     try {
       const db = await getDB();
 
@@ -222,7 +224,10 @@ export const pokeDB = {
   },
   getLocations: async () => {
     await pokeDB.ready();
-    return (await getDB()).getAll(DB_CONFIG.STORES.LOCATIONS);
+    if (!cachedLocations) {
+      cachedLocations = await (await getDB()).getAll(DB_CONFIG.STORES.LOCATIONS);
+    }
+    return cachedLocations;
   },
   getLocation: async (id: number) => {
     await pokeDB.ready();
@@ -338,5 +343,6 @@ export const pokeDB = {
   // Internal/Test helper to reset the sync state
   _resetSync: () => {
     syncPromise = null;
+    cachedLocations = null;
   },
 };
