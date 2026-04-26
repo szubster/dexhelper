@@ -15,14 +15,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     // Catch chunk load errors from Vite
     const handleChunkError = (e: ErrorEvent) => {
       if (e.message?.includes('Failed to fetch dynamically imported module')) {
-        try {
-          const chunkFailedMessage = /Failed to fetch dynamically imported module/.test(e.message);
-          if (chunkFailedMessage) {
-            window.location.reload();
-          }
-        } catch {
-          console.error('System: chunk load error handler failed');
-        }
+        window.location.reload();
       }
     };
     window.addEventListener('error', handleChunkError);

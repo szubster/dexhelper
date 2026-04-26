@@ -63,7 +63,7 @@ function ProcurementStrategy({
             <button
               type="button"
               onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
-              className="text-red-400 underline decoration-red-500/30 underline-offset-4 transition-colors hover:text-white"
+              className="rounded-sm text-red-400 underline decoration-red-500/30 underline-offset-4 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
               Evolving {evoReq.fromName.toUpperCase()}
             </button>
@@ -118,7 +118,7 @@ function EvolutionFrom({
         <button
           type="button"
           onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
-          className="text-white underline decoration-purple-500/30 underline-offset-4 transition-colors hover:text-purple-400"
+          className="rounded-sm text-white underline decoration-purple-500/30 underline-offset-4 transition-colors hover:text-purple-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
         >
           {evoReq.fromName.toUpperCase()}
         </button>
@@ -159,7 +159,7 @@ function EvolutionTo({
             <button
               type="button"
               onClick={() => onNavigate(evo.id, evo.name)}
-              className="text-white underline decoration-blue-500/30 underline-offset-4 transition-colors hover:text-blue-400"
+              className="rounded-sm text-white underline decoration-blue-500/30 underline-offset-4 transition-colors hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
               {evo.name.toUpperCase()}
             </button>
@@ -196,7 +196,7 @@ function BreedingProtocol({
                 const id = breedingInfo.parentIds[i];
                 if (id) onNavigate(id, name);
               }}
-              className="text-white underline decoration-pink-500/30 underline-offset-4 transition-colors hover:text-pink-400"
+              className="rounded-sm text-white underline decoration-pink-500/30 underline-offset-4 transition-colors hover:text-pink-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
               {name.toUpperCase()}
             </button>

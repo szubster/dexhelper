@@ -13,12 +13,13 @@
     "correctness": "error"
   },
   "rules": {
-    "vitest/require-mock-type-parameters": "off",
+    "vitest/require-mock-type-parameters": "error",
     "jest/no-standalone-expect": "off",
     "jest/expect-expect": "off",
     "jest/no-disabled-tests": "off",
     "jest/no-conditional-expect": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "vitest/expect-expect": "error"
   },
   "env": {
     "builtin": true

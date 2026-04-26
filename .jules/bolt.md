@@ -48,3 +48,6 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 ## 2026-04-23 - [O(N) Encounter Array.find in loop]
 **Learning:** In suggestionEngine.ts, filtering `allEncounters` inside the queryTargets loop repeatedly using `Array.prototype.find()` creates $O(N \cdot M)$ complexity.
 **Action:** Used `new Map(allEncounters.map((e) => [e.pid, e]))` outside the loop to achieve O(1) lookups, caching the results instead.
+## 2026-04-26 - [O(N) Map Operations inside loop]
+**Learning:** In suggestionEngine.ts, filtering `allInstances` array and mapping over it repeatedly inside `myOtIds` extraction creates intermediate arrays and causes unnecessary memory overhead.
+**Action:** Used a single `for` loop to check `p.otName` and `myOtIds.add` directly instead of chained `.filter().map()`. This avoids the allocation of arrays during the critical suggestion generation path.

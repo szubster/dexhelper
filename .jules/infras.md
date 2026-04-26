@@ -21,3 +21,9 @@
 
 ## 2026-04-26 - Enabled Playwright Parallelism
 **Learning:** Updated `playwright.config.ts` to allow multiple workers (`workers: process.env['CI'] ? 2 : '50%'`) instead of the hardcoded `1` worker. This unblocks Playwright's concurrency capabilities, drastically speeding up E2E test suite execution time both locally and in CI. Additionally, confirmed that caching `.tsbuildinfo` in CI is actively rejected by the user, as the incremental build cache is strictly intended for local development performance.
+
+## 2026-04-25 - Rejected cspell
+**Learning:** Evaluated using `cspell` as a spelling checker for code, comments, and configuration files. User rejected this change, preferring to avoid adding automated spell checking to the pipeline.
+
+## 2026-04-24 - Rejected caching location query locally
+**Learning:** Evaluated caching location query directly inside IndexedDB client using local variable, since `LocationSuggestions.tsx` gets a debounced input to query locations repeatedly. But user requested not to do so, because data fetching caching is already handled well enough by `dataloader` and `tanstack/query`.
