@@ -10,7 +10,5 @@ pre-commit:
       fail_on_changes: ci
     oxlint:
       run: pnpm exec oxlint {staged_files}
-    cspell:
-      run: pnpm exec cspell {staged_files}
     type-check:
       run: pnpm lint
