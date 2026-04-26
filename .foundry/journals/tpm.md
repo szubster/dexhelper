@@ -294,3 +294,9 @@
 - **2026-04-26**: PR #584 merged. `task-017-031-implement-impossible-loop` is now COMPLETED.
 
 - **2026-04-26**: PR #582 merged. `task-021-031-qa-idb-wrapper` is now COMPLETED.
+
+- **2026-04-26**: PR #587 merged. `task-015-033-oxlint-require-mock-type-parameters` is now COMPLETED.
+
+- **2026-04-26**: PR #588 merged. `task-015-034-oxlint-expect-expect` is now COMPLETED.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-016-031-qa-wait-wake`. Reason: PR #586 closed without merging.. Transitioned back to READY.
