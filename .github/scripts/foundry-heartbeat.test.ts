@@ -202,7 +202,7 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
     globalFetch.mockImplementation((url: string | URL | Request): Promise<Response> => {
-      if (typeof url === 'string' && url.startsWith('https://jules.googleapis.com')) {
+      if (typeof url === 'string' && (new URL(url)).hostname === 'jules.googleapis.com') {
         return Promise.resolve({
           headers: new Headers(),
           redirected: false,
@@ -283,7 +283,7 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
     globalFetch.mockImplementation((url: string | URL | Request): Promise<Response> => {
-      if (typeof url === 'string' && url.startsWith('https://jules.googleapis.com')) {
+      if (typeof url === 'string' && (new URL(url)).hostname === 'jules.googleapis.com') {
         return Promise.resolve({
           headers: new Headers(),
           redirected: false,
@@ -365,7 +365,7 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
     globalFetch.mockImplementation((url: string | URL | Request): Promise<Response> => {
-      if (typeof url === 'string' && url.startsWith('https://jules.googleapis.com')) {
+      if (typeof url === 'string' && (new URL(url)).hostname === 'jules.googleapis.com') {
         return Promise.resolve({
           headers: new Headers(),
           redirected: false,
