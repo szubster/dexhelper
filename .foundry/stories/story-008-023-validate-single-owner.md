@@ -20,3 +20,5 @@ To enforce Atomic Handoffs, the orchestrator script must explicitly reject or er
 - [ ] The orchestrator script explicitly checks the `owner_persona` field of each node.
 - [ ] If `owner_persona` is an array or contains multiple personas, the orchestrator logs an error and skips or rejects the node.
 - [ ] Tests are added to verify this validation logic.
+
+- [x] Task created for implementation: `.foundry/tasks/task-023-041-implement-single-owner-validation.md`
