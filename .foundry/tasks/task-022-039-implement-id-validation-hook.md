@@ -17,11 +17,11 @@ parent: .foundry/stories/story-006-022-implement-id-validation-hook.md
 As specified in `story-006-022`, we need to implement a pre-commit hook that validates the `.foundry/**/*.md` file IDs according to the Parent-Linked schema. This ensures our autonomous multi-agent system doesn't generate corrupted nodes or ID collisions.
 
 ## Acceptance Criteria
-- [ ] Create a Node.js script at `scripts/validate-foundry-ids.ts`.
-- [ ] The script must read all `.md` files in `.foundry/` except those in `docs/` and `journals/`.
-- [ ] Parse the YAML frontmatter of each file and extract the `id`.
-- [ ] Validate that the `id` field matches the schema:
+- [x] Create a Node.js script at `scripts/validate-foundry-ids.ts`.
+- [x] The script must read all `.md` files in `.foundry/` except those in `docs/` and `journals/`.
+- [x] Parse the YAML frontmatter of each file and extract the `id`.
+- [x] Validate that the `id` field matches the schema:
   - For `IDEA` nodes: `^idea-\d{3}-[a-z0-9-]+$`
   - For all other nodes: `^(prd|epic|story|task)-\d{3}-\d{3}-[a-z0-9-]+$` (Note: non-IDEA parentless nodes use `000` for the parent NNN segment).
-- [ ] Verify that every extracted `id` is globally unique within the parsed files (throw an error if a duplicate is found).
-- [ ] Add a `validate-foundry-ids` command to `lefthook.yml` under `pre-commit` to run this script. Ensure it runs unconditionally on pre-commit.
+- [x] Verify that every extracted `id` is globally unique within the parsed files (throw an error if a duplicate is found).
+- [x] Add a `validate-foundry-ids` command to `lefthook.yml` under `pre-commit` to run this script. Ensure it runs unconditionally on pre-commit.
