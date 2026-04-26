@@ -20,3 +20,6 @@ The rule `jest/no-standalone-expect` was disabled to unblock CI. We need to fix 
 1. Change `"jest/no-standalone-expect": "off"` to `"error"` in `.oxlintrc.json`.
 2. Fix all violations by wrapping standalone `expect` calls in `test` or `it` blocks (e.g. in `saveFixtures.test.ts`).
 3. Ensure `pnpm exec oxlint .` passes.
+
+## Verification
+Since this is a straightforward linting fix, please self-verify the changes by confirming `pnpm exec oxlint .` passes and all updated tests pass without regressions (`pnpm test`). Document the verification steps and results in your task journal.

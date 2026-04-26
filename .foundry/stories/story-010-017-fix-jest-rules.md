@@ -22,7 +22,7 @@ Even though we use vitest, oxlint uses the jest plugin to lint test files. We tu
 - Re-enable the rules in `.oxlintrc.json` (set them to `"error"`).
 
 ## Acceptance Criteria
-- [ ] Tasks are created to fix and enable these rules.
+- [x] Tasks are created to fix and enable these rules.
 - [ ] `pnpm exec oxlint .` passes with these rules enabled.
 
 ## Generated Tasks
