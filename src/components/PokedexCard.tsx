@@ -4,6 +4,7 @@ import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
 import { PokemonSprite } from './pokemon/PokemonSprite';
+import { TacticalCard } from './TacticalCard';
 
 interface PokedexCardProps {
   pokemon: { id: number; name: string };
@@ -43,22 +44,20 @@ export const PokedexCard = React.memo(function PokedexCard({
 
   const isShiny = shinySpeciesIds.has(pokemon.id);
 
+  let variant: 'default' | 'emerald' | 'amber' = 'default';
+  if (hasInStorage) {
+    variant = 'emerald';
+  } else if (saveData?.owned.has(pokemon.id)) {
+    variant = 'amber';
+  }
+
   return (
-    <button
-      type="button"
-      aria-label={`View details for ${pokemon.name}`}
-      data-testid="pokedex-card"
-      data-pokemon-id={pokemon.id}
+    <TacticalCard
+      ariaLabel={`View details for ${pokemon.name}`}
+      testId="pokedex-card"
+      pokemonId={pokemon.id}
       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
-      className={cn(
-        'group relative w-full cursor-pointer rounded-none border border-dashed p-4 text-left font-mono transition-all duration-500 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-[0.98]',
-        hasInStorage
-          ? 'border-emerald-500/50 bg-emerald-950/20 hover:border-emerald-400 hover:bg-emerald-900/30'
-          : 'border-white/20 bg-zinc-900/50 hover:border-white/40 hover:bg-zinc-800/80',
-        saveData?.owned.has(pokemon.id) &&
-          !hasInStorage &&
-          'border-amber-500/50 bg-amber-950/20 hover:border-amber-400 hover:bg-amber-900/30',
-      )}
+      variant={variant}
       style={{ animationDelay: `${(idx % 20) * 0.02}s` }}
     >
       {/* Card Header: Num & Icons */}
@@ -170,12 +169,6 @@ export const PokedexCard = React.memo(function PokedexCard({
       <div className="absolute right-[-10px] bottom-[-10px] p-4 opacity-0 transition-opacity group-hover:opacity-100">
         <ChevronRight size={14} className="text-[var(--theme-primary)]" />
       </div>
-
-      {/* Corner Crosshairs */}
-      <div className="absolute top-0 left-0 h-2 w-2 border-white/40 border-t-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-      <div className="absolute top-0 right-0 h-2 w-2 border-white/40 border-t-2 border-r-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-      <div className="absolute bottom-0 left-0 h-2 w-2 border-white/40 border-b-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-      <div className="absolute right-0 bottom-0 h-2 w-2 border-white/40 border-r-2 border-b-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-    </button>
+    </TacticalCard>
   );
 });
