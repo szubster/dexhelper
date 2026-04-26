@@ -140,10 +140,10 @@ export function generateSuggestions(
   const missingIds = new Set<number>();
 
   const ownedSet = isLivingDex
-    ? new Set([...(saveData.party || []), ...(saveData.pc || [])])
+    ? new Set([...(saveData.party || []), ...(saveData.pc || []), ...(saveData.daycare?.map((p) => p.speciesId) || [])])
     : saveData.owned || new Set<number>();
 
-  const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
+  const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || []), ...(saveData.daycare || [])];
   const myOtIds = new Set(
     allInstances.filter((p) => p.otName === saveData.trainerName).map((p: PokemonInstance) => p.speciesId),
   );
