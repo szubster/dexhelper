@@ -2,12 +2,12 @@
 id: "task-016-040-oxlint-import-promise-plugins"
 type: "TASK"
 title: "Enable oxlint import and promise plugins"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on: []
-jules_session_id: "7059844760852214380"
+jules_session_id: null
 parent: ".foundry/stories/story-010-016-enable-expensive-oxlint-checks.md"
 ---
 

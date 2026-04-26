@@ -2,7 +2,7 @@
 id: "task-025-044-implement-dag-atomic-test"
 type: "TASK"
 title: "Implement DAG Resolution Tests for Atomic Files"
-status: "PENDING"
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

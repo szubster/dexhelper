@@ -354,3 +354,19 @@
 - **2026-04-26**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-26**: Resurrection Loop triggered for `task-016-040-oxlint-import-promise-plugins`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: PR #622 merged. `story-008-025-verify-dag-resolution` is now COMPLETED.
+
+- **2026-04-26**: PR #623 merged. `story-010-016-enable-expensive-oxlint-checks` is now PENDING.
+
+- **2026-04-26**: PR #621 merged. `story-012-026-evaluate-cloudflare-storage` is now COMPLETED.
+
+- **2026-04-26**: PR #624 merged. `story-014-026-refactor-state-store-sync` is now COMPLETED.
+
+- **2026-04-26**: PR #625 merged. `task-016-040-oxlint-import-promise-plugins` is now COMPLETED.
+
+- **2026-04-26**: Resurrection Loop triggered for `story-010-017-fix-jest-rules`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-017-041-fix-jest-standalone-expect`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-017-042-fix-jest-disabled-tests`. Reason: Retry from FAILED status.. Transitioned back to READY.
