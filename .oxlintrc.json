@@ -16,7 +16,12 @@
     "react-hooks/exhaustive-deps": "off",
     "vitest/expect-expect": "error",
     "jest/no-disabled-tests": "off",
-    "jest/no-standalone-expect": "off"
+    "jest/no-standalone-expect": [
+      "error",
+      {
+        "additionalTestBlockFunctions": ["customTest"]
+      }
+    ]
   },
   "env": {
     "builtin": true

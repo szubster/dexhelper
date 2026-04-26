@@ -17,6 +17,6 @@ parent: ".foundry/stories/story-010-017-fix-jest-rules.md"
 The rule `jest/no-standalone-expect` was disabled to unblock CI. We need to fix the violations in the codebase and re-enable it.
 
 ## Instructions
-1. Change `"jest/no-standalone-expect": "off"` to `"error"` in `.oxlintrc.json`.
-2. Fix all violations by wrapping standalone `expect` calls in `test` or `it` blocks (e.g. in `saveFixtures.test.ts`).
-3. Ensure `pnpm exec oxlint .` passes.
+- [x] 1. Change `"jest/no-standalone-expect": "off"` to `"error"` in `.oxlintrc.json`.
+- [x] 2. Fix all violations by wrapping standalone `expect` calls in `test` or `it` blocks (e.g. in `saveFixtures.test.ts`).
+- [x] 3. Ensure `pnpm exec oxlint .` passes.

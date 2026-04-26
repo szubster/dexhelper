@@ -77,11 +77,8 @@ describe('Real Save Fixtures Verification', () => {
     },
   ];
 
-  // Using the advanced 'test.for' to map our suite, removing all duplication
-  // and securely injecting the `loadSaveData` contextual fixture.
-  customTest.for(saveCases)(
-    'should parse generic bounds for $file',
-    ({ file, gen, expectedVersion, expectedTrainer, expectedId, expectedPartyLength }, { loadSaveData }) => {
+  for (const { file, gen, expectedVersion, expectedTrainer, expectedId, expectedPartyLength } of saveCases) {
+    customTest(`should parse generic bounds for ${file}`, ({ loadSaveData }) => {
       const data = loadSaveData(file, gen);
 
       expect(data.generation).toBe(gen);
@@ -92,6 +89,6 @@ describe('Real Save Fixtures Verification', () => {
 
       // Verify PC box counts don't error and are numbers
       expect(typeof data.pc.length).toBe('number');
-    },
-  );
+    });
+  }
 });
