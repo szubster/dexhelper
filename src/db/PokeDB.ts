@@ -250,13 +250,20 @@ export const pokeDB = {
 
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
-    await tx.done;
-
+    // ⚡ Bolt: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor
+    const uniqueSortedIds = [...new Set(validIds)].sort((a, b) => a - b);
     const resultMap = new Map<number, number[] | undefined>();
-    for (const loc of fetched) {
-      if (loc) resultMap.set(loc.id, loc.pids);
+    let cursor = await store.openCursor();
+    for (const targetId of uniqueSortedIds) {
+      if (!cursor) break;
+      if (cursor.key < targetId) {
+        cursor = await cursor.continue(targetId);
+      }
+      if (cursor && cursor.key === targetId) {
+        resultMap.set(targetId, cursor.value.pids);
+      }
     }
+    await tx.done;
 
     return mids.map((id) => {
       if (typeof id !== 'number' || Number.isNaN(id)) return undefined;
@@ -271,16 +278,22 @@ export const pokeDB = {
     await pokeDB.ready();
     const db = await getDB();
     const names: Record<number, string> = {};
-    // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    const locations = await Promise.all(ids.map((id) => store.get(id)));
-    await tx.done;
-    for (const loc of locations) {
-      if (loc) {
-        names[loc.id] = loc.n;
+    // ⚡ Bolt: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor
+    const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
+    const uniqueSortedIds = [...new Set(validIds)].sort((a, b) => a - b);
+    let cursor = await store.openCursor();
+    for (const targetId of uniqueSortedIds) {
+      if (!cursor) break;
+      if (cursor.key < targetId) {
+        cursor = await cursor.continue(targetId);
+      }
+      if (cursor && cursor.key === targetId) {
+        names[targetId] = cursor.value.n;
       }
     }
+    await tx.done;
     return names;
   },
 
@@ -293,12 +306,20 @@ export const pokeDB = {
 
     const tx = db.transaction(DB_CONFIG.STORES.POKEMON, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.POKEMON);
-    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
-    await tx.done;
+    // ⚡ Bolt: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor
+    const uniqueSortedIds = [...new Set(validIds)].sort((a, b) => a - b);
     const resultMap = new Map<number, PokemonMetadata>();
-    for (const p of fetched) {
-      if (p) resultMap.set(p.id, p);
+    let cursor = await store.openCursor();
+    for (const targetId of uniqueSortedIds) {
+      if (!cursor) break;
+      if (cursor.key < targetId) {
+        cursor = await cursor.continue(targetId);
+      }
+      if (cursor && cursor.key === targetId) {
+        resultMap.set(targetId, cursor.value);
+      }
     }
+    await tx.done;
 
     // Map back to original order, filling in gaps
     return ids.map((id) => {
@@ -317,16 +338,22 @@ export const pokeDB = {
     const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
     if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
 
-    // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead for encounters
     const tx = db.transaction(DB_CONFIG.STORES.ENCOUNTERS, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
-    const fetched = await Promise.all(validIds.map((id) => store.get(id)));
-    await tx.done;
-
+    // ⚡ Bolt: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor
+    const uniqueSortedIds = [...new Set(validIds)].sort((a, b) => a - b);
     const resultMap = new Map<number, LocationAreaEncounters>();
-    for (const e of fetched) {
-      if (e) resultMap.set(e.pid, e);
+    let cursor = await store.openCursor();
+    for (const targetId of uniqueSortedIds) {
+      if (!cursor) break;
+      if (cursor.key < targetId) {
+        cursor = await cursor.continue(targetId);
+      }
+      if (cursor && cursor.key === targetId) {
+        resultMap.set(targetId, cursor.value);
+      }
     }
+    await tx.done;
 
     return ids.map((id) => {
       if (typeof id !== 'number' || Number.isNaN(id)) return new Error('Invalid ID');

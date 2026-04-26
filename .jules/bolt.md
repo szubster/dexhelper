@@ -48,3 +48,8 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 ## 2026-04-23 - [O(N) Encounter Array.find in loop]
 **Learning:** In suggestionEngine.ts, filtering `allEncounters` inside the queryTargets loop repeatedly using `Array.prototype.find()` creates $O(N \cdot M)$ complexity.
 **Action:** Used `new Map(allEncounters.map((e) => [e.pid, e]))` outside the loop to achieve O(1) lookups, caching the results instead.
+
+## Batched IDB cursor reading
+- **What**: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor using cursor.continue(nextTarget).
+- **Why**: Provides significant speedups without the memory overhead of store.getAll() when querying large amounts of data in IndexedDB.
+- **Measured Improvement**: Eliminates memory overhead of fetching store.getAll() while bypassing the transaction/Promise overhead of firing N+1 concurrent store.get() calls.
