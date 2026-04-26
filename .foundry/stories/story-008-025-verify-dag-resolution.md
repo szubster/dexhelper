@@ -19,6 +19,10 @@ parent: ".foundry/epics/epic-008-atomic-handoff-orchestrator.md"
 We need to ensure that the DAG resolves without deadlocks given atomic files depending on one another. This involves validating that the orchestrator accurately calculates unblocked nodes and correctly dispatches them when dependencies are resolved.
 
 ## Acceptance Criteria
-- [ ] The DAG resolution algorithm accurately handles single-persona atomic files.
-- [ ] Test cases are added to simulate a sequence of atomic files depending on one another.
-- [ ] The system ensures no deadlocks occur during resolution.
+- [x] The DAG resolution algorithm accurately handles single-persona atomic files.
+- [x] Test cases are added to simulate a sequence of atomic files depending on one another.
+- [x] The system ensures no deadlocks occur during resolution.
+
+## Tasks
+- `.foundry/tasks/task-025-044-implement-dag-atomic-test.md`
+- `.foundry/tasks/task-025-045-qa-dag-atomic-test.md`
