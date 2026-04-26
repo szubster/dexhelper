@@ -18,7 +18,8 @@
     "jest/expect-expect": "off",
     "jest/no-disabled-tests": "off",
     "jest/no-conditional-expect": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "vitest/expect-expect": "error"
   },
   "env": {
     "builtin": true
