@@ -2,7 +2,7 @@
 id: "task-017-042-fix-jest-disabled-tests"
 type: "TASK"
 title: "Fix and enable jest/no-disabled-tests"
-status: "ACTIVE"
+status: "FAILED"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

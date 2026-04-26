@@ -2,7 +2,7 @@
 id: "task-017-041-fix-jest-standalone-expect"
 type: "TASK"
 title: "Fix and enable jest/no-standalone-expect"
-status: "ACTIVE"
+status: "FAILED"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

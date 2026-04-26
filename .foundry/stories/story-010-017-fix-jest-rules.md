@@ -2,7 +2,7 @@
 id: "story-010-017-fix-jest-rules"
 type: "STORY"
 title: "Fix jest rules reported by oxlint"
-status: "ACTIVE"
+status: "FAILED"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

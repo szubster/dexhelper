@@ -332,3 +332,25 @@
 - **2026-04-26**: PR #613 merged. `task-023-041-implement-single-owner-validation` is now COMPLETED.
 
 - **2026-04-26**: PR #614 merged. `task-024-041-update-status-on-merge` is now COMPLETED.
+
+- **2026-04-26**: Heartbeat detected zombie session for `story-010-017-fix-jest-rules`. Transitioned to FAILED.
+
+- **2026-04-26**: Resurrection Loop triggered for `story-012-026-evaluate-cloudflare-storage`. Reason: PR #619 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `story-014-026-refactor-state-store-sync`. Reason: PR #617 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: PR #618 merged. `task-007-043-tactical-card-refactor` is now COMPLETED.
+
+- **2026-04-26**: Heartbeat detected zombie session for `task-017-041-fix-jest-standalone-expect`. Transitioned to FAILED.
+
+- **2026-04-26**: Heartbeat detected zombie session for `task-017-042-fix-jest-disabled-tests`. Transitioned to FAILED.
+
+- **2026-04-26**: PR #620 merged. `task-024-042-qa-update-status-on-merge` is now COMPLETED.
+
+- **2026-04-26**: Resurrection Loop triggered for `epic-010-oxlint-config`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `story-010-016-enable-expensive-oxlint-checks`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-016-040-oxlint-import-promise-plugins`. Reason: Retry from FAILED status.. Transitioned back to READY.

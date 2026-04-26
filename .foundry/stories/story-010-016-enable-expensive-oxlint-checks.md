@@ -2,7 +2,7 @@
 id: "story-010-016-enable-expensive-oxlint-checks"
 type: "STORY"
 title: "Enable expensive and strict oxlint checks"
-status: "FAILED"
+status: "READY"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
