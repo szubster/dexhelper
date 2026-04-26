@@ -312,3 +312,23 @@
 - **2026-04-26**: PR #604 merged. `task-017-032-qa-impossible-loop` is now COMPLETED.
 
 - **2026-04-26**: PR #606 merged. `task-022-039-implement-id-validation-hook` is now COMPLETED.
+
+- **2026-04-26**: PR #605 merged. `epic-005-014-state-store-migration` is now PENDING.
+
+- **2026-04-26**: Heartbeat detected zombie session for `epic-010-oxlint-config`. Transitioned to FAILED.
+
+- **2026-04-26**: PR #615 merged. `epic-012-gastown-orchestrator` is now PENDING.
+
+- **2026-04-26**: PR #612 merged. `prd-008-007-tactical-card-component` is now COMPLETED.
+
+- **2026-04-26**: Heartbeat detected zombie session for `story-010-016-enable-expensive-oxlint-checks`. Transitioned to FAILED.
+
+- **2026-04-26**: Heartbeat detected zombie session for `task-016-039-oxlint-type-aware`. Transitioned to FAILED.
+
+- **2026-04-26**: Heartbeat detected zombie session for `task-016-040-oxlint-import-promise-plugins`. Transitioned to FAILED.
+
+- **2026-04-26**: PR #616 merged. `task-022-040-qa-id-validation-hook` is now COMPLETED.
+
+- **2026-04-26**: PR #613 merged. `task-023-041-implement-single-owner-validation` is now COMPLETED.
+
+- **2026-04-26**: PR #614 merged. `task-024-041-update-status-on-merge` is now COMPLETED.

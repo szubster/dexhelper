@@ -2,13 +2,13 @@
 id: task-022-040-qa-id-validation-hook
 type: TASK
 title: "QA ID Validation Pre-commit Hook"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: qa
 created_at: "2026-04-25"
 updated_at: "2026-04-26"
 depends_on:
   - .foundry/tasks/task-022-039-implement-id-validation-hook.md
-jules_session_id: "760231929485073371"
+jules_session_id: null
 parent: .foundry/stories/story-006-022-implement-id-validation-hook.md
 ---
 

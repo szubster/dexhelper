@@ -2,12 +2,12 @@
 id: "prd-008-007-tactical-card-component"
 type: "PRD"
 title: "Tactical Card Base Component"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "architect"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on: []
-jules_session_id: "15634813013039885614"
+jules_session_id: null
 parent: ".foundry/ideas/idea-008-ui-component-reuse.md"
 ---
 

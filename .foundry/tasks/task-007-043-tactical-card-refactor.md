@@ -2,7 +2,7 @@
 id: task-007-043-tactical-card-refactor
 type: TASK
 title: "Implement Tactical Card Base Component"
-status: PENDING
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

@@ -2,7 +2,7 @@
 id: "task-016-040-oxlint-import-promise-plugins"
 type: "TASK"
 title: "Enable oxlint import and promise plugins"
-status: "ACTIVE"
+status: "FAILED"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

@@ -2,13 +2,13 @@
 id: epic-005-014-state-store-migration
 type: EPIC
 title: "State Store Migration & Hydration"
-status: "ACTIVE"
+status: "PENDING"
 owner_persona: story_owner
 created_at: "2026-04-24"
 updated_at: "2026-04-26"
 depends_on:
   - .foundry/epics/epic-005-013-idb-infrastructure.md
-jules_session_id: "12547572660898895960"
+jules_session_id: null
 parent: .foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md
 tags: ["state", "store", "indexeddb"]
 ---

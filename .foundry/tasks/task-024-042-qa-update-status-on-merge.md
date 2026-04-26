@@ -2,7 +2,7 @@
 id: "task-024-042-qa-update-status-on-merge"
 type: "TASK"
 title: "QA: Update Node Status on PR Merge"
-status: PENDING
+status: READY
 owner_persona: "qa"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
