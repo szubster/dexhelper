@@ -17,6 +17,6 @@ parent: ".foundry/stories/story-010-016-enable-expensive-oxlint-checks.md"
 To perform multi-file checks and catch issues related to ESM imports and promise usage, we need to enable the `--import-plugin` and `--promise-plugin` flags in `oxlint`.
 
 ## Instructions
-1. Update `package.json` linting scripts to run `oxlint` with `--import-plugin` and `--promise-plugin` flags.
-2. Resolve any new lint errors reported across the codebase due to the new checks.
-3. Ensure CI still passes with these expensive checks.
+- [x] Update `package.json` linting scripts to run `oxlint` with `--import-plugin` and `--promise-plugin` flags.
+- [x] Resolve any new lint errors reported across the codebase due to the new checks.
+- [x] Ensure CI still passes with these expensive checks.
