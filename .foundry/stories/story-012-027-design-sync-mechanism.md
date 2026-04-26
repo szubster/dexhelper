@@ -2,13 +2,13 @@
 id: story-012-027-design-sync-mechanism
 type: STORY
 title: "Design State Sync Mechanism"
-status: READY
+status: "ACTIVE"
 owner_persona: coder
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on:
   - .foundry/stories/story-012-026-evaluate-cloudflare-storage.md
-jules_session_id: null
+jules_session_id: "11346216361744491563"
 pr_number: null
 parent: ".foundry/epics/epic-012-gastown-orchestrator.md"
 tags:
