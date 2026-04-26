@@ -426,3 +426,7 @@
 - **2026-04-26**: PR #643 merged. `task-025-044-implement-dag-atomic-test` is now COMPLETED.
 
 - **2026-04-26**: PR #645 merged. `task-028-046-verify-jest-rules-resolution` is now COMPLETED.
+
+- **2026-04-26**: Resurrection Loop triggered for `story-010-028-verify-jest-tests`. Reason: PR #654 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: PR #650 closed without merging.. Transitioned back to READY.
