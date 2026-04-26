@@ -21,6 +21,7 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "test:ct": "vitest --project browser",
     "lint:biome": "biome lint --error-on-warnings .",
     "format:biome": "biome format .",
     "check:biome": "biome check --error-on-warnings .",

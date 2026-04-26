@@ -6,6 +6,7 @@ import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
 import { getGenerationConfig, VERSION_THEMES } from '../utils/generationConfig';
+import { reloadPage } from '../utils/window';
 import { BottomNav } from './BottomNav';
 import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
@@ -15,7 +16,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     // Catch chunk load errors from Vite
     const handleChunkError = (e: ErrorEvent) => {
       if (e.message?.includes('Failed to fetch dynamically imported module')) {
-        window.location.reload();
+        reloadPage();
       }
     };
     window.addEventListener('error', handleChunkError);
