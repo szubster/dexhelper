@@ -32,3 +32,9 @@
 **Outcome:** Merged
 **Why:** The PR formatting rules in the agent prompts needed to match the explicit rules in the system memory.
 **Pattern:** Proposing changes to correctly format agent output based on the project's requirements.
+
+## 2026-05-25 - [Accepted] - Prompt improvement - Integrate Knip guardrails into Sweeper
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** Sweeper agent's journal indicated `knip` was very effective but risky regarding implicitly required files/dependencies.
+**Pattern:** Updating agent schedules to codify important lessons from their journals to avoid repeated mistakes.

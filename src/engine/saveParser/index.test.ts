@@ -99,4 +99,136 @@ describe('saveParser - Error Handling and Fallbacks', () => {
       'Could not detect a valid Pokémon Red/Blue/Yellow or Gold/Silver/Crystal save file. Please ensure you are uploading a .sav file from a Gen 1 or Gen 2 game.',
     );
   });
+  it('should fallback to gen2 (gold/silver) if checksum invalid but structurally valid', () => {
+    const buffer = new Uint8Array(HEADER_SIZE);
+    buffer[0x2865] = 0; // party count
+    buffer[0x2866] = 0xff; // terminator
+    const data = parseSaveFile(buffer.buffer);
+    expect(data.generation).toBe(2);
+  });
+
+  it('should parse gen2 (gold/silver) if checksum valid and structurally valid', () => {
+    const buffer = new Uint8Array(HEADER_SIZE);
+    buffer[0x2865] = 0; // party count
+    buffer[0x2866] = 0xff; // terminator
+
+    // Gen 2 checksum
+    let gen2Sum = 0;
+    for (let i = 0x2009; i <= 0x2d0c; i++) {
+      gen2Sum += buffer[i] ?? 0;
+    }
+    const view = new DataView(buffer.buffer);
+    view.setUint16(0x2d0d, gen2Sum, true);
+
+    const data = parseSaveFile(buffer.buffer);
+    expect(data.generation).toBe(2);
+  });
+
+  it('should parse gen2 (crystal) if checksum valid and structurally valid', () => {
+    const buffer = new Uint8Array(HEADER_SIZE);
+    buffer[0x2f2d] = 0x00;
+    buffer[0x288a] = 0; // party count
+    buffer[0x288b] = 0xff; // terminator
+
+    // Gen 2 checksum
+    let gen2Sum = 0;
+    for (let i = 0x2009; i <= 0x2d0c; i++) {
+      gen2Sum += buffer[i] ?? 0;
+    }
+    const view = new DataView(buffer.buffer);
+    view.setUint16(0x2d0d, gen2Sum, true);
+
+    const data = parseSaveFile(buffer.buffer);
+    expect(data.generation).toBe(2);
+  });
+
+  it('should try to parse gen2 if checksum valid but structurally weird', () => {
+    const buffer = new Uint8Array(HEADER_SIZE);
+
+    // Break structural validity
+    buffer[0x2865] = 1;
+    buffer[0x2866] = 0;
+    buffer[0x288a] = 1;
+    buffer[0x288b] = 0;
+
+    // Gen 2 checksum
+    let gen2Sum = 0;
+    for (let i = 0x2009; i <= 0x2d0c; i++) {
+      gen2Sum += buffer[i] ?? 0;
+    }
+    const view = new DataView(buffer.buffer);
+    view.setUint16(0x2d0d, gen2Sum, true);
+
+    const data = parseSaveFile(buffer.buffer);
+    expect(data.generation).toBe(2);
+  });
+
+  it('should throw RangeError wrapper when RangeError is thrown', () => {
+    const buffer = new Uint8Array(HEADER_SIZE);
+    // make isGen1Save true
+    buffer[0x2f2c] = 0;
+    buffer[0x2f2d] = 0xff;
+
+    // We mock DataView to throw RangeError
+    const originalDataView = global.DataView;
+    global.DataView = class MockDataView {
+      buffer: ArrayBuffer;
+      byteLength: number;
+      byteOffset: number;
+      constructor(buffer: ArrayBuffer, byteOffset?: number, byteLength?: number) {
+        this.buffer = buffer;
+        this.byteOffset = byteOffset ?? 0;
+        this.byteLength = byteLength ?? buffer.byteLength;
+      }
+      getUint8(byteOffset: number) {
+        if (byteOffset === 0x2598) {
+          throw new RangeError('Out of bounds');
+        }
+        return new originalDataView(this.buffer, this.byteOffset, this.byteLength).getUint8(byteOffset);
+      }
+      getUint16(byteOffset: number, littleEndian?: boolean) {
+        return new originalDataView(this.buffer, this.byteOffset, this.byteLength).getUint16(byteOffset, littleEndian);
+      }
+      getInt8(byteOffset: number) {
+        return new originalDataView(this.buffer, this.byteOffset, this.byteLength).getInt8(byteOffset);
+      }
+      getInt16(byteOffset: number, littleEndian?: boolean) {
+        return new originalDataView(this.buffer, this.byteOffset, this.byteLength).getInt16(byteOffset, littleEndian);
+      }
+      getUint32(byteOffset: number, littleEndian?: boolean) {
+        return new originalDataView(this.buffer, this.byteOffset, this.byteLength).getUint32(byteOffset, littleEndian);
+      }
+      getInt32(byteOffset: number, littleEndian?: boolean) {
+        return new originalDataView(this.buffer, this.byteOffset, this.byteLength).getInt32(byteOffset, littleEndian);
+      }
+      getFloat32(byteOffset: number, littleEndian?: boolean) {
+        return new originalDataView(this.buffer, this.byteOffset, this.byteLength).getFloat32(byteOffset, littleEndian);
+      }
+      getFloat64(byteOffset: number, littleEndian?: boolean) {
+        return new originalDataView(this.buffer, this.byteOffset, this.byteLength).getFloat64(byteOffset, littleEndian);
+      }
+      setUint8() {}
+      setUint16() {}
+      setInt8() {}
+      setInt16() {}
+      setUint32() {}
+      setInt32() {}
+      setFloat32() {}
+      setFloat64() {}
+      getBigInt64() {
+        return BigInt(0);
+      }
+      getBigUint64() {
+        return BigInt(0);
+      }
+      setBigInt64() {}
+      setBigUint64() {}
+    } as unknown as typeof DataView;
+
+    try {
+      expect(() => parseSaveFile(buffer.buffer)).toThrow('The save file is corrupted or incomplete.');
+    } finally {
+      global.DataView = originalDataView;
+    }
+  });
 });

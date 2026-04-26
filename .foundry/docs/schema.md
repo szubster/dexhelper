@@ -28,10 +28,10 @@ A custom orchestrator (`.github/scripts/foundry-orchestrator.ts`) parses the `de
 | `.foundry/prds/` | `PRD` | `product_manager` | Structured Product Requirements Documents. |
 | `.foundry/epics/` | `EPIC` | `epic_planner` | Macroscopic functional chunks derived from PRDs. |
 | `.foundry/stories/` | `STORY` | `story_owner` | Incremental, sequentially-planned delivery steps. Stories are late-binding: Story N+1 is only written after Story N completes so lessons are incorporated. |
-| `.foundry/tasks/` | `TASK` | `tech_lead` / `coder` / `qa` | Concrete engineering blueprints. The Tech Lead writes them; the Coder implements; QA validates. |
-| `.foundry/journals/` | — | `tpm` / all personas | Persistent agent learning logs. Each persona decides its own structure (single file, subdirectory, multiple files by domain, etc.). The `tpm` is responsible for archiving stale journal content. |
+| `.foundry/tasks/` | `TASK` | `coder` | Concrete engineering blueprints. The Tech Lead writes them; the Coder implements; QA validates. |
+| `.foundry/journals/` | — | `tpm` | Persistent agent learning logs. Each persona decides its own structure (single file, subdirectory, multiple files by domain, etc.). The `tpm` is responsible for archiving stale journal content. |
 | `.foundry/docs/adrs/` | ADR | `tech_lead` | Architecture Decision Records. The Tech Lead reads these before writing any Task to ensure consistency. |
-| `.foundry/docs/style_guides/` | Style Guide | `tech_lead` / `designer` | Global UX/UI constraints injected into designer tasks. |
+| `.foundry/docs/style_guides/` | Style Guide | `designer` | Global UX/UI constraints injected into designer tasks. |
 
 ### File Naming Convention
 
@@ -64,7 +64,7 @@ id: ""                  # Required. Globally unique slug. Convention: <type>-<pa
 type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK
 title: ""               # Required. Human-readable short title.
 status: ""              # Required. Enum: see Status Lifecycle section.
-owner_persona: ""       # Required. Enum: see Owner Persona section.
+owner_persona: "coder"  # Required. Enum: see Owner Persona section.
 created_at: ""          # Required. ISO-8601 date (YYYY-MM-DD). Set once, never edited.
 updated_at: ""          # Required. ISO-8601 date. Updated by any persona that edits the node.
 depends_on: []          # Required. Array of repo-relative file paths. Empty [] = unblocked.
@@ -73,6 +73,7 @@ pr_number: null         # Optional. PR number for human-in-the-loop tasks, or nu
 parent: null            # Required if node is derived from another node (e.g. PRD from IDEA, EPIC from PRD). Repo-relative path to the logical parent node. Blocks the parent from completion if this node is incomplete.
 tags: []                # Optional. Free-form string labels for filtering and context injection.
 rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes.
+rejection_reason: ""    # Optional. Used when transitioning a node to FAILED because it is fundamentally impossible to complete.
 notes: ""               # Optional. Free-form Markdown remarks.
 ---
 ```
@@ -94,6 +95,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `parent` | `string \| null` | optional | Repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
 | `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
 | `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. |
+| `rejection_reason` | `string` | optional | Used when transitioning a node to `FAILED` because it is fundamentally impossible to complete. |
 | `notes` | `string` | optional | Free-form Markdown for human remarks, caveats, or inline research. |
 
 ---
@@ -184,6 +186,7 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
 10. **The `id` field must be globally unique across all `.foundry/` directories.** Duplicate IDs are undefined behaviour in the orchestrator.
 11. **`owner_persona` must be exactly one persona.** The system enforces a single-owner invariant per node for atomic handoffs; arrays or multiple personas are invalid.
 12. **`human` persona bypasses Jules dispatch and heartbeat timeouts.** The orchestrator will not dispatch Jules for nodes owned by `human`, and the heartbeat will not fail them.
+13. **Composite Nodes are an anti-pattern.** Do not create "Composite Nodes". They bundle multiple lifecycle states or responsibilities that conflict with the strict Directed Acyclic Graph orchestrator. This leads to circular dependencies or unresolved `depends_on` chains, causing DAG deadlocks.
 
 ---
 
@@ -197,7 +200,7 @@ id: <type>-<parent_NNN>-<NNN>-<slug> # e.g. task-001-002-implement-feature
 type: 
 title: ""
 status: PENDING
-owner_persona: 
+owner_persona: "coder"
 created_at: "YYYY-MM-DD"
 updated_at: "YYYY-MM-DD"
 depends_on: []
@@ -206,6 +209,7 @@ pr_number: null
 parent: null
 tags: []
 rejection_count: 0
+rejection_reason: ""
 notes: ""
 ---
 

@@ -35,24 +35,39 @@ interface AppStore {
   // Persisted settings
   /** Active UI filters explicitly persisted to localStorage via partialize. */
   filters: FilterType[];
+  /** Manual override for the game version, bypassing auto-detection heuristics. */
   manualVersion: GameVersion | null;
   /** Whether the user is tracking a living dex (persisted via partialize). */
   isLivingDex: boolean;
+  /** Global visual preference for which Pokéball to use in the UI. */
   globalPokeball: PokeballType;
+  /** Toggles a specific UI filter type in the `filters` array. */
   toggleFilter: (f: FilterType) => void;
+  /** Overwrites the entire array of active UI filters. */
   setFilters: (f: FilterType[]) => void;
+  /** Sets the manual game version override. */
   setManualVersion: (v: GameVersion | null) => void;
+  /** Sets the living dex tracking preference. */
   setIsLivingDex: (v: boolean) => void;
+  /** Sets the global visual Pokéball preference. */
   setGlobalPokeball: (v: PokeballType) => void;
 
   // Transient UI state (not persisted)
+  /** Current search query for filtering Pokémon lists. */
   searchTerm: string;
+  /** Currently selected map location for viewing details. */
   selectedLocationId: number | null;
+  /** Toggles the global settings modal. */
   isSettingsOpen: boolean;
+  /** Toggles the manual version selection modal. */
   isVersionModalOpen: boolean;
+  /** Updates the active search query. */
   setSearchTerm: (v: string) => void;
+  /** Updates the currently selected map location ID. */
   setSelectedLocationId: (id: number | null) => void;
+  /** Updates the settings modal visibility. */
   setIsSettingsOpen: (v: boolean) => void;
+  /** Updates the manual version modal visibility. */
   setIsVersionModalOpen: (v: boolean) => void;
 
   // Derived helpers

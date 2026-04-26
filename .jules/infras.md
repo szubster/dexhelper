@@ -1,6 +1,3 @@
-## 2026-04-19 - Removed BundleMon
-**Learning:** Replaced BundleMon with `@codecov/vite-plugin` for bundle analysis since bundle size monitoring is already handled alongside test coverage. BundleMon is redundant and creates overlapping concerns.
-
 ## 2026-04-19 - Restored BundleMon
 **Learning:** User prefers to keep BundleMon alongside `@codecov/vite-plugin`. BundleMon is explicitly maintained despite overlapping with `@codecov/vite-plugin` per user request.
 
@@ -24,3 +21,6 @@
 
 ## 2026-04-25 - Rejected cspell
 **Learning:** Evaluated using `cspell` as a spelling checker for code, comments, and configuration files. User rejected this change, preferring to avoid adding automated spell checking to the pipeline.
+
+## 2026-04-24 - Rejected caching location query locally
+**Learning:** Evaluated caching location query directly inside IndexedDB client using local variable, since `LocationSuggestions.tsx` gets a debounced input to query locations repeatedly. But user requested not to do so, because data fetching caching is already handled well enough by `dataloader` and `tanstack/query`.

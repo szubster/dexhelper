@@ -78,6 +78,30 @@ describe('PokeDB', () => {
     errorSpy.mockRestore();
   });
 
+  it('fetches and propagates error if global hash is initial', async () => {
+    vi.mocked(fetch).mockClear();
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const db = await getDB();
+    const tx = db.transaction(DB_CONFIG.STORES.METADATA, 'readwrite');
+    await tx.objectStore(DB_CONFIG.STORES.METADATA).put({ key: 'hash', value: 'initial' });
+    await tx.done;
+
+    vi.stubGlobal('__POKEDATA_HASH__', 'initial');
+
+    vi.mocked(fetch).mockResolvedValueOnce({
+      ok: false,
+      status: 404,
+      statusText: 'Not Found',
+    } as Response);
+
+    await expect(pokeDB.sync()).rejects.toThrow('Failed to fetch pokedata.json: 404 Not Found');
+
+    expect(fetch).toHaveBeenCalledTimes(1);
+
+    vi.stubGlobal('__POKEDATA_HASH__', 'test-hash'); // Restore to previous stubbed value
+    errorSpy.mockRestore();
+  });
+
   it('skips parsing and updates metadata if fetched data hash matches existing DB hash', async () => {
     const db = await getDB();
     const tx = db.transaction(DB_CONFIG.STORES.METADATA, 'readwrite');

@@ -2,12 +2,12 @@
 id: task-015-028-implement-link-checker
 type: TASK
 title: "Implement Link Checker Pre-commit Hook Script"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: coder
 created_at: "2026-04-25"
 updated_at: "2026-04-25"
 depends_on: []
-jules_session_id: "4471598574628144123"
+jules_session_id: null
 parent: .foundry/stories/story-006-015-implement-link-checker.md
 tags: ["infras", "verification"]
 rejection_count: 0
@@ -30,8 +30,8 @@ Implement an automated git pre-commit hook script that validates all local markd
 This task addresses the requirements outlined in `.foundry/stories/story-006-015-implement-link-checker.md`. Ensure that the implementation respects the project's strict TS and linting rules if writing a Node.js script.
 
 ## Acceptance Criteria
-- [ ] A script is written to perform the required link validation.
-- [ ] `lefthook.yml` is updated to run the script during `pre-commit`.
-- [ ] Staged markdown files are properly parsed for frontmatter fields `depends_on` and `parent` and their existence validated.
-- [ ] Staged markdown files are parsed for inline links, and the targets are validated.
-- [ ] Commits are rejected if a broken link is detected.
+- [x] A script is written to perform the required link validation.
+- [x] `lefthook.yml` is updated to run the script during `pre-commit`.
+- [x] Staged markdown files are properly parsed for frontmatter fields `depends_on` and `parent` and their existence validated.
+- [x] Staged markdown files are parsed for inline links, and the targets are validated.
+- [x] Commits are rejected if a broken link is detected.

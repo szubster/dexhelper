@@ -2,13 +2,13 @@
 id: task-005-026-qa-orchestrator-validation
 type: TASK
 title: "QA Verification: Orchestrator Validation for Parent-Linked ID Schema"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: qa
 created_at: "2026-04-23"
 updated_at: "2026-04-25"
 depends_on:
   - .foundry/tasks/task-005-025-update-orchestrator-validation.md
-jules_session_id: "3393320214333743467"
+jules_session_id: null
 parent: .foundry/stories/story-005-id-schema-templates.md
 ---
 
@@ -25,6 +25,6 @@ This task verifies the work completed in `task-005-025-update-orchestrator-valid
 4. **Dry-Run Validation:** Optionally perform a dry run of the orchestrator (`ts-node .github/scripts/foundry-orchestrator.ts --dry-run`) on the current `.foundry/` directory to ensure no new warnings or errors are surfaced for valid IDs.
 
 ## Acceptance Criteria
-- [ ] Code modifications align with ADR 002.
-- [ ] Test coverage includes the new ID schema.
-- [ ] All tests pass successfully and the orchestrator does not emit invalid validation warnings for correctly formatted IDs.
+- [x] Code modifications align with ADR 002.
+- [x] Test coverage includes the new ID schema.
+- [x] All tests pass successfully and the orchestrator does not emit invalid validation warnings for correctly formatted IDs.
