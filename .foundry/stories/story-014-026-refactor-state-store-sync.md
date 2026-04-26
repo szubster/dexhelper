@@ -2,7 +2,7 @@
 id: story-014-026-refactor-state-store-sync
 type: STORY
 title: "Refactor State Store Sync"
-status: "ACTIVE"
+status: "FAILED"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

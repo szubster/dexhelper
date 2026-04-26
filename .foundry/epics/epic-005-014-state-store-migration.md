@@ -2,7 +2,7 @@
 id: epic-005-014-state-store-migration
 type: EPIC
 title: "State Store Migration & Hydration"
-status: "ACTIVE"
+status: "FAILED"
 owner_persona: story_owner
 created_at: "2026-04-24"
 updated_at: "2026-04-26"

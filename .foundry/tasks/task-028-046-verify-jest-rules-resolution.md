@@ -2,7 +2,7 @@
 id: "task-028-046-verify-jest-rules-resolution"
 type: "TASK"
 title: "Verify jest rules fix resolution"
-status: "PENDING"
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

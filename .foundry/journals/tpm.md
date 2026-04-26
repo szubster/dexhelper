@@ -382,3 +382,23 @@
 - **2026-04-26**: Resurrection Loop triggered for `task-025-044-implement-dag-atomic-test`. Reason: PR #631 closed without merging.. Transitioned back to READY.
 
 - **2026-04-26**: Resurrection Loop triggered for `task-026-044-refactor-state-store-sync`. Reason: PR #632 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: Heartbeat detected zombie session for `epic-005-014-state-store-migration`. Transitioned to FAILED.
+
+- **2026-04-26**: Heartbeat detected zombie session for `epic-012-gastown-orchestrator`. Transitioned to FAILED.
+
+- **2026-04-26**: Heartbeat detected zombie session for `idea-007-migrate-saves-to-indexeddb`. Transitioned to FAILED.
+
+- **2026-04-26**: Heartbeat detected zombie session for `prd-007-005-migrate-saves-to-indexeddb`. Transitioned to FAILED.
+
+- **2026-04-26**: PR #634 merged. `story-010-028-verify-jest-tests` is now PENDING.
+
+- **2026-04-26**: Heartbeat detected zombie session for `story-014-026-refactor-state-store-sync`. Transitioned to FAILED.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: PR #628 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: PR #635 merged. `task-017-041-fix-jest-standalone-expect` is now COMPLETED.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-025-044-implement-dag-atomic-test`. Reason: PR #637 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-026-044-refactor-state-store-sync`. Reason: PR #639 closed without merging.. Transitioned back to READY.
