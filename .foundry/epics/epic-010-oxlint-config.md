@@ -18,12 +18,13 @@ In response to CEO feedback (PR comment 4303644512), we need to schedule work in
 - `oxlint` is installed in the repository (completed in `jules-infras-oxlint`).
 
 ## Acceptance Criteria
-- [ ] A `.oxlintrc.json` configuration file is added.
-- [ ] Relevant `oxlint` plugins (e.g. jest/vitest, react, jsx-a11y) are enabled and configured to be "tight".
+- [x] A `.oxlintrc.json` configuration file is added.
+- [x] Relevant `oxlint` plugins (e.g. jest/vitest, react, jsx-a11y) are enabled and configured to be "tight".
 - [x] A story is generated to execute this epic.
-- [ ] New strict/expensive checks (multi-file, type-aware) are enabled.
+- [x] New strict/expensive checks (multi-file, type-aware) are enabled.
 
 ## Generated Stories
 - [.foundry/stories/story-010-014-implement-oxlint-config.md](../stories/story-010-014-implement-oxlint-config.md)
 - [.foundry/stories/story-010-016-enable-expensive-oxlint-checks.md](../stories/story-010-016-enable-expensive-oxlint-checks.md)
 - [.foundry/stories/story-010-017-fix-jest-rules.md](../stories/story-010-017-fix-jest-rules.md)
+- [.foundry/stories/story-010-028-verify-jest-tests.md](../stories/story-010-028-verify-jest-tests.md)
