@@ -212,6 +212,12 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
     return null;
   }
 
+  // Validate owner_persona is a single string (not array, no commas).
+  if (typeof fm.owner_persona !== 'string' || fm.owner_persona.includes(',')) {
+    warn(`Multiple owner_personas detected in: ${repoPath} — skipping`);
+    return null;
+  }
+
   return {
     filePath,
     repoPath,
