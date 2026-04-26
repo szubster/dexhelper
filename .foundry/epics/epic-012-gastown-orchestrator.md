@@ -28,9 +28,10 @@ Assess the viability and benefits of extracting the `foundry-orchestrator.ts` lo
 ## High-level Acceptance Criteria
 - [x] Evaluate Cloudflare D1 (SQL) or KV for persisting node states.
 - [x] Design a sync mechanism (polling GitHub or receiving Webhooks) to keep the markdown file state synced with the internal database.
-- [ ] Ensure the "Unreachable State Constraint" is maintained (Jules cannot access the Orchestrator DB).
-- [ ] Document the findings and propose a final architecture decision on whether to proceed with the migration.
+- [x] Ensure the "Unreachable State Constraint" is maintained (Jules cannot access the Orchestrator DB).
+- [x] Document the findings and propose a final architecture decision on whether to proceed with the migration.
 
 ## Child Nodes
 - [story-012-026-evaluate-cloudflare-storage](.foundry/stories/story-012-026-evaluate-cloudflare-storage.md)
 - [story-012-027-design-sync-mechanism](.foundry/stories/story-012-027-design-sync-mechanism.md)
+- [story-012-029-document-gastown-migration-decision](.foundry/stories/story-012-029-document-gastown-migration-decision.md)
