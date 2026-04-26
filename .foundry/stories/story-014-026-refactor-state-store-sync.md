@@ -18,5 +18,8 @@ tags: ["state", "store", "indexeddb"]
 This Story focuses on removing the `localStorage` syncing logic and Base64 encoding/decoding from `src/store.ts`.
 
 ## Acceptance Criteria
-- [ ] `localStorage` save file logic is removed from state actions.
-- [ ] Base64 encoding/decoding and regex validation logic are eliminated.
+- [x] `localStorage` save file logic is removed from state actions.
+- [x] Base64 encoding/decoding and regex validation logic are eliminated.
+
+## Generated Tasks
+- .foundry/tasks/task-026-044-refactor-state-store-sync.md
