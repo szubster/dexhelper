@@ -2,12 +2,12 @@
 id: story-014-026-refactor-state-store-sync
 type: STORY
 title: "Refactor State Store Sync"
-status: READY
+status: "ACTIVE"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on: []
-jules_session_id: null
+jules_session_id: "1207978565866751864"
 parent: .foundry/epics/epic-005-014-state-store-migration.md
 tags: ["state", "store", "indexeddb"]
 ---
