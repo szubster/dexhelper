@@ -245,6 +245,37 @@ async function main() {
       }
     }
 
+
+    // --- INJECT BUG CATCHING CONTEST (Missing from PokeAPI) ---
+    // National Park Map ID: 783 (Gen 2 aid)
+    if ([10, 11, 12, 13, 14, 15, 46, 48, 123, 127].includes(i)) {
+      const bccChance: Record<number, number> = {
+        10: 20, 11: 20, 12: 5, 13: 20, 14: 20, 15: 5, 46: 10, 48: 10, 123: 5, 127: 5
+      };
+
+      const bccData = {
+        c: bccChance[i] || 5,
+        m: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
+        min: 24,
+        max: 36
+      };
+
+      let npEncounter = pokemonEncounters.find(e => e.aid === 783);
+      if (!npEncounter) {
+        npEncounter = { aid: 783, version_details: [] };
+        pokemonEncounters.push(npEncounter);
+      }
+
+      for (const v of [4, 5, 6]) { // Gold, Silver, Crystal
+        let vDetail = npEncounter.version_details.find(vd => vd.v === v);
+        if (!vDetail) {
+          vDetail = { v: v, d: [] };
+          npEncounter.version_details.push(vDetail);
+        }
+        vDetail.d.push(bccData);
+      }
+    }
+
     if (pokemonEncounters.length > 0) {
       const finalEncs: CompactEncounter[] = [];
       for (const pe of pokemonEncounters) {
