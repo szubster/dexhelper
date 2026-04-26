@@ -15,7 +15,7 @@
     "vitest/require-mock-type-parameters": "error",
     "react-hooks/exhaustive-deps": "off",
     "vitest/expect-expect": "error",
-    "jest/no-disabled-tests": "off",
+    "jest/no-disabled-tests": "error",
     "jest/no-standalone-expect": [
       "error",
       {
