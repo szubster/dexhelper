@@ -7,7 +7,7 @@ import * as orchestrator from './foundry-orchestrator.ts';
 vi.mock('node:fs');
 vi.mock('./foundry-orchestrator.ts');
 
-const globalFetch = vi.fn<typeof fetch>();
+const globalFetch = vi.fn();
 vi.stubGlobal('fetch', globalFetch);
 
 describe('Foundry Heartbeat', () => {

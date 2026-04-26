@@ -2,13 +2,13 @@
 id: task-015-029-qa-link-checker
 type: TASK
 title: "QA Validation: Link Checker Pre-commit Hook Script"
-status: "COMPLETED"
+status: "ACTIVE"
 owner_persona: qa
 created_at: "2026-04-25"
-updated_at: "2026-04-26"
+updated_at: "2026-04-25"
 depends_on:
   - .foundry/tasks/task-015-028-implement-link-checker.md
-jules_session_id: null
+jules_session_id: "14182164790383977373"
 parent: .foundry/stories/story-006-015-implement-link-checker.md
 tags: ["infras", "verification"]
 rejection_count: 0
@@ -31,8 +31,8 @@ Verify that the automated git pre-commit hook script implemented by the `coder` 
 This QA task ensures the requirements outlined in `.foundry/stories/story-006-015-implement-link-checker.md` and implemented in `.foundry/tasks/task-015-028-implement-link-checker.md` are met.
 
 ## Acceptance Criteria
-- [x] Validated that broken `depends_on` links prevent commits.
-- [x] Validated that broken `parent` links prevent commits.
-- [x] Validated that broken inline markdown links prevent commits.
-- [x] Validated that perfectly valid files can be committed successfully.
-- [x] Verified that the hook runs correctly via `lefthook`.
+- [ ] Validated that broken `depends_on` links prevent commits.
+- [ ] Validated that broken `parent` links prevent commits.
+- [ ] Validated that broken inline markdown links prevent commits.
+- [ ] Validated that perfectly valid files can be committed successfully.
+- [ ] Verified that the hook runs correctly via `lefthook`.

@@ -15,7 +15,14 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     // Catch chunk load errors from Vite
     const handleChunkError = (e: ErrorEvent) => {
       if (e.message?.includes('Failed to fetch dynamically imported module')) {
-        window.location.reload();
+        try {
+          const chunkFailedMessage = /Failed to fetch dynamically imported module/.test(e.message);
+          if (chunkFailedMessage) {
+            window.location.reload();
+          }
+        } catch {
+          console.error('System: chunk load error handler failed');
+        }
       }
     };
     window.addEventListener('error', handleChunkError);
@@ -38,10 +45,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     const reader = new FileReader();
     reader.onload = (e) => {
       try {
-        if (!(e.target?.result instanceof ArrayBuffer)) {
-          throw new Error('Failed to read file as ArrayBuffer');
-        }
-        const buffer = e.target.result;
+        const buffer = e.target?.result as ArrayBuffer;
         const data = parseSaveFile(buffer, manualVersion || undefined);
         setSaveData(data);
         setError(null);

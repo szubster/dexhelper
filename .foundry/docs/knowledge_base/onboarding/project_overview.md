@@ -8,7 +8,7 @@
 - **Styling**: Tailwind CSS 4, Vanilla CSS, Lucide React (Icons), clsx & tailwind-merge.
 - **State Management**: Zustand.
 - **Routing**: TanStack React Router.
-- **Data Fetching**: TanStack React Query.
+- **Data Fetching**: TanStack React Query & `pokenode-ts`.
 - **Testing**:
   - **Unit Tests**: Vitest.
   - **E2E Tests (Primary)**: Playwright (E2E-first strategy).

@@ -34,7 +34,6 @@ export const ENCOUNTER_METHOD = {
   GIFT: 6,
   ROCK_SMASH: 7,
   HEADBUTT: 8,
-  BUG_CATCHING_CONTEST: 18,
 } as const;
 
 export const ENCOUNTER_METHOD_MAP: Record<string, number> = {
@@ -55,7 +54,6 @@ export const ENCOUNTER_METHOD_MAP: Record<string, number> = {
   'gift-egg': 15,
   'squirt-bottle': 16,
   'roaming-grass': 17,
-  'bug-catching-contest': 18,
 };
 
 export const REVERSE_METHOD_MAP: Record<number, string> = Object.fromEntries(

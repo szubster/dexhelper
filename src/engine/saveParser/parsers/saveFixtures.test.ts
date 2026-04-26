@@ -1,5 +1,5 @@
 import * as fs from 'node:fs';
-import { test as baseTest, describe } from 'vitest';
+import { test as baseTest, describe, expect } from 'vitest';
 import type { SaveData } from './common';
 import { parseGen1 } from './gen1';
 import { parseGen2 } from './gen2';
@@ -10,8 +10,7 @@ interface ParserFixtures {
 }
 
 // Extend base vitest test with our injected save loader
-// oxlint-disable-next-line jest/expect-expect
-const customTest = baseTest.extend<ParserFixtures>({
+const test = baseTest.extend<ParserFixtures>({
   loadSaveData: async ({ task: _task }, use) => {
     // Provide a loader utility that abstracts disk I/O and root parsing
     const loader = (fileName: string, gen: 1 | 2) => {
@@ -79,19 +78,23 @@ describe('Real Save Fixtures Verification', () => {
 
   // Using the advanced 'test.for' to map our suite, removing all duplication
   // and securely injecting the `loadSaveData` contextual fixture.
-  customTest.for(saveCases)(
-    'should parse generic bounds for $file',
-    ({ file, gen, expectedVersion, expectedTrainer, expectedId, expectedPartyLength }, { loadSaveData }) => {
-      const data = loadSaveData(file, gen);
+  test.for(saveCases)('should parse generic bounds for $file', ({
+    file,
+    gen,
+    expectedVersion,
+    expectedTrainer,
+    expectedId,
+    expectedPartyLength,
+  }, { loadSaveData }) => {
+    const data = loadSaveData(file, gen);
 
-      expect(data.generation).toBe(gen);
-      expect(data.gameVersion).toBe(expectedVersion);
-      expect(data.trainerName).toBe(expectedTrainer);
-      expect(data.trainerId).toBe(expectedId);
-      expect(data.party).toHaveLength(expectedPartyLength);
+    expect(data.generation).toBe(gen);
+    expect(data.gameVersion).toBe(expectedVersion);
+    expect(data.trainerName).toBe(expectedTrainer);
+    expect(data.trainerId).toBe(expectedId);
+    expect(data.party).toHaveLength(expectedPartyLength);
 
-      // Verify PC box counts don't error and are numbers
-      expect(typeof data.pc.length).toBe('number');
-    },
-  );
+    // Verify PC box counts don't error and are numbers
+    expect(typeof data.pc.length).toBe('number');
+  });
 });

@@ -54,7 +54,7 @@ export async function transitionNodeToFailed(node: any, repoRoot: string): Promi
   info(`${dryTag}Transitioned ACTIVE → FAILED: ${node.repoPath}`);
 }
 
-/** Surgical mutation to COMPLETED or PENDING depending on tasks */
+/** Surgical mutation to COMPLETED */
 export async function transitionNodeToCompleted(node: any, repoRoot: string, prNumber: number): Promise<void> {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
@@ -65,12 +65,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
   const originalFmBlock = fmBlockMatch[0];
   let mutatedFmBlock = originalFmBlock;
 
-  // Check if there are unchecked tasks in the markdown body
-  const bodyContent = node.rawContent.slice(fmBlockMatch[0].length);
-  const hasUncheckedTasks = /^\s*-\s*\[\s\]\s/m.test(bodyContent);
-  const targetStatus = hasUncheckedTasks ? "PENDING" : "COMPLETED";
-
-  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?ACTIVE["']?([ \t]*)$/m, `$1"${targetStatus}"$2`);
+  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?ACTIVE["']?([ \t]*)$/m, `$1"COMPLETED"$2`);
   mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);
   mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1"${dateStr}"$2`);
 
@@ -78,9 +73,9 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
 
   if (!DRY_RUN) {
     fs.writeFileSync(node.filePath, newContent, 'utf-8');
-    logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged. \`${node.frontmatter.id}\` is now ${targetStatus}.\n`);
+    logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged. \`${node.frontmatter.id}\` is now COMPLETED.\n`);
   }
-  info(`${dryTag}Transitioned ACTIVE → ${targetStatus}: ${node.repoPath} (PR #${prNumber})`);
+  info(`${dryTag}Transitioned ACTIVE → COMPLETED: ${node.repoPath} (PR #${prNumber})`);
 }
 
 /** Surgical mutation back to READY (Resurrection) */

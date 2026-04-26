@@ -28,17 +28,14 @@ globalThis.IDBVersionChangeEvent = IDBVersionChangeEvent;
 // Mock other browser APIs if needed
 Object.defineProperty(globalThis, 'matchMedia', {
   writable: true,
-  value: vi.fn<(query: string) => MediaQueryList>().mockImplementation(
-    (query) =>
-      ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: vi.fn<() => void>(), // deprecated
-        removeListener: vi.fn<() => void>(), // deprecated
-        addEventListener: vi.fn<() => void>(),
-        removeEventListener: vi.fn<() => void>(),
-        dispatchEvent: vi.fn<() => void>(),
-      }) as unknown as MediaQueryList,
-  ),
+  value: vi.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: vi.fn(), // deprecated
+    removeListener: vi.fn(), // deprecated
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+  })),
 });

@@ -44,6 +44,3 @@
 ## 2026-04-24 - Focus Visible on Modal and Custom Action Buttons
 **Learning:** Several custom action buttons in modals (like the Close buttons in `SettingsModal` and `PokemonDetails`, Confirmation buttons in `ClearStorageButton`, and choice selectors in `VersionModal`) were missing standard `focus-visible` styles, leading to poor keyboard navigation visibility.
 **Action:** Always ensure that every custom button, regardless of its context (modals, overlays, inline prompts), includes the standard focus indicator utility classes (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` or a context-appropriate color variant like `ring-red-500` for destructive actions).
-## 2026-04-26 - Focus Visible Styles for Evolution Links
-**Learning:** Inline buttons functioning as text links within complex components like `PokemonEvolutions` can easily miss standard focus indicators, hiding keyboard navigation state.
-**Action:** Always ensure inline text buttons acting as navigation links include standard focus utilities (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-sm`) so they are clearly perceivable when navigating via keyboard.

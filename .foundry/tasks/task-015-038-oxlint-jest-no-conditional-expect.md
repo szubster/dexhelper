@@ -2,12 +2,12 @@
 id: "task-015-038-oxlint-jest-no-conditional-expect"
 type: "TASK"
 title: "Enable oxlint jest/no-conditional-expect"
-status: "ACTIVE"
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-25"
 updated_at: "2026-04-25"
 depends_on: []
-jules_session_id: "5653916609207142458"
+jules_session_id: null
 parent: ".foundry/stories/story-010-015-enforce-strict-oxlint-rules.md"
 ---
 

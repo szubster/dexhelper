@@ -1,9 +1,3 @@
-## 2026-06-01 - [Accepted] - Prompt improvement - Prevent Oak from modifying Foundry DAG nodes
-**Type:** Prompt improvement
-**Outcome:** Accepted
-**Why:** Agent PR history showed Oak repeatedly fixing `jules_session_id` and parent links in `.foundry/` DAG nodes instead of doing its actual domain tasks. Oak interpreted "Data Integrity" as applying to DAG files.
-**Pattern:** When an agent's domain name (like "Data Integrity") is broad, it must explicitly exclude meta-files (like `.foundry/`) to prevent it from getting distracted by orchestrator warnings.
-
 ## 2025-04-19 - [Accepted] - New agent: Sweeper (Code Health & Tech Debt)
 **Type:** New agent
 **Outcome:** Accepted

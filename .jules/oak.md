@@ -15,6 +15,3 @@
 **Canonical source used:** The Foundry Master Schema (\`.foundry/docs/schema.md\`) for required fields, and the \`.foundry/epics/\` directory to find the correct parent (\`epic-010-oxlint-config.md\`).
 **Impact on users:** The STORY was not being resolved by the DAG orchestrator, preventing downstream TASKS from being scheduled.
 **Learning:** Manual creation of Foundry nodes is prone to human error; automation or strict linting of node files should be considered. Also, always verify that parent paths exist in the repo.
-
-## Data Integrity - Item Mapping
-* **Data Pipeline Gotchas**: PokeAPI uses its own item IDs (e.g. 80 for Sun Stone) which don't map directly to the item IDs found in decompiled ROM saves. Gen 1 items are explicitly mapped via `POKEAPI_TO_GEN1_ITEM` in `generate-pokedata.ts`, but Gen 2 items currently default to their PokeAPI IDs. If building features that check the player's in-game inventory to suggest evolutions (like Sun Stone for Bellossom or Metal Coat for Scizor), we must ensure we either map PokeAPI IDs to Gen 2 ROM item IDs or use a lookup table, otherwise the app will fail to recognize when a player possesses the required evolution item.

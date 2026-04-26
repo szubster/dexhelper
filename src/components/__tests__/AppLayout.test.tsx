@@ -28,7 +28,7 @@ describe('AppLayout chunk error handling', () => {
     originalLocation = window.location;
     Object.defineProperty(window, 'location', {
       configurable: true,
-      value: { ...originalLocation, reload: vi.fn<() => void>() },
+      value: { ...originalLocation, reload: vi.fn() },
     });
   });
 

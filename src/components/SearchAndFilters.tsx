@@ -32,84 +32,56 @@ export function SearchAndFilters() {
   return (
     <div className="mb-6 space-y-5 px-4">
       <div className="flex flex-col gap-4 lg:flex-row">
-        {/* Tactical Hardware Search Terminal */}
-        <div className="group relative mt-2 flex-1">
-          <div className="absolute top-1/2 left-4 flex -translate-y-1/2 items-center justify-center bg-[var(--theme-primary)]/10 p-1.5 text-[var(--theme-primary)] transition-all duration-300 group-focus-within:bg-[var(--theme-primary)] group-focus-within:text-zinc-950">
+        {/* Modern Search Bar with Retro Flair */}
+        <div className="group relative flex-1">
+          <div className="absolute top-1/2 left-4 flex -translate-y-1/2 items-center justify-center rounded-lg bg-[var(--theme-primary)]/10 p-1.5 text-[var(--theme-primary)] transition-all duration-300 group-focus-within:bg-[var(--theme-primary)] group-focus-within:text-white">
             <Search size={14} className="transition-transform group-focus-within:scale-110" />
           </div>
           <input
             ref={inputRef}
             type="text"
             data-testid="search-input"
-            placeholder="[ ENTER QUERY_ ]"
+            placeholder="Search Pokedex by name, ID, or location..."
             aria-label="Search Pokedex by name, ID, or location"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="w-full rounded-none border border-white/20 border-dashed bg-zinc-900/50 py-4 pr-12 pl-14 font-black font-mono text-white text-xs uppercase tracking-[0.2em] outline-none transition-all placeholder:text-zinc-600 focus:border-[var(--theme-primary)] focus:bg-zinc-900/80"
+            className="glass-card w-full rounded-2xl border-white/5 bg-zinc-900/40 py-4 pr-12 pl-14 font-black font-mono text-white text-xs uppercase tracking-widest shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] outline-none transition-all placeholder:text-zinc-600 focus:border-[var(--theme-primary)]/50 focus:bg-zinc-900/60"
           />
-
-          {/* Tactical Label */}
-          <div className="pointer-events-none absolute -top-2 left-4 bg-zinc-950 px-1 font-mono text-[9px] text-zinc-500 uppercase tracking-widest transition-colors group-focus-within:text-[var(--theme-primary)]">
-            Database Scan
-          </div>
-
           {searchTerm && (
             <button
               type="button"
               onClick={handleClearSearch}
               aria-label="Clear search"
               title="Clear search"
-              className="absolute top-1/2 right-4 -translate-y-1/2 p-2 text-zinc-500 transition-all hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              className="absolute top-1/2 right-4 -translate-y-1/2 rounded-xl p-2 text-zinc-500 transition-all hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
               <X size={14} />
             </button>
           )}
-
-          {/* Corner Crosshairs */}
-          <div className="pointer-events-none absolute top-0 left-0 h-2 w-2 border-white/40 border-t-2 border-l-2 transition-colors group-focus-within:border-[var(--theme-primary)]" />
-          <div className="pointer-events-none absolute top-0 right-0 h-2 w-2 border-white/40 border-t-2 border-r-2 transition-colors group-focus-within:border-[var(--theme-primary)]" />
-          <div className="pointer-events-none absolute bottom-0 left-0 h-2 w-2 border-white/40 border-b-2 border-l-2 transition-colors group-focus-within:border-[var(--theme-primary)]" />
-          <div className="pointer-events-none absolute right-0 bottom-0 h-2 w-2 border-white/40 border-r-2 border-b-2 transition-colors group-focus-within:border-[var(--theme-primary)]" />
+          {/* LCD Effect on Input */}
+          <div className="pointer-events-none absolute inset-x-4 top-0 h-[1px] bg-white/5" />
 
           {/* Location Suggestions Dropdown */}
           <LocationSuggestions />
         </div>
 
-        {/* Tactical Filter Toggles */}
+        {/* Filter Buttons designed as Retro Console Switches */}
         {/* biome-ignore lint/a11y/useSemanticElements: semantic element breaks overflow styles */}
-        <div
-          className="no-scrollbar mt-2 flex gap-2 overflow-x-auto px-1 pb-2"
-          role="group"
-          aria-label="Filter Pokémon"
-        >
+        <div className="no-scrollbar flex gap-2 overflow-x-auto px-1 pb-2" role="group" aria-label="Filter Pokémon">
           <button
             type="button"
             onClick={() => setFilters([])}
             aria-pressed={filtersSet.size === 0}
             className={cn(
-              'relative flex shrink-0 items-center gap-3 overflow-hidden rounded-none border border-dashed px-5 py-3 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+              'retro-button relative flex shrink-0 items-center gap-3 overflow-hidden rounded-2xl border-2 px-5 py-3 font-black text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
               filtersSet.size === 0
-                ? 'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]'
-                : 'border-white/20 bg-zinc-900/50 text-zinc-500 hover:border-white/40 hover:bg-zinc-800/80 hover:text-white',
+                ? 'border-[var(--theme-primary)] bg-[var(--theme-primary)] text-white shadow-[0_10px_20px_rgba(var(--theme-primary-rgb),0.3)]'
+                : 'border-white/5 bg-zinc-900 text-zinc-500 hover:bg-zinc-800 hover:text-white',
             )}
           >
             <span className="relative z-10">All</span>
-            {filtersSet.size === 0 && <div className="absolute top-0 left-0 h-full w-1 bg-[var(--theme-primary)]" />}
-
-            {/* Corner Crosshairs */}
-            <div
-              className={cn(
-                'pointer-events-none absolute top-0 left-0 h-1.5 w-1.5 border-t border-l transition-colors',
-                filtersSet.size === 0 ? 'border-[var(--theme-primary)]' : 'border-white/40',
-              )}
-            />
-            <div
-              className={cn(
-                'pointer-events-none absolute right-0 bottom-0 h-1.5 w-1.5 border-r border-b transition-colors',
-                filtersSet.size === 0 ? 'border-[var(--theme-primary)]' : 'border-white/40',
-              )}
-            />
+            {filtersSet.size === 0 && <div className="lcd-flicker pointer-events-none absolute inset-0 bg-white/10" />}
           </button>
 
           {(['secured', 'missing', 'dex-only'] as FilterType[]).map((f) => (
@@ -120,30 +92,16 @@ export function SearchAndFilters() {
               aria-pressed={filtersSet.has(f)}
               data-testid={`filter-${f}`}
               className={cn(
-                'relative flex shrink-0 items-center gap-3 overflow-hidden rounded-none border border-dashed px-5 py-3 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+                'retro-button relative flex shrink-0 items-center gap-3 overflow-hidden rounded-2xl border-2 px-5 py-3 font-black text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
                 filtersSet.has(f)
-                  ? 'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]'
-                  : 'border-white/20 bg-zinc-900/50 text-zinc-500 hover:border-white/40 hover:bg-zinc-800/80 hover:text-white',
+                  ? 'border-[var(--theme-primary)] bg-[var(--theme-primary)] text-white shadow-[0_10px_20px_rgba(var(--theme-primary-rgb),0.3)]'
+                  : 'border-white/5 bg-zinc-900 text-zinc-500 hover:bg-zinc-800 hover:text-white',
               )}
             >
               <span className="relative z-10">
                 {f === 'secured' ? 'Secured' : f === 'missing' ? 'Missing' : 'Dex Only'}
               </span>
-              {filtersSet.has(f) && <div className="absolute top-0 left-0 h-full w-1 bg-[var(--theme-primary)]" />}
-
-              {/* Corner Crosshairs */}
-              <div
-                className={cn(
-                  'pointer-events-none absolute top-0 left-0 h-1.5 w-1.5 border-t border-l transition-colors',
-                  filtersSet.has(f) ? 'border-[var(--theme-primary)]' : 'border-white/40',
-                )}
-              />
-              <div
-                className={cn(
-                  'pointer-events-none absolute right-0 bottom-0 h-1.5 w-1.5 border-r border-b transition-colors',
-                  filtersSet.has(f) ? 'border-[var(--theme-primary)]' : 'border-white/40',
-                )}
-              />
+              {filtersSet.has(f) && <div className="lcd-flicker pointer-events-none absolute inset-0 bg-white/10" />}
             </button>
           ))}
         </div>
