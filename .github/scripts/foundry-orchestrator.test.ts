@@ -677,6 +677,68 @@ jules_session_id: null
     expect(result).toContain('status: ACTIVE');
   });
 
+
+
+
+
+
+
+
+
+
+
+  test('DAG Resolution: handles sequence of single-persona atomic files without deadlock', () => {
+    // A much simpler test that directly validates if the orchestrator resolves chain dependencies
+    // By providing atomic-1 as COMPLETED, atomic-2 should become READY immediately.
+    // We don't need to re-run main() in the same test to verify the DAG logic.
+
+    createNode('.foundry/tasks/atomic-1.md', `id: atomic-1
+type: TASK
+title: "Atomic Task 1"
+status: COMPLETED
+owner_persona: coder
+created_at: "2026-04-26"
+updated_at: "2026-04-26"
+depends_on: []
+jules_session_id: null`);
+
+    createNode('.foundry/tasks/atomic-2.md', `id: atomic-2
+type: TASK
+title: "Atomic Task 2"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-26"
+updated_at: "2026-04-26"
+depends_on: [".foundry/tasks/atomic-1.md"]
+jules_session_id: null`);
+
+    createNode('.foundry/tasks/atomic-3.md', `id: atomic-3
+type: TASK
+title: "Atomic Task 3"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-26"
+updated_at: "2026-04-26"
+depends_on: [".foundry/tasks/atomic-2.md"]
+jules_session_id: null`);
+
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    main();
+
+    // File 1 is already COMPLETED
+    const f1 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/atomic-1.md'), 'utf-8');
+    expect(f1).toContain('status: COMPLETED');
+
+    // File 2 should be promoted to READY because File 1 is COMPLETED
+    const f2 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/atomic-2.md'), 'utf-8');
+    expect(f2).toContain('status: READY');
+
+    // File 3 should remain PENDING because File 2 is not COMPLETED
+    const f3 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/atomic-3.md'), 'utf-8');
+    expect(f3).toContain('status: PENDING');
+  });
+
   test('Impossible Loop: flags node for tpm if no parent exists', () => {
     createNode('.foundry/tasks/task-impossible-no-parent.md', `
 id: task-impossible-no-parent
