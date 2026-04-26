@@ -1,0 +1,20 @@
+const readBulkCursor = async <T extends ValidStoreName>(
+  store: IDBPObjectStore<PokeDBSchema, ValidStoreName[], T, 'readonly'>,
+  validIds: number[],
+  extractValue: (val: unknown) => unknown = (v) => v,
+) => {
+  // ⚡ Bolt: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor
+  const uniqueSortedIds = [...new Set(validIds)].sort((a, b) => a - b);
+  const resultMap = new Map<number, unknown>();
+  let cursor = await store.openCursor();
+  for (const targetId of uniqueSortedIds) {
+    if (!cursor) break;
+    if ((cursor.key as number) < targetId) {
+      cursor = await cursor.continue(targetId as unknown as IDBValidKey);
+    }
+    if (cursor && cursor.key === targetId) {
+      resultMap.set(targetId, extractValue(cursor.value));
+    }
+  }
+  return resultMap;
+};

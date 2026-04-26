@@ -37,6 +37,31 @@ const DEFAULT_LOCATION = {
 
 type ValidStoreName = (typeof DB_CONFIG.STORES)[keyof typeof DB_CONFIG.STORES];
 
+import type { IDBPObjectStore } from 'idb';
+
+const readBulkCursor = async <T extends ValidStoreName, R = unknown>(
+  store: IDBPObjectStore<PokeDBSchema, ValidStoreName[], T, 'readonly'>,
+  validIds: number[],
+  // @ts-expect-error We can't know the extractValue param type dynamically here
+  extractValue: (val: unknown) => R = (v) => v as R,
+): Promise<Map<number, R>> => {
+  // ⚡ Bolt: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor
+  const uniqueSortedIds = [...new Set(validIds)].sort((a, b) => a - b);
+  const resultMap = new Map<number, R>();
+  let cursor = await store.openCursor();
+  for (const targetId of uniqueSortedIds) {
+    if (!cursor) break;
+    if ((cursor.key as number) < targetId) {
+      // @ts-expect-error type casting to IDBValidKey
+      cursor = await cursor.continue(targetId as unknown as typeof cursor.key);
+    }
+    if (cursor && cursor.key === targetId) {
+      resultMap.set(targetId, extractValue(cursor.value));
+    }
+  }
+  return resultMap;
+};
+
 export const getDB = () => {
   if (!dbPromise) {
     dbPromise = openDB<PokeDBSchema>(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
@@ -250,19 +275,7 @@ export const pokeDB = {
 
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    // ⚡ Bolt: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor
-    const uniqueSortedIds = [...new Set(validIds)].sort((a, b) => a - b);
-    const resultMap = new Map<number, number[] | undefined>();
-    let cursor = await store.openCursor();
-    for (const targetId of uniqueSortedIds) {
-      if (!cursor) break;
-      if (cursor.key < targetId) {
-        cursor = await cursor.continue(targetId);
-      }
-      if (cursor && cursor.key === targetId) {
-        resultMap.set(targetId, cursor.value.pids);
-      }
-    }
+    const resultMap = await readBulkCursor(store, validIds, (val) => val.pids);
     await tx.done;
 
     return mids.map((id) => {
@@ -280,20 +293,12 @@ export const pokeDB = {
     const names: Record<number, string> = {};
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    // ⚡ Bolt: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor
     const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
-    const uniqueSortedIds = [...new Set(validIds)].sort((a, b) => a - b);
-    let cursor = await store.openCursor();
-    for (const targetId of uniqueSortedIds) {
-      if (!cursor) break;
-      if (cursor.key < targetId) {
-        cursor = await cursor.continue(targetId);
-      }
-      if (cursor && cursor.key === targetId) {
-        names[targetId] = cursor.value.n;
-      }
-    }
+    const resultMap = await readBulkCursor(store, validIds, (val) => val.n);
     await tx.done;
+    for (const [id, n] of resultMap.entries()) {
+      names[id] = n;
+    }
     return names;
   },
 
@@ -306,19 +311,7 @@ export const pokeDB = {
 
     const tx = db.transaction(DB_CONFIG.STORES.POKEMON, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.POKEMON);
-    // ⚡ Bolt: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor
-    const uniqueSortedIds = [...new Set(validIds)].sort((a, b) => a - b);
-    const resultMap = new Map<number, PokemonMetadata>();
-    let cursor = await store.openCursor();
-    for (const targetId of uniqueSortedIds) {
-      if (!cursor) break;
-      if (cursor.key < targetId) {
-        cursor = await cursor.continue(targetId);
-      }
-      if (cursor && cursor.key === targetId) {
-        resultMap.set(targetId, cursor.value);
-      }
-    }
+    const resultMap = await readBulkCursor(store, validIds);
     await tx.done;
 
     // Map back to original order, filling in gaps
@@ -340,19 +333,7 @@ export const pokeDB = {
 
     const tx = db.transaction(DB_CONFIG.STORES.ENCOUNTERS, 'readonly');
     const store = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
-    // ⚡ Bolt: Replaced Promise.all(ids.map(id => store.get(id))) with a sorted unique set of IDs iterating through an IDBCursor
-    const uniqueSortedIds = [...new Set(validIds)].sort((a, b) => a - b);
-    const resultMap = new Map<number, LocationAreaEncounters>();
-    let cursor = await store.openCursor();
-    for (const targetId of uniqueSortedIds) {
-      if (!cursor) break;
-      if (cursor.key < targetId) {
-        cursor = await cursor.continue(targetId);
-      }
-      if (cursor && cursor.key === targetId) {
-        resultMap.set(targetId, cursor.value);
-      }
-    }
+    const resultMap = await readBulkCursor(store, validIds);
     await tx.done;
 
     return ids.map((id) => {
