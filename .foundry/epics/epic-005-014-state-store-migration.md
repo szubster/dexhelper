@@ -21,8 +21,9 @@ This Epic focuses on refactoring `src/store.ts` to decouple save file persistenc
 ## Acceptance Criteria
 - [ ] `localStorage` save file logic is removed from state actions.
 - [ ] Base64 encoding/decoding and regex validation logic are eliminated.
-- [ ] Asynchronous startup hydration logic loads the binary save from IndexedDB into the game parser.
-- [ ] The core state seamlessly operates with the new async paradigm.
+- [x] Asynchronous startup hydration logic loads the binary save from IndexedDB into the game parser.
+- [x] The core state seamlessly operates with the new async paradigm.
 
 ## Generated Stories
+- .foundry/stories/story-014-029-async-startup-hydration.md
 - .foundry/stories/story-014-026-refactor-state-store-sync.md
