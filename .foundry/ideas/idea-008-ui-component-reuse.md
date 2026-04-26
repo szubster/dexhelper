@@ -28,4 +28,7 @@ Refactor `PokedexCard.tsx` to use the new `TacticalCard` internally, overriding 
 Apply the new `TacticalCard` to `StorageGrid.tsx` to align its aesthetic with the "snooping hardware" tactical theme without duplicating the complex layout code.
 
 ## Next Steps
-- [ ] **Product Manager**: Draft a PRD to formalize the scope of the component refactoring.
+- [x] **Product Manager**: Draft a PRD to formalize the scope of the component refactoring.
+
+### Spawned Nodes
+- .foundry/prds/prd-008-007-tactical-card-component.md
