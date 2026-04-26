@@ -300,3 +300,15 @@
 - **2026-04-26**: PR #588 merged. `task-015-034-oxlint-expect-expect` is now COMPLETED.
 
 - **2026-04-26**: Resurrection Loop triggered for `task-016-031-qa-wait-wake`. Reason: PR #586 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: PR #607 merged. `idea-008-ui-component-reuse` is now COMPLETED.
+
+- **2026-04-26**: PR #609 merged. `story-008-023-validate-single-owner` is now COMPLETED.
+
+- **2026-04-26**: PR #608 merged. `story-008-024-update-status-on-merge` is now COMPLETED.
+
+- **2026-04-26**: PR #610 merged. `task-016-031-qa-wait-wake` is now COMPLETED.
+
+- **2026-04-26**: PR #604 merged. `task-017-032-qa-impossible-loop` is now COMPLETED.
+
+- **2026-04-26**: PR #606 merged. `task-022-039-implement-id-validation-hook` is now COMPLETED.

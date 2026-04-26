@@ -2,7 +2,7 @@
 id: "task-024-041-update-status-on-merge"
 type: "TASK"
 title: "Update Node Status on PR Merge"
-status: PENDING
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

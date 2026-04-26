@@ -2,7 +2,7 @@
 id: "task-023-041-implement-single-owner-validation"
 type: "TASK"
 title: "Implement single owner validation in orchestrator"
-status: PENDING
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

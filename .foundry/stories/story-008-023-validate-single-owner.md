@@ -2,12 +2,12 @@
 id: "story-008-023-validate-single-owner"
 type: "STORY"
 title: "Validate Single Owner Persona in Orchestrator"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "tech_lead"
 created_at: "2026-04-25"
 updated_at: "2026-04-26"
 depends_on: []
-jules_session_id: "11237409449898581042"
+jules_session_id: null
 parent: ".foundry/epics/epic-008-atomic-handoff-orchestrator.md"
 ---
 

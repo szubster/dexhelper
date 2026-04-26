@@ -2,7 +2,7 @@
 id: "prd-008-007-tactical-card-component"
 type: "PRD"
 title: "Tactical Card Base Component"
-status: "PENDING"
+status: READY
 owner_persona: "architect"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
