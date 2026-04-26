@@ -31,6 +31,6 @@ Abstract the core `TacticalCard` component from `PokedexCard` and `StorageGrid` 
    - Replace the custom card implementations in `StorageGrid` with `TacticalCard`.
 
 ## Acceptance Criteria
-- [ ] `TacticalCard` component is created and abstracts the shared UI shell.
-- [ ] `PokedexCard` uses `TacticalCard` without visual regressions.
-- [ ] `StorageGrid` uses `TacticalCard` without visual regressions.
+- [x] `TacticalCard` component is created and abstracts the shared UI shell.
+- [x] `PokedexCard` uses `TacticalCard` without visual regressions.
+- [x] `StorageGrid` uses `TacticalCard` without visual regressions.

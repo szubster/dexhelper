@@ -5,6 +5,7 @@ import type { PokemonInstance } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { PokemonSprite } from './pokemon/PokemonSprite';
+import { TacticalCard } from './TacticalCard';
 
 export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
   const saveData = useStore((s) => s.saveData);
@@ -84,23 +85,23 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                 </div>
               ) : (
                 pokemonInLocation.map(({ p, pokemon }, idx) => {
-                  let cardStyle = 'bg-zinc-900 border border-zinc-800 hover:border-zinc-700 shadow-sm';
+                  let variant: 'storage-default' | 'storage-emerald' | 'storage-amber' | 'storage-red' =
+                    'storage-default';
                   if (p.isShiny) {
-                    cardStyle = 'bg-amber-900/10 border border-amber-500/30 hover:bg-amber-900/20';
+                    variant = 'storage-amber';
                   } else if (location === 'Party') {
-                    cardStyle = 'bg-red-900/10 border border-red-900/30 hover:bg-red-900/20';
+                    variant = 'storage-red';
                   } else {
-                    cardStyle = 'bg-emerald-900/10 border border-emerald-900/30 hover:bg-emerald-900/20';
+                    variant = 'storage-emerald';
                   }
 
                   return (
-                    <button
-                      type="button"
-                      aria-label={`View details for ${pokemon.name} in ${location}`}
+                    <TacticalCard
+                      ariaLabel={`View details for ${pokemon.name} in ${location}`}
                       // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                       key={`${location}-${p.speciesId}-${idx}`}
                       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}
-                      className={`relative flex w-full cursor-pointer flex-col items-center rounded-2xl p-5 text-left transition-all duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 ${cardStyle}`}
+                      variant={variant}
                     >
                       <div className="absolute top-3 left-3 font-bold font-mono text-[10px] text-zinc-600">
                         LV.{p.level}
@@ -125,7 +126,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       <div className="w-full truncate px-1 text-center font-bold text-[10px] text-zinc-100 uppercase tracking-wider">
                         {pokemon.name}
                       </div>
-                    </button>
+                    </TacticalCard>
                   );
                 })
               )}
