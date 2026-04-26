@@ -21,6 +21,6 @@ As defined in Story 008-024, the orchestrator/heartbeat must correctly identify 
 While looking at `.github/scripts/foundry-heartbeat.ts` and its test, there is already an implementation for checking if a PR is merged (`pr.merged` and fetching from GitHub API if undefined) and it invokes `transitionNodeToCompleted`. Your task is to verify if there is any bug in the implementation preventing nodes from being transitioned to `COMPLETED` upon PR merge. Review `foundry-heartbeat.ts` and `foundry-heartbeat.test.ts`. If there are any bugs, fix them. If the implementation is already fully working, verify the tests cover this feature, run the tests to confirm, and check off the acceptance criteria.
 
 ## Acceptance Criteria
-- [ ] The GitHub Action workflow or orchestrator script correctly identifies when a PR is merged.
-- [ ] The node associated with the merged PR is transitioned to `COMPLETED` status.
-- [ ] Tests verify that the node status updates correctly upon PR merge.
+- [x] The GitHub Action workflow or orchestrator script correctly identifies when a PR is merged.
+- [x] The node associated with the merged PR is transitioned to `COMPLETED` status.
+- [x] Tests verify that the node status updates correctly upon PR merge.
