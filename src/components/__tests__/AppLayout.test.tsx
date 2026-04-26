@@ -28,7 +28,7 @@ describe('AppLayout chunk error handling', () => {
     originalLocation = window.location;
     Object.defineProperty(window, 'location', {
       configurable: true,
-      value: { ...originalLocation, reload: vi.fn<() => void>() },
+      value: Object.assign({}, originalLocation, { reload: vi.fn<() => void>() }),
     });
   });
 
@@ -55,6 +55,7 @@ describe('AppLayout chunk error handling', () => {
     window.dispatchEvent(errorEvent);
 
     await vi.waitFor(() => {
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(window.location.reload).toHaveBeenCalledTimes(1);
     });
   });
@@ -74,6 +75,7 @@ describe('AppLayout chunk error handling', () => {
     window.dispatchEvent(errorEvent);
 
     await new Promise((r) => setTimeout(r, 50));
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(window.location.reload).not.toHaveBeenCalled();
   });
 });

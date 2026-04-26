@@ -52,7 +52,7 @@ describe('Foundry Heartbeat', () => {
       ok: true,
       status: 200,
       json: async () => ({ state: 'FAILED' })
-    });
+    } as unknown as Response);
 
     await main();
 
@@ -92,7 +92,7 @@ describe('Foundry Heartbeat', () => {
       ok: false,
       status: 404,
       json: async () => ({ error: { status: 'NOT_FOUND' } })
-    });
+    } as unknown as Response);
 
     await main();
 
@@ -118,7 +118,7 @@ describe('Foundry Heartbeat', () => {
       ok: true,
       status: 200,
       json: async () => ({ state: 'IN_PROGRESS' })
-    });
+    } as unknown as Response);
 
     await main();
 
@@ -162,25 +162,26 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    globalFetch.mockImplementation((url: string) => {
-      if (url.includes('jules.googleapis.com')) {
+    globalFetch.mockImplementation((url: string | Request | URL) => {
+      const urlStr = url instanceof Request ? url.url : url instanceof URL ? url.toString() : String(url);
+      if (urlStr.includes('jules.googleapis.com')) {
         return Promise.resolve({
           ok: true,
           status: 200,
-          json: async () => ({ 
-            state: 'COMPLETED', 
-            outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/402' } }] 
+          json: async () => ({
+            state: 'COMPLETED',
+            outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/402' } }]
           })
-        });
+        } as unknown as Response);
       }
-      if (url.includes('pulls/402')) {
+      if (urlStr.includes('pulls/402')) {
         return Promise.resolve({
           ok: true,
           status: 200,
           json: async () => ({ number: 402, state: 'open', html_url: '...' })
-        });
+        } as unknown as Response);
       }
-      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) } as unknown as Response);
     });
 
     await main();
@@ -204,8 +205,9 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    globalFetch.mockImplementation((url) => {
-      if (url.includes('jules.googleapis.com')) {
+    globalFetch.mockImplementation((url: string | Request | URL) => {
+      const urlStr = url instanceof Request ? url.url : url instanceof URL ? url.toString() : String(url);
+      if (urlStr.includes('jules.googleapis.com')) {
         return Promise.resolve({
           ok: true,
           status: 200,
@@ -213,16 +215,16 @@ describe('Foundry Heartbeat', () => {
             state: 'COMPLETED',
             outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/402' } }]
           })
-        });
+        } as unknown as Response);
       }
-      if (url.includes('pulls/402')) {
+      if (urlStr.includes('pulls/402')) {
         return Promise.resolve({
           ok: true,
           status: 200,
           json: async () => ({ number: 402, state: 'closed', merged: true })
-        });
+        } as unknown as Response);
       }
-      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) } as unknown as Response);
     });
 
     await main();
@@ -247,29 +249,30 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    globalFetch.mockImplementation((url: string) => {
-      if (url.includes('jules.googleapis.com')) {
+    globalFetch.mockImplementation((url: string | Request | URL) => {
+      const urlStr = url instanceof Request ? url.url : url instanceof URL ? url.toString() : String(url);
+      if (urlStr.includes('jules.googleapis.com')) {
         return Promise.resolve({
           ok: true,
           status: 200,
           json: async () => ({ state: 'COMPLETED' }) // No PR link here
-        });
+        } as unknown as Response);
       }
-      if (url.includes('search/issues')) {
+      if (urlStr.includes('search/issues')) {
         return Promise.resolve({
           ok: true,
           status: 200,
           json: async () => ({ items: [] }) // Search fails
-        });
+        } as unknown as Response);
       }
-      if (url.includes('repos/szubster/dexhelper/pulls?state=all')) {
+      if (urlStr.includes('repos/szubster/dexhelper/pulls?state=all')) {
         return Promise.resolve({
           ok: true,
           status: 200,
-          json: async () => [{ number: 405, state: 'open', body: 'session-fallback' }] // Found in list!
-        });
+          json: async () => [{ number: 405, state: 'open', body: 'session-fallback' }]
+        } as unknown as Response);
       }
-      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) } as unknown as Response);
     });
 
     await main();
@@ -317,15 +320,16 @@ describe('Foundry Heartbeat', () => {
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-      globalFetch.mockImplementation((url: string) => {
-        if (url.includes('pulls/999')) {
+      globalFetch.mockImplementation((url: string | Request | URL) => {
+      const urlStr = url instanceof Request ? url.url : url instanceof URL ? url.toString() : String(url);
+        if (urlStr.includes('pulls/999')) {
           return Promise.resolve({
             ok: true,
             status: 200,
             json: async () => ({ number: 999, state: 'closed', merged: true })
-          });
+          } as unknown as Response);
         }
-        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) } as unknown as Response);
       });
 
       await main();
@@ -352,15 +356,16 @@ describe('Foundry Heartbeat', () => {
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-      globalFetch.mockImplementation((url: string) => {
-        if (url.includes('pulls/888')) {
+      globalFetch.mockImplementation((url: string | Request | URL) => {
+      const urlStr = url instanceof Request ? url.url : url instanceof URL ? url.toString() : String(url);
+        if (urlStr.includes('pulls/888')) {
           return Promise.resolve({
             ok: true,
             status: 200,
             json: async () => ({ number: 888, state: 'closed', merged: false })
-          });
+          } as unknown as Response);
         }
-        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) } as unknown as Response);
       });
 
       await main();
@@ -387,15 +392,16 @@ describe('Foundry Heartbeat', () => {
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-      globalFetch.mockImplementation((url: string) => {
-        if (url.includes('pulls/777')) {
+      globalFetch.mockImplementation((url: string | Request | URL) => {
+      const urlStr = url instanceof Request ? url.url : url instanceof URL ? url.toString() : String(url);
+        if (urlStr.includes('pulls/777')) {
           return Promise.resolve({
             ok: true,
             status: 200,
             json: async () => ({ number: 777, state: 'open' })
-          });
+          } as unknown as Response);
         }
-        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) } as unknown as Response);
       });
 
       await main();

@@ -61,9 +61,11 @@ interface FoundryFrontmatter {
   updated_at: string;
   depends_on: string[];
   jules_session_id: string | null;
+  pr_number?: number | null;
   parent?: string | null;
   tags?: string[];
   rejection_count?: number;
+  rejection_reason?: string;
   notes?: string;
 }
 
