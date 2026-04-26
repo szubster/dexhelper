@@ -48,8 +48,8 @@ function validateIds() {
   const ids = new Set<string>();
   let hasError = false;
 
-  const ideaRegex = /^idea-\d{3}-[a-z0-9-]+$/;
-  const otherRegex = /^(prd|epic|story|task)-\d{3}-\d{3}-[a-z0-9-]+$/;
+  const ideaRegex = /^idea-\d{3}(-[a-z0-9-]+)?$/;
+  const otherRegex = /^(prd|epic|story|task)-\d{3}(-\d{3})?(-[a-z0-9-]+)?$/;
 
   for (const file of targetFiles) {
     const content = fs.readFileSync(file, 'utf-8');
