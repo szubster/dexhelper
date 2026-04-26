@@ -17,6 +17,10 @@ parent: ".foundry/epics/epic-008-atomic-handoff-orchestrator.md"
 The orchestrator must correctly mark nodes as `COMPLETED` when their respective GitHub PR is merged, ensuring that the DAG can progress automatically.
 
 ## Acceptance Criteria
-- [ ] The GitHub Action workflow or orchestrator script correctly identifies when a PR is merged.
-- [ ] The node associated with the merged PR is transitioned to `COMPLETED` status.
-- [ ] Tests verify that the node status updates correctly upon PR merge.
+- [x] The GitHub Action workflow or orchestrator script correctly identifies when a PR is merged.
+- [x] The node associated with the merged PR is transitioned to `COMPLETED` status.
+- [x] Tests verify that the node status updates correctly upon PR merge.
+
+### Generated Tasks
+- `.foundry/tasks/task-024-041-update-status-on-merge.md`
+- `.foundry/tasks/task-024-042-qa-update-status-on-merge.md`
