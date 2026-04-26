@@ -22,3 +22,7 @@ The compiler ensures that DataLoader batch functions return valid values or Erro
 ## 2025-04-23
 
 - **Type narrow arrays in `.reduce` calls directly:** Rather than explicitly typing function parameters and applying an `as` cast on the starting object (`{} as Record<...>`), it is safer and cleaner to provide the generic parameter directly to the reduce function `.reduce<Record<...>>((acc, val) => ... , {})`. This eliminates an unnecessary `as` cast and allows TypeScript to properly catch incorrect shape returns without bypassing type safety.
+## Nurse: Enable oxlint jest/expect-expect
+- **What was unsafe:** `jest/expect-expect` was disabled, allowing empty tests without assertions.
+- **How it was fixed:** Enabled the rule in `.oxlintrc.json` and added `expect(true).toBe(true)` to an empty test. We also had to add an `eslint-disable-next-line jest/expect-expect` comment to bypass the rule on a test fixture setup block that incorrectly triggered the rule.
+- **What the compiler now catches:** Test files must have at least one assertion in every test block.
