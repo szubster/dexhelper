@@ -249,12 +249,12 @@ async function main() {
     // --- INJECT BUG CATCHING CONTEST (Missing from PokeAPI) ---
     // National Park Map ID: 783 (Gen 2 aid)
     if ([10, 11, 12, 13, 14, 15, 46, 48, 123, 127].includes(i)) {
-      const bccChance = {
+      const bccChance: Record<number, number> = {
         10: 20, 11: 20, 12: 5, 13: 20, 14: 20, 15: 5, 46: 10, 48: 10, 123: 5, 127: 5
       };
 
       const bccData = {
-        c: bccChance[i],
+        c: bccChance[i] || 5,
         m: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
         min: 24,
         max: 36
