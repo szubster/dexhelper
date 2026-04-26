@@ -23,7 +23,7 @@ To enforce Atomic Handoffs, the orchestrator script must explicitly reject or er
 - Self-verify the changes (no separate QA task required).
 
 ## Acceptance Criteria
-- [ ] `.github/scripts/foundry-orchestrator.ts` validates `owner_persona`.
-- [ ] Nodes with multiple owners log an error and are skipped.
-- [ ] Tests verify the single owner validation logic.
-- [ ] Self-verification completed successfully.
+- [x] `.github/scripts/foundry-orchestrator.ts` validates `owner_persona`.
+- [x] Nodes with multiple owners log an error and are skipped.
+- [x] Tests verify the single owner validation logic.
+- [x] Self-verification completed successfully.

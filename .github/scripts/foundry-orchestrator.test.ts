@@ -120,6 +120,46 @@ pr_number: null
     expect(JSON.parse(lastCall)).toHaveLength(0);
   });
 
+  test('Validation: skips nodes with multiple owners (comma separated)', () => {
+    createNode('.foundry/tasks/task-multi-owner.md', `id: task-multi-owner
+type: TASK
+title: "Task with multiple owners"
+status: PENDING
+owner_persona: "coder, qa"
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null`);
+
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+
+    expect(logSpy).toHaveBeenCalled();
+    const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
+    expect(JSON.parse(lastCall)).toHaveLength(0);
+  });
+
+  test('Validation: skips nodes with array owners', () => {
+    createNode('.foundry/tasks/task-array-owner.md', `id: task-array-owner
+type: TASK
+title: "Task with array owners"
+status: PENDING
+owner_persona:
+  - coder
+  - qa
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null`);
+
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+
+    expect(logSpy).toHaveBeenCalled();
+    const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
+    expect(JSON.parse(lastCall)).toHaveLength(0);
+  });
+
   test('Resilience: skips malformed YAML gracefully', () => {
     const filePath = path.join(tmpDir, '.foundry/epics/bad-node.md');
     fs.writeFileSync(filePath, `---\nid: bad\nstatus: PENDING\n---`, 'utf-8'); // Missing required fields
