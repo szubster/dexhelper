@@ -20,5 +20,5 @@ tags: ["foundry-engine", "qa", "pr-merge"]
 The coder has verified or implemented the PR merge detection in `.github/scripts/foundry-heartbeat.ts`.
 
 ## Acceptance Criteria
-- [ ] Verify that the `foundry-heartbeat.test.ts` has passing tests for transitioning a node to `COMPLETED` when its PR is merged.
-- [ ] Verify that no regressions were introduced to the orchestrator logic.
+- [x] Verify that the `foundry-heartbeat.test.ts` has passing tests for transitioning a node to `COMPLETED` when its PR is merged.
+- [x] Verify that no regressions were introduced to the orchestrator logic.
