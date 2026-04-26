@@ -284,3 +284,13 @@
 - **2026-04-25**: Resurrection Loop triggered for `task-015-033-oxlint-require-mock-type-parameters`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-25**: Resurrection Loop triggered for `task-015-034-oxlint-expect-expect`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: PR #581 merged. `epic-008-atomic-handoff-orchestrator` is now COMPLETED.
+
+- **2026-04-26**: PR #580 merged. `story-006-022-implement-id-validation-hook` is now COMPLETED.
+
+- **2026-04-26**: PR #583 merged. `task-015-029-qa-link-checker` is now COMPLETED.
+
+- **2026-04-26**: PR #584 merged. `task-017-031-implement-impossible-loop` is now COMPLETED.
+
+- **2026-04-26**: PR #582 merged. `task-021-031-qa-idb-wrapper` is now COMPLETED.

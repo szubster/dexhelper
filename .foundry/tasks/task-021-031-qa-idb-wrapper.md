@@ -2,13 +2,13 @@
 id: task-021-031-qa-idb-wrapper
 type: TASK
 title: "Verify IndexedDB wrapper implementation"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: qa
 created_at: "2026-04-26"
-updated_at: "2026-04-25"
+updated_at: "2026-04-26"
 depends_on:
   - .foundry/tasks/task-021-030-implement-idb-wrapper.md
-jules_session_id: "7536372889529311458"
+jules_session_id: null
 parent: .foundry/stories/story-013-021-indexeddb-wrapper-and-error-handling.md
 tags: ["indexeddb", "infrastructure", "persistence", "qa"]
 ---
