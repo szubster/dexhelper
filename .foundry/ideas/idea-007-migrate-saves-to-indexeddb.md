@@ -1,5 +1,5 @@
 ---
-id: idea-007
+id: idea-007-migrate-saves-to-indexeddb
 type: IDEA
 title: "Migrate Save Data to IndexedDB"
 status: "ACTIVE"
