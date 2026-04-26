@@ -19,7 +19,10 @@ tags: ["state", "store", "indexeddb"]
 This Epic focuses on refactoring `src/store.ts` to decouple save file persistence from synchronous `localStorage` actions. It removes the problematic `window.atob`/`window.btoa` encoding and pre-decoding regex validation. The application must adopt an asynchronous hydration model upon startup to fetch the binary save from IndexedDB and load it into the parser state.
 
 ## Acceptance Criteria
-- [ ] `localStorage` save file logic is removed from state actions.
-- [ ] Base64 encoding/decoding and regex validation logic are eliminated.
+- [x] `localStorage` save file logic is removed from state actions.
+- [x] Base64 encoding/decoding and regex validation logic are eliminated.
 - [ ] Asynchronous startup hydration logic loads the binary save from IndexedDB into the game parser.
 - [ ] The core state seamlessly operates with the new async paradigm.
+
+## Generated Stories
+- .foundry/stories/story-014-026-refactor-state-store-sync.md
