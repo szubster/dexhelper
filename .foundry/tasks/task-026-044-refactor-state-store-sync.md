@@ -23,3 +23,9 @@ The `coder` must self-verify the changes and document the verification in their 
 - [ ] `localStorage` save file logic is removed from state actions in `src/store.ts`.
 - [ ] Base64 encoding/decoding and regex validation logic are eliminated in `src/store.ts`.
 - [ ] Verification steps are documented in the task journal.
+
+---
+
+## Technical Block / Failure
+> **Date:** 2026-04-26
+> **Blocker:** Tests in `tests/e2e` fail after removing base64 caching because IndexedDB `PokeDB` doesn't fully persist the raw `.sav` file natively outside of the explicit sync process. I need guidance on how to fix E2E persistence, since `SaveDB.ts` exists but is not wired up yet.
