@@ -15,21 +15,35 @@ function getFiles(dir: string, fileList: string[] = []): string[] {
 }
 
 function validateIds() {
-  const foundryDir = path.resolve('.foundry');
-  if (!fs.existsSync(foundryDir)) {
-    console.error('No .foundry directory found.');
-    process.exit(0);
-  }
+  const args = process.argv.slice(2);
+  let targetFiles: string[] = [];
 
-  const allFiles = getFiles(foundryDir);
-  const targetFiles = allFiles.filter(file => {
-    if (!file.endsWith('.md')) return false;
-    const relativePath = path.relative(foundryDir, file);
-    const normalizedRelative = relativePath.split(path.sep).join('/');
-    if (normalizedRelative.startsWith('docs/')) return false;
-    if (normalizedRelative.startsWith('journals/')) return false;
-    return true;
-  });
+  if (args.length > 0) {
+    targetFiles = args.filter(file => {
+      if (!file.endsWith('.md')) return false;
+      const normalizedRelative = file.split(path.sep).join('/');
+      if (!normalizedRelative.includes('.foundry/')) return false;
+      if (normalizedRelative.includes('.foundry/docs/')) return false;
+      if (normalizedRelative.includes('.foundry/journals/')) return false;
+      return true;
+    });
+  } else {
+    const foundryDir = path.resolve('.foundry');
+    if (!fs.existsSync(foundryDir)) {
+      console.error('No .foundry directory found.');
+      process.exit(0);
+    }
+
+    const allFiles = getFiles(foundryDir);
+    targetFiles = allFiles.filter(file => {
+      if (!file.endsWith('.md')) return false;
+      const relativePath = path.relative(foundryDir, file);
+      const normalizedRelative = relativePath.split(path.sep).join('/');
+      if (normalizedRelative.startsWith('docs/')) return false;
+      if (normalizedRelative.startsWith('journals/')) return false;
+      return true;
+    });
+  }
 
   const ids = new Set<string>();
   let hasError = false;
