@@ -697,4 +697,54 @@ jules_session_id: null
     expect(result).toContain('status: BLOCKED');
     expect(result).toContain('owner_persona: tpm');
   });
+
+  test('DAG Resolution: handles sequence of single-persona atomic files gracefully', () => {
+    // File 1: COMPLETED
+    createNode('.foundry/tasks/task-atomic-1.md', `id: task-atomic-1
+type: TASK
+title: "Atomic Task 1"
+status: COMPLETED
+owner_persona: coder
+created_at: "2026-04-26"
+updated_at: "2026-04-26"
+depends_on: []
+jules_session_id: null
+`);
+
+    // File 2: PENDING, depends on File 1
+    createNode('.foundry/tasks/task-atomic-2.md', `id: task-atomic-2
+type: TASK
+title: "Atomic Task 2"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-26"
+updated_at: "2026-04-26"
+depends_on:
+  - .foundry/tasks/task-atomic-1.md
+jules_session_id: null
+`);
+
+    // File 3: PENDING, depends on File 2
+    createNode('.foundry/tasks/task-atomic-3.md', `id: task-atomic-3
+type: TASK
+title: "Atomic Task 3"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-26"
+updated_at: "2026-04-26"
+depends_on:
+  - .foundry/tasks/task-atomic-2.md
+jules_session_id: null
+`);
+
+    main();
+
+    // File 2 SHOULD be promoted to READY because its dependency is COMPLETED
+    const task2Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-atomic-2.md'), 'utf-8');
+    expect(task2Content).toContain('status: READY');
+
+    // File 3 SHOULD NOT be promoted because its dependency (File 2) is only READY now, not COMPLETED
+    const task3Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-atomic-3.md'), 'utf-8');
+    expect(task3Content).toContain('status: PENDING');
+  });
 });
