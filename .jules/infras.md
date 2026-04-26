@@ -18,3 +18,6 @@
 
 ## 2026-04-24 - Enabled TypeScript Incremental Builds
 **Learning:** Enabled `"incremental": true` in the base `tsconfig.json` to significantly improve local `pnpm type-check` performance (reducing run time from ~14s to ~4s on subsequent runs). This provides a massive developer experience improvement for local pre-commit hooks, allowing the system to maintain full project type safety (as originally desired) without the painful delay of a complete rebuild every time. Added `*.tsbuildinfo` to `.gitignore` to prevent cache file pollution.
+
+## 2026-04-24 - Rejected caching location query locally
+**Learning:** Evaluated caching location query directly inside IndexedDB client using local variable, since `LocationSuggestions.tsx` gets a debounced input to query locations repeatedly. But user requested not to do so, because data fetching caching is already handled well enough by `dataloader` and `tanstack/query`.
