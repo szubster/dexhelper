@@ -17,7 +17,7 @@
     "jest/no-standalone-expect": "off",
     "jest/expect-expect": "off",
     "jest/no-disabled-tests": "off",
-    "jest/no-conditional-expect": "off",
+    "jest/no-conditional-expect": "error",
     "react-hooks/exhaustive-deps": "off"
   },
   "env": {

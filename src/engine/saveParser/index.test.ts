@@ -226,7 +226,8 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     } as unknown as typeof DataView;
 
     try {
-      expect(() => parseSaveFile(buffer.buffer)).toThrow('The save file is corrupted or incomplete.');
+      const fn = () => parseSaveFile(buffer.buffer);
+      expect(fn).toThrow('The save file is corrupted or incomplete.');
     } finally {
       global.DataView = originalDataView;
     }
