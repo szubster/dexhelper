@@ -24,7 +24,7 @@ rejection_count: 0
 Design a synchronization mechanism (polling GitHub or receiving Webhooks) to keep the markdown file state aligned with the internal Orchestrator database (D1 or KV).
 
 ## Acceptance Criteria
-- [ ] Architect the flow from Git push to worker ingestion.
-- [ ] Define how markdown frontmatter is serialized.
-- [ ] Ensure the "Unreachable State Constraint" is maintained (Jules cannot access Orchestrator DB).
-- [ ] Document final proposed architecture in the knowledge base.
+- [x] Architect the flow from Git push to worker ingestion.
+- [x] Define how markdown frontmatter is serialized.
+- [x] Ensure the "Unreachable State Constraint" is maintained (Jules cannot access Orchestrator DB).
+- [x] Document final proposed architecture in the knowledge base.
