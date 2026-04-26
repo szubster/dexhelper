@@ -227,6 +227,41 @@ jules_session_id: null
     expect(story2Content).toContain('status: PENDING');
   });
 
+  test('Late-Binding: allows child of PENDING parent to proceed if parent already has children', () => {
+    // Epic 1: PENDING (Waiting for children)
+    createNode('.foundry/epics/epic-001.md', `
+id: epic-001
+type: EPIC
+title: "Epic 1"
+status: PENDING
+owner_persona: epic_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    // Story 1: Child of Epic 1, PENDING
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story 1"
+status: PENDING
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/epics/epic-001.md
+jules_session_id: null
+`);
+
+    main();
+
+    // Story 1 SHOULD be promoted to READY because Epic 1 is PENDING but has children
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
+    expect(storyContent).toContain('status: READY');
+  });
+
   test('Deep Hierarchical Completion: blocks external dependent if dependency has deep incomplete children', () => {
     // Story 1: COMPLETED
     createNode('.foundry/stories/story-001.md', `

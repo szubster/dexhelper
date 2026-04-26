@@ -528,11 +528,28 @@ function main(): void {
 
       // A node is blocked if its parent is not ACTIVE or COMPLETED
       if (parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'COMPLETED') {
-        blocked = true;
-        break;
+        const parentChildren = parentToChildren.get(currParent) || [];
+        if (parentNode.frontmatter.status === 'PENDING' && parentChildren.length > 0) {
+          // Exception for Late-Binding: If parent is PENDING and has children,
+          // it is waiting for those children. Do not block the child.
+        } else {
+          blocked = true;
+          break;
+        }
       }
 
       currParent = parentNode.frontmatter.parent;
+    }
+
+    if (blocked) continue;
+
+    // Check if node is explicitly blocked by its own incomplete children
+    const children = parentToChildren.get(node.repoPath) || [];
+    for (const child of children) {
+      if (isHierarchicallyIncomplete(child.repoPath)) {
+        blocked = true;
+        break;
+      }
     }
 
     if (blocked) continue;
