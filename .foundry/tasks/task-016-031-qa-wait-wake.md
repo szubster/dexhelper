@@ -19,6 +19,6 @@ parent: ".foundry/stories/story-011-016-wait-wake-implementation.md"
 Verify the Wait & Wake orchestration logic implemented in `.github/scripts/foundry-orchestrator.ts`. Write test suites in `.github/scripts/foundry-orchestrator.test.ts` to cover the `ACTIVE` -> `PENDING` state transition.
 
 ## Acceptance Criteria
-- [ ] Add a test that verifies an `ACTIVE` node transitions to `PENDING` when a new incomplete dependency is added to its `depends_on` array.
-- [ ] Add a test that verifies a `PENDING` parent node transitions to `READY` when its new dependency is `COMPLETED` (the Wake condition).
-- [ ] All tests pass successfully.
+- [x] Add a test that verifies an `ACTIVE` node transitions to `PENDING` when a new incomplete dependency is added to its `depends_on` array.
+- [x] Add a test that verifies a `PENDING` parent node transitions to `READY` when its new dependency is `COMPLETED` (the Wake condition).
+- [x] All tests pass successfully.

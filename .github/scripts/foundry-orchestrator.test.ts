@@ -513,6 +513,62 @@ jules_session_id: null
     expect(result).toContain('status: ACTIVE');
   });
 
+
+  test('Wait and Wake: Wakes PENDING node to READY if new dependency is COMPLETED', () => {
+    createNode('.foundry/tasks/task-complete.md', `id: task-complete
+type: TASK
+title: "Complete Task"
+status: COMPLETED
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null`);
+
+    createNode('.foundry/tasks/task-pending.md', `id: task-pending
+type: TASK
+title: "Pending Task"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/tasks/task-complete.md"]
+jules_session_id: null`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-pending.md'), 'utf-8');
+    expect(result).toContain('status: READY');
+  });
+
+
+  test('Wait and Wake: ACTIVE node transitions to PENDING when new incomplete dependency is added', () => {
+    createNode('.foundry/tasks/task-incomplete.md', `id: task-incomplete
+type: TASK
+title: "Incomplete Task"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null`);
+
+    createNode('.foundry/tasks/task-active.md', `id: task-active
+type: TASK
+title: "Active Task"
+status: ACTIVE
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/tasks/task-incomplete.md"]
+jules_session_id: "session-123"`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active.md'), 'utf-8');
+    expect(result).toContain('status: PENDING');
+  });
+
   test('Impossible Loop: wakes up parent if impossible child is FAILED with rejection_reason', () => {
     createNode('.foundry/stories/story-001.md', `
 id: story-001
