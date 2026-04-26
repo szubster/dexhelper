@@ -10,7 +10,7 @@ test('coverage for suggestionEngine new lines', () => {
     gameVersion: 'crystal',
     // Mock owned up to 251 except the ones we want to suggest (targets must be missing)
     owned: new Set(
-      [...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237, 136, 68, 208].includes(i)),
+      [...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237, 136, 68, 208, 212].includes(i)),
     ),
     seen: new Set(),
     party: [],
@@ -24,6 +24,9 @@ test('coverage for suggestionEngine new lines', () => {
       { speciesId: 95, level: 30, otName: 'PLAYER' } as PokemonInstance,
     ],
     pcDetails: [],
+    daycare: [
+      { speciesId: 123, level: 25, otName: 'PLAYER' } as PokemonInstance,
+    ],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
 
@@ -94,6 +97,13 @@ test('coverage for suggestionEngine new lines', () => {
         det: [{ tr: 2, held: 0x8f }], // Trade with Metal Coat
         eto: [],
       }, // Steelix
+      212: {
+        id: 212,
+        n: 'Scizor',
+        efrm: [123],
+        det: [{ tr: 2, held: 0x8f }], // Trade with Metal Coat
+        eto: [],
+      }, // Scizor from Daycare Scyther
     },
     areaNames: {},
     allLocations: [],
@@ -144,6 +154,10 @@ test('coverage for suggestionEngine new lines', () => {
   const readySteelix = readySuggestions.find((s) => s.pokemonId === 208);
   expect(readySteelix).toBeDefined();
   expect(readySteelix?.title).toContain('Ready to Trade Evolve');
+
+  const readyScizor = readySuggestions.find((s) => s.pokemonId === 212);
+  expect(readyScizor).toBeDefined();
+  expect(readyScizor?.title).toContain('Ready to Trade Evolve');
 });
 
 test('coverage for suggestionEngine edge cases', () => {
