@@ -164,7 +164,7 @@ describe('Foundry Heartbeat', () => {
 
     globalFetch.mockImplementation((url: unknown) => {
       const urlStr = typeof url === 'string' ? url : (url as { url?: string }).url || String(url);
-      if (urlStr.includes('jules.googleapis.com')) {
+      if (urlStr.startsWith('https://jules.googleapis.com')) {
         return Promise.resolve({
           ok: true,
           status: 200,
@@ -207,7 +207,7 @@ describe('Foundry Heartbeat', () => {
 
     globalFetch.mockImplementation((url: unknown) => {
       const urlStr = typeof url === 'string' ? url : (url as { url?: string }).url || String(url);
-      if (urlStr.includes('jules.googleapis.com')) {
+      if (urlStr.startsWith('https://jules.googleapis.com')) {
         return Promise.resolve({
           ok: true,
           status: 200,
@@ -251,7 +251,7 @@ describe('Foundry Heartbeat', () => {
 
     globalFetch.mockImplementation((url: unknown) => {
       const urlStr = typeof url === 'string' ? url : (url as { url?: string }).url || String(url);
-      if (urlStr.includes('jules.googleapis.com')) {
+      if (urlStr.startsWith('https://jules.googleapis.com')) {
         return Promise.resolve({
           ok: true,
           status: 200,

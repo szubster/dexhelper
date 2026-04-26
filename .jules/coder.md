@@ -1,1 +1,2 @@
 - Enable `--type-aware` and `--type-check` options in oxlint by updating `package.json` and installing `oxlint-tsgolint`. Fixed subsequent linting errors like `no-floating-promises` using `void`.
+- Fixed a CodeQL vulnerability flagged in CI where `urlStr.includes('jules.googleapis.com')` was used, replacing it with the safer `urlStr.startsWith('https://jules.googleapis.com')`.
