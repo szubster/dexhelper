@@ -2,12 +2,12 @@
 id: story-012-026-evaluate-cloudflare-storage
 type: STORY
 title: "Evaluate Cloudflare Storage Mechanisms"
-status: "READY"
+status: "ACTIVE"
 owner_persona: coder
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on: []
-jules_session_id: null
+jules_session_id: "12971748222114211233"
 pr_number: null
 parent: ".foundry/epics/epic-012-gastown-orchestrator.md"
 tags:
