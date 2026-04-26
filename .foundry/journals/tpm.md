@@ -370,3 +370,15 @@
 - **2026-04-26**: Resurrection Loop triggered for `task-017-041-fix-jest-standalone-expect`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-26**: Resurrection Loop triggered for `task-017-042-fix-jest-disabled-tests`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: PR #630 merged. `epic-010-oxlint-config` is now COMPLETED.
+
+- **2026-04-26**: PR #627 merged. `story-010-017-fix-jest-rules` is now PENDING.
+
+- **2026-04-26**: PR #629 merged. `story-012-027-design-sync-mechanism` is now COMPLETED.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-017-041-fix-jest-standalone-expect`. Reason: PR #633 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-025-044-implement-dag-atomic-test`. Reason: PR #631 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-026-044-refactor-state-store-sync`. Reason: PR #632 closed without merging.. Transitioned back to READY.
