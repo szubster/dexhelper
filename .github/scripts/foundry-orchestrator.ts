@@ -285,6 +285,53 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: Status, targetStatus
   info(`${dryTag}Promoted ${currentStatus} → ${targetStatus}: ${node.repoPath}`);
 }
 
+function promoteNodeToTpm(node: ParsedNode): void {
+  const dateStr = todayISO();
+  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+
+  const fmBlockMatch = node.rawContent.match(/^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*/m);
+  if (!fmBlockMatch) {
+    warn(`${dryTag}Cannot locate frontmatter delimiters for mutation in: ${node.repoPath}`);
+    return;
+  }
+
+  const originalFmBlock = fmBlockMatch[0];
+  let mutatedFmBlock = originalFmBlock;
+
+  mutatedFmBlock = mutatedFmBlock.replace(
+    /^(status:\s*)["']?[^"'\r\n]+["']?([ \t\r]*)$/m,
+    `$1BLOCKED$2`,
+  );
+
+  mutatedFmBlock = mutatedFmBlock.replace(
+    /^(owner_persona:\s*)["']?[^"'\r\n]+["']?([ \t\r]*)$/m,
+    `$1tpm$2`,
+  );
+
+  mutatedFmBlock = mutatedFmBlock.replace(
+    /^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t\r]*)$/m,
+    `$1"${dateStr}"$2`,
+  );
+
+  const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
+
+  if (!DRY_RUN) {
+    try {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+    } catch (e) {
+      warn(`Failed to write file: ${node.repoPath} — ${String(e)}`);
+      return;
+    }
+  }
+
+  node.frontmatter.status = 'BLOCKED';
+  node.frontmatter.owner_persona = 'tpm';
+  node.frontmatter.updated_at = dateStr;
+  node.rawContent = newContent;
+
+  info(`${dryTag}Flagged node for TPM: ${node.repoPath}`);
+}
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 function main(): void {
@@ -435,6 +482,23 @@ function main(): void {
     if (shouldSuspend) {
       info(`Suspending ACTIVE node: ${node.repoPath}`);
       promoteNodeStatus(node, 'ACTIVE', 'PENDING');
+    }
+  }
+
+  // ── Phase 3.6: IMPOSSIBLE LOOP ─────────────────────────────────────────────
+  info('Phase 3.6: Checking for Impossible Loop conditions...');
+  for (const node of nodes) {
+    if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason) {
+      if (node.frontmatter.parent) {
+        const parentNode = nodeMap.get(node.frontmatter.parent);
+        if (parentNode && parentNode.frontmatter.status !== 'ACTIVE') {
+          info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
+          promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');
+        }
+      } else if (node.frontmatter.owner_persona !== 'tpm') {
+        info(`Impossible Loop: flagging node without parent for TPM: ${node.repoPath}`);
+        promoteNodeToTpm(node);
+      }
     }
   }
 
