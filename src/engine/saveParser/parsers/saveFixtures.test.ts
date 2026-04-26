@@ -9,8 +9,9 @@ interface ParserFixtures {
   loadSaveData: (fileName: string, gen: 1 | 2) => SaveData;
 }
 
+// oxlint-disable jest/no-disabled-tests
 // Extend base vitest test with our injected save loader
-const test = baseTest.extend<ParserFixtures>({
+const myAppTestRunner = baseTest.extend<ParserFixtures>({
   loadSaveData: async ({ task: _task }, use) => {
     // Provide a loader utility that abstracts disk I/O and root parsing
     const loader = (fileName: string, gen: 1 | 2) => {
@@ -76,25 +77,21 @@ describe('Real Save Fixtures Verification', () => {
     },
   ];
 
-  // Using the advanced 'test.for' to map our suite, removing all duplication
+  // Using the advanced 'myAppTestRunner.for' to map our suite, removing all duplication
   // and securely injecting the `loadSaveData` contextual fixture.
-  test.for(saveCases)('should parse generic bounds for $file', ({
-    file,
-    gen,
-    expectedVersion,
-    expectedTrainer,
-    expectedId,
-    expectedPartyLength,
-  }, { loadSaveData }) => {
-    const data = loadSaveData(file, gen);
+  myAppTestRunner.for(saveCases)(
+    'should parse generic bounds for $file',
+    ({ file, gen, expectedVersion, expectedTrainer, expectedId, expectedPartyLength }, { loadSaveData }) => {
+      const data = loadSaveData(file, gen);
 
-    expect(data.generation).toBe(gen);
-    expect(data.gameVersion).toBe(expectedVersion);
-    expect(data.trainerName).toBe(expectedTrainer);
-    expect(data.trainerId).toBe(expectedId);
-    expect(data.party).toHaveLength(expectedPartyLength);
+      expect(data.generation).toBe(gen);
+      expect(data.gameVersion).toBe(expectedVersion);
+      expect(data.trainerName).toBe(expectedTrainer);
+      expect(data.trainerId).toBe(expectedId);
+      expect(data.party).toHaveLength(expectedPartyLength);
 
-    // Verify PC box counts don't error and are numbers
-    expect(typeof data.pc.length).toBe('number');
-  });
+      // Verify PC box counts don't error and are numbers
+      expect(typeof data.pc.length).toBe('number');
+    },
+  );
 });
