@@ -697,4 +697,49 @@ jules_session_id: null
     expect(result).toContain('status: BLOCKED');
     expect(result).toContain('owner_persona: tpm');
   });
+
+  test('Atomic Handoffs: resolves dependencies across single-persona atomic tasks', () => {
+    createNode('.foundry/tasks/task-atomic-1.md', `id: task-atomic-1
+type: TASK
+title: "Tech Lead Task"
+status: COMPLETED
+owner_persona: tech_lead
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-atomic-2.md', `id: task-atomic-2
+type: TASK
+title: "Coder Task"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on:
+  - .foundry/tasks/task-atomic-1.md
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-atomic-3.md', `id: task-atomic-3
+type: TASK
+title: "QA Task"
+status: PENDING
+owner_persona: qa
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on:
+  - .foundry/tasks/task-atomic-2.md
+jules_session_id: null
+`);
+
+    main();
+
+    const coderResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-atomic-2.md'), 'utf-8');
+    expect(coderResult).toContain('status: READY');
+
+    const qaResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-atomic-3.md'), 'utf-8');
+    expect(qaResult).toContain('status: PENDING');
+  });
 });
