@@ -22,8 +22,8 @@ Oxlint has additional options for multi-file checks and rules that require types
 - Update `package.json` lint scripts to include these flags.
 
 ## Acceptance Criteria
-- [ ] Tasks are created for enabling type-aware checks.
-- [ ] Tasks are created for enabling import/promise plugins.
+- [x] Tasks are created for enabling type-aware checks.
+- [x] Tasks are created for enabling import/promise plugins.
 - [ ] `package.json` lint commands run these expensive checks.
 
 ## Generated Tasks
