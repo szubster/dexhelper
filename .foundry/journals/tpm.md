@@ -402,3 +402,13 @@
 - **2026-04-26**: Resurrection Loop triggered for `task-025-044-implement-dag-atomic-test`. Reason: PR #637 closed without merging.. Transitioned back to READY.
 
 - **2026-04-26**: Resurrection Loop triggered for `task-026-044-refactor-state-store-sync`. Reason: PR #639 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `epic-005-014-state-store-migration`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `idea-007-migrate-saves-to-indexeddb`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `prd-007-005-migrate-saves-to-indexeddb`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: Resurrection Loop triggered for `story-014-026-refactor-state-store-sync`. Reason: Retry from FAILED status.. Transitioned back to READY.
