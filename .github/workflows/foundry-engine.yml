@@ -22,15 +22,19 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          run_install: false
+
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: '24' # Required for --strip-types
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: |
-          cd .github/scripts
-          npm install
+        run: pnpm install --frozen-lockfile
 
       - name: Configure Git
         run: |
@@ -116,15 +120,19 @@ jobs:
           fetch-depth: 0
           ref: main
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          run_install: false
+
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: '24'
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: |
-          cd .github/scripts
-          npm install
+        run: pnpm install --frozen-lockfile
 
       - name: Configure Git
         run: |
