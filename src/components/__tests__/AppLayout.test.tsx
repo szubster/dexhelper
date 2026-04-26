@@ -2,7 +2,12 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-react';
+import { reloadPage } from '../../utils/window';
 import { AppLayout } from '../AppLayout';
+
+vi.mock('../../utils/window', () => ({
+  reloadPage: vi.fn<() => void>(),
+}));
 
 describe('AppLayout chunk error handling', () => {
   const queryClient = new QueryClient({
@@ -22,21 +27,11 @@ describe('AppLayout chunk error handling', () => {
     history: createMemoryHistory(),
   });
 
-  let originalLocation: Location;
-
   beforeEach(() => {
-    originalLocation = window.location;
-    Object.defineProperty(window, 'location', {
-      configurable: true,
-      value: { ...originalLocation, reload: vi.fn<() => void>() },
-    });
+    vi.clearAllMocks();
   });
 
   afterEach(() => {
-    Object.defineProperty(window, 'location', {
-      configurable: true,
-      value: originalLocation,
-    });
     vi.restoreAllMocks();
   });
 
@@ -55,7 +50,7 @@ describe('AppLayout chunk error handling', () => {
     window.dispatchEvent(errorEvent);
 
     await vi.waitFor(() => {
-      expect(window.location.reload).toHaveBeenCalledTimes(1);
+      expect(reloadPage).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -74,6 +69,6 @@ describe('AppLayout chunk error handling', () => {
     window.dispatchEvent(errorEvent);
 
     await new Promise((r) => setTimeout(r, 50));
-    expect(window.location.reload).not.toHaveBeenCalled();
+    expect(reloadPage).not.toHaveBeenCalled();
   });
 });

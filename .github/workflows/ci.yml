@@ -41,8 +41,11 @@ jobs:
       - name: Knip
         run: pnpm knip
 
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install chromium --with-deps
+
       - name: Test
-        run: pnpm test --coverage --reporter=junit --outputFile=test-report.junit.xml
+        run: pnpm test --coverage
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}

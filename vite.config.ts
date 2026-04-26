@@ -100,10 +100,5 @@ export default defineConfig(() => {
       // Do not modify—file watching is disabled to prevent flickering during agent edits.
       hmr: process.env['DISABLE_HMR'] !== 'true',
     },
-    test: {
-      globals: true,
-      include: ['**/*.test.ts', '**/*.test.tsx'],
-      exclude: ['node_modules', 'dist', 'tests/e2e', 'src/components/__tests__/**/*.tsx', '.github/scripts/**'],
-    },
   };
 });

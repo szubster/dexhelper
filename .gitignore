@@ -6,6 +6,9 @@ coverage/
 *.log
 .env*
 !.env.example
+# Vitest
+.vitest-attachments/
+__screenshots__/
 test-report.junit.xml
 
 # Playwright
