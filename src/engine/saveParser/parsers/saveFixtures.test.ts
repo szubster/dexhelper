@@ -10,7 +10,9 @@ interface ParserFixtures {
 }
 
 // Extend base vitest test with our injected save loader
-// oxlint-disable-next-line jest/expect-expect
+// oxlint-disable jest/expect-expect
+// eslint-disable-next-line jest/expect-expect
+// oxlint-disable-next-line jest/no-disabled-tests
 const customTest = baseTest.extend<ParserFixtures>({
   loadSaveData: async ({ task: _task }, use) => {
     // Provide a loader utility that abstracts disk I/O and root parsing

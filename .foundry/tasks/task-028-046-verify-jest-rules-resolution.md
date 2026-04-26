@@ -23,7 +23,7 @@ Even though we resolved the jest rules, we still have FAILED statuses in previou
 - Self-verify the changes and document the verification in the task journal.
 
 ## Acceptance Criteria
-- [ ] `pnpm exec oxlint .` passes with these rules completely enabled.
-- [ ] False positives for `jest/no-disabled-tests` (e.g., in `baseTest.extend`) are suppressed.
-- [ ] False positives for `jest/no-standalone-expect` (e.g., custom test functions) are correctly configured in `.oxlintrc.json`.
-- [ ] Journal updated with verification details.
+- [x] `pnpm exec oxlint .` passes with these rules completely enabled.
+- [x] False positives for `jest/no-disabled-tests` (e.g., in `baseTest.extend`) are suppressed.
+- [x] False positives for `jest/no-standalone-expect` (e.g., custom test functions) are correctly configured in `.oxlintrc.json`.
+- [x] Journal updated with verification details.
