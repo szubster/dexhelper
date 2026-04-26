@@ -2,7 +2,7 @@
 id: prd-007-005-migrate-saves-to-indexeddb
 type: PRD
 title: "Migrate Save Data to IndexedDB"
-status: "COMPLETED"
+status: "ACTIVE"
 owner_persona: epic_planner
 created_at: "2026-04-24"
 updated_at: "2026-04-24"
@@ -42,11 +42,11 @@ Migrate the persistence layer for game saves from `localStorage` to `IndexedDB`.
 - **Testing**: E2E testing utilities (`tests/e2e/test-utils.ts` and `playwright.config.ts`) that rely on `localStorage` or `storageState` injection will need to be updated to inject save fixtures into IndexedDB.
 
 ## Acceptance Criteria
-- [x] Save data is successfully stored in and loaded from IndexedDB.
-- [x] Base64 encoding/decoding logic (`window.atob`, `window.btoa`, and validation regex) is removed from the persistence path.
-- [x] Existing save data in `localStorage` is seamlessly migrated to IndexedDB on first load.
-- [x] E2E testing infrastructure is updated and passing with the new IndexedDB injection method.
-- [x] Security scanners no longer flag `window.atob` vulnerabilities related to save persistence.
+- [ ] Save data is successfully stored in and loaded from IndexedDB.
+- [ ] Base64 encoding/decoding logic (`window.atob`, `window.btoa`, and validation regex) is removed from the persistence path.
+- [ ] Existing save data in `localStorage` is seamlessly migrated to IndexedDB on first load.
+- [ ] E2E testing infrastructure is updated and passing with the new IndexedDB injection method.
+- [ ] Security scanners no longer flag `window.atob` vulnerabilities related to save persistence.
 
 ## Generated Epics
 - [.foundry/epics/epic-005-013-idb-infrastructure.md](.foundry/epics/epic-005-013-idb-infrastructure.md)
