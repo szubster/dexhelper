@@ -2,12 +2,12 @@
 id: "task-024-041-update-status-on-merge"
 type: "TASK"
 title: "Update Node Status on PR Merge"
-status: READY
+status: "ACTIVE"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on: []
-jules_session_id: null
+jules_session_id: "8222136041464651265"
 pr_number: null
 parent: ".foundry/stories/story-008-024-update-status-on-merge.md"
 tags: ["foundry-engine", "orchestrator", "pr-merge"]
