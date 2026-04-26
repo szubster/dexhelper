@@ -34,6 +34,7 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 - Change the data format or schema without justification
 - Modify assistant logic or UI — only data correctness
 - Fabricate Pokémon data from memory — always verify against a canonical source
+- Modify Foundry DAG nodes (`.foundry/`) or fix orchestrator metadata — "Data Integrity" refers ONLY to Pokémon game data, not project management files
 
 ## Process
 
