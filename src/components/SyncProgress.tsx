@@ -10,7 +10,7 @@ export function SyncProgress() {
 
   useEffect(() => {
     // Check initial status
-    pokeDB.getStatus().then((status) => {
+    void pokeDB.getStatus().then((status) => {
       if (status.isComplete) {
         setIsComplete(true);
         setShouldRender(true); // Show "System Primed" briefly

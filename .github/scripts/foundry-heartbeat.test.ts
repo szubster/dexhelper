@@ -7,7 +7,7 @@ import * as orchestrator from './foundry-orchestrator.ts';
 vi.mock('node:fs');
 vi.mock('./foundry-orchestrator.ts');
 
-const globalFetch = vi.fn<typeof fetch>();
+const globalFetch = vi.fn<any>();
 vi.stubGlobal('fetch', globalFetch);
 
 describe('Foundry Heartbeat', () => {
@@ -162,8 +162,9 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    globalFetch.mockImplementation((url: string) => {
-      if (url.includes('jules.googleapis.com')) {
+    globalFetch.mockImplementation((url: unknown) => {
+      const urlStr = typeof url === 'string' ? url : (url as { url?: string }).url || String(url);
+      if (urlStr.includes('jules.googleapis.com')) {
         return Promise.resolve({
           ok: true,
           status: 200,
@@ -173,7 +174,7 @@ describe('Foundry Heartbeat', () => {
           })
         });
       }
-      if (url.includes('pulls/402')) {
+      if (urlStr.includes('pulls/402')) {
         return Promise.resolve({
           ok: true,
           status: 200,
@@ -204,8 +205,9 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    globalFetch.mockImplementation((url) => {
-      if (url.includes('jules.googleapis.com')) {
+    globalFetch.mockImplementation((url: unknown) => {
+      const urlStr = typeof url === 'string' ? url : (url as { url?: string }).url || String(url);
+      if (urlStr.includes('jules.googleapis.com')) {
         return Promise.resolve({
           ok: true,
           status: 200,
@@ -215,7 +217,7 @@ describe('Foundry Heartbeat', () => {
           })
         });
       }
-      if (url.includes('pulls/402')) {
+      if (urlStr.includes('pulls/402')) {
         return Promise.resolve({
           ok: true,
           status: 200,
@@ -247,22 +249,23 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    globalFetch.mockImplementation((url: string) => {
-      if (url.includes('jules.googleapis.com')) {
+    globalFetch.mockImplementation((url: unknown) => {
+      const urlStr = typeof url === 'string' ? url : (url as { url?: string }).url || String(url);
+      if (urlStr.includes('jules.googleapis.com')) {
         return Promise.resolve({
           ok: true,
           status: 200,
           json: async () => ({ state: 'COMPLETED' }) // No PR link here
         });
       }
-      if (url.includes('search/issues')) {
+      if (urlStr.includes('search/issues')) {
         return Promise.resolve({
           ok: true,
           status: 200,
           json: async () => ({ items: [] }) // Search fails
         });
       }
-      if (url.includes('repos/szubster/dexhelper/pulls?state=all')) {
+      if (urlStr.includes('repos/szubster/dexhelper/pulls?state=all')) {
         return Promise.resolve({
           ok: true,
           status: 200,
@@ -317,8 +320,9 @@ describe('Foundry Heartbeat', () => {
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-      globalFetch.mockImplementation((url: string) => {
-        if (url.includes('pulls/999')) {
+      globalFetch.mockImplementation((url: unknown) => {
+        const urlStr = typeof url === 'string' ? url : (url as { url?: string }).url || String(url);
+        if (urlStr.includes('pulls/999')) {
           return Promise.resolve({
             ok: true,
             status: 200,
@@ -352,8 +356,9 @@ describe('Foundry Heartbeat', () => {
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-      globalFetch.mockImplementation((url: string) => {
-        if (url.includes('pulls/888')) {
+      globalFetch.mockImplementation((url: unknown) => {
+        const urlStr = typeof url === 'string' ? url : (url as { url?: string }).url || String(url);
+        if (urlStr.includes('pulls/888')) {
           return Promise.resolve({
             ok: true,
             status: 200,
@@ -387,8 +392,9 @@ describe('Foundry Heartbeat', () => {
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-      globalFetch.mockImplementation((url: string) => {
-        if (url.includes('pulls/777')) {
+      globalFetch.mockImplementation((url: unknown) => {
+        const urlStr = typeof url === 'string' ? url : (url as { url?: string }).url || String(url);
+        if (urlStr.includes('pulls/777')) {
           return Promise.resolve({
             ok: true,
             status: 200,

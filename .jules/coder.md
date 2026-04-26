@@ -1,0 +1,1 @@
+- Enable `--type-aware` and `--type-check` options in oxlint by updating `package.json` and installing `oxlint-tsgolint`. Fixed subsequent linting errors like `no-floating-promises` using `void`.

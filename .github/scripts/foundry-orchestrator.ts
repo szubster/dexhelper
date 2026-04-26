@@ -64,6 +64,8 @@ interface FoundryFrontmatter {
   parent?: string | null;
   tags?: string[];
   rejection_count?: number;
+  rejection_reason?: string;
+  pr_number?: number;
   notes?: string;
 }
 
