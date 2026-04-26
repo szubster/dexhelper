@@ -17,6 +17,6 @@ parent: ".foundry/stories/story-010-017-fix-jest-rules.md"
 The rule `jest/no-disabled-tests` was disabled to unblock CI. We need to fix the violations in the codebase and re-enable it.
 
 ## Instructions
-1. Change `"jest/no-disabled-tests": "off"` to `"error"` in `.oxlintrc.json`.
-2. Fix all violations by removing disabled tests or re-enabling them. If a test must be ignored for now, document it properly instead of using disabled comments if possible.
-3. Ensure `pnpm exec oxlint .` passes.
+- [x] Change `"jest/no-disabled-tests": "off"` to `"error"` in `.oxlintrc.json`.
+- [x] Fix all violations by removing disabled tests or re-enabling them. If a test must be ignored for now, document it properly instead of using disabled comments if possible.
+- [x] Ensure `pnpm exec oxlint .` passes.
