@@ -2,12 +2,12 @@
 id: "task-028-046-verify-jest-rules-resolution"
 type: "TASK"
 title: "Verify jest rules fix resolution"
-status: READY
+status: "ACTIVE"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on: []
-jules_session_id: null
+jules_session_id: "3470854562134743688"
 parent: ".foundry/stories/story-010-028-verify-jest-tests.md"
 ---
 
