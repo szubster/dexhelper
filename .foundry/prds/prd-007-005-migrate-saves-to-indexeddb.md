@@ -2,12 +2,12 @@
 id: prd-007-005-migrate-saves-to-indexeddb
 type: PRD
 title: "Migrate Save Data to IndexedDB"
-status: "READY"
+status: "ACTIVE"
 owner_persona: epic_planner
 created_at: "2026-04-24"
 updated_at: "2026-04-26"
 depends_on: []
-jules_session_id: null
+jules_session_id: "14829958613601337761"
 parent: .foundry/ideas/idea-007-migrate-saves-to-indexeddb.md
 tags: []
 ---
