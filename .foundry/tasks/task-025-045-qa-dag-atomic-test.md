@@ -2,7 +2,7 @@
 id: "task-025-045-qa-dag-atomic-test"
 type: "TASK"
 title: "QA: DAG Resolution Tests for Atomic Files"
-status: "PENDING"
+status: READY
 owner_persona: "qa"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"

@@ -412,3 +412,17 @@
 - **2026-04-26**: Resurrection Loop triggered for `prd-007-005-migrate-saves-to-indexeddb`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-26**: Resurrection Loop triggered for `story-014-026-refactor-state-store-sync`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-26**: PR #647 merged. `epic-005-014-state-store-migration` is now PENDING.
+
+- **2026-04-26**: PR #646 merged. `epic-012-gastown-orchestrator` is now COMPLETED.
+
+- **2026-04-26**: PR #644 merged. `idea-007-migrate-saves-to-indexeddb` is now COMPLETED.
+
+- **2026-04-26**: PR #648 merged. `prd-007-005-migrate-saves-to-indexeddb` is now COMPLETED.
+
+- **2026-04-26**: Resurrection Loop triggered for `task-017-042-fix-jest-disabled-tests`. Reason: PR #642 closed without merging.. Transitioned back to READY.
+
+- **2026-04-26**: PR #643 merged. `task-025-044-implement-dag-atomic-test` is now COMPLETED.
+
+- **2026-04-26**: PR #645 merged. `task-028-046-verify-jest-rules-resolution` is now COMPLETED.
