@@ -24,3 +24,8 @@
 
 **Learning:** Keeping the single most impactful cleanup as the core focus is critical to respect boundaries.
 **Action:** Found that `jules_agents_dispatch.md` had an outdated list of agents. Updated it to properly reflect the 13 agents deployed, instead of 11.
+
+## 2026-04-26 - Archivist Run Learnings
+
+**Learning:** When refactoring drops a dependency (like `pokenode-ts`), references to it often persist in onboarding documents, creating an inaccurate view of the tech stack.
+**Action:** Routinely search onboarding and project overview documents for deprecated dependencies after a major migration.
