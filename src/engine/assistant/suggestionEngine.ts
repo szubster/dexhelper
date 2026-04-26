@@ -144,9 +144,14 @@ export function generateSuggestions(
     : saveData.owned || new Set<number>();
 
   const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
-  const myOtIds = new Set(
-    allInstances.filter((p) => p.otName === saveData.trainerName).map((p: PokemonInstance) => p.speciesId),
-  );
+  // ⚡ Bolt: Removed .filter().map() chain to prevent intermediate array allocations (O(N) -> O(1) memory overhead)
+  const myOtIds = new Set<number>();
+  for (let i = 0; i < allInstances.length; i++) {
+    const p = allInstances[i];
+    if (p && p.otName === saveData.trainerName) {
+      myOtIds.add(p.speciesId);
+    }
+  }
 
   for (let i = 1; i <= maxDex; i++) {
     if (!ownedSet.has(i)) {

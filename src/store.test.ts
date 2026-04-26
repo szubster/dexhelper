@@ -3,7 +3,7 @@ import { parseSaveFile } from './engine/saveParser/index';
 import { useStore } from './store';
 
 vi.mock('./engine/saveParser/index', () => ({
-  parseSaveFile: vi.fn(),
+  parseSaveFile: vi.fn<() => ReturnType<typeof parseSaveFile>>(),
 }));
 
 describe('Zustand Store', () => {
@@ -147,11 +147,11 @@ describe('Zustand Store', () => {
 
       // valid base64 for "hello"
       vi.stubGlobal('localStorage', {
-        getItem: vi.fn().mockReturnValue('aGVsbG8='),
-        removeItem: vi.fn(),
+        getItem: vi.fn<() => string>().mockReturnValue('aGVsbG8='),
+        removeItem: vi.fn<() => void>(),
       });
       vi.stubGlobal('window', {
-        atob: vi.fn().mockReturnValue('hello'),
+        atob: vi.fn<() => string>().mockReturnValue('hello'),
       });
 
       useStore.getState().loadSaveFromStorage();
@@ -162,8 +162,8 @@ describe('Zustand Store', () => {
 
     it('should handle corrupted save file from localStorage', () => {
       // Mock localStorage to return an invalid base64 string
-      const mockGetItem = vi.fn().mockReturnValue('invalid-base64-!');
-      const mockRemoveItem = vi.fn();
+      const mockGetItem = vi.fn<() => string>().mockReturnValue('invalid-base64-!');
+      const mockRemoveItem = vi.fn<() => void>();
       vi.stubGlobal('localStorage', {
         getItem: mockGetItem,
         removeItem: mockRemoveItem,
@@ -179,9 +179,9 @@ describe('Zustand Store', () => {
     });
 
     it('should specifically catch invalid base64 regex failures', () => {
-      const mockRemoveItem = vi.fn();
+      const mockRemoveItem = vi.fn<() => void>();
       vi.stubGlobal('localStorage', {
-        getItem: vi.fn().mockReturnValue('!!!'),
+        getItem: vi.fn<() => string>().mockReturnValue('!!!'),
         removeItem: mockRemoveItem,
       });
 
@@ -205,7 +205,7 @@ describe('Persist Hydration Error Handling', () => {
     // We must reset modules to force Zustand to re-evaluate and re-hydrate
     vi.resetModules();
 
-    const mockGetItem = vi.fn().mockImplementation((key) => {
+    const mockGetItem = vi.fn<(key: string) => string | null>().mockImplementation((key) => {
       if (key === 'dexhelper-settings') {
         throw new Error('Simulated storage error');
       }
@@ -214,8 +214,8 @@ describe('Persist Hydration Error Handling', () => {
 
     vi.stubGlobal('localStorage', {
       getItem: mockGetItem,
-      setItem: vi.fn(),
-      removeItem: vi.fn(),
+      setItem: vi.fn<() => void>(),
+      removeItem: vi.fn<() => void>(),
     });
 
     // Dynamically import to trigger store creation and hydration
@@ -231,7 +231,7 @@ describe('Persist Hydration Error Handling', () => {
   it('should handle corrupted persist storage gracefully when JSON is invalid', async () => {
     vi.resetModules();
 
-    const mockGetItem = vi.fn().mockImplementation((key) => {
+    const mockGetItem = vi.fn<(key: string) => string | null>().mockImplementation((key) => {
       if (key === 'dexhelper-settings') {
         return '{ invalid json';
       }
@@ -240,8 +240,8 @@ describe('Persist Hydration Error Handling', () => {
 
     vi.stubGlobal('localStorage', {
       getItem: mockGetItem,
-      setItem: vi.fn(),
-      removeItem: vi.fn(),
+      setItem: vi.fn<() => void>(),
+      removeItem: vi.fn<() => void>(),
     });
 
     const { useStore: freshStore } = await import('./store');

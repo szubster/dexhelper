@@ -2,14 +2,14 @@
 id: "epic-008-atomic-handoff-orchestrator"
 type: "EPIC"
 title: "Epic: Orchestrator Script Refactor for Atomic Handoffs"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "story_owner"
 created_at: "2026-04-22"
-updated_at: "2026-04-25"
+updated_at: "2026-04-26"
 depends_on:
   - .foundry/prds/prd-001-v2-lifecycle.md
   - .foundry/epics/epic-007-atomic-handoff-schema.md
-jules_session_id: "9786283728722449156"
+jules_session_id: null
 parent: ".foundry/prds/prd-001-v2-lifecycle.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 ---
@@ -24,6 +24,11 @@ This Epic handles modifying orchestrator scripts to strictly enforce the atomic,
 - Read `.foundry/prds/prd-001-v2-lifecycle.md`
 
 ## Acceptance Criteria
-- [ ] Orchestrator explicitly rejects or errors on files defining multiple `owner_persona`s.
-- [ ] Orchestrator correctly marks nodes `COMPLETED` when their respective GitHub PR is merged.
-- [ ] DAG resolves without deadlocks given atomic files depending on one another.
+- [x] Orchestrator explicitly rejects or errors on files defining multiple `owner_persona`s.
+- [x] Orchestrator correctly marks nodes `COMPLETED` when their respective GitHub PR is merged.
+- [x] DAG resolves without deadlocks given atomic files depending on one another.
+
+### Generated Stories
+- `.foundry/stories/story-008-023-validate-single-owner.md`
+- `.foundry/stories/story-008-024-update-status-on-merge.md`
+- `.foundry/stories/story-008-025-verify-dag-resolution.md`

@@ -227,6 +227,41 @@ jules_session_id: null
     expect(story2Content).toContain('status: PENDING');
   });
 
+  test('Late-Binding: allows child of PENDING parent to proceed if parent already has children', () => {
+    // Epic 1: PENDING (Waiting for children)
+    createNode('.foundry/epics/epic-001.md', `
+id: epic-001
+type: EPIC
+title: "Epic 1"
+status: PENDING
+owner_persona: epic_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    // Story 1: Child of Epic 1, PENDING
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story 1"
+status: PENDING
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/epics/epic-001.md
+jules_session_id: null
+`);
+
+    main();
+
+    // Story 1 SHOULD be promoted to READY because Epic 1 is PENDING but has children
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
+    expect(storyContent).toContain('status: READY');
+  });
+
   test('Deep Hierarchical Completion: blocks external dependent if dependency has deep incomplete children', () => {
     // Story 1: COMPLETED
     createNode('.foundry/stories/story-001.md', `
@@ -511,5 +546,115 @@ jules_session_id: null
 
     const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active.md'), 'utf-8');
     expect(result).toContain('status: ACTIVE');
+  });
+
+
+  test('Wait and Wake: Wakes PENDING node to READY if new dependency is COMPLETED', () => {
+    createNode('.foundry/tasks/task-complete.md', `id: task-complete
+type: TASK
+title: "Complete Task"
+status: COMPLETED
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null`);
+
+    createNode('.foundry/tasks/task-pending.md', `id: task-pending
+type: TASK
+title: "Pending Task"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/tasks/task-complete.md"]
+jules_session_id: null`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-pending.md'), 'utf-8');
+    expect(result).toContain('status: READY');
+  });
+
+
+  test('Wait and Wake: ACTIVE node transitions to PENDING when new incomplete dependency is added', () => {
+    createNode('.foundry/tasks/task-incomplete.md', `id: task-incomplete
+type: TASK
+title: "Incomplete Task"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null`);
+
+    createNode('.foundry/tasks/task-active.md', `id: task-active
+type: TASK
+title: "Active Task"
+status: ACTIVE
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/tasks/task-incomplete.md"]
+jules_session_id: "session-123"`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active.md'), 'utf-8');
+    expect(result).toContain('status: PENDING');
+  });
+
+  test('Impossible Loop: wakes up parent if impossible child is FAILED with rejection_reason', () => {
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story"
+status: PENDING
+owner_persona: tech_lead
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-impossible.md', `
+id: task-impossible
+type: TASK
+title: "Impossible Task"
+status: FAILED
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: ".foundry/stories/story-001.md"
+rejection_reason: "Feature not supported"
+jules_session_id: null
+`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
+    expect(result).toContain('status: ACTIVE');
+  });
+
+  test('Impossible Loop: flags node for tpm if no parent exists', () => {
+    createNode('.foundry/tasks/task-impossible-no-parent.md', `
+id: task-impossible-no-parent
+type: TASK
+title: "Impossible Task No Parent"
+status: FAILED
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+rejection_reason: "Feature not supported"
+jules_session_id: null
+`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-impossible-no-parent.md'), 'utf-8');
+    expect(result).toContain('status: BLOCKED');
+    expect(result).toContain('owner_persona: tpm');
   });
 });

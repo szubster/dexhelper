@@ -14,7 +14,7 @@
   "rules": {
     "vitest/require-mock-type-parameters": "off",
     "vitest/no-standalone-expect": "error",
-    "vitest/expect-expect": "off",
+    "vitest/expect-expect": "error"
     "vitest/no-disabled-tests": "off",
     "react-hooks/exhaustive-deps": "off"
   },

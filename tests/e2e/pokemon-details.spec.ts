@@ -32,7 +32,7 @@ test.describe('Pokemon Details Modal', () => {
     await initializeWithSave(page, path.join(process.cwd(), 'tests/fixtures/yellow.sav'));
 
     // 1. Search for Pidgey to be efficient
-    await page.getByPlaceholder(/search pokedex/i).fill('Pidgey');
+    await page.getByTestId('search-input').fill('Pidgey');
 
     // 2. Click Pidgey Card
     await page.getByLabel('View details for Pidgey').click();

@@ -4,6 +4,8 @@
 pre-commit:
   parallel: true
   commands:
+    validate-foundry-ids:
+      run: node --experimental-strip-types scripts/validate-foundry-ids.ts
     link-checker:
       run: node --experimental-strip-types scripts/check-links.ts {staged_files}
     biome-check:
