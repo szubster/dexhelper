@@ -105,8 +105,10 @@ function checkLinks() {
 
       const inlineLinks = extractInlineLinks(body);
       for (const link of inlineLinks) {
-        const absolutePath = path.resolve(path.dirname(file), link);
-        if (!fs.existsSync(absolutePath)) {
+        const relativePath = path.resolve(path.dirname(file), link);
+        const rootPath = path.resolve(process.cwd(), link);
+
+        if (!fs.existsSync(relativePath) && !fs.existsSync(rootPath)) {
           console.error(`❌ Broken link in ${file}: Inline link '${link}' does not exist.`);
           hasErrors = true;
         }
