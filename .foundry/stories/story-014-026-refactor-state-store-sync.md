@@ -22,4 +22,4 @@ This Story focuses on removing the `localStorage` syncing logic and Base64 encod
 - [ ] Base64 encoding/decoding and regex validation logic are eliminated.
 
 ## Generated Tasks
-- .foundry/tasks/task-026-044-refactor-state-store-sync.md
+- .foundry/tasks/task-026-047-refactor-state-store-sync.md
