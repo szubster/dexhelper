@@ -7,7 +7,7 @@ import { DB_CONFIG } from '../schema';
 vi.stubGlobal('__POKEDATA_HASH__', 'test-hash');
 vi.stubGlobal(
   'fetch',
-  vi.fn().mockResolvedValue({
+  vi.fn<() => Promise<Response>>().mockResolvedValue({
     ok: true,
     json: async () => ({
       hash: 'test-hash',
@@ -144,7 +144,7 @@ describe('PokeDB', () => {
   it('emits progress events during sync', async () => {
     // We cannot easily spy on window if it's undefined, let's inject it into global context
     const originalWindow = global.window;
-    const dispatchEventMock = vi.fn();
+    const dispatchEventMock = vi.fn<(event: CustomEvent) => boolean>();
 
     // @ts-expect-error
     global.window = { dispatchEvent: dispatchEventMock };
