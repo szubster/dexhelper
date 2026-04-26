@@ -13,7 +13,7 @@
     "correctness": "error"
   },
   "rules": {
-    "vitest/require-mock-type-parameters": "off",
+    "vitest/require-mock-type-parameters": "error",
     "jest/no-standalone-expect": "off",
     "jest/expect-expect": "off",
     "jest/no-disabled-tests": "off",
