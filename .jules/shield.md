@@ -6,3 +6,6 @@
 
 ## IndexedDB Save Storage
 **Pattern:** The `window.atob` Base64 decoder is insecure. Instead of doing base64 serialization with handwritten code, or installing base-64 dependencies, the save file storage logic should be migrated completely to `IndexedDB` which natively supports ArrayBuffers and avoids this issue altogether.
+
+## IndexedDB Migration Correctness
+**Pattern:** When migrating localStorage usage to IndexedDB (`saveDB`), remember to update all test implementations and type boundaries. If using `saveDB` methods like `.getSave()`, they return promises and must be `await`ed. Ensure any `ArrayBufferLike` conversion logic accurately casts using `as ArrayBuffer` if TypeScript strictness complains about `SharedArrayBuffer` incompatibilities.
