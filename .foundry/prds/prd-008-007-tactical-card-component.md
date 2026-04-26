@@ -17,6 +17,12 @@ parent: ".foundry/ideas/idea-008-ui-component-reuse.md"
 Refactor the existing duplicated card UI into a unified, reusable base component (`TacticalCard.tsx`) to DRY up complex markup, styles, and interaction logic.
 
 ## Scope
-- Abstract the core `TacticalCard` component.
-- Update `PokedexCard.tsx` to use the new `TacticalCard`.
-- Update `StorageGrid.tsx` to apply the new `TacticalCard`.
+- [x] Abstract the core `TacticalCard` component.
+- [x] Update `PokedexCard.tsx` to use the new `TacticalCard`.
+- [x] Update `StorageGrid.tsx` to apply the new `TacticalCard`.
+
+### Architectural Review
+The proposed `TacticalCard` component aligns with our DRY principles and the established UI architecture. No new ADR is required. The UI extraction will improve maintainability and consistency across the app.
+
+### Spawned Nodes
+- `.foundry/tasks/task-007-043-tactical-card-refactor.md`
