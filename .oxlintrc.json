@@ -6,7 +6,6 @@
     "oxc",
     "react",
     "jsx-a11y",
-    "jest",
     "vitest"
   ],
   "categories": {
@@ -14,10 +13,9 @@
   },
   "rules": {
     "vitest/require-mock-type-parameters": "off",
-    "jest/no-standalone-expect": "error",
-    "jest/expect-expect": "off",
-    "jest/no-disabled-tests": "off",
-    "jest/no-conditional-expect": "off",
+    "vitest/no-standalone-expect": "error",
+    "vitest/expect-expect": "off",
+    "vitest/no-disabled-tests": "off",
     "react-hooks/exhaustive-deps": "off"
   },
   "env": {
