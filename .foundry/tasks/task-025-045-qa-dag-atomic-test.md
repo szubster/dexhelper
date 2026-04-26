@@ -18,6 +18,6 @@ parent: ".foundry/stories/story-008-025-verify-dag-resolution.md"
 Validate the test cases created for verifying DAG resolution involving atomic files.
 
 ## Acceptance Criteria
-- [ ] Verify that tests in `.github/scripts/foundry-orchestrator.test.ts` accurately cover atomic, single-owner files depending on each other.
-- [ ] Run `pnpm run test` or the appropriate test command in the scripts directory.
-- [ ] Verify that the DAG resolves correctly in tests without deadlocks.
+- [x] Verify that tests in `.github/scripts/foundry-orchestrator.test.ts` accurately cover atomic, single-owner files depending on each other.
+- [x] Run `pnpm run test` or the appropriate test command in the scripts directory.
+- [x] Verify that the DAG resolves correctly in tests without deadlocks.
