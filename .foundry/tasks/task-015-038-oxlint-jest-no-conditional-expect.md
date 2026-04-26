@@ -17,6 +17,6 @@ parent: ".foundry/stories/story-010-015-enforce-strict-oxlint-rules.md"
 As part of story `story-010-015-enforce-strict-oxlint-rules`, we are re-enabling strict oxlint rules that were temporarily disabled. This task focuses on `jest/no-conditional-expect`.
 
 ## Instructions
-1. In `.oxlintrc.json`, change `"jest/no-conditional-expect": "off"` to `"jest/no-conditional-expect": "error"`.
-2. Run `pnpm exec oxlint .` to identify violations.
-3. Fix all violations by refactoring tests to avoid conditional `expect()` calls.
+- [x] 1. In `.oxlintrc.json`, change `"jest/no-conditional-expect": "off"` to `"jest/no-conditional-expect": "error"`.
+- [x] 2. Run `pnpm exec oxlint .` to identify violations.
+- [x] 3. Fix all violations by refactoring tests to avoid conditional `expect()` calls.
