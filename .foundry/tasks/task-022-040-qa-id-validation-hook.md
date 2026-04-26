@@ -18,7 +18,7 @@ parent: .foundry/stories/story-006-022-implement-id-validation-hook.md
 The coder has implemented a pre-commit hook to validate the global uniqueness and format of Foundry IDs. We need to verify that this script works as expected and correctly halts commits on failure.
 
 ## Acceptance Criteria
-- [ ] Temporarily create a dummy node with an invalid ID format (e.g., `task-abc-123.md` or missing sequence numbers) and verify the script fails.
-- [ ] Temporarily duplicate an existing ID in a different node file and verify the global uniqueness check fails.
-- [ ] Verify that running `pnpm lefthook run pre-commit` executes the new check and fails correctly.
-- [ ] Remove any temporary dummy nodes/changes before completing the task.
+- [x] Temporarily create a dummy node with an invalid ID format (e.g., `task-abc-123.md` or missing sequence numbers) and verify the script fails.
+- [x] Temporarily duplicate an existing ID in a different node file and verify the global uniqueness check fails.
+- [x] Verify that running `pnpm lefthook run pre-commit` executes the new check and fails correctly.
+- [x] Remove any temporary dummy nodes/changes before completing the task.
