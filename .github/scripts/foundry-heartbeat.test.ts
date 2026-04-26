@@ -49,6 +49,19 @@ describe('Foundry Heartbeat', () => {
 
     // Mock API response
     globalFetch.mockResolvedValue({
+        headers: new Headers(),
+        redirected: false,
+        statusText: 'OK',
+        type: 'basic',
+        url: '',
+        clone: () => ({} as Response),
+        body: null,
+        bodyUsed: false,
+        arrayBuffer: async () => new ArrayBuffer(0),
+        blob: async () => new Blob(),
+        formData: async () => new FormData(),
+        text: async () => '',
+        bytes: async () => new Uint8Array(),
       ok: true,
       status: 200,
       json: async () => ({ state: 'FAILED' })
@@ -89,6 +102,19 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
     globalFetch.mockResolvedValue({
+        headers: new Headers(),
+        redirected: false,
+        statusText: 'OK',
+        type: 'basic',
+        url: '',
+        clone: () => ({} as Response),
+        body: null,
+        bodyUsed: false,
+        arrayBuffer: async () => new ArrayBuffer(0),
+        blob: async () => new Blob(),
+        formData: async () => new FormData(),
+        text: async () => '',
+        bytes: async () => new Uint8Array(),
       ok: false,
       status: 404,
       json: async () => ({ error: { status: 'NOT_FOUND' } })
@@ -115,6 +141,19 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
     globalFetch.mockResolvedValue({
+        headers: new Headers(),
+        redirected: false,
+        statusText: 'OK',
+        type: 'basic',
+        url: '',
+        clone: () => ({} as Response),
+        body: null,
+        bodyUsed: false,
+        arrayBuffer: async () => new ArrayBuffer(0),
+        blob: async () => new Blob(),
+        formData: async () => new FormData(),
+        text: async () => '',
+        bytes: async () => new Uint8Array(),
       ok: true,
       status: 200,
       json: async () => ({ state: 'IN_PROGRESS' })
@@ -162,9 +201,22 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    globalFetch.mockImplementation((url: string) => {
-      if (url.includes('jules.googleapis.com')) {
+    globalFetch.mockImplementation((url: string | URL | Request): Promise<Response> => {
+      if (typeof url === 'string' && url.includes('jules.googleapis.com')) {
         return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(),
           ok: true,
           status: 200,
           json: async () => ({ 
@@ -173,14 +225,40 @@ describe('Foundry Heartbeat', () => {
           })
         });
       }
-      if (url.includes('pulls/402')) {
+      if (typeof url === 'string' && url.includes('pulls/402')) {
         return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(),
           ok: true,
           status: 200,
           json: async () => ({ number: 402, state: 'open', html_url: '...' })
         });
       }
-      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+      return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(), ok: false, status: 404, json: async () => ({}) });
     });
 
     await main();
@@ -204,9 +282,22 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    globalFetch.mockImplementation((url) => {
-      if (url.includes('jules.googleapis.com')) {
+    globalFetch.mockImplementation((url: string | URL | Request): Promise<Response> => {
+      if (typeof url === 'string' && url.includes('jules.googleapis.com')) {
         return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(),
           ok: true,
           status: 200,
           json: async () => ({
@@ -215,14 +306,40 @@ describe('Foundry Heartbeat', () => {
           })
         });
       }
-      if (url.includes('pulls/402')) {
+      if (typeof url === 'string' && url.includes('pulls/402')) {
         return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(),
           ok: true,
           status: 200,
           json: async () => ({ number: 402, state: 'closed', merged: true })
         });
       }
-      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+      return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(), ok: false, status: 404, json: async () => ({}) });
     });
 
     await main();
@@ -247,29 +364,81 @@ describe('Foundry Heartbeat', () => {
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    globalFetch.mockImplementation((url: string) => {
-      if (url.includes('jules.googleapis.com')) {
+    globalFetch.mockImplementation((url: string | URL | Request): Promise<Response> => {
+      if (typeof url === 'string' && url.includes('jules.googleapis.com')) {
         return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(),
           ok: true,
           status: 200,
           json: async () => ({ state: 'COMPLETED' }) // No PR link here
         });
       }
-      if (url.includes('search/issues')) {
+      if (typeof url === 'string' && url.includes('search/issues')) {
         return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(),
           ok: true,
           status: 200,
           json: async () => ({ items: [] }) // Search fails
         });
       }
-      if (url.includes('repos/szubster/dexhelper/pulls?state=all')) {
+      if (typeof url === 'string' && url.includes('repos/szubster/dexhelper/pulls?state=all')) {
         return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(),
           ok: true,
           status: 200,
           json: async () => [{ number: 405, state: 'open', body: 'session-fallback' }] // Found in list!
         });
       }
-      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+      return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(), ok: false, status: 404, json: async () => ({}) });
     });
 
     await main();
@@ -317,15 +486,41 @@ describe('Foundry Heartbeat', () => {
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-      globalFetch.mockImplementation((url: string) => {
-        if (url.includes('pulls/999')) {
+      globalFetch.mockImplementation((url: string | URL | Request): Promise<Response> => {
+        if (typeof url === 'string' && url.includes('pulls/999')) {
           return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(),
             ok: true,
             status: 200,
             json: async () => ({ number: 999, state: 'closed', merged: true })
           });
         }
-        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+        return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(), ok: false, status: 404, json: async () => ({}) });
       });
 
       await main();
@@ -352,15 +547,41 @@ describe('Foundry Heartbeat', () => {
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-      globalFetch.mockImplementation((url: string) => {
-        if (url.includes('pulls/888')) {
+      globalFetch.mockImplementation((url: string | URL | Request): Promise<Response> => {
+        if (typeof url === 'string' && url.includes('pulls/888')) {
           return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(),
             ok: true,
             status: 200,
             json: async () => ({ number: 888, state: 'closed', merged: false })
           });
         }
-        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+        return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(), ok: false, status: 404, json: async () => ({}) });
       });
 
       await main();
@@ -387,15 +608,41 @@ describe('Foundry Heartbeat', () => {
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-      globalFetch.mockImplementation((url: string) => {
-        if (url.includes('pulls/777')) {
+      globalFetch.mockImplementation((url: string | URL | Request): Promise<Response> => {
+        if (typeof url === 'string' && url.includes('pulls/777')) {
           return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(),
             ok: true,
             status: 200,
             json: async () => ({ number: 777, state: 'open' })
           });
         }
-        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+        return Promise.resolve({
+          headers: new Headers(),
+          redirected: false,
+          statusText: 'OK',
+          type: 'basic',
+          url: '',
+          clone: () => ({} as Response),
+          body: null,
+          bodyUsed: false,
+          arrayBuffer: async () => new ArrayBuffer(0),
+          blob: async () => new Blob(),
+          formData: async () => new FormData(),
+          text: async () => '',
+          bytes: async () => new Uint8Array(), ok: false, status: 404, json: async () => ({}) });
       });
 
       await main();

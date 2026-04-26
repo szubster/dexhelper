@@ -31,6 +31,8 @@ import { createRequire } from 'node:module';
 // gray-matter is CJS; import via require() for clean ESM interop.
 const require = createRequire(import.meta.url);
 const matter = require('gray-matter') as typeof import('gray-matter');
+// @ts-ignore
+import type {} from 'gray-matter';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -494,7 +496,7 @@ function main(): void {
   // ── Phase 3.6: IMPOSSIBLE LOOP ─────────────────────────────────────────────
   info('Phase 3.6: Checking for Impossible Loop conditions...');
   for (const node of nodes) {
-    if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason) {
+    if (node.frontmatter.status === 'FAILED' && (node.frontmatter as any).rejection_reason) {
       if (node.frontmatter.parent) {
         const parentNode = nodeMap.get(node.frontmatter.parent);
         if (parentNode && parentNode.frontmatter.status !== 'ACTIVE') {

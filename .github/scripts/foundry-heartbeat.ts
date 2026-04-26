@@ -226,7 +226,7 @@ export async function main() {
     let sessionStatus: string | null = null;
 
     if (isHuman) {
-      const prNumber = node.frontmatter.pr_number;
+      const prNumber = (node.frontmatter as any).pr_number;
       if (prNumber) {
         try {
           const prRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls/${prNumber}`, {
@@ -241,7 +241,7 @@ export async function main() {
       }
     } else {
       // A. Robust PR Discovery
-      const res = await findPRForSession(repoFullName, githubToken, julesKey, sessionId);
+      const res = await findPRForSession(repoFullName, githubToken, julesKey, sessionId!);
       pr = res.pr;
       sessionStatus = res.sessionStatus;
     }

@@ -15,6 +15,8 @@ import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const matter = require('gray-matter') as typeof import('gray-matter');
+// @ts-ignore
+import type {} from 'gray-matter';
 
 function info(msg: string): void {
   process.stderr.write(`[active-transition] INFO  ${msg}\n`);
@@ -143,5 +145,5 @@ async function main() {
 }
 
 if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('foundry-active.ts')) {
-  main();
+  void main();
 }

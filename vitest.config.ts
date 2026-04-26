@@ -4,7 +4,7 @@ import viteConfigFn from './vite.config';
 
 export default defineConfig(async (configEnv) => {
   const baseConfig = typeof viteConfigFn === 'function' 
-    ? await viteConfigFn({ ...configEnv, command: 'serve', mode: 'test' }) 
+    ? viteConfigFn({ ...configEnv, command: 'serve', mode: 'test' })
     : viteConfigFn;
 
   return mergeConfig(baseConfig, {

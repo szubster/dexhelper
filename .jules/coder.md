@@ -6,3 +6,4 @@
   - The false positive with `jest/no-disabled-tests` in `src/engine/saveParser/parsers/saveFixtures.test.ts` where `baseTest.extend` is used is properly bypassed with an inline `// oxlint-disable-next-line jest/no-disabled-tests` directive.
   - `jest/no-standalone-expect` is correctly handled by providing `additionalTestBlockFunctions` in `.oxlintrc.json`.
   - Full test suite passed (node, browser, and e2e tests).
+Enabled oxlint type-aware and type-check options and fixed the new types.
