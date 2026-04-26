@@ -27,3 +27,9 @@
 **Outcome:** Accepted
 **Why:** The layout reinforces the "snooping" and utility-driven fantasy of a Pokédex, matching the success of the tactical grid views and correcting the failure of the previous "polished holographic" layout.
 **Pattern:** Continue expanding the tactical/hardware UI patterns (sharp borders, dashed outlines, corner crosshairs, monospace fonts) to major components, moving away from generic rounded "glassmorphism" web UI where appropriate.
+
+## 2025-05-25 - [Rejected] - 🖼️ Canvas: Tactical Storage Grid Redesign
+**What:** Redesigned StorageGrid to match the utility-driven tactical "snooping" aesthetic, featuring sharp, dashed-border unit cards, corner crosshairs, monospace telemetry headers ("SYS.DIR"), and radar scanline effects.
+**Outcome:** Rejected → journaled
+**Why:** The maintainer correctly pointed out that the card UI was largely a duplicate of `PokedexCard.tsx`, violating DRY principles, and requested a refactor to reuse the component instead of copying the layout.
+**Pattern:** When applying a successful design pattern to a new area, ensure the underlying components are refactored for reuse rather than duplicating complex UI markup (like the tactical card layout and scanline effects).
