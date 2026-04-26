@@ -1,5 +1,5 @@
 ---
-id: epic-012-gastown-orchestrator
+id: very-bad
 type: EPIC
 title: "Gastown Cloudflare Worker Migration Evaluation"
 status: "ACTIVE"
