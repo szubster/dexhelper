@@ -28,6 +28,12 @@
 **Why:** The layout reinforces the "snooping" and utility-driven fantasy of a Pokédex, matching the success of the tactical grid views and correcting the failure of the previous "polished holographic" layout.
 **Pattern:** Continue expanding the tactical/hardware UI patterns (sharp borders, dashed outlines, corner crosshairs, monospace fonts) to major components, moving away from generic rounded "glassmorphism" web UI where appropriate.
 
+## 2025-06-01 - [Accepted] - 🖼️ Canvas: Tactical Search Terminal Layout
+**What:** Redesigned the `SearchAndFilters` component to use a tactical hardware search terminal design, replacing the rounded generic glassmorphism inputs with sharp dashed outlines, corner crosshairs, telemetry labels ("Database Scan"), and precise hardware-style filter toggles.
+**Outcome:** Accepted
+**Why:** Continues the successful strategy of establishing a specialized hardware UI aesthetic, improving visual cohesion across the application layout alongside the grid and details views.
+**Pattern:** Extend the tactical hardware motif to structural app navigation elements (search bars, filters), replacing rounded forms with sharp utilitarian structures.
+
 ## 2025-05-25 - [Rejected] - 🖼️ Canvas: Tactical Storage Grid Redesign
 **What:** Redesigned StorageGrid to match the utility-driven tactical "snooping" aesthetic, featuring sharp, dashed-border unit cards, corner crosshairs, monospace telemetry headers ("SYS.DIR"), and radar scanline effects.
 **Outcome:** Rejected → journaled
