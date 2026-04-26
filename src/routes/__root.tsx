@@ -1,10 +1,9 @@
 import type { QueryClient } from '@tanstack/react-query';
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import { AppLayout } from '../components/AppLayout';
 import { SyncProgress } from '../components/SyncProgress';
 import { pokeDB } from '../db/PokeDB';
-import { useStore } from '../store';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
 const TanStackRouterDevtools =
@@ -41,13 +40,6 @@ export const Route = createRootRouteWithContext<RootContext>()({
 });
 
 function RootComponent() {
-  const loadSaveFromStorage = useStore((s) => s.loadSaveFromStorage);
-
-  // Load saved data from localStorage on mount
-  useEffect(() => {
-    loadSaveFromStorage();
-  }, [loadSaveFromStorage]);
-
   return (
     <AppLayout>
       <Outlet />

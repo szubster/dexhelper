@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
 import { argosScreenshot } from '../../src/utils/argos';
-import { clearStorage, waitForSync } from './test-utils';
+import { clearStorage } from './test-utils';
 
 test.describe('Save Management', () => {
   test('should upload a save file and persist it on reload', async ({ page }) => {
@@ -34,18 +34,8 @@ test.describe('Save Management', () => {
         .first(),
     ).toBeVisible();
 
-    // 5. Persistence: Reload page
-    await page.reload();
-    await waitForSync(page);
-
-    // 6. Verify it's still hydrated (persisted in localStorage)
-    await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
-    await expect(
-      page
-        .locator('header')
-        .getByText(/TRAINER/i)
-        .first(),
-    ).toBeVisible();
+    // 5. Persistence: The store no longer persists save data to avoid blowing up quota
+    // We can't verify rehydration from localstorage anymore. We verified it uploads.
 
     await argosScreenshot(page, 'save-persisted-yellow');
   });

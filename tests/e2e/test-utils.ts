@@ -14,22 +14,14 @@ export async function initializeWithSave(page: Page, savePath: string = 'tests/f
   // 2. Wait for initial synchronization to complete if any is happening
   await waitForSync(page);
 
-  // 3. Check if we're already initialized (from storageState)
-  // We use a shorter timeout here as we expect the state to be ready if it exists.
-  const isInitialized = await page
-    .getByText(/TRAINER/i)
-    .first()
-    .isVisible({ timeout: 2000 });
+  // 3. Since we removed localStorage state store sync, we always need to re-initialize
+  // Wait for the file input to be available in AppLayout
+  const fileInput = page.locator('input[type="file"]');
+  await expect(fileInput).toBeVisible({ timeout: 10000 });
+  await fileInput.setInputFiles(savePath);
 
-  if (!isInitialized) {
-    // Wait for the file input to be available in AppLayout
-    const fileInput = page.locator('input[type="file"]');
-    await expect(fileInput).toBeVisible({ timeout: 10000 });
-    await fileInput.setInputFiles(savePath);
-
-    // ⚡ Bolt: Wait for synchronization triggered by save upload
-    await waitForSync(page);
-  }
+  // ⚡ Bolt: Wait for synchronization triggered by save upload
+  await waitForSync(page);
 
   // 4. Final verification: Trainer info and Pokedex should be visible
   await expect(page.getByText(/TRAINER/i).first()).toBeVisible({ timeout: 20000 });
@@ -39,6 +31,7 @@ export async function initializeWithSave(page: Page, savePath: string = 'tests/f
 /**
  * Wait for the IndexedDB synchronization process to finish.
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function waitForSync(page: Page) {
   // The overlay might not appear immediately (especially on fast machines)
   // or it might already be gone. We check for it but don't fail if it's not found.
