@@ -19,6 +19,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 
 
 **NODE GENERATION RULES:**
+- When a target Foundry artifact (such as a downstream node file) unexpectedly exists prior to the session, do not append trivial dummy checkboxes or formatting to the target simply to create a diff. Instead, review the existing artifact, refine it if necessary, and create a meaningful diff by updating the markdown body of your currently assigned node (e.g., checking off acceptance criteria and adding an explanatory note). Create a small journal entry detailing the anomaly for the Agile Coach to review later.
 - Set the `owner_persona` of newly created downstream nodes to the persona responsible for the NEXT pipeline transition (e.g., `story_owner` for EPICs, `coder` for TASKs), not yourself.
 - Determine the correctly incremented global sequence number by listing and sorting the existing files in the corresponding directory (e.g., `ls -1 .foundry/tasks/ | sort -n -t '-' -k 3`).
 - When creating a new node, strictly follow the Parent-Linked ID Schema: `<type>-<parent_NNN>-<NNN>-<slug>` as detailed in `.foundry/docs/schema.md`.
