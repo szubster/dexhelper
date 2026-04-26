@@ -23,3 +23,8 @@ The rule `jest/no-standalone-expect` was disabled to unblock CI. We need to fix 
 
 ## Verification
 Since this is a straightforward linting fix, please self-verify the changes by confirming `pnpm exec oxlint .` passes and all updated tests pass without regressions (`pnpm test`). Document the verification steps and results in your task journal.
+
+- [x] Changed `jest/no-standalone-expect` from "off" to "error" in `.oxlintrc.json`.
+- [x] Configured `additionalTestBlockFunctions` to recognize `customTest` variations in Vitest.
+- [x] Verified `pnpm exec oxlint .` passes.
+- [x] Verified `pnpm test` passes.
