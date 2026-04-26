@@ -1,5 +1,5 @@
 import * as fs from 'node:fs';
-import { test as baseTest, describe, expect } from 'vitest';
+import { test as baseTest, describe } from 'vitest';
 import type { SaveData } from './common';
 import { parseGen1 } from './gen1';
 import { parseGen2 } from './gen2';
@@ -85,23 +85,16 @@ describe('Real Save Fixtures Verification', () => {
     expectedTrainer,
     expectedId,
     expectedPartyLength,
-  }, { loadSaveData }) => {
+  }, { loadSaveData, expect }) => {
     const data = loadSaveData(file, gen);
 
-    // oxlint doesn't know test.for, but test is perfectly valid here
-    // eslint-disable-next-line vitest/no-standalone-expect
     expect(data.generation).toBe(gen);
-    // eslint-disable-next-line vitest/no-standalone-expect
     expect(data.gameVersion).toBe(expectedVersion);
-    // eslint-disable-next-line vitest/no-standalone-expect
     expect(data.trainerName).toBe(expectedTrainer);
-    // eslint-disable-next-line vitest/no-standalone-expect
     expect(data.trainerId).toBe(expectedId);
-    // eslint-disable-next-line vitest/no-standalone-expect
     expect(data.party).toHaveLength(expectedPartyLength);
 
     // Verify PC box counts don't error and are numbers
-    // eslint-disable-next-line vitest/no-standalone-expect
     expect(typeof data.pc.length).toBe('number');
   });
 });
