@@ -4,10 +4,10 @@ import React, { Suspense } from 'react';
 import { AppLayout } from '../components/AppLayout';
 import { SyncProgress } from '../components/SyncProgress';
 import { pokeDB } from '../db/PokeDB';
-import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 import { saveDB } from '../db/SaveDB';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
+import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
 const TanStackRouterDevtools =
   import.meta.env.PROD || window.navigator.webdriver
@@ -50,7 +50,7 @@ function RootComponent() {
     saveDB.getSave('last_save_file').then((buffer) => {
       if (buffer) {
         try {
-          const data = parseSaveFile(buffer.buffer, manualVersion || undefined);
+          const data = parseSaveFile(buffer.buffer as ArrayBuffer, manualVersion || undefined);
           setSaveData(data);
         } catch {
           saveDB.deleteSave('last_save_file');
