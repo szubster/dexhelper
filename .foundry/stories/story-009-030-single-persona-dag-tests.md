@@ -2,12 +2,12 @@
 id: "story-009-030-single-persona-dag-tests"
 type: "STORY"
 title: "Story: Single-Persona DAG Resolution Unit Tests"
-status: READY
+status: "ACTIVE"
 owner_persona: "tech_lead"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"
 depends_on: []
-jules_session_id: null
+jules_session_id: "16809705098419869453"
 parent: ".foundry/epics/epic-009-atomic-handoff-testing.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 ---
