@@ -23,7 +23,7 @@ Even though we use vitest, oxlint uses the jest plugin to lint test files. We tu
 
 ## Acceptance Criteria
 - [x] Tasks are created to fix and enable these rules.
-- [ ] `pnpm exec oxlint .` passes with these rules enabled.
+- [x] `pnpm exec oxlint .` passes with these rules enabled.
 
 ## Generated Tasks
 - [.foundry/tasks/task-017-041-fix-jest-standalone-expect.md](../tasks/task-017-041-fix-jest-standalone-expect.md)
