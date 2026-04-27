@@ -39,3 +39,8 @@ Documenting these mechanical quirks is essential for future maintainability of t
 
 **What:** Documented `src/store.ts` Zustand properties and actions.
 **Why:** The `AppStore` interface mixes persisted user settings (via localStorage `partialize`, like `isLivingDex` and `filters`) with heavy transient data (like the entire parsed `saveData`) and lightweight UI view state (like `isSettingsOpen`). Documenting which properties belong to which lifecycle prevents future developers from accidentally persisting the massive `saveData` object into localStorage, which would bloat the storage quota and cause stale state bugs on reload.
+
+## 2025-05-20 - AssistantStrategy documentation
+
+**What:** Added JSDoc for `AssistantStrategy` interface in `src/engine/assistant/strategies/types.ts`.
+**Why:** The `AssistantStrategy` interface is the core contract for adding new generations to the suggestion engine, so it should be well-documented.
