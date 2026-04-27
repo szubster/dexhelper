@@ -159,7 +159,7 @@ const syncData = async () => {
           ...d,
         }));
 
-        pStore.put({
+        void pStore.put({
           ...DEFAULT_POKEMON_METADATA,
           ...p,
           det: inflatedDet,
@@ -177,12 +177,12 @@ const syncData = async () => {
             max: d.max ?? d.min,
           })),
         }));
-        eStore.put({ pid: e.pid, enc: inflatedEnc });
+        void eStore.put({ pid: e.pid, enc: inflatedEnc });
       }
 
       emit(3, 3, 'Locations');
       for (const l of data.loc) {
-        lStore.put({
+        void lStore.put({
           ...DEFAULT_LOCATION,
           ...l,
           prnt: l.prnt, // stay undefined if omitted
