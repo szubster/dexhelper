@@ -1,27 +1,20 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
 import { page } from '@vitest/browser/context';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
 import { render } from 'vitest-browser-react';
 import { saveDB } from '../../db/SaveDB';
+import { parseSaveFile } from '../../engine/saveParser/index';
 import { useStore } from '../../store';
 import { reloadPage } from '../../utils/window';
 import { AppLayout } from '../AppLayout';
-import { parseSaveFile } from '../../engine/saveParser/index';
 
 vi.mock('../../utils/window', () => ({
   reloadPage: vi.fn<() => void>(),
 }));
 
 vi.mock('../../engine/saveParser/index', () => ({
-  parseSaveFile: vi.fn(() => ({
-    gameVersion: 'unknown',
-    generation: 1,
-    trainerName: 'TEST',
-    trainerId: 12345,
-    party: [],
-    pc: [],
-  })),
+  parseSaveFile: vi.fn<typeof parseSaveFile>(),
 }));
 
 describe('AppLayout chunk error handling', () => {
@@ -109,6 +102,14 @@ describe('AppLayout file upload', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     useStore.getState().setSaveData(null);
+    (parseSaveFile as Mock).mockReturnValue({
+      gameVersion: 'unknown',
+      generation: 1,
+      trainerName: 'TEST',
+      trainerId: 12345,
+      party: [],
+      pc: [],
+    });
   });
 
   afterEach(() => {
@@ -126,6 +127,21 @@ describe('AppLayout file upload', () => {
     const file = new File(['mock save content'], 'save.sav', { type: 'application/octet-stream' });
 
     await expect.element(page.getByText('Initialize Pokedex')).toBeInTheDocument();
+
+    // biome-ignore lint/suspicious/noExplicitAny: Required for mock overriding context
+    const readAsArrayBufferMock = vi.fn<(_f: File) => void>(function (this: any, _f: File) {
+      const buffer = new ArrayBuffer(10);
+      if (this.onload) {
+        // biome-ignore lint/suspicious/noExplicitAny: internal mock state
+        this.onload({ target: { result: buffer } } as any);
+      }
+    });
+    vi.stubGlobal(
+      'FileReader',
+      class {
+        readAsArrayBuffer = readAsArrayBufferMock;
+      },
+    );
 
     const element = document.querySelector('input[type="file"]') as HTMLInputElement;
     const dataTransfer = new DataTransfer();
@@ -146,14 +162,15 @@ describe('AppLayout file upload', () => {
     const changeEvent = new Event('change', { bubbles: true, cancelable: true });
     element.dispatchEvent(changeEvent);
 
-    // Since mock FileReader does not trigger onload immediately in the browser execution,
-    // instead of a full DOM click flow that is flaky, let's trigger handleFileUpload more directly if possible,
-    // but the test runs in Playwright where the browser does support real FileReader.
-
     // Wait for the effect
-    await vi.waitFor(() => {
-      expect(parseSaveFile).toHaveBeenCalled();
-      expect(putSaveSpy).toHaveBeenCalled();
-    }, { timeout: 3000 });
+    await vi.waitFor(
+      () => {
+        expect(parseSaveFile).toHaveBeenCalled();
+        expect(putSaveSpy).toHaveBeenCalled();
+      },
+      { timeout: 3000 },
+    );
+
+    vi.unstubAllGlobals();
   });
 });
