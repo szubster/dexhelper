@@ -18,4 +18,7 @@ tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 Implement unit tests to verify that the orchestrator correctly identifies and prevents deadlocks when resolving dependencies.
 
 ## Acceptance Criteria
-- [ ] Unit tests verify deadlock prevention mechanisms function correctly.
+- [x] Unit tests verify deadlock prevention mechanisms function correctly.
+
+### Generated Tasks
+- .foundry/tasks/task-031-048-implement-deadlock-tests.md
