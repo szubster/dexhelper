@@ -42,7 +42,7 @@ export const Route = createRootRouteWithContext<RootContext>()({
   component: RootComponent,
 });
 
-function RootComponent() {
+export function RootComponent() {
   const setSaveData = useStore((s) => s.setSaveData);
   const manualVersion = useStore((s) => s.manualVersion);
 
