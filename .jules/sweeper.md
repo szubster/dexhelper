@@ -9,3 +9,9 @@
 ## 2026-04-23 - Cleaned up unused files and dead code with knip
 **Learning:** `knip` often correctly identifies completely dead files and code, but you must manually check if they are implicitly used by configurations, scripts or test-runners. For example, `src/node-setup.ts`, `tests/e2e/test-utils.ts`, `vite-plugins/pokedata-plugin.ts` and `scripts/generate-pokedata.ts` were flagged by `knip --production` but are strictly required. Removing those will break tests and the build setup. Before submitting, always ensure to run `pnpm lint && pnpm test && pnpm test:e2e` to catch such broken functionality locally.
 **Action:** Be extremely cautious to evaluate if `knip`'s findings are actually dead files, or simply testing/build artifacts. Double check with a repository-wide search (`grep`).
+
+## 2026-04-27 - Resolved tech debt flagged by knip
+- Resolved tech debt flagged by `knip`.
+- Deleted dead code (`src/db/SaveDB.ts`).
+- Removed unused `export` statements from internal types.
+- Critical learning: Knip does not natively parse `lefthook.yml` scripts, so `scripts/**` must be added to the ignore list in `knip.json` to prevent them from being flagged as unused.

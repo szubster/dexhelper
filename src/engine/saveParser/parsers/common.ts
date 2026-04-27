@@ -1,5 +1,5 @@
 export type GameVersion = 'red' | 'blue' | 'yellow' | 'gold' | 'silver' | 'crystal' | 'unknown';
-export type Generation = number;
+type Generation = number;
 
 /**
  * Represents a single caught Pokémon found in the player's party, PC boxes, or Daycare.
