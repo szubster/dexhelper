@@ -2,7 +2,7 @@
 id: task-031-051-implement-dual-write-persistence
 type: TASK
 title: "Implement Dual-Write Persistence"
-status: "PENDING"
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"
