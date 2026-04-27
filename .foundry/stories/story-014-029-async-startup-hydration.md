@@ -18,8 +18,9 @@ tags: ["state", "store", "indexeddb", "hydration"]
 This Story focuses on implementing the asynchronous startup hydration logic. It fetches the binary save from IndexedDB and loads it into the parser state. It will ensure that the core state seamlessly operates with the new async paradigm.
 
 ## Acceptance Criteria
-- [ ] Asynchronous startup hydration logic loads the binary save from IndexedDB into the game parser.
-- [ ] The core state seamlessly operates with the new async paradigm.
+- [x] Asynchronous startup hydration logic loads the binary save from IndexedDB into the game parser.
+- [x] The core state seamlessly operates with the new async paradigm.
 
 ## Generated Tasks
 - .foundry/tasks/task-029-050-implement-async-hydration.md
+- .foundry/tasks/task-029-054-qa-async-hydration.md
