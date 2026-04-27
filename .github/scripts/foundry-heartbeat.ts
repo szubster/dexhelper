@@ -65,10 +65,9 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
   const originalFmBlock = fmBlockMatch[0];
   let mutatedFmBlock = originalFmBlock;
 
-  // Check if there are unchecked tasks in the markdown body
-  const bodyContent = node.rawContent.slice(fmBlockMatch[0].length);
-  const hasUncheckedTasks = /^\s*-\s*\[\s\]\s/m.test(bodyContent);
-  const targetStatus = hasUncheckedTasks ? "PENDING" : "COMPLETED";
+  // With the shift to strict DAG dependencies, we no longer rely on checkboxes.
+  // A node is COMPLETED when its PR is merged. Downstream blocking is handled by the DAG.
+  const targetStatus = "COMPLETED";
 
   mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?ACTIVE["']?([ \t]*)$/m, `$1"${targetStatus}"$2`);
   mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);

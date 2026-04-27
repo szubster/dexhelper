@@ -411,12 +411,10 @@ function main(): void {
    * Helper to recursively check if a node (parent or dependency) is "incomplete"
    * and thus blocks downstream work.
    *
-   * A node is hierarchically incomplete if:
+   * A node is incomplete if:
    * 1. Its status is NOT 'COMPLETED'.
    * 2. ANY of its recursive children (sub-tasks/stories) are incomplete.
-   *
-   * Note: This function only traverses the parent -> child tree. It does NOT
-   * follow 'depends_on' links to avoid circular deadlock between parents and children.
+   * 3. ANY of its recursive dependencies are incomplete.
    */
   function isHierarchicallyIncomplete(nodePath: string): boolean {
     if (evalCache.has(nodePath)) return evalCache.get(nodePath)!;
@@ -440,11 +438,21 @@ function main(): void {
       return true;
     }
 
-    // 3. If node is COMPLETED, it is still incomplete if its children (recursive) are not done.
+    // 3. If node is COMPLETED, it is still incomplete if its children or dependencies are not done.
+    // Set cache to 'true' temporarily to prevent infinite recursion in case of cycles.
+    evalCache.set(nodePath, true);
+
+    // Check recursive children
     const children = parentToChildren.get(nodePath) || [];
     for (const child of children) {
       if (isHierarchicallyIncomplete(child.repoPath)) {
-        evalCache.set(nodePath, true);
+        return true;
+      }
+    }
+
+    // Check recursive dependencies
+    for (const depPath of node.frontmatter.depends_on) {
+      if (isHierarchicallyIncomplete(depPath)) {
         return true;
       }
     }
