@@ -65,7 +65,7 @@
     "browserslist": "^4.28.2",
     "bundlemon": "^3.1.0",
     "fake-indexeddb": "^6.2.5",
-    "knip": "^6.6.2",
+    "knip": "^6.7.0",
     "lefthook": "^2.1.6",
     "lightningcss": "^1.32.0",
     "oxlint": "^1.61.0",
