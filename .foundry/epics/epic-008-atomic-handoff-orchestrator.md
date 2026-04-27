@@ -7,7 +7,6 @@ owner_persona: "story_owner"
 created_at: "2026-04-22"
 updated_at: "2026-04-26"
 depends_on:
-  - .foundry/prds/prd-001-v2-lifecycle.md
   - .foundry/epics/epic-007-atomic-handoff-schema.md
 jules_session_id: null
 parent: ".foundry/prds/prd-001-v2-lifecycle.md"
