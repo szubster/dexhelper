@@ -6,8 +6,7 @@ status: "COMPLETED"
 owner_persona: coder
 created_at: "2026-04-23"
 updated_at: "2026-04-24"
-depends_on:
-  - .foundry/stories/story-005-013-tpm-archiving-logic.md
+depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-005-013-tpm-archiving-logic.md
 tags: ["infrastructure"]

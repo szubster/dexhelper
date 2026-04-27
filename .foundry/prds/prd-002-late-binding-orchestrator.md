@@ -6,8 +6,7 @@ status: "COMPLETED"
 owner_persona: "epic_planner"
 created_at: "2026-04-21"
 updated_at: "2026-04-23"
-depends_on:
-  - .foundry/ideas/idea-005-late-binding-orchestrator.md
+depends_on: []
 jules_session_id: null
 parent: ".foundry/ideas/idea-005-late-binding-orchestrator.md"
 tags:

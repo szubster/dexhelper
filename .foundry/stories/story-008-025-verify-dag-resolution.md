@@ -24,5 +24,5 @@ We need to ensure that the DAG resolves without deadlocks given atomic files dep
 - [x] The system ensures no deadlocks occur during resolution.
 
 ## Tasks
-- `.foundry/tasks/task-025-044-implement-dag-atomic-test.md`
+- `.foundry/archive/tasks/task-025-044-implement-dag-atomic-test.md`
 - `.foundry/tasks/task-025-045-qa-dag-atomic-test.md`

@@ -6,8 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
-depends_on:
-  - .foundry/stories/story-001-matrix-runner.md
+depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-001-matrix-runner.md
 ---

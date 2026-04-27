@@ -6,8 +6,7 @@ status: "COMPLETED"
 owner_persona: "epic_planner"
 created_at: "2026-04-21"
 updated_at: "2026-04-22"
-depends_on:
-  - .foundry/ideas/idea-003-atomic-handoff-foundation.md
+depends_on: []
 jules_session_id: null
 parent: ".foundry/ideas/idea-003-atomic-handoff-foundation.md"
 tags:
