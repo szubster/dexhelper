@@ -22,6 +22,11 @@ This Epic ensures that the orchestrator refactors and schema updates are heavily
 - Completion of Orchestrator Script Refactor (`.foundry/epics/epic-008-atomic-handoff-orchestrator.md`)
 
 ## Acceptance Criteria
-- [ ] Unit tests added for DAG resolution with strictly single-persona nodes.
-- [ ] Unit tests verify deadlock prevention mechanisms.
-- [ ] Integration tests simulate a full IDEA -> PRD -> EPIC -> STORY -> TASK lifecycle using atomic files.
+- [x] Unit tests added for DAG resolution with strictly single-persona nodes.
+- [x] Unit tests verify deadlock prevention mechanisms.
+- [x] Integration tests simulate a full IDEA -> PRD -> EPIC -> STORY -> TASK lifecycle using atomic files.
+
+### Generated Stories
+- `.foundry/stories/story-009-030-single-persona-dag-tests.md`
+- `.foundry/stories/story-009-031-deadlock-prevention-tests.md`
+- `.foundry/stories/story-009-032-lifecycle-integration-tests.md`
