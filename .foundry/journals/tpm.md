@@ -66,3 +66,5 @@
 - **2026-04-27**: PR #667 merged. `story-010-017-fix-jest-rules` is now COMPLETED.
 
 - **2026-04-27**: Heartbeat detected zombie session for `task-016-039-oxlint-type-aware`. Transitioned to FAILED.
+
+- **2026-04-27**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: Retry from FAILED status.. Transitioned back to READY.
