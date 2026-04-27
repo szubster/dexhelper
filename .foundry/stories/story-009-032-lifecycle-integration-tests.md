@@ -18,4 +18,8 @@ tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 Implement integration tests simulating a complete lifecycle using atomic nodes to ensure the orchestrator handles realistic end-to-end scenarios without failure.
 
 ## Acceptance Criteria
-- [ ] Integration tests simulate a full IDEA -> PRD -> EPIC -> STORY -> TASK lifecycle using atomic files.
+- [x] Integration tests simulate a full IDEA -> PRD -> EPIC -> STORY -> TASK lifecycle using atomic files.
+
+## Child Tasks
+- `.foundry/tasks/task-032-048-implement-lifecycle-tests.md`
+- `.foundry/tasks/task-032-049-qa-lifecycle-tests.md`
