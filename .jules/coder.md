@@ -7,3 +7,7 @@
   - `jest/no-standalone-expect` is correctly handled by providing `additionalTestBlockFunctions` in `.oxlintrc.json`.
   - Full test suite passed (node, browser, and e2e tests).
 - **What**: Verified and fully confirmed the `jest/no-disabled-tests` rule as `error` in `.oxlintrc.json`. No code changes were necessary as the change was previously implemented. Validated with `pnpm exec oxlint .` and full `pnpm test` suite which completed successfully.
+
+## Verification Log: Task task-029-047-write-gastown-adr
+- Verified creation of `.foundry/docs/adrs/003-gastown-migration-decision.md` containing Cloudflare Workers evaluation, D1 schema, and migration plan.
+- The document conforms to the ADR format.
