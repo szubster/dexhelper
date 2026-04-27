@@ -78,3 +78,5 @@
 - **2026-04-27**: PR #679 merged. `story-009-031-deadlock-prevention-tests` is now COMPLETED.
 
 - **2026-04-27**: PR #678 merged. `story-009-032-lifecycle-integration-tests` is now COMPLETED.
+
+- **2026-04-27**: Heartbeat detected zombie session for `story-014-029-async-startup-hydration`. Transitioned to FAILED.

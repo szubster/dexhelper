@@ -2,10 +2,10 @@
 id: story-014-029-async-startup-hydration
 type: STORY
 title: "Async Startup Hydration"
-status: "ACTIVE"
+status: "FAILED"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
-updated_at: "2026-04-26"
+updated_at: "2026-04-27"
 depends_on: []
 jules_session_id: null
 parent: .foundry/epics/epic-005-014-state-store-migration.md
