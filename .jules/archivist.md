@@ -29,3 +29,8 @@
 
 **Learning:** When refactoring drops a dependency (like `pokenode-ts`), references to it often persist in onboarding documents, creating an inaccurate view of the tech stack.
 **Action:** Routinely search onboarding and project overview documents for deprecated dependencies after a major migration.
+
+## 2026-04-27 - Archivist Run Learnings
+
+**Learning:** Multiple agents tend to document the same or highly similar learnings independently over time (e.g. O(N) array operations inside loops in `bolt.md`, or missing `focus-visible` styles across various UI components in `palette.md`), leading to bloated and redundant journals.
+**Action:** Consistently monitor agent journals for repeating themes and perform regular consolidations, merging duplicate entries into a single comprehensive guideline per topic to improve readability and maintain strong knowledge hygiene.

@@ -1,7 +1,3 @@
-## 2024-04-11 - Focus Visible Styles for Interactive Elements
-**Learning:** Custom UI elements, mapped list buttons, and standard HTML elements functioning as buttons/links in complex layouts (e.g., AppLayout, BottomNav) often omit focus indicators when custom styling is heavily applied. This breaks keyboard navigation.
-**Action:** Always ensure all interactive elements explicitly include the standard focus visible utilities (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950`) to maintain consistent accessibility and keyboard navigation across the application.
-
 ## 2024-04-12 - Custom Segmented Control ARIA Roles
 **Learning:** When creating custom segmented controls with mutually exclusive options, using `role="switch"` is incorrect as switches imply an on/off state. `role="group"` is also too generic. A segmented control is conceptually a set of radio buttons.
 **Action:** Use `role="radiogroup"` for the container and `role="radio"` for the individual buttons, along with `aria-checked={boolean}` and proper `aria-label`s on the container, to ensure screen readers correctly interpret the mutually exclusive selection pattern.
@@ -30,20 +26,12 @@
 **Learning:** Data grids and lists that can be heavily filtered or searched often lack empty states. When a user applies a combination of filters that yields no results, presenting an empty UI implies a bug or broken data load.
 **Action:** Always implement a distinct empty state for filtered lists. Use appropriate icons, clear messaging ("No results found"), and actionable advice (e.g., "Try adjusting your filters") to maintain context and guide the user.
 
-## 2026-04-10 - Palette: Add missing focus-visible to grid buttons
-**Learning:** The application had missing `focus-visible` styles on core grid interactive elements (`PokedexCard` and `StorageGrid` main buttons), which breaks keyboard navigation visibility.
-**Action:** Always include the standard `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` classes when adding or updating interactive list/grid items.
-
 # Palette UX/A11y Learnings
-
 
 ## 2026-04-23 - Role Group for Checkbox-like Filters
 **Learning:** Collections of buttons that act like a set of checkboxes (where multiple can be active simultaneously, indicated by `aria-pressed`) need a container role to group them semantically for screen readers.
 **Action:** When creating a row or container of toggle buttons (like multi-select filters), wrap them in a container with `role="group"` and an `aria-label` describing the filter's purpose (e.g., "Filter Pokémon").
 
-## 2026-04-24 - Focus Visible on Modal and Custom Action Buttons
-**Learning:** Several custom action buttons in modals (like the Close buttons in `SettingsModal` and `PokemonDetails`, Confirmation buttons in `ClearStorageButton`, and choice selectors in `VersionModal`) were missing standard `focus-visible` styles, leading to poor keyboard navigation visibility.
-**Action:** Always ensure that every custom button, regardless of its context (modals, overlays, inline prompts), includes the standard focus indicator utility classes (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` or a context-appropriate color variant like `ring-red-500` for destructive actions).
-## 2026-04-26 - Focus Visible Styles for Evolution Links
-**Learning:** Inline buttons functioning as text links within complex components like `PokemonEvolutions` can easily miss standard focus indicators, hiding keyboard navigation state.
-**Action:** Always ensure inline text buttons acting as navigation links include standard focus utilities (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-sm`) so they are clearly perceivable when navigating via keyboard.
+## 2026-04-26 - Focus Visible Styles for Interactive Elements
+**Learning:** Custom UI elements, mapped list buttons, and standard HTML elements functioning as buttons/links in complex layouts (e.g., AppLayout, BottomNav, PokedexCard, StorageGrid, Modals, PokemonEvolutions) often omit focus indicators when custom styling is heavily applied, hiding keyboard navigation state.
+**Action:** Always ensure all interactive elements explicitly include the standard focus visible utilities (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950` or a context-appropriate color variant like `ring-red-500` for destructive actions) to maintain consistent accessibility and keyboard navigation across the application.
