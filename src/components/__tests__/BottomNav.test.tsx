@@ -2,9 +2,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-react';
+import type { SaveData } from '../../engine/saveParser/parsers/common';
 import { useStore } from '../../store';
 import { BottomNav } from '../BottomNav';
-import type { DexhelperSaveData } from '../../engine/saveParser';
 
 describe('BottomNav', () => {
   const queryClient = new QueryClient({
@@ -40,17 +40,22 @@ describe('BottomNav', () => {
 
   it('should render tactical nav items when save data is present', async () => {
     // Mock save data
-    const mockSaveData: DexhelperSaveData = {
+    const mockSaveData: SaveData = {
       generation: 1,
-      gameCode: 'Y',
+      owned: new Set(),
+      seen: new Set(),
+      party: [],
+      pc: [],
+      partyDetails: [],
+      pcDetails: [],
+      gameVersion: 'yellow',
+      badges: 0,
       trainerName: 'RED',
       trainerId: 12345,
-      party: [],
-      partyDetails: [],
-      pc: [],
-      pcDetails: [],
-      pokedex: { owned: [], seen: [] },
-      daycare: [],
+      currentMapId: 0,
+      inventory: [],
+      currentBoxCount: 0,
+      hallOfFameCount: 0,
     };
 
     useStore.getState().setSaveData(mockSaveData);
