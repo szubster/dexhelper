@@ -2,7 +2,7 @@
 id: task-033-053-update-playwright-idb-injection
 type: TASK
 title: "Update Playwright IDB Injection"
-status: "PENDING"
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"
