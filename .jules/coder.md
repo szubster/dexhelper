@@ -16,3 +16,7 @@
 Created the technical blueprint task node `.foundry/tasks/task-031-048-implement-deadlock-tests.md` correctly checking off the required tasks in its parent story `.foundry/stories/story-009-031-deadlock-prevention-tests.md`. Followed the single-owner invariant and intelligent verification protocol.
 
 Verified creation and updating by examining file outputs and running tests with `pnpm lint`, `pnpm test --project=node`, `pnpm test --project=browser`, and `pnpm test:e2e`. All tests passed.
+
+# Task task-032-048-implement-lifecycle-tests Verification
+- Added test for simulating full lifecycle IDEA -> PRD -> EPIC -> STORY -> TASK.
+- Verified orchestrator advances the lifecycle stage step-by-step.
