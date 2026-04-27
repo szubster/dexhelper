@@ -2,12 +2,12 @@
 id: "story-010-028-verify-jest-tests"
 type: "STORY"
 title: "Verify jest rules fix resolution"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
-updated_at: "2026-04-26"
+updated_at: "2026-04-27"
 depends_on: []
-jules_session_id: "2080959487400432244"
+jules_session_id: null
 parent: ".foundry/epics/epic-010-oxlint-config.md"
 ---
 

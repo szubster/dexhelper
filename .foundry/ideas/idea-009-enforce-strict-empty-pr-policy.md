@@ -2,7 +2,7 @@
 id: idea-009-enforce-strict-empty-pr-policy
 type: IDEA
 title: "Enforce Strict Empty PR Policy Across Personas"
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: "2026-04-27"
 updated_at: "2026-04-27"

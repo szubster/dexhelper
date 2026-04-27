@@ -2,13 +2,13 @@
 id: "task-025-045-qa-dag-atomic-test"
 type: "TASK"
 title: "QA: DAG Resolution Tests for Atomic Files"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "qa"
 created_at: "2026-04-26"
-updated_at: "2026-04-26"
+updated_at: "2026-04-27"
 depends_on:
   - ".foundry/archive/tasks/task-025-044-implement-dag-atomic-test.md"
-jules_session_id: "12043390377360564066"
+jules_session_id: null
 parent: ".foundry/stories/story-008-025-verify-dag-resolution.md"
 ---
 

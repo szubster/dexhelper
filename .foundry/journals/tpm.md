@@ -48,3 +48,13 @@
 - **2026-04-26**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: PR #650 closed without merging.. Transitioned back to READY.
 
 - **2026-04-26**: Resurrection Loop triggered for `story-010-028-verify-jest-tests`. Reason: PR #656 closed without merging.. Transitioned back to READY.
+
+- **2026-04-27**: PR #658 merged. `story-010-028-verify-jest-tests` is now COMPLETED.
+
+- **2026-04-27**: PR #652 merged. `story-012-029-document-gastown-migration-decision` is now COMPLETED.
+
+- **2026-04-27**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: PR #657 closed without merging.. Transitioned back to READY.
+
+- **2026-04-27**: PR #655 merged. `task-017-042-fix-jest-disabled-tests` is now COMPLETED.
+
+- **2026-04-27**: PR #651 merged. `task-025-045-qa-dag-atomic-test` is now COMPLETED.
