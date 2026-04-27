@@ -1,15 +1,15 @@
-import { render } from 'vitest-browser-react';
-import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { RootComponent } from '../../routes/__root';
-import { vi, describe, it, expect, beforeEach } from 'vitest';
+import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { render } from 'vitest-browser-react';
 import { saveDB } from '../../db/SaveDB';
+import { RootComponent } from '../../routes/__root';
 import { useStore } from '../../store';
 
 vi.mock('../../db/SaveDB', () => ({
   saveDB: {
-    getSave: vi.fn(),
-    deleteSave: vi.fn(),
+    getSave: vi.fn<() => Promise<Uint8Array | undefined>>(),
+    deleteSave: vi.fn<() => Promise<void>>(),
   },
 }));
 
