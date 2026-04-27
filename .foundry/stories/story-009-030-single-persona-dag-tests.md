@@ -18,5 +18,8 @@ tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 Implement unit tests to verify that the orchestrator's DAG resolution logic properly handles strictly single-persona nodes and errors out on multiple personas.
 
 ## Acceptance Criteria
-- [ ] Unit tests cover single-persona node parsing and resolution without errors.
-- [ ] Unit tests verify rejection of nodes with invalid `owner_persona` definitions.
+- [x] Unit tests cover single-persona node parsing and resolution without errors.
+- [x] Unit tests verify rejection of nodes with invalid `owner_persona` definitions.
+
+### Tasks
+- `.foundry/tasks/task-030-048-implement-single-persona-dag-tests.md`
