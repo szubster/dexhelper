@@ -2,12 +2,12 @@
 id: "story-010-017-fix-jest-rules"
 type: "STORY"
 title: "Fix jest rules reported by oxlint"
-status: READY
+status: "ACTIVE"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-27"
 depends_on: []
-jules_session_id: null
+jules_session_id: "4407967394995973287"
 parent: ".foundry/epics/epic-010-oxlint-config.md"
 ---
 
