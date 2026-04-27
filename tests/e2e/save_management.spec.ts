@@ -38,7 +38,7 @@ test.describe('Save Management', () => {
     await page.reload();
     await waitForSync(page);
 
-    // 6. Verify it's still hydrated (persisted in localStorage)
+    // 6. Verify it's still hydrated (persisted in indexeddb)
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
     await expect(
       page

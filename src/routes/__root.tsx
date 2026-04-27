@@ -5,6 +5,9 @@ import { AppLayout } from '../components/AppLayout';
 import { SyncProgress } from '../components/SyncProgress';
 import { pokeDB } from '../db/PokeDB';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
+import { saveDB } from '../db/SaveDB';
+import { parseSaveFile } from '../engine/saveParser/index';
+import { useStore } from '../store';
 
 const TanStackRouterDevtools =
   import.meta.env.PROD || window.navigator.webdriver
@@ -40,6 +43,22 @@ export const Route = createRootRouteWithContext<RootContext>()({
 });
 
 function RootComponent() {
+  const setSaveData = useStore((s) => s.setSaveData);
+  const manualVersion = useStore((s) => s.manualVersion);
+
+  React.useEffect(() => {
+    saveDB.getSave('last_save_file').then((buffer) => {
+      if (buffer) {
+        try {
+          const data = parseSaveFile(buffer.buffer, manualVersion || undefined);
+          setSaveData(data);
+        } catch {
+          saveDB.deleteSave('last_save_file');
+        }
+      }
+    });
+  }, [setSaveData, manualVersion]);
+
   return (
     <AppLayout>
       <Outlet />

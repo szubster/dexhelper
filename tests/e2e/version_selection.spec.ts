@@ -37,7 +37,7 @@ test.describe('Version Selection', () => {
     // Reload
     await page.reload();
 
-    // Should still be BLUE (persisted in localStorage)
+    // Should still be BLUE (persisted in indexeddb / zustand persist)
     await expect(page.getByText(/BLUE/i).first()).toBeVisible();
   });
 });

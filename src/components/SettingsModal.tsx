@@ -67,7 +67,9 @@ export function SettingsModal() {
           />
           <ClearStorageButton
             onClear={() => {
-              localStorage.removeItem('last_save_file');
+              import('../db/SaveDB').then(({ saveDB }) => {
+                saveDB.deleteSave('last_save_file').catch(console.error);
+              });
               setSaveData(null);
               setManualVersion(null);
               setIsSettingsOpen(false);
