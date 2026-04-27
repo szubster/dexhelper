@@ -2,7 +2,7 @@
 id: story-014-029-async-startup-hydration
 type: STORY
 title: "Async Startup Hydration"
-status: "FAILED"
+status: "READY"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-27"
