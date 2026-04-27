@@ -2,7 +2,7 @@
 id: "task-032-048-implement-lifecycle-tests"
 type: "TASK"
 title: "Implement Lifecycle Integration Tests"
-status: PENDING
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"

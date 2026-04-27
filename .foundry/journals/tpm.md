@@ -72,3 +72,9 @@
 - **2026-04-27**: Heartbeat detected zombie session for `task-016-039-oxlint-type-aware`. Transitioned to FAILED.
 
 - **2026-04-27**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-27**: PR #680 merged. `story-009-030-single-persona-dag-tests` is now COMPLETED.
+
+- **2026-04-27**: PR #679 merged. `story-009-031-deadlock-prevention-tests` is now COMPLETED.
+
+- **2026-04-27**: PR #678 merged. `story-009-032-lifecycle-integration-tests` is now COMPLETED.

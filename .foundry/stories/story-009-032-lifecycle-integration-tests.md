@@ -2,12 +2,12 @@
 id: "story-009-032-lifecycle-integration-tests"
 type: "STORY"
 title: "Story: Full Lifecycle Integration Tests"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "tech_lead"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"
 depends_on: []
-jules_session_id: "5293487519026782526"
+jules_session_id: null
 parent: ".foundry/epics/epic-009-atomic-handoff-testing.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 ---

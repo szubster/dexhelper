@@ -2,7 +2,7 @@
 id: "task-030-048-implement-single-persona-dag-tests"
 type: "TASK"
 title: "Task: Implement Single-Persona DAG Resolution Unit Tests"
-status: PENDING
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"
