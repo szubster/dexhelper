@@ -2,12 +2,11 @@
 id: story-014-029-async-startup-hydration
 type: STORY
 title: "Async Startup Hydration"
-status: "PENDING"
+status: "ACTIVE"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
-depends_on:
-  - .foundry/stories/story-014-026-refactor-state-store-sync.md
+depends_on: []
 jules_session_id: null
 parent: .foundry/epics/epic-005-014-state-store-migration.md
 tags: ["state", "store", "indexeddb", "hydration"]
@@ -23,3 +22,4 @@ This Story focuses on implementing the asynchronous startup hydration logic. It 
 - [ ] The core state seamlessly operates with the new async paradigm.
 
 ## Generated Tasks
+- .foundry/tasks/task-029-050-implement-async-hydration.md

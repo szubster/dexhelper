@@ -2,7 +2,7 @@
 id: idea-007-migrate-saves-to-indexeddb
 type: IDEA
 title: "Migrate Save Data to IndexedDB"
-status: "COMPLETED"
+status: "ACTIVE"
 owner_persona: product_manager
 created_at: "2026-04-23T14:21:34.000Z"
 updated_at: "2026-04-26"
