@@ -2,13 +2,13 @@
 id: "epic-009-atomic-handoff-testing"
 type: "EPIC"
 title: "Epic: Atomic Handoff Testing Expansion"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "story_owner"
 created_at: "2026-04-22"
 updated_at: "2026-04-27"
 depends_on:
   - .foundry/epics/epic-008-atomic-handoff-orchestrator.md
-jules_session_id: "15405329471302131375"
+jules_session_id: null
 parent: ".foundry/prds/prd-001-v2-lifecycle.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 ---

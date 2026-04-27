@@ -58,3 +58,11 @@
 - **2026-04-27**: PR #655 merged. `task-017-042-fix-jest-disabled-tests` is now COMPLETED.
 
 - **2026-04-27**: PR #651 merged. `task-025-045-qa-dag-atomic-test` is now COMPLETED.
+
+- **2026-04-27**: PR #669 merged. `epic-009-atomic-handoff-testing` is now COMPLETED.
+
+- **2026-04-27**: PR #668 merged. `idea-009-enforce-strict-empty-pr-policy` is now COMPLETED.
+
+- **2026-04-27**: PR #667 merged. `story-010-017-fix-jest-rules` is now COMPLETED.
+
+- **2026-04-27**: Heartbeat detected zombie session for `task-016-039-oxlint-type-aware`. Transitioned to FAILED.

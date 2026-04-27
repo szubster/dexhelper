@@ -2,7 +2,7 @@
 id: "story-009-032-lifecycle-integration-tests"
 type: "STORY"
 title: "Story: Full Lifecycle Integration Tests"
-status: "PENDING"
+status: READY
 owner_persona: "tech_lead"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"
