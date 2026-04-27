@@ -19,3 +19,5 @@ Verified creation and updating by examining file outputs and running tests with 
 ## task-029-050-implement-async-hydration
 
 Created `.foundry/tasks/task-029-050-implement-async-hydration.md` to establish the technical specifications for implementing asynchronous startup hydration. I updated the parent story to reference this newly created task and successfully passed the CI/CD pipeline tests.
+## Task task-031-051-implement-dual-write-persistence
+- Implemented dual-write persistence in `AppLayout.tsx` for IndexedDB and `localStorage`.
