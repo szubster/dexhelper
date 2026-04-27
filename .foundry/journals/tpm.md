@@ -68,3 +68,5 @@
 - **2026-04-27**: Heartbeat detected zombie session for `task-016-039-oxlint-type-aware`. Transitioned to FAILED.
 
 - **2026-04-27**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-27**: Heartbeat detected zombie session for `task-016-039-oxlint-type-aware`. Transitioned to FAILED.
