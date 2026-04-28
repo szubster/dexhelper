@@ -24,6 +24,6 @@ Update `tests/e2e/test-utils.ts` to include logic for injecting save files into 
 - Maintain backward compatibility for `localStorage` until the migration is fully completed.
 
 ## Acceptance Criteria
-- [ ] `tests/e2e/test-utils.ts` is updated.
-- [ ] A sample test is converted to use IndexedDB injection.
-- [ ] All tests pass.
+- [x] `tests/e2e/test-utils.ts` is updated.
+- [x] A sample test is converted to use IndexedDB injection.
+- [x] All tests pass.
