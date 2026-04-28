@@ -22,6 +22,10 @@ Created the technical blueprint task node `.foundry/tasks/task-031-048-implement
 
 Verified creation and updating by examining file outputs and running tests with `pnpm lint`, `pnpm test --project=node`, `pnpm test --project=browser`, and `pnpm test:e2e`. All tests passed.
 
+## Task: Implement Single-Persona DAG Resolution Unit Tests (task-030-048)
+- **Status:** Verified
+- **Notes:** The requested unit tests for single-persona DAG resolution and invalid `owner_persona` rejection already exist in `.github/scripts/foundry-orchestrator.test.ts` (e.g., `'Validation: skips nodes with multiple owners'`, `'Atomic Handoffs: resolves dependencies across single-persona atomic tasks'`). No additional code implementation was required. The test suite passes.
+
 # Task task-032-048-implement-lifecycle-tests Verification
 - Added test for simulating full lifecycle IDEA -> PRD -> EPIC -> STORY -> TASK.
 - Verified orchestrator advances the lifecycle stage step-by-step.
