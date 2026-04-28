@@ -13,9 +13,7 @@ export default defineConfig(async (configEnv) => {
       coverage: {
         provider: 'v8',
         exclude: [
-          'src/engine/data/gen1/mapLocations.json',
-          'src/engine/data/gen2/landmarks.json',
-          'src/engine/data/gen2/mapLocations.json',
+          'src/engine/data/**/*.json'
         ]
       },
       // Vitest 4 uses 'projects' instead of 'workspace'
