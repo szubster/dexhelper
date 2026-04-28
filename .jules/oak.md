@@ -18,3 +18,7 @@
 
 ## Data Integrity - Item Mapping
 * **Data Pipeline Gotchas**: PokeAPI uses its own item IDs (e.g. 80 for Sun Stone) which don't map directly to the item IDs found in decompiled ROM saves. Gen 1 items are explicitly mapped via `POKEAPI_TO_GEN1_ITEM` in `generate-pokedata.ts`, but Gen 2 items currently default to their PokeAPI IDs. If building features that check the player's in-game inventory to suggest evolutions (like Sun Stone for Bellossom or Metal Coat for Scizor), we must ensure we either map PokeAPI IDs to Gen 2 ROM item IDs or use a lookup table, otherwise the app will fail to recognize when a player possesses the required evolution item.
+### Johto Map Discrepancies
+- The pre-existing Gen 2 location mappings mapped directly to some wrong PokeAPI `location-area` ID values (e.g. Hoenn variants instead of Johto).
+- Some core Johto routes were entirely missing (Route 36, 37) meaning Pokemon like Sudowoodo were excluded.
+- Roaming map `roaming-johto-area` (aid 795) had to be mapped to a dummy map to correctly attach roaming encounter details.
