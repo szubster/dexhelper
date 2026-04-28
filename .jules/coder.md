@@ -39,3 +39,10 @@ Created `.foundry/tasks/task-029-050-implement-async-hydration.md` to establish 
 
 ## task-033-053-update-playwright-idb-injection
 Updated `tests/e2e/test-utils.ts` to properly inject save data into `SaveDB` via Playwright's `evaluate` while maintaining `localStorage` backwards compatibility. Converted `tests/e2e/pokemon-details.spec.ts` as a sample.
+## task-029-050-implement-async-hydration
+
+- Implemented asynchronous startup hydration logic using `saveDB.getSave('last_save_file')` in `src/store.ts`.
+- Updated `loadSaveFromStorage` to return a `Promise<void>`.
+- Removed `localStorage` dependency for the last save file and updated the app layout, settings modal, and root route to handle the async load.
+- Refactored tests in `src/store.test.ts` to mock `saveDB` and test the new async behaviour.
+- Verified functionality by running tests.
