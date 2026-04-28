@@ -73,3 +73,13 @@
 - **2026-04-28**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #709 closed without merging.. Transitioned back to READY.
 
 - **2026-04-28**: PR #707 merged. `task-032-049-qa-lifecycle-tests` is now COMPLETED.
+
+- **2026-04-28**: Resurrection Loop triggered for `story-009-030-single-persona-dag-tests`. Reason: PR #711 closed without merging.. Transitioned back to READY.
+
+- **2026-04-28**: Heartbeat detected zombie session for `story-009-032-lifecycle-integration-tests`. Transitioned to FAILED.
+
+- **2026-04-28**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: PR #710 closed without merging.. Transitioned back to READY.
+
+- **2026-04-28**: PR #712 merged. `task-031-055-qa-dual-write-persistence` is now COMPLETED.
+
+- **2026-04-28**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: Retry from FAILED status.. Transitioned back to READY.
