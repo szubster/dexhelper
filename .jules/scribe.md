@@ -39,3 +39,13 @@ Documenting these mechanical quirks is essential for future maintainability of t
 
 **What:** Documented `src/store.ts` Zustand properties and actions.
 **Why:** The `AppStore` interface mixes persisted user settings (via localStorage `partialize`, like `isLivingDex` and `filters`) with heavy transient data (like the entire parsed `saveData`) and lightweight UI view state (like `isSettingsOpen`). Documenting which properties belong to which lifecycle prevents future developers from accidentally persisting the massive `saveData` object into localStorage, which would bloat the storage quota and cause stale state bugs on reload.
+
+## 2025-05-20 - AssistantStrategy documentation
+
+**What:** Added JSDoc for `AssistantStrategy` interface in `src/engine/assistant/strategies/types.ts`.
+**Why:** The `AssistantStrategy` interface is the core contract for adding new generations to the suggestion engine, so it should be well-documented.
+
+### saveParser Architecture
+- Gen 1 saves lack explicit version bytes, requiring heuristic detection via Pokédex exclusives and Pikachu markers.
+- Yellow version shifts many memory offsets by +1 byte, requiring dynamic probing at offsets `0x25A3` and `0x25A4` to determine the correct alignment before extracting data.
+- Documented these binary offsets and heuristics in `src/engine/saveParser/README.md` to prevent future regressions.

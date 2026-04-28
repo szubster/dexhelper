@@ -36,6 +36,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 - Run `pnpm lint` and `pnpm test` before pushing
 - Include before/after screenshots in the PR description
 - Keep changes to a single component or page — ambitious but scoped
+- Adhere to the project's tactical hardware/snooping aesthetic
 
 **Ask first:**
 - Nothing — just submit the PR. Rejection is expected and acceptable.

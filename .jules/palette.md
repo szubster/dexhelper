@@ -47,3 +47,7 @@
 ## 2026-04-26 - Focus Visible Styles for Evolution Links
 **Learning:** Inline buttons functioning as text links within complex components like `PokemonEvolutions` can easily miss standard focus indicators, hiding keyboard navigation state.
 **Action:** Always ensure inline text buttons acting as navigation links include standard focus utilities (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-sm`) so they are clearly perceivable when navigating via keyboard.
+
+## 2024-04-28 - Focus Visible Styles for Assistant Links
+**Learning:** Interactive `<Link>` components embedded within complex list layouts (like AssistantSuggestionCard) can easily lack explicit focus visibility if global styles do not cascade properly.
+**Action:** Always verify that every interactive routing element explicitly defines standard focus utilities (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] ...`).
