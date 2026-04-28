@@ -355,74 +355,75 @@ export function generateSuggestions(
     if (isYellowStarterPikachu) return;
 
     const details = p.det;
-    const detail = details?.[0];
-    if (!detail) return;
+    if (!details || details.length === 0) return;
 
-    const tr = detail.tr;
-    const min_l = detail.ml;
-    const min_h = detail.mh;
-    const item = detail.item;
-    const held = detail.held;
-    const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
+    for (const detail of details) {
+      const tr = detail.tr;
+      const min_l = detail.ml;
+      const min_h = detail.mh;
+      const item = detail.item;
+      const held = detail.held;
+      const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
 
-    if (tr === EVO_TRIGGER.LEVEL_UP) {
-      if (min_l) {
-        const isReady = bestInstance.level >= min_l;
-        const specificReq = `(needs Lv. ${min_l})`;
+      if (tr === EVO_TRIGGER.LEVEL_UP) {
+        if (min_l) {
+          const isReady = bestInstance.level >= min_l;
+          const specificReq = `(needs Lv. ${min_l})`;
 
+          suggestions.push({
+            id: `evo-lvl-${targetId}`,
+            category: 'Evolve',
+            title: `Level Up Evolution: #${targetId}`,
+            description: isReady
+              ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve ${specificReq}!`
+              : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${min_l} ${specificReq}.`,
+            pokemonId: targetId,
+            priority: isReady ? 90 : 75,
+          });
+        } else if (min_h) {
+          const todMsg = tod ? ` during the ${tod}` : '';
+          suggestions.push({
+            id: `evo-happy-${targetId}`,
+            category: 'Evolve',
+            title: `Happiness Evolution: #${targetId}`,
+            description: `Level up your pre-evolution with high happiness to evolve${todMsg}!`,
+            pokemonId: targetId,
+            priority: 80,
+          });
+        }
+      } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
+        const hasStone = saveData.inventory.some((i) => i.id === item && i.quantity > 0);
         suggestions.push({
-          id: `evo-lvl-${targetId}`,
+          id: `evo-item-${targetId}-${item}`,
           category: 'Evolve',
-          title: `Level Up Evolution: #${targetId}`,
-          description: isReady
-            ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve ${specificReq}!`
-            : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${min_l} ${specificReq}.`,
+          title: hasStone ? `Ready to Evolve: #${targetId}!` : `Item Needed: #${targetId}`,
+          description: hasStone ? `Use your item to evolve it!` : `Find the right item to evolve it.`,
           pokemonId: targetId,
-          priority: isReady ? 90 : 75,
+          priority: hasStone ? 95 : 40,
         });
-      } else if (min_h) {
-        const todMsg = tod ? ` during the ${tod}` : '';
-        suggestions.push({
-          id: `evo-happy-${targetId}`,
-          category: 'Evolve',
-          title: `Happiness Evolution: #${targetId}`,
-          description: `Level up your pre-evolution with high happiness to evolve${todMsg}!`,
-          pokemonId: targetId,
-          priority: 80,
-        });
-      }
-    } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
-      const hasStone = saveData.inventory.some((i) => i.id === item && i.quantity > 0);
-      suggestions.push({
-        id: `evo-item-${targetId}`,
-        category: 'Evolve',
-        title: hasStone ? `Ready to Evolve: #${targetId}!` : `Item Needed: #${targetId}`,
-        description: hasStone ? `Use your item to evolve it!` : `Find the right item to evolve it.`,
-        pokemonId: targetId,
-        priority: hasStone ? 95 : 40,
-      });
-    } else if (tr === EVO_TRIGGER.TRADE) {
-      if (held) {
-        const hasHeldItem = saveData.inventory.some((i) => i.id === held && i.quantity > 0);
-        suggestions.push({
-          id: `evo-trade-held-${targetId}`,
-          category: 'Evolve',
-          title: hasHeldItem ? `Ready to Trade Evolve: #${targetId}!` : `Item Needed for Trade: #${targetId}`,
-          description: hasHeldItem
-            ? `Have your pre-evolution hold the item and trade it to evolve!`
-            : `Find the right item, have your pre-evolution hold it, and trade to evolve.`,
-          pokemonId: targetId,
-          priority: hasHeldItem ? 90 : 45,
-        });
-      } else {
-        suggestions.push({
-          id: `evo-trade-${targetId}`,
-          category: 'Evolve',
-          title: `Trade Evolution: #${targetId}`,
-          description: `Trade your pre-evolution to evolve it!`,
-          pokemonId: targetId,
-          priority: 85,
-        });
+      } else if (tr === EVO_TRIGGER.TRADE) {
+        if (held) {
+          const hasHeldItem = saveData.inventory.some((i) => i.id === held && i.quantity > 0);
+          suggestions.push({
+            id: `evo-trade-held-${targetId}`,
+            category: 'Evolve',
+            title: hasHeldItem ? `Ready to Trade Evolve: #${targetId}!` : `Item Needed for Trade: #${targetId}`,
+            description: hasHeldItem
+              ? `Have your pre-evolution hold the item and trade it to evolve!`
+              : `Find the right item, have your pre-evolution hold it, and trade to evolve.`,
+            pokemonId: targetId,
+            priority: hasHeldItem ? 90 : 45,
+          });
+        } else {
+          suggestions.push({
+            id: `evo-trade-${targetId}`,
+            category: 'Evolve',
+            title: `Trade Evolution: #${targetId}`,
+            description: `Trade your pre-evolution to evolve it!`,
+            pokemonId: targetId,
+            priority: 85,
+          });
+        }
       }
     }
   });
