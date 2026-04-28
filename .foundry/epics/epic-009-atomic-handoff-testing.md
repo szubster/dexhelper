@@ -2,7 +2,7 @@
 id: "epic-009-atomic-handoff-testing"
 type: "EPIC"
 title: "Epic: Atomic Handoff Testing Expansion"
-status: "COMPLETED"
+status: PENDING
 owner_persona: "story_owner"
 created_at: "2026-04-22"
 updated_at: "2026-04-27"

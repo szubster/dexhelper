@@ -3,15 +3,20 @@ import { argosScreenshot } from '../../src/utils/argos';
 import { initializeWithSave } from './test-utils';
 
 test.describe('Assistant Page', () => {
-  test('should show wild encounter suggestions', async ({ page }) => {
+  test('should show wild encounter suggestions', async ({ page, isMobile }) => {
     // 1. Initialize with Yellow save
     await initializeWithSave(page);
 
-    // 2. Navigate to Assistant page via Sidebar
-    // Wait for sidebar to be interactive
-    const assistantLink = page.getByRole('link', { name: /Assistant/i });
-    await expect(assistantLink).toBeVisible();
-    await assistantLink.click();
+    // 2. Navigate to Assistant page via Sidebar or BottomNav
+    if (isMobile) {
+      const assistantLink = page.getByRole('link', { name: /SYS.ASST/i });
+      await expect(assistantLink).toBeVisible();
+      await assistantLink.click();
+    } else {
+      const assistantLink = page.getByRole('link', { name: /Assistant/i });
+      await expect(assistantLink).toBeVisible();
+      await assistantLink.click();
+    }
 
     // 3. Verify page content
     await expect(page.getByText(/AI Assistant/i)).toBeVisible();

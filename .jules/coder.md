@@ -7,6 +7,11 @@
   - `jest/no-standalone-expect` is correctly handled by providing `additionalTestBlockFunctions` in `.oxlintrc.json`.
   - Full test suite passed (node, browser, and e2e tests).
 - **What**: Verified and fully confirmed the `jest/no-disabled-tests` rule as `error` in `.oxlintrc.json`. No code changes were necessary as the change was previously implemented. Validated with `pnpm exec oxlint .` and full `pnpm test` suite which completed successfully.
+
+## Verification Log: Task task-029-047-write-gastown-adr
+- Verified creation of `.foundry/docs/adrs/003-gastown-migration-decision.md` containing Cloudflare Workers evaluation, D1 schema, and migration plan.
+- The document conforms to the ADR format.
+
 ## Story 010-017: Fix jest rules reported by oxlint
 - Verified that the generated tasks `task-017-041-fix-jest-standalone-expect` and `task-017-042-fix-jest-disabled-tests` exist and are COMPLETED.
 - Verified that `pnpm exec oxlint .` passes with the rules enabled.
@@ -20,3 +25,7 @@ Verified creation and updating by examining file outputs and running tests with 
 # Task task-032-048-implement-lifecycle-tests Verification
 - Added test for simulating full lifecycle IDEA -> PRD -> EPIC -> STORY -> TASK.
 - Verified orchestrator advances the lifecycle stage step-by-step.
+
+## task-029-050-implement-async-hydration
+
+Created `.foundry/tasks/task-029-050-implement-async-hydration.md` to establish the technical specifications for implementing asynchronous startup hydration. I updated the parent story to reference this newly created task and successfully passed the CI/CD pipeline tests.

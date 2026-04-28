@@ -78,3 +78,11 @@
 - **2026-04-27**: PR #679 merged. `story-009-031-deadlock-prevention-tests` is now COMPLETED.
 
 - **2026-04-27**: PR #678 merged. `story-009-032-lifecycle-integration-tests` is now COMPLETED.
+
+- **2026-04-27**: Heartbeat detected zombie session for `story-014-029-async-startup-hydration`. Transitioned to FAILED.
+
+- **2026-04-27**: Heartbeat detected zombie session for `task-016-039-oxlint-type-aware`. Transitioned to FAILED.
+
+- **2026-04-27**: Resurrection Loop triggered for `story-014-029-async-startup-hydration`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-27**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: Retry from FAILED status.. Transitioned back to READY.
