@@ -39,3 +39,6 @@ Created `.foundry/tasks/task-029-050-implement-async-hydration.md` to establish 
 
 ## task-033-053-update-playwright-idb-injection
 Updated `tests/e2e/test-utils.ts` to properly inject save data into `SaveDB` via Playwright's `evaluate` while maintaining `localStorage` backwards compatibility. Converted `tests/e2e/pokemon-details.spec.ts` as a sample.
+- Refactored `loadSaveFromStorage` in `src/store.ts` to use asynchronous IndexedDB (`saveDB`) instead of synchronous `localStorage` and Base64 parsing.
+- Removed legacy Base64 decoding and regex validation logic from `src/store.ts`.
+- Updated and passing unit tests in `src/store.test.ts` to cover the new `saveDB` behavior.
