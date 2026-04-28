@@ -26,3 +26,4 @@ To ensure a safe transition and prevent data loss, the application should tempor
 
 ## Generated Tasks
 - .foundry/tasks/task-031-051-implement-dual-write-persistence.md
+- .foundry/tasks/task-031-055-qa-dual-write-persistence.md
