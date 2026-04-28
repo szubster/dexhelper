@@ -33,3 +33,5 @@ Verified creation and updating by examining file outputs and running tests with 
 ## task-029-050-implement-async-hydration
 
 Created `.foundry/tasks/task-029-050-implement-async-hydration.md` to establish the technical specifications for implementing asynchronous startup hydration. I updated the parent story to reference this newly created task and successfully passed the CI/CD pipeline tests.
+## task-033-053-update-playwright-idb-injection
+Updated `tests/e2e/test-utils.ts` to properly inject save data into `SaveDB` via Playwright's `evaluate` while maintaining `localStorage` backwards compatibility. Converted `tests/e2e/pokemon-details.spec.ts` as a sample.
