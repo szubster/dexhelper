@@ -57,3 +57,5 @@
 - **2026-04-28**: PR #682 merged. `task-032-048-implement-lifecycle-tests` is now COMPLETED.
 
 - **2026-04-28**: PR #687 merged. `task-033-053-update-playwright-idb-injection` is now COMPLETED.
+
+- **2026-04-28**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: Retry from FAILED status.. Transitioned back to READY.
