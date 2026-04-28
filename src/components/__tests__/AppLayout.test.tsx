@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
-import { page } from '@vitest/browser/context';
 import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
+import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { saveDB } from '../../db/SaveDB';
 import { parseSaveFile } from '../../engine/saveParser/index';
@@ -44,7 +44,7 @@ describe('AppLayout chunk error handling', () => {
   });
 
   it('should reload the page when a chunk load error occurs', async () => {
-    render(
+    await render(
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>,
@@ -63,7 +63,7 @@ describe('AppLayout chunk error handling', () => {
   });
 
   it('should not reload the page for other errors', async () => {
-    render(
+    await render(
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>,
@@ -118,7 +118,7 @@ describe('AppLayout file upload', () => {
 
   it('should call saveDB.putSave when a file is uploaded', async () => {
     const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
-    render(
+    await render(
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>,
@@ -148,8 +148,7 @@ describe('AppLayout file upload', () => {
     dataTransfer.items.add(file);
 
     // Call the original set property logic instead of just overriding `.files`
-    const originalSet = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'files')?.set;
-    originalSet?.call(element, dataTransfer.files);
+    Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'files')?.set?.call(element, dataTransfer.files);
 
     // Fallback if the set is still uncaptured
     Object.defineProperty(element, 'files', {

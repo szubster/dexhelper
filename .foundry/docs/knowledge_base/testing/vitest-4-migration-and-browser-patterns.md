@@ -6,6 +6,7 @@ The project has been migrated to Vitest 4. The workspace configuration is now ha
 ## Key Changes
 - **Configuration**: Use `defineConfig` and merge with `vite.config.ts` to ensure plugins and aliases are available in test projects.
 - **Browser Provider**: The `provider` in `browser` configuration must use the `playwright()` factory function from `@vitest/browser-playwright`.
+- **Asynchronous Rendering**: In `vitest-browser-react`, the `render()` function returns a Promise and must be awaited to avoid `no-floating-promises` lint errors.
 - **Scripts**: 
   - `pnpm test`: Runs all projects (node and browser).
   - `pnpm test:ct`: Runs only the browser-based component tests.
