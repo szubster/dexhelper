@@ -23,3 +23,5 @@ The current E2E testing framework in `tests/e2e/test-utils.ts` and `playwright.c
 - [ ] `initializeWithSave` or related E2E utilities are updated to mock/inject IndexedDB data.
 - [ ] The global Playwright `setup` successfully sets up IndexedDB state.
 - [ ] All existing E2E tests pass reliably with the new IndexedDB injection method.
+## Generated Stories
+- .foundry/stories/story-016-033-update-e2e-testing-for-idb.md

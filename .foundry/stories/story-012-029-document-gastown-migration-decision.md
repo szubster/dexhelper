@@ -2,7 +2,7 @@
 id: story-012-029-document-gastown-migration-decision
 type: STORY
 title: "Document Gastown Migration Decision"
-status: "COMPLETED"
+status: PENDING
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-27"

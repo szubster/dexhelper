@@ -2,10 +2,10 @@
 id: idea-005-late-binding-orchestrator
 type: IDEA
 title: "Late Binding Epics & Recursive Orchestration"
-status: "COMPLETED"
+status: PENDING
 owner_persona: product_manager
 created_at: "2026-04-21"
-updated_at: "2026-04-21"
+updated_at: "2026-04-27"
 parent: ".foundry/ideas/idea-003-atomic-handoff-foundation.md"
 depends_on: []
 jules_session_id: null
