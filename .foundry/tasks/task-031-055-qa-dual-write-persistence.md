@@ -2,7 +2,7 @@
 id: task-031-055-qa-dual-write-persistence
 type: TASK
 title: "QA Dual-Write Save Persistence"
-status: PENDING
+status: READY
 owner_persona: "qa"
 created_at: "2026-04-28"
 updated_at: "2026-04-28"

@@ -2,13 +2,13 @@
 id: "task-032-049-qa-lifecycle-tests"
 type: "TASK"
 title: "QA: Lifecycle Integration Tests"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "qa"
 created_at: "2026-04-27"
 updated_at: "2026-04-28"
 depends_on:
   - ".foundry/tasks/task-032-048-implement-lifecycle-tests.md"
-jules_session_id: "15189331194239100979"
+jules_session_id: null
 parent: ".foundry/stories/story-009-032-lifecycle-integration-tests.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs", "qa"]
 ---

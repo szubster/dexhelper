@@ -2,12 +2,12 @@
 id: task-026-044-refactor-state-store-sync
 type: TASK
 title: "Refactor State Store Sync"
-status: "ACTIVE"
+status: "READY"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-28"
 depends_on: []
-jules_session_id: "325201723844752328"
+jules_session_id: null
 parent: .foundry/stories/story-014-026-refactor-state-store-sync.md
 tags: ["state", "store", "indexeddb"]
 ---
