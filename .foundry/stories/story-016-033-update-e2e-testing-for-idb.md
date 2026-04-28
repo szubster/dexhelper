@@ -8,6 +8,7 @@ created_at: "2026-04-27"
 updated_at: "2026-04-27"
 depends_on:
   - .foundry/stories/story-014-029-async-startup-hydration.md
+  - .foundry/tasks/task-033-053-update-playwright-idb-injection.md
 jules_session_id: null
 parent: .foundry/epics/epic-005-016-e2e-testing-updates.md
 tags: ["e2e", "testing", "indexeddb"]

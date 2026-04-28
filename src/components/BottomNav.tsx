@@ -14,72 +14,95 @@ export function BottomNav() {
   const isStorage = location.pathname === '/storage';
   const isAssistant = location.pathname === '/assistant';
 
+  const activeIndex = isDex ? 0 : isStorage ? 1 : isAssistant ? 2 : -1;
+
   return (
-    <nav className="fixed right-0 bottom-0 left-0 z-50 border-white/5 border-t bg-zinc-950/60 px-6 pt-3 pb-[env(safe-area-inset-bottom,20px)] shadow-[0_-20px_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl sm:hidden">
-      <div className="relative mx-auto flex max-w-sm items-center justify-around px-2">
-        {/* Active Indicator Background */}
-        <div
-          className="absolute -z-10 h-12 w-[22%] rounded-2xl border border-[var(--theme-primary)]/20 bg-[var(--theme-primary)]/10 transition-transform duration-500 ease-out"
-          style={{
-            transform: `translateX(${isDex ? '-150%' : isStorage ? '-50%' : isAssistant ? '50%' : '150%'})`,
-          }}
-        />
+    <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-800 border-t border-dashed bg-zinc-950 px-2 pt-2 pb-[env(safe-area-inset-bottom,16px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.8)] sm:hidden">
+      {/* Hardware top lip */}
+      <div className="absolute top-0 right-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-zinc-700 to-transparent opacity-50" />
+
+      {/* Telemetry decoration */}
+      <div className="absolute -top-[21px] left-4 flex gap-1 rounded-t border border-zinc-800 border-b-0 border-dashed bg-zinc-950 px-3 py-1 font-black text-[8px] text-zinc-600 tracking-widest">
+        <span className="animate-pulse text-[var(--theme-primary)]">●</span> LINK_ACTIVE
+      </div>
+
+      <div className="relative mx-auto grid max-w-sm grid-cols-4 items-center">
+        {/* Active Indicator Brackets */}
+        {activeIndex !== -1 && (
+          <div
+            className="pointer-events-none absolute z-0 h-full w-[25%] transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(${activeIndex * 100}%)` }}
+          >
+            <div className="absolute top-0 left-2 h-2 w-2 border-[var(--theme-primary)] border-t-2 border-l-2" />
+            <div className="absolute top-0 right-2 h-2 w-2 border-[var(--theme-primary)] border-t-2 border-r-2" />
+            <div className="absolute bottom-0 left-2 h-2 w-2 border-[var(--theme-primary)] border-b-2 border-l-2" />
+            <div className="absolute right-2 bottom-0 h-2 w-2 border-[var(--theme-primary)] border-r-2 border-b-2" />
+            <div className="absolute inset-x-2 inset-y-0 bg-[var(--theme-primary)]/10" />
+            <div className="scanline-overlay absolute inset-x-2 inset-y-0 opacity-20" />
+          </div>
+        )}
 
         <Link
           to="/"
           className={cn(
-            'flex flex-col items-center gap-1 rounded-lg py-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-            isDex ? 'text-[var(--theme-primary)]' : 'text-zinc-500',
+            'group relative z-10 flex flex-col items-center gap-1.5 py-2 transition-all duration-300 focus-visible:outline-none',
+            isDex ? 'text-[var(--theme-primary)]' : 'text-zinc-600',
           )}
         >
-          <div className="transition-transform active:scale-80">
-            <LayoutGrid size={22} className={cn(isDex && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]')} />
+          <div className="transition-transform active:scale-90">
+            <LayoutGrid
+              size={20}
+              strokeWidth={isDex ? 2.5 : 2}
+              className={cn(isDex && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.8)]')}
+            />
           </div>
-          <span className="font-black text-[8px] uppercase tracking-[0.2em]">Pokedex</span>
+          <span className="font-bold text-[9px] uppercase tracking-widest">SYS.DEX</span>
         </Link>
 
         <Link
           to="/storage"
           className={cn(
-            'flex flex-col items-center gap-1 rounded-lg py-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-            isStorage ? 'text-[var(--theme-primary)]' : 'text-zinc-500',
+            'group relative z-10 flex flex-col items-center gap-1.5 py-2 transition-all duration-300 focus-visible:outline-none',
+            isStorage ? 'text-[var(--theme-primary)]' : 'text-zinc-600',
           )}
         >
-          <div className="transition-transform active:scale-80">
+          <div className="transition-transform active:scale-90">
             <Database
-              size={22}
-              className={cn(isStorage && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]')}
+              size={20}
+              strokeWidth={isStorage ? 2.5 : 2}
+              className={cn(isStorage && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.8)]')}
             />
           </div>
-          <span className="font-black text-[8px] uppercase tracking-[0.2em]">Storage</span>
+          <span className="font-bold text-[9px] uppercase tracking-widest">SYS.STRG</span>
         </Link>
 
         <Link
           to="/assistant"
           className={cn(
-            'flex flex-col items-center gap-1 rounded-lg py-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-            isAssistant ? 'text-[var(--theme-primary)]' : 'text-zinc-500',
+            'group relative z-10 flex flex-col items-center gap-1.5 py-2 transition-all duration-300 focus-visible:outline-none',
+            isAssistant ? 'text-[var(--theme-primary)]' : 'text-zinc-600',
           )}
         >
-          <div className="transition-transform active:scale-80">
+          <div className="transition-transform active:scale-90">
             <Sparkles
-              size={22}
-              className={cn(isAssistant && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]')}
+              size={20}
+              strokeWidth={isAssistant ? 2.5 : 2}
+              className={cn(isAssistant && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.8)]')}
             />
           </div>
-          <span className="font-black text-[8px] uppercase tracking-[0.2em]">Assistant</span>
+          <span className="font-bold text-[9px] uppercase tracking-widest">SYS.ASST</span>
         </Link>
 
         <button
           type="button"
           onClick={() => setIsSettingsOpen(true)}
           aria-label="Open settings menu"
-          className="flex flex-col items-center gap-1 rounded-lg py-1 text-zinc-500 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          className="group relative z-10 flex flex-col items-center gap-1.5 py-2 text-zinc-600 transition-all duration-300 focus-visible:outline-none"
         >
-          <div className="transition-transform active:scale-80">
-            <Settings2 size={22} />
+          <div className="transition-transform active:scale-90">
+            <Settings2 size={20} strokeWidth={2} />
           </div>
-          <span className="font-black text-[8px] uppercase tracking-[0.2em]">Menu</span>
+          <span className="font-bold text-[9px] uppercase tracking-widest">SYS.MENU</span>
         </button>
       </div>
     </nav>

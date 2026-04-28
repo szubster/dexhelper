@@ -2,12 +2,12 @@
 id: task-033-053-update-playwright-idb-injection
 type: TASK
 title: "Update Playwright IDB Injection"
-status: READY
+status: "ACTIVE"
 owner_persona: "coder"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"
 depends_on: []
-jules_session_id: null
+jules_session_id: "18282285785810934783"
 parent: .foundry/stories/story-016-033-update-e2e-testing-for-idb.md
 tags: ["e2e", "testing", "indexeddb"]
 ---
@@ -24,6 +24,6 @@ Update `tests/e2e/test-utils.ts` to include logic for injecting save files into 
 - Maintain backward compatibility for `localStorage` until the migration is fully completed.
 
 ## Acceptance Criteria
-- [ ] `tests/e2e/test-utils.ts` is updated.
-- [ ] A sample test is converted to use IndexedDB injection.
-- [ ] All tests pass.
+- [x] `tests/e2e/test-utils.ts` is updated.
+- [x] A sample test is converted to use IndexedDB injection.
+- [x] All tests pass.
