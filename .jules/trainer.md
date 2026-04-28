@@ -6,3 +6,6 @@
 **Action:** Always check the `detail.held` property for Trade evolutions and verify the player has it in their `saveData.inventory`.
 
 - Learned: Gen 1 saves track completed in-game NPC trades using a bitfield at `0x29e6` (with `eventFlagsOffset - 16` logic in `saveParser`), exposing `npcTradeFlags` in the parsed state. It's crucial to mask this against the specific `tradeIndex` found in static data to prevent suggesting trades the user has already completed.
+## 2024-05-19 - Assistant Happiness Evolution Suggestion
+**Learning:** The happiness evolution check was not using `friendship` value to suggest the pre-evolution pokemon that has the highest friendship value to easily reach `min_h`.
+**Action:** Use `friendship` instead of `level` to sort the pre-evolution pokemon if `min_h` exists, and show current friendship to max limit on the UI string.

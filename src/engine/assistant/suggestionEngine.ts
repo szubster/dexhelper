@@ -349,18 +349,27 @@ export function generateSuggestions(
     const ownedInstances = instancesBySpecies.get(parentId) || [];
     if (ownedInstances.length === 0) return;
 
-    const bestInstance = ownedInstances.reduce((prev, current) => (prev.level > current.level ? prev : current));
-    const isYellowStarterPikachu =
-      displayVersion === 'yellow' && parentId === 25 && bestInstance.otName === saveData.trainerName;
-    if (isYellowStarterPikachu) return;
-
     const details = p.det;
     const detail = details?.[0];
     if (!detail) return;
 
+    const min_h = detail.mh;
+
+    const bestInstance = ownedInstances.reduce((prev, current) => {
+      if (min_h) {
+        const prevFriendship = prev.friendship ?? 0;
+        const currFriendship = current.friendship ?? 0;
+        return prevFriendship > currFriendship ? prev : current;
+      }
+      return prev.level > current.level ? prev : current;
+    });
+
+    const isYellowStarterPikachu =
+      displayVersion === 'yellow' && parentId === 25 && bestInstance.otName === saveData.trainerName;
+    if (isYellowStarterPikachu) return;
+
     const tr = detail.tr;
     const min_l = detail.ml;
-    const min_h = detail.mh;
     const item = detail.item;
     const held = detail.held;
     const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
@@ -382,13 +391,17 @@ export function generateSuggestions(
         });
       } else if (min_h) {
         const todMsg = tod ? ` during the ${tod}` : '';
+        const friendship = bestInstance.friendship ?? 0;
+        const isReady = friendship >= min_h;
         suggestions.push({
           id: `evo-happy-${targetId}`,
           category: 'Evolve',
-          title: `Happiness Evolution: #${targetId}`,
-          description: `Level up your pre-evolution with high happiness to evolve${todMsg}!`,
+          title: isReady ? `Ready to Evolve: #${targetId}!` : `Happiness Evolution: #${targetId}`,
+          description: isReady
+            ? `Your pre-evolution is happy enough to evolve${todMsg}! Level it up once.`
+            : `Level up your pre-evolution with high happiness to evolve${todMsg}! (Current: ${friendship}/${min_h})`,
           pokemonId: targetId,
-          priority: 80,
+          priority: isReady ? 90 : 80,
         });
       }
     } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
