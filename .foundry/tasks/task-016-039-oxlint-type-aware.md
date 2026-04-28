@@ -2,11 +2,12 @@
 id: "task-016-039-oxlint-type-aware"
 type: "TASK"
 title: "Enable oxlint type-aware and type-check options"
-status: "ACTIVE"
+status: "PENDING"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-27"
-depends_on: []
+depends_on:
+  - .foundry/tasks/task-016-054-install-oxlint-tsgolint.md
 jules_session_id: "14804917729622045262"
 parent: ".foundry/stories/story-010-016-enable-expensive-oxlint-checks.md"
 ---
