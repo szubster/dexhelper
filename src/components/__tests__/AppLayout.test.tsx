@@ -47,7 +47,7 @@ describe('AppLayout chunk error handling', () => {
     const errorEvent = new window.ErrorEvent('error', {
       message: 'Failed to fetch dynamically imported module',
     });
-    window.dispatchEvent(errorEvent);
+    window.dispatchEvent(errorEvent); // no void needed actually, but let's add it if needed.
 
     await vi.waitFor(() => {
       expect(reloadPage).toHaveBeenCalledTimes(1);
@@ -66,7 +66,7 @@ describe('AppLayout chunk error handling', () => {
     const errorEvent = new window.ErrorEvent('error', {
       message: 'Some other random error',
     });
-    window.dispatchEvent(errorEvent);
+    window.dispatchEvent(errorEvent); // no void needed actually, but let's add it if needed.
 
     await new Promise((r) => setTimeout(r, 50));
     expect(reloadPage).not.toHaveBeenCalled();

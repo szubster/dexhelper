@@ -1,7 +1,17 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "ignoreDependencies": ["bundlemon"],
-  "ignore": [".github/scripts/**", "src/test-setup.ts"],
+  "ignoreDependencies": [
+    "bundlemon"
+  ],
+  "ignore": [
+    ".github/scripts/**",
+    "src/test-setup.ts",
+    "scripts/**",
+    "src/db/SaveDB.ts",
+    "src/db/schema.ts",
+    "src/engine/saveParser/parsers/common.ts",
+    "src/utils/generationConfig.ts"
+  ],
   "rules": {
     "files": "warn",
     "exports": "warn",
