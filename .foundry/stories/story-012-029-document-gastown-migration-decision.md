@@ -2,13 +2,13 @@
 id: story-012-029-document-gastown-migration-decision
 type: STORY
 title: "Document Gastown Migration Decision"
-status: "READY"
+status: "ACTIVE"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-28"
 depends_on:
   - .foundry/stories/story-012-027-design-sync-mechanism.md
-jules_session_id: null
+jules_session_id: "17500229606109083585"
 pr_number: null
 parent: .foundry/epics/epic-012-gastown-orchestrator.md
 tags:
