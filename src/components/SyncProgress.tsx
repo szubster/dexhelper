@@ -10,15 +10,18 @@ export function SyncProgress() {
 
   useEffect(() => {
     // Check initial status
-    pokeDB.getStatus().then((status) => {
-      if (status.isComplete) {
-        setIsComplete(true);
-        setShouldRender(true); // Show "System Primed" briefly
-        setTimeout(() => setShouldRender(false), 800);
-      } else if (status.isSyncing) {
-        setShouldRender(true);
-      }
-    });
+    pokeDB
+      .getStatus()
+      .then((status) => {
+        if (status.isComplete) {
+          setIsComplete(true);
+          setShouldRender(true); // Show "System Primed" briefly
+          setTimeout(() => setShouldRender(false), 800);
+        } else if (status.isSyncing) {
+          setShouldRender(true);
+        }
+      })
+      .catch(console.error);
 
     const handleProgress = (event: Event) => {
       const customEvent = event as CustomEvent<{ current: number; total: number; stage: string }>;
