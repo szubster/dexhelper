@@ -2,10 +2,10 @@
 id: "story-009-030-single-persona-dag-tests"
 type: "STORY"
 title: "Story: Single-Persona DAG Resolution Unit Tests"
-status: PENDING
+status: READY
 owner_persona: "tech_lead"
 created_at: "2026-04-27"
-updated_at: "2026-04-27"
+updated_at: "2026-04-28"
 depends_on:
   - .foundry/tasks/task-030-048-implement-single-persona-dag-tests.md
 jules_session_id: null

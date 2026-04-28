@@ -39,3 +39,21 @@
 - **2026-04-28**: PR #666 merged. `task-029-047-write-gastown-adr` is now COMPLETED.
 
 - **2026-04-28**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: PR #697 closed without merging.. Transitioned back to READY.
+
+- **2026-04-28**: Heartbeat detected zombie session for `story-012-029-document-gastown-migration-decision`. Transitioned to FAILED.
+
+- **2026-04-28**: PR #688 merged. `story-014-029-async-startup-hydration` is now COMPLETED.
+
+- **2026-04-28**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: PR #701 closed without merging.. Transitioned back to READY.
+
+- **2026-04-28**: Resurrection Loop triggered for `task-026-044-refactor-state-store-sync`. Reason: PR #686 closed without merging.. Transitioned back to READY.
+
+- **2026-04-28**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #698 closed without merging.. Transitioned back to READY.
+
+- **2026-04-28**: PR #683 merged. `task-030-048-implement-single-persona-dag-tests` is now COMPLETED.
+
+- **2026-04-28**: PR #685 merged. `task-031-051-implement-dual-write-persistence` is now COMPLETED.
+
+- **2026-04-28**: PR #682 merged. `task-032-048-implement-lifecycle-tests` is now COMPLETED.
+
+- **2026-04-28**: PR #687 merged. `task-033-053-update-playwright-idb-injection` is now COMPLETED.
