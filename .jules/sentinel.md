@@ -53,3 +53,8 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 - When testing RangeError throwing inside DataView, avoid overriding `global.DataView` without `try...finally` as it breaks downstream tests if `expect().toThrow()` fails.
 - Be careful when replacing `as any` casting: use `as unknown as typeof DataView` to avoid Biome's `lint/suspicious/noExplicitAny`.
 - `noUncheckedIndexedAccess: true` requires indexing arrays using fallback (e.g., `buffer[i] ?? 0`) or checking for bounds to prevent TypeScript compilation errors (`TS2532`).
+
+### saveParser test coverage learnings
+- When testing RangeError throwing inside DataView, avoid overriding `global.DataView` without `try...finally` as it breaks downstream tests if `expect().toThrow()` fails.
+- Be careful when replacing `as any` casting: use `as unknown as typeof DataView` to avoid Biome's `lint/suspicious/noExplicitAny`.
+- `noUncheckedIndexedAccess: true` requires indexing arrays using fallback (e.g., `buffer[i] ?? 0`) or checking for bounds to prevent TypeScript compilation errors (`TS2532`).

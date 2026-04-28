@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import type { SaveData } from '../../saveParser/index';
+import { describe, expect, it, test } from 'vitest';
+import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
@@ -250,4 +250,114 @@ describe('generateSuggestions', () => {
     const tradeSuggestion = suggestions.find((s) => s.id === 'npc-trade-122');
     expect(tradeSuggestion).toBeUndefined();
   });
+});
+
+test('generateSuggestions edge cases', () => {
+  const mockSaveData: SaveData = {
+    generation: 2,
+    gameVersion: 'crystal',
+    owned: new Set([1]),
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [
+      { speciesId: 1, level: 20, otName: 'PLAYER' } as PokemonInstance,
+      { speciesId: 1, level: 30, otName: 'PLAYER' } as PokemonInstance,
+    ],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData: AssistantApiData = {
+    localEncounters: [
+      {
+        pid: 2,
+        enc: [{ v: 14, aid: 0, d: [{ c: 1, m: 1, ml: 1, mh: 1 }] }],
+      },
+      {
+        pid: 3,
+        enc: [{ v: 14, aid: 0, d: [{ c: 1, m: 1, ml: 1, mh: 1 }] }],
+      },
+    ],
+    missingEncounters: {
+      4: {
+        pid: 4,
+        enc: [{ v: 99, aid: 0, d: [] }],
+      },
+    },
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      2: {
+        id: 2,
+        n: 'Ivysaur',
+        efrm: [1],
+        det: [{ tr: 1, ml: 25 }],
+        eto: [],
+      },
+      3: {
+        id: 3,
+        n: 'Venusaur',
+        efrm: [2],
+        det: [{ tr: 1, ml: 36 }],
+        eto: [],
+      },
+      26: {
+        id: 26,
+        n: 'Raichu',
+        efrm: [25],
+        det: [{ tr: 3, item: 0x20 }],
+        eto: [],
+      },
+    },
+    areaNames: {},
+    allLocations: [],
+    allAreas: [],
+    localAid: 0,
+  } as unknown as AssistantApiData;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  expect(suggestions.find((s) => s.pokemonId === 4)).toBeUndefined();
+
+  mockSaveData.gameVersion = 'yellow';
+  mockSaveData.owned.add(25);
+  mockSaveData.partyDetails = [
+    { speciesId: 25, level: 20, otName: 'PLAYER' } as PokemonInstance,
+    { speciesId: 25, level: 50, otName: 'PLAYER' } as PokemonInstance,
+  ];
+  mockSaveData.trainerName = 'PLAYER';
+
+  const { suggestions: ySug } = generateSuggestions(mockSaveData, false, 'yellow', mockApiData, gen1Strategy);
+
+  const raichuSug = ySug.find((s) => s.pokemonId === 26);
+  expect(raichuSug).toBeDefined();
+  expect(raichuSug?.title).toBe('Version Exclusive: #26');
+
+  if (mockApiData.pokemonMetadata[26]) mockApiData.pokemonMetadata[26].det = [];
+  mockSaveData.gameVersion = 'red';
+  const { suggestions: emptyDetSug } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+  expect(emptyDetSug.find((s) => s.pokemonId === 26)).toBeUndefined();
+
+  mockSaveData.generation = 1;
+  mockSaveData.gameVersion = 'red';
+  mockSaveData.owned = new Set([1]);
+  mockApiData.pokemonMetadata[122] = {
+    id: 122,
+    n: 'Mr. Mime',
+    efrm: [],
+    det: [],
+    eto: [],
+    cr: 0,
+    baby: false,
+  };
+  const { suggestions: npcTradeSug } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+  const npcTradeMime = npcTradeSug.find((s) => s.pokemonId === 122);
+  expect(npcTradeMime?.id).toBe('npc-trade-122');
+
+  mockSaveData.partyDetails = [
+    { speciesId: 1, level: 30, otName: 'PLAYER' } as PokemonInstance,
+    { speciesId: 1, level: 20, otName: 'PLAYER' } as PokemonInstance,
+  ];
+  generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
 });
