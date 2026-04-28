@@ -9,7 +9,6 @@ updated_at: "2026-04-24"
 depends_on:
   - .foundry/epics/epic-005-013-idb-infrastructure.md
   - .foundry/epics/epic-005-014-state-store-migration.md
-  - .foundry/stories/story-015-032-legacy-save-migration-hook.md
 jules_session_id: null
 parent: .foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md
 tags: ["migration", "localStorage", "indexeddb"]
@@ -25,5 +24,3 @@ Existing users will have their saves stored as base64 strings in `localStorage`.
 - [ ] Legacy base64 saves are migrated to IndexedDB as binary.
 - [ ] Successfully migrated saves are cleared from `localStorage`.
 - [ ] Users experience no loss of progression during the transition.
-## Generated Stories
-- .foundry/stories/story-015-032-legacy-save-migration-hook.md

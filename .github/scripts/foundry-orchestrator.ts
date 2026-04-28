@@ -411,10 +411,12 @@ function main(): void {
    * Helper to recursively check if a node (parent or dependency) is "incomplete"
    * and thus blocks downstream work.
    *
-   * A node is incomplete if:
+   * A node is hierarchically incomplete if:
    * 1. Its status is NOT 'COMPLETED'.
    * 2. ANY of its recursive children (sub-tasks/stories) are incomplete.
-   * 3. ANY of its recursive dependencies are incomplete.
+   *
+   * Note: This function only traverses the parent -> child tree. It does NOT
+   * follow 'depends_on' links to avoid circular deadlock between parents and children.
    */
   function isHierarchicallyIncomplete(nodePath: string): boolean {
     if (evalCache.has(nodePath)) return evalCache.get(nodePath)!;
@@ -438,21 +440,11 @@ function main(): void {
       return true;
     }
 
-    // 3. If node is COMPLETED, it is still incomplete if its children or dependencies are not done.
-    // Set cache to 'true' temporarily to prevent infinite recursion in case of cycles.
-    evalCache.set(nodePath, true);
-
-    // Check recursive children
+    // 3. If node is COMPLETED, it is still incomplete if its children (recursive) are not done.
     const children = parentToChildren.get(nodePath) || [];
     for (const child of children) {
       if (isHierarchicallyIncomplete(child.repoPath)) {
-        return true;
-      }
-    }
-
-    // Check recursive dependencies
-    for (const depPath of node.frontmatter.depends_on) {
-      if (isHierarchicallyIncomplete(depPath)) {
+        evalCache.set(nodePath, true);
         return true;
       }
     }
@@ -462,9 +454,9 @@ function main(): void {
   }
 
   // ── Phase 3.5: SUSPEND (Wait & Wake) ───────────────────────────────────────
-  info('Phase 3.5: Checking ACTIVE/COMPLETED nodes for suspension...');
+  info('Phase 3.5: Checking ACTIVE nodes for suspension...');
   for (const node of nodes) {
-    if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'COMPLETED') continue;
+    if (node.frontmatter.status !== 'ACTIVE') continue;
 
     let shouldSuspend = false;
     for (const depPath of node.frontmatter.depends_on) {
@@ -473,7 +465,7 @@ function main(): void {
         if (fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
         }
-        warn(`Unresolvable dependency '${depPath}' referenced by ${node.frontmatter.status} node: ${node.repoPath}`);
+        warn(`Unresolvable dependency '${depPath}' referenced by ACTIVE node: ${node.repoPath}`);
         hasUnresolvableDeps = true;
         shouldSuspend = true;
         break;
@@ -493,16 +485,9 @@ function main(): void {
       }
     }
 
-    // Also suspend if the node is COMPLETED but has incomplete children (Hierarchical Incompleteness)
-    if (!shouldSuspend && node.frontmatter.status === 'COMPLETED') {
-      if (isHierarchicallyIncomplete(node.repoPath)) {
-        shouldSuspend = true;
-      }
-    }
-
     if (shouldSuspend) {
-      info(`Suspending ${node.frontmatter.status} node: ${node.repoPath}`);
-      promoteNodeStatus(node, node.frontmatter.status, 'PENDING');
+      info(`Suspending ACTIVE node: ${node.repoPath}`);
+      promoteNodeStatus(node, 'ACTIVE', 'PENDING');
     }
   }
 

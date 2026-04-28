@@ -92,7 +92,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
             <button
               type="button"
               onClick={() => setShowDebug(!showDebug)}
-              className={`rounded-xl border p-2 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${showDebug ? 'border-amber-500/50 bg-amber-500/20 text-amber-400' : 'border-zinc-700 bg-zinc-800 text-zinc-500 hover:text-zinc-300'}`}
+              className={`rounded-xl border p-2 transition-all ${showDebug ? 'border-amber-500/50 bg-amber-500/20 text-amber-400' : 'border-zinc-700 bg-zinc-800 text-zinc-500 hover:text-zinc-300'}`}
               title="Toggle Debug Mode"
               aria-label="Toggle Debug Mode"
             >

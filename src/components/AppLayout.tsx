@@ -2,7 +2,6 @@ import { Link } from '@tanstack/react-router';
 import { AlertTriangle, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useMemo } from 'react';
-import { saveDB } from '../db/SaveDB';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
@@ -59,8 +58,6 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         } else {
           setManualVersion(null);
         }
-
-        saveDB.putSave('last_save_file', new Uint8Array(buffer)).catch(console.error);
 
         let binary = '';
         const bytes = new Uint8Array(buffer);

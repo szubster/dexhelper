@@ -179,7 +179,7 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
 3. **`depends_on` uses repo-relative file paths.** Do not use `id` slugs or short names — the orchestrator resolves paths with `fs.readFile`, not a lookup table.
 4. **A node in `ACTIVE` status must have a non-null `jules_session_id`.** If it doesn't, the heartbeat will flip it to `FAILED`.
 5. **Only the orchestrator writes `READY`.** Personas must never set this status manually.
-6. **Implementers (Coder/QA) must NOT modify node frontmatter**, EXCEPT for the `status` field if they need to mark the task as `FAILED`, and the `rejection_reason` field. They are strictly forbidden from setting the status to `COMPLETED` or `DONE`. They should primarily update the Markdown body.
+6. **Implementers (Coder/QA) must NOT modify node frontmatter.** Jules is explicitly forbidden from touching the `status`, `jules_session_id`, or other metadata fields. They should only update the Markdown body.
 7. **`COMPLETED` nodes are read-only.** Once a PR is merged, the node must not be edited. The TPM archives it.
 8. **`depends_on` paths must be resolvable.** The orchestrator will treat an unresolvable path as a permanent block (equivalent to `BLOCKED`). Always verify paths exist before committing.
 9. **Every `.foundry/**/*.md` file that is not a journal or doc must have valid YAML frontmatter.** The orchestrator will skip malformed files and log a warning — they will never be dispatched.

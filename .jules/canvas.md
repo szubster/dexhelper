@@ -39,9 +39,3 @@
 **Outcome:** Rejected → journaled
 **Why:** The maintainer correctly pointed out that the card UI was largely a duplicate of `PokedexCard.tsx`, violating DRY principles, and requested a refactor to reuse the component instead of copying the layout.
 **Pattern:** When applying a successful design pattern to a new area, ensure the underlying components are refactored for reuse rather than duplicating complex UI markup (like the tactical card layout and scanline effects).
-
-## 2025-06-05 - [Accepted] - 🖼️ Canvas: Tactical Bottom Navigation Redesign
-**What:** Redesigned the `BottomNav` component on mobile devices to use a tactical hardware interface. Replaced generic icons and rounded shapes with a squared-off bottom dock containing a gradient lip, dashed top border, corner crosshairs on the active indicator, pulsating "● LINK_ACTIVE" telemetry label, and monospace `SYS.DEX`, `SYS.STRG`, `SYS.ASST`, `SYS.MENU` text.
-**Outcome:** Accepted
-**Why:** Brings the mobile bottom navigation in line with the rest of the application's heavily tactical, snooping-focused aesthetic (like the Grid, Details, and Search). The sharp shapes and telemetry details enhance the illusion of holding a specialized hardware device instead of a generic web app.
-**Pattern:** Ensure structural and navigation components strictly adhere to the tactical aesthetics (sharp edges, corner crosshairs, monospace text) to maintain overall visual coherence.
