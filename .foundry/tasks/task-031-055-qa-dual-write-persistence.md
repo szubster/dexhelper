@@ -21,6 +21,6 @@ This Task focuses on verifying the dual-write save persistence logic. It must be
 Log verification results and critical learnings in the agent's journal located at `.jules/qa.md`.
 
 ## Acceptance Criteria
-- [ ] Verify that new save file uploads are successfully stored in `localStorage` as base64 strings.
-- [ ] Verify that new save file uploads are successfully stored in `IndexedDB` as binary data (`Uint8Array`).
-- [ ] Verify that the application handles errors gracefully (e.g. if writing to one storage backend fails, it is logged correctly).
+- [x] Verify that new save file uploads are successfully stored in `localStorage` as base64 strings.
+- [x] Verify that new save file uploads are successfully stored in `IndexedDB` as binary data (`Uint8Array`).
+- [x] Verify that the application handles errors gracefully (e.g. if writing to one storage backend fails, it is logged correctly).
