@@ -24,3 +24,5 @@ Existing users will have their saves stored as base64 strings in `localStorage`.
 - [ ] Legacy base64 saves are migrated to IndexedDB as binary.
 - [ ] Successfully migrated saves are cleared from `localStorage`.
 - [ ] Users experience no loss of progression during the transition.
+## Generated Stories
+- .foundry/stories/story-015-032-legacy-save-migration-hook.md

@@ -2,12 +2,12 @@
 id: task-029-047-write-gastown-adr
 type: TASK
 title: "Write Gastown Migration ADR"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "coder"
 created_at: "2026-04-26"
-updated_at: "2026-04-27"
+updated_at: "2026-04-28"
 depends_on: []
-jules_session_id: "13340916664433767286"
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-012-029-document-gastown-migration-decision.md
 tags:
@@ -32,9 +32,9 @@ Write `.foundry/docs/adrs/003-gastown-migration-decision.md` to document the Gas
 This is a documentation task (low risk). The `coder` is designated to self-verify by checking the ADR format and document the verification in their task journal.
 
 ## Acceptance Criteria
-- [ ] Create `.foundry/docs/adrs/003-gastown-migration-decision.md`.
-- [ ] Document Cloudflare Worker benefits (reliable sub-minute scheduling, atomic transitions, external reachability).
-- [ ] Document the decision to use D1 over KV for strict consistency and complex state queries.
-- [ ] Detail the D1 schema (`nodes`, `dependencies`, `tags`) and webhook sync mechanism (Git push -> Webhook -> Worker -> Diff -> Fetch -> D1).
-- [ ] Include the "go" decision and high-level migration plan.
-- [ ] Document self-verification in `.jules/coder.md`.
+- [x] Create `.foundry/docs/adrs/003-gastown-migration-decision.md`.
+- [x] Document Cloudflare Worker benefits (reliable sub-minute scheduling, atomic transitions, external reachability).
+- [x] Document the decision to use D1 over KV for strict consistency and complex state queries.
+- [x] Detail the D1 schema (`nodes`, `dependencies`, `tags`) and webhook sync mechanism (Git push -> Webhook -> Worker -> Diff -> Fetch -> D1).
+- [x] Include the "go" decision and high-level migration plan.
+- [x] Document self-verification in `.jules/coder.md`.

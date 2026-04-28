@@ -2,12 +2,12 @@
 id: "task-031-048-implement-deadlock-tests"
 type: "TASK"
 title: "Implement Deadlock Prevention Mechanism Unit Tests"
-status: READY
+status: "ACTIVE"
 owner_persona: "coder"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"
 depends_on: []
-jules_session_id: null
+jules_session_id: "4640549639143018851"
 parent: ".foundry/stories/story-009-031-deadlock-prevention-tests.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 ---
