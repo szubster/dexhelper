@@ -83,3 +83,7 @@
 - **2026-04-28**: PR #712 merged. `task-031-055-qa-dual-write-persistence` is now COMPLETED.
 
 - **2026-04-28**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-28**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: PR #715 closed without merging.. Transitioned back to READY.
+
+- **2026-04-28**: Resurrection Loop triggered for `story-009-032-lifecycle-integration-tests`. Reason: Retry from FAILED status.. Transitioned back to READY.
