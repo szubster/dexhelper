@@ -6,7 +6,8 @@ status: "ACTIVE"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-27"
-depends_on: []
+depends_on:
+  - .foundry/tasks/task-029-050-implement-async-hydration.md
 jules_session_id: "12675905199793086721"
 parent: .foundry/epics/epic-005-014-state-store-migration.md
 tags: ["state", "store", "indexeddb", "hydration"]
