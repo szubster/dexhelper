@@ -50,8 +50,3 @@
 **Outcome:** Accepted
 **Why:** The memory requires Shield to use the 🔐 emoji for PR titles, and to prevent CWE-285 vulnerabilities (using String.includes on URLs instead of startsWith).
 **Pattern:** Proposing changes to update security prompts according to CI constraints (CodeQL) and project title conventions.
-## 2026-06-03 - [Accepted] - Prompt improvement - Update Canvas to adhere to project aesthetic
-**Type:** Prompt improvement
-**Outcome:** Merged
-**Why:** System memory requires the Canvas persona to adhere to a "tactical hardware/snooping" aesthetic, but the prompt didn't mention it.
-**Pattern:** Codify system memory constraints into agent prompts so they are respected.

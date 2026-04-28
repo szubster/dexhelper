@@ -9,7 +9,6 @@ updated_at: "2026-04-27"
 depends_on:
   - .foundry/stories/story-014-029-async-startup-hydration.md
   - .foundry/stories/story-014-031-dual-write-save-persistence.md
-  - .foundry/tasks/task-032-052-implement-migration-logic.md
 jules_session_id: null
 parent: .foundry/epics/epic-005-015-legacy-data-migration.md
 tags: ["migration", "indexeddb", "localStorage"]

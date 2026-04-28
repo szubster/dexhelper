@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: "tech_lead"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"
-depends_on:
-  - .foundry/tasks/task-030-048-implement-single-persona-dag-tests.md
+depends_on: []
 jules_session_id: null
 parent: ".foundry/epics/epic-009-atomic-handoff-testing.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]

@@ -2,12 +2,12 @@
 id: task-031-051-implement-dual-write-persistence
 type: TASK
 title: "Implement Dual-Write Persistence"
-status: "ACTIVE"
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-27"
 updated_at: "2026-04-27"
 depends_on: []
-jules_session_id: "5504686510106880202"
+jules_session_id: null
 parent: .foundry/stories/story-014-031-dual-write-save-persistence.md
 tags: ["persistence", "indexeddb", "localStorage"]
 ---

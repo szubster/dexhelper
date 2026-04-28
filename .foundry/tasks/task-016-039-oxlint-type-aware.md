@@ -7,7 +7,7 @@ owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-27"
 depends_on: []
-jules_session_id: "14804917729622045262"
+jules_session_id: "17658005964364629472"
 parent: ".foundry/stories/story-010-016-enable-expensive-oxlint-checks.md"
 ---
 

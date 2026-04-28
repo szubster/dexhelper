@@ -742,32 +742,4 @@ jules_session_id: null
     const qaResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-atomic-3.md'), 'utf-8');
     expect(qaResult).toContain('status: PENDING');
   });
-
-test('Full Lifecycle: IDEA -> PRD -> EPIC -> STORY -> TASK', () => {
-fs.mkdirSync(path.join(foundryDir, 'prds'));
-
-fs.writeFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), `---\nid: idea-001\ntype: IDEA\ntitle: "Idea 1"\nstatus: COMPLETED\nowner_persona: product_manager\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n---\n\n# Title`);
-fs.writeFileSync(path.join(tmpDir, '.foundry/prds/prd-001-002.md'), `---\nid: prd-001-002\ntype: PRD\ntitle: "PRD 2"\nstatus: PENDING\nowner_persona: product_manager\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/ideas/idea-001.md\ndepends_on: [.foundry/ideas/idea-001.md]\njules_session_id: null\n---\n\n# Title`);
-
-main();
-expect(fs.readFileSync(path.join(tmpDir, '.foundry/prds/prd-001-002.md'), 'utf-8')).toContain('status: READY');
-
-fs.writeFileSync(path.join(tmpDir, '.foundry/prds/prd-001-002.md'), `---\nid: prd-001-002\ntype: PRD\ntitle: "PRD 2"\nstatus: COMPLETED\nowner_persona: product_manager\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/ideas/idea-001.md\ndepends_on: [.foundry/ideas/idea-001.md]\njules_session_id: null\n---\n\n# Title`);
-fs.writeFileSync(path.join(tmpDir, '.foundry/epics/epic-002-003.md'), `---\nid: epic-002-003\ntype: EPIC\ntitle: "EPIC 3"\nstatus: PENDING\nowner_persona: epic_planner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/prds/prd-001-002.md\ndepends_on: [.foundry/prds/prd-001-002.md]\njules_session_id: null\n---\n\n# Title`);
-
-main();
-expect(fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-002-003.md'), 'utf-8')).toContain('status: READY');
-
-fs.writeFileSync(path.join(tmpDir, '.foundry/epics/epic-002-003.md'), `---\nid: epic-002-003\ntype: EPIC\ntitle: "EPIC 3"\nstatus: COMPLETED\nowner_persona: epic_planner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/prds/prd-001-002.md\ndepends_on: [.foundry/prds/prd-001-002.md]\njules_session_id: null\n---\n\n# Title`);
-fs.writeFileSync(path.join(tmpDir, '.foundry/stories/story-003-004.md'), `---\nid: story-003-004\ntype: STORY\ntitle: "STORY 4"\nstatus: PENDING\nowner_persona: story_owner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/epics/epic-002-003.md\ndepends_on: [.foundry/epics/epic-002-003.md]\njules_session_id: null\n---\n\n# Title`);
-
-main();
-expect(fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-003-004.md'), 'utf-8')).toContain('status: READY');
-
-fs.writeFileSync(path.join(tmpDir, '.foundry/stories/story-003-004.md'), `---\nid: story-003-004\ntype: STORY\ntitle: "STORY 4"\nstatus: COMPLETED\nowner_persona: story_owner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/epics/epic-002-003.md\ndepends_on: [.foundry/epics/epic-002-003.md]\njules_session_id: null\n---\n\n# Title`);
-fs.writeFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), `---\nid: task-004-005\ntype: TASK\ntitle: "TASK 5"\nstatus: PENDING\nowner_persona: coder\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/stories/story-003-004.md\ndepends_on: [.foundry/stories/story-003-004.md]\njules_session_id: null\n---\n\n# Title`);
-
-main();
-expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf-8')).toContain('status: READY');
-});
 });

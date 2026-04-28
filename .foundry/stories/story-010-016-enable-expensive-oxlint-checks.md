@@ -6,9 +6,7 @@ status: "PENDING"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
-depends_on:
-  - .foundry/tasks/task-016-040-oxlint-import-promise-plugins.md
-  - .foundry/tasks/task-016-039-oxlint-type-aware.md
+depends_on: []
 jules_session_id: null
 parent: ".foundry/epics/epic-010-oxlint-config.md"
 ---

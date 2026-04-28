@@ -1,4 +1,3 @@
-import fs from 'node:fs';
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
 import { initializeWithSave } from './test-utils';
@@ -6,9 +5,7 @@ import { initializeWithSave } from './test-utils';
 test.describe('Pokemon Details Modal', () => {
   test('should display detailed information for a Pokemon', async ({ page }) => {
     // 1. Initialize with a Gen 1 save (Yellow)
-    const savePath = path.join(process.cwd(), 'tests/fixtures/yellow.sav');
-    const saveData = fs.readFileSync(savePath);
-    await initializeWithSave(page, new Uint8Array(saveData));
+    await initializeWithSave(page, path.join(process.cwd(), 'tests/fixtures/yellow.sav'));
 
     // 2. Click on a Pokemon (e.g., Pikachu - ID 25)
     await page.getByLabel('View details for Pikachu').click();
@@ -32,9 +29,7 @@ test.describe('Pokemon Details Modal', () => {
   });
 
   test('should show correct locations for the version', async ({ page }) => {
-    const savePath = path.join(process.cwd(), 'tests/fixtures/yellow.sav');
-    const saveData = fs.readFileSync(savePath);
-    await initializeWithSave(page, new Uint8Array(saveData));
+    await initializeWithSave(page, path.join(process.cwd(), 'tests/fixtures/yellow.sav'));
 
     // 1. Search for Pidgey to be efficient
     await page.getByTestId('search-input').fill('Pidgey');

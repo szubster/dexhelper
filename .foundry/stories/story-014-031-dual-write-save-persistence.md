@@ -8,7 +8,6 @@ created_at: "2026-04-27"
 updated_at: "2026-04-27"
 depends_on:
   - .foundry/epics/epic-005-013-idb-infrastructure.md
-  - .foundry/tasks/task-031-051-implement-dual-write-persistence.md
 jules_session_id: null
 parent: .foundry/epics/epic-005-014-state-store-migration.md
 tags: ["persistence", "indexeddb", "localStorage"]

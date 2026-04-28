@@ -9,7 +9,6 @@ updated_at: "2026-04-24"
 depends_on:
   - .foundry/epics/epic-005-013-idb-infrastructure.md
   - .foundry/epics/epic-005-014-state-store-migration.md
-  - .foundry/stories/story-016-033-update-e2e-testing-for-idb.md
 jules_session_id: null
 parent: .foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md
 tags: ["e2e", "testing", "indexeddb"]

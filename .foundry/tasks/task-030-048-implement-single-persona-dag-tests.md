@@ -25,5 +25,5 @@ Implement unit tests to verify that the orchestrator's DAG resolution logic prop
 This story is simple/low-risk. The `coder` must self-verify the changes by ensuring all tests pass and document the verification in their task journal (`.jules/coder.md`).
 
 ## Acceptance Criteria
-- [x] Unit tests cover single-persona node parsing and resolution without errors.
-- [x] Unit tests verify rejection of nodes with invalid `owner_persona` definitions.
+- [ ] Unit tests cover single-persona node parsing and resolution without errors.
+- [ ] Unit tests verify rejection of nodes with invalid `owner_persona` definitions.

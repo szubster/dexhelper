@@ -24,4 +24,4 @@ Write integration tests that simulate a complete lifecycle using atomic nodes to
 - Assert that the nodes correctly transition through statuses as dependencies are met and that the DAG resolves without deadlocks.
 
 ## Acceptance Criteria
-- [x] Integration tests simulate a full IDEA -> PRD -> EPIC -> STORY -> TASK lifecycle using atomic files.
+- [ ] Integration tests simulate a full IDEA -> PRD -> EPIC -> STORY -> TASK lifecycle using atomic files.

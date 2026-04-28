@@ -27,6 +27,3 @@
 
 ## 2026-04-24 - Rejected caching location query locally
 **Learning:** Evaluated caching location query directly inside IndexedDB client using local variable, since `LocationSuggestions.tsx` gets a debounced input to query locations repeatedly. But user requested not to do so, because data fetching caching is already handled well enough by `dataloader` and `tanstack/query`.
-
-## 2026-04-27 - Enabled oxlint type-aware rules
-**Learning:** Installed `oxlint-tsgolint` and enabled `--type-aware` in oxlint. Fixed multiple floating promise warnings across the codebase. Type-aware linting acts as a fast alternative to full typescript-eslint type checking.

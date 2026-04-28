@@ -8,9 +8,6 @@ created_at: "2026-04-23"
 updated_at: "2026-04-27"
 depends_on:
   - .foundry/epics/epic-011-wait-and-wake-protocol.md
-  - .foundry/stories/story-012-029-document-gastown-migration-decision.md
-  - .foundry/stories/story-012-027-design-sync-mechanism.md
-  - .foundry/stories/story-012-026-evaluate-cloudflare-storage.md
 jules_session_id: null
 parent: ".foundry/prds/prd-002-late-binding-orchestrator.md"
 tags:

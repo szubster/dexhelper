@@ -7,11 +7,6 @@
   - `jest/no-standalone-expect` is correctly handled by providing `additionalTestBlockFunctions` in `.oxlintrc.json`.
   - Full test suite passed (node, browser, and e2e tests).
 - **What**: Verified and fully confirmed the `jest/no-disabled-tests` rule as `error` in `.oxlintrc.json`. No code changes were necessary as the change was previously implemented. Validated with `pnpm exec oxlint .` and full `pnpm test` suite which completed successfully.
-
-## Verification Log: Task task-029-047-write-gastown-adr
-- Verified creation of `.foundry/docs/adrs/003-gastown-migration-decision.md` containing Cloudflare Workers evaluation, D1 schema, and migration plan.
-- The document conforms to the ADR format.
-
 ## Story 010-017: Fix jest rules reported by oxlint
 - Verified that the generated tasks `task-017-041-fix-jest-standalone-expect` and `task-017-042-fix-jest-disabled-tests` exist and are COMPLETED.
 - Verified that `pnpm exec oxlint .` passes with the rules enabled.
@@ -21,21 +16,8 @@
 Created the technical blueprint task node `.foundry/tasks/task-031-048-implement-deadlock-tests.md` correctly checking off the required tasks in its parent story `.foundry/stories/story-009-031-deadlock-prevention-tests.md`. Followed the single-owner invariant and intelligent verification protocol.
 
 Verified creation and updating by examining file outputs and running tests with `pnpm lint`, `pnpm test --project=node`, `pnpm test --project=browser`, and `pnpm test:e2e`. All tests passed.
-
-## Task: Implement Single-Persona DAG Resolution Unit Tests (task-030-048)
-- **Status:** Verified
-- **Notes:** The requested unit tests for single-persona DAG resolution and invalid `owner_persona` rejection already exist in `.github/scripts/foundry-orchestrator.test.ts` (e.g., `'Validation: skips nodes with multiple owners'`, `'Atomic Handoffs: resolves dependencies across single-persona atomic tasks'`). No additional code implementation was required. The test suite passes.
-
-# Task task-032-048-implement-lifecycle-tests Verification
-- Added test for simulating full lifecycle IDEA -> PRD -> EPIC -> STORY -> TASK.
-- Verified orchestrator advances the lifecycle stage step-by-step.
-
 ## task-029-050-implement-async-hydration
 
 Created `.foundry/tasks/task-029-050-implement-async-hydration.md` to establish the technical specifications for implementing asynchronous startup hydration. I updated the parent story to reference this newly created task and successfully passed the CI/CD pipeline tests.
-
 ## Task task-031-051-implement-dual-write-persistence
 - Implemented dual-write persistence in `AppLayout.tsx` for IndexedDB and `localStorage`.
-
-## task-033-053-update-playwright-idb-injection
-Updated `tests/e2e/test-utils.ts` to properly inject save data into `SaveDB` via Playwright's `evaluate` while maintaining `localStorage` backwards compatibility. Converted `tests/e2e/pokemon-details.spec.ts` as a sample.
