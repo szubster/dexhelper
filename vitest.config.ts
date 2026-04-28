@@ -10,6 +10,14 @@ export default defineConfig(async (configEnv) => {
   return mergeConfig(baseConfig, {
     test: {
       reporters: ['default', ['junit', { outputFile: './test-report.junit.xml' }]],
+      coverage: {
+        provider: 'v8',
+        exclude: [
+          'src/engine/data/gen1/mapLocations.json',
+          'src/engine/data/gen2/landmarks.json',
+          'src/engine/data/gen2/mapLocations.json',
+        ]
+      },
       // Vitest 4 uses 'projects' instead of 'workspace'
       projects: [
         {
