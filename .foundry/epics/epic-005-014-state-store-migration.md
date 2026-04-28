@@ -8,6 +8,9 @@ created_at: "2026-04-24"
 updated_at: "2026-04-26"
 depends_on:
   - .foundry/epics/epic-005-013-idb-infrastructure.md
+  - .foundry/stories/story-014-031-dual-write-save-persistence.md
+  - .foundry/stories/story-014-029-async-startup-hydration.md
+  - .foundry/stories/story-014-026-refactor-state-store-sync.md
 jules_session_id: null
 parent: .foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md
 tags: ["state", "store", "indexeddb"]
