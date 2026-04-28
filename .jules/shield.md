@@ -6,3 +6,6 @@
 
 ## IndexedDB Save Storage
 **Pattern:** The `window.atob` Base64 decoder is insecure. Instead of doing base64 serialization with handwritten code, or installing base-64 dependencies, the save file storage logic should be migrated completely to `IndexedDB` which natively supports ArrayBuffers and avoids this issue altogether.
+
+## IndexedDB save migration
+**Learnings:** Migrated save file handling from `localStorage` to `saveDB` (IndexedDB) to remove the insecure `window.atob` dependency, resolving the base-64 vulnerability. Also sanitized error logs to prevent CWE-209.

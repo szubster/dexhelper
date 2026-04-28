@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router';
 import { AlertTriangle, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
 import { useEffect } from 'react';
+import { saveDB } from '../db/SaveDB';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
@@ -37,7 +38,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = async (e) => {
       try {
         if (!(e.target?.result instanceof ArrayBuffer)) {
           throw new Error('Failed to read file as ArrayBuffer');
@@ -53,16 +54,11 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           setManualVersion(null);
         }
 
-        let binary = '';
         const bytes = new Uint8Array(buffer);
-        const len = bytes.byteLength;
-        for (let i = 0; i < len; i++) {
-          binary += String.fromCharCode(bytes[i] ?? 0);
-        }
-        localStorage.setItem('last_save_file', window.btoa(binary));
-      } catch (err: unknown) {
-        const message = err instanceof Error ? err.message : 'Failed to parse save file.';
-        setError(message);
+        await saveDB.putSave('last_save_file', bytes);
+      } catch {
+        console.error('System: sync failed');
+        setError('Failed to parse save file.');
         setSaveData(null);
       }
     };

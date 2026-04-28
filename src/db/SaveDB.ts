@@ -4,7 +4,7 @@ const SAVE_DB_NAME = 'SaveDB';
 const SAVE_DB_VERSION = 1;
 const STORE_NAME = 'saves';
 
-export interface SaveDBSchema extends DBSchema {
+interface SaveDBSchema extends DBSchema {
   [STORE_NAME]: {
     key: string;
     value: Uint8Array;
