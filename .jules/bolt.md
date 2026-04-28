@@ -51,3 +51,7 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 ## 2026-04-26 - [O(N) Map Operations inside loop]
 **Learning:** In suggestionEngine.ts, filtering `allInstances` array and mapping over it repeatedly inside `myOtIds` extraction creates intermediate arrays and causes unnecessary memory overhead.
 **Action:** Used a single `for` loop to check `p.otName` and `myOtIds.add` directly instead of chained `.filter().map()`. This avoids the allocation of arrays during the critical suggestion generation path.
+## 2026-04-27 - ⚡ Bolt: Cache Living Dex progress in AppLayout
+**What:** Memoized the 'Living Dex' progress `Set` calculation in `src/components/AppLayout.tsx`.
+**Why:** The `new Set([...saveData.party, ...saveData.pc])` array allocation was being calculated twice on every single render of the global AppLayout wrapper, causing significant $O(N)$ overhead across the entire app.
+**Measured Improvement:** Eliminated two main-thread blocking operations that were executing on every React state update.

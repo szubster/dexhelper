@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { AlertTriangle, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
@@ -31,6 +31,12 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const setManualVersion = useStore((s) => s.setManualVersion);
   const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
   const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
+
+  // ⚡ Bolt: Cache Living Dex secured calculation instead of redefining Set in JSX twice.
+  const securedIdsSize = useMemo(() => {
+    if (!saveData) return 0;
+    return new Set([...saveData.party, ...saveData.pc]).size;
+  }, [saveData]);
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -175,10 +181,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     <span className="font-black text-[9px] text-zinc-500 uppercase tracking-widest">Living Dex</span>
                     <span className="font-black font-mono text-[10px] text-[var(--theme-primary)]">
                       {(() => {
-                        const securedIds = new Set([...saveData.party, ...saveData.pc]);
                         const total = getGenerationConfig(saveData.generation).maxDex;
-                        const percent = Math.floor((securedIds.size / total) * 100);
-                        return `${percent}%`;
+                        return `${Math.floor((securedIdsSize / total) * 100)}%`;
                       })()}
                     </span>
                   </div>
@@ -186,9 +190,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     <div
                       style={{
                         width: `${(() => {
-                          const securedIds = new Set([...saveData.party, ...saveData.pc]);
                           const total = getGenerationConfig(saveData.generation).maxDex;
-                          return (securedIds.size / total) * 100;
+                          return (securedIdsSize / total) * 100;
                         })()}%`,
                       }}
                       className="h-full bg-[var(--theme-primary)] shadow-[0_0_10px_var(--theme-primary)] transition-all duration-1000"
