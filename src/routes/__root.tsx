@@ -43,9 +43,9 @@ export const Route = createRootRouteWithContext<RootContext>()({
 function RootComponent() {
   const loadSaveFromStorage = useStore((s) => s.loadSaveFromStorage);
 
-  // Load saved data from localStorage on mount
+  // Load saved data from IndexedDB on mount
   useEffect(() => {
-    loadSaveFromStorage();
+    loadSaveFromStorage().catch(console.error);
   }, [loadSaveFromStorage]);
 
   return (
