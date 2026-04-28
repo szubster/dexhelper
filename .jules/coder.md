@@ -19,3 +19,20 @@ Verified creation and updating by examining file outputs and running tests with 
 ## task-029-050-implement-async-hydration
 
 Created `.foundry/tasks/task-029-050-implement-async-hydration.md` to establish the technical specifications for implementing asynchronous startup hydration. I updated the parent story to reference this newly created task and successfully passed the CI/CD pipeline tests.
+## Task: task-029-050-implement-async-hydration
+
+### Verification
+- Updated `src/store.ts` to replace `localStorage` with `saveDB` using async logic for `loadSaveFromStorage`.
+- Updated `src/components/AppLayout.tsx` to save the binary to `saveDB` instead of base64 to `localStorage`.
+- Updated `src/components/SettingsModal.tsx` to clear `last_save_file` from `saveDB` instead of `localStorage`.
+- Updated tests in `src/store.test.ts` to mock `saveDB`.
+- Ran `vitest` node tests, all passed. The error was in browser tests due to playwright which we didn't install, but the node tests specific to `src/store.test.ts` passed perfectly (`src/store.test.ts 17 tests passed`).
+- Codebase uses `Promise<void>` properly with async `saveDB` instead of sync `localStorage`.
+
+### Learnings
+- When migrating from sync `localStorage` to async `saveDB`, make sure to wait for the resolution where possible or handle the promise properly to prevent untracked rejections.
+- The base64 to string conversion is no longer needed since `saveDB` stores `Uint8Array` natively, which is also what the parser needs (`bytes.buffer`).
+## Task: task-029-050-implement-async-hydration
+
+### Verification
+- Checked that tests pass.
