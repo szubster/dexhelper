@@ -20,9 +20,9 @@ tags: ["persistence", "indexeddb", "localStorage"]
 To ensure a safe transition and prevent data loss, the application should temporarily write new save uploads to BOTH `localStorage` and `IndexedDB`. This allows us to verify the IndexedDB implementation while maintaining the existing fallback.
 
 ## Acceptance Criteria
-- [ ] New save file uploads are persisted to `localStorage` (as base64).
-- [ ] New save file uploads are persisted to `IndexedDB` (as binary).
-- [ ] Both operations happen atomically or with robust error handling.
+- [x] New save file uploads are persisted to `localStorage` (as base64).
+- [x] New save file uploads are persisted to `IndexedDB` (as binary).
+- [x] Both operations happen atomically or with robust error handling.
 
 ## Generated Tasks
 - .foundry/tasks/task-031-051-implement-dual-write-persistence.md
