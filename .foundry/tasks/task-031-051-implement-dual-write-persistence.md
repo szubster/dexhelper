@@ -24,6 +24,6 @@ Update `src/components/AppLayout.tsx` to ensure that when a new save file is upl
 - Use generic error logging for IndexedDB failures per PRD guidelines.
 
 ## Acceptance Criteria
-- [ ] `AppLayout.tsx` calls `saveDB.putSave` on file upload.
-- [ ] `localStorage` is still updated correctly.
-- [ ] Verification: Upload a file and check both Storage tabs in DevTools.
+- [x] `AppLayout.tsx` calls `saveDB.putSave` on file upload.
+- [x] `localStorage` is still updated correctly.
+- [x] Verification: Upload a file and check both Storage tabs in DevTools.
