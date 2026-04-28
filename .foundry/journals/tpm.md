@@ -88,3 +88,5 @@
 - **2026-04-27**: Resurrection Loop triggered for `task-016-039-oxlint-type-aware`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-28**: PR #666 merged. `task-029-047-write-gastown-adr` is now COMPLETED.
+
+- **2026-04-28**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: PR #697 closed without merging.. Transitioned back to READY.
