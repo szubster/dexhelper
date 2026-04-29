@@ -25,6 +25,6 @@ Implement the `migrateLegacySave` function and integrate it into the startup hyd
 - Add error boundaries to prevent migration failures from crashing the app.
 
 ## Acceptance Criteria
-- [ ] Migration logic successfully transfers data from `localStorage` to `saveDB`.
-- [ ] Legacy data is removed from `localStorage` post-migration.
-- [ ] Verification: Manually set a base64 string in `localStorage`, reload, and verify it moved to IndexedDB.
+- [x] Migration logic successfully transfers data from `localStorage` to `saveDB`.
+- [x] Legacy data is removed from `localStorage` post-migration.
+- [x] Verification: Manually set a base64 string in `localStorage`, reload, and verify it moved to IndexedDB.
