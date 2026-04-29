@@ -45,7 +45,7 @@ export function BottomNav() {
         <Link
           to="/"
           className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 py-2 transition-all duration-300 focus-visible:outline-none',
+            'group relative z-10 flex flex-col items-center gap-1.5 rounded-sm py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
             isDex ? 'text-[var(--theme-primary)]' : 'text-zinc-600',
           )}
         >
@@ -62,7 +62,7 @@ export function BottomNav() {
         <Link
           to="/storage"
           className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 py-2 transition-all duration-300 focus-visible:outline-none',
+            'group relative z-10 flex flex-col items-center gap-1.5 rounded-sm py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
             isStorage ? 'text-[var(--theme-primary)]' : 'text-zinc-600',
           )}
         >
@@ -79,7 +79,7 @@ export function BottomNav() {
         <Link
           to="/assistant"
           className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 py-2 transition-all duration-300 focus-visible:outline-none',
+            'group relative z-10 flex flex-col items-center gap-1.5 rounded-sm py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
             isAssistant ? 'text-[var(--theme-primary)]' : 'text-zinc-600',
           )}
         >
@@ -97,7 +97,7 @@ export function BottomNav() {
           type="button"
           onClick={() => setIsSettingsOpen(true)}
           aria-label="Open settings menu"
-          className="group relative z-10 flex flex-col items-center gap-1.5 py-2 text-zinc-600 transition-all duration-300 focus-visible:outline-none"
+          className="group relative z-10 flex flex-col items-center gap-1.5 rounded-sm py-2 text-zinc-600 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
         >
           <div className="transition-transform active:scale-90">
             <Settings2 size={20} strokeWidth={2} />
