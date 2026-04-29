@@ -2,7 +2,7 @@
 id: prd-010-008-idempotent-node-generation
 type: PRD
 title: "Idempotent Node Generation Mechanism"
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: "2026-04-29"
 updated_at: "2026-04-29"
