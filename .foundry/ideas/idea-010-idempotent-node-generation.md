@@ -2,7 +2,7 @@
 id: idea-010-idempotent-node-generation
 type: IDEA
 title: "Idempotent Node Generation Mechanism"
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: "2026-04-29"
 updated_at: "2026-04-29"

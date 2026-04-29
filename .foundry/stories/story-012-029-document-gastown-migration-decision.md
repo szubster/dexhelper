@@ -2,7 +2,7 @@
 id: story-012-029-document-gastown-migration-decision
 type: STORY
 title: "Document Gastown Migration Decision"
-status: "FAILED"
+status: "READY"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-04-29"
@@ -16,7 +16,7 @@ tags:
   - foundry-v2
   - architecture
   - orchestration
-rejection_count: 6
+rejection_count: 7
 ---
 
 # Document Gastown Migration Decision
