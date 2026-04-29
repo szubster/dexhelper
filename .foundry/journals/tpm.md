@@ -109,3 +109,11 @@
 - **2026-04-29**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: PR #738 closed without merging.. Transitioned back to READY.
 
 - **2026-04-29**: Heartbeat detected zombie session for `task-016-056-fix-heartbeat-test-types`. Transitioned to FAILED.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-009-032-lifecycle-integration-tests`. Reason: PR #739 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: PR #740 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-009-030-single-persona-dag-tests`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `task-016-056-fix-heartbeat-test-types`. Reason: Retry from FAILED status.. Transitioned back to READY.
