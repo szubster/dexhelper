@@ -2,12 +2,12 @@
 id: "task-016-056-fix-heartbeat-test-types"
 type: "TASK"
 title: "Fix strict type errors in foundry-heartbeat.test.ts"
-status: "READY"
+status: "ACTIVE"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-29"
 depends_on: []
-jules_session_id: null
+jules_session_id: "7848973367664665607"
 parent: ".foundry/stories/story-010-016-enable-expensive-oxlint-checks.md"
 ---
 
