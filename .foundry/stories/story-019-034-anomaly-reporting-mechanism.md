@@ -1,21 +1,21 @@
 ---
-id: epic-008-019-anomaly-reporting-mechanism
-type: EPIC
+id: story-019-034-anomaly-reporting-mechanism
+type: STORY
 title: "Anomaly Reporting Mechanism"
-status: READY
-owner_persona: story_owner
+status: PENDING
+owner_persona: tech_lead
 created_at: "2026-04-29"
 updated_at: "2026-04-29"
 depends_on: []
 jules_session_id: null
-parent: .foundry/prds/prd-010-008-idempotent-node-generation.md
+parent: .foundry/epics/epic-008-019-anomaly-reporting-mechanism.md
 tags: ["orchestrator", "generation", "efficiency"]
 rejection_count: 0
 rejection_reason: ""
 notes: ""
 ---
 
-# Epic: Anomaly Reporting Mechanism
+# Story: Anomaly Reporting Mechanism
 
 ## Overview
 Add capability to log a small journal entry when pre-existing artifacts are unexpectedly found, directed to the Agile Coach.
@@ -25,7 +25,4 @@ Add capability to log a small journal entry when pre-existing artifacts are unex
 - The log should go to a designated place for the Agile Coach to review later.
 
 ## Acceptance Criteria
-- [x] A small journal entry is logged indicating the unexpected presence of completed artifacts.
-
-### Generated Stories
-- [.foundry/stories/story-019-034-anomaly-reporting-mechanism.md](.foundry/stories/story-019-034-anomaly-reporting-mechanism.md)
+- [ ] A small journal entry is logged indicating the unexpected presence of completed artifacts.
