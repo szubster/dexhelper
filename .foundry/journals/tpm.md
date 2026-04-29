@@ -129,3 +129,13 @@
 - **2026-04-29**: Heartbeat detected zombie session for `task-016-056-fix-heartbeat-test-types`. Transitioned to FAILED.
 
 - **2026-04-29**: Heartbeat detected zombie session for `task-032-052-implement-migration-logic`. Transitioned to FAILED.
+
+- **2026-04-29**: Heartbeat detected zombie session for `story-009-032-lifecycle-integration-tests`. Transitioned to FAILED.
+
+- **2026-04-29**: Heartbeat detected zombie session for `story-012-029-document-gastown-migration-decision`. Transitioned to FAILED.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-009-030-single-persona-dag-tests`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `task-016-056-fix-heartbeat-test-types`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `task-032-052-implement-migration-logic`. Reason: Retry from FAILED status.. Transitioned back to READY.

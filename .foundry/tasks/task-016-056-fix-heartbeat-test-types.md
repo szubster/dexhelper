@@ -2,7 +2,7 @@
 id: "task-016-056-fix-heartbeat-test-types"
 type: "TASK"
 title: "Fix strict type errors in foundry-heartbeat.test.ts"
-status: "FAILED"
+status: "READY"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-29"

@@ -2,7 +2,7 @@
 id: task-032-052-implement-migration-logic
 type: TASK
 title: "Implement Migration Logic"
-status: "FAILED"
+status: "READY"
 owner_persona: "coder"
 created_at: "2026-04-27"
 updated_at: "2026-04-29"
