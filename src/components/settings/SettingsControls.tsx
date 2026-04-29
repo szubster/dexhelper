@@ -26,9 +26,13 @@ export function SettingsControls({
 }: SettingsControlsProps) {
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+      <div className="group relative flex items-center justify-between border border-zinc-800 border-dashed bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80">
+        <div className="absolute top-0 left-0 h-1.5 w-1.5 border-zinc-600 border-t border-l transition-colors group-hover:border-[var(--theme-primary)]" />
+        <div className="absolute top-0 right-0 h-1.5 w-1.5 border-zinc-600 border-t border-r transition-colors group-hover:border-[var(--theme-primary)]" />
+        <div className="absolute bottom-0 left-0 h-1.5 w-1.5 border-zinc-600 border-b border-l transition-colors group-hover:border-[var(--theme-primary)]" />
+        <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-zinc-600 border-r border-b transition-colors group-hover:border-[var(--theme-primary)]" />
         <div className="flex items-center gap-3">
-          <div className="rounded-lg bg-blue-500/10 p-2">
+          <div className="border border-blue-500/20 border-dashed bg-blue-500/10 p-2">
             <Settings2 size={18} className="text-blue-500" />
           </div>
           <span className="font-bold text-xs uppercase tracking-wider">Version</span>
@@ -37,7 +41,7 @@ export function SettingsControls({
           value={effectiveVersion}
           onChange={(e) => setManualVersion(e.target.value as GameVersion)}
           aria-label="Select Game Version"
-          className="rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 font-bold text-xs text-zinc-200 outline-none transition-colors focus:border-blue-500"
+          className="border border-zinc-800 border-dashed bg-zinc-950 px-4 py-2 font-bold font-mono text-xs text-zinc-200 outline-none transition-colors hover:border-zinc-600 focus:border-blue-500"
         >
           <option value="unknown">Auto</option>
           {(genConfig?.versions ?? [...getGenerationConfig(1).versions, ...getGenerationConfig(2).versions]).map(
@@ -50,9 +54,13 @@ export function SettingsControls({
         </select>
       </div>
 
-      <div className="flex items-center justify-between rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+      <div className="group relative flex items-center justify-between border border-zinc-800 border-dashed bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80">
+        <div className="absolute top-0 left-0 h-1.5 w-1.5 border-zinc-600 border-t border-l transition-colors group-hover:border-[var(--theme-primary)]" />
+        <div className="absolute top-0 right-0 h-1.5 w-1.5 border-zinc-600 border-t border-r transition-colors group-hover:border-[var(--theme-primary)]" />
+        <div className="absolute bottom-0 left-0 h-1.5 w-1.5 border-zinc-600 border-b border-l transition-colors group-hover:border-[var(--theme-primary)]" />
+        <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-zinc-600 border-r border-b transition-colors group-hover:border-[var(--theme-primary)]" />
         <div className="flex items-center gap-3">
-          <div className="rounded-lg bg-purple-500/10 p-2">
+          <div className="border border-purple-500/20 border-dashed bg-purple-500/10 p-2">
             <Archive size={18} className="text-purple-500" />
           </div>
           <span className="font-bold text-xs uppercase tracking-wider">Living Dex</span>
@@ -63,17 +71,21 @@ export function SettingsControls({
           aria-checked={isLivingDex}
           aria-label="Toggle Living Dex Mode"
           onClick={() => setIsLivingDex(!isLivingDex)}
-          className={`relative inline-flex h-7 w-12 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${isLivingDex ? 'bg-emerald-600' : 'bg-zinc-800'}`}
+          className={`relative inline-flex h-7 w-12 items-center border border-dashed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${isLivingDex ? 'border-emerald-500/50 bg-emerald-950/50' : 'border-zinc-800 bg-zinc-900'}`}
         >
           <span
-            className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${isLivingDex ? 'translate-x-6' : 'translate-x-1'}`}
+            className={`inline-block h-5 w-5 transform bg-white transition-transform ${isLivingDex ? 'translate-x-6 bg-emerald-500' : 'translate-x-1 bg-zinc-600'}`}
           />
         </button>
       </div>
 
-      <div className="flex items-center justify-between rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+      <div className="group relative flex items-center justify-between border border-zinc-800 border-dashed bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80">
+        <div className="absolute top-0 left-0 h-1.5 w-1.5 border-zinc-600 border-t border-l transition-colors group-hover:border-[var(--theme-primary)]" />
+        <div className="absolute top-0 right-0 h-1.5 w-1.5 border-zinc-600 border-t border-r transition-colors group-hover:border-[var(--theme-primary)]" />
+        <div className="absolute bottom-0 left-0 h-1.5 w-1.5 border-zinc-600 border-b border-l transition-colors group-hover:border-[var(--theme-primary)]" />
+        <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-zinc-600 border-r border-b transition-colors group-hover:border-[var(--theme-primary)]" />
         <div className="flex items-center gap-3">
-          <div className="rounded-lg bg-amber-500/10 p-2">
+          <div className="border border-amber-500/20 border-dashed bg-amber-500/10 p-2">
             <CircleDot size={18} className="text-amber-500" />
           </div>
           <span className="font-bold text-xs uppercase tracking-wider">Ball Style</span>
@@ -82,7 +94,7 @@ export function SettingsControls({
           value={globalPokeball}
           onChange={(e) => setGlobalPokeball(e.target.value as PokeballType)}
           aria-label="Select Ball Style"
-          className="rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 font-bold text-xs text-zinc-200 outline-none transition-colors focus:border-amber-500"
+          className="border border-zinc-800 border-dashed bg-zinc-950 px-4 py-2 font-bold font-mono text-xs text-zinc-200 outline-none transition-colors hover:border-zinc-600 focus:border-amber-500"
         >
           {filteredPokeballs.map((pb) => (
             <option key={pb.value} value={pb.value}>

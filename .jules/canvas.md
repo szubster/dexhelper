@@ -45,3 +45,8 @@
 **Outcome:** Accepted
 **Why:** Brings the mobile bottom navigation in line with the rest of the application's heavily tactical, snooping-focused aesthetic (like the Grid, Details, and Search). The sharp shapes and telemetry details enhance the illusion of holding a specialized hardware device instead of a generic web app.
 **Pattern:** Ensure structural and navigation components strictly adhere to the tactical aesthetics (sharp edges, corner crosshairs, monospace text) to maintain overall visual coherence.
+## 2025-06-10 - [Accepted] - 🖼️ Canvas: Tactical Settings Terminal Redesign
+**What:** Redesigned the Settings modal and its child components to match the utility-driven tactical "snooping" aesthetic, replacing rounded "glassmorphism" with sharp, dashed borders, corner crosshairs, and monospace telemetry text (e.g., `SYS.CONFIG`, `SYS.PURGE`).
+**Outcome:** Accepted
+**Why:** Continues the successful strategy of establishing a specialized hardware UI aesthetic, improving visual cohesion across the application's structural and configuration menus.
+**Pattern:** Consistently apply the tactical hardware motif (sharp edges, dashed outlines, monospace text) to all modal and configuration interfaces to maintain the illusion of a specialized device.
