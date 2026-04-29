@@ -2,10 +2,10 @@
 id: epic-012-gastown-orchestrator
 type: EPIC
 title: "Gastown Cloudflare Worker Migration Evaluation"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-23"
-updated_at: "2026-04-27"
+updated_at: "2026-04-29"
 depends_on:
   - .foundry/epics/epic-011-wait-and-wake-protocol.md
   - .foundry/stories/story-012-029-document-gastown-migration-decision.md

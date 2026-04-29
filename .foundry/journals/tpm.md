@@ -159,3 +159,5 @@
 - **2026-04-29**: PR #746 merged. `task-016-056-fix-heartbeat-test-types` is now COMPLETED.
 
 - **2026-04-29**: Resurrection Loop triggered for `epic-008-018-session-dispatch-bypass`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: PR #754 merged. `story-012-029-document-gastown-migration-decision` is now COMPLETED.
