@@ -38,7 +38,13 @@ Implement an idempotent generation check in the orchestrator (`foundry-orchestra
 - **Reporting Anomaly**: As per rules, if target artifacts already exist unexpectedly, a small journal entry should be logged detailing the anomaly for later review by the Agile Coach.
 
 ## Acceptance Criteria
-- [ ] An idempotent check is integrated into the orchestrator prior to Jules session dispatch.
-- [ ] Valid pre-existing target nodes successfully abort unnecessary Jules agent wake-ups.
-- [ ] The parent node is marked appropriately fulfilled without dispatch if children already exist and are valid.
-- [ ] A small journal entry is logged indicating the unexpected presence of completed artifacts.
+- [x] An idempotent check is integrated into the orchestrator prior to Jules session dispatch.
+- [x] Valid pre-existing target nodes successfully abort unnecessary Jules agent wake-ups.
+- [x] The parent node is marked appropriately fulfilled without dispatch if children already exist and are valid.
+- [x] A small journal entry is logged indicating the unexpected presence of completed artifacts.
+
+
+### Generated Epics
+- [.foundry/epics/epic-008-017-orchestrator-preflight-checks.md](.foundry/epics/epic-008-017-orchestrator-preflight-checks.md)
+- [.foundry/epics/epic-008-018-session-dispatch-bypass.md](.foundry/epics/epic-008-018-session-dispatch-bypass.md)
+- [.foundry/epics/epic-008-019-anomaly-reporting-mechanism.md](.foundry/epics/epic-008-019-anomaly-reporting-mechanism.md)
