@@ -364,11 +364,16 @@ export function generateSuggestions(
       const item = detail.item;
       const held = detail.held;
       const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
+      const rps = detail.rps;
 
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {
           const isReady = bestInstance.level >= min_l;
-          const specificReq = `(needs Lv. ${min_l})`;
+          let rpsReq = '';
+          if (rps === 1) rpsReq = ', Atk > Def';
+          else if (rps === -1) rpsReq = ', Atk < Def';
+          else if (rps === 0) rpsReq = ', Atk = Def';
+          const specificReq = `(needs Lv. ${min_l}${rpsReq})`;
 
           suggestions.push({
             id: `evo-lvl-${targetId}`,
