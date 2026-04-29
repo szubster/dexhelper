@@ -163,3 +163,5 @@
 - **2026-04-29**: PR #754 merged. `story-012-029-document-gastown-migration-decision` is now COMPLETED.
 
 - **2026-04-29**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #755 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #756 closed without merging.. Transitioned back to READY.
