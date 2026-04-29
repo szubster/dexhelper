@@ -4,7 +4,7 @@ export function SettingsLegend() {
   return (
     <div className="space-y-4">
       <h3 className="flex items-center gap-2 font-black text-[10px] text-zinc-500 uppercase tracking-widest">
-        <Info size={12} /> Legend
+        <Info size={12} /> SYS.LEGEND
       </h3>
       <div className="grid grid-cols-2 gap-3">
         {[
@@ -15,7 +15,7 @@ export function SettingsLegend() {
         ].map((item) => (
           <div
             key={item.label}
-            className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950 p-3 font-bold text-[11px]"
+            className="flex items-center gap-3 border border-zinc-800 border-dashed bg-zinc-900/50 p-3 font-bold font-mono text-[10px] uppercase tracking-wider"
           >
             {item.icon} {item.label}
           </div>
