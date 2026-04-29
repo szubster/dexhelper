@@ -139,3 +139,11 @@
 - **2026-04-29**: Resurrection Loop triggered for `task-016-056-fix-heartbeat-test-types`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-29**: Resurrection Loop triggered for `task-032-052-implement-migration-logic`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: PR #744 merged. `prd-010-008-idempotent-node-generation` is now COMPLETED.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-009-030-single-persona-dag-tests`. Reason: PR #745 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-009-032-lifecycle-integration-tests`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: Retry from FAILED status.. Transitioned back to READY.

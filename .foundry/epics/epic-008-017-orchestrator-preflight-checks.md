@@ -2,7 +2,7 @@
 id: epic-008-017-orchestrator-preflight-checks
 type: EPIC
 title: "Orchestrator Pre-flight Generation Validation"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-29"
 updated_at: "2026-04-29"

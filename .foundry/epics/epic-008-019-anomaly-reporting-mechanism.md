@@ -2,7 +2,7 @@
 id: epic-008-019-anomaly-reporting-mechanism
 type: EPIC
 title: "Anomaly Reporting Mechanism"
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: "2026-04-29"
 updated_at: "2026-04-29"
