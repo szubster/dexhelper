@@ -21,7 +21,7 @@ export function SyncProgress() {
           setShouldRender(true);
         }
       })
-      .catch(console.error);
+      .catch(() => console.error('System: sync failed'));
 
     const handleProgress = (event: Event) => {
       const customEvent = event as CustomEvent<{ current: number; total: number; stage: string }>;

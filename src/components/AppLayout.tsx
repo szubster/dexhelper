@@ -54,7 +54,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           setManualVersion(null);
         }
 
-        saveDB.putSave('last_save_file', new Uint8Array(buffer)).catch(console.error);
+        saveDB.putSave('last_save_file', new Uint8Array(buffer)).catch(() => console.error('System: sync failed'));
 
         let binary = '';
         const bytes = new Uint8Array(buffer);
