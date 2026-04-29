@@ -2,12 +2,12 @@
 id: epic-008-018-session-dispatch-bypass
 type: EPIC
 title: "Session Dispatch Bypass and Fulfillment"
-status: READY
+status: "ACTIVE"
 owner_persona: story_owner
 created_at: "2026-04-29"
 updated_at: "2026-04-29"
 depends_on: []
-jules_session_id: null
+jules_session_id: "4176682745553809981"
 parent: .foundry/prds/prd-010-008-idempotent-node-generation.md
 tags: ["orchestrator", "generation", "efficiency"]
 rejection_count: 0
