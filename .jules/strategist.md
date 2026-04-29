@@ -55,3 +55,8 @@
 **Outcome:** Merged
 **Why:** System memory requires the Canvas persona to adhere to a "tactical hardware/snooping" aesthetic, but the prompt didn't mention it.
 **Pattern:** Codify system memory constraints into agent prompts so they are respected.
+## 2026-06-04 - [Accepted] - Prompt improvement - Ensure Strategist uses journals instead of PR history
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The maintainer explicitly instructed that agents must not use `git log` or past commits for memory, and instead rely on journals. The Strategist prompt was still instructing itself to review agent PR history instead of agent journals.
+**Pattern:** Update prompts to ensure they align with the system constraint that cross-session memory is exclusively stored in `.jules/*.md` journal files, not git history.
