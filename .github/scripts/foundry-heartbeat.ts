@@ -240,7 +240,7 @@ export async function main() {
       }
     } else {
       // A. Robust PR Discovery
-      const res = await findPRForSession(repoFullName, githubToken, julesKey, sessionId);
+      const res = await findPRForSession(repoFullName, githubToken, julesKey, sessionId as string);
       pr = res.pr;
       sessionStatus = res.sessionStatus;
     }
