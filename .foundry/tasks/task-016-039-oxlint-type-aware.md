@@ -20,3 +20,9 @@ As part of making oxlint more strict, we want to enable the `--type-aware` and `
 1. Update `package.json` linting scripts to run `oxlint` with `--type-aware` and `--type-check` flags.
 2. Resolve any new lint errors reported across the codebase due to the new checks.
 3. Ensure CI still passes with these expensive checks.
+
+
+## Acceptance Criteria
+- [x] Update `package.json` linting scripts to run `oxlint` with `--type-aware` and `--type-check` flags.
+- [x] Resolve any new lint errors reported across the codebase due to the new checks.
+- [x] Ensure CI still passes with these expensive checks.

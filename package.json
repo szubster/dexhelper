@@ -16,7 +16,7 @@
     "build:analyze": "ANALYZE=true vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "pnpm type-check && pnpm check:biome && pnpm exec oxlint --type-aware --import-plugin --promise-plugin . && pnpm knip",
+    "lint": "pnpm type-check && pnpm check:biome && pnpm exec oxlint --type-aware --type-check --import-plugin --promise-plugin . && pnpm knip",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
