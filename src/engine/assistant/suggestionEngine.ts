@@ -10,6 +10,33 @@ import {
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
+const POKEAPI_TO_GEN1_ITEM: Record<number, number> = {
+  81: 0x0a, // Moon Stone
+  82: 0x20, // Fire Stone
+  83: 0x21, // Thunder Stone
+  84: 0x22, // Water Stone
+  85: 0x2f, // Leaf Stone
+};
+
+const POKEAPI_TO_GEN2_ITEM: Record<number, number> = {
+  80: 0x11, // Sun Stone
+  81: 0x08, // Moon Stone
+  82: 0x16, // Fire Stone
+  83: 0x17, // Thunder Stone
+  84: 0x18, // Water Stone
+  85: 0x22, // Leaf Stone
+  198: 0x5a, // King's Rock
+  210: 0x8f, // Metal Coat
+  212: 0x82, // Dragon Scale
+  229: 0xac, // Up-Grade
+};
+
+function getGameItemId(pokeApiId: number, generation: number): number {
+  if (generation === 1) return POKEAPI_TO_GEN1_ITEM[pokeApiId] || pokeApiId;
+  if (generation === 2) return POKEAPI_TO_GEN2_ITEM[pokeApiId] || pokeApiId;
+  return pokeApiId;
+}
+
 import { STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
 import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
@@ -392,7 +419,8 @@ export function generateSuggestions(
           });
         }
       } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
-        const hasStone = saveData.inventory.some((i) => i.id === item && i.quantity > 0);
+        const gameItemId = getGameItemId(item, saveData.generation);
+        const hasStone = saveData.inventory.some((i) => i.id === gameItemId && i.quantity > 0);
         suggestions.push({
           id: `evo-item-${targetId}-${item}`,
           category: 'Evolve',
@@ -403,7 +431,8 @@ export function generateSuggestions(
         });
       } else if (tr === EVO_TRIGGER.TRADE) {
         if (held) {
-          const hasHeldItem = saveData.inventory.some((i) => i.id === held && i.quantity > 0);
+          const gameHeldId = getGameItemId(held, saveData.generation);
+          const hasHeldItem = saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0);
           suggestions.push({
             id: `evo-trade-held-${targetId}`,
             category: 'Evolve',

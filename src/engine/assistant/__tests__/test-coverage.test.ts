@@ -14,7 +14,7 @@ test('coverage for suggestionEngine new lines', () => {
     ),
     seen: new Set(),
     party: [],
-    inventory: [{ id: 0x20, quantity: 1 }], // Fire Stone
+    inventory: [{ id: 0x16, quantity: 1 }], // Fire Stone
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
     partyDetails: [
@@ -77,7 +77,7 @@ test('coverage for suggestionEngine new lines', () => {
         id: 136,
         n: 'Flareon',
         efrm: [133],
-        det: [{ tr: 3, item: 0x20 }], // Fire Stone
+        det: [{ tr: 3, item: 82 }], // Fire Stone
         eto: [],
       }, // Flareon (Item)
       68: {
