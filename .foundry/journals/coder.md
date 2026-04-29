@@ -17,3 +17,6 @@ Verified empty state prompt inclusion in scheduled-agent workflow by extracting 
 - Fixed type errors in `.github/scripts/foundry-heartbeat.test.ts`.
 - Removed `// @ts-nocheck` directive.
 - Verified by running `pnpm exec oxlint --type-check --type-aware`, `pnpm test`, and `pnpm lint`.
+
+## 2026-04-29 (Update)
+- CodeQL caught incomplete substring matching of URL string in `.github/scripts/foundry-heartbeat.test.ts`. Fixed it to use `startsWith('https://jules.googleapis.com')` instead of `includes('jules.googleapis.com')`. This avoids CWE-285 vulnerabilities as noted in `.foundry/docs/knowledge_base/onboarding/autonomous_memory_protocol.md` and standard security practices.
