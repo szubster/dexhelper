@@ -29,3 +29,8 @@
 
 **Learning:** When refactoring drops a dependency (like `pokenode-ts`), references to it often persist in onboarding documents, creating an inaccurate view of the tech stack.
 **Action:** Routinely search onboarding and project overview documents for deprecated dependencies after a major migration.
+
+## 2026-04-29 - Archivist Run Learnings
+
+**Learning:** Duplicate agent learnings for tools like `knip` or `oxlint` can scatter across journals (e.g. `sweeper.md` and `strategist.md`).
+**Action:** Consolidate identical tool-specific learnings into a single comprehensive entry within the most relevant agent's journal to reduce noise and duplication.
