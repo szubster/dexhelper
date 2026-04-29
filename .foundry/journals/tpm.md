@@ -101,3 +101,11 @@
 - **2026-04-29**: PR #730 merged. `task-016-039-oxlint-type-aware` is now COMPLETED.
 
 - **2026-04-29**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: Heartbeat detected zombie session for `story-009-030-single-persona-dag-tests`. Transitioned to FAILED.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-009-032-lifecycle-integration-tests`. Reason: PR #737 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: PR #738 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: Heartbeat detected zombie session for `task-016-056-fix-heartbeat-test-types`. Transitioned to FAILED.
