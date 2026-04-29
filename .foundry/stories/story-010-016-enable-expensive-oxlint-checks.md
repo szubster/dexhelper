@@ -26,8 +26,9 @@ Oxlint has additional options for multi-file checks and rules that require types
 ## Acceptance Criteria
 - [x] Tasks are created for enabling type-aware checks.
 - [x] Tasks are created for enabling import/promise plugins.
-- [ ] `package.json` lint commands run these expensive checks.
+- [x] `package.json` lint commands run these expensive checks.
 
 ## Generated Tasks
 - [.foundry/tasks/task-016-039-oxlint-type-aware.md](../tasks/task-016-039-oxlint-type-aware.md)
 - [.foundry/tasks/task-016-040-oxlint-import-promise-plugins.md](../tasks/task-016-040-oxlint-import-promise-plugins.md)
+- [.foundry/tasks/task-016-041-update-package-json-lint.md](../tasks/task-016-041-update-package-json-lint.md)
