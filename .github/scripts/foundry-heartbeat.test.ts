@@ -165,7 +165,7 @@ ok: true,
     // @ts-expect-error - Mock signature mismatch
     globalFetch.mockImplementation((url: string | URL | Request) => {
       const urlStr = typeof url === "string" ? url : (url as URL).toString();
-      if (urlStr.startsWith('https://jules.googleapis.com')) {
+      if (urlStr.startsWith('https://jules.googleapis.com/')) {
         return Promise.resolve({
             ok: true,
             status: 200,
@@ -209,7 +209,7 @@ ok: true,
     // @ts-expect-error - Mock signature mismatch
     globalFetch.mockImplementation((url: string | URL | Request) => {
       const urlStr = typeof url === "string" ? url : (url as URL).toString();
-      if (urlStr.startsWith('https://jules.googleapis.com')) {
+      if (urlStr.startsWith('https://jules.googleapis.com/')) {
         return Promise.resolve({
             ok: true,
             status: 200,
@@ -254,7 +254,7 @@ ok: true,
     // @ts-expect-error - Mock signature mismatch
     globalFetch.mockImplementation((url: string | URL | Request) => {
       const urlStr = typeof url === "string" ? url : (url as URL).toString();
-      if (urlStr.startsWith('https://jules.googleapis.com')) {
+      if (urlStr.startsWith('https://jules.googleapis.com/')) {
         return Promise.resolve({
             ok: true,
             status: 200,
