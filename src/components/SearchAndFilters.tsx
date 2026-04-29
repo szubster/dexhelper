@@ -1,7 +1,6 @@
 import { Search, X } from 'lucide-react';
 import { useRef } from 'react';
-import type { FilterType } from '../store';
-import { useStore } from '../store';
+import { FILTER_TYPES, useStore } from '../store';
 import { cn } from '../utils/cn';
 import { LocationSuggestions } from './LocationSuggestions';
 
@@ -112,7 +111,7 @@ export function SearchAndFilters() {
             />
           </button>
 
-          {(['secured', 'missing', 'dex-only'] as FilterType[]).map((f) => (
+          {FILTER_TYPES.map((f) => (
             <button
               type="button"
               key={f}
