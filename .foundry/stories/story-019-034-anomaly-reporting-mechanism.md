@@ -2,7 +2,7 @@
 id: story-019-034-anomaly-reporting-mechanism
 type: STORY
 title: "Anomaly Reporting Mechanism"
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: "2026-04-29"
 updated_at: "2026-04-29"

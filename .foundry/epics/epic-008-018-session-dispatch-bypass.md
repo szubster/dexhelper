@@ -2,7 +2,7 @@
 id: epic-008-018-session-dispatch-bypass
 type: EPIC
 title: "Session Dispatch Bypass and Fulfillment"
-status: "FAILED"
+status: "READY"
 owner_persona: story_owner
 created_at: "2026-04-29"
 updated_at: "2026-04-29"
@@ -10,7 +10,7 @@ depends_on: []
 jules_session_id: null
 parent: .foundry/prds/prd-010-008-idempotent-node-generation.md
 tags: ["orchestrator", "generation", "efficiency"]
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ""
 notes: ""
 ---

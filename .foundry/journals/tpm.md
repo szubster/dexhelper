@@ -151,3 +151,11 @@
 - **2026-04-29**: Heartbeat detected zombie session for `epic-008-018-session-dispatch-bypass`. Transitioned to FAILED.
 
 - **2026-04-29**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: PR #747 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: PR #749 merged. `epic-008-019-anomaly-reporting-mechanism` is now COMPLETED.
+
+- **2026-04-29**: PR #748 merged. `story-009-032-lifecycle-integration-tests` is now COMPLETED.
+
+- **2026-04-29**: PR #746 merged. `task-016-056-fix-heartbeat-test-types` is now COMPLETED.
+
+- **2026-04-29**: Resurrection Loop triggered for `epic-008-018-session-dispatch-bypass`. Reason: Retry from FAILED status.. Transitioned back to READY.

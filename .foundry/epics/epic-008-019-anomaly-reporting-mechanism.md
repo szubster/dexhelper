@@ -2,12 +2,12 @@
 id: epic-008-019-anomaly-reporting-mechanism
 type: EPIC
 title: "Anomaly Reporting Mechanism"
-status: "ACTIVE"
+status: PENDING
 owner_persona: story_owner
 created_at: "2026-04-29"
 updated_at: "2026-04-29"
 depends_on: []
-jules_session_id: "10782597618626493670"
+jules_session_id: null
 parent: .foundry/prds/prd-010-008-idempotent-node-generation.md
 tags: ["orchestrator", "generation", "efficiency"]
 rejection_count: 0
