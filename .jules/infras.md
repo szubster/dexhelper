@@ -30,3 +30,6 @@
 
 ## 2026-04-27 - Enabled oxlint type-aware rules
 **Learning:** Installed `oxlint-tsgolint` and enabled `--type-aware` in oxlint. Fixed multiple floating promise warnings across the codebase. Type-aware linting acts as a fast alternative to full typescript-eslint type checking.
+
+## 2026-04-29 - Migrated to Renovate
+**Learning:** Dependabot does not handle pnpm transitive dependencies well. Replaced Dependabot with Renovate, configured for weekly updates to handle all transitive ones while minimizing noise.
