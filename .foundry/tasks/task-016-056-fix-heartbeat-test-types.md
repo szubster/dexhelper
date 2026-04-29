@@ -19,6 +19,6 @@ When enabling `oxlint`'s `--type-check` and `--type-aware` options, numerous typ
 To unblock the `oxlint` type-aware rollout, a `// @ts-nocheck` directive was temporarily added to `.github/scripts/foundry-heartbeat.test.ts`.
 
 ## Instructions
-1. Remove `// @ts-nocheck` from `.github/scripts/foundry-heartbeat.test.ts`.
-2. Properly type the mocks for `globalFetch.mockResolvedValue` and `globalFetch.mockImplementation`, using type assertions where appropriate (e.g. `as unknown as Response`), or using granular `// @ts-expect-error` comments.
-3. Ensure the test file passes the type-checking stage of `oxlint`.
+- [x] Remove `// @ts-nocheck` from `.github/scripts/foundry-heartbeat.test.ts`.
+- [x] Properly type the mocks for `globalFetch.mockResolvedValue` and `globalFetch.mockImplementation`, using type assertions where appropriate (e.g. `as unknown as Response`), or using granular `// @ts-expect-error` comments.
+- [x] Ensure the test file passes the type-checking stage of `oxlint`.
