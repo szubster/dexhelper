@@ -5,6 +5,9 @@ on:
     - cron: '0 * * * *' # Hourly sync
   workflow_dispatch:
 
+concurrency:
+  group: foundry-engine
+
 permissions:
   contents: write
   issues: write
