@@ -26,5 +26,8 @@ Introduce logic to `foundry-orchestrator.ts` to detect explicitly spawned target
 - Target artifacts must be checked for existence and valid schema in the `.foundry/` directory.
 
 ## Acceptance Criteria
-- [ ] Orchestrator parses expected outputs for node generation tasks.
-- [ ] Orchestrator successfully validates the schema of pre-existing target nodes.
+- [x] Orchestrator parses expected outputs for node generation tasks.
+- [x] Orchestrator successfully validates the schema of pre-existing target nodes.
+
+## Stories
+- [.foundry/stories/story-017-034-orchestrator-preflight-logic.md](.foundry/stories/story-017-034-orchestrator-preflight-logic.md)
