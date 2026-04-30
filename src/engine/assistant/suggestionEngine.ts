@@ -252,7 +252,9 @@ export function generateSuggestions(
 
     let bestDist = 999;
     let bestAreaName = '';
-    let bestDetails: EncounterDetail[] = [];
+    // ⚡ Bolt: Store the best encounter reference and defer mapping EncounterDetails until after the loop
+    // to prevent redundant array allocations and O(N) mapping operations for every missing Pokémon.
+    let bestE: (typeof encData.enc)[0] | null = null;
 
     for (const e of encData.enc) {
       if (e.v !== displayVersionId) continue;
@@ -261,17 +263,20 @@ export function generateSuggestions(
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
         bestAreaName = distInfo.name;
-        bestDetails = e.d.map((ed) => ({
-          chance: ed.c,
-          method: METHOD_NAMES[ed.m] || 'walk',
-          minLevel: ed.min,
-          maxLevel: ed.max,
-          aid: e.aid,
-        }));
+        bestE = e;
       }
     }
 
-    if (bestDist < 8) {
+    if (bestDist < 8 && bestE) {
+      const aid = bestE.aid;
+      const bestDetails: EncounterDetail[] = bestE.d.map((ed) => ({
+        chance: ed.c,
+        method: METHOD_NAMES[ed.m] || 'walk',
+        minLevel: ed.min,
+        maxLevel: ed.max,
+        aid,
+      }));
+
       suggestions.push({
         id: `catch-nearby-${pid}`,
         category: 'Catch',
