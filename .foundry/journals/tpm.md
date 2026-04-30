@@ -187,3 +187,9 @@
 - **2026-04-30**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #714 closed without merging.. Transitioned back to READY.
 
 - **2026-04-30**: PR #751 merged. `task-032-052-implement-migration-logic` is now COMPLETED.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #779 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-016-041-update-package-json-lint`. Reason: PR #778 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #777 closed without merging.. Transitioned back to READY.

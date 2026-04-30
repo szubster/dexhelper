@@ -2,12 +2,12 @@
 id: task-029-050-implement-async-hydration
 type: TASK
 title: "Implement Async Startup Hydration"
-status: "ACTIVE"
+status: "READY"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-30"
 depends_on: []
-jules_session_id: "404639301411004928"
+jules_session_id: null
 parent: .foundry/stories/story-014-029-async-startup-hydration.md
 tags: ["state", "store", "indexeddb", "hydration"]
 ---
