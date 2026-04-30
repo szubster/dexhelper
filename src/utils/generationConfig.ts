@@ -2,7 +2,7 @@ import type { PokeballType } from '../store';
 
 // ─── Core Types ──────────────────────────────────────────────────────
 
-export interface VersionInfo {
+interface VersionInfo {
   id: string;
   label: string;
   themeClass: string;

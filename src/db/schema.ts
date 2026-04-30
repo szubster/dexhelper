@@ -105,7 +105,7 @@ export interface UnifiedLocation {
 
 export type GenericLocation = UnifiedLocation;
 
-export interface CompactEvolutionDetail {
+interface CompactEvolutionDetail {
   tr?: number | undefined; // trigger (EVO_TRIGGER)
   ml?: number | undefined; // min_level
   mh?: number | undefined; // min_happiness
