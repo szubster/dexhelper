@@ -167,3 +167,5 @@
 - **2026-04-29**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #756 closed without merging.. Transitioned back to READY.
 
 - **2026-04-29**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #757 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #758 closed without merging.. Transitioned back to READY.
