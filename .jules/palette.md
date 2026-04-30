@@ -35,3 +35,7 @@
 ## 2026-04-23 - Role Group for Checkbox-like Filters
 **Learning:** Collections of buttons that act like a set of checkboxes (where multiple can be active simultaneously, indicated by `aria-pressed`) need a container role to group them semantically for screen readers.
 **Action:** When creating a row or container of toggle buttons (like multi-select filters), wrap them in a container with `role="group"` and an `aria-label` describing the filter's purpose (e.g., "Filter Pokémon").
+
+## 2026-04-20 - Clear Filters Button in Empty States
+**Learning:** Empty states caused by active search or filter parameters should provide a single-click action to reset the state. Relying on users to manually clear text inputs or deselect filters across the UI creates unnecessary friction.
+**Action:** When an empty state is triggered by a combination of filters, include a prominent "Clear Filters" button that programmatically resets all relevant filter/search states and returns the user to the default populated view.
