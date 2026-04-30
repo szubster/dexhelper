@@ -2,12 +2,12 @@
 id: task-034-058-implement-orchestrator-preflight
 type: TASK
 title: "Implement Orchestrator Preflight"
-status: READY
+status: "ACTIVE"
 owner_persona: coder
 created_at: "2026-04-30"
 updated_at: "2026-04-30"
 depends_on: []
-jules_session_id: null
+jules_session_id: "5950990033860265452"
 parent: .foundry/stories/story-017-034-orchestrator-preflight-logic.md
 tags: []
 rejection_count: 0
