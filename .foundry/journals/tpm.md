@@ -139,3 +139,37 @@
 - **2026-04-29**: Resurrection Loop triggered for `task-016-056-fix-heartbeat-test-types`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-04-29**: Resurrection Loop triggered for `task-032-052-implement-migration-logic`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: PR #744 merged. `prd-010-008-idempotent-node-generation` is now COMPLETED.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-009-030-single-persona-dag-tests`. Reason: PR #745 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-009-032-lifecycle-integration-tests`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: Heartbeat detected zombie session for `epic-008-018-session-dispatch-bypass`. Transitioned to FAILED.
+
+- **2026-04-29**: Resurrection Loop triggered for `story-012-029-document-gastown-migration-decision`. Reason: PR #747 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: PR #749 merged. `epic-008-019-anomaly-reporting-mechanism` is now COMPLETED.
+
+- **2026-04-29**: PR #748 merged. `story-009-032-lifecycle-integration-tests` is now COMPLETED.
+
+- **2026-04-29**: PR #746 merged. `task-016-056-fix-heartbeat-test-types` is now COMPLETED.
+
+- **2026-04-29**: Resurrection Loop triggered for `epic-008-018-session-dispatch-bypass`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-04-29**: PR #754 merged. `story-012-029-document-gastown-migration-decision` is now COMPLETED.
+
+- **2026-04-29**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #755 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #756 closed without merging.. Transitioned back to READY.
+
+- **2026-04-29**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #757 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #758 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #759 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #772 closed without merging.. Transitioned back to READY.

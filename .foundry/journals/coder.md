@@ -17,3 +17,14 @@ Verified empty state prompt inclusion in scheduled-agent workflow by extracting 
 - **What**: Implemented safe migration of legacy save files from `localStorage` to IndexedDB (`saveDB`) during app startup.
 - **How**: Added a migration block inside `store.ts` (`loadSaveFromStorage`) which reads the legacy base64 file, decodes it into a `Uint8Array`, and passes it to `saveDB.putSave()`. It then strictly deletes the old `localStorage` entry only if it was successfully moved or parsed as corrupted. Also removed `localStorage` write references from `AppLayout.tsx` and `SettingsModal.tsx`, and updated `store.test.ts` to mock `saveDB`.
 - **Learnings**: When mocking stores with Zustand `persist`, handle missing `getItem` data gracefully. In Playwright UI, always ensure async state reads use `await`.
+
+## 2026-04-29
+- Fixed type errors in `.github/scripts/foundry-heartbeat.test.ts`.
+- Removed `// @ts-nocheck` directive.
+- Verified by running `pnpm exec oxlint --type-check --type-aware`, `pnpm test`, and `pnpm lint`.
+
+## 2026-04-29 (Update)
+- CodeQL caught incomplete substring matching of URL string in `.github/scripts/foundry-heartbeat.test.ts`. Fixed it to use `startsWith('https://jules.googleapis.com')` instead of `includes('jules.googleapis.com')`. This avoids CWE-285 vulnerabilities as noted in `.foundry/docs/knowledge_base/onboarding/autonomous_memory_protocol.md` and standard security practices.
+
+## 2026-04-29 (CodeQL Follow-up)
+- CodeQL caught incomplete substring matching of URL string in `.github/scripts/foundry-heartbeat.test.ts`. Modified `startsWith('https://jules.googleapis.com')` to `startsWith('https://jules.googleapis.com/')` (adding trailing slash) to satisfy the arbitrary host name vulnerability check (e.g. preventing `https://jules.googleapis.com.evil.com/`). This adheres to the strict URL validation principles outlined in `.foundry/docs/knowledge_base/onboarding/autonomous_memory_protocol.md` to prevent CWE-285 vulnerabilities.

@@ -11,3 +11,6 @@
 
 - **Algorithm Limitation**: The `suggestionEngine` previously only checked the *first* evolution detail (`p.det?.[0]`) when evaluating evolution paths. This failed to handle Pokémon with multiple valid evolution details for the same target species (e.g., when a species has multiple valid evolution stones or items).
 - **Solution**: The engine now iterates through the entire `p.det` array. For each evolution detail found, it independently evaluates the trigger (e.g., level up, item usage) and generates a corresponding suggestion. To ensure suggestions remain distinct, item IDs are now appended to the suggestion's `id` string (e.g., `evo-item-${targetId}-${item}`).
+## 2024-04-29 - Tyrogue Relative Physical Stats Evolution
+**Learning:** Tyrogue evolves at level 20 into Hitmonlee, Hitmonchan, or Hitmontop depending on its Relative Physical Stats (`rps`). The `rps` is calculated as Atk > Def (1), Atk < Def (-1), or Atk = Def (0). We do not have access to PC boxed Pokémon's exact stats, but adding general instructions about these requirements significantly improves assistant suggestion quality.
+**Action:** Extract `detail.rps` when iterating over `p.det` during evolution suggestion generation. Map `rps` values to human-readable strings (e.g., `, Atk > Def`) and append them to the specific level requirement string.
