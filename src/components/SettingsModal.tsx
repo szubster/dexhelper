@@ -1,6 +1,7 @@
 import { X } from 'lucide-react';
 import { useStore } from '../store';
 import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig';
+import { CornerCrosshairs } from './CornerCrosshairs';
 import { ClearStorageButton } from './settings/ClearStorageButton';
 import { SettingsControls } from './settings/SettingsControls';
 import { SettingsLegend } from './settings/SettingsLegend';
@@ -54,10 +55,7 @@ export function SettingsModal() {
             title="Close settings"
             className="group relative border border-zinc-800 border-dashed bg-zinc-900 p-3 text-zinc-400 transition-colors hover:border-zinc-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           >
-            <div className="absolute top-0 left-0 h-1 w-1 border-[var(--theme-primary)] border-t border-l opacity-0 transition-opacity group-hover:opacity-100" />
-            <div className="absolute top-0 right-0 h-1 w-1 border-[var(--theme-primary)] border-t border-r opacity-0 transition-opacity group-hover:opacity-100" />
-            <div className="absolute bottom-0 left-0 h-1 w-1 border-[var(--theme-primary)] border-b border-l opacity-0 transition-opacity group-hover:opacity-100" />
-            <div className="absolute right-0 bottom-0 h-1 w-1 border-[var(--theme-primary)] border-r border-b opacity-0 transition-opacity group-hover:opacity-100" />
+            <CornerCrosshairs className="h-1 w-1 border-[var(--theme-primary)] opacity-0 transition-opacity group-hover:opacity-100" />
             <X size={20} />
           </button>
         </div>

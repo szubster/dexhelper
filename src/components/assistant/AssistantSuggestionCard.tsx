@@ -4,6 +4,7 @@ import type React from 'react';
 import type { SaveData } from '../../engine/saveParser/index';
 import type { EncounterDetail, Suggestion } from '../../hooks/useAssistant';
 import { getGenerationConfig } from '../../utils/generationConfig';
+import { CornerCrosshairs } from '../CornerCrosshairs';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
 
 interface AssistantSuggestionCardProps {
@@ -232,10 +233,10 @@ export function AssistantSuggestionCard({
       className={`relative border-2 border-dashed ${isCritical ? 'animate-[pulse_2s_infinite] border-red-500/80' : 'border-zinc-700/80'} group overflow-hidden bg-black/60 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[var(--theme-primary)]/50 ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
     >
       {/* Tactical Corner Crosshairs */}
-      <div className="absolute top-0 left-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-t-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-      <div className="absolute top-0 right-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-t-2 border-r-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-      <div className="absolute right-0 bottom-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-r-2 border-b-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-      <div className="absolute bottom-0 left-0 z-20 h-3 w-3 border-[var(--theme-primary)]/40 border-b-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
+      <CornerCrosshairs
+        thickness={2}
+        className="z-20 h-3 w-3 border-[var(--theme-primary)]/40 transition-colors group-hover:border-[var(--theme-primary)]"
+      />
 
       {!hasMultiple && s.pokemonId ? (
         <Link

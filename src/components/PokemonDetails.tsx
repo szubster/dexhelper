@@ -8,6 +8,7 @@ import type { PokeballType } from '../store';
 import { cn } from '../utils/cn';
 import { stadiumRewardsSummary } from '../utils/data';
 import { getGenerationConfig } from '../utils/generationConfig';
+import { CornerCrosshairs } from './CornerCrosshairs';
 import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbability';
 import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
 import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
@@ -201,10 +202,10 @@ export function PokemonDetails({
                     alt={pokemonName}
                     className="relative z-10 h-24 w-24 object-contain drop-shadow-[0_0_15px_rgba(var(--theme-primary-rgb),0.4)] transition-transform duration-500 group-hover:scale-110 sm:h-32 sm:w-32"
                   />
-                  <div className="absolute top-0 left-0 h-3 w-3 border-[var(--theme-primary)]/60 border-t-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-                  <div className="absolute top-0 right-0 h-3 w-3 border-[var(--theme-primary)]/60 border-t-2 border-r-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-                  <div className="absolute bottom-0 left-0 h-3 w-3 border-[var(--theme-primary)]/60 border-b-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-                  <div className="absolute right-0 bottom-0 h-3 w-3 border-[var(--theme-primary)]/60 border-r-2 border-b-2 transition-colors group-hover:border-[var(--theme-primary)]" />
+                  <CornerCrosshairs
+                    thickness={2}
+                    className="h-3 w-3 border-[var(--theme-primary)]/60 transition-colors group-hover:border-[var(--theme-primary)]"
+                  />
                 </div>
 
                 {isShiny && (

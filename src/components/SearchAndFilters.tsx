@@ -2,6 +2,7 @@ import { Search, X } from 'lucide-react';
 import { useRef } from 'react';
 import { FILTER_TYPES, useStore } from '../store';
 import { cn } from '../utils/cn';
+import { CornerCrosshairs } from './CornerCrosshairs';
 import { LocationSuggestions } from './LocationSuggestions';
 
 export function SearchAndFilters() {
@@ -66,10 +67,10 @@ export function SearchAndFilters() {
           )}
 
           {/* Corner Crosshairs */}
-          <div className="pointer-events-none absolute top-0 left-0 h-2 w-2 border-white/40 border-t-2 border-l-2 transition-colors group-focus-within:border-[var(--theme-primary)]" />
-          <div className="pointer-events-none absolute top-0 right-0 h-2 w-2 border-white/40 border-t-2 border-r-2 transition-colors group-focus-within:border-[var(--theme-primary)]" />
-          <div className="pointer-events-none absolute bottom-0 left-0 h-2 w-2 border-white/40 border-b-2 border-l-2 transition-colors group-focus-within:border-[var(--theme-primary)]" />
-          <div className="pointer-events-none absolute right-0 bottom-0 h-2 w-2 border-white/40 border-r-2 border-b-2 transition-colors group-focus-within:border-[var(--theme-primary)]" />
+          <CornerCrosshairs
+            thickness={2}
+            className="h-2 w-2 border-white/40 transition-colors group-focus-within:border-[var(--theme-primary)]"
+          />
 
           {/* Location Suggestions Dropdown */}
           <LocationSuggestions />
@@ -97,15 +98,10 @@ export function SearchAndFilters() {
             {filtersSet.size === 0 && <div className="absolute top-0 left-0 h-full w-1 bg-[var(--theme-primary)]" />}
 
             {/* Corner Crosshairs */}
-            <div
+            <CornerCrosshairs
+              corners={['top-left', 'bottom-right']}
               className={cn(
-                'pointer-events-none absolute top-0 left-0 h-1.5 w-1.5 border-t border-l transition-colors',
-                filtersSet.size === 0 ? 'border-[var(--theme-primary)]' : 'border-white/40',
-              )}
-            />
-            <div
-              className={cn(
-                'pointer-events-none absolute right-0 bottom-0 h-1.5 w-1.5 border-r border-b transition-colors',
+                'h-1.5 w-1.5 transition-colors',
                 filtersSet.size === 0 ? 'border-[var(--theme-primary)]' : 'border-white/40',
               )}
             />
@@ -131,15 +127,10 @@ export function SearchAndFilters() {
               {filtersSet.has(f) && <div className="absolute top-0 left-0 h-full w-1 bg-[var(--theme-primary)]" />}
 
               {/* Corner Crosshairs */}
-              <div
+              <CornerCrosshairs
+                corners={['top-left', 'bottom-right']}
                 className={cn(
-                  'pointer-events-none absolute top-0 left-0 h-1.5 w-1.5 border-t border-l transition-colors',
-                  filtersSet.has(f) ? 'border-[var(--theme-primary)]' : 'border-white/40',
-                )}
-              />
-              <div
-                className={cn(
-                  'pointer-events-none absolute right-0 bottom-0 h-1.5 w-1.5 border-r border-b transition-colors',
+                  'h-1.5 w-1.5 transition-colors',
                   filtersSet.has(f) ? 'border-[var(--theme-primary)]' : 'border-white/40',
                 )}
               />
