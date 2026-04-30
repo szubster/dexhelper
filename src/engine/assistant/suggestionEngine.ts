@@ -39,6 +39,7 @@ function getGameItemId(pokeApiId: number, generation: number): number {
 
 import { STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../data/gen1/assistantData';
 import { getUnobtainableReason } from '../exclusives/gen1Exclusives';
+import { getGen2UnobtainableReason } from '../exclusives/gen2Exclusives';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
 import type { AssistantStrategy, EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
 
@@ -294,7 +295,12 @@ export function generateSuggestions(
   // These are assigned the lowest base priority (10) since they require external action (link cable trades).
   const pidsWithExclusives = new Set<number>();
   for (const pid of queryTargets) {
-    const reason = getUnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
+    let reason: string | null = null;
+    if (saveData.generation === 2) {
+      reason = getGen2UnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
+    } else {
+      reason = getUnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
+    }
     if (reason) {
       pidsWithExclusives.add(pid);
 
