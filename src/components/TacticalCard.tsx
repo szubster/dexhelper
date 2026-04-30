@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '../utils/cn';
+import { CornerCrosshairs } from './CornerCrosshairs';
 
 interface TacticalCardProps {
   children: React.ReactNode;
@@ -63,10 +64,10 @@ export const TacticalCard = React.forwardRef<HTMLButtonElement, TacticalCardProp
         {!isStorageVariant && (
           <>
             {/* Corner Crosshairs */}
-            <div className="absolute top-0 left-0 h-2 w-2 border-white/40 border-t-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-            <div className="absolute top-0 right-0 h-2 w-2 border-white/40 border-t-2 border-r-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-            <div className="absolute bottom-0 left-0 h-2 w-2 border-white/40 border-b-2 border-l-2 transition-colors group-hover:border-[var(--theme-primary)]" />
-            <div className="absolute right-0 bottom-0 h-2 w-2 border-white/40 border-r-2 border-b-2 transition-colors group-hover:border-[var(--theme-primary)]" />
+            <CornerCrosshairs
+              thickness={2}
+              className="h-2 w-2 border-white/40 transition-colors group-hover:border-[var(--theme-primary)]"
+            />
           </>
         )}
         {children}

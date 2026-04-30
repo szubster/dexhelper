@@ -2,6 +2,7 @@ import { Archive, CircleDot, Settings2 } from 'lucide-react';
 import type { GameVersion, PokeballType } from '../../store';
 import type { GenerationConfig } from '../../utils/generationConfig';
 import { getGenerationConfig } from '../../utils/generationConfig';
+import { CornerCrosshairs } from '../CornerCrosshairs';
 
 interface SettingsControlsProps {
   effectiveVersion: string;
@@ -27,10 +28,7 @@ export function SettingsControls({
   return (
     <div className="space-y-4">
       <div className="group relative flex items-center justify-between border border-zinc-800 border-dashed bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80">
-        <div className="absolute top-0 left-0 h-1.5 w-1.5 border-zinc-600 border-t border-l transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="absolute top-0 right-0 h-1.5 w-1.5 border-zinc-600 border-t border-r transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="absolute bottom-0 left-0 h-1.5 w-1.5 border-zinc-600 border-b border-l transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-zinc-600 border-r border-b transition-colors group-hover:border-[var(--theme-primary)]" />
+        <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-600 transition-colors group-hover:border-[var(--theme-primary)]" />
         <div className="flex items-center gap-3">
           <div className="border border-blue-500/20 border-dashed bg-blue-500/10 p-2">
             <Settings2 size={18} className="text-blue-500" />
@@ -55,10 +53,7 @@ export function SettingsControls({
       </div>
 
       <div className="group relative flex items-center justify-between border border-zinc-800 border-dashed bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80">
-        <div className="absolute top-0 left-0 h-1.5 w-1.5 border-zinc-600 border-t border-l transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="absolute top-0 right-0 h-1.5 w-1.5 border-zinc-600 border-t border-r transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="absolute bottom-0 left-0 h-1.5 w-1.5 border-zinc-600 border-b border-l transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-zinc-600 border-r border-b transition-colors group-hover:border-[var(--theme-primary)]" />
+        <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-600 transition-colors group-hover:border-[var(--theme-primary)]" />
         <div className="flex items-center gap-3">
           <div className="border border-purple-500/20 border-dashed bg-purple-500/10 p-2">
             <Archive size={18} className="text-purple-500" />
@@ -80,10 +75,7 @@ export function SettingsControls({
       </div>
 
       <div className="group relative flex items-center justify-between border border-zinc-800 border-dashed bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80">
-        <div className="absolute top-0 left-0 h-1.5 w-1.5 border-zinc-600 border-t border-l transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="absolute top-0 right-0 h-1.5 w-1.5 border-zinc-600 border-t border-r transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="absolute bottom-0 left-0 h-1.5 w-1.5 border-zinc-600 border-b border-l transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-zinc-600 border-r border-b transition-colors group-hover:border-[var(--theme-primary)]" />
+        <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-600 transition-colors group-hover:border-[var(--theme-primary)]" />
         <div className="flex items-center gap-3">
           <div className="border border-amber-500/20 border-dashed bg-amber-500/10 p-2">
             <CircleDot size={18} className="text-amber-500" />
