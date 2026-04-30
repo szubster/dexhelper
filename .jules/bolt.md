@@ -51,3 +51,6 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 ## 2026-04-26 - [O(N) Map Operations inside loop]
 **Learning:** In suggestionEngine.ts, filtering `allInstances` array and mapping over it repeatedly inside `myOtIds` extraction creates intermediate arrays and causes unnecessary memory overhead.
 **Action:** Used a single `for` loop to check `p.otName` and `myOtIds.add` directly instead of chained `.filter().map()`. This avoids the allocation of arrays during the critical suggestion generation path.
+## 2026-04-27 - [O(N) mapping overhead in Nearby suggestions]
+**Learning:** In suggestionEngine.ts, iterating over encounter locations and eagerly calling `.map()` to build EncounterDetails array repeatedly for every progressively closer location causes unnecessary memory allocations and CPU overhead, especially since only the absolute closest location is ultimately used.
+**Action:** Store a reference to the `bestE` (best encounter object) during the loop, and defer calling `.map()` to build the final `EncounterDetails` array until after the loop has finished evaluating all distances.
