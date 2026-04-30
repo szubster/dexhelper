@@ -2,12 +2,12 @@
 id: task-029-054-qa-async-hydration
 type: TASK
 title: "QA Async Startup Hydration"
-status: READY
+status: "ACTIVE"
 owner_persona: "qa"
 created_at: "2026-04-27"
 updated_at: "2026-04-30"
 depends_on: [".foundry/tasks/task-029-050-implement-async-hydration.md"]
-jules_session_id: null
+jules_session_id: "5291952710196240663"
 parent: .foundry/stories/story-014-029-async-startup-hydration.md
 tags: ["state", "store", "indexeddb", "hydration", "qa"]
 ---
