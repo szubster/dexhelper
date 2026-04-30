@@ -50,3 +50,9 @@
 **Outcome:** Accepted
 **Why:** Continues the successful strategy of establishing a specialized hardware UI aesthetic, improving visual cohesion across the application's structural and configuration menus.
 **Pattern:** Consistently apply the tactical hardware motif (sharp edges, dashed outlines, monospace text) to all modal and configuration interfaces to maintain the illusion of a specialized device.
+
+## 2025-06-15 - [Accepted] - 🖼️ Canvas: Tactical SyncProgress Redesign
+**What:** Redesigned the `SyncProgress` component to match the utility-driven tactical "snooping" aesthetic, replacing rounded glassmorphism with sharp, dashed borders, corner crosshairs, and a horizontal segmented progress bar with monospace telemetry text.
+**Outcome:** Accepted
+**Why:** Continues the successful strategy of establishing a specialized hardware UI aesthetic, improving visual cohesion across the application's loading and synchronization interfaces.
+**Pattern:** Consistently apply the tactical hardware motif (sharp edges, dashed outlines, monospace text, linear progress over smooth circles) to loading screens to maintain the illusion of a specialized device.
