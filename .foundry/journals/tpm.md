@@ -173,3 +173,17 @@
 - **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #759 closed without merging.. Transitioned back to READY.
 
 - **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #772 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: PR #750 merged. `epic-008-017-orchestrator-preflight-checks` is now COMPLETED.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #775 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: PR #753 merged. `story-010-016-enable-expensive-oxlint-checks` is now COMPLETED.
+
+- **2026-04-30**: PR #752 merged. `story-019-034-anomaly-reporting-mechanism` is now COMPLETED.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-026-044-refactor-state-store-sync`. Reason: PR #713 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #714 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: PR #751 merged. `task-032-052-implement-migration-logic` is now COMPLETED.

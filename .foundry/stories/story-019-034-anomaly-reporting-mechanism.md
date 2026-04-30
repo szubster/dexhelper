@@ -2,12 +2,12 @@
 id: story-019-034-anomaly-reporting-mechanism
 type: STORY
 title: "Anomaly Reporting Mechanism"
-status: "ACTIVE"
+status: PENDING
 owner_persona: tech_lead
 created_at: "2026-04-29"
-updated_at: "2026-04-29"
+updated_at: "2026-04-30"
 depends_on: []
-jules_session_id: "2249433313467428255"
+jules_session_id: null
 parent: .foundry/epics/epic-008-019-anomaly-reporting-mechanism.md
 tags: ["orchestrator", "generation", "efficiency"]
 rejection_count: 0

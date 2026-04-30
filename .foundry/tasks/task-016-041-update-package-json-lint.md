@@ -2,10 +2,10 @@
 id: "task-016-041-update-package-json-lint"
 type: "TASK"
 title: "Update package.json lint scripts with expensive oxlint flags"
-status: PENDING
+status: READY
 owner_persona: "coder"
 created_at: "2026-04-26"
-updated_at: "2026-04-26"
+updated_at: "2026-04-30"
 depends_on: []
 jules_session_id: null
 pr_number: null
