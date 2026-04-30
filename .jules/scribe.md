@@ -49,3 +49,9 @@ Documenting these mechanical quirks is essential for future maintainability of t
 - Gen 1 saves lack explicit version bytes, requiring heuristic detection via Pokédex exclusives and Pikachu markers.
 - Yellow version shifts many memory offsets by +1 byte, requiring dynamic probing at offsets `0x25A3` and `0x25A4` to determine the correct alignment before extracting data.
 - Documented these binary offsets and heuristics in `src/engine/saveParser/README.md` to prevent future regressions.
+## 2026-04-20 - Gen 2 Save Parser Memory Map Dynamic Selection
+**What:** Added JSDoc explaining the dynamic memory map selection in  ().
+**Why:** Gen 2 memory offsets differ significantly between Gold/Silver and Crystal due to engine additions shifting data blocks. The parser dynamically probes party count locations to identify the correct map. The  parameter was also documented as a fallback override for early-game saves.
+## 2026-04-20 - Gen 2 Save Parser Memory Map Dynamic Selection
+**What:** Added JSDoc explaining the dynamic memory map selection in `parseGen2` (`src/engine/saveParser/parsers/gen2.ts`).
+**Why:** Gen 2 memory offsets differ significantly between Gold/Silver and Crystal due to engine additions shifting data blocks. The parser dynamically probes party count locations to identify the correct map. The `forceCrystal` parameter was also documented as a fallback override for early-game saves.

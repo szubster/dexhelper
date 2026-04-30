@@ -143,13 +143,18 @@ export function isGen2Save(view: DataView, crystal: boolean): boolean {
 
 /**
  * Extracts all relevant game data (party, PC boxes, inventory, Pokédex, etc.) from a Gen 2 save.
- * Memory offsets differ significantly between Gold/Silver and Crystal. This function detects Crystal
- * by checking party sizes at the different offset locations, and dynamically selects the correct
- * memory map before extraction.
  *
- * @param view - The raw save file view.
- * @param forceCrystal - An optional flag to force the parser to use Crystal memory offsets.
- * @returns The structured SaveData object.
+ * Unlike Gen 1 where offsets are mostly static (with minor shifts in Yellow), Gen 2 memory offsets
+ * differ significantly between Gold/Silver and Crystal due to engine additions (like the Battle Tower)
+ * shifting data blocks down in memory.
+ *
+ * This function dynamically determines the correct memory map by probing both potential party offset
+ * locations (0x288a for GS, 0x2865 for Crystal). Since party sizes are strictly bounded between 1-6,
+ * reading a valid count at one offset and an invalid value at the other reliably identifies the version.
+ *
+ * @param view - The raw save file DataView.
+ * @param forceCrystal - An optional boolean flag to override dynamic detection and force the parser to use Crystal memory offsets. Useful for uninitialized early-game saves.
+ * @returns The fully parsed and structured SaveData object.
  */
 export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   let isCrystal = forceCrystal;
