@@ -1,5 +1,4 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { saveDB } from './db/SaveDB';
 import { parseSaveFile } from './engine/saveParser/index';
 import { useStore } from './store';
 
@@ -142,29 +141,56 @@ describe('Zustand Store', () => {
       expect(useStore.getState().error).toBeNull();
     });
 
-    it('should load a valid base64 save from storage successfully', async () => {
+    it('should load a valid base64 save from storage successfully', () => {
       const mockSaveData = { trainerName: 'ASH', generation: 1, gameVersion: 'red' };
       vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
 
-      vi.spyOn(saveDB, 'getSave').mockResolvedValue(new Uint8Array([1, 2, 3]));
+      // valid base64 for "hello"
+      vi.stubGlobal('localStorage', {
+        getItem: vi.fn<() => string>().mockReturnValue('aGVsbG8='),
+        removeItem: vi.fn<() => void>(),
+      });
+      vi.stubGlobal('window', {
+        atob: vi.fn<() => string>().mockReturnValue('hello'),
+      });
 
-      await useStore.getState().loadSaveFromStorage();
+      useStore.getState().loadSaveFromStorage();
 
       expect(parseSaveFile).toHaveBeenCalled();
       expect(useStore.getState().saveData).toEqual(mockSaveData);
     });
 
-    it('should handle corrupted save file from localStorage', async () => {
-      vi.spyOn(saveDB, 'getSave').mockRejectedValue(new Error('IndexedDB Error'));
-      const mockDeleteSave = vi.spyOn(saveDB, 'deleteSave').mockResolvedValue();
+    it('should handle corrupted save file from localStorage', () => {
+      // Mock localStorage to return an invalid base64 string
+      const mockGetItem = vi.fn<() => string>().mockReturnValue('invalid-base64-!');
+      const mockRemoveItem = vi.fn<() => void>();
+      vi.stubGlobal('localStorage', {
+        getItem: mockGetItem,
+        removeItem: mockRemoveItem,
+      });
 
       const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-      await useStore.getState().loadSaveFromStorage();
+      useStore.getState().loadSaveFromStorage();
 
       // Verify that it caught the error, logged it, and removed the corrupted item
       expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file');
-      expect(mockDeleteSave).toHaveBeenCalledWith('last_save_file');
+      expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
+    });
+
+    it('should specifically catch invalid base64 regex failures', () => {
+      const mockRemoveItem = vi.fn<() => void>();
+      vi.stubGlobal('localStorage', {
+        getItem: vi.fn<() => string>().mockReturnValue('!!!'),
+        removeItem: mockRemoveItem,
+      });
+
+      const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+      useStore.getState().loadSaveFromStorage();
+
+      expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file');
+      expect(mockRemoveItem).toHaveBeenCalledWith('last_save_file');
     });
   });
 });

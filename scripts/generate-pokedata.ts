@@ -482,7 +482,7 @@ writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.valu
   console.log(`Source SHA: ${upstreamSha}`);
 }
 
-main().catch(() => {
-  console.error('System: data generation failed');
+main().catch(err => {
+  console.error('\nGeneration failed:', err instanceof Error ? err.message : String(err));
   process.exit(1);
 });

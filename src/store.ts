@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { saveDB } from './db/SaveDB';
 import type { GameVersion as GameVersionType, SaveData } from './engine/saveParser/index';
 import { parseSaveFile } from './engine/saveParser/index';
 
@@ -81,7 +80,7 @@ interface AppStore {
    * Invariant: If the data is corrupted or parsing fails, the cached file is immediately
    * deleted to prevent infinite crash loops on subsequent reloads.
    */
-  loadSaveFromStorage: () => Promise<void>;
+  loadSaveFromStorage: () => void;
 }
 
 // ─── Store ───────────────────────────────────────────────────────────
@@ -127,17 +126,27 @@ export const useStore = create<AppStore>()(
       filtersSet: () => new Set(get().filters),
 
       // Actions
-      loadSaveFromStorage: async () => {
-        try {
-          const bytes = await saveDB.getSave('last_save_file');
-          if (bytes) {
+      loadSaveFromStorage: () => {
+        const savedFile = localStorage.getItem('last_save_file');
+        if (savedFile) {
+          try {
+            const base64Regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
+            if (!base64Regex.test(savedFile)) {
+              throw new Error('Invalid Base64 string');
+            }
+            const binaryString = window.atob(savedFile);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+              bytes[i] = binaryString.charCodeAt(i);
+            }
             const { manualVersion } = get();
-            const data = parseSaveFile(bytes.buffer as ArrayBuffer, manualVersion || undefined);
+            const data = parseSaveFile(bytes.buffer, manualVersion || undefined);
             set({ saveData: data });
+          } catch {
+            console.error('Failed to load saved file');
+            localStorage.removeItem('last_save_file');
           }
-        } catch {
-          console.error('Failed to load saved file');
-          await saveDB.deleteSave('last_save_file');
         }
       },
     }),

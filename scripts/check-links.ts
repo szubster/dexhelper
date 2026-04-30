@@ -114,8 +114,8 @@ function checkLinks() {
         }
       }
 
-    } catch {
-      console.error('System: link check failed');
+    } catch (e) {
+      console.error(`Error processing file ${file}:`, e);
       hasErrors = true;
     }
   }

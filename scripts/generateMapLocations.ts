@@ -243,4 +243,4 @@ async function run() {
 
 }
 
-run().catch(() => console.error('System: map generation failed'));
+run().catch((err) => console.error(err instanceof Error ? err.message : String(err)));

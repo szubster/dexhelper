@@ -45,7 +45,7 @@ function RootComponent() {
 
   // Load saved data from localStorage on mount
   useEffect(() => {
-    loadSaveFromStorage().catch(() => {});
+    loadSaveFromStorage();
   }, [loadSaveFromStorage]);
 
   return (

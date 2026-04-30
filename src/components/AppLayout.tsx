@@ -55,6 +55,14 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         }
 
         saveDB.putSave('last_save_file', new Uint8Array(buffer)).catch(() => console.error('System: sync failed'));
+
+        let binary = '';
+        const bytes = new Uint8Array(buffer);
+        const len = bytes.byteLength;
+        for (let i = 0; i < len; i++) {
+          binary += String.fromCharCode(bytes[i] ?? 0);
+        }
+        localStorage.setItem('last_save_file', window.btoa(binary));
       } catch (err: unknown) {
         const message = err instanceof Error ? err.message : 'Failed to parse save file.';
         setError(message);
