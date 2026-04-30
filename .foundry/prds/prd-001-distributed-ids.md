@@ -8,7 +8,7 @@ created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on: []
 jules_session_id: null
-parent: .foundry/ideas/idea-002-collision-free-ids.md
+parent: .foundry/archive/ideas/idea-002-collision-free-ids.md
 ---
 
 # PRD: Distributed IDs & Concurrency Resilience
