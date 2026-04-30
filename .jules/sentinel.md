@@ -53,3 +53,9 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 - When testing RangeError throwing inside DataView, avoid overriding `global.DataView` without `try...finally` as it breaks downstream tests if `expect().toThrow()` fails.
 - Be careful when replacing `as any` casting: use `as unknown as typeof DataView` to avoid Biome's `lint/suspicious/noExplicitAny`.
 - `noUncheckedIndexedAccess: true` requires indexing arrays using fallback (e.g., `buffer[i] ?? 0`) or checking for bounds to prevent TypeScript compilation errors (`TS2532`).
+
+## 2026-04-22 - SaveDB test coverage
+**What**: Added test coverage for `src/db/SaveDB.ts`.
+**Coverage Before/After**: Increased `SaveDB.ts` coverage from ~25% to 100%.
+**Why this target matters**: `SaveDB` heavily relies on IndexedDB (`idb` wrapper) and has explicit fallback behavior when IndexedDB initialization fails (e.g., throwing error on `openDB`). Covering these fallback paths is critical for ensuring reliable data loading/error paths.
+**Learning**: Vitest's `vi.doMock` requires type parameters for generic functions like `vi.fn<() => Promise<never>>()` to satisfy Biome type checks under `@tsconfig/strictest`.
