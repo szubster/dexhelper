@@ -30,3 +30,4 @@
 
 ## 2026-04-27 - Enabled oxlint type-aware rules
 **Learning:** Installed `oxlint-tsgolint` and enabled `--type-aware` in oxlint. Fixed multiple floating promise warnings across the codebase. Type-aware linting acts as a fast alternative to full typescript-eslint type checking.
+- **Orchestrator fixes:** Identified and fixed a bug where the DAG orchestrator entered an impossible loop due to incorrectly evaluating a completed parent's completion status based on its pending child. `isHierarchicallyIncomplete` was modified to accept `evaluatingFor` and correctly ignore the evaluating node and its descendants. Also fixed a bug where `COMPLETED` nodes were improperly suspended if their children were incomplete. Added robust parsing fallbacks for missing/unparsed nodes to correctly evaluate their completion status.
