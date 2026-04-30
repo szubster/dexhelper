@@ -2,7 +2,7 @@
 id: epic-012-gastown-orchestrator
 type: EPIC
 title: "Gastown Cloudflare Worker Migration Evaluation"
-status: "ACTIVE"
+status: "READY"
 owner_persona: story_owner
 created_at: "2026-04-23"
 updated_at: "2026-04-30"
@@ -11,7 +11,7 @@ depends_on:
   - .foundry/stories/story-012-029-document-gastown-migration-decision.md
   - .foundry/stories/story-012-027-design-sync-mechanism.md
   - .foundry/stories/story-012-026-evaluate-cloudflare-storage.md
-jules_session_id: "10140749716828430060"
+jules_session_id: null
 parent: ".foundry/prds/prd-002-late-binding-orchestrator.md"
 tags:
   - foundry-v2

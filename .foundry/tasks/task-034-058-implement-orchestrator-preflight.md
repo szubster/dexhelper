@@ -2,7 +2,7 @@
 id: task-034-058-implement-orchestrator-preflight
 type: TASK
 title: "Implement Orchestrator Preflight"
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: "2026-04-30"
 updated_at: "2026-04-30"
