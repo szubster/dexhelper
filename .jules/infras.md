@@ -10,9 +10,6 @@
 ## 2026-04-20 - Rejected Vite Manual Chunking Strategy
 **Learning:** While manual chunking can improve caching, it was rejected for this project because the app is small enough that a single chunk is preferred, and the `@tanstack` dependencies are updated so frequently that the caching benefits are marginalized.
 
-## 2026-04-21 - Added Knip
-**Learning:** Integrated `knip` into the pipeline (via the `lint` script) to detect unused files, exports, types, and unlisted/unused dependencies, improving overall code health and CI guardrails. Configured it to ignore `fake-indexeddb` and `bundlemon` which are dynamically utilized by tests/CI but not statically imported by source code, as well as ignoring `.github/scripts/**` which bypass typical module resolution.
-
 ## 2026-04-23 - Added oxlint
 **Learning:** Integrated `oxlint` as an additional ultra-fast linter in the linting pipeline (`lint` script, GitHub Actions, and Lefthook). Since `oxlint` is designed as a drop-in replacement for a subset of ESLint rules, it catches issues (like empty object destructuring or unused catch parameters) that Biome might miss or hasn't implemented yet, all while remaining extremely fast.
 
@@ -30,3 +27,6 @@
 
 ## 2026-04-27 - Enabled oxlint type-aware rules
 **Learning:** Installed `oxlint-tsgolint` and enabled `--type-aware` in oxlint. Fixed multiple floating promise warnings across the codebase. Type-aware linting acts as a fast alternative to full typescript-eslint type checking.
+
+## 2026-04-28 - Oxlint jest rules configurations
+**Learning:** Enforced `jest/*` oxlint rules in `.oxlintrc.json` (specifically `jest/no-disabled-tests` and `jest/no-standalone-expect`). To handle false positives with custom Vitest functions, `additionalTestBlockFunctions` can be provided in the `.oxlintrc.json` rule configuration. Inline bypassing works with `// oxlint-disable-next-line <rule>`. These rules provide fast, effective linting for test suites before running the full Vitest suite.
