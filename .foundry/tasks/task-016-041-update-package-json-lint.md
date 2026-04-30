@@ -26,4 +26,4 @@ As part of enabling expensive and strict oxlint checks, we need to update the `p
 2. Ensure CI passes.
 
 ## Acceptance Criteria
-- [ ] `package.json` lint commands run these expensive checks.
+- [x] `package.json` lint commands run these expensive checks.
