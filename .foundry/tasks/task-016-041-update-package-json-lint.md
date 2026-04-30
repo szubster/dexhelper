@@ -2,16 +2,16 @@
 id: "task-016-041-update-package-json-lint"
 type: "TASK"
 title: "Update package.json lint scripts with expensive oxlint flags"
-status: "ACTIVE"
+status: "READY"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-30"
 depends_on: []
-jules_session_id: "11779032642627600188"
+jules_session_id: null
 pr_number: null
 parent: ".foundry/stories/story-010-016-enable-expensive-oxlint-checks.md"
 tags: []
-rejection_count: 2
+rejection_count: 3
 rejection_reason: ""
 notes: ""
 ---
