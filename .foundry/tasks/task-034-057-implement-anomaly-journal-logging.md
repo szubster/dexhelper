@@ -2,7 +2,7 @@
 id: task-034-057-implement-anomaly-journal-logging
 type: TASK
 title: "Implement Anomaly Journal Logging"
-status: READY
+status: FAILED
 owner_persona: "coder"
 created_at: "2026-04-29"
 updated_at: "2026-04-30"
@@ -11,7 +11,7 @@ jules_session_id: null
 parent: .foundry/stories/story-019-034-anomaly-reporting-mechanism.md
 tags: ["orchestrator", "generation", "efficiency"]
 rejection_count: 0
-rejection_reason: ""
+rejection_reason: "Blocked: The idempotent check logic does not exist in the codebase yet. This task cannot be implemented without it. It requires a depends_on for the task implementing the idempotent check, which would be generated from story-017-034-orchestrator-preflight-logic."
 notes: ""
 ---
 
