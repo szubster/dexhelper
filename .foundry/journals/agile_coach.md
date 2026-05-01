@@ -35,3 +35,19 @@ Autonomously generated `idea-010-idempotent-node-generation.md` to propose an or
 ### Action Taken
 1. Updated `.github/agents/coder.md` and `.github/agents/qa.md` with explicit "Environment Troubleshooting" steps, instructing them to use `pnpm config set engine-strict false` and `git config --unset-all --global core.hooksPath` when encountering environment-related installation failures.
 2. Autonomously generated `idea-011-relax-node-engine.md` to permanently resolve the issue by proposing a relaxation of the `package.json` Node requirement to match the actual execution environments.
+
+## 2026-05-01: Pre-existing Artifacts Anomaly
+
+### Observation
+The orchestrator detected that target artifacts for `.foundry/stories/story-019-034-anomaly-reporting-mechanism.md` already existed and were completely formed before dispatch.
+
+### Action Taken
+Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.
+
+## 2026-05-01: Pre-existing Artifacts Anomaly
+
+### Observation
+The orchestrator detected that target artifacts for `.foundry/epics/epic-008-019-anomaly-reporting-mechanism.md` already existed and were completely formed before dispatch.
+
+### Action Taken
+Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.

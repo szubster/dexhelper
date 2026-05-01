@@ -2,12 +2,12 @@
 id: epic-009-020-relax-node-engine
 type: EPIC
 title: "Relax Node engine requirement in package.json to >=22.0.0"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "story_owner"
 created_at: "2026-05-01"
 updated_at: "2026-05-01"
 depends_on: []
-jules_session_id: "9609256207773588126"
+jules_session_id: null
 pr_number: null
 parent: ".foundry/prds/prd-011-009-relax-node-engine.md"
 tags: ["infrastructure"]
@@ -20,4 +20,7 @@ notes: ""
 Update the `engines.node` field in `package.json` from `>=24.0.0` to `>=22.0.0` to match the Foundry agents' execution environment, reducing PR rejections.
 
 ## Acceptance Criteria
-- [ ] Update `engines.node` in `package.json` to `>=22.0.0`.
+- [x] Update `engines.node` in `package.json` to `>=22.0.0`.
+
+## Stories
+- [ ] .foundry/stories/story-020-035-relax-node-engine.md

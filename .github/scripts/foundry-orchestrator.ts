@@ -657,9 +657,55 @@ function main(): void {
 
   info(`${eligible.length} node(s) eligible for promotion to READY.`);
 
+  // ── Phase 4.5: IDEMPOTENT GENERATION CHECK ────────────────────────────────
+  info('Phase 4.5: Performing idempotent generation checks...');
+  const finalEligible: ParsedNode[] = [];
+  for (const node of eligible) {
+    let shouldBypass = false;
+
+    // We restrict idempotent check to generation nodes (typically non-TASK,
+    // but checking for explicit children links is the robust way)
+    if (node.frontmatter.type !== 'TASK') {
+      const fmMatch = node.rawContent.match(/^---[\s\S]*?---/);
+      const body = fmMatch ? node.rawContent.slice(fmMatch[0].length) : node.rawContent;
+
+      const linkRegex = /\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^)]+\.md)\)/g;
+      const links = [...body.matchAll(linkRegex)].map(m => m[1]);
+
+      if (links.length > 0) {
+        const allExist = links.every(l => nodeMap.has(l));
+        const hasChild = links.some(l => nodeMap.get(l)?.frontmatter.parent === node.repoPath);
+
+        if (allExist && hasChild) {
+          shouldBypass = true;
+        }
+      }
+    }
+
+    if (shouldBypass) {
+      info(`Idempotent check bypassed dispatch for ${node.repoPath} (artifacts already exist).`);
+      promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+
+      const dateStr = todayISO();
+      const logPath = require('node:path').join(repoRoot, '.foundry/journals/agile_coach.md');
+      const logEntry = `\n## ${dateStr}: Pre-existing Artifacts Anomaly\n\n### Observation\nThe orchestrator detected that target artifacts for \`${node.repoPath}\` already existed and were completely formed before dispatch.\n\n### Action Taken\nBypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.\n`;
+
+      if (!DRY_RUN) {
+        try {
+          fs.appendFileSync(logPath, logEntry, 'utf-8');
+          info(`Logged anomaly to ${logPath}`);
+        } catch (e) {
+          warn(`Failed to log anomaly to Agile Coach journal: ${String(e)}`);
+        }
+      }
+    } else {
+      finalEligible.push(node);
+    }
+  }
+
   // ── Phase 5: PROMOTE ───────────────────────────────────────────────────────
   info('Phase 5: Promoting eligible nodes...');
-  for (const node of eligible) {
+  for (const node of finalEligible) {
     if (node.frontmatter.owner_persona === 'human') {
       promoteNodeStatus(node, 'PENDING', 'ACTIVE');
     } else {
