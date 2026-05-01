@@ -1,28 +1,9 @@
+export const goldExclusives = [10, 11, 12, 27, 28, 56, 57, 58, 59, 167, 168, 207, 216, 217, 226];
+export const silverExclusives = [13, 14, 15, 23, 24, 37, 38, 52, 53, 165, 166, 225, 227, 231, 232];
+
 export const GEN2_VERSION_EXCLUSIVES: Record<string, number[]> = {
-  gold: [
-    56,
-    57,
-    58,
-    59, // Mankey, Primeape, Growlithe, Arcanine
-    167,
-    168, // Spinarak, Ariados
-    226, // Mantine
-    207, // Gligar
-    216,
-    217, // Teddiursa, Ursaring
-  ],
-  silver: [
-    37,
-    38, // Vulpix, Ninetales
-    52,
-    53, // Meowth, Persian
-    165,
-    166, // Ledyba, Ledian
-    225, // Delibird
-    227, // Skarmory
-    231,
-    232, // Phanpy, Donphan
-  ],
+  gold: goldExclusives,
+  silver: silverExclusives,
 };
 
 export function getGen2UnobtainableReason(

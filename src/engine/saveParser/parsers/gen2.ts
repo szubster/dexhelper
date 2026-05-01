@@ -1,5 +1,6 @@
 import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
+import { goldExclusives, silverExclusives } from '../../exclusives/gen2Exclusives';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { checkShiny, decodeGen12String, parseDVs } from './common';
 
@@ -98,9 +99,6 @@ function parseGen2PokemonInstance(
  * @returns 'gold', 'silver', or 'unknown'.
  */
 export function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersion {
-  const goldExclusives = [56, 57, 58, 59, 167, 168, 207, 216, 217, 226];
-  const silverExclusives = [37, 38, 52, 53, 165, 166, 225, 227, 231, 232];
-
   let goldScore = 0;
   let silverScore = 0;
 
