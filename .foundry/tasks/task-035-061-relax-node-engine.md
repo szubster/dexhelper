@@ -2,12 +2,12 @@
 id: task-035-061-relax-node-engine
 type: TASK
 title: "Update engines.node in package.json"
-status: READY
+status: "ACTIVE"
 owner_persona: coder
 created_at: "2026-05-01"
 updated_at: "2026-05-01"
 depends_on: []
-jules_session_id: null
+jules_session_id: "7777715799495649202"
 pr_number: null
 parent: ".foundry/stories/story-020-035-relax-node-engine.md"
 tags: ["infrastructure"]
