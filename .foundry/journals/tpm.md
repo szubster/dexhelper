@@ -265,3 +265,5 @@
 - **2026-05-01**: PR #832 merged. `story-015-032-legacy-save-migration-hook` is now COMPLETED.
 
 - **2026-05-01**: PR #833 merged. `story-016-033-update-e2e-testing-for-idb` is now COMPLETED.
+
+- **2026-05-01**: PR #837 merged. `task-034-057-implement-anomaly-journal-logging` is now COMPLETED.
