@@ -59,3 +59,8 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 **Coverage Before/After**: Increased `SaveDB.ts` coverage from ~25% to 100%.
 **Why this target matters**: `SaveDB` heavily relies on IndexedDB (`idb` wrapper) and has explicit fallback behavior when IndexedDB initialization fails (e.g., throwing error on `openDB`). Covering these fallback paths is critical for ensuring reliable data loading/error paths.
 **Learning**: Vitest's `vi.doMock` requires type parameters for generic functions like `vi.fn<() => Promise<never>>()` to satisfy Biome type checks under `@tsconfig/strictest`.
+
+## Final test run
+- Verified coverage across the board. `AppLayout.tsx` errors are now fully covered by tests checking both standard Error and generic error throws from `parseSaveFile`.
+- Modified Playwright test `save_management.spec.ts` successfully asserts clearing application state via `ClearStorageButton`
+- Total statement coverage for unit/component tests in Node and Chromium environments achieved 94.09% line coverage and effectively addressed edge paths inside Store logic and AppLayout boundaries. E2E tests are also verified and complete successfully locally.
