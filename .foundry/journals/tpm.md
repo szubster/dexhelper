@@ -267,3 +267,7 @@
 - **2026-05-01**: PR #833 merged. `story-016-033-update-e2e-testing-for-idb` is now COMPLETED.
 
 - **2026-05-01**: PR #837 merged. `task-034-057-implement-anomaly-journal-logging` is now COMPLETED.
+
+- **2026-05-01**: PR #841 merged. `epic-005-014-state-store-migration` is now COMPLETED.
+
+- **2026-05-01**: PR #839 merged. `epic-009-020-relax-node-engine` is now COMPLETED.
