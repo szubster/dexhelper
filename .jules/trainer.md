@@ -14,3 +14,6 @@
 ## 2024-04-29 - Tyrogue Relative Physical Stats Evolution
 **Learning:** Tyrogue evolves at level 20 into Hitmonlee, Hitmonchan, or Hitmontop depending on its Relative Physical Stats (`rps`). The `rps` is calculated as Atk > Def (1), Atk < Def (-1), or Atk = Def (0). We do not have access to PC boxed Pokémon's exact stats, but adding general instructions about these requirements significantly improves assistant suggestion quality.
 **Action:** Extract `detail.rps` when iterating over `p.det` during evolution suggestion generation. Map `rps` values to human-readable strings (e.g., `, Atk > Def`) and append them to the specific level requirement string.
+## 2024-05-15 - Assistant Happiness Evolution Suggestion
+**Learning:** For happiness-based evolutions (`min_h`), the assistant previously only displayed a generic "Level up with high happiness to evolve" message without showing the actual friendship progress. The save data `PokemonInstance` actually provides the `friendship` stat.
+**Action:** Always check if `bestInstance.friendship` is defined for `min_h` evolutions. If it is >= `min_h`, update the priority to 90 and dynamically tell the user it is "Ready to Evolve!". Otherwise, display the current vs required friendship `(current/required)` to give the user a clear progression indicator.

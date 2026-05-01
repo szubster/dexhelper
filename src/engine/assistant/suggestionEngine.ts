@@ -425,13 +425,19 @@ export function generateSuggestions(
           });
         } else if (min_h) {
           const todMsg = tod ? ` during the ${tod}` : '';
+          const isFriendlyEnough = bestInstance.friendship !== undefined && bestInstance.friendship >= min_h;
+          const friendshipStatus =
+            bestInstance.friendship !== undefined ? ` (${bestInstance.friendship}/${min_h})` : '';
+
           suggestions.push({
             id: `evo-happy-${targetId}`,
             category: 'Evolve',
-            title: `Happiness Evolution: #${targetId}`,
-            description: `Level up your pre-evolution with high happiness to evolve${todMsg}!`,
+            title: isFriendlyEnough ? `Ready to Evolve: #${targetId}!` : `Happiness Evolution: #${targetId}`,
+            description: isFriendlyEnough
+              ? `Your pre-evolution is friendly enough${friendshipStatus}! Level it up${todMsg} to evolve.`
+              : `Level up your pre-evolution with high happiness${friendshipStatus} to evolve${todMsg}!`,
             pokemonId: targetId,
-            priority: 80,
+            priority: isFriendlyEnough ? 90 : 80,
           });
         }
       } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
