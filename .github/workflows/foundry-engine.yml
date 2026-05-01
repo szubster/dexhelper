@@ -160,60 +160,6 @@ jobs:
               agent_context="As the coder of The Foundry, your task is described in the provided node file. You must automatically index and read relevant knowledge from .foundry/docs/knowledge_base/ whenever assigned a task. Follow the schema rules and implementation guidelines."
             fi
 
-            # Fetch all research references from current node and parent chain recursively
-            research_context=""
-            curr_node="${{ matrix.node.repo_path }}"
-            visited_nodes=""
-
-            while [[ -n "$curr_node" && "$curr_node" != "null" ]]; do
-              # Avoid infinite loops
-              if echo "$visited_nodes" | grep -q "$curr_node"; then
-                break
-              fi
-              visited_nodes="$visited_nodes $curr_node"
-
-              if [[ -f "$curr_node" ]]; then
-                # Extract research_references array using a simple node script with gray-matter
-                node_script="
-                  const fs = require('fs');
-                  const matter = require('gray-matter');
-                  try {
-                    const content = fs.readFileSync(process.env.TARGET_FILE, 'utf-8');
-                    const parsed = matter(content);
-                    if (parsed.data.research_references && Array.isArray(parsed.data.research_references)) {
-                      for (const ref of parsed.data.research_references) {
-                        if (ref) console.log(ref);
-                      }
-                    }
-                    if (parsed.data.parent && parsed.data.parent !== 'null') {
-                      console.log('__PARENT__:' + parsed.data.parent);
-                    }
-                  } catch(e) {}
-                "
-                node_output=$(TARGET_FILE="$curr_node" node -e "$node_script")
-
-                next_parent=$(echo "$node_output" | grep "^__PARENT__:" | cut -d: -f2 || true)
-                refs=$(echo "$node_output" | grep -v "^__PARENT__:" || true)
-
-                while IFS= read -r ref; do
-                  if [[ -n "$ref" && -f "$ref" ]]; then
-                    research_content=$(cat "$ref")
-                    research_context=$(printf "%s
-
-### RESEARCH REFERENCE: %s
-%s" "$research_context" "$ref" "$research_content")
-                  fi
-                done <<< "$refs"
-
-                curr_node="$next_parent"
-              else
-                break
-              fi
-            done
-
-            # Append research_context to agent_context
-            agent_context=$(printf "%s%s" "$agent_context" "$research_context")
-
             # 2. Construct the prompt JSON
             # source: sources/github/<owner>/<repo>
             prompt_json=$(jq -n \

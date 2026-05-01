@@ -156,6 +156,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `human` | A human contributor. Bypasses Jules dispatch and heartbeat timeouts. |
 | `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
 | `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
+| `researcher` | Responsible for exploratory tasks and writing context-rich research reports to be used by downstream pipeline nodes. |
 
 ---
 
