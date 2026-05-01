@@ -253,3 +253,15 @@
 - **2026-05-01**: PR #828 merged. `story-014-029-async-startup-hydration` is now COMPLETED.
 
 - **2026-05-01**: PR #823 merged. `task-034-058-implement-orchestrator-preflight` is now COMPLETED.
+
+- **2026-05-01**: PR #835 merged. `idea-005-late-binding-orchestrator` is now COMPLETED.
+
+- **2026-05-01**: PR #830 merged. `idea-011-researcher-persona` is now COMPLETED.
+
+- **2026-05-01**: PR #831 merged. `prd-011-009-relax-node-engine` is now COMPLETED.
+
+- **2026-05-01**: PR #834 merged. `story-014-026-refactor-state-store-sync` is now COMPLETED.
+
+- **2026-05-01**: PR #832 merged. `story-015-032-legacy-save-migration-hook` is now COMPLETED.
+
+- **2026-05-01**: PR #833 merged. `story-016-033-update-e2e-testing-for-idb` is now COMPLETED.

@@ -2,7 +2,7 @@
 id: prd-011-009-researcher-persona
 type: PRD
 title: "PRD: Introduce Researcher Persona"
-status: PENDING
+status: READY
 owner_persona: "architect"
 created_at: "2026-05-01"
 updated_at: "2026-05-01"
