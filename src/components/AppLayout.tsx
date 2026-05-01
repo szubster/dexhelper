@@ -195,6 +195,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               <button
                 type="button"
                 data-testid="version-selector"
+                aria-label="Select Game Version"
                 onClick={() => setIsVersionModalOpen(true)}
                 className={cn(
                   'group zoom-in-95 fade-in relative animate-in overflow-hidden rounded-2xl border px-5 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',

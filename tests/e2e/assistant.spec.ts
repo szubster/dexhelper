@@ -9,7 +9,7 @@ test.describe('Assistant Page', () => {
 
     // 2. Navigate to Assistant page via Sidebar or BottomNav
     if (isMobile) {
-      const assistantLink = page.getByRole('link', { name: /SYS.ASST/i });
+      const assistantLink = page.getByRole('link', { name: 'Assistant' });
       await expect(assistantLink).toBeVisible();
       await assistantLink.click();
     } else {

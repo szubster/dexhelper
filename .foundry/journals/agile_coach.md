@@ -52,3 +52,11 @@ Bypassed Jules session dispatch via idempotent generation check and auto-fulfill
 ### Action Taken
 1. Updated `.github/agents/tech_lead.md` to explicitly instruct the Tech Lead to define strict `depends_on` relationships between sibling TASK nodes if they have a sequential implementation dependency.
 2. Autonomously generated `idea-012-sibling-dependency-enforcement.md` to propose a system-wide rule and potential validation script for enforcing these sibling dependencies.
+
+## 2026-05-01: Pre-existing Artifacts Anomaly
+
+### Observation
+The orchestrator detected that target artifacts for `.foundry/epics/epic-008-019-anomaly-reporting-mechanism.md` already existed and were completely formed before dispatch.
+
+### Action Taken
+Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.

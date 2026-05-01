@@ -2,10 +2,10 @@
 id: epic-008-019-anomaly-reporting-mechanism
 type: EPIC
 title: "Anomaly Reporting Mechanism"
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: "2026-04-29"
-updated_at: "2026-04-29"
+updated_at: "2026-05-01"
 depends_on: []
 jules_session_id: null
 parent: .foundry/prds/prd-010-008-idempotent-node-generation.md

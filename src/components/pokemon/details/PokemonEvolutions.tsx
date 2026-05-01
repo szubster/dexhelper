@@ -62,6 +62,7 @@ function ProcurementStrategy({
             {' '}
             <button
               type="button"
+              aria-label={`Navigate to ${evoReq.fromName} details`}
               onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
               className="rounded-sm text-red-400 underline decoration-red-500/30 underline-offset-4 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
@@ -117,6 +118,7 @@ function EvolutionFrom({
         FROM{' '}
         <button
           type="button"
+          aria-label={`Navigate to ${evoReq.fromName} details`}
           onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
           className="rounded-sm text-white underline decoration-purple-500/30 underline-offset-4 transition-colors hover:text-purple-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
         >
@@ -158,6 +160,7 @@ function EvolutionTo({
             TO{' '}
             <button
               type="button"
+              aria-label={`Navigate to ${evo.name} details`}
               onClick={() => onNavigate(evo.id, evo.name)}
               className="rounded-sm text-white underline decoration-blue-500/30 underline-offset-4 transition-colors hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
@@ -192,6 +195,7 @@ function BreedingProtocol({
           <React.Fragment key={name}>
             <button
               type="button"
+              aria-label={`Navigate to ${name} details`}
               onClick={() => {
                 const id = breedingInfo.parentIds[i];
                 if (id) onNavigate(id, name);
