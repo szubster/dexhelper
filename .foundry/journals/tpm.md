@@ -229,3 +229,7 @@
 - **2026-04-30**: PR #804 merged. `task-016-041-update-package-json-lint` is now COMPLETED.
 
 - **2026-04-30**: PR #802 merged. `task-029-050-implement-async-hydration` is now COMPLETED.
+
+- **2026-05-01**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #807 closed without merging.. Transitioned back to READY.
+
+- **2026-05-01**: Resurrection Loop triggered for `story-010-016-enable-expensive-oxlint-checks`. Reason: PR #806 closed without merging.. Transitioned back to READY.

@@ -2,14 +2,14 @@
 id: "story-010-016-enable-expensive-oxlint-checks"
 type: "STORY"
 title: "Enable expensive and strict oxlint checks"
-status: "ACTIVE"
+status: "READY"
 owner_persona: "tech_lead"
 created_at: "2026-04-26"
-updated_at: "2026-04-30"
+updated_at: "2026-05-01"
 depends_on:
   - .foundry/tasks/task-016-040-oxlint-import-promise-plugins.md
   - .foundry/tasks/task-016-039-oxlint-type-aware.md
-jules_session_id: "2032966141418169881"
+jules_session_id: null
 parent: ".foundry/epics/epic-010-oxlint-config.md"
 ---
 
