@@ -1,4 +1,4 @@
-export const GEN2_VERSION_EXCLUSIVES: Record<string, number[]> = {
+const GEN2_VERSION_EXCLUSIVES: Record<string, number[]> = {
   gold: [
     56,
     57,
