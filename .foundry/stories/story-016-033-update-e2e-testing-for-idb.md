@@ -20,9 +20,10 @@ tags: ["e2e", "testing", "indexeddb"]
 The E2E test suite must be updated to support the new IndexedDB-based save persistence. This involves updating test utilities to inject binary save data into the browser's IndexedDB instance before tests run.
 
 ## Acceptance Criteria
-- [ ] Playwright utilities (`initializeWithSave`) can inject binary data into IndexedDB.
-- [ ] Tests no longer rely on `localStorage` for save data state.
-- [ ] Full E2E suite passes with the new persistence mechanism.
+- [x] Playwright utilities (`initializeWithSave`) can inject binary data into IndexedDB.
+- [x] Tests no longer rely on `localStorage` for save data state.
+- [x] Full E2E suite passes with the new persistence mechanism.
 
 ## Generated Tasks
 - .foundry/tasks/task-033-053-update-playwright-idb-injection.md
+- .foundry/tasks/task-033-060-remove-localstorage-e2e.md
