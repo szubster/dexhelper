@@ -259,8 +259,8 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: Status, targetStatus
   // ① Replace status (handles optional single/double quotes and trailing whitespace/CR).
   //    The 'm' flag makes ^ and $ match line boundaries within the block.
   mutatedFmBlock = mutatedFmBlock.replace(
-    new RegExp(`^(status:\\s*)["']?${currentStatus}["']?([ \\t\\r]*)$`, 'm'),
-    `$1${targetStatus}$2`,
+    new RegExp(`^(status:\\s*)(["']?)${currentStatus}\\2([ \\t\\r]*)$`, 'm'),
+    `$1$2${targetStatus}$2$3`,
   );
 
   // Sanity check
@@ -308,13 +308,13 @@ function promoteNodeToTpm(node: ParsedNode): void {
   let mutatedFmBlock = originalFmBlock;
 
   mutatedFmBlock = mutatedFmBlock.replace(
-    /^(status:\s*)["']?[^"'\r\n]+["']?([ \t\r]*)$/m,
-    `$1BLOCKED$2`,
+    /^(status:\s*)(["']?)[^"'\r\n]+?\2([ \t\r]*)$/m,
+    `$1$2BLOCKED$2$3`,
   );
 
   mutatedFmBlock = mutatedFmBlock.replace(
-    /^(owner_persona:\s*)["']?[^"'\r\n]+["']?([ \t\r]*)$/m,
-    `$1tpm$2`,
+    /^(owner_persona:\s*)(["']?)[^"'\r\n]+?\2([ \t\r]*)$/m,
+    `$1$2tpm$2$3`,
   );
 
   mutatedFmBlock = mutatedFmBlock.replace(
@@ -633,12 +633,7 @@ function main(): void {
       if (targetArtifacts.length > 0) {
         bypassDispatch = true;
         for (const target of targetArtifacts) {
-          const targetPath = path.join(repoRoot, target);
-          if (!fs.existsSync(targetPath)) {
-            bypassDispatch = false;
-            break;
-          }
-          const targetNode = parseNodeFile(targetPath, repoRoot);
+          const targetNode = nodeMap.get(target);
           if (!targetNode) {
             bypassDispatch = false;
             break;
@@ -666,15 +661,17 @@ function main(): void {
     // We restrict idempotent check to generation nodes (typically non-TASK,
     // but checking for explicit children links is the robust way)
     if (node.frontmatter.type !== 'TASK') {
-      const fmMatch = node.rawContent.match(/^---[\s\S]*?---/);
-      const body = fmMatch ? node.rawContent.slice(fmMatch[0].length) : node.rawContent;
+      const body = node.rawContent.replace(/^---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*\r?\n/, '');
 
       const linkRegex = /\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^)]+\.md)\)/g;
       const links = [...body.matchAll(linkRegex)].map(m => m[1]);
 
       if (links.length > 0) {
         const allExist = links.every(l => nodeMap.has(l));
-        const hasChild = links.some(l => nodeMap.get(l)?.frontmatter.parent === node.repoPath);
+        const hasChild = links.some(l => {
+          const childNode = nodeMap.get(l);
+          return !!childNode && childNode.frontmatter.parent === node.repoPath;
+        });
 
         if (allExist && hasChild) {
           shouldBypass = true;
