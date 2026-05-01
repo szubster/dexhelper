@@ -28,3 +28,4 @@ This Story implements the one-time migration of save data from `localStorage` to
 
 ## Generated Tasks
 - .foundry/tasks/task-032-052-implement-migration-logic.md
+- .foundry/tasks/task-032-060-qa-legacy-save-migration.md
