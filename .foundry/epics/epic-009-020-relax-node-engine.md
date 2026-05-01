@@ -20,4 +20,7 @@ notes: ""
 Update the `engines.node` field in `package.json` from `>=24.0.0` to `>=22.0.0` to match the Foundry agents' execution environment, reducing PR rejections.
 
 ## Acceptance Criteria
-- [ ] Update `engines.node` in `package.json` to `>=22.0.0`.
+- [x] Update `engines.node` in `package.json` to `>=22.0.0`.
+
+## Stories
+- [ ] .foundry/stories/story-020-035-relax-node-engine.md
