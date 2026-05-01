@@ -636,7 +636,7 @@ function main(): void {
       const fmMatch = node.rawContent.match(/^---[\s\S]*?---/);
       const body = fmMatch ? node.rawContent.slice(fmMatch[0].length) : node.rawContent;
 
-      const linkRegex = /\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^\)]+\.md)\)/g;
+      const linkRegex = /\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^)]+\.md)\)/g;
       const links = [...body.matchAll(linkRegex)].map(m => m[1]);
 
       if (links.length > 0) {
