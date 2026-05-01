@@ -2,12 +2,12 @@
 id: idea-012-sibling-dependency-enforcement
 type: IDEA
 title: "Sibling Dependency Enforcement"
-status: READY
+status: "ACTIVE"
 owner_persona: product_manager
 created_at: "2026-05-02"
 updated_at: "2026-05-01"
 depends_on: []
-jules_session_id: null
+jules_session_id: "3998814947133359520"
 parent: null
 tags: ["orchestrator", "dag", "reliability"]
 notes: ""
