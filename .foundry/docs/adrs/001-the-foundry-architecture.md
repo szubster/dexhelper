@@ -6,7 +6,7 @@ A "CEO-Level" orchestration system where the human provides high-level ideas and
 ## Core Directives
 - **Direct Commits**: Agents propose ideas by making actual file changes to their own branches (no PR description-only proposals).
 - **CEO Checkpoints**: ALL PR transitions (from PRDs to Code) require explicit CEO approval. Automerge is strictly disabled.
-- **The Journal & Veto Power**: The CEO says "No" by closing a PR without merging. System personas (like Agile Coach and Strategist) use a persistent journal to log closed PRs and extract lessons for future cycles.
+- **The Journal & Veto Power**: The CEO says "No" by closing a PR without merging. System personas (like Agile Coach and Strategist) use a persistent journal to log closed PRs and extract lessons for future cycles. Empty PRs (0 files changed) are automatically merged to allow the DAG to progress if no work is required.
 
 ## 1. State Store (`.foundry/` Monofolder)
 The repository acts as the database for the entire product lifecycle, containing markdown files representing nodes.
@@ -89,3 +89,6 @@ The `.foundry/` monofolder has been scaffolded at the repository root. All 9 fil
 ### 🔜 Next Steps
 1. Technical implementation of the GitHub Actions engine (`task-001`).
 2. Draft initial Persona `.md` frameworks inside `.github/agents/`.
+
+## 7. EMPTY PR POLICY
+Empty PRs (0 files changed) are submitted when a persona determines that the target artifact already exists and is complete. These PRs are automatically merged to allow the Foundry DAG to progress, while the persona documents the outcome in its journal.

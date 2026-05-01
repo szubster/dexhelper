@@ -7,7 +7,7 @@ owner_persona: "coder"
 created_at: "2026-04-29"
 updated_at: "2026-04-30"
 depends_on: []
-jules_session_id: null
+jules_session_id: "393193240906036548"
 parent: .foundry/stories/story-019-034-anomaly-reporting-mechanism.md
 tags: ["orchestrator", "generation", "efficiency"]
 rejection_count: 0

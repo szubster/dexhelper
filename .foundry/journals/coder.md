@@ -28,3 +28,10 @@ Verified empty state prompt inclusion in scheduled-agent workflow by extracting 
 
 ## 2026-04-29 (CodeQL Follow-up)
 - CodeQL caught incomplete substring matching of URL string in `.github/scripts/foundry-heartbeat.test.ts`. Modified `startsWith('https://jules.googleapis.com')` to `startsWith('https://jules.googleapis.com/')` (adding trailing slash) to satisfy the arbitrary host name vulnerability check (e.g. preventing `https://jules.googleapis.com.evil.com/`). This adheres to the strict URL validation principles outlined in `.foundry/docs/knowledge_base/onboarding/autonomous_memory_protocol.md` to prevent CWE-285 vulnerabilities.
+- Removed localStorage sync logic and Base64 decoding from src/store.ts
+
+### Task: task-026-044-refactor-state-store-sync
+- Removed `localStorage` save file logic and Base64 encoding/decoding/validation logic from `src/store.ts`.
+- Replaced the implementation to directly rely on `IndexedDB` via `saveDB.getSave`.
+- Updated test cases in `src/store.test.ts` to mock `saveDB.getSave` successfully instead of `localStorage`.
+- Verified the changes by running `pnpm lint`, `pnpm test`, and `pnpm test:e2e` to ensure no regressions were introduced.

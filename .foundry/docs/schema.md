@@ -241,3 +241,7 @@ Paths are **always relative to the repository root**, starting with `.foundry/`.
 ---
 
 *This document is the bedrock of the Foundry. Before modifying it, open a PR authored by the `tech_lead` persona and obtain CEO approval.*
+
+
+## 11. EMPTY PR POLICY
+If a target artifact already exists and matches the required state, personas must submit an empty PR (0 files changed). The system will automatically merge these PRs to progress the node to `COMPLETED`. Personas should document the reasoning in their journals.

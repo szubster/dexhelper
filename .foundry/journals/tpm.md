@@ -187,3 +187,49 @@
 - **2026-04-30**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #714 closed without merging.. Transitioned back to READY.
 
 - **2026-04-30**: PR #751 merged. `task-032-052-implement-migration-logic` is now COMPLETED.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #779 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-016-041-update-package-json-lint`. Reason: PR #778 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #777 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #782 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-016-041-update-package-json-lint`. Reason: PR #784 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #783 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #786 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-016-041-update-package-json-lint`. Reason: PR #787 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #785 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #789 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-016-041-update-package-json-lint`. Reason: PR #788 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #790 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #794 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-016-041-update-package-json-lint`. Reason: PR #795 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-029-050-implement-async-hydration`. Reason: PR #798 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #800 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `task-016-041-update-package-json-lint`. Reason: PR #801 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #803 closed without merging.. Transitioned back to READY.
+
+- **2026-04-30**: PR #780 merged. `story-017-034-orchestrator-preflight-logic` is now COMPLETED.
+
+- **2026-04-30**: PR #804 merged. `task-016-041-update-package-json-lint` is now COMPLETED.
+
+- **2026-04-30**: PR #802 merged. `task-029-050-implement-async-hydration` is now COMPLETED.
+
+- **2026-05-01**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #807 closed without merging.. Transitioned back to READY.
+
+- **2026-05-01**: Resurrection Loop triggered for `story-010-016-enable-expensive-oxlint-checks`. Reason: PR #806 closed without merging.. Transitioned back to READY.

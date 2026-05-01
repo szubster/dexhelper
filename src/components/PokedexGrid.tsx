@@ -91,6 +91,17 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
         <p className="mt-2 max-w-sm font-medium text-sm text-zinc-600">
           Try adjusting your search terms or clearing your filters to see more results.
         </p>
+        <button
+          type="button"
+          onClick={() => {
+            useStore.getState().setSearchTerm('');
+            useStore.getState().setFilters([]);
+            useStore.getState().setSelectedLocationId(null);
+          }}
+          className="mt-6 rounded-2xl border border-[var(--theme-primary)]/20 bg-[var(--theme-primary)]/10 px-6 py-2.5 font-black text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+        >
+          Clear Filters
+        </button>
       </div>
     );
   }

@@ -2,16 +2,16 @@
 id: "task-016-041-update-package-json-lint"
 type: "TASK"
 title: "Update package.json lint scripts with expensive oxlint flags"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "coder"
 created_at: "2026-04-26"
 updated_at: "2026-04-30"
 depends_on: []
-jules_session_id: "10797124391354623369"
+jules_session_id: null
 pr_number: null
 parent: ".foundry/stories/story-010-016-enable-expensive-oxlint-checks.md"
 tags: []
-rejection_count: 0
+rejection_count: 6
 rejection_reason: ""
 notes: ""
 ---
@@ -26,4 +26,4 @@ As part of enabling expensive and strict oxlint checks, we need to update the `p
 2. Ensure CI passes.
 
 ## Acceptance Criteria
-- [ ] `package.json` lint commands run these expensive checks.
+- [x] `package.json` lint commands run these expensive checks.

@@ -77,9 +77,7 @@ interface AppStore {
 
   // Actions
   /**
-   * Rehydrates `saveData` from a base64 encoded `last_save_file` in localStorage.
-   * Invariant: If the data is corrupted or parsing fails, the cached file is immediately
-   * deleted to prevent infinite crash loops on subsequent reloads.
+   * Rehydrates `saveData` from IndexedDB.
    */
   loadSaveFromStorage: () => Promise<void>;
 }
@@ -129,31 +127,6 @@ export const useStore = create<AppStore>()(
       // Actions
 
       loadSaveFromStorage: async () => {
-        const legacySave = localStorage.getItem('last_save_file');
-        if (legacySave) {
-          try {
-            const base64Regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
-            if (!base64Regex.test(legacySave)) {
-              throw new Error('Invalid Base64 string');
-            }
-            const binaryString = window.atob(legacySave);
-            const len = binaryString.length;
-            const bytes = new Uint8Array(len);
-            for (let i = 0; i < len; i++) {
-              bytes[i] = binaryString.charCodeAt(i);
-            }
-            await saveDB.putSave('last_save_file', bytes);
-            localStorage.removeItem('last_save_file');
-          } catch (error) {
-            console.error('Failed to migrate legacy save file:', error);
-            // Only remove from localStorage if it's a parsing error (invalid base64 format).
-            // Do not delete if the database write failed to prevent data loss.
-            if (error instanceof Error && error.message === 'Invalid Base64 string') {
-              localStorage.removeItem('last_save_file');
-            }
-          }
-        }
-
         try {
           const buffer = await saveDB.getSave('last_save_file');
           if (buffer) {

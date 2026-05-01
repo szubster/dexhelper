@@ -18,3 +18,6 @@
 
 ## Data Integrity - Item Mapping
 * **Data Pipeline Gotchas**: PokeAPI uses its own item IDs (e.g. 80 for Sun Stone) which don't map directly to the item IDs found in decompiled ROM saves. Gen 1 items are explicitly mapped via `POKEAPI_TO_GEN1_ITEM` in `generate-pokedata.ts`, but Gen 2 items currently default to their PokeAPI IDs. If building features that check the player's in-game inventory to suggest evolutions (like Sun Stone for Bellossom or Metal Coat for Scizor), we must ensure we either map PokeAPI IDs to Gen 2 ROM item IDs or use a lookup table, otherwise the app will fail to recognize when a player possesses the required evolution item.
+
+## Data Integrity - Gen 2 Exclusives
+* **Data Pipeline Gotchas:** The Gen 2 version exclusives list (`goldExclusives` and `silverExclusives`) was hardcoded into the `detectGen2GameVersion` function inside the save parser and contained inaccuracies (e.g., missing Mantine, incorrectly attributing Ekans to Silver-only when it's obtainable in Gold via Game Corner). Additionally, the `suggestionEngine` was applying Gen 1 exclusive logic to Gen 2 games. Version exclusives should be managed in dedicated generation-specific modules (e.g., `gen2Exclusives.ts`) to be shared between save parsing version detection and suggestion logic.

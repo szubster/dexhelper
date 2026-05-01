@@ -35,4 +35,4 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 - Append references to newly created child nodes directly into the markdown body of the parent node, and check off corresponding acceptance criteria checkboxes WITHOUT modifying the parent's YAML frontmatter.
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 
-- If the target artifact already exists and is complete, DO NOT make trivial formatting changes or dummy updates just to force a git diff. State there is no work to do and adhere to the EMPTY PR POLICY.
+- If the target artifact already exists and is complete, DO NOT make trivial formatting changes or dummy updates just to force a git diff. Document this in your persona journal, state there is no work to do, and submit the PR. Empty PRs (0 files changed) will be automatically merged to allow the Foundry DAG to progress.
