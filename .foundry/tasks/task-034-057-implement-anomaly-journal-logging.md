@@ -21,5 +21,5 @@ notes: ""
 Implement the logic to log an anomaly when the idempotent check successfully bypasses generation due to pre-existing, valid artifacts.
 
 ## Acceptance Criteria
-- [ ] Implement logic to log the anomaly, directed to the Agile Coach's journal.
-- [ ] Add the log entry to a designated place.
+- [x] Implement logic to log the anomaly, directed to the Agile Coach's journal.
+- [x] Add the log entry to a designated place.
