@@ -618,7 +618,40 @@ function main(): void {
     }
 
     if (!blocked) {
-      eligible.push(node);
+      // Preflight check
+      const regex = /\.foundry\/(ideas|prds|epics|stories|tasks)\/[a-zA-Z0-9_-]+\.md/g;
+      const body = node.rawContent.replace(/^---[\s\S]*?---\n/, '');
+      const matches = [...new Set(body.match(regex) || [])];
+
+      const targetArtifacts = matches.filter(m =>
+        m !== node.repoPath &&
+        m !== node.frontmatter.parent &&
+        !node.frontmatter.depends_on.includes(m)
+      );
+
+      let bypassDispatch = false;
+      if (targetArtifacts.length > 0) {
+        bypassDispatch = true;
+        for (const target of targetArtifacts) {
+          const targetPath = path.join(repoRoot, target);
+          if (!fs.existsSync(targetPath)) {
+            bypassDispatch = false;
+            break;
+          }
+          const targetNode = parseNodeFile(targetPath, repoRoot);
+          if (!targetNode) {
+            bypassDispatch = false;
+            break;
+          }
+        }
+      }
+
+      if (bypassDispatch) {
+        info(`Preflight success: Valid target artifacts exist. Bypassing dispatch for ${node.repoPath}`);
+        promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+      } else {
+        eligible.push(node);
+      }
     }
   }
 

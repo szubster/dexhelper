@@ -21,6 +21,6 @@ notes: ""
 Modify `.github/scripts/foundry-orchestrator.ts` to implement a pre-flight file check before spawning Jules matrix jobs.
 
 ## Acceptance Criteria
-- [ ] Parse node generation tasks to identify if an expected target artifact already exists in `.foundry/`.
-- [ ] If target artifacts exist, successfully validate their schema against the definitions in `.foundry/docs/schema.md` (e.g., ensuring all required fields are present and valid).
-- [ ] Ensure that pre-existing, fully valid target nodes skip dispatch or are otherwise handled correctly to avoid re-generating work that is already done.
+- [x] Parse node generation tasks to identify if an expected target artifact already exists in `.foundry/`.
+- [x] If target artifacts exist, successfully validate their schema against the definitions in `.foundry/docs/schema.md` (e.g., ensuring all required fields are present and valid).
+- [x] Ensure that pre-existing, fully valid target nodes skip dispatch or are otherwise handled correctly to avoid re-generating work that is already done.
