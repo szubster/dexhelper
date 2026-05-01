@@ -60,3 +60,9 @@
 **Outcome:** Merged
 **Why:** The maintainer explicitly instructed that agents must not use `git log` or past commits for memory, and instead rely on journals. The Strategist prompt was still instructing itself to review agent PR history instead of agent journals.
 **Pattern:** Update prompts to ensure they align with the system constraint that cross-session memory is exclusively stored in `.jules/*.md` journal files, not git history.
+
+## 2026-06-05 - [Accepted] - Prompt improvement - Update Canvas aesthetic to Ethereal Archive
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The project transitioned to an 'Ethereal Archive' design system with a 'Digital Archaeology' / 'Modern retro' / 'Glassmorphism' aesthetic, but Canvas was still being instructed to use the old 'tactical hardware/snooping' aesthetic. Additionally, the screenshot instructions needed updating to mandate the `frontend_verification_instructions` tool.
+**Pattern:** Ensure agent schedules reflect the latest project-wide architectural or design constraints from memory, and use the correct internal tools for verification.

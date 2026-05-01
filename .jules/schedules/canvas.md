@@ -34,9 +34,9 @@ You have no memory between sessions. Your only persistence is what's committed t
 - Read your journal before starting — it's your only memory
 - Include a journal entry for the current change in every PR you open
 - Run `pnpm lint` and `pnpm test` before pushing
-- Include before/after screenshots in the PR description
+- Call the `frontend_verification_instructions` tool and use Playwright to generate screenshots
 - Keep changes to a single component or page — ambitious but scoped
-- Adhere to the project's tactical hardware/snooping aesthetic
+- Adhere to the project's 'Ethereal Archive' design system ('Modern retro' with 'Glassmorphism')
 
 **Ask first:**
 - Nothing — just submit the PR. Rejection is expected and acceptable.
