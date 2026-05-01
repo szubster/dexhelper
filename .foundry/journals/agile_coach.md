@@ -43,3 +43,12 @@ The orchestrator detected that target artifacts for `.foundry/stories/story-019-
 
 ### Action Taken
 Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.
+
+## 2026-05-02: Sibling Dependency Enforcement
+
+### Observation
+`task-034-057-implement-anomaly-journal-logging` suffered a rejection with `rejection_reason: "Blocked: The idempotent check logic does not exist in the codebase yet..."`. This indicates that an agent tried to implement a task but got blocked because the prerequisite logic (from a sibling task) wasn't implemented yet, meaning the `depends_on` array was empty when it shouldn't have been. This causes a DAG deadlock or premature task failure.
+
+### Action Taken
+1. Updated `.github/agents/tech_lead.md` to explicitly instruct the Tech Lead to define strict `depends_on` relationships between sibling TASK nodes if they have a sequential implementation dependency.
+2. Autonomously generated `idea-012-sibling-dependency-enforcement.md` to propose a system-wide rule and potential validation script for enforcing these sibling dependencies.
