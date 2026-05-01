@@ -22,3 +22,6 @@ Verify the `migrateLegacySave` implementation correctly transfers legacy base64 
 - Check that the `last_save_file` from `localStorage` is successfully parsed, written to `saveDB`, and subsequently removed from `localStorage`.
 - Ensure there is no data loss if the migration fails.
 - Confirm tests in `pnpm test:e2e` cover this scenario.
+
+## Validation Outcome
+FAILED: The `migrateLegacySave` implementation is completely missing from the codebase. The `depends_on` order was broken because the coder marked the dependency as complete without actually implementing the migration logic.
