@@ -233,3 +233,13 @@
 - **2026-05-01**: Resurrection Loop triggered for `epic-012-gastown-orchestrator`. Reason: PR #807 closed without merging.. Transitioned back to READY.
 
 - **2026-05-01**: Resurrection Loop triggered for `story-010-016-enable-expensive-oxlint-checks`. Reason: PR #806 closed without merging.. Transitioned back to READY.
+
+- **2026-05-01**: PR #814 merged. `epic-012-gastown-orchestrator` is now COMPLETED.
+
+- **2026-05-01**: PR #813 merged. `story-010-016-enable-expensive-oxlint-checks` is now COMPLETED.
+
+- **2026-05-01**: PR #781 merged. `task-026-044-refactor-state-store-sync` is now COMPLETED.
+
+- **2026-05-01**: PR #808 merged. `task-029-054-qa-async-hydration` is now COMPLETED.
+
+- **2026-05-01**: Resurrection Loop triggered for `task-034-057-implement-anomaly-journal-logging`. Reason: Retry from FAILED status.. Transitioned back to READY.

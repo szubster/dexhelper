@@ -2,10 +2,10 @@
 id: "epic-010-oxlint-config"
 type: "EPIC"
 title: "Tighten oxlint configuration and enable plugins"
-status: PENDING
+status: READY
 owner_persona: "story_owner"
 created_at: "2026-04-23"
-updated_at: "2026-04-27"
+updated_at: "2026-05-01"
 parent: ""
 depends_on:
   - .foundry/stories/story-010-028-verify-jest-tests.md

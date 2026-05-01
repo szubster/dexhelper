@@ -2,10 +2,10 @@
 id: idea-011-researcher-persona
 type: IDEA
 title: "Introduce Researcher Persona"
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: "2026-04-30"
-updated_at: "2026-04-30"
+updated_at: "2026-05-01"
 depends_on: []
 jules_session_id: null
 parent: null
