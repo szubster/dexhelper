@@ -271,3 +271,5 @@
 - **2026-05-01**: PR #841 merged. `epic-005-014-state-store-migration` is now COMPLETED.
 
 - **2026-05-01**: PR #839 merged. `epic-009-020-relax-node-engine` is now COMPLETED.
+
+- **2026-05-01**: PR #842 merged. `prd-005-010-late-binding-orchestrator` is now COMPLETED.
