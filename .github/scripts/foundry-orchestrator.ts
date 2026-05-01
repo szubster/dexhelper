@@ -32,6 +32,9 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const matter = require('gray-matter') as typeof import('gray-matter');
 
+/** Regex to strip frontmatter from markdown content for body analysis. */
+const FM_STRIP_REGEX = /^---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*(?:\r?\n|$)/;
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 const VALID_STATUSES = [
@@ -181,13 +184,13 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
     return null;
   }
 
+  const fm = parsed.data as Partial<FoundryFrontmatter>;
+
   // Files without a frontmatter block have an empty data object.
-  if (!parsed.matter || parsed.matter.trim() === '') {
+  if (Object.keys(fm).length === 0) {
     warn(`No YAML frontmatter found in: ${repoPath} — skipping`);
     return null;
   }
-
-  const fm = parsed.data as Partial<FoundryFrontmatter>;
 
   // Validate required fields.
   for (const field of REQUIRED_FIELDS) {
@@ -427,10 +430,6 @@ function main(): void {
     const node = nodeMap.get(nodePath);
 
     if (!node) {
-      if (fs.existsSync(path.join(repoRoot, nodePath))) {
-        evalCache.set(cacheKey, false);
-        return false;
-      }
       hasUnresolvableDeps = true;
       evalCache.set(cacheKey, true);
       return true;
@@ -542,22 +541,9 @@ function main(): void {
 
       const parentNode = nodeMap.get(currParent);
       if (!parentNode) {
-        if (!fs.existsSync(path.join(repoRoot, currParent))) {
-          warn(`Parent '${currParent}' not found for: ${node.repoPath}`);
-          blocked = true;
-          break;
-        } else {
-          try {
-            const content = fs.readFileSync(path.join(repoRoot, currParent), 'utf-8');
-            const m = matter(content);
-            parentStatus = m.data['status'] as Status;
-            nextParent = m.data['parent'] as string;
-          } catch {
-            warn(`Parent '${currParent}' could not be parsed for: ${node.repoPath}`);
-            blocked = true;
-            break;
-          }
-        }
+        warn(`Parent '${currParent}' not found for: ${node.repoPath}`);
+        blocked = true;
+        break;
       } else {
         parentStatus = parentNode.frontmatter.status;
         nextParent = parentNode.frontmatter.parent;
@@ -620,7 +606,7 @@ function main(): void {
     if (!blocked) {
       // Preflight check
       const regex = /\.foundry\/(ideas|prds|epics|stories|tasks)\/[a-zA-Z0-9_-]+\.md/g;
-      const body = node.rawContent.replace(/^---[\s\S]*?---\n/, '');
+      const body = node.rawContent.replace(FM_STRIP_REGEX, '');
       const matches = [...new Set(body.match(regex) || [])];
 
       const targetArtifacts = matches.filter(m =>
@@ -661,7 +647,7 @@ function main(): void {
     // We restrict idempotent check to generation nodes (typically non-TASK,
     // but checking for explicit children links is the robust way)
     if (node.frontmatter.type !== 'TASK') {
-      const body = node.rawContent.replace(/^---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*\r?\n/, '');
+      const body = node.rawContent.replace(FM_STRIP_REGEX, '');
 
       const linkRegex = /\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^)]+\.md)\)/g;
       const links = [...body.matchAll(linkRegex)].map(m => m[1]);
