@@ -33,6 +33,7 @@ export function VersionModal() {
             <button
               type="button"
               key={v.id}
+              aria-label={`Select ${v.label} version`}
               onClick={() => {
                 setManualVersion(v.id as GameVersion);
                 setIsVersionModalOpen(false);
