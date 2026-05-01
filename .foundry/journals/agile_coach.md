@@ -43,3 +43,11 @@ The orchestrator detected that target artifacts for `.foundry/stories/story-019-
 
 ### Action Taken
 Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.
+
+## 2026-05-01: Pre-existing Artifacts Anomaly
+
+### Observation
+The orchestrator detected that target artifacts for `.foundry/epics/epic-008-019-anomaly-reporting-mechanism.md` already existed and were completely formed before dispatch.
+
+### Action Taken
+Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.
