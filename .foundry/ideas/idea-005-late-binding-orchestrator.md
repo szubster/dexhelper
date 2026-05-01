@@ -89,3 +89,6 @@ This is a critical security and stability boundary.
 
 ## Next Steps
 - [x] **Product Manager**: Draft the PRD specifying the formal requirements for Late Binding Orchestration.
+
+### Generated PRDs
+- [.foundry/prds/prd-005-010-late-binding-orchestrator.md](../prds/prd-005-010-late-binding-orchestrator.md)
