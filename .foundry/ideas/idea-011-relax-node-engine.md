@@ -2,12 +2,12 @@
 id: idea-011-relax-node-engine
 type: IDEA
 title: "Relax Node engine requirement in package.json to >=22.0.0"
-status: READY
+status: "ACTIVE"
 owner_persona: "product_manager"
 created_at: "2026-04-30"
 updated_at: "2026-05-01"
 depends_on: []
-jules_session_id: null
+jules_session_id: "11800858478160924675"
 pr_number: null
 parent: null
 tags: []
