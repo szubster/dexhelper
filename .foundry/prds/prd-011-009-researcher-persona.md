@@ -26,5 +26,7 @@ Introduce a new `researcher` persona to the Foundry system. This persona will be
 - [ ] Add the `researcher` persona to the GitHub agents list.
 - [ ] Create a `researcher.md` prompt framework in `.github/agents/`.
 - [ ] Create a `researcher.md` journal policy/file in `.foundry/journals/`.
+- [ ] Create a dedicated storage directory `.foundry/research/` for research output nodes.
 - [ ] Update the system schema (`.foundry/docs/schema.md`) to include the new persona and its responsibilities.
-- [ ] Implement the ability to attach research nodes (TASKs) as explicit dependencies for implementation TASKs to inject context safely into the DAG.
+- [ ] Update schema to allow attaching `research_references` array to any node type to inject research context safely.
+- [ ] Implement logic in `foundry-orchestrator.ts` and `foundry-engine.yml` so every agent automatically retrieves and includes all research references from its parent chain.
