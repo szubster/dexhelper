@@ -1,3 +1,4 @@
+
 ## 2026-04-19 - Restored BundleMon
 **Learning:** User prefers to keep BundleMon alongside `@codecov/vite-plugin`. BundleMon is explicitly maintained despite overlapping with `@codecov/vite-plugin` per user request.
 
@@ -31,3 +32,6 @@
 ## 2026-04-27 - Enabled oxlint type-aware rules
 **Learning:** Installed `oxlint-tsgolint` and enabled `--type-aware` in oxlint. Fixed multiple floating promise warnings across the codebase. Type-aware linting acts as a fast alternative to full typescript-eslint type checking.
 - **Orchestrator fixes:** Identified and fixed a bug where the DAG orchestrator entered an impossible loop due to incorrectly evaluating a completed parent's completion status based on its pending child. `isHierarchicallyIncomplete` was modified to accept `evaluatingFor` and correctly ignore the evaluating node and its descendants. Also fixed a bug where `COMPLETED` nodes were improperly suspended if their children were incomplete. Added robust parsing fallbacks for missing/unparsed nodes to correctly evaluate their completion status.
+
+## 2026-05-01 - Optimized CI Pipeline
+**Learning:** Evaluated current sequential CI setup. Discovered that splitting testing, linting, and building into parallel jobs decreases total CI run time for the `ci.yml` workflow. Added `concurrency` blocks across `ci.yml`, `playwright.yml`, and `biome.yml` to automatically cancel redundant in-progress runs when new commits are pushed, saving CI minutes and improving developer experience.
