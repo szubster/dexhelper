@@ -23,14 +23,10 @@ export async function initializeWithSave(
       fileBuffer = Buffer.from(savePathOrData);
     }
     const saveArray = Array.from(fileBuffer);
-    const base64String = fileBuffer.toString('base64');
 
     await page.evaluate(
-      async ({ saveArray, base64String }) => {
-        // 1. LocalStorage injection (backward compatibility)
-        localStorage.setItem('last_save_file', base64String);
-
-        // 2. IndexedDB injection
+      async ({ saveArray }) => {
+        // IndexedDB injection
         const SAVE_DB_NAME = 'SaveDB';
         const STORE_NAME = 'saves';
 
@@ -55,7 +51,7 @@ export async function initializeWithSave(
         });
         db.close();
       },
-      { saveArray, base64String },
+      { saveArray },
     );
 
     await page.reload();
