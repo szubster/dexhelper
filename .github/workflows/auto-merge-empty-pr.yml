@@ -1,19 +1,19 @@
-name: Auto-close Empty PRs
+name: Auto-merge Empty PRs
 
 on:
   pull_request:
     types: [opened, synchronize]
 
 jobs:
-  close-empty:
+  merge-empty:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
-      contents: read
+      contents: write
     steps:
       - name: Check for empty PR
         if: github.event.pull_request.changed_files == 0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr close ${{ github.event.pull_request.number }} -c "Automatically closed empty PR." --repo ${{ github.repository }}
+          gh pr merge ${{ github.event.pull_request.number }} --auto --squash --repo ${{ github.repository }}
