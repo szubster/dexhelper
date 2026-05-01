@@ -23,4 +23,6 @@ The `task-016-041-update-package-json-lint` suffered 6 rejections because agents
 We should relax the `engines.node` field in `package.json` from `>=24.0.0` to `>=22.0.0` to natively match the execution environment of the Foundry agents. This will prevent friction and reduce PR rejections without requiring manual troubleshooting overrides in the agent prompts.
 
 ## Acceptance Criteria
-- [ ] Update `engines.node` in `package.json` to `>=22.0.0`.
+- [x] Update `engines.node` in `package.json` to `>=22.0.0`.
+
+- **Child Epic**: [.foundry/epics/epic-009-020-relax-node-engine.md](.foundry/epics/epic-009-020-relax-node-engine.md)
