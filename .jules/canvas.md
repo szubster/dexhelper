@@ -56,3 +56,9 @@
 **Outcome:** Accepted
 **Why:** Continues the successful strategy of establishing a specialized hardware UI aesthetic, improving visual cohesion across the application's loading and synchronization interfaces.
 **Pattern:** Consistently apply the tactical hardware motif (sharp edges, dashed outlines, monospace text, linear progress over smooth circles) to loading screens to maintain the illusion of a specialized device.
+
+## 2025-06-20 - [Accepted] - 🖼️ Canvas: Tactical Location Suggestions Redesign
+**What:** Redesigned the `LocationSuggestions` component (search dropdown and selected location chip) to fully embrace the utility-driven tactical "snooping" aesthetic. Replaced all rounded glassmorphism with sharp edges (`rounded-none`), dashed borders, `CornerCrosshairs`, scanline overlays, and monospaced telemetry fonts (e.g. `[ SCAN RESULTS ]`).
+**Outcome:** Accepted
+**Why:** Brings the location search interface in line with the rest of the application's tactical hardware motif (matching grid views, Search & Filters, and BottomNav).
+**Pattern:** Consistently eliminate generic web UI patterns (rounded corners, soft hover states) in favor of sharp, high-contrast, terminal-like aesthetics for search components.
