@@ -2,10 +2,10 @@
 id: story-015-032-legacy-save-migration-hook
 type: STORY
 title: "Legacy Save Migration Hook"
-status: "PENDING"
+status: READY
 owner_persona: "tech_lead"
 created_at: "2026-04-27"
-updated_at: "2026-04-27"
+updated_at: "2026-05-01"
 depends_on:
   - .foundry/stories/story-014-029-async-startup-hydration.md
   - .foundry/stories/story-014-031-dual-write-save-persistence.md

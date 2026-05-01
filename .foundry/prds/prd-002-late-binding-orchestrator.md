@@ -2,12 +2,12 @@
 id: "prd-002-late-binding-orchestrator"
 type: "PRD"
 title: "Late Binding Epics & Recursive Orchestration"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "epic_planner"
 created_at: "2026-04-21"
 updated_at: "2026-05-01"
 depends_on: []
-jules_session_id: "13477564740099269137"
+jules_session_id: null
 parent: ".foundry/ideas/idea-005-late-binding-orchestrator.md"
 tags:
   - "foundry-v2"

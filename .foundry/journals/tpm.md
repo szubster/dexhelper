@@ -243,3 +243,13 @@
 - **2026-05-01**: PR #808 merged. `task-029-054-qa-async-hydration` is now COMPLETED.
 
 - **2026-05-01**: Resurrection Loop triggered for `task-034-057-implement-anomaly-journal-logging`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-01**: PR #829 merged. `epic-010-oxlint-config` is now COMPLETED.
+
+- **2026-05-01**: PR #826 merged. `idea-011-relax-node-engine` is now COMPLETED.
+
+- **2026-05-01**: PR #827 merged. `prd-002-late-binding-orchestrator` is now COMPLETED.
+
+- **2026-05-01**: PR #828 merged. `story-014-029-async-startup-hydration` is now COMPLETED.
+
+- **2026-05-01**: PR #823 merged. `task-034-058-implement-orchestrator-preflight` is now COMPLETED.

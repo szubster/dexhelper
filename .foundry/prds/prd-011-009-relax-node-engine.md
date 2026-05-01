@@ -2,7 +2,7 @@
 id: prd-011-009-relax-node-engine
 type: PRD
 title: "Relax Node engine requirement in package.json to >=22.0.0"
-status: PENDING
+status: READY
 owner_persona: "epic_planner"
 created_at: "2026-05-01"
 updated_at: "2026-05-01"
