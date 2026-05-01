@@ -13,14 +13,14 @@ test.describe('Version Selection', () => {
     await versionBtn.click();
 
     // 2. Select Red in the modal
-    await page.getByRole('button', { name: 'Red', exact: true }).click();
+    await page.getByRole('button', { name: /Select Red version/i }).click();
 
     // 3. Check if the version indicator updated
     await expect(page.getByText(/RED/i).first()).toBeVisible();
 
     // 4. Toggle back to YELLOW via header
     await page.getByTestId('version-selector').click();
-    await page.getByRole('button', { name: 'Yellow', exact: true }).click();
+    await page.getByRole('button', { name: /Select Yellow version/i }).click();
     await expect(page.getByText(/YELLOW/i).first()).toBeVisible();
 
     await argosScreenshot(page, 'version-selected-yellow');
@@ -31,7 +31,7 @@ test.describe('Version Selection', () => {
 
     // Select Blue
     await page.getByTestId('version-selector').click();
-    await page.getByRole('button', { name: 'Blue', exact: true }).click();
+    await page.getByRole('button', { name: /Select Blue version/i }).click();
     await expect(page.getByText(/BLUE/i).first()).toBeVisible();
 
     // Reload
