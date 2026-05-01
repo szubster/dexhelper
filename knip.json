@@ -1,7 +1,14 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "ignoreDependencies": ["bundlemon"],
-  "ignore": [".github/scripts/**", "src/test-setup.ts", "scripts/validate-foundry-ids.ts"],
+  "ignoreDependencies": [
+    "bundlemon"
+  ],
+  "ignore": [
+    ".github/scripts/**",
+    "src/test-setup.ts",
+    "scripts/validate-foundry-ids.ts",
+    "src/engine/exclusives/gen2Exclusives.ts"
+  ],
   "rules": {
     "files": "warn",
     "exports": "warn",
