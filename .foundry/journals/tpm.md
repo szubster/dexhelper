@@ -273,3 +273,7 @@
 - **2026-05-01**: PR #839 merged. `epic-009-020-relax-node-engine` is now COMPLETED.
 
 - **2026-05-01**: PR #842 merged. `prd-005-010-late-binding-orchestrator` is now COMPLETED.
+
+- **2026-05-01**: PR #846 merged. `story-020-035-relax-node-engine` is now COMPLETED.
+
+- **2026-05-01**: PR #843 merged. `task-033-060-remove-localstorage-e2e` is now COMPLETED.

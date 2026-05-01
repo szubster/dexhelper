@@ -2,10 +2,10 @@
 id: idea-012-sibling-dependency-enforcement
 type: IDEA
 title: "Sibling Dependency Enforcement"
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: "2026-05-02"
-updated_at: "2026-05-02"
+updated_at: "2026-05-01"
 depends_on: []
 jules_session_id: null
 parent: null
