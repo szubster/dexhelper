@@ -26,3 +26,5 @@ Introduce a `researcher` persona within the Foundry system.
 
 ## Impact
 Better context injection for implementation steps, higher quality PRDs and Epics, and reduced context-switching overhead for implementation personas.
+
+Child PRD: .foundry/prds/prd-011-009-researcher-persona.md
