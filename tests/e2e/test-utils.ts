@@ -27,10 +27,7 @@ export async function initializeWithSave(
 
     await page.evaluate(
       async ({ saveArray, base64String }) => {
-        // 1. LocalStorage injection (backward compatibility)
-        localStorage.setItem('last_save_file', base64String);
-
-        // 2. IndexedDB injection
+        // IndexedDB injection
         const SAVE_DB_NAME = 'SaveDB';
         const STORE_NAME = 'saves';
 

@@ -22,5 +22,5 @@ Remove the legacy `localStorage` injection from `tests/e2e/test-utils.ts` now th
 - Remove the backward compatibility comments.
 
 ## Acceptance Criteria
-- [ ] `localStorage` is no longer injected in `initializeWithSave`.
-- [ ] All E2E tests continue to pass.
+- [x] `localStorage` is no longer injected in `initializeWithSave`.
+- [x] All E2E tests continue to pass.
