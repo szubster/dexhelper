@@ -63,6 +63,7 @@ export interface FoundryFrontmatter {
   jules_session_id: string | null;
   parent?: string | null;
   tags?: string[];
+  research_references?: string[];
   rejection_count?: number;
   rejection_reason?: string;
   pr_number?: number;
