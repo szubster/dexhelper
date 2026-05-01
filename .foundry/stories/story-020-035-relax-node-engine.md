@@ -17,4 +17,7 @@ notes: ""
 # Update package.json Node engine
 
 ## Acceptance Criteria
-- [ ] Update `engines.node` in `package.json` to `>=22.0.0`.
+- [x] Update `engines.node` in `package.json` to `>=22.0.0`.
+
+## Tasks
+- .foundry/tasks/task-035-061-relax-node-engine.md
