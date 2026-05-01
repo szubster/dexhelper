@@ -23,10 +23,9 @@ export async function initializeWithSave(
       fileBuffer = Buffer.from(savePathOrData);
     }
     const saveArray = Array.from(fileBuffer);
-    const base64String = fileBuffer.toString('base64');
 
     await page.evaluate(
-      async ({ saveArray, base64String }) => {
+      async ({ saveArray }) => {
         // IndexedDB injection
         const SAVE_DB_NAME = 'SaveDB';
         const STORE_NAME = 'saves';
@@ -52,7 +51,7 @@ export async function initializeWithSave(
         });
         db.close();
       },
-      { saveArray, base64String },
+      { saveArray },
     );
 
     await page.reload();
