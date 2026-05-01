@@ -2,12 +2,12 @@
 id: task-033-060-remove-localstorage-e2e
 type: TASK
 title: "Remove localStorage fallback from E2E Testing"
-status: READY
+status: "ACTIVE"
 owner_persona: "coder"
 created_at: "2026-05-01"
 updated_at: "2026-05-01"
 depends_on: []
-jules_session_id: null
+jules_session_id: "17555759635743609130"
 parent: .foundry/stories/story-016-033-update-e2e-testing-for-idb.md
 tags: ["e2e", "testing", "indexeddb"]
 ---
