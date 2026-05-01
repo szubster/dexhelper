@@ -14,3 +14,8 @@
 - Validated dual-write logic in `AppLayout.tsx`: uploading a new save successfully writes to `IndexedDB` (`saveDB.putSave`) and `localStorage` as base64.
 - Verified `SaveDB.ts` falls back gracefully to in-memory maps if storage limits or IDB failure occurs, fulfilling the error handling criteria.
 - E2E tests for save management succeed without regressions.
+
+## Task task-029-054-qa-async-hydration
+
+- Verified asynchronous startup hydration logic loads the binary save from IndexedDB into the game parser.
+- Verified the core state seamlessly operates with the new async paradigm.

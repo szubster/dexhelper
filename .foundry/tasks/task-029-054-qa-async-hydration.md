@@ -20,5 +20,5 @@ This Task focuses on verifying the asynchronous startup hydration logic. It must
 Log verification results and critical learnings in the agent's journal located at `.jules/qa.md`.
 
 ## Acceptance Criteria
-- [ ] Verify asynchronous startup hydration logic loads the binary save from IndexedDB into the game parser.
-- [ ] Verify the core state seamlessly operates with the new async paradigm.
+- [x] Verify asynchronous startup hydration logic loads the binary save from IndexedDB into the game parser.
+- [x] Verify the core state seamlessly operates with the new async paradigm.
