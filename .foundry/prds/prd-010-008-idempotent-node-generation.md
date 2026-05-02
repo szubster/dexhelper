@@ -1,18 +1,21 @@
 ---
 id: prd-010-008-idempotent-node-generation
 type: PRD
-title: "Idempotent Node Generation Mechanism"
-status: PENDING
+title: Idempotent Node Generation Mechanism
+status: READY
 owner_persona: epic_planner
-created_at: "2026-04-29"
-updated_at: "2026-04-29"
+created_at: '2026-04-29'
+updated_at: '2026-04-29'
 depends_on: []
 jules_session_id: null
 parent: .foundry/ideas/idea-010-idempotent-node-generation.md
-tags: ["orchestrator", "generation", "efficiency"]
+tags:
+  - orchestrator
+  - generation
+  - efficiency
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # PRD: Idempotent Node Generation Mechanism

@@ -1,17 +1,17 @@
 ---
-id: "prd-001-v2-lifecycle"
-type: "PRD"
-title: "Foundry V2: Atomic Handoffs & Single-Persona Ownership Lifecycle"
-status: PENDING
-owner_persona: "epic_planner"
-created_at: "2026-04-21"
-updated_at: "2026-04-27"
+id: prd-001-v2-lifecycle
+type: PRD
+title: 'Foundry V2: Atomic Handoffs & Single-Persona Ownership Lifecycle'
+status: READY
+owner_persona: epic_planner
+created_at: '2026-04-21'
+updated_at: '2026-04-27'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-003-atomic-handoff-foundation.md"
+parent: .foundry/ideas/idea-003-atomic-handoff-foundation.md
 tags:
-  - "v2-architecture"
-  - "lifecycle"
+  - v2-architecture
+  - lifecycle
 ---
 
 # PRD: Foundry V2: Atomic Handoffs & Single-Persona Ownership Lifecycle
