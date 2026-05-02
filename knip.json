@@ -6,8 +6,7 @@
   "ignore": [
     ".github/scripts/**",
     "src/test-setup.ts",
-    "scripts/validate-foundry-ids.ts",
-    "src/engine/exclusives/gen2Exclusives.ts"
+    "scripts/validate-foundry-ids.ts"
   ],
   "rules": {
     "files": "warn",
