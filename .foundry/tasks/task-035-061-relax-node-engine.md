@@ -20,8 +20,8 @@ notes: ""
 The project requires updating the `engines.node` field in `package.json` to `>=22.0.0` to support modern Node.js versions.
 
 ## Acceptance Criteria
-- [ ] The `package.json` file in the repository root has its `engines.node` value set to `>=22.0.0`.
-- [ ] Self-verification is completed by the `coder` persona by reviewing the `package.json` contents and confirming no install warnings occur.
+- [x] The `package.json` file in the repository root has its `engines.node` value set to `>=22.0.0`.
+- [x] Self-verification is completed by the `coder` persona by reviewing the `package.json` contents and confirming no install warnings occur.
 
 ## Verification Protocol
 Self-Verification by `coder`. This is a low-risk, simple change so no separate QA task is required.
