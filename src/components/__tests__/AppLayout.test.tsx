@@ -126,7 +126,7 @@ describe('AppLayout file upload', () => {
 
     const file = new File(['mock save content'], 'save.sav', { type: 'application/octet-stream' });
 
-    await expect.element(page.getByText('Initialize Pokedex')).toBeInTheDocument();
+    await expect.element(page.getByText('[ INITIALIZE.SYS ]')).toBeInTheDocument();
 
     // biome-ignore lint/suspicious/noExplicitAny: Required for mock overriding context
     const readAsArrayBufferMock = vi.fn<(_f: File) => void>(function (this: any, _f: File) {

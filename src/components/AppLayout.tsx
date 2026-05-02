@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { AlertTriangle, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
+import { AlertTriangle, Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
 import { useEffect } from 'react';
 import { saveDB } from '../db/SaveDB';
@@ -9,6 +9,7 @@ import { cn } from '../utils/cn';
 import { getGenerationConfig, VERSION_THEMES } from '../utils/generationConfig';
 import { reloadPage } from '../utils/window';
 import { BottomNav } from './BottomNav';
+import { CornerCrosshairs } from './CornerCrosshairs';
 import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
 
@@ -84,15 +85,16 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
             <Link
               to="/"
-              className="rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              className="relative rounded-none px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
+              <CornerCrosshairs className="h-2 w-2 border-[var(--theme-primary)] opacity-50" />
               <div className="group slide-in-from-left-4 fade-in flex animate-in flex-col pt-2 duration-500">
                 <div className="flex items-end gap-2">
                   <span className="font-black text-4xl text-white tracking-tighter transition-colors group-hover:text-[var(--theme-primary)]">
                     DEX
                     <span className="text-[var(--theme-primary)] transition-colors group-hover:text-white">HELPER</span>
                   </span>
-                  <div className="mb-2 h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--theme-primary)]" />
+                  <div className="mb-2 h-1.5 w-1.5 animate-pulse bg-[var(--theme-primary)]" />
                 </div>
                 <div className="mt-[-4px] flex items-center gap-2">
                   <span className="font-retro text-[10px] text-zinc-500 uppercase tracking-[0.2em]">
@@ -105,42 +107,51 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
             {/* Desktop Navigation */}
             {saveData && (
-              <nav className="hidden items-center gap-2 rounded-2xl border border-white/5 bg-white/5 p-1 sm:flex">
+              <nav className="hidden items-center gap-4 sm:flex">
                 <Link
                   to="/"
                   activeProps={{
                     className:
-                      'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+                      'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
                   }}
-                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                  inactiveProps={{
+                    className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+                  }}
+                  className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                 >
-                  <LayoutGrid size={16} />
-                  Pokedex
+                  <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+                  <LayoutGrid size={14} />
+                  SYS.DEX
                 </Link>
                 <Link
                   to="/storage"
                   activeProps={{
                     className:
-                      'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+                      'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
                   }}
-                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                  inactiveProps={{
+                    className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+                  }}
+                  className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                 >
-                  <LayoutGrid size={16} />
-                  Storage
+                  <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+                  <Database size={14} />
+                  SYS.STRG
                 </Link>
                 <Link
                   to="/assistant"
                   activeProps={{
                     className:
-                      'bg-[var(--theme-primary)] text-white shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+                      'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
                   }}
-                  inactiveProps={{ className: 'text-zinc-500 hover:text-white hover:bg-white/5' }}
-                  className="flex items-center gap-2 rounded-xl px-6 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                  inactiveProps={{
+                    className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+                  }}
+                  className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                 >
-                  <Sparkles size={16} />
-                  Assistant
+                  <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+                  <Sparkles size={14} />
+                  SYS.ASST
                 </Link>
               </nav>
             )}
@@ -148,16 +159,19 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
           {saveData ? (
             <div className="flex w-full flex-wrap items-center justify-center gap-3 sm:gap-6 lg:w-auto lg:justify-end">
-              <div className="glass-card zoom-in-95 fade-in flex animate-in items-center gap-4 rounded-2xl border-white/10 px-5 py-2.5 duration-500">
+              <div className="zoom-in-95 fade-in relative flex animate-in items-center gap-4 rounded-none border border-white/10 border-dashed bg-zinc-900/50 px-5 py-2.5 duration-500">
+                <CornerCrosshairs className="h-1.5 w-1.5 border-white/40" />
                 <div className="flex flex-col">
-                  <span className="font-black text-[9px] text-zinc-500 uppercase tracking-widest">Trainer</span>
+                  <span className="font-black font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
+                    Trainer
+                  </span>
                   <span className="font-black font-mono text-[var(--theme-primary)] text-xs uppercase tracking-tight">
                     {saveData.trainerName || 'UNKNOWN'}
                   </span>
                 </div>
                 <div className="h-6 w-[1px] bg-white/5" />
                 <div className="flex flex-col">
-                  <span className="font-black text-[9px] text-zinc-500 uppercase tracking-widest">ID</span>
+                  <span className="font-black font-mono text-[9px] text-zinc-500 uppercase tracking-widest">ID</span>
                   <span className="font-bold font-mono text-xs text-zinc-300">
                     {String(saveData.trainerId).padStart(5, '0')}
                   </span>
@@ -167,7 +181,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 <div className="mx-1 h-6 w-[1px] bg-white/5" />
                 <div className="flex min-w-[120px] flex-col">
                   <div className="mb-1 flex items-center justify-between">
-                    <span className="font-black text-[9px] text-zinc-500 uppercase tracking-widest">Living Dex</span>
+                    <span className="font-black font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
+                      Living Dex
+                    </span>
                     <span className="font-black font-mono text-[10px] text-[var(--theme-primary)]">
                       {(() => {
                         const securedIds = new Set([...saveData.party, ...saveData.pc]);
@@ -177,7 +193,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                       })()}
                     </span>
                   </div>
-                  <div className="h-1 overflow-hidden rounded-full border border-white/5 bg-white/5">
+                  <div className="relative h-1 overflow-hidden border border-white/10 bg-black/50">
                     <div
                       style={{
                         width: `${(() => {
@@ -186,7 +202,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                           return (securedIds.size / total) * 100;
                         })()}%`,
                       }}
-                      className="h-full bg-[var(--theme-primary)] shadow-[0_0_10px_var(--theme-primary)] transition-all duration-1000"
+                      className="absolute inset-y-0 left-0 bg-[var(--theme-primary)] shadow-[0_0_10px_var(--theme-primary)] transition-all duration-1000"
                     />
                   </div>
                 </div>
@@ -198,12 +214,13 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 aria-label="Select Game Version"
                 onClick={() => setIsVersionModalOpen(true)}
                 className={cn(
-                  'group zoom-in-95 fade-in relative animate-in overflow-hidden rounded-2xl border px-5 py-2.5 font-black text-[11px] uppercase tracking-widest transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+                  'group zoom-in-95 fade-in relative animate-in overflow-hidden rounded-none border border-dashed px-5 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
                   effectiveVersion === 'unknown'
-                    ? 'border-amber-500/20 bg-amber-500/10 text-amber-500'
-                    : 'border-[var(--theme-primary)]/20 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-white',
+                    ? 'border-amber-500/50 bg-amber-500/10 text-amber-500 hover:bg-amber-500 hover:text-zinc-950'
+                    : 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-zinc-950',
                 )}
               >
+                <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
                 <div className="relative z-10 flex items-center gap-2">
                   <Zap size={12} className="group-hover:animate-bounce" />
                   {effectiveVersion}
@@ -218,16 +235,18 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   type="button"
                   onClick={() => setIsSettingsOpen(true)}
                   aria-label="System Settings"
-                  className="retro-button flex items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-3 text-zinc-400 transition-all hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                  className="group relative flex items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-900/50 p-3 text-zinc-400 transition-all hover:border-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/10 hover:text-[var(--theme-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                   title="System Settings"
                 >
+                  <CornerCrosshairs className="h-1 w-1 border-current opacity-0 transition-opacity group-hover:opacity-100" />
                   <Settings2 size={20} />
                 </button>
                 <label
-                  className="retro-button flex cursor-pointer items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-3 text-zinc-400 transition-all focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 hover:bg-white/10 hover:text-white"
+                  className="group relative flex cursor-pointer items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-900/50 p-3 text-zinc-400 transition-all focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 hover:border-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/10 hover:text-[var(--theme-primary)]"
                   title="Import New Save"
                   aria-label="Import New Save"
                 >
+                  <CornerCrosshairs className="h-1 w-1 border-current opacity-0 transition-opacity group-hover:opacity-100" />
                   <RefreshCw size={20} />
                   <input
                     type="file"
@@ -241,9 +260,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               </div>
             </div>
           ) : (
-            <label className="slide-in-from-bottom-2 fade-in inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-2xl border-black/20 border-b-4 bg-[var(--theme-primary)] px-10 py-4 font-black text-[11px] text-white uppercase tracking-widest shadow-[0_20px_40px_rgba(var(--theme-primary-rgb),0.2)] transition-all duration-300 focus-within:outline-none focus-within:ring-2 focus-within:ring-[var(--theme-primary)] focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 hover:scale-105 hover:bg-[var(--theme-primary)]/90 active:scale-95 sm:w-auto">
-              <Upload size={20} />
-              Initialize Pokedex
+            <label className="group slide-in-from-bottom-2 fade-in relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black font-mono text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 focus-within:outline-none focus-within:ring-2 focus-within:ring-[var(--theme-primary)] focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 hover:bg-[var(--theme-primary)] hover:text-zinc-950 active:scale-95 sm:w-auto">
+              <CornerCrosshairs className="h-2 w-2 border-current" />
+              <Upload size={20} />[ INITIALIZE.SYS ]
               <input
                 type="file"
                 tabIndex={-1}
@@ -257,11 +276,12 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         </header>
 
         {error && (
-          <div className="glass-card fade-in slide-in-from-top-2 mx-4 mt-4 mb-0 flex animate-in items-center gap-4 rounded-2xl border border-red-400/20 bg-red-400/10 p-5 text-red-400">
+          <div className="fade-in slide-in-from-top-2 relative mx-4 mt-4 mb-0 flex animate-in items-center gap-4 rounded-none border border-red-500/50 border-dashed bg-red-950/50 p-5 text-red-500">
+            <CornerCrosshairs className="h-2 w-2 border-red-500" />
             <AlertTriangle size={24} className="flex-shrink-0" />
             <div className="flex flex-col">
-              <span className="font-black text-[10px] uppercase tracking-tighter">System Error</span>
-              <span className="font-medium text-sm">{error}</span>
+              <span className="font-black font-mono text-[10px] uppercase tracking-tighter">[ SYSTEM.ERROR ]</span>
+              <span className="font-medium font-mono text-sm">{error}</span>
             </div>
           </div>
         )}
