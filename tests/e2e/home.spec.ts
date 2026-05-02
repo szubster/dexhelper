@@ -13,6 +13,9 @@ test.describe('Dexhelper App', () => {
     // The main application container id is 'root'.
     await expect(page.locator('#root')).toBeAttached();
 
+    // We expect the new initialization wording
+    await expect(page.locator('input[type="file"]')).toBeAttached();
+
     // Give mobile layout time to settle
     await page.waitForTimeout(1000);
 
