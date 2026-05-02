@@ -2,10 +2,10 @@
 id: idea-003-atomic-handoff-foundation
 type: IDEA
 title: 'Foundry V2: Atomic Handoffs & Single-Persona Ownership'
-status: READY
+status: "COMPLETED"
 owner_persona: product_manager
 created_at: '2026-04-21'
-updated_at: '2026-04-27'
+updated_at: "2026-05-02"
 depends_on: []
 jules_session_id: null
 ---
