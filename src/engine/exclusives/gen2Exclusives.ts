@@ -23,6 +23,18 @@ const GEN2_VERSION_EXCLUSIVES: Record<string, number[]> = {
     231,
     232, // Phanpy, Donphan
   ],
+  crystal: [
+    37,
+    38, // Vulpix, Ninetales
+    56,
+    57, // Mankey, Primeape
+    179,
+    180,
+    181, // Mareep, Flaaffy, Ampharos
+    203, // Girafarig
+    223,
+    224, // Remoraid, Octillery
+  ],
 };
 
 export function getGen2UnobtainableReason(

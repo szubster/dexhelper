@@ -190,6 +190,7 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
 11. **`owner_persona` must be exactly one persona.** The system enforces a single-owner invariant per node for atomic handoffs; arrays or multiple personas are invalid.
 12. **`human` persona bypasses Jules dispatch and heartbeat timeouts.** The orchestrator will not dispatch Jules for nodes owned by `human`, and the heartbeat will not fail them.
 13. **Composite Nodes are an anti-pattern.** Do not create "Composite Nodes". They bundle multiple lifecycle states or responsibilities that conflict with the strict Directed Acyclic Graph orchestrator. This leads to circular dependencies or unresolved `depends_on` chains, causing DAG deadlocks.
+14. **Sibling Dependency Recommendations.** If multiple sibling nodes (e.g. TASK nodes from the same STORY) are created with sequential implementation dependencies, their `depends_on` field SHOULD explicitly point to the prerequisite task to prevent DAG deadlocks. This is the responsibility of the tech lead and is not enforced by the orchestrator.
 
 ---
 

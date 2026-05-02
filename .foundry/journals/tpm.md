@@ -293,3 +293,9 @@
 - **2026-05-02**: PR #864 merged. `epic-011-021-researcher-persona` is now COMPLETED.
 
 - **2026-05-02**: Heartbeat detected zombie session for `prd-012-011-gray-matter-parsing`. Transitioned to FAILED.
+
+- **2026-05-02**: PR #865 merged. `epic-005-015-legacy-data-migration` is now COMPLETED.
+
+- **2026-05-02**: PR #874 merged. `idea-003-atomic-handoff-foundation` is now COMPLETED.
+
+- **2026-05-02**: Resurrection Loop triggered for `prd-012-011-gray-matter-parsing`. Reason: Retry from FAILED status.. Transitioned back to READY.

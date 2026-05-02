@@ -8,7 +8,13 @@ interface PokemonCatchProbabilityProps {
   effectivePokeball: PokeballType;
 }
 
-type StatusType = 'none' | 'sleep_freeze' | 'paralyze_burn_poison';
+const STATUS_OPTIONS = [
+  { id: 'none', label: 'Healthy' },
+  { id: 'paralyze_burn_poison', label: 'Debuff' },
+  { id: 'sleep_freeze', label: 'Incapacitated' },
+] as const;
+
+type StatusType = (typeof STATUS_OPTIONS)[number]['id'];
 
 export function PokemonCatchProbability({ catchRate, effectivePokeball }: PokemonCatchProbabilityProps) {
   const [hpPercent, setHpPercent] = useState<number>(100);
@@ -46,11 +52,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
         </div>
 
         <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Target Status">
-          {[
-            { id: 'none' as StatusType, label: 'Healthy' },
-            { id: 'paralyze_burn_poison' as StatusType, label: 'Debuff' },
-            { id: 'sleep_freeze' as StatusType, label: 'Incapacitated' },
-          ].map((item) => (
+          {STATUS_OPTIONS.map((item) => (
             // biome-ignore lint/a11y/useSemanticElements: custom segmented control using radio role
             <button
               type="button"

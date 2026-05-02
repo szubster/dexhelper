@@ -122,7 +122,7 @@ test('coverage for suggestionEngine new lines', () => {
   const flareon = suggestions.find((s) => s.pokemonId === 136);
   expect(flareon).toBeDefined();
   expect(flareon?.title).toContain('Ready to Evolve');
-  expect(flareon?.description).toContain('Use your item');
+  expect(flareon?.description).toContain('Use your Fire Stone');
 
   const machamp = suggestions.find((s) => s.pokemonId === 68);
   expect(machamp).toBeDefined();
