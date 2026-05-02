@@ -2,7 +2,7 @@
 id: "prd-001-v2-lifecycle"
 type: "PRD"
 title: "Foundry V2: Atomic Handoffs & Single-Persona Ownership Lifecycle"
-status: PENDING
+status: READY
 owner_persona: "epic_planner"
 created_at: "2026-04-21"
 updated_at: "2026-04-27"
@@ -73,6 +73,6 @@ To enforce Atomic Handoffs, the product lifecycle pipeline is strictly defined a
 - [x] **Epic Planner:** Break down this PRD into Epics mapping out the necessary schema/doc updates, orchestration script refactors, and test coverage expansions to fully support Atomic Ownership.
 
 ### Generated Epics
-- `.foundry/epics/epic-007-atomic-handoff-schema.md`
-- `.foundry/epics/epic-008-atomic-handoff-orchestrator.md`
+- `.foundry/archive/epics/epic-007-atomic-handoff-schema.md`
+- `.foundry/archive/epics/epic-008-atomic-handoff-orchestrator.md`
 - `.foundry/epics/epic-009-atomic-handoff-testing.md`

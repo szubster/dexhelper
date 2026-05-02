@@ -7,8 +7,8 @@ owner_persona: epic_planner
 created_at: "2026-04-24"
 updated_at: "2026-04-27"
 depends_on:
-  - .foundry/epics/epic-005-013-idb-infrastructure.md
-  - .foundry/epics/epic-005-014-state-store-migration.md
+  - .foundry/archive/epics/epic-005-013-idb-infrastructure.md
+  - .foundry/archive/epics/epic-005-014-state-store-migration.md
   - .foundry/epics/epic-005-015-legacy-data-migration.md
   - .foundry/epics/epic-005-016-e2e-testing-updates.md
 jules_session_id: null
@@ -53,7 +53,7 @@ Migrate the persistence layer for game saves from `localStorage` to `IndexedDB`.
 - [x] Security scanners no longer flag `window.atob` vulnerabilities related to save persistence.
 
 ## Generated Epics
-- [.foundry/epics/epic-005-013-idb-infrastructure.md](.foundry/epics/epic-005-013-idb-infrastructure.md)
-- [.foundry/epics/epic-005-014-state-store-migration.md](.foundry/epics/epic-005-014-state-store-migration.md)
+- [.foundry/archive/epics/epic-005-013-idb-infrastructure.md](.foundry/archive/epics/epic-005-013-idb-infrastructure.md)
+- [.foundry/archive/epics/epic-005-014-state-store-migration.md](.foundry/archive/epics/epic-005-014-state-store-migration.md)
 - [.foundry/epics/epic-005-015-legacy-data-migration.md](.foundry/epics/epic-005-015-legacy-data-migration.md)
 - [.foundry/epics/epic-005-016-e2e-testing-updates.md](.foundry/epics/epic-005-016-e2e-testing-updates.md)

@@ -1,0 +1,24 @@
+---
+id: task-021-031-qa-idb-wrapper
+type: TASK
+title: "Verify IndexedDB wrapper implementation"
+status: "COMPLETED"
+owner_persona: qa
+created_at: "2026-04-26"
+updated_at: "2026-04-26"
+depends_on:
+  - .foundry/archive/tasks/task-021-030-implement-idb-wrapper.md
+jules_session_id: null
+parent: .foundry/archive/stories/story-013-021-indexeddb-wrapper-and-error-handling.md
+tags: ["indexeddb", "infrastructure", "persistence", "qa"]
+---
+
+# Verify IndexedDB wrapper implementation
+
+## Context
+Verify the IndexedDB wrapper implemented in `.foundry/archive/tasks/task-021-030-implement-idb-wrapper.md`.
+
+## Acceptance Criteria
+- [x] Verify `idb` wrapper supports binary read/write/delete.
+- [x] Verify graceful fallback handling when IndexedDB is inaccessible (e.g. `QuotaExceededError` or private mode).
+- [x] Verify generic error logging (e.g., "System: sync failed") to prevent internal error leakage (CWE-209 mitigation).

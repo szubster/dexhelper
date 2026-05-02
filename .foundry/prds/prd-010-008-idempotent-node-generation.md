@@ -2,7 +2,7 @@
 id: prd-010-008-idempotent-node-generation
 type: PRD
 title: "Idempotent Node Generation Mechanism"
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: "2026-04-29"
 updated_at: "2026-04-29"
@@ -47,4 +47,4 @@ Implement an idempotent generation check in the orchestrator (`foundry-orchestra
 ### Generated Epics
 - [.foundry/epics/epic-008-017-orchestrator-preflight-checks.md](.foundry/epics/epic-008-017-orchestrator-preflight-checks.md)
 - [.foundry/epics/epic-008-018-session-dispatch-bypass.md](.foundry/epics/epic-008-018-session-dispatch-bypass.md)
-- [.foundry/epics/epic-008-019-anomaly-reporting-mechanism.md](.foundry/epics/epic-008-019-anomaly-reporting-mechanism.md)
+- [.foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism.md](.foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism.md)

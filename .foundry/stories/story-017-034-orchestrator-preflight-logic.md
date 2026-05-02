@@ -26,5 +26,5 @@ Modify `foundry-orchestrator.ts` to implement a pre-flight file check before spa
 - If target artifacts exist, successfully validate their schema against the definitions in `.foundry/docs/schema.md`.
 
 ## Tasks
-- [x] Create coder task: .foundry/tasks/task-034-058-implement-orchestrator-preflight.md
+- [x] Create coder task: .foundry/archive/tasks/task-034-058-implement-orchestrator-preflight.md
 - [x] Create qa task: .foundry/tasks/task-034-059-qa-orchestrator-preflight.md
