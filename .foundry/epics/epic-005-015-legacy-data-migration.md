@@ -2,7 +2,7 @@
 id: epic-005-015-legacy-data-migration
 type: EPIC
 title: "Legacy Save Data Migration"
-status: READY
+status: "ACTIVE"
 owner_persona: story_owner
 created_at: "2026-04-24"
 updated_at: "2026-05-02"
@@ -10,7 +10,7 @@ depends_on:
   - .foundry/epics/epic-005-013-idb-infrastructure.md
   - .foundry/epics/epic-005-014-state-store-migration.md
   - .foundry/stories/story-015-032-legacy-save-migration-hook.md
-jules_session_id: null
+jules_session_id: "14750301840711422316"
 parent: .foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md
 tags: ["migration", "localStorage", "indexeddb"]
 ---
