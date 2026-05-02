@@ -2,12 +2,12 @@
 id: idea-010-idempotent-node-generation
 type: IDEA
 title: Idempotent Node Generation Mechanism
-status: READY
+status: "ACTIVE"
 owner_persona: product_manager
 created_at: '2026-04-29'
-updated_at: '2026-04-29'
+updated_at: "2026-05-02"
 depends_on: []
-jules_session_id: null
+jules_session_id: "6067827650561467861"
 parent: null
 tags:
   - orchestrator
