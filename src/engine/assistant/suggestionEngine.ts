@@ -10,6 +10,19 @@ import {
 } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
+const EVO_ITEM_NAMES: Record<number, string> = {
+  80: 'Sun Stone',
+  81: 'Moon Stone',
+  82: 'Fire Stone',
+  83: 'Thunder Stone',
+  84: 'Water Stone',
+  85: 'Leaf Stone',
+  198: "King's Rock",
+  210: 'Metal Coat',
+  212: 'Dragon Scale',
+  229: 'Up-Grade',
+};
+
 const POKEAPI_TO_GEN1_ITEM: Record<number, number> = {
   81: 0x0a, // Moon Stone
   82: 0x20, // Fire Stone
@@ -290,6 +303,13 @@ export function generateSuggestions(
     }
   }
 
+  // Organize physical instances by species to check for evolutions and prevent redundant exclusive suggestions
+  const instancesBySpecies = new Map<number, PokemonInstance[]>();
+  for (const p of allInstances) {
+    if (!instancesBySpecies.has(p.speciesId)) instancesBySpecies.set(p.speciesId, []);
+    instancesBySpecies.get(p.speciesId)?.push(p);
+  }
+
   // B. Unobtainable / Exclusive logic
   // Checks if the target is completely locked out of the current version (e.g. Red exclusives on Blue).
   // These are assigned the lowest base priority (10) since they require external action (link cable trades).
@@ -309,6 +329,14 @@ export function generateSuggestions(
           t.receivedId === pid && t.gen === saveData.generation && (!t.versions || t.versions.includes(displayVersion)),
       );
       if (isNpcTrade) continue;
+
+      // If they physically own a pre-evolution, they don't strictly need to trade, they can evolve it!
+      const p = apiData.pokemonMetadata?.[pid];
+      let hasPhysicalPreEvo = false;
+      if (p?.efrm && p.efrm.length > 0) {
+        hasPhysicalPreEvo = p.efrm.some((preId) => instancesBySpecies.has(preId));
+      }
+      if (hasPhysicalPreEvo) continue;
 
       suggestions.push({
         id: `exclusive-${pid}`,
@@ -372,10 +400,36 @@ export function generateSuggestions(
   // E. Evolutions
   // Evaluates the player's current boxes and party to find pre-evolutions.
   // Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached, evolution stone in inventory).
-  const instancesBySpecies = new Map<number, PokemonInstance[]>();
-  for (const p of allInstances) {
-    if (!instancesBySpecies.has(p.speciesId)) instancesBySpecies.set(p.speciesId, []);
-    instancesBySpecies.get(p.speciesId)?.push(p);
+  // F. Breeding (Gen 2 Only)
+  if (saveData.generation === 2) {
+    queryTargets.forEach((targetId: number) => {
+      const p = apiData.pokemonMetadata?.[targetId];
+      if (!p) return;
+
+      // Check if we are missing a base Pokemon, but we own an evolution of it
+      let canBreed = false;
+      let evolutionIdToBreed: number | null = null;
+
+      // Look at all evolutions of the target
+      for (const evo of p.eto) {
+        if (instancesBySpecies.has(evo.id)) {
+          canBreed = true;
+          evolutionIdToBreed = evo.id;
+          break;
+        }
+      }
+
+      if (canBreed && evolutionIdToBreed) {
+        suggestions.push({
+          id: `breed-${targetId}`,
+          category: 'Breed',
+          title: `Breed: #${targetId}`,
+          description: `Leave your #${evolutionIdToBreed} at the Daycare to get an Egg!`,
+          pokemonId: targetId,
+          priority: 85,
+        });
+      }
+    });
   }
 
   queryTargets.forEach((targetId: number) => {
@@ -386,11 +440,6 @@ export function generateSuggestions(
     if (parentId === undefined) return;
     const ownedInstances = instancesBySpecies.get(parentId) || [];
     if (ownedInstances.length === 0) return;
-
-    const bestInstance = ownedInstances.reduce((prev, current) => (prev.level > current.level ? prev : current));
-    const isYellowStarterPikachu =
-      displayVersion === 'yellow' && parentId === 25 && bestInstance.otName === saveData.trainerName;
-    if (isYellowStarterPikachu) return;
 
     const details = p.det;
     if (!details || details.length === 0) return;
@@ -403,6 +452,23 @@ export function generateSuggestions(
       const held = detail.held;
       const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
       const rps = detail.rps;
+
+      // Filter out Yellow Starter Pikachu as it refuses to evolve
+      const evolvableInstances = ownedInstances.filter(
+        (inst) => !(displayVersion === 'yellow' && parentId === 25 && inst.otName === saveData.trainerName),
+      );
+
+      if (evolvableInstances.length === 0) continue;
+
+      let bestInstance = evolvableInstances[0];
+      if (!bestInstance) continue;
+      if (tr === EVO_TRIGGER.LEVEL_UP && min_h) {
+        bestInstance = evolvableInstances.reduce((prev, current) =>
+          (prev.friendship ?? 0) > (current.friendship ?? 0) ? prev : current,
+        );
+      } else {
+        bestInstance = evolvableInstances.reduce((prev, current) => (prev.level > current.level ? prev : current));
+      }
 
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {
@@ -443,11 +509,12 @@ export function generateSuggestions(
       } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
         const gameItemId = getGameItemId(item, saveData.generation);
         const hasStone = saveData.inventory.some((i) => i.id === gameItemId && i.quantity > 0);
+        const itemName = EVO_ITEM_NAMES[item] || 'item';
         suggestions.push({
           id: `evo-item-${targetId}-${item}`,
           category: 'Evolve',
           title: hasStone ? `Ready to Evolve: #${targetId}!` : `Item Needed: #${targetId}`,
-          description: hasStone ? `Use your item to evolve it!` : `Find the right item to evolve it.`,
+          description: hasStone ? `Use your ${itemName} to evolve it!` : `Find a ${itemName} to evolve it.`,
           pokemonId: targetId,
           priority: hasStone ? 95 : 40,
         });
@@ -455,13 +522,14 @@ export function generateSuggestions(
         if (held) {
           const gameHeldId = getGameItemId(held, saveData.generation);
           const hasHeldItem = saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0);
+          const itemName = EVO_ITEM_NAMES[held] || 'item';
           suggestions.push({
             id: `evo-trade-held-${targetId}`,
             category: 'Evolve',
             title: hasHeldItem ? `Ready to Trade Evolve: #${targetId}!` : `Item Needed for Trade: #${targetId}`,
             description: hasHeldItem
-              ? `Have your pre-evolution hold the item and trade it to evolve!`
-              : `Find the right item, have your pre-evolution hold it, and trade to evolve.`,
+              ? `Have your pre-evolution hold the ${itemName} and trade it to evolve!`
+              : `Find a ${itemName}, have your pre-evolution hold it, and trade to evolve.`,
             pokemonId: targetId,
             priority: hasHeldItem ? 90 : 45,
           });
