@@ -72,6 +72,27 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          run_install: false
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Audit Dependencies
+        run: pnpm audit --prod
+
   build:
     runs-on: ubuntu-latest
     steps:

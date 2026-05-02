@@ -35,3 +35,6 @@
 
 ## 2026-05-01 - Optimized CI Pipeline
 **Learning:** Evaluated current sequential CI setup. Discovered that splitting testing, linting, and building into parallel jobs decreases total CI run time for the `ci.yml` workflow. Added `concurrency` blocks across `ci.yml`, `playwright.yml`, and `biome.yml` to automatically cancel redundant in-progress runs when new commits are pushed, saving CI minutes and improving developer experience.
+
+## 2026-05-02 - Added pnpm audit to CI
+**Learning:** Added `pnpm audit` job to `.github/workflows/ci.yml` to automatically catch dependency vulnerabilities during CI runs. Configured it to run with `--prod` flag to avoid failing builds on devDependency vulnerabilities, as they are mostly harmless in this context and can block releases unnecessarily.
