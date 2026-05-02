@@ -13,3 +13,8 @@ Date: 2026-04-24
 During the session for transforming IDEA-005 (Late Binding Epics & Recursive Orchestration) into a PRD, the target PRD node (`prd-002-late-binding-orchestrator.md`) was already found existing in the repository.
 
 However, it had the incorrect ID schema (`prd-002`) and was detached. I fixed this by copying it to the correct parent-linked ID `prd-005-010-late-binding-orchestrator.md`, linking it in the `IDEA-005` file, and reverting its `status` from `COMPLETED` back to `READY` to allow the orchestrator to correctly handle its empty dependencies. The original `prd-002` file was then removed.
+
+## 2026-04-29: Orchestrator Anomaly
+- During the generation of the `idea-010-idempotent-node-generation.md` IDEA into a PRD, I discovered that the target node file `prd-010-008-idempotent-node-generation.md` already existed prior to the session.
+- As per the EMPTY PR POLICY, I am submitting this empty PR to prevent forcing a dummy git diff and to save session credits while unblocking the Foundry DAG.
+- Please review this anomaly to investigate if there are redundant generation steps in the orchestrator.
