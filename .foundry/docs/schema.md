@@ -72,6 +72,7 @@ jules_session_id: null  # Required. Active Jules session ID string, or null when
 pr_number: null         # Optional. PR number for human-in-the-loop tasks, or null.
 parent: null            # Required if node is derived from another node (e.g. PRD from IDEA, EPIC from PRD). Repo-relative path to the logical parent node. Blocks the parent from completion if this node is incomplete.
 tags: []                # Optional. Free-form string labels for filtering and context injection.
+research_references: [] # Optional. Array of repo-relative paths to research nodes.
 rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes.
 rejection_reason: ""    # Optional. Used when transitioning a node to FAILED because it is fundamentally impossible to complete.
 notes: ""               # Optional. Free-form Markdown remarks.
@@ -94,6 +95,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `pr_number` | `integer \| null` | optional | PR number for human-in-the-loop tasks, or `null`. |
 | `parent` | `string \| null` | optional | Repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
 | `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
+| `research_references` | `string[]` | optional | Array of repo-relative paths to research nodes. |
 | `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. |
 | `rejection_reason` | `string` | optional | Used when transitioning a node to `FAILED` because it is fundamentally impossible to complete. |
 | `notes` | `string` | optional | Free-form Markdown for human remarks, caveats, or inline research. |
@@ -154,6 +156,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `human` | A human contributor. Bypasses Jules dispatch and heartbeat timeouts. |
 | `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
 | `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
+| `researcher` | Responsible for exploratory tasks and writing context-rich research reports to be used by downstream pipeline nodes. |
 
 ---
 
@@ -208,6 +211,7 @@ jules_session_id: null
 pr_number: null
 parent: null
 tags: []
+research_references: []
 rejection_count: 0
 rejection_reason: ""
 notes: ""
