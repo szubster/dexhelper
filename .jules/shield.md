@@ -9,3 +9,6 @@
 \n**Pattern:** Directly passing the error object (e.g., `catch(console.error)`) or even conditionally logging `err.message` or `String(err)` can leak sensitive stack traces, paths, and internal state. Explicitly replace raw error messages with static generic strings in generic `console.error` handlers (e.g., `console.error('System: sync failed')`) to prevent leaking sensitive state and fully mitigate CWE-209.
 ## Improving Scheduled Prompts
 **Pattern:** If no specific code vulnerability is found and the task instructs to improve the scheduled prompt or perform a dependency audit (`pnpm audit`), you can add new scan vectors to the scheduled prompt, such as Prototype Pollution with `Object.assign`.
+
+## Adding New Security Audit Vectors
+**Pattern:** When no application code vulnerabilities or dependencies issues are identified during a routine sweep, updating the scheduled prompt (`.jules/schedules/shield.md`) with new scan vectors is an essential maintenance task. New scan vectors should target common web vulnerabilities (e.g., Open Redirects, Unsafe Deserialization, LocalStorage Information Leakage) to ensure the prompt remains robust and effective for future audits.
