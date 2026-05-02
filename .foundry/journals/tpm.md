@@ -299,3 +299,9 @@
 - **2026-05-02**: PR #874 merged. `idea-003-atomic-handoff-foundation` is now COMPLETED.
 
 - **2026-05-02**: Resurrection Loop triggered for `prd-012-011-gray-matter-parsing`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-02**: PR #875 merged. `idea-010-idempotent-node-generation` is now COMPLETED.
+
+- **2026-05-02**: PR #872 merged. `prd-001-v2-lifecycle` is now COMPLETED.
+
+- **2026-05-02**: PR #866 merged. `prd-012-011-sibling-dependency-enforcement` is now COMPLETED.
