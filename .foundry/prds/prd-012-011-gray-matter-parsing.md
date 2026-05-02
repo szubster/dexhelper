@@ -22,3 +22,7 @@ Regex manipulations of markdown and frontmatter are becoming increasingly fragil
 - Integrate `gray-matter` for parsing markdown files.
 - Replace existing regex-based parsers with `gray-matter`.
 - Ensure the DAG orchestrator properly uses the new parsing logic.
+
+## Implementation
+- ADR: .foundry/docs/adrs/006-gray-matter-parsing.md
+- Epic: .foundry/epics/epic-011-022-implement-gray-matter.md
