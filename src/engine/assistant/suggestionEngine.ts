@@ -479,7 +479,15 @@ export function generateSuggestions(
     }
   });
 
-  const uniqueSuggestions = Array.from(new Map(suggestions.map((item) => [item.id, item])).values());
+  // ⚡ Bolt: Eliminate O(N) array tuple allocation during suggestion deduplication
+  const uniqueMap = new Map<string, Suggestion>();
+  for (let i = 0; i < suggestions.length; i++) {
+    const s = suggestions[i];
+    if (s) {
+      uniqueMap.set(s.id, s);
+    }
+  }
+  const uniqueSuggestions = Array.from(uniqueMap.values());
   uniqueSuggestions.sort((a, b) => b.priority - a.priority);
   return { suggestions: uniqueSuggestions, debug: { rejected } };
 }
