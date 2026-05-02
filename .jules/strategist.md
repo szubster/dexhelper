@@ -54,3 +54,9 @@
 **Outcome:** Merged
 **Why:** The maintainer explicitly instructed that agents must not use `git log` or past commits for memory, and instead rely on journals. The Strategist prompt was still instructing itself to review agent PR history instead of agent journals.
 **Pattern:** Update prompts to ensure they align with the system constraint that cross-session memory is exclusively stored in `.jules/*.md` journal files, not git history.
+
+## 2026-05-02 - [Accepted] - Prompt improvement - Update Sweeper prompt to enforce grep verification and fix PR title
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Sweeper journal explicitly noted that knip can hallucinate unused files that are implicitly used in configs or test runners, and that agents must use grep to verify. Additionally, system memory requires the PR title format to strictly be `🧹 [description]`.
+**Pattern:** Codify system memory constraints and specific tool-verification requirements into agent prompts to avoid regressions.
