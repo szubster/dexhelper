@@ -27,4 +27,3 @@ Existing users will have their saves stored as base64 strings in `localStorage`.
 - [ ] Users experience no loss of progression during the transition.
 ## Generated Stories
 - .foundry/stories/story-015-032-legacy-save-migration-hook.md
-- .foundry/stories/story-015-036-fix-legacy-migration-logic.md
