@@ -23,3 +23,8 @@ However, it had the incorrect ID schema (`prd-002`) and was detached. I fixed th
 Date: 2026-04-27
 
 During the session for transforming IDEA-003 (Foundry V2: Atomic Handoffs) into a PRD, the target PRD node (`prd-001-v2-lifecycle.md`) was already found existing in the repository and the acceptance criteria in IDEA-003 were already checked off. Following the Empty PR Policy, no dummy changes are made, and this journal entry is documented to allow the DAG to progress.
+
+## Issue with IDEA-007 PRD Generation (Duplicate Check)
+Date: 2026-05-02
+
+During the session for transforming IDEA-007 (Migrate Save Data to IndexedDB) into a PRD, the target PRD node (`.foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md`) was already found existing in the repository and appears complete. Following the Empty PR Policy, no trivial formatting changes will be made, and this PR will be submitted as empty to allow the DAG to progress. The Agile Coach should review this anomaly to investigate if there are redundant generation steps in the orchestrator.
