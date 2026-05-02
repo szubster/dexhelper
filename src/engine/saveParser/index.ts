@@ -2,7 +2,6 @@ import type { GameVersion, PokemonInstance, SaveData } from './parsers/common';
 import { isGen1Save, parseGen1 } from './parsers/gen1';
 import { isGen2Save, parseGen2 } from './parsers/gen2';
 
-
 export type { GameVersion, PokemonInstance, SaveData };
 
 /**
