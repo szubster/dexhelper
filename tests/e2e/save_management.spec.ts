@@ -7,6 +7,7 @@ test.describe('Save Management', () => {
   test('should upload a save file and persist it on reload', async ({ page }) => {
     await clearStorage(page);
     await page.goto('.');
+    await waitForSync(page);
 
     // 1. Initial State: Should show "Initialize Pokedex" button (clean state)
     await expect(page.getByText(/\[ INITIALIZE\.SYS \]/i)).toBeVisible();
