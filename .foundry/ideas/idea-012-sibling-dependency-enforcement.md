@@ -25,3 +25,4 @@ This will prevent premature dispatching, reduce agent confusion, and lower rejec
 
 ## Next Steps
 - [x] Product Manager: Convert this idea to a PRD.
+- Spawned PRD: .foundry/prds/prd-012-011-sibling-dependency-enforcement.md
