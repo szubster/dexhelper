@@ -2,12 +2,12 @@
 id: epic-011-021-researcher-persona
 type: EPIC
 title: "Epic: Implement Researcher Persona Workflow"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "epic_planner"
 created_at: "2026-05-01"
 updated_at: "2026-05-02"
 depends_on: []
-jules_session_id: "7684700597915606290"
+jules_session_id: null
 pr_number: null
 parent: ".foundry/prds/prd-011-009-researcher-persona.md"
 tags: ["foundry", "persona", "research"]

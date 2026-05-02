@@ -289,3 +289,7 @@
 - **2026-05-02**: PR #854 merged. `task-032-060-qa-legacy-save-migration` is now COMPLETED.
 
 - **2026-05-02**: PR #851 merged. `task-035-061-relax-node-engine` is now COMPLETED.
+
+- **2026-05-02**: PR #864 merged. `epic-011-021-researcher-persona` is now COMPLETED.
+
+- **2026-05-02**: Heartbeat detected zombie session for `prd-012-011-gray-matter-parsing`. Transitioned to FAILED.
