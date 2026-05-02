@@ -2,10 +2,10 @@
 id: prd-007-005-migrate-saves-to-indexeddb
 type: PRD
 title: "Migrate Save Data to IndexedDB"
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: "2026-04-24"
-updated_at: "2026-04-27"
+updated_at: "2026-05-02"
 depends_on:
   - .foundry/epics/epic-005-013-idb-infrastructure.md
   - .foundry/epics/epic-005-014-state-store-migration.md

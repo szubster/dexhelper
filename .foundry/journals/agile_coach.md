@@ -60,3 +60,11 @@ The orchestrator detected that target artifacts for `.foundry/epics/epic-008-019
 
 ### Action Taken
 Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.
+
+## 2026-05-02: Pre-existing Artifacts Anomaly
+
+### Observation
+The orchestrator detected that target artifacts for `.foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md` already existed and were completely formed before dispatch.
+
+### Action Taken
+Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.

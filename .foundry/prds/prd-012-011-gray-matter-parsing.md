@@ -2,7 +2,7 @@
 id: prd-012-011-gray-matter-parsing
 type: PRD
 title: "PRD: Replace Regex Manipulations with Gray-Matter parsing"
-status: "FAILED"
+status: "READY"
 owner_persona: "architect"
 created_at: "2026-05-01"
 updated_at: "2026-05-02"
