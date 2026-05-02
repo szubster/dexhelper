@@ -2,7 +2,7 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { Bug, Egg, Flag, Info, Loader2, Sparkles, Target, Zap } from 'lucide-react';
 import React from 'react';
 import type { SaveData } from '../engine/saveParser/index';
-import { type Suggestion, type SuggestionCategory, useAssistant } from '../hooks/useAssistant';
+import { type SuggestionCategory, useAssistant } from '../hooks/useAssistant';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
@@ -120,7 +120,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
       ) : (
         <div className="space-y-8">
           {Object.entries(
-            suggestions.reduce<Partial<Record<SuggestionCategory, Suggestion[]>>>((acc, s) => {
+            suggestions.reduce<Partial<Record<SuggestionCategory, typeof suggestions>>>((acc, s) => {
               if (!acc[s.category]) acc[s.category] = [];
               acc[s.category]?.push(s);
               return acc;
