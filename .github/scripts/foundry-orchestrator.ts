@@ -401,7 +401,7 @@ function main(): void {
   // 1. Its status is not COMPLETED (and it's not the target node we are evaluating).
   // 2. ANY of its recursive dependencies are blocked.
   // 3. ANY of its recursive children are blocked.
-  const evalCache = new Map<string, boolean>();
+  let evalCache = new Map<string, boolean>();
 
   // Helper to safely check if 'child' is a deep descendant of 'ancestor'
   function isDescendant(childPath: string, ancestorPath: string): boolean {
@@ -424,8 +424,7 @@ function main(): void {
    */
   function isHierarchicallyIncomplete(nodePath: string, evaluatingFor?: string): boolean {
     const cacheKey = evaluatingFor ? `${nodePath}|${evaluatingFor}` : nodePath;
-    // skip caching as it causes test issues since tests mock multiple times within same global env
-    // if (evalCache.has(cacheKey)) return evalCache.get(cacheKey)!;
+    if (evalCache.has(cacheKey)) return evalCache.get(cacheKey)!;
 
     const node = nodeMap.get(nodePath);
 
@@ -439,8 +438,6 @@ function main(): void {
       evalCache.set(cacheKey, true);
       return true;
     }
-
-    evalCache.set(cacheKey, true);
 
     const children = parentToChildren.get(nodePath) || [];
     for (const child of children) {
@@ -523,6 +520,7 @@ function main(): void {
   info('Phase 4: Resolving DAG — finding eligible PENDING nodes...');
   const eligible: ParsedNode[] = [];
 
+  evalCache = new Map<string, boolean>();
   for (const node of nodes) {
     if (node.frontmatter.status !== 'PENDING') continue;
 
@@ -532,6 +530,9 @@ function main(): void {
     // 3. Any of its explicit dependencies is blocked (recursive).
 
     let blocked = false;
+
+    // Phase 4.5: IDEMPOTENT GENERATION CHECK
+    let shouldBypass = false;
 
         // Check parent inheritance
     let currParent = node.frontmatter.parent;
@@ -565,9 +566,9 @@ function main(): void {
     if (blocked) continue;
 
     // Check if node is explicitly blocked by its own incomplete children
-    const children = parentToChildren.get(node.repoPath) || [];
-    for (const child of children) {
-      if (isHierarchicallyIncomplete(child.repoPath, node.repoPath)) {
+    const childNodes = parentToChildren.get(node.repoPath) || [];
+    for (const childNode of childNodes) {
+      if (isHierarchicallyIncomplete(childNode.repoPath, node.repoPath)) {
         blocked = true;
         break;
       }
@@ -580,9 +581,6 @@ function main(): void {
     for (const depPath of deps) {
       const dep = nodeMap.get(depPath);
       if (!dep) {
-        if (fs.existsSync(path.join(repoRoot, depPath))) {
-          continue;
-        }
         warn(`Unresolvable dependency '${depPath}' referenced by: ${node.repoPath}`);
         hasUnresolvableDeps = true;
         blocked = true;
@@ -603,8 +601,9 @@ function main(): void {
       }
     }
 
-    if (!blocked) {
-      // Preflight check
+    if (blocked) continue;
+
+    // Preflight check
       const regex = /\.foundry\/(ideas|prds|epics|stories|tasks)\/[a-zA-Z0-9_-]+\.md/g;
       const body = node.rawContent.replace(FM_STRIP_REGEX, '');
       const matches = [...new Set(body.match(regex) || [])];
@@ -627,12 +626,19 @@ function main(): void {
         }
       }
 
-      if (bypassDispatch) {
-        info(`Preflight success: Valid target artifacts exist. Bypassing dispatch for ${node.repoPath}`);
-        promoteNodeStatus(node, 'PENDING', 'COMPLETED');
-      } else {
-        eligible.push(node);
-      }
+      const hasUnchecked = /^- \[ \]/m.test(body);
+      const parentOfChildren = parentToChildren.get(node.repoPath) || [];
+      const hasChildren = parentOfChildren.length > 0;
+      const allChildrenCompleted = hasChildren && parentOfChildren.every(c => c.frontmatter.status === 'COMPLETED');
+
+    if (!hasUnchecked && hasChildren && allChildrenCompleted) {
+      info(`Late-binding completion: All children COMPLETED and no tasks remain for ${node.repoPath}`);
+      promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+    } else if (bypassDispatch) {
+      info(`Preflight success: Valid target artifacts exist. Bypassing dispatch for ${node.repoPath}`);
+      promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+    } else {
+      eligible.push(node);
     }
   }
 
@@ -642,8 +648,6 @@ function main(): void {
   info('Phase 4.5: Performing idempotent generation checks...');
   const finalEligible: ParsedNode[] = [];
   for (const node of eligible) {
-    let shouldBypass = false;
-
     // We restrict idempotent check to generation nodes (typically non-TASK,
     // but checking for explicit children links is the robust way)
     if (node.frontmatter.type !== 'TASK') {

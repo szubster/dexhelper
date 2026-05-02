@@ -826,4 +826,78 @@ jules_session_id: null`);
     const epicContent = fs.readFileSync(filePath, 'utf-8');
     expect(epicContent).toContain('status: READY'); // Promoted, not bypassed
   });
+
+  test('Late-Binding: automatically completes parent when all children are COMPLETED and no tasks remain', () => {
+    // Parent: PENDING, no tasks remaining in body
+    createNode('.foundry/epics/epic-001.md', `
+id: epic-001
+type: EPIC
+title: "Epic 1"
+status: PENDING
+owner_persona: epic_planner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    // Child: COMPLETED
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story 1"
+status: COMPLETED
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/epics/epic-001.md
+jules_session_id: null
+`);
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(result).toContain('status: COMPLETED');
+  });
+
+  test('Late-Binding: promotes to READY if parent has unchecked checkboxes', () => {
+    // Parent: PENDING, has unchecked checkboxes
+    const parentPath = path.join(tmpDir, '.foundry/epics/epic-001.md');
+    fs.mkdirSync(path.dirname(parentPath), { recursive: true });
+    fs.writeFileSync(parentPath, `---
+id: epic-001
+type: EPIC
+title: "Epic 1"
+status: PENDING
+owner_persona: epic_planner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+---
+
+# Epic 1
+- [ ] Task remaining
+`, 'utf-8');
+
+    // Child: COMPLETED
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story 1"
+status: COMPLETED
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/epics/epic-001.md
+jules_session_id: null
+`);
+
+    main();
+
+    const result = fs.readFileSync(parentPath, 'utf-8');
+    expect(result).toContain('status: READY');
+  });
 });
