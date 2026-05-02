@@ -305,3 +305,5 @@
 - **2026-05-02**: PR #872 merged. `prd-001-v2-lifecycle` is now COMPLETED.
 
 - **2026-05-02**: PR #866 merged. `prd-012-011-sibling-dependency-enforcement` is now COMPLETED.
+
+- **2026-05-02**: PR #876 merged. `idea-007-migrate-saves-to-indexeddb` is now COMPLETED.
