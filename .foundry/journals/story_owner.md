@@ -9,3 +9,6 @@ All acceptance criteria in .foundry/epics/epic-005-014-state-store-migration.md 
 
 ## Epic 016 (E2E Testing Updates)
 All acceptance criteria in .foundry/epics/epic-005-016-e2e-testing-updates.md are already checked or implemented. No new STORY nodes need to be created. Applying EMPTY PR POLICY.
+
+## 2026-05-02
+Created story-015-036-fix-legacy-migration-logic to address the missing implementation of migrateLegacySave reported by QA in task-032-060.
