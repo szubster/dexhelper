@@ -27,3 +27,13 @@ The compiler ensures that DataLoader batch functions return valid values or Erro
 * **Issue:** When dealing with sets of valid literal string values (e.g., `['secured', 'missing', 'dex-only']`), components often use inline `as Type[]` assertions when iterating, and the union type itself is defined separately (`type FilterType = 'secured' | 'missing' | 'dex-only'`). This causes a disconnect where the array values can drift from the type definition, bypassing compiler checks.
 * **Solution:** Create an immutable array `export const FILTER_TYPES = [...] as const;` and derive the union type from it: `export type FilterType = (typeof FILTER_TYPES)[number];`.
 * **Learning:** This pattern completely eliminates the need for unsafe `as` casts in the consuming components (e.g., `FILTER_TYPES.map(...)` instead of `(['...'] as FilterType[]).map(...)`), guarantees that the type and the runtime array are always in perfect sync, and successfully compiles under strict mode while maintaining the identical runtime behavior.
+## $(date +%Y-%m-%d) - Nurse: Replaced inline string unions and array casting with `as const` derived array and type
+
+**What was unsafe:**
+The `StatusType` was defined as a string union `type StatusType = 'none' | 'sleep_freeze' | 'paralyze_burn_poison';`. Inside the component, an inline array of options mapped these values to labels, using `as StatusType` casts to avoid type errors since TypeScript infers string literal properties in arrays as generic `string`.
+
+**How it was fixed:**
+Extracted the inline array into a constant `STATUS_OPTIONS` marked with `as const` to freeze the literal types. Then, replaced the explicit string union for `StatusType` with a derived type: `type StatusType = (typeof STATUS_OPTIONS)[number]['id'];`.
+
+**What the compiler now catches:**
+The compiler statically guarantees that the `StatusType` union and the `STATUS_OPTIONS` array are always in sync. It eliminates the unsafe `as StatusType` casts while maintaining identical runtime behavior.
