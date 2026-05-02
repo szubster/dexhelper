@@ -62,3 +62,9 @@
 **Outcome:** Accepted
 **Why:** Brings the location search interface in line with the rest of the application's tactical hardware motif (matching grid views, Search & Filters, and BottomNav).
 **Pattern:** Consistently eliminate generic web UI patterns (rounded corners, soft hover states) in favor of sharp, high-contrast, terminal-like aesthetics for search components.
+
+## 2025-06-25 - [Accepted] - 🖼️ Canvas: Tactical AppLayout Redesign
+**What:** Redesigned the `AppLayout` component to match the utility-driven tactical "snooping" aesthetic, replacing rounded glassmorphism with sharp, dashed borders, corner crosshairs, and monospaced telemetry text for all navigation and settings controls.
+**Outcome:** Accepted
+**Why:** Brings the main structural shell of the application in line with the rest of the application's heavily tactical, snooping-focused aesthetic (like the Grid, Details, Search, BottomNav, and Settings).
+**Pattern:** Ensure the top-level structural components adhere to the tactical aesthetics (sharp edges, corner crosshairs, monospace text) to maintain overall visual coherence.
