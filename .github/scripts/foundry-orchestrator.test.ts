@@ -770,4 +770,60 @@ fs.writeFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), `---\nid: 
 main();
 expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf-8')).toContain('status: READY');
 });
+
+  test('Preflight: bypasses dispatch and marks COMPLETED if target artifacts exist and are valid', () => {
+    createNode('.foundry/epics/epic-preflight-1.md', `id: epic-preflight-1
+type: EPIC
+title: "Epic 1"
+status: PENDING
+owner_persona: epic_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null`);
+
+    createNode('.foundry/stories/story-preflight-1.md', `id: story-preflight-1
+type: STORY
+title: "Story 1"
+status: COMPLETED
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/epics/epic-preflight-1.md
+jules_session_id: null`);
+
+    const filePath = path.join(tmpDir, '.foundry/epics/epic-preflight-1.md');
+    fs.appendFileSync(filePath, '\nTarget artifact: [.foundry/stories/story-preflight-1.md](.foundry/stories/story-preflight-1.md)');
+
+    main();
+
+    const epicContent = fs.readFileSync(filePath, 'utf-8');
+    expect(epicContent).toContain('status: COMPLETED');
+  });
+
+  test('Preflight: does not bypass if target artifacts exist but are invalid', () => {
+    createNode('.foundry/epics/epic-preflight-2.md', `id: epic-preflight-2
+type: EPIC
+title: "Epic 2"
+status: PENDING
+owner_persona: epic_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null`);
+
+    // Invalid story (missing required fields)
+    const invalidStoryPath = path.join(tmpDir, '.foundry/stories/story-preflight-2-invalid.md');
+    fs.mkdirSync(path.dirname(invalidStoryPath), { recursive: true });
+    fs.writeFileSync(invalidStoryPath, `---\nid: story-preflight-2-invalid\nstatus: PENDING\n---\n\n# Title`, 'utf-8');
+
+    const filePath = path.join(tmpDir, '.foundry/epics/epic-preflight-2.md');
+    fs.appendFileSync(filePath, '\nTarget artifact: [.foundry/stories/story-preflight-2-invalid.md](.foundry/stories/story-preflight-2-invalid.md)');
+
+    main();
+
+    const epicContent = fs.readFileSync(filePath, 'utf-8');
+    expect(epicContent).toContain('status: READY'); // Promoted, not bypassed
+  });
 });

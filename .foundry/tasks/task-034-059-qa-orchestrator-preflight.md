@@ -21,5 +21,5 @@ notes: ""
 Write tests to verify the pre-flight logic implemented in `.github/scripts/foundry-orchestrator.ts`.
 
 ## Acceptance Criteria
-- [ ] Verify that if a target artifact already exists and is fully valid according to the schema, the orchestrator skips dispatch for the corresponding generation task.
-- [ ] Verify that if a target artifact exists but is invalid, it is either flagged or handled correctly according to the implemented logic.
+- [x] Verify that if a target artifact already exists and is fully valid according to the schema, the orchestrator skips dispatch for the corresponding generation task.
+- [x] Verify that if a target artifact exists but is invalid, it is either flagged or handled correctly according to the implemented logic.
