@@ -2,7 +2,7 @@
 id: epic-011-022-implement-gray-matter
 type: EPIC
 title: "Epic: Implement Gray-Matter parsing system-wide"
-status: PENDING
+status: READY
 owner_persona: "epic_planner"
 created_at: "2026-05-02"
 updated_at: "2026-05-02"

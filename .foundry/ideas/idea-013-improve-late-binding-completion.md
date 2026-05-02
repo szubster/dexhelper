@@ -2,7 +2,7 @@
 id: idea-013-improve-late-binding-completion
 type: IDEA
 title: Improve Late Binding Parent Completion
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: "2026-05-02"
 updated_at: "2026-05-02"

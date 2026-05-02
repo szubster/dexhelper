@@ -315,3 +315,11 @@
 - **2026-05-02**: Heartbeat detected zombie session for `task-034-059-qa-orchestrator-preflight`. Transitioned to FAILED.
 
 - **2026-05-02**: Resurrection Loop triggered for `task-034-059-qa-orchestrator-preflight`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-02**: PR #871 merged. `epic-008-017-orchestrator-preflight-checks` is now COMPLETED.
+
+- **2026-05-02**: PR #873 merged. `prd-010-008-idempotent-node-generation` is now COMPLETED.
+
+- **2026-05-02**: PR #878 merged. `prd-012-011-gray-matter-parsing` is now COMPLETED.
+
+- **2026-05-02**: PR #880 merged. `task-034-059-qa-orchestrator-preflight` is now COMPLETED.
