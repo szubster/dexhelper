@@ -47,6 +47,30 @@ describe('gen2Exclusives', () => {
       });
     });
 
+    describe('Crystal Exclusives', () => {
+      it('should lock Mareep (179) in Crystal', () => {
+        const ownedSet = new Set<number>();
+        const reason = getGen2UnobtainableReason(179, 'crystal', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('not available in Crystal');
+      });
+
+      it('should lock Mankey (56) in Crystal', () => {
+        const ownedSet = new Set<number>();
+        const reason = getGen2UnobtainableReason(56, 'crystal', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('not available in Crystal');
+      });
+
+      it('should not lock Mareep (179) in Gold or Silver', () => {
+        const ownedSet = new Set<number>();
+        const reasonGold = getGen2UnobtainableReason(179, 'gold', 0, ownedSet);
+        const reasonSilver = getGen2UnobtainableReason(179, 'silver', 0, ownedSet);
+        expect(reasonGold).toBeNull();
+        expect(reasonSilver).toBeNull();
+      });
+    });
+
     describe('General Obtainable Pokémon', () => {
       it('should return null for normally obtainable Pokémon (Pidgey 16)', () => {
         const ownedSet = new Set<number>();

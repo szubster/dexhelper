@@ -293,3 +293,25 @@
 - **2026-05-02**: PR #864 merged. `epic-011-021-researcher-persona` is now COMPLETED.
 
 - **2026-05-02**: Heartbeat detected zombie session for `prd-012-011-gray-matter-parsing`. Transitioned to FAILED.
+
+- **2026-05-02**: PR #865 merged. `epic-005-015-legacy-data-migration` is now COMPLETED.
+
+- **2026-05-02**: PR #874 merged. `idea-003-atomic-handoff-foundation` is now COMPLETED.
+
+- **2026-05-02**: Resurrection Loop triggered for `prd-012-011-gray-matter-parsing`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-02**: PR #875 merged. `idea-010-idempotent-node-generation` is now COMPLETED.
+
+- **2026-05-02**: PR #872 merged. `prd-001-v2-lifecycle` is now COMPLETED.
+
+- **2026-05-02**: PR #866 merged. `prd-012-011-sibling-dependency-enforcement` is now COMPLETED.
+
+- **2026-05-02**: PR #876 merged. `idea-007-migrate-saves-to-indexeddb` is now COMPLETED.
+
+- **2026-05-02**: Heartbeat detected zombie session for `task-034-059-qa-orchestrator-preflight`. Transitioned to FAILED.
+
+- **2026-05-02**: Resurrection Loop triggered for `task-034-059-qa-orchestrator-preflight`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-02**: Heartbeat detected zombie session for `task-034-059-qa-orchestrator-preflight`. Transitioned to FAILED.
+
+- **2026-05-02**: Resurrection Loop triggered for `task-034-059-qa-orchestrator-preflight`. Reason: Retry from FAILED status.. Transitioned back to READY.
