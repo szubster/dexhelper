@@ -2,12 +2,12 @@
 id: epic-008-017-orchestrator-preflight-checks
 type: EPIC
 title: Orchestrator Pre-flight Generation Validation
-status: READY
+status: "ACTIVE"
 owner_persona: story_owner
 created_at: '2026-04-29'
-updated_at: '2026-04-30'
+updated_at: "2026-05-02"
 depends_on: []
-jules_session_id: null
+jules_session_id: "18287297455517020339"
 parent: .foundry/prds/prd-010-008-idempotent-node-generation.md
 tags:
   - orchestrator
