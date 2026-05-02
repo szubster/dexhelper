@@ -277,3 +277,15 @@
 - **2026-05-01**: PR #846 merged. `story-020-035-relax-node-engine` is now COMPLETED.
 
 - **2026-05-01**: PR #843 merged. `task-033-060-remove-localstorage-e2e` is now COMPLETED.
+
+- **2026-05-02**: PR #853 merged. `epic-005-016-e2e-testing-updates` is now COMPLETED.
+
+- **2026-05-02**: PR #852 merged. `idea-012-sibling-dependency-enforcement` is now COMPLETED.
+
+- **2026-05-02**: PR #857 merged. `idea-012-use-gray-matter-parsing` is now COMPLETED.
+
+- **2026-05-02**: PR #850 merged. `prd-011-009-researcher-persona` is now COMPLETED.
+
+- **2026-05-02**: PR #854 merged. `task-032-060-qa-legacy-save-migration` is now COMPLETED.
+
+- **2026-05-02**: PR #851 merged. `task-035-061-relax-node-engine` is now COMPLETED.
