@@ -24,4 +24,4 @@ Establish a system-wide rule and corresponding validation logic to ensure that e
 3. Ensure the orchestrator or a pre-commit validation script can optionally enforce or warn against this pattern.
 
 ## Acceptance Criteria
-- [ ] Create an ADR for Sibling Dependency Enforcement.
+- [x] Create an ADR for Sibling Dependency Enforcement.

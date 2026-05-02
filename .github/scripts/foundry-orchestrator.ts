@@ -394,6 +394,21 @@ function main(): void {
     }
   }
 
+  // ── Phase 3.1: SIBLING DEPENDENCY CHECK ────────────────────────────────────
+  info('Phase 3.1: Checking sibling dependencies...');
+  for (const [parentPath, children] of parentToChildren.entries()) {
+    if (children.length > 1) {
+      const sorted = [...children].sort((a, b) => a.frontmatter.id.localeCompare(b.frontmatter.id));
+      for (let i = 1; i < sorted.length; i++) {
+        const child = sorted[i];
+        const hasAnySiblingDep = child.frontmatter.depends_on.some(dep => children.some(c => c.repoPath === dep));
+        if (!hasAnySiblingDep && child.frontmatter.depends_on.length === 0) {
+          warn(`Sibling dependency missing: ${child.repoPath} shares parent ${parentPath} but defines no dependencies. This may cause premature DAG dispatching.`);
+        }
+      }
+    }
+  }
+
   let hasUnresolvableDeps = false;
 
   // Helper to recursively check if a node is blocked.
