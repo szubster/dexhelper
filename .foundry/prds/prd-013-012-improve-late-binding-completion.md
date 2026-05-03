@@ -2,12 +2,12 @@
 id: prd-013-012-improve-late-binding-completion
 type: PRD
 title: Improve Late Binding Parent Completion
-status: ACTIVE
+status: "FAILED"
 owner_persona: architect
 created_at: '2026-05-02'
-updated_at: '2026-05-03'
+updated_at: "2026-05-03"
 depends_on: []
-jules_session_id: '6970302152251493497'
+jules_session_id: null
 pr_number: null
 parent: .foundry/ideas/idea-013-improve-late-binding-completion.md
 tags:
