@@ -44,8 +44,8 @@ pr_number: null
     transitionNodeToActive(relPath, 'sessions/123456', tmpDir);
 
     const result = fs.readFileSync(path.join(tmpDir, relPath), 'utf-8');
-    expect(result).toContain('status: "ACTIVE"');
-    expect(result).toContain('jules_session_id: "sessions/123456"');
+    expect(result).toContain('status: ACTIVE');
+    expect(result).toContain('jules_session_id: sessions/123456');
     expect(result).not.toContain('status: READY');
     expect(result).toContain('# Body content');
   });
@@ -61,8 +61,8 @@ updated_at: "2026-04-20"
     transitionNodeToActive(relPath, 'run-quoted', tmpDir);
 
     const result = fs.readFileSync(path.join(tmpDir, relPath), 'utf-8');
-    expect(result).toContain('status: "ACTIVE"');
-    expect(result).toContain('jules_session_id: "run-quoted"');
+    expect(result).toContain('status: ACTIVE');
+    expect(result).toContain('jules_session_id: run-quoted');
   });
 
   test('Validation: fails if node is not READY', () => {
@@ -95,7 +95,7 @@ pr_number: 42
     const result = fs.readFileSync(path.join(tmpDir, relPath), 'utf-8');
     expect(result).toContain('id: task-001');
     expect(result).toContain('owner_persona: tech_lead');
-    expect(result).toContain('created_at: "2026-04-01"');
+    expect(result).toContain('created_at: \'2026-04-01\'');
     expect(result).toContain('pr_number: 42');
   });
 

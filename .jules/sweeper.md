@@ -10,3 +10,8 @@
 **Learning:** Duplicate agent learnings for tools like `knip` or `oxlint` can scatter across journals (e.g. `sweeper.md` and `strategist.md`).
 **Action:** Consolidate identical tool-specific learnings into a single comprehensive entry within the most relevant agent's journal to reduce noise and duplication.
 Removed unused type ClassValue import from src/utils/cn.ts by utilizing Parameters<typeof clsx> instead.
+
+## 2026-05-02 - SaveParser API and Knip Cleanup
+
+**Learning:** Sometime a file may be mistakenly ignored in `knip.json` even if it is fully integrated into the module graph.
+**Action:** Run `pnpm exec knip` periodically and check the `Configuration hints` output to identify entries that can be safely removed from the `knip.json` `ignore` array.

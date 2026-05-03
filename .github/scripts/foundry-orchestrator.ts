@@ -32,9 +32,6 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const matter = require('gray-matter') as typeof import('gray-matter');
 
-/** Regex to strip frontmatter from markdown content for body analysis. */
-const FM_STRIP_REGEX = /^---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*(?:\r?\n|$)/;
-
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 const VALID_STATUSES = [
@@ -80,6 +77,8 @@ interface ParsedNode {
   frontmatter: FoundryFrontmatter;
   /** Full raw file content — needed for surgical in-place mutation */
   rawContent: string;
+  /** Markdown body content without frontmatter */
+  body: string;
 }
 
 // ─── Required fields (schema §3.1) ───────────────────────────────────────────
@@ -229,6 +228,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
     repoPath,
     frontmatter: fm as FoundryFrontmatter,
     rawContent,
+    body: parsed.content,
   };
 }
 
@@ -238,47 +238,19 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
  * Mutates the on-disk markdown file to change `status: currentStatus` → `status: targetStatus`
  * and update `updated_at` to today's date.
  *
- * Strategy: surgical string replacement inside the raw frontmatter block only.
- * We do NOT re-serialize the full YAML (which would reorder keys and cause diff noise).
- * The two regexes target only the relevant lines, preserving everything else verbatim.
- *
  * In --dry-run mode, logs the intended change but does NOT write to disk.
  */
 function promoteNodeStatus(node: ParsedNode, currentStatus: Status, targetStatus: Status): void {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
-  // Locate the frontmatter block: --- ... --- at the start of the file.
-  // The block can use LF or CRLF; we handle both.
-  const fmBlockMatch = node.rawContent.match(/^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*/m);
-  if (!fmBlockMatch) {
-    warn(`${dryTag}Cannot locate frontmatter delimiters for mutation in: ${node.repoPath}`);
+  if (node.frontmatter.status !== currentStatus) {
+    warn(`${dryTag}Cannot promote status. Current status is ${node.frontmatter.status}, expected ${currentStatus} in: ${node.repoPath}`);
     return;
   }
 
-  const originalFmBlock = fmBlockMatch[0];
-  let mutatedFmBlock = originalFmBlock;
-
-  // ① Replace status (handles optional single/double quotes and trailing whitespace/CR).
-  //    The 'm' flag makes ^ and $ match line boundaries within the block.
-  mutatedFmBlock = mutatedFmBlock.replace(
-    new RegExp(`^(status:\\s*)(["']?)${currentStatus}\\2([ \\t\\r]*)$`, 'm'),
-    `$1$2${targetStatus}$2$3`,
-  );
-
-  // Sanity check
-  if (mutatedFmBlock === originalFmBlock) {
-    warn(`${dryTag}Could not find 'status: ${currentStatus}' line to replace in: ${node.repoPath}`);
-    return;
-  }
-
-  // ② Replace `updated_at` — handles both quoted and unquoted date values.
-  mutatedFmBlock = mutatedFmBlock.replace(
-    /^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t\r]*)$/m,
-    `$1"${dateStr}"$2`,
-  );
-
-  const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
+  const newData = { ...node.frontmatter, status: targetStatus, updated_at: dateStr };
+  const newContent = matter.stringify(node.body, newData);
 
   if (!DRY_RUN) {
     try {
@@ -290,8 +262,7 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: Status, targetStatus
   }
 
   // Update in-memory state so downstream phases see the correct status.
-  node.frontmatter.status = targetStatus;
-  node.frontmatter.updated_at = dateStr;
+  node.frontmatter = newData as FoundryFrontmatter;
   node.rawContent = newContent;
 
   info(`${dryTag}Promoted ${currentStatus} → ${targetStatus}: ${node.repoPath}`);
@@ -301,31 +272,8 @@ function promoteNodeToTpm(node: ParsedNode): void {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
-  const fmBlockMatch = node.rawContent.match(/^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*/m);
-  if (!fmBlockMatch) {
-    warn(`${dryTag}Cannot locate frontmatter delimiters for mutation in: ${node.repoPath}`);
-    return;
-  }
-
-  const originalFmBlock = fmBlockMatch[0];
-  let mutatedFmBlock = originalFmBlock;
-
-  mutatedFmBlock = mutatedFmBlock.replace(
-    /^(status:\s*)(["']?)[^"'\r\n]+?\2([ \t\r]*)$/m,
-    `$1$2BLOCKED$2$3`,
-  );
-
-  mutatedFmBlock = mutatedFmBlock.replace(
-    /^(owner_persona:\s*)(["']?)[^"'\r\n]+?\2([ \t\r]*)$/m,
-    `$1$2tpm$2$3`,
-  );
-
-  mutatedFmBlock = mutatedFmBlock.replace(
-    /^(updated_at:\s*)["']?\d{4}-\d{2}-\d{2}["']?([ \t\r]*)$/m,
-    `$1"${dateStr}"$2`,
-  );
-
-  const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
+  const newData = { ...node.frontmatter, status: 'BLOCKED', owner_persona: 'tpm', updated_at: dateStr };
+  const newContent = matter.stringify(node.body, newData);
 
   if (!DRY_RUN) {
     try {
@@ -336,9 +284,7 @@ function promoteNodeToTpm(node: ParsedNode): void {
     }
   }
 
-  node.frontmatter.status = 'BLOCKED';
-  node.frontmatter.owner_persona = 'tpm';
-  node.frontmatter.updated_at = dateStr;
+  node.frontmatter = newData as FoundryFrontmatter;
   node.rawContent = newContent;
 
   info(`${dryTag}Flagged node for TPM: ${node.repoPath}`);
@@ -606,7 +552,7 @@ function main(): void {
     if (!blocked) {
       // Preflight check
       const regex = /\.foundry\/(ideas|prds|epics|stories|tasks)\/[a-zA-Z0-9_-]+\.md/g;
-      const body = node.rawContent.replace(FM_STRIP_REGEX, '');
+      const body = node.body;
       const matches = [...new Set(body.match(regex) || [])];
 
       const targetArtifacts = matches.filter(m =>
@@ -647,7 +593,7 @@ function main(): void {
     // We restrict idempotent check to generation nodes (typically non-TASK,
     // but checking for explicit children links is the robust way)
     if (node.frontmatter.type !== 'TASK') {
-      const body = node.rawContent.replace(FM_STRIP_REGEX, '');
+      const body = node.body;
 
       const linkRegex = /\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^)]+\.md)\)/g;
       const links = [...body.matchAll(linkRegex)].map(m => m[1]);

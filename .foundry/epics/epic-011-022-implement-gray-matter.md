@@ -20,7 +20,7 @@ notes: "Derived from PRD prd-012-011-gray-matter-parsing. Enforces ADR-006."
 Standardize the parsing and serialization of Foundry nodes using `gray-matter` to replace the fragile regex-based custom parsers.
 
 ## Acceptance Criteria
-- [ ] `foundry-orchestrator.ts` uses `gray-matter` stringification for status promotions.
-- [ ] `foundry-active.ts` uses `gray-matter` stringification for active transitions.
-- [ ] Strict "dumb" diff checks that break due to formatting changes are removed or updated to compare the parsed data objects instead of raw string lengths.
-- [ ] All tests pass.
+- [x] `foundry-orchestrator.ts` uses `gray-matter` stringification for status promotions.
+- [x] `foundry-active.ts` uses `gray-matter` stringification for active transitions.
+- [x] Strict "dumb" diff checks that break due to formatting changes are removed or updated to compare the parsed data objects instead of raw string lengths.
+- [x] All tests pass.
