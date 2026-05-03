@@ -1,16 +1,20 @@
 ---
 id: idea-014-cascade-cancellation
 type: IDEA
-title: "DAG Feature: Cascade CANCELLED Statuses"
-status: "PENDING"
+title: 'DAG Feature: Cascade CANCELLED Statuses'
+status: READY
 owner_persona: product_manager
-created_at: "2026-05-03"
-updated_at: "2026-05-03"
+created_at: '2026-05-03'
+updated_at: '2026-05-03'
 depends_on: []
 jules_session_id: null
 parent: null
-tags: ["foundry", "dag", "orchestrator", "cancellation"]
-notes: ""
+tags:
+  - foundry
+  - dag
+  - orchestrator
+  - cancellation
+notes: ''
 ---
 
 # Idea: DAG Feature to Cascade CANCELLED Statuses
