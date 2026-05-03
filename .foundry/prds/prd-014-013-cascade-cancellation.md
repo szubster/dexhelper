@@ -45,4 +45,5 @@ While agents have been explicitly instructed to use the `FAILED` or `CANCELLED` 
 
 ## Acceptance Criteria
 
-- [ ] Epic Planner: Break this PRD down into actionable Epics.
+- [x] Epic Planner: Break this PRD down into actionable Epics.
+  - >> .foundry/epics/epic-013-023-orchestrator-cascade-cancellation.md
