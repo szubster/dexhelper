@@ -20,6 +20,8 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 - When writing E2E tests for visual components, use `argosScreenshot(page, 'name')` from `@argos-ci/playwright` to ensure visual fidelity
 - Use real save fixtures from `tests/fixtures` for integration and E2E tests
 - Use `initializeWithSave(page)` from `tests/e2e/test-utils.ts` to hydrate app state in E2E tests
+- Always call `await waitForSync(page)` in Playwright E2E tests after navigation to ensure IndexedDB sync completes
+- Always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()`) to satisfy strict Biome type-checking and avoid `any` usage
 - Keep each PR focused on one file or one user journey
 
 **Ask first:**
