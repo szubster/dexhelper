@@ -68,3 +68,13 @@ The orchestrator detected that target artifacts for `.foundry/prds/prd-007-005-m
 
 ### Action Taken
 Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.
+
+## 2026-05-03: Empty PR Masking Failure Anomaly
+
+### Observation
+The Legacy Save Migration implementation failed during QA validation (`task-032-060-qa-legacy-save-migration.md`), as the underlying code changes were not made. However, because the QA agent and Story Owner encountered cancellations/failures but did not update the YAML frontmatter to `status: FAILED`, the system used the "Empty PR Policy" loophole. Empty PRs were submitted and subsequently merged automatically by the orchestrator, incorrectly advancing the nodes to `COMPLETED`.
+
+### Action Taken
+1. Updated all persona prompts (`qa`, `coder`, `tech_lead`, `story_owner`, `epic_planner`, `product_manager`, `architect`, `agile_coach`, `tpm`) to explicitly warn that the Empty PR policy is strictly for pre-existing successful artifacts.
+2. Directed agents to update the YAML frontmatter to `status: FAILED` or `CANCELLED` and provide a `rejection_reason` when aborting tasks.
+3. Generated `idea-014-cascade-cancellation.md` to propose a native DAG Orchestrator feature to cascade the `CANCELLED` status down the node tree.
