@@ -21,3 +21,9 @@
 
 ## Data Integrity - Gen 2 Exclusives
 * **Data Pipeline Gotchas:** The Gen 2 version exclusives list (`goldExclusives` and `silverExclusives`) was hardcoded into the `detectGen2GameVersion` function inside the save parser and contained inaccuracies (e.g., missing Mantine, incorrectly attributing Ekans to Silver-only when it's obtainable in Gold via Game Corner). Additionally, the `suggestionEngine` was applying Gen 1 exclusive logic to Gen 2 games. Version exclusives should be managed in dedicated generation-specific modules (e.g., `gen2Exclusives.ts`) to be shared between save parsing version detection and suggestion logic.
+
+## Data Integrity - Late Game Johto Map Identifiers
+* **ROM parsing quirks / Data Pipeline Gotchas:** The Gen 2 map graph in `GEN2_MAP_TO_AID` incorrectly mapped late-game areas (Route 40 to 46, Silver Cave) to wrong PokeAPI Area IDs, or overrode each other. For example, Route 41 (Mantine's only spawn in Gold/Silver/Crystal) was erroneously assigned `aid: 424` (Hoenn Route 110) instead of its real Johto Sea Route 41 `aid: 226`, completely erasing Mantine from the `pnpm data:gen` output. The mapping dictionary must be cross-verified directly with PokeAPI `/api/v2/location-area/<id>` data when establishing connections.
+
+## Data Integrity - Gen 2 Exclusives Refactoring
+* **Data Pipeline Gotchas:** Gen 2 Exclusives correctly vary between Gold and Silver for the base game logic, but Crystal version dictates its own specific missing list (like missing Vulpix, Mareep, Remoraid). Ensure that array indexes in `GEN2_VERSION_EXCLUSIVES` use safe bracket notation (`['crystal']`) with a `// biome-ignore lint/complexity/useLiteralKeys` directive to satisfy TypeScript's strict index signature checks while remaining compatible with Biome.
