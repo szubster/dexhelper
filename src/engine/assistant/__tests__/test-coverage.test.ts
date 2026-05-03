@@ -184,3 +184,143 @@ test('coverage for suggestionEngine edge cases', () => {
   expect(jolteon).toBeDefined();
   expect(jolteon?.title).toContain('Item Needed');
 });
+
+test('coverage for gen 2 breeding edge case without valid base pokemon', () => {
+  const mockSaveData = {
+    generation: 2,
+    gameVersion: 'crystal',
+    owned: new Set([1]), // own bulbasaur, missing pichu (target)
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [{ speciesId: 1, level: 20, otName: 'PLAYER' } as PokemonInstance], // need physical instance of evo (bulbasaur)
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {},
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      50: {
+        id: 50, // Pichu
+        n: 'Pichu',
+        efrm: [],
+        det: [],
+        eto: [{ id: 1, min: 0, m: 1, tr: 1, mh: 220, item: null, held: null, time: null, rel_s: null }], // Pitchu evolves into Bulbasaur
+      },
+    },
+    areaNames: {},
+    allLocations: [],
+    allAreas: [],
+  } as unknown as AssistantApiData;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+
+  const pichu = suggestions.find((s) => s.pokemonId === 50);
+  expect(pichu).toBeDefined();
+  expect(pichu?.title).toContain('Breed');
+});
+
+test('coverage for missing target id in pokemonMetadata for Gen 2 breeding', () => {
+  const mockSaveData = {
+    generation: 2,
+    gameVersion: 'crystal',
+    owned: new Set([25]), // own Pikachu
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [{ speciesId: 25, level: 20, otName: 'PLAYER' } as PokemonInstance],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {},
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      // 50 is NOT defined here
+    },
+    areaNames: {},
+    allLocations: [],
+    allAreas: [],
+  } as unknown as AssistantApiData;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const diglett = suggestions.find((s) => s.pokemonId === 50);
+  expect(diglett).toBeUndefined();
+});
+
+test('coverage for generateSuggestions with missing parent / target id / empty details in evolution logic', () => {
+  const mockSaveData = {
+    generation: 2,
+    gameVersion: 'crystal',
+    owned: new Set([1, 2, 3]), // don't own 50
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {},
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      50: {
+        id: 50,
+        n: 'Diglett',
+        efrm: [25], // Diglett evolves from Pikachu (but we don't own Pikachu)
+        det: [],
+        eto: [],
+      },
+    },
+    areaNames: {},
+    allLocations: [],
+    allAreas: [],
+  } as unknown as AssistantApiData;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const diglett = suggestions.find((s) => s.pokemonId === 50);
+  expect(diglett).toBeUndefined();
+});
+
+test('coverage for missing target metadata entirely in evo logic', () => {
+  const mockSaveData = {
+    generation: 1,
+    gameVersion: 'red',
+    owned: new Set([1]),
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {},
+    ancestralEncounters: {},
+    pokemonMetadata: {},
+    areaNames: {},
+    allLocations: [],
+    allAreas: [],
+  } as unknown as AssistantApiData;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+  const invalidEvo = suggestions.find((s) => s.category === 'Evolve');
+  expect(invalidEvo).toBeUndefined();
+});

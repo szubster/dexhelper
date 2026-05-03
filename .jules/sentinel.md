@@ -59,3 +59,9 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 **Coverage Before/After**: Increased `SaveDB.ts` coverage from ~25% to 100%.
 **Why this target matters**: `SaveDB` heavily relies on IndexedDB (`idb` wrapper) and has explicit fallback behavior when IndexedDB initialization fails (e.g., throwing error on `openDB`). Covering these fallback paths is critical for ensuring reliable data loading/error paths.
 **Learning**: Vitest's `vi.doMock` requires type parameters for generic functions like `vi.fn<() => Promise<never>>()` to satisfy Biome type checks under `@tsconfig/strictest`.
+
+## 2026-04-24 - suggestionEngine test coverage for edge cases
+**What**: Added comprehensive edge case coverage for `suggestionEngine.ts` including the `checkFlag` utility logic, breeding checks without valid base Pokemon, and missing metadata.
+**Coverage Before/After**: Increased `src/engine/assistant/suggestionEngine.ts` branch coverage from ~35% to ~57% and line coverage from ~55% to ~74%.
+**Why this target matters**: `suggestionEngine.ts` is the absolute core of the assistant feature. Testing edge cases like corrupted/missing flags, missing evolutionary chains, and breeding target mismatches ensures the engine won't crash when handed slightly invalid or incomplete Save/API data.
+**Learning**: To test a private/unexported utility function (`checkFlag`) without exposing it (which would violate constraints), you can construct mock `SaveData` structures (like passing an out-of-bounds `Uint8Array` or `undefined` for `eventFlags`) and verify the resulting suggestions (e.g. confirming a gift suggestion still appears because `checkFlag` safely returned `false`).
