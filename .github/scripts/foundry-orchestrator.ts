@@ -584,6 +584,46 @@ function main(): void {
 
   info(`${eligible.length} node(s) eligible for promotion to READY.`);
 
+  // ── Phase 4.1: Late-Binding Completion ────────────────────────────────────
+  info('Phase 4.1: Checking for completed Late-Binding parents...');
+  for (const node of nodes) {
+    if (node.frontmatter.status === 'PENDING') {
+      const children = parentToChildren.get(node.repoPath) || [];
+      if (children.length > 0) {
+        // Parent is PENDING and has children. Check if ALL children are COMPLETED.
+        let allChildrenCompleted = true;
+        for (const child of children) {
+          if (child.frontmatter.status !== 'COMPLETED') {
+            allChildrenCompleted = false;
+            break;
+          }
+        }
+
+        if (allChildrenCompleted) {
+          let isDepIncomplete = false;
+          for (const depPath of node.frontmatter.depends_on) {
+            if (isHierarchicallyIncomplete(depPath, node.repoPath)) {
+              isDepIncomplete = true;
+              break;
+            }
+          }
+
+          if (!isDepIncomplete) {
+            info(`Late-Binding Parent Complete: ${node.repoPath} has children and all are COMPLETED. Promoting directly to COMPLETED.`);
+            promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+            // Remove from eligible if it was added
+            const idx = eligible.indexOf(node);
+            if (idx !== -1) {
+              eligible.splice(idx, 1);
+            }
+          } else {
+            info(`Late-Binding Parent: ${node.repoPath} has completed children, but is waiting on dependencies.`);
+          }
+        }
+      }
+    }
+  }
+
   // ── Phase 4.5: IDEMPOTENT GENERATION CHECK ────────────────────────────────
   info('Phase 4.5: Performing idempotent generation checks...');
   const finalEligible: ParsedNode[] = [];

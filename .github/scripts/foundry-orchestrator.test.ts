@@ -302,6 +302,40 @@ jules_session_id: null
     expect(storyContent).toContain('status: READY');
   });
 
+  test('Late-Binding: Parent wakes up when children are COMPLETED', () => {
+    // Epic 1: PENDING (Waiting for children)
+    createNode('.foundry/epics/epic-001.md', `
+id: epic-001
+type: EPIC
+title: "Epic 1"
+status: PENDING
+owner_persona: epic_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    // Story 1: Child of Epic 1, COMPLETED
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story 1"
+status: COMPLETED
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/epics/epic-001.md
+jules_session_id: null
+`);
+
+    main();
+
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: COMPLETED');
+  });
+
   test('Deep Hierarchical Completion: blocks external dependent if dependency has deep incomplete children', () => {
     // Story 1: COMPLETED
     createNode('.foundry/stories/story-001.md', `
