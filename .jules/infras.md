@@ -38,3 +38,6 @@
 
 ## 2026-05-02 - Added pnpm audit to CI
 **Learning:** Added `pnpm audit` job to `.github/workflows/ci.yml` to automatically catch dependency vulnerabilities during CI runs. Configured it to run with `--prod` flag to avoid failing builds on devDependency vulnerabilities, as they are mostly harmless in this context and can block releases unnecessarily.
+
+## 2026-05-03 - Suppressed chunk size warning limit
+**Learning:** Added `chunkSizeWarningLimit: 1000` to `vite.config.ts` to suppress noisy terminal warnings (`Some chunks are larger than 500 kB`) during builds. The user previously decided to favor a single chunk setup because the app is small and splitting would marginalize caching benefits due to frequent updates. This cleans up the build DX while retaining the deliberate architectural choice.
