@@ -85,6 +85,7 @@ export default defineConfig(() => {
     },
     build: {
       target,
+      chunkSizeWarningLimit: 1000,
       cssMinify: 'lightningcss' as const,
       cssCodeSplit: false,
       assetsInlineLimit: 102400, // Inline assets up to 100KB
