@@ -21,6 +21,16 @@ import type { UnifiedLocation } from '../../db/schema';
 const locationCache = new Map<number, UnifiedLocation>();
 let lastLocationsRef: UnifiedLocation[] | null = null;
 
+/**
+ * Retrieves a location by ID using a cached Map to ensure O(1) lookup performance.
+ * The cache is automatically invalidated and rebuilt if the `allLocations` array reference changes.
+ * This optimization is necessary because the suggestion engine frequently looks up locations
+ * by ID during graph traversal, and O(N) `Array.find` calls would degrade performance.
+ *
+ * @param allLocations - The unified list of all map locations.
+ * @param id - The ID of the location to retrieve.
+ * @returns The UnifiedLocation object, or undefined if not found.
+ */
 function getLocation(allLocations: UnifiedLocation[], id: number): UnifiedLocation | undefined {
   if (lastLocationsRef !== allLocations) {
     locationCache.clear();
