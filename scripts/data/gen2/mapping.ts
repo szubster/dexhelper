@@ -10,6 +10,10 @@ interface Gen2MapNode {
 }
 
 export const GEN2_MAP_TO_AID: Record<number, Record<number, Gen2MapNode>> = {
+  19: {
+    1: { name: 'Route 28', aid: 289, connections: [0x1801] }, // Connects to Route 27
+    2: { name: 'Silver Cave Outside', aid: 269, connections: [0x1301] }, // Connects to Route 28
+  },
   3: {
     1: { name: 'New Bark Town', aid: 184, connections: [0x1803] }, // Rd 29
     2: { name: 'Cherrygrove City', aid: 186, connections: [0x1803, 0x1a01] }, // Rd 29, Rd 30
@@ -30,7 +34,7 @@ export const GEN2_MAP_TO_AID: Record<number, Record<number, Gen2MapNode>> = {
     57: { name: 'Mt. Mortar', aid: 248, connections: [0x0204] }, // Rd 42
     61: { name: 'Ice Path', aid: 250, connections: [0x0205, 0x030b] }, // Rd 44, Blackthorn
     66: { name: 'Whirl Islands', aid: 237, connections: [0x1602] }, // Rd 41
-    74: { name: 'Silver Cave', aid: 252, connections: [] }, 
+    74: { name: 'Silver Cave', aid: 269, connections: [] },
     78: { name: 'Dark Cave', aid: 191, connections: [0x1a02, 0x0508] }, // Rd 31, Rd 45
     80: { name: "Dragon's Den", aid: 251, connections: [0x030b] }, // Blackthorn
     83: { name: 'Tohjo Falls', aid: 843, connections: [0x1802] }, // Rd 27
@@ -56,9 +60,9 @@ export const GEN2_MAP_TO_AID: Record<number, Record<number, Gen2MapNode>> = {
     10: { name: 'Route 39', aid: 422, connections: [0x0109, 0x0307] } 
   },
   2: { 
-    4: { name: 'Route 42', aid: 425, connections: [0x0308, 0x0339, 0x0309] }, 
-    5: { name: 'Route 44', aid: 425, connections: [0x0309, 0x033d] }, 
-    6: { name: 'Route 44', aid: 427, connections: [0x0309, 0x033d] } 
+    4: { name: 'Route 42', aid: 236, connections: [0x0308, 0x0339, 0x0309] },
+    5: { name: 'Route 44', aid: 243, connections: [0x0309, 0x033d] },
+    6: { name: 'Route 44', aid: 243, connections: [0x0309, 0x033d] }
   },
   11: { 
     1: { name: 'Route 35', aid: 417, connections: [0x0306, 0x030f] }, 
@@ -66,17 +70,17 @@ export const GEN2_MAP_TO_AID: Record<number, Record<number, Gen2MapNode>> = {
     23: { name: 'Route 34', aid: 420 } 
   },
   5: { 
-    8: { name: 'Route 45', aid: 428, connections: [0x030b, 0x034e, 0x0509] }, 
-    9: { name: 'Route 46', aid: 429, connections: [0x0508, 0x1803] } 
+    8: { name: 'Route 45', aid: 251, connections: [0x030b, 0x034e, 0x0509] },
+    9: { name: 'Route 46', aid: 252, connections: [0x0508, 0x1803] }
   },
   9: { 
-    3: { name: 'Route 43', aid: 426, connections: [0x0309, 0x030a] }, 
-    4: { name: 'Route 43', aid: 426, connections: [0x0309, 0x030a] }, 
-    5: { name: 'Route 43', aid: 426, connections: [0x0309, 0x030a] } 
+    3: { name: 'Route 43', aid: 241, connections: [0x0309, 0x030a] },
+    4: { name: 'Route 43', aid: 241, connections: [0x0309, 0x030a] },
+    5: { name: 'Route 43', aid: 241, connections: [0x0309, 0x030a] }
   },
   22: { 
-    1: { name: 'Route 40', aid: 423, connections: [0x0307, 0x1602] }, 
-    2: { name: 'Route 41', aid: 424, connections: [0x1601, 0x0305, 0x0342] } 
+    1: { name: 'Route 40', aid: 225, connections: [0x0307, 0x1602] },
+    2: { name: 'Route 41', aid: 226, connections: [0x1601, 0x0305, 0x0342] }
   },
 };
 

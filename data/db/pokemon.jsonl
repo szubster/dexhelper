@@ -120,7 +120,7 @@
 {"id":120,"n":"Staryu","cr":225,"gr":-1,"eto":[{"id":121,"det":[{"tr":3,"item":84}],"ef":120}]}
 {"id":121,"n":"Starmie","cr":60,"gr":-1,"efrm":[120],"det":[{"tr":3,"item":84}]}
 {"id":122,"n":"Mr. Mime","cr":45,"eto":[{"id":866,"ef":122}],"efrm":[439],"det":[{},{}]}
-{"id":123,"n":"Scyther","cr":45,"eto":[{"id":212,"det":[{"tr":2,"held":210}],"ef":123},{"id":900,"det":[{"tr":3,"item":10001}],"ef":123}]}
+{"id":123,"n":"Scyther","cr":45,"eto":[{"id":212,"det":[{"tr":2,"held":210}],"ef":123},{"id":900,"det":[{"tr":3,"item":2230}],"ef":123}]}
 {"id":124,"n":"Jynx","cr":45,"gr":8,"efrm":[238],"det":[{"ml":30}]}
 {"id":125,"n":"Electabuzz","cr":45,"gr":2,"eto":[{"id":466,"det":[{"tr":2,"held":299}],"ef":125}],"efrm":[239],"det":[{"ml":30}]}
 {"id":126,"n":"Magmar","cr":45,"gr":2,"eto":[{"id":467,"det":[{"tr":2,"held":300}],"ef":126}],"efrm":[240],"det":[{"ml":30}]}
@@ -213,8 +213,8 @@
 {"id":213,"n":"Shuckle","cr":190}
 {"id":214,"n":"Heracross","cr":45}
 {"id":215,"n":"Sneasel","cr":60,"eto":[{"id":461,"det":[{"held":303,"time":2}],"ef":215},{"id":903,"ef":215}]}
-{"id":216,"n":"Teddiursa","cr":120,"eto":[{"id":217,"eto":[{"id":901,"det":[{"tr":3,"item":10002}],"ef":217}],"det":[{"ml":30}],"ef":216}]}
-{"id":217,"n":"Ursaring","cr":60,"eto":[{"id":901,"det":[{"tr":3,"item":10002}],"ef":217}],"efrm":[216],"det":[{"ml":30}]}
+{"id":216,"n":"Teddiursa","cr":120,"eto":[{"id":217,"eto":[{"id":901,"det":[{"tr":3,"item":2231}],"ef":217}],"det":[{"ml":30}],"ef":216}]}
+{"id":217,"n":"Ursaring","cr":60,"eto":[{"id":901,"det":[{"tr":3,"item":2231}],"ef":217}],"efrm":[216],"det":[{"ml":30}]}
 {"id":218,"n":"Slugma","cr":190,"eto":[{"id":219,"det":[{"ml":38}],"ef":218}]}
 {"id":219,"n":"Magcargo","cr":75,"efrm":[218],"det":[{"ml":38}]}
 {"id":220,"n":"Swinub","cr":225,"eto":[{"id":221,"eto":[{"id":473,"det":[{}],"ef":221}],"det":[{"ml":33}],"ef":220}]}
