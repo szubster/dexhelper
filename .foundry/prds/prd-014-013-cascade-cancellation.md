@@ -2,12 +2,12 @@
 id: prd-014-013-cascade-cancellation
 type: PRD
 title: 'PRD: Cascade CANCELLED Statuses'
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-03'
 updated_at: '2026-05-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8000738141856617443'
 pr_number: null
 parent: .foundry/ideas/idea-014-cascade-cancellation.md
 tags:
