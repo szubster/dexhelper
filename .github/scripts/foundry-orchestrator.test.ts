@@ -336,6 +336,71 @@ jules_session_id: null
     expect(epicContent).toContain('status: COMPLETED');
   });
 
+  test('Cascade Cancellation: cancels child nodes of CANCELLED parent recursively', () => {
+    createNode('.foundry/epics/epic-001.md', `
+id: epic-001
+type: EPIC
+title: "Cancelled Epic"
+status: CANCELLED
+owner_persona: epic_planner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story of Cancelled Epic"
+status: PENDING
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: ".foundry/epics/epic-001.md"
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-001.md', `
+id: task-001
+type: TASK
+title: "Task of Story"
+status: READY
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: ".foundry/stories/story-001.md"
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-002.md', `
+id: task-002
+type: TASK
+title: "Completed Task of Story"
+status: COMPLETED
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: ".foundry/stories/story-001.md"
+jules_session_id: null
+`);
+
+    main();
+
+    const storyResult = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
+    expect(storyResult).toContain('status: CANCELLED');
+
+    const task1Result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-001.md'), 'utf-8');
+    expect(task1Result).toContain('status: CANCELLED');
+
+    // Should not overwrite COMPLETED
+    const task2Result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
+    expect(task2Result).toContain('status: COMPLETED');
+  });
+
   test('Deep Hierarchical Completion: blocks external dependent if dependency has deep incomplete children', () => {
     // Story 1: COMPLETED
     createNode('.foundry/stories/story-001.md', `

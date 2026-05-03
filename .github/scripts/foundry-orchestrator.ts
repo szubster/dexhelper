@@ -340,6 +340,32 @@ function main(): void {
     }
   }
 
+  // ── Phase 3.1: CASCADE CANCELLATIONS ───────────────────────────────────────
+  info('Phase 3.1: Cascading CANCELLED statuses...');
+  // Find all explicitly cancelled nodes
+  const cancelledNodes = new Set<string>();
+  for (const node of nodes) {
+    if (node.frontmatter.status === 'CANCELLED') {
+      cancelledNodes.add(node.repoPath);
+    }
+  }
+
+  // Helper to cascade cancellation to children recursively
+  function cascadeCancel(parentPath: string) {
+    const children = parentToChildren.get(parentPath) || [];
+    for (const child of children) {
+      if (child.frontmatter.status !== 'COMPLETED' && child.frontmatter.status !== 'CANCELLED') {
+        promoteNodeStatus(child, child.frontmatter.status, 'CANCELLED');
+        cancelledNodes.add(child.repoPath);
+        cascadeCancel(child.repoPath); // Recursive call
+      }
+    }
+  }
+
+  for (const cancelledPath of Array.from(cancelledNodes)) {
+    cascadeCancel(cancelledPath);
+  }
+
   let hasUnresolvableDeps = false;
 
   // Helper to recursively check if a node is blocked.
