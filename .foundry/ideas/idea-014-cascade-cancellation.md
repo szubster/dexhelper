@@ -2,12 +2,12 @@
 id: idea-014-cascade-cancellation
 type: IDEA
 title: 'DAG Feature: Cascade CANCELLED Statuses'
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-03'
 updated_at: '2026-05-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16105453329357403999'
 parent: null
 tags:
   - foundry
