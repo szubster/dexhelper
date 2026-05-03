@@ -2,7 +2,7 @@
 id: prd-014-013-cascade-cancellation
 type: PRD
 title: 'PRD: Cascade CANCELLED Statuses'
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-05-03'
 updated_at: '2026-05-03'

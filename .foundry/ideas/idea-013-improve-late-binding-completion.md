@@ -2,12 +2,12 @@
 id: idea-013-improve-late-binding-completion
 type: IDEA
 title: Improve Late Binding Parent Completion
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: product_manager
 created_at: "2026-05-02"
-updated_at: "2026-05-02"
+updated_at: "2026-05-03"
 depends_on: []
-jules_session_id: "3587109178165525532"
+jules_session_id: null
 parent: null
 tags: ["orchestrator", "late-binding", "bug"]
 rejection_count: 0
