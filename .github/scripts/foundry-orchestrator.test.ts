@@ -85,7 +85,7 @@ pr_number: null
 id: idea-001
 type: IDEA
 title: "Idea 1"
-status: ACTIVE
+status: FAILED
 owner_persona: product_manager
 created_at: "2026-04-20"
 updated_at: "2026-04-20"

@@ -562,19 +562,29 @@ function main(): void {
       );
 
       let bypassDispatch = false;
+      let allTargetsCompleted = false;
+
       if (targetArtifacts.length > 0) {
-        bypassDispatch = true;
+        allTargetsCompleted = true;
         for (const target of targetArtifacts) {
           const targetNode = nodeMap.get(target);
-          if (!targetNode) {
-            bypassDispatch = false;
+          if (!targetNode || targetNode.frontmatter.status !== 'COMPLETED') {
+            allTargetsCompleted = false;
             break;
           }
         }
+        if (allTargetsCompleted) {
+          bypassDispatch = true;
+        }
       }
 
+      const children = parentToChildren.get(node.repoPath) || [];
+
       if (bypassDispatch) {
-        info(`Preflight success: Valid target artifacts exist. Bypassing dispatch for ${node.repoPath}`);
+        info(`Preflight success: Valid target artifacts exist and are completed. Bypassing dispatch for ${node.repoPath}`);
+        promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+      } else if (targetArtifacts.length === 0 && children.length > 0) {
+        info(`Late binding completion: ${node.repoPath} has no pending target artifacts and all spawned children are complete.`);
         promoteNodeStatus(node, 'PENDING', 'COMPLETED');
       } else {
         eligible.push(node);
