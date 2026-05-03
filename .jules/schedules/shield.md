@@ -16,6 +16,8 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - **NEW:** Prevent Open Redirects by validating user-controlled input before assigning to `window.location.href` or router redirects.
 - **NEW:** Prevent unsafe deserialization by ensuring no use of `eval()`, `new Function()`, or unsafe `JSON.parse` patterns.
 - **NEW:** Avoid storing sensitive tokens or PII unencrypted in `localStorage` or `sessionStorage`.
+- **NEW:** Guard against Regular Expression Denial of Service (ReDoS) by auditing complex or nested regex patterns used on user input.
+- **NEW:** Ensure proper validation of `postMessage` event origins (`event.origin`) before processing incoming cross-origin messages.
 
 
 ## Boundaries
@@ -35,7 +37,7 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 
 ## Process
 
-1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`. (Hint: check for `Math.random`, `console.error(err)` without `.message`, `dangerouslySetInnerHTML`, `target="_blank"`, `url.includes`, and `Object.assign`, `eval(`, `window.location`)
+1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`. (Hint: check for `Math.random`, `console.error(err)` without `.message`, `dangerouslySetInnerHTML`, `target="_blank"`, `url.includes`, `Object.assign`, `eval(`, `window.location`, `window.postMessage`, and complex regex)
 2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, improve this scheduled prompt itself or perform a dependency audit.
 3. **Secure** — implement the fix and add validating tests if possible.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
