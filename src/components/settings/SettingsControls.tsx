@@ -65,6 +65,7 @@ export function SettingsControls({
           role="switch"
           aria-checked={isLivingDex}
           aria-label="Toggle Living Dex Mode"
+          title="Toggle Living Dex Mode"
           onClick={() => setIsLivingDex(!isLivingDex)}
           className={`relative inline-flex h-7 w-12 items-center border border-dashed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${isLivingDex ? 'border-emerald-500/50 bg-emerald-950/50' : 'border-zinc-800 bg-zinc-900'}`}
         >
