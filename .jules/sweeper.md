@@ -15,3 +15,6 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 
 **Learning:** Sometime a file may be mistakenly ignored in `knip.json` even if it is fully integrated into the module graph.
 **Action:** Run `pnpm exec knip` periodically and check the `Configuration hints` output to identify entries that can be safely removed from the `knip.json` `ignore` array.
+
+## 2026-05-03 - Improved Orchestrator Late-Binding Completion
+**Learning:** Addressed a bug in `.github/scripts/foundry-orchestrator.ts` where Late-Binding parent nodes (nodes waiting for dynamically generated children to complete) would remain stuck in a PENDING state indefinitely even after all children successfully completed. Added a dedicated detection phase (Phase 4.1) to find these specific `PENDING` nodes, verify they possess children, check if strictly all children are `COMPLETED`, ensure no implicit/explicit dependencies are unfulfilled, and directly promote the parent node to `COMPLETED`. Unit tested and validated to maintain DAG integrity.
