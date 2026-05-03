@@ -60,3 +60,9 @@
 **Outcome:** Merged
 **Why:** The Sweeper journal explicitly noted that knip can hallucinate unused files that are implicitly used in configs or test runners, and that agents must use grep to verify. Additionally, system memory requires the PR title format to strictly be `🧹 [description]`.
 **Pattern:** Codify system memory constraints and specific tool-verification requirements into agent prompts to avoid regressions.
+
+## 2026-06-05 - [Accepted] - Prompt improvement - Update Sentinel to prevent flaky E2E tests and Vitest lint errors
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** Sentinel's history showed recurring issues with E2E tests failing due to un-awaited IndexedDB syncs after navigation, and Vitest tests failing Biome's strict type checking (`lint/suspicious/noExplicitAny`) when creating `vi.fn()` mocks without explicit type parameters.
+**Pattern:** Proposing changes to correctly configure testing tools and eliminate recurring developer friction caused by missing boundaries in agent prompts.
