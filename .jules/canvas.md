@@ -68,3 +68,9 @@
 **Outcome:** Accepted
 **Why:** Brings the main structural shell of the application in line with the rest of the application's heavily tactical, snooping-focused aesthetic (like the Grid, Details, Search, BottomNav, and Settings).
 **Pattern:** Ensure the top-level structural components adhere to the tactical aesthetics (sharp edges, corner crosshairs, monospace text) to maintain overall visual coherence.
+
+## 2025-06-30 - [Accepted] - 🖼️ Canvas: Tactical VersionModal Redesign
+**What:** Redesigned the `VersionModal` component to fully embrace the utility-driven tactical "snooping" aesthetic. Replaced all rounded glassmorphism with sharp edges (`rounded-none`), dashed borders, `CornerCrosshairs`, radar scanline hover effects, and monospaced telemetry fonts (`SYS.VERSION_CONFLICT`).
+**Outcome:** Accepted
+**Why:** Brings the version conflict resolution interface in line with the rest of the application's tactical hardware motif (matching AppLayout, Settings, and SyncProgress).
+**Pattern:** Consistently eliminate generic web UI patterns (rounded corners, soft hover states) in favor of sharp, high-contrast, terminal-like aesthetics for modals.
