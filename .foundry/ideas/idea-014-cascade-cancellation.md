@@ -31,4 +31,6 @@ Specifically, if a parent node (like an Epic) is marked as `CANCELLED`, the orch
 Better handling of cancelled features, preventing wasted effort on downstream tasks, and closing loopholes where failures are disguised as completions.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea to a PRD.
+- [x] Product Manager: Convert this idea to a PRD.
+
+[.foundry/prds/prd-014-013-cascade-cancellation.md](.foundry/prds/prd-014-013-cascade-cancellation.md)
