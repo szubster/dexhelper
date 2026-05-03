@@ -2,7 +2,7 @@
 id: prd-013-012-improve-late-binding-completion
 type: PRD
 title: Improve Late Binding Parent Completion
-status: "FAILED"
+status: "READY"
 owner_persona: "architect"
 created_at: "2026-05-02"
 updated_at: "2026-05-03"
@@ -12,7 +12,7 @@ pr_number: null
 parent: .foundry/ideas/idea-013-improve-late-binding-completion.md
 tags: ["orchestrator", "late-binding", "bug"]
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ""
 notes: ""
 ---
