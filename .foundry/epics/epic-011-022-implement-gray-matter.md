@@ -2,13 +2,13 @@
 id: epic-011-022-implement-gray-matter
 type: EPIC
 title: "Epic: Implement Gray-Matter parsing system-wide"
-status: "ACTIVE"
+status: "COMPLETED"
 owner_persona: "epic_planner"
 created_at: "2026-05-02"
-updated_at: "2026-05-02"
+updated_at: "2026-05-03"
 depends_on:
   - .foundry/prds/prd-012-011-gray-matter-parsing.md
-jules_session_id: "17030543938602191660"
+jules_session_id: null
 parent: ".foundry/prds/prd-012-011-gray-matter-parsing.md"
 tags: ["foundry", "parsing", "gray-matter", "maintenance"]
 notes: "Derived from PRD prd-012-011-gray-matter-parsing. Enforces ADR-006."
