@@ -35,3 +35,6 @@ Verified empty state prompt inclusion in scheduled-agent workflow by extracting 
 - Replaced the implementation to directly rely on `IndexedDB` via `saveDB.getSave`.
 - Updated test cases in `src/store.test.ts` to mock `saveDB.getSave` successfully instead of `localStorage`.
 - Verified the changes by running `pnpm lint`, `pnpm test`, and `pnpm test:e2e` to ensure no regressions were introduced.
+
+## 2026-05-04: Implement Cascading Cancellation in Orchestrator
+The target artifact already exists and is complete. The cascading cancellation logic is already implemented in `cascadeCancel` at Phase 3.1 in `.github/scripts/foundry-orchestrator.ts`. The corresponding unit tests covering all required cases are already present in `.github/scripts/foundry-orchestrator.test.ts`. Submitting an empty PR to allow the DAG to progress.
