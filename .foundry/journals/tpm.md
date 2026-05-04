@@ -34,3 +34,7 @@
 - **2026-05-04**: PR #930 merged. `task-036-062-implement-cascade-cancellation` is now COMPLETED.
 
 - **2026-05-04**: Heartbeat detected zombie session for `epic-014-025-enforce-persona-pipeline-handoffs`. Transitioned to FAILED.
+
+- **2026-05-04**: Heartbeat detected zombie session for `story-024-037-orchestrator-late-binding-completion`. Transitioned to FAILED.
+
+- **2026-05-04**: Resurrection Loop triggered for `epic-014-025-enforce-persona-pipeline-handoffs`. Reason: Retry from FAILED status.. Transitioned back to READY.
