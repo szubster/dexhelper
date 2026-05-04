@@ -42,3 +42,9 @@
 - **2026-05-04**: PR #939 merged. `task-036-063-qa-cascade-cancellation` is now COMPLETED.
 
 - **2026-05-04**: Resurrection Loop triggered for `story-024-037-orchestrator-late-binding-completion`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-04**: PR #940 merged. `epic-014-025-enforce-persona-pipeline-handoffs` is now PENDING.
+
+- **2026-05-04**: PR #941 merged. `idea-006-gen2-expansion` is now PENDING.
+
+- **2026-05-04**: PR #943 merged. `story-024-037-orchestrator-late-binding-completion` is now COMPLETED.

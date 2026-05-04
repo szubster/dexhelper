@@ -2,10 +2,10 @@
 id: story-025-038-implement-mapping-validation
 type: STORY
 title: Implement Mapping Validation in DAG Orchestrator
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-05-04"
-updated_at: "2026-05-04"
+created_at: '2026-05-04'
+updated_at: '2026-05-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - validation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Implement Mapping Validation in DAG Orchestrator

@@ -2,7 +2,7 @@
 id: prd-006-015-gen2-expansion-phase-1-2
 type: PRD
 title: 'Gen 2 Expansion PRD: Phase 1 and 2'
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-05-04'
 updated_at: '2026-05-04'
@@ -17,8 +17,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 2 Expansion PRD: Phase 1 and 2

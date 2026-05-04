@@ -2,12 +2,12 @@
 id: story-024-037-orchestrator-late-binding-completion
 type: STORY
 title: 'Story: Handle Late-Binding Parent Completion'
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: coder
 created_at: '2026-05-04'
-updated_at: '2026-05-04'
+updated_at: "2026-05-04"
 depends_on: []
-jules_session_id: '5064556441935438928'
+jules_session_id: null
 pr_number: null
 parent: .foundry/epics/epic-012-024-improve-late-binding-completion.md
 tags:
