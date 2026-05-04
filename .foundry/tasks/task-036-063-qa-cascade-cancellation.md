@@ -31,6 +31,6 @@ The Coder has implemented and tested the cascading cancellation feature in the F
 4. Confirm that idempotency is maintained, meaning repeated runs do not cause issues.
 
 ## Acceptance Criteria
-- [ ] Code review completed.
-- [ ] Unit tests reviewed and confirm correctness.
-- [ ] Tests execute and pass cleanly.
+- [x] Code review completed.
+- [x] Unit tests reviewed and confirm correctness.
+- [x] Tests execute and pass cleanly.
