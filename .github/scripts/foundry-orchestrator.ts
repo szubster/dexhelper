@@ -606,11 +606,17 @@ function main(): void {
 
       const children = parentToChildren.get(node.repoPath) || [];
 
+      const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(node.body);
+
       if (bypassDispatch) {
-        info(`Preflight success: Valid target artifacts exist and are completed. Bypassing dispatch for ${node.repoPath}`);
-        promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+        if (hasUncheckedTasks) {
+          info(`Preflight success: Valid target artifacts exist and are completed, but ${node.repoPath} still has unchecked tasks. Promoting to READY.`);
+          eligible.push(node);
+        } else {
+          info(`Preflight success: Valid target artifacts exist and are completed. Bypassing dispatch for ${node.repoPath}`);
+          promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+        }
       } else if (targetArtifacts.length === 0 && children.length > 0) {
-        const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(node.body);
         if (hasUncheckedTasks) {
           info(`Late-Binding Parent Waking Up: ${node.repoPath} has completed children, but still has unchecked tasks. Promoting to READY.`);
           eligible.push(node);
@@ -709,20 +715,27 @@ function main(): void {
       }
     }
 
+    const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(node.body);
+
     if (shouldBypass) {
-      info(`Idempotent check bypassed dispatch for ${node.repoPath} (artifacts already exist).`);
-      promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+      if (hasUncheckedTasks) {
+        info(`Idempotent check: Artifacts for ${node.repoPath} already exist, but node still has unchecked tasks. Promoting to READY.`);
+        finalEligible.push(node);
+      } else {
+        info(`Idempotent check bypassed dispatch for ${node.repoPath} (artifacts already exist).`);
+        promoteNodeStatus(node, 'PENDING', 'COMPLETED');
 
-      const dateStr = todayISO();
-      const logPath = require('node:path').join(repoRoot, '.foundry/journals/agile_coach.md');
-      const logEntry = `\n## ${dateStr}: Pre-existing Artifacts Anomaly\n\n### Observation\nThe orchestrator detected that target artifacts for \`${node.repoPath}\` already existed and were completely formed before dispatch.\n\n### Action Taken\nBypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.\n`;
+        const dateStr = todayISO();
+        const logPath = require('node:path').join(repoRoot, '.foundry/journals/agile_coach.md');
+        const logEntry = `\n## ${dateStr}: Pre-existing Artifacts Anomaly\n\n### Observation\nThe orchestrator detected that target artifacts for \`${node.repoPath}\` already existed and were completely formed before dispatch.\n\n### Action Taken\nBypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.\n`;
 
-      if (!DRY_RUN) {
-        try {
-          fs.appendFileSync(logPath, logEntry, 'utf-8');
-          info(`Logged anomaly to ${logPath}`);
-        } catch (e) {
-          warn(`Failed to log anomaly to Agile Coach journal: ${String(e)}`);
+        if (!DRY_RUN) {
+          try {
+            fs.appendFileSync(logPath, logEntry, 'utf-8');
+            info(`Logged anomaly to ${logPath}`);
+          } catch (e) {
+            warn(`Failed to log anomaly to Agile Coach journal: ${String(e)}`);
+          }
         }
       }
     } else {
