@@ -22,6 +22,17 @@ export type PokeballType =
   | 'level';
 
 // ─── Store Interface ─────────────────────────────────────────────────
+/**
+ * The global application store, split between persistent user preferences
+ * and transient runtime state.
+ *
+ * Why this structure?
+ * 1. Persistent settings (filters, game version overrides) are stored in localStorage
+ *    via Zustand's `persist` middleware to survive reloads.
+ * 2. Heavy payload data (like `saveData` from binary parsing) and transient UI
+ *    toggles are intentionally excluded using the `partialize` configuration.
+ *    This prevents localStorage quota exhaustion and stale UI states.
+ */
 interface AppStore {
   // Save data
   /**
@@ -83,6 +94,14 @@ interface AppStore {
 }
 
 // ─── Store ───────────────────────────────────────────────────────────
+/**
+ * React hook exposing the global application store.
+ * Subscribing components will re-render automatically when accessed state changes.
+ *
+ * @example
+ * const filters = useStore((state) => state.filters);
+ * const setSaveData = useStore((state) => state.setSaveData);
+ */
 export const useStore = create<AppStore>()(
   persist(
     (set, get) => ({
