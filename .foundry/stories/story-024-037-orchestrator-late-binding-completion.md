@@ -35,4 +35,4 @@ Update `.github/scripts/foundry-orchestrator.ts` to properly manage the waking u
 - None
 
 ## Acceptance Criteria
-- [ ] Coder: Implement the orchestrator fix and add tests.
+- [x] Coder: Implement the orchestrator fix and add tests.

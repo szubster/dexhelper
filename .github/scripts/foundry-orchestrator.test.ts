@@ -372,6 +372,74 @@ jules_session_id: null
     expect(epicContent).toContain('status: READY');
   });
 
+  test('Late-Binding: Parent wakes up to ACTIVE if owned by human and it has unchecked tasks', () => {
+    createNode('.foundry/epics/epic-001.md', `
+id: epic-001
+type: EPIC
+title: "Epic 1"
+status: PENDING
+owner_persona: human
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`, `# Title
+
+- [ ] Unchecked task`);
+
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story 1"
+status: COMPLETED
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/epics/epic-001.md
+jules_session_id: null
+`);
+
+    main();
+
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: ACTIVE');
+  });
+
+  test('Late-Binding: Parent does not wake up if dependencies are unresolvable', () => {
+    createNode('.foundry/epics/epic-001.md', `
+id: epic-001
+type: EPIC
+title: "Epic 1"
+status: PENDING
+owner_persona: epic_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/prds/missing-prd.md"]
+jules_session_id: null
+`, `# Title
+
+- [ ] Unchecked task`);
+
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story 1"
+status: COMPLETED
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/epics/epic-001.md
+jules_session_id: null
+`);
+
+    main();
+
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: PENDING');
+  });
+
   test('Cascade Cancellation: cancels child nodes of CANCELLED parent recursively', () => {
     createNode('.foundry/epics/epic-001.md', `
 id: epic-001
