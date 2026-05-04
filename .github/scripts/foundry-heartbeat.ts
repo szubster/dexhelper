@@ -119,9 +119,12 @@ async function findPRForSession(
   githubToken: string,
   julesKey: string,
   sessionId: string
-): Promise<{ pr: any; sessionStatus: string | null }> {
+): Promise<{ pr: any; sessionStatus: string | null; updateTime?: string }> {
   let sessionStatus: string | null = null;
+  let updateTime: string | undefined;
+
   let prData: any = null;
+
 
   // 1. Fetch Jules session details (Primary Source of Truth)
   try {
@@ -131,6 +134,7 @@ async function findPRForSession(
     if (res.ok) {
       const data = await res.json() as any;
       sessionStatus = data.state || null;
+      updateTime = data.updateTime;
       
       const prUrl = data.outputs?.find((o: any) => o.pullRequest?.url)?.pullRequest.url;
       if (prUrl) {
@@ -152,7 +156,7 @@ async function findPRForSession(
     process.stderr.write(`[heartbeat] Jules API error: ${String(err)}\n`);
   }
 
-  if (prData) return { pr: prData, sessionStatus };
+  if (prData) return { pr: prData, sessionStatus, updateTime };
 
   // 2. Fallback to GitHub Search API (Index-dependent)
   try {
@@ -160,7 +164,7 @@ async function findPRForSession(
       headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
     });
     const searchJson = await searchRes.json() as any;
-    if (searchJson.items?.[0]) return { pr: searchJson.items[0], sessionStatus };
+    if (searchJson.items?.[0]) return { pr: searchJson.items[0], sessionStatus, updateTime };
   } catch { /* ignore search error */ }
 
   // 3. Fallback to listing recent PRs (Index-independent)
@@ -172,13 +176,13 @@ async function findPRForSession(
     if (Array.isArray(pulls)) {
       for (const pr of pulls) {
         if (pr.body?.includes(sessionId) || pr.head?.ref?.includes(sessionId)) {
-          return { pr, sessionStatus };
+          return { pr, sessionStatus, updateTime };
         }
       }
     }
   } catch { /* ignore list error */ }
 
-  return { pr: null, sessionStatus };
+  return { pr: null, sessionStatus, updateTime };
 }
 
 function logToJournal(repoRoot: string, entry: string): void {
@@ -224,6 +228,7 @@ export async function main() {
 
     let pr: any = null;
     let sessionStatus: string | null = null;
+  let updateTime: string | undefined;
 
     if (isHuman) {
       const prNumber = node.frontmatter.pr_number;
@@ -244,6 +249,7 @@ export async function main() {
       const res = await findPRForSession(repoFullName, githubToken, julesKey, sessionId as string);
       pr = res.pr;
       sessionStatus = res.sessionStatus;
+      updateTime = res.updateTime;
     }
 
     if (pr) {
@@ -276,6 +282,15 @@ export async function main() {
       if (sessionStatus === 'NOT_FOUND' || (sessionStatus && TERMINAL_STATES.includes(sessionStatus))) {
         info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Failing.`);
         await transitionNodeToFailed(node, repoRoot);
+      } else if (updateTime) {
+        const lastUpdate = new Date(updateTime).getTime();
+        const now = Date.now();
+        const hoursElapsed = (now - lastUpdate) / (1000 * 60 * 60);
+
+        if (hoursElapsed > 24) {
+          info(`Session ${sessionId} has been IN_PROGRESS for >24h. Assuming dead. Failing.`);
+          await transitionNodeToFailed(node, repoRoot);
+        }
       }
     }
   }
