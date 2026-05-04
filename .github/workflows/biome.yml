@@ -23,7 +23,7 @@ jobs:
       - name: Setup Biome
         uses: biomejs/setup-biome@v2
         with:
-          version: "2.4.13"
+          version: "2.4.14"
 
       - name: Run Biome
         run: biome ci --error-on-warnings .
