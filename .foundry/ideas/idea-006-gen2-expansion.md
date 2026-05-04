@@ -9,7 +9,6 @@ updated_at: "2026-04-21"
 jules_session_id: null
 depends_on:
   - .foundry/ideas/idea-001-the-foundry.md
-  - .foundry/ideas/idea-003-atomic-handoff-foundation.md
 ---
 
 # Gen 2 Support Expansion: Johto/Kanto Lifecycle
