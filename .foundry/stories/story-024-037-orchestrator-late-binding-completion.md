@@ -2,7 +2,7 @@
 id: story-024-037-orchestrator-late-binding-completion
 type: STORY
 title: 'Story: Handle Late-Binding Parent Completion'
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-04'
 updated_at: '2026-05-04'

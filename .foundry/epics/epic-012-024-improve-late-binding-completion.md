@@ -2,12 +2,12 @@
 id: epic-012-024-improve-late-binding-completion
 type: EPIC
 title: 'Epic: Improve Late Binding Parent Completion'
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: story_owner
 created_at: '2026-05-04'
-updated_at: '2026-05-04'
+updated_at: "2026-05-04"
 depends_on: []
-jules_session_id: '1302385052519887842'
+jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-013-012-improve-late-binding-completion.md
 tags:

@@ -26,3 +26,9 @@
 - **2026-05-04**: PR #919 merged. `prd-013-012-improve-late-binding-completion` is now COMPLETED.
 
 - **2026-05-04**: PR #921 merged. `story-023-036-implement-cascade-cancellation` is now COMPLETED.
+
+- **2026-05-04**: PR #931 merged. `epic-012-024-improve-late-binding-completion` is now COMPLETED.
+
+- **2026-05-04**: PR #932 merged. `prd-015-014-enforce-persona-pipeline` is now COMPLETED.
+
+- **2026-05-04**: PR #930 merged. `task-036-062-implement-cascade-cancellation` is now COMPLETED.

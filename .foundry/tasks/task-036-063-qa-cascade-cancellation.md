@@ -1,22 +1,22 @@
 ---
 id: task-036-063-qa-cascade-cancellation
 type: TASK
-title: "QA Cascading Cancellation in Orchestrator"
-status: PENDING
+title: QA Cascading Cancellation in Orchestrator
+status: READY
 owner_persona: qa
-created_at: "2026-05-04"
-updated_at: "2026-05-04"
+created_at: '2026-05-04'
+updated_at: '2026-05-04'
 depends_on:
   - .foundry/tasks/task-036-062-implement-cascade-cancellation.md
 jules_session_id: null
 pr_number: null
-parent: ".foundry/stories/story-023-036-implement-cascade-cancellation.md"
+parent: .foundry/stories/story-023-036-implement-cascade-cancellation.md
 tags:
   - foundry
   - dag
   - orchestrator
   - cancellation
-notes: ""
+notes: ''
 ---
 
 # Task 063: QA Cascading Cancellation in Orchestrator
