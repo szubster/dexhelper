@@ -660,6 +660,10 @@ function main(): void {
               } else {
                 promoteNodeStatus(node, 'PENDING', 'READY');
               }
+              // Add to eligible if not already there, so it's picked up by subsequent phases
+              if (!eligible.includes(node)) {
+                eligible.push(node);
+              }
               // Prevent promotion to COMPLETED by bypassing the else branch
             } else {
               info(`Late-Binding Parent Complete: ${node.repoPath} has children and all are COMPLETED. Promoting directly to COMPLETED.`);
