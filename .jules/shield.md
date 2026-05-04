@@ -15,3 +15,6 @@
 
 ## Adding New Security Audit Vectors
 **Pattern:** Added Regular Expression Denial of Service (ReDoS) and `postMessage` event origin validation as new scan vectors to the scheduled prompt (`.jules/schedules/shield.md`). This expands the automated security checks to cover potential regex vulnerabilities on user inputs and insecure cross-origin communication.
+
+## Adding New Security Audit Vectors
+**Pattern:** Added Path Traversal, Tab-nabbing, and Environment Variable Leakage as new scan vectors to the scheduled prompt (`.jules/schedules/shield.md`). This expands the automated security checks to cover potential external communication vulnerabilities, insecure window openings, and sensitive environment data exposure.
