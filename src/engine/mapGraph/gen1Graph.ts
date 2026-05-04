@@ -92,7 +92,7 @@ export function getDistanceToMap(
  * the `prnt` property. To calculate the distance to a target from inside a building, we must first
  * "step outside" by resolving the current location to its parent map.
  */
-export function getOutdoorMapId(allLocations: UnifiedLocation[], mapId: number): number {
+function getOutdoorMapId(allLocations: UnifiedLocation[], mapId: number): number {
   const loc = getLocation(allLocations, mapId);
   if (loc?.prnt !== undefined) {
     return loc.prnt;

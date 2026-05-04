@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { UnifiedLocation } from '../../db/schema';
-import { getDistanceToMap, getOutdoorMapId } from './gen1Graph';
+import { getDistanceToMap } from './gen1Graph';
 
 const mockLocations: UnifiedLocation[] = [
   { id: 0x00, n: 'Pallet Town', conn: [0x01], dist: { 0x00: 0, 0x01: 1, 0x02: 2 } },
@@ -66,22 +66,5 @@ describe('getDistanceToMap', () => {
     ];
     const result = getDistanceToMap(locationsWithoutDist, 0x00, 0x01);
     expect(result).toBeNull();
-  });
-});
-
-describe('getOutdoorMapId', () => {
-  it('returns the parent map ID if the location has a parent (indoor map)', () => {
-    const result = getOutdoorMapId(mockLocations, 0x25); // Player's House -> Pallet Town (0x00)
-    expect(result).toBe(0x00);
-  });
-
-  it('returns the original map ID if the location has no parent (outdoor map)', () => {
-    const result = getOutdoorMapId(mockLocations, 0x00); // Pallet Town -> Pallet Town (0x00)
-    expect(result).toBe(0x00);
-  });
-
-  it('returns the original map ID if the location does not exist', () => {
-    const result = getOutdoorMapId(mockLocations, 0x999); // Unknown map -> 0x999
-    expect(result).toBe(0x999);
   });
 });

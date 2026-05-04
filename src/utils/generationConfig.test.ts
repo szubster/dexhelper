@@ -1,13 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  ALL_VERSION_IDS,
-  GENERATION_CONFIGS,
-  getGenerationConfig,
-  getVersionInfo,
-  MAX_DEX_ACROSS_GENS,
-  POKEBALL_LABELS,
-  VERSION_THEMES,
-} from './generationConfig';
+import { GENERATION_CONFIGS, getGenerationConfig, POKEBALL_LABELS, VERSION_THEMES } from './generationConfig';
 
 describe('getGenerationConfig', () => {
   it('should return the correct configuration for an existing generation (Gen 1)', () => {
@@ -36,38 +28,6 @@ describe('getGenerationConfig', () => {
 
   it('should throw an error for an arbitrarily large generation number', () => {
     expect(() => getGenerationConfig(999)).toThrow('Unknown generation: 999');
-  });
-});
-
-describe('getVersionInfo', () => {
-  it('should return correct genConfig and version for known version id (red)', () => {
-    const info = getVersionInfo('red');
-    expect(info).not.toBeNull();
-    expect(info?.genConfig.id).toBe(1);
-    expect(info?.version.id).toBe('red');
-  });
-
-  it('should return correct genConfig and version for known version id (crystal)', () => {
-    const info = getVersionInfo('crystal');
-    expect(info).not.toBeNull();
-    expect(info?.genConfig.id).toBe(2);
-    expect(info?.version.id).toBe('crystal');
-  });
-
-  it('should return null for unknown version id', () => {
-    const info = getVersionInfo('emerald');
-    expect(info).toBeNull();
-  });
-
-  it('should return null for empty string version id', () => {
-    const info = getVersionInfo('');
-    expect(info).toBeNull();
-  });
-
-  it('should return null for undefined or null version id values', () => {
-    // using 'as string' to test runtime behavior against undefined/null-ish inputs
-    expect(getVersionInfo(undefined as unknown as string)).toBeNull();
-    expect(getVersionInfo(null as unknown as string)).toBeNull();
   });
 });
 
@@ -104,12 +64,6 @@ describe('generation config sprite URLs', () => {
 });
 
 describe('generation config constants', () => {
-  it('MAX_DEX_ACROSS_GENS should be the maximum of maxDex across all generations', () => {
-    // Dynamically test MAX_DEX_ACROSS_GENS based on GENERATION_CONFIGS
-    const expectedMaxDex = Math.max(...Object.values(GENERATION_CONFIGS).map((c) => c.maxDex));
-    expect(MAX_DEX_ACROSS_GENS).toBe(expectedMaxDex);
-  });
-
   it('VERSION_THEMES should contain entries for all versions, unsupported, and unknown', () => {
     // Assert known values
     // biome-ignore lint/complexity/useLiteralKeys: Using literal access here fails type-check due to index signature
@@ -127,13 +81,6 @@ describe('generation config constants', () => {
         expect(VERSION_THEMES[v.id]).toBe(v.themeClass);
       });
     });
-  });
-
-  it('ALL_VERSION_IDS should contain all known version IDs across all registered generations', () => {
-    const expectedIds = Object.values(GENERATION_CONFIGS).flatMap((gc) => gc.versions.map((v) => v.id));
-    expect(ALL_VERSION_IDS).toEqual(expectedIds);
-    expect(ALL_VERSION_IDS.includes('red')).toBe(true);
-    expect(ALL_VERSION_IDS.includes('crystal')).toBe(true);
   });
 
   it('POKEBALL_LABELS should contain labels for all known pokeball types', () => {

@@ -220,7 +220,7 @@ function calculateVersionScores(
   return { redScore, blueScore, yellowPenalty };
 }
 
-export function detectGen1GameVersion(
+function detectGen1GameVersion(
   view: DataView,
   owned: Set<number>,
   seen: Set<number>,
