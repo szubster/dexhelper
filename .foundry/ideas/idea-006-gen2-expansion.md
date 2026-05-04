@@ -2,10 +2,10 @@
 id: idea-006-gen2-expansion
 type: IDEA
 title: "Gen 2 Support Expansion: Johto/Kanto Lifecycle"
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: "2026-04-21"
-updated_at: "2026-04-21"
+updated_at: "2026-05-03"
 jules_session_id: null
 depends_on:
   - .foundry/ideas/idea-001-the-foundry.md
@@ -45,5 +45,5 @@ Inject Gen 2 logic into the Assistant's core:
 - **Interaction Logic**: Handle Headbutt/Rock Smash encounters and stat-based evolutions (Tyrogue).
 
 ## Next Steps
-- [ ] **Product Manager**: Draft the Gen 2 Expansion PRD, formalizing the scope for Phase 1 and 2.
-- [ ] **Architect**: Review the Map Graph design to ensure it scales for dual-region routing.
+- [x] **Product Manager**: Draft the Gen 2 Expansion PRD, formalizing the scope for Phase 1 and 2.
+- [x] **Architect**: Review the Map Graph design to ensure it scales for dual-region routing.
