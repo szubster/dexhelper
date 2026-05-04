@@ -41,3 +41,6 @@
 
 ## 2026-05-03 - Suppressed chunk size warning limit
 **Learning:** Added `chunkSizeWarningLimit: 1000` to `vite.config.ts` to suppress noisy terminal warnings (`Some chunks are larger than 500 kB`) during builds. The user previously decided to favor a single chunk setup because the app is small and splitting would marginalize caching benefits due to frequent updates. This cleans up the build DX while retaining the deliberate architectural choice.
+
+## 2026-05-04 - Fixed Biome Schema Version Mismatch
+**Learning:** The Biome CLI version (2.4.14) in `package.json` did not match the schema version (2.4.13) in `biome.jsonc` and `.github/workflows/biome.yml`, causing `knip` to throw schema mismatch warnings during `pnpm lint`. Used `biome migrate` to automatically resolve the `biome.jsonc` schema and manually updated the GitHub Action version to maintain alignment and clean CI output.
