@@ -20,3 +20,9 @@
 - **2026-05-03**: Resurrection Loop triggered for `prd-013-012-improve-late-binding-completion`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-04**: PR #910 merged. `epic-013-023-orchestrator-cascade-cancellation` is now COMPLETED.
+
+- **2026-05-04**: PR #920 merged. `idea-015-enforce-persona-pipeline` is now COMPLETED.
+
+- **2026-05-04**: PR #919 merged. `prd-013-012-improve-late-binding-completion` is now COMPLETED.
+
+- **2026-05-04**: PR #921 merged. `story-023-036-implement-cascade-cancellation` is now COMPLETED.

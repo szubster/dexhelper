@@ -2,12 +2,12 @@
 id: idea-015-enforce-persona-pipeline
 type: IDEA
 title: 'DAG Feature: Enforce Persona Pipeline Handoffs'
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: product_manager
 created_at: '2026-05-04'
-updated_at: '2026-05-04'
+updated_at: "2026-05-04"
 depends_on: []
-jules_session_id: '10806514066801409014'
+jules_session_id: null
 parent: null
 tags:
   - foundry
