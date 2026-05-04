@@ -78,3 +78,13 @@ The Legacy Save Migration implementation failed during QA validation (`task-032-
 1. Updated all persona prompts (`qa`, `coder`, `tech_lead`, `story_owner`, `epic_planner`, `product_manager`, `architect`, `agile_coach`, `tpm`) to explicitly warn that the Empty PR policy is strictly for pre-existing successful artifacts.
 2. Directed agents to update the YAML frontmatter to `status: FAILED` or `CANCELLED` and provide a `rejection_reason` when aborting tasks.
 3. Generated `idea-014-cascade-cancellation.md` to propose a native DAG Orchestrator feature to cascade the `CANCELLED` status down the node tree.
+
+## 2026-05-03: Persona Pipeline Handoff Enforce
+
+### Observation
+The `prd-013-012-improve-late-binding-completion.md` node was crashing silently and triggering the resurrection loop constantly because its `owner_persona` was set to `architect` instead of the required `epic_planner` for PRDs.
+
+### Action Taken
+1. Updated `.github/agents/product_manager.md`, `.github/agents/epic_planner.md`, and `.github/agents/story_owner.md` to explicitly enforce the strict pipeline handoff order.
+2. Corrected the `owner_persona` field in `prd-013-012` to `epic_planner` so it will unblock cleanly.
+3. Created `idea-015-enforce-persona-pipeline.md` to propose adding a DAG orchestrator verification step that hard-fails nodes assigned to the wrong persona type.
