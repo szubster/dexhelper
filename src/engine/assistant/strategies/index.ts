@@ -1,7 +1,7 @@
 import { gen1Strategy } from './gen1Strategy';
 import type { AssistantStrategy } from './types';
 
-export const fallbackStrategy: AssistantStrategy = {
+const fallbackStrategy: AssistantStrategy = {
   generation: 0,
   resolveMapAid: () => null,
   getMapDistance: () => null,

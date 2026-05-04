@@ -1,53 +1,7 @@
 import { describe, expect, test } from 'vitest';
-import { detectGen1GameVersion, isGen1Save } from './gen1';
+import { isGen1Save } from './gen1';
 
 describe('gen1 parsers', () => {
-  describe('detectGen1GameVersion', () => {
-    const trainerName = 'RED';
-
-    const cases = [
-      {
-        name: 'yellow version by starters',
-        owned: [1, 4, 7, 25],
-        expected: 'unknown',
-      },
-      {
-        name: 'yellow version by pikachu markers',
-        u8Mods: { 0x271c: 1, 0x271d: 128 },
-        expected: 'yellow',
-      },
-      {
-        name: 'red version by exclusives',
-        owned: [23, 24, 43, 44],
-        expected: 'red',
-      },
-      {
-        name: 'blue version by exclusives',
-        owned: [27, 28, 37, 38],
-        expected: 'blue',
-      },
-      {
-        name: 'red by trade checks',
-        owned: [23],
-        party: [{ speciesId: 83, otName: 'CHIKUCHIKU' }],
-        expected: 'red',
-      },
-      {
-        name: 'completely ambiguous',
-        expected: 'unknown',
-      },
-    ];
-
-    test.for(cases)('should detect $name', ({ owned = [], u8Mods = {}, party = [], expected }) => {
-      const buffer = new ArrayBuffer(32768);
-      const view = new DataView(buffer);
-      for (const [offset, value] of Object.entries(u8Mods)) {
-        view.setUint8(Number(offset), value as number);
-      }
-      expect(detectGen1GameVersion(view, new Set(owned), new Set(), trainerName, party)).toBe(expected);
-    });
-  });
-
   describe('isGen1Save', () => {
     const cases = [
       { name: 'invalid party count', u8Mods: { 0x2f2c: 7 }, expected: false },

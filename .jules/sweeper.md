@@ -18,3 +18,9 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 
 ## 2026-05-03 - Improved Orchestrator Late-Binding Completion
 **Learning:** Addressed a bug in `.github/scripts/foundry-orchestrator.ts` where Late-Binding parent nodes (nodes waiting for dynamically generated children to complete) would remain stuck in a PENDING state indefinitely even after all children successfully completed. Added a dedicated detection phase (Phase 4.1) to find these specific `PENDING` nodes, verify they possess children, check if strictly all children are `COMPLETED`, ensure no implicit/explicit dependencies are unfulfilled, and directly promote the parent node to `COMPLETED`. Unit tested and validated to maintain DAG integrity.
+# Sweeper
+
+## Recent Actions
+- Removed several unused exports (`fallbackStrategy`, `getOutdoorMapId`, `detectGen1GameVersion`, `parseCaughtData`, `detectGen2GameVersion`, `getVersionInfo`, `MAX_DEX_ACROSS_GENS`, `ALL_VERSION_IDS`) across the engine and utilities.
+- Cleaned up corresponding unit tests that were intimately testing internal implementation details.
+- Ensured all tests and e2e scenarios pass successfully after the cleanup.

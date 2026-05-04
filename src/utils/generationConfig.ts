@@ -121,16 +121,8 @@ export function getGenerationConfig(gen: number): GenerationConfig {
 }
 
 /** Reverse lookup: given a version ID like 'red', find its generation config and version info */
-export function getVersionInfo(versionId: string): { genConfig: GenerationConfig; version: VersionInfo } | null {
-  for (const genConfig of Object.values(GENERATION_CONFIGS)) {
-    const version = genConfig.versions.find((v) => v.id === versionId);
-    if (version) return { genConfig, version };
-  }
-  return null;
-}
 
 /** The maximum Pokédex number across all registered generations */
-export const MAX_DEX_ACROSS_GENS = Math.max(...Object.values(GENERATION_CONFIGS).map((c) => c.maxDex));
 
 /** Pre-computed map of version ID → CSS theme class */
 export const VERSION_THEMES: Record<string, string> = Object.fromEntries([
@@ -140,9 +132,6 @@ export const VERSION_THEMES: Record<string, string> = Object.fromEntries([
 ]);
 
 /** All known version IDs across all registered generations */
-export const ALL_VERSION_IDS: string[] = Object.values(GENERATION_CONFIGS).flatMap((gc) =>
-  gc.versions.map((v) => v.id),
-);
 
 /** Pokeball display labels (generation-independent) */
 export const POKEBALL_LABELS: Record<PokeballType, string> = {

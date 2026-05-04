@@ -13,7 +13,7 @@ import { checkShiny, decodeGen12String, parseDVs } from './common';
  * @param offset - The memory offset of the specific Pokémon structure.
  * @returns An object containing the time, level, location ID, and location name, or undefined if missing.
  */
-export function parseCaughtData(view: DataView, offset: number) {
+function parseCaughtData(view: DataView, offset: number) {
   const caughtByte1 = view.getUint8(offset + 29);
   const caughtByte2 = view.getUint8(offset + 30);
 
@@ -98,7 +98,7 @@ function parseGen2PokemonInstance(
  * @param seen - A set of Pokémon Pokédex IDs the player has seen.
  * @returns 'gold', 'silver', or 'unknown'.
  */
-export function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersion {
+function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersion {
   // biome-ignore lint/complexity/useLiteralKeys: TypeScript requires bracket notation for index signatures
   const goldExclusives = GEN2_VERSION_EXCLUSIVES['gold'] || [];
   // biome-ignore lint/complexity/useLiteralKeys: TypeScript requires bracket notation for index signatures
