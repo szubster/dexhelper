@@ -925,4 +925,83 @@ jules_session_id: null`);
     const epicContent = fs.readFileSync(filePath, 'utf-8');
     expect(epicContent).toContain('status: READY'); // Promoted, not bypassed
   });
+
+  test('Late-Binding: Parent wakes up to READY if all children are COMPLETED but unchecked tasks exist', () => {
+    createNode('.foundry/epics/epic-001.md', `
+id: epic-001
+type: EPIC
+title: "Epic 1"
+status: PENDING
+owner_persona: epic_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+---
+- [ ] Unfinished task
+`);
+
+    createNode('.foundry/stories/story-001.md', `
+id: story-001
+type: STORY
+title: "Story 1"
+status: COMPLETED
+owner_persona: story_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/epics/epic-001.md
+jules_session_id: null
+`);
+
+    main();
+
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: READY');
+  });
+
+  test('Hierarchical Completion: skips child checks for high-level nodes (IDEA/PRD/ADR) avoiding false deadlocks', () => {
+    createNode('.foundry/ideas/idea-001.md', `
+id: idea-001
+type: IDEA
+title: "Idea 1"
+status: COMPLETED
+owner_persona: product_manager
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/prds/prd-001.md', `
+id: prd-001
+type: PRD
+title: "PRD 1"
+status: PENDING
+owner_persona: product_manager
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/ideas/idea-001.md
+jules_session_id: null
+`);
+
+    createNode('.foundry/epics/epic-001.md', `
+id: epic-001
+type: EPIC
+title: "Epic 1"
+status: PENDING
+owner_persona: epic_owner
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: [".foundry/ideas/idea-001.md"]
+jules_session_id: null
+`);
+
+    main();
+
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: READY');
+  });
+
 });

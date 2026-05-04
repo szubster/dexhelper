@@ -412,6 +412,12 @@ function main(): void {
       return true;
     }
 
+    const type = node.frontmatter.type;
+    if (type === 'IDEA' || type === 'PRD') {
+      evalCache.set(cacheKey, false);
+      return false;
+    }
+
     evalCache.set(cacheKey, true);
 
     const children = parentToChildren.get(nodePath) || [];
@@ -604,13 +610,8 @@ function main(): void {
         }
       }
 
-      const children = parentToChildren.get(node.repoPath) || [];
-
       if (bypassDispatch) {
         info(`Preflight success: Valid target artifacts exist and are completed. Bypassing dispatch for ${node.repoPath}`);
-        promoteNodeStatus(node, 'PENDING', 'COMPLETED');
-      } else if (targetArtifacts.length === 0 && children.length > 0) {
-        info(`Late binding completion: ${node.repoPath} has no pending target artifacts and all spawned children are complete.`);
         promoteNodeStatus(node, 'PENDING', 'COMPLETED');
       } else {
         eligible.push(node);
@@ -645,15 +646,29 @@ function main(): void {
           }
 
           if (!isDepIncomplete) {
-            info(`Late-Binding Parent Complete: ${node.repoPath} has children and all are COMPLETED. Promoting directly to COMPLETED.`);
-            promoteNodeStatus(node, 'PENDING', 'COMPLETED');
-            // Remove from eligible if it was added
+            const hasUncheckedTasks = /^- \[ \]/m.test(node.body);
+            if (hasUncheckedTasks) {
+              info(`Late-Binding Parent Wakeup: ${node.repoPath} has completed children, but has unchecked tasks.`);
+            } else {
+              info(`Late-Binding Parent Complete: ${node.repoPath} has children and all are COMPLETED. Promoting directly to COMPLETED.`);
+              promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+              // Remove from eligible if it was added
+              const idx = eligible.indexOf(node);
+              if (idx !== -1) {
+                eligible.splice(idx, 1);
+              }
+            }
+          } else {
+            info(`Late-Binding Parent: ${node.repoPath} has completed children, but is waiting on dependencies.`);
             const idx = eligible.indexOf(node);
             if (idx !== -1) {
               eligible.splice(idx, 1);
             }
-          } else {
-            info(`Late-Binding Parent: ${node.repoPath} has completed children, but is waiting on dependencies.`);
+          }
+        } else {
+          const idx = eligible.indexOf(node);
+          if (idx !== -1) {
+            eligible.splice(idx, 1);
           }
         }
       }
