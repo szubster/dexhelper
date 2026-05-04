@@ -2,12 +2,12 @@
 id: task-036-062-implement-cascade-cancellation
 type: TASK
 title: Implement Cascading Cancellation in Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-04'
 updated_at: '2026-05-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10335124015720706367'
 pr_number: null
 parent: .foundry/stories/story-023-036-implement-cascade-cancellation.md
 tags:
