@@ -2,12 +2,12 @@
 id: prd-013-012-improve-late-binding-completion
 type: PRD
 title: Improve Late Binding Parent Completion
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-02'
 updated_at: '2026-05-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10212097823144284437'
 pr_number: null
 parent: .foundry/ideas/idea-013-improve-late-binding-completion.md
 tags:
