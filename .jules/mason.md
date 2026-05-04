@@ -10,3 +10,7 @@ Record critical learnings from React refactoring sessions.
 - Pattern was duplicated across `TacticalCard`, `AssistantSuggestionCard`, `SearchAndFilters`, `SettingsControls`, `ClearStorageButton`, `SettingsModal`, and `PokemonDetails`.
 - Created a `CornerCrosshairs` component to encapsulate the markup and CSS logic, accepting a `className` and `thickness` prop.
 - Reduced DOM bloat in source files and ensured consistency across the application.
+## TacticalButton Extraction
+- Identified recurring standard button patterns with identical styling across SearchAndFilters and ClearStorageButton.
+- Successfully extracted this into `src/components/TacticalButton.tsx` to manage standard, primary, and danger variants along with internal crosshairs logic.
+- Faced Playwright issues with intercepting pointer events, requiring `force=True` on locator clicks due to transparent full-screen overlay/fade-in animations.
