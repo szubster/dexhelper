@@ -66,3 +66,9 @@
 **Outcome:** Accepted
 **Why:** Sentinel's history showed recurring issues with E2E tests failing due to un-awaited IndexedDB syncs after navigation, and Vitest tests failing Biome's strict type checking (`lint/suspicious/noExplicitAny`) when creating `vi.fn()` mocks without explicit type parameters.
 **Pattern:** Proposing changes to correctly configure testing tools and eliminate recurring developer friction caused by missing boundaries in agent prompts.
+
+## 2026-06-06 - [Accepted] - New agent: TPM (Technical Program Manager)
+**Type:** New agent
+**Outcome:** Accepted
+**Why:** System memory contains extensive rules regarding The Foundry DAG node management, orchestrator late-binding completion, circular dependencies, and archiving rules. There is a need for a dedicated agent to manage this orchestrator metadata accurately and resolve node deadlocks to prevent other agents (like Oak) from being distracted.
+**Pattern:** Identifying system memory that outlines complex operational processes not covered by existing schedule prompts.
