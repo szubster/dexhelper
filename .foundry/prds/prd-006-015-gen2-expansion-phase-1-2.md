@@ -2,12 +2,12 @@
 id: prd-006-015-gen2-expansion-phase-1-2
 type: PRD
 title: 'Gen 2 Expansion PRD: Phase 1 and 2'
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-04'
 updated_at: '2026-05-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16390708864537629693'
 pr_number: null
 parent: .foundry/ideas/idea-006-gen2-expansion.md
 tags:
