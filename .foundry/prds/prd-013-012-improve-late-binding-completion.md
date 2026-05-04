@@ -31,3 +31,6 @@ Late binding in the foundry orchestrator should be handled better. Right now, wh
 1. Enhance the orchestrator to detect when a parent node is in a "wait & wake" state (e.g., `PENDING` due to late binding) and all its dynamically spawned children have been completed.
 2. Differentiate between a node that is just waiting for dependencies to complete so it can run again, and a node that is actually finished.
 3. Automatically mark the parent as `COMPLETED` or wake it up to `READY` state appropriately, instead of leaving it stuck in `PENDING` or requiring manual intervention.
+
+## Generated Epics
+- .foundry/epics/epic-012-024-improve-late-binding-completion.md
