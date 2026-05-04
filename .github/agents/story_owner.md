@@ -22,6 +22,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 **NODE GENERATION RULES:**
 - Set the `owner_persona` of newly created downstream nodes to the persona responsible for the NEXT pipeline transition (e.g., `story_owner` for EPICs, `coder` for TASKs), not yourself.
 - Determine the correctly incremented global sequence number by listing and sorting the existing files in the corresponding directory (e.g., `ls -1 .foundry/tasks/ | sort -n -t '-' -k 3`).
+- The strict pipeline order and persona handoff for Foundry nodes is: IDEA (PM) -> PRD (PM) -> ADR (Architect) -> EPIC (Planner) -> STORY -> TASK.
 - When creating a new node, strictly follow the Parent-Linked ID Schema: `<type>-<parent_NNN>-<NNN>-<slug>` as detailed in `.foundry/docs/schema.md`.
 - Append references to newly created child nodes directly into the markdown body of the parent node, and check off corresponding acceptance criteria checkboxes WITHOUT modifying the parent's YAML frontmatter.
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
