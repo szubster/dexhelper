@@ -35,4 +35,8 @@ Update the Foundry DAG orchestrator script (`.github/scripts/foundry-orchestrato
 - Ensure idempotency: re-running on an already cancelled subtree shouldn't cause infinite loops or unnecessary file modifications.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into implementation tasks.
+- [x] Tech Lead: Break down into implementation tasks.
+
+## Child Tasks
+- [Task 062: Implement Cascading Cancellation in Orchestrator](.foundry/tasks/task-036-062-implement-cascade-cancellation.md)
+- [Task 063: QA Cascading Cancellation in Orchestrator](.foundry/tasks/task-036-063-qa-cascade-cancellation.md)
