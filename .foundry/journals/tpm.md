@@ -38,3 +38,7 @@
 - **2026-05-04**: Heartbeat detected zombie session for `story-024-037-orchestrator-late-binding-completion`. Transitioned to FAILED.
 
 - **2026-05-04**: Resurrection Loop triggered for `epic-014-025-enforce-persona-pipeline-handoffs`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-04**: PR #939 merged. `task-036-063-qa-cascade-cancellation` is now COMPLETED.
+
+- **2026-05-04**: Resurrection Loop triggered for `story-024-037-orchestrator-late-binding-completion`. Reason: Retry from FAILED status.. Transitioned back to READY.
