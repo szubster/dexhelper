@@ -610,8 +610,15 @@ function main(): void {
         info(`Preflight success: Valid target artifacts exist and are completed. Bypassing dispatch for ${node.repoPath}`);
         promoteNodeStatus(node, 'PENDING', 'COMPLETED');
       } else if (targetArtifacts.length === 0 && children.length > 0) {
-        info(`Late binding completion: ${node.repoPath} has no pending target artifacts and all spawned children are complete.`);
-        promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+        const hasUncheckedBoxes = node.body.includes('- [ ]');
+        if (hasUncheckedBoxes) {
+           info(`Late binding completion: ${node.repoPath} has no pending target artifacts and all spawned children are complete, but has unchecked boxes. Waking up to READY.`);
+           // Leave it as pending and add it to eligible array, let Phase 5 promote it
+           eligible.push(node);
+        } else {
+           info(`Late binding completion: ${node.repoPath} has no pending target artifacts and all spawned children are complete.`);
+           promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+        }
       } else {
         eligible.push(node);
       }
@@ -645,12 +652,22 @@ function main(): void {
           }
 
           if (!isDepIncomplete) {
-            info(`Late-Binding Parent Complete: ${node.repoPath} has children and all are COMPLETED. Promoting directly to COMPLETED.`);
-            promoteNodeStatus(node, 'PENDING', 'COMPLETED');
-            // Remove from eligible if it was added
-            const idx = eligible.indexOf(node);
-            if (idx !== -1) {
-              eligible.splice(idx, 1);
+            const hasUncheckedBoxes = node.body.includes('- [ ]');
+            if (hasUncheckedBoxes) {
+              info(`Late-Binding Parent Awake: ${node.repoPath} has completed children, but still has unchecked boxes. Waking up to READY.`);
+              // Let Phase 5 promote it to READY.
+              // Just add to eligible array if not already there
+              if (!eligible.includes(node)) {
+                  eligible.push(node);
+              }
+            } else {
+              info(`Late-Binding Parent Complete: ${node.repoPath} has children, all are COMPLETED, and no unchecked boxes remain. Promoting directly to COMPLETED.`);
+              promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+              // Remove from eligible if it was added
+              const idx = eligible.indexOf(node);
+              if (idx !== -1) {
+                eligible.splice(idx, 1);
+              }
             }
           } else {
             info(`Late-Binding Parent: ${node.repoPath} has completed children, but is waiting on dependencies.`);
