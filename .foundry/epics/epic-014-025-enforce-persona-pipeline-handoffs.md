@@ -2,12 +2,12 @@
 id: epic-014-025-enforce-persona-pipeline-handoffs
 type: EPIC
 title: Enforce Persona Pipeline Handoffs in DAG Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-04'
 updated_at: '2026-05-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17776680628643136525'
 pr_number: null
 parent: .foundry/prds/prd-015-014-enforce-persona-pipeline.md
 tags:
