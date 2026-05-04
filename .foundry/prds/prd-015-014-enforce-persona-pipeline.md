@@ -58,4 +58,5 @@ The pipeline follows a strict handoff sequence between specific nodes and person
 3. **Exemptions:** The `human` persona bypasses Jules dispatch entirely according to `schema.md`. Ensure the `human` persona is a valid owner for ANY node type if explicit manual intervention is taking place.
 
 ## 5. Next Steps
-- [ ] Implement the EPIC breakdown for this PRD.
+- [x] Implement the EPIC breakdown for this PRD.
+- .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md
