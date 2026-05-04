@@ -65,9 +65,10 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
   const originalFmBlock = fmBlockMatch[0];
   let mutatedFmBlock = originalFmBlock;
 
-  // With the shift to strict DAG dependencies, we no longer rely on checkboxes.
-  // A node is COMPLETED when its PR is merged. Downstream blocking is handled by the DAG.
-  const targetStatus = "COMPLETED";
+  // Late-Binding Support: If unchecked tasks exist, transition back to PENDING instead of COMPLETED.
+  const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(node.rawContent);
+  // PENDING state keeps the late-binding parent alive to wait for children
+  const targetStatus = hasUncheckedTasks ? "PENDING" : "COMPLETED";
 
   mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?ACTIVE["']?([ \t]*)$/m, `$1"${targetStatus}"$2`);
   mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);
