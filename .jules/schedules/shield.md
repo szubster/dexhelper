@@ -18,6 +18,9 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - **NEW:** Avoid storing sensitive tokens or PII unencrypted in `localStorage` or `sessionStorage`.
 - **NEW:** Guard against Regular Expression Denial of Service (ReDoS) by auditing complex or nested regex patterns used on user input.
 - **NEW:** Ensure proper validation of `postMessage` event origins (`event.origin`) before processing incoming cross-origin messages.
+- **NEW:** Guard against Path Traversal vulnerabilities by auditing dynamic file imports or `fetch` calls with user-controlled input.
+- **NEW:** Ensure prevention of Tab-nabbing by checking `window.open` usage, verifying `noopener` and `noreferrer`.
+- **NEW:** Guard against Environment Variable Leakage by auditing usages of `import.meta.env` for sensitive data.
 
 
 ## Boundaries
@@ -37,7 +40,7 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 
 ## Process
 
-1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`. (Hint: check for `Math.random`, `console.error(err)` without `.message`, `dangerouslySetInnerHTML`, `target="_blank"`, `url.includes`, `Object.assign`, `eval(`, `window.location`, `window.postMessage`, and complex regex)
+1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`. (Hint: check for `Math.random`, `console.error(err)` without `.message`, `dangerouslySetInnerHTML`, `target="_blank"`, `url.includes`, `Object.assign`, `eval(`, `window.location`, `window.postMessage`, complex regex, `window.open`, `import.meta.env`, and `fetch`)
 2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, improve this scheduled prompt itself or perform a dependency audit.
 3. **Secure** — implement the fix and add validating tests if possible.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
