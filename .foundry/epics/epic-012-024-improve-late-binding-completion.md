@@ -36,4 +36,6 @@ Enhance the Foundry orchestrator (`.github/scripts/foundry-orchestrator.ts`) to 
 - None
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into actionable stories.
+- [x] Story Owner: Break this Epic down into actionable stories.
+
+- `.foundry/stories/story-024-037-orchestrator-late-binding-completion.md`
