@@ -31,6 +31,6 @@ The story requires the Foundry DAG orchestrator script (`.github/scripts/foundry
    - Test case 3: Recursive cascading works across multiple levels of descendants.
 
 ## Acceptance Criteria
-- [ ] Unit tests for cascading cancellation logic are added to `.github/scripts/foundry-orchestrator.test.ts`.
-- [ ] Verification confirms that `foundry-orchestrator.ts` correctly applies the cascading rules.
-- [ ] `pnpm lint`, `pnpm test`, and `pnpm test:e2e` run successfully.
+- [x] Unit tests for cascading cancellation logic are added to `.github/scripts/foundry-orchestrator.test.ts`.
+- [x] Verification confirms that `foundry-orchestrator.ts` correctly applies the cascading rules.
+- [x] `pnpm lint`, `pnpm test`, and `pnpm test:e2e` run successfully.
