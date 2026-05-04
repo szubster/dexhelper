@@ -379,7 +379,7 @@ export function generateSuggestions(
       if (isClaimed) continue;
     }
 
-    const hasOffered = ownedSet.has(trade.offeredId);
+    const hasOffered = instancesBySpecies.has(trade.offeredId);
     suggestions.push({
       id: `npc-trade-${trade.receivedId}`,
       category: 'Trade',
@@ -428,12 +428,17 @@ export function generateSuggestions(
       let canBreed = false;
       let evolutionIdToBreed: number | null = null;
 
-      // Look at all evolutions of the target
-      for (const evo of p.eto) {
-        if (instancesBySpecies.has(evo.id)) {
+      // Look at all evolutions of the target (recursive)
+      const stack = [...(p.eto || [])];
+      while (stack.length > 0) {
+        const evo = stack.pop();
+        if (evo && instancesBySpecies.has(evo.id)) {
           canBreed = true;
           evolutionIdToBreed = evo.id;
           break;
+        }
+        if (evo?.eto && evo.eto.length > 0) {
+          stack.push(...evo.eto);
         }
       }
 
