@@ -191,6 +191,51 @@ ok: true,
     expect(fs.writeFileSync).not.toHaveBeenCalledWith(expect.any(String), expect.stringContaining('status: "FAILED"'), expect.any(String));
   });
 
+  it('should transition a node to PENDING if its PR is merged but it has unchecked tasks', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        status: 'ACTIVE',
+        jules_session_id: 'session-123'
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-123"\nupdated_at: "2023-01-01"\n---\nBody\n- [ ] Unchecked task'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    // @ts-expect-error
+    globalFetch.mockImplementation((url: string | URL | Request) => {
+      const urlStr = typeof url === "string" ? url : (url as URL).toString();
+      if (urlStr.startsWith('https://jules.googleapis.com/')) {
+        return Promise.resolve({
+            ok: true,
+            status: 200,
+          json: async () => ({
+              state: 'COMPLETED',
+              outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/402' } }]
+            })
+          });
+      }
+      if (urlStr.includes('pulls/402')) {
+        return Promise.resolve({
+            ok: true,
+            status: 200,
+          json: async () => ({ number: 402, state: 'closed', merged: true })
+        });
+      }
+      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+    });
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[1]).toContain('status: "PENDING"');
+  });
+
   it('should transition a node to COMPLETED if PR from Jules session link is merged', async () => {
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-1.md',
