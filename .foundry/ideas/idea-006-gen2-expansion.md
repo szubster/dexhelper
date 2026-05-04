@@ -2,11 +2,11 @@
 id: idea-006-gen2-expansion
 type: IDEA
 title: 'Gen 2 Support Expansion: Johto/Kanto Lifecycle'
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-04-21'
 updated_at: '2026-05-04'
-jules_session_id: null
+jules_session_id: '143407663696359906'
 depends_on:
   - .foundry/ideas/idea-001-the-foundry.md
 ---
