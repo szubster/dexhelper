@@ -2,12 +2,12 @@
 id: epic-013-023-orchestrator-cascade-cancellation
 type: EPIC
 title: 'Epic: Implement Cascading Cancellation in Orchestrator'
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: story_owner
 created_at: '2026-05-03'
-updated_at: '2026-05-03'
+updated_at: "2026-05-04"
 depends_on: []
-jules_session_id: '11360955742083147799'
+jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-014-013-cascade-cancellation.md
 tags:
