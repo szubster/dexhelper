@@ -99,6 +99,39 @@ ok: false,
     expect(fs.writeFileSync).toHaveBeenCalled();
   });
 
+
+  it('should transition a node to FAILED if its Jules session has been IN_PROGRESS for >24h', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-stuck.md',
+      repoPath: '.foundry/tasks/task-stuck.md',
+      frontmatter: {
+        id: 'task-stuck',
+        status: 'ACTIVE',
+        jules_session_id: 'session-stuck'
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-stuck"\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-stuck.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    // Mock API response with an update time > 24 hours ago
+    const pastDate = new Date(Date.now() - 25 * 60 * 60 * 1000).toISOString();
+    globalFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ state: 'IN_PROGRESS', updateTime: pastDate })
+    } as unknown as Response);
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalledWith(
+      '/mock/repo/.foundry/tasks/task-stuck.md',
+      expect.stringContaining('status: "FAILED"'),
+      'utf-8'
+    );
+  });
+
   it('should NOT transition a node if its Jules session is IN_PROGRESS', async () => {
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-1.md',
@@ -117,7 +150,7 @@ ok: false,
     globalFetch.mockResolvedValue({
 ok: true,
       status: 200,
-      json: async () => ({ state: 'IN_PROGRESS' })
+      json: async () => ({ state: 'IN_PROGRESS', updateTime: new Date().toISOString() })
     } as unknown as Response);
 
     await main();
