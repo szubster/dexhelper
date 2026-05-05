@@ -154,7 +154,6 @@ describe('AppLayout file upload', () => {
       seen: new Set(),
       owned: new Set(),
       // biome-ignore lint/suspicious/noExplicitAny: Internal mock state
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any);
 
     await render(
