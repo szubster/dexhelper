@@ -660,13 +660,7 @@ function main(): void {
             const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(node.body);
             if (hasUncheckedTasks) {
               info(`Late-Binding Parent Waking Up: ${node.repoPath} has completed children, but still has unchecked tasks. Promoting to READY.`);
-              // Directly promote to READY
-              if (node.frontmatter.owner_persona === 'human') {
-                promoteNodeStatus(node, 'PENDING', 'ACTIVE');
-              } else {
-                promoteNodeStatus(node, 'PENDING', 'READY');
-              }
-              // Add to eligible if not already there, so it's picked up by subsequent phases
+              // Add to eligible if not already there, so it's picked up by subsequent phases (Phase 5)
               if (!eligible.includes(node)) {
                 eligible.push(node);
               }
