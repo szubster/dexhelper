@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { AssistantApiData } from '../suggestionEngine';
@@ -249,5 +250,108 @@ describe('generateSuggestions', () => {
 
     const tradeSuggestion = suggestions.find((s) => s.id === 'npc-trade-122');
     expect(tradeSuggestion).toBeUndefined();
+  });
+
+  it('should generate "Breed" suggestions for Gen 2 based on daycare egg status', () => {
+    const mockSaveData: SaveData = {
+      generation: 2,
+      gameVersion: 'crystal',
+      owned: new Set([153, ...Array.from({ length: 251 }, (_, i) => i + 1).filter((i) => i !== 152)]), // Missing 152 (Chikorita), owns 153 (Bayleef)
+      seen: new Set(),
+      party: [],
+      inventory: [],
+      currentMapId: 0,
+      eventFlags: new Uint8Array(300),
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 153, // Bayleef
+          level: 20,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+        },
+      ],
+      trainerName: 'GOLD',
+      daycare: [
+        {
+          speciesId: 153, // Bayleef in daycare
+          level: 20,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Daycare',
+        },
+      ],
+      daycareHasEgg: true,
+    } as unknown as SaveData;
+
+    const mockApiData: AssistantApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {
+        152: {
+          // Chikorita
+          id: 152,
+          eto: [{ id: 153 }], // Evolves to 153
+          efrm: [],
+          det: [],
+        } as unknown as PokemonMetadata,
+        153: {
+          // Bayleef
+          id: 153,
+          eto: [],
+          efrm: [152],
+          det: [],
+        } as unknown as PokemonMetadata,
+      },
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    // Use a strategy with generation 2
+    const mockStrategy = {
+      ...gen1Strategy,
+      generation: 2, // Must be 2 for Gen2 logic
+    };
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategy);
+
+    const breedSuggestion = suggestions.find((s) => s.id === 'breed-152');
+    expect(breedSuggestion).toBeDefined();
+    expect(breedSuggestion?.title).toBe('Egg Ready: #152!');
+    expect(breedSuggestion?.description).toBe('Pick up your Egg from the Daycare!');
+    expect(breedSuggestion?.priority).toBe(95);
+
+    // Test when no egg is ready
+    mockSaveData.daycareHasEgg = false;
+    const { suggestions: suggestionsWait } = generateSuggestions(
+      mockSaveData,
+      false,
+      'crystal',
+      mockApiData,
+      mockStrategy,
+    );
+    const breedSuggestionWait = suggestionsWait.find((s) => s.id === 'breed-152');
+    expect(breedSuggestionWait).toBeDefined();
+    expect(breedSuggestionWait?.title).toBe('Breeding in Progress: #152');
+    expect(breedSuggestionWait?.description).toBe('Wait for an Egg from the Daycare!');
+    expect(breedSuggestionWait?.priority).toBe(85);
+
+    // Test when pokemon not in daycare
+    mockSaveData.daycare = [];
+    const { suggestions: suggestionsNotInDaycare } = generateSuggestions(
+      mockSaveData,
+      false,
+      'crystal',
+      mockApiData,
+      mockStrategy,
+    );
+    const breedSuggestionNotInDaycare = suggestionsNotInDaycare.find((s) => s.id === 'breed-152');
+    expect(breedSuggestionNotInDaycare).toBeDefined();
+    expect(breedSuggestionNotInDaycare?.title).toBe('Breed: #152');
+    expect(breedSuggestionNotInDaycare?.description).toBe('Leave your #153 at the Daycare to get an Egg!');
+    expect(breedSuggestionNotInDaycare?.priority).toBe(85);
   });
 });
