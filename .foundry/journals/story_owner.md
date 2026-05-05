@@ -15,3 +15,7 @@ All acceptance criteria in .foundry/epics/epic-008-017-orchestrator-preflight-ch
 
 ## 2026-05-02
 CEO instructed to forget about the legacy save migration. No new stories will be created for this epic. Submitting empty PR to allow DAG progression.
+
+### 2026-05-06
+- Created `story-026-041-inventory-parsing` for Epic `epic-015-026-save-parser-expansion`.
+- Handed off node to `tech_lead` persona.

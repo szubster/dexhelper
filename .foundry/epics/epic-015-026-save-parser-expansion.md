@@ -29,5 +29,8 @@ The current save parser logic (`src/engine/saveParser/parsers/gen2.ts`) is missi
 Implement the missing data extraction layers for Gen 2 save files to provide accurate data for the engine.
 
 ## High-level Acceptance Criteria
-- Detailed Inventory Parsing: Able to extract Key Items, Special Rods, TM/HMs (Headbutt, Rock Smash), Apricorns, and Evolution Items.
-- Hall of Fame & Roamers: Able to extract the Hall of Fame counts and the specific map locations of roaming legendaries (Raikou, Entei, Suicune).
+- [x] Detailed Inventory Parsing: Able to extract Key Items, Special Rods, TM/HMs (Headbutt, Rock Smash), Apricorns, and Evolution Items.
+- [ ] Hall of Fame & Roamers: Able to extract the Hall of Fame counts and the specific map locations of roaming legendaries (Raikou, Entei, Suicune).
+
+## Stories
+- [.foundry/stories/story-026-041-inventory-parsing.md](.foundry/stories/story-026-041-inventory-parsing.md)
