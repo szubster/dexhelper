@@ -64,3 +64,9 @@
 - **2026-05-05**: Heartbeat detected zombie session for `task-038-064-implement-mapping-validation`. Transitioned to FAILED.
 
 - **2026-05-05**: Resurrection Loop triggered for `task-038-064-implement-mapping-validation`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-05**: PR #968 merged. `idea-017-dag-dashboard` is now COMPLETED.
+
+- **2026-05-05**: PR #967 merged. `prd-016-016-precommit-schema-validation` is now COMPLETED.
+
+- **2026-05-05**: PR #966 merged. `story-026-041-inventory-parsing` is now COMPLETED.

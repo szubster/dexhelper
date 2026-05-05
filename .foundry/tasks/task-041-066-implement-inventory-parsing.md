@@ -1,11 +1,11 @@
 ---
 id: task-041-066-implement-inventory-parsing
 type: TASK
-title: 'Implement Detailed Inventory Parsing'
-status: PENDING
+title: Implement Detailed Inventory Parsing
+status: READY
 owner_persona: coder
 created_at: '2025-05-15'
-updated_at: '2025-05-15'
+updated_at: '2026-05-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

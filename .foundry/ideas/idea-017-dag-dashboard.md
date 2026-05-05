@@ -2,12 +2,12 @@
 id: idea-017-dag-dashboard
 type: IDEA
 title: DAG Dashboard Webview
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: product_manager
 created_at: '2026-05-15'
-updated_at: '2026-05-05'
+updated_at: "2026-05-05"
 depends_on: []
-jules_session_id: '4285732909760940143'
+jules_session_id: null
 parent: null
 tags:
   - foundry
