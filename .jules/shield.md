@@ -18,3 +18,6 @@
 
 ## Adding New Security Audit Vectors
 **Pattern:** Added Path Traversal, Tab-nabbing, and Environment Variable Leakage as new scan vectors to the scheduled prompt (`.jules/schedules/shield.md`). This expands the automated security checks to cover potential external communication vulnerabilities, insecure window openings, and sensitive environment data exposure.
+
+## Adding New Security Audit Vectors
+**Pattern:** Added Server-Side Request Forgery (SSRF), Cross-Site Request Forgery (CSRF), Content Security Policy (CSP) checking, and GraphQL query injection as new scan vectors to the scheduled prompt (`.jules/schedules/shield.md`). This expands the automated security checks to cover potential external communication vulnerabilities, insecure requests, and injection attacks.
