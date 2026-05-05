@@ -274,7 +274,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_owner
+owner_persona: epic_planner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -309,7 +309,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_owner
+owner_persona: epic_planner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -343,7 +343,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_owner
+owner_persona: epic_planner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -412,7 +412,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_owner
+owner_persona: epic_planner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: [".foundry/prds/missing-prd.md"]
@@ -901,6 +901,24 @@ jules_session_id: null
     expect(result).toContain('owner_persona: tpm');
   });
 
+  test('Mapping Validation: Enforces type to persona mappings before dispatch', () => {
+    createNode('.foundry/ideas/idea-001.md', `id: idea-001\ntype: IDEA\ntitle: "Idea"\nstatus: PENDING\nowner_persona: product_manager\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n`);
+    createNode('.foundry/prds/prd-invalid.md', `id: prd-invalid\ntype: PRD\ntitle: "Invalid PRD"\nstatus: PENDING\nowner_persona: coder\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n`);
+    createNode('.foundry/tasks/task-human.md', `id: task-human\ntype: TASK\ntitle: "Human Task"\nstatus: PENDING\nowner_persona: human\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n`);
+
+    main();
+
+    const ideaResult = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
+    expect(ideaResult).toContain('status: READY');
+
+    const prdResult = fs.readFileSync(path.join(tmpDir, '.foundry/prds/prd-invalid.md'), 'utf-8');
+    expect(prdResult).toContain('status: BLOCKED');
+    expect(prdResult).toContain('owner_persona: tpm');
+
+    const humanResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-human.md'), 'utf-8');
+    expect(humanResult).toContain('status: ACTIVE');
+  });
+
   test('Atomic Handoffs: resolves dependencies across single-persona atomic tasks', () => {
     createNode('.foundry/tasks/task-atomic-1.md', `id: task-atomic-1
 type: TASK
@@ -979,7 +997,7 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_owner
+owner_persona: epic_planner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -1010,7 +1028,7 @@ jules_session_id: null`);
 type: EPIC
 title: "Epic 2"
 status: PENDING
-owner_persona: epic_owner
+owner_persona: epic_planner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
