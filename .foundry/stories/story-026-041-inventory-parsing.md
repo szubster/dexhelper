@@ -2,12 +2,12 @@
 id: story-026-041-inventory-parsing
 type: STORY
 title: 'Story 1: Detailed Inventory Parsing'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-06'
 updated_at: '2026-05-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17004514495483676047'
 pr_number: null
 parent: .foundry/epics/epic-015-026-save-parser-expansion.md
 tags:
