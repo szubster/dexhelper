@@ -41,7 +41,7 @@
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "tailwind-merge": "^3.5.0",
-    "zustand": "^5.0.12"
+    "zustand": "^5.0.13"
   },
   "devDependencies": {
     "@argos-ci/playwright": "^6.6.4",
@@ -51,7 +51,7 @@
     "@tailwindcss/typography": "0.5.19",
     "@tailwindcss/vite": "4.2.4",
     "@tanstack/react-query-devtools": "^5.100.9",
-    "@tanstack/router-plugin": "^1.167.32",
+    "@tanstack/router-plugin": "^1.167.33",
     "@tsconfig/strictest": "^2.0.8",
     "@tsconfig/vite-react": "^7.0.2",
     "@types/node": "^25.6.0",
