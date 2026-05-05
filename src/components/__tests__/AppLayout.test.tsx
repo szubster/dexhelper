@@ -55,7 +55,11 @@ describe('AppLayout chunk error handling', () => {
     const errorEvent = new window.ErrorEvent('error', {
       message: 'Failed to fetch dynamically imported module',
     });
+
+    // Disable console.error during this test to prevent codecov from thinking there's an unhandled error
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
     window.dispatchEvent(errorEvent);
+    spy.mockRestore();
 
     await vi.waitFor(() => {
       expect(reloadPage).toHaveBeenCalledTimes(1);
@@ -74,7 +78,10 @@ describe('AppLayout chunk error handling', () => {
     const errorEvent = new window.ErrorEvent('error', {
       message: 'Some other random error',
     });
+
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
     window.dispatchEvent(errorEvent);
+    spy.mockRestore();
 
     await new Promise((r) => setTimeout(r, 50));
     expect(reloadPage).not.toHaveBeenCalled();
