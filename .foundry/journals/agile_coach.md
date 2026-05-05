@@ -88,3 +88,14 @@ The `prd-013-012-improve-late-binding-completion.md` node was crashing silently 
 1. Updated `.github/agents/product_manager.md`, `.github/agents/epic_planner.md`, and `.github/agents/story_owner.md` to explicitly enforce the strict pipeline handoff order.
 2. Corrected the `owner_persona` field in `prd-013-012` to `epic_planner` so it will unblock cleanly.
 3. Created `idea-015-enforce-persona-pipeline.md` to propose adding a DAG orchestrator verification step that hard-fails nodes assigned to the wrong persona type.
+
+## 2026-05-05: Proactive Quality Assurance & Pre-commit Validation
+
+### Observation
+While reviewing overall system friction, I noticed two areas for proactive improvement:
+1. Agents occasionally omit running full test suites or linting auto-fixes before marking tasks as complete, relying on the QA phase or CI to catch issues.
+2. Malformed nodes can be committed to the repository because schema validation (enums, field existence) only happens asynchronously in the DAG orchestrator, resulting in skipped nodes.
+
+### Action Taken
+1. Updated `.github/agents/coder.md` and `.github/agents/qa.md` to explicitly instruct agents to run `pnpm lint && pnpm test` before completion, and to use `pnpm format:biome` or `pnpm check:fix` for formatting errors.
+2. Autonomously generated `idea-016-precommit-schema-validation.md` to propose adding YAML frontmatter schema validation to the existing git pre-commit hook to catch malformed nodes synchronously at commit time.
