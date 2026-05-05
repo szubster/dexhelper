@@ -62,3 +62,5 @@
 - **2026-05-05**: PR #955 merged. `idea-016-precommit-schema-validation` is now COMPLETED.
 
 - **2026-05-05**: Heartbeat detected zombie session for `task-038-064-implement-mapping-validation`. Transitioned to FAILED.
+
+- **2026-05-05**: Resurrection Loop triggered for `task-038-064-implement-mapping-validation`. Reason: Retry from FAILED status.. Transitioned back to READY.
