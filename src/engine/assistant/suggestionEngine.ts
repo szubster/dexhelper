@@ -432,7 +432,10 @@ export function generateSuggestions(
       const stack = [...(p.eto || [])];
       while (stack.length > 0) {
         const evo = stack.pop();
-        if (evo && instancesBySpecies.has(evo.id)) {
+        if (
+          evo &&
+          (instancesBySpecies.has(evo.id) || (saveData.daycare?.some((d) => d.speciesId === evo.id) ?? false))
+        ) {
           canBreed = true;
           evolutionIdToBreed = evo.id;
           break;
