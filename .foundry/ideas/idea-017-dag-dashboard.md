@@ -25,4 +25,7 @@ Currently, tracking the state of the Foundry DAG requires manually reading YAML 
 Create a dashboard to visualize the DAG state. This could be achieved by generating a Mermaid.js diagram embedded in a central markdown file, or an interactive HTML/React webview that parses the `.foundry` directory and visualizes nodes, their statuses, and dependencies as a directed graph.
 
 ## Next Steps
-- [ ] Convert this idea into a detailed PRD defining the visualization approach and technical requirements.
+- [x] Convert this idea into a detailed PRD defining the visualization approach and technical requirements.
+
+**Generated PRD:**
+- `.foundry/prds/prd-017-017-dag-dashboard.md`
