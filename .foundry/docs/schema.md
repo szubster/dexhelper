@@ -70,7 +70,7 @@ updated_at: ""          # Required. ISO-8601 date. Updated by any persona that e
 depends_on: []          # Required. Array of repo-relative file paths. Empty [] = unblocked.
 jules_session_id: null  # Required. Active Jules session ID string, or null when idle.
 pr_number: null         # Optional. PR number for human-in-the-loop tasks, or null.
-parent: null            # Required if node is derived from another node (e.g. PRD from IDEA, EPIC from PRD). Repo-relative path to the logical parent node. Blocks the parent from completion if this node is incomplete.
+parent: null            # Required if node is derived from another node (e.g. PRD from IDEA, EPIC from PRD). The ID (preferred) or repo-relative path to the logical parent node. Blocks the parent from completion if this node is incomplete.
 tags: []                # Optional. Free-form string labels for filtering and context injection.
 research_references: [] # Optional. Array of repo-relative paths to research nodes.
 rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes.
@@ -93,7 +93,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `depends_on` | `string[]` | ✅ | Repo-relative paths to blocking nodes (e.g., `.foundry/stories/story-001-scaffold.md`). **Empty array `[]` means the node has in-degree zero and is eligible for dispatch once all other preconditions are met.** |
 | `jules_session_id` | `string \| null` | ✅ | Jules session ID while `ACTIVE`. Always present; `null` when the node is not being processed. Monitored by the heartbeat workflow. |
 | `pr_number` | `integer \| null` | optional | PR number for human-in-the-loop tasks, or `null`. |
-| `parent` | `string \| null` | optional | Repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
+| `parent` | `string \| null` | optional | The ID (preferred) or repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
 | `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
 | `research_references` | `string[]` | optional | Array of repo-relative paths to research nodes. |
 | `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. |
