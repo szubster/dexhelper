@@ -326,17 +326,30 @@ function main(): void {
   // ── Phase 3: BUILD MAPS ────────────────────────────────────────────────────
   info('Phase 3: Building dependency resolution map...');
   const nodeMap = new Map<string, ParsedNode>();
+  const idToNodeMap = new Map<string, ParsedNode>();
   const parentToChildren = new Map<string, ParsedNode[]>();
 
   for (const node of nodes) {
     nodeMap.set(node.repoPath, node);
+    idToNodeMap.set(node.frontmatter.id, node);
+  }
 
-    const parentPath = node.frontmatter.parent;
-    if (parentPath) {
-      if (!parentToChildren.has(parentPath)) {
-        parentToChildren.set(parentPath, []);
+  /** Resolves a node reference (repo-relative path OR unique ID) */
+  function resolveNode(ref: string): ParsedNode | undefined {
+    return nodeMap.get(ref) || idToNodeMap.get(ref);
+  }
+
+  for (const node of nodes) {
+    const parentRef = node.frontmatter.parent;
+    if (parentRef) {
+      const parentNode = resolveNode(parentRef);
+      // Normalize to repoPath if possible, otherwise use raw ref.
+      const targetKey = parentNode?.repoPath || parentRef;
+
+      if (!parentToChildren.has(targetKey)) {
+        parentToChildren.set(targetKey, []);
       }
-      parentToChildren.get(parentPath)!.push(node);
+      parentToChildren.get(targetKey)!.push(node);
     }
   }
 
@@ -377,10 +390,11 @@ function main(): void {
 
   // Helper to safely check if 'child' is a deep descendant of 'ancestor'
   function isDescendant(childPath: string, ancestorPath: string): boolean {
-    let curr = nodeMap.get(childPath)?.frontmatter.parent;
-    while (curr) {
-      if (curr === ancestorPath) return true;
-      curr = nodeMap.get(curr)?.frontmatter.parent;
+    let currRef = resolveNode(childPath)?.frontmatter.parent;
+    while (currRef) {
+      const currNode = resolveNode(currRef);
+      if (currNode?.repoPath === ancestorPath || currNode?.frontmatter.id === ancestorPath) return true;
+      currRef = currNode?.frontmatter.parent;
     }
     return false;
   }
@@ -399,7 +413,7 @@ function main(): void {
     // skip caching as it causes test issues since tests mock multiple times within same global env
     // if (evalCache.has(cacheKey)) return evalCache.get(cacheKey)!;
 
-    const node = nodeMap.get(nodePath);
+    const node = resolveNode(nodePath);
 
     if (!node) {
       hasUnresolvableDeps = true;
@@ -441,7 +455,7 @@ function main(): void {
 
     let shouldSuspend = false;
     for (const depPath of node.frontmatter.depends_on) {
-      const dep = nodeMap.get(depPath);
+      const dep = resolveNode(depPath);
       if (!dep) {
         if (fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
@@ -479,7 +493,7 @@ function main(): void {
   for (const node of nodes) {
     if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason) {
       if (node.frontmatter.parent) {
-        const parentNode = nodeMap.get(node.frontmatter.parent);
+        const parentNode = resolveNode(node.frontmatter.parent);
         if (parentNode && parentNode.frontmatter.status !== 'ACTIVE') {
           info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
           promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');
@@ -511,7 +525,7 @@ function main(): void {
       let parentStatus: string | undefined = undefined;
       let nextParent: string | undefined | null = undefined;
 
-      const parentNode = nodeMap.get(currParent);
+      const parentNode = resolveNode(currParent);
       if (!parentNode) {
         warn(`Parent '${currParent}' not found for: ${node.repoPath}`);
         blocked = true;
@@ -550,7 +564,7 @@ function main(): void {
     const deps = node.frontmatter.depends_on;
 
     for (const depPath of deps) {
-      const dep = nodeMap.get(depPath);
+      const dep = resolveNode(depPath);
       if (!dep) {
         if (fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
@@ -593,7 +607,7 @@ function main(): void {
       if (targetArtifacts.length > 0) {
         allTargetsCompleted = true;
         for (const target of targetArtifacts) {
-          const targetNode = nodeMap.get(target);
+          const targetNode = resolveNode(target);
           if (!targetNode || targetNode.frontmatter.status !== 'COMPLETED') {
             allTargetsCompleted = false;
             break;
@@ -697,10 +711,10 @@ function main(): void {
       const links = [...body.matchAll(linkRegex)].map(m => m[1]);
 
       if (links.length > 0) {
-        const allExist = links.every(l => nodeMap.has(l));
+        const allExist = links.every(l => !!resolveNode(l));
         const hasChild = links.some(l => {
-          const childNode = nodeMap.get(l);
-          return !!childNode && childNode.frontmatter.parent === node.repoPath;
+          const childNode = resolveNode(l);
+          return !!childNode && (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id);
         });
 
         if (allExist && hasChild) {
