@@ -17,3 +17,6 @@
 ## 2024-05-15 - Assistant Happiness Evolution Suggestion
 **Learning:** For happiness-based evolutions (`min_h`), the assistant previously only displayed a generic "Level up with high happiness to evolve" message without showing the actual friendship progress. The save data `PokemonInstance` actually provides the `friendship` stat.
 **Action:** Always check if `bestInstance.friendship` is defined for `min_h` evolutions. If it is >= `min_h`, update the priority to 90 and dynamically tell the user it is "Ready to Evolve!". Otherwise, display the current vs required friendship `(current/required)` to give the user a clear progression indicator.
+## 2024-05-18 - Assistant Daycare Egg Suggestion
+**Learning:** The Gen 2 Daycare breeding logic previously suggested "Leave your Pokémon at the Daycare to get an Egg!" even if the required Pokémon was already in the daycare, or if an egg was already waiting. We can extract `daycare` and `daycareHasEgg` from the parsed `SaveData`.
+**Action:** When evaluating `EVO_TRIGGER.BREED` (or general breeding recommendations), always check if `saveData.daycare` contains the needed species. If it does, and `saveData.daycareHasEgg` is true, suggest picking up the egg with a higher priority (95). If it is in the daycare but no egg is ready, tell the user to wait.

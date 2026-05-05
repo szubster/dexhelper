@@ -443,13 +443,31 @@ export function generateSuggestions(
       }
 
       if (canBreed && evolutionIdToBreed) {
+        const isInDaycare = saveData.daycare?.some((d) => d.speciesId === evolutionIdToBreed) ?? false;
+
+        let description = `Leave your #${evolutionIdToBreed} at the Daycare to get an Egg!`;
+        let priority = 85;
+        let title = `Breed: #${targetId}`;
+
+        if (isInDaycare) {
+          if (saveData.daycareHasEgg) {
+            title = `Egg Ready: #${targetId}!`;
+            description = `Pick up your Egg from the Daycare!`;
+            priority = 95;
+          } else {
+            title = `Breeding in Progress: #${targetId}`;
+            description = `Wait for an Egg from the Daycare!`;
+            priority = 85;
+          }
+        }
+
         suggestions.push({
           id: `breed-${targetId}`,
           category: 'Breed',
-          title: `Breed: #${targetId}`,
-          description: `Leave your #${evolutionIdToBreed} at the Daycare to get an Egg!`,
+          title,
+          description,
           pokemonId: targetId,
-          priority: 85,
+          priority,
         });
       }
     });
