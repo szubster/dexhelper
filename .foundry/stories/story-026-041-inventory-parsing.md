@@ -1,20 +1,23 @@
 ---
 id: story-026-041-inventory-parsing
 type: STORY
-title: "Story 1: Detailed Inventory Parsing"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-05-06"
-updated_at: "2026-05-06"
+title: 'Story 1: Detailed Inventory Parsing'
+status: READY
+owner_persona: tech_lead
+created_at: '2026-05-06'
+updated_at: '2026-05-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: .foundry/epics/epic-015-026-save-parser-expansion.md
-tags: ["gen2", "save-parser", "inventory"]
+tags:
+  - gen2
+  - save-parser
+  - inventory
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story 1: Detailed Inventory Parsing

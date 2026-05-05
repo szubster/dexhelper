@@ -1,8 +1,8 @@
 ---
 id: prd-016-016-precommit-schema-validation
 type: PRD
-title: 'Pre-commit Schema Validation'
-status: PENDING
+title: Pre-commit Schema Validation
+status: READY
 owner_persona: architect
 created_at: '2026-05-05'
 updated_at: '2026-05-05'

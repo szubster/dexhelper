@@ -54,3 +54,11 @@
 - **2026-05-05**: PR #945 merged. `prd-006-015-gen2-expansion-phase-1-2` is now COMPLETED.
 
 - **2026-05-05**: PR #944 merged. `story-025-038-implement-mapping-validation` is now COMPLETED.
+
+- **2026-05-05**: PR #952 merged. `epic-015-026-save-parser-expansion` is now PENDING.
+
+- **2026-05-05**: PR #954 merged. `idea-006-gen2-expansion` is now PENDING.
+
+- **2026-05-05**: PR #955 merged. `idea-016-precommit-schema-validation` is now COMPLETED.
+
+- **2026-05-05**: Heartbeat detected zombie session for `task-038-064-implement-mapping-validation`. Transitioned to FAILED.
