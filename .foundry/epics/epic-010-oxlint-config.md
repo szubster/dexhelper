@@ -6,7 +6,7 @@ status: "COMPLETED"
 owner_persona: "story_owner"
 created_at: "2026-04-23"
 updated_at: "2026-05-01"
-parent: ""
+parent: null
 depends_on:
   - .foundry/stories/story-010-028-verify-jest-tests.md
   - .foundry/stories/story-010-017-fix-jest-rules.md
