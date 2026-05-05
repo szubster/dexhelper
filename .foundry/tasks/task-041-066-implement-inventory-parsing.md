@@ -2,12 +2,12 @@
 id: task-041-066-implement-inventory-parsing
 type: TASK
 title: Implement Detailed Inventory Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2025-05-15'
 updated_at: '2026-05-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1688258682338418446'
 pr_number: null
 parent: .foundry/stories/story-026-041-inventory-parsing.md
 tags:
