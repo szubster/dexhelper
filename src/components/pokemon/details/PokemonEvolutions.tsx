@@ -1,8 +1,8 @@
 import { AlertTriangle, ArrowUpCircle, Check, ChevronRight, Heart, X } from 'lucide-react';
 import React from 'react';
+import { stadiumRewardsData } from '../../../engine/data/shared/staticData';
 import type { SaveData } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
-import { stadiumRewardsData } from '../../../utils/data';
 
 interface EvoReq {
   fromId: number;

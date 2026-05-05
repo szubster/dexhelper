@@ -1,7 +1,7 @@
 import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
-import { staticEncounters } from '../../../utils/data';
+import { staticEncounters } from '../../../engine/data/shared/staticData';
 
 interface EvoReq {
   fromId: number;

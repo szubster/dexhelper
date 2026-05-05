@@ -24,3 +24,7 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 - Removed several unused exports (`fallbackStrategy`, `getOutdoorMapId`, `detectGen1GameVersion`, `parseCaughtData`, `detectGen2GameVersion`, `getVersionInfo`, `MAX_DEX_ACROSS_GENS`, `ALL_VERSION_IDS`) across the engine and utilities.
 - Cleaned up corresponding unit tests that were intimately testing internal implementation details.
 - Ensured all tests and e2e scenarios pass successfully after the cleanup.
+
+## 2026-05-05 - Safe Removal of Re-export Abstractions
+**Learning:** Files that serve only as re-exports for "backward compatibility" (like `src/utils/data.ts` re-exporting `src/engine/data/shared/staticData.ts`) introduce unnecessary indirection. While `knip` might not flag them if they are actively used, manually tracing their usage and updating call sites to point directly to the actual source file is a safe and effective way to reduce technical debt and simplify the module graph.
+**Action:** When encountering a file that purely re-exports contents from another file without adding value, trace its usage using `grep`, update the imports at the call sites, and delete the obsolete abstraction file. Always verify the refactor by running `pnpm lint`, `pnpm test`, and `pnpm test:e2e` to ensure no consumers were broken during the transition.
