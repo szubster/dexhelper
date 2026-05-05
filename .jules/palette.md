@@ -39,3 +39,7 @@
 ## 2026-04-20 - Clear Filters Button in Empty States
 **Learning:** Empty states caused by active search or filter parameters should provide a single-click action to reset the state. Relying on users to manually clear text inputs or deselect filters across the UI creates unnecessary friction.
 **Action:** When an empty state is triggered by a combination of filters, include a prominent "Clear Filters" button that programmatically resets all relevant filter/search states and returns the user to the default populated view.
+
+## 2024-05-19 - File Upload Input Keyboard Navigation
+**Learning:** Using `tabIndex={-1}` on a hidden `<input type="file">` prevents it from receiving keyboard focus. If the input is wrapped in a `<label>` to act as a custom upload button, the `<label>` itself does not natively receive focus, breaking keyboard navigation entirely.
+**Action:** When creating custom file upload buttons with hidden inputs, do not use a `<label>` wrapper. Instead, use a semantic `<button type="button">` with `focus-visible` styles, and use an `onClick` handler to programmatically trigger the click on the sibling `<input type="file">` via its ID or a React ref.
