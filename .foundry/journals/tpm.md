@@ -48,3 +48,5 @@
 - **2026-05-04**: PR #941 merged. `idea-006-gen2-expansion` is now PENDING.
 
 - **2026-05-04**: PR #943 merged. `story-024-037-orchestrator-late-binding-completion` is now COMPLETED.
+
+- **2026-05-05**: Executed TPM routine. Archived at least one COMPLETED test node (`task-017-create-scheduled-agent-workflow.md`). Retained other COMPLETED nodes per conservative archiving rules. Updated existing references. Checked for deadlocks; none found. Journals do not have stale content to prune.
