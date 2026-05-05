@@ -27,10 +27,14 @@ notes: ''
 Implement the mapping validation logic in the orchestrator to enforce pipeline handoff ownership rules.
 
 ## Acceptance Criteria
-- [ ] Implement validation logic in `.github/scripts/foundry-orchestrator.ts` Phase 4 or 4.5.
-- [ ] Nodes are validated before dispatch (not transitioned to READY).
-- [ ] The check matches node `type` and `owner_persona`.
-- [ ] Allows `human` persona.
+- [x] Implement validation logic in `.github/scripts/foundry-orchestrator.ts` Phase 4 or 4.5.
+- [x] Nodes are validated before dispatch (not transitioned to READY).
+- [x] The check matches node `type` and `owner_persona`.
+- [x] Allows `human` persona.
 
 ## Next Step
-- [ ] Create Task to add logic.
+- [x] Create Task to add logic.
+
+## Generated Tasks
+- `.foundry/tasks/task-038-064-implement-mapping-validation.md`
+- `.foundry/tasks/task-038-065-qa-mapping-validation.md`
