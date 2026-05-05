@@ -26,4 +26,7 @@ Currently, the DAG orchestrator handles schema validation during its dispatch cy
 Expand the existing pre-commit hook (which currently checks links) to perform full YAML frontmatter schema validation against `schema.md` (e.g., checking `owner_persona`, `status`, `type` enums). This will prevent malformed nodes from ever entering the repository, catching errors at commit time and providing immediate feedback to agents or humans.
 
 ## Next Steps
-- [ ] Convert this idea into a detailed PRD defining the pre-commit hook expansion.
+- [x] Convert this idea into a detailed PRD defining the pre-commit hook expansion.
+
+### Child Nodes
+- `.foundry/prds/prd-016-016-precommit-schema-validation.md`

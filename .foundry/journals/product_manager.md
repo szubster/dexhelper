@@ -32,3 +32,6 @@ During the session for transforming IDEA-007 (Migrate Save Data to IndexedDB) in
 ## 2026-05-03: Pre-existing PRD Anomaly
 - During the session for transforming IDEA-013 (Improve Late Binding Parent Completion) into a PRD, the target PRD node (`.foundry/prds/prd-013-012-improve-late-binding-completion.md`) was already found existing in the repository and the acceptance criteria in IDEA-013 were already present.
 - Following the Empty PR Policy, no dummy changes are made, and this journal entry is documented to allow the DAG to progress. The Agile Coach should review this anomaly.
+
+## 2026-05-05: Idea 016 - Pre-commit Schema Validation
+- Created PRD `prd-016-016-precommit-schema-validation.md` from Idea `idea-016-precommit-schema-validation.md`.
