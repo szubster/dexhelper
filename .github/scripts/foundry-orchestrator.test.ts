@@ -1029,4 +1029,51 @@ jules_session_id: null`);
     const epicContent = fs.readFileSync(filePath, 'utf-8');
     expect(epicContent).toContain('status: READY'); // Promoted, not bypassed
   });
+
+  test('Late-Binding: Parent with unchecked tasks and completed children is promoted exactly once', () => {
+    createNode('.foundry/ideas/idea-001.md', `
+id: idea-001
+type: IDEA
+title: "Idea 1"
+status: PENDING
+owner_persona: product_manager
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`, `# Title
+- [ ] Unchecked task
+- Spawned: [.foundry/prds/prd-001.md](.foundry/prds/prd-001.md)
+`);
+
+    createNode('.foundry/prds/prd-001.md', `
+id: prd-001
+type: PRD
+title: "PRD 1"
+status: COMPLETED
+owner_persona: product_manager
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+parent: .foundry/ideas/idea-001.md
+jules_session_id: null
+`);
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write');
+    main();
+
+    const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+    const warnings = output.split('\n').filter(line => line.includes('WARN'));
+
+    if (warnings.length > 0) {
+      console.log('Captured warnings:', warnings);
+    }
+
+    // Verify "Cannot promote status" warning is NOT present
+    const doublePromotionWarning = warnings.find(w => w.includes('Cannot promote status') && w.includes('idea-001.md'));
+    expect(doublePromotionWarning).toBeUndefined();
+
+    const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
+    expect(ideaContent).toContain('status: READY');
+  });
 });
