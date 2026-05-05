@@ -123,6 +123,57 @@ describe('AppLayout file upload', () => {
     vi.restoreAllMocks();
   });
 
+  it('should trigger the file input click when INITIALIZE.SYS button is clicked', async () => {
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    const button = page.getByText('[ INITIALIZE.SYS ]');
+    await expect.element(button).toBeInTheDocument();
+
+    const input = document.getElementById('init-save-input') as HTMLInputElement;
+    const clickSpy = vi.spyOn(input, 'click');
+
+    await button.click();
+
+    expect(clickSpy).toHaveBeenCalled();
+  });
+
+  it('should trigger the file input click when Import New Save button is clicked', async () => {
+    useStore.getState().setSaveData({
+      gameVersion: 'red',
+      generation: 1,
+      trainerName: 'TEST',
+      trainerId: 12345,
+      party: [],
+      pc: [],
+      partyDetails: [],
+      pcDetails: [],
+      seen: new Set(),
+      owned: new Set(),
+      // biome-ignore lint/suspicious/noExplicitAny: Internal mock state
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any);
+
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    const button = page.getByTitle('Import New Save');
+    await expect.element(button).toBeInTheDocument();
+
+    const input = document.getElementById('import-save-input') as HTMLInputElement;
+    const clickSpy = vi.spyOn(input, 'click');
+
+    await button.click();
+
+    expect(clickSpy).toHaveBeenCalled();
+  });
+
   it('should call saveDB.putSave when a file is uploaded', async () => {
     const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
     await render(
