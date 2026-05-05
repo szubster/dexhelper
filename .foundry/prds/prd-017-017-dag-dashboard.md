@@ -9,7 +9,7 @@ updated_at: '2026-05-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: idea-017-dag-dashboard
+parent: .foundry/ideas/idea-017-dag-dashboard.md
 ---
 
 # PRD: DAG Dashboard Webview
