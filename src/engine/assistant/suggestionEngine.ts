@@ -331,6 +331,15 @@ export function generateSuggestions(
   // B. Unobtainable / Exclusive logic
   // Checks if the target is completely locked out of the current version (e.g. Red exclusives on Blue).
   // These are assigned the lowest base priority (10) since they require external action (link cable trades).
+  // ⚡ Bolt: Convert O(N^2) array lookup to O(1) Set has for NPC trades
+  const validNpcTradeIds = new Set<number>();
+  for (let i = 0; i < STATIC_NPC_TRADE_DATA.length; i++) {
+    const t = STATIC_NPC_TRADE_DATA[i];
+    if (t && t.gen === saveData.generation && (!t.versions || t.versions.includes(displayVersion))) {
+      validNpcTradeIds.add(t.receivedId);
+    }
+  }
+
   const pidsWithExclusives = new Set<number>();
   for (const pid of queryTargets) {
     let reason: string | null = null;
@@ -342,10 +351,7 @@ export function generateSuggestions(
     if (reason) {
       pidsWithExclusives.add(pid);
 
-      const isNpcTrade = STATIC_NPC_TRADE_DATA.some(
-        (t) =>
-          t.receivedId === pid && t.gen === saveData.generation && (!t.versions || t.versions.includes(displayVersion)),
-      );
+      const isNpcTrade = validNpcTradeIds.has(pid);
       if (isNpcTrade) continue;
 
       // If they physically own a pre-evolution, they don't strictly need to trade, they can evolve it!
