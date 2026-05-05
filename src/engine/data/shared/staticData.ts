@@ -1,14 +1,6 @@
-export const staticEncounters: Record<
-  number,
-  {
-    red?: string[];
-    blue?: string[];
-    yellow?: string[];
-    gold?: string[];
-    silver?: string[];
-    crystal?: string[];
-  }
-> = {
+import type { GameVersion } from '../../saveParser/parsers/common';
+
+export const staticEncounters: Record<number, Partial<Record<GameVersion, string[]>>> = {
   1: {
     red: ['Pallet Town (Starter)'],
     blue: ['Pallet Town (Starter)'],

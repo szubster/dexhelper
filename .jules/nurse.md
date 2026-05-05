@@ -1,4 +1,4 @@
-## $(date +%Y-%m-%d) - Typed `CATEGORY_STYLES` with `SuggestionCategory`
+## 2026-05-05 - Typed `CATEGORY_STYLES` with `SuggestionCategory`
 **Learning:** `Object.entries()` returns keys as `string`, which requires an explicit `as Type` cast when the original object uses a strict union or enum for its keys. Furthermore, when using `.reduce` to build an object with strict string literal keys, use `Partial<Record<TargetKey, ValueType>>` for the initial accumulator so it can start as an empty object (`{}`) without failing type-checks, as opposed to forcing it with `as Record<TargetKey, ValueType>`.
 **Action:** Use `Partial` instead of raw `Record` types when starting with empty objects in `.reduce()` functions if not all keys are guaranteed to be populated at start. Remember to cast keys yielded by `Object.entries()` if they need to map back to strict unions, or use `.reduce` instead with typed iterables.
 ## 2025-02-15 - Unsafe casts in DataLoader
@@ -27,7 +27,7 @@ The compiler ensures that DataLoader batch functions return valid values or Erro
 * **Issue:** When dealing with sets of valid literal string values (e.g., `['secured', 'missing', 'dex-only']`), components often use inline `as Type[]` assertions when iterating, and the union type itself is defined separately (`type FilterType = 'secured' | 'missing' | 'dex-only'`). This causes a disconnect where the array values can drift from the type definition, bypassing compiler checks.
 * **Solution:** Create an immutable array `export const FILTER_TYPES = [...] as const;` and derive the union type from it: `export type FilterType = (typeof FILTER_TYPES)[number];`.
 * **Learning:** This pattern completely eliminates the need for unsafe `as` casts in the consuming components (e.g., `FILTER_TYPES.map(...)` instead of `(['...'] as FilterType[]).map(...)`), guarantees that the type and the runtime array are always in perfect sync, and successfully compiles under strict mode while maintaining the identical runtime behavior.
-## $(date +%Y-%m-%d) - Nurse: Replaced inline string unions and array casting with `as const` derived array and type
+## 2026-05-05 - Nurse: Replaced inline string unions and array casting with `as const` derived array and type
 
 **What was unsafe:**
 The `StatusType` was defined as a string union `type StatusType = 'none' | 'sleep_freeze' | 'paralyze_burn_poison';`. Inside the component, an inline array of options mapped these values to labels, using `as StatusType` casts to avoid type errors since TypeScript infers string literal properties in arrays as generic `string`.
@@ -37,3 +37,6 @@ Extracted the inline array into a constant `STATUS_OPTIONS` marked with `as cons
 
 **What the compiler now catches:**
 The compiler statically guarantees that the `StatusType` union and the `STATUS_OPTIONS` array are always in sync. It eliminates the unsafe `as StatusType` casts while maintaining identical runtime behavior.
+
+## 2026-05-05 - Typed staticEncounters with GameVersion
+**Learning:** Replaced manual optional string keys with strict Partial<Record<GameVersion, string[]>> mapped types to eliminate the need for unsafe 'as keyof' casts in components.

@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { dexDataLoader } from '../db/DexDataLoader';
 import { type CompactChainLink, POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../db/schema';
 import type { SaveData } from '../engine/saveParser/index';
-import type { PokeballType } from '../store';
+import type { GameVersion, PokeballType } from '../store';
 import { cn } from '../utils/cn';
 import { stadiumRewardsSummary } from '../utils/data';
 import { getGenerationConfig } from '../utils/generationConfig';
@@ -18,7 +18,7 @@ import { PokemonSprite } from './pokemon/PokemonSprite';
 interface PokemonDetailsProps {
   pokemonId: number;
   pokemonName: string;
-  gameVersion: string;
+  gameVersion: GameVersion;
   saveData: SaveData | null;
   isLivingDex: boolean;
   pokeball: PokeballType;

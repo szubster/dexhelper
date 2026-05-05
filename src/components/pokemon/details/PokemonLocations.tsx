@@ -1,6 +1,7 @@
 import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
+import type { GameVersion } from '../../../store';
 import { staticEncounters } from '../../../utils/data';
 
 interface EvoReq {
@@ -11,7 +12,7 @@ interface EvoReq {
 
 interface PokemonLocationsProps {
   pokemonId: number;
-  gameVersion: string;
+  gameVersion: GameVersion;
   encounters: CompactEncounter[];
   areaNames: Record<number, string> | undefined;
   evoReq: EvoReq | null;
@@ -44,7 +45,7 @@ export function PokemonLocations({
       ) : (
         <div className="relative z-10 grid grid-cols-1 gap-3" data-testid="location-list">
           {(() => {
-            const staticEnc = staticEncounters[pokemonId]?.[gameVersion as keyof (typeof staticEncounters)[number]];
+            const staticEnc = staticEncounters[pokemonId]?.[gameVersion];
             const versionEnc = encounters.filter((e) => e.v === currentVersionId);
 
             if ((staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq) {
