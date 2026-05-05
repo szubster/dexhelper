@@ -50,3 +50,7 @@
 - **2026-05-04**: PR #943 merged. `story-024-037-orchestrator-late-binding-completion` is now COMPLETED.
 
 - **2026-05-05**: Executed TPM routine. Archived at least one COMPLETED test node (`task-017-create-scheduled-agent-workflow.md`). Retained other COMPLETED nodes per conservative archiving rules. Updated existing references. Checked for deadlocks; none found. Journals do not have stale content to prune.
+
+- **2026-05-05**: PR #945 merged. `prd-006-015-gen2-expansion-phase-1-2` is now COMPLETED.
+
+- **2026-05-05**: PR #944 merged. `story-025-038-implement-mapping-validation` is now COMPLETED.

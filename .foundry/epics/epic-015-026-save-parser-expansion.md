@@ -1,20 +1,23 @@
 ---
 id: epic-015-026-save-parser-expansion
 type: EPIC
-title: "Phase 1: Save Parser Expansion"
-status: PENDING
+title: 'Phase 1: Save Parser Expansion'
+status: READY
 owner_persona: story_owner
-created_at: "2026-05-04"
-updated_at: "2026-05-04"
+created_at: '2026-05-04'
+updated_at: '2026-05-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-006-015-gen2-expansion-phase-1-2.md
-tags: ["gen2", "save-parser"]
-research_references: [".foundry/docs/knowledge_base/development/gen2_implementation_plan.md"]
+tags:
+  - gen2
+  - save-parser
+research_references:
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Phase 1: Save Parser Expansion

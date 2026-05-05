@@ -2,12 +2,12 @@
 id: story-025-038-implement-mapping-validation
 type: STORY
 title: Implement Mapping Validation in DAG Orchestrator
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: tech_lead
 created_at: '2026-05-04'
-updated_at: '2026-05-04'
+updated_at: "2026-05-05"
 depends_on: []
-jules_session_id: '12853408591694952480'
+jules_session_id: null
 pr_number: null
 parent: .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md
 tags:

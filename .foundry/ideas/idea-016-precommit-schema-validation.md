@@ -2,10 +2,10 @@
 id: idea-016-precommit-schema-validation
 type: IDEA
 title: 'DAG Feature: Pre-commit Schema Validation'
-status: "PENDING"
+status: READY
 owner_persona: product_manager
 created_at: '2026-05-04'
-updated_at: "2026-05-04"
+updated_at: '2026-05-05'
 depends_on: []
 jules_session_id: null
 parent: null
