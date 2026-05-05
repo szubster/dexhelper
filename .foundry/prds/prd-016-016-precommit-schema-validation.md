@@ -2,12 +2,12 @@
 id: prd-016-016-precommit-schema-validation
 type: PRD
 title: Pre-commit Schema Validation
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-05-05'
 updated_at: '2026-05-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '455553693845656905'
 pr_number: null
 parent: .foundry/ideas/idea-016-precommit-schema-validation.md
 tags:
