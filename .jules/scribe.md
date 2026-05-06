@@ -60,3 +60,16 @@ Documenting these mechanical quirks is essential for future maintainability of t
 
 **What:** Documented `AppStore` interface and `useStore` hook in `src/store.ts`.
 **Why:** The `AppStore` interface mixes persisted user settings (via localStorage `partialize`, like `isLivingDex` and `filters`) with heavy transient data (like the entire parsed `saveData`) and lightweight UI view state (like `isSettingsOpen`). Documenting the *why* prevents future developers from accidentally persisting the massive `saveData` object into localStorage, which would bloat the storage quota and cause stale state bugs on reload.
+## 2025-05-18 - PokeDB and DexDataLoader Documentation
+
+**What:** Added JSDoc for `bulkGet` and `syncData` in `src/db/PokeDB.ts`.
+**Why:**
+- `bulkGet`: Internal utility that circumvents IndexedDB's lack of a native `getAll(keys)` method by firing parallel `store.get` requests within a single transaction. This prevents massive N+1 query bottlenecks during  and  operations.
+- `syncData`: Documents the build hash comparison logic (`__POKEDATA_HASH__`) that prevents redundant network downloads of `pokedata.json` during IDB hydration.
+
+## 2025-05-18 - PokeDB and DexDataLoader Documentation
+
+**What:** Added JSDoc for `bulkGet` and `syncData` in `src/db/PokeDB.ts`.
+**Why:**
+- `bulkGet`: Internal utility that circumvents IndexedDB's lack of a native `getAll(keys)` method by firing parallel `store.get` requests within a single transaction. This prevents massive N+1 query bottlenecks during suggestionEngine and dexDataLoader operations.
+- `syncData`: Documents the build hash comparison logic (`__POKEDATA_HASH__`) that prevents redundant network downloads of `pokedata.json` during IDB hydration.
