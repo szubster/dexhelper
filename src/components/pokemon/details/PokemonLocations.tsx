@@ -2,6 +2,7 @@ import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { staticEncounters } from '../../../engine/data/shared/staticData';
+import { GlassCard } from '../../GlassCard';
 
 interface EvoReq {
   fromId: number;
@@ -40,7 +41,7 @@ export function PokemonLocations({
       </div>
 
       {loading ? (
-        <div className="glass-card h-40 animate-pulse rounded-3xl border border-white/5 bg-white/5" />
+        <GlassCard className="h-40 animate-pulse rounded-3xl" />
       ) : (
         <div className="relative z-10 grid grid-cols-1 gap-3" data-testid="location-list">
           {(() => {

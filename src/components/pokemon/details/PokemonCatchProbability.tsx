@@ -2,6 +2,7 @@ import { Target } from 'lucide-react';
 import { useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
+import { GlassCard } from '../../GlassCard';
 
 interface PokemonCatchProbabilityProps {
   catchRate: number;
@@ -21,7 +22,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
   const [status, setStatus] = useState<StatusType>('none');
 
   return (
-    <div className="glass-card relative space-y-8 overflow-hidden rounded-[2.5rem] border-emerald-500/10 bg-emerald-500/5 p-8">
+    <GlassCard variant="emerald" className="space-y-8 rounded-[2.5rem] p-8">
       <div className="absolute top-0 right-0 p-4 opacity-5">
         <Target size={120} />
       </div>
@@ -114,6 +115,6 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
           </div>
         </div>
       </div>
-    </div>
+    </GlassCard>
   );
 }
