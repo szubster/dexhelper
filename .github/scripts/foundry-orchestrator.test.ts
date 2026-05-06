@@ -665,6 +665,72 @@ jules_session_id: null
     expect(output[0].status).toBe('READY');
   });
 
+  test('Parent-ID Resolution: resolves parent relationship using node ID', () => {
+    createNode('.foundry/ideas/idea-001.md', `
+id: idea-001
+type: IDEA
+title: "Idea 1"
+status: COMPLETED
+owner_persona: product_manager
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/prds/prd-001.md', `
+id: prd-001
+type: PRD
+title: "PRD 1"
+status: PENDING
+owner_persona: product_manager
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+parent: idea-001
+depends_on: []
+jules_session_id: null
+`);
+
+    main();
+
+    const prdContent = fs.readFileSync(path.join(tmpDir, '.foundry/prds/prd-001.md'), 'utf-8');
+    expect(prdContent).toContain('status: READY');
+  });
+
+  test('Parent-ID Resolution: Late-Binding wakes up parent identified by ID', () => {
+    createNode('.foundry/ideas/idea-001.md', `
+id: idea-001
+type: IDEA
+title: "Idea 1"
+status: PENDING
+owner_persona: product_manager
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`, `# Title
+- [ ] Unchecked task
+`);
+
+    createNode('.foundry/prds/prd-001.md', `
+id: prd-001
+type: PRD
+title: "PRD 1"
+status: COMPLETED
+owner_persona: product_manager
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+parent: idea-001
+depends_on: []
+jules_session_id: null
+`);
+
+    main();
+
+    const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
+    expect(ideaContent).toContain('status: READY');
+  });
+
 
   test('Wait and Wake: Suspends ACTIVE node if dependencies are unresolvable', () => {
     createNode('.foundry/tasks/task-active.md', `

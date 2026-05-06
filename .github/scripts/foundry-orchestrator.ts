@@ -326,18 +326,36 @@ function main(): void {
   // ── Phase 3: BUILD MAPS ────────────────────────────────────────────────────
   info('Phase 3: Building dependency resolution map...');
   const nodeMap = new Map<string, ParsedNode>();
+  const idToPathMap = new Map<string, string>();
   const parentToChildren = new Map<string, ParsedNode[]>();
 
   for (const node of nodes) {
     nodeMap.set(node.repoPath, node);
+    idToPathMap.set(node.frontmatter.id, node.repoPath);
+  }
 
-    const parentPath = node.frontmatter.parent;
+  for (const node of nodes) {
+    let parentPath = node.frontmatter.parent;
     if (parentPath) {
+      // Resolve parent path if it's an ID
+      if (idToPathMap.has(parentPath)) {
+        parentPath = idToPathMap.get(parentPath)!;
+      }
+
       if (!parentToChildren.has(parentPath)) {
         parentToChildren.set(parentPath, []);
       }
       parentToChildren.get(parentPath)!.push(node);
     }
+  }
+
+  /**
+   * Helper to resolve a parent reference (either ID or path) to a repo-relative path.
+   */
+  function resolveParentPath(parentRef: string | null | undefined): string | null {
+    if (!parentRef) return null;
+    if (idToPathMap.has(parentRef)) return idToPathMap.get(parentRef)!;
+    return parentRef;
   }
 
   // ── Phase 3.1: CASCADE CANCELLATIONS ───────────────────────────────────────
@@ -377,10 +395,10 @@ function main(): void {
 
   // Helper to safely check if 'child' is a deep descendant of 'ancestor'
   function isDescendant(childPath: string, ancestorPath: string): boolean {
-    let curr = nodeMap.get(childPath)?.frontmatter.parent;
+    let curr = resolveParentPath(nodeMap.get(childPath)?.frontmatter.parent);
     while (curr) {
       if (curr === ancestorPath) return true;
-      curr = nodeMap.get(curr)?.frontmatter.parent;
+      curr = resolveParentPath(nodeMap.get(curr)?.frontmatter.parent);
     }
     return false;
   }
@@ -478,8 +496,9 @@ function main(): void {
   info('Phase 3.6: Checking for Impossible Loop conditions...');
   for (const node of nodes) {
     if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason) {
-      if (node.frontmatter.parent) {
-        const parentNode = nodeMap.get(node.frontmatter.parent);
+      const parentPath = resolveParentPath(node.frontmatter.parent);
+      if (parentPath) {
+        const parentNode = nodeMap.get(parentPath);
         if (parentNode && parentNode.frontmatter.status !== 'ACTIVE') {
           info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
           promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');
@@ -506,7 +525,7 @@ function main(): void {
     let blocked = false;
 
         // Check parent inheritance
-    let currParent = node.frontmatter.parent;
+    let currParent = resolveParentPath(node.frontmatter.parent);
     while (currParent) {
       let parentStatus: string | undefined = undefined;
       let nextParent: string | undefined | null = undefined;
@@ -518,7 +537,7 @@ function main(): void {
         break;
       } else {
         parentStatus = parentNode.frontmatter.status;
-        nextParent = parentNode.frontmatter.parent;
+        nextParent = resolveParentPath(parentNode.frontmatter.parent);
       }
 
       if (parentStatus !== 'ACTIVE' && parentStatus !== 'COMPLETED') {
@@ -581,9 +600,10 @@ function main(): void {
       const body = node.body;
       const matches = [...new Set(body.match(regex) || [])];
 
+      const parentPath = resolveParentPath(node.frontmatter.parent);
       const targetArtifacts = matches.filter(m =>
         m !== node.repoPath &&
-        m !== node.frontmatter.parent &&
+        m !== parentPath &&
         !node.frontmatter.depends_on.includes(m)
       );
 
