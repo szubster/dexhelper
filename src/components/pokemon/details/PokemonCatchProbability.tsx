@@ -53,12 +53,10 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
 
         <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Target Status">
           {STATUS_OPTIONS.map((item) => (
-            // biome-ignore lint/a11y/useSemanticElements: custom segmented control using radio role
             <button
               type="button"
               key={item.id}
-              role="radio"
-              aria-checked={status === item.id}
+              aria-pressed={status === item.id}
               onClick={() => setStatus(item.id)}
               className={cn(
                 'rounded-2xl border py-3 font-black text-[9px] uppercase tracking-widest outline-none transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95',
