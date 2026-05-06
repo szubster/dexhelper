@@ -18,7 +18,12 @@ async function bulkGet<T>(store: IDBObjectStore, ids: readonly number[]): Promis
     let pending = ids.length;
     if (pending === 0) return resolve([]);
     for (let i = 0; i < ids.length; i++) {
-      const req = store.get(ids[i] as IDBValidKey);
+      const id = ids[i];
+      if (id === undefined) {
+        if (--pending === 0) resolve(res);
+        continue;
+      }
+      const req = store.get(id);
       req.onsuccess = () => {
         res[i] = req.result;
         if (--pending === 0) resolve(res);
