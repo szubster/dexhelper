@@ -21,3 +21,7 @@ Outcome: The generated epics (epic-007-atomic-handoff-schema.md, epic-008-atomic
 >> **Task:** PRD-012-011-gray-matter-parsing -> Epic epic-011-022-implement-gray-matter
 >> **Decision:** The target artifact Epic `epic-011-022-implement-gray-matter` already existed and fully matched the required state from the PRD.
 >> **Action:** Per the Empty PR Policy, I did not make dummy updates or trivial formatting changes to force a git diff. Submitted PR directly.
+
+### 2026-05-06
+- Created `epic-018-028-migrate-heartbeat-to-gray-matter` for PRD `prd-018-018-migrate-heartbeat-to-gray-matter`.
+- Handed off node to `story_owner` persona.
