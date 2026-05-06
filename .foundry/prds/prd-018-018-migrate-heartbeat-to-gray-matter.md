@@ -2,8 +2,8 @@
 id: prd-018-018-migrate-heartbeat-to-gray-matter
 type: PRD
 title: Migrate foundry-heartbeat.ts to gray-matter
-status: BLOCKED
-owner_persona: tpm
+status: PENDING
+owner_persona: epic_planner
 created_at: '2026-05-06'
 updated_at: '2026-05-06'
 depends_on: []
