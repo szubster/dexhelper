@@ -2,12 +2,12 @@
 id: prd-017-017-dag-dashboard
 type: PRD
 title: DAG Dashboard Webview PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-15'
 updated_at: '2026-05-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15173950462129501411'
 pr_number: null
 parent: .foundry/ideas/idea-017-dag-dashboard.md
 ---
