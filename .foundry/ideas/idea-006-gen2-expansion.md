@@ -46,4 +46,6 @@ Inject Gen 2 logic into the Assistant's core:
 ## Next Steps
 - [x] **Product Manager**: Draft the Gen 2 Expansion PRD, formalizing the scope for Phase 1 and 2.
   - Spawned: [.foundry/prds/prd-006-015-gen2-expansion-phase-1-2.md](.foundry/prds/prd-006-015-gen2-expansion-phase-1-2.md)
+- [x] **Product Manager**: Draft the Gen 2 Expansion PRD, formalizing the scope for Phase 3 and 4.
+  - Spawned: [.foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md](.foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md)
 - [ ] **Architect**: Review the Map Graph design to ensure it scales for dual-region routing.
