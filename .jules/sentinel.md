@@ -68,3 +68,4 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 
 - Improved coverage in `src/engine/assistant/suggestionEngine.ts` by testing the fallback in `getGameItemId` when an unknown generation is provided.
 - Improved coverage in `src/store.ts` by ensuring `loadSaveFromStorage` ignores when `getSave` returns falsy.
+- Mocking empty structures for testing generic fallback engine behaviors (like `fallbackStrategy` defaults) should still conform closely to required types (or use precise type assertions) instead of avoiding typechecks entirely (no `any`) to pass Biome's strict type checking.
