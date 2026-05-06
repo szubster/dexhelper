@@ -4,8 +4,8 @@
 pre-commit:
   parallel: false
   commands:
-    validate-foundry-ids:
-      run: git diff --name-only --cached --diff-filter=A -- {staged_files} | xargs -r node --experimental-strip-types scripts/validate-foundry-ids.ts
+    validate-foundry-schema:
+      run: git diff --name-only --cached --diff-filter=d -- {staged_files} | xargs -r node --experimental-strip-types scripts/validate-foundry-schema.ts
     link-checker:
       run: node --experimental-strip-types scripts/check-links.ts {staged_files}
     biome-check:

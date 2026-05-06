@@ -55,7 +55,11 @@ describe('AppLayout chunk error handling', () => {
     const errorEvent = new window.ErrorEvent('error', {
       message: 'Failed to fetch dynamically imported module',
     });
+
+    // Disable console.error during this test to prevent codecov from thinking there's an unhandled error
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
     window.dispatchEvent(errorEvent);
+    spy.mockRestore();
 
     await vi.waitFor(() => {
       expect(reloadPage).toHaveBeenCalledTimes(1);
@@ -74,7 +78,10 @@ describe('AppLayout chunk error handling', () => {
     const errorEvent = new window.ErrorEvent('error', {
       message: 'Some other random error',
     });
+
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
     window.dispatchEvent(errorEvent);
+    spy.mockRestore();
 
     await new Promise((r) => setTimeout(r, 50));
     expect(reloadPage).not.toHaveBeenCalled();
@@ -114,6 +121,56 @@ describe('AppLayout file upload', () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+  });
+
+  it('should trigger the file input click when INITIALIZE.SYS button is clicked', async () => {
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    const button = page.getByText('[ INITIALIZE.SYS ]');
+    await expect.element(button).toBeInTheDocument();
+
+    const input = document.getElementById('init-save-input') as HTMLInputElement;
+    const clickSpy = vi.spyOn(input, 'click');
+
+    await button.click();
+
+    expect(clickSpy).toHaveBeenCalled();
+  });
+
+  it('should trigger the file input click when Import New Save button is clicked', async () => {
+    useStore.getState().setSaveData({
+      gameVersion: 'red',
+      generation: 1,
+      trainerName: 'TEST',
+      trainerId: 12345,
+      party: [],
+      pc: [],
+      partyDetails: [],
+      pcDetails: [],
+      seen: new Set(),
+      owned: new Set(),
+      // biome-ignore lint/suspicious/noExplicitAny: Internal mock state
+    } as any);
+
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    const button = page.getByTitle('Import New Save');
+    await expect.element(button).toBeInTheDocument();
+
+    const input = document.getElementById('import-save-input') as HTMLInputElement;
+    const clickSpy = vi.spyOn(input, 'click');
+
+    await button.click();
+
+    expect(clickSpy).toHaveBeenCalled();
   });
 
   it('should call saveDB.putSave when a file is uploaded', async () => {

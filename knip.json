@@ -1,12 +1,13 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "ignoreDependencies": [
-    "bundlemon"
+    "bundlemon",
+    "gray-matter"
   ],
   "ignore": [
     ".github/scripts/**",
     "src/test-setup.ts",
-    "scripts/validate-foundry-ids.ts"
+    "scripts/validate-foundry-schema.ts"
   ],
   "rules": {
     "files": "warn",

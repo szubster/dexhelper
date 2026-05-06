@@ -241,29 +241,39 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   <CornerCrosshairs className="h-1 w-1 border-current opacity-0 transition-opacity group-hover:opacity-100" />
                   <Settings2 size={20} />
                 </button>
-                <label
-                  className="group relative flex cursor-pointer items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-900/50 p-3 text-zinc-400 transition-all focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 hover:border-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/10 hover:text-[var(--theme-primary)]"
+                <button
+                  type="button"
+                  onClick={() => document.getElementById('import-save-input')?.click()}
+                  className="group relative flex cursor-pointer items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-900/50 p-3 text-zinc-400 transition-all hover:border-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/10 hover:text-[var(--theme-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                   title="Import New Save"
                   aria-label="Import New Save"
                 >
                   <CornerCrosshairs className="h-1 w-1 border-current opacity-0 transition-opacity group-hover:opacity-100" />
                   <RefreshCw size={20} />
-                  <input
-                    type="file"
-                    tabIndex={-1}
-                    aria-label="Import New Save"
-                    accept=".sav"
-                    className="sr-only"
-                    onChange={handleFileUpload}
-                  />
-                </label>
+                </button>
+                <input
+                  id="import-save-input"
+                  type="file"
+                  tabIndex={-1}
+                  aria-label="Import New Save"
+                  accept=".sav"
+                  className="sr-only"
+                  onChange={handleFileUpload}
+                />
               </div>
             </div>
           ) : (
-            <label className="group slide-in-from-bottom-2 fade-in relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black font-mono text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 focus-within:outline-none focus-within:ring-2 focus-within:ring-[var(--theme-primary)] focus-within:ring-offset-2 focus-within:ring-offset-zinc-950 hover:bg-[var(--theme-primary)] hover:text-zinc-950 active:scale-95 sm:w-auto">
-              <CornerCrosshairs className="h-2 w-2 border-current" />
-              <Upload size={20} />[ INITIALIZE.SYS ]
+            <>
+              <button
+                type="button"
+                onClick={() => document.getElementById('init-save-input')?.click()}
+                className="group slide-in-from-bottom-2 fade-in relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black font-mono text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
+              >
+                <CornerCrosshairs className="h-2 w-2 border-current" />
+                <Upload size={20} />[ INITIALIZE.SYS ]
+              </button>
               <input
+                id="init-save-input"
                 type="file"
                 tabIndex={-1}
                 aria-label="Initialize Pokedex"
@@ -271,7 +281,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 className="sr-only"
                 onChange={handleFileUpload}
               />
-            </label>
+            </>
           )}
         </header>
 

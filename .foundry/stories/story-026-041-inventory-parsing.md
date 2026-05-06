@@ -2,10 +2,10 @@
 id: story-026-041-inventory-parsing
 type: STORY
 title: 'Story 1: Detailed Inventory Parsing'
-status: READY
+status: "COMPLETED"
 owner_persona: tech_lead
 created_at: '2026-05-06'
-updated_at: '2026-05-05'
+updated_at: "2026-05-05"
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,8 +29,12 @@ The Gen 2 Save Parser Expansion Epic requires detailed inventory parsing to prov
 - Implement the missing data extraction layer for detailed inventory parsing.
 
 ## Acceptance Criteria
-- [ ] Able to extract Key Items.
-- [ ] Able to extract Special Rods.
-- [ ] Able to extract TM/HMs (Headbutt, Rock Smash).
-- [ ] Able to extract Apricorns.
-- [ ] Able to extract Evolution Items.
+- [x] Able to extract Key Items.
+- [x] Able to extract Special Rods.
+- [x] Able to extract TM/HMs (Headbutt, Rock Smash).
+- [x] Able to extract Apricorns.
+- [x] Able to extract Evolution Items.
+
+### Child Tasks
+- `.foundry/tasks/task-041-066-implement-inventory-parsing.md`
+- `.foundry/tasks/task-041-067-qa-inventory-parsing.md`

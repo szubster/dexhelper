@@ -2,10 +2,10 @@
 id: prd-016-016-precommit-schema-validation
 type: PRD
 title: Pre-commit Schema Validation
-status: READY
+status: "COMPLETED"
 owner_persona: architect
 created_at: '2026-05-05'
-updated_at: '2026-05-05'
+updated_at: "2026-05-05"
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -40,8 +40,8 @@ Expand the existing Git pre-commit hooks (managed by `lefthook`) to include full
 - We are not implementing automated formatting/fixing of malformed nodes at commit time; the script should only check and fail the commit with clear error messages.
 
 ## Acceptance Criteria
-- [ ] A validation script exists that correctly identifies invalid `owner_persona`, `status`, and `type` enums.
-- [ ] The script correctly identifies missing required fields.
-- [ ] `lefthook.yml` is updated to run this validation during `pre-commit`.
-- [ ] Staging a malformed Foundry node and attempting to commit results in a blocked commit with a clear error message.
-- [ ] Staging a valid Foundry node allows the commit to proceed.
+- [x] A validation script exists that correctly identifies invalid `owner_persona`, `status`, and `type` enums.
+- [x] The script correctly identifies missing required fields.
+- [x] `lefthook.yml` is updated to run this validation during `pre-commit`.
+- [x] Staging a malformed Foundry node and attempting to commit results in a blocked commit with a clear error message.
+- [x] Staging a valid Foundry node allows the commit to proceed.

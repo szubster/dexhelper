@@ -27,3 +27,6 @@
 
 ## Data Integrity - Gen 2 Exclusives Refactoring
 * **Data Pipeline Gotchas:** Gen 2 Exclusives correctly vary between Gold and Silver for the base game logic, but Crystal version dictates its own specific missing list (like missing Vulpix, Mareep, Remoraid). Ensure that array indexes in `GEN2_VERSION_EXCLUSIVES` use safe bracket notation (`['crystal']`) with a `// biome-ignore lint/complexity/useLiteralKeys` directive to satisfy TypeScript's strict index signature checks while remaining compatible with Biome.
+
+## Data Integrity - Gen 1 NPC Trades
+* **ROM parsing quirks / Data Pipeline Gotchas:** When verifying in-game NPC trades (e.g., in `STATIC_NPC_TRADE_DATA`), verify that the `receivedId` and `offeredId` map correctly to the macro definitions in the decompiled ROMs (`npctrade GIVE_MON, GET_MON`). For example, in Yellow version, the `Lickitung for Dugtrio` trade was incorrectly mapped as receiving Lickitung, when the ROM actually dictates giving Lickitung to receive Dugtrio. Additionally, ensure that trades are correctly assigned to their respective game versions; the Red/Blue `Venonat for Tangela` trade was incorrectly marked as Yellow-exclusive, hiding the true Yellow-exclusive `Tangela for Parasect` trade.

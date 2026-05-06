@@ -163,6 +163,13 @@ describe('Zustand Store', () => {
 
       expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file');
     });
+
+    it('should ignore loadSaveFromStorage if getSave returns undefined', async () => {
+      vi.clearAllMocks();
+      vi.spyOn(saveDB, 'getSave').mockResolvedValue(undefined);
+      await useStore.getState().loadSaveFromStorage();
+      expect(parseSaveFile).not.toHaveBeenCalled();
+    });
   });
 });
 

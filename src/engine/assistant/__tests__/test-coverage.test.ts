@@ -324,3 +324,41 @@ test('coverage for missing target metadata entirely in evo logic', () => {
   const invalidEvo = suggestions.find((s) => s.category === 'Evolve');
   expect(invalidEvo).toBeUndefined();
 });
+
+test('coverage for suggestionEngine getGameItemId unknown generation', () => {
+  const mockSaveData: SaveData = {
+    generation: 3, // Forcing this to 3 to hit the return on line 59.
+    gameVersion: 'red',
+    owned: new Set([133]),
+    seen: new Set(),
+    party: [],
+    inventory: [{ id: 82, quantity: 1 }],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [{ speciesId: 133, level: 20, otName: 'PLAYER' } as PokemonInstance],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData: AssistantApiData = {
+    localEncounters: [],
+    missingEncounters: {},
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      136: {
+        id: 136,
+        n: 'Flareon',
+        efrm: [133],
+        det: [{ tr: 3, item: 82 }],
+        eto: [],
+      },
+    },
+    areaNames: {},
+    allLocations: [],
+    allAreas: [],
+  } as unknown as AssistantApiData;
+
+  expect(() => generateSuggestions(mockSaveData, false, 'ruby', mockApiData, gen1Strategy)).toThrow(
+    'Unknown generation',
+  );
+});

@@ -29,3 +29,8 @@
 
 **Learning:** When refactoring drops a dependency (like `pokenode-ts`), references to it often persist in onboarding documents, creating an inaccurate view of the tech stack.
 **Action:** Routinely search onboarding and project overview documents for deprecated dependencies after a major migration.
+
+## 2026-05-15 - Archivist Run Learnings
+
+**Learning:** Memory entries describing the removal of fields (like `pr_number`) can become contradictory if later features (like `human-in-the-loop`) reintroduce them partially.
+**Action:** Updated `conflict-resolution-v1.md` to clarify that `pr_number` was only removed for automated tasks, resolving the contradiction with `human-in-the-loop.md`.

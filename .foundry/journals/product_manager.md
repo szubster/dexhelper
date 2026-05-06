@@ -44,3 +44,5 @@ During the session for transforming IDEA-006 (Gen 2 Support Expansion: Johto/Kan
 - Drafted Phase 3 and Phase 4 PRD for the Gen 2 Expansion Idea (idea-006-gen2-expansion.md).
 - Created `.foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md`.
 - Updated the parent `idea-006-gen2-expansion.md` to check off the acceptance criteria.
+## 2026-05-15
+Converted idea-017-dag-dashboard to prd-017-017-dag-dashboard.

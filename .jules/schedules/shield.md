@@ -21,6 +21,10 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - **NEW:** Guard against Path Traversal vulnerabilities by auditing dynamic file imports or `fetch` calls with user-controlled input.
 - **NEW:** Ensure prevention of Tab-nabbing by checking `window.open` usage, verifying `noopener` and `noreferrer`.
 - **NEW:** Guard against Environment Variable Leakage by auditing usages of `import.meta.env` for sensitive data.
+- **NEW:** Guard against Server-Side Request Forgery (SSRF) by validating URLs passed to external fetching services or API routes.
+- **NEW:** Prevent Cross-Site Request Forgery (CSRF) by auditing the use of anti-CSRF tokens in state-changing API requests.
+- **NEW:** Ensure the application implements a strong Content Security Policy (CSP) by auditing meta tags or server response headers.
+- **NEW:** Guard against GraphQL query injection by ensuring all queries are parameterized and user input is sanitized before executing.
 
 
 ## Boundaries
@@ -40,7 +44,7 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 
 ## Process
 
-1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`. (Hint: check for `Math.random`, `console.error(err)` without `.message`, `dangerouslySetInnerHTML`, `target="_blank"`, `url.includes`, `Object.assign`, `eval(`, `window.location`, `window.postMessage`, complex regex, `window.open`, `import.meta.env`, and `fetch`)
+1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`. (Hint: check for `Math.random`, `console.error(err)` without `.message`, `dangerouslySetInnerHTML`, `target="_blank"`, `url.includes`, `Object.assign`, `eval(`, `window.location`, `window.postMessage`, complex regex, `window.open`, `import.meta.env`, `fetch`, `graphql`, `csp`, and `csrf`)
 2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, improve this scheduled prompt itself or perform a dependency audit.
 3. **Secure** — implement the fix and add validating tests if possible.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
