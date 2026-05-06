@@ -44,3 +44,6 @@
 
 ## 2026-05-04 - Fixed Biome Schema Version Mismatch
 **Learning:** The Biome CLI version (2.4.14) in `package.json` did not match the schema version (2.4.13) in `biome.jsonc` and `.github/workflows/biome.yml`, causing `knip` to throw schema mismatch warnings during `pnpm lint`. Used `biome migrate` to automatically resolve the `biome.jsonc` schema and manually updated the GitHub Action version to maintain alignment and clean CI output.
+
+## 2026-05-06 - Clean up test coverage parsing errors
+**Learning:** Configured `coverage` blocks in `vitest.config.ts` to exclusively `include: ['src/**/*.ts', 'src/**/*.tsx']` and explicitly `exclude: ['**/*.json']`. This stops `rolldown` (used by `@vitest/coverage-v8`) from attempting to parse statically imported `.json` files as modules, which caused noisy syntax errors during `pnpm test --coverage` runs and broke test suite exits.
