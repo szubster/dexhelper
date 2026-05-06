@@ -99,3 +99,11 @@ While reviewing overall system friction, I noticed two areas for proactive impro
 ### Action Taken
 1. Updated `.github/agents/coder.md` and `.github/agents/qa.md` to explicitly instruct agents to run `pnpm lint && pnpm test` before completion, and to use `pnpm format:biome` or `pnpm check:fix` for formatting errors.
 2. Autonomously generated `idea-016-precommit-schema-validation.md` to propose adding YAML frontmatter schema validation to the existing git pre-commit hook to catch malformed nodes synchronously at commit time.
+
+## 2026-05-06: ADR-006 Violation in Heartbeat Script
+
+### Observation
+While reviewing the system for potential improvements and friction points, I discovered that `.github/scripts/foundry-heartbeat.ts` still uses custom regex to mutate YAML frontmatter (e.g., changing status to FAILED, READY, or COMPLETED). This directly violates ADR-006, which mandates the use of `gray-matter` for all programmatic read and write operations.
+
+### Action Taken
+Autonomously generated `idea-018-migrate-heartbeat-to-gray-matter.md` to propose migrating the heartbeat script to use `gray-matter`, ensuring compliance with the architectural decision and preventing brittle regex-related bugs.
