@@ -8,7 +8,7 @@ created_at: "2026-04-27"
 updated_at: "2026-04-28"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-009-032-lifecycle-integration-tests.md"
+parent: ".foundry/archive/stories/story-009-032-lifecycle-integration-tests.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
 ---
 
