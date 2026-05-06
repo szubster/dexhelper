@@ -20,3 +20,6 @@
 ## 2024-05-18 - Assistant Daycare Egg Suggestion
 **Learning:** The Gen 2 Daycare breeding logic previously suggested "Leave your Pokémon at the Daycare to get an Egg!" even if the required Pokémon was already in the daycare, or if an egg was already waiting. We can extract `daycare` and `daycareHasEgg` from the parsed `SaveData`.
 **Action:** When evaluating `EVO_TRIGGER.BREED` (or general breeding recommendations), always check if `saveData.daycare` contains the needed species. If it does, and `saveData.daycareHasEgg` is true, suggest picking up the egg with a higher priority (95). If it is in the daycare but no egg is ready, tell the user to wait.
+## 2026-05-06 - Trade Evolution Held Item Equipped Support
+**Learning:** For Trade evolutions requiring a held item, the item could already be equipped on the Pokemon instead of being in the bag. The assistant was incorrectly suggesting to find the item if it was only equipped and not in the bag.
+**Action:** Modified `EVO_TRIGGER.TRADE` logic to search `evolvableInstances` and `ownedInstances` for the specific item and dynamically update the suggestion if the pre-evolution is already holding it.
