@@ -18,6 +18,7 @@
     "clean": "rm -rf dist",
     "lint": "pnpm type-check && pnpm check:biome && pnpm exec oxlint --type-aware --type-check --import-plugin --promise-plugin . && pnpm knip",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
