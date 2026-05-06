@@ -163,12 +163,22 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['red', 'blue'],
     tradeIndex: 5,
   },
-  // Tangela for Venonat — Route 18 (trade house) — Yellow version only (TRADE_FOR_CRINKLES)
+  // Venonat for Tangela — Route 18 (trade house) — Red/Blue only (TRADE_FOR_CRINKLES)
   {
     receivedId: 114,
     offeredId: 49,
     location: 'Route 18 (trade house)',
     receivedOtName: 'CRINKLES',
+    gen: 1,
+    versions: ['red', 'blue'],
+    tradeIndex: 8,
+  },
+  // Tangela for Parasect — Route 18 (trade house) — Yellow only
+  {
+    receivedId: 47,
+    offeredId: 114,
+    location: 'Route 18 (trade house)',
+    receivedOtName: 'SPIKE',
     gen: 1,
     versions: ['yellow'],
     tradeIndex: 8,
@@ -185,8 +195,8 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
   },
   // Lickitung for Dugtrio — Route 11 (east gate) — Yellow only
   {
-    receivedId: 108,
-    offeredId: 51,
+    receivedId: 51,
+    offeredId: 108,
     location: 'Route 11 (east gate)',
     receivedOtName: 'GURIO',
     gen: 1,
