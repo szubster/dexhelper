@@ -2,7 +2,7 @@
 id: task-038-064-implement-mapping-validation
 type: TASK
 title: Implement Mapping Validation
-status: "FAILED"
+status: "READY"
 owner_persona: coder
 created_at: '2026-05-04'
 updated_at: "2026-05-06"
@@ -13,7 +13,7 @@ parent: .foundry/stories/story-025-038-implement-mapping-validation.md
 tags:
   - orchestrator
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
