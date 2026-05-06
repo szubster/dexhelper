@@ -30,8 +30,8 @@ The coder has implemented the detailed inventory parsing for the Gen 2 Save Pars
 - Verify the detailed inventory parsing extraction logic.
 
 ## Acceptance Criteria
-- [ ] Verified extraction of Key Items.
-- [ ] Verified extraction of Special Rods.
-- [ ] Verified extraction of TM/HMs (Headbutt, Rock Smash).
-- [ ] Verified extraction of Apricorns.
-- [ ] Verified extraction of Evolution Items.
+- [x] Verified extraction of Key Items.
+- [x] Verified extraction of Special Rods.
+- [x] Verified extraction of TM/HMs (Headbutt, Rock Smash).
+- [x] Verified extraction of Apricorns.
+- [x] Verified extraction of Evolution Items.
