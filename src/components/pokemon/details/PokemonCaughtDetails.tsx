@@ -1,6 +1,7 @@
 import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
+import { GlassCard } from '../../GlassCard';
 
 interface PokemonCaughtDetailsProps {
   yourPokemon: (PokemonInstance & { location: string })[];
@@ -16,9 +17,10 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
       </h3>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {yourPokemon.map((p, i) => (
-          <div
+          <GlassCard
             key={`${p.storageLocation}-${p.slot || i}`}
-            className="glass-card group relative space-y-5 overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6"
+            variant="white"
+            className="group space-y-5 rounded-[2rem] p-6"
           >
             <div className="absolute top-0 right-0 p-3 opacity-10 transition-transform group-hover:scale-110">
               {p.isShiny ? (
@@ -81,7 +83,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                 </div>
               </div>
             )}
-          </div>
+          </GlassCard>
         ))}
       </div>
     </div>
