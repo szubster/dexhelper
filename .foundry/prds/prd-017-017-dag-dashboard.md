@@ -26,3 +26,6 @@ The DAG Dashboard will be a central visualization tool to track the state of the
 
 ## Next Steps
 - [ ] Create ADR to decide between Mermaid.js embedded in Markdown vs. a dedicated React Webview.
+
+- [ ] `.foundry/epics/epic-017-028-dag-dashboard-data.md`
+- [ ] `.foundry/epics/epic-017-029-dag-dashboard-ui.md`
