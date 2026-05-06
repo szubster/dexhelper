@@ -63,3 +63,5 @@
 - **2026-05-06**: Heartbeat detected zombie session for `prd-006-017-gen2-expansion-phase-3-4`. Transitioned to FAILED.
 
 - **2026-05-06**: Resurrection Loop triggered for `task-038-064-implement-mapping-validation`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-06**: Resurrection Loop triggered for `prd-006-017-gen2-expansion-phase-3-4`. Reason: Retry from FAILED status.. Transitioned back to READY.

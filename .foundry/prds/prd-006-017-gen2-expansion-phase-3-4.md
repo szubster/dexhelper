@@ -2,7 +2,7 @@
 id: prd-006-017-gen2-expansion-phase-3-4
 type: PRD
 title: 'Gen 2 Expansion PRD: Phase 3 and 4'
-status: "FAILED"
+status: "READY"
 owner_persona: epic_planner
 created_at: '2026-05-06'
 updated_at: "2026-05-06"
@@ -17,7 +17,7 @@ tags:
   - suggestion-engine
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
