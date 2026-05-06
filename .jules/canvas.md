@@ -74,3 +74,9 @@
 **Outcome:** Accepted
 **Why:** Brings the version conflict resolution interface in line with the rest of the application's tactical hardware motif (matching AppLayout, Settings, and SyncProgress).
 **Pattern:** Consistently eliminate generic web UI patterns (rounded corners, soft hover states) in favor of sharp, high-contrast, terminal-like aesthetics for modals.
+
+## 2026-05-06 - [Accepted] - 🖼️ Canvas: Tactical AssistantPanel Redesign
+**What:** Redesigned the `AssistantPanel` component to match the utility-driven tactical "snooping" aesthetic, replacing rounded glassmorphism with sharp borders, corner crosshairs, and monospaced telemetry text.
+**Outcome:** Accepted
+**Why:** Continues the successful strategy of establishing a specialized hardware UI aesthetic, improving visual cohesion across the application's structural and assistant views.
+**Pattern:** Consistently apply the tactical hardware motif (sharp edges, dashed outlines, monospace text) to major panels to maintain the illusion of a specialized device.
