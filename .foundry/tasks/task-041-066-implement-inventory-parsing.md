@@ -29,8 +29,8 @@ The Gen 2 Save Parser needs to be expanded to extract detailed inventory data to
 - Implement the missing data extraction layer for detailed inventory parsing.
 
 ## Acceptance Criteria
-- [ ] Able to extract Key Items.
-- [ ] Able to extract Special Rods.
-- [ ] Able to extract TM/HMs (Headbutt, Rock Smash).
-- [ ] Able to extract Apricorns.
-- [ ] Able to extract Evolution Items.
+- [x] Able to extract Key Items.
+- [x] Able to extract Special Rods.
+- [x] Able to extract TM/HMs (Headbutt, Rock Smash).
+- [x] Able to extract Apricorns.
+- [x] Able to extract Evolution Items.

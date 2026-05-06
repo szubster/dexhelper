@@ -333,6 +333,53 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   // Detailed inventory parsing for Gen 2 could be added here later
   const inventory: { id: number; quantity: number }[] = [];
 
+  const tmPocket = isCrystal ? 0x23c8 : 0x23e7;
+  const itemsPocket = isCrystal ? 0x2402 : 0x2420;
+  const keyItemsPocket = isCrystal ? 0x242c : 0x244a;
+  const ballsPocket = isCrystal ? 0x2447 : 0x2465;
+
+  // TM/HMs
+  for (let i = 0; i < 57; i++) {
+    const qty = view.getUint8(tmPocket + i);
+    if (qty > 0) {
+      // TM01 is Item ID 191 (0xBF), HM01 is Item ID 241 (0xF1)
+      const itemId = 191 + i;
+      inventory.push({ id: itemId, quantity: qty });
+    }
+  }
+
+  // Items
+  const itemsCount = view.getUint8(itemsPocket);
+  if (itemsCount > 0 && itemsCount <= 20) {
+    for (let i = 0; i < itemsCount; i++) {
+      const offset = itemsPocket + 1 + i * 2;
+      const id = view.getUint8(offset);
+      const quantity = view.getUint8(offset + 1);
+      inventory.push({ id, quantity });
+    }
+  }
+
+  // Key Items (Quantity is implicit)
+  const keyItemsCount = view.getUint8(keyItemsPocket);
+  if (keyItemsCount > 0 && keyItemsCount <= 26) {
+    for (let i = 0; i < keyItemsCount; i++) {
+      const offset = keyItemsPocket + 1 + i;
+      const id = view.getUint8(offset);
+      inventory.push({ id, quantity: 1 });
+    }
+  }
+
+  // Balls
+  const ballsCount = view.getUint8(ballsPocket);
+  if (ballsCount > 0 && ballsCount <= 12) {
+    for (let i = 0; i < ballsCount; i++) {
+      const offset = ballsPocket + 1 + i * 2;
+      const id = view.getUint8(offset);
+      const quantity = view.getUint8(offset + 1);
+      inventory.push({ id, quantity });
+    }
+  }
+
   return {
     generation: 2,
     owned,
