@@ -37,3 +37,4 @@ Extracted the inline array into a constant `STATUS_OPTIONS` marked with `as cons
 
 **What the compiler now catches:**
 The compiler statically guarantees that the `StatusType` union and the `STATUS_OPTIONS` array are always in sync. It eliminates the unsafe `as StatusType` casts while maintaining identical runtime behavior.
+- Fixed an unsafe `as IDBValidKey` cast in `src/db/PokeDB.ts`'s `bulkGet` by assigning to a variable and checking for `undefined` before passing to `store.get`.
