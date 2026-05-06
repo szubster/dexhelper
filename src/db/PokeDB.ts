@@ -12,6 +12,16 @@ import {
 let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;
 let syncPromise: Promise<void> | null = null;
 
+/**
+ * A utility function to fetch multiple records from IndexedDB by their keys simultaneously.
+ * Why it exists: IndexedDB lacks a native `getAll(keys)` method. To avoid the overhead of
+ * initiating separate transactions or sequential N+1 `get` requests, this function
+ * fires multiple `get` requests in parallel within the same transaction.
+ *
+ * @param store - The active IDBObjectStore to read from.
+ * @param ids - An array of valid keys to fetch.
+ * @returns A promise that resolves to an array of results matching the order of `ids`.
+ */
 async function bulkGet<T>(store: IDBObjectStore, ids: readonly number[]): Promise<T[]> {
   return new Promise<T[]>((resolve, reject) => {
     const res = Array.from<T>({ length: ids.length });
@@ -85,6 +95,17 @@ export const getDB = () => {
   return dbPromise;
 };
 
+/**
+ * Downloads the pre-built `pokedata.json` bundle from the server and hydrates
+ * the local IndexedDB stores.
+ *
+ * It prevents redundant network requests by comparing the application's current
+ * build hash (`__POKEDATA_HASH__`) against the hash stored in IndexedDB.
+ * If a sync is needed, it fetches the compact JSON, inflates nested data structures
+ * (like evolution chains and encounter details), and populates the stores.
+ *
+ * @returns A Promise that resolves when the synchronization is complete.
+ */
 const syncData = async () => {
   if (syncPromise) {
     return syncPromise;
