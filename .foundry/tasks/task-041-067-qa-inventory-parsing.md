@@ -2,10 +2,10 @@
 id: task-041-067-qa-inventory-parsing
 type: TASK
 title: 'QA: Detailed Inventory Parsing'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2025-05-15'
-updated_at: '2025-05-15'
+updated_at: '2026-05-06'
 depends_on:
   - .foundry/tasks/task-041-066-implement-inventory-parsing.md
 jules_session_id: null

@@ -2,8 +2,8 @@
 id: prd-006-017-gen2-expansion-phase-3-4
 type: PRD
 title: 'Gen 2 Expansion PRD: Phase 3 and 4'
-status: PENDING
-owner_persona: architect
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-05-06'
 updated_at: '2026-05-06'
 depends_on: []

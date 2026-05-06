@@ -2,12 +2,12 @@
 id: task-038-064-implement-mapping-validation
 type: TASK
 title: Implement Mapping Validation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-05-04'
-updated_at: '2026-05-05'
+updated_at: '2026-05-06'
 depends_on: []
-jules_session_id: '10794641506921021617'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-025-038-implement-mapping-validation.md
 tags:

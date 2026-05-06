@@ -45,3 +45,11 @@
 - **2026-05-05**: PR #967 merged. `prd-016-016-precommit-schema-validation` is now COMPLETED.
 
 - **2026-05-05**: PR #966 merged. `story-026-041-inventory-parsing` is now COMPLETED.
+
+- **2026-05-06**: PR #972 merged. `epic-015-026-save-parser-expansion` is now COMPLETED.
+
+- **2026-05-06**: PR #969 merged. `idea-006-gen2-expansion` is now PENDING.
+
+- **2026-05-06**: PR #970 merged. `task-038-064-implement-mapping-validation` is now PENDING.
+
+- **2026-05-06**: PR #974 merged. `task-041-066-implement-inventory-parsing` is now COMPLETED.
