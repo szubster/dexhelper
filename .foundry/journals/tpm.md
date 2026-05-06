@@ -53,3 +53,9 @@
 - **2026-05-06**: PR #970 merged. `task-038-064-implement-mapping-validation` is now PENDING.
 
 - **2026-05-06**: PR #974 merged. `task-041-066-implement-inventory-parsing` is now COMPLETED.
+
+- **2026-05-06**: PR #1000 merged. `idea-018-migrate-heartbeat-to-gray-matter` is now COMPLETED.
+
+- **2026-05-06**: Heartbeat detected zombie session for `task-038-064-implement-mapping-validation`. Transitioned to FAILED.
+
+- **2026-05-06**: PR #998 merged. `task-041-067-qa-inventory-parsing` is now COMPLETED.

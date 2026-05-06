@@ -2,7 +2,7 @@
 id: prd-017-017-dag-dashboard
 type: PRD
 title: DAG Dashboard Webview PRD
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-05-15'
 updated_at: '2026-05-06'

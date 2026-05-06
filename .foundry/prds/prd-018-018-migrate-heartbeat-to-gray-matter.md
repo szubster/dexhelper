@@ -2,10 +2,10 @@
 id: prd-018-018-migrate-heartbeat-to-gray-matter
 type: PRD
 title: Migrate foundry-heartbeat.ts to gray-matter
-status: PENDING
-owner_persona: "architect"
-created_at: "2026-05-06"
-updated_at: "2026-05-06"
+status: BLOCKED
+owner_persona: tpm
+created_at: '2026-05-06'
+updated_at: '2026-05-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - technical-debt
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # PRD: Migrate foundry-heartbeat.ts to gray-matter
