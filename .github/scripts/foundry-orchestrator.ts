@@ -737,9 +737,35 @@ function main(): void {
     }
   }
 
+  // ── Phase 4.8: MAPPING VALIDATION ──────────────────────────────────────────
+  info('Phase 4.8: Validating node type to persona mappings...');
+  const validatedEligible: ParsedNode[] = [];
+  const validMappings: Record<string, string[]> = {
+    IDEA: ['product_manager'],
+    PRD: ['epic_planner'],
+    EPIC: ['story_owner'],
+    STORY: ['tech_lead'],
+    TASK: ['coder', 'qa'],
+  };
+
+  for (const node of finalEligible) {
+    if (node.frontmatter.owner_persona === 'human') {
+      validatedEligible.push(node);
+      continue;
+    }
+
+    const validPersonas = validMappings[node.frontmatter.type] || [];
+    if (!validPersonas.includes(node.frontmatter.owner_persona)) {
+      warn(`Invalid mapping: ${node.frontmatter.type} node '${node.repoPath}' cannot be owned by '${node.frontmatter.owner_persona}'`);
+      promoteNodeToTpm(node);
+    } else {
+      validatedEligible.push(node);
+    }
+  }
+
   // ── Phase 5: PROMOTE ───────────────────────────────────────────────────────
   info('Phase 5: Promoting eligible nodes...');
-  for (const node of finalEligible) {
+  for (const node of validatedEligible) {
     if (node.frontmatter.owner_persona === 'human') {
       promoteNodeStatus(node, 'PENDING', 'ACTIVE');
     } else {
