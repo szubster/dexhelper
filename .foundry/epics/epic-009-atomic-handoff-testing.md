@@ -8,7 +8,7 @@ created_at: "2026-04-22"
 updated_at: "2026-04-27"
 depends_on:
   - .foundry/epics/epic-008-atomic-handoff-orchestrator.md
-  - .foundry/stories/story-009-032-lifecycle-integration-tests.md
+  - .foundry/archive/stories/story-009-032-lifecycle-integration-tests.md
   - .foundry/stories/story-009-031-deadlock-prevention-tests.md
   - .foundry/stories/story-009-030-single-persona-dag-tests.md
 jules_session_id: null
@@ -32,4 +32,4 @@ This Epic ensures that the orchestrator refactors and schema updates are heavily
 ### Generated Stories
 - `.foundry/stories/story-009-030-single-persona-dag-tests.md`
 - `.foundry/stories/story-009-031-deadlock-prevention-tests.md`
-- `.foundry/stories/story-009-032-lifecycle-integration-tests.md`
+- `.foundry/archive/stories/story-009-032-lifecycle-integration-tests.md`
