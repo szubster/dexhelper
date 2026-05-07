@@ -2,7 +2,7 @@
 id: story-026-042-hall-of-fame-roamers
 type: STORY
 title: 'Story 2: Hall of Fame & Roamers'
-status: "FAILED"
+status: "READY"
 owner_persona: tech_lead
 created_at: '2026-05-06'
 updated_at: "2026-05-07"
@@ -16,7 +16,7 @@ tags:
   - save-parser
   - roamers
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
