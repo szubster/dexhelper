@@ -39,8 +39,8 @@
     "dataloader": "^2.2.3",
     "idb": "^8.0.3",
     "lucide-react": "^1.14.0",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "tailwind-merge": "^3.5.0",
     "zustand": "^5.0.13"
   },
