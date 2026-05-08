@@ -32,6 +32,9 @@ This Epic covers the backend/data layer for the DAG Dashboard Webview. It is res
 - Build a structured JSON representation of the nodes and their directed edges (dependencies) suitable for a frontend visualization library.
 
 ## Acceptance Criteria
-- [ ] Implement a utility function to read all relevant `.foundry` files.
-- [ ] Implement a parsing function to extract frontmatter into structured objects.
-- [ ] Implement a builder function that outputs the final node/edge graph data structure.
+- [x] Implement a utility function to read all relevant `.foundry` files.
+- [x] Implement a parsing function to extract frontmatter into structured objects.
+- [x] Implement a builder function that outputs the final node/edge graph data structure.
+
+## References
+- Child Story: `.foundry/stories/story-028-043-implement-dag-parser.md`
