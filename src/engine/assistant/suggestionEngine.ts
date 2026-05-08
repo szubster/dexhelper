@@ -571,15 +571,25 @@ export function generateSuggestions(
       } else if (tr === EVO_TRIGGER.TRADE) {
         if (held) {
           const gameHeldId = getGameItemId(held, saveData.generation);
-          const hasHeldItem = saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0);
+          const hasHeldItemInBag = saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0);
+          const holdingInstance =
+            evolvableInstances.find((inst) => inst.item === gameHeldId) ||
+            ownedInstances.find((inst) => inst.item === gameHeldId);
+          const hasHeldItem = hasHeldItemInBag || !!holdingInstance;
           const itemName = EVO_ITEM_NAMES[held] || 'item';
+
+          let description = `Find a ${itemName}, have your pre-evolution hold it, and trade to evolve.`;
+          if (holdingInstance) {
+            description = `Your pre-evolution is already holding the ${itemName}! Trade it to evolve!`;
+          } else if (hasHeldItemInBag) {
+            description = `Have your pre-evolution hold the ${itemName} and trade it to evolve!`;
+          }
+
           suggestions.push({
             id: `evo-trade-held-${targetId}`,
             category: 'Evolve',
             title: hasHeldItem ? `Ready to Trade Evolve: #${targetId}!` : `Item Needed for Trade: #${targetId}`,
-            description: hasHeldItem
-              ? `Have your pre-evolution hold the ${itemName} and trade it to evolve!`
-              : `Find a ${itemName}, have your pre-evolution hold it, and trade to evolve.`,
+            description,
             pokemonId: targetId,
             priority: hasHeldItem ? 90 : 45,
           });
