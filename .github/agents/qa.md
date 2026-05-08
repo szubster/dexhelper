@@ -36,3 +36,4 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 ## Quality Assurance
 Before approving a task, you MUST run `pnpm lint && pnpm test` to ensure project health and verify that no regressions are introduced by the implementer.
 To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
+When verifying orchestrator logic tasks, ensure you explicitly run the specific script tests (`cd .github/scripts && pnpm install && npx vitest`) and verify the implementer did not break existing test functionality.
