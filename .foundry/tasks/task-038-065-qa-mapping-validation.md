@@ -1,22 +1,22 @@
 ---
 id: task-038-065-qa-mapping-validation
 type: TASK
-title: "QA: Mapping Validation"
-status: PENDING
-owner_persona: "qa"
-created_at: "2026-05-04"
-updated_at: "2026-05-04"
+title: 'QA: Mapping Validation'
+status: ACTIVE
+owner_persona: qa
+created_at: '2026-05-04'
+updated_at: '2026-05-08'
 depends_on:
   - .foundry/tasks/task-038-064-implement-mapping-validation.md
-jules_session_id: null
+jules_session_id: '15460125225865288427'
 pr_number: null
 parent: .foundry/stories/story-025-038-implement-mapping-validation.md
 tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA: Mapping Validation in DAG Orchestrator
@@ -26,5 +26,5 @@ notes: ""
 - Ensure the orchestrator properly blocks and validates `type` and `owner_persona` mapping before dispatch.
 
 ## Acceptance Criteria
-- [ ] Verified mapping logic in `.github/scripts/foundry-orchestrator.ts`.
-- [ ] Verified tests pass and thoroughly check cases.
+- [x] Verified mapping logic in `.github/scripts/foundry-orchestrator.ts`.
+- [x] Verified tests pass and thoroughly check cases.

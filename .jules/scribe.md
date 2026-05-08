@@ -80,3 +80,9 @@ Documenting these mechanical quirks is essential for future maintainability of t
 **Why:**
 - `dexDataLoader`: Explained the architectural necessity of DataLoader. React components often request overlapping or disjoint IDs simultaneously during list renders. Direct IndexedDB calls cause massive N+1 transaction overhead. DataLoader collapses these into O(1) `bulkGet` transactions.
 - `getPokemonDetails`: Documented why it manually recursively walks the `eto` and `efrm` chains to aggregate and batch-fetch evolution and area names (because the underlying `pokemon.jsonl` structure is completely normalized to numbers to save space).
+
+### Critical Learnings (Pipeline Scripts)
+*   **Location Resolution (`scripts/generate-pokedata.ts`)**: PokeAPI uses generic string area IDs, but internal game state (and save files) strictly rely on exact ROM map IDs (`gameId`). Transforming this data requires crossing API data with internal decompiled ROM constants (`GEN1_MAPS` and `GEN2_MAP_TO_AID`).
+*   **Missing API Data (`scripts/generate-pokedata.ts`)**: PokeAPI explicitly misses the Gen 2 Bug Catching Contest encounters. These must be manually injected into National Park mapping for accuracy.
+*   **Graph Precomputation (`scripts/generate-pokedata.ts`)**: The All-Pairs Shortest Paths for the map UI are precalculated using the Floyd-Warshall algorithm at build-time to maintain `O(1)` runtime lookup performance and prevent UI thread locking during suggestions.
+*   **Assembly Map Constants (`scripts/generateMapLocations.ts`)**: Deciphering the actual internal name and structure of locations requires pulling directly from Game Boy assembly files (`.asm`) in `pret` repositories, as this preserves the precise byte mappings used in `.sav` structures.

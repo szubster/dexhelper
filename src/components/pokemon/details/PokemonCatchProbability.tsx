@@ -2,6 +2,7 @@ import { Target } from 'lucide-react';
 import { useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
+import { GlassCard } from '../../GlassCard';
 
 interface PokemonCatchProbabilityProps {
   catchRate: number;
@@ -21,7 +22,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
   const [status, setStatus] = useState<StatusType>('none');
 
   return (
-    <div className="glass-card relative space-y-8 overflow-hidden rounded-[2.5rem] border-emerald-500/10 bg-emerald-500/5 p-8">
+    <GlassCard variant="emerald" className="space-y-8 rounded-[2.5rem] p-8">
       <div className="absolute top-0 right-0 p-4 opacity-5">
         <Target size={120} />
       </div>
@@ -53,10 +54,13 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
 
         <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Target Status">
           {STATUS_OPTIONS.map((item) => (
+            // oxlint-disable jsx-a11y/prefer-tag-over-role
+            // biome-ignore lint/a11y/useSemanticElements: custom radio segmented control needs proper styling
             <button
               type="button"
+              role="radio"
               key={item.id}
-              aria-pressed={status === item.id}
+              aria-checked={status === item.id}
               onClick={() => setStatus(item.id)}
               className={cn(
                 'rounded-2xl border py-3 font-black text-[9px] uppercase tracking-widest outline-none transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95',
@@ -112,6 +116,6 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
           </div>
         </div>
       </div>
-    </div>
+    </GlassCard>
   );
 }

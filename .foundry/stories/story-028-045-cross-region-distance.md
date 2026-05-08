@@ -1,0 +1,32 @@
+---
+id: story-028-045-cross-region-distance
+type: STORY
+title: 'Phase 3: Cross-Region Distance'
+status: PENDING
+owner_persona: tech_lead
+created_at: '2026-05-08'
+updated_at: '2026-05-08'
+depends_on:
+  - .foundry/stories/story-028-044-indoor-outdoor-resolution.md
+jules_session_id: null
+pr_number: null
+parent: .foundry/epics/epic-017-028-map-graph-routing.md
+tags:
+  - gen2
+  - expansion
+  - map-graph
+research_references:
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Phase 3: Cross-Region Distance
+
+## Objective
+Implement `getDistanceToMap` algorithms adapted for Gen 2 transition points.
+
+## Requirements
+- Implement pathfinding/distance algorithms (like `getDistanceToMap`) for Gen 2 map graph.
+- Handle cross-region distances via transitions (e.g., Magnet Train, S.S. Aqua, Route 27).

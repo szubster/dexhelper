@@ -45,3 +45,7 @@
 **Action:** When creating custom file upload buttons with hidden inputs, do not use a `<label>` wrapper. Instead, use a semantic `<button type="button">` with `focus-visible` styles, and use an `onClick` handler to programmatically trigger the click on the sibling `<input type="file">` via its ID or a React ref.
 
 - Added title tooltips to BottomNav elements corresponding to their aria-labels to improve usability for non-screenreader users.
+
+## 2024-05-20 - Missing ARIA roles on segmented controls
+**Learning:** When using `role="radiogroup"` on a container, the interactive child elements representing the mutually exclusive options must have `role="radio"` and `aria-checked` attributes, not generic `button` behaviors with `aria-pressed`. Otherwise, screen readers will interpret them as independent toggle buttons instead of a single choice group.
+**Action:** Ensure custom segmented controls have `role="radio"` and `aria-checked` on the buttons, and that they use the correct tag, such as `<button>` with `oxlint-disable jsx-a11y/prefer-tag-over-role` and `biome-ignore lint/a11y/useSemanticElements` if styling constraints forbid native radio inputs.

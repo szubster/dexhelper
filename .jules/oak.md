@@ -30,3 +30,6 @@
 
 ## Data Integrity - Gen 1 NPC Trades
 * **ROM parsing quirks / Data Pipeline Gotchas:** When verifying in-game NPC trades (e.g., in `STATIC_NPC_TRADE_DATA`), verify that the `receivedId` and `offeredId` map correctly to the macro definitions in the decompiled ROMs (`npctrade GIVE_MON, GET_MON`). For example, in Yellow version, the `Lickitung for Dugtrio` trade was incorrectly mapped as receiving Lickitung, when the ROM actually dictates giving Lickitung to receive Dugtrio. Additionally, ensure that trades are correctly assigned to their respective game versions; the Red/Blue `Venonat for Tangela` trade was incorrectly marked as Yellow-exclusive, hiding the true Yellow-exclusive `Tangela for Parasect` trade.
+
+## Data Integrity - Gen 2 Exclusives (Caterpie and Weedle)
+* **Data Pipeline Gotchas:** The Gen 2 version exclusives list for Gold and Silver was missing the Caterpie line (10-12, exclusive to Gold and Crystal) and the Weedle line (13-15, exclusive to Silver and Crystal). PokeAPI encounters are the source of truth, and cross-referencing PokeAPI encounter endpoints reveals that Caterpie cannot be found in Silver, while Weedle cannot be found in Gold.

@@ -55,7 +55,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on:
@@ -99,7 +99,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on:
@@ -199,7 +199,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on:
@@ -220,7 +220,7 @@ id: story-001
 type: STORY
 title: "Story 1"
 status: COMPLETED
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -248,7 +248,7 @@ id: story-002
 type: STORY
 title: "Story 2"
 status: PENDING
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on:
@@ -274,7 +274,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -287,7 +287,7 @@ id: story-001
 type: STORY
 title: "Story 1"
 status: PENDING
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -309,7 +309,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -322,7 +322,7 @@ id: story-001
 type: STORY
 title: "Story 1"
 status: COMPLETED
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -343,7 +343,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -358,7 +358,7 @@ id: story-001
 type: STORY
 title: "Story 1"
 status: COMPLETED
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -392,7 +392,7 @@ id: story-001
 type: STORY
 title: "Story 1"
 status: COMPLETED
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -412,7 +412,7 @@ id: epic-001
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: [".foundry/prds/missing-prd.md"]
@@ -426,7 +426,7 @@ id: story-001
 type: STORY
 title: "Story 1"
 status: COMPLETED
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -446,7 +446,7 @@ id: epic-001
 type: EPIC
 title: "Cancelled Epic"
 status: CANCELLED
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -458,7 +458,7 @@ id: story-001
 type: STORY
 title: "Story of Cancelled Epic"
 status: PENDING
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -512,7 +512,7 @@ id: story-001
 type: STORY
 title: "Story 1"
 status: COMPLETED
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -555,7 +555,7 @@ id: story-002
 type: STORY
 title: "Story 2"
 status: PENDING
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on:
@@ -631,7 +631,7 @@ id: epic-001-002-feature
 type: EPIC
 title: "Epic 2"
 status: COMPLETED
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-24"
 updated_at: "2026-04-24"
 depends_on: []
@@ -643,7 +643,7 @@ id: story-002-005-impl
 type: STORY
 title: "Story 5"
 status: PENDING
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-24"
 updated_at: "2026-04-24"
 depends_on:
@@ -683,7 +683,7 @@ id: prd-001
 type: PRD
 title: "PRD 1"
 status: PENDING
-owner_persona: product_manager
+owner_persona: epic_planner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 parent: idea-001
@@ -717,7 +717,7 @@ id: prd-001
 type: PRD
 title: "PRD 1"
 status: COMPLETED
-owner_persona: product_manager
+owner_persona: epic_planner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 parent: idea-001
@@ -1034,24 +1034,24 @@ test('Full Lifecycle: IDEA -> PRD -> EPIC -> STORY -> TASK', () => {
 fs.mkdirSync(path.join(foundryDir, 'prds'));
 
 fs.writeFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), `---\nid: idea-001\ntype: IDEA\ntitle: "Idea 1"\nstatus: COMPLETED\nowner_persona: product_manager\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n---\n\n# Title`);
-fs.writeFileSync(path.join(tmpDir, '.foundry/prds/prd-001-002.md'), `---\nid: prd-001-002\ntype: PRD\ntitle: "PRD 2"\nstatus: PENDING\nowner_persona: product_manager\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/ideas/idea-001.md\ndepends_on: [.foundry/ideas/idea-001.md]\njules_session_id: null\n---\n\n# Title`);
+fs.writeFileSync(path.join(tmpDir, '.foundry/prds/prd-001-002.md'), `---\nid: prd-001-002\ntype: PRD\ntitle: "PRD 2"\nstatus: PENDING\nowner_persona: epic_planner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/ideas/idea-001.md\ndepends_on: [.foundry/ideas/idea-001.md]\njules_session_id: null\n---\n\n# Title`);
 
 main();
 expect(fs.readFileSync(path.join(tmpDir, '.foundry/prds/prd-001-002.md'), 'utf-8')).toContain('status: READY');
 
-fs.writeFileSync(path.join(tmpDir, '.foundry/prds/prd-001-002.md'), `---\nid: prd-001-002\ntype: PRD\ntitle: "PRD 2"\nstatus: COMPLETED\nowner_persona: product_manager\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/ideas/idea-001.md\ndepends_on: [.foundry/ideas/idea-001.md]\njules_session_id: null\n---\n\n# Title`);
-fs.writeFileSync(path.join(tmpDir, '.foundry/epics/epic-002-003.md'), `---\nid: epic-002-003\ntype: EPIC\ntitle: "EPIC 3"\nstatus: PENDING\nowner_persona: epic_planner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/prds/prd-001-002.md\ndepends_on: [.foundry/prds/prd-001-002.md]\njules_session_id: null\n---\n\n# Title`);
+fs.writeFileSync(path.join(tmpDir, '.foundry/prds/prd-001-002.md'), `---\nid: prd-001-002\ntype: PRD\ntitle: "PRD 2"\nstatus: COMPLETED\nowner_persona: epic_planner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/ideas/idea-001.md\ndepends_on: [.foundry/ideas/idea-001.md]\njules_session_id: null\n---\n\n# Title`);
+fs.writeFileSync(path.join(tmpDir, '.foundry/epics/epic-002-003.md'), `---\nid: epic-002-003\ntype: EPIC\ntitle: "EPIC 3"\nstatus: PENDING\nowner_persona: story_owner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/prds/prd-001-002.md\ndepends_on: [.foundry/prds/prd-001-002.md]\njules_session_id: null\n---\n\n# Title`);
 
 main();
 expect(fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-002-003.md'), 'utf-8')).toContain('status: READY');
 
-fs.writeFileSync(path.join(tmpDir, '.foundry/epics/epic-002-003.md'), `---\nid: epic-002-003\ntype: EPIC\ntitle: "EPIC 3"\nstatus: COMPLETED\nowner_persona: epic_planner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/prds/prd-001-002.md\ndepends_on: [.foundry/prds/prd-001-002.md]\njules_session_id: null\n---\n\n# Title`);
-fs.writeFileSync(path.join(tmpDir, '.foundry/stories/story-003-004.md'), `---\nid: story-003-004\ntype: STORY\ntitle: "STORY 4"\nstatus: PENDING\nowner_persona: story_owner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/epics/epic-002-003.md\ndepends_on: [.foundry/epics/epic-002-003.md]\njules_session_id: null\n---\n\n# Title`);
+fs.writeFileSync(path.join(tmpDir, '.foundry/epics/epic-002-003.md'), `---\nid: epic-002-003\ntype: EPIC\ntitle: "EPIC 3"\nstatus: COMPLETED\nowner_persona: story_owner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/prds/prd-001-002.md\ndepends_on: [.foundry/prds/prd-001-002.md]\njules_session_id: null\n---\n\n# Title`);
+fs.writeFileSync(path.join(tmpDir, '.foundry/stories/story-003-004.md'), `---\nid: story-003-004\ntype: STORY\ntitle: "STORY 4"\nstatus: PENDING\nowner_persona: tech_lead\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/epics/epic-002-003.md\ndepends_on: [.foundry/epics/epic-002-003.md]\njules_session_id: null\n---\n\n# Title`);
 
 main();
 expect(fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-003-004.md'), 'utf-8')).toContain('status: READY');
 
-fs.writeFileSync(path.join(tmpDir, '.foundry/stories/story-003-004.md'), `---\nid: story-003-004\ntype: STORY\ntitle: "STORY 4"\nstatus: COMPLETED\nowner_persona: story_owner\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/epics/epic-002-003.md\ndepends_on: [.foundry/epics/epic-002-003.md]\njules_session_id: null\n---\n\n# Title`);
+fs.writeFileSync(path.join(tmpDir, '.foundry/stories/story-003-004.md'), `---\nid: story-003-004\ntype: STORY\ntitle: "STORY 4"\nstatus: COMPLETED\nowner_persona: tech_lead\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/epics/epic-002-003.md\ndepends_on: [.foundry/epics/epic-002-003.md]\njules_session_id: null\n---\n\n# Title`);
 fs.writeFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), `---\nid: task-004-005\ntype: TASK\ntitle: "TASK 5"\nstatus: PENDING\nowner_persona: coder\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: .foundry/stories/story-003-004.md\ndepends_on: [.foundry/stories/story-003-004.md]\njules_session_id: null\n---\n\n# Title`);
 
 main();
@@ -1063,7 +1063,7 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
 type: EPIC
 title: "Epic 1"
 status: PENDING
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -1073,7 +1073,7 @@ jules_session_id: null`);
 type: STORY
 title: "Story 1"
 status: COMPLETED
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -1094,7 +1094,7 @@ jules_session_id: null`);
 type: EPIC
 title: "Epic 2"
 status: PENDING
-owner_persona: epic_planner
+owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
@@ -1135,7 +1135,7 @@ id: prd-001
 type: PRD
 title: "PRD 1"
 status: COMPLETED
-owner_persona: product_manager
+owner_persona: epic_planner
 created_at: "2026-04-20"
 updated_at: "2026-04-20"
 depends_on: []
