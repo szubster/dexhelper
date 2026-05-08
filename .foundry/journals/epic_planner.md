@@ -25,3 +25,7 @@ Outcome: The generated epics (epic-007-atomic-handoff-schema.md, epic-008-atomic
 ### 2026-05-06
 - Created `epic-018-028-migrate-heartbeat-to-gray-matter` for PRD `prd-018-018-migrate-heartbeat-to-gray-matter`.
 - Handed off node to `story_owner` persona.
+## 2026-05-06: Gen 2 Expansion Phase 3 & 4 Breakdown
+- Read the PRD `prd-006-017-gen2-expansion-phase-3-4.md`.
+- Generated `epic-017-028-map-graph-routing.md` to handle Johto/Kanto map graph requirements.
+- Generated `epic-017-029-strategy-engine-adaptations.md` to adapt the strategy engine for Gen 2 mechanics, establishing a sequential dependency on Epic 028.

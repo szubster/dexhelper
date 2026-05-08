@@ -5,10 +5,10 @@ title: 'Story 2: Hall of Fame & Roamers'
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-06'
-updated_at: '2026-05-06'
+updated_at: '2026-05-07'
 depends_on:
   - .foundry/stories/story-026-041-inventory-parsing.md
-jules_session_id: '11255682738283264777'
+jules_session_id: '6292997595065102919'
 pr_number: null
 parent: .foundry/epics/epic-015-026-save-parser-expansion.md
 tags:
@@ -16,7 +16,7 @@ tags:
   - save-parser
   - roamers
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
