@@ -123,13 +123,20 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     pokemonMetadata[pid] = p && !(p instanceof Error) ? p : null;
   });
 
+  // ⚡ Bolt: Removed Object.fromEntries(map(...)) chain to prevent intermediate array allocations (O(N) -> O(1) memory overhead)
+  const areaNames: Record<number, string> = {};
+  for (let i = 0; i < allLocations.length; i++) {
+    const loc = allLocations[i];
+    if (loc) areaNames[loc.id] = loc.n;
+  }
+
   return {
     localAid,
     localEncounters: localEncounters ?? null,
     missingEncounters,
     pokemonMetadata,
     ancestralEncounters,
-    areaNames: Object.fromEntries(allLocations.map((a) => [a.id, a.n])),
+    areaNames,
     allLocations,
   };
 }
