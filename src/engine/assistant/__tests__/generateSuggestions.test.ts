@@ -6,6 +6,68 @@ import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
 describe('generateSuggestions', () => {
+  it('should detect when an evolution item is already equipped for Trade evolutions', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(208); // Missing Steelix
+    const mockSaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      trainerName: 'ASH',
+      owned: ownedSet, // Owns Onix
+      party: [],
+      pc: [95],
+      inventory: [{ id: 1, quantity: 5 }], // No Metal Coat (id: 0x8f) in bag
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 95,
+          level: 20,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+          item: 0x8f, // Holding Metal Coat!
+          otName: 'ASH',
+        },
+      ],
+    } as unknown as SaveData;
+
+    const mockApiData = {
+      pokemonMetadata: {
+        95: {
+          id: 95,
+          n: 'Onix',
+          cr: 45,
+          baby: false,
+          eto: [{ id: 208, eto: [], det: [{ tr: 2, held: 210 }], ef: 95 }],
+          efrm: [],
+          det: [],
+        },
+        208: {
+          id: 208,
+          n: 'Steelix',
+          cr: 25,
+          baby: false,
+          eto: [],
+          efrm: [95],
+          det: [{ tr: 2, held: 210 }],
+        },
+      },
+      missingEncounters: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const mockStrategy = {
+      ...gen1Strategy,
+      generation: 2,
+    };
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const suggestion = suggestions.find((s) => s.id === 'evo-trade-held-208');
+    expect(suggestion).toBeDefined();
+    expect(suggestion?.title).toBe('Ready to Trade Evolve: #208!');
+    expect(suggestion?.description).toBe('Your pre-evolution is already holding the Metal Coat! Trade it to evolve!');
+  });
+
   it('should generate "Catch Right Here" (catch-local) suggestions', () => {
     const mockSaveData: SaveData = {
       generation: 1,

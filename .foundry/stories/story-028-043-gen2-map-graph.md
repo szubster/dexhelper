@@ -1,0 +1,31 @@
+---
+id: story-028-043-gen2-map-graph
+type: STORY
+title: 'Phase 3: Gen 2 Map Graph Implementation'
+status: PENDING
+owner_persona: tech_lead
+created_at: '2026-05-08'
+updated_at: '2026-05-08'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: .foundry/epics/epic-017-028-map-graph-routing.md
+tags:
+  - gen2
+  - expansion
+  - map-graph
+research_references:
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Phase 3: Gen 2 Map Graph Implementation
+
+## Objective
+Create a comprehensive map graph for Johto and Kanto to support Gen 2 traversal and location resolution.
+
+## Requirements
+- Create `src/engine/mapGraph/gen2Graph.ts`.
+- Define the graph of connected locations, nodes, and transitions across Johto and Kanto.

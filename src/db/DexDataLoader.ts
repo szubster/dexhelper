@@ -4,6 +4,14 @@ import type { CompactChainLink, LocationAreaEncounters, PokemonMetadata } from '
 
 /**
  * Request Batching layer for IndexedDB.
+ *
+ * Why this is needed:
+ * The application frequently renders large lists of Pokémon (like the Pokédex or PC Boxes)
+ * where each list item component independently requests data for its specific `id`.
+ * If these components directly called IndexedDB, it would create hundreds of separate
+ * database transactions, causing massive N+1 query bottlenecks and locking the main thread.
+ * `DataLoader` aggregates these synchronous, independent requests into a single
+ * `bulkGet` database transaction on the next tick, ensuring O(1) transaction overhead.
  */
 export const dexDataLoader = {
   pokemon: new DataLoader<number, PokemonMetadata>(
@@ -21,6 +29,18 @@ export const dexDataLoader = {
     { cache: true },
   ),
 
+  /**
+   * Fetches the complete contextual data required to render a Pokémon's detail view.
+   *
+   * @param id - The Pokédex ID of the target Pokémon.
+   * @returns An object containing the base metadata, encounters, a map of evolution chain names, and a map of encounter area names.
+   *
+   * @remarks
+   * Why build a name map?
+   * The `pokemon.jsonl` data structure is highly normalized to save disk space. Evolution chains (`eto`, `efrm`)
+   * and encounter tables only store numeric IDs, not the actual string names. This function recursively walks
+   * the evolution tree and aggregates all referenced area IDs, then fetches their string names in a single batched pass.
+   */
   getPokemonDetails: async (
     id: number,
   ): Promise<{

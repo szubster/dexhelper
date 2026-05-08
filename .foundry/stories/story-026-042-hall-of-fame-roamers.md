@@ -2,13 +2,13 @@
 id: story-026-042-hall-of-fame-roamers
 type: STORY
 title: 'Story 2: Hall of Fame & Roamers'
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: tech_lead
 created_at: '2026-05-06'
-updated_at: '2026-05-07'
+updated_at: "2026-05-08"
 depends_on:
   - .foundry/stories/story-026-041-inventory-parsing.md
-jules_session_id: '6292997595065102919'
+jules_session_id: null
 pr_number: null
 parent: .foundry/epics/epic-015-026-save-parser-expansion.md
 tags:
@@ -31,5 +31,12 @@ The Gen 2 Save Parser Expansion Epic requires extracting the Hall of Fame counts
 - Implement the missing data extraction layer for roaming legendaries' map locations.
 
 ## Acceptance Criteria
-- [ ] Able to extract Hall of Fame counts from the save file.
-- [ ] Able to extract the specific map locations of Raikou, Entei, and Suicune.
+- [x] Able to extract Hall of Fame counts from the save file.
+- [x] Able to extract the specific map locations of Raikou, Entei, and Suicune.
+
+## Tasks
+- [.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md](.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md)
+- [.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md](.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md)
+- [.foundry/tasks/task-042-068-extract-hall-of-fame.md](.foundry/tasks/task-042-068-extract-hall-of-fame.md)
+- [.foundry/tasks/task-042-069-extract-roamers.md](.foundry/tasks/task-042-069-extract-roamers.md)
+- [.foundry/tasks/task-042-070-qa-hall-of-fame-roamers.md](.foundry/tasks/task-042-070-qa-hall-of-fame-roamers.md)

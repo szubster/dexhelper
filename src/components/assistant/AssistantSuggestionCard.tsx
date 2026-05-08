@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router';
 import { Fish, Target, Trees, Waves } from 'lucide-react';
 import type React from 'react';
+import type { EncounterDetail, Suggestion } from '../../engine/assistant/strategies/types';
 import type { SaveData } from '../../engine/saveParser/index';
-import type { EncounterDetail, Suggestion } from '../../hooks/useAssistant';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { CornerCrosshairs } from '../CornerCrosshairs';
 import { PokemonSprite } from '../pokemon/PokemonSprite';

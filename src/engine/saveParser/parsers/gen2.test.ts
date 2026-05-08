@@ -88,5 +88,119 @@ describe('gen2 parsers', () => {
       const data = parseGen2(view, false);
       expect(data.gameVersion).toBe('gold');
     });
+
+    it('should parse Pokemon caught details (time, location)', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x2865, 3); // Crystal party count
+      view.setUint8(0x2866, 1);
+      view.setUint8(0x2866 + 1, 2);
+      view.setUint8(0x2866 + 2, 3);
+      view.setUint8(0x2866 + 3, 0xff); // Terminator
+
+      // Pokemon 1: Morning, Event/Gift (0x7e)
+      let pOff = 0x2866 + 7;
+      view.setUint8(pOff, 1);
+      view.setUint8(pOff + 29, 0x40); // caughtByte1: 0x40 = Morning
+      view.setUint8(pOff + 30, 0x7e); // caughtByte2: 0x7e = Event/Gift
+
+      // Pokemon 2: Day, Special Event/Traded (0x7f)
+      pOff = 0x2866 + 7 + 48;
+      view.setUint8(pOff, 2);
+      view.setUint8(pOff + 29, 0x80); // caughtByte1: 0x80 = Day
+      view.setUint8(pOff + 30, 0x7f); // caughtByte2: 0x7f = Special Event/Traded
+
+      // Pokemon 3: Night, Normal map (e.g. 1)
+      pOff = 0x2866 + 7 + 96;
+      view.setUint8(pOff, 3);
+      view.setUint8(pOff + 29, 0xc0); // caughtByte1: 0xc0 = Night
+      view.setUint8(pOff + 30, 1); // map location
+
+      const data = parseGen2(view, true);
+      expect(data.partyDetails[0]?.speciesId).toBe(1);
+      expect(data.partyDetails[0]?.caughtData?.time).toBe('Morning');
+      expect(data.partyDetails[0]?.caughtData?.locationName).toBe('Event/Gift');
+
+      expect(data.partyDetails[1]?.caughtData?.time).toBe('Day');
+      expect(data.partyDetails[1]?.caughtData?.locationName).toBe('Special Event/Traded');
+
+      expect(data.partyDetails[2]?.caughtData?.time).toBe('Night');
+      // map 1 should resolve to a string
+      expect(typeof data.partyDetails[2]?.caughtData?.locationName).toBe('string');
+    });
+
+    it('should correctly detect silver/gold using pokedex seen/owned', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Silver exclusive: Vulpix (ID 37). Byte offset 0x2A27 for index 37 => 37 / 8 = 4 => 0x2a27 + 4 = 0x2a2b, bit 4.
+      // Set bit 4 (0x10) to 1 for seen, and owned.
+      // Owned offset: 0x2A4C. 0x2A4C + 4 = 0x2A50
+      view.setUint8(0x2a50, 0x10); // Owned Vulpix
+      view.setUint8(0x2a2b, 0x10); // Seen Vulpix
+
+      const data = parseGen2(view, false);
+      expect(data.gameVersion).toBe('silver');
+
+      // Now reset and add Gold exclusives
+      view.setUint8(0x2a50, 0);
+      view.setUint8(0x2a2b, 0);
+
+      // Gold exclusive: Mankey (ID 56). Byte offset: 56 / 8 = 7 => 0x2a27 + 7 = 0x2a2e, bit 7.
+      // Owned offset: 0x2A4C + 7 = 0x2A53
+      view.setUint8(0x2a53, 0x80); // Owned Mankey
+      view.setUint8(0x2a2e, 0x80); // Seen Mankey
+      const data2 = parseGen2(view, false);
+      expect(data2.gameVersion).toBe('gold');
+    });
+
+    it('should parse PC storage', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Box numbers and offsets:
+      // current box is at 0x2700. Set to box 1 (0).
+      view.setUint8(0x2724, 0);
+      view.setUint8(0x2d10, 1); // currentBoxCount for GS is 0x2D10
+      view.setUint8(0x2d11, 1); // ID
+      view.setUint8(0x2d26, 1); // start of box 0 data (0x2D11 + 21)
+
+      // Add a pokemon to box 2 (index 1). Offset is 0x4000.
+      view.setUint8(0x444e, 1); // count
+      view.setUint8(0x444f, 2); // ID
+      view.setUint8(0x4464, 2); // start of box 1 data (0x444E + 22)
+
+      const data = parseGen2(view, false);
+      expect(data.pc).toContain(1);
+      expect(data.pc).toContain(2);
+      expect(data.pcDetails.length).toBe(2);
+    });
+
+    it('should correctly count badges and map location', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Set 1 Johto badge and 1 Kanto badge
+      view.setUint8(0x23e4, 0x01); // Johto badges
+      view.setUint8(0x23e5, 0x02); // Kanto badges (bit 1)
+
+      // Set Map
+      view.setUint8(0x25b3, 1); // mapGroup = 1 (Olivine City)
+      view.setUint8(0x25b4, 1); // mapId = 1 (Olivine City)
+
+      const data = parseGen2(view, false);
+      expect(data.badges).toBe(2);
+      expect(data.currentMapName).not.toBe('Unknown Map');
+      // If the map is in gen2MapLocations, it will have a name. Otherwise it should fall back safely without crashing.
+    });
   });
 });
