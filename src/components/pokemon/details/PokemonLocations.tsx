@@ -2,6 +2,7 @@ import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { staticEncounters } from '../../../engine/data/shared/staticData';
+import type { GameVersion } from '../../../engine/saveParser/index';
 
 interface EvoReq {
   fromId: number;
@@ -11,7 +12,7 @@ interface EvoReq {
 
 interface PokemonLocationsProps {
   pokemonId: number;
-  gameVersion: string;
+  gameVersion: GameVersion;
   encounters: CompactEncounter[];
   areaNames: Record<number, string> | undefined;
   evoReq: EvoReq | null;
@@ -44,7 +45,7 @@ export function PokemonLocations({
       ) : (
         <div className="relative z-10 grid grid-cols-1 gap-3" data-testid="location-list">
           {(() => {
-            const staticEnc = staticEncounters[pokemonId]?.[gameVersion as keyof (typeof staticEncounters)[number]];
+            const staticEnc = gameVersion !== 'unknown' ? staticEncounters[pokemonId]?.[gameVersion] : undefined;
             const versionEnc = encounters.filter((e) => e.v === currentVersionId);
 
             if ((staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq) {
@@ -65,7 +66,7 @@ export function PokemonLocations({
                       </span>
                     </div>
                   )}
-                  {staticEnc?.map((loc, i) => (
+                  {staticEnc?.map((loc: string, i: number) => (
                     <div
                       // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                       key={`static-${i}`}
