@@ -22,6 +22,9 @@ Outcome: The generated epics (epic-007-atomic-handoff-schema.md, epic-008-atomic
 >> **Decision:** The target artifact Epic `epic-011-022-implement-gray-matter` already existed and fully matched the required state from the PRD.
 >> **Action:** Per the Empty PR Policy, I did not make dummy updates or trivial formatting changes to force a git diff. Submitted PR directly.
 
+### 2026-05-06
+- Created `epic-018-028-migrate-heartbeat-to-gray-matter` for PRD `prd-018-018-migrate-heartbeat-to-gray-matter`.
+- Handed off node to `story_owner` persona.
 ## 2026-05-06: Gen 2 Expansion Phase 3 & 4 Breakdown
 - Read the PRD `prd-006-017-gen2-expansion-phase-3-4.md`.
 - Generated `epic-017-028-map-graph-routing.md` to handle Johto/Kanto map graph requirements.
