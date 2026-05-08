@@ -28,6 +28,9 @@ The "Resurrection Loop" correctly respawns Jules sessions on new branches when a
 Implement an automated Git branch cleanup step in the `foundry-heartbeat` or a dedicated periodic workflow. When a node transitions to `FAILED` or `CANCELLED`, the system should identify the associated branch (via the PR or session ID) and automatically delete it from the remote repository.
 
 ## Acceptance Criteria
-- [ ] Determine the safest method for identifying the branch associated with a failed session.
+- [x] Determine the safest method for identifying the branch associated with a failed session.
 - [ ] Implement the cleanup logic.
 - [ ] Ensure it only deletes branches safely associated with terminal, failed tasks, and not active ones.
+
+## References
+- Downstream PRD: `.foundry/prds/prd-019-019-automated-branch-cleanup.md`
