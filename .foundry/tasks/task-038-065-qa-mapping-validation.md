@@ -26,5 +26,5 @@ notes: ''
 - Ensure the orchestrator properly blocks and validates `type` and `owner_persona` mapping before dispatch.
 
 ## Acceptance Criteria
-- [ ] Verified mapping logic in `.github/scripts/foundry-orchestrator.ts`.
-- [ ] Verified tests pass and thoroughly check cases.
+- [x] Verified mapping logic in `.github/scripts/foundry-orchestrator.ts`.
+- [x] Verified tests pass and thoroughly check cases.
