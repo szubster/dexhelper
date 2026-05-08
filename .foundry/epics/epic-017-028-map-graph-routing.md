@@ -32,6 +32,11 @@ Implement the dual-region map graph for Johto and Kanto to support Gen 2 travers
 - **Cross-Region Distance**: Implement `getDistanceToMap` algorithms adapted for Gen 2 transition points (e.g., Magnet Train, S.S. Aqua, and Route 27).
 
 ## Acceptance Criteria
-- [ ] Map graph for Johto and Kanto is fully implemented.
-- [ ] `resolveOutdoorMapId` correctly maps indoor locations to outdoor hubs.
-- [ ] `getDistanceToMap` handles cross-region distances via transitions.
+- [x] Map graph for Johto and Kanto is fully implemented.
+- [x] `resolveOutdoorMapId` correctly maps indoor locations to outdoor hubs.
+- [x] `getDistanceToMap` handles cross-region distances via transitions.
+
+## Created Stories
+- [.foundry/stories/story-028-043-gen2-map-graph.md](.foundry/stories/story-028-043-gen2-map-graph.md)
+- [.foundry/stories/story-028-044-indoor-outdoor-resolution.md](.foundry/stories/story-028-044-indoor-outdoor-resolution.md)
+- [.foundry/stories/story-028-045-cross-region-distance.md](.foundry/stories/story-028-045-cross-region-distance.md)
