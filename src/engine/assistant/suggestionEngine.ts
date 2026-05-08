@@ -555,6 +555,16 @@ export function generateSuggestions(
             pokemonId: targetId,
             priority: isFriendlyEnough ? 90 : 80,
           });
+        } else {
+          const todMsg = tod ? ` during the ${tod}` : '';
+          suggestions.push({
+            id: `evo-lvl-any-${targetId}`,
+            category: 'Evolve',
+            title: `Level Up Evolution: #${targetId}`,
+            description: `Level up your pre-evolution${todMsg} to evolve!`,
+            pokemonId: targetId,
+            priority: 70,
+          });
         }
       } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
         const gameItemId = getGameItemId(item, saveData.generation);
