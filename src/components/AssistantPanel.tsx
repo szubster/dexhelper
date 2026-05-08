@@ -1,8 +1,9 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { Bug, Egg, Flag, Info, Loader2, Sparkles, Target, Zap } from 'lucide-react';
 import React from 'react';
+import type { SuggestionCategory } from '../engine/assistant/strategies/types';
 import type { SaveData } from '../engine/saveParser/index';
-import { type SuggestionCategory, useAssistant } from '../hooks/useAssistant';
+import { useAssistant } from '../hooks/useAssistant';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';

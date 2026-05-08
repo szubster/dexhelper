@@ -1,6 +1,6 @@
 import { AlertCircle, Bug } from 'lucide-react';
+import type { RejectedSuggestion } from '../../engine/assistant/strategies/types';
 import type { SaveData } from '../../engine/saveParser/index';
-import type { RejectedSuggestion } from '../../hooks/useAssistant';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
 
 interface AssistantDebugViewProps {

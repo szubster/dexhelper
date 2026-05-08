@@ -4,8 +4,6 @@ import { fetchAssistantApiData, generateSuggestions } from '../engine/assistant/
 import type { SaveData } from '../engine/saveParser/index';
 import { getGenerationConfig } from '../utils/generationConfig';
 
-export * from '../engine/assistant/strategies/types';
-
 /**
  * A React hook that orchestrates the Pokémon suggestion engine.
  * It identifies missing Pokémon, fetches necessary encounter data from IndexedDB,
