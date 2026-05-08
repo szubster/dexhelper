@@ -244,7 +244,7 @@ async function main() {
     // National Park Map ID: 783 (Gen 2 aid)
     if ([10, 11, 12, 13, 14, 15, 46, 48, 123, 127].includes(i)) {
       const bccChance: Record<number, number> = {
-        10: 20, 11: 20, 12: 5, 13: 20, 14: 20, 15: 5, 46: 10, 48: 10, 123: 5, 127: 5
+        10: 20, 11: 10, 12: 5, 13: 20, 14: 10, 15: 5, 46: 10, 48: 10, 123: 5, 127: 5
       };
 
       const bccData = {
