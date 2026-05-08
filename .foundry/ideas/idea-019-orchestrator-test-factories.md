@@ -2,12 +2,12 @@
 id: idea-019-orchestrator-test-factories
 type: IDEA
 title: Standardized Orchestrator Test Factories
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-07'
 updated_at: '2026-05-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4122520302500545646'
 pr_number: null
 ---
 
