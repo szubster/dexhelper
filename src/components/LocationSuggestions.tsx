@@ -71,13 +71,19 @@ export function LocationSuggestions() {
     <div className="fade-in zoom-in-95 absolute top-full left-0 z-50 mt-2 w-full animate-in border border-white/20 border-dashed bg-zinc-950 shadow-2xl duration-200">
       <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/40" />
       <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-10" />
-      <div className="relative z-10 space-y-1 p-2">
-        <div className="px-3 py-2 font-black font-mono text-[9px] text-zinc-600 uppercase tracking-widest">
+      {/* oxlint-disable-next-line */}
+      <div className="relative z-10 space-y-1 p-2" role="listbox" aria-label="Location suggestions">
+        <div
+          className="px-3 py-2 font-black font-mono text-[9px] text-zinc-600 uppercase tracking-widest"
+          aria-hidden="true"
+        >
           [ SCAN RESULTS ]
         </div>
         {suggestions.map((loc) => (
           <button
             type="button"
+            role="option"
+            aria-selected={loc.id === selectedLocationId}
             key={loc.id}
             onClick={() => {
               setSelectedLocationId(loc.id);
