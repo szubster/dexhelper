@@ -73,6 +73,13 @@ Documenting these mechanical quirks is essential for future maintainability of t
 **Why:**
 - `bulkGet`: Internal utility that circumvents IndexedDB's lack of a native `getAll(keys)` method by firing parallel `store.get` requests within a single transaction. This prevents massive N+1 query bottlenecks during suggestionEngine and dexDataLoader operations.
 - `syncData`: Documents the build hash comparison logic (`__POKEDATA_HASH__`) that prevents redundant network downloads of `pokedata.json` during IDB hydration.
+## 2025-05-20 - DexDataLoader Batching Strategy\n\n**What:** Added JSDoc explaining the DataLoader pattern for IndexedDB in `src/db/DexDataLoader.ts`.\n**Why:** \n- `dexDataLoader`: Explained the architectural necessity of . React components often request overlapping or disjoint IDs simultaneously during list renders. Direct `IndexedDB` calls cause massive N+1 transaction overhead. `DataLoader` collapses these into O(1) `bulkGet` transactions.\n- `getPokemonDetails`: Documented why it manually recursively walks the `eto` and `efrm` chains to aggregate and batch-fetch evolution and area names (because the underlying `pokemon.jsonl` structure is completely normalized to numbers to save space).
+## 2026-05-08 - DexDataLoader Batching Strategy
+
+**What:** Added JSDoc explaining the DataLoader pattern for IndexedDB in `src/db/DexDataLoader.ts`.
+**Why:**
+- `dexDataLoader`: Explained the architectural necessity of DataLoader. React components often request overlapping or disjoint IDs simultaneously during list renders. Direct IndexedDB calls cause massive N+1 transaction overhead. DataLoader collapses these into O(1) `bulkGet` transactions.
+- `getPokemonDetails`: Documented why it manually recursively walks the `eto` and `efrm` chains to aggregate and batch-fetch evolution and area names (because the underlying `pokemon.jsonl` structure is completely normalized to numbers to save space).
 
 ### Critical Learnings (Pipeline Scripts)
 *   **Location Resolution (`scripts/generate-pokedata.ts`)**: PokeAPI uses generic string area IDs, but internal game state (and save files) strictly rely on exact ROM map IDs (`gameId`). Transforming this data requires crossing API data with internal decompiled ROM constants (`GEN1_MAPS` and `GEN2_MAP_TO_AID`).
