@@ -416,4 +416,59 @@ describe('generateSuggestions', () => {
     expect(breedSuggestionNotInDaycare?.description).toBe('Leave your #153 at the Daycare to get an Egg!');
     expect(breedSuggestionNotInDaycare?.priority).toBe(85);
   });
+
+  it('should generate "Evolve" suggestion when min_l and min_h are missing (time-based fallback)', () => {
+    const mockSaveData: SaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      owned: new Set([133]), // Owns Eevee (133), missing Espeon (196)
+      seen: new Set(),
+      party: [],
+      inventory: [],
+      currentMapId: 0,
+      eventFlags: new Uint8Array(300),
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 133,
+          level: 20,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+        },
+      ],
+      trainerName: 'GOLD',
+    } as unknown as SaveData;
+
+    const mockApiData: AssistantApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {
+        196: {
+          id: 196,
+          eto: [],
+          efrm: [133],
+          det: [{ tr: 1, time: 1 }], // Level up, day, no min_h or min_l
+        } as unknown as PokemonMetadata,
+      },
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    // Use a strategy with generation 2
+    const mockStrategy = {
+      ...gen1Strategy,
+      generation: 2,
+    };
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+
+    const evoSuggestion = suggestions.find((s) => s.id === 'evo-lvl-any-196');
+    expect(evoSuggestion).toBeDefined();
+    expect(evoSuggestion?.title).toBe('Level Up Evolution: #196');
+    expect(evoSuggestion?.description).toBe('Level up your pre-evolution during the day to evolve!');
+    expect(evoSuggestion?.priority).toBe(70);
+  });
 });
