@@ -1,9 +1,9 @@
+import { Search } from 'lucide-react';
+import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { TacticalInput } from '../TacticalInput';
-import { Search } from 'lucide-react';
-import React from 'react';
 
 describe('TacticalInput', () => {
   it('renders correctly', async () => {
@@ -17,17 +17,13 @@ describe('TacticalInput', () => {
   });
 
   it('renders with icon', async () => {
-    const { container } = await render(
-      <TacticalInput icon={<Search data-testid="search-icon" size={14} />} />
-    );
+    await render(<TacticalInput icon={<Search data-testid="search-icon" size={14} />} />);
     await expect.element(page.getByTestId('search-icon')).toBeInTheDocument();
   });
 
   it('calls onClear when clear button is clicked and value exists', async () => {
-    const onClear = vi.fn();
-    await render(
-      <TacticalInput value="test value" onChange={() => {}} onClear={onClear} />
-    );
+    const onClear = vi.fn<() => void>();
+    await render(<TacticalInput value="test value" onChange={() => {}} onClear={onClear} />);
 
     const clearButton = page.getByRole('button', { name: 'Clear input' });
     await expect.element(clearButton).toBeInTheDocument();
@@ -37,10 +33,8 @@ describe('TacticalInput', () => {
   });
 
   it('does not render clear button when value is empty', async () => {
-    const onClear = vi.fn();
-    await render(
-      <TacticalInput value="" onChange={() => {}} onClear={onClear} />
-    );
+    const onClear = vi.fn<() => void>();
+    await render(<TacticalInput value="" onChange={() => {}} onClear={onClear} />);
 
     await expect.element(page.getByRole('button', { name: 'Clear input' })).not.toBeInTheDocument();
   });
@@ -49,7 +43,7 @@ describe('TacticalInput', () => {
     await render(
       <TacticalInput>
         <div data-testid="child-element">Child Content</div>
-      </TacticalInput>
+      </TacticalInput>,
     );
     await expect.element(page.getByTestId('child-element')).toBeInTheDocument();
     await expect.element(page.getByText('Child Content')).toBeInTheDocument();

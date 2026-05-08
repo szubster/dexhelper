@@ -3,7 +3,7 @@ import React from 'react';
 import { cn } from '../utils/cn';
 import { CornerCrosshairs } from './CornerCrosshairs';
 
-export interface TacticalInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value'> {
+interface TacticalInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value'> {
   label?: string;
   icon?: React.ReactNode;
   onClear?: () => void;
