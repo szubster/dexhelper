@@ -2,13 +2,13 @@
 id: task-038-065-qa-mapping-validation
 type: TASK
 title: 'QA: Mapping Validation'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-04'
 updated_at: '2026-05-08'
 depends_on:
   - .foundry/tasks/task-038-064-implement-mapping-validation.md
-jules_session_id: null
+jules_session_id: '15460125225865288427'
 pr_number: null
 parent: .foundry/stories/story-025-038-implement-mapping-validation.md
 tags:
