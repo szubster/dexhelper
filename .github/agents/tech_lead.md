@@ -36,3 +36,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 
 - If the target artifact already exists and is complete, DO NOT make trivial formatting changes or dummy updates just to force a git diff. Document this in your persona journal, state there is no work to do, and submit the PR. Empty PRs (0 files changed) will be automatically merged to allow the Foundry DAG to progress.
+
+## Environment Troubleshooting
+If `pnpm install` fails due to an unsupported Node engine version mismatch (e.g., `wanted: {"node":">=24.0.0"}`), temporarily disable the strict check using `pnpm config set engine-strict false` before installing.
+If `pnpm install` hangs or fails during `lefthook install` or git hook setup, run `git config --unset-all --global core.hooksPath` before retrying the installation.

@@ -21,6 +21,19 @@ interface Gen1MapInfo {
   group: string | null;
 }
 
+/**
+ * Downloads and parses original Game Boy assembly (.asm) files to generate Map ID dictionaries.
+ *
+ * **Why this is necessary:**
+ * The save files use internal ROM Map IDs (e.g., `0x00` is Pallet Town) to track player location,
+ * caught locations, and encounters. PokeAPI only provides modern, generic string names, not Game Boy IDs.
+ * By directly parsing the `pret` decompilation projects (pokered / pokecrystal), we can extract the exact
+ * map constants and internal grouping structures the game engine actually uses and translate them into
+ * human-readable names for the UI.
+ *
+ * **Regeneration Steps:**
+ * To regenerate this data locally after changes, run: `pnpm run data:gen-maps`
+ */
 async function run() {
   console.log('Fetching map data from pret repositories...');
 

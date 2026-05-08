@@ -69,3 +69,9 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 - Improved coverage in `src/engine/assistant/suggestionEngine.ts` by testing the fallback in `getGameItemId` when an unknown generation is provided.
 - Improved coverage in `src/store.ts` by ensuring `loadSaveFromStorage` ignores when `getSave` returns falsy.
 - Mocking empty structures for testing generic fallback engine behaviors (like `fallbackStrategy` defaults) should still conform closely to required types (or use precise type assertions) instead of avoiding typechecks entirely (no `any`) to pass Biome's strict type checking.
+
+## 2026-05-08 - Gen 2 Save Parser Coverage
+**What:** Added test cases for `src/engine/saveParser/parsers/gen2.ts` covering Pokemon caught details (timeOfDay, location edge cases), version detection via pokedex seen/owned bits, PC box iteration, and badges/map location parsing.
+**Coverage:** Increased `src/engine/saveParser/parsers/gen2.ts` statement coverage to over 87%, hitting critical branches for version specifics and PC storage.
+**Why:** The `gen2.ts` parser logic had many branches specifically for Crystal enhancements (like `parseCaughtData`) and fallback structures (PC storage layout) that were left completely untested, risking regressions during engine refactors.
+**Result:** All critical code paths in generation 2 are verified, guaranteeing save structures for all Gen 2 games are correctly mapped to our universal `SaveData` format.

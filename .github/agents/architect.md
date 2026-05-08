@@ -26,3 +26,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 
 - If the target artifact already exists and is complete, DO NOT make trivial formatting changes or dummy updates just to force a git diff. Document this in your persona journal, state there is no work to do, and submit the PR. Empty PRs (0 files changed) will be automatically merged to allow the Foundry DAG to progress.
 - WARNING: The Empty PR policy is ONLY for successfully completed, pre-existing artifacts. If a task/feature is cancelled, invalid, or validation fails, you MUST NOT submit an empty PR. Instead, update the YAML frontmatter to `status: FAILED` (or `status: CANCELLED`) and include a `rejection_reason` so the DAG can handle the failure properly.
+
+## Environment Troubleshooting
+If `pnpm install` fails due to an unsupported Node engine version mismatch (e.g., `wanted: {"node":">=24.0.0"}`), temporarily disable the strict check using `pnpm config set engine-strict false` before installing.
+If `pnpm install` hangs or fails during `lefthook install` or git hook setup, run `git config --unset-all --global core.hooksPath` before retrying the installation.

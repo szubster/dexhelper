@@ -2,12 +2,12 @@
 id: task-038-064-implement-mapping-validation
 type: TASK
 title: Implement Mapping Validation
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: coder
 created_at: '2026-05-04'
-updated_at: '2026-05-07'
+updated_at: "2026-05-08"
 depends_on: []
-jules_session_id: '15849964661768173509'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-025-038-implement-mapping-validation.md
 tags:
@@ -33,5 +33,5 @@ notes: ''
 - Exempt the `human` persona from validation constraints.
 
 ## Acceptance Criteria
-- [ ] Logic implemented as described.
-- [ ] Unit tests cover new conditions.
+- [x] Logic implemented as described.
+- [x] Unit tests cover new conditions.

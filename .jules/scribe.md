@@ -73,3 +73,9 @@ Documenting these mechanical quirks is essential for future maintainability of t
 **Why:**
 - `bulkGet`: Internal utility that circumvents IndexedDB's lack of a native `getAll(keys)` method by firing parallel `store.get` requests within a single transaction. This prevents massive N+1 query bottlenecks during suggestionEngine and dexDataLoader operations.
 - `syncData`: Documents the build hash comparison logic (`__POKEDATA_HASH__`) that prevents redundant network downloads of `pokedata.json` during IDB hydration.
+
+### Critical Learnings (Pipeline Scripts)
+*   **Location Resolution (`scripts/generate-pokedata.ts`)**: PokeAPI uses generic string area IDs, but internal game state (and save files) strictly rely on exact ROM map IDs (`gameId`). Transforming this data requires crossing API data with internal decompiled ROM constants (`GEN1_MAPS` and `GEN2_MAP_TO_AID`).
+*   **Missing API Data (`scripts/generate-pokedata.ts`)**: PokeAPI explicitly misses the Gen 2 Bug Catching Contest encounters. These must be manually injected into National Park mapping for accuracy.
+*   **Graph Precomputation (`scripts/generate-pokedata.ts`)**: The All-Pairs Shortest Paths for the map UI are precalculated using the Floyd-Warshall algorithm at build-time to maintain `O(1)` runtime lookup performance and prevent UI thread locking during suggestions.
+*   **Assembly Map Constants (`scripts/generateMapLocations.ts`)**: Deciphering the actual internal name and structure of locations requires pulling directly from Game Boy assembly files (`.asm`) in `pret` repositories, as this preserves the precise byte mappings used in `.sav` structures.
