@@ -31,5 +31,9 @@ The Gen 2 Save Parser Expansion Epic requires extracting the Hall of Fame counts
 - Implement the missing data extraction layer for roaming legendaries' map locations.
 
 ## Acceptance Criteria
-- [ ] Able to extract Hall of Fame counts from the save file.
-- [ ] Able to extract the specific map locations of Raikou, Entei, and Suicune.
+- [x] Able to extract Hall of Fame counts from the save file.
+- [x] Able to extract the specific map locations of Raikou, Entei, and Suicune.
+
+## Tasks
+- [.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md](.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md)
+- [.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md](.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md)
