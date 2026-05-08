@@ -36,3 +36,6 @@ ADR-006 mandated the use of `gray-matter` for parsing and mutating Markdown fron
 - `transitionNodeToCompleted` uses `gray-matter` to parse and mutate frontmatter instead of regex.
 - `transitionNodeToReady` uses `gray-matter` to parse and mutate frontmatter instead of regex.
 - All modifications write the new node contents via `matter.stringify()`.
+
+## Stories
+- [ ] .foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md
