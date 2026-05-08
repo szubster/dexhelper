@@ -1,11 +1,11 @@
 ---
 id: epic-017-028-map-graph-routing
 type: EPIC
-title: "Phase 3: Johto/Kanto Map Graph Routing"
-status: PENDING
+title: 'Phase 3: Johto/Kanto Map Graph Routing'
+status: READY
 owner_persona: story_owner
-created_at: "2026-05-06"
-updated_at: "2026-05-06"
+created_at: '2026-05-06'
+updated_at: '2026-05-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Phase 3: Johto/Kanto Map Graph Routing

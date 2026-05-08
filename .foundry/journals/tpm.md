@@ -19,3 +19,13 @@
 - **2026-05-07**: Resurrection Loop triggered for `task-038-064-implement-mapping-validation`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-08**: Executed TPM routine. Archived epic-005-016-e2e-testing-updates.md. Pruned stale journal content.
+
+- **2026-05-08**: PR #1015 merged. `prd-006-017-gen2-expansion-phase-3-4` is now PENDING.
+
+- **2026-05-08**: PR #1014 merged. `prd-017-017-dag-dashboard` is now PENDING.
+
+- **2026-05-08**: PR #1016 merged. `prd-018-018-migrate-heartbeat-to-gray-matter` is now PENDING.
+
+- **2026-05-08**: PR #1026 merged. `story-026-042-hall-of-fame-roamers` is now COMPLETED.
+
+- **2026-05-08**: PR #1027 merged. `task-038-064-implement-mapping-validation` is now COMPLETED.

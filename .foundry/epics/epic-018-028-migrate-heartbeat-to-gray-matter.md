@@ -1,20 +1,24 @@
 ---
 id: epic-018-028-migrate-heartbeat-to-gray-matter
 type: EPIC
-title: "Migrate foundry-heartbeat.ts to gray-matter"
-status: PENDING
+title: Migrate foundry-heartbeat.ts to gray-matter
+status: READY
 owner_persona: story_owner
-created_at: "2026-05-06"
-updated_at: "2026-05-06"
+created_at: '2026-05-06'
+updated_at: '2026-05-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-018-018-migrate-heartbeat-to-gray-matter.md
-tags: ["foundry", "dag", "orchestrator", "technical-debt"]
+tags:
+  - foundry
+  - dag
+  - orchestrator
+  - technical-debt
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Epic: Migrate foundry-heartbeat.ts to gray-matter

@@ -2,19 +2,22 @@
 id: epic-017-028-dag-dashboard-data
 type: EPIC
 title: DAG Dashboard Data Source & Parsing
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-05-18"
-updated_at: "2026-05-18"
+created_at: '2026-05-18'
+updated_at: '2026-05-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-017-017-dag-dashboard.md
-tags: ["dag", "dashboard", "data"]
+tags:
+  - dag
+  - dashboard
+  - data
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # DAG Dashboard Data Source & Parsing

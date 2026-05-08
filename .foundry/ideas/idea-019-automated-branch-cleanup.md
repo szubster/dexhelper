@@ -2,7 +2,7 @@
 id: idea-019-automated-branch-cleanup
 type: IDEA
 title: Automated Branch Cleanup
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-05-08'
 updated_at: '2026-05-08'
@@ -14,7 +14,9 @@ tags: []
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Proposed by Agile Coach based on observed workspace clutter from FAILED sessions.'
+notes: >-
+  Proposed by Agile Coach based on observed workspace clutter from FAILED
+  sessions.
 ---
 
 # Automated Branch Cleanup
