@@ -25,6 +25,9 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - **NEW:** Prevent Cross-Site Request Forgery (CSRF) by auditing the use of anti-CSRF tokens in state-changing API requests.
 - **NEW:** Ensure the application implements a strong Content Security Policy (CSP) by auditing meta tags or server response headers.
 - **NEW:** Guard against GraphQL query injection by ensuring all queries are parameterized and user input is sanitized before executing.
+- **NEW:** Guard against Insecure Direct Object References (IDOR) by ensuring that access control checks are performed before granting access to resources.
+- **NEW:** Prevent Clickjacking by verifying that the `X-Frame-Options` header or CSP `frame-ancestors` directive is configured.
+- **NEW:** Guard against XML External Entity (XXE) injection by auditing any XML parsing logic and disabling external entities.
 
 
 ## Boundaries
