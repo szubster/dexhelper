@@ -47,3 +47,7 @@ Formalize the implementation scope for Phase 3 (Johto/Kanto Map Graph Routing) a
 
 ## 4. Next Steps
 - [ ] **Architect**: Write ADRs for the Map Graph design and strategy engine adaptations.
+
+## Generated Epics
+- [ ] Epic 028: [.foundry/epics/epic-017-028-map-graph-routing.md](.foundry/epics/epic-017-028-map-graph-routing.md)
+- [ ] Epic 029: [.foundry/epics/epic-017-029-strategy-engine-adaptations.md](.foundry/epics/epic-017-029-strategy-engine-adaptations.md)

@@ -1,16 +1,16 @@
 ---
 id: prd-007-005-migrate-saves-to-indexeddb
 type: PRD
-title: "Migrate Save Data to IndexedDB"
+title: Migrate Save Data to IndexedDB
 status: COMPLETED
 owner_persona: epic_planner
-created_at: "2026-04-24"
-updated_at: "2026-05-02"
+created_at: '2026-04-24'
+updated_at: '2026-05-02'
 depends_on:
   - .foundry/epics/epic-005-013-idb-infrastructure.md
   - .foundry/epics/epic-005-014-state-store-migration.md
   - .foundry/epics/epic-005-015-legacy-data-migration.md
-  - .foundry/epics/epic-005-016-e2e-testing-updates.md
+  - .foundry/archive/epics/epic-005-016-e2e-testing-updates.md
 jules_session_id: null
 parent: .foundry/ideas/idea-007-migrate-saves-to-indexeddb.md
 tags: []
@@ -56,4 +56,4 @@ Migrate the persistence layer for game saves from `localStorage` to `IndexedDB`.
 - [.foundry/epics/epic-005-013-idb-infrastructure.md](.foundry/epics/epic-005-013-idb-infrastructure.md)
 - [.foundry/epics/epic-005-014-state-store-migration.md](.foundry/epics/epic-005-014-state-store-migration.md)
 - [.foundry/epics/epic-005-015-legacy-data-migration.md](.foundry/epics/epic-005-015-legacy-data-migration.md)
-- [.foundry/epics/epic-005-016-e2e-testing-updates.md](.foundry/epics/epic-005-016-e2e-testing-updates.md)
+- [.foundry/archive/epics/epic-005-016-e2e-testing-updates.md](.foundry/archive/epics/epic-005-016-e2e-testing-updates.md)

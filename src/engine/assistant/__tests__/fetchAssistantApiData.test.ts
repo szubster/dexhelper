@@ -22,7 +22,10 @@ describe('fetchAssistantApiData', () => {
 
     vi.spyOn(pokeDB, 'getAllEncounters').mockResolvedValue([]);
     vi.spyOn(pokeDB, 'getAllAreas').mockResolvedValue([]);
-    vi.spyOn(pokeDB, 'getLocations').mockResolvedValue([]);
+    vi.spyOn(pokeDB, 'getLocations').mockResolvedValue([
+      { id: 1, n: 'Test Area 1', pids: [] },
+      { id: 2, n: 'Test Area 2', pids: [] },
+    ]);
     vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockImplementation(async (ids) => {
       const all: Record<number, unknown> = {
         1: { id: 1, n: 'bulbasaur', efrm: [], eto: [], det: [] },

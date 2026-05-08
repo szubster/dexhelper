@@ -30,3 +30,6 @@ ADR-006 mandated the use of `gray-matter` for parsing and mutating Markdown fron
 - Update `.github/scripts/foundry-heartbeat.ts` to use `gray-matter` (`matter.stringify()`) for all frontmatter modifications.
 - Ensure compliance with ADR-006.
 - Prevent brittle regex bugs in frontmatter modifications.
+
+## Epics
+- [ ] .foundry/epics/epic-018-028-migrate-heartbeat-to-gray-matter.md

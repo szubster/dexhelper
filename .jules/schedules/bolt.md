@@ -28,6 +28,7 @@ Identify and implement ONE small performance improvement that makes the applicat
 - Introduce breaking changes
 - Sacrifice readability for micro-optimizations
 - Optimize cold paths without evidence of impact
+- Modify CI/CD pipelines (`.github/workflows/`), tooling config (`vite.config.ts`, `vitest.config.ts`, `biome.jsonc`), or the Foundry Orchestrator (`.github/scripts/`) — those belong to Infras or TPM
 
 ## Process
 

@@ -39,8 +39,8 @@
     "dataloader": "^2.2.3",
     "idb": "^8.0.3",
     "lucide-react": "^1.14.0",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "tailwind-merge": "^3.5.0",
     "zustand": "^5.0.13"
   },
@@ -76,7 +76,7 @@
     "rollup-plugin-visualizer": "^7.0.1",
     "tailwindcss": "4.2.4",
     "typescript": "~6.0.3",
-    "vite": "^8.0.10",
+    "vite": "^8.0.11",
     "vite-plugin-pwa": "^1.2.0",
     "vitest": "^4.1.5",
     "vitest-browser-react": "^2.2.0"
