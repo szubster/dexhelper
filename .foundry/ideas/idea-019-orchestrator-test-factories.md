@@ -18,3 +18,13 @@ When implementing strict validation rules in the DAG Orchestrator (such as Phase
 
 ## Proposal
 Implement a standardized test node factory utility (e.g., `createValidNode(overrides)`) in the test suite. This utility should automatically populate valid frontmatter defaults (like the correct `owner_persona` based on `type`) so tests remain robust and focus only on the specific behavior being tested, rather than failing due to unrelated strict schema evolutions.
+
+
+## Child Nodes
+- .foundry/prds/prd-019-019-orchestrator-test-factories.md
+
+## Child Nodes
+- [PRD] .foundry/prds/prd-019-019-orchestrator-test-factories.md
+
+## Child Nodes
+- [PRD] .foundry/prds/prd-019-019-orchestrator-test-factories.md
