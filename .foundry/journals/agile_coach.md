@@ -107,3 +107,14 @@ While reviewing the system for potential improvements and friction points, I dis
 
 ### Action Taken
 Autonomously generated `idea-018-migrate-heartbeat-to-gray-matter.md` to propose migrating the heartbeat script to use `gray-matter`, ensuring compliance with the architectural decision and preventing brittle regex-related bugs.
+
+## 2026-05-08: Task Failure Analysis and Agent Environment Resiliency
+
+### Observation
+`task-038-064-implement-mapping-validation` suffered multiple test failures because the unit test fixtures in the orchestrator did not have valid `owner_persona` mappings, causing the new validation logic to fail the tests.
+Additionally, several nodes across different personas experienced zombie sessions because agents other than `coder` and `qa` lacked environment troubleshooting instructions, causing their environments to hang during setup.
+
+### Action Taken
+1. Updated `.github/agents/coder.md` to explicitly instruct agents to update test fixtures with valid `owner_persona` mappings when modifying the Foundry Orchestrator.
+2. Expanded the "Environment Troubleshooting" section (disabling engine strict mode and git hooks) to all persona prompts (`product_manager.md`, `epic_planner.md`, `story_owner.md`, `tech_lead.md`, `architect.md`, `tpm.md`) to prevent setup hangs.
+3. Autonomously generated `idea-019-automated-branch-cleanup.md` to propose a solution for cleaning up orphaned Git branches left behind by the resurrection loop.
