@@ -2,10 +2,10 @@
 id: story-026-042-hall-of-fame-roamers
 type: STORY
 title: 'Story 2: Hall of Fame & Roamers'
-status: READY
+status: "COMPLETED"
 owner_persona: tech_lead
 created_at: '2026-05-06'
-updated_at: '2026-05-06'
+updated_at: "2026-05-08"
 depends_on:
   - .foundry/stories/story-026-041-inventory-parsing.md
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - save-parser
   - roamers
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -37,3 +37,6 @@ The Gen 2 Save Parser Expansion Epic requires extracting the Hall of Fame counts
 ## Tasks
 - [.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md](.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md)
 - [.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md](.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md)
+- [.foundry/tasks/task-042-068-extract-hall-of-fame.md](.foundry/tasks/task-042-068-extract-hall-of-fame.md)
+- [.foundry/tasks/task-042-069-extract-roamers.md](.foundry/tasks/task-042-069-extract-roamers.md)
+- [.foundry/tasks/task-042-070-qa-hall-of-fame-roamers.md](.foundry/tasks/task-042-070-qa-hall-of-fame-roamers.md)

@@ -2,10 +2,10 @@
 id: prd-006-017-gen2-expansion-phase-3-4
 type: PRD
 title: 'Gen 2 Expansion PRD: Phase 3 and 4'
-status: "FAILED"
+status: "PENDING"
 owner_persona: epic_planner
 created_at: '2026-05-06'
-updated_at: "2026-05-06"
+updated_at: "2026-05-08"
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,7 +17,7 @@ tags:
   - suggestion-engine
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -47,3 +47,7 @@ Formalize the implementation scope for Phase 3 (Johto/Kanto Map Graph Routing) a
 
 ## 4. Next Steps
 - [ ] **Architect**: Write ADRs for the Map Graph design and strategy engine adaptations.
+
+## Generated Epics
+- [ ] Epic 028: [.foundry/epics/epic-017-028-map-graph-routing.md](.foundry/epics/epic-017-028-map-graph-routing.md)
+- [ ] Epic 029: [.foundry/epics/epic-017-029-strategy-engine-adaptations.md](.foundry/epics/epic-017-029-strategy-engine-adaptations.md)

@@ -2,10 +2,10 @@
 id: prd-018-018-migrate-heartbeat-to-gray-matter
 type: PRD
 title: Migrate foundry-heartbeat.ts to gray-matter
-status: BLOCKED
-owner_persona: tpm
+status: "PENDING"
+owner_persona: epic_planner
 created_at: '2026-05-06'
-updated_at: '2026-05-06'
+updated_at: "2026-05-08"
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,3 +30,6 @@ ADR-006 mandated the use of `gray-matter` for parsing and mutating Markdown fron
 - Update `.github/scripts/foundry-heartbeat.ts` to use `gray-matter` (`matter.stringify()`) for all frontmatter modifications.
 - Ensure compliance with ADR-006.
 - Prevent brittle regex bugs in frontmatter modifications.
+
+## Epics
+- [ ] .foundry/epics/epic-018-028-migrate-heartbeat-to-gray-matter.md

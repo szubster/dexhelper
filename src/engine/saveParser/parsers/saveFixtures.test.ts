@@ -10,9 +10,9 @@ interface ParserFixtures {
 }
 
 // Extend base vitest test with our injected save loader
-// oxlint-disable jest/expect-expect
-// eslint-disable-next-line jest/expect-expect
-// oxlint-disable-next-line jest/no-disabled-tests
+// oxlint-disable vitest/expect-expect
+// eslint-disable-next-line vitest/expect-expect
+// oxlint-disable-next-line vitest/no-disabled-tests
 const customTest = baseTest.extend<ParserFixtures>({
   loadSaveData: async ({ task: _task }, use) => {
     // Provide a loader utility that abstracts disk I/O and root parsing
@@ -81,6 +81,7 @@ describe('Real Save Fixtures Verification', () => {
 
   // Using the advanced 'test.for' to map our suite, removing all duplication
   // and securely injecting the `loadSaveData` contextual fixture.
+  // oxlint-disable vitest/no-standalone-expect
   customTest.for(saveCases)(
     'should parse generic bounds for $file',
     ({ file, gen, expectedVersion, expectedTrainer, expectedId, expectedPartyLength }, { loadSaveData }) => {
