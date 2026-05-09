@@ -6,6 +6,7 @@ import { CornerCrosshairs } from './CornerCrosshairs';
 import { ClearStorageButton } from './settings/ClearStorageButton';
 import { SettingsControls } from './settings/SettingsControls';
 import { SettingsLegend } from './settings/SettingsLegend';
+import { TacticalModal } from './TacticalModal';
 
 export function SettingsModal() {
   const isSettingsOpen = useStore((s) => s.isSettingsOpen);
@@ -30,59 +31,57 @@ export function SettingsModal() {
     .map((value) => ({ value, label: POKEBALL_LABELS[value] }));
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-end justify-center p-0 sm:items-center sm:p-4">
-      <div
-        aria-hidden="true"
-        className="fade-in absolute inset-0 animate-in bg-black/80 backdrop-blur-sm duration-300"
-        onClick={() => setIsSettingsOpen(false)}
-      />
-      <div className="slide-in-from-bottom-[100%] sm:zoom-in-95 relative w-full animate-in overflow-hidden border-zinc-800 border-t border-dashed bg-zinc-950 shadow-2xl duration-300 sm:max-w-md sm:border">
-        {/* Telemetry decoration */}
-        <div className="absolute top-0 left-4 flex gap-1 rounded-b border border-zinc-800 border-t-0 border-dashed bg-zinc-900 px-3 py-1 font-black text-[8px] text-zinc-600 tracking-widest">
-          <span className="animate-pulse text-[var(--theme-primary)]">●</span> SYS.CONFIG_ACTIVE
-        </div>
-
-        <div className="flex items-center justify-between border-zinc-800 border-b border-dashed p-8 pt-10">
-          <div>
-            <h2 className="font-black font-mono text-2xl uppercase tracking-tighter">SYS.CONFIG</h2>
-            <p className="mt-1 font-bold font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
-              Configure your experience
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() => setIsSettingsOpen(false)}
-            aria-label="Close settings"
-            title="Close settings"
-            className="group relative border border-zinc-800 border-dashed bg-zinc-900 p-3 text-zinc-400 transition-colors hover:border-zinc-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-          >
-            <CornerCrosshairs className="h-1 w-1 border-[var(--theme-primary)] opacity-0 transition-opacity group-hover:opacity-100" />
-            <X size={20} />
-          </button>
-        </div>
-
-        <div className="custom-scrollbar max-h-[70vh] space-y-8 overflow-y-auto p-8">
-          <SettingsLegend />
-          <SettingsControls
-            effectiveVersion={effectiveVersion}
-            setManualVersion={setManualVersion}
-            isLivingDex={isLivingDex}
-            setIsLivingDex={setIsLivingDex}
-            globalPokeball={globalPokeball}
-            setGlobalPokeball={setGlobalPokeball}
-            filteredPokeballs={filteredPokeballs}
-            genConfig={genConfig}
-          />
-          <ClearStorageButton
-            onClear={async () => {
-              await saveDB.deleteSave('last_save_file');
-              setSaveData(null);
-              setManualVersion(null);
-              setIsSettingsOpen(false);
-            }}
-          />
-        </div>
+    <TacticalModal
+      isOpen={isSettingsOpen}
+      onClose={() => setIsSettingsOpen(false)}
+      containerClassName="z-[60]"
+      modalClassName="overflow-hidden border-zinc-800 border-t border-dashed bg-zinc-950 shadow-2xl sm:max-w-md sm:border"
+    >
+      {/* Telemetry decoration */}
+      <div className="absolute top-0 left-4 z-10 flex gap-1 rounded-b border border-zinc-800 border-t-0 border-dashed bg-zinc-900 px-3 py-1 font-black text-[8px] text-zinc-600 tracking-widest">
+        <span className="animate-pulse text-[var(--theme-primary)]">●</span> SYS.CONFIG_ACTIVE
       </div>
-    </div>
+
+      <div className="flex items-center justify-between border-zinc-800 border-b border-dashed p-8 pt-10">
+        <div>
+          <h2 className="font-black font-mono text-2xl uppercase tracking-tighter">SYS.CONFIG</h2>
+          <p className="mt-1 font-bold font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
+            Configure your experience
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => setIsSettingsOpen(false)}
+          aria-label="Close settings"
+          title="Close settings"
+          className="group relative border border-zinc-800 border-dashed bg-zinc-900 p-3 text-zinc-400 transition-colors hover:border-zinc-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+        >
+          <CornerCrosshairs className="h-1 w-1 border-[var(--theme-primary)] opacity-0 transition-opacity group-hover:opacity-100" />
+          <X size={20} />
+        </button>
+      </div>
+
+      <div className="custom-scrollbar max-h-[70vh] space-y-8 overflow-y-auto p-8">
+        <SettingsLegend />
+        <SettingsControls
+          effectiveVersion={effectiveVersion}
+          setManualVersion={setManualVersion}
+          isLivingDex={isLivingDex}
+          setIsLivingDex={setIsLivingDex}
+          globalPokeball={globalPokeball}
+          setGlobalPokeball={setGlobalPokeball}
+          filteredPokeballs={filteredPokeballs}
+          genConfig={genConfig}
+        />
+        <ClearStorageButton
+          onClear={async () => {
+            await saveDB.deleteSave('last_save_file');
+            setSaveData(null);
+            setManualVersion(null);
+            setIsSettingsOpen(false);
+          }}
+        />
+      </div>
+    </TacticalModal>
   );
 }

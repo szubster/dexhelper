@@ -23,3 +23,10 @@
 - Pattern: Many components used the same `glass-card` CSS class with varied tailwind colored background/border opacity patterns (e.g. `border-emerald-500/10 bg-emerald-500/5`).
 - Challenge: Determining the base variants. Handled by passing a string prop mapping to the common tailwind combinations.
 - Win: Centralized styling logic, eliminated redundant classes across multiple `PokemonDetails` subcomponents.
+
+## TacticalModal Extraction
+- **What**: Extracted the repeating tactical modal wrapper patterns (including full-screen inset, z-index management, animated backdrop, and sliding content pane) into a reusable `TacticalModal` component.
+- **Why**: Modal wrappers were duplicated across `SettingsModal`, `VersionModal`, and `PokemonDetails`, leading to boilerplate heavy components and inconsistent accessibility attributes (e.g. `role="dialog"` was missing on some).
+- **Key Learnings**:
+  - Encapsulating the backdrop and inner container logic while exposing customizable class names via `cn` (`containerClassName`, `backdropClassName`, `modalClassName`) gives enough flexibility to handle various modal styles.
+  - Adding `role="dialog"` and `aria-modal="true"` inside the extracted component ensures consistent accessibility out-of-the-box.
