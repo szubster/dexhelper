@@ -182,56 +182,18 @@ const METHOD_NAMES: Record<number, string> = {
  * - NPC Trades (missing offered Pokemon): ~65 (goes up to ~85 if offered Pokemon is owned)
  * - Exclusives / Unobtainables: ~10
  */
-export function generateSuggestions(
-  saveData: SaveData | null,
-  isLivingDex: boolean,
-  manualVersion: string | null | undefined,
-  apiData: AssistantApiData | null,
+
+function generateCatchSuggestions(
+  apiData: AssistantApiData,
+  displayVersionId: number,
+  myOtIds: Set<number>,
+  missingIds: Set<number>,
+  queryTargets: number[],
+  saveData: SaveData,
   strategy: AssistantStrategy,
-): { suggestions: Suggestion[]; debug: { rejected: RejectedSuggestion[] } } {
-  const suggestions: Suggestion[] = [];
-  const rejected: RejectedSuggestion[] = [];
-  if (!saveData || !apiData) return { suggestions, debug: { rejected } };
-
-  const genConfig = getGenerationConfig(saveData.generation);
-  const maxDex = genConfig.maxDex;
-  // ⚡ Bolt: Optimize O(n) array includes to O(1) Set has for missingIds and localPids
-  const missingIds = new Set<number>();
-
-  const ownedSet = isLivingDex
-    ? new Set([...(saveData.party || []), ...(saveData.pc || [])])
-    : saveData.owned || new Set<number>();
-
-  const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
-  // ⚡ Bolt: Removed .filter().map() chain to prevent intermediate array allocations (O(N) -> O(1) memory overhead)
-  const myOtIds = new Set<number>();
-  for (let i = 0; i < allInstances.length; i++) {
-    const p = allInstances[i];
-    if (p && p.otName === saveData.trainerName) {
-      myOtIds.add(p.speciesId);
-    }
-  }
-
-  for (let i = 1; i <= maxDex; i++) {
-    if (!ownedSet.has(i)) {
-      if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0) {
-        rejected.push({ pokemonId: i, reason: 'Hall of Fame count is 0. Mewtwo is locked.', code: 'HOF_LOCKED' });
-        continue;
-      }
-      missingIds.add(i);
-    }
-  }
-
-  const effectiveVersion = manualVersion || saveData.gameVersion;
-  const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
-  const displayVersionId = POKE_VERSION_MAP[displayVersion] || 1;
-  const queryTargets = Array.from(missingIds).slice(0, 100);
-
-  // Special Strategy-Specific Suggestions (e.g. Box full warning)
-  const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds));
-  suggestions.push(...specialSuggestions);
-
-  const localPids = new Set<number>();
+  suggestions: Suggestion[],
+  localPids: Set<number>,
+) {
   // A. Catch logic (Local Map)
   // Highest priority (120) is given to Pokemon found on the exact same map the player is currently standing on.
   if (apiData.localEncounters && apiData.localEncounters.length > 0 && apiData.localAid) {
@@ -320,14 +282,18 @@ export function generateSuggestions(
       });
     }
   }
+}
 
-  // Organize physical instances by species to check for evolutions and prevent redundant exclusive suggestions
-  const instancesBySpecies = new Map<number, PokemonInstance[]>();
-  for (const p of allInstances) {
-    if (!instancesBySpecies.has(p.speciesId)) instancesBySpecies.set(p.speciesId, []);
-    instancesBySpecies.get(p.speciesId)?.push(p);
-  }
-
+function generateGiftAndTradeSuggestions(
+  queryTargets: number[],
+  saveData: SaveData,
+  displayVersion: string,
+  ownedSet: Set<number>,
+  apiData: AssistantApiData,
+  instancesBySpecies: Map<number, PokemonInstance[]>,
+  suggestions: Suggestion[],
+  missingIds: Set<number>,
+) {
   // B. Unobtainable / Exclusive logic
   // Checks if the target is completely locked out of the current version (e.g. Red exclusives on Blue).
   // These are assigned the lowest base priority (10) since they require external action (link cable trades).
@@ -420,7 +386,16 @@ export function generateSuggestions(
       priority: 85,
     });
   }
+}
 
+function generateEvolutionAndBreedingSuggestions(
+  queryTargets: number[],
+  saveData: SaveData,
+  apiData: AssistantApiData,
+  instancesBySpecies: Map<number, PokemonInstance[]>,
+  suggestions: Suggestion[],
+  displayVersion: string,
+) {
   // E. Evolutions
   // Evaluates the player's current boxes and party to find pre-evolutions.
   // Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached, evolution stone in inventory).
@@ -596,6 +571,97 @@ export function generateSuggestions(
       }
     }
   });
+}
+
+export function generateSuggestions(
+  saveData: SaveData | null,
+  isLivingDex: boolean,
+  manualVersion: string | null | undefined,
+  apiData: AssistantApiData | null,
+  strategy: AssistantStrategy,
+): { suggestions: Suggestion[]; debug: { rejected: RejectedSuggestion[] } } {
+  const suggestions: Suggestion[] = [];
+  const rejected: RejectedSuggestion[] = [];
+  if (!saveData || !apiData) return { suggestions, debug: { rejected } };
+
+  const genConfig = getGenerationConfig(saveData.generation);
+  const maxDex = genConfig.maxDex;
+  // ⚡ Bolt: Optimize O(n) array includes to O(1) Set has for missingIds and localPids
+  const missingIds = new Set<number>();
+
+  const ownedSet = isLivingDex
+    ? new Set([...(saveData.party || []), ...(saveData.pc || [])])
+    : saveData.owned || new Set<number>();
+
+  const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
+  // ⚡ Bolt: Removed .filter().map() chain to prevent intermediate array allocations (O(N) -> O(1) memory overhead)
+  const myOtIds = new Set<number>();
+  for (let i = 0; i < allInstances.length; i++) {
+    const p = allInstances[i];
+    if (p && p.otName === saveData.trainerName) {
+      myOtIds.add(p.speciesId);
+    }
+  }
+
+  for (let i = 1; i <= maxDex; i++) {
+    if (!ownedSet.has(i)) {
+      if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0) {
+        rejected.push({ pokemonId: i, reason: 'Hall of Fame count is 0. Mewtwo is locked.', code: 'HOF_LOCKED' });
+        continue;
+      }
+      missingIds.add(i);
+    }
+  }
+
+  const effectiveVersion = manualVersion || saveData.gameVersion;
+  const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
+  const displayVersionId = POKE_VERSION_MAP[displayVersion] || 1;
+  const queryTargets = Array.from(missingIds).slice(0, 100);
+
+  // Special Strategy-Specific Suggestions (e.g. Box full warning)
+  const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds));
+  suggestions.push(...specialSuggestions);
+
+  const localPids = new Set<number>();
+
+  generateCatchSuggestions(
+    apiData,
+    displayVersionId,
+    myOtIds,
+    missingIds,
+    queryTargets,
+    saveData,
+    strategy,
+    suggestions,
+    localPids,
+  );
+
+  // Organize physical instances by species to check for evolutions and prevent redundant exclusive suggestions
+  const instancesBySpecies = new Map<number, PokemonInstance[]>();
+  for (const p of allInstances) {
+    if (!instancesBySpecies.has(p.speciesId)) instancesBySpecies.set(p.speciesId, []);
+    instancesBySpecies.get(p.speciesId)?.push(p);
+  }
+
+  generateGiftAndTradeSuggestions(
+    queryTargets,
+    saveData,
+    displayVersion,
+    ownedSet,
+    apiData,
+    instancesBySpecies,
+    suggestions,
+    missingIds,
+  );
+
+  generateEvolutionAndBreedingSuggestions(
+    queryTargets,
+    saveData,
+    apiData,
+    instancesBySpecies,
+    suggestions,
+    displayVersion,
+  );
 
   // ⚡ Bolt: Eliminate O(N) array tuple allocation during suggestion deduplication
   const uniqueMap = new Map<string, Suggestion>();

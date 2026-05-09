@@ -28,3 +28,7 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 ## 2026-05-05 - Safe Removal of Re-export Abstractions
 **Learning:** Files that serve only as re-exports for "backward compatibility" (like `src/utils/data.ts` re-exporting `src/engine/data/shared/staticData.ts`) introduce unnecessary indirection. While `knip` might not flag them if they are actively used, manually tracing their usage and updating call sites to point directly to the actual source file is a safe and effective way to reduce technical debt and simplify the module graph.
 **Action:** When encountering a file that purely re-exports contents from another file without adding value, trace its usage using `grep`, update the imports at the call sites, and delete the obsolete abstraction file. Always verify the refactor by running `pnpm lint`, `pnpm test`, and `pnpm test:e2e` to ensure no consumers were broken during the transition.
+
+## 2026-05-18 - Refactoring large files and managing Knip ignore lists
+
+**Learning:** Sometime `knip` gives false positives on exports only used within the file itself. Setting `ignoreExportsUsedInFile` in `knip.json` safely resolves this issue. When refactoring massive functions, splitting them into logical helpers greatly reduces complexity while retaining the exact same functional output. Avoid configuring `knip` or any linter by globally disabling core rules, as it degrades codebase health. Ensure that disposable scripts are deleted before committing code.

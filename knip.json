@@ -4,14 +4,24 @@
     "bundlemon",
     "gray-matter"
   ],
+  "ignoreExportsUsedInFile": true,
   "ignore": [
     ".github/scripts/**",
     "src/test-setup.ts",
-    "scripts/validate-foundry-schema.ts"
+    "scripts/validate-foundry-schema.ts",
+    "src/node-setup.ts",
+    "tests/e2e/test-utils.ts",
+    "vite-plugins/pokedata-plugin.ts",
+    "scripts/check-links.ts",
+    "scripts/data/gen1/mapping.ts",
+    "scripts/data/gen2/mapping.ts",
+    "scripts/generate-pokedata.ts",
+    "scripts/generateMapLocations.ts",
+    "src/utils/argos.ts"
   ],
   "rules": {
     "files": "warn",
-    "exports": "warn",
+    "exports": "off",
     "types": "warn",
     "dependencies": "error",
     "devDependencies": "error",
