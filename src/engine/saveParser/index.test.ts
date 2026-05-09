@@ -115,7 +115,7 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     // Gen 2 checksum
     let gen2Sum = 0;
     for (let i = 0x2009; i <= 0x2d0c; i++) {
-      gen2Sum += buffer[i] ?? 0;
+      gen2Sum += buffer[i] as number;
     }
     const view = new DataView(buffer.buffer);
     view.setUint16(0x2d0d, gen2Sum, true);
@@ -133,7 +133,7 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     // Gen 2 checksum
     let gen2Sum = 0;
     for (let i = 0x2009; i <= 0x2d0c; i++) {
-      gen2Sum += buffer[i] ?? 0;
+      gen2Sum += buffer[i] as number;
     }
     const view = new DataView(buffer.buffer);
     view.setUint16(0x2d0d, gen2Sum, true);
@@ -154,7 +154,7 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     // Gen 2 checksum
     let gen2Sum = 0;
     for (let i = 0x2009; i <= 0x2d0c; i++) {
-      gen2Sum += buffer[i] ?? 0;
+      gen2Sum += buffer[i] as number;
     }
     const view = new DataView(buffer.buffer);
     view.setUint16(0x2d0d, gen2Sum, true);
