@@ -1,18 +1,21 @@
 ---
 id: story-019-034-anomaly-reporting-mechanism
 type: STORY
-title: "Anomaly Reporting Mechanism"
+title: Anomaly Reporting Mechanism
 status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-29"
-updated_at: "2026-05-01"
+created_at: '2026-04-29'
+updated_at: '2026-05-01'
 depends_on: []
 jules_session_id: null
-parent: .foundry/epics/epic-008-019-anomaly-reporting-mechanism.md
-tags: ["orchestrator", "generation", "efficiency"]
+parent: .foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism.md
+tags:
+  - orchestrator
+  - generation
+  - efficiency
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Anomaly Reporting Mechanism
@@ -28,4 +31,4 @@ Add capability to log a small journal entry when pre-existing artifacts are unex
 - [x] A small journal entry is logged indicating the unexpected presence of completed artifacts.
 
 ### Generated Tasks
-- [.foundry/tasks/task-034-057-implement-anomaly-journal-logging.md](.foundry/tasks/task-034-057-implement-anomaly-journal-logging.md)
+- [.foundry/archive/tasks/task-034-057-implement-anomaly-journal-logging.md](.foundry/archive/tasks/task-034-057-implement-anomaly-journal-logging.md)

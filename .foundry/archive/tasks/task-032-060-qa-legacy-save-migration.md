@@ -1,16 +1,19 @@
 ---
 id: task-032-060-qa-legacy-save-migration
 type: TASK
-title: "QA: Legacy Save Migration Hook"
-status: "COMPLETED"
-owner_persona: "qa"
-created_at: "2026-05-02"
-updated_at: "2026-05-02"
+title: 'QA: Legacy Save Migration Hook'
+status: COMPLETED
+owner_persona: qa
+created_at: '2026-05-02'
+updated_at: '2026-05-02'
 depends_on:
-  - .foundry/tasks/task-032-052-implement-migration-logic.md
+  - .foundry/archive/tasks/task-032-052-implement-migration-logic.md
 jules_session_id: null
-parent: .foundry/stories/story-015-032-legacy-save-migration-hook.md
-tags: ["migration", "indexeddb", "localStorage"]
+parent: .foundry/archive/stories/story-015-032-legacy-save-migration-hook.md
+tags:
+  - migration
+  - indexeddb
+  - localStorage
 ---
 
 # QA: Legacy Save Migration Hook

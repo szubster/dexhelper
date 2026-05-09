@@ -26,6 +26,7 @@ function validateSchema() {
       if (!normalizedRelative.includes('.foundry/')) return false;
       if (normalizedRelative.includes('.foundry/docs/')) return false;
       if (normalizedRelative.includes('.foundry/journals/')) return false;
+      if (normalizedRelative.includes('.foundry/archive/journals/')) return false;
       return true;
     });
   } else {

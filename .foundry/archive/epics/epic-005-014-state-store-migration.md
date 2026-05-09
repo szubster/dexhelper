@@ -1,19 +1,22 @@
 ---
 id: epic-005-014-state-store-migration
 type: EPIC
-title: "State Store Migration & Hydration"
-status: "COMPLETED"
+title: State Store Migration & Hydration
+status: COMPLETED
 owner_persona: story_owner
-created_at: "2026-04-24"
-updated_at: "2026-05-01"
+created_at: '2026-04-24'
+updated_at: '2026-05-01'
 depends_on:
-  - .foundry/epics/epic-005-013-idb-infrastructure.md
-  - .foundry/stories/story-014-031-dual-write-save-persistence.md
-  - .foundry/stories/story-014-029-async-startup-hydration.md
-  - .foundry/stories/story-014-026-refactor-state-store-sync.md
+  - .foundry/archive/epics/epic-005-013-idb-infrastructure.md
+  - .foundry/archive/stories/story-014-031-dual-write-save-persistence.md
+  - .foundry/archive/stories/story-014-029-async-startup-hydration.md
+  - .foundry/archive/stories/story-014-026-refactor-state-store-sync.md
 jules_session_id: null
-parent: .foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md
-tags: ["state", "store", "indexeddb"]
+parent: .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+tags:
+  - state
+  - store
+  - indexeddb
 ---
 
 # State Store Migration & Hydration
@@ -28,6 +31,6 @@ This Epic focuses on refactoring `src/store.ts` to decouple save file persistenc
 - [x] The core state seamlessly operates with the new async paradigm.
 
 ## Generated Stories
-- .foundry/stories/story-014-029-async-startup-hydration.md
-- .foundry/stories/story-014-026-refactor-state-store-sync.md
-- .foundry/stories/story-014-031-dual-write-save-persistence.md
+- .foundry/archive/stories/story-014-029-async-startup-hydration.md
+- .foundry/archive/stories/story-014-026-refactor-state-store-sync.md
+- .foundry/archive/stories/story-014-031-dual-write-save-persistence.md

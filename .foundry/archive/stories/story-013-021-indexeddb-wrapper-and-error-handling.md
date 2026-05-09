@@ -1,15 +1,18 @@
 ---
 id: story-013-021-indexeddb-wrapper-and-error-handling
 type: STORY
-title: "Implement IndexedDB wrapper with robust error handling"
-status: "COMPLETED"
+title: Implement IndexedDB wrapper with robust error handling
+status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-24"
-updated_at: "2026-04-25"
+created_at: '2026-04-24'
+updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: .foundry/epics/epic-005-013-idb-infrastructure.md
-tags: ["indexeddb", "infrastructure", "persistence"]
+parent: .foundry/archive/epics/epic-005-013-idb-infrastructure.md
+tags:
+  - indexeddb
+  - infrastructure
+  - persistence
 ---
 
 # Implement IndexedDB wrapper with robust error handling
@@ -23,5 +26,5 @@ Create the IndexedDB wrapper for save data storage, ensuring safe binary read/wr
 - [x] Implement generic error logging (e.g., "System: sync failed") to prevent internal error leakage.
 
 ## Generated Tasks
-- .foundry/tasks/task-021-030-implement-idb-wrapper.md
-- .foundry/tasks/task-021-031-qa-idb-wrapper.md
+- .foundry/archive/tasks/task-021-030-implement-idb-wrapper.md
+- .foundry/archive/tasks/task-021-031-qa-idb-wrapper.md
