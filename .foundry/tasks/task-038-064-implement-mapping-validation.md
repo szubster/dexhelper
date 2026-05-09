@@ -33,5 +33,5 @@ notes: ''
 - Exempt the `human` persona from validation constraints.
 
 ## Acceptance Criteria
-- [ ] Logic implemented as described.
-- [ ] Unit tests cover new conditions.
+- [x] Logic implemented as described.
+- [x] Unit tests cover new conditions.
