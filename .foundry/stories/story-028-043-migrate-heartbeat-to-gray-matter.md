@@ -2,10 +2,10 @@
 id: story-028-043-migrate-heartbeat-to-gray-matter
 type: STORY
 title: Rewrite heartbeat regex mutations using gray-matter
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-08'
-updated_at: '2026-05-08'
+updated_at: '2026-05-09'
 depends_on: []
 jules_session_id: null
 pr_number: null

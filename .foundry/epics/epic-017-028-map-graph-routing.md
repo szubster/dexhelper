@@ -2,12 +2,12 @@
 id: epic-017-028-map-graph-routing
 type: EPIC
 title: 'Phase 3: Johto/Kanto Map Graph Routing'
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: story_owner
 created_at: '2026-05-06'
-updated_at: '2026-05-08'
+updated_at: "2026-05-09"
 depends_on: []
-jules_session_id: '15949345670196203550'
+jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md
 tags:

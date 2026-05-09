@@ -2,10 +2,10 @@
 id: story-028-043-implement-dag-parser
 type: STORY
 title: Implement DAG Parser
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-08'
-updated_at: '2026-05-08'
+updated_at: '2026-05-09'
 depends_on: []
 jules_session_id: null
 pr_number: null

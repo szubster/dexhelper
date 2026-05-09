@@ -2,12 +2,12 @@
 id: epic-017-028-dag-dashboard-data
 type: EPIC
 title: DAG Dashboard Data Source & Parsing
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: story_owner
 created_at: '2026-05-18'
-updated_at: '2026-05-08'
+updated_at: "2026-05-09"
 depends_on: []
-jules_session_id: '11422692989361833191'
+jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-017-017-dag-dashboard.md
 tags:

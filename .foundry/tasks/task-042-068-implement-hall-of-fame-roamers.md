@@ -1,11 +1,11 @@
 ---
 id: task-042-068-implement-hall-of-fame-roamers
 type: TASK
-title: 'Implement Hall of Fame & Roamers Extraction'
-status: PENDING
+title: Implement Hall of Fame & Roamers Extraction
+status: READY
 owner_persona: coder
 created_at: '2026-05-06'
-updated_at: '2026-05-06'
+updated_at: '2026-05-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
