@@ -12,7 +12,7 @@ depends_on:
   - .foundry/stories/story-012-027-design-sync-mechanism.md
   - .foundry/stories/story-012-026-evaluate-cloudflare-storage.md
 jules_session_id: null
-parent: ".foundry/prds/prd-002-late-binding-orchestrator.md"
+parent: ".foundry/prds/prd-005-010-late-binding-orchestrator.md"
 tags:
   - foundry-v2
   - architecture

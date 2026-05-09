@@ -1,6 +1,34 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+function resolveNodeIdToPath(nodeId: string): string {
+  if (nodeId.includes('/') || nodeId.endsWith('.md')) {
+    return nodeId;
+  }
+  const type = nodeId.split('-')[0];
+  const folderMap: Record<string, string> = {
+    idea: 'ideas',
+    prd: 'prds',
+    epic: 'epics',
+    story: 'stories',
+    task: 'tasks',
+    adr: 'docs/adrs'
+  };
+  if (!type) return nodeId;
+  const folder = folderMap[type];
+  if (!folder) return nodeId;
+
+  const basePath = `.foundry/${folder}/${nodeId}.md`;
+  if (fs.existsSync(basePath)) {
+    return basePath;
+  }
+  const archivePath = `.foundry/archive/${folder}/${nodeId}.md`;
+  if (fs.existsSync(archivePath)) {
+    return archivePath;
+  }
+  return nodeId;
+}
+
 function extractFrontmatterPaths(fm: string): string[] {
   const paths: string[] = [];
   const lines = fm.split('\n');
@@ -12,7 +40,7 @@ function extractFrontmatterPaths(fm: string): string[] {
       if (remainder.startsWith('[')) {
         const arrStr = remainder.slice(1, remainder.indexOf(']'));
         const items = arrStr.split(',').map(s => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
-        paths.push(...items);
+        paths.push(...items.map(resolveNodeIdToPath));
         inDependsOn = false;
       } else {
         inDependsOn = true;
@@ -24,7 +52,7 @@ function extractFrontmatterPaths(fm: string): string[] {
       if (line.match(/^\s*-/)) {
         const pathStr = line.replace(/^\s*-/, '').trim().replace(/^["']|["']$/g, '');
         if (pathStr) {
-          paths.push(pathStr);
+          paths.push(resolveNodeIdToPath(pathStr));
         }
         continue;
       } else if (line.match(/^[a-zA-Z0-9_-]+:/)) {
@@ -36,7 +64,7 @@ function extractFrontmatterPaths(fm: string): string[] {
       inDependsOn = false;
       const parentVal = line.slice('parent:'.length).trim().replace(/^["']|["']$/g, '');
       if (parentVal && parentVal !== 'null') {
-        paths.push(parentVal);
+        paths.push(resolveNodeIdToPath(parentVal));
       }
     }
   }
