@@ -421,7 +421,7 @@ describe('generateSuggestions', () => {
     const mockSaveData: SaveData = {
       generation: 2,
       gameVersion: 'gold',
-      owned: new Set([133]), // Owns Eevee (133), missing Espeon (196)
+      owned: new Set([133, ...Array.from({ length: 195 }, (_, i) => i + 1)]), // Owns Eevee (133), missing Espeon (196)
       seen: new Set(),
       party: [],
       inventory: [],
