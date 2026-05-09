@@ -37,7 +37,9 @@ This Epic implements the requirements defined in `prd-019-019-automated-branch-c
    - Ensure logging is present for all branch deletion operations for auditability.
 
 ## Acceptance Criteria
-- [ ] Logic exists to successfully identify branches corresponding to `FAILED` or `CANCELLED` Foundry nodes.
+- [x] Logic exists to successfully identify branches corresponding to `FAILED` or `CANCELLED` Foundry nodes.
 - [ ] A mechanism is implemented (via heartbeat or dedicated cron) to automatically delete these branches from the remote repository.
-- [ ] Safety checks prevent deletion of `main`, active PR branches, or branches associated with `PENDING`, `READY`, `ACTIVE`, or `COMPLETED` nodes.
+- [x] Safety checks prevent deletion of `main`, active PR branches, or branches associated with `PENDING`, `READY`, `ACTIVE`, or `COMPLETED` nodes.
 - [ ] Tests verify the branch identification and deletion orchestration logic (with mocked Git/GitHub API calls).
+
+Target artifact: [.foundry/stories/story-030-046-branch-identification.md](.foundry/stories/story-030-046-branch-identification.md)
