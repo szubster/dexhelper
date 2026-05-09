@@ -10,3 +10,8 @@ Anomaly for Agile Coach: The target task artifact .foundry/archive/tasks/task-02
 - Reviewed story `story-026-041-inventory-parsing`.
 - Created implementation task `task-041-066-implement-inventory-parsing` assigned to `coder`.
 - Created QA verification task `task-041-067-qa-inventory-parsing` assigned to `qa` with a dependency on the implementation task.
+
+
+## 2026-05-09: Standardize Orchestrator Test Factories
+- Implemented a test factory `createValidNode(overrides)` in `foundry-orchestrator.test.ts` to automatically populate valid schema defaults (specifically mapping `type` to `owner_persona`).
+- Refactored all existing mock test fixtures to use this factory, making the test suite more resilient to schema changes.

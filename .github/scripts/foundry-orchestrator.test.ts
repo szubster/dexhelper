@@ -29,6 +29,58 @@ describe('foundry-orchestrator', () => {
     vi.restoreAllMocks();
   });
 
+
+  function createValidNode(overrides: Record<string, any> = {}): string {
+    const type = overrides.type || 'TASK';
+    let owner_persona = overrides.owner_persona;
+    if (owner_persona === undefined) {
+      switch(type) {
+        case 'IDEA': owner_persona = 'product_manager'; break;
+        case 'PRD': owner_persona = 'epic_planner'; break;
+        case 'EPIC': owner_persona = 'story_owner'; break;
+        case 'STORY': owner_persona = 'tech_lead'; break;
+        case 'TASK': owner_persona = 'coder'; break;
+        case 'ADR': owner_persona = 'architect'; break;
+        default: owner_persona = 'coder';
+      }
+    }
+
+    const defaults: Record<string, any> = {
+      id: overrides.id || 'default-id',
+      type: type,
+      title: "Default Title",
+      status: "PENDING",
+      owner_persona: owner_persona,
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null
+    };
+
+    const finalData = { ...defaults, ...overrides };
+
+    const lines = [];
+    for (const [key, value] of Object.entries(finalData)) {
+      if (value === undefined) continue;
+      if (value === null) {
+        lines.push(`${key}: null`);
+      } else if (Array.isArray(value)) {
+        if (value.length === 0) {
+          lines.push(`${key}: []`);
+        } else {
+          lines.push(`${key}:\n` + value.map(v => `  - ${v}`).join('\n'));
+        }
+      } else if (typeof value === 'string' && (key === 'title' || key === 'created_at' || key === 'updated_at' || key === 'rejection_reason')) {
+        lines.push(`${key}: ${JSON.stringify(value)}`);
+      } else if (typeof value === 'string' && key === 'owner_persona' && value.includes(',')) {
+        lines.push(`${key}: "${value}"`);
+      } else {
+        lines.push(`${key}: ${value}`);
+      }
+    }
+    return '\n' + lines.join('\n') + '\n';
+  }
+
   function createNode(relPath: string, frontmatter: string, body: string = '# Title') {
     const fullPath = path.join(tmpDir, relPath);
     const dir = path.dirname(fullPath);
@@ -37,32 +89,9 @@ describe('foundry-orchestrator', () => {
   }
 
   test('Happy Path: promotes PENDING to READY when all dependencies are COMPLETED', () => {
-    createNode('.foundry/ideas/idea-001.md', `
-id: idea-001
-type: IDEA
-title: "Idea 1"
-status: COMPLETED
-owner_persona: product_manager
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-pr_number: null
-`);
+    createNode('.foundry/ideas/idea-001.md', createValidNode({ id: "idea-001", type: "IDEA", title: "Idea 1", status: "COMPLETED", owner_persona: "product_manager", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null, pr_number: null }));
 
-    createNode('.foundry/epics/epic-001.md', `
-id: epic-001
-type: EPIC
-title: "Epic 1"
-status: PENDING
-owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on:
-  - .foundry/ideas/idea-001.md
-jules_session_id: null
-pr_number: null
-`);
+    createNode('.foundry/epics/epic-001.md', createValidNode({ id: "epic-001", type: "EPIC", title: "Epic 1", status: "PENDING", owner_persona: "story_owner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/ideas/idea-001.md"], jules_session_id: null, pr_number: null }));
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
@@ -81,32 +110,9 @@ pr_number: null
   });
 
   test('Blocking: remains PENDING if a dependency is not COMPLETED', () => {
-    createNode('.foundry/ideas/idea-001.md', `
-id: idea-001
-type: IDEA
-title: "Idea 1"
-status: FAILED
-owner_persona: product_manager
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: "sess-123"
-pr_number: null
-`);
+    createNode('.foundry/ideas/idea-001.md', createValidNode({ id: "idea-001", type: "IDEA", title: "Idea 1", status: "FAILED", owner_persona: "product_manager", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: "sess-123", pr_number: null }));
 
-    createNode('.foundry/epics/epic-001.md', `
-id: epic-001
-type: EPIC
-title: "Epic 1"
-status: PENDING
-owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on:
-  - .foundry/ideas/idea-001.md
-jules_session_id: null
-pr_number: null
-`);
+    createNode('.foundry/epics/epic-001.md', createValidNode({ id: "epic-001", type: "EPIC", title: "Epic 1", status: "PENDING", owner_persona: "story_owner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/ideas/idea-001.md"], jules_session_id: null, pr_number: null }));
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
@@ -121,15 +127,7 @@ pr_number: null
   });
 
   test('Validation: skips nodes with multiple owners (comma separated)', () => {
-    createNode('.foundry/tasks/task-multi-owner.md', `id: task-multi-owner
-type: TASK
-title: "Task with multiple owners"
-status: PENDING
-owner_persona: "coder, qa"
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null`);
+    createNode('.foundry/tasks/task-multi-owner.md', createValidNode({ id: "task-multi-owner", type: "TASK", title: "Task with multiple owners", status: "PENDING", owner_persona: "coder, qa", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
@@ -140,17 +138,7 @@ jules_session_id: null`);
   });
 
   test('Validation: skips nodes with array owners', () => {
-    createNode('.foundry/tasks/task-array-owner.md', `id: task-array-owner
-type: TASK
-title: "Task with array owners"
-status: PENDING
-owner_persona:
-  - coder
-  - qa
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null`);
+    createNode('.foundry/tasks/task-array-owner.md', createValidNode({ id: "task-array-owner", type: "TASK", title: "Task with array owners", status: "PENDING", owner_persona: ["coder","qa"], created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
@@ -174,18 +162,7 @@ jules_session_id: null`);
   });
 
   test('Indegree Zero: promotes immediately if depends_on is empty', () => {
-    createNode('.foundry/ideas/idea-001.md', `
-id: idea-001
-type: IDEA
-title: "Idea 1"
-status: PENDING
-owner_persona: product_manager
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-pr_number: null
-`);
+    createNode('.foundry/ideas/idea-001.md', createValidNode({ id: "idea-001", type: "IDEA", title: "Idea 1", status: "PENDING", owner_persona: "product_manager", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null, pr_number: null }));
 
     main();
 
@@ -194,18 +171,7 @@ pr_number: null
   });
 
   test('Unresolvable: logs warning and remains PENDING if dep is missing', () => {
-    createNode('.foundry/epics/epic-001.md', `
-id: epic-001
-type: EPIC
-title: "Epic 1"
-status: PENDING
-owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on:
-  - .foundry/missing/ghost.md
-jules_session_id: null
-`);
+    createNode('.foundry/epics/epic-001.md', createValidNode({ id: "epic-001", type: "EPIC", title: "Epic 1", status: "PENDING", owner_persona: "story_owner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/missing/ghost.md"], jules_session_id: null }));
 
     main();
 
@@ -215,46 +181,13 @@ jules_session_id: null
 
   test('Hierarchical Completion: blocks external dependent if dependency has incomplete children', () => {
     // Story 1: COMPLETED (Planned)
-    createNode('.foundry/stories/story-001.md', `
-id: story-001
-type: STORY
-title: "Story 1"
-status: COMPLETED
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-001.md', createValidNode({ id: "story-001", type: "STORY", title: "Story 1", status: "COMPLETED", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
     // Task 1: Child of Story 1, PENDING
-    createNode('.foundry/tasks/task-001.md', `
-id: task-001
-type: TASK
-title: "Task 1"
-status: PENDING
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on:
-  - .foundry/stories/story-001.md
-parent: .foundry/stories/story-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-001.md', createValidNode({ id: "task-001", type: "TASK", title: "Task 1", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/stories/story-001.md"], parent: ".foundry/stories/story-001.md", jules_session_id: null }));
 
     // Story 2: Depends on Story 1, PENDING (External dependent)
-    createNode('.foundry/stories/story-002.md', `
-id: story-002
-type: STORY
-title: "Story 2"
-status: PENDING
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on:
-  - .foundry/stories/story-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-002.md', createValidNode({ id: "story-002", type: "STORY", title: "Story 2", status: "PENDING", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/stories/story-001.md"], jules_session_id: null }));
 
     main();
 
@@ -269,31 +202,10 @@ jules_session_id: null
 
   test('Late-Binding: allows child of PENDING parent to proceed if parent already has children', () => {
     // Epic 1: PENDING (Waiting for children)
-    createNode('.foundry/epics/epic-001.md', `
-id: epic-001
-type: EPIC
-title: "Epic 1"
-status: PENDING
-owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/epics/epic-001.md', createValidNode({ id: "epic-001", type: "EPIC", title: "Epic 1", status: "PENDING", owner_persona: "story_owner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
     // Story 1: Child of Epic 1, PENDING
-    createNode('.foundry/stories/story-001.md', `
-id: story-001
-type: STORY
-title: "Story 1"
-status: PENDING
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: .foundry/epics/epic-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-001.md', createValidNode({ id: "story-001", type: "STORY", title: "Story 1", status: "PENDING", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/epics/epic-001.md", jules_session_id: null }));
 
     main();
 
@@ -304,31 +216,10 @@ jules_session_id: null
 
   test('Late-Binding: Parent wakes up when children are COMPLETED', () => {
     // Epic 1: PENDING (Waiting for children)
-    createNode('.foundry/epics/epic-001.md', `
-id: epic-001
-type: EPIC
-title: "Epic 1"
-status: PENDING
-owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/epics/epic-001.md', createValidNode({ id: "epic-001", type: "EPIC", title: "Epic 1", status: "PENDING", owner_persona: "story_owner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
     // Story 1: Child of Epic 1, COMPLETED
-    createNode('.foundry/stories/story-001.md', `
-id: story-001
-type: STORY
-title: "Story 1"
-status: COMPLETED
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: .foundry/epics/epic-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-001.md', createValidNode({ id: "story-001", type: "STORY", title: "Story 1", status: "COMPLETED", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/epics/epic-001.md", jules_session_id: null }));
 
     main();
 
@@ -338,33 +229,12 @@ jules_session_id: null
 
   test('Late-Binding: Parent wakes up to READY if it has unchecked tasks', () => {
     // Epic 1: PENDING (Waiting for children)
-    createNode('.foundry/epics/epic-001.md', `
-id: epic-001
-type: EPIC
-title: "Epic 1"
-status: PENDING
-owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`, `# Title
+    createNode('.foundry/epics/epic-001.md', createValidNode({ id: "epic-001", type: "EPIC", title: "Epic 1", status: "PENDING", owner_persona: "story_owner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }), `# Title
 
 - [ ] Unchecked task`);
 
     // Story 1: Child of Epic 1, COMPLETED
-    createNode('.foundry/stories/story-001.md', `
-id: story-001
-type: STORY
-title: "Story 1"
-status: COMPLETED
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: .foundry/epics/epic-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-001.md', createValidNode({ id: "story-001", type: "STORY", title: "Story 1", status: "COMPLETED", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/epics/epic-001.md", jules_session_id: null }));
 
     main();
 
@@ -373,32 +243,11 @@ jules_session_id: null
   });
 
   test('Late-Binding: Parent wakes up to ACTIVE if owned by human and it has unchecked tasks', () => {
-    createNode('.foundry/epics/epic-001.md', `
-id: epic-001
-type: EPIC
-title: "Epic 1"
-status: PENDING
-owner_persona: human
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`, `# Title
+    createNode('.foundry/epics/epic-001.md', createValidNode({ id: "epic-001", type: "EPIC", title: "Epic 1", status: "PENDING", owner_persona: "human", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }), `# Title
 
 - [ ] Unchecked task`);
 
-    createNode('.foundry/stories/story-001.md', `
-id: story-001
-type: STORY
-title: "Story 1"
-status: COMPLETED
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: .foundry/epics/epic-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-001.md', createValidNode({ id: "story-001", type: "STORY", title: "Story 1", status: "COMPLETED", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/epics/epic-001.md", jules_session_id: null }));
 
     main();
 
@@ -407,32 +256,11 @@ jules_session_id: null
   });
 
   test('Late-Binding: Parent does not wake up if dependencies are unresolvable', () => {
-    createNode('.foundry/epics/epic-001.md', `
-id: epic-001
-type: EPIC
-title: "Epic 1"
-status: PENDING
-owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: [".foundry/prds/missing-prd.md"]
-jules_session_id: null
-`, `# Title
+    createNode('.foundry/epics/epic-001.md', createValidNode({ id: "epic-001", type: "EPIC", title: "Epic 1", status: "PENDING", owner_persona: "story_owner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/prds/missing-prd.md"], jules_session_id: null }), `# Title
 
 - [ ] Unchecked task`);
 
-    createNode('.foundry/stories/story-001.md', `
-id: story-001
-type: STORY
-title: "Story 1"
-status: COMPLETED
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: .foundry/epics/epic-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-001.md', createValidNode({ id: "story-001", type: "STORY", title: "Story 1", status: "COMPLETED", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/epics/epic-001.md", jules_session_id: null }));
 
     main();
 
@@ -441,56 +269,13 @@ jules_session_id: null
   });
 
   test('Cascade Cancellation: cancels child nodes of CANCELLED parent recursively', () => {
-    createNode('.foundry/epics/epic-001.md', `
-id: epic-001
-type: EPIC
-title: "Cancelled Epic"
-status: CANCELLED
-owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/epics/epic-001.md', createValidNode({ id: "epic-001", type: "EPIC", title: "Cancelled Epic", status: "CANCELLED", owner_persona: "story_owner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/stories/story-001.md', `
-id: story-001
-type: STORY
-title: "Story of Cancelled Epic"
-status: PENDING
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: ".foundry/epics/epic-001.md"
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-001.md', createValidNode({ id: "story-001", type: "STORY", title: "Story of Cancelled Epic", status: "PENDING", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/epics/epic-001.md", jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-001.md', `
-id: task-001
-type: TASK
-title: "Task of Story"
-status: READY
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: ".foundry/stories/story-001.md"
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-001.md', createValidNode({ id: "task-001", type: "TASK", title: "Task of Story", status: "READY", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/stories/story-001.md", jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-002.md', `
-id: task-002
-type: TASK
-title: "Completed Task of Story"
-status: COMPLETED
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: ".foundry/stories/story-001.md"
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-002.md', createValidNode({ id: "task-002", type: "TASK", title: "Completed Task of Story", status: "COMPLETED", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/stories/story-001.md", jules_session_id: null }));
 
     main();
 
@@ -507,61 +292,16 @@ jules_session_id: null
 
   test('Deep Hierarchical Completion: blocks external dependent if dependency has deep incomplete children', () => {
     // Story 1: COMPLETED
-    createNode('.foundry/stories/story-001.md', `
-id: story-001
-type: STORY
-title: "Story 1"
-status: COMPLETED
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-001.md', createValidNode({ id: "story-001", type: "STORY", title: "Story 1", status: "COMPLETED", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
     // Task 1: Child of Story 1, COMPLETED
-    createNode('.foundry/tasks/task-001.md', `
-id: task-001
-type: TASK
-title: "Task 1"
-status: COMPLETED
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on:
-  - .foundry/stories/story-001.md
-parent: .foundry/stories/story-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-001.md', createValidNode({ id: "task-001", type: "TASK", title: "Task 1", status: "COMPLETED", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/stories/story-001.md"], parent: ".foundry/stories/story-001.md", jules_session_id: null }));
 
     // Subtask 1: Child of Task 1, PENDING
-    createNode('.foundry/tasks/subtask-001.md', `
-id: subtask-001
-type: TASK
-title: "Subtask 1"
-status: PENDING
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on:
-  - .foundry/tasks/task-001.md
-parent: .foundry/tasks/task-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/subtask-001.md', createValidNode({ id: "subtask-001", type: "TASK", title: "Subtask 1", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/tasks/task-001.md"], parent: ".foundry/tasks/task-001.md", jules_session_id: null }));
 
     // Story 2: Depends on Story 1, PENDING
-    createNode('.foundry/stories/story-002.md', `
-id: story-002
-type: STORY
-title: "Story 2"
-status: PENDING
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on:
-  - .foundry/stories/story-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-002.md', createValidNode({ id: "story-002", type: "STORY", title: "Story 2", status: "PENDING", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/stories/story-001.md"], jules_session_id: null }));
 
     main();
 
@@ -571,17 +311,7 @@ jules_session_id: null
   });
 
   test('Human Task Bypass: PENDING human task promotes directly to ACTIVE', () => {
-    createNode('.foundry/tasks/task-001.md', `
-id: task-001
-type: TASK
-title: "Human Task 1"
-status: PENDING
-owner_persona: human
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-001.md', createValidNode({ id: "task-001", type: "TASK", title: "Human Task 1", status: "PENDING", owner_persona: "human", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
@@ -599,17 +329,7 @@ jules_session_id: null
 
   test('Human Task Bypass: existing READY human task upgrades to ACTIVE', () => {
     // Already READY, but owned by human
-    createNode('.foundry/tasks/task-002.md', `
-id: task-002
-type: TASK
-title: "Human Task 2"
-status: READY
-owner_persona: human
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-002.md', createValidNode({ id: "task-002", type: "TASK", title: "Human Task 2", status: "READY", owner_persona: "human", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
@@ -626,30 +346,9 @@ jules_session_id: null
   });
 
   test('Schema Compatibility: works with Parent-Linked Distributed ID Schema', () => {
-    createNode('.foundry/epics/epic-001-002-feature.md', `
-id: epic-001-002-feature
-type: EPIC
-title: "Epic 2"
-status: COMPLETED
-owner_persona: story_owner
-created_at: "2026-04-24"
-updated_at: "2026-04-24"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/epics/epic-001-002-feature.md', createValidNode({ id: "epic-001-002-feature", type: "EPIC", title: "Epic 2", status: "COMPLETED", owner_persona: "story_owner", created_at: "2026-04-24", updated_at: "2026-04-24", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/stories/story-002-005-impl.md', `
-id: story-002-005-impl
-type: STORY
-title: "Story 5"
-status: PENDING
-owner_persona: tech_lead
-created_at: "2026-04-24"
-updated_at: "2026-04-24"
-depends_on:
-  - .foundry/epics/epic-001-002-feature.md
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-002-005-impl.md', createValidNode({ id: "story-002-005-impl", type: "STORY", title: "Story 5", status: "PENDING", owner_persona: "tech_lead", created_at: "2026-04-24", updated_at: "2026-04-24", depends_on: [".foundry/epics/epic-001-002-feature.md"], jules_session_id: null }));
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
@@ -666,30 +365,9 @@ jules_session_id: null
   });
 
   test('Parent-ID Resolution: resolves parent relationship using node ID', () => {
-    createNode('.foundry/ideas/idea-001.md', `
-id: idea-001
-type: IDEA
-title: "Idea 1"
-status: COMPLETED
-owner_persona: product_manager
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/ideas/idea-001.md', createValidNode({ id: "idea-001", type: "IDEA", title: "Idea 1", status: "COMPLETED", owner_persona: "product_manager", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/prds/prd-001.md', `
-id: prd-001
-type: PRD
-title: "PRD 1"
-status: PENDING
-owner_persona: epic_planner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-parent: idea-001
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/prds/prd-001.md', createValidNode({ id: "prd-001", type: "PRD", title: "PRD 1", status: "PENDING", owner_persona: "epic_planner", created_at: "2026-04-20", updated_at: "2026-04-20", parent: "idea-001", depends_on: [], jules_session_id: null }));
 
     main();
 
@@ -698,32 +376,11 @@ jules_session_id: null
   });
 
   test('Parent-ID Resolution: Late-Binding wakes up parent identified by ID', () => {
-    createNode('.foundry/ideas/idea-001.md', `
-id: idea-001
-type: IDEA
-title: "Idea 1"
-status: PENDING
-owner_persona: product_manager
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`, `# Title
+    createNode('.foundry/ideas/idea-001.md', createValidNode({ id: "idea-001", type: "IDEA", title: "Idea 1", status: "PENDING", owner_persona: "product_manager", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }), `# Title
 - [ ] Unchecked task
 `);
 
-    createNode('.foundry/prds/prd-001.md', `
-id: prd-001
-type: PRD
-title: "PRD 1"
-status: COMPLETED
-owner_persona: epic_planner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-parent: idea-001
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/prds/prd-001.md', createValidNode({ id: "prd-001", type: "PRD", title: "PRD 1", status: "COMPLETED", owner_persona: "epic_planner", created_at: "2026-04-20", updated_at: "2026-04-20", parent: "idea-001", depends_on: [], jules_session_id: null }));
 
     main();
 
@@ -733,17 +390,7 @@ jules_session_id: null
 
 
   test('Wait and Wake: Suspends ACTIVE node if dependencies are unresolvable', () => {
-    createNode('.foundry/tasks/task-active.md', `
-id: task-active
-type: TASK
-title: "Active Task"
-status: ACTIVE
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: [".foundry/tasks/task-missing.md"]
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-active.md', createValidNode({ id: "task-active", type: "TASK", title: "Active Task", status: "ACTIVE", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/tasks/task-missing.md"], jules_session_id: null }));
 
     main();
 
@@ -752,29 +399,9 @@ jules_session_id: null
   });
 
   test('Wait and Wake: Suspends ACTIVE node if dependency is incomplete', () => {
-    createNode('.foundry/tasks/task-incomplete.md', `
-id: task-incomplete
-type: TASK
-title: "Incomplete Task"
-status: PENDING
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-incomplete.md', createValidNode({ id: "task-incomplete", type: "TASK", title: "Incomplete Task", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-active.md', `
-id: task-active
-type: TASK
-title: "Active Task"
-status: ACTIVE
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: [".foundry/tasks/task-incomplete.md"]
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-active.md', createValidNode({ id: "task-active", type: "TASK", title: "Active Task", status: "ACTIVE", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/tasks/task-incomplete.md"], jules_session_id: null }));
 
     main();
 
@@ -783,42 +410,11 @@ jules_session_id: null
   });
 
   test('Wait and Wake: Suspends ACTIVE node if dependency is hierarchically incomplete', () => {
-    createNode('.foundry/stories/story-001.md', `
-id: story-001
-type: STORY
-title: "Story"
-status: COMPLETED
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-001.md', createValidNode({ id: "story-001", type: "STORY", title: "Story", status: "COMPLETED", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-child.md', `
-id: task-child
-type: TASK
-title: "Child Task"
-status: PENDING
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: ".foundry/stories/story-001.md"
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-child.md', createValidNode({ id: "task-child", type: "TASK", title: "Child Task", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/stories/story-001.md", jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-active.md', `
-id: task-active
-type: TASK
-title: "Active Task"
-status: ACTIVE
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: [".foundry/stories/story-001.md"]
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-active.md', createValidNode({ id: "task-active", type: "TASK", title: "Active Task", status: "ACTIVE", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/stories/story-001.md"], jules_session_id: null }));
 
     main();
 
@@ -827,29 +423,9 @@ jules_session_id: null
   });
 
   test('Wait and Wake: Does not suspend ACTIVE node if all dependencies are COMPLETED', () => {
-    createNode('.foundry/tasks/task-complete.md', `
-id: task-complete
-type: TASK
-title: "Complete Task"
-status: COMPLETED
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-complete.md', createValidNode({ id: "task-complete", type: "TASK", title: "Complete Task", status: "COMPLETED", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-active.md', `
-id: task-active
-type: TASK
-title: "Active Task"
-status: ACTIVE
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: [".foundry/tasks/task-complete.md"]
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-active.md', createValidNode({ id: "task-active", type: "TASK", title: "Active Task", status: "ACTIVE", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/tasks/task-complete.md"], jules_session_id: null }));
 
     main();
 
@@ -859,25 +435,9 @@ jules_session_id: null
 
 
   test('Wait and Wake: Wakes PENDING node to READY if new dependency is COMPLETED', () => {
-    createNode('.foundry/tasks/task-complete.md', `id: task-complete
-type: TASK
-title: "Complete Task"
-status: COMPLETED
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null`);
+    createNode('.foundry/tasks/task-complete.md', createValidNode({ id: "task-complete", type: "TASK", title: "Complete Task", status: "COMPLETED", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-pending.md', `id: task-pending
-type: TASK
-title: "Pending Task"
-status: PENDING
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: [".foundry/tasks/task-complete.md"]
-jules_session_id: null`);
+    createNode('.foundry/tasks/task-pending.md', createValidNode({ id: "task-pending", type: "TASK", title: "Pending Task", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/tasks/task-complete.md"], jules_session_id: null }));
 
     main();
 
@@ -887,25 +447,9 @@ jules_session_id: null`);
 
 
   test('Wait and Wake: ACTIVE node transitions to PENDING when new incomplete dependency is added', () => {
-    createNode('.foundry/tasks/task-incomplete.md', `id: task-incomplete
-type: TASK
-title: "Incomplete Task"
-status: PENDING
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null`);
+    createNode('.foundry/tasks/task-incomplete.md', createValidNode({ id: "task-incomplete", type: "TASK", title: "Incomplete Task", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-active.md', `id: task-active
-type: TASK
-title: "Active Task"
-status: ACTIVE
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: [".foundry/tasks/task-incomplete.md"]
-jules_session_id: "session-123"`);
+    createNode('.foundry/tasks/task-active.md', createValidNode({ id: "task-active", type: "TASK", title: "Active Task", status: "ACTIVE", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/tasks/task-incomplete.md"], jules_session_id: "session-123" }));
 
     main();
 
@@ -914,31 +458,9 @@ jules_session_id: "session-123"`);
   });
 
   test('Impossible Loop: wakes up parent if impossible child is FAILED with rejection_reason', () => {
-    createNode('.foundry/stories/story-001.md', `
-id: story-001
-type: STORY
-title: "Story"
-status: PENDING
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/stories/story-001.md', createValidNode({ id: "story-001", type: "STORY", title: "Story", status: "PENDING", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-impossible.md', `
-id: task-impossible
-type: TASK
-title: "Impossible Task"
-status: FAILED
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: ".foundry/stories/story-001.md"
-rejection_reason: "Feature not supported"
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-impossible.md', createValidNode({ id: "task-impossible", type: "TASK", title: "Impossible Task", status: "FAILED", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/stories/story-001.md", rejection_reason: "Feature not supported", jules_session_id: null }));
 
     main();
 
@@ -947,18 +469,7 @@ jules_session_id: null
   });
 
   test('Impossible Loop: flags node for tpm if no parent exists', () => {
-    createNode('.foundry/tasks/task-impossible-no-parent.md', `
-id: task-impossible-no-parent
-type: TASK
-title: "Impossible Task No Parent"
-status: FAILED
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-rejection_reason: "Feature not supported"
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-impossible-no-parent.md', createValidNode({ id: "task-impossible-no-parent", type: "TASK", title: "Impossible Task No Parent", status: "FAILED", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], rejection_reason: "Feature not supported", jules_session_id: null }));
 
     main();
 
@@ -968,9 +479,9 @@ jules_session_id: null
   });
 
   test('Mapping Validation: Enforces type to persona mappings before dispatch', () => {
-    createNode('.foundry/ideas/idea-001.md', `id: idea-001\ntype: IDEA\ntitle: "Idea"\nstatus: PENDING\nowner_persona: product_manager\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n`);
-    createNode('.foundry/prds/prd-invalid.md', `id: prd-invalid\ntype: PRD\ntitle: "Invalid PRD"\nstatus: PENDING\nowner_persona: coder\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n`);
-    createNode('.foundry/tasks/task-human.md', `id: task-human\ntype: TASK\ntitle: "Human Task"\nstatus: PENDING\nowner_persona: human\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n`);
+    createNode('.foundry/ideas/idea-001.md', createValidNode({ id: "idea-001", type: "IDEA", title: "Idea", status: "PENDING", owner_persona: "product_manager", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
+    createNode('.foundry/prds/prd-invalid.md', createValidNode({ id: "prd-invalid", type: "PRD", title: "Invalid PRD", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
+    createNode('.foundry/tasks/task-human.md', createValidNode({ id: "task-human", type: "TASK", title: "Human Task", status: "PENDING", owner_persona: "human", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
     main();
 
@@ -986,40 +497,11 @@ jules_session_id: null
   });
 
   test('Atomic Handoffs: resolves dependencies across single-persona atomic tasks', () => {
-    createNode('.foundry/tasks/task-atomic-1.md', `id: task-atomic-1
-type: TASK
-title: "Tech Lead Task"
-status: COMPLETED
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-atomic-1.md', createValidNode({ id: "task-atomic-1", type: "TASK", title: "Tech Lead Task", status: "COMPLETED", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-atomic-2.md', `id: task-atomic-2
-type: TASK
-title: "Coder Task"
-status: PENDING
-owner_persona: coder
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on:
-  - .foundry/tasks/task-atomic-1.md
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-atomic-2.md', createValidNode({ id: "task-atomic-2", type: "TASK", title: "Coder Task", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/tasks/task-atomic-1.md"], jules_session_id: null }));
 
-    createNode('.foundry/tasks/task-atomic-3.md', `id: task-atomic-3
-type: TASK
-title: "QA Task"
-status: PENDING
-owner_persona: qa
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on:
-  - .foundry/tasks/task-atomic-2.md
-jules_session_id: null
-`);
+    createNode('.foundry/tasks/task-atomic-3.md', createValidNode({ id: "task-atomic-3", type: "TASK", title: "QA Task", status: "PENDING", owner_persona: "qa", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [".foundry/tasks/task-atomic-2.md"], jules_session_id: null }));
 
     main();
 
@@ -1059,26 +541,9 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
 });
 
   test('Preflight: bypasses dispatch and marks COMPLETED if target artifacts exist and are valid', () => {
-    createNode('.foundry/epics/epic-preflight-1.md', `id: epic-preflight-1
-type: EPIC
-title: "Epic 1"
-status: PENDING
-owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null`);
+    createNode('.foundry/epics/epic-preflight-1.md', createValidNode({ id: "epic-preflight-1", type: "EPIC", title: "Epic 1", status: "PENDING", owner_persona: "story_owner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
-    createNode('.foundry/stories/story-preflight-1.md', `id: story-preflight-1
-type: STORY
-title: "Story 1"
-status: COMPLETED
-owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: .foundry/epics/epic-preflight-1.md
-jules_session_id: null`);
+    createNode('.foundry/stories/story-preflight-1.md', createValidNode({ id: "story-preflight-1", type: "STORY", title: "Story 1", status: "COMPLETED", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/epics/epic-preflight-1.md", jules_session_id: null }));
 
     const filePath = path.join(tmpDir, '.foundry/epics/epic-preflight-1.md');
     fs.appendFileSync(filePath, '\nTarget artifact: [.foundry/stories/story-preflight-1.md](.foundry/stories/story-preflight-1.md)');
@@ -1090,15 +555,7 @@ jules_session_id: null`);
   });
 
   test('Preflight: does not bypass if target artifacts exist but are invalid', () => {
-    createNode('.foundry/epics/epic-preflight-2.md', `id: epic-preflight-2
-type: EPIC
-title: "Epic 2"
-status: PENDING
-owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null`);
+    createNode('.foundry/epics/epic-preflight-2.md', createValidNode({ id: "epic-preflight-2", type: "EPIC", title: "Epic 2", status: "PENDING", owner_persona: "story_owner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }));
 
     // Invalid story (missing required fields)
     const invalidStoryPath = path.join(tmpDir, '.foundry/stories/story-preflight-2-invalid.md');
@@ -1115,33 +572,12 @@ jules_session_id: null`);
   });
 
   test('Late-Binding: Parent with unchecked tasks and completed children is promoted exactly once', () => {
-    createNode('.foundry/ideas/idea-001.md', `
-id: idea-001
-type: IDEA
-title: "Idea 1"
-status: PENDING
-owner_persona: product_manager
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-jules_session_id: null
-`, `# Title
+    createNode('.foundry/ideas/idea-001.md', createValidNode({ id: "idea-001", type: "IDEA", title: "Idea 1", status: "PENDING", owner_persona: "product_manager", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null }), `# Title
 - [ ] Unchecked task
 - Spawned: [.foundry/prds/prd-001.md](.foundry/prds/prd-001.md)
 `);
 
-    createNode('.foundry/prds/prd-001.md', `
-id: prd-001
-type: PRD
-title: "PRD 1"
-status: COMPLETED
-owner_persona: epic_planner
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
-depends_on: []
-parent: .foundry/ideas/idea-001.md
-jules_session_id: null
-`);
+    createNode('.foundry/prds/prd-001.md', createValidNode({ id: "prd-001", type: "PRD", title: "PRD 1", status: "COMPLETED", owner_persona: "epic_planner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], parent: ".foundry/ideas/idea-001.md", jules_session_id: null }));
 
     const stderrSpy = vi.spyOn(process.stderr, 'write');
     main();
