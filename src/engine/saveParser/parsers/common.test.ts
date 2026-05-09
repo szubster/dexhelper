@@ -114,6 +114,15 @@ describe('common parsers', () => {
       expect(decodeGen12String(view, 0, -1)).toBe('');
     });
 
+    test('catches explicit RangeError and stops decoding', () => {
+      const buffer = new ArrayBuffer(4);
+      const view = new DataView(buffer);
+      vi.spyOn(view, 'getUint8').mockImplementation(() => {
+        throw new RangeError('Out of bounds');
+      });
+      expect(decodeGen12String(view, 0)).toBe('');
+    });
+
     test('rethrows non-RangeError exceptions', () => {
       const buffer = new ArrayBuffer(4);
       const view = new DataView(buffer);
