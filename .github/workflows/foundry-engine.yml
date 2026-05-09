@@ -97,15 +97,43 @@ jobs:
 
       - name: Commit Promotions
         run: |
+          set -o pipefail
           # Check for READY state changes promoted by the orchestrator
           if [[ -n $(git status --porcelain .foundry) ]]; then
             git add .foundry
-            git commit -m "Foundry: Promote unblocked nodes to READY"
-            git pull --rebase origin main
-            git push origin main
+            git commit -m "Foundry: Promote unblocked nodes to READY" 2>&1 | tee -a commit-promotions.log
+            git pull --rebase origin main 2>&1 | tee -a commit-promotions.log
+            git push origin main 2>&1 | tee -a commit-promotions.log
           else
             echo "No state changes to persist."
           fi
+
+      - name: Report Orchestrate Failure
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_ISSUES_PAT }}
+        run: |
+          ISSUE_TITLE="Foundry Engine: Orchestrate Failure - ${{ github.run_id }}"
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          {
+            echo "The Foundry Engine failed during the orchestration phase."
+            echo ""
+            echo "**Run Details:** [View Action Run]($RUN_URL)"
+            echo ""
+
+            if [ -f commit-promotions.log ]; then
+              echo "**Commit Promotions Log:**"
+              echo ""
+              echo '```text'
+              cat commit-promotions.log
+              echo '```'
+              echo ""
+            fi
+
+          } > issue_body.md
+
+          gh issue create --title "$ISSUE_TITLE" --body-file issue_body.md --label "jules"
 
   execute:
     name: Execute Task
@@ -208,10 +236,11 @@ jobs:
 
       - name: Commit State Change
         run: |
+          set -o pipefail
           git add "${{ matrix.node.repo_path }}"
-          git commit -m "Foundry: Transition ${{ matrix.node.id }} -> ACTIVE [$SESSION_ID]"
-          git pull --rebase origin main
-          git push origin main
+          git commit -m "Foundry: Transition ${{ matrix.node.id }} -> ACTIVE [$SESSION_ID]" 2>&1 | tee -a commit.log
+          git pull --rebase origin main 2>&1 | tee -a commit.log
+          git push origin main 2>&1 | tee -a commit.log
 
       - name: Report Execution Failure
         if: failure()
@@ -242,6 +271,15 @@ jobs:
               echo ""
               echo '```text'
               cat active-transition.log
+              echo '```'
+              echo ""
+            fi
+
+            if [ -f commit.log ]; then
+              echo "**Commit Log:**"
+              echo ""
+              echo '```text'
+              cat commit.log
               echo '```'
               echo ""
             fi
