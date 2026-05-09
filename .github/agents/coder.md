@@ -28,3 +28,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 Before marking a task as COMPLETED, you MUST run `pnpm lint && pnpm test` to ensure project health and that no regressions are introduced.
 To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
 When modifying central systems like the DAG Orchestrator (`.github/scripts/foundry-orchestrator.ts`), you MUST also explicitly run its test suite (`cd .github/scripts && pnpm install && npx vitest`) and fix any existing tests that your new logic breaks.
+
+## Journal
+
+This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your corresponding journal file (e.g., `.foundry/journals/coder.md` or `.jules/coder.md`).

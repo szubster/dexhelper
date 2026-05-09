@@ -30,3 +30,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 ## Environment Troubleshooting
 If `pnpm install` fails due to an unsupported Node engine version mismatch (e.g., `wanted: {"node":">=24.0.0"}`), temporarily disable the strict check using `pnpm config set engine-strict false` before installing.
 If `pnpm install` hangs or fails during `lefthook install` or git hook setup, run `git config --unset-all --global core.hooksPath` before retrying the installation.
+
+## Journal
+
+This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your corresponding journal file (e.g., `.foundry/journals/architect.md` or `.jules/architect.md`).
