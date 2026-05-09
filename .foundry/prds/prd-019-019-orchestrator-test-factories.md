@@ -55,3 +55,6 @@ These failures cause CI delays and force developers to constantly update test fi
 1. **Define the Factory:** Create the factory function, defining a baseline valid node and merging it with the provided overrides. Ensure the logic correctly assigns `owner_persona` based on the (potentially overridden) `type`.
 2. **Refactor Tests:** Systematically replace inline mock node definitions in `.github/scripts/foundry-orchestrator.test.ts` with calls to the new factory.
 3. **Verify:** Run the test suite (`pnpm test`) to ensure no regressions and that the factory correctly supports the required test scenarios.
+
+## Derived Epics
+- .foundry/epics/epic-019-030-orchestrator-test-factories.md
