@@ -95,6 +95,14 @@ describe('Real Save Fixtures Verification', () => {
 
       // Verify PC box counts don't error and are numbers
       expect(typeof data.pc.length).toBe('number');
+
+      // The early game saves should have 0 hall of fame count, while late game complete saves might have >0
+      if (file === 'gold.sav' || file === 'crystal.sav') {
+        expect(data.hallOfFameCount).toBe(0);
+      }
+      if (file === 'blue-complete.sav') {
+        expect(data.hallOfFameCount).toBe(190);
+      }
     },
   );
 });

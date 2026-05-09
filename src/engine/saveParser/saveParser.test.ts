@@ -116,6 +116,9 @@ describe('saveParser - Pokémon Gen 2 Inventory', () => {
     buffer[ballsPocket + 2] = 99; // qty
     buffer[ballsPocket + 3] = 0xff;
 
+    const hofOffset = isCrystal ? 0x24cd : 0x24ec;
+    buffer[hofOffset] = 42;
+
     // Fix Checksum
     let gen2Sum = 0;
     for (let i = 0x2009; i <= 0x2d0c; i++) {
@@ -145,6 +148,7 @@ describe('saveParser - Pokémon Gen 2 Inventory', () => {
     expect(inv.find((i) => i.id === 0x16)?.quantity).toBe(2);
     // Master Ball ID 1
     expect(inv.find((i) => i.id === 1)?.quantity).toBe(99);
+    expect(data.hallOfFameCount).toBe(42);
   });
 
   it('should extract Key Items, Special Rods, TM/HMs, Apricorns, and Evolution Items for Crystal', () => {
@@ -160,6 +164,7 @@ describe('saveParser - Pokémon Gen 2 Inventory', () => {
     expect(inv.find((i) => i.id === 0x99)?.quantity).toBe(5);
     expect(inv.find((i) => i.id === 0x16)?.quantity).toBe(2);
     expect(inv.find((i) => i.id === 1)?.quantity).toBe(99);
+    expect(data.hallOfFameCount).toBe(42);
   });
 });
 
