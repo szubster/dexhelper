@@ -35,9 +35,9 @@ describe('pokemonQueries', () => {
 
       expect(mockGetAll).toHaveBeenCalledWith('pokemon');
       expect(result).toEqual([
-        { id: 1, name: 'Bulbasaur' },
-        { id: 2, name: 'Ivysaur' },
-        { id: 3, name: 'Venusaur' },
+        { id: 1, name: 'Bulbasaur', nameLower: 'bulbasaur', idString: '1' },
+        { id: 2, name: 'Ivysaur', nameLower: 'ivysaur', idString: '2' },
+        { id: 3, name: 'Venusaur', nameLower: 'venusaur', idString: '3' },
       ]);
     });
   });

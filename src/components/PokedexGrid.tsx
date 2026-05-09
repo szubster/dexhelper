@@ -4,9 +4,10 @@ import React, { useMemo } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
+import type { PokemonListItem } from '../utils/pokemonQueries';
 import { PokedexCard } from './PokedexCard';
 
-export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
+export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] }) {
   const saveData = useStore((s) => s.saveData);
   const isLivingDex = useStore((s) => s.isLivingDex);
   const searchTerm = useStore((s) => s.searchTerm);
@@ -46,7 +47,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: { id: number; name: 
       // ⚡ Bolt: Combined filters into single pass to reduce O(N) iterations
       // 1. Search term check
       if (term) {
-        const matchesTerm = pokemon.name.toLowerCase().includes(term) || pokemon.id.toString().includes(term);
+        const matchesTerm = pokemon.nameLower.includes(term) || pokemon.idString.includes(term);
         if (!matchesTerm) return false;
       }
 
