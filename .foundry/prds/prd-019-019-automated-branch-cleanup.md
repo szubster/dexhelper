@@ -26,3 +26,7 @@ Based on the `idea-019-automated-branch-cleanup`, the "Resurrection Loop" spawns
 1. Identify branches associated with `FAILED` or `CANCELLED` task nodes.
 2. Ensure the cleanup logic safely identifies these terminal task branches.
 3. Integrate cleanup logic in `foundry-heartbeat.ts` or a new periodic workflow, triggering remote branch deletion on the remote repository.
+
+
+## Epic Breakdown
+- [ ] `.foundry/epics/epic-019-030-automated-branch-cleanup.md`
