@@ -36,7 +36,7 @@ The Tech Lead has requested the implementation of Hall of Fame count and roaming
 - Add tests to `src/engine/saveParser/parsers/gen2.test.ts` to verify the logic against mock `DataView` buffers with injected values.
 
 ## Acceptance Criteria
-- [ ] `SaveData` includes `roamingLegendaries`.
-- [ ] `parseGen2` successfully parses Hall of Fame count for GS and Crystal.
-- [ ] `parseGen2` successfully parses the specific map locations of Raikou, Entei, and Suicune for GS and Crystal.
-- [ ] Tests verify correct extraction of both components.
+- [x] `SaveData` includes `roamingLegendaries`.
+- [x] `parseGen2` successfully parses Hall of Fame count for GS and Crystal.
+- [x] `parseGen2` successfully parses the specific map locations of Raikou, Entei, and Suicune for GS and Crystal.
+- [x] Tests verify correct extraction of both components.
