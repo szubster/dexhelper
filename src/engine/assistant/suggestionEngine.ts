@@ -227,15 +227,23 @@ function generateCatchSuggestions(
 
       if (missingIds.has(pid)) {
         localPids.add(pid);
-        localEncounterInfo[pid] = relevantEncounters.flatMap((re) =>
-          re.d.map((ed) => ({
-            chance: ed.c,
-            method: METHOD_NAMES[ed.m] || 'walk',
-            minLevel: ed.min,
-            maxLevel: ed.max,
-            aid: re.aid,
-          })),
-        );
+        const details: EncounterDetail[] = [];
+        for (let r = 0; r < relevantEncounters.length; r++) {
+          const re = relevantEncounters[r];
+          if (!re) continue;
+          for (let d = 0; d < re.d.length; d++) {
+            const ed = re.d[d];
+            if (!ed) continue;
+            details.push({
+              chance: ed.c,
+              method: METHOD_NAMES[ed.m] || 'walk',
+              minLevel: ed.min,
+              maxLevel: ed.max,
+              aid: re.aid,
+            });
+          }
+        }
+        localEncounterInfo[pid] = details;
       }
     }
 
@@ -280,13 +288,18 @@ function generateCatchSuggestions(
 
     if (bestDist < 8 && bestE) {
       const aid = bestE.aid;
-      const bestDetails: EncounterDetail[] = bestE.d.map((ed) => ({
-        chance: ed.c,
-        method: METHOD_NAMES[ed.m] || 'walk',
-        minLevel: ed.min,
-        maxLevel: ed.max,
-        aid,
-      }));
+      const bestDetails: EncounterDetail[] = [];
+      for (let d = 0; d < bestE.d.length; d++) {
+        const ed = bestE.d[d];
+        if (!ed) continue;
+        bestDetails.push({
+          chance: ed.c,
+          method: METHOD_NAMES[ed.m] || 'walk',
+          minLevel: ed.min,
+          maxLevel: ed.max,
+          aid,
+        });
+      }
 
       suggestions.push({
         id: `catch-nearby-${pid}`,
