@@ -2,12 +2,12 @@
 id: story-028-043-implement-dag-parser
 type: STORY
 title: Implement DAG Parser
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-08'
 updated_at: '2026-05-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '998667721478035076'
 pr_number: null
 parent: .foundry/epics/epic-017-028-dag-dashboard-data.md
 tags:
