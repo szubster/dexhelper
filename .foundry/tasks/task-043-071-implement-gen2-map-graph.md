@@ -1,8 +1,8 @@
 ---
 id: task-043-071-implement-gen2-map-graph
 type: TASK
-title: 'Implement Gen 2 Map Graph'
-status: PENDING
+title: Implement Gen 2 Map Graph
+status: READY
 owner_persona: coder
 created_at: '2026-05-09'
 updated_at: '2026-05-09'

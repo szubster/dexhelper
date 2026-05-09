@@ -45,3 +45,13 @@
 - **2026-05-09**: PR #1042 merged. `task-038-065-qa-mapping-validation` is now COMPLETED.
 
 - **2026-05-09**: Heartbeat detected zombie session for `task-042-068-extract-hall-of-fame`. Transitioned to FAILED.
+
+- **2026-05-09**: PR #1082 merged. `prd-019-019-automated-branch-cleanup` is now PENDING.
+
+- **2026-05-09**: PR #1081 merged. `prd-019-019-orchestrator-test-factories` is now PENDING.
+
+- **2026-05-09**: PR #1084 merged. `story-025-039-implement-failure-handling` is now PENDING.
+
+- **2026-05-09**: PR #1086 merged. `story-028-043-gen2-map-graph` is now PENDING.
+
+- **2026-05-09**: Resurrection Loop triggered for `task-042-068-extract-hall-of-fame`. Reason: Retry from FAILED status.. Transitioned back to READY.
