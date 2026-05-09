@@ -1,5 +1,28 @@
 import { describe, expect, it } from 'vitest';
-import { STATIC_NPC_TRADE_DATA } from '../assistantData';
+import { STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../assistantData';
+
+describe('STATIC_GIFT_DATA', () => {
+  it('should have basic valid structure for all entries', () => {
+    Object.values(STATIC_GIFT_DATA).forEach((gift) => {
+      expect(typeof gift.name).toBe('string');
+      expect(gift.name.length).toBeGreaterThan(0);
+      expect(typeof gift.location).toBe('string');
+      expect(gift.location.length).toBeGreaterThan(0);
+      expect(typeof gift.reason).toBe('string');
+      expect(gift.reason.length).toBeGreaterThan(0);
+    });
+  });
+
+  it('should correctly define Bulbasaur (ID 1)', () => {
+    const bulbasaur = STATIC_GIFT_DATA[1];
+    expect(bulbasaur).toBeDefined();
+    expect(bulbasaur?.name).toBe('Bulbasaur');
+    expect(bulbasaur?.location).toBe('Cerulean City');
+    expect(bulbasaur?.gen).toBe(1);
+    expect(bulbasaur?.eventFlag).toBe(0x2a1);
+    expect(bulbasaur?.requiredBadges).toBe(1);
+  });
+});
 
 describe('STATIC_NPC_TRADE_DATA', () => {
   describe('Yellow Version Trades', () => {
