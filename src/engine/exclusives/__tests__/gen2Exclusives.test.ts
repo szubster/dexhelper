@@ -95,12 +95,40 @@ describe('gen2Exclusives', () => {
         expect(reasonGold).toBeNull();
         expect(reasonSilver).toBeNull();
       });
+
+      it('should not lock non-exclusive Pokemon in Crystal', () => {
+        const ownedSet = new Set<number>();
+        const reason = getGen2UnobtainableReason(10, 'crystal', 0, ownedSet);
+        expect(reason).toBeNull();
+      });
     });
 
     describe('General Obtainable Pokémon', () => {
       it('should return null for normally obtainable Pokémon (Pidgey 16)', () => {
         const ownedSet = new Set<number>();
         const reason = getGen2UnobtainableReason(16, 'gold', 0, ownedSet);
+        expect(reason).toBeNull();
+      });
+    });
+
+    describe('Already Owned Pokémon', () => {
+      it('should not lock an exclusive Pokémon if it is already owned', () => {
+        const ownedSet = new Set<number>([56]); // Mankey
+        const reason = getGen2UnobtainableReason(56, 'silver', 0, ownedSet);
+        expect(reason).toBeNull();
+      });
+    });
+
+    describe('Unknown Version', () => {
+      it('should handle unknown version gracefully by returning null', () => {
+        const ownedSet = new Set<number>();
+        const reason = getGen2UnobtainableReason(10, 'unknown', 0, ownedSet);
+        expect(reason).toBeNull();
+      });
+
+      it('should return null if exclusive not found for unknown version', () => {
+        const ownedSet = new Set<number>();
+        const reason = getGen2UnobtainableReason(999, 'ruby', 0, ownedSet);
         expect(reason).toBeNull();
       });
     });
