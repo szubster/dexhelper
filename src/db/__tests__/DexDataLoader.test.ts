@@ -93,6 +93,72 @@ describe('DexDataLoader', () => {
     expect(result.nameMap[0]).toBe('Egg');
   });
 
+  it('covers getPokemonDetails branch for missing pokemon', async () => {
+    vi.mocked(pokeDB.getPokemons).mockResolvedValue([new Error('Not Found')]);
+    // It throws the error returned from data loader first
+    // The 'Pokemon #999 not found' logic only hits if data loader doesn't reject, but returns an error/undefined.
+    await expect(dexDataLoader.getPokemonDetails(999)).rejects.toThrow('Not Found');
+  });
+
+  it('covers getPokemonDetails branch for undefined pokemon', async () => {
+    vi.mocked(pokeDB.getPokemons).mockResolvedValue([undefined as unknown as PokemonMetadata]);
+    await expect(dexDataLoader.getPokemonDetails(999)).rejects.toThrow('Pokemon #999 not found');
+  });
+
+  it('covers getPokemonDetails skip existing names in traversal', async () => {
+    const mockPokes: PokemonMetadata[] = [
+      {
+        id: 1,
+        n: 'Bulba',
+        efrm: [1], // self-referencing to hit already-defined ancestor
+        eto: [{ id: 1, eto: [], det: [] }], // self-referencing descendant to hit already-defined
+      } as unknown as PokemonMetadata,
+    ];
+
+    vi.mocked(pokeDB.getPokemons).mockImplementation(async (ids: number[]) => {
+      return ids.map((id) => mockPokes.find((p) => p.id === id) || new Error('Not found'));
+    });
+    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([{ pid: 1, enc: [] }]);
+    vi.mocked(pokeDB.getAreaNames).mockResolvedValue({});
+
+    const result = await dexDataLoader.getPokemonDetails(1);
+    // nameMap should have 1 item: {1: 'Bulba'}
+    expect(result.nameMap[1]).toBe('Bulba');
+
+    // chainSpecies will fetch nothing extra, so loop for chainSpecies won't add undefined entries.
+    // It also covers line 81 where p is an Error.
+    expect(pokeDB.getPokemons).toHaveBeenCalledTimes(1); // Only the initial load
+  });
+
+  it('covers getPokemonDetails branch for chainSpecies error', async () => {
+    const mockPokes: PokemonMetadata[] = [
+      {
+        id: 1,
+        n: 'Bulba',
+        efrm: [2], // Missing ancestor to trigger loadMany
+        eto: [],
+      } as unknown as PokemonMetadata,
+    ];
+
+    // Load initial pokemon successfully, but loadMany will return error for ancestor
+    vi.mocked(pokeDB.getPokemons).mockImplementation(async (ids: number[]) => {
+      if (ids.includes(1)) {
+        return [mockPokes[0]] as (PokemonMetadata | Error)[];
+      }
+      // This covers line 81 condition where p is an Error: if (p && !(p instanceof Error))
+      return [new Error('Ancestor missing')] as (PokemonMetadata | Error)[];
+    });
+
+    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([{ pid: 1, enc: [] }]);
+    vi.mocked(pokeDB.getAreaNames).mockResolvedValue({});
+
+    const result = await dexDataLoader.getPokemonDetails(1);
+
+    // It should have mapped 'Bulba' but failed to map ancestor '2' because loadMany returned an Error
+    expect(result.nameMap[1]).toBe('Bulba');
+    expect(result.nameMap[2]).toBe(''); // Still empty string from initialization
+  });
+
   it('covers getPokemonDetails fallback when encounters throws/returns undefined', async () => {
     const mockPokes: PokemonMetadata[] = [
       {
