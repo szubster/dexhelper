@@ -1,7 +1,7 @@
 import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
-import { GlassCard } from '../../GlassCard';
+import { TacticalPanel } from '../../TacticalPanel';
 
 interface PokemonCaughtDetailsProps {
   yourPokemon: (PokemonInstance & { location: string })[];
@@ -17,11 +17,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
       </h3>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {yourPokemon.map((p, i) => (
-          <GlassCard
-            key={`${p.storageLocation}-${p.slot || i}`}
-            variant="white"
-            className="group space-y-5 rounded-[2rem] p-6"
-          >
+          <TacticalPanel key={`${p.storageLocation}-${p.slot || i}`} variant="white" className="group space-y-5">
             <div className="absolute top-0 right-0 p-3 opacity-10 transition-transform group-hover:scale-110">
               {p.isShiny ? (
                 <Sparkles size={40} className="text-amber-400" />
@@ -83,7 +79,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                 </div>
               </div>
             )}
-          </GlassCard>
+          </TacticalPanel>
         ))}
       </div>
     </div>

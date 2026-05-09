@@ -2,7 +2,7 @@ import { Target } from 'lucide-react';
 import { useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
-import { GlassCard } from '../../GlassCard';
+import { TacticalPanel } from '../../TacticalPanel';
 
 interface PokemonCatchProbabilityProps {
   catchRate: number;
@@ -22,7 +22,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
   const [status, setStatus] = useState<StatusType>('none');
 
   return (
-    <GlassCard variant="emerald" className="space-y-8 rounded-[2.5rem] p-8">
+    <TacticalPanel variant="emerald" className="space-y-8">
       <div className="absolute top-0 right-0 p-4 opacity-5">
         <Target size={120} />
       </div>
@@ -63,10 +63,10 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
               aria-checked={status === item.id}
               onClick={() => setStatus(item.id)}
               className={cn(
-                'rounded-2xl border py-3 font-black text-[9px] uppercase tracking-widest outline-none transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95',
+                'rounded-none border border-dashed py-3 font-black text-[9px] uppercase tracking-widest outline-none transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95',
                 status === item.id
-                  ? 'border-emerald-400 bg-emerald-500 text-white shadow-[0_5px_15px_rgba(16,185,129,0.3)]'
-                  : 'border-white/5 bg-black/20 text-emerald-500/50 hover:border-emerald-500/20',
+                  ? 'border-emerald-400 bg-emerald-500/20 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)]'
+                  : 'border-white/20 bg-black/40 text-emerald-500/50 hover:border-emerald-500/40 hover:text-emerald-500/80',
               )}
             >
               {item.label}
@@ -116,6 +116,6 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
           </div>
         </div>
       </div>
-    </GlassCard>
+    </TacticalPanel>
   );
 }

@@ -80,3 +80,9 @@
 **Outcome:** Accepted
 **Why:** Continues the successful strategy of establishing a specialized hardware UI aesthetic, improving visual cohesion across the application's structural and assistant views.
 **Pattern:** Consistently apply the tactical hardware motif (sharp edges, dashed outlines, monospace text) to major panels to maintain the illusion of a specialized device.
+
+## 2026-05-10 - [Accepted] - 🖼️ Canvas: Tactical Details Panels Redesign
+**What:** Redesigned the sub-components within PokemonDetails (CatchProbability, Evolutions, Locations, CaughtDetails) to replace the generic `GlassCard` wrapper with a new `TacticalPanel`. This panel utilizes the established tactical hardware aesthetics (sharp corners, dashed borders, `CornerCrosshairs`, and scanline overlays) for enhanced consistency.
+**Outcome:** Accepted
+**Why:** Brings the internal details view sections perfectly in line with the main `PokemonDetails` redesign and the rest of the app's utility-driven "snooping" vibe.
+**Pattern:** Ensure that nested wrappers and layout containers also inherit the tactical motif, removing all remaining rounded glassmorphism from the Pokédex details view.

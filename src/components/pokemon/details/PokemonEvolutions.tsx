@@ -3,7 +3,7 @@ import React from 'react';
 import { stadiumRewardsData } from '../../../engine/data/shared/staticData';
 import type { SaveData } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
-import { GlassCard } from '../../GlassCard';
+import { TacticalPanel } from '../../TacticalPanel';
 
 interface EvoReq {
   fromId: number;
@@ -49,7 +49,7 @@ function ProcurementStrategy({
   onNavigate: (id: number, name: string) => void;
 }) {
   return (
-    <GlassCard variant="red" className="group col-span-1 space-y-4 rounded-[2rem] p-6 sm:col-span-2">
+    <TacticalPanel variant="red" className="group col-span-1 space-y-4 sm:col-span-2">
       <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:scale-110">
         <AlertTriangle size={80} />
       </div>
@@ -94,7 +94,7 @@ function ProcurementStrategy({
           );
         })()}
       </div>
-    </GlassCard>
+    </TacticalPanel>
   );
 }
 
@@ -108,7 +108,7 @@ function EvolutionFrom({
   onNavigate: (id: number, name: string) => void;
 }) {
   return (
-    <GlassCard variant="purple" className="group space-y-4 rounded-[2rem] p-6">
+    <TacticalPanel variant="purple" className="group space-y-4">
       <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:rotate-12">
         <ArrowUpCircle size={80} />
       </div>
@@ -135,7 +135,7 @@ function EvolutionFrom({
       >
         {hasPreEvo ? <Check size={12} /> : <X size={12} />} {hasPreEvo ? 'OWNED' : 'UNAVAILABLE'}
       </div>
-    </GlassCard>
+    </TacticalPanel>
   );
 }
 
@@ -148,7 +148,7 @@ function EvolutionTo({
 }) {
   if (!evolvesTo || evolvesTo.length === 0) return null;
   return (
-    <GlassCard variant="blue" className="group space-y-4 rounded-[2rem] p-6">
+    <TacticalPanel variant="blue" className="group space-y-4">
       <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:-rotate-12">
         <ChevronRight size={80} />
       </div>
@@ -171,7 +171,7 @@ function EvolutionTo({
           </div>
         ))}
       </div>
-    </GlassCard>
+    </TacticalPanel>
   );
 }
 
@@ -183,7 +183,7 @@ function BreedingProtocol({
   onNavigate: (id: number, name: string) => void;
 }) {
   return (
-    <GlassCard variant="pink" className="group col-span-1 space-y-4 rounded-[2rem] p-6 sm:col-span-2">
+    <TacticalPanel variant="pink" className="group col-span-1 space-y-4 sm:col-span-2">
       <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:scale-110">
         <Heart size={80} />
       </div>
@@ -212,7 +212,7 @@ function BreedingProtocol({
       <div className="relative z-10 rounded-xl border border-pink-500/10 bg-pink-500/5 p-3 font-black text-[9px] text-pink-400/60 uppercase italic leading-relaxed tracking-widest">
         {breedingInfo.method}
       </div>
-    </GlassCard>
+    </TacticalPanel>
   );
 }
 
