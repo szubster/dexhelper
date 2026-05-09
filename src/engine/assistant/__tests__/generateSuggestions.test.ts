@@ -418,10 +418,14 @@ describe('generateSuggestions', () => {
   });
 
   it('should generate "Evolve" suggestion when min_l and min_h are missing (time-based fallback)', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(196); // Missing Espeon (196)
+    ownedSet.add(133); // Owns Eevee (133)
+
     const mockSaveData: SaveData = {
       generation: 2,
       gameVersion: 'gold',
-      owned: new Set([133]), // Owns Eevee (133), missing Espeon (196)
+      owned: ownedSet,
       seen: new Set(),
       party: [],
       inventory: [],
