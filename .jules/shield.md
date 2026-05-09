@@ -24,3 +24,6 @@
 
 ## Adding New Security Audit Vectors
 **Pattern:** Added XML External Entity (XXE) injection and `DOMParser` scanning as new scan vectors to the scheduled prompt (`.jules/schedules/shield.md`). This expands the automated security checks to cover potential vulnerabilities when parsing XML inputs.
+
+## Adding New Security Audit Vectors
+**Pattern:** Added iframe-based attacks (Clickjacking, Cross-Frame Scripting) and hardcoded API keys/secrets as new scan vectors to the scheduled prompt (`.jules/schedules/shield.md`). This expands the automated security checks to cover potential iframe misconfigurations and sensitive data exposure in the codebase.
