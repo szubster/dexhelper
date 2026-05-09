@@ -418,10 +418,12 @@ describe('generateSuggestions', () => {
   });
 
   it('should generate "Evolve" suggestion when min_l and min_h are missing (time-based fallback)', () => {
+    // We need 196 to be within the first 100 missing pokemon for the suggestion engine to evaluate it
+    const ownedArray = Array.from({ length: 195 }, (_, i) => i + 1).filter((id) => id !== 196);
     const mockSaveData: SaveData = {
       generation: 2,
       gameVersion: 'gold',
-      owned: new Set([133]), // Owns Eevee (133), missing Espeon (196)
+      owned: new Set([...ownedArray, 133]), // Owns Eevee (133), missing Espeon (196) and everything > 196
       seen: new Set(),
       party: [],
       inventory: [],
