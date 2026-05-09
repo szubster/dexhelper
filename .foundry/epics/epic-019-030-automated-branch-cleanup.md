@@ -2,12 +2,12 @@
 id: epic-019-030-automated-branch-cleanup
 type: EPIC
 title: Automated Branch Cleanup Implementation
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-09'
 updated_at: '2026-05-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13613197146194903593'
 pr_number: null
 parent: prd-019-019-automated-branch-cleanup
 tags: []
