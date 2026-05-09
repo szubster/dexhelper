@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
-import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { saveDB } from '../../db/SaveDB';
@@ -109,14 +109,14 @@ describe('AppLayout file upload', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     useStore.getState().setSaveData(null);
-    (parseSaveFile as Mock).mockReturnValue({
+    vi.mocked(parseSaveFile).mockReturnValue({
       gameVersion: 'unknown',
       generation: 1,
       trainerName: 'TEST',
       trainerId: 12345,
       party: [],
       pc: [],
-    });
+    } as unknown as ReturnType<typeof parseSaveFile>);
   });
 
   afterEach(() => {
