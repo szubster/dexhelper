@@ -29,3 +29,7 @@ Create a comprehensive map graph for Johto and Kanto to support Gen 2 traversal 
 ## Requirements
 - Create `src/engine/mapGraph/gen2Graph.ts`.
 - Define the graph of connected locations, nodes, and transitions across Johto and Kanto.
+
+## Tasks
+- [ ] [.foundry/tasks/task-043-071-implement-gen2-map-graph.md](.foundry/tasks/task-043-071-implement-gen2-map-graph.md)
+- [ ] [.foundry/tasks/task-043-072-qa-gen2-map-graph.md](.foundry/tasks/task-043-072-qa-gen2-map-graph.md)
