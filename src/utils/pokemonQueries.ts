@@ -1,9 +1,11 @@
 import { queryOptions } from '@tanstack/react-query';
 import { getDB } from '../db/PokeDB';
 
-interface PokemonListItem {
+export interface PokemonListItem {
   id: number;
   name: string;
+  nameLower: string;
+  idString: string;
 }
 
 export const pokemonListQueryOptions = queryOptions({
@@ -15,6 +17,8 @@ export const pokemonListQueryOptions = queryOptions({
       .map((p) => ({
         id: p.id,
         name: p.n.charAt(0).toUpperCase() + p.n.slice(1),
+        nameLower: p.n.toLowerCase(),
+        idString: p.id.toString(),
       }))
       .sort((a, b) => a.id - b.id);
   },
