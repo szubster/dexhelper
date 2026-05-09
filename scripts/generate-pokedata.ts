@@ -266,14 +266,27 @@ async function main() {
     // National Park Map ID: 783 (Gen 2 aid)
     if ([10, 11, 12, 13, 14, 15, 46, 48, 123, 127].includes(i)) {
       const bccChance: Record<number, number> = {
-        10: 20, 11: 20, 12: 5, 13: 20, 14: 20, 15: 5, 46: 10, 48: 10, 123: 5, 127: 5
+        10: 20, 11: 10, 12: 5, 13: 20, 14: 10, 15: 5, 46: 10, 48: 10, 123: 5, 127: 5
+      };
+
+      const bccLevelRange: Record<number, {min: number, max: number}> = {
+        10: { min: 7, max: 18 },
+        13: { min: 7, max: 18 },
+        11: { min: 9, max: 18 },
+        14: { min: 9, max: 18 },
+        12: { min: 12, max: 15 },
+        15: { min: 12, max: 15 },
+        48: { min: 10, max: 16 },
+        46: { min: 10, max: 17 },
+        123: { min: 13, max: 14 },
+        127: { min: 13, max: 14 }
       };
 
       const bccData = {
         c: bccChance[i] || 5,
         m: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
-        min: 24,
-        max: 36
+        min: bccLevelRange[i]?.min || 24,
+        max: bccLevelRange[i]?.max || 36
       };
 
       let npEncounter = pokemonEncounters.find(e => e.aid === 783);
