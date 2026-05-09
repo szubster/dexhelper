@@ -2,12 +2,12 @@
 id: task-043-071-implement-gen2-map-graph
 type: TASK
 title: Implement Gen 2 Map Graph
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-09'
 updated_at: '2026-05-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8604540820110038495'
 pr_number: null
 parent: story-028-043-gen2-map-graph
 tags:
