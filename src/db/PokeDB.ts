@@ -10,7 +10,6 @@ import {
 } from './schema';
 
 let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;
-let syncPromise: Promise<void> | null = null;
 
 /**
  * A utility function to fetch multiple records from IndexedDB by their keys simultaneously.
@@ -112,126 +111,115 @@ export const getDB = () => {
  * @returns A Promise that resolves when the synchronization is complete.
  */
 const syncData = async () => {
-  if (syncPromise) {
-    return syncPromise;
-  }
+  try {
+    const db = await getDB();
 
-  syncPromise = (async () => {
-    try {
-      const db = await getDB();
+    // 1. Check if already synced using build-time hash
+    const existingHash = await db.get(DB_CONFIG.STORES.METADATA, 'hash');
 
-      // 1. Check if already synced using build-time hash
-      const existingHash = await db.get(DB_CONFIG.STORES.METADATA, 'hash');
+    // Skip fetch if the build-in hash matches what we have in indexedDB
+    if (existingHash?.value === __POKEDATA_HASH__ && __POKEDATA_HASH__ !== 'initial') {
+      return;
+    }
 
-      // Skip fetch if the build-in hash matches what we have in indexedDB
-      if (existingHash?.value === __POKEDATA_HASH__ && __POKEDATA_HASH__ !== 'initial') {
-        return;
+    // 2. Fetch current data
+    const baseUrl = typeof window !== 'undefined' ? import.meta.env.BASE_URL : 'http://localhost:3000/dexhelper/';
+    const response = await fetch(`${baseUrl}data/pokedata.json`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch pokedata.json: ${response.status} ${response.statusText}`);
+    }
+    const data: PokeDataExport = await response.json();
+
+    // Guard against outdated build hash vs actual data hash (rare edge case)
+    if (existingHash?.value === data.hash) {
+      // Sync the build hash back to metadata just in case
+      await db.put(DB_CONFIG.STORES.METADATA, { key: 'hash', value: data.hash });
+      return;
+    }
+
+    const emit = (current: number, total: number, stage: string) => {
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(
+          new CustomEvent('pokedata-sync-progress', {
+            detail: { current, total, stage },
+          }),
+        );
       }
+    };
 
-      // 2. Fetch current data
-      const baseUrl = typeof window !== 'undefined' ? import.meta.env.BASE_URL : 'http://localhost:3000/dexhelper/';
-      const response = await fetch(`${baseUrl}data/pokedata.json`);
-      if (!response.ok) {
-        throw new Error(`Failed to fetch pokedata.json: ${response.status} ${response.statusText}`);
-      }
-      const data: PokeDataExport = await response.json();
+    const tx = db.transaction(
+      [DB_CONFIG.STORES.POKEMON, DB_CONFIG.STORES.ENCOUNTERS, DB_CONFIG.STORES.LOCATIONS, DB_CONFIG.STORES.METADATA],
+      'readwrite',
+    );
 
-      // Guard against outdated build hash vs actual data hash (rare edge case)
-      if (existingHash?.value === data.hash) {
-        // Sync the build hash back to metadata just in case
-        await db.put(DB_CONFIG.STORES.METADATA, { key: 'hash', value: data.hash });
-        return;
-      }
+    // 3. Populate stores with inflated data
+    const pStore = tx.objectStore(DB_CONFIG.STORES.POKEMON);
+    const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
+    const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
+    const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
 
-      const emit = (current: number, total: number, stage: string) => {
-        if (typeof window !== 'undefined') {
-          window.dispatchEvent(
-            new CustomEvent('pokedata-sync-progress', {
-              detail: { current, total, stage },
-            }),
-          );
-        }
-      };
+    // Clear old data
+    await Promise.all([pStore.clear(), eStore.clear(), lStore.clear(), mStore.clear()]);
 
-      const tx = db.transaction(
-        [DB_CONFIG.STORES.POKEMON, DB_CONFIG.STORES.ENCOUNTERS, DB_CONFIG.STORES.LOCATIONS, DB_CONFIG.STORES.METADATA],
-        'readwrite',
-      );
-
-      // 3. Populate stores with inflated data
-      const pStore = tx.objectStore(DB_CONFIG.STORES.POKEMON);
-      const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
-      const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-      const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
-
-      // Clear old data
-      await Promise.all([pStore.clear(), eStore.clear(), lStore.clear(), mStore.clear()]);
-
-      emit(1, 3, 'Pokemon');
-      const inflateChain = (links: CompactChainLink[] | undefined): CompactChainLink[] => {
-        return (links || []).map((l) => ({
-          ...l,
-          det: (l.det || []).map((d) => ({
-            ...DEFAULT_EVO_DETAIL,
-            ...d,
-          })),
-          eto: inflateChain(l.eto),
-        }));
-      };
-
-      for (const p of data.poke) {
-        const inflatedDet = (p.det || []).map((d) => ({
+    emit(1, 3, 'Pokemon');
+    const inflateChain = (links: CompactChainLink[] | undefined): CompactChainLink[] => {
+      return (links || []).map((l) => ({
+        ...l,
+        det: (l.det || []).map((d) => ({
           ...DEFAULT_EVO_DETAIL,
           ...d,
-        }));
+        })),
+        eto: inflateChain(l.eto),
+      }));
+    };
 
-        void pStore.put({
-          ...DEFAULT_POKEMON_METADATA,
-          ...p,
-          det: inflatedDet,
-          eto: inflateChain(p.eto),
-        });
-      }
+    for (const p of data.poke) {
+      const inflatedDet = (p.det || []).map((d) => ({
+        ...DEFAULT_EVO_DETAIL,
+        ...d,
+      }));
 
-      emit(2, 3, 'Encounters');
-      for (const e of data.enc) {
-        const inflatedEnc = e.enc.map((enc) => ({
-          ...enc,
-          d: (enc.d || []).map((d) => ({
-            ...DEFAULT_ENCOUNTER_DETAIL,
-            ...d,
-            max: d.max ?? d.min,
-          })),
-        }));
-        void eStore.put({ pid: e.pid, enc: inflatedEnc });
-      }
-
-      emit(3, 3, 'Locations');
-      for (const l of data.loc) {
-        void lStore.put({
-          ...DEFAULT_LOCATION,
-          ...l,
-          prnt: l.prnt, // stay undefined if omitted
-        });
-      }
-
-      await mStore.put({ key: 'hash', value: data.hash });
-      await tx.done;
-    } catch (err) {
-      console.error('System: sync failed');
-      // Reset promise so we can retry later if needed
-      syncPromise = null;
-      throw err;
+      void pStore.put({
+        ...DEFAULT_POKEMON_METADATA,
+        ...p,
+        det: inflatedDet,
+        eto: inflateChain(p.eto),
+      });
     }
-  })();
 
-  return syncPromise;
+    emit(2, 3, 'Encounters');
+    for (const e of data.enc) {
+      const inflatedEnc = e.enc.map((enc) => ({
+        ...enc,
+        d: (enc.d || []).map((d) => ({
+          ...DEFAULT_ENCOUNTER_DETAIL,
+          ...d,
+          max: d.max ?? d.min,
+        })),
+      }));
+      void eStore.put({ pid: e.pid, enc: inflatedEnc });
+    }
+
+    emit(3, 3, 'Locations');
+    for (const l of data.loc) {
+      void lStore.put({
+        ...DEFAULT_LOCATION,
+        ...l,
+        prnt: l.prnt, // stay undefined if omitted
+      });
+    }
+
+    await mStore.put({ key: 'hash', value: data.hash });
+    await tx.done;
+  } catch (err) {
+    console.error('System: sync failed');
+    throw err;
+  }
 };
 
 export const pokeDB = {
   sync: syncData,
   ready: async () => {
-    if (syncPromise) return syncPromise;
     const db = await getDB();
     const entry = await db.get(DB_CONFIG.STORES.METADATA, 'hash');
     const hash = entry?.value;
@@ -245,7 +233,7 @@ export const pokeDB = {
     const hash = entry?.value;
     return {
       isComplete: !!hash && hash !== 'initial',
-      isSyncing: !!syncPromise,
+      isSyncing: false,
     };
   },
   getPokemon: async (id: number): Promise<PokemonMetadata | undefined> => {
@@ -378,7 +366,5 @@ export const pokeDB = {
   },
 
   // Internal/Test helper to reset the sync state
-  _resetSync: () => {
-    syncPromise = null;
-  },
+  _resetSync: () => {},
 };

@@ -47,3 +47,5 @@
 
 ## 2026-05-06 - Clean up test coverage parsing errors
 **Learning:** Configured `coverage` blocks in `vitest.config.ts` to exclusively `include: ['src/**/*.ts', 'src/**/*.tsx']` and explicitly `exclude: ['**/*.json']`. This stops `rolldown` (used by `@vitest/coverage-v8`) from attempting to parse statically imported `.json` files as modules, which caused noisy syntax errors during `pnpm test --coverage` runs and broke test suite exits.
+Critical learnings:
+- Removed `syncPromise` and `_resetSync` from `src/db/PokeDB.ts` completely to eliminate caching and rely exclusively on dataloader/react-query, which also successfully resolves the hanging Vitest process in the `node` test suite, preventing issues caused by dangling unhandled promises or unclosed requests.
