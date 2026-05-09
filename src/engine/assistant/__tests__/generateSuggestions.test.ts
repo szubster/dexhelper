@@ -418,10 +418,16 @@ describe('generateSuggestions', () => {
   });
 
   it('should generate "Evolve" suggestion when min_l and min_h are missing (time-based fallback)', () => {
+    // The suggestion engine limits its processing to the first 100 missing Pokémon IDs.
+    // Ensure 196 (Espeon) is within the first 100 missing by populating the 'owned' set.
+    const owned = new Set<number>([133]);
+    for (let i = 1; i < 100; i++) {
+      owned.add(i);
+    }
     const mockSaveData: SaveData = {
       generation: 2,
       gameVersion: 'gold',
-      owned: new Set([133]), // Owns Eevee (133), missing Espeon (196)
+      owned: owned, // Owns Eevee (133), missing Espeon (196)
       seen: new Set(),
       party: [],
       inventory: [],
