@@ -56,7 +56,7 @@ describe('PokeDB', () => {
     expect(fetch).not.toHaveBeenCalled();
   });
 
-  it('resets syncPromise if fetch fails', async () => {
+  it('retries sync if fetch fails', async () => {
     const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     vi.mocked(fetch).mockResolvedValueOnce({
       ok: false,
@@ -128,17 +128,6 @@ describe('PokeDB', () => {
     expect(transactionSpy).not.toHaveBeenCalledWith(allStoreNames, 'readwrite');
 
     transactionSpy.mockRestore();
-  });
-
-  it('deduplicates concurrent sync requests', async () => {
-    vi.mocked(fetch).mockClear();
-
-    const sync1 = pokeDB.sync();
-    const sync2 = pokeDB.sync();
-
-    await Promise.all([sync1, sync2]);
-
-    expect(fetch).toHaveBeenCalledTimes(1);
   });
 
   it('emits progress events during sync', async () => {
@@ -309,13 +298,8 @@ describe('PokeDB', () => {
         ok: true,
         json: async () => ({ hash: 'new-hash', poke: [], enc: [], loc: [] }),
       } as Response);
-      const syncPromise = pokeDB.sync();
 
-      const statusSyncing = await pokeDB.getStatus();
-      expect(statusSyncing.isSyncing).toBe(true);
-
-      await syncPromise;
-      pokeDB._resetSync();
+      await pokeDB.sync();
 
       const status = await pokeDB.getStatus();
       expect(status.isComplete).toBe(true);

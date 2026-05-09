@@ -208,7 +208,7 @@ ok: true,
             })
           });
       }
-      if (urlStr.includes('pulls/402')) {
+      if (urlStr.startsWith('https://api.github.com/repos/szubster/dexhelper/pulls/402')) {
         return Promise.resolve({
             ok: true,
             status: 200,
@@ -252,7 +252,7 @@ ok: true,
             })
           });
       }
-      if (urlStr.includes('pulls/402')) {
+      if (urlStr.startsWith('https://api.github.com/repos/szubster/dexhelper/pulls/402')) {
         return Promise.resolve({
             ok: true,
             status: 200,
@@ -297,7 +297,7 @@ ok: true,
             })
           });
       }
-      if (urlStr.includes('pulls/402')) {
+      if (urlStr.startsWith('https://api.github.com/repos/szubster/dexhelper/pulls/402')) {
         return Promise.resolve({
             ok: true,
             status: 200,
@@ -339,14 +339,14 @@ ok: true,
           json: async () => ({ state: 'COMPLETED' }) // No PR link here
         });
       }
-      if (urlStr.includes('search/issues')) {
+      if (urlStr.startsWith('https://api.github.com/search/issues')) {
         return Promise.resolve({
             ok: true,
             status: 200,
           json: async () => ({ items: [] }) // Search fails
         });
       }
-      if (urlStr.includes('repos/szubster/dexhelper/pulls?state=all')) {
+      if (urlStr.startsWith('https://api.github.com/repos/szubster/dexhelper/pulls?state=all')) {
         return Promise.resolve({
             ok: true,
             status: 200,
@@ -404,7 +404,7 @@ ok: true,
       // @ts-expect-error - Mock signature mismatch
     globalFetch.mockImplementation((url: string | URL | Request) => {
       const urlStr = typeof url === "string" ? url : (url as URL).toString();
-        if (urlStr.includes('pulls/999')) {
+        if (urlStr.startsWith('https://api.github.com/repos/szubster/dexhelper/pulls/999')) {
           return Promise.resolve({
             ok: true,
             status: 200,
@@ -441,7 +441,7 @@ ok: true,
       // @ts-expect-error - Mock signature mismatch
     globalFetch.mockImplementation((url: string | URL | Request) => {
       const urlStr = typeof url === "string" ? url : (url as URL).toString();
-        if (urlStr.includes('pulls/888')) {
+        if (urlStr.startsWith('https://api.github.com/repos/szubster/dexhelper/pulls/888')) {
           return Promise.resolve({
             ok: true,
             status: 200,
@@ -478,7 +478,7 @@ ok: true,
       // @ts-expect-error - Mock signature mismatch
     globalFetch.mockImplementation((url: string | URL | Request) => {
       const urlStr = typeof url === "string" ? url : (url as URL).toString();
-        if (urlStr.includes('pulls/777')) {
+        if (urlStr.startsWith('https://api.github.com/repos/szubster/dexhelper/pulls/777')) {
           return Promise.resolve({
             ok: true,
             status: 200,

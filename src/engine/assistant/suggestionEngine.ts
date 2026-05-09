@@ -123,13 +123,20 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     pokemonMetadata[pid] = p && !(p instanceof Error) ? p : null;
   });
 
+  // ⚡ Bolt: Removed Object.fromEntries(map(...)) chain to prevent intermediate array allocations (O(N) -> O(1) memory overhead)
+  const areaNames: Record<number, string> = {};
+  for (let i = 0; i < allLocations.length; i++) {
+    const loc = allLocations[i];
+    if (loc) areaNames[loc.id] = loc.n;
+  }
+
   return {
     localAid,
     localEncounters: localEncounters ?? null,
     missingEncounters,
     pokemonMetadata,
     ancestralEncounters,
-    areaNames: Object.fromEntries(allLocations.map((a) => [a.id, a.n])),
+    areaNames,
     allLocations,
   };
 }
@@ -165,7 +172,7 @@ const METHOD_NAMES: Record<number, string> = {
 
 /**
  * Core recommendation algorithm for the Assistant.
- * Generates actionable suggestions (Catch, Trade, Evolve) for the player based on missing Pokemon.
+ * Aggregates data from the player's save file, Pokédex completion status, and geographic location to generate context-aware suggestions for catching, evolving, or trading Pokémon.
  *
  * @param saveData - The parsed save file containing the player's inventory, current location, and party.
  * @param isLivingDex - If true, checks the box and party for the physical presence of a Pokemon rather than just the 'owned' dex flag.
@@ -175,12 +182,22 @@ const METHOD_NAMES: Record<number, string> = {
  * @returns An object containing an array of unique `Suggestion` objects sorted by priority descending, and a `debug` payload with rejected suggestions.
  *
  * @remarks
- * Priorities are assigned contextually:
- * - Local encounters (same map): ~120
- * - Evolutions ready to trigger (level reached, item owned): ~90-95
- * - Nearby encounters (1-8 areas away): Scales from ~110 down to ~14
- * - NPC Trades (missing offered Pokemon): ~65 (goes up to ~85 if offered Pokemon is owned)
- * - Exclusives / Unobtainables: ~10
+ * **Prioritization Logic:**
+ * Priorities determine the order suggestions appear to the user. Higher priorities (>= 90) represent immediately actionable steps or very close geographical proximity. Lower priorities require more effort or travel.
+ * - **120+ (Catch - Local):** Pokémon available on the exact map the player is currently standing on.
+ * - **90-95 (Evolve - Ready):** Pre-evolutions in the party/PC that have met all conditions (e.g., reached target level, player possesses required evolution stone).
+ * - **85 (Trade/Gift - Ready):** NPC trades where the player already owns the requested Pokémon, or static gifts that are unclaimed and prerequisites met.
+ * - **14-110 (Catch - Nearby):** Pokémon available 1 to 8 map areas away. Priority scales inversely with distance (closer maps score higher).
+ * - **65-80 (Evolve/Trade - Pending):** Pre-evolutions needing more levels/friendship, or NPC trades where the player must first catch the requested Pokémon.
+ * - **10 (Unobtainable):** Version exclusives or choice-locked Pokémon (e.g., fossils) requiring link cable trades.
+ *
+ * **Categories Executed:**
+ * A. Catch logic (Local & Nearby via Graph Traversal)
+ * B. Unobtainable / Exclusive logic
+ * C. In-Game NPC Trades
+ * D. Static Gifts
+ * E. Evolutions (Level, Item, Happiness, Trade)
+ * F. Breeding (Gen 2 Only)
  */
 
 function generateCatchSuggestions(
@@ -530,6 +547,16 @@ function generateEvolutionAndBreedingSuggestions(
             pokemonId: targetId,
             priority: isFriendlyEnough ? 90 : 80,
           });
+        } else {
+          const todMsg = tod ? ` during the ${tod}` : '';
+          suggestions.push({
+            id: `evo-lvl-any-${targetId}`,
+            category: 'Evolve',
+            title: `Level Up Evolution: #${targetId}`,
+            description: `Level up your pre-evolution${todMsg} to evolve!`,
+            pokemonId: targetId,
+            priority: 70,
+          });
         }
       } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
         const gameItemId = getGameItemId(item, saveData.generation);
@@ -546,15 +573,25 @@ function generateEvolutionAndBreedingSuggestions(
       } else if (tr === EVO_TRIGGER.TRADE) {
         if (held) {
           const gameHeldId = getGameItemId(held, saveData.generation);
-          const hasHeldItem = saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0);
+          const hasHeldItemInBag = saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0);
+          const holdingInstance =
+            evolvableInstances.find((inst) => inst.item === gameHeldId) ||
+            ownedInstances.find((inst) => inst.item === gameHeldId);
+          const hasHeldItem = hasHeldItemInBag || !!holdingInstance;
           const itemName = EVO_ITEM_NAMES[held] || 'item';
+
+          let description = `Find a ${itemName}, have your pre-evolution hold it, and trade to evolve.`;
+          if (holdingInstance) {
+            description = `Your pre-evolution is already holding the ${itemName}! Trade it to evolve!`;
+          } else if (hasHeldItemInBag) {
+            description = `Have your pre-evolution hold the ${itemName} and trade it to evolve!`;
+          }
+
           suggestions.push({
             id: `evo-trade-held-${targetId}`,
             category: 'Evolve',
             title: hasHeldItem ? `Ready to Trade Evolve: #${targetId}!` : `Item Needed for Trade: #${targetId}`,
-            description: hasHeldItem
-              ? `Have your pre-evolution hold the ${itemName} and trade it to evolve!`
-              : `Find a ${itemName}, have your pre-evolution hold it, and trade to evolve.`,
+            description,
             pokemonId: targetId,
             priority: hasHeldItem ? 90 : 45,
           });

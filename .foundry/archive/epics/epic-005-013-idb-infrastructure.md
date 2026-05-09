@@ -1,0 +1,30 @@
+---
+id: epic-005-013-idb-infrastructure
+type: EPIC
+title: IndexedDB Infrastructure & Fallbacks
+status: COMPLETED
+owner_persona: story_owner
+created_at: '2026-04-24'
+updated_at: '2026-04-25'
+depends_on: []
+jules_session_id: null
+parent: .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+tags:
+  - indexeddb
+  - infrastructure
+  - persistence
+---
+
+# IndexedDB Infrastructure & Fallbacks
+
+## Description
+This Epic establishes the foundational IndexedDB connection and basic read/write capabilities for game save files. It leverages the existing `idb` wrapper. Crucially, it must implement robust error handling for private browsing constraints (`QuotaExceededError`) and ensure any error logging uses non-revealing generic strings (e.g., "System: sync failed") to comply with CWE-209 mitigation guidelines.
+
+## Acceptance Criteria
+- [x] IndexedDB wrapper utility is created for accessing save data.
+- [x] Safe read, write, and delete functions for binary `ArrayBuffer`/`Uint8Array` are implemented.
+- [x] Graceful degradation and fallback handling is present when IndexedDB is inaccessible.
+- [x] Error messages for persistence failures use generic strings (no internal error leakage).
+
+## Generated Stories
+- .foundry/archive/stories/story-013-021-indexeddb-wrapper-and-error-handling.md

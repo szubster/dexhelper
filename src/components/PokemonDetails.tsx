@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { AlertCircle, CheckCircle2, Monitor, Sparkles, X } from 'lucide-react';
 import React, { useEffect } from 'react';
 import { dexDataLoader } from '../db/DexDataLoader';
-import { type CompactChainLink, POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../db/schema';
+import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../db/schema';
 import { stadiumRewardsSummary } from '../engine/data/shared/staticData';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
@@ -89,7 +89,7 @@ export function PokemonDetails({
     if (!evos || evos.length === 0) return [];
 
     return evos
-      .map((evo: CompactChainLink) => {
+      .map((evo) => {
         const id = evo.id;
         if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
 
@@ -124,10 +124,21 @@ export function PokemonDetails({
     };
   }, [pokemon, saveData, nameMap]);
 
+  // ⚡ Bolt: Pre-group encounters by versionId into a Map to avoid O(N) array filtering on every getLocationsForVersion invocation
+  const encountersByVersion = React.useMemo(() => {
+    const map = new Map<number, typeof encounters>();
+    for (const enc of encounters) {
+      const arr = map.get(enc.v) || [];
+      arr.push(enc);
+      map.set(enc.v, arr);
+    }
+    return map;
+  }, [encounters]);
+
   const getLocationsForVersion = React.useCallback(
     (version: string) => {
       const versionId = POKE_VERSION_MAP[version] || 0;
-      const versionEncounters = encounters.filter((e) => e.v === versionId);
+      const versionEncounters = encountersByVersion.get(versionId) || [];
 
       return versionEncounters.flatMap((enc) => {
         return enc.d.map((detail) => {
@@ -140,7 +151,7 @@ export function PokemonDetails({
         });
       });
     },
-    [encounters, areaNames],
+    [encountersByVersion, areaNames],
   );
 
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : getGenerationConfig(1);

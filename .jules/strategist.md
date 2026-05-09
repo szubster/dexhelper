@@ -78,3 +78,9 @@
 **Outcome:** Rejected → journaled
 **Why:** There is already a TPM in foundry using a different scheduling mechanism.
 **Pattern:** Ensure we don't duplicate existing agents/roles even if they aren't directly represented in `.jules/schedules/`. If a role exists but is missing specific instructions, we should improve its prompt rather than creating a duplicate schedule.
+
+## 2026-06-07 - [Accepted] - Prompt improvement - Restrict Bolt to application performance
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The Bolt agent's journal showed it repeatedly optimizing CI pipelines, fixing DAG orchestrator bugs, and updating tooling configs (Biome, Vite, Vitest) instead of its domain of application performance.
+**Pattern:** Performance agents can easily drift into pipeline/tooling optimizations if their boundaries don't explicitly exclude infrastructure and CI/CD files.

@@ -39,7 +39,7 @@ export function SettingsControls({
           value={effectiveVersion}
           onChange={(e) => setManualVersion(e.target.value as GameVersion)}
           aria-label="Select Game Version"
-          className="border border-zinc-800 border-dashed bg-zinc-950 px-4 py-2 font-bold font-mono text-xs text-zinc-200 outline-none transition-colors hover:border-zinc-600 focus:border-blue-500"
+          className="border border-zinc-800 border-dashed bg-zinc-950 px-4 py-2 font-bold font-mono text-xs text-zinc-200 transition-colors hover:border-zinc-600 focus-visible:border-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
         >
           <option value="unknown">Auto</option>
           {(genConfig?.versions ?? [...getGenerationConfig(1).versions, ...getGenerationConfig(2).versions]).map(
@@ -87,7 +87,7 @@ export function SettingsControls({
           value={globalPokeball}
           onChange={(e) => setGlobalPokeball(e.target.value as PokeballType)}
           aria-label="Select Ball Style"
-          className="border border-zinc-800 border-dashed bg-zinc-950 px-4 py-2 font-bold font-mono text-xs text-zinc-200 outline-none transition-colors hover:border-zinc-600 focus:border-amber-500"
+          className="border border-zinc-800 border-dashed bg-zinc-950 px-4 py-2 font-bold font-mono text-xs text-zinc-200 transition-colors hover:border-zinc-600 focus-visible:border-amber-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
         >
           {filteredPokeballs.map((pb) => (
             <option key={pb.value} value={pb.value}>

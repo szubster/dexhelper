@@ -2,10 +2,10 @@
 id: story-025-039-implement-failure-handling
 type: STORY
 title: Implement Failure Handling for Validation Mismatches
-status: PENDING
+status: "PENDING"
 owner_persona: tech_lead
-created_at: "2026-05-04"
-updated_at: "2026-05-04"
+created_at: '2026-05-04'
+updated_at: "2026-05-09"
 depends_on:
   - .foundry/stories/story-025-038-implement-mapping-validation.md
 jules_session_id: null
@@ -18,8 +18,8 @@ tags:
   - validation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Implement Failure Handling for Validation Mismatches
@@ -33,4 +33,6 @@ Handle the state transition when an invalid `owner_persona` mapping is detected.
 - [ ] A warning/error is logged.
 
 ## Next Step
-- [ ] Create Task to add failure handling logic.
+- [x] Create Task to add failure handling logic.
+- Spawned Blueprint: [.foundry/tasks/task-039-071-implement-failure-handling.md](.foundry/tasks/task-039-071-implement-failure-handling.md)
+- Spawned QA: [.foundry/tasks/task-039-072-qa-failure-handling.md](.foundry/tasks/task-039-072-qa-failure-handling.md)

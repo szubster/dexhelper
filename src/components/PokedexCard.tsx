@@ -3,11 +3,12 @@ import { ChevronRight, CircleDot, Monitor, Sparkles } from 'lucide-react';
 import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
+import type { PokemonListItem } from '../utils/pokemonQueries';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { TacticalCard } from './TacticalCard';
 
 interface PokedexCardProps {
-  pokemon: { id: number; name: string };
+  pokemon: PokemonListItem;
   idx: number;
   saveData: SaveData | null;
   isLivingDex: boolean;

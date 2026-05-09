@@ -76,6 +76,28 @@ function sortObj(obj: any, order: string[]): any {
   return result;
 }
 
+/**
+ * Executes the core Extract, Transform, Load (ETL) data pipeline.
+ *
+ * **Why this exists:**
+ * The application relies on massive datasets (all Pokémon, stats, encounters, and evolutions).
+ * Shipping this data raw to the browser or querying it live via HTTP would be too slow.
+ * This pipeline extracts the data from PokeAPI, transforms it to map tightly to internal
+ * Game Boy memory structures, and loads it into a compacted JSONL format for IndexedDB.
+ *
+ * **Key Transformations:**
+ * 1. **Location Resolution:** PokeAPI has generic area IDs, but the app needs exact ROM map IDs (`gameId`)
+ *    to match the player's in-game save data. We cross-reference `GEN1_MAPS` and `GEN2_MAP_TO_AID`
+ *    to map API coordinates to actual game memory values.
+ * 2. **Bug Catching Contest Injection:** PokeAPI completely omits the Gen 2 Bug Catching Contest encounters.
+ *    We manually inject these into the National Park (Map 783) to ensure 100% accurate Gen 2 data.
+ * 3. **Graph Precomputation:** Finding the distance between two maps at runtime using BFS would freeze
+ *    the main thread. Instead, we use the Floyd-Warshall algorithm here at build time to compute and
+ *    save an All-Pairs Shortest Path matrix for `O(1)` runtime lookups in the suggestion engine.
+ *
+ * **Regeneration Steps:**
+ * To regenerate this data locally after changes, run: `pnpm run data:gen`
+ */
 async function main() {
   console.log('--- PokéAPI Data Pipeline (GitHub Source) ---');
 
@@ -244,14 +266,27 @@ async function main() {
     // National Park Map ID: 783 (Gen 2 aid)
     if ([10, 11, 12, 13, 14, 15, 46, 48, 123, 127].includes(i)) {
       const bccChance: Record<number, number> = {
-        10: 20, 11: 20, 12: 5, 13: 20, 14: 20, 15: 5, 46: 10, 48: 10, 123: 5, 127: 5
+        10: 20, 11: 10, 12: 5, 13: 20, 14: 10, 15: 5, 46: 10, 48: 10, 123: 5, 127: 5
+      };
+
+      const bccLevelRange: Record<number, {min: number, max: number}> = {
+        10: { min: 7, max: 18 },
+        13: { min: 7, max: 18 },
+        11: { min: 9, max: 18 },
+        14: { min: 9, max: 18 },
+        12: { min: 12, max: 15 },
+        15: { min: 12, max: 15 },
+        48: { min: 10, max: 16 },
+        46: { min: 10, max: 17 },
+        123: { min: 13, max: 14 },
+        127: { min: 13, max: 14 }
       };
 
       const bccData = {
         c: bccChance[i] || 5,
         m: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
-        min: 24,
-        max: 36
+        min: bccLevelRange[i]?.min || 24,
+        max: bccLevelRange[i]?.max || 36
       };
 
       let npEncounter = pokemonEncounters.find(e => e.aid === 783);
@@ -428,7 +463,14 @@ for (const cid of uniqueChainIds) {
 }
 
 /**
- * Compacts an object by removing default values.
+ * Recursively compacts an object by stripping out common default values.
+ *
+ * **Why this is necessary:**
+ * The generated JSON represents thousands of encounters and evolutions.
+ * Fields like `baby: false`, `m: 1` (walking), or `tr: 1` (level-up evolution)
+ * represent over 90% of the dataset. By stripping these known defaults before writing
+ * to disk, we significantly reduce the bundle size and IndexedDB memory footprint.
+ * The client re-inflates these defaults upon load (see `src/db/PokeDB.ts`).
  */
 function compact(obj: any): any {
   if (Array.isArray(obj)) {

@@ -6,6 +6,68 @@ import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
 describe('generateSuggestions', () => {
+  it('should detect when an evolution item is already equipped for Trade evolutions', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(208); // Missing Steelix
+    const mockSaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      trainerName: 'ASH',
+      owned: ownedSet, // Owns Onix
+      party: [],
+      pc: [95],
+      inventory: [{ id: 1, quantity: 5 }], // No Metal Coat (id: 0x8f) in bag
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 95,
+          level: 20,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+          item: 0x8f, // Holding Metal Coat!
+          otName: 'ASH',
+        },
+      ],
+    } as unknown as SaveData;
+
+    const mockApiData = {
+      pokemonMetadata: {
+        95: {
+          id: 95,
+          n: 'Onix',
+          cr: 45,
+          baby: false,
+          eto: [{ id: 208, eto: [], det: [{ tr: 2, held: 210 }], ef: 95 }],
+          efrm: [],
+          det: [],
+        },
+        208: {
+          id: 208,
+          n: 'Steelix',
+          cr: 25,
+          baby: false,
+          eto: [],
+          efrm: [95],
+          det: [{ tr: 2, held: 210 }],
+        },
+      },
+      missingEncounters: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const mockStrategy = {
+      ...gen1Strategy,
+      generation: 2,
+    };
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const suggestion = suggestions.find((s) => s.id === 'evo-trade-held-208');
+    expect(suggestion).toBeDefined();
+    expect(suggestion?.title).toBe('Ready to Trade Evolve: #208!');
+    expect(suggestion?.description).toBe('Your pre-evolution is already holding the Metal Coat! Trade it to evolve!');
+  });
+
   it('should generate "Catch Right Here" (catch-local) suggestions', () => {
     const mockSaveData: SaveData = {
       generation: 1,
@@ -353,5 +415,64 @@ describe('generateSuggestions', () => {
     expect(breedSuggestionNotInDaycare?.title).toBe('Breed: #152');
     expect(breedSuggestionNotInDaycare?.description).toBe('Leave your #153 at the Daycare to get an Egg!');
     expect(breedSuggestionNotInDaycare?.priority).toBe(85);
+  });
+
+  it('should generate "Evolve" suggestion when min_l and min_h are missing (time-based fallback)', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(196); // Missing Espeon (196)
+    ownedSet.add(133); // Owns Eevee (133)
+
+    const mockSaveData: SaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      owned: ownedSet,
+      seen: new Set(),
+      party: [],
+      inventory: [],
+      currentMapId: 0,
+      eventFlags: new Uint8Array(300),
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 133,
+          level: 20,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+        },
+      ],
+      trainerName: 'GOLD',
+    } as unknown as SaveData;
+
+    const mockApiData: AssistantApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {
+        196: {
+          id: 196,
+          eto: [],
+          efrm: [133],
+          det: [{ tr: 1, time: 1 }], // Level up, day, no min_h or min_l
+        } as unknown as PokemonMetadata,
+      },
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    // Use a strategy with generation 2
+    const mockStrategy = {
+      ...gen1Strategy,
+      generation: 2,
+    };
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+
+    const evoSuggestion = suggestions.find((s) => s.id === 'evo-lvl-any-196');
+    expect(evoSuggestion).toBeDefined();
+    expect(evoSuggestion?.title).toBe('Level Up Evolution: #196');
+    expect(evoSuggestion?.description).toBe('Level up your pre-evolution during the day to evolve!');
+    expect(evoSuggestion?.priority).toBe(70);
   });
 });
