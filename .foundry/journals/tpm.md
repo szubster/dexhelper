@@ -55,3 +55,7 @@
 - **2026-05-09**: PR #1086 merged. `story-028-043-gen2-map-graph` is now PENDING.
 
 - **2026-05-09**: Resurrection Loop triggered for `task-042-068-extract-hall-of-fame`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-09**: PR #1094 merged. `epic-019-030-automated-branch-cleanup` is now PENDING.
+
+- **2026-05-09**: PR #1092 merged. `epic-019-030-orchestrator-test-factories` is now PENDING.

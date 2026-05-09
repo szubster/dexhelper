@@ -2,7 +2,7 @@
 id: story-030-046-standardize-orchestrator-test-factories
 type: STORY
 title: Standardize Orchestrator Test Factories
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-09'
 updated_at: '2026-05-09'
