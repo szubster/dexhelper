@@ -61,7 +61,7 @@ Every node file (idea, PRD, epic, story, task) **must** begin with a YAML frontm
 ```yaml
 ---
 id: ""                  # Required. Globally unique slug. Convention: <type>-<parent_NNN>-<NNN>-<slug>
-type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK
+type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK | RESEARCH
 title: ""               # Required. Human-readable short title.
 status: ""              # Required. Enum: see Status Lifecycle section.
 owner_persona: "coder"  # Required. Enum: see Owner Persona section.
@@ -84,7 +84,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | Field | Type | Required | Description |
 |---|---|---|---|
 | `id` | `string` | ✅ | Globally unique. Convention: `<type>-<parent_NNN>-<NNN>-<slug>` (IDEA nodes omit parent NNN). Used by humans and search; the DAG uses file paths. |
-| `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK` |
+| `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK \| RESEARCH` |
 | `title` | `string` | ✅ | Short, human-readable description. |
 | `status` | `enum` | ✅ | Current lifecycle state. See §4. |
 | `owner_persona` | `enum` | ✅ | Persona responsible for progressing this node. Must be exactly one assigned persona (no arrays or multiple personas). See §5. |
@@ -156,7 +156,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `human` | A human contributor. Bypasses Jules dispatch and heartbeat timeouts. |
 | `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
 | `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
-| `researcher` | Responsible for exploratory tasks and writing context-rich research reports to be used by downstream pipeline nodes. |
+| `researcher` | Responsible for exploratory tasks. Late-bound research nodes can be dynamically created by active nodes. Multiple researchers can be assigned to different sibling research nodes. |
 
 ---
 

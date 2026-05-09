@@ -46,7 +46,7 @@ const VALID_STATUSES = [
 
 type Status = (typeof VALID_STATUSES)[number];
 
-const VALID_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK'] as const;
+const VALID_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH'] as const;
 type NodeType = (typeof VALID_TYPES)[number];
 
 /** Mirrors the YAML frontmatter schema defined in .foundry/docs/schema.md §3 */
@@ -766,6 +766,7 @@ function main(): void {
     EPIC: ['story_owner'],
     STORY: ['tech_lead'],
     TASK: ['coder', 'qa'],
+    RESEARCH: ['researcher'],
   };
 
   for (const node of finalEligible) {
