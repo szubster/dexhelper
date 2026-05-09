@@ -1,16 +1,20 @@
 ---
 id: task-031-055-qa-dual-write-persistence
 type: TASK
-title: "QA Dual-Write Save Persistence"
-status: "COMPLETED"
-owner_persona: "qa"
-created_at: "2026-04-28"
-updated_at: "2026-04-28"
+title: QA Dual-Write Save Persistence
+status: COMPLETED
+owner_persona: qa
+created_at: '2026-04-28'
+updated_at: '2026-04-28'
 depends_on:
-  - .foundry/tasks/task-031-051-implement-dual-write-persistence.md
+  - .foundry/archive/tasks/task-031-051-implement-dual-write-persistence.md
 jules_session_id: null
-parent: .foundry/stories/story-014-031-dual-write-save-persistence.md
-tags: ["persistence", "indexeddb", "localStorage", "qa"]
+parent: .foundry/archive/stories/story-014-031-dual-write-save-persistence.md
+tags:
+  - persistence
+  - indexeddb
+  - localStorage
+  - qa
 ---
 
 # QA Dual-Write Save Persistence

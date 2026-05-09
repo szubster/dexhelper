@@ -1,15 +1,18 @@
 ---
 id: task-032-052-implement-migration-logic
 type: TASK
-title: "Implement Migration Logic"
-status: "COMPLETED"
-owner_persona: "coder"
-created_at: "2026-04-27"
-updated_at: "2026-04-30"
+title: Implement Migration Logic
+status: COMPLETED
+owner_persona: coder
+created_at: '2026-04-27'
+updated_at: '2026-04-30'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-015-032-legacy-save-migration-hook.md
-tags: ["migration", "indexeddb", "localStorage"]
+parent: .foundry/archive/stories/story-015-032-legacy-save-migration-hook.md
+tags:
+  - migration
+  - indexeddb
+  - localStorage
 ---
 
 # Implement Migration Logic

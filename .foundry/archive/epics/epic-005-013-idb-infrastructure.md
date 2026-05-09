@@ -1,15 +1,18 @@
 ---
 id: epic-005-013-idb-infrastructure
 type: EPIC
-title: "IndexedDB Infrastructure & Fallbacks"
-status: "COMPLETED"
+title: IndexedDB Infrastructure & Fallbacks
+status: COMPLETED
 owner_persona: story_owner
-created_at: "2026-04-24"
-updated_at: "2026-04-25"
+created_at: '2026-04-24'
+updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: .foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md
-tags: ["indexeddb", "infrastructure", "persistence"]
+parent: .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+tags:
+  - indexeddb
+  - infrastructure
+  - persistence
 ---
 
 # IndexedDB Infrastructure & Fallbacks
@@ -24,4 +27,4 @@ This Epic establishes the foundational IndexedDB connection and basic read/write
 - [x] Error messages for persistence failures use generic strings (no internal error leakage).
 
 ## Generated Stories
-- .foundry/stories/story-013-021-indexeddb-wrapper-and-error-handling.md
+- .foundry/archive/stories/story-013-021-indexeddb-wrapper-and-error-handling.md

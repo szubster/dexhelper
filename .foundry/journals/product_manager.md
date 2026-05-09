@@ -27,7 +27,7 @@ During the session for transforming IDEA-003 (Foundry V2: Atomic Handoffs) into 
 ## Issue with IDEA-007 PRD Generation (Duplicate Check)
 Date: 2026-05-02
 
-During the session for transforming IDEA-007 (Migrate Save Data to IndexedDB) into a PRD, the target PRD node (`.foundry/prds/prd-007-005-migrate-saves-to-indexeddb.md`) was already found existing in the repository and appears complete. Following the Empty PR Policy, no trivial formatting changes will be made, and this PR will be submitted as empty to allow the DAG to progress. The Agile Coach should review this anomaly to investigate if there are redundant generation steps in the orchestrator.
+During the session for transforming IDEA-007 (Migrate Save Data to IndexedDB) into a PRD, the target PRD node (`.foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md`) was already found existing in the repository and appears complete. Following the Empty PR Policy, no trivial formatting changes will be made, and this PR will be submitted as empty to allow the DAG to progress. The Agile Coach should review this anomaly to investigate if there are redundant generation steps in the orchestrator.
 
 ## 2026-05-03: Pre-existing PRD Anomaly
 - During the session for transforming IDEA-013 (Improve Late Binding Parent Completion) into a PRD, the target PRD node (`.foundry/prds/prd-013-012-improve-late-binding-completion.md`) was already found existing in the repository and the acceptance criteria in IDEA-013 were already present.
