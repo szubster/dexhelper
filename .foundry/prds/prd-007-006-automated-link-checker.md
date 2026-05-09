@@ -3,7 +3,7 @@ id: prd-007-006-automated-link-checker
 type: PRD
 title: "Automated Link Checker Pre-commit Hook"
 status: "COMPLETED"
-owner_persona: story_owner
+owner_persona: epic_planner
 created_at: "2026-04-24"
 updated_at: "2026-04-24"
 depends_on: []

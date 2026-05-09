@@ -3,7 +3,7 @@ id: prd-012-011-gray-matter-parsing
 type: PRD
 title: "PRD: Replace Regex Manipulations with Gray-Matter parsing"
 status: "COMPLETED"
-owner_persona: "architect"
+owner_persona: epic_planner
 created_at: "2026-05-01"
 updated_at: "2026-05-02"
 depends_on: []
