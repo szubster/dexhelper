@@ -27,3 +27,6 @@
 ## 2026-05-06 - Trade Evolution Held Item Equipped Support
 **Learning:** For Trade evolutions requiring a held item, the item could already be equipped on the Pokemon instead of being in the bag. The assistant was incorrectly suggesting to find the item if it was only equipped and not in the bag.
 **Action:** Modified `EVO_TRIGGER.TRADE` logic to search `evolvableInstances` and `ownedInstances` for the specific item and dynamically update the suggestion if the pre-evolution is already holding it.
+## 2024-05-22 - Suggestion Engine Held Evolution Items
+**Learning:** The suggestion engine previously only checked if a required evolution item (for `EVO_TRIGGER.TRADE` or `EVO_TRIGGER.USE_ITEM`) was in the player's bag or held by the specific pre-evolution being evaluated. If a non-target Pokémon was holding the required item, the assistant would incorrectly suggest finding a new one.
+**Action:** Updated the engine to scan `allInstances` (all Pokémon in party and PC) for the required item. If any Pokémon is holding the needed item, the assistant now correctly suggests taking the item from that Pokémon to evolve the target.

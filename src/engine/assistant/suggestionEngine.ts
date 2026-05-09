@@ -575,13 +575,23 @@ export function generateSuggestions(
         }
       } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
         const gameItemId = getGameItemId(item, saveData.generation);
-        const hasStone = saveData.inventory.some((i) => i.id === gameItemId && i.quantity > 0);
+        const hasStoneInBag = saveData.inventory.some((i) => i.id === gameItemId && i.quantity > 0);
+        const holdingInstance = allInstances.find((inst) => inst.item === gameItemId);
+        const hasStone = hasStoneInBag || !!holdingInstance;
         const itemName = EVO_ITEM_NAMES[item] || 'item';
+
+        let description = `Find a ${itemName} to evolve it.`;
+        if (hasStoneInBag) {
+          description = `Use your ${itemName} to evolve it!`;
+        } else if (holdingInstance) {
+          description = `Take the ${itemName} from your Pokémon to evolve it!`;
+        }
+
         suggestions.push({
           id: `evo-item-${targetId}-${item}`,
           category: 'Evolve',
           title: hasStone ? `Ready to Evolve: #${targetId}!` : `Item Needed: #${targetId}`,
-          description: hasStone ? `Use your ${itemName} to evolve it!` : `Find a ${itemName} to evolve it.`,
+          description,
           pokemonId: targetId,
           priority: hasStone ? 95 : 40,
         });
@@ -589,17 +599,21 @@ export function generateSuggestions(
         if (held) {
           const gameHeldId = getGameItemId(held, saveData.generation);
           const hasHeldItemInBag = saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0);
-          const holdingInstance =
+          const preEvoHoldingInstance =
             evolvableInstances.find((inst) => inst.item === gameHeldId) ||
             ownedInstances.find((inst) => inst.item === gameHeldId);
+          const otherHoldingInstance = allInstances.find((inst) => inst.item === gameHeldId);
+          const holdingInstance = preEvoHoldingInstance || otherHoldingInstance;
           const hasHeldItem = hasHeldItemInBag || !!holdingInstance;
           const itemName = EVO_ITEM_NAMES[held] || 'item';
 
           let description = `Find a ${itemName}, have your pre-evolution hold it, and trade to evolve.`;
-          if (holdingInstance) {
+          if (preEvoHoldingInstance) {
             description = `Your pre-evolution is already holding the ${itemName}! Trade it to evolve!`;
           } else if (hasHeldItemInBag) {
             description = `Have your pre-evolution hold the ${itemName} and trade it to evolve!`;
+          } else if (otherHoldingInstance) {
+            description = `Take the ${itemName} from your other Pokémon, have your pre-evolution hold it, and trade to evolve!`;
           }
 
           suggestions.push({

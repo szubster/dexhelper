@@ -6,6 +6,79 @@ import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
 describe('generateSuggestions', () => {
+  it('should generate suggestion to take held evolution item from another non-target Pokemon', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(208); // Missing Steelix
+    const mockSaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      trainerName: 'ASH',
+      owned: ownedSet, // Owns Onix and Pidgey
+      party: [],
+      pc: [95, 16],
+      inventory: [{ id: 1, quantity: 5 }], // No Metal Coat (id: 0x8f) in bag
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 95, // Onix
+          level: 20,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+          item: 0, // NOT holding Metal Coat
+          otName: 'ASH',
+        },
+        {
+          speciesId: 16, // Pidgey
+          level: 5,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+          item: 0x8f, // Holding Metal Coat!
+          otName: 'ASH',
+        },
+      ],
+    } as unknown as SaveData;
+
+    const mockApiData = {
+      pokemonMetadata: {
+        95: {
+          id: 95,
+          n: 'Onix',
+          cr: 45,
+          baby: false,
+          eto: [{ id: 208, eto: [], det: [{ tr: 2, held: 210 }], ef: 95 }],
+          efrm: [],
+          det: [],
+        },
+        208: {
+          id: 208,
+          n: 'Steelix',
+          cr: 25,
+          baby: false,
+          eto: [],
+          efrm: [95],
+          det: [{ tr: 2, held: 210 }],
+        },
+      },
+      missingEncounters: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const mockStrategy = {
+      ...gen1Strategy,
+      generation: 2,
+    };
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const suggestion = suggestions.find((s) => s.id === 'evo-trade-held-208');
+    expect(suggestion).toBeDefined();
+    expect(suggestion?.title).toBe('Ready to Trade Evolve: #208!');
+    expect(suggestion?.description).toBe(
+      'Take the Metal Coat from your other Pokémon, have your pre-evolution hold it, and trade to evolve!',
+    );
+  });
+
   it('should detect when an evolution item is already equipped for Trade evolutions', () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(208); // Missing Steelix
@@ -421,7 +494,7 @@ describe('generateSuggestions', () => {
     const mockSaveData: SaveData = {
       generation: 2,
       gameVersion: 'gold',
-      owned: new Set([133]), // Owns Eevee (133), missing Espeon (196)
+      owned: new Set([133, ...Array.from({ length: 195 }, (_, i) => i + 1)]), // Owns Eevee (133) and up to 195 so 196 is within first 100 missing
       seen: new Set(),
       party: [],
       inventory: [],
