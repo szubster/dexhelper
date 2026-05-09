@@ -2,12 +2,12 @@
 id: task-042-068-extract-hall-of-fame
 type: TASK
 title: Implement Hall of Fame extraction for Gen 2
-status: "READY"
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-07'
-updated_at: "2026-05-09"
+updated_at: '2026-05-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '567782051579421274'
 pr_number: null
 parent: .foundry/stories/story-026-042-hall-of-fame-roamers.md
 tags:
