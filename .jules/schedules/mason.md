@@ -38,3 +38,5 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 
 Read `.jules/mason.md` before starting (create if missing).
 Log critical learnings: recurring patterns, extraction challenges, or reusable logic wins.
+
+This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating this file.

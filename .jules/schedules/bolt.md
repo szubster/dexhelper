@@ -43,6 +43,8 @@ Identify and implement ONE small performance improvement that makes the applicat
 Read `.jules/bolt.md` before starting (create if missing).
 Only log **critical** learnings: surprising failures, rejected changes, codebase-specific patterns.
 
+This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating this file.
+
 ---
 
 If no clear performance win can be identified, do not create a PR.

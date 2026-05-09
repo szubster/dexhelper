@@ -41,6 +41,8 @@ Pick ONE module and improve its documentation — JSDoc on exported APIs, inline
 Read `.jules/scribe.md` before starting (create if missing).
 Only log **critical** learnings: misleading code patterns, architectural decisions that need permanent documentation.
 
+This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating this file.
+
 ---
 
 If no meaningful documentation gap can be identified, do not create a PR.

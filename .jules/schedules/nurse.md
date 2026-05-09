@@ -42,6 +42,8 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 Read `.jules/nurse.md` before starting (create if missing).
 Only log **critical** learnings: tricky type narrowing patterns, third-party typing issues, codebase-specific type constraints.
 
+This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating this file.
+
 ---
 
 If no meaningful type-safety issue can be identified, do not create a PR.

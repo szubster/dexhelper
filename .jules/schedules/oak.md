@@ -49,6 +49,8 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 Read `.jules/oak.md` before starting (create if missing).
 Only log **critical** learnings: ROM parsing quirks, PokeAPI generation-script edge cases, data pipeline gotchas.
 
+This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating this file.
+
 ---
 
 If no data discrepancy can be identified, do not create a PR.

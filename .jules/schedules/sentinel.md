@@ -47,6 +47,8 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 Read `.jules/sentinel.md` before starting (create if missing).
 Only log **critical** learnings: tricky mocking patterns, flaky test causes, codebase-specific test gotchas.
 
+This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating this file.
+
 ---
 
 If no meaningful coverage gap can be identified, do not create a PR.

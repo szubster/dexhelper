@@ -55,3 +55,5 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 
 Read `.jules/shield.md` before starting (create if missing).
 Only log **critical** learnings: recurring vulnerability patterns or complex security rationales.
+
+This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating this file.

@@ -42,6 +42,8 @@ Find and implement ONE micro-UX improvement that makes the interface more intuit
 Read `.jules/palette.md` before starting (create if missing).
 Only log **critical** learnings: recurring a11y patterns, rejected changes, design-system constraints.
 
+This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating this file.
+
 ---
 
 If no clear UX win can be identified, do not create a PR.
