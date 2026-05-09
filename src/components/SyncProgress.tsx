@@ -3,6 +3,25 @@ import { useEffect, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { cn } from '../utils/cn';
 
+interface SyncProgressDetail {
+  current: number;
+  total: number;
+  stage: string;
+}
+
+function isSyncProgressDetail(detail: unknown): detail is SyncProgressDetail {
+  if (typeof detail !== 'object' || detail === null) return false;
+
+  return (
+    'current' in detail &&
+    typeof (detail as { current: unknown }).current === 'number' &&
+    'total' in detail &&
+    typeof (detail as { total: unknown }).total === 'number' &&
+    'stage' in detail &&
+    typeof (detail as { stage: unknown }).stage === 'string'
+  );
+}
+
 export function SyncProgress() {
   const [progress, setProgress] = useState<{ current: number; total: number; stage: string } | null>(null);
   const [isComplete, setIsComplete] = useState(false);
@@ -23,8 +42,10 @@ export function SyncProgress() {
       .catch(() => console.error('System: sync failed'));
 
     const handleProgress = (event: Event) => {
-      const customEvent = event as CustomEvent<{ current: number; total: number; stage: string }>;
-      const { current, total, stage } = customEvent.detail;
+      if (!(event instanceof CustomEvent)) return;
+      if (!isSyncProgressDetail(event.detail)) return;
+
+      const { current, total, stage } = event.detail;
       setProgress({ current, total, stage });
       setShouldRender(true);
 
