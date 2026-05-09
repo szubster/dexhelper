@@ -421,7 +421,7 @@ describe('generateSuggestions', () => {
     const mockSaveData: SaveData = {
       generation: 2,
       gameVersion: 'gold',
-      owned: new Set([133]), // Owns Eevee (133), missing Espeon (196)
+      owned: new Set([...Array.from({ length: 195 }, (_, i) => i + 1), 133]), // Owns Eevee (133), missing Espeon (196). We pad to 195 so Espeon (196) is in the first 100 missing
       seen: new Set(),
       party: [],
       inventory: [],
@@ -449,7 +449,7 @@ describe('generateSuggestions', () => {
           id: 196,
           eto: [],
           efrm: [133],
-          det: [{ tr: 1, time: 1 }], // Level up, day, no min_h or min_l
+          det: [{ tr: 1, ml: 0, mh: 0, time: 1 }], // Level up, day, no min_h or min_l
         } as unknown as PokemonMetadata,
       },
       ancestralEncounters: {},
