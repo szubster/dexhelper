@@ -59,3 +59,5 @@
 - **2026-05-09**: PR #1094 merged. `epic-019-030-automated-branch-cleanup` is now PENDING.
 
 - **2026-05-09**: PR #1092 merged. `epic-019-030-orchestrator-test-factories` is now PENDING.
+
+- **2026-05-09**: Heartbeat detected zombie session for `task-042-068-extract-hall-of-fame`. Transitioned to FAILED.
