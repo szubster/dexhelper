@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { AlertCircle, CheckCircle2, Monitor, Sparkles, X } from 'lucide-react';
 import React, { useEffect } from 'react';
 import { dexDataLoader } from '../db/DexDataLoader';
-import { type CompactChainLink, POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../db/schema';
+import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../db/schema';
 import { stadiumRewardsSummary } from '../engine/data/shared/staticData';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
@@ -89,7 +89,7 @@ export function PokemonDetails({
     if (!evos || evos.length === 0) return [];
 
     return evos
-      .map((evo: CompactChainLink) => {
+      .map((evo) => {
         const id = evo.id;
         if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
 
