@@ -172,7 +172,7 @@ const METHOD_NAMES: Record<number, string> = {
 
 /**
  * Core recommendation algorithm for the Assistant.
- * Generates actionable suggestions (Catch, Trade, Evolve) for the player based on missing Pokemon.
+ * Aggregates data from the player's save file, Pokédex completion status, and geographic location to generate context-aware suggestions for catching, evolving, or trading Pokémon.
  *
  * @param saveData - The parsed save file containing the player's inventory, current location, and party.
  * @param isLivingDex - If true, checks the box and party for the physical presence of a Pokemon rather than just the 'owned' dex flag.
@@ -182,12 +182,22 @@ const METHOD_NAMES: Record<number, string> = {
  * @returns An object containing an array of unique `Suggestion` objects sorted by priority descending, and a `debug` payload with rejected suggestions.
  *
  * @remarks
- * Priorities are assigned contextually:
- * - Local encounters (same map): ~120
- * - Evolutions ready to trigger (level reached, item owned): ~90-95
- * - Nearby encounters (1-8 areas away): Scales from ~110 down to ~14
- * - NPC Trades (missing offered Pokemon): ~65 (goes up to ~85 if offered Pokemon is owned)
- * - Exclusives / Unobtainables: ~10
+ * **Prioritization Logic:**
+ * Priorities determine the order suggestions appear to the user. Higher priorities (>= 90) represent immediately actionable steps or very close geographical proximity. Lower priorities require more effort or travel.
+ * - **120+ (Catch - Local):** Pokémon available on the exact map the player is currently standing on.
+ * - **90-95 (Evolve - Ready):** Pre-evolutions in the party/PC that have met all conditions (e.g., reached target level, player possesses required evolution stone).
+ * - **85 (Trade/Gift - Ready):** NPC trades where the player already owns the requested Pokémon, or static gifts that are unclaimed and prerequisites met.
+ * - **14-110 (Catch - Nearby):** Pokémon available 1 to 8 map areas away. Priority scales inversely with distance (closer maps score higher).
+ * - **65-80 (Evolve/Trade - Pending):** Pre-evolutions needing more levels/friendship, or NPC trades where the player must first catch the requested Pokémon.
+ * - **10 (Unobtainable):** Version exclusives or choice-locked Pokémon (e.g., fossils) requiring link cable trades.
+ *
+ * **Categories Executed:**
+ * A. Catch logic (Local & Nearby via Graph Traversal)
+ * B. Unobtainable / Exclusive logic
+ * C. In-Game NPC Trades
+ * D. Static Gifts
+ * E. Evolutions (Level, Item, Happiness, Trade)
+ * F. Breeding (Gen 2 Only)
  */
 export function generateSuggestions(
   saveData: SaveData | null,
