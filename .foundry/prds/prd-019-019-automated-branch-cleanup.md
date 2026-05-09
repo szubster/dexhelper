@@ -3,9 +3,9 @@ id: prd-019-019-automated-branch-cleanup
 type: PRD
 title: Automated Branch Cleanup PRD
 status: PENDING
-owner_persona: architect
+owner_persona: epic_planner
 created_at: '2026-05-08'
-updated_at: '2026-05-08'
+updated_at: '2026-05-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
