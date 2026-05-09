@@ -33,4 +33,6 @@ Handle the state transition when an invalid `owner_persona` mapping is detected.
 - [ ] A warning/error is logged.
 
 ## Next Step
-- [ ] Create Task to add failure handling logic.
+- [x] Create Task to add failure handling logic.
+- Spawned Blueprint: [.foundry/tasks/task-039-071-implement-failure-handling.md](.foundry/tasks/task-039-071-implement-failure-handling.md)
+- Spawned QA: [.foundry/tasks/task-039-072-qa-failure-handling.md](.foundry/tasks/task-039-072-qa-failure-handling.md)
