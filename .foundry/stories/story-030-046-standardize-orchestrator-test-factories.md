@@ -2,12 +2,12 @@
 id: story-030-046-standardize-orchestrator-test-factories
 type: STORY
 title: Standardize Orchestrator Test Factories
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-09'
 updated_at: '2026-05-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12325456309828585670'
 pr_number: null
 parent: epic-019-030-orchestrator-test-factories
 tags: []
