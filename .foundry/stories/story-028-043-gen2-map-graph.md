@@ -2,12 +2,12 @@
 id: story-028-043-gen2-map-graph
 type: STORY
 title: 'Phase 3: Gen 2 Map Graph Implementation'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-08'
 updated_at: '2026-05-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14388430703355580194'
 pr_number: null
 parent: .foundry/epics/epic-017-028-map-graph-routing.md
 tags:
