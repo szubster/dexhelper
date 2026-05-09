@@ -19,8 +19,7 @@ Pick ONE module and improve its documentation — JSDoc on exported APIs, inline
 - Keep explanations concise — document *why*, not *what* (the code says what)
 
 **Ask first:**
-- Creating new top-level documentation files
-- Documenting patterns that might change soon
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Modify application logic — documentation and comments only

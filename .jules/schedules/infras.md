@@ -19,8 +19,7 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 - Keep changes focused — one tool or config change at a time
 
 **Ask first:**
-- Swapping a core tool (bundler, test runner, linter)
-- Adding a SaaS dependency
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Duplicate existing tooling — choose the best, replace if needed

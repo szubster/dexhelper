@@ -20,8 +20,7 @@ Find and implement ONE micro-UX improvement that makes the interface more intuit
 - Keep changes under 50 lines
 
 **Ask first:**
-- Changes that affect multiple pages or layout
-- New design tokens or colors
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Complete page redesigns

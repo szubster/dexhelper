@@ -26,8 +26,7 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 - Add or update unit tests to lock in the corrected data
 
 **Ask first:**
-- Changes to the data generation pipeline structure
-- Adding new canonical data sources
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Add runtime PokeAPI calls — the app must work fully offline

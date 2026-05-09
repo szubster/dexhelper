@@ -36,8 +36,7 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - If testing is too complex, provide a detailed rationale in the PR description.
 
 **Ask first:**
-- Upgrading or changing authentication mechanisms.
-- Modifying broad data storage encryption patterns.
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Ignore CWE-209 guidelines; always redact raw error objects in logs.
