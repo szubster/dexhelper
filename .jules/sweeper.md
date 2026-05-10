@@ -33,3 +33,7 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 
 **Learning:** Sometime `knip` gives false positives on exports only used within the file itself. Setting `ignoreExportsUsedInFile` in `knip.json` safely resolves this issue. When refactoring massive functions, splitting them into logical helpers greatly reduces complexity while retaining the exact same functional output. Avoid configuring `knip` or any linter by globally disabling core rules, as it degrades codebase health. Ensure that disposable scripts are deleted before committing code.
 ## 2026-06-07 - Knip dependency resolution\n\n**Learning:** Sometime a dependency or file may no longer need to be explicitly ignored in `knip.json` because `knip` successfully figures out the usage. \n**Action:** Pay attention to configuration hints in `knip` to remove `bundlemon` and `gray-matter` from `knip.json` `ignoreDependencies`.
+
+## 2026-06-25 - Handling False Positives in Code Health Tasks
+**Learning:** Sometimes, an automated code health task may request fixes for issues (like an unused import) that have already been resolved on the `main` branch.
+**Action:** Always verify the issue exists on the current branch using `grep` or `read_file` before making modifications. If the file is already in the ideal state, do not artificially introduce changes. Instead, follow the empty PR policy, documenting why no changes were required, and ensure the test suite still passes to guarantee stability.
