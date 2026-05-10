@@ -2,13 +2,13 @@
 id: story-030-047-branch-cleanup-mechanism
 type: STORY
 title: Branch Cleanup Mechanism Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-10'
 updated_at: '2026-05-10'
 depends_on:
   - story-030-046-branch-identification
-jules_session_id: null
+jules_session_id: '3844972815527455338'
 pr_number: null
 parent: epic-019-030-automated-branch-cleanup
 tags:
