@@ -11,11 +11,10 @@ describe('gen2Exclusives', () => {
         expect(reason).toContain('not available in Silver');
       });
 
-      it('should lock Caterpie (10) in Silver', () => {
+      it('should not lock Caterpie (10) in Silver', () => {
         const ownedSet = new Set<number>();
         const reason = getGen2UnobtainableReason(10, 'silver', 0, ownedSet);
-        expect(typeof reason).toBe('string');
-        expect(reason).toContain('not available in Silver');
+        expect(reason).toBeNull();
       });
 
       it('should not lock Caterpie (10) in Gold', () => {
@@ -46,11 +45,10 @@ describe('gen2Exclusives', () => {
         expect(reason).toContain('not available in Gold');
       });
 
-      it('should lock Weedle (13) in Gold', () => {
+      it('should not lock Weedle (13) in Gold', () => {
         const ownedSet = new Set<number>();
         const reason = getGen2UnobtainableReason(13, 'gold', 0, ownedSet);
-        expect(typeof reason).toBe('string');
-        expect(reason).toContain('not available in Gold');
+        expect(reason).toBeNull();
       });
 
       it('should not lock Weedle (13) in Silver', () => {
