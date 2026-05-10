@@ -86,3 +86,8 @@ Documenting these mechanical quirks is essential for future maintainability of t
 *   **Missing API Data (`scripts/generate-pokedata.ts`)**: PokeAPI explicitly misses the Gen 2 Bug Catching Contest encounters. These must be manually injected into National Park mapping for accuracy.
 *   **Graph Precomputation (`scripts/generate-pokedata.ts`)**: The All-Pairs Shortest Paths for the map UI are precalculated using the Floyd-Warshall algorithm at build-time to maintain `O(1)` runtime lookup performance and prevent UI thread locking during suggestions.
 *   **Assembly Map Constants (`scripts/generateMapLocations.ts`)**: Deciphering the actual internal name and structure of locations requires pulling directly from Game Boy assembly files (`.asm`) in `pret` repositories, as this preserves the precise byte mappings used in `.sav` structures.
+
+## 2025-05-22 - Suggestion Engine Core Orchestration
+
+**What:** Added JSDoc for `generateSuggestions` in `src/engine/assistant/suggestionEngine.ts`.
+**Why:** `generateSuggestions` is the most important function in the Assistant engine. It was lacking documentation explaining its synchronous nature, its reliance on pre-fetched IndexedDB data (via `fetchAssistantApiData`), and its use of O(1) Sets and Maps to prevent UI thread blockage when processing arrays of suggestions. Documenting this architectural contract prevents future maintainers from accidentally introducing asynchronous fetching or O(N^2) array traversals into this critical path.
