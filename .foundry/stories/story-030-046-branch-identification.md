@@ -23,6 +23,11 @@ notes: ''
 Implement logic to safely identify branches associated with `FAILED` or `CANCELLED` task nodes.
 
 ## Acceptance Criteria
-- [ ] Logic exists to successfully identify branches corresponding to `FAILED` or `CANCELLED` Foundry nodes.
-- [ ] Safety checks prevent deletion of `main`, active PR branches, or branches associated with `PENDING`, `READY`, `ACTIVE`, or `COMPLETED` nodes.
-- [ ] Tests verify the branch identification logic (with mocked Git/GitHub API calls).
+- [x] Logic exists to successfully identify branches corresponding to `FAILED` or `CANCELLED` Foundry nodes.
+- [x] Safety checks prevent deletion of `main`, active PR branches, or branches associated with `PENDING`, `READY`, `ACTIVE`, or `COMPLETED` nodes.
+- [x] Tests verify the branch identification logic (with mocked Git/GitHub API calls).
+
+
+### Tasks
+- [.foundry/tasks/task-046-073-implement-branch-identification.md](.foundry/tasks/task-046-073-implement-branch-identification.md)
+- [.foundry/tasks/task-046-074-qa-branch-identification.md](.foundry/tasks/task-046-074-qa-branch-identification.md)
