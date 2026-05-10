@@ -49,3 +49,7 @@
 **Learning:** Configured `coverage` blocks in `vitest.config.ts` to exclusively `include: ['src/**/*.ts', 'src/**/*.tsx']` and explicitly `exclude: ['**/*.json']`. This stops `rolldown` (used by `@vitest/coverage-v8`) from attempting to parse statically imported `.json` files as modules, which caused noisy syntax errors during `pnpm test --coverage` runs and broke test suite exits.
 Critical learnings:
 - Removed `syncPromise` and `_resetSync` from `src/db/PokeDB.ts` completely to eliminate caching and rely exclusively on dataloader/react-query, which also successfully resolves the hanging Vitest process in the `node` test suite, preventing issues caused by dangling unhandled promises or unclosed requests.
+
+## 2026-05-10 - Added sort-package-json
+**Learning:** Added `sort-package-json` to the pipeline via `devDependencies` and `lefthook.yml` to automatically sort `package.json` locally. Note: Biome currently does not natively sort `package.json` correctly. We did not add it to the `pnpm lint` script as it currently modifies files instead of just checking them.
+- **Updated**: Added `lint:package-json` with `--check` flag to the `lint` command to enforce that `package.json` stays correctly sorted in CI pipelines.

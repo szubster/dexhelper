@@ -1,35 +1,31 @@
 {
   "name": "dexhelper",
-  "private": true,
   "version": "0.0.0",
-  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
-  "engines": {
-    "node": ">=22.0.0",
-    "pnpm": ">=10.33.0"
-  },
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --port=3000 --host=0.0.0.0",
-    "data:gen": "node --experimental-strip-types scripts/generate-pokedata.ts",
-    "data:gen-maps": "node --experimental-strip-types scripts/generateMapLocations.ts",
     "build": "vite build",
     "build:analyze": "ANALYZE=true vite build",
-    "preview": "vite preview",
+    "check:biome": "biome check --error-on-warnings .",
+    "check:fix": "biome check --write --unsafe .",
     "clean": "rm -rf dist",
-    "lint": "pnpm type-check && pnpm check:biome && pnpm exec oxlint --type-aware --type-check --import-plugin --promise-plugin . && pnpm knip",
+    "data:gen": "node --experimental-strip-types scripts/generate-pokedata.ts",
+    "data:gen-maps": "node --experimental-strip-types scripts/generateMapLocations.ts",
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "format:biome": "biome format .",
+    "postinstall": "lefthook install",
+    "knip": "knip",
+    "lint": "pnpm type-check && pnpm check:biome && pnpm exec oxlint --type-aware --type-check --import-plugin --promise-plugin . && pnpm knip && pnpm lint:package-json",
+    "lint:biome": "biome lint --error-on-warnings .",
+    "lint:package-json": "sort-package-json --check",
+    "preview": "vite preview",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:watch": "vitest",
+    "test:ct": "vitest --project browser",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:ct": "vitest --project browser",
-    "lint:biome": "biome lint --error-on-warnings .",
-    "format:biome": "biome format .",
-    "check:biome": "biome check --error-on-warnings .",
-    "type-check": "tsc --noEmit",
-    "check:fix": "biome check --write --unsafe .",
-    "postinstall": "lefthook install",
-    "knip": "knip"
+    "test:watch": "vitest",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.100.9",
@@ -74,6 +70,7 @@
     "oxlint-tsgolint": "^0.22.1",
     "playwright": "^1.59.1",
     "rollup-plugin-visualizer": "^7.0.1",
+    "sort-package-json": "^3.6.1",
     "tailwindcss": "4.2.4",
     "typescript": "~6.0.3",
     "vite": "^8.0.11",
@@ -81,14 +78,19 @@
     "vitest": "^4.1.5",
     "vitest-browser-react": "^2.2.0"
   },
+  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.33.0"
+  },
   "pnpm": {
-    "overrides": {
-      "serialize-javascript": ">=7.0.5"
-    },
     "onlyBuiltDependencies": [
       "esbuild",
       "lefthook",
       "sharp"
-    ]
+    ],
+    "overrides": {
+      "serialize-javascript": ">=7.0.5"
+    }
   }
 }
