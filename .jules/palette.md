@@ -51,6 +51,7 @@
 **Action:** Ensure custom segmented controls have `role="radio"` and `aria-checked` on the buttons, and that they use the correct tag, such as `<button>` with `oxlint-disable jsx-a11y/prefer-tag-over-role` and `biome-ignore lint/a11y/useSemanticElements` if styling constraints forbid native radio inputs.
 
 
+
 ## 2024-05-21 - Added tooltips to interactive card elements
 **Learning:** For accessibility and micro-UX, interactive card elements that act as links or triggers must provide a `title` attribute for sighted users alongside the `aria-label` for screen readers.
 **Action:** When creating or modifying card components that handle click events (e.g. `TacticalCard`), ensure they accept and render a `title` prop matching their `aria-label`.
