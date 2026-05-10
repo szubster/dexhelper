@@ -2,13 +2,13 @@
 id: task-042-069-qa-hall-of-fame-roamers
 type: TASK
 title: 'QA: Hall of Fame & Roamers Extraction'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-06'
 updated_at: '2026-05-10'
 depends_on:
   - .foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md
-jules_session_id: null
+jules_session_id: '17175593280379824657'
 pr_number: null
 parent: .foundry/stories/story-026-042-hall-of-fame-roamers.md
 tags:
