@@ -36,3 +36,7 @@ The coder has refactored `.github/scripts/foundry-heartbeat.ts` to use `gray-mat
 ## Acceptance Criteria
 - [ ] Code review confirms no regex mutations are used for frontmatter.
 - [ ] Tests pass.
+
+
+### QA Validation Failure
+Validation failed: The `foundry-heartbeat.ts` script still contains regex mutations for frontmatter parsing and was not refactored to use `gray-matter` as required by task-043-073.
