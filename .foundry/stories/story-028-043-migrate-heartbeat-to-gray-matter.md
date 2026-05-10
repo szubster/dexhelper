@@ -32,4 +32,8 @@ In `.github/scripts/foundry-heartbeat.ts`, we currently use fragile regex patter
 5. Ensure that the original markdown body is preserved during `matter.stringify()`.
 
 ## Acceptance Criteria
-- [ ] Tasks are outlined and delegated.
+- [x] Tasks are outlined and delegated.
+
+### Child Tasks:
+- [.foundry/tasks/task-043-073-refactor-heartbeat-matter.md](.foundry/tasks/task-043-073-refactor-heartbeat-matter.md)
+- [.foundry/tasks/task-043-074-qa-refactor-heartbeat-matter.md](.foundry/tasks/task-043-074-qa-refactor-heartbeat-matter.md)
