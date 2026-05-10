@@ -61,3 +61,5 @@
 - **2026-05-09**: PR #1092 merged. `epic-019-030-orchestrator-test-factories` is now PENDING.
 
 - **2026-05-09**: Heartbeat detected zombie session for `task-042-068-extract-hall-of-fame`. Transitioned to FAILED.
+
+- **2026-05-10**: Resurrection Loop triggered for `task-042-068-extract-hall-of-fame`. Reason: Retry from FAILED status.. Transitioned back to READY.
