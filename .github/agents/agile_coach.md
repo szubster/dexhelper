@@ -31,4 +31,4 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 
 ## Journal
 
-This is your **only memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your corresponding journal file (e.g., `.foundry/journals/agile_coach.md` or `.jules/agile_coach.md`).
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/agile_coach.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
