@@ -623,6 +623,24 @@ function generateEvolutionAndBreedingSuggestions(
   });
 }
 
+/**
+ * The core orchestration function for the Assistant recommendation engine.
+ *
+ * This function processes the player's current save state and identifies up to 100 missing Pokémon
+ * in the Pokédex (or Living Dex). It then delegates out to several categorical sub-generators
+ * (Catch, Gift, Trade, Evolution, Breed) to aggregate actionable advice on how to obtain them.
+ *
+ * It is fully synchronous and relies on `fetchAssistantApiData` having already loaded all required
+ * mapping and metadata into memory (passed via `apiData`). It extensively uses Sets and Map caching
+ * internally to maintain O(1) lookups during array processing, preventing UI thread blockage.
+ *
+ * @param saveData - The parsed save data.
+ * @param isLivingDex - Whether the engine should recommend catching duplicates for a Living Dex.
+ * @param manualVersion - An optional version override provided by the user.
+ * @param apiData - The pre-fetched data from IndexedDB (locations, encounters, etc.).
+ * @param strategy - The generation-specific logic implementation (e.g. Gen 1 vs Gen 2 mechanical differences).
+ * @returns An object containing an ordered array of deduplicated, prioritized `Suggestion`s and debug information.
+ */
 export function generateSuggestions(
   saveData: SaveData | null,
   isLivingDex: boolean,
