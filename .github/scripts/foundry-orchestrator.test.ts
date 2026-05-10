@@ -885,6 +885,38 @@ jules_session_id: null`);
     expect(result).toContain('status: READY');
   });
 
+  test('Depends-On-ID Resolution: resolves dependencies using node ID', () => {
+    createNode('.foundry/tasks/task-001.md', `
+id: task-001
+type: TASK
+title: "Task 1"
+status: COMPLETED
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+`);
+
+    createNode('.foundry/tasks/task-002.md', `
+id: task-002
+type: TASK
+title: "Task 2"
+status: PENDING
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on:
+  - task-001
+jules_session_id: null
+`);
+
+    main();
+
+    const task2Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
+    expect(task2Content).toContain('status: READY');
+  });
+
 
   test('Wait and Wake: ACTIVE node transitions to PENDING when new incomplete dependency is added', () => {
     createNode('.foundry/tasks/task-incomplete.md', `id: task-incomplete
