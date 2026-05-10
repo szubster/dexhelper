@@ -24,3 +24,6 @@
 
 ## Adding New Security Audit Vectors
 **Pattern:** Added XML External Entity (XXE) injection and `DOMParser` scanning as new scan vectors to the scheduled prompt (`.jules/schedules/shield.md`). This expands the automated security checks to cover potential vulnerabilities when parsing XML inputs.
+
+## Adding New Security Audit Vectors
+**Pattern:** Added Timing Attacks and Hardcoded Secrets checking as new scan vectors to the scheduled prompt (`.jules/schedules/shield.md`). This expands the automated security checks to cover potential vulnerabilities related to string comparison timing and leaked credentials in source code.
