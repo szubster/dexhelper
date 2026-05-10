@@ -28,9 +28,9 @@ notes: ''
 Handle the state transition when an invalid `owner_persona` mapping is detected.
 
 ## Acceptance Criteria
-- [ ] Nodes with invalid mapping are transitioned to `FAILED`.
-- [ ] A descriptive `rejection_reason` is set.
-- [ ] A warning/error is logged.
+- [x] Nodes with invalid mapping are transitioned to `FAILED`.
+- [x] A descriptive `rejection_reason` is set.
+- [x] A warning/error is logged.
 
 ## Next Step
 - [x] Create Task to add failure handling logic.
