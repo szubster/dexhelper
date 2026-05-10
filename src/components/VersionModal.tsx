@@ -3,6 +3,7 @@ import type { GameVersion } from '../store';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { TelemetryDecoration } from './TelemetryDecoration';
 
 export function VersionModal() {
   const isVersionModalOpen = useStore((s) => s.isVersionModalOpen);
@@ -22,9 +23,11 @@ export function VersionModal() {
         <CornerCrosshairs className="h-2 w-2 border-zinc-600" />
 
         {/* Telemetry decoration */}
-        <div className="absolute top-0 left-4 flex gap-1 rounded-b border border-zinc-800 border-t-0 border-dashed bg-zinc-950 px-3 py-1 font-black text-[8px] text-amber-600 tracking-widest">
-          <span className="animate-pulse text-amber-500">●</span> SYS.VERSION_CONFLICT
-        </div>
+        <TelemetryDecoration
+          label="SYS.VERSION_CONFLICT"
+          className="top-0 left-4 bg-zinc-950 text-amber-600"
+          dotClassName="text-amber-500"
+        />
 
         <div className="flex flex-col items-center border-zinc-800 border-b border-dashed p-8 pt-10 text-center">
           <div className="mb-4 inline-flex border border-amber-500/20 border-dashed bg-amber-500/10 p-3">

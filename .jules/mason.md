@@ -23,3 +23,9 @@
 - Pattern: Many components used the same `glass-card` CSS class with varied tailwind colored background/border opacity patterns (e.g. `border-emerald-500/10 bg-emerald-500/5`).
 - Challenge: Determining the base variants. Handled by passing a string prop mapping to the common tailwind combinations.
 - Win: Centralized styling logic, eliminated redundant classes across multiple `PokemonDetails` subcomponents.
+## TelemetryDecoration Extraction
+- Identified a recurring JSX pattern for the "SYS.[SOMETHING]" or "LINK_ACTIVE" telemetry labels found at the edges of modals or nav bars.
+- These labels use absolute positioning, standard dashed borders, custom padding, tracking, and an animated pulsing dot.
+- Extracted `TelemetryDecoration` into `src/components/TelemetryDecoration.tsx` to encapsulate this logic.
+- **Key Learnings**:
+  - The `cn` utility is very effective for overriding base tailwind classes in reusable components. For instance, `BottomNav` flips the border rounding (`rounded-t` instead of `rounded-b`) and `VersionModal` alters the standard text colors using `className` and `dotClassName` props, showing the value of granular styling overrides in standard components.
