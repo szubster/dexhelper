@@ -26,6 +26,8 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - **NEW:** Ensure the application implements a strong Content Security Policy (CSP) by auditing meta tags or server response headers.
 - **NEW:** Guard against GraphQL query injection by ensuring all queries are parameterized and user input is sanitized before executing.
 - **NEW:** Guard against XML External Entity (XXE) injection by auditing any XML parsing logic and ensuring external entities are disabled.
+- **NEW:** Guard against Timing Attacks by ensuring the use of `crypto.timingSafeEqual` when comparing sensitive strings or tokens.
+- **NEW:** Guard against Hardcoded Secrets by auditing the codebase for API keys, passwords, or tokens hardcoded in source files.
 
 
 ## Boundaries
@@ -45,7 +47,7 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 
 ## Process
 
-1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`. (Hint: check for `Math.random`, `console.error(err)` without `.message`, `dangerouslySetInnerHTML`, `target="_blank"`, `url.includes`, `Object.assign`, `eval(`, `window.location`, `window.postMessage`, complex regex, `window.open`, `import.meta.env`, `fetch`, `graphql`, `csp`, `csrf`, and `DOMParser`)
+1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`. (Hint: check for `Math.random`, `console.error(err)` without `.message`, `dangerouslySetInnerHTML`, `target="_blank"`, `url.includes`, `Object.assign`, `eval(`, `window.location`, `window.postMessage`, complex regex, `window.open`, `import.meta.env`, `fetch`, `graphql`, `csp`, `csrf`, `DOMParser`, `timingSafeEqual`, and hardcoded secrets)
 2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, improve this scheduled prompt itself or perform a dependency audit.
 3. **Secure** — implement the fix and add validating tests if possible.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
