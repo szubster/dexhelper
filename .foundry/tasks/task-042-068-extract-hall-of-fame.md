@@ -32,5 +32,5 @@ Update the Gen 2 save parser (`src/engine/saveParser/parsers/gen2.ts`) to extrac
 - Write unit tests using the existing `gold.sav` and `crystal.sav` fixtures.
 
 ## Acceptance Criteria
-- [ ] `gen2.ts` correctly extracts the Hall of Fame count.
-- [ ] Tests verify the extraction logic.
+- [x] `gen2.ts` correctly extracts the Hall of Fame count.
+- [x] Tests verify the extraction logic.

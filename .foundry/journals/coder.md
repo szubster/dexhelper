@@ -42,3 +42,11 @@ The target artifact already exists and is complete. The cascading cancellation l
 ## task-038-064-implement-mapping-validation
 
 The mapping validation logic and unit tests are already implemented. Submitting empty PR as per EMPTY PR POLICY.
+
+## 2026-05-10
+### Gen 2 Hall of Fame Parsing
+- We discovered that the generic save file structure documentation is slightly inaccurate for some elements compared to RAM mapping.
+- While `wJohtoBadges` and `wHallOfFameCount` are 0x20 lines apart in the disassembly, the actual byte delta involves the TM/HMs (57 bytes), items (41 bytes), key items (26 bytes), balls (25 bytes), and PC items (101 bytes).
+- The total delta is `0xA8` (168) bytes.
+- Using the confirmed `johtoBadgesOffset` inside `gen2.ts` (`0x23E4` for GS, `0x23E5` for Crystal), we calculate `hallOfFameCountOffset` as `johtoBadgesOffset + 0xA8`.
+- Extracting this 1-byte integer correctly gives the amount of Hall of Fame clears.

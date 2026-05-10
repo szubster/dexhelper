@@ -280,6 +280,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
 
   const johtoBadgesOffset = isCrystal ? 0x23e5 : 0x23e4;
   const kantoBadgesOffset = isCrystal ? 0x23e6 : 0x23e5;
+  const hallOfFameCountOffset = johtoBadgesOffset + 0xa8;
 
   // Daycare Gen 2
   const daycare1Offset = isCrystal ? 0x282c : 0x2850;
@@ -401,6 +402,6 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     daycare,
     daycareHasEgg,
     currentBoxCount: 0,
-    hallOfFameCount: 0,
+    hallOfFameCount: view.getUint8(hallOfFameCountOffset),
   };
 }

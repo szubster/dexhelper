@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { isGen2Save, parseGen2 } from './gen2';
 
@@ -201,6 +202,28 @@ describe('gen2 parsers', () => {
       expect(data.badges).toBe(2);
       expect(data.currentMapName).not.toBe('Unknown Map');
       // If the map is in gen2MapLocations, it will have a name. Otherwise it should fall back safely without crashing.
+    });
+  });
+
+  describe('hall of fame extraction', () => {
+    it('extracts hall of fame from GS', () => {
+      const buffer = new Uint8Array(fs.readFileSync('tests/fixtures/gold.sav'));
+      // johtoBadgesOffset in GS is 0x23E4
+      // hallOfFameCountOffset = 0x23E4 + 0xA8 = 0x248C
+      buffer[0x248c] = 42;
+      const view = new DataView(buffer.buffer);
+      const parsed = parseGen2(view);
+      expect(parsed.hallOfFameCount).toBe(42);
+    });
+
+    it('extracts hall of fame from Crystal', () => {
+      const buffer = new Uint8Array(fs.readFileSync('tests/fixtures/crystal.sav'));
+      // johtoBadgesOffset in Crystal is 0x23E5
+      // hallOfFameCountOffset = 0x23E5 + 0xA8 = 0x248D
+      buffer[0x248d] = 99;
+      const view = new DataView(buffer.buffer);
+      const parsed = parseGen2(view);
+      expect(parsed.hallOfFameCount).toBe(99);
     });
   });
 });
