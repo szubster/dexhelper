@@ -26,9 +26,7 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 - Add or update unit tests to lock in the corrected data
 
 **Ask first:**
-- Changes to the data generation pipeline structure
-- Adding new canonical data sources
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Add runtime PokeAPI calls — the app must work fully offline
 - Change the data format or schema without justification
@@ -47,6 +45,7 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 ## Journal
 
 Read `.jules/oak.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Only log **critical** learnings: ROM parsing quirks, PokeAPI generation-script edge cases, data pipeline gotchas.
 
 ---

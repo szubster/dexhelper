@@ -25,9 +25,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 - Keep each PR focused on one file or one user journey
 
 **Ask first:**
-- Adding new test dependencies or helpers
-- Changing existing test infrastructure
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Modify application source code — tests only
 - Skip running the full suite to verify nothing broke
@@ -45,6 +43,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 ## Journal
 
 Read `.jules/sentinel.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Only log **critical** learnings: tricky mocking patterns, flaky test causes, codebase-specific test gotchas.
 
 ---

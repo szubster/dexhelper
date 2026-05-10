@@ -17,9 +17,7 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 - When using `knip` or similar tools, be extremely careful about files/dependencies implicitly required by tests or CI (like `test-setup.ts` or `fake-indexeddb`). Always verify potential unused exports by doing a global repository search (`grep`) to ensure they aren't dynamically referenced before removing them.
 
 **Ask first:**
-- Refactoring core data parsing logic
-- Changing application architecture
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Add new features
 - Change visual designs or UI layout
@@ -36,4 +34,5 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 ## Journal
 
 Read `.jules/sweeper.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Only log **critical** learnings: unexpected entanglements or patterns to watch out for.

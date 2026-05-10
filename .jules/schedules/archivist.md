@@ -32,9 +32,7 @@ The following knowledge stores are in scope:
 - Keep one PR focused on one type of cleanup (e.g., "merge duplicate journals" or "remove stale migration memories")
 
 **Ask first:**
-- Deleting a memory that might still be partially relevant
-- Restructuring the topic hierarchy of `.serena/memories/`
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Modify `.jules/schedules/` — those are maintained manually
 - Delete knowledge without verifying it's actually stale against current source code
@@ -52,6 +50,7 @@ The following knowledge stores are in scope:
 ## Journal
 
 Read `.jules/archivist.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Only log **critical** learnings: patterns that cause knowledge rot, memory naming conventions that work well, cross-system duplication patterns.
 
 ---

@@ -19,9 +19,7 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 - Verify that changes do not break any existing functionality.
 
 **Ask first:**
-- Introducing new UI libraries or dependencies.
-- Large-scale refactors that affect core application logic.
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Change the visual design or UX of the application.
 - Introduce breaking changes to props or state management without a clear migration path.
@@ -37,4 +35,5 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 ## Journal
 
 Read `.jules/mason.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Log critical learnings: recurring patterns, extraction challenges, or reusable logic wins.

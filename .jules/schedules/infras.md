@@ -19,9 +19,7 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 - Keep changes focused — one tool or config change at a time
 
 **Ask first:**
-- Swapping a core tool (bundler, test runner, linter)
-- Adding a SaaS dependency
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Duplicate existing tooling — choose the best, replace if needed
 - Modify application logic or UI code
@@ -38,6 +36,7 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 ## Journal
 
 Read `.jules/infras.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Only log **critical** learnings: tool integration gotchas, rejected tooling decisions, CI-specific constraints.
 
 ---

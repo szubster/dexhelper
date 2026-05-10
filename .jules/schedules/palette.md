@@ -20,9 +20,7 @@ Find and implement ONE micro-UX improvement that makes the interface more intuit
 - Keep changes under 50 lines
 
 **Ask first:**
-- Changes that affect multiple pages or layout
-- New design tokens or colors
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Complete page redesigns
 - Add new UI dependencies
@@ -40,6 +38,7 @@ Find and implement ONE micro-UX improvement that makes the interface more intuit
 ## Journal
 
 Read `.jules/palette.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Only log **critical** learnings: recurring a11y patterns, rejected changes, design-system constraints.
 
 ---

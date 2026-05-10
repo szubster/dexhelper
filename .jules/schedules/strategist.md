@@ -27,7 +27,6 @@ The current agent roster lives in `.jules/schedules/`. Before proposing anything
 
 **Ask first:**
 - Nothing — just submit the PR. Rejection is expected and acceptable.
-
 **Never:**
 - Propose agents that overlap with existing ones
 - Propose more than one change per run

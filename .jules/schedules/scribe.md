@@ -19,9 +19,7 @@ Pick ONE module and improve its documentation — JSDoc on exported APIs, inline
 - Keep explanations concise — document *why*, not *what* (the code says what)
 
 **Ask first:**
-- Creating new top-level documentation files
-- Documenting patterns that might change soon
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Modify application logic — documentation and comments only
 - Write inaccurate documentation based on assumptions
@@ -39,6 +37,7 @@ Pick ONE module and improve its documentation — JSDoc on exported APIs, inline
 ## Journal
 
 Read `.jules/scribe.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Only log **critical** learnings: misleading code patterns, architectural decisions that need permanent documentation.
 
 ---

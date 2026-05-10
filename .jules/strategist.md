@@ -84,3 +84,8 @@
 **Outcome:** Accepted
 **Why:** The Bolt agent's journal showed it repeatedly optimizing CI pipelines, fixing DAG orchestrator bugs, and updating tooling configs (Biome, Vite, Vitest) instead of its domain of application performance.
 **Pattern:** Performance agents can easily drift into pipeline/tooling optimizations if their boundaries don't explicitly exclude infrastructure and CI/CD files.
+## 2026-06-08 - [Accepted] - Prompt improvement - Ensure autonomous Ask first and explicit memory instructions for all agents
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The memory provided explicitly stated: "To keep Jules personas autonomous and prevent them from asking for input too often, their `**Ask first:**` section must explicitly state: '- Nothing — just submit the PR. Rejection is expected and acceptable.'" and "To ensure agent personas retain cross-session context, their schedule prompts must explicitly instruct them that their journal is their ONLY memory, and that they MUST generate a memory by updating this file." Many agents were violating these rules by having custom Ask First sections and lacking the explicit ONLY memory instruction.
+**Pattern:** System memory constraints must be enforced across all schedule prompts to prevent them from becoming obsolete or creating friction.

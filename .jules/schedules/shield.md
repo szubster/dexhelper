@@ -36,9 +36,7 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - If testing is too complex, provide a detailed rationale in the PR description.
 
 **Ask first:**
-- Upgrading or changing authentication mechanisms.
-- Modifying broad data storage encryption patterns.
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Ignore CWE-209 guidelines; always redact raw error objects in logs.
 - Use `crypto-js` or similar third-party crypto dependencies.
@@ -54,4 +52,5 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 ## Journal
 
 Read `.jules/shield.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Only log **critical** learnings: recurring vulnerability patterns or complex security rationales.

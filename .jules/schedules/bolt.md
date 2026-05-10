@@ -20,9 +20,7 @@ Identify and implement ONE small performance improvement that makes the applicat
 - Keep changes under 50 lines
 
 **Ask first:**
-- Adding or swapping dependencies
-- Architectural changes
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Modify `package.json` or `tsconfig.json` without instruction
 - Introduce breaking changes
@@ -41,6 +39,7 @@ Identify and implement ONE small performance improvement that makes the applicat
 ## Journal
 
 Read `.jules/bolt.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Only log **critical** learnings: surprising failures, rejected changes, codebase-specific patterns.
 
 ---

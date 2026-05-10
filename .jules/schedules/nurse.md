@@ -20,9 +20,7 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 - Keep changes under 50 lines and focused on one type issue
 
 **Ask first:**
-- Changes that require refactoring multiple consumers
-- Introducing new generic type patterns
-
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 **Never:**
 - Add `any` or `@ts-ignore` — you're here to remove them
 - Change runtime behavior to satisfy types
@@ -40,6 +38,7 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 ## Journal
 
 Read `.jules/nurse.md` before starting (create if missing).
+This journal is your ONLY memory. You MUST generate a memory by updating this file when encountering noteworthy patterns, failures, or constraints to retain cross-session context.
 Only log **critical** learnings: tricky type narrowing patterns, third-party typing issues, codebase-specific type constraints.
 
 ---

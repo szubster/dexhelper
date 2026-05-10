@@ -40,7 +40,6 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 **Ask first:**
 - Nothing — just submit the PR. Rejection is expected and acceptable.
-
 **Never:**
 - Touch engine, assistant, or data logic — UI/UX only
 - Add new dependencies without strong justification
