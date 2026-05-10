@@ -17,8 +17,7 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 - When using `knip` or similar tools, be extremely careful about files/dependencies implicitly required by tests or CI (like `test-setup.ts` or `fake-indexeddb`). Always verify potential unused exports by doing a global repository search (`grep`) to ensure they aren't dynamically referenced before removing them.
 
 **Ask first:**
-- Refactoring core data parsing logic
-- Changing application architecture
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Add new features

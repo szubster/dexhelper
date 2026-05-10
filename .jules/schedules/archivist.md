@@ -32,8 +32,7 @@ The following knowledge stores are in scope:
 - Keep one PR focused on one type of cleanup (e.g., "merge duplicate journals" or "remove stale migration memories")
 
 **Ask first:**
-- Deleting a memory that might still be partially relevant
-- Restructuring the topic hierarchy of `.serena/memories/`
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Modify `.jules/schedules/` — those are maintained manually

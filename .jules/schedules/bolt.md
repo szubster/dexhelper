@@ -20,8 +20,7 @@ Identify and implement ONE small performance improvement that makes the applicat
 - Keep changes under 50 lines
 
 **Ask first:**
-- Adding or swapping dependencies
-- Architectural changes
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Modify `package.json` or `tsconfig.json` without instruction

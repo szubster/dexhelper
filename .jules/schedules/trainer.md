@@ -19,8 +19,7 @@ Identify and implement ONE improvement to the assistant — the core feature tha
 - Keep changes focused — one algorithm or UI improvement at a time
 
 **Ask first:**
-- Changes to the recommendation algorithm's core strategy
-- New data sources beyond save files and the committed `data/` directory
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Make runtime calls to PokeAPI — the app must work fully offline

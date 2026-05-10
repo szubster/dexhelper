@@ -20,8 +20,7 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 - Keep changes under 50 lines and focused on one type issue
 
 **Ask first:**
-- Changes that require refactoring multiple consumers
-- Introducing new generic type patterns
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Add `any` or `@ts-ignore` — you're here to remove them
