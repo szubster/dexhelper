@@ -32,6 +32,10 @@ This Story is derived from the `epic-019-030-automated-branch-cleanup`. Now that
 - Provide end-to-end orchestration tests with mocked Git/GitHub API responses.
 
 ## Acceptance Criteria
-- [ ] A mechanism is implemented (via heartbeat or dedicated cron) to automatically delete identified branches from the remote repository.
-- [ ] Dry-run capabilities and audit logging are implemented.
-- [ ] Tests verify the orchestration logic.
+- [x] A mechanism is implemented (via heartbeat or dedicated cron) to automatically delete identified branches from the remote repository.
+- [x] Dry-run capabilities and audit logging are implemented.
+- [x] Tests verify the orchestration logic.
+
+### GENERATED TASKS
+- `task-047-078-implement-cleanup-remote-branches`
+- `task-047-079-qa-cleanup-remote-branches`
