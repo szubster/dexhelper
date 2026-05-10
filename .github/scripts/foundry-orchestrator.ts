@@ -373,12 +373,12 @@ function main(): void {
   }
 
   /**
-   * Helper to resolve a parent reference (either ID or path) to a repo-relative path.
+   * Helper to resolve a node reference (either ID or path) to a repo-relative path.
    */
-  function resolveParentPath(parentRef: string | null | undefined): string | null {
-    if (!parentRef) return null;
-    if (idToPathMap.has(parentRef)) return idToPathMap.get(parentRef)!;
-    return parentRef;
+  function resolveNodePath(ref: string | null | undefined): string | null {
+    if (!ref) return null;
+    if (idToPathMap.has(ref)) return idToPathMap.get(ref)!;
+    return ref;
   }
 
   // ── Phase 3.1: CASCADE CANCELLATIONS ───────────────────────────────────────
@@ -418,10 +418,10 @@ function main(): void {
 
   // Helper to safely check if 'child' is a deep descendant of 'ancestor'
   function isDescendant(childPath: string, ancestorPath: string): boolean {
-    let curr = resolveParentPath(nodeMap.get(childPath)?.frontmatter.parent);
+    let curr = resolveNodePath(nodeMap.get(childPath)?.frontmatter.parent);
     while (curr) {
       if (curr === ancestorPath) return true;
-      curr = resolveParentPath(nodeMap.get(curr)?.frontmatter.parent);
+      curr = resolveNodePath(nodeMap.get(curr)?.frontmatter.parent);
     }
     return false;
   }
@@ -465,7 +465,8 @@ function main(): void {
       }
     }
 
-    for (const depPath of node.frontmatter.depends_on) {
+    for (const depRef of node.frontmatter.depends_on) {
+      const depPath = resolveNodePath(depRef)!;
       if (isHierarchicallyIncomplete(depPath, evaluatingFor)) {
         return true;
       }
@@ -481,13 +482,14 @@ function main(): void {
     if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'COMPLETED') continue;
 
     let shouldSuspend = false;
-    for (const depPath of node.frontmatter.depends_on) {
+    for (const depRef of node.frontmatter.depends_on) {
+      const depPath = resolveNodePath(depRef)!;
       const dep = nodeMap.get(depPath);
       if (!dep) {
         if (fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
         }
-        warn(`Unresolvable dependency '${depPath}' referenced by ${node.frontmatter.status} node: ${node.repoPath}`);
+        warn(`Unresolvable dependency '${depRef}' referenced by ${node.frontmatter.status} node: ${node.repoPath}`);
         hasUnresolvableDeps = true;
         shouldSuspend = true;
         break;
@@ -519,7 +521,7 @@ function main(): void {
   info('Phase 3.6: Checking for Impossible Loop conditions...');
   for (const node of nodes) {
     if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason) {
-      const parentPath = resolveParentPath(node.frontmatter.parent);
+      const parentPath = resolveNodePath(node.frontmatter.parent);
       if (parentPath) {
         const parentNode = nodeMap.get(parentPath);
         if (parentNode && parentNode.frontmatter.status !== 'ACTIVE') {
@@ -548,7 +550,7 @@ function main(): void {
     let blocked = false;
 
         // Check parent inheritance
-    let currParent = resolveParentPath(node.frontmatter.parent);
+    let currParent = resolveNodePath(node.frontmatter.parent);
     while (currParent) {
       let parentStatus: string | undefined = undefined;
       let nextParent: string | undefined | null = undefined;
@@ -560,7 +562,7 @@ function main(): void {
         break;
       } else {
         parentStatus = parentNode.frontmatter.status;
-        nextParent = resolveParentPath(parentNode.frontmatter.parent);
+        nextParent = resolveNodePath(parentNode.frontmatter.parent);
       }
 
       if (parentStatus !== 'ACTIVE' && parentStatus !== 'COMPLETED') {
@@ -591,13 +593,14 @@ function main(): void {
 
     const deps = node.frontmatter.depends_on;
 
-    for (const depPath of deps) {
+    for (const depRef of deps) {
+      const depPath = resolveNodePath(depRef)!;
       const dep = nodeMap.get(depPath);
       if (!dep) {
         if (fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
         }
-        warn(`Unresolvable dependency '${depPath}' referenced by: ${node.repoPath}`);
+        warn(`Unresolvable dependency '${depRef}' referenced by: ${node.repoPath}`);
         hasUnresolvableDeps = true;
         blocked = true;
         break;
@@ -623,11 +626,12 @@ function main(): void {
       const body = node.body;
       const matches = [...new Set(body.match(regex) || [])];
 
-      const parentPath = resolveParentPath(node.frontmatter.parent);
+      const parentPath = resolveNodePath(node.frontmatter.parent);
+      const resolvedDeps = node.frontmatter.depends_on.map(d => resolveNodePath(d));
       const targetArtifacts = matches.filter(m =>
         m !== node.repoPath &&
         m !== parentPath &&
-        !node.frontmatter.depends_on.includes(m)
+        !resolvedDeps.includes(m)
       );
 
       let bypassDispatch = false;
@@ -692,7 +696,8 @@ function main(): void {
 
         if (allChildrenCompleted) {
           let isDepIncomplete = false;
-          for (const depPath of node.frontmatter.depends_on) {
+          for (const depRef of node.frontmatter.depends_on) {
+            const depPath = resolveNodePath(depRef)!;
             if (isHierarchicallyIncomplete(depPath, node.repoPath)) {
               isDepIncomplete = true;
               break;
