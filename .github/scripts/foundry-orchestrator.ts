@@ -290,6 +290,29 @@ function promoteNodeToTpm(node: ParsedNode): void {
   info(`${dryTag}Flagged node for TPM: ${node.repoPath}`);
 }
 
+function promoteNodeToFailedWithReason(node: ParsedNode, reason: string): void {
+  const dateStr = todayISO();
+  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+
+  const newData = { ...node.frontmatter, status: 'FAILED' as Status, rejection_reason: reason, updated_at: dateStr };
+  const newContent = matter.stringify(node.body, newData);
+
+  if (!DRY_RUN) {
+    try {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+    } catch (e) {
+      warn(`Failed to write file: ${node.repoPath} — ${String(e)}`);
+      return;
+    }
+  }
+
+  node.frontmatter = newData as FoundryFrontmatter;
+  node.rawContent = newContent;
+
+  info(`${dryTag}Flagged node as FAILED due to ${reason}: ${node.repoPath}`);
+}
+
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 function main(): void {
@@ -778,7 +801,7 @@ function main(): void {
     const validPersonas = validMappings[node.frontmatter.type] || [];
     if (!validPersonas.includes(node.frontmatter.owner_persona)) {
       warn(`Invalid mapping: ${node.frontmatter.type} node '${node.repoPath}' cannot be owned by '${node.frontmatter.owner_persona}'`);
-      promoteNodeToTpm(node);
+      promoteNodeToFailedWithReason(node, 'Invalid owner_persona mapping');
     } else {
       validatedEligible.push(node);
     }

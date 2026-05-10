@@ -979,8 +979,9 @@ jules_session_id: null
     expect(ideaResult).toContain('status: READY');
 
     const prdResult = fs.readFileSync(path.join(tmpDir, '.foundry/prds/prd-invalid.md'), 'utf-8');
-    expect(prdResult).toContain('status: BLOCKED');
-    expect(prdResult).toContain('owner_persona: tpm');
+    expect(prdResult).toContain('status: FAILED');
+    expect(prdResult).toContain('rejection_reason: Invalid owner_persona mapping');
+    expect(prdResult).toContain('owner_persona: coder');
 
     const humanResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-human.md'), 'utf-8');
     expect(humanResult).toContain('status: ACTIVE');
