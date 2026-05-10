@@ -42,4 +42,10 @@ The target artifact already exists and is complete. The cascading cancellation l
 ## task-038-064-implement-mapping-validation
 
 The mapping validation logic and unit tests are already implemented. Submitting empty PR as per EMPTY PR POLICY.
+
+- **2026-05-12**: Implemented branch identification logic in `.github/scripts/foundry-heartbeat.ts` for epic `epic-019-030-automated-branch-cleanup`.
+  - Exported `identifyBranchesForCleanup(repoRoot: string, remoteBranches: string[], openPrHeadRefs: string[] = []): Promise<string[]>`.
+  - Added test coverage in `.github/scripts/foundry-heartbeat.test.ts`.
+  - Ensure to ignore active PR branches based on explicit requirements.
+  - Used GitHub APIs to check active PRs for branches would be the consumer's responsibility. The identification logic accepts open PR refs and protects them.
 - 2026-05-10: Refactored `foundry-heartbeat.ts` to use `gray-matter`. Replaced regex frontmatter manipulations with `gray-matter` logic in `transitionNodeToFailed`, `transitionNodeToCompleted`, and `transitionNodeToReady`. `gray-matter` writes yaml strings unquoted, so tests were updated accordingly.

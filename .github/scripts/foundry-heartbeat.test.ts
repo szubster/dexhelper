@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { main } from './foundry-heartbeat.ts';
+import { main, identifyBranchesForCleanup } from './foundry-heartbeat.ts';
 import * as orchestrator from './foundry-orchestrator.ts';
 
 vi.mock('node:fs');
@@ -494,3 +494,96 @@ ok: true,
     });
   });
 });
+
+  describe('identifyBranchesForCleanup', () => {
+    it('should return candidate branches for FAILED nodes', async () => {
+      const mockFailedNode = {
+        frontmatter: { status: 'FAILED', jules_session_id: 'session-fail' }
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['fail.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockFailedNode as any);
+
+      const result = await identifyBranchesForCleanup('/mock', ['origin/branch-session-fail']);
+      expect(result).toEqual(['origin/branch-session-fail']);
+    });
+
+    it('should NOT return safe branches even if they contain candidate session IDs', async () => {
+      const mockFailedNode = {
+        frontmatter: { status: 'FAILED', jules_session_id: 'session-fail' }
+      };
+      // Imagine a node previously failed but now is ACTIVE again under the same session ID
+      // Or a different node has the same session ID and is ACTIVE
+      const mockActiveNode = {
+        frontmatter: { status: 'ACTIVE', jules_session_id: 'session-fail' }
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['fail.md', 'active.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
+        if (fp === 'fail.md') return mockFailedNode as any;
+        if (fp === 'active.md') return mockActiveNode as any;
+        return null;
+      });
+
+      const result = await identifyBranchesForCleanup('/mock', ['origin/branch-session-fail']);
+      expect(result).toEqual([]);
+    });
+
+    it('should NOT return branches associated with ACTIVE/COMPLETED/READY/PENDING nodes', async () => {
+      const mockActiveNode = {
+        frontmatter: { status: 'ACTIVE', jules_session_id: 'session-active' }
+      };
+      const mockCompletedNode = {
+        frontmatter: { status: 'COMPLETED', jules_session_id: 'session-completed' }
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['active.md', 'completed.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
+        if (fp === 'active.md') return mockActiveNode as any;
+        if (fp === 'completed.md') return mockCompletedNode as any;
+        return null;
+      });
+
+      const result = await identifyBranchesForCleanup('/mock', [
+        'origin/branch-session-active',
+        'origin/branch-session-completed'
+      ]);
+      expect(result).toEqual([]);
+    });
+
+    it('should ignore main and master branches', async () => {
+      const mockFailedNode = {
+        frontmatter: { status: 'FAILED', jules_session_id: 'session-main' }
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['fail.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockFailedNode as any);
+
+      const result = await identifyBranchesForCleanup('/mock', ['origin/main', 'master', 'origin/branch-session-main']);
+      expect(result).toEqual(['origin/branch-session-main']);
+    });
+
+    it('should handle null session IDs safely', async () => {
+      const mockNode = {
+        frontmatter: { status: 'FAILED', jules_session_id: null }
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['fail.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+      const result = await identifyBranchesForCleanup('/mock', ['origin/some-branch']);
+      expect(result).toEqual([]);
+    });
+
+    it('should ignore active PR branches', async () => {
+      const mockFailedNode = {
+        frontmatter: { status: 'FAILED', jules_session_id: 'session-fail' }
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['fail.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockFailedNode as any);
+
+      const result = await identifyBranchesForCleanup('/mock', ['origin/branch-session-fail'], ['branch-session-fail']);
+      expect(result).toEqual([]);
+    });
+  });
