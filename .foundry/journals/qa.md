@@ -19,3 +19,7 @@ Verified implementation of Hall of Fame count and roaming legendary (Raikou, Ent
 ## [task-046-074-qa-branch-identification]
 - Validated `identifyBranchesForCleanup` logic for branch identification corresponding to `FAILED` or `CANCELLED` nodes.
 - Implementation for `FAILED` status was correct, but missing a test for `CANCELLED` nodes. Appended a new test case explicitly testing `CANCELLED` nodes to verify full coverage.
+## [2026-05-10] QA Validation: task-043-074-qa-refactor-heartbeat-matter
+- Verified that regex frontmatter manipulation in `foundry-heartbeat.ts` was successfully replaced with `gray-matter` compliant with ADR-006.
+- Checked code in `transitionNodeToFailed` and `transitionNodeToReady` handles state updating cleanly using `matter.stringify` without regex.
+- Verified tests successfully run indicating no regressions.

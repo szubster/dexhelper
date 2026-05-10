@@ -34,5 +34,5 @@ The coder has refactored `.github/scripts/foundry-heartbeat.ts` to use `gray-mat
 4. Verify that the markdown body is preserved correctly.
 
 ## Acceptance Criteria
-- [ ] Code review confirms no regex mutations are used for frontmatter.
-- [ ] Tests pass.
+- [x] Code review confirms no regex mutations are used for frontmatter.
+- [x] Tests pass.
