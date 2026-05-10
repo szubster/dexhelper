@@ -173,12 +173,22 @@ export function PokemonDetails({
 
   const stadiumReward = stadiumRewardsSummary[pokemonId];
 
-  const yourPokemon = saveData
-    ? [
-        ...saveData.partyDetails.filter((p) => p.speciesId === pokemonId).map((p) => ({ ...p, location: 'Party' })),
-        ...saveData.pcDetails.filter((p) => p.speciesId === pokemonId).map((p) => ({ ...p, location: 'PC' })),
-      ]
-    : [];
+  // ⚡ Bolt: Use a single pass and memoize to avoid O(N) intermediate array allocations and prevent re-evaluating on every render
+  const yourPokemon = React.useMemo(() => {
+    if (!saveData) return [];
+    const result = [];
+    for (const p of saveData.partyDetails) {
+      if (p.speciesId === pokemonId) {
+        result.push({ ...p, location: 'Party' as const });
+      }
+    }
+    for (const p of saveData.pcDetails) {
+      if (p.speciesId === pokemonId) {
+        result.push({ ...p, location: 'PC' as const });
+      }
+    }
+    return result;
+  }, [saveData, pokemonId]);
 
   const isShiny = yourPokemon.some((p) => p.isShiny);
 

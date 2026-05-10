@@ -69,3 +69,9 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 - Repeated filtering inside `React.useCallback` or `React.useMemo` bodies when the dataset is static can be optimized by pre-grouping the data.
 - In `src/components/PokemonDetails.tsx`, grouping `encounters` into an `encountersByVersion` Map using `useMemo` reduced the complexity of `getLocationsForVersion` from O(N) to O(1). Performance benchmarks show execution times dropping from ~600ms to ~8ms for 1000 simulated renders.
 - When creating optimizations, it is crucial to update the callback/memo dependency arrays (e.g., from `encounters` to `encountersByVersion`).
+
+## 2026-05-10
+
+- **Performance Win:** Optimized `yourPokemon` derivation in `PokemonDetails.tsx` by replacing the filter and map chain with a single pass inside a `React.useMemo` hook.
+- **Why:** The previous approach required creating intermediate arrays for both party and PC details on every single render, which is an O(N) memory allocation and processing overhead, particularly expensive for large PC boxes. Memoizing and combining into a single loop prevents unnecessary work.
+- **Learnings:** When filtering and mapping arrays derived from large state objects, always look for opportunities to combine the operations into a single pass and memoize the result.
