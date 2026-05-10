@@ -2,12 +2,12 @@
 id: prd-019-019-automated-branch-cleanup
 type: PRD
 title: Automated Branch Cleanup PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-08'
 updated_at: '2026-05-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14915582242753546325'
 pr_number: null
 parent: idea-019-automated-branch-cleanup
 tags: []
