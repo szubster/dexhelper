@@ -2,13 +2,13 @@
 id: task-043-074-qa-refactor-heartbeat-matter
 type: TASK
 title: QA Verification - Refactor heartbeat script to use gray-matter
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-05-09'
-updated_at: '2026-05-09'
+updated_at: '2026-05-10'
 depends_on:
   - .foundry/tasks/task-043-073-refactor-heartbeat-matter.md
-jules_session_id: null
+jules_session_id: '2047569438843876654'
 pr_number: null
 parent: .foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md
 tags:

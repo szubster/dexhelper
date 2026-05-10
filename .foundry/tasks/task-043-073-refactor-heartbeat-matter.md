@@ -2,12 +2,12 @@
 id: task-043-073-refactor-heartbeat-matter
 type: TASK
 title: Refactor heartbeat script to use gray-matter
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-09'
-updated_at: '2026-05-09'
+updated_at: '2026-05-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5331734281995793815'
 pr_number: null
 parent: .foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md
 tags:

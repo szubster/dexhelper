@@ -28,7 +28,7 @@ notes: ''
 Verify the implementation of `task-039-071-implement-failure-handling`.
 
 ## Acceptance Criteria
-- [ ] Nodes with invalid mapping are transitioned to `FAILED`.
-- [ ] A descriptive `rejection_reason` is set.
-- [ ] A warning/error is logged.
-- [ ] Ensure that `foundry-orchestrator.test.ts` passes and the test logic for mapping validation correctly reflects the new requirement (`FAILED` state and rejection reason).
+- [x] Nodes with invalid mapping are transitioned to `FAILED`.
+- [x] A descriptive `rejection_reason` is set.
+- [x] A warning/error is logged.
+- [x] Ensure that `foundry-orchestrator.test.ts` passes and the test logic for mapping validation correctly reflects the new requirement (`FAILED` state and rejection reason).
