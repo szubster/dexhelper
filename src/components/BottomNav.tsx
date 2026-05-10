@@ -2,6 +2,7 @@ import { Link, useLocation } from '@tanstack/react-router';
 import { Database, LayoutGrid, Settings2, Sparkles } from 'lucide-react';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
+import { TelemetryDecoration } from './TelemetryDecoration';
 
 export function BottomNav() {
   const saveData = useStore((s) => s.saveData);
@@ -22,9 +23,10 @@ export function BottomNav() {
       <div className="absolute top-0 right-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-zinc-700 to-transparent opacity-50" />
 
       {/* Telemetry decoration */}
-      <div className="absolute -top-[21px] left-4 flex gap-1 rounded-t border border-zinc-800 border-b-0 border-dashed bg-zinc-950 px-3 py-1 font-black text-[8px] text-zinc-600 tracking-widest">
-        <span className="animate-pulse text-[var(--theme-primary)]">●</span> LINK_ACTIVE
-      </div>
+      <TelemetryDecoration
+        label="LINK_ACTIVE"
+        className="-top-[21px] left-4 rounded-t rounded-b-none border-t border-b-0 bg-zinc-950"
+      />
 
       <div className="relative mx-auto grid max-w-sm grid-cols-4 items-center">
         {/* Active Indicator Brackets */}

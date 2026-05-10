@@ -6,6 +6,7 @@ import { CornerCrosshairs } from './CornerCrosshairs';
 import { ClearStorageButton } from './settings/ClearStorageButton';
 import { SettingsControls } from './settings/SettingsControls';
 import { SettingsLegend } from './settings/SettingsLegend';
+import { TelemetryDecoration } from './TelemetryDecoration';
 
 export function SettingsModal() {
   const isSettingsOpen = useStore((s) => s.isSettingsOpen);
@@ -38,9 +39,7 @@ export function SettingsModal() {
       />
       <div className="slide-in-from-bottom-[100%] sm:zoom-in-95 relative w-full animate-in overflow-hidden border-zinc-800 border-t border-dashed bg-zinc-950 shadow-2xl duration-300 sm:max-w-md sm:border">
         {/* Telemetry decoration */}
-        <div className="absolute top-0 left-4 flex gap-1 rounded-b border border-zinc-800 border-t-0 border-dashed bg-zinc-900 px-3 py-1 font-black text-[8px] text-zinc-600 tracking-widest">
-          <span className="animate-pulse text-[var(--theme-primary)]">●</span> SYS.CONFIG_ACTIVE
-        </div>
+        <TelemetryDecoration label="SYS.CONFIG_ACTIVE" className="top-0 left-4" />
 
         <div className="flex items-center justify-between border-zinc-800 border-b border-dashed p-8 pt-10">
           <div>

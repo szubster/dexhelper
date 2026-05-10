@@ -2,6 +2,7 @@ import { CheckCircle2, Database, Loader2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { cn } from '../utils/cn';
+import { TelemetryDecoration } from './TelemetryDecoration';
 
 interface SyncProgressDetail {
   current: number;
@@ -84,9 +85,7 @@ export function SyncProgress() {
         <div className="absolute bottom-0 left-0 h-2 w-2 border-zinc-600 border-b-2 border-l-2" />
         <div className="absolute right-0 bottom-0 h-2 w-2 border-zinc-600 border-r-2 border-b-2" />
 
-        <div className="absolute top-0 left-4 flex gap-1 rounded-b border border-zinc-800 border-t-0 border-dashed bg-zinc-900 px-3 py-1 font-black text-[8px] text-zinc-600 tracking-widest">
-          <span className="animate-pulse text-[var(--theme-primary)]">●</span> SYS.SYNC_ACTIVE
-        </div>
+        <TelemetryDecoration label="SYS.SYNC_ACTIVE" className="top-0 left-4" />
 
         <div className="relative mt-4 flex h-24 w-24 items-center justify-center border border-white/5 bg-zinc-900/50">
           <div
