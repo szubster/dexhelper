@@ -2,12 +2,12 @@
 id: task-046-077-standardize-orchestrator-test-factories
 type: TASK
 title: Implement Test Node Factory Utility
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-05-10'
 updated_at: '2026-05-10'
 depends_on: []
-jules_session_id: '14790392855257797686'
+jules_session_id: null
 pr_number: null
 parent: story-030-046-standardize-orchestrator-test-factories
 tags: []

@@ -1,11 +1,11 @@
 ---
 id: task-043-075-build-dag-graph
 type: TASK
-title: "DAG Parser: Build DAG Graph"
-status: PENDING
+title: 'DAG Parser: Build DAG Graph'
+status: READY
 owner_persona: coder
 created_at: '2026-05-09'
-updated_at: '2026-05-09'
+updated_at: '2026-05-10'
 depends_on:
   - .foundry/tasks/task-043-074-parse-frontmatter.md
 jules_session_id: null

@@ -2,13 +2,13 @@
 id: story-025-039-implement-failure-handling
 type: STORY
 title: Implement Failure Handling for Validation Mismatches
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-04'
 updated_at: '2026-05-10'
 depends_on:
   - .foundry/stories/story-025-038-implement-mapping-validation.md
-jules_session_id: '9827390149249600116'
+jules_session_id: null
 pr_number: null
 parent: .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md
 tags:

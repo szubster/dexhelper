@@ -2,10 +2,10 @@
 id: story-025-040-write-validation-tests
 type: STORY
 title: Write Validation Tests for Orchestrator Pipeline Handoff
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-05-04"
-updated_at: "2026-05-04"
+created_at: '2026-05-04'
+updated_at: '2026-05-10'
 depends_on:
   - .foundry/stories/story-025-039-implement-failure-handling.md
 jules_session_id: null
@@ -19,8 +19,8 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Write Validation Tests for Orchestrator Pipeline Handoff
