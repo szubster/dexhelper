@@ -37,3 +37,5 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 
 Read `.jules/mason.md` before starting (create if missing).
 Log critical learnings: recurring patterns, extraction challenges, or reusable logic wins.
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/mason.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.

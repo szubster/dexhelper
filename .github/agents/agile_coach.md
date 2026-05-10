@@ -28,3 +28,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 
 - If the target artifact already exists and is complete, DO NOT make trivial formatting changes or dummy updates just to force a git diff. Document this in your persona journal, state there is no work to do, and submit the PR. Empty PRs (0 files changed) will be automatically merged to allow the Foundry DAG to progress.
 - WARNING: The Empty PR policy is ONLY for successfully completed, pre-existing artifacts. If a task/feature is cancelled, invalid, or validation fails, you MUST NOT submit an empty PR. Instead, update the YAML frontmatter to `status: FAILED` (or `status: CANCELLED`) and include a `rejection_reason` so the DAG can handle the failure properly.
+
+## Journal
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/agile_coach.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
