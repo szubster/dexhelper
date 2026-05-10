@@ -17,8 +17,7 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 - When using `knip` or similar tools, be extremely careful about files/dependencies implicitly required by tests or CI (like `test-setup.ts` or `fake-indexeddb`). Always verify potential unused exports by doing a global repository search (`grep`) to ensure they aren't dynamically referenced before removing them.
 
 **Ask first:**
-- Refactoring core data parsing logic
-- Changing application architecture
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Add new features
@@ -37,3 +36,5 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 
 Read `.jules/sweeper.md` before starting (create if missing).
 Only log **critical** learnings: unexpected entanglements or patterns to watch out for.
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/sweeper.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.

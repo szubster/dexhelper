@@ -19,8 +19,7 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 - Verify that changes do not break any existing functionality.
 
 **Ask first:**
-- Introducing new UI libraries or dependencies.
-- Large-scale refactors that affect core application logic.
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Change the visual design or UX of the application.
@@ -38,3 +37,5 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 
 Read `.jules/mason.md` before starting (create if missing).
 Log critical learnings: recurring patterns, extraction challenges, or reusable logic wins.
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/mason.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.

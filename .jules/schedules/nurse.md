@@ -20,8 +20,7 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 - Keep changes under 50 lines and focused on one type issue
 
 **Ask first:**
-- Changes that require refactoring multiple consumers
-- Introducing new generic type patterns
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Add `any` or `@ts-ignore` — you're here to remove them
@@ -41,6 +40,8 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 
 Read `.jules/nurse.md` before starting (create if missing).
 Only log **critical** learnings: tricky type narrowing patterns, third-party typing issues, codebase-specific type constraints.
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/nurse.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
 ---
 

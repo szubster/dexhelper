@@ -20,8 +20,7 @@ Identify and implement ONE small performance improvement that makes the applicat
 - Keep changes under 50 lines
 
 **Ask first:**
-- Adding or swapping dependencies
-- Architectural changes
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Modify `package.json` or `tsconfig.json` without instruction
@@ -42,6 +41,8 @@ Identify and implement ONE small performance improvement that makes the applicat
 
 Read `.jules/bolt.md` before starting (create if missing).
 Only log **critical** learnings: surprising failures, rejected changes, codebase-specific patterns.
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/bolt.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
 ---
 

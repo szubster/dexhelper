@@ -26,8 +26,7 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 - Add or update unit tests to lock in the corrected data
 
 **Ask first:**
-- Changes to the data generation pipeline structure
-- Adding new canonical data sources
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Add runtime PokeAPI calls — the app must work fully offline
@@ -48,6 +47,8 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 
 Read `.jules/oak.md` before starting (create if missing).
 Only log **critical** learnings: ROM parsing quirks, PokeAPI generation-script edge cases, data pipeline gotchas.
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/oak.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
 ---
 

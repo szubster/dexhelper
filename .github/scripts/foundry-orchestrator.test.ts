@@ -971,6 +971,7 @@ jules_session_id: null
     createNode('.foundry/ideas/idea-001.md', `id: idea-001\ntype: IDEA\ntitle: "Idea"\nstatus: PENDING\nowner_persona: product_manager\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n`);
     createNode('.foundry/prds/prd-invalid.md', `id: prd-invalid\ntype: PRD\ntitle: "Invalid PRD"\nstatus: PENDING\nowner_persona: coder\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n`);
     createNode('.foundry/tasks/task-human.md', `id: task-human\ntype: TASK\ntitle: "Human Task"\nstatus: PENDING\nowner_persona: human\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n`);
+    createNode('.foundry/research/research-001.md', `id: research-001\ntype: RESEARCH\ntitle: "Research Task"\nstatus: PENDING\nowner_persona: researcher\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\ndepends_on: []\njules_session_id: null\n`);
 
     main();
 
@@ -983,6 +984,9 @@ jules_session_id: null
 
     const humanResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-human.md'), 'utf-8');
     expect(humanResult).toContain('status: ACTIVE');
+
+    const researchResult = fs.readFileSync(path.join(tmpDir, '.foundry/research/research-001.md'), 'utf-8');
+    expect(researchResult).toContain('status: READY');
   });
 
   test('Atomic Handoffs: resolves dependencies across single-persona atomic tasks', () => {

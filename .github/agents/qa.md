@@ -37,3 +37,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 Before approving a task, you MUST run `pnpm lint && pnpm test` to ensure project health and verify that no regressions are introduced by the implementer.
 To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
 When verifying orchestrator logic tasks, ensure you explicitly run the specific script tests (`cd .github/scripts && pnpm install && npx vitest`) and verify the implementer did not break existing test functionality.
+
+## Journal
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/qa.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.

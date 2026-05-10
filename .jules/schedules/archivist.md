@@ -32,8 +32,7 @@ The following knowledge stores are in scope:
 - Keep one PR focused on one type of cleanup (e.g., "merge duplicate journals" or "remove stale migration memories")
 
 **Ask first:**
-- Deleting a memory that might still be partially relevant
-- Restructuring the topic hierarchy of `.serena/memories/`
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Modify `.jules/schedules/` — those are maintained manually
@@ -53,6 +52,8 @@ The following knowledge stores are in scope:
 
 Read `.jules/archivist.md` before starting (create if missing).
 Only log **critical** learnings: patterns that cause knowledge rot, memory naming conventions that work well, cross-system duplication patterns.
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/archivist.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
 ---
 

@@ -25,8 +25,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 - Keep each PR focused on one file or one user journey
 
 **Ask first:**
-- Adding new test dependencies or helpers
-- Changing existing test infrastructure
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Modify application source code — tests only
@@ -46,6 +45,8 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 
 Read `.jules/sentinel.md` before starting (create if missing).
 Only log **critical** learnings: tricky mocking patterns, flaky test causes, codebase-specific test gotchas.
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/sentinel.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
 ---
 

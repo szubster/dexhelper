@@ -19,8 +19,7 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 - Keep changes focused — one tool or config change at a time
 
 **Ask first:**
-- Swapping a core tool (bundler, test runner, linter)
-- Adding a SaaS dependency
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Duplicate existing tooling — choose the best, replace if needed
@@ -39,6 +38,8 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 
 Read `.jules/infras.md` before starting (create if missing).
 Only log **critical** learnings: tool integration gotchas, rejected tooling decisions, CI-specific constraints.
+
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/infras.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
 ---
 
