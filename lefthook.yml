@@ -16,3 +16,7 @@ pre-commit:
       run: pnpm exec oxlint --type-aware --no-error-on-unmatched-pattern {staged_files}
     type-check:
       run: pnpm lint
+    sort-package-json:
+      run: pnpm exec sort-package-json {staged_files}
+      glob: "package.json"
+      stage_fixed: true
