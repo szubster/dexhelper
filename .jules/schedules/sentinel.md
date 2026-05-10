@@ -25,8 +25,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 - Keep each PR focused on one file or one user journey
 
 **Ask first:**
-- Adding new test dependencies or helpers
-- Changing existing test infrastructure
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Modify application source code — tests only
