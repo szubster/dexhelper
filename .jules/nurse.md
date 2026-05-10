@@ -39,13 +39,3 @@ Extracted the inline array into a constant `STATUS_OPTIONS` marked with `as cons
 The compiler statically guarantees that the `StatusType` union and the `STATUS_OPTIONS` array are always in sync. It eliminates the unsafe `as StatusType` casts while maintaining identical runtime behavior.
 - Fixed an unsafe `as IDBValidKey` cast in `src/db/PokeDB.ts`'s `bulkGet` by assigning to a variable and checking for `undefined` before passing to `store.get`.
 - Replaced an unsafe `as` cast in `src/components/SyncProgress.tsx` with a runtime type guard `isSyncProgressDetail`. This ensures both type safety and runtime safety when handling custom events, specifically verifying the presence and types of `current`, `total`, and `stage` in the event detail.
-## $(date +%Y-%m-%d) - Type Narrowing `unknown` Event Detail Objects
-
-**What was unsafe:**
-Multiple type assertions in `isSyncProgressDetail` were mapping an `unknown` detail parameter manually property-by-property `typeof (detail as { current: unknown }).current === 'number'`. This is verbose and potentially unsafe if the shape is complex.
-
-**How it was fixed:**
-Replaced the individual property casts with a single `const d = detail as Record<string, unknown>;` before evaluating properties natively (e.g., `typeof d['current'] === 'number'`).
-
-**What the compiler now catches:**
-The compiler enforces explicit type checks for each value obtained from the `Record<string, unknown>` indexing, and completely eliminates verbose and repetitive object literal typecasts.
