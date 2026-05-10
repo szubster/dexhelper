@@ -2,7 +2,7 @@
 id: task-043-074-qa-refactor-heartbeat-matter
 type: TASK
 title: QA Verification - Refactor heartbeat script to use gray-matter
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-09'
 updated_at: '2026-05-10'
