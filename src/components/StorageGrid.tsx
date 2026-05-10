@@ -98,6 +98,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                   return (
                     <TacticalCard
                       ariaLabel={`View details for ${pokemon.name} in ${location}`}
+                      title={`View details for ${pokemon.name} in ${location}`}
                       // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                       key={`${location}-${p.speciesId}-${idx}`}
                       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}

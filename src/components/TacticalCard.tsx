@@ -6,6 +6,7 @@ interface TacticalCardProps {
   children: React.ReactNode;
   onClick?: () => void;
   ariaLabel?: string;
+  title?: string;
   testId?: string;
   pokemonId?: number;
   className?: string;
@@ -14,7 +15,7 @@ interface TacticalCardProps {
 }
 
 export const TacticalCard = React.forwardRef<HTMLButtonElement, TacticalCardProps>(
-  ({ children, onClick, ariaLabel, testId, pokemonId, className, style, variant = 'default' }, ref) => {
+  ({ children, onClick, ariaLabel, title, testId, pokemonId, className, style, variant = 'default' }, ref) => {
     let variantClasses = '';
 
     switch (variant) {
@@ -48,6 +49,7 @@ export const TacticalCard = React.forwardRef<HTMLButtonElement, TacticalCardProp
         ref={ref}
         type="button"
         aria-label={ariaLabel}
+        title={title}
         data-testid={testId}
         data-pokemon-id={pokemonId}
         onClick={onClick}
