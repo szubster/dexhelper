@@ -1,11 +1,11 @@
 ---
 id: task-043-074-parse-frontmatter
 type: TASK
-title: "DAG Parser: Parse Frontmatter"
-status: PENDING
+title: 'DAG Parser: Parse Frontmatter'
+status: READY
 owner_persona: coder
 created_at: '2026-05-09'
-updated_at: '2026-05-09'
+updated_at: '2026-05-10'
 depends_on:
   - .foundry/tasks/task-043-073-read-foundry-files.md
 jules_session_id: null
