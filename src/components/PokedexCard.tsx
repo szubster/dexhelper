@@ -55,6 +55,7 @@ export const PokedexCard = React.memo(function PokedexCard({
   return (
     <TacticalCard
       ariaLabel={`View details for ${pokemon.name}`}
+      title={`View details for ${pokemon.name}`}
       testId="pokedex-card"
       pokemonId={pokemon.id}
       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
