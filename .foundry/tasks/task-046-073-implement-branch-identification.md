@@ -29,5 +29,5 @@ We need to implement logic to safely identify branches associated with `FAILED` 
 - Expose an interface (e.g. function or class) to retrieve the list of branches that are safe to delete.
 
 ## Acceptance Criteria
-- [ ] Logic exists to successfully identify branches corresponding to `FAILED` or `CANCELLED` Foundry nodes.
-- [ ] Safety checks prevent deletion of `main`, active PR branches, or branches associated with `PENDING`, `READY`, `ACTIVE`, or `COMPLETED` nodes.
+- [x] Logic exists to successfully identify branches corresponding to `FAILED` or `CANCELLED` Foundry nodes.
+- [x] Safety checks prevent deletion of `main`, active PR branches, or branches associated with `PENDING`, `READY`, `ACTIVE`, or `COMPLETED` nodes.

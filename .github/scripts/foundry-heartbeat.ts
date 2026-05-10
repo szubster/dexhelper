@@ -304,3 +304,73 @@ export async function main() {
 if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('foundry-heartbeat.ts')) {
   main().catch(err => { warn(`Fatal: ${String(err)}`); process.exit(1); });
 }
+
+/**
+ * Identifies Git branches that are safe to delete, based on FAILED or CANCELLED task nodes.
+ * @param repoRoot Absolute path to the repository root.
+ * @param remoteBranches List of all remote branch names (e.g. from `git branch -r`).
+ * @returns An array of branch names safe to delete.
+ */
+export async function identifyBranchesForCleanup(repoRoot: string, remoteBranches: string[], openPrHeadRefs: string[] = []): Promise<string[]> {
+  const filePaths = discoverNodeFiles(path.join(repoRoot, '.foundry'));
+  const safeSessionIds = new Set<string>();
+  const candidateSessionIds = new Set<string>();
+
+  for (const fp of filePaths) {
+    const node = parseNodeFile(fp, repoRoot);
+    if (!node) continue;
+
+    const status = node.frontmatter.status;
+    const sessionId = node.frontmatter.jules_session_id;
+
+    if (!sessionId || sessionId === 'null') {
+      continue;
+    }
+
+    if (['PENDING', 'READY', 'ACTIVE', 'COMPLETED'].includes(status)) {
+      safeSessionIds.add(sessionId);
+    } else if (['FAILED', 'CANCELLED'].includes(status)) {
+      candidateSessionIds.add(sessionId);
+    }
+  }
+
+  const branchesToDelete: string[] = [];
+
+  for (const branch of remoteBranches) {
+    if (branch === 'main' || branch === 'master' || branch === 'origin/main' || branch === 'origin/master') {
+      continue; // Never delete main/master
+    }
+
+    // Protect active PR branches
+    if (openPrHeadRefs.some(ref => branch.endsWith(ref) || branch === ref)) {
+      continue;
+    }
+
+    let isSafe = false;
+    for (const safeSession of safeSessionIds) {
+      if (branch.includes(safeSession)) {
+        isSafe = true;
+        break;
+      }
+    }
+
+    if (isSafe) {
+      continue;
+    }
+
+    let isCandidate = false;
+    for (const candidateSession of candidateSessionIds) {
+      if (branch.includes(candidateSession)) {
+        isCandidate = true;
+        break;
+      }
+    }
+
+    if (isCandidate) {
+      // It's a candidate and not in the safe set.
+      branchesToDelete.push(branch);
+    }
+  }
+
+  return branchesToDelete;
+}
