@@ -34,7 +34,7 @@ Implement a parsing function to extract frontmatter into structured objects.
 - Handle files that might not have valid YAML frontmatter gracefully (e.g., return `null` or skip).
 
 ## Acceptance Criteria
-- [ ] A parsing function is implemented and exported.
-- [ ] It uses `gray-matter` to parse the YAML frontmatter.
-- [ ] It correctly extracts `id`, `type`, `status`, `owner_persona`, and `depends_on`.
-- [ ] Unit tests verify correct extraction from valid markdown and graceful handling of invalid markdown.
+- [x] A parsing function is implemented and exported.
+- [x] It uses `gray-matter` to parse the YAML frontmatter.
+- [x] It correctly extracts `id`, `type`, `status`, `owner_persona`, and `depends_on`.
+- [x] Unit tests verify correct extraction from valid markdown and graceful handling of invalid markdown.
