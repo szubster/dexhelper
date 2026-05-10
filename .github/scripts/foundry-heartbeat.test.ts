@@ -64,7 +64,7 @@ ok: true,
     expect(fs.writeFileSync).toHaveBeenCalled();
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
     expect(writeCall[0]).toBe(mockNode.filePath);
-    expect(writeCall[1]).toContain('status: "FAILED"');
+    expect(writeCall[1]).toContain('status: FAILED');
     expect(writeCall[1]).toContain('jules_session_id: null');
 
     expect(fs.appendFileSync).toHaveBeenCalled();
@@ -127,7 +127,7 @@ ok: false,
 
     expect(fs.writeFileSync).toHaveBeenCalledWith(
       '/mock/repo/.foundry/tasks/task-stuck.md',
-      expect.stringContaining('status: "FAILED"'),
+      expect.stringContaining('status: FAILED'),
       'utf-8'
     );
   });
@@ -221,7 +221,7 @@ ok: true,
     await main();
 
     // Should NOT flip to FAILED because PR was found via Jules link
-    expect(fs.writeFileSync).not.toHaveBeenCalledWith(expect.any(String), expect.stringContaining('status: "FAILED"'), expect.any(String));
+    expect(fs.writeFileSync).not.toHaveBeenCalledWith(expect.any(String), expect.stringContaining('status: FAILED'), expect.any(String));
   });
 
   it('should transition a node to PENDING if its PR is merged but it has unchecked tasks', async () => {
@@ -266,7 +266,7 @@ ok: true,
 
     expect(fs.writeFileSync).toHaveBeenCalled();
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
-    expect(writeCall[1]).toContain('status: "PENDING"');
+    expect(writeCall[1]).toContain('status: PENDING');
   });
 
   it('should transition a node to COMPLETED if PR from Jules session link is merged', async () => {
@@ -311,7 +311,7 @@ ok: true,
 
     expect(fs.writeFileSync).toHaveBeenCalled();
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
-    expect(writeCall[1]).toContain('status: "COMPLETED"');
+    expect(writeCall[1]).toContain('status: COMPLETED');
   });
 
   it('should find PR from fallback list and NOT transition to FAILED', async () => {
@@ -358,7 +358,7 @@ ok: true,
 
     await main();
 
-    expect(fs.writeFileSync).not.toHaveBeenCalledWith(expect.any(String), expect.stringContaining('status: "FAILED"'), expect.any(String));
+    expect(fs.writeFileSync).not.toHaveBeenCalledWith(expect.any(String), expect.stringContaining('status: FAILED'), expect.any(String));
   });
 
   describe('Human Tasks', () => {
@@ -418,7 +418,7 @@ ok: true,
 
       expect(fs.writeFileSync).toHaveBeenCalled();
       const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
-      expect(writeCall[1]).toContain('status: "COMPLETED"');
+      expect(writeCall[1]).toContain('status: COMPLETED');
     });
 
     it('should transition an ACTIVE human task to READY if PR is closed but unmerged', async () => {
@@ -455,7 +455,7 @@ ok: true,
 
       expect(fs.writeFileSync).toHaveBeenCalled();
       const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
-      expect(writeCall[1]).toContain('status: "READY"');
+      expect(writeCall[1]).toContain('status: READY');
     });
 
     it('should leave an ACTIVE human task as ACTIVE if PR is open', async () => {

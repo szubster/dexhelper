@@ -44,11 +44,14 @@ Implement a standardized test node factory utility in the DAG Orchestrator test 
 - Verify that the CI pipeline (`pnpm test` in `.github/scripts`) passes successfully after refactoring.
 
 ## 3. High-Level Acceptance Criteria
-- [ ] Test factory utility function is successfully implemented and accessible for tests.
-- [ ] Factory utility correctly assigns default frontmatter properties (e.g., valid `owner_persona` mapping based on node `type`).
-- [ ] Existing mock node configurations in `.github/scripts/foundry-orchestrator.test.ts` are entirely refactored to use the factory.
-- [ ] The full test suite runs and passes without schema validation warnings or errors on mock nodes.
+- [x] Test factory utility function is successfully implemented and accessible for tests.
+- [x] Factory utility correctly assigns default frontmatter properties (e.g., valid `owner_persona` mapping based on node `type`).
+- [x] Existing mock node configurations in `.github/scripts/foundry-orchestrator.test.ts` are entirely refactored to use the factory.
+- [x] The full test suite runs and passes without schema validation warnings or errors on mock nodes.
 
 ## 4. Tasks to Spawn
 1. Implement the node factory utility logic.
 2. Refactor existing test fixtures to use the new factory.
+
+## Spawned Tasks
+- [.foundry/tasks/task-046-077-standardize-orchestrator-test-factories.md](.foundry/tasks/task-046-077-standardize-orchestrator-test-factories.md)

@@ -46,6 +46,6 @@ As per [ADR 006](.foundry/docs/adrs/006-gray-matter-parsing.md), we are migratin
 5. Ensure that the original markdown body is preserved during `matter.stringify()`.
 
 ## Acceptance Criteria
-- [ ] Regex mutations in `foundry-heartbeat.ts` are completely removed.
-- [ ] `transitionNodeToFailed` and `transitionNodeToReady` use `gray-matter`.
-- [ ] The script executes without errors.
+- [x] Regex mutations in `foundry-heartbeat.ts` are completely removed.
+- [x] `transitionNodeToFailed` and `transitionNodeToReady` use `gray-matter`.
+- [x] The script executes without errors.

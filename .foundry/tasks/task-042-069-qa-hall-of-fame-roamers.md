@@ -31,6 +31,6 @@ Verify the implementation of Hall of Fame count and roaming legendary (Raikou, E
 - `parseGen2` must correctly identify Hall of Fame counts and the locations for the roamers using the specified offsets (GS: 0x24EC, 0x28DA / Crystal: 0x24CE, 0x28B6).
 
 ## Acceptance Criteria
-- [ ] `SaveData` accurately represents the updated models.
-- [ ] Implementation parses the expected data.
-- [ ] Unit tests pass via `pnpm test` and properly mock both `GS` and `Crystal` offset behaviors.
+- [x] `SaveData` accurately represents the updated models.
+- [x] Implementation parses the expected data.
+- [x] Unit tests pass via `pnpm test` and properly mock both `GS` and `Crystal` offset behaviors.
