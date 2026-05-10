@@ -41,7 +41,7 @@ Implement a builder function that outputs the final node/edge graph data structu
 - Ensure the `depends_on` array (which contains file paths) is correctly mapped to node `id`s for the edges. You may need to map paths to node IDs.
 
 ## Acceptance Criteria
-- [ ] A builder function is implemented and exported.
-- [ ] It produces a structured JSON output with `nodes` and `edges`.
-- [ ] `depends_on` paths are correctly translated into edges linking node IDs.
-- [ ] Unit tests verify the correct generation of the graph structure from mock parsed nodes.
+- [x] A builder function is implemented and exported.
+- [x] It produces a structured JSON output with `nodes` and `edges`.
+- [x] `depends_on` paths are correctly translated into edges linking node IDs.
+- [x] Unit tests verify the correct generation of the graph structure from mock parsed nodes.
