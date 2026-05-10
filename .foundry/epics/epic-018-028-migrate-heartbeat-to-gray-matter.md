@@ -38,4 +38,4 @@ ADR-006 mandated the use of `gray-matter` for parsing and mutating Markdown fron
 - All modifications write the new node contents via `matter.stringify()`.
 
 ## Stories
-- [ ] .foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md
+- [x] .foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md
