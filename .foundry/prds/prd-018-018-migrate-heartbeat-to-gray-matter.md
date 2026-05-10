@@ -32,4 +32,4 @@ ADR-006 mandated the use of `gray-matter` for parsing and mutating Markdown fron
 - Prevent brittle regex bugs in frontmatter modifications.
 
 ## Epics
-- [ ] .foundry/epics/epic-018-028-migrate-heartbeat-to-gray-matter.md
+- [x] .foundry/epics/epic-018-028-migrate-heartbeat-to-gray-matter.md

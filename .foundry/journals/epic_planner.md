@@ -29,3 +29,7 @@ Outcome: The generated epics (epic-007-atomic-handoff-schema.md, epic-008-atomic
 - Read the PRD `prd-006-017-gen2-expansion-phase-3-4.md`.
 - Generated `epic-017-028-map-graph-routing.md` to handle Johto/Kanto map graph requirements.
 - Generated `epic-017-029-strategy-engine-adaptations.md` to adapt the strategy engine for Gen 2 mechanics, establishing a sequential dependency on Epic 028.
+
+>> **Task:** PRD-018-018-migrate-heartbeat-to-gray-matter -> Epic epic-018-028-migrate-heartbeat-to-gray-matter
+>> **Decision:** The target artifact Epic `epic-018-028-migrate-heartbeat-to-gray-matter.md` already exists and is completed.
+>> **Action:** Per the Empty PR Policy, I did not make dummy updates or trivial formatting changes to force a git diff. Submitted PR directly.
