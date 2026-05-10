@@ -508,6 +508,18 @@ ok: true,
       expect(result).toEqual(['origin/branch-session-fail']);
     });
 
+    it('should return candidate branches for CANCELLED nodes', async () => {
+      const mockCancelledNode = {
+        frontmatter: { status: 'CANCELLED', jules_session_id: 'session-cancelled' }
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['cancelled.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockCancelledNode as any);
+
+      const result = await identifyBranchesForCleanup('/mock', ['origin/branch-session-cancelled']);
+      expect(result).toEqual(['origin/branch-session-cancelled']);
+    });
+
     it('should NOT return safe branches even if they contain candidate session IDs', async () => {
       const mockFailedNode = {
         frontmatter: { status: 'FAILED', jules_session_id: 'session-fail' }
