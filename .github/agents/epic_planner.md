@@ -18,6 +18,9 @@ Produce clean, well-structured markdown files for each Epic, ensuring they align
 When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
 
 
+**NODE CREATION GUIDELINES:**
+If you lack necessary context or information to proceed, you can dynamically create `RESEARCH` nodes and set `owner_persona: researcher` to gather the required context.
+
 **NODE GENERATION RULES:**
 - Set the `owner_persona` of newly created downstream nodes to the persona responsible for the NEXT pipeline transition (e.g., `story_owner` for EPICs, `coder` for TASKs), not yourself.
 - Determine the correctly incremented global sequence number by listing and sorting the existing files in the corresponding directory (e.g., `ls -1 .foundry/tasks/ | sort -n -t '-' -k 3`).
