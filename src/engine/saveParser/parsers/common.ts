@@ -55,6 +55,12 @@ export interface SaveData {
   npcTradeFlags?: number;
   daycare?: PokemonInstance[];
   daycareHasEgg?: boolean;
+  roamingLegendaries?: {
+    speciesId: number;
+    level: number;
+    mapGroup: number;
+    mapId: number;
+  }[];
 }
 
 // Removed byte helper as DataView provides getUint8 natively.

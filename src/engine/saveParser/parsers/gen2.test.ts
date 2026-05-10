@@ -202,5 +202,59 @@ describe('gen2 parsers', () => {
       expect(data.currentMapName).not.toBe('Unknown Map');
       // If the map is in gen2MapLocations, it will have a name. Otherwise it should fall back safely without crashing.
     });
+
+    it('should extract Hall of Fame count and roaming legendaries (GS)', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      view.setUint8(0x24ec, 12); // GS HoF count
+
+      // Setup Entei (Species 244) as roaming in GS
+      const roamingOffset = 0x28da;
+      view.setUint8(roamingOffset, 244); // Species
+      view.setUint8(roamingOffset + 1, 40); // Level
+      view.setUint8(roamingOffset + 2, 5); // Map Group
+      view.setUint8(roamingOffset + 3, 2); // Map ID
+
+      const data = parseGen2(view, false);
+      expect(data.hallOfFameCount).toBe(12);
+      expect(data.roamingLegendaries).toHaveLength(1);
+      expect(data.roamingLegendaries?.[0]).toEqual({
+        speciesId: 244,
+        level: 40,
+        mapGroup: 5,
+        mapId: 2,
+      });
+    });
+
+    it('should extract Hall of Fame count and roaming legendaries (Crystal)', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x2865, 1);
+      view.setUint8(0x2866, 1);
+      view.setUint8(0x2866 + 7, 1);
+
+      view.setUint8(0x24ce, 5); // Crystal HoF count
+
+      // Setup Suicune (Species 245) as roaming in Crystal
+      const roamingOffset = 0x28b6;
+      view.setUint8(roamingOffset, 245); // Species
+      view.setUint8(roamingOffset + 1, 40); // Level
+      view.setUint8(roamingOffset + 2, 8); // Map Group
+      view.setUint8(roamingOffset + 3, 3); // Map ID
+
+      const data = parseGen2(view, true);
+      expect(data.hallOfFameCount).toBe(5);
+      expect(data.roamingLegendaries).toHaveLength(1);
+      expect(data.roamingLegendaries?.[0]).toEqual({
+        speciesId: 245,
+        level: 40,
+        mapGroup: 8,
+        mapId: 3,
+      });
+    });
   });
 });

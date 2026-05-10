@@ -380,6 +380,25 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     }
   }
 
+  const hallOfFameOffset = isCrystal ? 0x24ce : 0x24ec;
+  const hallOfFameCount = view.getUint8(hallOfFameOffset);
+
+  const roamingLegendaries: { speciesId: number; level: number; mapGroup: number; mapId: number }[] = [];
+  const roamingOffset = isCrystal ? 0x28b6 : 0x28da;
+
+  for (let i = 0; i < 3; i++) {
+    const structOffset = roamingOffset + i * 7;
+    const speciesId = view.getUint8(structOffset);
+    if (speciesId === 243 || speciesId === 244 || speciesId === 245) {
+      roamingLegendaries.push({
+        speciesId,
+        level: view.getUint8(structOffset + 1),
+        mapGroup: view.getUint8(structOffset + 2),
+        mapId: view.getUint8(structOffset + 3),
+      });
+    }
+  }
+
   return {
     generation: 2,
     owned,
@@ -401,6 +420,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     daycare,
     daycareHasEgg,
     currentBoxCount: 0,
-    hallOfFameCount: 0,
+    hallOfFameCount,
+    roamingLegendaries,
   };
 }
