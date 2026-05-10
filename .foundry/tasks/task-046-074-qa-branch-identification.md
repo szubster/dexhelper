@@ -2,13 +2,13 @@
 id: task-046-074-qa-branch-identification
 type: TASK
 title: QA Branch Identification Logic
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-09'
 updated_at: '2026-05-10'
 depends_on:
   - task-046-073-implement-branch-identification
-jules_session_id: null
+jules_session_id: '14838126005618852237'
 pr_number: null
 parent: story-030-046-branch-identification
 tags:
