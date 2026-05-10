@@ -63,3 +63,15 @@
 - **2026-05-09**: Heartbeat detected zombie session for `task-042-068-extract-hall-of-fame`. Transitioned to FAILED.
 
 - **2026-05-10**: Resurrection Loop triggered for `task-042-068-extract-hall-of-fame`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-10**: PR #1107 merged. `story-028-043-implement-dag-parser` is now COMPLETED.
+
+- **2026-05-10**: PR #1106 merged. `story-028-043-migrate-heartbeat-to-gray-matter` is now COMPLETED.
+
+- **2026-05-10**: PR #1111 merged. `story-030-046-branch-identification` is now COMPLETED.
+
+- **2026-05-10**: Resurrection Loop triggered for `story-030-046-standardize-orchestrator-test-factories`. Reason: PR #1109 closed without merging.. Transitioned back to READY.
+
+- **2026-05-10**: PR #1110 merged. `task-039-071-implement-failure-handling` is now COMPLETED.
+
+- **2026-05-10**: PR #1108 merged. `task-042-068-implement-hall-of-fame-roamers` is now COMPLETED.

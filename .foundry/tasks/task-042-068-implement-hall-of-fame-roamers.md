@@ -2,12 +2,12 @@
 id: task-042-068-implement-hall-of-fame-roamers
 type: TASK
 title: Implement Hall of Fame & Roamers Extraction
-status: ACTIVE
+status: "COMPLETED"
 owner_persona: coder
 created_at: '2026-05-06'
-updated_at: '2026-05-09'
+updated_at: "2026-05-10"
 depends_on: []
-jules_session_id: '14096286271011732420'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-026-042-hall-of-fame-roamers.md
 tags:

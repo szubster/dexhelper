@@ -2,10 +2,10 @@
 id: epic-018-028-migrate-heartbeat-to-gray-matter
 type: EPIC
 title: Migrate foundry-heartbeat.ts to gray-matter
-status: "PENDING"
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-06'
-updated_at: "2026-05-09"
+updated_at: '2026-05-10'
 depends_on: []
 jules_session_id: null
 pr_number: null

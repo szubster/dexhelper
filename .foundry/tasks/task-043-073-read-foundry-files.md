@@ -1,11 +1,11 @@
 ---
 id: task-043-073-read-foundry-files
 type: TASK
-title: "DAG Parser: Read Files Utility"
-status: PENDING
+title: 'DAG Parser: Read Files Utility'
+status: READY
 owner_persona: coder
 created_at: '2026-05-09'
-updated_at: '2026-05-09'
+updated_at: '2026-05-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
