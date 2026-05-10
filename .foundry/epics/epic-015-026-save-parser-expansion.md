@@ -33,5 +33,5 @@ Implement the missing data extraction layers for Gen 2 save files to provide acc
 - [x] Hall of Fame & Roamers: Able to extract the Hall of Fame counts and the specific map locations of roaming legendaries (Raikou, Entei, Suicune).
 
 ## Stories
-- [.foundry/stories/story-026-041-inventory-parsing.md](.foundry/stories/story-026-041-inventory-parsing.md)
+- [.foundry/archive/stories/story-026-041-inventory-parsing.md](.foundry/archive/stories/story-026-041-inventory-parsing.md)
 - [.foundry/stories/story-026-042-hall-of-fame-roamers.md](.foundry/stories/story-026-042-hall-of-fame-roamers.md)

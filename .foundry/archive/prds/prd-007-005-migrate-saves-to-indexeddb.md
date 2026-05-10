@@ -12,7 +12,7 @@ depends_on:
   - .foundry/archive/epics/epic-005-015-legacy-data-migration.md
   - .foundry/archive/epics/epic-005-016-e2e-testing-updates.md
 jules_session_id: null
-parent: .foundry/ideas/idea-007-migrate-saves-to-indexeddb.md
+parent: .foundry/archive/ideas/idea-007-migrate-saves-to-indexeddb.md
 tags: []
 ---
 

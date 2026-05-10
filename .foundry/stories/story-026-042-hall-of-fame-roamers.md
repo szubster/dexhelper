@@ -2,12 +2,12 @@
 id: story-026-042-hall-of-fame-roamers
 type: STORY
 title: 'Story 2: Hall of Fame & Roamers'
-status: "COMPLETED"
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-06'
-updated_at: "2026-05-08"
+updated_at: '2026-05-08'
 depends_on:
-  - .foundry/stories/story-026-041-inventory-parsing.md
+  - .foundry/archive/stories/story-026-041-inventory-parsing.md
 jules_session_id: null
 pr_number: null
 parent: .foundry/epics/epic-015-026-save-parser-expansion.md

@@ -1,14 +1,14 @@
 ---
-id: "task-025-044-implement-dag-atomic-test"
-type: "TASK"
-title: "Implement DAG Resolution Tests for Atomic Files"
-status: "COMPLETED"
-owner_persona: "coder"
-created_at: "2026-04-26"
-updated_at: "2026-04-26"
+id: task-025-044-implement-dag-atomic-test
+type: TASK
+title: Implement DAG Resolution Tests for Atomic Files
+status: COMPLETED
+owner_persona: coder
+created_at: '2026-04-26'
+updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-008-025-verify-dag-resolution.md"
+parent: .foundry/archive/stories/story-008-025-verify-dag-resolution.md
 ---
 
 # Implement DAG Resolution Tests for Atomic Files
