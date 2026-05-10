@@ -2,7 +2,7 @@
 id: task-043-073-read-foundry-files
 type: TASK
 title: 'DAG Parser: Read Files Utility'
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-09'
 updated_at: '2026-05-10'
@@ -38,6 +38,6 @@ Implement a utility function to read all relevant `.foundry` files.
 - Use native Node.js `fs` or `fs/promises` module.
 
 ## Acceptance Criteria
-- [ ] A utility function is implemented and exported.
-- [ ] It correctly reads all markdown files from the specified directories.
-- [ ] Unit tests verify that it returns the expected file paths and raw contents.
+- [x] A utility function is implemented and exported.
+- [x] It correctly reads all markdown files from the specified directories.
+- [x] Unit tests verify that it returns the expected file paths and raw contents.
