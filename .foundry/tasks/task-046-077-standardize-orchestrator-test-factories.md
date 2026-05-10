@@ -49,3 +49,7 @@ Implement a test utility function `createValidNode(overrides)` in `.github/scrip
 - [ ] Factory utility correctly assigns default frontmatter properties (e.g., valid `owner_persona` mapping based on node `type`).
 - [ ] Existing mock node configurations in `.github/scripts/foundry-orchestrator.test.ts` are refactored to use the factory.
 - [ ] The full test suite runs and passes without schema validation warnings or errors on mock nodes.
+- [x] Test factory utility function is successfully implemented.
+- [x] Factory utility correctly assigns default frontmatter properties (e.g., valid `owner_persona` mapping based on node `type`).
+- [x] Existing mock node configurations in `.github/scripts/foundry-orchestrator.test.ts` are refactored to use the factory.
+- [x] The full test suite runs and passes without schema validation warnings or errors on mock nodes.
