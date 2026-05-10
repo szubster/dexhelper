@@ -8,6 +8,7 @@
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import matter from 'gray-matter';
 import { discoverNodeFiles, parseNodeFile } from './foundry-orchestrator.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -35,17 +36,12 @@ export async function transitionNodeToFailed(node: any, repoRoot: string): Promi
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
-  const fmBlockMatch = node.rawContent.match(/^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*/m);
-  if (!fmBlockMatch) return;
+  const parsed = matter(node.rawContent);
+  parsed.data.status = 'FAILED';
+  parsed.data.jules_session_id = null;
+  parsed.data.updated_at = dateStr;
 
-  const originalFmBlock = fmBlockMatch[0];
-  let mutatedFmBlock = originalFmBlock;
-
-  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?ACTIVE["']?([ \t]*)$/m, `$1"FAILED"$2`);
-  mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);
-  mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1"${dateStr}"$2`);
-
-  const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
+  const newContent = matter.stringify(parsed.content, parsed.data);
 
   if (!DRY_RUN) {
     fs.writeFileSync(node.filePath, newContent, 'utf-8');
@@ -59,22 +55,18 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
-  const fmBlockMatch = node.rawContent.match(/^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*/m);
-  if (!fmBlockMatch) return;
-
-  const originalFmBlock = fmBlockMatch[0];
-  let mutatedFmBlock = originalFmBlock;
+  const parsed = matter(node.rawContent);
 
   // Late-Binding Support: If unchecked tasks exist, transition back to PENDING instead of COMPLETED.
-  const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(node.rawContent);
+  const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(parsed.content);
   // PENDING state keeps the late-binding parent alive to wait for children
   const targetStatus = hasUncheckedTasks ? "PENDING" : "COMPLETED";
 
-  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?ACTIVE["']?([ \t]*)$/m, `$1"${targetStatus}"$2`);
-  mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);
-  mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1"${dateStr}"$2`);
+  parsed.data.status = targetStatus;
+  parsed.data.jules_session_id = null;
+  parsed.data.updated_at = dateStr;
 
-  const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
+  const newContent = matter.stringify(parsed.content, parsed.data);
 
   if (!DRY_RUN) {
     fs.writeFileSync(node.filePath, newContent, 'utf-8');
@@ -88,23 +80,13 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
-  const fmBlockMatch = node.rawContent.match(/^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*/m);
-  if (!fmBlockMatch) return;
+  const parsed = matter(node.rawContent);
+  parsed.data.status = "READY";
+  parsed.data.jules_session_id = null;
+  parsed.data.rejection_count = (parsed.data.rejection_count || 0) + 1;
+  parsed.data.updated_at = dateStr;
 
-  const originalFmBlock = fmBlockMatch[0];
-  let mutatedFmBlock = originalFmBlock;
-
-  mutatedFmBlock = mutatedFmBlock.replace(/^(status:\s*)["']?(?:FAILED|ACTIVE)["']?([ \t]*)$/m, `$1"READY"$2`);
-  mutatedFmBlock = mutatedFmBlock.replace(/^(jules_session_id:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1null$2`);
-
-  if (/^rejection_count:/m.test(mutatedFmBlock)) {
-    mutatedFmBlock = mutatedFmBlock.replace(/^rejection_count:\s*(\d+)/m, (_: string, count: string) => `rejection_count: ${parseInt(count, 10) + 1}`);
-  } else {
-    mutatedFmBlock = mutatedFmBlock.replace(/^status: READY/m, `status: READY\nrejection_count: 1`);
-  }
-  mutatedFmBlock = mutatedFmBlock.replace(/^(updated_at:\s*)(?:null|["']?.*?["']?)([ \t]*)$/m, `$1"${dateStr}"$2`);
-
-  const newContent = node.rawContent.replace(originalFmBlock, mutatedFmBlock);
+  const newContent = matter.stringify(parsed.content, parsed.data);
 
   if (!DRY_RUN) {
     fs.writeFileSync(node.filePath, newContent, 'utf-8');

@@ -42,3 +42,4 @@ The target artifact already exists and is complete. The cascading cancellation l
 ## task-038-064-implement-mapping-validation
 
 The mapping validation logic and unit tests are already implemented. Submitting empty PR as per EMPTY PR POLICY.
+- 2026-05-10: Refactored `foundry-heartbeat.ts` to use `gray-matter`. Replaced regex frontmatter manipulations with `gray-matter` logic in `transitionNodeToFailed`, `transitionNodeToCompleted`, and `transitionNodeToReady`. `gray-matter` writes yaml strings unquoted, so tests were updated accordingly.
