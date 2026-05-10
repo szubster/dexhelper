@@ -2,13 +2,13 @@
 id: story-025-039-implement-failure-handling
 type: STORY
 title: Implement Failure Handling for Validation Mismatches
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-04'
 updated_at: '2026-05-10'
 depends_on:
   - .foundry/stories/story-025-038-implement-mapping-validation.md
-jules_session_id: null
+jules_session_id: '9827390149249600116'
 pr_number: null
 parent: .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md
 tags:
@@ -28,9 +28,9 @@ notes: ''
 Handle the state transition when an invalid `owner_persona` mapping is detected.
 
 ## Acceptance Criteria
-- [ ] Nodes with invalid mapping are transitioned to `FAILED`.
-- [ ] A descriptive `rejection_reason` is set.
-- [ ] A warning/error is logged.
+- [x] Nodes with invalid mapping are transitioned to `FAILED`.
+- [x] A descriptive `rejection_reason` is set.
+- [x] A warning/error is logged.
 
 ## Next Step
 - [x] Create Task to add failure handling logic.
