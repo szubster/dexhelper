@@ -491,12 +491,29 @@ function generateEvolutionAndBreedingSuggestions(
     const p = apiData.pokemonMetadata?.[targetId];
     if (!p) return;
 
-    const parentId = p.efrm[0];
-    if (parentId === undefined) return;
-    const ownedInstances = instancesBySpecies.get(parentId) || [];
+    let closestOwnedParentId: number | undefined;
+    let immediateEvoTargetId: number = targetId;
+
+    for (let i = 0; i < p.efrm.length; i++) {
+      const ancestorId = p.efrm[i];
+      if (ancestorId !== undefined && instancesBySpecies.has(ancestorId)) {
+        closestOwnedParentId = ancestorId;
+        const nextTarget = i === 0 ? targetId : p.efrm[i - 1];
+        if (nextTarget !== undefined) {
+          immediateEvoTargetId = nextTarget;
+        }
+        break;
+      }
+    }
+
+    if (closestOwnedParentId === undefined) return;
+    const ownedInstances = instancesBySpecies.get(closestOwnedParentId) || [];
     if (ownedInstances.length === 0) return;
 
-    const details = p.det;
+    const immediateEvoTarget = apiData.pokemonMetadata?.[immediateEvoTargetId];
+    if (!immediateEvoTarget) return;
+
+    const details = immediateEvoTarget.det;
     if (!details || details.length === 0) return;
 
     for (const detail of details) {
@@ -510,7 +527,7 @@ function generateEvolutionAndBreedingSuggestions(
 
       // Filter out Yellow Starter Pikachu as it refuses to evolve
       const evolvableInstances = ownedInstances.filter(
-        (inst) => !(displayVersion === 'yellow' && parentId === 25 && inst.otName === saveData.trainerName),
+        (inst) => !(displayVersion === 'yellow' && closestOwnedParentId === 25 && inst.otName === saveData.trainerName),
       );
 
       if (evolvableInstances.length === 0) continue;

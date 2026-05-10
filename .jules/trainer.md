@@ -27,3 +27,6 @@
 ## 2026-05-06 - Trade Evolution Held Item Equipped Support
 **Learning:** For Trade evolutions requiring a held item, the item could already be equipped on the Pokemon instead of being in the bag. The assistant was incorrectly suggesting to find the item if it was only equipped and not in the bag.
 **Action:** Modified `EVO_TRIGGER.TRADE` logic to search `evolvableInstances` and `ownedInstances` for the specific item and dynamically update the suggestion if the pre-evolution is already holding it.
+## 2024-05-19 - Assistant Recursive Evolution Suggestion
+**Learning:** For multi-stage evolutions (e.g., Charmander -> Charmeleon -> Charizard), if a player had a missing target of the stage 2 evolution (Charizard), owned the dex entry for stage 1 (Charmeleon), but physically only possessed the base stage (Charmander), the assistant would fail to suggest any evolution because it only looked at the immediate parent (`p.efrm[0]`).
+**Action:** Modified `generateEvolutionAndBreedingSuggestions` in `suggestionEngine.ts` to iterate backwards through the entire `p.efrm` ancestor array. It now finds the *closest* ancestor the player physically possesses and correctly determines the *immediate next stage* in the evolutionary line as the target for the suggestion (e.g., suggesting to evolve Charmander -> Charmeleon to progress towards Charizard).
