@@ -1,11 +1,13 @@
 🎯 **What:**
-The tests for `gen2Exclusives.ts` were missing coverage for several scenarios, including already owned Pokémon, non-exclusive Pokémon in Crystal, and unknown version strings.
+Code health issue requested: "Unused import in PokemonDetails" related to `type CompactChainLink` in `src/components/PokemonDetails.tsx`.
+Verified that the specified file does not contain the unused import `type CompactChainLink` in its import statement.
 
-📊 **Coverage:**
-The following scenarios are now tested:
-- Not locking non-exclusive Pokémon in Crystal.
-- Not locking an exclusive Pokémon if it is already in the `ownedSet`.
-- Handling unknown versions (e.g., 'unknown', 'ruby') gracefully.
+💡 **Why:**
+Maintaining a codebase free of unused imports improves readability and reduces bundle size / compiler parsing overhead. Since the file was already free of the described issue on `main` branch, no file modifications were needed.
+
+✅ **Verification:**
+- Ran `grep "CompactChainLink" src/components/PokemonDetails.tsx` to confirm absence.
+- Ran `pnpm lint`, `pnpm test` and `pnpm test:e2e` to ensure there are no pre-existing issues related to this.
 
 ✨ **Result:**
-100% statements, branches, and functions coverage is now achieved for `src/engine/exclusives/gen2Exclusives.ts`.
+The codebase is clean regarding this issue. Created an empty PR per policy for successfully completed but pre-existing artifacts where no legitimate file modifications are needed.
