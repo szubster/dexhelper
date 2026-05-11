@@ -46,10 +46,10 @@ The orchestrator must enforce these ownership rules:
 - None
 
 ## High-Level Acceptance Criteria
-- [ ] Orchestrator reads and validates the `owner_persona` against the node `type`.
-- [ ] Nodes with incorrect `owner_persona` are blocked from dispatch (e.g., transitioned to `FAILED`).
-- [ ] Nodes owned by `human` bypass this validation constraint.
-- [ ] Test cases are added to `foundry-orchestrator.test.ts` to verify the validation logic.
+- [x] Orchestrator reads and validates the `owner_persona` against the node `type`.
+- [x] Nodes with incorrect `owner_persona` are blocked from dispatch (e.g., transitioned to `FAILED`).
+- [x] Nodes owned by `human` bypass this validation constraint.
+- [x] Test cases are added to `foundry-orchestrator.test.ts` to verify the validation logic.
 
 ## Subsequent Work (Stories)
 - [x] Create Story to implement the mapping validation logic in the orchestrator.
