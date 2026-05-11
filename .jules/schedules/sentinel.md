@@ -46,7 +46,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 Read `.jules/sentinel.md` before starting (create if missing).
 Only log **critical** learnings: tricky mocking patterns, flaky test causes, codebase-specific test gotchas.
 
-This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/sentinel.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/sentinel.md`). Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
 ---
 
