@@ -380,7 +380,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     }
   }
 
-  const hallOfFameOffset = isCrystal ? 0x24ce : 0x24ec;
+  const hallOfFameOffset = johtoBadgesOffset + 0xa8;
   const hallOfFameCount = view.getUint8(hallOfFameOffset);
 
   const roamingLegendaries: { speciesId: number; level: number; mapGroup: number; mapId: number }[] = [];

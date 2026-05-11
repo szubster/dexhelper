@@ -210,7 +210,7 @@ describe('gen2 parsers', () => {
       view.setUint8(0x288b, 1);
       view.setUint8(0x288b + 7, 1);
 
-      view.setUint8(0x24ec, 12); // GS HoF count
+      view.setUint8(0x248c, 12); // GS HoF count
 
       // Setup Entei (Species 244) as roaming in GS
       const roamingOffset = 0x28da;
@@ -237,7 +237,7 @@ describe('gen2 parsers', () => {
       view.setUint8(0x2866, 1);
       view.setUint8(0x2866 + 7, 1);
 
-      view.setUint8(0x24ce, 5); // Crystal HoF count
+      view.setUint8(0x248d, 5); // Crystal HoF count
 
       // Setup Suicune (Species 245) as roaming in Crystal
       const roamingOffset = 0x28b6;
