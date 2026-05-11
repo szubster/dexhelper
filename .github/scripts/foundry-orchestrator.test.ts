@@ -38,12 +38,7 @@ describe('foundry-orchestrator', () => {
       type: "IDEA",
       title: "Idea 1",
       status: "COMPLETED",
-      owner_persona: "product_manager",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
-
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
@@ -51,12 +46,7 @@ describe('foundry-orchestrator', () => {
       type: "EPIC",
       title: "Epic 1",
       status: "PENDING",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/ideas/idea-001.md"],
-      jules_session_id: null,
-
+      depends_on: [".foundry/ideas/idea-001.md"]
     });
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -81,12 +71,8 @@ describe('foundry-orchestrator', () => {
       type: "IDEA",
       title: "Idea 1",
       status: "FAILED",
-      owner_persona: "product_manager",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      jules_session_id: "sess-123",
-
+      jules_session_id: "sess-123"
     });
 
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
@@ -94,12 +80,7 @@ describe('foundry-orchestrator', () => {
       type: "EPIC",
       title: "Epic 1",
       status: "PENDING",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/ideas/idea-001.md"],
-      jules_session_id: null,
-
+      depends_on: [".foundry/ideas/idea-001.md"]
     });
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -121,10 +102,7 @@ describe('foundry-orchestrator', () => {
       title: "Task with multiple owners",
       status: "PENDING",
       owner_persona: "coder, qa",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -141,11 +119,8 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Task with array owners",
       status: "PENDING",
-      owner_persona: ["coder","qa"] as unknown as string,
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      owner_persona: ["coder","qa"],
+      depends_on: []
     });
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -175,12 +150,7 @@ describe('foundry-orchestrator', () => {
       type: "IDEA",
       title: "Idea 1",
       status: "PENDING",
-      owner_persona: "product_manager",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
-
+      depends_on: []
     });
 
     main();
@@ -195,11 +165,7 @@ describe('foundry-orchestrator', () => {
       type: "EPIC",
       title: "Epic 1",
       status: "PENDING",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/missing/ghost.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/missing/ghost.md"]
     });
 
     main();
@@ -215,11 +181,7 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     // Task 1: Child of Story 1, PENDING
@@ -228,12 +190,8 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Task 1",
       status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [".foundry/stories/story-001.md"],
-      parent: ".foundry/stories/story-001.md",
-      jules_session_id: null,
+      parent: ".foundry/stories/story-001.md"
     });
 
     // Story 2: Depends on Story 1, PENDING (External dependent)
@@ -242,11 +200,7 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story 2",
       status: "PENDING",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/stories/story-001.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/stories/story-001.md"]
     });
 
     main();
@@ -267,11 +221,7 @@ describe('foundry-orchestrator', () => {
       type: "EPIC",
       title: "Epic 1",
       status: "PENDING",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     // Story 1: Child of Epic 1, PENDING
@@ -280,12 +230,8 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story 1",
       status: "PENDING",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/epics/epic-001.md",
-      jules_session_id: null,
+      parent: ".foundry/epics/epic-001.md"
     });
 
     main();
@@ -302,11 +248,7 @@ describe('foundry-orchestrator', () => {
       type: "EPIC",
       title: "Epic 1",
       status: "PENDING",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     // Story 1: Child of Epic 1, COMPLETED
@@ -315,12 +257,8 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/epics/epic-001.md",
-      jules_session_id: null,
+      parent: ".foundry/epics/epic-001.md"
     });
 
     main();
@@ -336,11 +274,7 @@ describe('foundry-orchestrator', () => {
       type: "EPIC",
       title: "Epic 1",
       status: "PENDING",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     }, `# Title
 
 - [ ] Unchecked task`);
@@ -351,12 +285,8 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/epics/epic-001.md",
-      jules_session_id: null,
+      parent: ".foundry/epics/epic-001.md"
     });
 
     main();
@@ -372,10 +302,7 @@ describe('foundry-orchestrator', () => {
       title: "Epic 1",
       status: "PENDING",
       owner_persona: "human",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     }, `# Title
 
 - [ ] Unchecked task`);
@@ -385,12 +312,8 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/epics/epic-001.md",
-      jules_session_id: null,
+      parent: ".foundry/epics/epic-001.md"
     });
 
     main();
@@ -405,11 +328,7 @@ describe('foundry-orchestrator', () => {
       type: "EPIC",
       title: "Epic 1",
       status: "PENDING",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/prds/missing-prd.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/prds/missing-prd.md"]
     }, `# Title
 
 - [ ] Unchecked task`);
@@ -419,12 +338,8 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/epics/epic-001.md",
-      jules_session_id: null,
+      parent: ".foundry/epics/epic-001.md"
     });
 
     main();
@@ -439,11 +354,7 @@ describe('foundry-orchestrator', () => {
       type: "EPIC",
       title: "Cancelled Epic",
       status: "CANCELLED",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
@@ -451,12 +362,8 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story of Cancelled Epic",
       status: "PENDING",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/epics/epic-001.md",
-      jules_session_id: null,
+      parent: ".foundry/epics/epic-001.md"
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
@@ -464,12 +371,8 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Task of Story",
       status: "READY",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/stories/story-001.md",
-      jules_session_id: null,
+      parent: ".foundry/stories/story-001.md"
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
@@ -477,12 +380,8 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Completed Task of Story",
       status: "COMPLETED",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/stories/story-001.md",
-      jules_session_id: null,
+      parent: ".foundry/stories/story-001.md"
     });
 
     main();
@@ -505,11 +404,7 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     // Task 1: Child of Story 1, COMPLETED
@@ -518,12 +413,8 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Task 1",
       status: "COMPLETED",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [".foundry/stories/story-001.md"],
-      parent: ".foundry/stories/story-001.md",
-      jules_session_id: null,
+      parent: ".foundry/stories/story-001.md"
     });
 
     // Subtask 1: Child of Task 1, PENDING
@@ -532,12 +423,8 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Subtask 1",
       status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [".foundry/tasks/task-001.md"],
-      parent: ".foundry/tasks/task-001.md",
-      jules_session_id: null,
+      parent: ".foundry/tasks/task-001.md"
     });
 
     // Story 2: Depends on Story 1, PENDING
@@ -546,11 +433,7 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story 2",
       status: "PENDING",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/stories/story-001.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/stories/story-001.md"]
     });
 
     main();
@@ -567,10 +450,7 @@ describe('foundry-orchestrator', () => {
       title: "Human Task 1",
       status: "PENDING",
       owner_persona: "human",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -595,10 +475,7 @@ describe('foundry-orchestrator', () => {
       title: "Human Task 2",
       status: "READY",
       owner_persona: "human",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -621,11 +498,9 @@ describe('foundry-orchestrator', () => {
       type: "EPIC",
       title: "Epic 2",
       status: "COMPLETED",
-      owner_persona: "story_owner",
       created_at: "2026-04-24",
       updated_at: "2026-04-24",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/stories/story-002-005-impl.md', {
@@ -633,11 +508,9 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story 5",
       status: "PENDING",
-      owner_persona: "tech_lead",
       created_at: "2026-04-24",
       updated_at: "2026-04-24",
-      depends_on: [".foundry/epics/epic-001-002-feature.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/epics/epic-001-002-feature.md"]
     });
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -660,11 +533,7 @@ describe('foundry-orchestrator', () => {
       type: "IDEA",
       title: "Idea 1",
       status: "COMPLETED",
-      owner_persona: "product_manager",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/prds/prd-001.md', {
@@ -672,12 +541,8 @@ describe('foundry-orchestrator', () => {
       type: "PRD",
       title: "PRD 1",
       status: "PENDING",
-      owner_persona: "epic_planner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       parent: "idea-001",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     main();
@@ -692,11 +557,7 @@ describe('foundry-orchestrator', () => {
       type: "IDEA",
       title: "Idea 1",
       status: "PENDING",
-      owner_persona: "product_manager",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     }, `# Title
 - [ ] Unchecked task
 `);
@@ -706,12 +567,8 @@ describe('foundry-orchestrator', () => {
       type: "PRD",
       title: "PRD 1",
       status: "COMPLETED",
-      owner_persona: "epic_planner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       parent: "idea-001",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     main();
@@ -727,11 +584,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Active Task",
       status: "ACTIVE",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/tasks/task-missing.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/tasks/task-missing.md"]
     });
 
     main();
@@ -746,11 +599,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Incomplete Task",
       status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-active.md', {
@@ -758,11 +607,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Active Task",
       status: "ACTIVE",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/tasks/task-incomplete.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/tasks/task-incomplete.md"]
     });
 
     main();
@@ -777,11 +622,7 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story",
       status: "COMPLETED",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-child.md', {
@@ -789,12 +630,8 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Child Task",
       status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/stories/story-001.md",
-      jules_session_id: null,
+      parent: ".foundry/stories/story-001.md"
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-active.md', {
@@ -802,11 +639,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Active Task",
       status: "ACTIVE",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/stories/story-001.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/stories/story-001.md"]
     });
 
     main();
@@ -821,11 +654,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Complete Task",
       status: "COMPLETED",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-active.md', {
@@ -833,11 +662,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Active Task",
       status: "ACTIVE",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/tasks/task-complete.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/tasks/task-complete.md"]
     });
 
     main();
@@ -853,11 +678,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Complete Task",
       status: "COMPLETED",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-pending.md', {
@@ -865,11 +686,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Pending Task",
       status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/tasks/task-complete.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/tasks/task-complete.md"]
     });
 
     main();
@@ -884,11 +701,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Task 1",
       status: "COMPLETED",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
@@ -896,11 +709,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Task 2",
       status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: ["task-001"],
-      jules_session_id: null,
+      depends_on: ["task-001"]
     });
 
     main();
@@ -916,11 +725,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Incomplete Task",
       status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-active.md', {
@@ -928,11 +733,8 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Active Task",
       status: "ACTIVE",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [".foundry/tasks/task-incomplete.md"],
-      jules_session_id: "session-123",
+      jules_session_id: "session-123"
     });
 
     main();
@@ -947,11 +749,7 @@ describe('foundry-orchestrator', () => {
       type: "STORY",
       title: "Story",
       status: "PENDING",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-impossible.md', {
@@ -959,13 +757,9 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Impossible Task",
       status: "FAILED",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
       parent: ".foundry/stories/story-001.md",
-      rejection_reason: "Feature not supported",
-      jules_session_id: null,
+      rejection_reason: "Feature not supported"
     });
 
     main();
@@ -980,12 +774,8 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Impossible Task No Parent",
       status: "FAILED",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      rejection_reason: "Feature not supported",
-      jules_session_id: null,
+      rejection_reason: "Feature not supported"
     });
 
     main();
@@ -996,10 +786,36 @@ describe('foundry-orchestrator', () => {
   });
 
   test('Mapping Validation: Enforces type to persona mappings before dispatch', () => {
-    createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', { id: "idea-001", type: "IDEA", title: "Idea", status: "PENDING", owner_persona: "product_manager", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
-    createValidTestNode(tmpDir, '.foundry/prds/prd-invalid.md', { id: "prd-invalid", type: "PRD", title: "Invalid PRD", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
-    createValidTestNode(tmpDir, '.foundry/tasks/task-human.md', { id: "task-human", type: "TASK", title: "Human Task", status: "PENDING", owner_persona: "human", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
-    createValidTestNode(tmpDir, '.foundry/research/research-001.md', { id: "research-001", type: "RESEARCH", title: "Research Task", status: "PENDING", owner_persona: "researcher", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
+    createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
+      id: "idea-001",
+      type: "IDEA",
+      title: "Idea",
+      status: "PENDING",
+      depends_on: []
+    });
+    createValidTestNode(tmpDir, '.foundry/prds/prd-invalid.md', {
+      id: "prd-invalid",
+      type: "PRD",
+      title: "Invalid PRD",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: []
+    });
+    createValidTestNode(tmpDir, '.foundry/tasks/task-human.md', {
+      id: "task-human",
+      type: "TASK",
+      title: "Human Task",
+      status: "PENDING",
+      owner_persona: "human",
+      depends_on: []
+    });
+    createValidTestNode(tmpDir, '.foundry/research/research-001.md', {
+      id: "research-001",
+      type: "RESEARCH",
+      title: "Research Task",
+      status: "PENDING",
+      depends_on: []
+    });
 
     main();
 
@@ -1025,10 +841,7 @@ describe('foundry-orchestrator', () => {
       title: "Tech Lead Task",
       status: "COMPLETED",
       owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-atomic-2.md', {
@@ -1036,11 +849,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Coder Task",
       status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/tasks/task-atomic-1.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/tasks/task-atomic-1.md"]
     });
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-atomic-3.md', {
@@ -1049,10 +858,7 @@ describe('foundry-orchestrator', () => {
       title: "QA Task",
       status: "PENDING",
       owner_persona: "qa",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/tasks/task-atomic-2.md"],
-      jules_session_id: null,
+      depends_on: [".foundry/tasks/task-atomic-2.md"]
     });
 
     main();
@@ -1098,11 +904,7 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
       type: "EPIC",
       title: "Epic 1",
       status: "PENDING",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     createValidTestNode(tmpDir, '.foundry/stories/story-preflight-1.md', {
@@ -1110,12 +912,8 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
       type: "STORY",
       title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/epics/epic-preflight-1.md",
-      jules_session_id: null,
+      parent: ".foundry/epics/epic-preflight-1.md"
     });
 
     const filePath = path.join(tmpDir, '.foundry/epics/epic-preflight-1.md');
@@ -1133,11 +931,7 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
       type: "EPIC",
       title: "Epic 2",
       status: "PENDING",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     });
 
     // Invalid story (missing required fields)
@@ -1160,11 +954,7 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
       type: "IDEA",
       title: "Idea 1",
       status: "PENDING",
-      owner_persona: "product_manager",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
+      depends_on: []
     }, `# Title
 - [ ] Unchecked task
 - Spawned: [.foundry/prds/prd-001.md](.foundry/prds/prd-001.md)
@@ -1175,12 +965,8 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
       type: "PRD",
       title: "PRD 1",
       status: "COMPLETED",
-      owner_persona: "epic_planner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/ideas/idea-001.md",
-      jules_session_id: null,
+      parent: ".foundry/ideas/idea-001.md"
     });
 
     const stderrSpy = vi.spyOn(process.stderr, 'write');
