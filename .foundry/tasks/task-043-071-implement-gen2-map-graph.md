@@ -32,4 +32,4 @@ As part of the Gen 2 expansion (Phase 3), we need to create a unified map graph 
 - **Export Structure:** Export the defined graph (e.g. `const gen2MapGraph`) in a format similar to existing map structures if available, or appropriate for the `getDistanceToMap` and `resolveOutdoorMapId` logic.
 
 ## Acceptance Criteria
-- [ ] `src/engine/mapGraph/gen2Graph.ts` is created and correctly sets up the map nodes and connectivity for both Johto and Kanto.
+- [x] `src/engine/mapGraph/gen2Graph.ts` is created and correctly sets up the map nodes and connectivity for both Johto and Kanto.

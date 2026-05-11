@@ -50,5 +50,8 @@ The mapping validation logic and unit tests are already implemented. Submitting 
   - Used GitHub APIs to check active PRs for branches would be the consumer's responsibility. The identification logic accepts open PR refs and protects them.
 - 2026-05-10: Refactored `foundry-heartbeat.ts` to use `gray-matter`. Replaced regex frontmatter manipulations with `gray-matter` logic in `transitionNodeToFailed`, `transitionNodeToCompleted`, and `transitionNodeToReady`. `gray-matter` writes yaml strings unquoted, so tests were updated accordingly.
 
+## Memory from Task task-043-071-implement-gen2-map-graph
+- Gen 2 `UnifiedLocation.id` values are encoded as `(group << 8) | id` rather than simple array indices as in Gen 1. For example, Goldenrod City is map group 3, map ID 6, which translates to `0x0306`.
+- We successfully implemented `src/engine/mapGraph/gen2Graph.ts` with explicit definition of `gen2MapGraph` which contains nodes and connections across Johto and Kanto.
 ## 2026-05-10
 Task task-046-077-standardize-orchestrator-test-factories: Implemented `foundry-test-utils.ts` and refactored the orchestrator tests to dynamically create mock nodes passing Phase 4.8 Mapping Validations. Ensure `gray-matter.stringify` is not used in frontmatter body replacements but we manually wrote a serializer for frontmatter stringification during mock file creation. Ensure `pr_number` handles null without TS errors.
