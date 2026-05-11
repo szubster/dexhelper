@@ -2,13 +2,13 @@
 id: story-028-044-indoor-outdoor-resolution
 type: STORY
 title: 'Phase 3: Indoor to Outdoor Resolution'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-05-08'
 updated_at: '2026-05-11'
 depends_on:
   - .foundry/stories/story-028-043-gen2-map-graph.md
-jules_session_id: '5795226046319427415'
+jules_session_id: null
 pr_number: null
 parent: .foundry/epics/epic-017-028-map-graph-routing.md
 tags:
@@ -30,3 +30,10 @@ Implement `resolveOutdoorMapId` mapping Johto and Kanto indoor locations to thei
 ## Requirements
 - Implement logic to resolve indoor maps (like Pokemon Centers, Gyms, Caves) to their root outdoor hub in `gen2Graph.ts` or related utility.
 - Depends on the base map graph structure being defined.
+
+## Acceptance Criteria
+- [ ] `resolveOutdoorMapId` correctly maps indoor locations to outdoor hubs.
+
+## Generated Tasks
+- [.foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md](.foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md)
+- [.foundry/tasks/task-044-081-qa-indoor-outdoor-resolution.md](.foundry/tasks/task-044-081-qa-indoor-outdoor-resolution.md)

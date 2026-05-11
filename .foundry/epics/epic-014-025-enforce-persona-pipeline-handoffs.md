@@ -2,12 +2,12 @@
 id: epic-014-025-enforce-persona-pipeline-handoffs
 type: EPIC
 title: Enforce Persona Pipeline Handoffs in DAG Orchestrator
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-04'
 updated_at: '2026-05-11'
 depends_on: []
-jules_session_id: '8239836119824960275'
+jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-015-014-enforce-persona-pipeline.md
 tags:
@@ -46,10 +46,10 @@ The orchestrator must enforce these ownership rules:
 - None
 
 ## High-Level Acceptance Criteria
-- [ ] Orchestrator reads and validates the `owner_persona` against the node `type`.
-- [ ] Nodes with incorrect `owner_persona` are blocked from dispatch (e.g., transitioned to `FAILED`).
-- [ ] Nodes owned by `human` bypass this validation constraint.
-- [ ] Test cases are added to `foundry-orchestrator.test.ts` to verify the validation logic.
+- [x] Orchestrator reads and validates the `owner_persona` against the node `type`.
+- [x] Nodes with incorrect `owner_persona` are blocked from dispatch (e.g., transitioned to `FAILED`).
+- [x] Nodes owned by `human` bypass this validation constraint.
+- [x] Test cases are added to `foundry-orchestrator.test.ts` to verify the validation logic.
 
 ## Subsequent Work (Stories)
 - [x] Create Story to implement the mapping validation logic in the orchestrator.

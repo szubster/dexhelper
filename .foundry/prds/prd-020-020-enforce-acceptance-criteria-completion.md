@@ -46,6 +46,6 @@ Currently, several Foundry nodes successfully transition to `COMPLETED` even tho
 - It should properly identify unchecked boxes only, ignoring `[x]` or `[X]`.
 
 ## 5. Acceptance Criteria
-- [ ] Investigate and document the best phase/location to inject this validation logic in the codebase.
-- [ ] Implement the parsing logic to detect unchecked `- [ ]` boxes in a node's body.
-- [ ] Integrate the logic to block or revert the node's transition to `COMPLETED` if unchecked boxes are found.
+- [x] Investigate and document the best phase/location to inject this validation logic in the codebase.
+- [x] Implement the parsing logic to detect unchecked `- [ ]` boxes in a node's body.
+- [x] Integrate the logic to block or revert the node's transition to `COMPLETED` if unchecked boxes are found.

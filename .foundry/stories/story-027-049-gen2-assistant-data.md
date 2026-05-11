@@ -1,0 +1,34 @@
+---
+id: story-027-049-gen2-assistant-data
+type: STORY
+title: Setup Gen 2 Assistant Data
+status: ACTIVE
+owner_persona: tech_lead
+created_at: '2026-05-11'
+updated_at: '2026-05-11'
+depends_on: []
+jules_session_id: '16969897421649550784'
+pr_number: null
+parent: epic-015-027-exclusives-and-static-data
+tags:
+  - gen2
+  - data
+research_references:
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Setup Gen 2 Assistant Data
+
+## Context
+Gen 2 specific game mechanics and Pokémon availability require establishing the static knowledge base. The Gen 2 Exclusives module is already established. The next step in this phase is to establish static configurations for gifts and trades.
+
+## Objectives
+Establish static assistant configurations for gifts and trades in Gen 2.
+
+## Acceptance Criteria
+- [ ] Create `src/engine/data/gen2/assistantData.ts`.
+- [ ] Define `STATIC_GIFT_DATA` for Gen 2 (Togepi Egg, Eevee from Bill, Shuckle in Cianwood, Dratini, Tyrogue).
+- [ ] Define `STATIC_NPC_TRADE_DATA` (e.g., trading Bellsprout for Onix `Rocky`, Drowzee for Machop `Muscle`).

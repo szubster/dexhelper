@@ -2,12 +2,12 @@
 id: epic-019-030-orchestrator-test-factories
 type: EPIC
 title: Standardized Orchestrator Test Factories
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-09'
 updated_at: '2026-05-11'
 depends_on: []
-jules_session_id: '7737938787469280394'
+jules_session_id: null
 pr_number: null
 parent: prd-019-019-orchestrator-test-factories
 tags: []
@@ -44,10 +44,10 @@ Implement a standardized test node factory utility in the DAG Orchestrator test 
 - Verify that the CI pipeline (`pnpm test` in `.github/scripts`) passes successfully after refactoring.
 
 ## 3. High-Level Acceptance Criteria
-- [ ] Test factory utility function is successfully implemented and accessible for tests.
-- [ ] Factory utility correctly assigns default frontmatter properties (e.g., valid `owner_persona` mapping based on node `type`).
-- [ ] Existing mock node configurations in `.github/scripts/foundry-orchestrator.test.ts` are entirely refactored to use the factory.
-- [ ] The full test suite runs and passes without schema validation warnings or errors on mock nodes.
+- [x] Test factory utility function is successfully implemented and accessible for tests.
+- [x] Factory utility correctly assigns default frontmatter properties (e.g., valid `owner_persona` mapping based on node `type`).
+- [x] Existing mock node configurations in `.github/scripts/foundry-orchestrator.test.ts` are entirely refactored to use the factory.
+- [x] The full test suite runs and passes without schema validation warnings or errors on mock nodes.
 
 
 ### Child Nodes

@@ -2,13 +2,13 @@
 id: epic-015-027-exclusives-and-static-data
 type: EPIC
 title: 'Phase 2: Exclusives & Static Data Setup'
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-04'
 updated_at: '2026-05-11'
 depends_on:
   - .foundry/epics/epic-015-026-save-parser-expansion.md
-jules_session_id: '13346394393386091174'
+jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-006-015-gen2-expansion-phase-1-2.md
 tags:
@@ -30,6 +30,9 @@ Gen 2 specific game mechanics and Pokémon availability require establishing the
 Define availability differences for Gen 2 and establish static configurations for gifts and trades.
 
 ## High-level Acceptance Criteria
-- Define availability differences between Gold, Silver, and Crystal versions in the new Gen 2 Exclusives module.
-- Define static gift data (e.g., Togepi Egg, Eevee from Bill) for Gen 2.
-- Define static NPC trade data for Gen 2.
+- [x] Define availability differences between Gold, Silver, and Crystal versions in the new Gen 2 Exclusives module.
+- [ ] Define static gift data (e.g., Togepi Egg, Eevee from Bill) for Gen 2.
+- [ ] Define static NPC trade data for Gen 2.
+
+## Stories
+- `.foundry/stories/story-027-049-gen2-assistant-data.md`
