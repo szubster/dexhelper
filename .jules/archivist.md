@@ -34,3 +34,8 @@
 
 **Learning:** Memory entries describing the removal of fields (like `pr_number`) can become contradictory if later features (like `human-in-the-loop`) reintroduce them partially.
 **Action:** Updated `conflict-resolution-v1.md` to clarify that `pr_number` was only removed for automated tasks, resolving the contradiction with `human-in-the-loop.md`.
+
+## 2026-06-25 - Archivist Run Learnings
+
+**Learning:** `.foundry/docs/knowledge_base/infrastructure/jules_agents_dispatch.md` had an outdated list of agents.
+**Action:** Updated it to properly reflect the 15 agents deployed, by adding the missing `researcher` agent to the list.
