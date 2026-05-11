@@ -2,17 +2,17 @@
 id: epic-019-030-orchestrator-test-factories
 type: EPIC
 title: Standardized Orchestrator Test Factories
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-09'
 updated_at: '2026-05-11'
 depends_on: []
-jules_session_id: '17474447616180457954'
+jules_session_id: null
 pr_number: null
 parent: prd-019-019-orchestrator-test-factories
 tags: []
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

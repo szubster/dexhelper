@@ -1,20 +1,24 @@
 ---
 id: epic-015-027-exclusives-and-static-data
 type: EPIC
-title: "Phase 2: Exclusives & Static Data Setup"
-status: PENDING
+title: 'Phase 2: Exclusives & Static Data Setup'
+status: READY
 owner_persona: story_owner
-created_at: "2026-05-04"
-updated_at: "2026-05-04"
-depends_on: [".foundry/epics/epic-015-026-save-parser-expansion.md"]
+created_at: '2026-05-04'
+updated_at: '2026-05-11'
+depends_on:
+  - .foundry/epics/epic-015-026-save-parser-expansion.md
 jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-006-015-gen2-expansion-phase-1-2.md
-tags: ["gen2", "data"]
-research_references: [".foundry/docs/knowledge_base/development/gen2_implementation_plan.md"]
+tags:
+  - gen2
+  - data
+research_references:
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Phase 2: Exclusives & Static Data Setup

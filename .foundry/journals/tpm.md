@@ -43,3 +43,19 @@
 - **2026-05-11**: Heartbeat detected zombie session for `epic-014-025-enforce-persona-pipeline-handoffs`. Transitioned to FAILED.
 
 - **2026-05-11**: Resurrection Loop triggered for `prd-020-020-enforce-acceptance-criteria-completion`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-11**: PR #1183 merged. `epic-017-029-dag-dashboard-ui` is now PENDING.
+
+- **2026-05-11**: Resurrection Loop triggered for `epic-019-030-orchestrator-test-factories`. Reason: PR #1184 closed without merging.. Transitioned back to READY.
+
+- **2026-05-11**: PR #1186 merged. `idea-019-automated-branch-cleanup` is now PENDING.
+
+- **2026-05-11**: PR #1185 merged. `story-028-043-gen2-map-graph` is now COMPLETED.
+
+- **2026-05-11**: PR #1187 merged. `task-042-070-qa-hall-of-fame-roamers` is now COMPLETED.
+
+- **2026-05-11**: PR #1189 merged. `task-046-077-standardize-orchestrator-test-factories` is now PENDING.
+
+- **2026-05-11**: PR #1188 merged. `task-047-079-qa-cleanup-remote-branches` is now COMPLETED.
+
+- **2026-05-11**: Resurrection Loop triggered for `epic-014-025-enforce-persona-pipeline-handoffs`. Reason: Retry from FAILED status.. Transitioned back to READY.

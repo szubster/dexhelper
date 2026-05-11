@@ -2,7 +2,7 @@
 id: story-029-048-evaluate-graph-libraries
 type: STORY
 title: Select and Integrate Graph Rendering Library
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-11'
 updated_at: '2026-05-11'
