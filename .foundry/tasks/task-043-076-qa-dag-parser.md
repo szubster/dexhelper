@@ -2,13 +2,13 @@
 id: task-043-076-qa-dag-parser
 type: TASK
 title: 'DAG Parser: QA Verification'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-09'
 updated_at: '2026-05-11'
 depends_on:
   - .foundry/tasks/task-043-075-build-dag-graph.md
-jules_session_id: null
+jules_session_id: '624048875925066611'
 pr_number: null
 parent: story-028-043-implement-dag-parser
 tags:
@@ -34,6 +34,6 @@ Verify the implementation of the DAG parser components.
 - Ensure all automated unit tests written by the `coder` pass and provide adequate coverage.
 
 ## Acceptance Criteria
-- [ ] All DAG parser utilities function correctly.
-- [ ] Unit tests are robust and pass.
-- [ ] The generated DAG structure accurately represents the state of the `.foundry` directory.
+- [x] All DAG parser utilities function correctly.
+- [x] Unit tests are robust and pass.
+- [x] The generated DAG structure accurately represents the state of the `.foundry` directory.

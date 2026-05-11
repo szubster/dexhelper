@@ -2,13 +2,13 @@
 id: task-042-069-extract-roamers
 type: TASK
 title: Implement Roamer location extraction for Gen 2
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-07'
 updated_at: '2026-05-11'
 depends_on:
   - .foundry/tasks/task-042-068-extract-hall-of-fame.md
-jules_session_id: null
+jules_session_id: '12440413083620198811'
 pr_number: null
 parent: .foundry/stories/story-026-042-hall-of-fame-roamers.md
 tags:
@@ -33,5 +33,5 @@ Update the Gen 2 save parser (`src/engine/saveParser/parsers/gen2.ts`) to extrac
 - Add unit tests to verify the location extraction.
 
 ## Acceptance Criteria
-- [ ] `gen2.ts` correctly extracts map locations for Raikou, Entei, and Suicune.
-- [ ] Tests verify the extraction logic.
+- [x] `gen2.ts` correctly extracts map locations for Raikou, Entei, and Suicune.
+- [x] Tests verify the extraction logic.
