@@ -33,5 +33,5 @@ The Coder has completed the technical implementation for the Gen 2 map graph und
 - **Validation:** Check that the graph format conforms to the project's standard and is ready to be utilized by future algorithms like `resolveOutdoorMapId` and `getDistanceToMap`.
 
 ## Acceptance Criteria
-- [ ] Tests successfully pass and cover Gen 2 map transitions correctly.
-- [ ] Code properly follows architectural guidelines and accurately models the Johto and Kanto graphs.
+- [x] Tests successfully pass and cover Gen 2 map transitions correctly.
+- [x] Code properly follows architectural guidelines and accurately models the Johto and Kanto graphs.
