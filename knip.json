@@ -1,23 +1,12 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "ignoreDependencies": [
-    "bundlemon",
-    "gray-matter"
+    "bundlemon"
   ],
   "ignoreExportsUsedInFile": true,
   "ignore": [
-    ".github/scripts/**",
     "src/test-setup.ts",
-    "scripts/validate-foundry-schema.ts",
-    "src/node-setup.ts",
-    "tests/e2e/test-utils.ts",
-    "vite-plugins/pokedata-plugin.ts",
-    "scripts/check-links.ts",
-    "scripts/data/gen1/mapping.ts",
-    "scripts/data/gen2/mapping.ts",
-    "scripts/generate-pokedata.ts",
-    "scripts/generateMapLocations.ts",
-    "src/utils/argos.ts"
+    "scripts/validate-foundry-schema.ts"
   ],
   "rules": {
     "files": "warn",

@@ -53,3 +53,6 @@ Critical learnings:
 ## 2026-05-10 - Added sort-package-json
 **Learning:** Added `sort-package-json` to the pipeline via `devDependencies` and `lefthook.yml` to automatically sort `package.json` locally. Note: Biome currently does not natively sort `package.json` correctly. We did not add it to the `pnpm lint` script as it currently modifies files instead of just checking them.
 - **Updated**: Added `lint:package-json` with `--check` flag to the `lint` command to enforce that `package.json` stays correctly sorted in CI pipelines.
+
+## 2026-05-11 - Cleaned up knip.json
+**Learning:** Removed outdated `ignore` and `ignoreDependencies` configurations from `knip.json` that were previously suggested by `pnpm knip`. This avoids unnecessary ignored files and configuration hints during linting.
