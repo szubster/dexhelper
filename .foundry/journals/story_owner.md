@@ -31,3 +31,6 @@ All acceptance criteria in .foundry/epics/epic-018-028-migrate-heartbeat-to-gray
 
 ## Epic 019 (Orchestrator Test Factories)
 The requested STORY node already exists and is COMPLETED (.foundry/stories/story-030-046-standardize-orchestrator-test-factories.md). There is no work to do. Applying EMPTY PR POLICY.
+
+## Epic 025 (Enforce Persona Pipeline Handoffs)
+All acceptance criteria in .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md are already met and subsequent work stories are completed. There is no new STORY node to create. Applying EMPTY PR POLICY.
