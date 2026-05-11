@@ -1000,6 +1000,8 @@ describe('foundry-orchestrator', () => {
     createValidTestNode(tmpDir, '.foundry/prds/prd-invalid.md', { id: "prd-invalid", type: "PRD", title: "Invalid PRD", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/tasks/task-human.md', { id: "task-human", type: "TASK", title: "Human Task", status: "PENDING", owner_persona: "human", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/research/research-001.md', { id: "research-001", type: "RESEARCH", title: "Research Task", status: "PENDING", owner_persona: "researcher", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
+    createValidTestNode(tmpDir, '.foundry/prds/prd-architect.md', { id: "prd-architect", type: "PRD", title: "Architect PRD", status: "PENDING", owner_persona: "architect", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
+    createValidTestNode(tmpDir, '.foundry/tasks/task-tech-lead.md', { id: "task-tech-lead", type: "TASK", title: "Tech Lead Task", status: "PENDING", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
 
     main();
 
@@ -1016,6 +1018,12 @@ describe('foundry-orchestrator', () => {
 
     const researchResult = fs.readFileSync(path.join(tmpDir, '.foundry/research/research-001.md'), 'utf-8');
     expect(researchResult).toContain('status: READY');
+
+    const prdArchitectResult = fs.readFileSync(path.join(tmpDir, '.foundry/prds/prd-architect.md'), 'utf-8');
+    expect(prdArchitectResult).toContain('status: READY');
+
+    const taskTechLeadResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-tech-lead.md'), 'utf-8');
+    expect(taskTechLeadResult).toContain('status: READY');
   });
 
   test('Atomic Handoffs: resolves dependencies across single-persona atomic tasks', () => {

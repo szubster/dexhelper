@@ -39,3 +39,7 @@
 - **2026-05-11**: PR #1180 merged. `task-047-078-implement-cleanup-remote-branches` is now COMPLETED.
 
 - **2026-05-11**: PR #1179 merged. `task-047-079-qa-cleanup-remote-branches` is now PENDING.
+
+- **2026-05-11**: Heartbeat detected zombie session for `epic-014-025-enforce-persona-pipeline-handoffs`. Transitioned to FAILED.
+
+- **2026-05-11**: Resurrection Loop triggered for `prd-020-020-enforce-acceptance-criteria-completion`. Reason: Retry from FAILED status.. Transitioned back to READY.

@@ -60,6 +60,16 @@ function validateSchema() {
     'product_manager', 'epic_planner', 'story_owner', 'architect',
     'tech_lead', 'coder', 'qa', 'human', 'tpm', 'agile_coach', 'researcher'
   ];
+
+  const validMappings: Record<string, string[]> = {
+    IDEA: ['product_manager'],
+    PRD: ['epic_planner', 'architect', 'story_owner'],
+    EPIC: ['story_owner', 'epic_planner'],
+    STORY: ['tech_lead', 'story_owner', 'coder'],
+    TASK: ['coder', 'qa', 'tech_lead'],
+    RESEARCH: ['researcher'],
+  };
+
   const requiredFields = ['id', 'title', 'created_at', 'updated_at', 'depends_on', 'jules_session_id'];
 
   for (const file of targetFiles) {
@@ -98,6 +108,15 @@ function validateSchema() {
     if (owner_persona && !validPersonas.includes(owner_persona)) {
       console.error(`Error: Invalid owner_persona enum '${owner_persona}' in file ${file}`);
       hasError = true;
+    }
+
+    // 2.5 Validate persona mapping
+    if (type && owner_persona && owner_persona !== 'human' && owner_persona !== 'tpm' && owner_persona !== 'agile_coach') {
+      const allowedPersonas = validMappings[type as string] || [];
+      if (!allowedPersonas.includes(owner_persona)) {
+        console.error(`Error: Invalid mapping: ${type} node '${file}' cannot be owned by '${owner_persona}'`);
+        hasError = true;
+      }
     }
 
     // 3. ID format & uniqueness
