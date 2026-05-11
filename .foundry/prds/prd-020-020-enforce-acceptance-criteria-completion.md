@@ -7,7 +7,7 @@ owner_persona: architect
 created_at: '2026-05-11'
 updated_at: '2026-05-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10163826134294175262'
 pr_number: null
 parent: idea-020-enforce-acceptance-criteria-completion
 tags: []

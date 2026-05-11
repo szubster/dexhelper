@@ -2,13 +2,13 @@
 id: task-047-079-qa-cleanup-remote-branches
 type: TASK
 title: QA Remote Branch Cleanup
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-10'
 updated_at: '2026-05-11'
 depends_on:
   - task-047-078-implement-cleanup-remote-branches
-jules_session_id: null
+jules_session_id: '13573920149961462432'
 pr_number: null
 parent: story-030-047-branch-cleanup-mechanism
 tags:

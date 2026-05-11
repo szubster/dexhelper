@@ -2,7 +2,7 @@
 id: epic-014-025-enforce-persona-pipeline-handoffs
 type: EPIC
 title: Enforce Persona Pipeline Handoffs in DAG Orchestrator
-status: READY
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-05-04'
 updated_at: '2026-05-11'
