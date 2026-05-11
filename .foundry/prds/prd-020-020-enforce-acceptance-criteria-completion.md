@@ -2,7 +2,7 @@
 id: prd-020-020-enforce-acceptance-criteria-completion
 type: PRD
 title: Enforce Acceptance Criteria Checkbox Completion PRD
-status: FAILED
+status: READY
 owner_persona: architect
 created_at: '2026-05-11'
 updated_at: '2026-05-11'
@@ -12,7 +12,7 @@ pr_number: null
 parent: idea-020-enforce-acceptance-criteria-completion
 tags: []
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: Invalid owner_persona mapping
 notes: ''
 ---
