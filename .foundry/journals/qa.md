@@ -36,3 +36,9 @@ The QA check failed because the coder did not implement the `cleanupRemoteBranch
 - Implementation correctly utilizes `gray-matter` for safe YAML parsing and constructs the expected dependency structures.
 - Ran all tests via `pnpm test`. All 334 tests passed, including the newly added tests inside `src/utils/dag/` (`builder.test.ts`, `parser.test.ts`, `readFoundryFiles.test.ts`).
 - Verification successful. Marked the Acceptance Criteria checkboxes as completed in the corresponding task node.
+
+## 2026-05-11: QA Validation for task-042-070-qa-hall-of-fame-roamers
+- Verified that Hall of Fame count and roaming legendary extraction for Gen 2 save files is properly implemented in `src/engine/saveParser/parsers/gen2.ts`.
+- Verified offsets used match the knowledge base instructions (e.g. `0xA8` relative to Johto badges for Hall of Fame count).
+- Confirmed unit tests and fixture tests pass successfully (`pnpm test`).
+- Updated task node markdown body with checked acceptance criteria. Submitting an empty PR to allow DAG progression.
