@@ -34,6 +34,6 @@ Verify the implementation of the DAG parser components.
 - Ensure all automated unit tests written by the `coder` pass and provide adequate coverage.
 
 ## Acceptance Criteria
-- [ ] All DAG parser utilities function correctly.
-- [ ] Unit tests are robust and pass.
-- [ ] The generated DAG structure accurately represents the state of the `.foundry` directory.
+- [x] All DAG parser utilities function correctly.
+- [x] Unit tests are robust and pass.
+- [x] The generated DAG structure accurately represents the state of the `.foundry` directory.
