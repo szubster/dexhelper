@@ -80,3 +80,9 @@
 **Outcome:** Accepted
 **Why:** Continues the successful strategy of establishing a specialized hardware UI aesthetic, improving visual cohesion across the application's structural and assistant views.
 **Pattern:** Consistently apply the tactical hardware motif (sharp edges, dashed outlines, monospace text) to major panels to maintain the illusion of a specialized device.
+
+## 2026-05-15 - [Accepted] - 🖼️ Canvas: Tactical Details Panel Redesign
+**What:** Replaced the rounded generic \`GlassCard\` with \`TacticalPanel\` across the Details sub-components (\`PokemonLocations\`, \`PokemonEvolutions\`, \`PokemonCaughtDetails\`, \`PokemonCatchProbability\`), enforcing sharp edges, dashed borders, and \`CornerCrosshairs\`. Also deeply redesigned the \`PokemonCatchProbability\` to use a sharp segmented control interface for HP instead of a rounded slider, and added color-coded dynamic telemetry to the probability output.
+**Outcome:** Accepted
+**Why:** Brings the rest of the application's details cards perfectly in line with the heavily tactical, snooping-focused aesthetic (like the Grid and Details wrapper), correcting the failure of the previous "glassmorphism" style.
+**Pattern:** Ensure structural and navigation components strictly adhere to the tactical aesthetics (sharp edges, corner crosshairs, monospace text) to maintain overall visual coherence. Eliminate rounded native inputs (like range sliders) where possible to lean into specialized hardware terminal designs.
