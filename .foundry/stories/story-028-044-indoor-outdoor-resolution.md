@@ -30,3 +30,10 @@ Implement `resolveOutdoorMapId` mapping Johto and Kanto indoor locations to thei
 ## Requirements
 - Implement logic to resolve indoor maps (like Pokemon Centers, Gyms, Caves) to their root outdoor hub in `gen2Graph.ts` or related utility.
 - Depends on the base map graph structure being defined.
+
+## Acceptance Criteria
+- [ ] `resolveOutdoorMapId` correctly maps indoor locations to outdoor hubs.
+
+## Generated Tasks
+- [.foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md](.foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md)
+- [.foundry/tasks/task-044-081-qa-indoor-outdoor-resolution.md](.foundry/tasks/task-044-081-qa-indoor-outdoor-resolution.md)
