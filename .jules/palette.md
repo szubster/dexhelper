@@ -54,3 +54,4 @@
 ## 2024-05-21 - Added tooltips to interactive card elements
 **Learning:** For accessibility and micro-UX, interactive card elements that act as links or triggers must provide a `title` attribute for sighted users alongside the `aria-label` for screen readers.
 **Action:** When creating or modifying card components that handle click events (e.g. `TacticalCard`), ensure they accept and render a `title` prop matching their `aria-label`.
+- Added ARIA listbox roles to LocationSuggestions component to ensure screen reader compatibility, overriding generic div role and mapping individual suggestion buttons to options. Learned that Vite server starts on port 3000 here.

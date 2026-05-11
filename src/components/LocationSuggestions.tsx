@@ -68,7 +68,12 @@ export function LocationSuggestions() {
   }
 
   return (
-    <div className="fade-in zoom-in-95 absolute top-full left-0 z-50 mt-2 w-full animate-in border border-white/20 border-dashed bg-zinc-950 shadow-2xl duration-200">
+    // oxlint-disable jsx-a11y/prefer-tag-over-role
+    <div
+      role="listbox"
+      aria-label="Location suggestions"
+      className="fade-in zoom-in-95 absolute top-full left-0 z-50 mt-2 w-full animate-in border border-white/20 border-dashed bg-zinc-950 shadow-2xl duration-200"
+    >
       <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/40" />
       <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-10" />
       <div className="relative z-10 space-y-1 p-2">
@@ -78,6 +83,8 @@ export function LocationSuggestions() {
         {suggestions.map((loc) => (
           <button
             type="button"
+            role="option"
+            aria-selected="false"
             key={loc.id}
             onClick={() => {
               setSelectedLocationId(loc.id);
