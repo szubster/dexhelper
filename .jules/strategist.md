@@ -84,3 +84,9 @@
 **Outcome:** Accepted
 **Why:** The Bolt agent's journal showed it repeatedly optimizing CI pipelines, fixing DAG orchestrator bugs, and updating tooling configs (Biome, Vite, Vitest) instead of its domain of application performance.
 **Pattern:** Performance agents can easily drift into pipeline/tooling optimizations if their boundaries don't explicitly exclude infrastructure and CI/CD files.
+
+## 2026-05-11 - [Accepted] - Prompt improvement - Prevent Shield prompt bloat
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The `shield.md` journal showed that when no code fixes were found, the agent repeatedly bloated its own prompt (`.jules/schedules/shield.md`) with exhaustive lists of generic web vulnerabilities (like "Guard against Tab-nabbing", "Guard against CSRF"). This caused the prompt to grow unmanageably and lose its focus.
+**Pattern:** Do not instruct agents to expand their prompt with generic lists when they lack actionable work; instead, default to routine tasks (like `pnpm audit`) or skip execution.

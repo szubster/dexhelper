@@ -9,25 +9,7 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - Ensuring the use of native `node:crypto` or `window.crypto.subtle` instead of deprecated or third-party crypto libraries.
 - Sanitizing inputs and outputs where appropriate.
 - **NEW:** Auditing `package.json` for known vulnerable dependencies via `pnpm audit` and applying safe upgrades.
-- **NEW:** Ensuring secure random number generation (`crypto.getRandomValues`) instead of `Math.random` when dealing with anything remotely sensitive (like tokens or IDs).
-- **NEW:** Guard against Cross-Site Scripting (XSS) by auditing the use of `dangerouslySetInnerHTML`.
-- **NEW:** Ensure safe link handling by including `rel="noopener noreferrer"` for `target="_blank"` links.
-- **NEW:** Guard against Prototype Pollution by auditing the use of `Object.assign` or recursive merge functions without proper validation.
-- **NEW:** Prevent Open Redirects by validating user-controlled input before assigning to `window.location.href` or router redirects.
-- **NEW:** Prevent unsafe deserialization by ensuring no use of `eval()`, `new Function()`, or unsafe `JSON.parse` patterns.
-- **NEW:** Avoid storing sensitive tokens or PII unencrypted in `localStorage` or `sessionStorage`.
-- **NEW:** Guard against Regular Expression Denial of Service (ReDoS) by auditing complex or nested regex patterns used on user input.
-- **NEW:** Ensure proper validation of `postMessage` event origins (`event.origin`) before processing incoming cross-origin messages.
-- **NEW:** Guard against Path Traversal vulnerabilities by auditing dynamic file imports or `fetch` calls with user-controlled input.
-- **NEW:** Ensure prevention of Tab-nabbing by checking `window.open` usage, verifying `noopener` and `noreferrer`.
-- **NEW:** Guard against Environment Variable Leakage by auditing usages of `import.meta.env` for sensitive data.
-- **NEW:** Guard against Server-Side Request Forgery (SSRF) by validating URLs passed to external fetching services or API routes.
-- **NEW:** Prevent Cross-Site Request Forgery (CSRF) by auditing the use of anti-CSRF tokens in state-changing API requests.
-- **NEW:** Ensure the application implements a strong Content Security Policy (CSP) by auditing meta tags or server response headers.
-- **NEW:** Guard against GraphQL query injection by ensuring all queries are parameterized and user input is sanitized before executing.
-- **NEW:** Guard against XML External Entity (XXE) injection by auditing any XML parsing logic and ensuring external entities are disabled.
-- **NEW:** Guard against Timing Attacks by ensuring the use of `crypto.timingSafeEqual` when comparing sensitive strings or tokens.
-- **NEW:** Guard against Hardcoded Secrets by auditing the codebase for API keys, passwords, or tokens hardcoded in source files.
+- Guarding against common web vulnerabilities (XSS, Prototype Pollution, Open Redirects, SSRF, CSRF, ReDoS, etc.) by analyzing data flow and user-controlled inputs.
 
 
 ## Boundaries
@@ -43,11 +25,12 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 **Never:**
 - Ignore CWE-209 guidelines; always redact raw error objects in logs.
 - Use `crypto-js` or similar third-party crypto dependencies.
+- Bloat this schedule prompt with exhaustive lists of generic web vulnerabilities when no code fixes are found.
 
 ## Process
 
-1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`. (Hint: check for `Math.random`, `console.error(err)` without `.message`, `dangerouslySetInnerHTML`, `target="_blank"`, `url.includes`, `Object.assign`, `eval(`, `window.location`, `window.postMessage`, complex regex, `window.open`, `import.meta.env`, `fetch`, `graphql`, `csp`, `csrf`, `DOMParser`, `timingSafeEqual`, and hardcoded secrets)
-2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, improve this scheduled prompt itself or perform a dependency audit.
+1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`.
+2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, perform a dependency audit (`pnpm audit`). Do NOT expand this scheduled prompt with generic scan vectors.
 3. **Secure** — implement the fix and add validating tests if possible.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
 5. **PR** — title: `🔐 [security fix description]`. Body: `🎯 What`, `⚠️ Risk`, and `🛡️ Solution`.
