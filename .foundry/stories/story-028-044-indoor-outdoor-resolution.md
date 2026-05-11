@@ -2,13 +2,13 @@
 id: story-028-044-indoor-outdoor-resolution
 type: STORY
 title: 'Phase 3: Indoor to Outdoor Resolution'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-08'
 updated_at: '2026-05-11'
 depends_on:
   - .foundry/stories/story-028-043-gen2-map-graph.md
-jules_session_id: null
+jules_session_id: '5795226046319427415'
 pr_number: null
 parent: .foundry/epics/epic-017-028-map-graph-routing.md
 tags:
