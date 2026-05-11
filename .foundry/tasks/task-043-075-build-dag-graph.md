@@ -2,13 +2,13 @@
 id: task-043-075-build-dag-graph
 type: TASK
 title: 'DAG Parser: Build DAG Graph'
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-09'
 updated_at: '2026-05-10'
 depends_on:
   - .foundry/tasks/task-043-074-parse-frontmatter.md
-jules_session_id: null
+jules_session_id: '4105294264554563478'
 pr_number: null
 parent: story-028-043-implement-dag-parser
 tags:
@@ -41,7 +41,7 @@ Implement a builder function that outputs the final node/edge graph data structu
 - Ensure the `depends_on` array (which contains file paths) is correctly mapped to node `id`s for the edges. You may need to map paths to node IDs.
 
 ## Acceptance Criteria
-- [ ] A builder function is implemented and exported.
-- [ ] It produces a structured JSON output with `nodes` and `edges`.
-- [ ] `depends_on` paths are correctly translated into edges linking node IDs.
-- [ ] Unit tests verify the correct generation of the graph structure from mock parsed nodes.
+- [x] A builder function is implemented and exported.
+- [x] It produces a structured JSON output with `nodes` and `edges`.
+- [x] `depends_on` paths are correctly translated into edges linking node IDs.
+- [x] Unit tests verify the correct generation of the graph structure from mock parsed nodes.

@@ -29,9 +29,9 @@ notes: ''
 Add unit tests to `foundry-orchestrator.test.ts` covering valid, invalid, and `human` ownership mappings.
 
 ## Acceptance Criteria
-- [ ] Write test cases verifying correct type-to-persona mappings successfully dispatch.
-- [ ] Write test cases verifying incorrect mapping transitions node to `FAILED` with specific `rejection_reason`.
-- [ ] Write test case verifying `human` mapping skips validation.
+- [x] Write test cases verifying correct type-to-persona mappings successfully dispatch.
+- [x] Write test cases verifying incorrect mapping transitions node to `FAILED` with specific `rejection_reason`.
+- [x] Write test case verifying `human` mapping skips validation.
 
 ## Next Step
-- [ ] Create Task for testing.
+- [x] Create Task for testing.
