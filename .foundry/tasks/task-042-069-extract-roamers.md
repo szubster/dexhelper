@@ -33,5 +33,5 @@ Update the Gen 2 save parser (`src/engine/saveParser/parsers/gen2.ts`) to extrac
 - Add unit tests to verify the location extraction.
 
 ## Acceptance Criteria
-- [ ] `gen2.ts` correctly extracts map locations for Raikou, Entei, and Suicune.
-- [ ] Tests verify the extraction logic.
+- [x] `gen2.ts` correctly extracts map locations for Raikou, Entei, and Suicune.
+- [x] Tests verify the extraction logic.
