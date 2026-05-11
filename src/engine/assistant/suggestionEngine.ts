@@ -200,6 +200,29 @@ const METHOD_NAMES: Record<number, string> = {
  * F. Breeding (Gen 2 Only)
  */
 
+/**
+ * Evaluates wild Pokémon encounters and generates actionable catch suggestions.
+ *
+ * This function processes two primary categories of catches:
+ * 1. **Local Catch:** Pokémon that can be encountered on the exact map the player is currently on.
+ *    These receive the highest base priority (120).
+ * 2. **Nearby Catch:** Pokémon found within 1-8 map transitions from the player's location.
+ *    Priority scales inversely with distance (closer = higher priority), leveraging the
+ *    strategy's graph traversal logic.
+ *
+ * It mutates the provided `suggestions` array and `localPids` set to avoid redundant
+ * array allocations in the hot path.
+ *
+ * @param apiData - Pre-fetched lookup data, containing location definitions and encounter rates.
+ * @param displayVersionId - The numeric ID of the current game version (e.g. Red, Blue, Gold).
+ * @param myOtIds - A set of species IDs the player physically caught (matching their Original Trainer ID), used to skip static gifts.
+ * @param missingIds - A set of Pokémon IDs the player needs to obtain.
+ * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
+ * @param saveData - The player's parsed save file, containing current location and badges.
+ * @param strategy - Generation-specific logic for calculating map distances.
+ * @param suggestions - The shared array where new catch suggestions are pushed.
+ * @param localPids - A shared set tracking Pokémon found locally, preventing redundant nearby checks.
+ */
 function generateCatchSuggestions(
   apiData: AssistantApiData,
   displayVersionId: number,
@@ -314,6 +337,29 @@ function generateCatchSuggestions(
   }
 }
 
+/**
+ * Evaluates non-wild encounter methods, specifically in-game NPC trades, static gifts,
+ * and version-exclusive constraints.
+ *
+ * This function handles:
+ * 1. **Unobtainables (Version Exclusives):** Marks Pokémon that cannot be caught in the current
+ *    version with a low priority (10) unless the player owns a pre-evolution or there's an NPC trade.
+ * 2. **NPC Trades:** Suggests trading with in-game NPCs. Priority is boosted (65 -> 85) if the
+ *    player already possesses the requested offering Pokémon.
+ * 3. **Static Gifts:** Suggests one-off encounters (like Eevee or Hitmonlee) based on badge counts
+ *    and event flags extracted from the save file.
+ *
+ * It mutates the provided `suggestions` array directly for performance.
+ *
+ * @param queryTargets - The priority Pokémon IDs being evaluated.
+ * @param saveData - The parsed save data to check event flags and badge requirements.
+ * @param displayVersion - The text ID of the game version (e.g., 'red', 'silver').
+ * @param ownedSet - The set of Pokémon IDs the player currently owns.
+ * @param apiData - Pre-fetched game metadata including Pokémon evolution chains.
+ * @param instancesBySpecies - A Map grouping all possessed Pokémon instances by their species ID.
+ * @param suggestions - The shared array where new gift/trade suggestions are pushed.
+ * @param missingIds - A set of all missing Pokémon IDs.
+ */
 function generateGiftAndTradeSuggestions(
   queryTargets: number[],
   saveData: SaveData,
@@ -418,6 +464,26 @@ function generateGiftAndTradeSuggestions(
   }
 }
 
+/**
+ * Evaluates owned Pokémon to suggest evolutions or breeding opportunities.
+ *
+ * This function checks the player's party and boxes (via `instancesBySpecies`) for pre-evolutions
+ * of missing Pokémon. It determines the highest priority evolution path by validating conditions:
+ * 1. **Breeding (Gen 2 Only):** Suggests leaving compatible Pokémon at the Daycare, tracking egg status.
+ * 2. **Level Up:** Checks if a pre-evolution is near or past its required level.
+ * 3. **Item Evolution:** Checks the player's bag for required evolution stones.
+ * 4. **Trade/Happiness Evolution:** Suggests trading (with or without held items) or raising friendship.
+ *
+ * Priority is significantly boosted (e.g., to 90 or 95) if the player already meets all conditions
+ * (e.g., holds the required stone, or the Pokémon is past the level requirement).
+ *
+ * @param queryTargets - The missing Pokémon IDs being evaluated.
+ * @param saveData - The parsed save data for checking items, daylight (tod), and daycare status.
+ * @param apiData - Pre-fetched metadata containing evolution criteria (level, item, time of day).
+ * @param instancesBySpecies - A Map of the player's physical Pokémon, used to find valid pre-evolutions.
+ * @param suggestions - The shared array where new evolution/breeding suggestions are pushed.
+ * @param displayVersion - The current game version, used to handle special cases (like Yellow Pikachu refusing to evolve).
+ */
 function generateEvolutionAndBreedingSuggestions(
   queryTargets: number[],
   saveData: SaveData,

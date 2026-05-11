@@ -91,3 +91,12 @@ Documenting these mechanical quirks is essential for future maintainability of t
 
 **What:** Added JSDoc for `generateSuggestions` in `src/engine/assistant/suggestionEngine.ts`.
 **Why:** `generateSuggestions` is the most important function in the Assistant engine. It was lacking documentation explaining its synchronous nature, its reliance on pre-fetched IndexedDB data (via `fetchAssistantApiData`), and its use of O(1) Sets and Maps to prevent UI thread blockage when processing arrays of suggestions. Documenting this architectural contract prevents future maintainers from accidentally introducing asynchronous fetching or O(N^2) array traversals into this critical path.
+
+## 2025-05-23 - Suggestion Engine Sub-Generators Documentation
+
+**What:** Added JSDoc for `generateCatchSuggestions`, `generateGiftAndTradeSuggestions`, and `generateEvolutionAndBreedingSuggestions` in `src/engine/assistant/suggestionEngine.ts`.
+**Why:** These sub-generators are the core pillars of the recommendation engine. While `generateSuggestions` was documented, its internal delegates were undocumented.
+- `generateCatchSuggestions`: Clarifies the distinction between Local (Priority 120) and Nearby (distance-scaled) suggestions, and explicitly documents the array/set mutation pattern used for performance in the hot path.
+- `generateGiftAndTradeSuggestions`: Documents how it handles Exclusives, boosts NPC trade priority when the offering is already owned, and checks badge/event flags for static gifts.
+- `generateEvolutionAndBreedingSuggestions`: Documents the recursive box checking required to find pre-evolutions, and the complex branching conditions (Level, Item, Trade/Happiness, Gen 2 Daycare breeding) that determine suggestion priority.
+Documenting these functions ensures that future maintainers understand the business logic for suggestion prioritization and the performance-critical mutation patterns.
