@@ -41,3 +41,6 @@ All acceptance criteria in .foundry/epics/epic-014-025-enforce-persona-pipeline-
 - Created the first story (`story-029-048-evaluate-graph-libraries.md`) for Epic `epic-017-029-dag-dashboard-ui`.
 - Decided to evaluate graph rendering libraries (e.g., Mermaid.js, React Flow) as the initial step for the DAG Dashboard Visualization & UI.
 - The next step will depend on the outcome of the evaluation.
+
+## Epic 014-025 (Enforce Persona Pipeline Handoffs in DAG Orchestrator)
+All acceptance criteria in .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md are fulfilled. The three stories listed in the epic are created and COMPLETED. There is no new STORY to create. Applying EMPTY PR POLICY.
