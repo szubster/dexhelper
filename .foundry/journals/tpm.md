@@ -93,3 +93,19 @@
 - **2026-05-10**: PR #1135 merged. `task-043-073-refactor-heartbeat-matter` is now COMPLETED.
 
 - **2026-05-10**: PR #1139 merged. `task-046-073-implement-branch-identification` is now COMPLETED.
+
+- **2026-05-10**: PR #1144 merged. `epic-018-028-migrate-heartbeat-to-gray-matter` is now COMPLETED.
+
+- **2026-05-10**: PR #1146 merged. `epic-019-030-orchestrator-test-factories` is now PENDING.
+
+- **2026-05-10**: PR #1145 merged. `story-025-039-implement-failure-handling` is now COMPLETED.
+
+- **2026-05-10**: Resurrection Loop triggered for `task-042-068-extract-hall-of-fame`. Reason: PR #1143 closed without merging.. Transitioned back to READY.
+
+- **2026-05-10**: PR #1147 merged. `task-043-074-parse-frontmatter` is now COMPLETED.
+
+- **2026-05-10**: PR #1150 merged. `task-043-074-qa-refactor-heartbeat-matter` is now COMPLETED.
+
+- **2026-05-10**: PR #1151 merged. `task-046-074-qa-branch-identification` is now COMPLETED.
+
+- **2026-05-10**: PR #1149 merged. `task-046-077-standardize-orchestrator-test-factories` is now PENDING.

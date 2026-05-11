@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-05-07'
 updated_at: '2026-05-10'
 depends_on: []
-jules_session_id: '11071475120578984885'
+jules_session_id: '17244156773014528258'
 pr_number: null
 parent: .foundry/stories/story-026-042-hall-of-fame-roamers.md
 tags:
@@ -15,7 +15,7 @@ tags:
   - save-parser
   - hall-of-fame
 research_references: []
-rejection_count: 2
+rejection_count: 3
 rejection_reason: ''
 notes: ''
 ---

@@ -1,14 +1,14 @@
 ---
 id: task-043-075-build-dag-graph
 type: TASK
-title: "DAG Parser: Build DAG Graph"
-status: PENDING
+title: 'DAG Parser: Build DAG Graph'
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-09'
-updated_at: '2026-05-09'
+updated_at: '2026-05-10'
 depends_on:
   - .foundry/tasks/task-043-074-parse-frontmatter.md
-jules_session_id: null
+jules_session_id: '4105294264554563478'
 pr_number: null
 parent: story-028-043-implement-dag-parser
 tags:

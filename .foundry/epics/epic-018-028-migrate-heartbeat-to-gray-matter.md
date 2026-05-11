@@ -2,12 +2,12 @@
 id: epic-018-028-migrate-heartbeat-to-gray-matter
 type: EPIC
 title: Migrate foundry-heartbeat.ts to gray-matter
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-06'
 updated_at: '2026-05-10'
 depends_on: []
-jules_session_id: '8008554859636944915'
+jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-018-018-migrate-heartbeat-to-gray-matter.md
 tags:
@@ -38,4 +38,4 @@ ADR-006 mandated the use of `gray-matter` for parsing and mutating Markdown fron
 - All modifications write the new node contents via `matter.stringify()`.
 
 ## Stories
-- [ ] .foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md
+- [x] .foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md

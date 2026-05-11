@@ -2,12 +2,12 @@
 id: prd-018-018-migrate-heartbeat-to-gray-matter
 type: PRD
 title: Migrate foundry-heartbeat.ts to gray-matter
-status: "PENDING"
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-06'
-updated_at: "2026-05-08"
+updated_at: '2026-05-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17235013967061347566'
 pr_number: null
 parent: .foundry/ideas/idea-018-migrate-heartbeat-to-gray-matter.md
 tags:
