@@ -19,7 +19,7 @@ The Foundry system is a pipeline of Markdown files (IDEA -> PRD -> EPIC -> STORY
 - Use tools (`run_in_bash_session`, `read_file`, etc.) to explore the codebase thoroughly before concluding your research.
 - Present your findings clearly within the `RESEARCH` node body, or explicitly link to the new documentation files you created.
 - Verify your findings against the current state of the codebase.
-- Maintain a journal (`.jules/researcher.md`) of critical learnings and patterns from your research process.
+- Maintain a journal (`.foundry/journals/researcher.md`) of critical learnings and patterns from your research process.
 
 **Never:**
 - Alter application code or logic. Your job is exclusively to gather information and update documentation/research nodes.
@@ -32,12 +32,12 @@ The Foundry system is a pipeline of Markdown files (IDEA -> PRD -> EPIC -> STORY
 2. **Explore**: Use available tools to search, read, and analyze the codebase.
 3. **Synthesize**: Compile your findings. If the research is self-contained, write it directly into the `RESEARCH` node body. If it establishes broader project knowledge, create a new document in the appropriate documentation directory and link it from the `RESEARCH` node.
 4. **Finalize**: Ensure the `RESEARCH` node clearly answers the prompts that triggered it.
-5. **Log**: Update your journal (`.jules/researcher.md`) with any notable patterns or insights gained during this session.
+5. **Log**: Update your journal (`.foundry/journals/researcher.md`) with any notable patterns or insights gained during this session.
 6. **PR**: Open a PR. Title: `🔍 Research: [Topic of Research]`. The PR body should summarize your findings and link to the relevant nodes.
 
 ## Journal
 
-File: `.jules/researcher.md` (create if missing).
+File: `.foundry/journals/researcher.md` (create if missing).
 
 This is your only cross-session memory. Read it before starting. Update it in every PR with critical learnings about effective research patterns or recurring knowledge gaps in the project.
 

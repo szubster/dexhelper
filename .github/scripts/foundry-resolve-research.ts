@@ -12,7 +12,7 @@ function discoverNodeFiles(dir: string, fileList: string[] = []): string[] {
   for (const file of files) {
     const filePath = path.join(dir, file);
     if (fs.statSync(filePath).isDirectory()) {
-      if (filePath.includes('journals') || filePath.includes('docs') || filePath.includes('archive')) {
+      if (file === 'journals' || file === 'docs' || file === 'archive') {
         continue;
       }
       discoverNodeFiles(filePath, fileList);
