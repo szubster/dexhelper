@@ -305,7 +305,9 @@ export async function cleanupRemoteBranches(repoRoot: string, repoFullName: stri
     let openPrHeadRefs: string[] = [];
     if (openPrsRes.ok) {
       const openPrs = await openPrsRes.json() as any[];
-      openPrHeadRefs = openPrs.map(pr => pr.head.ref).filter(Boolean);
+      if (Array.isArray(openPrs)) {
+        openPrHeadRefs = openPrs.map(pr => pr?.head?.ref).filter(Boolean);
+      }
     } else {
       warn(`Failed to fetch open PRs: ${openPrsRes.status} ${openPrsRes.statusText}`);
       return;
@@ -319,7 +321,9 @@ export async function cleanupRemoteBranches(repoRoot: string, repoFullName: stri
     if (refsRes.ok) {
       const refs = await refsRes.json() as any[];
       // refs have form "refs/heads/branch-name", strip prefix
-      remoteBranches = refs.map(ref => ref.ref.replace('refs/heads/', ''));
+      if (Array.isArray(refs)) {
+        remoteBranches = refs.map(ref => ref?.ref?.replace('refs/heads/', '')).filter(Boolean);
+      }
     } else {
       warn(`Failed to fetch remote refs: ${refsRes.status} ${refsRes.statusText}`);
       return;
