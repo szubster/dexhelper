@@ -35,8 +35,11 @@ This Epic covers the frontend user interface for the DAG Dashboard Webview. It c
 - Serve the UI as a local HTML/React webview or integrated admin route.
 
 ## Acceptance Criteria
-- [ ] Select and integrate a graph rendering library (e.g., Mermaid.js, React Flow).
+- [x] Select and integrate a graph rendering library (e.g., Mermaid.js, React Flow).
 - [ ] Implement the core graph visualization component.
 - [ ] Implement filtering UI controls and logic.
 - [ ] Implement dependency highlighting interactions.
 - [ ] Wire up the UI to consume data from the parsing layer.
+
+## Stories
+- `.foundry/stories/story-029-048-evaluate-graph-libraries.md`
