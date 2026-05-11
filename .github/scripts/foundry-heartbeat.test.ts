@@ -38,6 +38,7 @@ describe('Foundry Heartbeat', () => {
       repoPath: '.foundry/tasks/task-1.md',
       frontmatter: {
         id: 'task-1',
+        type: 'TASK',
         status: 'ACTIVE',
         jules_session_id: 'session-123'
       },
@@ -79,6 +80,7 @@ ok: true,
       repoPath: '.foundry/tasks/task-1.md',
       frontmatter: {
         id: 'task-1',
+        type: 'TASK',
         status: 'ACTIVE',
         jules_session_id: 'session-404'
       },
@@ -242,10 +244,11 @@ ok: true,
       repoPath: '.foundry/tasks/task-1.md',
       frontmatter: {
         id: 'task-1',
+        type: 'STORY',
         status: 'ACTIVE',
         jules_session_id: 'session-123'
       },
-      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-123"\nupdated_at: "2023-01-01"\n---\nBody\n- [ ] Unchecked task'
+      rawContent: '---\ntype: STORY\nstatus: ACTIVE\njules_session_id: "session-123"\nupdated_at: "2023-01-01"\n---\nBody\n- [ ] Unchecked task'
     };
 
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
@@ -279,6 +282,52 @@ ok: true,
     expect(fs.writeFileSync).toHaveBeenCalled();
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
     expect(writeCall[1]).toContain('status: PENDING');
+  });
+
+  it('should transition a leaf task to FAILED if its PR is merged but it has unchecked tasks', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-2.md',
+      repoPath: '.foundry/tasks/task-2.md',
+      frontmatter: {
+        id: 'task-2',
+        type: 'TASK',
+        status: 'ACTIVE',
+        jules_session_id: 'session-123'
+      },
+      rawContent: '---\ntype: TASK\nstatus: ACTIVE\njules_session_id: "session-123"\nupdated_at: "2023-01-01"\n---\nBody\n- [ ] Unchecked task'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-2.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    // @ts-expect-error
+    globalFetch.mockImplementation((url: string | URL | Request) => {
+      const urlStr = typeof url === "string" ? url : (url as URL).toString();
+      if (urlStr.startsWith('https://jules.googleapis.com/')) {
+        return Promise.resolve({
+            ok: true,
+            status: 200,
+          json: async () => ({
+              state: 'COMPLETED',
+              outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/402' } }]
+            })
+          });
+      }
+      if (urlStr.startsWith('https://api.github.com/repos/szubster/dexhelper/pulls/402')) {
+        return Promise.resolve({
+            ok: true,
+            status: 200,
+          json: async () => ({ number: 402, state: 'closed', merged: true })
+        });
+      }
+      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+    });
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[vi.mocked(fs.writeFileSync).mock.calls.length - 1];
+    expect(writeCall[1]).toContain('status: FAILED');
   });
 
   it('should transition a node to COMPLETED if PR from Jules session link is merged', async () => {
