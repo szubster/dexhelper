@@ -35,7 +35,7 @@ As part of the Gen 2 map routing infrastructure, we need to correctly resolve in
 - Make similar updates to `gen1Graph.ts` to keep the APIs consistent, if it exists and uses the same pattern.
 
 ## Acceptance Criteria
-- [ ] `resolveOutdoorMapId` is implemented and exported in `gen2Graph.ts`.
-- [ ] It correctly resolves multi-level indoor maps to their root outdoor parent.
-- [ ] `getDistanceToMap` uses the new function.
-- [ ] Existing tests pass, and new tests are added for `resolveOutdoorMapId` covering multi-level indoor maps.
+- [x] `resolveOutdoorMapId` is implemented and exported in `gen2Graph.ts`.
+- [x] It correctly resolves multi-level indoor maps to their root outdoor parent.
+- [x] `getDistanceToMap` uses the new function.
+- [x] Existing tests pass, and new tests are added for `resolveOutdoorMapId` covering multi-level indoor maps.
