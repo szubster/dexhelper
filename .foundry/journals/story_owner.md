@@ -41,3 +41,4 @@ All acceptance criteria in .foundry/epics/epic-014-025-enforce-persona-pipeline-
 - Created the first story (`story-029-048-evaluate-graph-libraries.md`) for Epic `epic-017-029-dag-dashboard-ui`.
 - Decided to evaluate graph rendering libraries (e.g., Mermaid.js, React Flow) as the initial step for the DAG Dashboard Visualization & UI.
 - The next step will depend on the outcome of the evaluation.
+- Created `story-027-049-gen2-assistant-data.md` for Epic `epic-015-027-exclusives-and-static-data`. The Exclusives file already existed so marked that criteria complete, and generated the story for the remaining static data files.

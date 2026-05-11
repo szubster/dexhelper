@@ -30,6 +30,9 @@ Gen 2 specific game mechanics and Pokémon availability require establishing the
 Define availability differences for Gen 2 and establish static configurations for gifts and trades.
 
 ## High-level Acceptance Criteria
-- Define availability differences between Gold, Silver, and Crystal versions in the new Gen 2 Exclusives module.
-- Define static gift data (e.g., Togepi Egg, Eevee from Bill) for Gen 2.
-- Define static NPC trade data for Gen 2.
+- [x] Define availability differences between Gold, Silver, and Crystal versions in the new Gen 2 Exclusives module.
+- [ ] Define static gift data (e.g., Togepi Egg, Eevee from Bill) for Gen 2.
+- [ ] Define static NPC trade data for Gen 2.
+
+## Stories
+- `.foundry/stories/story-027-049-gen2-assistant-data.md`
