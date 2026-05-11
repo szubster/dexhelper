@@ -29,6 +29,10 @@ Gen 2 specific game mechanics and Pokémon availability require establishing the
 Establish static assistant configurations for gifts and trades in Gen 2.
 
 ## Acceptance Criteria
-- [ ] Create `src/engine/data/gen2/assistantData.ts`.
-- [ ] Define `STATIC_GIFT_DATA` for Gen 2 (Togepi Egg, Eevee from Bill, Shuckle in Cianwood, Dratini, Tyrogue).
-- [ ] Define `STATIC_NPC_TRADE_DATA` (e.g., trading Bellsprout for Onix `Rocky`, Drowzee for Machop `Muscle`).
+- [x] Create `src/engine/data/gen2/assistantData.ts`.
+- [x] Define `STATIC_GIFT_DATA` for Gen 2 (Togepi Egg, Eevee from Bill, Shuckle in Cianwood, Dratini, Tyrogue).
+- [x] Define `STATIC_NPC_TRADE_DATA` (e.g., trading Bellsprout for Onix `Rocky`, Drowzee for Machop `Muscle`).
+
+
+### Spawned Tasks
+- [.foundry/tasks/task-049-082-implement-gen2-assistant-data.md](.foundry/tasks/task-049-082-implement-gen2-assistant-data.md)
