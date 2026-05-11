@@ -59,3 +59,11 @@
 - **2026-05-11**: PR #1188 merged. `task-047-079-qa-cleanup-remote-branches` is now COMPLETED.
 
 - **2026-05-11**: Resurrection Loop triggered for `epic-014-025-enforce-persona-pipeline-handoffs`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-11**: PR #1193 merged. `epic-014-025-enforce-persona-pipeline-handoffs` is now COMPLETED.
+
+- **2026-05-11**: PR #1194 merged. `epic-015-027-exclusives-and-static-data` is now PENDING.
+
+- **2026-05-11**: PR #1192 merged. `epic-019-030-orchestrator-test-factories` is now COMPLETED.
+
+- **2026-05-11**: PR #1195 merged. `story-028-044-indoor-outdoor-resolution` is now PENDING.

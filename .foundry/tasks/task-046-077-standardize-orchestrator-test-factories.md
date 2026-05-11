@@ -2,7 +2,7 @@
 id: task-046-077-standardize-orchestrator-test-factories
 type: TASK
 title: Implement Test Node Factory Utility
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-10'
 updated_at: '2026-05-11'

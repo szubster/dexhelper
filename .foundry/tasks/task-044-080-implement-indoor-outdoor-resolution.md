@@ -2,7 +2,7 @@
 id: task-044-080-implement-indoor-outdoor-resolution
 type: TASK
 title: Implement Gen 2 Indoor to Outdoor Map Resolution
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-11'
 updated_at: '2026-05-11'

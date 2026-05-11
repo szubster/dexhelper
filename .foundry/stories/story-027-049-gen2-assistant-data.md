@@ -1,8 +1,8 @@
 ---
 id: story-027-049-gen2-assistant-data
 type: STORY
-title: 'Setup Gen 2 Assistant Data'
-status: PENDING
+title: Setup Gen 2 Assistant Data
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-11'
 updated_at: '2026-05-11'

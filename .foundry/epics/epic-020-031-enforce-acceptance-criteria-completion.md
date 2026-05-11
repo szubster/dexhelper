@@ -2,19 +2,20 @@
 id: epic-020-031-enforce-acceptance-criteria-completion
 type: EPIC
 title: Enforce Acceptance Criteria Checkbox Completion Epic
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-05-11"
-updated_at: "2026-05-11"
-depends_on: [".foundry/prds/prd-020-020-enforce-acceptance-criteria-completion.md"]
+created_at: '2026-05-11'
+updated_at: '2026-05-11'
+depends_on:
+  - .foundry/prds/prd-020-020-enforce-acceptance-criteria-completion.md
 jules_session_id: null
 pr_number: null
-parent: "prd-020-020-enforce-acceptance-criteria-completion"
+parent: prd-020-020-enforce-acceptance-criteria-completion
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Enforce Acceptance Criteria Checkbox Completion Epic
