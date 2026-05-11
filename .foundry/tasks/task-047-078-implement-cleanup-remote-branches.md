@@ -18,6 +18,8 @@ rejection_reason: ''
 notes: ''
 ---
 
+**QA REJECTION:** Validation failed because the `coder` did not implement the `cleanupRemoteBranches` function in `.github/scripts/foundry-heartbeat.ts` nor did they write the required tests in `.github/scripts/foundry-heartbeat.test.ts`.
+
 # Implement Remote Branch Cleanup
 
 ## Context

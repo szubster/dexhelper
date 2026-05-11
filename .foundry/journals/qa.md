@@ -23,3 +23,7 @@ Verified implementation of Hall of Fame count and roaming legendary (Raikou, Ent
 - Verified that regex frontmatter manipulation in `foundry-heartbeat.ts` was successfully replaced with `gray-matter` compliant with ADR-006.
 - Checked code in `transitionNodeToFailed` and `transitionNodeToReady` handles state updating cleanly using `matter.stringify` without regex.
 - Verified tests successfully run indicating no regressions.
+
+## 2026-05-11: QA Rejected Task 047-078
+Rejected `task-047-078-implement-cleanup-remote-branches` and marked `task-047-079-qa-cleanup-remote-branches` as FAILED.
+The QA check failed because the coder did not implement the `cleanupRemoteBranches` function in `.github/scripts/foundry-heartbeat.ts` nor did they write the required tests in `.github/scripts/foundry-heartbeat.test.ts`. I have updated the markdown bodies of both task nodes and recorded the rejection reasons.
