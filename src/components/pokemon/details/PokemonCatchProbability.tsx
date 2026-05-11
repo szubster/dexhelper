@@ -2,7 +2,7 @@ import { Target } from 'lucide-react';
 import { useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
-import { GlassCard } from '../../GlassCard';
+import { TacticalPanel } from '../../TacticalPanel';
 
 interface PokemonCatchProbabilityProps {
   catchRate: number;
@@ -22,7 +22,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
   const [status, setStatus] = useState<StatusType>('none');
 
   return (
-    <GlassCard variant="emerald" className="space-y-8 rounded-[2.5rem] p-8">
+    <TacticalPanel variant="emerald" className="space-y-8 rounded-none border-dashed p-8">
       <div className="absolute top-0 right-0 p-4 opacity-5">
         <Target size={120} />
       </div>
@@ -41,15 +41,28 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
             <span>Target Integrity</span>
             <span className="font-mono text-emerald-400">{hpPercent}% HP</span>
           </div>
-          <input
-            type="range"
-            min="1"
-            max="100"
-            value={hpPercent}
-            aria-label="Target HP Percentage"
-            onChange={(e) => setHpPercent(Number(e.target.value))}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full border border-white/5 bg-black/40 accent-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-          />
+
+          <div className="flex w-full items-center gap-1">
+            {Array.from({ length: 10 }).map((_, i) => {
+              const segmentValue = (i + 1) * 10;
+              const isActive = hpPercent >= segmentValue;
+              return (
+                <button
+                  // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable
+                  key={`hp-segment-${i}`}
+                  type="button"
+                  aria-label={`Set HP to ${segmentValue}%`}
+                  onClick={() => setHpPercent(segmentValue)}
+                  className={cn(
+                    'h-3 flex-1 rounded-none border border-white/5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+                    isActive
+                      ? 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]'
+                      : 'bg-black/40 hover:bg-emerald-500/20',
+                  )}
+                />
+              );
+            })}
+          </div>
         </div>
 
         <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Target Status">
@@ -63,10 +76,10 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
               aria-checked={status === item.id}
               onClick={() => setStatus(item.id)}
               className={cn(
-                'rounded-2xl border py-3 font-black text-[9px] uppercase tracking-widest outline-none transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95',
+                'rounded-none border border-dashed py-3 font-black text-[9px] uppercase tracking-widest outline-none transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95',
                 status === item.id
-                  ? 'border-emerald-400 bg-emerald-500 text-white shadow-[0_5px_15px_rgba(16,185,129,0.3)]'
-                  : 'border-white/5 bg-black/20 text-emerald-500/50 hover:border-emerald-500/20',
+                  ? 'border-emerald-400 bg-emerald-500 text-zinc-950 shadow-[0_5px_15px_rgba(16,185,129,0.3)]'
+                  : 'border-white/10 bg-black/40 text-emerald-500/50 hover:border-emerald-500/40 hover:bg-emerald-500/10',
               )}
             >
               {item.label}
@@ -81,7 +94,25 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
             <span className="mb-1 font-black text-[10px] text-emerald-500/40 uppercase tracking-widest">
               Estimated Success
             </span>
-            <span className="font-black font-display text-5xl text-emerald-400 tracking-tighter">
+            <span
+              className={cn(
+                'font-black font-display text-5xl tracking-tighter',
+                (() => {
+                  let ballMult = 1;
+                  if (effectivePokeball === 'great') ballMult = 1.5;
+                  if (effectivePokeball === 'ultra' || effectivePokeball === 'safari') ballMult = 2;
+                  let statusBonus = 0;
+                  if (status === 'sleep_freeze') statusBonus = 10;
+                  if (status === 'paralyze_burn_poison') statusBonus = 5;
+                  const hpFactor = 1 + ((100 - hpPercent) / 100) * 2;
+                  const baseChance = (catchRate * ballMult * hpFactor) / 255;
+                  const finalChance = Math.min(100, baseChance * 100 + statusBonus);
+                  if (finalChance >= 70) return 'text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.5)]';
+                  if (finalChance >= 40) return 'text-amber-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]';
+                  return 'text-red-400 drop-shadow-[0_0_10px_rgba(248,113,113,0.5)]';
+                })(),
+              )}
+            >
               {(() => {
                 let ballMult = 1;
                 if (effectivePokeball === 'great') ballMult = 1.5;
@@ -116,6 +147,6 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
           </div>
         </div>
       </div>
-    </GlassCard>
+    </TacticalPanel>
   );
 }
