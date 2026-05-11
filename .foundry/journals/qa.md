@@ -37,6 +37,9 @@ The QA check failed because the coder did not implement the `cleanupRemoteBranch
 - Ran all tests via `pnpm test`. All 334 tests passed, including the newly added tests inside `src/utils/dag/` (`builder.test.ts`, `parser.test.ts`, `readFoundryFiles.test.ts`).
 - Verification successful. Marked the Acceptance Criteria checkboxes as completed in the corresponding task node.
 
+## 2026-05-11
+- **Mock Leakage in Vitest:** Encountered an issue where `globalFetch.mock.calls` contained `DELETE` calls from a previous test within the same block, despite `vi.clearAllMocks()` being called in `beforeEach()`. For highly dynamic global stubs like `vi.stubGlobal('fetch', globalFetch)`, it is sometimes necessary to explicitly call `globalFetch.mockClear()` immediately before critical `globalFetch.mockImplementation()` setups if delayed or background promises are bleeding state across tests.
+- **GitHub API Response Types:** The `pulls?state=open` and `matching-refs` endpoints may return `{ ok: false }` or a generic object `{}` on error or during unexpected mock configurations. Directly mapping `await res.json() as any[]` without checking `Array.isArray()` can lead to `TypeError: openPrs.map is not a function`, silently failing async functions and masking test failures.
 ## 2026-05-11: QA Validation for task-042-070-qa-hall-of-fame-roamers
 - Verified that Hall of Fame count and roaming legendary extraction for Gen 2 save files is properly implemented in `src/engine/saveParser/parsers/gen2.ts`.
 - Verified offsets used match the knowledge base instructions (e.g. `0xA8` relative to Johto badges for Hall of Fame count).

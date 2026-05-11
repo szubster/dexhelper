@@ -16,6 +16,7 @@ describe('Foundry Heartbeat', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+    globalFetch.mockClear();
     process.env = { ...originalEnv, JULES_API_KEY: 'mock-api-key', GITHUB_TOKEN: 'mock-token' };
     vi.spyOn(process, 'cwd').mockReturnValue(mockRepoRoot);
 
@@ -600,7 +601,7 @@ ok: true,
     it('should protect branches with open PRs', async () => {
       vi.stubGlobal('DRY_RUN', false);
       const originalArgv = process.argv;
-      process.argv = originalArgv.filter(arg => arg !== '--dry-run');
+      globalFetch.mockClear(); process.argv = originalArgv.filter(arg => arg !== '--dry-run');
 
       globalFetch.mockImplementation(async (url) => {
         const urlStr = typeof url === "string" ? url : (url as URL).toString();

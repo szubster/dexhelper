@@ -36,7 +36,7 @@ The coder has implemented the `cleanupRemoteBranches` logic in `.github/scripts/
 - Verify that comprehensive tests have been added to `.github/scripts/foundry-heartbeat.test.ts` to mock the GitHub API or Git CLI responses, covering both the dry-run and actual deletion flows.
 
 ## Acceptance Criteria
-- [ ] Code properly fetches PR head refs, remote branches, and passes them to `identifyBranchesForCleanup`.
-- [ ] Deletion logic successfully handles `DRY_RUN` conditions.
-- [ ] Journaling integration is correct.
-- [ ] Test coverage in `foundry-heartbeat.test.ts` successfully mocks inputs and assertions.
+- [x] Code properly fetches PR head refs, remote branches, and passes them to `identifyBranchesForCleanup`.
+- [x] Deletion logic successfully handles `DRY_RUN` conditions.
+- [x] Journaling integration is correct.
+- [x] Test coverage in `foundry-heartbeat.test.ts` successfully mocks inputs and assertions.
