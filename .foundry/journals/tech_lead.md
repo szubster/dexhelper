@@ -29,3 +29,8 @@ All sibling tasks were explicitly linked via `depends_on` to ensure execution se
 - **Task:** Implement Failure Handling for Validation Mismatches (story-025-039-implement-failure-handling)
 - **Observation:** The generated artifacts (`task-039-071-implement-failure-handling.md` and `task-039-072-qa-failure-handling.md`) already exist and are marked as COMPLETED.
 - **Action:** Since there is no further work to do, I checked off the remaining acceptance criteria boxes in the parent STORY markdown, as the required artifacts are fully generated and the story requirements are fulfilled. I am submitting this empty PR to allow the DAG to progress.
+
+## Story 025-040: Write Validation Tests for Orchestrator Pipeline Handoff
+- **Target Node**: `.foundry/stories/story-025-040-write-validation-tests.md`
+- **Action Taken**: NO WORK REQUIRED. The validation tests (Mapping Validation: Enforces type to persona mappings before dispatch) already exist and are fully implemented in `.github/scripts/foundry-orchestrator.test.ts`.
+- **Outcome**: Executing Empty PR Policy.
