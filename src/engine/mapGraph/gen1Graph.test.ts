@@ -8,6 +8,7 @@ const mockLocations: UnifiedLocation[] = [
   { id: 0x02, n: 'Viridian City', conn: [0x01, 0x03], dist: { 0x02: 0, 0x01: 1, 0x00: 2, 0x03: 1 } },
   { id: 0x03, n: 'Route 2', conn: [0x02], dist: { 0x03: 0, 0x02: 1 } },
   { id: 0x25, n: "Player's House", prnt: 0x00, conn: [], dist: {} },
+  { id: 0x26, n: "Player's House 2F", prnt: 0x25, conn: [], dist: {} },
 ];
 
 describe('getDistanceToMap', () => {
@@ -33,6 +34,13 @@ describe('getDistanceToMap', () => {
     // Pallet Town Interior (0x25) -> Map ID 0x00 (Pallet Town)
     // Distance from 0x25 to 0x00 = 0 because it resolves 0x25 to parent 0x00
     const result = getDistanceToMap(mockLocations, 0x25, 0x00);
+    expect(result).toEqual({ distance: 0, name: 'Pallet Town' });
+  });
+
+  it('gracefully falls back to root parent map for multi-level indoor locations', () => {
+    // Player's House 2F -> Map ID 0x00 (Pallet Town)
+    // Distance from 0x26 to 0x00 = 0 because it resolves 0x26 -> 0x25 -> parent 0x00
+    const result = getDistanceToMap(mockLocations, 0x26, 0x00);
     expect(result).toEqual({ distance: 0, name: 'Pallet Town' });
   });
 

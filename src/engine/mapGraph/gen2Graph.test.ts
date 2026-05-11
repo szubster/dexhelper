@@ -9,6 +9,8 @@ const mockLocations: UnifiedLocation[] = [
   { id: 0x0b01, n: 'Route 35', conn: [0x0306], dist: { 0x0b01: 0, 0x0306: 1 } },
   // Indoor
   { id: 0x25, n: 'Goldenrod Pokecenter', prnt: 0x0306, conn: [], dist: {} },
+  // Multi-level indoor
+  { id: 0x26, n: 'Goldenrod Pokecenter 2F', prnt: 0x25, conn: [], dist: {} },
 ];
 
 describe('getDistanceToMap (Gen 2)', () => {
@@ -28,6 +30,13 @@ describe('getDistanceToMap (Gen 2)', () => {
     // Goldenrod Pokecenter -> Route 34
     // Resolves 0x25 -> 0x0306 (Goldenrod) -> distance to 0x0a04 is 1
     const result = getDistanceToMap(mockLocations, 0x25, 0x0a04);
+    expect(result).toEqual({ distance: 1, name: 'Route 34' });
+  });
+
+  it('gracefully falls back to root parent map for multi-level indoor locations', () => {
+    // Goldenrod Pokecenter 2F -> Route 34
+    // Resolves 0x26 -> 0x25 -> 0x0306 (Goldenrod) -> distance to 0x0a04 is 1
+    const result = getDistanceToMap(mockLocations, 0x26, 0x0a04);
     expect(result).toEqual({ distance: 1, name: 'Route 34' });
   });
 
