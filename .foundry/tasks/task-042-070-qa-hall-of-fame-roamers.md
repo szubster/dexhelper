@@ -32,5 +32,5 @@ Verify that the Hall of Fame counts and Roamer map locations are correctly extra
 - Verify that relevant types/interfaces correctly expose the data.
 
 ## Acceptance Criteria
-- [ ] Hall of Fame extraction is verified.
-- [ ] Roamer map locations extraction is verified.
+- [x] Hall of Fame extraction is verified.
+- [x] Roamer map locations extraction is verified.
