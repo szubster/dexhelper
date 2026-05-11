@@ -790,10 +790,10 @@ function main(): void {
   const validatedEligible: ParsedNode[] = [];
   const validMappings: Record<string, string[]> = {
     IDEA: ['product_manager'],
-    PRD: ['epic_planner'],
-    EPIC: ['story_owner'],
-    STORY: ['tech_lead'],
-    TASK: ['coder', 'qa'],
+    PRD: ['epic_planner', 'architect', 'story_owner'],
+    EPIC: ['story_owner', 'epic_planner'],
+    STORY: ['tech_lead', 'story_owner', 'coder'],
+    TASK: ['coder', 'qa', 'tech_lead'],
     RESEARCH: ['researcher'],
   };
 
