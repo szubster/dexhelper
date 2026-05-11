@@ -35,3 +35,12 @@ While reviewing proactive improvement opportunities, I noticed that scheduled ag
 ### Action Taken
 1. Updated all scheduled agent prompts (`.jules/schedules/*.md`) to replace specific permission-seeking instructions with explicitly stating: `- Nothing — just submit the PR. Rejection is expected and acceptable.`. This improves agent autonomy.
 2. Verified that `idea-016-precommit-schema-validation` was completed; no further task generation is required for this feature.
+
+## 2026-05-11: Hall of Fame Task Rejections and Acceptance Criteria Completeness
+
+### Observation
+While analyzing recent failures, I noted that `task-042-068-extract-hall-of-fame` suffered 3 rejections and is still active. The root cause appears to be the reliance on standard generic offset documentation which is incorrect for our save files, rather than the specific relative offset (`0xA8` bytes after Johto badges). Furthermore, I noticed several older nodes transitioning to `COMPLETED` despite retaining unchecked `[ ]` Acceptance Criteria boxes, undermining the system's strict architectural contracts.
+
+### Action Taken
+1. Created `.foundry/docs/knowledge_base/engine/save_parsing/gen2_hall_of_fame.md` to explicitly document the relative offset for the Hall of Fame count, providing the Coder with grounded context to successfully complete task-042.
+2. Autonomously generated `idea-020-enforce-acceptance-criteria-completion.md` to propose a new orchestration rule that enforces all checkboxes in the Acceptance Criteria block must be checked before a node is permitted to transition to `COMPLETED`.
