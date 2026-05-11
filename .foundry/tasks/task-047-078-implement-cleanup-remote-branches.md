@@ -38,7 +38,7 @@ This task implements the branch cleanup mechanism defined in `story-030-047-bran
 - Write tests in `.github/scripts/foundry-heartbeat.test.ts` to verify the new logic, ensuring `DRY_RUN` mode is respected and actual deletion API calls are mocked appropriately.
 
 ## Acceptance Criteria
-- [ ] `cleanupRemoteBranches` is implemented and called in `main()`.
-- [ ] Remote branches associated with FAILED or CANCELLED task nodes are successfully deleted when `DRY_RUN` is false.
-- [ ] The TPM journal records branch deletions.
-- [ ] Comprehensive tests cover branch deletion and dry-run functionality.
+- [x] `cleanupRemoteBranches` is implemented and called in `main()`.
+- [x] Remote branches associated with FAILED or CANCELLED task nodes are successfully deleted when `DRY_RUN` is false.
+- [x] The TPM journal records branch deletions.
+- [x] Comprehensive tests cover branch deletion and dry-run functionality.
