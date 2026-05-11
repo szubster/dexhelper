@@ -10,7 +10,7 @@ depends_on:
   - .foundry/epics/epic-008-atomic-handoff-orchestrator.md
   - .foundry/archive/stories/story-009-032-lifecycle-integration-tests.md
   - .foundry/stories/story-009-031-deadlock-prevention-tests.md
-  - .foundry/stories/story-009-030-single-persona-dag-tests.md
+  - .foundry/archive/stories/story-009-030-single-persona-dag-tests.md
 jules_session_id: null
 parent: ".foundry/prds/prd-001-v2-lifecycle.md"
 tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
@@ -30,6 +30,6 @@ This Epic ensures that the orchestrator refactors and schema updates are heavily
 - [x] Integration tests simulate a full IDEA -> PRD -> EPIC -> STORY -> TASK lifecycle using atomic files.
 
 ### Generated Stories
-- `.foundry/stories/story-009-030-single-persona-dag-tests.md`
+- `.foundry/archive/stories/story-009-030-single-persona-dag-tests.md`
 - `.foundry/stories/story-009-031-deadlock-prevention-tests.md`
 - `.foundry/archive/stories/story-009-032-lifecycle-integration-tests.md`

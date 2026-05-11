@@ -25,4 +25,4 @@ Even though we resolved the jest rules, we still have FAILED statuses in previou
 - [x] `pnpm exec oxlint .` passes with these rules completely enabled.
 
 ## Generated Tasks
-- [.foundry/tasks/task-028-046-verify-jest-rules-resolution.md](../../.foundry/tasks/task-028-046-verify-jest-rules-resolution.md)
+- [.foundry/archive/tasks/task-028-046-verify-jest-rules-resolution.md](../../.foundry/archive/tasks/task-028-046-verify-jest-rules-resolution.md)
