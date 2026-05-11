@@ -55,3 +55,6 @@ The mapping validation logic and unit tests are already implemented. Submitting 
 - We successfully implemented `src/engine/mapGraph/gen2Graph.ts` with explicit definition of `gen2MapGraph` which contains nodes and connections across Johto and Kanto.
 ## 2026-05-10
 Task task-046-077-standardize-orchestrator-test-factories: Implemented `foundry-test-utils.ts` and refactored the orchestrator tests to dynamically create mock nodes passing Phase 4.8 Mapping Validations. Ensure `gray-matter.stringify` is not used in frontmatter body replacements but we manually wrote a serializer for frontmatter stringification during mock file creation. Ensure `pr_number` handles null without TS errors.
+
+## 2026-05-12 - task-042-069-extract-roamers
+The roamer location extraction logic for Gen 2 (Raikou, Entei, Suicune) is already implemented in `src/engine/saveParser/parsers/gen2.ts`, and the corresponding tests exist in `src/engine/saveParser/parsers/gen2.test.ts`. Submitting an empty PR to allow the DAG to progress.
