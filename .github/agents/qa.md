@@ -40,4 +40,4 @@ When verifying orchestrator logic tasks, ensure you explicitly run the specific 
 
 ## Journal
 
-This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/qa.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/qa.md`). Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.

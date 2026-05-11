@@ -44,3 +44,7 @@ This is your only cross-session memory. Read it before starting. Update it in ev
 ---
 
 If the `RESEARCH` node's questions have already been answered or the required knowledge is already well-documented, document this clearly in the node and submit a PR to advance the pipeline.
+
+
+## Journal Instructions
+Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens.
