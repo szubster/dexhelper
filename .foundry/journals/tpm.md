@@ -21,3 +21,21 @@
 - **2026-05-11**: PR #1148 merged. `task-043-071-implement-gen2-map-graph` is now COMPLETED.
 
 - **2026-05-11**: PR #1154 merged. `task-043-075-build-dag-graph` is now COMPLETED.
+
+- **2026-05-11**: PR #1172 merged. `epic-014-025-enforce-persona-pipeline-handoffs` is now PENDING.
+
+- **2026-05-11**: PR #1176 merged. `epic-019-030-orchestrator-test-factories` is now PENDING.
+
+- **2026-05-11**: PR #1177 merged. `idea-020-enforce-acceptance-criteria-completion` is now COMPLETED.
+
+- **2026-05-11**: PR #1175 merged. `prd-019-019-automated-branch-cleanup` is now COMPLETED.
+
+- **2026-05-11**: PR #1174 merged. `task-042-069-extract-roamers` is now COMPLETED.
+
+- **2026-05-11**: PR #1178 merged. `task-043-072-qa-gen2-map-graph` is now COMPLETED.
+
+- **2026-05-11**: PR #1173 merged. `task-043-076-qa-dag-parser` is now COMPLETED.
+
+- **2026-05-11**: PR #1180 merged. `task-047-078-implement-cleanup-remote-branches` is now COMPLETED.
+
+- **2026-05-11**: PR #1179 merged. `task-047-079-qa-cleanup-remote-branches` is now PENDING.

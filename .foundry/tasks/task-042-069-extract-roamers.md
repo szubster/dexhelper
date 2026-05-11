@@ -2,13 +2,13 @@
 id: task-042-069-extract-roamers
 type: TASK
 title: Implement Roamer location extraction for Gen 2
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-07'
 updated_at: '2026-05-11'
 depends_on:
   - .foundry/tasks/task-042-068-extract-hall-of-fame.md
-jules_session_id: '12440413083620198811'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-026-042-hall-of-fame-roamers.md
 tags:

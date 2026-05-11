@@ -2,12 +2,12 @@
 id: idea-020-enforce-acceptance-criteria-completion
 type: IDEA
 title: Enforce Acceptance Criteria Checkbox Completion
-status: ACTIVE
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-05-11'
 updated_at: '2026-05-11'
 depends_on: []
-jules_session_id: '13898143266540809457'
+jules_session_id: null
 pr_number: null
 parent: null
 tags: []

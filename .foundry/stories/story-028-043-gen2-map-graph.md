@@ -2,10 +2,10 @@
 id: story-028-043-gen2-map-graph
 type: STORY
 title: 'Phase 3: Gen 2 Map Graph Implementation'
-status: "PENDING"
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-08'
-updated_at: "2026-05-09"
+updated_at: '2026-05-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
