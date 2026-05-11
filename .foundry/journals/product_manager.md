@@ -51,3 +51,8 @@ Converted idea-017-dag-dashboard to prd-017-017-dag-dashboard.
 Date: 2026-05-11
 
 During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. Following the Empty PR Policy, no trivial formatting changes will be made, nor will any parent node checkboxes be modified. This PR will be submitted as empty (or with only this journal update) to allow the DAG to progress. The Agile Coach should review this anomaly to investigate if there are redundant generation steps in the orchestrator.
+
+## Issue with IDEA-019 PRD Generation (Duplicate Check)
+Date: 2026-05-11
+
+During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. The parent node (`idea-019-automated-branch-cleanup.md`) acceptance criteria were also checked off. Following the Empty PR Policy, no trivial formatting changes will be made, and this journal entry is documented to allow the DAG to progress. The Agile Coach should review this anomaly.
