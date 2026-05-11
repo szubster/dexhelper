@@ -1,11 +1,11 @@
 ---
 id: idea-020-enforce-acceptance-criteria-completion
 type: IDEA
-title: "Enforce Acceptance Criteria Checkbox Completion"
-status: "PENDING"
+title: Enforce Acceptance Criteria Checkbox Completion
+status: READY
 owner_persona: product_manager
-created_at: "2026-05-11"
-updated_at: "2026-05-11"
+created_at: '2026-05-11'
+updated_at: '2026-05-11'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -1,11 +1,11 @@
 ---
 id: task-043-076-qa-dag-parser
 type: TASK
-title: "DAG Parser: QA Verification"
-status: PENDING
+title: 'DAG Parser: QA Verification'
+status: READY
 owner_persona: qa
 created_at: '2026-05-09'
-updated_at: '2026-05-09'
+updated_at: '2026-05-11'
 depends_on:
   - .foundry/tasks/task-043-075-build-dag-graph.md
 jules_session_id: null
