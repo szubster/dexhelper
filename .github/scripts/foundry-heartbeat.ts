@@ -57,20 +57,51 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
 
   const parsed = matter(node.rawContent);
 
-  // Late-Binding Support: If unchecked tasks exist, transition back to PENDING instead of COMPLETED.
+  // Late-Binding Support: If unchecked tasks exist, check if node is a parent.
   const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(parsed.content);
-  // PENDING state keeps the late-binding parent alive to wait for children
-  const targetStatus = hasUncheckedTasks ? "PENDING" : "COMPLETED";
+
+  let targetStatus = "COMPLETED";
+  let rejectionReason = "";
+  let message = `PR #${prNumber} merged.`;
+
+  if (hasUncheckedTasks) {
+    // Determine if it's a late-binding parent
+    // Build a quick children check
+    const filePaths = discoverNodeFiles(path.join(repoRoot, '.foundry'));
+    let hasChildren = false;
+    for (const fp of filePaths) {
+      if (fp === node.filePath) continue;
+      const childNode = parseNodeFile(fp, repoRoot);
+      if (childNode && (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id)) {
+        hasChildren = true;
+        break;
+      }
+    }
+
+    const type = parsed.data.type || node.frontmatter.type;
+
+    if (hasChildren || ["IDEA", "PRD", "EPIC", "STORY"].includes(type)) {
+       targetStatus = "PENDING";
+    } else {
+       targetStatus = "FAILED";
+       rejectionReason = "Merged with unfulfilled acceptance criteria";
+       message = `PR #${prNumber} merged with unchecked tasks.`;
+    }
+  }
 
   parsed.data.status = targetStatus;
   parsed.data.jules_session_id = null;
   parsed.data.updated_at = dateStr;
 
+  if (targetStatus === 'FAILED' && rejectionReason) {
+    parsed.data.rejection_reason = rejectionReason;
+  }
+
   const newContent = matter.stringify(parsed.content, parsed.data);
 
   if (!DRY_RUN) {
     fs.writeFileSync(node.filePath, newContent, 'utf-8');
-    logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged. \`${node.frontmatter.id}\` is now ${targetStatus}.\n`);
+    logToJournal(repoRoot, `\n- **${dateStr}**: ${message} \`${node.frontmatter.id}\` is now ${targetStatus}.\n`);
   }
   info(`${dryTag}Transitioned ACTIVE → ${targetStatus}: ${node.repoPath} (PR #${prNumber})`);
 }

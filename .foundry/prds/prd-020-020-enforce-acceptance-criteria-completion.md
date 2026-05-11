@@ -2,12 +2,12 @@
 id: prd-020-020-enforce-acceptance-criteria-completion
 type: PRD
 title: Enforce Acceptance Criteria Checkbox Completion PRD
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-05-11'
 updated_at: '2026-05-11'
 depends_on: []
-jules_session_id: '10163826134294175262'
+jules_session_id: '1788233942717231692'
 pr_number: null
 parent: idea-020-enforce-acceptance-criteria-completion
 tags: []
@@ -46,6 +46,6 @@ Currently, several Foundry nodes successfully transition to `COMPLETED` even tho
 - It should properly identify unchecked boxes only, ignoring `[x]` or `[X]`.
 
 ## 5. Acceptance Criteria
-- [ ] Investigate and document the best phase/location to inject this validation logic in the codebase.
-- [ ] Implement the parsing logic to detect unchecked `- [ ]` boxes in a node's body.
-- [ ] Integrate the logic to block or revert the node's transition to `COMPLETED` if unchecked boxes are found.
+- [x] Investigate and document the best phase/location to inject this validation logic in the codebase.
+- [x] Implement the parsing logic to detect unchecked `- [ ]` boxes in a node's body.
+- [x] Integrate the logic to block or revert the node's transition to `COMPLETED` if unchecked boxes are found.
