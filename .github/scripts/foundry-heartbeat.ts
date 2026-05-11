@@ -281,10 +281,80 @@ export async function main() {
   for (const node of failedNodes) {
     await transitionNodeToReady(node, repoRoot, `Retry from FAILED status.`);
   }
+
+  // --- Pass 3: Remote Branch Cleanup ---
+  await cleanupRemoteBranches(repoRoot, repoFullName, githubToken);
 }
 
 if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('foundry-heartbeat.ts')) {
   main().catch(err => { warn(`Fatal: ${String(err)}`); process.exit(1); });
+}
+
+/**
+ * Identifies Git branches that are safe to delete, based on FAILED or CANCELLED task nodes.
+ * @param repoRoot Absolute path to the repository root.
+ * @param remoteBranches List of all remote branch names (e.g. from `git branch -r`).
+ * @returns An array of branch names safe to delete.
+ */
+export async function cleanupRemoteBranches(repoRoot: string, repoFullName: string, githubToken: string): Promise<void> {
+  try {
+    // 1. Fetch open PR head refs
+    const openPrsRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls?state=open&per_page=100`, {
+      headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    let openPrHeadRefs: string[] = [];
+    if (openPrsRes.ok) {
+      const openPrs = await openPrsRes.json() as any[];
+      openPrHeadRefs = openPrs.map(pr => pr.head.ref).filter(Boolean);
+    } else {
+      warn(`Failed to fetch open PRs: ${openPrsRes.status} ${openPrsRes.statusText}`);
+      return;
+    }
+
+    // 2. Fetch all remote branches
+    const refsRes = await fetch(`https://api.github.com/repos/${repoFullName}/git/matching-refs/heads/`, {
+      headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    let remoteBranches: string[] = [];
+    if (refsRes.ok) {
+      const refs = await refsRes.json() as any[];
+      // refs have form "refs/heads/branch-name", strip prefix
+      remoteBranches = refs.map(ref => ref.ref.replace('refs/heads/', ''));
+    } else {
+      warn(`Failed to fetch remote refs: ${refsRes.status} ${refsRes.statusText}`);
+      return;
+    }
+
+    // 3. Identify branches to cleanup
+    const branchesToDelete = await identifyBranchesForCleanup(repoRoot, remoteBranches, openPrHeadRefs);
+
+    if (branchesToDelete.length === 0) {
+      info(`No remote branches require cleanup.`);
+      return;
+    }
+
+    // 4. Delete branches
+    const dateStr = todayISO();
+    for (const branch of branchesToDelete) {
+      if (DRY_RUN) {
+        info(`[DRY-RUN] Would delete remote branch: ${branch}`);
+      } else {
+        const deleteRes = await fetch(`https://api.github.com/repos/${repoFullName}/git/refs/heads/${branch}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+        });
+
+        if (deleteRes.ok || deleteRes.status === 404 /* already deleted? */) {
+          info(`Deleted remote branch: ${branch}`);
+          logToJournal(repoRoot, `\n- **${dateStr}**: Cleanup Loop deleted remote branch \`${branch}\`.\n`);
+        } else {
+          warn(`Failed to delete remote branch ${branch}: ${deleteRes.status} ${deleteRes.statusText}`);
+        }
+      }
+    }
+  } catch (err) {
+    warn(`Error during cleanupRemoteBranches: ${String(err)}`);
+  }
 }
 
 /**
