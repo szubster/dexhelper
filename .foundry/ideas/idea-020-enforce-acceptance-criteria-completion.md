@@ -27,6 +27,9 @@ Currently, several nodes transition to `COMPLETED` despite retaining unchecked `
 Implement an orchestrator validation check (likely as part of a pre-flight or merge validation step) that scans the raw markdown body of the file. If the file contains `- [ ]` within an "Acceptance Criteria" block, the node should be prevented from transitioning to `COMPLETED` (or the associated PR should be blocked/flagged).
 
 ## Acceptance Criteria
-- [ ] Determine the best phase to inject this validation check (e.g., during the Heartbeat transition to COMPLETED, or as a GitHub Action PR check).
-- [ ] Implement the logic to scan for unchecked `[ ]` boxes.
-- [ ] Ensure that it properly flags nodes and prevents premature completion.
+- [x] Determine the best phase to inject this validation check (e.g., during the Heartbeat transition to COMPLETED, or as a GitHub Action PR check).
+- [x] Implement the logic to scan for unchecked `[ ]` boxes.
+- [x] Ensure that it properly flags nodes and prevents premature completion.
+
+### DOWNSTREAM NODES
+- [.foundry/prds/prd-020-020-enforce-acceptance-criteria-completion.md](../prds/prd-020-020-enforce-acceptance-criteria-completion.md)
