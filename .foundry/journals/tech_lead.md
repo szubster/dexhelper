@@ -30,6 +30,10 @@ All sibling tasks were explicitly linked via `depends_on` to ensure execution se
 - **Observation:** The generated artifacts (`task-039-071-implement-failure-handling.md` and `task-039-072-qa-failure-handling.md`) already exist and are marked as COMPLETED.
 - **Action:** Since there is no further work to do, I checked off the remaining acceptance criteria boxes in the parent STORY markdown, as the required artifacts are fully generated and the story requirements are fulfilled. I am submitting this empty PR to allow the DAG to progress.
 
+## 2026-05-10
+- Generated `task-047-078-implement-cleanup-remote-branches` and `task-047-079-qa-cleanup-remote-branches` for `story-030-047-branch-cleanup-mechanism`.
+- Decided to extend `foundry-heartbeat.ts` rather than create a new cron script to centralize the logic, since heartbeat already parses active/failed nodes and accesses GitHub APIs.
+- Used Intelligent Verification Protocol to create a separate QA task because executing remote branch deletion is risky and requires careful validation.
 ## Story 025-040: Write Validation Tests for Orchestrator Pipeline Handoff
 - **Target Node**: `.foundry/stories/story-025-040-write-validation-tests.md`
 - **Action Taken**: NO WORK REQUIRED. The validation tests (Mapping Validation: Enforces type to persona mappings before dispatch) already exist and are fully implemented in `.github/scripts/foundry-orchestrator.test.ts`.
