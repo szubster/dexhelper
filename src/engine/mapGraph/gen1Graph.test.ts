@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { UnifiedLocation } from '../../db/schema';
-import { getDistanceToMap } from './gen1Graph';
+import { getDistanceToMap, resolveOutdoorMapId } from './gen1Graph';
 
 const mockLocations: UnifiedLocation[] = [
   { id: 0x00, n: 'Pallet Town', conn: [0x01], dist: { 0x00: 0, 0x01: 1, 0x02: 2 } },
@@ -74,5 +74,39 @@ describe('getDistanceToMap', () => {
     ];
     const result = getDistanceToMap(locationsWithoutDist, 0x00, 0x01);
     expect(result).toBeNull();
+  });
+});
+
+describe('resolveOutdoorMapId', () => {
+  it('correctly resolves a map ID with no prnt to itself', () => {
+    // Pallet Town (0x00) has no prnt
+    const result = resolveOutdoorMapId(mockLocations, 0x00);
+    expect(result).toBe(0x00);
+  });
+
+  it('correctly resolves a single-level indoor map to its outdoor hub', () => {
+    // Player's House (0x25) -> Pallet Town (0x00)
+    const result = resolveOutdoorMapId(mockLocations, 0x25);
+    expect(result).toBe(0x00);
+  });
+
+  it('correctly resolves a multi-level indoor map to its root outdoor hub', () => {
+    // Player's House 2F (0x26) -> Player's House (0x25) -> Pallet Town (0x00)
+    const result = resolveOutdoorMapId(mockLocations, 0x26);
+    expect(result).toBe(0x00);
+  });
+
+  it('handles circular prnt references gracefully', () => {
+    // Create a circular mock: 0x90 -> 0x91 -> 0x90
+    const circularLocations = [
+      ...mockLocations,
+      { id: 0x90, n: 'Loop A', prnt: 0x91, conn: [], dist: {} },
+      { id: 0x91, n: 'Loop B', prnt: 0x90, conn: [], dist: {} },
+    ];
+    // It should stop at the first revisited node
+    const result = resolveOutdoorMapId(circularLocations, 0x90);
+    // Since 0x90 -> 0x91 -> 0x90, 0x90 is visited, then 0x91 is visited, then 0x90 is already visited
+    // so it breaks loop when currentMapId becomes 0x90 again, returning 0x90.
+    expect(result).toBe(0x90);
   });
 });
