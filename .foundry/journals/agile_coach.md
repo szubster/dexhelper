@@ -50,3 +50,12 @@ Observed that the QA agent rejected a task (`task-047-078`) in its journal but f
 1. Updated `qa.md` with explicit instructions on handling rejections (setting `status: FAILED` and `rejection_reason`).
 2. Added the 'WARNING: The Empty PR policy...' text to all execution/planning agents (`coder.md`, `story_owner.md`, `tech_lead.md`, `epic_planner.md`, `product_manager.md`, `qa.md`).
 3. Created `idea-050-orchestrator-leaf-failure-validation.md` to have the Orchestrator validate empty PRs against unchecked acceptance criteria.
+
+## 2026-05-12: Enforce Acceptance Criteria on Empty PRs
+### Context
+Identified a loophole where agents submitted empty PRs for leaf tasks containing unchecked acceptance criteria boxes, which the orchestrator incorrectly automatically merged and marked as `COMPLETED`.
+
+### Action
+- Added an Idea -> PRD -> EPIC -> STORY -> TASK chain (`idea-050-orchestrator-leaf-failure-validation.md`) to formally require `foundry-orchestrator.ts` and `foundry-heartbeat.ts` to transition these failed leaf tasks to `FAILED` with a `rejection_reason`.
+- Discovered and addressed a test pollution issue in `foundry-heartbeat.test.ts` where mocking states bled between isolated tests. Explicitly adding `vi.clearAllMocks()` inside test blocks properly scoped the mock dependencies.
+- Discovered the `foundry-orchestrator.ts` preflight idempotent checks naturally filter for `.foundry` markdown files in the body content using regex. Therefore, orchestrator test fixtures simulating target artifact existence must use mock `.foundry` filepaths, not generic `src/` source files.
