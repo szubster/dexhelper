@@ -66,7 +66,7 @@ function validateSchema() {
     PRD: ['epic_planner', 'architect', 'story_owner'],
     EPIC: ['story_owner', 'epic_planner'],
     STORY: ['tech_lead', 'story_owner', 'coder'],
-    TASK: ['coder', 'qa', 'tech_lead'],
+    TASK: ['coder', 'qa', 'tech_lead', 'architect'],
     RESEARCH: ['researcher'],
   };
 
