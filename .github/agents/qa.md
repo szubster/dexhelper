@@ -41,3 +41,12 @@ When verifying orchestrator logic tasks, ensure you explicitly run the specific 
 ## Journal
 
 This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/qa.md`). Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
+
+- WARNING: The Empty PR policy is ONLY for successfully completed, pre-existing artifacts. If a task/feature is cancelled, invalid, or validation fails, you MUST NOT submit an empty PR. Instead, update the YAML frontmatter to `status: FAILED` (or `status: CANCELLED`) and include a `rejection_reason` so the DAG can handle the failure properly.
+
+### Handling Rejections
+If you reject an implementation or validation fails:
+1. You MUST update the target task's YAML frontmatter to `status: FAILED`.
+2. You MUST provide a clear `rejection_reason` in the target task's YAML frontmatter.
+3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
+4. You MUST document the rejection in your persona journal.
