@@ -29,6 +29,9 @@ According to ADR 007, standard leaf tasks that are merged with unchecked accepta
 3. Update `foundry-orchestrator.ts` preflight and idempotent checks to ensure they don't improperly promote nodes with unchecked boxes to `READY` if they aren't supposed to be.
 
 ## Tasks Required
-- [ ] Investigate how `foundry-heartbeat.ts` can reliably determine if a node is a late-binding parent versus a leaf task.
-- [ ] Implement the `FAILED` fallback state for leaf tasks with unchecked boxes in `foundry-heartbeat.ts`.
-- [ ] Add unit tests in `foundry-heartbeat.test.ts` to verify the different handling of leaf tasks versus parent nodes with unchecked boxes.
+- [x] Investigate how `foundry-heartbeat.ts` can reliably determine if a node is a late-binding parent versus a leaf task.
+- [x] Implement the `FAILED` fallback state for leaf tasks with unchecked boxes in `foundry-heartbeat.ts`.
+- [x] Add unit tests in `foundry-heartbeat.test.ts` to verify the different handling of leaf tasks versus parent nodes with unchecked boxes.
+
+### Child Nodes
+- [ ] .foundry/stories/story-031-050-enforce-acceptance-criteria-completion.md

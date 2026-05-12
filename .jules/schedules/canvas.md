@@ -32,7 +32,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 **Always:**
 - Read your journal before starting — it's your only memory
-- Include a journal entry for the current change in every PR you open
+- Include a journal entry for the current change in every PR you open. Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens.
 - Run `pnpm lint` and `pnpm test` before pushing
 - Include before/after screenshots in the PR description
 - Keep changes to a single component or page — ambitious but scoped
@@ -51,7 +51,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 File: `.jules/canvas.md` (create if missing).
 
-This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/canvas.md`). If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/canvas.md`). Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
 Entry format:
 ```

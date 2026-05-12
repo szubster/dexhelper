@@ -54,7 +54,7 @@ export function getDistanceToMap(
   const targetDisplayName = targetLoc.n;
 
   // 2. Resolve start location (where the player is)
-  const outdoorStartMapId = getOutdoorMapId(allLocations, startMapId);
+  const outdoorStartMapId = resolveOutdoorMapId(allLocations, startMapId);
   let startLoc = getLocation(allLocations, outdoorStartMapId);
 
   // Fallback if unknown
@@ -80,6 +80,7 @@ export function getDistanceToMap(
 
 /**
  * Resolves an indoor map to its connected outdoor parent map.
+ * Handles multi-level indoor maps by recursively traversing the `prnt` property.
  *
  * @param allLocations - The unified list of all map locations.
  * @param mapId - The Map ID to resolve.
@@ -92,10 +93,16 @@ export function getDistanceToMap(
  * the `prnt` property. To calculate the distance to a target from inside a building, we must first
  * "step outside" by resolving the current location to its parent map.
  */
-function getOutdoorMapId(allLocations: UnifiedLocation[], mapId: number): number {
-  const loc = getLocation(allLocations, mapId);
-  if (loc?.prnt !== undefined) {
-    return loc.prnt;
+export function resolveOutdoorMapId(allLocations: UnifiedLocation[], mapId: number): number {
+  let currentMapId = mapId;
+  let loc = getLocation(allLocations, currentMapId);
+  const visited = new Set<number>();
+
+  while (loc?.prnt !== undefined && !visited.has(currentMapId)) {
+    visited.add(currentMapId);
+    currentMapId = loc.prnt;
+    loc = getLocation(allLocations, currentMapId);
   }
-  return mapId;
+
+  return currentMapId;
 }
