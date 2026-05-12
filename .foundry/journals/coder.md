@@ -71,3 +71,8 @@ Resolved an issue where TASK nodes owned by the 'architect' persona were being f
 ## 2026-05-12: Enforcing Acceptance Criteria Checkboxes in Orchestrator Preflight
 - The DAG must accurately distinguish between generation (late-binding parent) nodes and execution (leaf) nodes.
 - Leaf nodes with `hasUncheckedTasks === true` should NOT be kept perpetually in `PENDING` during the `bypassDispatch` state (when target artifacts exist). Instead, they are considered an invalid completion attempt and are failed directly using `promoteNodeToFailedWithReason(node, 'Merged with unfulfilled acceptance criteria');`.
+
+## Anomaly Report: Code Health Task - Unused Import
+- **Issue**: Remove the unused import `CompactChainLink` from `src/components/PokemonDetails.tsx`.
+- **Finding**: Exploring the file `src/components/PokemonDetails.tsx` shows the text `CompactChainLink` no longer exists, and `pnpm lint` returned zero errors.
+- **Action**: Following the Empty PR policy for target artifacts that already exist and are complete, I am documenting this anomaly and submitting an empty PR with zero file changes, as the issue has already been resolved by previous work. No trivial formatting changes were made.

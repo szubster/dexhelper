@@ -2,18 +2,18 @@
 id: task-050-083-enforce-acceptance-criteria
 type: TASK
 title: Enforce Acceptance Criteria in Heartbeat and Orchestrator
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-12'
 updated_at: '2026-05-12'
 depends_on: []
-jules_session_id: '5038847838152667655'
+jules_session_id: null
 pr_number: null
 parent: story-031-050-enforce-acceptance-criteria-completion
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

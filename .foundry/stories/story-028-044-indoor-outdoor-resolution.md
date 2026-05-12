@@ -8,7 +8,7 @@ created_at: '2026-05-08'
 updated_at: '2026-05-12'
 depends_on:
   - .foundry/stories/story-028-043-gen2-map-graph.md
-jules_session_id: '155572791073751177'
+jules_session_id: '17052536337448432789'
 pr_number: null
 parent: .foundry/epics/epic-017-028-map-graph-routing.md
 tags:

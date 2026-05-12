@@ -7,7 +7,7 @@ owner_persona: epic_planner
 created_at: '2026-05-08'
 updated_at: '2026-05-12'
 depends_on: []
-jules_session_id: '2573853909337821732'
+jules_session_id: '4808464681406745507'
 pr_number: null
 parent: idea-019-orchestrator-test-factories
 tags: []
