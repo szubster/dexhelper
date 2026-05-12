@@ -52,10 +52,8 @@ export function SearchAndFilters() {
         </TacticalInput>
 
         {/* Tactical Filter Toggles */}
-        {/* biome-ignore lint/a11y/useSemanticElements: semantic element breaks overflow styles */}
-        <div
-          className="no-scrollbar mt-2 flex gap-2 overflow-x-auto px-1 pb-2"
-          role="group"
+        <fieldset
+          className="no-scrollbar m-0 mt-2 flex min-w-0 gap-2 overflow-x-auto border-none p-0 px-1 pb-2"
           aria-label="Filter Pokémon"
         >
           <TacticalButton
@@ -81,7 +79,7 @@ export function SearchAndFilters() {
               {f === 'secured' ? 'Secured' : f === 'missing' ? 'Missing' : 'Dex Only'}
             </TacticalButton>
           ))}
-        </div>
+        </fieldset>
       </div>
     </div>
   );
