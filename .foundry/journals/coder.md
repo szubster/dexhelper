@@ -58,3 +58,12 @@ Task task-046-077-standardize-orchestrator-test-factories: Implemented `foundry-
 
 ## 2026-05-12 - task-042-069-extract-roamers
 The roamer location extraction logic for Gen 2 (Raikou, Entei, Suicune) is already implemented in `src/engine/saveParser/parsers/gen2.ts`, and the corresponding tests exist in `src/engine/saveParser/parsers/gen2.test.ts`. Submitting an empty PR to allow the DAG to progress.
+The target artifact already exists and is complete in .github/scripts/foundry-orchestrator.test.ts. Submitting empty PR as per EMPTY PR POLICY.
+
+## 2026-05-11: Updated Foundry Orchestrator Persona Mappings
+
+Resolved an issue where TASK nodes owned by the 'architect' persona were being flagged as invalid.
+- Updated `.github/scripts/foundry-orchestrator.ts` to allow 'architect' to own 'TASK' nodes.
+- Synchronized `scripts/validate-foundry-schema.ts` with these mapping changes.
+- Proactively added 'RESEARCH' node support to the schema validator.
+- Added a regression test in `.github/scripts/foundry-orchestrator.test.ts` to verify the new mapping.

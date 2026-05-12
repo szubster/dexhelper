@@ -48,3 +48,7 @@ If the `RESEARCH` node's questions have already been answered or the required kn
 
 ## Journal Instructions
 Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens.
+
+
+## Empty PR Policy
+Completely empty PRs should be fine and automerged by GitHub actions (there is an action for that already).
