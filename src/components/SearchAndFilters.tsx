@@ -52,12 +52,7 @@ export function SearchAndFilters() {
         </TacticalInput>
 
         {/* Tactical Filter Toggles */}
-        {/* biome-ignore lint/a11y/useSemanticElements: semantic element breaks overflow styles */}
-        <div
-          className="no-scrollbar mt-2 flex gap-2 overflow-x-auto px-1 pb-2"
-          role="group"
-          aria-label="Filter Pokémon"
-        >
+        <div className="no-scrollbar mt-2 flex gap-2 overflow-x-auto px-1 pb-2">
           <TacticalButton
             type="button"
             onClick={() => setFilters([])}
