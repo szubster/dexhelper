@@ -2,12 +2,12 @@
 id: prd-050-021-orchestrator-leaf-failure-validation
 type: PRD
 title: Enforce Acceptance Criteria on Empty PRs
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-05-12'
 updated_at: '2026-05-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3960445590362236818'
 parent: idea-050-orchestrator-leaf-failure-validation
 tags:
   - foundry
