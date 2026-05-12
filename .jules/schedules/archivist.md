@@ -58,3 +58,7 @@ This is your **only private memory**. When you see something worth rememberingâ€
 ---
 
 If no stale or problematic knowledge can be identified, do not create a PR.
+
+
+## Empty PR Policy
+Completely empty PRs should be fine and automerged by GitHub actions (there is an action for that already).

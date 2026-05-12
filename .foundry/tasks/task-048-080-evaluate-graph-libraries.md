@@ -3,7 +3,7 @@ id: task-048-080-evaluate-graph-libraries
 type: TASK
 title: "Evaluate Graph Rendering Libraries for DAG Dashboard"
 status: PENDING
-owner_persona: "architect"
+owner_persona: "tech_lead"
 created_at: "2026-05-11"
 updated_at: "2026-05-11"
 depends_on: []

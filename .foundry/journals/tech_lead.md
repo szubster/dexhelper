@@ -35,7 +35,7 @@ All sibling tasks were explicitly linked via `depends_on` to ensure execution se
 - Decided to extend `foundry-heartbeat.ts` rather than create a new cron script to centralize the logic, since heartbeat already parses active/failed nodes and accesses GitHub APIs.
 - Used Intelligent Verification Protocol to create a separate QA task because executing remote branch deletion is risky and requires careful validation.
 ## Story 025-040: Write Validation Tests for Orchestrator Pipeline Handoff
-- **Target Node**: `.foundry/stories/story-025-040-write-validation-tests.md`
+- **Target Node**: `.foundry/archive/stories/story-025-040-write-validation-tests.md`
 - **Action Taken**: NO WORK REQUIRED. The validation tests (Mapping Validation: Enforces type to persona mappings before dispatch) already exist and are fully implemented in `.github/scripts/foundry-orchestrator.test.ts`.
 - **Outcome**: Executing Empty PR Policy.
 

@@ -52,9 +52,9 @@ function validateSchema() {
   let hasError = false;
 
   const ideaRegex = /^idea-\d{3}(-[a-z0-9-]+)?$/;
-  const otherRegex = /^(prd|epic|story|task)-\d{3}(-\d{3})?(-[a-z0-9-]+)?$/;
+  const otherRegex = /^(prd|epic|story|task|research)-\d{3}(-\d{3})?(-[a-z0-9-]+)?$/;
 
-  const validTypes = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK'];
+  const validTypes = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH'];
   const validStatuses = ['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
   const validPersonas = [
     'product_manager', 'epic_planner', 'story_owner', 'architect',
@@ -66,7 +66,7 @@ function validateSchema() {
     PRD: ['epic_planner', 'architect', 'story_owner'],
     EPIC: ['story_owner', 'epic_planner'],
     STORY: ['tech_lead', 'story_owner', 'coder'],
-    TASK: ['coder', 'qa', 'tech_lead'],
+    TASK: ['coder', 'qa', 'tech_lead', 'architect'],
     RESEARCH: ['researcher'],
   };
 
