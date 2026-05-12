@@ -11,6 +11,20 @@ describe('gen2Exclusives', () => {
         expect(reason).toContain('not available in Silver');
       });
 
+      it('should lock Sandshrew (27) in Silver', () => {
+        const ownedSet = new Set<number>();
+        const reason = getGen2UnobtainableReason(27, 'silver', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('not available in Silver');
+      });
+
+      it('should lock Sandslash (28) in Silver', () => {
+        const ownedSet = new Set<number>();
+        const reason = getGen2UnobtainableReason(28, 'silver', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('not available in Silver');
+      });
+
       it('should not lock Caterpie (10) in Silver', () => {
         const ownedSet = new Set<number>();
         const reason = getGen2UnobtainableReason(10, 'silver', 0, ownedSet);
@@ -41,6 +55,13 @@ describe('gen2Exclusives', () => {
       it('should lock Vulpix (37) in Gold', () => {
         const ownedSet = new Set<number>();
         const reason = getGen2UnobtainableReason(37, 'gold', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('not available in Gold');
+      });
+
+      it('should lock Ekans (23) in Gold', () => {
+        const ownedSet = new Set<number>();
+        const reason = getGen2UnobtainableReason(23, 'gold', 0, ownedSet);
         expect(typeof reason).toBe('string');
         expect(reason).toContain('not available in Gold');
       });
@@ -82,6 +103,13 @@ describe('gen2Exclusives', () => {
       it('should lock Mankey (56) in Crystal', () => {
         const ownedSet = new Set<number>();
         const reason = getGen2UnobtainableReason(56, 'crystal', 0, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('not available in Crystal');
+      });
+
+      it('should lock Girafarig (203) in Crystal', () => {
+        const ownedSet = new Set<number>();
+        const reason = getGen2UnobtainableReason(203, 'crystal', 0, ownedSet);
         expect(typeof reason).toBe('string');
         expect(reason).toContain('not available in Crystal');
       });
