@@ -71,3 +71,9 @@ Resolved an issue where TASK nodes owned by the 'architect' persona were being f
 ## 2026-05-12: Enforcing Acceptance Criteria Checkboxes in Orchestrator Preflight
 - The DAG must accurately distinguish between generation (late-binding parent) nodes and execution (leaf) nodes.
 - Leaf nodes with `hasUncheckedTasks === true` should NOT be kept perpetually in `PENDING` during the `bypassDispatch` state (when target artifacts exist). Instead, they are considered an invalid completion attempt and are failed directly using `promoteNodeToFailedWithReason(node, 'Merged with unfulfilled acceptance criteria');`.
+
+## 2026-05-12: Empty PR Policy for task-050-083-enforce-acceptance-criteria
+Upon review, the required updates to enforce acceptance criteria are already implemented.
+- `foundry-heartbeat.ts` already correctly assigns `parsed.data.rejection_reason = rejectionReason;` when transitioning to `FAILED`.
+- `foundry-orchestrator.ts` already successfully differentiates between late-binding parents and leaf tasks during Phase 3.7 Preflight when `hasUncheckedTasks` is true.
+Following the Empty PR policy, I am making 0 file changes since the target artifacts exist and are complete. I am leaving the parent node unmodified.
