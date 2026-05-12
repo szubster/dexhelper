@@ -67,3 +67,7 @@ Resolved an issue where TASK nodes owned by the 'architect' persona were being f
 - Synchronized `scripts/validate-foundry-schema.ts` with these mapping changes.
 - Proactively added 'RESEARCH' node support to the schema validator.
 - Added a regression test in `.github/scripts/foundry-orchestrator.test.ts` to verify the new mapping.
+
+## 2026-05-12: Enforcing Acceptance Criteria Checkboxes in Orchestrator Preflight
+- The DAG must accurately distinguish between generation (late-binding parent) nodes and execution (leaf) nodes.
+- Leaf nodes with `hasUncheckedTasks === true` should NOT be kept perpetually in `PENDING` during the `bypassDispatch` state (when target artifacts exist). Instead, they are considered an invalid completion attempt and are failed directly using `promoteNodeToFailedWithReason(node, 'Merged with unfulfilled acceptance criteria');`.
