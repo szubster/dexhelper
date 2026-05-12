@@ -32,7 +32,7 @@ function todayISO(): string {
 const TERMINAL_STATES = ['FAILED', 'COMPLETED'];
 
 /** Surgical mutation to FAILED */
-export async function transitionNodeToFailed(node: any, repoRoot: string): Promise<void> {
+export async function transitionNodeToFailed(node: any, repoRoot: string, rejectionReason?: string): Promise<void> {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
@@ -40,6 +40,10 @@ export async function transitionNodeToFailed(node: any, repoRoot: string): Promi
   parsed.data.status = 'FAILED';
   parsed.data.jules_session_id = null;
   parsed.data.updated_at = dateStr;
+
+  if (rejectionReason) {
+    parsed.data.rejection_reason = rejectionReason;
+  }
 
   const newContent = matter.stringify(parsed.content, parsed.data);
 

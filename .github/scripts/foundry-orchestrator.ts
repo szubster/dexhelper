@@ -657,8 +657,15 @@ function main(): void {
 
       if (bypassDispatch) {
         if (hasUncheckedTasks) {
-          info(`Preflight success: Valid target artifacts exist and are completed, but ${node.repoPath} still has unchecked tasks. Promoting to READY.`);
-          eligible.push(node);
+          const type = node.frontmatter.type;
+          const isLateBindingParent = children.length > 0 || ['IDEA', 'PRD', 'EPIC', 'STORY'].includes(type);
+          if (isLateBindingParent) {
+            info(`Preflight success: Valid target artifacts exist and are completed, but ${node.repoPath} still has unchecked tasks. Promoting to READY.`);
+            eligible.push(node);
+          } else {
+            info(`Preflight failure: Leaf task ${node.repoPath} has completed target artifacts but contains unchecked boxes.`);
+            promoteNodeToFailedWithReason(node, 'Merged with unfulfilled acceptance criteria');
+          }
         } else {
           info(`Preflight success: Valid target artifacts exist and are completed. Bypassing dispatch for ${node.repoPath}`);
           promoteNodeStatus(node, 'PENDING', 'COMPLETED');
