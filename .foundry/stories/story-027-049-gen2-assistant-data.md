@@ -2,12 +2,12 @@
 id: story-027-049-gen2-assistant-data
 type: STORY
 title: Setup Gen 2 Assistant Data
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-11'
-updated_at: '2026-05-11'
+updated_at: '2026-05-12'
 depends_on: []
-jules_session_id: '16969897421649550784'
+jules_session_id: null
 pr_number: null
 parent: epic-015-027-exclusives-and-static-data
 tags:

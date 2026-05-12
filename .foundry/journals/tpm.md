@@ -67,3 +67,19 @@
 - **2026-05-11**: PR #1192 merged. `epic-019-030-orchestrator-test-factories` is now COMPLETED.
 
 - **2026-05-11**: PR #1195 merged. `story-028-044-indoor-outdoor-resolution` is now PENDING.
+
+- **2026-05-12**: PR #1200 merged. `epic-020-031-enforce-acceptance-criteria-completion` is now PENDING.
+
+- **2026-05-12**: PR #1196 merged. `idea-019-automated-branch-cleanup` is now PENDING.
+
+- **2026-05-12**: PR #1199 merged. `prd-019-019-orchestrator-test-factories` is now PENDING.
+
+- **2026-05-12**: Heartbeat detected zombie session for `prd-020-020-enforce-acceptance-criteria-completion`. Transitioned to FAILED.
+
+- **2026-05-12**: PR #1201 merged. `story-027-049-gen2-assistant-data` is now COMPLETED.
+
+- **2026-05-12**: PR #1197 merged. `story-029-048-evaluate-graph-libraries` is now COMPLETED.
+
+- **2026-05-12**: PR #1202 merged. `task-044-080-implement-indoor-outdoor-resolution` is now COMPLETED.
+
+- **2026-05-12**: PR #1203 merged. `task-046-077-standardize-orchestrator-test-factories` is now COMPLETED.

@@ -2,12 +2,12 @@
 id: task-044-080-implement-indoor-outdoor-resolution
 type: TASK
 title: Implement Gen 2 Indoor to Outdoor Map Resolution
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-11'
-updated_at: '2026-05-11'
+updated_at: '2026-05-12'
 depends_on: []
-jules_session_id: '2718296655096671001'
+jules_session_id: null
 pr_number: null
 parent: story-028-044-indoor-outdoor-resolution
 tags:

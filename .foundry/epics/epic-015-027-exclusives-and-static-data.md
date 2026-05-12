@@ -2,10 +2,10 @@
 id: epic-015-027-exclusives-and-static-data
 type: EPIC
 title: 'Phase 2: Exclusives & Static Data Setup'
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-04'
-updated_at: '2026-05-11'
+updated_at: '2026-05-12'
 depends_on:
   - .foundry/epics/epic-015-026-save-parser-expansion.md
 jules_session_id: null
