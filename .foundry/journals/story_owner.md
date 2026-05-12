@@ -50,3 +50,6 @@ All acceptance criteria in .foundry/epics/epic-014-025-enforce-persona-pipeline-
 - Target STORY node `.foundry/stories/story-030-046-standardize-orchestrator-test-factories.md` already exists and is `COMPLETED`.
 - Parent Epic's acceptance criteria have been checked off.
 - Applying Empty PR Policy.
+
+## 2026-05-12: Empty PR Policy for Pre-Existing Artifacts
+When processing `epic-015-027-exclusives-and-static-data`, I observed that the target stories (`story-027-049-gen2-assistant-data.md`) had already been created and the work was essentially completed. Following the Empty PR Policy, I checked off the remaining acceptance criteria in the markdown body (without modifying the YAML frontmatter) and submitted an empty PR. This confirms that the Empty PR Policy is functioning correctly for late-binding stories that are pre-empted by other work.
