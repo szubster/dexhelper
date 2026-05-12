@@ -2,12 +2,12 @@
 id: prd-019-019-orchestrator-test-factories
 type: PRD
 title: Standardized Orchestrator Test Factories
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-08'
 updated_at: '2026-05-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2573853909337821732'
 pr_number: null
 parent: idea-019-orchestrator-test-factories
 tags: []
