@@ -57,4 +57,4 @@ The orchestrator must enforce these ownership rules:
 - [x] Create Story to implement the failure handling and logging for validation mismatches.
 - Child: .foundry/stories/story-025-039-implement-failure-handling.md
 - [x] Create Story to write unit tests covering the validation edge cases.
-- Child: .foundry/stories/story-025-040-write-validation-tests.md
+- Child: .foundry/archive/stories/story-025-040-write-validation-tests.md
