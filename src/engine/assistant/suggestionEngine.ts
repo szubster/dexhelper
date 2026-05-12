@@ -283,33 +283,6 @@ function generateCatchSuggestions(
     }
   }
 
-  // Check roaming legendaries on the current map
-  if (saveData.roamingLegendaries) {
-    for (const roamer of saveData.roamingLegendaries) {
-      if (roamer.mapId === saveData.currentMapId && missingIds.has(roamer.speciesId)) {
-        suggestions.push({
-          id: `catch-roaming-${roamer.speciesId}`,
-          category: 'Catch',
-          title: `CRITICAL: Roaming Legendary #${roamer.speciesId}!`,
-          description: `A wild roaming legendary is currently on this map!`,
-          pokemonId: roamer.speciesId,
-          priority: 130, // Higher than local catch
-          encounterInfo: {
-            [roamer.speciesId]: [
-              {
-                chance: 100,
-                method: 'walk',
-                minLevel: roamer.level,
-                maxLevel: roamer.level,
-                aid: apiData.localAid || 0,
-              },
-            ],
-          },
-        });
-      }
-    }
-  }
-
   // A2. Nearby logic (1-8 areas away)
   // Distance is calculated via graph traversal in the generation's strategy.
   // Priority dynamically scales inversely with distance (closer = higher priority).
