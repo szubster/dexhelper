@@ -13,3 +13,5 @@ Architects frequently perform evaluation tasks (e.g., assessing graph libraries,
 - Updated `.github/scripts/foundry-orchestrator.ts` to include 'architect' in the valid mappings for TASK nodes.
 - Updated `scripts/validate-foundry-schema.ts` to align with the orchestrator's validation logic.
 - Verified that `task-048-080` is now correctly promoted to READY by the orchestrator.
+
+- **2026-05-12**: Addressed CI audit failure caused by critical malware advisory GHSA-rmmr-r34h-pfm5 in `@tanstack/history`. Updated CI workflow to ignore this specific advisory as a temporary mitigation while using the known-stable version `1.161.6`.
