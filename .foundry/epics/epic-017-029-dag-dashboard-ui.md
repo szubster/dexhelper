@@ -2,13 +2,13 @@
 id: epic-017-029-dag-dashboard-ui
 type: EPIC
 title: DAG Dashboard Visualization & UI
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-12'
 depends_on:
   - .foundry/epics/epic-017-028-dag-dashboard-data.md
-jules_session_id: null
+jules_session_id: '5316928527286581993'
 pr_number: null
 parent: .foundry/prds/prd-017-017-dag-dashboard.md
 tags:
@@ -36,10 +36,11 @@ This Epic covers the frontend user interface for the DAG Dashboard Webview. It c
 
 ## Acceptance Criteria
 - [x] Select and integrate a graph rendering library (e.g., Mermaid.js, React Flow).
-- [ ] Implement the core graph visualization component.
+- [x] Implement the core graph visualization component.
 - [ ] Implement filtering UI controls and logic.
 - [ ] Implement dependency highlighting interactions.
 - [ ] Wire up the UI to consume data from the parsing layer.
 
 ## Stories
 - `.foundry/stories/story-029-048-evaluate-graph-libraries.md`
+- `.foundry/stories/story-029-051-implement-core-graph-visualization.md`

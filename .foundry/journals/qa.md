@@ -45,3 +45,6 @@ The QA check failed because the coder did not implement the `cleanupRemoteBranch
 - Verified offsets used match the knowledge base instructions (e.g. `0xA8` relative to Johto badges for Hall of Fame count).
 - Confirmed unit tests and fixture tests pass successfully (`pnpm test`).
 - Updated task node markdown body with checked acceptance criteria. Submitting an empty PR to allow DAG progression.
+
+### 2026-05-12 - Gen 2 Map Resolution
+Successfully verified `resolveOutdoorMapId` logic in `gen1Graph.ts` and `gen2Graph.ts`. Added comprehensive tests to ensure multi-level graph routing works, and verified the implementation correctly handles protection against circular prnt references by using a `Set`.

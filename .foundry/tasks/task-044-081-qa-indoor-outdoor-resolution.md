@@ -2,13 +2,13 @@
 id: task-044-081-qa-indoor-outdoor-resolution
 type: TASK
 title: QA - Gen 2 Indoor to Outdoor Map Resolution
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-11'
 updated_at: '2026-05-12'
 depends_on:
   - .foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md
-jules_session_id: null
+jules_session_id: '1087004501897425540'
 pr_number: null
 parent: story-028-044-indoor-outdoor-resolution
 tags:
@@ -36,7 +36,7 @@ The coder has implemented `resolveOutdoorMapId` in `src/engine/mapGraph/gen2Grap
 - Run all Vitest suites for map graph logic to ensure no regressions.
 
 ## Acceptance Criteria
-- [ ] Tests for `resolveOutdoorMapId` are comprehensive and cover multi-level map scenarios.
-- [ ] The implementation handles recursive/iterative `prnt` traversal correctly.
-- [ ] `pnpm test` passes successfully.
-- [ ] No performance regressions introduced by the loop.
+- [x] Tests for `resolveOutdoorMapId` are comprehensive and cover multi-level map scenarios.
+- [x] The implementation handles recursive/iterative `prnt` traversal correctly.
+- [x] `pnpm test` passes successfully.
+- [x] No performance regressions introduced by the loop.
