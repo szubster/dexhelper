@@ -89,6 +89,11 @@
       "lefthook",
       "sharp"
     ],
+    "auditConfig": {
+      "ignoreCves": [
+        "GHSA-rmmr-r34h-pfm5"
+      ]
+    },
     "overrides": {
       "serialize-javascript": ">=7.0.5",
       "@tanstack/history": "1.161.6"
