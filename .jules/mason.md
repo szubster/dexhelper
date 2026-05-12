@@ -29,3 +29,9 @@
 - Extracted `TelemetryDecoration` into `src/components/TelemetryDecoration.tsx` to encapsulate this logic.
 - **Key Learnings**:
   - The `cn` utility is very effective for overriding base tailwind classes in reusable components. For instance, `BottomNav` flips the border rounding (`rounded-t` instead of `rounded-b`) and `VersionModal` alters the standard text colors using `className` and `dotClassName` props, showing the value of granular styling overrides in standard components.
+
+## TacticalModal Extraction
+
+- **Pattern:** Found `fixed inset-0` with standard dialog layout (`div > backdrop`, `div > content`) repeated in multiple modal components (`SettingsModal`, `VersionModal`, `PokemonDetails`).
+- **Solution:** Extracted a reusable `TacticalModal` component that standardizes `role="dialog"`, `aria-modal="true"`, background blurs (`backdrop-blur-*`), animations (`fade-in`, `zoom-in`, `slide-in-from-bottom`), and positioning.
+- **Why it matters:** Centralizing modal structures reduces boilerplate and ensures accessibility props and closing behaviors are applied consistently across the application, adhering to the project's styling and UI constraints.
