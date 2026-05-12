@@ -32,7 +32,8 @@ function parseCaughtData(view: DataView, offset: number) {
   if (location === 0x7e) locationName = 'Event/Gift';
   else if (location === 0x7f) locationName = 'Special Event/Traded';
   else {
-    locationName = (gen2Landmarks as Record<string, string>)[location.toString()];
+    const locStr = location.toString();
+    locationName = locStr in gen2Landmarks ? gen2Landmarks[locStr as keyof typeof gen2Landmarks] : undefined;
   }
 
   return { time, level: caughtLevel, location, locationName };
@@ -323,9 +324,12 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   const currentMapId = view.getUint8(mapIdOffset);
 
   let currentMapName = 'Unknown Map';
-  const gen2Maps = gen2MapLocations as Record<string, Record<string, string>>;
-  const mapGroupDict = gen2Maps[mapGroup.toString()];
-  const foundMap = mapGroupDict?.[currentMapId.toString()];
+  const groupStr = mapGroup.toString();
+  const mapIdStr = currentMapId.toString();
+  const mapGroupDict =
+    groupStr in gen2MapLocations ? gen2MapLocations[groupStr as keyof typeof gen2MapLocations] : undefined;
+  const foundMap =
+    mapGroupDict && mapIdStr in mapGroupDict ? mapGroupDict[mapIdStr as keyof typeof mapGroupDict] : undefined;
   if (foundMap) {
     currentMapName = foundMap;
   }

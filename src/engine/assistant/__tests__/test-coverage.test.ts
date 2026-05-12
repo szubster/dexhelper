@@ -362,3 +362,44 @@ test('coverage for suggestionEngine getGameItemId unknown generation', () => {
     'Unknown generation',
   );
 });
+
+test('coverage for recursive missing exclusive logic', () => {
+  const mockSaveData = {
+    generation: 1,
+    gameVersion: 'red',
+    owned: new Set([4]), // Only owns Charmander
+    seen: new Set([4]),
+    party: [],
+    pc: [],
+    partyDetails: [{ speciesId: 4, level: 36, isShiny: false, moves: [], storageLocation: 'party' }],
+    pcDetails: [],
+    inventory: [],
+    trainerName: 'ASH',
+    currentBoxCount: 0,
+    hallOfFameCount: 1,
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {},
+    pokemonMetadata: {
+      4: { id: 4, n: 'Charmander', efrm: [], det: [], eto: [] },
+      5: { id: 5, n: 'Charmeleon', efrm: [4], det: [{ tr: 1, ml: 16 }], eto: [] },
+      6: { id: 6, n: 'Charizard', efrm: [5, 4], det: [{ tr: 1, ml: 36 }], eto: [] }, // Charizard has Charmeleon (5) and Charmander (4) as ancestors
+    },
+    ancestralEncounters: {},
+    areaNames: {},
+    allLocations: [],
+    allAreas: [],
+  } as unknown as AssistantApiData;
+
+  const mockStrategy = {
+    ...gen1Strategy,
+    getSpecialSuggestions: () => [],
+    getUnobtainableReason: (pid: number) => (pid === 6 ? 'Needs Link Cable' : null),
+  } as unknown as import('../strategies/types').AssistantStrategy;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, mockStrategy);
+  const exclusiveSuggestion = suggestions.find((s) => s.id === 'exclusive-6');
+  expect(exclusiveSuggestion).toBeUndefined();
+});

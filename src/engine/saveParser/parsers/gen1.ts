@@ -467,7 +467,9 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
   const badges = view.getUint8(0x2602 + offsetShift);
   const trainerId = view.getUint16(0x2605 + offsetShift, false);
   const currentMapId = view.getUint8(0x260a + offsetShift);
-  const currentMapName = (gen1MapLocations as Record<string, string>)[currentMapId.toString()] || 'Unknown Map';
+  const mapIdStr = currentMapId.toString();
+  const currentMapName =
+    mapIdStr in gen1MapLocations ? gen1MapLocations[mapIdStr as keyof typeof gen1MapLocations] : 'Unknown Map';
   const inventory: { id: number; quantity: number }[] = [];
   const itemCount = view.getUint8(0x25c9 + offsetShift);
   for (let i = 0; i < itemCount; i++) {
