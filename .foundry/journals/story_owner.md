@@ -50,3 +50,4 @@ All acceptance criteria in .foundry/epics/epic-014-025-enforce-persona-pipeline-
 - Target STORY node `.foundry/stories/story-030-046-standardize-orchestrator-test-factories.md` already exists and is `COMPLETED`.
 - Parent Epic's acceptance criteria have been checked off.
 - Applying Empty PR Policy.
+- **2026-05-XX Pattern Insight:** When implementing sequential stories (e.g., in `epic-017-029-dag-dashboard-ui`), sibling dependencies should be correctly linked using `depends_on`. For instance, `story-029-051-implement-core-graph-visualization` correctly blocks on `story-029-048-evaluate-graph-libraries`. I also made sure to append the newly spawned story to the parent epic's markdown and tick the checkbox, without modifying its YAML frontmatter.
