@@ -50,6 +50,3 @@ If you reject an implementation or validation fails:
 2. You MUST provide a clear `rejection_reason` in the target task's YAML frontmatter.
 3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
 4. You MUST document the rejection in your persona journal.
-
-## Empty PR Policy
-Completely empty PRs should be fine and automerged by GitHub actions (there is an action for that already).

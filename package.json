@@ -90,13 +90,7 @@
       "sharp"
     ],
     "overrides": {
-      "serialize-javascript": ">=7.0.5",
-      "@tanstack/history": "1.161.6"
-    },
-    "auditConfig": {
-      "ignoreCves": [
-        "GHSA-rmmr-r34h-pfm5"
-      ]
+      "serialize-javascript": ">=7.0.5"
     }
   }
 }

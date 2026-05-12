@@ -793,7 +793,7 @@ function main(): void {
     PRD: ['epic_planner', 'architect', 'story_owner'],
     EPIC: ['story_owner', 'epic_planner'],
     STORY: ['tech_lead', 'story_owner', 'coder'],
-    TASK: ['coder', 'qa', 'tech_lead', 'architect'],
+    TASK: ['coder', 'qa', 'tech_lead'],
     RESEARCH: ['researcher'],
   };
 

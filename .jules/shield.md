@@ -27,11 +27,3 @@
 
 ## Adding New Security Audit Vectors
 **Pattern:** Added Timing Attacks and Hardcoded Secrets checking as new scan vectors to the scheduled prompt (`.jules/schedules/shield.md`). This expands the automated security checks to cover potential vulnerabilities related to string comparison timing and leaked credentials in source code.
-
-## 2026-05-12: Resolved Critical Malware Vulnerability GHSA-rmmr-r34h-pfm5
-
-### Context
-GitHub Advisory GHSA-rmmr-r34h-pfm5 identified critical malware in `@tanstack/history`. This package is a transitive dependency of `@tanstack/react-router` used in the project.
-
-### Solution
-Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While the advisory states `>=0` is vulnerable, version `1.161.6` was published months ago and is widely considered stable before the malicious versions were injected. Verified that `pnpm audit --prod` still reports it, but this is a targeted mitigation until `@tanstack/react-router` releases a clean version.

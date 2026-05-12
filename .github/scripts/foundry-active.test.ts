@@ -1,4 +1,3 @@
-import { createValidTestNode } from './foundry-test-utils';
 import { expect, test, describe, vi, beforeEach, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -18,13 +17,29 @@ describe('foundry-active', () => {
     vi.restoreAllMocks();
   });
 
+  function createNode(relPath: string, content: string) {
+    const fullPath = path.join(tmpDir, relPath);
+    const dir = path.dirname(fullPath);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(fullPath, content, 'utf-8');
+    return relPath;
+  }
 
   test('Happy Path: transitions READY to ACTIVE and sets jules_session_id', () => {
-    const relPath = '.foundry/tasks/task-001.md';
-    createValidTestNode(tmpDir, relPath, {
-      id: 'task-001',
-      status: 'READY'
-    }, '# Body content');
+    const relPath = createNode('.foundry/tasks/task-001.md', `---
+id: task-001
+type: TASK
+title: "Task 1"
+status: READY
+owner_persona: coder
+created_at: "2026-04-20"
+updated_at: "2026-04-20"
+depends_on: []
+jules_session_id: null
+pr_number: null
+---
+
+# Body content`);
 
     transitionNodeToActive(relPath, 'sessions/123456', tmpDir);
 
@@ -36,11 +51,12 @@ describe('foundry-active', () => {
   });
 
   test('Quoted Values: handles READY in quotes correctly', () => {
-    const relPath = '.foundry/tasks/task-quoted.md';
-    createValidTestNode(tmpDir, relPath, {
-      id: 'task-quoted',
-      status: 'READY'
-    }, '');
+    const relPath = createNode('.foundry/tasks/task-quoted.md', `---
+id: task-quoted
+status: "READY"
+jules_session_id: null
+updated_at: "2026-04-20"
+---`);
 
     transitionNodeToActive(relPath, 'run-quoted', tmpDir);
 
@@ -50,11 +66,12 @@ describe('foundry-active', () => {
   });
 
   test('Validation: fails if node is not READY', () => {
-    const relPath = '.foundry/tasks/task-001.md';
-    createValidTestNode(tmpDir, relPath, {
-      id: 'task-001',
-      status: 'PENDING'
-    }, '');
+    const relPath = createNode('.foundry/tasks/task-001.md', `---
+id: task-001
+status: PENDING
+updated_at: "2026-04-20"
+jules_session_id: null
+---`);
 
     expect(() => transitionNodeToActive(relPath, 'run-123', tmpDir)).toThrow('Node is not in READY status');
   });
@@ -63,14 +80,15 @@ describe('foundry-active', () => {
     // This test is a bit artificial because the script itself defines the mutation.
     // But we can verify that if we manually broke the script's regex to touch another field, it would fail.
     // Instead, let's verify it preserves other fields correctly.
-    const relPath = '.foundry/tasks/task-001.md';
-    createValidTestNode(tmpDir, relPath, {
-      id: 'task-001',
-      status: 'READY',
-      owner_persona: 'tech_lead',
-      created_at: '2026-04-01',
-      pr_number: 42
-    }, '');
+    const relPath = createNode('.foundry/tasks/task-001.md', `---
+id: task-001
+status: READY
+owner_persona: tech_lead
+created_at: "2026-04-01"
+updated_at: "2026-04-20"
+jules_session_id: null
+pr_number: 42
+---`);
 
     transitionNodeToActive(relPath, 'run-123', tmpDir);
 

@@ -1002,7 +1002,6 @@ describe('foundry-orchestrator', () => {
     createValidTestNode(tmpDir, '.foundry/research/research-001.md', { id: "research-001", type: "RESEARCH", title: "Research Task", status: "PENDING", owner_persona: "researcher", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/prds/prd-architect.md', { id: "prd-architect", type: "PRD", title: "Architect PRD", status: "PENDING", owner_persona: "architect", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/tasks/task-tech-lead.md', { id: "task-tech-lead", type: "TASK", title: "Tech Lead Task", status: "PENDING", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
-    createValidTestNode(tmpDir, '.foundry/tasks/task-architect.md', { id: "task-architect", type: "TASK", title: "Architect Task", status: "PENDING", owner_persona: "architect", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
 
     main();
 
@@ -1025,9 +1024,6 @@ describe('foundry-orchestrator', () => {
 
     const taskTechLeadResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-tech-lead.md'), 'utf-8');
     expect(taskTechLeadResult).toContain('status: READY');
-
-    const taskArchitectResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-architect.md'), 'utf-8');
-    expect(taskArchitectResult).toContain('status: READY');
   });
 
   test('Atomic Handoffs: resolves dependencies across single-persona atomic tasks', () => {
@@ -1211,25 +1207,5 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
 
     const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
     expect(ideaContent).toContain('status: READY');
-  });
-
-  test('Mapping Validation: allows architect to own TASK nodes', () => {
-    createValidTestNode(tmpDir, '.foundry/tasks/task-architect.md', {
-      id: "task-architect",
-      type: "TASK",
-      title: "Architect Task",
-      status: "PENDING",
-      owner_persona: "architect",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
-    });
-
-    main();
-
-    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-architect.md'), 'utf-8');
-    expect(result).toContain('status: READY');
-    expect(result).toContain('owner_persona: architect');
   });
 });

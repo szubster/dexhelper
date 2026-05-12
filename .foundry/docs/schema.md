@@ -28,7 +28,7 @@ A custom orchestrator (`.github/scripts/foundry-orchestrator.ts`) parses the `de
 | `.foundry/prds/` | `PRD` | `product_manager` | Structured Product Requirements Documents. |
 | `.foundry/epics/` | `EPIC` | `epic_planner` | Macroscopic functional chunks derived from PRDs. |
 | `.foundry/stories/` | `STORY` | `story_owner` | Incremental, sequentially-planned delivery steps. Stories are late-binding: Story N+1 is only written after Story N completes so lessons are incorporated. |
-| `.foundry/tasks/` | `TASK` | `coder` | Concrete engineering blueprints. The Tech Lead or Architect writes them; the Coder implements; QA validates. |
+| `.foundry/tasks/` | `TASK` | `coder` | Concrete engineering blueprints. The Tech Lead writes them; the Coder implements; QA validates. |
 | `.foundry/journals/` | — | `tpm` | Persistent agent learning logs. Each persona decides its own structure (single file, subdirectory, multiple files by domain, etc.). The `tpm` is responsible for archiving stale journal content. |
 | `.foundry/docs/adrs/` | ADR | `tech_lead` | Architecture Decision Records. The Tech Lead reads these before writing any Task to ensure consistency. |
 | `.foundry/docs/style_guides/` | Style Guide | `designer` | Global UX/UI constraints injected into designer tasks. |
