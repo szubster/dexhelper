@@ -66,3 +66,7 @@ During the session for transforming IDEA-019 (Automated Branch Cleanup) into a P
 Date: 2026-05-15
 
 During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. As per the Empty PR Policy, no changes will be made to the PRD or the parent Idea node (`idea-019-automated-branch-cleanup.md`). The acceptance criteria in the parent node are partially unchecked but relate to implementation details not under the Product Manager's purview. I am submitting this empty PR (with only this journal update) to allow the DAG to progress.
+## Issue with IDEA-019 PRD Generation (Duplicate Check)
+Date: 2026-05-18
+
+During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. Following the Empty PR Policy, no trivial formatting changes will be made to the PRD. The parent node (`idea-019-automated-branch-cleanup.md`) acceptance criteria were partially checked off, and I will not modify them because they relate to implementation details that are not under the Product Manager's purview. This PR will be submitted as an empty PR (or with only this journal update) to allow the DAG to progress.
