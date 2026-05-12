@@ -65,3 +65,10 @@ All sibling tasks were explicitly linked via `depends_on` to ensure execution se
 
 ## 2026-05-12 - Graph Rendering Library Evaluation
 Evaluated graph rendering libraries for the DAG Dashboard. Selected React Flow over Mermaid.js and Cytoscape.js. React Flow offers the best balance of seamless integration with our React/Tailwind ecosystem (critical for enforcing the strict tactical hardware aesthetic with custom DOM nodes) and out-of-the-box interactivity features. Documented in ADR 008.
+## 2026-05-12: Enforcing Acceptance Criteria in Preflight
+
+### Observation
+While orchestrator nodes often contain unchecked acceptance criteria, standard leaf tasks without children that are already "COMPLETED" conceptually (i.e. empty PRs or completed artifacts) must fail if boxes remain unchecked. However, parent tasks use unchecked boxes as late-binding flags to remain alive for further child tasks.
+
+### Action Taken
+Drafted Coder and QA tasks to update `foundry-heartbeat.ts` to assign `rejection_reason` on failure, and update `foundry-orchestrator.ts` preflight logic so leaf tasks with target artifacts completed but unchecked boxes fail directly instead of pushing to READY.
