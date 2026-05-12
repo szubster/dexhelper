@@ -400,16 +400,7 @@ function generateGiftAndTradeSuggestions(
       const p = apiData.pokemonMetadata?.[pid];
       let hasPhysicalPreEvo = false;
       if (p?.efrm && p.efrm.length > 0) {
-        // Iterate backwards through all ancestors (recursive ownership check)
-        // The current logic only checked immediate parents, so if a player had Charmander,
-        // Charizard might incorrectly be flagged as Unobtainable/Trade.
-        for (let i = p.efrm.length - 1; i >= 0; i--) {
-          const preId = p.efrm[i];
-          if (preId !== undefined && instancesBySpecies.has(preId)) {
-            hasPhysicalPreEvo = true;
-            break;
-          }
-        }
+        hasPhysicalPreEvo = p.efrm.some((preId) => instancesBySpecies.has(preId));
       }
       if (hasPhysicalPreEvo) continue;
 
