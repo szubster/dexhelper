@@ -1208,4 +1208,24 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
     const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
     expect(ideaContent).toContain('status: READY');
   });
+
+  test('Mapping Validation: allows architect to own TASK nodes', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-architect.md', {
+      id: "task-architect",
+      type: "TASK",
+      title: "Architect Task",
+      status: "PENDING",
+      owner_persona: "architect",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-architect.md'), 'utf-8');
+    expect(result).toContain('status: READY');
+    expect(result).toContain('owner_persona: architect');
+  });
 });
