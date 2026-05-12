@@ -86,3 +86,9 @@
 **Outcome:** Accepted
 **Why:** Brings the rest of the application's details cards perfectly in line with the heavily tactical, snooping-focused aesthetic (like the Grid and Details wrapper), correcting the failure of the previous "glassmorphism" style.
 **Pattern:** Ensure structural and navigation components strictly adhere to the tactical aesthetics (sharp edges, corner crosshairs, monospace text) to maintain overall visual coherence. Eliminate rounded native inputs (like range sliders) where possible to lean into specialized hardware terminal designs.
+
+## 2026-05-18 - [Accepted] - 🖼️ Canvas: Tactical Assistant Subcomponents Redesign
+**What:** Redesigned the inner subcomponents of the Assistant feature, specifically the `AssistantDebugView` and the inner elements of `AssistantSuggestionCard` (encounter groups, chance badges, rod indicators). Replaced all generic rounded borders, glass effects, and soft pill badges with `TacticalPanel`, sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry headers (e.g. `[ SYS.DIAGNOSTICS ]`, `[ MISSING_ROD ]`).
+**Outcome:** Accepted
+**Why:** Brings the smaller utility and debugging interfaces within the Assistant tab in line with the rest of the application's heavily tactical, snooping-focused aesthetic. The sharp shapes and telemetry details enhance the illusion of looking at a specialized hardware diagnostic view rather than a generic dashboard.
+**Pattern:** Ensure that even nested components, diagnostic views, and small indicator badges adhere to the tactical aesthetics (sharp edges, dashed borders, monospace text) to maintain overall visual coherence deep within complex component trees.

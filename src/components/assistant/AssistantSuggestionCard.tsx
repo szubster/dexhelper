@@ -51,7 +51,7 @@ export function AssistantSuggestionCard({
         }}
       />
       <div
-        className={`absolute -top-10 -right-10 h-32 w-32 rounded-full opacity-20 blur-[40px] transition-opacity group-hover:opacity-40 ${style.bg}`}
+        className={`absolute -top-10 -right-10 h-32 w-32 rounded-none opacity-20 blur-[40px] transition-opacity group-hover:opacity-40 ${style.bg}`}
       />
 
       <div className="relative z-10 flex h-full flex-col gap-4 p-5">
@@ -136,7 +136,7 @@ export function AssistantSuggestionCard({
                 return (
                   <div
                     key={method}
-                    className={`space-y-3 rounded-2xl border border-white/5 bg-black/30 p-4 transition-opacity ${!isOwned ? 'opacity-40 grayscale-[0.5]' : ''}`}
+                    className={`space-y-3 rounded-none border border-white/10 border-dashed bg-black/30 p-4 transition-opacity ${!isOwned ? 'opacity-40 grayscale-[0.5]' : ''}`}
                   >
                     <div className="flex items-center justify-between px-1">
                       <div className="flex items-center gap-2">
@@ -148,8 +148,8 @@ export function AssistantSuggestionCard({
                         </span>
                       </div>
                       {!isOwned && (
-                        <span className="rounded border border-red-500/30 bg-red-500/20 px-1.5 py-0.5 font-black text-[8px] text-red-400 uppercase tracking-tighter">
-                          Rod Missing
+                        <span className="rounded-none border border-red-500/30 border-dashed bg-red-500/20 px-1.5 py-0.5 font-black font-mono text-[8px] text-red-400 uppercase tracking-tighter">
+                          [ MISSING_ROD ]
                         </span>
                       )}
                     </div>
@@ -160,7 +160,7 @@ export function AssistantSuggestionCard({
                             to="/pokemon/$pokemonId"
                             params={{ pokemonId: pid.toString() }}
                             search={{ from: '/assistant' }}
-                            className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-zinc-800/80 p-2 shadow-md transition-all hover:scale-110 hover:border-emerald-500/50 hover:bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                            className="relative flex h-14 w-14 items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-800/80 p-2 shadow-md transition-all hover:scale-110 hover:border-emerald-500/50 hover:bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                             title={getPokemonName(pid)}
                             aria-label={`View details for ${getPokemonName(pid)}`}
                             onClick={(e) => e.stopPropagation()}
@@ -171,7 +171,7 @@ export function AssistantSuggestionCard({
                               alt={getPokemonName(pid)}
                               className="h-full w-full object-contain"
                             />
-                            <div className="absolute -top-1.5 -right-1.5 rounded-lg border border-white/20 bg-emerald-500 px-1.5 py-0.5 font-black text-[9px] text-white shadow-lg">
+                            <div className="absolute -top-1.5 -right-1.5 rounded-none border border-white/20 border-dashed bg-emerald-500 px-1.5 py-0.5 font-black font-mono text-[9px] text-white shadow-lg">
                               {enc.chance}%
                             </div>
                           </Link>
@@ -199,7 +199,7 @@ export function AssistantSuggestionCard({
                     to="/pokemon/$pokemonId"
                     params={{ pokemonId: pid.toString() }}
                     search={{ from: '/assistant' }}
-                    className="group/sprite relative h-10 w-10 rounded-lg border border-white/5 bg-black/40 p-1 transition-all hover:scale-110 hover:border-white/40 hover:bg-black/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                    className="group/sprite relative h-10 w-10 rounded-none border border-white/10 border-dashed bg-black/40 p-1 transition-all hover:scale-110 hover:border-white/40 hover:bg-black/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                     title={getPokemonName(pid)}
                     aria-label={`View details for ${getPokemonName(pid)}`}
                     onClick={(e) => e.stopPropagation()}
@@ -213,7 +213,7 @@ export function AssistantSuggestionCard({
                   </Link>
                 ))}
                 {(s.pokemonIds?.length ?? 0) > 8 && (
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/5 bg-black/40 font-bold text-xs text-zinc-500">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-none border border-white/10 border-dashed bg-black/40 font-bold font-mono text-xs text-zinc-500">
                     +{(s.pokemonIds?.length ?? 0) - 8}
                   </div>
                 )}
