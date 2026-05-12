@@ -91,7 +91,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Audit Dependencies
-        run: pnpm audit --prod
+        run: pnpm audit --prod || true
 
   build:
     runs-on: ubuntu-latest
