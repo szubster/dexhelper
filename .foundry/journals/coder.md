@@ -58,3 +58,17 @@ Task task-046-077-standardize-orchestrator-test-factories: Implemented `foundry-
 
 ## 2026-05-12 - task-042-069-extract-roamers
 The roamer location extraction logic for Gen 2 (Raikou, Entei, Suicune) is already implemented in `src/engine/saveParser/parsers/gen2.ts`, and the corresponding tests exist in `src/engine/saveParser/parsers/gen2.test.ts`. Submitting an empty PR to allow the DAG to progress.
+
+## 2026-05-12: Resolved Architect-Owned Task Validation Failure
+
+### Insight
+Foundry task nodes were failing orchestration because the `architect` persona was not recognized as a valid owner for `TASK` types in `scripts/validate-foundry-schema.ts` and `.github/scripts/foundry-orchestrator.ts`. This restricted architects to only `PRD` and `EPIC` nodes, preventing them from owning evaluative or research tasks.
+
+### Pattern
+When updating node type-to-persona mappings, ensure consistency across:
+1. `scripts/validate-foundry-schema.ts`: Used for pre-commit and local validation.
+2. `.github/scripts/foundry-orchestrator.ts`: Used for engine orchestration and state transitions.
+3. `.github/scripts/foundry-orchestrator.test.ts`: To verify the mapping logic and prevent regressions.
+
+### Action
+Added `architect` to `TASK` mappings in both scripts and updated the test suite to include a test case for architect-owned tasks. Also synchronized `RESEARCH` type in `validate-foundry-schema.ts`.
