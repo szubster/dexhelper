@@ -85,3 +85,9 @@
 - **2026-05-12**: PR #1203 merged. `task-046-077-standardize-orchestrator-test-factories` is now COMPLETED.
 
 - **2026-05-12**: Resurrection Loop triggered for `prd-020-020-enforce-acceptance-criteria-completion`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-12**: PR #1235 merged. `epic-017-029-dag-dashboard-ui` is now PENDING.
+
+- **2026-05-12**: PR #1237 merged. `task-044-081-qa-indoor-outdoor-resolution` is now COMPLETED.
+
+- **2026-05-12**: PR #1236 merged. `task-048-080-evaluate-graph-libraries` is now COMPLETED.

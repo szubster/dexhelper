@@ -2,13 +2,13 @@
 id: task-044-081-qa-indoor-outdoor-resolution
 type: TASK
 title: QA - Gen 2 Indoor to Outdoor Map Resolution
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-11'
 updated_at: '2026-05-12'
 depends_on:
   - .foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md
-jules_session_id: '1087004501897425540'
+jules_session_id: null
 pr_number: null
 parent: story-028-044-indoor-outdoor-resolution
 tags:

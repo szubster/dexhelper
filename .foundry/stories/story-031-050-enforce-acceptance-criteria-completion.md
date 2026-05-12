@@ -2,10 +2,10 @@
 id: story-031-050-enforce-acceptance-criteria-completion
 type: STORY
 title: Enforce Acceptance Criteria Completion Logic in Heartbeat and Orchestrator
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-11'
-updated_at: '2026-05-11'
+updated_at: '2026-05-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
