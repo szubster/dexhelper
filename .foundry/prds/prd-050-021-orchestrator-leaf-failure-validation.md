@@ -45,4 +45,4 @@ Per ADR-007, leaf nodes with unchecked boxes must be marked `FAILED`, not `PENDI
 The scope of this feature is limited to the Empty PR auto-merge pipeline and orchestrator validation rules. It will primarily involve creating or modifying validation scripts (e.g., `validate-empty-pr.js`) and updating `.github/workflows/auto-close-empty-pr.yml`.
 
 ## 4. Next Steps
-- [ ] Architect: Review this PRD and create an Architecture Decision Record (ADR).
+- [x] Architect: Review this PRD and create an Architecture Decision Record (ADR).
