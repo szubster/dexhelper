@@ -34,6 +34,6 @@ We are building a DAG Dashboard Visualization & UI for the Foundry nodes. We nee
   - Suitability for custom styling to match our 'tactical hardware/snooping' aesthetic.
 
 ## Acceptance Criteria
-- [ ] Research and compare at least two graph rendering libraries.
-- [ ] Select the most appropriate library for the DAG Dashboard based on the evaluation criteria.
-- [ ] Document the decision and integration approach by creating an Architecture Decision Record (ADR) in `.foundry/docs/adrs/`.
+- [x] Research and compare at least two graph rendering libraries.
+- [x] Select the most appropriate library for the DAG Dashboard based on the evaluation criteria.
+- [x] Document the decision and integration approach by creating an Architecture Decision Record (ADR) in `.foundry/docs/adrs/`.

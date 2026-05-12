@@ -62,3 +62,6 @@ All sibling tasks were explicitly linked via `depends_on` to ensure execution se
 - Processed STORY: `story-027-049-gen2-assistant-data`.
 - Generated technical blueprint TASK `task-049-082-implement-gen2-assistant-data` assigned to `coder` to implement Gen 2 static configurations for gifts and in-game NPC trades.
 - Used Intelligent Verification Protocol to determine that the implementation only involves simple static data addition, so no separate QA task is required. The `coder` should self-verify.
+
+## 2026-05-12 - Graph Rendering Library Evaluation
+Evaluated graph rendering libraries for the DAG Dashboard. Selected React Flow over Mermaid.js and Cytoscape.js. React Flow offers the best balance of seamless integration with our React/Tailwind ecosystem (critical for enforcing the strict tactical hardware aesthetic with custom DOM nodes) and out-of-the-box interactivity features. Documented in ADR 008.
