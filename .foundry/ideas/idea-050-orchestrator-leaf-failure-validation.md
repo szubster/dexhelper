@@ -29,4 +29,8 @@ Enhance the DAG Orchestrator so that before an empty PR is auto-merged, it activ
 Prevents incomplete tasks from slipping through via the Empty PR policy loop hole, enforcing stricter completion requirements and improving system reliability.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea to a PRD.
+- [x] Product Manager: Convert this idea to a PRD.
+
+
+## Generated Nodes
+- [PRD-050-021](.foundry/prds/prd-050-021-orchestrator-leaf-failure-validation.md)
