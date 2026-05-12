@@ -2,7 +2,7 @@
 id: epic-020-031-enforce-acceptance-criteria-completion
 type: EPIC
 title: Enforce Acceptance Criteria Checkbox Completion Epic
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-11'
 updated_at: '2026-05-12'

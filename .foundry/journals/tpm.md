@@ -91,3 +91,19 @@
 - **2026-05-12**: PR #1237 merged. `task-044-081-qa-indoor-outdoor-resolution` is now COMPLETED.
 
 - **2026-05-12**: PR #1236 merged. `task-048-080-evaluate-graph-libraries` is now COMPLETED.
+
+- **2026-05-12**: PR #1238 merged. `epic-015-027-exclusives-and-static-data` is now COMPLETED.
+
+- **2026-05-12**: PR #1239 merged. `idea-019-automated-branch-cleanup` is now PENDING.
+
+- **2026-05-12**: PR #1240 merged. `idea-050-orchestrator-leaf-failure-validation` is now COMPLETED.
+
+- **2026-05-12**: PR #1241 merged. `prd-019-019-orchestrator-test-factories` is now PENDING.
+
+- **2026-05-12**: PR #1243 merged. `prd-020-020-enforce-acceptance-criteria-completion` is now COMPLETED.
+
+- **2026-05-12**: PR #1245 merged. `story-028-044-indoor-outdoor-resolution` is now PENDING.
+
+- **2026-05-12**: PR #1246 merged. `story-031-050-enforce-acceptance-criteria-completion` is now COMPLETED.
+
+- **2026-05-12**: Heartbeat detected zombie session for `task-048-081-integrate-graph-library`. Transitioned to FAILED.

@@ -2,13 +2,13 @@
 id: task-048-081-integrate-graph-library
 type: TASK
 title: Integrate Selected Graph Library into DAG Dashboard
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-11'
 updated_at: '2026-05-12'
 depends_on:
   - .foundry/tasks/task-048-080-evaluate-graph-libraries.md
-jules_session_id: '4758919957238682900'
+jules_session_id: null
 pr_number: null
 parent: story-029-048-evaluate-graph-libraries
 tags: []

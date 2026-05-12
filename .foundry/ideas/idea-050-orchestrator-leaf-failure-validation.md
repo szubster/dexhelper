@@ -2,12 +2,12 @@
 id: idea-050-orchestrator-leaf-failure-validation
 type: IDEA
 title: 'DAG Feature: Enforce Acceptance Criteria on Empty PRs'
-status: ACTIVE
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-05-12'
 updated_at: '2026-05-12'
 depends_on: []
-jules_session_id: '1610649360325564566'
+jules_session_id: null
 parent: null
 tags:
   - foundry

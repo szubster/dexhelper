@@ -2,7 +2,7 @@
 id: task-050-083-enforce-acceptance-criteria
 type: TASK
 title: Enforce Acceptance Criteria in Heartbeat and Orchestrator
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-12'
 updated_at: '2026-05-12'
