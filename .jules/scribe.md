@@ -100,3 +100,4 @@ Documenting these mechanical quirks is essential for future maintainability of t
 - `generateGiftAndTradeSuggestions`: Documents how it handles Exclusives, boosts NPC trade priority when the offering is already owned, and checks badge/event flags for static gifts.
 - `generateEvolutionAndBreedingSuggestions`: Documents the recursive box checking required to find pre-evolutions, and the complex branching conditions (Level, Item, Trade/Happiness, Gen 2 Daycare breeding) that determine suggestion priority.
 Documenting these functions ensures that future maintainers understand the business logic for suggestion prioritization and the performance-critical mutation patterns.
+- Documented `src/engine/assistant/README.md` to explain the recommendation algorithm's O(1) constraints, caching optimizations, Priority ranking system, Strategy pattern for multi-generation support, and its core generator sub-helpers.
