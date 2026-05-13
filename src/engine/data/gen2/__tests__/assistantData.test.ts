@@ -7,14 +7,14 @@ describe('Gen 2 Assistant Data', () => {
 
     // Check specific gifts
     expect(STATIC_GIFT_DATA[175]).toBeDefined(); // Togepi
-    expect(STATIC_GIFT_DATA[175].name).toBe('Togepi');
-    expect(STATIC_GIFT_DATA[175].gen).toBe(2);
+    expect(STATIC_GIFT_DATA[175]?.name).toBe('Togepi');
+    expect(STATIC_GIFT_DATA[175]?.gen).toBe(2);
 
     expect(STATIC_GIFT_DATA[133]).toBeDefined(); // Eevee
-    expect(STATIC_GIFT_DATA[133].name).toBe('Eevee');
+    expect(STATIC_GIFT_DATA[133]?.name).toBe('Eevee');
 
     expect(STATIC_GIFT_DATA[213]).toBeDefined(); // Shuckle
-    expect(STATIC_GIFT_DATA[213].name).toBe('Shuckle');
+    expect(STATIC_GIFT_DATA[213]?.name).toBe('Shuckle');
   });
 
   it('should have the expected structure for STATIC_NPC_TRADE_DATA', () => {
@@ -23,12 +23,12 @@ describe('Gen 2 Assistant Data', () => {
     expect(STATIC_NPC_TRADE_DATA.length).toBeGreaterThan(0);
 
     // Check for specific trades
-    const onixTrade = STATIC_NPC_TRADE_DATA.find(t => t.receivedId === 95);
+    const onixTrade = STATIC_NPC_TRADE_DATA.find((t) => t.receivedId === 95);
     expect(onixTrade).toBeDefined();
     expect(onixTrade?.offeredId).toBe(69); // Bellsprout
     expect(onixTrade?.receivedOtName).toBe('ROCKY');
 
-    const machopTrade = STATIC_NPC_TRADE_DATA.find(t => t.receivedId === 66);
+    const machopTrade = STATIC_NPC_TRADE_DATA.find((t) => t.receivedId === 66);
     expect(machopTrade).toBeDefined();
     expect(machopTrade?.offeredId).toBe(96); // Drowzee
     expect(machopTrade?.receivedOtName).toBe('MUSCLE');
