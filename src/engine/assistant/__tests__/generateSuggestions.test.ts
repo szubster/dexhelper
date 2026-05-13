@@ -343,6 +343,13 @@ describe('generateSuggestions', () => {
           moves: [],
           storageLocation: 'Daycare',
         },
+        {
+          speciesId: 132, // Ditto in daycare
+          level: 20,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Daycare',
+        },
       ],
       daycareHasEgg: true,
     } as unknown as SaveData;
@@ -413,8 +420,36 @@ describe('generateSuggestions', () => {
     const breedSuggestionNotInDaycare = suggestionsNotInDaycare.find((s) => s.id === 'breed-152');
     expect(breedSuggestionNotInDaycare).toBeDefined();
     expect(breedSuggestionNotInDaycare?.title).toBe('Breed: #152');
-    expect(breedSuggestionNotInDaycare?.description).toBe('Leave your #153 at the Daycare to get an Egg!');
+    expect(breedSuggestionNotInDaycare?.description).toBe(
+      'Leave your #153 and a compatible partner (like Ditto) at the Daycare to get an Egg!',
+    );
     expect(breedSuggestionNotInDaycare?.priority).toBe(85);
+
+    // Test when pokemon is in daycare but alone
+    mockSaveData.daycare = [
+      {
+        speciesId: 153, // Bayleef in daycare
+        level: 20,
+        isShiny: false,
+        moves: [],
+        storageLocation: 'Daycare',
+      },
+    ];
+    mockSaveData.daycareHasEgg = false;
+    const { suggestions: suggestionsAlone } = generateSuggestions(
+      mockSaveData,
+      false,
+      'crystal',
+      mockApiData,
+      mockStrategy,
+    );
+    const breedSuggestionAlone = suggestionsAlone.find((s) => s.id === 'breed-152');
+    expect(breedSuggestionAlone).toBeDefined();
+    expect(breedSuggestionAlone?.title).toBe('Need Partner: #152');
+    expect(breedSuggestionAlone?.description).toBe(
+      'Leave a compatible partner (like Ditto) at the Daycare to get an Egg!',
+    );
+    expect(breedSuggestionAlone?.priority).toBe(80);
   });
 
   it('should generate "Evolve" suggestion when min_l and min_h are missing (time-based fallback)', () => {

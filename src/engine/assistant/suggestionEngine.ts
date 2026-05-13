@@ -539,15 +539,23 @@ function generateEvolutionAndBreedingSuggestions(
         let title = `Breed: #${targetId}`;
 
         if (isInDaycare) {
-          if (saveData.daycareHasEgg) {
-            title = `Egg Ready: #${targetId}!`;
-            description = `Pick up your Egg from the Daycare!`;
-            priority = 95;
+          if (saveData.daycare && saveData.daycare.length === 2) {
+            if (saveData.daycareHasEgg) {
+              title = `Egg Ready: #${targetId}!`;
+              description = `Pick up your Egg from the Daycare!`;
+              priority = 95;
+            } else {
+              title = `Breeding in Progress: #${targetId}`;
+              description = `Wait for an Egg from the Daycare!`;
+              priority = 85;
+            }
           } else {
-            title = `Breeding in Progress: #${targetId}`;
-            description = `Wait for an Egg from the Daycare!`;
-            priority = 85;
+            title = `Need Partner: #${targetId}`;
+            description = `Leave a compatible partner (like Ditto) at the Daycare to get an Egg!`;
+            priority = 80;
           }
+        } else {
+          description = `Leave your #${evolutionIdToBreed} and a compatible partner (like Ditto) at the Daycare to get an Egg!`;
         }
 
         suggestions.push({
