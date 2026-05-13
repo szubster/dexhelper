@@ -43,3 +43,11 @@ The compiler statically guarantees that the `StatusType` union and the `STATUS_O
 ## 2024-05-19: Unsafe Record casts for Imported JSON objects
 *   **Issue:** Directly importing JSON modules (e.g., `landmarks.json`) and casting them via `as Record<string, string>` breaks type safety and can cause `any` type propagation or `never` evaluation issues when combined with narrowing operators like `in` later in the control flow. If a variable is narrowed using `mapGroupDict && mapIdStr in mapGroupDict ? ...`, trying to use `as keyof typeof mapGroupDict` evaluates to `never` because the initial declaration inferred `| undefined` from a ternary assignment.
 *   **Resolution:** Remove the `as Record<...>` or inline explicit castings for imported JSON objects. Instead, rely on standard property access or safe type narrowing. If a variable might be `undefined`, explicitly handle the truthy condition before indexing with literal types, or use safe type assertions like `(mapGroupDict as Record<string, string>)[mapIdStr]` ONLY inside a block where `mapGroupDict` is proven to exist, rather than fighting `keyof typeof` on union types.
+
+## 2024-05-18
+- **Tricky type narrowing pattern**: When refactoring `unknown` payloads (like event details) to remove unsafe `as Record<string, unknown>` assertions under `@tsconfig/strictest`, avoid replacing the broad cast with multiple narrower inline casts (e.g. `typeof (detail as { current: unknown }).current === 'number'`). Code reviewers will correctly reject this as it merely multiplies the number of casts.
+- **Solution**: Modern TypeScript correctly narrows object types when using the `in` operator. You can safely write:
+  ```typescript
+  if ('current' in detail && typeof detail.current === 'number')
+  ```
+  This cleanly resolves strict index-signature property access errors without needing any `as` casts or `// biome-ignore` overrides, keeping the type guard both safe and readable.
