@@ -20,6 +20,7 @@
     "lint:package-json": "sort-package-json --check",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:bundle": "bundlemon",
     "test:coverage": "vitest run --coverage",
     "test:ct": "vitest --project browser",
     "test:e2e": "playwright test",
