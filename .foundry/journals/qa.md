@@ -48,3 +48,6 @@ The QA check failed because the coder did not implement the `cleanupRemoteBranch
 
 ### 2026-05-12 - Gen 2 Map Resolution
 Successfully verified `resolveOutdoorMapId` logic in `gen1Graph.ts` and `gen2Graph.ts`. Added comprehensive tests to ensure multi-level graph routing works, and verified the implementation correctly handles protection against circular prnt references by using a `Set`.
+
+## 2026-05-12 - Acceptance Criteria Regex Bug Fix
+Verified the changes made in `task-050-083-enforce-acceptance-criteria.md`. Wrote orchestrator and heartbeat tests for leaf/parent task failure state logic with unfulfilled criteria. Also identified and fixed a bug where the orchestrator validated the *entire* markdown body instead of just the `## Acceptance Criteria` block.

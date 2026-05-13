@@ -30,6 +30,6 @@ This task verifies the changes made in `task-050-083-enforce-acceptance-criteria
 4. Write unit tests in `foundry-orchestrator.test.ts` to verify preflight properly fails a leaf task with unchecked boxes instead of promoting it to READY.
 
 ## Acceptance Criteria
-- [ ] Add unit test in `foundry-heartbeat.test.ts` to verify the different handling of leaf tasks versus parent nodes with unchecked boxes and assert `rejection_reason` is set correctly.
-- [ ] Add unit test in `foundry-orchestrator.test.ts` to verify a leaf task with completed target artifacts but unchecked boxes is flagged as FAILED via `promoteNodeToFailedWithReason`.
-- [ ] Verify existing tests still pass.
+- [x] Add unit test in `foundry-heartbeat.test.ts` to verify the different handling of leaf tasks versus parent nodes with unchecked boxes and assert `rejection_reason` is set correctly.
+- [x] Add unit test in `foundry-orchestrator.test.ts` to verify a leaf task with completed target artifacts but unchecked boxes is flagged as FAILED via `promoteNodeToFailedWithReason`.
+- [x] Verify existing tests still pass.
