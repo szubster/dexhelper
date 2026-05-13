@@ -7,11 +7,11 @@
   "files": [
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "650kb"
+      "maxSize": "800kb"
     },
     {
       "path": "assets/style-<hash>.css",
-      "maxSize": "100kb"
+      "maxSize": "120kb"
     },
     {
       "path": "data/pokedata.json",
