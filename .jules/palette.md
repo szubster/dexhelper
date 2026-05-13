@@ -55,3 +55,7 @@
 **Learning:** For accessibility and micro-UX, interactive card elements that act as links or triggers must provide a `title` attribute for sighted users alongside the `aria-label` for screen readers.
 **Action:** When creating or modifying card components that handle click events (e.g. `TacticalCard`), ensure they accept and render a `title` prop matching their `aria-label`.
 - Added ARIA listbox roles to LocationSuggestions component to ensure screen reader compatibility, overriding generic div role and mapping individual suggestion buttons to options. Learned that Vite server starts on port 3000 here.
+
+## 2024-05-22 - Modal Accessibility & UX
+**Learning:** Modals that do not trap or lock body scrolling allow users to inadvertently scroll the page behind the modal, breaking the visual context. Additionally, missing Escape key listeners prevents users, especially those using keyboards, from easily dismissing the modal.
+**Action:** Always ensure custom modals implement an `Escape` keydown listener to close the modal, and temporarily set `document.body.style.overflow = 'hidden'` while the modal is open (remembering to restore the original overflow when it closes).

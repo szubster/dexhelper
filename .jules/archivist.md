@@ -39,3 +39,8 @@
 
 **Learning:** `.foundry/docs/knowledge_base/infrastructure/jules_agents_dispatch.md` had an outdated list of agents.
 **Action:** Updated it to properly reflect the 15 agents deployed, by adding the missing `researcher` agent to the list.
+
+## 2026-06-26 - Archivist Run Learnings
+
+**Learning:** Memory entries that reference specific external instruction files (like `testing_rules.md`) can become inaccurate or broken if the referenced file is moved to a new directory structure (like `.agents/rules/`).
+**Action:** Corrected path references in `onboarding/style_and_conventions.md` to point to `.agents/rules/testing_rules.md` to ensure onboarding rules point to actual existent files.

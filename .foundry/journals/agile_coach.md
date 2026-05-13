@@ -50,3 +50,11 @@ Observed that the QA agent rejected a task (`task-047-078`) in its journal but f
 1. Updated `qa.md` with explicit instructions on handling rejections (setting `status: FAILED` and `rejection_reason`).
 2. Added the 'WARNING: The Empty PR policy...' text to all execution/planning agents (`coder.md`, `story_owner.md`, `tech_lead.md`, `epic_planner.md`, `product_manager.md`, `qa.md`).
 3. Created `idea-050-orchestrator-leaf-failure-validation.md` to have the Orchestrator validate empty PRs against unchecked acceptance criteria.
+
+## 2026-05-12 - Fix Empty PR Policy Contradiction with ADR 007/009
+### Observation
+Noticed that `task-050-083-enforce-acceptance-criteria.md` failed with the rejection reason "Merged with unfulfilled acceptance criteria" despite its objective already being implemented in the code. The agent correctly realized the work was done and followed the Empty PR policy to "NOT make trivial formatting changes". However, ADR 007 and ADR 009 strictly mandate that leaf tasks with unchecked acceptance criteria checkboxes MUST be failed. This created a contradiction where agents were punished for following the Empty PR policy while leaving boxes unchecked.
+
+### Action Taken
+1. Added a `CRITICAL EXCEPTION TO EMPTY PR POLICY` section to all core execution and planning agent prompts (`coder.md`, `qa.md`, `tech_lead.md`, `story_owner.md`, `epic_planner.md`, `product_manager.md`).
+2. This exception explicitly instructs agents that if a target artifact is complete but checkboxes are unchecked, checking those boxes (`- [x]`) is a mandatory contractual obligation, not a trivial formatting change, and failure to do so will result in immediate rejection by the orchestrator.

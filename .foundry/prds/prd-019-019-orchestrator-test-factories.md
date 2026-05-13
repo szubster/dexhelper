@@ -2,12 +2,12 @@
 id: prd-019-019-orchestrator-test-factories
 type: PRD
 title: Standardized Orchestrator Test Factories
-status: ACTIVE
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-05-08'
 updated_at: '2026-05-12'
 depends_on: []
-jules_session_id: '4808464681406745507'
+jules_session_id: null
 pr_number: null
 parent: idea-019-orchestrator-test-factories
 tags: []
@@ -46,10 +46,10 @@ These failures cause CI delays and force developers to constantly update test fi
 - The CI pipeline (`pnpm test` in `.github/scripts`) must pass successfully.
 
 ## 4. Acceptance Criteria
-- [ ] A test factory utility function is implemented and exported for use in test files.
-- [ ] The utility correctly sets default frontmatter properties, ensuring compliance with strict schema rules (e.g., valid `owner_persona` for each node `type`).
-- [ ] Existing tests in `.github/scripts/foundry-orchestrator.test.ts` are updated to use the factory utility.
-- [ ] All tests pass without any warnings or errors related to schema validation on mock nodes.
+- [x] A test factory utility function is implemented and exported for use in test files.
+- [x] The utility correctly sets default frontmatter properties, ensuring compliance with strict schema rules (e.g., valid `owner_persona` for each node `type`).
+- [x] Existing tests in `.github/scripts/foundry-orchestrator.test.ts` are updated to use the factory utility.
+- [x] All tests pass without any warnings or errors related to schema validation on mock nodes.
 
 ## 5. Implementation Strategy
 1. **Define the Factory:** Create the factory function, defining a baseline valid node and merging it with the provided overrides. Ensure the logic correctly assigns `owner_persona` based on the (potentially overridden) `type`.
