@@ -2,12 +2,12 @@
 id: idea-019-automated-branch-cleanup
 type: IDEA
 title: Automated Branch Cleanup
-status: ACTIVE
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-05-08'
-updated_at: '2026-05-12'
+updated_at: '2026-05-13'
 depends_on: []
-jules_session_id: '2920936118683555900'
+jules_session_id: null
 pr_number: null
 parent: null
 tags: []
