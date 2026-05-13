@@ -2,12 +2,12 @@
 id: idea-019-automated-branch-cleanup
 type: IDEA
 title: Automated Branch Cleanup
-status: ACTIVE
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-05-08'
-updated_at: '2026-05-12'
+updated_at: '2026-05-13'
 depends_on: []
-jules_session_id: '11456327573075628019'
+jules_session_id: null
 pr_number: null
 parent: null
 tags: []
@@ -29,8 +29,8 @@ Implement an automated Git branch cleanup step in the `foundry-heartbeat` or a d
 
 ## Acceptance Criteria
 - [x] Determine the safest method for identifying the branch associated with a failed session.
-- [ ] Implement the cleanup logic.
-- [ ] Ensure it only deletes branches safely associated with terminal, failed tasks, and not active ones.
+- [x] Implement the cleanup logic.
+- [x] Ensure it only deletes branches safely associated with terminal, failed tasks, and not active ones.
 
 ## References
 - Downstream PRD: `.foundry/prds/prd-019-019-automated-branch-cleanup.md`

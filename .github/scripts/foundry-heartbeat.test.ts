@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { main, identifyBranchesForCleanup, cleanupRemoteBranches } from './foundry-heartbeat.ts';
+import { main, identifyBranchesForCleanup, cleanupRemoteBranches, transitionNodeToCompleted } from './foundry-heartbeat.ts';
 import * as orchestrator from './foundry-orchestrator.ts';
 
 vi.mock('node:fs');
@@ -249,7 +249,7 @@ ok: true,
         status: 'ACTIVE',
         jules_session_id: 'session-123'
       },
-      rawContent: '---\ntype: STORY\nstatus: ACTIVE\njules_session_id: "session-123"\nupdated_at: "2023-01-01"\n---\nBody\n- [ ] Unchecked task'
+      rawContent: '---\ntype: STORY\nstatus: ACTIVE\njules_session_id: "session-123"\nupdated_at: "2023-01-01"\n---\n## Acceptance Criteria\n- [ ] Unchecked task'
     };
 
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
@@ -295,7 +295,7 @@ ok: true,
         status: 'ACTIVE',
         jules_session_id: 'session-123'
       },
-      rawContent: '---\ntype: TASK\nstatus: ACTIVE\njules_session_id: "session-123"\nupdated_at: "2023-01-01"\n---\nBody\n- [ ] Unchecked task'
+      rawContent: '---\ntype: TASK\nstatus: ACTIVE\njules_session_id: "session-123"\nupdated_at: "2023-01-01"\n---\n## Acceptance Criteria\n- [ ] Unchecked task'
     };
 
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-2.md']);
@@ -421,6 +421,67 @@ ok: true,
     await main();
 
     expect(fs.writeFileSync).not.toHaveBeenCalledWith(expect.any(String), expect.stringContaining('status: FAILED'), expect.any(String));
+  });
+
+
+  describe('Enforce Acceptance Criteria', () => {
+    it('should transition leaf task with unchecked boxes to FAILED and set rejection_reason', async () => {
+      const nodePath = path.join(mockRepoRoot, '.foundry/tasks/task-unchecked-leaf.md');
+      const nodeContent = `---
+id: task-unchecked-leaf
+type: TASK
+status: ACTIVE
+---
+
+## Acceptance Criteria
+- [ ] Unchecked box
+`;
+
+      const node = {
+        filePath: nodePath,
+        repoPath: '.foundry/tasks/task-unchecked-leaf.md',
+        frontmatter: { id: 'task-unchecked-leaf', type: 'TASK', status: 'ACTIVE' },
+        rawContent: nodeContent, body: nodeContent
+      } as any;
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue([nodePath]);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(node);
+
+      await transitionNodeToCompleted(node, mockRepoRoot, 123);
+
+      const content = vi.mocked(fs.writeFileSync).mock.calls[0][1] as string;
+      expect(content).toContain('status: FAILED');
+      expect(content).toContain('rejection_reason: Merged with unfulfilled acceptance criteria');
+    });
+
+    it('should transition parent node with unchecked boxes to PENDING', async () => {
+      const nodePath = path.join(mockRepoRoot, '.foundry/stories/story-unchecked-parent.md');
+      const nodeContent = `---
+id: story-unchecked-parent
+type: STORY
+status: ACTIVE
+---
+
+## Acceptance Criteria
+- [ ] Unchecked box
+`;
+
+      const node = {
+        filePath: nodePath,
+        repoPath: '.foundry/stories/story-unchecked-parent.md',
+        frontmatter: { id: 'story-unchecked-parent', type: 'STORY', status: 'ACTIVE' },
+        rawContent: nodeContent, body: nodeContent
+      } as any;
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue([nodePath]);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(node);
+
+      await transitionNodeToCompleted(node, mockRepoRoot, 123);
+
+      const content = vi.mocked(fs.writeFileSync).mock.calls[0][1] as string;
+      expect(content).toContain('status: PENDING');
+      expect(content).not.toContain('rejection_reason');
+    });
   });
 
   describe('Human Tasks', () => {

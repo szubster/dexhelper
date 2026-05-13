@@ -653,7 +653,9 @@ function main(): void {
 
       const children = parentToChildren.get(node.repoPath) || [];
 
-      const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(node.body);
+      const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
+      const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
+      const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
 
       if (bypassDispatch) {
         if (hasUncheckedTasks) {

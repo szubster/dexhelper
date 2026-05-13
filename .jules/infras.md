@@ -56,3 +56,6 @@ Critical learnings:
 
 ## 2026-05-11 - Cleaned up knip.json
 **Learning:** Removed outdated `ignore` and `ignoreDependencies` configurations from `knip.json` that were previously suggested by `pnpm knip`. This avoids unnecessary ignored files and configuration hints during linting.
+
+## 2026-05-13 - Optimized Lefthook Pre-Commit
+**Learning:** Found that `type-check` hook in `lefthook.yml` was running `pnpm lint`, which sequentially ran `type-check`, `check:biome`, `oxlint`, `knip`, and `lint:package-json` across the *entire project*. Because `lefthook` already has separate commands for `biome-check`, `oxlint`, and `sort-package-json` on `{staged_files}`, this caused redundant full-project checks on every commit, significantly slowing down DX. Replaced `run: pnpm lint` with `run: pnpm type-check` for the `type-check` command to maintain the full-project type safety requested by the user while avoiding redundant linter execution.

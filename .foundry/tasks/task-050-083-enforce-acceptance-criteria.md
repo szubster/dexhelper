@@ -5,14 +5,14 @@ title: Enforce Acceptance Criteria in Heartbeat and Orchestrator
 status: FAILED
 owner_persona: coder
 created_at: '2026-05-12'
-updated_at: '2026-05-12'
+updated_at: '2026-05-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-031-050-enforce-acceptance-criteria-completion
 tags: []
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---

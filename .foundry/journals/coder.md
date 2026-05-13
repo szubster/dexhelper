@@ -71,3 +71,15 @@ Resolved an issue where TASK nodes owned by the 'architect' persona were being f
 ## 2026-05-12: Enforcing Acceptance Criteria Checkboxes in Orchestrator Preflight
 - The DAG must accurately distinguish between generation (late-binding parent) nodes and execution (leaf) nodes.
 - Leaf nodes with `hasUncheckedTasks === true` should NOT be kept perpetually in `PENDING` during the `bypassDispatch` state (when target artifacts exist). Instead, they are considered an invalid completion attempt and are failed directly using `promoteNodeToFailedWithReason(node, 'Merged with unfulfilled acceptance criteria');`.
+
+### Integrating React Flow & Dagre
+- **Lesson**: When rendering a DAG with React Flow, if nodes overlap heavily by default, integrating `dagre` for auto-layout is necessary.
+- **Pattern**: Extract nodes and edges format from `buildDagGraph`, pass them through `dagre` graph logic to calculate XY positions based on `nodeWidth` and `nodeHeight`, and then supply these absolute positions back to React Flow's `nodes` array.
+- **Vite Middleware**: When creating custom Vite plugins to serve local development APIs/data endpoints via `configureServer` middleware, the incoming `req.url` may be stripped or mutated by preceding plugins (like `tanstackRouter`). You often need to check `req.originalUrl` (or use broad `.includes()`) to reliably match custom endpoints.
+- **Aesthetic**: Custom React Flow nodes must explicitly override default wrapper styling. Apply `rounded-none`, `border-dashed`, and use `!bg-zinc-x !rounded-none` inside the `<Handle>` classNames to ensure standard nodes map perfectly to the tactical UI requirements.
+- **Biome Rule**: In Biome, `lint/complexity/useLiteralKeys` throws errors when using bracket notation (`data['id']`). However, the project's strict `@tsconfig/strictest` often forces bracket notation to access properties typed as `unknown` or `Record<string, unknown>`. If you encounter this conflict, use the inline disable comment `// biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation` to safely bypass Biome without sacrificing compiler type safety.
+## 2026-05-12: Empty PR Policy for task-050-083-enforce-acceptance-criteria
+Upon review, the required updates to enforce acceptance criteria are already implemented.
+- `foundry-heartbeat.ts` already correctly assigns `parsed.data.rejection_reason = rejectionReason;` when transitioning to `FAILED`.
+- `foundry-orchestrator.ts` already successfully differentiates between late-binding parents and leaf tasks during Phase 3.7 Preflight when `hasUncheckedTasks` is true.
+Following the Empty PR policy, I am making 0 file changes since the target artifacts exist and are complete. I am leaving the parent node unmodified.

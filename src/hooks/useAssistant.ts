@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useMemo } from 'react';
 import { getStrategy } from '../engine/assistant/strategies/index';
 import { fetchAssistantApiData, generateSuggestions } from '../engine/assistant/suggestionEngine';
 import type { SaveData } from '../engine/saveParser/index';
@@ -55,8 +56,11 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
     enabled: !!saveData,
   });
 
-  const strategy = getStrategy(saveData?.generation || 1);
-  const { suggestions, debug } = generateSuggestions(saveData, isLivingDex, manualVersion, apiData ?? null, strategy);
+  const strategy = useMemo(() => getStrategy(saveData?.generation || 1), [saveData?.generation]);
+  // ⚡ Bolt: Memoize expensive synchronous suggestion generation to prevent blocking the main thread on every re-render
+  const { suggestions, debug } = useMemo(() => {
+    return generateSuggestions(saveData, isLivingDex, manualVersion, apiData ?? null, strategy);
+  }, [saveData, isLivingDex, manualVersion, apiData, strategy]);
   return {
     suggestions,
     debug,
