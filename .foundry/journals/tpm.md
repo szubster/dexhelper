@@ -151,3 +151,5 @@
 - **2026-05-13**: Heartbeat detected zombie session for `task-049-082-implement-gen2-assistant-data`. Transitioned to FAILED.
 
 - **2026-05-13**: Resurrection Loop triggered for `story-031-050-enforce-acceptance-criteria-completion`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-13**: Resurrection Loop triggered for `task-049-082-implement-gen2-assistant-data`. Reason: Retry from FAILED status.. Transitioned back to READY.

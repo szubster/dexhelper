@@ -2,7 +2,7 @@
 id: task-049-082-implement-gen2-assistant-data
 type: TASK
 title: Implement Gen 2 Assistant Data
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-05-11'
 updated_at: '2026-05-13'
@@ -15,7 +15,7 @@ tags:
   - data
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
