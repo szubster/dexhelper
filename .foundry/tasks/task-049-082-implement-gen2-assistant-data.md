@@ -2,12 +2,12 @@
 id: task-049-082-implement-gen2-assistant-data
 type: TASK
 title: Implement Gen 2 Assistant Data
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-11'
-updated_at: '2026-05-12'
+updated_at: '2026-05-13'
 depends_on: []
-jules_session_id: '3765654301827410152'
+jules_session_id: null
 pr_number: null
 parent: story-027-049-gen2-assistant-data
 tags:
