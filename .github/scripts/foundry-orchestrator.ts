@@ -714,7 +714,9 @@ function main(): void {
           }
 
           if (!isDepIncomplete) {
-            const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(node.body);
+            const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
+            const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
+            const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
             if (hasUncheckedTasks) {
               info(`Late-Binding Parent Waking Up: ${node.repoPath} has completed children, but still has unchecked tasks. Promoting to READY.`);
               // Add to eligible if not already there, so it's picked up by subsequent phases (Phase 5)
@@ -766,7 +768,9 @@ function main(): void {
       }
     }
 
-    const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(node.body);
+    const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
+    const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
+    const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
 
     if (shouldBypass) {
       if (hasUncheckedTasks) {

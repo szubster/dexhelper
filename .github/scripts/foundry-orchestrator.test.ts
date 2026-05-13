@@ -343,6 +343,8 @@ describe('foundry-orchestrator', () => {
       jules_session_id: null,
     }, `# Title
 
+## Acceptance Criteria
+
 - [ ] Unchecked task`);
 
     // Story 1: Child of Epic 1, COMPLETED
@@ -378,6 +380,8 @@ describe('foundry-orchestrator', () => {
       jules_session_id: null,
     }, `# Title
 
+## Acceptance Criteria
+
 - [ ] Unchecked task`);
 
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
@@ -411,6 +415,8 @@ describe('foundry-orchestrator', () => {
       depends_on: [".foundry/prds/missing-prd.md"],
       jules_session_id: null,
     }, `# Title
+
+## Acceptance Criteria
 
 - [ ] Unchecked task`);
 
@@ -698,6 +704,8 @@ describe('foundry-orchestrator', () => {
       depends_on: [],
       jules_session_id: null,
     }, `# Title
+## Acceptance Criteria
+
 - [ ] Unchecked task
 `);
 
@@ -1214,6 +1222,8 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
       depends_on: [],
       jules_session_id: null,
     }, `# Title
+## Acceptance Criteria
+
 - [ ] Unchecked task
 - Spawned: [.foundry/prds/prd-001.md](.foundry/prds/prd-001.md)
 `);
