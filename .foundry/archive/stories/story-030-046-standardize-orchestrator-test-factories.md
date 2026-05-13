@@ -54,4 +54,4 @@ Implement a standardized test node factory utility in the DAG Orchestrator test 
 2. Refactor existing test fixtures to use the new factory.
 
 ## Spawned Tasks
-- [.foundry/tasks/task-046-077-standardize-orchestrator-test-factories.md](.foundry/tasks/task-046-077-standardize-orchestrator-test-factories.md)
+- [.foundry/archive/tasks/task-046-077-standardize-orchestrator-test-factories.md](.foundry/archive/tasks/task-046-077-standardize-orchestrator-test-factories.md)

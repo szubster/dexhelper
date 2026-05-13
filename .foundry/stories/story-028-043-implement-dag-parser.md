@@ -39,4 +39,4 @@ This Story covers the backend/data layer for the DAG Dashboard Webview. It is re
 - [x] Create a TASK to implement a builder function that outputs the final node/edge graph data structure.
   - See `.foundry/tasks/task-043-075-build-dag-graph.md`
 - [x] Create a QA TASK to verify the functionality of the DAG parser.
-  - See `.foundry/tasks/task-043-076-qa-dag-parser.md`
+  - See `.foundry/archive/tasks/task-043-076-qa-dag-parser.md`
