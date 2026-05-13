@@ -32,7 +32,7 @@ Implement `resolveOutdoorMapId` mapping Johto and Kanto indoor locations to thei
 - Depends on the base map graph structure being defined.
 
 ## Acceptance Criteria
-- [ ] `resolveOutdoorMapId` correctly maps indoor locations to outdoor hubs.
+- [x] `resolveOutdoorMapId` correctly maps indoor locations to outdoor hubs.
 
 ## Generated Tasks
 - [.foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md](.foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md)

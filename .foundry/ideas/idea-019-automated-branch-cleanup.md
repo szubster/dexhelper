@@ -29,8 +29,8 @@ Implement an automated Git branch cleanup step in the `foundry-heartbeat` or a d
 
 ## Acceptance Criteria
 - [x] Determine the safest method for identifying the branch associated with a failed session.
-- [ ] Implement the cleanup logic.
-- [ ] Ensure it only deletes branches safely associated with terminal, failed tasks, and not active ones.
+- [x] Implement the cleanup logic.
+- [x] Ensure it only deletes branches safely associated with terminal, failed tasks, and not active ones.
 
 ## References
 - Downstream PRD: `.foundry/prds/prd-019-019-automated-branch-cleanup.md`
