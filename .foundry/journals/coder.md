@@ -83,3 +83,6 @@ Upon review, the required updates to enforce acceptance criteria are already imp
 - `foundry-heartbeat.ts` already correctly assigns `parsed.data.rejection_reason = rejectionReason;` when transitioning to `FAILED`.
 - `foundry-orchestrator.ts` already successfully differentiates between late-binding parents and leaf tasks during Phase 3.7 Preflight when `hasUncheckedTasks` is true.
 Following the Empty PR policy, I am making 0 file changes since the target artifacts exist and are complete. I am leaving the parent node unmodified.
+
+## 2026-05-13: Extracting shared interfaces
+When implementing Gen 2 static data files that use interfaces originally defined in Gen 1 data files (like `NpcTradeEntry`), it's beneficial to extract those interfaces into a shared type file (e.g., `src/engine/data/shared/assistantDataTypes.ts`) and import them across both generations. This prevents code duplication and enforces a standard contract. Ensure you verify imports and test logic locally. Also, Playwright may need a fresh `pnpm exec playwright install` if running tests that require browsers inside a new branch session.
