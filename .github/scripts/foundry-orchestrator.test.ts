@@ -1104,6 +1104,42 @@ main();
 expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf-8')).toContain('status: READY');
 });
 
+
+  test('Enforce Acceptance Criteria: preflight fails leaf tasks with unchecked boxes', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-unchecked-leaf.md', {
+      id: "task-unchecked-leaf",
+      type: "TASK",
+      title: "Leaf Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `## Acceptance Criteria
+- [ ] Unchecked
+Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-completed.md)
+`);
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-completed.md', {
+      id: "task-completed",
+      type: "TASK",
+      title: "Completed Task",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-unchecked-leaf.md'), 'utf-8');
+    expect(content).toContain('status: FAILED');
+    expect(content).toContain('rejection_reason: Merged with unfulfilled acceptance criteria');
+  });
+
   test('Preflight: bypasses dispatch and marks COMPLETED if target artifacts exist and are valid', () => {
     createValidTestNode(tmpDir, '.foundry/epics/epic-preflight-1.md', {
       id: "epic-preflight-1",

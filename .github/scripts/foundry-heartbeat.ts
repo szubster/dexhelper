@@ -62,7 +62,9 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
   const parsed = matter(node.rawContent);
 
   // Late-Binding Support: If unchecked tasks exist, check if node is a parent.
-  const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(parsed.content);
+  const acceptanceCriteriaMatch = parsed.content.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
+  const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
+  const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
 
   let targetStatus = "COMPLETED";
   let rejectionReason = "";
