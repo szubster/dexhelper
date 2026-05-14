@@ -2,12 +2,12 @@
 id: task-045-085-implement-cross-region-distance
 type: TASK
 title: Implement Gen 2 Cross-Region Distance Algorithm
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-14'
 updated_at: '2026-05-14'
 depends_on: []
-jules_session_id: '6192718649454886658'
+jules_session_id: null
 pr_number: null
 parent: story-028-045-cross-region-distance
 tags:

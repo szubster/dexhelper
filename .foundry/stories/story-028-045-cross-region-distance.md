@@ -2,7 +2,7 @@
 id: story-028-045-cross-region-distance
 type: STORY
 title: 'Phase 3: Cross-Region Distance'
-status: COMPLETED
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-08'
 updated_at: '2026-05-14'

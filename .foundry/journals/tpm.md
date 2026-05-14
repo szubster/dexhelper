@@ -165,3 +165,15 @@
 - **2026-05-14**: PR #1280 merged. `task-050-083-enforce-acceptance-criteria` is now COMPLETED.
 
 - **2026-05-14**: PR #1290 merged. `story-029-051-implement-core-graph-visualization` is now COMPLETED.
+
+- **2026-05-14**: PR #1294 merged. `epic-017-029-dag-dashboard-ui` is now PENDING.
+
+- **2026-05-14**: Heartbeat detected zombie session for `idea-021-unified-scheduled-agent-policies`. Transitioned to FAILED.
+
+- **2026-05-14**: Heartbeat detected zombie session for `task-045-085-implement-cross-region-distance`. Transitioned to FAILED.
+
+- **2026-05-14**: PR #1292 merged. `task-049-082-implement-gen2-assistant-data` is now COMPLETED.
+
+- **2026-05-14**: PR #1293 merged. `task-050-084-qa-enforce-acceptance-criteria` is now COMPLETED.
+
+- **2026-05-14**: PR #1295 merged. `task-051-087-implement-core-graph-visualizer` is now COMPLETED.
