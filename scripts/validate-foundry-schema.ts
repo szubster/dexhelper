@@ -126,6 +126,13 @@ function validateSchema() {
         console.error(`Error: Missing rejection_reason for FAILED node in file ${file}`);
         hasError = true;
       }
+    } else if (status === 'ACTIVE' || status === 'COMPLETED' || status === 'READY') {
+      // Proactively ensure rejection_reason is populated if it exists to prevent edge-case validation failures
+      // during transitions, but do not fail for non-FAILED nodes unless it's explicitly malformed.
+      const reason = data['rejection_reason'];
+      if (reason === undefined) {
+        console.warn(`Warning: Missing rejection_reason field in file ${file}. It should be present for all nodes.`);
+      }
     }
 
     // 2.7 Validate paths
