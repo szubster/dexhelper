@@ -71,24 +71,6 @@ export const STATIC_GIFT_DATA: Record<
   145: { name: 'Zapdos', location: 'Power Plant', reason: 'Static', gen: 1, eventFlag: 0x227, requiredBadges: 3 }, // Need Surf (from Safari Zone/Koga so usually 4, but let's say 3+)
   146: { name: 'Moltres', location: 'Victory Road', reason: 'Static', gen: 1, eventFlag: 0x230, requiredBadges: 8 }, // Need all 8 badges to reach Victory Road
   150: { name: 'Mewtwo', location: 'Cerulean Cave', reason: 'Static', gen: 1, eventFlag: 0x231, requiredBadges: 8 }, // Need to beat E4
-
-  // Gen 2 (Placeholder: event flags for Gen 2 are at different offsets and not yet mapped)
-  152: { name: 'Chikorita', location: 'New Bark Town', reason: 'Starter', gen: 2 },
-  155: { name: 'Cyndaquil', location: 'New Bark Town', reason: 'Starter', gen: 2 },
-  158: { name: 'Totodile', location: 'New Bark Town', reason: 'Starter', gen: 2 },
-  185: {
-    name: 'Sudowoodo',
-    location: 'Route 36',
-    reason: 'Static (Requires SquirtBottle)',
-    gen: 2,
-  },
-  130: { name: 'Gyarados', location: 'Lake of Rage', reason: 'Static (Shiny)', gen: 2 },
-  249: { name: 'Lugia', location: 'Whirl Islands', reason: 'Static', gen: 2 },
-  250: { name: 'Ho-oh', location: 'Tin Tower', reason: 'Static', gen: 2 },
-  245: { name: 'Suicune', location: 'Tin Tower', reason: 'Static (Crystal)', gen: 2 },
-  213: { name: 'Shuckle', location: 'Cianwood City', reason: 'Gift from NPC', gen: 2 },
-  236: { name: 'Tyrogue', location: 'Mt. Mortar', reason: 'Gift from Kiyo', gen: 2 },
-  147: { name: 'Dratini', location: "Dragon's Den", reason: 'Gift from Dragon Elder', gen: 2 },
 };
 
 /**
@@ -100,7 +82,7 @@ export const STATIC_GIFT_DATA: Record<
  * `receivedOtName` — the OT name the game assigns to the received pokémon (used to detect if claimed)
  * `gen`          — generation the trade belongs to
  */
-interface NpcTradeEntry {
+export interface NpcTradeEntry {
   receivedId: number;
   offeredId: number;
   location: string;
@@ -232,41 +214,5 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     gen: 1,
     versions: ['yellow'],
     tradeIndex: 10,
-  },
-
-  // ── Gen 2 ────────────────────────────────────────────────────────────────
-  // Machop for Drowzee — Goldenrod City (trade house) — Gold/Silver/Crystal
-  {
-    receivedId: 66,
-    offeredId: 96,
-    location: 'Goldenrod City (trade house)',
-    receivedOtName: 'KYLE',
-    gen: 2,
-  },
-  // Onix for Bellsprout — Violet City (trade house) — Gold/Silver/Crystal
-  {
-    receivedId: 95,
-    offeredId: 69,
-    location: 'Violet City (trade house)',
-    receivedOtName: 'KYLE',
-    gen: 2,
-  },
-  // Haunter for Drowzee — Sprout Tower? No — actually Goldenrod trade house has Abra trade too
-  // Abra for Drowzee — Goldenrod City (2F of trade house) — Gold/Silver/Crystal
-  {
-    receivedId: 63,
-    offeredId: 96,
-    location: 'Goldenrod City (trade center, 2F)',
-    receivedOtName: 'NOB',
-    gen: 2,
-  },
-  // Voltorb for Krabby — New Bark Town neighbor — Crystal only
-  {
-    receivedId: 100,
-    offeredId: 98,
-    location: "Fisher's house (Route 30 area)",
-    receivedOtName: 'TOM',
-    gen: 2,
-    versions: ['crystal'],
   },
 ];
