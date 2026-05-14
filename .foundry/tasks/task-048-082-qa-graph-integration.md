@@ -1,21 +1,21 @@
 ---
 id: task-048-082-qa-graph-integration
 type: TASK
-title: "QA DAG Dashboard Graph Integration"
-status: PENDING
-owner_persona: "qa"
-created_at: "2026-05-11"
-updated_at: "2026-05-11"
+title: QA DAG Dashboard Graph Integration
+status: ACTIVE
+owner_persona: qa
+created_at: '2026-05-11'
+updated_at: '2026-05-13'
 depends_on:
-  - ".foundry/tasks/task-048-081-integrate-graph-library.md"
-jules_session_id: null
+  - .foundry/tasks/task-048-081-integrate-graph-library.md
+jules_session_id: '11431604533574915890'
 pr_number: null
-parent: "story-029-048-evaluate-graph-libraries"
+parent: story-029-048-evaluate-graph-libraries
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA DAG Dashboard Graph Integration

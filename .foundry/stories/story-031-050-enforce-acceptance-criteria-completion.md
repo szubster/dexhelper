@@ -7,12 +7,12 @@ owner_persona: tech_lead
 created_at: '2026-05-11'
 updated_at: '2026-05-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14933414621922552144'
 pr_number: null
 parent: epic-020-031-enforce-acceptance-criteria-completion
 tags: []
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

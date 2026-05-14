@@ -10,6 +10,7 @@ import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
 
 import { pokedataPlugin } from './vite-plugins/pokedata-plugin';
+import { foundryPlugin } from './vite-plugins/foundry-plugin';
 
 export default defineConfig(() => {
   const sourceDir = path.resolve(__dirname, 'data/db');
@@ -19,6 +20,7 @@ export default defineConfig(() => {
     base: process.env['CF_PAGES'] === 'true' ? '/' : '/dexhelper/',
     plugins: [
       pokedataPlugin({ sourceDir }),
+      foundryPlugin(),
       tanstackRouter(),
       react(),
       tailwindcss(),

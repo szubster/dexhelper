@@ -5,9 +5,9 @@ title: Implement Gen 2 Assistant Data
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-11'
-updated_at: '2026-05-12'
+updated_at: '2026-05-13'
 depends_on: []
-jules_session_id: '3765654301827410152'
+jules_session_id: '4011092337359316734'
 pr_number: null
 parent: story-027-049-gen2-assistant-data
 tags:
@@ -15,7 +15,7 @@ tags:
   - data
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

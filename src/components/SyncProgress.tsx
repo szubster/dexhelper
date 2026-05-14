@@ -13,14 +13,13 @@ interface SyncProgressDetail {
 function isSyncProgressDetail(detail: unknown): detail is SyncProgressDetail {
   if (typeof detail !== 'object' || detail === null) return false;
 
-  const d = detail as Record<string, unknown>;
   return (
-    // biome-ignore lint/complexity/useLiteralKeys: Using literals causes TS errors with strictest TSConfig
-    typeof d['current'] === 'number' &&
-    // biome-ignore lint/complexity/useLiteralKeys: Using literals causes TS errors with strictest TSConfig
-    typeof d['total'] === 'number' &&
-    // biome-ignore lint/complexity/useLiteralKeys: Using literals causes TS errors with strictest TSConfig
-    typeof d['stage'] === 'string'
+    'current' in detail &&
+    typeof detail.current === 'number' &&
+    'total' in detail &&
+    typeof detail.total === 'number' &&
+    'stage' in detail &&
+    typeof detail.stage === 'string'
   );
 }
 

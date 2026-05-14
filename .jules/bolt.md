@@ -75,3 +75,5 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 - **Performance Win:** Optimized `yourPokemon` derivation in `PokemonDetails.tsx` by replacing the filter and map chain with a single pass inside a `React.useMemo` hook.
 - **Why:** The previous approach required creating intermediate arrays for both party and PC details on every single render, which is an O(N) memory allocation and processing overhead, particularly expensive for large PC boxes. Memoizing and combining into a single loop prevents unnecessary work.
 - **Learnings:** When filtering and mapping arrays derived from large state objects, always look for opportunities to combine the operations into a single pass and memoize the result.
+
+- **Memoization of Heavy Synchronous Work:** In React, heavy synchronous functions like `generateSuggestions` (which iterates arrays and allocates new objects) must be wrapped in `useMemo` if they are placed inside a custom hook that gets re-rendered often. Otherwise, they block the main thread unnecessarily on every state update in the parent component.

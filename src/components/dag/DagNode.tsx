@@ -1,0 +1,76 @@
+import { Handle, Position } from '@xyflow/react';
+import { cn } from '../../utils/cn';
+import { CornerCrosshairs } from '../CornerCrosshairs';
+import { TelemetryDecoration } from '../TelemetryDecoration';
+
+export interface DagNodeData {
+  type: string;
+  status: string;
+  owner_persona: string;
+  label?: string; // We can use the ID as the label
+}
+
+export function DagNode({ data }: { data: DagNodeData }) {
+  let statusColor = 'text-zinc-500';
+  let dotColor = 'text-zinc-500';
+  let bgClass = 'bg-zinc-900/50';
+
+  switch (data.status) {
+    case 'COMPLETED':
+      statusColor = 'text-emerald-500';
+      dotColor = 'text-emerald-500';
+      bgClass = 'bg-emerald-950/20 border-emerald-500/50';
+      break;
+    case 'ACTIVE':
+    case 'IN_PROGRESS':
+      statusColor = 'text-[var(--theme-primary)]';
+      dotColor = 'text-[var(--theme-primary)]';
+      bgClass = 'bg-[var(--theme-primary)]/10 border-[var(--theme-primary)]/50';
+      break;
+    case 'FAILED':
+    case 'BLOCKED':
+      statusColor = 'text-red-500';
+      dotColor = 'text-red-500';
+      bgClass = 'bg-red-950/20 border-red-500/50';
+      break;
+    case 'READY':
+      statusColor = 'text-amber-500';
+      dotColor = 'text-amber-500';
+      bgClass = 'bg-amber-950/20 border-amber-500/50';
+      break;
+    default:
+      // PENDING
+      statusColor = 'text-zinc-500';
+      bgClass = 'bg-zinc-900/50 border-white/20';
+  }
+
+  return (
+    <div
+      className={cn(
+        'relative min-w-[200px] max-w-[300px] rounded-none border border-dashed p-3 font-mono transition-all',
+        bgClass,
+      )}
+    >
+      <Handle type="target" position={Position.Top} className="!bg-zinc-500 !w-2 !h-2 !rounded-none !border-0" />
+
+      <CornerCrosshairs className="h-1.5 w-1.5 border-white/40" />
+
+      <TelemetryDecoration
+        label={data.type}
+        className="-top-[17px] left-[-1px] rounded-t rounded-b-none border-b-0 px-2 py-0.5 text-[8px]"
+        dotClassName={dotColor}
+      />
+
+      <div className="mt-1 flex flex-col gap-1">
+        <div className="flex items-center justify-between text-[10px] text-zinc-400 uppercase tracking-widest">
+          <span>{data.owner_persona}</span>
+          <span className={cn('font-bold', statusColor)}>{data.status}</span>
+        </div>
+
+        <div className="break-words font-bold text-white text-xs">{data.label}</div>
+      </div>
+
+      <Handle type="source" position={Position.Bottom} className="!bg-zinc-500 !w-2 !h-2 !rounded-none !border-0" />
+    </div>
+  );
+}
