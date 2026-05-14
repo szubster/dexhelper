@@ -120,9 +120,12 @@ function validateSchema() {
     }
 
     // 2.6 Validate rejection_reason
-    if (status === 'FAILED' && !data['rejection_reason']) {
-      console.error(`Error: Missing rejection_reason for FAILED node in file ${file}`);
-      hasError = true;
+    if (status === 'FAILED') {
+      const reason = data['rejection_reason'];
+      if (reason === undefined || reason === null || (typeof reason === 'string' && reason.trim() === '')) {
+        console.error(`Error: Missing rejection_reason for FAILED node in file ${file}`);
+        hasError = true;
+      }
     }
 
     // 2.7 Validate paths
