@@ -2,12 +2,12 @@
 id: task-051-087-implement-core-graph-visualizer
 type: TASK
 title: Implement Core Graph Visualizer Component
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-14'
 updated_at: '2026-05-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7192578215440151728'
 pr_number: null
 parent: .foundry/stories/story-029-051-implement-core-graph-visualization.md
 tags:
