@@ -119,6 +119,34 @@ function validateSchema() {
       }
     }
 
+    // 2.6 Validate rejection_reason
+    if (status === 'FAILED' && !data['rejection_reason']) {
+      console.error(`Error: Missing rejection_reason for FAILED node in file ${file}`);
+      hasError = true;
+    }
+
+    // 2.7 Validate paths
+    if (data['depends_on'] && Array.isArray(data['depends_on'])) {
+      for (const dep of data['depends_on']) {
+        if (typeof dep === 'string' && dep.includes('/')) {
+          if (!fs.existsSync(dep)) {
+            console.error(`Error: Dependency path does not exist: '${dep}' in file ${file}`);
+            hasError = true;
+          }
+        }
+      }
+    }
+
+    if (data['parent']) {
+      // Parent might be an ID or a path. If it looks like a path (contains '/'), verify it exists.
+      if (typeof data['parent'] === 'string' && data['parent'].includes('/')) {
+        if (!fs.existsSync(data['parent'])) {
+          console.error(`Error: Parent path does not exist: '${data['parent']}' in file ${file}`);
+          hasError = true;
+        }
+      }
+    }
+
     // 3. ID format & uniqueness
     if (id) {
       if (ids.has(id)) {
