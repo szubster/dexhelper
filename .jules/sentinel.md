@@ -75,3 +75,9 @@ If you encounter `Error: Failed to load custom Reporter from text` when running 
 **Coverage:** Increased `src/engine/saveParser/parsers/gen2.ts` statement coverage to over 87%, hitting critical branches for version specifics and PC storage.
 **Why:** The `gen2.ts` parser logic had many branches specifically for Crystal enhancements (like `parseCaughtData`) and fallback structures (PC storage layout) that were left completely untested, risking regressions during engine refactors.
 **Result:** All critical code paths in generation 2 are verified, guaranteeing save structures for all Gen 2 games are correctly mapped to our universal `SaveData` format.
+
+### React Hook Testing
+When testing React hooks, do not invoke them directly as standard functions (which is an anti-pattern). Instead, place the tests in a `.test.tsx` file to run in the Vitest browser environment, and use `render` from `vitest-browser-react` alongside a dummy wrapper component (e.g., `<QueryClientProvider>`) to execute the hook within a proper React lifecycle.
+
+### Mocking and Explicit Types
+Always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()` or `vi.fn<typeof targetFunction>()`) to satisfy strict Biome type-checking and avoid `any` usage. If `any` must be used due to recursive type complexities in mock data, suppress the warning with a `// biome-ignore lint/suspicious/noExplicitAny:` comment.
