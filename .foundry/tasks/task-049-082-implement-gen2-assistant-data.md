@@ -57,6 +57,6 @@ Include the following Gen 2 in-game trades:
 **Coder Self-Verification**: As this is purely static data addition without complex logic, the Coder should self-verify the data accuracy and ensure it passes type checks and linting. No separate QA task is required.
 
 ## Acceptance Criteria
-- [ ] Create `src/engine/data/gen2/assistantData.ts`.
-- [ ] Define `STATIC_GIFT_DATA` for Gen 2 (Togepi Egg, Eevee from Bill, Shuckle in Cianwood, Dratini, Tyrogue).
-- [ ] Define `STATIC_NPC_TRADE_DATA` (e.g., trading Bellsprout for Onix `Rocky`, Drowzee for Machop `Muscle`).
+- [x] Create `src/engine/data/gen2/assistantData.ts`.
+- [x] Define `STATIC_GIFT_DATA` for Gen 2 (Togepi Egg, Eevee from Bill, Shuckle in Cianwood, Dratini, Tyrogue).
+- [x] Define `STATIC_NPC_TRADE_DATA` (e.g., trading Bellsprout for Onix `Rocky`, Drowzee for Machop `Muscle`).
