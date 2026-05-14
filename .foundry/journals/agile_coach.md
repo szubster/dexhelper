@@ -58,3 +58,12 @@ Noticed that `task-050-083-enforce-acceptance-criteria.md` failed with the rejec
 ### Action Taken
 1. Added a `CRITICAL EXCEPTION TO EMPTY PR POLICY` section to all core execution and planning agent prompts (`coder.md`, `qa.md`, `tech_lead.md`, `story_owner.md`, `epic_planner.md`, `product_manager.md`).
 2. This exception explicitly instructs agents that if a target artifact is complete but checkboxes are unchecked, checking those boxes (`- [x]`) is a mandatory contractual obligation, not a trivial formatting change, and failure to do so will result in immediate rejection by the orchestrator.
+
+## 2026-05-14 - Pre-commit Strict Schema Validations
+### Observation
+While analyzing the system for potential improvements, I noticed that `scripts/validate-foundry-schema.ts` did not enforce the `rejection_reason` requirement when a node is marked as `FAILED`. Furthermore, `depends_on` and `parent` fields contained paths that were not verified for existence during the pre-commit stage. If an agent provided a bad path, it would only be caught later when the orchestrator failed to resolve dependencies.
+
+### Action Taken
+1. Modified `scripts/validate-foundry-schema.ts` to enforce `rejection_reason` on `FAILED` nodes.
+2. Modified `scripts/validate-foundry-schema.ts` to verify the existence of all paths provided in `depends_on` and `parent` fields.
+3. Created `idea-051-strict-schema-validations.md` as an architectural improvement record.
