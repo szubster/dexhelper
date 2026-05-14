@@ -59,3 +59,6 @@ Critical learnings:
 
 ## 2026-05-13 - Optimized Lefthook Pre-Commit
 **Learning:** Found that `type-check` hook in `lefthook.yml` was running `pnpm lint`, which sequentially ran `type-check`, `check:biome`, `oxlint`, `knip`, and `lint:package-json` across the *entire project*. Because `lefthook` already has separate commands for `biome-check`, `oxlint`, and `sort-package-json` on `{staged_files}`, this caused redundant full-project checks on every commit, significantly slowing down DX. Replaced `run: pnpm lint` with `run: pnpm type-check` for the `type-check` command to maintain the full-project type safety requested by the user while avoiding redundant linter execution.
+
+## 2026-05-15 - Switched jest rules to vitest rules in oxlint
+**Learning:** Found that `.oxlintrc.json` had rules configured for `jest` plugin (`jest/no-disabled-tests`, `jest/no-standalone-expect`) but the project uses Vitest and explicitly registered the `"vitest"` plugin. Replaced the `jest` prefix with `vitest` to properly apply the rules to Vitest files.
