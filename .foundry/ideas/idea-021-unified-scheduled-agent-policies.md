@@ -2,12 +2,12 @@
 id: idea-021-unified-scheduled-agent-policies
 type: IDEA
 title: Unified Scheduled Agent Policies Module
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-14'
 updated_at: '2026-05-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15489733129130207994'
 pr_number: null
 parent: null
 tags:
