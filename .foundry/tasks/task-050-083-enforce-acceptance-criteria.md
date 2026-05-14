@@ -40,5 +40,5 @@ We must correctly distinguish between:
    - Instead, log an appropriate failure message (e.g., `info(\`Preflight failure: Leaf task \${node.repoPath} has completed target artifacts but contains unchecked boxes.\`);`) and fail the node by calling `promoteNodeToFailedWithReason(node, 'Merged with unfulfilled acceptance criteria');`.
 
 ## Acceptance Criteria
-- [ ] Update `foundry-heartbeat.ts` to assign `parsed.data.rejection_reason` when targeting `FAILED` for leaf tasks with unchecked boxes.
-- [ ] Update `foundry-orchestrator.ts` Phase 3.7 Preflight to call `promoteNodeToFailedWithReason` instead of `eligible.push(node)` for leaf tasks with unchecked tasks when `bypassDispatch` is true.
+- [x] Update `foundry-heartbeat.ts` to assign `parsed.data.rejection_reason` when targeting `FAILED` for leaf tasks with unchecked boxes.
+- [x] Update `foundry-orchestrator.ts` Phase 3.7 Preflight to call `promoteNodeToFailedWithReason` instead of `eligible.push(node)` for leaf tasks with unchecked tasks when `bypassDispatch` is true.
