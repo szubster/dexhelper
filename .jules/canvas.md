@@ -92,3 +92,9 @@
 **Outcome:** Accepted
 **Why:** Brings the smaller utility and debugging interfaces within the Assistant tab in line with the rest of the application's heavily tactical, snooping-focused aesthetic. The sharp shapes and telemetry details enhance the illusion of looking at a specialized hardware diagnostic view rather than a generic dashboard.
 **Pattern:** Ensure that even nested components, diagnostic views, and small indicator badges adhere to the tactical aesthetics (sharp edges, dashed borders, monospace text) to maintain overall visual coherence deep within complex component trees.
+
+## 2026-05-18 - [Accepted] - 🖼️ Canvas: Tactical Storage Grid Redesign
+**What:** Redesigned the `StorageGrid` and the underlying storage variants in `TacticalCard` to deeply embrace the utility-driven tactical "snooping" aesthetic. Replaced the generic rounded borders and "glassmorphism" in empty states, location headers, and storage cards with sharp edges (`rounded-none`), dashed borders, monospaced fonts (`SYS.BOX_1`), and higher contrast telemetry visuals (like scanline overlays and square spinning crosshairs).
+**Outcome:** Accepted
+**Why:** Brings the application's storage tab in line with the rest of the tactical hardware motif established in previous Canvas sessions (e.g. Settings, BottomNav, Details Panels). Eliminating rounded borders and generic loading spinners continues to reinforce the specialized, non-web app illusion.
+**Pattern:** Ensure complex layout views, empty states, and dynamic list components strictly adhere to the tactical aesthetics (sharp edges, monospace labels, high-contrast structural borders) to maintain cohesive visual immersion across the entire application shell.
