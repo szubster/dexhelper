@@ -147,6 +147,17 @@ function validateSchema() {
       }
     }
 
+    if (data['research_references'] && Array.isArray(data['research_references'])) {
+      for (const ref of data['research_references']) {
+        if (typeof ref === 'string' && ref.includes('/')) {
+          if (!fs.existsSync(ref)) {
+            console.error(`Error: Research reference path does not exist: '${ref}' in file ${file}`);
+            hasError = true;
+          }
+        }
+      }
+    }
+
     if (data['parent']) {
       // Parent might be an ID or a path. If it looks like a path (contains '/'), verify it exists.
       if (typeof data['parent'] === 'string' && data['parent'].includes('/')) {
