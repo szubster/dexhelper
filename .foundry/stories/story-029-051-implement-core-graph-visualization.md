@@ -32,9 +32,11 @@ Following the selection and integration of the graph rendering library (React Fl
 - Ensure the layout is readable for moderate node counts.
 
 ## Acceptance Criteria
-- [ ] Create a core graph component using the selected graph rendering library.
-- [ ] Render node elements displaying `id`, `type`, `status`, and `owner_persona`.
-- [ ] Render directed edges between nodes based on their `depends_on` relationships.
-- [ ] Apply basic styling to nodes based on their status or type.
+- [x] Create a core graph component using the selected graph rendering library.
+- [x] Render node elements displaying `id`, `type`, `status`, and `owner_persona`.
+- [x] Render directed edges between nodes based on their `depends_on` relationships.
+- [x] Apply basic styling to nodes based on their status or type.
 
 ### Generated Tasks
+- [.foundry/tasks/task-051-087-implement-core-graph-visualizer.md](.foundry/tasks/task-051-087-implement-core-graph-visualizer.md)
+- [.foundry/tasks/task-051-088-qa-core-graph-visualizer.md](.foundry/tasks/task-051-088-qa-core-graph-visualizer.md)
