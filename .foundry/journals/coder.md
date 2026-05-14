@@ -83,3 +83,6 @@ Upon review, the required updates to enforce acceptance criteria are already imp
 - `foundry-heartbeat.ts` already correctly assigns `parsed.data.rejection_reason = rejectionReason;` when transitioning to `FAILED`.
 - `foundry-orchestrator.ts` already successfully differentiates between late-binding parents and leaf tasks during Phase 3.7 Preflight when `hasUncheckedTasks` is true.
 Following the Empty PR policy, I am making 0 file changes since the target artifacts exist and are complete. I am leaving the parent node unmodified.
+
+## task-051-087-implement-core-graph-visualizer
+Target artifacts (`DagDashboard.tsx` and `DagNode.tsx`) are already complete. Only the Acceptance Criteria checkboxes were checked off as per the Empty PR policy exception to satisfy ADR 007.

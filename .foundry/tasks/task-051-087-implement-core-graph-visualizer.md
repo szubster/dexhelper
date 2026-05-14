@@ -41,7 +41,7 @@ As per Story 051, you are tasked with implementing the core graph visualization 
 5. **Basic Layout:** Ensure the component accepts nodes and edges and renders them effectively. React Flow comes with some basic layout capabilities, or use dagre/elkjs if necessary, but keep it readable for moderate node counts.
 
 ## Acceptance Criteria
-- [ ] Implement a core graph React component using React Flow.
-- [ ] Create a custom node component that explicitly renders `id`, `type`, `status`, and `owner_persona`.
-- [ ] Enforce the "tactical hardware" aesthetic for custom nodes using Tailwind CSS (`rounded-none`, `border-dashed`, `font-mono`).
-- [ ] Ensure the core component can accept and render both nodes and their directed dependency edges.
+- [x] Implement a core graph React component using React Flow.
+- [x] Create a custom node component that explicitly renders `id`, `type`, `status`, and `owner_persona`.
+- [x] Enforce the "tactical hardware" aesthetic for custom nodes using Tailwind CSS (`rounded-none`, `border-dashed`, `font-mono`).
+- [x] Ensure the core component can accept and render both nodes and their directed dependency edges.
