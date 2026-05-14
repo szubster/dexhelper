@@ -7,7 +7,11 @@
   "files": [
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "850kb"
+      "maxSize": "550kb"
+    },
+    {
+      "path": "assets/dag-<hash>.js",
+      "maxSize": "300kb"
     },
     {
       "path": "assets/style-<hash>.css",
