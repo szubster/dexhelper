@@ -1,8 +1,8 @@
 ---
 id: task-045-085-implement-cross-region-distance
 type: TASK
-title: 'Implement Gen 2 Cross-Region Distance Algorithm'
-status: PENDING
+title: Implement Gen 2 Cross-Region Distance Algorithm
+status: READY
 owner_persona: coder
 created_at: '2026-05-14'
 updated_at: '2026-05-14'

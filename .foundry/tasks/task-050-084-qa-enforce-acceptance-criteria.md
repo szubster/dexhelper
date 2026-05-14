@@ -2,10 +2,10 @@
 id: task-050-084-qa-enforce-acceptance-criteria
 type: TASK
 title: QA - Enforce Acceptance Criteria in Heartbeat and Orchestrator
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-12'
-updated_at: '2026-05-12'
+updated_at: '2026-05-14'
 depends_on:
   - task-050-083-enforce-acceptance-criteria
 jules_session_id: null
