@@ -2,10 +2,10 @@
 id: epic-017-029-dag-dashboard-ui
 type: EPIC
 title: DAG Dashboard Visualization & UI
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-18'
-updated_at: '2026-05-12'
+updated_at: '2026-05-14'
 depends_on:
   - .foundry/epics/epic-017-028-dag-dashboard-data.md
 jules_session_id: null

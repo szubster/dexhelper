@@ -2,7 +2,7 @@
 id: idea-021-unified-scheduled-agent-policies
 type: IDEA
 title: Unified Scheduled Agent Policies Module
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-05-14'
 updated_at: '2026-05-14'
@@ -18,7 +18,8 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: >-
-  Proposed by Agile Coach to reduce duplication and inconsistencies across agent prompts.
+  Proposed by Agile Coach to reduce duplication and inconsistencies across agent
+  prompts.
 ---
 
 # Unified Scheduled Agent Policies Module

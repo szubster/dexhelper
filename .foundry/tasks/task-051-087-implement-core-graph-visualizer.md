@@ -2,7 +2,7 @@
 id: task-051-087-implement-core-graph-visualizer
 type: TASK
 title: Implement Core Graph Visualizer Component
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-14'
 updated_at: '2026-05-14'

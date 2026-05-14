@@ -163,3 +163,5 @@
 - **2026-05-14**: Resurrection Loop triggered for `task-049-082-implement-gen2-assistant-data`. Reason: PR #1283 closed without merging.. Transitioned back to READY.
 
 - **2026-05-14**: PR #1280 merged. `task-050-083-enforce-acceptance-criteria` is now COMPLETED.
+
+- **2026-05-14**: PR #1290 merged. `story-029-051-implement-core-graph-visualization` is now COMPLETED.
