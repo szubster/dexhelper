@@ -16,7 +16,7 @@ tags:
   - meta
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Resolved: Validated by human/agent'
 notes: >-
   Proposed by Agile Coach to reduce duplication and inconsistencies across agent
   prompts.
