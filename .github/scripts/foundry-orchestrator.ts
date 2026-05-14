@@ -811,7 +811,11 @@ function main(): void {
   };
 
   for (const node of finalEligible) {
-    if (node.frontmatter.owner_persona === 'human') {
+    if (
+      node.frontmatter.owner_persona === 'human' ||
+      node.frontmatter.owner_persona === 'tpm' ||
+      node.frontmatter.owner_persona === 'agile_coach'
+    ) {
       validatedEligible.push(node);
       continue;
     }
