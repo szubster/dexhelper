@@ -153,3 +153,13 @@
 - **2026-05-13**: Resurrection Loop triggered for `story-031-050-enforce-acceptance-criteria-completion`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-13**: Resurrection Loop triggered for `task-049-082-implement-gen2-assistant-data`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-14**: PR #1277 merged. `story-028-045-cross-region-distance` is now COMPLETED.
+
+- **2026-05-14**: PR #1282 merged. `story-031-050-enforce-acceptance-criteria-completion` is now COMPLETED.
+
+- **2026-05-14**: PR #1281 merged. `task-048-082-qa-graph-integration` is now COMPLETED.
+
+- **2026-05-14**: Resurrection Loop triggered for `task-049-082-implement-gen2-assistant-data`. Reason: PR #1283 closed without merging.. Transitioned back to READY.
+
+- **2026-05-14**: PR #1280 merged. `task-050-083-enforce-acceptance-criteria` is now COMPLETED.

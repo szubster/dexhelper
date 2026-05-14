@@ -2,13 +2,13 @@
 id: story-029-051-implement-core-graph-visualization
 type: STORY
 title: Implement Core Graph Visualization Component
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-12'
-updated_at: '2026-05-12'
+updated_at: '2026-05-14'
 depends_on:
   - .foundry/stories/story-029-048-evaluate-graph-libraries.md
-jules_session_id: null
+jules_session_id: '12080790520104428005'
 pr_number: null
 parent: .foundry/epics/epic-017-029-dag-dashboard-ui.md
 tags:
@@ -32,9 +32,11 @@ Following the selection and integration of the graph rendering library (React Fl
 - Ensure the layout is readable for moderate node counts.
 
 ## Acceptance Criteria
-- [ ] Create a core graph component using the selected graph rendering library.
-- [ ] Render node elements displaying `id`, `type`, `status`, and `owner_persona`.
-- [ ] Render directed edges between nodes based on their `depends_on` relationships.
-- [ ] Apply basic styling to nodes based on their status or type.
+- [x] Create a core graph component using the selected graph rendering library.
+- [x] Render node elements displaying `id`, `type`, `status`, and `owner_persona`.
+- [x] Render directed edges between nodes based on their `depends_on` relationships.
+- [x] Apply basic styling to nodes based on their status or type.
 
 ### Generated Tasks
+- [.foundry/tasks/task-051-087-implement-core-graph-visualizer.md](.foundry/tasks/task-051-087-implement-core-graph-visualizer.md)
+- [.foundry/tasks/task-051-088-qa-core-graph-visualizer.md](.foundry/tasks/task-051-088-qa-core-graph-visualizer.md)

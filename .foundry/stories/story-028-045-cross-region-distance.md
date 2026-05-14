@@ -2,13 +2,13 @@
 id: story-028-045-cross-region-distance
 type: STORY
 title: 'Phase 3: Cross-Region Distance'
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-08'
-updated_at: '2026-05-13'
+updated_at: '2026-05-14'
 depends_on:
   - .foundry/stories/story-028-044-indoor-outdoor-resolution.md
-jules_session_id: '6969793102467521435'
+jules_session_id: null
 pr_number: null
 parent: .foundry/epics/epic-017-028-map-graph-routing.md
 tags:
