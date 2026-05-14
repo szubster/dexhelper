@@ -60,3 +60,9 @@ Verified the changes made in `task-050-083-enforce-acceptance-criteria.md`. Wrot
 
 ## 2026-05-14
 - Verified that `foundry-heartbeat.test.ts` and `foundry-orchestrator.test.ts` contain the appropriate tests to enforce acceptance criteria as per ADR 007. The orchestrator logic tasks for `task-050-083-enforce-acceptance-criteria.md` were successfully implemented. The target artifact already exists and is complete. Applied Empty PR policy and logged the decision.
+
+## 2026-05-14 - Task FAILED: QA Verification for Graph Component
+
+**Task**: task-051-087-implement-core-graph-visualizer
+**Outcome**: FAILED
+**Notes**: The implementation violated the aesthetic constraints defined in ADR 008. The `DagNode` component passes a className with `rounded-t` to `TelemetryDecoration`, which violates the strict `rounded-none` requirement. The task has been marked as `FAILED` with a detailed rejection reason.
