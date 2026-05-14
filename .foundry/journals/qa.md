@@ -60,3 +60,6 @@ Verified the changes made in `task-050-083-enforce-acceptance-criteria.md`. Wrot
 
 ## 2026-05-14
 - Verified that `foundry-heartbeat.test.ts` and `foundry-orchestrator.test.ts` contain the appropriate tests to enforce acceptance criteria as per ADR 007. The orchestrator logic tasks for `task-050-083-enforce-acceptance-criteria.md` were successfully implemented. The target artifact already exists and is complete. Applied Empty PR policy and logged the decision.
+
+## 2026-05-14 - React Flow aesthetic fix
+- The React Flow components initially contained some `rounded-t` and `rounded-b` Tailwind CSS classes which violated the strict "tactical hardware/snooping" aesthetic constraint (`rounded-none` only) from ADR 008. These have been corrected.

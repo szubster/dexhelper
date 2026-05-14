@@ -57,7 +57,7 @@ export function DagNode({ data }: { data: DagNodeData }) {
 
       <TelemetryDecoration
         label={data.type}
-        className="-top-[17px] left-[-1px] rounded-t rounded-b-none border-b-0 px-2 py-0.5 text-[8px]"
+        className="-top-[17px] left-[-1px] border-b-0 px-2 py-0.5 text-[8px]"
         dotClassName={dotColor}
       />
 
