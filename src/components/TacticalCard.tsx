@@ -29,20 +29,16 @@ export const TacticalCard = React.forwardRef<HTMLButtonElement, TacticalCardProp
         variantClasses = 'border-white/20 bg-zinc-900/50 hover:border-white/40 hover:bg-zinc-800/80';
         break;
       case 'storage-amber':
-        variantClasses =
-          'rounded-none bg-amber-900/5 border border-dashed border-amber-500/30 hover:bg-amber-900/20 hover:border-amber-400';
+        variantClasses = 'rounded-2xl bg-amber-900/10 border border-amber-500/30 hover:bg-amber-900/20';
         break;
       case 'storage-red':
-        variantClasses =
-          'rounded-none bg-red-900/5 border border-dashed border-red-500/30 hover:bg-red-900/20 hover:border-red-400';
+        variantClasses = 'rounded-2xl bg-red-900/10 border border-red-900/30 hover:bg-red-900/20';
         break;
       case 'storage-emerald':
-        variantClasses =
-          'rounded-none bg-emerald-900/5 border border-dashed border-emerald-500/30 hover:bg-emerald-900/20 hover:border-emerald-400';
+        variantClasses = 'rounded-2xl bg-emerald-900/10 border border-emerald-900/30 hover:bg-emerald-900/20';
         break;
       case 'storage-default':
-        variantClasses =
-          'rounded-none bg-zinc-900/50 border border-dashed border-white/10 hover:border-white/30 hover:bg-zinc-800/80';
+        variantClasses = 'rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 shadow-sm';
         break;
     }
 
@@ -60,37 +56,22 @@ export const TacticalCard = React.forwardRef<HTMLButtonElement, TacticalCardProp
         className={cn(
           'group relative w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
           isStorageVariant
-            ? 'flex flex-col items-center p-5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]'
+            ? 'flex flex-col items-center p-5 transition-all duration-200 hover:-translate-y-1 active:scale-95'
             : 'rounded-none border border-dashed p-4 font-mono transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]',
           variantClasses,
           className,
         )}
         style={style}
       >
-        {/* LCD Grid Background (Storage Variants) */}
-        {isStorageVariant && (
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-              backgroundSize: '4px 4px',
-            }}
-          />
+        {!isStorageVariant && (
+          <>
+            {/* Corner Crosshairs */}
+            <CornerCrosshairs
+              thickness={2}
+              className="h-2 w-2 border-white/40 transition-colors group-hover:border-[var(--theme-primary)]"
+            />
+          </>
         )}
-
-        {/* Scanline overlay (Storage Variants) */}
-        {isStorageVariant && <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-[0.05]" />}
-
-        {/* Corner Crosshairs */}
-        <CornerCrosshairs
-          thickness={2}
-          className={cn(
-            'h-2 w-2 transition-colors',
-            isStorageVariant
-              ? 'border-white/20 group-hover:border-white/60'
-              : 'border-white/40 group-hover:border-[var(--theme-primary)]',
-          )}
-        />
         {children}
       </button>
     );

@@ -66,32 +66,22 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
         const pokemonInLocation = pokemonByLocation.get(location) || [];
 
         return (
-          <div key={location} className="slide-in-from-bottom-4 animate-in space-y-6 duration-500">
-            {/* Tactical Location Header */}
-            <div className="flex items-end justify-between border-white/10 border-b border-dashed pb-2">
-              <div className="flex items-center gap-4">
-                <div className="flex h-6 w-6 items-center justify-center border border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/10">
-                  <div className="h-1.5 w-1.5 animate-pulse bg-[var(--theme-primary)]" />
-                </div>
-                <h2 className="font-black font-mono text-white text-xl uppercase tracking-widest">
-                  [ SYS.{location.replace(' ', '_').toUpperCase()} ]
-                </h2>
-              </div>
-              <span className="font-black font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
-                VOL: {pokemonInLocation.length.toString().padStart(2, '0')}
+          <div key={location} className="slide-in-from-bottom-4 animate-in space-y-8 duration-500">
+            <div className="flex items-center gap-6">
+              <h2 className="font-black font-display text-3xl text-white uppercase tracking-tight">{location}</h2>
+              <div className="h-px flex-1 bg-zinc-900"></div>
+              <span className="font-black text-[10px] text-zinc-600 uppercase tracking-widest">
+                {pokemonInLocation.length} Units
               </span>
             </div>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {pokemonInLocation.length === 0 ? (
-                <div className="group relative col-span-full flex min-h-[140px] flex-col items-center justify-center rounded-none border border-white/5 border-dashed bg-zinc-900/20 p-5 text-center transition-all duration-300 hover:border-white/10">
-                  <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-5" />
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center border border-white/10 bg-black/40 transition-transform group-hover:scale-110">
-                    <div className="h-4 w-4 animate-spin-slow border-2 border-zinc-600 border-t-zinc-400 border-dashed" />
+                <div className="group flex min-h-[180px] flex-col items-center justify-center rounded-3xl border-2 border-zinc-800/30 border-dashed bg-zinc-900/20 p-5 text-center transition-all duration-300 hover:border-zinc-700/50">
+                  <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-zinc-800/50 bg-zinc-900/50 transition-transform group-hover:scale-110">
+                    <div className="h-6 w-6 animate-spin-slow rounded-full border-2 border-zinc-700/30 border-t-zinc-500/50" />
                   </div>
-                  <span className="font-black font-mono text-[10px] text-zinc-600 uppercase tracking-[0.4em]">
-                    NO_DATA_FOUND
-                  </span>
+                  <span className="font-black text-[10px] text-zinc-600 uppercase italic tracking-[0.3em]">EMPTY</span>
                 </div>
               ) : (
                 pokemonInLocation.map(({ p, pokemon }, idx) => {
@@ -114,31 +104,27 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/storage' } })}
                       variant={variant}
                     >
-                      <div className="absolute top-3 left-3 font-black font-mono text-[9px] text-zinc-500 tracking-wider">
-                        LV.{p.level.toString().padStart(3, '0')}
+                      <div className="absolute top-3 left-3 font-bold font-mono text-[10px] text-zinc-600">
+                        LV.{p.level}
                       </div>
                       <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5">
-                        {p.isShiny && <Sparkles size={14} className="animate-pulse text-amber-400 drop-shadow-sm" />}
+                        {p.isShiny && <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />}
                         {p.otName && (
-                          <div className="max-w-[60px] truncate border border-zinc-700 border-dashed bg-black/60 px-1.5 py-0.5 font-black font-mono text-[8px] text-zinc-400 uppercase">
+                          <div className="max-w-[60px] truncate rounded border border-zinc-800 bg-zinc-950 px-1.5 py-0.5 font-black text-[8px] text-zinc-500">
                             {p.otName}
                           </div>
                         )}
                       </div>
-
-                      <div className="relative mt-4 mb-3 flex aspect-square w-20 items-center justify-center overflow-hidden border border-white/5 bg-black/40 transition-colors group-hover:bg-black/60 sm:w-24">
-                        {/* Sprite scanner overlay */}
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[var(--theme-primary)]/10 to-transparent opacity-0 transition-opacity group-hover:animate-[scan_2s_linear_infinite] group-hover:opacity-100" />
-
+                      <div className="relative mb-4 flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24">
                         <PokemonSprite
                           pokemonId={pokemon.id}
                           generation={saveData?.generation ?? 1}
                           isShiny={p.isShiny}
                           alt={pokemon.name}
-                          className="z-10 h-[80%] w-[80%] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-transform duration-500 group-hover:scale-110"
+                          className="h-full w-full object-contain drop-shadow-xl"
                         />
                       </div>
-                      <div className="w-full truncate border border-white/5 bg-black/40 px-2 py-1 text-center font-black font-mono text-[9px] text-zinc-300 uppercase tracking-widest">
+                      <div className="w-full truncate px-1 text-center font-bold text-[10px] text-zinc-100 uppercase tracking-wider">
                         {pokemon.name}
                       </div>
                     </TacticalCard>
