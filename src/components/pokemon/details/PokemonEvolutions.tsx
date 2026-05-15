@@ -3,6 +3,7 @@ import React from 'react';
 import { stadiumRewardsData } from '../../../engine/data/shared/staticData';
 import type { SaveData } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
+import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface EvoReq {
@@ -83,12 +84,9 @@ function ProcurementStrategy({
           return (
             <div className="mt-2 flex flex-wrap gap-2">
               {rewards.map((r) => (
-                <span
-                  key={r}
-                  className="rounded-md border border-red-500/20 bg-red-500/10 px-2 py-0.5 font-black text-[9px] text-red-500"
-                >
+                <TacticalBadge key={r} variant="red" className="text-[9px]">
                   STADIUM {gen} REWARD: {r.toUpperCase()}
-                </span>
+                </TacticalBadge>
               ))}
             </div>
           );

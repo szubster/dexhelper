@@ -1,6 +1,7 @@
 import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
+import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface PokemonCaughtDetailsProps {
@@ -34,17 +35,13 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
               <div>
                 <div className="font-black font-display text-2xl text-white tracking-tighter">LV.{p.level}</div>
                 <div className="mt-1 flex items-center gap-2">
-                  <div className="rounded-md border border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/20 px-2 py-0.5">
-                    <span className="font-black text-[9px] text-[var(--theme-primary)] uppercase leading-none tracking-widest">
-                      {p.location}
-                    </span>
-                  </div>
+                  <TacticalBadge variant="primary" className="px-2 py-0.5 text-[9px] leading-none">
+                    {p.location}
+                  </TacticalBadge>
                   {p.slot && (
-                    <div className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5">
-                      <span className="font-black text-[9px] text-zinc-500 uppercase leading-none tracking-widest">
-                        Slot {p.slot}
-                      </span>
-                    </div>
+                    <TacticalBadge variant="zinc" className="px-2 py-0.5 text-[9px] leading-none">
+                      Slot {p.slot}
+                    </TacticalBadge>
                   )}
                 </div>
               </div>

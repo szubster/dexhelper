@@ -35,3 +35,8 @@
 - **Pattern:** Found `fixed inset-0` with standard dialog layout (`div > backdrop`, `div > content`) repeated in multiple modal components (`SettingsModal`, `VersionModal`, `PokemonDetails`).
 - **Solution:** Extracted a reusable `TacticalModal` component that standardizes `role="dialog"`, `aria-modal="true"`, background blurs (`backdrop-blur-*`), animations (`fade-in`, `zoom-in`, `slide-in-from-bottom`), and positioning.
 - **Why it matters:** Centralizing modal structures reduces boilerplate and ensures accessibility props and closing behaviors are applied consistently across the application, adhering to the project's styling and UI constraints.
+## TacticalBadge Extraction
+- Identified recurring standard badge patterns with identical styling for borders, backgrounds, text colors, and font styles (`font-black uppercase tracking-widest px-2 py-0.5 border`).
+- Successfully extracted this into `src/components/TacticalBadge.tsx` to manage standard color variants (`primary`, `amber`, `red`, `emerald`, `blue`, `rose`, `secondary`, `zinc`, `default`).
+- Ensured sharp corners (`rounded-none`) to adhere to the tactical hardware aesthetic (ADR 008).
+- Leveraged `cn()` utility to allow localized class overrides (e.g., `px-1.5`, `tracking-tighter`, `border-dashed`) when necessary.

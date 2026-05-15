@@ -6,6 +6,7 @@ import type { SaveData } from '../../engine/saveParser/index';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { CornerCrosshairs } from '../CornerCrosshairs';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
+import { TacticalBadge } from '../TacticalBadge';
 
 interface AssistantSuggestionCardProps {
   suggestion: Suggestion;
@@ -68,7 +69,7 @@ export function AssistantSuggestionCard({
             </div>
             {s.pokemonId && (
               <div className="flex flex-col items-end">
-                <span className="font-black font-mono text-[8px] text-[var(--theme-primary)] tracking-widest">
+                <span className="font-black font-mono text-[8px] text-[var(--theme-primary)] uppercase tracking-widest">
                   [ TARGET ACQUIRED ]
                 </span>
                 <div className="font-bold font-mono text-[10px] text-zinc-400">
@@ -148,9 +149,9 @@ export function AssistantSuggestionCard({
                         </span>
                       </div>
                       {!isOwned && (
-                        <span className="rounded-none border border-red-500/30 border-dashed bg-red-500/20 px-1.5 py-0.5 font-black font-mono text-[8px] text-red-400 uppercase tracking-tighter">
+                        <TacticalBadge variant="red" className="border-dashed px-1.5 tracking-tighter">
                           [ MISSING_ROD ]
-                        </span>
+                        </TacticalBadge>
                       )}
                     </div>
                     <div className="flex flex-wrap gap-4">
@@ -171,9 +172,9 @@ export function AssistantSuggestionCard({
                               alt={getPokemonName(pid)}
                               className="h-full w-full object-contain"
                             />
-                            <div className="absolute -top-1.5 -right-1.5 rounded-none border border-white/20 border-dashed bg-emerald-500 px-1.5 py-0.5 font-black font-mono text-[9px] text-white shadow-lg">
+                            <TacticalBadge className="absolute -top-1.5 -right-1.5 border-white/20 border-dashed bg-emerald-500 px-1.5 font-mono text-[9px] text-white shadow-lg">
                               {enc.chance}%
-                            </div>
+                            </TacticalBadge>
                           </Link>
                           <div className="flex flex-col items-center leading-none">
                             <span className="font-black text-[9px] text-white transition-colors group-hover/sprite:text-emerald-400">
