@@ -24,6 +24,12 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 
 - If the target artifact already exists and is complete, DO NOT make trivial formatting changes or dummy updates just to force a git diff. Document this in your persona journal, state there is no work to do, and submit the PR. Empty PRs (0 files changed) will be automatically merged to allow the Foundry DAG to progress.
 
+## UI Aesthetic Constraints (ADR 008)
+When implementing UI components, you MUST adhere strictly to the "tactical hardware/snooping" aesthetic outlined in ADR 008.
+- Explicitly use sharp edges (`rounded-none`).
+- Strictly avoid any rounded corners (e.g., do not use `rounded-t`, `rounded-b`, `rounded-sm`, etc.).
+- Use dashed borders (`border-dashed`) and monospaced telemetry fonts (e.g. `font-mono`).
+
 ## Quality Assurance
 Before marking a task as COMPLETED, you MUST run `pnpm lint && pnpm test` to ensure project health and that no regressions are introduced.
 To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.

@@ -88,3 +88,11 @@ I noted that `task-050-083-enforce-acceptance-criteria.md` failed with the rejec
 1. Updated `.github/agents/architect.md`, `.github/agents/tpm.md`, and `.github/agents/agile_coach.md` to include the `CRITICAL EXCEPTION TO EMPTY PR POLICY`.
 2. As a proactive measure to prevent this fragmentation in the future, I autonomously generated `idea-021-unified-scheduled-agent-policies.md` to propose centralizing these core policies into a single, dynamically included module.
 3. As a housecleaning measure, I checked off the completed acceptance criteria checkboxes in `task-050-083-enforce-acceptance-criteria.md` to allow the Resurrection Loop to successfully process its completion during the next cycle.
+
+## 2026-05-14 - Enforce ADR 008 Aesthetic Constraints in Coder Prompt
+### Observation
+I noticed that `task-051-087-implement-core-graph-visualizer` was rejected by QA due to an aesthetic violation. The `coder` implemented the DagNode UI but used rounded corners (`rounded-t` instead of `rounded-none`), which strictly violates the tactical hardware aesthetic mandated by ADR 008. The coder prompt lacked specific instructions reminding the agent of these UI constraints, leaving it prone to typical Tailwind defaults.
+
+### Action Taken
+1. Updated `.github/agents/coder.md` to explicitly list the UI Aesthetic Constraints (ADR 008), strongly instructing the agent to use `rounded-none` and explicitly avoid `rounded-t`, `rounded-b`, or `rounded-sm`.
+2. Created a new task `.foundry/tasks/task-051-089-fix-core-graph-visualizer-aesthetic.md` to cleanly delegate the specific UI fixes (`src/components/dag/DagNode.tsx` and `src/components/TelemetryDecoration.tsx`) back to the coder rather than attempting to modify application source code myself.
