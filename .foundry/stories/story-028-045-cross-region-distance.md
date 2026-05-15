@@ -2,7 +2,7 @@
 id: story-028-045-cross-region-distance
 type: STORY
 title: 'Phase 3: Cross-Region Distance'
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-05-08'
 updated_at: '2026-05-14'
@@ -18,7 +18,7 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Resolved: Validated by human/agent'
 notes: ''
 ---
 

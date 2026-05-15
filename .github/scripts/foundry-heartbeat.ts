@@ -241,7 +241,7 @@ export async function main() {
 
     if (!isHuman && (!sessionId || sessionId === 'null')) {
       warn(`Node ${node.repoPath} is ACTIVE but missing session ID. Failing.`);
-      await transitionNodeToFailed(node, repoRoot);
+      await transitionNodeToFailed(node, repoRoot, 'ACTIVE node missing session ID');
       continue;
     }
 
@@ -300,7 +300,7 @@ export async function main() {
     if (!isHuman) {
       if (sessionStatus === 'NOT_FOUND' || (sessionStatus && TERMINAL_STATES.includes(sessionStatus))) {
         info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Failing.`);
-        await transitionNodeToFailed(node, repoRoot);
+        await transitionNodeToFailed(node, repoRoot, `Session terminated with state: ${sessionStatus || 'NOT_FOUND'}`);
       } else if (updateTime) {
         const lastUpdate = new Date(updateTime).getTime();
         const now = Date.now();
@@ -308,7 +308,7 @@ export async function main() {
 
         if (hoursElapsed > 24) {
           info(`Session ${sessionId} has been IN_PROGRESS for >24h. Assuming dead. Failing.`);
-          await transitionNodeToFailed(node, repoRoot);
+          await transitionNodeToFailed(node, repoRoot, 'Session timed out (>24h)');
         }
       }
     }
