@@ -32,7 +32,7 @@ function todayISO(): string {
 const TERMINAL_STATES = ['FAILED', 'COMPLETED'];
 
 /** Surgical mutation to FAILED */
-export async function transitionNodeToFailed(node: any, repoRoot: string, rejectionReason?: string): Promise<void> {
+export async function transitionNodeToFailed(node: any, repoRoot: string, rejectionReason: string): Promise<void> {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
@@ -40,18 +40,15 @@ export async function transitionNodeToFailed(node: any, repoRoot: string, reject
   parsed.data.status = 'FAILED';
   parsed.data.jules_session_id = null;
   parsed.data.updated_at = dateStr;
-
-  if (rejectionReason) {
-    parsed.data.rejection_reason = rejectionReason;
-  }
+  parsed.data.rejection_reason = rejectionReason;
 
   const newContent = matter.stringify(parsed.content, parsed.data);
 
   if (!DRY_RUN) {
     fs.writeFileSync(node.filePath, newContent, 'utf-8');
-    logToJournal(repoRoot, `\n- **${dateStr}**: Heartbeat detected zombie session for \`${node.frontmatter.id}\`. Transitioned to FAILED.\n`);
+    logToJournal(repoRoot, `\n- **${dateStr}**: Heartbeat detected failure for \`${node.frontmatter.id}\`. Reason: ${rejectionReason}. Transitioned to FAILED.\n`);
   }
-  info(`${dryTag}Transitioned ACTIVE → FAILED: ${node.repoPath}`);
+  info(`${dryTag}Transitioned ACTIVE → FAILED: ${node.repoPath} (${rejectionReason})`);
 }
 
 /** Surgical mutation to COMPLETED or PENDING depending on tasks */
@@ -241,7 +238,7 @@ export async function main() {
 
     if (!isHuman && (!sessionId || sessionId === 'null')) {
       warn(`Node ${node.repoPath} is ACTIVE but missing session ID. Failing.`);
-      await transitionNodeToFailed(node, repoRoot);
+      await transitionNodeToFailed(node, repoRoot, "Active node missing session ID (zombie node)");
       continue;
     }
 
@@ -299,16 +296,18 @@ export async function main() {
     // B. Terminal State check (Zombie detection)
     if (!isHuman) {
       if (sessionStatus === 'NOT_FOUND' || (sessionStatus && TERMINAL_STATES.includes(sessionStatus))) {
-        info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Failing.`);
-        await transitionNodeToFailed(node, repoRoot);
+        const reason = `Session ${sessionId} terminated without PR (Status: ${sessionStatus})`;
+        info(`${reason}. Failing.`);
+        await transitionNodeToFailed(node, repoRoot, reason);
       } else if (updateTime) {
         const lastUpdate = new Date(updateTime).getTime();
         const now = Date.now();
         const hoursElapsed = (now - lastUpdate) / (1000 * 60 * 60);
 
         if (hoursElapsed > 24) {
-          info(`Session ${sessionId} has been IN_PROGRESS for >24h. Assuming dead. Failing.`);
-          await transitionNodeToFailed(node, repoRoot);
+          const reason = `Session ${sessionId} has been IN_PROGRESS for >24h. Assuming dead.`;
+          info(`${reason}. Failing.`);
+          await transitionNodeToFailed(node, repoRoot, reason);
         }
       }
     }

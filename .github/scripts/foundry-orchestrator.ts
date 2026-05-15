@@ -526,7 +526,8 @@ function main(): void {
         const parentNode = nodeMap.get(parentPath);
         if (parentNode && parentNode.frontmatter.status !== 'ACTIVE') {
           info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
-          promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');
+          const targetStatus = parentNode.frontmatter.owner_persona === 'human' ? 'ACTIVE' : 'READY';
+          promoteNodeStatus(parentNode, parentNode.frontmatter.status, targetStatus);
         }
       } else if (node.frontmatter.owner_persona !== 'tpm') {
         info(`Impossible Loop: flagging node without parent for TPM: ${node.repoPath}`);
