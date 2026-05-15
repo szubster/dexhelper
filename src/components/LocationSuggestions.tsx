@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import { MapPin, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
@@ -14,6 +15,13 @@ export function LocationSuggestions() {
   const [suggestions, setSuggestions] = useState<(GenericLocation & { count: number })[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
+  // ⚡ Bolt: Cache locations query to prevent redundant IndexedDB hits on every keystroke debounce
+  const { data: locations = [] } = useQuery({
+    queryKey: ['locations'],
+    queryFn: () => pokeDB.getLocations(),
+    staleTime: Infinity,
+  });
+
   useEffect(() => {
     if (!searchTerm || searchTerm.length < 2 || selectedLocationId) {
       setSuggestions([]);
@@ -22,8 +30,6 @@ export function LocationSuggestions() {
     }
 
     const timeoutId = setTimeout(async () => {
-      const locations = await pokeDB.getLocations();
-
       const term = searchTerm.toLowerCase();
       const filtered = locations.filter((l) => l.n.toLowerCase().includes(term)).slice(0, 5);
 
@@ -36,7 +42,7 @@ export function LocationSuggestions() {
     }, 250);
 
     return () => clearTimeout(timeoutId);
-  }, [searchTerm, selectedLocationId]);
+  }, [searchTerm, selectedLocationId, locations]);
 
   if (!isOpen && !selectedLocationId) return null;
 
