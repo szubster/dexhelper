@@ -320,6 +320,7 @@ async function main() {
     }
   }
 
+
   // Ensure all maps from mapping.ts are in locationMap for graph connectivity
   console.log('\nEnsuring all maps are in locationMap...');
   for (const [mid, node] of Object.entries(GEN1_MAPS)) {
