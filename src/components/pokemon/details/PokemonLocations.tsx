@@ -158,6 +158,7 @@ function FallbackLocations({
         <div
           key={`${e.aid}-${e.v}`}
           className="flex flex-col rounded-none border border-white/5 border-dashed bg-zinc-900/40 p-4 opacity-60"
+          data-testid="fallback-locations"
         >
           <div className="flex items-center justify-between">
             <span className="font-bold text-xs text-zinc-500 uppercase">
