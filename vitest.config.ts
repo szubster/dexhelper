@@ -15,7 +15,6 @@ export default defineConfig(async (configEnv) => {
         exclude: ['**/*.json', '**/*.test.ts', '**/*.test.tsx'],
       },
       reporters: ['default', ['junit', { outputFile: './test-report.junit.xml' }]],
-      // Vitest 4 uses 'projects' instead of 'workspace'
       projects: [
         {
           extends: true,
