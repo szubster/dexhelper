@@ -77,3 +77,8 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 - **Learnings:** When filtering and mapping arrays derived from large state objects, always look for opportunities to combine the operations into a single pass and memoize the result.
 
 - **Memoization of Heavy Synchronous Work:** In React, heavy synchronous functions like `generateSuggestions` (which iterates arrays and allocates new objects) must be wrapped in `useMemo` if they are placed inside a custom hook that gets re-rendered often. Otherwise, they block the main thread unnecessarily on every state update in the parent component.
+
+## Optimization Pattern: Caching DB Lookups in frequent UI Hooks
+
+*   **Problem:** Using `setTimeout` debouncing inside `useEffect` with manual `await db.get(...)` calls still triggers redundant IndexedDB disk reads on every final keystroke.
+*   **Solution:** Use `@tanstack/react-query` (`useQuery` with `staleTime: Infinity`) at the component level to cache static database data. Reference this cached data in the `useEffect` instead of firing manual queries, effectively reducing DB reads from O(K) (where K = debounced keystrokes) to O(1) for static lookup data.
