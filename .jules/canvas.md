@@ -92,3 +92,9 @@
 **Outcome:** Accepted
 **Why:** Brings the smaller utility and debugging interfaces within the Assistant tab in line with the rest of the application's heavily tactical, snooping-focused aesthetic. The sharp shapes and telemetry details enhance the illusion of looking at a specialized hardware diagnostic view rather than a generic dashboard.
 **Pattern:** Ensure that even nested components, diagnostic views, and small indicator badges adhere to the tactical aesthetics (sharp edges, dashed borders, monospace text) to maintain overall visual coherence deep within complex component trees.
+
+## 2026-05-19 - [Accepted] - 🖼️ Canvas: Tactical Details Subcomponents (Inner Elements)
+**What:** Redesigned the inner elements (badges, nested panels) of the `PokemonLocations`, `PokemonEvolutions`, `PokemonCatchProbability`, and `PokemonCaughtDetails` components. Replaced all remaining rounded corners (`rounded-2xl`, `rounded-lg`, `rounded-md`, `rounded-full`, etc.) with sharp edges (`rounded-none`) and replaced generic borders with dashed borders (`border-dashed`).
+**Outcome:** Accepted
+**Why:** While the outer wrappers were previously updated to the TacticalPanel, many inner elements still retained generic web UI patterns (rounded corners). This change fully commits the deep component tree of the Details view to the project's strict tactical hardware/snooping aesthetic (ADR 008).
+**Pattern:** Ensure that even deeply nested elements (like location chips, evolution method badges, and coordinate markers) adhere to the tactical aesthetics (sharp edges, dashed borders) to maintain absolute visual coherence and avoid breaking the hardware illusion.

@@ -22,7 +22,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
   const [status, setStatus] = useState<StatusType>('none');
 
   return (
-    <TacticalPanel variant="emerald" className="space-y-8 rounded-none border-dashed p-8">
+    <TacticalPanel variant="emerald" className="space-y-8 rounded-none border border-dashed p-8">
       <div className="absolute top-0 right-0 p-4 opacity-5">
         <Target size={120} />
       </div>
@@ -30,7 +30,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
         <h3 className="flex items-center gap-2 font-black text-[10px] text-emerald-400 uppercase tracking-[0.3em]">
           <Target size={14} /> Catch Probability
         </h3>
-        <div className="rounded-full border border-emerald-500/30 bg-emerald-500/20 px-3 py-1 font-black font-mono text-[10px] text-emerald-400">
+        <div className="rounded-none border border-emerald-500/30 border-dashed bg-emerald-500/20 px-3 py-1 font-black font-mono text-[10px] text-emerald-400">
           RATING: {catchRate}
         </div>
       </div>
@@ -54,7 +54,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
                   aria-label={`Set HP to ${segmentValue}%`}
                   onClick={() => setHpPercent(segmentValue)}
                   className={cn(
-                    'h-3 flex-1 rounded-none border border-white/5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+                    'h-3 flex-1 rounded-none border border-white/5 border-dashed transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
                     isActive
                       ? 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]'
                       : 'bg-black/40 hover:bg-emerald-500/20',
@@ -127,10 +127,10 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
             </span>
           </div>
           <div className="flex flex-col items-end text-right">
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40">
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-none border border-white/10 border-dashed bg-black/40">
               <div
                 className={cn(
-                  'h-6 w-6 rounded-full border-2',
+                  'h-6 w-6 rounded-none border-2',
                   effectivePokeball === 'safari'
                     ? 'border-emerald-500 bg-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.5)]'
                     : effectivePokeball === 'ultra'
