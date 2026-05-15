@@ -18,7 +18,7 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
 rejection_count: 0
-rejection_reason: 'Resolved: Validated by human/agent'
+rejection_reason: 'Implementation task task-045-085 failed validation.'
 notes: ''
 ---
 

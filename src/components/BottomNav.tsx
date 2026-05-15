@@ -26,7 +26,7 @@ export function BottomNav() {
       {/* Telemetry decoration */}
       <TelemetryDecoration
         label="LINK_ACTIVE"
-        className="-top-[21px] left-4 rounded-t rounded-b-none border-t border-b-0 bg-zinc-950"
+        className="-top-[21px] left-4 rounded-none border-t border-b-0 bg-zinc-950"
       />
 
       <div className="relative mx-auto grid max-w-md grid-cols-5 items-center">
@@ -50,7 +50,7 @@ export function BottomNav() {
           aria-label="Pokedex"
           title="Pokedex"
           className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 rounded-sm py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+            'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
             isDex ? 'text-[var(--theme-primary)]' : 'text-zinc-600',
           )}
         >
@@ -69,7 +69,7 @@ export function BottomNav() {
           aria-label="Storage"
           title="Storage"
           className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 rounded-sm py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+            'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
             isStorage ? 'text-[var(--theme-primary)]' : 'text-zinc-600',
           )}
         >
@@ -88,7 +88,7 @@ export function BottomNav() {
           aria-label="Assistant"
           title="Assistant"
           className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 rounded-sm py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+            'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
             isAssistant ? 'text-[var(--theme-primary)]' : 'text-zinc-600',
           )}
         >
@@ -107,7 +107,7 @@ export function BottomNav() {
           aria-label="DAG"
           title="DAG"
           className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 rounded-sm py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+            'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
             isDag ? 'text-[var(--theme-primary)]' : 'text-zinc-600',
           )}
         >
@@ -126,7 +126,7 @@ export function BottomNav() {
           onClick={() => setIsSettingsOpen(true)}
           aria-label="Open settings menu"
           title="Open settings menu"
-          className="group relative z-10 flex flex-col items-center gap-1.5 rounded-sm py-2 text-zinc-600 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          className="group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 text-zinc-600 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
         >
           <div className="transition-transform active:scale-90">
             <Settings2 size={20} strokeWidth={2} />
