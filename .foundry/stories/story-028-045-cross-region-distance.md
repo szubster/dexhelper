@@ -2,10 +2,10 @@
 id: story-028-045-cross-region-distance
 type: STORY
 title: 'Phase 3: Cross-Region Distance'
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-08'
-updated_at: '2026-05-14'
+updated_at: '2026-05-15'
 depends_on:
   - .foundry/stories/story-028-044-indoor-outdoor-resolution.md
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - map-graph
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
-rejection_count: 0
-rejection_reason: 'Implementation task task-045-085 failed validation.'
+rejection_count: 1
+rejection_reason: Implementation task task-045-085 failed validation.
 notes: ''
 ---
 

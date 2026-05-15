@@ -2,10 +2,10 @@
 id: task-051-087-implement-core-graph-visualizer
 type: TASK
 title: Implement Core Graph Visualizer Component
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-05-14'
-updated_at: '2026-05-14'
+updated_at: '2026-05-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - dashboard
   - ui
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: >-
   Implementation violates ADR 008 tactical aesthetic constraints. The DagNode
   component passes a className with "rounded-t" to TelemetryDecoration, which

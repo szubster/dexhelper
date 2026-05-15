@@ -177,3 +177,11 @@
 - **2026-05-14**: PR #1293 merged. `task-050-084-qa-enforce-acceptance-criteria` is now COMPLETED.
 
 - **2026-05-14**: PR #1295 merged. `task-051-087-implement-core-graph-visualizer` is now COMPLETED.
+
+- **2026-05-15**: PR #1304 merged. `task-051-088-qa-core-graph-visualizer` is now COMPLETED.
+
+- **2026-05-15**: Resurrection Loop triggered for `story-028-045-cross-region-distance`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-15**: Resurrection Loop triggered for `task-045-085-implement-cross-region-distance`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-15**: Resurrection Loop triggered for `task-051-087-implement-core-graph-visualizer`. Reason: Retry from FAILED status.. Transitioned back to READY.

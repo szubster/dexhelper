@@ -2,10 +2,10 @@
 id: task-051-089-fix-core-graph-visualizer-aesthetic
 type: TASK
 title: Fix Core Graph Visualizer Component Aesthetic (ADR 008)
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-05-14"
-updated_at: "2026-05-14"
+created_at: '2026-05-14'
+updated_at: '2026-05-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - aesthetic
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Fix Core Graph Visualizer Component Aesthetic (ADR 008)
