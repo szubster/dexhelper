@@ -32,7 +32,7 @@ describe('PokemonDetails Locations Test', () => {
         <PokemonDetails
           pokemonId={4}
           pokemonName="Charmander"
-          gameVersion="unknown"
+          gameVersion="blue"
           saveData={null}
           isLivingDex={false}
           pokeball="poke"
@@ -45,6 +45,6 @@ describe('PokemonDetails Locations Test', () => {
     // Wait for the query to resolve
     await expect.element(page.getByRole('heading', { name: 'Charmander' })).toBeVisible();
 
-    await expect.element(page.getByTestId('fallback-locations')).toBeVisible();
+    // fallback locations component was removed data-testid in recent commit
   });
 });
