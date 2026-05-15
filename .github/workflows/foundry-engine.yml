@@ -228,7 +228,7 @@ jobs:
 
                         const list = Array.from(researchPaths).map(p => `- ${p}`).join('\n');
                         console.log(list);
-                        JS_EOF
+            JS_EOF
 
             TARGET_NODE_PATH="${{ matrix.node.repo_path }}"
             export TARGET_NODE_PATH
