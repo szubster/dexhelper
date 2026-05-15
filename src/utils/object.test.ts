@@ -6,7 +6,10 @@ describe('object utilities', () => {
     type TestUnion = 'A' | 'B';
     const obj: Partial<Record<TestUnion, number>> = { A: 1, B: 2 };
     const entries = objectEntries(obj);
-    expect(entries).toEqual([['A', 1], ['B', 2]]);
+    expect(entries).toEqual([
+      ['A', 1],
+      ['B', 2],
+    ]);
   });
 
   it('objectKeys correctly types and returns keys', () => {
