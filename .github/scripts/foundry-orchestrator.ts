@@ -524,9 +524,13 @@ function main(): void {
       const parentPath = resolveNodePath(node.frontmatter.parent);
       if (parentPath) {
         const parentNode = nodeMap.get(parentPath);
-        if (parentNode && parentNode.frontmatter.status !== 'ACTIVE') {
+        if (parentNode && parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'READY') {
           info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
-          promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');
+          if (parentNode.frontmatter.owner_persona === 'human') {
+            promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');
+          } else {
+            promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'READY');
+          }
         }
       } else if (node.frontmatter.owner_persona !== 'tpm') {
         info(`Impossible Loop: flagging node without parent for TPM: ${node.repoPath}`);
