@@ -68,7 +68,7 @@ jobs:
           if [ $exit_code -ne 0 ]; then
             # Fail the build for warnings/orchestrator issues as requested
             sh -c "exit $exit_code" || true
-            kill -INT $
+            exit $exit_code
           fi
           echo "matrix=$output" >> $GITHUB_OUTPUT
 
@@ -189,46 +189,46 @@ jobs:
             fi
 
             # 1.5 Extract research_references from parent chain safely
-            cat << 'JS_EOF' > extract-research.cjs
-const fs = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
+                                    cat << 'JS_EOF' > extract-research.cjs
+                        const fs = require('fs');
+                        const path = require('path');
+                        const matter = require('gray-matter');
 
-const targetNodePath = process.env.TARGET_NODE_PATH;
-const researchPaths = new Set();
-const visitedPaths = new Set();
-let currentPath = targetNodePath;
+                        const targetNodePath = process.env.TARGET_NODE_PATH;
+                        const researchPaths = new Set();
+                        const visitedPaths = new Set();
+                        let currentPath = targetNodePath;
 
-while (currentPath && !visitedPaths.has(currentPath)) {
-  visitedPaths.add(currentPath);
-  if (!fs.existsSync(currentPath)) break;
-  try {
-    const raw = fs.readFileSync(currentPath, 'utf-8');
-    const parsed = matter(raw);
-    const fm = parsed.data || {};
+                        while (currentPath && !visitedPaths.has(currentPath)) {
+                          visitedPaths.add(currentPath);
+                          if (!fs.existsSync(currentPath)) break;
+                          try {
+                            const raw = fs.readFileSync(currentPath, 'utf-8');
+                            const parsed = matter(raw);
+                            const fm = parsed.data || {};
 
-    if (Array.isArray(fm.research_references)) {
-      fm.research_references.forEach(ref => {
-        if (typeof ref === 'string' && ref.endsWith('.md')) {
-          researchPaths.add(ref);
-        }
-      });
-    }
+                            if (Array.isArray(fm.research_references)) {
+                              fm.research_references.forEach(ref => {
+                                if (typeof ref === 'string' && ref.endsWith('.md')) {
+                                  researchPaths.add(ref);
+                                }
+                              });
+                            }
 
-    const parent = fm.parent;
-    if (typeof parent === 'string' && parent.endsWith('.md') && parent !== currentPath) {
-      currentPath = parent;
-    } else {
-      break;
-    }
-  } catch (e) {
-    break;
-  }
-}
+                            const parent = fm.parent;
+                            if (typeof parent === 'string' && parent.endsWith('.md') && parent !== currentPath) {
+                              currentPath = parent;
+                            } else {
+                              break;
+                            }
+                          } catch (e) {
+                            break;
+                          }
+                        }
 
-const list = Array.from(researchPaths).map(p => `- ${p}`).join('\n');
-console.log(list);
-JS_EOF
+                        const list = Array.from(researchPaths).map(p => `- ${p}`).join('\n');
+                        console.log(list);
+                        JS_EOF
 
             TARGET_NODE_PATH="${{ matrix.node.repo_path }}"
             export TARGET_NODE_PATH
