@@ -23,7 +23,22 @@ export const gen2Strategy: AssistantStrategy = {
     return [];
   },
 
-  isInternallyObtainable(_baseId: number, _version: string): boolean {
-    return true;
+  isInternallyObtainable(baseId: number, _version: string): boolean {
+    // Gen 2 trade evolutions and mythicals
+    const unobtainableInternally = new Set([
+      65, // Alakazam
+      68, // Machamp
+      76, // Golem
+      94, // Gengar
+      186, // Politoed
+      199, // Slowking
+      208, // Steelix
+      212, // Scizor
+      230, // Kingdra
+      233, // Porygon2
+      251, // Celebi
+    ]);
+
+    return !unobtainableInternally.has(baseId);
   },
 };

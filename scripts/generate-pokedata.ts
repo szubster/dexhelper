@@ -170,67 +170,64 @@ async function main() {
       const areaUrl = areaEnc.location_area.url;
       const areaId = parseInt(areaUrl.split('/').filter(Boolean).pop() || '0', 10);
 
-      // Find gameId for this area (Source of truth)
-      let gameId: number | undefined = undefined;
+      // Find ALL gameIds for this area (Source of truth)
+      const matchingGameIds: { id: number; name: string }[] = [];
 
       // 1. Check Gen 1 mapping
-      const g1Match = Object.entries(GEN1_MAPS).find(([_, map]) => map.aid === areaId);
-      let localName: string | undefined = undefined;
+      for (const [id, map] of Object.entries(GEN1_MAPS)) {
+        if (map.aid === areaId) {
+          matchingGameIds.push({ id: parseInt(id), name: map.name });
+        }
+      }
 
-      if (g1Match) {
-        gameId = parseInt(g1Match[0]);
-        localName = g1Match[1].name;
-      } else {
-        // 2. Check Gen 2 mapping
-        for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
-          for (const [mid, mapNode] of Object.entries(maps)) {
-            if (mapNode.aid === areaId) {
-              gameId = (parseInt(group) << 8) | parseInt(mid);
-              localName = mapNode.name;
-              break;
-            }
+      // 2. Check Gen 2 mapping
+      for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
+        for (const [mid, mapNode] of Object.entries(maps)) {
+          if (mapNode.aid === areaId) {
+            matchingGameIds.push({ id: (parseInt(group) << 8) | parseInt(mid), name: mapNode.name });
           }
-          if (gameId !== undefined) break;
         }
       }
 
       // If no ROM map ID found, we skip this encounter as we only care about real in-game locations
-      if (gameId === undefined) continue;
+      if (matchingGameIds.length === 0) continue;
 
-      if (!locationMap.has(gameId)) {
-        const areaData = readJson(path.join(dataPath, `location-area/${areaId}/index.json`));
-        if (areaData) {
-          const locUrl = areaData.location.url;
-          const lid = parseInt(locUrl.split('/').filter(Boolean).pop() || '0', 10);
+      for (const { id: gameId, name: localName } of matchingGameIds) {
+        if (!locationMap.has(gameId)) {
+          const areaData = readJson(path.join(dataPath, `location-area/${areaId}/index.json`));
+          if (areaData) {
+            const locUrl = areaData.location.url;
+            const lid = parseInt(locUrl.split('/').filter(Boolean).pop() || '0', 10);
 
-          const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
-          if (locData) {
-            let connections: number[] | undefined = undefined;
-            if (gameId < 256) {
-              connections = GEN1_MAPS[gameId]?.connections;
-            } else {
-              const { group, id: mid } = decodeGen2Id(gameId);
-              connections = GEN2_MAP_TO_AID[group]?.[mid]?.connections;
+            const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
+            if (locData) {
+              let connections: number[] | undefined = undefined;
+              if (gameId < 256) {
+                connections = GEN1_MAPS[gameId]?.connections;
+              } else {
+                const { group, id: mid } = decodeGen2Id(gameId);
+                connections = GEN2_MAP_TO_AID[group]?.[mid]?.connections;
+              }
+
+              locationMap.set(gameId, sortObj({
+                id: gameId,
+                n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
+                conn: connections,
+                pids: [],
+                dist: {}
+              }, ['id', 'n']));
             }
-
-            locationMap.set(gameId, sortObj({
-              id: gameId,
-              n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
-              conn: connections,
-              pids: [],
-              dist: {}
-            }, ['id', 'n']));
           }
         }
-      }
 
-      // Update Pokémon index
-      const loc = locationMap.get(gameId);
-      if (loc) {
-        if (!loc.pids) loc.pids = [];
-        if (!loc.pids.includes(i)) {
-          loc.pids.push(i);
-          loc.pids.sort((a, b) => a - b);
+        // Update Pokémon index
+        const loc = locationMap.get(gameId);
+        if (loc) {
+          if (!loc.pids) loc.pids = [];
+          if (!loc.pids.includes(i)) {
+            loc.pids.push(i);
+            loc.pids.sort((a, b) => a - b);
+          }
         }
       }
 
@@ -254,10 +251,12 @@ async function main() {
       }
 
       if (vDetails.length > 0) {
-        pokemonEncounters.push({
-          aid: gameId,
-          version_details: vDetails
-        });
+        for (const { id: gameId } of matchingGameIds) {
+          pokemonEncounters.push({
+            aid: gameId,
+            version_details: vDetails
+          });
+        }
       }
     }
 

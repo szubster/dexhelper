@@ -5,16 +5,20 @@ import { gen2Strategy } from './gen2Strategy';
 
 // Mock the dependencies
 vi.mock('../../mapGraph/gen2Graph', () => ({
-  resolveOutdoorMapId: vi.fn<(all: any, id: number) => number>((_, id) => id),
-  getDistanceToMap: vi.fn<(all: any, start: number, target: number) => any>(() => ({ distance: 5, name: 'Target Area' })),
+  resolveOutdoorMapId: vi.fn<(allLocations: UnifiedLocation[], id: number) => number>((_, id) => id),
+  getDistanceToMap: vi.fn<
+    (allLocations: UnifiedLocation[], start: number, target: number) => { distance: number; name: string } | null
+  >(() => ({ distance: 5, name: 'Target Area' })),
 }));
 
 vi.mock('../../exclusives/gen2Exclusives', () => ({
-  getGen2UnobtainableReason: vi.fn<(id: number, ver: string, count: number, set: Set<number>) => string | null>(() => 'Exclusivity Reason'),
+  getGen2UnobtainableReason: vi.fn<(id: number, ver: string, count: number, set: Set<number>) => string | null>(
+    () => 'Exclusivity Reason',
+  ),
 }));
 
-import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen2Graph';
 import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
+import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen2Graph';
 
 describe('gen2Strategy', () => {
   const mockLocations: UnifiedLocation[] = [];
