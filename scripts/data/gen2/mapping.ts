@@ -20,8 +20,8 @@ export const GEN2_MAP_TO_AID: Record<number, Record<number, Gen2MapNode>> = {
     3: { name: 'Violet City', aid: 189, connections: [0x1a02, 0x0a02] }, // Rd 31, Rd 32
     4: { name: 'Azalea Town', aid: 798, connections: [0x0a03, 0x0334, 0x0328] }, // Rd 33, Well, Ilex
     5: { name: 'Cianwood City', aid: 235, connections: [0x1602] }, // Rd 41
-    6: { name: 'Goldenrod City', aid: 765, connections: [0x0a04, 0x0b01] }, // Rd 34, Rd 35
-    7: { name: 'Olivine City', aid: 224, connections: [0x010a, 0x1601] }, // Rd 39, Rd 40
+    6: { name: 'Goldenrod City', aid: 765, connections: [0x0a04, 0x0b01, 0x0a] }, // Rd 34, Rd 35, Saffron
+    7: { name: 'Olivine City', aid: 224, connections: [0x010a, 0x1601, 0x05] }, // Rd 39, Rd 40, Vermilion
     8: { name: 'Ecruteak City', aid: 211, connections: [0x0109, 0x0204] }, // Rd 38, Rd 42
     9: { name: 'Mahogany Town', aid: 247, connections: [0x0204, 0x0903, 0x0205] }, // Rd 42, Rd 43, Rd 44
     10: { name: 'Lake of Rage', aid: 242, connections: [0x0903] }, // Rd 43
@@ -46,7 +46,7 @@ export const GEN2_MAP_TO_AID: Record<number, Record<number, Gen2MapNode>> = {
     4: { name: 'Route 34', aid: 420, connections: [0x0334, 0x0306] } 
   },
   24: { 
-    1: { name: 'Route 26', aid: 409, connections: [0x1802] }, 
+    1: { name: 'Route 26', aid: 409, connections: [0x1802, 0x20] }, // Route 22
     2: { name: 'Route 27', aid: 410, connections: [0x1803, 0x0353, 0x1801] }, 
     3: { name: 'Route 29', aid: 412, connections: [0x0301, 0x1802, 0x0302] }, 
     4: { name: 'New Bark Town', aid: 184, connections: [0x1803] } 

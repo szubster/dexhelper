@@ -132,12 +132,12 @@ export const gen2MapGraph: Record<number, MapGraphNode> = {
   0x0328: { name: 'Slowpoke Well', connections: [0x0304] }, // Azalea Town
   0x0334: { name: 'Ilex Forest', connections: [0x0304, 0x0a04] }, // Azalea, Rd 34
   0x0a04: { name: 'Route 34', connections: [0x0334, 0x0306] }, // Ilex Forest, Goldenrod City
-  0x0306: { name: 'Goldenrod City', connections: [0x0a04, 0x0b01] }, // Rd 34, Rd 35
+  0x0306: { name: 'Goldenrod City', connections: [0x0a04, 0x0b01, 0x0a] }, // Rd 34, Rd 35, Magnet Train to Saffron
   0x0b01: { name: 'Route 35', connections: [0x0306, 0x030f] }, // Goldenrod, National Park
   0x030f: { name: 'National Park', connections: [0x0b01] }, // Rd 35
   0x0109: { name: 'Route 38', connections: [0x0308, 0x010a] }, // Ecruteak, Route 39
   0x010a: { name: 'Route 39', connections: [0x0109, 0x0307] }, // Route 38, Olivine
-  0x0307: { name: 'Olivine City', connections: [0x010a, 0x1601] }, // Rd 39, Rd 40
+  0x0307: { name: 'Olivine City', connections: [0x010a, 0x1601, 0x05] }, // Rd 39, Rd 40, S.S. Aqua to Vermilion
   0x1601: { name: 'Route 40', connections: [0x0307, 0x1602] }, // Olivine, Route 41
   0x1602: { name: 'Route 41', connections: [0x1601, 0x0305, 0x0342] }, // Route 40, Cianwood, Whirl Islands
   0x0342: { name: 'Whirl Islands', connections: [0x1602] }, // Route 41
@@ -158,7 +158,12 @@ export const gen2MapGraph: Record<number, MapGraphNode> = {
   // Kanto / Johto Connections
   0x1802: { name: 'Route 27', connections: [0x1803, 0x0353, 0x1801] }, // New Bark/29, Tohjo Falls, Route 26
   0x0353: { name: 'Tohjo Falls', connections: [0x1802] }, // Route 27
-  0x1801: { name: 'Route 26', connections: [0x1802] }, // Route 27 (connects to Kanto Reception Gate)
+  0x1801: { name: 'Route 26', connections: [0x1802, 0x20] }, // Route 27, Route 22 (Reception Gate)
   0x1301: { name: 'Route 28', connections: [0x1801, 0x034a] }, // Route 26, Silver Cave
   0x034a: { name: 'Silver Cave', connections: [0x1301] }, // Route 28
+
+  // Kanto Hubs (for cross-region distance resolution)
+  0x0a: { name: 'Saffron City', connections: [0x0306] },
+  0x05: { name: 'Vermilion City', connections: [0x0307] },
+  0x20: { name: 'Route 22', connections: [0x1801] },
 };
