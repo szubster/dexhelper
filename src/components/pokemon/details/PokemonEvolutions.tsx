@@ -49,7 +49,10 @@ function ProcurementStrategy({
   onNavigate: (id: number, name: string) => void;
 }) {
   return (
-    <TacticalPanel variant="red" className="group col-span-1 space-y-4 rounded-none border-dashed p-6 sm:col-span-2">
+    <TacticalPanel
+      variant="red"
+      className="group col-span-1 space-y-4 rounded-none border border-dashed p-6 sm:col-span-2"
+    >
       <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:scale-110">
         <AlertTriangle size={80} />
       </div>
@@ -65,7 +68,7 @@ function ProcurementStrategy({
               type="button"
               aria-label={`Navigate to ${evoReq.fromName} details`}
               onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
-              className="rounded-sm text-red-400 underline decoration-red-500/30 underline-offset-4 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              className="rounded-none text-red-400 underline decoration-red-500/30 underline-offset-4 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
               Evolving {evoReq.fromName.toUpperCase()}
             </button>
@@ -85,7 +88,7 @@ function ProcurementStrategy({
               {rewards.map((r) => (
                 <span
                   key={r}
-                  className="rounded-md border border-red-500/20 bg-red-500/10 px-2 py-0.5 font-black text-[9px] text-red-500"
+                  className="rounded-none border border-red-500/20 border-dashed bg-red-500/10 px-2 py-0.5 font-black text-[9px] text-red-500"
                 >
                   STADIUM {gen} REWARD: {r.toUpperCase()}
                 </span>
@@ -108,7 +111,7 @@ function EvolutionFrom({
   onNavigate: (id: number, name: string) => void;
 }) {
   return (
-    <TacticalPanel variant="purple" className="group space-y-4 rounded-none border-dashed p-6">
+    <TacticalPanel variant="purple" className="group space-y-4 rounded-none border border-dashed p-6">
       <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:rotate-12">
         <ArrowUpCircle size={80} />
       </div>
@@ -121,7 +124,7 @@ function EvolutionFrom({
           type="button"
           aria-label={`Navigate to ${evoReq.fromName} details`}
           onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
-          className="rounded-sm text-white underline decoration-purple-500/30 underline-offset-4 transition-colors hover:text-purple-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          className="rounded-none text-white underline decoration-purple-500/30 underline-offset-4 transition-colors hover:text-purple-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
         >
           {evoReq.fromName.toUpperCase()}
         </button>
@@ -129,7 +132,7 @@ function EvolutionFrom({
       </div>
       <div
         className={cn(
-          'relative z-10 inline-flex items-center gap-2 rounded-xl px-3 py-1.5 font-black text-[10px] uppercase tracking-widest',
+          'relative z-10 inline-flex items-center gap-2 rounded-none px-3 py-1.5 font-black text-[10px] uppercase tracking-widest',
           hasPreEvo ? 'bg-emerald-500/10 text-emerald-500' : 'bg-red-500/10 text-red-500',
         )}
       >
@@ -148,7 +151,7 @@ function EvolutionTo({
 }) {
   if (!evolvesTo || evolvesTo.length === 0) return null;
   return (
-    <TacticalPanel variant="blue" className="group space-y-4 rounded-none border-dashed p-6">
+    <TacticalPanel variant="blue" className="group space-y-4 rounded-none border border-dashed p-6">
       <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:-rotate-12">
         <ChevronRight size={80} />
       </div>
@@ -163,7 +166,7 @@ function EvolutionTo({
               type="button"
               aria-label={`Navigate to ${evo.name} details`}
               onClick={() => onNavigate(evo.id, evo.name)}
-              className="rounded-sm text-white underline decoration-blue-500/30 underline-offset-4 transition-colors hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              className="rounded-none text-white underline decoration-blue-500/30 underline-offset-4 transition-colors hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
               {evo.name.toUpperCase()}
             </button>
@@ -183,7 +186,10 @@ function BreedingProtocol({
   onNavigate: (id: number, name: string) => void;
 }) {
   return (
-    <TacticalPanel variant="pink" className="group col-span-1 space-y-4 rounded-none border-dashed p-6 sm:col-span-2">
+    <TacticalPanel
+      variant="pink"
+      className="group col-span-1 space-y-4 rounded-none border border-dashed p-6 sm:col-span-2"
+    >
       <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:scale-110">
         <Heart size={80} />
       </div>
@@ -201,7 +207,7 @@ function BreedingProtocol({
                 const id = breedingInfo.parentIds[i];
                 if (id) onNavigate(id, name);
               }}
-              className="rounded-sm text-white underline decoration-pink-500/30 underline-offset-4 transition-colors hover:text-pink-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              className="rounded-none text-white underline decoration-pink-500/30 underline-offset-4 transition-colors hover:text-pink-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
               {name.toUpperCase()}
             </button>
@@ -209,7 +215,7 @@ function BreedingProtocol({
           </React.Fragment>
         ))}
       </div>
-      <div className="relative z-10 rounded-xl border border-pink-500/10 bg-pink-500/5 p-3 font-black text-[9px] text-pink-400/60 uppercase italic leading-relaxed tracking-widest">
+      <div className="relative z-10 rounded-none border border-pink-500/10 border-dashed bg-pink-500/5 p-3 font-black text-[9px] text-pink-400/60 uppercase italic leading-relaxed tracking-widest">
         {breedingInfo.method}
       </div>
     </TacticalPanel>

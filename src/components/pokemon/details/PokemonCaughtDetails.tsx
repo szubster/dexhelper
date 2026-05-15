@@ -20,7 +20,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
           <TacticalPanel
             key={`${p.storageLocation}-${p.slot || i}`}
             variant="white"
-            className="group space-y-5 rounded-none border-dashed p-6"
+            className="group space-y-5 rounded-none border border-dashed p-6"
           >
             <div className="absolute top-0 right-0 p-3 opacity-10 transition-transform group-hover:scale-110">
               {p.isShiny ? (
@@ -34,13 +34,13 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
               <div>
                 <div className="font-black font-display text-2xl text-white tracking-tighter">LV.{p.level}</div>
                 <div className="mt-1 flex items-center gap-2">
-                  <div className="rounded-md border border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/20 px-2 py-0.5">
+                  <div className="rounded-none border border-[var(--theme-primary)]/30 border-dashed bg-[var(--theme-primary)]/20 px-2 py-0.5">
                     <span className="font-black text-[9px] text-[var(--theme-primary)] uppercase leading-none tracking-widest">
                       {p.location}
                     </span>
                   </div>
                   {p.slot && (
-                    <div className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5">
+                    <div className="rounded-none border border-white/10 border-dashed bg-white/5 px-2 py-0.5">
                       <span className="font-black text-[9px] text-zinc-500 uppercase leading-none tracking-widest">
                         Slot {p.slot}
                       </span>

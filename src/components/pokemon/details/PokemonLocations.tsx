@@ -35,13 +35,13 @@ export function PokemonLocations({
         <h3 className="flex items-center gap-2 font-black text-[10px] text-zinc-500 uppercase tracking-[0.3em]">
           <MapPin size={14} /> Field Distribution
         </h3>
-        <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-black text-[10px] text-[var(--theme-primary)] uppercase tracking-widest backdrop-blur-md">
+        <div className="rounded-none border border-white/10 border-dashed bg-white/5 px-3 py-1 font-black text-[10px] text-[var(--theme-primary)] uppercase tracking-widest backdrop-blur-md">
           DATA-SRC: {gameVersion.toUpperCase()}
         </div>
       </div>
 
       {loading ? (
-        <TacticalPanel className="h-40 animate-pulse rounded-none border-dashed" />
+        <TacticalPanel className="h-40 animate-pulse rounded-none border border-dashed" />
       ) : (
         <div className="relative z-10 grid grid-cols-1 gap-3" data-testid="location-list">
           {(() => {
@@ -52,16 +52,16 @@ export function PokemonLocations({
               return (
                 <>
                   {evoReq && (
-                    <div className="group flex items-center justify-between rounded-2xl border border-white/5 bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30">
+                    <div className="group flex items-center justify-between rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30">
                       <div className="flex items-center gap-3">
-                        <div className="rounded-lg bg-amber-500/10 p-2 text-amber-500">
+                        <div className="rounded-none bg-amber-500/10 p-2 text-amber-500">
                           <ArrowUpCircle size={14} />
                         </div>
                         <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
                           Available via Evolving {evoReq.fromName.toUpperCase()}
                         </span>
                       </div>
-                      <span className="rounded-lg border border-amber-500/10 bg-amber-500/5 px-2 py-1 font-black text-[8px] text-amber-500/60 uppercase tracking-widest">
+                      <span className="rounded-none border border-amber-500/10 border-dashed bg-amber-500/5 px-2 py-1 font-black text-[8px] text-amber-500/60 uppercase tracking-widest">
                         EVOLUTION
                       </span>
                     </div>
@@ -70,17 +70,17 @@ export function PokemonLocations({
                     <div
                       // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                       key={`static-${i}`}
-                      className="group flex items-center justify-between rounded-2xl border border-white/5 bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
+                      className="group flex items-center justify-between rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="rounded-lg bg-red-500/10 p-2 text-red-500">
+                        <div className="rounded-none bg-red-500/10 p-2 text-red-500">
                           <Target size={14} />
                         </div>
                         <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
                           {loc}
                         </span>
                       </div>
-                      <span className="rounded-lg border border-red-500/10 bg-red-500/5 px-2 py-1 font-black text-[8px] text-red-500/60 uppercase tracking-widest">
+                      <span className="rounded-none border border-red-500/10 border-dashed bg-red-500/5 px-2 py-1 font-black text-[8px] text-red-500/60 uppercase tracking-widest">
                         STATIONARY
                       </span>
                     </div>
@@ -89,11 +89,11 @@ export function PokemonLocations({
                     return (
                       <div
                         key={`${e.aid}-${e.v}`}
-                        className="group flex flex-col space-y-3 rounded-2xl border border-white/5 bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
+                        className="group flex flex-col space-y-3 rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="rounded-lg bg-[var(--theme-primary)]/10 p-2 text-[var(--theme-primary)]">
+                            <div className="rounded-none bg-[var(--theme-primary)]/10 p-2 text-[var(--theme-primary)]">
                               <MapPin size={14} />
                             </div>
                             <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
@@ -105,7 +105,7 @@ export function PokemonLocations({
                               <span
                                 // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                                 key={di}
-                                className="rounded-md border border-white/5 bg-white/5 px-2 py-0.5 font-black text-[8px] text-zinc-500 uppercase tracking-widest"
+                                className="rounded-none border border-white/5 border-dashed bg-white/5 px-2 py-0.5 font-black text-[8px] text-zinc-500 uppercase tracking-widest"
                               >
                                 LV.{d.min}-{d.max}
                               </span>
@@ -157,14 +157,14 @@ function FallbackLocations({
       {encounters.map((e) => (
         <div
           key={`${e.aid}-${e.v}`}
-          className="flex flex-col rounded-2xl border border-white/5 bg-zinc-900/40 p-4 opacity-60"
+          className="flex flex-col rounded-none border border-white/5 border-dashed bg-zinc-900/40 p-4 opacity-60"
         >
           <div className="flex items-center justify-between">
             <span className="font-bold text-xs text-zinc-500 uppercase">
               {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
             </span>
             <div className="flex gap-1">
-              <span className="rounded border border-white/5 bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase">
+              <span className="rounded-none border border-white/5 border-dashed bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase">
                 V-ID: {e.v}
               </span>
             </div>
