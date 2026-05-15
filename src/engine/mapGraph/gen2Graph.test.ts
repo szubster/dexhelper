@@ -67,6 +67,22 @@ describe('getDistanceToMap (Gen 2)', () => {
     const result = getDistanceToMap(locationsWithoutDist, 0x0306, 0x1111);
     expect(result).toBeNull();
   });
+
+  it('calculates distance across regions (Johto to Kanto)', () => {
+    const crossRegionLocations: UnifiedLocation[] = [
+      { id: 0x0306, n: 'Goldenrod City', conn: [0x0a], dist: { 0x0a: 1, 0x05: 5 } },
+      { id: 0x0a, n: 'Saffron City', conn: [0x0306], dist: { 0x0306: 1, 0x05: 4 } },
+      { id: 0x05, n: 'Vermilion City', conn: [0x0a], dist: { 0x0a: 4, 0x0306: 5 } },
+    ];
+
+    // Goldenrod -> Saffron
+    const resultSaffron = getDistanceToMap(crossRegionLocations, 0x0306, 0x0a);
+    expect(resultSaffron).toEqual({ distance: 1, name: 'Saffron City' });
+
+    // Goldenrod -> Vermilion
+    const resultVermilion = getDistanceToMap(crossRegionLocations, 0x0306, 0x05);
+    expect(resultVermilion).toEqual({ distance: 5, name: 'Vermilion City' });
+  });
 });
 
 describe('resolveOutdoorMapId', () => {

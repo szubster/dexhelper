@@ -320,6 +320,36 @@ async function main() {
     }
   }
 
+  // Ensure all maps from mapping.ts are in locationMap for graph connectivity
+  console.log('\nEnsuring all maps are in locationMap...');
+  for (const [mid, node] of Object.entries(GEN1_MAPS)) {
+    const gameId = parseInt(mid);
+    if (!locationMap.has(gameId)) {
+      locationMap.set(gameId, sortObj({
+        id: gameId,
+        n: node.name,
+        conn: node.connections,
+        pids: [],
+        dist: {}
+      }, ['id', 'n']));
+    }
+  }
+
+  for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
+    for (const [mid, node] of Object.entries(maps)) {
+      const gameId = (parseInt(group) << 8) | parseInt(mid);
+      if (!locationMap.has(gameId)) {
+        locationMap.set(gameId, sortObj({
+          id: gameId,
+          n: node.name,
+          conn: node.connections,
+          pids: [],
+          dist: {}
+        }, ['id', 'n']));
+      }
+    }
+  }
+
 // Second pass on locations to reconcile prnt for indoors
 console.log('\nReconciling location parents...');
 for (const loc of locationMap.values()) {

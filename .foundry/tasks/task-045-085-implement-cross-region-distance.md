@@ -31,5 +31,5 @@ Implement `getDistanceToMap` algorithms adapted for Gen 2 transition points.
 - Ensure the logic accurately computes pathing between Johto and Kanto.
 
 ## Acceptance Criteria
-- [ ] `getDistanceToMap` handles calculating distances across the Johto/Kanto region boundary.
-- [ ] Transition points (Magnet Train, S.S. Aqua, Route 27) are accounted for in the algorithm.
+- [x] `getDistanceToMap` handles calculating distances across the Johto/Kanto region boundary.
+- [x] Transition points (Magnet Train, S.S. Aqua, Route 27) are accounted for in the algorithm.
