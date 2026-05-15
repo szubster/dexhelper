@@ -7,7 +7,7 @@
   ],
   "rules": {
     "files": "warn",
-    "exports": "off",
+    "exports": "error",
     "types": "warn",
     "dependencies": "error",
     "devDependencies": "error",

@@ -38,3 +38,4 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 **Learning:** Sometimes, an automated code health task may request fixes for issues (like an unused import) that have already been resolved on the `main` branch.
 **Action:** Always verify the issue exists on the current branch using `grep` or `read_file` before making modifications. If the file is already in the ideal state, do not artificially introduce changes. Instead, follow the empty PR policy, documenting why no changes were required, and ensure the test suite still passes to guarantee stability.
 The unused import `CompactChainLink` issue in `src/components/PokemonDetails.tsx` is already resolved and there is no work to do. Submitting an empty PR.
+- Removed completely unused `gen2MapGraph` export from `src/engine/mapGraph/gen2Graph.ts`. Note that it was exported but not used anywhere, which could have been identified via `knip`.
