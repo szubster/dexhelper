@@ -157,21 +157,14 @@ const INTERNAL_ID_TO_DEX: Record<number, number> = {
 };
 
 /**
- * Attempts to heuristically determine the specific Generation 1 game version (Red, Blue, or Yellow).
+ * Checks for specific memory offsets utilized only by Pokémon Yellow's follow-Pikachu mechanic.
  *
- * Gen 1 saves do not contain a dedicated byte that explicitly identifies the game version.
- * Instead, this function infers the version by analyzing the player's Pokédex (owned/seen exclusives),
- * in-game trade OT names (which differ between versions), and Yellow-specific markers (like Pikachu's happiness).
- * It first checks for high-confidence Yellow markers (Pikachu friendship/status bytes).
- * If those are inconclusive, it falls back to a scoring system based on version-exclusive
- * Pokémon found in the player's Pokédex and party.
+ * In Pokémon Yellow, memory address 0x271C stores Pikachu's status, and 0x271D stores Pikachu's
+ * friendship/happiness level. If these bytes are actively utilized (non-zero and not 0xFF),
+ * it strongly indicates the save file originated from Yellow version.
  *
  * @param view - The raw save file DataView.
- * @param owned - A set of Pokémon Pokédex IDs the player has caught.
- * @param seen - A set of Pokémon Pokédex IDs the player has seen.
- * @param trainerName - The player's Original Trainer (OT) name.
- * @param partyDetails - A quick parsing of the player's party to verify if Pikachu is a native starter.
- * @returns 'red', 'blue', 'yellow', or 'unknown' if the heuristic scores are too close to confidently decide.
+ * @returns True if high-confidence Yellow version markers are present.
  */
 function hasYellowPikachuMarkers(view: DataView): boolean {
   // High-confidence Yellow markers in English version
@@ -184,6 +177,20 @@ function hasYellowPikachuMarkers(view: DataView): boolean {
   return (followingPikachu > 0 && followingPikachu < 0xff) || (pikachuHappiness > 0 && pikachuHappiness < 0xff);
 }
 
+/**
+ * Calculates heuristic scores representing the likelihood of the save originating from Red, Blue, or Yellow.
+ *
+ * This iterates through known version-exclusive Pokémon arrays (e.g., Vulpix in Blue, Growlithe in Red,
+ * or Weedle missing in Yellow) and awards points based on whether the player has seen or natively caught them.
+ * Native catches (where the Original Trainer ID matches the player's) are weighted more heavily than
+ * merely seen Pokémon, since seeing could happen via trades or battles.
+ *
+ * @param owned - A set of Pokémon Pokédex IDs the player has caught.
+ * @param seen - A set of Pokémon Pokédex IDs the player has seen.
+ * @param trainerName - The player's Original Trainer (OT) name.
+ * @param partyDetails - A quick parsing of the player's party to verify native OT ownership.
+ * @returns An object containing heuristic scores for Red (`redScore`), Blue (`blueScore`), and a penalty score for Yellow (`yellowPenalty`).
+ */
 function calculateVersionScores(
   owned: Set<number>,
   seen: Set<number>,
@@ -220,6 +227,23 @@ function calculateVersionScores(
   return { redScore, blueScore, yellowPenalty };
 }
 
+/**
+ * Attempts to heuristically determine the specific Generation 1 game version (Red, Blue, or Yellow).
+ *
+ * Gen 1 saves do not contain a dedicated byte that explicitly identifies the game version.
+ * Instead, this function infers the version by analyzing the player's Pokédex (owned/seen exclusives),
+ * in-game trade OT names (which differ between versions), and Yellow-specific markers (like Pikachu's happiness).
+ * It first checks for high-confidence Yellow markers (Pikachu friendship/status bytes).
+ * If those are inconclusive, it falls back to a scoring system based on version-exclusive
+ * Pokémon found in the player's Pokédex and party.
+ *
+ * @param view - The raw save file DataView.
+ * @param owned - A set of Pokémon Pokédex IDs the player has caught.
+ * @param seen - A set of Pokémon Pokédex IDs the player has seen.
+ * @param trainerName - The player's Original Trainer (OT) name.
+ * @param partyDetails - A quick parsing of the player's party to verify if Pikachu is a native starter.
+ * @returns 'red', 'blue', 'yellow', or 'unknown' if the heuristic scores are too close to confidently decide.
+ */
 function detectGen1GameVersion(
   view: DataView,
   owned: Set<number>,
