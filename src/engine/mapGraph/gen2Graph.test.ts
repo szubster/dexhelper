@@ -102,3 +102,27 @@ describe('resolveOutdoorMapId', () => {
     expect(result).toBe(0x90);
   });
 });
+
+describe('getDistanceToMap (Gen 2 Cross-Region)', () => {
+  const crossRegionLocations: UnifiedLocation[] = [
+    { id: 0x0306, n: 'Goldenrod City', conn: [0x0a], dist: { 0x0a: 1, 0x05: 2, 0x0307: 3 } },
+    { id: 0x0a, n: 'Saffron City', conn: [0x0306, 0x05], dist: { 0x0306: 1, 0x05: 1, 0x0307: 2 } },
+    { id: 0x05, n: 'Vermilion City', conn: [0x0a, 0x0307], dist: { 0x0a: 1, 0x0307: 1, 0x0306: 2 } },
+    { id: 0x0307, n: 'Olivine City', conn: [0x05], dist: { 0x05: 1, 0x0a: 2, 0x0306: 3 } },
+  ];
+
+  it('calculates distance from Goldenrod to Saffron (Magnet Train)', () => {
+    const result = getDistanceToMap(crossRegionLocations, 0x0306, 0x0a);
+    expect(result).toEqual({ distance: 1, name: 'Saffron City' });
+  });
+
+  it('calculates distance from Olivine to Vermilion (S.S. Aqua)', () => {
+    const result = getDistanceToMap(crossRegionLocations, 0x0307, 0x05);
+    expect(result).toEqual({ distance: 1, name: 'Vermilion City' });
+  });
+
+  it('calculates multi-hop cross-region distance (Goldenrod to Vermilion)', () => {
+    const result = getDistanceToMap(crossRegionLocations, 0x0306, 0x05);
+    expect(result).toEqual({ distance: 2, name: 'Vermilion City' });
+  });
+});

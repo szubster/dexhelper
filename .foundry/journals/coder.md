@@ -86,3 +86,22 @@ Following the Empty PR policy, I am making 0 file changes since the target artif
 
 ## task-051-087-implement-core-graph-visualizer
 Target artifacts (`DagDashboard.tsx` and `DagNode.tsx`) are already complete. Only the Acceptance Criteria checkboxes were checked off as per the Empty PR policy exception to satisfy ADR 007.
+### Gen 2 Cross-Region Distance
+
+To fix the cross-region distance calculation failure, I implemented the following:
+- Added cross-region connections in  and  for the Magnet Train (Goldenrod-Saffron), S.S. Aqua (Olivine-Vermilion), and Route 26/Route 22.
+- Updated  to include these hubs and connections.
+- Modified  to ensure *all* maps defined in the mapping files are included in the , even if they have no wild encounters. This ensures the Floyd-Warshall precomputation covers intermediate hubs and cross-region paths.
+- Verified with unit tests in .
+
+One key learning is that the distance engine is entirely dependent on the build-time precomputation. If a map is missing from the  during , it will be unreachable in the distance matrix, even if connections are logically defined in the graph.
+
+### Gen 2 Cross-Region Distance
+
+To fix the cross-region distance calculation failure, I implemented the following:
+- Added cross-region connections in `scripts/data/gen1/mapping.ts` and `scripts/data/gen2/mapping.ts` for the Magnet Train (Goldenrod-Saffron), S.S. Aqua (Olivine-Vermilion), and Route 26/Route 22.
+- Updated `src/engine/mapGraph/gen2Graph.ts` to include these hubs and connections.
+- Modified `scripts/generate-pokedata.ts` to ensure *all* maps defined in the mapping files are included in the `locationMap`, even if they have no wild encounters. This ensures the Floyd-Warshall precomputation covers intermediate hubs and cross-region paths.
+- Verified with unit tests in `src/engine/mapGraph/gen2Graph.test.ts`.
+
+One key learning is that the distance engine is entirely dependent on the build-time precomputation. If a map is missing from the `locationMap` during `generate-pokedata.ts`, it will be unreachable in the distance matrix, even if connections are logically defined in the graph.

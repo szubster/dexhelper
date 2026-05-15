@@ -320,6 +320,35 @@ async function main() {
     }
   }
 
+  // --- ENSURE ALL MAPS ARE IN GRAPH (Even if no encounters) ---
+  console.log('\nEnsuring all maps are in locationMap...');
+  for (const [id, map] of Object.entries(GEN1_MAPS)) {
+    const gameId = parseInt(id);
+    if (!locationMap.has(gameId)) {
+      locationMap.set(gameId, sortObj({
+        id: gameId,
+        n: map.name,
+        conn: map.connections,
+        pids: [],
+        dist: {}
+      }, ['id', 'n']));
+    }
+  }
+  for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
+    for (const [mid, mapNode] of Object.entries(maps)) {
+      const gameId = (parseInt(group) << 8) | parseInt(mid);
+      if (!locationMap.has(gameId)) {
+        locationMap.set(gameId, sortObj({
+          id: gameId,
+          n: mapNode.name,
+          conn: mapNode.connections,
+          pids: [],
+          dist: {}
+        }, ['id', 'n']));
+      }
+    }
+  }
+
 // Second pass on locations to reconcile prnt for indoors
 console.log('\nReconciling location parents...');
 for (const loc of locationMap.values()) {
