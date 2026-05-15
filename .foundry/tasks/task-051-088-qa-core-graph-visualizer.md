@@ -37,7 +37,7 @@ You need to verify the implementation of the core graph visualization component 
 4. Verify that edges are rendered to show directed dependencies.
 
 ## Acceptance Criteria
-- [ ] Confirm the implementation uses React Flow.
-- [ ] Verify the custom node component renders `id`, `type`, `status`, and `owner_persona`.
-- [ ] Verify the tactical aesthetic constraints are strictly met via Tailwind CSS (`rounded-none`, `border-dashed`, `font-mono`).
-- [ ] Confirm directed edges are rendered successfully.
+- [x] Confirm the implementation uses React Flow.
+- [x] Verify the custom node component renders `id`, `type`, `status`, and `owner_persona`.
+- [x] Verify the tactical aesthetic constraints are strictly met via Tailwind CSS (`rounded-none`, `border-dashed`, `font-mono`).
+- [x] Confirm directed edges are rendered successfully.

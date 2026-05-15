@@ -46,6 +46,7 @@ export function DagNode({ data }: { data: DagNodeData }) {
 
   return (
     <div
+      data-testid="dag-node"
       className={cn(
         'relative min-w-[200px] max-w-[300px] rounded-none border border-dashed p-3 font-mono transition-all',
         bgClass,
@@ -57,7 +58,7 @@ export function DagNode({ data }: { data: DagNodeData }) {
 
       <TelemetryDecoration
         label={data.type}
-        className="-top-[17px] left-[-1px] rounded-t rounded-b-none border-b-0 px-2 py-0.5 text-[8px]"
+        className="-top-[17px] left-[-1px] rounded-none border-b-0 px-2 py-0.5 text-[8px]"
         dotClassName={dotColor}
       />
 
