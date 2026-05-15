@@ -4,6 +4,7 @@ import React from 'react';
 import type { SuggestionCategory } from '../engine/assistant/strategies/types';
 import type { SaveData } from '../engine/saveParser/index';
 import { useAssistant } from '../hooks/useAssistant';
+import { objectEntries } from '../utils/object';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
@@ -130,7 +131,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
         </div>
       ) : (
         <div className="space-y-8">
-          {Object.entries(
+          {objectEntries(
             suggestions.reduce<Partial<Record<SuggestionCategory, typeof suggestions>>>((acc, s) => {
               if (!acc[s.category]) acc[s.category] = [];
               acc[s.category]?.push(s);
@@ -144,8 +145,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                 (order.indexOf(a) !== -1 ? order.indexOf(a) : 99) - (order.indexOf(b) !== -1 ? order.indexOf(b) : 99)
               );
             })
-            .map(([categoryStr, items]) => {
-              const category = categoryStr as SuggestionCategory;
+            .map(([category, items]) => {
               const catStyle = CATEGORY_STYLES[category] ?? CATEGORY_STYLES.Utility;
 
               return (
