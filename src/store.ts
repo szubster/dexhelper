@@ -154,7 +154,7 @@ export const useStore = create<AppStore>()(
             set({ saveData: data });
           }
         } catch {
-          console.error('Failed to load saved file');
+          console.error('System: load failed');
         }
       },
     }),

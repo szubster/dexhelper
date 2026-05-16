@@ -86,8 +86,8 @@ export function DagDashboard() {
 
         setNodes(layoutedNodes);
         setEdges(layoutedEdges);
-      } catch (error) {
-        console.error('Error loading DAG data:', error);
+      } catch {
+        console.error('System: DAG loading failed');
       } finally {
         setIsLoading(false);
       }
