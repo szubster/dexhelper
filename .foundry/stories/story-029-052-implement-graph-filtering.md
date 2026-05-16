@@ -34,7 +34,11 @@ Following the implementation of the core graph visualization for the DAG Dashboa
 - Adhere to the 'tactical hardware/snooping' aesthetic (sharp edges, dashed borders, monospaced fonts) for the new UI controls as specified in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Create UI components for filtering by node type and status.
-- [ ] Integrate filtering logic with the React Flow graph component state.
-- [ ] Ensure edges are updated correctly when nodes are filtered out (e.g., hiding edges connected to hidden nodes).
-- [ ] Verify that the styling of the filter controls matches the project's strict design system requirements.
+- [x] Create UI components for filtering by node type and status.
+- [x] Integrate filtering logic with the React Flow graph component state.
+- [x] Ensure edges are updated correctly when nodes are filtered out (e.g., hiding edges connected to hidden nodes).
+- [x] Verify that the styling of the filter controls matches the project's strict design system requirements.
+
+## Tasks
+- [.foundry/tasks/task-052-090-implement-graph-filtering.md](../../.foundry/tasks/task-052-090-implement-graph-filtering.md)
+- [.foundry/tasks/task-052-091-qa-graph-filtering.md](../../.foundry/tasks/task-052-091-qa-graph-filtering.md)
