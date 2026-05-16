@@ -79,3 +79,6 @@ Since `scripts/generate-pokedata.ts` was properly updated to include all nodes a
 distances such as Saffron City (ID: 10) to Goldenrod City (ID: 774) show correctly as 1.
 Verified via `pnpm test` that `gen2Graph.test.ts` handles the simulated structure perfectly.
 No YAML changes were made per standard Foundry architecture rules.
+
+## 2026-05-16
+- Verified `task-052-090-implement-graph-filtering`. React Flow components (like `Controls` and `MiniMap`) can be successfully styled to match the tactical hardware aesthetic using strict Tailwind overrides (e.g., `!rounded-none !border-dashed`), proving the library selection from ADR 008 is effective for custom aesthetic requirements.
