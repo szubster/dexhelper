@@ -2,13 +2,13 @@
 id: story-029-052-implement-graph-filtering
 type: STORY
 title: Implement Graph Filtering UI Controls
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-14'
 updated_at: '2026-05-16'
 depends_on:
   - .foundry/stories/story-029-051-implement-core-graph-visualization.md
-jules_session_id: '17641119774321155390'
+jules_session_id: null
 pr_number: null
 parent: .foundry/epics/epic-017-029-dag-dashboard-ui.md
 tags:

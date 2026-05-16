@@ -197,3 +197,9 @@
 - **2026-05-16**: PR #1357 merged. `task-051-089-fix-core-graph-visualizer-aesthetic` is now COMPLETED.
 
 - **2026-05-16**: Resurrection Loop triggered for `task-045-085-implement-cross-region-distance`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-16**: Resurrection Loop triggered for `story-028-045-cross-region-distance`. Reason: PR #1363 closed without merging.. Transitioned back to READY.
+
+- **2026-05-16**: PR #1362 merged. `story-029-052-implement-graph-filtering` is now COMPLETED.
+
+- **2026-05-16**: PR #1364 merged. `task-045-085-implement-cross-region-distance` is now COMPLETED.
