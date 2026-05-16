@@ -1,0 +1,34 @@
+---
+id: story-029-058-roamer-tracking-and-stat-evolutions
+type: STORY
+title: 'Story: Roamer Tracking & Stat-Based Evolutions'
+status: READY
+owner_persona: tech_lead
+created_at: '2026-05-16'
+updated_at: '2026-05-16'
+depends_on:
+  - .foundry/stories/story-029-054-gen2-strategy-plugin.md
+jules_session_id: null
+pr_number: null
+parent: .foundry/epics/epic-017-029-strategy-engine-adaptations.md
+tags:
+  - gen2
+  - expansion
+  - suggestion-engine
+research_references:
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Story: Roamer Tracking & Stat-Based Evolutions
+
+## Description
+Implement roamer tracking logic to guide the player to check the Pokédex for Raikou, Entei, or Suicune if missing. Also, update the evolution logic to accurately process stat-based evolutions like Tyrogue.
+
+## Acceptance Criteria
+- [ ] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
+- [ ] Evolution logic accurately evaluates stat-based requirements (e.g., Atk > Def for Hitmonlee).
+- [ ] UI dynamically displays stat requirements for stat-based evolutions.
+- [ ] Tests verify roamer tracking and stat-based evolution logic.

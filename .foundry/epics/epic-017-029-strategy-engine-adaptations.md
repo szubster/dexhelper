@@ -36,9 +36,9 @@ Inject Gen 2 specific strategy into the Assistant's core to handle new mechanics
 - **Stat-Based Evolutions**: Update evolution logic to handle stat-based evolutions like Tyrogue.
 
 ## Acceptance Criteria
-- [ ] Gen 2 Strategy Plugin is created and linked.
-- [ ] Suggestion engine handles time-based (RTC) availability.
-- [ ] Suggestion engine detects breeding opportunities for baby Pokémon.
-- [ ] Suggestion engine accounts for Headbutt and Rock Smash interactions.
-- [ ] Roamer tracking logic guides the player appropriately.
-- [ ] Evolution logic accurately processes stat-based evolutions.
+- [x] Gen 2 Strategy Plugin is created and linked. (Linked to .foundry/stories/story-029-054-gen2-strategy-plugin.md)
+- [x] Suggestion engine handles time-based (RTC) availability. (Linked to .foundry/stories/story-029-055-time-based-suggestions.md)
+- [x] Suggestion engine detects breeding opportunities for baby Pokémon. (Linked to .foundry/stories/story-029-056-breeding-suggestions.md)
+- [x] Suggestion engine accounts for Headbutt and Rock Smash interactions. (Linked to .foundry/stories/story-029-057-interaction-logic.md)
+- [x] Roamer tracking logic guides the player appropriately. (Linked to .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md)
+- [x] Evolution logic accurately processes stat-based evolutions. (Linked to .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md)
