@@ -198,6 +198,7 @@ export function PokemonDetails({
     <TacticalModal
       isOpen={true}
       onClose={onClose}
+      ariaLabel={`Details for ${pokemonName}`}
       containerClassName="items-end p-0 sm:items-center sm:p-4"
       backdropClassName="bg-black/90 backdrop-blur-xl"
       dialogClassName="slide-in-from-bottom-[100%] flex h-[95vh] flex-col overflow-hidden rounded-none border-[var(--theme-primary)]/30 border-t-2 bg-zinc-950/95 shadow-[0_0_50px_rgba(var(--theme-primary-rgb),0.1)] ease-out sm:h-[85vh] sm:max-w-5xl sm:border-2"
