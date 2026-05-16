@@ -1,11 +1,11 @@
-import { expect, test, vi, afterEach } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { DagDashboard } from '../DagDashboard';
 
 test('DagDashboard renders correctly on successful load', async () => {
   // Mock fetch to return some dummy DAG data corresponding to ParsedNode structure
-  globalThis.fetch = vi.fn().mockResolvedValue({
+  globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({
     ok: true,
     json: async () => [
       {
@@ -32,7 +32,7 @@ test('DagDashboard renders correctly on successful load', async () => {
         },
       },
     ],
-  });
+  } as unknown as Response);
 
   await render(
     <div style={{ width: '800px', height: '600px' }}>
@@ -41,11 +41,14 @@ test('DagDashboard renders correctly on successful load', async () => {
   );
 
   // Wait for fetch to complete and nodes to be rendered
-  await vi.waitUntil(async () => {
-    // DagDashboard maps the graph node id to data.label. The element is rendered in a div with text content matching the id.
-    const nodes = await page.getByText('node-1').all();
-    return nodes.length > 0;
-  }, { timeout: 2000 });
+  await vi.waitUntil(
+    async () => {
+      // DagDashboard maps the graph node id to data.label. The element is rendered in a div with text content matching the id.
+      const nodes = page.getByText('node-1').all();
+      return nodes.length > 0;
+    },
+    { timeout: 2000 },
+  );
 
   await expect.element(page.getByText('node-1')).toBeInTheDocument();
   await expect.element(page.getByText('node-2')).toBeInTheDocument();
@@ -55,7 +58,7 @@ test('DagDashboard catches and logs fetch errors securely', async () => {
   const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   // Mock fetch to fail
-  globalThis.fetch = vi.fn().mockRejectedValue(new Error('Network error'));
+  globalThis.fetch = vi.fn<typeof fetch>().mockRejectedValue(new Error('Network error'));
 
   await render(
     <div style={{ width: '800px', height: '600px' }}>
@@ -67,7 +70,7 @@ test('DagDashboard catches and logs fetch errors securely', async () => {
   // Even if nodes fail to load, the loading indicator should disappear.
   await vi.waitUntil(async () => {
     // Check that we aren't seeing the loading text
-    const loadingEl = await page.getByText('[ SYSTEM.LOADING_DAG ]').all();
+    const loadingEl = page.getByText('[ SYSTEM.LOADING_DAG ]').all();
     return loadingEl.length === 0;
   });
 
