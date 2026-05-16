@@ -324,7 +324,8 @@ async function main() {
   console.log('\nEnsuring all maps are in locationMap...');
   for (const [id, map] of Object.entries(GEN1_MAPS)) {
     const gameId = parseInt(id);
-    if (!locationMap.has(gameId)) {
+    const existing = locationMap.get(gameId);
+    if (!existing) {
       locationMap.set(gameId, sortObj({
         id: gameId,
         n: map.name,
@@ -332,12 +333,16 @@ async function main() {
         pids: [],
         dist: {}
       }, ['id', 'n']));
+    } else {
+      // ⚡ Bolt: Merge connections even if entry already exists from PokeAPI
+      existing.conn = map.connections;
     }
   }
   for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
     for (const [mid, mapNode] of Object.entries(maps)) {
       const gameId = (parseInt(group) << 8) | parseInt(mid);
-      if (!locationMap.has(gameId)) {
+      const existing = locationMap.get(gameId);
+      if (!existing) {
         locationMap.set(gameId, sortObj({
           id: gameId,
           n: mapNode.name,
@@ -345,6 +350,9 @@ async function main() {
           pids: [],
           dist: {}
         }, ['id', 'n']));
+      } else {
+        // ⚡ Bolt: Merge connections even if entry already exists from PokeAPI
+        existing.conn = mapNode.connections;
       }
     }
   }

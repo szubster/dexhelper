@@ -66,3 +66,9 @@ Verified the changes made in `task-050-083-enforce-acceptance-criteria.md`. Wrot
 **Task**: task-051-087-implement-core-graph-visualizer
 **Outcome**: FAILED
 **Notes**: The implementation violated the aesthetic constraints defined in ADR 008. The `DagNode` component passes a className with `rounded-t` to `TelemetryDecoration`, which violates the strict `rounded-none` requirement. The task has been marked as `FAILED` with a detailed rejection reason.
+
+## 2026-05-15 - Task COMPLETED: Gen 2 Cross-Region Distance
+
+**Task**: task-045-086-qa-cross-region-distance
+**Outcome**: COMPLETED
+**Notes**: Verified the fix for cross-region distance calculations. The issue was caused by disconnected map regions in the precomputed distance matrix due to a bug in the data generation script (`scripts/generate-pokedata.ts`) which failed to merge connections from mapping files into existing PokeAPI location entries. Successfully updated the generator logic, refreshed `data/db/locations.jsonl`, and verified that distances between Johto and Kanto (e.g., Goldenrod to Saffron via Magnet Train) are now correctly calculated.

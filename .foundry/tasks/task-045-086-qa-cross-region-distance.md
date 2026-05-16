@@ -2,7 +2,7 @@
 id: task-045-086-qa-cross-region-distance
 type: TASK
 title: 'QA: Gen 2 Cross-Region Distance Algorithm'
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-14'
 updated_at: '2026-05-14'
@@ -32,5 +32,5 @@ Verify the implementation of `getDistanceToMap` algorithms adapted for Gen 2 tra
 - Validate the logic against expected values in tests or specific known routes.
 
 ## Acceptance Criteria
-- [ ] `getDistanceToMap` handles calculating distances across the Johto/Kanto region boundary accurately.
-- [ ] Tests confirm that transition points (Magnet Train, S.S. Aqua, Route 27) are correctly factored into distance calculations.
+- [x] `getDistanceToMap` handles calculating distances across the Johto/Kanto region boundary accurately.
+- [x] Tests confirm that transition points (Magnet Train, S.S. Aqua, Route 27) are correctly factored into distance calculations.
