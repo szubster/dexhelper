@@ -2,12 +2,12 @@
 id: task-051-089-fix-core-graph-visualizer-aesthetic
 type: TASK
 title: Fix Core Graph Visualizer Component Aesthetic (ADR 008)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-14'
 updated_at: '2026-05-16'
 depends_on: []
-jules_session_id: '1296168578968828002'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-029-051-implement-core-graph-visualization.md
 tags:

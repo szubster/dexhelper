@@ -2,12 +2,12 @@
 id: task-045-085-implement-cross-region-distance
 type: TASK
 title: Implement Gen 2 Cross-Region Distance Algorithm
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-14'
 updated_at: '2026-05-16'
 depends_on: []
-jules_session_id: '4993830518971931717'
+jules_session_id: null
 pr_number: null
 parent: story-028-045-cross-region-distance
 tags:
@@ -16,7 +16,7 @@ tags:
   - routing
 research_references: []
 rejection_count: 1
-rejection_reason: 'Resolved: Validated by human/agent'
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 
