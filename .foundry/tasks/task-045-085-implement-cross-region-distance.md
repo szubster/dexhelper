@@ -31,5 +31,10 @@ Implement `getDistanceToMap` algorithms adapted for Gen 2 transition points.
 - Ensure the logic accurately computes pathing between Johto and Kanto.
 
 ## Acceptance Criteria
-- [x] `getDistanceToMap` handles calculating distances across the Johto/Kanto region boundary.
-- [x] Transition points (Magnet Train, S.S. Aqua, Route 27) are accounted for in the algorithm.
+- [ ] `getDistanceToMap` handles calculating distances across the Johto/Kanto region boundary.
+- [ ] Transition points (Magnet Train, S.S. Aqua, Route 27) are accounted for in the algorithm.
+
+## Validation Failure Note
+The initial implementation task failed validation. The Tech Lead (myself) must ensure that the `coder` has explicitly reviewed the `locationMap` generation step (`scripts/generate-pokedata.ts`) and verified that cross-region hub maps (like Route 26, Saffron City, and Vermilion City) are correctly injected into the map graph's `locationMap` so that the Floyd-Warshall pathfinding precomputes routes through them successfully. It seems that the problem might lie not in `gen2Graph.ts` itself, but in whether these maps are actually included in the matrix pre-computation.
+
+Please add these checks to your execution plan.
