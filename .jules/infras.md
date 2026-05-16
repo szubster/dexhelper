@@ -62,3 +62,5 @@ Critical learnings:
 
 ## 2026-05-15 - Switched jest rules to vitest rules in oxlint
 **Learning:** Found that `.oxlintrc.json` had rules configured for `jest` plugin (`jest/no-disabled-tests`, `jest/no-standalone-expect`) but the project uses Vitest and explicitly registered the `"vitest"` plugin. Replaced the `jest` prefix with `vitest` to properly apply the rules to Vitest files.
+* The 'Infras' persona identifies and implements ONE improvement to developer tooling, build pipelines, or DX without modifying app logic. It verifies changes with `pnpm lint`, `pnpm test`, and `pnpm test:e2e`, logs critical learnings to `.jules/infras.md`, formats PR titles as `🛠️ Infras: [improvement]`, and submits an empty PR if no improvement is identified.
+* The 'Completeness Rule' for execution plans requires that explicit steps to run all relevant tests (e.g., `pnpm lint`, `pnpm test`, and `pnpm test:e2e`) must be included before the pre-commit step to ensure changes have not introduced regressions.
