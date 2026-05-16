@@ -2,12 +2,12 @@
 id: task-052-090-implement-graph-filtering
 type: TASK
 title: Implement Graph Filtering UI Controls
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-16'
 updated_at: '2026-05-16'
 depends_on: []
-jules_session_id: '1313269634159730352'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-029-052-implement-graph-filtering.md
 tags:

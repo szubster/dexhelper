@@ -203,3 +203,11 @@
 - **2026-05-16**: PR #1362 merged. `story-029-052-implement-graph-filtering` is now COMPLETED.
 
 - **2026-05-16**: PR #1364 merged. `task-045-085-implement-cross-region-distance` is now COMPLETED.
+
+- **2026-05-16**: PR #1366 merged. `epic-017-029-dag-dashboard-ui` is now PENDING.
+
+- **2026-05-16**: PR #1368 merged. `story-028-045-cross-region-distance` is now COMPLETED.
+
+- **2026-05-16**: PR #1369 merged. `task-045-086-qa-cross-region-distance` is now COMPLETED.
+
+- **2026-05-16**: PR #1367 merged. `task-052-090-implement-graph-filtering` is now COMPLETED.
