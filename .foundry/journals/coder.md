@@ -105,3 +105,6 @@ To fix the cross-region distance calculation failure, I implemented the followin
 - Verified with unit tests in `src/engine/mapGraph/gen2Graph.test.ts`.
 
 One key learning is that the distance engine is entirely dependent on the build-time precomputation. If a map is missing from the `locationMap` during `generate-pokedata.ts`, it will be unreachable in the distance matrix, even if connections are logically defined in the graph.
+- Verified target artifacts ( and ) already strictly complied with ADR 008 (`rounded-none`). Checked off acceptance criteria in task markdown node per Empty PR policy exception.
+
+- Verified target artifacts (`DagNode.tsx` and `TelemetryDecoration.tsx`) already strictly complied with ADR 008 (`rounded-none`). Checked off acceptance criteria in task markdown node per Empty PR policy exception.

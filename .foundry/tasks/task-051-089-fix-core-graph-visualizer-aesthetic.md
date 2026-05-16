@@ -32,6 +32,6 @@ The previous implementation of the Core Graph Visualizer (`task-051-087`) was re
 3. **Adhere to ADR 008**: Explicitly avoid any generic visual patterns like soft shadows or rounded corners (e.g. `rounded-t`, `rounded-b`, `rounded-sm`). Everything must be sharp edges (`rounded-none`).
 
 ## Acceptance Criteria
-- [ ] `src/components/dag/DagNode.tsx` is updated to remove all rounded corners, using `rounded-none` instead of `rounded-t` or `rounded-b-none`.
-- [ ] `src/components/TelemetryDecoration.tsx` is updated to remove `rounded-b` and use `rounded-none`.
-- [ ] Ensure `pnpm lint` and `pnpm test` pass.
+- [x] `src/components/dag/DagNode.tsx` is updated to remove all rounded corners, using `rounded-none` instead of `rounded-t` or `rounded-b-none`.
+- [x] `src/components/TelemetryDecoration.tsx` is updated to remove `rounded-b` and use `rounded-none`.
+- [x] Ensure `pnpm lint` and `pnpm test` pass.
