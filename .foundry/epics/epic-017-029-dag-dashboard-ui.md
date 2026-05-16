@@ -38,10 +38,11 @@ This Epic covers the frontend user interface for the DAG Dashboard Webview. It c
 - [x] Select and integrate a graph rendering library (e.g., Mermaid.js, React Flow).
 - [x] Implement the core graph visualization component.
 - [x] Implement filtering UI controls and logic.
-- [ ] Implement dependency highlighting interactions.
+- [x] Implement dependency highlighting interactions.
 - [ ] Wire up the UI to consume data from the parsing layer.
 
 ## Stories
 - `.foundry/stories/story-029-048-evaluate-graph-libraries.md`
 - `.foundry/stories/story-029-051-implement-core-graph-visualization.md`
 - `.foundry/stories/story-029-052-implement-graph-filtering.md`
+- `.foundry/stories/story-029-053-implement-dependency-highlighting.md`
