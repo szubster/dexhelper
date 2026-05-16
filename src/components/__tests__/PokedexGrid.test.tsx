@@ -38,4 +38,17 @@ describe('PokedexGrid', () => {
     await render(<RouterProvider router={router} />);
     await expect.element(page.getByText('[ SYS.QUERY_FAILED ]', { exact: true })).toBeInTheDocument();
   });
+
+  test('renders pokemon list when not empty', async () => {
+    const mockList = Array.from({ length: 50 }, (_, i) => ({
+      id: i + 1,
+      name: `Pokemon${i + 1}`,
+      idString: String(i + 1).padStart(3, '0'),
+      nameLower: `pokemon${i + 1}`,
+    }));
+
+    const router = createMockRouter(<PokedexGrid pokemonList={mockList} />);
+    await render(<RouterProvider router={router} />);
+    await expect.element(page.getByText('Pokemon1', { exact: true })).toBeInTheDocument();
+  });
 });
