@@ -35,3 +35,5 @@ GitHub Advisory GHSA-rmmr-r34h-pfm5 identified critical malware in `@tanstack/hi
 
 ### Solution
 Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While the advisory states `>=0` is vulnerable, version `1.161.6` was published months ago and is widely considered stable before the malicious versions were injected. Verified that `pnpm audit --prod` still reports it, but this is a targeted mitigation until `@tanstack/react-router` releases a clean version.
+## Sanitize Error Logging (CWE-209)
+**Pattern:** When modifying generic `console.error` handlers, ensure that the variable representing the caught error is completely removed from the `catch` signature if it is no longer used, or prefix it with an underscore (e.g., `catch (_error)`) to avoid unused variable linting errors (like those raised by Biome). Alternatively, use `catch {` directly without capturing the error object.

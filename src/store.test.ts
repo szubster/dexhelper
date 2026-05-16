@@ -161,7 +161,7 @@ describe('Zustand Store', () => {
 
       await useStore.getState().loadSaveFromStorage();
 
-      expect(mockConsoleError).toHaveBeenCalledWith('Failed to load saved file');
+      expect(mockConsoleError).toHaveBeenCalledWith('System: load failed');
     });
 
     it('should ignore loadSaveFromStorage if getSave returns undefined', async () => {
