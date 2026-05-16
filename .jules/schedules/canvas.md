@@ -34,7 +34,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 - Read your journal before starting — it's your only memory
 - Include a journal entry for the current change in every PR you open. Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens.
 - Run `pnpm lint` and `pnpm test` before pushing
-- Include before/after screenshots in the PR description
+- Start the local dev server (`pnpm run dev`), write a temporary Python Playwright script to run a Core User Journey (CUJ), record a video to `/home/jules/verification/videos`, take a screenshot in `/home/jules/verification/screenshots`, and call the `frontend_verification_complete` tool to include before/after screenshots
 - Keep changes to a single component or page — ambitious but scoped
 - Adhere to the project's tactical hardware/snooping aesthetic
 

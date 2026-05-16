@@ -90,3 +90,9 @@
 **Outcome:** Accepted
 **Why:** The `shield.md` journal showed that when no code fixes were found, the agent repeatedly bloated its own prompt (`.jules/schedules/shield.md`) with exhaustive lists of generic web vulnerabilities (like "Guard against Tab-nabbing", "Guard against CSRF"). This caused the prompt to grow unmanageably and lose its focus.
 **Pattern:** Do not instruct agents to expand their prompt with generic lists when they lack actionable work; instead, default to routine tasks (like `pnpm audit`) or skip execution.
+
+## 2026-06-27 - [Accepted] - Prompt improvement - Update Canvas to require visual verification via Playwright
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The Canvas prompt instructed the agent to "Include before/after screenshots in the PR description" without explaining *how* to generate them in the headless environment.
+**Pattern:** Update prompts to ensure UI agents explicitly know how to run the dev server and use Python Playwright to record and capture screenshots for visual verification.
