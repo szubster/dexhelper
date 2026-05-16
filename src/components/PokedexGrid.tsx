@@ -6,6 +6,7 @@ import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import type { PokemonListItem } from '../utils/pokemonQueries';
 import { PokedexCard } from './PokedexCard';
+import { TacticalPanel } from './TacticalPanel';
 
 export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] }) {
   const saveData = useStore((s) => s.saveData);
@@ -86,11 +87,11 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
 
   if (finalPokemon.length === 0) {
     return (
-      <div className="fade-in mx-1 mt-4 flex animate-in flex-col items-center justify-center rounded-[2rem] border border-zinc-800/50 bg-zinc-900/50 p-12 text-center duration-500">
+      <TacticalPanel className="fade-in mx-1 mt-4 flex animate-in flex-col items-center justify-center p-12 text-center duration-500">
         <SearchX className="mb-4 text-zinc-600" size={48} />
-        <h3 className="font-bold text-lg text-zinc-400 uppercase tracking-wide">No Pokémon Found</h3>
-        <p className="mt-2 max-w-sm font-medium text-sm text-zinc-600">
-          Try adjusting your search terms or clearing your filters to see more results.
+        <h3 className="font-bold font-mono text-lg text-zinc-400 uppercase tracking-wide">[ SYS.QUERY_FAILED ]</h3>
+        <p className="mt-2 max-w-sm font-medium font-mono text-sm text-zinc-600">
+          No matches found in database. Adjust search parameters or clear active filters.
         </p>
         <button
           type="button"
@@ -100,11 +101,11 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
             useStore.getState().setFilters([]);
             useStore.getState().setSelectedLocationId(null);
           }}
-          className="mt-6 rounded-2xl border border-[var(--theme-primary)]/20 bg-[var(--theme-primary)]/10 px-6 py-2.5 font-black text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          className="mt-6 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-6 py-2.5 font-black font-mono text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
         >
           Clear Filters
         </button>
-      </div>
+      </TacticalPanel>
     );
   }
 
