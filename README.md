@@ -4,6 +4,15 @@ A premium Pokédex and storage viewer for Gen 1 and Gen 2 save files. Track your
 
 [View your app in AI Studio](https://ai.studio/apps/ee4bbb7f-4976-4972-af63-9c1344a51a04)
 
+## Architecture Overview
+
+DexHelper is built as an offline-first, client-side application. It relies heavily on static data generation and robust browser storage to ensure high performance and privacy.
+
+- **`src/engine/saveParser`**: The core data ingestion engine. Because early Game Boy saves lack self-describing structures or standard versions, this module uses binary offsets, padding checks, and heuristic detection (like Pikachu's friendship bytes or Pokédex exclusivity) to identify versions and extract player state into a unified `SaveData` JSON schema.
+- **`src/engine/assistant`**: The offline recommendation engine. It operates synchronously, leveraging `O(1)` Set/Map lookups and a generation-specific `Strategy Pattern` to rank missing Pokémon by "actionability" (e.g., Local Map > Ready to Evolve > Nearby > Trade).
+- **`src/db/PokeDB` & `DexDataLoader`**: The IndexedDB persistence and request batching layer. Due to the massive size of the complete Pokédex and encounter matrices, `PokeDB` synchronizes a compact JSONL payload. `DexDataLoader` collapses rapid, overlapping data requests during list renders into single `bulkGet` transactions to prevent database bottlenecks.
+- **`scripts/`**: The Extract, Transform, Load (ETL) pipeline. These build-time scripts pull data from upstream PokeAPI and Game Boy decompilation repositories (`pret`), calculate `O(1)` graph distances using Floyd-Warshall, inject missing event encounters (like the Bug Catching Contest), and output highly compacted JSONL payloads for the browser to consume.
+
 ## Features
 - **Save File Parsing**: Read Gen 1 and Gen 2 `.sav` files to analyze your collection and stats.
 - **AI-Powered Insights**: Get tailored advice on completing your Pokédex using the Gemini API.
@@ -40,17 +49,20 @@ pnpm dev
 ```
 The app will be available at `http://localhost:3000`.
 
+## Contribution Guide
+
+When contributing to DexHelper, ensure you follow existing patterns and maintain offline-first performance.
+
+- **Modifying Core Engine Logic:** If you modify `src/engine`, ensure you add or update corresponding unit tests. Run `pnpm test` and `pnpm lint` locally before submitting a PR.
+- **Updating Map or Encounter Data:** Any changes to how Pokémon are obtained must be processed through the data pipeline. Modify the constants in `scripts/data/` and regenerate the IndexedDB payloads using `pnpm run data:gen-maps` and `pnpm run data:gen`.
+- **UI Verification:** All new components should adhere to the sharp-edge 'tactical hardware' aesthetic (no rounded borders). If modifying the frontend, run the dev server (`pnpm dev`) and manually verify the changes across different viewports. Run `pnpm test:e2e` to ensure Core User Journeys are not broken.
+
 ## Available Scripts
 
 - `pnpm dev`: Starts the Vite development server.
 - `pnpm build`: Builds the app for production.
 - `pnpm preview`: Locally previews the production build.
 - `pnpm lint`: Runs TypeScript type checking and style verification.
-
-## Testing
-
-This project uses **Vitest** for unit testing and **Playwright** for end-to-end (E2E) testing.
-
 - `pnpm test`: Run unit tests using Vitest.
 - `pnpm test:e2e`: Run Playwright E2E tests.
 - `pnpm test:e2e:ui`: Run Playwright E2E tests in UI mode.

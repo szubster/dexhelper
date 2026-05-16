@@ -102,3 +102,7 @@ Documenting these mechanical quirks is essential for future maintainability of t
 Documenting these functions ensures that future maintainers understand the business logic for suggestion prioritization and the performance-critical mutation patterns.
 - Documented `src/engine/assistant/README.md` to explain the recommendation algorithm's O(1) constraints, caching optimizations, Priority ranking system, Strategy pattern for multi-generation support, and its core generator sub-helpers.
 - Learned that JSDoc blocks in `src/engine/saveParser/parsers/gen1.ts` were improperly placed, with the version detection method's JSDoc placed on top of the Pikachu marker checker. I corrected this and added detailed JSDocs to the heuristic methods.
+## 2026-05-18 - Root Architecture Documentation
+
+**What:** Added Architecture Overview and Contribution Guide to the root `README.md`.
+**Why:** The codebase consists of multiple complex, decoupled systems (binary `saveParser`, O(1) synchronous `suggestionEngine`, IndexedDB batching via `PokeDB`/`DexDataLoader`, and the ETL `scripts/` pipeline). Root-level documentation was missing to explain *how* these pieces fit together to achieve the offline-first performance requirement. This high-level overview serves to orient new developers (and agents) before they dive into specific module-level `README`s, preventing architectural misunderstandings like adding async calls to the synchronous suggestion engine.
