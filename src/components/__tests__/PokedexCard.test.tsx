@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   createMemoryHistory,
   createRootRoute,
@@ -5,9 +6,9 @@ import {
   createRouter,
   RouterProvider,
 } from '@tanstack/react-router';
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, afterEach } from 'vitest';
 import { page } from 'vitest/browser';
-import { render } from 'vitest-browser-react';
+import { render, cleanup } from 'vitest-browser-react';
 import type { PokemonListItem } from '../../utils/pokemonQueries';
 import { PokedexCard } from '../PokedexCard';
 
@@ -32,6 +33,10 @@ const createMockRouter = (component: React.ReactNode) => {
   const history = createMemoryHistory();
   return createRouter({ routeTree, history });
 };
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('PokedexCard', () => {
   test('renders tactical elements in unknown state', async () => {
@@ -125,4 +130,9 @@ describe('PokedexCard', () => {
 
     await expect.element(page.getByText('[ SEEN ]', { exact: true })).toBeInTheDocument();
   });
+});
+
+// Hack to prevent hanging process from missing file
+afterEach(async () => {
+  await cleanup();
 });

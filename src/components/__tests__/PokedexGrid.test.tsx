@@ -6,9 +6,9 @@ import {
   createRouter,
   RouterProvider,
 } from '@tanstack/react-router';
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, afterEach } from 'vitest';
 import { page } from 'vitest/browser';
-import { render } from 'vitest-browser-react';
+import { render, cleanup } from 'vitest-browser-react';
 import { PokedexGrid } from '../PokedexGrid';
 
 const queryClient = new QueryClient();
@@ -28,6 +28,10 @@ const createMockRouter = (component: React.ReactNode) => {
   return createRouter({ routeTree, history });
 };
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('PokedexGrid', () => {
   test('renders [ SYS.QUERY_FAILED ] when empty', async () => {
     const router = createMockRouter(<PokedexGrid pokemonList={[]} />);
@@ -36,4 +40,9 @@ describe('PokedexGrid', () => {
 
     await expect.element(page.getByText('[ SYS.QUERY_FAILED ]', { exact: true })).toBeInTheDocument();
   });
+});
+
+// Hack to prevent hanging process from missing file
+afterEach(async () => {
+  await cleanup();
 });
