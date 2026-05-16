@@ -20,6 +20,7 @@ export function VersionModal() {
   return (
     <TacticalModal
       isOpen={isVersionModalOpen}
+      ariaLabel="Version Conflict Resolution"
       containerClassName="z-[70]"
       backdropClassName="bg-black/90 backdrop-blur-md"
       dialogClassName="max-w-lg border border-zinc-800 border-dashed bg-zinc-900"
