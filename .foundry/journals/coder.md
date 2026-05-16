@@ -113,3 +113,7 @@ One key learning is that the distance engine is entirely dependent on the build-
 - Verified target artifacts ( and ) already strictly complied with ADR 008 (`rounded-none`). Checked off acceptance criteria in task markdown node per Empty PR policy exception.
 
 - Verified target artifacts (`DagNode.tsx` and `TelemetryDecoration.tsx`) already strictly complied with ADR 008 (`rounded-none`). Checked off acceptance criteria in task markdown node per Empty PR policy exception.
+
+### React Flow Filter Integration
+- **Pattern**: When dynamically filtering nodes and edges passed to `ReactFlow`, explicitly pass filtered lists using `useMemo`. When dealing with `ReactFlow`'s `node.data`, which often has index signatures, explicitly use bracket notation `node.data['key']` instead of dot notation if TypeScript is configured strictly (`noPropertyAccessFromIndexSignature: true`). To appease Biome's `useLiteralKeys` rule, wrap the line with `// biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation`.
+- **Learning**: Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`.

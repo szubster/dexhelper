@@ -52,6 +52,30 @@ test('DagDashboard renders correctly on successful load', async () => {
 
   await expect.element(page.getByText('node-1')).toBeInTheDocument();
   await expect.element(page.getByText('node-2')).toBeInTheDocument();
+
+  // Test filtering functionality
+  // node-1 is TASK/COMPLETED, node-2 is TASK/ACTIVE
+
+  // Toggle off ACTIVE nodes
+  const activeStatusButton = page.getByRole('button', { name: 'ACTIVE' });
+  await activeStatusButton.click();
+
+  // node-2 should disappear from the graph (and document)
+  await expect.element(page.getByText('node-2')).not.toBeInTheDocument();
+  // node-1 should still be visible
+  await expect.element(page.getByText('node-1')).toBeInTheDocument();
+
+  // Toggle off TASK type
+  const taskTypeButton = page.getByRole('button', { name: 'TASK' });
+  await taskTypeButton.click();
+
+  // node-1 should also disappear
+  await expect.element(page.getByText('node-1')).not.toBeInTheDocument();
+
+  // Toggle TASK type back on
+  await taskTypeButton.click();
+  // node-1 should reappear
+  await expect.element(page.getByText('node-1')).toBeInTheDocument();
 });
 
 test('DagDashboard catches and logs fetch errors securely', async () => {
