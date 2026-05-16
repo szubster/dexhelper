@@ -9,6 +9,7 @@ import type { PokeballType } from '../store';
 import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { LcdGrid } from './LcdGrid';
 import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbability';
 import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
 import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
@@ -209,13 +210,7 @@ export function PokemonDetails({
           <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-10">
             <div className="group relative">
               <div className="zoom-in-50 fade-in relative flex h-32 w-32 animate-in items-center justify-center overflow-hidden rounded-none border border-[var(--theme-primary)]/40 border-dashed bg-black/60 fill-mode-both shadow-[0_0_30px_rgba(0,0,0,0.8)] transition-colors delay-100 duration-500 group-hover:border-[var(--theme-primary)] group-hover:bg-black/80 sm:h-40 sm:w-40">
-                <div
-                  className="pointer-events-none absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage: 'radial-gradient(circle, var(--theme-primary) 1px, transparent 1px)',
-                    backgroundSize: '4px 4px',
-                  }}
-                />
+                <LcdGrid className="opacity-10" color="var(--theme-primary)" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[var(--theme-primary)]/20 to-transparent opacity-0 transition-opacity group-hover:animate-[scan_2s_linear_infinite] group-hover:opacity-100" />
                 <PokemonSprite
                   pokemonId={pokemonId}

@@ -2,6 +2,7 @@ import { CheckCircle2, Database, Loader2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { cn } from '../utils/cn';
+import { LcdGrid } from './LcdGrid';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
 interface SyncProgressDetail {
@@ -87,13 +88,7 @@ export function SyncProgress() {
         <TelemetryDecoration label="SYS.SYNC_ACTIVE" className="top-0 left-4" />
 
         <div className="relative mt-4 flex h-24 w-24 items-center justify-center border border-white/5 bg-zinc-900/50">
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.05]"
-            style={{
-              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-              backgroundSize: '4px 4px',
-            }}
-          />
+          <LcdGrid className="opacity-[0.05]" />
           <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
 
           {isComplete ? (

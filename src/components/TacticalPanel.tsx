@@ -1,6 +1,7 @@
 import React from 'react';
 import { cn } from '../utils/cn';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { LcdGrid } from './LcdGrid';
 
 interface TacticalPanelProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: 'emerald' | 'red' | 'purple' | 'blue' | 'pink' | 'white' | 'default';
@@ -31,13 +32,7 @@ export const TacticalPanel = React.forwardRef<HTMLDivElement, TacticalPanelProps
         {...props}
       >
         {/* Subtle LCD Grid Background */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '4px 4px',
-          }}
-        />
+        <LcdGrid className="opacity-[0.03]" />
 
         {/* Scanline overlay */}
         <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-10" />

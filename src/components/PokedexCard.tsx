@@ -4,6 +4,7 @@ import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
 import type { PokemonListItem } from '../utils/pokemonQueries';
+import { LcdGrid } from './LcdGrid';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { TacticalCard } from './TacticalCard';
 
@@ -82,13 +83,7 @@ export const PokedexCard = React.memo(function PokedexCard({
       {/* Sprite Container */}
       <div className="relative mb-4 flex aspect-square items-center justify-center overflow-hidden border border-white/5 bg-black/40 transition-colors group-hover:bg-black/60">
         {/* LCD Grid Background */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '4px 4px',
-          }}
-        />
+        <LcdGrid className="opacity-[0.05]" />
 
         {isShiny && (
           <div className="absolute -top-1 -right-1 z-10 animate-[spin_4s_linear_infinite] text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
