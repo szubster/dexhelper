@@ -1,3 +1,8 @@
+## 2026-05-16: Empty PR for Task task-045-085-implement-cross-region-distance
+- The target artifacts `getDistanceToMap` and the Gen 2 cross-region distance graph are already fully implemented in `src/engine/mapGraph/gen2Graph.ts`.
+- The distance precomputation logic including map connections between Johto and Kanto (like Magnet Train, S.S. Aqua, Route 26, Route 22, Route 27) works perfectly. Unit tests exist and pass successfully in `src/engine/mapGraph/gen2Graph.test.ts`.
+- The Acceptance Criteria checkboxes were already checked in the task file (`.foundry/tasks/task-045-085-implement-cross-region-distance.md`), conforming with the Empty PR Policy and ADR 007 / ADR 009.
+- Submitting an empty PR to allow the DAG to progress since the task is completed and verified.
 # 2026-04-23 - Task 018
 
 Successfully implemented the Scheduled Agent Registry by creating the GitHub Actions workflows for TPM and Agile Coach personas.
