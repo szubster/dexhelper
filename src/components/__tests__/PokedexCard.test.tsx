@@ -1,4 +1,3 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   createMemoryHistory,
   createRootRoute,
@@ -6,9 +5,9 @@ import {
   createRouter,
   RouterProvider,
 } from '@tanstack/react-router';
-import { describe, expect, test, afterEach } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { page } from 'vitest/browser';
-import { render, cleanup } from 'vitest-browser-react';
+import { render } from 'vitest-browser-react';
 import type { PokemonListItem } from '../../utils/pokemonQueries';
 import { PokedexCard } from '../PokedexCard';
 
@@ -34,10 +33,6 @@ const createMockRouter = (component: React.ReactNode) => {
   return createRouter({ routeTree, history });
 };
 
-afterEach(() => {
-  cleanup();
-});
-
 describe('PokedexCard', () => {
   test('renders tactical elements in unknown state', async () => {
     const router = createMockRouter(
@@ -52,11 +47,12 @@ describe('PokedexCard', () => {
       />,
     );
 
-    await render(<RouterProvider router={router} />);
+    const { unmount } = await render(<RouterProvider router={router} />);
 
     // Test for ID styling
     await expect.element(page.getByText('ID')).toBeInTheDocument();
     await expect.element(page.getByText('001')).toBeInTheDocument();
+    await unmount();
   });
 
   test('renders [ SECURED ] when in storage', async () => {
@@ -78,9 +74,10 @@ describe('PokedexCard', () => {
       />,
     );
 
-    await render(<RouterProvider router={router} />);
+    const { unmount } = await render(<RouterProvider router={router} />);
 
     await expect.element(page.getByText('[ SECURED ]', { exact: true })).toBeInTheDocument();
+    await unmount();
   });
 
   test('renders [ DEX_ONLY ] when owned but not in storage', async () => {
@@ -102,9 +99,10 @@ describe('PokedexCard', () => {
       />,
     );
 
-    await render(<RouterProvider router={router} />);
+    const { unmount } = await render(<RouterProvider router={router} />);
 
     await expect.element(page.getByText('[ DEX_ONLY ]', { exact: true })).toBeInTheDocument();
+    await unmount();
   });
 
   test('renders [ SEEN ] when seen but not owned', async () => {
@@ -126,13 +124,9 @@ describe('PokedexCard', () => {
       />,
     );
 
-    await render(<RouterProvider router={router} />);
+    const { unmount } = await render(<RouterProvider router={router} />);
 
     await expect.element(page.getByText('[ SEEN ]', { exact: true })).toBeInTheDocument();
+    await unmount();
   });
-});
-
-// Hack to prevent hanging process from missing file
-afterEach(async () => {
-  await cleanup();
 });
