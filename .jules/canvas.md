@@ -98,3 +98,9 @@
 **Outcome:** Accepted
 **Why:** While the outer wrappers were previously updated to the TacticalPanel, many inner elements still retained generic web UI patterns (rounded corners). This change fully commits the deep component tree of the Details view to the project's strict tactical hardware/snooping aesthetic (ADR 008).
 **Pattern:** Ensure that even deeply nested elements (like location chips, evolution method badges, and coordinate markers) adhere to the tactical aesthetics (sharp edges, dashed borders) to maintain absolute visual coherence and avoid breaking the hardware illusion.
+
+## 2026-05-20 - [Accepted] - 🖼️ Canvas: Tactical Grid Views (Storage/Pokedex) Redesign
+**What:** Redesigned the `StorageGrid` and `PokedexGrid` components to fully embrace the tactical "snooping" aesthetic. Replaced all rounded glassmorphism in empty states with `<TacticalPanel>` and monospace telemetry headers (`[ EMPTY ]`, `[ SYS.QUERY_FAILED ]`). Replaced all rounded badges (`rounded-lg`, `rounded-full`) in `PokedexCard` with sharp, dashed telemetry tags. Removed rounded corners from the `TacticalCard` storage variants.
+**Outcome:** Accepted
+**Why:** Brings the final remaining generic web UI patterns within the main list and grid views in line with the heavily tactical, specialized hardware motif, solidifying the application's unique visual identity.
+**Pattern:** Consistently eliminate generic web UI patterns (rounded corners, soft hover states, circular dot indicators) in favor of sharp, high-contrast, terminal-like telemetry tags and borders to maintain the specialized device illusion.

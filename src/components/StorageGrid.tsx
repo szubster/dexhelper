@@ -6,6 +6,7 @@ import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { TacticalCard } from './TacticalCard';
+import { TacticalPanel } from './TacticalPanel';
 
 export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
   const saveData = useStore((s) => s.saveData);
@@ -68,21 +69,25 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
         return (
           <div key={location} className="slide-in-from-bottom-4 animate-in space-y-8 duration-500">
             <div className="flex items-center gap-6">
-              <h2 className="font-black font-display text-3xl text-white uppercase tracking-tight">{location}</h2>
-              <div className="h-px flex-1 bg-zinc-900"></div>
-              <span className="font-black text-[10px] text-zinc-600 uppercase tracking-widest">
+              <div className="flex items-center gap-3 border-zinc-800 border-b border-dashed pb-2">
+                <span className="font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-widest">
+                  [ SYS.DIR ]
+                </span>
+                <h2 className="font-black font-display text-3xl text-white uppercase tracking-tight">{location}</h2>
+              </div>
+              <div className="h-px flex-1 border-zinc-800 border-b border-dashed bg-zinc-900"></div>
+              <span className="font-black font-mono text-[10px] text-zinc-600 uppercase tracking-widest">
                 {pokemonInLocation.length} Units
               </span>
             </div>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {pokemonInLocation.length === 0 ? (
-                <div className="group flex min-h-[180px] flex-col items-center justify-center rounded-3xl border-2 border-zinc-800/30 border-dashed bg-zinc-900/20 p-5 text-center transition-all duration-300 hover:border-zinc-700/50">
-                  <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-zinc-800/50 bg-zinc-900/50 transition-transform group-hover:scale-110">
-                    <div className="h-6 w-6 animate-spin-slow rounded-full border-2 border-zinc-700/30 border-t-zinc-500/50" />
-                  </div>
-                  <span className="font-black text-[10px] text-zinc-600 uppercase italic tracking-[0.3em]">EMPTY</span>
-                </div>
+                <TacticalPanel className="flex min-h-[180px] flex-col items-center justify-center p-5 text-center transition-all duration-300 hover:border-zinc-700/50">
+                  <span className="font-black font-mono text-[10px] text-zinc-600 uppercase tracking-[0.3em]">
+                    [ EMPTY ]
+                  </span>
+                </TacticalPanel>
               ) : (
                 pokemonInLocation.map(({ p, pokemon }, idx) => {
                   let variant: 'storage-default' | 'storage-emerald' | 'storage-amber' | 'storage-red' =
@@ -107,10 +112,10 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       <div className="absolute top-3 left-3 font-bold font-mono text-[10px] text-zinc-600">
                         LV.{p.level}
                       </div>
-                      <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5">
+                      <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-1.5">
                         {p.isShiny && <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />}
                         {p.otName && (
-                          <div className="max-w-[60px] truncate rounded border border-zinc-800 bg-zinc-950 px-1.5 py-0.5 font-black text-[8px] text-zinc-500">
+                          <div className="max-w-[60px] truncate rounded-none border border-zinc-800 border-dashed bg-zinc-950 px-1.5 py-0.5 font-black font-mono text-[8px] text-zinc-500 uppercase">
                             {p.otName}
                           </div>
                         )}

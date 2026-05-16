@@ -64,8 +64,8 @@ export const PokedexCard = React.memo(function PokedexCard({
     >
       {/* Card Header: Num & Icons */}
       <div className="mb-3 flex items-center justify-between">
-        <div className="flex items-center gap-1 rounded-full border border-white/5 bg-white/5 px-2 py-0.5">
-          <span className="font-black text-[9px] text-zinc-500 uppercase tracking-tighter">ID</span>
+        <div className="flex items-center gap-1 rounded-none border border-zinc-800 border-dashed bg-white/5 px-2 py-0.5">
+          <span className="font-black font-mono text-[9px] text-zinc-500 uppercase tracking-tighter">ID</span>
           <span className="font-black font-mono text-[10px] text-zinc-300">
             {pokemon.id.toString().padStart(3, '0')}
           </span>
@@ -134,33 +134,36 @@ export const PokedexCard = React.memo(function PokedexCard({
             {hasInStorage ? (
               <div
                 className={cn(
-                  'flex items-center gap-1.5 rounded-lg border px-2.5 py-1',
-                  isShiny ? 'border-amber-500/20 bg-amber-500/10' : 'border-emerald-500/20 bg-emerald-500/10',
+                  'flex items-center gap-1.5 rounded-none border border-dashed px-2.5 py-1',
+                  isShiny ? 'border-amber-500/50 bg-amber-500/10' : 'border-emerald-500/50 bg-emerald-500/10',
                 )}
               >
-                <div className={cn('h-1 w-1 rounded-full', isShiny ? 'bg-amber-400' : 'bg-emerald-500')} />
                 <span
                   className={cn(
-                    'font-black text-[8px] uppercase tracking-tighter',
+                    'font-black font-mono text-[8px] uppercase tracking-widest',
                     isShiny ? 'text-amber-400' : 'text-emerald-400',
                   )}
                 >
-                  Secured
+                  [ SECURED ]
                 </span>
               </div>
             ) : isOwnedInDex ? (
-              <div className="flex items-center gap-1.5 rounded-lg border border-amber-500/20 bg-amber-500/10 px-2.5 py-1">
-                <div className="h-1 w-1 rounded-full bg-amber-500" />
-                <span className="font-black text-[8px] text-amber-400 uppercase tracking-tighter">Dex Only</span>
+              <div className="flex items-center gap-1.5 rounded-none border border-amber-500/50 border-dashed bg-amber-500/10 px-2.5 py-1">
+                <span className="font-black font-mono text-[8px] text-amber-400 uppercase tracking-widest">
+                  [ DEX_ONLY ]
+                </span>
               </div>
             ) : isSeenInDex ? (
-              <div className="flex items-center gap-1.5 rounded-lg border border-rose-500/20 bg-rose-500/10 px-2.5 py-1">
-                <div className="h-1 w-1 rounded-full bg-rose-500" />
-                <span className="font-black text-[8px] text-rose-400 uppercase tracking-tighter">Seen</span>
+              <div className="flex items-center gap-1.5 rounded-none border border-rose-500/50 border-dashed bg-rose-500/10 px-2.5 py-1">
+                <span className="font-black font-mono text-[8px] text-rose-400 uppercase tracking-widest">
+                  [ SEEN ]
+                </span>
               </div>
             ) : (
-              <div className="flex items-center gap-1.5 rounded-lg border border-white/5 bg-white/5 px-2.5 py-1">
-                <span className="font-black text-[8px] text-zinc-600 uppercase tracking-tighter">Unknown</span>
+              <div className="flex items-center gap-1.5 rounded-none border border-zinc-700 border-dashed bg-white/5 px-2.5 py-1">
+                <span className="font-black font-mono text-[8px] text-zinc-600 uppercase tracking-widest">
+                  [ UNKNOWN ]
+                </span>
               </div>
             )}
           </div>
