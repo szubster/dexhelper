@@ -970,16 +970,16 @@ describe('foundry-orchestrator', () => {
       owner_persona: "coder",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
-      depends_on: [],
       parent: ".foundry/stories/story-001.md",
-      rejection_reason: "Feature not supported",
+      depends_on: [".foundry/stories/story-001.md"],
       jules_session_id: null,
+      rejection_reason: "impossible error",
     });
 
     main();
 
     const result = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
-    expect(result).toContain('status: ACTIVE');
+    expect(result).toContain('status: READY');
   });
 
   test('Impossible Loop: flags node for tpm if no parent exists', () => {
