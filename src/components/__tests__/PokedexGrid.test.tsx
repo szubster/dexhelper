@@ -28,11 +28,11 @@ const createMockRouter = (component: React.ReactNode) => {
   return createRouter({ routeTree, history });
 };
 
-afterEach(async () => {
-  await cleanup();
-});
-
 describe('PokedexGrid', () => {
+  afterEach(async () => {
+    await cleanup();
+  });
+
   test('renders [ SYS.QUERY_FAILED ] when empty', async () => {
     const router = createMockRouter(<PokedexGrid pokemonList={[]} />);
     await render(<RouterProvider router={router} />);
