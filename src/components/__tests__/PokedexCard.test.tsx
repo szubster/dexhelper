@@ -5,7 +5,7 @@ import {
   createRouter,
   RouterProvider,
 } from '@tanstack/react-router';
-import { describe, expect, test, afterEach } from 'vitest';
+import { afterEach, describe, expect, test } from 'vitest';
 import { page } from 'vitest/browser';
 import { cleanup, render } from 'vitest-browser-react';
 import type { PokemonListItem } from '../../utils/pokemonQueries';
@@ -34,8 +34,8 @@ const createMockRouter = (component: React.ReactNode) => {
 };
 
 describe('PokedexCard', () => {
-  afterEach(() => {
-    cleanup();
+  afterEach(async () => {
+    await cleanup();
   });
 
   test('renders tactical elements in unknown state', async () => {
