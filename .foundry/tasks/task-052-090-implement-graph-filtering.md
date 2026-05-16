@@ -44,7 +44,7 @@ This task is part of Story 052. The objective is to build UI controls to filter 
    - Ensure the filtering operation is performant, given that graphs can have moderate node counts. Re-evaluate graph rendering strategies if performance becomes an issue during development, but base the implementation on standard React Flow filtering mechanisms.
 
 ## Acceptance Criteria
-- [ ] Implement filter controls for node `type` and `status` using the tactical UI aesthetic.
-- [ ] Connect the controls to filter the nodes rendered in React Flow.
-- [ ] Hide edges that are attached to nodes that are currently filtered out.
-- [ ] Add unit tests verifying the filtering logic correctly hides nodes and updates the view.
+- [x] Implement filter controls for node `type` and `status` using the tactical UI aesthetic.
+- [x] Connect the controls to filter the nodes rendered in React Flow.
+- [x] Hide edges that are attached to nodes that are currently filtered out.
+- [x] Add unit tests verifying the filtering logic correctly hides nodes and updates the view.

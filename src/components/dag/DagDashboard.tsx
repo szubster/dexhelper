@@ -2,9 +2,10 @@ import { Background, BackgroundVariant, Controls, MiniMap, ReactFlow } from '@xy
 import '@xyflow/react/dist/style.css';
 import { type Edge as FlowEdge, type Node as FlowNode, Position } from '@xyflow/react';
 import dagre from 'dagre';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { ParsedNode } from '../../utils/dag/builder';
 import { buildDagGraph } from '../../utils/dag/builder';
+import { DagFilterPanel } from './DagFilterPanel';
 import { DagNode } from './DagNode';
 
 const nodeTypes = {
@@ -53,6 +54,35 @@ export function DagDashboard() {
   const [edges, setEdges] = useState<FlowEdge[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [activeTypes, setActiveTypes] = useState<Set<string>>(new Set(['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK']));
+  const [activeStatuses, setActiveStatuses] = useState<Set<string>>(
+    new Set(['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED']),
+  );
+
+  const handleTypeToggle = (type: string) => {
+    setActiveTypes((prev) => {
+      const next = new Set(prev);
+      if (next.has(type)) {
+        next.delete(type);
+      } else {
+        next.add(type);
+      }
+      return next;
+    });
+  };
+
+  const handleStatusToggle = (status: string) => {
+    setActiveStatuses((prev) => {
+      const next = new Set(prev);
+      if (next.has(status)) {
+        next.delete(status);
+      } else {
+        next.add(status);
+      }
+      return next;
+    });
+  };
+
   useEffect(() => {
     async function loadData() {
       try {
@@ -96,6 +126,21 @@ export function DagDashboard() {
     void loadData();
   }, []);
 
+  const displayNodes = useMemo(() => {
+    return nodes.filter((n) => {
+      // biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation
+      const type = n.data?.['type'] as string | undefined;
+      // biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation
+      const status = n.data?.['status'] as string | undefined;
+      return type && status && activeTypes.has(type) && activeStatuses.has(status);
+    });
+  }, [nodes, activeTypes, activeStatuses]);
+
+  const displayEdges = useMemo(() => {
+    const visibleNodeIds = new Set(displayNodes.map((n) => n.id));
+    return edges.filter((e) => visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target));
+  }, [edges, displayNodes]);
+
   if (isLoading) {
     return (
       <div className="flex h-full w-full items-center justify-center font-mono text-zinc-500">
@@ -105,8 +150,21 @@ export function DagDashboard() {
   }
 
   return (
-    <div className="h-full w-full border border-zinc-800 border-dashed bg-zinc-950">
-      <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView className="tactical-flow" minZoom={0.1}>
+    <div className="relative h-full w-full border border-zinc-800 border-dashed bg-zinc-950">
+      <DagFilterPanel
+        activeTypes={activeTypes}
+        activeStatuses={activeStatuses}
+        onTypeToggle={handleTypeToggle}
+        onStatusToggle={handleStatusToggle}
+      />
+      <ReactFlow
+        nodes={displayNodes}
+        edges={displayEdges}
+        nodeTypes={nodeTypes}
+        fitView
+        className="tactical-flow"
+        minZoom={0.1}
+      >
         <Background
           variant={BackgroundVariant.Dots}
           gap={20}
