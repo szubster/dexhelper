@@ -2,13 +2,13 @@
 id: task-051-088-qa-core-graph-visualizer
 type: TASK
 title: QA Verification for Graph Component
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-14'
 updated_at: '2026-05-16'
 depends_on:
   - .foundry/tasks/task-051-087-implement-core-graph-visualizer.md
-jules_session_id: null
+jules_session_id: '10014426620707235928'
 pr_number: null
 parent: .foundry/stories/story-029-051-implement-core-graph-visualization.md
 tags:
