@@ -81,3 +81,9 @@ When testing React hooks, do not invoke them directly as standard functions (whi
 
 ### Mocking and Explicit Types
 Always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()` or `vi.fn<typeof targetFunction>()`) to satisfy strict Biome type-checking and avoid `any` usage. If `any` must be used due to recursive type complexities in mock data, suppress the warning with a `// biome-ignore lint/suspicious/noExplicitAny:` comment.
+
+### React Router Mocking in Vitest
+When testing components that rely on `@tanstack/react-router` in Vitest Browser, use `RouterProvider` from `@tanstack/react-router`. `MemoryRouter` is no longer exported in newer versions of the library, and attempting to import it will result in SyntaxErrors during test execution.
+
+### Vitest Browser Context
+In the latest version of `@vitest/browser`, imports for screen interaction like `screen` and `page` must be made directly from `vitest/browser` rather than `@vitest/browser/context`. The older context path is deprecated and will fail to resolve in certain setups. Use: `import { page } from 'vitest/browser';`
