@@ -325,7 +325,9 @@ async function main() {
     const gameId = parseInt(id);
     const existing = locationMap.get(gameId);
     if (existing) {
-      existing.conn = map.connections;
+      if (map.connections) {
+        existing.conn = Array.from(new Set([...(existing.conn || []), ...map.connections]));
+      }
     } else {
       locationMap.set(gameId, sortObj({
         id: gameId,
@@ -341,7 +343,9 @@ async function main() {
       const gameId = (parseInt(group) << 8) | parseInt(mid);
       const existing = locationMap.get(gameId);
       if (existing) {
-        existing.conn = mapNode.connections;
+        if (mapNode.connections) {
+          existing.conn = Array.from(new Set([...(existing.conn || []), ...mapNode.connections]));
+        }
       } else {
         locationMap.set(gameId, sortObj({
           id: gameId,
