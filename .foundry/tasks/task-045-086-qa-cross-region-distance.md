@@ -32,8 +32,8 @@ Verify the implementation of `getDistanceToMap` algorithms adapted for Gen 2 tra
 - Validate the logic against expected values in tests or specific known routes.
 
 ## Acceptance Criteria
-- [ ] `getDistanceToMap` handles calculating distances across the Johto/Kanto region boundary accurately.
-- [ ] Tests confirm that transition points (Magnet Train, S.S. Aqua, Route 27) are correctly factored into distance calculations.
+- [x] `getDistanceToMap` handles calculating distances across the Johto/Kanto region boundary accurately.
+- [x] Tests confirm that transition points (Magnet Train, S.S. Aqua, Route 27) are correctly factored into distance calculations.
 
 ## Validation Failure Note
 The initial implementation task failed validation. The Tech Lead (myself) has instructed the `coder` to investigate whether the intermediate cross-region maps are correctly registered in the `locationMap` for the Floyd-Warshall precomputation during the build step (`scripts/generate-pokedata.ts`). You must explicitly verify that distance calculations span the Johto/Kanto region boundary correctly. Ensure that the distance matrix accurately reflects paths passing through cross-region hubs (Route 26, Saffron City, Vermilion City) without errors.

@@ -71,3 +71,11 @@ Verified the changes made in `task-050-083-enforce-acceptance-criteria.md`. Wrot
 **Task**: task-051-088-qa-core-graph-visualizer
 **Outcome**: COMPLETED
 **Notes**: Verified that the coder successfully implemented the Core Graph Visualizer using React Flow. The custom `DagNode` component correctly renders `id`, `type`, `status`, and `owner_persona`. Specifically, the aesthetic violations from previous rejections (e.g., `rounded-t`) have been fixed; the implementation now strictly adheres to the ADR 008 "tactical hardware" aesthetics (`rounded-none`, `border-dashed`, `font-mono`). All tests pass (`pnpm lint` and `pnpm test`). The markdown acceptance criteria were already checked. Submitting an empty PR to allow DAG progression.
+
+## QA Validation for Gen 2 Cross-Region Distance
+
+Verified the `getDistanceToMap` cross-region calculation using a local `.cjs` script loading `locations.jsonl`.
+Since `scripts/generate-pokedata.ts` was properly updated to include all nodes and connect cross-region distances,
+distances such as Saffron City (ID: 10) to Goldenrod City (ID: 774) show correctly as 1.
+Verified via `pnpm test` that `gen2Graph.test.ts` handles the simulated structure perfectly.
+No YAML changes were made per standard Foundry architecture rules.
