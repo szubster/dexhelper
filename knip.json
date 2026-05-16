@@ -3,7 +3,8 @@
   "ignoreExportsUsedInFile": true,
   "ignore": [
     "src/test-setup.ts",
-    "scripts/validate-foundry-schema.ts"
+    "scripts/validate-foundry-schema.ts",
+    ".github/scripts/extract-research.ts"
   ],
   "rules": {
     "files": "warn",
