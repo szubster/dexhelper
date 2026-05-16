@@ -185,3 +185,5 @@
 - **2026-05-15**: Resurrection Loop triggered for `task-045-085-implement-cross-region-distance`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-15**: Resurrection Loop triggered for `task-051-087-implement-core-graph-visualizer`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-16**: PR #1356 merged. `task-051-087-implement-core-graph-visualizer` is now COMPLETED.
