@@ -1,4 +1,5 @@
 import { gen1Strategy } from './gen1Strategy';
+import { gen2Strategy } from './gen2Strategy';
 import type { AssistantStrategy } from './types';
 
 const fallbackStrategy: AssistantStrategy = {
@@ -12,7 +13,7 @@ const fallbackStrategy: AssistantStrategy = {
 
 const STRATEGIES: Record<number, AssistantStrategy> = {
   1: gen1Strategy,
-  // Future: 2: gen2Strategy, 3: gen3Strategy, etc.
+  2: gen2Strategy,
 };
 
 /**
