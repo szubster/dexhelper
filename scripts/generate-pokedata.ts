@@ -320,11 +320,18 @@ async function main() {
     }
   }
 
-  // --- ENSURE ALL MAPS ARE IN GRAPH (Even if no encounters) ---
-  console.log('\nEnsuring all maps are in locationMap...');
+  // --- ENSURE ALL MAPS ARE IN GRAPH AND CONNECTIONS ARE MERGED ---
+  console.log('\nEnsuring all maps are in locationMap and merging connections...');
   for (const [id, map] of Object.entries(GEN1_MAPS)) {
     const gameId = parseInt(id);
-    if (!locationMap.has(gameId)) {
+    const existing = locationMap.get(gameId);
+    if (existing) {
+      // Merge connections from mapping file into existing entry
+      if (map.connections) {
+        const merged = new Set([...(existing.conn || []), ...map.connections]);
+        existing.conn = Array.from(merged).sort((a, b) => a - b);
+      }
+    } else {
       locationMap.set(gameId, sortObj({
         id: gameId,
         n: map.name,
@@ -337,7 +344,14 @@ async function main() {
   for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
     for (const [mid, mapNode] of Object.entries(maps)) {
       const gameId = (parseInt(group) << 8) | parseInt(mid);
-      if (!locationMap.has(gameId)) {
+      const existing = locationMap.get(gameId);
+      if (existing) {
+        // Merge connections from mapping file into existing entry
+        if (mapNode.connections) {
+          const merged = new Set([...(existing.conn || []), ...mapNode.connections]);
+          existing.conn = Array.from(merged).sort((a, b) => a - b);
+        }
+      } else {
         locationMap.set(gameId, sortObj({
           id: gameId,
           n: mapNode.name,
