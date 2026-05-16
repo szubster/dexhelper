@@ -2,13 +2,13 @@
 id: task-045-086-qa-cross-region-distance
 type: TASK
 title: 'QA: Gen 2 Cross-Region Distance Algorithm'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-14'
 updated_at: '2026-05-16'
 depends_on:
   - .foundry/tasks/task-045-085-implement-cross-region-distance.md
-jules_session_id: null
+jules_session_id: '2275237641735279698'
 pr_number: null
 parent: story-028-045-cross-region-distance
 tags:
