@@ -118,18 +118,30 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
   const parsed = matter(node.rawContent);
-  parsed.data.status = "READY";
-  parsed.data.jules_session_id = null;
-  parsed.data.rejection_count = (parsed.data.rejection_count || 0) + 1;
+  const newRejectionCount = (parsed.data.rejection_count || 0) + 1;
+  parsed.data.rejection_count = newRejectionCount;
   parsed.data.updated_at = dateStr;
 
-  const newContent = matter.stringify(parsed.content, parsed.data);
+  if (newRejectionCount >= 3) {
+    parsed.data.status = "FAILED";
+    parsed.data.rejection_reason = "Max rejection count reached";
+    const newContent = matter.stringify(parsed.content, parsed.data);
+    if (!DRY_RUN) {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: Max rejection count reached for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned to FAILED.\n`);
+    }
+    info(`${dryTag}Max rejection count reached → FAILED: ${node.repoPath} (${reason})`);
+  } else {
+    parsed.data.status = "READY";
+    parsed.data.jules_session_id = null;
+    const newContent = matter.stringify(parsed.content, parsed.data);
 
-  if (!DRY_RUN) {
-    fs.writeFileSync(node.filePath, newContent, 'utf-8');
-    logToJournal(repoRoot, `\n- **${dateStr}**: Resurrection Loop triggered for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY.\n`);
+    if (!DRY_RUN) {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: Resurrection Loop triggered for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY.\n`);
+    }
+    info(`${dryTag}Resurrected → READY: ${node.repoPath} (${reason})`);
   }
-  info(`${dryTag}Resurrected → READY: ${node.repoPath} (${reason})`);
 }
 
 /** Robust discovery: Jules Session -> GitHub Search -> GitHub List */
@@ -316,7 +328,13 @@ export async function main() {
 
   // --- Pass 2: Check FAILED Nodes ---
   for (const node of failedNodes) {
-    await transitionNodeToReady(node, repoRoot, `Retry from FAILED status.`);
+    const parsed = matter(node.rawContent);
+    const rejectionCount = parsed.data.rejection_count || 0;
+    if (rejectionCount >= 3) {
+      info(`Skipping retry for ${node.repoPath} because rejection_count (${rejectionCount}) >= 3.`);
+    } else {
+      await transitionNodeToReady(node, repoRoot, `Retry from FAILED status.`);
+    }
   }
 
   // --- Pass 3: Remote Branch Cleanup ---

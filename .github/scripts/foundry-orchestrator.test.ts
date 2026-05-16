@@ -979,7 +979,7 @@ describe('foundry-orchestrator', () => {
     main();
 
     const result = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
-    expect(result).toContain('status: ACTIVE');
+    expect(result).toContain('status: READY');
   });
 
   test('Impossible Loop: flags node for tpm if no parent exists', () => {

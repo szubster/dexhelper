@@ -424,6 +424,61 @@ ok: true,
   });
 
 
+  describe('Resurrection Loop / Rejection Count', () => {
+    it('should transition to FAILED instead of READY if rejection_count reaches 3', async () => {
+      const nodePath = path.join(mockRepoRoot, '.foundry/tasks/task-max-rejections.md');
+      const nodeContent = `---
+id: task-max-rejections
+type: TASK
+status: ACTIVE
+jules_session_id: "session-123"
+rejection_count: 2
+---
+Body`;
+
+      const mockNode = {
+        filePath: nodePath,
+        repoPath: '.foundry/tasks/task-max-rejections.md',
+        frontmatter: { id: 'task-max-rejections', type: 'TASK', status: 'ACTIVE', jules_session_id: 'session-123', rejection_count: 2 },
+        rawContent: nodeContent, body: nodeContent
+      } as any;
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue([nodePath]);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode);
+
+      // @ts-expect-error
+      globalFetch.mockImplementation((url: string | URL | Request) => {
+        const urlStr = typeof url === "string" ? url : (url as URL).toString();
+        if (urlStr.startsWith('https://jules.googleapis.com/')) {
+          return Promise.resolve({
+            ok: true,
+            status: 200,
+            json: async () => ({
+              state: 'COMPLETED',
+              outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/999' } }]
+            })
+          });
+        }
+        if (urlStr.startsWith('https://api.github.com/repos/szubster/dexhelper/pulls/999')) {
+          return Promise.resolve({
+            ok: true,
+            status: 200,
+            json: async () => ({ number: 999, state: 'closed', merged: false })
+          });
+        }
+        return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+      });
+
+      await main();
+
+      expect(fs.writeFileSync).toHaveBeenCalled();
+      const content = vi.mocked(fs.writeFileSync).mock.calls[0][1] as string;
+      expect(content).toContain('status: FAILED');
+      expect(content).toContain('rejection_count: 3');
+      expect(content).toContain('rejection_reason: Max rejection count reached');
+    });
+  });
+
   describe('Enforce Acceptance Criteria', () => {
     it('should transition leaf task with unchecked boxes to FAILED and set rejection_reason', async () => {
       const nodePath = path.join(mockRepoRoot, '.foundry/tasks/task-unchecked-leaf.md');
