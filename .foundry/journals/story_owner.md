@@ -56,3 +56,6 @@ When processing `epic-015-027-exclusives-and-static-data`, I observed that the t
 - **2026-05-XX Pattern Insight:** When implementing sequential stories (e.g., in `epic-017-029-dag-dashboard-ui`), sibling dependencies should be correctly linked using `depends_on`. For instance, `story-029-051-implement-core-graph-visualization` correctly blocks on `story-029-048-evaluate-graph-libraries`. I also made sure to append the newly spawned story to the parent epic's markdown and tick the checkbox, without modifying its YAML frontmatter.
 ## Epic 031 (Enforce Acceptance Criteria Checkbox Completion Epic)
 The requested STORY node already exists and is COMPLETED (`.foundry/stories/story-031-050-enforce-acceptance-criteria-completion.md`). The target artifact is already complete. I am applying the EMPTY PR POLICY as there is no work to do, and leaving the parent node unmodified.
+
+## 2026-05-16
+- Remember to always clean up temporary files or bash scripts created in the workspace after using them, to prevent repository pollution.

@@ -35,6 +35,7 @@ export function SettingsModal() {
     <TacticalModal
       isOpen={isSettingsOpen}
       onClose={() => setIsSettingsOpen(false)}
+      ariaLabel="System Settings"
       containerClassName="z-[60] items-end p-0 sm:items-center sm:p-4"
       dialogClassName="slide-in-from-bottom-[100%] overflow-hidden border-zinc-800 border-t border-dashed bg-zinc-950 sm:max-w-md sm:border"
     >

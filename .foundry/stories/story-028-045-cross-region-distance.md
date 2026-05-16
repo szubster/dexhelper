@@ -36,5 +36,5 @@ Implement `getDistanceToMap` algorithms adapted for Gen 2 transition points.
 - [.foundry/tasks/task-045-086-qa-cross-region-distance.md](.foundry/tasks/task-045-086-qa-cross-region-distance.md)
 
 ## Acceptance Criteria
-- [ ] Create implementation task.
-- [ ] Create QA task.
+- [x] Create implementation task.
+- [x] Create QA task.
