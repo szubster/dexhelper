@@ -39,3 +39,6 @@
 ## Data Integrity - Gen 2 Exclusives (Caterpie and Weedle)
 * **Data Pipeline Gotchas:** The Gen 2 version exclusives list for Gold and Silver incorrectly included the Caterpie line (10-12) as Gold exclusive and the Weedle line (13-15) as Silver exclusive. However, both evolution lines are actually obtainable in *both* Gold and Silver via the Bug-Catching Contest (as verified in the decompiled ROM `bug_contest_mons.asm`). They are not true version exclusives and must not be locked out in the `GEN2_VERSION_EXCLUSIVES` arrays.
 - **Gen 2 Exclusives Quirks**: Ekans and Sandshrew are often mistaken as version exclusives because they are only found in the wild in one version. However, they are obtainable via the Goldenrod Game Corner in the other version, making them available in both Gold and Silver without trading.
+# Oak Learnings
+
+- `GEN1_VERSION_EXCLUSIVES` and `GEN2_VERSION_EXCLUSIVES` maps hold the Pokemon that are **unobtainable** in a given version, functioning as an exclusion list. For example, `red` contains Sandshrew because Sandshrew is a Blue exclusive and therefore unobtainable in Red. Do not accidentally invert this logic by swapping arrays.
