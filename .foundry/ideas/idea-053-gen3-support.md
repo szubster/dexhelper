@@ -27,6 +27,11 @@ Currently, the application supports Gen 1 and Gen 2. We should expand the scope 
 - Ensure backwards compatibility with Gen 1 and Gen 2 logic.
 
 ## Acceptance Criteria
-- [ ] Gen3 map graph is designed.
-- [ ] Data parsers handle Gen3 format.
-- [ ] Gen3 encounters, locations, and Pokemon are integrated.
+- [x] Gen3 map graph is designed.
+- [x] Data parsers handle Gen3 format.
+- [x] Gen3 encounters, locations, and Pokemon are integrated.
+
+## References
+- [.foundry/prds/prd-053-022-gen3-data-parsing.md](.foundry/prds/prd-053-022-gen3-data-parsing.md)
+- [.foundry/prds/prd-053-023-gen3-map-graph.md](.foundry/prds/prd-053-023-gen3-map-graph.md)
+- [.foundry/prds/prd-053-024-gen3-encounters.md](.foundry/prds/prd-053-024-gen3-encounters.md)
