@@ -26,6 +26,11 @@ As part of adding Gen 3 support, we must implement parsing and integrations for 
 - Create stories to switch JSON generation and loading to MsgPack.
 
 ## Acceptance Criteria
-- [ ] Stories are created to update data generation scripts for Gen 3.
-- [ ] Stories are created to integrate Gen 3 encounter data.
-- [ ] Stories are created to implement the MsgPack transition (ADR 010).
+- [x] Stories are created to update data generation scripts for Gen 3.
+- [x] Stories are created to integrate Gen 3 encounter data.
+- [x] Stories are created to implement the MsgPack transition (ADR 010).
+
+## Generated Stories
+- story-032-062-gen3-data-generation-scripts
+- story-032-063-gen3-msgpack-transition
+- story-032-064-gen3-encounter-integration
