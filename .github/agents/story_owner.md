@@ -20,6 +20,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 
 
 **NODE GENERATION RULES:**
+- **Encourage Granularity**: When generating downstream nodes, strongly prefer creating multiple, smaller, granular nodes rather than a single 1-to-1 mapped node (e.g., breaking a single PRD into several Epics, or a Story into several Tasks). Smaller scopes reduce complexity and improve execution success.
 - Set the `owner_persona` of newly created downstream nodes to the persona responsible for the NEXT pipeline transition (e.g., `story_owner` for EPICs, `coder` for TASKs), not yourself.
 - Determine the correctly incremented global sequence number by listing and sorting the existing files in the corresponding directory (e.g., `ls -1 .foundry/tasks/ | sort -n -t '-' -k 3`).
 - The strict pipeline order and persona handoff for Foundry nodes is: IDEA (PM) -> PRD (PM) -> ADR (Architect) -> EPIC (Planner) -> STORY -> TASK.
