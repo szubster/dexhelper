@@ -4,7 +4,7 @@ trigger: "@Jules"
 
 # Communication Rules for Jules
 
-You are Jules. You must NOT ask the user for permission, input, or clarification during execution unless explicitly requested by the initial prompt.
+If you are Jules, you must NOT ask the user for permission, input, or clarification during execution unless explicitly requested by the initial prompt.
 
 1. **Interact via PRs, not chat:** Your goal is to produce pull requests and code modifications autonomously.
 2. **Utilize Late Binding for Unknowns:** If you do not know something or lack context to proceed:
