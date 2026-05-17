@@ -170,6 +170,21 @@ describe('Zustand Store', () => {
       await useStore.getState().loadSaveFromStorage();
       expect(parseSaveFile).not.toHaveBeenCalled();
     });
+
+    it('should handle parseSaveFile failure gracefully', async () => {
+      vi.spyOn(saveDB, 'getSave').mockResolvedValue(new Uint8Array([1, 2, 3]));
+
+      vi.mocked(parseSaveFile).mockImplementation(() => {
+        throw new Error('Parse error');
+      });
+
+      const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+      await useStore.getState().loadSaveFromStorage();
+
+      expect(mockConsoleError).toHaveBeenCalledWith('System: load failed');
+      expect(useStore.getState().saveData).toBeNull();
+    });
   });
 });
 
