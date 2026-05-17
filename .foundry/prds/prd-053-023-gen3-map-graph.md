@@ -2,12 +2,12 @@
 id: prd-053-023-gen3-map-graph
 type: PRD
 title: Gen3 Map Graph Design
-status: ACTIVE
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: '14274109464458264933'
+jules_session_id: null
 parent: idea-053-gen3-support
 tags:
   - gen3

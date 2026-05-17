@@ -2,12 +2,12 @@
 id: prd-053-022-gen3-data-parsing
 type: PRD
 title: Gen3 Data Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: '6640165951762129390'
+jules_session_id: null
 parent: idea-053-gen3-support
 tags:
   - gen3

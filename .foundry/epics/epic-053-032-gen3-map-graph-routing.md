@@ -1,8 +1,8 @@
 ---
 id: epic-053-032-gen3-map-graph-routing
 type: EPIC
-title: 'Gen 3 Map Graph Routing'
-status: PENDING
+title: Gen 3 Map Graph Routing
+status: READY
 owner_persona: epic_planner
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
@@ -16,7 +16,7 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Created by architect.'
+notes: Created by architect.
 ---
 
 # Epic: Gen 3 Map Graph Routing
