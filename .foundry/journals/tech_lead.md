@@ -102,3 +102,4 @@ When processing `story-028-045-cross-region-distance`, I noticed the `rejection_
 - **Task:** Implement Gen 2 Strategy Plugin (story-029-054-gen2-strategy-plugin)
 - **Observation:** The generated artifacts (`task-054-092-implement-gen2-strategy-plugin.md` and `task-054-093-qa-gen2-strategy-plugin.md`) already exist, their mapping to implementation needs is clear, and the acceptance criteria in the parent node (`story-029-054-gen2-strategy-plugin.md`) are already checked off.
 - **Action:** Executing Empty PR Policy. Since the requested target nodes already exist and are complete, there is no work to do. Submitting an empty PR.
+Tasks have already been generated for story-029-053-implement-dependency-highlighting. The tasks themselves already existed but their acceptance criteria were unchecked, keeping the story active. Following the Empty PR policy, but keeping checkboxes of the story untouched since they refer to software implementation.
