@@ -1,13 +1,13 @@
 ---
 id: task-059-098-gen3-map-graph-structure-impl
 type: TASK
-title: "Implement Gen3 Map Graph Structure"
-status: READY
+title: Implement Gen3 Map Graph Structure
+status: ACTIVE
 owner_persona: coder
-created_at: "2026-05-18"
-updated_at: "2026-05-18"
+created_at: '2026-05-18'
+updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8021457406181790149'
 pr_number: null
 parent: story-032-059-gen3-map-graph-structure
 tags:
@@ -15,8 +15,8 @@ tags:
   - map-graph
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Task: Implement Gen3 Map Graph Structure
