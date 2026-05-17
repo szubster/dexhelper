@@ -39,7 +39,7 @@ We need to differentiate between genuine crashes and correct but PR-less empty c
 1. **Graceful PR-less Completion**: If the Jules session API reports a state of `COMPLETED` but no PR is found, the heartbeat script MUST NOT automatically fail the node. Instead, it must initiate a graceful completion flow.
 2. **Acceptance Criteria Verification (ADR 007 Alignment)**: Before marking the PR-less node as `COMPLETED`, the heartbeat MUST parse the node's markdown content to verify compliance with ADR 007.
    - If the node contains unchecked markdown tasks (`- [ ]`), the heartbeat must transition the node to `FAILED` with a `rejection_reason` indicating unfulfilled acceptance criteria.
-   - If the node is a valid late-binding parent (has children or is of type `IDEA`, `PRD`, `EPIC`, `STORY`), unchecked tasks serve as a signal to keep the node in a `PENDING` state to await child generation.
+   - If the node is a valid late-binding parent (has children or is of type `IDEA`, `PRD`, `EPIC`, `STORY`), unchecked tasks serve as a signal to keep the node in a `PENDING` state to await child generation. Note that leaf tasks (like `TASK` or `RESEARCH`) may also use late binding, so if they have children, they should also be treated as late-binding parents.
    - If all tasks are checked off (or if there are no tasks), the heartbeat transitions the node to `COMPLETED`.
 3. **Journal Logging**: The heartbeat must explicitly log these PR-less `COMPLETED` state transitions in the TPM journal to ensure system state changes are auditable.
 
