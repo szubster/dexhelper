@@ -792,6 +792,9 @@ export function generateSuggestions(
 
   const localPids = new Set<number>();
 
+  const hasHeadbutt = saveData.inventory.some((i) => i.id === 192 && i.quantity > 0);
+  const hasRockSmash = saveData.inventory.some((i) => i.id === 198 && i.quantity > 0);
+
   generateCatchSuggestions(
     apiData,
     displayVersionId,
@@ -803,6 +806,55 @@ export function generateSuggestions(
     suggestions,
     localPids,
   );
+
+  // Filter out headbutt and rock-smash encounters if the player lacks the required TMs
+  for (let i = suggestions.length - 1; i >= 0; i--) {
+    const suggestion = suggestions[i];
+    if (suggestion && suggestion.category === 'Catch' && suggestion.encounterInfo) {
+      let hasValidEncounter = false;
+      for (const pidStr in suggestion.encounterInfo) {
+        const pid = parseInt(pidStr, 10);
+        const details = suggestion.encounterInfo[pid];
+        if (details) {
+          suggestion.encounterInfo[pid] = details.filter((d) => {
+            if (d.method === 'headbutt') return hasHeadbutt;
+            if (d.method === 'rock-smash') return hasRockSmash;
+            return true;
+          });
+          if (suggestion.encounterInfo[pid]!.length > 0) {
+            hasValidEncounter = true;
+          } else {
+            delete suggestion.encounterInfo[pid];
+          }
+        }
+      }
+
+      // If no valid encounters remain for this suggestion, remove it completely.
+      if (!hasValidEncounter) {
+        suggestions.splice(i, 1);
+        // Also remove from localPids so it can be picked up by other suggestions if applicable
+        if (suggestion.pokemonIds) {
+          for (const pid of suggestion.pokemonIds) {
+            localPids.delete(pid);
+          }
+        } else if (suggestion.pokemonId) {
+          localPids.delete(suggestion.pokemonId);
+        }
+      } else {
+        // Update pokemonIds if some were completely filtered out
+        if (suggestion.pokemonIds) {
+          suggestion.pokemonIds = suggestion.pokemonIds.filter(pid => {
+            if (suggestion.encounterInfo![pid] !== undefined) {
+              return true;
+            } else {
+              localPids.delete(pid);
+              return false;
+            }
+          });
+        }
+      }
+    }
+  }
 
   // Organize physical instances by species to check for evolutions and prevent redundant exclusive suggestions
   const instancesBySpecies = new Map<number, PokemonInstance[]>();
