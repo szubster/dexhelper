@@ -1,0 +1,18 @@
+--- src/engine/saveParser/saveParser.test.ts
++++ src/engine/saveParser/saveParser.test.ts
+@@ -5,6 +5,15 @@
+ import { parseSaveFile } from './index';
+ import { decodeGen12String } from './parsers/common';
+
++describe('parseSaveFile - Base Error Paths', () => {
++  it('should throw an error if the save file size is less than 32KB', () => {
++    // Create an ArrayBuffer with a size smaller than 32768 bytes
++    const tinyBuffer = new ArrayBuffer(10);
++
++    expect(() => parseSaveFile(tinyBuffer)).toThrow('Invalid save file size. Expected at least 32KB.');
++  });
++});
++
+ describe('saveParser - Pokémon Gen 1 Validation', () => {
+   const yellowSavPath = join(__dirname, '../../../tests/fixtures/yellow.sav');
+   const getBuffer = () => {
