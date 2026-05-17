@@ -8,6 +8,8 @@ export interface DagNodeData {
   status: string;
   owner_persona: string;
   label?: string; // We can use the ID as the label
+  isHighlighted?: boolean;
+  isDimmed?: boolean;
 }
 
 export function DagNode({ data }: { data: DagNodeData }) {
@@ -42,6 +44,14 @@ export function DagNode({ data }: { data: DagNodeData }) {
       // PENDING
       statusColor = 'text-zinc-500';
       bgClass = 'bg-zinc-900/50 border-white/20';
+  }
+
+  if (data.isHighlighted) {
+    bgClass += ' !border-cyan-500 !border-2 bg-cyan-950/30';
+    statusColor += ' brightness-150';
+    dotColor += ' brightness-150';
+  } else if (data.isDimmed) {
+    bgClass += ' opacity-30 grayscale';
   }
 
   return (

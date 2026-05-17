@@ -78,6 +78,109 @@ test('DagDashboard renders correctly on successful load', async () => {
   await expect.element(page.getByText('node-1')).toBeInTheDocument();
 });
 
+test('DagDashboard handles selection and highlighting', async () => {
+  globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({
+    ok: true,
+    json: async () => [
+      {
+        filePath: 'node-1.md',
+        data: {
+          id: 'node-1',
+          type: 'TASK',
+          status: 'COMPLETED',
+          owner_persona: 'human',
+          title: 'Node 1',
+          depends_on: [],
+        },
+      },
+      {
+        filePath: 'node-2.md',
+        data: {
+          id: 'node-2',
+          type: 'TASK',
+          status: 'ACTIVE',
+          owner_persona: 'human',
+          title: 'Node 2',
+          parent: 'node-1.md',
+          depends_on: ['node-1.md'],
+        },
+      },
+      {
+        filePath: 'node-3.md',
+        data: {
+          id: 'node-3',
+          type: 'TASK',
+          status: 'PENDING',
+          owner_persona: 'human',
+          title: 'Node 3',
+          depends_on: [],
+        },
+      },
+    ],
+  } as unknown as Response);
+
+  await render(
+    <div style={{ width: '800px', height: '600px' }}>
+      <DagDashboard />
+    </div>,
+  );
+
+  await vi.waitUntil(
+    async () => {
+      const nodes = page.getByText('node-1').all();
+      return nodes.length > 0;
+    },
+    { timeout: 2000 },
+  );
+
+  // Wait for React Flow nodes to be rendered
+  await vi.waitUntil(
+    async () => {
+      const nodes = page.getByText('node-1').all();
+      return nodes.length > 0;
+    },
+    { timeout: 2000 },
+  );
+
+  // In React Flow, the custom node content is inside the wrapping div.
+  // We can find the custom div by test id, but getting the specific one is easier with getByText
+  const n1 = page.getByText('node-1');
+  const n2 = page.getByText('node-2');
+  const n3 = page.getByText('node-3');
+
+  // Since multiple wrappers might match our ancestor xpath, grab the first one specifically
+  const n1DagNode = n1.locator('xpath=./ancestor::div[@data-testid="dag-node"]').first();
+  const n2DagNode = n2.locator('xpath=./ancestor::div[@data-testid="dag-node"]').first();
+  const n3DagNode = n3.locator('xpath=./ancestor::div[@data-testid="dag-node"]').first();
+
+  // Click directly on the inner dag node div since vitest has better click hit-testing now.
+  // Wait a small bit in case React Flow is still laying out.
+  await new Promise(r => setTimeout(r, 100));
+
+  // Initially, none are highlighted/dimmed
+  await expect.element(n1DagNode).not.toHaveClass('!border-cyan-500');
+  await expect.element(n3DagNode).not.toHaveClass('opacity-30');
+
+  // Since Vitest Browser struggles with finding the actual interactive rect in React Flow
+  // we dispatch the click event directly on the component div
+  const n2El = n2DagNode.element();
+  n2El.click();
+
+  // node-2 is highlighted
+  await vi.waitFor(() => expect.element(n2DagNode).toHaveClass('!border-cyan-500'), { timeout: 3000 });
+
+  // node-1 is upstream of node-2, so it is highlighted
+  await expect.element(n1DagNode).toHaveClass('!border-cyan-500');
+  // node-3 is unconnected, so it is dimmed
+  await expect.element(n3DagNode).toHaveClass('opacity-30');
+
+  // Click to un-toggle
+  n2El.click();
+
+  await vi.waitFor(() => expect.element(n2DagNode).not.toHaveClass('!border-cyan-500'), { timeout: 3000 });
+  await expect.element(n3DagNode).not.toHaveClass('opacity-30');
+});
+
 test('DagDashboard catches and logs fetch errors securely', async () => {
   const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 

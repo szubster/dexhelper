@@ -2,9 +2,10 @@ import { Background, BackgroundVariant, Controls, MiniMap, ReactFlow } from '@xy
 import '@xyflow/react/dist/style.css';
 import { type Edge as FlowEdge, type Node as FlowNode, Position } from '@xyflow/react';
 import dagre from 'dagre';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { ParsedNode } from '../../utils/dag/builder';
 import { buildDagGraph } from '../../utils/dag/builder';
+import { getHighlightPath } from '../../utils/dag/highlighting';
 import { DagFilterPanel } from './DagFilterPanel';
 import { DagNode } from './DagNode';
 
@@ -53,6 +54,9 @@ export function DagDashboard() {
   const [nodes, setNodes] = useState<FlowNode[]>([]);
   const [edges, setEdges] = useState<FlowEdge[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
+  const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
 
   const [activeTypes, setActiveTypes] = useState<Set<string>>(new Set(['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK']));
   const [activeStatuses, setActiveStatuses] = useState<Set<string>>(
@@ -126,20 +130,67 @@ export function DagDashboard() {
     void loadData();
   }, []);
 
+  const activeNodeId = hoveredNodeId || selectedNodeId;
+  const highlightSet = useMemo(() => getHighlightPath(activeNodeId, edges), [activeNodeId, edges]);
+
   const displayNodes = useMemo(() => {
-    return nodes.filter((n) => {
-      // biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation
-      const type = n.data?.['type'] as string | undefined;
-      // biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation
-      const status = n.data?.['status'] as string | undefined;
-      return type && status && activeTypes.has(type) && activeStatuses.has(status);
-    });
-  }, [nodes, activeTypes, activeStatuses]);
+    return nodes
+      .filter((n) => {
+        // biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation
+        const type = n.data?.['type'] as string | undefined;
+        // biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation
+        const status = n.data?.['status'] as string | undefined;
+        return type && status && activeTypes.has(type) && activeStatuses.has(status);
+      })
+      .map((n) => {
+        const isHighlighted = activeNodeId ? highlightSet.has(n.id) : false;
+        const isDimmed = activeNodeId ? !highlightSet.has(n.id) : false;
+        return {
+          ...n,
+          data: {
+            ...n.data,
+            isHighlighted,
+            isDimmed,
+          },
+        };
+      });
+  }, [nodes, activeTypes, activeStatuses, activeNodeId, highlightSet]);
 
   const displayEdges = useMemo(() => {
     const visibleNodeIds = new Set(displayNodes.map((n) => n.id));
-    return edges.filter((e) => visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target));
-  }, [edges, displayNodes]);
+    return edges
+      .filter((e) => visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target))
+      .map((e) => {
+        const isHighlighted = activeNodeId ? (e.source === activeNodeId || e.target === activeNodeId) : false;
+        const isDimmed = activeNodeId ? !isHighlighted : false;
+
+        return {
+          ...e,
+          style: {
+            ...e.style,
+            opacity: isDimmed ? 0.2 : 1,
+            stroke: isHighlighted ? '#06b6d4' : (e.style?.stroke ?? '#52525b'), // cyan-500 if highlighted
+            strokeWidth: isHighlighted ? 3 : 2,
+          },
+        };
+      });
+  }, [edges, displayNodes, activeNodeId]);
+
+  const onNodeClick = useCallback((_event: React.MouseEvent, node: FlowNode) => {
+    setSelectedNodeId((prev) => (prev === node.id ? null : node.id));
+  }, []);
+
+  const onNodeMouseEnter = useCallback((_event: React.MouseEvent, node: FlowNode) => {
+    setHoveredNodeId(node.id);
+  }, []);
+
+  const onNodeMouseLeave = useCallback(() => {
+    setHoveredNodeId(null);
+  }, []);
+
+  const onPaneClick = useCallback(() => {
+    setSelectedNodeId(null);
+  }, []);
 
   if (isLoading) {
     return (
@@ -161,6 +212,10 @@ export function DagDashboard() {
         nodes={displayNodes}
         edges={displayEdges}
         nodeTypes={nodeTypes}
+        onNodeClick={onNodeClick}
+        onNodeMouseEnter={onNodeMouseEnter}
+        onNodeMouseLeave={onNodeMouseLeave}
+        onPaneClick={onPaneClick}
         fitView
         className="tactical-flow"
         minZoom={0.1}
