@@ -2,7 +2,7 @@
 id: story-032-059-gen3-dataview-scaffolding
 type: STORY
 title: Gen3 DataView Parser Scaffolding
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-17'
 updated_at: '2026-05-17'

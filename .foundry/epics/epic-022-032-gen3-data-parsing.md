@@ -2,12 +2,12 @@
 id: epic-022-032-gen3-data-parsing
 type: EPIC
 title: Gen3 Data Parsing Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: '13818327627020265328'
+jules_session_id: null
 pr_number: null
 parent: prd-053-022-gen3-data-parsing
 tags:

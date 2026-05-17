@@ -239,3 +239,11 @@
 - **2026-05-17**: PR #1396 merged. `prd-053-023-gen3-map-graph` is now COMPLETED.
 
 - **2026-05-17**: Resurrection Loop triggered for `task-053-092-implement-dependency-highlighting`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-17**: PR #1407 merged. `epic-022-032-gen3-data-parsing` is now COMPLETED.
+
+- **2026-05-17**: PR #1406 merged. `epic-053-032-gen3-map-graph-routing` is now COMPLETED.
+
+- **2026-05-17**: PR #1398 merged. `prd-053-024-gen3-encounters` is now COMPLETED.
+
+- **2026-05-17**: Resurrection Loop triggered for `story-029-053-implement-dependency-highlighting`. Reason: PR #1408 closed without merging.. Transitioned back to READY.
