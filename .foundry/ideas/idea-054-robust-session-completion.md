@@ -36,4 +36,7 @@ We need to make the orchestrator's heartbeat script more robust when handling `C
 - Makes the empty PR workflow smoother.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea to a PRD.
+- [x] Product Manager: Convert this idea to a PRD.
+
+## Links
+- PRD: [.foundry/prds/prd-054-025-robust-session-completion.md](.foundry/prds/prd-054-025-robust-session-completion.md)
