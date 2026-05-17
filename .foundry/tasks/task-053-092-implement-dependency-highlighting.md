@@ -2,12 +2,12 @@
 id: task-053-092-implement-dependency-highlighting
 type: TASK
 title: Implement Dependency Highlighting Interactions
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: '1900145408816670747'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-029-053-implement-dependency-highlighting.md
 tags:
@@ -17,7 +17,7 @@ tags:
   - react-flow
 research_references: []
 rejection_count: 1
-rejection_reason: 'Session terminated with state: COMPLETED'
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

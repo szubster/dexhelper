@@ -2,7 +2,7 @@
 id: task-059-096-gen3-dataview-scaffolding-impl
 type: TASK
 title: Implement Gen3 DataView Parsing Scaffolding
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-17'
 updated_at: '2026-05-17'

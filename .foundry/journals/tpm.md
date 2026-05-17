@@ -247,3 +247,15 @@
 - **2026-05-17**: PR #1398 merged. `prd-053-024-gen3-encounters` is now COMPLETED.
 
 - **2026-05-17**: Resurrection Loop triggered for `story-029-053-implement-dependency-highlighting`. Reason: PR #1408 closed without merging.. Transitioned back to READY.
+
+- **2026-05-17**: PR #1414 merged. `epic-053-024-032-gen3-encounters-implementation` is now COMPLETED.
+
+- **2026-05-17**: PR #1415 merged. `idea-054-robust-session-completion` is now COMPLETED.
+
+- **2026-05-17**: PR #1410 merged. `idea-055-cloudflare-sync-and-future-features` is now COMPLETED.
+
+- **2026-05-17**: Heartbeat detected zombie session for `story-029-053-implement-dependency-highlighting`. Transitioned to FAILED.
+
+- **2026-05-17**: PR #1416 merged. `story-032-059-gen3-dataview-scaffolding` is now COMPLETED.
+
+- **2026-05-17**: PR #1418 merged with unchecked tasks. `task-053-092-implement-dependency-highlighting` is now FAILED.
