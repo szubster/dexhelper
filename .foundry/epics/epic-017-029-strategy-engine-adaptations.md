@@ -2,13 +2,13 @@
 id: epic-017-029-strategy-engine-adaptations
 type: EPIC
 title: 'Phase 4: Strategy & Suggestion Engine Adaptations'
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-06'
-updated_at: '2026-05-16'
+updated_at: '2026-05-17'
 depends_on:
   - .foundry/epics/epic-017-028-map-graph-routing.md
-jules_session_id: '17774315504739641334'
+jules_session_id: null
 pr_number: null
 parent: .foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md
 tags:

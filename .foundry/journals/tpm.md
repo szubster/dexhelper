@@ -211,3 +211,7 @@
 - **2026-05-16**: PR #1369 merged. `task-045-086-qa-cross-region-distance` is now COMPLETED.
 
 - **2026-05-16**: PR #1367 merged. `task-052-090-implement-graph-filtering` is now COMPLETED.
+
+- **2026-05-17**: PR #1371 merged. `epic-017-029-strategy-engine-adaptations` is now COMPLETED.
+
+- **2026-05-17**: PR #1370 merged. `task-052-091-qa-graph-filtering` is now COMPLETED.
