@@ -104,3 +104,12 @@ Noticed that `task-053-092-implement-dependency-highlighting.md` failed with the
 ### Action Taken
 1. Added `CRITICAL INSTRUCTION FOR EMPTY PRs` to all execution and planning agent prompts (`coder.md`, `qa.md`, `tech_lead.md`, `story_owner.md`, `epic_planner.md`, `product_manager.md`). This explicitly instructs agents to use the `submit` tool to create a Pull Request even if zero files were changed to avoid the session being marked as a zombie.
 2. Generated `idea-054-robust-session-completion.md` to propose an update to the heartbeat script to properly differentiate between a crashed session and a legitimate empty run.
+
+## 2026-05-18 - Fix Empty PR Termination Bug & Proactive Architecture Improvements
+### Observation
+I noticed that `task-053-092-implement-dependency-highlighting.md` failed with the rejection reason 'Session terminated with state: COMPLETED'. The orchestrator heartbeat was incorrectly flagging sessions that finished successfully without creating a PR as crashed zombies. This negatively impacted agents following the Empty PR policy by creating endless Resurrection Loops. Also noted that many duplicate core policies exist across all `.github/agents/*.md`.
+
+### Action Taken
+1. Directly modified `.github/scripts/foundry-heartbeat.ts` to differentiate between a successful Empty PR (`sessionStatus === 'COMPLETED'`) and a crashed zombie session (`NOT_FOUND` or other terminal states).
+2. Created `.foundry/docs/knowledge_base/agents/core_policies.md` to centralize Empty PR and Environment Troubleshooting policies.
+3. Updated all `.github/agents/*.md` prompt files to reference this centralized core policies document, removing duplicate instructions to improve agent prompt context efficiency.

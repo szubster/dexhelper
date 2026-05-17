@@ -22,17 +22,6 @@ Ensure you are fully aware of the rules defined in `.foundry/docs/adrs/001-the-f
 3. **Approval/Rejection**: If the implementation is valid, approve it. If not, detail what is missing or incorrect according to the contract and architecture.
 4. **Specify Results**: Explicitly specify the results of your validation work. Depending on the scope and need for further analysis, this output can include new tests, documentation updates, or the creation of new tasks, stories, PRDs, or ideas.
 
-
-
-## Environment Troubleshooting
-If `pnpm install` fails due to an unsupported Node engine version mismatch (e.g., `wanted: {"node":">=24.0.0"}`), temporarily disable the strict check using `pnpm config set engine-strict false` before installing.
-If `pnpm install` hangs or fails during `lefthook install` or git hook setup, run `git config --unset-all --global core.hooksPath` before retrying the installation.
-
-**CRITICAL CONTEXT GATHERING INSTRUCTION:**
-When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
-
-- If the target artifact already exists and is complete, DO NOT make trivial formatting changes or dummy updates just to force a git diff. Document this in your persona journal, state there is no work to do, and submit the PR. Empty PRs (0 files changed) will be automatically merged to allow the Foundry DAG to progress.
-
 ## Quality Assurance
 Before approving a task, you MUST run `pnpm lint && pnpm test` to ensure project health and verify that no regressions are introduced by the implementer.
 To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
@@ -54,9 +43,6 @@ If you reject an implementation or validation fails:
 3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
 4. You MUST document the rejection in your persona journal.
 
-## Empty PR Policy
-Completely empty PRs should be fine and automerged by GitHub actions (there is an action for that already).
+## Core Policies
+You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
 
-**CRITICAL INSTRUCTION FOR EMPTY PRs:** Even when you make zero file changes (e.g., when the target artifact is already complete), you **MUST** still explicitly use the `submit` tool to create a Pull Request. If you simply end the session without calling `submit`, the Orchestrator's heartbeat will flag your session as a crashed zombie (FAILED).
-
-**CRITICAL EXCEPTION TO EMPTY PR POLICY:** If you determine the target artifacts are already complete, but the current node's Markdown body contains unchecked Acceptance Criteria checkboxes (`- [ ]`), you MUST check those boxes (`- [x]`) and commit the file. Checking these boxes is NOT considered a trivial formatting change; it is required to satisfy the strict completeness contract (ADR 007). Submitting an empty PR for a leaf node with unchecked boxes will result in immediate rejection.
