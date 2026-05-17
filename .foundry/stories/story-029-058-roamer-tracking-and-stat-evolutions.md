@@ -28,7 +28,12 @@ notes: ''
 Implement roamer tracking logic to guide the player to check the Pokédex for Raikou, Entei, or Suicune if missing. Also, update the evolution logic to accurately process stat-based evolutions like Tyrogue.
 
 ## Acceptance Criteria
-- [ ] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
-- [ ] Evolution logic accurately evaluates stat-based requirements (e.g., Atk > Def for Hitmonlee).
-- [ ] UI dynamically displays stat requirements for stat-based evolutions.
-- [ ] Tests verify roamer tracking and stat-based evolution logic.
+- [x] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
+- [x] Evolution logic accurately evaluates stat-based requirements (e.g., Atk > Def for Hitmonlee).
+- [x] UI dynamically displays stat requirements for stat-based evolutions.
+- [x] Tests verify roamer tracking and stat-based evolution logic.
+
+
+## Tasks
+- .foundry/tasks/task-058-094-implement-roamer-and-stat-evolutions.md
+- .foundry/tasks/task-058-095-qa-roamer-and-stat-evolutions.md
