@@ -44,11 +44,11 @@ Implement the Gen 2 strategy plugin (`gen2Strategy.ts`) conforming to the `Assis
 Make sure to read `.foundry/docs/knowledge_base/development/gen2_implementation_plan.md` for specific mechanics and expected behaviors.
 
 ## Acceptance Criteria
-- [ ] `src/engine/assistant/strategies/gen2Strategy.ts` is created and implements `AssistantStrategy`.
-- [ ] Gen 2 strategy is linked in `strategies/index.ts`.
-- [ ] Time-based suggestions are integrated.
-- [ ] Breeding suggestions are integrated.
-- [ ] Headbutt / Rock Smash inventory checks are integrated.
-- [ ] Roamer tracking guidance is integrated.
-- [ ] Stat-based evolutions (Tyrogue) logic is integrated.
-- [ ] Unit tests are provided or updated to cover the new Gen 2 specific logic and they pass.
+- [x] `src/engine/assistant/strategies/gen2Strategy.ts` is created and implements `AssistantStrategy`.
+- [x] Gen 2 strategy is linked in `strategies/index.ts`.
+- [x] Time-based suggestions are integrated.
+- [x] Breeding suggestions are integrated.
+- [x] Headbutt / Rock Smash inventory checks are integrated.
+- [x] Roamer tracking guidance is integrated.
+- [x] Stat-based evolutions (Tyrogue) logic is integrated.
+- [x] Unit tests are provided or updated to cover the new Gen 2 specific logic and they pass.
