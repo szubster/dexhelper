@@ -28,6 +28,10 @@ notes: ''
 Implement filtering and warnings in the suggestion engine based on Morning/Day/Night cycles using RTC state, specific to Gen 2 mechanics.
 
 ## Acceptance Criteria
-- [ ] The suggestion engine filters encounters based on time of day (Morning/Day/Night).
-- [ ] Relevant UI warnings are displayed if an encounter is only available at a different time of day.
-- [ ] Tests verify time-based filtering logic.
+- [x] The suggestion engine filters encounters based on time of day (Morning/Day/Night).
+- [x] Relevant UI warnings are displayed if an encounter is only available at a different time of day.
+- [x] Tests verify time-based filtering logic.
+
+## Children
+- [.foundry/tasks/task-055-094-implement-time-based-suggestions.md](.foundry/tasks/task-055-094-implement-time-based-suggestions.md)
+- [.foundry/tasks/task-055-095-qa-time-based-suggestions.md](.foundry/tasks/task-055-095-qa-time-based-suggestions.md)
