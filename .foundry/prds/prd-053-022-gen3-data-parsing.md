@@ -2,16 +2,18 @@
 id: prd-053-022-gen3-data-parsing
 type: PRD
 title: Gen3 Data Parsing
-status: COMPLETED
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6640165951762129390'
 parent: idea-053-gen3-support
 tags:
   - gen3
   - feature
+rejection_count: 0
+rejection_reason: ""
 notes: Spawned from Idea 053
 ---
 
@@ -23,3 +25,9 @@ As part of adding Gen3 support, we need to adapt our data parsing strategy to ha
 ## Requirements
 - Implement data parsers to handle Gen3 format.
 - Ensure backwards compatibility with Gen 1 and Gen 2 logic.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+
+- [.foundry/docs/adrs/010-gen3-data-parsing.md](.foundry/docs/adrs/010-gen3-data-parsing.md)
+- [.foundry/epics/epic-022-032-gen3-data-parsing.md](.foundry/epics/epic-022-032-gen3-data-parsing.md)

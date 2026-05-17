@@ -12,6 +12,8 @@ parent: idea-053-gen3-support
 tags:
   - gen3
   - feature
+rejection_count: 0
+rejection_reason: ""
 notes: Spawned from Idea 053
 ---
 

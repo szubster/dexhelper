@@ -3,7 +3,7 @@ id: epic-022-032-gen3-data-parsing
 type: EPIC
 title: "Gen3 Data Parsing Implementation"
 status: PENDING
-owner_persona: "planner"
+owner_persona: "epic_planner"
 created_at: "2026-05-17"
 updated_at: "2026-05-17"
 depends_on: []
