@@ -51,3 +51,4 @@ Outcome: The generated epics (epic-007-atomic-handoff-schema.md, epic-008-atomic
 >> **Action:** Per the Empty PR Policy, I did not make dummy updates or trivial formatting changes to force a git diff. Submitted PR directly.
 
 - Target artifact `.foundry/epics/epic-019-030-orchestrator-test-factories.md` already exists and is complete. Applied Empty PR Policy.
+Learning: For Gen 3 which encompasses games set in two different regions (Hoenn and Kanto), it's important to design a unified map graph architecture that supports both regions within a single module (gen3Graph.ts). This ensures consistency and simplifies strategy development across RSE and FRLG.

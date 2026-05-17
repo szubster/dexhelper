@@ -30,9 +30,12 @@ Implement the map graph for Generation 3, supporting routing and distance calcul
 - **Cross-Region/Distance Lookup**: Implement `getDistanceToMap` algorithms leveraging the precomputed Floyd-Warshall distance lookup matrix for Gen 3.
 
 ## Acceptance Criteria
-- [ ] `gen3Graph.ts` is implemented and unit tested.
-- [ ] `resolveOutdoorMapId` accurately determines the outdoor parent map ID for both Hoenn and Kanto Gen 3 internal structures.
-- [ ] `getDistanceToMap` yields accurate distances to target areas.
+- [x] `gen3Graph.ts` is implemented and unit tested.
+- [x] `resolveOutdoorMapId` accurately determines the outdoor parent map ID for both Hoenn and Kanto Gen 3 internal structures.
+- [x] `getDistanceToMap` yields accurate distances to target areas.
 
 ## Created Stories
 <!-- Planner will add stories here -->
+- [.foundry/stories/story-032-059-gen3-map-graph-structure.md](./../stories/story-032-059-gen3-map-graph-structure.md)
+- [.foundry/stories/story-032-060-gen3-indoor-resolution.md](./../stories/story-032-060-gen3-indoor-resolution.md)
+- [.foundry/stories/story-032-061-gen3-distance-lookup.md](./../stories/story-032-061-gen3-distance-lookup.md)
