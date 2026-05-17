@@ -1,14 +1,14 @@
 ---
 id: task-059-099-gen3-map-graph-structure-qa
 type: TASK
-title: "QA Gen3 Map Graph Structure"
-status: READY
+title: QA Gen3 Map Graph Structure
+status: ACTIVE
 owner_persona: qa
-created_at: "2026-05-18"
-updated_at: "2026-05-18"
+created_at: '2026-05-18'
+updated_at: '2026-05-17'
 depends_on:
   - task-059-098-gen3-map-graph-structure-impl
-jules_session_id: null
+jules_session_id: '16352232706776436645'
 pr_number: null
 parent: story-032-059-gen3-map-graph-structure
 tags:
@@ -16,8 +16,8 @@ tags:
   - map-graph
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Task: QA Gen3 Map Graph Structure
