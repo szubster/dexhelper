@@ -2,7 +2,7 @@
 id: task-059-099-gen3-map-graph-structure-qa
 type: TASK
 title: QA Gen3 Map Graph Structure
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-17'
