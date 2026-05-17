@@ -25,5 +25,8 @@ notes: Story for setting up Gen3 data parsing handlers using DataView.
 Set up the initial parsing handlers for the Gen3 save format using the native `DataView` API.
 
 ## Acceptance Criteria
-- [ ] Implement initial Gen3 `DataView` parsing scaffolding.
-- [ ] Ensure that new functions and handlers strictly follow the native API pattern.
+- [x] Implement initial Gen3 `DataView` parsing scaffolding.
+- [x] Ensure that new functions and handlers strictly follow the native API pattern.
+
+- [x] [task-059-096-gen3-dataview-scaffolding-impl](.foundry/tasks/task-059-096-gen3-dataview-scaffolding-impl.md)
+- [x] [task-059-097-gen3-dataview-scaffolding-qa](.foundry/tasks/task-059-097-gen3-dataview-scaffolding-qa.md)
