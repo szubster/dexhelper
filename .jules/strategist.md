@@ -96,3 +96,9 @@
 **Outcome:** Accepted
 **Why:** The Canvas prompt instructed the agent to "Include before/after screenshots in the PR description" without explaining *how* to generate them in the headless environment.
 **Pattern:** Update prompts to ensure UI agents explicitly know how to run the dev server and use Python Playwright to record and capture screenshots for visual verification.
+
+## 2026-06-28 - [Accepted] - Prompt improvement - Ensure all agents can create nodes
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** Agents were incorrectly restricted or implicitly discouraged from creating dynamic nodes (like RESEARCH, IDEA, ADR) when discovering new tasks, lacking context, or uncovering architectural concerns. Scheduled agents were also not explicitly empowered to create Foundry nodes.
+**Pattern:** Prompts should empower agents to spawn their own tasks (`IDEA`, `RESEARCH`, `ADR`) directly into `.foundry/` if they discover work that needs to be done.
