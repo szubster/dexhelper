@@ -28,6 +28,10 @@ notes: ''
 Handle Headbutt and Rock Smash encounters in the suggestion engine, cross-referencing them with the player's extracted inventory (TMs/HMs/Badges).
 
 ## Acceptance Criteria
-- [ ] The suggestion engine filters Headbutt encounters based on player inventory and badges.
-- [ ] The suggestion engine filters Rock Smash encounters based on player inventory and badges.
-- [ ] Tests verify the Headbutt and Rock Smash encounter logic.
+- [x] The suggestion engine filters Headbutt encounters based on player inventory and badges.
+- [x] The suggestion engine filters Rock Smash encounters based on player inventory and badges.
+- [x] Tests verify the Headbutt and Rock Smash encounter logic.
+
+### Tasks
+- [.foundry/tasks/task-057-094-implement-headbutt-rocksmash-logic.md](.foundry/tasks/task-057-094-implement-headbutt-rocksmash-logic.md)
+- [.foundry/tasks/task-057-095-qa-headbutt-rocksmash-logic.md](.foundry/tasks/task-057-095-qa-headbutt-rocksmash-logic.md)
