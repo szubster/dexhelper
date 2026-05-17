@@ -161,7 +161,7 @@ export function DagDashboard() {
     return edges
       .filter((e) => visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target))
       .map((e) => {
-        const isHighlighted = activeNodeId ? (e.source === activeNodeId || e.target === activeNodeId) : false;
+        const isHighlighted = activeNodeId ? e.source === activeNodeId || e.target === activeNodeId : false;
         const isDimmed = activeNodeId ? !isHighlighted : false;
 
         return {

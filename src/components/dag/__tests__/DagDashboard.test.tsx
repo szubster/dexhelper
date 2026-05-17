@@ -149,13 +149,13 @@ test('DagDashboard handles selection and highlighting', async () => {
   const n3 = page.getByText('node-3');
 
   // Since multiple wrappers might match our ancestor xpath, grab the first one specifically
-  const n1DagNode = n1.locator('xpath=./ancestor::div[@data-testid="dag-node"]').first();
-  const n2DagNode = n2.locator('xpath=./ancestor::div[@data-testid="dag-node"]').first();
-  const n3DagNode = n3.locator('xpath=./ancestor::div[@data-testid="dag-node"]').first();
+  const n1DagNode = page.elementLocator(n1.element().closest('[data-testid="dag-node"]') as HTMLElement);
+  const n2DagNode = page.elementLocator(n2.element().closest('[data-testid="dag-node"]') as HTMLElement);
+  const n3DagNode = page.elementLocator(n3.element().closest('[data-testid="dag-node"]') as HTMLElement);
 
   // Click directly on the inner dag node div since vitest has better click hit-testing now.
   // Wait a small bit in case React Flow is still laying out.
-  await new Promise(r => setTimeout(r, 100));
+  await new Promise((r) => setTimeout(r, 100));
 
   // Initially, none are highlighted/dimmed
   await expect.element(n1DagNode).not.toHaveClass('!border-cyan-500');
@@ -163,11 +163,11 @@ test('DagDashboard handles selection and highlighting', async () => {
 
   // Since Vitest Browser struggles with finding the actual interactive rect in React Flow
   // we dispatch the click event directly on the component div
-  const n2El = n2DagNode.element();
+  const n2El = n2DagNode.element() as HTMLElement;
   n2El.click();
 
   // node-2 is highlighted
-  await vi.waitFor(() => expect.element(n2DagNode).toHaveClass('!border-cyan-500'), { timeout: 3000 });
+  await vi.waitFor(async () => await expect.element(n2DagNode).toHaveClass('!border-cyan-500'), { timeout: 3000 });
 
   // node-1 is upstream of node-2, so it is highlighted
   await expect.element(n1DagNode).toHaveClass('!border-cyan-500');
@@ -177,7 +177,7 @@ test('DagDashboard handles selection and highlighting', async () => {
   // Click to un-toggle
   n2El.click();
 
-  await vi.waitFor(() => expect.element(n2DagNode).not.toHaveClass('!border-cyan-500'), { timeout: 3000 });
+  await vi.waitFor(async () => await expect.element(n2DagNode).not.toHaveClass('!border-cyan-500'), { timeout: 3000 });
   await expect.element(n3DagNode).not.toHaveClass('opacity-30');
 });
 
