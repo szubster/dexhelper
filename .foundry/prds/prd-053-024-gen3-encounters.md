@@ -23,3 +23,6 @@ We need to integrate Gen3 encounters, locations, and Pokemon.
 ## Requirements
 - Update data generation scripts to support Gen 3 locations, encounters, and pokemon.
 - Ensure Gen 3 encounters, locations, and Pokemon are integrated.
+
+## Epics
+- [.foundry/epics/epic-053-024-032-gen3-encounters-implementation.md](.foundry/epics/epic-053-024-032-gen3-encounters-implementation.md)
