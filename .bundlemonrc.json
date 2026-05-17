@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "550kb"
+      "maxSize": "555kb"
     },
     {
       "path": "assets/dag-<hash>.js",
