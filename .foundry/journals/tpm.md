@@ -229,3 +229,5 @@
 - **2026-05-17**: PR #1393 merged. `story-029-057-interaction-logic` is now COMPLETED.
 
 - **2026-05-17**: PR #1391 merged. `story-029-058-roamer-tracking-and-stat-evolutions` is now COMPLETED.
+
+- **2026-05-17**: PR #1395 merged. `prd-053-022-gen3-data-parsing` is now COMPLETED.
