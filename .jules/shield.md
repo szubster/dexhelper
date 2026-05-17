@@ -37,4 +37,7 @@ GitHub Advisory GHSA-rmmr-r34h-pfm5 identified critical malware in `@tanstack/hi
 Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While the advisory states `>=0` is vulnerable, version `1.161.6` was published months ago and is widely considered stable before the malicious versions were injected. Verified that `pnpm audit --prod` still reports it, but this is a targeted mitigation until `@tanstack/react-router` releases a clean version.
 ## Sanitize Error Logging (CWE-209)
 **Pattern:** When modifying generic `console.error` handlers, ensure that the variable representing the caught error is completely removed from the `catch` signature if it is no longer used, or prefix it with an underscore (e.g., `catch (_error)`) to avoid unused variable linting errors (like those raised by Biome). Alternatively, use `catch {` directly without capturing the error object.
-\n## Sanitize Error Logging in Scripts (CWE-209)\n**Pattern:** Ensure raw error objects (e.g. `console.error(e)`) are sanitized not just in application code (`src/`), but also in build scripts and GitHub actions (`scripts/` and `.github/scripts/`) to prevent information leakage of build context or local paths.
+
+
+## Sanitize Error Logging (CWE-209)
+**Pattern:** While application code requires generic error logs to prevent CWE-209, build scripts and CI GitHub actions (`scripts/` and `.github/scripts/`) MUST retain raw error objects (e.g. `console.error(e)`) as they are essential for debugging CI failures.

@@ -142,8 +142,8 @@ function checkLinks() {
         }
       }
 
-    } catch {
-      console.error(`Error processing file ${file}: System failure`);
+    } catch (e) {
+      console.error(`Error processing file ${file}:`, e);
       hasErrors = true;
     }
   }
