@@ -3,7 +3,7 @@ id: epic-053-032-gen3-map-graph-routing
 type: EPIC
 title: 'Gen 3 Map Graph Routing'
 status: PENDING
-owner_persona: planner
+owner_persona: epic_planner
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []
