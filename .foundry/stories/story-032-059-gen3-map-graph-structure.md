@@ -30,5 +30,7 @@ Define the unified map graph structure for Generation 3 (Hoenn and Kanto) in `sr
 - Implement the baseline nodes required for routing and distance calculation.
 
 ## Acceptance Criteria
-- [ ] `gen3Graph.ts` defines map connectivity.
-- [ ] Unit tests for basic structure definition are added.
+- [x] `gen3Graph.ts` defines map connectivity.
+- [x] Unit tests for basic structure definition are added.
+- task-059-098-gen3-map-graph-structure-impl
+- task-059-099-gen3-map-graph-structure-qa

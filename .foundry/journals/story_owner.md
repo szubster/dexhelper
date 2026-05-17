@@ -59,3 +59,5 @@ The requested STORY node already exists and is COMPLETED (`.foundry/stories/stor
 
 ## 2026-05-16
 - Remember to always clean up temporary files or bash scripts created in the workspace after using them, to prevent repository pollution.
+
+- Learned that getDistanceToMap in Gen3 graph requires O(1) performance using the dist array.
