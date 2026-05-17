@@ -1,6 +1,7 @@
 import type { GameVersion, PokemonInstance, SaveData } from './parsers/common';
 import { isGen1Save, parseGen1 } from './parsers/gen1';
 import { isGen2Save, parseGen2 } from './parsers/gen2';
+import { isGen3Save, parseGen3 } from './parsers/gen3';
 
 export type { GameVersion, PokemonInstance, SaveData };
 
@@ -57,6 +58,8 @@ export function parseSaveFile(buffer: ArrayBuffer, forcedVersion?: GameVersion):
         return parseGen2(view, true);
       } else if (isGen2Save(view, false)) {
         return parseGen2(view, false);
+      } else if (isGen3Save(view)) {
+        return parseGen3(view, forcedVersion);
       }
       throw new Error(
         'Could not detect a valid Pokémon Red/Blue/Yellow or Gold/Silver/Crystal save file. Please ensure you are uploading a .sav file from a Gen 1 or Gen 2 game.',
