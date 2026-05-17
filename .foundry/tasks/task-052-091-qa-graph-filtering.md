@@ -50,8 +50,8 @@ This task is to verify the implementation of `task-052-090-implement-graph-filte
    - Run type checks and linting (`pnpm lint`).
 
 ## Acceptance Criteria
-- [ ] Verify the tactical hardware aesthetic of the filter controls.
-- [ ] Verify functionality of the `type` filters.
-- [ ] Verify functionality of the `status` filters.
-- [ ] Verify edges update correctly when nodes are hidden.
-- [ ] Ensure all relevant tests pass.
+- [x] Verify the tactical hardware aesthetic of the filter controls.
+- [x] Verify functionality of the `type` filters.
+- [x] Verify functionality of the `status` filters.
+- [x] Verify edges update correctly when nodes are hidden.
+- [x] Ensure all relevant tests pass.
