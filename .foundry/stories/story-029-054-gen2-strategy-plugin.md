@@ -2,13 +2,13 @@
 id: story-029-054-gen2-strategy-plugin
 type: STORY
 title: 'Story: Gen 2 Strategy Plugin'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-16'
-updated_at: '2026-05-16'
+updated_at: '2026-05-17'
 depends_on:
   - .foundry/stories/story-028-045-cross-region-distance.md
-jules_session_id: null
+jules_session_id: '5661292779366388316'
 pr_number: null
 parent: .foundry/epics/epic-017-029-strategy-engine-adaptations.md
 tags:
