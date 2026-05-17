@@ -96,3 +96,11 @@ I noticed that `task-051-087-implement-core-graph-visualizer` was rejected by QA
 ### Action Taken
 1. Updated `.github/agents/coder.md` to explicitly list the UI Aesthetic Constraints (ADR 008), strongly instructing the agent to use `rounded-none` and explicitly avoid `rounded-t`, `rounded-b`, or `rounded-sm`.
 2. Created a new task `.foundry/tasks/task-051-089-fix-core-graph-visualizer-aesthetic.md` to cleanly delegate the specific UI fixes (`src/components/dag/DagNode.tsx` and `src/components/TelemetryDecoration.tsx`) back to the coder rather than attempting to modify application source code myself.
+
+## 2026-05-18 - Robust Empty PR Handling
+### Observation
+Noticed that `task-053-092-implement-dependency-highlighting.md` failed with the rejection reason 'Session terminated with state: COMPLETED'. The orchestrator heartbeat was incorrectly flagging sessions that finished successfully without creating a PR as crashed zombies. This negatively impacted agents following the Empty PR policy by creating endless Resurrection Loops.
+
+### Action Taken
+1. Added `CRITICAL INSTRUCTION FOR EMPTY PRs` to all execution and planning agent prompts (`coder.md`, `qa.md`, `tech_lead.md`, `story_owner.md`, `epic_planner.md`, `product_manager.md`). This explicitly instructs agents to use the `submit` tool to create a Pull Request even if zero files were changed to avoid the session being marked as a zombie.
+2. Generated `idea-054-robust-session-completion.md` to propose an update to the heartbeat script to properly differentiate between a crashed session and a legitimate empty run.
