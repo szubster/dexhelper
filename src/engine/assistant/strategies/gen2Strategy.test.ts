@@ -49,8 +49,29 @@ describe('gen2Strategy', () => {
     expect(result).toBe('Exclusivity Reason');
   });
 
-  it('returns empty special suggestions', () => {
-    expect(gen2Strategy.getSpecialSuggestions(mockSaveData, [])).toEqual([]);
+  it('returns special suggestions for gen 2 mechanics', () => {
+    const saveData = {
+      ...mockSaveData,
+      inventory: [
+        { id: 192, quantity: 1 },
+        { id: 198, quantity: 1 },
+      ],
+      roamingLegendaries: [{ speciesId: 243, level: 40, mapGroup: 1, mapId: 1 }],
+      partyDetails: [{ speciesId: 25 }], // Pikachu
+    } as unknown as SaveData;
+
+    const suggestionsTyrogue = gen2Strategy.getSpecialSuggestions(saveData, [106]);
+    expect(suggestionsTyrogue.some((s) => s.id === 'tyrogue-evo-106')).toBe(true);
+
+    const suggestionsBreeding = gen2Strategy.getSpecialSuggestions(saveData, [172]); // Pichu
+    expect(suggestionsBreeding.some((s) => s.id === 'breed-172')).toBe(true);
+
+    const suggestions = gen2Strategy.getSpecialSuggestions(saveData, [243]);
+    expect(suggestions).toHaveLength(4); // roamer, headbutt, rocksmash, time
+    expect(suggestions[0]?.id).toBe('roamer-243');
+    expect(suggestions[1]?.id).toBe('headbutt-reminder');
+    expect(suggestions[2]?.id).toBe('rocksmash-reminder');
+    expect(suggestions[3]?.id).toBe('time-based-reminder');
   });
 
   it('returns true for isInternallyObtainable', () => {

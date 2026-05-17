@@ -313,31 +313,13 @@ export function isGen1Save(view: DataView): boolean {
  * @param forcedVersion - An optional game version override, used to bypass heuristics if the user manually specifies it.
  * @returns The fully parsed and structured SaveData object.
  */
-export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData {
-  const trainerName = decodeGen12String(view, 0x2598);
 
-  // Quick parse of party to get OTs for accurate version detection
-  const partyCount = view.getUint8(0x2f2c);
-  const quickParty: { speciesId: number; otName: string }[] = [];
-  const partyDataOffset = 0x2f2d + 7;
-  const partyOTOffset = partyDataOffset + 6 * 44;
-
-  // Note: we don't know the shift yet, so we try both for quick party if needed,
-  // but usually OTs don't move or we can guess. For now, let's just use the default
-  // and hope it's enough for version detection.
-  for (let i = 0; i < partyCount; i++) {
-    const offset = partyDataOffset + i * 44;
-    const internalId = view.getUint8(offset);
-    const speciesId = INTERNAL_ID_TO_DEX[internalId];
-    if (speciesId) {
-      const otName = decodeGen12String(view, partyOTOffset + i * 11);
-      quickParty.push({ speciesId, otName });
-    }
-  }
-
-  // Try to detect version by checking Pokedex at both possible offsets (0 and +1)
-  // Yellow shifted by +1 after PlayerName (offset 0x2598 + 11 = 0x25A3).
-
+function detectVersionAndOffsets(
+  view: DataView,
+  forcedVersion: GameVersion | undefined,
+  trainerName: string,
+  quickParty: { speciesId: number; otName: string }[],
+) {
   const detectForOffset = (ownedBase: number) => {
     const owned = new Set<number>();
     const seen = new Set<number>();
@@ -350,8 +332,6 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
       if ((oByte & (1 << bitIdx)) !== 0) owned.add(i);
       if ((sByte & (1 << bitIdx)) !== 0) seen.add(i);
     }
-    // High-confidence Yellow indicators: bit 152 (last bit of 19-byte Pokedex) must be 0.
-    // In Yellow, the Happiness byte (at A3) is often FF or high value, which would make bit 7 of the "shifted-Pokedex-last-byte" 1 if we read from A3.
     const paddingBitIsCorrect = (view.getUint8(ownedBase + 18) & 0x80) === 0;
     const version = detectGen1GameVersion(view, owned, seen, trainerName, quickParty);
     return { version, owned, seen, paddingBitIsCorrect };
@@ -360,7 +340,6 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
   const res0 = detectForOffset(0x25a3);
   const res1 = detectForOffset(0x25a4);
 
-  // Pick the probe that looks more correct for the structure, primarily using the padding bit.
   const resToUse = res1.paddingBitIsCorrect && !res0.paddingBitIsCorrect ? res1 : res0;
 
   let isYellow = forcedVersion === 'yellow';
@@ -376,74 +355,79 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     : forcedVersion && forcedVersion !== 'unknown'
       ? forcedVersion
       : resToUse.version;
-  const { owned, seen } = resToUse;
 
+  return { offsetShift, gameVersion, owned: resToUse.owned, seen: resToUse.seen };
+}
+
+function parseGen1Pokemon(
+  view: DataView,
+  offset: number,
+  otOffset: number,
+  isParty: boolean,
+  storageLocation: string,
+  slot: number,
+): PokemonInstance | null {
+  const internalId = view.getUint8(offset);
+  const speciesId = INTERNAL_ID_TO_DEX[internalId];
+  if (!speciesId) return null;
+
+  // Party has stats, so level is at offset + 33. PC has no stats, level is at offset + 3.
+  const level = view.getUint8(isParty ? offset + 33 : offset + 3);
+  const moves: number[] = [];
+  for (let j = 0; j < 4; j++) {
+    const m = view.getUint8(offset + 8 + j);
+    if (m > 0) moves.push(m);
+  }
+  const dvs = parseDVs(view.getUint16(offset + 27, false));
+  const isShiny = checkShiny(dvs);
+  const otName = decodeGen12String(view, otOffset);
+
+  return {
+    speciesId,
+    level,
+    isShiny,
+    moves,
+    otName,
+    storageLocation,
+    slot,
+  };
+}
+
+function parsePartyList(
+  view: DataView,
+  partyCount: number,
+  shiftedPartyDataOffset: number,
+  shiftedPartyOTOffset: number,
+): PokemonInstance[] {
   const partyDetails: PokemonInstance[] = [];
-  const shiftedPartyDataOffset = 0x2f2d + offsetShift + 7;
-  const shiftedPartyOTOffset = shiftedPartyDataOffset + 6 * 44;
-
   for (let i = 0; i < partyCount; i++) {
     const offset = shiftedPartyDataOffset + i * 44;
-    const internalId = view.getUint8(offset);
-    const speciesId = INTERNAL_ID_TO_DEX[internalId];
-    if (!speciesId) continue;
-    const level = view.getUint8(offset + 33);
-    const moves: number[] = [];
-    for (let j = 0; j < 4; j++) {
-      const m = view.getUint8(offset + 8 + j);
-      if (m > 0) moves.push(m);
-    }
-    const dvs = parseDVs(view.getUint16(offset + 27, false));
-    const isShiny = checkShiny(dvs);
-    const otName = decodeGen12String(view, shiftedPartyOTOffset + i * 11);
-    partyDetails.push({
-      speciesId,
-      level,
-      isShiny,
-      moves,
-      otName,
-      storageLocation: 'Party',
-      slot: i + 1,
-    });
+    const p = parseGen1Pokemon(view, offset, shiftedPartyOTOffset + i * 11, true, 'Party', i + 1);
+    if (p) partyDetails.push(p);
   }
+  return partyDetails;
+}
 
-  const party = partyDetails.map((p) => p.speciesId);
+function parsePCBoxes(
+  view: DataView,
+  offsetShift: number,
+): { pc: number[]; pcDetails: PokemonInstance[]; currentBoxCount: number } {
+  const pc: number[] = [];
+  const pcDetails: PokemonInstance[] = [];
 
   const currentBoxNum = view.getUint8(0x284c + offsetShift) & 0x7f;
   const currentBoxCount = view.getUint8(0x30c0 + offsetShift);
-  const pc: number[] = [];
+  const currentBoxDataOffset = 0x30c1 + offsetShift + 21;
+  const currentBoxOTOffset = currentBoxDataOffset + 20 * 33;
+
   for (let i = 0; i < currentBoxCount; i++) {
     const id = view.getUint8(0x30c1 + offsetShift + i);
     const dex = INTERNAL_ID_TO_DEX[id];
     if (dex !== undefined) pc.push(dex);
-  }
 
-  const pcDetails: PokemonInstance[] = [];
-  const currentBoxDataOffset = 0x30c1 + offsetShift + 21;
-  const currentBoxOTOffset = currentBoxDataOffset + 20 * 33;
-  for (let i = 0; i < currentBoxCount; i++) {
     const offset = currentBoxDataOffset + i * 33;
-    const internalId = view.getUint8(offset);
-    const speciesId = INTERNAL_ID_TO_DEX[internalId];
-    if (!speciesId) continue;
-    const level = view.getUint8(offset + 3);
-    const moves: number[] = [];
-    for (let j = 0; j < 4; j++) {
-      const m = view.getUint8(offset + 8 + j);
-      if (m > 0) moves.push(m);
-    }
-    const dvs = parseDVs(view.getUint16(offset + 27, false));
-    const isShiny = checkShiny(dvs);
-    const otName = decodeGen12String(view, currentBoxOTOffset + i * 11);
-    pcDetails.push({
-      speciesId,
-      level,
-      isShiny,
-      moves,
-      otName,
-      storageLocation: `Box ${currentBoxNum + 1}`,
-      slot: i + 1,
-    });
+    const p = parseGen1Pokemon(view, offset, currentBoxOTOffset + i * 11, false, `Box ${currentBoxNum + 1}`, i + 1);
+    if (p) pcDetails.push(p);
   }
 
   const boxOffsets = [0x4000, 0x4462, 0x48c4, 0x4d26, 0x5188, 0x55ea, 0x6000, 0x6462, 0x68c4, 0x6d26, 0x7188, 0x75ea];
@@ -458,35 +442,49 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
       if (dex !== undefined) pc.push(dex);
     }
 
-    const boxDataOffset = offset + 22; // Offset 21 is species list end (FF), 22 is first Pokemon
+    const boxDataOffset = offset + 22;
     const boxOTOffset = boxDataOffset + 20 * 33;
     for (let j = 0; j < count; j++) {
       const pOff = boxDataOffset + j * 33;
-      const internalId = view.getUint8(pOff);
-      const speciesId = INTERNAL_ID_TO_DEX[internalId];
-      if (!speciesId) continue;
-
-      const level = view.getUint8(pOff + 3);
-      const moves: number[] = [];
-      for (let k = 0; k < 4; k++) {
-        const m = view.getUint8(pOff + 8 + k);
-        if (m > 0) moves.push(m);
-      }
-      const dvs = parseDVs(view.getUint16(pOff + 27, false));
-      const isShiny = checkShiny(dvs);
-      const otName = decodeGen12String(view, boxOTOffset + j * 11);
-
-      pcDetails.push({
-        speciesId,
-        level,
-        isShiny,
-        moves,
-        otName,
-        storageLocation: `Box ${i + 1}`,
-        slot: j + 1,
-      });
+      const p = parseGen1Pokemon(view, pOff, boxOTOffset + j * 11, false, `Box ${i + 1}`, j + 1);
+      if (p) pcDetails.push(p);
     }
   }
+
+  return { pc, pcDetails, currentBoxCount };
+}
+
+export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData {
+  const trainerName = decodeGen12String(view, 0x2598);
+
+  const partyCount = view.getUint8(0x2f2c);
+  const quickParty: { speciesId: number; otName: string }[] = [];
+  const partyDataOffset = 0x2f2d + 7;
+  const partyOTOffset = partyDataOffset + 6 * 44;
+
+  for (let i = 0; i < partyCount; i++) {
+    const offset = partyDataOffset + i * 44;
+    const internalId = view.getUint8(offset);
+    const speciesId = INTERNAL_ID_TO_DEX[internalId];
+    if (speciesId) {
+      const otName = decodeGen12String(view, partyOTOffset + i * 11);
+      quickParty.push({ speciesId, otName });
+    }
+  }
+
+  const { offsetShift, gameVersion, owned, seen } = detectVersionAndOffsets(
+    view,
+    forcedVersion,
+    trainerName,
+    quickParty,
+  );
+
+  const shiftedPartyDataOffset = 0x2f2d + offsetShift + 7;
+  const shiftedPartyOTOffset = shiftedPartyDataOffset + 6 * 44;
+  const partyDetails = parsePartyList(view, partyCount, shiftedPartyDataOffset, shiftedPartyOTOffset);
+  const party = partyDetails.map((p) => p.speciesId);
+
+  const { pc, pcDetails, currentBoxCount } = parsePCBoxes(view, offsetShift);
 
   const badges = view.getUint8(0x2602 + offsetShift);
   const trainerId = view.getUint16(0x2605 + offsetShift, false);
