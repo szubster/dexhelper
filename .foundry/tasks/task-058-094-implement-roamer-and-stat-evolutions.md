@@ -1,11 +1,11 @@
 ---
 id: task-058-094-implement-roamer-and-stat-evolutions
 type: TASK
-title: 'Implement Roamer Tracking & Stat-Based Evolutions'
-status: PENDING
+title: Implement Roamer Tracking & Stat-Based Evolutions
+status: READY
 owner_persona: coder
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-17'
 depends_on: []
 jules_session_id: null
 pr_number: null

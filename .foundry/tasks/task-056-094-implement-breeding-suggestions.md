@@ -1,8 +1,8 @@
 ---
 id: task-056-094-implement-breeding-suggestions
 type: TASK
-title: 'Implement Breeding Suggestions'
-status: PENDING
+title: Implement Breeding Suggestions
+status: READY
 owner_persona: coder
 created_at: '2026-05-17'
 updated_at: '2026-05-17'

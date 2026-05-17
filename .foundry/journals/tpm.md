@@ -217,3 +217,15 @@
 - **2026-05-17**: PR #1370 merged. `task-052-091-qa-graph-filtering` is now COMPLETED.
 
 - **2026-05-17**: PR #1383 merged. `story-029-053-implement-dependency-highlighting` is now PENDING.
+
+- **2026-05-17**: PR #1394 merged. `idea-053-gen3-support` is now COMPLETED.
+
+- **2026-05-17**: PR #1392 merged. `story-029-054-gen2-strategy-plugin` is now COMPLETED.
+
+- **2026-05-17**: PR #1390 merged. `story-029-055-time-based-suggestions` is now COMPLETED.
+
+- **2026-05-17**: PR #1389 merged. `story-029-056-breeding-suggestions` is now COMPLETED.
+
+- **2026-05-17**: PR #1393 merged. `story-029-057-interaction-logic` is now COMPLETED.
+
+- **2026-05-17**: PR #1391 merged. `story-029-058-roamer-tracking-and-stat-evolutions` is now COMPLETED.

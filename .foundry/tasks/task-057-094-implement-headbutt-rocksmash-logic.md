@@ -1,8 +1,8 @@
 ---
 id: task-057-094-implement-headbutt-rocksmash-logic
 type: TASK
-title: 'Implement Headbutt and Rock Smash Logic'
-status: PENDING
+title: Implement Headbutt and Rock Smash Logic
+status: READY
 owner_persona: coder
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
