@@ -21,3 +21,4 @@ Architects frequently perform evaluation tasks (e.g., assessing graph libraries,
 ## 2026-05-12: Enforce Acceptance Criteria on Empty PRs
 - **Pattern**: A bug allowed leaf node tasks with unchecked acceptance criteria boxes to be bypassed as "completed" simply because their target artifacts already existed, submitting empty PRs that auto-merged.
 - **Action**: Created ADR 009 to formally document that during empty PR evaluation (both preflight in orchestrator and heartbeat for merges), leaf nodes MUST fail and set `rejection_reason` if they contain unchecked boxes. Late-binding parent nodes are exempt from this failure state.
+- When referencing other nodes in YAML frontmatter fields like `parent` or `depends_on`, strictly use the exact node ID (e.g., `prd-053-022-gen3-data-parsing`) rather than the relative file path to avoid Groundedness Rule violations.

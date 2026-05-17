@@ -28,3 +28,4 @@ As part of adding Gen3 support, we need to adapt our data parsing strategy to ha
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
 
 - [.foundry/docs/adrs/010-gen3-data-parsing.md](.foundry/docs/adrs/010-gen3-data-parsing.md)
+- [.foundry/epics/epic-022-032-gen3-data-parsing.md](.foundry/epics/epic-022-032-gen3-data-parsing.md)
