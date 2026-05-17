@@ -31,6 +31,6 @@ Implement the `gen3Graph.ts` file according to the specifications in ADR 010.
 - Define and export map connectivity constants for the Gen 3 structures.
 
 ## Acceptance Criteria
-- [ ] `gen3Graph.ts` is created and exports `getDistanceToMap` and `resolveOutdoorMapId`.
-- [ ] O(1) distance lookups via the `dist` array are implemented.
-- [ ] Recursive `prnt` traversal for outdoor map resolution is implemented.
+- [x] `gen3Graph.ts` is created and exports `getDistanceToMap` and `resolveOutdoorMapId`.
+- [x] O(1) distance lookups via the `dist` array are implemented.
+- [x] Recursive `prnt` traversal for outdoor map resolution is implemented.
