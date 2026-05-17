@@ -6,6 +6,7 @@ import type { SaveData } from '../../engine/saveParser/index';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { CornerCrosshairs } from '../CornerCrosshairs';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
+import { TacticalBadge } from '../TacticalBadge';
 
 interface AssistantSuggestionCardProps {
   suggestion: Suggestion;
@@ -148,9 +149,9 @@ export function AssistantSuggestionCard({
                         </span>
                       </div>
                       {!isOwned && (
-                        <span className="rounded-none border border-red-500/30 border-dashed bg-red-500/20 px-1.5 py-0.5 font-black font-mono text-[8px] text-red-400 uppercase tracking-tighter">
+                        <TacticalBadge variant="red" className="px-1.5 py-0.5 font-mono tracking-tighter">
                           [ MISSING_ROD ]
-                        </span>
+                        </TacticalBadge>
                       )}
                     </div>
                     <div className="flex flex-wrap gap-4">

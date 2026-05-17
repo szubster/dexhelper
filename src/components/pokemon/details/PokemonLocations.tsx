@@ -2,6 +2,7 @@ import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { staticEncounters } from '../../../engine/data/shared/staticData';
+import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface EvoReq {
@@ -61,9 +62,7 @@ export function PokemonLocations({
                           Available via Evolving {evoReq.fromName.toUpperCase()}
                         </span>
                       </div>
-                      <span className="rounded-none border border-amber-500/10 border-dashed bg-amber-500/5 px-2 py-1 font-black text-[8px] text-amber-500/60 uppercase tracking-widest">
-                        EVOLUTION
-                      </span>
+                      <TacticalBadge variant="amber">EVOLUTION</TacticalBadge>
                     </div>
                   )}
                   {staticEnc?.map((loc, i) => (
@@ -80,9 +79,7 @@ export function PokemonLocations({
                           {loc}
                         </span>
                       </div>
-                      <span className="rounded-none border border-red-500/10 border-dashed bg-red-500/5 px-2 py-1 font-black text-[8px] text-red-500/60 uppercase tracking-widest">
-                        STATIONARY
-                      </span>
+                      <TacticalBadge variant="red">STATIONARY</TacticalBadge>
                     </div>
                   ))}
                   {versionEnc.map((e) => {
@@ -102,13 +99,14 @@ export function PokemonLocations({
                           </div>
                           <div className="flex items-center gap-2">
                             {e.d.map((d: CompactEncounterDetail, di: number) => (
-                              <span
+                              <TacticalBadge
                                 // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                                 key={di}
-                                className="rounded-none border border-white/5 border-dashed bg-white/5 px-2 py-0.5 font-black text-[8px] text-zinc-500 uppercase tracking-widest"
+                                variant="zinc"
+                                className="border-white/5 bg-white/5 py-0.5 text-zinc-500"
                               >
                                 LV.{d.min}-{d.max}
-                              </span>
+                              </TacticalBadge>
                             ))}
                           </div>
                         </div>
