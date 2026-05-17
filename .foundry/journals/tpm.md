@@ -259,3 +259,17 @@
 - **2026-05-17**: PR #1416 merged. `story-032-059-gen3-dataview-scaffolding` is now COMPLETED.
 
 - **2026-05-17**: PR #1418 merged with unchecked tasks. `task-053-092-implement-dependency-highlighting` is now FAILED.
+
+- **2026-05-17**: PR #1426 merged. `epic-017-029-dag-dashboard-ui` is now COMPLETED.
+
+- **2026-05-17**: PR #1425 merged. `prd-054-025-robust-session-completion` is now COMPLETED.
+
+- **2026-05-17**: PR #1428 merged. `story-029-053-implement-dependency-highlighting` is now PENDING.
+
+- **2026-05-17**: PR #1427 merged. `story-032-059-gen3-map-graph-structure` is now COMPLETED.
+
+- **2026-05-17**: PR #1421 merged. `task-054-092-implement-gen2-strategy-plugin` is now COMPLETED.
+
+- **2026-05-17**: PR #null merged with unchecked tasks. `task-057-094-implement-headbutt-rocksmash-logic` is now FAILED.
+
+- **2026-05-17**: Resurrection Loop triggered for `task-053-092-implement-dependency-highlighting`. Reason: Retry from FAILED status.. Transitioned back to READY.

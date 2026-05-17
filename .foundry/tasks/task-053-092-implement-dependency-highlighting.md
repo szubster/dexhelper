@@ -2,7 +2,7 @@
 id: task-053-092-implement-dependency-highlighting
 type: TASK
 title: Implement Dependency Highlighting Interactions
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-17'
@@ -16,7 +16,7 @@ tags:
   - ui
   - react-flow
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---

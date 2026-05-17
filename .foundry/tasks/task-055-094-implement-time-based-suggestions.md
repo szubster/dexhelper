@@ -1,8 +1,8 @@
 ---
 id: task-055-094-implement-time-based-suggestions
 type: TASK
-title: 'Implement Time-Based Suggestions'
-status: PENDING
+title: Implement Time-Based Suggestions
+status: READY
 owner_persona: coder
 created_at: '2026-05-17'
 updated_at: '2026-05-17'

@@ -2,10 +2,10 @@
 id: epic-025-033-robust-session-completion
 type: EPIC
 title: Implement Robust Session Completion in Heartbeat
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-17'
 depends_on:
   - .foundry/docs/adrs/011-robust-session-completion.md
 jules_session_id: null

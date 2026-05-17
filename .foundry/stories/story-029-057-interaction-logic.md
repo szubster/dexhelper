@@ -2,7 +2,7 @@
 id: story-029-057-interaction-logic
 type: STORY
 title: 'Story: Interaction Logic (Headbutt/Rock Smash)'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-16'
 updated_at: '2026-05-17'

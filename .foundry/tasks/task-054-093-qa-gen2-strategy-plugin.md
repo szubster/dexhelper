@@ -2,7 +2,7 @@
 id: task-054-093-qa-gen2-strategy-plugin
 type: TASK
 title: 'QA: Gen 2 Strategy Plugin'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
