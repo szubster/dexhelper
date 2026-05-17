@@ -82,3 +82,7 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 
 *   **Problem:** Using `setTimeout` debouncing inside `useEffect` with manual `await db.get(...)` calls still triggers redundant IndexedDB disk reads on every final keystroke.
 *   **Solution:** Use `@tanstack/react-query` (`useQuery` with `staleTime: Infinity`) at the component level to cache static database data. Reference this cached data in the `useEffect` instead of firing manual queries, effectively reducing DB reads from O(K) (where K = debounced keystrokes) to O(1) for static lookup data.
+## 2026-05-17 - ⚡ Bolt: Fast-breaking loop for UI search filtering
+**What:** Replaced `filtered = locations.filter(...).slice(0, 5)` with a manual `for` loop that breaks when 5 items are found.
+**Why:** The `filter()` approach scans the entire array (O(N) operation) even if we only need the first 5 matches. With potentially hundreds of locations, stopping early minimizes execution time to O(K) where K is the number of elements checked to find 5 matches.
+**Measured Improvement:** Faster response time during search input by skipping redundant string comparisons, keeping the UI thread unblocked.
