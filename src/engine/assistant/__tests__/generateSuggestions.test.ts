@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
+import type { EncounterDetail } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
@@ -555,8 +556,11 @@ describe('generateSuggestions', () => {
         {
           aid: 2,
           v: 4, // 4 = gold
-          d: [{ c: 100, m: 8, min: 5 }, { c: 100, m: 7, min: 5 }], // m = 8 is Headbutt, m = 7 is Rock Smash
-        }
+          d: [
+            { c: 100, m: 8, min: 5 },
+            { c: 100, m: 7, min: 5 },
+          ], // m = 8 is Headbutt, m = 7 is Rock Smash
+        },
       ],
     };
 
@@ -568,7 +572,10 @@ describe('generateSuggestions', () => {
     expect(catch1).toBeUndefined(); // Filtered out
 
     // 2. Has item
-    localSaveData.inventory = [{ id: 192, quantity: 1 }, { id: 198, quantity: 1 }];
+    localSaveData.inventory = [
+      { id: 192, quantity: 1 },
+      { id: 198, quantity: 1 },
+    ];
     const result2 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch2 = result2.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch2).toBeDefined(); // Included

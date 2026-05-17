@@ -821,7 +821,7 @@ export function generateSuggestions(
             if (d.method === 'rock-smash') return hasRockSmash;
             return true;
           });
-          if (suggestion.encounterInfo[pid]!.length > 0) {
+          if (suggestion.encounterInfo[pid]?.length > 0) {
             hasValidEncounter = true;
           } else {
             delete suggestion.encounterInfo[pid];
@@ -843,8 +843,8 @@ export function generateSuggestions(
       } else {
         // Update pokemonIds if some were completely filtered out
         if (suggestion.pokemonIds) {
-          suggestion.pokemonIds = suggestion.pokemonIds.filter(pid => {
-            if (suggestion.encounterInfo![pid] !== undefined) {
+          suggestion.pokemonIds = suggestion.pokemonIds.filter((pid) => {
+            if (suggestion.encounterInfo?.[pid] !== undefined) {
               return true;
             } else {
               localPids.delete(pid);
