@@ -2,12 +2,12 @@
 id: idea-053-gen3-support
 type: IDEA
 title: Add Gen3 Support
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10100273829623523856'
 parent: null
 tags:
   - feature
