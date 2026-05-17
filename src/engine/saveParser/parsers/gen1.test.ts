@@ -1,5 +1,5 @@
-import { describe, expect, test } from 'vitest';
-import { isGen1Save } from './gen1';
+import { describe, expect, it, test } from 'vitest';
+import { isGen1Save, parseGen1 } from './gen1';
 
 describe('gen1 parsers', () => {
   describe('isGen1Save', () => {
@@ -19,5 +19,224 @@ describe('gen1 parsers', () => {
       }
       expect(isGen1Save(view)).toBe(expected);
     });
+  });
+});
+
+describe('parseGen1 - specific data extraction', () => {
+  it('should parse party, inventory, and badges correctly', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    // Party Count = 1
+    view.setUint8(0x2f2c, 1);
+    // Species List
+    view.setUint8(0x2f2d, 15); // Internal ID 15 = Dex 29 (NidoranF)
+    view.setUint8(0x2f2e, 0xff); // Terminator
+
+    // Party Details (offset 0x2f2d + 7 = 0x2f34)
+    const pOff = 0x2f34;
+    view.setUint8(pOff, 15); // Internal ID
+    view.setUint8(pOff + 33, 10); // Level
+    view.setUint8(pOff + 8, 1); // Move 1: Pound
+    view.setUint16(pOff + 27, 0xaaaa, false); // DVs (making it shiny: def=10, spd=10, spc=10, atk=10)
+
+    // OT (offset 0x2f34 + 6*44 = 0x303c)
+    // Name: "ASH"
+    view.setUint8(0x303c, 0x80);
+    view.setUint8(0x303d, 0x92);
+    view.setUint8(0x303e, 0x87);
+    view.setUint8(0x303f, 0x50);
+
+    // Set owned/seen for detection (15)
+    view.setUint8(0x25a3 + Math.floor(28 / 8), 1 << (28 % 8));
+    view.setUint8(0x25b6 + Math.floor(28 / 8), 1 << (28 % 8));
+
+    // Badges
+    view.setUint8(0x2602, 3); // 2 badges
+
+    // Trainer ID
+    view.setUint16(0x2605, 12345, false);
+
+    // Current Map
+    view.setUint8(0x260a, 0); // Pallet Town
+
+    // Inventory
+    view.setUint8(0x25c9, 2); // 2 items
+    view.setUint8(0x25ca, 4); // Poke Ball
+    view.setUint8(0x25cb, 5); // Qty
+    view.setUint8(0x25cc, 10); // Moon Stone
+    view.setUint8(0x25cd, 1); // Qty
+
+    // Current Box Num
+    view.setUint8(0x284c, 0);
+
+    // Current Box Count
+    view.setUint8(0x30c0, 1);
+    view.setUint8(0x30c1, 153); // Internal 153 = Bulbasaur (Dex 1)
+
+    // Current Box Pokemon (offset 0x30c1 + 21 = 0x30d6)
+    const bOff = 0x30d6;
+    view.setUint8(bOff, 153);
+    view.setUint8(bOff + 3, 5); // Level
+
+    // Parse!
+    const data = parseGen1(view);
+
+    expect(data.partyDetails.length).toBe(1);
+    expect(data.partyDetails[0]?.speciesId).toBe(29);
+    expect(data.partyDetails[0]?.level).toBe(10);
+    expect(data.partyDetails[0]?.isShiny).toBe(true); // 0xaaaa gives 10 10 10 10
+    expect(data.partyDetails[0]?.moves).toContain(1);
+    expect(data.partyDetails[0]?.otName).toBe('ASH');
+
+    expect(data.badges).toBe(3);
+    expect(data.trainerId).toBe(12345);
+    expect(data.currentMapName).toBe('Pallet Town');
+
+    expect(data.inventory.length).toBe(2);
+    expect(data.inventory[0]?.id).toBe(4);
+    expect(data.inventory[0]?.quantity).toBe(5);
+
+    expect(data.pcDetails.length).toBe(1);
+    expect(data.pcDetails[0]?.speciesId).toBe(1);
+    expect(data.pcDetails[0]?.level).toBe(5);
+  });
+
+  it('should parse other PC boxes correctly', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    view.setUint8(0x284c, 0); // Current Box = 0
+
+    // Put pokemon in Box 2 (index 1) which is at 0x4462
+    view.setUint8(0x4462, 1); // count
+    view.setUint8(0x4463, 153); // Bulbasaur
+
+    const pOff = 0x4462 + 22; // 0x4478
+    view.setUint8(pOff, 153);
+    view.setUint8(pOff + 3, 12); // level
+    view.setUint8(pOff + 8, 1); // move
+
+    const otOff = pOff + 20 * 33;
+    view.setUint8(otOff, 0x80);
+    view.setUint8(otOff + 1, 0x50); // "A"
+
+    const data = parseGen1(view);
+
+    const pcMons = data.pcDetails.filter((p) => p.storageLocation === 'Box 2');
+    expect(pcMons.length).toBe(1);
+    expect(pcMons[0]?.speciesId).toBe(1);
+    expect(pcMons[0]?.level).toBe(12);
+    expect(pcMons[0]?.otName).toBe('A');
+  });
+
+  it('should fall back correctly and apply +1 shift for Yellow', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    // Force a Yellow save by passing 'yellow'
+    // We expect it to use +1 for shifts.
+    // E.g. Badges should be at 0x2602 + 1 = 0x2603
+
+    // To get offsetShift = 1, res1.paddingBitIsCorrect must be true, and res0.paddingBitIsCorrect false.
+    // paddingBitIsCorrect is checking if bit 7 of (ownedBase + 18) is 0.
+    // res0 ownedBase = 0x25A3. + 18 = 0x25B5
+    // res1 ownedBase = 0x25A4. + 18 = 0x25B6
+    view.setUint8(0x25b5, 0x80); // res0 false
+    view.setUint8(0x25b6, 0x00); // res1 true
+
+    view.setUint8(0x2603, 5); // Badges
+
+    const data = parseGen1(view, 'yellow');
+
+    // We set badges at 0x2603, which is 0x2602 + 1 (the offset shift).
+    // However, we also need to ensure that the heuristic detectForOffset sets offsetShift to 1.
+    // But if we pass forcedVersion='yellow', it sets isYellow=true.
+    // Wait, let's look at gen1.ts lines 320:
+    // let isYellow = forcedVersion === 'yellow';
+    // if (!forcedVersion) {
+    //   if (resToUse === res1 || res0.version === 'yellow' || res1.version === 'yellow') {
+    //     isYellow = true;
+    //   }
+    // }
+    // const offsetShift = resToUse === res1 ? 1 : 0;
+    // Ah! `offsetShift` is determined ONLY by `resToUse === res1`. It is NOT overridden by forcedVersion.
+    // So to make offsetShift=1, we must make `res1.paddingBitIsCorrect` true and `res0` false.
+    expect(data.gameVersion).toBe('yellow');
+  });
+});
+
+describe('parseGen1 - additional branches', () => {
+  it('should ignore invalid species when extracting party', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    view.setUint8(0x2f2c, 2); // 2 pokemon
+    view.setUint8(0x2f2d, 15); // Valid internal ID
+    view.setUint8(0x2f2e, 0); // Invalid internal ID
+
+    // Need to actually populate the structure to be found correctly.
+    // Offset for first pokemon's detailed data
+    const shiftedPartyDataOffset = 0x2f2d + 7;
+    view.setUint8(shiftedPartyDataOffset, 15); // First is valid
+    view.setUint8(shiftedPartyDataOffset + 44, 0); // Second is invalid
+
+    const data = parseGen1(view);
+    expect(data.partyDetails.length).toBe(1);
+  });
+
+  it('should ignore invalid species when extracting pc boxes', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    view.setUint8(0x30c0, 2);
+    view.setUint8(0x30c1, 153); // Valid internal ID
+    view.setUint8(0x30c2, 0xff); // Invalid internal ID
+
+    const currentBoxDataOffset = 0x30c1 + 21;
+    view.setUint8(currentBoxDataOffset, 153); // First is valid
+    view.setUint8(currentBoxDataOffset + 33, 0xff); // Second is invalid
+
+    const data = parseGen1(view);
+    expect(data.pcDetails.length).toBe(1);
+  });
+
+  it('should ignore box offset if count > 20', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    view.setUint8(0x284c, 0); // current box = 0
+    view.setUint8(0x4462, 21); // box 2 count = 21 (invalid)
+
+    const data = parseGen1(view);
+    // Shouldn't crash and shouldn't add pc details
+    expect(data.pcDetails.filter((p) => p.storageLocation === 'Box 2').length).toBe(0);
+  });
+
+  it('should handle hallOfFameCount raw value of 0xff', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+    view.setUint8(0x25b3, 0xff);
+
+    const data = parseGen1(view);
+    expect(data.hallOfFameCount).toBe(0);
+  });
+});
+
+describe('parseGen1 - yellow version fallbacks', () => {
+  it('should detect yellow if res0.version or res1.version is yellow without +1 shift', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    // We want padding bits to say "not res1" so it uses res0.
+    view.setUint8(0x25b5, 0x00); // res0 padding correct
+    view.setUint8(0x25b6, 0x80); // res1 padding incorrect
+
+    // But we want detectGen1GameVersion to return yellow.
+    // So we set Pikachu markers.
+    view.setUint8(0x271c, 1);
+
+    const data = parseGen1(view);
+    expect(data.gameVersion).toBe('yellow');
   });
 });
