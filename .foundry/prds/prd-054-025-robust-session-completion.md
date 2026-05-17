@@ -45,4 +45,9 @@ However, under the "Empty PR" policy, agents are instructed to submit an empty P
 - Agents following the Empty PR policy will see their nodes correctly progress to `COMPLETED` without being trapped in the Resurrection Loop.
 
 ## Next Steps
-- [ ] Architect: Produce an Architecture Decision Record (ADR) detailing the technical implementation of this robust empty-run completion handling.
+- [x] Architect: Produce an Architecture Decision Record (ADR) detailing the technical implementation of this robust empty-run completion handling.
+
+
+## Downstream Nodes
+- ADR: `.foundry/docs/adrs/011-robust-session-completion.md`
+- EPIC: `.foundry/epics/epic-025-033-robust-session-completion.md`
