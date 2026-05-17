@@ -279,3 +279,7 @@
 - **2026-05-17**: PR #null merged with unchecked tasks. `task-056-094-implement-breeding-suggestions` is now FAILED.
 
 - **2026-05-17**: Resurrection Loop triggered for `task-057-094-implement-headbutt-rocksmash-logic`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-17**: Resurrection Loop triggered for `task-055-094-implement-time-based-suggestions`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-17**: Resurrection Loop triggered for `task-056-094-implement-breeding-suggestions`. Reason: Retry from FAILED status.. Transitioned back to READY.

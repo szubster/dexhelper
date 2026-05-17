@@ -2,7 +2,7 @@
 id: story-029-056-breeding-suggestions
 type: STORY
 title: 'Story: Breeding Suggestions'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-05-16'
 updated_at: '2026-05-17'
