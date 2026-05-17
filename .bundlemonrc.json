@@ -20,6 +20,10 @@
     {
       "path": "data/pokedata.json",
       "maxSize": "800kb"
+    },
+    {
+      "path": "data/pokedata.msgpack",
+      "maxSize": "800kb"
     }
   ],
   "reportOutput": [
