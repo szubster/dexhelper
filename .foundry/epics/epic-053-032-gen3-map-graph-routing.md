@@ -2,12 +2,12 @@
 id: epic-053-032-gen3-map-graph-routing
 type: EPIC
 title: Gen 3 Map Graph Routing
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18337580570733645825'
 pr_number: null
 parent: prd-053-023-gen3-map-graph
 tags:
