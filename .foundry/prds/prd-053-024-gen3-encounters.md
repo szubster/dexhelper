@@ -2,12 +2,12 @@
 id: prd-053-024-gen3-encounters
 type: PRD
 title: Gen3 Encounters Integration
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18350643096529197775'
 parent: idea-053-gen3-support
 tags:
   - gen3
