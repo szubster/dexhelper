@@ -28,6 +28,10 @@ notes: ''
 Detect compatible parents in the PC/Party and suggest breeding for missing baby evolutions (e.g., Pichu, Cleffa) in Gen 2.
 
 ## Acceptance Criteria
-- [ ] The suggestion engine detects compatible parents for breeding in the PC and Party.
-- [ ] Suggestions are generated for missing baby evolutions if compatible parents exist.
-- [ ] Tests verify the breeding detection logic and suggestions.
+- [x] The suggestion engine detects compatible parents for breeding in the PC and Party.
+- [x] Suggestions are generated for missing baby evolutions if compatible parents exist.
+- [x] Tests verify the breeding detection logic and suggestions.
+
+## Children
+- [.foundry/tasks/task-056-094-implement-breeding-suggestions.md](.foundry/tasks/task-056-094-implement-breeding-suggestions.md)
+- [.foundry/tasks/task-056-095-qa-breeding-suggestions.md](.foundry/tasks/task-056-095-qa-breeding-suggestions.md)
