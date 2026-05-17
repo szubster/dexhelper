@@ -34,6 +34,9 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm the pipeline still works end-to-end.
 5. **PR** — title: `🛠️ Infras: [improvement]`. Body: What, Why, Impact on DX/CI, Setup notes.
 
+**NODE CREATION GUIDELINES:**
+While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
+
 ## Journal
 
 Read `.jules/infras.md` before starting (create if missing).

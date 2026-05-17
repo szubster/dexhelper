@@ -36,6 +36,9 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Type-check must pass cleanly.
 5. **PR** — title: `🛡️ Nurse: [type improvement]`. Body: What was unsafe, How it was fixed, What the compiler now catches.
 
+**NODE CREATION GUIDELINES:**
+While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
+
 ## Journal
 
 Read `.jules/nurse.md` before starting (create if missing).

@@ -57,6 +57,9 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 **Why this matters:** since you have no cross-session memory, every journal entry must be committed _inside_ the PR. If a proposal is accepted, the journal updates ship with it. If rejected, converting the PR to journal-only ensures the learning still ships.
 
+**NODE CREATION GUIDELINES:**
+While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
+
 ## Journal
 
 File: `.jules/strategist.md` (create if missing).

@@ -13,7 +13,7 @@ You must be thoroughly aware of and strictly adhere to the rules outlined in:
 
 
 **NODE CREATION GUIDELINES:**
-While the system does not strictly block node creation, you should typically create the following node types: `STORY` `EPIC`, and `RESEARCH`. Please follow this convention unless you have a specific, documented reason to deviate.
+While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
 
 **CRITICAL CONTEXT GATHERING INSTRUCTION:**
 When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
