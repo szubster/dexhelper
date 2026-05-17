@@ -55,7 +55,7 @@ export async function transitionNodeToFailed(node: any, repoRoot: string, reject
 }
 
 /** Surgical mutation to COMPLETED or PENDING depending on tasks */
-export async function transitionNodeToCompleted(node: any, repoRoot: string, prNumber: number): Promise<void> {
+export async function transitionNodeToCompleted(node: any, repoRoot: string, prNumber: number | null): Promise<void> {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
@@ -68,7 +68,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
 
   let targetStatus = "COMPLETED";
   let rejectionReason = "";
-  let message = `PR #${prNumber} merged.`;
+  let message = prNumber !== null ? `PR #${prNumber} merged.` : `Empty PR session successfully completed.`;
 
   if (hasUncheckedTasks) {
     // Determine if it's a late-binding parent
@@ -109,7 +109,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     fs.writeFileSync(node.filePath, newContent, 'utf-8');
     logToJournal(repoRoot, `\n- **${dateStr}**: ${message} \`${node.frontmatter.id}\` is now ${targetStatus}.\n`);
   }
-  info(`${dryTag}Transitioned ACTIVE → ${targetStatus}: ${node.repoPath} (PR #${prNumber})`);
+  info(`${dryTag}Transitioned ACTIVE → ${targetStatus}: ${node.repoPath} ${prNumber !== null ? `(PR #${prNumber})` : `(Empty PR)`}`);
 }
 
 /** Surgical mutation back to READY (Resurrection) */
@@ -310,7 +310,10 @@ export async function main() {
 
     // B. Terminal State check (Zombie detection)
     if (!isHuman) {
-      if (sessionStatus === 'NOT_FOUND' || (sessionStatus && TERMINAL_STATES.includes(sessionStatus))) {
+      if (sessionStatus === 'COMPLETED') {
+        info(`Session ${sessionId} successfully COMPLETED without a PR. Processing as Empty PR.`);
+        await transitionNodeToCompleted(node, repoRoot, null);
+      } else if (sessionStatus === 'NOT_FOUND' || (sessionStatus && TERMINAL_STATES.includes(sessionStatus))) {
         info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Failing.`);
         await transitionNodeToFailed(node, repoRoot, `Session terminated with state: ${sessionStatus || 'NOT_FOUND'}`);
       } else if (updateTime) {
