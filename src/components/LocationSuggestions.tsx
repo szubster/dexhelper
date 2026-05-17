@@ -31,7 +31,16 @@ export function LocationSuggestions() {
 
     const timeoutId = setTimeout(async () => {
       const term = searchTerm.toLowerCase();
-      const filtered = locations.filter((l) => l.n.toLowerCase().includes(term)).slice(0, 5);
+
+      // ⚡ Bolt: Replaced O(N) filter().slice() with a fast-breaking loop to avoid scanning all locations once 5 matches are found
+      const filtered = [];
+      for (let i = 0; i < locations.length; i++) {
+        const l = locations[i];
+        if (l?.n.toLowerCase().includes(term)) {
+          filtered.push(l);
+          if (filtered.length >= 5) break;
+        }
+      }
 
       // ⚡ Bolt: Implemented batched getInverseIndexBulk to clear N+1 queries
       const indexes = await pokeDB.getInverseIndexBulk(filtered.map((l) => l.id));

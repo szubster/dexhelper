@@ -2,12 +2,12 @@
 id: task-057-094-implement-headbutt-rocksmash-logic
 type: TASK
 title: Implement Headbutt and Rock Smash Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14802085928448125867'
 pr_number: null
 parent: .foundry/stories/story-029-057-interaction-logic.md
 tags:

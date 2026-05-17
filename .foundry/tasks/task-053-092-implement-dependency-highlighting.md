@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: '971665038908851424'
+jules_session_id: '1900145408816670747'
 pr_number: null
 parent: .foundry/stories/story-029-053-implement-dependency-highlighting.md
 tags:
@@ -16,8 +16,8 @@ tags:
   - ui
   - react-flow
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Session terminated with state: COMPLETED'
 notes: ''
 ---
 

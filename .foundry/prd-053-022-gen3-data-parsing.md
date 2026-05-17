@@ -23,3 +23,9 @@ As part of adding Gen3 support, we need to adapt our data parsing strategy to ha
 ## Requirements
 - Implement data parsers to handle Gen3 format.
 - Ensure backwards compatibility with Gen 1 and Gen 2 logic.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+
+- [.foundry/docs/adrs/010-gen3-data-parsing.md](.foundry/docs/adrs/010-gen3-data-parsing.md)
+- [.foundry/epics/epic-022-032-gen3-data-parsing.md](.foundry/epics/epic-022-032-gen3-data-parsing.md)

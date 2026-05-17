@@ -24,3 +24,4 @@ Architects frequently perform evaluation tasks (e.g., assessing graph libraries,
 
 ## 2026-05-17
 * **MsgPack Transition for Gen 3:** As part of the Gen 3 data implementation, I created ADR 010 to mandate a shift from JSON to MsgPack (`msgpackr`) for data storage and hydration. As previously researched in `data_format_strategy.md`, expanding from ~177 KB of Gen 1-2 data up to the full Gen 3 size risks ballooning the bundle and slowing down client-side parsing. By making this transition now, we optimize application efficiency.
+- When referencing other nodes in YAML frontmatter fields like `parent` or `depends_on`, strictly use the exact node ID (e.g., `prd-053-022-gen3-data-parsing`) rather than the relative file path to avoid Groundedness Rule violations.
