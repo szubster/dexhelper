@@ -2,7 +2,7 @@
 id: idea-053-gen3-support
 type: IDEA
 title: Add Gen3 Support
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
@@ -12,7 +12,7 @@ parent: null
 tags:
   - feature
   - gen3
-notes: 'Created autonomously to propose adding Generation 3 support'
+notes: Created autonomously to propose adding Generation 3 support
 ---
 
 # Idea: Add Gen3 Support

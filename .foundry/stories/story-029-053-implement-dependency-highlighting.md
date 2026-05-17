@@ -2,13 +2,13 @@
 id: story-029-053-implement-dependency-highlighting
 type: STORY
 title: Implement Graph Dependency Highlighting Interactions
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-05-16'
 updated_at: '2026-05-17'
 depends_on:
   - .foundry/stories/story-029-052-implement-graph-filtering.md
-jules_session_id: '1842347099482677015'
+jules_session_id: null
 pr_number: null
 parent: .foundry/epics/epic-017-029-dag-dashboard-ui.md
 tags:

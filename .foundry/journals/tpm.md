@@ -215,3 +215,5 @@
 - **2026-05-17**: PR #1371 merged. `epic-017-029-strategy-engine-adaptations` is now COMPLETED.
 
 - **2026-05-17**: PR #1370 merged. `task-052-091-qa-graph-filtering` is now COMPLETED.
+
+- **2026-05-17**: PR #1383 merged. `story-029-053-implement-dependency-highlighting` is now PENDING.
