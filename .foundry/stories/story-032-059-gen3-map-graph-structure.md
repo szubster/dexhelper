@@ -2,12 +2,12 @@
 id: story-032-059-gen3-map-graph-structure
 type: STORY
 title: Gen3 Map Graph Structure
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11617704937803078480'
 pr_number: null
 parent: epic-053-032-gen3-map-graph-routing
 tags:
