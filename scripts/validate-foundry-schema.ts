@@ -77,9 +77,9 @@ function validateSchema() {
     let parsed;
     try {
       parsed = matter(content);
-    } catch (e) {
+    } catch {
       console.error(`Error: Failed to parse frontmatter for file ${file}`);
-      console.error(e);
+      console.error('System: frontmatter parsing failed');
       hasError = true;
       continue;
     }
