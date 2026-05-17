@@ -63,3 +63,6 @@
 ## 2026-05-20 - Adding ARIA attributes dynamically to dialog elements
 **Learning:** The 'Palette' persona must strictly isolate its work to accessibility and micro-UX enhancements (ARIA attributes, keyboard navigation, focus states). It must NEVER modify structural CSS, design system properties (e.g., altering `rounded` classes for aesthetics), or overlap with the 'Canvas' persona's responsibilities, as this causes UI regressions like breaking loading spinners. Also, when passing ARIA properties like `aria-label` to dynamic elements (e.g., `<div role={role}>`), use `// biome-ignore lint/a11y/useAriaPropsSupportedByRole: We will fix this in future` and `{/* oxlint-disable jsx-a11y/role-supports-aria-props */}` to suppress static analysis errors if the linter cannot infer the role at compile time.
 **Action:** Added `aria-label`, `aria-labelledby`, and `aria-describedby` props to `TacticalModal` to improve screen reader descriptions, updated usages in `VersionModal`, `PokemonDetails`, and `SettingsModal` to pass these attributes, and correctly suppressed linter rules to allow these dynamic roles.
+
+- Added `aria-current="page"` to active links in navigation for screen reader accessibility.
+- Used `aria-expanded` on interactive buttons controlling menus/modals (e.g. settings button).
