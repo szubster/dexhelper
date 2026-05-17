@@ -109,4 +109,10 @@ describe('resolveOutdoorMapId', () => {
     // so it breaks loop when currentMapId becomes 0x90 again, returning 0x90.
     expect(result).toBe(0x90);
   });
+
+  it('gracefully returns original mapId if location is not found', () => {
+    // 0x999 does not exist in mockLocations
+    const result = resolveOutdoorMapId(mockLocations, 0x999);
+    expect(result).toBe(0x999);
+  });
 });
