@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { MapPin, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import type { GenericLocation } from '../db/schema';
 import { useStore } from '../store';
@@ -53,6 +53,11 @@ export function LocationSuggestions() {
     return () => clearTimeout(timeoutId);
   }, [searchTerm, selectedLocationId, locations]);
 
+  const selectedLocationName = useMemo(() => {
+    if (!selectedLocationId) return 'Selected Area';
+    return suggestions.find((s) => s.id === selectedLocationId)?.n || 'Selected Area';
+  }, [suggestions, selectedLocationId]);
+
   if (!isOpen && !selectedLocationId) return null;
 
   if (selectedLocationId) {
@@ -66,7 +71,7 @@ export function LocationSuggestions() {
           />
           <div className="relative z-10 flex items-center gap-2">
             <MapPin size={12} className="shrink-0" />
-            <span>Location: {suggestions.find((s) => s.id === selectedLocationId)?.n || 'Selected Area'}</span>
+            <span>Location: {selectedLocationName}</span>
           </div>
           <button
             type="button"
