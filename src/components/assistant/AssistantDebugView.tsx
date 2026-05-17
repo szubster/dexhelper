@@ -2,6 +2,7 @@ import { AlertCircle, Bug } from 'lucide-react';
 import type { RejectedSuggestion } from '../../engine/assistant/strategies/types';
 import type { SaveData } from '../../engine/saveParser/index';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
+import { TacticalBadge } from '../TacticalBadge';
 import { TacticalPanel } from '../TacticalPanel';
 
 interface AssistantDebugViewProps {
@@ -97,9 +98,9 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
                 <span className="truncate font-black text-xs text-zinc-300 uppercase tracking-tight">
                   {getPokemonName(r.pokemonId)}
                 </span>
-                <span className="rounded-none border border-white/10 border-dashed bg-zinc-800 px-1 py-0.5 font-black font-mono text-[8px] text-zinc-500 uppercase">
+                <TacticalBadge variant="zinc" className="px-1 py-0.5 font-mono">
                   {r.code}
-                </span>
+                </TacticalBadge>
               </div>
               <p className="font-medium text-[10px] text-zinc-500 italic leading-tight">"{r.reason}"</p>
             </div>

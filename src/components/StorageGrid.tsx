@@ -5,6 +5,7 @@ import type { PokemonInstance } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { PokemonSprite } from './pokemon/PokemonSprite';
+import { TacticalBadge } from './TacticalBadge';
 import { TacticalCard } from './TacticalCard';
 import { TacticalPanel } from './TacticalPanel';
 
@@ -115,9 +116,9 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-1.5">
                         {p.isShiny && <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />}
                         {p.otName && (
-                          <div className="max-w-[60px] truncate rounded-none border border-zinc-800 border-dashed bg-zinc-950 px-1.5 py-0.5 font-black font-mono text-[8px] text-zinc-500 uppercase">
+                          <TacticalBadge variant="zinc" className="max-w-[60px] truncate px-1.5 py-0.5 font-mono">
                             {p.otName}
-                          </div>
+                          </TacticalBadge>
                         )}
                       </div>
                       <div className="relative mb-4 flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24">
