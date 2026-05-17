@@ -23,3 +23,6 @@ Generation 3 (Ruby, Sapphire, Emerald, FireRed, LeafGreen) requires new map grap
 ## Requirements
 - Design the map graph for Gen 3.
 - Implement map generation/resolution for Gen 3.
+
+## Created Epics
+- [.foundry/epics/epic-053-032-gen3-map-graph-routing.md](.foundry/epics/epic-053-032-gen3-map-graph-routing.md)
