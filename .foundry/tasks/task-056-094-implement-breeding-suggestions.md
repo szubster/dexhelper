@@ -47,6 +47,6 @@ Update the suggestion engine to detect compatible parents in the PC/Party and su
 Make sure to read `.foundry/docs/knowledge_base/development/gen2_implementation_plan.md` for specific mechanics and expected behaviors.
 
 ## Acceptance Criteria
-- [ ] The suggestion engine correctly detects when the player owns an evolved form of a missing baby/base Pokémon.
-- [ ] Suggestions of category `'Breed'` are generated, directing the player to the Daycare.
-- [ ] Unit tests are provided or updated to verify the breeding suggestion logic.
+- [x] The suggestion engine correctly detects when the player owns an evolved form of a missing baby/base Pokémon.
+- [x] Suggestions of category `'Breed'` are generated, directing the player to the Daycare.
+- [x] Unit tests are provided or updated to verify the breeding suggestion logic.
