@@ -24,6 +24,14 @@
     {
       "path": "data/pokedata.msgpack",
       "maxSize": "800kb"
+    },
+    {
+      "path": "workbox-<hash>.js",
+      "maxSize": "50kb"
+    },
+    {
+      "path": "**/*",
+      "maxSize": "500kb"
     }
   ],
   "reportOutput": [
