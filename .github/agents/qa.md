@@ -40,7 +40,8 @@ If you reject an implementation or validation fails:
 1. You MUST update the target task's YAML frontmatter to `status: FAILED`.
 2. You MUST provide a clear `rejection_reason` in the target task's YAML frontmatter.
 3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
-4. You MUST document the rejection in your persona journal.
+4. You MUST NOT modify your own QA task's YAML frontmatter (e.g., your task must remain ACTIVE). Only update your own markdown body to note the failure.
+5. You MUST document the rejection in your persona journal.
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
