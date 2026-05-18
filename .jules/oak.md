@@ -42,3 +42,6 @@
 # Oak Learnings
 
 - `GEN1_VERSION_EXCLUSIVES` and `GEN2_VERSION_EXCLUSIVES` maps hold the Pokemon that are **unobtainable** in a given version, functioning as an exclusion list. For example, `red` contains Sandshrew because Sandshrew is a Blue exclusive and therefore unobtainable in Red. Do not accidentally invert this logic by swapping arrays.
+
+## Data Integrity - Gen 2 Version Detection
+* **ROM parsing quirks / Data Pipeline Gotchas:** The logic in `src/engine/saveParser/parsers/gen2.ts` for detecting the Gen 2 game version used the exclusives list inverted. The exclusives lists in `src/engine/exclusives/gen2Exclusives.ts` contain Pokémon that are **unobtainable** in the respective game version. Thus, if a player owns a Pokémon from `goldExclusives` (e.g. Meowth), it implies the player is playing **Silver** (since Meowth is unavailable in Gold). The `detectGen2GameVersion` logic was mistakenly assigning points to the version whose *exclusion* list the owned Pokémon appeared in, thereby misidentifying the game version as the one where the Pokémon shouldn't exist. Always ensure that the evaluation logic treats these exclusive lists as *unobtainable* lists.
