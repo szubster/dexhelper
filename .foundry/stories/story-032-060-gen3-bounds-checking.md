@@ -2,7 +2,7 @@
 id: story-032-060-gen3-bounds-checking
 type: STORY
 title: Gen3 Bounds Checking Implementation
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-17'
 updated_at: '2026-05-18'

@@ -2,7 +2,7 @@
 id: task-060-114-gen3-indoor-resolution-impl
 type: TASK
 title: Gen3 Indoor Resolution Impl
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
