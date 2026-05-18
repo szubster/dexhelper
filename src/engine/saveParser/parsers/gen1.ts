@@ -454,18 +454,6 @@ function parsePCBoxes(
   return { pc, pcDetails, currentBoxCount };
 }
 
-/**
- * Extracts and structures the player's state from a Generation 1 save file.
- *
- * Generation 1 (R/B/Y) save structures lack definitive version headers. Furthermore,
- * Yellow version shifts many core memory offsets by +1 byte to accommodate Pikachu's
- * friendship data. This function dynamically calculates an `offsetShift` (0 or 1) using
- * `detectVersionAndOffsets` to ensure accurate memory reads across all Gen 1 variants.
- *
- * @param view - The raw binary DataView of the save file.
- * @param forcedVersion - An optional version override to force a specific memory layout.
- * @returns A structured `SaveData` object representing the player's game state.
- */
 export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData {
   const trainerName = decodeGen12String(view, 0x2598);
 
