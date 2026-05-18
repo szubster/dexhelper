@@ -2,7 +2,7 @@
 id: task-057-095-qa-headbutt-rocksmash-logic
 type: TASK
 title: 'QA: Headbutt and Rock Smash Logic'
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-05-17'
 updated_at: '2026-05-18'
@@ -18,7 +18,7 @@ tags:
   - qa
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---

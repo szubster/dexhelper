@@ -355,3 +355,5 @@
 - **2026-05-18**: Resurrection Loop triggered for `task-058-094-implement-roamer-and-stat-evolutions`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-18**: Resurrection Loop triggered for `task-062-100-gen3-locations-script-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-18**: Resurrection Loop triggered for `task-057-095-qa-headbutt-rocksmash-logic`. Reason: Retry from FAILED status.. Transitioned back to READY.
