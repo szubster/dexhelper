@@ -26,5 +26,5 @@ notes: ''
 Validate that bounds checking in Gen3 data parsing logic gracefully handles out-of-bounds reads.
 
 ## Acceptance Criteria
-- [ ] Verify that `RangeError` from `DataView` operations are caught.
-- [ ] Verify that validation errors are gracefully propagated (e.g., "Corrupted Save File") when bounds are exceeded, per ADR-010.
+- [x] Verify that `RangeError` from `DataView` operations are caught.
+- [x] Verify that validation errors are gracefully propagated (e.g., "Corrupted Save File") when bounds are exceeded, per ADR-010.
