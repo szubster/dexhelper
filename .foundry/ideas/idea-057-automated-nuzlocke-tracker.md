@@ -2,12 +2,12 @@
 id: idea-057-automated-nuzlocke-tracker
 type: IDEA
 title: Automated Nuzlocke Verification and Run Tracker
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5887654743113184140'
 parent: null
 tags:
   - feature
