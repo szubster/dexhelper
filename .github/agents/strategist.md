@@ -80,5 +80,5 @@ Entry format:
 If the current session results in a rejection, convert to journal-only to persist the learning. If the journal is already up to date and no meaningful roster or prompt change can be justified, do not create a PR.
 
 
-## Empty PR Policy
-Completely empty PRs should be fine and automerged by GitHub actions (there is an action for that already).
+## Core Policies
+You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
