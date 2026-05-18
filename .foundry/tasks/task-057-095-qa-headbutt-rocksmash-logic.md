@@ -35,6 +35,6 @@ Validate the implementation of the Headbutt and Rock Smash logic in the suggesti
 4. Execute `pnpm lint` and `pnpm test` to ensure overall project health.
 
 ## Acceptance Criteria
-- [ ] Code meets all architectural and quality guidelines.
-- [ ] Tests successfully pass and cover Headbutt and Rock Smash logic.
-- [ ] Linter reports zero warnings or errors.
+- [x] Code meets all architectural and quality guidelines.
+- [x] Tests successfully pass and cover Headbutt and Rock Smash logic.
+- [x] Linter reports zero warnings or errors.

@@ -52,6 +52,7 @@ describe('gen2Strategy', () => {
   it('returns special suggestions for gen 2 mechanics', () => {
     const saveData = {
       ...mockSaveData,
+      johtoBadges: (1 << 1) | (1 << 2), // Have Hive and Plain badges
       inventory: [
         { id: 192, quantity: 1 },
         { id: 198, quantity: 1 },
