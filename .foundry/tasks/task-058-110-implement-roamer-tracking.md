@@ -37,5 +37,5 @@ Implement roamer tracking logic to guide the player to check the Pokédex for Ra
    - Write or update tests to verify the roamer tracking logic.
 
 ## Acceptance Criteria
-- [ ] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
-- [ ] Tests verify roamer tracking logic.
+- [x] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
+- [x] Tests verify roamer tracking logic.
