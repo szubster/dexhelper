@@ -2,7 +2,7 @@ import { Archive, CircleDot, Settings2 } from 'lucide-react';
 import type { GameVersion, PokeballType } from '../../store';
 import type { GenerationConfig } from '../../utils/generationConfig';
 import { getGenerationConfig } from '../../utils/generationConfig';
-import { CornerCrosshairs } from '../CornerCrosshairs';
+import { SettingsRow } from '../SettingsRow';
 
 interface SettingsControlsProps {
   effectiveVersion: string;
@@ -27,14 +27,11 @@ export function SettingsControls({
 }: SettingsControlsProps) {
   return (
     <div className="space-y-4">
-      <div className="group relative flex items-center justify-between border border-zinc-800 border-dashed bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80">
-        <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-600 transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="flex items-center gap-3">
-          <div className="border border-blue-500/20 border-dashed bg-blue-500/10 p-2">
-            <Settings2 size={18} className="text-blue-500" />
-          </div>
-          <span className="font-bold text-xs uppercase tracking-wider">Version</span>
-        </div>
+      <SettingsRow
+        icon={<Settings2 size={18} className="text-blue-500" />}
+        iconColorClass="border-blue-500/20 bg-blue-500/10"
+        label="Version"
+      >
         <select
           value={effectiveVersion}
           onChange={(e) => setManualVersion(e.target.value as GameVersion)}
@@ -50,16 +47,13 @@ export function SettingsControls({
             ),
           )}
         </select>
-      </div>
+      </SettingsRow>
 
-      <div className="group relative flex items-center justify-between border border-zinc-800 border-dashed bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80">
-        <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-600 transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="flex items-center gap-3">
-          <div className="border border-purple-500/20 border-dashed bg-purple-500/10 p-2">
-            <Archive size={18} className="text-purple-500" />
-          </div>
-          <span className="font-bold text-xs uppercase tracking-wider">Living Dex</span>
-        </div>
+      <SettingsRow
+        icon={<Archive size={18} className="text-purple-500" />}
+        iconColorClass="border-purple-500/20 bg-purple-500/10"
+        label="Living Dex"
+      >
         <button
           type="button"
           role="switch"
@@ -73,16 +67,13 @@ export function SettingsControls({
             className={`inline-block h-5 w-5 transform bg-white transition-transform ${isLivingDex ? 'translate-x-6 bg-emerald-500' : 'translate-x-1 bg-zinc-600'}`}
           />
         </button>
-      </div>
+      </SettingsRow>
 
-      <div className="group relative flex items-center justify-between border border-zinc-800 border-dashed bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80">
-        <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-600 transition-colors group-hover:border-[var(--theme-primary)]" />
-        <div className="flex items-center gap-3">
-          <div className="border border-amber-500/20 border-dashed bg-amber-500/10 p-2">
-            <CircleDot size={18} className="text-amber-500" />
-          </div>
-          <span className="font-bold text-xs uppercase tracking-wider">Ball Style</span>
-        </div>
+      <SettingsRow
+        icon={<CircleDot size={18} className="text-amber-500" />}
+        iconColorClass="border-amber-500/20 bg-amber-500/10"
+        label="Ball Style"
+      >
         <select
           value={globalPokeball}
           onChange={(e) => setGlobalPokeball(e.target.value as PokeballType)}
@@ -95,7 +86,7 @@ export function SettingsControls({
             </option>
           ))}
         </select>
-      </div>
+      </SettingsRow>
     </div>
   );
 }
