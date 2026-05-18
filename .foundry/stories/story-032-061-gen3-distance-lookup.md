@@ -31,5 +31,9 @@ Implement `getDistanceToMap` with precomputed distance matrix logic for Gen 3.
 - Ensure O(1) performance during strategy evaluation.
 
 ## Acceptance Criteria
-- [ ] `getDistanceToMap` yields accurate distances to target areas.
-- [ ] O(1) performance lookup unit tests pass successfully.
+- [x] `getDistanceToMap` yields accurate distances to target areas.
+- [x] O(1) performance lookup unit tests pass successfully.
+
+## Created Tasks
+- [.foundry/tasks/task-061-114-gen3-distance-lookup-impl.md](./../tasks/task-061-114-gen3-distance-lookup-impl.md)
+- [.foundry/tasks/task-061-115-gen3-distance-lookup-qa.md](./../tasks/task-061-115-gen3-distance-lookup-qa.md)
