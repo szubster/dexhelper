@@ -42,7 +42,7 @@ Implement time-based filtering and warnings in the suggestion engine specificall
    - Read `.foundry/docs/knowledge_base/development/gen2_implementation_plan.md` (Phase 4).
 
 ## Acceptance Criteria
-- [ ] Gen 2 strategy plugin is updated to include time-based requirements in suggestions.
-- [ ] Encounters are NOT strictly filtered out (so the user knows they exist), but are flagged with time-of-day requirements (Morning/Day/Night).
-- [ ] UI warning mechanism is supported in the suggestion model.
-- [ ] Tests verify time-based suggestion logic.
+- [x] Gen 2 strategy plugin is updated to include time-based requirements in suggestions.
+- [x] Encounters are NOT strictly filtered out (so the user knows they exist), but are flagged with time-of-day requirements (Morning/Day/Night).
+- [x] UI warning mechanism is supported in the suggestion model.
+- [x] Tests verify time-based suggestion logic.
