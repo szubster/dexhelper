@@ -2,10 +2,10 @@
 id: task-059-097-gen3-dataview-scaffolding-qa
 type: TASK
 title: QA Gen3 DataView Parsing Scaffolding
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-17'
-updated_at: '2026-05-17'
+updated_at: '2026-05-18'
 depends_on:
   - task-059-096-gen3-dataview-scaffolding-impl
 jules_session_id: null
