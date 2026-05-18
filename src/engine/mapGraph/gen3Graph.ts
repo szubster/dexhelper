@@ -1,76 +1,99 @@
 import { pokeDB } from '../../db/PokeDB';
+import type { UnifiedLocation } from '../../db/schema';
 
 /**
- * Calculates the shortest path distance (in graph edges/hops) between the player's
- * current location and a target area.
- *
- * @param startMapId - The internal Map ID where the player is currently standing.
- * @param targetAid - The location Area ID (aid) where the target Pokémon can be found.
- * @returns A Promise resolving to an object containing the `distance` (number of hops) and the `name` of the target area, or `null` if unreachable.
- *
- * @remarks
- * **Architecture Note:**
+ * Gen 3 Map Graph module for determining precomputed distances between locations.
  * This function relies on the `dist` property of the `UnifiedLocation` objects, which contains
- * a precomputed lookup table generated at build-time using the Floyd-Warshall algorithm.
- * This ensures O(1) distance lookups during runtime.
+ * a pre-calculated distance mapping to other accessible locations.
+ */
+
+// A simple cache to avoid repeatedly finding the same location object by ID
+const locationCache = new Map<number, UnifiedLocation>();
+let lastLocationsRef: UnifiedLocation[] | null = null;
+
+/**
+ * Helper to fetch a location by ID efficiently.
+ * @param allLocations The array of all locations.
+ * @param id The ID to search for.
+ * @returns The UnifiedLocation object, or undefined if not found.
+ */
+function getLocation(allLocations: UnifiedLocation[], id: number): UnifiedLocation | undefined {
+  if (lastLocationsRef !== allLocations) {
+    locationCache.clear();
+    lastLocationsRef = allLocations;
+    for (const loc of allLocations) {
+      locationCache.set(loc.id, loc);
+    }
+  }
+  return locationCache.get(id);
+}
+
+/**
+ * Recursively resolves a map ID to its top-level (outdoor) parent map ID.
+ * This is used to map indoor locations (houses, caves) back to their main hub.
+ * @param mapId The ID to resolve.
+ * @returns The resolved top-level outdoor map ID.
+ */
+export async function resolveOutdoorMapId(mapId: number): Promise<number> {
+  const allLocations = await pokeDB.getAllAreas();
+  let currentId = mapId;
+  const visited = new Set<number>();
+
+  while (true) {
+    const loc = getLocation(allLocations, currentId);
+    if (!loc) break;
+    if (loc.prnt === undefined) break;
+
+    // Cycle detection
+    if (visited.has(currentId)) break;
+    visited.add(currentId);
+
+    currentId = loc.prnt;
+  }
+  return currentId;
+}
+
+/**
+ * Calculates the distance between a starting map and a target map using precomputed dist mapping.
+ * @param startMapId The ID of the starting map.
+ * @param targetAid The ID of the target map.
+ * @returns An object containing distance and target name, or null if unresolvable.
  */
 export async function getDistanceToMap(
   startMapId: number,
   targetAid: number,
 ): Promise<{ distance: number; name: string } | null> {
   const allLocations = await pokeDB.getAllAreas();
+  const targetLocation = getLocation(allLocations, targetAid);
 
-  // 1. Resolve target location (where the Pokémon is found)
-  const targetLoc = allLocations.find((loc) => loc.id === targetAid);
-  if (!targetLoc) return null;
-
-  const targetDisplayName = targetLoc.n;
-
-  // 2. Resolve start location (where the player is)
-  const outdoorStartMapId = await resolveOutdoorMapId(startMapId);
-  let startLoc = allLocations.find((loc) => loc.id === outdoorStartMapId);
-
-  // Fallback if unknown (e.g. 0 for Littleroot / Pallet, but we will just return null if not found)
-  // We can use Littleroot Town map id 0x0000 as a placeholder fallback
-  if (!startLoc) {
-    startLoc = allLocations.find((loc) => loc.id === 0);
+  if (!targetLocation) {
+    return null;
   }
 
-  if (!startLoc) return null;
+  // Resolve start map to an outdoor map if it's indoor
+  let startOutdoorId = await resolveOutdoorMapId(startMapId);
+  let startLocation = getLocation(allLocations, startOutdoorId);
 
-  // 3. Precomputed lookup
-  if (startLoc.id === targetLoc.id) {
-    return { distance: 0, name: targetDisplayName };
+  // If the starting location isn't valid, try to default to Littleroot Town (0)
+  if (!startLocation) {
+    startOutdoorId = 0;
+    startLocation = getLocation(allLocations, startOutdoorId);
+    if (!startLocation) {
+      return null;
+    }
   }
 
-  const distance = startLoc.dist?.[targetLoc.id];
-  if (distance !== undefined) {
-    return { distance, name: targetDisplayName };
+  // Use the precomputed distance lookup table
+  if (startOutdoorId === targetAid) {
+    return { distance: 0, name: targetLocation.n };
   }
 
-  return null;
-}
-
-/**
- * Resolves an indoor map to its connected outdoor parent map.
- * Handles multi-level indoor maps by recursively traversing the `prnt` property.
- *
- * @param mapId - The Map ID to resolve.
- * @returns A Promise resolving to the parent outdoor Map ID, or the original ID if it is already an outdoor map.
- */
-export async function resolveOutdoorMapId(mapId: number): Promise<number> {
-  const allLocations = await pokeDB.getAllAreas();
-  let currentMapId = mapId;
-  let loc = allLocations.find((l) => l.id === currentMapId);
-  const visited = new Set<number>();
-
-  while (loc?.prnt !== undefined && !visited.has(currentMapId)) {
-    visited.add(currentMapId);
-    currentMapId = loc.prnt;
-    loc = allLocations.find((l) => l.id === currentMapId);
+  const dist = startLocation.dist?.[targetAid];
+  if (dist === undefined) {
+    return null;
   }
 
-  return currentMapId;
+  return { distance: dist, name: targetLocation.n };
 }
 
 /**
