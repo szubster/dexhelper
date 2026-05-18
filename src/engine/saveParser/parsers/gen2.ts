@@ -359,6 +359,17 @@ function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
 
   return roamingLegendaries;
 }
+/**
+ * Extracts and structures the player's state from a Generation 2 save file.
+ *
+ * Generation 2 (G/S/C) saves utilize more standardized memory locations compared to Gen 1,
+ * but differ between Gold/Silver and Crystal. Notably, Crystal versions contain extra
+ * caught data (time of day, level, and location).
+ *
+ * @param view - The raw binary DataView of the save file.
+ * @param forceCrystal - A flag indicating whether the save file should be treated as Crystal, enabling the parsing of additional caught data. Defaults to false (Gold/Silver).
+ * @returns A structured `SaveData` object representing the player's game state.
+ */
 export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   let isCrystal = forceCrystal;
   if (!isCrystal) {
