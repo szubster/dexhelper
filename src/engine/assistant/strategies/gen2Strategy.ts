@@ -108,6 +108,36 @@ export const gen2Strategy: AssistantStrategy = {
 
     return suggestions;
   },
+  postProcessSuggestions(suggestions: Suggestion[]): void {
+    for (const suggestion of suggestions) {
+      if (suggestion.category === 'Catch' && suggestion.encounterInfo) {
+        let hasMorning = false,
+          hasDay = false,
+          hasNight = false,
+          hasNoTimeReq = false;
+        for (const details of Object.values(suggestion.encounterInfo)) {
+          for (const d of details) {
+            if (!d.time) {
+              hasNoTimeReq = true;
+            } else {
+              if (d.time & 1) hasMorning = true;
+              if (d.time & 2) hasDay = true;
+              if (d.time & 4) hasNight = true;
+            }
+          }
+        }
+        if (!hasNoTimeReq && (hasMorning || hasDay || hasNight)) {
+          const times = [];
+          if (hasMorning) times.push('Morning');
+          if (hasDay) times.push('Day');
+          if (hasNight) times.push('Night');
+          if (times.length > 0 && times.length < 3) {
+            suggestion.warning = `Only available in the ${times.join('/')}`;
+          }
+        }
+      }
+    }
+  },
 
   isInternallyObtainable(baseId: number, _version: string): boolean {
     // Gen 2 trade evolutions and mythicals
