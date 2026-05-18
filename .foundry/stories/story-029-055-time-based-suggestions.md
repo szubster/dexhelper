@@ -35,3 +35,5 @@ Implement filtering and warnings in the suggestion engine based on Morning/Day/N
 ## Children
 - [.foundry/tasks/task-055-094-implement-time-based-suggestions.md](.foundry/tasks/task-055-094-implement-time-based-suggestions.md)
 - [.foundry/tasks/task-055-095-qa-time-based-suggestions.md](.foundry/tasks/task-055-095-qa-time-based-suggestions.md)
+- [.foundry/tasks/task-055-100-implement-time-based-suggestions-v2.md](.foundry/tasks/task-055-100-implement-time-based-suggestions-v2.md)
+- [.foundry/tasks/task-055-101-qa-time-based-suggestions-v2.md](.foundry/tasks/task-055-101-qa-time-based-suggestions-v2.md)
