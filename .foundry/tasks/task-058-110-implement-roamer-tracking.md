@@ -2,7 +2,7 @@
 id: task-058-110-implement-roamer-tracking
 type: TASK
 title: Implement Roamer Tracking
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
@@ -37,5 +37,5 @@ Implement roamer tracking logic to guide the player to check the Pokédex for Ra
    - Write or update tests to verify the roamer tracking logic.
 
 ## Acceptance Criteria
-- [ ] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
-- [ ] Tests verify roamer tracking logic.
+- [x] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
+- [x] Tests verify roamer tracking logic.

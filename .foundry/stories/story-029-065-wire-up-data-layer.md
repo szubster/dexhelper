@@ -2,13 +2,13 @@
 id: story-029-065-wire-up-data-layer
 type: STORY
 title: Wire up DAG Dashboard UI to parsing layer data
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
   - .foundry/stories/story-029-053-implement-dependency-highlighting.md
-jules_session_id: '1379405808542419577'
+jules_session_id: null
 pr_number: null
 parent: epic-017-029-dag-dashboard-ui
 tags:
@@ -33,6 +33,10 @@ As the final step of the DAG Dashboard UI implementation, this story wires up th
 - Ensure dynamic updates if the underlying data changes, or handle the initial load correctly.
 
 ## Acceptance Criteria
-- [ ] Connect the UI components to the data layer source.
-- [ ] Verify that real `.foundry` nodes and their dependencies are correctly rendered in the graph.
-- [ ] Ensure filtering and highlighting still work with the real data.
+- [x] Connect the UI components to the data layer source.
+- [x] Verify that real `.foundry` nodes and their dependencies are correctly rendered in the graph.
+- [x] Ensure filtering and highlighting still work with the real data.
+
+## Technical Blueprints
+- [task-065-114-wire-up-data-layer-impl](.foundry/tasks/task-065-114-wire-up-data-layer-impl.md)
+- [task-065-115-wire-up-data-layer-qa](.foundry/tasks/task-065-115-wire-up-data-layer-qa.md)

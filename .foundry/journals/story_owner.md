@@ -68,3 +68,8 @@ The requested STORY node already exists and is COMPLETED (`.foundry/stories/stor
 
 ## 2026-05-18
 Applied EMPTY PR POLICY for story-032-061-gen3-distance-lookup.md. The getDistanceToMap function and its tests were already implemented in src/engine/mapGraph/gen3Graph.ts and src/engine/mapGraph/gen3Graph.test.ts.
+## 2026-05-18: Gen3 Data Formats
+Note that generation 3 data formatting and serialization uses MsgPack (`msgpackr`) rather than JSON, to reduce dataset sizes and improve parse speeds (ADR 010).
+
+## 2026-05-18: Gen3 Data Formats Update
+Note that generation 3 data formatting uses `.jsonl` for source files in the repository for ease of review, which is then compiled into MsgPack via a Vite plugin for runtime use.

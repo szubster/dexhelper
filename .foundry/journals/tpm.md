@@ -355,3 +355,19 @@
 - **2026-05-18**: Resurrection Loop triggered for `task-058-094-implement-roamer-and-stat-evolutions`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-18**: Resurrection Loop triggered for `task-062-100-gen3-locations-script-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-18**: Resurrection Loop triggered for `task-057-095-qa-headbutt-rocksmash-logic`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-18**: PR #1493 merged. `epic-026-034-automated-nuzlocke-tracker` is now COMPLETED.
+
+- **2026-05-18**: PR #1492 merged. `story-029-065-wire-up-data-layer` is now COMPLETED.
+
+- **2026-05-18**: PR #1490 merged. `story-032-060-gen3-indoor-resolution` is now COMPLETED.
+
+- **2026-05-18**: PR #1484 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-05-18**: PR #1489 merged. `task-058-110-implement-roamer-tracking` is now COMPLETED.
+
+- **2026-05-18**: PR #1491 merged. `task-060-109-gen3-bounds-checking-qa` is now COMPLETED.
+
+- **2026-05-18**: PR #1497 merged. `task-062-105-gen3-pokemon-script-qa` is now COMPLETED.
