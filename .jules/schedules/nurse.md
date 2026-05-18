@@ -48,7 +48,7 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 ---
 
-If no meaningful type-safety issue can be identified, do not create a PR.
+If no meaningful type-safety issue can be identified, submit an empty PR.
 
 
 ## Empty PR Policy

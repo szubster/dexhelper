@@ -49,7 +49,7 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 ---
 
-If no clear performance win can be identified, do not create a PR.
+If no clear performance win can be identified, submit an empty PR.
 
 
 ## Empty PR Policy

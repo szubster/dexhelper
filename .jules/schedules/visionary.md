@@ -45,7 +45,7 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 ---
 
-If no high-value idea can be formulated, do not create a PR.
+If no high-value idea can be formulated, submit an empty PR.
 
 ## Empty PR Policy
 Completely empty PRs should be fine and automerged by GitHub actions (there is an action for that already).

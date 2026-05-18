@@ -102,3 +102,9 @@
 **Outcome:** Accepted
 **Why:** Agents were incorrectly restricted or implicitly discouraged from creating dynamic nodes (like RESEARCH, IDEA, ADR) when discovering new tasks, lacking context, or uncovering architectural concerns. Scheduled agents were also not explicitly empowered to create Foundry nodes.
 **Pattern:** Prompts should empower agents to spawn their own tasks (`IDEA`, `RESEARCH`, `ADR`) directly into `.foundry/` if they discover work that needs to be done.
+
+## 2026-05-18 - [Accepted] - Prompt improvement - Update schedules to follow Empty PR Policy
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** System memory defines an "Empty PR Policy" where agents should submit an empty PR rather than aborting entirely when no work is found. The scheduled prompts still contained the conflicting instruction "do not create a PR".
+**Pattern:** Ensure scheduled prompt fallback instructions align with global system heartbeat/empty PR policies so the orchestrator correctly registers completion.
