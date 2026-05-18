@@ -31,4 +31,7 @@ Create a dedicated "Nuzlocke Tracker" mode in DexHelper.
 This significantly reduces the friction of playing Nuzlocke challenges on original hardware or emulators by removing manual data entry. It leverages our existing robust save parsing and location mapping capabilities to provide a unique feature no other tool currently offers automatically.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+
+## Downstream Nodes
+- PRD: `.foundry/prds/prd-057-026-automated-nuzlocke-tracker.md`
