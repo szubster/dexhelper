@@ -4,7 +4,7 @@ set -e
 echo "--- PokéAPI Sync Script ---"
 
 # 1. Run generation
-pnpm tsx scripts/generate-pokedata.ts
+pnpm run data:gen
 
 # 2. Check for changes
 if [[ -z $(git status -s public/data/pokedata.json) ]]; then
