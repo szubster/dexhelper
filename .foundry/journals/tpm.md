@@ -309,3 +309,11 @@
 - **2026-05-18**: PR #1448 merged. `task-055-094-implement-time-based-suggestions` is now COMPLETED.
 
 - **2026-05-18**: PR #1453 merged. `task-056-095-qa-breeding-suggestions` is now COMPLETED.
+
+- **2026-05-18**: PR #1463 merged. `story-029-053-implement-dependency-highlighting` is now PENDING.
+
+- **2026-05-18**: PR #1465 merged. `task-055-095-qa-time-based-suggestions` is now COMPLETED.
+
+- **2026-05-18**: PR #1467 merged. `task-055-100-implement-time-based-suggestions-v2` is now COMPLETED.
+
+- **2026-05-18**: PR #1466 merged. `task-059-097-gen3-dataview-scaffolding-qa` is now COMPLETED.

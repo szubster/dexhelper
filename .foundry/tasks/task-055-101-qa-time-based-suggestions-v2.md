@@ -2,7 +2,7 @@
 id: task-055-101-qa-time-based-suggestions-v2
 type: TASK
 title: 'QA: Time-Based Suggestions V2'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
