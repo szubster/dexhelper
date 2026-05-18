@@ -65,3 +65,6 @@ The requested STORY node already exists and is COMPLETED (`.foundry/stories/stor
 
 ## 2026-05-17
 - Remember to check off acceptance criteria in the parent node when delegating tasks for them.
+
+## 2026-05-18: Gen3 Data Formats
+Note that generation 3 data formatting and serialization uses MsgPack (`msgpackr`) rather than JSON, to reduce dataset sizes and improve parse speeds (ADR 010).
