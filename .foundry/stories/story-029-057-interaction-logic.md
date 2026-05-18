@@ -2,10 +2,10 @@
 id: story-029-057-interaction-logic
 type: STORY
 title: 'Story: Interaction Logic (Headbutt/Rock Smash)'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-16'
-updated_at: '2026-05-17'
+updated_at: '2026-05-18'
 depends_on:
   - .foundry/stories/story-029-054-gen2-strategy-plugin.md
 jules_session_id: '15520242422085744065'

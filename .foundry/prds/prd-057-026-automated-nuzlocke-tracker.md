@@ -2,12 +2,12 @@
 id: prd-057-026-automated-nuzlocke-tracker
 type: PRD
 title: Automated Nuzlocke Verification and Run Tracker
-status: ACTIVE
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on: []
-jules_session_id: '5609625980820891931'
+jules_session_id: null
 pr_number: null
 parent: idea-057-automated-nuzlocke-tracker
 tags:

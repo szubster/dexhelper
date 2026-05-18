@@ -2,7 +2,7 @@
 id: story-033-066-heartbeat-prless-detection
 type: STORY
 title: Detect PR-less COMPLETED Sessions in Heartbeat
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-18'

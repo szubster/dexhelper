@@ -2,7 +2,7 @@
 id: task-058-110-implement-roamer-tracking
 type: TASK
 title: Implement Roamer Tracking
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'

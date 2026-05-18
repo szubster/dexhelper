@@ -2,7 +2,7 @@
 id: task-058-112-implement-stat-evolutions
 type: TASK
 title: Implement Stat-Based Evolutions
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'

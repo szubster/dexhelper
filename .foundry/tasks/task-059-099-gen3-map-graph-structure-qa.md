@@ -2,13 +2,13 @@
 id: task-059-099-gen3-map-graph-structure-qa
 type: TASK
 title: QA Gen3 Map Graph Structure
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
   - task-059-098-gen3-map-graph-structure-impl
-jules_session_id: '3911471068563414293'
+jules_session_id: null
 pr_number: null
 parent: story-032-059-gen3-map-graph-structure
 tags:

@@ -2,7 +2,7 @@
 id: story-029-065-wire-up-data-layer
 type: STORY
 title: Wire up DAG Dashboard UI to parsing layer data
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-18'
 updated_at: '2026-05-18'

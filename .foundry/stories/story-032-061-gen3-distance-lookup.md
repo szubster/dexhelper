@@ -2,7 +2,7 @@
 id: story-032-061-gen3-distance-lookup
 type: STORY
 title: Gen3 Distance Lookup
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
@@ -16,8 +16,8 @@ tags:
   - map-graph
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Depends on map graph structure."
+rejection_reason: ''
+notes: Depends on map graph structure.
 ---
 
 # Story: Gen3 Distance Lookup
