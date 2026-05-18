@@ -42,7 +42,12 @@ We need to differentiate between a silent crash and a legitimate PR-less complet
 7. Ensure adequate logging to the TPM journal for these PR-less completions.
 
 ## Acceptance Criteria
-- [ ] Heartbeat script correctly parses Jules session state even without a PR.
-- [ ] PR-less `COMPLETED` sessions for leaf tasks with unchecked boxes are marked `FAILED`.
-- [ ] PR-less `COMPLETED` sessions for leaf tasks with all boxes checked are marked `COMPLETED`.
-- [ ] Appropriate logs are written to `.foundry/journals/tpm.md`.
+- [x] Heartbeat script correctly parses Jules session state even without a PR.
+- [x] PR-less `COMPLETED` sessions for leaf tasks with unchecked boxes are marked `FAILED`.
+- [x] PR-less `COMPLETED` sessions for leaf tasks with all boxes checked are marked `COMPLETED`.
+- [x] Appropriate logs are written to `.foundry/journals/tpm.md`.
+
+## Downstream Nodes
+- STORY: `.foundry/stories/story-033-066-heartbeat-prless-detection.md`
+- STORY: `.foundry/stories/story-033-067-heartbeat-state-transitions.md`
+- STORY: `.foundry/stories/story-033-068-heartbeat-tpm-logging.md`
