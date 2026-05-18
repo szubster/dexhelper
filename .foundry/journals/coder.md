@@ -119,3 +119,4 @@ One key learning is that the distance engine is entirely dependent on the build-
 - **Learning**: Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`.
 - Ensure that you accurately handle arrays like pokemonIds and localPids correctly by modifying both of them iteratively if needed to avoid bugs.
 - Found out Gen 2 Headbutt/Rock Smash didn't actually require badges internally despite some guides saying so.
+- Workaround vitest-browser-react pointer event issues on complex SVGs or wrappers (like ReactFlow) by evaluating the locator directly to the DOM element and calling .click()

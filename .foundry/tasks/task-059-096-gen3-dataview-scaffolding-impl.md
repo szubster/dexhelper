@@ -31,5 +31,5 @@ Set up the core TypeScript files and handler functions to parse Gen3 save files 
 - Leave the implementations empty (return false/throw error) as this is just the scaffolding.
 
 ## Acceptance Criteria
-- [ ] `isGen3Save` and `parseGen3` are defined and exported.
-- [ ] `parseSaveFile` delegates correctly to Gen3 logic.
+- [x] `isGen3Save` and `parseGen3` are defined and exported.
+- [x] `parseSaveFile` delegates correctly to Gen3 logic.
