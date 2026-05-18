@@ -632,6 +632,13 @@ function generateEvolutionSuggestions(
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {
           const isReady = bestInstance.level >= min_l;
+          let rpsMet = true;
+          if (rps !== undefined && bestInstance.dvs) {
+            if (rps === 1) rpsMet = bestInstance.dvs.atk > bestInstance.dvs.def;
+            else if (rps === -1) rpsMet = bestInstance.dvs.atk < bestInstance.dvs.def;
+            else if (rps === 0) rpsMet = bestInstance.dvs.atk === bestInstance.dvs.def;
+          }
+          const isActuallyReady = isReady && rpsMet;
           let rpsReq = '';
           if (rps === 1) rpsReq = ', Atk > Def';
           else if (rps === -1) rpsReq = ', Atk < Def';
@@ -642,11 +649,11 @@ function generateEvolutionSuggestions(
             id: `evo-lvl-${targetId}`,
             category: 'Evolve',
             title: `Level Up Evolution: #${targetId}`,
-            description: isReady
+            description: isActuallyReady
               ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve ${specificReq}!`
               : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${min_l} ${specificReq}.`,
             pokemonId: targetId,
-            priority: isReady ? 90 : 75,
+            priority: isActuallyReady ? 90 : 75,
           });
         } else if (min_h) {
           const todMsg = tod ? ` during the ${tod}` : '';
