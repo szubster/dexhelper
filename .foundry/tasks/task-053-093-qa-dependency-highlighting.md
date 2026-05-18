@@ -52,8 +52,8 @@ This task fulfills Story 053. The objective is to verify the interactive depende
    - Run `pnpm test`, `pnpm test:e2e`, and `pnpm lint` to ensure no regressions were introduced.
 
 ## Acceptance Criteria
-- [ ] Verify interaction accurately triggers and clears highlighting state.
-- [ ] Verify traversal logic correctly highlights direct upstream and downstream nodes.
-- [ ] Verify visual styling correctly dims unrelated elements and adheres to ADR 008.
-- [ ] Verify unit tests are present and passing.
-- [ ] Ensure `pnpm lint` and all test suites pass.
+- [x] Verify interaction accurately triggers and clears highlighting state.
+- [x] Verify traversal logic correctly highlights direct upstream and downstream nodes.
+- [x] Verify visual styling correctly dims unrelated elements and adheres to ADR 008.
+- [x] Verify unit tests are present and passing.
+- [x] Ensure `pnpm lint` and all test suites pass.
