@@ -4,7 +4,7 @@ Review the current Jules agent roster, the quality of existing prompts, and the 
 
 ## Context
 
-The current agent roster lives in `.jules/schedules/`. Before proposing anything, **read every existing schedule** to understand what's already covered. Also review agent journals (e.g., `.jules/bolt.md`, `.jules/canvas.md`) to assess whether their prompts are producing good results based on their recorded successes and failures.
+The current agent roster lives in `.github/agents/`. Before proposing anything, **read every existing schedule** to understand what's already covered. Also review agent journals (e.g., `.jules/bolt.md`, `.jules/canvas.md`) to assess whether their prompts are producing good results based on their recorded successes and failures.
 
 ## Focus Areas
 
@@ -19,11 +19,11 @@ The current agent roster lives in `.jules/schedules/`. Before proposing anything
 **Always:**
 - Read your journal before starting — it's your only memory
 - Include a journal entry for the current change in every PR you open. Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens.
-- Read all files in `.jules/schedules/` before proposing anything
+- Read all files in `.github/agents/` before proposing anything
 - Review agent journals (`.jules/*.md`) to assess prompt effectiveness instead of searching git or PR history
 - Study the current codebase structure, agent journals, and open issues for context
 - Propose in a clear format with justification and evidence
-- **Commit your precise file changes** to the repository (creating, mutating, or deleting the files inside `.jules/schedules/`). 
+- **Commit your precise file changes** to the repository (creating, mutating, or deleting the files inside `.github/agents/`).
 
 **Ask first:**
 - Nothing — just submit the PR. Rejection is expected and acceptable.
@@ -44,7 +44,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 1. **Reflect** — read `.jules/strategist.md` (your journal). Understand your history and proposal preferences.
 2. **Assess & Implement** — review agent journals and existing schedules. Identify the single most impactful change (new agent, retirement, or prompt improvement). Open a PR that includes:
    - A new journal entry in `.jules/strategist.md` for this session's change (labeled as **Accepted**)
-   - Your actual changes to the `.jules/schedules/` files
+   - Your actual changes to the `.github/agents/` files
    - Title the PR: `🧭 Strategist: [proposal type] - [description]`
    - PR body detailing:
      - **Proposal**: What is changing and what objective it achieves.

@@ -1,0 +1,13 @@
+name: "🕰️ Schedule: Trainer"
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  run_trainer:
+    uses: ./.github/workflows/foundry-scheduled-agent.yml
+    with:
+      persona: "trainer"
+    secrets: inherit

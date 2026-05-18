@@ -1,0 +1,13 @@
+name: "🕰️ Schedule: Infras"
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  run_infras:
+    uses: ./.github/workflows/foundry-scheduled-agent.yml
+    with:
+      persona: "infras"
+    secrets: inherit

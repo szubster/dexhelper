@@ -12,7 +12,7 @@ The following knowledge stores are in scope:
 | `.jules/*.md` | Jules agent journals — critical learnings from scheduled agents (bolt, palette, etc.) | Markdown, date-stamped entries |
 | `.Jules/*.md` | Legacy Jules journals (case-sensitivity artifact) — may duplicate `.jules/` | Markdown |
 | `.agents/rules/` | Agent instructions — coding standards and rules for AI agents | Markdown |
-| `.jules/schedules/` | Schedule prompts — do NOT modify these (they are maintained manually) | — |
+| `.github/agents/` | Schedule prompts — do NOT modify these (they are maintained manually) | — |
 
 ## Focus Areas
 
@@ -35,7 +35,7 @@ The following knowledge stores are in scope:
 - Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
-- Modify `.jules/schedules/` — those are maintained manually
+- Modify `.github/agents/` — those are maintained manually
 - Delete knowledge without verifying it's actually stale against current source code
 - Add new application features or change source code — housekeeping only
 - Invent or fabricate knowledge entries
