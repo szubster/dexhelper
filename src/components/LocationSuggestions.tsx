@@ -105,6 +105,7 @@ export function LocationSuggestions() {
             type="button"
             role="option"
             aria-selected="false"
+            aria-label={loc.n}
             key={loc.id}
             onClick={() => {
               setSelectedLocationId(loc.id);

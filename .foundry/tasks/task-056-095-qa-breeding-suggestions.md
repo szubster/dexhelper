@@ -2,13 +2,13 @@
 id: task-056-095-qa-breeding-suggestions
 type: TASK
 title: 'QA: Breeding Suggestions'
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-17'
-updated_at: '2026-05-17'
+updated_at: '2026-05-18'
 depends_on:
   - .foundry/tasks/task-056-094-implement-breeding-suggestions.md
-jules_session_id: null
+jules_session_id: '11955824451738270581'
 pr_number: null
 parent: .foundry/stories/story-029-056-breeding-suggestions.md
 tags:

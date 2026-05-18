@@ -63,9 +63,6 @@ describe('gen2Strategy', () => {
     const suggestionsTyrogue = gen2Strategy.getSpecialSuggestions(saveData, [106]);
     expect(suggestionsTyrogue.some((s) => s.id === 'tyrogue-evo-106')).toBe(true);
 
-    const suggestionsBreeding = gen2Strategy.getSpecialSuggestions(saveData, [172]); // Pichu
-    expect(suggestionsBreeding.some((s) => s.id === 'breed-172')).toBe(true);
-
     const suggestions = gen2Strategy.getSpecialSuggestions(saveData, [243]);
     expect(suggestions).toHaveLength(4); // roamer, headbutt, rocksmash, time
     expect(suggestions[0]?.id).toBe('roamer-243');

@@ -33,3 +33,5 @@ Write unit tests to validate the `gen3Graph.ts` implementation.
 ## Acceptance Criteria
 - [ ] Unit tests for `getDistanceToMap` are implemented and pass.
 - [ ] Unit tests for `resolveOutdoorMapId` are implemented and pass.
+
+**QA Update:** Validation could not be completed because `gen3Graph.ts` is missing. The implementation task (`task-059-098-gen3-map-graph-structure-impl`) has been rejected.

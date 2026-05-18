@@ -2,12 +2,12 @@
 id: task-059-096-gen3-dataview-scaffolding-impl
 type: TASK
 title: Implement Gen3 DataView Parsing Scaffolding
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-17'
-updated_at: '2026-05-17'
+updated_at: '2026-05-18'
 depends_on: []
-jules_session_id: '2084376792101242795'
+jules_session_id: null
 pr_number: null
 parent: story-032-059-gen3-dataview-scaffolding
 tags:
@@ -31,5 +31,5 @@ Set up the core TypeScript files and handler functions to parse Gen3 save files 
 - Leave the implementations empty (return false/throw error) as this is just the scaffolding.
 
 ## Acceptance Criteria
-- [ ] `isGen3Save` and `parseGen3` are defined and exported.
-- [ ] `parseSaveFile` delegates correctly to Gen3 logic.
+- [x] `isGen3Save` and `parseGen3` are defined and exported.
+- [x] `parseSaveFile` delegates correctly to Gen3 logic.

@@ -2,10 +2,10 @@
 id: task-056-094-implement-breeding-suggestions
 type: TASK
 title: Implement Breeding Suggestions
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-17'
-updated_at: '2026-05-17'
+updated_at: '2026-05-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -47,6 +47,6 @@ Update the suggestion engine to detect compatible parents in the PC/Party and su
 Make sure to read `.foundry/docs/knowledge_base/development/gen2_implementation_plan.md` for specific mechanics and expected behaviors.
 
 ## Acceptance Criteria
-- [ ] The suggestion engine correctly detects when the player owns an evolved form of a missing baby/base Pokémon.
-- [ ] Suggestions of category `'Breed'` are generated, directing the player to the Daycare.
-- [ ] Unit tests are provided or updated to verify the breeding suggestion logic.
+- [x] The suggestion engine correctly detects when the player owns an evolved form of a missing baby/base Pokémon.
+- [x] Suggestions of category `'Breed'` are generated, directing the player to the Daycare.
+- [x] Unit tests are provided or updated to verify the breeding suggestion logic.

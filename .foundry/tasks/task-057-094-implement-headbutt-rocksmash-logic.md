@@ -2,12 +2,12 @@
 id: task-057-094-implement-headbutt-rocksmash-logic
 type: TASK
 title: Implement Headbutt and Rock Smash Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-17'
-updated_at: '2026-05-17'
+updated_at: '2026-05-18'
 depends_on: []
-jules_session_id: '12880825714565062206'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-029-057-interaction-logic.md
 tags:
@@ -38,6 +38,6 @@ Implement the logic to handle Headbutt and Rock Smash encounters in the suggesti
    - Ensure you update or write tests to cover these checks.
 
 ## Acceptance Criteria
-- [ ] The suggestion engine filters Headbutt encounters based on player inventory and badges.
-- [ ] The suggestion engine filters Rock Smash encounters based on player inventory and badges.
-- [ ] Tests verify the Headbutt and Rock Smash encounter logic.
+- [x] The suggestion engine filters Headbutt encounters based on player inventory and badges.
+- [x] The suggestion engine filters Rock Smash encounters based on player inventory and badges.
+- [x] Tests verify the Headbutt and Rock Smash encounter logic.

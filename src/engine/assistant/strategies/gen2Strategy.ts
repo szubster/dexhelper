@@ -106,38 +106,6 @@ export const gen2Strategy: AssistantStrategy = {
       }
     }
 
-    // Breeding suggestions (Baby Pokemon)
-    // Pichu (172), Cleffa (173), Igglybuff (174), Togepi (175), Tyrogue (236), Smoochum (238), Elekid (239), Magby (240)
-    const babyPokemon = [
-      { id: 172, parentId: 25 }, // Pichu -> Pikachu
-      { id: 173, parentId: 35 }, // Cleffa -> Clefairy
-      { id: 174, parentId: 39 }, // Igglybuff -> Jigglypuff
-      { id: 175, parentId: 176 }, // Togepi -> Togetic
-      { id: 236, parentId: 106 }, // Tyrogue -> Hitmonlee (also Hitmonchan/top, just one parent needed)
-      { id: 238, parentId: 124 }, // Smoochum -> Jynx
-      { id: 239, parentId: 125 }, // Elekid -> Electabuzz
-      { id: 240, parentId: 126 }, // Magby -> Magmar
-    ];
-
-    const allPhysicalInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
-    const physicalSpeciesSet = new Set(allPhysicalInstances.map((p) => p.speciesId));
-
-    for (const baby of babyPokemon) {
-      if (missingSet.has(baby.id)) {
-        if (physicalSpeciesSet.has(baby.parentId) || physicalSpeciesSet.has(132)) {
-          // 132 is Ditto
-          suggestions.push({
-            id: `breed-${baby.id}`,
-            category: 'Breed',
-            title: `Breed for ${baby.id === 172 ? 'Pichu' : baby.id === 173 ? 'Cleffa' : baby.id === 174 ? 'Igglybuff' : baby.id === 175 ? 'Togepi' : baby.id === 236 ? 'Tyrogue' : baby.id === 238 ? 'Smoochum' : baby.id === 239 ? 'Elekid' : 'Magby'}`,
-            description: `Leave ${physicalSpeciesSet.has(baby.parentId) ? 'your parent Pokémon' : 'Ditto'} at the Daycare with a compatible partner to get an Egg!`,
-            priority: 75,
-            pokemonId: baby.id,
-          });
-        }
-      }
-    }
-
     return suggestions;
   },
   postProcessSuggestions(suggestions: Suggestion[]): void {

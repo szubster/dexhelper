@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
+import type { EncounterDetail } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
 
@@ -509,5 +510,76 @@ describe('generateSuggestions', () => {
     expect(evoSuggestion?.title).toBe('Level Up Evolution: #196');
     expect(evoSuggestion?.description).toBe('Level up your pre-evolution during the day to evolve!');
     expect(evoSuggestion?.priority).toBe(70);
+  });
+
+  it('should filter Headbutt and Rock Smash encounters if items are missing', () => {
+    const localSaveData: SaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      owned: new Set([1, ...Array.from({ length: 251 }, (_, i) => i + 1).filter((i) => i !== 2)]), // Only missing 2
+      seen: new Set(),
+      party: [],
+      pc: [],
+      partyDetails: [],
+      pcDetails: [],
+      badges: 0,
+      johtoBadges: 0,
+      trainerName: 'Ash',
+      trainerId: 12345,
+      currentMapId: 1,
+      currentBoxCount: 0,
+      hallOfFameCount: 0,
+      inventory: [],
+    };
+
+    const localApiData: AssistantApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {},
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    };
+
+    const localStrategy = {
+      ...gen1Strategy,
+      generation: 2,
+      getMapDistance: () => ({ distance: 1, name: 'Route 1' }),
+    };
+
+    const missingPid = 2;
+    // Set missing encounter to require headbutt
+    localApiData.missingEncounters[missingPid] = {
+      pid: missingPid,
+      enc: [
+        {
+          aid: 2,
+          v: 4, // 4 = gold
+          d: [
+            { c: 100, m: 8, min: 5 },
+            { c: 100, m: 7, min: 5 },
+          ], // m = 8 is Headbutt, m = 7 is Rock Smash
+        },
+      ],
+    };
+
+    // 1. Missing item
+    localSaveData.generation = 2;
+    localSaveData.inventory = [];
+    const result1 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const catch1 = result1.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
+    expect(catch1).toBeUndefined(); // Filtered out
+
+    // 2. Has item
+    localSaveData.inventory = [
+      { id: 192, quantity: 1 },
+      { id: 198, quantity: 1 },
+    ];
+    const result2 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const catch2 = result2.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
+    expect(catch2).toBeDefined(); // Included
+    expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
+    expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
   });
 });

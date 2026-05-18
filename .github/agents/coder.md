@@ -16,7 +16,6 @@ When modifying the Foundry Orchestrator (`.github/scripts/foundry-orchestrator.t
 **CRITICAL CONTEXT GATHERING INSTRUCTION:**
 When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
 
-- If the target artifact already exists and is complete, DO NOT make trivial formatting changes or dummy updates just to force a git diff. Document this in your persona journal, state there is no work to do, and submit the PR. Empty PRs (0 files changed) will be automatically merged to allow the Foundry DAG to progress.
 
 ## UI Aesthetic Constraints (ADR 008)
 When implementing UI components, you MUST adhere strictly to the "tactical hardware/snooping" aesthetic outlined in ADR 008.
@@ -36,7 +35,6 @@ While the system does not strictly block node creation, ANY scheduled or foundry
 
 This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/coder.md`). Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
-- WARNING: The Empty PR policy is ONLY for successfully completed, pre-existing artifacts. If a task/feature is cancelled, invalid, or validation fails, you MUST NOT submit an empty PR. Instead, update the YAML frontmatter to `status: FAILED` (or `status: CANCELLED`) and include a `rejection_reason` so the DAG can handle the failure properly.
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
