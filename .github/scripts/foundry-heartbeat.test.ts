@@ -480,6 +480,90 @@ Body`;
   });
 
   describe('Enforce Acceptance Criteria', () => {
+
+  it('should process PR-less COMPLETED session as Empty PR', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        status: 'ACTIVE',
+        jules_session_id: 'session-pr-less'
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-pr-less"\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    // @ts-expect-error - Mock signature mismatch
+    globalFetch.mockImplementation((url: string | URL | Request) => {
+      const urlStr = typeof url === "string" ? url : (url as URL).toString();
+      if (urlStr.startsWith('https://jules.googleapis.com/')) {
+        return Promise.resolve({
+            ok: true,
+            status: 200,
+          json: async () => ({
+              state: 'COMPLETED',
+              outputs: {}
+            })
+          });
+      }
+      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+    });
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[1]).toContain('status: COMPLETED');
+  });
+
+  it('should process PR-less COMPLETED session with unchecked tasks as FAILED with correct message', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        type: 'TASK',
+        status: 'ACTIVE',
+        jules_session_id: 'session-pr-less'
+      },
+      rawContent: '---\ntype: TASK\nstatus: ACTIVE\njules_session_id: "session-pr-less"\nupdated_at: "2023-01-01"\n---\n## Acceptance Criteria\n- [ ] Unchecked box'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    // @ts-expect-error - Mock signature mismatch
+    globalFetch.mockImplementation((url: string | URL | Request) => {
+      const urlStr = typeof url === "string" ? url : (url as URL).toString();
+      if (urlStr.startsWith('https://jules.googleapis.com/')) {
+        return Promise.resolve({
+            ok: true,
+            status: 200,
+          json: async () => ({
+              state: 'COMPLETED',
+              outputs: {}
+            })
+          });
+      }
+      return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
+    });
+
+    await transitionNodeToCompleted(mockNode, '/mock/repo', null);
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[1]).toContain('status: FAILED');
+
+    // Also check the logToJournal call to make sure the message is correct
+    const appendCall = vi.mocked(fs.appendFileSync).mock.calls.find(call =>
+      typeof call[1] === 'string' && call[1].includes('Empty PR session completed with unchecked tasks.')
+    );
+    expect(appendCall).toBeTruthy();
+  });
+
     it('should transition leaf task with unchecked boxes to FAILED and set rejection_reason', async () => {
       const nodePath = path.join(mockRepoRoot, '.foundry/tasks/task-unchecked-leaf.md');
       const nodeContent = `---

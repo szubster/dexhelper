@@ -29,5 +29,5 @@ Update the `foundry-heartbeat.ts` script to correctly parse the Jules API sessio
 As part of making the session completion robust for the "Empty PR" policy (ADR 011), the heartbeat script needs to stop blindly failing sessions that are `COMPLETED` according to the API but lack a PR.
 
 ## Acceptance Criteria
-- [ ] Heartbeat script correctly parses Jules session state even without a PR.
-- [ ] When API state is `COMPLETED` and PR is missing, the script identifies this as a "PR-less completion" instead of a crash.
+- [x] Heartbeat script correctly parses Jules session state even without a PR.
+- [x] When API state is `COMPLETED` and PR is missing, the script identifies this as a "PR-less completion" instead of a crash.
