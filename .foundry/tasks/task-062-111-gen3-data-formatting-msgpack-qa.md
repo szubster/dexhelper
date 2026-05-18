@@ -17,7 +17,8 @@ rejection_reason: ''
 # QA Gen 3 Data Formatting with MsgPack
 
 ## Description
-QA validate the MsgPack serialization and formatting of Gen 3 data.
+QA validate the `.jsonl` to MsgPack serialization and formatting of Gen 3 data via the Vite plugin.
 
 ## Acceptance Criteria
-- [ ] QA verifies the formatted Gen 3 data correctly uses MsgPack.
+- [ ] QA verifies the source files are `.jsonl`.
+- [ ] QA verifies the Vite plugin correctly compiles `.jsonl` into MsgPack.

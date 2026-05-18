@@ -16,8 +16,9 @@ rejection_reason: ''
 # Implement Gen 3 Data Formatting with MsgPack
 
 ## Description
-Format the Generation 3 locations, encounters, and pokemon data using MsgPack (`msgpackr`) as specified in ADR 010.
+Format the Generation 3 locations, encounters, and pokemon data. The files stored in the repository should be formatted as `jsonl` for ease of review. The final output must use MsgPack (`msgpackr`), implemented similarly to the existing data pipeline via a Vite plugin.
 
 ## Acceptance Criteria
-- [ ] Gen 3 data is formatted and serialized using MsgPack.
+- [ ] Source files in the repository are formatted as `.jsonl`.
+- [ ] A Vite plugin is implemented/updated to compile the `.jsonl` data into MsgPack (`msgpackr`) for runtime use.
 - [ ] Formatted data is correct and ready for ingestion.
