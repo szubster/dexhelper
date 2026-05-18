@@ -113,3 +113,11 @@ I noticed that `task-053-092-implement-dependency-highlighting.md` failed with t
 1. Directly modified `.github/scripts/foundry-heartbeat.ts` to differentiate between a successful Empty PR (`sessionStatus === 'COMPLETED'`) and a crashed zombie session (`NOT_FOUND` or other terminal states).
 2. Created `.foundry/docs/knowledge_base/agents/core_policies.md` to centralize Empty PR and Environment Troubleshooting policies.
 3. Updated all `.github/agents/*.md` prompt files to reference this centralized core policies document, removing duplicate instructions to improve agent prompt context efficiency.
+
+## 2026-05-18 - Deduplication of Agent Prompt Policies & TPM Archiving Refinement
+### Observation
+I noticed that the extensive rules surrounding the "Empty PR Policy" (both the main instruction and the warning about failure handling) were still duplicated across all individual `.github/agents/*.md` files. This is redundant and wastes token context window, since I had previously established `.foundry/docs/knowledge_base/agents/core_policies.md` precisely to centralize these instructions. Additionally, CEO feedback clarified that while manual LLM archiving of journals by the TPM is token-heavy, it is explicitly preferred over automated archiving because old journal entries are not necessarily stale and may contain context worth remembering.
+
+### Action Taken
+1. Executed a workspace-wide deduplication by removing the redundant "Empty PR Policy" text blocks directly from the prompts of `coder`, `qa`, `tech_lead`, `story_owner`, `epic_planner`, `product_manager`, `architect`, and `tpm`. These agents will now strictly rely on the centralized `core_policies.md` reference.
+2. Updated `.github/agents/tpm.md` to explicitly instruct the TPM to be conservative when archiving, carefully evaluating whether an old entry still holds valuable system context before removing it.
