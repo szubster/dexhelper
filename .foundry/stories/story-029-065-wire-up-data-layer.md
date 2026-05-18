@@ -33,6 +33,10 @@ As the final step of the DAG Dashboard UI implementation, this story wires up th
 - Ensure dynamic updates if the underlying data changes, or handle the initial load correctly.
 
 ## Acceptance Criteria
-- [ ] Connect the UI components to the data layer source.
-- [ ] Verify that real `.foundry` nodes and their dependencies are correctly rendered in the graph.
-- [ ] Ensure filtering and highlighting still work with the real data.
+- [x] Connect the UI components to the data layer source.
+- [x] Verify that real `.foundry` nodes and their dependencies are correctly rendered in the graph.
+- [x] Ensure filtering and highlighting still work with the real data.
+
+## Technical Blueprints
+- [task-065-114-wire-up-data-layer-impl](.foundry/tasks/task-065-114-wire-up-data-layer-impl.md)
+- [task-065-115-wire-up-data-layer-qa](.foundry/tasks/task-065-115-wire-up-data-layer-qa.md)
