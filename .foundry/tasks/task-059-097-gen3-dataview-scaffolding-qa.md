@@ -31,5 +31,5 @@ Validate the Gen3 `DataView` parser scaffolding implementation by writing compre
 - Verify that `parseGen3` rejects unsupported functionality gracefully as defined by ADR 010.
 
 ## Acceptance Criteria
-- [ ] `gen3.test.ts` covers the Gen3 integration.
-- [ ] All `vitest` assertions pass locally without regressions to Gen 1/Gen 2 testing.
+- [x] `gen3.test.ts` covers the Gen3 integration.
+- [x] All `vitest` assertions pass locally without regressions to Gen 1/Gen 2 testing.
