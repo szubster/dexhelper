@@ -1,4 +1,5 @@
 import { type IDBPDatabase, openDB, unwrap } from 'idb';
+import { unpack } from 'msgpackr';
 import {
   type CompactChainLink,
   DB_CONFIG,
@@ -124,11 +125,12 @@ const syncData = async () => {
 
     // 2. Fetch current data
     const baseUrl = typeof window !== 'undefined' ? import.meta.env.BASE_URL : 'http://localhost:3000/dexhelper/';
-    const response = await fetch(`${baseUrl}data/pokedata.json`);
+    const response = await fetch(`${baseUrl}data/pokedata.msgpack`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch pokedata.json: ${response.status} ${response.statusText}`);
+      throw new Error(`Failed to fetch pokedata.msgpack: ${response.status} ${response.statusText}`);
     }
-    const data: PokeDataExport = await response.json();
+    const buffer = await response.arrayBuffer();
+    const data: PokeDataExport = unpack(new Uint8Array(buffer));
 
     // Guard against outdated build hash vs actual data hash (rare edge case)
     if (existingHash?.value === data.hash) {

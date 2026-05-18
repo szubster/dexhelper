@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import type { Plugin } from 'vite';
+import { pack } from 'msgpackr';
 
 interface PokeDataPluginOptions {
   sourceDir: string;
@@ -15,7 +16,7 @@ function readJsonl(filePath: string): any[] {
 
 export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
   const { sourceDir } = options;
-  let cachedData: { finalContent: string; hash: string } | null = null;
+  let cachedData: { finalContent: Buffer; hash: string } | null = null;
 
   function generateData() {
     const pokemon = readJsonl(path.join(sourceDir, 'pokemon.jsonl'));
@@ -34,7 +35,7 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
     const content = JSON.stringify(exportData);
     const hash = crypto.createHash('sha256').update(content).digest('hex');
     const finalData = { ...exportData, hash };
-    const finalContent = JSON.stringify(finalData);
+    const finalContent = pack(finalData);
 
     cachedData = { finalContent, hash };
     return cachedData;
@@ -72,9 +73,9 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
         const url = req.url || '';
         const cleanUrl = url.replace(/\/$/, '');
         
-        if (cleanUrl.endsWith('/data/pokedata.json')) {
+        if (cleanUrl.endsWith('/data/pokedata.msgpack')) {
           const data = cachedData || generateData();
-          res.setHeader('Content-Type', 'application/json');
+          res.setHeader('Content-Type', 'application/msgpack');
           res.setHeader('Cache-Control', 'no-cache');
           res.end(data.finalContent);
           return;
@@ -98,7 +99,7 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
       
       this.emitFile({
         type: 'asset',
-        fileName: 'data/pokedata.json',
+        fileName: 'data/pokedata.msgpack',
         source: data.finalContent
       });
 

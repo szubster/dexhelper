@@ -1,3 +1,4 @@
+import { pack } from 'msgpackr';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { getDB, pokeDB } from '../PokeDB';
 import 'fake-indexeddb/auto';
@@ -9,13 +10,14 @@ vi.stubGlobal(
   'fetch',
   vi.fn<() => Promise<Response>>().mockResolvedValue({
     ok: true,
-    json: async () => ({
-      hash: 'test-hash',
-      poke: [],
-      enc: [],
-      loc: [],
-    }),
-  } as Response),
+    arrayBuffer: async () =>
+      pack({
+        hash: 'test-hash',
+        poke: [],
+        enc: [],
+        loc: [],
+      }),
+  } as unknown as Response),
 );
 
 describe('PokeDB', () => {
@@ -23,13 +25,14 @@ describe('PokeDB', () => {
     vi.clearAllMocks();
     vi.mocked(fetch).mockResolvedValue({
       ok: true,
-      json: async () => ({
-        hash: 'test-hash',
-        poke: [],
-        enc: [],
-        loc: [],
-      }),
-    } as Response);
+      arrayBuffer: async () =>
+        pack({
+          hash: 'test-hash',
+          poke: [],
+          enc: [],
+          loc: [],
+        }),
+    } as unknown as Response);
     pokeDB._resetSync();
     const db = await getDB();
     const tx = db.transaction(Object.values(DB_CONFIG.STORES), 'readwrite');
@@ -62,15 +65,15 @@ describe('PokeDB', () => {
       ok: false,
       status: 500,
       statusText: 'Internal Server Error',
-    } as Response);
+    } as unknown as Response);
 
-    await expect(pokeDB.sync()).rejects.toThrow('Failed to fetch pokedata.json: 500 Internal Server Error');
+    await expect(pokeDB.sync()).rejects.toThrow('Failed to fetch pokedata.msgpack: 500 Internal Server Error');
 
     // Verify it was reset by calling again with a successful fetch
     vi.mocked(fetch).mockResolvedValueOnce({
       ok: true,
-      json: async () => ({ hash: 'test-hash-2', poke: [], enc: [], loc: [] }),
-    } as Response);
+      arrayBuffer: async () => pack({ hash: 'test-hash-2', poke: [], enc: [], loc: [] }),
+    } as unknown as Response);
 
     await pokeDB.sync();
     expect(fetch).toHaveBeenCalledTimes(2);
@@ -92,9 +95,9 @@ describe('PokeDB', () => {
       ok: false,
       status: 404,
       statusText: 'Not Found',
-    } as Response);
+    } as unknown as Response);
 
-    await expect(pokeDB.sync()).rejects.toThrow('Failed to fetch pokedata.json: 404 Not Found');
+    await expect(pokeDB.sync()).rejects.toThrow('Failed to fetch pokedata.msgpack: 404 Not Found');
 
     expect(fetch).toHaveBeenCalledTimes(1);
 
@@ -110,8 +113,8 @@ describe('PokeDB', () => {
 
     vi.mocked(fetch).mockResolvedValueOnce({
       ok: true,
-      json: async () => ({ hash: 'old-hash', poke: [], enc: [], loc: [] }),
-    } as Response);
+      arrayBuffer: async () => pack({ hash: 'old-hash', poke: [], enc: [], loc: [] }),
+    } as unknown as Response);
 
     const transactionSpy = vi.spyOn(db, 'transaction');
 
@@ -172,8 +175,8 @@ describe('PokeDB', () => {
 
     vi.mocked(fetch).mockResolvedValue({
       ok: true,
-      json: async () => mockData,
-    } as Response);
+      arrayBuffer: async () => pack(mockData),
+    } as unknown as Response);
 
     await pokeDB.sync();
 
@@ -195,8 +198,8 @@ describe('PokeDB', () => {
 
     vi.mocked(fetch).mockResolvedValue({
       ok: true,
-      json: async () => mockData,
-    } as Response);
+      arrayBuffer: async () => pack(mockData),
+    } as unknown as Response);
 
     await pokeDB.sync();
 
@@ -255,8 +258,8 @@ describe('PokeDB', () => {
 
     vi.mocked(fetch).mockResolvedValue({
       ok: true,
-      json: async () => mockData,
-    } as Response);
+      arrayBuffer: async () => pack(mockData),
+    } as unknown as Response);
 
     await pokeDB.sync();
 
@@ -280,8 +283,8 @@ describe('PokeDB', () => {
 
     vi.mocked(fetch).mockResolvedValue({
       ok: true,
-      json: async () => mockData,
-    } as Response);
+      arrayBuffer: async () => pack(mockData),
+    } as unknown as Response);
 
     await pokeDB.sync();
 
@@ -296,8 +299,8 @@ describe('PokeDB', () => {
     it('returns correct status when synced', async () => {
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => ({ hash: 'new-hash', poke: [], enc: [], loc: [] }),
-      } as Response);
+        arrayBuffer: async () => pack({ hash: 'new-hash', poke: [], enc: [], loc: [] }),
+      } as unknown as Response);
 
       await pokeDB.sync();
 
@@ -325,8 +328,8 @@ describe('PokeDB', () => {
 
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => ({ hash: 'synced-hash', poke: [], enc: [], loc: [] }),
-      } as Response);
+        arrayBuffer: async () => pack({ hash: 'synced-hash', poke: [], enc: [], loc: [] }),
+      } as unknown as Response);
 
       await pokeDB.ready();
       expect(fetch).toHaveBeenCalled();
@@ -344,8 +347,8 @@ describe('PokeDB', () => {
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => mockData,
-      } as Response);
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
       await pokeDB.sync();
 
       const all = await pokeDB.getAllPokemon();
@@ -366,8 +369,8 @@ describe('PokeDB', () => {
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => mockData,
-      } as Response);
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
       await pokeDB.sync();
 
       const enc = await pokeDB.getEncounters(1);
@@ -386,8 +389,8 @@ describe('PokeDB', () => {
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => mockData,
-      } as Response);
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
       await pokeDB.sync();
 
       const results = await pokeDB.getEncountersBulk([1, 2, 999]);
@@ -414,8 +417,8 @@ describe('PokeDB', () => {
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => mockData,
-      } as Response);
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
       await pokeDB.sync();
 
       const all = await pokeDB.getAllEncounters();
@@ -435,8 +438,8 @@ describe('PokeDB', () => {
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => mockData,
-      } as Response);
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
       await pokeDB.sync();
 
       const loc = await pokeDB.getLocation(1);
@@ -455,8 +458,8 @@ describe('PokeDB', () => {
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => mockData,
-      } as Response);
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
       await pokeDB.sync();
 
       const locs = await pokeDB.getLocations();
@@ -476,8 +479,8 @@ describe('PokeDB', () => {
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => mockData,
-      } as Response);
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
       await pokeDB.sync();
 
       const areas = await pokeDB.getAreas(1);
@@ -494,8 +497,8 @@ describe('PokeDB', () => {
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => mockData,
-      } as Response);
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
       await pokeDB.sync();
 
       const areas = await pokeDB.getAllAreas();
@@ -515,8 +518,8 @@ describe('PokeDB', () => {
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => mockData,
-      } as Response);
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
       await pokeDB.sync();
 
       const pids = await pokeDB.getInverseIndex(1);
@@ -535,8 +538,8 @@ describe('PokeDB', () => {
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        json: async () => mockData,
-      } as Response);
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
       await pokeDB.sync();
 
       const results = await pokeDB.getInverseIndexBulk([1, 999, 2, NaN]);
