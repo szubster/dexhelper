@@ -2,8 +2,8 @@
 id: idea-056-living-dex-tracker
 type: IDEA
 title: Specialized "Living Dex" Organization Tracker UI
-status: ACTIVE
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on: []
@@ -14,7 +14,7 @@ tags:
   - ui
   - living-dex
 notes: ''
-rejection_reason: ''
+rejection_reason: ACTIVE node missing session ID
 rejection_count: 0
 ---
 

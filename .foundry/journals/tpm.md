@@ -299,3 +299,13 @@
 - **2026-05-18**: PR #1434 merged. `task-059-096-gen3-dataview-scaffolding-impl` is now COMPLETED.
 
 - **2026-05-18**: Resurrection Loop triggered for `task-059-098-gen3-map-graph-structure-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-18**: Heartbeat detected zombie session for `idea-056-living-dex-tracker`. Transitioned to FAILED.
+
+- **2026-05-18**: PR #1456 merged. `story-033-066-heartbeat-prless-detection` is now PENDING.
+
+- **2026-05-18**: PR #1455 merged. `task-053-093-qa-dependency-highlighting` is now COMPLETED.
+
+- **2026-05-18**: PR #1448 merged. `task-055-094-implement-time-based-suggestions` is now COMPLETED.
+
+- **2026-05-18**: PR #1453 merged. `task-056-095-qa-breeding-suggestions` is now COMPLETED.

@@ -2,7 +2,7 @@
 id: task-066-106-implement-prless-detection
 type: TASK
 title: Implement PR-less Detection in Heartbeat
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
