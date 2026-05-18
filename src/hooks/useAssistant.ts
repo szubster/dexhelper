@@ -19,30 +19,33 @@ import { getGenerationConfig } from '../utils/generationConfig';
  * const { suggestions, isLoading } = useAssistant(saveData, false, 'red');
  */
 export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, manualVersion?: string | null) {
-  const maxDex = saveData ? getGenerationConfig(saveData.generation).maxDex : 0;
-  const missingIds: number[] = [];
+  // ⚡ Bolt: Memoized expensive missing ID and owned set calculations to prevent redundant work on every render
+  const queryTargetsSlice = useMemo(() => {
+    const maxDex = saveData ? getGenerationConfig(saveData.generation).maxDex : 0;
+    const missingIds: number[] = [];
 
-  // If building a Living Dex, the internal Pokédex 'owned' flag isn't sufficient.
-  // We must verify the player physically possesses the Pokémon in their Party or PC.
-  const ownedSet = saveData
-    ? isLivingDex
-      ? new Set([...saveData.party, ...saveData.pc])
-      : saveData.owned
-    : new Set<number>();
+    // If building a Living Dex, the internal Pokédex 'owned' flag isn't sufficient.
+    // We must verify the player physically possesses the Pokémon in their Party or PC.
+    const ownedSet = saveData
+      ? isLivingDex
+        ? new Set([...saveData.party, ...saveData.pc])
+        : saveData.owned
+      : new Set<number>();
 
-  if (saveData) {
-    for (let i = 1; i <= maxDex; i++) {
-      if (!ownedSet.has(i)) {
-        // Mewtwo (150) is physically inaccessible in Gen 1 until the Elite Four is defeated.
-        if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0) continue;
-        missingIds.push(i);
+    if (saveData) {
+      for (let i = 1; i <= maxDex; i++) {
+        if (!ownedSet.has(i)) {
+          // Mewtwo (150) is physically inaccessible in Gen 1 until the Elite Four is defeated.
+          if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0) continue;
+          missingIds.push(i);
+        }
       }
     }
-  }
 
-  // Limit the synchronous engine to evaluating the first 30 missing Pokémon at a time.
-  // This prevents massive batched queries to IndexedDB and keeps the UI responsive.
-  const queryTargetsSlice = missingIds.slice(0, 30);
+    // Limit the synchronous engine to evaluating the first 30 missing Pokémon at a time.
+    // This prevents massive batched queries to IndexedDB and keeps the UI responsive.
+    return missingIds.slice(0, 30);
+  }, [saveData, isLivingDex]);
 
   const { data: apiData, isLoading: isLoadingEncounters } = useQuery({
     queryKey: [

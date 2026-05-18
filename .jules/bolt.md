@@ -86,3 +86,6 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 **What:** Replaced `filtered = locations.filter(...).slice(0, 5)` with a manual `for` loop that breaks when 5 items are found.
 **Why:** The `filter()` approach scans the entire array (O(N) operation) even if we only need the first 5 matches. With potentially hundreds of locations, stopping early minimizes execution time to O(K) where K is the number of elements checked to find 5 matches.
 **Measured Improvement:** Faster response time during search input by skipping redundant string comparisons, keeping the UI thread unblocked.
+
+## 2024-XX-XX
+* When attempting micro-optimizations, remember that replacing `Map.set` deduplication with `Set.has` check logic can alter programmatic behavior: `Map` creates a 'last-wins' overwrite strategy, whereas `Set` creates a 'first-wins' skip strategy. Do not implement such replacements when array order or precedence is meaningful to the application logic.
