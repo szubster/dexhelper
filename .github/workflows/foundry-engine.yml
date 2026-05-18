@@ -109,7 +109,7 @@ jobs:
           fi
 
       - name: Report Orchestrate Failure
-        if: failure()
+        if: failure() && env.SKIP_FAILURE_ISSUE != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.MY_ISSUES_PAT }}
         run: |
@@ -225,6 +225,13 @@ jobs:
             # 4. Extract and verify session ID
             session_id=$(echo "$response" | jq -r '.id')
             
+            error_status=$(echo "$response" | jq -r '.error.status // empty')
+            if [[ "$error_status" == "FAILED_PRECONDITION" ]]; then
+              echo "::warning::Jules session failed due to quota/precondition (FAILED_PRECONDITION). Skipping issue creation."
+              echo "SKIP_FAILURE_ISSUE=true" >> $GITHUB_ENV
+              exit 1
+            fi
+
             if [[ -z "$session_id" || "$session_id" == "null" ]]; then
               echo "::error::Failed to capture Jules session ID"
               echo "Response: $response"
@@ -250,7 +257,7 @@ jobs:
           git push origin main 2>&1 | tee -a commit.log
 
       - name: Report Execution Failure
-        if: failure()
+        if: failure() && env.SKIP_FAILURE_ISSUE != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.MY_ISSUES_PAT }}
         run: |
