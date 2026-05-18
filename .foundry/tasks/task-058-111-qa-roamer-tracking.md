@@ -39,6 +39,6 @@ Validate the implementation of the roamer tracking logic for Gen 2.
    - Verify that new tests cover the roamer tracking logic adequately.
 
 ## Acceptance Criteria
-- [ ] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
-- [ ] Tests verify roamer tracking logic.
-- [ ] Code meets quality standards and tests pass.
+- [x] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
+- [x] Tests verify roamer tracking logic.
+- [x] Code meets quality standards and tests pass.
