@@ -1,0 +1,18 @@
+<<<<<<< SEARCH
+          <p className="max-w-[95%] font-medium text-xs text-zinc-400 leading-relaxed">{desc}</p>
+        </div>
+
+        {s.pokemonId && (
+=======
+          <p className="max-w-[95%] font-medium text-xs text-zinc-400 leading-relaxed">{desc}</p>
+          {s.warning && (
+            <div className="mt-2 flex w-max items-center gap-1.5 border border-amber-500/30 border-dashed bg-amber-500/10 px-2 py-1">
+              <span className="font-black font-mono text-[9px] text-amber-400 uppercase tracking-widest">
+                [ WARNING: {s.warning} ]
+              </span>
+            </div>
+          )}
+        </div>
+
+        {s.pokemonId && (
+>>>>>>> REPLACE
