@@ -263,6 +263,7 @@ function generateCatchSuggestions(
               minLevel: ed.min,
               maxLevel: ed.max,
               aid: re.aid,
+              time: ed.t,
             });
           }
         }
@@ -321,6 +322,7 @@ function generateCatchSuggestions(
           minLevel: ed.min,
           maxLevel: ed.max,
           aid,
+          time: ed.t,
         });
       }
 
@@ -841,5 +843,8 @@ export function generateSuggestions(
   }
   const uniqueSuggestions = Array.from(uniqueMap.values());
   uniqueSuggestions.sort((a, b) => b.priority - a.priority);
+
+  strategy.postProcessSuggestions?.(uniqueSuggestions);
+
   return { suggestions: uniqueSuggestions, debug: { rejected } };
 }

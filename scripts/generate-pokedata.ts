@@ -36,6 +36,7 @@ interface PokeApiEncounterDetail {
   method: { name: string };
   min_level: number;
   max_level: number;
+  condition_values?: { name: string }[];
 }
 
 interface PokeApiVersionDetail {
@@ -245,6 +246,16 @@ async function main() {
               min: ed.min_level,
               max: ed.max_level,
             };
+
+            if (ed.condition_values && ed.condition_values.length > 0) {
+              let timeMask = 0;
+              for (const cv of ed.condition_values) {
+                if (cv.name === 'time-morning') timeMask |= 1;
+                if (cv.name === 'time-day') timeMask |= 2;
+                if (cv.name === 'time-night') timeMask |= 4;
+              }
+              if (timeMask > 0) det.t = timeMask;
+            }
             return det;
           })
         });

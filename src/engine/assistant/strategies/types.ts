@@ -9,6 +9,7 @@ export interface EncounterDetail {
   minLevel: number;
   maxLevel?: number | undefined;
   aid: number;
+  time?: number | undefined;
 }
 
 export interface Suggestion {
@@ -98,6 +99,17 @@ export interface AssistantStrategy {
    * const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds));
    */
   getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[];
+
+  /**
+   * Post-processes suggestions to add generation-specific warnings or modifications.
+   *
+   * @param suggestions - The array of suggestions to mutate.
+   * @returns void
+   *
+   * @example
+   * strategy.postProcessSuggestions?.(suggestions);
+   */
+  postProcessSuggestions?(suggestions: Suggestion[]): void;
 
   /**
    * Checks if a Pokémon is obtainable internally without trading (e.g. via breeding).

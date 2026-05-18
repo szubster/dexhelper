@@ -77,4 +77,29 @@ describe('gen2Strategy', () => {
   it('returns true for isInternallyObtainable', () => {
     expect(gen2Strategy.isInternallyObtainable(1, 'gold')).toBe(true);
   });
+
+  it('adds time warnings during postProcessSuggestions', () => {
+    const suggestions = [
+      {
+        category: 'Catch',
+        encounterInfo: {
+          1: [
+            { time: 1 }, // Morning
+            { time: 4 }, // Night
+          ],
+        },
+      },
+      {
+        category: 'Catch',
+        encounterInfo: {
+          2: [
+            { time: undefined }, // Any time
+          ],
+        },
+      },
+    ] as unknown as import('./types').Suggestion[];
+    gen2Strategy.postProcessSuggestions?.(suggestions);
+    expect(suggestions[0]?.warning).toBe('Only available in the Morning/Night');
+    expect(suggestions[1]?.warning).toBeUndefined();
+  });
 });

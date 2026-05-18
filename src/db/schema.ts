@@ -81,6 +81,7 @@ export interface CompactEncounterDetail {
   m: number; // method (ENCOUNTER_METHOD)
   min: number; // min_level
   max?: number | undefined; // max_level
+  t?: number | undefined; // time of day bitmask (1: morning, 2: day, 4: night)
 }
 
 export interface CompactEncounter {
