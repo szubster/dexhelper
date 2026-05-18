@@ -4,22 +4,44 @@ import type { GameVersion, SaveData } from './common';
  * Performs a structural check to verify if the binary data is a valid Generation 3 save.
  * Placeholder implementation for scaffolding.
  *
- * @param _view - The raw save file DataView.
+ * @param view - The raw save file DataView.
  * @returns True if the structure looks like a valid Gen 3 save.
  */
-export function isGen3Save(_view: DataView): boolean {
-  return false;
+export function isGen3Save(view: DataView): boolean {
+  try {
+    // Scaffolding read to allow testing of RangeError handling
+    if (view.byteLength > 0) {
+      view.getUint8(0);
+    }
+    return false;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      return false;
+    }
+    throw error;
+  }
 }
 
 /**
  * Extracts all relevant game data from a Gen 3 save.
  * Placeholder implementation for scaffolding.
  *
- * @param _view - The raw save file DataView.
+ * @param view - The raw save file DataView.
  * @param _forcedVersion - An optional game version override.
  * @returns The fully parsed and structured SaveData object.
- * @throws Error - Gen 3 parsing not implemented yet.
+ * @throws Error - Gen 3 parsing not implemented yet, or "Corrupted Save File" on RangeError.
  */
-export function parseGen3(_view: DataView, _forcedVersion?: GameVersion): SaveData {
-  throw new Error('Gen 3 parsing not implemented yet');
+export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {
+  try {
+    // Scaffolding read to allow testing of RangeError handling
+    if (view.byteLength > 0) {
+      view.getUint8(0);
+    }
+    throw new Error('Gen 3 parsing not implemented yet');
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
 }

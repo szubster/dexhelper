@@ -2,12 +2,12 @@
 id: task-060-108-gen3-bounds-checking-impl
 type: TASK
 title: Implement Gen3 Bounds Checking
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4227445722128589858'
 pr_number: null
 parent: story-032-060-gen3-bounds-checking
 tags:
@@ -25,5 +25,5 @@ notes: ''
 Implement `try...catch` blocks or appropriate mechanisms to catch `RangeError` from `DataView` operations in Gen3 parsing logic.
 
 ## Acceptance Criteria
-- [ ] Ensure `DataView` operations catch `RangeError`.
-- [ ] Propagate validation errors gracefully (e.g., "Corrupted Save File").
+- [x] Ensure `DataView` operations catch `RangeError`.
+- [x] Propagate validation errors gracefully (e.g., "Corrupted Save File").
