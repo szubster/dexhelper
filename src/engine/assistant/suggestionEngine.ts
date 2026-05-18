@@ -474,36 +474,18 @@ function generateGiftAndTradeSuggestions(
 }
 
 /**
- * Evaluates owned Pokémon to suggest evolutions or breeding opportunities.
- *
- * This function checks the player's party and boxes (via `instancesBySpecies`) for pre-evolutions
- * of missing Pokémon. It determines the highest priority evolution path by validating conditions:
- * 1. **Breeding (Gen 2 Only):** Suggests leaving compatible Pokémon at the Daycare, tracking egg status.
- * 2. **Level Up:** Checks if a pre-evolution is near or past its required level.
- * 3. **Item Evolution:** Checks the player's bag for required evolution stones.
- * 4. **Trade/Happiness Evolution:** Suggests trading (with or without held items) or raising friendship.
- *
- * Priority is significantly boosted (e.g., to 90 or 95) if the player already meets all conditions
- * (e.g., holds the required stone, or the Pokémon is past the level requirement).
- *
- * @param queryTargets - The missing Pokémon IDs being evaluated.
- * @param saveData - The parsed save data for checking items, daylight (tod), and daycare status.
- * @param apiData - Pre-fetched metadata containing evolution criteria (level, item, time of day).
- * @param instancesBySpecies - A Map of the player's physical Pokémon, used to find valid pre-evolutions.
- * @param suggestions - The shared array where new evolution/breeding suggestions are pushed.
- * @param displayVersion - The current game version, used to handle special cases (like Yellow Pikachu refusing to evolve).
+ * @param saveData - The parsed save data for checking daycare status.
+ * @param apiData - Pre-fetched metadata containing evolution chains.
+ * @param instancesBySpecies - A Map of the player's physical Pokémon.
+ * @param suggestions - The shared array where new breeding suggestions are pushed.
  */
-function generateEvolutionAndBreedingSuggestions(
+function generateBreedingSuggestions(
   queryTargets: number[],
   saveData: SaveData,
   apiData: AssistantApiData,
   instancesBySpecies: Map<number, PokemonInstance[]>,
   suggestions: Suggestion[],
-  displayVersion: string,
 ) {
-  // E. Evolutions
-  // Evaluates the player's current boxes and party to find pre-evolutions.
-  // Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached, evolution stone in inventory).
   // F. Breeding (Gen 2 Only)
   if (saveData.generation === 2) {
     queryTargets.forEach((targetId: number) => {
@@ -569,6 +551,26 @@ function generateEvolutionAndBreedingSuggestions(
       }
     });
   }
+}
+
+/**
+ * @param saveData - The parsed save data for checking items and daylight (tod).
+ * @param apiData - Pre-fetched metadata containing evolution criteria (level, item, time of day).
+ * @param instancesBySpecies - A Map of the player's physical Pokémon, used to find valid pre-evolutions.
+ * @param suggestions - The shared array where new evolution suggestions are pushed.
+ * @param displayVersion - The current game version, used to handle special cases (like Yellow Pikachu refusing to evolve).
+ */
+function generateEvolutionSuggestions(
+  queryTargets: number[],
+  saveData: SaveData,
+  apiData: AssistantApiData,
+  instancesBySpecies: Map<number, PokemonInstance[]>,
+  suggestions: Suggestion[],
+  displayVersion: string,
+) {
+  // E. Evolutions
+  // Evaluates the player's current boxes and party to find pre-evolutions.
+  // Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached, evolution stone in inventory).
 
   queryTargets.forEach((targetId: number) => {
     const p = apiData.pokemonMetadata?.[targetId];
@@ -822,14 +824,9 @@ export function generateSuggestions(
     missingIds,
   );
 
-  generateEvolutionAndBreedingSuggestions(
-    queryTargets,
-    saveData,
-    apiData,
-    instancesBySpecies,
-    suggestions,
-    displayVersion,
-  );
+  generateBreedingSuggestions(queryTargets, saveData, apiData, instancesBySpecies, suggestions);
+
+  generateEvolutionSuggestions(queryTargets, saveData, apiData, instancesBySpecies, suggestions, displayVersion);
 
   // ⚡ Bolt: Eliminate O(N) array tuple allocation during suggestion deduplication
   const uniqueMap = new Map<string, Suggestion>();
