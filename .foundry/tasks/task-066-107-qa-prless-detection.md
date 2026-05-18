@@ -30,6 +30,6 @@ Verify the changes made in `.foundry/tasks/task-066-106-implement-prless-detecti
 As part of making the session completion robust for the "Empty PR" policy (ADR 011), the heartbeat script needs to stop blindly failing sessions that are `COMPLETED` according to the API but lack a PR.
 
 ## Acceptance Criteria
-- [ ] Verify that `foundry-heartbeat.ts` correctly parses the Jules API session state.
-- [ ] Verify that when API state is `COMPLETED` and PR is missing, the script identifies this as a "PR-less completion" instead of a crash.
-- [ ] Run test suite with `cd .github/scripts && pnpm install && npx vitest run`.
+- [x] Verify that `foundry-heartbeat.ts` correctly parses the Jules API session state.
+- [x] Verify that when API state is `COMPLETED` and PR is missing, the script identifies this as a "PR-less completion" instead of a crash.
+- [x] Run test suite with `cd .github/scripts && pnpm install && npx vitest run`.
