@@ -2,13 +2,13 @@
 id: task-055-095-qa-time-based-suggestions
 type: TASK
 title: 'QA: Time-Based Suggestions'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-17'
 updated_at: '2026-05-18'
 depends_on:
   - .foundry/tasks/task-055-094-implement-time-based-suggestions.md
-jules_session_id: null
+jules_session_id: '13432768909074171390'
 pr_number: null
 parent: .foundry/stories/story-029-055-time-based-suggestions.md
 tags:
