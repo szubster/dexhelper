@@ -66,3 +66,5 @@
 
 - Added `aria-current="page"` to active links in navigation for screen reader accessibility.
 - Used `aria-expanded` on interactive buttons controlling menus/modals (e.g. settings button).
+- **Playwright Frontend Verification:** When writing Playwright scripts to verify frontend changes locally against the development server (`npm run dev`), use `http://localhost:3000` instead of Vite's default port 5173, as specified in `package.json`.
+- **Scheduled Node Creation:** Scheduled or foundry agents can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory to document technical debt, architectural changes, or gaps in context. Appropriate `owner_persona` must be set for new nodes (e.g., `researcher` for RESEARCH, `architect` for ADRs).
