@@ -88,3 +88,5 @@ No YAML changes were made per standard Foundry architecture rules.
 **Task**: task-059-098-gen3-map-graph-structure-impl
 **Outcome**: FAILED
 **Notes**: The coder failed to implement `gen3Graph.ts` in `src/engine/mapGraph/` as required. Validation for `task-059-099-gen3-map-graph-structure-qa` could not be completed.
+
+- Learned that task implementation can be marked completed while entirely missing the logic to fetch Gen 3 data from pret/pokeemerald. Always explicitly check scripts for target repositories.

@@ -21,3 +21,6 @@ QA validate the script that fetches Generation 3 locations data.
 
 ## Acceptance Criteria
 - [ ] QA verifies the script fetches accurate Gen 3 locations.
+
+## QA Notes
+- Validation failed: Missing Gen 3 location fetching logic from pret/pokeemerald in scripts/generateMapLocations.ts
