@@ -2,7 +2,7 @@
 id: task-061-114-gen3-distance-lookup-impl
 type: TASK
 title: Implement Gen3 getDistanceToMap
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'

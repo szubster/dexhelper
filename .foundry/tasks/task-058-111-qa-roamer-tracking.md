@@ -2,13 +2,13 @@
 id: task-058-111-qa-roamer-tracking
 type: TASK
 title: 'QA: Implement Roamer Tracking'
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
   - .foundry/tasks/task-058-110-implement-roamer-tracking.md
-jules_session_id: '5152920259003209470'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
 tags:

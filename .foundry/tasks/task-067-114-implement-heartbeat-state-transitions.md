@@ -2,7 +2,7 @@
 id: task-067-114-implement-heartbeat-state-transitions
 type: TASK
 title: Implement State Transition Logic for PR-less Completions
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-18'
 updated_at: '2026-05-18'

@@ -2,12 +2,12 @@
 id: story-033-066-heartbeat-prless-detection
 type: STORY
 title: Detect PR-less COMPLETED Sessions in Heartbeat
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on: []
-jules_session_id: '2795705184569284532'
+jules_session_id: null
 pr_number: null
 parent: epic-025-033-robust-session-completion
 tags:

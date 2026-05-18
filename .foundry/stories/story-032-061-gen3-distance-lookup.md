@@ -2,13 +2,13 @@
 id: story-032-061-gen3-distance-lookup
 type: STORY
 title: Gen3 Distance Lookup
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
   - .foundry/stories/story-032-059-gen3-map-graph-structure.md
-jules_session_id: '6852211236121297936'
+jules_session_id: null
 pr_number: null
 parent: epic-053-032-gen3-map-graph-routing
 tags:

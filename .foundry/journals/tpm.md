@@ -371,3 +371,15 @@
 - **2026-05-18**: PR #1491 merged. `task-060-109-gen3-bounds-checking-qa` is now COMPLETED.
 
 - **2026-05-18**: PR #1497 merged. `task-062-105-gen3-pokemon-script-qa` is now COMPLETED.
+
+- **2026-05-18**: PR #1495 merged. `story-029-057-interaction-logic` is now PENDING.
+
+- **2026-05-18**: PR #1506 merged. `story-032-060-gen3-bounds-checking` is now COMPLETED.
+
+- **2026-05-18**: PR #1494 merged. `story-032-061-gen3-distance-lookup` is now COMPLETED.
+
+- **2026-05-18**: PR #1496 merged. `story-033-066-heartbeat-prless-detection` is now COMPLETED.
+
+- **2026-05-18**: PR #1501 merged. `task-058-111-qa-roamer-tracking` is now COMPLETED.
+
+- **2026-05-18**: PR #1498 merged. `task-062-100-gen3-locations-script-impl` is now COMPLETED.
