@@ -19,5 +19,5 @@ rejection_reason: 'Session terminated with state: FAILED'
 Implement a script to fetch and format Generation 3 locations data.
 
 ## Acceptance Criteria
-- [ ] Script successfully fetches Gen 3 locations.
-- [ ] Data is correctly formatted.
+- [x] Script successfully fetches Gen 3 locations.
+- [x] Data is correctly formatted.
