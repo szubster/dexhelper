@@ -19,5 +19,5 @@ rejection_reason: ''
 Implement a script to fetch and format Generation 3 pokemon data.
 
 ## Acceptance Criteria
-- [ ] Script successfully fetches Gen 3 pokemon data.
-- [ ] Data is correctly formatted.
+- [x] Script successfully fetches Gen 3 pokemon data.
+- [x] Data is correctly formatted.

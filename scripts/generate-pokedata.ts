@@ -14,7 +14,7 @@ import {
 import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from './data/gen1/mapping.ts';
 import { GEN2_MAP_TO_AID, decodeGen2Id } from './data/gen2/mapping.ts';
 
-const POKEMON_COUNT = 251; // Gen 1 & 2
+const POKEMON_COUNT = 386; // Gen 1, 2, & 3
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
 const TEMP_DIR = path.join(process.cwd(), 'scratch/temp_pokeapi');
 const OUTPUT_DIR = path.join(process.cwd(), 'data/db');
