@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { pokeDB } from '../../db/PokeDB';
 import type { UnifiedLocation } from '../../db/schema';
-import { getDistanceToMap, resolveOutdoorMapId, gen3HoennMapGraph, gen3KantoMapGraph } from './gen3Graph';
+import { gen3HoennMapGraph, gen3KantoMapGraph, getDistanceToMap, resolveOutdoorMapId } from './gen3Graph';
 
 // Mock the pokeDB dependency
 vi.mock('../../db/PokeDB', () => {
