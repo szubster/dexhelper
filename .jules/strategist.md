@@ -108,3 +108,9 @@
 **Outcome:** Accepted
 **Why:** Many agents were still using the old generic text for their "Empty PR Policy", instead of pointing to the centralized knowledge base file (`.foundry/docs/knowledge_base/agents/core_policies.md`), which contains additional critical instructions (like checking off Acceptance Criteria checkboxes).
 **Pattern:** Core agent policies are centralized in the knowledge base to conserve token context window, so individual prompts should reference the central document rather than duplicating incomplete rules.
+
+## 2026-07-01 - [Accepted] - Prompt improvement - Prevent QA from failing its own validation task
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The memory requires the QA agent to not modify its own QA task's YAML frontmatter when a task's implementation fails validation. It must only update its markdown body to note the failure, while modifying the target task's frontmatter.
+**Pattern:** Proposing changes to update QA agent rules to respect orchestrator constraints regarding QA node status vs target node status.
