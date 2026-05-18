@@ -38,6 +38,8 @@ jobs:
         run: pnpm exec oxlint --type-aware .
       - name: Knip
         run: pnpm knip
+      - name: Circular Dependency Check
+        run: pnpm lint:circular
 
   test:
     runs-on: ubuntu-latest

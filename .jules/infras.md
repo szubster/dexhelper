@@ -62,3 +62,6 @@ Critical learnings:
 
 ## 2026-05-15 - Switched jest rules to vitest rules in oxlint
 **Learning:** Found that `.oxlintrc.json` had rules configured for `jest` plugin (`jest/no-disabled-tests`, `jest/no-standalone-expect`) but the project uses Vitest and explicitly registered the `"vitest"` plugin. Replaced the `jest` prefix with `vitest` to properly apply the rules to Vitest files.
+
+## 2026-05-18 - Added madge for circular dependency checking
+**Learning:** Integrated `madge` to statically analyze and prevent circular dependencies in the codebase. Added `lint:circular` to the `lint` pipeline to ensure PRs fail if circular dependencies are introduced.
