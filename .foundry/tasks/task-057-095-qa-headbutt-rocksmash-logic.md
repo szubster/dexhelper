@@ -2,13 +2,13 @@
 id: task-057-095-qa-headbutt-rocksmash-logic
 type: TASK
 title: 'QA: Headbutt and Rock Smash Logic'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-17'
 updated_at: '2026-05-18'
 depends_on:
   - .foundry/tasks/task-057-094-implement-headbutt-rocksmash-logic.md
-jules_session_id: null
+jules_session_id: '1096538712376849777'
 pr_number: null
 parent: .foundry/stories/story-029-057-interaction-logic.md
 tags:
