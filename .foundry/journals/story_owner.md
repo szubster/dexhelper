@@ -62,3 +62,6 @@ The requested STORY node already exists and is COMPLETED (`.foundry/stories/stor
 
 - Learned that getDistanceToMap in Gen3 graph requires O(1) performance using the dist array.
 - Learning: When creating subsequent stories for an epic where a previous story has FAILED, ensure the new story depends on the FAILED story to block execution until the failure is resolved.
+
+## 2026-05-17
+- Remember to check off acceptance criteria in the parent node when delegating tasks for them.

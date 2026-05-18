@@ -38,6 +38,6 @@ Implement the logic to handle Headbutt and Rock Smash encounters in the suggesti
    - Ensure you update or write tests to cover these checks.
 
 ## Acceptance Criteria
-- [ ] The suggestion engine filters Headbutt encounters based on player inventory and badges.
-- [ ] The suggestion engine filters Rock Smash encounters based on player inventory and badges.
-- [ ] Tests verify the Headbutt and Rock Smash encounter logic.
+- [x] The suggestion engine filters Headbutt encounters based on player inventory and badges.
+- [x] The suggestion engine filters Rock Smash encounters based on player inventory and badges.
+- [x] Tests verify the Headbutt and Rock Smash encounter logic.
