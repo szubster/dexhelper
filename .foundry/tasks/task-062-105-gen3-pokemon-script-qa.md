@@ -20,4 +20,4 @@ rejection_reason: ''
 QA validate the script that fetches Generation 3 pokemon data.
 
 ## Acceptance Criteria
-- [ ] QA verifies the script fetches accurate Gen 3 pokemon data.
+- [x] QA verifies the script fetches accurate Gen 3 pokemon data.
