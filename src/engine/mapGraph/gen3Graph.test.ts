@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { pokeDB } from '../../db/PokeDB';
 import type { UnifiedLocation } from '../../db/schema';
-import { getDistanceToMap, resolveOutdoorMapId } from './gen3Graph';
+import { gen3HoennMapGraph, gen3KantoMapGraph, getDistanceToMap, resolveOutdoorMapId } from './gen3Graph';
 
 // Mock the pokeDB dependency
 vi.mock('../../db/PokeDB', () => {
@@ -104,6 +104,16 @@ describe('gen3Graph', () => {
       vi.mocked(pokeDB.getAllAreas).mockResolvedValue(circularLocations);
       const result = await resolveOutdoorMapId(90);
       expect(result).toBe(90);
+    });
+  });
+
+  describe('Constants', () => {
+    it('should export gen3HoennMapGraph', () => {
+      expect(gen3HoennMapGraph).toBeDefined();
+    });
+
+    it('should export gen3KantoMapGraph', () => {
+      expect(gen3KantoMapGraph).toBeDefined();
     });
   });
 });
