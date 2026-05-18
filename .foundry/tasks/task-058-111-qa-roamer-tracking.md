@@ -1,0 +1,44 @@
+---
+id: task-058-111-qa-roamer-tracking
+type: TASK
+title: 'QA: Implement Roamer Tracking'
+status: PENDING
+owner_persona: qa
+created_at: '2026-05-18'
+updated_at: '2026-05-18'
+depends_on:
+  - .foundry/tasks/task-058-110-implement-roamer-tracking.md
+jules_session_id: null
+pr_number: null
+parent: .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
+tags:
+  - gen2
+  - expansion
+  - suggestion-engine
+research_references:
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# QA: Implement Roamer Tracking
+
+## Description
+Validate the implementation of the roamer tracking logic for Gen 2.
+
+## Verification Blueprint
+
+1. **Roamer Tracking Logic Verification**
+   - Ensure that the logic correctly identifies missing roamers (Raikou, Entei, Suicune) from the Pokédex.
+   - Verify that appropriate suggestions are displayed to the user (e.g., checking the Pokédex or tracking roamers).
+
+2. **Code Quality and Tests**
+   - Run `pnpm lint` and ensure there are no linting errors.
+   - Run `pnpm test` and ensure all tests pass.
+   - Verify that new tests cover the roamer tracking logic adequately.
+
+## Acceptance Criteria
+- [ ] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
+- [ ] Tests verify roamer tracking logic.
+- [ ] Code meets quality standards and tests pass.

@@ -35,5 +35,9 @@ Implement roamer tracking logic to guide the player to check the Pokédex for Ra
 
 
 ## Tasks
+- .foundry/tasks/task-058-110-implement-roamer-tracking.md
+- .foundry/tasks/task-058-111-qa-roamer-tracking.md
+- .foundry/tasks/task-058-112-implement-stat-evolutions.md
+- .foundry/tasks/task-058-113-qa-stat-evolutions.md
 - .foundry/tasks/task-058-094-implement-roamer-and-stat-evolutions.md
 - .foundry/tasks/task-058-095-qa-roamer-and-stat-evolutions.md

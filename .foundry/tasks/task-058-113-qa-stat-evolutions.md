@@ -1,0 +1,45 @@
+---
+id: task-058-113-qa-stat-evolutions
+type: TASK
+title: 'QA: Implement Stat-Based Evolutions'
+status: PENDING
+owner_persona: qa
+created_at: '2026-05-18'
+updated_at: '2026-05-18'
+depends_on:
+  - .foundry/tasks/task-058-112-implement-stat-evolutions.md
+jules_session_id: null
+pr_number: null
+parent: .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
+tags:
+  - gen2
+  - expansion
+  - suggestion-engine
+research_references:
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# QA: Implement Stat-Based Evolutions
+
+## Description
+Validate the implementation of stat-based evolution logic for Gen 2.
+
+## Verification Blueprint
+
+1. **Stat-Based Evolutions Verification**
+   - Confirm that stat-based evolutions for Tyrogue are evaluated correctly (Hitmonlee, Hitmonchan, Hitmontop).
+   - Verify that the UI correctly displays the dynamic stat requirements for these evolutions.
+
+2. **Code Quality and Tests**
+   - Run `pnpm lint` and ensure there are no linting errors.
+   - Run `pnpm test` and ensure all tests pass.
+   - Verify that new tests cover the stat-based evolution logic adequately.
+
+## Acceptance Criteria
+- [ ] Evolution logic accurately evaluates stat-based requirements (e.g., Atk > Def for Hitmonlee).
+- [ ] UI dynamically displays stat requirements for stat-based evolutions.
+- [ ] Tests verify stat-based evolution logic.
+- [ ] Code meets quality standards and tests pass.
