@@ -23,6 +23,11 @@ export const POKE_VERSION_MAP: Record<string, number> = {
   gold: 4,
   silver: 5,
   crystal: 6,
+  ruby: 7,
+  sapphire: 8,
+  emerald: 9,
+  firered: 10,
+  leafgreen: 11,
 };
 
 export const ENCOUNTER_METHOD = {

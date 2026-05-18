@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { Packr } from 'msgpackr';
 import path from 'node:path';
 import { execSync, execFileSync } from 'node:child_process';
 import {
@@ -13,8 +14,9 @@ import {
 } from '../src/db/schema.ts';
 import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from './data/gen1/mapping.ts';
 import { GEN2_MAP_TO_AID, decodeGen2Id } from './data/gen2/mapping.ts';
+import { GEN3_HOENN_MAP_TO_AID, GEN3_KANTO_MAP_TO_AID, decodeGen3Id } from './data/gen3/mapping.ts';
 
-const POKEMON_COUNT = 251; // Gen 1 & 2
+const POKEMON_COUNT = 386; // Gen 1, 2 & 3
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
 const TEMP_DIR = path.join(process.cwd(), 'scratch/temp_pokeapi');
 const OUTPUT_DIR = path.join(process.cwd(), 'data/db');
@@ -190,6 +192,25 @@ async function main() {
         }
       }
 
+
+      // 3. Check Gen 3 mapping (Hoenn)
+      for (const [group, maps] of Object.entries(GEN3_HOENN_MAP_TO_AID)) {
+        for (const [mid, mapNode] of Object.entries(maps)) {
+          if (mapNode.aid === areaId) {
+            matchingGameIds.push({ id: (0x10000 | (parseInt(group) << 8) | parseInt(mid)), name: mapNode.name });
+          }
+        }
+      }
+
+      // 4. Check Gen 3 mapping (Kanto)
+      for (const [group, maps] of Object.entries(GEN3_KANTO_MAP_TO_AID)) {
+        for (const [mid, mapNode] of Object.entries(maps)) {
+          if (mapNode.aid === areaId) {
+            matchingGameIds.push({ id: (0x20000 | (parseInt(group) << 8) | parseInt(mid)), name: mapNode.name });
+          }
+        }
+      }
+
       // If no ROM map ID found, we skip this encounter as we only care about real in-game locations
       if (matchingGameIds.length === 0) continue;
 
@@ -205,6 +226,12 @@ async function main() {
               let connections: number[] | undefined = undefined;
               if (gameId < 256) {
                 connections = GEN1_MAPS[gameId]?.connections;
+              } else if (gameId >= 0x10000 && gameId < 0x20000) {
+                const { group, id: mid } = decodeGen3Id(gameId & 0xffff);
+                connections = GEN3_HOENN_MAP_TO_AID[group]?.[mid]?.connections;
+              } else if (gameId >= 0x20000) {
+                const { group, id: mid } = decodeGen3Id(gameId & 0xffff);
+                connections = GEN3_KANTO_MAP_TO_AID[group]?.[mid]?.connections;
               } else {
                 const { group, id: mid } = decodeGen2Id(gameId);
                 connections = GEN2_MAP_TO_AID[group]?.[mid]?.connections;
@@ -352,6 +379,46 @@ async function main() {
   for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
     for (const [mid, mapNode] of Object.entries(maps)) {
       const gameId = (parseInt(group) << 8) | parseInt(mid);
+      const existing = locationMap.get(gameId);
+      if (existing) {
+        if (mapNode.connections) {
+          existing.conn = Array.from(new Set([...(existing.conn || []), ...mapNode.connections]));
+        }
+      } else {
+        locationMap.set(gameId, sortObj({
+          id: gameId,
+          n: mapNode.name,
+          conn: mapNode.connections,
+          pids: [],
+          dist: {}
+        }, ['id', 'n']));
+      }
+    }
+  }
+
+
+  for (const [group, maps] of Object.entries(GEN3_HOENN_MAP_TO_AID)) {
+    for (const [mid, mapNode] of Object.entries(maps)) {
+      const gameId = 0x10000 | (parseInt(group) << 8) | parseInt(mid);
+      const existing = locationMap.get(gameId);
+      if (existing) {
+        if (mapNode.connections) {
+          existing.conn = Array.from(new Set([...(existing.conn || []), ...mapNode.connections]));
+        }
+      } else {
+        locationMap.set(gameId, sortObj({
+          id: gameId,
+          n: mapNode.name,
+          conn: mapNode.connections,
+          pids: [],
+          dist: {}
+        }, ['id', 'n']));
+      }
+    }
+  }
+  for (const [group, maps] of Object.entries(GEN3_KANTO_MAP_TO_AID)) {
+    for (const [mid, mapNode] of Object.entries(maps)) {
+      const gameId = 0x20000 | (parseInt(group) << 8) | parseInt(mid);
       const existing = locationMap.get(gameId);
       if (existing) {
         if (mapNode.connections) {
@@ -561,6 +628,13 @@ writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounte
   pid,
   enc: encs.map(compact)
 })));
+
+const packr = new Packr({ useRecords: false });
+const encountersData = Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
+  pid,
+  enc: encs.map(compact)
+}));
+fs.writeFileSync(path.join(OUTPUT_DIR, 'encounters.msgpack'), packr.pack(encountersData));
 writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => a.id - b.id));
 
   // Write metadata

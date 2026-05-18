@@ -122,3 +122,6 @@ For Playwright E2E tests failing due to missing browser binaries or system depen
 - Ensure that you accurately handle arrays like pokemonIds and localPids correctly by modifying both of them iteratively if needed to avoid bugs.
 - Found out Gen 2 Headbutt/Rock Smash didn't actually require badges internally despite some guides saying so.
 - Workaround vitest-browser-react pointer event issues on complex SVGs or wrappers (like ReactFlow) by evaluating the locator directly to the DOM element and calling .click()
+
+## Memory from Task task-062-102-gen3-encounters-script-impl
+- Upgraded the `generate-pokedata.ts` data generation script to support Generation 3 data. Added Gen 3 Kanto and Hoenn mappings based on `GEN3_HOENN_MAP_TO_AID` and `GEN3_KANTO_MAP_TO_AID` structures. Upgraded the format to use MessagePack for `encounters.msgpack`.

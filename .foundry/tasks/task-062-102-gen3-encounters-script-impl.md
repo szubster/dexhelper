@@ -19,5 +19,5 @@ rejection_reason: ''
 Implement a script to fetch and format Generation 3 encounters data.
 
 ## Acceptance Criteria
-- [ ] Script successfully fetches Gen 3 encounters.
-- [ ] Data is correctly formatted.
+- [x] Script successfully fetches Gen 3 encounters.
+- [x] Data is correctly formatted.

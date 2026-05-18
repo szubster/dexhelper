@@ -72,6 +72,7 @@
     "lefthook": "^2.1.6",
     "lightningcss": "^1.32.0",
     "madge": "^8.0.0",
+    "msgpackr": "^2.0.1",
     "oxlint": "^1.63.0",
     "oxlint-tsgolint": "^0.22.1",
     "playwright": "^1.59.1",
