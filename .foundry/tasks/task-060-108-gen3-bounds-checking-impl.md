@@ -25,5 +25,5 @@ notes: ''
 Implement `try...catch` blocks or appropriate mechanisms to catch `RangeError` from `DataView` operations in Gen3 parsing logic.
 
 ## Acceptance Criteria
-- [ ] Ensure `DataView` operations catch `RangeError`.
-- [ ] Propagate validation errors gracefully (e.g., "Corrupted Save File").
+- [x] Ensure `DataView` operations catch `RangeError`.
+- [x] Propagate validation errors gracefully (e.g., "Corrupted Save File").
