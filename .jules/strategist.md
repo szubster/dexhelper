@@ -102,3 +102,9 @@
 **Outcome:** Accepted
 **Why:** Agents were incorrectly restricted or implicitly discouraged from creating dynamic nodes (like RESEARCH, IDEA, ADR) when discovering new tasks, lacking context, or uncovering architectural concerns. Scheduled agents were also not explicitly empowered to create Foundry nodes.
 **Pattern:** Prompts should empower agents to spawn their own tasks (`IDEA`, `RESEARCH`, `ADR`) directly into `.foundry/` if they discover work that needs to be done.
+
+## 2026-05-18 - [Accepted] - Prompt improvement - Standardize Empty PR Policy across all agents
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** Many agents were still using the old generic text for their "Empty PR Policy", instead of pointing to the centralized knowledge base file (`.foundry/docs/knowledge_base/agents/core_policies.md`), which contains additional critical instructions (like checking off Acceptance Criteria checkboxes).
+**Pattern:** Core agent policies are centralized in the knowledge base to conserve token context window, so individual prompts should reference the central document rather than duplicating incomplete rules.
