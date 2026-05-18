@@ -2,7 +2,7 @@
 id: task-060-109-gen3-bounds-checking-qa
 type: TASK
 title: QA Gen3 Bounds Checking
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
@@ -26,5 +26,5 @@ notes: ''
 Validate that bounds checking in Gen3 data parsing logic gracefully handles out-of-bounds reads.
 
 ## Acceptance Criteria
-- [ ] Verify that `RangeError` from `DataView` operations are caught.
-- [ ] Verify that validation errors are gracefully propagated (e.g., "Corrupted Save File") when bounds are exceeded, per ADR-010.
+- [x] Verify that `RangeError` from `DataView` operations are caught.
+- [x] Verify that validation errors are gracefully propagated (e.g., "Corrupted Save File") when bounds are exceeded, per ADR-010.

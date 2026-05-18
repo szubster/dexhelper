@@ -2,7 +2,7 @@
 id: task-062-105-gen3-pokemon-script-qa
 type: TASK
 title: QA Gen 3 Pokemon Data Fetch Script
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-17'
 updated_at: '2026-05-18'
@@ -20,4 +20,4 @@ rejection_reason: ''
 QA validate the script that fetches Generation 3 pokemon data.
 
 ## Acceptance Criteria
-- [ ] QA verifies the script fetches accurate Gen 3 pokemon data.
+- [x] QA verifies the script fetches accurate Gen 3 pokemon data.
