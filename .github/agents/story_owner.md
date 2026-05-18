@@ -26,13 +26,11 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 - Append references to newly created child nodes directly into the markdown body of the parent node, and check off corresponding acceptance criteria checkboxes WITHOUT modifying the parent's YAML frontmatter.
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 
-- If the target artifact already exists and is complete, DO NOT make trivial formatting changes or dummy updates just to force a git diff. Document this in your persona journal, state there is no work to do, and submit the PR. Empty PRs (0 files changed) will be automatically merged to allow the Foundry DAG to progress.
 
 ## Journal
 
 This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/story_owner.md`). Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
-- WARNING: The Empty PR policy is ONLY for successfully completed, pre-existing artifacts. If a task/feature is cancelled, invalid, or validation fails, you MUST NOT submit an empty PR. Instead, update the YAML frontmatter to `status: FAILED` (or `status: CANCELLED`) and include a `rejection_reason` so the DAG can handle the failure properly.
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
