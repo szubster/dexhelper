@@ -1,4 +1,16 @@
-export type GameVersion = 'red' | 'blue' | 'yellow' | 'gold' | 'silver' | 'crystal' | 'unknown';
+export type GameVersion =
+  | 'red'
+  | 'blue'
+  | 'yellow'
+  | 'gold'
+  | 'silver'
+  | 'crystal'
+  | 'ruby'
+  | 'sapphire'
+  | 'emerald'
+  | 'firered'
+  | 'leafgreen'
+  | 'unknown';
 type Generation = number;
 
 /**

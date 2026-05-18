@@ -72,3 +72,63 @@ test('DagNode adheres to tactical aesthetic classes', async () => {
   await expect.element(node).toHaveClass('border-dashed');
   await expect.element(node).toHaveClass('font-mono');
 });
+
+test('DagNode applies highlight styles when isHighlighted is true', async () => {
+  const data = {
+    id: 'test-task-001',
+    label: 'test-task-001',
+    type: 'TASK',
+    status: 'ACTIVE',
+    owner_persona: 'coder',
+    isHighlighted: true,
+  };
+
+  const nodes = [
+    {
+      id: 'test-task-001',
+      type: 'custom',
+      data,
+      position: { x: 0, y: 0 },
+    },
+  ];
+
+  await render(
+    <div style={{ width: '500px', height: '500px' }}>
+      <ReactFlow nodes={nodes} nodeTypes={nodeTypes} />
+    </div>,
+  );
+
+  const node = page.getByTestId('dag-node');
+  await expect.element(node).toHaveClass('!border-cyan-500');
+  await expect.element(node).toHaveClass('!border-2');
+});
+
+test('DagNode applies dimmed styles when isDimmed is true', async () => {
+  const data = {
+    id: 'test-task-001',
+    label: 'test-task-001',
+    type: 'TASK',
+    status: 'ACTIVE',
+    owner_persona: 'coder',
+    isDimmed: true,
+  };
+
+  const nodes = [
+    {
+      id: 'test-task-001',
+      type: 'custom',
+      data,
+      position: { x: 0, y: 0 },
+    },
+  ];
+
+  await render(
+    <div style={{ width: '500px', height: '500px' }}>
+      <ReactFlow nodes={nodes} nodeTypes={nodeTypes} />
+    </div>,
+  );
+
+  const node = page.getByTestId('dag-node');
+  await expect.element(node).toHaveClass('opacity-30');
+  await expect.element(node).toHaveClass('grayscale');
+});

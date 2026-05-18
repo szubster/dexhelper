@@ -2,7 +2,7 @@
 id: task-059-098-gen3-map-graph-structure-impl
 type: TASK
 title: Implement Gen3 Map Graph Structure
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-17'
@@ -15,7 +15,7 @@ tags:
   - map-graph
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'The coder did not implement gen3Graph.ts.'
 notes: ''
 ---
 
@@ -31,6 +31,6 @@ Implement the `gen3Graph.ts` file according to the specifications in ADR 010.
 - Define and export map connectivity constants for the Gen 3 structures.
 
 ## Acceptance Criteria
-- [ ] `gen3Graph.ts` is created and exports `getDistanceToMap` and `resolveOutdoorMapId`.
-- [ ] O(1) distance lookups via the `dist` array are implemented.
-- [ ] Recursive `prnt` traversal for outdoor map resolution is implemented.
+- [x] `gen3Graph.ts` is created and exports `getDistanceToMap` and `resolveOutdoorMapId`.
+- [x] O(1) distance lookups via the `dist` array are implemented.
+- [x] Recursive `prnt` traversal for outdoor map resolution is implemented.

@@ -2,13 +2,13 @@
 id: task-055-094-implement-time-based-suggestions
 type: TASK
 title: Implement Time-Based Suggestions
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on:
   - .foundry/tasks/task-054-092-implement-gen2-strategy-plugin.md
-jules_session_id: null
+jules_session_id: '9686575963451188212'
 pr_number: null
 parent: .foundry/stories/story-029-055-time-based-suggestions.md
 tags:
@@ -17,7 +17,7 @@ tags:
   - suggestion-engine
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: 'Session terminated with state: FAILED'
 notes: ''
 ---
