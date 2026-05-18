@@ -91,7 +91,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     } else {
        targetStatus = "FAILED";
        rejectionReason = "Merged with unfulfilled acceptance criteria";
-       message = `PR #${prNumber} merged with unchecked tasks.`;
+       message = prNumber !== null ? `PR #${prNumber} merged with unchecked tasks.` : `Empty PR session completed with unchecked tasks.`;
     }
   }
 
@@ -167,7 +167,13 @@ async function findPRForSession(
       sessionStatus = data.state || null;
       updateTime = data.updateTime;
       
-      const prUrl = data.outputs?.find((o: any) => o.pullRequest?.url)?.pullRequest.url;
+      let prUrl;
+      if (Array.isArray(data.outputs)) {
+        prUrl = data.outputs.find((o: any) => o.pullRequest?.url)?.pullRequest.url;
+      } else if (data.outputs && typeof data.outputs === 'object') {
+        const key = Object.keys(data.outputs).find(k => data.outputs[k]?.pullRequest?.url);
+        if (key) prUrl = data.outputs[key].pullRequest.url;
+      }
       if (prUrl) {
         const match = prUrl.match(/pull\/(\d+)$/);
         if (match) {
