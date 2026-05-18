@@ -109,12 +109,12 @@ function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersi
   let silverScore = 0;
 
   for (const id of goldExclusives) {
-    if (owned.has(id)) goldScore += 2;
-    else if (seen.has(id)) goldScore += 1;
-  }
-  for (const id of silverExclusives) {
     if (owned.has(id)) silverScore += 2;
     else if (seen.has(id)) silverScore += 1;
+  }
+  for (const id of silverExclusives) {
+    if (owned.has(id)) goldScore += 2;
+    else if (seen.has(id)) goldScore += 1;
   }
 
   if (goldScore > silverScore) return 'gold';
