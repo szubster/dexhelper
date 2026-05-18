@@ -2,12 +2,12 @@
 id: story-034-069-automated-route-tracking
 type: STORY
 title: Automated Route Tracking Implementation
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1426180733376589492'
 pr_number: null
 parent: epic-026-034-automated-nuzlocke-tracker
 tags:
