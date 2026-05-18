@@ -2,7 +2,7 @@
 id: task-066-107-qa-prless-detection
 type: TASK
 title: QA PR-less Detection in Heartbeat
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'

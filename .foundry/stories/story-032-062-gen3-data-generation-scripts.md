@@ -2,7 +2,7 @@
 id: story-032-062-gen3-data-generation-scripts
 type: STORY
 title: Update Data Generation Scripts for Gen 3
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-17'
 updated_at: '2026-05-18'

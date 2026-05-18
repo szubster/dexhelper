@@ -2,10 +2,10 @@
 id: task-060-108-gen3-bounds-checking-impl
 type: TASK
 title: Implement Gen3 Bounds Checking
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-05-18"
-updated_at: "2026-05-18"
+created_at: '2026-05-18'
+updated_at: '2026-05-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - feature
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Task: Implement Gen3 Bounds Checking

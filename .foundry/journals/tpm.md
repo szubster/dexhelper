@@ -317,3 +317,19 @@
 - **2026-05-18**: PR #1467 merged. `task-055-100-implement-time-based-suggestions-v2` is now COMPLETED.
 
 - **2026-05-18**: PR #1466 merged. `task-059-097-gen3-dataview-scaffolding-qa` is now COMPLETED.
+
+- **2026-05-18**: PR #1476 merged. `idea-057-automated-nuzlocke-tracker` is now COMPLETED.
+
+- **2026-05-18**: PR #1473 merged. `story-029-053-implement-dependency-highlighting` is now PENDING.
+
+- **2026-05-18**: PR #1475 merged. `story-032-060-gen3-bounds-checking` is now PENDING.
+
+- **2026-05-18**: PR #1472 merged. `task-055-101-qa-time-based-suggestions-v2` is now COMPLETED.
+
+- **2026-05-18**: Heartbeat detected zombie session for `task-058-094-implement-roamer-and-stat-evolutions`. Transitioned to FAILED.
+
+- **2026-05-18**: PR #1474 merged. `task-059-098-gen3-map-graph-structure-impl` is now COMPLETED.
+
+- **2026-05-18**: Heartbeat detected zombie session for `task-062-100-gen3-locations-script-impl`. Transitioned to FAILED.
+
+- **2026-05-18**: PR #1477 merged. `task-066-106-implement-prless-detection` is now COMPLETED.

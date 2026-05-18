@@ -2,10 +2,10 @@
 id: story-029-058-roamer-tracking-and-stat-evolutions
 type: STORY
 title: 'Story: Roamer Tracking & Stat-Based Evolutions'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-16'
-updated_at: '2026-05-17'
+updated_at: '2026-05-18'
 depends_on:
   - .foundry/stories/story-029-054-gen2-strategy-plugin.md
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: story-029-055-time-based-suggestions
 type: STORY
 title: 'Story: Time-Based Suggestions'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-16'
-updated_at: '2026-05-17'
+updated_at: '2026-05-18'
 depends_on:
   - .foundry/stories/story-029-054-gen2-strategy-plugin.md
 jules_session_id: '2746406269049050831'

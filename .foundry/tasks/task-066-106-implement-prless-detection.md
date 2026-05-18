@@ -2,12 +2,12 @@
 id: task-066-106-implement-prless-detection
 type: TASK
 title: Implement PR-less Detection in Heartbeat
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on: []
-jules_session_id: '6927802644815842427'
+jules_session_id: null
 pr_number: null
 parent: story-033-066-heartbeat-prless-detection
 tags:

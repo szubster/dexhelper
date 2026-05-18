@@ -2,7 +2,7 @@
 id: prd-057-026-automated-nuzlocke-tracker
 type: PRD
 title: Automated Nuzlocke Verification and Run Tracker
-status: PENDING
+status: READY
 owner_persona: architect
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
