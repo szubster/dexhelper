@@ -2,13 +2,13 @@
 id: task-057-121-qa-headbutt-rocksmash-moves
 type: TASK
 title: 'QA: Fix Headbutt and Rock Smash Move Checks'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-19'
 updated_at: '2026-05-19'
 depends_on:
   - .foundry/tasks/task-057-120-fix-headbutt-rocksmash-moves.md
-jules_session_id: null
+jules_session_id: '9989378815478970586'
 pr_number: null
 parent: .foundry/stories/story-029-057-interaction-logic.md
 tags:
