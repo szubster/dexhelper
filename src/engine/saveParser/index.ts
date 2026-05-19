@@ -3,6 +3,12 @@ import { isGen1Save, parseGen1 } from './parsers/gen1';
 import { isGen2Save, parseGen2 } from './parsers/gen2';
 import { isGen3Save, parseGen3 } from './parsers/gen3';
 
+/**
+ * Re-exports core types for external consumers of the save parsing engine.
+ * @see {@link GameVersion} Supported game versions.
+ * @see {@link PokemonInstance} Represents an individual caught Pokémon.
+ * @see {@link SaveData} The normalized save state.
+ */
 export type { GameVersion, PokemonInstance, SaveData };
 
 /**
@@ -14,6 +20,16 @@ export type { GameVersion, PokemonInstance, SaveData };
  * @param forcedVersion - An optional version override provided by the user to force specific parsing logic (e.g., forcing Yellow or Crystal).
  * @returns The structured SaveData object representing the player's progress and Pokémon.
  * @throws An Error if the file size is invalid or if neither Gen 1 nor Gen 2 structures could be matched.
+ *
+ * @example
+ * const file = document.querySelector('input[type="file"]').files[0];
+ * const buffer = await file.arrayBuffer();
+ * try {
+ *   const saveData = parseSaveFile(buffer);
+ *   console.log(`Loaded ${saveData.gameVersion} save with ${saveData.owned.size} Pokemon.`);
+ * } catch (error) {
+ *   console.error("Save parsing failed:", error);
+ * }
  */
 export function parseSaveFile(buffer: ArrayBuffer, forcedVersion?: GameVersion): SaveData {
   const view = new DataView(buffer);
