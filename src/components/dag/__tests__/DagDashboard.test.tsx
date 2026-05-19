@@ -149,13 +149,13 @@ test('DagDashboard handles selection and highlighting', async () => {
         filePath: 'node-6.md',
         data: {
           id: 'node-6',
-          type: '',
-          status: '',
+          type: undefined,
+          status: undefined,
           owner_persona: 'human',
           label: 'node-6',
           title: 'Node 6',
           depends_on: [],
-        },
+        } as unknown as import('../DagNode').DagNodeData,
       },
     ],
   } as unknown as Response);
