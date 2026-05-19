@@ -76,3 +76,4 @@ Note that generation 3 data formatting and serialization uses MsgPack (`msgpackr
 ## 2026-05-18: Gen3 Data Formats Update
 Note that generation 3 data formatting uses `.jsonl` for source files in the repository for ease of review, which is then compiled into MsgPack via a Vite plugin for runtime use.
 - Sibling dependencies must strictly use node IDs (e.g., task-123-slug) instead of relative file paths to satisfy memory constraints.
+- **2023-10-27**: When executing the Empty PR Policy because a STORY already has its downstream TASK nodes created and its acceptance criteria checked, the target artifact is considered complete. The `request_code_review` tool may generate a false negative stating "No patch was found to review", which can be ignored before proceeding with the `submit` tool.
