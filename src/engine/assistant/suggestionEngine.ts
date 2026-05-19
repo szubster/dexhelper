@@ -96,13 +96,32 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations) : null;
 
   const allEncounters = await pokeDB.getAllEncounters();
-  const localEncounters = localAid ? allEncounters.filter((lae) => lae.enc.some((e) => e.aid === localAid)) : [];
+  // ⚡ Bolt: Removed .filter().some() to prevent closures and O(N) intermediate array allocations
+  const localEncounters: LocationAreaEncounters[] = [];
+  if (localAid) {
+    for (let i = 0; i < allEncounters.length; i++) {
+      const lae = allEncounters[i];
+      if (!lae) continue;
+      const enc = lae.enc;
+      for (let j = 0; j < enc.length; j++) {
+        const e = enc[j];
+        if (e && e.aid === localAid) {
+          localEncounters.push(lae);
+          break;
+        }
+      }
+    }
+  }
 
   const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
 
-  // ⚡ Bolt: Cache all encounters to a Map to prevent O(N) Array.find calls on every missing encounter lookup
-  const encountersByPid = new Map(allEncounters.map((e) => [e.pid, e]));
+  // ⚡ Bolt: Prevent intermediate array tuple allocations during map construction
+  const encountersByPid = new Map<number, LocationAreaEncounters>();
+  for (let i = 0; i < allEncounters.length; i++) {
+    const e = allEncounters[i];
+    if (e) encountersByPid.set(e.pid, e);
+  }
 
   // Fill missingEncounters
   for (const pid of queryTargets) {
@@ -820,12 +839,19 @@ export function generateSuggestions(
         const pid = parseInt(pidStr, 10);
         const details = suggestion.encounterInfo[pid];
         if (details) {
-          suggestion.encounterInfo[pid] = details.filter((d) => {
-            if (d.method === 'headbutt') return hasHeadbutt;
-            if (d.method === 'rock-smash') return hasRockSmash;
-            return true;
-          });
-          if (suggestion.encounterInfo[pid]?.length > 0) {
+          // ⚡ Bolt: Replaced .filter() with loop to prevent closures and array allocations
+          const filteredDetails: EncounterDetail[] = [];
+          for (let dIdx = 0; dIdx < details.length; dIdx++) {
+            const d = details[dIdx];
+            if (d) {
+              if (d.method === 'headbutt' && !hasHeadbutt) continue;
+              if (d.method === 'rock-smash' && !hasRockSmash) continue;
+              filteredDetails.push(d);
+            }
+          }
+          suggestion.encounterInfo[pid] = filteredDetails;
+
+          if (filteredDetails.length > 0) {
             hasValidEncounter = true;
           } else {
             delete suggestion.encounterInfo[pid];
