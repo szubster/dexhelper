@@ -145,6 +145,18 @@ test('DagDashboard handles selection and highlighting', async () => {
           depends_on: [],
         },
       },
+      {
+        filePath: 'node-6.md',
+        data: {
+          id: 'node-6',
+          type: '',
+          status: '',
+          owner_persona: 'human',
+          label: 'node-6',
+          title: 'Node 6',
+          depends_on: [],
+        },
+      },
     ],
   } as unknown as Response);
 
