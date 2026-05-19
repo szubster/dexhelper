@@ -95,6 +95,18 @@ export default defineConfig(() => {
       reportCompressedSize: true,
       rollupOptions: {
         output: {
+          manualChunks(id) {
+            if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+              return 'react';
+            }
+            if (id.includes('node_modules/@tanstack/react-router/')) {
+              return 'router';
+            }
+            if (id.includes('node_modules/@xyflow/')) {
+              return 'xyflow';
+            }
+            return undefined;
+          }
         },
       },
     },
