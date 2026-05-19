@@ -357,3 +357,43 @@
 - **2026-05-18**: Resurrection Loop triggered for `task-062-100-gen3-locations-script-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-18**: Resurrection Loop triggered for `task-057-095-qa-headbutt-rocksmash-logic`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-18**: PR #1493 merged. `epic-026-034-automated-nuzlocke-tracker` is now COMPLETED.
+
+- **2026-05-18**: PR #1492 merged. `story-029-065-wire-up-data-layer` is now COMPLETED.
+
+- **2026-05-18**: PR #1490 merged. `story-032-060-gen3-indoor-resolution` is now COMPLETED.
+
+- **2026-05-18**: PR #1484 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-05-18**: PR #1489 merged. `task-058-110-implement-roamer-tracking` is now COMPLETED.
+
+- **2026-05-18**: PR #1491 merged. `task-060-109-gen3-bounds-checking-qa` is now COMPLETED.
+
+- **2026-05-18**: PR #1497 merged. `task-062-105-gen3-pokemon-script-qa` is now COMPLETED.
+
+- **2026-05-18**: PR #1495 merged. `story-029-057-interaction-logic` is now PENDING.
+
+- **2026-05-18**: PR #1506 merged. `story-032-060-gen3-bounds-checking` is now COMPLETED.
+
+- **2026-05-18**: PR #1494 merged. `story-032-061-gen3-distance-lookup` is now COMPLETED.
+
+- **2026-05-18**: PR #1496 merged. `story-033-066-heartbeat-prless-detection` is now COMPLETED.
+
+- **2026-05-18**: PR #1501 merged. `task-058-111-qa-roamer-tracking` is now COMPLETED.
+
+- **2026-05-18**: PR #1498 merged. `task-062-100-gen3-locations-script-impl` is now COMPLETED.
+
+- **2026-05-19**: PR #1503 merged. `story-034-069-automated-route-tracking` is now COMPLETED.
+
+- **2026-05-19**: PR #1504 merged. `story-034-070-death-tracking-and-graveyard` is now COMPLETED.
+
+- **2026-05-19**: PR #1505 merged. `task-060-114-gen3-indoor-resolution-impl` is now COMPLETED.
+
+- **2026-05-19**: PR #1500 merged with unchecked tasks. `task-062-102-gen3-encounters-script-impl` is now FAILED.
+
+- **2026-05-19**: Resurrection Loop triggered for `task-062-110-gen3-data-formatting-msgpack-impl`. Reason: PR #1507 closed without merging.. Transitioned back to READY.
+
+- **2026-05-19**: PR #1502 merged. `task-065-114-wire-up-data-layer-impl` is now COMPLETED.
+
+- **2026-05-19**: Empty PR session completed with unchecked tasks. `task-067-114-implement-heartbeat-state-transitions` is now FAILED.

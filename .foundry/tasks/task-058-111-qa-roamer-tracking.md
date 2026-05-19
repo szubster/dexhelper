@@ -2,7 +2,7 @@
 id: task-058-111-qa-roamer-tracking
 type: TASK
 title: 'QA: Implement Roamer Tracking'
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
@@ -39,6 +39,6 @@ Validate the implementation of the roamer tracking logic for Gen 2.
    - Verify that new tests cover the roamer tracking logic adequately.
 
 ## Acceptance Criteria
-- [ ] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
-- [ ] Tests verify roamer tracking logic.
-- [ ] Code meets quality standards and tests pass.
+- [x] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
+- [x] Tests verify roamer tracking logic.
+- [x] Code meets quality standards and tests pass.

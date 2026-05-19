@@ -30,4 +30,9 @@ Update the `foundry-heartbeat.ts` script to log appropriate messages to the TPM 
 When a PR-less session is handled and a state transition occurs (e.g., to `COMPLETED` or `FAILED`), these events must be audited. We log them into `.foundry/journals/tpm.md`.
 
 ## Acceptance Criteria
-- [ ] Appropriate logs are written to `.foundry/journals/tpm.md` whenever a PR-less session results in a state transition.
+- [x] Appropriate logs are written to `.foundry/journals/tpm.md` whenever a PR-less session results in a state transition.
+
+## Downstream Nodes
+- TASK: `.foundry/tasks/task-068-117-implement-heartbeat-tpm-logging.md`
+- TASK: `.foundry/tasks/task-068-118-implement-heartbeat-tpm-logging.md`
+- TASK: `.foundry/tasks/task-068-119-qa-heartbeat-tpm-logging.md`

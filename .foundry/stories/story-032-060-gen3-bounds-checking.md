@@ -2,7 +2,7 @@
 id: story-032-060-gen3-bounds-checking
 type: STORY
 title: Gen3 Bounds Checking Implementation
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-17'
 updated_at: '2026-05-18'
@@ -29,5 +29,5 @@ Add bounds checking to the Gen3 data parsing logic to gracefully handle out-of-b
 - [x] Implement `try...catch` blocks or appropriate mechanisms to catch `RangeError` from `DataView` operations.
 - [x] Propagate validation errors gracefully (e.g., "Corrupted Save File") when bounds are exceeded as per ADR-010.
 
-- [ ] [task-060-108-gen3-bounds-checking-impl](.foundry/tasks/task-060-108-gen3-bounds-checking-impl.md)
-- [ ] [task-060-109-gen3-bounds-checking-qa](.foundry/tasks/task-060-109-gen3-bounds-checking-qa.md)
+- [x] [task-060-116-gen3-bounds-checking-impl](.foundry/tasks/task-060-116-gen3-bounds-checking-impl.md)
+- [x] [task-060-117-gen3-bounds-checking-qa](.foundry/tasks/task-060-117-gen3-bounds-checking-qa.md)

@@ -5,9 +5,9 @@ title: Update Data Generation Scripts for Gen 3
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-17'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '8109582047927286787'
+jules_session_id: '12393835407978613217'
 parent: epic-053-024-032-gen3-encounters-implementation
 tags:
   - gen3
@@ -25,7 +25,7 @@ Modify existing data generation scripts to support fetching and formatting Gen 3
 - [x] Scripts can fetch Gen 3 locations from API/source.
 - [x] Scripts can fetch Gen 3 encounters from API/source.
 - [x] Scripts can fetch Gen 3 pokemon data from API/source.
-- [ ] Data is formatted correctly for ingestion.
+- [x] Data is formatted correctly for ingestion.
 
 ## Generated Tasks
 - task-062-100-gen3-locations-script-impl
@@ -34,3 +34,5 @@ Modify existing data generation scripts to support fetching and formatting Gen 3
 - task-062-103-gen3-encounters-script-qa
 - task-062-104-gen3-pokemon-script-impl
 - task-062-105-gen3-pokemon-script-qa
+- task-062-110-gen3-data-formatting-msgpack-impl
+- task-062-111-gen3-data-formatting-msgpack-qa
