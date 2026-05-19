@@ -631,11 +631,32 @@ function generateEvolutionSuggestions(
 
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {
-          const isReady = bestInstance.level >= min_l;
+          let isReady = bestInstance.level >= min_l;
           let rpsReq = '';
-          if (rps === 1) rpsReq = ', Atk > Def';
-          else if (rps === -1) rpsReq = ', Atk < Def';
-          else if (rps === 0) rpsReq = ', Atk = Def';
+
+          if (rps !== undefined) {
+            // @ts-expect-error DVs may not be typed globally yet but exist on parsed instances
+            const dvs = bestInstance.dvs;
+            if (dvs) {
+              const { atk, def } = dvs;
+              if (rps === 1) {
+                rpsReq = ', Atk > Def';
+                if (isReady && atk <= def) isReady = false;
+              } else if (rps === -1) {
+                rpsReq = ', Atk < Def';
+                if (isReady && atk >= def) isReady = false;
+              } else if (rps === 0) {
+                rpsReq = ', Atk = Def';
+                if (isReady && atk !== def) isReady = false;
+              }
+            } else {
+              if (rps === 1) rpsReq = ', Atk > Def';
+              else if (rps === -1) rpsReq = ', Atk < Def';
+              else if (rps === 0) rpsReq = ', Atk = Def';
+              isReady = false; // Cannot evaluate without DVs
+            }
+          }
+
           const specificReq = `(needs Lv. ${min_l}${rpsReq})`;
 
           suggestions.push({

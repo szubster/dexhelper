@@ -512,6 +512,68 @@ describe('generateSuggestions', () => {
     expect(evoSuggestion?.priority).toBe(70);
   });
 
+  it('should correctly evaluate stat-based (Tyrogue) evolution suggestions (rps)', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(106);
+    ownedSet.delete(107);
+    ownedSet.delete(237);
+
+    const mockSaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      owned: ownedSet, // Owns Tyrogue
+      seen: new Set(),
+      party: [],
+      pc: [],
+      partyDetails: [
+        {
+          speciesId: 236,
+          level: 20,
+          otName: 'Ash',
+          dvs: { hp: 10, atk: 15, def: 10, spc: 10, spd: 10 },
+          storageLocation: 'Party',
+        }, // Hitmonlee
+      ],
+      pcDetails: [],
+      trainerName: 'Ash',
+      inventory: [],
+      currentMapId: 1,
+      currentBoxCount: 0,
+      hallOfFameCount: 0,
+      daycare: [],
+      eventFlags: new Uint8Array(300),
+    } as unknown as SaveData;
+
+    const mockApiData = {
+      pokemonMetadata: {
+        236: { id: 236, n: 'Tyrogue', eto: [{ id: 106 }, { id: 107 }, { id: 237 }], efrm: [] },
+        106: { id: 106, n: 'Hitmonlee', efrm: [236], det: [{ tr: 1, ml: 20, rps: 1 }] },
+        107: { id: 107, n: 'Hitmonchan', efrm: [236], det: [{ tr: 1, ml: 20, rps: -1 }] },
+        237: { id: 237, n: 'Hitmontop', efrm: [236], det: [{ tr: 1, ml: 20, rps: 0 }] },
+      },
+      missingEncounters: {},
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const mockStrategy = {
+      generation: 2,
+      getSpecialSuggestions: () => [],
+      postProcessSuggestions: () => {},
+    } as unknown as import('../strategies/types').AssistantStrategy;
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+
+    const hitmonleeSug = suggestions.find((s) => s.id === 'evo-lvl-106');
+    const hitmonchanSug = suggestions.find((s) => s.id === 'evo-lvl-107');
+    const hitmontopSug = suggestions.find((s) => s.id === 'evo-lvl-237');
+
+    expect(hitmonleeSug?.description).toContain('ready to evolve'); // Atk > Def
+    expect(hitmonchanSug?.description).not.toContain('ready to evolve'); // Atk < Def (NOT ready)
+    expect(hitmontopSug?.description).not.toContain('ready to evolve'); // Atk = Def (NOT ready)
+  });
+
   it('should filter Headbutt and Rock Smash encounters if items are missing', () => {
     const localSaveData: SaveData = {
       generation: 2,

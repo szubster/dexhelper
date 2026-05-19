@@ -66,9 +66,24 @@ describe('gen2Strategy', () => {
     const suggestions = gen2Strategy.getSpecialSuggestions(saveData, [243]);
     expect(suggestions).toHaveLength(4); // roamer, headbutt, rocksmash, time
     expect(suggestions[0]?.id).toBe('roamer-243');
+    expect(suggestions[0]?.description).toContain('currently roaming');
     expect(suggestions[1]?.id).toBe('headbutt-reminder');
     expect(suggestions[2]?.id).toBe('rocksmash-reminder');
     expect(suggestions[3]?.id).toBe('time-based-reminder');
+
+    const saveDataUntracked = {
+      ...mockSaveData,
+      inventory: [
+        { id: 192, quantity: 1 },
+        { id: 198, quantity: 1 },
+      ],
+      roamingLegendaries: [{ speciesId: 243, level: 40, mapGroup: 0, mapId: 0 }],
+      partyDetails: [{ speciesId: 25 }], // Pikachu
+    } as unknown as SaveData;
+
+    const suggestionsUntracked = gen2Strategy.getSpecialSuggestions(saveDataUntracked, [243]);
+    expect(suggestionsUntracked[0]?.id).toBe('roamer-243');
+    expect(suggestionsUntracked[0]?.description).toContain('wild');
   });
 
   it('returns true for isInternallyObtainable', () => {
