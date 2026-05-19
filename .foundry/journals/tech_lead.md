@@ -122,3 +122,7 @@ When drafting technical blueprints from stories that contain multiple independen
 
 ## 2026-05-18: Handling QA Task FAILED with Unfulfilled Acceptance Criteria
 When processing `story-029-057-interaction-logic`, I observed the child QA task (`task-057-095`) was FAILED due to "Merged with unfulfilled acceptance criteria", indicating the agent submitted an empty PR without checking its boxes or writing the tests. I unchecked the Acceptance Criteria checkboxes in the parent story (without modifying YAML frontmatter) to keep it alive, and appended a note to the QA task's markdown body instructing the `qa` persona to write the missing tests and check their boxes.
+
+## 2026-05-19: Gen 2 TM vs Move Checks (Headbutt/Rock Smash)
+*   **Learning:** In Gen 2 (Gold/Silver/Crystal), Headbutt and Rock Smash are single-use TMs (TM02 and TM08), not HMs. Furthermore, they do not require any gym badges to be used in the field. Because they disappear from the inventory when taught, our suggestion engine logic cannot solely rely on TM inventory checks to see if the player has access to these field mechanics.
+*   **Action:** We must cross-reference if any Pokémon in the player's party or PC (`allInstances`) actually knows the move (Headbutt ID: 29, Rock Smash ID: 249) instead of just checking the TM pocket, and we must remove the gym badge requirements for these specific interactions.
