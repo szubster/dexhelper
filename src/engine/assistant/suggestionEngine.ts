@@ -633,17 +633,34 @@ function generateEvolutionSuggestions(
         if (min_l) {
           const isReady = bestInstance.level >= min_l;
           let rpsMet = true;
-          if (rps !== undefined && bestInstance.dvs) {
-            if (rps === 1) rpsMet = bestInstance.dvs.atk > bestInstance.dvs.def;
-            else if (rps === -1) rpsMet = bestInstance.dvs.atk < bestInstance.dvs.def;
-            else if (rps === 0) rpsMet = bestInstance.dvs.atk === bestInstance.dvs.def;
+          if (rps !== undefined && bestInstance.dvs && bestInstance.statExp) {
+            const baseAtk = 35;
+            const baseDef = 35;
+            const calcAtk =
+              Math.floor(
+                (((baseAtk + bestInstance.dvs.atk) * 2 +
+                  Math.floor(Math.min(Math.floor(Math.ceil(Math.sqrt(bestInstance.statExp.atk))), 255) / 4)) *
+                  bestInstance.level) /
+                  100,
+              ) + 5;
+            const calcDef =
+              Math.floor(
+                (((baseDef + bestInstance.dvs.def) * 2 +
+                  Math.floor(Math.min(Math.floor(Math.ceil(Math.sqrt(bestInstance.statExp.def))), 255) / 4)) *
+                  bestInstance.level) /
+                  100,
+              ) + 5;
+            if (rps === 1) rpsMet = calcAtk > calcDef;
+            else if (rps === -1) rpsMet = calcAtk < calcDef;
+            else if (rps === 0) rpsMet = calcAtk === calcDef;
           }
           const isActuallyReady = isReady && rpsMet;
           let rpsReq = '';
           if (rps === 1) rpsReq = ', Atk > Def';
           else if (rps === -1) rpsReq = ', Atk < Def';
           else if (rps === 0) rpsReq = ', Atk = Def';
-          const specificReq = `(needs Lv. ${min_l}${rpsReq})`;
+          let specificReq = `(needs Lv. ${min_l}${rpsReq})`;
+          if (!rpsReq) specificReq = `(needs Lv. ${min_l})`;
 
           suggestions.push({
             id: `evo-lvl-${targetId}`,
