@@ -2,12 +2,12 @@
 id: prd-051-027-dag-kanban-board-view
 type: PRD
 title: DAG Kanban/Scrum Board View
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-05-19'
 updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5817477371647686150'
 pr_number: null
 parent: idea-051-dag-kanban-board-view
 tags:
