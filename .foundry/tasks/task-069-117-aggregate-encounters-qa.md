@@ -2,13 +2,13 @@
 id: task-069-117-aggregate-encounters-qa
 type: TASK
 title: QA Aggregate encounters by met_location
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on:
   - task-069-116-aggregate-encounters-impl
-jules_session_id: '4254429246730265544'
+jules_session_id: null
 pr_number: null
 parent: story-034-069-automated-route-tracking
 tags:

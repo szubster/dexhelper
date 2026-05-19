@@ -2,10 +2,10 @@
 id: task-067-116-qa-heartbeat-state-transitions
 type: TASK
 title: QA State Transition Logic for PR-less Completions
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on:
   - .foundry/tasks/task-067-115-implement-heartbeat-state-transitions.md
 jules_session_id: null

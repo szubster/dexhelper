@@ -449,3 +449,23 @@ When archiving nodes, all references in parent stories and journal logs must be 
 - **2026-05-19**: PR #1544 merged. `task-068-118-implement-heartbeat-tpm-logging` is now COMPLETED.
 
 - **2026-05-19**: PR #1537 merged. `task-069-116-aggregate-encounters-impl` is now COMPLETED.
+
+- **2026-05-19**: PR #1563 merged. `idea-051-dag-kanban-board-view` is now COMPLETED.
+
+- **2026-05-19**: PR #1561 merged. `story-032-061-gen3-legacy-compatibility` is now COMPLETED.
+
+- **2026-05-19**: Resurrection Loop triggered for `story-032-062-gen3-data-generation-scripts`. Reason: PR #1564 closed without merging.. Transitioned back to READY.
+
+- **2026-05-19**: PR #1566 merged. `task-057-120-fix-headbutt-rocksmash-moves` is now COMPLETED.
+
+- **2026-05-19**: PR #1559 merged. `task-057-121-qa-headbutt-rocksmash-moves` is now COMPLETED.
+
+- **2026-05-19**: PR #1565 merged. `task-058-094-implement-roamer-and-stat-evolutions` is now COMPLETED.
+
+- **2026-05-19**: PR #1562 merged. `task-067-115-implement-heartbeat-state-transitions` is now COMPLETED.
+
+- **2026-05-19**: PR #1560 merged. `task-068-119-qa-heartbeat-tpm-logging` is now COMPLETED.
+
+- **2026-05-19**: PR #1558 merged. `task-069-117-aggregate-encounters-qa` is now COMPLETED.
+
+- **2026-05-19**: Resurrection Loop triggered for `task-070-116-implement-death-tracking`. Reason: PR #1567 closed without merging.. Transitioned back to READY.

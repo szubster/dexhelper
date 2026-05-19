@@ -2,13 +2,13 @@
 id: story-032-061-gen3-legacy-compatibility
 type: STORY
 title: Gen3 Data Parsing Legacy Compatibility Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-17'
 updated_at: '2026-05-19'
 depends_on:
   - .foundry/stories/story-032-060-gen3-bounds-checking.md
-jules_session_id: '13977312373094411310'
+jules_session_id: null
 pr_number: null
 parent: epic-022-032-gen3-data-parsing
 tags:
