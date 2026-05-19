@@ -29,4 +29,4 @@ Write tests evaluating indoor locations and `resolveOutdoorMapId` for Gen 3.
 - Accurate tests added for both regions evaluating indoor locations.
 
 ## Acceptance Criteria
-- [ ] Accurate tests added for both regions evaluating indoor locations.
+- [x] Accurate tests added for both regions evaluating indoor locations.
