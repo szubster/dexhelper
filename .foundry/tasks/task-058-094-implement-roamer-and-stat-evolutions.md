@@ -41,7 +41,7 @@ Implement roamer tracking logic to guide the player to check the Pokédex for Ra
    - Write or update tests to verify the roamer tracking logic and the stat-based evolution suggestions.
 
 ## Acceptance Criteria
-- [ ] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
-- [ ] Evolution logic accurately evaluates stat-based requirements (e.g., Atk > Def for Hitmonlee).
-- [ ] UI dynamically displays stat requirements for stat-based evolutions.
-- [ ] Tests verify roamer tracking and stat-based evolution logic.
+- [x] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
+- [x] Evolution logic accurately evaluates stat-based requirements (e.g., Atk > Def for Hitmonlee).
+- [x] UI dynamically displays stat requirements for stat-based evolutions.
+- [x] Tests verify roamer tracking and stat-based evolution logic.
