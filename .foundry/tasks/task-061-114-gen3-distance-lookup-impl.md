@@ -2,12 +2,12 @@
 id: task-061-114-gen3-distance-lookup-impl
 type: TASK
 title: Implement Gen3 getDistanceToMap
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '5721693481387319392'
+jules_session_id: null
 pr_number: null
 parent: story-032-061-gen3-distance-lookup
 tags:
@@ -31,5 +31,5 @@ Implement `getDistanceToMap` with precomputed distance matrix logic for Gen 3.
 - Implement this in `src/engine/mapGraph/gen3Graph.ts`.
 
 ## Acceptance Criteria
-- [ ] `getDistanceToMap` is implemented and exports the required signature.
-- [ ] `getDistanceToMap` correctly utilizes the `dist` array from `UnifiedLocation` for O(1) lookups.
+- [x] `getDistanceToMap` is implemented and exports the required signature.
+- [x] `getDistanceToMap` correctly utilizes the `dist` array from `UnifiedLocation` for O(1) lookups.

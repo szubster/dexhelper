@@ -2,12 +2,12 @@
 id: task-058-112-implement-stat-evolutions
 type: TASK
 title: Implement Stat-Based Evolutions
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '9782018477990895449'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
 tags:
@@ -36,6 +36,6 @@ Update the evolution logic to accurately process stat-based evolutions like Tyro
    - Write or update tests to verify the stat-based evolution suggestions.
 
 ## Acceptance Criteria
-- [ ] Evolution logic accurately evaluates stat-based requirements (e.g., Atk > Def for Hitmonlee).
-- [ ] UI dynamically displays stat requirements for stat-based evolutions.
-- [ ] Tests verify stat-based evolution logic.
+- [x] Evolution logic accurately evaluates stat-based requirements (e.g., Atk > Def for Hitmonlee).
+- [x] UI dynamically displays stat requirements for stat-based evolutions.
+- [x] Tests verify stat-based evolution logic.

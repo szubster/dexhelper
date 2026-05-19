@@ -4,4 +4,3 @@
 - Be extremely cautious with branches that capture thrown Errors vs. resolved instances of the Javascript `Error` class, as Dataloader maps thrown errors inside batched fetch functions back into `Error` objects per item index.
 - Run `pnpm check:fix` after tests are added, as Biome formatting configuration could be strict on trailing commas or spacing.
 - Always delete temporary scratchpad files (like `.patch`, `.js` scripts) to prevent them from accidentally getting committed as part of a feature branch.
-Added unit tests for STATIC_GIFT_DATA in src/engine/data/gen1/__tests__/assistantData.test.ts to verify the structure and content of static gift encounters.

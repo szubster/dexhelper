@@ -102,7 +102,8 @@
     },
     "overrides": {
       "@tanstack/history": "1.161.6",
-      "serialize-javascript": ">=7.0.5"
+      "serialize-javascript": ">=7.0.5",
+      "ws": ">=8.20.1"
     }
   }
 }

@@ -96,13 +96,32 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations) : null;
 
   const allEncounters = await pokeDB.getAllEncounters();
-  const localEncounters = localAid ? allEncounters.filter((lae) => lae.enc.some((e) => e.aid === localAid)) : [];
+  // ⚡ Bolt: Removed .filter().some() to prevent closures and O(N) intermediate array allocations
+  const localEncounters: LocationAreaEncounters[] = [];
+  if (localAid) {
+    for (let i = 0; i < allEncounters.length; i++) {
+      const lae = allEncounters[i];
+      if (!lae) continue;
+      const enc = lae.enc;
+      for (let j = 0; j < enc.length; j++) {
+        const e = enc[j];
+        if (e && e.aid === localAid) {
+          localEncounters.push(lae);
+          break;
+        }
+      }
+    }
+  }
 
   const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
   const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
 
-  // ⚡ Bolt: Cache all encounters to a Map to prevent O(N) Array.find calls on every missing encounter lookup
-  const encountersByPid = new Map(allEncounters.map((e) => [e.pid, e]));
+  // ⚡ Bolt: Prevent intermediate array tuple allocations during map construction
+  const encountersByPid = new Map<number, LocationAreaEncounters>();
+  for (let i = 0; i < allEncounters.length; i++) {
+    const e = allEncounters[i];
+    if (e) encountersByPid.set(e.pid, e);
+  }
 
   // Fill missingEncounters
   for (const pid of queryTargets) {
@@ -632,21 +651,45 @@ function generateEvolutionSuggestions(
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {
           const isReady = bestInstance.level >= min_l;
+          let rpsMet = true;
+          if (rps !== undefined && bestInstance.dvs && bestInstance.statExp) {
+            const baseAtk = 35;
+            const baseDef = 35;
+            const calcAtk =
+              Math.floor(
+                (((baseAtk + bestInstance.dvs.atk) * 2 +
+                  Math.floor(Math.min(Math.floor(Math.ceil(Math.sqrt(bestInstance.statExp.atk))), 255) / 4)) *
+                  bestInstance.level) /
+                  100,
+              ) + 5;
+            const calcDef =
+              Math.floor(
+                (((baseDef + bestInstance.dvs.def) * 2 +
+                  Math.floor(Math.min(Math.floor(Math.ceil(Math.sqrt(bestInstance.statExp.def))), 255) / 4)) *
+                  bestInstance.level) /
+                  100,
+              ) + 5;
+            if (rps === 1) rpsMet = calcAtk > calcDef;
+            else if (rps === -1) rpsMet = calcAtk < calcDef;
+            else if (rps === 0) rpsMet = calcAtk === calcDef;
+          }
+          const isActuallyReady = isReady && rpsMet;
           let rpsReq = '';
           if (rps === 1) rpsReq = ', Atk > Def';
           else if (rps === -1) rpsReq = ', Atk < Def';
           else if (rps === 0) rpsReq = ', Atk = Def';
-          const specificReq = `(needs Lv. ${min_l}${rpsReq})`;
+          let specificReq = `(needs Lv. ${min_l}${rpsReq})`;
+          if (!rpsReq) specificReq = `(needs Lv. ${min_l})`;
 
           suggestions.push({
             id: `evo-lvl-${targetId}`,
             category: 'Evolve',
             title: `Level Up Evolution: #${targetId}`,
-            description: isReady
+            description: isActuallyReady
               ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve ${specificReq}!`
               : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${min_l} ${specificReq}.`,
             pokemonId: targetId,
-            priority: isReady ? 90 : 75,
+            priority: isActuallyReady ? 90 : 75,
           });
         } else if (min_h) {
           const todMsg = tod ? ` during the ${tod}` : '';
@@ -796,8 +839,10 @@ export function generateSuggestions(
 
   const localPids = new Set<number>();
 
-  const hasHeadbutt = saveData.inventory.some((i) => i.id === 192 && i.quantity > 0);
-  const hasRockSmash = saveData.inventory.some((i) => i.id === 198 && i.quantity > 0);
+  const hasHeadbutt =
+    saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) && ((saveData.johtoBadges || 0) & (1 << 1)) !== 0; // Hive badge is bit 1
+  const hasRockSmash =
+    saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) && ((saveData.johtoBadges || 0) & (1 << 2)) !== 0; // Plain badge is bit 2
 
   generateCatchSuggestions(
     apiData,
@@ -820,12 +865,19 @@ export function generateSuggestions(
         const pid = parseInt(pidStr, 10);
         const details = suggestion.encounterInfo[pid];
         if (details) {
-          suggestion.encounterInfo[pid] = details.filter((d) => {
-            if (d.method === 'headbutt') return hasHeadbutt;
-            if (d.method === 'rock-smash') return hasRockSmash;
-            return true;
-          });
-          if (suggestion.encounterInfo[pid]?.length > 0) {
+          // ⚡ Bolt: Replaced .filter() with loop to prevent closures and array allocations
+          const filteredDetails: EncounterDetail[] = [];
+          for (let dIdx = 0; dIdx < details.length; dIdx++) {
+            const d = details[dIdx];
+            if (d) {
+              if (d.method === 'headbutt' && !hasHeadbutt) continue;
+              if (d.method === 'rock-smash' && !hasRockSmash) continue;
+              filteredDetails.push(d);
+            }
+          }
+          suggestion.encounterInfo[pid] = filteredDetails;
+
+          if (filteredDetails.length > 0) {
             hasValidEncounter = true;
           } else {
             delete suggestion.encounterInfo[pid];

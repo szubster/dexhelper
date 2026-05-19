@@ -88,3 +88,6 @@ No YAML changes were made per standard Foundry architecture rules.
 **Task**: task-059-098-gen3-map-graph-structure-impl
 **Outcome**: FAILED
 **Notes**: The coder failed to implement `gen3Graph.ts` in `src/engine/mapGraph/` as required. Validation for `task-059-099-gen3-map-graph-structure-qa` could not be completed.
+
+- Learned that task implementation can be marked completed while entirely missing the logic to fetch Gen 3 data from pret/pokeemerald. Always explicitly check scripts for target repositories.
+- 2026-05-18: Validated Headbutt and Rock Smash logic. The initial implementation checked for items (TM02 and TM08) but failed to check for the required badges (Hive and Plain badges respectively) to use these moves in the field. Added the badge checks to `saveData.johtoBadges` where bit 1 is the Hive Badge and bit 2 is the Plain Badge. Note for future: always double check both item and badge requirements for field moves.

@@ -2,12 +2,12 @@
 id: story-034-070-death-tracking-and-graveyard
 type: STORY
 title: Death Tracking and Graveyard Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '6107952052934372203'
+jules_session_id: null
 pr_number: null
 parent: epic-026-034-automated-nuzlocke-tracker
 tags:
@@ -23,3 +23,7 @@ notes: ''
 
 ## Description
 Detect fainted Pokémon in the party and implement logic to designate a PC Box as the Graveyard for permanently dead Pokémon.
+
+### Tasks
+- [ ] .foundry/tasks/task-070-116-implement-death-tracking.md
+- [ ] .foundry/tasks/task-070-117-qa-death-tracking.md
