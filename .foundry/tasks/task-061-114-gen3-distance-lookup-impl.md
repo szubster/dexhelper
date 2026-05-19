@@ -31,5 +31,5 @@ Implement `getDistanceToMap` with precomputed distance matrix logic for Gen 3.
 - Implement this in `src/engine/mapGraph/gen3Graph.ts`.
 
 ## Acceptance Criteria
-- [ ] `getDistanceToMap` is implemented and exports the required signature.
-- [ ] `getDistanceToMap` correctly utilizes the `dist` array from `UnifiedLocation` for O(1) lookups.
+- [x] `getDistanceToMap` is implemented and exports the required signature.
+- [x] `getDistanceToMap` correctly utilizes the `dist` array from `UnifiedLocation` for O(1) lookups.
