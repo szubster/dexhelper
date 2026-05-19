@@ -33,4 +33,6 @@ Introduce a Kanban/Scrum-style board view as an alternative or complementary vis
 4. **Roll-up Metrics:** Display counts for nodes within each column/swimlane intersection to provide an immediate summary of the workload.
 
 ## Next Steps
-- [ ] Convert this idea into a detailed PRD defining the board layout, interactions, and integration with the existing DAG Dashboard data structures.
+- [x] Convert this idea into a detailed PRD defining the board layout, interactions, and integration with the existing DAG Dashboard data structures.
+
+- `.foundry/prds/prd-051-027-dag-kanban-board-view.md`
