@@ -214,10 +214,8 @@ test('DagDashboard handles selection and highlighting', async () => {
   await vi.waitFor(async () => await expect.element(n2DagNode).toHaveClass('!border-cyan-500'), { timeout: 3000 });
 
   // To hit onPaneClick logic
-  const paneEl = page
-    .elementLocator(page.getByText('node-3').element().closest('.react-flow') || document.body)
-    .element();
-  (paneEl.querySelector('.react-flow__pane') as HTMLElement)?.click();
+  const paneEl = document.querySelector('.react-flow__pane');
+  if (paneEl) paneEl.dispatchEvent(new MouseEvent('click', { bubbles: true }));
   await vi.waitFor(async () => await expect.element(n2DagNode).not.toHaveClass('!border-cyan-500'), { timeout: 3000 });
 
   // Hit onNodeMouseLeave and onNodeMouseEnter logic
