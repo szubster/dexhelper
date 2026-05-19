@@ -29,4 +29,4 @@ Implement `resolveOutdoorMapId` logic mapped to Gen 3 map ID structures.
 - Recursively traverse the `prnt` property on the location objects, just as in previous generations.
 
 ## Acceptance Criteria
-- [ ] `resolveOutdoorMapId` implemented for Hoenn and Kanto.
+- [x] `resolveOutdoorMapId` implemented for Hoenn and Kanto.

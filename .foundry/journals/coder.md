@@ -123,5 +123,6 @@ For Playwright E2E tests failing due to missing browser binaries or system depen
 - Found out Gen 2 Headbutt/Rock Smash didn't actually require badges internally despite some guides saying so.
 - Workaround vitest-browser-react pointer event issues on complex SVGs or wrappers (like ReactFlow) by evaluating the locator directly to the DOM element and calling .click()
 
+Invoked Empty PR Policy for task-060-114-gen3-indoor-resolution-impl because resolveOutdoorMapId was already implemented in src/engine/mapGraph/gen3Graph.ts.
 ## 2026-05-18 - Gen 3 Locations
 - The Gen 3 maps define their region mapping string representation inside `region_map_sections.json` within the decomp repo, mapped sequentially. Use this to construct proper lookup lists.
