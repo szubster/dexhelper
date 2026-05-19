@@ -632,21 +632,45 @@ function generateEvolutionSuggestions(
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {
           const isReady = bestInstance.level >= min_l;
+          let rpsMet = true;
+          if (rps !== undefined && bestInstance.dvs && bestInstance.statExp) {
+            const baseAtk = 35;
+            const baseDef = 35;
+            const calcAtk =
+              Math.floor(
+                (((baseAtk + bestInstance.dvs.atk) * 2 +
+                  Math.floor(Math.min(Math.floor(Math.ceil(Math.sqrt(bestInstance.statExp.atk))), 255) / 4)) *
+                  bestInstance.level) /
+                  100,
+              ) + 5;
+            const calcDef =
+              Math.floor(
+                (((baseDef + bestInstance.dvs.def) * 2 +
+                  Math.floor(Math.min(Math.floor(Math.ceil(Math.sqrt(bestInstance.statExp.def))), 255) / 4)) *
+                  bestInstance.level) /
+                  100,
+              ) + 5;
+            if (rps === 1) rpsMet = calcAtk > calcDef;
+            else if (rps === -1) rpsMet = calcAtk < calcDef;
+            else if (rps === 0) rpsMet = calcAtk === calcDef;
+          }
+          const isActuallyReady = isReady && rpsMet;
           let rpsReq = '';
           if (rps === 1) rpsReq = ', Atk > Def';
           else if (rps === -1) rpsReq = ', Atk < Def';
           else if (rps === 0) rpsReq = ', Atk = Def';
-          const specificReq = `(needs Lv. ${min_l}${rpsReq})`;
+          let specificReq = `(needs Lv. ${min_l}${rpsReq})`;
+          if (!rpsReq) specificReq = `(needs Lv. ${min_l})`;
 
           suggestions.push({
             id: `evo-lvl-${targetId}`,
             category: 'Evolve',
             title: `Level Up Evolution: #${targetId}`,
-            description: isReady
+            description: isActuallyReady
               ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve ${specificReq}!`
               : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${min_l} ${specificReq}.`,
             pokemonId: targetId,
-            priority: isReady ? 90 : 75,
+            priority: isActuallyReady ? 90 : 75,
           });
         } else if (min_h) {
           const todMsg = tod ? ` during the ${tod}` : '';

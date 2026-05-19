@@ -84,6 +84,7 @@ function parseGen2PokemonInstance(
     friendship,
     pokerus,
     caughtData,
+    dvs,
     otName,
     storageLocation,
     slot,
