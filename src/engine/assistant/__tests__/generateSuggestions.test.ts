@@ -581,5 +581,22 @@ describe('generateSuggestions', () => {
     expect(catch2).toBeDefined(); // Included
     expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
     expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
+
+    // 3. Has move learned
+    localSaveData.inventory = [];
+    localSaveData.partyDetails = [
+      {
+        speciesId: 10,
+        level: 20,
+        isShiny: false,
+        moves: [29, 249],
+        storageLocation: 'Party',
+      },
+    ];
+    const result3 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const catch3 = result3.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
+    expect(catch3).toBeDefined(); // Included
+    expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
+    expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
   });
 });
