@@ -616,5 +616,22 @@ describe('generateSuggestions', () => {
     expect(catch4).toBeDefined(); // Included
     expect(catch4?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
     expect(catch4?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
+
+    // 5. Has move learned in Daycare
+    localSaveData.pcDetails = [];
+    localSaveData.daycare = [
+      {
+        speciesId: 10,
+        level: 20,
+        isShiny: false,
+        moves: [29, 249],
+        storageLocation: 'Daycare',
+      } as unknown as PokemonInstance,
+    ];
+    const result5 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const catch5 = result5.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
+    expect(catch5).toBeDefined(); // Included
+    expect(catch5?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
+    expect(catch5?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
   });
 });

@@ -55,6 +55,7 @@ describe('gen2Strategy', () => {
       inventory: [],
       partyDetails: [{ speciesId: 25, moves: [29] }], // Pikachu with Headbutt
       pcDetails: [{ speciesId: 19, moves: [249] }], // Rattata with Rock Smash
+      daycare: [{ speciesId: 19, moves: [29, 249] }],
       roamingLegendaries: [{ speciesId: 243, level: 40, mapGroup: 1, mapId: 1 }],
     } as unknown as SaveData;
 
