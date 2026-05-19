@@ -23,3 +23,7 @@ notes: ''
 
 ## Description
 Detect fainted Pokémon in the party and implement logic to designate a PC Box as the Graveyard for permanently dead Pokémon.
+
+### Tasks
+- [ ] .foundry/tasks/task-070-116-implement-death-tracking.md
+- [ ] .foundry/tasks/task-070-117-qa-death-tracking.md

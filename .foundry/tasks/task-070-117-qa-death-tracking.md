@@ -1,0 +1,32 @@
+---
+id: task-070-117-qa-death-tracking
+type: TASK
+title: "QA Death Tracking and Graveyard Logic"
+status: PENDING
+owner_persona: "qa"
+created_at: "2026-05-18"
+updated_at: "2026-05-18"
+depends_on:
+  - task-070-116-implement-death-tracking
+jules_session_id: null
+pr_number: null
+parent: story-034-070-death-tracking-and-graveyard
+tags:
+  - feature
+  - nuzlocke
+  - verification
+research_references: []
+rejection_count: 0
+rejection_reason: ""
+notes: ""
+---
+
+# QA Death Tracking and Graveyard Logic
+
+## Description
+Validate the death tracking and graveyard logic implementation.
+
+## Acceptance Criteria
+- [ ] Run `pnpm test` and ensure tests pass.
+- [ ] Validate fainted Pokémon in the party are detected as dead.
+- [ ] Validate Pokémon in the designated Graveyard PC Box are permanently marked as dead.
