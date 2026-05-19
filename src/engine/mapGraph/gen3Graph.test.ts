@@ -18,6 +18,10 @@ const mockLocations: UnifiedLocation[] = [
   { id: 2, n: 'Oldale Town', conn: [1], dist: { 2: 0, 1: 1, 0: 2 } },
   { id: 3, n: 'Player House', prnt: 0, conn: [], dist: {} },
   { id: 4, n: 'Player House 2F', prnt: 3, conn: [], dist: {} },
+  { id: 42, n: 'Pallet Town', conn: [43], dist: { 42: 0, 43: 1 } },
+  { id: 43, n: 'Route 1', conn: [42], dist: { 43: 0, 42: 1 } },
+  { id: 44, n: 'Player House Kanto', prnt: 42, conn: [], dist: {} },
+  { id: 45, n: 'Player House Kanto 2F', prnt: 44, conn: [], dist: {} },
 ];
 
 describe('gen3Graph', () => {
@@ -44,6 +48,18 @@ describe('gen3Graph', () => {
       vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
       const result = await getDistanceToMap(4, 1);
       expect(result).toEqual({ distance: 1, name: 'Route 101' });
+    });
+
+    it('gracefully falls back to parent map for indoor locations in Kanto', async () => {
+      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
+      const result = await getDistanceToMap(44, 43);
+      expect(result).toEqual({ distance: 1, name: 'Route 1' });
+    });
+
+    it('gracefully falls back to root parent map for multi-level indoor locations in Kanto', async () => {
+      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
+      const result = await getDistanceToMap(45, 43);
+      expect(result).toEqual({ distance: 1, name: 'Route 1' });
     });
 
     it('defaults to map ID 0 for an unknown starting map', async () => {
@@ -93,6 +109,18 @@ describe('gen3Graph', () => {
       vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
       const result = await resolveOutdoorMapId(4);
       expect(result).toBe(0);
+    });
+
+    it('correctly resolves a single-level indoor map to its outdoor hub in Kanto', async () => {
+      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
+      const result = await resolveOutdoorMapId(44);
+      expect(result).toBe(42);
+    });
+
+    it('correctly resolves a multi-level indoor map to its root outdoor hub in Kanto', async () => {
+      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
+      const result = await resolveOutdoorMapId(45);
+      expect(result).toBe(42);
     });
 
     it('handles circular prnt references gracefully', async () => {

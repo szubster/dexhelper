@@ -1,7 +1,7 @@
 import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { DagDashboard } from '../DagDashboard';
+import { DagDashboard, getMiniMapNodeColor } from '../DagDashboard';
 
 test('DagDashboard renders correctly on successful load', async () => {
   // Mock fetch to return some dummy DAG data corresponding to ParsedNode structure
@@ -15,6 +15,7 @@ test('DagDashboard renders correctly on successful load', async () => {
           type: 'TASK',
           status: 'COMPLETED',
           owner_persona: 'human',
+          label: 'node',
           title: 'Node 1',
           depends_on: [],
         },
@@ -26,6 +27,7 @@ test('DagDashboard renders correctly on successful load', async () => {
           type: 'TASK',
           status: 'ACTIVE',
           owner_persona: 'human',
+          label: 'node',
           title: 'Node 2',
           parent: 'node-1.md',
           depends_on: ['node-1.md'],
@@ -89,6 +91,7 @@ test('DagDashboard handles selection and highlighting', async () => {
           type: 'TASK',
           status: 'COMPLETED',
           owner_persona: 'human',
+          label: 'node',
           title: 'Node 1',
           depends_on: [],
         },
@@ -100,6 +103,7 @@ test('DagDashboard handles selection and highlighting', async () => {
           type: 'TASK',
           status: 'ACTIVE',
           owner_persona: 'human',
+          label: 'node',
           title: 'Node 2',
           parent: 'node-1.md',
           depends_on: ['node-1.md'],
@@ -112,9 +116,46 @@ test('DagDashboard handles selection and highlighting', async () => {
           type: 'TASK',
           status: 'PENDING',
           owner_persona: 'human',
+          label: 'node-3',
           title: 'Node 3',
           depends_on: [],
         },
+      },
+      {
+        filePath: 'node-4.md',
+        data: {
+          id: 'node-4',
+          type: 'TASK',
+          status: 'READY',
+          owner_persona: 'human',
+          label: 'node-4',
+          title: 'Node 4',
+          depends_on: [],
+        },
+      },
+      {
+        filePath: 'node-5.md',
+        data: {
+          id: 'node-5',
+          type: 'TASK',
+          status: 'FAILED',
+          owner_persona: 'human',
+          label: 'node-5',
+          title: 'Node 5',
+          depends_on: [],
+        },
+      },
+      {
+        filePath: 'node-6.md',
+        data: {
+          id: 'node-6',
+          type: undefined,
+          status: undefined,
+          owner_persona: 'human',
+          label: 'node-6',
+          title: 'Node 6',
+          depends_on: [],
+        } as unknown as import('../DagNode').DagNodeData,
       },
     ],
   } as unknown as Response);
@@ -179,6 +220,45 @@ test('DagDashboard handles selection and highlighting', async () => {
 
   await vi.waitFor(async () => await expect.element(n2DagNode).not.toHaveClass('!border-cyan-500'), { timeout: 3000 });
   await expect.element(n3DagNode).not.toHaveClass('opacity-30');
+
+  // Test pane click to deselect
+  n2El.click();
+  await vi.waitFor(async () => await expect.element(n2DagNode).toHaveClass('!border-cyan-500'), { timeout: 3000 });
+
+  // To hit onPaneClick logic
+  const paneEl = document.querySelector('.react-flow__pane');
+  if (paneEl) paneEl.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+  await vi.waitFor(async () => await expect.element(n2DagNode).not.toHaveClass('!border-cyan-500'), { timeout: 3000 });
+
+  // Hit onNodeMouseLeave and onNodeMouseEnter logic via fireEvent or element
+  n2DagNode.element().dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+  n2DagNode.element().dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+
+  // To make sure coverage on filter logic handles undefined
+  const taskTypeButton = page.getByRole('button', { name: 'TASK' });
+  await taskTypeButton.click();
+  await taskTypeButton.click();
+});
+
+test('DagDashboard handles non-ok fetch response', async () => {
+  const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+  // Mock fetch to fail with 404
+  globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({ ok: false } as unknown as Response);
+
+  await render(
+    <div style={{ width: '800px', height: '600px' }}>
+      <DagDashboard />
+    </div>,
+  );
+
+  await vi.waitUntil(async () => {
+    const loadingEl = page.getByText('[ SYSTEM.LOADING_DAG ]').all();
+    return loadingEl.length === 0;
+  });
+
+  expect(consoleErrorSpy).toHaveBeenCalledWith('System: DAG loading failed');
+  consoleErrorSpy.mockRestore();
 });
 
 test('DagDashboard catches and logs fetch errors securely', async () => {
@@ -205,4 +285,61 @@ test('DagDashboard catches and logs fetch errors securely', async () => {
   expect(consoleErrorSpy).toHaveBeenCalledWith('System: DAG loading failed');
 
   consoleErrorSpy.mockRestore();
+});
+
+test('getMiniMapNodeColor returns correct color based on status', () => {
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'COMPLETED', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#10b981');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'ACTIVE', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#ef4444');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'IN_PROGRESS', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#ef4444');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'FAILED', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#ef4444');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'BLOCKED', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#ef4444');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'READY', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#f59e0b');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'UNKNOWN' },
+    } as unknown as import('@xyflow/react').Node<import('../DagNode').DagNodeData>),
+  ).toBe('#52525b');
+  expect(
+    getMiniMapNodeColor({ id: '1', position: { x: 0, y: 0 }, data: {} } as unknown as import('@xyflow/react').Node<
+      import('../DagNode').DagNodeData
+    >),
+  ).toBe('#52525b');
 });

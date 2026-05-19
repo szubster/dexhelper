@@ -35,3 +35,5 @@ Handle Headbutt and Rock Smash encounters in the suggestion engine, cross-refere
 ### Tasks
 - [.foundry/tasks/task-057-094-implement-headbutt-rocksmash-logic.md](.foundry/tasks/task-057-094-implement-headbutt-rocksmash-logic.md)
 - [.foundry/tasks/task-057-095-qa-headbutt-rocksmash-logic.md](.foundry/tasks/task-057-095-qa-headbutt-rocksmash-logic.md)
+- [.foundry/tasks/task-057-120-fix-headbutt-rocksmash-moves.md](.foundry/tasks/task-057-120-fix-headbutt-rocksmash-moves.md)
+- [.foundry/tasks/task-057-121-qa-headbutt-rocksmash-moves.md](.foundry/tasks/task-057-121-qa-headbutt-rocksmash-moves.md)

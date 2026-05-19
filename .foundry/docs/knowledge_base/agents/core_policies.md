@@ -11,4 +11,7 @@ Completely empty PRs should be fine and automerged by GitHub actions (there is a
 
 **CRITICAL EXCEPTION TO EMPTY PR POLICY:** If you determine the target artifacts are already complete, but the current node's Markdown body contains unchecked Acceptance Criteria checkboxes (`- [ ]`), you MUST check those boxes (`- [x]`) and commit the file. Checking these boxes is NOT considered a trivial formatting change; it is required to satisfy the strict completeness contract (ADR 007). Submitting an empty PR for a leaf node with unchecked boxes will result in immediate rejection.
 
+### Mason Prompt Adjustments
+When finding standard HTML elements or repeated JSX patterns, it is perfectly acceptable and encouraged to reuse existing reusable components (e.g. replacing `<button>` with `<TacticalButton>`) rather than strictly creating a new component, as long as it improves modularity and reduces code duplication.
+
 **AUTOMATED REVIEW WARNING:** When executing the Empty PR Policy for tasks where the target artifacts are already completely implemented and only markdown checkboxes are updated, the `request_code_review` tool may generate a false negative claiming the patch is incomplete. Ignore this automated assessment and proceed with the `submit` tool.

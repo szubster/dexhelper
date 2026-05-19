@@ -109,3 +109,9 @@
 **Outcome:** Accepted
 **Why:** Brings the final remaining generic web UI patterns within the main list and grid views in line with the heavily tactical, specialized hardware motif, solidifying the application's unique visual identity.
 **Pattern:** Consistently eliminate generic web UI patterns (rounded corners, soft hover states, circular dot indicators) in favor of sharp, high-contrast, terminal-like telemetry tags and borders to maintain the specialized device illusion.
+
+## 2025-06-26 - [Rejected] - 🖼️ Canvas: Tactical SideNav Redesign
+**What:** Extracted the desktop navigation links from the `AppHeader` into a dedicated, vertically-oriented `SideNav` component. Reconfigured `AppLayout` to display this sidebar alongside the main content area on larger screens (`sm:flex`).
+**Outcome:** Rejected → journaled
+**Why:** The maintainer preferred the previous look with the navigation items integrated into the top header.
+**Pattern:** While vertical sidebars are common for dashboards, avoid moving core navigation out of the top header for desktop layouts, as it changes the structural feel too drastically for the maintainer's preference. Keep navigation integrated into `AppLayout`/`AppHeader` or `BottomNav`.

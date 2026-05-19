@@ -2,12 +2,12 @@
 id: task-067-114-implement-heartbeat-state-transitions
 type: TASK
 title: Implement State Transition Logic for PR-less Completions
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17833953529976685542'
 pr_number: null
 parent: story-033-067-heartbeat-state-transitions
 tags:
@@ -36,4 +36,4 @@ Once a PR-less `COMPLETED` session is detected (handled in Story 066), the heart
 5. If all boxes checked (or no boxes exist) -> Transition to `COMPLETED`.
 
 ## Acceptance Criteria
-- [ ] Write tech lead blueprint for the state transition logic.
+- [x] Write tech lead blueprint for the state transition logic.

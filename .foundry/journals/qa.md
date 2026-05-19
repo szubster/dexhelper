@@ -92,3 +92,8 @@ No YAML changes were made per standard Foundry architecture rules.
 - Learned that task implementation can be marked completed while entirely missing the logic to fetch Gen 3 data from pret/pokeemerald. Always explicitly check scripts for target repositories.
 - 2026-05-18: Validated Headbutt and Rock Smash logic. The initial implementation checked for items (TM02 and TM08) but failed to check for the required badges (Hive and Plain badges respectively) to use these moves in the field. Added the badge checks to `saveData.johtoBadges` where bit 1 is the Hive Badge and bit 2 is the Plain Badge. Note for future: always double check both item and badge requirements for field moves.
 - **Empty PR Policy Application:** Applied the Empty PR exception (ADR 009) to task-061-115-gen3-distance-lookup-qa, as the target test artifacts in `src/engine/mapGraph/gen3Graph.test.ts` were already fully complete and functional. Only the Acceptance Criteria markdown boxes were updated prior to submission.
+
+## 2026-05-19 - Task COMPLETED: QA Gen3 Bounds Checking
+**Task**: task-060-117-gen3-bounds-checking-qa
+**Outcome**: COMPLETED (Empty PR)
+**Notes**: Verified that the coder successfully implemented bounds checking for Gen3 save parsing using the `DataView` API in `src/engine/saveParser/parsers/gen3.ts`. The implementation properly catches `RangeError` from out-of-bounds `DataView` operations and gracefully propagates a "Corrupted Save File" validation error as required by ADR-010. Confirmed that `gen3.test.ts` thoroughly covers these bounds checking scenarios. All static checks and unit tests passed via `pnpm lint && pnpm test`. The acceptance criteria in the markdown body were already checked off by the coder, so submitting an empty PR to unblock the DAG.

@@ -65,3 +65,4 @@ Critical learnings:
 
 ## 2026-05-18 - Added madge for circular dependency checking
 **Learning:** Integrated `madge` to statically analyze and prevent circular dependencies in the codebase. Added `lint:circular` to the `lint` pipeline to ensure PRs fail if circular dependencies are introduced.
+* The project uses Vite 8 with Rolldown. When configuring `manualChunks` in `vite.config.ts`'s `rollupOptions.output`, it must be defined as a function (e.g., `manualChunks(id) { ... }`) rather than an object to avoid build errors like 'Expected Function but received Object'.

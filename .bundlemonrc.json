@@ -7,19 +7,27 @@
   "files": [
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "555kb"
+      "maxSize": "300kb"
     },
     {
       "path": "assets/dag-<hash>.js",
-      "maxSize": "300kb"
+      "maxSize": "100kb"
+    },
+    {
+      "path": "assets/react-<hash>.js",
+      "maxSize": "250kb"
+    },
+    {
+      "path": "assets/router-<hash>.js",
+      "maxSize": "100kb"
+    },
+    {
+      "path": "assets/xyflow-<hash>.js",
+      "maxSize": "200kb"
     },
     {
       "path": "assets/style-<hash>.css",
       "maxSize": "120kb"
-    },
-    {
-      "path": "data/pokedata.json",
-      "maxSize": "800kb"
     },
     {
       "path": "data/pokedata.msgpack",

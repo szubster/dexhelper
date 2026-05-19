@@ -32,4 +32,4 @@ Create a comprehensive map graph for Johto and Kanto to support Gen 2 traversal 
 
 ## Tasks
 - [x] [.foundry/tasks/task-043-071-implement-gen2-map-graph.md](.foundry/tasks/task-043-071-implement-gen2-map-graph.md)
-- [x] [.foundry/tasks/task-043-072-qa-gen2-map-graph.md](.foundry/tasks/task-043-072-qa-gen2-map-graph.md)
+- [x] [.foundry/archive/tasks/task-043-072-qa-gen2-map-graph.md](.foundry/archive/tasks/task-043-072-qa-gen2-map-graph.md)

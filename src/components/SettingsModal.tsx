@@ -2,10 +2,10 @@ import { X } from 'lucide-react';
 import { saveDB } from '../db/SaveDB';
 import { useStore } from '../store';
 import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig';
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { ClearStorageButton } from './settings/ClearStorageButton';
 import { SettingsControls } from './settings/SettingsControls';
 import { SettingsLegend } from './settings/SettingsLegend';
+import { TacticalButton } from './TacticalButton';
 import { TacticalModal } from './TacticalModal';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
@@ -49,16 +49,16 @@ export function SettingsModal() {
             Configure your experience
           </p>
         </div>
-        <button
-          type="button"
+        <TacticalButton
           onClick={() => setIsSettingsOpen(false)}
           aria-label="Close settings"
           title="Close settings"
-          className="group relative border border-zinc-800 border-dashed bg-zinc-900 p-3 text-zinc-400 transition-colors hover:border-zinc-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          variant="secondary"
+          size="icon"
+          hasCrosshairs={true}
         >
-          <CornerCrosshairs className="h-1 w-1 border-[var(--theme-primary)] opacity-0 transition-opacity group-hover:opacity-100" />
           <X size={20} />
-        </button>
+        </TacticalButton>
       </div>
 
       <div className="custom-scrollbar max-h-[70vh] space-y-8 overflow-y-auto p-8">
