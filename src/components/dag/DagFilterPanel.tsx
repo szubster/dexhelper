@@ -13,7 +13,9 @@ const ALL_STATUSES = ['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOC
 export function DagFilterPanel({ activeTypes, activeStatuses, onTypeToggle, onStatusToggle }: DagFilterPanelProps) {
   return (
     <div className="absolute top-4 left-4 z-10 flex flex-col gap-4 border border-zinc-800 border-dashed bg-zinc-950/90 p-4 font-mono text-xs text-zinc-400 backdrop-blur-sm">
-      <div>
+      {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
+      {/* biome-ignore lint/a11y/useSemanticElements: We use role="group" instead of <fieldset> for better screen reader compatibility with aria-label without a <legend> */}
+      <div role="group" aria-label="Filter by type">
         <div className="mb-2 font-bold tracking-widest">[ SYSTEM.FILTER_TYPE ]</div>
         <div className="flex flex-wrap gap-2">
           {ALL_TYPES.map((type) => {
@@ -22,6 +24,7 @@ export function DagFilterPanel({ activeTypes, activeStatuses, onTypeToggle, onSt
               <button
                 key={type}
                 type="button"
+                aria-pressed={isActive}
                 onClick={() => onTypeToggle(type)}
                 className={cn(
                   'rounded-none border border-dashed px-2 py-1 transition-colors hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
@@ -37,7 +40,9 @@ export function DagFilterPanel({ activeTypes, activeStatuses, onTypeToggle, onSt
         </div>
       </div>
 
-      <div>
+      {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
+      {/* biome-ignore lint/a11y/useSemanticElements: We use role="group" instead of <fieldset> for better screen reader compatibility with aria-label without a <legend> */}
+      <div role="group" aria-label="Filter by status">
         <div className="mb-2 font-bold tracking-widest">[ SYSTEM.FILTER_STATUS ]</div>
         <div className="flex flex-wrap gap-2">
           {ALL_STATUSES.map((status) => {
@@ -65,6 +70,7 @@ export function DagFilterPanel({ activeTypes, activeStatuses, onTypeToggle, onSt
               <button
                 key={status}
                 type="button"
+                aria-pressed={isActive}
                 onClick={() => onStatusToggle(status)}
                 className={cn(
                   'rounded-none border border-dashed px-2 py-1 transition-colors hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',

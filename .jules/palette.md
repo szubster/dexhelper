@@ -68,3 +68,7 @@
 - Used `aria-expanded` on interactive buttons controlling menus/modals (e.g. settings button).
 - **Playwright Frontend Verification:** When writing Playwright scripts to verify frontend changes locally against the development server (`npm run dev`), use `http://localhost:3000` instead of Vite's default port 5173, as specified in `package.json`.
 - **Scheduled Node Creation:** Scheduled or foundry agents can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory to document technical debt, architectural changes, or gaps in context. Appropriate `owner_persona` must be set for new nodes (e.g., `researcher` for RESEARCH, `architect` for ADRs).
+
+## 2026-05-19 - Added ARIA attributes to DAG filter buttons
+**Learning:** Filter buttons that act as toggle groups visually indicate state through color changes, but screen readers are unaware. Adding `aria-pressed={isActive}` to individual buttons and wrapping the group in `role="group"` with `aria-label` effectively communicates this interactivity.
+**Action:** Replaced `src/components/dag/DagFilterPanel.tsx` to add `aria-pressed` properties to type and status filter buttons, and wrapped the filter areas with `role="group"` and descriptive `aria-label` attributes.
