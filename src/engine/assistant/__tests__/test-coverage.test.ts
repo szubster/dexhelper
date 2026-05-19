@@ -24,6 +24,7 @@ test('coverage for suggestionEngine new lines', () => {
       { speciesId: 95, level: 30, otName: 'PLAYER', moves: [] } as unknown as PokemonInstance,
     ],
     pcDetails: [{ speciesId: 95, level: 30, otName: 'PLAYER', moves: [249] } as unknown as PokemonInstance],
+    daycare: [{ speciesId: 19, level: 5, otName: 'PLAYER', moves: [29] } as unknown as PokemonInstance],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
 

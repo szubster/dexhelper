@@ -52,12 +52,10 @@ describe('gen2Strategy', () => {
   it('returns special suggestions for gen 2 mechanics', () => {
     const saveData = {
       ...mockSaveData,
-      inventory: [
-        { id: 192, quantity: 1 },
-        { id: 198, quantity: 1 },
-      ],
+      inventory: [],
+      partyDetails: [{ speciesId: 25, moves: [29] }], // Pikachu with Headbutt
+      pcDetails: [{ speciesId: 19, moves: [249] }], // Rattata with Rock Smash
       roamingLegendaries: [{ speciesId: 243, level: 40, mapGroup: 1, mapId: 1 }],
-      partyDetails: [{ speciesId: 25 }], // Pikachu
     } as unknown as SaveData;
 
     const suggestionsTyrogue = gen2Strategy.getSpecialSuggestions(saveData, [106]);

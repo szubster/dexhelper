@@ -59,11 +59,13 @@ export const gen2Strategy: AssistantStrategy = {
     const hasHeadbutt =
       saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) ||
       (saveData.partyDetails || []).some((p) => p.moves?.includes(29)) ||
-      (saveData.pcDetails || []).some((p) => p.moves?.includes(29));
+      (saveData.pcDetails || []).some((p) => p.moves?.includes(29)) ||
+      (saveData.daycare || []).some((p) => p.moves?.includes(29));
     const hasRockSmash =
       saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) ||
       (saveData.partyDetails || []).some((p) => p.moves?.includes(249)) ||
-      (saveData.pcDetails || []).some((p) => p.moves?.includes(249));
+      (saveData.pcDetails || []).some((p) => p.moves?.includes(249)) ||
+      (saveData.daycare || []).some((p) => p.moves?.includes(249));
 
     if (hasHeadbutt) {
       suggestions.push({

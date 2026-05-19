@@ -599,5 +599,22 @@ describe('generateSuggestions', () => {
     expect(catch3).toBeDefined(); // Included
     expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
     expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
+
+    // 4. Has move learned in PC
+    localSaveData.partyDetails = [];
+    localSaveData.pcDetails = [
+      {
+        speciesId: 10,
+        level: 20,
+        isShiny: false,
+        moves: [29, 249],
+        storageLocation: 'Box 1',
+      } as unknown as PokemonInstance,
+    ];
+    const result4 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const catch4 = result4.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
+    expect(catch4).toBeDefined(); // Included
+    expect(catch4?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
+    expect(catch4?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
   });
 });
