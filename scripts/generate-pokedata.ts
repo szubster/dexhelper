@@ -13,6 +13,7 @@ import {
 } from '../src/db/schema.ts';
 import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from './data/gen1/mapping.ts';
 import { GEN2_MAP_TO_AID, decodeGen2Id } from './data/gen2/mapping.ts';
+import { GEN3_MAPS, GEN3_INDOOR_TO_PARENT_MAP } from './data/gen3/mapping.ts';
 
 const POKEMON_COUNT = 386; // Gen 1, 2, & 3
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
@@ -190,6 +191,15 @@ async function main() {
         }
       }
 
+      // 3. Check Gen 3 mapping
+      for (const [group, maps] of Object.entries(GEN3_MAPS)) {
+        for (const [mid, mapNode] of Object.entries(maps)) {
+          if (mapNode.aid === areaId) {
+            matchingGameIds.push({ id: (3 << 16) | (parseInt(group) << 8) | parseInt(mid), name: mapNode.name });
+          }
+        }
+      }
+
       // If no ROM map ID found, we skip this encounter as we only care about real in-game locations
       if (matchingGameIds.length === 0) continue;
 
@@ -205,6 +215,10 @@ async function main() {
               let connections: number[] | undefined = undefined;
               if (gameId < 256) {
                 connections = GEN1_MAPS[gameId]?.connections;
+              } else if ((gameId >> 16) === 3) {
+                const group = (gameId >> 8) & 0xff;
+                const mid = gameId & 0xff;
+                connections = GEN3_MAPS[group]?.[mid]?.connections;
               } else {
                 const { group, id: mid } = decodeGen2Id(gameId);
                 connections = GEN2_MAP_TO_AID[group]?.[mid]?.connections;
@@ -368,13 +382,37 @@ async function main() {
       }
     }
   }
+  for (const [group, maps] of Object.entries(GEN3_MAPS)) {
+    for (const [mid, mapNode] of Object.entries(maps)) {
+      const gameId = (3 << 16) | (parseInt(group) << 8) | parseInt(mid);
+      const existing = locationMap.get(gameId);
+      if (existing) {
+        if (mapNode.connections) {
+          existing.conn = Array.from(new Set([...(existing.conn || []), ...mapNode.connections]));
+        }
+      } else {
+        locationMap.set(gameId, sortObj({
+          id: gameId,
+          n: mapNode.name,
+          conn: mapNode.connections,
+          pids: [],
+          dist: {}
+        }, ['id', 'n']));
+      }
+    }
+  }
 
 // Second pass on locations to reconcile prnt for indoors
 console.log('\nReconciling location parents...');
 for (const loc of locationMap.values()) {
-  const parentId = INDOOR_TO_PARENT_MAP[loc.id];
-  if (parentId !== undefined) {
-    loc.prnt = parentId;
+  if (loc.id < 256) {
+    const parentId = INDOOR_TO_PARENT_MAP[loc.id];
+    if (parentId !== undefined) loc.prnt = parentId;
+  } else if ((loc.id >> 16) === 3) {
+    // Decode Gen 3 id to look up in the map, then re-encode the parent
+    const decodedId = loc.id & 0xffff;
+    const parentId = GEN3_INDOOR_TO_PARENT_MAP[decodedId];
+    if (parentId !== undefined) loc.prnt = (3 << 16) | parentId;
   }
 }
 
