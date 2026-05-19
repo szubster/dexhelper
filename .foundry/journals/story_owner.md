@@ -75,3 +75,4 @@ Note that generation 3 data formatting and serialization uses MsgPack (`msgpackr
 
 ## 2026-05-18: Gen3 Data Formats Update
 Note that generation 3 data formatting uses `.jsonl` for source files in the repository for ease of review, which is then compiled into MsgPack via a Vite plugin for runtime use.
+- Sibling dependencies must strictly use node IDs (e.g., task-123-slug) instead of relative file paths to satisfy memory constraints.
