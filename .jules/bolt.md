@@ -89,6 +89,7 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 
 ## 2024-XX-XX
 * When attempting micro-optimizations, remember that replacing `Map.set` deduplication with `Set.has` check logic can alter programmatic behavior: `Map` creates a 'last-wins' overwrite strategy, whereas `Set` creates a 'first-wins' skip strategy. Do not implement such replacements when array order or precedence is meaningful to the application logic.
+
 ## O(N) array mapping and closure overhead in loops
 - **Learning:** Chaining array methods like `allEncounters.filter(lae => lae.enc.some(e => e.aid === localAid))` or `new Map(allEncounters.map(e => [e.pid, e]))` creates closures and intermediate array allocations. When processing large arrays on every keystroke/render, this causes unnecessary garbage collection and main thread blocking.
 - **Action:** Replaced `.filter().some()` chains and intermediate `Map` tuple arrays with traditional imperative `for` loops in `src/engine/assistant/suggestionEngine.ts`. This bypasses intermediate allocations and avoids closure creation, resulting in faster synchronous execution.

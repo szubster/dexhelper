@@ -403,3 +403,111 @@ test('coverage for recursive missing exclusive logic', () => {
   const exclusiveSuggestion = suggestions.find((s) => s.id === 'exclusive-6');
   expect(exclusiveSuggestion).toBeUndefined();
 });
+
+test('coverage for suggestionEngine multiple details filtering valid', () => {
+  const mockSaveData = {
+    generation: 1,
+    gameVersion: 'red',
+    owned: new Set([1]),
+    seen: new Set(),
+    party: [],
+    inventory: [
+      { id: 192, quantity: 1 },
+      { id: 198, quantity: 1 },
+    ],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    localAid: 0,
+    missingEncounters: {
+      2: {
+        pid: 2,
+        enc: [
+          {
+            aid: 0,
+            v: 1,
+            d: [
+              { c: 10, m: 2, min: 2, max: 4, t: null },
+              { c: 10, m: 3, min: 2, max: 4, t: null },
+            ],
+          },
+        ],
+      },
+    },
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      2: { id: 2, n: 'Ivysaur', efrm: [], det: [], eto: [] },
+    },
+    areaNames: {},
+    allLocations: [{ id: 0, n: 'Test Route', b: 0, m: [] }],
+    allAreas: [],
+  } as unknown as AssistantApiData;
+
+  const strategy = {
+    ...gen1Strategy,
+    getMapDistance: () => ({ distance: 0, name: 'Test Route' }),
+  };
+
+  const { suggestions } = generateSuggestions(
+    mockSaveData,
+    false,
+    'red',
+    mockApiData,
+    strategy as unknown as import('../strategies/types').AssistantStrategy,
+  );
+  expect(suggestions.length).toBeGreaterThan(0);
+});
+
+test('coverage for suggestionEngine pokemonId delete', () => {
+  const mockSaveData = {
+    generation: 1,
+    gameVersion: 'red',
+    owned: new Set([1]),
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    localAid: 0,
+    missingEncounters: {
+      2: {
+        pid: 2,
+        enc: [{ aid: 0, v: 1, d: [{ c: 10, m: 'headbutt', min: 2, max: 4, t: null }] }],
+      },
+    },
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      2: { id: 2, n: 'Ivysaur', efrm: [], det: [], eto: [] },
+    },
+    areaNames: {},
+    allLocations: [{ id: 0, n: 'Test Route', b: 0, m: [] }],
+    allAreas: [],
+  } as unknown as AssistantApiData;
+
+  const strategy = {
+    ...gen1Strategy,
+    getMapDistance: () => ({ distance: 0, name: 'Test Route' }),
+  };
+
+  const { suggestions } = generateSuggestions(
+    mockSaveData,
+    false,
+    'red',
+    mockApiData,
+    strategy as unknown as import('../strategies/types').AssistantStrategy,
+  );
+  expect(suggestions).toBeDefined();
+});

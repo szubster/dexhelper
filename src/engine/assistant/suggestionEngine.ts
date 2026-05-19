@@ -789,9 +789,7 @@ export function generateSuggestions(
   const myOtIds = new Set<number>();
   for (let i = 0; i < allInstances.length; i++) {
     const p = allInstances[i];
-    if (p && p.otName === saveData.trainerName) {
-      myOtIds.add(p.speciesId);
-    }
+    if (p && p.otName === saveData.trainerName) myOtIds.add(p.speciesId);
   }
 
   for (let i = 1; i <= maxDex; i++) {
@@ -815,8 +813,15 @@ export function generateSuggestions(
 
   const localPids = new Set<number>();
 
-  const hasHeadbutt = saveData.inventory.some((i) => i.id === 192 && i.quantity > 0);
-  const hasRockSmash = saveData.inventory.some((i) => i.id === 198 && i.quantity > 0);
+  let hasHeadbutt = false;
+  let hasRockSmash = false;
+  for (let i = 0; i < saveData.inventory.length; i++) {
+    const item = saveData.inventory[i];
+    if (item && item.quantity > 0) {
+      if (item.id === 192) hasHeadbutt = true;
+      if (item.id === 198) hasRockSmash = true;
+    }
+  }
 
   generateCatchSuggestions(
     apiData,
@@ -873,14 +878,18 @@ export function generateSuggestions(
       } else {
         // Update pokemonIds if some were completely filtered out
         if (suggestion.pokemonIds) {
-          suggestion.pokemonIds = suggestion.pokemonIds.filter((pid) => {
-            if (suggestion.encounterInfo?.[pid] !== undefined) {
-              return true;
-            } else {
-              localPids.delete(pid);
-              return false;
+          const newPokemonIds: number[] = [];
+          for (let pIdx = 0; pIdx < suggestion.pokemonIds.length; pIdx++) {
+            const pid = suggestion.pokemonIds[pIdx];
+            if (pid !== undefined) {
+              if (suggestion.encounterInfo?.[pid] !== undefined) {
+                newPokemonIds.push(pid);
+              } else {
+                localPids.delete(pid);
+              }
             }
-          });
+          }
+          suggestion.pokemonIds = newPokemonIds;
         }
       }
     }
@@ -912,9 +921,7 @@ export function generateSuggestions(
   const uniqueMap = new Map<string, Suggestion>();
   for (let i = 0; i < suggestions.length; i++) {
     const s = suggestions[i];
-    if (s) {
-      uniqueMap.set(s.id, s);
-    }
+    if (s) uniqueMap.set(s.id, s);
   }
   const uniqueSuggestions = Array.from(uniqueMap.values());
   uniqueSuggestions.sort((a, b) => b.priority - a.priority);
