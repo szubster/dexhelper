@@ -26,6 +26,6 @@ notes: ''
 Implement the logic to identify Nuzlocke violations when multiple Pokémon share the same `met_location`.
 
 ## Acceptance Criteria
-- [ ] Logic detects if more than one Pokémon is caught at the same `met_location`.
-- [ ] Flags violations accordingly.
-- [ ] Includes tests to verify correct violation detection.
+- [x] Logic detects if more than one Pokémon is caught at the same `met_location`.
+- [x] Flags violations accordingly.
+- [x] Includes tests to verify correct violation detection.
