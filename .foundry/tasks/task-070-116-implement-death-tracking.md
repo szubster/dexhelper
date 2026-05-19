@@ -1,11 +1,11 @@
 ---
 id: task-070-116-implement-death-tracking
 type: TASK
-title: "Implement Death Tracking and Graveyard Logic"
-status: PENDING
-owner_persona: "coder"
-created_at: "2026-05-18"
-updated_at: "2026-05-18"
+title: Implement Death Tracking and Graveyard Logic
+status: READY
+owner_persona: coder
+created_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - verification
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement Death Tracking and Graveyard Logic

@@ -2,12 +2,12 @@
 id: task-060-114-gen3-indoor-resolution-impl
 type: TASK
 title: Gen3 Indoor Resolution Impl
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '4009385360018663576'
+jules_session_id: null
 pr_number: null
 parent: story-032-060-gen3-indoor-resolution
 tags:

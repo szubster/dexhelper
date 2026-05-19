@@ -2,10 +2,10 @@
 id: story-033-067-heartbeat-state-transitions
 type: STORY
 title: State Transition Logic for PR-less Completions
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on:
   - .foundry/stories/story-033-066-heartbeat-prless-detection.md
 jules_session_id: null
