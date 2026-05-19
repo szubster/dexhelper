@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
-depends_on:
-  - .foundry/tasks/task-068-117-implement-heartbeat-tpm-logging.md
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-033-068-heartbeat-tpm-logging
@@ -30,4 +29,5 @@ Update the `foundry-heartbeat.ts` script to log appropriate messages to the TPM 
 When a PR-less session is handled and a state transition occurs (e.g., to `COMPLETED` or `FAILED`), these events must be audited. We log them into `.foundry/journals/tpm.md`.
 
 ## Acceptance Criteria
-- [ ] Appropriate logs are written to `.foundry/journals/tpm.md` whenever a PR-less session results in a state transition.
+- [ ] Update `transitionNodeToCompleted` in `.github/scripts/foundry-heartbeat.ts` to log appropriately when a PR-less completion occurs (`prNumber === null`).
+- [ ] Ensure the log message distinguishes between PR merged and Empty PR session completion.
