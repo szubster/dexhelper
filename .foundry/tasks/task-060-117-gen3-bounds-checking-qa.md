@@ -2,10 +2,10 @@
 id: task-060-117-gen3-bounds-checking-qa
 type: TASK
 title: QA Gen3 Bounds Checking
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on:
   - .foundry/tasks/task-060-116-gen3-bounds-checking-impl.md
 jules_session_id: '13769339573001013819'
