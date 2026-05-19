@@ -76,3 +76,5 @@ Note that generation 3 data formatting and serialization uses MsgPack (`msgpackr
 ## 2026-05-18: Gen3 Data Formats Update
 Note that generation 3 data formatting uses `.jsonl` for source files in the repository for ease of review, which is then compiled into MsgPack via a Vite plugin for runtime use.
 - Sibling dependencies must strictly use node IDs (e.g., task-123-slug) instead of relative file paths to satisfy memory constraints.
+## 2026-05-19: Handling Failed Leaf Tasks
+- **Pattern Insight:** When a leaf task (e.g. a `coder` or `qa` TASK) fails permanently by reaching its Max Rejection Count, the best course of action is to spawn a `RESEARCH` node to investigate the root cause, followed by a new set of implementation and QA tasks that explicitly depend on the `RESEARCH` node. This isolates the unknown factor and ensures the new attempt is informed. Append these new nodes to the parent node.
