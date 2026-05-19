@@ -26,5 +26,5 @@ notes: ''
 Validate the implementation of the logic to aggregate caught Pokémon by their `met_location`.
 
 ## Acceptance Criteria
-- [ ] Run test suites to verify that `met_location` aggregation logic functions as expected.
-- [ ] Verify test coverage is sufficient.
+- [x] Run test suites to verify that `met_location` aggregation logic functions as expected.
+- [x] Verify test coverage is sufficient.
