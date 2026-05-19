@@ -20,5 +20,5 @@ rejection_reason: ''
 QA validate the `.jsonl` to MsgPack serialization and formatting of Gen 3 data via the Vite plugin.
 
 ## Acceptance Criteria
-- [ ] QA verifies the source files are `.jsonl`.
-- [ ] QA verifies the Vite plugin correctly compiles `.jsonl` into MsgPack.
+- [x] QA verifies the source files are `.jsonl`.
+- [x] QA verifies the Vite plugin correctly compiles `.jsonl` into MsgPack.
