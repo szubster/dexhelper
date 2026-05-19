@@ -218,9 +218,14 @@ test('DagDashboard handles selection and highlighting', async () => {
   if (paneEl) paneEl.dispatchEvent(new MouseEvent('click', { bubbles: true }));
   await vi.waitFor(async () => await expect.element(n2DagNode).not.toHaveClass('!border-cyan-500'), { timeout: 3000 });
 
-  // Hit onNodeMouseLeave and onNodeMouseEnter logic
-  n2El.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
-  n2El.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+  // Hit onNodeMouseLeave and onNodeMouseEnter logic via fireEvent or element
+  n2DagNode.element().dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+  n2DagNode.element().dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+
+  // To make sure coverage on filter logic handles undefined
+  const taskTypeButton = page.getByRole('button', { name: 'TASK' });
+  await taskTypeButton.click();
+  await taskTypeButton.click();
 });
 
 test('DagDashboard handles non-ok fetch response', async () => {
