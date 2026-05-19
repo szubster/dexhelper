@@ -23,5 +23,5 @@ notes: ''
 Validate the implementation done by the coder.
 
 ## Acceptance Criteria
-- [ ] Run `pnpm test` and ensure all tests pass.
-- [ ] Verify `DagDashboard.tsx` behaves as expected.
+- [x] Run `pnpm test` and ensure all tests pass.
+- [x] Verify `DagDashboard.tsx` behaves as expected.
