@@ -114,3 +114,9 @@
 **Outcome:** Accepted
 **Why:** The memory requires the QA agent to not modify its own QA task's YAML frontmatter when a task's implementation fails validation. It must only update its markdown body to note the failure, while modifying the target task's frontmatter.
 **Pattern:** Proposing changes to update QA agent rules to respect orchestrator constraints regarding QA node status vs target node status.
+
+## 2026-07-05 - [Accepted] - Prompt improvement - Ignore false negatives on empty PRs
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The memory requires agents to ignore false negatives from `request_code_review` when executing the Empty PR Policy (checking off boxes). This needed to be codified in the central `core_policies.md` since agent prompts shouldn't duplicate empty PR rules.
+**Pattern:** Codify memory constraints into the central knowledge base when they apply to all agents.
