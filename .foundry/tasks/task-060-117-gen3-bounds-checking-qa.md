@@ -2,7 +2,7 @@
 id: task-060-117-gen3-bounds-checking-qa
 type: TASK
 title: QA Gen3 Bounds Checking
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-19'

@@ -2,7 +2,7 @@
 id: task-067-114-implement-heartbeat-state-transitions
 type: TASK
 title: Implement State Transition Logic for PR-less Completions
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
@@ -15,7 +15,7 @@ tags:
   - dag
   - orchestrator
   - heartbeat
-rejection_count: 0
+rejection_count: 1
 rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---

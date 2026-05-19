@@ -2,10 +2,10 @@
 id: task-061-115-gen3-distance-lookup-qa
 type: TASK
 title: QA Gen3 getDistanceToMap
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on:
   - task-061-114-gen3-distance-lookup-impl
 jules_session_id: null

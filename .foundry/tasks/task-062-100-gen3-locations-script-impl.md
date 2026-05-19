@@ -5,12 +5,12 @@ title: Implement Gen 3 Locations Fetch Script
 status: FAILED
 owner_persona: coder
 created_at: '2026-05-17'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
 jules_session_id: null
 parent: story-032-062-gen3-data-generation-scripts
-rejection_count: 2
-rejection_reason: 'Missing implementation for fetching Gen 3 locations from pret/pokeemerald'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 ---
 
 # Implement Gen 3 Locations Fetch Script

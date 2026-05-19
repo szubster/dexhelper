@@ -2,12 +2,12 @@
 id: task-058-112-implement-stat-evolutions
 type: TASK
 title: Implement Stat-Based Evolutions
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '9782018477990895449'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
 tags:

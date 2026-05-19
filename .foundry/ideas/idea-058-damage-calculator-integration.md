@@ -2,19 +2,22 @@
 id: idea-058-damage-calculator-integration
 type: IDEA
 title: Damage Calculator and Showdown Export Integration
-status: PENDING
-owner_persona: "human"
-created_at: "2026-05-19"
-updated_at: "2026-05-19"
+status: ACTIVE
+owner_persona: human
+created_at: '2026-05-19'
+updated_at: '2026-05-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: null
-tags: ["feature", "showdown", "calculator"]
+tags:
+  - feature
+  - showdown
+  - calculator
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Idea: Damage Calculator and Showdown Export Integration

@@ -2,10 +2,10 @@
 id: task-058-113-qa-stat-evolutions
 type: TASK
 title: 'QA: Implement Stat-Based Evolutions'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on:
   - .foundry/tasks/task-058-112-implement-stat-evolutions.md
 jules_session_id: null
