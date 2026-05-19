@@ -2,12 +2,12 @@
 id: task-061-122-gen3-legacy-compatibility-impl
 type: TASK
 title: Gen3 Data Parsing Legacy Compatibility Implementation Verification
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-19'
 updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2267175509711771506'
 pr_number: null
 parent: story-032-061-gen3-legacy-compatibility
 tags:
