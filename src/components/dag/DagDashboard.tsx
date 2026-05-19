@@ -9,6 +9,23 @@ import { getHighlightPath } from '../../utils/dag/highlighting';
 import { DagFilterPanel } from './DagFilterPanel';
 import { DagNode, type DagNodeData } from './DagNode';
 
+export function getMiniMapNodeColor(node: FlowNode<DagNodeData>): string {
+  switch (node.data?.status) {
+    case 'COMPLETED':
+      return '#10b981'; // emerald-500
+    case 'ACTIVE':
+    case 'IN_PROGRESS':
+      return '#ef4444'; // var(--theme-primary) roughly
+    case 'FAILED':
+    case 'BLOCKED':
+      return '#ef4444'; // red-500
+    case 'READY':
+      return '#f59e0b'; // amber-500
+    default:
+      return '#52525b'; // zinc-600
+  }
+}
+
 const nodeTypes = {
   custom: DagNode,
 };
@@ -228,22 +245,7 @@ export function DagDashboard() {
         <MiniMap
           className="!bg-zinc-900 !border !border-dashed !border-zinc-800 !rounded-none"
           maskColor="rgba(0, 0, 0, 0.7)"
-          nodeColor={(node: FlowNode<DagNodeData>) => {
-            switch (node.data.status) {
-              case 'COMPLETED':
-                return '#10b981'; // emerald-500
-              case 'ACTIVE':
-              case 'IN_PROGRESS':
-                return '#ef4444'; // var(--theme-primary) roughly
-              case 'FAILED':
-              case 'BLOCKED':
-                return '#ef4444'; // red-500
-              case 'READY':
-                return '#f59e0b'; // amber-500
-              default:
-                return '#52525b'; // zinc-600
-            }
-          }}
+          nodeColor={getMiniMapNodeColor}
         />
       </ReactFlow>
     </div>

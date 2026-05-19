@@ -1,7 +1,7 @@
 import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { DagDashboard } from '../DagDashboard';
+import { DagDashboard, getMiniMapNodeColor } from '../DagDashboard';
 
 test('DagDashboard renders correctly on successful load', async () => {
   // Mock fetch to return some dummy DAG data corresponding to ParsedNode structure
@@ -285,4 +285,61 @@ test('DagDashboard catches and logs fetch errors securely', async () => {
   expect(consoleErrorSpy).toHaveBeenCalledWith('System: DAG loading failed');
 
   consoleErrorSpy.mockRestore();
+});
+
+test('getMiniMapNodeColor returns correct color based on status', () => {
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'COMPLETED', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#10b981');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'ACTIVE', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#ef4444');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'IN_PROGRESS', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#ef4444');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'FAILED', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#ef4444');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'BLOCKED', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#ef4444');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'READY', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#f59e0b');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { status: 'UNKNOWN' },
+    } as unknown as import('@xyflow/react').Node<import('../DagNode').DagNodeData>),
+  ).toBe('#52525b');
+  expect(
+    getMiniMapNodeColor({ id: '1', position: { x: 0, y: 0 }, data: {} } as unknown as import('@xyflow/react').Node<
+      import('../DagNode').DagNodeData
+    >),
+  ).toBe('#52525b');
 });
