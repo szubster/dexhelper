@@ -212,6 +212,17 @@ test('DagDashboard handles selection and highlighting', async () => {
   // Test pane click to deselect
   n2El.click();
   await vi.waitFor(async () => await expect.element(n2DagNode).toHaveClass('!border-cyan-500'), { timeout: 3000 });
+
+  // To hit onPaneClick logic
+  const paneEl = page
+    .elementLocator(page.getByText('node-3').element().closest('.react-flow') || document.body)
+    .element();
+  (paneEl.querySelector('.react-flow__pane') as HTMLElement)?.click();
+  await vi.waitFor(async () => await expect.element(n2DagNode).not.toHaveClass('!border-cyan-500'), { timeout: 3000 });
+
+  // Hit onNodeMouseLeave and onNodeMouseEnter logic
+  n2El.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+  n2El.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
 });
 
 test('DagDashboard handles non-ok fetch response', async () => {
