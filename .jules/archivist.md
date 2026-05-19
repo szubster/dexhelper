@@ -44,3 +44,7 @@
 
 **Learning:** Memory entries that reference specific external instruction files (like `testing_rules.md`) can become inaccurate or broken if the referenced file is moved to a new directory structure (like `.agents/rules/`).
 **Action:** Corrected path references in `onboarding/style_and_conventions.md` to point to `.agents/rules/testing_rules.md` to ensure onboarding rules point to actual existent files.
+
+## 2026-07-02
+**Learning:** Multiple agents (Coder, QA, Tech Lead, Sweeper, Testing) were using their journals to log "I did X" actions, task verification records, and status updates instead of critical learnings. This bloats context windows and provides no value to future runs. The Empty PR Policy and Core Agent Policies are centralized, so agents do not need to log routine empty PRs.
+**Action:** Cleared out action logs and status updates from the affected journals. Ensure agents are strictly adhering to only logging universally applicable knowledge or constraints.
