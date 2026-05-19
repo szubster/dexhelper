@@ -9,3 +9,8 @@
 **Idea:** Automated Nuzlocke Verification and Run Tracker
 **Learning:** Automating tedious, manual community workflows (like Nuzlocke tracking spreadsheets) by leveraging our existing programmatic save file data provides extremely high unique value.
 **Outcome:** Created IDEA node.
+
+## 2026-05-19
+**Idea:** Damage Calculator and Showdown Export Integration
+**Learning:** Expanding on the Nuzlocke Tracker idea, we can bridge the gap to external tools. Players heavily rely on damage calculators (like Showdown's) for planning. Providing an export of their exact team stats (DVs, EVs, etc) directly from their save file eliminates tedious data entry and errors, offering immense value to the competitive/challenge community.
+**Outcome:** Created IDEA node.
