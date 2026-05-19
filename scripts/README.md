@@ -33,7 +33,7 @@ A continuous integration wrapper that automates the data regeneration and commit
 
 *   **Process:**
     1. Executes `generate-pokedata.ts` using `tsx`.
-    2. Checks `git status` for diffs in the generated output (`public/data/pokedata.json` / `data/db/`).
+    2. Checks `git status` for diffs in the generated output (`data/db/` and `pokedata.msgpack`).
     3. If changes exist, creates a new branch, commits the updates with the upstream PokeAPI SHA in the message, and opens a GitHub PR.
 *   **Usage:** Automatically executed by GitHub Actions or manually triggered by developers.
 
