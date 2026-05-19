@@ -384,6 +384,8 @@
 
 - **2026-05-18**: PR #1498 merged. `task-062-100-gen3-locations-script-impl` is now COMPLETED.
 
+## Learnings
+When archiving nodes, all references in parent stories and journal logs must be updated with the new path to prevent DAG deadlocks.
 - **2026-05-19**: PR #1503 merged. `story-034-069-automated-route-tracking` is now COMPLETED.
 
 - **2026-05-19**: PR #1504 merged. `story-034-070-death-tracking-and-graveyard` is now COMPLETED.
