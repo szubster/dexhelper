@@ -2,13 +2,13 @@
 id: task-069-118-detect-violations-impl
 type: TASK
 title: Detect multiple encounters per location
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on:
   - task-069-116-aggregate-encounters-impl
-jules_session_id: null
+jules_session_id: '12321926426266647865'
 pr_number: null
 parent: story-034-069-automated-route-tracking
 tags:
