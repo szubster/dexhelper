@@ -821,7 +821,11 @@ export function generateSuggestions(
   for (let i = 1; i <= maxDex; i++) {
     if (!ownedSet.has(i)) {
       if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0) {
-        rejected.push({ pokemonId: i, reason: 'Hall of Fame count is 0. Mewtwo is locked.', code: 'HOF_LOCKED' });
+        rejected.push({
+          pokemonId: i,
+          reason: 'Hall of Fame count is 0. Mewtwo is locked.',
+          code: 'HOF_LOCKED',
+        });
         continue;
       }
       missingIds.add(i);
@@ -840,9 +844,9 @@ export function generateSuggestions(
   const localPids = new Set<number>();
 
   const hasHeadbutt =
-    saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) && ((saveData.johtoBadges || 0) & (1 << 1)) !== 0; // Hive badge is bit 1
+    saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) || allInstances.some((p) => p.moves?.includes(29));
   const hasRockSmash =
-    saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) && ((saveData.johtoBadges || 0) & (1 << 2)) !== 0; // Plain badge is bit 2
+    saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) || allInstances.some((p) => p.moves?.includes(249));
 
   generateCatchSuggestions(
     apiData,

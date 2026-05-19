@@ -30,7 +30,6 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "msgpackr": "^1.11.12",
     "@tanstack/react-query": "^5.100.11",
     "@tanstack/react-router": "^1.170.4",
     "@tanstack/react-router-devtools": "^1.167.0",
@@ -40,6 +39,7 @@
     "dataloader": "^2.2.3",
     "idb": "^8.0.3",
     "lucide-react": "^1.16.0",
+    "msgpackr": "^1.11.12",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "tailwind-merge": "^3.6.0",
