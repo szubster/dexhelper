@@ -2,13 +2,13 @@
 id: task-062-101-gen3-locations-script-qa
 type: TASK
 title: QA Gen 3 Locations Fetch Script
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-17'
-updated_at: '2026-05-17'
+updated_at: '2026-05-18'
 depends_on:
   - task-062-100-gen3-locations-script-impl
-jules_session_id: null
+jules_session_id: '13159964616224565259'
 parent: story-032-062-gen3-data-generation-scripts
 rejection_count: 0
 rejection_reason: ''

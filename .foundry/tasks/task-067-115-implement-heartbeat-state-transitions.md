@@ -1,16 +1,16 @@
 ---
-id: story-033-067-heartbeat-state-transitions
-type: STORY
-title: State Transition Logic for PR-less Completions
+id: task-067-115-implement-heartbeat-state-transitions
+type: TASK
+title: Implement State Transition Logic for PR-less Completions
 status: PENDING
-owner_persona: story_owner
+owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/stories/story-033-066-heartbeat-prless-detection.md
+  - .foundry/tasks/task-067-114-implement-heartbeat-state-transitions.md
 jules_session_id: null
 pr_number: null
-parent: epic-025-033-robust-session-completion
+parent: story-033-067-heartbeat-state-transitions
 tags:
   - foundry
   - dag
@@ -21,7 +21,7 @@ rejection_reason: ''
 notes: ''
 ---
 
-# STORY: State Transition Logic for PR-less Completions
+# TASK: Implement State Transition Logic for PR-less Completions
 
 ## Objective
 Implement the state transition logic for PR-less `COMPLETED` sessions in `foundry-heartbeat.ts` according to the rules defined in ADR 011 and ADR 007.
@@ -37,11 +37,6 @@ Once a PR-less `COMPLETED` session is detected (handled in Story 066), the heart
 5. If all boxes checked (or no boxes exist) -> Transition to `COMPLETED`.
 
 ## Acceptance Criteria
-- [x] PR-less `COMPLETED` sessions for leaf tasks with unchecked boxes are marked `FAILED` with a rejection reason.
-- [x] PR-less `COMPLETED` sessions for valid parents with unchecked boxes are transitioned correctly to `PENDING`.
-- [x] PR-less `COMPLETED` sessions with all boxes checked (or no boxes) are marked `COMPLETED`.
-
-## Downstream Nodes
-- TASK: `.foundry/tasks/task-067-114-implement-heartbeat-state-transitions.md`
-- TASK: `.foundry/tasks/task-067-115-implement-heartbeat-state-transitions.md`
-- TASK: `.foundry/tasks/task-067-116-qa-heartbeat-state-transitions.md`
+- [ ] PR-less `COMPLETED` sessions for leaf tasks with unchecked boxes are marked `FAILED` with a rejection reason.
+- [ ] PR-less `COMPLETED` sessions for valid parents with unchecked boxes are transitioned correctly to `PENDING`.
+- [ ] PR-less `COMPLETED` sessions with all boxes checked (or no boxes) are marked `COMPLETED`.
