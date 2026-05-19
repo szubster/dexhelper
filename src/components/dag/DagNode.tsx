@@ -3,14 +3,14 @@ import { cn } from '../../utils/cn';
 import { CornerCrosshairs } from '../CornerCrosshairs';
 import { TelemetryDecoration } from '../TelemetryDecoration';
 
-export interface DagNodeData {
+export type DagNodeData = Record<string, unknown> & {
   type: string;
   status: string;
   owner_persona: string;
-  label?: string; // We can use the ID as the label
+  label?: string;
   isHighlighted?: boolean;
   isDimmed?: boolean;
-}
+};
 
 export function DagNode({ data }: { data: DagNodeData }) {
   let statusColor = 'text-zinc-500';

@@ -52,3 +52,4 @@ The compiler statically guarantees that the `StatusType` union and the `STATUS_O
   ```
   This cleanly resolves strict index-signature property access errors without needing any `as` casts or `// biome-ignore` overrides, keeping the type guard both safe and readable.
 - Use a generic `objectEntries` or `objectKeys` utility wrapper rather than inline `as` casts when iterating over objects with string literal union keys (e.g. `Record<UnionType, ValueType>`). TypeScript's standard `Object.entries` widens string literal types to `string` in keys, leading to unsafe casts back to the union type, which can be cleanly avoided with a simple generic typed utility.
+- When using React Flow (`@xyflow/react`), custom node data types provided to the `FlowNode<T>` generic must explicitly extend or intersect with `Record<string, unknown>` to satisfy TypeScript constraints.
