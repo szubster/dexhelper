@@ -2,13 +2,13 @@
 id: task-062-111-gen3-data-formatting-msgpack-qa
 type: TASK
 title: QA Gen 3 Data Formatting with MsgPack
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on:
   - task-062-110-gen3-data-formatting-msgpack-impl
-jules_session_id: null
+jules_session_id: '15381565709655516405'
 parent: story-032-062-gen3-data-generation-scripts
 rejection_count: 0
 rejection_reason: ''
