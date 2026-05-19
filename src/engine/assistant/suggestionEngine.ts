@@ -820,8 +820,10 @@ export function generateSuggestions(
 
   const localPids = new Set<number>();
 
-  const hasHeadbutt = saveData.inventory.some((i) => i.id === 192 && i.quantity > 0);
-  const hasRockSmash = saveData.inventory.some((i) => i.id === 198 && i.quantity > 0);
+  const hasHeadbutt =
+    saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) && ((saveData.johtoBadges || 0) & (1 << 1)) !== 0; // Hive badge is bit 1
+  const hasRockSmash =
+    saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) && ((saveData.johtoBadges || 0) & (1 << 2)) !== 0; // Plain badge is bit 2
 
   generateCatchSuggestions(
     apiData,
