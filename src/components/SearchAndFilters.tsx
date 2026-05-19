@@ -52,13 +52,8 @@ export function SearchAndFilters() {
         </TacticalInput>
 
         {/* Tactical Filter Toggles */}
-        {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
-        {/* biome-ignore lint/a11y/useSemanticElements: We use role="group" instead of <fieldset> for better screen reader compatibility with aria-label without a <legend> */}
-        <div
-          role="group"
-          className="no-scrollbar m-0 mt-2 flex min-w-0 gap-2 overflow-x-auto border-none p-0 px-1 pb-2"
-          aria-label="Filter Pokémon"
-        >
+        <fieldset className="no-scrollbar m-0 mt-2 flex min-w-0 gap-2 overflow-x-auto border-none p-0 px-1 pb-2">
+          <legend className="sr-only">Filter Pokémon</legend>
           <TacticalButton
             type="button"
             onClick={() => setFilters([])}
@@ -82,7 +77,7 @@ export function SearchAndFilters() {
               {f === 'secured' ? 'Secured' : f === 'missing' ? 'Missing' : 'Dex Only'}
             </TacticalButton>
           ))}
-        </div>
+        </fieldset>
       </div>
     </div>
   );
