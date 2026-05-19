@@ -5,6 +5,7 @@ import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { TacticalButton } from './TacticalButton';
 
 interface AppHeaderProps {
   saveData: SaveData | null;
@@ -170,26 +171,26 @@ export function AppHeader({
           <div className="mx-2 hidden h-8 w-[1px] bg-white/5 lg:block" />
 
           <div className="flex gap-2">
-            <button
-              type="button"
+            <TacticalButton
               onClick={() => setIsSettingsOpen(true)}
               aria-label="System Settings"
-              className="group relative flex items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-900/50 p-3 text-zinc-400 transition-all hover:border-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/10 hover:text-[var(--theme-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              variant="sidebar"
+              size="icon"
+              hasCrosshairs={true}
               title="System Settings"
             >
-              <CornerCrosshairs className="h-1 w-1 border-current opacity-0 transition-opacity group-hover:opacity-100" />
               <Settings2 size={20} />
-            </button>
-            <button
-              type="button"
+            </TacticalButton>
+            <TacticalButton
               onClick={() => document.getElementById('import-save-input')?.click()}
-              className="group relative flex cursor-pointer items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-900/50 p-3 text-zinc-400 transition-all hover:border-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/10 hover:text-[var(--theme-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              variant="sidebar"
+              size="icon"
+              hasCrosshairs={true}
               title="Import New Save"
               aria-label="Import New Save"
             >
-              <CornerCrosshairs className="h-1 w-1 border-current opacity-0 transition-opacity group-hover:opacity-100" />
               <RefreshCw size={20} />
-            </button>
+            </TacticalButton>
             <input
               id="import-save-input"
               type="file"

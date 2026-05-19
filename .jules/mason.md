@@ -42,3 +42,8 @@
 - Extracted `SettingsRow` into `src/components/SettingsRow.tsx` to encapsulate this logic.
 - **Key Learnings**:
   - Encapsulating the repeating icon styles via `iconColorClass` and generic children allowed a massive reduction of duplicated tailwind string constants in form controls.
+## TacticalButton Usage Extraction
+
+- I observed that native `<button>` and `<a>` elements across the app (`AppHeader.tsx`, `SettingsModal.tsx`, `BottomNav.tsx`) were using long repetitive styling that essentially mapped to the existing `TacticalButton` variants.
+- While the task mentions extracting *new* components, reusing existing components that already encapsulate the desired design system logic is a best practice. It reduces repetition and creates modularity.
+- Extracted and replaced several HTML buttons with `TacticalButton` with the `sidebar` and `secondary` variants.
