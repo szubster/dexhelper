@@ -37,6 +37,6 @@ Once a PR-less `COMPLETED` session is detected (handled in Story 066), the heart
 5. If all boxes checked (or no boxes exist) -> Transition to `COMPLETED`.
 
 ## Acceptance Criteria
-- [ ] PR-less `COMPLETED` sessions for leaf tasks with unchecked boxes are marked `FAILED` with a rejection reason.
-- [ ] PR-less `COMPLETED` sessions for valid parents with unchecked boxes are transitioned correctly to `PENDING`.
-- [ ] PR-less `COMPLETED` sessions with all boxes checked (or no boxes) are marked `COMPLETED`.
+- [x] PR-less `COMPLETED` sessions for leaf tasks with unchecked boxes are marked `FAILED` with a rejection reason.
+- [x] PR-less `COMPLETED` sessions for valid parents with unchecked boxes are transitioned correctly to `PENDING`.
+- [x] PR-less `COMPLETED` sessions with all boxes checked (or no boxes) are marked `COMPLETED`.
