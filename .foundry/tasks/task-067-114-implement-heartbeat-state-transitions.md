@@ -36,4 +36,4 @@ Once a PR-less `COMPLETED` session is detected (handled in Story 066), the heart
 5. If all boxes checked (or no boxes exist) -> Transition to `COMPLETED`.
 
 ## Acceptance Criteria
-- [ ] Write tech lead blueprint for the state transition logic.
+- [x] Write tech lead blueprint for the state transition logic.
