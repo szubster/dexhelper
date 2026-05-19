@@ -32,3 +32,6 @@ Created ADR 011 and Epic 025-033 to handle robust session completion in the hear
 This addresses the issue where the orchestrator falsely marks empty PR runs as failed. The heartbeat will now correctly evaluate nodes with a COMPLETED Jules session state without a PR, applying ADR 007 acceptance criteria rules before transitioning the node state.
 
 - 2026-05-18: Decided that Nuzlocke death tracking requires a UI setting to designate a specific PC box as a Graveyard to persist state without mutating the game ROM.
+
+## 2026-05-19: Kanban Board Integration
+Created ADR 013 detailing how the new DAG Kanban Board will integrate with the existing React Flow visualizer. Crucially, the board will act as a separate UI component but share the same core DAG data state via a React Context. This avoids redundant data fetching and ensures synchronization between the graph and board views.
