@@ -18,12 +18,12 @@ test('coverage for suggestionEngine new lines', () => {
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
     partyDetails: [
-      { speciesId: 133, level: 20, otName: 'PLAYER' } as PokemonInstance,
-      { speciesId: 236, level: 20, otName: 'PLAYER' } as PokemonInstance,
-      { speciesId: 67, level: 30, otName: 'PLAYER' } as PokemonInstance,
-      { speciesId: 95, level: 30, otName: 'PLAYER' } as PokemonInstance,
+      { speciesId: 133, level: 20, otName: 'PLAYER', moves: [29] } as unknown as PokemonInstance,
+      { speciesId: 236, level: 20, otName: 'PLAYER', moves: [] } as unknown as PokemonInstance,
+      { speciesId: 67, level: 30, otName: 'PLAYER', moves: [] } as unknown as PokemonInstance,
+      { speciesId: 95, level: 30, otName: 'PLAYER', moves: [] } as unknown as PokemonInstance,
     ],
-    pcDetails: [],
+    pcDetails: [{ speciesId: 95, level: 30, otName: 'PLAYER', moves: [249] } as unknown as PokemonInstance],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
 

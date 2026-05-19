@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
+import type { PokemonInstance } from '../../saveParser/parsers/common';
 import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { EncounterDetail } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngine';
@@ -591,7 +592,7 @@ describe('generateSuggestions', () => {
         isShiny: false,
         moves: [29, 249],
         storageLocation: 'Party',
-      },
+      } as unknown as PokemonInstance,
     ];
     const result3 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch3 = result3.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
