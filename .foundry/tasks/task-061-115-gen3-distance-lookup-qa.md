@@ -32,5 +32,5 @@ Verify that `getDistanceToMap` accurately returns distances using the precompute
 - Verify O(1) performance lookup behavior.
 
 ## Acceptance Criteria
-- [ ] Unit tests for `getDistanceToMap` cover various scenarios (direct connection, no connection, same location).
-- [ ] All tests pass successfully.
+- [x] Unit tests for `getDistanceToMap` cover various scenarios (direct connection, no connection, same location).
+- [x] All tests pass successfully.
