@@ -41,3 +41,4 @@ Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While t
 
 ## Sanitize Error Logging (CWE-209)
 **Pattern:** While application code requires generic error logs to prevent CWE-209, build scripts and CI GitHub actions (`scripts/` and `.github/scripts/`) MUST retain raw error objects (e.g. `console.error(e)`) as they are essential for debugging CI failures.
+**Pattern:** When mitigating vulnerable sub-dependencies flagged by `pnpm audit` (like `ws`), use the `pnpm.overrides` field in `package.json` to securely enforce the patched version down the dependency tree. Also, to fix CWE-285 vulnerabilities (incomplete URL substring matching) flagged by CodeQL, use `.endsWith()` or `.startsWith()` instead of `.includes()` when inspecting URLs.
