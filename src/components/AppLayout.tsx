@@ -11,8 +11,6 @@ import { BottomNav } from './BottomNav';
 import { GlobalError } from './GlobalError';
 import { RetroBackground } from './RetroBackground';
 import { SettingsModal } from './SettingsModal';
-import { SideNav } from './SideNav';
-
 import { VersionModal } from './VersionModal';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
@@ -82,21 +80,18 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="lcd-flicker pointer-events-none absolute inset-0 bg-white/10" />
       </div>
 
-      <div className="mx-auto flex min-h-screen max-w-[1600px]">
-        <SideNav />
-        <div className="flex min-w-0 flex-1 flex-col">
-          <AppHeader
-            saveData={saveData}
-            effectiveVersion={effectiveVersion}
-            setIsSettingsOpen={setIsSettingsOpen}
-            setIsVersionModalOpen={setIsVersionModalOpen}
-            handleFileUpload={handleFileUpload}
-          />
+      <div className="mx-auto flex min-h-screen max-w-[1600px] flex-col">
+        <AppHeader
+          saveData={saveData}
+          effectiveVersion={effectiveVersion}
+          setIsSettingsOpen={setIsSettingsOpen}
+          setIsVersionModalOpen={setIsVersionModalOpen}
+          handleFileUpload={handleFileUpload}
+        />
 
-          <GlobalError error={error} />
+        <GlobalError error={error} />
 
-          <main className="flex-1 px-4 pt-4 pb-12">{children}</main>
-        </div>
+        <main className="flex-1 px-4 pt-4 pb-12">{children}</main>
       </div>
 
       <BottomNav />

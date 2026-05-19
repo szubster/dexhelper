@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { RefreshCw, Settings2, Upload, Zap } from 'lucide-react';
+import { Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
@@ -45,6 +45,57 @@ export function AppHeader({
             </div>
           </div>
         </Link>
+
+        {/* Desktop Navigation */}
+        {saveData && (
+          <nav className="hidden items-center gap-4 sm:flex">
+            <Link
+              to="/"
+              activeProps={{
+                className:
+                  'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+              }}
+              inactiveProps={{
+                className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+              }}
+              className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            >
+              <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+              <LayoutGrid size={14} />
+              SYS.DEX
+            </Link>
+            <Link
+              to="/storage"
+              activeProps={{
+                className:
+                  'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+              }}
+              inactiveProps={{
+                className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+              }}
+              className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            >
+              <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+              <Database size={14} />
+              SYS.STRG
+            </Link>
+            <Link
+              to="/assistant"
+              activeProps={{
+                className:
+                  'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+              }}
+              inactiveProps={{
+                className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+              }}
+              className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            >
+              <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+              <Sparkles size={14} />
+              SYS.ASST
+            </Link>
+          </nav>
+        )}
       </div>
 
       {saveData ? (
