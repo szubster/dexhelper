@@ -25,6 +25,6 @@ notes: ''
 Implement the logic to aggregate caught Pokémon by their `met_location` from the save file (both Party and PC). This will be used to identify first encounters.
 
 ## Acceptance Criteria
-- [ ] Logic extracts `met_location` from all caught Pokémon in the active save.
-- [ ] Encounters are aggregated by location.
-- [ ] Tests are written to ensure the aggregation works properly.
+- [x] Logic extracts `met_location` from all caught Pokémon in the active save.
+- [x] Encounters are aggregated by location.
+- [x] Tests are written to ensure the aggregation works properly.
