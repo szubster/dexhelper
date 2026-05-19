@@ -62,7 +62,7 @@ describe('generateSuggestions', () => {
       generation: 2,
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy, null);
     const suggestion = suggestions.find((s) => s.id === 'evo-trade-held-208');
     expect(suggestion).toBeDefined();
     expect(suggestion?.title).toBe('Ready to Trade Evolve: #208!');
@@ -106,7 +106,7 @@ describe('generateSuggestions', () => {
       allLocations: [{ id: 1, n: 'Pallet Town', r: 'Kanto', a: [{ id: 1, n: 'Pallet Town Area' }] }],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy, null);
 
     const localSuggestion = suggestions.find((s) => s.id === 'catch-local');
     expect(localSuggestion).toBeDefined();
@@ -164,7 +164,7 @@ describe('generateSuggestions', () => {
       },
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, mockStrategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, mockStrategy, null);
 
     const nearbySuggestion = suggestions.find((s) => s.id === 'catch-nearby-19');
     expect(nearbySuggestion).toBeDefined();
@@ -203,7 +203,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy, null);
 
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeDefined();
@@ -239,7 +239,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy, null);
 
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeUndefined();
@@ -278,7 +278,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy, null);
 
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeUndefined();
@@ -309,7 +309,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy, null);
 
     const tradeSuggestion = suggestions.find((s) => s.id === 'npc-trade-122');
     expect(tradeSuggestion).toBeUndefined();
@@ -386,7 +386,7 @@ describe('generateSuggestions', () => {
       generation: 2, // Must be 2 for Gen2 logic
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategy, null);
 
     const breedSuggestion = suggestions.find((s) => s.id === 'breed-152');
     expect(breedSuggestion).toBeDefined();
@@ -503,7 +503,7 @@ describe('generateSuggestions', () => {
       generation: 2,
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy, null);
 
     const evoSuggestion = suggestions.find((s) => s.id === 'evo-lvl-any-196');
     expect(evoSuggestion).toBeDefined();
@@ -567,7 +567,7 @@ describe('generateSuggestions', () => {
     // 1. Missing item
     localSaveData.generation = 2;
     localSaveData.inventory = [];
-    const result1 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const result1 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy, null);
     const catch1 = result1.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch1).toBeUndefined(); // Filtered out
 
@@ -576,7 +576,7 @@ describe('generateSuggestions', () => {
       { id: 192, quantity: 1 },
       { id: 198, quantity: 1 },
     ];
-    const result2 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const result2 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy, null);
     const catch2 = result2.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch2).toBeDefined(); // Included
     expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);

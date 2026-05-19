@@ -31,7 +31,7 @@ describe('suggestionEngine - checkFlag Edge Cases', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy, null);
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeDefined();
   });
@@ -62,7 +62,7 @@ describe('suggestionEngine - checkFlag Edge Cases', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy, null);
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeDefined();
   });

@@ -751,6 +751,7 @@ export function generateSuggestions(
   manualVersion: string | null | undefined,
   apiData: AssistantApiData | null,
   strategy: AssistantStrategy,
+  graveyardBoxId: number | null = null,
 ): { suggestions: Suggestion[]; debug: { rejected: RejectedSuggestion[] } } {
   const suggestions: Suggestion[] = [];
   const rejected: RejectedSuggestion[] = [];
@@ -761,11 +762,21 @@ export function generateSuggestions(
   // ⚡ Bolt: Optimize O(n) array includes to O(1) Set has for missingIds and localPids
   const missingIds = new Set<number>();
 
+  const graveyardLocation = graveyardBoxId !== null ? `Box ${graveyardBoxId}` : null;
+  const isDead = (p: PokemonInstance) => {
+    if (p.storageLocation === 'Party' && p.currentHp === 0) return true;
+    if (graveyardLocation && p.storageLocation === graveyardLocation) return true;
+    return false;
+  };
+
+  const validPartyDetails = (saveData.partyDetails || []).filter((p) => !isDead(p));
+  const validPcDetails = (saveData.pcDetails || []).filter((p) => !isDead(p));
+
   const ownedSet = isLivingDex
-    ? new Set([...(saveData.party || []), ...(saveData.pc || [])])
+    ? new Set([...validPartyDetails.map((p) => p.speciesId), ...validPcDetails.map((p) => p.speciesId)])
     : saveData.owned || new Set<number>();
 
-  const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
+  const allInstances = [...validPartyDetails, ...validPcDetails];
   // ⚡ Bolt: Removed .filter().map() chain to prevent intermediate array allocations (O(N) -> O(1) memory overhead)
   const myOtIds = new Set<number>();
   for (let i = 0; i < allInstances.length; i++) {

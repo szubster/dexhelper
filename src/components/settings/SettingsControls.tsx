@@ -1,4 +1,5 @@
-import { Archive, CircleDot, Settings2 } from 'lucide-react';
+import { Archive, CircleDot, Settings2, Skull } from 'lucide-react';
+import type { SaveData } from '../../engine/saveParser';
 import type { GameVersion, PokeballType } from '../../store';
 import type { GenerationConfig } from '../../utils/generationConfig';
 import { getGenerationConfig } from '../../utils/generationConfig';
@@ -13,6 +14,9 @@ interface SettingsControlsProps {
   setGlobalPokeball: (v: PokeballType) => void;
   filteredPokeballs: { value: PokeballType; label: string }[];
   genConfig: GenerationConfig | null;
+  graveyardBoxId?: number | null;
+  setGraveyardBoxId?: (id: number | null) => void;
+  saveData?: SaveData | null;
 }
 
 export function SettingsControls({
@@ -24,6 +28,9 @@ export function SettingsControls({
   setGlobalPokeball,
   filteredPokeballs,
   genConfig,
+  graveyardBoxId = null,
+  setGraveyardBoxId,
+  saveData = null,
 }: SettingsControlsProps) {
   return (
     <div className="space-y-4">
@@ -83,6 +90,31 @@ export function SettingsControls({
           {filteredPokeballs.map((pb) => (
             <option key={pb.value} value={pb.value}>
               {pb.label}
+            </option>
+          ))}
+        </select>
+      </SettingsRow>
+
+      <SettingsRow
+        icon={<Skull size={18} className="text-rose-500" />}
+        iconColorClass="border-rose-500/20 bg-rose-500/10"
+        label="Graveyard Box"
+      >
+        <select
+          value={graveyardBoxId === null ? 'none' : graveyardBoxId.toString()}
+          onChange={(e) => {
+            if (setGraveyardBoxId) {
+              const val = e.target.value;
+              setGraveyardBoxId(val === 'none' ? null : parseInt(val, 10));
+            }
+          }}
+          aria-label="Select Nuzlocke Graveyard Box"
+          className="rounded-none border border-zinc-800 border-dashed bg-zinc-950 px-4 py-2 font-bold font-mono text-xs text-zinc-200 transition-colors hover:border-zinc-600 focus-visible:border-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+        >
+          <option value="none">None</option>
+          {Array.from({ length: saveData?.currentBoxCount || 14 }, (_, i) => i + 1).map((boxNum) => (
+            <option key={boxNum} value={boxNum.toString()}>
+              Box {boxNum}
             </option>
           ))}
         </select>

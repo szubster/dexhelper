@@ -100,7 +100,7 @@ test('coverage for suggestionEngine new lines', () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy, null);
 
   const espeon = suggestions.find((s) => s.pokemonId === 196);
   expect(espeon).toBeDefined();
@@ -179,7 +179,7 @@ test('coverage for suggestionEngine edge cases', () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, gen1Strategy);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, gen1Strategy, null);
   const jolteon = suggestions.find((s) => s.pokemonId === 135);
   expect(jolteon).toBeDefined();
   expect(jolteon?.title).toContain('Item Needed');
@@ -218,7 +218,7 @@ test('coverage for gen 2 breeding edge case without valid base pokemon', () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy, null);
 
   const pichu = suggestions.find((s) => s.pokemonId === 50);
   expect(pichu).toBeDefined();
@@ -252,7 +252,7 @@ test('coverage for missing target id in pokemonMetadata for Gen 2 breeding', () 
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy, null);
   const diglett = suggestions.find((s) => s.pokemonId === 50);
   expect(diglett).toBeUndefined();
 });
@@ -290,7 +290,7 @@ test('coverage for generateSuggestions with missing parent / target id / empty d
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy, null);
   const diglett = suggestions.find((s) => s.pokemonId === 50);
   expect(diglett).toBeUndefined();
 });
@@ -320,7 +320,7 @@ test('coverage for missing target metadata entirely in evo logic', () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy, null);
   const invalidEvo = suggestions.find((s) => s.category === 'Evolve');
   expect(invalidEvo).toBeUndefined();
 });
@@ -358,7 +358,7 @@ test('coverage for suggestionEngine getGameItemId unknown generation', () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  expect(() => generateSuggestions(mockSaveData, false, 'ruby', mockApiData, gen1Strategy)).toThrow(
+  expect(() => generateSuggestions(mockSaveData, false, 'ruby', mockApiData, gen1Strategy, null)).toThrow(
     'Unknown generation',
   );
 });
@@ -399,7 +399,7 @@ test('coverage for recursive missing exclusive logic', () => {
     getUnobtainableReason: (pid: number) => (pid === 6 ? 'Needs Link Cable' : null),
   } as unknown as import('../strategies/types').AssistantStrategy;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, mockStrategy);
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, mockStrategy, null);
   const exclusiveSuggestion = suggestions.find((s) => s.id === 'exclusive-6');
   expect(exclusiveSuggestion).toBeUndefined();
 });

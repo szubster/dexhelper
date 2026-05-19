@@ -3,8 +3,6 @@ import { useMemo } from 'react';
 import { getStrategy } from '../engine/assistant/strategies/index';
 import { fetchAssistantApiData, generateSuggestions } from '../engine/assistant/suggestionEngine';
 import type { SaveData } from '../engine/saveParser/index';
-import { getGenerationConfig } from '../utils/generationConfig';
-
 /**
  * A React hook that orchestrates the Pokémon suggestion engine.
  * It identifies missing Pokémon, fetches necessary encounter data from IndexedDB,
@@ -18,7 +16,11 @@ import { getGenerationConfig } from '../utils/generationConfig';
  * @example
  * const { suggestions, isLoading } = useAssistant(saveData, false, 'red');
  */
+import { useStore } from '../store';
+import { getGenerationConfig } from '../utils/generationConfig';
+
 export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, manualVersion?: string | null) {
+  const graveyardBoxId = useStore((s) => s.graveyardBoxId);
   // ⚡ Bolt: Memoized expensive missing ID and owned set calculations to prevent redundant work on every render
   const queryTargetsSlice = useMemo(() => {
     const maxDex = saveData ? getGenerationConfig(saveData.generation).maxDex : 0;
@@ -62,8 +64,8 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
   const strategy = useMemo(() => getStrategy(saveData?.generation || 1), [saveData?.generation]);
   // ⚡ Bolt: Memoize expensive synchronous suggestion generation to prevent blocking the main thread on every re-render
   const { suggestions, debug } = useMemo(() => {
-    return generateSuggestions(saveData, isLivingDex, manualVersion, apiData ?? null, strategy);
-  }, [saveData, isLivingDex, manualVersion, apiData, strategy]);
+    return generateSuggestions(saveData, isLivingDex, manualVersion, apiData ?? null, strategy, graveyardBoxId);
+  }, [saveData, isLivingDex, manualVersion, apiData, strategy, graveyardBoxId]);
   return {
     suggestions,
     debug,

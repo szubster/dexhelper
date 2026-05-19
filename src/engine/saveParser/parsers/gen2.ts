@@ -71,6 +71,7 @@ function parseGen2PokemonInstance(
   const pokerus = view.getUint8(offset + 28);
   const level = view.getUint8(offset + 31);
   const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
+  const currentHp = storageLocation === 'Party' ? view.getUint16(offset + 34, false) : undefined;
 
   // OT names in daycare are immediately after the data block
   const otName = storageLocation === 'Daycare' ? decodeGen12String(view, offset + 32) : undefined;
@@ -87,6 +88,7 @@ function parseGen2PokemonInstance(
     otName,
     storageLocation,
     slot,
+    currentHp,
   };
 }
 

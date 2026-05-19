@@ -126,3 +126,6 @@ For Playwright E2E tests failing due to missing browser binaries or system depen
 Invoked Empty PR Policy for task-060-114-gen3-indoor-resolution-impl because resolveOutdoorMapId was already implemented in src/engine/mapGraph/gen3Graph.ts.
 ## 2026-05-18 - Gen 3 Locations
 - The Gen 3 maps define their region mapping string representation inside `region_map_sections.json` within the decomp repo, mapped sequentially. Use this to construct proper lookup lists.
+
+- For Gen 2 Current HP, the offset starts at 34 (`offset + 34`) and is 16-bit big-endian. Reading at `offset + 35` reads the low byte of Current HP and high byte of Max HP.
+- When creating UI components, strictly follow ADR 008 "tactical hardware/snooping" constraints (e.g. `rounded-none`, dashed borders, `font-mono`).

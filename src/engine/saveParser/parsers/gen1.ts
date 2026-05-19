@@ -381,6 +381,7 @@ function parseGen1Pokemon(
   const dvs = parseDVs(view.getUint16(offset + 27, false));
   const isShiny = checkShiny(dvs);
   const otName = decodeGen12String(view, otOffset);
+  const currentHp = isParty ? view.getUint16(offset + 1, false) : undefined;
 
   return {
     speciesId,
@@ -390,6 +391,7 @@ function parseGen1Pokemon(
     otName,
     storageLocation,
     slot,
+    currentHp,
   };
 }
 

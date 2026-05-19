@@ -20,6 +20,8 @@ export function SettingsModal() {
   const setIsLivingDex = useStore((s) => s.setIsLivingDex);
   const globalPokeball = useStore((s) => s.globalPokeball);
   const setGlobalPokeball = useStore((s) => s.setGlobalPokeball);
+  const graveyardBoxId = useStore((s) => s.graveyardBoxId);
+  const setGraveyardBoxId = useStore((s) => s.setGraveyardBoxId);
 
   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
 
@@ -72,6 +74,9 @@ export function SettingsModal() {
           setGlobalPokeball={setGlobalPokeball}
           filteredPokeballs={filteredPokeballs}
           genConfig={genConfig}
+          graveyardBoxId={graveyardBoxId}
+          setGraveyardBoxId={setGraveyardBoxId}
+          saveData={saveData}
         />
         <ClearStorageButton
           onClear={async () => {
