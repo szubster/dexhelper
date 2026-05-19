@@ -3,7 +3,7 @@ id: idea-058-damage-calculator-integration
 type: IDEA
 title: Damage Calculator and Showdown Export Integration
 status: PENDING
-owner_persona: "product_manager"
+owner_persona: "human"
 created_at: "2026-05-19"
 updated_at: "2026-05-19"
 depends_on: []
