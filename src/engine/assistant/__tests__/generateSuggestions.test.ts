@@ -589,4 +589,88 @@ describe('generateSuggestions', () => {
     expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
     expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
   });
+  it('should generate stat-based evolution suggestions for Tyrogue (Atk > Def, Atk < Def, Atk = Def)', () => {
+    const mockApiData: AssistantApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {
+        106: { id: 106, efrm: [236], det: [{ tr: 1, ml: 20, rps: 1 }] } as unknown as PokemonMetadata, // Hitmonlee
+        107: { id: 107, efrm: [236], det: [{ tr: 1, ml: 20, rps: -1 }] } as unknown as PokemonMetadata, // Hitmonchan
+        237: { id: 237, efrm: [236], det: [{ tr: 1, ml: 20, rps: 0 }] } as unknown as PokemonMetadata, // Hitmontop
+      },
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const mockStrategy = {
+      ...gen1Strategy,
+      generation: 2,
+    };
+
+    // Helper to create mock save data with a specific Tyrogue
+    const createSaveDataWithTyrogue = (dvs: { atk: number; def: number }, missingIds: number[]) => {
+      const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+      missingIds.forEach((id) => {
+        ownedSet.delete(id);
+      });
+      return {
+        generation: 2,
+        gameVersion: 'gold',
+        owned: ownedSet,
+        seen: new Set(),
+        party: [],
+        inventory: [],
+        currentMapId: 0,
+        eventFlags: new Uint8Array(300),
+        partyDetails: [],
+        pcDetails: [
+          {
+            speciesId: 236, // Tyrogue
+            level: 20,
+            dvs,
+            statExp: { hp: 0, atk: 0, def: 0, spd: 0, spc: 0 },
+            isShiny: false,
+            moves: [],
+            storageLocation: 'Box 1',
+          },
+        ],
+        trainerName: 'GOLD',
+      } as unknown as SaveData;
+    };
+
+    // Case 1: Atk > Def (Hitmonlee - 106)
+    const dataAtkGtr = createSaveDataWithTyrogue({ atk: 15, def: 0 }, [106]);
+    const { suggestions: suggs1 } = generateSuggestions(dataAtkGtr, false, 'gold', mockApiData, mockStrategy);
+    const evoLee = suggs1.find((s) => s.id === 'evo-lvl-106');
+    expect(evoLee).toBeDefined();
+    expect(evoLee?.title).toBe('Level Up Evolution: #106');
+    expect(evoLee?.description).toBe('Your Lv. 20 pre-evolution is ready to evolve (needs Lv. 20, Atk > Def)!');
+
+    // Case 2: Atk < Def (Hitmonchan - 107)
+    const dataAtkLsr = createSaveDataWithTyrogue({ atk: 0, def: 15 }, [107]);
+    const { suggestions: suggs2 } = generateSuggestions(dataAtkLsr, false, 'gold', mockApiData, mockStrategy);
+    const evoChan = suggs2.find((s) => s.id === 'evo-lvl-107');
+    expect(evoChan).toBeDefined();
+    expect(evoChan?.title).toBe('Level Up Evolution: #107');
+    expect(evoChan?.description).toBe('Your Lv. 20 pre-evolution is ready to evolve (needs Lv. 20, Atk < Def)!');
+
+    // Case 3: Atk = Def (Hitmontop - 237)
+    const dataAtkEq = createSaveDataWithTyrogue({ atk: 10, def: 10 }, [237]);
+    const { suggestions: suggs3 } = generateSuggestions(dataAtkEq, false, 'gold', mockApiData, mockStrategy);
+    const evoTop = suggs3.find((s) => s.id === 'evo-lvl-237');
+    expect(evoTop).toBeDefined();
+    expect(evoTop?.title).toBe('Level Up Evolution: #237');
+    expect(evoTop?.description).toBe('Your Lv. 20 pre-evolution is ready to evolve (needs Lv. 20, Atk = Def)!');
+
+    // Case 4: Not matching Atk > Def for Hitmonlee
+    const dataAtkNotGtr = createSaveDataWithTyrogue({ atk: 0, def: 15 }, [106]);
+    const { suggestions: suggs4 } = generateSuggestions(dataAtkNotGtr, false, 'gold', mockApiData, mockStrategy);
+    const evoLeeNotReady = suggs4.find((s) => s.id === 'evo-lvl-106');
+    expect(evoLeeNotReady).toBeDefined();
+    expect(evoLeeNotReady?.title).toBe('Level Up Evolution: #106');
+    expect(evoLeeNotReady?.description).toBe('Your Lv. 20 pre-evolution evolves at Lv. 20 (needs Lv. 20, Atk > Def).');
+    expect(evoLeeNotReady?.priority).toBe(75); // Lower priority because it's not actually ready
+  });
 });

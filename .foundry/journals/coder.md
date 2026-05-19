@@ -132,3 +132,6 @@ Invoked Empty PR Policy for task-060-114-gen3-indoor-resolution-impl because res
 * The Empty PR Policy dictates that we must check off the acceptance criteria in the Markdown body WITHOUT modifying the YAML frontmatter, then use the `submit` tool to create the Pull Request anyway.
 * Do not leave the session without calling `submit`, as this will cause the Orchestrator to flag the session as a FAILED "crashed zombie".
 * Be aware that the `request_code_review` tool might flag Empty PR implementations as incorrect (generating a false negative) because it does not see code changes. This is expected under the Empty PR Policy; ignore the automated assessment and proceed with `submit`.
+
+## 2026-05-19: Biome Iterable Callback Return Error
+When passing a callback to iteration methods like `forEach`, do not use an implicit return (e.g. `arr.forEach(x => set.delete(x))`). This violates Biome's `lint/suspicious/useIterableCallbackReturn` rule. Use a block statement instead: `arr.forEach(x => { set.delete(x); })`.
