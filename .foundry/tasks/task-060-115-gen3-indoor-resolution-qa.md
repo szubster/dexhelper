@@ -2,13 +2,13 @@
 id: task-060-115-gen3-indoor-resolution-qa
 type: TASK
 title: Gen3 Indoor Resolution QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on:
   - task-060-114-gen3-indoor-resolution-impl
-jules_session_id: null
+jules_session_id: '2325847219529731573'
 pr_number: null
 parent: story-032-060-gen3-indoor-resolution
 tags:
