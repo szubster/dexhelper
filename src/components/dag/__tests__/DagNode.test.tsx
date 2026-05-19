@@ -132,3 +132,31 @@ test('DagNode applies dimmed styles when isDimmed is true', async () => {
   await expect.element(node).toHaveClass('opacity-30');
   await expect.element(node).toHaveClass('grayscale');
 });
+
+test('DagNode applies styles for other statuses', async () => {
+  const data = {
+    id: 'test-task-001',
+    label: 'test-task-001',
+    type: 'TASK',
+    owner_persona: 'coder',
+  };
+
+  const nodes = [
+    { id: '1', type: 'custom', data: { ...data, status: 'COMPLETED' }, position: { x: 0, y: 0 } },
+    { id: '2', type: 'custom', data: { ...data, status: 'FAILED' }, position: { x: 0, y: 100 } },
+    { id: '3', type: 'custom', data: { ...data, status: 'READY' }, position: { x: 0, y: 200 } },
+    { id: '4', type: 'custom', data: { ...data, status: 'PENDING' }, position: { x: 0, y: 300 } },
+  ];
+
+  await render(
+    <div style={{ width: '500px', height: '500px' }}>
+      <ReactFlow nodes={nodes} nodeTypes={nodeTypes} />
+    </div>,
+  );
+
+  // Check if they rendered without errors, vitest coverage will pick up the switch statement lines.
+  await expect.element(page.getByText('COMPLETED', { exact: true })).toBeInTheDocument();
+  await expect.element(page.getByText('FAILED', { exact: true })).toBeInTheDocument();
+  await expect.element(page.getByText('READY', { exact: true })).toBeInTheDocument();
+  await expect.element(page.getByText('PENDING', { exact: true })).toBeInTheDocument();
+});

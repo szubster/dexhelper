@@ -7,7 +7,24 @@ import type { ParsedNode } from '../../utils/dag/builder';
 import { buildDagGraph } from '../../utils/dag/builder';
 import { getHighlightPath } from '../../utils/dag/highlighting';
 import { DagFilterPanel } from './DagFilterPanel';
-import { DagNode } from './DagNode';
+import { DagNode, type DagNodeData } from './DagNode';
+
+export function getMiniMapNodeColor(node: FlowNode<DagNodeData>): string {
+  switch (node.data?.status) {
+    case 'COMPLETED':
+      return '#10b981'; // emerald-500
+    case 'ACTIVE':
+    case 'IN_PROGRESS':
+      return '#ef4444'; // var(--theme-primary) roughly
+    case 'FAILED':
+    case 'BLOCKED':
+      return '#ef4444'; // red-500
+    case 'READY':
+      return '#f59e0b'; // amber-500
+    default:
+      return '#52525b'; // zinc-600
+  }
+}
 
 const nodeTypes = {
   custom: DagNode,
@@ -20,7 +37,7 @@ const nodeWidth = 300;
 const nodeHeight = 100;
 
 // Uses Dagre to automatically layout the graph top-to-bottom
-function getLayoutedElements(nodes: FlowNode[], edges: FlowEdge[], direction = 'TB') {
+function getLayoutedElements(nodes: FlowNode<DagNodeData>[], edges: FlowEdge[], direction = 'TB') {
   dagreGraph.setGraph({ rankdir: direction, ranksep: 150, nodesep: 150 });
 
   nodes.forEach((node) => {
@@ -51,7 +68,7 @@ function getLayoutedElements(nodes: FlowNode[], edges: FlowEdge[], direction = '
 }
 
 export function DagDashboard() {
-  const [nodes, setNodes] = useState<FlowNode[]>([]);
+  const [nodes, setNodes] = useState<FlowNode<DagNodeData>[]>([]);
   const [edges, setEdges] = useState<FlowEdge[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -98,7 +115,7 @@ export function DagDashboard() {
         const dagGraph = buildDagGraph(parsedNodes);
 
         // Convert the DAG build output to React Flow format
-        const initialNodes = dagGraph.nodes.map((node) => ({
+        const initialNodes: FlowNode<DagNodeData>[] = dagGraph.nodes.map((node) => ({
           id: node.id,
           type: 'custom',
           data: {
@@ -136,10 +153,8 @@ export function DagDashboard() {
   const displayNodes = useMemo(() => {
     return nodes
       .filter((n) => {
-        // biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation
-        const type = n.data?.['type'] as string | undefined;
-        // biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation
-        const status = n.data?.['status'] as string | undefined;
+        const type = n.data.type;
+        const status = n.data.status;
         return type && status && activeTypes.has(type) && activeStatuses.has(status);
       })
       .map((n) => {
@@ -176,11 +191,11 @@ export function DagDashboard() {
       });
   }, [edges, displayNodes, activeNodeId]);
 
-  const onNodeClick = useCallback((_event: React.MouseEvent, node: FlowNode) => {
+  const onNodeClick = useCallback((_event: React.MouseEvent, node: FlowNode<DagNodeData>) => {
     setSelectedNodeId((prev) => (prev === node.id ? null : node.id));
   }, []);
 
-  const onNodeMouseEnter = useCallback((_event: React.MouseEvent, node: FlowNode) => {
+  const onNodeMouseEnter = useCallback((_event: React.MouseEvent, node: FlowNode<DagNodeData>) => {
     setHoveredNodeId(node.id);
   }, []);
 
@@ -230,23 +245,7 @@ export function DagDashboard() {
         <MiniMap
           className="!bg-zinc-900 !border !border-dashed !border-zinc-800 !rounded-none"
           maskColor="rgba(0, 0, 0, 0.7)"
-          nodeColor={(node: FlowNode) => {
-            // biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation
-            switch (node.data?.['status']) {
-              case 'COMPLETED':
-                return '#10b981'; // emerald-500
-              case 'ACTIVE':
-              case 'IN_PROGRESS':
-                return '#ef4444'; // var(--theme-primary) roughly
-              case 'FAILED':
-              case 'BLOCKED':
-                return '#ef4444'; // red-500
-              case 'READY':
-                return '#f59e0b'; // amber-500
-              default:
-                return '#52525b'; // zinc-600
-            }
-          }}
+          nodeColor={getMiniMapNodeColor}
         />
       </ReactFlow>
     </div>
