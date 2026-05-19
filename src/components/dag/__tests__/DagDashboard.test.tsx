@@ -208,6 +208,31 @@ test('DagDashboard handles selection and highlighting', async () => {
 
   await vi.waitFor(async () => await expect.element(n2DagNode).not.toHaveClass('!border-cyan-500'), { timeout: 3000 });
   await expect.element(n3DagNode).not.toHaveClass('opacity-30');
+
+  // Test pane click to deselect
+  n2El.click();
+  await vi.waitFor(async () => await expect.element(n2DagNode).toHaveClass('!border-cyan-500'), { timeout: 3000 });
+});
+
+test('DagDashboard handles non-ok fetch response', async () => {
+  const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+  // Mock fetch to fail with 404
+  globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({ ok: false } as unknown as Response);
+
+  await render(
+    <div style={{ width: '800px', height: '600px' }}>
+      <DagDashboard />
+    </div>,
+  );
+
+  await vi.waitUntil(async () => {
+    const loadingEl = page.getByText('[ SYSTEM.LOADING_DAG ]').all();
+    return loadingEl.length === 0;
+  });
+
+  expect(consoleErrorSpy).toHaveBeenCalledWith('System: DAG loading failed');
+  consoleErrorSpy.mockRestore();
 });
 
 test('DagDashboard catches and logs fetch errors securely', async () => {
