@@ -2,12 +2,12 @@
 id: task-069-116-aggregate-encounters-impl
 type: TASK
 title: Aggregate encounters by met_location
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '3850319207578900543'
+jules_session_id: null
 pr_number: null
 parent: story-034-069-automated-route-tracking
 tags:

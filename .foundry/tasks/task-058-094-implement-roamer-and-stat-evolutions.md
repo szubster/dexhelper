@@ -2,12 +2,12 @@
 id: task-058-094-implement-roamer-and-stat-evolutions
 type: TASK
 title: Implement Roamer Tracking & Stat-Based Evolutions
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '15623789045286172958'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
 tags:
@@ -16,7 +16,7 @@ tags:
   - suggestion-engine
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
-rejection_count: 1
+rejection_count: 2
 rejection_reason: 'Session terminated with state: FAILED'
 notes: ''
 ---

@@ -421,3 +421,31 @@ When archiving nodes, all references in parent stories and journal logs must be 
 - **2026-05-19**: Resurrection Loop triggered for `task-067-114-implement-heartbeat-state-transitions`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-19**: Resurrection Loop triggered for `task-062-101-gen3-locations-script-qa`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-19**: PR #1543 merged. `story-029-057-interaction-logic` is now PENDING.
+
+- **2026-05-19**: Resurrection Loop triggered for `story-032-062-gen3-data-generation-scripts`. Reason: PR #1548 closed without merging.. Transitioned back to READY.
+
+- **2026-05-19**: PR #1534 merged. `story-033-067-heartbeat-state-transitions` is now COMPLETED.
+
+- **2026-05-19**: Resurrection Loop triggered for `task-058-094-implement-roamer-and-stat-evolutions`. Reason: PR #1533 closed without merging.. Transitioned back to READY.
+
+- **2026-05-19**: PR #1541 merged. `task-058-113-qa-stat-evolutions` is now COMPLETED.
+
+- **2026-05-19**: PR #1536 merged. `task-060-115-gen3-indoor-resolution-qa` is now COMPLETED.
+
+- **2026-05-19**: PR #1542 merged. `task-060-117-gen3-bounds-checking-qa` is now COMPLETED.
+
+- **2026-05-19**: PR #1546 merged. `task-061-115-gen3-distance-lookup-qa` is now COMPLETED.
+
+- **2026-05-19**: PR #1547 merged. `task-062-102-gen3-encounters-script-impl` is now COMPLETED.
+
+- **2026-05-19**: PR #1539 merged. `task-062-110-gen3-data-formatting-msgpack-impl` is now COMPLETED.
+
+- **2026-05-19**: PR #1538 merged. `task-065-115-wire-up-data-layer-qa` is now COMPLETED.
+
+- **2026-05-19**: PR #1545 merged. `task-067-114-implement-heartbeat-state-transitions` is now COMPLETED.
+
+- **2026-05-19**: PR #1544 merged. `task-068-118-implement-heartbeat-tpm-logging` is now COMPLETED.
+
+- **2026-05-19**: PR #1537 merged. `task-069-116-aggregate-encounters-impl` is now COMPLETED.

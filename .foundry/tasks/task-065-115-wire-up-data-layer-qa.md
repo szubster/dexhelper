@@ -2,13 +2,13 @@
 id: task-065-115-wire-up-data-layer-qa
 type: TASK
 title: QA DAG data fetching
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on:
   - task-065-114-wire-up-data-layer-impl
-jules_session_id: '14343670414935864496'
+jules_session_id: null
 pr_number: null
 parent: story-029-065-wire-up-data-layer
 tags: []

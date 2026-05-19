@@ -2,10 +2,10 @@
 id: story-032-061-gen3-legacy-compatibility
 type: STORY
 title: Gen3 Data Parsing Legacy Compatibility Verification
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-17'
-updated_at: '2026-05-17'
+updated_at: '2026-05-19'
 depends_on:
   - .foundry/stories/story-032-060-gen3-bounds-checking.md
 jules_session_id: null

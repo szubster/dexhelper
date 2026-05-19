@@ -2,18 +2,19 @@
 id: story-032-062-gen3-data-generation-scripts
 type: STORY
 title: Update Data Generation Scripts for Gen 3
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-17'
 updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '1565881621887393412'
+jules_session_id: null
 parent: epic-053-024-032-gen3-encounters-implementation
 tags:
   - gen3
   - data
   - msgpack
 notes: ''
+rejection_count: 1
 ---
 
 # Update Data Generation Scripts for Gen 3
