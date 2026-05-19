@@ -25,4 +25,4 @@ notes: ''
 Verify that the newly implemented Gen3 data parsing logic does not break existing Gen 1 and Gen 2 parsing functionality.
 
 ## Acceptance Criteria
-- [ ] Verify that Gen 1 and Gen 2 parsing interfaces continue to function normally.
+- [x] Verify that Gen 1 and Gen 2 parsing interfaces continue to function normally.
