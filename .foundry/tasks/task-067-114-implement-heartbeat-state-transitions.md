@@ -5,9 +5,9 @@ title: Implement State Transition Logic for PR-less Completions
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '10939503962956463804'
+jules_session_id: '17833953529976685542'
 pr_number: null
 parent: story-033-067-heartbeat-state-transitions
 tags:
@@ -15,8 +15,8 @@ tags:
   - dag
   - orchestrator
   - heartbeat
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

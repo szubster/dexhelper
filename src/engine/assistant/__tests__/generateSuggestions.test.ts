@@ -571,15 +571,22 @@ describe('generateSuggestions', () => {
     const catch1 = result1.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch1).toBeUndefined(); // Filtered out
 
-    // 2. Has item
+    // 2. Has item but no badges
     localSaveData.inventory = [
       { id: 192, quantity: 1 },
       { id: 198, quantity: 1 },
     ];
+    localSaveData.johtoBadges = 0;
     const result2 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch2 = result2.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
-    expect(catch2).toBeDefined(); // Included
-    expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
-    expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
+    expect(catch2).toBeUndefined(); // Filtered out
+
+    // 3. Has item and badges
+    localSaveData.johtoBadges = (1 << 1) | (1 << 2); // Hive and Plain badges
+    const result3 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const catch3 = result3.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
+    expect(catch3).toBeDefined(); // Included
+    expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
+    expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
   });
 });

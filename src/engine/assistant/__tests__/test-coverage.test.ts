@@ -19,7 +19,13 @@ test('coverage for suggestionEngine new lines', () => {
     eventFlags: new Uint8Array(300),
     partyDetails: [
       { speciesId: 133, level: 20, otName: 'PLAYER' } as PokemonInstance,
-      { speciesId: 236, level: 20, otName: 'PLAYER' } as PokemonInstance,
+      {
+        speciesId: 236,
+        level: 20,
+        otName: 'PLAYER',
+        dvs: { hp: 15, atk: 15, def: 0, spd: 15, spc: 15 },
+        statExp: { hp: 0, atk: 0, def: 0, spd: 0, spc: 0 },
+      } as PokemonInstance,
       { speciesId: 67, level: 30, otName: 'PLAYER' } as PokemonInstance,
       { speciesId: 95, level: 30, otName: 'PLAYER' } as PokemonInstance,
     ],
@@ -56,21 +62,21 @@ test('coverage for suggestionEngine new lines', () => {
         id: 106,
         n: 'Hitmonlee',
         efrm: [236],
-        det: [{ tr: 1, ml: 20, rel_s: 1 }],
+        det: [{ tr: 1, ml: 20, rps: 1 }],
         eto: [],
       }, // Hitmonlee
       107: {
         id: 107,
         n: 'Hitmonchan',
         efrm: [236],
-        det: [{ tr: 1, ml: 20, rel_s: -1 }],
+        det: [{ tr: 1, ml: 20, rps: -1 }],
         eto: [],
       }, // Hitmonchan
       237: {
         id: 237,
         n: 'Hitmontop',
         efrm: [236],
-        det: [{ tr: 1, ml: 20, rel_s: 0 }],
+        det: [{ tr: 1, ml: 20, rps: 0 }],
         eto: [],
       }, // Hitmontop
       136: {

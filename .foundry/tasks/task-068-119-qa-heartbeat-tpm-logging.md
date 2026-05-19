@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/tasks/task-068-118-implement-heartbeat-tpm-logging.md
+  - task-068-118-implement-heartbeat-tpm-logging
 jules_session_id: null
 pr_number: null
 parent: story-033-068-heartbeat-tpm-logging
@@ -24,11 +24,11 @@ notes: ''
 # TASK: QA TPM Logging for PR-less Completions
 
 ## Objective
-Verify the changes made in `.foundry/tasks/task-068-118-implement-heartbeat-tpm-logging.md`.
+Verify the changes made in `task-068-118-implement-heartbeat-tpm-logging`.
 
 ## Context
 When a PR-less session is handled and a state transition occurs (e.g., to `COMPLETED` or `FAILED`), these events must be audited. We log them into `.foundry/journals/tpm.md`.
 
 ## Acceptance Criteria
-- [ ] Verify that appropriate logs are written to `.foundry/journals/tpm.md` whenever a PR-less session results in a state transition.
+- [ ] Verify that `transitionNodeToCompleted` in `.github/scripts/foundry-heartbeat.ts` logs correctly for empty PRs.
 - [ ] Run test suite with `cd .github/scripts && pnpm install && npx vitest run`.
