@@ -56,8 +56,14 @@ export const gen2Strategy: AssistantStrategy = {
     // TM08 (Rock Smash) is Item ID 198 (0xC6), TM02 (Headbutt) is Item ID 192 (0xC0)
     // Actually, TMs are stored in TM pocket directly in Gen 2 parsed inventory as item IDs
     // Headbutt = TM02 = Item ID 192, Rock Smash = TM08 = Item ID 198
-    const hasHeadbutt = saveData.inventory.some((i) => i.id === 192 && i.quantity > 0);
-    const hasRockSmash = saveData.inventory.some((i) => i.id === 198 && i.quantity > 0);
+    const hasHeadbutt =
+      saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) ||
+      (saveData.partyDetails || []).some((p) => p.moves?.includes(29)) ||
+      (saveData.pcDetails || []).some((p) => p.moves?.includes(29));
+    const hasRockSmash =
+      saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) ||
+      (saveData.partyDetails || []).some((p) => p.moves?.includes(249)) ||
+      (saveData.pcDetails || []).some((p) => p.moves?.includes(249));
 
     if (hasHeadbutt) {
       suggestions.push({
