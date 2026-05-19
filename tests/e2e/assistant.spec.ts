@@ -13,7 +13,7 @@ test.describe('Assistant Page', () => {
       await expect(assistantLink).toBeVisible();
       await assistantLink.click();
     } else {
-      const assistantLink = page.getByRole('link', { name: /SYS\.ASST/i });
+      const assistantLink = page.getByRole('link', { name: 'Assistant' });
       await expect(assistantLink).toBeVisible();
       await assistantLink.click();
     }
