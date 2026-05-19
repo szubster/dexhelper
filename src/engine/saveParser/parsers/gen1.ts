@@ -387,6 +387,7 @@ function parseGen1Pokemon(
     level,
     isShiny,
     moves,
+    dvs,
     otName,
     storageLocation,
     slot,

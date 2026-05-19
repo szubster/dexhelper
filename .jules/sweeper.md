@@ -20,11 +20,6 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 **Learning:** Addressed a bug in `.github/scripts/foundry-orchestrator.ts` where Late-Binding parent nodes (nodes waiting for dynamically generated children to complete) would remain stuck in a PENDING state indefinitely even after all children successfully completed. Added a dedicated detection phase (Phase 4.1) to find these specific `PENDING` nodes, verify they possess children, check if strictly all children are `COMPLETED`, ensure no implicit/explicit dependencies are unfulfilled, and directly promote the parent node to `COMPLETED`. Unit tested and validated to maintain DAG integrity.
 # Sweeper
 
-## Recent Actions
-- Removed several unused exports (`fallbackStrategy`, `getOutdoorMapId`, `detectGen1GameVersion`, `parseCaughtData`, `detectGen2GameVersion`, `getVersionInfo`, `MAX_DEX_ACROSS_GENS`, `ALL_VERSION_IDS`) across the engine and utilities.
-- Cleaned up corresponding unit tests that were intimately testing internal implementation details.
-- Ensured all tests and e2e scenarios pass successfully after the cleanup.
-
 ## 2026-05-05 - Safe Removal of Re-export Abstractions
 **Learning:** Files that serve only as re-exports for "backward compatibility" (like `src/utils/data.ts` re-exporting `src/engine/data/shared/staticData.ts`) introduce unnecessary indirection. While `knip` might not flag them if they are actively used, manually tracing their usage and updating call sites to point directly to the actual source file is a safe and effective way to reduce technical debt and simplify the module graph.
 **Action:** When encountering a file that purely re-exports contents from another file without adding value, trace its usage using `grep`, update the imports at the call sites, and delete the obsolete abstraction file. Always verify the refactor by running `pnpm lint`, `pnpm test`, and `pnpm test:e2e` to ensure no consumers were broken during the transition.
@@ -37,5 +32,4 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 ## 2026-06-25 - Handling False Positives in Code Health Tasks
 **Learning:** Sometimes, an automated code health task may request fixes for issues (like an unused import) that have already been resolved on the `main` branch.
 **Action:** Always verify the issue exists on the current branch using `grep` or `read_file` before making modifications. If the file is already in the ideal state, do not artificially introduce changes. Instead, follow the empty PR policy, documenting why no changes were required, and ensure the test suite still passes to guarantee stability.
-The unused import `CompactChainLink` issue in `src/components/PokemonDetails.tsx` is already resolved and there is no work to do. Submitting an empty PR.
 - Refactoring long files or text structures using string matching in python or javascript can be error prone with indentation or overlapping strings. Writing a script to accurately parse the abstract syntax tree and make changes is difficult. Often the easiest way to make surgical edits to a code file without manual human input is to find unique anchors, slice the text, and recreate it exactly.

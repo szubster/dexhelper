@@ -2,15 +2,15 @@
 id: task-062-102-gen3-encounters-script-impl
 type: TASK
 title: Implement Gen 3 Encounters Fetch Script
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-17'
-updated_at: '2026-05-18'
+updated_at: '2026-05-19'
 depends_on: []
-jules_session_id: '2020513914036328314'
+jules_session_id: null
 parent: story-032-062-gen3-data-generation-scripts
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 ---
 
 # Implement Gen 3 Encounters Fetch Script

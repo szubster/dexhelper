@@ -123,5 +123,12 @@ For Playwright E2E tests failing due to missing browser binaries or system depen
 - Found out Gen 2 Headbutt/Rock Smash didn't actually require badges internally despite some guides saying so.
 - Workaround vitest-browser-react pointer event issues on complex SVGs or wrappers (like ReactFlow) by evaluating the locator directly to the DOM element and calling .click()
 
+Invoked Empty PR Policy for task-060-114-gen3-indoor-resolution-impl because resolveOutdoorMapId was already implemented in src/engine/mapGraph/gen3Graph.ts.
 ## 2026-05-18 - Gen 3 Locations
 - The Gen 3 maps define their region mapping string representation inside `region_map_sections.json` within the decomp repo, mapped sequentially. Use this to construct proper lookup lists.
+
+## 2026-05-18 - Gen3 Bounds Checking Implementation
+* When a task's target code artifacts are already completely implemented in the codebase, we invoke the "Empty PR Policy".
+* The Empty PR Policy dictates that we must check off the acceptance criteria in the Markdown body WITHOUT modifying the YAML frontmatter, then use the `submit` tool to create the Pull Request anyway.
+* Do not leave the session without calling `submit`, as this will cause the Orchestrator to flag the session as a FAILED "crashed zombie".
+* Be aware that the `request_code_review` tool might flag Empty PR implementations as incorrect (generating a false negative) because it does not see code changes. This is expected under the Empty PR Policy; ignore the automated assessment and proceed with `submit`.

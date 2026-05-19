@@ -18,6 +18,9 @@ BRANCH_NAME="chore/sync-pokeapi-${UPSTREAM_SHA:0:7}"
 
 echo "Detected changes. Creating PR on branch ${BRANCH_NAME}..."
 
+git config --global user.email "github-actions[bot]@users.noreply.github.com"
+git config --global user.name "github-actions[bot]"
+
 git checkout -b "$BRANCH_NAME"
 git add data/db
 git commit -m "chore: sync PokéAPI data to ${UPSTREAM_SHA:0:7}"
