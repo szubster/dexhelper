@@ -56,10 +56,13 @@ export const gen2Strategy: AssistantStrategy = {
     // TM08 (Rock Smash) is Item ID 198 (0xC6), TM02 (Headbutt) is Item ID 192 (0xC0)
     // Actually, TMs are stored in TM pocket directly in Gen 2 parsed inventory as item IDs
     // Headbutt = TM02 = Item ID 192, Rock Smash = TM08 = Item ID 198
+    // In Gen 2, these are single-use and do not require badges to use in the field.
+    const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
     const hasHeadbutt =
-      saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) && ((saveData.johtoBadges || 0) & (1 << 1)) !== 0; // Hive badge is bit 1
+      saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) || allInstances.some((p) => p.moves?.includes(29));
     const hasRockSmash =
-      saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) && ((saveData.johtoBadges || 0) & (1 << 2)) !== 0; // Plain badge is bit 2
+      saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) ||
+      allInstances.some((p) => p.moves?.includes(249));
 
     if (hasHeadbutt) {
       suggestions.push({

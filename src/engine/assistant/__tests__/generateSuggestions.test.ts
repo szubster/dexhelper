@@ -103,7 +103,14 @@ describe('generateSuggestions', () => {
       pokemonMetadata: {},
       ancestralEncounters: {},
       areaNames: { 1: 'Pallet Town' },
-      allLocations: [{ id: 1, n: 'Pallet Town', r: 'Kanto', a: [{ id: 1, n: 'Pallet Town Area' }] }],
+      allLocations: [
+        {
+          id: 1,
+          n: 'Pallet Town',
+          r: 'Kanto',
+          a: [{ id: 1, n: 'Pallet Town Area' }],
+        },
+      ],
     } as unknown as AssistantApiData;
 
     const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
@@ -150,7 +157,12 @@ describe('generateSuggestions', () => {
       ancestralEncounters: {},
       areaNames: { 1: 'Pallet Town', 2: 'Route 1' },
       allLocations: [
-        { id: 1, n: 'Pallet Town', r: 'Kanto', a: [{ id: 1, n: 'Pallet Town Area' }] },
+        {
+          id: 1,
+          n: 'Pallet Town',
+          r: 'Kanto',
+          a: [{ id: 1, n: 'Pallet Town Area' }],
+        },
         { id: 2, n: 'Route 1', r: 'Kanto', a: [{ id: 2, n: 'Route 1 Area' }] },
       ],
     } as unknown as AssistantApiData;
@@ -571,7 +583,7 @@ describe('generateSuggestions', () => {
     const catch1 = result1.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch1).toBeUndefined(); // Filtered out
 
-    // 2. Has item but no badges
+    // 2. Has item (badges no longer required)
     localSaveData.inventory = [
       { id: 192, quantity: 1 },
       { id: 198, quantity: 1 },
@@ -579,13 +591,24 @@ describe('generateSuggestions', () => {
     localSaveData.johtoBadges = 0;
     const result2 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch2 = result2.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
-    expect(catch2).toBeUndefined(); // Filtered out
+    expect(catch2).toBeDefined(); // Included since badges aren't needed
+    expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
+    expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
 
-    // 3. Has item and badges
-    localSaveData.johtoBadges = (1 << 1) | (1 << 2); // Hive and Plain badges
+    // 3. Missing item but a Pokemon knows the move
+    localSaveData.inventory = [];
+    localSaveData.partyDetails = [
+      {
+        speciesId: 1,
+        level: 10,
+        isShiny: false,
+        moves: [29, 249], // Headbutt and Rock Smash
+        storageLocation: 'Party',
+      },
+    ];
     const result3 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch3 = result3.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
-    expect(catch3).toBeDefined(); // Included
+    expect(catch3).toBeDefined(); // Included because of known moves
     expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
     expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
   });

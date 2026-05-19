@@ -38,6 +38,6 @@ The current implementation for Headbutt and Rock Smash in the suggestion engine 
    - Update `generateSuggestions.test.ts` (and any other relevant tests) to verify the new move-based logic and the removal of the badge requirements.
 
 ## Acceptance Criteria
-- [ ] `gen2Strategy.ts` checks for Headbutt (Move 29) and Rock Smash (Move 249) on Pokémon instances or TMs in inventory, without badge checks.
-- [ ] `suggestionEngine.ts` checks for Headbutt (Move 29) and Rock Smash (Move 249) on Pokémon instances or TMs in inventory, without badge checks.
-- [ ] Tests verify the updated known-moves logic and lack of badge restrictions.
+- [x] `gen2Strategy.ts` checks for Headbutt (Move 29) and Rock Smash (Move 249) on Pokémon instances or TMs in inventory, without badge checks.
+- [x] `suggestionEngine.ts` checks for Headbutt (Move 29) and Rock Smash (Move 249) on Pokémon instances or TMs in inventory, without badge checks.
+- [x] Tests verify the updated known-moves logic and lack of badge restrictions.
