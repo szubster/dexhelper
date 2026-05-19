@@ -10,7 +10,7 @@ depends_on: []
 jules_session_id: null
 parent: story-032-062-gen3-data-generation-scripts
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: Failed to fetch from pret/pokeemerald
 ---
 
 # Implement Gen 3 Locations Fetch Script

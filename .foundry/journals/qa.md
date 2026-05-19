@@ -91,3 +91,9 @@ No YAML changes were made per standard Foundry architecture rules.
 
 - Learned that task implementation can be marked completed while entirely missing the logic to fetch Gen 3 data from pret/pokeemerald. Always explicitly check scripts for target repositories.
 - 2026-05-18: Validated Headbutt and Rock Smash logic. The initial implementation checked for items (TM02 and TM08) but failed to check for the required badges (Hive and Plain badges respectively) to use these moves in the field. Added the badge checks to `saveData.johtoBadges` where bit 1 is the Hive Badge and bit 2 is the Plain Badge. Note for future: always double check both item and badge requirements for field moves.
+
+## 2026-05-19 - Implementation Task FAILED: Gen 3 Locations Fetch Script
+
+**Task**: task-062-101-gen3-locations-script-qa
+**Outcome**: FAILED
+**Notes**: The coder failed to implement the Gen 3 location fetching logic from `pret/pokeemerald` in `scripts/generateMapLocations.ts`. The implementation task (`task-062-100-gen3-locations-script-impl`) repeatedly failed and reached its maximum rejection count. Following the system rules, I spawned a `RESEARCH` node (`research-062-120-gen3-locations-investigation`) to investigate the root cause, followed by a new set of implementation and QA tasks that explicitly depend on the `RESEARCH` node. These new nodes have been appended to the parent STORY node. This ensures the DAG can continue progression by addressing the fundamental issues blocking the implementation.

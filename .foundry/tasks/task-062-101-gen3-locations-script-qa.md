@@ -24,3 +24,5 @@ QA validate the script that fetches Generation 3 locations data.
 
 ## QA Notes
 - Validation failed: Missing Gen 3 location fetching logic from pret/pokeemerald in scripts/generateMapLocations.ts
+- The implementation task `task-062-100-gen3-locations-script-impl` permanently failed (reached maximum rejection count).
+- Spawned `research-062-120-gen3-locations-investigation` to investigate the root cause, followed by a new set of implementation and QA tasks.

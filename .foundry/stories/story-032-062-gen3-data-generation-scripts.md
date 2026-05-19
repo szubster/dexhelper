@@ -36,3 +36,6 @@ Modify existing data generation scripts to support fetching and formatting Gen 3
 - task-062-105-gen3-pokemon-script-qa
 - task-062-110-gen3-data-formatting-msgpack-impl
 - task-062-111-gen3-data-formatting-msgpack-qa
+- research-062-120-gen3-locations-investigation
+- task-062-121-gen3-locations-script-impl-retry
+- task-062-122-gen3-locations-script-qa-retry
