@@ -16,7 +16,7 @@ tags:
   - expansion
   - map-graph
 research_references:
-  - .foundry/docs/shared_memory/development/gen2_implementation_plan.md
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
 rejection_count: 2
 rejection_reason: Implementation task task-045-085 failed validation.
 notes: ''

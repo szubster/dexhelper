@@ -14,7 +14,7 @@ tags:
   - gen2
   - map-graph
 research_references:
-  - .foundry/docs/shared_memory/development/gen2_implementation_plan.md
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
 rejection_count: 1
 rejection_reason: ''
 notes: ''

@@ -8,7 +8,7 @@ The following knowledge stores are in scope:
 
 | Location | Purpose | Format |
 |---|---|---|
-| `.serena/memories/` (maps to `.foundry/docs/shared_memory/`) | Serena memories — architecture decisions, patterns, status tracking | Markdown, organized by topic |
+| `.serena/memories/` (maps to `.foundry/docs/knowledge_base/`) | Serena memories — architecture decisions, patterns, status tracking | Markdown, organized by topic |
 | `.jules/*.md` | Jules agent private_memories — critical learnings from scheduled agents (bolt, palette, etc.) | Markdown, date-stamped entries |
 | `.Jules/*.md` | Legacy Jules private_memories (case-sensitivity artifact) — may duplicate `.jules/` | Markdown |
 | `.agents/rules/` | Agent instructions — coding standards and rules for AI agents | Markdown |
@@ -64,4 +64,4 @@ If no stale or problematic knowledge can be identified, do not create a PR.
 
 
 ## Core Policies
-You **MUST explicitly read** `.foundry/docs/shared_memory/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
+You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.

@@ -71,4 +71,4 @@ If the current session results in a rejection, convert to private_memory-only to
 
 
 ## Core Policies
-You **MUST explicitly read** `.foundry/docs/shared_memory/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
+You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.

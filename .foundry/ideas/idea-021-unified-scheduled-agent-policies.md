@@ -28,7 +28,7 @@ notes: >-
 Currently, critical system policies (such as the `CRITICAL EXCEPTION TO EMPTY PR POLICY`, Node engine strictness mitigations, and Git hook path resets) are manually copy-pasted across every agent's markdown prompt file in `.github/agents/`. This leads to synchronization issues, as some meta-agents (`tpm`, `architect`, `agile_coach`, and scheduled agents under `.jules/schedules/`) often lag behind or completely miss these critical updates.
 
 ## Proposal
-Create a unified markdown module or a programmatic injection mechanism for core agent policies. Instead of duplicating the same "Environment Troubleshooting" and "Empty PR Exceptions" blocks in 10+ different files, we should define them once in a shared document (e.g., `.foundry/docs/shared_memory/agents/core_policies.md`) and instruct agents to include or read it automatically during initialization.
+Create a unified markdown module or a programmatic injection mechanism for core agent policies. Instead of duplicating the same "Environment Troubleshooting" and "Empty PR Exceptions" blocks in 10+ different files, we should define them once in a shared document (e.g., `.foundry/docs/knowledge_base/agents/core_policies.md`) and instruct agents to include or read it automatically during initialization.
 
 ## Impact
 - **Consistency:** Ensures all agents operate under the exact same robust rule set.

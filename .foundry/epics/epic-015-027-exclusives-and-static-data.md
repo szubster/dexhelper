@@ -15,7 +15,7 @@ tags:
   - gen2
   - data
 research_references:
-  - .foundry/docs/shared_memory/development/gen2_implementation_plan.md
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
 rejection_count: 0
 rejection_reason: ''
 notes: ''

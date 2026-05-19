@@ -29,4 +29,4 @@ Evaluate Cloudflare D1 (SQL) and KV as potential backend stores for tracking nod
 ## Resolution
 The tradeoffs between Cloudflare D1 and KV have been evaluated. D1 is recommended for tracking node states due to its strong consistency, which is critical for atomic DAG orchestration.
 The evaluation and proposed relational schema (mapping nodes, dependencies, and tags) have been documented in:
-[.foundry/docs/shared_memory/foundry/orchestrator/d1-vs-kv-evaluation.md](.foundry/docs/shared_memory/foundry/orchestrator/d1-vs-kv-evaluation.md)
+[.foundry/docs/knowledge_base/foundry/orchestrator/d1-vs-kv-evaluation.md](.foundry/docs/knowledge_base/foundry/orchestrator/d1-vs-kv-evaluation.md)

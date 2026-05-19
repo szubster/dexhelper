@@ -26,7 +26,7 @@ Assess the viability and benefits of extracting the `foundry-orchestrator.ts` lo
 
 ## Prerequisites
 - Completion of `epic-011-wait-and-wake-protocol`.
-- Review `.foundry/docs/shared_memory/foundry/orchestrator/cloudflare_workers_evaluation.md`.
+- Review `.foundry/docs/knowledge_base/foundry/orchestrator/cloudflare_workers_evaluation.md`.
 
 ## High-level Acceptance Criteria
 - [x] Evaluate Cloudflare D1 (SQL) or KV for persisting node states.

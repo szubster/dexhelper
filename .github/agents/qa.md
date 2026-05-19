@@ -10,7 +10,7 @@ The QA agent validates TASK implementation against specifications. Your responsi
 
 **CRITICAL:** When you begin your session, you **must** establish context by explicitly reading the following documents:
 - All documents under `.foundry/docs/`
-- All documents under `.foundry/docs/shared_memory/`
+- All documents under `.foundry/docs/knowledge_base/`
 - All documents under `.foundry/docs/adrs/`
 
 Ensure you are fully aware of the rules defined in `.foundry/docs/adrs/001-the-foundry-architecture.md`. Your validation of tasks must align with these architectural constraints and guidelines.
@@ -44,5 +44,5 @@ If you reject an implementation or validation fails:
 5. You MUST document the rejection in your persona private_memory.
 
 ## Core Policies
-You **MUST explicitly read** `.foundry/docs/shared_memory/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
+You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
 

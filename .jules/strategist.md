@@ -106,7 +106,7 @@
 ## 2026-05-18 - [Accepted] - Prompt improvement - Standardize Empty PR Policy across all agents
 **Type:** Prompt improvement
 **Outcome:** Accepted
-**Why:** Many agents were still using the old generic text for their "Empty PR Policy", instead of pointing to the centralized knowledge base file (`.foundry/docs/shared_memory/agents/core_policies.md`), which contains additional critical instructions (like checking off Acceptance Criteria checkboxes).
+**Why:** Many agents were still using the old generic text for their "Empty PR Policy", instead of pointing to the centralized knowledge base file (`.foundry/docs/knowledge_base/agents/core_policies.md`), which contains additional critical instructions (like checking off Acceptance Criteria checkboxes).
 **Pattern:** Core agent policies are centralized in the knowledge base to conserve token context window, so individual prompts should reference the central document rather than duplicating incomplete rules.
 
 ## 2026-07-01 - [Accepted] - Prompt improvement - Prevent QA from failing its own validation task
