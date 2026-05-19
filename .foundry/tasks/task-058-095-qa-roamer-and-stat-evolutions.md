@@ -2,13 +2,13 @@
 id: task-058-095-qa-roamer-and-stat-evolutions
 type: TASK
 title: 'QA: Implement Roamer Tracking & Stat-Based Evolutions'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on:
   - .foundry/tasks/task-058-094-implement-roamer-and-stat-evolutions.md
-jules_session_id: null
+jules_session_id: '5049124236208423994'
 pr_number: null
 parent: .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
 tags:
