@@ -28,7 +28,7 @@ Establish the formal separation of Architect and Agile Coach roles and mandate t
 - The `tech_lead` must now intelligently decide when a `STORY` requires a separate `qa` verification task.
 - **Protocol**: 
   - If a story involves complex logic or risk, the Tech Lead creates a matching `TASK` for the `qa` persona to verify the `coder`'s work.
-  - If simple/low-risk, the Tech Lead may designate the `coder` to self-verify (documented in the task journal).
+  - If simple/low-risk, the Tech Lead may designate the `coder` to self-verify (documented in the task private_memory).
 
 ### 3. Agile Coach Evolution
 - The `agile_coach` is empowered to autonomously generate new `IDEA` or `TASK` nodes to improve the Foundry's own codebase and processes based on observed friction (e.g., repeating merge conflicts, failed sessions).

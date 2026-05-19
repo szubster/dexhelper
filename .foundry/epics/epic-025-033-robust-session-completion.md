@@ -39,13 +39,13 @@ We need to differentiate between a silent crash and a legitimate PR-less complet
 4. If it's a leaf task with unchecked boxes, transition to `FAILED` with a `rejection_reason`.
 5. If it's a valid late-binding parent (has children or is of type `IDEA`, `PRD`, `EPIC`, `STORY`, or a `TASK`/`RESEARCH` that has generated children) with unchecked boxes, transition to `PENDING` (or remain `READY`).
 6. If all boxes are checked (or no boxes exist), transition the node gracefully to `COMPLETED`.
-7. Ensure adequate logging to the TPM journal for these PR-less completions.
+7. Ensure adequate logging to the TPM private_memory for these PR-less completions.
 
 ## Acceptance Criteria
 - [x] Heartbeat script correctly parses Jules session state even without a PR.
 - [x] PR-less `COMPLETED` sessions for leaf tasks with unchecked boxes are marked `FAILED`.
 - [x] PR-less `COMPLETED` sessions for leaf tasks with all boxes checked are marked `COMPLETED`.
-- [x] Appropriate logs are written to `.foundry/journals/tpm.md`.
+- [x] Appropriate logs are written to `.foundry/private_memories/tpm.md`.
 
 ## Downstream Nodes
 - STORY: `.foundry/stories/story-033-066-heartbeat-prless-detection.md`

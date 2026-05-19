@@ -1,4 +1,4 @@
-# Product Manager Journal
+# Product Manager Private memory
 
 ## Issue with IDEA-007 PRD Generation
 Date: 2026-04-24
@@ -22,7 +22,7 @@ However, it had the incorrect ID schema (`prd-002`) and was detached. I fixed th
 ## Issue with IDEA-003 PRD Generation
 Date: 2026-04-27
 
-During the session for transforming IDEA-003 (Foundry V2: Atomic Handoffs) into a PRD, the target PRD node (`prd-001-v2-lifecycle.md`) was already found existing in the repository and the acceptance criteria in IDEA-003 were already checked off. Following the Empty PR Policy, no dummy changes are made, and this journal entry is documented to allow the DAG to progress.
+During the session for transforming IDEA-003 (Foundry V2: Atomic Handoffs) into a PRD, the target PRD node (`prd-001-v2-lifecycle.md`) was already found existing in the repository and the acceptance criteria in IDEA-003 were already checked off. Following the Empty PR Policy, no dummy changes are made, and this private_memory entry is documented to allow the DAG to progress.
 
 ## Issue with IDEA-007 PRD Generation (Duplicate Check)
 Date: 2026-05-02
@@ -31,7 +31,7 @@ During the session for transforming IDEA-007 (Migrate Save Data to IndexedDB) in
 
 ## 2026-05-03: Pre-existing PRD Anomaly
 - During the session for transforming IDEA-013 (Improve Late Binding Parent Completion) into a PRD, the target PRD node (`.foundry/prds/prd-013-012-improve-late-binding-completion.md`) was already found existing in the repository and the acceptance criteria in IDEA-013 were already present.
-- Following the Empty PR Policy, no dummy changes are made, and this journal entry is documented to allow the DAG to progress. The Agile Coach should review this anomaly.
+- Following the Empty PR Policy, no dummy changes are made, and this private_memory entry is documented to allow the DAG to progress. The Agile Coach should review this anomaly.
 
 ## 2026-05-05: Idea 016 - Pre-commit Schema Validation
 - Created PRD `prd-016-016-precommit-schema-validation.md` from Idea `idea-016-precommit-schema-validation.md`.
@@ -50,26 +50,26 @@ Converted idea-017-dag-dashboard to prd-017-017-dag-dashboard.
 ## Issue with IDEA-019 PRD Generation
 Date: 2026-05-11
 
-During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. Following the Empty PR Policy, no trivial formatting changes will be made, nor will any parent node checkboxes be modified. This PR will be submitted as empty (or with only this journal update) to allow the DAG to progress. The Agile Coach should review this anomaly to investigate if there are redundant generation steps in the orchestrator.
+During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. Following the Empty PR Policy, no trivial formatting changes will be made, nor will any parent node checkboxes be modified. This PR will be submitted as empty (or with only this private_memory update) to allow the DAG to progress. The Agile Coach should review this anomaly to investigate if there are redundant generation steps in the orchestrator.
 
 ## Issue with IDEA-019 PRD Generation (Duplicate Check)
 Date: 2026-05-11
 
-During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. The parent node (`idea-019-automated-branch-cleanup.md`) acceptance criteria were also checked off. Following the Empty PR Policy, no trivial formatting changes will be made, and this journal entry is documented to allow the DAG to progress. The Agile Coach should review this anomaly.
+During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. The parent node (`idea-019-automated-branch-cleanup.md`) acceptance criteria were also checked off. Following the Empty PR Policy, no trivial formatting changes will be made, and this private_memory entry is documented to allow the DAG to progress. The Agile Coach should review this anomaly.
 
 ## Issue with IDEA-019 PRD Generation (Duplicate Check)
 Date: 2026-05-12
 
-During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and is marked as COMPLETED. Following the Empty PR Policy, no dummy changes will be made to the PRD. The acceptance criteria in `idea-019-automated-branch-cleanup.md` will not be checked off because they correspond to implementation logic that falls outside the Product Manager persona's responsibility. This PR will be submitted as an empty PR (or with only this journal update) to allow the DAG to progress.
+During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and is marked as COMPLETED. Following the Empty PR Policy, no dummy changes will be made to the PRD. The acceptance criteria in `idea-019-automated-branch-cleanup.md` will not be checked off because they correspond to implementation logic that falls outside the Product Manager persona's responsibility. This PR will be submitted as an empty PR (or with only this private_memory update) to allow the DAG to progress.
 
 ## Issue with IDEA-019 PRD Generation (Empty PR Policy)
 Date: 2026-05-15
 
-During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. As per the Empty PR Policy, no changes will be made to the PRD or the parent Idea node (`idea-019-automated-branch-cleanup.md`). The acceptance criteria in the parent node are partially unchecked but relate to implementation details not under the Product Manager's purview. I am submitting this empty PR (with only this journal update) to allow the DAG to progress.
+During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. As per the Empty PR Policy, no changes will be made to the PRD or the parent Idea node (`idea-019-automated-branch-cleanup.md`). The acceptance criteria in the parent node are partially unchecked but relate to implementation details not under the Product Manager's purview. I am submitting this empty PR (with only this private_memory update) to allow the DAG to progress.
 ## Issue with IDEA-019 PRD Generation (Duplicate Check)
 Date: 2026-05-18
 
-During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. Following the Empty PR Policy, no trivial formatting changes will be made to the PRD. The parent node (`idea-019-automated-branch-cleanup.md`) acceptance criteria were partially checked off, and I will not modify them because they relate to implementation details that are not under the Product Manager's purview. This PR will be submitted as an empty PR (or with only this journal update) to allow the DAG to progress.
+During the session for transforming IDEA-019 (Automated Branch Cleanup) into a PRD, the target PRD node (`.foundry/prds/prd-019-019-automated-branch-cleanup.md`) was already found existing in the repository and appears complete. Following the Empty PR Policy, no trivial formatting changes will be made to the PRD. The parent node (`idea-019-automated-branch-cleanup.md`) acceptance criteria were partially checked off, and I will not modify them because they relate to implementation details that are not under the Product Manager's purview. This PR will be submitted as an empty PR (or with only this private_memory update) to allow the DAG to progress.
 
 ## Issue with IDEA-019 PRD Generation (Duplicate Check and Parent Fix)
 Date: 2026-05-19

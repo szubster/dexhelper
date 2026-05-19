@@ -1,4 +1,4 @@
-# Visionary Journal
+# Visionary Private memory
 
 ## 2026-05-18
 **Idea:** Specialized "Living Dex" Organization Tracker

@@ -41,7 +41,7 @@ We need to differentiate between genuine crashes and correct but PR-less empty c
    - If the node contains unchecked markdown tasks (`- [ ]`), the heartbeat must transition the node to `FAILED` with a `rejection_reason` indicating unfulfilled acceptance criteria.
    - If the node is a valid late-binding parent (has children or is of type `IDEA`, `PRD`, `EPIC`, `STORY`), unchecked tasks serve as a signal to keep the node in a `PENDING` state to await child generation. Note that leaf tasks (like `TASK` or `RESEARCH`) may also use late binding, so if they have children, they should also be treated as late-binding parents.
    - If all tasks are checked off (or if there are no tasks), the heartbeat transitions the node to `COMPLETED`.
-3. **Journal Logging**: The heartbeat must explicitly log these PR-less `COMPLETED` state transitions in the TPM journal to ensure system state changes are auditable.
+3. **Private memory Logging**: The heartbeat must explicitly log these PR-less `COMPLETED` state transitions in the TPM private_memory to ensure system state changes are auditable.
 
 ## Consequences
 - **Positive**: Correctly honors agents that complete their tasks with zero file changes, reducing false failures.

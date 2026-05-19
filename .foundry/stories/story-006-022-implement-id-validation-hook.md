@@ -14,7 +14,7 @@ parent: .foundry/epics/epic-006-id-pre-commit-hooks.md
 # Implement ID Validation Pre-commit Hook
 
 ## Objective
-Implement a pre-commit hook that parses all `.foundry/**/*.md` files (excluding journals and docs) to validate the integrity of their ID fields as defined in the master schema.
+Implement a pre-commit hook that parses all `.foundry/**/*.md` files (excluding private_memories and docs) to validate the integrity of their ID fields as defined in the master schema.
 
 ## Context
 As defined in `epic-006-id-pre-commit-hooks.md`, we need to guarantee the collision-free nature of the new node ID scheme. A pre-commit hook is required to enforce this.

@@ -29,7 +29,7 @@ A custom orchestrator (`.github/scripts/foundry-orchestrator.ts`) parses the `de
 | `.foundry/epics/` | `EPIC` | `epic_planner` | Macroscopic functional chunks derived from PRDs. |
 | `.foundry/stories/` | `STORY` | `story_owner` | Incremental, sequentially-planned delivery steps. Stories are late-binding: Story N+1 is only written after Story N completes so lessons are incorporated. |
 | `.foundry/tasks/` | `TASK` | `coder` | Concrete engineering blueprints. The Tech Lead or Architect writes them; the Coder implements; QA validates. |
-| `.foundry/journals/` | — | `tpm` | Persistent agent learning logs. Each persona decides its own structure (single file, subdirectory, multiple files by domain, etc.). The `tpm` is responsible for archiving stale journal content. |
+| `.foundry/private_memories/` | — | `tpm` | Persistent agent learning logs. Each persona decides its own structure (single file, subdirectory, multiple files by domain, etc.). The `tpm` is responsible for archiving stale private_memory content. |
 | `.foundry/docs/adrs/` | ADR | `tech_lead` | Architecture Decision Records. The Tech Lead reads these before writing any Task to ensure consistency. |
 | `.foundry/docs/style_guides/` | Style Guide | `designer` | Global UX/UI constraints injected into designer tasks. |
 
@@ -154,22 +154,22 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `coder` | Implements individual `TASK` nodes. |
 | `qa` | Validates `TASK` implementation against technical contracts. |
 | `human` | A human contributor. Bypasses Jules dispatch and heartbeat timeouts. |
-| `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
+| `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages private_memories. |
 | `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
 | `researcher` | Responsible for exploratory tasks. Late-bound research nodes can be dynamically created by active nodes. Multiple researchers can be assigned to different sibling research nodes. |
 
 ---
 
-## 6. Journal Convention
+## 6. Private memory Convention
 
-> Journals live under `.foundry/journals/`. Beyond that, **structure is entirely up to each persona.**
+> Private memorys live under `.foundry/private_memories/`. Beyond that, **structure is entirely up to each persona.**
 
 A persona may use:
-- A single file: `journals/coder.md`
-- A subdirectory: `journals/coder/frontend.md` + `journals/coder/backend.md`
+- A single file: `private_memories/coder.md`
+- A subdirectory: `private_memories/coder/frontend.md` + `private_memories/coder/backend.md`
 - Dated entries, topic-based files, or any other structure that serves their learning needs.
 
-The `tpm` persona is responsible for archiving stale journal content. The only invariant is that journal files **do not use YAML frontmatter** — they are plain Markdown and are not parsed by the orchestrator.
+The `tpm` persona is responsible for archiving stale private_memory content. The only invariant is that private_memory files **do not use YAML frontmatter** — they are plain Markdown and are not parsed by the orchestrator.
 
 ---
 
@@ -185,7 +185,7 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
 6. **Implementers (Coder/QA) must NOT modify node frontmatter**, EXCEPT for the `status` field if they need to mark the task as `FAILED`, and the `rejection_reason` field. They are strictly forbidden from setting the status to `COMPLETED` or `DONE`. They should primarily update the Markdown body.
 7. **`COMPLETED` nodes are read-only.** Once a PR is merged, the node must not be edited. The TPM archives it.
 8. **`depends_on` paths must be resolvable.** The orchestrator will treat an unresolvable path as a permanent block (equivalent to `BLOCKED`). Always verify paths exist before committing.
-9. **Every `.foundry/**/*.md` file that is not a journal or doc must have valid YAML frontmatter.** The orchestrator will skip malformed files and log a warning — they will never be dispatched.
+9. **Every `.foundry/**/*.md` file that is not a private_memory or doc must have valid YAML frontmatter.** The orchestrator will skip malformed files and log a warning — they will never be dispatched.
 10. **The `id` field must be globally unique across all `.foundry/` directories.** Duplicate IDs are undefined behaviour in the orchestrator.
 11. **`owner_persona` must be exactly one persona.** The system enforces a single-owner invariant per node for atomic handoffs; arrays or multiple personas are invalid.
 12. **`human` persona bypasses Jules dispatch and heartbeat timeouts.** The orchestrator will not dispatch Jules for nodes owned by `human`, and the heartbeat will not fail them.
@@ -249,4 +249,4 @@ Paths are **always relative to the repository root**, starting with `.foundry/`.
 
 
 ## 11. EMPTY PR POLICY
-If a target artifact already exists and matches the required state, personas must submit an empty PR (0 files changed). The system will automatically merge these PRs to progress the node to `COMPLETED`. Personas should document the reasoning in their journals.
+If a target artifact already exists and matches the required state, personas must submit an empty PR (0 files changed). The system will automatically merge these PRs to progress the node to `COMPLETED`. Personas should document the reasoning in their private_memories.

@@ -34,7 +34,7 @@ Implement a GitHub Action to automatically close pull requests that contain no f
 - [x] Workflow successfully closes empty PRs without merging.
 
 ## Verification Protocol
-Self-verification designated to the `coder`. Create a test PR with no changed files (e.g., an empty commit `git commit --allow-empty`) and verify the workflow closes it. Document the results in the task journal.
+Self-verification designated to the `coder`. Create a test PR with no changed files (e.g., an empty commit `git commit --allow-empty`) and verify the workflow closes it. Document the results in the task private_memory.
 
 ### Verification Results
 Workflow created and verified via file inspection.

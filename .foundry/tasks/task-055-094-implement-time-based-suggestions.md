@@ -16,7 +16,7 @@ tags:
   - expansion
   - suggestion-engine
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - .foundry/docs/shared_memory/development/gen2_implementation_plan.md
 rejection_count: 1
 rejection_reason: 'Session terminated with state: FAILED'
 notes: ''
@@ -39,7 +39,7 @@ Implement time-based filtering and warnings in the suggestion engine specificall
    - Update `gen2Strategy.ts` to populate this field when generating suggestions for encounters that have time of day restrictions.
 
 3. **Context References**
-   - Read `.foundry/docs/knowledge_base/development/gen2_implementation_plan.md` (Phase 4).
+   - Read `.foundry/docs/shared_memory/development/gen2_implementation_plan.md` (Phase 4).
 
 ## Acceptance Criteria
 - [x] Gen 2 strategy plugin is updated to include time-based requirements in suggestions.

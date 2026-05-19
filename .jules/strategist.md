@@ -23,14 +23,14 @@
 **Pattern:** Proposing an improvement based on specific missing test strategies found in the ecosystem.
 ## 2025-04-22 - [Rejected] - Prompt improvement - Ensure Strategist properly discovers and logs unrecorded past outcomes
 **Type:** Prompt improvement
-**Outcome:** Rejected → journaled
-**Why:** The maintainer rejected the proposal to use `git log` to retroactively discover outcomes, stating explicitly: "They should not look at past commits to figure out their memory, as journal always has them. Every PR either has code changes + journal (optionally, if useful), or journal only with rejection statement and reason for future learning."
-**Pattern:** Do not propose tracking memory through past commits instead of the explicit journal mechanism defined in the "Wait and Convert" flow.
+**Outcome:** Rejected → private_memoryed
+**Why:** The maintainer rejected the proposal to use `git log` to retroactively discover outcomes, stating explicitly: "They should not look at past commits to figure out their memory, as private_memory always has them. Every PR either has code changes + private_memory (optionally, if useful), or private_memory only with rejection statement and reason for future learning."
+**Pattern:** Do not propose tracking memory through past commits instead of the explicit private_memory mechanism defined in the "Wait and Convert" flow.
 
 ## 2025-04-23 - [Accepted] - Prompt improvement - Remove Git/PR history as memory source
 **Type:** Prompt improvement
 **Outcome:** Merged
-**Why:** Maintainer clarified that agents should not look at past commits to figure out their memory, as the journal always has them.
+**Why:** Maintainer clarified that agents should not look at past commits to figure out their memory, as the private_memory always has them.
 **Pattern:** Do not instruct agents to read PR history for cross-session memory.
 
 ## 2026-05-15 - [Accepted] - Prompt improvement - Update PR titles and bodies to match system memory
@@ -49,16 +49,16 @@
 **Outcome:** Merged
 **Why:** System memory requires the Canvas persona to adhere to a "tactical hardware/snooping" aesthetic, but the prompt didn't mention it.
 **Pattern:** Codify system memory constraints into agent prompts so they are respected.
-## 2026-06-04 - [Accepted] - Prompt improvement - Ensure Strategist uses journals instead of PR history
+## 2026-06-04 - [Accepted] - Prompt improvement - Ensure Strategist uses private_memories instead of PR history
 **Type:** Prompt improvement
 **Outcome:** Merged
-**Why:** The maintainer explicitly instructed that agents must not use `git log` or past commits for memory, and instead rely on journals. The Strategist prompt was still instructing itself to review agent PR history instead of agent journals.
-**Pattern:** Update prompts to ensure they align with the system constraint that cross-session memory is exclusively stored in `.jules/*.md` journal files, not git history.
+**Why:** The maintainer explicitly instructed that agents must not use `git log` or past commits for memory, and instead rely on private_memories. The Strategist prompt was still instructing itself to review agent PR history instead of agent private_memories.
+**Pattern:** Update prompts to ensure they align with the system constraint that cross-session memory is exclusively stored in `.jules/*.md` private_memory files, not git history.
 
 ## 2026-05-02 - [Accepted] - Prompt improvement - Update Sweeper prompt to enforce grep verification and fix PR title
 **Type:** Prompt improvement
 **Outcome:** Merged
-**Why:** The Sweeper journal explicitly noted that knip can hallucinate unused files that are implicitly used in configs or test runners, and that agents must use grep to verify. Additionally, system memory requires the PR title format to strictly be `🧹 [description]`.
+**Why:** The Sweeper private_memory explicitly noted that knip can hallucinate unused files that are implicitly used in configs or test runners, and that agents must use grep to verify. Additionally, system memory requires the PR title format to strictly be `🧹 [description]`.
 **Pattern:** Codify system memory constraints and specific tool-verification requirements into agent prompts to avoid regressions.
 
 ## 2026-06-05 - [Accepted] - Prompt improvement - Update Sentinel to prevent flaky E2E tests and Vitest lint errors
@@ -75,20 +75,20 @@
 
 ## 2026-06-06 - [Rejected] - New agent: TPM (Technical Program Manager)
 **Type:** New agent
-**Outcome:** Rejected → journaled
+**Outcome:** Rejected → private_memoryed
 **Why:** There is already a TPM in foundry using a different scheduling mechanism.
 **Pattern:** Ensure we don't duplicate existing agents/roles even if they aren't directly represented in `.jules/schedules/`. If a role exists but is missing specific instructions, we should improve its prompt rather than creating a duplicate schedule.
 
 ## 2026-06-07 - [Accepted] - Prompt improvement - Restrict Bolt to application performance
 **Type:** Prompt improvement
 **Outcome:** Accepted
-**Why:** The Bolt agent's journal showed it repeatedly optimizing CI pipelines, fixing DAG orchestrator bugs, and updating tooling configs (Biome, Vite, Vitest) instead of its domain of application performance.
+**Why:** The Bolt agent's private_memory showed it repeatedly optimizing CI pipelines, fixing DAG orchestrator bugs, and updating tooling configs (Biome, Vite, Vitest) instead of its domain of application performance.
 **Pattern:** Performance agents can easily drift into pipeline/tooling optimizations if their boundaries don't explicitly exclude infrastructure and CI/CD files.
 
 ## 2026-05-11 - [Accepted] - Prompt improvement - Prevent Shield prompt bloat
 **Type:** Prompt improvement
 **Outcome:** Accepted
-**Why:** The `shield.md` journal showed that when no code fixes were found, the agent repeatedly bloated its own prompt (`.jules/schedules/shield.md`) with exhaustive lists of generic web vulnerabilities (like "Guard against Tab-nabbing", "Guard against CSRF"). This caused the prompt to grow unmanageably and lose its focus.
+**Why:** The `shield.md` private_memory showed that when no code fixes were found, the agent repeatedly bloated its own prompt (`.jules/schedules/shield.md`) with exhaustive lists of generic web vulnerabilities (like "Guard against Tab-nabbing", "Guard against CSRF"). This caused the prompt to grow unmanageably and lose its focus.
 **Pattern:** Do not instruct agents to expand their prompt with generic lists when they lack actionable work; instead, default to routine tasks (like `pnpm audit`) or skip execution.
 
 ## 2026-06-27 - [Accepted] - Prompt improvement - Update Canvas to require visual verification via Playwright
@@ -106,7 +106,7 @@
 ## 2026-05-18 - [Accepted] - Prompt improvement - Standardize Empty PR Policy across all agents
 **Type:** Prompt improvement
 **Outcome:** Accepted
-**Why:** Many agents were still using the old generic text for their "Empty PR Policy", instead of pointing to the centralized knowledge base file (`.foundry/docs/knowledge_base/agents/core_policies.md`), which contains additional critical instructions (like checking off Acceptance Criteria checkboxes).
+**Why:** Many agents were still using the old generic text for their "Empty PR Policy", instead of pointing to the centralized knowledge base file (`.foundry/docs/shared_memory/agents/core_policies.md`), which contains additional critical instructions (like checking off Acceptance Criteria checkboxes).
 **Pattern:** Core agent policies are centralized in the knowledge base to conserve token context window, so individual prompts should reference the central document rather than duplicating incomplete rules.
 
 ## 2026-07-01 - [Accepted] - Prompt improvement - Prevent QA from failing its own validation task

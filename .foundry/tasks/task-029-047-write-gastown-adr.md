@@ -29,7 +29,7 @@ Write `.foundry/docs/adrs/003-gastown-migration-decision.md` to document the Gas
 4. Draft a high-level migration plan.
 
 ### Intelligent Verification Protocol
-This is a documentation task (low risk). The `coder` is designated to self-verify by checking the ADR format and document the verification in their task journal.
+This is a documentation task (low risk). The `coder` is designated to self-verify by checking the ADR format and document the verification in their task private_memory.
 
 ## Acceptance Criteria
 - [x] Create `.foundry/docs/adrs/003-gastown-migration-decision.md`.

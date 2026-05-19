@@ -49,7 +49,7 @@ export async function transitionNodeToFailed(node: any, repoRoot: string, reject
 
   if (!DRY_RUN) {
     fs.writeFileSync(node.filePath, newContent, 'utf-8');
-    logToJournal(repoRoot, `\n- **${dateStr}**: Heartbeat detected zombie session for \`${node.frontmatter.id}\`. Transitioned to FAILED.\n`);
+    logToPrivate memory(repoRoot, `\n- **${dateStr}**: Heartbeat detected zombie session for \`${node.frontmatter.id}\`. Transitioned to FAILED.\n`);
   }
   info(`${dryTag}Transitioned ACTIVE → FAILED: ${node.repoPath}`);
 }
@@ -107,7 +107,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
 
   if (!DRY_RUN) {
     fs.writeFileSync(node.filePath, newContent, 'utf-8');
-    logToJournal(repoRoot, `\n- **${dateStr}**: ${message} \`${node.frontmatter.id}\` is now ${targetStatus}.\n`);
+    logToPrivate memory(repoRoot, `\n- **${dateStr}**: ${message} \`${node.frontmatter.id}\` is now ${targetStatus}.\n`);
   }
   info(`${dryTag}Transitioned ACTIVE → ${targetStatus}: ${node.repoPath} ${prNumber !== null ? `(PR #${prNumber})` : `(Empty PR)`}`);
 }
@@ -128,7 +128,7 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
     const newContent = matter.stringify(parsed.content, parsed.data);
     if (!DRY_RUN) {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
-      logToJournal(repoRoot, `\n- **${dateStr}**: Max rejection count reached for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned to FAILED.\n`);
+      logToPrivate memory(repoRoot, `\n- **${dateStr}**: Max rejection count reached for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned to FAILED.\n`);
     }
     info(`${dryTag}Max rejection count reached → FAILED: ${node.repoPath} (${reason})`);
   } else {
@@ -138,7 +138,7 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
 
     if (!DRY_RUN) {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
-      logToJournal(repoRoot, `\n- **${dateStr}**: Resurrection Loop triggered for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY.\n`);
+      logToPrivate memory(repoRoot, `\n- **${dateStr}**: Resurrection Loop triggered for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY.\n`);
     }
     info(`${dryTag}Resurrected → READY: ${node.repoPath} (${reason})`);
   }
@@ -222,10 +222,10 @@ async function findPRForSession(
   return { pr: null, sessionStatus, updateTime };
 }
 
-function logToJournal(repoRoot: string, entry: string): void {
-  const journalDir = path.join(repoRoot, '.foundry', 'journals');
-  if (!fs.existsSync(journalDir)) fs.mkdirSync(journalDir, { recursive: true });
-  fs.appendFileSync(path.join(journalDir, 'tpm.md'), entry, 'utf-8');
+function logToPrivate memory(repoRoot: string, entry: string): void {
+  const private_memoryDir = path.join(repoRoot, '.foundry', 'private_memories');
+  if (!fs.existsSync(private_memoryDir)) fs.mkdirSync(private_memoryDir, { recursive: true });
+  fs.appendFileSync(path.join(private_memoryDir, 'tpm.md'), entry, 'utf-8');
 }
 
 export async function main() {
@@ -414,7 +414,7 @@ export async function cleanupRemoteBranches(repoRoot: string, repoFullName: stri
 
         if (deleteRes.ok || deleteRes.status === 404 /* already deleted? */) {
           info(`Deleted remote branch: ${branch}`);
-          logToJournal(repoRoot, `\n- **${dateStr}**: Cleanup Loop deleted remote branch \`${branch}\`.\n`);
+          logToPrivate memory(repoRoot, `\n- **${dateStr}**: Cleanup Loop deleted remote branch \`${branch}\`.\n`);
         } else {
           warn(`Failed to delete remote branch ${branch}: ${deleteRes.status} ${deleteRes.statusText}`);
         }

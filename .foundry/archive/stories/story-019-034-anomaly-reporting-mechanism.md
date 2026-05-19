@@ -21,14 +21,14 @@ notes: ''
 # Story: Anomaly Reporting Mechanism
 
 ## Overview
-Add capability to log a small journal entry when pre-existing artifacts are unexpectedly found, directed to the Agile Coach.
+Add capability to log a small private_memory entry when pre-existing artifacts are unexpectedly found, directed to the Agile Coach.
 
 ## Requirements
 - Log an anomaly when the idempotent check successfully bypasses generation due to pre-existing, valid artifacts.
 - The log should go to a designated place for the Agile Coach to review later.
 
 ## Acceptance Criteria
-- [x] A small journal entry is logged indicating the unexpected presence of completed artifacts.
+- [x] A small private_memory entry is logged indicating the unexpected presence of completed artifacts.
 
 ### Generated Tasks
-- [.foundry/archive/tasks/task-034-057-implement-anomaly-journal-logging.md](.foundry/archive/tasks/task-034-057-implement-anomaly-journal-logging.md)
+- [.foundry/archive/tasks/task-034-057-implement-anomaly-private_memory-logging.md](.foundry/archive/tasks/task-034-057-implement-anomaly-private_memory-logging.md)

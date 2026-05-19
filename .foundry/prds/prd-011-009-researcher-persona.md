@@ -25,7 +25,7 @@ Introduce a new `researcher` persona to the Foundry system. This persona will be
 ## Acceptance Criteria
 - [ ] Add the `researcher` persona to the GitHub agents list.
 - [ ] Create a `researcher.md` prompt framework in `.github/agents/`.
-- [ ] Create a `researcher.md` journal policy/file in `.foundry/journals/`.
+- [ ] Create a `researcher.md` private_memory policy/file in `.foundry/private_memories/`.
 - [ ] Create a dedicated storage directory `.foundry/research/` for research output nodes.
 - [x] Update the system schema (`.foundry/docs/schema.md`) to include the new persona and its responsibilities.
 - [x] Update schema to allow attaching `research_references` array to any node type to inject research context safely.

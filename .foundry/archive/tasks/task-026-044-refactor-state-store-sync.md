@@ -20,9 +20,9 @@ tags:
 ## Description
 This Task implements the technical steps required to remove `localStorage` syncing logic and Base64 encoding/decoding from `src/store.ts`.
 
-The `coder` must self-verify the changes and document the verification in their task journal.
+The `coder` must self-verify the changes and document the verification in their task private_memory.
 
 ## Acceptance Criteria
 - [x] `localStorage` save file logic is removed from state actions in `src/store.ts`.
 - [x] Base64 encoding/decoding and regex validation logic are eliminated in `src/store.ts`.
-- [x] Verification steps are documented in the task journal.
+- [x] Verification steps are documented in the task private_memory.

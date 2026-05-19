@@ -1,12 +1,12 @@
 ## 2025-04-18 - [Rejected] - 🖼️ Canvas: Holographic dynamic-color hero layout for PokemonDetails
 **What:** Redesigned the PokemonDetails component to use a holographic projection hero layout with a dynamic ambient glow backdrop extracted from the Pokemon's sprite.
-**Outcome:** Rejected → journaled
+**Outcome:** Rejected → private_memoryed
 **Why:** Maintainer felt the previous design was better as it looked more like "snooping for Pokémon", aligning better with the app's core fantasy/feel than a polished high-tech hologram.
 **Pattern:** Avoid overly slick, polished "high-tech" designs. The UI should prioritize the "snooping" / utility-driven feel of an actual Pokédex over flashy holographic effects.
 
 ## 2025-05-15 - [Rejected] - 🖼️ Canvas: StorageGrid Terminal Layout
 **What:** Redesigned StorageGrid to use a split PC Terminal layout with a sidebar for locations, replacing the endless scrolling list.
-**Outcome:** Rejected → journaled
+**Outcome:** Rejected → private_memoryed
 **Why:** Maintainer pointed out that clicking on boxes instead of scrolling is more problematic, especially on mobile devices.
 **Pattern:** Avoid replacing vertical scrolling with click-to-navigate tab/sidebar layouts when the number of items is high (like 14+ boxes), as it can degrade the mobile experience.
 
@@ -36,7 +36,7 @@
 
 ## 2025-05-25 - [Rejected] - 🖼️ Canvas: Tactical Storage Grid Redesign
 **What:** Redesigned StorageGrid to match the utility-driven tactical "snooping" aesthetic, featuring sharp, dashed-border unit cards, corner crosshairs, monospace telemetry headers ("SYS.DIR"), and radar scanline effects.
-**Outcome:** Rejected → journaled
+**Outcome:** Rejected → private_memoryed
 **Why:** The maintainer correctly pointed out that the card UI was largely a duplicate of `PokedexCard.tsx`, violating DRY principles, and requested a refactor to reuse the component instead of copying the layout.
 **Pattern:** When applying a successful design pattern to a new area, ensure the underlying components are refactored for reuse rather than duplicating complex UI markup (like the tactical card layout and scanline effects).
 

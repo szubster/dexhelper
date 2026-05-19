@@ -626,7 +626,7 @@
 
 - **2026-05-01**: PR #808 merged. `task-029-054-qa-async-hydration` is now COMPLETED.
 
-- **2026-05-01**: Resurrection Loop triggered for `task-034-057-implement-anomaly-journal-logging`. Reason: Retry from FAILED status.. Transitioned back to READY.
+- **2026-05-01**: Resurrection Loop triggered for `task-034-057-implement-anomaly-private_memory-logging`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-01**: PR #829 merged. `epic-010-oxlint-config` is now COMPLETED.
 
@@ -650,7 +650,7 @@
 
 - **2026-05-01**: PR #833 merged. `story-016-033-update-e2e-testing-for-idb` is now COMPLETED.
 
-- **2026-05-01**: PR #837 merged. `task-034-057-implement-anomaly-journal-logging` is now COMPLETED.
+- **2026-05-01**: PR #837 merged. `task-034-057-implement-anomaly-private_memory-logging` is now COMPLETED.
 
 - **2026-05-01**: PR #841 merged. `epic-005-014-state-store-migration` is now COMPLETED.
 

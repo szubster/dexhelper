@@ -25,7 +25,7 @@ This epic tracks the implementation of the new `researcher` persona and the auto
 ## Acceptance Criteria
 - [x] Add the `researcher` persona to the GitHub agents list.
 - [x] Create a `researcher.md` prompt framework in `.github/agents/`.
-- [x] Create a `researcher.md` journal policy/file in `.foundry/journals/`.
+- [x] Create a `researcher.md` private_memory policy/file in `.foundry/private_memories/`.
 - [x] Create a dedicated storage directory `.foundry/research/` for research output nodes.
 - [x] Update `foundry-orchestrator.ts` to include `research_references` in `FoundryFrontmatter`.
 - [x] Implement logic in `foundry-engine.yml` so every agent automatically retrieves the paths of research references from its parent chain safely (via environment variables and `gray-matter`) and injects them into the agent's context so the agent can read them.

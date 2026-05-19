@@ -23,7 +23,7 @@ describe('Foundry Heartbeat', () => {
     // Default: fs.existsSync returns true for .foundry
     vi.mocked(fs.existsSync).mockImplementation((p) => {
       if (typeof p === 'string' && p.endsWith('.foundry')) return true;
-      if (typeof p === 'string' && p.endsWith('journals')) return true;
+      if (typeof p === 'string' && p.endsWith('private_memories')) return true;
       return false;
     });
   });
@@ -71,7 +71,7 @@ ok: true,
 
     expect(fs.appendFileSync).toHaveBeenCalled();
     const appendCall = vi.mocked(fs.appendFileSync).mock.calls[0];
-    expect(appendCall[0]).toBe(path.join(mockRepoRoot, '.foundry', 'journals', 'tpm.md'));
+    expect(appendCall[0]).toBe(path.join(mockRepoRoot, '.foundry', 'private_memories', 'tpm.md'));
     expect(appendCall[1]).toContain('Transitioned to FAILED');
   });
 
@@ -557,7 +557,7 @@ Body`;
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
     expect(writeCall[1]).toContain('status: FAILED');
 
-    // Also check the logToJournal call to make sure the message is correct
+    // Also check the logToPrivate memory call to make sure the message is correct
     const appendCall = vi.mocked(fs.appendFileSync).mock.calls.find(call =>
       typeof call[1] === 'string' && call[1].includes('Empty PR session completed with unchecked tasks.')
     );
@@ -769,7 +769,7 @@ status: ACTIVE
 });
 
   describe('cleanupRemoteBranches', () => {
-    it('should skip deletion and write to journal in DRY_RUN mode', async () => {
+    it('should skip deletion and write to private_memory in DRY_RUN mode', async () => {
       // Mock DRY_RUN = true
       vi.stubGlobal('DRY_RUN', true);
 
@@ -806,7 +806,7 @@ status: ACTIVE
 
     });
 
-    it('should delete branch and write to journal when not DRY_RUN', async () => {
+    it('should delete branch and write to private_memory when not DRY_RUN', async () => {
       // Need DRY_RUN disabled explicitly just in case environment leaks
       vi.stubGlobal('DRY_RUN', false);
 

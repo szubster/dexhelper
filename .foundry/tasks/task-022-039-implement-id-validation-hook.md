@@ -18,7 +18,7 @@ As specified in `story-006-022`, we need to implement a pre-commit hook that val
 
 ## Acceptance Criteria
 - [x] Create a Node.js script at `scripts/validate-foundry-ids.ts`.
-- [x] The script must read all `.md` files in `.foundry/` except those in `docs/` and `journals/`.
+- [x] The script must read all `.md` files in `.foundry/` except those in `docs/` and `private_memories/`.
 - [x] Parse the YAML frontmatter of each file and extract the `id`.
 - [x] Validate that the `id` field matches the schema:
   - For `IDEA` nodes: `^idea-\d{3}-[a-z0-9-]+$`

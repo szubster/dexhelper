@@ -15,7 +15,7 @@ tags:
   - expansion
   - suggestion-engine
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - .foundry/docs/shared_memory/development/gen2_implementation_plan.md
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -41,7 +41,7 @@ Implement the Gen 2 strategy plugin (`gen2Strategy.ts`) conforming to the `Assis
      - **Stat-Based Evolutions:** Handle dynamic UI message suggestions for Tyrogue's stat requirements (Atk > Def, Atk < Def, Atk = Def).
 
 ## Context References
-Make sure to read `.foundry/docs/knowledge_base/development/gen2_implementation_plan.md` for specific mechanics and expected behaviors.
+Make sure to read `.foundry/docs/shared_memory/development/gen2_implementation_plan.md` for specific mechanics and expected behaviors.
 
 ## Acceptance Criteria
 - [x] `src/engine/assistant/strategies/gen2Strategy.ts` is created and implements `AssistantStrategy`.

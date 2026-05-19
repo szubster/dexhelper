@@ -6,7 +6,7 @@ A "CEO-Level" orchestration system where the human provides high-level ideas and
 ## Core Directives
 - **Direct Commits**: Agents propose ideas by making actual file changes to their own branches (no PR description-only proposals).
 - **CEO Checkpoints**: ALL PR transitions (from PRDs to Code) require explicit CEO approval. Automerge is strictly disabled.
-- **The Journal & Veto Power**: The CEO says "No" by closing a PR without merging. System personas (like Agile Coach and Strategist) use a persistent journal to log closed PRs and extract lessons for future cycles.
+- **The Private memory & Veto Power**: The CEO says "No" by closing a PR without merging. System personas (like Agile Coach and Strategist) use a persistent private_memory to log closed PRs and extract lessons for future cycles.
 
 ## 1. State Store (`.foundry/` Monofolder)
 The repository acts as the database for the entire product lifecycle, containing markdown files representing nodes.
@@ -34,9 +34,9 @@ To prevent massive context bloat while keeping tasks context-aware, global syste
 
 ## 4. Personas Pipeline (`.github/agents/`)
 
-### Agent Journals
-Every agent persona maintains a continuous log in **`.foundry/journals/<agent_name>.md`**. 
-When the 'Resurrection Loop' runs, the returning agent updates its local journal with its mistake, ensuring the persona learns localized domain knowledge from CEO rejections.
+### Agent Private memorys
+Every agent persona maintains a continuous log in **`.foundry/private_memories/<agent_name>.md`**.
+When the 'Resurrection Loop' runs, the returning agent updates its local private_memory with its mistake, ensuring the persona learns localized domain knowledge from CEO rejections.
 
 **The Product Team:**
 - `product_manager.md`: Ideas -> PRDs
@@ -60,14 +60,14 @@ When the 'Resurrection Loop' runs, the returning agent updates its local journal
 
 ### ✅ Epic 1, Story 1.1 — COMPLETED (2026-04-20)
 The `.foundry/` monofolder has been scaffolded at the repository root. All 9 files are committed:
-- `ideas/`, `prds/`, `epics/`, `stories/`, `tasks/`, `journals/` (all with `.gitkeep`)
+- `ideas/`, `prds/`, `epics/`, `stories/`, `tasks/`, `private_memories/` (all with `.gitkeep`)
 - `docs/adrs/`, `docs/style_guides/` (both with `.gitkeep`)
 - `docs/schema.md` — the master definitions document (YAML schema, status lifecycle, system invariants, node template)
 
 **Key decisions locked in schema.md:**
 - `depends_on` uses repo-relative file paths (not IDs) — orchestrator resolves via `fs.readFile`
 - `status: READY` is orchestrator-authored only — never set manually by a persona
-- Journals are unstructured free-form Markdown; each persona decides its own structure/layout; `tpm` is responsible for archiving them
+- Private memorys are unstructured free-form Markdown; each persona decides its own structure/layout; `tpm` is responsible for archiving them
 
 ### ✅ Epic 2, Story 2.2 — COMPLETED (2026-04-20)
 **QA & State Bootstrap**

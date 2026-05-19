@@ -1,7 +1,7 @@
 ---
-id: task-034-057-implement-anomaly-journal-logging
+id: task-034-057-implement-anomaly-private_memory-logging
 type: TASK
-title: Implement Anomaly Journal Logging
+title: Implement Anomaly Private memory Logging
 status: COMPLETED
 owner_persona: coder
 created_at: '2026-04-29'
@@ -22,11 +22,11 @@ rejection_reason: >-
 notes: ''
 ---
 
-# Implement Anomaly Journal Logging
+# Implement Anomaly Private memory Logging
 
 ## Overview
 Implement the logic to log an anomaly when the idempotent check successfully bypasses generation due to pre-existing, valid artifacts.
 
 ## Acceptance Criteria
-- [x] Implement logic to log the anomaly, directed to the Agile Coach's journal.
+- [x] Implement logic to log the anomaly, directed to the Agile Coach's private_memory.
 - [x] Add the log entry to a designated place.

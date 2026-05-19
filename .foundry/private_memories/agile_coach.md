@@ -1,4 +1,4 @@
-# Agile Coach Journal
+# Agile Coach Private memory
 
 ## 2026-05-06: ADR-006 Violation in Heartbeat Script
 
@@ -42,11 +42,11 @@ While reviewing proactive improvement opportunities, I noticed that scheduled ag
 While analyzing recent failures, I noted that `task-042-068-extract-hall-of-fame` suffered 3 rejections and is still active. The root cause appears to be the reliance on standard generic offset documentation which is incorrect for our save files, rather than the specific relative offset (`0xA8` bytes after Johto badges). Furthermore, I noticed several older nodes transitioning to `COMPLETED` despite retaining unchecked `[ ]` Acceptance Criteria boxes, undermining the system's strict architectural contracts.
 
 ### Action Taken
-1. Created `.foundry/docs/knowledge_base/engine/save_parsing/gen2_hall_of_fame.md` to explicitly document the relative offset for the Hall of Fame count, providing the Coder with grounded context to successfully complete task-042.
+1. Created `.foundry/docs/shared_memory/engine/save_parsing/gen2_hall_of_fame.md` to explicitly document the relative offset for the Hall of Fame count, providing the Coder with grounded context to successfully complete task-042.
 2. Autonomously generated `idea-020-enforce-acceptance-criteria-completion.md` to propose a new orchestration rule that enforces all checkboxes in the Acceptance Criteria block must be checked before a node is permitted to transition to `COMPLETED`.
 
 ## 2026-05-12 - Prevent Empty PR Loophole on Rejections
-Observed that the QA agent rejected a task (`task-047-078`) in its journal but failed to update the task's YAML frontmatter to `status: FAILED`. Because no files were changed, the Empty PR policy auto-merged the PR, improperly advancing the node. To fix this:
+Observed that the QA agent rejected a task (`task-047-078`) in its private_memory but failed to update the task's YAML frontmatter to `status: FAILED`. Because no files were changed, the Empty PR policy auto-merged the PR, improperly advancing the node. To fix this:
 1. Updated `qa.md` with explicit instructions on handling rejections (setting `status: FAILED` and `rejection_reason`).
 2. Added the 'WARNING: The Empty PR policy...' text to all execution/planning agents (`coder.md`, `story_owner.md`, `tech_lead.md`, `epic_planner.md`, `product_manager.md`, `qa.md`).
 3. Created `idea-050-orchestrator-leaf-failure-validation.md` to have the Orchestrator validate empty PRs against unchecked acceptance criteria.
@@ -111,12 +111,12 @@ I noticed that `task-053-092-implement-dependency-highlighting.md` failed with t
 
 ### Action Taken
 1. Directly modified `.github/scripts/foundry-heartbeat.ts` to differentiate between a successful Empty PR (`sessionStatus === 'COMPLETED'`) and a crashed zombie session (`NOT_FOUND` or other terminal states).
-2. Created `.foundry/docs/knowledge_base/agents/core_policies.md` to centralize Empty PR and Environment Troubleshooting policies.
+2. Created `.foundry/docs/shared_memory/agents/core_policies.md` to centralize Empty PR and Environment Troubleshooting policies.
 3. Updated all `.github/agents/*.md` prompt files to reference this centralized core policies document, removing duplicate instructions to improve agent prompt context efficiency.
 
 ## 2026-05-18 - Deduplication of Agent Prompt Policies & TPM Archiving Refinement
 ### Observation
-I noticed that the extensive rules surrounding the "Empty PR Policy" (both the main instruction and the warning about failure handling) were still duplicated across all individual `.github/agents/*.md` files. This is redundant and wastes token context window, since I had previously established `.foundry/docs/knowledge_base/agents/core_policies.md` precisely to centralize these instructions. Additionally, CEO feedback clarified that while manual LLM archiving of journals by the TPM is token-heavy, it is explicitly preferred over automated archiving because old journal entries are not necessarily stale and may contain context worth remembering.
+I noticed that the extensive rules surrounding the "Empty PR Policy" (both the main instruction and the warning about failure handling) were still duplicated across all individual `.github/agents/*.md` files. This is redundant and wastes token context window, since I had previously established `.foundry/docs/shared_memory/agents/core_policies.md` precisely to centralize these instructions. Additionally, CEO feedback clarified that while manual LLM archiving of private_memories by the TPM is token-heavy, it is explicitly preferred over automated archiving because old private_memory entries are not necessarily stale and may contain context worth remembering.
 
 ### Action Taken
 1. Executed a workspace-wide deduplication by removing the redundant "Empty PR Policy" text blocks directly from the prompts of `coder`, `qa`, `tech_lead`, `story_owner`, `epic_planner`, `product_manager`, `architect`, and `tpm`. These agents will now strictly rely on the centralized `core_policies.md` reference.

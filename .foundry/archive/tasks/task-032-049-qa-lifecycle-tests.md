@@ -22,7 +22,7 @@ Verify the implementation of the lifecycle integration tests to ensure they accu
 - Validate that the integration tests correctly set up the simulated `.foundry` state.
 - Ensure the tests cover the end-to-end IDEA -> PRD -> EPIC -> STORY -> TASK lifecycle using atomic node interactions.
 - Confirm all new and existing tests pass.
-- Log verification results and critical learnings in the QA journal at `.jules/qa.md`.
+- Log verification results and critical learnings in the QA private_memory at `.jules/qa.md`.
 
 ## Acceptance Criteria
 - [x] Tests simulate a full IDEA -> PRD -> EPIC -> STORY -> TASK lifecycle using atomic files.

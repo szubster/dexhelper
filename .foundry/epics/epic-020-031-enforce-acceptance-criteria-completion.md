@@ -25,7 +25,7 @@ According to ADR 007, standard leaf tasks that are merged with unchecked accepta
 
 ## Scope
 1. Update `foundry-heartbeat.ts` to check if a node has children (via `foundry-orchestrator`'s mapping) before deciding to keep it in `PENDING` due to unchecked tasks.
-2. If it is a leaf task without children but contains unchecked boxes, transition it to `FAILED` with an appropriate journal message indicating that the PR was merged with unfulfilled acceptance criteria.
+2. If it is a leaf task without children but contains unchecked boxes, transition it to `FAILED` with an appropriate private_memory message indicating that the PR was merged with unfulfilled acceptance criteria.
 3. Update `foundry-orchestrator.ts` preflight and idempotent checks to ensure they don't improperly promote nodes with unchecked boxes to `READY` if they aren't supposed to be.
 
 ## Tasks Required

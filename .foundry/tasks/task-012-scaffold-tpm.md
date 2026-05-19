@@ -14,7 +14,7 @@ parent: .foundry/stories/story-002-personas.md
 
 # Scaffold TPM Persona
 
-The TPM agent runs hourly, archives COMPLETED nodes, resolves minor deadlocks, and manages journals.
+The TPM agent runs hourly, archives COMPLETED nodes, resolves minor deadlocks, and manages private_memories.
 
 ## Acceptance Criteria
 - [x] Create `.github/agents/tpm.md`

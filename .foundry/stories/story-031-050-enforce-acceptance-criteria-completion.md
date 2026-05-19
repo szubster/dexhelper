@@ -26,7 +26,7 @@ This story focuses on updating `foundry-heartbeat.ts` to differentiate between p
 
 ## Acceptance Criteria
 - [x] Update `foundry-heartbeat.ts` to check if a node has children via orchestrator mapping before deciding to keep it in `PENDING` due to unchecked tasks.
-- [x] If it is a leaf task without children but contains unchecked boxes, transition it to `FAILED` with an appropriate journal message indicating that the PR was merged with unfulfilled acceptance criteria.
+- [x] If it is a leaf task without children but contains unchecked boxes, transition it to `FAILED` with an appropriate private_memory message indicating that the PR was merged with unfulfilled acceptance criteria.
 - [x] Update `foundry-orchestrator.ts` preflight logic to prevent improperly promoting nodes with unchecked boxes to `READY`.
 - [x] Add unit tests in `foundry-heartbeat.test.ts` to verify the different handling of leaf tasks versus parent nodes with unchecked boxes.
 

@@ -7,8 +7,8 @@
 
 ## 2026-04-29 - Archivist Run Learnings
 
-**Learning:** Duplicate agent learnings for tools like `knip` or `oxlint` can scatter across journals (e.g. `sweeper.md` and `strategist.md`).
-**Action:** Consolidate identical tool-specific learnings into a single comprehensive entry within the most relevant agent's journal to reduce noise and duplication.
+**Learning:** Duplicate agent learnings for tools like `knip` or `oxlint` can scatter across private_memories (e.g. `sweeper.md` and `strategist.md`).
+**Action:** Consolidate identical tool-specific learnings into a single comprehensive entry within the most relevant agent's private_memory to reduce noise and duplication.
 Removed unused type ClassValue import from src/utils/cn.ts by utilizing Parameters<typeof clsx> instead.
 
 ## 2026-05-02 - SaveParser API and Knip Cleanup

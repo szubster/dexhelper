@@ -1,4 +1,4 @@
-# Mason Journal
+# Mason Private memory
 
 ## TacticalInput Extraction
 

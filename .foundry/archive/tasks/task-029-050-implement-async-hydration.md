@@ -21,7 +21,7 @@ tags:
 ## Description
 This Task focuses on implementing the asynchronous startup hydration logic. It fetches the binary save from IndexedDB and loads it into the parser state.
 
-The `coder` must self-verify the changes and document the verification in their task journal.
+The `coder` must self-verify the changes and document the verification in their task private_memory.
 
 ## Acceptance Criteria
 - [x] Asynchronous startup hydration logic loads the binary save from IndexedDB into the game parser.

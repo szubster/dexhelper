@@ -28,8 +28,8 @@ Since this task involves documentation updates and is extremely low-risk logic-w
 
 - [x] I have updated the `owner_persona` field documentation to specify a single persona.
 - [x] I have added the single-owner invariant to the "System Invariants" list.
-- [x] Document your verification directly in the task journal at the bottom of this file.
+- [x] Document your verification directly in the task private_memory at the bottom of this file.
 
-## Journal
+## Private memory
 - Verified that `owner_persona` is updated to specify a single persona in `schema.md`.
 - Verified that the single-owner invariant is added to the "System Invariants" list in `schema.md`.

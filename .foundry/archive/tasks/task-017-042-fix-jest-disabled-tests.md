@@ -22,7 +22,7 @@ The rule `jest/no-disabled-tests` was disabled to unblock CI. We need to fix the
 3. Ensure `pnpm exec oxlint .` passes.
 
 ## Verification
-Since this is a straightforward linting fix, please self-verify the changes by confirming `pnpm exec oxlint .` passes and all updated tests pass without regressions (`pnpm test`). Document the verification steps and results in your task journal.
+Since this is a straightforward linting fix, please self-verify the changes by confirming `pnpm exec oxlint .` passes and all updated tests pass without regressions (`pnpm test`). Document the verification steps and results in your task private_memory.
 
 ### Self Verification
 - Checked that `"jest/no-disabled-tests": "error"` is set in `.oxlintrc.json`.

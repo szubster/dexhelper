@@ -16,7 +16,7 @@ notes: ""
 # Idea: Sibling Dependency Enforcement
 
 ## Context
-During the implementation of orchestrator preflight checks, `task-034-057-implement-anomaly-journal-logging` failed because its prerequisite logic (the idempotent check) from a sibling task was not yet merged. The Tech Lead had left the `depends_on` array empty for the dependent task, causing the orchestrator to dispatch it prematurely.
+During the implementation of orchestrator preflight checks, `task-034-057-implement-anomaly-private_memory-logging` failed because its prerequisite logic (the idempotent check) from a sibling task was not yet merged. The Tech Lead had left the `depends_on` array empty for the dependent task, causing the orchestrator to dispatch it prematurely.
 
 ## Proposal
 Implement a system-wide rule and potential validation script (or update the Foundry Orchestrator logic) to ensure that if multiple sibling nodes are generated from a single parent (e.g., multiple TASKs from a STORY), any sequential implementation dependencies are strictly explicitly defined in the `depends_on` arrays.

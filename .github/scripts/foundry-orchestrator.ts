@@ -4,7 +4,7 @@
  * The Foundry DAG Orchestrator — Epic 2 / Story 2.1
  *
  * Execution phases:
- *   1. DISCOVER  — walk .foundry/**\/*.md, skipping journals/ and docs/
+ *   1. DISCOVER  — walk .foundry/**\/*.md, skipping private_memories/ and docs/
  *   2. PARSE     — extract YAML frontmatter via gray-matter; skip malformed nodes
  *   3. MAP       — build a repo-relative-path → ParsedNode lookup
  *   4. RESOLVE   — find PENDING nodes whose depends_on are all COMPLETED (or [])
@@ -126,7 +126,7 @@ function todayISO(): string {
 
 /**
  * Recursively walks `dir` and returns absolute paths to all .md files,
- * excluding anything under `journals/` or `docs/` subdirectories.
+ * excluding anything under `private_memories/` or `docs/` subdirectories.
  */
 function discoverNodeFiles(dir: string): string[] {
   const results: string[] = [];
@@ -144,8 +144,8 @@ function discoverNodeFiles(dir: string): string[] {
       const fullPath = path.join(current, entry.name);
 
       if (entry.isDirectory()) {
-        // Skip the journals/ and docs/ subtrees entirely.
-        if (entry.name === 'journals' || entry.name === 'docs') continue;
+        // Skip the private_memories/ and docs/ subtrees entirely.
+        if (entry.name === 'private_memories' || entry.name === 'docs') continue;
         walk(fullPath);
       } else if (entry.isFile() && entry.name.endsWith('.md')) {
         results.push(fullPath);
@@ -786,7 +786,7 @@ function main(): void {
         promoteNodeStatus(node, 'PENDING', 'COMPLETED');
 
         const dateStr = todayISO();
-        const logPath = require('node:path').join(repoRoot, '.foundry/journals/agile_coach.md');
+        const logPath = require('node:path').join(repoRoot, '.foundry/private_memories/agile_coach.md');
         const logEntry = `\n## ${dateStr}: Pre-existing Artifacts Anomaly\n\n### Observation\nThe orchestrator detected that target artifacts for \`${node.repoPath}\` already existed and were completely formed before dispatch.\n\n### Action Taken\nBypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.\n`;
 
         if (!DRY_RUN) {
@@ -794,7 +794,7 @@ function main(): void {
             fs.appendFileSync(logPath, logEntry, 'utf-8');
             info(`Logged anomaly to ${logPath}`);
           } catch (e) {
-            warn(`Failed to log anomaly to Agile Coach journal: ${String(e)}`);
+            warn(`Failed to log anomaly to Agile Coach private_memory: ${String(e)}`);
           }
         }
       }

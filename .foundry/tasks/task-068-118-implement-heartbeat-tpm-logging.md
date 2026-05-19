@@ -24,10 +24,10 @@ notes: ''
 # TASK: Add TPM Logging for PR-less Completions
 
 ## Objective
-Update the `foundry-heartbeat.ts` script to log appropriate messages to the TPM journal for PR-less `COMPLETED` session transitions.
+Update the `foundry-heartbeat.ts` script to log appropriate messages to the TPM private_memory for PR-less `COMPLETED` session transitions.
 
 ## Context
-When a PR-less session is handled and a state transition occurs (e.g., to `COMPLETED` or `FAILED`), these events must be audited. We log them into `.foundry/journals/tpm.md`.
+When a PR-less session is handled and a state transition occurs (e.g., to `COMPLETED` or `FAILED`), these events must be audited. We log them into `.foundry/private_memories/tpm.md`.
 
 ## Acceptance Criteria
-- [ ] Appropriate logs are written to `.foundry/journals/tpm.md` whenever a PR-less session results in a state transition.
+- [ ] Appropriate logs are written to `.foundry/private_memories/tpm.md` whenever a PR-less session results in a state transition.

@@ -24,4 +24,4 @@ Implement unit tests in `.github/scripts/foundry-orchestrator.test.ts` to verify
 
 ## Intelligent Verification Protocol
 This is considered a low-risk/simple task because it specifically adds unit tests to an existing test suite.
-**Instruction:** The `coder` is explicitly responsible for self-verifying these changes (by running `pnpm test` and `.github/scripts` tests) and must document the verification in their task journal (`.jules/coder.md`).
+**Instruction:** The `coder` is explicitly responsible for self-verifying these changes (by running `pnpm test` and `.github/scripts` tests) and must document the verification in their task private_memory (`.jules/coder.md`).

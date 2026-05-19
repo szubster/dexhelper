@@ -38,7 +38,7 @@ This is a STORY. As per the schema, the `story_owner` must break this down into 
 
 3. **Migrate Memory System to The Foundry**
    - The standalone Jules instances do not have MCP access to Serena memories.
-   - We must migrate all content inside `.serena/memories/` into `.foundry/docs/` (e.g., as `.foundry/docs/knowledge_base/`).
+   - We must migrate all content inside `.serena/memories/` into `.foundry/docs/` (e.g., as `.foundry/docs/shared_memory/`).
    - The persona prompts must instruct Jules to automatically index and read relevant knowledge from this migrated directory whenever they are assigned a task.
 
 ## Instructions for current agent

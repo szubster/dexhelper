@@ -1,4 +1,4 @@
-# TPM Journal
+# TPM Private memory
 
 ## 2026-05-11
 - Successfully archived multiple COMPLETED nodes (including test nodes: `task-016-056`, `task-017-042`, `story-009-030`, `story-010-028`, `task-028-046`).

@@ -38,13 +38,13 @@ Implement an idempotent generation check in the orchestrator (`foundry-orchestra
 
 ## Edge Cases & Considerations
 - **Partial Files**: If the target file exists but is malformed or lacks necessary fields, the generation session must still proceed or flag an error.
-- **Reporting Anomaly**: As per rules, if target artifacts already exist unexpectedly, a small journal entry should be logged detailing the anomaly for later review by the Agile Coach.
+- **Reporting Anomaly**: As per rules, if target artifacts already exist unexpectedly, a small private_memory entry should be logged detailing the anomaly for later review by the Agile Coach.
 
 ## Acceptance Criteria
 - [x] An idempotent check is integrated into the orchestrator prior to Jules session dispatch.
 - [x] Valid pre-existing target nodes successfully abort unnecessary Jules agent wake-ups.
 - [x] The parent node is marked appropriately fulfilled without dispatch if children already exist and are valid.
-- [x] A small journal entry is logged indicating the unexpected presence of completed artifacts.
+- [x] A small private_memory entry is logged indicating the unexpected presence of completed artifacts.
 
 
 ### Generated Epics

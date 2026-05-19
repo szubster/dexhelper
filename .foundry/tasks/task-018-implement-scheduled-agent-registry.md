@@ -35,4 +35,4 @@ Create individual GitHub Actions workflow files for scheduled agents that invoke
 - [x] `.github/workflows/schedule-agile-coach.yml` exists and has a daily cron schedule.
 - [x] Both workflows correctly invoke `foundry-scheduled-agent.yml` with the correct inputs.
 
-*Verification*: This is a low-risk, declarative infrastructure task. The `coder` must verify the YAML syntax is correct and document completion in their journal. No separate QA task is required (Intelligent Verification Protocol: Self-verify).
+*Verification*: This is a low-risk, declarative infrastructure task. The `coder` must verify the YAML syntax is correct and document completion in their private_memory. No separate QA task is required (Intelligent Verification Protocol: Self-verify).
