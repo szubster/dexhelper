@@ -19,6 +19,6 @@ rejection_reason: ''
 Format the Generation 3 locations, encounters, and pokemon data. The files stored in the repository should be formatted as `jsonl` for ease of review. The final output must use MsgPack (`msgpackr`), implemented similarly to the existing data pipeline via a Vite plugin.
 
 ## Acceptance Criteria
-- [ ] Source files in the repository are formatted as `.jsonl`.
-- [ ] A Vite plugin is implemented/updated to compile the `.jsonl` data into MsgPack (`msgpackr`) for runtime use.
-- [ ] Formatted data is correct and ready for ingestion.
+- [x] Source files in the repository are formatted as `.jsonl`.
+- [x] A Vite plugin is implemented/updated to compile the `.jsonl` data into MsgPack (`msgpackr`) for runtime use.
+- [x] Formatted data is correct and ready for ingestion.
