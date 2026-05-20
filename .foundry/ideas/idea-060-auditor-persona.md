@@ -4,12 +4,12 @@ type: IDEA
 title: >-
   Introduce 'auditor' persona to verify work and possibly create new nodes based
   on status/learnings
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11742713339690497135'
 pr_number: null
 parent: null
 tags:
