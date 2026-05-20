@@ -120,3 +120,9 @@
 **Outcome:** Accepted
 **Why:** The memory requires agents to ignore false negatives from `request_code_review` when executing the Empty PR Policy (checking off boxes). This needed to be codified in the central `core_policies.md` since agent prompts shouldn't duplicate empty PR rules.
 **Pattern:** Codify memory constraints into the central knowledge base when they apply to all agents.
+
+## 2026-07-06 - [Accepted] - Prompt improvement - Update Archivist to clean Foundry journals
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The memory requires agents to log only critical learnings, but Foundry journals (like `tpm.md`, `coder.md`, `qa.md`) were accumulating routine "I did X" entries, task verifications, and orchestrator state changes. The archivist prompt only included `.jules/*.md` and `.serena/memories/` in its scope, missing `.foundry/journals/*.md`. Adding this allows the archivist to automatically purge noisy status updates that provide no value to future runs, conserving context.
+**Pattern:** Ensure cleanup/maintenance agents have scope over all relevant directories when file structures evolve (e.g. addition of `.foundry/journals/`).
