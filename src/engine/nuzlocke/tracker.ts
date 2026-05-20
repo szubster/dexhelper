@@ -30,3 +30,7 @@ export function aggregateEncountersByLocation(saveData: SaveData): LocationEncou
 
   return Array.from(locationMap.values());
 }
+
+export function detectNuzlockeViolations(saveData: SaveData): LocationEncounters[] {
+  return aggregateEncountersByLocation(saveData).filter((location) => location.encounters.length > 1);
+}
