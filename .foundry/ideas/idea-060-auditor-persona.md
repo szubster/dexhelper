@@ -32,6 +32,10 @@ Introduce a new persona called `auditor` whose responsibility is to verify the w
 - **Node Creation**: Empower `auditor` to spawn new `IDEA` or `RESEARCH` nodes based on their verification and learned insights.
 
 ## Acceptance Criteria
-- [ ] The `schema.md` is updated to include the new `auditor` persona.
-- [ ] A new state (e.g., `VERIFYING`) is added to the valid status lifecycle in `schema.md` and state diagram.
-- [ ] The core orchestration policies/docs are updated to document the `auditor` persona's role and responsibilities.
+- [x] The `schema.md` is updated to include the new `auditor` persona.
+- [x] A new state (e.g., `VERIFYING`) is added to the valid status lifecycle in `schema.md` and state diagram.
+- [x] The core orchestration policies/docs are updated to document the `auditor` persona's role and responsibilities.
+
+
+### SPONSORED NODES
+- `.foundry/prds/prd-060-029-auditor-persona.md`
