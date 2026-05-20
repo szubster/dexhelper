@@ -72,3 +72,4 @@
 ## 2026-05-19 - Added ARIA attributes to DAG filter buttons
 **Learning:** Filter buttons that act as toggle groups visually indicate state through color changes, but screen readers are unaware. Adding `aria-pressed={isActive}` to individual buttons and wrapping the group in `role="group"` with `aria-label` effectively communicates this interactivity.
 **Action:** Replaced `src/components/dag/DagFilterPanel.tsx` to add `aria-pressed` properties to type and status filter buttons, and wrapped the filter areas with `role="group"` and descriptive `aria-label` attributes.
+- Added `aria-label` and `title` to dynamic filter buttons in `DagFilterPanel.tsx` for improved accessibility and tooltip support.
