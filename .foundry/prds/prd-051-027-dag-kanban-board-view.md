@@ -50,5 +50,5 @@ The DAG Kanban/Scrum Board View will provide an operational visualization of the
 2. **Integration**: This view MUST be integrated with the existing DAG Dashboard data structures and state management.
 
 ## Next Steps
-- [ ] Create an ADR defining the state management and integration approach of this board with the existing React Flow DAG viewer.
+- [x] Create an ADR defining the state management and integration approach of this board with the existing React Flow DAG viewer.
 - [ ] Create EPICs to implement the UI layout, swimlanes logic, and interactive highlighting.
