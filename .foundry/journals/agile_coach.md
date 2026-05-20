@@ -121,3 +121,11 @@ I noticed that the extensive rules surrounding the "Empty PR Policy" (both the m
 ### Action Taken
 1. Executed a workspace-wide deduplication by removing the redundant "Empty PR Policy" text blocks directly from the prompts of `coder`, `qa`, `tech_lead`, `story_owner`, `epic_planner`, `product_manager`, `architect`, and `tpm`. These agents will now strictly rely on the centralized `core_policies.md` reference.
 2. Updated `.github/agents/tpm.md` to explicitly instruct the TPM to be conservative when archiving, carefully evaluating whether an old entry still holds valuable system context before removing it.
+
+## 2026-05-20 - Handling the Impossible Loop & Orphaned QA Nodes
+### Observation
+I noticed that `task-062-100-gen3-locations-script-impl.md` failed with `rejection_reason: Max rejection count reached`. This correctly triggered the Orchestrator's "Impossible Loop" to wake up its parent. However, the system lacked explicit instructions for the planning personas (`tech_lead` and `story_owner`) on how to handle these permanent failures—specifically, the need to spawn a `RESEARCH` node to investigate the root cause, and how to deal with the sibling `QA` task (`task-062-101`) that was left orphaned in a `PENDING` state.
+
+### Action Taken
+1. Updated `.github/agents/tech_lead.md` and `.github/agents/story_owner.md` to explicitly include a "HANDLING PERMANENT CHILD FAILURES (THE IMPOSSIBLE LOOP)" section. This instructs them to spawn a `RESEARCH` node, generate replacement tasks, and critically, update the orphaned QA node's Markdown body (without touching its YAML) to indicate it is CANCELLED.
+2. Realized that manually managing orphaned QA nodes is an unnecessary burden on the planning personas. Created `idea-059-orchestrator-auto-cancel-orphaned-nodes.md` to propose an architectural enhancement where the Orchestrator automatically transitions any `PENDING` node depending on a permanently failed node to `CANCELLED`.

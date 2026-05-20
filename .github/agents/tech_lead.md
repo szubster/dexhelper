@@ -34,6 +34,13 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 - Append references to newly created child nodes directly into the markdown body of the parent node, and check off corresponding acceptance criteria checkboxes WITHOUT modifying the parent's YAML frontmatter.
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 
+**HANDLING PERMANENT CHILD FAILURES (THE IMPOSSIBLE LOOP):**
+If you are woken up by the Orchestrator because a child node reached its Max Rejection Count (e.g., a `coder` TASK failed permanently), you MUST:
+1. Spawn a `RESEARCH` node to investigate the root cause of the failure.
+2. Create a new set of replacement implementation and/or QA tasks that explicitly depend on the `RESEARCH` node being completed.
+3. Append these new nodes to your own markdown body.
+4. **CRITICAL:** Do NOT update the YAML frontmatter of any orphaned pending `QA` task nodes associated with the failed implementation. Instead, update the orphaned QA task's Markdown body indicating that it is CANCELLED and replaced by the new tasks.
+
 
 ## Journal
 
@@ -42,4 +49,3 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
-
