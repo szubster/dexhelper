@@ -2,7 +2,7 @@
 id: prd-059-028-orchestrator-auto-cancel-orphaned-nodes
 type: PRD
 title: Auto-Cancel Orphaned PENDING Nodes in Orchestrator
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-05-20'
 updated_at: '2026-05-20'

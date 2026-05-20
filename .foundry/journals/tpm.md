@@ -487,3 +487,11 @@ When archiving nodes, all references in parent stories and journal logs must be 
 - **2026-05-20**: PR #1573 merged. `task-067-116-qa-heartbeat-state-transitions` is now COMPLETED.
 
 - **2026-05-20**: PR #1574 merged. `task-069-118-detect-violations-impl` is now COMPLETED.
+
+- **2026-05-20**: PR #1599 merged. `idea-059-orchestrator-auto-cancel-orphaned-nodes` is now COMPLETED.
+
+- **2026-05-20**: PR #1601 merged. `story-032-062-gen3-data-generation-scripts` is now PENDING.
+
+- **2026-05-20**: PR #1602 merged. `task-061-123-gen3-legacy-compatibility-qa` is now COMPLETED.
+
+- **2026-05-20**: PR #1600 merged. `task-069-119-detect-violations-qa` is now COMPLETED.
