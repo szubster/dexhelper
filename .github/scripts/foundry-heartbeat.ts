@@ -55,7 +55,7 @@ export async function transitionNodeToFailed(node: any, repoRoot: string, reject
 }
 
 /** Surgical mutation to COMPLETED or PENDING depending on tasks */
-export async function transitionNodeToCompleted(node: any, repoRoot: string, prNumber: number | null): Promise<void> {
+export async function transitionNodeToCompleted(node: any, repoRoot: string, prNumber: number): Promise<void> {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
@@ -65,10 +65,6 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
   const acceptanceCriteriaMatch = parsed.content.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
   const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
   const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
-
-  let targetStatus = "COMPLETED";
-  let rejectionReason = "";
-  let message = prNumber !== null ? `PR #${prNumber} merged.` : `Empty PR session successfully completed.`;
 
   if (hasUncheckedTasks) {
     // Determine if it's a late-binding parent
@@ -87,29 +83,46 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     const type = parsed.data.type || node.frontmatter.type;
 
     if (hasChildren || ["IDEA", "PRD", "EPIC", "STORY"].includes(type)) {
-       targetStatus = "PENDING";
+       parsed.data.status = "PENDING";
+       parsed.data.jules_session_id = null;
+       parsed.data.updated_at = dateStr;
+
+       const newContent = matter.stringify(parsed.content, parsed.data);
+
+       if (!DRY_RUN) {
+         fs.writeFileSync(node.filePath, newContent, 'utf-8');
+         logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged but has unchecked tasks (parent node). \`${node.frontmatter.id}\` is now PENDING.\n`);
+       }
+       info(`${dryTag}Transitioned ACTIVE → PENDING: ${node.repoPath} (PR #${prNumber})`);
+       return;
     } else {
-       targetStatus = "FAILED";
-       rejectionReason = "Merged with unfulfilled acceptance criteria";
-       message = prNumber !== null ? `PR #${prNumber} merged with unchecked tasks.` : `Empty PR session completed with unchecked tasks.`;
+       parsed.data.status = "FAILED";
+       parsed.data.jules_session_id = null;
+       parsed.data.updated_at = dateStr;
+       parsed.data.rejection_reason = "Merged with unfulfilled acceptance criteria";
+
+       const newContent = matter.stringify(parsed.content, parsed.data);
+
+       if (!DRY_RUN) {
+         fs.writeFileSync(node.filePath, newContent, 'utf-8');
+         logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged with unchecked tasks. \`${node.frontmatter.id}\` is now FAILED.\n`);
+       }
+       info(`${dryTag}Transitioned ACTIVE → FAILED: ${node.repoPath} (PR #${prNumber})`);
+       return;
     }
   }
 
-  parsed.data.status = targetStatus;
+  parsed.data.status = "COMPLETED";
   parsed.data.jules_session_id = null;
   parsed.data.updated_at = dateStr;
-
-  if (targetStatus === 'FAILED' && rejectionReason) {
-    parsed.data.rejection_reason = rejectionReason;
-  }
 
   const newContent = matter.stringify(parsed.content, parsed.data);
 
   if (!DRY_RUN) {
     fs.writeFileSync(node.filePath, newContent, 'utf-8');
-    logToJournal(repoRoot, `\n- **${dateStr}**: ${message} \`${node.frontmatter.id}\` is now ${targetStatus}.\n`);
+    logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged. \`${node.frontmatter.id}\` is now COMPLETED.\n`);
   }
-  info(`${dryTag}Transitioned ACTIVE → ${targetStatus}: ${node.repoPath} ${prNumber !== null ? `(PR #${prNumber})` : `(Empty PR)`}`);
+  info(`${dryTag}Transitioned ACTIVE → COMPLETED: ${node.repoPath} (PR #${prNumber})`);
 }
 
 /** Surgical mutation back to READY (Resurrection) */
@@ -142,6 +155,26 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
     }
     info(`${dryTag}Resurrected → READY: ${node.repoPath} (${reason})`);
   }
+}
+
+
+/** Surgical mutation back to READY without penalty (Jules System Failure) */
+export async function transitionNodeToReadyWithoutPenalty(node: any, repoRoot: string, reason: string): Promise<void> {
+  const dateStr = todayISO();
+  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+
+  const parsed = matter(node.rawContent);
+  parsed.data.status = "READY";
+  parsed.data.jules_session_id = null;
+  parsed.data.updated_at = dateStr;
+
+  const newContent = matter.stringify(parsed.content, parsed.data);
+
+  if (!DRY_RUN) {
+    fs.writeFileSync(node.filePath, newContent, 'utf-8');
+    logToJournal(repoRoot, `\n- **${dateStr}**: System failure detected for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY without penalty.\n`);
+  }
+  info(`${dryTag}System failure detected → READY: ${node.repoPath} (${reason})`);
 }
 
 /** Robust discovery: Jules Session -> GitHub Search -> GitHub List */
@@ -316,20 +349,20 @@ export async function main() {
 
     // B. Terminal State check (Zombie detection)
     if (!isHuman) {
-      if (sessionStatus === 'COMPLETED') {
-        info(`Session ${sessionId} successfully COMPLETED without a PR. Processing as Empty PR.`);
-        await transitionNodeToCompleted(node, repoRoot, null);
-      } else if (sessionStatus === 'NOT_FOUND' || (sessionStatus && TERMINAL_STATES.includes(sessionStatus))) {
-        info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Failing.`);
-        await transitionNodeToFailed(node, repoRoot, `Session terminated with state: ${sessionStatus || 'NOT_FOUND'}`);
+      if (sessionStatus && TERMINAL_STATES.includes(sessionStatus)) {
+        info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Transitioning to READY without penalty.`);
+        await transitionNodeToReadyWithoutPenalty(node, repoRoot, `Session terminated with state: ${sessionStatus}`);
+      } else if (sessionStatus === 'NOT_FOUND') {
+        info(`Session ${sessionId} NOT_FOUND without PR. Failing.`);
+        await transitionNodeToFailed(node, repoRoot, `Session terminated with state: NOT_FOUND`);
       } else if (updateTime) {
         const lastUpdate = new Date(updateTime).getTime();
         const now = Date.now();
         const hoursElapsed = (now - lastUpdate) / (1000 * 60 * 60);
 
         if (hoursElapsed > 24) {
-          info(`Session ${sessionId} has been IN_PROGRESS for >24h. Assuming dead. Failing.`);
-          await transitionNodeToFailed(node, repoRoot, 'Session timed out (>24h)');
+          info(`Session ${sessionId} has been IN_PROGRESS for >24h. Assuming dead. Transitioning to READY without penalty.`);
+          await transitionNodeToReadyWithoutPenalty(node, repoRoot, 'Session timed out (>24h)');
         }
       }
     }
