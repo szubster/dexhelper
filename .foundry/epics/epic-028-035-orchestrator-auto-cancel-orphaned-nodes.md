@@ -30,10 +30,14 @@ When a child node (e.g., an implementation TASK) permanently fails by reaching i
 This epic implements an enhancement to the orchestrator (`.github/scripts/foundry-orchestrator.ts`) to automatically detect and cancel these orphaned nodes, reducing manual cleanup and DAG clutter.
 
 ## Requirements Checklist
-- [ ] During the orchestrator's graph evaluation, detect any node in the `FAILED` state with `rejection_reason: 'Max rejection count reached'`.
-- [ ] Identify all nodes currently in the `PENDING` state that list the permanently failed node in their `depends_on` array.
-- [ ] Transition these identified `PENDING` nodes to `CANCELLED`.
-- [ ] Update the `rejection_reason` of the cancelled node to indicate the cause: `"Cancelled due to permanent failure of dependency: <failed-node-id>"`.
-- [ ] Ensure the cancellation logic does not introduce circular dependencies or infinite loops.
-- [ ] Log the cancellation action clearly in the orchestrator's output.
-- [ ] Add unit tests in `foundry-orchestrator.test.ts` to ensure `PENDING` nodes depending on permanently `FAILED` nodes are correctly transitioned to `CANCELLED` and reasons are recorded.
+- [x] During the orchestrator's graph evaluation, detect any node in the `FAILED` state with `rejection_reason: 'Max rejection count reached'`.
+- [x] Identify all nodes currently in the `PENDING` state that list the permanently failed node in their `depends_on` array.
+- [x] Transition these identified `PENDING` nodes to `CANCELLED`.
+- [x] Update the `rejection_reason` of the cancelled node to indicate the cause: `"Cancelled due to permanent failure of dependency: <failed-node-id>"`.
+- [x] Ensure the cancellation logic does not introduce circular dependencies or infinite loops.
+- [x] Log the cancellation action clearly in the orchestrator's output.
+- [x] Add unit tests in `foundry-orchestrator.test.ts` to ensure `PENDING` nodes depending on permanently `FAILED` nodes are correctly transitioned to `CANCELLED` and reasons are recorded.
+
+## Assigned Stories
+- `.foundry/stories/story-035-072-implement-cancellation-logic.md`
+- `.foundry/stories/story-035-073-orchestrator-cancellation-tests.md`

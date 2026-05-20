@@ -1,0 +1,32 @@
+---
+id: story-035-073-orchestrator-cancellation-tests
+type: STORY
+title: Add Unit Tests for DAG Auto-Cancellation
+status: PENDING
+owner_persona: tech_lead
+created_at: '2026-05-20'
+updated_at: '2026-05-20'
+depends_on:
+  - story-035-072-implement-cancellation-logic
+jules_session_id: null
+pr_number: null
+parent: epic-028-035-orchestrator-auto-cancel-orphaned-nodes
+tags:
+  - orchestrator
+  - testing
+  - auto-cancel
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# STORY: Add Unit Tests for DAG Auto-Cancellation
+
+## Objective
+Add specific unit tests in `.github/scripts/foundry-orchestrator.test.ts` to verify the functionality of auto-canceling `PENDING` nodes that depend on permanently `FAILED` nodes.
+
+## Acceptance Criteria
+- [ ] Add unit tests verifying that dependent `PENDING` nodes are correctly transitioned to `CANCELLED` when their dependency hits the max rejection count.
+- [ ] Add unit tests verifying the exact `rejection_reason` string formatting.
+- [ ] Test the anti-loop / cycle prevention mechanisms of the cancellation logic.
