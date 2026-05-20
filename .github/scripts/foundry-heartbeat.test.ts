@@ -189,7 +189,7 @@ ok: true,
     // we need to filter out the cleanup fetch calls before ensuring the regular global fetch wasn't called.
     const calls = globalFetch.mock.calls.filter(call => {
       const urlStr = typeof call[0] === "string" ? call[0] : (call[0] as URL).toString();
-      return !urlStr.includes('/pulls?state=open') && !urlStr.includes('/git/matching-refs/heads/');
+      return !urlStr.endsWith('/pulls?state=open') && !urlStr.endsWith('/git/matching-refs/heads/');
     });
     expect(calls.length).toBe(0);
     expect(fs.writeFileSync).toHaveBeenCalled();
@@ -651,7 +651,7 @@ status: ACTIVE
 
       const calls = globalFetch.mock.calls.filter(call => {
         const urlStr = typeof call[0] === "string" ? call[0] : (call[0] as URL).toString();
-        return !urlStr.includes('/pulls?state=open') && !urlStr.includes('/git/matching-refs/heads/');
+        return !urlStr.endsWith('/pulls?state=open') && !urlStr.endsWith('/git/matching-refs/heads/');
       });
       expect(calls.length).toBe(0);
       expect(fs.writeFileSync).not.toHaveBeenCalled();
@@ -778,10 +778,10 @@ status: ACTIVE
 
       globalFetch.mockImplementation(async (url) => {
         const urlStr = typeof url === "string" ? url : (url as URL).toString();
-        if (urlStr.includes('/pulls?state=open')) {
+        if (urlStr.endsWith('/pulls?state=open')) {
           return { ok: true, json: async () => [] } as any;
         }
-        if (urlStr.includes('/git/matching-refs/heads/')) {
+        if (urlStr.endsWith('/git/matching-refs/heads/')) {
           return { ok: true, json: async () => [{ ref: 'refs/heads/branch-delete' }] } as any;
         }
         return { ok: false } as any;
@@ -813,13 +813,13 @@ status: ACTIVE
       // Mock DRY_RUN = false (default)
       globalFetch.mockImplementation(async (url, init) => {
         const urlStr = typeof url === "string" ? url : (url as URL).toString();
-        if (urlStr.includes('/pulls?state=open')) {
+        if (urlStr.endsWith('/pulls?state=open')) {
           return { ok: true, json: async () => [] } as any;
         }
-        if (urlStr.includes('/git/matching-refs/heads/')) {
+        if (urlStr.endsWith('/git/matching-refs/heads/')) {
           return { ok: true, json: async () => [{ ref: 'refs/heads/branch-delete' }] } as any;
         }
-        if (urlStr.includes('/git/refs/heads/branch-delete') && init?.method === 'DELETE') {
+        if (urlStr.endsWith('/git/refs/heads/branch-delete') && init?.method === 'DELETE') {
           return { ok: true } as any;
         }
         return { ok: false } as any;
@@ -854,10 +854,10 @@ status: ACTIVE
 
       globalFetch.mockImplementation(async (url) => {
         const urlStr = typeof url === "string" ? url : (url as URL).toString();
-        if (urlStr.includes('/pulls?state=open')) {
+        if (urlStr.endsWith('/pulls?state=open')) {
           return { ok: true, json: async () => [{ head: { ref: 'branch-delete' } }] } as any;
         }
-        if (urlStr.includes('/git/matching-refs/heads/')) {
+        if (urlStr.endsWith('/git/matching-refs/heads/')) {
           return { ok: true, json: async () => [{ ref: 'refs/heads/branch-delete' }] } as any;
         }
         return { ok: false } as any;

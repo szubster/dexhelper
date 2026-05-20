@@ -85,7 +85,7 @@ export function foundryPlugin(): Plugin {
       });
 
       server.middlewares.use((req, res, next) => {
-        if (req.url && req.url.includes('foundry.json')) {
+        if (req.url && req.url.endsWith('foundry.json')) {
           const data = cachedData || generateData();
           res.setHeader('Content-Type', 'application/json');
           res.setHeader('Cache-Control', 'no-cache');
