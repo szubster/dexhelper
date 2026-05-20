@@ -8,7 +8,8 @@ status: ACTIVE
 owner_persona: architect
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
-depends_on: []
+depends_on:
+  - .foundry/research/research-029-003-auditor-implementation-details.md
 jules_session_id: '916681710598042969'
 pr_number: null
 parent: idea-060-auditor-persona
@@ -43,4 +44,3 @@ Detail the technical and structural approach to introducing the `auditor` person
 - [ ] Core policies document is updated.
 
 Spawned `.foundry/research/research-029-003-auditor-implementation-details.md` to figure out orchestrator and prompt changes.
-Depends on: `research-029-003-auditor-implementation-details`
