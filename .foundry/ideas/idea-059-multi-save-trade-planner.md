@@ -2,13 +2,13 @@
 id: idea-059-multi-save-trade-planner
 type: IDEA
 title: Multi-Save Trade Planner
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
 depends_on:
   - idea-055-cloudflare-sync-and-future-features
-jules_session_id: '2300798270568784477'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
