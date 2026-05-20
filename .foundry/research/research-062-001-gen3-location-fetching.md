@@ -2,12 +2,12 @@
 id: research-062-001-gen3-location-fetching
 type: RESEARCH
 title: Investigate Gen 3 Location Data Fetching
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-05-19'
 updated_at: '2026-05-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7981582821252378213'
 parent: story-032-062-gen3-data-generation-scripts
 tags:
   - gen3
