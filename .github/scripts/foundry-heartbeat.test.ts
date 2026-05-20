@@ -551,7 +551,7 @@ Body`;
       return Promise.resolve({ ok: false, status: 404, json: async () => ({}) });
     });
 
-    await transitionNodeToCompleted(mockNode, '/mock/repo', null);
+    await transitionNodeToCompleted(mockNode, '/mock/repo', 0);
 
     expect(fs.writeFileSync).toHaveBeenCalled();
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
