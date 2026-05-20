@@ -2,12 +2,12 @@
 id: story-034-070-death-tracking-and-graveyard
 type: STORY
 title: Death Tracking and Graveyard Logic
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3621268930972697771'
 pr_number: null
 parent: epic-026-034-automated-nuzlocke-tracker
 tags:
