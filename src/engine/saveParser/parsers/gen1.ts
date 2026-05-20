@@ -314,6 +314,26 @@ export function isGen1Save(view: DataView): boolean {
  * @returns The fully parsed and structured SaveData object.
  */
 
+/**
+ * Detects the Generation 1 game version and calculates the necessary memory offset shift.
+ *
+ * **Why this is needed:**
+ * Pokémon Yellow introduces a `+1` byte shift to almost all memory addresses starting
+ * from the Pikachu Friendship byte. Because saves don't self-identify their version, we must
+ * dynamically determine this shift.
+ *
+ * **Strategy:**
+ * The function probes the Pokédex padding bits (bytes `0x25a3` and `0x25a4`). These bits
+ * are guaranteed to be 0 by the game engine. By checking which byte is strictly zero, we can
+ * confidently determine if the save is Red/Blue (no shift) or Yellow (`+1` shift).
+ * If probing fails, it falls back to analyzing exclusive Pokémon logic.
+ *
+ * @param view - The raw save file DataView.
+ * @param forcedVersion - An optional game version override to bypass heuristics.
+ * @param trainerName - The player's Original Trainer name (used for fallback heuristics).
+ * @param quickParty - Basic party details (used for fallback heuristics).
+ * @returns The determined offset shift (`0` or `1`), the inferred version, and the parsed Pokédex.
+ */
 function detectVersionAndOffsets(
   view: DataView,
   forcedVersion: GameVersion | undefined,
@@ -359,6 +379,23 @@ function detectVersionAndOffsets(
   return { offsetShift, gameVersion, owned: resToUse.owned, seen: resToUse.seen };
 }
 
+/**
+ * Extracts a single Pokémon instance from a Generation 1 save file block.
+ *
+ * **Memory Structure Differences:**
+ * Party Pokémon use a 44-byte structure which includes current battle stats (HP, Attack, etc.).
+ * PC Pokémon use a smaller 33-byte structure since battle stats are recalculated upon withdrawal.
+ * In both cases, Original Trainer (OT) names are not stored contiguously with the Pokémon data;
+ * they are stored in a separate array that must be accessed via `otOffset`.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The memory offset of the 44-byte or 33-byte Pokémon data block.
+ * @param otOffset - The memory offset of the 11-byte Original Trainer name string.
+ * @param isParty - True if parsing from the 44-byte party list, false if from the 33-byte PC boxes.
+ * @param storageLocation - A display string indicating where this Pokémon was found.
+ * @param slot - The 1-indexed slot number within its storage container.
+ * @returns A parsed PokemonInstance, or null if the internal species ID is invalid.
+ */
 function parseGen1Pokemon(
   view: DataView,
   offset: number,
@@ -394,6 +431,20 @@ function parseGen1Pokemon(
   };
 }
 
+/**
+ * Parses the player's active party from a Generation 1 save.
+ *
+ * **Memory Layout:**
+ * The party structure begins with a 1-byte count (max 6), followed by a 7-byte species ID array
+ * (terminated by 0xFF). Following the species array is the block of 44-byte Pokémon data structures.
+ * Finally, a separate block of 11-byte strings contains the OT names, and another for nicknames.
+ *
+ * @param view - The raw save file DataView.
+ * @param partyCount - The number of Pokémon currently in the party.
+ * @param shiftedPartyDataOffset - The calculated start offset for the 44-byte structures.
+ * @param shiftedPartyOTOffset - The calculated start offset for the 11-byte OT names array.
+ * @returns An array of fully populated PokemonInstance objects.
+ */
 function parsePartyList(
   view: DataView,
   partyCount: number,
@@ -409,6 +460,21 @@ function parsePartyList(
   return partyDetails;
 }
 
+/**
+ * Parses all stored Pokémon across the PC Box system in a Generation 1 save.
+ *
+ * **WRAM vs SRAM Architecture:**
+ * Gen 1 games can only keep the "current" box in active Working RAM (WRAM) due to memory constraints.
+ * This WRAM snapshot is saved to the main save block (offset `0x30c0`).
+ * The remaining inactive boxes are serialized into Save RAM (SRAM) banks located
+ * at offsets `0x4000` and `0x6000`.
+ * When reading the save file, we extract the active box from WRAM and loop through the SRAM
+ * banks for the remaining inactive boxes.
+ *
+ * @param view - The raw save file DataView.
+ * @param offsetShift - The `+1` shift applied if the save is Pokémon Yellow.
+ * @returns The simple list of species IDs (`pc`), the detailed instances (`pcDetails`), and the active box count.
+ */
 function parsePCBoxes(
   view: DataView,
   offsetShift: number,
@@ -455,6 +521,19 @@ function parsePCBoxes(
   return { pc, pcDetails, currentBoxCount };
 }
 
+/**
+ * Orchestrates the full extraction of a Generation 1 (Red/Blue/Yellow) save file.
+ *
+ * **Extraction Flow:**
+ * 1. Reads the trainer name and performs a fast scan of the party.
+ * 2. Uses the party/trainer data to detect if the game is Yellow and calculates the memory shift (`+1`).
+ * 3. Extracts the full party, PC boxes (WRAM + SRAM), inventory, badges, and event flags using
+ *    the calculated `offsetShift`.
+ *
+ * @param view - The raw save file DataView.
+ * @param forcedVersion - An optional version override provided by the user.
+ * @returns The fully constructed SaveData object.
+ */
 export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData {
   const trainerName = decodeGen12String(view, 0x2598);
 
