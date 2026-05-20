@@ -469,3 +469,21 @@ When archiving nodes, all references in parent stories and journal logs must be 
 - **2026-05-19**: PR #1558 merged. `task-069-117-aggregate-encounters-qa` is now COMPLETED.
 
 - **2026-05-19**: Resurrection Loop triggered for `task-070-116-implement-death-tracking`. Reason: PR #1567 closed without merging.. Transitioned back to READY.
+
+- **2026-05-20**: PR #1572 merged. `prd-051-027-dag-kanban-board-view` is now COMPLETED.
+
+- **2026-05-20**: PR #1569 merged. `story-029-057-interaction-logic` is now COMPLETED.
+
+- **2026-05-20**: PR #1575 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-05-20**: PR #1570 merged. `task-058-095-qa-roamer-and-stat-evolutions` is now COMPLETED.
+
+- **2026-05-20**: PR #1571 merged. `task-061-122-gen3-legacy-compatibility-impl` is now COMPLETED.
+
+- **2026-05-20**: PR #1577 merged. `task-062-103-gen3-encounters-script-qa` is now COMPLETED.
+
+- **2026-05-20**: PR #1576 merged. `task-062-111-gen3-data-formatting-msgpack-qa` is now COMPLETED.
+
+- **2026-05-20**: PR #1573 merged. `task-067-116-qa-heartbeat-state-transitions` is now COMPLETED.
+
+- **2026-05-20**: PR #1574 merged. `task-069-118-detect-violations-impl` is now COMPLETED.

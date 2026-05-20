@@ -2,10 +2,10 @@
 id: story-033-068-heartbeat-tpm-logging
 type: STORY
 title: Add TPM Logging for PR-less Completions
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-20'
 depends_on:
   - .foundry/stories/story-033-067-heartbeat-state-transitions.md
 jules_session_id: null
