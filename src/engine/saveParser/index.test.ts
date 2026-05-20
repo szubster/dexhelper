@@ -1,5 +1,13 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { parseSaveFile } from './index';
+import * as gen3Module from './parsers/gen3';
+
+vi.mock('./parsers/gen3', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('./parsers/gen3')>();
+  return {
+    ...actual,
+  };
+});
 
 describe('saveParser - Dynamic Offset Shift Detection', () => {
   const HEADER_SIZE = 32768;
@@ -230,5 +238,24 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     } finally {
       global.DataView = originalDataView;
     }
+  });
+
+  it('should fallback to gen3 if checksum invalid but structurally valid for gen3', () => {
+    const buffer = new Uint8Array(HEADER_SIZE);
+
+    // Clear gen1/gen2 checks
+    buffer[0x2f2d] = 0x00;
+    buffer[0x2865] = 0x01;
+    buffer[0x2866] = 0x00;
+    buffer[0x288a] = 0x01;
+    buffer[0x288b] = 0x00;
+
+    // Mock isGen3Save to return true
+    const isGen3Spy = vi.spyOn(gen3Module, 'isGen3Save').mockReturnValue(true);
+
+    // Should call parseGen3, which throws 'Gen 3 parsing not implemented yet'
+    expect(() => parseSaveFile(buffer.buffer)).toThrow('Gen 3 parsing not implemented yet');
+
+    isGen3Spy.mockRestore();
   });
 });
