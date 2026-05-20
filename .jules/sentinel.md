@@ -94,3 +94,4 @@ When creating `SaveData` mocks for Vitest engine tests, ensure required fields l
 
 ### TypeScript Mock Types in Vitest
 When replacing store values using `vi.mock()` or mocking data that implements complex interfaces, avoid `as any`. Instead, use `as unknown as ReturnType<...>` to safely cast the object without disabling type checking in strict Biome environments.
+Mocking module exports in Vitest using vi.mock is safer than vi.spyOn for ensuring coverage logic falls through correctly
