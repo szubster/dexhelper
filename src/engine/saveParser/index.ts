@@ -15,7 +15,7 @@ export type { GameVersion, PokemonInstance, SaveData };
  * @returns The structured SaveData object representing the player's progress and Pokémon.
  * @throws An Error if the file size is invalid or if neither Gen 1 nor Gen 2 structures could be matched.
  */
-export function parseSaveFile(buffer: ArrayBuffer, forcedVersion?: GameVersion): SaveData {
+export function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: GameVersion): SaveData {
   const view = new DataView(buffer);
 
   if (buffer.byteLength < 32768) {

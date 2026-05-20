@@ -150,7 +150,7 @@ export const useStore = create<AppStore>()(
           const buffer = await saveDB.getSave('last_save_file');
           if (buffer) {
             const { manualVersion } = get();
-            const data = parseSaveFile(buffer.buffer as ArrayBuffer, manualVersion || undefined);
+            const data = parseSaveFile(buffer.buffer, manualVersion || undefined);
             set({ saveData: data });
           }
         } catch {
