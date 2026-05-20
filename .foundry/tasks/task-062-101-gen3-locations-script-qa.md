@@ -25,3 +25,4 @@ QA validate the script that fetches Generation 3 locations data.
 ## QA Notes
 - Validation failed: Missing Gen 3 location fetching logic from pret/pokeemerald in scripts/generateMapLocations.ts
 - [CANCELLED] The associated implementation task has hit its Max Rejection Count. This QA task is cancelled and replaced by a retry task after the research node completes.
+- [CANCELLED] Since the implementation task failed permanently and was replaced, this QA task is officially cancelled.
