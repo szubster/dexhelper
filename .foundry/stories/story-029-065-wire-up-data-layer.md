@@ -2,10 +2,10 @@
 id: story-029-065-wire-up-data-layer
 type: STORY
 title: Wire up DAG Dashboard UI to parsing layer data
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-20'
 depends_on:
   - .foundry/stories/story-029-053-implement-dependency-highlighting.md
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-053-093-qa-dependency-highlighting
 type: TASK
 title: QA Dependency Highlighting Interactions
-status: COMPLETED
+status: PENDING
 owner_persona: qa
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-20'
 depends_on:
   - .foundry/tasks/task-053-092-implement-dependency-highlighting.md
 jules_session_id: null

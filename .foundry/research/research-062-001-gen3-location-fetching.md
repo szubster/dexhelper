@@ -2,10 +2,10 @@
 id: research-062-001-gen3-location-fetching
 type: RESEARCH
 title: Investigate Gen 3 Location Data Fetching
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-05-19'
-updated_at: '2026-05-19'
+updated_at: '2026-05-20'
 depends_on: []
 jules_session_id: null
 parent: story-032-062-gen3-data-generation-scripts

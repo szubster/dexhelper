@@ -4,7 +4,7 @@ type: IDEA
 title: >-
   Introduce 'auditor' persona to verify work and possibly create new nodes based
   on status/learnings
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-05-20'
 updated_at: '2026-05-20'

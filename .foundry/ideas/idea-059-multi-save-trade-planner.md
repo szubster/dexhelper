@@ -2,7 +2,7 @@
 id: idea-059-multi-save-trade-planner
 type: IDEA
 title: Multi-Save Trade Planner
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-05-20'
 updated_at: '2026-05-20'

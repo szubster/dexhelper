@@ -1,13 +1,15 @@
 ---
 id: idea-055-cloudflare-sync-and-future-features
 type: IDEA
-title: Cloudflare Backend for Offline-First Save Syncing and Future Progression Features
-status: ACTIVE
-owner_persona: product_manager
+title: >-
+  Cloudflare Backend for Offline-First Save Syncing and Future Progression
+  Features
+status: BLOCKED
+owner_persona: tpm
 created_at: '2024-05-18'
-updated_at: '2024-05-18'
+updated_at: '2026-05-20'
 depends_on: []
-jules_session_id: 'unknown'
+jules_session_id: null
 parent: null
 tags:
   - backend
@@ -16,7 +18,7 @@ tags:
   - authentication
   - progression
 notes: ''
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 rejection_count: 0
 ---
 

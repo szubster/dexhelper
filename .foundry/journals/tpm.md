@@ -495,3 +495,13 @@ When archiving nodes, all references in parent stories and journal logs must be 
 - **2026-05-20**: PR #1602 merged. `task-061-123-gen3-legacy-compatibility-qa` is now COMPLETED.
 
 - **2026-05-20**: PR #1600 merged. `task-069-119-detect-violations-qa` is now COMPLETED.
+
+- **2026-05-20**: PR #1414 merged. `epic-053-024-032-gen3-encounters-implementation` is now COMPLETED.
+
+- **2026-05-20**: PR #1415 merged. `idea-054-robust-session-completion` is now COMPLETED.
+
+- **2026-05-20**: Heartbeat detected zombie session for `idea-055-cloudflare-sync-and-future-features`. Transitioned to FAILED.
+
+- **2026-05-20**: PR #1416 merged. `story-032-059-gen3-dataview-scaffolding` is now COMPLETED.
+
+- **2026-05-20**: PR #1418 merged with unchecked tasks. `task-053-092-implement-dependency-highlighting` is now FAILED.
