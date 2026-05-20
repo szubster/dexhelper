@@ -26,4 +26,4 @@ notes: ''
 Confirm that the implementation tests for legacy backwards compatibility are passing.
 
 ## Acceptance Criteria
-- [ ] Implement or update integration tests to confirm legacy backwards compatibility.
+- [x] Implement or update integration tests to confirm legacy backwards compatibility.
