@@ -2,7 +2,7 @@
 id: task-062-101-gen3-locations-script-qa
 type: TASK
 title: QA Gen 3 Locations Fetch Script
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-05-17'
 updated_at: '2026-05-19'
