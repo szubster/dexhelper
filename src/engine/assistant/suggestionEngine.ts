@@ -588,6 +588,7 @@ function generateEvolutionSuggestions(
   instancesBySpecies: Map<number, PokemonInstance[]>,
   suggestions: Suggestion[],
   displayVersion: string,
+  missingIds: Set<number>,
 ) {
   // E. Evolutions
   // Evaluates the player's current boxes and party to find pre-evolutions.
@@ -619,6 +620,15 @@ function generateEvolutionSuggestions(
     const immediateEvoTarget = apiData.pokemonMetadata?.[immediateEvoTargetId];
     if (!immediateEvoTarget) return;
 
+    // If we're looking at a multi-stage evolution (e.g., target is Charizard, immediate is Charmeleon)
+    // AND the intermediate stage (Charmeleon) is ALSO missing from the Pokedex,
+    // we should skip generating the suggestion for the final stage (Charizard) because
+    // the engine will already generate an identical "Evolve Charmander -> Charmeleon" suggestion
+    // when it evaluates Charmeleon as a target. This prevents redundant duplicates.
+    if (immediateEvoTargetId !== targetId && missingIds.has(immediateEvoTargetId)) {
+      return;
+    }
+
     const details = immediateEvoTarget.det;
     if (!details || details.length === 0) return;
 
@@ -647,6 +657,10 @@ function generateEvolutionSuggestions(
       } else {
         bestInstance = evolvableInstances.reduce((prev, current) => (prev.level > current.level ? prev : current));
       }
+
+      const isIntermediate = immediateEvoTargetId !== targetId;
+      const pathTitlePrefix = isIntermediate ? `Path to #${targetId}` : 'Evolution';
+      const evolveTargetText = isIntermediate ? ` into #${immediateEvoTargetId} to progress towards #${targetId}` : '';
 
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {
@@ -684,10 +698,10 @@ function generateEvolutionSuggestions(
           suggestions.push({
             id: `evo-lvl-${targetId}`,
             category: 'Evolve',
-            title: `Level Up Evolution: #${targetId}`,
+            title: isIntermediate ? pathTitlePrefix : `Level Up Evolution: #${targetId}`,
             description: isActuallyReady
-              ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve ${specificReq}!`
-              : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${min_l} ${specificReq}.`,
+              ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve${evolveTargetText} ${specificReq}!`
+              : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${min_l}${evolveTargetText} ${specificReq}.`,
             pokemonId: targetId,
             priority: isActuallyReady ? 90 : 75,
           });
@@ -700,10 +714,14 @@ function generateEvolutionSuggestions(
           suggestions.push({
             id: `evo-happy-${targetId}`,
             category: 'Evolve',
-            title: isFriendlyEnough ? `Ready to Evolve: #${targetId}!` : `Happiness Evolution: #${targetId}`,
+            title: isIntermediate
+              ? pathTitlePrefix
+              : isFriendlyEnough
+                ? `Ready to Evolve: #${targetId}!`
+                : `Happiness Evolution: #${targetId}`,
             description: isFriendlyEnough
-              ? `Your pre-evolution is friendly enough${friendshipStatus}! Level it up${todMsg} to evolve.`
-              : `Level up your pre-evolution with high happiness${friendshipStatus} to evolve${todMsg}!`,
+              ? `Your pre-evolution is friendly enough${friendshipStatus}! Level it up${todMsg} to evolve${evolveTargetText}.`
+              : `Level up your pre-evolution with high happiness${friendshipStatus} to evolve${todMsg}${evolveTargetText}!`,
             pokemonId: targetId,
             priority: isFriendlyEnough ? 90 : 80,
           });
@@ -712,8 +730,8 @@ function generateEvolutionSuggestions(
           suggestions.push({
             id: `evo-lvl-any-${targetId}`,
             category: 'Evolve',
-            title: `Level Up Evolution: #${targetId}`,
-            description: `Level up your pre-evolution${todMsg} to evolve!`,
+            title: isIntermediate ? pathTitlePrefix : `Level Up Evolution: #${targetId}`,
+            description: `Level up your pre-evolution${todMsg} to evolve${evolveTargetText}!`,
             pokemonId: targetId,
             priority: 70,
           });
@@ -725,8 +743,14 @@ function generateEvolutionSuggestions(
         suggestions.push({
           id: `evo-item-${targetId}-${item}`,
           category: 'Evolve',
-          title: hasStone ? `Ready to Evolve: #${targetId}!` : `Item Needed: #${targetId}`,
-          description: hasStone ? `Use your ${itemName} to evolve it!` : `Find a ${itemName} to evolve it.`,
+          title: isIntermediate
+            ? pathTitlePrefix
+            : hasStone
+              ? `Ready to Evolve: #${targetId}!`
+              : `Item Needed: #${targetId}`,
+          description: hasStone
+            ? `Use your ${itemName} to evolve it${evolveTargetText}!`
+            : `Find a ${itemName} to evolve it${evolveTargetText}.`,
           pokemonId: targetId,
           priority: hasStone ? 95 : 40,
         });
@@ -740,17 +764,21 @@ function generateEvolutionSuggestions(
           const hasHeldItem = hasHeldItemInBag || !!holdingInstance;
           const itemName = EVO_ITEM_NAMES[held] || 'item';
 
-          let description = `Find a ${itemName}, have your pre-evolution hold it, and trade to evolve.`;
+          let description = `Find a ${itemName}, have your pre-evolution hold it, and trade to evolve${evolveTargetText}.`;
           if (holdingInstance) {
-            description = `Your pre-evolution is already holding the ${itemName}! Trade it to evolve!`;
+            description = `Your pre-evolution is already holding the ${itemName}! Trade it to evolve${evolveTargetText}!`;
           } else if (hasHeldItemInBag) {
-            description = `Have your pre-evolution hold the ${itemName} and trade it to evolve!`;
+            description = `Have your pre-evolution hold the ${itemName} and trade it to evolve${evolveTargetText}!`;
           }
 
           suggestions.push({
             id: `evo-trade-held-${targetId}`,
             category: 'Evolve',
-            title: hasHeldItem ? `Ready to Trade Evolve: #${targetId}!` : `Item Needed for Trade: #${targetId}`,
+            title: isIntermediate
+              ? pathTitlePrefix
+              : hasHeldItem
+                ? `Ready to Trade Evolve: #${targetId}!`
+                : `Item Needed for Trade: #${targetId}`,
             description,
             pokemonId: targetId,
             priority: hasHeldItem ? 90 : 45,
@@ -759,8 +787,8 @@ function generateEvolutionSuggestions(
           suggestions.push({
             id: `evo-trade-${targetId}`,
             category: 'Evolve',
-            title: `Trade Evolution: #${targetId}`,
-            description: `Trade your pre-evolution to evolve it!`,
+            title: isIntermediate ? pathTitlePrefix : `Trade Evolution: #${targetId}`,
+            description: `Trade your pre-evolution to evolve it${evolveTargetText}!`,
             pokemonId: targetId,
             priority: 85,
           });
@@ -936,7 +964,15 @@ export function generateSuggestions(
 
   generateBreedingSuggestions(queryTargets, saveData, apiData, instancesBySpecies, suggestions);
 
-  generateEvolutionSuggestions(queryTargets, saveData, apiData, instancesBySpecies, suggestions, displayVersion);
+  generateEvolutionSuggestions(
+    queryTargets,
+    saveData,
+    apiData,
+    instancesBySpecies,
+    suggestions,
+    displayVersion,
+    missingIds,
+  );
 
   // ⚡ Bolt: Eliminate O(N) array tuple allocation during suggestion deduplication
   const uniqueMap = new Map<string, Suggestion>();

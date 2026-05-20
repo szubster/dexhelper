@@ -36,3 +36,15 @@
 ## 2024-05-19 - Assistant Daycare Breeding Partner Requirement
 **Learning:** Gen 2 breeding suggestions previously suggested "Leave your #evolutionIdToBreed at the Daycare to get an Egg!" even if the player already had the Pokémon in the Daycare but it was alone, which incorrectly suggested to the user that breeding was in progress or ready. We need to explicitly check if `saveData.daycare.length === 2` to determine if breeding is actually occurring.
 **Action:** When evaluating `EVO_TRIGGER.BREED` (or general breeding recommendations), check `isInDaycare`. If true and `length === 1`, suggest "Need Partner" and advise leaving a compatible partner (like Ditto). If false, explicitly advise leaving the target AND a compatible partner.
+## 2024-05-20 - Multi-stage Evolution Deduplication
+**Learning:** The suggestion engine previously generated redundant suggestions for multi-stage evolutions if multiple subsequent stages were missing (e.g., both Charmeleon and Charizard missing from Pokedex would generate two "Evolve Charmander" suggestions).
+**Action:** When iterating over , skip generation if  AND the intermediate  is also present in . This allows the engine to naturally generate a single "Path to" suggestion for the intermediate stage without flooding the UI.
+## 2024-05-20 - Intermediate Evolution Suggestion Clarity
+**Learning:** For multi-stage evolutions where an intermediate stage is required (e.g. "Path to #Charizard" needing a Charmeleon), the previous title ("Level Up Evolution") and description were misleading, implying the immediate evolution would yield the final target.
+**Action:** Dynamically rewrite the title (e.g., `Path to #${targetId}`) and description (e.g., `into #${immediateEvoTargetId} to progress towards #${targetId}`) when  to clarify the intermediate progression step.
+## 2024-05-20 - Multi-stage Evolution Deduplication
+**Learning:** The suggestion engine previously generated redundant suggestions for multi-stage evolutions if multiple subsequent stages were missing (e.g., both Charmeleon and Charizard missing from Pokedex would generate two "Evolve Charmander" suggestions).
+**Action:** When iterating over `immediateEvoTarget.det`, skip generation if `immediateEvoTargetId !== targetId` AND the intermediate `immediateEvoTargetId` is also present in `missingIds`. This allows the engine to naturally generate a single "Path to" suggestion for the intermediate stage without flooding the UI.
+## 2024-05-20 - Intermediate Evolution Suggestion Clarity
+**Learning:** For multi-stage evolutions where an intermediate stage is required (e.g. "Path to #Charizard" needing a Charmeleon), the previous title ("Level Up Evolution") and description were misleading, implying the immediate evolution would yield the final target.
+**Action:** Dynamically rewrite the title (e.g., `Path to #${targetId}`) and description (e.g., `into #${immediateEvoTargetId} to progress towards #${targetId}`) when `immediateEvoTargetId !== targetId` to clarify the intermediate progression step.
