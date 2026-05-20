@@ -66,3 +66,6 @@ Critical learnings:
 ## 2026-05-18 - Added madge for circular dependency checking
 **Learning:** Integrated `madge` to statically analyze and prevent circular dependencies in the codebase. Added `lint:circular` to the `lint` pipeline to ensure PRs fail if circular dependencies are introduced.
 * The project uses Vite 8 with Rolldown. When configuring `manualChunks` in `vite.config.ts`'s `rollupOptions.output`, it must be defined as a function (e.g., `manualChunks(id) { ... }`) rather than an object to avoid build errors like 'Expected Function but received Object'.
+
+## 2026-05-20 - Fixed Biome Schema Version Mismatch Again
+**Learning:** The Biome CLI version (2.4.15) in `package.json` and `biome.jsonc` was bumped but the version in `.github/workflows/biome.yml` was left at `2.4.14`, meaning CI wasn't using the same version as local. Updated the workflow to match.
