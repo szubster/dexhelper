@@ -43,3 +43,4 @@ Detail the technical and structural approach to introducing the `auditor` person
 - [ ] Core policies document is updated.
 
 Spawned `.foundry/research/research-029-003-auditor-implementation-details.md` to figure out orchestrator and prompt changes.
+Depends on: `research-029-003-auditor-implementation-details`
