@@ -1,7 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { getDB, pokeDB } from '../PokeDB';
 import 'fake-indexeddb/auto';
-import { pack } from 'msgpackr';
+import { Packr } from 'msgpackr';
+
+const packr = new Packr({ useRecords: true, variableMapSize: true, bundleStrings: true });
+const pack = (data: unknown) => packr.pack(data);
+
 import { DB_CONFIG } from '../schema';
 
 // Mock build hash
