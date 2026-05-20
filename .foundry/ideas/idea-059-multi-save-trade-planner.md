@@ -38,4 +38,6 @@ Introduce a "Multi-Save Mode" in DexHelper that allows users to analyze two or m
 This feature transforms DexHelper from a single-file viewer into a comprehensive Collection Manager. It directly solves the most tedious aspect of completing the retro Pokédex by providing actionable, cross-game intelligence, significantly reducing manual tracking and planning for players managing multiple versions.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+
+- PRD: `.foundry/prds/prd-059-030-multi-save-trade-planner.md`
