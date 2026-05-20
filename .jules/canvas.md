@@ -115,3 +115,9 @@
 **Outcome:** Rejected → journaled
 **Why:** The maintainer preferred the previous look with the navigation items integrated into the top header.
 **Pattern:** While vertical sidebars are common for dashboards, avoid moving core navigation out of the top header for desktop layouts, as it changes the structural feel too drastically for the maintainer's preference. Keep navigation integrated into `AppLayout`/`AppHeader` or `BottomNav`.
+
+## 2026-05-20 - [Accepted] - 🖼️ Canvas: Tactical GlobalError Redesign
+**What:** Redesigned the `GlobalError` component to fully embrace the tactical "snooping" aesthetic by replacing the generic styled `div` with `<TacticalPanel variant="red">`.
+**Outcome:** Accepted
+**Why:** Brings the error messaging interface in line with the heavily tactical, specialized hardware motif, solidifying the application's unique visual identity. Tactical panels automatically include dashed borders, LCD grid backgrounds, scanlines, and corner crosshairs.
+**Pattern:** Consistently utilize `TacticalPanel` and matching variants (e.g. `red` for errors) instead of building custom styles with raw elements, ensuring a unified UI language across all system notifications.
