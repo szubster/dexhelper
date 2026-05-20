@@ -20,4 +20,4 @@ rejection_reason: ''
 QA validate the script that fetches Generation 3 encounters data.
 
 ## Acceptance Criteria
-- [ ] QA verifies the script fetches accurate Gen 3 encounters.
+- [x] QA verifies the script fetches accurate Gen 3 encounters.
