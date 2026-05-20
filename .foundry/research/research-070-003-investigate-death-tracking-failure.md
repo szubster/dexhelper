@@ -2,7 +2,7 @@
 id: research-070-003-investigate-death-tracking-failure
 type: RESEARCH
 title: Investigate Death Tracking and Graveyard Logic Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
@@ -16,7 +16,7 @@ tags:
   - verification
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing session ID
 notes: ''
 ---
 

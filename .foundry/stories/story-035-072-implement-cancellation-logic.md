@@ -2,7 +2,7 @@
 id: story-035-072-implement-cancellation-logic
 type: STORY
 title: Implement DAG Dependency Cancellation Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-20'
 updated_at: '2026-05-20'

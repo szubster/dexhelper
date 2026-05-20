@@ -2,7 +2,7 @@
 id: task-053-125-qa-retry-dependency-highlighting
 type: TASK
 title: QA Retry Dependency Highlighting Interactions
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-20'
 updated_at: '2026-05-20'

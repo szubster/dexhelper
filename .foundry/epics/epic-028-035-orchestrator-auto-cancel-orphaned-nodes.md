@@ -2,12 +2,12 @@
 id: epic-028-035-orchestrator-auto-cancel-orphaned-nodes
 type: EPIC
 title: Implement Orchestrator Auto-Cancel for Orphaned Nodes
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
 depends_on: []
-jules_session_id: '17044620623683396735'
+jules_session_id: null
 pr_number: null
 parent: prd-059-028-orchestrator-auto-cancel-orphaned-nodes
 tags:

@@ -521,3 +521,21 @@ When archiving nodes, all references in parent stories and journal logs must be 
 - **2026-05-20**: PR #1619 merged. `story-032-062-gen3-data-generation-scripts` is now PENDING.
 
 - **2026-05-20**: Empty PR session completed with unchecked tasks. `task-070-116-implement-death-tracking` is now FAILED.
+
+- **2026-05-20**: PR #1614 merged. `epic-028-035-orchestrator-auto-cancel-orphaned-nodes` is now COMPLETED.
+
+- **2026-05-20**: Resurrection Loop triggered for `idea-059-multi-save-trade-planner`. Reason: PR #1624 closed without merging.. Transitioned back to READY.
+
+- **2026-05-20**: Heartbeat detected zombie session for `research-070-003-investigate-death-tracking-failure`. Transitioned to FAILED.
+
+- **2026-05-20**: PR #1625 merged. `story-032-062-gen3-data-generation-scripts` is now PENDING.
+
+- **2026-05-20**: PR #1626 merged. `story-034-070-death-tracking-and-graveyard` is now COMPLETED.
+
+- **2026-05-20**: PR #1620 merged. `task-053-093-qa-dependency-highlighting` is now COMPLETED.
+
+- **2026-05-20**: PR #1615 merged. `task-053-124-retry-dependency-highlighting` is now COMPLETED.
+
+- **2026-05-20**: Resurrection Loop triggered for `task-070-116-implement-death-tracking`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-20**: Cleanup Loop deleted remote branch `jules-4357736207550241874-4d1ebd78`.

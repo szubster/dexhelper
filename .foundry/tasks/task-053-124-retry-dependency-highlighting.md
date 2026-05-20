@@ -2,13 +2,13 @@
 id: task-053-124-retry-dependency-highlighting
 type: TASK
 title: Retry Implement Dependency Highlighting Interactions
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
 depends_on:
   - .foundry/research/research-053-002-dependency-highlighting-failure.md
-jules_session_id: '10859420173339569725'
+jules_session_id: null
 pr_number: null
 parent: .foundry/stories/story-029-053-implement-dependency-highlighting.md
 tags:
