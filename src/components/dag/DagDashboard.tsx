@@ -151,35 +151,47 @@ export function DagDashboard() {
   const highlightSet = useMemo(() => getHighlightPath(activeNodeId, edges), [activeNodeId, edges]);
 
   const displayNodes = useMemo(() => {
-    return nodes
-      .filter((n) => {
+    // ⚡ Bolt: Fused .filter().map() into a single pass to eliminate intermediate array allocations (O(N) -> O(1) memory overhead)
+    const result: FlowNode<DagNodeData>[] = [];
+    for (let i = 0; i < nodes.length; i++) {
+      const n = nodes[i];
+      if (n) {
         const type = n.data.type;
         const status = n.data.status;
-        return type && status && activeTypes.has(type) && activeStatuses.has(status);
-      })
-      .map((n) => {
-        const isHighlighted = activeNodeId ? highlightSet.has(n.id) : false;
-        const isDimmed = activeNodeId ? !highlightSet.has(n.id) : false;
-        return {
-          ...n,
-          data: {
-            ...n.data,
-            isHighlighted,
-            isDimmed,
-          },
-        };
-      });
+        if (type && status && activeTypes.has(type) && activeStatuses.has(status)) {
+          const isHighlighted = activeNodeId ? highlightSet.has(n.id) : false;
+          const isDimmed = activeNodeId ? !highlightSet.has(n.id) : false;
+          result.push({
+            ...n,
+            data: {
+              ...n.data,
+              isHighlighted,
+              isDimmed,
+            },
+          });
+        }
+      }
+    }
+    return result;
   }, [nodes, activeTypes, activeStatuses, activeNodeId, highlightSet]);
 
   const displayEdges = useMemo(() => {
-    const visibleNodeIds = new Set(displayNodes.map((n) => n.id));
-    return edges
-      .filter((e) => visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target))
-      .map((e) => {
+    // ⚡ Bolt: Prevent array allocation in Set construction
+    const visibleNodeIds = new Set<string>();
+    for (let i = 0; i < displayNodes.length; i++) {
+      const node = displayNodes[i];
+      if (node) visibleNodeIds.add(node.id);
+    }
+
+    // ⚡ Bolt: Fused .filter().map() into a single pass to eliminate intermediate array allocations
+    const result: FlowEdge[] = [];
+    for (let i = 0; i < edges.length; i++) {
+      const e = edges[i];
+      if (e && visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target)) {
         const isHighlighted = activeNodeId ? e.source === activeNodeId || e.target === activeNodeId : false;
         const isDimmed = activeNodeId ? !isHighlighted : false;
 
-        return {
+        result.push({
           ...e,
           style: {
             ...e.style,
@@ -187,8 +199,10 @@ export function DagDashboard() {
             stroke: isHighlighted ? '#06b6d4' : (e.style?.stroke ?? '#52525b'), // cyan-500 if highlighted
             strokeWidth: isHighlighted ? 3 : 2,
           },
-        };
-      });
+        });
+      }
+    }
+    return result;
   }, [edges, displayNodes, activeNodeId]);
 
   const onNodeClick = useCallback((_event: React.MouseEvent, node: FlowNode<DagNodeData>) => {

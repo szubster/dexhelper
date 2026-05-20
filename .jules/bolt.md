@@ -92,3 +92,5 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 ## O(N) array mapping and closure overhead in loops
 - **Learning:** Chaining array methods like `allEncounters.filter(lae => lae.enc.some(e => e.aid === localAid))` or `new Map(allEncounters.map(e => [e.pid, e]))` creates closures and intermediate array allocations. When processing large arrays on every keystroke/render, this causes unnecessary garbage collection and main thread blocking.
 - **Action:** Replaced `.filter().some()` chains and intermediate `Map` tuple arrays with traditional imperative `for` loops in `src/engine/assistant/suggestionEngine.ts`. This bypasses intermediate allocations and avoids closure creation, resulting in faster synchronous execution.
+
+- When optimizing array iteration chains in React components, replacing chained `.filter().map()` operations with single `for` loops significantly reduces intermediate array allocations and garbage collection overhead on the main thread, resulting in measurably faster renders for complex UI elements like the DAG dashboard or the Pokedex Grid.
