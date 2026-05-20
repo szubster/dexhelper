@@ -2,12 +2,12 @@
 id: story-035-072-implement-cancellation-logic
 type: STORY
 title: Implement DAG Dependency Cancellation Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10257464555812476974'
 pr_number: null
 parent: epic-028-035-orchestrator-auto-cancel-orphaned-nodes
 tags:
