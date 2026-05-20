@@ -57,8 +57,8 @@ The `coder` must carefully review the findings in the attached research node `.f
    - Ensure this highlighting logic works harmoniously with the graph filtering logic implemented in previous tasks. Only visible nodes should participate in highlighting.
 
 ## Acceptance Criteria
-- [ ] Implement state management to track the currently selected/focused node.
-- [ ] Implement traversal logic to identify upstream and downstream connections for a node.
-- [ ] Apply visual styles to highlight the active path and dim unrelated nodes/edges, adhering to the tactical aesthetic.
-- [ ] Ensure selection can be cleared (e.g., clicking the background).
-- [ ] Add unit tests to verify the traversal logic correctly identifies dependencies.
+- [x] Implement state management to track the currently selected/focused node.
+- [x] Implement traversal logic to identify upstream and downstream connections for a node.
+- [x] Apply visual styles to highlight the active path and dim unrelated nodes/edges, adhering to the tactical aesthetic.
+- [x] Ensure selection can be cleared (e.g., clicking the background).
+- [x] Add unit tests to verify the traversal logic correctly identifies dependencies.
