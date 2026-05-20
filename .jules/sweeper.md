@@ -33,3 +33,8 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 **Learning:** Sometimes, an automated code health task may request fixes for issues (like an unused import) that have already been resolved on the `main` branch.
 **Action:** Always verify the issue exists on the current branch using `grep` or `read_file` before making modifications. If the file is already in the ideal state, do not artificially introduce changes. Instead, follow the empty PR policy, documenting why no changes were required, and ensure the test suite still passes to guarantee stability.
 - Refactoring long files or text structures using string matching in python or javascript can be error prone with indentation or overlapping strings. Writing a script to accurately parse the abstract syntax tree and make changes is difficult. Often the easiest way to make surgical edits to a code file without manual human input is to find unique anchors, slice the text, and recreate it exactly.
+
+## 2026-07-01 - Careful Usage of sed
+
+**Learning:** When using `sed` to delete code blocks, avoid using broad pattern ranges like `/\*\*/,$d` (delete from a line matching `/**` to the end of the file). This approach is highly risky because it can easily match a generic JSDoc block comment instead of the intended specific block, leading to the deletion of large, unintended portions of the file.
+**Action:** When removing specific exports or blocks, prefer using exact line numbers obtained via `grep -n`, or construct very specific pattern matches. Always verify the result of a `sed` deletion by reviewing the end of the file or running `git diff`.
