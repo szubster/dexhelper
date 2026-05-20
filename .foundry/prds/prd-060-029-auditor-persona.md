@@ -38,6 +38,9 @@ Detail the technical and structural approach to introducing the `auditor` person
 3. **Core Policies**: Update `.foundry/docs/knowledge_base/agents/core_policies.md` (or a similar appropriate document) to detail how the `auditor` persona operates and when handoffs occur.
 
 ## Acceptance Criteria
-- [ ] ADR is created outlining the precise state machine changes to accommodate the `VERIFYING` state.
+- [x] ADR is created outlining the precise state machine changes to accommodate the `VERIFYING` state.
 - [ ] Schema document (`.foundry/docs/schema.md`) is updated.
 - [ ] Core policies document is updated.
+
+Spawned `.foundry/research/research-029-003-auditor-implementation-details.md` to figure out orchestrator and prompt changes.
+Depends on: `research-029-003-auditor-implementation-details`
