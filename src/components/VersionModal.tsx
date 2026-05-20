@@ -3,6 +3,7 @@ import type { GameVersion } from '../store';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { HoverScanner } from './HoverScanner';
 import { TacticalModal } from './TacticalModal';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
@@ -60,7 +61,7 @@ export function VersionModal() {
             <CornerCrosshairs className="h-1 w-1 border-zinc-700 transition-colors group-hover:border-[var(--theme-primary)]" />
 
             {/* Radar hover effect */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[var(--theme-primary)]/10 to-transparent opacity-0 transition-opacity group-hover:animate-[scan_2s_linear_infinite] group-hover:opacity-100" />
+            <HoverScanner colorClass="via-[var(--theme-primary)]/10" />
 
             <div className="relative z-10 flex flex-col items-center gap-3">
               <div className={`h-3 w-3 shadow-lg ${v.dotColor}`} />

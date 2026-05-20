@@ -47,3 +47,15 @@
 - I observed that native `<button>` and `<a>` elements across the app (`AppHeader.tsx`, `SettingsModal.tsx`, `BottomNav.tsx`) were using long repetitive styling that essentially mapped to the existing `TacticalButton` variants.
 - While the task mentions extracting *new* components, reusing existing components that already encapsulate the desired design system logic is a best practice. It reduces repetition and creates modularity.
 - Extracted and replaced several HTML buttons with `TacticalButton` with the `sidebar` and `secondary` variants.
+
+## ScanlineOverlay Extraction
+- **What**: Extracted repeated `<div className="scanline-overlay pointer-events-none absolute inset-0 opacity-10" />` patterns into a reusable `<ScanlineOverlay>` component.
+- **Why**: Reduced duplicated JSX across multiple components like `TacticalPanel`, `LocationSuggestions`, `PokedexCard`, etc.
+- **Key Learnings**:
+  - The `opacityClass` prop allows customization (like `opacity-20` instead of the default `opacity-10`) without overwriting the core positioning.
+
+## HoverScanner Extraction
+- **What**: Extracted complex `<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[var(--theme-primary)]/20 to-transparent opacity-0 transition-opacity group-hover:animate-[scan_2s_linear_infinite] group-hover:opacity-100" />` patterns into a reusable `<HoverScanner>` component.
+- **Why**: Drastically improved readability of `PokedexCard`, `PokemonDetails`, and `VersionModal`.
+- **Key Learnings**:
+  - Allowing `colorClass` to be passed as a prop allowed the modal to utilize the primary theme with 10% opacity instead of 20%, maintaining flexibility while standardizing the CSS animation.

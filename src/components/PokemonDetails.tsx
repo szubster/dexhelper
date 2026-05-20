@@ -9,12 +9,14 @@ import type { PokeballType } from '../store';
 import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbability';
 import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
 import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
 import { PokemonLocations } from './pokemon/details/PokemonLocations';
 import { PokemonSprite } from './pokemon/PokemonSprite';
+import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalModal } from './TacticalModal';
 
 interface PokemonDetailsProps {
@@ -203,7 +205,7 @@ export function PokemonDetails({
       backdropClassName="bg-black/90 backdrop-blur-xl"
       dialogClassName="slide-in-from-bottom-[100%] flex h-[95vh] flex-col overflow-hidden rounded-none border-[var(--theme-primary)]/30 border-t-2 bg-zinc-950/95 shadow-[0_0_50px_rgba(var(--theme-primary-rgb),0.1)] ease-out sm:h-[85vh] sm:max-w-5xl sm:border-2"
     >
-      <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
+      <ScanlineOverlay />
 
       {/* Header Section */}
       <div className="relative shrink-0 border-[var(--theme-primary)]/20 border-b bg-gradient-to-b from-[var(--theme-primary)]/5 to-transparent p-6 sm:p-10">
@@ -212,7 +214,7 @@ export function PokemonDetails({
             <div className="group relative">
               <div className="zoom-in-50 fade-in relative flex h-32 w-32 animate-in items-center justify-center overflow-hidden rounded-none border border-[var(--theme-primary)]/40 border-dashed bg-black/60 fill-mode-both shadow-[0_0_30px_rgba(0,0,0,0.8)] transition-colors delay-100 duration-500 group-hover:border-[var(--theme-primary)] group-hover:bg-black/80 sm:h-40 sm:w-40">
                 <LcdGrid className="opacity-10" color="var(--theme-primary)" />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[var(--theme-primary)]/20 to-transparent opacity-0 transition-opacity group-hover:animate-[scan_2s_linear_infinite] group-hover:opacity-100" />
+                <HoverScanner />
                 <PokemonSprite
                   pokemonId={pokemonId}
                   generation={saveData?.generation ?? 1}
