@@ -2,12 +2,12 @@
 id: prd-055-031-future-progression-trading
 type: PRD
 title: Future Progression Features and Trading (Phase 2)
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5255471936979140539'
 pr_number: null
 parent: idea-055-cloudflare-sync-and-future-features
 tags:
