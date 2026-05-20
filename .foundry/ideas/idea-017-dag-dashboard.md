@@ -2,10 +2,10 @@
 id: idea-017-dag-dashboard
 type: IDEA
 title: DAG Dashboard Webview
-status: "COMPLETED"
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-05-15'
-updated_at: "2026-05-05"
+updated_at: '2026-05-15'
 depends_on: []
 jules_session_id: null
 parent: null
