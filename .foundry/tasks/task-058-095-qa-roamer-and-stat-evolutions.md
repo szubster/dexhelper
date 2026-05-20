@@ -43,8 +43,8 @@ Validate the implementation of the roamer tracking logic and stat-based evolutio
    - Verify that new tests cover the roamer tracking and stat-based evolution logic adequately.
 
 ## Acceptance Criteria
-- [ ] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
-- [ ] Evolution logic accurately evaluates stat-based requirements (e.g., Atk > Def for Hitmonlee).
-- [ ] UI dynamically displays stat requirements for stat-based evolutions.
-- [ ] Tests verify roamer tracking and stat-based evolution logic.
-- [ ] Code meets quality standards and tests pass.
+- [x] Roamer tracking logic correctly identifies missing roamers and suggests checking the Pokédex.
+- [x] Evolution logic accurately evaluates stat-based requirements (e.g., Atk > Def for Hitmonlee).
+- [x] UI dynamically displays stat requirements for stat-based evolutions.
+- [x] Tests verify roamer tracking and stat-based evolution logic.
+- [x] Code meets quality standards and tests pass.
