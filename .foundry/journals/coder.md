@@ -135,3 +135,6 @@ Invoked Empty PR Policy for task-060-114-gen3-indoor-resolution-impl because res
 
 ## 2026-05-19: Biome Iterable Callback Return Error
 When passing a callback to iteration methods like `forEach`, do not use an implicit return (e.g. `arr.forEach(x => set.delete(x))`). This violates Biome's `lint/suspicious/useIterableCallbackReturn` rule. Use a block statement instead: `arr.forEach(x => { set.delete(x); })`.
+
+## 2026-05-20: Task Acceptance Criteria Checkboxes
+When executing the Empty PR Policy for a retry task (e.g., when the target artifacts are already completely implemented), ALWAYS ensure the Acceptance Criteria checkboxes are explicitly checked in the Markdown file. Failing to do so will result in the task failing the Orchestrator's Preflight checks, triggering another retry or Impossible Loop. The YAML frontmatter must not be touched.
