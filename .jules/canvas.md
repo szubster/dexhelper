@@ -104,11 +104,6 @@
 **Outcome:** Accepted
 **Why:** Brings the final remaining generic web UI patterns within the main list and grid views in line with the heavily tactical, specialized hardware motif, solidifying the application's unique visual identity.
 **Pattern:** Consistently eliminate generic web UI patterns (rounded corners, soft hover states, circular dot indicators) in favor of sharp, high-contrast, terminal-like telemetry tags and borders to maintain the specialized device illusion.
-## 2026-05-16 - [Accepted] - 🖼️ Canvas: Tactical Grid Views (Storage/Pokedex) Redesign
-**What:** Redesigned the `StorageGrid` and `PokedexGrid` components to fully embrace the tactical "snooping" aesthetic. Replaced all rounded glassmorphism in empty states with `<TacticalPanel>` and monospace telemetry headers (`[ EMPTY ]`, `[ SYS.QUERY_FAILED ]`). Replaced all rounded badges (`rounded-lg`, `rounded-full`) in `PokedexCard` with sharp, dashed telemetry tags. Removed rounded corners from the `TacticalCard` storage variants.
-**Outcome:** Accepted
-**Why:** Brings the final remaining generic web UI patterns within the main list and grid views in line with the heavily tactical, specialized hardware motif, solidifying the application's unique visual identity.
-**Pattern:** Consistently eliminate generic web UI patterns (rounded corners, soft hover states, circular dot indicators) in favor of sharp, high-contrast, terminal-like telemetry tags and borders to maintain the specialized device illusion.
 
 ## 2025-06-26 - [Rejected] - 🖼️ Canvas: Tactical SideNav Redesign
 **What:** Extracted the desktop navigation links from the `AppHeader` into a dedicated, vertically-oriented `SideNav` component. Reconfigured `AppLayout` to display this sidebar alongside the main content area on larger screens (`sm:flex`).
