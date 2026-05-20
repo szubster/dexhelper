@@ -4,7 +4,7 @@ type: IDEA
 title: >-
   Cloudflare Backend for Offline-First Save Syncing and Future Progression
   Features
-status: BLOCKED
+status: PENDING
 owner_persona: tpm
 created_at: '2024-05-18'
 updated_at: '2026-05-20'
@@ -18,7 +18,7 @@ tags:
   - authentication
   - progression
 notes: ''
-rejection_reason: 'Session terminated with state: NOT_FOUND'
+rejection_reason: ''
 rejection_count: 0
 ---
 
