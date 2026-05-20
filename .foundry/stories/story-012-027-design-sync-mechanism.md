@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on:
-  - .foundry/stories/story-012-026-evaluate-cloudflare-storage.md
+  - story-012-026-evaluate-cloudflare-storage
 jules_session_id: null
 pr_number: null
 parent: ".foundry/epics/epic-012-gastown-orchestrator.md"

@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-04-27'
 updated_at: '2026-04-29'
 depends_on:
-  - .foundry/archive/epics/epic-005-013-idb-infrastructure.md
-  - .foundry/archive/tasks/task-031-051-implement-dual-write-persistence.md
+  - epic-005-013-idb-infrastructure
+  - task-031-051-implement-dual-write-persistence
 jules_session_id: null
-parent: .foundry/archive/epics/epic-005-014-state-store-migration.md
+parent: epic-005-014-state-store-migration
 tags:
   - persistence
   - indexeddb

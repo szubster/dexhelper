@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-05-11'
 updated_at: '2026-05-12'
 depends_on:
-  - .foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md
+  - task-044-080-implement-indoor-outdoor-resolution
 jules_session_id: null
 pr_number: null
 parent: story-028-044-indoor-outdoor-resolution
@@ -17,7 +17,7 @@ tags:
   - map-graph
   - qa
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''

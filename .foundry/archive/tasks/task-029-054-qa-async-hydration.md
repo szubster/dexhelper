@@ -7,9 +7,9 @@ owner_persona: qa
 created_at: '2026-04-27'
 updated_at: '2026-05-01'
 depends_on:
-  - .foundry/archive/tasks/task-029-050-implement-async-hydration.md
+  - task-029-050-implement-async-hydration
 jules_session_id: null
-parent: .foundry/archive/stories/story-014-029-async-startup-hydration.md
+parent: story-014-029-async-startup-hydration
 tags:
   - state
   - store

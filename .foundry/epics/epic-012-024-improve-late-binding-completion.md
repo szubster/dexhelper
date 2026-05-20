@@ -9,7 +9,7 @@ updated_at: "2026-05-04"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-013-012-improve-late-binding-completion.md
+parent: prd-013-012-improve-late-binding-completion
 tags:
   - orchestrator
   - late-binding

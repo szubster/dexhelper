@@ -2,7 +2,7 @@
 id: story-034-070-death-tracking-and-graveyard
 type: STORY
 title: Death Tracking and Graveyard Logic
-status: COMPLETED
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-19'

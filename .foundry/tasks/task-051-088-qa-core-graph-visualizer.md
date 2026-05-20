@@ -7,10 +7,10 @@ owner_persona: qa
 created_at: '2026-05-14'
 updated_at: '2026-05-16'
 depends_on:
-  - .foundry/tasks/task-051-087-implement-core-graph-visualizer.md
+  - task-051-087-implement-core-graph-visualizer
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-051-implement-core-graph-visualization.md
+parent: story-029-051-implement-core-graph-visualization
 tags:
   - dag
   - dashboard

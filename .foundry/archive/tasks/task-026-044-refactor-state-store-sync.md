@@ -8,7 +8,7 @@ created_at: '2026-04-26'
 updated_at: '2026-05-01'
 depends_on: []
 jules_session_id: null
-parent: .foundry/archive/stories/story-014-026-refactor-state-store-sync.md
+parent: story-014-026-refactor-state-store-sync
 tags:
   - state
   - store

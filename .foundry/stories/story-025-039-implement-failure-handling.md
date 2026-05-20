@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-05-04'
 updated_at: '2026-05-10'
 depends_on:
-  - .foundry/stories/story-025-038-implement-mapping-validation.md
+  - story-025-038-implement-mapping-validation
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md
+parent: epic-014-025-enforce-persona-pipeline-handoffs
 tags:
   - foundry
   - dag

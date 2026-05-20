@@ -1,5 +1,6 @@
 ---
 id: idea-005-revert-data-optimizations
+type: IDEA
 status: PENDING
 owner_persona: pm
 assignee: PM

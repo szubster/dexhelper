@@ -9,7 +9,7 @@ updated_at: "2026-05-05"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md
+parent: epic-014-025-enforce-persona-pipeline-handoffs
 tags:
   - foundry
   - dag

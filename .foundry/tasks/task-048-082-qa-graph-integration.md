@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-05-11'
 updated_at: '2026-05-14'
 depends_on:
-  - .foundry/tasks/task-048-081-integrate-graph-library.md
+  - task-048-081-integrate-graph-library
 jules_session_id: null
 pr_number: null
 parent: story-029-048-evaluate-graph-libraries

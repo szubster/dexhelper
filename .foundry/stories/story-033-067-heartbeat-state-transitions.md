@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on:
-  - .foundry/stories/story-033-066-heartbeat-prless-detection.md
+  - story-033-066-heartbeat-prless-detection
 jules_session_id: null
 pr_number: null
 parent: epic-025-033-robust-session-completion

@@ -9,7 +9,7 @@ updated_at: '2026-05-19'
 depends_on:
   - research-062-001-gen3-location-fetching
 research_references:
-  - .foundry/research/research-062-001-gen3-location-fetching.md
+  - research-062-001-gen3-location-fetching
 jules_session_id: null
 parent: story-032-062-gen3-data-generation-scripts
 ---

@@ -9,7 +9,7 @@ updated_at: '2026-05-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-015-014-enforce-persona-pipeline.md
+parent: prd-015-014-enforce-persona-pipeline
 tags:
   - foundry
   - dag

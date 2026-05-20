@@ -9,7 +9,7 @@ updated_at: '2026-05-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-053-implement-dependency-highlighting.md
+parent: story-029-053-implement-dependency-highlighting
 tags:
   - dag
   - dashboard

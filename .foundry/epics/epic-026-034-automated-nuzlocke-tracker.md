@@ -9,7 +9,7 @@ updated_at: '2026-05-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-057-026-automated-nuzlocke-tracker.md
+parent: prd-057-026-automated-nuzlocke-tracker
 tags:
   - feature
   - nuzlocke

@@ -8,7 +8,7 @@ created_at: "2026-04-30"
 updated_at: "2026-05-01"
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-017-034-orchestrator-preflight-logic.md
+parent: story-017-034-orchestrator-preflight-logic
 tags: []
 rejection_count: 0
 rejection_reason: ""

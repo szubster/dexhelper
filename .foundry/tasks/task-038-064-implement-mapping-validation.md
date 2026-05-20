@@ -9,7 +9,7 @@ updated_at: "2026-05-08"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-025-038-implement-mapping-validation.md
+parent: story-025-038-implement-mapping-validation
 tags:
   - orchestrator
 research_references: []

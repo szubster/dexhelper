@@ -9,7 +9,7 @@ updated_at: "2026-05-05"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-015-026-save-parser-expansion.md
+parent: epic-015-026-save-parser-expansion
 tags:
   - gen2
   - save-parser
