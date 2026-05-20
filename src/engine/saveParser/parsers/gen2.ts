@@ -162,6 +162,18 @@ export function isGen2Save(view: DataView, crystal: boolean): boolean {
  * @returns The fully parsed and structured SaveData object.
  */
 
+/**
+ * Parses the player's seen and caught Pokédex data.
+ *
+ * **Bitfield Layout:**
+ * The Gen 2 Pokédex status is stored as contiguous 32-byte blocks (one for `owned`, one for `seen`).
+ * Since 32 bytes * 8 bits = 256 possible bits, this perfectly fits the 251 Pokémon in Generation 2.
+ * The bits are 1-indexed (Bulbasaur is bit 0 of byte 0, Chikorita is bit 7 of byte 18, etc.).
+ *
+ * @param view - The raw save file DataView.
+ * @param offsets - The dynamically resolved start offsets for the `owned` and `seen` blocks.
+ * @returns An object containing Sets of the `owned` and `seen` Pokémon IDs.
+ */
 function parsePokedex(view: DataView, offsets: { owned: number; seen: number }) {
   const owned = new Set<number>();
   const seen = new Set<number>();
@@ -184,6 +196,20 @@ function parsePokedex(view: DataView, offsets: { owned: number; seen: number }) 
   return { owned, seen };
 }
 
+/**
+ * Parses the player's active party from a Generation 2 save.
+ *
+ * **Memory Layout:**
+ * The party structure is identical to Gen 1 but expanded:
+ * 1. A 1-byte count (max 6).
+ * 2. A 7-byte species array (terminated by `0xFF`).
+ * 3. The 48-byte full data structures for each Pokémon.
+ *
+ * @param view - The raw save file DataView.
+ * @param offsets - The dynamically resolved start offsets for the party list.
+ * @param isCrystal - True if the save is Crystal (to correctly parse caught data).
+ * @returns The simple list of species IDs (`party`) and the detailed instances (`partyDetails`).
+ */
 function parseParty(view: DataView, offsets: { partyCount: number; partySpecies: number }, isCrystal: boolean) {
   const partyCount = view.getUint8(offsets.partyCount);
   const party: number[] = [];
@@ -205,6 +231,22 @@ function parseParty(view: DataView, offsets: { partyCount: number; partySpecies:
   return { party, partyDetails };
 }
 
+/**
+ * Parses all 14 PC Storage Boxes in a Generation 2 save.
+ *
+ * **WRAM vs SRAM Architecture:**
+ * Like Gen 1, only the "currently active" box resides in the main active memory block (WRAM).
+ * The remaining 13 inactive boxes are scattered across two inactive SRAM banks.
+ * - **Bank 1:** Contains 7 boxes at offsets `0x4000` through `0x59D4`.
+ * - **Bank 2:** Contains 7 boxes at offsets `0x6000` through `0x79D4`.
+ * This function first processes the WRAM snapshot, then loops through the 14 SRAM
+ * offsets to extract the remaining stored Pokémon.
+ *
+ * @param view - The raw save file DataView.
+ * @param offsets - The dynamically resolved start offsets for the active WRAM box.
+ * @param isCrystal - True if the save is Crystal.
+ * @returns The simple list of species IDs (`pc`) and the detailed instances (`pcDetails`).
+ */
 function parsePCBoxes(
   view: DataView,
   offsets: { currentBoxNum: number; currentBoxCount: number; currentBoxSpecies: number },
@@ -267,6 +309,19 @@ function parsePCBoxes(
   return { pc, pcDetails };
 }
 
+/**
+ * Parses the Pokémon stored in the Daycare, along with Egg availability.
+ *
+ * **Version Differences:**
+ * The Daycare offsets shift by 36 bytes (`0x24`) between G/S and Crystal.
+ * The Daycare stores up to 2 Pokémon (hence `daycare1Offset` and `daycare2Offset`),
+ * separated by 57 bytes in memory. A boolean flag immediately before `daycare1Offset`
+ * indicates if an Egg is waiting to be picked up.
+ *
+ * @param view - The raw save file DataView.
+ * @param isCrystal - True if the save is Crystal.
+ * @returns The Daycare Pokémon instances and a boolean indicating if an egg is ready.
+ */
 function parseDaycare(view: DataView, isCrystal: boolean) {
   const daycare1Offset = isCrystal ? 0x282c : 0x2850;
   const daycare2Offset = daycare1Offset - 57;
@@ -289,6 +344,20 @@ function parseDaycare(view: DataView, isCrystal: boolean) {
   return { daycare, daycareHasEgg };
 }
 
+/**
+ * Parses the player's Backpack inventory across all 4 pockets.
+ *
+ * **Structure Types:**
+ * - **TM/HM Pocket:** This is a fixed-length array of 57 bytes (1 for each TM 01-50 + 7 HMs).
+ *   The offset index directly corresponds to the TM number; the value is the quantity.
+ * - **Items, Key Items, Balls:** These are dynamic, length-prefixed lists.
+ *   The first byte specifies the total number of items in the pocket.
+ *   The subsequent bytes alternate between Item ID and Quantity.
+ *
+ * @param view - The raw save file DataView.
+ * @param isCrystal - True if the save is Crystal (shifts all pocket offsets).
+ * @returns A unified array of item IDs and quantities across all pockets.
+ */
 function parseInventory(view: DataView, isCrystal: boolean) {
   const inventory: { id: number; quantity: number }[] = [];
 
@@ -341,6 +410,16 @@ function parseInventory(view: DataView, isCrystal: boolean) {
   return inventory;
 }
 
+/**
+ * Parses the current map locations of the legendary beasts (Raikou, Entei, Suicune).
+ *
+ * Each roaming legendary uses a 7-byte structure containing its species ID, level,
+ * and current map coordinates (map group + map ID).
+ *
+ * @param view - The raw save file DataView.
+ * @param isCrystal - True if the save is Crystal.
+ * @returns An array detailing each roaming beast's location.
+ */
 function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
   const roamingLegendaries: { speciesId: number; level: number; mapGroup: number; mapId: number }[] = [];
   const roamingOffset = isCrystal ? 0x28b6 : 0x28da;
@@ -360,6 +439,19 @@ function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
 
   return roamingLegendaries;
 }
+/**
+ * Orchestrates the full extraction of a Generation 2 (Gold/Silver/Crystal) save file.
+ *
+ * **Extraction Flow:**
+ * 1. Checks if the save is Crystal vs Gold/Silver using the `isCrystal` fallback detection (party counts).
+ * 2. Assigns the correct base memory offsets based on version.
+ * 3. Extracts Pokédex, Party, PC Boxes, Daycare, Inventory, and event flags (badges).
+ * 4. Merges Kanto and Johto badges.
+ *
+ * @param view - The raw save file DataView.
+ * @param forceCrystal - An optional flag to force Crystal offset parsing.
+ * @returns The fully constructed SaveData object.
+ */
 export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   let isCrystal = forceCrystal;
   if (!isCrystal) {
