@@ -2,12 +2,12 @@
 id: task-070-116-implement-death-tracking
 type: TASK
 title: Implement Death Tracking and Graveyard Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-18'
-updated_at: '2026-05-19'
+updated_at: '2026-05-20'
 depends_on: []
-jules_session_id: '7968298039258490998'
+jules_session_id: null
 pr_number: null
 parent: story-034-070-death-tracking-and-graveyard
 tags:
@@ -16,7 +16,7 @@ tags:
   - verification
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 
