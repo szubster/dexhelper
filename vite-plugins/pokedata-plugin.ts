@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import type { Plugin } from 'vite';
-import { pack } from 'msgpackr';
+import { Packr } from 'msgpackr';
 
 interface PokeDataPluginOptions {
   sourceDir: string;
@@ -34,12 +34,15 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
 
     const finalData = { ...exportData, hash: '' }; // hash initially empty
 
+    // Create configured Packr for optimal size
+    const packr = new Packr({ useRecords: true, variableMapSize: true, bundleStrings: true });
+
     // Create initial pack to hash it
-    const initialContent = pack(finalData);
+    const initialContent = packr.pack(finalData);
     const hash = crypto.createHash('sha256').update(initialContent).digest('hex');
 
     finalData.hash = hash;
-    const finalContent = pack(finalData);
+    const finalContent = packr.pack(finalData);
 
     cachedData = { finalContent, hash };
     return cachedData;

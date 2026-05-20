@@ -1,5 +1,5 @@
 import { type IDBPDatabase, openDB, unwrap } from 'idb';
-import { unpack } from 'msgpackr';
+import { Unpackr } from 'msgpackr';
 import {
   type CompactChainLink,
   DB_CONFIG,
@@ -130,7 +130,9 @@ const syncData = async () => {
       throw new Error(`Failed to fetch pokedata.msgpack: ${response.status} ${response.statusText}`);
     }
     const buffer = await response.arrayBuffer();
-    const data: PokeDataExport = unpack(new Uint8Array(buffer));
+
+    const unpackr = new Unpackr({ useRecords: true, variableMapSize: true, bundleStrings: true });
+    const data: PokeDataExport = unpackr.unpack(new Uint8Array(buffer));
 
     // Guard against outdated build hash vs actual data hash (rare edge case)
     if (existingHash?.value === data.hash) {
