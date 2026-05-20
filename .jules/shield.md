@@ -37,8 +37,5 @@ GitHub Advisory GHSA-rmmr-r34h-pfm5 identified critical malware in `@tanstack/hi
 Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While the advisory states `>=0` is vulnerable, version `1.161.6` was published months ago and is widely considered stable before the malicious versions were injected. Verified that `pnpm audit --prod` still reports it, but this is a targeted mitigation until `@tanstack/react-router` releases a clean version.
 ## Sanitize Error Logging (CWE-209)
 **Pattern:** When modifying generic `console.error` handlers, ensure that the variable representing the caught error is completely removed from the `catch` signature if it is no longer used, or prefix it with an underscore (e.g., `catch (_error)`) to avoid unused variable linting errors (like those raised by Biome). Alternatively, use `catch {` directly without capturing the error object.
-
-
-## Sanitize Error Logging (CWE-209)
 **Pattern:** While application code requires generic error logs to prevent CWE-209, build scripts and CI GitHub actions (`scripts/` and `.github/scripts/`) MUST retain raw error objects (e.g. `console.error(e)`) as they are essential for debugging CI failures.
 **Pattern:** When mitigating vulnerable sub-dependencies flagged by `pnpm audit` (like `ws`), use the `pnpm.overrides` field in `package.json` to securely enforce the patched version down the dependency tree. Also, to fix CWE-285 vulnerabilities (incomplete URL substring matching) flagged by CodeQL, use `.endsWith()` or `.startsWith()` instead of `.includes()` when inspecting URLs.
