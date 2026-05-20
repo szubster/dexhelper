@@ -36,7 +36,7 @@ Once a PR-less `COMPLETED` session is detected (handled in Story 066), the heart
 4. Verify completely checked boxes cause `COMPLETED` transition.
 
 ## Acceptance Criteria
-- [ ] Ensure that PR-less `COMPLETED` sessions for leaf tasks with unchecked boxes are marked `FAILED` with a rejection reason.
-- [ ] Ensure that PR-less `COMPLETED` sessions for valid parents with unchecked boxes are transitioned correctly to `PENDING`.
-- [ ] Ensure that PR-less `COMPLETED` sessions with all boxes checked (or no boxes) are marked `COMPLETED`.
-- [ ] Run test suite with `cd .github/scripts && pnpm install && npx vitest run`.
+- [x] Ensure that PR-less `COMPLETED` sessions for leaf tasks with unchecked boxes are marked `FAILED` with a rejection reason.
+- [x] Ensure that PR-less `COMPLETED` sessions for valid parents with unchecked boxes are transitioned correctly to `PENDING`.
+- [x] Ensure that PR-less `COMPLETED` sessions with all boxes checked (or no boxes) are marked `COMPLETED`.
+- [x] Run test suite with `cd .github/scripts && pnpm install && npx vitest run`.
