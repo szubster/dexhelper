@@ -57,3 +57,8 @@ The compiler statically guarantees that the `StatusType` union and the `STATUS_O
 - When testing React Flow (`@xyflow/react`) interactions in Vitest browser mode, clicking the background pane requires targeting the `.react-flow__pane` element specifically, as generic background clicks may not register correctly.
 - To view Vitest coverage summaries directly in the terminal (especially in CI environments where coverage files might not be readily accessible), use the `text` or `text-summary` reporter (e.g., `npx vitest run --coverage.reporter=text-summary`).
 - When testing React Flow (`@xyflow/react`) interactions in Vitest browser mode, clicking the background pane requires targeting the `.react-flow__pane` element specifically. Furthermore, use native DOM events like `dispatchEvent(new MouseEvent('click', { bubbles: true }))` rather than `.click()` on the pane element to ensure events register reliably in test environments.
+
+## 2025-05-20 - Type Narrowing `ArrayBuffer`
+
+- **Context:** The `parseSaveFile` function was typed to only accept `ArrayBuffer`, forcing the caller to explicitly cast `buffer.buffer as ArrayBuffer` since IndexedDB fetches return `Uint8Array` whose `.buffer` property resolves to `ArrayBufferLike`.
+- **Learning:** When accepting binary buffers that will be parsed via `DataView`, type the parameter as `ArrayBufferLike` rather than strictly `ArrayBuffer`. `DataView` inherently supports `ArrayBufferLike` (which encompasses `ArrayBuffer`, `SharedArrayBuffer`, etc.), preventing the need for explicit type overrides at the call site.
