@@ -111,6 +111,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `PENDING` | Node exists but has unresolved `depends_on` entries — not yet eligible for dispatch. |
 | `READY` | **Orchestrator-written only.** All `depends_on` nodes are `COMPLETED`. Node is queued for the next dispatch cycle. |
 | `ACTIVE` | A Jules session (`jules_session_id`) is currently working on this node. This status persists if a PR is open for review. |
+| `VERIFYING` | Work submitted by owner. Auditor is verifying output and analyzing learnings. |
 | `COMPLETED` | PR merged. TPM archives the node. |
 | `FAILED` | Session crashed silently or PR was rejected/closed without merge. Resurrection Loop re-spawns a fresh session. |
 | `BLOCKED` | DAG deadlock or explicit TPM hold. Requires CEO or TPM intervention to resolve. |
@@ -123,7 +124,9 @@ stateDiagram-v2
     [*] --> PENDING : Node created
     PENDING --> READY : Orchestrator confirms all depends_on = COMPLETED
     READY --> ACTIVE : Orchestrator dispatches Jules session
-    ACTIVE --> COMPLETED : CEO merges PR
+    ACTIVE --> VERIFYING : CEO merges PR / Work submitted
+    VERIFYING --> COMPLETED : Auditor approves
+    VERIFYING --> FAILED : Auditor rejects / needs retry
     ACTIVE --> FAILED : Heartbeat detects crashed session or rejected PR
     FAILED --> READY : Resurrection Loop spawns fresh session (rejection feedback injected)
     PENDING --> BLOCKED : TPM detects deadlock
@@ -153,6 +156,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `tech_lead` | Transforms `STORY` → `TASK` (technical implementation plans). |
 | `coder` | Implements individual `TASK` nodes. |
 | `qa` | Validates `TASK` implementation against technical contracts. |
+| `auditor` | Verifies work after nodes are marked ready for completion. Analyzes learnings, determines status, and spawns new downstream nodes (like RESEARCH) if needed. |
 | `human` | A human contributor. Bypasses Jules dispatch and heartbeat timeouts. |
 | `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
 | `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
