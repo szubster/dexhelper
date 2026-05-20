@@ -2,7 +2,7 @@
 id: task-053-124-retry-dependency-highlighting
 type: TASK
 title: Retry Implement Dependency Highlighting Interactions
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-20'
 updated_at: '2026-05-20'

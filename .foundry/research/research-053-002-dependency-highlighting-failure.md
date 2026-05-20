@@ -2,7 +2,7 @@
 id: research-053-002-dependency-highlighting-failure
 type: RESEARCH
 title: Investigate Dependency Highlighting Implementation Failure
-status: PENDING
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-05-20'
 updated_at: '2026-05-20'

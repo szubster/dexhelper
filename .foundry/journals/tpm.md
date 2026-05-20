@@ -505,3 +505,13 @@ When archiving nodes, all references in parent stories and journal logs must be 
 - **2026-05-20**: PR #1416 merged. `story-032-059-gen3-dataview-scaffolding` is now COMPLETED.
 
 - **2026-05-20**: PR #1418 merged with unchecked tasks. `task-053-092-implement-dependency-highlighting` is now FAILED.
+
+- **2026-05-20**: PR #1608 merged. `idea-060-auditor-persona` is now COMPLETED.
+
+- **2026-05-20**: PR #1605 merged. `prd-059-028-orchestrator-auto-cancel-orphaned-nodes` is now COMPLETED.
+
+- **2026-05-20**: PR #1609 merged. `research-062-001-gen3-location-fetching` is now COMPLETED.
+
+- **2026-05-20**: PR #1610 merged. `story-029-053-implement-dependency-highlighting` is now PENDING.
+
+- **2026-05-20**: PR #1612 merged. `story-032-062-gen3-data-generation-scripts` is now PENDING.
