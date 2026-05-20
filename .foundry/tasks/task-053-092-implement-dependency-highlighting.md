@@ -2,12 +2,12 @@
 id: task-053-092-implement-dependency-highlighting
 type: TASK
 title: Implement Dependency Highlighting Interactions
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-18'
-updated_at: '2026-05-18'
+updated_at: '2026-05-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1900145408816670747'
 pr_number: null
 parent: .foundry/stories/story-029-053-implement-dependency-highlighting.md
 tags:
@@ -16,8 +16,8 @@ tags:
   - ui
   - react-flow
 research_references: []
-rejection_count: 2
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: 'Session terminated with state: COMPLETED'
 notes: ''
 ---
 
@@ -51,8 +51,8 @@ This task fulfills Story 053. The objective is to build an interactive dependenc
    - Ensure this highlighting logic works harmoniously with the graph filtering logic implemented in previous tasks. Only visible nodes should participate in highlighting.
 
 ## Acceptance Criteria
-- [x] Implement state management to track the currently selected/focused node.
-- [x] Implement traversal logic to identify upstream and downstream connections for a node.
-- [x] Apply visual styles to highlight the active path and dim unrelated nodes/edges, adhering to the tactical aesthetic.
-- [x] Ensure selection can be cleared (e.g., clicking the background).
-- [x] Add unit tests to verify the traversal logic correctly identifies dependencies.
+- [ ] Implement state management to track the currently selected/focused node.
+- [ ] Implement traversal logic to identify upstream and downstream connections for a node.
+- [ ] Apply visual styles to highlight the active path and dim unrelated nodes/edges, adhering to the tactical aesthetic.
+- [ ] Ensure selection can be cleared (e.g., clicking the background).
+- [ ] Add unit tests to verify the traversal logic correctly identifies dependencies.

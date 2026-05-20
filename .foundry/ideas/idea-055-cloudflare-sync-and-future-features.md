@@ -1,15 +1,13 @@
 ---
 id: idea-055-cloudflare-sync-and-future-features
 type: IDEA
-title: >-
-  Cloudflare Backend for Offline-First Save Syncing and Future Progression
-  Features
-status: COMPLETED
+title: Cloudflare Backend for Offline-First Save Syncing and Future Progression Features
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2024-05-18'
-updated_at: '2026-05-17'
+updated_at: '2024-05-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: 'unknown'
 parent: null
 tags:
   - backend
