@@ -539,3 +539,15 @@ When archiving nodes, all references in parent stories and journal logs must be 
 - **2026-05-20**: Resurrection Loop triggered for `task-070-116-implement-death-tracking`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-20**: Cleanup Loop deleted remote branch `jules-4357736207550241874-4d1ebd78`.
+
+- **2026-05-20**: PR #1631 merged. `idea-055-cloudflare-sync-and-future-features` is now COMPLETED.
+
+- **2026-05-20**: PR #1616 merged but has unchecked tasks (parent node). `prd-060-029-auditor-persona` is now PENDING.
+
+- **2026-05-20**: PR #1633 merged. `story-034-070-death-tracking-and-graveyard` is now COMPLETED.
+
+- **2026-05-20**: PR #1629 merged. `story-035-072-implement-cancellation-logic` is now COMPLETED.
+
+- **2026-05-20**: PR #1630 merged. `task-053-125-qa-retry-dependency-highlighting` is now COMPLETED.
+
+- **2026-05-20**: Resurrection Loop triggered for `research-070-003-investigate-death-tracking-failure`. Reason: Retry from FAILED status.. Transitioned back to READY.

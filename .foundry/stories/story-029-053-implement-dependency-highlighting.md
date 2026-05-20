@@ -2,7 +2,7 @@
 id: story-029-053-implement-dependency-highlighting
 type: STORY
 title: Implement Graph Dependency Highlighting Interactions
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-16'
 updated_at: '2026-05-20'

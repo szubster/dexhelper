@@ -2,10 +2,10 @@
 id: task-062-112-gen3-locations-script-retry-impl
 type: TASK
 title: Retry Implement Gen 3 Locations Fetch Script
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-19'
-updated_at: '2026-05-19'
+updated_at: '2026-05-20'
 depends_on:
   - research-062-001-gen3-location-fetching
 research_references:
