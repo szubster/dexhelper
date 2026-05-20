@@ -129,3 +129,7 @@ When processing `story-029-057-interaction-logic`, I observed the child QA task 
 
 ## 2026-05-19: ADR 007 Compliance and Acceptance Criteria Discrepancy
 When finalizing `story-029-057-interaction-logic`, I noted that the story's acceptance criteria still referenced "badges" for Headbutt and Rock Smash encounters. As discovered and implemented in tasks `task-057-120` and `task-057-121`, Gen 2 does *not* require badges for these moves, and the implementation correctly dropped this requirement. To satisfy ADR 007 (completeness contract) and progress the node, I applied the Empty PR Policy exception and checked off the story's acceptance criteria in the markdown body, acknowledging that the underlying *intent* (filtering encounters by correct game mechanics) has been successfully met by the generated downstream tasks.
+
+## 2026-05-20: Handling Permanent Failures (Impossible Loop)
+*   **Incident:** The implementation task `task-053-092-implement-dependency-highlighting` failed permanently, triggering the Orchestrator's "Impossible Loop" and waking up the Tech Lead.
+*   **Action:** Handled the failure by spawning a `RESEARCH` node (`research-053-002`) to investigate the failure. Created replacement implementation and QA tasks (`task-053-124` and `task-053-125`) that depend on the research node. Updated the orphaned QA task (`task-053-093`) with a cancellation note in its Markdown body and unchecked the acceptance criteria checkboxes in the parent story (`story-029-053`), explicitly ensuring no YAML frontmatter was modified.
