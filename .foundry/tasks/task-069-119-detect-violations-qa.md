@@ -26,5 +26,5 @@ notes: ''
 Validate the implementation of Nuzlocke violation detection logic for multiple encounters at the same `met_location`.
 
 ## Acceptance Criteria
-- [ ] Run test suites to verify that Nuzlocke violation logic functions as expected.
-- [ ] Verify test coverage is sufficient.
+- [x] Run test suites to verify that Nuzlocke violation logic functions as expected.
+- [x] Verify test coverage is sufficient.

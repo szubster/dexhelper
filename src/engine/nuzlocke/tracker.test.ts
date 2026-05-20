@@ -42,6 +42,26 @@ describe('aggregateEncountersByLocation', () => {
     expect(route2?.encounters).toHaveLength(1);
     expect(route2?.encounters[0]?.speciesId).toBe(3);
   });
+
+  it('should handle missing partyDetails and pcDetails', () => {
+    const saveData: Partial<SaveData> = {};
+    const result = aggregateEncountersByLocation(saveData as SaveData);
+    expect(result).toHaveLength(0);
+  });
+
+  it('should fallback to Location {id} if locationName is missing', () => {
+    const saveData: Partial<SaveData> = {
+      partyDetails: [
+        {
+          speciesId: 1,
+          caughtData: { location: 99, level: 5, time: 'Day' },
+        } as PokemonInstance,
+      ],
+    };
+    const result = aggregateEncountersByLocation(saveData as SaveData);
+    expect(result).toHaveLength(1);
+    expect(result[0]?.locationName).toBe('Location 99');
+  });
 });
 
 describe('detectNuzlockeViolations', () => {
