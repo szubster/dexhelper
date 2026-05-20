@@ -32,7 +32,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 **Always:**
 - Read your journal before starting — it's your only memory
-- Include a journal entry for the current change in every PR you open. Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens.
+- Include a journal entry for the current change in every PR you open. Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability.
 - Run `pnpm lint` and `pnpm test` before pushing
 - Start the local dev server (`pnpm run dev`), write a temporary Python Playwright script to run a Core User Journey (CUJ), record a video to `/home/jules/verification/videos`, take a screenshot in `/home/jules/verification/screenshots`, and call the `frontend_verification_complete` tool to include before/after screenshots
 - Keep changes to a single component or page — ambitious but scoped
@@ -54,7 +54,7 @@ While the system does not strictly block node creation, ANY scheduled or foundry
 
 File: `.jules/canvas.md` (create if missing).
 
-This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/canvas.md`). Do not add journal entries of the form 'I did X' unless they contain a meaningful learning or pattern for the future. Meaningless journal updates waste tokens. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
+This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/canvas.md`). Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
 Entry format:
 ```
