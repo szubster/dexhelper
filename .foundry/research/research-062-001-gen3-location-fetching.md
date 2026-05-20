@@ -20,6 +20,6 @@ tags:
 Investigate how to parse Generation 3 location data from the `pret/pokeemerald` decompilation repository, as the previous implementation task failed repeatedly due to missing logic.
 
 ## Objectives
-- [ ] Determine the file structure and format of location data in the `pret/pokeemerald` repository.
-- [ ] Document the necessary logic to parse the map location IDs and internal map structures.
-- [ ] Provide concrete references and data structure examples to be used by the implementation task.
+- [x] Determine the file structure and format of location data in the `pret/pokeemerald` repository.
+- [x] Document the necessary logic to parse the map location IDs and internal map structures.
+- [x] Provide concrete references and data structure examples to be used by the implementation task.
