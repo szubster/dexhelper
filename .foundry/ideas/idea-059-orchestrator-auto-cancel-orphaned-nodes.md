@@ -2,12 +2,12 @@
 id: idea-059-orchestrator-auto-cancel-orphaned-nodes
 type: IDEA
 title: Auto-Cancel Orphaned PENDING Nodes in Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13271487556945676360'
 pr_number: null
 parent: null
 tags:
