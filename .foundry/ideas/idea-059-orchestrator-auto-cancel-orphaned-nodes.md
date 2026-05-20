@@ -32,6 +32,9 @@ We should enhance the Foundry Orchestrator (`.github/scripts/foundry-orchestrato
 If a node enters the `FAILED` state with `rejection_reason: 'Max rejection count reached'`, the orchestrator should automatically transition any `PENDING` node that lists the failed node in its `depends_on` array to `CANCELLED`. This cascading cancellation should log an appropriate reason (e.g., "Cancelled due to permanent failure of dependency").
 
 ## Acceptance Criteria
-- [ ] Orchestrator detects `PENDING` nodes depending on a permanently failed node (`Max rejection count reached`).
-- [ ] Orchestrator automatically transitions these orphaned nodes to `CANCELLED`.
-- [ ] The `foundry-orchestrator.test.ts` includes a unit test for this behavior.
+- [x] Orchestrator detects `PENDING` nodes depending on a permanently failed node (`Max rejection count reached`).
+- [x] Orchestrator automatically transitions these orphaned nodes to `CANCELLED`.
+- [x] The `foundry-orchestrator.test.ts` includes a unit test for this behavior.
+
+### Generated Nodes
+- .foundry/prds/prd-059-028-orchestrator-auto-cancel-orphaned-nodes.md
