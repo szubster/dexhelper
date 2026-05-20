@@ -9,6 +9,7 @@ updated_at: '2026-05-19'
 depends_on:
   - task-062-112-gen3-locations-script-retry-impl
 jules_session_id: null
+rejection_reason: ''
 parent: story-032-062-gen3-data-generation-scripts
 ---
 

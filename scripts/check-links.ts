@@ -12,6 +12,7 @@ function resolveNodeIdToPath(nodeId: string): string {
     epic: 'epics',
     story: 'stories',
     task: 'tasks',
+    research: 'research',
     adr: 'docs/adrs'
   };
   if (!type) return nodeId;
