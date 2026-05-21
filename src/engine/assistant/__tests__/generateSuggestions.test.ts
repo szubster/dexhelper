@@ -592,8 +592,16 @@ describe('generateSuggestions', () => {
     const result2 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch2 = result2.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch2).toBeDefined(); // Included since badges aren't needed
-    expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
-    expect(catch2?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
+    expect(
+      (catch2?.category === 'Catch' ? catch2 : undefined)?.encounterInfo?.[missingPid]?.some(
+        (e: EncounterDetail) => e.method === 'headbutt',
+      ),
+    ).toBe(true);
+    expect(
+      (catch2?.category === 'Catch' ? catch2 : undefined)?.encounterInfo?.[missingPid]?.some(
+        (e: EncounterDetail) => e.method === 'rock-smash',
+      ),
+    ).toBe(true);
 
     // 3. Missing item but a Pokemon knows the move
     localSaveData.inventory = [];
@@ -609,8 +617,16 @@ describe('generateSuggestions', () => {
     const result3 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch3 = result3.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch3).toBeDefined(); // Included because of known moves
-    expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'headbutt')).toBe(true);
-    expect(catch3?.encounterInfo?.[missingPid]?.some((e: EncounterDetail) => e.method === 'rock-smash')).toBe(true);
+    expect(
+      (catch3?.category === 'Catch' ? catch3 : undefined)?.encounterInfo?.[missingPid]?.some(
+        (e: EncounterDetail) => e.method === 'headbutt',
+      ),
+    ).toBe(true);
+    expect(
+      (catch3?.category === 'Catch' ? catch3 : undefined)?.encounterInfo?.[missingPid]?.some(
+        (e: EncounterDetail) => e.method === 'rock-smash',
+      ),
+    ).toBe(true);
   });
   it('should generate stat-based evolution suggestions for Tyrogue (Atk > Def, Atk < Def, Atk = Def)', () => {
     const mockApiData: AssistantApiData = {
