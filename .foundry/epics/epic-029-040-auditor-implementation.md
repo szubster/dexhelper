@@ -47,5 +47,7 @@ We will create two specific stories for this epic:
    - Update `foundry-heartbeat.ts` PR merge state transition logic and zombie timeout recovery for the `VERIFYING` state.
 
 ## Acceptance Criteria
-- [ ] Story spawned for Orchestrator updates.
-- [ ] Story spawned for Heartbeat updates.
+- [x] Story spawned for Orchestrator updates.
+- [x] Story spawned for Heartbeat updates.
+
+Spawned .foundry/stories/story-040-074-orchestrator-verifying-state.md and .foundry/stories/story-040-075-heartbeat-verifying-logic.md
