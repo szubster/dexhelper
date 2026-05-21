@@ -11,7 +11,6 @@
     "clean": "rm -rf dist",
     "data:gen": "node --experimental-strip-types scripts/generate-pokedata.ts",
     "data:gen-maps": "node --experimental-strip-types scripts/generateMapLocations.ts",
-    "deploy:cf": "wrangler pages deploy dist",
     "dev": "vite --port=3000 --host=0.0.0.0",
     "format:biome": "biome format .",
     "postinstall": "lefthook install",
