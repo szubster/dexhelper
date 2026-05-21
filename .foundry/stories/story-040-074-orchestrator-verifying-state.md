@@ -2,12 +2,12 @@
 id: story-040-074-orchestrator-verifying-state
 type: STORY
 title: Orchestrator VERIFYING State and Matrix Dispatch
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3234710994861243081'
 pr_number: null
 parent: epic-029-040-auditor-implementation
 tags:
