@@ -27,3 +27,9 @@
 - **2026-05-21**: PR #1666 merged. `prd-060-029-auditor-persona` is now COMPLETED.
 
 - **2026-05-21**: PR #1673 merged. `epic-030-038-cloudflare-google-sso` is now COMPLETED.
+
+- **2026-05-21**: PR #1680 merged. `epic-029-040-auditor-implementation` is now COMPLETED.
+
+- **2026-05-21**: PR #1679 merged. `prd-061-033-emulator-auto-sync` is now COMPLETED.
+
+- **2026-05-21**: PR #1677 merged. `research-070-003-investigate-death-tracking-failure` is now COMPLETED.

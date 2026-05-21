@@ -2,7 +2,7 @@
 id: story-040-074-orchestrator-verifying-state
 type: STORY
 title: Orchestrator VERIFYING State and Matrix Dispatch
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-21'
 updated_at: '2026-05-21'

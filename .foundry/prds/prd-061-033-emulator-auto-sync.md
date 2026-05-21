@@ -2,12 +2,12 @@
 id: prd-061-033-emulator-auto-sync
 type: PRD
 title: Emulator Auto-Sync via File System Access API
-status: ACTIVE
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: '2366836908273679768'
+jules_session_id: null
 pr_number: null
 parent: idea-061-emulator-auto-sync
 tags:
