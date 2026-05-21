@@ -21,5 +21,5 @@ parent: story-032-062-gen3-data-generation-scripts
 Implement a script to fetch and format Generation 3 locations data, incorporating the findings from the research node.
 
 ## Acceptance Criteria
-- [ ] Script successfully fetches Gen 3 locations from `pret/pokeemerald`.
-- [ ] Data is correctly formatted.
+- [x] Script successfully fetches Gen 3 locations from `pret/pokeemerald`.
+- [x] Data is correctly formatted.

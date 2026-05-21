@@ -39,3 +39,7 @@ When passing a callback to iteration methods like `forEach`, do not use an impli
 
 ## 2026-05-20: Task Acceptance Criteria Checkboxes
 When executing the Empty PR Policy for a retry task (e.g., when the target artifacts are already completely implemented), ALWAYS ensure the Acceptance Criteria checkboxes are explicitly checked in the Markdown file. Failing to do so will result in the task failing the Orchestrator's Preflight checks, triggering another retry or Impossible Loop. The YAML frontmatter must not be touched.
+
+## Gen 3 Data Scripts
+- When writing or modifying data generation scripts (e.g., mapping formatters), ensure that existing non-derivable values (such as manual Area IDs / `aid`) in the destination file are explicitly loaded and preserved to avoid introducing data regressions.
+- When catching errors and the error object is not used, omit the catch binding entirely (e.g., use `catch { ... }` instead of `catch(e)` or `catch(_e)`) to prevent strict `no-unused-vars` linting errors from Biome or ESLint.
