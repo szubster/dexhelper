@@ -2,12 +2,12 @@
 id: idea-005-revert-data-optimizations
 type: IDEA
 title: Revert Data Format Optimizations (Short Property Names)
-status: ACTIVE
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-05-20'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: '2999821313173222681'
+jules_session_id: null
 rejection_reason: ''
 ---
 

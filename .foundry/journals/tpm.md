@@ -11,3 +11,11 @@
 - **2026-05-21**: PR #1642 merged. `task-062-112-gen3-locations-script-retry-impl` is now COMPLETED.
 
 - **2026-05-21**: PR #1643 merged. `task-070-116-implement-death-tracking` is now COMPLETED.
+
+- **2026-05-21**: PR #1667 merged. `idea-005-revert-data-optimizations` is now COMPLETED.
+
+- **2026-05-21**: PR #1664 merged. `prd-055-030-cloudflare-auth-sync` is now COMPLETED.
+
+- **2026-05-21**: PR #1663 merged. `task-062-113-gen3-locations-script-retry-qa` is now COMPLETED.
+
+- **2026-05-21**: PR #1665 merged. `task-070-117-qa-death-tracking` is now COMPLETED.
