@@ -42,4 +42,7 @@ To implement a background auto-refresh mechanism utilizing the Web File System A
 - Writing to the `.sav` file. DexHelper remains strictly read-only to prevent any risk of save file corruption.
 
 ## Next Steps
-- [ ] Architect: Create an ADR evaluating the File System Access API implementation strategy (polling vs observer, handle retainment) and defining the application-level state synchronization architecture.
+- [x] Architect: Create an ADR evaluating the File System Access API implementation strategy (polling vs observer, handle retainment) and defining the application-level state synchronization architecture.
+
+## Downstream
+- .foundry/epics/epic-033-041-emulator-auto-sync.md
