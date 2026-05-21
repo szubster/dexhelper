@@ -35,4 +35,7 @@ Leverage the modern Web **File System Access API** (`showDirectoryPicker` or `sh
 This significantly reduces the friction of using the app during gameplay. It perfectly aligns with the offline-first mandate, bridging the gap between a static "save viewer" and a dynamic "live companion app" for emulated playthroughs, and serves as a crucial foundational piece for advanced features like the "Automated Nuzlocke Tracker" (IDEA-057).
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+
+## Generated Nodes
+- PRD: `.foundry/prds/prd-061-033-emulator-auto-sync.md`
