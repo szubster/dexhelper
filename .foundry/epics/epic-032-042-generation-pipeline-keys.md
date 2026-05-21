@@ -26,5 +26,9 @@ Refactor the data generation pipeline (`scripts/generate-pokedata.ts`) to output
 - Completion of the ADR 015 documenting the global data contract changes.
 
 ## Acceptance Criteria
-- [ ] The generated output from `scripts/generate-pokedata.ts` uses verbose keys like `name` and `captureRate`.
-- [ ] Enum-to-number optimizations are preserved.
+- [x] The generated output from `scripts/generate-pokedata.ts` uses verbose keys like `name` and `captureRate`.
+- [x] Enum-to-number optimizations are preserved.
+
+## Child Nodes
+- .foundry/stories/story-042-080-refactor-generation-exports.md
+- .foundry/stories/story-042-081-preserve-enum-optimizations.md
