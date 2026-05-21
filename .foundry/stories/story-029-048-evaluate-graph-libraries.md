@@ -38,6 +38,6 @@ As part of the DAG Dashboard Visualization & UI epic, the first step is to evalu
 
 
 ### Generated Tasks
-- [.foundry/tasks/task-048-080-evaluate-graph-libraries.md](.foundry/tasks/task-048-080-evaluate-graph-libraries.md)
-- [.foundry/tasks/task-048-081-integrate-graph-library.md](.foundry/tasks/task-048-081-integrate-graph-library.md)
-- [.foundry/tasks/task-048-082-qa-graph-integration.md](.foundry/tasks/task-048-082-qa-graph-integration.md)
+- [./tasks/task-048-080-evaluate-graph-libraries.md](./tasks/task-048-080-evaluate-graph-libraries.md)
+- [./tasks/task-048-081-integrate-graph-library.md](./tasks/task-048-081-integrate-graph-library.md)
+- [./tasks/task-048-082-qa-graph-integration.md](./tasks/task-048-082-qa-graph-integration.md)

@@ -7,9 +7,9 @@ owner_persona: story_owner
 created_at: "2026-04-21"
 updated_at: "2026-04-25"
 depends_on:
-  - .foundry/epics/epic-004-distributed-id-schema.md
+  - ./epics/epic-004-distributed-id-schema
 jules_session_id: null
-parent: .foundry/prds/prd-001-distributed-ids.md
+parent: ./prds/prd-001-distributed-ids
 tags: ["ci", "pre-commit"]
 rejection_count: 0
 notes: ""
@@ -18,7 +18,7 @@ notes: ""
 # Epic: ID Integrity Pre-Commit Validation
 
 ## Overview
-To guarantee the collision-free nature of the new node ID scheme across the multi-agent system, this epic evaluates and implements automated validation. This could take the form of either local pre-commit hooks or a CI pipeline check on a post-merge virtual branch, ensuring that no two nodes share the same `id` before they are fully integrated, safeguarding the `.foundry/` directory's integrity.
+To guarantee the collision-free nature of the new node ID scheme across the multi-agent system, this epic evaluates and implements automated validation. This could take the form of either local pre-commit hooks or a CI pipeline check on a post-merge virtual branch, ensuring that no two nodes share the same `id` before they are fully integrated, safeguarding the `` directory's integrity.
 
 ## Scope
 1. **Hook Implementation:** Implement or extend existing git pre-commit hooks to parse YAML frontmatter across the entire `.foundry` directory tree.
@@ -26,12 +26,12 @@ To guarantee the collision-free nature of the new node ID scheme across the mult
 3. **Format Validation:** Verify that newly created node IDs match the structural format chosen in `epic-004-distributed-id-schema`.
 
 ## Dependencies
-- `.foundry/epics/epic-004-distributed-id-schema.md` (Must finalize the ID pattern first).
+- `./epics/epic-004-distributed-id-schema.md` (Must finalize the ID pattern first).
 
 ## High-Level Acceptance Criteria
-- [x] A pre-commit hook runs on every commit affecting `.foundry/` files.
+- [x] A pre-commit hook runs on every commit affecting `` files.
 - [x] Commits are rejected if duplicate `id` fields are detected in the frontmatter.
 - [x] Commits are rejected if the node ID format violates the new schema convention.
 
 ## Generated Stories
-- `.foundry/stories/story-006-022-implement-id-validation-hook.md`: Implement a pre-commit hook that validates the ID uniqueness and format.
+- `./stories/story-006-022-implement-id-validation-hook.md`: Implement a pre-commit hook that validates the ID uniqueness and format.

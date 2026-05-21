@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-007-schema-invariant.md"
+parent: "./stories/story-007-schema-invariant
 ---
 
 # Update schema.md to enforce single owner invariant
@@ -18,10 +18,10 @@ As part of the Atomic Handoffs transition, `schema.md` must strictly enforce tha
 
 ## Requirements
 1. **Update `owner_persona` definition**:
-   - In `.foundry/docs/schema.md`, modify the description of `owner_persona` (likely in "YAML Frontmatter Schema" / "Field Reference" section) to explicitly state that it must be exactly one assigned persona (no arrays or multiple personas).
+   - In `./docs/schema.md`, modify the description of `owner_persona` (likely in "YAML Frontmatter Schema" / "Field Reference" section) to explicitly state that it must be exactly one assigned persona (no arrays or multiple personas).
 
 2. **Add System Invariant**:
-   - In the "System Invariants" section of `.foundry/docs/schema.md`, add a new invariant stating the single-owner rule: `owner_persona` must be exactly one persona.
+   - In the "System Invariants" section of `./docs/schema.md`, add a new invariant stating the single-owner rule: `owner_persona` must be exactly one persona.
 
 ## Verification Protocol
 Since this task involves documentation updates and is extremely low-risk logic-wise, you will self-verify.

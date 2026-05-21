@@ -9,13 +9,13 @@ updated_at: '2026-05-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md
+parent: ./stories/story-028-043-migrate-heartbeat-to-gray-matter
 tags:
   - foundry
   - orchestrator
   - bugfix
 research_references:
-  - .foundry/docs/adrs/006-gray-matter-parsing.md
+  - ./docs/adrs/006-gray-matter-parsing
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -24,7 +24,7 @@ notes: ''
 # Task: Refactor heartbeat script to use gray-matter
 
 ## Context
-As per [ADR 006](.foundry/docs/adrs/006-gray-matter-parsing.md), we are migrating away from custom regex manipulations for Markdown frontmatter to use the `gray-matter` library. The `.github/scripts/foundry-heartbeat.ts` script currently uses regex to modify frontmatter in three functions:
+As per [ADR 006](./docs/adrs/006-gray-matter-parsing.md), we are migrating away from custom regex manipulations for Markdown frontmatter to use the `gray-matter` library. The `.github/scripts/foundry-heartbeat.ts` script currently uses regex to modify frontmatter in three functions:
 - `transitionNodeToFailed`
 - `transitionNodeToReady`
 - `transitionNodeToCompleted` (note: look for `transitionNodeToCompleted` or similar functions in the script, it may be imported or implemented further down)

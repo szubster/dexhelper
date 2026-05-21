@@ -9,7 +9,7 @@ updated_at: '2026-05-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-017-dag-dashboard.md
+parent: ./ideas/idea-017-dag-dashboard
 ---
 
 # PRD: DAG Dashboard Webview
@@ -27,5 +27,5 @@ The DAG Dashboard will be a central visualization tool to track the state of the
 ## Next Steps
 - [ ] Create ADR to decide between Mermaid.js embedded in Markdown vs. a dedicated React Webview.
 
-- [ ] `.foundry/epics/epic-017-028-dag-dashboard-data.md`
-- [ ] `.foundry/epics/epic-017-029-dag-dashboard-ui.md`
+- [ ] `./epics/epic-017-028-dag-dashboard-data.md`
+- [ ] `./epics/epic-017-029-dag-dashboard-ui.md`

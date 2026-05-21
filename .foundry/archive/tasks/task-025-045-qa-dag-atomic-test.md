@@ -7,9 +7,9 @@ owner_persona: "qa"
 created_at: "2026-04-26"
 updated_at: "2026-04-27"
 depends_on:
-  - ".foundry/archive/tasks/task-025-044-implement-dag-atomic-test.md"
+  - "./archive/tasks/task-025-044-implement-dag-atomic-test
 jules_session_id: null
-parent: ".foundry/stories/story-008-025-verify-dag-resolution.md"
+parent: "./stories/story-008-025-verify-dag-resolution
 ---
 
 # QA: DAG Resolution Tests for Atomic Files

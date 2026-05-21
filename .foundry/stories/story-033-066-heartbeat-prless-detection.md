@@ -33,5 +33,5 @@ As part of making the session completion robust for the "Empty PR" policy (ADR 0
 - [x] When API state is `COMPLETED` and PR is missing, the script identifies this as a "PR-less completion" instead of a crash.
 
 ## Downstream Nodes
-- TASK: `.foundry/tasks/task-066-106-implement-prless-detection.md`
-- TASK: `.foundry/tasks/task-066-107-qa-prless-detection.md`
+- TASK: `./tasks/task-066-106-implement-prless-detection.md`
+- TASK: `./tasks/task-066-107-qa-prless-detection.md`

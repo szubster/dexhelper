@@ -8,7 +8,7 @@ created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-002-tpm-scheduling.md"
+parent: "./ideas/idea-002-tpm-scheduling
 tags: ["infrastructure"]
 rejection_count: 0
 notes: ""
@@ -45,7 +45,7 @@ Currently, the Foundry orchestrates tasks dynamically based on dependencies (DAG
 
 ### 4.3 TPM Implementation
 - The TPM agent (`.github/agents/tpm.md`) must be configured to run hourly.
-- The TPM must be able to scan the `.foundry/` monofolder for `COMPLETED` nodes.
+- The TPM must be able to scan the `` monofolder for `COMPLETED` nodes.
 - If found, it should move them to an archive structure or clean them up according to TPM rules.
 
 ## Implementation Progress

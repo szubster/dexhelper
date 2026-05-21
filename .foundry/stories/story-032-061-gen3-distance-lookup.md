@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/stories/story-032-059-gen3-map-graph-structure.md
+  - ./stories/story-032-059-gen3-map-graph-structure
 jules_session_id: null
 pr_number: null
 parent: epic-053-032-gen3-map-graph-routing
@@ -35,5 +35,5 @@ Implement `getDistanceToMap` with precomputed distance matrix logic for Gen 3.
 - [x] O(1) performance lookup unit tests pass successfully.
 
 ## Created Tasks
-- [.foundry/tasks/task-061-114-gen3-distance-lookup-impl.md](./../tasks/task-061-114-gen3-distance-lookup-impl.md)
-- [.foundry/tasks/task-061-115-gen3-distance-lookup-qa.md](./../tasks/task-061-115-gen3-distance-lookup-qa.md)
+- [./tasks/task-061-114-gen3-distance-lookup-impl.md](./../tasks/task-061-114-gen3-distance-lookup-impl.md)
+- [./tasks/task-061-115-gen3-distance-lookup-qa.md](./../tasks/task-061-115-gen3-distance-lookup-qa.md)

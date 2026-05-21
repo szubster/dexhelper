@@ -51,4 +51,4 @@ Implement a test utility function `createValidNode(overrides)` in `.github/scrip
 - [x] The full test suite runs and passes without schema validation warnings or errors on mock nodes.
 
 ### SCHEMA
-https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+https://github.com/szubster/dexhelper/blob/main/./docs/schema.md

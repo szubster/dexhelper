@@ -9,7 +9,7 @@ updated_at: '2026-05-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-018-migrate-heartbeat-to-gray-matter.md
+parent: ./ideas/idea-018-migrate-heartbeat-to-gray-matter
 tags:
   - foundry
   - dag
@@ -32,4 +32,4 @@ ADR-006 mandated the use of `gray-matter` for parsing and mutating Markdown fron
 - Prevent brittle regex bugs in frontmatter modifications.
 
 ## Epics
-- [x] .foundry/epics/epic-018-028-migrate-heartbeat-to-gray-matter.md
+- [x] ./epics/epic-018-028-migrate-heartbeat-to-gray-matter.md

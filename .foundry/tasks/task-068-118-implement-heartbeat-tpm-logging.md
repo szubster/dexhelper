@@ -26,7 +26,7 @@ notes: ''
 Update the `foundry-heartbeat.ts` script to log appropriate messages to the TPM journal for PR-less `COMPLETED` session transitions.
 
 ## Context
-When a PR-less session is handled and a state transition occurs (e.g., to `COMPLETED` or `FAILED`), these events must be audited. We log them into `.foundry/journals/tpm.md`.
+When a PR-less session is handled and a state transition occurs (e.g., to `COMPLETED` or `FAILED`), these events must be audited. We log them into `./journals/tpm.md`.
 
 ## Acceptance Criteria
 - [x] Update `transitionNodeToCompleted` in `.github/scripts/foundry-heartbeat.ts` to log appropriately when a PR-less completion occurs (`prNumber === null`).

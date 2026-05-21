@@ -1,7 +1,7 @@
 ## 2026-05-16: Empty PR for Task task-045-085-implement-cross-region-distance
 - The target artifacts `getDistanceToMap` and the Gen 2 cross-region distance graph are already fully implemented in `src/engine/mapGraph/gen2Graph.ts`.
 - The distance precomputation logic including map connections between Johto and Kanto (like Magnet Train, S.S. Aqua, Route 26, Route 22, Route 27) works perfectly. Unit tests exist and pass successfully in `src/engine/mapGraph/gen2Graph.test.ts`.
-- The Acceptance Criteria checkboxes were already checked in the task file (`.foundry/tasks/task-045-085-implement-cross-region-distance.md`), conforming with the Empty PR Policy and ADR 007 / ADR 009.
+- The Acceptance Criteria checkboxes were already checked in the task file (`./tasks/task-045-085-implement-cross-region-distance.md`), conforming with the Empty PR Policy and ADR 007 / ADR 009.
 - Submitting an empty PR to allow the DAG to progress since the task is completed and verified.
 # 2026-04-23 - Task 018
 
@@ -29,10 +29,10 @@ Verified empty state prompt inclusion in scheduled-agent workflow by extracting 
 - Verified by running `pnpm exec oxlint --type-check --type-aware`, `pnpm test`, and `pnpm lint`.
 
 ## 2026-04-29 (Update)
-- CodeQL caught incomplete substring matching of URL string in `.github/scripts/foundry-heartbeat.test.ts`. Fixed it to use `startsWith('https://jules.googleapis.com')` instead of `includes('jules.googleapis.com')`. This avoids CWE-285 vulnerabilities as noted in `.foundry/docs/knowledge_base/onboarding/autonomous_memory_protocol.md` and standard security practices.
+- CodeQL caught incomplete substring matching of URL string in `.github/scripts/foundry-heartbeat.test.ts`. Fixed it to use `startsWith('https://jules.googleapis.com')` instead of `includes('jules.googleapis.com')`. This avoids CWE-285 vulnerabilities as noted in `./docs/knowledge_base/onboarding/autonomous_memory_protocol.md` and standard security practices.
 
 ## 2026-04-29 (CodeQL Follow-up)
-- CodeQL caught incomplete substring matching of URL string in `.github/scripts/foundry-heartbeat.test.ts`. Modified `startsWith('https://jules.googleapis.com')` to `startsWith('https://jules.googleapis.com/')` (adding trailing slash) to satisfy the arbitrary host name vulnerability check (e.g. preventing `https://jules.googleapis.com.evil.com/`). This adheres to the strict URL validation principles outlined in `.foundry/docs/knowledge_base/onboarding/autonomous_memory_protocol.md` to prevent CWE-285 vulnerabilities.
+- CodeQL caught incomplete substring matching of URL string in `.github/scripts/foundry-heartbeat.test.ts`. Modified `startsWith('https://jules.googleapis.com')` to `startsWith('https://jules.googleapis.com/')` (adding trailing slash) to satisfy the arbitrary host name vulnerability check (e.g. preventing `https://jules.googleapis.com.evil.com/`). This adheres to the strict URL validation principles outlined in `./docs/knowledge_base/onboarding/autonomous_memory_protocol.md` to prevent CWE-285 vulnerabilities.
 - Removed localStorage sync logic and Base64 decoding from src/store.ts
 
 ### Task: task-026-044-refactor-state-store-sync
@@ -52,7 +52,7 @@ The mapping validation logic and unit tests are already implemented. Submitting 
   - Exported `identifyBranchesForCleanup(repoRoot: string, remoteBranches: string[], openPrHeadRefs: string[] = []): Promise<string[]>`.
   - Added test coverage in `.github/scripts/foundry-heartbeat.test.ts`.
   - Ensure to ignore active PR branches based on explicit requirements.
-  - Used GitHub APIs to check active PRs for branches would be the consumer's responsibility. The identification logic accepts open PR refs and protects them.
+  - Used GitHub APIs to check active PRs for branches would be the consumers responsibility. The identification logic accepts open PR refs and protects them.
 - 2026-05-10: Refactored `foundry-heartbeat.ts` to use `gray-matter`. Replaced regex frontmatter manipulations with `gray-matter` logic in `transitionNodeToFailed`, `transitionNodeToCompleted`, and `transitionNodeToReady`. `gray-matter` writes yaml strings unquoted, so tests were updated accordingly.
 
 ## Memory from Task task-043-071-implement-gen2-map-graph

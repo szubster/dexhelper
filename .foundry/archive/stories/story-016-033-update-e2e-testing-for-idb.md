@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-04-27'
 updated_at: '2026-05-01'
 depends_on:
-  - .foundry/archive/stories/story-014-029-async-startup-hydration.md
-  - .foundry/tasks/task-033-053-update-playwright-idb-injection.md
+  - ./archive/stories/story-014-029-async-startup-hydration
+  - ./tasks/task-033-053-update-playwright-idb-injection
 jules_session_id: null
-parent: .foundry/archive/epics/epic-005-016-e2e-testing-updates.md
+parent: ./archive/epics/epic-005-016-e2e-testing-updates
 tags:
   - e2e
   - testing
@@ -28,5 +28,5 @@ The E2E test suite must be updated to support the new IndexedDB-based save persi
 - [x] Full E2E suite passes with the new persistence mechanism.
 
 ## Generated Tasks
-- .foundry/tasks/task-033-053-update-playwright-idb-injection.md
-- .foundry/tasks/task-033-060-remove-localstorage-e2e.md
+- ./tasks/task-033-053-update-playwright-idb-injection.md
+- ./tasks/task-033-060-remove-localstorage-e2e.md

@@ -7,10 +7,10 @@ owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-17'
 depends_on:
-  - .foundry/epics/epic-017-028-dag-dashboard-data.md
+  - ./epics/epic-017-028-dag-dashboard-data
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-017-017-dag-dashboard.md
+parent: ./prds/prd-017-017-dag-dashboard
 tags:
   - dag
   - dashboard
@@ -42,8 +42,8 @@ This Epic covers the frontend user interface for the DAG Dashboard Webview. It c
 - [x] Wire up the UI to consume data from the parsing layer.
 
 ## Stories
-- `.foundry/stories/story-029-048-evaluate-graph-libraries.md`
-- `.foundry/stories/story-029-051-implement-core-graph-visualization.md`
-- `.foundry/stories/story-029-052-implement-graph-filtering.md`
-- `.foundry/stories/story-029-053-implement-dependency-highlighting.md`
-- `.foundry/stories/story-029-065-wire-up-data-layer.md`
+- `./stories/story-029-048-evaluate-graph-libraries.md`
+- `./stories/story-029-051-implement-core-graph-visualization.md`
+- `./stories/story-029-052-implement-graph-filtering.md`
+- `./stories/story-029-053-implement-dependency-highlighting.md`
+- `./stories/story-029-065-wire-up-data-layer.md`

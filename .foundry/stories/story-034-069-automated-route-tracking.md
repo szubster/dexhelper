@@ -25,7 +25,7 @@ notes: ''
 Implement the underlying logic to aggregate caught Pokémon by `met_location` and identify first encounters. Detect violations if multiple Pokémon share the same location.
 
 ### TASKS
-- [ ] .foundry/tasks/task-069-116-aggregate-encounters-impl.md
-- [ ] .foundry/tasks/task-069-117-aggregate-encounters-qa.md
-- [ ] .foundry/tasks/task-069-118-detect-violations-impl.md
-- [ ] .foundry/tasks/task-069-119-detect-violations-qa.md
+- [ ] ./tasks/task-069-116-aggregate-encounters-impl.md
+- [ ] ./tasks/task-069-117-aggregate-encounters-qa.md
+- [ ] ./tasks/task-069-118-detect-violations-impl.md
+- [ ] ./tasks/task-069-119-detect-violations-qa.md

@@ -7,11 +7,11 @@ owner_persona: story_owner
 created_at: '2026-04-24'
 updated_at: '2026-05-02'
 depends_on:
-  - .foundry/archive/epics/epic-005-013-idb-infrastructure.md
-  - .foundry/archive/epics/epic-005-014-state-store-migration.md
-  - .foundry/archive/stories/story-016-033-update-e2e-testing-for-idb.md
+  - ./archive/epics/epic-005-013-idb-infrastructure
+  - ./archive/epics/epic-005-014-state-store-migration
+  - ./archive/stories/story-016-033-update-e2e-testing-for-idb
 jules_session_id: null
-parent: .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+parent: ./archive/prds/prd-007-005-migrate-saves-to-indexeddb
 tags:
   - e2e
   - testing
@@ -28,4 +28,4 @@ The current E2E testing framework in `tests/e2e/test-utils.ts` and `playwright.c
 - [x] The global Playwright `setup` successfully sets up IndexedDB state.
 - [x] All existing E2E tests pass reliably with the new IndexedDB injection method.
 ## Generated Stories
-- .foundry/archive/stories/story-016-033-update-e2e-testing-for-idb.md
+- ./archive/stories/story-016-033-update-e2e-testing-for-idb.md

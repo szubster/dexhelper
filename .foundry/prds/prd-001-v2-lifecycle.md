@@ -8,7 +8,7 @@ created_at: '2026-04-21'
 updated_at: "2026-05-02"
 depends_on: []
 jules_session_id: null
-parent: .foundry/ideas/idea-003-atomic-handoff-foundation.md
+parent: ./ideas/idea-003-atomic-handoff-foundation
 tags:
   - v2-architecture
   - lifecycle
@@ -33,31 +33,31 @@ This PRD formalizes the transition to **Atomic Handoffs**, enforcing the single-
 To enforce Atomic Handoffs, the product lifecycle pipeline is strictly defined as follows:
 
 ### 2.1 IDEA → PRD
-- **Input Node:** `.foundry/ideas/idea-<slug>.md`
+- **Input Node:** `./ideas/idea-<slug>.md`
 - **Owner Persona:** `product_manager`
-- **Deliverable:** The Product Manager translates the raw idea into a formal `.foundry/prds/prd-<slug>.md`.
+- **Deliverable:** The Product Manager translates the raw idea into a formal `./prds/prd-<slug>.md`.
 - **Handoff:** The PRD node explicitly declares a `depends_on` array containing the parent `IDEA` node path. The PM submits the new PRD file via a PR. Upon merge, the orchestrator triggers and updates dependencies.
 
 ### 2.2 PRD → EPIC
-- **Input Node:** `.foundry/prds/prd-<slug>.md`
+- **Input Node:** `./prds/prd-<slug>.md`
 - **Owner Persona:** `epic_planner`
-- **Deliverable:** The Epic Planner breaks down the PRD into logical, macroscopic functional chunks (Epics), creating multiple `.foundry/epics/epic-<slug>.md` files.
+- **Deliverable:** The Epic Planner breaks down the PRD into logical, macroscopic functional chunks (Epics), creating multiple `./epics/epic-<slug>.md` files.
 - **Handoff:** Each Epic must explicitly reference the originating PRD in its `depends_on` array. The Epic Planner opens a PR with the new Epics. The Epic Planner is also responsible for mapping out the topological dependencies *between* the newly generated Epics themselves, avoiding future deadlocks.
 
 ### 2.3 EPIC → STORY
-- **Input Node:** `.foundry/epics/epic-<slug>.md`
+- **Input Node:** `./epics/epic-<slug>.md`
 - **Owner Persona:** `story_owner`
-- **Deliverable:** The Story Owner actively monitors ready and in-progress Epics, creating incremental `.foundry/stories/story-<slug>.md` files. This is a dynamic, late-binding process to incorporate learnings.
+- **Deliverable:** The Story Owner actively monitors ready and in-progress Epics, creating incremental `./stories/story-<slug>.md` files. This is a dynamic, late-binding process to incorporate learnings.
 - **Handoff:** Stories use the `depends_on` field to enforce sequential execution if necessary (e.g., `Story 2` depends on `Story 1`). They also use the optional `parent` field to reference the parent Epic for context hydration, keeping the DAG unblocked while ensuring context continuity.
 
 ### 2.4 STORY → TASK
-- **Input Node:** `.foundry/stories/story-<slug>.md`
+- **Input Node:** `./stories/story-<slug>.md`
 - **Owner Persona:** `tech_lead`
-- **Deliverable:** The Tech Lead reads the Story and applicable ADRs, transforming the product requirements into concrete engineering blueprints by creating `.foundry/tasks/task-<slug>.md` files.
+- **Deliverable:** The Tech Lead reads the Story and applicable ADRs, transforming the product requirements into concrete engineering blueprints by creating `./tasks/task-<slug>.md` files.
 - **Handoff:** Tasks are placed in the orchestrator pipeline. They `depend_on` the parent Story or other prerequisite Tasks.
 
 ### 2.5 TASK IMPLEMENTATION & VALIDATION
-- **Input Node:** `.foundry/tasks/task-<slug>.md`
+- **Input Node:** `./tasks/task-<slug>.md`
 - **Owner Personas:** `coder` (Implementation), `qa` (Validation)
 - **Deliverable:**
     - The `coder` implements the technical spec outlined in the Task, directly committing code changes.
@@ -73,6 +73,6 @@ To enforce Atomic Handoffs, the product lifecycle pipeline is strictly defined a
 - [x] **Epic Planner:** Break down this PRD into Epics mapping out the necessary schema/doc updates, orchestration script refactors, and test coverage expansions to fully support Atomic Ownership.
 
 ### Generated Epics
-- `.foundry/epics/epic-007-atomic-handoff-schema.md`
-- `.foundry/epics/epic-008-atomic-handoff-orchestrator.md`
-- `.foundry/epics/epic-009-atomic-handoff-testing.md`
+- `./epics/epic-007-atomic-handoff-schema.md`
+- `./epics/epic-008-atomic-handoff-orchestrator.md`
+- `./epics/epic-009-atomic-handoff-testing.md`

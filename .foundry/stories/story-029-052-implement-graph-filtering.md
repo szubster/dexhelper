@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-05-14'
 updated_at: '2026-05-16'
 depends_on:
-  - .foundry/stories/story-029-051-implement-core-graph-visualization.md
+  - ./stories/story-029-051-implement-core-graph-visualization
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-029-dag-dashboard-ui.md
+parent: ./epics/epic-017-029-dag-dashboard-ui
 tags:
   - dag
   - dashboard
@@ -40,5 +40,5 @@ Following the implementation of the core graph visualization for the DAG Dashboa
 - [x] Verify that the styling of the filter controls matches the project's strict design system requirements.
 
 ## Tasks
-- [.foundry/tasks/task-052-090-implement-graph-filtering.md](../../.foundry/tasks/task-052-090-implement-graph-filtering.md)
-- [.foundry/tasks/task-052-091-qa-graph-filtering.md](../../.foundry/tasks/task-052-091-qa-graph-filtering.md)
+- [./tasks/task-052-090-implement-graph-filtering.md](../tasks/task-052-090-implement-graph-filtering.md)
+- [./tasks/task-052-091-qa-graph-filtering.md](../tasks/task-052-091-qa-graph-filtering.md)

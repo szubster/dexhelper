@@ -5,7 +5,7 @@ The link checker (`scripts/check-links.ts`) is used to validate links in markdow
 ## Resolution Logic
 
 - **Frontmatter Paths**: Always resolved relative to the repository root.
-- **Inline Links**: Resolved relative to the file containing the link. If not found, they are also checked relative to the repository root. This allows for flexible link styles, including repo-root-relative links like `.foundry/stories/...`.
+- **Inline Links**: Resolved relative to the file containing the link. If not found, they are also checked relative to the repository root. This allows for flexible link styles, including repo-root-relative links like `./stories/...`.
 
 ## Usage
 

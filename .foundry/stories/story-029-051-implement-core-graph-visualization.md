@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-05-12'
 updated_at: '2026-05-14'
 depends_on:
-  - .foundry/stories/story-029-048-evaluate-graph-libraries.md
+  - ./stories/story-029-048-evaluate-graph-libraries
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-029-dag-dashboard-ui.md
+parent: ./epics/epic-017-029-dag-dashboard-ui
 tags:
   - dag
   - dashboard
@@ -38,5 +38,5 @@ Following the selection and integration of the graph rendering library (React Fl
 - [x] Apply basic styling to nodes based on their status or type.
 
 ### Generated Tasks
-- [.foundry/tasks/task-051-087-implement-core-graph-visualizer.md](.foundry/tasks/task-051-087-implement-core-graph-visualizer.md)
-- [.foundry/tasks/task-051-088-qa-core-graph-visualizer.md](.foundry/tasks/task-051-088-qa-core-graph-visualizer.md)
+- [./tasks/task-051-087-implement-core-graph-visualizer.md](./tasks/task-051-087-implement-core-graph-visualizer.md)
+- [./tasks/task-051-088-qa-core-graph-visualizer.md](./tasks/task-051-088-qa-core-graph-visualizer.md)

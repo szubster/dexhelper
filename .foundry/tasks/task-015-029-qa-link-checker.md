@@ -7,9 +7,9 @@ owner_persona: qa
 created_at: "2026-04-25"
 updated_at: "2026-04-26"
 depends_on:
-  - .foundry/tasks/task-015-028-implement-link-checker.md
+  - ./tasks/task-015-028-implement-link-checker
 jules_session_id: null
-parent: .foundry/stories/story-006-015-implement-link-checker.md
+parent: ./stories/story-006-015-implement-link-checker
 tags: ["infras", "verification"]
 rejection_count: 0
 notes: ""
@@ -21,14 +21,14 @@ notes: ""
 Verify that the automated git pre-commit hook script implemented by the `coder` correctly validates all local markdown file references (both YAML frontmatter and inline markdown links) and correctly rejects commits containing dead links.
 
 ## Verification Steps
-- Simulate an invalid reference in the `depends_on` array of a `.foundry/**/*.md` file, attempt to commit, and verify that the commit is aborted by `lefthook` with a clear error message.
-- Simulate an invalid reference in the `parent` field of a `.foundry/**/*.md` file, attempt to commit, and verify the commit is similarly rejected.
+- Simulate an invalid reference in the `depends_on` array of a `**/*.md` file, attempt to commit, and verify that the commit is aborted by `lefthook` with a clear error message.
+- Simulate an invalid reference in the `parent` field of a `**/*.md` file, attempt to commit, and verify the commit is similarly rejected.
 - Introduce an invalid inline markdown link (e.g., `[Test](./invalid-path.md)`) into a staged markdown file, attempt to commit, and verify it is rejected.
 - Introduce only valid links in `depends_on`, `parent`, and inline markdown, attempt to commit, and verify the commit succeeds.
 - Confirm the hook only runs on modified/staged markdown files to avoid performance overhead on irrelevant files.
 
 ## Context
-This QA task ensures the requirements outlined in `.foundry/stories/story-006-015-implement-link-checker.md` and implemented in `.foundry/tasks/task-015-028-implement-link-checker.md` are met.
+This QA task ensures the requirements outlined in `./stories/story-006-015-implement-link-checker.md` and implemented in `./tasks/task-015-028-implement-link-checker.md` are met.
 
 ## Acceptance Criteria
 - [x] Validated that broken `depends_on` links prevent commits.

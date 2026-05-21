@@ -8,7 +8,7 @@ created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-008-ui-component-reuse.md"
+parent: "./ideas/idea-008-ui-component-reuse
 ---
 
 # PRD-008-007: Tactical Card Base Component
@@ -25,4 +25,4 @@ Refactor the existing duplicated card UI into a unified, reusable base component
 The proposed `TacticalCard` component aligns with our DRY principles and the established UI architecture. No new ADR is required. The UI extraction will improve maintainability and consistency across the app.
 
 ### Spawned Nodes
-- `.foundry/tasks/task-007-043-tactical-card-refactor.md`
+- `./tasks/task-007-043-tactical-card-refactor.md`

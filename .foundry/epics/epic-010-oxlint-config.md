@@ -8,11 +8,11 @@ created_at: "2026-04-23"
 updated_at: "2026-05-01"
 parent: null
 depends_on:
-  - .foundry/archive/stories/story-010-028-verify-jest-tests.md
-  - .foundry/stories/story-010-017-fix-jest-rules.md
-  - .foundry/stories/story-010-016-enable-expensive-oxlint-checks.md
-  - .foundry/stories/story-010-015-enforce-strict-oxlint-rules.md
-  - .foundry/stories/story-010-014-implement-oxlint-config.md
+  - ./archive/stories/story-010-028-verify-jest-tests
+  - ./stories/story-010-017-fix-jest-rules
+  - ./stories/story-010-016-enable-expensive-oxlint-checks
+  - ./stories/story-010-015-enforce-strict-oxlint-rules
+  - ./stories/story-010-014-implement-oxlint-config
 jules_session_id: null
 ---
 
@@ -29,7 +29,7 @@ In response to CEO feedback (PR comment 4303644512), we need to schedule work in
 - [x] New strict/expensive checks (multi-file, type-aware) are enabled.
 
 ## Generated Stories
-- [.foundry/stories/story-010-014-implement-oxlint-config.md](../stories/story-010-014-implement-oxlint-config.md)
-- [.foundry/stories/story-010-016-enable-expensive-oxlint-checks.md](../stories/story-010-016-enable-expensive-oxlint-checks.md)
-- [.foundry/stories/story-010-017-fix-jest-rules.md](../stories/story-010-017-fix-jest-rules.md)
-- [.foundry/archive/stories/story-010-028-verify-jest-tests.md](../archive/stories/story-010-028-verify-jest-tests.md)
+- [./stories/story-010-014-implement-oxlint-config.md](../stories/story-010-014-implement-oxlint-config.md)
+- [./stories/story-010-016-enable-expensive-oxlint-checks.md](../stories/story-010-016-enable-expensive-oxlint-checks.md)
+- [./stories/story-010-017-fix-jest-rules.md](../stories/story-010-017-fix-jest-rules.md)
+- [./archive/stories/story-010-028-verify-jest-tests.md](../archive/stories/story-010-028-verify-jest-tests.md)

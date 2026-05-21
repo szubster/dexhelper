@@ -7,16 +7,16 @@ owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/tasks/task-055-094-implement-time-based-suggestions.md
+  - ./tasks/task-055-094-implement-time-based-suggestions
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-055-time-based-suggestions.md
+parent: ./stories/story-029-055-time-based-suggestions
 tags:
   - gen2
   - expansion
   - suggestion-engine
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - ./docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -39,7 +39,7 @@ Implement time-based filtering and warnings in the suggestion engine specificall
    - Update `gen2Strategy.ts` to populate this field when generating suggestions for encounters that have time of day restrictions.
 
 3. **Context References**
-   - Read `.foundry/docs/knowledge_base/development/gen2_implementation_plan.md` (Phase 4).
+   - Read `./docs/knowledge_base/development/gen2_implementation_plan.md` (Phase 4).
 
 ## Acceptance Criteria
 - [x] Gen 2 strategy plugin is updated to include time-based requirements in suggestions.

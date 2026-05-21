@@ -8,7 +8,7 @@ created_at: "2026-04-21"
 updated_at: "2026-04-22"
 depends_on: []
 jules_session_id: null
-parent: .foundry/prds/prd-001-distributed-ids.md
+parent: ./prds/prd-001-distributed-ids
 tags: ["orchestrator", "concurrency"]
 rejection_count: 1
 notes: ""
@@ -29,7 +29,7 @@ This epic aims to solve the "Shadow Dispatch" problem where the orchestrator dis
 None. This can be developed in parallel to the ID schema changes.
 
 ## Stories
-- [ ] .foundry/stories/story-004-shadow-dispatch-verification.md
+- [ ] ./stories/story-004-shadow-dispatch-verification.md
 
 ## High-Level Acceptance Criteria
 - [ ] The orchestrator logic successfully queries open PRs for `ACTIVE` nodes.

@@ -21,10 +21,10 @@ Implement a standardized test node factory utility (e.g., `createValidNode(overr
 
 
 ## Child Nodes
-- .foundry/archive/prds/prd-019-019-orchestrator-test-factories.md
+- ./archive/prds/prd-019-019-orchestrator-test-factories.md
 
 ## Child Nodes
-- [PRD] .foundry/archive/prds/prd-019-019-orchestrator-test-factories.md
+- [PRD] ./archive/prds/prd-019-019-orchestrator-test-factories.md
 
 ## Child Nodes
-- [PRD] .foundry/archive/prds/prd-019-019-orchestrator-test-factories.md
+- [PRD] ./archive/prds/prd-019-019-orchestrator-test-factories.md

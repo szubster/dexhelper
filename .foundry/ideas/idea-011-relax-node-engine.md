@@ -23,5 +23,5 @@ The `task-016-041-update-package-json-lint` suffered 6 rejections because agents
 We should relax the `engines.node` field in `package.json` from `>=24.0.0` to `>=22.0.0` to natively match the execution environment of the Foundry agents. This will prevent friction and reduce PR rejections without requiring manual troubleshooting overrides in the agent prompts.
 
 ## Next Steps
-- [x] Product Manager: Convert this idea to a PRD. (See child: `.foundry/prds/prd-011-009-relax-node-engine.md`)
+- [x] Product Manager: Convert this idea to a PRD. (See child: `./prds/prd-011-009-relax-node-engine.md`)
 - Tech Lead / Coder: Implement the change in `package.json`.

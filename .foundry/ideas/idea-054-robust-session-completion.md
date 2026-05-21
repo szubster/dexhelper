@@ -39,4 +39,4 @@ We need to make the orchestrator's heartbeat script more robust when handling `C
 - [x] Product Manager: Convert this idea to a PRD.
 
 ## Links
-- PRD: [.foundry/prds/prd-054-025-robust-session-completion.md](.foundry/prds/prd-054-025-robust-session-completion.md)
+- PRD: [./prds/prd-054-025-robust-session-completion.md](./prds/prd-054-025-robust-session-completion.md)

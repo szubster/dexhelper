@@ -38,4 +38,4 @@ Introduce a new persona called `auditor` whose responsibility is to verify the w
 
 
 ### SPONSORED NODES
-- `.foundry/prds/prd-060-029-auditor-persona.md`
+- `./prds/prd-060-029-auditor-persona.md`

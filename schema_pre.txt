@@ -1,0 +1,632 @@
+Warning: Missing rejection_reason field in file /app/.foundry/archive/epics/epic-005-013-idb-infrastructure.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/prds/prd-007-005-migrate-saves-to-indexeddb.md' in file /app/.foundry/archive/epics/epic-005-013-idb-infrastructure.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/epics/epic-005-014-state-store-migration.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/epics/epic-005-013-idb-infrastructure.md' in file /app/.foundry/archive/epics/epic-005-014-state-store-migration.md
+Error: Dependency path does not exist: './archive/stories/story-014-031-dual-write-save-persistence.md' in file /app/.foundry/archive/epics/epic-005-014-state-store-migration.md
+Error: Dependency path does not exist: './archive/stories/story-014-029-async-startup-hydration.md' in file /app/.foundry/archive/epics/epic-005-014-state-store-migration.md
+Error: Dependency path does not exist: './archive/stories/story-014-026-refactor-state-store-sync.md' in file /app/.foundry/archive/epics/epic-005-014-state-store-migration.md
+Error: Parent path does not exist: './archive/prds/prd-007-005-migrate-saves-to-indexeddb.md' in file /app/.foundry/archive/epics/epic-005-014-state-store-migration.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/epics/epic-005-015-legacy-data-migration.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/epics/epic-005-013-idb-infrastructure.md' in file /app/.foundry/archive/epics/epic-005-015-legacy-data-migration.md
+Error: Dependency path does not exist: './archive/epics/epic-005-014-state-store-migration.md' in file /app/.foundry/archive/epics/epic-005-015-legacy-data-migration.md
+Error: Dependency path does not exist: './archive/stories/story-015-032-legacy-save-migration-hook.md' in file /app/.foundry/archive/epics/epic-005-015-legacy-data-migration.md
+Error: Parent path does not exist: './archive/prds/prd-007-005-migrate-saves-to-indexeddb.md' in file /app/.foundry/archive/epics/epic-005-015-legacy-data-migration.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/epics/epic-005-016-e2e-testing-updates.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/epics/epic-005-013-idb-infrastructure.md' in file /app/.foundry/archive/epics/epic-005-016-e2e-testing-updates.md
+Error: Dependency path does not exist: './archive/epics/epic-005-014-state-store-migration.md' in file /app/.foundry/archive/epics/epic-005-016-e2e-testing-updates.md
+Error: Dependency path does not exist: './archive/stories/story-016-033-update-e2e-testing-for-idb.md' in file /app/.foundry/archive/epics/epic-005-016-e2e-testing-updates.md
+Error: Parent path does not exist: './archive/prds/prd-007-005-migrate-saves-to-indexeddb.md' in file /app/.foundry/archive/epics/epic-005-016-e2e-testing-updates.md
+Error: Parent path does not exist: './prds/prd-010-008-idempotent-node-generation.md' in file /app/.foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/ideas/idea-002-collision-free-ids.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-001-the-foundry.md' in file /app/.foundry/archive/ideas/idea-002-collision-free-ids.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/ideas/idea-019-orchestrator-test-factories.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/epics/epic-005-013-idb-infrastructure.md' in file /app/.foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+Error: Dependency path does not exist: './archive/epics/epic-005-014-state-store-migration.md' in file /app/.foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+Error: Dependency path does not exist: './archive/epics/epic-005-015-legacy-data-migration.md' in file /app/.foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+Error: Dependency path does not exist: './archive/epics/epic-005-016-e2e-testing-updates.md' in file /app/.foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+Error: Parent path does not exist: './ideas/idea-007-migrate-saves-to-indexeddb.md' in file /app/.foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/stories/story-009-030-single-persona-dag-tests.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/tasks/task-030-048-implement-single-persona-dag-tests.md' in file /app/.foundry/archive/stories/story-009-030-single-persona-dag-tests.md
+Error: Parent path does not exist: './epics/epic-009-atomic-handoff-testing.md' in file /app/.foundry/archive/stories/story-009-030-single-persona-dag-tests.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/stories/story-009-032-lifecycle-integration-tests.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/tasks/task-032-049-qa-lifecycle-tests.md' in file /app/.foundry/archive/stories/story-009-032-lifecycle-integration-tests.md
+Error: Dependency path does not exist: './archive/tasks/task-032-048-implement-lifecycle-tests.md' in file /app/.foundry/archive/stories/story-009-032-lifecycle-integration-tests.md
+Error: Parent path does not exist: './epics/epic-009-atomic-handoff-testing.md' in file /app/.foundry/archive/stories/story-009-032-lifecycle-integration-tests.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/stories/story-010-028-verify-jest-tests.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-010-oxlint-config.md' in file /app/.foundry/archive/stories/story-010-028-verify-jest-tests.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/stories/story-013-021-indexeddb-wrapper-and-error-handling.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/epics/epic-005-013-idb-infrastructure.md' in file /app/.foundry/archive/stories/story-013-021-indexeddb-wrapper-and-error-handling.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/stories/story-014-026-refactor-state-store-sync.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/stories/story-014-029-async-startup-hydration.md' in file /app/.foundry/archive/stories/story-014-026-refactor-state-store-sync.md
+Error: Dependency path does not exist: './archive/tasks/task-026-044-refactor-state-store-sync.md' in file /app/.foundry/archive/stories/story-014-026-refactor-state-store-sync.md
+Error: Parent path does not exist: './archive/epics/epic-005-014-state-store-migration.md' in file /app/.foundry/archive/stories/story-014-026-refactor-state-store-sync.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/stories/story-014-029-async-startup-hydration.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/tasks/task-029-050-implement-async-hydration.md' in file /app/.foundry/archive/stories/story-014-029-async-startup-hydration.md
+Error: Parent path does not exist: './archive/epics/epic-005-014-state-store-migration.md' in file /app/.foundry/archive/stories/story-014-029-async-startup-hydration.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/stories/story-014-031-dual-write-save-persistence.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/epics/epic-005-013-idb-infrastructure.md' in file /app/.foundry/archive/stories/story-014-031-dual-write-save-persistence.md
+Error: Dependency path does not exist: './archive/tasks/task-031-051-implement-dual-write-persistence.md' in file /app/.foundry/archive/stories/story-014-031-dual-write-save-persistence.md
+Error: Parent path does not exist: './archive/epics/epic-005-014-state-store-migration.md' in file /app/.foundry/archive/stories/story-014-031-dual-write-save-persistence.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/stories/story-015-032-legacy-save-migration-hook.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/stories/story-014-029-async-startup-hydration.md' in file /app/.foundry/archive/stories/story-015-032-legacy-save-migration-hook.md
+Error: Dependency path does not exist: './archive/stories/story-014-031-dual-write-save-persistence.md' in file /app/.foundry/archive/stories/story-015-032-legacy-save-migration-hook.md
+Error: Dependency path does not exist: './archive/tasks/task-032-052-implement-migration-logic.md' in file /app/.foundry/archive/stories/story-015-032-legacy-save-migration-hook.md
+Error: Parent path does not exist: './archive/epics/epic-005-015-legacy-data-migration.md' in file /app/.foundry/archive/stories/story-015-032-legacy-save-migration-hook.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/stories/story-016-033-update-e2e-testing-for-idb.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/stories/story-014-029-async-startup-hydration.md' in file /app/.foundry/archive/stories/story-016-033-update-e2e-testing-for-idb.md
+Error: Dependency path does not exist: './tasks/task-033-053-update-playwright-idb-injection.md' in file /app/.foundry/archive/stories/story-016-033-update-e2e-testing-for-idb.md
+Error: Parent path does not exist: './archive/epics/epic-005-016-e2e-testing-updates.md' in file /app/.foundry/archive/stories/story-016-033-update-e2e-testing-for-idb.md
+Error: Parent path does not exist: './archive/epics/epic-008-019-anomaly-reporting-mechanism.md' in file /app/.foundry/archive/stories/story-019-034-anomaly-reporting-mechanism.md
+Error: Dependency path does not exist: './stories/story-025-039-implement-failure-handling.md' in file /app/.foundry/archive/stories/story-025-040-write-validation-tests.md
+Error: Parent path does not exist: './epics/epic-014-025-enforce-persona-pipeline-handoffs.md' in file /app/.foundry/archive/stories/story-025-040-write-validation-tests.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-016-056-fix-heartbeat-test-types.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-016-enable-expensive-oxlint-checks.md' in file /app/.foundry/archive/tasks/task-016-056-fix-heartbeat-test-types.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-017-042-fix-jest-disabled-tests.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-017-fix-jest-rules.md' in file /app/.foundry/archive/tasks/task-017-042-fix-jest-disabled-tests.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-017-create-scheduled-agent-workflow.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-004-generic-scheduling-workflow.md' in file /app/.foundry/archive/tasks/task-017-create-scheduled-agent-workflow.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-021-030-implement-idb-wrapper.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/stories/story-013-021-indexeddb-wrapper-and-error-handling.md' in file /app/.foundry/archive/tasks/task-021-030-implement-idb-wrapper.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-021-031-qa-idb-wrapper.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/tasks/task-021-030-implement-idb-wrapper.md' in file /app/.foundry/archive/tasks/task-021-031-qa-idb-wrapper.md
+Error: Parent path does not exist: './archive/stories/story-013-021-indexeddb-wrapper-and-error-handling.md' in file /app/.foundry/archive/tasks/task-021-031-qa-idb-wrapper.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-025-044-implement-dag-atomic-test.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-008-025-verify-dag-resolution.md' in file /app/.foundry/archive/tasks/task-025-044-implement-dag-atomic-test.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-025-045-qa-dag-atomic-test.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/tasks/task-025-044-implement-dag-atomic-test.md' in file /app/.foundry/archive/tasks/task-025-045-qa-dag-atomic-test.md
+Error: Parent path does not exist: './stories/story-008-025-verify-dag-resolution.md' in file /app/.foundry/archive/tasks/task-025-045-qa-dag-atomic-test.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-026-044-refactor-state-store-sync.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/stories/story-014-026-refactor-state-store-sync.md' in file /app/.foundry/archive/tasks/task-026-044-refactor-state-store-sync.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-028-046-verify-jest-rules-resolution.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/stories/story-010-028-verify-jest-tests.md' in file /app/.foundry/archive/tasks/task-028-046-verify-jest-rules-resolution.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-029-050-implement-async-hydration.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/stories/story-014-029-async-startup-hydration.md' in file /app/.foundry/archive/tasks/task-029-050-implement-async-hydration.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-029-054-qa-async-hydration.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/tasks/task-029-050-implement-async-hydration.md' in file /app/.foundry/archive/tasks/task-029-054-qa-async-hydration.md
+Error: Parent path does not exist: './archive/stories/story-014-029-async-startup-hydration.md' in file /app/.foundry/archive/tasks/task-029-054-qa-async-hydration.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-030-048-implement-single-persona-dag-tests.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/stories/story-009-030-single-persona-dag-tests.md' in file /app/.foundry/archive/tasks/task-030-048-implement-single-persona-dag-tests.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-031-051-implement-dual-write-persistence.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/stories/story-014-031-dual-write-save-persistence.md' in file /app/.foundry/archive/tasks/task-031-051-implement-dual-write-persistence.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-031-055-qa-dual-write-persistence.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/tasks/task-031-051-implement-dual-write-persistence.md' in file /app/.foundry/archive/tasks/task-031-055-qa-dual-write-persistence.md
+Error: Parent path does not exist: './archive/stories/story-014-031-dual-write-save-persistence.md' in file /app/.foundry/archive/tasks/task-031-055-qa-dual-write-persistence.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-032-048-implement-lifecycle-tests.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/stories/story-009-032-lifecycle-integration-tests.md' in file /app/.foundry/archive/tasks/task-032-048-implement-lifecycle-tests.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-032-049-qa-lifecycle-tests.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/tasks/task-032-048-implement-lifecycle-tests.md' in file /app/.foundry/archive/tasks/task-032-049-qa-lifecycle-tests.md
+Error: Parent path does not exist: './archive/stories/story-009-032-lifecycle-integration-tests.md' in file /app/.foundry/archive/tasks/task-032-049-qa-lifecycle-tests.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-032-052-implement-migration-logic.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/stories/story-015-032-legacy-save-migration-hook.md' in file /app/.foundry/archive/tasks/task-032-052-implement-migration-logic.md
+Warning: Missing rejection_reason field in file /app/.foundry/archive/tasks/task-032-060-qa-legacy-save-migration.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/tasks/task-032-052-implement-migration-logic.md' in file /app/.foundry/archive/tasks/task-032-060-qa-legacy-save-migration.md
+Error: Parent path does not exist: './archive/stories/story-015-032-legacy-save-migration-hook.md' in file /app/.foundry/archive/tasks/task-032-060-qa-legacy-save-migration.md
+Error: Parent path does not exist: './archive/stories/story-019-034-anomaly-reporting-mechanism.md' in file /app/.foundry/archive/tasks/task-034-057-implement-anomaly-journal-logging.md
+Error: Dependency path does not exist: './tasks/task-043-071-implement-gen2-map-graph.md' in file /app/.foundry/archive/tasks/task-043-072-qa-gen2-map-graph.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/archive/tasks/task-043-072-qa-gen2-map-graph.md
+Error: Dependency path does not exist: './tasks/task-043-075-build-dag-graph.md' in file /app/.foundry/archive/tasks/task-043-076-qa-dag-parser.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-003-actions-engine.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-001-the-foundry.md' in file /app/.foundry/epics/epic-003-actions-engine.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-004-distributed-id-schema.md. It should be present for all nodes.
+Error: Parent path does not exist: './prds/prd-001-distributed-ids.md' in file /app/.foundry/epics/epic-004-distributed-id-schema.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-004-generic-agent-scheduling.md. It should be present for all nodes.
+Error: Parent path does not exist: './prds/prd-001-agent-scheduling.md' in file /app/.foundry/epics/epic-004-generic-agent-scheduling.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-005-shadow-dispatch-prevention.md. It should be present for all nodes.
+Error: Parent path does not exist: './prds/prd-001-distributed-ids.md' in file /app/.foundry/epics/epic-005-shadow-dispatch-prevention.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-005-tpm-agent-scheduling.md. It should be present for all nodes.
+Error: Dependency path does not exist: './epics/epic-004-generic-agent-scheduling.md' in file /app/.foundry/epics/epic-005-tpm-agent-scheduling.md
+Error: Parent path does not exist: './prds/prd-001-agent-scheduling.md' in file /app/.foundry/epics/epic-005-tpm-agent-scheduling.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-006-id-pre-commit-hooks.md. It should be present for all nodes.
+Error: Dependency path does not exist: './epics/epic-004-distributed-id-schema.md' in file /app/.foundry/epics/epic-006-id-pre-commit-hooks.md
+Error: Parent path does not exist: './prds/prd-001-distributed-ids.md' in file /app/.foundry/epics/epic-006-id-pre-commit-hooks.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-007-atomic-handoff-schema.md. It should be present for all nodes.
+Error: Parent path does not exist: './prds/prd-001-v2-lifecycle.md' in file /app/.foundry/epics/epic-007-atomic-handoff-schema.md
+Error: Parent path does not exist: './prds/prd-010-008-idempotent-node-generation.md' in file /app/.foundry/epics/epic-008-017-orchestrator-preflight-checks.md
+Error: Parent path does not exist: './prds/prd-010-008-idempotent-node-generation.md' in file /app/.foundry/epics/epic-008-018-session-dispatch-bypass.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-008-atomic-handoff-orchestrator.md. It should be present for all nodes.
+Error: Dependency path does not exist: './epics/epic-007-atomic-handoff-schema.md' in file /app/.foundry/epics/epic-008-atomic-handoff-orchestrator.md
+Error: Parent path does not exist: './prds/prd-001-v2-lifecycle.md' in file /app/.foundry/epics/epic-008-atomic-handoff-orchestrator.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-009-020-relax-node-engine.md. It should be present for all nodes.
+Error: Parent path does not exist: './prds/prd-011-009-relax-node-engine.md' in file /app/.foundry/epics/epic-009-020-relax-node-engine.md
+Error: Dependency path does not exist: './epics/epic-008-atomic-handoff-orchestrator.md' in file /app/.foundry/epics/epic-009-atomic-handoff-testing.md
+Error: Dependency path does not exist: './archive/stories/story-009-032-lifecycle-integration-tests.md' in file /app/.foundry/epics/epic-009-atomic-handoff-testing.md
+Error: Dependency path does not exist: './stories/story-009-031-deadlock-prevention-tests.md' in file /app/.foundry/epics/epic-009-atomic-handoff-testing.md
+Error: Dependency path does not exist: './archive/stories/story-009-030-single-persona-dag-tests.md' in file /app/.foundry/epics/epic-009-atomic-handoff-testing.md
+Error: Parent path does not exist: './prds/prd-001-v2-lifecycle.md' in file /app/.foundry/epics/epic-009-atomic-handoff-testing.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-010-human-schema.md. It should be present for all nodes.
+Error: Parent path does not exist: './prds/prd-004-human-in-the-loop.md' in file /app/.foundry/epics/epic-010-human-schema.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-010-oxlint-config.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/stories/story-010-028-verify-jest-tests.md' in file /app/.foundry/epics/epic-010-oxlint-config.md
+Error: Dependency path does not exist: './stories/story-010-017-fix-jest-rules.md' in file /app/.foundry/epics/epic-010-oxlint-config.md
+Error: Dependency path does not exist: './stories/story-010-016-enable-expensive-oxlint-checks.md' in file /app/.foundry/epics/epic-010-oxlint-config.md
+Error: Dependency path does not exist: './stories/story-010-015-enforce-strict-oxlint-rules.md' in file /app/.foundry/epics/epic-010-oxlint-config.md
+Error: Dependency path does not exist: './stories/story-010-014-implement-oxlint-config.md' in file /app/.foundry/epics/epic-010-oxlint-config.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-010-persona-permissions.md. It should be present for all nodes.
+Error: Parent path does not exist: './prds/prd-005-010-late-binding-orchestrator.md' in file /app/.foundry/epics/epic-010-persona-permissions.md
+Error: Parent path does not exist: './prds/prd-011-009-researcher-persona.md' in file /app/.foundry/epics/epic-011-021-researcher-persona.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-011-022-implement-gray-matter.md. It should be present for all nodes.
+Error: Dependency path does not exist: './prds/prd-012-011-gray-matter-parsing.md' in file /app/.foundry/epics/epic-011-022-implement-gray-matter.md
+Error: Parent path does not exist: './prds/prd-012-011-gray-matter-parsing.md' in file /app/.foundry/epics/epic-011-022-implement-gray-matter.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-011-human-orchestrator.md. It should be present for all nodes.
+Error: Dependency path does not exist: './epics/epic-010-human-schema.md' in file /app/.foundry/epics/epic-011-human-orchestrator.md
+Error: Parent path does not exist: './prds/prd-004-human-in-the-loop.md' in file /app/.foundry/epics/epic-011-human-orchestrator.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-011-wait-and-wake-protocol.md. It should be present for all nodes.
+Error: Dependency path does not exist: './epics/epic-010-persona-permissions.md' in file /app/.foundry/epics/epic-011-wait-and-wake-protocol.md
+Error: Parent path does not exist: './prds/prd-005-010-late-binding-orchestrator.md' in file /app/.foundry/epics/epic-011-wait-and-wake-protocol.md
+Error: Parent path does not exist: './prds/prd-013-012-improve-late-binding-completion.md' in file /app/.foundry/epics/epic-012-024-improve-late-binding-completion.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-012-gastown-orchestrator.md. It should be present for all nodes.
+Error: Dependency path does not exist: './epics/epic-011-wait-and-wake-protocol.md' in file /app/.foundry/epics/epic-012-gastown-orchestrator.md
+Error: Dependency path does not exist: './stories/story-012-029-document-gastown-migration-decision.md' in file /app/.foundry/epics/epic-012-gastown-orchestrator.md
+Error: Dependency path does not exist: './stories/story-012-027-design-sync-mechanism.md' in file /app/.foundry/epics/epic-012-gastown-orchestrator.md
+Error: Dependency path does not exist: './stories/story-012-026-evaluate-cloudflare-storage.md' in file /app/.foundry/epics/epic-012-gastown-orchestrator.md
+Error: Parent path does not exist: './prds/prd-005-010-late-binding-orchestrator.md' in file /app/.foundry/epics/epic-012-gastown-orchestrator.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-012-human-heartbeat.md. It should be present for all nodes.
+Error: Dependency path does not exist: './epics/epic-010-human-schema.md' in file /app/.foundry/epics/epic-012-human-heartbeat.md
+Error: Parent path does not exist: './prds/prd-004-human-in-the-loop.md' in file /app/.foundry/epics/epic-012-human-heartbeat.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-013-023-orchestrator-cascade-cancellation.md. It should be present for all nodes.
+Error: Parent path does not exist: './prds/prd-014-013-cascade-cancellation.md' in file /app/.foundry/epics/epic-013-023-orchestrator-cascade-cancellation.md
+Error: Parent path does not exist: './prds/prd-015-014-enforce-persona-pipeline.md' in file /app/.foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/epics/epic-015-026-save-parser-expansion.md
+Error: Parent path does not exist: './prds/prd-006-015-gen2-expansion-phase-1-2.md' in file /app/.foundry/epics/epic-015-026-save-parser-expansion.md
+Error: Dependency path does not exist: './epics/epic-015-026-save-parser-expansion.md' in file /app/.foundry/epics/epic-015-027-exclusives-and-static-data.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/epics/epic-015-027-exclusives-and-static-data.md
+Error: Parent path does not exist: './prds/prd-006-015-gen2-expansion-phase-1-2.md' in file /app/.foundry/epics/epic-015-027-exclusives-and-static-data.md
+Error: Parent path does not exist: './prds/prd-017-017-dag-dashboard.md' in file /app/.foundry/epics/epic-017-028-dag-dashboard-data.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/epics/epic-017-028-map-graph-routing.md
+Error: Parent path does not exist: './prds/prd-006-017-gen2-expansion-phase-3-4.md' in file /app/.foundry/epics/epic-017-028-map-graph-routing.md
+Error: Dependency path does not exist: './epics/epic-017-028-dag-dashboard-data.md' in file /app/.foundry/epics/epic-017-029-dag-dashboard-ui.md
+Error: Parent path does not exist: './prds/prd-017-017-dag-dashboard.md' in file /app/.foundry/epics/epic-017-029-dag-dashboard-ui.md
+Error: Dependency path does not exist: './epics/epic-017-028-map-graph-routing.md' in file /app/.foundry/epics/epic-017-029-strategy-engine-adaptations.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/epics/epic-017-029-strategy-engine-adaptations.md
+Error: Parent path does not exist: './prds/prd-006-017-gen2-expansion-phase-3-4.md' in file /app/.foundry/epics/epic-017-029-strategy-engine-adaptations.md
+Error: Parent path does not exist: './prds/prd-018-018-migrate-heartbeat-to-gray-matter.md' in file /app/.foundry/epics/epic-018-028-migrate-heartbeat-to-gray-matter.md
+Error: Dependency path does not exist: './prds/prd-020-020-enforce-acceptance-criteria-completion.md' in file /app/.foundry/epics/epic-020-031-enforce-acceptance-criteria-completion.md
+Error: Dependency path does not exist: './docs/adrs/011-robust-session-completion.md' in file /app/.foundry/epics/epic-025-033-robust-session-completion.md
+Error: Parent path does not exist: './prds/prd-057-026-automated-nuzlocke-tracker.md' in file /app/.foundry/epics/epic-026-034-automated-nuzlocke-tracker.md
+Warning: Missing rejection_reason field in file /app/.foundry/epics/epic-053-024-032-gen3-encounters-implementation.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-001-the-foundry.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-002-tpm-scheduling.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-003-atomic-handoff-foundation.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-004-human-in-the-loop.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-003-atomic-handoff-foundation.md' in file /app/.foundry/ideas/idea-004-human-in-the-loop.md
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-005-late-binding-orchestrator.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-003-atomic-handoff-foundation.md' in file /app/.foundry/ideas/idea-005-late-binding-orchestrator.md
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-006-gen2-expansion.md. It should be present for all nodes.
+Error: Dependency path does not exist: './ideas/idea-001-the-foundry.md' in file /app/.foundry/ideas/idea-006-gen2-expansion.md
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-007-automated-link-checker.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-007-migrate-saves-to-indexeddb.md. It should be present for all nodes.
+Error: Dependency path does not exist: './archive/prds/prd-007-005-migrate-saves-to-indexeddb.md' in file /app/.foundry/ideas/idea-007-migrate-saves-to-indexeddb.md
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-008-ui-component-reuse.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-009-enforce-strict-empty-pr-policy.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-011-relax-node-engine.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-011-researcher-persona.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-012-sibling-dependency-enforcement.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-012-use-gray-matter-parsing.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-014-cascade-cancellation.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-015-enforce-persona-pipeline.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-016-precommit-schema-validation.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-017-dag-dashboard.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-018-migrate-heartbeat-to-gray-matter.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-020-enforce-acceptance-criteria-completion.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-050-orchestrator-leaf-failure-validation.md. It should be present for all nodes.
+Error: Dependency path does not exist: './ideas/idea-017-dag-dashboard.md' in file /app/.foundry/ideas/idea-051-dag-kanban-board-view.md
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-051-strict-schema-validations.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-052-strict-research-references-validation.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-053-gen3-support.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-054-robust-session-completion.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-057-automated-nuzlocke-tracker.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-059-orchestrator-auto-cancel-orphaned-nodes.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/ideas/idea-060-auditor-persona.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-001-agent-scheduling.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-002-tpm-scheduling.md' in file /app/.foundry/prds/prd-001-agent-scheduling.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-001-distributed-ids.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/ideas/idea-002-collision-free-ids.md' in file /app/.foundry/prds/prd-001-distributed-ids.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-001-v2-lifecycle.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-003-atomic-handoff-foundation.md' in file /app/.foundry/prds/prd-001-v2-lifecycle.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-004-human-in-the-loop.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-004-human-in-the-loop.md' in file /app/.foundry/prds/prd-004-human-in-the-loop.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-005-010-late-binding-orchestrator.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-005-late-binding-orchestrator.md' in file /app/.foundry/prds/prd-005-010-late-binding-orchestrator.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/prds/prd-006-015-gen2-expansion-phase-1-2.md
+Error: Parent path does not exist: './ideas/idea-006-gen2-expansion.md' in file /app/.foundry/prds/prd-006-015-gen2-expansion-phase-1-2.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md
+Error: Parent path does not exist: './ideas/idea-006-gen2-expansion.md' in file /app/.foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-007-006-automated-link-checker.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-007-automated-link-checker.md' in file /app/.foundry/prds/prd-007-006-automated-link-checker.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-008-007-tactical-card-component.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-008-ui-component-reuse.md' in file /app/.foundry/prds/prd-008-007-tactical-card-component.md
+Error: Parent path does not exist: './ideas/idea-010-idempotent-node-generation.md' in file /app/.foundry/prds/prd-010-008-idempotent-node-generation.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-011-009-relax-node-engine.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-011-relax-node-engine.md' in file /app/.foundry/prds/prd-011-009-relax-node-engine.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-011-009-researcher-persona.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-011-researcher-persona.md' in file /app/.foundry/prds/prd-011-009-researcher-persona.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-012-011-gray-matter-parsing.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-012-use-gray-matter-parsing.md' in file /app/.foundry/prds/prd-012-011-gray-matter-parsing.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-012-011-sibling-dependency-enforcement.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-012-sibling-dependency-enforcement.md' in file /app/.foundry/prds/prd-012-011-sibling-dependency-enforcement.md
+Error: Parent path does not exist: './ideas/idea-013-improve-late-binding-completion.md' in file /app/.foundry/prds/prd-013-012-improve-late-binding-completion.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-014-013-cascade-cancellation.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-014-cascade-cancellation.md' in file /app/.foundry/prds/prd-014-013-cascade-cancellation.md
+Error: Parent path does not exist: './ideas/idea-015-enforce-persona-pipeline.md' in file /app/.foundry/prds/prd-015-014-enforce-persona-pipeline.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-016-016-precommit-schema-validation.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-016-precommit-schema-validation.md' in file /app/.foundry/prds/prd-016-016-precommit-schema-validation.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-017-017-dag-dashboard.md. It should be present for all nodes.
+Error: Parent path does not exist: './ideas/idea-017-dag-dashboard.md' in file /app/.foundry/prds/prd-017-017-dag-dashboard.md
+Error: Parent path does not exist: './ideas/idea-018-migrate-heartbeat-to-gray-matter.md' in file /app/.foundry/prds/prd-018-018-migrate-heartbeat-to-gray-matter.md
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-020-020-enforce-acceptance-criteria-completion.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-050-021-orchestrator-leaf-failure-validation.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-053-022-gen3-data-parsing.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-053-023-gen3-map-graph.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/prds/prd-053-024-gen3-encounters.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/research/research-053-002-dependency-highlighting-failure.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-029-053-implement-dependency-highlighting.md' in file /app/.foundry/research/research-053-002-dependency-highlighting-failure.md
+Warning: Missing rejection_reason field in file /app/.foundry/research/research-062-001-gen3-location-fetching.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-001-matrix-runner.md. It should be present for all nodes.
+Error: Dependency path does not exist: './epics/epic-003-actions-engine.md' in file /app/.foundry/stories/story-001-matrix-runner.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-002-personas.md. It should be present for all nodes.
+Error: Dependency path does not exist: './epics/epic-003-actions-engine.md' in file /app/.foundry/stories/story-002-personas.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-003-dynamic-verification.md. It should be present for all nodes.
+Error: Dependency path does not exist: './docs/adrs/001-the-foundry-architecture.md' in file /app/.foundry/stories/story-003-dynamic-verification.md
+Error: Dependency path does not exist: './stories/story-002-personas.md' in file /app/.foundry/stories/story-003-dynamic-verification.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-004-generic-scheduling-workflow.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-004-generic-agent-scheduling.md' in file /app/.foundry/stories/story-004-generic-scheduling-workflow.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-004-id-schema-decision.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-004-distributed-id-schema.md' in file /app/.foundry/stories/story-004-id-schema-decision.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-004-shadow-dispatch-verification.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-005-shadow-dispatch-prevention.md' in file /app/.foundry/stories/story-004-shadow-dispatch-verification.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-005-012-configure-tpm-schedule.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-005-tpm-agent-scheduling.md' in file /app/.foundry/stories/story-005-012-configure-tpm-schedule.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-005-013-tpm-archiving-logic.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-005-tpm-agent-scheduling.md' in file /app/.foundry/stories/story-005-013-tpm-archiving-logic.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-005-empty-state-handling.md. It should be present for all nodes.
+Error: Dependency path does not exist: './stories/story-004-generic-scheduling-workflow.md' in file /app/.foundry/stories/story-005-empty-state-handling.md
+Error: Parent path does not exist: './epics/epic-004-generic-agent-scheduling.md' in file /app/.foundry/stories/story-005-empty-state-handling.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-005-id-schema-templates.md. It should be present for all nodes.
+Error: Dependency path does not exist: './stories/story-004-id-schema-decision.md' in file /app/.foundry/stories/story-005-id-schema-templates.md
+Error: Parent path does not exist: './epics/epic-004-distributed-id-schema.md' in file /app/.foundry/stories/story-005-id-schema-templates.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-006-015-implement-link-checker.md. It should be present for all nodes.
+Error: Parent path does not exist: './prds/prd-007-006-automated-link-checker.md' in file /app/.foundry/stories/story-006-015-implement-link-checker.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-006-022-implement-id-validation-hook.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-006-id-pre-commit-hooks.md' in file /app/.foundry/stories/story-006-022-implement-id-validation-hook.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-006-scheduling-configuration.md. It should be present for all nodes.
+Error: Dependency path does not exist: './stories/story-004-generic-scheduling-workflow.md' in file /app/.foundry/stories/story-006-scheduling-configuration.md
+Error: Parent path does not exist: './epics/epic-004-generic-agent-scheduling.md' in file /app/.foundry/stories/story-006-scheduling-configuration.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-007-schema-invariant.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-007-atomic-handoff-schema.md' in file /app/.foundry/stories/story-007-schema-invariant.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-008-023-validate-single-owner.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-008-atomic-handoff-orchestrator.md' in file /app/.foundry/stories/story-008-023-validate-single-owner.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-008-024-update-status-on-merge.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-008-atomic-handoff-orchestrator.md' in file /app/.foundry/stories/story-008-024-update-status-on-merge.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-008-025-verify-dag-resolution.md. It should be present for all nodes.
+Error: Dependency path does not exist: './stories/story-008-023-validate-single-owner.md' in file /app/.foundry/stories/story-008-025-verify-dag-resolution.md
+Error: Dependency path does not exist: './stories/story-008-024-update-status-on-merge.md' in file /app/.foundry/stories/story-008-025-verify-dag-resolution.md
+Error: Parent path does not exist: './epics/epic-008-atomic-handoff-orchestrator.md' in file /app/.foundry/stories/story-008-025-verify-dag-resolution.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-008-schema-examples.md. It should be present for all nodes.
+Error: Dependency path does not exist: './stories/story-007-schema-invariant.md' in file /app/.foundry/stories/story-008-schema-examples.md
+Error: Parent path does not exist: './epics/epic-007-atomic-handoff-schema.md' in file /app/.foundry/stories/story-008-schema-examples.md
+Error: Dependency path does not exist: './tasks/task-031-048-implement-deadlock-tests.md' in file /app/.foundry/stories/story-009-031-deadlock-prevention-tests.md
+Error: Parent path does not exist: './epics/epic-009-atomic-handoff-testing.md' in file /app/.foundry/stories/story-009-031-deadlock-prevention-tests.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-009-composite-deprecation.md. It should be present for all nodes.
+Error: Dependency path does not exist: './stories/story-007-schema-invariant.md' in file /app/.foundry/stories/story-009-composite-deprecation.md
+Error: Parent path does not exist: './epics/epic-007-atomic-handoff-schema.md' in file /app/.foundry/stories/story-009-composite-deprecation.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-010-012-schema-human-persona.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-010-human-schema.md' in file /app/.foundry/stories/story-010-012-schema-human-persona.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-010-014-implement-oxlint-config.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-010-oxlint-config.md' in file /app/.foundry/stories/story-010-014-implement-oxlint-config.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-010-015-enforce-strict-oxlint-rules.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-014-027-configure-oxlint-json.md' in file /app/.foundry/stories/story-010-015-enforce-strict-oxlint-rules.md
+Error: Parent path does not exist: './epics/epic-010-oxlint-config.md' in file /app/.foundry/stories/story-010-015-enforce-strict-oxlint-rules.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-010-016-enable-expensive-oxlint-checks.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-016-040-oxlint-import-promise-plugins.md' in file /app/.foundry/stories/story-010-016-enable-expensive-oxlint-checks.md
+Error: Dependency path does not exist: './tasks/task-016-039-oxlint-type-aware.md' in file /app/.foundry/stories/story-010-016-enable-expensive-oxlint-checks.md
+Error: Parent path does not exist: './epics/epic-010-oxlint-config.md' in file /app/.foundry/stories/story-010-016-enable-expensive-oxlint-checks.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-010-017-fix-jest-rules.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-010-oxlint-config.md' in file /app/.foundry/stories/story-010-017-fix-jest-rules.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-010-orchestrator-human-bypass.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-011-human-orchestrator.md' in file /app/.foundry/stories/story-010-orchestrator-human-bypass.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-010-persona-permissions-matrix.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-010-persona-permissions.md' in file /app/.foundry/stories/story-010-persona-permissions-matrix.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-011-016-wait-wake-implementation.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-011-wait-and-wake-protocol.md' in file /app/.foundry/stories/story-011-016-wait-wake-implementation.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-011-017-impossible-loop.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-011-wait-and-wake-protocol.md' in file /app/.foundry/stories/story-011-017-impossible-loop.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-011-human-heartbeat-script.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-012-human-heartbeat.md' in file /app/.foundry/stories/story-011-human-heartbeat-script.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-012-026-evaluate-cloudflare-storage.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-012-gastown-orchestrator.md' in file /app/.foundry/stories/story-012-026-evaluate-cloudflare-storage.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-012-027-design-sync-mechanism.md. It should be present for all nodes.
+Error: Dependency path does not exist: './stories/story-012-026-evaluate-cloudflare-storage.md' in file /app/.foundry/stories/story-012-027-design-sync-mechanism.md
+Error: Parent path does not exist: './epics/epic-012-gastown-orchestrator.md' in file /app/.foundry/stories/story-012-027-design-sync-mechanism.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-012-029-document-gastown-migration-decision.md. It should be present for all nodes.
+Error: Dependency path does not exist: './stories/story-012-027-design-sync-mechanism.md' in file /app/.foundry/stories/story-012-029-document-gastown-migration-decision.md
+Error: Dependency path does not exist: './tasks/task-029-047-write-gastown-adr.md' in file /app/.foundry/stories/story-012-029-document-gastown-migration-decision.md
+Error: Parent path does not exist: './epics/epic-012-gastown-orchestrator.md' in file /app/.foundry/stories/story-012-029-document-gastown-migration-decision.md
+Error: Parent path does not exist: './epics/epic-008-017-orchestrator-preflight-checks.md' in file /app/.foundry/stories/story-017-034-orchestrator-preflight-logic.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-020-035-relax-node-engine.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-009-020-relax-node-engine.md' in file /app/.foundry/stories/story-020-035-relax-node-engine.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-023-036-implement-cascade-cancellation.md. It should be present for all nodes.
+Error: Parent path does not exist: './epics/epic-013-023-orchestrator-cascade-cancellation.md' in file /app/.foundry/stories/story-023-036-implement-cascade-cancellation.md
+Error: Parent path does not exist: './epics/epic-012-024-improve-late-binding-completion.md' in file /app/.foundry/stories/story-024-037-orchestrator-late-binding-completion.md
+Error: Parent path does not exist: './epics/epic-014-025-enforce-persona-pipeline-handoffs.md' in file /app/.foundry/stories/story-025-038-implement-mapping-validation.md
+Error: Dependency path does not exist: './stories/story-025-038-implement-mapping-validation.md' in file /app/.foundry/stories/story-025-039-implement-failure-handling.md
+Error: Parent path does not exist: './epics/epic-014-025-enforce-persona-pipeline-handoffs.md' in file /app/.foundry/stories/story-025-039-implement-failure-handling.md
+Error: Parent path does not exist: './epics/epic-015-026-save-parser-expansion.md' in file /app/.foundry/stories/story-026-041-inventory-parsing.md
+Error: Dependency path does not exist: './stories/story-026-041-inventory-parsing.md' in file /app/.foundry/stories/story-026-042-hall-of-fame-roamers.md
+Error: Parent path does not exist: './epics/epic-015-026-save-parser-expansion.md' in file /app/.foundry/stories/story-026-042-hall-of-fame-roamers.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/stories/story-027-049-gen2-assistant-data.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/stories/story-028-043-gen2-map-graph.md
+Error: Parent path does not exist: './epics/epic-017-028-map-graph-routing.md' in file /app/.foundry/stories/story-028-043-gen2-map-graph.md
+Error: Parent path does not exist: './epics/epic-017-028-dag-dashboard-data.md' in file /app/.foundry/stories/story-028-043-implement-dag-parser.md
+Error: Parent path does not exist: './epics/epic-018-028-migrate-heartbeat-to-gray-matter.md' in file /app/.foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md
+Error: Dependency path does not exist: './stories/story-028-043-gen2-map-graph.md' in file /app/.foundry/stories/story-028-044-indoor-outdoor-resolution.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/stories/story-028-044-indoor-outdoor-resolution.md
+Error: Parent path does not exist: './epics/epic-017-028-map-graph-routing.md' in file /app/.foundry/stories/story-028-044-indoor-outdoor-resolution.md
+Error: Dependency path does not exist: './stories/story-028-044-indoor-outdoor-resolution.md' in file /app/.foundry/stories/story-028-045-cross-region-distance.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/stories/story-028-045-cross-region-distance.md
+Error: Parent path does not exist: './epics/epic-017-028-map-graph-routing.md' in file /app/.foundry/stories/story-028-045-cross-region-distance.md
+Error: Dependency path does not exist: './stories/story-029-048-evaluate-graph-libraries.md' in file /app/.foundry/stories/story-029-051-implement-core-graph-visualization.md
+Error: Parent path does not exist: './epics/epic-017-029-dag-dashboard-ui.md' in file /app/.foundry/stories/story-029-051-implement-core-graph-visualization.md
+Error: Dependency path does not exist: './stories/story-029-051-implement-core-graph-visualization.md' in file /app/.foundry/stories/story-029-052-implement-graph-filtering.md
+Error: Parent path does not exist: './epics/epic-017-029-dag-dashboard-ui.md' in file /app/.foundry/stories/story-029-052-implement-graph-filtering.md
+Error: Dependency path does not exist: './stories/story-029-052-implement-graph-filtering.md' in file /app/.foundry/stories/story-029-053-implement-dependency-highlighting.md
+Error: Parent path does not exist: './epics/epic-017-029-dag-dashboard-ui.md' in file /app/.foundry/stories/story-029-053-implement-dependency-highlighting.md
+Error: Dependency path does not exist: './stories/story-028-045-cross-region-distance.md' in file /app/.foundry/stories/story-029-054-gen2-strategy-plugin.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/stories/story-029-054-gen2-strategy-plugin.md
+Error: Parent path does not exist: './epics/epic-017-029-strategy-engine-adaptations.md' in file /app/.foundry/stories/story-029-054-gen2-strategy-plugin.md
+Error: Dependency path does not exist: './stories/story-029-054-gen2-strategy-plugin.md' in file /app/.foundry/stories/story-029-055-time-based-suggestions.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/stories/story-029-055-time-based-suggestions.md
+Error: Parent path does not exist: './epics/epic-017-029-strategy-engine-adaptations.md' in file /app/.foundry/stories/story-029-055-time-based-suggestions.md
+Error: Dependency path does not exist: './stories/story-029-054-gen2-strategy-plugin.md' in file /app/.foundry/stories/story-029-056-breeding-suggestions.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/stories/story-029-056-breeding-suggestions.md
+Error: Parent path does not exist: './epics/epic-017-029-strategy-engine-adaptations.md' in file /app/.foundry/stories/story-029-056-breeding-suggestions.md
+Error: Dependency path does not exist: './stories/story-029-054-gen2-strategy-plugin.md' in file /app/.foundry/stories/story-029-057-interaction-logic.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/stories/story-029-057-interaction-logic.md
+Error: Parent path does not exist: './epics/epic-017-029-strategy-engine-adaptations.md' in file /app/.foundry/stories/story-029-057-interaction-logic.md
+Error: Dependency path does not exist: './stories/story-029-054-gen2-strategy-plugin.md' in file /app/.foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
+Error: Parent path does not exist: './epics/epic-017-029-strategy-engine-adaptations.md' in file /app/.foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
+Error: Dependency path does not exist: './stories/story-029-053-implement-dependency-highlighting.md' in file /app/.foundry/stories/story-029-065-wire-up-data-layer.md
+Error: Dependency path does not exist: './stories/story-032-059-gen3-dataview-scaffolding.md' in file /app/.foundry/stories/story-032-060-gen3-bounds-checking.md
+Error: Dependency path does not exist: './stories/story-032-059-gen3-map-graph-structure.md' in file /app/.foundry/stories/story-032-060-gen3-indoor-resolution.md
+Error: Dependency path does not exist: './stories/story-032-059-gen3-map-graph-structure.md' in file /app/.foundry/stories/story-032-061-gen3-distance-lookup.md
+Error: Dependency path does not exist: './stories/story-032-060-gen3-bounds-checking.md' in file /app/.foundry/stories/story-032-061-gen3-legacy-compatibility.md
+Warning: Missing rejection_reason field in file /app/.foundry/stories/story-032-062-gen3-data-generation-scripts.md. It should be present for all nodes.
+Error: Dependency path does not exist: './stories/story-033-066-heartbeat-prless-detection.md' in file /app/.foundry/stories/story-033-067-heartbeat-state-transitions.md
+Error: Dependency path does not exist: './stories/story-033-067-heartbeat-state-transitions.md' in file /app/.foundry/stories/story-033-068-heartbeat-tpm-logging.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-000-028-handle-pre-existing-artifacts.md. It should be present for all nodes.
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-001-create-engine-yaml.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-001-matrix-runner.md' in file /app/.foundry/tasks/task-001-create-engine-yaml.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-002-create-heartbeat.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-001-create-engine-yaml.md' in file /app/.foundry/tasks/task-002-create-heartbeat.md
+Error: Parent path does not exist: './stories/story-001-matrix-runner.md' in file /app/.foundry/tasks/task-002-create-heartbeat.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-003-resurrection-loop.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-002-create-heartbeat.md' in file /app/.foundry/tasks/task-003-resurrection-loop.md
+Error: Parent path does not exist: './stories/story-001-matrix-runner.md' in file /app/.foundry/tasks/task-003-resurrection-loop.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-004-scaffold-pm.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-002-personas.md' in file /app/.foundry/tasks/task-004-scaffold-pm.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-005-024-update-id-templates.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-005-id-schema-templates.md' in file /app/.foundry/tasks/task-005-024-update-id-templates.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-005-025-update-orchestrator-validation.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-005-id-schema-templates.md' in file /app/.foundry/tasks/task-005-025-update-orchestrator-validation.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-005-026-qa-orchestrator-validation.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-005-025-update-orchestrator-validation.md' in file /app/.foundry/tasks/task-005-026-qa-orchestrator-validation.md
+Error: Parent path does not exist: './stories/story-005-id-schema-templates.md' in file /app/.foundry/tasks/task-005-026-qa-orchestrator-validation.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-005-modify-action-runner.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-002-personas.md' in file /app/.foundry/tasks/task-005-modify-action-runner.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-006-migrate-memory-system.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-002-personas.md' in file /app/.foundry/tasks/task-006-migrate-memory-system.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-007-024-update-schema-owner-invariant.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-007-schema-invariant.md' in file /app/.foundry/tasks/task-007-024-update-schema-owner-invariant.md
+Error: Parent path does not exist: './prds/prd-008-007-tactical-card-component.md' in file /app/.foundry/tasks/task-007-043-tactical-card-refactor.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-007-scaffold-epic-planner.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-002-personas.md' in file /app/.foundry/tasks/task-007-scaffold-epic-planner.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-008-028-update-schema-examples.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-008-schema-examples.md' in file /app/.foundry/tasks/task-008-028-update-schema-examples.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-008-scaffold-story-owner.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-002-personas.md' in file /app/.foundry/tasks/task-008-scaffold-story-owner.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-009-028-deprecate-composite-nodes.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-009-composite-deprecation.md' in file /app/.foundry/tasks/task-009-028-deprecate-composite-nodes.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-009-scaffold-tech-lead.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-002-personas.md' in file /app/.foundry/tasks/task-009-scaffold-tech-lead.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-010-024-update-persona-prompts.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-persona-permissions-matrix.md' in file /app/.foundry/tasks/task-010-024-update-persona-prompts.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-010-scaffold-coder.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-002-personas.md' in file /app/.foundry/tasks/task-010-scaffold-coder.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-011-scaffold-qa.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-002-personas.md' in file /app/.foundry/tasks/task-011-scaffold-qa.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-012-024-configure-tpm-workflow.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-005-012-configure-tpm-schedule.md' in file /app/.foundry/tasks/task-012-024-configure-tpm-workflow.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-012-024-update-human-schema.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-012-schema-human-persona.md' in file /app/.foundry/tasks/task-012-024-update-human-schema.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-012-scaffold-tpm.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-002-personas.md' in file /app/.foundry/tasks/task-012-scaffold-tpm.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-013-024-update-tpm-prompt.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-005-013-tpm-archiving-logic.md' in file /app/.foundry/tasks/task-013-024-update-tpm-prompt.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-013-scaffold-agile-coach.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-002-personas.md' in file /app/.foundry/tasks/task-013-scaffold-agile-coach.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-014-027-configure-oxlint-json.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-014-implement-oxlint-config.md' in file /app/.foundry/tasks/task-014-027-configure-oxlint-json.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-014-scaffold-architect.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-003-dynamic-verification.md' in file /app/.foundry/tasks/task-014-scaffold-architect.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-015-028-implement-link-checker.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-006-015-implement-link-checker.md' in file /app/.foundry/tasks/task-015-028-implement-link-checker.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-015-029-qa-link-checker.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-015-028-implement-link-checker.md' in file /app/.foundry/tasks/task-015-029-qa-link-checker.md
+Error: Parent path does not exist: './stories/story-006-015-implement-link-checker.md' in file /app/.foundry/tasks/task-015-029-qa-link-checker.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-015-033-oxlint-require-mock-type-parameters.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-015-enforce-strict-oxlint-rules.md' in file /app/.foundry/tasks/task-015-033-oxlint-require-mock-type-parameters.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-015-034-oxlint-expect-expect.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-015-enforce-strict-oxlint-rules.md' in file /app/.foundry/tasks/task-015-034-oxlint-expect-expect.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-015-update-tech-lead-protocol.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-003-dynamic-verification.md' in file /app/.foundry/tasks/task-015-update-tech-lead-protocol.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-016-030-implement-wait-wake.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-011-016-wait-wake-implementation.md' in file /app/.foundry/tasks/task-016-030-implement-wait-wake.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-016-031-qa-wait-wake.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-016-030-implement-wait-wake.md' in file /app/.foundry/tasks/task-016-031-qa-wait-wake.md
+Error: Parent path does not exist: './stories/story-011-016-wait-wake-implementation.md' in file /app/.foundry/tasks/task-016-031-qa-wait-wake.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-016-039-oxlint-type-aware.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-016-enable-expensive-oxlint-checks.md' in file /app/.foundry/tasks/task-016-039-oxlint-type-aware.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-016-040-oxlint-import-promise-plugins.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-016-enable-expensive-oxlint-checks.md' in file /app/.foundry/tasks/task-016-040-oxlint-import-promise-plugins.md
+Error: Parent path does not exist: './stories/story-010-016-enable-expensive-oxlint-checks.md' in file /app/.foundry/tasks/task-016-041-update-package-json-lint.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-016-update-agile-coach-evolution.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-003-dynamic-verification.md' in file /app/.foundry/tasks/task-016-update-agile-coach-evolution.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-017-030-update-schema-rejection-reason.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-011-017-impossible-loop.md' in file /app/.foundry/tasks/task-017-030-update-schema-rejection-reason.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-017-031-implement-impossible-loop.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-017-030-update-schema-rejection-reason.md' in file /app/.foundry/tasks/task-017-031-implement-impossible-loop.md
+Error: Parent path does not exist: './stories/story-011-017-impossible-loop.md' in file /app/.foundry/tasks/task-017-031-implement-impossible-loop.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-017-032-qa-impossible-loop.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-017-031-implement-impossible-loop.md' in file /app/.foundry/tasks/task-017-032-qa-impossible-loop.md
+Error: Parent path does not exist: './stories/story-011-017-impossible-loop.md' in file /app/.foundry/tasks/task-017-032-qa-impossible-loop.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-017-041-fix-jest-standalone-expect.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-017-fix-jest-rules.md' in file /app/.foundry/tasks/task-017-041-fix-jest-standalone-expect.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-018-implement-scheduled-agent-registry.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-006-scheduling-configuration.md' in file /app/.foundry/tasks/task-018-implement-scheduled-agent-registry.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-018-scheduled-agent-empty-state.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-005-empty-state-handling.md' in file /app/.foundry/tasks/task-018-scheduled-agent-empty-state.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-020-auto-close-empty-prs.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-005-empty-state-handling.md' in file /app/.foundry/tasks/task-020-auto-close-empty-prs.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-021-document-id-schema.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-004-id-schema-decision.md' in file /app/.foundry/tasks/task-021-document-id-schema.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-021-investigate-shadow-dispatch.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-004-shadow-dispatch-verification.md' in file /app/.foundry/tasks/task-021-investigate-shadow-dispatch.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-022-039-implement-id-validation-hook.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-006-022-implement-id-validation-hook.md' in file /app/.foundry/tasks/task-022-039-implement-id-validation-hook.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-022-040-qa-id-validation-hook.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-022-039-implement-id-validation-hook.md' in file /app/.foundry/tasks/task-022-040-qa-id-validation-hook.md
+Error: Parent path does not exist: './stories/story-006-022-implement-id-validation-hook.md' in file /app/.foundry/tasks/task-022-040-qa-id-validation-hook.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-022-orchestrator-human-bypass.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-010-orchestrator-human-bypass.md' in file /app/.foundry/tasks/task-022-orchestrator-human-bypass.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-022-update-heartbeat-script.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-011-human-heartbeat-script.md' in file /app/.foundry/tasks/task-022-update-heartbeat-script.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-023-041-implement-single-owner-validation.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-008-023-validate-single-owner.md' in file /app/.foundry/tasks/task-023-041-implement-single-owner-validation.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-023-qa-orchestrator-human-bypass.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-022-orchestrator-human-bypass.md' in file /app/.foundry/tasks/task-023-qa-orchestrator-human-bypass.md
+Error: Parent path does not exist: './stories/story-010-orchestrator-human-bypass.md' in file /app/.foundry/tasks/task-023-qa-orchestrator-human-bypass.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-024-041-update-status-on-merge.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-008-024-update-status-on-merge.md' in file /app/.foundry/tasks/task-024-041-update-status-on-merge.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-024-042-qa-update-status-on-merge.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-024-041-update-status-on-merge.md' in file /app/.foundry/tasks/task-024-042-qa-update-status-on-merge.md
+Error: Parent path does not exist: './stories/story-008-024-update-status-on-merge.md' in file /app/.foundry/tasks/task-024-042-qa-update-status-on-merge.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-029-047-write-gastown-adr.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-012-029-document-gastown-migration-decision.md' in file /app/.foundry/tasks/task-029-047-write-gastown-adr.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-031-048-implement-deadlock-tests.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-009-031-deadlock-prevention-tests.md' in file /app/.foundry/tasks/task-031-048-implement-deadlock-tests.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-033-053-update-playwright-idb-injection.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/stories/story-016-033-update-e2e-testing-for-idb.md' in file /app/.foundry/tasks/task-033-053-update-playwright-idb-injection.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-033-060-remove-localstorage-e2e.md. It should be present for all nodes.
+Error: Parent path does not exist: './archive/stories/story-016-033-update-e2e-testing-for-idb.md' in file /app/.foundry/tasks/task-033-060-remove-localstorage-e2e.md
+Error: Parent path does not exist: './stories/story-017-034-orchestrator-preflight-logic.md' in file /app/.foundry/tasks/task-034-058-implement-orchestrator-preflight.md
+Error: Dependency path does not exist: './tasks/task-034-058-implement-orchestrator-preflight.md' in file /app/.foundry/tasks/task-034-059-qa-orchestrator-preflight.md
+Error: Parent path does not exist: './stories/story-017-034-orchestrator-preflight-logic.md' in file /app/.foundry/tasks/task-034-059-qa-orchestrator-preflight.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-035-061-relax-node-engine.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-020-035-relax-node-engine.md' in file /app/.foundry/tasks/task-035-061-relax-node-engine.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-036-062-implement-cascade-cancellation.md. It should be present for all nodes.
+Error: Parent path does not exist: './stories/story-023-036-implement-cascade-cancellation.md' in file /app/.foundry/tasks/task-036-062-implement-cascade-cancellation.md
+Warning: Missing rejection_reason field in file /app/.foundry/tasks/task-036-063-qa-cascade-cancellation.md. It should be present for all nodes.
+Error: Dependency path does not exist: './tasks/task-036-062-implement-cascade-cancellation.md' in file /app/.foundry/tasks/task-036-063-qa-cascade-cancellation.md
+Error: Parent path does not exist: './stories/story-023-036-implement-cascade-cancellation.md' in file /app/.foundry/tasks/task-036-063-qa-cascade-cancellation.md
+Error: Parent path does not exist: './stories/story-025-038-implement-mapping-validation.md' in file /app/.foundry/tasks/task-038-064-implement-mapping-validation.md
+Error: Dependency path does not exist: './tasks/task-038-064-implement-mapping-validation.md' in file /app/.foundry/tasks/task-038-065-qa-mapping-validation.md
+Error: Parent path does not exist: './stories/story-025-038-implement-mapping-validation.md' in file /app/.foundry/tasks/task-038-065-qa-mapping-validation.md
+Error: Dependency path does not exist: './tasks/task-039-071-implement-failure-handling.md' in file /app/.foundry/tasks/task-039-072-qa-failure-handling.md
+Error: Parent path does not exist: './stories/story-026-041-inventory-parsing.md' in file /app/.foundry/tasks/task-041-066-implement-inventory-parsing.md
+Error: Dependency path does not exist: './tasks/task-041-066-implement-inventory-parsing.md' in file /app/.foundry/tasks/task-041-067-qa-inventory-parsing.md
+Error: Parent path does not exist: './stories/story-026-041-inventory-parsing.md' in file /app/.foundry/tasks/task-041-067-qa-inventory-parsing.md
+Error: Parent path does not exist: './stories/story-026-042-hall-of-fame-roamers.md' in file /app/.foundry/tasks/task-042-068-extract-hall-of-fame.md
+Error: Parent path does not exist: './stories/story-026-042-hall-of-fame-roamers.md' in file /app/.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md
+Error: Dependency path does not exist: './tasks/task-042-068-extract-hall-of-fame.md' in file /app/.foundry/tasks/task-042-069-extract-roamers.md
+Error: Parent path does not exist: './stories/story-026-042-hall-of-fame-roamers.md' in file /app/.foundry/tasks/task-042-069-extract-roamers.md
+Error: Dependency path does not exist: './tasks/task-042-068-implement-hall-of-fame-roamers.md' in file /app/.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md
+Error: Parent path does not exist: './stories/story-026-042-hall-of-fame-roamers.md' in file /app/.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md
+Error: Dependency path does not exist: './tasks/task-042-069-extract-roamers.md' in file /app/.foundry/tasks/task-042-070-qa-hall-of-fame-roamers.md
+Error: Parent path does not exist: './stories/story-026-042-hall-of-fame-roamers.md' in file /app/.foundry/tasks/task-042-070-qa-hall-of-fame-roamers.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-043-071-implement-gen2-map-graph.md
+Error: Research reference path does not exist: './docs/adrs/006-gray-matter-parsing.md' in file /app/.foundry/tasks/task-043-073-refactor-heartbeat-matter.md
+Error: Parent path does not exist: './stories/story-028-043-migrate-heartbeat-to-gray-matter.md' in file /app/.foundry/tasks/task-043-073-refactor-heartbeat-matter.md
+Error: Dependency path does not exist: './tasks/task-043-073-read-foundry-files.md' in file /app/.foundry/tasks/task-043-074-parse-frontmatter.md
+Error: Dependency path does not exist: './tasks/task-043-073-refactor-heartbeat-matter.md' in file /app/.foundry/tasks/task-043-074-qa-refactor-heartbeat-matter.md
+Error: Research reference path does not exist: './docs/adrs/006-gray-matter-parsing.md' in file /app/.foundry/tasks/task-043-074-qa-refactor-heartbeat-matter.md
+Error: Parent path does not exist: './stories/story-028-043-migrate-heartbeat-to-gray-matter.md' in file /app/.foundry/tasks/task-043-074-qa-refactor-heartbeat-matter.md
+Error: Dependency path does not exist: './tasks/task-043-074-parse-frontmatter.md' in file /app/.foundry/tasks/task-043-075-build-dag-graph.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md
+Error: Dependency path does not exist: './tasks/task-044-080-implement-indoor-outdoor-resolution.md' in file /app/.foundry/tasks/task-044-081-qa-indoor-outdoor-resolution.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-044-081-qa-indoor-outdoor-resolution.md
+Error: Dependency path does not exist: './tasks/task-045-085-implement-cross-region-distance.md' in file /app/.foundry/tasks/task-045-086-qa-cross-region-distance.md
+Error: Dependency path does not exist: './tasks/task-048-080-evaluate-graph-libraries.md' in file /app/.foundry/tasks/task-048-081-integrate-graph-library.md
+Error: Dependency path does not exist: './tasks/task-048-081-integrate-graph-library.md' in file /app/.foundry/tasks/task-048-082-qa-graph-integration.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-049-082-implement-gen2-assistant-data.md
+Error: Parent path does not exist: './stories/story-029-051-implement-core-graph-visualization.md' in file /app/.foundry/tasks/task-051-087-implement-core-graph-visualizer.md
+Error: Dependency path does not exist: './tasks/task-051-087-implement-core-graph-visualizer.md' in file /app/.foundry/tasks/task-051-088-qa-core-graph-visualizer.md
+Error: Parent path does not exist: './stories/story-029-051-implement-core-graph-visualization.md' in file /app/.foundry/tasks/task-051-088-qa-core-graph-visualizer.md
+Error: Parent path does not exist: './stories/story-029-051-implement-core-graph-visualization.md' in file /app/.foundry/tasks/task-051-089-fix-core-graph-visualizer-aesthetic.md
+Error: Parent path does not exist: './stories/story-029-052-implement-graph-filtering.md' in file /app/.foundry/tasks/task-052-090-implement-graph-filtering.md
+Error: Dependency path does not exist: './tasks/task-052-090-implement-graph-filtering.md' in file /app/.foundry/tasks/task-052-091-qa-graph-filtering.md
+Error: Parent path does not exist: './stories/story-029-052-implement-graph-filtering.md' in file /app/.foundry/tasks/task-052-091-qa-graph-filtering.md
+Error: Parent path does not exist: './stories/story-029-053-implement-dependency-highlighting.md' in file /app/.foundry/tasks/task-053-092-implement-dependency-highlighting.md
+Error: Dependency path does not exist: './tasks/task-053-092-implement-dependency-highlighting.md' in file /app/.foundry/tasks/task-053-093-qa-dependency-highlighting.md
+Error: Parent path does not exist: './stories/story-029-053-implement-dependency-highlighting.md' in file /app/.foundry/tasks/task-053-093-qa-dependency-highlighting.md
+Error: Dependency path does not exist: './research/research-053-002-dependency-highlighting-failure.md' in file /app/.foundry/tasks/task-053-124-retry-dependency-highlighting.md
+Error: Research reference path does not exist: './research/research-053-002-dependency-highlighting-failure.md' in file /app/.foundry/tasks/task-053-124-retry-dependency-highlighting.md
+Error: Parent path does not exist: './stories/story-029-053-implement-dependency-highlighting.md' in file /app/.foundry/tasks/task-053-124-retry-dependency-highlighting.md
+Error: Dependency path does not exist: './research/research-053-002-dependency-highlighting-failure.md' in file /app/.foundry/tasks/task-053-125-qa-retry-dependency-highlighting.md
+Error: Dependency path does not exist: './tasks/task-053-124-retry-dependency-highlighting.md' in file /app/.foundry/tasks/task-053-125-qa-retry-dependency-highlighting.md
+Error: Research reference path does not exist: './research/research-053-002-dependency-highlighting-failure.md' in file /app/.foundry/tasks/task-053-125-qa-retry-dependency-highlighting.md
+Error: Parent path does not exist: './stories/story-029-053-implement-dependency-highlighting.md' in file /app/.foundry/tasks/task-053-125-qa-retry-dependency-highlighting.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-054-092-implement-gen2-strategy-plugin.md
+Error: Parent path does not exist: './stories/story-029-054-gen2-strategy-plugin.md' in file /app/.foundry/tasks/task-054-092-implement-gen2-strategy-plugin.md
+Error: Dependency path does not exist: './tasks/task-054-092-implement-gen2-strategy-plugin.md' in file /app/.foundry/tasks/task-054-093-qa-gen2-strategy-plugin.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-054-093-qa-gen2-strategy-plugin.md
+Error: Parent path does not exist: './stories/story-029-054-gen2-strategy-plugin.md' in file /app/.foundry/tasks/task-054-093-qa-gen2-strategy-plugin.md
+Error: Dependency path does not exist: './tasks/task-054-092-implement-gen2-strategy-plugin.md' in file /app/.foundry/tasks/task-055-094-implement-time-based-suggestions.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-055-094-implement-time-based-suggestions.md
+Error: Parent path does not exist: './stories/story-029-055-time-based-suggestions.md' in file /app/.foundry/tasks/task-055-094-implement-time-based-suggestions.md
+Error: Dependency path does not exist: './tasks/task-055-094-implement-time-based-suggestions.md' in file /app/.foundry/tasks/task-055-095-qa-time-based-suggestions.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-055-095-qa-time-based-suggestions.md
+Error: Parent path does not exist: './stories/story-029-055-time-based-suggestions.md' in file /app/.foundry/tasks/task-055-095-qa-time-based-suggestions.md
+Error: Dependency path does not exist: './tasks/task-055-094-implement-time-based-suggestions.md' in file /app/.foundry/tasks/task-055-100-implement-time-based-suggestions-v2.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-055-100-implement-time-based-suggestions-v2.md
+Error: Parent path does not exist: './stories/story-029-055-time-based-suggestions.md' in file /app/.foundry/tasks/task-055-100-implement-time-based-suggestions-v2.md
+Error: Dependency path does not exist: './tasks/task-055-100-implement-time-based-suggestions-v2.md' in file /app/.foundry/tasks/task-055-101-qa-time-based-suggestions-v2.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-055-101-qa-time-based-suggestions-v2.md
+Error: Parent path does not exist: './stories/story-029-055-time-based-suggestions.md' in file /app/.foundry/tasks/task-055-101-qa-time-based-suggestions-v2.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-056-094-implement-breeding-suggestions.md
+Error: Parent path does not exist: './stories/story-029-056-breeding-suggestions.md' in file /app/.foundry/tasks/task-056-094-implement-breeding-suggestions.md
+Error: Dependency path does not exist: './tasks/task-056-094-implement-breeding-suggestions.md' in file /app/.foundry/tasks/task-056-095-qa-breeding-suggestions.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-056-095-qa-breeding-suggestions.md
+Error: Parent path does not exist: './stories/story-029-056-breeding-suggestions.md' in file /app/.foundry/tasks/task-056-095-qa-breeding-suggestions.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-057-094-implement-headbutt-rocksmash-logic.md
+Error: Parent path does not exist: './stories/story-029-057-interaction-logic.md' in file /app/.foundry/tasks/task-057-094-implement-headbutt-rocksmash-logic.md
+Error: Dependency path does not exist: './tasks/task-057-094-implement-headbutt-rocksmash-logic.md' in file /app/.foundry/tasks/task-057-095-qa-headbutt-rocksmash-logic.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-057-095-qa-headbutt-rocksmash-logic.md
+Error: Parent path does not exist: './stories/story-029-057-interaction-logic.md' in file /app/.foundry/tasks/task-057-095-qa-headbutt-rocksmash-logic.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-057-120-fix-headbutt-rocksmash-moves.md
+Error: Parent path does not exist: './stories/story-029-057-interaction-logic.md' in file /app/.foundry/tasks/task-057-120-fix-headbutt-rocksmash-moves.md
+Error: Dependency path does not exist: './tasks/task-057-120-fix-headbutt-rocksmash-moves.md' in file /app/.foundry/tasks/task-057-121-qa-headbutt-rocksmash-moves.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-057-121-qa-headbutt-rocksmash-moves.md
+Error: Parent path does not exist: './stories/story-029-057-interaction-logic.md' in file /app/.foundry/tasks/task-057-121-qa-headbutt-rocksmash-moves.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-058-094-implement-roamer-and-stat-evolutions.md
+Error: Parent path does not exist: './stories/story-029-058-roamer-tracking-and-stat-evolutions.md' in file /app/.foundry/tasks/task-058-094-implement-roamer-and-stat-evolutions.md
+Error: Dependency path does not exist: './tasks/task-058-094-implement-roamer-and-stat-evolutions.md' in file /app/.foundry/tasks/task-058-095-qa-roamer-and-stat-evolutions.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-058-095-qa-roamer-and-stat-evolutions.md
+Error: Parent path does not exist: './stories/story-029-058-roamer-tracking-and-stat-evolutions.md' in file /app/.foundry/tasks/task-058-095-qa-roamer-and-stat-evolutions.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-058-110-implement-roamer-tracking.md
+Error: Parent path does not exist: './stories/story-029-058-roamer-tracking-and-stat-evolutions.md' in file /app/.foundry/tasks/task-058-110-implement-roamer-tracking.md
+Error: Dependency path does not exist: './tasks/task-058-110-implement-roamer-tracking.md' in file /app/.foundry/tasks/task-058-111-qa-roamer-tracking.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-058-111-qa-roamer-tracking.md
+Error: Parent path does not exist: './stories/story-029-058-roamer-tracking-and-stat-evolutions.md' in file /app/.foundry/tasks/task-058-111-qa-roamer-tracking.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-058-112-implement-stat-evolutions.md
+Error: Parent path does not exist: './stories/story-029-058-roamer-tracking-and-stat-evolutions.md' in file /app/.foundry/tasks/task-058-112-implement-stat-evolutions.md
+Error: Dependency path does not exist: './tasks/task-058-112-implement-stat-evolutions.md' in file /app/.foundry/tasks/task-058-113-qa-stat-evolutions.md
+Error: Research reference path does not exist: './docs/knowledge_base/development/gen2_implementation_plan.md' in file /app/.foundry/tasks/task-058-113-qa-stat-evolutions.md
+Error: Parent path does not exist: './stories/story-029-058-roamer-tracking-and-stat-evolutions.md' in file /app/.foundry/tasks/task-058-113-qa-stat-evolutions.md
+Error: Dependency path does not exist: './tasks/task-060-108-gen3-bounds-checking-impl.md' in file /app/.foundry/tasks/task-060-109-gen3-bounds-checking-qa.md
+Error: Dependency path does not exist: './tasks/task-060-116-gen3-bounds-checking-impl.md' in file /app/.foundry/tasks/task-060-117-gen3-bounds-checking-qa.md
+Error: Dependency path does not exist: './tasks/task-061-122-gen3-legacy-compatibility-impl.md' in file /app/.foundry/tasks/task-061-123-gen3-legacy-compatibility-qa.md
+Error: Research reference path does not exist: './research/research-062-001-gen3-location-fetching.md' in file /app/.foundry/tasks/task-062-112-gen3-locations-script-retry-impl.md
+Error: Dependency path does not exist: './tasks/task-066-106-implement-prless-detection.md' in file /app/.foundry/tasks/task-066-107-qa-prless-detection.md
+Error: Dependency path does not exist: './tasks/task-067-114-implement-heartbeat-state-transitions.md' in file /app/.foundry/tasks/task-067-115-implement-heartbeat-state-transitions.md
+Error: Dependency path does not exist: './tasks/task-067-115-implement-heartbeat-state-transitions.md' in file /app/.foundry/tasks/task-067-116-qa-heartbeat-state-transitions.md

@@ -22,4 +22,4 @@ Agents frequently hallucinate dead links when generating child nodes, which can 
 This will significantly reduce the number of orchestrator failures, reduce the burden on the TPM agent to resolve minor graph deadlocks, and improve overall repository hygiene.
 
 ## Generated PRDs
-- [x] .foundry/prds/prd-007-006-automated-link-checker.md
+- [x] ./prds/prd-007-006-automated-link-checker.md

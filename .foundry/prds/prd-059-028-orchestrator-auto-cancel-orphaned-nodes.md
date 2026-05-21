@@ -43,4 +43,4 @@ When a child node (e.g., an implementation TASK) permanently fails by reaching i
 - Verification that the cancellation reason is properly recorded in the node's frontmatter.
 
 ## Epics
-- .foundry/epics/epic-028-035-orchestrator-auto-cancel-orphaned-nodes.md
+- ./epics/epic-028-035-orchestrator-auto-cancel-orphaned-nodes.md

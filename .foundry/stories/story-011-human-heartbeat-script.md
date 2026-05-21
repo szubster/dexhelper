@@ -8,10 +8,10 @@ created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-012-human-heartbeat.md"
+parent: "./epics/epic-012-human-heartbeat
 tags:
-  - "human-in-the-loop"
-  - "heartbeat"
+  - human-in-the-loop
+  - heartbeat
 ---
 
 # Story 011: Update heartbeat script to support human tasks
@@ -27,4 +27,4 @@ Currently, the heartbeat script (`.github/scripts/foundry-heartbeat.ts`) will ma
 - [x] Add unit tests mocking the GitHub API.
 
 ## Generated Tasks
-- [.foundry/tasks/task-022-update-heartbeat-script.md](.foundry/tasks/task-022-update-heartbeat-script.md)
+- [./tasks/task-022-update-heartbeat-script.md](./tasks/task-022-update-heartbeat-script.md)

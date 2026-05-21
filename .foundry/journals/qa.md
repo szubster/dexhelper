@@ -29,7 +29,7 @@ Rejected `task-047-078-implement-cleanup-remote-branches` and marked `task-047-0
 The QA check failed because the coder did not implement the `cleanupRemoteBranches` function in `.github/scripts/foundry-heartbeat.ts` nor did they write the required tests in `.github/scripts/foundry-heartbeat.test.ts`. I have updated the markdown bodies of both task nodes and recorded the rejection reasons.
 ## 2026-05-11: DAG Parser Verification
 
-**Task Verified:** `.foundry/tasks/task-043-076-qa-dag-parser.md`
+**Task Verified:** `./tasks/task-043-076-qa-dag-parser.md`
 
 ### Verification Summary
 - Reviewed `src/utils/dag/readFoundryFiles.ts`, `src/utils/dag/parser.ts`, and `src/utils/dag/builder.ts` implementing DAG generation components.

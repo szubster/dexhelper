@@ -28,4 +28,4 @@ Create a dashboard to visualize the DAG state. This could be achieved by generat
 - [x] Convert this idea into a detailed PRD defining the visualization approach and technical requirements.
 
 **Generated PRD:**
-- `.foundry/prds/prd-017-017-dag-dashboard.md`
+- `./prds/prd-017-017-dag-dashboard.md`

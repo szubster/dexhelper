@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-04-27'
 updated_at: '2026-04-29'
 depends_on:
-  - .foundry/archive/epics/epic-005-013-idb-infrastructure.md
-  - .foundry/archive/tasks/task-031-051-implement-dual-write-persistence.md
+  - ./archive/epics/epic-005-013-idb-infrastructure
+  - ./archive/tasks/task-031-051-implement-dual-write-persistence
 jules_session_id: null
-parent: .foundry/archive/epics/epic-005-014-state-store-migration.md
+parent: ./archive/epics/epic-005-014-state-store-migration
 tags:
   - persistence
   - indexeddb
@@ -28,5 +28,5 @@ To ensure a safe transition and prevent data loss, the application should tempor
 - [x] Both operations happen atomically or with robust error handling.
 
 ## Generated Tasks
-- .foundry/archive/tasks/task-031-051-implement-dual-write-persistence.md
-- .foundry/archive/tasks/task-031-055-qa-dual-write-persistence.md
+- ./archive/tasks/task-031-051-implement-dual-write-persistence.md
+- ./archive/tasks/task-031-055-qa-dual-write-persistence.md

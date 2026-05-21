@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-004-shadow-dispatch-verification.md
+parent: ./stories/story-004-shadow-dispatch-verification
 tags: ["orchestrator", "concurrency", "investigation"]
 rejection_count: 2
 notes: ""
@@ -25,6 +25,6 @@ Initial architectural review by the Tech Lead suggests that Shadow Dispatch is i
 
 ## Acceptance Criteria
 - [x] Verify the Tech Lead's findings regarding the `foundry-engine.yml` concurrency behavior.
-- [x] Update the acceptance criteria checkboxes in `.foundry/stories/story-004-shadow-dispatch-verification.md` to marked as completed.
-- [x] Append a summary of these findings to the bottom of the `.foundry/stories/story-004-shadow-dispatch-verification.md` body.
+- [x] Update the acceptance criteria checkboxes in `./stories/story-004-shadow-dispatch-verification.md` to marked as completed.
+- [x] Append a summary of these findings to the bottom of the `./stories/story-004-shadow-dispatch-verification.md` body.
 - [x] Conclude in the documentation whether full implementation of GitHub PR inspection and Session Verification is actually necessary.

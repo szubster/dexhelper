@@ -7,12 +7,12 @@ owner_persona: story_owner
 created_at: '2026-04-24'
 updated_at: '2026-05-01'
 depends_on:
-  - .foundry/archive/epics/epic-005-013-idb-infrastructure.md
-  - .foundry/archive/stories/story-014-031-dual-write-save-persistence.md
-  - .foundry/archive/stories/story-014-029-async-startup-hydration.md
-  - .foundry/archive/stories/story-014-026-refactor-state-store-sync.md
+  - ./archive/epics/epic-005-013-idb-infrastructure
+  - ./archive/stories/story-014-031-dual-write-save-persistence
+  - ./archive/stories/story-014-029-async-startup-hydration
+  - ./archive/stories/story-014-026-refactor-state-store-sync
 jules_session_id: null
-parent: .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+parent: ./archive/prds/prd-007-005-migrate-saves-to-indexeddb
 tags:
   - state
   - store
@@ -31,6 +31,6 @@ This Epic focuses on refactoring `src/store.ts` to decouple save file persistenc
 - [x] The core state seamlessly operates with the new async paradigm.
 
 ## Generated Stories
-- .foundry/archive/stories/story-014-029-async-startup-hydration.md
-- .foundry/archive/stories/story-014-026-refactor-state-store-sync.md
-- .foundry/archive/stories/story-014-031-dual-write-save-persistence.md
+- ./archive/stories/story-014-029-async-startup-hydration.md
+- ./archive/stories/story-014-026-refactor-state-store-sync.md
+- ./archive/stories/story-014-031-dual-write-save-persistence.md

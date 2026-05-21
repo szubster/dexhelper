@@ -8,7 +8,7 @@ created_at: "2026-04-24"
 updated_at: "2026-04-25"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-011-wait-and-wake-protocol.md"
+parent: "./epics/epic-011-wait-and-wake-protocol
 tags:
   - foundry-v2
   - architecture
@@ -25,5 +25,5 @@ Implement the Wait & Wake orchestration logic. When an agent dynamically spawns 
 - [x] The Orchestrator correctly transitions the parent node back to `READY` and re-dispatches the agent once all newly spawned downstream tasks are `COMPLETED`.
 
 ## Generated Tasks
-- `.foundry/tasks/task-016-030-implement-wait-wake.md`
-- `.foundry/tasks/task-016-031-qa-wait-wake.md`
+- `./tasks/task-016-030-implement-wait-wake.md`
+- `./tasks/task-016-031-qa-wait-wake.md`

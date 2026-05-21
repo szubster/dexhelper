@@ -4,7 +4,7 @@ All tasks for this story have already been generated, and all acceptance criteri
 ## story-014-029-async-startup-hydration
 All tasks for this story have already been generated, and all acceptance criteria are checked off in the story markdown body. No further blueprinting is required. Applying EMPTY PR POLICY.
 ## story-014-026-refactor-state-store-sync
-Anomaly for Agile Coach: The target task artifact .foundry/archive/tasks/task-026-044-refactor-state-store-sync.md unexpectedly existed prior to the session and is already marked as COMPLETED. No further blueprinting is required. Applying EMPTY PR POLICY.
+Anomaly for Agile Coach: The target task artifact ./archive/tasks/task-026-044-refactor-state-store-sync.md unexpectedly existed prior to the session and is already marked as COMPLETED. No further blueprinting is required. Applying EMPTY PR POLICY.
 
 ## 2025-05-15
 - Reviewed story `story-026-041-inventory-parsing`.
@@ -35,13 +35,13 @@ All sibling tasks were explicitly linked via `depends_on` to ensure execution se
 - Decided to extend `foundry-heartbeat.ts` rather than create a new cron script to centralize the logic, since heartbeat already parses active/failed nodes and accesses GitHub APIs.
 - Used Intelligent Verification Protocol to create a separate QA task because executing remote branch deletion is risky and requires careful validation.
 ## Story 025-040: Write Validation Tests for Orchestrator Pipeline Handoff
-- **Target Node**: `.foundry/archive/stories/story-025-040-write-validation-tests.md`
+- **Target Node**: `./archive/stories/story-025-040-write-validation-tests.md`
 - **Action Taken**: NO WORK REQUIRED. The validation tests (Mapping Validation: Enforces type to persona mappings before dispatch) already exist and are fully implemented in `.github/scripts/foundry-orchestrator.test.ts`.
 - **Outcome**: Executing Empty PR Policy.
 
 ## 2026-05-11: Artifacts Already Exist
 - **Task:** Phase 3: Gen 2 Map Graph Implementation (story-028-043-gen2-map-graph)
-- **Observation:** The generated artifacts (`task-043-071-implement-gen2-map-graph.md` and `.foundry/archive/tasks/task-043-072-qa-gen2-map-graph.md`) already exist and are marked as COMPLETED.
+- **Observation:** The generated artifacts (`task-043-071-implement-gen2-map-graph.md` and `./archive/tasks/task-043-072-qa-gen2-map-graph.md`) already exist and are marked as COMPLETED.
 - **Action:** Executing Empty PR Policy. Since the requested target node already exists and is complete, I will not modify any parent node checkboxes or files to force a git diff. There is no work to do, submitting an empty PR.
 
 ## 2026-05-11: DAG Dashboard Graph Evaluation Blueprint
@@ -77,11 +77,11 @@ Drafted Coder and QA tasks to update `foundry-heartbeat.ts` to assign `rejection
 - **Task:** Phase 3: Indoor to Outdoor Resolution (story-028-044-indoor-outdoor-resolution)
 - **Observation:** The generated artifacts (`task-044-080-implement-indoor-outdoor-resolution.md` and `task-044-081-qa-indoor-outdoor-resolution.md`) already exist and are marked as COMPLETED.
 - **Action:** Executing Empty PR Policy. Since the requested target nodes already exist and are complete, I will not modify any parent node checkboxes or files to force a git diff. There is no work to do, submitting an empty PR.
-* 2026-05-12: Read global context docs (.foundry/docs/, .foundry/docs/knowledge_base/, .foundry/docs/adrs/). Checked the target story `story-028-044-indoor-outdoor-resolution.md`. The target artifact already exists and is complete (tasks `task-044-080-implement-indoor-outdoor-resolution.md` and `task-044-081-qa-indoor-outdoor-resolution.md` are already generated and COMPLETED). Per the Empty PR Policy for pre-existing artifacts, there is no work to do. Will submit an empty PR.
-* 2026-05-13: Read global context docs (.foundry/docs/, .foundry/docs/knowledge_base/, .foundry/docs/adrs/). Checked the target story `story-028-044-indoor-outdoor-resolution.md`. The target artifacts already exist and are complete (tasks `task-044-080-implement-indoor-outdoor-resolution.md` and `task-044-081-qa-indoor-outdoor-resolution.md` are already generated and COMPLETED). Per the Empty PR Policy for pre-existing artifacts, there is no work to do. Submitting an empty PR.
+* 2026-05-12: Read global context docs (./docs/, ./docs/knowledge_base/, ./docs/adrs/). Checked the target story `story-028-044-indoor-outdoor-resolution.md`. The target artifact already exists and is complete (tasks `task-044-080-implement-indoor-outdoor-resolution.md` and `task-044-081-qa-indoor-outdoor-resolution.md` are already generated and COMPLETED). Per the Empty PR Policy for pre-existing artifacts, there is no work to do. Will submit an empty PR.
+* 2026-05-13: Read global context docs (./docs/, ./docs/knowledge_base/, ./docs/adrs/). Checked the target story `story-028-044-indoor-outdoor-resolution.md`. The target artifacts already exist and are complete (tasks `task-044-080-implement-indoor-outdoor-resolution.md` and `task-044-081-qa-indoor-outdoor-resolution.md` are already generated and COMPLETED). Per the Empty PR Policy for pre-existing artifacts, there is no work to do. Submitting an empty PR.
 
 ## 2026-05-12: Target Artifacts Exist but are Incomplete
-When processing `story-031-050-enforce-acceptance-criteria-completion`, I noticed that the target artifacts (`.foundry/tasks/task-050-083-enforce-acceptance-criteria.md` and `.foundry/tasks/task-050-084-qa-enforce-acceptance-criteria.md`) already exist. However, they are incomplete (their status is ACTIVE/PENDING, and they have unchecked acceptance criteria). Since the tasks already map perfectly to the implementation needs, I do not need to create new ones, and I can just submit this empty PR.
+When processing `story-031-050-enforce-acceptance-criteria-completion`, I noticed that the target artifacts (`./tasks/task-050-083-enforce-acceptance-criteria.md` and `./tasks/task-050-084-qa-enforce-acceptance-criteria.md`) already exist. However, they are incomplete (their status is ACTIVE/PENDING, and they have unchecked acceptance criteria). Since the tasks already map perfectly to the implementation needs, I do not need to create new ones, and I can just submit this empty PR.
 ## 2026-05-12 - Handling existing complete artifacts
 When transforming a STORY into a TASK, if the tasks have already been fully implemented, complete, and the acceptance criteria of the story are met by pre-existing tasks, apply the Empty PR policy. We should just check the acceptance criteria checkbox in the story markdown without changing the YAML frontmatter and submit an empty PR (only the story markdown modification and journal updates, leaving 0 files changed in terms of new features or new task nodes created).
 

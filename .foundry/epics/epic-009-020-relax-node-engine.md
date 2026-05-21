@@ -9,7 +9,7 @@ updated_at: "2026-05-01"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: ".foundry/prds/prd-011-009-relax-node-engine.md"
+parent: "./prds/prd-011-009-relax-node-engine
 tags: ["infrastructure"]
 notes: ""
 ---
@@ -23,4 +23,4 @@ Update the `engines.node` field in `package.json` from `>=24.0.0` to `>=22.0.0` 
 - [x] Update `engines.node` in `package.json` to `>=22.0.0`.
 
 ## Stories
-- [ ] .foundry/stories/story-020-035-relax-node-engine.md
+- [ ] ./stories/story-020-035-relax-node-engine.md

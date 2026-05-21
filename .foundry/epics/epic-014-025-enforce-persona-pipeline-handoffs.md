@@ -9,7 +9,7 @@ updated_at: '2026-05-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-015-014-enforce-persona-pipeline.md
+parent: ./prds/prd-015-014-enforce-persona-pipeline
 tags:
   - foundry
   - dag
@@ -53,8 +53,8 @@ The orchestrator must enforce these ownership rules:
 
 ## Subsequent Work (Stories)
 - [x] Create Story to implement the mapping validation logic in the orchestrator.
-- Child: .foundry/stories/story-025-038-implement-mapping-validation.md
+- Child: ./stories/story-025-038-implement-mapping-validation.md
 - [x] Create Story to implement the failure handling and logging for validation mismatches.
-- Child: .foundry/stories/story-025-039-implement-failure-handling.md
+- Child: ./stories/story-025-039-implement-failure-handling.md
 - [x] Create Story to write unit tests covering the validation edge cases.
-- Child: .foundry/archive/stories/story-025-040-write-validation-tests.md
+- Child: ./archive/stories/story-025-040-write-validation-tests.md

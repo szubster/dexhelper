@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-007-atomic-handoff-schema.md"
+parent: "./epics/epic-007-atomic-handoff-schema
 ---
 
 # Update Schema Invariants for Atomic Handoffs
@@ -21,4 +21,4 @@ As part of the Atomic Handoffs transition, `schema.md` must be updated to strict
 - [x] The single-owner invariant is added to the "System Invariants" section.
 
 ## Generated Tasks
-- `.foundry/tasks/task-007-024-update-schema-owner-invariant.md`
+- `./tasks/task-007-024-update-schema-owner-invariant.md`

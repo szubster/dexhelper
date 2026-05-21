@@ -9,7 +9,7 @@ updated_at: "2026-05-04"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-013-012-improve-late-binding-completion.md
+parent: ./prds/prd-013-012-improve-late-binding-completion
 tags:
   - orchestrator
   - late-binding
@@ -38,4 +38,4 @@ Enhance the Foundry orchestrator (`.github/scripts/foundry-orchestrator.ts`) to 
 ## Acceptance Criteria
 - [x] Story Owner: Break this Epic down into actionable stories.
 
-- `.foundry/stories/story-024-037-orchestrator-late-binding-completion.md`
+- `./stories/story-024-037-orchestrator-late-binding-completion.md`

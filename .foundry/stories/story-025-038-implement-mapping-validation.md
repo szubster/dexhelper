@@ -9,7 +9,7 @@ updated_at: "2026-05-05"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md
+parent: ./epics/epic-014-025-enforce-persona-pipeline-handoffs
 tags:
   - foundry
   - dag
@@ -36,5 +36,5 @@ Implement the mapping validation logic in the orchestrator to enforce pipeline h
 - [x] Create Task to add logic.
 
 ## Generated Tasks
-- `.foundry/tasks/task-038-064-implement-mapping-validation.md`
-- `.foundry/tasks/task-038-065-qa-mapping-validation.md`
+- `./tasks/task-038-064-implement-mapping-validation.md`
+- `./tasks/task-038-065-qa-mapping-validation.md`

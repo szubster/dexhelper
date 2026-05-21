@@ -33,4 +33,4 @@ Better handling of cancelled features, preventing wasted effort on downstream ta
 ## Next Steps
 - [x] Product Manager: Convert this idea to a PRD.
 
-[.foundry/prds/prd-014-013-cascade-cancellation.md](.foundry/prds/prd-014-013-cascade-cancellation.md)
+[./prds/prd-014-013-cascade-cancellation.md](./prds/prd-014-013-cascade-cancellation.md)

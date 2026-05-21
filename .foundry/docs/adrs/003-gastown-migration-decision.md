@@ -32,7 +32,7 @@ We will use Cloudflare D1 (SQLite) instead of Workers KV.
   5. The Worker parses the frontmatter and updates the D1 relational schema accordingly.
 
 ### Migration Plan (High-Level)
-1. **Phase 1: Dual-Write Setup.** Implement the Cloudflare Worker and D1 schema. Configure the repo webhook to sync `.foundry/` file changes to D1 passively.
+1. **Phase 1: Dual-Write Setup.** Implement the Cloudflare Worker and D1 schema. Configure the repo webhook to sync `` file changes to D1 passively.
 2. **Phase 2: Validation.** Run a shadow orchestrator on the Worker to compare D1 state and in-degree calculations against the existing GitHub Actions graph.
 3. **Phase 3: Cutover.** Disable the GitHub Actions orchestrator workflow. Enable the Worker to actively dispatch Jules sessions via GitHub API based on D1 state.
 

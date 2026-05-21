@@ -42,6 +42,6 @@ This Epic implements the requirements defined in `prd-019-019-automated-branch-c
 - [x] Safety checks prevent deletion of `main`, active PR branches, or branches associated with `PENDING`, `READY`, `ACTIVE`, or `COMPLETED` nodes.
 - [x] Tests verify the branch identification and deletion orchestration logic (with mocked Git/GitHub API calls).
 
-Target artifact: [.foundry/stories/story-030-046-branch-identification.md](.foundry/stories/story-030-046-branch-identification.md)
+Target artifact: [./stories/story-030-046-branch-identification.md](./stories/story-030-046-branch-identification.md)
 
-Target artifact: [.foundry/stories/story-030-047-branch-cleanup-mechanism.md](.foundry/stories/story-030-047-branch-cleanup-mechanism.md)
+Target artifact: [./stories/story-030-047-branch-cleanup-mechanism.md](./stories/story-030-047-branch-cleanup-mechanism.md)

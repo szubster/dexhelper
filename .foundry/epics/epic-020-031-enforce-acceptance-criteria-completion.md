@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-05-11'
 updated_at: '2026-05-14'
 depends_on:
-  - .foundry/prds/prd-020-020-enforce-acceptance-criteria-completion.md
+  - ./prds/prd-020-020-enforce-acceptance-criteria-completion
 jules_session_id: null
 pr_number: null
 parent: prd-020-020-enforce-acceptance-criteria-completion
@@ -34,4 +34,4 @@ According to ADR 007, standard leaf tasks that are merged with unchecked accepta
 - [x] Add unit tests in `foundry-heartbeat.test.ts` to verify the different handling of leaf tasks versus parent nodes with unchecked boxes.
 
 ### Child Nodes
-- [ ] .foundry/stories/story-031-050-enforce-acceptance-criteria-completion.md
+- [ ] ./stories/story-031-050-enforce-acceptance-criteria-completion.md

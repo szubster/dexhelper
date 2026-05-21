@@ -9,7 +9,7 @@ updated_at: "2026-05-09"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-017-017-dag-dashboard.md
+parent: ./prds/prd-017-017-dag-dashboard
 tags:
   - dag
   - dashboard
@@ -26,7 +26,7 @@ notes: ''
 This Epic covers the backend/data layer for the DAG Dashboard Webview. It is responsible for parsing the markdown files within the `.foundry` directories and generating a structured representation of the DAG.
 
 ## Requirements
-- Read all markdown files in the following directories: `.foundry/ideas/`, `.foundry/prds/`, `.foundry/epics/`, `.foundry/stories/`, and `.foundry/tasks/`.
+- Read all markdown files in the following directories: `./ideas/`, `./prds/`, `./epics/`, `./stories/`, and `./tasks/`.
 - Parse the YAML frontmatter of each file using `gray-matter`.
 - Extract required fields: `id`, `type`, `status`, `owner_persona`, and `depends_on`.
 - Build a structured JSON representation of the nodes and their directed edges (dependencies) suitable for a frontend visualization library.
@@ -37,4 +37,4 @@ This Epic covers the backend/data layer for the DAG Dashboard Webview. It is res
 - [x] Implement a builder function that outputs the final node/edge graph data structure.
 
 ## References
-- Child Story: `.foundry/stories/story-028-043-implement-dag-parser.md`
+- Child Story: `./stories/story-028-043-implement-dag-parser.md`

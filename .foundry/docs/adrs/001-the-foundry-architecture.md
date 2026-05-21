@@ -8,18 +8,18 @@ A "CEO-Level" orchestration system where the human provides high-level ideas and
 - **CEO Checkpoints**: ALL PR transitions (from PRDs to Code) require explicit CEO approval. Automerge is strictly disabled.
 - **The Journal & Veto Power**: The CEO says "No" by closing a PR without merging. System personas (like Agile Coach and Strategist) use a persistent journal to log closed PRs and extract lessons for future cycles. Empty PRs (0 files changed) are automatically merged to allow the DAG to progress if no work is required.
 
-## 1. State Store (`.foundry/` Monofolder)
+## 1. State Store (`` Monofolder)
 The repository acts as the database for the entire product lifecycle, containing markdown files representing nodes.
-- **`.foundry/ideas/`**: CEO thoughts.
-- **`.foundry/prds/`**: Product Requirements.
-- **`.foundry/epics/`**: Macroscopic functional chunks.
-- **`.foundry/stories/`**: Incremental unblocking steps (Story 2 is only written after Story 1 finishes, incorporating lessons).
-- **`.foundry/tasks/`**: Specific engineering implementations with attached technical specs.
+- **`./ideas/`**: CEO thoughts.
+- **`./prds/`**: Product Requirements.
+- **`./epics/`**: Macroscopic functional chunks.
+- **`./stories/`**: Incremental unblocking steps (Story 2 is only written after Story 1 finishes, incorporating lessons).
+- **`./tasks/`**: Specific engineering implementations with attached technical specs.
 
 ### Global System Context (Knowledge Base)
 To prevent massive context bloat while keeping tasks context-aware, global system parameters are stored separately and selectively injected based on context or tags:
-- **`.foundry/docs/adrs/`**: Architecture Decision Records. The `tech_lead` maintains and reads these to ensure consistency.
-- **`.foundry/docs/style_guides/`**: Global UX/UI constraints for the `designer`.
+- **`./docs/adrs/`**: Architecture Decision Records. The `tech_lead` maintains and reads these to ensure consistency.
+- **`./docs/style_guides/`**: Global UX/UI constraints for the `designer`.
 
 ## 2. DAG Orchestrator & Massive Concurrency
 - Workflows are defined by `depends_on` arrays within the YAML frontmatter of the markdown files. Dependencies are universal across directories.
@@ -29,13 +29,13 @@ To prevent massive context bloat while keeping tasks context-aware, global syste
 ## 3. The Resurrection Loop & Self-Healing
 - **No Git Rebasing**: Since Jules struggles with rebases, we treat sessions as highly disposable.
 - If the CEO closes an active Foundry PR without merging, the orchestrator triggers and marks the old session dead. It grabs the CEO's review comments from the closed PR and spawns a completely fresh, new Jules session on a new branch with the precise rejection feedback injected as context.
-- **Heartbeat & Zombie Prevention**: A scheduled action reads `jules_session_id` inside `.foundry/` files marked `ACTIVE`. It queries the Jules API. If a session crashed silently, it flips the node to `FAILED` or `BLOCKED` for CEO review.
+- **Heartbeat & Zombie Prevention**: A scheduled action reads `jules_session_id` inside `` files marked `ACTIVE`. It queries the Jules API. If a session crashed silently, it flips the node to `FAILED` or `BLOCKED` for CEO review.
 - **Context Hydration**: The script concatenates the vertical "read graph". For example, Tasks are injected with context from their parent Story and PRD.
 
 ## 4. Personas Pipeline (`.github/agents/`)
 
 ### Agent Journals
-Every agent persona maintains a continuous log in **`.foundry/journals/<agent_name>.md`**. 
+Every agent persona maintains a continuous log in **`./journals/<agent_name>.md`**.
 When the 'Resurrection Loop' runs, the returning agent updates its local journal with its mistake, ensuring the persona learns localized domain knowledge from CEO rejections.
 
 **The Product Team:**
@@ -60,7 +60,7 @@ When the 'Resurrection Loop' runs, the returning agent updates its local journal
 ## 6. Implementation Progress
 
 ### ✅ Epic 1, Story 1.1 — COMPLETED (2026-04-20)
-The `.foundry/` monofolder has been scaffolded at the repository root. All 9 files are committed:
+The `` monofolder has been scaffolded at the repository root. All 9 files are committed:
 - `ideas/`, `prds/`, `epics/`, `stories/`, `tasks/`, `journals/` (all with `.gitkeep`)
 - `docs/adrs/`, `docs/style_guides/` (both with `.gitkeep`)
 - `docs/schema.md` — the master definitions document (YAML schema, status lifecycle, system invariants, node template)
@@ -72,7 +72,7 @@ The `.foundry/` monofolder has been scaffolded at the repository root. All 9 fil
 
 ### ✅ Epic 2, Story 2.2 — COMPLETED (2026-04-20)
 **QA & State Bootstrap**
-- State store bootstrapped with initial v1.0 nodes: `.foundry/ideas/idea-001`, `.foundry/epics/epic-003`, `.foundry/stories/story-001/002`.
+- State store bootstrapped with initial v1.0 nodes: `./ideas/idea-001`, `./epics/epic-003`, `./stories/story-001/002`.
 - Verification performed: Successfully promoted `epic-003` to `READY` via `foundry-orchestrator.ts`.
 - **Automated Testing**: 5/5 Vitest unit tests implemented in `.github/scripts/foundry-orchestrator.test.ts`, covering DAG resolution, blocking, resilience, and dry-run logic.
 - Foundational `package.json` updated with test automation scripts.

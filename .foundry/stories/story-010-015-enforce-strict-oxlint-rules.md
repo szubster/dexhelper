@@ -7,8 +7,8 @@ owner_persona: "story_owner"
 created_at: "2026-04-24"
 updated_at: "2026-04-25"
 depends_on:
-  - ".foundry/tasks/task-014-027-configure-oxlint-json.md"
-parent: ".foundry/epics/epic-010-oxlint-config.md"
+  - "./tasks/task-014-027-configure-oxlint-json
+parent: "./epics/epic-010-oxlint-config
 jules_session_id: null
 ---
 
@@ -27,5 +27,5 @@ All disabled oxlint rules should be enabled back. The tech lead should create a 
 2. Ensure each task focuses strictly on enabling that rule in `.oxlintrc.json` and fixing all corresponding violations across the codebase.
 
 ## Generated Tasks
-- [.foundry/tasks/task-015-033-oxlint-require-mock-type-parameters.md](../tasks/task-015-033-oxlint-require-mock-type-parameters.md)
-- [.foundry/tasks/task-015-034-oxlint-expect-expect.md](../tasks/task-015-034-oxlint-expect-expect.md)
+- [./tasks/task-015-033-oxlint-require-mock-type-parameters.md](../tasks/task-015-033-oxlint-require-mock-type-parameters.md)
+- [./tasks/task-015-034-oxlint-expect-expect.md](../tasks/task-015-034-oxlint-expect-expect.md)

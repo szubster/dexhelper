@@ -8,10 +8,10 @@ created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-011-human-heartbeat-script.md"
+parent: "./stories/story-011-human-heartbeat-script
 tags:
-  - "human-in-the-loop"
-  - "heartbeat"
+  - human-in-the-loop
+  - heartbeat
 ---
 
 # Update heartbeat script to support human tasks

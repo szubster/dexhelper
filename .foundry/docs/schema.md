@@ -8,7 +8,7 @@
 
 ## 1. System Overview
 
-The Foundry is an autonomous software factory layered on this repository. The **repository itself is the database**: every concept in the product lifecycle — from a raw CEO thought through to a shipped task — lives as a markdown file with YAML frontmatter under the `.foundry/` directory at the repository root.
+The Foundry is an autonomous software factory layered on this repository. The **repository itself is the database**: every concept in the product lifecycle — from a raw CEO thought through to a shipped task — lives as a markdown file with YAML frontmatter under the `` directory at the repository root.
 
 The workflow is a directed acyclic graph (DAG):
 
@@ -24,14 +24,14 @@ A custom orchestrator (`.github/scripts/foundry-orchestrator.ts`) parses the `de
 
 | Directory | Node Type | Owning Persona | Description |
 |---|---|---|---|
-| `.foundry/ideas/` | `IDEA` | `product_manager` | Raw CEO thoughts, intake queue. |
-| `.foundry/prds/` | `PRD` | `product_manager` | Structured Product Requirements Documents. |
-| `.foundry/epics/` | `EPIC` | `epic_planner` | Macroscopic functional chunks derived from PRDs. |
-| `.foundry/stories/` | `STORY` | `story_owner` | Incremental, sequentially-planned delivery steps. Stories are late-binding: Story N+1 is only written after Story N completes so lessons are incorporated. |
-| `.foundry/tasks/` | `TASK` | `coder` | Concrete engineering blueprints. The Tech Lead or Architect writes them; the Coder implements; QA validates. |
-| `.foundry/journals/` | — | `tpm` | Persistent agent learning logs. Each persona decides its own structure (single file, subdirectory, multiple files by domain, etc.). The `tpm` is responsible for archiving stale journal content. |
-| `.foundry/docs/adrs/` | ADR | `tech_lead` | Architecture Decision Records. The Tech Lead reads these before writing any Task to ensure consistency. |
-| `.foundry/docs/style_guides/` | Style Guide | `designer` | Global UX/UI constraints injected into designer tasks. |
+| `./ideas/` | `IDEA` | `product_manager` | Raw CEO thoughts, intake queue. |
+| `./prds/` | `PRD` | `product_manager` | Structured Product Requirements Documents. |
+| `./epics/` | `EPIC` | `epic_planner` | Macroscopic functional chunks derived from PRDs. |
+| `./stories/` | `STORY` | `story_owner` | Incremental, sequentially-planned delivery steps. Stories are late-binding: Story N+1 is only written after Story N completes so lessons are incorporated. |
+| `./tasks/` | `TASK` | `coder` | Concrete engineering blueprints. The Tech Lead or Architect writes them; the Coder implements; QA validates. |
+| `./journals/` | — | `tpm` | Persistent agent learning logs. Each persona decides its own structure (single file, subdirectory, multiple files by domain, etc.). The `tpm` is responsible for archiving stale journal content. |
+| `./docs/adrs/` | ADR | `tech_lead` | Architecture Decision Records. The Tech Lead reads these before writing any Task to ensure consistency. |
+| `./docs/style_guides/` | Style Guide | `designer` | Global UX/UI constraints injected into designer tasks. |
 
 ### File Naming Convention
 
@@ -43,9 +43,9 @@ Files are named after their `id` field:
 *(Note: `IDEA` nodes do not have a parent and omit the `<parent_NNN>` segment.)*
 
 Examples:
-- `.foundry/ideas/idea-001-auth-overhaul.md` (Idea, no parent)
-- `.foundry/prds/prd-001-002-auth-spec.md` (PRD spawned from Idea 001)
-- `.foundry/tasks/task-010-042-parse-daycare-offsets.md` (Task spawned from Story 010)
+- `./ideas/idea-001-auth-overhaul.md` (Idea, no parent)
+- `./prds/prd-001-002-auth-spec.md` (PRD spawned from Idea 001)
+- `./tasks/task-010-042-parse-daycare-offsets.md` (Task spawned from Story 010)
 
 - `<type>` is lowercase (idea, prd, epic, story, task).
 - `<parent_NNN>` is the zero-padded three-digit sequence number of the parent node (use `000` if a non-IDEA node is orphaned).
@@ -90,7 +90,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `owner_persona` | `enum` | ✅ | Persona responsible for progressing this node. Must be exactly one assigned persona (no arrays or multiple personas). See §5. |
 | `created_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Immutable after creation. |
 | `updated_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Must be updated whenever the file is edited. |
-| `depends_on` | `string[]` | ✅ | Repo-relative paths to blocking nodes (e.g., `.foundry/stories/story-001-scaffold.md`). **Empty array `[]` means the node has in-degree zero and is eligible for dispatch once all other preconditions are met.** |
+| `depends_on` | `string[]` | ✅ | Repo-relative paths to blocking nodes (e.g., `./stories/story-001-scaffold.md`). **Empty array `[]` means the node has in-degree zero and is eligible for dispatch once all other preconditions are met.** |
 | `jules_session_id` | `string \| null` | ✅ | Jules session ID while `ACTIVE`. Always present; `null` when the node is not being processed. Monitored by the heartbeat workflow. |
 | `pr_number` | `integer \| null` | optional | PR number for human-in-the-loop tasks, or `null`. |
 | `parent` | `string \| null` | optional | The ID (preferred) or repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
@@ -162,7 +162,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 
 ## 6. Journal Convention
 
-> Journals live under `.foundry/journals/`. Beyond that, **structure is entirely up to each persona.**
+> Journals live under `./journals/`. Beyond that, **structure is entirely up to each persona.**
 
 A persona may use:
 - A single file: `journals/coder.md`
@@ -185,8 +185,8 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
 6. **Implementers (Coder/QA) must NOT modify node frontmatter**, EXCEPT for the `status` field if they need to mark the task as `FAILED`, and the `rejection_reason` field. They are strictly forbidden from setting the status to `COMPLETED` or `DONE`. They should primarily update the Markdown body.
 7. **`COMPLETED` nodes are read-only.** Once a PR is merged, the node must not be edited. The TPM archives it.
 8. **`depends_on` paths must be resolvable.** The orchestrator will treat an unresolvable path as a permanent block (equivalent to `BLOCKED`). Always verify paths exist before committing.
-9. **Every `.foundry/**/*.md` file that is not a journal or doc must have valid YAML frontmatter.** The orchestrator will skip malformed files and log a warning — they will never be dispatched.
-10. **The `id` field must be globally unique across all `.foundry/` directories.** Duplicate IDs are undefined behaviour in the orchestrator.
+9. **Every `**/*.md` file that is not a journal or doc must have valid YAML frontmatter.** The orchestrator will skip malformed files and log a warning — they will never be dispatched.
+10. **The `id` field must be globally unique across all `` directories.** Duplicate IDs are undefined behaviour in the orchestrator.
 11. **`owner_persona` must be exactly one persona.** The system enforces a single-owner invariant per node for atomic handoffs; arrays or multiple personas are invalid.
 12. **`human` persona bypasses Jules dispatch and heartbeat timeouts.** The orchestrator will not dispatch Jules for nodes owned by `human`, and the heartbeat will not fail them.
 13. **Composite Nodes are an anti-pattern.** Do not create "Composite Nodes". They bundle multiple lifecycle states or responsibilities that conflict with the strict Directed Acyclic Graph orchestrator. This leads to circular dependencies or unresolved `depends_on` chains, causing DAG deadlocks.
@@ -230,18 +230,18 @@ notes: ""
 ```yaml
 # A story that is blocked by its parent epic being approved:
 depends_on:
-  - .foundry/epics/epic-001-auth-overhaul.md
+  - ./epics/epic-001-auth-overhaul
 
 # A task blocked by two stories:
 depends_on:
-  - .foundry/stories/story-002-db-schema.md
-  - .foundry/stories/story-003-api-contract.md
+  - ./stories/story-002-db-schema
+  - ./stories/story-003-api-contract
 
 # An unblocked node (eligible for dispatch as soon as status = READY):
 depends_on: []
 ```
 
-Paths are **always relative to the repository root**, starting with `.foundry/`.
+Paths are **always relative to the repository root**, starting with ``.
 
 ---
 

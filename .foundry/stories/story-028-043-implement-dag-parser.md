@@ -9,7 +9,7 @@ updated_at: "2026-05-10"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-028-dag-dashboard-data.md
+parent: ./epics/epic-017-028-dag-dashboard-data
 tags:
   - dag
   - dashboard
@@ -26,17 +26,17 @@ notes: ''
 This Story covers the backend/data layer for the DAG Dashboard Webview. It is responsible for parsing the markdown files within the `.foundry` directories and generating a structured representation of the DAG.
 
 ## Requirements
-- Read all markdown files in the following directories: `.foundry/ideas/`, `.foundry/prds/`, `.foundry/epics/`, `.foundry/stories/`, and `.foundry/tasks/`.
+- Read all markdown files in the following directories: `./ideas/`, `./prds/`, `./epics/`, `./stories/`, and `./tasks/`.
 - Parse the YAML frontmatter of each file using `gray-matter`.
 - Extract required fields: `id`, `type`, `status`, `owner_persona`, and `depends_on`.
 - Build a structured JSON representation of the nodes and their directed edges (dependencies) suitable for a frontend visualization library.
 
 ## Acceptance Criteria
 - [x] Create a TASK to implement a utility function to read all relevant `.foundry` files.
-  - See `.foundry/tasks/task-043-073-read-foundry-files.md`
+  - See `./tasks/task-043-073-read-foundry-files`
 - [x] Create a TASK to implement a parsing function to extract frontmatter into structured objects.
-  - See `.foundry/tasks/task-043-074-parse-frontmatter.md`
+  - See `./tasks/task-043-074-parse-frontmatter`
 - [x] Create a TASK to implement a builder function that outputs the final node/edge graph data structure.
-  - See `.foundry/tasks/task-043-075-build-dag-graph.md`
+  - See `./tasks/task-043-075-build-dag-graph`
 - [x] Create a QA TASK to verify the functionality of the DAG parser.
-  - See `.foundry/archive/tasks/task-043-076-qa-dag-parser.md`
+  - See `./archive/tasks/task-043-076-qa-dag-parser`

@@ -11,7 +11,7 @@ Foundry engine was experiencing merge conflicts because multiple agents (Heartbe
 5. **Data Cleanliness**: Migrated all existing automated foundry nodes to remove `pr_number` and consolidate `IN_REVIEW` into `ACTIVE`.
 
 ## Files Impacted
-- `.foundry/docs/schema.md`
+- `./docs/schema.md`
 - `.github/scripts/foundry-orchestrator.ts`
 - `.github/scripts/foundry-heartbeat.ts`
 - `.github/workflows/foundry-engine.yml`

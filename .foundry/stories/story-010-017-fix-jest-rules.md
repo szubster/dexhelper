@@ -8,7 +8,7 @@ created_at: "2026-04-26"
 updated_at: "2026-04-27"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-010-oxlint-config.md"
+parent: "./epics/epic-010-oxlint-config
 ---
 
 # Fix jest rules reported by oxlint
@@ -26,5 +26,5 @@ Even though we use vitest, oxlint uses the jest plugin to lint test files. We tu
 - [x] `pnpm exec oxlint .` passes with these rules enabled.
 
 ## Generated Tasks
-- [.foundry/tasks/task-017-041-fix-jest-standalone-expect.md](../tasks/task-017-041-fix-jest-standalone-expect.md)
-- [.foundry/archive/tasks/task-017-042-fix-jest-disabled-tests.md](../archive/tasks/task-017-042-fix-jest-disabled-tests.md)
+- [./tasks/task-017-041-fix-jest-standalone-expect.md](../tasks/task-017-041-fix-jest-standalone-expect.md)
+- [./archive/tasks/task-017-042-fix-jest-disabled-tests.md](../archive/tasks/task-017-042-fix-jest-disabled-tests.md)

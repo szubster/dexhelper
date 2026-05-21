@@ -41,4 +41,4 @@ Example: `epic-000-001-orphan-work`
 ## Consequences
 - All agents must immediately update their node creation prompts/logic to inject the parent's sequence number into the new node's ID.
 - Existing files do not need to be backfilled. The orchestrator maps dependencies by explicit repo-relative paths (`depends_on`), not strict ID parsing, so older nodes remain valid.
-- `.foundry/docs/schema.md` will be updated to reflect this new standard.
+- `./docs/schema.md` will be updated to reflect this new standard.

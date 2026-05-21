@@ -12,5 +12,5 @@ Previously, a strict rule forbade agents from touching the frontmatter at all. T
 - Other metadata fields (id, type, owner_persona, etc.) remain strictly read-only for agents.
 
 ## Implementation
-- Updated `.foundry/docs/schema.md` (Invariant 6).
+- Updated `./docs/schema.md` (Invariant 6).
 - Updated prompt in `.github/workflows/foundry-engine.yml`.

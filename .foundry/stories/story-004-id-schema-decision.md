@@ -8,7 +8,7 @@ created_at: "2026-04-22"
 updated_at: "2026-04-23"
 depends_on: []
 jules_session_id: null
-parent: .foundry/epics/epic-004-distributed-id-schema.md
+parent: ./epics/epic-004-distributed-id-schema
 ---
 
 # Story: Decide ID Schema and Update Documentation
@@ -24,13 +24,13 @@ Collaborate with the Architect/Tech Lead to finalize the new collision-free ID s
    - Write or update an Architectural Decision Record (ADR) capturing this choice.
 
 2. **Schema Documentation Update**
-   - Update `.foundry/docs/schema.md` to accurately reflect the new ID format.
+   - Update `./docs/schema.md` to accurately reflect the new ID format.
    - Ensure the new node template and `id` field references are updated in the schema documentation.
 
 ## Definition of Done
 - A new or updated ADR confirms the chosen ID pattern.
-- `.foundry/docs/schema.md` accurately describes the new ID format.
+- `./docs/schema.md` accurately describes the new ID format.
 - All technical contracts specify exactly how the IDs should be generated going forward.
 
 ## Generated Tasks
-- .foundry/tasks/task-021-document-id-schema.md
+- ./tasks/task-021-document-id-schema.md

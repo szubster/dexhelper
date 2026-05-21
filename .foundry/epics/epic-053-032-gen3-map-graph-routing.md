@@ -36,6 +36,6 @@ Implement the map graph for Generation 3, supporting routing and distance calcul
 
 ## Created Stories
 <!-- Planner will add stories here -->
-- [.foundry/stories/story-032-059-gen3-map-graph-structure.md](./../stories/story-032-059-gen3-map-graph-structure.md)
-- [.foundry/stories/story-032-060-gen3-indoor-resolution.md](./../stories/story-032-060-gen3-indoor-resolution.md)
-- [.foundry/stories/story-032-061-gen3-distance-lookup.md](./../stories/story-032-061-gen3-distance-lookup.md)
+- [./stories/story-032-059-gen3-map-graph-structure.md](./../stories/story-032-059-gen3-map-graph-structure.md)
+- [./stories/story-032-060-gen3-indoor-resolution.md](./../stories/story-032-060-gen3-indoor-resolution.md)
+- [./stories/story-032-061-gen3-distance-lookup.md](./../stories/story-032-061-gen3-distance-lookup.md)

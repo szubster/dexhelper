@@ -9,7 +9,7 @@ updated_at: "2026-05-04"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-013-023-orchestrator-cascade-cancellation.md
+parent: ./epics/epic-013-023-orchestrator-cascade-cancellation
 tags:
   - foundry
   - dag
@@ -38,5 +38,5 @@ Update the Foundry DAG orchestrator script (`.github/scripts/foundry-orchestrato
 - [x] Tech Lead: Break down into implementation tasks.
 
 ## Child Tasks
-- [Task 062: Implement Cascading Cancellation in Orchestrator](.foundry/tasks/task-036-062-implement-cascade-cancellation.md)
-- [Task 063: QA Cascading Cancellation in Orchestrator](.foundry/tasks/task-036-063-qa-cascade-cancellation.md)
+- [Task 062: Implement Cascading Cancellation in Orchestrator](./tasks/task-036-062-implement-cascade-cancellation.md)
+- [Task 063: QA Cascading Cancellation in Orchestrator](./tasks/task-036-063-qa-cascade-cancellation.md)

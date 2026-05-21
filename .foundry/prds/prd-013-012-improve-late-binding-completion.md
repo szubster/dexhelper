@@ -9,7 +9,7 @@ updated_at: "2026-05-04"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-013-improve-late-binding-completion.md
+parent: ./ideas/idea-013-improve-late-binding-completion
 tags:
   - orchestrator
   - late-binding
@@ -33,4 +33,4 @@ Late binding in the foundry orchestrator should be handled better. Right now, wh
 3. Automatically mark the parent as `COMPLETED` or wake it up to `READY` state appropriately, instead of leaving it stuck in `PENDING` or requiring manual intervention.
 
 ## Generated Epics
-- .foundry/epics/epic-012-024-improve-late-binding-completion.md
+- ./epics/epic-012-024-improve-late-binding-completion.md

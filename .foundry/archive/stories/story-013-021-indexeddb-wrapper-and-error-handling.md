@@ -8,7 +8,7 @@ created_at: '2026-04-24'
 updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: .foundry/archive/epics/epic-005-013-idb-infrastructure.md
+parent: ./archive/epics/epic-005-013-idb-infrastructure
 tags:
   - indexeddb
   - infrastructure
@@ -26,5 +26,5 @@ Create the IndexedDB wrapper for save data storage, ensuring safe binary read/wr
 - [x] Implement generic error logging (e.g., "System: sync failed") to prevent internal error leakage.
 
 ## Generated Tasks
-- .foundry/archive/tasks/task-021-030-implement-idb-wrapper.md
-- .foundry/archive/tasks/task-021-031-qa-idb-wrapper.md
+- ./archive/tasks/task-021-030-implement-idb-wrapper.md
+- ./archive/tasks/task-021-031-qa-idb-wrapper.md

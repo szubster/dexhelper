@@ -39,5 +39,5 @@ This epic implements an enhancement to the orchestrator (`.github/scripts/foundr
 - [x] Add unit tests in `foundry-orchestrator.test.ts` to ensure `PENDING` nodes depending on permanently `FAILED` nodes are correctly transitioned to `CANCELLED` and reasons are recorded.
 
 ## Assigned Stories
-- `.foundry/stories/story-035-072-implement-cancellation-logic.md`
-- `.foundry/stories/story-035-073-orchestrator-cancellation-tests.md`
+- `./stories/story-035-072-implement-cancellation-logic.md`
+- `./stories/story-035-073-orchestrator-cancellation-tests.md`

@@ -57,4 +57,4 @@ These failures cause CI delays and force developers to constantly update test fi
 3. **Verify:** Run the test suite (`pnpm test`) to ensure no regressions and that the factory correctly supports the required test scenarios.
 
 ## Derived Epics
-- .foundry/archive/epics/epic-019-030-orchestrator-test-factories.md
+- ./archive/epics/epic-019-030-orchestrator-test-factories.md

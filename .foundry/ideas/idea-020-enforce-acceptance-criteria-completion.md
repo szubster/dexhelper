@@ -32,4 +32,4 @@ Implement an orchestrator validation check (likely as part of a pre-flight or me
 - [x] Ensure that it properly flags nodes and prevents premature completion.
 
 ### DOWNSTREAM NODES
-- [.foundry/prds/prd-020-020-enforce-acceptance-criteria-completion.md](../prds/prd-020-020-enforce-acceptance-criteria-completion.md)
+- [./prds/prd-020-020-enforce-acceptance-criteria-completion.md](../prds/prd-020-020-enforce-acceptance-criteria-completion.md)

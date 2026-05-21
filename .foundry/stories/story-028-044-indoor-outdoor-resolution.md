@@ -7,16 +7,16 @@ owner_persona: tech_lead
 created_at: '2026-05-08'
 updated_at: '2026-05-13'
 depends_on:
-  - .foundry/stories/story-028-043-gen2-map-graph.md
+  - ./stories/story-028-043-gen2-map-graph
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-028-map-graph-routing.md
+parent: ./epics/epic-017-028-map-graph-routing
 tags:
   - gen2
   - expansion
   - map-graph
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - ./docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -35,5 +35,5 @@ Implement `resolveOutdoorMapId` mapping Johto and Kanto indoor locations to thei
 - [x] `resolveOutdoorMapId` correctly maps indoor locations to outdoor hubs.
 
 ## Generated Tasks
-- [.foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md](.foundry/tasks/task-044-080-implement-indoor-outdoor-resolution.md)
-- [.foundry/tasks/task-044-081-qa-indoor-outdoor-resolution.md](.foundry/tasks/task-044-081-qa-indoor-outdoor-resolution.md)
+- [./tasks/task-044-080-implement-indoor-outdoor-resolution.md](./tasks/task-044-080-implement-indoor-outdoor-resolution.md)
+- [./tasks/task-044-081-qa-indoor-outdoor-resolution.md](./tasks/task-044-081-qa-indoor-outdoor-resolution.md)

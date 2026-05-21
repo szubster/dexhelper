@@ -7,19 +7,19 @@ owner_persona: "tech_lead"
 created_at: "2026-04-23"
 updated_at: "2026-04-25"
 depends_on:
-  - ".foundry/stories/story-007-schema-invariant.md"
+  - "./stories/story-007-schema-invariant
 jules_session_id: null
-parent: ".foundry/epics/epic-007-atomic-handoff-schema.md"
+parent: "./epics/epic-007-atomic-handoff-schema
 ---
 
 # Update Documentation Examples for Atomic Files
 
 ## Context
-The examples throughout `.foundry/docs/schema.md` must accurately reflect the new atomic file structure and naming conventions.
+The examples throughout `./docs/schema.md` must accurately reflect the new atomic file structure and naming conventions.
 
 ## Acceptance Criteria
 - [x] Examples in `schema.md` showcase single-persona nodes.
 - [x] Remove any examples that contain multiple personas operating in the same file.
 
 ## Generated Tasks
-- `.foundry/tasks/task-008-028-update-schema-examples.md`
+- `./tasks/task-008-028-update-schema-examples.md`

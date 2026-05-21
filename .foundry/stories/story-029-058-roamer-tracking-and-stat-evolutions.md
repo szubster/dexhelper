@@ -7,16 +7,16 @@ owner_persona: tech_lead
 created_at: '2026-05-16'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/stories/story-029-054-gen2-strategy-plugin.md
+  - ./stories/story-029-054-gen2-strategy-plugin
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-029-strategy-engine-adaptations.md
+parent: ./epics/epic-017-029-strategy-engine-adaptations
 tags:
   - gen2
   - expansion
   - suggestion-engine
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - ./docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -35,9 +35,9 @@ Implement roamer tracking logic to guide the player to check the Pokédex for Ra
 
 
 ## Tasks
-- .foundry/tasks/task-058-110-implement-roamer-tracking.md
-- .foundry/tasks/task-058-111-qa-roamer-tracking.md
-- .foundry/tasks/task-058-112-implement-stat-evolutions.md
-- .foundry/tasks/task-058-113-qa-stat-evolutions.md
-- .foundry/tasks/task-058-094-implement-roamer-and-stat-evolutions.md
-- .foundry/tasks/task-058-095-qa-roamer-and-stat-evolutions.md
+- ./tasks/task-058-110-implement-roamer-tracking.md
+- ./tasks/task-058-111-qa-roamer-tracking.md
+- ./tasks/task-058-112-implement-stat-evolutions.md
+- ./tasks/task-058-113-qa-stat-evolutions.md
+- ./tasks/task-058-094-implement-roamer-and-stat-evolutions.md
+- ./tasks/task-058-095-qa-roamer-and-stat-evolutions.md

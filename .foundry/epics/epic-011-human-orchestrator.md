@@ -7,12 +7,12 @@ owner_persona: story_owner
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on:
-  - ".foundry/epics/epic-010-human-schema.md"
+  - "./epics/epic-010-human-schema
 jules_session_id: null
-parent: ".foundry/prds/prd-004-human-in-the-loop.md"
+parent: "./prds/prd-004-human-in-the-loop
 tags:
-  - "human-in-the-loop"
-  - "orchestrator"
+  - human-in-the-loop
+  - orchestrator
 ---
 
 # Epic 011: Bypass Jules Dispatch for Human Tasks in Orchestrator
@@ -37,4 +37,4 @@ Currently, any task that reaches `READY` status is collected by the orchestrator
 - Ensure backwards compatibility with all other agent personas.
 
 ## Generated Stories
-- `.foundry/stories/story-010-orchestrator-human-bypass.md`
+- `./stories/story-010-orchestrator-human-bypass.md`

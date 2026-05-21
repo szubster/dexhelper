@@ -14,7 +14,7 @@ tags:
   - gen2
   - data
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - ./docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -35,4 +35,4 @@ Establish static assistant configurations for gifts and trades in Gen 2.
 
 
 ### Spawned Tasks
-- [.foundry/tasks/task-049-082-implement-gen2-assistant-data.md](.foundry/tasks/task-049-082-implement-gen2-assistant-data.md)
+- [./tasks/task-049-082-implement-gen2-assistant-data.md](./tasks/task-049-082-implement-gen2-assistant-data.md)

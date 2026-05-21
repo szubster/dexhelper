@@ -5,7 +5,7 @@ The Foundry Engine automates the lifecycle of Foundry nodes (Ideas, Epics, Stori
 ## Key Components
 
 1.  **Orchestrator (`.github/scripts/foundry-orchestrator.ts`)**:
-    *   Walks the `.foundry/` directory.
+    *   Walks the `` directory.
     *   Resolves dependencies by checking node status.
     *   Promotes `PENDING` nodes to `READY` if all dependencies are `COMPLETED`.
     *   Outputs a JSON array of `READY` nodes for GitHub Actions matrix processing.

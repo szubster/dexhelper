@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on:
-  - .foundry/stories/story-033-066-heartbeat-prless-detection.md
+  - ./stories/story-033-066-heartbeat-prless-detection
 jules_session_id: null
 pr_number: null
 parent: epic-025-033-robust-session-completion
@@ -42,6 +42,6 @@ Once a PR-less `COMPLETED` session is detected (handled in Story 066), the heart
 - [x] PR-less `COMPLETED` sessions with all boxes checked (or no boxes) are marked `COMPLETED`.
 
 ## Downstream Nodes
-- TASK: `.foundry/tasks/task-067-114-implement-heartbeat-state-transitions.md`
-- TASK: `.foundry/tasks/task-067-115-implement-heartbeat-state-transitions.md`
-- TASK: `.foundry/tasks/task-067-116-qa-heartbeat-state-transitions.md`
+- TASK: `./tasks/task-067-114-implement-heartbeat-state-transitions.md`
+- TASK: `./tasks/task-067-115-implement-heartbeat-state-transitions.md`
+- TASK: `./tasks/task-067-116-qa-heartbeat-state-transitions.md`

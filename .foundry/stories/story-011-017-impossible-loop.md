@@ -8,7 +8,7 @@ created_at: "2026-04-24"
 updated_at: "2026-04-25"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-011-wait-and-wake-protocol.md"
+parent: "./epics/epic-011-wait-and-wake-protocol
 tags:
   - foundry-v2
   - architecture
@@ -25,6 +25,6 @@ Implement the "Impossible" failure loop. If a node cannot be completed because i
 - [x] The Orchestrator detects `FAILED` nodes and either "wakes up" the parent node or flags it for the `tpm` to create a feedback `IDEA` for the PM/CEO.
 
 ### Generated Tasks
-- .foundry/tasks/task-017-030-update-schema-rejection-reason.md
-- .foundry/tasks/task-017-031-implement-impossible-loop.md
-- .foundry/tasks/task-017-032-qa-impossible-loop.md
+- ./tasks/task-017-030-update-schema-rejection-reason.md
+- ./tasks/task-017-031-implement-impossible-loop.md
+- ./tasks/task-017-032-qa-impossible-loop.md

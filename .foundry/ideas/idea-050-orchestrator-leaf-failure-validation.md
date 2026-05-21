@@ -33,4 +33,4 @@ Prevents incomplete tasks from slipping through via the Empty PR policy loop hol
 
 
 ## Generated Nodes
-- [PRD-050-021](.foundry/prds/prd-050-021-orchestrator-leaf-failure-validation.md)
+- [PRD-050-021](./prds/prd-050-021-orchestrator-leaf-failure-validation.md)

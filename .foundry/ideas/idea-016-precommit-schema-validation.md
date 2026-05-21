@@ -29,4 +29,4 @@ Expand the existing pre-commit hook (which currently checks links) to perform fu
 - [x] Convert this idea into a detailed PRD defining the pre-commit hook expansion.
 
 ### Child Nodes
-- `.foundry/prds/prd-016-016-precommit-schema-validation.md`
+- `./prds/prd-016-016-precommit-schema-validation.md`

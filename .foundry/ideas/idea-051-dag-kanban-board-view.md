@@ -7,7 +7,7 @@ owner_persona: product_manager
 created_at: '2026-05-14'
 updated_at: '2026-05-20'
 depends_on:
-  - .foundry/ideas/idea-017-dag-dashboard.md
+  - ./ideas/idea-017-dag-dashboard
 jules_session_id: null
 parent: null
 tags:
@@ -35,4 +35,4 @@ Introduce a Kanban/Scrum-style board view as an alternative or complementary vis
 ## Next Steps
 - [x] Convert this idea into a detailed PRD defining the board layout, interactions, and integration with the existing DAG Dashboard data structures.
 
-- `.foundry/prds/prd-051-027-dag-kanban-board-view.md`
+- `./prds/prd-051-027-dag-kanban-board-view.md`

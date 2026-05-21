@@ -7,17 +7,17 @@ owner_persona: coder
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
 depends_on:
-  - .foundry/research/research-053-002-dependency-highlighting-failure.md
+  - ./research/research-053-002-dependency-highlighting-failure
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-053-implement-dependency-highlighting.md
+parent: ./stories/story-029-053-implement-dependency-highlighting
 tags:
   - dag
   - dashboard
   - ui
   - react-flow
 research_references:
-  - .foundry/research/research-053-002-dependency-highlighting-failure.md
+  - ./research/research-053-002-dependency-highlighting-failure
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -28,12 +28,12 @@ notes: ''
 ## Context & Requirements
 This task replaces the permanently failed task `task-053-092-implement-dependency-highlighting.md`. The objective remains to build an interactive dependency highlighting feature for the React Flow DAG Dashboard. The previous implementation failed to fulfill the acceptance criteria.
 
-The `coder` must carefully review the findings in the attached research node `.foundry/research/research-053-002-dependency-highlighting-failure.md` before proceeding.
+The `coder` must carefully review the findings in the attached research node `./research/research-053-002-dependency-highlighting-failure.md` before proceeding.
 
 ## Technical Blueprint
 
 1. **Review Research**:
-   - Read `.foundry/research/research-053-002-dependency-highlighting-failure.md` to understand why the previous attempt failed and integrate its recommendations.
+   - Read `./research/research-053-002-dependency-highlighting-failure.md` to understand why the previous attempt failed and integrate its recommendations.
 
 2. **Interaction Handling (React Flow)**:
    - Implement `onNodeClick` or `onNodeMouseEnter`/`onNodeMouseLeave` handlers in the React Flow component to track the currently "focused" or "selected" node ID in state.

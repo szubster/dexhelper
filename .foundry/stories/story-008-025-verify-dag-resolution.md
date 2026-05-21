@@ -7,10 +7,10 @@ owner_persona: "tech_lead"
 created_at: "2026-04-25"
 updated_at: "2026-04-26"
 depends_on:
-  - ".foundry/stories/story-008-023-validate-single-owner.md"
-  - ".foundry/stories/story-008-024-update-status-on-merge.md"
+  - "./stories/story-008-023-validate-single-owner
+  - "./stories/story-008-024-update-status-on-merge
 jules_session_id: null
-parent: ".foundry/epics/epic-008-atomic-handoff-orchestrator.md"
+parent: "./epics/epic-008-atomic-handoff-orchestrator
 ---
 
 # Verify DAG Resolution with Atomic Files
@@ -24,5 +24,5 @@ We need to ensure that the DAG resolves without deadlocks given atomic files dep
 - [x] The system ensures no deadlocks occur during resolution.
 
 ## Tasks
-- `.foundry/archive/tasks/task-025-044-implement-dag-atomic-test.md`
-- `.foundry/archive/tasks/task-025-045-qa-dag-atomic-test.md`
+- `./archive/tasks/task-025-044-implement-dag-atomic-test.md`
+- `./archive/tasks/task-025-045-qa-dag-atomic-test.md`

@@ -8,7 +8,7 @@ created_at: "2026-05-01"
 updated_at: "2026-05-02"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-012-use-gray-matter-parsing.md"
+parent: "./ideas/idea-012-use-gray-matter-parsing
 tags: ["foundry", "parsing", "gray-matter", "maintenance"]
 notes: ""
 ---
@@ -24,5 +24,5 @@ Regex manipulations of markdown and frontmatter are becoming increasingly fragil
 - Ensure the DAG orchestrator properly uses the new parsing logic.
 
 ## Implementation
-- ADR: .foundry/docs/adrs/006-gray-matter-parsing.md
-- Epic: .foundry/epics/epic-011-022-implement-gray-matter.md
+- ADR: ./docs/adrs/006-gray-matter-parsing.md
+- Epic: ./epics/epic-011-022-implement-gray-matter.md

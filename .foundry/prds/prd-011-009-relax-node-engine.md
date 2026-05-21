@@ -9,7 +9,7 @@ updated_at: "2026-05-01"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: ".foundry/ideas/idea-011-relax-node-engine.md"
+parent: "./ideas/idea-011-relax-node-engine
 tags: ["infrastructure"]
 notes: ""
 ---
@@ -25,4 +25,4 @@ We should relax the `engines.node` field in `package.json` from `>=24.0.0` to `>
 ## Acceptance Criteria
 - [x] Update `engines.node` in `package.json` to `>=22.0.0`.
 
-- **Child Epic**: [.foundry/epics/epic-009-020-relax-node-engine.md](.foundry/epics/epic-009-020-relax-node-engine.md)
+- **Child Epic**: [./epics/epic-009-020-relax-node-engine.md](./epics/epic-009-020-relax-node-engine.md)

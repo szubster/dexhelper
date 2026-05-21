@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-05-18'
 updated_at: '2026-05-20'
 depends_on:
-  - .foundry/stories/story-029-053-implement-dependency-highlighting.md
+  - ./stories/story-029-053-implement-dependency-highlighting
 jules_session_id: null
 pr_number: null
 parent: epic-017-029-dag-dashboard-ui
@@ -38,5 +38,5 @@ As the final step of the DAG Dashboard UI implementation, this story wires up th
 - [x] Ensure filtering and highlighting still work with the real data.
 
 ## Technical Blueprints
-- [task-065-114-wire-up-data-layer-impl](.foundry/tasks/task-065-114-wire-up-data-layer-impl.md)
-- [task-065-115-wire-up-data-layer-qa](.foundry/tasks/task-065-115-wire-up-data-layer-qa.md)
+- [task-065-114-wire-up-data-layer-impl](./tasks/task-065-114-wire-up-data-layer-impl.md)
+- [task-065-115-wire-up-data-layer-qa](./tasks/task-065-115-wire-up-data-layer-qa.md)

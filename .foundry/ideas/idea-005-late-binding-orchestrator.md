@@ -6,7 +6,7 @@ status: "COMPLETED"
 owner_persona: product_manager
 created_at: "2026-04-21"
 updated_at: "2026-05-01"
-parent: ".foundry/ideas/idea-003-atomic-handoff-foundation.md"
+parent: "./ideas/idea-003-atomic-handoff-foundation
 depends_on: []
 jules_session_id: null
 tags: ["foundry-v2", "architecture", "orchestration"]
@@ -91,4 +91,4 @@ This is a critical security and stability boundary.
 - [x] **Product Manager**: Draft the PRD specifying the formal requirements for Late Binding Orchestration.
 
 ### Generated PRDs
-- [.foundry/prds/prd-005-010-late-binding-orchestrator.md](../prds/prd-005-010-late-binding-orchestrator.md)
+- [./prds/prd-005-010-late-binding-orchestrator.md](../prds/prd-005-010-late-binding-orchestrator.md)

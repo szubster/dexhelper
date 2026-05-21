@@ -9,7 +9,7 @@ updated_at: "2026-05-01"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: ".foundry/epics/epic-009-020-relax-node-engine.md"
+parent: "./epics/epic-009-020-relax-node-engine
 tags: ["infrastructure"]
 notes: ""
 ---
@@ -20,4 +20,4 @@ notes: ""
 - [x] Update `engines.node` in `package.json` to `>=22.0.0`.
 
 ## Tasks
-- .foundry/tasks/task-035-061-relax-node-engine.md
+- ./tasks/task-035-061-relax-node-engine.md

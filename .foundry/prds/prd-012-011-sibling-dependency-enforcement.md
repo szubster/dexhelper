@@ -8,7 +8,7 @@ created_at: "2026-05-01"
 updated_at: "2026-05-02"
 depends_on: []
 jules_session_id: null
-parent: .foundry/ideas/idea-012-sibling-dependency-enforcement.md
+parent: ./ideas/idea-012-sibling-dependency-enforcement
 tags: ["orchestrator", "dag", "reliability"]
 notes: ""
 ---
@@ -20,7 +20,7 @@ Establish a system-wide rule and corresponding validation logic to ensure that e
 
 ## Requirements
 1. Define an ADR establishing the rule.
-2. Update the schema documentation (`.foundry/docs/schema.md`).
+2. Update the schema documentation (`./docs/schema.md`).
 3. Ensure the orchestrator or a pre-commit validation script can optionally enforce or warn against this pattern.
 
 ## Acceptance Criteria

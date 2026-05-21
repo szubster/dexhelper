@@ -56,6 +56,6 @@ Currently, players track this information manually using spreadsheets or third-p
 
 ## Next Steps
 - [x] Architect: Produce an Architecture Decision Record (ADR) detailing the technical implementation of this feature.
-- ADR: .foundry/docs/adrs/012-automated-nuzlocke-tracker.md
+- ADR: ./docs/adrs/012-automated-nuzlocke-tracker.md
 
-- Epic: .foundry/epics/epic-026-034-automated-nuzlocke-tracker.md
+- Epic: ./epics/epic-026-034-automated-nuzlocke-tracker.md

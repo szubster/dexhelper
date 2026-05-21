@@ -9,13 +9,13 @@ updated_at: '2026-05-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-056-breeding-suggestions.md
+parent: ./stories/story-029-056-breeding-suggestions
 tags:
   - gen2
   - expansion
   - suggestion-engine
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - ./docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 1
 rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
@@ -44,7 +44,7 @@ Update the suggestion engine to detect compatible parents in the PC/Party and su
    - The suggestion should have category `'Breed'` and a suitable priority (e.g., 60-70).
 
 ## Context References
-Make sure to read `.foundry/docs/knowledge_base/development/gen2_implementation_plan.md` for specific mechanics and expected behaviors.
+Make sure to read `./docs/knowledge_base/development/gen2_implementation_plan.md` for specific mechanics and expected behaviors.
 
 ## Acceptance Criteria
 - [x] The suggestion engine correctly detects when the player owns an evolved form of a missing baby/base Pokémon.

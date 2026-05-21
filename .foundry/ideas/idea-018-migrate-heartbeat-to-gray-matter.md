@@ -29,4 +29,4 @@ Update `.github/scripts/foundry-heartbeat.ts` to use `gray-matter` (`matter.stri
 Reduces technical debt, prevents bugs related to frontmatter modifications, and ensures full compliance with system architecture decisions.
 
 ## Child Nodes
-- [x] PRD created: `.foundry/prds/prd-018-018-migrate-heartbeat-to-gray-matter.md`
+- [x] PRD created: `./prds/prd-018-018-migrate-heartbeat-to-gray-matter.md`

@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-05-06'
 updated_at: "2026-05-08"
 depends_on:
-  - .foundry/stories/story-026-041-inventory-parsing.md
+  - ./stories/story-026-041-inventory-parsing
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-015-026-save-parser-expansion.md
+parent: ./epics/epic-015-026-save-parser-expansion
 tags:
   - gen2
   - save-parser
@@ -35,8 +35,8 @@ The Gen 2 Save Parser Expansion Epic requires extracting the Hall of Fame counts
 - [x] Able to extract the specific map locations of Raikou, Entei, and Suicune.
 
 ## Tasks
-- [.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md](.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md)
-- [.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md](.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md)
-- [.foundry/tasks/task-042-068-extract-hall-of-fame.md](.foundry/tasks/task-042-068-extract-hall-of-fame.md)
-- [.foundry/tasks/task-042-069-extract-roamers.md](.foundry/tasks/task-042-069-extract-roamers.md)
-- [.foundry/tasks/task-042-070-qa-hall-of-fame-roamers.md](.foundry/tasks/task-042-070-qa-hall-of-fame-roamers.md)
+- [./tasks/task-042-068-implement-hall-of-fame-roamers.md](./tasks/task-042-068-implement-hall-of-fame-roamers.md)
+- [./tasks/task-042-069-qa-hall-of-fame-roamers.md](./tasks/task-042-069-qa-hall-of-fame-roamers.md)
+- [./tasks/task-042-068-extract-hall-of-fame.md](./tasks/task-042-068-extract-hall-of-fame.md)
+- [./tasks/task-042-069-extract-roamers.md](./tasks/task-042-069-extract-roamers.md)
+- [./tasks/task-042-070-qa-hall-of-fame-roamers.md](./tasks/task-042-070-qa-hall-of-fame-roamers.md)

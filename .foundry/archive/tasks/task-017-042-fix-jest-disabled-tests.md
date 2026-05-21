@@ -8,7 +8,7 @@ created_at: "2026-04-26"
 updated_at: "2026-04-27"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-010-017-fix-jest-rules.md"
+parent: "./stories/story-010-017-fix-jest-rules
 ---
 
 # Fix and enable jest/no-disabled-tests

@@ -9,7 +9,7 @@ updated_at: '2026-05-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-018-018-migrate-heartbeat-to-gray-matter.md
+parent: ./prds/prd-018-018-migrate-heartbeat-to-gray-matter
 tags:
   - foundry
   - dag
@@ -38,4 +38,4 @@ ADR-006 mandated the use of `gray-matter` for parsing and mutating Markdown fron
 - All modifications write the new node contents via `matter.stringify()`.
 
 ## Stories
-- [x] .foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md
+- [x] ./stories/story-028-043-migrate-heartbeat-to-gray-matter.md

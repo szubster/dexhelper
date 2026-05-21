@@ -8,7 +8,7 @@ created_at: '2026-04-29'
 updated_at: '2026-05-02'
 depends_on: []
 jules_session_id: null
-parent: .foundry/ideas/idea-010-idempotent-node-generation.md
+parent: ./ideas/idea-010-idempotent-node-generation
 tags:
   - orchestrator
   - generation
@@ -29,7 +29,7 @@ When a task explicitly spawns a child node, and the target node file already exi
 ## Proposed Solution
 Implement an idempotent generation check in the orchestrator (`foundry-orchestrator.ts`) or a supporting CLI tool.
 - Before transitioning a node that explicitly spawns child nodes to a dispatched state, the system must parse expected outputs.
-- If the target files (e.g., generated PRD or task) already exist in the `.foundry/` directory and are completely formed, the orchestrator should bypass the session dispatch.
+- If the target files (e.g., generated PRD or task) already exist in the `` directory and are completely formed, the orchestrator should bypass the session dispatch.
 - Instead, the orchestrator should directly mark the current node's generation sub-task as fulfilled.
 
 ## Target Architecture
@@ -48,6 +48,6 @@ Implement an idempotent generation check in the orchestrator (`foundry-orchestra
 
 
 ### Generated Epics
-- [.foundry/epics/epic-008-017-orchestrator-preflight-checks.md](.foundry/epics/epic-008-017-orchestrator-preflight-checks.md)
-- [.foundry/epics/epic-008-018-session-dispatch-bypass.md](.foundry/epics/epic-008-018-session-dispatch-bypass.md)
-- [.foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism.md](.foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism.md)
+- [./epics/epic-008-017-orchestrator-preflight-checks.md](./epics/epic-008-017-orchestrator-preflight-checks.md)
+- [./epics/epic-008-018-session-dispatch-bypass.md](./epics/epic-008-018-session-dispatch-bypass.md)
+- [./archive/epics/epic-008-019-anomaly-reporting-mechanism.md](./archive/epics/epic-008-019-anomaly-reporting-mechanism.md)

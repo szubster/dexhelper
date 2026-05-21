@@ -30,4 +30,4 @@ The DAG Orchestrator should include a pre-flight schema validation check that en
 
 
 ### References
-- .foundry/prds/prd-015-014-enforce-persona-pipeline.md
+- ./prds/prd-015-014-enforce-persona-pipeline.md

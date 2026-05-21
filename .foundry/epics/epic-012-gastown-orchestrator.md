@@ -7,12 +7,12 @@ owner_persona: story_owner
 created_at: "2026-04-23"
 updated_at: "2026-05-01"
 depends_on:
-  - .foundry/epics/epic-011-wait-and-wake-protocol.md
-  - .foundry/stories/story-012-029-document-gastown-migration-decision.md
-  - .foundry/stories/story-012-027-design-sync-mechanism.md
-  - .foundry/stories/story-012-026-evaluate-cloudflare-storage.md
+  - ./epics/epic-011-wait-and-wake-protocol
+  - ./stories/story-012-029-document-gastown-migration-decision
+  - ./stories/story-012-027-design-sync-mechanism
+  - ./stories/story-012-026-evaluate-cloudflare-storage
 jules_session_id: null
-parent: ".foundry/prds/prd-005-010-late-binding-orchestrator.md"
+parent: "./prds/prd-005-010-late-binding-orchestrator
 tags:
   - foundry-v2
   - architecture
@@ -26,7 +26,7 @@ Assess the viability and benefits of extracting the `foundry-orchestrator.ts` lo
 
 ## Prerequisites
 - Completion of `epic-011-wait-and-wake-protocol`.
-- Review `.foundry/docs/knowledge_base/foundry/orchestrator/cloudflare_workers_evaluation.md`.
+- Review `./docs/knowledge_base/foundry/orchestrator/cloudflare_workers_evaluation.md`.
 
 ## High-level Acceptance Criteria
 - [x] Evaluate Cloudflare D1 (SQL) or KV for persisting node states.
@@ -35,6 +35,6 @@ Assess the viability and benefits of extracting the `foundry-orchestrator.ts` lo
 - [x] Document the findings and propose a final architecture decision on whether to proceed with the migration.
 
 ## Child Nodes
-- [story-012-026-evaluate-cloudflare-storage](.foundry/stories/story-012-026-evaluate-cloudflare-storage.md)
-- [story-012-027-design-sync-mechanism](.foundry/stories/story-012-027-design-sync-mechanism.md)
-- [story-012-029-document-gastown-migration-decision](.foundry/stories/story-012-029-document-gastown-migration-decision.md)
+- [story-012-026-evaluate-cloudflare-storage](./stories/story-012-026-evaluate-cloudflare-storage.md)
+- [story-012-027-design-sync-mechanism](./stories/story-012-027-design-sync-mechanism.md)
+- [story-012-029-document-gastown-migration-decision](./stories/story-012-029-document-gastown-migration-decision.md)

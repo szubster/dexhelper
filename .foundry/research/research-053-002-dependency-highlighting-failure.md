@@ -9,7 +9,7 @@ updated_at: '2026-05-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-053-implement-dependency-highlighting.md
+parent: ./stories/story-029-053-implement-dependency-highlighting
 tags:
   - dag
   - dashboard
@@ -22,7 +22,7 @@ notes: ''
 # Investigate Dependency Highlighting Implementation Failure
 
 ## Context
-The implementation task `.foundry/tasks/task-053-092-implement-dependency-highlighting.md` failed permanently. The assigned `coder` failed to fully satisfy the acceptance criteria, resulting in the `rejection_reason: Merged with unfulfilled acceptance criteria`. This triggered the Orchestrator's Impossible Loop, waking up the Tech Lead to intervene.
+The implementation task `./tasks/task-053-092-implement-dependency-highlighting.md` failed permanently. The assigned `coder` failed to fully satisfy the acceptance criteria, resulting in the `rejection_reason: Merged with unfulfilled acceptance criteria`. This triggered the Orchestrator's Impossible Loop, waking up the Tech Lead to intervene.
 
 ## Objective
 The objective of this research node is to investigate why the `coder` persona was unable to fulfill the requirements.

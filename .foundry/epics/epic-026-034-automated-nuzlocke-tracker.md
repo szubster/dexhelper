@@ -9,7 +9,7 @@ updated_at: '2026-05-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-057-026-automated-nuzlocke-tracker.md
+parent: ./prds/prd-057-026-automated-nuzlocke-tracker
 tags:
   - feature
   - nuzlocke
@@ -25,6 +25,6 @@ notes: ''
 Break down the Automated Nuzlocke Tracker feature into stories and tasks. Refer to ADR 012 for the architectural decisions.
 
 ### STORIES
-- [x] .foundry/stories/story-034-069-automated-route-tracking.md
-- [ ] .foundry/stories/story-034-070-death-tracking-and-graveyard.md
-- [ ] .foundry/stories/story-034-071-run-dashboard-ui.md
+- [x] ./stories/story-034-069-automated-route-tracking.md
+- [ ] ./stories/story-034-070-death-tracking-and-graveyard.md
+- [ ] ./stories/story-034-071-run-dashboard-ui.md

@@ -8,11 +8,11 @@ created_at: "2026-04-21"
 updated_at: "2026-05-01"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-005-late-binding-orchestrator.md"
+parent: "./ideas/idea-005-late-binding-orchestrator
 tags:
-  - "foundry-v2"
-  - "architecture"
-  - "orchestration"
+  - foundry-v2
+  - architecture
+  - orchestration
 ---
 
 # PRD: Late Binding Epics & Recursive Orchestration
@@ -68,6 +68,6 @@ When an agent is blocked by new technical realities:
 - [x] **Epic Planner:** Break down this PRD into Epics mapping out the persona permission implementations, the Wait & Wake protocol orchestration logic, and the Cloudflare Worker Gastown migration.
 
 ### Generated Epics
-- [.foundry/epics/epic-010-persona-permissions.md](../epics/epic-010-persona-permissions.md)
-- [.foundry/epics/epic-011-wait-and-wake-protocol.md](../epics/epic-011-wait-and-wake-protocol.md)
-- [.foundry/epics/epic-012-gastown-orchestrator.md](../epics/epic-012-gastown-orchestrator.md)
+- [./epics/epic-010-persona-permissions.md](../epics/epic-010-persona-permissions.md)
+- [./epics/epic-011-wait-and-wake-protocol.md](../epics/epic-011-wait-and-wake-protocol.md)
+- [./epics/epic-012-gastown-orchestrator.md](../epics/epic-012-gastown-orchestrator.md)

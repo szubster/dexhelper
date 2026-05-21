@@ -28,5 +28,5 @@ Set up the initial parsing handlers for the Gen3 save format using the native `D
 - [x] Implement initial Gen3 `DataView` parsing scaffolding.
 - [x] Ensure that new functions and handlers strictly follow the native API pattern.
 
-- [x] [task-059-096-gen3-dataview-scaffolding-impl](.foundry/tasks/task-059-096-gen3-dataview-scaffolding-impl.md)
-- [x] [task-059-097-gen3-dataview-scaffolding-qa](.foundry/tasks/task-059-097-gen3-dataview-scaffolding-qa.md)
+- [x] [task-059-096-gen3-dataview-scaffolding-impl](./tasks/task-059-096-gen3-dataview-scaffolding-impl.md)
+- [x] [task-059-097-gen3-dataview-scaffolding-qa](./tasks/task-059-097-gen3-dataview-scaffolding-qa.md)

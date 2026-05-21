@@ -8,7 +8,7 @@ created_at: "2026-04-29"
 updated_at: "2026-04-30"
 depends_on: []
 jules_session_id: null
-parent: .foundry/epics/epic-008-017-orchestrator-preflight-checks.md
+parent: ./epics/epic-008-017-orchestrator-preflight-checks
 tags: []
 rejection_count: 0
 rejection_reason: ""
@@ -22,9 +22,9 @@ Modify `foundry-orchestrator.ts` to implement a pre-flight file check before spa
 
 ## Requirements
 - Parse the YAML frontmatter to identify expected output artifacts for node generation tasks.
-- Check if target artifacts already exist in the `.foundry/` directory.
-- If target artifacts exist, successfully validate their schema against the definitions in `.foundry/docs/schema.md`.
+- Check if target artifacts already exist in the `` directory.
+- If target artifacts exist, successfully validate their schema against the definitions in `./docs/schema.md`.
 
 ## Tasks
-- [x] Create coder task: .foundry/tasks/task-034-058-implement-orchestrator-preflight.md
-- [x] Create qa task: .foundry/tasks/task-034-059-qa-orchestrator-preflight.md
+- [x] Create coder task: ./tasks/task-034-058-implement-orchestrator-preflight.md
+- [x] Create qa task: ./tasks/task-034-059-qa-orchestrator-preflight.md

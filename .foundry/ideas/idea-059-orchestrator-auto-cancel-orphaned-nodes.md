@@ -37,4 +37,4 @@ If a node enters the `FAILED` state with `rejection_reason: 'Max rejection count
 - [x] The `foundry-orchestrator.test.ts` includes a unit test for this behavior.
 
 ### Generated Nodes
-- .foundry/prds/prd-059-028-orchestrator-auto-cancel-orphaned-nodes.md
+- ./prds/prd-059-028-orchestrator-auto-cancel-orphaned-nodes.md

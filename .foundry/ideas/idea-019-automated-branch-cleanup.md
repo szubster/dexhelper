@@ -33,4 +33,4 @@ Implement an automated Git branch cleanup step in the `foundry-heartbeat` or a d
 - [x] Ensure it only deletes branches safely associated with terminal, failed tasks, and not active ones.
 
 ## References
-- Downstream PRD: `.foundry/prds/prd-019-019-automated-branch-cleanup.md`
+- Downstream PRD: `./prds/prd-019-019-automated-branch-cleanup.md`

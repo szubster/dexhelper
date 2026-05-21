@@ -9,7 +9,7 @@ updated_at: "2026-05-05"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-016-precommit-schema-validation.md
+parent: ./ideas/idea-016-precommit-schema-validation
 tags:
   - foundry
   - dag
@@ -23,10 +23,10 @@ tags:
 Currently, malformed Foundry nodes (e.g. missing required YAML frontmatter fields, invalid `owner_persona`, invalid `status`, or invalid `type` enums) can be committed to the repository. The DAG orchestrator handles schema validation during its dispatch cycle, skipping malformed nodes and logging warnings. However, this clutters the repository history with invalid files and delays the detection of these errors, forcing asynchronous discovery and fix cycles.
 
 ## Proposal
-Expand the existing Git pre-commit hooks (managed by `lefthook`) to include full YAML frontmatter schema validation against the rules defined in `.foundry/docs/schema.md`. This will catch errors at commit time, providing immediate synchronous feedback and preventing malformed nodes from entering the repository.
+Expand the existing Git pre-commit hooks (managed by `lefthook`) to include full YAML frontmatter schema validation against the rules defined in `./docs/schema.md`. This will catch errors at commit time, providing immediate synchronous feedback and preventing malformed nodes from entering the repository.
 
 ## Requirements
-1. **Validation Script**: Create or update a script (e.g., `scripts/validate-foundry-schema.ts` or modifying `scripts/validate-foundry-ids.ts`) to validate the frontmatter of all staged `.foundry/**/*.md` files.
+1. **Validation Script**: Create or update a script (e.g., `scripts/validate-foundry-schema.ts` or modifying `scripts/validate-foundry-ids.ts`) to validate the frontmatter of all staged `**/*.md` files.
 2. **Schema Enforcement**:
    - The `type` must be one of: `IDEA`, `PRD`, `EPIC`, `STORY`, `TASK`.
    - The `status` must be one of: `PENDING`, `READY`, `ACTIVE`, `COMPLETED`, `FAILED`, `BLOCKED`, `CANCELLED`.

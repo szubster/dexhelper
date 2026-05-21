@@ -7,10 +7,10 @@ owner_persona: "tech_lead"
 created_at: "2026-04-26"
 updated_at: "2026-05-01"
 depends_on:
-  - .foundry/tasks/task-016-040-oxlint-import-promise-plugins.md
-  - .foundry/tasks/task-016-039-oxlint-type-aware.md
+  - ./tasks/task-016-040-oxlint-import-promise-plugins
+  - ./tasks/task-016-039-oxlint-type-aware
 jules_session_id: null
-parent: ".foundry/epics/epic-010-oxlint-config.md"
+parent: "./epics/epic-010-oxlint-config
 ---
 
 # Enable expensive and strict oxlint checks
@@ -29,6 +29,6 @@ Oxlint has additional options for multi-file checks and rules that require types
 - [x] `package.json` lint commands run these expensive checks.
 
 ## Generated Tasks
-- [.foundry/tasks/task-016-039-oxlint-type-aware.md](../tasks/task-016-039-oxlint-type-aware.md)
-- [.foundry/tasks/task-016-040-oxlint-import-promise-plugins.md](../tasks/task-016-040-oxlint-import-promise-plugins.md)
-- [.foundry/tasks/task-016-041-update-package-json-lint.md](../tasks/task-016-041-update-package-json-lint.md)
+- [./tasks/task-016-039-oxlint-type-aware.md](../tasks/task-016-039-oxlint-type-aware.md)
+- [./tasks/task-016-040-oxlint-import-promise-plugins.md](../tasks/task-016-040-oxlint-import-promise-plugins.md)
+- [./tasks/task-016-041-update-package-json-lint.md](../tasks/task-016-041-update-package-json-lint.md)

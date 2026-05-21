@@ -37,7 +37,7 @@ Autonomously generated `idea-010-idempotent-node-generation.md` to propose an or
 ## 2026-05-01: Pre-existing Artifacts Anomaly
 
 ### Observation
-The orchestrator detected that target artifacts for `.foundry/archive/stories/story-019-034-anomaly-reporting-mechanism.md` already existed and were completely formed before dispatch.
+The orchestrator detected that target artifacts for `./archive/stories/story-019-034-anomaly-reporting-mechanism.md` already existed and were completely formed before dispatch.
 
 ### Action Taken
 Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.
@@ -54,7 +54,7 @@ Bypassed Jules session dispatch via idempotent generation check and auto-fulfill
 ## 2026-05-01: Pre-existing Artifacts Anomaly
 
 ### Observation
-The orchestrator detected that target artifacts for `.foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism.md` already existed and were completely formed before dispatch.
+The orchestrator detected that target artifacts for `./archive/epics/epic-008-019-anomaly-reporting-mechanism.md` already existed and were completely formed before dispatch.
 
 ### Action Taken
 Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.
@@ -62,7 +62,7 @@ Bypassed Jules session dispatch via idempotent generation check and auto-fulfill
 ## 2026-05-02: Pre-existing Artifacts Anomaly
 
 ### Observation
-The orchestrator detected that target artifacts for `.foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md` already existed and were completely formed before dispatch.
+The orchestrator detected that target artifacts for `./archive/prds/prd-007-005-migrate-saves-to-indexeddb.md` already existed and were completely formed before dispatch.
 
 ### Action Taken
 Bypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.

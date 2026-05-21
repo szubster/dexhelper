@@ -8,16 +8,16 @@ created_at: "2026-04-24"
 updated_at: "2026-04-25"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-010-012-schema-human-persona.md"
+parent: "./stories/story-010-012-schema-human-persona
 tags:
-  - "human-in-the-loop"
-  - "schema"
+  - human-in-the-loop
+  - schema
 ---
 
 # Task: Update Foundry Schema for Human Persona
 
 ## Objective
-Update `.foundry/docs/schema.md` to support human persona.
+Update `./docs/schema.md` to support human persona.
 
 ## Technical Contract
 - Update `owner_persona` enum to include `human`.

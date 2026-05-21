@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-010-oxlint-config.md"
+parent: "./epics/epic-010-oxlint-config
 ---
 
 # Implement strict oxlint configuration
@@ -25,7 +25,7 @@ In response to CEO feedback (PR comment 4303644512), we need to schedule work in
 - [x] Plugins configuration is explicitly addressed in the blueprint tasks.
 
 ## Generated Tasks
-- .foundry/tasks/task-014-027-configure-oxlint-json.md
+- ./tasks/task-014-027-configure-oxlint-json.md
 
 ## Generated Stories
-- .foundry/stories/story-010-015-enforce-strict-oxlint-rules.md
+- ./stories/story-010-015-enforce-strict-oxlint-rules.md

@@ -7,9 +7,9 @@ owner_persona: qa
 created_at: "2026-04-23"
 updated_at: "2026-04-25"
 depends_on:
-  - .foundry/tasks/task-005-025-update-orchestrator-validation.md
+  - ./tasks/task-005-025-update-orchestrator-validation
 jules_session_id: null
-parent: .foundry/stories/story-005-id-schema-templates.md
+parent: ./stories/story-005-id-schema-templates
 ---
 
 # QA Task: Verify Orchestrator Validation for Parent-Linked ID Schema
@@ -22,7 +22,7 @@ This task verifies the work completed in `task-005-025-update-orchestrator-valid
 1. **Review Code Changes:** Ensure the changes in `foundry-orchestrator.ts` correctly accommodate both the new and old ID schemas without breaking backward compatibility.
 2. **Run Tests:** Run the test suite (`pnpm test` in the root or `.github/scripts/` depending on workspace setup) to ensure all orchestrator tests pass.
 3. **Verify Coverage:** Confirm that new test cases were added to specifically cover nodes using the new `<type>-<parent_NNN>-<NNN>-<slug>` format.
-4. **Dry-Run Validation:** Optionally perform a dry run of the orchestrator (`ts-node .github/scripts/foundry-orchestrator.ts --dry-run`) on the current `.foundry/` directory to ensure no new warnings or errors are surfaced for valid IDs.
+4. **Dry-Run Validation:** Optionally perform a dry run of the orchestrator (`ts-node .github/scripts/foundry-orchestrator.ts --dry-run`) on the current `` directory to ensure no new warnings or errors are surfaced for valid IDs.
 
 ## Acceptance Criteria
 - [x] Code modifications align with ADR 002.

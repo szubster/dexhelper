@@ -7,7 +7,7 @@ owner_persona: product_manager
 created_at: '2026-04-23T14:21:34.000Z'
 updated_at: '2026-05-02'
 depends_on:
-  - .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+  - ./archive/prds/prd-007-005-migrate-saves-to-indexeddb
 jules_session_id: null
 ---
 
@@ -31,5 +31,5 @@ By switching to `IndexedDB`:
 - Update the store's hydration mechanism to asynchronously load binary save data from IndexedDB directly into the parser.
 
 ## Generated PRDs
-- .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+- ./archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
 - [x] Create PRD for IndexedDB migration

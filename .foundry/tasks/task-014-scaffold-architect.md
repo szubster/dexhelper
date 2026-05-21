@@ -8,7 +8,7 @@ created_at: "2026-04-21"
 updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-003-dynamic-verification.md
+parent: ./stories/story-003-dynamic-verification
 ---
 
 # Scaffold Architect Persona
@@ -18,4 +18,4 @@ The Architect maintains system-wide technical integrity, including ADRs, Schema,
 ## Acceptance Criteria
 - [x] Create `.github/agents/architect.md`
 - [x] Ensure the prompt instructs the agent to maintain ADRs and Schemas.
-- [x] Ensure the prompt instructs the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context. Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
+- [x] Ensure the prompt instructs the agent to explicitly read all documents under `./docs/` and `./docs/adrs/` when they begin their session to establish their context. Ensure they are aware of the rules in `./docs/adrs/001-the-foundry-architecture.md`.

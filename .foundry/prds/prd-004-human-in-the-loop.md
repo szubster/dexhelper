@@ -8,9 +8,9 @@ created_at: "2026-04-21"
 updated_at: "2026-04-23"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-004-human-in-the-loop.md"
+parent: "./ideas/idea-004-human-in-the-loop
 tags:
-  - "human-in-the-loop"
+  - human-in-the-loop
 ---
 
 # PRD-004: Human-in-the-Loop Handoff
@@ -62,6 +62,6 @@ The `foundry-orchestrator.ts` and `foundry-heartbeat.ts` must be updated:
 - **Epic Planner**: Break down this PRD into Epics mapping out the schema additions, orchestrator script modifications, and required testing.
 
 ## Generated Epics
-- .foundry/epics/epic-010-human-schema.md
-- .foundry/epics/epic-011-human-orchestrator.md
-- .foundry/epics/epic-012-human-heartbeat.md
+- ./epics/epic-010-human-schema.md
+- ./epics/epic-011-human-orchestrator.md
+- ./epics/epic-012-human-heartbeat.md

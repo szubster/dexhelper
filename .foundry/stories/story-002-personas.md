@@ -8,7 +8,7 @@ owner_persona: story_owner
 created_at: "2026-04-20"
 updated_at: "2026-04-21"
 depends_on:
-  - .foundry/epics/epic-003-actions-engine.md
+  - ./epics/epic-003-actions-engine
 jules_session_id: null
 ---
 
@@ -16,7 +16,7 @@ jules_session_id: null
 
 Inject persona-specific instructions (QA, Coder, Tech Lead, Story Owner, etc.) into the Jules environment based on the `owner_persona` field.
 
-This is a STORY. As per the schema, the `story_owner` must break this down into specific atomic TASKS inside `.foundry/tasks/`. 
+This is a STORY. As per the schema, the `story_owner` must break this down into specific atomic TASKS inside `./tasks/`.
 
 ## Requirements to break down:
 
@@ -29,7 +29,7 @@ This is a STORY. As per the schema, the `story_owner` must break this down into 
    - Create `.github/agents/story_owner.md`
    - Create `.github/agents/tpm.md`
    - Create `.github/agents/agile_coach.md`
-   - Each of these files MUST instruct the agent to explicitly read all documents under `.foundry/docs/` and `.foundry/docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
+   - Each of these files MUST instruct the agent to explicitly read all documents under `./docs/` and `./docs/adrs/` when they begin their session to establish their context! Ensure they are aware of the rules in `./docs/adrs/001-the-foundry-architecture.md`.
 
 2. **Modify the Action Runner**
    - Update `.github/workflows/foundry-engine.yml`'s "Invoke Jules Agent" step.
@@ -38,9 +38,9 @@ This is a STORY. As per the schema, the `story_owner` must break this down into 
 
 3. **Migrate Memory System to The Foundry**
    - The standalone Jules instances do not have MCP access to Serena memories.
-   - We must migrate all content inside `.serena/memories/` into `.foundry/docs/` (e.g., as `.foundry/docs/knowledge_base/`).
+   - We must migrate all content inside `.serena/memories/` into `./docs/` (e.g., as `./docs/knowledge_base/`).
    - The persona prompts must instruct Jules to automatically index and read relevant knowledge from this migrated directory whenever they are assigned a task.
 
 ## Instructions for current agent
 
-Since you are running via the fallback prompt in `foundry-engine.yml`, you will act to break this Story down into the above Tasks. Create the `.foundry/tasks/` nodes reflecting the breakdown, set `depends_on: [".foundry/stories/story-002-personas.md"]`, and change this Story's status from `READY` to `COMPLETED`.
+Since you are running via the fallback prompt in `foundry-engine.yml`, you will act to break this Story down into the above Tasks. Create the `./tasks/` nodes reflecting the breakdown, set `depends_on: ["./stories/story-002-personas.md"]`, and change this Story's status from `READY` to `COMPLETED`.

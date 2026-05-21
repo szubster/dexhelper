@@ -8,7 +8,7 @@ created_at: "2026-04-26"
 updated_at: "2026-04-27"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-010-oxlint-config.md"
+parent: "./epics/epic-010-oxlint-config
 ---
 
 # Verify jest rules fix resolution
@@ -25,4 +25,4 @@ Even though we resolved the jest rules, we still have FAILED statuses in previou
 - [x] `pnpm exec oxlint .` passes with these rules completely enabled.
 
 ## Generated Tasks
-- [.foundry/archive/tasks/task-028-046-verify-jest-rules-resolution.md](../../.foundry/archive/tasks/task-028-046-verify-jest-rules-resolution.md)
+- [./archive/tasks/task-028-046-verify-jest-rules-resolution.md](../archive/tasks/task-028-046-verify-jest-rules-resolution.md)

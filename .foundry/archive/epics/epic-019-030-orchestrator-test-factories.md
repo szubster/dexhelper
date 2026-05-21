@@ -51,4 +51,4 @@ Implement a standardized test node factory utility in the DAG Orchestrator test 
 
 
 ### Child Nodes
-- Spawned: [.foundry/archive/stories/story-030-046-standardize-orchestrator-test-factories.md](.foundry/archive/stories/story-030-046-standardize-orchestrator-test-factories.md)
+- Spawned: [./archive/stories/story-030-046-standardize-orchestrator-test-factories.md](./archive/stories/story-030-046-standardize-orchestrator-test-factories.md)

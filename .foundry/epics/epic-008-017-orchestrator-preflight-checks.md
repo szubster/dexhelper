@@ -8,7 +8,7 @@ created_at: '2026-04-29'
 updated_at: "2026-05-02"
 depends_on: []
 jules_session_id: null
-parent: .foundry/prds/prd-010-008-idempotent-node-generation.md
+parent: ./prds/prd-010-008-idempotent-node-generation
 tags:
   - orchestrator
   - generation
@@ -26,11 +26,11 @@ Introduce logic to `foundry-orchestrator.ts` to detect explicitly spawned target
 ## Requirements
 - Define what constitutes a "completely formed" artifact (e.g., schema validation).
 - Implement a pre-flight file check before spawning Jules matrix jobs.
-- Target artifacts must be checked for existence and valid schema in the `.foundry/` directory.
+- Target artifacts must be checked for existence and valid schema in the `` directory.
 
 ## Acceptance Criteria
 - [x] Orchestrator parses expected outputs for node generation tasks.
 - [x] Orchestrator successfully validates the schema of pre-existing target nodes.
 
 ## Stories
-- [.foundry/stories/story-017-034-orchestrator-preflight-logic.md](.foundry/stories/story-017-034-orchestrator-preflight-logic.md)
+- [./stories/story-017-034-orchestrator-preflight-logic.md](./stories/story-017-034-orchestrator-preflight-logic.md)

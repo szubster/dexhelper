@@ -25,4 +25,4 @@ Use `gray-matter` for parsing markdown files to ensure robustness and correctnes
 Better code maintainability, less bugs, robust node parsing in Foundry.
 
 ## Child Nodes
-- [x] Created PRD: .foundry/prds/prd-012-011-gray-matter-parsing.md
+- [x] Created PRD: ./prds/prd-012-011-gray-matter-parsing.md

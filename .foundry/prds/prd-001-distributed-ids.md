@@ -8,7 +8,7 @@ created_at: "2026-04-21"
 updated_at: "2026-04-21"
 depends_on: []
 jules_session_id: null
-parent: .foundry/archive/ideas/idea-002-collision-free-ids.md
+parent: ./archive/ideas/idea-002-collision-free-ids
 ---
 
 # PRD: Distributed IDs & Concurrency Resilience
@@ -58,6 +58,6 @@ Pre-commit hooks will be implemented (or extended) to automatically validate the
 - [x] Pre-commit validation ensures ID uniqueness across the `.foundry` directory.
 
 ## 7. Generated Epics
-- `.foundry/epics/epic-004-distributed-id-schema.md`: Decision and implementation of the collision-free ID schema and updating templates.
-- `.foundry/epics/epic-005-shadow-dispatch-prevention.md`: GitHub PR & session inspection mechanism to lock nodes currently actively worked on in open branches.
-- `.foundry/epics/epic-006-id-pre-commit-hooks.md`: Pre-commit hook implementation to automatically validate the integrity of the new ID scheme across the directory.
+- `./epics/epic-004-distributed-id-schema.md`: Decision and implementation of the collision-free ID schema and updating templates.
+- `./epics/epic-005-shadow-dispatch-prevention.md`: GitHub PR & session inspection mechanism to lock nodes currently actively worked on in open branches.
+- `./epics/epic-006-id-pre-commit-hooks.md`: Pre-commit hook implementation to automatically validate the integrity of the new ID scheme across the directory.

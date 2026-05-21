@@ -10,5 +10,5 @@ Formalizes the Gen 2 support expansion into the Foundry autonomous workflow.
   3. Johto/Kanto Map Graph.
   4. Strategy & Suggestion Engine.
 
-Linked Implementation Plan: [.foundry/docs/knowledge_base/development/gen2_implementation_plan.md](.foundry/docs/knowledge_base/development/gen2_implementation_plan.md)
-Foundry Idea: [.foundry/ideas/idea-006-gen2-expansion.md](.foundry/ideas/idea-006-gen2-expansion.md)
+Linked Implementation Plan: [./docs/knowledge_base/development/gen2_implementation_plan.md](./docs/knowledge_base/development/gen2_implementation_plan.md)
+Foundry Idea: [./ideas/idea-006-gen2-expansion.md](./ideas/idea-006-gen2-expansion.md)

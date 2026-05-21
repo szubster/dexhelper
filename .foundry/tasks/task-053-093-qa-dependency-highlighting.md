@@ -7,10 +7,10 @@ owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-20'
 depends_on:
-  - .foundry/tasks/task-053-092-implement-dependency-highlighting.md
+  - ./tasks/task-053-092-implement-dependency-highlighting
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-053-implement-dependency-highlighting.md
+parent: ./stories/story-029-053-implement-dependency-highlighting
 tags:
   - dag
   - dashboard
@@ -59,4 +59,4 @@ This task fulfills Story 053. The objective is to verify the interactive depende
 - [x] Ensure `pnpm lint` and all test suites pass.
 
 
-**CANCELLED**: The associated implementation task failed permanently. This QA task is cancelled and replaced by `.foundry/tasks/task-053-125-qa-retry-dependency-highlighting.md`.
+**CANCELLED**: The associated implementation task failed permanently. This QA task is cancelled and replaced by `./tasks/task-053-125-qa-retry-dependency-highlighting.md`.

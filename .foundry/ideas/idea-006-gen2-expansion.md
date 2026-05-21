@@ -8,7 +8,7 @@ created_at: '2026-04-21'
 updated_at: '2026-05-17'
 jules_session_id: null
 depends_on:
-  - .foundry/ideas/idea-001-the-foundry.md
+  - ./ideas/idea-001-the-foundry
 ---
 
 # Gen 2 Support Expansion: Johto/Kanto Lifecycle
@@ -19,7 +19,7 @@ While the current application has basic support for parsing Gen 2 (Gold/Silver/C
 
 ## Proposed Strategy
 
-Convert the existing [Gen 2 Implementation Plan](.foundry/docs/knowledge_base/development/gen2_implementation_plan.md) into a Foundry-orchestrated workflow. The strategy is broken down into four core phases:
+Convert the existing [Gen 2 Implementation Plan](./docs/knowledge_base/development/gen2_implementation_plan.md) into a Foundry-orchestrated workflow. The strategy is broken down into four core phases:
 
 ### 1. Save Parser Expansion (Engine Data Layer)
 Expand `src/engine/saveParser/parsers/gen2.ts` to include missing Gen 2 structs:
@@ -45,7 +45,7 @@ Inject Gen 2 logic into the Assistant's core:
 
 ## Next Steps
 - [x] **Product Manager**: Draft the Gen 2 Expansion PRD, formalizing the scope for Phase 1 and 2.
-  - Spawned: [.foundry/prds/prd-006-015-gen2-expansion-phase-1-2.md](.foundry/prds/prd-006-015-gen2-expansion-phase-1-2.md)
+  - Spawned: [./prds/prd-006-015-gen2-expansion-phase-1-2](./prds/prd-006-015-gen2-expansion-phase-1-2)
 - [x] **Product Manager**: Draft the Gen 2 Expansion PRD, formalizing the scope for Phase 3 and 4.
-  - Spawned: [.foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md](.foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md)
+  - Spawned: [./prds/prd-006-017-gen2-expansion-phase-3-4](./prds/prd-006-017-gen2-expansion-phase-3-4)
 - [ ] **Architect**: Review the Map Graph design to ensure it scales for dual-region routing.

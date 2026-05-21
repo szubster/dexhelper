@@ -8,10 +8,10 @@ created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-011-human-orchestrator.md"
+parent: "./epics/epic-011-human-orchestrator
 tags:
-  - "human-in-the-loop"
-  - "orchestrator"
+  - human-in-the-loop
+  - orchestrator
 ---
 
 # Story 010: Implement Human Task Bypass in Orchestrator
@@ -26,5 +26,5 @@ Implement logic in the orchestrator to intercept `human` tasks that are moving f
 - [ ] Add a unit test in `.github/scripts/foundry-orchestrator.test.ts` to verify this behavior.
 
 ## Generated Tasks
-- `.foundry/tasks/task-022-orchestrator-human-bypass.md`
-- `.foundry/tasks/task-023-qa-orchestrator-human-bypass.md`
+- `./tasks/task-022-orchestrator-human-bypass.md`
+- `./tasks/task-023-qa-orchestrator-human-bypass.md`

@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-010-persona-permissions.md"
+parent: "./epics/epic-010-persona-permissions
 tags:
   - foundry-v2
   - architecture
@@ -28,7 +28,7 @@ Implement a guidelines/warnings model for node creation per persona during late 
 - [x] These bounds are provided as soft direction and encouragement within the prompts, not enforced mechanically in the orchestrator.
 
 ## Context
-See `.foundry/epics/epic-010-persona-permissions.md` and `.foundry/docs/adrs/001-the-foundry-architecture.md` for background.
+See `./epics/epic-010-persona-permissions.md` and `./docs/adrs/001-the-foundry-architecture.md` for background.
 
 ### Generated Tasks
-- `.foundry/tasks/task-010-024-update-persona-prompts.md`
+- `./tasks/task-010-024-update-persona-prompts.md`

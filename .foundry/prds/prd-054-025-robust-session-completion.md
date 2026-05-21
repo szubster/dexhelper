@@ -49,5 +49,5 @@ However, under the "Empty PR" policy, agents are instructed to submit an empty P
 
 
 ## Downstream Nodes
-- ADR: `.foundry/docs/adrs/011-robust-session-completion.md`
-- EPIC: `.foundry/epics/epic-025-033-robust-session-completion.md`
+- ADR: `./docs/adrs/011-robust-session-completion.md`
+- EPIC: `./epics/epic-025-033-robust-session-completion.md`

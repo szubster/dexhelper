@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-05-04'
 updated_at: '2026-05-10'
 depends_on:
-  - .foundry/stories/story-025-038-implement-mapping-validation.md
+  - ./stories/story-025-038-implement-mapping-validation
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md
+parent: ./epics/epic-014-025-enforce-persona-pipeline-handoffs
 tags:
   - foundry
   - dag
@@ -34,5 +34,5 @@ Handle the state transition when an invalid `owner_persona` mapping is detected.
 
 ## Next Step
 - [x] Create Task to add failure handling logic.
-- Spawned Blueprint: [.foundry/tasks/task-039-071-implement-failure-handling.md](.foundry/tasks/task-039-071-implement-failure-handling.md)
-- Spawned QA: [.foundry/tasks/task-039-072-qa-failure-handling.md](.foundry/tasks/task-039-072-qa-failure-handling.md)
+- Spawned Blueprint: [./tasks/task-039-071-implement-failure-handling.md](./tasks/task-039-071-implement-failure-handling.md)
+- Spawned QA: [./tasks/task-039-072-qa-failure-handling.md](./tasks/task-039-072-qa-failure-handling.md)

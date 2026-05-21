@@ -7,12 +7,12 @@ owner_persona: story_owner
 created_at: "2026-04-23"
 updated_at: "2026-04-23"
 depends_on:
-  - ".foundry/epics/epic-010-human-schema.md"
+  - "./epics/epic-010-human-schema
 jules_session_id: null
-parent: ".foundry/prds/prd-004-human-in-the-loop.md"
+parent: "./prds/prd-004-human-in-the-loop
 tags:
-  - "human-in-the-loop"
-  - "heartbeat"
+  - human-in-the-loop
+  - heartbeat
 ---
 
 # Epic 012: Modify Heartbeat Script for Human Tasks
@@ -39,4 +39,4 @@ The heartbeat script currently ensures that `ACTIVE` tasks have a living `jules_
 - Direct-to-main commits (no `pr_number`) simply remain `ACTIVE` until manually moved to `COMPLETED` by a human. The heartbeat ignores them.
 
 ## Generated Stories
-- [.foundry/stories/story-011-human-heartbeat-script.md](.foundry/stories/story-011-human-heartbeat-script.md)
+- [./stories/story-011-human-heartbeat-script.md](./stories/story-011-human-heartbeat-script.md)

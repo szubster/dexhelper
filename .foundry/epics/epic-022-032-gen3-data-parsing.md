@@ -29,6 +29,6 @@ Implement data parsers to handle Gen3 format while ensuring backwards compatibil
 - Add bounds checking that correctly handles out-of-bounds reads gracefully as per ADR-010.
 - Verify backwards compatibility for legacy interfaces.
 
-- [x] [story-032-059-gen3-dataview-scaffolding](.foundry/stories/story-032-059-gen3-dataview-scaffolding.md)
-- [x] [story-032-060-gen3-bounds-checking](.foundry/stories/story-032-060-gen3-bounds-checking.md)
-- [x] [story-032-061-gen3-legacy-compatibility](.foundry/stories/story-032-061-gen3-legacy-compatibility.md)
+- [x] [story-032-059-gen3-dataview-scaffolding](./stories/story-032-059-gen3-dataview-scaffolding.md)
+- [x] [story-032-060-gen3-bounds-checking](./stories/story-032-060-gen3-bounds-checking.md)
+- [x] [story-032-061-gen3-legacy-compatibility](./stories/story-032-061-gen3-legacy-compatibility.md)

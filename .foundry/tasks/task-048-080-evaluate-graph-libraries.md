@@ -31,9 +31,9 @@ We are building a DAG Dashboard Visualization & UI for the Foundry nodes. We nee
   - Integration ease within a React environment.
   - Interactivity support (e.g., node filtering, highlighting dependencies).
   - Performance characteristics with moderate node counts.
-  - Suitability for custom styling to match our 'tactical hardware/snooping' aesthetic.
+  - Suitability for custom styling to match our tactical hardware/snooping aesthetic.
 
 ## Acceptance Criteria
 - [x] Research and compare at least two graph rendering libraries.
 - [x] Select the most appropriate library for the DAG Dashboard based on the evaluation criteria.
-- [x] Document the decision and integration approach by creating an Architecture Decision Record (ADR) in `.foundry/docs/adrs/`.
+- [x] Document the decision and integration approach by creating an Architecture Decision Record (ADR) in `./docs/adrs/`.

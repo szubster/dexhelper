@@ -9,7 +9,7 @@ updated_at: "2026-05-10"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-018-028-migrate-heartbeat-to-gray-matter.md
+parent: ./epics/epic-018-028-migrate-heartbeat-to-gray-matter
 tags:
   - foundry
   - orchestrator
@@ -35,5 +35,5 @@ In `.github/scripts/foundry-heartbeat.ts`, we currently use fragile regex patter
 - [x] Tasks are outlined and delegated.
 
 ### Child Tasks:
-- [.foundry/tasks/task-043-073-refactor-heartbeat-matter.md](.foundry/tasks/task-043-073-refactor-heartbeat-matter.md)
-- [.foundry/tasks/task-043-074-qa-refactor-heartbeat-matter.md](.foundry/tasks/task-043-074-qa-refactor-heartbeat-matter.md)
+- [./tasks/task-043-073-refactor-heartbeat-matter.md](./tasks/task-043-073-refactor-heartbeat-matter.md)
+- [./tasks/task-043-074-qa-refactor-heartbeat-matter.md](./tasks/task-043-074-qa-refactor-heartbeat-matter.md)

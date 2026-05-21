@@ -7,7 +7,7 @@ Accepted
 The Foundry currently requires downstream engineering agents to execute specific coding tasks. However, these agents often lack sufficient deep domain context (such as architectural decisions, third-party API quirks, or algorithmic research) necessary to perform their tasks correctly. Directly adding this research into a single TASK node balloons the task length and makes it unreadable. We need a systematic way to inject researched knowledge into any task.
 
 ## Decision
-We will introduce a `researcher` persona responsible for exploratory tasks and documenting findings. These findings will be stored as markdown files in `.foundry/research/`.
+We will introduce a `researcher` persona responsible for exploratory tasks and documenting findings. These findings will be stored as markdown files in `./research/`.
 
 To inject this context, we will add a `research_references` optional string array to the global YAML frontmatter schema. Any node in the Foundry DAG can define a list of repo-relative paths pointing to these research files.
 

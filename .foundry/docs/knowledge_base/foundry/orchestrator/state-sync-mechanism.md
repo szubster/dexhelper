@@ -6,13 +6,13 @@ To keep the Orchestrator's internal database (D1) in sync with the GitHub reposi
 
 1. **Git Push:** A commit is pushed to the `main` branch.
 2. **GitHub Webhook:** GitHub fires a `push` webhook payload to our Cloudflare Worker (`/webhook/github`).
-3. **Diff Analysis:** The Worker analyzes the webhook's `commits` array to identify modified, added, or deleted files under `.foundry/`.
+3. **Diff Analysis:** The Worker analyzes the webhook's `commits` array to identify modified, added, or deleted files under ``.
 4. **Content Fetch:** For changed files, the Worker fetches the raw markdown content via the GitHub REST API to ensure it processes the absolute latest state on `main`.
 5. **D1 Ingestion:** The Worker parses the content and executes a database transaction to update the corresponding nodes and dependencies in D1.
 
 ## 2. Markdown Frontmatter Serialization
 
-Markdown frontmatter serialization and extraction will follow the existing schema defined in `.foundry/docs/schema.md`.
+Markdown frontmatter serialization and extraction will follow the existing schema defined in `./docs/schema.md`.
 
 - **Parsing:** The Worker will use a robust YAML parser (e.g., `js-yaml`) to extract the block between `---` markers.
 - **Validation:** Extracted objects will be validated against Zod schemas representing the rules in `schema.md` (e.g., ensuring `depends_on` is an array of strings, `status` matches allowed enums).

@@ -9,13 +9,13 @@ updated_at: '2026-05-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-028-map-graph-routing.md
+parent: ./epics/epic-017-028-map-graph-routing
 tags:
   - gen2
   - expansion
   - map-graph
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - ./docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -31,5 +31,5 @@ Create a comprehensive map graph for Johto and Kanto to support Gen 2 traversal 
 - Define the graph of connected locations, nodes, and transitions across Johto and Kanto.
 
 ## Tasks
-- [x] [.foundry/tasks/task-043-071-implement-gen2-map-graph.md](.foundry/tasks/task-043-071-implement-gen2-map-graph.md)
-- [x] [.foundry/archive/tasks/task-043-072-qa-gen2-map-graph.md](.foundry/archive/tasks/task-043-072-qa-gen2-map-graph.md)
+- [x] [./tasks/task-043-071-implement-gen2-map-graph.md](./tasks/task-043-071-implement-gen2-map-graph.md)
+- [x] [./archive/tasks/task-043-072-qa-gen2-map-graph.md](./archive/tasks/task-043-072-qa-gen2-map-graph.md)

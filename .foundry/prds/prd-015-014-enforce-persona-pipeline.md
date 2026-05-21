@@ -9,7 +9,7 @@ updated_at: "2026-05-04"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-015-enforce-persona-pipeline.md
+parent: ./ideas/idea-015-enforce-persona-pipeline
 tags:
   - foundry
   - dag
@@ -31,7 +31,7 @@ The pipeline expects a strict handoff sequence between specific nodes and person
 Introduce a pre-flight schema validation check in the DAG Orchestrator to ensure that the `owner_persona` defined in the YAML frontmatter strictly matches the expected persona for the given node `type`.
 
 ## 3. Allowed Type-to-Persona Mappings
-Based on the Foundry schema (`.foundry/docs/schema.md`), the pipeline must strictly enforce these ownership rules:
+Based on the Foundry schema (`./docs/schema.md`), the pipeline must strictly enforce these ownership rules:
 
 | Node `type` | Allowed `owner_persona` values |
 |---|---|
@@ -59,4 +59,4 @@ The pipeline follows a strict handoff sequence between specific nodes and person
 
 ## 5. Next Steps
 - [x] Implement the EPIC breakdown for this PRD.
-- .foundry/epics/epic-014-025-enforce-persona-pipeline-handoffs.md
+- ./epics/epic-014-025-enforce-persona-pipeline-handoffs.md

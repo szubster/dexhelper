@@ -8,7 +8,7 @@ created_at: "2026-04-25"
 updated_at: "2026-04-26"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-008-atomic-handoff-orchestrator.md"
+parent: "./epics/epic-008-atomic-handoff-orchestrator
 ---
 
 # Update Node Status on PR Merge
@@ -22,5 +22,5 @@ The orchestrator must correctly mark nodes as `COMPLETED` when their respective 
 - [x] Tests verify that the node status updates correctly upon PR merge.
 
 ### Generated Tasks
-- `.foundry/tasks/task-024-041-update-status-on-merge.md`
-- `.foundry/tasks/task-024-042-qa-update-status-on-merge.md`
+- `./tasks/task-024-041-update-status-on-merge.md`
+- `./tasks/task-024-042-qa-update-status-on-merge.md`

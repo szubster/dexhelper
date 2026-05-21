@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-005-id-schema-templates.md
+parent: ./stories/story-005-id-schema-templates
 ---
 
 # Task: Update Generation Templates to Parent-Linked ID Schema
@@ -20,7 +20,7 @@ As per ADR 002, The Foundry system has transitioned to a Parent-Linked Distribut
 Update all boilerplate templates and generation instructions to strictly adhere to the new schema.
 
 ## Requirements
-1. **Schema Document (`.foundry/docs/schema.md`)**
+1. **Schema Document (`./docs/schema.md`)**
    - Update the "New Node Template" section (Section 8) to explicitly reflect the new format `<type>-<parent_NNN>-<NNN>-<slug>`.
    - Ensure the field reference description for `id` under Section 3.1 accurately details this convention.
 
@@ -32,5 +32,5 @@ Update all boilerplate templates and generation instructions to strictly adhere 
    - Check if any `.ts` scripts contain hardcoded markdown templates (e.g., in `foundry-orchestrator.ts` or `foundry-heartbeat.ts`) and update them if they do.
 
 ## Acceptance Criteria
-- [ ] `.foundry/docs/schema.md` properly documents the parent-linked ID format in both definitions and templates.
+- [ ] `./docs/schema.md` properly documents the parent-linked ID format in both definitions and templates.
 - [ ] Any script or agent prompt that dynamically or statically references the ID schema format reflects the `<type>-<parent_NNN>-<NNN>-<slug>` structure.

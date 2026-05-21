@@ -8,7 +8,7 @@ created_at: "2026-04-24"
 updated_at: "2026-04-25"
 depends_on: []
 jules_session_id: null
-parent: .foundry/prds/prd-007-006-automated-link-checker.md
+parent: ./prds/prd-007-006-automated-link-checker
 tags: ["infras", "verification"]
 rejection_count: 1
 notes: ""
@@ -26,5 +26,5 @@ Implement an automated git pre-commit hook that validates all local markdown fil
 - [ ] The pre-commit hook is integrated and successfully rejects commits containing dead links.
 
 ## Generated Tasks
-- .foundry/tasks/task-015-028-implement-link-checker.md
-- .foundry/tasks/task-015-029-qa-link-checker.md
+- ./tasks/task-015-028-implement-link-checker.md
+- ./tasks/task-015-029-qa-link-checker.md

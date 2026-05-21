@@ -7,9 +7,9 @@ owner_persona: story_owner
 created_at: "2026-04-23"
 updated_at: "2026-04-25"
 depends_on:
-  - .foundry/epics/epic-010-persona-permissions.md
+  - ./epics/epic-010-persona-permissions
 jules_session_id: null
-parent: ".foundry/prds/prd-005-010-late-binding-orchestrator.md"
+parent: "./prds/prd-005-010-late-binding-orchestrator
 tags:
   - foundry-v2
   - architecture
@@ -31,5 +31,5 @@ Implement the orchestration logic required to support the "Wait & Wake" protocol
 - [x] The Orchestrator detects `FAILED` nodes and either "wakes up" the parent node or flags it for the `tpm` to create a feedback `IDEA` for the PM/CEO.
 
 ### Generated Stories
-- `.foundry/stories/story-011-016-wait-wake-implementation.md`
-- `.foundry/stories/story-011-017-impossible-loop.md`
+- `./stories/story-011-016-wait-wake-implementation.md`
+- `./stories/story-011-017-impossible-loop.md`

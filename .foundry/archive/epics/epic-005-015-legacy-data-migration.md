@@ -7,11 +7,11 @@ owner_persona: story_owner
 created_at: '2026-04-24'
 updated_at: '2026-05-02'
 depends_on:
-  - .foundry/archive/epics/epic-005-013-idb-infrastructure.md
-  - .foundry/archive/epics/epic-005-014-state-store-migration.md
-  - .foundry/archive/stories/story-015-032-legacy-save-migration-hook.md
+  - ./archive/epics/epic-005-013-idb-infrastructure
+  - ./archive/epics/epic-005-014-state-store-migration
+  - ./archive/stories/story-015-032-legacy-save-migration-hook
 jules_session_id: null
-parent: .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+parent: ./archive/prds/prd-007-005-migrate-saves-to-indexeddb
 tags:
   - migration
   - localStorage
@@ -29,4 +29,4 @@ Existing users will have their saves stored as base64 strings in `localStorage`.
 - [ ] Successfully migrated saves are cleared from `localStorage`.
 - [ ] Users experience no loss of progression during the transition.
 ## Generated Stories
-- .foundry/archive/stories/story-015-032-legacy-save-migration-hook.md
+- ./archive/stories/story-015-032-legacy-save-migration-hook.md

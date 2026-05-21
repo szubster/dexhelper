@@ -7,16 +7,16 @@ owner_persona: story_owner
 created_at: '2026-05-06'
 updated_at: '2026-05-17'
 depends_on:
-  - .foundry/epics/epic-017-028-map-graph-routing.md
+  - ./epics/epic-017-028-map-graph-routing
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md
+parent: ./prds/prd-006-017-gen2-expansion-phase-3-4
 tags:
   - gen2
   - expansion
   - suggestion-engine
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - ./docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -36,9 +36,9 @@ Inject Gen 2 specific strategy into the Assistant's core to handle new mechanics
 - **Stat-Based Evolutions**: Update evolution logic to handle stat-based evolutions like Tyrogue.
 
 ## Acceptance Criteria
-- [x] Gen 2 Strategy Plugin is created and linked. (Linked to .foundry/stories/story-029-054-gen2-strategy-plugin.md)
-- [x] Suggestion engine handles time-based (RTC) availability. (Linked to .foundry/stories/story-029-055-time-based-suggestions.md)
-- [x] Suggestion engine detects breeding opportunities for baby Pokémon. (Linked to .foundry/stories/story-029-056-breeding-suggestions.md)
-- [x] Suggestion engine accounts for Headbutt and Rock Smash interactions. (Linked to .foundry/stories/story-029-057-interaction-logic.md)
-- [x] Roamer tracking logic guides the player appropriately. (Linked to .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md)
-- [x] Evolution logic accurately processes stat-based evolutions. (Linked to .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md)
+- [x] Gen 2 Strategy Plugin is created and linked. (Linked to ./stories/story-029-054-gen2-strategy-plugin.md)
+- [x] Suggestion engine handles time-based (RTC) availability. (Linked to ./stories/story-029-055-time-based-suggestions.md)
+- [x] Suggestion engine detects breeding opportunities for baby Pokémon. (Linked to ./stories/story-029-056-breeding-suggestions.md)
+- [x] Suggestion engine accounts for Headbutt and Rock Smash interactions. (Linked to ./stories/story-029-057-interaction-logic.md)
+- [x] Roamer tracking logic guides the player appropriately. (Linked to ./stories/story-029-058-roamer-tracking-and-stat-evolutions.md)
+- [x] Evolution logic accurately processes stat-based evolutions. (Linked to ./stories/story-029-058-roamer-tracking-and-stat-evolutions.md)

@@ -8,7 +8,7 @@ created_at: "2026-04-25"
 updated_at: "2026-04-26"
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-008-atomic-handoff-orchestrator.md"
+parent: "./epics/epic-008-atomic-handoff-orchestrator
 ---
 
 # Validate Single Owner Persona in Orchestrator
@@ -21,4 +21,4 @@ To enforce Atomic Handoffs, the orchestrator script must explicitly reject or er
 - [ ] If `owner_persona` is an array or contains multiple personas, the orchestrator logs an error and skips or rejects the node.
 - [ ] Tests are added to verify this validation logic.
 
-- [x] Task created for implementation: `.foundry/tasks/task-023-041-implement-single-owner-validation.md`
+- [x] Task created for implementation: `./tasks/task-023-041-implement-single-owner-validation.md`

@@ -8,7 +8,7 @@ created_at: "2026-04-23"
 updated_at: "2026-04-24"
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-010-persona-permissions-matrix.md
+parent: ./stories/story-010-persona-permissions-matrix
 tags:
   - foundry-v2
   - architecture
@@ -23,7 +23,7 @@ notes: ""
 Update the system prompts for the agent personas to gently encourage and remind them of the proper node creation matrix, without strictly enforcing it via the orchestrator.
 
 ## Context
-As refined in the story `.foundry/stories/story-010-persona-permissions-matrix.md`, the system should guide personas rather than block them. The most effective way to do this is by updating their base prompt instructions.
+As refined in the story `./stories/story-010-persona-permissions-matrix.md`, the system should guide personas rather than block them. The most effective way to do this is by updating their base prompt instructions.
 
 ## Blueprint / Implementation Details
 1. **Modify Agent Prompts (`.github/agents/*.md`):**

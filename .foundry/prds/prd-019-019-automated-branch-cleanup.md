@@ -29,4 +29,4 @@ Based on the `idea-019-automated-branch-cleanup`, the "Resurrection Loop" spawns
 
 
 ## Epic Breakdown
-- [x] `.foundry/epics/epic-019-030-automated-branch-cleanup.md`
+- [x] `./epics/epic-019-030-automated-branch-cleanup.md`

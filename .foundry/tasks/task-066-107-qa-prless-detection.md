@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/tasks/task-066-106-implement-prless-detection.md
+  - ./tasks/task-066-106-implement-prless-detection
 jules_session_id: null
 pr_number: null
 parent: story-033-066-heartbeat-prless-detection
@@ -24,7 +24,7 @@ notes: ''
 # TASK: QA PR-less Detection in Heartbeat
 
 ## Objective
-Verify the changes made in `.foundry/tasks/task-066-106-implement-prless-detection.md`.
+Verify the changes made in `./tasks/task-066-106-implement-prless-detection.md`.
 
 ## Context
 As part of making the session completion robust for the "Empty PR" policy (ADR 011), the heartbeat script needs to stop blindly failing sessions that are `COMPLETED` according to the API but lack a PR.
