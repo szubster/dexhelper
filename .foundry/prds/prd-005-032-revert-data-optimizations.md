@@ -64,3 +64,7 @@ The exact list of properties to rename across the application (`PokeDB.ts`, `sch
 ## Acceptance Criteria
 - [x] Determine how to propagate this into an ADR (Architecture Decision Record) since we are changing data contracts globally.
 - [x] Ensure that an ADR is created to record this decision before creating Epics/Stories.
+
+### Spawned Epics
+- .foundry/epics/epic-032-042-generation-pipeline-keys.md
+- .foundry/epics/epic-032-043-runtime-interfaces-keys.md
