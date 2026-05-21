@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { page, userEvent } from 'vitest/browser';
+import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import type { GameVersion, PokeballType } from '../../../store';
 import { SettingsControls } from '../SettingsControls';
@@ -24,7 +24,7 @@ describe('SettingsControls', () => {
     );
 
     await expect.element(page.getByText('Version')).toBeInTheDocument();
-    await expect.element(page.getByText('Living Dex')).toBeInTheDocument();
+    await expect.element(page.getByText('Living Dex', { exact: true })).toBeInTheDocument();
     await expect.element(page.getByText('Ball Style')).toBeInTheDocument();
   });
 
@@ -62,7 +62,7 @@ describe('SettingsControls', () => {
       />,
     );
 
-    await userEvent.selectOptions(page.getByLabelText('Select Game Version'), 'red');
+    await page.getByRole('button', { name: 'Red' }).click();
     expect(setManualVersion).toHaveBeenCalledWith('red');
   });
 
@@ -84,7 +84,7 @@ describe('SettingsControls', () => {
       />,
     );
 
-    await page.getByRole('switch', { name: 'Toggle Living Dex Mode' }).click();
+    await page.getByRole('button', { name: '[ LIVING DEX ]' }).click();
     expect(setIsLivingDex).toHaveBeenCalledWith(true);
   });
 
@@ -109,7 +109,7 @@ describe('SettingsControls', () => {
       />,
     );
 
-    await userEvent.selectOptions(page.getByLabelText('Select Ball Style'), 'great');
+    await page.getByRole('button', { name: 'Great Ball' }).click();
     expect(setGlobalPokeball).toHaveBeenCalledWith('great');
   });
 });

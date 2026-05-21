@@ -116,3 +116,9 @@
 **Outcome:** Accepted
 **Why:** Brings the error messaging interface in line with the heavily tactical, specialized hardware motif, solidifying the application's unique visual identity. Tactical panels automatically include dashed borders, LCD grid backgrounds, scanlines, and corner crosshairs.
 **Pattern:** Consistently utilize `TacticalPanel` and matching variants (e.g. `red` for errors) instead of building custom styles with raw elements, ensuring a unified UI language across all system notifications.
+
+## 2026-06-05 - [Accepted] - 🖼️ Canvas: Tactical SettingsControls Redesign
+**What:** Redesigned the Settings controls (Version, Living Dex, Ball Style) to remove native `<select>` dropdowns and slide toggles, replacing them with tactile, hardware-style button grids and sharp segmented controls.
+**Outcome:** Accepted
+**Why:** Brings the interactive inputs of the settings panel in line with the rest of the application's heavily tactical, specialized hardware motif, correcting the generic web UI elements previously used.
+**Pattern:** Consistently eliminate generic web UI patterns (native `<select>` dropdowns, default sliding toggles) in favor of sharp, high-contrast, terminal-like button grids or segmented controls to maintain the specialized device illusion.
