@@ -69,3 +69,6 @@ Critical learnings:
 
 ## 2026-05-20 - Fixed Biome Schema Version Mismatch Again
 **Learning:** The Biome CLI version (2.4.15) in `package.json` and `biome.jsonc` was bumped but the version in `.github/workflows/biome.yml` was left at `2.4.14`, meaning CI wasn't using the same version as local. Updated the workflow to match.
+
+## 2026-05-21 - Switched to SWC Vite Plugin
+**Learning:** Replaced `@vitejs/plugin-react` with `@vitejs/plugin-react-swc` for faster development builds and fast refresh. When doing this, carefully matched the versions for the testing dependencies (`@vitest/browser`, etc.) and Playwright because mismatched versions caused pipeline failures during verification.
