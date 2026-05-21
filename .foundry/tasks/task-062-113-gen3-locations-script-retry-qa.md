@@ -19,4 +19,4 @@ parent: story-032-062-gen3-data-generation-scripts
 QA validate the retried script that fetches Generation 3 locations data.
 
 ## Acceptance Criteria
-- [ ] QA verifies the script fetches accurate Gen 3 locations from `pret/pokeemerald`.
+- [x] QA verifies the script fetches accurate Gen 3 locations from `pret/pokeemerald`.
