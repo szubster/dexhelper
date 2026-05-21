@@ -59,3 +59,10 @@
 - **Why**: Drastically improved readability of `PokedexCard`, `PokemonDetails`, and `VersionModal`.
 - **Key Learnings**:
   - Allowing `colorClass` to be passed as a prop allowed the modal to utilize the primary theme with 10% opacity instead of 20%, maintaining flexibility while standardizing the CSS animation.
+
+## DataPoint Extraction
+- **What**: Extracted repeated `flex flex-col` blocks that pair an uppercase label and a bold value into a reusable `<DataPoint>` component.
+- **Why**: Reduced duplicated JSX across multiple components including `AppHeader`, `PokemonCaughtDetails`, and `PokemonCatchProbability`. Standardizes the UI layout for data presentation.
+- **Key Learnings**:
+  - Separating `labelClassName` and `valueClassName` allows for necessary typographic variations (like alignment or colors) while still leveraging the base structural pattern.
+  - Always manually verify existing files using tools like `grep` before attempting substitutions, as files may have drifted from expected state.
