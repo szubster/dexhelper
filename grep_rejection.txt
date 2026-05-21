@@ -1,0 +1,5 @@
+.foundry/prds/prd-059-028-orchestrator-auto-cancel-orphaned-nodes.md:rejection_reason: ''
+.foundry/prds/prd-059-028-orchestrator-auto-cancel-orphaned-nodes.md:1. **Trigger Condition**: During the orchestrator's graph evaluation, if it detects any node in the `FAILED` state with the specific `rejection_reason: 'Max rejection count reached'`.
+.foundry/prds/prd-059-028-orchestrator-auto-cancel-orphaned-nodes.md:4. **Reason Logging**: The orchestrator MUST update the `rejection_reason` (or equivalent note field) of the cancelled node to indicate the cause, for example: `"Cancelled due to permanent failure of dependency: <failed-node-id>"`.
+.foundry/prds/prd-018-018-migrate-heartbeat-to-gray-matter.md:rejection_reason: ''
+.foundry/prds/prd-013-012-improve-late-binding-completion.md:rejection_reason: ''
