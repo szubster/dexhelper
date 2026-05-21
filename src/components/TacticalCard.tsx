@@ -14,7 +14,8 @@ interface TacticalCardProps {
   variant?: 'default' | 'emerald' | 'amber' | 'storage-default' | 'storage-emerald' | 'storage-amber' | 'storage-red';
 }
 
-export const TacticalCard = React.forwardRef<HTMLButtonElement, TacticalCardProps>(
+// ⚡ Bolt: Wrapped TacticalCard in React.memo to prevent unnecessary DOM re-renders of up to 400 PC boxes when parent states change
+export const TacticalCard = React.memo(React.forwardRef<HTMLButtonElement, TacticalCardProps>(
   ({ children, onClick, ariaLabel, title, testId, pokemonId, className, style, variant = 'default' }, ref) => {
     let variantClasses = '';
 
@@ -72,6 +73,6 @@ export const TacticalCard = React.forwardRef<HTMLButtonElement, TacticalCardProp
       </button>
     );
   },
-);
+));
 
 TacticalCard.displayName = 'TacticalCard';

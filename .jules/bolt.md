@@ -94,3 +94,4 @@ Learned that the dex encounters DataLoader was firing individual getEncounters c
 - **Action:** Replaced `.filter().some()` chains and intermediate `Map` tuple arrays with traditional imperative `for` loops in `src/engine/assistant/suggestionEngine.ts`. This bypasses intermediate allocations and avoids closure creation, resulting in faster synchronous execution.
 
 - When optimizing array iteration chains in React components, replacing chained `.filter().map()` operations with single `for` loops significantly reduces intermediate array allocations and garbage collection overhead on the main thread, resulting in measurably faster renders for complex UI elements like the DAG dashboard or the Pokedex Grid.
+Memoized TacticalCard in StorageGrid.tsx and extracted StorageCard to avoid N+1 rendering when navigating/clicking inside storage UI.
