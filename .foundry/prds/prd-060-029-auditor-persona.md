@@ -39,8 +39,8 @@ Detail the technical and structural approach to introducing the `auditor` person
 
 ## Acceptance Criteria
 - [x] ADR is created outlining the precise state machine changes to accommodate the `VERIFYING` state.
-- [ ] Schema document (`.foundry/docs/schema.md`) is updated.
-- [ ] Core policies document is updated.
+- [x] Schema document (`.foundry/docs/schema.md`) is updated.
+- [x] Core policies document is updated.
 
 Spawned `.foundry/research/research-029-003-auditor-implementation-details.md` to figure out orchestrator and prompt changes.
 Depends on: `research-029-003-auditor-implementation-details`
