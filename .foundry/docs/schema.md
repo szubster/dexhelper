@@ -254,3 +254,41 @@ Paths are **always relative to the repository root**, starting with `.foundry/`.
 
 ## 11. EMPTY PR POLICY
 If a target artifact already exists and matches the required state, personas must submit an empty PR (0 files changed). The system will automatically merge these PRs to progress the node to `COMPLETED`. Personas should document the reasoning in their journals.
+
+---
+
+## 12. PokeData Property Naming Schema (Application Data)
+
+As defined in ADR 015, with the transition to MsgPack (`msgpackr`) and the configuration of `useRecords: true`, the application's runtime data structures (`PokeData`) now use full, readable property names rather than minified strings. This improves Developer Experience (DX) without significantly increasing payload sizes, because the serialization library deduplicates structural keys.
+
+*   `name` (formerly `n`)
+*   `captureRate` (formerly `cr`)
+*   `genderRate` (formerly `gr`)
+*   `evolvesTo` (formerly `eto`)
+*   `evolvesFrom` (formerly `efrm`)
+*   `evolutionDetails` (formerly `det`)
+*   `chance` (formerly `c`)
+*   `method` (formerly `m`)
+*   `minLevel` (formerly `min` or `ml`)
+*   `maxLevel` (formerly `max`)
+*   `timeOfDay` (formerly `t` or `time`)
+*   `areaId` (formerly `aid`)
+*   `versionId` (formerly `v`)
+*   `details` (formerly `d`)
+*   `pokemonId` (formerly `pid`)
+*   `encounters` (formerly `enc`)
+*   `parentId` (formerly `prnt`)
+*   `connections` (formerly `conn`)
+*   `pokemonIds` (formerly `pids`)
+*   `distances` (formerly `dist`)
+*   `trigger` (formerly `tr`)
+*   `minHappiness` (formerly `mh`)
+*   `itemId` (formerly `item`)
+*   `heldItemId` (formerly `held`)
+*   `relativePhysicalStats` (formerly `rps`)
+*   `evolvesFromId` (formerly `ef`)
+*   `pokemon` (formerly `poke`)
+*   `locations` (formerly `loc`)
+*   `hash` (remains `hash`)
+
+Enum-to-number optimizations (e.g., mapping encounter methods or string triggers to integer values) are preserved.
