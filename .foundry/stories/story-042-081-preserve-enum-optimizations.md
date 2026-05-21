@@ -19,4 +19,4 @@ notes: ''
 Ensure that the enum-to-number mapping logic (like `EVO_TRIGGER`, `ENCOUNTER_METHOD`) in the data generation pipeline (`scripts/generate-pokedata.ts`) is preserved when transitioning to verbose keys, to retain existing deduplication benefits.
 
 ## Acceptance Criteria
-- [ ] Enum-to-number optimizations are preserved.
+- [x] Enum-to-number optimizations are preserved.

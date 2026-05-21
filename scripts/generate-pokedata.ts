@@ -571,18 +571,18 @@ function compact(obj: any): any {
       // Omit baby: false
       if (key === 'baby' && value === false) continue;
       // Omit m: 1 (WALK)
-      if (key === 'm' && value === 1) continue;
+      if ((key === 'm' || key === 'method') && value === 1) continue;
       // Omit empty objects (dist: {})
       if (value !== null && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) continue;
       
       // Omit gr: 4 (gender_rate default)
-      if (key === 'gr' && value === 4) continue;
+      if ((key === 'gr' || key === 'genderRate') && value === 4) continue;
       // Omit tr: 1 (EVO_TRIGGER.LEVEL_UP default)
-      if (key === 'tr' && value === 1) continue;
+      if ((key === 'tr' || key === 'trigger') && value === 1) continue;
       // Omit mh: 160 (min_happiness default)
-      if (key === 'mh' && value === 160) continue;
+      if ((key === 'mh' || key === 'minHappiness') && value === 160) continue;
       // Omit max if same as min (encounter levels)
-      if (key === 'max' && value === obj.min) continue;
+      if ((key === 'max' || key === 'maxLevel') && (value === obj.min || value === obj.minLevel)) continue;
 
       result[key] = compact(value);
     }

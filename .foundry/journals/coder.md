@@ -55,3 +55,6 @@ The CEO/Architect has specified that Cloudflare Pages are already deployed using
 
 ## 2026-05-21: Purpose of Wrangler in a Pull-Based Deployment Model
 Even though the project uses Cloudflare's GitHub integration for deployments (Inversion of Control, where Cloudflare polls the repo), the `wrangler` CLI is still a required devDependency. It provides the local emulation environment (`workerd`) necessary to test Cloudflare Workers, Pages, and bindings (like KV or D1) locally during development before committing.
+
+## Data Key Renaming
+When structural data keys are renamed (e.g., transitioning from short keys like `m` to verbose keys like `method` for MsgPack optimizations), data compaction logic must also be updated to support the new keys to prevent silent loss of deduplication benefits.
