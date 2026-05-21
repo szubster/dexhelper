@@ -2,13 +2,13 @@
 id: task-070-117-qa-death-tracking
 type: TASK
 title: QA Death Tracking and Graveyard Logic
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-21'
 depends_on:
   - task-070-116-implement-death-tracking
-jules_session_id: null
+jules_session_id: '12996881465517974194'
 pr_number: null
 parent: story-034-070-death-tracking-and-graveyard
 tags:
