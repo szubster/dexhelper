@@ -2,12 +2,12 @@
 id: idea-061-emulator-auto-sync
 type: IDEA
 title: Emulator Auto-Sync via File System Access API
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7365363185347511909'
 pr_number: null
 parent: null
 tags:
@@ -16,8 +16,8 @@ tags:
   - local-sync
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Idea: Emulator Auto-Sync via File System Access API
