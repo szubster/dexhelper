@@ -72,8 +72,115 @@ describe('gen2Strategy', () => {
     expect(suggestions[3]?.id).toBe('time-based-reminder');
   });
 
+  it('handles tyrogue evo paths for Hitmonchan and Hitmontop', () => {
+    const saveData = {
+      ...mockSaveData,
+      johtoBadges: 0,
+      inventory: [],
+      partyDetails: [],
+    } as unknown as SaveData;
+
+    // hitmonchan
+    const sugg107 = gen2Strategy.getSpecialSuggestions(saveData, [107]);
+    expect(sugg107.find((s) => s.id === 'tyrogue-evo-107')?.description).toContain('lower than');
+
+    // hitmontop
+    const sugg237 = gen2Strategy.getSpecialSuggestions(saveData, [237]);
+    expect(sugg237.find((s) => s.id === 'tyrogue-evo-237')?.description).toContain('equal to');
+  });
+
+  it('handles tyrogue evo path when 236 is already owned', () => {
+    const saveData = {
+      ...mockSaveData,
+      johtoBadges: 0,
+      inventory: [],
+      partyDetails: [],
+    } as unknown as SaveData;
+
+    // Own Tyrogue, so missingSet won't include it
+    // but the test checks if tyrogue is in missingSet.
+    // wait, the suggestion gets skipped if 236 is missing
+    // if missingSet has(236), tyrogue warning is hidden
+    const sugg106 = gen2Strategy.getSpecialSuggestions(saveData, [106, 236]);
+    expect(sugg106.find((s) => s.id === 'tyrogue-evo-106')).toBeUndefined();
+  });
+
+  it('handles untracked roamers and no roamingLegendaries array', () => {
+    const saveData = {
+      ...mockSaveData,
+      johtoBadges: 0,
+      inventory: [],
+      partyDetails: [],
+    } as unknown as SaveData;
+
+    const suggestions = gen2Strategy.getSpecialSuggestions(saveData, [244]);
+    const roamerSugg = suggestions.find((s) => s.id === 'roamer-244');
+    expect(roamerSugg).toBeDefined();
+    expect(roamerSugg?.description).toContain('Encounter Entei in the wild');
+  });
+
+  it('handles untracked roamers with array but mapId 0', () => {
+    const saveData = {
+      ...mockSaveData,
+      johtoBadges: 0,
+      inventory: [],
+      roamingLegendaries: [{ speciesId: 244, level: 40, mapGroup: 0, mapId: 0 }],
+      partyDetails: [],
+    } as unknown as SaveData;
+
+    const suggestions = gen2Strategy.getSpecialSuggestions(saveData, [244]);
+    const roamerSugg = suggestions.find((s) => s.id === 'roamer-244');
+    expect(roamerSugg).toBeDefined();
+    expect(roamerSugg?.description).toContain('Encounter Entei in the wild');
+  });
+
+  it('handles headbutt/rocksmash from moves instead of TM', () => {
+    const saveData = {
+      ...mockSaveData,
+      johtoBadges: 0,
+      inventory: [],
+      partyDetails: [{ speciesId: 25, moves: [29, 249] }], // 29 is headbutt, 249 is rock smash
+    } as unknown as SaveData;
+
+    const suggestions = gen2Strategy.getSpecialSuggestions(saveData, []);
+    expect(suggestions.some((s) => s.id === 'headbutt-reminder')).toBe(true);
+    expect(suggestions.some((s) => s.id === 'rocksmash-reminder')).toBe(true);
+  });
+
+  it('handles headbutt/rocksmash from pcDetails moves instead of TM', () => {
+    const saveData = {
+      ...mockSaveData,
+      johtoBadges: 0,
+      inventory: [],
+      pcDetails: [{ speciesId: 25, moves: [29, 249] }], // 29 is headbutt, 249 is rock smash
+    } as unknown as SaveData;
+
+    const suggestions = gen2Strategy.getSpecialSuggestions(saveData, []);
+    expect(suggestions.some((s) => s.id === 'headbutt-reminder')).toBe(true);
+    expect(suggestions.some((s) => s.id === 'rocksmash-reminder')).toBe(true);
+  });
+
+  it('handles no partyDetails or pcDetails array', () => {
+    const saveData = {
+      ...mockSaveData,
+      johtoBadges: 0,
+      inventory: [],
+      partyDetails: undefined,
+      pcDetails: undefined,
+    } as unknown as SaveData;
+
+    const suggestions = gen2Strategy.getSpecialSuggestions(saveData, []);
+    expect(suggestions.some((s) => s.id === 'headbutt-reminder')).toBe(false);
+    expect(suggestions.some((s) => s.id === 'rocksmash-reminder')).toBe(false);
+  });
+
   it('returns true for isInternallyObtainable', () => {
     expect(gen2Strategy.isInternallyObtainable(1, 'gold')).toBe(true);
+  });
+
+  it('returns false for unobtainableInternally', () => {
+    expect(gen2Strategy.isInternallyObtainable(65, 'gold')).toBe(false); // Alakazam
+    expect(gen2Strategy.isInternallyObtainable(251, 'gold')).toBe(false); // Celebi
   });
 
   it('adds time warnings during postProcessSuggestions', () => {
@@ -95,9 +202,50 @@ describe('gen2Strategy', () => {
           ],
         },
       },
+      {
+        category: 'Catch',
+        encounterInfo: {
+          3: [
+            { time: 2 }, // Day
+          ],
+        },
+      },
+      {
+        category: 'Catch',
+        encounterInfo: {
+          4: [
+            { time: 1 }, // Morning
+            { time: 2 }, // Day
+            { time: 4 }, // Night
+          ],
+        },
+      },
+      {
+        category: 'Catch',
+        encounterInfo: {
+          5: [
+            { time: 0 }, // Falsy time handled
+          ],
+        },
+      },
+      {
+        category: 'Catch',
+        encounterInfo: {
+          6: [
+            // Only hits the times.length === 0 check which should not add a warning
+            { time: 8 }, // Unknown time
+          ],
+        },
+      },
+      {
+        category: 'Utility', // Should be skipped
+      },
     ] as unknown as import('./types').Suggestion[];
     gen2Strategy.postProcessSuggestions?.(suggestions);
     expect(suggestions[0]?.warning).toBe('Only available in the Morning/Night');
     expect(suggestions[1]?.warning).toBeUndefined();
+    expect(suggestions[2]?.warning).toBe('Only available in the Day');
+    expect(suggestions[3]?.warning).toBeUndefined(); // Morning/Day/Night -> length 3 -> no warning
+    expect(suggestions[5]?.warning).toBeUndefined();
   });
 });

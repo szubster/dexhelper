@@ -1,11 +1,16 @@
 import { describe, expect, it } from 'vitest';
 
 import { gen1Strategy } from './gen1Strategy';
+import { gen2Strategy } from './gen2Strategy';
 import { getStrategy } from './index';
 
 describe('getStrategy', () => {
   it('returns gen1Strategy for generation 1', () => {
     expect(getStrategy(1)).toBe(gen1Strategy);
+  });
+
+  it('returns gen2Strategy for generation 2', () => {
+    expect(getStrategy(2)).toBe(gen2Strategy);
   });
 
   it('returns fallbackStrategy for unknown generation', () => {
