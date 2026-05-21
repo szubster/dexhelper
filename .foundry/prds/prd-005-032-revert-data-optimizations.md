@@ -62,5 +62,5 @@ The exact list of properties to rename across the application (`PokeDB.ts`, `sch
 - Ensure the application still works correctly with MsgPack `useRecords: true`.
 
 ## Acceptance Criteria
-- [ ] Determine how to propagate this into an ADR (Architecture Decision Record) since we are changing data contracts globally.
-- [ ] Ensure that an ADR is created to record this decision before creating Epics/Stories.
+- [x] Determine how to propagate this into an ADR (Architecture Decision Record) since we are changing data contracts globally.
+- [x] Ensure that an ADR is created to record this decision before creating Epics/Stories.

@@ -17,3 +17,6 @@ Architects frequently perform evaluation tasks (e.g., assessing graph libraries,
 ## 2026-05-19: Late Binding Correction
 Received CEO feedback: "As architect you should prepare adrs. Leave rest to other personas and late binding. Improve your prompt now, if it was not obvious."
 Learning: My role is strictly architectural blueprinting (creating ADRs, schemas). Breaking down work into EPICs, STORYs, and TASKs is the responsibility of other personas (epic_planner, story_owner, tech_lead) via late binding. I should not proactively create downstream execution nodes.
+
+### 2026-05-21: Re-evaluating Data Deduplication Optimizations
+When utilizing advanced serializers with object structure deduplication (like `msgpackr` with `useRecords`), stripping property names down to minified keys (e.g., `n` instead of `name`) for size reduction becomes an anti-pattern. The serialization library already extracts these keys into extensions, making the short names redundant. Moving forward, we should prioritize readable, verbose property names to preserve Developer Experience (DX) rather than prematurely optimizing property lengths, as the size gains are negligible (e.g., ~52 bytes per 1,000 objects). Enum-to-integer optimizations remain valid as strings cannot be perfectly deduplicated.
