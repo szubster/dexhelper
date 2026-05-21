@@ -111,7 +111,8 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `PENDING` | Node exists but has unresolved `depends_on` entries — not yet eligible for dispatch. |
 | `READY` | **Orchestrator-written only.** All `depends_on` nodes are `COMPLETED`. Node is queued for the next dispatch cycle. |
 | `ACTIVE` | A Jules session (`jules_session_id`) is currently working on this node. This status persists if a PR is open for review. |
-| `COMPLETED` | PR merged. TPM archives the node. |
+| `VERIFYING` | A PR was merged, and the `auditor` is currently verifying the outcome. |
+| `COMPLETED` | PR merged (or auditor verification passed). TPM archives the node. |
 | `FAILED` | Session crashed silently or PR was rejected/closed without merge. Resurrection Loop re-spawns a fresh session. |
 | `BLOCKED` | DAG deadlock or explicit TPM hold. Requires CEO or TPM intervention to resolve. |
 | `CANCELLED` | Node retired by CEO decision. Will never be dispatched. |
@@ -123,7 +124,9 @@ stateDiagram-v2
     [*] --> PENDING : Node created
     PENDING --> READY : Orchestrator confirms all depends_on = COMPLETED
     READY --> ACTIVE : Orchestrator dispatches Jules session
-    ACTIVE --> COMPLETED : CEO merges PR
+    ACTIVE --> VERIFYING : Work submitted by owner / PR merged
+    VERIFYING --> COMPLETED : Auditor approves verification
+    VERIFYING --> FAILED : Auditor rejects verification (triggers resurrection loop or cancellation)
     ACTIVE --> FAILED : Heartbeat detects crashed session or rejected PR
     FAILED --> READY : Resurrection Loop spawns fresh session (rejection feedback injected)
     PENDING --> BLOCKED : TPM detects deadlock
@@ -157,6 +160,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
 | `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
 | `researcher` | Responsible for exploratory tasks. Late-bound research nodes can be dynamically created by active nodes. Multiple researchers can be assigned to different sibling research nodes. |
+| `auditor` | Verifies artifacts against original intent, extracts learnings, and dynamically spawns follow-up nodes before archiving. |
 
 ---
 
