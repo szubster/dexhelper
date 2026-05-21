@@ -32,4 +32,9 @@ DexHelper needs to support dynamic background refresh of the user's `.sav` file 
 - Expose sync status (Live, Syncing, Disconnected) in the UI.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
+- [x] Story Owner: Break this Epic down into Stories.
+
+### Stories
+- story-041-077-file-system-access-idb
+- story-041-078-background-polling-loop
+- story-041-079-ui-sync-status
