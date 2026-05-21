@@ -4,7 +4,8 @@
   "ignore": [
     "src/test-setup.ts",
     "scripts/validate-foundry-schema.ts",
-    ".github/scripts/extract-research.ts"
+    ".github/scripts/extract-research.ts",
+    "scripts/gen3-fetch-locations.ts"
   ],
   "rules": {
     "files": "warn",
