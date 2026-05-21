@@ -41,7 +41,11 @@ Following the implementation of Phase 1 (basic authentication and save syncing),
 - Offline-first mandate remains; features must degrade gracefully when disconnected.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into Epics.
+- [x] Epic Planner: Break this PRD down into Epics.
 
 ## References
 - Parent Idea: `.foundry/ideas/idea-055-cloudflare-sync-and-future-features.md`
+
+## Generated Epics
+- `.foundry/epics/epic-031-036-progression-tracking.md`
+- `.foundry/epics/epic-031-037-inter-save-trading.md`
