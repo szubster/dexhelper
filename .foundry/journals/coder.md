@@ -43,3 +43,15 @@ When executing the Empty PR Policy for a retry task (e.g., when the target artif
 ## Gen 3 Data Scripts
 - When writing or modifying data generation scripts (e.g., mapping formatters), ensure that existing non-derivable values (such as manual Area IDs / `aid`) in the destination file are explicitly loaded and preserved to avoid introducing data regressions.
 - When catching errors and the error object is not used, omit the catch binding entirely (e.g., use `catch { ... }` instead of `catch(e)` or `catch(_e)`) to prevent strict `no-unused-vars` linting errors from Biome or ESLint.
+
+## 2026-05-21: pnpm Workspace Root Installations
+When adding a dependency to the root of a pnpm workspace (e.g., adding `wrangler` globally for the project deployment scripts), you must explicitly use the `-w` or `--workspace-root` flag (e.g., `pnpm add -D wrangler -w`). Attempting to install without it will result in an `ERR_PNPM_ADDING_TO_ROOT` error, halting the operation.
+
+## 2026-05-21: Package.json Sorting Enforcement
+The project enforces strict sorting of `package.json` via the `lint:package-json` script using `sort-package-json`. When manually adding scripts or dependencies using tools like `npm pkg set`, the file may become unsorted, causing `pnpm lint` to fail. Always run `npx sort-package-json package.json` after programmatically modifying `package.json` to ensure the linter passes.
+
+## 2026-05-21: Cloudflare Deployment Strategy (Workers vs Pages)
+The CEO/Architect has specified that Cloudflare Pages are already deployed using the Cloudflare-GitHub integration (Inversion of Control), where Cloudflare polls the repository rather than GitHub pushing to Cloudflare via Action/scripts. This is preferred for security and simplicity. Therefore, we should aim to deploy Workers using the same pull-based model (e.g., via wrangler.toml `workers_dev = true` or similar configuration read by the integration) rather than relying on `wrangler pages deploy` or push-based GitHub Actions.
+
+## 2026-05-21: Purpose of Wrangler in a Pull-Based Deployment Model
+Even though the project uses Cloudflare's GitHub integration for deployments (Inversion of Control, where Cloudflare polls the repo), the `wrangler` CLI is still a required devDependency. It provides the local emulation environment (`workerd`) necessary to test Cloudflare Workers, Pages, and bindings (like KV or D1) locally during development before committing.
