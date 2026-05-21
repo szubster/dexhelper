@@ -94,125 +94,151 @@ export interface NpcTradeEntry {
 
 export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
   // ── Gen 1 ────────────────────────────────────────────────────────────────
-  // The bit indices correspond to the order in data/events/trades.asm in the pokered disassembly.
-  // Farfetch'd for Spearow — Vermilion City (TRADE_FOR_DUX) — Red/Blue only (Wild in Yellow)
+  // Red/Blue Trades
   {
-    receivedId: 83,
-    offeredId: 21,
-    location: 'Vermilion City (trade house)',
-    receivedOtName: 'DUX',
+    receivedId: 30, // Nidorina
+    offeredId: 33, // Nidorino
+    location: 'Route 11 (east gate)',
+    receivedOtName: 'TERRY',
     gen: 1,
     versions: ['red', 'blue'],
-    tradeIndex: 4,
+    tradeIndex: 0,
   },
-  // Jynx for Poliwhirl — Cerulean City (underground path house) (TRADE_FOR_LOLA) — Red/Blue only (Not in Yellow)
   {
-    receivedId: 124,
-    offeredId: 61,
-    location: 'Cerulean City (trade house)',
-    receivedOtName: 'LOLA',
-    gen: 1,
-    versions: ['red', 'blue'],
-    tradeIndex: 6,
-  },
-  // Mr. Mime for Abra — Route 2 (south gate) (TRADE_FOR_MARCEL) — Red/Blue only
-  {
-    receivedId: 122,
-    offeredId: 63,
+    receivedId: 122, // Mr. Mime
+    offeredId: 63, // Abra
     location: 'Route 2 (south gate)',
     receivedOtName: 'MARCEL',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 1,
   },
-  // Mr. Mime for Clefairy — Route 2 (south gate) (TRADE_FOR_MILES) — Yellow only
   {
-    receivedId: 122,
-    offeredId: 35,
-    location: 'Route 2 (south gate)',
-    receivedOtName: 'MILES',
+    receivedId: 86, // Seel
+    offeredId: 77, // Ponyta
+    location: 'Cinnabar Lab (1st room)',
+    receivedOtName: 'SAILOR',
     gen: 1,
-    versions: ['yellow'],
-    tradeIndex: 1,
+    versions: ['red', 'blue'],
+    tradeIndex: 3,
   },
-  // Lickitung for Slowbro — Route 18 (TRADE_FOR_MARC) — Red/Blue only (Wild in Yellow)
   {
-    receivedId: 108,
-    offeredId: 80,
+    receivedId: 83, // Farfetch'd
+    offeredId: 21, // Spearow
+    location: 'Vermilion City (trade house)',
+    receivedOtName: 'DUX',
+    gen: 1,
+    versions: ['red', 'blue'],
+    tradeIndex: 4,
+  },
+  {
+    receivedId: 108, // Lickitung
+    offeredId: 80, // Slowbro
     location: 'Route 18 (gatehouse upstairs)',
     receivedOtName: 'MARC',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 5,
   },
-  // Venonat for Tangela — Route 18 (trade house) — Red/Blue only (TRADE_FOR_CRINKLES)
   {
-    receivedId: 114,
-    offeredId: 49,
+    receivedId: 124, // Jynx
+    offeredId: 61, // Poliwhirl
+    location: 'Cerulean City (trade house)',
+    receivedOtName: 'LOLA',
+    gen: 1,
+    versions: ['red', 'blue'],
+    tradeIndex: 6,
+  },
+  {
+    receivedId: 101, // Electrode
+    offeredId: 26, // Raichu
+    location: 'Cinnabar Lab (3rd room)',
+    receivedOtName: 'DORIS',
+    gen: 1,
+    versions: ['red', 'blue'],
+    tradeIndex: 7,
+  },
+  {
+    receivedId: 114, // Tangela
+    offeredId: 48, // Venonat
     location: 'Route 18 (trade house)',
     receivedOtName: 'CRINKLES',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 8,
   },
-  // Tangela for Parasect — Route 18 (trade house) — Yellow only
   {
-    receivedId: 47,
-    offeredId: 114,
-    location: 'Route 18 (trade house)',
-    receivedOtName: 'SPIKE',
-    gen: 1,
-    versions: ['yellow'],
-    tradeIndex: 8,
-  },
-  // Cubone for Machoke — Route 5 (south gate) — Yellow only
-  {
-    receivedId: 67,
-    offeredId: 104,
+    receivedId: 29, // Nidoran F
+    offeredId: 32, // Nidoran M
     location: 'Route 5 (south gate)',
-    receivedOtName: 'RICKY',
+    receivedOtName: 'SPOT',
     gen: 1,
-    versions: ['yellow'],
-    tradeIndex: 2,
+    versions: ['red', 'blue'],
+    tradeIndex: 9,
   },
-  // Lickitung for Dugtrio — Route 11 (east gate) — Yellow only
+
+  // Yellow Trades
   {
-    receivedId: 51,
-    offeredId: 108,
+    receivedId: 51, // Dugtrio
+    offeredId: 108, // Lickitung
     location: 'Route 11 (east gate)',
     receivedOtName: 'GURIO',
     gen: 1,
     versions: ['yellow'],
+    tradeIndex: 0,
+  },
+  {
+    receivedId: 122, // Mr. Mime
+    offeredId: 35, // Clefairy
+    location: 'Route 2 (south gate)',
+    receivedOtName: 'MILES',
+    gen: 1,
+    versions: ['yellow'],
+    tradeIndex: 1,
+  },
+  {
+    receivedId: 89, // Muk
+    offeredId: 115, // Kangaskhan
+    location: 'Cinnabar Lab (1st room)',
+    receivedOtName: 'STICKY',
+    gen: 1,
+    versions: ['yellow'],
     tradeIndex: 3,
   },
-  // Growlithe for Dewgong — Cinnabar Island (Lab) — Yellow only
   {
-    receivedId: 87,
-    offeredId: 58,
-    location: 'Cinnabar Lab (3rd room)',
-    receivedOtName: 'CEZANNE',
+    receivedId: 47, // Parasect
+    offeredId: 114, // Tangela
+    location: 'Route 18 (trade house)',
+    receivedOtName: 'SPIKE',
     gen: 1,
     versions: ['yellow'],
-    tradeIndex: 7,
+    tradeIndex: 5,
   },
-  // Kangaskhan for Muk — Cinnabar Island (Lab) — Yellow only
   {
-    receivedId: 89,
-    offeredId: 115,
-    location: 'Cinnabar Lab (1st room)',
-    receivedOtName: 'STICKLY',
-    gen: 1,
-    versions: ['yellow'],
-    tradeIndex: 9,
-  },
-  // Golduck for Rhydon — Cinnabar Island (Lab) — Yellow only
-  {
-    receivedId: 112,
-    offeredId: 55,
+    receivedId: 112, // Rhydon
+    offeredId: 55, // Golduck
     location: 'Cinnabar Lab (3rd room)',
     receivedOtName: 'BUFFY',
     gen: 1,
     versions: ['yellow'],
-    tradeIndex: 10,
+    tradeIndex: 7,
+  },
+  {
+    receivedId: 87, // Dewgong
+    offeredId: 58, // Growlithe
+    location: 'Cinnabar Lab (3rd room)',
+    receivedOtName: 'CEZANNE',
+    gen: 1,
+    versions: ['yellow'],
+    tradeIndex: 8,
+  },
+  {
+    receivedId: 67, // Machoke
+    offeredId: 104, // Cubone
+    location: 'Route 5 (south gate)',
+    receivedOtName: 'RICKY',
+    gen: 1,
+    versions: ['yellow'],
+    tradeIndex: 9,
   },
 ];
