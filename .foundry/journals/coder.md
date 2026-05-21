@@ -49,3 +49,6 @@ When adding a dependency to the root of a pnpm workspace (e.g., adding `wrangler
 
 ## 2026-05-21: Package.json Sorting Enforcement
 The project enforces strict sorting of `package.json` via the `lint:package-json` script using `sort-package-json`. When manually adding scripts or dependencies using tools like `npm pkg set`, the file may become unsorted, causing `pnpm lint` to fail. Always run `npx sort-package-json package.json` after programmatically modifying `package.json` to ensure the linter passes.
+
+## 2026-05-21: Cloudflare Deployment Strategy (Workers vs Pages)
+The CEO/Architect has specified that Cloudflare Pages are already deployed using the Cloudflare-GitHub integration (Inversion of Control), where Cloudflare polls the repository rather than GitHub pushing to Cloudflare via Action/scripts. This is preferred for security and simplicity. Therefore, we should aim to deploy Workers using the same pull-based model (e.g., via wrangler.toml `workers_dev = true` or similar configuration read by the integration) rather than relying on `wrangler pages deploy` or push-based GitHub Actions.
