@@ -291,6 +291,28 @@ function promoteNodeToTpm(node: ParsedNode): void {
   info(`${dryTag}Flagged node for TPM: ${node.repoPath}`);
 }
 
+function promoteNodeToCancelledWithReason(node: ParsedNode, reason: string): void {
+  const dateStr = todayISO();
+  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+
+  const newData = { ...node.frontmatter, status: 'CANCELLED' as Status, rejection_reason: reason, updated_at: dateStr };
+  const newContent = matter.stringify(node.body, newData);
+
+  if (!DRY_RUN) {
+    try {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+    } catch (e) {
+      warn(`${dryTag}Failed to write file ${node.repoPath}: ${String(e)}`);
+      return;
+    }
+  }
+
+  node.frontmatter = newData as FoundryFrontmatter;
+  node.rawContent = newContent;
+
+  info(`${dryTag}Cancelled node ${node.repoPath} with reason: ${reason}`);
+}
+
 function promoteNodeToFailedWithReason(node: ParsedNode, reason: string): void {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
@@ -521,6 +543,21 @@ function main(): void {
   // ── Phase 3.6: IMPOSSIBLE LOOP ─────────────────────────────────────────────
   info('Phase 3.6: Checking for Impossible Loop conditions...');
   for (const node of nodes) {
+    if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason === 'Max rejection count reached') {
+      // Auto-cancel orphaned PENDING nodes depending on this permanently failed node
+      for (const otherNode of nodes) {
+        if (otherNode.frontmatter.status === 'PENDING') {
+          const dependsOnPaths = (otherNode.frontmatter.depends_on || []).map(resolveNodePath).filter(Boolean);
+          if (dependsOnPaths.includes(node.repoPath)) {
+            promoteNodeToCancelledWithReason(otherNode, `Cancelled due to permanent failure of dependency: ${node.frontmatter.id}`);
+            // Also add to cancelledNodes to ensure any of ITS children get cancelled by cascade logic
+            cancelledNodes.add(otherNode.repoPath);
+            cascadeCancel(otherNode.repoPath);
+          }
+        }
+      }
+    }
+
     if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason) {
       const parentPath = resolveNodePath(node.frontmatter.parent);
       if (parentPath) {
