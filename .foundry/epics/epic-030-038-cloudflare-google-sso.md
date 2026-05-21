@@ -37,4 +37,9 @@ As part of Phase 1 to introduce a backend while keeping the application offline-
 - Ensure graceful degradation so the application continues to function normally (offline-first) on GitHub Pages without Cloudflare integration.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
+- [x] Story Owner: Break this Epic down into Stories.
+
+### Generated Stories
+- .foundry/stories/story-038-074-cloudflare-auth-infrastructure.md
+- .foundry/stories/story-038-075-google-sso-integration.md
+- .foundry/stories/story-038-076-offline-auth-state.md
