@@ -4,12 +4,12 @@ type: PRD
 title: >-
   Introduce 'auditor' persona to verify work and possibly create new nodes based
   on status/learnings
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-05-20'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8355472488475812332'
 pr_number: null
 parent: idea-060-auditor-persona
 tags:
