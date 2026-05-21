@@ -1,0 +1,38 @@
+---
+id: epic-030-039-cloudflare-r2-save-sync
+type: EPIC
+title: Cloudflare R2 Offline-First Save Syncing
+status: PENDING
+owner_persona: story_owner
+created_at: '2026-05-21'
+updated_at: '2026-05-21'
+depends_on:
+  - epic-030-038-cloudflare-google-sso
+jules_session_id: null
+pr_number: null
+parent: prd-055-030-cloudflare-auth-sync
+tags:
+  - backend
+  - sync
+  - cloudflare
+  - r2
+  - phase1
+research_references:
+  - .foundry/research/research-030-004-cloudflare-storage-evaluation.md
+rejection_reason: ''
+notes: Derived from PRD 055-030 and Research 030-004. Uses Cloudflare R2 for strong consistency and file blob storage.
+---
+
+# Epic: Cloudflare R2 Offline-First Save Syncing
+
+## Context
+Following the establishment of a secure authentication layer, the application needs a mechanism to synchronize user save data across devices while maintaining its core offline-first browser architecture. Based on research (Research 030-004), Cloudflare R2 is the chosen backend storage solution due to its strong read-after-write consistency and high free tier limits for write operations.
+
+## Requirements
+- Establish backend infrastructure using Cloudflare R2 to store user save files.
+- Implement cross-device synchronization: Pull save data from R2 upon successful login on a new device.
+- Push local save file changes to R2 periodically or on explicit save actions.
+- Implement offline-first synchronization logic, including handling potential conflicts between offline browser changes and the remote R2 state.
+
+## Acceptance Criteria
+- [ ] Story Owner: Break this Epic down into Stories.

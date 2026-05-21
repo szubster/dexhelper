@@ -41,7 +41,11 @@ Our application currently relies entirely on client-side state and browser stora
 - How to handle conflict resolution when the user has offline changes and the server has different data?
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into Epics.
+- [x] Epic Planner: Break this PRD down into Epics.
+
+## Generated Epics
+- `.foundry/epics/epic-030-038-cloudflare-google-sso.md`
+- `.foundry/epics/epic-030-039-cloudflare-r2-save-sync.md`
 
 ## References
 - Parent Idea: `.foundry/ideas/idea-055-cloudflare-sync-and-future-features.md`
