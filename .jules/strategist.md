@@ -126,3 +126,9 @@
 **Outcome:** Accepted
 **Why:** The memory requires agents to log only critical learnings, but Foundry journals (like `tpm.md`, `coder.md`, `qa.md`) were accumulating routine "I did X" entries, task verifications, and orchestrator state changes. The archivist prompt only included `.jules/*.md` and `.serena/memories/` in its scope, missing `.foundry/journals/*.md`. Adding this allows the archivist to automatically purge noisy status updates that provide no value to future runs, conserving context.
 **Pattern:** Ensure cleanup/maintenance agents have scope over all relevant directories when file structures evolve (e.g. addition of `.foundry/journals/`).
+
+## 2026-07-07 - [Accepted] - Prompt improvement - Fix TPM archiving rules to use Node IDs
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The TPM journal showed the TPM was successfully moving files but incorrectly updating YAML frontmatter `depends_on` lists and `parent` fields to point to the new `.foundry/archive/` paths. This violated the strict system constraint that these fields must only use Node IDs. The TPM prompt instructed it to update references via the 'parent' field and 'depends_on' list.
+**Pattern:** Codify system memory constraints regarding Node IDs vs file paths in YAML frontmatter into the relevant agent prompts (like the TPM archiving rules) to prevent DAG orchestrator deadlocks and schema corruption.
