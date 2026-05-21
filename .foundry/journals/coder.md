@@ -43,3 +43,9 @@ When executing the Empty PR Policy for a retry task (e.g., when the target artif
 ## Gen 3 Data Scripts
 - When writing or modifying data generation scripts (e.g., mapping formatters), ensure that existing non-derivable values (such as manual Area IDs / `aid`) in the destination file are explicitly loaded and preserved to avoid introducing data regressions.
 - When catching errors and the error object is not used, omit the catch binding entirely (e.g., use `catch { ... }` instead of `catch(e)` or `catch(_e)`) to prevent strict `no-unused-vars` linting errors from Biome or ESLint.
+
+## 2026-05-21: pnpm Workspace Root Installations
+When adding a dependency to the root of a pnpm workspace (e.g., adding `wrangler` globally for the project deployment scripts), you must explicitly use the `-w` or `--workspace-root` flag (e.g., `pnpm add -D wrangler -w`). Attempting to install without it will result in an `ERR_PNPM_ADDING_TO_ROOT` error, halting the operation.
+
+## 2026-05-21: Package.json Sorting Enforcement
+The project enforces strict sorting of `package.json` via the `lint:package-json` script using `sort-package-json`. When manually adding scripts or dependencies using tools like `npm pkg set`, the file may become unsorted, causing `pnpm lint` to fail. Always run `npx sort-package-json package.json` after programmatically modifying `package.json` to ensure the linter passes.
