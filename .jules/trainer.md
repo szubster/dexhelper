@@ -48,3 +48,6 @@
 ## 2024-05-20 - Intermediate Evolution Suggestion Clarity
 **Learning:** For multi-stage evolutions where an intermediate stage is required (e.g. "Path to #Charizard" needing a Charmeleon), the previous title ("Level Up Evolution") and description were misleading, implying the immediate evolution would yield the final target.
 **Action:** Dynamically rewrite the title (e.g., `Path to #${targetId}`) and description (e.g., `into #${immediateEvoTargetId} to progress towards #${targetId}`) when `immediateEvoTargetId !== targetId` to clarify the intermediate progression step.
+## 2024-05-21 - Breeding Intermediate Evolution Suggestion Fix
+**Learning:** In Pokémon Gen 2, eggs always hatch into the lowest evolutionary stage. The assistant's `generateBreedingSuggestions` previously suggested breeding intermediate evolutions (like Charizard) to obtain other intermediate evolutions (like Charmeleon), which is mechanically impossible.
+**Action:** Update the breeding logic to verify that the target Pokémon is actually a base or baby stage (by checking `p.efrm === undefined || p.efrm.length === 0`) before evaluating its ancestors for breeding suggestions.

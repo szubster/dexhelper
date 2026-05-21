@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
+import type { PokemonInstance } from '../../saveParser/parsers/common';
+import { getStrategy } from '../strategies';
 import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { EncounterDetail } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngine';
@@ -695,5 +697,81 @@ describe('generateSuggestions', () => {
     expect(evoLeeNotReady?.title).toBe('Level Up Evolution: #106');
     expect(evoLeeNotReady?.description).toBe('Your Lv. 20 pre-evolution evolves at Lv. 20 (needs Lv. 20, Atk > Def).');
     expect(evoLeeNotReady?.priority).toBe(75); // Lower priority because it's not actually ready
+  });
+
+  it('should suppress breeding suggestions for intermediate evolutions (e.g. Charmeleon)', () => {
+    const mockApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {
+        4: { id: 4, baby: false, efrm: [], eto: [{ id: 5, eto: [{ id: 6 }] }] } as unknown as PokemonMetadata,
+        5: { id: 5, baby: false, efrm: [4], eto: [{ id: 6, eto: [] }] } as unknown as PokemonMetadata, // Charmeleon
+        6: { id: 6, baby: false, efrm: [5, 4], eto: [] } as unknown as PokemonMetadata, // Charizard
+      },
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const mockSaveData: SaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      owned: new Set([4, 6]), // Owns Charmander and Charizard, missing Charmeleon (5)
+      seen: new Set(),
+      party: [],
+      inventory: [],
+      currentMapId: 0,
+      partyDetails: [],
+      pcDetails: [{ speciesId: 6, level: 40, storageLocation: 'Box 1', otName: 'TEST' } as PokemonInstance],
+      trainerName: 'TEST',
+    } as unknown as SaveData;
+
+    const strategy = getStrategy(2);
+    if (!strategy) throw new Error('Strategy not found');
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+
+    const breedSugg = suggestions.find((s) => s.category === 'Breed' && s.pokemonId === 5);
+    expect(breedSugg).toBeUndefined(); // It should be undefined because Charizard egg hatches to Charmander
+  });
+
+  it('should generate breeding suggestions for base/baby pokemon (e.g. Pichu)', () => {
+    const mockApiData = {
+      localAid: 1,
+      localEncounters: [],
+      missingEncounters: {},
+      pokemonMetadata: {
+        172: { id: 172, baby: true, efrm: [], eto: [{ id: 25, eto: [] }] } as unknown as PokemonMetadata, // Pichu
+        25: { id: 25, baby: false, efrm: [172], eto: [{ id: 26, eto: [] }] } as unknown as PokemonMetadata, // Pikachu
+        26: { id: 26, baby: false, efrm: [25, 172], eto: [] } as unknown as PokemonMetadata, // Raichu
+      },
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const fullOwnedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    fullOwnedSet.delete(172);
+
+    const mockSaveData: SaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      owned: fullOwnedSet, // Owns Pikachu, missing Pichu
+      seen: new Set(),
+      party: [],
+      inventory: [],
+      currentMapId: 0,
+      partyDetails: [{ speciesId: 25, level: 40, storageLocation: 'Box 1', otName: 'TEST' } as PokemonInstance],
+      pcDetails: [],
+      trainerName: 'TEST',
+    } as unknown as SaveData;
+
+    const strategy = getStrategy(2);
+    if (!strategy) throw new Error('Strategy not found');
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+
+    const breedSugg = suggestions.find((s) => s.category === 'Breed' && s.pokemonId === 172);
+    expect(breedSugg).toBeDefined();
+    expect(breedSugg?.title).toBe('Breed: #172');
   });
 });
