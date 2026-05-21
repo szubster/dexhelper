@@ -52,3 +52,6 @@ The project enforces strict sorting of `package.json` via the `lint:package-json
 
 ## 2026-05-21: Cloudflare Deployment Strategy (Workers vs Pages)
 The CEO/Architect has specified that Cloudflare Pages are already deployed using the Cloudflare-GitHub integration (Inversion of Control), where Cloudflare polls the repository rather than GitHub pushing to Cloudflare via Action/scripts. This is preferred for security and simplicity. Therefore, we should aim to deploy Workers using the same pull-based model (e.g., via wrangler.toml `workers_dev = true` or similar configuration read by the integration) rather than relying on `wrangler pages deploy` or push-based GitHub Actions.
+
+## 2026-05-21: Purpose of Wrangler in a Pull-Based Deployment Model
+Even though the project uses Cloudflare's GitHub integration for deployments (Inversion of Control, where Cloudflare polls the repo), the `wrangler` CLI is still a required devDependency. It provides the local emulation environment (`workerd`) necessary to test Cloudflare Workers, Pages, and bindings (like KV or D1) locally during development before committing.
