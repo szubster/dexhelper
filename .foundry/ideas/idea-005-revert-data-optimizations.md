@@ -1,14 +1,14 @@
 ---
 id: idea-005-revert-data-optimizations
 type: IDEA
-title: "Revert Data Format Optimizations (Short Property Names)"
-status: READY
+title: Revert Data Format Optimizations (Short Property Names)
+status: ACTIVE
 owner_persona: product_manager
-created_at: "2026-05-20"
-updated_at: "2026-05-20"
+created_at: '2026-05-20'
+updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: null
-rejection_reason: ""
+jules_session_id: '2999821313173222681'
+rejection_reason: ''
 ---
 
 # Revert Data Format Optimizations (Short Property Names)
