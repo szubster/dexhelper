@@ -2,13 +2,13 @@
 id: task-070-126-implement-death-tracking-retry
 type: TASK
 title: Implement Death Tracking and Graveyard Logic (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-20'
 updated_at: '2026-05-21'
 depends_on:
   - research-070-003-investigate-death-tracking-failure
-jules_session_id: null
+jules_session_id: '2536571619762047654'
 pr_number: null
 parent: story-034-070-death-tracking-and-graveyard
 tags:
