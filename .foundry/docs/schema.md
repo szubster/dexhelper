@@ -152,7 +152,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `product_manager` | Transforms `IDEA` → `PRD`. |
 | `epic_planner` | Transforms `PRD` → `EPIC` breakdown. |
 | `story_owner` | Monitors active epics; writes `STORY` nodes dynamically (late-binding). |
-| `architect` | Master of the Blueprint. Maintains ADRs, schemas, and defines global App/Foundry architecture. |
+| `architect` | Master of the Blueprint. Maintains ADRs, schemas, and defines global App/Foundry architecture. Cannot own `PRD` nodes; if an ADR is needed, the `product_manager` spawns a `TASK` for the `architect` alongside a `PRD` for the `epic_planner`. |
 | `tech_lead` | Transforms `STORY` → `TASK` (technical implementation plans). |
 | `coder` | Implements individual `TASK` nodes. |
 | `qa` | Validates `TASK` implementation against technical contracts. |
