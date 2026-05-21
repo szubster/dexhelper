@@ -33,5 +33,9 @@ Create a task to revert the short property names (e.g., `n`, `cr`, `gr`, `eto`, 
 We will keep enum-to-number optimizations, as those still provide significant size reductions.
 
 ## Acceptance Criteria
-- [ ] Investigate exact list of properties to rename.
-- [ ] Create an EPIC or STORY to refactor the data generation pipeline (`data/`) and runtime interfaces (`PokeDB.ts`, `schema.ts`) to use verbose keys.
+- [x] Investigate exact list of properties to rename.
+- [x] Create an EPIC or STORY to refactor the data generation pipeline (`data/`) and runtime interfaces (`PokeDB.ts`, `schema.ts`) to use verbose keys.
+
+
+## References
+- Created PRD: [[prd-005-032-revert-data-optimizations]]
