@@ -2,12 +2,12 @@
 id: prd-005-032-revert-data-optimizations
 type: PRD
 title: Revert Data Format Optimizations (Short Property Names)
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6170734716490768825'
 parent: idea-005-revert-data-optimizations
 rejection_reason: ''
 ---
