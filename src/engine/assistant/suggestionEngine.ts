@@ -517,20 +517,23 @@ function generateBreedingSuggestions(
       let canBreed = false;
       let evolutionIdToBreed: number | null = null;
 
-      // Look at all evolutions of the target (recursive)
-      const stack = [...(p.eto || [])];
-      while (stack.length > 0) {
-        const evo = stack.pop();
-        if (
-          evo &&
-          (instancesBySpecies.has(evo.id) || (saveData.daycare?.some((d) => d.speciesId === evo.id) ?? false))
-        ) {
-          canBreed = true;
-          evolutionIdToBreed = evo.id;
-          break;
-        }
-        if (evo?.eto && evo.eto.length > 0) {
-          stack.push(...evo.eto);
+      // Only base Pokemon can be hatched from an egg
+      if (p.efrm === undefined || p.efrm.length === 0) {
+        // Look at all evolutions of the target (recursive)
+        const stack = [...(p.eto || [])];
+        while (stack.length > 0) {
+          const evo = stack.pop();
+          if (
+            evo &&
+            (instancesBySpecies.has(evo.id) || (saveData.daycare?.some((d) => d.speciesId === evo.id) ?? false))
+          ) {
+            canBreed = true;
+            evolutionIdToBreed = evo.id;
+            break;
+          }
+          if (evo?.eto && evo.eto.length > 0) {
+            stack.push(...evo.eto);
+          }
         }
       }
 
