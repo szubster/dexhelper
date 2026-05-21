@@ -1,8 +1,8 @@
 ---
 id: story-041-077-file-system-access-idb
 type: STORY
-title: "File System Access & IndexedDB Retainment"
-status: PENDING
+title: File System Access & IndexedDB Retainment
+status: READY
 owner_persona: coder
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
@@ -10,7 +10,9 @@ depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-033-041-emulator-auto-sync
-tags: [feature, local-sync]
+tags:
+  - feature
+  - local-sync
 rejection_count: 0
 rejection_reason: ''
 notes: ''

@@ -2,12 +2,12 @@
 id: story-038-074-cloudflare-auth-infrastructure
 type: STORY
 title: Cloudflare Backend Infrastructure and Build Config
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: '1003564059108992716'
+jules_session_id: null
 pr_number: null
 parent: epic-030-038-cloudflare-google-sso
 tags:

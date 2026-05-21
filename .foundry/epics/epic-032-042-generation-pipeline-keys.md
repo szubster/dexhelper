@@ -2,7 +2,7 @@
 id: epic-032-042-generation-pipeline-keys
 type: EPIC
 title: Update Data Generation Pipeline to Verbose Keys
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
