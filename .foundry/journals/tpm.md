@@ -45,3 +45,13 @@
 - **2026-05-21**: System failure detected for `task-070-126-implement-death-tracking-retry`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
 
 - **2026-05-21**: System failure detected for `task-072-128-implement-dag-cancellation`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-05-21**: PR #1686 merged. `epic-032-042-generation-pipeline-keys` is now COMPLETED.
+
+- **2026-05-21**: System failure detected for `story-032-062-gen3-data-generation-scripts`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-05-21**: System failure detected for `story-038-075-google-sso-integration`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-05-21**: System failure detected for `task-070-126-implement-death-tracking-retry`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-05-21**: PR #1685 merged. `task-072-128-implement-dag-cancellation` is now COMPLETED.

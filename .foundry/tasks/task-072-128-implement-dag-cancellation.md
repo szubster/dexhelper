@@ -2,12 +2,12 @@
 id: task-072-128-implement-dag-cancellation
 type: TASK
 title: Implement DAG Dependency Cancellation Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-20'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: '17785404989167924302'
+jules_session_id: null
 pr_number: null
 parent: story-035-072-implement-cancellation-logic
 tags:

@@ -2,13 +2,13 @@
 id: story-038-075-google-sso-integration
 type: STORY
 title: Google SSO Integration and Single User Restriction
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on:
   - story-038-074-cloudflare-auth-infrastructure
-jules_session_id: '700833255862328033'
+jules_session_id: null
 pr_number: null
 parent: epic-030-038-cloudflare-google-sso
 tags:

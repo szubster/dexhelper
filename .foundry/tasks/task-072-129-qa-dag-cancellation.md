@@ -2,10 +2,10 @@
 id: task-072-129-qa-dag-cancellation
 type: TASK
 title: QA DAG Dependency Cancellation Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-20'
-updated_at: '2026-05-20'
+updated_at: '2026-05-21'
 depends_on:
   - task-072-128-implement-dag-cancellation
 jules_session_id: null

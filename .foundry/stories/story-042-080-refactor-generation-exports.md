@@ -2,7 +2,7 @@
 id: story-042-080-refactor-generation-exports
 type: STORY
 title: Refactor Data Generation Pipeline to Verbose Keys
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
