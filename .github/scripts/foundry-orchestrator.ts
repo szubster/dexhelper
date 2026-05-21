@@ -544,15 +544,39 @@ function main(): void {
   info('Phase 3.6: Checking for Impossible Loop conditions...');
   for (const node of nodes) {
     if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason === 'Max rejection count reached') {
-      // Auto-cancel orphaned PENDING nodes depending on this permanently failed node
-      for (const otherNode of nodes) {
-        if (otherNode.frontmatter.status === 'PENDING') {
-          const dependsOnPaths = (otherNode.frontmatter.depends_on || []).map(resolveNodePath).filter(Boolean);
-          if (dependsOnPaths.includes(node.repoPath)) {
-            promoteNodeToCancelledWithReason(otherNode, `Cancelled due to permanent failure of dependency: ${node.frontmatter.id}`);
-            // Also add to cancelledNodes to ensure any of ITS children get cancelled by cascade logic
-            cancelledNodes.add(otherNode.repoPath);
-            cascadeCancel(otherNode.repoPath);
+      // Auto-cancel orphaned PENDING nodes depending directly or indirectly on this permanently failed node
+
+      // Build a reverse dependency graph
+      const dependents = new Map<string, string[]>();
+      for (const n of nodes) {
+        const deps = (n.frontmatter.depends_on || []).map(resolveNodePath).filter(Boolean) as string[];
+        for (const d of deps) {
+          if (!dependents.has(d)) {
+            dependents.set(d, []);
+          }
+          dependents.get(d)!.push(n.repoPath);
+        }
+      }
+
+      const visited = new Set<string>();
+      const queue = [node.repoPath];
+      visited.add(node.repoPath);
+
+      while (queue.length > 0) {
+        const currentPath = queue.shift()!;
+        const currentDependents = dependents.get(currentPath) || [];
+
+        for (const depPath of currentDependents) {
+          if (!visited.has(depPath)) {
+            visited.add(depPath);
+            queue.push(depPath);
+
+            const dependentNode = nodeMap.get(depPath);
+            if (dependentNode && dependentNode.frontmatter.status === 'PENDING') {
+              promoteNodeToCancelledWithReason(dependentNode, `Cancelled due to permanent failure of dependency: ${node.frontmatter.id}`);
+              cancelledNodes.add(dependentNode.repoPath);
+              cascadeCancel(dependentNode.repoPath);
+            }
           }
         }
       }

@@ -36,9 +36,9 @@ As requested in `story-035-072-implement-cancellation-logic`, the orchestrator n
 - Log cancellation details to the console output.
 
 ## Acceptance Criteria
-- [ ] Implement detection of permanently failed nodes (`status === 'FAILED'` and `rejection_reason === 'Max rejection count reached'`) during the DAG evaluation cycle in `.github/scripts/foundry-orchestrator.ts`.
-- [ ] Traverse the DAG to identify all `PENDING` nodes that rely directly or indirectly on the failed node via their `depends_on` array.
-- [ ] Transition identified `PENDING` nodes to `CANCELLED`.
-- [ ] Set `rejection_reason` for the newly cancelled nodes to `"Cancelled due to permanent failure of dependency: <failed-node-id>"`.
-- [ ] Include loop detection/safeguards to prevent infinite traversals if circular dependencies exist.
-- [ ] Output console logs for the cancellation operations.
+- [x] Implement detection of permanently failed nodes (`status === 'FAILED'` and `rejection_reason === 'Max rejection count reached'`) during the DAG evaluation cycle in `.github/scripts/foundry-orchestrator.ts`.
+- [x] Traverse the DAG to identify all `PENDING` nodes that rely directly or indirectly on the failed node via their `depends_on` array.
+- [x] Transition identified `PENDING` nodes to `CANCELLED`.
+- [x] Set `rejection_reason` for the newly cancelled nodes to `"Cancelled due to permanent failure of dependency: <failed-node-id>"`.
+- [x] Include loop detection/safeguards to prevent infinite traversals if circular dependencies exist.
+- [x] Output console logs for the cancellation operations.
