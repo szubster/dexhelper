@@ -5,9 +5,9 @@ title: "Progression Tracking & Multiple Saves"
 status: PENDING
 owner_persona: story_owner
 created_at: "2026-05-20"
-updated_at: "2026-05-20"
+updated_at: "2026-05-21"
 depends_on:
-  - "epic-030-035-cloudflare-auth-sync"
+  - "prd-055-030-cloudflare-auth-sync"
 jules_session_id: null
 pr_number: null
 parent: prd-055-031-future-progression-trading
