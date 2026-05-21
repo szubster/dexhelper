@@ -2,10 +2,10 @@
 id: task-070-116-implement-death-tracking
 type: TASK
 title: Implement Death Tracking and Graveyard Logic
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-18'
-updated_at: '2026-05-20'
+updated_at: '2026-05-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -26,6 +26,6 @@ notes: ''
 Detect fainted Pokémon in the party and implement logic to designate a PC Box as the Graveyard for permanently dead Pokémon.
 
 ## Acceptance Criteria
-- [ ] Implement logic to detect 0 HP Pokémon in the party as dead.
-- [ ] Implement logic to designate a PC Box as the Graveyard.
-- [ ] Pokémon in the Graveyard box are permanently marked as dead.
+- [x] Implement logic to detect 0 HP Pokémon in the party as dead.
+- [x] Implement logic to designate a PC Box as the Graveyard.
+- [x] Pokémon in the Graveyard box are permanently marked as dead.

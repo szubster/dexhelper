@@ -2,6 +2,7 @@ import { Target } from 'lucide-react';
 import { useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
+import { DataPoint } from '../../DataPoint';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface PokemonCatchProbabilityProps {
@@ -52,6 +53,8 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
                   key={`hp-segment-${i}`}
                   type="button"
                   aria-label={`Set HP to ${segmentValue}%`}
+                  title={`Set HP to ${segmentValue}%`}
+                  aria-pressed={isActive}
                   onClick={() => setHpPercent(segmentValue)}
                   className={cn(
                     'h-3 flex-1 rounded-none border border-white/5 border-dashed transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
@@ -90,30 +93,12 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
 
       <div className="flex flex-col gap-2 border-emerald-500/10 border-t pt-8">
         <div className="flex items-end justify-between">
-          <div className="flex flex-col">
-            <span className="mb-1 font-black text-[10px] text-emerald-500/40 uppercase tracking-widest">
-              Estimated Success
-            </span>
-            <span
-              className={cn(
-                'font-black font-display text-5xl tracking-tighter',
-                (() => {
-                  let ballMult = 1;
-                  if (effectivePokeball === 'great') ballMult = 1.5;
-                  if (effectivePokeball === 'ultra' || effectivePokeball === 'safari') ballMult = 2;
-                  let statusBonus = 0;
-                  if (status === 'sleep_freeze') statusBonus = 10;
-                  if (status === 'paralyze_burn_poison') statusBonus = 5;
-                  const hpFactor = 1 + ((100 - hpPercent) / 100) * 2;
-                  const baseChance = (catchRate * ballMult * hpFactor) / 255;
-                  const finalChance = Math.min(100, baseChance * 100 + statusBonus);
-                  if (finalChance >= 70) return 'text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.5)]';
-                  if (finalChance >= 40) return 'text-amber-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]';
-                  return 'text-red-400 drop-shadow-[0_0_10px_rgba(248,113,113,0.5)]';
-                })(),
-              )}
-            >
-              {(() => {
+          <DataPoint
+            label="Estimated Success"
+            labelClassName="mb-1 text-[10px] text-emerald-500/40"
+            valueClassName={cn(
+              'font-black font-display text-5xl normal-case tracking-tighter',
+              (() => {
                 let ballMult = 1;
                 if (effectivePokeball === 'great') ballMult = 1.5;
                 if (effectivePokeball === 'ultra' || effectivePokeball === 'safari') ballMult = 2;
@@ -122,10 +107,24 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
                 if (status === 'paralyze_burn_poison') statusBonus = 5;
                 const hpFactor = 1 + ((100 - hpPercent) / 100) * 2;
                 const baseChance = (catchRate * ballMult * hpFactor) / 255;
-                return Math.min(100, baseChance * 100 + statusBonus).toFixed(1);
-              })()}%
-            </span>
-          </div>
+                const finalChance = Math.min(100, baseChance * 100 + statusBonus);
+                if (finalChance >= 70) return 'text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.5)]';
+                if (finalChance >= 40) return 'text-amber-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]';
+                return 'text-red-400 drop-shadow-[0_0_10px_rgba(248,113,113,0.5)]';
+              })(),
+            )}
+            value={`${(() => {
+              let ballMult = 1;
+              if (effectivePokeball === 'great') ballMult = 1.5;
+              if (effectivePokeball === 'ultra' || effectivePokeball === 'safari') ballMult = 2;
+              let statusBonus = 0;
+              if (status === 'sleep_freeze') statusBonus = 10;
+              if (status === 'paralyze_burn_poison') statusBonus = 5;
+              const hpFactor = 1 + ((100 - hpPercent) / 100) * 2;
+              const baseChance = (catchRate * ballMult * hpFactor) / 255;
+              return Math.min(100, baseChance * 100 + statusBonus).toFixed(1);
+            })()}%`}
+          />
           <div className="flex flex-col items-end text-right">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-none border border-white/10 border-dashed bg-black/40">
               <div

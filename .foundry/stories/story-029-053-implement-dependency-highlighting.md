@@ -2,10 +2,10 @@
 id: story-029-053-implement-dependency-highlighting
 type: STORY
 title: Implement Graph Dependency Highlighting Interactions
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-16'
-updated_at: '2026-05-20'
+updated_at: '2026-05-21'
 depends_on:
   - .foundry/stories/story-029-052-implement-graph-filtering.md
 jules_session_id: null
@@ -34,10 +34,10 @@ As the final interactive piece of the DAG Dashboard Visualization UI, this story
 - Provide a mechanism to clear the selection/highlighting (e.g., clicking on the background).
 
 ## Acceptance Criteria
-- [ ] Implement node selection interaction (click or hover).
-- [ ] Implement logic to find upstream and downstream dependencies for a selected node.
-- [ ] Apply visual styling to highlight the dependency path and dim unrelated elements.
-- [ ] Implement a way to reset the graph to its default state.
+- [x] Implement node selection interaction (click or hover).
+- [x] Implement logic to find upstream and downstream dependencies for a selected node.
+- [x] Apply visual styling to highlight the dependency path and dim unrelated elements.
+- [x] Implement a way to reset the graph to its default state.
 
 ## Tasks
 - `.foundry/tasks/task-053-092-implement-dependency-highlighting.md`

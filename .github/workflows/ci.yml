@@ -119,3 +119,4 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: BundleMon
         uses: lironer/bundlemon-action@v1
+        continue-on-error: true

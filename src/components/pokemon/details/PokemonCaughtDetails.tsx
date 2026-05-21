@@ -1,6 +1,7 @@
 import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
+import { DataPoint } from '../../DataPoint';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface PokemonCaughtDetailsProps {
@@ -52,24 +53,28 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
 
             <div className="relative z-10 grid grid-cols-2 gap-x-4 gap-y-2">
               {p.otName && (
-                <div className="flex flex-col">
-                  <span className="font-black text-[8px] text-zinc-500 uppercase tracking-widest">
-                    Original Trainer
-                  </span>
-                  <span className="truncate font-bold text-[10px] text-zinc-200 uppercase">{p.otName}</span>
-                </div>
+                <DataPoint
+                  label="Original Trainer"
+                  value={p.otName}
+                  labelClassName="text-[8px]"
+                  valueClassName="truncate text-[10px] text-zinc-200"
+                />
               )}
               {p.item !== undefined && p.item > 0 && (
-                <div className="flex flex-col">
-                  <span className="font-black text-[8px] text-zinc-500 uppercase tracking-widest">Held Item</span>
-                  <span className="truncate font-bold text-[10px] text-zinc-200 uppercase">{gen2Items[p.item]}</span>
-                </div>
+                <DataPoint
+                  label="Held Item"
+                  value={gen2Items[p.item]}
+                  labelClassName="text-[8px]"
+                  valueClassName="truncate text-[10px] text-zinc-200"
+                />
               )}
               {p.friendship !== undefined && (
-                <div className="flex flex-col">
-                  <span className="font-black text-[8px] text-zinc-500 uppercase tracking-widest">Friendship</span>
-                  <span className="font-bold text-[10px] text-rose-400">{p.friendship} pt</span>
-                </div>
+                <DataPoint
+                  label="Friendship"
+                  value={`${p.friendship} pt`}
+                  labelClassName="text-[8px]"
+                  valueClassName="text-[10px] text-rose-400"
+                />
               )}
             </div>
 

@@ -2,12 +2,12 @@
 id: prd-055-031-future-progression-trading
 type: PRD
 title: Future Progression Features and Trading (Phase 2)
-status: ACTIVE
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-05-20'
-updated_at: '2026-05-20'
+updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: '5255471936979140539'
+jules_session_id: null
 pr_number: null
 parent: idea-055-cloudflare-sync-and-future-features
 tags:
@@ -41,7 +41,11 @@ Following the implementation of Phase 1 (basic authentication and save syncing),
 - Offline-first mandate remains; features must degrade gracefully when disconnected.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into Epics.
+- [x] Epic Planner: Break this PRD down into Epics.
 
 ## References
 - Parent Idea: `.foundry/ideas/idea-055-cloudflare-sync-and-future-features.md`
+
+## Generated Epics
+- `.foundry/epics/epic-031-036-progression-tracking.md`
+- `.foundry/epics/epic-031-037-inter-save-trading.md`

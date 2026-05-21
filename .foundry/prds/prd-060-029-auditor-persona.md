@@ -4,10 +4,10 @@ type: PRD
 title: >-
   Introduce 'auditor' persona to verify work and possibly create new nodes based
   on status/learnings
-status: PENDING
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-05-20'
-updated_at: '2026-05-20'
+updated_at: '2026-05-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -39,8 +39,10 @@ Detail the technical and structural approach to introducing the `auditor` person
 
 ## Acceptance Criteria
 - [x] ADR is created outlining the precise state machine changes to accommodate the `VERIFYING` state.
-- [ ] Schema document (`.foundry/docs/schema.md`) is updated.
-- [ ] Core policies document is updated.
+- [x] Schema document (`.foundry/docs/schema.md`) is updated.
+- [x] Core policies document is updated.
 
 Spawned `.foundry/research/research-029-003-auditor-implementation-details.md` to figure out orchestrator and prompt changes.
 Depends on: `research-029-003-auditor-implementation-details`
+
+Spawned `.foundry/epics/epic-029-040-auditor-implementation.md` to coordinate the implementation.

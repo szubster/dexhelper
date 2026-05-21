@@ -111,7 +111,8 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `PENDING` | Node exists but has unresolved `depends_on` entries — not yet eligible for dispatch. |
 | `READY` | **Orchestrator-written only.** All `depends_on` nodes are `COMPLETED`. Node is queued for the next dispatch cycle. |
 | `ACTIVE` | A Jules session (`jules_session_id`) is currently working on this node. This status persists if a PR is open for review. |
-| `COMPLETED` | PR merged. TPM archives the node. |
+| `VERIFYING` | A PR was merged, and the `auditor` is currently verifying the outcome. |
+| `COMPLETED` | PR merged (or auditor verification passed). TPM archives the node. |
 | `FAILED` | Session crashed silently or PR was rejected/closed without merge. Resurrection Loop re-spawns a fresh session. |
 | `BLOCKED` | DAG deadlock or explicit TPM hold. Requires CEO or TPM intervention to resolve. |
 | `CANCELLED` | Node retired by CEO decision. Will never be dispatched. |
@@ -123,7 +124,9 @@ stateDiagram-v2
     [*] --> PENDING : Node created
     PENDING --> READY : Orchestrator confirms all depends_on = COMPLETED
     READY --> ACTIVE : Orchestrator dispatches Jules session
-    ACTIVE --> COMPLETED : CEO merges PR
+    ACTIVE --> VERIFYING : Work submitted by owner / PR merged
+    VERIFYING --> COMPLETED : Auditor approves verification
+    VERIFYING --> FAILED : Auditor rejects verification (triggers resurrection loop or cancellation)
     ACTIVE --> FAILED : Heartbeat detects crashed session or rejected PR
     FAILED --> READY : Resurrection Loop spawns fresh session (rejection feedback injected)
     PENDING --> BLOCKED : TPM detects deadlock
@@ -149,7 +152,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `product_manager` | Transforms `IDEA` → `PRD`. |
 | `epic_planner` | Transforms `PRD` → `EPIC` breakdown. |
 | `story_owner` | Monitors active epics; writes `STORY` nodes dynamically (late-binding). |
-| `architect` | Master of the Blueprint. Maintains ADRs, schemas, and defines global App/Foundry architecture. |
+| `architect` | Master of the Blueprint. Maintains ADRs, schemas, and defines global App/Foundry architecture. Cannot own `PRD` nodes; if an ADR is needed, the `product_manager` spawns a `TASK` for the `architect` alongside a `PRD` for the `epic_planner`. |
 | `tech_lead` | Transforms `STORY` → `TASK` (technical implementation plans). |
 | `coder` | Implements individual `TASK` nodes. |
 | `qa` | Validates `TASK` implementation against technical contracts. |
@@ -157,6 +160,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
 | `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
 | `researcher` | Responsible for exploratory tasks. Late-bound research nodes can be dynamically created by active nodes. Multiple researchers can be assigned to different sibling research nodes. |
+| `auditor` | Verifies artifacts against original intent, extracts learnings, and dynamically spawns follow-up nodes before archiving. |
 
 ---
 
@@ -250,3 +254,41 @@ Paths are **always relative to the repository root**, starting with `.foundry/`.
 
 ## 11. EMPTY PR POLICY
 If a target artifact already exists and matches the required state, personas must submit an empty PR (0 files changed). The system will automatically merge these PRs to progress the node to `COMPLETED`. Personas should document the reasoning in their journals.
+
+---
+
+## 12. PokeData Property Naming Schema (Application Data)
+
+As defined in ADR 015, with the transition to MsgPack (`msgpackr`) and the configuration of `useRecords: true`, the application's runtime data structures (`PokeData`) now use full, readable property names rather than minified strings. This improves Developer Experience (DX) without significantly increasing payload sizes, because the serialization library deduplicates structural keys.
+
+*   `name` (formerly `n`)
+*   `captureRate` (formerly `cr`)
+*   `genderRate` (formerly `gr`)
+*   `evolvesTo` (formerly `eto`)
+*   `evolvesFrom` (formerly `efrm`)
+*   `evolutionDetails` (formerly `det`)
+*   `chance` (formerly `c`)
+*   `method` (formerly `m`)
+*   `minLevel` (formerly `min` or `ml`)
+*   `maxLevel` (formerly `max`)
+*   `timeOfDay` (formerly `t` or `time`)
+*   `areaId` (formerly `aid`)
+*   `versionId` (formerly `v`)
+*   `details` (formerly `d`)
+*   `pokemonId` (formerly `pid`)
+*   `encounters` (formerly `enc`)
+*   `parentId` (formerly `prnt`)
+*   `connections` (formerly `conn`)
+*   `pokemonIds` (formerly `pids`)
+*   `distances` (formerly `dist`)
+*   `trigger` (formerly `tr`)
+*   `minHappiness` (formerly `mh`)
+*   `itemId` (formerly `item`)
+*   `heldItemId` (formerly `held`)
+*   `relativePhysicalStats` (formerly `rps`)
+*   `evolvesFromId` (formerly `ef`)
+*   `pokemon` (formerly `poke`)
+*   `locations` (formerly `loc`)
+*   `hash` (remains `hash`)
+
+Enum-to-number optimizations (e.g., mapping encounter methods or string triggers to integer values) are preserved.

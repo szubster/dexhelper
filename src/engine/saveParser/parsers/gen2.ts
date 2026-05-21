@@ -70,6 +70,7 @@ function parseGen2PokemonInstance(
   const friendship = view.getUint8(offset + 27);
   const pokerus = view.getUint8(offset + 28);
   const level = view.getUint8(offset + 31);
+  const currentHp = storageLocation === 'Party' ? view.getUint16(offset + 34, false) : undefined;
   const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
 
   // OT names in daycare are immediately after the data block
@@ -77,6 +78,7 @@ function parseGen2PokemonInstance(
 
   return {
     speciesId,
+    currentHp,
     level,
     isShiny,
     item,

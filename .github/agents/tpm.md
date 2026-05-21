@@ -23,7 +23,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 
 **ARCHIVING RULES:**
 - Do not archive a parent node (e.g., an EPIC) if any of its child nodes (e.g., STORY, TASK) are still active or pending.
-- When archiving completed nodes to `.foundry/archive/`, you MUST update all active files that reference them via the 'parent' field, 'depends_on' list, or inline markdown links to use the new archived path to prevent DAG orchestrator deadlocks.
+- When archiving completed nodes to `.foundry/archive/`, you MUST update all active files that reference them in inline markdown links to use the new archived path. **CRITICAL:** Do NOT modify the 'parent' field or 'depends_on' list in the YAML frontmatter to use file paths; they must strictly remain as Node IDs to prevent DAG orchestrator deadlocks.
 
 
 ## Journal

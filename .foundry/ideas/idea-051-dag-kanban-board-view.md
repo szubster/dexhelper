@@ -2,10 +2,10 @@
 id: idea-051-dag-kanban-board-view
 type: IDEA
 title: DAG Kanban/Scrum Board View
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-05-14'
-updated_at: '2026-05-20'
+updated_at: '2026-05-21'
 depends_on:
   - .foundry/ideas/idea-017-dag-dashboard.md
 jules_session_id: null

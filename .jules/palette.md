@@ -50,7 +50,6 @@
 **Learning:** When using `role="radiogroup"` on a container, the interactive child elements representing the mutually exclusive options must have `role="radio"` and `aria-checked` attributes, not generic `button` behaviors with `aria-pressed`. Otherwise, screen readers will interpret them as independent toggle buttons instead of a single choice group.
 **Action:** Ensure custom segmented controls have `role="radio"` and `aria-checked` on the buttons, and that they use the correct tag, such as `<button>` with `oxlint-disable jsx-a11y/prefer-tag-over-role` and `biome-ignore lint/a11y/useSemanticElements` if styling constraints forbid native radio inputs.
 
-
 ## 2024-05-21 - Added tooltips to interactive card elements
 **Learning:** For accessibility and micro-UX, interactive card elements that act as links or triggers must provide a `title` attribute for sighted users alongside the `aria-label` for screen readers.
 **Action:** When creating or modifying card components that handle click events (e.g. `TacticalCard`), ensure they accept and render a `title` prop matching their `aria-label`.
@@ -73,3 +72,21 @@
 **Learning:** Filter buttons that act as toggle groups visually indicate state through color changes, but screen readers are unaware. Adding `aria-pressed={isActive}` to individual buttons and wrapping the group in `role="group"` with `aria-label` effectively communicates this interactivity.
 **Action:** Replaced `src/components/dag/DagFilterPanel.tsx` to add `aria-pressed` properties to type and status filter buttons, and wrapped the filter areas with `role="group"` and descriptive `aria-label` attributes.
 - Added `aria-label` and `title` to dynamic filter buttons in `DagFilterPanel.tsx` for improved accessibility and tooltip support.
+
+## 2026-05-20 - Adding ARIA attributes dynamically to dialog elements
+**Learning:** The 'Palette' persona must strictly isolate its work to accessibility and micro-UX enhancements (ARIA attributes, keyboard navigation, focus states). It must NEVER modify structural CSS, design system properties (e.g., altering `rounded` classes for aesthetics), or overlap with the 'Canvas' persona's responsibilities, as this causes UI regressions like breaking loading spinners. Also, when passing ARIA properties like `aria-label` to dynamic elements (e.g., `<div role={role}>`), use `// biome-ignore lint/a11y/useAriaPropsSupportedByRole: We will fix this in future` and `{/* oxlint-disable jsx-a11y/role-supports-aria-props */}` to suppress static analysis errors if the linter cannot infer the role at compile time.
+**Action:** Added `aria-label`, `aria-labelledby`, and `aria-describedby` props to `TacticalModal` to improve screen reader descriptions, updated usages in `VersionModal`, `PokemonDetails`, and `SettingsModal` to pass these attributes, and correctly suppressed linter rules to allow these dynamic roles.
+
+- Added `aria-current="page"` to active links in navigation for screen reader accessibility.
+- Used `aria-expanded` on interactive buttons controlling menus/modals (e.g. settings button).
+- **Playwright Frontend Verification:** When writing Playwright scripts to verify frontend changes locally against the development server (`npm run dev`), use `http://localhost:3000` instead of Vite's default port 5173, as specified in `package.json`.
+- **Scheduled Node Creation:** Scheduled or foundry agents can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory to document technical debt, architectural changes, or gaps in context. Appropriate `owner_persona` must be set for new nodes (e.g., `researcher` for RESEARCH, `architect` for ADRs).
+
+## 2026-05-19 - Added ARIA attributes to DAG filter buttons
+**Learning:** Filter buttons that act as toggle groups visually indicate state through color changes, but screen readers are unaware. Adding `aria-pressed={isActive}` to individual buttons and wrapping the group in `role="group"` with `aria-label` effectively communicates this interactivity.
+**Action:** Replaced `src/components/dag/DagFilterPanel.tsx` to add `aria-pressed` properties to type and status filter buttons, and wrapped the filter areas with `role="group"` and descriptive `aria-label` attributes.
+- Added `aria-label` and `title` to dynamic filter buttons in `DagFilterPanel.tsx` for improved accessibility and tooltip support.
+
+## 2026-06-15 - ARIA Labels and Titles for Interactive Progress Segments
+**Learning:** Custom interactive elements that act as a scale or progress bar (e.g., HP setting segments) lack meaning for screen readers and sighted users without proper tooltips and ARIA states, especially if they are visually icon-only or generic geometric shapes.
+**Action:** Always provide a descriptive `title` alongside `aria-label` for these segment buttons. Additionally, include `aria-pressed={isActive}` to programmatically expose which segments are active to assistive technologies.

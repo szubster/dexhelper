@@ -2,18 +2,23 @@
 id: prd-055-030-cloudflare-auth-sync
 type: PRD
 title: Cloudflare Authentication and Save Syncing (Phase 1)
-status: PENDING
-owner_persona: "epic_planner"
-created_at: "2026-05-20"
-updated_at: "2026-05-20"
+status: COMPLETED
+owner_persona: epic_planner
+created_at: '2026-05-20'
+updated_at: '2026-05-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-055-cloudflare-sync-and-future-features
-tags: ["backend", "sync", "cloudflare", "authentication", "phase1"]
+tags:
+  - backend
+  - sync
+  - cloudflare
+  - authentication
+  - phase1
 research_references: []
-rejection_reason: ""
-notes: "Derived from Idea 055"
+rejection_reason: ''
+notes: Derived from Idea 055
 ---
 
 # PRD: Cloudflare Authentication and Save Syncing (Phase 1)
@@ -36,7 +41,11 @@ Our application currently relies entirely on client-side state and browser stora
 - How to handle conflict resolution when the user has offline changes and the server has different data?
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into Epics.
+- [x] Epic Planner: Break this PRD down into Epics.
+
+## Generated Epics
+- `.foundry/epics/epic-030-038-cloudflare-google-sso.md`
+- `.foundry/epics/epic-030-039-cloudflare-r2-save-sync.md`
 
 ## References
 - Parent Idea: `.foundry/ideas/idea-055-cloudflare-sync-and-future-features.md`
