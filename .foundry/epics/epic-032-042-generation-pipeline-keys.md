@@ -2,12 +2,12 @@
 id: epic-032-042-generation-pipeline-keys
 type: EPIC
 title: Update Data Generation Pipeline to Verbose Keys
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11165125192578189367'
 parent: prd-005-032-revert-data-optimizations
 rejection_reason: ''
 notes: ''
