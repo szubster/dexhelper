@@ -33,6 +33,7 @@ Following the establishment of a secure authentication layer, the application ne
 - Implement cross-device synchronization: Pull save data from R2 upon successful login on a new device.
 - Push local save file changes to R2 periodically or on explicit save actions.
 - Implement offline-first synchronization logic, including handling potential conflicts between offline browser changes and the remote R2 state.
+- Ensure graceful degradation so save files continue to use local browser storage without errors when Cloudflare is unavailable (e.g., hosted on GitHub pages).
 
 ## Acceptance Criteria
 - [ ] Story Owner: Break this Epic down into Stories.

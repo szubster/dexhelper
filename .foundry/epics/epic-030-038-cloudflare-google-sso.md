@@ -31,6 +31,8 @@ As part of Phase 1 to introduce a backend while keeping the application offline-
 - Integrate Google Authentication as the SSO provider.
 - Restrict login to a single approved user initially (to ensure the foundation is secure and controlled).
 - Ensure the authentication state is maintained client-side to support offline-first operations when a connection drops.
+- Create native Cloudflare build and configuration instructions for hosting.
+- Ensure graceful degradation so the application continues to function normally (offline-first) on GitHub Pages without Cloudflare integration.
 
 ## Acceptance Criteria
 - [ ] Story Owner: Break this Epic down into Stories.
