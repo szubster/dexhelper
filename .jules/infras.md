@@ -69,3 +69,6 @@ Critical learnings:
 
 ## 2026-05-20 - Fixed Biome Schema Version Mismatch Again
 **Learning:** The Biome CLI version (2.4.15) in `package.json` and `biome.jsonc` was bumped but the version in `.github/workflows/biome.yml` was left at `2.4.14`, meaning CI wasn't using the same version as local. Updated the workflow to match.
+
+## 2026-05-21 - Rejected SWC Vite Plugin
+**Learning:** Initially evaluated replacing `@vitejs/plugin-react` with `@vitejs/plugin-react-swc` under the assumption it used Babel. The user rejected this, noting that in Vite 8, the default react plugin utilizes `oxc` and is currently considered superior to `swc`. The change was reverted to preserve the optimal default tooling.
