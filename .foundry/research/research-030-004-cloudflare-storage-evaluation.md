@@ -42,5 +42,19 @@ We are implementing Phase 1 of backend sync. We need to store user save files in
 - How does each option integrate with offline-first synchronization logic (e.g. handling conflicts)?
 - Provide a recommendation for the MVP implementation.
 
+## Findings
+### Free Tier Limits
+- **Cloudflare Workers KV**: 100,000 keys read/day, 1,000 keys written/day, 1,000 keys deleted/day, 1,000 list requests/day, 1 GB stored data. The write limits are very low for frequent save state syncing.
+- **Cloudflare R2**: 10 GB-month/month storage, 1 million Class A Operations (writes)/month, 10 million Class B Operations (reads)/month. Egress is free. Provides the highest write capacity and storage limits.
+- **Cloudflare D1**: 5 million rows read/day, 100,000 rows written/day, 5 GB storage.
+
+### Sync Logic & Suitability
+- **Cloudflare Workers KV**: Its eventual consistency model is a significant liability for immediate cross-device sync, potentially leading to stale reads and conflict issues.
+- **Cloudflare R2**: Offers strong read-after-write consistency, which is crucial for reliably syncing save states across devices without stale reads. It is designed specifically for object/file storage, making it the native fit for save blobs.
+- **Cloudflare D1**: Being a relational SQL database, it is unnecessary and overkill for simply storing and retrieving file blobs.
+
+### Recommendation
+**Cloudflare R2** is the recommended solution for the MVP. It offers the highest free tier limits for write operations (Class A), provides strong consistency required for offline-first sync logic, and is natively suited for storing binary file blobs like save files.
+
 ## Acceptance Criteria
-- [ ] Researcher: Update this markdown body with findings and a clear technical recommendation.
+- [x] Researcher: Update this markdown body with findings and a clear technical recommendation.
