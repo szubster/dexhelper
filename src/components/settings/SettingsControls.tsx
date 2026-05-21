@@ -50,6 +50,7 @@ export function SettingsControls({
                   ? 'border-blue-500 bg-blue-500/20 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.3)]'
                   : 'border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300'
               }`}
+              aria-pressed={effectiveVersion === v.id || (v.id === 'unknown' && effectiveVersion === 'unknown')}
             >
               {v.label}
             </button>
@@ -108,6 +109,7 @@ export function SettingsControls({
                   ? 'border-amber-500 bg-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)]'
                   : 'border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300'
               }`}
+              aria-pressed={globalPokeball === pb.value}
             >
               <div
                 className={`h-4 w-4 rounded-none border ${
