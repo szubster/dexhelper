@@ -1,11 +1,11 @@
 ---
 id: task-070-117-qa-death-tracking
 type: TASK
-title: "QA Death Tracking and Graveyard Logic"
-status: PENDING
-owner_persona: "qa"
-created_at: "2026-05-18"
-updated_at: "2026-05-18"
+title: QA Death Tracking and Graveyard Logic
+status: READY
+owner_persona: qa
+created_at: '2026-05-18'
+updated_at: '2026-05-21'
 depends_on:
   - task-070-116-implement-death-tracking
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - verification
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA Death Tracking and Graveyard Logic

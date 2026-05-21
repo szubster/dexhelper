@@ -2,10 +2,10 @@
 id: task-062-113-gen3-locations-script-retry-qa
 type: TASK
 title: QA Retry Gen 3 Locations Fetch Script
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-19'
-updated_at: '2026-05-19'
+updated_at: '2026-05-21'
 depends_on:
   - task-062-112-gen3-locations-script-retry-impl
 jules_session_id: null
