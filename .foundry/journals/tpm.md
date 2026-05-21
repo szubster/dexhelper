@@ -25,3 +25,5 @@
 - **2026-05-21**: PR #1672 merged. `prd-005-032-revert-data-optimizations` is now COMPLETED.
 
 - **2026-05-21**: PR #1666 merged. `prd-060-029-auditor-persona` is now COMPLETED.
+
+- **2026-05-21**: PR #1673 merged. `epic-030-038-cloudflare-google-sso` is now COMPLETED.

@@ -2,12 +2,12 @@
 id: epic-030-038-cloudflare-google-sso
 type: EPIC
 title: Cloudflare Single Sign-On (SSO) Authentication
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: '2172044534811112713'
+jules_session_id: null
 pr_number: null
 parent: prd-055-030-cloudflare-auth-sync
 tags:
