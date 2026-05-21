@@ -408,6 +408,8 @@ function parseGen1Pokemon(
   const speciesId = INTERNAL_ID_TO_DEX[internalId];
   if (!speciesId) return null;
 
+  const currentHp = isParty ? view.getUint16(offset + 1, false) : undefined;
+
   // Party has stats, so level is at offset + 33. PC has no stats, level is at offset + 3.
   const level = view.getUint8(isParty ? offset + 33 : offset + 3);
   const moves: number[] = [];
@@ -421,6 +423,7 @@ function parseGen1Pokemon(
 
   return {
     speciesId,
+    currentHp,
     level,
     isShiny,
     moves,

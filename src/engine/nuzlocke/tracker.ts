@@ -34,3 +34,11 @@ export function aggregateEncountersByLocation(saveData: SaveData): LocationEncou
 export function detectNuzlockeViolations(saveData: SaveData): LocationEncounters[] {
   return aggregateEncountersByLocation(saveData).filter((location) => location.encounters.length > 1);
 }
+
+export function getDeadPokemon(saveData: SaveData): PokemonInstance[] {
+  return (saveData.partyDetails || []).filter((p) => p.currentHp === 0);
+}
+
+export function getGraveyardPokemon(saveData: SaveData, graveyardBox: string): PokemonInstance[] {
+  return (saveData.pcDetails || []).filter((p) => p.storageLocation === graveyardBox);
+}

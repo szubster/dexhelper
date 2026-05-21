@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import type { PokemonInstance, SaveData } from '../saveParser/parsers/common';
-import { aggregateEncountersByLocation, detectNuzlockeViolations } from './tracker';
+import {
+  aggregateEncountersByLocation,
+  detectNuzlockeViolations,
+  getDeadPokemon,
+  getGraveyardPokemon,
+} from './tracker';
 
 describe('aggregateEncountersByLocation', () => {
   it('should aggregate encounters by location correctly', () => {
@@ -111,5 +116,76 @@ describe('detectNuzlockeViolations', () => {
     expect(result[0]?.encounters).toHaveLength(2);
     expect(result[0]?.encounters[0]?.speciesId).toBe(1);
     expect(result[0]?.encounters[1]?.speciesId).toBe(2);
+  });
+});
+
+describe('getDeadPokemon', () => {
+  it('should return pokemon in the party with 0 HP', () => {
+    const saveData: Partial<SaveData> = {
+      partyDetails: [
+        { speciesId: 1, currentHp: 10 } as PokemonInstance,
+        { speciesId: 2, currentHp: 0 } as PokemonInstance,
+        { speciesId: 3, currentHp: undefined } as PokemonInstance,
+        { speciesId: 4, currentHp: 0 } as PokemonInstance,
+      ],
+    };
+
+    const result = getDeadPokemon(saveData as SaveData);
+    expect(result).toHaveLength(2);
+    expect(result[0]?.speciesId).toBe(2);
+    expect(result[1]?.speciesId).toBe(4);
+  });
+
+  it('should return empty array if no pokemon have 0 HP', () => {
+    const saveData: Partial<SaveData> = {
+      partyDetails: [
+        { speciesId: 1, currentHp: 10 } as PokemonInstance,
+        { speciesId: 3, currentHp: undefined } as PokemonInstance,
+      ],
+    };
+
+    const result = getDeadPokemon(saveData as SaveData);
+    expect(result).toHaveLength(0);
+  });
+
+  it('should handle undefined partyDetails gracefully', () => {
+    const saveData: Partial<SaveData> = {};
+    const result = getDeadPokemon(saveData as SaveData);
+    expect(result).toHaveLength(0);
+  });
+});
+
+describe('getGraveyardPokemon', () => {
+  it('should return pokemon stored in the designated graveyard box', () => {
+    const saveData: Partial<SaveData> = {
+      pcDetails: [
+        { speciesId: 1, storageLocation: 'Box 1' } as PokemonInstance,
+        { speciesId: 2, storageLocation: 'Box 14' } as PokemonInstance,
+        { speciesId: 3, storageLocation: 'Box 14' } as PokemonInstance,
+      ],
+    };
+
+    const result = getGraveyardPokemon(saveData as SaveData, 'Box 14');
+    expect(result).toHaveLength(2);
+    expect(result[0]?.speciesId).toBe(2);
+    expect(result[1]?.speciesId).toBe(3);
+  });
+
+  it('should return empty array if no pokemon are in the graveyard box', () => {
+    const saveData: Partial<SaveData> = {
+      pcDetails: [
+        { speciesId: 1, storageLocation: 'Box 1' } as PokemonInstance,
+        { speciesId: 2, storageLocation: 'Box 2' } as PokemonInstance,
+      ],
+    };
+
+    const result = getGraveyardPokemon(saveData as SaveData, 'Box 14');
+    expect(result).toHaveLength(0);
+  });
+
+  it('should handle undefined pcDetails gracefully', () => {
+    const saveData: Partial<SaveData> = {};
+    const result = getGraveyardPokemon(saveData as SaveData, 'Box 14');
+    expect(result).toHaveLength(0);
   });
 });
