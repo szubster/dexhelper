@@ -19,3 +19,11 @@
 - **2026-05-21**: PR #1663 merged. `task-062-113-gen3-locations-script-retry-qa` is now COMPLETED.
 
 - **2026-05-21**: PR #1665 merged. `task-070-117-qa-death-tracking` is now COMPLETED.
+
+- **2026-05-21**: PR #1671 merged. `idea-061-emulator-auto-sync` is now COMPLETED.
+
+- **2026-05-21**: PR #1672 merged. `prd-005-032-revert-data-optimizations` is now COMPLETED.
+
+- **2026-05-21**: PR #1666 merged. `prd-060-029-auditor-persona` is now COMPLETED.
+
+- **2026-05-21**: PR #1673 merged. `epic-030-038-cloudflare-google-sso` is now COMPLETED.

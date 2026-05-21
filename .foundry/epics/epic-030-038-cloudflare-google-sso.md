@@ -2,12 +2,12 @@
 id: epic-030-038-cloudflare-google-sso
 type: EPIC
 title: Cloudflare Single Sign-On (SSO) Authentication
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on: []
-jules_session_id: '2172044534811112713'
+jules_session_id: null
 pr_number: null
 parent: prd-055-030-cloudflare-auth-sync
 tags:
@@ -37,4 +37,9 @@ As part of Phase 1 to introduce a backend while keeping the application offline-
 - Ensure graceful degradation so the application continues to function normally (offline-first) on GitHub Pages without Cloudflare integration.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
+- [x] Story Owner: Break this Epic down into Stories.
+
+### Generated Stories
+- .foundry/stories/story-038-074-cloudflare-auth-infrastructure.md
+- .foundry/stories/story-038-075-google-sso-integration.md
+- .foundry/stories/story-038-076-offline-auth-state.md

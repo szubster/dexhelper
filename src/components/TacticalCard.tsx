@@ -14,64 +14,67 @@ interface TacticalCardProps {
   variant?: 'default' | 'emerald' | 'amber' | 'storage-default' | 'storage-emerald' | 'storage-amber' | 'storage-red';
 }
 
-export const TacticalCard = React.forwardRef<HTMLButtonElement, TacticalCardProps>(
-  ({ children, onClick, ariaLabel, title, testId, pokemonId, className, style, variant = 'default' }, ref) => {
-    let variantClasses = '';
+// ⚡ Bolt: Wrapped TacticalCard in React.memo to prevent unnecessary DOM re-renders of up to 400 PC boxes when parent states change
+export const TacticalCard = React.memo(
+  React.forwardRef<HTMLButtonElement, TacticalCardProps>(
+    ({ children, onClick, ariaLabel, title, testId, pokemonId, className, style, variant = 'default' }, ref) => {
+      let variantClasses = '';
 
-    switch (variant) {
-      case 'emerald':
-        variantClasses = 'border-emerald-500/50 bg-emerald-950/20 hover:border-emerald-400 hover:bg-emerald-900/30';
-        break;
-      case 'amber':
-        variantClasses = 'border-amber-500/50 bg-amber-950/20 hover:border-amber-400 hover:bg-amber-900/30';
-        break;
-      case 'default':
-        variantClasses = 'border-white/20 bg-zinc-900/50 hover:border-white/40 hover:bg-zinc-800/80';
-        break;
-      case 'storage-amber':
-        variantClasses = 'bg-amber-900/10 border-amber-500/30 hover:bg-amber-900/20';
-        break;
-      case 'storage-red':
-        variantClasses = 'bg-red-900/10 border-red-900/30 hover:bg-red-900/20';
-        break;
-      case 'storage-emerald':
-        variantClasses = 'bg-emerald-900/10 border-emerald-900/30 hover:bg-emerald-900/20';
-        break;
-      case 'storage-default':
-        variantClasses = 'bg-zinc-900 border-zinc-800 hover:border-zinc-700 shadow-sm';
-        break;
-    }
+      switch (variant) {
+        case 'emerald':
+          variantClasses = 'border-emerald-500/50 bg-emerald-950/20 hover:border-emerald-400 hover:bg-emerald-900/30';
+          break;
+        case 'amber':
+          variantClasses = 'border-amber-500/50 bg-amber-950/20 hover:border-amber-400 hover:bg-amber-900/30';
+          break;
+        case 'default':
+          variantClasses = 'border-white/20 bg-zinc-900/50 hover:border-white/40 hover:bg-zinc-800/80';
+          break;
+        case 'storage-amber':
+          variantClasses = 'bg-amber-900/10 border-amber-500/30 hover:bg-amber-900/20';
+          break;
+        case 'storage-red':
+          variantClasses = 'bg-red-900/10 border-red-900/30 hover:bg-red-900/20';
+          break;
+        case 'storage-emerald':
+          variantClasses = 'bg-emerald-900/10 border-emerald-900/30 hover:bg-emerald-900/20';
+          break;
+        case 'storage-default':
+          variantClasses = 'bg-zinc-900 border-zinc-800 hover:border-zinc-700 shadow-sm';
+          break;
+      }
 
-    const isStorageVariant = variant.startsWith('storage-');
+      const isStorageVariant = variant.startsWith('storage-');
 
-    return (
-      <button
-        ref={ref}
-        type="button"
-        aria-label={ariaLabel}
-        title={title}
-        data-testid={testId}
-        data-pokemon-id={pokemonId}
-        onClick={onClick}
-        className={cn(
-          'group relative w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-          isStorageVariant
-            ? 'flex flex-col items-center rounded-none border border-dashed p-5 transition-all duration-200 hover:-translate-y-1 active:scale-95'
-            : 'rounded-none border border-dashed p-4 font-mono transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]',
-          variantClasses,
-          className,
-        )}
-        style={style}
-      >
-        {/* Corner Crosshairs */}
-        <CornerCrosshairs
-          thickness={2}
-          className="h-2 w-2 border-white/40 transition-colors group-hover:border-[var(--theme-primary)]"
-        />
-        {children}
-      </button>
-    );
-  },
+      return (
+        <button
+          ref={ref}
+          type="button"
+          aria-label={ariaLabel}
+          title={title}
+          data-testid={testId}
+          data-pokemon-id={pokemonId}
+          onClick={onClick}
+          className={cn(
+            'group relative w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+            isStorageVariant
+              ? 'flex flex-col items-center rounded-none border border-dashed p-5 transition-all duration-200 hover:-translate-y-1 active:scale-95'
+              : 'rounded-none border border-dashed p-4 font-mono transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]',
+            variantClasses,
+            className,
+          )}
+          style={style}
+        >
+          {/* Corner Crosshairs */}
+          <CornerCrosshairs
+            thickness={2}
+            className="h-2 w-2 border-white/40 transition-colors group-hover:border-[var(--theme-primary)]"
+          />
+          {children}
+        </button>
+      );
+    },
+  ),
 );
 
 TacticalCard.displayName = 'TacticalCard';
