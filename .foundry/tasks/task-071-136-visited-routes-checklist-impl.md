@@ -25,5 +25,5 @@ notes: ''
 Implement the visited and unvisited routes checklist for the Run Dashboard UI.
 
 ## Acceptance Criteria
-- [ ] Implement the UI to display the visited routes checklist.
-- [ ] Implement the UI to display the unvisited routes checklist.
+- [x] Implement the UI to display the visited routes checklist.
+- [x] Implement the UI to display the unvisited routes checklist.
