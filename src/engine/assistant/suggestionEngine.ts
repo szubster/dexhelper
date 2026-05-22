@@ -741,7 +741,9 @@ function generateEvolutionSuggestions(
         }
       } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
         const gameItemId = getGameItemId(item, saveData.generation);
-        const hasStone = saveData.inventory.some((i) => i.id === gameItemId && i.quantity > 0);
+        const hasStone =
+          saveData.inventory.some((i) => i.id === gameItemId && i.quantity > 0) ||
+          (saveData.pcItems?.some((i) => i.id === gameItemId && i.quantity > 0) ?? false);
         const itemName = EVO_ITEM_NAMES[item] || 'item';
         suggestions.push({
           id: `evo-item-${targetId}-${item}`,
@@ -760,7 +762,9 @@ function generateEvolutionSuggestions(
       } else if (tr === EVO_TRIGGER.TRADE) {
         if (held) {
           const gameHeldId = getGameItemId(held, saveData.generation);
-          const hasHeldItemInBag = saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0);
+          const hasHeldItemInBag =
+            saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0) ||
+            (saveData.pcItems?.some((i) => i.id === gameHeldId && i.quantity > 0) ?? false);
           const holdingInstance =
             evolvableInstances.find((inst) => inst.item === gameHeldId) ||
             ownedInstances.find((inst) => inst.item === gameHeldId);
@@ -875,9 +879,13 @@ export function generateSuggestions(
   const localPids = new Set<number>();
 
   const hasHeadbutt =
-    saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) || allInstances.some((p) => p.moves?.includes(29));
+    saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) ||
+    (saveData.pcItems?.some((i) => i.id === 192 && i.quantity > 0) ?? false) ||
+    allInstances.some((p) => p.moves?.includes(29));
   const hasRockSmash =
-    saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) || allInstances.some((p) => p.moves?.includes(249));
+    saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) ||
+    (saveData.pcItems?.some((i) => i.id === 198 && i.quantity > 0) ?? false) ||
+    allInstances.some((p) => p.moves?.includes(249));
 
   generateCatchSuggestions(
     apiData,

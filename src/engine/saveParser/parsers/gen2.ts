@@ -528,6 +528,18 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
 
   const inventory = parseInventory(view, isCrystal);
 
+  const pcItems: { id: number; quantity: number }[] = [];
+  const pcItemsPocket = isCrystal ? 0x2460 : 0x247e;
+  const pcItemsCount = view.getUint8(pcItemsPocket);
+  if (pcItemsCount > 0 && pcItemsCount <= 50) {
+    for (let i = 0; i < pcItemsCount; i++) {
+      const offset = pcItemsPocket + 1 + i * 2;
+      const id = view.getUint8(offset);
+      const quantity = view.getUint8(offset + 1);
+      pcItems.push({ id, quantity });
+    }
+  }
+
   const hallOfFameOffset = johtoBadgesOffset + 0xa8;
   const hallOfFameCount = view.getUint8(hallOfFameOffset);
 
@@ -551,6 +563,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     currentMapName,
     mapGroup,
     inventory,
+    pcItems,
     daycare,
     daycareHasEgg,
     currentBoxCount: 0,

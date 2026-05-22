@@ -135,7 +135,9 @@ export function AssistantSuggestionCard({
                       : method.includes('good')
                         ? rodIds.GOOD
                         : rodIds.SUPER;
-                    isOwned = saveData.inventory.some((i) => i.id === rodId);
+                    isOwned =
+                      saveData.inventory.some((i) => i.id === rodId) ||
+                      (saveData.pcItems?.some((i) => i.id === rodId) ?? false);
                   }
                 }
                 const Icon = isRod ? Fish : isSurf ? Waves : isGrass ? Trees : Target;

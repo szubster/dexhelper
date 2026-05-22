@@ -59,9 +59,12 @@ export const gen2Strategy: AssistantStrategy = {
     // In Gen 2, these are single-use and do not require badges to use in the field.
     const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
     const hasHeadbutt =
-      saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) || allInstances.some((p) => p.moves?.includes(29));
+      saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) ||
+      (saveData.pcItems?.some((i) => i.id === 192 && i.quantity > 0) ?? false) ||
+      allInstances.some((p) => p.moves?.includes(29));
     const hasRockSmash =
       saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) ||
+      (saveData.pcItems?.some((i) => i.id === 198 && i.quantity > 0) ?? false) ||
       allInstances.some((p) => p.moves?.includes(249));
 
     if (hasHeadbutt) {
