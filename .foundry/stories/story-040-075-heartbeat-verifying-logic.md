@@ -28,5 +28,10 @@ Update `foundry-heartbeat.ts` PR merge state transition logic and zombie timeout
 - The Heartbeat script must monitor `VERIFYING` nodes in its "Pass 1" check exactly as it monitors `ACTIVE` nodes. If an auditor session crashes or times out, it should transition back to `VERIFYING` (ready for another auditor pickup) or `FAILED`, ensuring the auditor step isn't permanently blocked.
 
 ## Acceptance Criteria
-- [ ] PR merge transitions node to VERIFYING instead of COMPLETED.
-- [ ] Zombie detection extended to VERIFYING nodes.
+- [x] PR merge transitions node to VERIFYING instead of COMPLETED.
+- [x] Zombie detection extended to VERIFYING nodes.
+
+
+## Derived Tasks
+- .foundry/tasks/task-075-132-implement-heartbeat-verifying-logic.md
+- .foundry/tasks/task-075-133-qa-heartbeat-verifying-logic.md
