@@ -56,9 +56,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         }
 
         saveDB.putSave('last_save_file', new Uint8Array(buffer)).catch(() => console.error('System: sync failed'));
-      } catch (err: unknown) {
-        const message = err instanceof Error ? err.message : 'Failed to parse save file.';
-        setError(message);
+      } catch {
+        setError('Failed to parse save file.');
         setSaveData(null);
       }
     };
