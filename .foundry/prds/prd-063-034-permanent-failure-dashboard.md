@@ -1,15 +1,15 @@
 ---
-id: idea-063-permanent-failure-dashboard
-type: IDEA
+id: prd-063-034-permanent-failure-dashboard
+type: PRD
 title: Permanent Failure Dashboard View
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: architect
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
 depends_on: []
-jules_session_id: '3494504611892119938'
+jules_session_id: null
 pr_number: null
-parent: null
+parent: idea-063-permanent-failure-dashboard
 tags:
   - foundry
   - ui
@@ -17,10 +17,10 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: Created autonomously by agile_coach to surface permanent failures.
+notes: ''
 ---
 
-# Permanent Failure Dashboard View
+# PRD: Permanent Failure Dashboard View
 
 ## Context
 While analyzing recent runs, it was observed that tasks like `task-062-100-gen3-locations-script-impl.md` can fail permanently (reaching Max Rejection Count) and enter an "Impossible Loop" where the parent node needs to be awakened. Currently, there is no easy way for the team (or the Tech Lead) to see at a glance which nodes have failed permanently.
@@ -31,7 +31,4 @@ Create a dedicated "Permanent Failures" view or filter within the DAG Dashboard.
 - This will allow the Tech Lead or Product Manager to quickly identify deadlocks and spawn the necessary `RESEARCH` nodes to resolve them.
 
 ## Next Steps
-- [x] Product Manager: Evaluate this idea, determine the best technical approach, and convert it to a PRD.
-
-## Downstream
-- .foundry/prds/prd-063-034-permanent-failure-dashboard.md
+- [ ] Architect: Create an ADR evaluating the permanent failure dashboard implementation strategy and define the application-level state synchronization architecture.
