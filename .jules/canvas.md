@@ -122,3 +122,9 @@
 **Outcome:** Accepted
 **Why:** Brings the interactive inputs of the settings panel in line with the rest of the application's heavily tactical, specialized hardware motif, correcting the generic web UI elements previously used.
 **Pattern:** Consistently eliminate generic web UI patterns (native `<select>` dropdowns, default sliding toggles) in favor of sharp, high-contrast, terminal-like button grids or segmented controls to maintain the specialized device illusion.
+
+## 2026-06-10 - [Accepted] - 🖼️ Canvas: Tactical LocationScanner Redesign
+**What:** Redesigned the `LocationSuggestions` component from a generic dropdown list into a full Tactical Database Scanner overlay. Applied `LcdGrid`, `ScanlineOverlay`, and structured the results to resemble specialized hardware telemetry (`[ DATABASE SCAN ACTIVE ]`, `[ DETECTED ]`).
+**Outcome:** Accepted
+**Why:** Continues the commitment to the heavily tactical, snooping-focused aesthetic (ADR 008) by eliminating generic web UI patterns (like standard dropdowns and simple hover highlights) in favor of immersive, immersive data query interfaces.
+**Pattern:** Consistently identify and eliminate generic interaction patterns (like simple dropdown lists) and replace them with rich, heavily styled tactical overlays that simulate specialized hardware functionality.

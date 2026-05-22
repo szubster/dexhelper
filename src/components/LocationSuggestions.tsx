@@ -5,6 +5,8 @@ import { pokeDB } from '../db/PokeDB';
 import type { GenericLocation } from '../db/schema';
 import { useStore } from '../store';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { LcdGrid } from './LcdGrid';
+import { ScanlineOverlay } from './ScanlineOverlay';
 
 export function LocationSuggestions() {
   const searchTerm = useStore((s) => s.searchTerm);
@@ -92,44 +94,72 @@ export function LocationSuggestions() {
     <div
       role="listbox"
       aria-label="Location suggestions"
-      className="fade-in zoom-in-95 absolute top-full left-0 z-50 mt-2 w-full animate-in border border-white/20 border-dashed bg-zinc-950 shadow-2xl duration-200"
+      className="fade-in zoom-in-95 absolute top-full left-0 z-50 mt-4 w-full animate-in overflow-hidden border-2 border-[var(--theme-primary)]/40 border-dashed bg-black/90 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md duration-300 sm:-left-[25%] sm:w-[150%]"
     >
-      <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/40" />
-      <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-10" />
-      <div className="relative z-10 space-y-1 p-2">
-        <div className="px-3 py-2 font-black font-mono text-[9px] text-zinc-600 uppercase tracking-widest">
-          [ SCAN RESULTS ]
+      <LcdGrid className="opacity-10" color="var(--theme-primary)" />
+      <ScanlineOverlay opacityClass="opacity-30" />
+      <CornerCrosshairs thickness={2} className="h-3 w-3 border-[var(--theme-primary)]/60" />
+
+      {/* Decorative Top Border */}
+      <div className="absolute top-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-[var(--theme-primary)]/50 to-transparent" />
+
+      <div className="relative z-10 p-4">
+        <div className="mb-3 flex items-center justify-between border-[var(--theme-primary)]/20 border-b border-dashed pb-3">
+          <div className="flex items-center gap-2">
+            <div className="h-2 w-2 animate-pulse bg-[var(--theme-primary)]" />
+            <span className="font-black font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-[0.3em]">
+              [ DATABASE SCAN ACTIVE ]
+            </span>
+          </div>
+          <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
+            {suggestions.length} ENTRIES FOUND
+          </span>
         </div>
-        {suggestions.map((loc) => (
-          <button
-            type="button"
-            role="option"
-            aria-selected="false"
-            aria-label={loc.n}
-            key={loc.id}
-            onClick={() => {
-              setSelectedLocationId(loc.id);
-              setSearchTerm('');
-              setIsOpen(false);
-            }}
-            className="group relative flex w-full items-center gap-3 border border-transparent px-4 py-3 text-left transition-all hover:border-white/10 hover:bg-zinc-900/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-          >
-            <div className="absolute top-0 left-0 h-full w-1 bg-transparent transition-colors group-hover:bg-[var(--theme-primary)]" />
-            <div className="relative z-10 flex w-full items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center border border-white/5 bg-zinc-900 text-zinc-500 transition-colors duration-300 group-hover:border-[var(--theme-primary)]/30 group-hover:bg-[var(--theme-primary)]/10 group-hover:text-[var(--theme-primary)]">
-                <MapPin size={14} />
+
+        <div className="custom-scrollbar max-h-[400px] space-y-2 overflow-y-auto pr-2">
+          {suggestions.map((loc) => (
+            <button
+              type="button"
+              role="option"
+              aria-selected="false"
+              aria-label={loc.n}
+              key={loc.id}
+              onClick={() => {
+                setSelectedLocationId(loc.id);
+                setSearchTerm('');
+                setIsOpen(false);
+              }}
+              className="group relative flex w-full items-center gap-4 border border-zinc-800/50 border-dashed bg-zinc-900/30 p-3 text-left transition-all duration-300 hover:border-[var(--theme-primary)]/50 hover:bg-[var(--theme-primary)]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-transparent transition-all duration-300 group-hover:bg-[var(--theme-primary)] group-hover:shadow-[0_0_10px_var(--theme-primary)]" />
+
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-zinc-700/50 border-dashed bg-black/50 text-zinc-600 transition-all duration-300 group-hover:border-[var(--theme-primary)]/40 group-hover:bg-[var(--theme-primary)]/20 group-hover:text-[var(--theme-primary)]">
+                <MapPin size={16} />
               </div>
-              <div className="min-w-0 flex-1">
-                <div className="font-black font-mono text-[11px] text-white uppercase tracking-wider transition-colors group-hover:text-[var(--theme-primary)]">
+
+              <div className="flex min-w-0 flex-1 flex-col justify-center">
+                <div className="truncate font-black font-mono text-[12px] text-zinc-200 uppercase tracking-widest transition-colors duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
                   {loc.n}
                 </div>
-                <div className="font-bold font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
-                  [{loc.count} DETECTED]
+                <div className="mt-1 flex items-center gap-2">
+                  <span className="inline-block rounded-none border border-[var(--theme-primary)]/20 border-dashed bg-[var(--theme-primary)]/5 px-1.5 py-0.5 font-bold font-mono text-[8px] text-[var(--theme-primary)] uppercase tracking-widest">
+                    LOC_ID: {loc.id.toString().padStart(3, '0')}
+                  </span>
+                  <span className="font-bold font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
+                    [ {loc.count} UNITS DETECTED ]
+                  </span>
                 </div>
               </div>
-            </div>
-          </button>
-        ))}
+
+              {/* Hover decorative element */}
+              <div className="pr-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span className="animate-pulse font-black font-mono text-[10px] text-[var(--theme-primary)]">
+                  SELECT_
+                </span>
+              </div>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
