@@ -2,12 +2,12 @@
 id: task-063-132-msgpack-transition-impl
 type: TASK
 title: Implement MsgPack Transition for Data Serialization
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10412304628672859326'
 parent: story-032-063-gen3-msgpack-transition
 tags:
   - gen3
