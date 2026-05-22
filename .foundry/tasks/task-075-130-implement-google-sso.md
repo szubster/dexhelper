@@ -6,7 +6,8 @@ status: PENDING
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
-depends_on: []
+depends_on:
+  - research-075-132-cloudflare-access
 jules_session_id: null
 pr_number: null
 parent: story-038-075-google-sso-integration
@@ -25,10 +26,9 @@ notes: ''
 # Implement Google SSO Backend
 
 ## Context
-We need to implement the Google OAuth2/SSO login flow within the Cloudflare backend (Pages Functions or Worker). We also must restrict the successful authentication to a single predefined Google user email or ID, rejecting all other attempts.
+We need to implement the Google SSO login flow. Depending on the outcome of the research node (`research-075-132-cloudflare-access`), this will either involve configuring Cloudflare Access or implementing a custom OAuth2 flow within the Cloudflare backend (Pages Functions or Worker). We also must restrict the successful authentication to a single predefined Google user email or ID, rejecting all other attempts (this restriction might be handled on the Google SSO side or via Cloudflare Access policies).
 
 ## Acceptance Criteria
-- [ ] Implement Google OAuth2/SSO login flow within the Cloudflare backend.
-- [ ] Add authentication endpoints (e.g., login, callback, verify) in the `functions/` directory.
+- [ ] Implement Google SSO login flow according to the architectural recommendation from the research phase.
 - [ ] Implement logic to restrict successful authentication to a single predefined Google user email or ID.
 - [ ] Reject all other login attempts with a clear unauthorized response.

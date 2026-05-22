@@ -35,5 +35,6 @@ With the Cloudflare infrastructure in place, we need to implement the Google SSO
 - [x] Reject all other login attempts with a clear unauthorized response.
 
 ### Derived Tasks
+- research-075-132-cloudflare-access
 - task-075-130-implement-google-sso
 - task-075-131-qa-google-sso

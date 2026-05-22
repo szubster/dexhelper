@@ -381,6 +381,21 @@ function generateCatchSuggestions(
  * @param suggestions - The shared array where new gift/trade suggestions are pushed.
  * @param missingIds - A set of all missing Pokémon IDs.
  */
+
+/**
+ * Evaluates version exclusives, in-game NPC trades, and static gift encounters.
+ *
+ * It mutates the provided `suggestions` array.
+ *
+ * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
+ * @param saveData - The player's parsed save file, containing badges and event flags.
+ * @param displayVersion - The current game version string.
+ * @param ownedSet - A Set of Pokémon IDs the player already owns.
+ * @param apiData - Pre-fetched metadata for Pokémon definitions.
+ * @param instancesBySpecies - A Map of the player's physical Pokémon, used to check for required trade offerings or pre-evolutions.
+ * @param suggestions - The shared array where new suggestions are pushed.
+ * @param missingIds - A Set of Pokémon IDs the player needs to obtain.
+ */
 function generateGiftAndTradeSuggestions(
   queryTargets: number[],
   saveData: SaveData,
@@ -495,7 +510,13 @@ function generateGiftAndTradeSuggestions(
 }
 
 /**
- * @param saveData - The parsed save data for checking daycare status.
+ * Evaluates Gen 2 Daycare breeding logic.
+ * Checks if the player can breed a missing base Pokémon from an owned evolution.
+ *
+ * It mutates the provided `suggestions` array.
+ *
+ * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
+ * @param saveData - The player's parsed save file, used to check Daycare status.
  * @param apiData - Pre-fetched metadata containing evolution chains.
  * @param instancesBySpecies - A Map of the player's physical Pokémon.
  * @param suggestions - The shared array where new breeding suggestions are pushed.
@@ -578,11 +599,22 @@ function generateBreedingSuggestions(
 }
 
 /**
- * @param saveData - The parsed save data for checking items and daylight (tod).
+ * Evaluates the player's current boxes and party to find pre-evolutions that can be evolved
+ * to obtain missing Pokédex entries.
+ *
+ * Checks against level requirements, required evolution items in the inventory,
+ * time of day, and friendship levels.
+ * Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached).
+ *
+ * It mutates the provided `suggestions` array.
+ *
+ * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
+ * @param saveData - The parsed save data for checking items, friendship, and daylight (tod).
  * @param apiData - Pre-fetched metadata containing evolution criteria (level, item, time of day).
  * @param instancesBySpecies - A Map of the player's physical Pokémon, used to find valid pre-evolutions.
  * @param suggestions - The shared array where new evolution suggestions are pushed.
  * @param displayVersion - The current game version, used to handle special cases (like Yellow Pikachu refusing to evolve).
+ * @param missingIds - A Set of Pokémon IDs the player needs to obtain.
  */
 function generateEvolutionSuggestions(
   queryTargets: number[],

@@ -26,10 +26,9 @@ notes: ''
 # QA Google SSO Backend
 
 ## Context
-Verify the implementation of the Google OAuth2/SSO login flow in the Cloudflare backend. Ensure it correctly restricts authentication to a single predefined Google user.
+Verify the implementation of the Google SSO login flow. Ensure it correctly restricts authentication to a single predefined Google user as per the chosen architectural approach.
 
 ## Acceptance Criteria
-- [ ] Verify the Google OAuth2/SSO login flow functions correctly.
-- [ ] Verify authentication endpoints (login, callback, verify) work as expected.
+- [ ] Verify the Google SSO login flow functions correctly.
 - [ ] Verify successful authentication is restricted to the single predefined Google user.
 - [ ] Verify unauthorized users are rejected correctly.
