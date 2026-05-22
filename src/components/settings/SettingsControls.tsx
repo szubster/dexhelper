@@ -25,7 +25,7 @@ export function SettingsControls({
   filteredPokeballs,
   genConfig,
 }: SettingsControlsProps) {
-  const versions = [
+  const versions: { id: GameVersion | 'unknown'; label: string }[] = [
     { id: 'unknown', label: 'AUTO' },
     ...(genConfig?.versions ?? [...getGenerationConfig(1).versions, ...getGenerationConfig(2).versions]),
   ];
@@ -42,9 +42,7 @@ export function SettingsControls({
             <button
               key={v.id}
               type="button"
-              onClick={() =>
-                setManualVersion((v.id as GameVersion | 'unknown') === 'unknown' ? null : (v.id as GameVersion))
-              }
+              onClick={() => setManualVersion(v.id === 'unknown' ? null : v.id)}
               className={`rounded-none border border-dashed px-3 py-2 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
                 effectiveVersion === v.id || (v.id === 'unknown' && effectiveVersion === 'unknown')
                   ? 'border-blue-500 bg-blue-500/20 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.3)]'

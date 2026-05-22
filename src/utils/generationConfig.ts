@@ -1,9 +1,9 @@
-import type { PokeballType } from '../store';
+import type { GameVersion, PokeballType } from '../store';
 
 // ─── Core Types ──────────────────────────────────────────────────────
 
 interface VersionInfo {
-  id: string;
+  id: GameVersion;
   label: string;
   themeClass: string;
   /** Tailwind class for the version dot color, e.g. 'bg-red-500 shadow-red-500/20' */
