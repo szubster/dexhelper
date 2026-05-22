@@ -1,0 +1,13 @@
+name: "🕰️ Schedule: Sculptor"
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  run_sculptor:
+    uses: ./.github/workflows/foundry-scheduled-agent.yml
+    with:
+      persona: "sculptor"
+    secrets: inherit
