@@ -57,3 +57,5 @@
 - **2026-05-21**: PR #1685 merged. `task-072-128-implement-dag-cancellation` is now COMPLETED.
 
 - **2026-05-21**: System failure detected for `story-038-075-google-sso-integration`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-05-22**: System failure detected for `story-042-080-refactor-generation-exports`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
