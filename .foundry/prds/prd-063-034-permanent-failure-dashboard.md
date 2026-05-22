@@ -2,7 +2,7 @@
 id: prd-063-034-permanent-failure-dashboard
 type: PRD
 title: Permanent Failure Dashboard View
-status: FAILED
+status: READY
 owner_persona: architect
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
@@ -15,7 +15,7 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: Invalid owner_persona mapping
 notes: ''
 ---
