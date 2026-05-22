@@ -31,4 +31,4 @@ Create a dedicated "Permanent Failures" view or filter within the DAG Dashboard.
 - This will allow the Tech Lead or Product Manager to quickly identify deadlocks and spawn the necessary `RESEARCH` nodes to resolve them.
 
 ## Next Steps
-- [ ] Architect: Create an ADR evaluating the permanent failure dashboard implementation strategy and define the application-level state synchronization architecture.
+- [x] Architect: Create an ADR evaluating the permanent failure dashboard implementation strategy and define the application-level state synchronization architecture.

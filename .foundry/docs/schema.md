@@ -73,7 +73,7 @@ pr_number: null         # Optional. PR number for human-in-the-loop tasks, or nu
 parent: null            # Required if node is derived from another node (e.g. PRD from IDEA, EPIC from PRD). The ID (preferred) or repo-relative path to the logical parent node. Blocks the parent from completion if this node is incomplete.
 tags: []                # Optional. Free-form string labels for filtering and context injection.
 research_references: [] # Optional. Array of repo-relative paths to research nodes.
-rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes.
+rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes. Broadcasted to UI for permanent failure tracking (ADR 017).
 rejection_reason: ""    # Optional. Used when transitioning a node to FAILED because it is fundamentally impossible to complete.
 notes: ""               # Optional. Free-form Markdown remarks.
 ---
@@ -96,7 +96,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `parent` | `string \| null` | optional | The ID (preferred) or repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
 | `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
 | `research_references` | `string[]` | optional | Array of repo-relative paths to research nodes. |
-| `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. |
+| `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. Also broadcasted to the Permanent Failure Dashboard UI for visibility (ADR 017). |
 | `rejection_reason` | `string` | optional | Used when transitioning a node to `FAILED` because it is fundamentally impossible to complete. |
 | `notes` | `string` | optional | Free-form Markdown for human remarks, caveats, or inline research. |
 
