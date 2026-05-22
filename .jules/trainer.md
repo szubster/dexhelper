@@ -51,3 +51,6 @@
 ## 2024-05-21 - Breeding Intermediate Evolution Suggestion Fix
 **Learning:** In Pokémon Gen 2, eggs always hatch into the lowest evolutionary stage. The assistant's `generateBreedingSuggestions` previously suggested breeding intermediate evolutions (like Charizard) to obtain other intermediate evolutions (like Charmeleon), which is mechanically impossible.
 **Action:** Update the breeding logic to verify that the target Pokémon is actually a base or baby stage (by checking `p.efrm === undefined || p.efrm.length === 0`) before evaluating its ancestors for breeding suggestions.
+## 2024-05-22 - Assistant PC Item Checking
+**Learning:** The suggestion engine previously only checked the player's active `inventory` for items (like evolution stones, trade held items, rods, and TMs). However, Gen 1 and Gen 2 games allow players to store up to 50 items in the PC. If a required item was stored in the PC, the assistant would incorrectly suggest the player still needed to find one.
+**Action:** Updated both Gen 1 and Gen 2 save parsers to extract `pcItems`. The suggestion engine (`EVO_TRIGGER.USE_ITEM`, `EVO_TRIGGER.TRADE`, etc.) now safely checks `saveData.pcItems` alongside `saveData.inventory` using optional chaining (`?.`) and nullish coalescing (`?? false`).
