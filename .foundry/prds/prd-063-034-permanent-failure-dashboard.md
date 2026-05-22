@@ -2,12 +2,12 @@
 id: prd-063-034-permanent-failure-dashboard
 type: PRD
 title: Permanent Failure Dashboard View
-status: READY
-owner_persona: architect
+status: PENDING
+owner_persona: epic_planner
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13357666190629261083'
 pr_number: null
 parent: idea-063-permanent-failure-dashboard
 tags:
@@ -15,8 +15,8 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 1
-rejection_reason: Invalid owner_persona mapping
+rejection_count: 0
+rejection_reason: ''
 notes: ''
 ---
 
@@ -31,4 +31,4 @@ Create a dedicated "Permanent Failures" view or filter within the DAG Dashboard.
 - This will allow the Tech Lead or Product Manager to quickly identify deadlocks and spawn the necessary `RESEARCH` nodes to resolve them.
 
 ## Next Steps
-- [x] Architect: Create an ADR evaluating the permanent failure dashboard implementation strategy and define the application-level state synchronization architecture.
+- [ ] Epic Planner: Create Epics for the permanent failure dashboard feature.

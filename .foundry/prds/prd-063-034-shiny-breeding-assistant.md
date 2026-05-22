@@ -44,4 +44,8 @@ Leverage DexHelper's deep save file parsing to automatically identify and surfac
 - A dedicated "Breeding" view or section should recommend optimal pairs based on Egg Groups and Shiny Carrier status.
 
 ## Next Steps
-- [ ] Epic Planner: Create Epics for the Shiny Gene Detection & Breeding Assistant feature.
+- [x] Epic Planner: Create Epics for the Shiny Gene Detection & Breeding Assistant feature.
+
+### Child Nodes
+- epic-034-044-shiny-gene-detection-engine
+- epic-034-045-shiny-breeding-ui-integration
