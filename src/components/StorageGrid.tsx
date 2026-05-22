@@ -1,5 +1,5 @@
 import { useNavigate } from '@tanstack/react-router';
-import { Sparkles } from 'lucide-react';
+import { Skull, Sparkles } from 'lucide-react';
 import React from 'react';
 import type { PokemonInstance } from '../engine/saveParser/index';
 import { useStore } from '../store';
@@ -16,17 +16,21 @@ const StorageCard = React.memo(
     location,
     generation,
     onNavigate,
+    isDead,
   }: {
     p: PokemonInstance;
     pokemon: { id: number; name: string };
     location: string;
     generation: number;
     onNavigate: (id: number) => void;
+    isDead?: boolean;
   }) => {
     const handleClick = React.useCallback(() => onNavigate(pokemon.id), [onNavigate, pokemon.id]);
 
     let variant: 'storage-default' | 'storage-emerald' | 'storage-amber' | 'storage-red' = 'storage-default';
-    if (p.isShiny) {
+    if (isDead) {
+      variant = 'storage-red';
+    } else if (p.isShiny) {
       variant = 'storage-amber';
     } else if (location === 'Party') {
       variant = 'storage-red';
@@ -56,8 +60,14 @@ const StorageCard = React.memo(
             generation={generation}
             isShiny={p.isShiny}
             alt={pokemon.name}
-            className="h-full w-full object-contain drop-shadow-xl"
+            className={`h-full w-full object-contain drop-shadow-xl ${isDead ? 'opacity-50 grayscale' : ''}`}
           />
+          {isDead && (
+            <Skull
+              size={48}
+              className="pointer-events-none absolute inset-0 z-20 m-auto text-red-500/50 drop-shadow-md"
+            />
+          )}
         </div>
         <div className="w-full truncate px-1 text-center font-bold text-[10px] text-zinc-100 uppercase tracking-wider">
           {pokemon.name}
@@ -69,6 +79,7 @@ const StorageCard = React.memo(
 
 export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
   const saveData = useStore((s) => s.saveData);
+  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
   const navigate = useNavigate();
   const handleNavigate = React.useCallback(
     (id: number) => {
@@ -164,6 +175,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       location={location}
                       generation={saveData?.generation ?? 1}
                       onNavigate={handleNavigate}
+                      isDead={location === nuzlockeGraveyardBox || (location === 'Party' && p.currentHp === 0)}
                     />
                   );
                 })

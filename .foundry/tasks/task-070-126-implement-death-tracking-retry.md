@@ -27,6 +27,6 @@ notes: ''
 Detect fainted Pokémon in the party and implement logic to designate a PC Box as the Graveyard for permanently dead Pokémon.
 
 ## Acceptance Criteria
-- [ ] Implement logic to detect 0 HP Pokémon in the party as dead.
-- [ ] Implement logic to designate a PC Box as the Graveyard.
-- [ ] Pokémon in the Graveyard box are permanently marked as dead.
+- [x] Implement logic to detect 0 HP Pokémon in the party as dead.
+- [x] Implement logic to designate a PC Box as the Graveyard.
+- [x] Pokémon in the Graveyard box are permanently marked as dead.

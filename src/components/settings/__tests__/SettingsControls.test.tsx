@@ -20,6 +20,9 @@ describe('SettingsControls', () => {
         setGlobalPokeball={setGlobalPokeball}
         filteredPokeballs={[{ value: 'poke', label: 'Poke Ball' }]}
         genConfig={null}
+        nuzlockeGraveyardBox={null}
+        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
+        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
@@ -59,6 +62,9 @@ describe('SettingsControls', () => {
           fallbackSpriteUrl: () => '',
           versions: [{ id: 'red', label: 'Red', dotColor: 'bg-red-500', themeClass: 'theme-red' }],
         }}
+        nuzlockeGraveyardBox={null}
+        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
+        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
@@ -84,6 +90,9 @@ describe('SettingsControls', () => {
         setGlobalPokeball={setGlobalPokeball}
         filteredPokeballs={[{ value: 'poke', label: 'Poke Ball' }]}
         genConfig={null}
+        nuzlockeGraveyardBox={null}
+        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
+        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
@@ -116,6 +125,9 @@ describe('SettingsControls', () => {
           { value: 'love', label: 'Love Ball' },
         ]}
         genConfig={null}
+        nuzlockeGraveyardBox={null}
+        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
+        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
