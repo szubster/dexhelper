@@ -29,7 +29,7 @@ notes: ''
 With the Cloudflare infrastructure in place, we need to implement the Google SSO flow. To ensure security and control during this initial phase, the login must be restricted to a single approved user account.
 
 ## Acceptance Criteria
-- [ ] Implement Google OAuth2/SSO login flow within the Cloudflare backend.
-- [ ] Add authentication endpoints (e.g., login, callback, verify).
-- [ ] Implement logic to restrict successful authentication to a single predefined Google user email or ID.
-- [ ] Reject all other login attempts with a clear unauthorized response.
+- [x] Implement Google OAuth2/SSO login flow within the Cloudflare backend.
+- [x] Add authentication endpoints (e.g., login, callback, verify).
+- [x] Implement logic to restrict successful authentication to a single predefined Google user email or ID.
+- [x] Reject all other login attempts with a clear unauthorized response.

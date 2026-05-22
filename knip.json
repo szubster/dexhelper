@@ -6,7 +6,11 @@
     "src/test-setup.ts",
     "scripts/validate-foundry-schema.ts",
     ".github/scripts/extract-research.ts",
-    "scripts/gen3-fetch-locations.ts"
+    "scripts/gen3-fetch-locations.ts",
+    "functions/api/auth/_jwt.ts",
+    "functions/api/auth/callback.ts",
+    "functions/api/auth/login.ts",
+    "functions/api/auth/verify.ts"
   ],
   "rules": {
     "files": "warn",
