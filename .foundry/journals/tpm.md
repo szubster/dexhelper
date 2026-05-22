@@ -85,3 +85,5 @@
 - **2026-05-22**: PR #1717 merged. `task-072-129-qa-dag-cancellation` is now COMPLETED.
 
 - **2026-05-22**: Resurrection Loop triggered for `task-072-128-implement-dag-cancellation`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-22**: PR #1723 merged. `task-072-128-implement-dag-cancellation` is now COMPLETED.
