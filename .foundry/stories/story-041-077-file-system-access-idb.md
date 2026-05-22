@@ -24,3 +24,8 @@ notes: ''
 - Obtain a read-only `FileSystemFileHandle` using `showOpenFilePicker`.
 - Retain the file handle across sessions by serializing it to IndexedDB.
 - Attempt to restore the handle on subsequent visits, potentially re-requesting permission.
+
+## Blueprint Tasks
+- task-077-130-file-system-picker-hook
+- task-077-131-idb-persistence
+- task-077-132-qa-file-system-sync
