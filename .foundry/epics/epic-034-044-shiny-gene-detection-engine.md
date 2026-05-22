@@ -35,4 +35,9 @@ Implement backend data parsing and calculation logic to identify Gen 2 Shiny Car
 None.
 
 ## Next Steps
-- [ ] Story Owner: Break down into backend Stories.
+- [x] Story Owner: Break down into backend Stories.
+
+## Child Stories
+- .foundry/stories/story-044-082-dv-shiny-gene-logic.md
+- .foundry/stories/story-044-083-pc-party-shiny-flag.md
+- .foundry/stories/story-044-084-breeding-pair-algorithm.md
