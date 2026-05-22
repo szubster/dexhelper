@@ -27,6 +27,6 @@ notes: ''
 Validate the death tracking and graveyard logic implementation.
 
 ## Acceptance Criteria
-- [ ] Run `pnpm test` and ensure tests pass.
-- [ ] Validate fainted Pokémon in the party are detected as dead.
-- [ ] Validate Pokémon in the designated Graveyard PC Box are permanently marked as dead.
+- [x] Run `pnpm test` and ensure tests pass.
+- [x] Validate fainted Pokémon in the party are detected as dead.
+- [x] Validate Pokémon in the designated Graveyard PC Box are permanently marked as dead.
