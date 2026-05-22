@@ -108,3 +108,12 @@ Documenting these functions ensures that future maintainers understand the busin
 
 **What:** Added `src/engine/mapGraph/README.md` detailing the map distance graph.
 **Why:** The map graph logic uses a complex build-time computation (Floyd-Warshall algorithm via `scripts/generate-pokedata.ts`) to inject an `O(1)` distance matrix directly into the `UnifiedLocation` database rows. Documenting this contract explicitly prevents developers from attempting to rewrite graph traversal (e.g. BFS) in the React client, which would cause severe performance UI lag. Additionally, I documented the Gen 2 bitwise map grouping logic `(group << 8) | id` necessary to understand `gen2Graph.ts`.
+
+## 2026-05-23 - Suggestion Engine Sub-Generators Documentation
+
+**What:** Added JSDoc for `generateGiftAndTradeSuggestions`, `generateBreedingSuggestions`, and `generateEvolutionSuggestions` in `src/engine/assistant/suggestionEngine.ts`.
+**Why:** The sub-generators of the suggestion engine lacked thorough documentation detailing their parameters and side effects.
+- `generateGiftAndTradeSuggestions`: Evaluates version exclusives, in-game NPC trades, and static gift encounters, pushing suggestions array in-place.
+- `generateBreedingSuggestions`: Evaluates Gen 2 Daycare breeding logic and pushes to suggestions.
+- `generateEvolutionSuggestions`: Evaluates player's current boxes and party to find pre-evolutions, with priority boost if evolution criteria are actively met.
+Documenting these highlights the fact that they modify the passed `suggestions` array in-place, which is a key performance optimization that avoids garbage collection overhead for intermediate array allocations in the hot path.

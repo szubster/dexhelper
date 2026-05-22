@@ -62,10 +62,10 @@ describe('SettingsControls', () => {
       />,
     );
 
-    await page.getByRole('button', { name: 'Red' }).click();
+    await page.getByText('Red').click();
     expect(setManualVersion).toHaveBeenCalledWith('red');
 
-    await page.getByRole('button', { name: 'AUTO' }).click();
+    await page.getByText('AUTO').click();
     expect(setManualVersion).toHaveBeenCalledWith(null);
   });
 
@@ -87,10 +87,10 @@ describe('SettingsControls', () => {
       />,
     );
 
-    await page.getByRole('button', { name: '[ LIVING DEX ]' }).click();
+    await page.getByText('[ LIVING DEX ]').click();
     expect(setIsLivingDex).toHaveBeenCalledWith(true);
 
-    await page.getByRole('button', { name: '[ STANDARD ]' }).click();
+    await page.getByText('[ STANDARD ]').click();
     expect(setIsLivingDex).toHaveBeenCalledWith(false);
   });
 
@@ -119,19 +119,19 @@ describe('SettingsControls', () => {
       />,
     );
 
-    await page.getByRole('button', { name: 'Great Ball' }).click();
+    await page.getByText('Great Ball').click();
     expect(setGlobalPokeball).toHaveBeenCalledWith('great');
 
-    await page.getByRole('button', { name: 'Safari Ball' }).click();
+    await page.getByText('Safari Ball').click();
     expect(setGlobalPokeball).toHaveBeenCalledWith('safari');
 
-    await page.getByRole('button', { name: 'Heavy Ball' }).click();
+    await page.getByText('Heavy Ball').click();
     expect(setGlobalPokeball).toHaveBeenCalledWith('heavy');
 
-    await page.getByRole('button', { name: 'Level Ball' }).click();
+    await page.getByText('Level Ball').click();
     expect(setGlobalPokeball).toHaveBeenCalledWith('level');
 
-    await page.getByRole('button', { name: 'Love Ball' }).click();
+    await page.getByText('Love Ball').click();
     expect(setGlobalPokeball).toHaveBeenCalledWith('love');
   });
 });

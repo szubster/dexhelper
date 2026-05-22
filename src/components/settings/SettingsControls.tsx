@@ -25,7 +25,7 @@ export function SettingsControls({
   filteredPokeballs,
   genConfig,
 }: SettingsControlsProps) {
-  const versions = [
+  const versions: { id: GameVersion | 'unknown'; label: string }[] = [
     { id: 'unknown', label: 'AUTO' },
     ...(genConfig?.versions ?? [...getGenerationConfig(1).versions, ...getGenerationConfig(2).versions]),
   ];
@@ -37,14 +37,12 @@ export function SettingsControls({
         iconColorClass="border-blue-500/20 bg-blue-500/10"
         label="Version"
       >
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Game Version">
           {versions.map((v) => (
             <button
               key={v.id}
               type="button"
-              onClick={() =>
-                setManualVersion((v.id as GameVersion | 'unknown') === 'unknown' ? null : (v.id as GameVersion))
-              }
+              onClick={() => setManualVersion(v.id === 'unknown' ? null : v.id)}
               className={`rounded-none border border-dashed px-3 py-2 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
                 effectiveVersion === v.id || (v.id === 'unknown' && effectiveVersion === 'unknown')
                   ? 'border-blue-500 bg-blue-500/20 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.3)]'
@@ -63,13 +61,14 @@ export function SettingsControls({
         iconColorClass="border-purple-500/20 bg-purple-500/10"
         label="Living Dex"
       >
-        {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
-        {/* biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling */}
-        <div className="flex border border-zinc-800 border-dashed" role="group" aria-label="Living Dex Mode">
+        <div className="flex border border-zinc-800 border-dashed" role="radiogroup" aria-label="Living Dex Mode">
+          {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
+          {/* biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling */}
           <button
+            role="radio"
             type="button"
             onClick={() => setIsLivingDex(false)}
-            aria-pressed={!isLivingDex}
+            aria-checked={!isLivingDex}
             className={`flex-1 px-2 py-2 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
               !isLivingDex
                 ? 'bg-zinc-800 text-white'
@@ -78,10 +77,13 @@ export function SettingsControls({
           >
             [ STANDARD ]
           </button>
+          {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
+          {/* biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling */}
           <button
+            role="radio"
             type="button"
             onClick={() => setIsLivingDex(true)}
-            aria-pressed={isLivingDex}
+            aria-checked={isLivingDex}
             className={`flex-1 border-zinc-800 border-l border-dashed px-2 py-2 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
               isLivingDex
                 ? 'bg-emerald-500 text-zinc-950 shadow-[0_0_15px_rgba(16,185,129,0.4)]'
@@ -98,7 +100,7 @@ export function SettingsControls({
         iconColorClass="border-amber-500/20 bg-amber-500/10"
         label="Ball Style"
       >
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Ball Style">
           {filteredPokeballs.map((pb) => (
             <button
               key={pb.value}

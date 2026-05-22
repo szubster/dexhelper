@@ -64,6 +64,7 @@ export interface SaveData {
   johtoBadges?: number;
   kantoBadges?: number;
   inventory: { id: number; quantity: number }[];
+  pcItems?: { id: number; quantity: number }[];
   currentBoxCount: number;
   hallOfFameCount: number;
   eventFlags?: Uint8Array;

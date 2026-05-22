@@ -582,6 +582,13 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     inventory.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
   }
 
+  const pcItems: { id: number; quantity: number }[] = [];
+  const pcItemCount = view.getUint8(0x27e6 + offsetShift);
+  for (let i = 0; i < Math.min(pcItemCount, 50); i++) {
+    const itemOffset = 0x27e7 + offsetShift + i * 2;
+    pcItems.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
+  }
+
   const hallOfFameRaw = view.getUint8(0x25b3 + offsetShift);
   const eventFlagsOffset = 0x29e6 + offsetShift;
   const eventFlags = new Uint8Array(view.buffer, eventFlagsOffset, 0x118);
@@ -602,6 +609,7 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     currentMapId,
     currentMapName,
     inventory,
+    pcItems,
     currentBoxCount,
     hallOfFameCount: hallOfFameRaw === 0xff ? 0 : hallOfFameRaw,
     eventFlags,

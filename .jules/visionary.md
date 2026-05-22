@@ -24,3 +24,8 @@
 **Idea:** Emulator Auto-Sync via File System Access API
 **Learning:** The application heavily relies on offline-first, client-side processing of `.sav` files. A major friction point is the manual re-uploading of save files as players progress. Leveraging modern web capabilities like the File System Access API to securely link the browser directly to local emulator directories perfectly aligns with the offline-first architecture while providing a "live update" experience for tracking. This builds foundational value for other ideas like the Nuzlocke Tracker.
 **Outcome:** Created IDEA node.
+
+## 2026-05-22
+**Idea:** Gen 2 Shiny Gene Detection & Breeding Assistant
+**Learning:** Gen 2's unique DV-based shiny mechanics present a massive opportunity. Surfacing hidden state (like DVs that make a Pokémon a "Shiny Carrier") directly supports hardcore endgame goals like shiny hunting, which players currently have to calculate manually. This leverages our programmatic save file access to provide unique value.
+**Outcome:** Created IDEA node.

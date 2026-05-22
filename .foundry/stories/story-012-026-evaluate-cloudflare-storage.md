@@ -3,7 +3,7 @@ id: story-012-026-evaluate-cloudflare-storage
 type: STORY
 title: "Evaluate Cloudflare Storage Mechanisms"
 status: "COMPLETED"
-owner_persona: coder
+owner_persona: tech_lead
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on: []

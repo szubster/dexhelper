@@ -38,6 +38,7 @@ const VALID_STATUSES = [
   'PENDING',
   'READY',
   'ACTIVE',
+  'VERIFYING',
   'COMPLETED',
   'FAILED',
   'BLOCKED',
@@ -502,7 +503,7 @@ function main(): void {
   // ── Phase 3.5: SUSPEND (Wait & Wake) ───────────────────────────────────────
   info('Phase 3.5: Checking ACTIVE/COMPLETED nodes for suspension...');
   for (const node of nodes) {
-    if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'COMPLETED') continue;
+    if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'COMPLETED' && node.frontmatter.status !== 'VERIFYING') continue;
 
     let shouldSuspend = false;
     for (const depRef of node.frontmatter.depends_on) {
@@ -525,7 +526,7 @@ function main(): void {
           break;
         }
       } else {
-        if (dep.frontmatter.status !== 'ACTIVE' && dep.frontmatter.status !== 'COMPLETED') {
+        if (dep.frontmatter.status !== 'ACTIVE' && dep.frontmatter.status !== 'COMPLETED' && dep.frontmatter.status !== 'VERIFYING') {
           shouldSuspend = true;
           break;
         }
@@ -631,7 +632,7 @@ function main(): void {
         nextParent = resolveNodePath(parentNode.frontmatter.parent);
       }
 
-      if (parentStatus !== 'ACTIVE' && parentStatus !== 'COMPLETED') {
+      if (parentStatus !== 'ACTIVE' && parentStatus !== 'COMPLETED' && parentStatus !== 'VERIFYING') {
         const parentChildren = parentToChildren.get(currParent) || [];
         if (parentStatus === 'PENDING' && parentChildren.length > 0) {
           // Exception for Late-Binding: If parent is PENDING and has children,
@@ -871,7 +872,7 @@ function main(): void {
     IDEA: ['product_manager'],
     PRD: ['epic_planner', 'story_owner'],
     EPIC: ['story_owner', 'epic_planner'],
-    STORY: ['tech_lead', 'story_owner', 'coder'],
+    STORY: ['tech_lead', 'story_owner'],
     TASK: ['coder', 'qa', 'tech_lead', 'architect'],
     RESEARCH: ['researcher'],
   };
@@ -918,10 +919,11 @@ function main(): void {
   // Include both freshly-promoted nodes AND any that were already READY before
   // this run (idempotent: re-running the orchestrator is always safe).
   const readyNodes = nodes
-    .filter((n) => n.frontmatter.status === 'READY')
+    .filter((n) => n.frontmatter.status === 'READY' || n.frontmatter.status === 'VERIFYING')
     .map((n) => ({
       ...n.frontmatter,
       repo_path: n.repoPath,
+      owner_persona: n.frontmatter.status === 'VERIFYING' ? 'auditor' : n.frontmatter.owner_persona,
     }));
 
   info(`Total READY nodes: ${readyNodes.length}`);

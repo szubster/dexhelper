@@ -28,17 +28,8 @@ For Playwright E2E tests failing due to missing browser binaries or system depen
 ## 2026-05-18 - Gen 3 Locations
 - The Gen 3 maps define their region mapping string representation inside `region_map_sections.json` within the decomp repo, mapped sequentially. Use this to construct proper lookup lists.
 
-## 2026-05-18 - Gen3 Bounds Checking Implementation
-* When a task's target code artifacts are already completely implemented in the codebase, we invoke the "Empty PR Policy".
-* The Empty PR Policy dictates that we must check off the acceptance criteria in the Markdown body WITHOUT modifying the YAML frontmatter, then use the `submit` tool to create the Pull Request anyway.
-* Do not leave the session without calling `submit`, as this will cause the Orchestrator to flag the session as a FAILED "crashed zombie".
-* Be aware that the `request_code_review` tool might flag Empty PR implementations as incorrect (generating a false negative) because it does not see code changes. This is expected under the Empty PR Policy; ignore the automated assessment and proceed with `submit`.
-
 ## 2026-05-19: Biome Iterable Callback Return Error
 When passing a callback to iteration methods like `forEach`, do not use an implicit return (e.g. `arr.forEach(x => set.delete(x))`). This violates Biome's `lint/suspicious/useIterableCallbackReturn` rule. Use a block statement instead: `arr.forEach(x => { set.delete(x); })`.
-
-## 2026-05-20: Task Acceptance Criteria Checkboxes
-When executing the Empty PR Policy for a retry task (e.g., when the target artifacts are already completely implemented), ALWAYS ensure the Acceptance Criteria checkboxes are explicitly checked in the Markdown file. Failing to do so will result in the task failing the Orchestrator's Preflight checks, triggering another retry or Impossible Loop. The YAML frontmatter must not be touched.
 
 ## Gen 3 Data Scripts
 - When writing or modifying data generation scripts (e.g., mapping formatters), ensure that existing non-derivable values (such as manual Area IDs / `aid`) in the destination file are explicitly loaded and preserved to avoid introducing data regressions.
