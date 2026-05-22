@@ -132,3 +132,9 @@
 **Outcome:** Merged
 **Why:** The TPM journal showed the TPM was successfully moving files but incorrectly updating YAML frontmatter `depends_on` lists and `parent` fields to point to the new `.foundry/archive/` paths. This violated the strict system constraint that these fields must only use Node IDs. The TPM prompt instructed it to update references via the 'parent' field and 'depends_on' list.
 **Pattern:** Codify system memory constraints regarding Node IDs vs file paths in YAML frontmatter into the relevant agent prompts (like the TPM archiving rules) to prevent DAG orchestrator deadlocks and schema corruption.
+
+## 2026-05-22 - [Accepted] - Prompt improvement - Ensure Architect updates schemas and respects node boundaries
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The architect's journal showed it was reprimanded for creating functional execution nodes (`EPIC`, `STORY`, `TASK`) and reminded that its role is strictly architectural blueprinting (ADRs). Furthermore, system memory dictates that when global data contracts change (e.g., ADR 010), the Architect must update `.foundry/docs/schema.md`.
+**Pattern:** Codify role constraints (e.g., node creation boundaries) and secondary responsibilities (e.g., schema updates alongside ADRs) directly into agent prompts to prevent role drift and maintain system documentation.
