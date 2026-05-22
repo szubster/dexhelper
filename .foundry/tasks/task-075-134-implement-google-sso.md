@@ -2,7 +2,7 @@
 id: task-075-134-implement-google-sso
 type: TASK
 title: Implement Google SSO Flow
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-22'

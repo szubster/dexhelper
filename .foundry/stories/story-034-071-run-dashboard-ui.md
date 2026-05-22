@@ -2,14 +2,14 @@
 id: story-034-071-run-dashboard-ui
 type: STORY
 title: Run Dashboard UI Integration
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-22'
 depends_on:
   - story-034-069-automated-route-tracking
   - story-034-070-death-tracking-and-graveyard
-jules_session_id: '2910020395646625192'
+jules_session_id: null
 pr_number: null
 parent: epic-026-034-automated-nuzlocke-tracker
 tags:

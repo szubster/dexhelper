@@ -2,16 +2,18 @@
 id: task-062-101-gen3-locations-script-qa
 type: TASK
 title: QA Gen 3 Locations Fetch Script
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-05-17'
-updated_at: '2026-05-19'
+updated_at: '2026-05-22'
 depends_on:
   - task-062-100-gen3-locations-script-impl
 jules_session_id: '4357736207550241874'
 parent: story-032-062-gen3-data-generation-scripts
 rejection_count: 1
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-062-100-gen3-locations-script-impl
 ---
 
 # QA Gen 3 Locations Fetch Script

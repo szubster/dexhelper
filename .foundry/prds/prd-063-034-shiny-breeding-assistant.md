@@ -2,12 +2,12 @@
 id: prd-063-034-shiny-breeding-assistant
 type: PRD
 title: Gen 2 Shiny Gene Detection & Breeding Assistant
-status: ACTIVE
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
 depends_on: []
-jules_session_id: '17958330592085576136'
+jules_session_id: null
 pr_number: null
 parent: idea-063-shiny-breeding-assistant
 tags:
