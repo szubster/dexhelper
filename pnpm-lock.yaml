@@ -52,8 +52,8 @@ importers:
         version: 5.0.13(@types/react@19.2.15)(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
     devDependencies:
       '@argos-ci/playwright':
-        specifier: ^7.0.1
-        version: 7.0.1
+        specifier: ^7.0.2
+        version: 7.0.2
       '@biomejs/biome':
         specifier: ^2.4.15
         version: 2.4.15
@@ -216,12 +216,12 @@ packages:
     resolution: {integrity: sha512-OFu6i80F9zLY4yEThPCb+p2q7Yfl+j0XTltaGDTvUTTAvQFEauV/Ng8q1JoVcRCr4/i+eBT8WK/tWrDGZh5LPw==}
     engines: {node: '>=22.0.0'}
 
-  '@argos-ci/core@6.0.1':
-    resolution: {integrity: sha512-AwveEfywZ6iNwHwar5AQl0ZKHSDOSQFPCH7330rSDl9pWJzxo66G0sVZZsF5DA5c8HejXJx11yff+/CiGxrGmg==}
+  '@argos-ci/core@6.0.2':
+    resolution: {integrity: sha512-CZydhMUQrgVOalyaY6Z1jy9SF2hhAkOJQqus4q50KY+9pDsOFDzQdcov+kgPHO2ARJTD3A0teV8a4lyoevyU2Q==}
     engines: {node: '>=22.0.0'}
 
-  '@argos-ci/playwright@7.0.1':
-    resolution: {integrity: sha512-lWZqHgJ7xOINkrf5/EINTfXuLP8OAeDx0KcmnNZVZqx5FGp9zDrPA4o7J/nRHlgs0lde7neBvoqPhFqpqos1PQ==}
+  '@argos-ci/playwright@7.0.2':
+    resolution: {integrity: sha512-Ci8TnmE60YmTb/h3GZMJsI3a/B8XvRBT2q2y7mL29tKBmCAUtO+axuva2EQLURZziI3pZH5mGoHzyCTDqJfl/w==}
     engines: {node: '>=22.0.0'}
 
   '@argos-ci/util@4.0.0':
@@ -4844,7 +4844,7 @@ snapshots:
 
   '@argos-ci/browser@6.0.0': {}
 
-  '@argos-ci/core@6.0.1':
+  '@argos-ci/core@6.0.2':
     dependencies:
       '@argos-ci/api-client': 0.20.1
       '@argos-ci/util': 4.0.0
@@ -4857,10 +4857,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@argos-ci/playwright@7.0.1':
+  '@argos-ci/playwright@7.0.2':
     dependencies:
       '@argos-ci/browser': 6.0.0
-      '@argos-ci/core': 6.0.1
+      '@argos-ci/core': 6.0.2
       '@argos-ci/util': 4.0.0
       chalk: 5.6.2
       debug: 4.4.3
@@ -8661,7 +8661,7 @@ snapshots:
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
-      semver: 7.8.0
+      semver: 7.8.1
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.34.5
       '@img/sharp-darwin-x64': 0.34.5
