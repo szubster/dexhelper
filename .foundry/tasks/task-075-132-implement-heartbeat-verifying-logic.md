@@ -21,7 +21,7 @@ rejection_reason: ''
 # Task: Implement Heartbeat VERIFYING Logic
 
 ## Implementation Details
-- In `.github/scripts/foundry-heartbeat.ts`, update `transitionNodeToCompleted`. When a PR is merged, instead of mutating the node state to `COMPLETED`, it should mutate the status to `VERIFYING` and clear the `jules_session_id`. Note that it should still handle late-binding parents appropriately. If the target node is a late binding parent, it should still be transitioned to `PENDING` rather than `VERIFYING` if there are unchecked tasks.
+- In `.github/scripts/foundry-heartbeat.ts`, update `transitionNodeToCompleted`. When a PR is merged, instead of mutating the node state to `COMPLETED`, it should mutate the status to `VERIFYING` and clear the `jules_session_id`. Note that it should still handle late-binding parents appropriately. If the target node is a late binding parent, it should still be transitioned to `PENDING` rather than `VERIFYING` if there are unchecked tasks. Also, ensure that only nodes of type `IDEA`, `PRD`, and `EPIC` can transition to `VERIFYING`. All other node types should continue to transition to `COMPLETED`.
 - Update the main loop that monitors `ACTIVE` nodes to also monitor `VERIFYING` nodes. The heartbeat script must monitor `VERIFYING` nodes exactly as it monitors `ACTIVE` nodes for zombie detection. If an auditor session crashes or times out, it should transition back to `VERIFYING` or `FAILED`.
 - **Constraint**: This task only covers updates to the `foundry-heartbeat.ts` script. Do not modify the DAG schema or orchestrator directly in this task.
 

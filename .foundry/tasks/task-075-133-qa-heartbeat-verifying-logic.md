@@ -22,7 +22,7 @@ rejection_reason: ''
 # Task: QA Heartbeat VERIFYING Logic
 
 ## QA Details
-- Review `.github/scripts/foundry-heartbeat.ts` to ensure `transitionNodeToCompleted` sets status to `VERIFYING` instead of `COMPLETED`.
+- Review `.github/scripts/foundry-heartbeat.ts` to ensure `transitionNodeToCompleted` sets status to `VERIFYING` instead of `COMPLETED`, but only for `IDEA`, `PRD`, and `EPIC` node types.
 - Review `.github/scripts/foundry-heartbeat.ts` to ensure `VERIFYING` nodes are checked for zombie sessions and timeouts, matching `ACTIVE` node logic.
 - Ensure the changes align with the acceptance criteria defined in `task-075-132-implement-heartbeat-verifying-logic`.
 
