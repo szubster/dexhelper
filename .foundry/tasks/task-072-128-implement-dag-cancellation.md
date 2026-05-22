@@ -2,7 +2,7 @@
 id: task-072-128-implement-dag-cancellation
 type: TASK
 title: Implement DAG Dependency Cancellation Logic
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-20'
 updated_at: '2026-05-21'
@@ -16,7 +16,7 @@ tags:
   - backend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Implementation modifies immutable COMPLETED nodes to PENDING during Wait and Wake, causing them to be incorrectly swept up by cascade cancellation logic.'
 notes: ''
 ---
 
@@ -28,7 +28,7 @@ Update `.github/scripts/foundry-orchestrator.ts` to implement the core logic for
 ## Context & Blueprint
 As requested in `story-035-072-implement-cancellation-logic`, the orchestrator needs to be enhanced to automatically cancel nodes that depend on a permanently failed node.
 
-- When a node has `status: 'FAILED'` and `rejection_reason: 'Max rejection count reached'`, it is permanently failed.
+- When a node has `status: FAILED
 - Traverse the DAG (recursively or iteratively) and find nodes that depend on this failed node.
 - If the dependent node is currently in `PENDING` state, change its state to `CANCELLED`.
 - Update the cancelled node's `rejection_reason` to `"Cancelled due to permanent failure of dependency: <failed-node-id>"`.
