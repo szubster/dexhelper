@@ -101,3 +101,9 @@
 - **2026-05-22**: PR #1724 merged. `story-042-080-refactor-generation-exports` is now COMPLETED.
 
 - **2026-05-22**: PR #1721 merged. `task-070-127-qa-death-tracking-retry` is now COMPLETED.
+
+- **2026-05-22**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-05-22**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-05-22**: Resurrection Loop triggered for `prd-063-034-permanent-failure-dashboard`. Reason: Retry from FAILED status.. Transitioned back to READY.
