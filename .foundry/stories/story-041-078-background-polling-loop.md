@@ -3,7 +3,7 @@ id: story-041-078-background-polling-loop
 type: STORY
 title: "Background Polling Loop & State Hydration"
 status: PENDING
-owner_persona: coder
+owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on:

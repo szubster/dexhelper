@@ -3,7 +3,7 @@ id: story-038-075-google-sso-integration
 type: STORY
 title: Google SSO Integration and Single User Restriction
 status: ACTIVE
-owner_persona: coder
+owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on:

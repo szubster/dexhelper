@@ -3,7 +3,7 @@ id: story-041-079-ui-sync-status
 type: STORY
 title: "UI Sync Status & Permissions"
 status: PENDING
-owner_persona: coder
+owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on:
