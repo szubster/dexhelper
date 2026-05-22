@@ -866,7 +866,12 @@ export function generateSuggestions(
   const effectiveVersion = manualVersion || saveData.gameVersion;
   const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
   const displayVersionId = POKE_VERSION_MAP[displayVersion] || 1;
-  const queryTargets = Array.from(missingIds).slice(0, 100);
+  // ⚡ Bolt: Use a manual loop instead of Array.from().slice() to eliminate intermediate array allocations
+  const queryTargets: number[] = [];
+  for (const pid of missingIds) {
+    if (queryTargets.length >= 100) break;
+    queryTargets.push(pid);
+  }
 
   // Special Strategy-Specific Suggestions (e.g. Box full warning)
   const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds));
