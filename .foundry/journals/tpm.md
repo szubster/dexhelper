@@ -87,3 +87,17 @@
 - **2026-05-22**: Resurrection Loop triggered for `task-072-128-implement-dag-cancellation`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-05-22**: PR #1723 merged. `task-072-128-implement-dag-cancellation` is now COMPLETED.
+
+- **2026-05-22**: PR #1720 merged. `idea-063-permanent-failure-dashboard` is now COMPLETED.
+
+- **2026-05-22**: PR #1719 merged. `idea-063-shiny-breeding-assistant` is now COMPLETED.
+
+- **2026-05-22**: Resurrection Loop triggered for `story-038-075-google-sso-integration`. Reason: PR #1710 closed without merging.. Transitioned back to READY.
+
+- **2026-05-22**: PR #1722 merged. `story-040-075-heartbeat-verifying-logic` is now COMPLETED.
+
+- **2026-05-22**: PR #1725 merged. `story-041-077-file-system-access-idb` is now COMPLETED.
+
+- **2026-05-22**: PR #1724 merged. `story-042-080-refactor-generation-exports` is now COMPLETED.
+
+- **2026-05-22**: PR #1721 merged. `task-070-127-qa-death-tracking-retry` is now COMPLETED.

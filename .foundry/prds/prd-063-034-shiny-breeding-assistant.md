@@ -2,7 +2,7 @@
 id: prd-063-034-shiny-breeding-assistant
 type: PRD
 title: Gen 2 Shiny Gene Detection & Breeding Assistant
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
