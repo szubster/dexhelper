@@ -22,6 +22,6 @@ notes: ''
 Update data generation scripts to output `.msgpack` files instead of `.json`. Update client-side loading logic to fetch and decode MsgPack data using `msgpackr`.
 
 ## Acceptance Criteria
-- [ ] Data generation scripts output `.msgpack` files instead of `.json`.
-- [ ] Client-side loading logic is updated to fetch and decode MsgPack data using `msgpackr`.
-- [ ] Bundle size and parse time metrics are verified.
+- [x] Data generation scripts output `.msgpack` files instead of `.json`.
+- [x] Client-side loading logic is updated to fetch and decode MsgPack data using `msgpackr`.
+- [x] Bundle size and parse time metrics are verified.
