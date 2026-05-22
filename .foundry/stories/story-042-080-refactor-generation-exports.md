@@ -20,4 +20,7 @@ rejection_count: 1
 Refactor the data generation pipeline (`scripts/generate-pokedata.ts`) to output verbose keys instead of shortened properties to improve DX, aligning with the MsgPack `useRecords` optimization format.
 
 ## Acceptance Criteria
-- [ ] The generated output from `scripts/generate-pokedata.ts` uses verbose keys like `name` and `captureRate`.
+- [x] The generated output from `scripts/generate-pokedata.ts` uses verbose keys like `name` and `captureRate`.
+
+- task-080-132-refactor-generation-exports-impl
+- task-080-133-refactor-generation-exports-qa
