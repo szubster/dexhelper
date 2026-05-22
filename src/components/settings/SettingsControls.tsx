@@ -37,7 +37,7 @@ export function SettingsControls({
         iconColorClass="border-blue-500/20 bg-blue-500/10"
         label="Version"
       >
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Game Version">
           {versions.map((v) => (
             <button
               key={v.id}
@@ -63,9 +63,7 @@ export function SettingsControls({
         iconColorClass="border-purple-500/20 bg-purple-500/10"
         label="Living Dex"
       >
-        {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
-        {/* biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling */}
-        <div className="flex border border-zinc-800 border-dashed" role="group" aria-label="Living Dex Mode">
+        <div className="flex border border-zinc-800 border-dashed" role="radiogroup" aria-label="Living Dex Mode">
           <button
             type="button"
             onClick={() => setIsLivingDex(false)}
@@ -98,7 +96,7 @@ export function SettingsControls({
         iconColorClass="border-amber-500/20 bg-amber-500/10"
         label="Ball Style"
       >
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Ball Style">
           {filteredPokeballs.map((pb) => (
             <button
               key={pb.value}
