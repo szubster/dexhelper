@@ -28,6 +28,6 @@ Implement updates to `foundry-orchestrator.ts` type definitions and matrix JSON 
 - Update `isHierarchicallyIncomplete` function and related `depends_on` suspension logic to treat `VERIFYING` nodes similarly to `ACTIVE` nodes; they are not `COMPLETED`, so they still block downstream nodes from transitioning to `READY`.
 
 ## Acceptance Criteria
-- [ ] Added `VERIFYING` to valid statuses.
-- [ ] Matrix logic overrides persona to auditor for VERIFYING nodes.
-- [ ] Dependencies check treats VERIFYING nodes as blocking.
+- [x] Added `VERIFYING` to valid statuses.
+- [x] Matrix logic overrides persona to auditor for VERIFYING nodes.
+- [x] Dependencies check treats VERIFYING nodes as blocking.

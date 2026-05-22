@@ -1143,7 +1143,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "Orphaned QA Task",
       status: "PENDING",
-      owner_persona: "qa",
+      owner_persona: "coder",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       parent: ".foundry/stories/story-001.md",
@@ -1248,7 +1248,7 @@ describe('foundry-orchestrator', () => {
       type: "TASK",
       title: "QA Task",
       status: "PENDING",
-      owner_persona: "qa",
+      owner_persona: "coder",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [".foundry/tasks/task-atomic-2.md"],
@@ -1458,4 +1458,50 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(result).toContain('status: READY');
     expect(result).toContain('owner_persona: architect');
   });
+
+  test('VERIFYING state: collected with auditor persona and acts as hierarchical block', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-verifying.md', {
+      id: "task-verifying",
+      type: "TASK",
+      title: "Verifying Task",
+      status: "VERIFYING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-blocked.md', {
+      id: "task-blocked",
+      type: "TASK",
+      title: "Blocked Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-verifying.md"],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    main();
+
+    const blockedResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-blocked.md'), 'utf-8');
+    expect(blockedResult).toContain('status: PENDING'); // Should be blocked by VERIFYING
+
+    // Should include the VERIFYING node in the matrix output but mapped to auditor
+    const stdoutArgs = consoleSpy.mock.calls[0][0];
+    const parsedOutput = JSON.parse(stdoutArgs);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].id).toBe('task-verifying');
+    expect(parsedOutput[0].owner_persona).toBe('auditor');
+
+    // Original file should NOT be modified
+    const verifyingResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-verifying.md'), 'utf-8');
+    expect(verifyingResult).toContain('owner_persona: coder');
+  });
+
 });
