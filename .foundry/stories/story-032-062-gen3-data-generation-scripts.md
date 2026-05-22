@@ -23,7 +23,7 @@ rejection_count: 2
 Modify existing data generation scripts to support fetching and formatting Gen 3 locations, encounters, and pokemon data.
 
 ## Acceptance Criteria
-- [ ] Scripts can fetch Gen 3 locations from API/source.
+- [x] Scripts can fetch Gen 3 locations from API/source.
 - [x] Scripts can fetch Gen 3 encounters from API/source.
 - [x] Scripts can fetch Gen 3 pokemon data from API/source.
 - [x] Data is formatted correctly for ingestion.
