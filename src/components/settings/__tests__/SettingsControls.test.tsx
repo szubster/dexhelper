@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { page } from 'vitest/browser';
+import { page, userEvent } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import type { GameVersion, PokeballType } from '../../../store';
 import { SettingsControls } from '../SettingsControls';
@@ -20,12 +20,46 @@ describe('SettingsControls', () => {
         setGlobalPokeball={setGlobalPokeball}
         filteredPokeballs={[{ value: 'poke', label: 'Poke Ball' }]}
         genConfig={null}
+        nuzlockeGraveyardBox={null}
+        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
+        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
     await expect.element(page.getByText('Version')).toBeInTheDocument();
     await expect.element(page.getByText('Living Dex', { exact: true })).toBeInTheDocument();
     await expect.element(page.getByText('Ball Style')).toBeInTheDocument();
+  });
+
+  it('handles graveyard box change', async () => {
+    const setManualVersion = vi.fn<(v: GameVersion | null) => void>();
+    const setIsLivingDex = vi.fn<(v: boolean) => void>();
+    const setGlobalPokeball = vi.fn<(v: PokeballType) => void>();
+    const setNuzlockeGraveyardBox = vi.fn<(v: string | null) => void>();
+
+    await render(
+      <SettingsControls
+        effectiveVersion="unknown"
+        setManualVersion={setManualVersion}
+        isLivingDex={false}
+        setIsLivingDex={setIsLivingDex}
+        globalPokeball="poke"
+        setGlobalPokeball={setGlobalPokeball}
+        filteredPokeballs={[{ value: 'poke', label: 'Poke Ball' }]}
+        genConfig={null}
+        nuzlockeGraveyardBox={null}
+        setNuzlockeGraveyardBox={setNuzlockeGraveyardBox}
+        storageLocations={['Box 1', 'Box 2']}
+      />,
+    );
+
+    const select = page.getByRole('combobox');
+
+    await userEvent.selectOptions(select.element(), 'Box 1');
+    expect(setNuzlockeGraveyardBox).toHaveBeenCalledWith('Box 1');
+
+    await userEvent.selectOptions(select.element(), '');
+    expect(setNuzlockeGraveyardBox).toHaveBeenCalledWith(null);
   });
 
   it('handles version change', async () => {
@@ -59,6 +93,9 @@ describe('SettingsControls', () => {
           fallbackSpriteUrl: () => '',
           versions: [{ id: 'red', label: 'Red', dotColor: 'bg-red-500', themeClass: 'theme-red' }],
         }}
+        nuzlockeGraveyardBox={null}
+        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
+        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
@@ -84,6 +121,9 @@ describe('SettingsControls', () => {
         setGlobalPokeball={setGlobalPokeball}
         filteredPokeballs={[{ value: 'poke', label: 'Poke Ball' }]}
         genConfig={null}
+        nuzlockeGraveyardBox={null}
+        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
+        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
@@ -116,6 +156,9 @@ describe('SettingsControls', () => {
           { value: 'love', label: 'Love Ball' },
         ]}
         genConfig={null}
+        nuzlockeGraveyardBox={null}
+        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
+        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
