@@ -31,4 +31,8 @@ Create a dedicated "Permanent Failures" view or filter within the DAG Dashboard.
 - This will allow the Tech Lead or Product Manager to quickly identify deadlocks and spawn the necessary `RESEARCH` nodes to resolve them.
 
 ## Next Steps
-- [ ] Epic Planner: Create Epics for the permanent failure dashboard feature.
+- [x] Epic Planner: Create Epics for the permanent failure dashboard feature.
+
+### Downstream Epics
+- `.foundry/epics/epic-034-046-dag-data-parsing-rejection-count.md`
+- `.foundry/epics/epic-034-047-permanent-failure-dashboard-ui.md`
