@@ -70,5 +70,8 @@ Critical learnings:
 ## 2026-05-20 - Fixed Biome Schema Version Mismatch Again
 **Learning:** The Biome CLI version (2.4.15) in `package.json` and `biome.jsonc` was bumped but the version in `.github/workflows/biome.yml` was left at `2.4.14`, meaning CI wasn't using the same version as local. Updated the workflow to match.
 
-## 2026-05-22 - commitlint dependency requirements
-**Learning:** When adding `commitlint` for strict conventional commit validation via `@commitlint/cli`, you must also include `@commitlint/types` as a dev dependency; otherwise the local typescript configuration (e.g. `commitlint.config.ts`) will fail the global `pnpm type-check` pipeline. Do not install the redundant package `commitlint`.
+## 2026-05-21 - Rejected SWC Vite Plugin
+**Learning:** Initially evaluated replacing `@vitejs/plugin-react` with `@vitejs/plugin-react-swc` under the assumption it used Babel. The user rejected this, noting that in Vite 8, the default react plugin utilizes `oxc` and is currently considered superior to `swc`. The change was reverted to preserve the optimal default tooling.
+
+## 2026-05-22 - Rejected commitlint
+**Learning:** Evaluated using `commitlint` in the pre-commit hook (`lefthook.yml`) to enforce conventional commits. User rejected this change because they do not care about conventional commits formatting that much and do not want to add friction and cost to AI development.
