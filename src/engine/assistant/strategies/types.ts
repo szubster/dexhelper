@@ -12,21 +12,30 @@ export interface EncounterDetail {
   time?: number | undefined;
 }
 
-export interface Suggestion {
+export interface BaseSuggestion {
   id: string;
-  category: SuggestionCategory;
   title: string;
   description: string;
+  priority: number;
   pokemonId?: number;
   pokemonIds?: number[];
-  priority: number;
-  encounterInfo?: Record<number, EncounterDetail[]>;
   warning?: string;
   debugInfo?: {
     priorityScore: number;
     reasoning?: string;
   };
 }
+
+export interface CatchSuggestion extends BaseSuggestion {
+  category: 'Catch';
+  encounterInfo?: Record<number, EncounterDetail[]>;
+}
+
+export interface StandardSuggestion extends BaseSuggestion {
+  category: Exclude<SuggestionCategory, 'Catch'>;
+}
+
+export type Suggestion = CatchSuggestion | StandardSuggestion;
 
 export interface RejectedSuggestion {
   pokemonId: number;

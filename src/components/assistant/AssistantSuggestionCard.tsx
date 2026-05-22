@@ -109,7 +109,7 @@ export function AssistantSuggestionCard({
             {s.category === 'Catch' ? (
               Object.entries(
                 (s.pokemonIds || []).reduce<Record<string, { pid: number; enc: EncounterDetail }[]>>((acc, pid) => {
-                  const encs = s.encounterInfo?.[pid];
+                  const encs = s.category === 'Catch' ? s.encounterInfo?.[pid] : undefined;
                   if (!encs) return acc;
                   const mainEnc = [...encs].sort((a, b) => b.chance - a.chance)[0];
                   if (!mainEnc) return acc;
