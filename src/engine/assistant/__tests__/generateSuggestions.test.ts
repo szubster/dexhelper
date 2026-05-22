@@ -790,4 +790,106 @@ describe('generateSuggestions', () => {
     expect(breedSugg).toBeDefined();
     expect(breedSugg?.title).toBe('Breed: #172');
   });
+  it('should properly handle suggestion.pokemonIds filtering when some or all encounters are removed', () => {
+    const localSaveData: SaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      owned: new Set([1]),
+      seen: new Set(),
+      party: [],
+      pc: [],
+      partyDetails: [],
+      pcDetails: [],
+      badges: 0,
+      johtoBadges: 0,
+      trainerName: 'Ash',
+      trainerId: 12345,
+      currentMapId: 1,
+      currentBoxCount: 0,
+      hallOfFameCount: 0,
+      inventory: [],
+    };
+
+    const localApiData: AssistantApiData = {
+      localAid: 2, // The player is at area 2
+      localEncounters: [
+        {
+          pid: 10,
+          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 8, min: 5 }] }], // Headbutt
+        },
+        {
+          pid: 11,
+          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 7, min: 5 }] }], // Rock Smash
+        },
+      ] as unknown as import('../../../db/schema').LocationAreaEncounters[],
+      missingEncounters: {
+        10: {
+          pid: 10,
+          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 8, min: 5 }] }], // Headbutt
+        },
+        11: {
+          pid: 11,
+          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 7, min: 5 }] }], // Rock Smash
+        },
+      },
+      pokemonMetadata: {
+        10: { id: 10, n: 'Caterpie', efrm: [], eto: [] } as unknown as PokemonMetadata,
+        11: { id: 11, n: 'Metapod', efrm: [], eto: [] } as unknown as PokemonMetadata,
+      },
+      ancestralEncounters: {},
+      areaNames: { 2: 'Route 2' },
+      allLocations: [
+        { aid: 2, name: 'Route 2', mapGraphIds: [] } as unknown as import('../../../db/schema').UnifiedLocation,
+      ],
+    };
+
+    const localStrategy = {
+      ...gen1Strategy,
+      generation: 2,
+      getMapDistance: () => ({ distance: 0, name: 'Route 2' }), // same location
+      getSpecialSuggestions: () => [] as unknown as import('../strategies/types').Suggestion[],
+    };
+
+    // First check: Both moves present, should have catch-local with both PIDs
+    localSaveData.partyDetails = [
+      {
+        speciesId: 1,
+        level: 10,
+        isShiny: false,
+        moves: [29, 249], // Headbutt and Rock Smash
+        storageLocation: 'Party',
+      } as unknown as PokemonInstance,
+    ];
+
+    const resAll = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const suggAll = resAll.suggestions.find((s) => s.id === 'catch-local');
+    expect(suggAll).toBeDefined();
+    expect(suggAll?.pokemonIds?.includes(10)).toBe(true);
+    expect(suggAll?.pokemonIds?.includes(11)).toBe(true);
+
+    // 1. Both encounters filtered out (no Headbutt, no Rock Smash)
+    localSaveData.partyDetails = []; // No moves
+    const res1 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const sugg1 = res1.suggestions.find((s) => s.id === 'catch-local');
+    expect(sugg1).toBeUndefined(); // Should be completely removed
+
+    // 2. Only one encounter filtered out (has Headbutt, but no Rock Smash)
+    localSaveData.partyDetails = [
+      {
+        speciesId: 1,
+        level: 10,
+        isShiny: false,
+        moves: [29], // Only Headbutt
+        storageLocation: 'Party',
+      } as unknown as PokemonInstance,
+    ];
+    const res2 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const sugg2 = res2.suggestions.find((s) => s.id === 'catch-local');
+
+    expect(sugg2).toBeDefined();
+    // 11 should be filtered out, 10 should remain
+    expect(sugg2?.pokemonIds).toEqual([10]);
+    expect(sugg2?.encounterInfo?.[10]).toBeDefined();
+    expect(sugg2?.encounterInfo?.[11]).toBeUndefined();
+  });
 });
