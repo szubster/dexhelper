@@ -22,7 +22,11 @@ notes: ''
 # Story: Background Polling Loop & State Hydration
 
 ## Requirements
-- Set up a background polling loop (checking `lastModified` on the file) to detect file changes from the emulator at a sensible interval.
-- When a change is detected, read the file as an `ArrayBuffer`.
-- Pass the raw `ArrayBuffer` to DexHelper's existing parsing engine.
-- Hydrate the global application state to provide a "Live Tracker" experience.
+- [x] Set up a background polling loop (checking `lastModified` on the file) to detect file changes from the emulator at a sensible interval.
+- [x] When a change is detected, read the file as an `ArrayBuffer`.
+- [x] Pass the raw `ArrayBuffer` to DexHelper's existing parsing engine.
+- [x] Hydrate the global application state to provide a "Live Tracker" experience.
+
+## Children
+- [task-078-134-implement-polling-loop](../tasks/task-078-134-implement-polling-loop.md)
+- [task-078-135-qa-polling-loop](../tasks/task-078-135-qa-polling-loop.md)
