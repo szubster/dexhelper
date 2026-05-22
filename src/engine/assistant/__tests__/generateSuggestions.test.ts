@@ -595,12 +595,12 @@ describe('generateSuggestions', () => {
     const catch2 = result2.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch2).toBeDefined(); // Included since badges aren't needed
     expect(
-      (catch2?.category === 'Catch' ? catch2 : undefined)?.encounterInfo?.[missingPid]?.some(
+      (catch2 as any)?.encounterInfo?.[missingPid]?.some(
         (e: EncounterDetail) => e.method === 'headbutt',
       ),
     ).toBe(true);
     expect(
-      (catch2?.category === 'Catch' ? catch2 : undefined)?.encounterInfo?.[missingPid]?.some(
+      (catch2 as any)?.encounterInfo?.[missingPid]?.some(
         (e: EncounterDetail) => e.method === 'rock-smash',
       ),
     ).toBe(true);
@@ -620,12 +620,12 @@ describe('generateSuggestions', () => {
     const catch3 = result3.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch3).toBeDefined(); // Included because of known moves
     expect(
-      (catch3?.category === 'Catch' ? catch3 : undefined)?.encounterInfo?.[missingPid]?.some(
+      (catch3 as any)?.encounterInfo?.[missingPid]?.some(
         (e: EncounterDetail) => e.method === 'headbutt',
       ),
     ).toBe(true);
     expect(
-      (catch3?.category === 'Catch' ? catch3 : undefined)?.encounterInfo?.[missingPid]?.some(
+      (catch3 as any)?.encounterInfo?.[missingPid]?.some(
         (e: EncounterDetail) => e.method === 'rock-smash',
       ),
     ).toBe(true);
