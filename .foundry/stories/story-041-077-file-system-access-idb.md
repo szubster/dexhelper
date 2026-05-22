@@ -3,7 +3,7 @@ id: story-041-077-file-system-access-idb
 type: STORY
 title: File System Access & IndexedDB Retainment
 status: ACTIVE
-owner_persona: coder
+owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on: []

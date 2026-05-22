@@ -3,7 +3,7 @@ id: story-038-076-offline-auth-state
 type: STORY
 title: Client-side Offline Auth State Management
 status: PENDING
-owner_persona: coder
+owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on:

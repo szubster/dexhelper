@@ -3,7 +3,7 @@ id: story-040-075-heartbeat-verifying-logic
 type: STORY
 title: Heartbeat State Transition and Zombie Recovery
 status: PENDING
-owner_persona: coder
+owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on:

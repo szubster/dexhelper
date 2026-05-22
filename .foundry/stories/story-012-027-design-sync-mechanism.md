@@ -3,7 +3,7 @@ id: story-012-027-design-sync-mechanism
 type: STORY
 title: "Design State Sync Mechanism"
 status: "COMPLETED"
-owner_persona: coder
+owner_persona: tech_lead
 created_at: "2026-04-26"
 updated_at: "2026-04-26"
 depends_on:
