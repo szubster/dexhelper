@@ -2,13 +2,13 @@
 id: story-040-075-heartbeat-verifying-logic
 type: STORY
 title: Heartbeat State Transition and Zombie Recovery
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-05-22'
 depends_on:
   - story-040-074-orchestrator-verifying-state
-jules_session_id: '10627810658096757192'
+jules_session_id: null
 pr_number: null
 parent: epic-029-040-auditor-implementation
 tags:

@@ -1,11 +1,11 @@
 ---
 id: idea-063-shiny-breeding-assistant
 type: IDEA
-title: "Gen 2 Shiny Gene Detection & Breeding Assistant"
-status: PENDING
-owner_persona: "product_manager"
-created_at: "2026-05-22"
-updated_at: "2026-05-22"
+title: Gen 2 Shiny Gene Detection & Breeding Assistant
+status: READY
+owner_persona: product_manager
+created_at: '2026-05-22'
+updated_at: '2026-05-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Idea: Gen 2 Shiny Gene Detection & Breeding Assistant

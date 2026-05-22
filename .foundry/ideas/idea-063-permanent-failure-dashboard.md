@@ -2,7 +2,7 @@
 id: idea-063-permanent-failure-dashboard
 type: IDEA
 title: Permanent Failure Dashboard View
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
@@ -17,7 +17,7 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Created autonomously by agile_coach to surface permanent failures.'
+notes: Created autonomously by agile_coach to surface permanent failures.
 ---
 
 # Permanent Failure Dashboard View

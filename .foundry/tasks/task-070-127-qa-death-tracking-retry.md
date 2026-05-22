@@ -2,10 +2,10 @@
 id: task-070-127-qa-death-tracking-retry
 type: TASK
 title: QA Death Tracking and Graveyard Logic (Retry)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-20'
-updated_at: '2026-05-20'
+updated_at: '2026-05-22'
 depends_on:
   - task-070-126-implement-death-tracking-retry
 jules_session_id: null

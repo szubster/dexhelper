@@ -69,3 +69,19 @@
 - **2026-05-22**: Resurrection Loop triggered for `story-041-077-file-system-access-idb`. Reason: PR #1687 closed without merging.. Transitioned back to READY.
 
 - **2026-05-22**: Resurrection Loop triggered for `story-042-081-preserve-enum-optimizations`. Reason: PR #1690 closed without merging.. Transitioned back to READY.
+
+- **2026-05-22**: PR #1708 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-05-22**: System failure detected for `story-040-075-heartbeat-verifying-logic`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-05-22**: Resurrection Loop triggered for `story-041-077-file-system-access-idb`. Reason: PR #1709 closed without merging.. Transitioned back to READY.
+
+- **2026-05-22**: Resurrection Loop triggered for `story-042-080-refactor-generation-exports`. Reason: PR #1704 closed without merging.. Transitioned back to READY.
+
+- **2026-05-22**: PR #1711 merged. `story-042-081-preserve-enum-optimizations` is now COMPLETED.
+
+- **2026-05-22**: PR #1718 merged. `task-070-126-implement-death-tracking-retry` is now COMPLETED.
+
+- **2026-05-22**: PR #1717 merged. `task-072-129-qa-dag-cancellation` is now COMPLETED.
+
+- **2026-05-22**: Resurrection Loop triggered for `task-072-128-implement-dag-cancellation`. Reason: Retry from FAILED status.. Transitioned back to READY.

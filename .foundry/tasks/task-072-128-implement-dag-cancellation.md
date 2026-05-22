@@ -2,10 +2,10 @@
 id: task-072-128-implement-dag-cancellation
 type: TASK
 title: Implement DAG Dependency Cancellation Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-05-20'
-updated_at: '2026-05-21'
+updated_at: '2026-05-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,10 @@ tags:
   - auto-cancel
   - backend
 research_references: []
-rejection_count: 0
-rejection_reason: 'Implementation modifies immutable COMPLETED nodes to PENDING during Wait and Wake, causing them to be incorrectly swept up by cascade cancellation logic.'
+rejection_count: 1
+rejection_reason: >-
+  Implementation modifies immutable COMPLETED nodes to PENDING during Wait and
+  Wake, causing them to be incorrectly swept up by cascade cancellation logic.
 notes: ''
 ---
 
