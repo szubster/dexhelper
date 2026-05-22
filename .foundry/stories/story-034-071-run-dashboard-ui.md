@@ -25,3 +25,11 @@ notes: ''
 
 ## Description
 Build the UI components for the Nuzlocke Tracker mode, including the "Alive" team view, visited routes checklist, unvisited routes, and the Graveyard.
+
+### TASKS
+- [ ] .foundry/tasks/task-071-134-run-dashboard-ui-impl.md
+- [ ] .foundry/tasks/task-071-135-run-dashboard-ui-qa.md
+- [ ] .foundry/tasks/task-071-136-visited-routes-checklist-impl.md
+- [ ] .foundry/tasks/task-071-137-visited-routes-checklist-qa.md
+- [ ] .foundry/tasks/task-071-138-graveyard-integration-impl.md
+- [ ] .foundry/tasks/task-071-139-graveyard-integration-qa.md
