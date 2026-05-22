@@ -2,12 +2,12 @@
 id: idea-063-permanent-failure-dashboard
 type: IDEA
 title: Permanent Failure Dashboard View
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3494504611892119938'
 pr_number: null
 parent: null
 tags:
