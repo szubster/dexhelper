@@ -2,11 +2,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync, execFileSync } from 'node:child_process';
 import {
-  type CompactChainLink,
-  type CompactEncounterDetail,
-  type PokemonMetadata,
-  type UnifiedLocation,
-  type CompactEncounter,
   POKE_VERSION_MAP,
   ENCOUNTER_METHOD_MAP,
   EVO_TRIGGER_MAP
@@ -14,6 +9,60 @@ import {
 import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from './data/gen1/mapping.ts';
 import { GEN2_MAP_TO_AID, decodeGen2Id } from './data/gen2/mapping.ts';
 import { GEN3_MAPS, GEN3_INDOOR_TO_PARENT_MAP } from './data/gen3/mapping.ts';
+
+
+
+// Inline Verbose Types
+interface VerboseEncounterDetail {
+  chance: number;
+  method: number;
+  minLevel: number;
+  maxLevel?: number | undefined;
+  timeOfDay?: number | undefined;
+}
+
+interface VerboseEncounter {
+  areaId: number;
+  versionId: number;
+  details: VerboseEncounterDetail[];
+}
+
+interface VerboseEvolutionDetail {
+  trigger?: number | undefined;
+  minLevel?: number | undefined;
+  minHappiness?: number | undefined;
+  itemId?: number | undefined;
+  heldItemId?: number | undefined;
+  timeOfDay?: number | undefined;
+  relativePhysicalStats?: number | undefined;
+}
+
+interface VerboseChainLink {
+  pokemonId: number;
+  evolvesTo: VerboseChainLink[];
+  evolutionDetails: VerboseEvolutionDetail[];
+  evolvesFromId?: number | undefined;
+}
+
+interface VerbosePokemonMetadata {
+  id: number;
+  name: string;
+  captureRate: number;
+  genderRate?: number | undefined;
+  baby: boolean;
+  evolvesTo: VerboseChainLink[];
+  evolvesFrom: number[];
+  evolutionDetails: VerboseEvolutionDetail[];
+}
+
+interface VerboseLocation {
+  id: number;
+  name: string;
+  parentId?: number | undefined;
+  connections?: number[] | undefined;
+  pokemonIds?: number[] | undefined;
+  distances?: Record<number, number> | undefined;
+}
 
 const POKEMON_COUNT = 386; // Gen 1, 2, & 3
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
@@ -128,11 +177,11 @@ async function main() {
     }
   }
 
-  const pokemon: PokemonMetadata[] = [];
-  const pokemonEncounterMap = new Map<number, CompactEncounter[]>();
+  const pokemon: VerbosePokemonMetadata[] = [];
+  const pokemonEncounterMap = new Map<number, VerboseEncounter[]>();
 
   // Unified structures
-  const locationMap = new Map<number, UnifiedLocation>();
+  const locationMap = new Map<number, VerboseLocation>();
 
   const dataPath = path.join(TEMP_DIR, 'data/api/v2');
 
@@ -157,17 +206,17 @@ async function main() {
 
     pokemon.push(sortObj({
       id: pData.id,
-      n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
-      cr: sData.capture_rate,
-      gr: sData.gender_rate,
+      name: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
+      captureRate: sData.capture_rate,
+      genderRate: sData.gender_rate,
       baby: sData.is_baby,
       // Temporaries to be filled in second pass
-      eto: [],
-      efrm: [],
-      det: [],
-    }, ['id', 'n']));
+      evolvesTo: [],
+      evolvesFrom: [],
+      evolutionDetails: [],
+    }, ['id', 'name']));
 
-    const pokemonEncounters: { aid: number; version_details: { v: number; d: CompactEncounterDetail[] }[] }[] = [];
+    const pokemonEncounters: { areaId: number; version_details: { versionId: number; details: VerboseEncounterDetail[] }[] }[] = [];
     for (const areaEnc of eData) {
       const areaUrl = areaEnc.location_area.url;
       const areaId = parseInt(areaUrl.split('/').filter(Boolean).pop() || '0', 10);
@@ -226,11 +275,11 @@ async function main() {
 
               locationMap.set(gameId, sortObj({
                 id: gameId,
-                n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
-                conn: connections,
-                pids: [],
-                dist: {}
-              }, ['id', 'n']));
+                name: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
+                connections: connections,
+                pokemonIds: [],
+                distances: {}
+              }, ['id', 'name']));
             }
           }
         }
@@ -238,27 +287,27 @@ async function main() {
         // Update Pokémon index
         const loc = locationMap.get(gameId);
         if (loc) {
-          if (!loc.pids) loc.pids = [];
-          if (!loc.pids.includes(i)) {
-            loc.pids.push(i);
-            loc.pids.sort((a, b) => a - b);
+          if (!loc.pokemonIds) loc.pokemonIds = [];
+          if (!loc.pokemonIds.includes(i)) {
+            loc.pokemonIds.push(i);
+            loc.pokemonIds.sort((a, b) => a - b);
           }
         }
       }
 
-      const vDetails: { v: number; d: CompactEncounterDetail[] }[] = [];
+      const vDetails: { versionId: number; details: VerboseEncounterDetail[] }[] = [];
       for (const vd of (areaEnc.version_details as PokeApiVersionDetail[])) {
         const vId = POKE_VERSION_MAP[vd.version.name];
         if (!vId) continue;
 
         vDetails.push({
-          v: vId,
-          d: vd.encounter_details.map((ed) => {
-            const det: CompactEncounterDetail = {
-              c: ed.chance,
-              m: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
-              min: ed.min_level,
-              max: ed.max_level,
+          versionId: vId,
+          details: vd.encounter_details.map((ed) => {
+            const det: VerboseEncounterDetail = {
+              chance: ed.chance,
+              method: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
+              minLevel: ed.min_level,
+              maxLevel: ed.max_level,
             };
 
             if (ed.condition_values && ed.condition_values.length > 0) {
@@ -268,7 +317,7 @@ async function main() {
                 if (cv.name === 'time-day') timeMask |= 2;
                 if (cv.name === 'time-night') timeMask |= 4;
               }
-              if (timeMask > 0) det.t = timeMask;
+              if (timeMask > 0) det.timeOfDay = timeMask;
             }
             return det;
           })
@@ -278,7 +327,7 @@ async function main() {
       if (vDetails.length > 0) {
         for (const { id: gameId } of matchingGameIds) {
           pokemonEncounters.push({
-            aid: gameId,
+            areaId: gameId,
             version_details: vDetails
           });
         }
@@ -307,36 +356,36 @@ async function main() {
       };
 
       const bccData = {
-        c: bccChance[i] || 5,
-        m: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
-        min: bccLevelRange[i]?.min || 24,
-        max: bccLevelRange[i]?.max || 36
+        chance: bccChance[i] || 5,
+        method: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
+        minLevel: bccLevelRange[i]?.min || 24,
+        maxLevel: bccLevelRange[i]?.max || 36
       };
 
-      let npEncounter = pokemonEncounters.find(e => e.aid === 783);
+      let npEncounter = pokemonEncounters.find(e => e.areaId === 783);
       if (!npEncounter) {
-        npEncounter = { aid: 783, version_details: [] };
+        npEncounter = { areaId: 783, version_details: [] };
         pokemonEncounters.push(npEncounter);
       }
 
       for (const v of [4, 5, 6]) { // Gold, Silver, Crystal
-        let vDetail = npEncounter.version_details.find(vd => vd.v === v);
+        let vDetail = npEncounter.version_details.find(vd => vd.versionId === v);
         if (!vDetail) {
-          vDetail = { v: v, d: [] };
+          vDetail = { versionId: v, details: [] };
           npEncounter.version_details.push(vDetail);
         }
-        vDetail.d.push(bccData);
+        vDetail.details.push(bccData);
       }
     }
 
     if (pokemonEncounters.length > 0) {
-      const finalEncs: CompactEncounter[] = [];
+      const finalEncs: VerboseEncounter[] = [];
       for (const pe of pokemonEncounters) {
         for (const vd of pe.version_details) {
           finalEncs.push({
-            aid: pe.aid,
-            v: vd.v,
-            d: vd.d
+            areaId: pe.areaId,
+            versionId: vd.versionId,
+            details: vd.details
           });
         }
       }
@@ -351,16 +400,16 @@ async function main() {
     const existing = locationMap.get(gameId);
     if (existing) {
       if (map.connections) {
-        existing.conn = Array.from(new Set([...(existing.conn || []), ...map.connections]));
+        existing.connections = Array.from(new Set([...(existing.connections || []), ...map.connections]));
       }
     } else {
       locationMap.set(gameId, sortObj({
         id: gameId,
-        n: map.name,
-        conn: map.connections,
-        pids: [],
-        dist: {}
-      }, ['id', 'n']));
+        name: map.name,
+        connections: map.connections,
+        pokemonIds: [],
+        distances: {}
+      }, ['id', 'name']));
     }
   }
   for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
@@ -369,16 +418,16 @@ async function main() {
       const existing = locationMap.get(gameId);
       if (existing) {
         if (mapNode.connections) {
-          existing.conn = Array.from(new Set([...(existing.conn || []), ...mapNode.connections]));
+          existing.connections = Array.from(new Set([...(existing.connections || []), ...mapNode.connections]));
         }
       } else {
         locationMap.set(gameId, sortObj({
           id: gameId,
-          n: mapNode.name,
-          conn: mapNode.connections,
-          pids: [],
-          dist: {}
-        }, ['id', 'n']));
+          name: mapNode.name,
+          connections: mapNode.connections,
+          pokemonIds: [],
+          distances: {}
+        }, ['id', 'name']));
       }
     }
   }
@@ -388,16 +437,16 @@ async function main() {
       const existing = locationMap.get(gameId);
       if (existing) {
         if (mapNode.connections) {
-          existing.conn = Array.from(new Set([...(existing.conn || []), ...mapNode.connections]));
+          existing.connections = Array.from(new Set([...(existing.connections || []), ...mapNode.connections]));
         }
       } else {
         locationMap.set(gameId, sortObj({
           id: gameId,
-          n: mapNode.name,
-          conn: mapNode.connections,
-          pids: [],
-          dist: {}
-        }, ['id', 'n']));
+          name: mapNode.name,
+          connections: mapNode.connections,
+          pokemonIds: [],
+          distances: {}
+        }, ['id', 'name']));
       }
     }
   }
@@ -407,12 +456,12 @@ console.log('\nReconciling location parents...');
 for (const loc of locationMap.values()) {
   if (loc.id < 256) {
     const parentId = INDOOR_TO_PARENT_MAP[loc.id];
-    if (parentId !== undefined) loc.prnt = parentId;
+    if (parentId !== undefined) loc.parentId = parentId;
   } else if ((loc.id >> 16) === 3) {
     // Decode Gen 3 id to look up in the map, then re-encode the parent
     const decodedId = loc.id & 0xffff;
     const parentId = GEN3_INDOOR_TO_PARENT_MAP[decodedId];
-    if (parentId !== undefined) loc.prnt = (3 << 16) | parentId;
+    if (parentId !== undefined) loc.parentId = (3 << 16) | parentId;
   }
 }
 
@@ -433,8 +482,8 @@ for (const i of ids) {
 for (const loc of locations) {
   const distLoc = dist[loc.id];
   if (distLoc) {
-    if (loc.conn) {
-      for (const target of loc.conn) {
+    if (loc.connections) {
+      for (const target of loc.connections) {
         const distTarget = dist[target];
         if (distTarget) {
           distLoc[target] = 1;
@@ -442,8 +491,8 @@ for (const loc of locations) {
         }
       }
     }
-    if (loc.prnt !== undefined) {
-      const p = loc.prnt;
+    if (loc.parentId !== undefined) {
+      const p = loc.parentId;
       const distP = dist[p];
       if (distP) {
         distLoc[p] = 0; // Indoors are effectively "at" the town
@@ -484,7 +533,7 @@ for (const loc of locations) {
       }
     }
   }
-  loc.dist = reachable;
+  loc.distances = reachable;
 }
 
 console.log('\nProcessing Evolution Chains...');
@@ -504,7 +553,7 @@ for (const cid of uniqueChainIds) {
   const cData = readJson(chainFilePath);
   if (!cData) continue;
 
-  const mapLink = (link: PokeApiChainLink, ef?: number): CompactChainLink => {
+  const mapLink = (link: PokeApiChainLink, ef?: number): VerboseChainLink => {
     const id = parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10);
 
     // Filter out Alolan/Galarian/etc base forms.
@@ -516,34 +565,34 @@ for (const cid of uniqueChainIds) {
     const validEvolutionDetails = link.evolution_details.filter((ed: any) => !ed.base_form || ed.base_form === null);
 
     return {
-      id,
-      eto: link.evolves_to.map(l => mapLink(l, id)),
-      det: validEvolutionDetails.map((ed) => ({
-        tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
-        ml: ed.min_level ?? undefined,
-        mh: ed.min_happiness ?? undefined,
-        item: ed.item
+      pokemonId: id,
+      evolvesTo: link.evolves_to.map(l => mapLink(l, id)),
+      evolutionDetails: validEvolutionDetails.map((ed) => ({
+        trigger: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
+        minLevel: ed.min_level ?? undefined,
+        minHappiness: ed.min_happiness ?? undefined,
+        itemId: ed.item
           ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10)
           : undefined,
-        held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
-        time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
-        rps: ed.relative_physical_stats ?? undefined,
+        heldItemId: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
+        timeOfDay: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
+        relativePhysicalStats: ed.relative_physical_stats ?? undefined,
       })),
-      ef,
+      evolvesFromId: ef,
     };
   };
 
   const fullChain = mapLink(cData.chain);
 
-  const registerChain = (node: CompactChainLink, ancestors: number[]) => {
-    const p = pokemon.find(p => p.id === node.id);
+  const registerChain = (node: VerboseChainLink, ancestors: number[]) => {
+    const p = pokemon.find(p => p.id === node.pokemonId);
     if (p) {
-      p.eto = node.eto;
-      p.efrm = ancestors;
-      p.det = node.det;
+      p.evolvesTo = node.evolvesTo;
+      p.evolvesFrom = ancestors;
+      p.evolutionDetails = node.evolutionDetails;
     }
 
-    node.eto.forEach(child => registerChain(child, [node.id, ...ancestors]));
+    node.evolvesTo.forEach(child => registerChain(child, [node.pokemonId, ...ancestors]));
   };
 
   registerChain(fullChain, []);
@@ -571,18 +620,18 @@ function compact(obj: any): any {
       // Omit baby: false
       if (key === 'baby' && value === false) continue;
       // Omit m: 1 (WALK)
-      if (key === 'm' && value === 1) continue;
-      // Omit empty objects (dist: {})
+      if (key === 'method' && value === 1) continue;
+      // Omit empty objects (distances: {})
       if (value !== null && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) continue;
       
       // Omit gr: 4 (gender_rate default)
-      if (key === 'gr' && value === 4) continue;
+      if (key === 'genderRate' && value === 4) continue;
       // Omit tr: 1 (EVO_TRIGGER.LEVEL_UP default)
-      if (key === 'tr' && value === 1) continue;
+      if (key === 'trigger' && value === 1) continue;
       // Omit mh: 160 (min_happiness default)
-      if (key === 'mh' && value === 160) continue;
+      if (key === 'minHappiness' && value === 160) continue;
       // Omit max if same as min (encounter levels)
-      if (key === 'max' && value === obj.min) continue;
+      if (key === 'maxLevel' && value === obj.minLevel) continue;
 
       result[key] = compact(value);
     }
@@ -596,10 +645,10 @@ fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
 writeJsonl(path.join(OUTPUT_DIR, 'pokemon.jsonl'), pokemon.map(compact));
 writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
-  pid,
-  enc: encs.map(compact)
+  pokemonId: pid,
+  encounters: encs.map(compact)
 })));
-writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => a.id - b.id));
+writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => (a as any).id - (b as any).id));
 
   // Write metadata
   fs.writeFileSync(path.join(OUTPUT_DIR, 'metadata.json'), JSON.stringify({
