@@ -501,9 +501,9 @@ function main(): void {
   }
 
   // ── Phase 3.5: SUSPEND (Wait & Wake) ───────────────────────────────────────
-  info('Phase 3.5: Checking ACTIVE/COMPLETED nodes for suspension...');
+  info('Phase 3.5: Checking ACTIVE/VERIFYING nodes for suspension...');
   for (const node of nodes) {
-    if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'COMPLETED' && node.frontmatter.status !== 'VERIFYING') continue;
+    if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'VERIFYING') continue;
 
     let shouldSuspend = false;
     for (const depRef of node.frontmatter.depends_on) {
