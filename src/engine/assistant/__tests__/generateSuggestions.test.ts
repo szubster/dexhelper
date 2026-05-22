@@ -889,7 +889,7 @@ describe('generateSuggestions', () => {
     expect(sugg2).toBeDefined();
     // 11 should be filtered out, 10 should remain
     expect(sugg2?.pokemonIds).toEqual([10]);
-    expect(sugg2?.encounterInfo?.[10]).toBeDefined();
-    expect(sugg2?.encounterInfo?.[11]).toBeUndefined();
+    expect((sugg2?.category === 'Catch' ? sugg2 : undefined)?.encounterInfo?.[10]).toBeDefined();
+    expect((sugg2?.category === 'Catch' ? sugg2 : undefined)?.encounterInfo?.[11]).toBeUndefined();
   });
 });
