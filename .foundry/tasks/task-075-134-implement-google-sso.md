@@ -28,7 +28,7 @@ notes: ''
 Implement the Google OAuth2/SSO login flow within the Cloudflare backend as requested by story-038-075-google-sso-integration.
 
 ## Acceptance Criteria
-- [ ] Implement Google OAuth2/SSO login flow within the Cloudflare backend.
+- [ ] Implement Google OAuth2/SSO login flow within the Cloudflare backend using Cloudflare Access or a standard authentication library (do not implement pauth yourself).
 - [ ] Add authentication endpoints (e.g., login, callback, verify).
-- [ ] Implement logic to restrict successful authentication to a single predefined Google user email or ID.
+- [ ] Configure the single user restriction on the Google SSO side (or via Cloudflare Access policies), rather than implementing custom application logic.
 - [ ] Reject all other login attempts with a clear unauthorized response.
