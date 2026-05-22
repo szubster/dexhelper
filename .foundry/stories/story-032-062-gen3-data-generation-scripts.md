@@ -31,7 +31,7 @@ Modify existing data generation scripts to support fetching and formatting Gen 3
 
 ## Generated Tasks
 - [x] .foundry/tasks/task-062-100-gen3-locations-script-impl.md
-- [ ] .foundry/tasks/task-062-101-gen3-locations-script-qa.md
+- [x] .foundry/tasks/task-062-101-gen3-locations-script-qa.md
 - [x] .foundry/tasks/task-062-102-gen3-encounters-script-impl.md
 - [x] .foundry/tasks/task-062-103-gen3-encounters-script-qa.md
 - [x] .foundry/tasks/task-062-104-gen3-pokemon-script-impl.md
