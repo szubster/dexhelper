@@ -75,3 +75,6 @@ Critical learnings:
 
 ## 2026-05-22 - Rejected commitlint
 **Learning:** Evaluated using `commitlint` in the pre-commit hook (`lefthook.yml`) to enforce conventional commits. User rejected this change because they do not care about conventional commits formatting that much and do not want to add friction and cost to AI development.
+
+## 2026-05-23 - Updated Tooling Dependencies
+**Learning:** Updated dependencies to keep tooling modern and secure.
