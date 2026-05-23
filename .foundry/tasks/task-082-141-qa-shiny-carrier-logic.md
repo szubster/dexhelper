@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-05-23'
 depends_on:
-  - .foundry/tasks/task-082-140-implement-shiny-carrier-logic.md
+  - task-082-140-implement-shiny-carrier-logic
 jules_session_id: null
 pr_number: null
 parent: story-044-082-dv-shiny-gene-logic
