@@ -1,3 +1,37 @@
+/**
+ * @module suggestionEngine
+ *
+ * The Suggestion Engine is the core recommendation system for DexHelper. It analyzes
+ * a player's save file state and provides actionable, context-aware suggestions for
+ * obtaining missing Pokémon (e.g., catching, evolving, trading, breeding).
+ *
+ * ## Architecture Overview
+ *
+ * 1. **Data Orchestration (`fetchAssistantApiData`)**:
+ *    Instead of relying on N+1 database queries during rendering, the engine pre-fetches
+ *    all required mappings, locations, and encounter tables via `DexDataLoader`.
+ *    This ensures that the massive suggestion generation loop runs entirely synchronously.
+ *
+ * 2. **Strategy Pattern (`AssistantStrategy`)**:
+ *    Because Generation 1 and Generation 2 games have drastically different mechanics
+ *    (e.g., Breeding, Held Items, Time of Day, Roaming Legendaries), the core loop
+ *    delegates generation-specific logic to a Strategy object. This prevents the
+ *    main engine from being littered with `if (gen === 1)` branches.
+ *
+ * 3. **Performance & O(1) Lookups**:
+ *    Evaluating hundreds of Pokémon across thousands of encounters can block the main UI thread.
+ *    To mitigate this, the engine strictly uses `Set` and `Map` structures for lookups
+ *    (e.g., `missingIds`, `myOtIds`, `instancesBySpecies`).
+ *    Additionally, declarative array methods like `.filter().map()` are often replaced with
+ *    manual `for` loops to prevent intermediate array allocations and reduce garbage collection overhead.
+ *
+ * 4. **Priority Ranking**:
+ *    Suggestions are not just a list; they are ranked by priority.
+ *    - `100-90`: Immediate, guaranteed actions (e.g., Ready to evolve with a stone in bag).
+ *    - `89-70`: Local map encounters (player is standing right there).
+ *    - `69-50`: High-probability encounters or nearby maps.
+ *    - `<50`: Long-term goals, breeding, or low-encounter-rate grinds.
+ */
 import { dexDataLoader } from '../../db/DexDataLoader';
 import { pokeDB } from '../../db/PokeDB';
 import {
@@ -260,6 +294,10 @@ function generateCatchSuggestions(
   suggestions: Suggestion[],
   localPids: Set<number>,
 ) {
+  // We group potential encounters by location to avoid spamming the user with separate
+  // suggestions for every single Pokémon on Route 1. By aggregating them into one
+  // "Catch X, Y, Z at Location" suggestion, we reduce UI clutter.
+  // The 'locationsMap' uses a stringified key (areaId + method) to group identical contexts.
   // A. Catch logic (Local Map)
   // Highest priority (120) is given to Pokemon found on the exact same map the player is currently standing on.
   if (apiData.localEncounters && apiData.localEncounters.length > 0 && apiData.localAid) {
@@ -384,7 +422,7 @@ function generateCatchSuggestions(
  * @param displayVersion - The text ID of the game version (e.g., 'red', 'silver').
  * @param ownedSet - The set of Pokémon IDs the player currently owns.
  * @param apiData - Pre-fetched game metadata including Pokémon evolution chains.
- * @param instancesBySpecies - A Map grouping all possessed Pokémon instances by their species ID.
+ * @param instancesBySpecies - A Map grouping all possessed Pokémon instances by their species ID. This allows O(1) checks to verify if the player has the pre-evolution, and if it is already holding a required evolution item.
  * @param suggestions - The shared array where new gift/trade suggestions are pushed.
  * @param missingIds - A set of all missing Pokémon IDs.
  */
@@ -945,7 +983,9 @@ export function generateSuggestions(
     localPids,
   );
 
-  // Filter out headbutt and rock-smash encounters if the player lacks the required TMs
+  // Filter out headbutt and rock-smash encounters if the player lacks the required TMs.
+  // This is done as a post-processing step rather than during generation because
+  // TM/HM possession is a global state, whereas encounter details are deeply nested.
   for (let i = suggestions.length - 1; i >= 0; i--) {
     const suggestion = suggestions[i];
     if (suggestion && suggestion.category === 'Catch' && suggestion.encounterInfo) {
@@ -1001,7 +1041,9 @@ export function generateSuggestions(
     }
   }
 
-  // Organize physical instances by species to check for evolutions and prevent redundant exclusive suggestions
+  // Organize physical instances by species to check for evolutions and prevent redundant exclusive suggestions.
+  // Why? If a player needs a Raichu, we shouldn't just suggest catching Pikachu if they already have one in their PC.
+  // Grouping by species ID (O(N) pass) allows sub-generators to do O(1) checks for pre-evolutions or specific forms.
   const instancesBySpecies = new Map<number, PokemonInstance[]>();
   for (const p of allInstances) {
     if (!instancesBySpecies.has(p.speciesId)) instancesBySpecies.set(p.speciesId, []);
