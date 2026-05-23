@@ -1,14 +1,16 @@
 ---
-id: "prd-008-007-tactical-card-component"
-type: "PRD"
-title: "Tactical Card Base Component"
-status: "COMPLETED"
-owner_persona: "architect"
-created_at: "2026-04-26"
-updated_at: "2026-04-26"
+id: prd-008-007-tactical-card-component
+type: PRD
+title: Tactical Card Base Component
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-04-26'
+updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-008-ui-component-reuse.md"
+parent: .foundry/ideas/idea-008-ui-component-reuse.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # PRD-008-007: Tactical Card Base Component

@@ -18,6 +18,7 @@ tags:
 research_references: []
 rejection_reason: ''
 notes: ''
+rejection_count: 0
 ---
 
 # Research: Cloudflare Storage Evaluation for Save Syncing

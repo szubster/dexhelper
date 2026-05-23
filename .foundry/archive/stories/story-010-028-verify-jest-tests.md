@@ -1,14 +1,16 @@
 ---
-id: "story-010-028-verify-jest-tests"
-type: "STORY"
-title: "Verify jest rules fix resolution"
-status: "COMPLETED"
-owner_persona: "tech_lead"
-created_at: "2026-04-26"
-updated_at: "2026-04-27"
+id: story-010-028-verify-jest-tests
+type: STORY
+title: Verify jest rules fix resolution
+status: COMPLETED
+owner_persona: tech_lead
+created_at: '2026-04-26'
+updated_at: '2026-04-27'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-010-oxlint-config.md"
+parent: .foundry/epics/epic-010-oxlint-config.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Verify jest rules fix resolution

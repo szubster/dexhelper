@@ -15,6 +15,8 @@ tags:
   - e2e
   - testing
   - indexeddb
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Update E2E Testing for IndexedDB

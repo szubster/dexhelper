@@ -9,6 +9,8 @@ updated_at: '2026-05-02'
 depends_on:
   - .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
 jules_session_id: null
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Migrate Save Data Storage to IndexedDB

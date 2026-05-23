@@ -1,16 +1,17 @@
 ---
 id: task-003-resurrection-loop
 type: TASK
-title: "Resurrection Loop & Rejection Handling"
+title: Resurrection Loop & Rejection Handling
 status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-21"
+created_at: '2026-04-20'
+updated_at: '2026-04-21'
 depends_on:
   - .foundry/tasks/task-002-create-heartbeat.md
 jules_session_id: null
 rejection_count: 0
 parent: .foundry/stories/story-001-matrix-runner.md
+rejection_reason: ''
 ---
 
 # Resurrection Loop & Rejection Handling

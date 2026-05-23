@@ -1,14 +1,16 @@
 ---
 id: task-021-document-id-schema
 type: TASK
-title: "Finalize ID Schema and Update Documentation"
-status: "COMPLETED"
+title: Finalize ID Schema and Update Documentation
+status: COMPLETED
 owner_persona: coder
-created_at: "2026-04-23"
-updated_at: "2026-04-23"
+created_at: '2026-04-23'
+updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-004-id-schema-decision.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Finalize ID Schema and Update Documentation

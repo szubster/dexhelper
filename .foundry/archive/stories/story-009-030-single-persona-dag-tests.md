@@ -1,16 +1,21 @@
 ---
-id: "story-009-030-single-persona-dag-tests"
-type: "STORY"
-title: "Story: Single-Persona DAG Resolution Unit Tests"
-status: "COMPLETED"
-owner_persona: "tech_lead"
-created_at: "2026-04-27"
-updated_at: "2026-04-29"
+id: story-009-030-single-persona-dag-tests
+type: STORY
+title: 'Story: Single-Persona DAG Resolution Unit Tests'
+status: COMPLETED
+owner_persona: tech_lead
+created_at: '2026-04-27'
+updated_at: '2026-04-29'
 depends_on:
   - .foundry/archive/tasks/task-030-048-implement-single-persona-dag-tests.md
 jules_session_id: null
-parent: ".foundry/epics/epic-009-atomic-handoff-testing.md"
-tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
+parent: .foundry/epics/epic-009-atomic-handoff-testing.md
+tags:
+  - v2-architecture
+  - lifecycle
+  - atomic-handoffs
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Story: Single-Persona DAG Resolution Unit Tests

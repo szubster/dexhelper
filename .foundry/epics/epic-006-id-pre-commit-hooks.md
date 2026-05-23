@@ -1,18 +1,21 @@
 ---
 id: epic-006-id-pre-commit-hooks
 type: EPIC
-title: "ID Integrity Pre-Commit Validation"
-status: "COMPLETED"
+title: ID Integrity Pre-Commit Validation
+status: COMPLETED
 owner_persona: story_owner
-created_at: "2026-04-21"
-updated_at: "2026-04-25"
+created_at: '2026-04-21'
+updated_at: '2026-04-25'
 depends_on:
   - .foundry/epics/epic-004-distributed-id-schema.md
 jules_session_id: null
 parent: .foundry/prds/prd-001-distributed-ids.md
-tags: ["ci", "pre-commit"]
+tags:
+  - ci
+  - pre-commit
 rejection_count: 0
-notes: ""
+notes: ''
+rejection_reason: ''
 ---
 
 # Epic: ID Integrity Pre-Commit Validation

@@ -1,17 +1,19 @@
 ---
 id: story-010-orchestrator-human-bypass
 type: STORY
-title: "Implement Human Task Bypass in Orchestrator"
-status: "COMPLETED"
+title: Implement Human Task Bypass in Orchestrator
+status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-23"
-updated_at: "2026-04-23"
+created_at: '2026-04-23'
+updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-011-human-orchestrator.md"
+parent: .foundry/epics/epic-011-human-orchestrator.md
 tags:
-  - "human-in-the-loop"
-  - "orchestrator"
+  - human-in-the-loop
+  - orchestrator
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Story 010: Implement Human Task Bypass in Orchestrator

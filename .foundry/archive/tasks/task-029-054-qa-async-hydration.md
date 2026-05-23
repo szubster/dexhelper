@@ -16,6 +16,8 @@ tags:
   - indexeddb
   - hydration
   - qa
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # QA Async Startup Hydration

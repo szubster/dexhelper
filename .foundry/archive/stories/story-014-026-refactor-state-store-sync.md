@@ -15,6 +15,8 @@ tags:
   - state
   - store
   - indexeddb
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Refactor State Store Sync

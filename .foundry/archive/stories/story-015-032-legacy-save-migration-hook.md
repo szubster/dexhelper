@@ -16,6 +16,8 @@ tags:
   - migration
   - indexeddb
   - localStorage
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Legacy Save Migration Hook

@@ -9,6 +9,7 @@ updated_at: '2026-05-21'
 depends_on: []
 jules_session_id: null
 rejection_reason: ''
+rejection_count: 0
 ---
 
 # Revert Data Format Optimizations (Short Property Names)

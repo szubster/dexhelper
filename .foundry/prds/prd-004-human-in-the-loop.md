@@ -1,16 +1,18 @@
 ---
-id: "prd-004-human-in-the-loop"
-type: "PRD"
-title: "Human-in-the-Loop Handoff"
-status: "COMPLETED"
-owner_persona: "epic_planner"
-created_at: "2026-04-21"
-updated_at: "2026-04-23"
+id: prd-004-human-in-the-loop
+type: PRD
+title: Human-in-the-Loop Handoff
+status: COMPLETED
+owner_persona: epic_planner
+created_at: '2026-04-21'
+updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-004-human-in-the-loop.md"
+parent: .foundry/ideas/idea-004-human-in-the-loop.md
 tags:
-  - "human-in-the-loop"
+  - human-in-the-loop
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # PRD-004: Human-in-the-Loop Handoff

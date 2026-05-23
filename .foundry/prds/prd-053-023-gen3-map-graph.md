@@ -13,6 +13,8 @@ tags:
   - gen3
   - feature
 notes: Spawned from Idea 053
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # PRD: Gen3 Map Graph Design

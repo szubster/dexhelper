@@ -1,13 +1,15 @@
 ---
-id: "idea-008-ui-component-reuse"
-type: "IDEA"
-title: "UI Component Reuse and Refactoring"
-status: "COMPLETED"
-owner_persona: "product_manager"
-created_at: "2025-05-25"
-updated_at: "2026-04-26"
+id: idea-008-ui-component-reuse
+type: IDEA
+title: UI Component Reuse and Refactoring
+status: COMPLETED
+owner_persona: product_manager
+created_at: '2025-05-25'
+updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # IDEA-008: UI Component Reuse and Refactoring

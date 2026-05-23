@@ -1,18 +1,20 @@
 ---
 id: story-011-017-impossible-loop
 type: STORY
-title: "Impossible Loop Implementation"
-status: "COMPLETED"
+title: Impossible Loop Implementation
+status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-24"
-updated_at: "2026-04-25"
+created_at: '2026-04-24'
+updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-011-wait-and-wake-protocol.md"
+parent: .foundry/epics/epic-011-wait-and-wake-protocol.md
 tags:
   - foundry-v2
   - architecture
   - orchestration
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Impossible Loop Implementation

@@ -16,6 +16,8 @@ notes: >-
   Proposed by Agile Coach based on observation that completed tasks still
   contain unchecked `[ ]` boxes, indicating potential skipped validations or
   flawed orchestrator state transitions.
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Enforce Acceptance Criteria Checkbox Completion

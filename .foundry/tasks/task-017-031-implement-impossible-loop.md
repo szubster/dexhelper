@@ -1,15 +1,17 @@
 ---
 id: task-017-031-implement-impossible-loop
 type: TASK
-title: "Implement Impossible Loop in Orchestrator"
-status: "COMPLETED"
+title: Implement Impossible Loop in Orchestrator
+status: COMPLETED
 owner_persona: coder
-created_at: "2026-04-25"
-updated_at: "2026-04-26"
+created_at: '2026-04-25'
+updated_at: '2026-04-26'
 depends_on:
   - .foundry/tasks/task-017-030-update-schema-rejection-reason.md
 jules_session_id: null
 parent: .foundry/stories/story-011-017-impossible-loop.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Implement Impossible Loop in Orchestrator

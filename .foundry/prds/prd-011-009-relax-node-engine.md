@@ -1,17 +1,20 @@
 ---
 id: prd-011-009-relax-node-engine
 type: PRD
-title: "Relax Node engine requirement in package.json to >=22.0.0"
-status: "COMPLETED"
-owner_persona: "epic_planner"
-created_at: "2026-05-01"
-updated_at: "2026-05-01"
+title: Relax Node engine requirement in package.json to >=22.0.0
+status: COMPLETED
+owner_persona: epic_planner
+created_at: '2026-05-01'
+updated_at: '2026-05-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: ".foundry/ideas/idea-011-relax-node-engine.md"
-tags: ["infrastructure"]
-notes: ""
+parent: .foundry/ideas/idea-011-relax-node-engine.md
+tags:
+  - infrastructure
+notes: ''
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Relax Node engine requirement in package.json to >=22.0.0

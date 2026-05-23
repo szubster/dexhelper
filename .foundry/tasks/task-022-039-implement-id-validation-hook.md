@@ -1,14 +1,16 @@
 ---
 id: task-022-039-implement-id-validation-hook
 type: TASK
-title: "Implement ID Validation Pre-commit Hook"
-status: "COMPLETED"
+title: Implement ID Validation Pre-commit Hook
+status: COMPLETED
 owner_persona: coder
-created_at: "2026-04-25"
-updated_at: "2026-04-26"
+created_at: '2026-04-25'
+updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-006-022-implement-id-validation-hook.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Implement ID Validation Pre-commit Hook

@@ -1,16 +1,18 @@
 ---
-id: "story-008-025-verify-dag-resolution"
-type: "STORY"
-title: "Verify DAG Resolution with Atomic Files"
-status: "COMPLETED"
-owner_persona: "tech_lead"
-created_at: "2026-04-25"
-updated_at: "2026-04-26"
+id: story-008-025-verify-dag-resolution
+type: STORY
+title: Verify DAG Resolution with Atomic Files
+status: COMPLETED
+owner_persona: tech_lead
+created_at: '2026-04-25'
+updated_at: '2026-04-26'
 depends_on:
-  - ".foundry/stories/story-008-023-validate-single-owner.md"
-  - ".foundry/stories/story-008-024-update-status-on-merge.md"
+  - .foundry/stories/story-008-023-validate-single-owner.md
+  - .foundry/stories/story-008-024-update-status-on-merge.md
 jules_session_id: null
-parent: ".foundry/epics/epic-008-atomic-handoff-orchestrator.md"
+parent: .foundry/epics/epic-008-atomic-handoff-orchestrator.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Verify DAG Resolution with Atomic Files

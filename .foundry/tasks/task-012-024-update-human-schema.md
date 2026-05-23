@@ -1,17 +1,19 @@
 ---
 id: task-012-024-update-human-schema
 type: TASK
-title: "Update Foundry Schema for Human Persona"
-status: "COMPLETED"
+title: Update Foundry Schema for Human Persona
+status: COMPLETED
 owner_persona: coder
-created_at: "2026-04-24"
-updated_at: "2026-04-25"
+created_at: '2026-04-24'
+updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-010-012-schema-human-persona.md"
+parent: .foundry/stories/story-010-012-schema-human-persona.md
 tags:
-  - "human-in-the-loop"
-  - "schema"
+  - human-in-the-loop
+  - schema
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Task: Update Foundry Schema for Human Persona

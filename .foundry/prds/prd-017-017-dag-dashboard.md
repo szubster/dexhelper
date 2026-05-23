@@ -10,6 +10,8 @@ depends_on: []
 jules_session_id: null
 pr_number: null
 parent: .foundry/ideas/idea-017-dag-dashboard.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # PRD: DAG Dashboard Webview

@@ -15,6 +15,8 @@ tags:
   - data
   - msgpack
 notes: ''
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # QA MsgPack Transition for Data Serialization

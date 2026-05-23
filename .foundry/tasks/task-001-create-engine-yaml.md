@@ -1,14 +1,16 @@
 ---
 id: task-001-create-engine-yaml
 type: TASK
-title: "Core Foundry Orchestration Engine"
+title: Core Foundry Orchestration Engine
 status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
+created_at: '2026-04-20'
+updated_at: '2026-04-20'
 depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-001-matrix-runner.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Core Foundry Orchestration Engine

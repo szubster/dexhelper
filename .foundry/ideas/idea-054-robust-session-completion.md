@@ -15,6 +15,8 @@ tags:
   - orchestrator
   - heartbeat
 notes: ''
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Idea: Robust Handling of Session Completion in Heartbeat

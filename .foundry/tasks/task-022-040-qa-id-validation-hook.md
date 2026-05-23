@@ -1,15 +1,17 @@
 ---
 id: task-022-040-qa-id-validation-hook
 type: TASK
-title: "QA ID Validation Pre-commit Hook"
-status: "COMPLETED"
+title: QA ID Validation Pre-commit Hook
+status: COMPLETED
 owner_persona: qa
-created_at: "2026-04-25"
-updated_at: "2026-04-26"
+created_at: '2026-04-25'
+updated_at: '2026-04-26'
 depends_on:
   - .foundry/tasks/task-022-039-implement-id-validation-hook.md
 jules_session_id: null
 parent: .foundry/stories/story-006-022-implement-id-validation-hook.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # QA ID Validation Pre-commit Hook

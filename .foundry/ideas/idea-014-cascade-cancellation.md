@@ -2,10 +2,10 @@
 id: idea-014-cascade-cancellation
 type: IDEA
 title: 'DAG Feature: Cascade CANCELLED Statuses'
-status: "COMPLETED"
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-05-03'
-updated_at: "2026-05-03"
+updated_at: '2026-05-03'
 depends_on: []
 jules_session_id: null
 parent: null
@@ -15,6 +15,8 @@ tags:
   - orchestrator
   - cancellation
 notes: ''
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Idea: DAG Feature to Cascade CANCELLED Statuses

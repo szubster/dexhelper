@@ -17,6 +17,8 @@ tags:
   - ui
 research_references: []
 notes: ''
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Investigate Dependency Highlighting Implementation Failure

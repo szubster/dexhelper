@@ -13,6 +13,8 @@ tags:
   - indexeddb
   - infrastructure
   - persistence
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Implement IndexedDB wrapper with robust error handling

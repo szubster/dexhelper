@@ -10,6 +10,7 @@ depends_on: []
 jules_session_id: null
 parent: idea-005-revert-data-optimizations
 rejection_reason: ''
+rejection_count: 0
 ---
 
 # PRD: Revert Data Format Optimizations (Short Property Names)

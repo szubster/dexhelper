@@ -16,6 +16,8 @@ tags:
   - e2e
   - testing
   - indexeddb
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # E2E Testing Infrastructure Updates

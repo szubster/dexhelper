@@ -1,17 +1,22 @@
 ---
-id: "story-009-032-lifecycle-integration-tests"
-type: "STORY"
-title: "Story: Full Lifecycle Integration Tests"
-status: "COMPLETED"
-owner_persona: "tech_lead"
-created_at: "2026-04-27"
-updated_at: "2026-04-29"
+id: story-009-032-lifecycle-integration-tests
+type: STORY
+title: 'Story: Full Lifecycle Integration Tests'
+status: COMPLETED
+owner_persona: tech_lead
+created_at: '2026-04-27'
+updated_at: '2026-04-29'
 depends_on:
   - .foundry/archive/tasks/task-032-049-qa-lifecycle-tests.md
   - .foundry/archive/tasks/task-032-048-implement-lifecycle-tests.md
 jules_session_id: null
-parent: ".foundry/epics/epic-009-atomic-handoff-testing.md"
-tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
+parent: .foundry/epics/epic-009-atomic-handoff-testing.md
+tags:
+  - v2-architecture
+  - lifecycle
+  - atomic-handoffs
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Story: Full Lifecycle Integration Tests

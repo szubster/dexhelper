@@ -1,16 +1,22 @@
 ---
 id: idea-012-use-gray-matter-parsing
 type: IDEA
-title: "Replace Regex Manipulations with Gray-Matter parsing"
-status: "COMPLETED"
+title: Replace Regex Manipulations with Gray-Matter parsing
+status: COMPLETED
 owner_persona: product_manager
-created_at: "2026-05-01"
-updated_at: "2026-05-02"
+created_at: '2026-05-01'
+updated_at: '2026-05-02'
 depends_on: []
 jules_session_id: null
 parent: null
-tags: ["foundry", "parsing", "gray-matter", "maintenance"]
-notes: ""
+tags:
+  - foundry
+  - parsing
+  - gray-matter
+  - maintenance
+notes: ''
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Idea: Replace Regex Manipulations with Gray-Matter parsing

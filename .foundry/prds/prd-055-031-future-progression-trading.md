@@ -19,6 +19,7 @@ tags:
 research_references: []
 rejection_reason: ''
 notes: Derived from Idea 055
+rejection_count: 0
 ---
 
 # PRD: Future Progression Features and Trading (Phase 2)

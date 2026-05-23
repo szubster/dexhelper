@@ -18,6 +18,8 @@ tags:
   - persona
 research_references: []
 notes: ''
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Introduce 'auditor' Persona for Verification and Learning

@@ -14,6 +14,8 @@ tags:
   - dag
   - visualization
 notes: ''
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Idea: DAG Dashboard Webview

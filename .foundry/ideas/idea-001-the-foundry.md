@@ -1,13 +1,15 @@
 ---
 id: idea-001-the-foundry
 type: IDEA
-title: "The Foundry: Autonomous Software Factory"
+title: 'The Foundry: Autonomous Software Factory'
 status: COMPLETED
 owner_persona: product_manager
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
+created_at: '2026-04-20'
+updated_at: '2026-04-20'
 depends_on: []
 jules_session_id: null
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # The Foundry: Autonomous Software Factory

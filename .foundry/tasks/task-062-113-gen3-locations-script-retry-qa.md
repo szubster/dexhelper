@@ -11,6 +11,7 @@ depends_on:
 jules_session_id: null
 rejection_reason: ''
 parent: story-032-062-gen3-data-generation-scripts
+rejection_count: 0
 ---
 
 # QA Retry Gen 3 Locations Fetch Script

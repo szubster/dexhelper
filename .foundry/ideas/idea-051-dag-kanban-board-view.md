@@ -16,6 +16,8 @@ tags:
   - visualization
   - board
 notes: ''
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Idea: DAG Kanban/Scrum Board View

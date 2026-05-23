@@ -1,18 +1,20 @@
 ---
-id: "prd-005-010-late-binding-orchestrator"
-type: "PRD"
-title: "Late Binding Epics & Recursive Orchestration"
-status: "COMPLETED"
-owner_persona: "epic_planner"
-created_at: "2026-04-21"
-updated_at: "2026-05-01"
+id: prd-005-010-late-binding-orchestrator
+type: PRD
+title: Late Binding Epics & Recursive Orchestration
+status: COMPLETED
+owner_persona: epic_planner
+created_at: '2026-04-21'
+updated_at: '2026-05-01'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-005-late-binding-orchestrator.md"
+parent: .foundry/ideas/idea-005-late-binding-orchestrator.md
 tags:
-  - "foundry-v2"
-  - "architecture"
-  - "orchestration"
+  - foundry-v2
+  - architecture
+  - orchestration
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # PRD: Late Binding Epics & Recursive Orchestration

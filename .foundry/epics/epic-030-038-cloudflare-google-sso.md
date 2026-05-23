@@ -21,6 +21,7 @@ rejection_reason: ''
 notes: >-
   Derived from PRD 055-030. Establishes the secure foundation for single-user
   login before save syncing.
+rejection_count: 0
 ---
 
 # Epic: Cloudflare Single Sign-On (SSO) Authentication

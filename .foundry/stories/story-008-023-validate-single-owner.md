@@ -1,14 +1,16 @@
 ---
-id: "story-008-023-validate-single-owner"
-type: "STORY"
-title: "Validate Single Owner Persona in Orchestrator"
-status: "COMPLETED"
-owner_persona: "tech_lead"
-created_at: "2026-04-25"
-updated_at: "2026-04-26"
+id: story-008-023-validate-single-owner
+type: STORY
+title: Validate Single Owner Persona in Orchestrator
+status: COMPLETED
+owner_persona: tech_lead
+created_at: '2026-04-25'
+updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-008-atomic-handoff-orchestrator.md"
+parent: .foundry/epics/epic-008-atomic-handoff-orchestrator.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Validate Single Owner Persona in Orchestrator

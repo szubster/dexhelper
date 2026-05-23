@@ -17,6 +17,8 @@ tags:
   - state
   - store
   - indexeddb
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # State Store Migration & Hydration

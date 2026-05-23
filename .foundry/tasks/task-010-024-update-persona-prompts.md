@@ -1,11 +1,11 @@
 ---
 id: task-010-024-update-persona-prompts
 type: TASK
-title: "Update Agent Prompts for Node Creation Guidelines"
-status: "COMPLETED"
+title: Update Agent Prompts for Node Creation Guidelines
+status: COMPLETED
 owner_persona: coder
-created_at: "2026-04-23"
-updated_at: "2026-04-24"
+created_at: '2026-04-23'
+updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-010-persona-permissions-matrix.md
@@ -14,7 +14,8 @@ tags:
   - architecture
   - orchestration
 rejection_count: 0
-notes: ""
+notes: ''
+rejection_reason: ''
 ---
 
 # Update Agent Prompts for Node Creation Guidelines

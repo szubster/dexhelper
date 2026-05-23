@@ -1,15 +1,17 @@
 ---
 id: story-005-id-schema-templates
 type: STORY
-title: "Update Templates and Generation Scripts"
-status: "COMPLETED"
+title: Update Templates and Generation Scripts
+status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-22"
-updated_at: "2026-04-24"
+created_at: '2026-04-22'
+updated_at: '2026-04-24'
 depends_on:
   - .foundry/stories/story-004-id-schema-decision.md
 jules_session_id: null
 parent: .foundry/epics/epic-004-distributed-id-schema.md
+rejection_count: 0
+rejection_reason: ''
 ---
 
 # Story: Update Templates and Generation Scripts

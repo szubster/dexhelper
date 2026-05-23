@@ -11,6 +11,7 @@ jules_session_id: null
 parent: prd-005-032-revert-data-optimizations
 rejection_reason: ''
 notes: ''
+rejection_count: 0
 ---
 
 # Epic: Update Data Generation Pipeline to Verbose Keys
