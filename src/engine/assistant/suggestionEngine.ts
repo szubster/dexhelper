@@ -65,6 +65,13 @@ import { getGen2UnobtainableReason } from '../exclusives/gen2Exclusives';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
 import type { AssistantStrategy, EncounterDetail, RejectedSuggestion, Suggestion } from './strategies/types';
 
+// ⚡ Bolt: Eliminate O(N) tuple allocation and string parsing by pre-calculating static gift arrays
+const STATIC_GIFT_PIDS = Object.keys(STATIC_GIFT_DATA).map((id) => parseInt(id, 10));
+const STATIC_GIFT_ENTRIES = Object.entries(STATIC_GIFT_DATA).map(([idStr, gift]) => ({
+  giftId: parseInt(idStr, 10),
+  gift,
+}));
+
 export interface AssistantApiData {
   localAid: number | null;
   localEncounters: LocationAreaEncounters[] | null;
@@ -131,7 +138,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
 
   // 1. Get all relevant Pokemon details (Target, Party, Gifts)
   const partyPids = saveData.party || [];
-  const giftPids = Object.keys(STATIC_GIFT_DATA).map((id) => parseInt(id, 10));
+  const giftPids = STATIC_GIFT_PIDS;
   const allNeededPids = [...new Set([...queryTargets, ...partyPids, ...giftPids])];
 
   const allPokemon = await dexDataLoader.pokemon.loadMany(allNeededPids);
@@ -487,8 +494,10 @@ function generateGiftAndTradeSuggestions(
 
   // D. Static Gifts
   // Suggests available static encounters and gifts that haven't been claimed yet.
-  for (const [idStr, gift] of Object.entries(STATIC_GIFT_DATA)) {
-    const giftId = parseInt(idStr, 10);
+  for (let i = 0; i < STATIC_GIFT_ENTRIES.length; i++) {
+    const entry = STATIC_GIFT_ENTRIES[i];
+    if (!entry) continue;
+    const { giftId, gift } = entry;
     if (gift.gen && gift.gen !== saveData.generation) continue;
     if (!missingIds.has(giftId)) continue;
 
