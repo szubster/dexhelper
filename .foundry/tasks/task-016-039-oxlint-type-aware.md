@@ -1,14 +1,15 @@
 ---
-id: "task-016-039-oxlint-type-aware"
-type: "TASK"
-title: "Enable oxlint type-aware and type-check options"
-status: "COMPLETED"
-owner_persona: "coder"
-created_at: "2026-04-26"
-updated_at: "2026-04-29"
+id: task-016-039-oxlint-type-aware
+type: TASK
+title: Enable oxlint type-aware and type-check options
+status: COMPLETED
+owner_persona: coder
+created_at: '2026-04-26'
+updated_at: '2026-04-29'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-010-016-enable-expensive-oxlint-checks.md"
+parent: .foundry/stories/story-010-016-enable-expensive-oxlint-checks.md
+rejection_reason: ''
 ---
 
 # Enable oxlint type-aware and type-check options

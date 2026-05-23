@@ -1,14 +1,15 @@
 ---
-id: "task-007-024-update-schema-owner-invariant"
-type: "TASK"
-title: "Update schema.md to enforce single owner invariant"
-status: "COMPLETED"
-owner_persona: "coder"
-created_at: "2026-04-23"
-updated_at: "2026-04-24"
+id: task-007-024-update-schema-owner-invariant
+type: TASK
+title: Update schema.md to enforce single owner invariant
+status: COMPLETED
+owner_persona: coder
+created_at: '2026-04-23'
+updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-007-schema-invariant.md"
+parent: .foundry/stories/story-007-schema-invariant.md
+rejection_reason: ''
 ---
 
 # Update schema.md to enforce single owner invariant

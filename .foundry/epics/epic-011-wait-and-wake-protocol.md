@@ -1,19 +1,20 @@
 ---
 id: epic-011-wait-and-wake-protocol
 type: EPIC
-title: "Wait & Wake Protocol and Impossible Loop"
-status: "COMPLETED"
+title: Wait & Wake Protocol and Impossible Loop
+status: COMPLETED
 owner_persona: story_owner
-created_at: "2026-04-23"
-updated_at: "2026-04-25"
+created_at: '2026-04-23'
+updated_at: '2026-04-25'
 depends_on:
   - .foundry/epics/epic-010-persona-permissions.md
 jules_session_id: null
-parent: ".foundry/prds/prd-005-010-late-binding-orchestrator.md"
+parent: .foundry/prds/prd-005-010-late-binding-orchestrator.md
 tags:
   - foundry-v2
   - architecture
   - orchestration
+rejection_reason: ''
 ---
 
 # Wait & Wake Protocol and Impossible Loop

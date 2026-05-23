@@ -3,9 +3,9 @@ id: story-032-064-gen3-encounter-integration
 type: STORY
 title: Integrate Gen 3 Encounter Data into Engine
 status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-05-17"
-updated_at: "2026-05-17"
+owner_persona: story_owner
+created_at: '2026-05-17'
+updated_at: '2026-05-17'
 depends_on:
   - story-032-063-gen3-msgpack-transition
   - story-032-062-gen3-data-generation-scripts
@@ -15,7 +15,8 @@ tags:
   - gen3
   - data
   - msgpack
-notes: ""
+notes: ''
+rejection_reason: ''
 ---
 
 # Integrate Gen 3 Encounter Data into Engine

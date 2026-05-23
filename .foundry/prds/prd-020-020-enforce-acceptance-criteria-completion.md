@@ -14,6 +14,7 @@ tags: []
 research_references: []
 rejection_count: 1
 notes: ''
+rejection_reason: ''
 ---
 
 # Enforce Acceptance Criteria Checkbox Completion PRD

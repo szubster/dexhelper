@@ -1,17 +1,20 @@
 ---
 id: epic-005-shadow-dispatch-prevention
 type: EPIC
-title: "Shadow Dispatch Prevention & Cross-Branch Locks"
-status: "COMPLETED"
+title: Shadow Dispatch Prevention & Cross-Branch Locks
+status: COMPLETED
 owner_persona: story_owner
-created_at: "2026-04-21"
-updated_at: "2026-04-22"
+created_at: '2026-04-21'
+updated_at: '2026-04-22'
 depends_on: []
 jules_session_id: null
 parent: .foundry/prds/prd-001-distributed-ids.md
-tags: ["orchestrator", "concurrency"]
+tags:
+  - orchestrator
+  - concurrency
 rejection_count: 1
-notes: ""
+notes: ''
+rejection_reason: ''
 ---
 
 # Epic: Shadow Dispatch Prevention & Cross-Branch Locks

@@ -14,6 +14,7 @@ tags:
   - store
   - indexeddb
   - hydration
+rejection_reason: ''
 ---
 
 # Implement Async Startup Hydration

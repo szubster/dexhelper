@@ -55,10 +55,10 @@ function validateSchema() {
   const otherRegex = /^(prd|epic|story|task|research)-\d{3}(-\d{3})?(-[a-z0-9-]+)?$/;
 
   const validTypes = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH'];
-  const validStatuses = ['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
+  const validStatuses = ['PENDING', 'READY', 'ACTIVE', 'VERIFYING', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
   const validPersonas = [
     'product_manager', 'epic_planner', 'story_owner', 'architect',
-    'tech_lead', 'coder', 'qa', 'human', 'tpm', 'agile_coach', 'researcher'
+    'tech_lead', 'coder', 'qa', 'human', 'tpm', 'agile_coach', 'researcher', 'auditor'
   ];
 
   const validMappings: Record<string, string[]> = {
@@ -111,7 +111,7 @@ function validateSchema() {
     }
 
     // 2.5 Validate persona mapping
-    if (type && owner_persona && owner_persona !== 'human' && owner_persona !== 'tpm' && owner_persona !== 'agile_coach') {
+    if (type && owner_persona && !['human', 'tpm', 'agile_coach', 'auditor'].includes(owner_persona)) {
       const allowedPersonas = validMappings[type as string] || [];
       if (!allowedPersonas.includes(owner_persona)) {
         console.error(`Error: Invalid mapping: ${type} node '${file}' cannot be owned by '${owner_persona}'`);
@@ -126,7 +126,7 @@ function validateSchema() {
         console.error(`Error: Missing rejection_reason for FAILED node in file ${file}`);
         hasError = true;
       }
-    } else if (status === 'ACTIVE' || status === 'COMPLETED' || status === 'READY') {
+    } else if (['ACTIVE', 'COMPLETED', 'READY', 'VERIFYING'].includes(status)) {
       // Proactively ensure rejection_reason is populated if it exists to prevent edge-case validation failures
       // during transitions, but do not fail for non-FAILED nodes unless it's explicitly malformed.
       const reason = data['rejection_reason'];

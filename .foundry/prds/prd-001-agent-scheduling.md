@@ -1,17 +1,19 @@
 ---
-id: "prd-001-agent-scheduling"
-type: "PRD"
-title: "Agent Scheduling"
-status: "COMPLETED"
-owner_persona: "epic_planner"
-created_at: "2026-04-21"
-updated_at: "2026-04-21"
+id: prd-001-agent-scheduling
+type: PRD
+title: Agent Scheduling
+status: COMPLETED
+owner_persona: epic_planner
+created_at: '2026-04-21'
+updated_at: '2026-04-21'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-002-tpm-scheduling.md"
-tags: ["infrastructure"]
+parent: .foundry/ideas/idea-002-tpm-scheduling.md
+tags:
+  - infrastructure
 rejection_count: 0
-notes: ""
+notes: ''
+rejection_reason: ''
 ---
 
 # Agent Scheduling PRD
