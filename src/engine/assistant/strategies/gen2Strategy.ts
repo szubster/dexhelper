@@ -24,6 +24,8 @@ export const gen2Strategy: AssistantStrategy = {
     const missingSet = new Set(missingIds);
 
     // 1. Roamer tracking
+    // ⚡ Bolt: converted roamingLegendaries to a Map keyed by speciesId to optimize O(N) loop lookup
+    const roamerMap = new Map(saveData.roamingLegendaries?.map((r) => [r.speciesId, r]));
     const roamers = [
       { id: 243, name: 'Raikou' },
       { id: 244, name: 'Entei' },
@@ -32,11 +34,9 @@ export const gen2Strategy: AssistantStrategy = {
     for (const roamer of roamers) {
       if (missingSet.has(roamer.id)) {
         let isTracked = false;
-        if (saveData.roamingLegendaries) {
-          const rData = saveData.roamingLegendaries.find((r) => r.speciesId === roamer.id);
-          if (rData && rData.mapId !== 0) {
-            isTracked = true;
-          }
+        const rData = roamerMap.get(roamer.id);
+        if (rData && rData.mapId !== 0) {
+          isTracked = true;
         }
 
         suggestions.push({
