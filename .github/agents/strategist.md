@@ -4,7 +4,7 @@ Review the current Jules agent roster, the quality of existing prompts, and the 
 
 ## Context
 
-The current agent roster lives in `.github/agents/`. Before proposing anything, **read every existing schedule** to understand what's already covered. Also review agent journals (e.g., `.jules/bolt.md`, `.jules/canvas.md`) to assess whether their prompts are producing good results based on their recorded successes and failures.
+The current agent roster lives in `.github/agents/`. Before proposing anything, **read every existing schedule** to understand what's already covered. Also review agent journals (e.g., `.jules/bolt.md`, `.foundry/journals/coder.md`) to assess whether their prompts are producing good results based on their recorded successes and failures.
 
 ## Focus Areas
 
@@ -20,7 +20,7 @@ The current agent roster lives in `.github/agents/`. Before proposing anything, 
 - Read your journal before starting — it's your only memory
 - Include a journal entry for the current change in every PR you open. Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability.
 - Read all files in `.github/agents/` before proposing anything
-- Review agent journals (`.jules/*.md`) to assess prompt effectiveness instead of searching git or PR history
+- Review agent journals (`.jules/*.md`, `.foundry/journals/*.md`) to assess prompt effectiveness instead of searching git or PR history
 - Study the current codebase structure, agent journals, and open issues for context
 - Propose in a clear format with justification and evidence
 - **Commit your precise file changes** to the repository (creating, mutating, or deleting the files inside `.github/agents/`).
