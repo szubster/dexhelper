@@ -45,8 +45,11 @@ export function SettingsControls({
       >
         <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Game Version">
           {versions.map((v) => (
+            // oxlint-disable jsx-a11y/prefer-tag-over-role
+            // biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling
             <button
               key={v.id}
+              role="radio"
               type="button"
               onClick={() => setManualVersion(v.id === 'unknown' ? null : v.id)}
               className={`rounded-none border border-dashed px-3 py-2 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
@@ -54,7 +57,7 @@ export function SettingsControls({
                   ? 'border-blue-500 bg-blue-500/20 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.3)]'
                   : 'border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300'
               }`}
-              aria-pressed={effectiveVersion === v.id || (v.id === 'unknown' && effectiveVersion === 'unknown')}
+              aria-checked={effectiveVersion === v.id || (v.id === 'unknown' && effectiveVersion === 'unknown')}
             >
               {v.label}
             </button>
@@ -108,8 +111,11 @@ export function SettingsControls({
       >
         <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Ball Style">
           {filteredPokeballs.map((pb) => (
+            // oxlint-disable jsx-a11y/prefer-tag-over-role
+            // biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling
             <button
               key={pb.value}
+              role="radio"
               type="button"
               onClick={() => setGlobalPokeball(pb.value as PokeballType)}
               className={`flex flex-col items-center justify-center gap-1.5 rounded-none border border-dashed py-3 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
@@ -117,7 +123,7 @@ export function SettingsControls({
                   ? 'border-amber-500 bg-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)]'
                   : 'border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300'
               }`}
-              aria-pressed={globalPokeball === pb.value}
+              aria-checked={globalPokeball === pb.value}
             >
               <div
                 className={`h-4 w-4 rounded-none border ${
