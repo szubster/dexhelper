@@ -2,10 +2,10 @@
 id: story-028-043-migrate-heartbeat-to-gray-matter
 type: STORY
 title: Rewrite heartbeat regex mutations using gray-matter
-status: "COMPLETED"
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-08'
-updated_at: "2026-05-10"
+updated_at: '2026-05-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,4 +36,4 @@ In `.github/scripts/foundry-heartbeat.ts`, we currently use fragile regex patter
 
 ### Child Tasks:
 - [.foundry/tasks/task-043-073-refactor-heartbeat-matter.md](.foundry/tasks/task-043-073-refactor-heartbeat-matter.md)
-- [.foundry/tasks/task-043-074-qa-refactor-heartbeat-matter.md](.foundry/tasks/task-043-074-qa-refactor-heartbeat-matter.md)
+- [.foundry/tasks/task-043-074-qa-refactor-heartbeat-matter.md](.foundry/archive/tasks/task-043-074-qa-refactor-heartbeat-matter.md)
