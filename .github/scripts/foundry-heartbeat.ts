@@ -112,17 +112,32 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     }
   }
 
-  parsed.data.status = "COMPLETED";
-  parsed.data.jules_session_id = null;
-  parsed.data.updated_at = dateStr;
+  const nodeType = parsed.data.type || node.frontmatter.type;
+  if (["IDEA", "PRD", "EPIC"].includes(nodeType)) {
+    parsed.data.status = "VERIFYING";
+    parsed.data.jules_session_id = null;
+    parsed.data.updated_at = dateStr;
 
-  const newContent = matter.stringify(parsed.content, parsed.data);
+    const newContent = matter.stringify(parsed.content, parsed.data);
 
-  if (!DRY_RUN) {
-    fs.writeFileSync(node.filePath, newContent, 'utf-8');
-    logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged. \`${node.frontmatter.id}\` is now COMPLETED.\n`);
+    if (!DRY_RUN) {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged. \`${node.frontmatter.id}\` is now VERIFYING.\n`);
+    }
+    info(`${dryTag}Transitioned ACTIVE → VERIFYING: ${node.repoPath} (PR #${prNumber})`);
+  } else {
+    parsed.data.status = "COMPLETED";
+    parsed.data.jules_session_id = null;
+    parsed.data.updated_at = dateStr;
+
+    const newContent = matter.stringify(parsed.content, parsed.data);
+
+    if (!DRY_RUN) {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged. \`${node.frontmatter.id}\` is now COMPLETED.\n`);
+    }
+    info(`${dryTag}Transitioned ACTIVE → COMPLETED: ${node.repoPath} (PR #${prNumber})`);
   }
-  info(`${dryTag}Transitioned ACTIVE → COMPLETED: ${node.repoPath} (PR #${prNumber})`);
 }
 
 /** Surgical mutation back to READY (Resurrection) */
@@ -145,15 +160,28 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
     }
     info(`${dryTag}Max rejection count reached → FAILED: ${node.repoPath} (${reason})`);
   } else {
-    parsed.data.status = "READY";
-    parsed.data.jules_session_id = null;
-    const newContent = matter.stringify(parsed.content, parsed.data);
+    const currentStatus = parsed.data.status || node.frontmatter.status;
+    if (currentStatus === "VERIFYING") {
+      parsed.data.status = "VERIFYING";
+      parsed.data.jules_session_id = null;
+      const newContent = matter.stringify(parsed.content, parsed.data);
 
-    if (!DRY_RUN) {
-      fs.writeFileSync(node.filePath, newContent, 'utf-8');
-      logToJournal(repoRoot, `\n- **${dateStr}**: Resurrection Loop triggered for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY.\n`);
+      if (!DRY_RUN) {
+        fs.writeFileSync(node.filePath, newContent, 'utf-8');
+        logToJournal(repoRoot, `\n- **${dateStr}**: Resurrection Loop triggered for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to VERIFYING.\n`);
+      }
+      info(`${dryTag}Resurrected → VERIFYING: ${node.repoPath} (${reason})`);
+    } else {
+      parsed.data.status = "READY";
+      parsed.data.jules_session_id = null;
+      const newContent = matter.stringify(parsed.content, parsed.data);
+
+      if (!DRY_RUN) {
+        fs.writeFileSync(node.filePath, newContent, 'utf-8');
+        logToJournal(repoRoot, `\n- **${dateStr}**: Resurrection Loop triggered for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY.\n`);
+      }
+      info(`${dryTag}Resurrected → READY: ${node.repoPath} (${reason})`);
     }
-    info(`${dryTag}Resurrected → READY: ${node.repoPath} (${reason})`);
   }
 }
 
@@ -164,17 +192,33 @@ export async function transitionNodeToReadyWithoutPenalty(node: any, repoRoot: s
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
   const parsed = matter(node.rawContent);
-  parsed.data.status = "READY";
-  parsed.data.jules_session_id = null;
-  parsed.data.updated_at = dateStr;
 
-  const newContent = matter.stringify(parsed.content, parsed.data);
+  const currentStatus = parsed.data.status || node.frontmatter.status;
+  if (currentStatus === "VERIFYING") {
+    parsed.data.status = "VERIFYING";
+    parsed.data.jules_session_id = null;
+    parsed.data.updated_at = dateStr;
 
-  if (!DRY_RUN) {
-    fs.writeFileSync(node.filePath, newContent, 'utf-8');
-    logToJournal(repoRoot, `\n- **${dateStr}**: System failure detected for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY without penalty.\n`);
+    const newContent = matter.stringify(parsed.content, parsed.data);
+
+    if (!DRY_RUN) {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: System failure detected for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to VERIFYING without penalty.\n`);
+    }
+    info(`${dryTag}System failure detected → VERIFYING: ${node.repoPath} (${reason})`);
+  } else {
+    parsed.data.status = "READY";
+    parsed.data.jules_session_id = null;
+    parsed.data.updated_at = dateStr;
+
+    const newContent = matter.stringify(parsed.content, parsed.data);
+
+    if (!DRY_RUN) {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: System failure detected for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY without penalty.\n`);
+    }
+    info(`${dryTag}System failure detected → READY: ${node.repoPath} (${reason})`);
   }
-  info(`${dryTag}System failure detected → READY: ${node.repoPath} (${reason})`);
 }
 
 /** Robust discovery: Jules Session -> GitHub Search -> GitHub List */
@@ -279,18 +323,18 @@ export async function main() {
   for (const fp of filePaths) {
     const node = parseNodeFile(fp, repoRoot);
     if (!node) continue;
-    if (node.frontmatter.status === 'ACTIVE') activeNodes.push(node);
+    if (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING') activeNodes.push(node);
     if (node.frontmatter.status === 'FAILED') failedNodes.push(node);
   }
 
-  info(`Monitoring ${activeNodes.length} ACTIVE and ${failedNodes.length} FAILED nodes.`);
+  info(`Monitoring ${activeNodes.length} ACTIVE/VERIFYING and ${failedNodes.length} FAILED nodes.`);
 
   // --- Pass 1: Check ACTIVE Nodes ---
   for (const node of activeNodes) {
     const sessionId = node.frontmatter.jules_session_id;
     const isHuman = node.frontmatter.owner_persona === 'human';
 
-    if (!isHuman && (!sessionId || sessionId === 'null')) {
+    if (!isHuman && (!sessionId || sessionId === 'null') && node.frontmatter.status === 'ACTIVE') {
       warn(`Node ${node.repoPath} is ACTIVE but missing session ID. Failing.`);
       await transitionNodeToFailed(node, repoRoot, 'ACTIVE node missing session ID');
       continue;
