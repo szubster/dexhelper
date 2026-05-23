@@ -3,7 +3,7 @@ id: prd-051-027-dag-kanban-board-view
 type: PRD
 title: DAG Kanban/Scrum Board View
 status: COMPLETED
-owner_persona: architect
+owner_persona: epic_planner
 created_at: '2026-05-19'
 updated_at: '2026-05-20'
 depends_on: []

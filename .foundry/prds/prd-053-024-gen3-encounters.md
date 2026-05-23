@@ -3,7 +3,7 @@ id: prd-053-024-gen3-encounters
 type: PRD
 title: Gen3 Encounters Integration
 status: COMPLETED
-owner_persona: architect
+owner_persona: epic_planner
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []

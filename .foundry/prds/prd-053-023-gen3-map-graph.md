@@ -3,7 +3,7 @@ id: prd-053-023-gen3-map-graph
 type: PRD
 title: Gen3 Map Graph Design
 status: COMPLETED
-owner_persona: architect
+owner_persona: epic_planner
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []

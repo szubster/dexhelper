@@ -3,7 +3,7 @@ id: prd-061-033-emulator-auto-sync
 type: PRD
 title: Emulator Auto-Sync via File System Access API
 status: COMPLETED
-owner_persona: architect
+owner_persona: epic_planner
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on: []

@@ -5,7 +5,7 @@ title: >-
   Introduce 'auditor' persona to verify work and possibly create new nodes based
   on status/learnings
 status: COMPLETED
-owner_persona: architect
+owner_persona: epic_planner
 created_at: '2026-05-20'
 updated_at: '2026-05-21'
 depends_on: []
