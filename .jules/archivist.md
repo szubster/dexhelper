@@ -48,3 +48,7 @@
 ## 2026-07-02
 **Learning:** Multiple agents (Coder, QA, Tech Lead, Sweeper, Testing) were using their journals to log "I did X" actions, task verification records, and status updates instead of critical learnings. This bloats context windows and provides no value to future runs. The Empty PR Policy and Core Agent Policies are centralized, so agents do not need to log routine empty PRs.
 **Action:** Cleared out action logs and status updates from the affected journals. Ensure agents are strictly adhering to only logging universally applicable knowledge or constraints.
+
+## 2026-07-08
+**Learning:** System failures, node state transitions (e.g. from FAILED to READY), and "is now COMPLETED" status log entries in Foundry journals (like `tpm.md`) add zero value to future runs and unnecessarily expand the context window.
+**Action:** Removed all transient status logging from `tpm.md`. Such logs belong in orchestrator execution logs or PR history, not long-term agent journals.
