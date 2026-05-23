@@ -31,7 +31,7 @@ export async function initializeWithSave(
         const STORE_NAME = 'saves';
 
         const db = await new Promise<IDBDatabase>((resolve, reject) => {
-          const request = indexedDB.open(SAVE_DB_NAME, 1);
+          const request = indexedDB.open(SAVE_DB_NAME, 2);
           request.onupgradeneeded = (event) => {
             const db = (event.target as IDBOpenDBRequest).result;
             if (!db.objectStoreNames.contains(STORE_NAME)) {

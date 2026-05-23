@@ -31,6 +31,6 @@ Set up a background polling loop to detect `.sav` file changes using the `lastMo
 - Pass the raw `ArrayBuffer` to DexHelper's existing parsing engine and update the global application state to hydrate the "Live Tracker" view.
 
 ## Acceptance Criteria
-- [ ] Polling loop respects the 2-5 second interval using `lastModified`.
-- [ ] File changes are successfully detected and read as `ArrayBuffer`.
-- [ ] Global state is hydrated with the parsed `ArrayBuffer` data.
+- [x] Polling loop respects the 2-5 second interval using `lastModified`.
+- [x] File changes are successfully detected and read as `ArrayBuffer`.
+- [x] Global state is hydrated with the parsed `ArrayBuffer` data.

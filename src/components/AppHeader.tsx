@@ -1,7 +1,8 @@
 import { Link } from '@tanstack/react-router';
-import { Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
+import { Activity, Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
 import type { SaveData } from '../engine/saveParser';
+import { useFileSyncController } from '../hooks/useFileSyncController';
 import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
@@ -22,6 +23,7 @@ export function AppHeader({
   setIsVersionModalOpen,
   handleFileUpload,
 }: AppHeaderProps) {
+  const { status: syncStatus, requestSync, resumeSync, hasStoredHandle } = useFileSyncController();
   return (
     <header className="sticky top-2 z-40 flex flex-col items-center justify-between gap-6 border-white/5 border-b bg-zinc-950/80 px-4 py-6 backdrop-blur-xl sm:px-8 sm:py-10 lg:flex-row">
       <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
@@ -181,6 +183,38 @@ export function AppHeader({
             >
               <Settings2 size={20} />
             </TacticalButton>
+            {hasStoredHandle && syncStatus === 'disconnected' ? (
+              <TacticalButton
+                onClick={resumeSync}
+                variant="sidebar"
+                size="icon"
+                hasCrosshairs={true}
+                title="Resume Live Sync"
+                aria-label="Resume Live Sync"
+              >
+                <Activity size={20} className="text-amber-500" />
+              </TacticalButton>
+            ) : (
+              <TacticalButton
+                onClick={requestSync}
+                variant="sidebar"
+                size="icon"
+                hasCrosshairs={true}
+                title="Live Auto-Sync"
+                aria-label="Live Auto-Sync"
+              >
+                <Activity
+                  size={20}
+                  className={
+                    syncStatus === 'live'
+                      ? 'text-emerald-500'
+                      : syncStatus === 'syncing'
+                        ? 'animate-pulse text-blue-500'
+                        : ''
+                  }
+                />
+              </TacticalButton>
+            )}
             <TacticalButton
               onClick={() => document.getElementById('import-save-input')?.click()}
               variant="sidebar"
@@ -203,14 +237,14 @@ export function AppHeader({
           </div>
         </div>
       ) : (
-        <>
+        <div className="flex flex-col gap-4 sm:flex-row">
           <button
             type="button"
             onClick={() => document.getElementById('init-save-input')?.click()}
             className="group slide-in-from-bottom-2 fade-in relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black font-mono text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
           >
             <CornerCrosshairs className="h-2 w-2 border-current" />
-            <Upload size={20} />[ INITIALIZE.SYS ]
+            <Upload size={20} />[ UPLOAD.SYS ]
           </button>
           <input
             id="init-save-input"
@@ -221,7 +255,18 @@ export function AppHeader({
             className="sr-only"
             onChange={handleFileUpload}
           />
-        </>
+
+          {typeof window !== 'undefined' && 'showOpenFilePicker' in window && (
+            <button
+              type="button"
+              onClick={requestSync}
+              className="group slide-in-from-bottom-2 fade-in relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black font-mono text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
+            >
+              <CornerCrosshairs className="h-2 w-2 border-current" />
+              <Activity size={20} />[ LIVE_SYNC.SYS ]
+            </button>
+          )}
+        </div>
       )}
     </header>
   );

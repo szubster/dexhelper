@@ -46,3 +46,6 @@ The CEO/Architect has specified that Cloudflare Pages are already deployed using
 
 ## 2026-05-21: Purpose of Wrangler in a Pull-Based Deployment Model
 Even though the project uses Cloudflare's GitHub integration for deployments (Inversion of Control, where Cloudflare polls the repo), the `wrangler` CLI is still a required devDependency. It provides the local emulation environment (`workerd`) necessary to test Cloudflare Workers, Pages, and bindings (like KV or D1) locally during development before committing.
+
+## 2026-05-23
+When using the File System Access API in TypeScript projects, you must install `@types/wicg-file-system-access` and explicitly add it to the `types` array in `tsconfig.json` to resolve missing type errors for `window.showOpenFilePicker` and `FileSystemFileHandle`. Additionally, properties like `queryPermission` and `requestPermission` may still not be perfectly typed on `FileSystemFileHandle` by this package, so you may need to use `as any` and suppress the Biome warning (`// biome-ignore lint/suspicious/noExplicitAny`) to compile.
