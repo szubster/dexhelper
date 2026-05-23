@@ -187,11 +187,7 @@ ok: true,
     await main();
 
     // we need to filter out the cleanup fetch calls before ensuring the regular global fetch wasn't called.
-    const calls = globalFetch.mock.calls.filter(call => {
-      const urlStr = typeof call[0] === "string" ? call[0] : (call[0] as URL).toString();
-      return !urlStr.endsWith('/pulls?state=open') && !urlStr.endsWith('/git/matching-refs/heads/');
-    });
-    // expect(calls.length).toBe(0); // Github list PRs is called for remote branch cleanup
+    // Github list PRs is called for remote branch cleanup
     expect(fs.writeFileSync).toHaveBeenCalled();
   });
 
@@ -662,10 +658,6 @@ status: ACTIVE
 
       await main();
 
-      const calls = globalFetch.mock.calls.filter(call => {
-        const urlStr = typeof call[0] === "string" ? call[0] : (call[0] as URL).toString();
-        return !urlStr.endsWith('/pulls?state=open') && !urlStr.endsWith('/git/matching-refs/heads/');
-      });
       // Github list PRs is called for remote branch cleanup, so there might be calls
       // The important part is that we don't write to the file
       expect(fs.writeFileSync).not.toHaveBeenCalled();
