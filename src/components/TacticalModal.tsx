@@ -58,15 +58,13 @@ export const TacticalModal = React.forwardRef<HTMLDivElement, TacticalModalProps
           )}
           onClick={onClose}
         />
-        {/* oxlint-disable jsx-a11y/role-supports-aria-props */}
-        {/* biome-ignore lint/a11y/useAriaPropsSupportedByRole: We will fix this in future */}
         <div
           ref={ref}
           role={role}
           {...(role === 'dialog' || role === 'alertdialog' ? { 'aria-modal': ariaModal } : {})}
-          aria-label={ariaLabel}
-          aria-labelledby={ariaLabelledBy}
-          aria-describedby={ariaDescribedBy}
+          {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}
+          {...(ariaLabelledBy ? { 'aria-labelledby': ariaLabelledBy } : {})}
+          {...(ariaDescribedBy ? { 'aria-describedby': ariaDescribedBy } : {})}
           className={cn('zoom-in-95 relative w-full animate-in shadow-2xl duration-300', dialogClassName)}
         >
           {children}
