@@ -46,3 +46,6 @@
 
 ## Data Integrity - Gen 1 NPC Trades (Extended)
 * **ROM parsing quirks / Data Pipeline Gotchas:** In Gen 1, the `tradeIndex` mapping in `STATIC_NPC_TRADE_DATA` must exactly correspond to the zero-indexed position of the `npctrade` macro call within `data/events/trades.asm` of the respective decompiled ROM (`pokered` or `pokeyellow`). For example, the `Lickitung for Dugtrio` trade (GURIO) is index 0 in Yellow, while the `Nidorino for Nidorina` trade (TERRY) is index 0 in Red/Blue. Mismatching `tradeIndex` leads to the save parser incorrectly reading the `wCompletedInGameTradeFlags` bitmask, causing the app to erroneously suggest or hide trades the player has already completed. Furthermore, the `offeredId` and `receivedId` must be strictly verified against PokeAPI standard IDs (e.g., Venonat is 48, not 49).
+
+## Data Integrity - Gen 1/2 Exclusives Refactoring
+* **Data Pipeline Gotchas:** The Gen 1 and Gen 2 version exclusive lists were missing some unobtainable Pokémon, or listing some as unobtainable when they are in fact obtainable. For example, Gen 1 Yellow exclusives missed a few entries, and Gen 2 Crystal missing exclusives also lacked some entries (like Arcanine / Growlithe line). PokeAPI encounters are the source of truth for base-form availability, but one must carefully check all versions (`version_details`) in the encounter data.

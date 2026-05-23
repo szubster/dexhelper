@@ -55,7 +55,7 @@ describe('STATIC_NPC_TRADE_DATA', () => {
     it('should correctly define Venonat for Tangela (CRINKLES)', () => {
       const trade = STATIC_NPC_TRADE_DATA.find((t) => t.receivedOtName === 'CRINKLES' && t.versions?.includes('red'));
       expect(trade).toBeDefined();
-      expect(trade?.offeredId).toBe(48); // Venonat (was incorrectly 49 before)
+      expect(trade?.offeredId).toBe(48); // Venonat
       expect(trade?.receivedId).toBe(114); // Tangela
       expect(trade?.versions).toContain('blue');
       expect(trade?.tradeIndex).toBe(8); // Index 8 in pokered
