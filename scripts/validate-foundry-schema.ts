@@ -55,7 +55,7 @@ function validateSchema() {
   const otherRegex = /^(prd|epic|story|task|research)-\d{3}(-\d{3})?(-[a-z0-9-]+)?$/;
 
   const validTypes = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH'];
-  const validStatuses = ['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
+  const validStatuses = ['PENDING', 'READY', 'ACTIVE', 'VERIFYING', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
   const validPersonas = [
     'product_manager', 'epic_planner', 'story_owner', 'architect',
     'tech_lead', 'coder', 'qa', 'human', 'tpm', 'agile_coach', 'researcher'
@@ -63,9 +63,9 @@ function validateSchema() {
 
   const validMappings: Record<string, string[]> = {
     IDEA: ['product_manager'],
-    PRD: ['epic_planner', 'architect', 'story_owner'],
+    PRD: ['epic_planner', 'story_owner'],
     EPIC: ['story_owner', 'epic_planner'],
-    STORY: ['tech_lead', 'story_owner', 'coder'],
+    STORY: ['tech_lead', 'story_owner'],
     TASK: ['coder', 'qa', 'tech_lead', 'architect'],
     RESEARCH: ['researcher'],
   };
@@ -126,7 +126,7 @@ function validateSchema() {
         console.error(`Error: Missing rejection_reason for FAILED node in file ${file}`);
         hasError = true;
       }
-    } else if (status === 'ACTIVE' || status === 'COMPLETED' || status === 'READY') {
+    } else if (status === 'ACTIVE' || status === 'COMPLETED' || status === 'READY' || status === 'VERIFYING') {
       // Proactively ensure rejection_reason is populated if it exists to prevent edge-case validation failures
       // during transitions, but do not fail for non-FAILED nodes unless it's explicitly malformed.
       const reason = data['rejection_reason'];
