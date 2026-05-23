@@ -25,5 +25,5 @@ notes: ''
 Implement the "Alive" team view for the Run Dashboard UI.
 
 ## Acceptance Criteria
-- [ ] Implement the UI to display the current "Alive" Nuzlocke team.
-- [ ] Ensure the UI components match the Nuzlocke Tracker mode requirements.
+- [x] Implement the UI to display the current "Alive" Nuzlocke team.
+- [x] Ensure the UI components match the Nuzlocke Tracker mode requirements.

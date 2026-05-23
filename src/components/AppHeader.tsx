@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
+import { Database, LayoutGrid, Map as MapIcon, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
@@ -79,6 +79,22 @@ export function AppHeader({
               <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
               <Database size={14} />
               SYS.STRG
+            </Link>
+
+            <Link
+              to="/run"
+              activeProps={{
+                className:
+                  'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+              }}
+              inactiveProps={{
+                className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+              }}
+              className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            >
+              <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+              <MapIcon size={14} />
+              SYS.RUN
             </Link>
             <Link
               to="/assistant"
