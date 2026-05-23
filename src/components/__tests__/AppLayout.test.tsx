@@ -130,7 +130,7 @@ describe('AppLayout file upload', () => {
       </QueryClientProvider>,
     );
 
-    const button = page.getByText('[ INITIALIZE.SYS ]');
+    const button = page.getByText('[ UPLOAD.SYS ]');
     await expect.element(button).toBeInTheDocument();
 
     const input = document.getElementById('init-save-input') as HTMLInputElement;
@@ -183,7 +183,7 @@ describe('AppLayout file upload', () => {
 
     const file = new File(['mock save content'], 'save.sav', { type: 'application/octet-stream' });
 
-    await expect.element(page.getByText('[ INITIALIZE.SYS ]')).toBeInTheDocument();
+    await expect.element(page.getByText('[ UPLOAD.SYS ]')).toBeInTheDocument();
 
     // biome-ignore lint/suspicious/noExplicitAny: Required for mock overriding context
     const readAsArrayBufferMock = vi.fn<(_f: File) => void>(function (this: any, _f: File) {
