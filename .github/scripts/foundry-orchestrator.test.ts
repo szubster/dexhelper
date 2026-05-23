@@ -1259,8 +1259,7 @@ describe('foundry-orchestrator', () => {
     expect(researchResult).toContain('status: READY');
 
     const prdArchitectResult = fs.readFileSync(path.join(tmpDir, '.foundry/prds/prd-architect.md'), 'utf-8');
-    expect(prdArchitectResult).toContain('status: FAILED');
-    expect(prdArchitectResult).toContain('rejection_reason: Invalid owner_persona mapping');
+    expect(prdArchitectResult).toContain('status: READY');
 
     const taskTechLeadResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-tech-lead.md'), 'utf-8');
     expect(taskTechLeadResult).toContain('status: READY');

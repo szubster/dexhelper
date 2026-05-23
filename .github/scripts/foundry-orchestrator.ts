@@ -472,7 +472,7 @@ function main(): void {
       return true;
     }
 
-    if (node.frontmatter.status !== 'COMPLETED') {
+    if (node.frontmatter.status !== 'COMPLETED' && node.frontmatter.status !== 'CANCELLED') {
       evalCache.set(cacheKey, true);
       return true;
     }
@@ -764,7 +764,7 @@ function main(): void {
         // Parent is PENDING and has children. Check if ALL children are COMPLETED.
         let allChildrenCompleted = true;
         for (const child of children) {
-          if (child.frontmatter.status !== 'COMPLETED') {
+          if (child.frontmatter.status !== 'COMPLETED' && child.frontmatter.status !== 'CANCELLED') {
             allChildrenCompleted = false;
             break;
           }
@@ -870,7 +870,7 @@ function main(): void {
   const validatedEligible: ParsedNode[] = [];
   const validMappings: Record<string, string[]> = {
     IDEA: ['product_manager'],
-    PRD: ['epic_planner', 'story_owner'],
+    PRD: ['epic_planner', 'story_owner', 'architect'],
     EPIC: ['story_owner', 'epic_planner'],
     STORY: ['tech_lead', 'story_owner'],
     TASK: ['coder', 'qa', 'tech_lead', 'architect'],
