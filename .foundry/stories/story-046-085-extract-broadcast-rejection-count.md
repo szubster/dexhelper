@@ -2,7 +2,7 @@
 id: story-046-085-extract-broadcast-rejection-count
 type: STORY
 title: Extract and Broadcast Rejection Count in DAG Data Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-23'
 updated_at: '2026-05-23'

@@ -2,12 +2,12 @@
 id: task-071-134-run-dashboard-ui-impl
 type: TASK
 title: Implement Dashboard Alive Team View
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-23'
 depends_on: []
-jules_session_id: '12322644655197702391'
+jules_session_id: null
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:

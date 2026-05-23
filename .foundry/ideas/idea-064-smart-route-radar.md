@@ -2,7 +2,7 @@
 id: idea-064-smart-route-radar
 type: IDEA
 title: Smart Route Radar / Context-Aware Missing Encounter Map
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-05-23'
 updated_at: '2026-05-23'
@@ -17,8 +17,8 @@ tags:
   - exploration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Idea: Smart Route Radar / Context-Aware Missing Encounter Map
