@@ -1,14 +1,15 @@
 ---
-id: "task-028-046-verify-jest-rules-resolution"
-type: "TASK"
-title: "Verify jest rules fix resolution"
-status: "COMPLETED"
-owner_persona: "coder"
-created_at: "2026-04-26"
-updated_at: "2026-04-26"
+id: task-028-046-verify-jest-rules-resolution
+type: TASK
+title: Verify jest rules fix resolution
+status: COMPLETED
+owner_persona: coder
+created_at: '2026-04-26'
+updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/archive/stories/story-010-028-verify-jest-tests.md"
+parent: .foundry/archive/stories/story-010-028-verify-jest-tests.md
+rejection_reason: ''
 ---
 
 # Verify jest rules fix resolution

@@ -15,6 +15,7 @@ tags:
   - orchestrator
   - validation
 notes: ''
+rejection_reason: ''
 ---
 
 # Idea: Enforce Acceptance Criteria on Empty PRs

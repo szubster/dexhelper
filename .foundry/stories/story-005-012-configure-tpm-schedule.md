@@ -1,17 +1,19 @@
 ---
 id: story-005-012-configure-tpm-schedule
 type: STORY
-title: "Configure TPM Schedule"
-status: "COMPLETED"
+title: Configure TPM Schedule
+status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-23"
-updated_at: "2026-04-24"
+created_at: '2026-04-23'
+updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
 parent: .foundry/epics/epic-005-tpm-agent-scheduling.md
-tags: ["infrastructure"]
+tags:
+  - infrastructure
 rejection_count: 0
-notes: ""
+notes: ''
+rejection_reason: ''
 ---
 
 # Configure TPM Schedule

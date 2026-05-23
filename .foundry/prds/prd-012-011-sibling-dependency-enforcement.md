@@ -1,16 +1,20 @@
 ---
 id: prd-012-011-sibling-dependency-enforcement
 type: PRD
-title: "Sibling Dependency Enforcement"
-status: "COMPLETED"
-owner_persona: "architect"
-created_at: "2026-05-01"
-updated_at: "2026-05-02"
+title: Sibling Dependency Enforcement
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-05-01'
+updated_at: '2026-05-02'
 depends_on: []
 jules_session_id: null
 parent: .foundry/ideas/idea-012-sibling-dependency-enforcement.md
-tags: ["orchestrator", "dag", "reliability"]
-notes: ""
+tags:
+  - orchestrator
+  - dag
+  - reliability
+notes: ''
+rejection_reason: ''
 ---
 
 # PRD: Sibling Dependency Enforcement

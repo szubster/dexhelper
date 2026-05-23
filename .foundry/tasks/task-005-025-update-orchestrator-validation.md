@@ -1,14 +1,15 @@
 ---
 id: task-005-025-update-orchestrator-validation
 type: TASK
-title: "Update Orchestrator Validation for Parent-Linked ID Schema"
-status: "COMPLETED"
+title: Update Orchestrator Validation for Parent-Linked ID Schema
+status: COMPLETED
 owner_persona: coder
-created_at: "2026-04-23"
-updated_at: "2026-04-25"
+created_at: '2026-04-23'
+updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-005-id-schema-templates.md
+rejection_reason: ''
 ---
 
 # Task: Update Orchestrator Validation for Parent-Linked ID Schema

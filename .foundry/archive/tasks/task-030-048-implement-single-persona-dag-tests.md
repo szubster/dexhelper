@@ -1,15 +1,19 @@
 ---
-id: "task-030-048-implement-single-persona-dag-tests"
-type: "TASK"
-title: "Task: Implement Single-Persona DAG Resolution Unit Tests"
-status: "COMPLETED"
-owner_persona: "coder"
-created_at: "2026-04-27"
-updated_at: "2026-04-28"
+id: task-030-048-implement-single-persona-dag-tests
+type: TASK
+title: 'Task: Implement Single-Persona DAG Resolution Unit Tests'
+status: COMPLETED
+owner_persona: coder
+created_at: '2026-04-27'
+updated_at: '2026-04-28'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/archive/stories/story-009-030-single-persona-dag-tests.md"
-tags: ["v2-architecture", "lifecycle", "atomic-handoffs"]
+parent: .foundry/archive/stories/story-009-030-single-persona-dag-tests.md
+tags:
+  - v2-architecture
+  - lifecycle
+  - atomic-handoffs
+rejection_reason: ''
 ---
 
 # Task: Implement Single-Persona DAG Resolution Unit Tests

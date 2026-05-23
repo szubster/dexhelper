@@ -15,6 +15,7 @@ tags:
   - orchestrator
   - validation
 notes: ''
+rejection_reason: ''
 ---
 
 # PRD: Enforce Acceptance Criteria on Empty PRs

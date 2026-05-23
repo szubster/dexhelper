@@ -14,6 +14,7 @@ depends_on:
 jules_session_id: null
 parent: .foundry/ideas/idea-007-migrate-saves-to-indexeddb.md
 tags: []
+rejection_reason: ''
 ---
 
 # PRD: Migrate Save Data Storage to IndexedDB

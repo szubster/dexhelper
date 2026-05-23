@@ -1,11 +1,11 @@
 ---
 id: task-029-047-write-gastown-adr
 type: TASK
-title: "Write Gastown Migration ADR"
-status: "COMPLETED"
-owner_persona: "coder"
-created_at: "2026-04-26"
-updated_at: "2026-04-28"
+title: Write Gastown Migration ADR
+status: COMPLETED
+owner_persona: coder
+created_at: '2026-04-26'
+updated_at: '2026-04-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,6 +15,7 @@ tags:
   - architecture
   - orchestration
 rejection_count: 0
+rejection_reason: ''
 ---
 
 # Write Gastown Migration ADR
