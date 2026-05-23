@@ -66,3 +66,11 @@
 - **Key Learnings**:
   - Separating `labelClassName` and `valueClassName` allows for necessary typographic variations (like alignment or colors) while still leveraging the base structural pattern.
   - Always manually verify existing files using tools like `grep` before attempting substitutions, as files may have drifted from expected state.
+
+## TacticalRadioGroup Extraction
+- **What**: Extracted the repeating custom segmented control/radio group pattern (used for Game Version, Living Dex Mode, Ball Style, Target Status, etc.) into a reusable `TacticalRadioGroup` and `TacticalRadioGroupItem` pair using React Context.
+- **Why**: Reduced duplicated JSX and highly repetitive Tailwind tactical styling variants (blue, emerald, amber, primary, zinc). Crucially, this standardized and fixed accessibility by ensuring `role="radiogroup"` and `role="radio"` and the use of `aria-checked` instead of `aria-pressed`.
+- **Key Learnings**:
+  - When standardizing compound components like radio groups that need to pass state/handlers to children, React Context (`createContext`) is effective to prevent prop drilling and keep the child item usage clean.
+  - Omit native DOM properties that clash with custom interface types using TypeScript utility types (e.g., `Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>`).
+  - When mapping custom layout variants in Tailwind (e.g., grid vs flex layouts in segmented controls), it's important to not only pass layout props but abstract the structural CSS completely, so consumers do not need to understand the grid gap or flex border styling requirements.
