@@ -32,8 +32,12 @@ Implement backend data parsing logic to calculate Gen 2 DVs (Determinant Values)
 - Ensure the logic accurately identifies both shiny Pokémon and non-shiny Pokémon that carry the gene.
 
 ## Acceptance Criteria
-- [ ] Logic correctly decodes Gen 2 DVs from binary data using `DataView`.
-- [ ] Utility accurately identifies Gen 2 Shiny Carriers based on DV combinations.
+- [x] Logic correctly decodes Gen 2 DVs from binary data using `DataView`.
+- [x] Utility accurately identifies Gen 2 Shiny Carriers based on DV combinations.
 
 ## Next Steps
-- [ ] Tech Lead: Break down into backend Tasks.
+- [x] Tech Lead: Break down into backend Tasks.
+
+## Child Tasks
+- .foundry/tasks/task-082-140-implement-shiny-gene-utility.md
+- .foundry/tasks/task-082-141-qa-shiny-gene-utility.md
