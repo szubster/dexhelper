@@ -46,3 +46,6 @@ The CEO/Architect has specified that Cloudflare Pages are already deployed using
 
 ## 2026-05-21: Purpose of Wrangler in a Pull-Based Deployment Model
 Even though the project uses Cloudflare's GitHub integration for deployments (Inversion of Control, where Cloudflare polls the repo), the `wrangler` CLI is still a required devDependency. It provides the local emulation environment (`workerd`) necessary to test Cloudflare Workers, Pages, and bindings (like KV or D1) locally during development before committing.
+
+## 2026-05-22: Cloudflare Access Plugin Usage
+When using `@cloudflare/pages-plugin-cloudflare-access`, remember that the verified JWT payload is injected into `context.data.cloudflareAccess.JWT.payload`. The `JWT` key is completely uppercase, not lowercase.
