@@ -27,6 +27,11 @@ notes: ''
 Add specific unit tests in `.github/scripts/foundry-orchestrator.test.ts` to verify the functionality of auto-canceling `PENDING` nodes that depend on permanently `FAILED` nodes.
 
 ## Acceptance Criteria
-- [ ] Add unit tests verifying that dependent `PENDING` nodes are correctly transitioned to `CANCELLED` when their dependency hits the max rejection count.
-- [ ] Add unit tests verifying the exact `rejection_reason` string formatting.
-- [ ] Test the anti-loop / cycle prevention mechanisms of the cancellation logic.
+- [x] Add unit tests verifying that dependent `PENDING` nodes are correctly transitioned to `CANCELLED` when their dependency hits the max rejection count.
+- [x] Add unit tests verifying the exact `rejection_reason` string formatting.
+- [x] Test the anti-loop / cycle prevention mechanisms of the cancellation logic.
+
+
+## Tasks
+- .foundry/tasks/task-073-140-impl-cancellation-unit-tests.md
+- .foundry/tasks/task-073-141-qa-cancellation-unit-tests.md
