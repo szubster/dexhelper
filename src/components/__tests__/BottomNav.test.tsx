@@ -66,9 +66,9 @@ describe('BottomNav', () => {
       </QueryClientProvider>,
     );
 
-    await expect.element(getByText('SYS.DEX')).toBeInTheDocument();
-    await expect.element(getByText('SYS.STRG')).toBeInTheDocument();
-    await expect.element(getByText('SYS.ASST')).toBeInTheDocument();
-    await expect.element(getByText('SYS.MENU')).toBeInTheDocument();
+    await expect.element(getByText('[ DEX ]')).toBeInTheDocument();
+    await expect.element(getByText('STRG')).toBeInTheDocument();
+    await expect.element(getByText('ASST')).toBeInTheDocument();
+    await expect.element(getByText('MENU')).toBeInTheDocument();
   });
 });

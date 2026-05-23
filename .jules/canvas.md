@@ -122,3 +122,9 @@
 **Outcome:** Accepted
 **Why:** Brings the interactive inputs of the settings panel in line with the rest of the application's heavily tactical, specialized hardware motif, correcting the generic web UI elements previously used.
 **Pattern:** Consistently eliminate generic web UI patterns (native `<select>` dropdowns, default sliding toggles) in favor of sharp, high-contrast, terminal-like button grids or segmented controls to maintain the specialized device illusion.
+
+## 2026-06-10 - [Accepted] - 🖼️ Canvas: Tactical BottomNav Redesign
+**What:** Redesigned the `BottomNav` component (the mobile bottom navigation bar) to fully embrace the tactical "snooping" hardware aesthetic. Replaced the generic sliding background box with a sharp, dashed-border hardware frame, complete with `CornerCrosshairs` (`border-t-[3px] border-l-[3px]`), a scanning laser line (`animate-[scan_2s_linear_infinite]`), and monospaced bracketed text (e.g. `[ DEX ]`). Added LCD flicker and pulse animations to the active tab to simulate an active terminal state.
+**Outcome:** Accepted
+**Why:** Brings the mobile navigation interface tightly in line with the rest of the application's established tactical hardware motif (matching `AppLayout`, `Grid`, and `Details`), correcting the previous web-standard smooth transitions.
+**Pattern:** Ensure mobile layout structural components adhere to strict tactical aesthetics (sharp borders, corner crosshairs, scanning/flicker animations, monospace telemetry text) rather than generic app-like smoothed navigation bars, to maintain the specialized device illusion.
