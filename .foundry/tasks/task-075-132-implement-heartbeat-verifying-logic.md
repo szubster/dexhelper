@@ -26,5 +26,5 @@ rejection_reason: ''
 - **Constraint**: This task only covers updates to the `foundry-heartbeat.ts` script. Do not modify the DAG schema or orchestrator directly in this task.
 
 ## Acceptance Criteria
-- [ ] `transitionNodeToCompleted` sets status to `VERIFYING` on successful PR merge and validation.
-- [ ] Zombie detection processes `VERIFYING` nodes.
+- [x] `transitionNodeToCompleted` sets status to `VERIFYING` on successful PR merge and validation.
+- [x] Zombie detection processes `VERIFYING` nodes.
