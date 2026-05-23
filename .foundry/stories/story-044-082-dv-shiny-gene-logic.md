@@ -1,11 +1,11 @@
 ---
 id: story-044-082-dv-shiny-gene-logic
 type: STORY
-title: "Parse DVs for Gen 2 Shiny Genes"
-status: PENDING
+title: Parse DVs for Gen 2 Shiny Genes
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-22'
-updated_at: '2026-05-22'
+updated_at: '2026-05-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
