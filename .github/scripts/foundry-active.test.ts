@@ -35,6 +35,22 @@ describe('foundry-active', () => {
     expect(result).toContain('# Body content');
   });
 
+  test('Happy Path: transitions VERIFYING to ACTIVE and sets jules_session_id', () => {
+    const relPath = '.foundry/tasks/task-verifying.md';
+    createValidTestNode(tmpDir, relPath, {
+      id: 'task-verifying',
+      status: 'VERIFYING'
+    }, '# Verification content');
+
+    transitionNodeToActive(relPath, 'sessions/verification-123', tmpDir);
+
+    const result = fs.readFileSync(path.join(tmpDir, relPath), 'utf-8');
+    expect(result).toContain('status: ACTIVE');
+    expect(result).toContain('jules_session_id: sessions/verification-123');
+    expect(result).not.toContain('status: VERIFYING');
+    expect(result).toContain('# Verification content');
+  });
+
   test('Quoted Values: handles READY in quotes correctly', () => {
     const relPath = '.foundry/tasks/task-quoted.md';
     createValidTestNode(tmpDir, relPath, {
@@ -49,14 +65,14 @@ describe('foundry-active', () => {
     expect(result).toContain('jules_session_id: run-quoted');
   });
 
-  test('Validation: fails if node is not READY', () => {
+  test('Validation: fails if node is not READY or VERIFYING', () => {
     const relPath = '.foundry/tasks/task-001.md';
     createValidTestNode(tmpDir, relPath, {
       id: 'task-001',
       status: 'PENDING'
     }, '');
 
-    expect(() => transitionNodeToActive(relPath, 'run-123', tmpDir)).toThrow('Node is not in READY status');
+    expect(() => transitionNodeToActive(relPath, 'run-123', tmpDir)).toThrow('Node is not in READY or VERIFYING status');
   });
 
   test('Strict Check: fails if unexpected field is modified', () => {
