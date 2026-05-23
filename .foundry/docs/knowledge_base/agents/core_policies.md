@@ -24,3 +24,6 @@ Nodes in the Foundry transition from `ACTIVE` to `VERIFYING` after work is compl
 2. **Analysis**: Extract learnings, identify technical debt, or find unresolved questions that arose during execution.
 3. **Node Generation**: Dynamically spawn new downstream nodes (such as `RESEARCH`, `IDEA`, or `ADR` nodes) based on these learnings to capture value that would otherwise be lost when the node is archived.
 4. **Resolution**: If the verification passes, the auditor transitions the node to `COMPLETED`. If it fails or requires a retry, the auditor transitions it to `FAILED` (or sends it back to the resurrection loop) with appropriate feedback.
+
+## Component Integration Policy
+When creating implementation tasks for UI components, explicit integration steps and tests for rendering components must be included to ensure they are properly integrated into the application's view hierarchy. Otherwise, they risk permanent failure for being unlinked and unrenderable.

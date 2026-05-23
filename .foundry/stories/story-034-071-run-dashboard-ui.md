@@ -33,3 +33,6 @@ Build the UI components for the Nuzlocke Tracker mode, including the "Alive" tea
 - [ ] .foundry/tasks/task-071-137-visited-routes-checklist-qa.md
 - [ ] .foundry/tasks/task-071-138-graveyard-integration-impl.md
 - [ ] .foundry/tasks/task-071-139-graveyard-integration-qa.md
+- [ ] .foundry/research/research-071-005-investigate-visited-routes-checklist.md
+- [ ] .foundry/tasks/task-071-140-visited-routes-checklist-retry-impl.md
+- [ ] .foundry/tasks/task-071-141-visited-routes-checklist-retry-qa.md
