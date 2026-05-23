@@ -97,3 +97,9 @@ When replacing store values using `vi.mock()` or mocking data that implements co
 Mocking module exports in Vitest using vi.mock is safer than vi.spyOn for ensuring coverage logic falls through correctly
 * In Vitest, testing arrays mapped in `some()` where an element contains optional properties (like `moves?`) might require full mock data including fallback empty arrays `[]` or mocking both paths to achieve 100% branch coverage.
 * Sometimes edge cases like missing array definitions (e.g. `partyDetails` or `pcDetails` being undefined) must be explicitly tested when using `[...(saveData.partyDetails || [])]`.
+
+## 2026-05-23 - Gen 2 PC Items Save Parser Coverage
+**What:** Added test cases for `src/engine/saveParser/parsers/gen2.ts` covering `pcItems` logic for both Gold/Silver and Crystal saves.
+**Coverage:** Increased `src/engine/saveParser/parsers/gen2.ts` branch coverage from ~82% to ~92%.
+**Why:** The `pcItems` fallback structures (Crystal offset vs Gold/Silver offset) were completely untested, risking regressions.
+**Result:** All critical PC Item extraction logic paths in generation 2 are verified.

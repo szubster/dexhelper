@@ -257,4 +257,48 @@ describe('gen2 parsers', () => {
       });
     });
   });
+
+  describe('parseGen2 - PC Items', () => {
+    it('should parse pcItems correctly for Gold/Silver', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Gold/Silver PC Items offset is 0x247e
+      view.setUint8(0x247e, 2); // 2 items
+      view.setUint8(0x247e + 1, 4); // Item ID 4 (Poke Ball)
+      view.setUint8(0x247e + 2, 10); // Quantity 10
+      view.setUint8(0x247e + 3, 17); // Item ID 17 (Potion)
+      view.setUint8(0x247e + 4, 5); // Quantity 5
+
+      const data = parseGen2(view);
+
+      expect(data.pcItems).toEqual(
+        expect.arrayContaining([
+          { id: 4, quantity: 10 },
+          { id: 17, quantity: 5 },
+        ]),
+      );
+    });
+
+    it('should parse pcItems correctly for Crystal', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Crystal PC Items offset is 0x2460
+      view.setUint8(0x2460, 2); // 2 items
+      view.setUint8(0x2460 + 1, 4); // Item ID 4 (Poke Ball)
+      view.setUint8(0x2460 + 2, 10); // Quantity 10
+      view.setUint8(0x2460 + 3, 17); // Item ID 17 (Potion)
+      view.setUint8(0x2460 + 4, 5); // Quantity 5
+
+      const data = parseGen2(view, true);
+
+      expect(data.pcItems).toEqual(
+        expect.arrayContaining([
+          { id: 4, quantity: 10 },
+          { id: 17, quantity: 5 },
+        ]),
+      );
+    });
+  });
 });
