@@ -1,17 +1,21 @@
 ---
 id: prd-011-009-researcher-persona
 type: PRD
-title: "PRD: Introduce Researcher Persona"
-status: "COMPLETED"
-owner_persona: "architect"
-created_at: "2026-05-01"
-updated_at: "2026-05-02"
+title: 'PRD: Introduce Researcher Persona'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-05-01'
+updated_at: '2026-05-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: ".foundry/ideas/idea-011-researcher-persona.md"
-tags: ["foundry", "persona", "research"]
-notes: ""
+parent: .foundry/ideas/idea-011-researcher-persona.md
+tags:
+  - foundry
+  - persona
+  - research
+notes: ''
+rejection_reason: ''
 ---
 
 # PRD: Introduce Researcher Persona

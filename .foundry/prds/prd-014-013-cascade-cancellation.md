@@ -2,10 +2,10 @@
 id: prd-014-013-cascade-cancellation
 type: PRD
 title: 'PRD: Cascade CANCELLED Statuses'
-status: "COMPLETED"
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-05-03'
-updated_at: "2026-05-03"
+updated_at: '2026-05-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,6 +16,7 @@ tags:
   - orchestrator
   - cancellation
 notes: ''
+rejection_reason: ''
 ---
 
 # Product Requirements Document: Cascade CANCELLED Statuses

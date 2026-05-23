@@ -12,6 +12,7 @@ parent: story-032-062-gen3-data-generation-scripts
 tags:
   - gen3
   - locations
+rejection_reason: ''
 ---
 
 # Investigate Gen 3 Location Data Fetching

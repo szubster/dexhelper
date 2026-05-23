@@ -1,14 +1,15 @@
 ---
 id: story-004-generic-scheduling-workflow
 type: STORY
-title: "Generic Scheduling Mechanism Workflow"
-status: "COMPLETED"
+title: Generic Scheduling Mechanism Workflow
+status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-22"
-updated_at: "2026-04-22"
+created_at: '2026-04-22'
+updated_at: '2026-04-22'
 depends_on: []
 jules_session_id: null
 parent: .foundry/epics/epic-004-generic-agent-scheduling.md
+rejection_reason: ''
 ---
 
 # Generic Scheduling Mechanism Workflow

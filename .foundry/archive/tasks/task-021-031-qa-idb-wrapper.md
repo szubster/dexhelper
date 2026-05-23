@@ -15,6 +15,7 @@ tags:
   - infrastructure
   - persistence
   - qa
+rejection_reason: ''
 ---
 
 # Verify IndexedDB wrapper implementation

@@ -1,16 +1,21 @@
 ---
 id: prd-012-011-gray-matter-parsing
 type: PRD
-title: "PRD: Replace Regex Manipulations with Gray-Matter parsing"
-status: "COMPLETED"
-owner_persona: "architect"
-created_at: "2026-05-01"
-updated_at: "2026-05-02"
+title: 'PRD: Replace Regex Manipulations with Gray-Matter parsing'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-05-01'
+updated_at: '2026-05-02'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/ideas/idea-012-use-gray-matter-parsing.md"
-tags: ["foundry", "parsing", "gray-matter", "maintenance"]
-notes: ""
+parent: .foundry/ideas/idea-012-use-gray-matter-parsing.md
+tags:
+  - foundry
+  - parsing
+  - gray-matter
+  - maintenance
+notes: ''
+rejection_reason: ''
 ---
 
 # PRD: Replace Regex Manipulations with Gray-Matter parsing

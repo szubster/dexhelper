@@ -1,14 +1,15 @@
 ---
-id: "story-010-014-implement-oxlint-config"
-type: "STORY"
-title: "Implement strict oxlint configuration"
-status: "COMPLETED"
-owner_persona: "tech_lead"
-created_at: "2026-04-23"
-updated_at: "2026-04-24"
+id: story-010-014-implement-oxlint-config
+type: STORY
+title: Implement strict oxlint configuration
+status: COMPLETED
+owner_persona: tech_lead
+created_at: '2026-04-23'
+updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-010-oxlint-config.md"
+parent: .foundry/epics/epic-010-oxlint-config.md
+rejection_reason: ''
 ---
 
 # Implement strict oxlint configuration
