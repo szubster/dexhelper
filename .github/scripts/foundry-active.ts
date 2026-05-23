@@ -42,8 +42,8 @@ export function transitionNodeToActive(repoPath: string, sessionId: string, repo
   const original = matter(rawContent);
 
   // 1. Pre-validation
-  if (original.data['status'] !== 'READY') {
-    throw new Error(`Node is not in READY status (current: ${original.data['status']}): ${repoPath}`);
+  if (original.data['status'] !== 'READY' && original.data['status'] !== 'VERIFYING') {
+    throw new Error(`Node is not in READY or VERIFYING status (current: ${original.data['status']}): ${repoPath}`);
   }
 
   const dateStr = todayISO();
