@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-react';
-import { AliveTeamView } from '../AliveTeamView';
-import type { PokemonInstance } from '../../../engine/saveParser/parsers/common';
 import { page } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+import type { PokemonInstance } from '../../../engine/saveParser/parsers/common';
+import { AliveTeamView } from '../AliveTeamView';
 
 describe('AliveTeamView', () => {
   const mockGeneration = 2;
@@ -37,7 +37,7 @@ describe('AliveTeamView', () => {
   ];
 
   it('renders alive team members correctly', async () => {
-    render(<AliveTeamView team={mockTeam} generation={mockGeneration} />);
+    await render(<AliveTeamView team={mockTeam} generation={mockGeneration} />);
 
     // Check header
     await expect.element(page.getByText('SYS.ALIVE_TEAM')).toBeInTheDocument();
@@ -59,10 +59,10 @@ describe('AliveTeamView', () => {
 
   it('renders Team Wipe Detected state when no members are alive', async () => {
     const deadTeam: PokemonInstance[] = [
-      { ...mockTeam[1] },
-      { ...mockTeam[1], speciesId: 19, otName: 'RATTATA' },
+      { ...mockTeam[1] } as PokemonInstance,
+      { ...mockTeam[1], speciesId: 19, otName: 'RATTATA' } as PokemonInstance,
     ];
-    render(<AliveTeamView team={deadTeam} generation={mockGeneration} />);
+    await render(<AliveTeamView team={deadTeam} generation={mockGeneration} />);
 
     await expect.element(page.getByText('Team Wipe Detected')).toBeInTheDocument();
     await expect.element(page.getByText('No vital signs found')).toBeInTheDocument();
@@ -70,7 +70,7 @@ describe('AliveTeamView', () => {
   });
 
   it('renders Team Wipe Detected state when team is empty', async () => {
-    render(<AliveTeamView team={[]} generation={mockGeneration} />);
+    await render(<AliveTeamView team={[]} generation={mockGeneration} />);
 
     await expect.element(page.getByText('Team Wipe Detected')).toBeInTheDocument();
   });
