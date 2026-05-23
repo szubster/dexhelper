@@ -34,8 +34,6 @@ Object.defineProperty(globalThis, 'matchMedia', {
         matches: false,
         media: query,
         onchange: null,
-        addListener: vi.fn<() => void>(), // deprecated
-        removeListener: vi.fn<() => void>(), // deprecated
         addEventListener: vi.fn<() => void>(),
         removeEventListener: vi.fn<() => void>(),
         dispatchEvent: vi.fn<() => void>(),
