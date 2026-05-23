@@ -16,6 +16,7 @@ tags:
   - migration
   - localStorage
   - indexeddb
+rejection_reason: ''
 ---
 
 # Legacy Save Data Migration

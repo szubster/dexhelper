@@ -2,10 +2,10 @@
 id: task-036-062-implement-cascade-cancellation
 type: TASK
 title: Implement Cascading Cancellation in Orchestrator
-status: "COMPLETED"
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-04'
-updated_at: "2026-05-04"
+updated_at: '2026-05-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,6 +16,7 @@ tags:
   - orchestrator
   - cancellation
 notes: ''
+rejection_reason: ''
 ---
 
 # Task 062: Implement Cascading Cancellation in Orchestrator

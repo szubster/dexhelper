@@ -1,15 +1,17 @@
 ---
 id: idea-002-tpm-scheduling
 type: IDEA
-title: "Agent Scheduling"
-status: "COMPLETED"
+title: Agent Scheduling
+status: COMPLETED
 owner_persona: product_manager
-created_at: "2026-04-21"
-updated_at: "2026-04-21"
+created_at: '2026-04-21'
+updated_at: '2026-04-21'
 depends_on: []
 jules_session_id: null
 parent: null
-tags: ["infrastructure"]
+tags:
+  - infrastructure
+rejection_reason: ''
 ---
 
 # Agent Scheduling

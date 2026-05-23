@@ -13,6 +13,7 @@ tags:
   - feature
   - gen3
 notes: Created autonomously to propose adding Generation 3 support
+rejection_reason: ''
 ---
 
 # Idea: Add Gen3 Support

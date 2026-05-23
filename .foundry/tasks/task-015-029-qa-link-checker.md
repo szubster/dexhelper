@@ -1,18 +1,21 @@
 ---
 id: task-015-029-qa-link-checker
 type: TASK
-title: "QA Validation: Link Checker Pre-commit Hook Script"
-status: "COMPLETED"
+title: 'QA Validation: Link Checker Pre-commit Hook Script'
+status: COMPLETED
 owner_persona: qa
-created_at: "2026-04-25"
-updated_at: "2026-04-26"
+created_at: '2026-04-25'
+updated_at: '2026-04-26'
 depends_on:
   - .foundry/tasks/task-015-028-implement-link-checker.md
 jules_session_id: null
 parent: .foundry/stories/story-006-015-implement-link-checker.md
-tags: ["infras", "verification"]
+tags:
+  - infras
+  - verification
 rejection_count: 0
-notes: ""
+notes: ''
+rejection_reason: ''
 ---
 
 # QA Task: Validate Link Checker Pre-commit Hook

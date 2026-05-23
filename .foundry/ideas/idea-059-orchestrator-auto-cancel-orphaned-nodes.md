@@ -17,6 +17,7 @@ tags:
   - cancellation
 research_references: []
 notes: ''
+rejection_reason: ''
 ---
 
 # Auto-Cancel Orphaned PENDING Nodes in Orchestrator

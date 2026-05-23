@@ -15,6 +15,7 @@ tags:
   - persistence
   - indexeddb
   - localStorage
+rejection_reason: ''
 ---
 
 # Dual-Write Save Persistence

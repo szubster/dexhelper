@@ -14,6 +14,7 @@ tags:
   - nuzlocke
   - verification
 notes: ''
+rejection_reason: ''
 ---
 
 # Idea: Automated Nuzlocke Verification and Run Tracker

@@ -1,14 +1,15 @@
 ---
-id: "task-017-041-fix-jest-standalone-expect"
-type: "TASK"
-title: "Fix and enable jest/no-standalone-expect"
-status: "COMPLETED"
-owner_persona: "coder"
-created_at: "2026-04-26"
-updated_at: "2026-04-26"
+id: task-017-041-fix-jest-standalone-expect
+type: TASK
+title: Fix and enable jest/no-standalone-expect
+status: COMPLETED
+owner_persona: coder
+created_at: '2026-04-26'
+updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-010-017-fix-jest-rules.md"
+parent: .foundry/stories/story-010-017-fix-jest-rules.md
+rejection_reason: ''
 ---
 
 # Fix and enable jest/no-standalone-expect

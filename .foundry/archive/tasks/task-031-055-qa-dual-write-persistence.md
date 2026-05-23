@@ -15,6 +15,7 @@ tags:
   - indexeddb
   - localStorage
   - qa
+rejection_reason: ''
 ---
 
 # QA Dual-Write Save Persistence
