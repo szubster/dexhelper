@@ -36,4 +36,8 @@ Implement backend data parsing logic to calculate Gen 2 DVs (Determinant Values)
 - [ ] Utility accurately identifies Gen 2 Shiny Carriers based on DV combinations.
 
 ## Next Steps
-- [ ] Tech Lead: Break down into backend Tasks.
+- [x] Tech Lead: Break down into backend Tasks.
+
+## Tasks Created
+- .foundry/tasks/task-082-140-implement-shiny-carrier-logic.md
+- .foundry/tasks/task-082-141-qa-shiny-carrier-logic.md
