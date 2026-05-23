@@ -1,15 +1,15 @@
 ---
-id: idea-064-smart-route-radar
-type: IDEA
+id: prd-064-035-smart-route-radar
+type: PRD
 title: Smart Route Radar / Context-Aware Missing Encounter Map
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: architect
 created_at: '2026-05-23'
 updated_at: '2026-05-23'
 depends_on: []
-jules_session_id: '1824859645213897429'
+jules_session_id: null
 pr_number: null
-parent: null
+parent: idea-064-smart-route-radar
 tags:
   - feature
   - ux
@@ -21,7 +21,7 @@ rejection_reason: ''
 notes: ''
 ---
 
-# Idea: Smart Route Radar / Context-Aware Missing Encounter Map
+# PRD: Smart Route Radar / Context-Aware Missing Encounter Map
 
 ## Context
 DexHelper currently provides excellent static data viewing (Pokédex, maps, encounters) and passive save state viewing (current PC boxes, party). However, users hunting for missing Pokémon must manually cross-reference their missing Pokédex entries with the static encounter tables to figure out where they need to go next in the game. This creates friction and breaks the flow of gameplay.
@@ -37,7 +37,10 @@ This idea proposes transforming this data into a new, interactive **Visual Map U
 ## Value Proposition
 Visualizing the assistant's data geographically shifts DexHelper from being just a linear checklist into a proactive "Active Guide" companion. It directly assists the core gameplay loop of "Gotta Catch 'Em All" by allowing players to visually plan their travel routes through the region, offering immense value to completionists and casual players alike.
 
-## Next Steps
-- [x] Product Manager: Convert this idea into a PRD outlining the technical approach for joining static encounter data with dynamic save state in the UI.
+## Technical Approach
+1.  **Data Unification**: The frontend map visualization components (like those defined for Gen 3 in `ADR 010`) need to integrate with the dynamic suggestions emitted by the `suggestionEngine`.
+2.  **Heatmap Generation**: We must create a UI overlay layer for the map graph that can take an array of suggested locations and calculate density or priority.
+3.  **Interactive Nodes**: The map nodes must be clickable, triggering a detail view that shows the specific missing encounters, similar to the existing static map views but filtered by the user's save state.
 
-- Created PRD: `.foundry/prds/prd-064-035-smart-route-radar.md`
+## Next Steps
+- [ ] Architect: Convert this PRD into an ADR detailing the system design for joining static encounter data with dynamic save state in the UI.
