@@ -9,6 +9,7 @@ export function useFileSyncController() {
   const [status, setStatus] = useState<SyncStatus>('disconnected');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const handleRef = useRef<FileSystemFileHandle | null>(null);
+  const [hasStoredHandle, setHasStoredHandle] = useState(false);
   const lastModifiedRef = useRef<number>(0);
 
   const setSaveData = useStore((s) => s.setSaveData);
@@ -62,6 +63,7 @@ export function useFileSyncController() {
 
       handleRef.current = handle;
       await saveDB.putHandle('live_sync_handle', handle);
+      setHasStoredHandle(true);
 
       setStatus('syncing');
 
@@ -85,6 +87,7 @@ export function useFileSyncController() {
       try {
         const storedHandle = await saveDB.getHandle('live_sync_handle');
         if (storedHandle) {
+          setHasStoredHandle(true);
           // Check permissions
           // biome-ignore lint/suspicious/noExplicitAny: File System Access API not fully typed yet
           const perm = await (storedHandle as any).queryPermission({ mode: 'read' });
@@ -150,5 +153,5 @@ export function useFileSyncController() {
     return () => clearInterval(interval);
   }, [status, processFile]);
 
-  return { status, errorMsg, requestSync, resumeSync, hasStoredHandle: !!handleRef.current };
+  return { status, errorMsg, requestSync, resumeSync, hasStoredHandle };
 }
