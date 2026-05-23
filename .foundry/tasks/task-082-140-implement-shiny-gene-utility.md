@@ -2,7 +2,7 @@
 id: task-082-140-implement-shiny-gene-utility
 type: TASK
 title: Implement Shiny Gene Parsing and Evaluation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-23'
 updated_at: '2026-05-23'

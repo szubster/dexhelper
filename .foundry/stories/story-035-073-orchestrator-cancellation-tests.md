@@ -2,13 +2,13 @@
 id: story-035-073-orchestrator-cancellation-tests
 type: STORY
 title: Add Unit Tests for DAG Auto-Cancellation
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-20'
 updated_at: '2026-05-23'
 depends_on:
   - story-035-072-implement-cancellation-logic
-jules_session_id: '6771516898989965057'
+jules_session_id: null
 pr_number: null
 parent: epic-028-035-orchestrator-auto-cancel-orphaned-nodes
 tags:

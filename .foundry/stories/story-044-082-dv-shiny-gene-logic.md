@@ -2,12 +2,12 @@
 id: story-044-082-dv-shiny-gene-logic
 type: STORY
 title: Parse DVs for Gen 2 Shiny Genes
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-22'
 updated_at: '2026-05-23'
 depends_on: []
-jules_session_id: '7265082597151985981'
+jules_session_id: null
 pr_number: null
 parent: epic-034-044-shiny-gene-detection-engine
 tags:

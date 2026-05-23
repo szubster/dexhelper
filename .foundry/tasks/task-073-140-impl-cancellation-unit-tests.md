@@ -2,7 +2,7 @@
 id: task-073-140-impl-cancellation-unit-tests
 type: TASK
 title: Implement Unit Tests for DAG Auto-Cancellation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-05-23'
 updated_at: '2026-05-23'

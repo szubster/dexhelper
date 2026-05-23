@@ -25,3 +25,21 @@
 - **2026-05-23**: Resurrection Loop triggered for `story-044-082-dv-shiny-gene-logic`. Reason: PR #1782 closed without merging.. Transitioned back to READY.
 
 - **2026-05-23**: Resurrection Loop triggered for `task-071-137-visited-routes-checklist-qa`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-23**: PR #1789 merged. `idea-064-smart-route-radar` is now VERIFYING.
+
+- **2026-05-23**: PR #1790 merged. `idea-065-epic-verification-timing` is now VERIFYING.
+
+- **2026-05-23**: PR #1793 merged. `prd-063-034-permanent-failure-dashboard` is now VERIFYING.
+
+- **2026-05-23**: PR #1794 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-05-23**: PR #1792 merged. `story-034-071-run-dashboard-ui` is now COMPLETED.
+
+- **2026-05-23**: PR #1791 merged. `story-035-073-orchestrator-cancellation-tests` is now COMPLETED.
+
+- **2026-05-23**: PR #1788 merged. `story-044-082-dv-shiny-gene-logic` is now COMPLETED.
+
+- **2026-05-23**: PR #1786 merged. `task-078-134-implement-polling-loop` is now COMPLETED.
+
+- **2026-05-23**: Resurrection Loop triggered for `epic-034-046-dag-data-parsing-rejection-count`. Reason: Retry from FAILED status.. Transitioned back to READY.
