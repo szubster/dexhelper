@@ -2,7 +2,7 @@
 id: task-071-136-visited-routes-checklist-impl
 type: TASK
 title: Implement Visited Routes Checklist
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-23'
@@ -14,8 +14,10 @@ tags:
   - feature
   - nuzlocke
   - verification
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: >-
+  Component is implemented but never rendered or integrated anywhere in the app
+  (e.g. no Run Dashboard exists to show it).
 notes: ''
 ---
 
