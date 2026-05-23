@@ -19,3 +19,9 @@
 - **2026-05-23**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
 
 - **2026-05-23**: Resurrection Loop triggered for `task-071-136-visited-routes-checklist-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-23**: Heartbeat detected zombie session for `epic-034-046-dag-data-parsing-rejection-count`. Transitioned to FAILED.
+
+- **2026-05-23**: Resurrection Loop triggered for `story-044-082-dv-shiny-gene-logic`. Reason: PR #1782 closed without merging.. Transitioned back to READY.
+
+- **2026-05-23**: Resurrection Loop triggered for `task-071-137-visited-routes-checklist-qa`. Reason: Retry from FAILED status.. Transitioned back to READY.

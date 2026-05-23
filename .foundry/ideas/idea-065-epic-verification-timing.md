@@ -2,7 +2,7 @@
 id: idea-065-epic-verification-timing
 type: IDEA
 title: Re-evaluate Epic Verification Timing
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-05-23'
 updated_at: '2026-05-23'
@@ -17,7 +17,7 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Created by Auditor due to recurring premature verification of Epics.'
+notes: Created by Auditor due to recurring premature verification of Epics.
 ---
 
 # Re-evaluate Epic Verification Timing

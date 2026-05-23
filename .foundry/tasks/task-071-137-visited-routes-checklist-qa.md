@@ -2,7 +2,7 @@
 id: task-071-137-visited-routes-checklist-qa
 type: TASK
 title: QA Visited Routes Checklist
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-05-22'
 updated_at: '2026-05-23'
@@ -15,7 +15,7 @@ tags:
   - feature
   - nuzlocke
   - verification
-rejection_count: 0
+rejection_count: 1
 rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
