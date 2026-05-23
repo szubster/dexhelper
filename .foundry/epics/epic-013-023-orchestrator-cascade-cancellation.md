@@ -2,10 +2,10 @@
 id: epic-013-023-orchestrator-cascade-cancellation
 type: EPIC
 title: 'Epic: Implement Cascading Cancellation in Orchestrator'
-status: "COMPLETED"
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-03'
-updated_at: "2026-05-04"
+updated_at: '2026-05-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,6 +16,7 @@ tags:
   - orchestrator
   - cancellation
 notes: ''
+rejection_reason: ''
 ---
 
 # Epic: Implement Cascading Cancellation in Orchestrator

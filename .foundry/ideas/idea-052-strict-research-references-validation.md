@@ -13,7 +13,10 @@ tags:
   - foundry
   - schema
   - validation
-notes: 'Created autonomously by agile_coach to enforce stricter schema validation for research references'
+notes: >-
+  Created autonomously by agile_coach to enforce stricter schema validation for
+  research references
+rejection_reason: ''
 ---
 
 # Idea: Strict Schema Validations for Research References

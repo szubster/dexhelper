@@ -2,10 +2,10 @@
 id: idea-018-migrate-heartbeat-to-gray-matter
 type: IDEA
 title: Migrate foundry-heartbeat.ts to gray-matter
-status: "COMPLETED"
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-05-06'
-updated_at: "2026-05-06"
+updated_at: '2026-05-06'
 depends_on: []
 jules_session_id: null
 parent: null
@@ -15,6 +15,7 @@ tags:
   - orchestrator
   - technical-debt
 notes: ''
+rejection_reason: ''
 ---
 
 # Idea: Migrate foundry-heartbeat.ts to use gray-matter

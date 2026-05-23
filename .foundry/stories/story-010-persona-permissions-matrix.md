@@ -1,18 +1,19 @@
 ---
 id: story-010-persona-permissions-matrix
 type: STORY
-title: "Implement Persona Node Creation Permissions Matrix"
-status: "COMPLETED"
+title: Implement Persona Node Creation Permissions Matrix
+status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-23"
-updated_at: "2026-04-24"
+created_at: '2026-04-23'
+updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/epics/epic-010-persona-permissions.md"
+parent: .foundry/epics/epic-010-persona-permissions.md
 tags:
   - foundry-v2
   - architecture
   - orchestration
+rejection_reason: ''
 ---
 
 # Implement Persona Node Creation Permissions Matrix

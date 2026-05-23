@@ -13,6 +13,7 @@ tags:
   - migration
   - indexeddb
   - localStorage
+rejection_reason: ''
 ---
 
 # Implement Migration Logic

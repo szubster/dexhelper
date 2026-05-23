@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-05-17'
 updated_at: '2026-05-23'
 depends_on: []
-jules_session_id: '3771779167076860393'
+jules_session_id: '16990430644208854139'
 parent: epic-053-024-032-gen3-encounters-implementation
 tags:
   - gen3

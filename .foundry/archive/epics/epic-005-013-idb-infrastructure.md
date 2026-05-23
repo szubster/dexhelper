@@ -13,6 +13,7 @@ tags:
   - indexeddb
   - infrastructure
   - persistence
+rejection_reason: ''
 ---
 
 # IndexedDB Infrastructure & Fallbacks

@@ -1,17 +1,19 @@
 ---
 id: task-035-061-relax-node-engine
 type: TASK
-title: "Update engines.node in package.json"
-status: "COMPLETED"
+title: Update engines.node in package.json
+status: COMPLETED
 owner_persona: coder
-created_at: "2026-05-01"
-updated_at: "2026-05-02"
+created_at: '2026-05-01'
+updated_at: '2026-05-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: ".foundry/stories/story-020-035-relax-node-engine.md"
-tags: ["infrastructure"]
-notes: ""
+parent: .foundry/stories/story-020-035-relax-node-engine.md
+tags:
+  - infrastructure
+notes: ''
+rejection_reason: ''
 ---
 
 # Update engines.node in package.json

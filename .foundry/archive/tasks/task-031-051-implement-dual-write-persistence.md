@@ -13,6 +13,7 @@ tags:
   - persistence
   - indexeddb
   - localStorage
+rejection_reason: ''
 ---
 
 # Implement Dual-Write Persistence

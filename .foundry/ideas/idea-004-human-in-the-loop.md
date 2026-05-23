@@ -1,14 +1,15 @@
 ---
 id: idea-004-human-in-the-loop
 type: IDEA
-title: "Human-in-the-Loop Handoff"
-status: "COMPLETED"
+title: Human-in-the-Loop Handoff
+status: COMPLETED
 owner_persona: product_manager
-created_at: "2026-04-21"
-updated_at: "2026-04-21"
-parent: ".foundry/ideas/idea-003-atomic-handoff-foundation.md"
+created_at: '2026-04-21'
+updated_at: '2026-04-21'
+parent: .foundry/ideas/idea-003-atomic-handoff-foundation.md
 depends_on: []
 jules_session_id: null
+rejection_reason: ''
 ---
 
 # IDEA-004: Human-in-the-Loop Handoff

@@ -1,17 +1,18 @@
 ---
 id: task-022-orchestrator-human-bypass
 type: TASK
-title: "Implement Human Task Bypass in Orchestrator"
-status: "COMPLETED"
+title: Implement Human Task Bypass in Orchestrator
+status: COMPLETED
 owner_persona: coder
-created_at: "2026-04-23"
-updated_at: "2026-04-24"
+created_at: '2026-04-23'
+updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-010-orchestrator-human-bypass.md"
+parent: .foundry/stories/story-010-orchestrator-human-bypass.md
 tags:
-  - "human-in-the-loop"
-  - "orchestrator"
+  - human-in-the-loop
+  - orchestrator
+rejection_reason: ''
 ---
 
 # Task 022: Implement Human Task Bypass in Orchestrator

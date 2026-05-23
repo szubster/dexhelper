@@ -29,3 +29,8 @@
 **Idea:** Gen 2 Shiny Gene Detection & Breeding Assistant
 **Learning:** Gen 2's unique DV-based shiny mechanics present a massive opportunity. Surfacing hidden state (like DVs that make a Pokémon a "Shiny Carrier") directly supports hardcore endgame goals like shiny hunting, which players currently have to calculate manually. This leverages our programmatic save file access to provide unique value.
 **Outcome:** Created IDEA node.
+
+## 2026-05-23
+**Idea:** Smart Route Radar / Context-Aware Missing Encounter Map
+**Learning:** Currently DexHelper acts as an excellent static reference and passive save viewer. By dynamically intersecting the static game knowledge (e.g., encounter tables for specific maps) with the player's current save state (Pokédex/Box completion), we can create an "active guide". A feature that automatically highlights which routes the player should visit *next* to catch missing Pokémon bridges the gap between reference tool and proactive companion app.
+**Outcome:** Created IDEA node.

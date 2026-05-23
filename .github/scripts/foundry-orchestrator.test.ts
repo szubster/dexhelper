@@ -983,7 +983,7 @@ describe('foundry-orchestrator', () => {
   });
 
 
-  test.fails('Impossible Loop: ignores COMPLETED nodes during permanent failure cancellation cascade', () => {
+  test('Impossible Loop: ignores COMPLETED nodes during permanent failure cancellation cascade', () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",
       type: "STORY",
