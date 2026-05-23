@@ -138,3 +138,9 @@
 **Outcome:** Merged
 **Why:** The architect's journal showed it was reprimanded for creating functional execution nodes (`EPIC`, `STORY`, `TASK`) and reminded that its role is strictly architectural blueprinting (ADRs). Furthermore, system memory dictates that when global data contracts change (e.g., ADR 010), the Architect must update `.foundry/docs/schema.md`.
 **Pattern:** Codify role constraints (e.g., node creation boundaries) and secondary responsibilities (e.g., schema updates alongside ADRs) directly into agent prompts to prevent role drift and maintain system documentation.
+
+## 2026-07-08 - [Accepted] - Prompt improvement - Read Foundry journals to assess persona prompts
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Strategist was only instructed to read `.jules/*.md` to assess agent prompt quality, missing all Foundry execution personas which log their learnings to `.foundry/journals/*.md` (e.g., coder, qa, tech_lead). This gap prevented the Strategist from identifying prompt quality issues for the most active execution agents.
+**Pattern:** Update prompts to ensure they have access to the correct and complete set of journals for all personas, specifically including both `.jules/` and `.foundry/journals/` when reading logs to identify issues.
