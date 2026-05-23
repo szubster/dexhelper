@@ -1,7 +1,8 @@
 import { Link } from '@tanstack/react-router';
-import { Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
+import { Activity, Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
 import type { SaveData } from '../engine/saveParser';
+import { useFileSyncController } from '../hooks/useFileSyncController';
 import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
@@ -22,6 +23,7 @@ export function AppHeader({
   setIsVersionModalOpen,
   handleFileUpload,
 }: AppHeaderProps) {
+  const { status: syncStatus, requestSync, resumeSync, hasStoredHandle } = useFileSyncController();
   return (
     <header className="sticky top-2 z-40 flex flex-col items-center justify-between gap-6 border-white/5 border-b bg-zinc-950/80 px-4 py-6 backdrop-blur-xl sm:px-8 sm:py-10 lg:flex-row">
       <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
@@ -181,6 +183,38 @@ export function AppHeader({
             >
               <Settings2 size={20} />
             </TacticalButton>
+            {hasStoredHandle && syncStatus === 'disconnected' ? (
+              <TacticalButton
+                onClick={resumeSync}
+                variant="sidebar"
+                size="icon"
+                hasCrosshairs={true}
+                title="Resume Live Sync"
+                aria-label="Resume Live Sync"
+              >
+                <Activity size={20} className="text-amber-500" />
+              </TacticalButton>
+            ) : (
+              <TacticalButton
+                onClick={requestSync}
+                variant="sidebar"
+                size="icon"
+                hasCrosshairs={true}
+                title="Live Auto-Sync"
+                aria-label="Live Auto-Sync"
+              >
+                <Activity
+                  size={20}
+                  className={
+                    syncStatus === 'live'
+                      ? 'text-emerald-500'
+                      : syncStatus === 'syncing'
+                        ? 'animate-pulse text-blue-500'
+                        : ''
+                  }
+                />
+              </TacticalButton>
+            )}
             <TacticalButton
               onClick={() => document.getElementById('import-save-input')?.click()}
               variant="sidebar"
