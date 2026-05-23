@@ -31,5 +31,8 @@ As per ADR 017 and PRD `prd-063-034-permanent-failure-dashboard`, we need a "Per
 3. **Context Broadcasting**: Ensure the extracted `rejection_count` is broadcasted via the shared React Context to all connected dashboard views.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Create a Story to implement the parser updates and context broadcasting for `rejection_count`.
-- [ ] Story Owner: Verify the newly created Story follows the correct dependency chain and schema.
+- [x] Story Owner: Create a Story to implement the parser updates and context broadcasting for `rejection_count`.
+- [x] Story Owner: Verify the newly created Story follows the correct dependency chain and schema.
+
+## Child Nodes
+- .foundry/stories/story-046-085-extract-broadcast-rejection-count.md
