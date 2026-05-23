@@ -36,3 +36,7 @@ Potential solutions:
 
 ## Goal
 Establish a mechanism or process to ensure Epics are only marked `COMPLETED` when their functional requirements are actually implemented in the codebase.
+
+
+## Spawned Nodes
+- [prd-065-035-epic-verification-timing](../prds/prd-065-035-epic-verification-timing.md)
