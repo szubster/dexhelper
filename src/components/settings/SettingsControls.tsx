@@ -111,7 +111,7 @@ export function SettingsControls({
             <button
               key={pb.value}
               type="button"
-              onClick={() => setGlobalPokeball(pb.value as PokeballType)}
+              onClick={() => setGlobalPokeball(pb.value)}
               className={`flex flex-col items-center justify-center gap-1.5 rounded-none border border-dashed py-3 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
                 globalPokeball === pb.value
                   ? 'border-amber-500 bg-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)]'
