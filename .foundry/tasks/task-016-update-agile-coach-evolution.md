@@ -1,14 +1,16 @@
 ---
 id: task-016-update-agile-coach-evolution
 type: TASK
-title: "Update Agile Coach Persona with Evolution Protocol"
-status: "COMPLETED"
+title: Update Agile Coach Persona with Evolution Protocol
+status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-21"
-updated_at: "2026-04-23"
+created_at: '2026-04-21'
+updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-003-dynamic-verification.md
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Update Agile Coach Persona with Evolution Protocol

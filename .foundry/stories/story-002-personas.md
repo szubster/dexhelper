@@ -1,15 +1,16 @@
 ---
 id: story-002-personas
 type: STORY
-title: "Persona-aware Prompt Injection"
+title: Persona-aware Prompt Injection
 status: COMPLETED
 rejection_count: 3
 owner_persona: story_owner
-created_at: "2026-04-20"
-updated_at: "2026-04-21"
+created_at: '2026-04-20'
+updated_at: '2026-04-21'
 depends_on:
   - .foundry/epics/epic-003-actions-engine.md
 jules_session_id: null
+rejection_reason: ''
 ---
 
 # Persona-aware Prompt Injection

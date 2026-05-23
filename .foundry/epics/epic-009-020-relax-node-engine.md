@@ -1,17 +1,20 @@
 ---
 id: epic-009-020-relax-node-engine
 type: EPIC
-title: "Relax Node engine requirement in package.json to >=22.0.0"
-status: "COMPLETED"
-owner_persona: "story_owner"
-created_at: "2026-05-01"
-updated_at: "2026-05-01"
+title: Relax Node engine requirement in package.json to >=22.0.0
+status: COMPLETED
+owner_persona: story_owner
+created_at: '2026-05-01'
+updated_at: '2026-05-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: ".foundry/prds/prd-011-009-relax-node-engine.md"
-tags: ["infrastructure"]
-notes: ""
+parent: .foundry/prds/prd-011-009-relax-node-engine.md
+tags:
+  - infrastructure
+notes: ''
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Relax Node engine requirement in package.json to >=22.0.0

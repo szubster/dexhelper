@@ -14,6 +14,8 @@ tags:
   - feature
   - encounters
 notes: Spawned from PRD 053-024 to implement Gen 3 encounter data
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Epic: Gen 3 Encounters Implementation

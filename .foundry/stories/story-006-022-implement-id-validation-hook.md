@@ -1,14 +1,16 @@
 ---
 id: story-006-022-implement-id-validation-hook
 type: STORY
-title: "Implement ID Validation Pre-commit Hook"
-status: "COMPLETED"
+title: Implement ID Validation Pre-commit Hook
+status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-25"
-updated_at: "2026-04-26"
+created_at: '2026-04-25'
+updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
 parent: .foundry/epics/epic-006-id-pre-commit-hooks.md
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Implement ID Validation Pre-commit Hook

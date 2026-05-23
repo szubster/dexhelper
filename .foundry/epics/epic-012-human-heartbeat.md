@@ -1,18 +1,20 @@
 ---
 id: epic-012-human-heartbeat
 type: EPIC
-title: "Modify Heartbeat Script for Human Tasks"
-status: "COMPLETED"
+title: Modify Heartbeat Script for Human Tasks
+status: COMPLETED
 owner_persona: story_owner
-created_at: "2026-04-23"
-updated_at: "2026-04-23"
+created_at: '2026-04-23'
+updated_at: '2026-04-23'
 depends_on:
-  - ".foundry/epics/epic-010-human-schema.md"
+  - .foundry/epics/epic-010-human-schema.md
 jules_session_id: null
-parent: ".foundry/prds/prd-004-human-in-the-loop.md"
+parent: .foundry/prds/prd-004-human-in-the-loop.md
 tags:
-  - "human-in-the-loop"
-  - "heartbeat"
+  - human-in-the-loop
+  - heartbeat
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Epic 012: Modify Heartbeat Script for Human Tasks

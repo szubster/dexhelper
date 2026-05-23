@@ -2,10 +2,10 @@
 id: story-023-036-implement-cascade-cancellation
 type: STORY
 title: 'Story: Implement Cascading Cancellation in Orchestrator'
-status: "COMPLETED"
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-03'
-updated_at: "2026-05-04"
+updated_at: '2026-05-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,6 +16,8 @@ tags:
   - orchestrator
   - cancellation
 notes: ''
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Story: Implement Cascading Cancellation in Orchestrator

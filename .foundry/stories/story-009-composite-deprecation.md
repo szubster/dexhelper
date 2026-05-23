@@ -1,15 +1,17 @@
 ---
-id: "story-009-composite-deprecation"
-type: "STORY"
-title: "Deprecate Composite Nodes in Schema"
-status: "COMPLETED"
-owner_persona: "tech_lead"
-created_at: "2026-04-23"
-updated_at: "2026-04-25"
+id: story-009-composite-deprecation
+type: STORY
+title: Deprecate Composite Nodes in Schema
+status: COMPLETED
+owner_persona: tech_lead
+created_at: '2026-04-23'
+updated_at: '2026-04-25'
 depends_on:
-  - ".foundry/stories/story-007-schema-invariant.md"
+  - .foundry/stories/story-007-schema-invariant.md
 jules_session_id: null
-parent: ".foundry/epics/epic-007-atomic-handoff-schema.md"
+parent: .foundry/epics/epic-007-atomic-handoff-schema.md
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Deprecate Composite Nodes in Schema

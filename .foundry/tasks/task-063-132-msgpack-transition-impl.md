@@ -14,6 +14,8 @@ tags:
   - data
   - msgpack
 notes: ''
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Implement MsgPack Transition for Data Serialization

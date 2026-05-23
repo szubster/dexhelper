@@ -1,17 +1,21 @@
 ---
 id: task-013-024-update-tpm-prompt
 type: TASK
-title: "Update TPM Prompt for Archiving Logic"
-status: "COMPLETED"
+title: Update TPM Prompt for Archiving Logic
+status: COMPLETED
 owner_persona: coder
-created_at: "2026-04-23"
-updated_at: "2026-04-24"
+created_at: '2026-04-23'
+updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-005-013-tpm-archiving-logic.md
-tags: ["infrastructure"]
+tags:
+  - infrastructure
 rejection_count: 0
-notes: "Self-verification by coder is sufficient as this is a simple text prompt change."
+notes: >-
+  Self-verification by coder is sufficient as this is a simple text prompt
+  change.
+rejection_reason: ''
 ---
 
 # Update TPM Prompt for Archiving Logic

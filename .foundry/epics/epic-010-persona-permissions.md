@@ -1,18 +1,20 @@
 ---
 id: epic-010-persona-permissions
 type: EPIC
-title: "Persona Permissions Matrix for Late Binding"
-status: "COMPLETED"
+title: Persona Permissions Matrix for Late Binding
+status: COMPLETED
 owner_persona: story_owner
-created_at: "2026-04-23"
-updated_at: "2026-04-23"
+created_at: '2026-04-23'
+updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/prds/prd-005-010-late-binding-orchestrator.md"
+parent: .foundry/prds/prd-005-010-late-binding-orchestrator.md
 tags:
   - foundry-v2
   - architecture
   - orchestration
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Persona Permissions Matrix for Late Binding

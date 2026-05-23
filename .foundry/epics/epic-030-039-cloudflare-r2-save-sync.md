@@ -20,7 +20,10 @@ tags:
 research_references:
   - .foundry/research/research-030-004-cloudflare-storage-evaluation.md
 rejection_reason: ''
-notes: Derived from PRD 055-030 and Research 030-004. Uses Cloudflare R2 for strong consistency and file blob storage.
+notes: >-
+  Derived from PRD 055-030 and Research 030-004. Uses Cloudflare R2 for strong
+  consistency and file blob storage.
+rejection_count: 0
 ---
 
 # Epic: Cloudflare R2 Offline-First Save Syncing

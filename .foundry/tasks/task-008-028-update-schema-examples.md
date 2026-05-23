@@ -1,14 +1,16 @@
 ---
-id: "task-008-028-update-schema-examples"
-type: "TASK"
-title: "Update Documentation Examples for Atomic Files"
-status: "COMPLETED"
-owner_persona: "coder"
-created_at: "2026-04-24"
-updated_at: "2026-04-25"
+id: task-008-028-update-schema-examples
+type: TASK
+title: Update Documentation Examples for Atomic Files
+status: COMPLETED
+owner_persona: coder
+created_at: '2026-04-24'
+updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-008-schema-examples.md"
+parent: .foundry/stories/story-008-schema-examples.md
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Update Documentation Examples for Atomic Files

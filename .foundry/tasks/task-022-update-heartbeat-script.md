@@ -1,17 +1,19 @@
 ---
 id: task-022-update-heartbeat-script
 type: TASK
-title: "Update heartbeat script to support human tasks"
-status: "COMPLETED"
+title: Update heartbeat script to support human tasks
+status: COMPLETED
 owner_persona: coder
-created_at: "2026-04-23"
-updated_at: "2026-04-24"
+created_at: '2026-04-23'
+updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
-parent: ".foundry/stories/story-011-human-heartbeat-script.md"
+parent: .foundry/stories/story-011-human-heartbeat-script.md
 tags:
-  - "human-in-the-loop"
-  - "heartbeat"
+  - human-in-the-loop
+  - heartbeat
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Update heartbeat script to support human tasks

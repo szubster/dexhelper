@@ -1,14 +1,16 @@
 ---
 id: task-014-scaffold-architect
 type: TASK
-title: "Scaffold Architect Persona"
-status: "COMPLETED"
+title: Scaffold Architect Persona
+status: COMPLETED
 owner_persona: tech_lead
-created_at: "2026-04-21"
-updated_at: "2026-04-24"
+created_at: '2026-04-21'
+updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
 parent: .foundry/stories/story-003-dynamic-verification.md
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Scaffold Architect Persona

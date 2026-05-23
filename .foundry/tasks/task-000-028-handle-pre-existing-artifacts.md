@@ -1,14 +1,16 @@
 ---
 id: task-000-028-handle-pre-existing-artifacts
 type: TASK
-title: "Handle Pre-existing Artifacts Rule"
+title: Handle Pre-existing Artifacts Rule
 status: COMPLETED
 owner_persona: coder
-created_at: "2026-04-25"
-updated_at: "2026-04-25"
+created_at: '2026-04-25'
+updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
 parent: null
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Handle Pre-existing Artifacts Rule

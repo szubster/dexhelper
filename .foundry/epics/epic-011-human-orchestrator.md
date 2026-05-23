@@ -1,18 +1,20 @@
 ---
 id: epic-011-human-orchestrator
 type: EPIC
-title: "Bypass Jules Dispatch for Human Tasks in Orchestrator"
-status: "COMPLETED"
+title: Bypass Jules Dispatch for Human Tasks in Orchestrator
+status: COMPLETED
 owner_persona: story_owner
-created_at: "2026-04-23"
-updated_at: "2026-04-23"
+created_at: '2026-04-23'
+updated_at: '2026-04-23'
 depends_on:
-  - ".foundry/epics/epic-010-human-schema.md"
+  - .foundry/epics/epic-010-human-schema.md
 jules_session_id: null
-parent: ".foundry/prds/prd-004-human-in-the-loop.md"
+parent: .foundry/prds/prd-004-human-in-the-loop.md
 tags:
-  - "human-in-the-loop"
-  - "orchestrator"
+  - human-in-the-loop
+  - orchestrator
+rejection_reason: ''
+rejection_count: 0
 ---
 
 # Epic 011: Bypass Jules Dispatch for Human Tasks in Orchestrator
