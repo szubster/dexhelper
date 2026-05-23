@@ -3,7 +3,7 @@ id: prd-053-022-gen3-data-parsing
 type: PRD
 title: Gen3 Data Parsing
 status: COMPLETED
-owner_persona: architect
+owner_persona: epic_planner
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on: []

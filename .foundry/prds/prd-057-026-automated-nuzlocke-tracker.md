@@ -3,7 +3,7 @@ id: prd-057-026-automated-nuzlocke-tracker
 type: PRD
 title: Automated Nuzlocke Verification and Run Tracker
 status: COMPLETED
-owner_persona: architect
+owner_persona: epic_planner
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on: []

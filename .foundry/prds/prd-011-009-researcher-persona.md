@@ -3,7 +3,7 @@ id: prd-011-009-researcher-persona
 type: PRD
 title: 'PRD: Introduce Researcher Persona'
 status: COMPLETED
-owner_persona: architect
+owner_persona: epic_planner
 created_at: '2026-05-01'
 updated_at: '2026-05-02'
 depends_on: []
