@@ -34,3 +34,8 @@
 **Idea:** Smart Route Radar / Context-Aware Missing Encounter Map
 **Learning:** Currently DexHelper acts as an excellent static reference and passive save viewer. By dynamically intersecting the static game knowledge (e.g., encounter tables for specific maps) with the player's current save state (Pokédex/Box completion), we can create an "active guide". A feature that automatically highlights which routes the player should visit *next* to catch missing Pokémon bridges the gap between reference tool and proactive companion app.
 **Outcome:** Created IDEA node.
+
+## 2026-05-24
+**Idea:** Save State Version History and Metadata Inference
+**Learning:** Older generation games lack metadata (like "date caught" or "encounter location" in Gen 1). However, by storing a history of sequential save file uploads and diffing them (e.g., "Pikachu appeared in Box 1 between upload A and upload B"), we can infer and enrich the data locally, creating modern metadata for retro games. This completely redefines the tool from a static state viewer into a progressive timeline tracker.
+**Outcome:** Created IDEA node.
