@@ -2,12 +2,12 @@
 id: task-082-140-implement-shiny-gene-utility
 type: TASK
 title: Implement Shiny Gene Parsing and Evaluation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-23'
-updated_at: '2026-05-23'
+updated_at: '2026-05-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4141900527579342055'
 pr_number: null
 parent: story-044-082-dv-shiny-gene-logic
 tags:
