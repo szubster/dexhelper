@@ -50,8 +50,7 @@ export function useFileSyncController() {
         throw new Error('File System Access API not supported');
       }
 
-      // biome-ignore lint/suspicious/noExplicitAny: File System Access API not fully typed yet
-      const [handle] = await (window as any).showOpenFilePicker({
+      const [handle] = await window.showOpenFilePicker({
         types: [
           {
             description: 'Game Boy Save File',
@@ -89,8 +88,8 @@ export function useFileSyncController() {
         if (storedHandle) {
           setHasStoredHandle(true);
           // Check permissions
-          // biome-ignore lint/suspicious/noExplicitAny: File System Access API not fully typed yet
-          const perm = await (storedHandle as any).queryPermission({ mode: 'read' });
+
+          const perm = await storedHandle.queryPermission({ mode: 'read' });
           if (perm === 'granted') {
             handleRef.current = storedHandle;
             setStatus('syncing');
@@ -114,8 +113,7 @@ export function useFileSyncController() {
     try {
       const storedHandle = await saveDB.getHandle('live_sync_handle');
       if (storedHandle) {
-        // biome-ignore lint/suspicious/noExplicitAny: File System Access API not fully typed yet
-        const perm = await (storedHandle as any).requestPermission({ mode: 'read' });
+        const perm = await storedHandle.requestPermission({ mode: 'read' });
         if (perm === 'granted') {
           handleRef.current = storedHandle;
           setStatus('syncing');
