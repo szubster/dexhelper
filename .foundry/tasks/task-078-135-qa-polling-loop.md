@@ -31,6 +31,6 @@ Verify that the polling loop successfully detects file changes, correctly parses
 - Ensure memory footprint is stable over prolonged polling.
 
 ## Acceptance Criteria
-- [ ] Verified polling interval is respected.
-- [ ] Verified state updates occur only on file changes.
-- [ ] Confirmed stability and absence of memory leaks during active polling.
+- [x] Verified polling interval is respected.
+- [x] Verified state updates occur only on file changes.
+- [x] Confirmed stability and absence of memory leaks during active polling.
