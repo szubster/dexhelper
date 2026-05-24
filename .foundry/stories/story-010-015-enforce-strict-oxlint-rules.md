@@ -28,5 +28,5 @@ All disabled oxlint rules should be enabled back. The tech lead should create a 
 2. Ensure each task focuses strictly on enabling that rule in `.oxlintrc.json` and fixing all corresponding violations across the codebase.
 
 ## Generated Tasks
-- [.foundry/tasks/task-015-033-oxlint-require-mock-type-parameters.md](../tasks/task-015-033-oxlint-require-mock-type-parameters.md)
+- [.foundry/archive/tasks/task-015-033-oxlint-require-mock-type-parameters.md](../../.foundry/archive/tasks/task-015-033-oxlint-require-mock-type-parameters.md)
 - [.foundry/tasks/task-015-034-oxlint-expect-expect.md](../tasks/task-015-034-oxlint-expect-expect.md)
