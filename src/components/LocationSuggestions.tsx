@@ -16,13 +16,14 @@ export function LocationSuggestions() {
   const [isOpen, setIsOpen] = useState(false);
 
   // ⚡ Bolt: Cache locations query to prevent redundant IndexedDB hits on every keystroke debounce
-  const { data: locations = [] } = useQuery({
+  const { data: locations } = useQuery({
     queryKey: ['locations'],
     queryFn: () => pokeDB.getLocations(),
     staleTime: Infinity,
   });
 
   useEffect(() => {
+    const locs = locations || [];
     if (!searchTerm || searchTerm.length < 2 || selectedLocationId) {
       setSuggestions([]);
       setIsOpen(false);
@@ -34,8 +35,8 @@ export function LocationSuggestions() {
 
       // ⚡ Bolt: Replaced O(N) filter().slice() with a fast-breaking loop to avoid scanning all locations once 5 matches are found
       const filtered = [];
-      for (let i = 0; i < locations.length; i++) {
-        const l = locations[i];
+      for (let i = 0; i < locs.length; i++) {
+        const l = locs[i];
         if (l?.n.toLowerCase().includes(term)) {
           filtered.push(l);
           if (filtered.length >= 5) break;
