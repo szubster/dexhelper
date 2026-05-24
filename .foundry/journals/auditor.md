@@ -8,3 +8,7 @@ This violates the spirit of the dependency graph. An Epic represents a "macrosco
 
 **Recommendation/Learnings:**
 The system needs a clearer distinction between "Epic planning is done" and "Epic implementation is done". Perhaps Epics should implicitly depend on all their child nodes, or the `story_owner` needs to wait until all child stories are `COMPLETED` before submitting the empty PR to transition the Epic to `VERIFYING`. Currently, submitting the Epic when only the planning is done leads to failed audits.
+## 2026-05-24: Permanent Failure Observation for task-062-100-gen3-locations-script-impl
+I observed that `task-062-100-gen3-locations-script-impl.md` reached its Max Rejection Count and failed permanently. It was trying to parse Gen 3 locations data without the necessary knowledge about the `pret/pokeemerald` directory structure and map logic.
+A `RESEARCH` node (`research-062-001-gen3-location-fetching`) was previously completed which documents the needed logic.
+The `Permanent Failure Dashboard View` (PRD: `prd-063-034-permanent-failure-dashboard`) has been proposed to easily identify these deadlocks, which spawned Epics `epic-034-046-dag-data-parsing-rejection-count.md` and `epic-034-047-permanent-failure-dashboard-ui.md`.
