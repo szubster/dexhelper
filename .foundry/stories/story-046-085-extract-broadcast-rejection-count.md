@@ -34,5 +34,9 @@ In order to display permanent failures on the DAG dashboard, we need to surface 
 3. Verify that the React context layer correctly exposes the property.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Create TASKs for updating parser and data models.
-- [ ] Tech Lead: Ensure DAG data model typing is consistent with ADR 017.
+- [x] Tech Lead: Create TASKs for updating parser and data models.
+- [x] Tech Lead: Ensure DAG data model typing is consistent with ADR 017.
+
+## Generated Tasks
+- [ ] .foundry/tasks/task-085-142-impl-extract-rejection-count.md
+- [ ] .foundry/tasks/task-085-143-qa-extract-rejection-count.md
