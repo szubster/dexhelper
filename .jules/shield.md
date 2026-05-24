@@ -41,3 +41,10 @@ Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While t
 **Pattern:** When mitigating vulnerable sub-dependencies flagged by `pnpm audit` (like `ws`), use the `pnpm.overrides` field in `package.json` to securely enforce the patched version down the dependency tree. Also, to fix CWE-285 vulnerabilities (incomplete URL substring matching) flagged by CodeQL, use `.endsWith()` or `.startsWith()` instead of `.includes()` when inspecting URLs.
 ## 2026-06-03 - [Mitigated CWE-209] - Prevented information leakage in AppLayout.tsx
 **Pattern:** When fixing CWE-209 by replacing `err.message` with generic strings, ensure that any variable previously capturing the error object in a try-catch block (e.g., `catch (err)`) is either removed or prefixed with an underscore (e.g., `catch (_err)`) to avoid unused variable warnings from the linter.
+
+## Sanitize Error Logging (CWE-209)
+**Pattern:** When addressing CWE-209 by removing raw error objects from `console.error` logs, replace the output with descriptive, contextual static strings (e.g., `console.error('Failed to parse live save file')`) rather than generic homogenous fallbacks like `'System: sync failed'`. This preserves frontend debuggability without leaking sensitive object properties.
+**Pattern:** When the error object is completely unused in the `catch` block after removing it from the `console.error` logs, use modern ES2019 optional catch binding (`catch { ... }`) rather than prefixing it (`catch (_err)`). The project's linter will flag *any* caught but unused variable, even if prefixed with an underscore.
+
+## Incomplete URL Substring Matching (CWE-285)
+**Pattern:** While `.includes()` should be avoided for validating URLs (favoring `.startsWith()` or URL parsing), do NOT blindly apply this rule to `ErrorEvent.message` property checks (e.g., catching Vite chunk load errors). Browsers often prepend prefixes like `TypeError: ` to error messages, so `.startsWith()` will fail to match dynamically imported module errors, causing major application regressions. Use `.includes()` for generic error string matching.
