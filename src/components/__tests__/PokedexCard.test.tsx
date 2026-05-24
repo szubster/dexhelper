@@ -54,8 +54,8 @@ describe('PokedexCard', () => {
     await render(<RouterProvider router={router} />);
 
     // Test for ID styling
-    await expect.element(page.getByText('ID')).toBeInTheDocument();
-    await expect.element(page.getByText('001')).toBeInTheDocument();
+    await expect.element(page.getByText('ID', { exact: true })).toBeInTheDocument();
+    await expect.element(page.getByText('001', { exact: true })).toBeInTheDocument();
   });
 
   test('renders [ SECURED ] when in storage', async () => {
