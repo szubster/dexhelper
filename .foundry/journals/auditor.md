@@ -8,3 +8,5 @@ This violates the spirit of the dependency graph. An Epic represents a "macrosco
 
 **Recommendation/Learnings:**
 The system needs a clearer distinction between "Epic planning is done" and "Epic implementation is done". Perhaps Epics should implicitly depend on all their child nodes, or the `story_owner` needs to wait until all child stories are `COMPLETED` before submitting the empty PR to transition the Epic to `VERIFYING`. Currently, submitting the Epic when only the planning is done leads to failed audits.
+## 2026-05-24: epic-034-046-dag-data-parsing-rejection-count
+Observation: Epic completes before its functional child tasks have shipped code to the repository. This is another instance of premature verification.
