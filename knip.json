@@ -1,7 +1,9 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "ignoreExportsUsedInFile": true,
-  "ignoreDependencies": ["wrangler"],
+  "ignoreDependencies": [
+    "wrangler"
+  ],
   "ignore": [
     "src/test-setup.ts",
     "scripts/validate-foundry-schema.ts",
@@ -9,8 +11,8 @@
     "scripts/gen3-fetch-locations.ts"
   ],
   "rules": {
-    "files": "warn",
-    "exports": "off",
+    "files": "error",
+    "exports": "error",
     "types": "warn",
     "dependencies": "error",
     "devDependencies": "error",
