@@ -43,3 +43,11 @@
 - **2026-05-23**: PR #1786 merged. `task-078-134-implement-polling-loop` is now COMPLETED.
 
 - **2026-05-23**: Resurrection Loop triggered for `epic-034-046-dag-data-parsing-rejection-count`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-24**: PR #1804 merged. `epic-034-046-dag-data-parsing-rejection-count` is now VERIFYING.
+
+- **2026-05-24**: PR #1803 merged. `idea-064-smart-route-radar` is now VERIFYING.
+
+- **2026-05-24**: PR #1809 merged. `idea-065-epic-verification-timing` is now VERIFYING.
+
+- **2026-05-24**: PR #1805 merged. `prd-063-034-permanent-failure-dashboard` is now VERIFYING.
