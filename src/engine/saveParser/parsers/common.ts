@@ -21,6 +21,7 @@ export interface PokemonInstance {
   speciesId: number;
   level: number;
   isShiny: boolean;
+  hasShinyGene?: boolean;
   item?: number | undefined;
   moves: number[];
   friendship?: number | undefined;
@@ -241,4 +242,21 @@ export function parseDVs(dvValue: number) {
  */
 export function checkShiny(dvs: { atk: number; def: number; spd: number; spc: number }) {
   return dvs.def === 10 && dvs.spd === 10 && dvs.spc === 10 && [2, 3, 6, 7, 10, 11, 14, 15].includes(dvs.atk);
+}
+
+/**
+ * Evaluates whether a Pokémon possesses the "Shiny Gene" (Shiny Carrier) based on its DVs.
+ *
+ * @param dvs - The unpacked stat DVs from `parseDVs`.
+ * @returns True if the DV combination meets the Gen 2 Shiny Carrier criteria.
+ *
+ * @remarks
+ * In Gen 2, a Pokémon can pass down Shininess to its offspring if its DVs satisfy:
+ * Defense DV is exactly 10, and Special DV is either 2 or 10.
+ *
+ * @example
+ * const isShinyCarrier = checkShinyGene({ atk: 5, def: 10, spd: 5, spc: 2 }); // true
+ */
+export function checkShinyGene(dvs: { atk: number; def: number; spd: number; spc: number }) {
+  return dvs.def === 10 && (dvs.spc === 2 || dvs.spc === 10);
 }

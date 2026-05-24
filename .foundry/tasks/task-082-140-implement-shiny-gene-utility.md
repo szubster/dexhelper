@@ -43,10 +43,10 @@ Ensure the save parser decodes DVs from binary data using `DataView` correctly. 
    - Ensure tests cover DV decoding from binary data properly if modifications to decoding logic were necessary.
 
 ## Acceptance Criteria
-- [ ] `checkShinyGene` function is implemented and exported in `common.ts`.
-- [ ] Logic correctly decodes Gen 2 DVs from binary data using `DataView` (existing `parseDVs` usage is verified/updated).
-- [ ] `hasShinyGene` is added to `PokemonInstance` as an optional boolean.
-- [ ] Unit tests for `checkShinyGene` are written and pass.
+- [x] `checkShinyGene` function is implemented and exported in `common.ts`.
+- [x] Logic correctly decodes Gen 2 DVs from binary data using `DataView` (existing `parseDVs` usage is verified/updated).
+- [x] `hasShinyGene` is added to `PokemonInstance` as an optional boolean.
+- [x] Unit tests for `checkShinyGene` are written and pass.
 
 ## Reminder for Coder and QA
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
