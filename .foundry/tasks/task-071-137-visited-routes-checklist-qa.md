@@ -2,7 +2,7 @@
 id: task-071-137-visited-routes-checklist-qa
 type: TASK
 title: QA Visited Routes Checklist
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-05-22'
 updated_at: '2026-05-24'
