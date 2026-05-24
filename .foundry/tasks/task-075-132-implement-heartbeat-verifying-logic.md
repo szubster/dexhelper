@@ -2,7 +2,7 @@
 id: task-075-132-implement-heartbeat-verifying-logic
 type: TASK
 title: Implement Heartbeat VERIFYING Logic
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-23'
@@ -15,7 +15,10 @@ tags:
   - orchestrator
   - heartbeat
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie detection main loop only monitors ACTIVE nodes for missing
+  jules_session_id. VERIFYING nodes missing jules_session_id are ignored instead
+  of flagged as FAILED.
 ---
 
 # Task: Implement Heartbeat VERIFYING Logic

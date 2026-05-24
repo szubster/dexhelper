@@ -14,3 +14,4 @@ During the validation of `task-072-128-implement-dag-cancellation`, I discovered
 
 ## Missing Integration Failures
 When an implementation task only creates standalone UI components but fails to integrate or render them anywhere in the main application (making them inaccessible to the user), the task MUST be rejected. The purpose of implementation isn't just to write code that passes isolated unit tests; it is to deliver accessible features.
+- **2026-05-24**: Rejected task-075-132-implement-heartbeat-verifying-logic. The implementation successfully added VERIFYING nodes to the zombie detection list but failed to update the logic that fails nodes missing a jules_session_id. The check `if (!isHuman && (!sessionId || sessionId === 'null') && node.frontmatter.status === 'ACTIVE')` was not updated to include VERIFYING status.

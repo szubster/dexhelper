@@ -162,6 +162,34 @@ ok: true,
     expect(fs.appendFileSync).not.toHaveBeenCalled();
   });
 
+
+  it.fails('should transition a node to FAILED if VERIFYING and jules_session_id is missing', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        status: 'VERIFYING',
+        jules_session_id: null
+      },
+      rawContent: '---\nstatus: VERIFYING\njules_session_id: null\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    // Mock API requests done in the cleanup phase to prevent them from failing the mock verification
+    globalFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => []
+    } as unknown as Response);
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+  });
+
   it('should transition a node to FAILED if jules_session_id is missing', async () => {
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-1.md',
