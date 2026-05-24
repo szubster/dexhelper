@@ -28,9 +28,9 @@ Add specific unit tests in `.github/scripts/foundry-orchestrator.test.ts` to ver
 There are already some tests covering parts of this feature. Ensure the tests you add exactly map to the Acceptance Criteria below. You may need to rename existing tests to match exact criteria, or add assertions to them.
 
 ## Acceptance Criteria
-- [ ] Add unit tests verifying that dependent `PENDING` nodes are correctly transitioned to `CANCELLED` when their dependency hits the max rejection count.
-- [ ] Add unit tests verifying the exact `rejection_reason` string formatting (`Cancelled due to permanent failure of dependency: <dependency_id>`).
-- [ ] Test the anti-loop / cycle prevention mechanisms of the cancellation logic.
+- [x] Add unit tests verifying that dependent `PENDING` nodes are correctly transitioned to `CANCELLED` when their dependency hits the max rejection count.
+- [x] Add unit tests verifying the exact `rejection_reason` string formatting (`Cancelled due to permanent failure of dependency: <dependency_id>`).
+- [x] Test the anti-loop / cycle prevention mechanisms of the cancellation logic.
 
 ## Technical Contract
 1. Check `.github/scripts/foundry-orchestrator.test.ts` around line 1030-1200 for existing tests like `Impossible Loop: Auto-cancels PENDING nodes depending indirectly on permanently failed node` and `Impossible Loop: Auto-cancels without infinite loop on circular dependency`.
