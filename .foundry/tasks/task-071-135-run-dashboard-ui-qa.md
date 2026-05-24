@@ -28,3 +28,7 @@ QA the "Alive" team view for the Run Dashboard UI.
 ## Acceptance Criteria
 - [ ] Verify the "Alive" team view displays correctly.
 - [ ] Verify the UI meets all requirements for the Nuzlocke Tracker mode.
+
+
+## QA Notes
+- Validation FAILED: The `AliveTeamView` component was implemented, but it is not linked or integrated into the actual Run Dashboard UI (or any accessible route). This violates the Component Integration Policy. Rejecting the implementation task.

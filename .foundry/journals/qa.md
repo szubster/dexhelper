@@ -14,3 +14,7 @@ During the validation of `task-072-128-implement-dag-cancellation`, I discovered
 
 ## Missing Integration Failures
 When an implementation task only creates standalone UI components but fails to integrate or render them anywhere in the main application (making them inaccessible to the user), the task MUST be rejected. The purpose of implementation isn't just to write code that passes isolated unit tests; it is to deliver accessible features.
+
+## 2026-05-24: Component Integration Policy Enforcement
+During the verification of `task-071-134-run-dashboard-ui-impl`, I found that the `AliveTeamView` component was fully implemented with corresponding tests, but it was completely unlinked and omitted from the application's view hierarchy (specifically, no Run Dashboard routes or integration existed).
+**Lesson**: Following the "Component Integration Policy", standalone UI components that are not integrated into the application making them inaccessible MUST result in a rejected implementation task, regardless of how well written the isolated unit tests are. The purpose of implementation is to deliver accessible features, not just code.

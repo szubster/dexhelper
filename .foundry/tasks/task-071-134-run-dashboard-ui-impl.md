@@ -2,7 +2,7 @@
 id: task-071-134-run-dashboard-ui-impl
 type: TASK
 title: Implement Dashboard Alive Team View
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-23'
@@ -15,7 +15,11 @@ tags:
   - nuzlocke
   - verification
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Component Integration Policy Violation: The AliveTeamView component was
+  created but never integrated into the application view hierarchy (e.g., Run
+  Dashboard routes are missing/unlinked), making it unrenderable and
+  inaccessible to users.
 notes: ''
 ---
 
