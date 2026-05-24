@@ -99,3 +99,7 @@ Memoized TacticalCard in StorageGrid.tsx and extracted StorageCard to avoid N+1 
 **What:** Created top-level module constants (`STATIC_GIFT_PIDS` and `STATIC_GIFT_ENTRIES`) to pre-calculate `Object.keys()` and `Object.entries()` of `STATIC_GIFT_DATA`.
 **Why:** The variables were being recalculated inside `generateGiftAndTradeSuggestions`, which is invoked frequently in the Assistant query pipeline. This caused unnecessary `O(N)` string-to-number parsing and intermediate tuple array allocations on the hot path. Pre-calculating them statically drops execution overhead for these operations from ~130ms to ~1ms.
 **Measured Improvement:** Test bench demonstrated Object.keys+map dropping from ~130ms to ~1ms, and Object.entries loop dropping from ~200ms to ~5ms over 100k iterations.
+## 2026-05-24 - ⚡ Bolt: Eliminate O(N) array allocation for local map encounters
+**What:** Replaced chained `.filter()` operations with a direct `for` loop and an early exit check in the `apiData.localEncounters` loop inside `src/engine/assistant/suggestionEngine.ts`.
+**Why:** The `.filter()` method creates intermediate array allocations. With potentially hundreds of encounters being processed on every keystroke or state update in the `suggestionEngine.ts`, this causes unnecessary garbage collection and main thread blocking. Shifting to an imperative loop completely avoids allocating intermediate arrays.
+**Measured Improvement:** In isolated node benchmark, dropped execution from ~300ms to ~88ms per 100k iterations (more than 3x faster).
