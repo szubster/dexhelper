@@ -46,7 +46,12 @@ This ensures that "Epic implementation is done" is semantically accurate.
    - The solution must avoid circular dependency deadlocks (where a parent blocks a child and the child blocks the parent) by ensuring parents only wait on descendants, not vice-versa, for their final completion state.
 
 ## Acceptance Criteria
-- [ ] The `foundry-orchestrator.ts` script is updated to block parent nodes from transitioning to `COMPLETED` or `VERIFYING` if any descendant child node is incomplete.
-- [ ] Unit tests in `.github/scripts/foundry-orchestrator.test.ts` are updated or added to verify that a parent node remains pending/active while its spawned children are being executed.
-- [ ] The DAG remains deadlock-free; children are still dispatched normally, but the parent waits.
-- [ ] The TPM or Agile Coach journal is updated to reflect this new process change.
+- [x] The `foundry-orchestrator.ts` script is updated to block parent nodes from transitioning to `COMPLETED` or `VERIFYING` if any descendant child node is incomplete.
+- [x] Unit tests in `.github/scripts/foundry-orchestrator.test.ts` are updated or added to verify that a parent node remains pending/active while its spawned children are being executed.
+- [x] The DAG remains deadlock-free; children are still dispatched normally, but the parent waits.
+- [x] The TPM or Agile Coach journal is updated to reflect this new process change.
+
+
+## Generated Epics
+- [.foundry/epics/epic-035-048-implicit-dependency-enforcement.md](./../epics/epic-035-048-implicit-dependency-enforcement.md)
+- [.foundry/epics/epic-035-049-late-binding-accommodation.md](./../epics/epic-035-049-late-binding-accommodation.md)
