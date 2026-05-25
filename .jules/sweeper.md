@@ -35,3 +35,7 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 - Refactoring long files or text structures using string matching in python or javascript can be error prone with indentation or overlapping strings. Writing a script to accurately parse the abstract syntax tree and make changes is difficult. Often the easiest way to make surgical edits to a code file without manual human input is to find unique anchors, slice the text, and recreate it exactly.
 When using `pnpm knip --production` to identify dead code, it will often falsely flag non-production files such as CI scripts, tests, and testing utilities (e.g., in `.github/scripts/`, `scripts/`, or `tests/e2e/`) as unused. Always manually verify that flagged files are genuinely dead code before deletion.
 Before deleting code flagged as dead, always check the status of Foundry tasks (e.g., in `.foundry/`) as it may be related to recently closed or WIP tasks.
+
+## 2026-06-25 - Deleting Dead Code from Barrel Files
+**Learning:** When resolving dead code and a component is identified as unused, it is common to remove its export from a nearby barrel file (like an `index.ts`).
+**Action:** Be extremely careful not to blindly delete the entire barrel file without checking its contents first. If the file contains other valid exports, deleting the whole file will break the build. Selectively remove only the unused export line instead.
