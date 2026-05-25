@@ -34,3 +34,8 @@
 **Idea:** Smart Route Radar / Context-Aware Missing Encounter Map
 **Learning:** Currently DexHelper acts as an excellent static reference and passive save viewer. By dynamically intersecting the static game knowledge (e.g., encounter tables for specific maps) with the player's current save state (Pokédex/Box completion), we can create an "active guide". A feature that automatically highlights which routes the player should visit *next* to catch missing Pokémon bridges the gap between reference tool and proactive companion app.
 **Outcome:** Created IDEA node.
+
+## 2025-05-24
+**Idea:** Time Capsule Readiness Validator
+**Learning:** Gen 2's backward compatibility via the Time Capsule is a major mechanic, but its move-based restrictions are obtuse and require external research by the player. Leveraging our save file programmatic access to automate these cross-generational friction points fits perfectly within DexHelper's vision as a premium companion app.
+**Outcome:** Created IDEA node.
