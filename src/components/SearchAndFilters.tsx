@@ -1,9 +1,10 @@
-import { Search } from 'lucide-react';
+import { Filter, Search } from 'lucide-react';
 import { useRef } from 'react';
 import { FILTER_TYPES, useStore } from '../store';
 import { LocationSuggestions } from './LocationSuggestions';
 import { TacticalButton } from './TacticalButton';
 import { TacticalInput } from './TacticalInput';
+import { TacticalPanel } from './TacticalPanel';
 
 export function SearchAndFilters() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -52,32 +53,39 @@ export function SearchAndFilters() {
         </TacticalInput>
 
         {/* Tactical Filter Toggles */}
-        <fieldset className="no-scrollbar m-0 mt-2 flex min-w-0 gap-2 overflow-x-auto border-none p-0 px-1 pb-2">
-          <legend className="sr-only">Filter Pokémon</legend>
-          <TacticalButton
-            type="button"
-            onClick={() => setFilters([])}
-            aria-pressed={filtersSet.size === 0}
-            variant={filtersSet.size === 0 ? 'primary' : 'default'}
-            hasCrosshairs="corners"
-          >
-            All
-          </TacticalButton>
+        <TacticalPanel className="mt-2 shrink-0 p-3 pt-4 sm:p-4 sm:pt-5">
+          <div className="absolute -top-1.5 left-4 flex items-center gap-1.5 bg-zinc-950 px-2 text-zinc-500">
+            <Filter size={10} className="text-[var(--theme-primary)]" />
+            <span className="font-mono text-[9px] uppercase tracking-widest">[ SYS.FILTER ]</span>
+          </div>
 
-          {FILTER_TYPES.map((f) => (
+          <fieldset className="no-scrollbar m-0 flex min-w-0 gap-2 overflow-x-auto border-none p-0">
+            <legend className="sr-only">Filter Pokémon</legend>
             <TacticalButton
               type="button"
-              key={f}
-              onClick={() => toggleFilter(f)}
-              aria-pressed={filtersSet.has(f)}
-              data-testid={`filter-${f}`}
-              variant={filtersSet.has(f) ? 'primary' : 'default'}
+              onClick={() => setFilters([])}
+              aria-pressed={filtersSet.size === 0}
+              variant={filtersSet.size === 0 ? 'primary' : 'default'}
               hasCrosshairs="corners"
             >
-              {f === 'secured' ? 'Secured' : f === 'missing' ? 'Missing' : 'Dex Only'}
+              All
             </TacticalButton>
-          ))}
-        </fieldset>
+
+            {FILTER_TYPES.map((f) => (
+              <TacticalButton
+                type="button"
+                key={f}
+                onClick={() => toggleFilter(f)}
+                aria-pressed={filtersSet.has(f)}
+                data-testid={`filter-${f}`}
+                variant={filtersSet.has(f) ? 'primary' : 'default'}
+                hasCrosshairs="corners"
+              >
+                {f === 'secured' ? 'Secured' : f === 'missing' ? 'Missing' : 'Dex Only'}
+              </TacticalButton>
+            ))}
+          </fieldset>
+        </TacticalPanel>
       </div>
     </div>
   );

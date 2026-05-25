@@ -128,3 +128,9 @@
 **Outcome:** Accepted
 **Why:** Brings the mobile navigation interface tightly in line with the rest of the application's established tactical hardware motif (matching `AppLayout`, `Grid`, and `Details`), correcting the previous web-standard smooth transitions.
 **Pattern:** Ensure mobile layout structural components adhere to strict tactical aesthetics (sharp borders, corner crosshairs, scanning/flicker animations, monospace telemetry text) rather than generic app-like smoothed navigation bars, to maintain the specialized device illusion.
+
+## 2025-06-25 - [Accepted] - 🖼️ Canvas: Tactical SearchAndFilters Redesign
+**What:** Redesigned the filter toggles in the `SearchAndFilters` component. Wrapped the simple flex container of filter buttons in a `TacticalPanel` and added a `[ SYS.FILTER ]` monospaced diagnostic header to create a specialized hardware "segmented control" terminal look.
+**Outcome:** Accepted
+**Why:** Brings the filter controls fully in line with the heavily tactical, snooping-focused aesthetic (matching the recently updated `TacticalInput` and details panels). Removing basic flex containers in favor of `TacticalPanel` wrappers solidifies the specialized device illusion.
+**Pattern:** Consistently eliminate generic grouping containers in favor of `TacticalPanel` wrappers with diagnostic headers for input groups, maintaining the specialized hardware UI language across all system interactions.
