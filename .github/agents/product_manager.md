@@ -21,6 +21,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 - When creating a new node, strictly follow the Parent-Linked ID Schema: `<type>-<parent_NNN>-<NNN>-<slug>` as detailed in `.foundry/docs/schema.md`.
 - Append references to newly created child nodes directly into the markdown body of the parent node, and check off corresponding acceptance criteria checkboxes WITHOUT modifying the parent's YAML frontmatter.
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
+- **CRITICAL**: Do NOT submit an Empty PR to transition the parent node to `VERIFYING` until ALL of its generated child nodes have transitioned to `COMPLETED`. Premature verification violates DAG dependency constraints.
 
 ## Journal
 

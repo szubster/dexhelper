@@ -144,3 +144,9 @@
 **Outcome:** Merged
 **Why:** The Strategist was only instructed to read `.jules/*.md` to assess agent prompt quality, missing all Foundry execution personas which log their learnings to `.foundry/journals/*.md` (e.g., coder, qa, tech_lead). This gap prevented the Strategist from identifying prompt quality issues for the most active execution agents.
 **Pattern:** Update prompts to ensure they have access to the correct and complete set of journals for all personas, specifically including both `.jules/` and `.foundry/journals/` when reading logs to identify issues.
+
+## 2026-07-09 - [Accepted] - Prompt improvement - Prevent premature verification of high-level nodes
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Auditor journal noted a recurring pattern where `EPIC` nodes transitioned to the `VERIFYING` status prematurely because their immediate Acceptance Criteria (creating child Story nodes) was met, even though the actual implementation had not been completed by the child tasks. This violates the spirit of the dependency graph and causes downstream nodes to be dispatched prematurely.
+**Pattern:** Update node generation rules for planning agents (Product Manager, Epic Planner, Story Owner, Tech Lead) to explicitly forbid submitting an Empty PR to transition a parent node to `VERIFYING` until all of its generated child nodes have transitioned to `COMPLETED`.
