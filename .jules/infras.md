@@ -78,3 +78,6 @@ Critical learnings:
 
 ## 2026-05-23 - Updated Tooling Dependencies
 **Learning:** Updated dependencies to keep tooling modern and secure.
+
+## 2026-05-25 - Strengthened Knip Configuration
+**Learning:** Evaluated current `knip.json` configuration and found that it was set to `warn` for missing files and unused types, and `off` for unused exports, essentially defeating its purpose in the CI/CD pipeline since it wouldn't fail the build on dead code. Updated `knip.json` to strictly enforce `error` for `files`, `exports`, and `types` rules. Removed pre-existing dead code (`VisitedRoutesChecklist.tsx` and `src/components/run/index.ts`) and configured ignores for scripts/data that are dynamically used but not statically exported to satisfy the new rules. This prevents future regressions of dead code accumulation.
