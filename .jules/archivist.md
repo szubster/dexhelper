@@ -52,3 +52,7 @@
 ## 2026-07-08
 **Learning:** System failures, node state transitions (e.g. from FAILED to READY), and "is now COMPLETED" status log entries in Foundry journals (like `tpm.md`) add zero value to future runs and unnecessarily expand the context window.
 **Action:** Removed all transient status logging from `tpm.md`. Such logs belong in orchestrator execution logs or PR history, not long-term agent journals.
+
+## 2026-07-09
+**Learning:** The TPM agent continues to log transient execution traces, system failures, and state transitions (e.g. from FAILED to READY, or "is now COMPLETED") in its journal (`.foundry/journals/tpm.md`). These logs provide no long-term value and inflate context limits, violating the core policy that journals are for critical learnings and architectural constraints.
+**Action:** Truncated `.foundry/journals/tpm.md` to clear out these transient logs. Must ensure all personas strictly adhere to the Empty PR and Core Agent Policies to avoid unnecessary action logs.
