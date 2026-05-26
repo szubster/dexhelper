@@ -66,3 +66,9 @@
 - **Key Learnings**:
   - Separating `labelClassName` and `valueClassName` allows for necessary typographic variations (like alignment or colors) while still leveraging the base structural pattern.
   - Always manually verify existing files using tools like `grep` before attempting substitutions, as files may have drifted from expected state.
+
+## DiagnosticCard Extraction
+- **What**: Extracted repeated telemetry/diagnostic card layout into `<DiagnosticCard>` component.
+- **Why**: Reduced duplicated JSX across `AssistantDebugView` which had 4 identical blocks. It can also be reused if other parts of the app need a telemetry card.
+- **Key Learnings**:
+  - The `valueClassName` prop is crucial when extracting text components, allowing customization like `truncate` or `uppercase` while maintaining identical base text styles.
