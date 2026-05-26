@@ -30,4 +30,4 @@ Transition the data serialization layer from JSON to MsgPack to handle larger Ge
 
 ## Generated Tasks
 - .foundry/tasks/task-063-132-msgpack-transition-impl.md
-- .foundry/tasks/task-063-133-msgpack-transition-qa.md
+- .foundry/archive/tasks/task-063-133-msgpack-transition-qa.md
