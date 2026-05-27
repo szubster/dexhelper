@@ -49,3 +49,6 @@
 
 ## Data Integrity - Gen 1/2 Exclusives Refactoring
 * **Data Pipeline Gotchas:** The Gen 1 and Gen 2 version exclusive lists were missing some unobtainable Pokémon, or listing some as unobtainable when they are in fact obtainable. For example, Gen 1 Yellow exclusives missed a few entries, and Gen 2 Crystal missing exclusives also lacked some entries (like Arcanine / Growlithe line). PokeAPI encounters are the source of truth for base-form availability, but one must carefully check all versions (`version_details`) in the encounter data.
+
+## Data Integrity - Crystal Exclusives (Growlithe & Arcanine)
+* **Data Pipeline Gotchas:** The Gen 2 version exclusives list for Crystal incorrectly included Growlithe (58) and Arcanine (59). A cross-reference with PokeAPI (`https://pokeapi.co/api/v2/pokemon/58/encounters`) reveals that Growlithe is obtainable in Crystal on Route 35 and Route 36. They have been removed from the `crystal` unobtainable list. Always check PokeAPI encounters, as version availability diverges notably in the third versions (Yellow/Crystal/Emerald).
