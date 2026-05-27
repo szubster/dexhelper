@@ -34,8 +34,8 @@ export function useFileSyncController() {
         await saveDB.putSave('last_save_file', new Uint8Array(buffer));
         setStatus('live');
         setErrorMsg(null);
-      } catch (err) {
-        console.error(err);
+      } catch {
+        console.error('System: sync failed');
         setStatus('error');
         setErrorMsg('Failed to parse live save file.');
       }
@@ -72,7 +72,7 @@ export function useFileSyncController() {
       lastModifiedRef.current = file.lastModified;
       await processFile(file);
     } catch (err) {
-      console.error('User cancelled or error:', err);
+      console.error('System: user cancelled or error');
       // Don't set error status if user just cancelled
       if (err instanceof Error && err.name !== 'AbortError') {
         setStatus('error');
@@ -103,8 +103,8 @@ export function useFileSyncController() {
             setStatus('disconnected');
           }
         }
-      } catch (e) {
-        console.error('Failed to restore handle', e);
+      } catch {
+        console.error('System: restore failed');
       }
     }
     void restoreHandle();
@@ -124,8 +124,8 @@ export function useFileSyncController() {
           await processFile(file);
         }
       }
-    } catch (err) {
-      console.error('Failed to resume sync', err);
+    } catch {
+      console.error('System: resume failed');
       setStatus('error');
     }
   }, [processFile]);
@@ -143,8 +143,8 @@ export function useFileSyncController() {
           lastModifiedRef.current = file.lastModified;
           await processFile(file);
         }
-      } catch (err) {
-        console.error('Polling error:', err);
+      } catch {
+        console.error('System: polling failed');
         // We might have lost permission or file was deleted
         setStatus('disconnected');
       }
