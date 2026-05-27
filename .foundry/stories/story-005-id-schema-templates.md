@@ -34,4 +34,4 @@ Implement the new collision-free ID schema across the orchestrator and all node 
 ## Generated Tasks
 - `.foundry/tasks/task-005-024-update-id-templates.md`
 - `.foundry/tasks/task-005-025-update-orchestrator-validation.md`
-- `.foundry/tasks/task-005-026-qa-orchestrator-validation.md`
+- `.foundry/archive/tasks/task-005-026-qa-orchestrator-validation.md`
