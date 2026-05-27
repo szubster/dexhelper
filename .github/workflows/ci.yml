@@ -40,6 +40,8 @@ jobs:
         run: pnpm knip
       - name: Circular Dependency Check
         run: pnpm lint:circular
+      - name: Package JSON Sort Check
+        run: pnpm lint:package-json
 
   test:
     runs-on: ubuntu-latest

@@ -78,3 +78,4 @@ Critical learnings:
 
 ## 2026-05-23 - Updated Tooling Dependencies
 **Learning:** Updated dependencies to keep tooling modern and secure.
+\n## 2026-05-24 - Enforced package.json sorting in CI\n**Learning:** Discovered that the local `pnpm lint` pipeline had `lint:package-json` added, but the CI pipeline (`.github/workflows/ci.yml`) was missing it. I have added the `Package JSON Sort Check` to `ci.yml` to ensure `package.json` sorting is properly enforced in CI environments, preventing unsorted packages from slipping through into merged code.
