@@ -36,3 +36,6 @@ Create a dedicated "Permanent Failures" view or filter within the DAG Dashboard.
 ### Downstream Epics
 - `.foundry/epics/epic-034-046-dag-data-parsing-rejection-count.md`
 - `.foundry/epics/epic-034-047-permanent-failure-dashboard-ui.md`
+
+### Spawned Nodes
+- [x] [idea-068-strict-hierarchical-completion-enforcement](.foundry/ideas/idea-068-strict-hierarchical-completion-enforcement.md)
