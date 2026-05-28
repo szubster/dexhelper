@@ -1,3 +1,4 @@
+import { isValidKey } from '../../../utils/object';
 import gen1MapLocations from '../../data/gen1/mapLocations.json';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { checkShiny, decodeGen12String, parseDVs } from './common';
@@ -573,8 +574,7 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
   const trainerId = view.getUint16(0x2605 + offsetShift, false);
   const currentMapId = view.getUint8(0x260a + offsetShift);
   const mapIdStr = currentMapId.toString();
-  const currentMapName =
-    mapIdStr in gen1MapLocations ? gen1MapLocations[mapIdStr as keyof typeof gen1MapLocations] : 'Unknown Map';
+  const currentMapName = isValidKey(mapIdStr, gen1MapLocations) ? gen1MapLocations[mapIdStr] : 'Unknown Map';
   const inventory: { id: number; quantity: number }[] = [];
   const itemCount = view.getUint8(0x25c9 + offsetShift);
   for (let i = 0; i < itemCount; i++) {

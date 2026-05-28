@@ -1,3 +1,4 @@
+import { isValidKey } from '../../../utils/object';
 import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
@@ -33,7 +34,7 @@ function parseCaughtData(view: DataView, offset: number) {
   else if (location === 0x7f) locationName = 'Special Event/Traded';
   else {
     const locStr = location.toString();
-    locationName = locStr in gen2Landmarks ? gen2Landmarks[locStr as keyof typeof gen2Landmarks] : undefined;
+    locationName = isValidKey(locStr, gen2Landmarks) ? gen2Landmarks[locStr] : undefined;
   }
 
   return { time, level: caughtLevel, location, locationName };
@@ -518,10 +519,8 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   let currentMapName = 'Unknown Map';
   const groupStr = mapGroup.toString();
   const mapIdStr = currentMapId.toString();
-  const mapGroupDict =
-    groupStr in gen2MapLocations ? gen2MapLocations[groupStr as keyof typeof gen2MapLocations] : undefined;
-  const foundMap =
-    mapGroupDict && mapIdStr in mapGroupDict ? mapGroupDict[mapIdStr as keyof typeof mapGroupDict] : undefined;
+  const mapGroupDict = isValidKey(groupStr, gen2MapLocations) ? gen2MapLocations[groupStr] : undefined;
+  const foundMap = mapGroupDict && isValidKey(mapIdStr, mapGroupDict) ? mapGroupDict[mapIdStr] : undefined;
   if (foundMap) {
     currentMapName = foundMap;
   }
