@@ -26,6 +26,6 @@ notes: ''
 Implement the visited and unvisited routes checklist for the Run Dashboard UI and ensure it is properly integrated and rendered in the application.
 
 ## Acceptance Criteria
-- [x] Implement the UI to display the visited routes checklist.
-- [x] Implement the UI to display the unvisited routes checklist.
-- [x] Ensure the component is integrated and rendered within the Run Dashboard UI.
+- [ ] Implement the UI to display the visited routes checklist.
+- [ ] Implement the UI to display the unvisited routes checklist.
+- [ ] Ensure the component is integrated and rendered within the Run Dashboard UI.

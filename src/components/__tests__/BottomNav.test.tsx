@@ -69,7 +69,6 @@ describe('BottomNav', () => {
     await expect.element(getByText('[ DEX ]')).toBeInTheDocument();
     await expect.element(getByText('STRG')).toBeInTheDocument();
     await expect.element(getByText('ASST')).toBeInTheDocument();
-    await expect.element(getByText('RUN')).toBeInTheDocument();
     await expect.element(getByText('MENU')).toBeInTheDocument();
   });
 });

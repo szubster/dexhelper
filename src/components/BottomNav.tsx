@@ -1,5 +1,5 @@
 import { Link, useLocation } from '@tanstack/react-router';
-import { Activity, Database, GitGraph, LayoutGrid, Settings2, Sparkles } from 'lucide-react';
+import { Database, GitGraph, LayoutGrid, Settings2, Sparkles } from 'lucide-react';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
 import { TelemetryDecoration } from './TelemetryDecoration';
@@ -16,9 +16,8 @@ export function BottomNav() {
   const isStorage = location.pathname === '/storage';
   const isAssistant = location.pathname === '/assistant';
   const isDag = location.pathname === '/dag';
-  const isRun = location.pathname === '/run';
 
-  const activeIndex = isDex ? 0 : isStorage ? 1 : isAssistant ? 2 : isDag ? 3 : isRun ? 4 : -1;
+  const activeIndex = isDex ? 0 : isStorage ? 1 : isAssistant ? 2 : isDag ? 3 : -1;
 
   return (
     <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-800 border-t border-dashed bg-zinc-950 px-2 pt-2 pb-[env(safe-area-inset-bottom,16px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.8)] sm:hidden">
@@ -31,11 +30,11 @@ export function BottomNav() {
         className="-top-[21px] left-4 rounded-none border-t border-b-0 bg-zinc-950"
       />
 
-      <div className="relative mx-auto grid max-w-md grid-cols-6 items-center">
+      <div className="relative mx-auto grid max-w-md grid-cols-5 items-center">
         {/* Active Indicator Hardware Frame */}
         {activeIndex !== -1 && (
           <div
-            className="pointer-events-none absolute z-0 h-full w-[16.666%] transition-transform duration-300 ease-[cubic-bezier(0.2,1,0.2,1)]"
+            className="pointer-events-none absolute z-0 h-full w-[20%] transition-transform duration-300 ease-[cubic-bezier(0.2,1,0.2,1)]"
             style={{ transform: `translateX(${activeIndex * 100}%)` }}
           >
             <div className="absolute inset-x-1 inset-y-0.5 border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10" />
@@ -136,27 +135,6 @@ export function BottomNav() {
             />
           </div>
           <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">{isDag ? '[ DAG ]' : 'DAG'}</span>
-        </Link>
-
-        <Link
-          to="/run"
-          aria-label="Run Dashboard"
-          title="Run Dashboard"
-          aria-current={isRun ? 'page' : undefined}
-          className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-            isRun ? 'text-[var(--theme-primary)]' : 'text-zinc-600 hover:text-zinc-400',
-          )}
-        >
-          {isRun && <div className="lcd-flicker absolute inset-0 bg-[var(--theme-primary)]/5" />}
-          <div className={cn('transition-transform', isRun ? 'animate-pulse' : 'active:scale-90')}>
-            <Activity
-              size={20}
-              strokeWidth={isRun ? 2.5 : 2}
-              className={cn(isRun && 'drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),1)]')}
-            />
-          </div>
-          <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">{isRun ? '[ RUN ]' : 'RUN'}</span>
         </Link>
 
         <button
