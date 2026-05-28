@@ -2,10 +2,10 @@
 id: task-035-142-smart-radar-adr
 type: TASK
 title: Smart Route Radar ADR
-status: PENDING
+status: READY
 owner_persona: architect
 created_at: '2026-05-23'
-updated_at: '2026-05-23'
+updated_at: '2026-05-28'
 depends_on: []
 jules_session_id: null
 pr_number: null

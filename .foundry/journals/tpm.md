@@ -24,3 +24,7 @@
 - **2026-05-28**: PR #1811 merged. `task-064-134-encounter-integration-impl` is now COMPLETED.
 
 - **2026-05-28**: Resurrection Loop triggered for `task-071-135-run-dashboard-ui-qa`. Reason: PR #1822 closed without merging.. Transitioned back to READY.
+
+- **2026-05-28**: PR #1892 merged. `prd-063-034-permanent-failure-dashboard` is now VERIFYING.
+
+- **2026-05-28**: PR #1897 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
