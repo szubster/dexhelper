@@ -78,3 +78,6 @@ Critical learnings:
 
 ## 2026-05-23 - Updated Tooling Dependencies
 **Learning:** Updated dependencies to keep tooling modern and secure.
+
+## 2026-05-27 - Optimized Vite Chunk Strategy
+**Learning:** Added explicit chunk splitting in `vite.config.ts` for `@tanstack/react-query` and `lucide-react`. This extracts relatively static vendor logic from the main app chunk, slightly reducing its size and dramatically improving long-term cache hits for clients between minor app deployments. Corresponding limits in `.bundlemonrc.json` were updated to lock in these granular optimizations.
