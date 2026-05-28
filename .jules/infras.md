@@ -79,5 +79,6 @@ Critical learnings:
 ## 2026-05-23 - Updated Tooling Dependencies
 **Learning:** Updated dependencies to keep tooling modern and secure.
 
-## 2026-05-24 - Enforced strict dead code detection with Knip
-**Learning:** Configured `knip.json` with `"files": "error"` and `"exports": "error"` to strictly fail CI if there is any unused files or dead code exports. Previously these were set to 'warn' or 'off' which allowed dead code (like `VisitedRoutesChecklist` and unused graph exports) to accumulate silently. This enforces better codebase hygiene and maintainability.
+
+## 2026-05-28 - Rejected strict dead code detection with Knip
+**Learning:** Configured `knip.json` with `"files": "error"` and `"exports": "error"` to strictly fail CI if there is any unused files or dead code exports. User rejected this change, stating "We can have some dead code. For features which are being worked on. That's fine. AI agent should verify findings (I think one already does it) and decide about deletion". Reverted strict Knip settings to allow dead code during active development.

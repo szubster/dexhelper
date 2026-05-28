@@ -774,6 +774,7 @@ export const GEN3_INDOOR_TO_PARENT_MAP: Record<number, number> = {
   8448: 39,
 };
 
+export const decodeGen3Id = (encoded: number) => ({ group: encoded >> 8, id: encoded & 0xff });
 
 export interface MapNode {
   id: number;
