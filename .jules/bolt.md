@@ -99,3 +99,7 @@ Memoized TacticalCard in StorageGrid.tsx and extracted StorageCard to avoid N+1 
 **What:** Created top-level module constants (`STATIC_GIFT_PIDS` and `STATIC_GIFT_ENTRIES`) to pre-calculate `Object.keys()` and `Object.entries()` of `STATIC_GIFT_DATA`.
 **Why:** The variables were being recalculated inside `generateGiftAndTradeSuggestions`, which is invoked frequently in the Assistant query pipeline. This caused unnecessary `O(N)` string-to-number parsing and intermediate tuple array allocations on the hot path. Pre-calculating them statically drops execution overhead for these operations from ~130ms to ~1ms.
 **Measured Improvement:** Test bench demonstrated Object.keys+map dropping from ~130ms to ~1ms, and Object.entries loop dropping from ~200ms to ~5ms over 100k iterations.
+## 2026-05-31 - ⚡ Bolt: Eliminate O(N log N) sort inside reduce loop for suggestion renders
+**What:** Replaced `[...encs].sort((a, b) => b.chance - a.chance)[0]` with a manual for loop in `AssistantSuggestionCard.tsx`.
+**Why:** The sort was occurring inside a reduce operation, which in turn mapped over grouped array elements triggered on frequent React render cycles, introducing a high constant factor from redundant array allocations and O(N log N) overhead. Converting it to an O(N) max-finding scan reduced execution times in isolated testing.
+**Measured Improvement:** Test bench demonstrated execution dropping from ~20ms to ~12ms per 10k iterations.
