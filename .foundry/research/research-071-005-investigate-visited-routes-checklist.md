@@ -2,12 +2,12 @@
 id: research-071-005-investigate-visited-routes-checklist
 type: RESEARCH
 title: Investigate Visited Routes Checklist Integration Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-05-24'
-updated_at: '2026-05-23'
+updated_at: '2026-05-28'
 depends_on: []
-jules_session_id: '9430586658234806184'
+jules_session_id: null
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:

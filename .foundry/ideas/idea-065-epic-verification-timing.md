@@ -2,12 +2,12 @@
 id: idea-065-epic-verification-timing
 type: IDEA
 title: Re-evaluate Epic Verification Timing
-status: ACTIVE
+status: VERIFYING
 owner_persona: product_manager
 created_at: '2026-05-23'
-updated_at: '2026-05-24'
+updated_at: '2026-05-28'
 depends_on: []
-jules_session_id: '12636791878054878917'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
