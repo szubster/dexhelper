@@ -19,3 +19,9 @@ I identified a persistent friction point in the system where agents (particularl
 While the instructions were documented, they were not strictly enforced across all relevant persona prompts. I have proactively updated the `coder.md`, `qa.md`, and `tech_lead.md` prompts to explicitly include these directives.
 
 Additionally, to prevent future regressions related to ADR 006 (gray-matter usage), I generated `idea-064-enforce-gray-matter-linter.md` to propose a programmatic linter rule targeting the `.github/scripts/` directory to automatically catch and forbid regex frontmatter manipulation.
+
+## 2026-05-28: Enforce Hierarchical Verification Timing for Macro Nodes
+
+I noticed that macroscopic Foundry nodes like `EPIC` and `STORY` nodes were prematurely transitioning to `VERIFYING` and `COMPLETED` states before their underlying child tasks were actually finished. This created a false sense of progress and unblocked downstream nodes too early.
+
+To resolve this, I updated the orchestrator (`foundry-orchestrator.ts`) to enforce strict implicit hierarchical dependency. Now, any `ACTIVE` or `VERIFYING` parent node that has incomplete descendants will be automatically suspended to `PENDING`. It will remain in a Late-Binding wait state until the entire spawned sub-tree is completely verified and in the `COMPLETED` state.
