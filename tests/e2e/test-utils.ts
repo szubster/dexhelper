@@ -10,10 +10,7 @@ export async function initializeWithSave(
   await expect(page.locator('header')).toBeVisible({ timeout: 15000 });
   await waitForSync(page);
 
-  const isInitialized = await page
-    .getByText(/TRNR/i)
-    .first()
-    .isVisible({ timeout: 2000 });
+  const isInitialized = await page.getByText(/TRNR/i).first().isVisible({ timeout: 2000 });
 
   if (!isInitialized) {
     let fileBuffer: Buffer;
