@@ -49,3 +49,7 @@ Even though the project uses Cloudflare's GitHub integration for deployments (In
 
 ## 2026-05-23
 When using the File System Access API in TypeScript projects, you must install `@types/wicg-file-system-access` and explicitly add it to the `types` array in `tsconfig.json` to resolve missing type errors for `window.showOpenFilePicker` and `FileSystemFileHandle`. Additionally, properties like `queryPermission` and `requestPermission` may still not be perfectly typed on `FileSystemFileHandle` by this package, so you may need to use `as any` and suppress the Biome warning (`// biome-ignore lint/suspicious/noExplicitAny`) to compile.
+
+## 2026-05-24: Cancellation Tests Pre-existing
+
+During `task-073-140-impl-cancellation-unit-tests`, I found that the required test coverage for auto-canceling nodes when a dependency permanently fails was already fully implemented in `.github/scripts/foundry-orchestrator.test.ts`. This confirms our previous coverage efforts were effective. A reminder that when tests are already written, an empty PR approach correctly processes the task.
