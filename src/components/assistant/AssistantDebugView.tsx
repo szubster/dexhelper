@@ -4,6 +4,7 @@ import type { SaveData } from '../../engine/saveParser/index';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
 import { TacticalBadge } from '../TacticalBadge';
 import { TacticalPanel } from '../TacticalPanel';
+import { TacticalStatCard } from '../TacticalStatCard';
 
 interface AssistantDebugViewProps {
   rejected: RejectedSuggestion[];
@@ -27,37 +28,22 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
 
       <TacticalPanel variant="default" className="space-y-4 rounded-none border-dashed p-6 shadow-inner">
         <div className="grid grid-cols-2 gap-4 text-center md:grid-cols-4">
-          <div className="rounded-none border border-white/10 border-dashed bg-zinc-800/50 p-4 shadow-sm">
-            <p className="mb-1 font-black font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-widest">
-              MAP.LOC
-            </p>
-            <p className="font-black font-display text-lg text-white">{saveData.currentMapName}</p>
-            <p className="font-mono text-[10px] text-zinc-600">
-              ID: {saveData.currentMapId} (0x
-              {saveData.currentMapId.toString(16).toUpperCase().padStart(2, '0')})
-            </p>
-          </div>
-          <div className="rounded-none border border-white/10 border-dashed bg-zinc-800/50 p-4 shadow-sm">
-            <p className="mb-1 font-black font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-widest">
-              SYS.VER
-            </p>
-            <p className="font-black font-display text-lg text-white uppercase">{saveData.gameVersion}</p>
-            <p className="font-mono text-[10px] text-zinc-600">Gen: {saveData.generation}</p>
-          </div>
-          <div className="rounded-none border border-white/10 border-dashed bg-zinc-800/50 p-4 shadow-sm">
-            <p className="mb-1 font-black font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-widest">
-              SYS.DEX
-            </p>
-            <p className="font-black font-display text-lg text-white">{saveData.owned.size}</p>
-            <p className="font-mono text-[10px] text-zinc-600">Owned</p>
-          </div>
-          <div className="rounded-none border border-white/10 border-dashed bg-zinc-800/50 p-4 shadow-sm">
-            <p className="mb-1 font-black font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-widest">
-              USR.ID
-            </p>
-            <p className="truncate px-2 font-black font-display text-lg text-white">{saveData.trainerName}</p>
-            <p className="font-mono text-[10px] text-zinc-600">ID: {saveData.trainerId}</p>
-          </div>
+          <TacticalStatCard
+            label="MAP.LOC"
+            value={saveData.currentMapName}
+            subtext={`ID: ${saveData.currentMapId} (0x${saveData.currentMapId.toString(16).toUpperCase().padStart(2, '0')})`}
+          />
+          <TacticalStatCard
+            label="SYS.VER"
+            value={<span className="uppercase">{saveData.gameVersion}</span>}
+            subtext={`Gen: ${saveData.generation}`}
+          />
+          <TacticalStatCard label="SYS.DEX" value={saveData.owned.size} subtext="Owned" />
+          <TacticalStatCard
+            label="USR.ID"
+            value={<span className="truncate px-2">{saveData.trainerName}</span>}
+            subtext={`ID: ${saveData.trainerId}`}
+          />
         </div>
       </TacticalPanel>
 
