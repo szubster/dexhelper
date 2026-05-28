@@ -10,6 +10,7 @@ export type DagNodeData = Record<string, unknown> & {
   label?: string;
   isHighlighted?: boolean;
   isDimmed?: boolean;
+  rejection_count?: number;
 };
 
 export function DagNode({ data }: { data: DagNodeData }) {

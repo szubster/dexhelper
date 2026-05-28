@@ -11,6 +11,7 @@ export interface GraphNode {
     type: string;
     status: string;
     owner_persona: string;
+    rejection_count?: number;
   };
 }
 
@@ -45,13 +46,19 @@ export function buildDagGraph(parsedNodes: ParsedNode[]): DagGraph {
       pathToIdMap.set(`./${node.filePath}`, id);
     }
 
+    const graphNodeData: GraphNode['data'] = {
+      type: node.data.type,
+      status: node.data.status,
+      owner_persona: node.data.owner_persona,
+    };
+
+    if (node.data.rejection_count !== undefined) {
+      graphNodeData.rejection_count = node.data.rejection_count;
+    }
+
     nodes.push({
       id,
-      data: {
-        type: node.data.type,
-        status: node.data.status,
-        owner_persona: node.data.owner_persona,
-      },
+      data: graphNodeData,
     });
   }
 
