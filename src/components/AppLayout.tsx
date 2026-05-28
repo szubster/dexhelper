@@ -74,12 +74,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         themeClass,
       )}
     >
-      {/* Pokedex Top Bar (Status indicators) */}
-      <div className="sticky top-0 z-50 h-2 w-full bg-[var(--theme-primary)]">
-        <div className="lcd-flicker pointer-events-none absolute inset-0 bg-white/10" />
-      </div>
-
-      <div className="mx-auto flex min-h-screen max-w-[1600px] flex-col">
+      <div className="mx-auto flex min-h-screen flex-col">
         <AppHeader
           saveData={saveData}
           effectiveVersion={effectiveVersion}
@@ -90,7 +85,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
         <GlobalError error={error} />
 
-        <main className="flex-1 px-4 pt-4 pb-12">{children}</main>
+        <main className="mx-auto w-full max-w-[1600px] flex-1 px-4 pt-6 pb-12">{children}</main>
       </div>
 
       <BottomNav />
