@@ -2,12 +2,12 @@
 id: prd-063-034-permanent-failure-dashboard
 type: PRD
 title: Permanent Failure Dashboard View
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-22'
 updated_at: '2026-05-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13174901369859345652'
 pr_number: null
 parent: idea-063-permanent-failure-dashboard
 tags:
