@@ -89,3 +89,5 @@
 - **2026-05-27**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
 
 - **2026-05-27**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-05-28**: Resurrection Loop triggered for `task-075-134-implement-google-sso`. Reason: PR #1800 closed without merging.. Transitioned back to READY.
