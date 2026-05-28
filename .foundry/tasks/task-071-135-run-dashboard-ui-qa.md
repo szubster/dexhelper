@@ -25,6 +25,8 @@ notes: ''
 ## Description
 QA the "Alive" team view for the Run Dashboard UI.
 
+Validation Failed: The implementation incorrectly uses the Original Trainer Name (`otName`) instead of the Pokémon's nickname. The save parser needs to be updated to extract nicknames, and the UI should use them instead.
+
 ## Acceptance Criteria
 - [ ] Verify the "Alive" team view displays correctly.
 - [ ] Verify the UI meets all requirements for the Nuzlocke Tracker mode.

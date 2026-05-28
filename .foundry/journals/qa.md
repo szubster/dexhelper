@@ -14,3 +14,5 @@ During the validation of `task-072-128-implement-dag-cancellation`, I discovered
 
 ## Missing Integration Failures
 When an implementation task only creates standalone UI components but fails to integrate or render them anywhere in the main application (making them inaccessible to the user), the task MUST be rejected. The purpose of implementation isn't just to write code that passes isolated unit tests; it is to deliver accessible features.
+
+**Constraint/Lesson**: When displaying Pokémon names in the UI (e.g. AliveTeamView), the code must use the Pokémon's `nickname` (or a fallback to the species name), NOT the `otName` (Original Trainer Name). The save parser must be updated to extract nicknames from the save data, and the UI components must be updated to consume this new property.
