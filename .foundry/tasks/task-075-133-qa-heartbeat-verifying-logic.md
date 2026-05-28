@@ -27,5 +27,8 @@ rejection_reason: ''
 - Ensure the changes align with the acceptance criteria defined in `task-075-132-implement-heartbeat-verifying-logic`.
 
 ## Acceptance Criteria
-- [ ] Validated `transitionNodeToCompleted` sets status to `VERIFYING`.
-- [ ] Validated zombie detection processes `VERIFYING` nodes.
+- [x] Validated `transitionNodeToCompleted` sets status to `VERIFYING`.
+- [x] Validated zombie detection processes `VERIFYING` nodes.
+
+## Validation Failure
+The implementation for `task-075-132-implement-heartbeat-verifying-logic` failed validation. The zombie detection logic for missing `jules_session_id` was not updated to handle `VERIFYING` nodes. The check in `.github/scripts/foundry-heartbeat.ts` still reads `if (!isHuman && (!sessionId || sessionId === 'null') && node.frontmatter.status === 'ACTIVE')`, ignoring `VERIFYING` nodes and failing to catch zombie auditor sessions.
