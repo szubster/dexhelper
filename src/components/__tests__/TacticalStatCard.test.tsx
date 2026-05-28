@@ -18,8 +18,9 @@ test('applies custom className', async () => {
   await render(
     <div data-testid="container">
       <TacticalStatCard label="TEST" value="123" className="custom-test-class" />
-    </div>
+    </div>,
   );
   const container = page.getByTestId('container');
-  await expect.element(container.locator('.custom-test-class')).toBeInTheDocument();
+  const card = container.element().firstElementChild;
+  expect(card?.classList.contains('custom-test-class')).toBe(true);
 });

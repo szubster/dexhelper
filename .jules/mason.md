@@ -66,9 +66,3 @@
 - **Key Learnings**:
   - Separating `labelClassName` and `valueClassName` allows for necessary typographic variations (like alignment or colors) while still leveraging the base structural pattern.
   - Always manually verify existing files using tools like `grep` before attempting substitutions, as files may have drifted from expected state.
-
-## TacticalStatCard Extraction
-- **What**: Extracted the repeating `MAP.LOC`, `SYS.VER`, `SYS.DEX`, and `USR.ID` label/value tactical UI grids from `AssistantDebugView.tsx` into a reusable `TacticalStatCard` component.
-- **Why**: Reduced duplicated JSX strings, standardizing the tactical layout for statistic visualization (label, value, optional subtext) across the debug view.
-- **Key Learnings**:
-  - Standardizing diagnostic stats to a single component helps unify typography (font-display, font-mono tracking) while enabling clean overrides via ReactNode props for things like `truncate` or `uppercase`.
