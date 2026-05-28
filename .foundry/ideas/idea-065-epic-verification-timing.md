@@ -39,4 +39,4 @@ Establish a mechanism or process to ensure Epics are only marked `COMPLETED` whe
 
 
 ## Spawned Nodes
-- [prd-065-035-epic-verification-timing](../prds/prd-065-035-epic-verification-timing.md)
+- [x] [prd-065-035-epic-verification-timing](../prds/prd-065-035-epic-verification-timing.md)
