@@ -2,13 +2,13 @@
 id: task-073-141-qa-cancellation-unit-tests
 type: TASK
 title: QA Unit Tests for DAG Auto-Cancellation
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-05-28'
 depends_on:
   - task-073-140-impl-cancellation-unit-tests
-jules_session_id: null
+jules_session_id: '13172724563708898383'
 pr_number: null
 parent: story-035-073-orchestrator-cancellation-tests
 tags:
