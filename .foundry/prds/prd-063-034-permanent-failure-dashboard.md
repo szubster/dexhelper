@@ -5,9 +5,9 @@ title: Permanent Failure Dashboard View
 status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-05-22'
-updated_at: '2026-05-23'
+updated_at: '2026-05-24'
 depends_on: []
-jules_session_id: '14975406668713417821'
+jules_session_id: '6149738554886375103'
 pr_number: null
 parent: idea-063-permanent-failure-dashboard
 tags:

@@ -5,9 +5,9 @@ title: Re-evaluate Epic Verification Timing
 status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-23'
-updated_at: '2026-05-23'
+updated_at: '2026-05-24'
 depends_on: []
-jules_session_id: '10043047186429133005'
+jules_session_id: '12636791878054878917'
 pr_number: null
 parent: null
 tags:

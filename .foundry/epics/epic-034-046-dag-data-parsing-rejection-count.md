@@ -5,9 +5,9 @@ title: Extract and Broadcast Rejection Count in DAG Data Parsing
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-22'
-updated_at: '2026-05-23'
+updated_at: '2026-05-24'
 depends_on: []
-jules_session_id: '13281768919075530492'
+jules_session_id: '14521687613234907135'
 pr_number: null
 parent: prd-063-034-permanent-failure-dashboard
 tags:

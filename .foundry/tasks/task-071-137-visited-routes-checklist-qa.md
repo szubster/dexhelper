@@ -2,13 +2,13 @@
 id: task-071-137-visited-routes-checklist-qa
 type: TASK
 title: QA Visited Routes Checklist
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-05-22'
-updated_at: '2026-05-23'
+updated_at: '2026-05-24'
 depends_on:
   - task-071-136-visited-routes-checklist-impl
-jules_session_id: null
+jules_session_id: '16113775767292875840'
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:
