@@ -1,12 +1,13 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "ignoreExportsUsedInFile": true,
-  "ignoreDependencies": ["wrangler"],
+  "ignoreDependencies": ["wrangler", "@cloudflare/workers-types", "@auth/core"],
   "ignore": [
     "src/test-setup.ts",
     "scripts/validate-foundry-schema.ts",
     ".github/scripts/extract-research.ts",
-    "scripts/gen3-fetch-locations.ts"
+    "scripts/gen3-fetch-locations.ts",
+    "functions/**"
   ],
   "rules": {
     "files": "warn",
