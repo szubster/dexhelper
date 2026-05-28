@@ -2,12 +2,12 @@
 id: task-075-134-implement-google-sso
 type: TASK
 title: Implement Google SSO Flow
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5276961841529432182'
 pr_number: null
 parent: story-038-075-google-sso-integration
 tags:
