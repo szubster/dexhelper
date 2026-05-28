@@ -48,3 +48,5 @@
 - **2026-05-28**: System failure detected for `task-071-138-graveyard-integration-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
 
 - **2026-05-28**: Resurrection Loop triggered for `task-071-140-visited-routes-checklist-retry-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-28**: System failure detected for `task-071-140-visited-routes-checklist-retry-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
