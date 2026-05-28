@@ -2,7 +2,7 @@
 id: prd-064-035-smart-route-radar
 type: PRD
 title: Smart Route Radar / Context-Aware Missing Encounter Map
-status: VERIFYING
+status: FAILED
 owner_persona: epic_planner
 created_at: '2026-05-23'
 updated_at: '2026-05-28'
@@ -17,7 +17,7 @@ tags:
   - exploration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Verification failed: The PRD has transitioned to VERIFYING prematurely. Its generated tasks and epics are still in PENDING state. A parent node must not transition to VERIFYING until all of its descendant nodes in the spawned sub-tree are completely verified and in the COMPLETED state.'
 notes: ''
 ---
 
