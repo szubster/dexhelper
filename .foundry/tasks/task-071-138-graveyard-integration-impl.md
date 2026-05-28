@@ -2,19 +2,19 @@
 id: task-071-138-graveyard-integration-impl
 type: TASK
 title: Implement Graveyard Integration
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-05-22'
-updated_at: '2026-05-23'
+updated_at: '2026-05-28'
 depends_on: []
-jules_session_id: '3018337440080830551'
+jules_session_id: null
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:
   - feature
   - nuzlocke
   - verification
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

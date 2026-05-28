@@ -28,3 +28,19 @@
 - **2026-05-28**: PR #1892 merged. `prd-063-034-permanent-failure-dashboard` is now VERIFYING.
 
 - **2026-05-28**: PR #1897 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-05-28**: System failure detected for `task-071-136-visited-routes-checklist-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-05-28**: Resurrection Loop triggered for `task-071-138-graveyard-integration-impl`. Reason: PR #1801 closed without merging.. Transitioned back to READY.
+
+- **2026-05-28**: PR #1902 merged with unchecked tasks. `task-071-140-visited-routes-checklist-retry-impl` is now FAILED.
+
+- **2026-05-28**: PR #1829 merged. `task-073-140-impl-cancellation-unit-tests` is now COMPLETED.
+
+- **2026-05-28**: PR #1830 merged. `task-075-133-qa-heartbeat-verifying-logic` is now COMPLETED.
+
+- **2026-05-28**: PR #1833 merged. `task-078-135-qa-polling-loop` is now COMPLETED.
+
+- **2026-05-28**: PR #1832 merged. `task-082-140-implement-shiny-gene-utility` is now COMPLETED.
+
+- **2026-05-28**: Resurrection Loop triggered for `task-075-132-implement-heartbeat-verifying-logic`. Reason: Retry from FAILED status.. Transitioned back to READY.

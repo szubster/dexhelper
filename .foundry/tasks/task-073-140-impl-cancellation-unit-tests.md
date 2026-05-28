@@ -2,12 +2,12 @@
 id: task-073-140-impl-cancellation-unit-tests
 type: TASK
 title: Implement Unit Tests for DAG Auto-Cancellation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-23'
-updated_at: '2026-05-24'
+updated_at: '2026-05-28'
 depends_on: []
-jules_session_id: '16506555549427459080'
+jules_session_id: null
 pr_number: null
 parent: story-035-073-orchestrator-cancellation-tests
 tags:

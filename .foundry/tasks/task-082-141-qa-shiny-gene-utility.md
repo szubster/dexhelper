@@ -2,10 +2,10 @@
 id: task-082-141-qa-shiny-gene-utility
 type: TASK
 title: QA Shiny Gene Parsing and Evaluation
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-23'
-updated_at: '2026-05-23'
+updated_at: '2026-05-28'
 depends_on:
   - task-082-140-implement-shiny-gene-utility
 jules_session_id: null

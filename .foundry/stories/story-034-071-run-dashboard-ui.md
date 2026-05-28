@@ -2,10 +2,10 @@
 id: story-034-071-run-dashboard-ui
 type: STORY
 title: Run Dashboard UI Integration
-status: COMPLETED
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-18'
-updated_at: '2026-05-23'
+updated_at: '2026-05-28'
 depends_on:
   - story-034-069-automated-route-tracking
   - story-034-070-death-tracking-and-graveyard
