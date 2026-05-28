@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
-import type { AssistantApiData } from '../suggestionEngine';
+import type { AssistantApiData } from '../strategies/types';
 import { generateSuggestions } from '../suggestionEngine';
 
 describe('suggestionEngine - checkFlag Edge Cases', () => {

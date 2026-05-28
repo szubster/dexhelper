@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
-import type { AssistantApiData } from '../suggestionEngine';
+import type { AssistantApiData } from '../strategies/types';
 import { generateSuggestions } from '../suggestionEngine';
 
 test('coverage for suggestionEngine new lines', () => {

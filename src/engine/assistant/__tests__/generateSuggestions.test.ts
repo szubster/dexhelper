@@ -4,8 +4,7 @@ import type { SaveData } from '../../saveParser/index';
 import type { PokemonInstance } from '../../saveParser/parsers/common';
 import { getStrategy } from '../strategies';
 import { gen1Strategy } from '../strategies/gen1Strategy';
-import type { EncounterDetail } from '../strategies/types';
-import type { AssistantApiData } from '../suggestionEngine';
+import type { AssistantApiData, EncounterDetail } from '../strategies/types';
 import { generateSuggestions } from '../suggestionEngine';
 
 describe('generateSuggestions', () => {

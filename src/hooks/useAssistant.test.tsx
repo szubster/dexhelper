@@ -4,7 +4,7 @@ import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import type { PokemonMetadata } from '../db/schema';
 import { gen1Strategy } from '../engine/assistant/strategies/gen1Strategy';
-import type { AssistantApiData } from '../engine/assistant/suggestionEngine';
+import type { AssistantApiData } from '../engine/assistant/strategies/types';
 import { generateSuggestions } from '../engine/assistant/suggestionEngine';
 import type { SaveData } from '../engine/saveParser/index';
 import { useAssistant } from './useAssistant';

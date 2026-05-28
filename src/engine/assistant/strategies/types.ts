@@ -1,5 +1,15 @@
-import type { UnifiedLocation } from '../../../db/schema';
+import type { LocationAreaEncounters, PokemonMetadata, UnifiedLocation } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
+
+export interface AssistantApiData {
+  localAid: number | null;
+  localEncounters: LocationAreaEncounters[] | null;
+  missingEncounters: Record<number, LocationAreaEncounters | null>;
+  pokemonMetadata: Record<number, PokemonMetadata | null>;
+  ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>>;
+  areaNames: Record<number, string>;
+  allLocations: UnifiedLocation[];
+}
 
 export type SuggestionCategory = 'Catch' | 'Evolve' | 'Breed' | 'Progress' | 'Event' | 'Utility' | 'Trade' | 'Gift';
 
