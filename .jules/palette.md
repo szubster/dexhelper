@@ -98,3 +98,7 @@
 ## 2026-06-25 - Proper Segmented Control Semantics
 **Learning:** For custom segmented controls that act as mutually exclusive options (like "Version", "Living Dex", or "Ball Style"), using `<div role="group">` and `<button aria-pressed="true/false">` is incorrect semantics. Screen readers need these to be identified as radio button groups.
 **Action:** When implementing custom segmented controls with buttons, wrap them in `<div role="radiogroup" aria-label="...">` and use `<button role="radio" aria-checked={isActive}>`. Also, since the project enforces semantic HTML over ARIA roles where possible, add suppression comments (`/* oxlint-disable jsx-a11y/prefer-tag-over-role */` and `/* biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling */`) if styling constraints prevent using native `<input type="radio">` tags.
+
+## 2026-06-25 - Missing aria-label on <select> inputs
+**Learning:** Native `<select>` inputs used for configuration options (like selecting a graveyard box) often lack a visible `<label>`. Screen readers cannot determine the purpose of the dropdown without an accessible name.
+**Action:** Always provide an `aria-label` to native `<select>` elements if they are not explicitly linked to a `<label>` element with a `for`/`id` pair. Ensure the label clearly describes the action or configuration being changed.
