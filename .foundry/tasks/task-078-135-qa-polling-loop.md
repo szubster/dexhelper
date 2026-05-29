@@ -2,13 +2,13 @@
 id: task-078-135-qa-polling-loop
 type: TASK
 title: QA Background Polling Loop for Save File
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-22'
-updated_at: '2026-05-24'
+updated_at: '2026-05-28'
 depends_on:
   - task-078-134-implement-polling-loop
-jules_session_id: '2505259252908356737'
+jules_session_id: null
 pr_number: null
 parent: story-041-078-background-polling-loop
 tags:
@@ -31,6 +31,6 @@ Verify that the polling loop successfully detects file changes, correctly parses
 - Ensure memory footprint is stable over prolonged polling.
 
 ## Acceptance Criteria
-- [ ] Verified polling interval is respected.
-- [ ] Verified state updates occur only on file changes.
-- [ ] Confirmed stability and absence of memory leaks during active polling.
+- [x] Verified polling interval is respected.
+- [x] Verified state updates occur only on file changes.
+- [x] Confirmed stability and absence of memory leaks during active polling.

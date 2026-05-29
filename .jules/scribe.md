@@ -118,3 +118,10 @@ Documenting these functions ensures that future maintainers understand the busin
 - `generateEvolutionSuggestions`: Evaluates player's current boxes and party to find pre-evolutions, with priority boost if evolution criteria are actively met.
 Documenting these highlights the fact that they modify the passed `suggestions` array in-place, which is a key performance optimization that avoids garbage collection overhead for intermediate array allocations in the hot path.
 - **Temporary Scripts**: After executing temporary inline scripts (e.g., `.cjs` Node.js scripts) to modify file contents, you must explicitly delete them (e.g., `rm script.cjs`) before submitting code review to prevent committing execution artifacts and polluting the repository.
+
+## 2026-05-24 - Nuzlocke Tracker Architecture
+
+**What:** Added JSDoc documentation to `src/engine/nuzlocke/tracker.ts`.
+**Why:** The Nuzlocke tracker implements specific game rules (permadeath, one catch per route) through constraints in the binary save data structure.
+- **Permadeath (PC Healing Problem):** I learned that we cannot rely solely on `currentHp === 0` to track deaths because depositing a Pokémon in the PC fully heals it in the save data. To circumvent this, the engine relies on the player designating a specific PC box via string comparison (`storageLocation === graveyardBox`).
+- **Route Tracking (Gen 2 Dependency):** The "One Catch Per Route" rule is enforced by checking `caughtData.location` across all Party and PC structures. This means this strict Nuzlocke enforcement feature is inherently dependent on Generation 2 mechanics, as Generation 1 save files do not store catch location data.

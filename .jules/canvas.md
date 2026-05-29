@@ -128,3 +128,9 @@
 **Outcome:** Accepted
 **Why:** Brings the mobile navigation interface tightly in line with the rest of the application's established tactical hardware motif (matching `AppLayout`, `Grid`, and `Details`), correcting the previous web-standard smooth transitions.
 **Pattern:** Ensure mobile layout structural components adhere to strict tactical aesthetics (sharp borders, corner crosshairs, scanning/flicker animations, monospace telemetry text) rather than generic app-like smoothed navigation bars, to maintain the specialized device illusion.
+
+## 2026-06-25 - [Accepted] - 🖼️ Canvas: Tactical Search Console Redesign
+**What:** Wrapped the entire `SearchAndFilters` component in a `<TacticalPanel>`, giving it a `[ SYS.QUERY_TERMINAL ]` telemetry header and redesigning the filter toggles below the search input as an interconnected segmented control to match settings configurations instead of side-scrolling pills.
+**Outcome:** Accepted
+**Why:** Brings the search console vertically closer to the top-level application aesthetic by eliminating standard layouts in favor of the established sharp-edged, dashed-border hardware terminal layout.
+**Pattern:** Combine related navigation and filtering inputs into unified `<TacticalPanel>` structures rather than letting inputs float freely, and utilize segmented controls over generic pill arrays for filters.
