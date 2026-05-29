@@ -1,6 +1,6 @@
 import gen1MapLocations from '../../data/gen1/mapLocations.json';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
-import { checkShiny, decodeGen12String, parseDVs } from './common';
+import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
 
 const INTERNAL_ID_TO_DEX: Record<number, number> = {
   1: 112,
@@ -423,6 +423,7 @@ function parseGen1Pokemon(
   }
   const dvs = parseDVs(view.getUint16(offset + 27, false));
   const isShiny = checkShiny(dvs);
+  const hasShinyGene = checkShinyGene(dvs);
   const otName = decodeGen12String(view, otOffset);
 
   return {
@@ -430,6 +431,7 @@ function parseGen1Pokemon(
     currentHp,
     level,
     isShiny,
+    hasShinyGene,
     moves,
     dvs,
     otName,

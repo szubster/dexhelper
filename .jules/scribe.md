@@ -126,3 +126,9 @@ Documenting these highlights the fact that they modify the passed `suggestions` 
 - `isGen1Save` & `parseGen1`: Documented that Gen 1 lacks robust checksums, requiring structural heuristics on the Party block. I also explained how Yellow version offsets the entire save by `+1` byte to accommodate Pikachu's friendship data.
 - `isGen2Save` & `parseGen2`: Documented that Gen 2 shifted memory blocks significantly between Gold/Silver and Crystal versions, explaining *why* the parser checks two different offsets to verify the save structure.
 Documenting this prevents developers from incorrectly refactoring offset lookups or failing to account for version-specific memory shifts during save file extraction.
+## 2026-05-24 - Nuzlocke Tracker Architecture
+
+**What:** Added JSDoc documentation to `src/engine/nuzlocke/tracker.ts`.
+**Why:** The Nuzlocke tracker implements specific game rules (permadeath, one catch per route) through constraints in the binary save data structure.
+- **Permadeath (PC Healing Problem):** I learned that we cannot rely solely on `currentHp === 0` to track deaths because depositing a Pokémon in the PC fully heals it in the save data. To circumvent this, the engine relies on the player designating a specific PC box via string comparison (`storageLocation === graveyardBox`).
+- **Route Tracking (Gen 2 Dependency):** The "One Catch Per Route" rule is enforced by checking `caughtData.location` across all Party and PC structures. This means this strict Nuzlocke enforcement feature is inherently dependent on Generation 2 mechanics, as Generation 1 save files do not store catch location data.

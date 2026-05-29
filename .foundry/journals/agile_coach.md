@@ -19,3 +19,9 @@ I identified a persistent friction point in the system where agents (particularl
 While the instructions were documented, they were not strictly enforced across all relevant persona prompts. I have proactively updated the `coder.md`, `qa.md`, and `tech_lead.md` prompts to explicitly include these directives.
 
 Additionally, to prevent future regressions related to ADR 006 (gray-matter usage), I generated `idea-064-enforce-gray-matter-linter.md` to propose a programmatic linter rule targeting the `.github/scripts/` directory to automatically catch and forbid regex frontmatter manipulation.
+
+## 2026-05-25: Refactoring DAG operations to shared utility module
+
+While analyzing the codebase for systemic improvements, I noticed significant duplication of core DAG operations (such as traversing reverse dependencies and updating node statuses via gray-matter) between `foundry-orchestrator.ts` and `foundry-heartbeat.ts`. This duplication creates a surface area for bugs where one script might diverge from the other (e.g. failing to properly append `rejection_reason` or mutating YAML fields via regex).
+
+To proactively mitigate this technical debt and improve the maintainability of the Foundry engine, I autonomously generated `idea-067-extract-dag-utils.md` to propose extracting these common functions into a shared `dag-utils.ts` module. I also generated `idea-066-enforce-gray-matter-linter.md` to codify the ADR 006 requirements into a CI-enforced linter rule.
