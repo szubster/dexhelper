@@ -27,5 +27,9 @@ ADR 006 established the requirement to exclusively use the `gray-matter` library
 ## Proposal
 Implement a strict programmatic linting rule (e.g., via Biome or an ESLint plugin) that scans the `.github/scripts/` directory and explicitly forbids regex string manipulation or matching patterns commonly used for YAML frontmatter (like `/^---/`). The linter should fail the CI pipeline if such patterns are detected, directing developers to use `matter.stringify()` instead.
 
+## Questionable ROI?
+Note: There are concerns from leadership that a custom linter rule just for this edge case might not be worth the maintenance overhead compared to relying on standard PR reviews.
+**Product Manager and downstream personas MUST strictly evaluate the ROI and technical feasibility of this before proceeding.** It is fully acceptable for this to be declined/cancelled during the PRD or Architecture phase if the cost outweighs the benefit.
+
 ## Next Steps
-- [ ] Product Manager: Evaluate this idea, outline the technical approach for the linter rule, and transform this into a PRD.
+- [ ] Product Manager: Evaluate this idea, outline the technical approach for the linter rule, explicitly evaluate the ROI concerns, and either transform this into a PRD or cancel it.
