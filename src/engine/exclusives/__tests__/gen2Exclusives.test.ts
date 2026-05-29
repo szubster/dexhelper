@@ -104,20 +104,6 @@ describe('gen2Exclusives', () => {
         expect(reason).toContain('not available in Crystal');
       });
 
-      it('should lock Arcanine (59) in Crystal', () => {
-        const ownedSet = new Set<number>();
-        const reason = getGen2UnobtainableReason(59, 'crystal', 0, ownedSet);
-        expect(typeof reason).toBe('string');
-        expect(reason).toContain('not available in Crystal');
-      });
-
-      it('should lock Growlithe (58) in Crystal', () => {
-        const ownedSet = new Set<number>();
-        const reason = getGen2UnobtainableReason(58, 'crystal', 0, ownedSet);
-        expect(typeof reason).toBe('string');
-        expect(reason).toContain('not available in Crystal');
-      });
-
       it('should lock Girafarig (203) in Crystal', () => {
         const ownedSet = new Set<number>();
         const reason = getGen2UnobtainableReason(203, 'crystal', 0, ownedSet);
