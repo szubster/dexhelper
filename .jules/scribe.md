@@ -125,3 +125,8 @@ Documenting these highlights the fact that they modify the passed `suggestions` 
 **Why:** The Nuzlocke tracker implements specific game rules (permadeath, one catch per route) through constraints in the binary save data structure.
 - **Permadeath (PC Healing Problem):** I learned that we cannot rely solely on `currentHp === 0` to track deaths because depositing a Pokémon in the PC fully heals it in the save data. To circumvent this, the engine relies on the player designating a specific PC box via string comparison (`storageLocation === graveyardBox`).
 - **Route Tracking (Gen 2 Dependency):** The "One Catch Per Route" rule is enforced by checking `caughtData.location` across all Party and PC structures. This means this strict Nuzlocke enforcement feature is inherently dependent on Generation 2 mechanics, as Generation 1 save files do not store catch location data.
+
+## 2026-05-25 - File System Access API Polling Constraints
+
+**Constraint:** The browser's native File System Access API (`showOpenFilePicker`) lacks filesystem watch events (unlike Node's `fs.watch`).
+**Impact:** To achieve a "live sync" feature (e.g. tracking a save file actively being modified by a Game Boy emulator), the application must rely on manual, aggressive polling via `setInterval` to check the file handle's `lastModified` timestamp. This architectural necessity is documented in `src/hooks/useFileSyncController.ts` to prevent developers from incorrectly assuming the browser can push file change events natively.

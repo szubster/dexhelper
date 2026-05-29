@@ -5,6 +5,22 @@ import { useStore } from '../store';
 
 export type SyncStatus = 'disconnected' | 'syncing' | 'live' | 'error';
 
+/**
+ * A React hook that manages continuous synchronization of a Game Boy `.sav` file
+ * using the modern browser File System Access API (`showOpenFilePicker`).
+ *
+ * This allows the application to maintain a live connection to a local save file
+ * (e.g., one actively being written to by an emulator like mGBA), automatically
+ * re-parsing and updating the global store whenever the file is modified on disk.
+ *
+ * @returns An object containing the current sync status, error messages, and control functions.
+ *
+ * @example
+ * const { status, requestSync, resumeSync } = useFileSyncController();
+ * if (status === 'disconnected') {
+ *   <button onClick={requestSync}>Select Save File</button>
+ * }
+ */
 export function useFileSyncController() {
   const [status, setStatus] = useState<SyncStatus>('disconnected');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -17,6 +33,8 @@ export function useFileSyncController() {
   const setManualVersion = useStore((s) => s.setManualVersion);
   const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
 
+  // Centralized handler for parsing a new file buffer, updating the global Zustand store,
+  // handling version heuristics, and persisting a backup of the buffer into IndexedDB.
   const processFile = useCallback(
     async (file: File) => {
       try {
@@ -129,6 +147,9 @@ export function useFileSyncController() {
   }, [processFile]);
 
   // Polling loop
+  // The File System Access API does not currently provide native filesystem watch events.
+  // Therefore, we must aggressively poll the file handle to check for `lastModified` timestamp
+  // changes. This is necessary to achieve the "live sync" experience while an emulator runs.
   useEffect(() => {
     const interval = setInterval(async () => {
       if (!handleRef.current) return;
