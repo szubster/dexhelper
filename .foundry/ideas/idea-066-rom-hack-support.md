@@ -2,8 +2,8 @@
 id: idea-066-rom-hack-support
 type: IDEA
 title: ROM Hack Support via Custom Adapters
-status: PENDING
-owner_persona: product_manager
+status: FAILED
+owner_persona: human
 created_at: '2026-05-27'
 updated_at: '2026-05-27'
 depends_on: []
@@ -15,8 +15,8 @@ tags:
   - features
   - parsing
 research_references: []
-rejection_count: 0
-rejection_reason: ""
+rejection_count: 1
+rejection_reason: "Too much effort for now, and I will not play romhacks."
 notes: ""
 ---
 
