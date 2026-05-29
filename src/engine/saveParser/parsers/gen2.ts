@@ -2,7 +2,7 @@ import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
-import { checkShiny, decodeGen12String, parseDVs } from './common';
+import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
 
 /**
  * Extracts the caught data (time of day, level, and location) from a Generation 2 Pokémon structure.
@@ -67,6 +67,7 @@ function parseGen2PokemonInstance(
   }
   const dvs = parseDVs(view.getUint16(offset + 21, false));
   const isShiny = checkShiny(dvs);
+  const hasShinyGene = checkShinyGene(dvs);
   const friendship = view.getUint8(offset + 27);
   const pokerus = view.getUint8(offset + 28);
   const level = view.getUint8(offset + 31);
@@ -81,6 +82,7 @@ function parseGen2PokemonInstance(
     currentHp,
     level,
     isShiny,
+    hasShinyGene,
     item,
     moves,
     friendship,
