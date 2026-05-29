@@ -32,4 +32,7 @@ Operations to extract include:
 - Standardizing the `transitionNodeToFailed`, `transitionNodeToCompleted`, and `transitionNodeToReady` functions to ensure they uniformly apply ADR 006 (`gray-matter`) and appropriately append metadata like `rejection_reason`.
 
 ## Next Steps
-- [ ] Product Manager: Evaluate this proposal and convert it to a PRD detailing the specific functions to be extracted and the testing strategy.
+- [x] Product Manager: Evaluate this proposal and convert it to a PRD detailing the specific functions to be extracted and the testing strategy.
+
+## References
+- [prd-067-036-extract-dag-utils.md](./.foundry/prds/prd-067-036-extract-dag-utils.md)
