@@ -2,10 +2,10 @@
 id: idea-066-enforce-gray-matter-linter
 type: IDEA
 title: Enforce Gray-Matter Linter for Scripts
-status: PENDING
+status: READY
 owner_persona: product_manager
-created_at: "2026-05-25"
-updated_at: "2026-05-25"
+created_at: '2026-05-25'
+updated_at: '2026-05-29'
 depends_on: []
 jules_session_id: null
 parent: null
@@ -15,8 +15,8 @@ tags:
   - foundry
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Generated autonomously to enforce ADR 006"
+rejection_reason: ''
+notes: Generated autonomously to enforce ADR 006
 ---
 
 # Enforce Gray-Matter Linter for Scripts

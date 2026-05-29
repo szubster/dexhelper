@@ -2,10 +2,10 @@
 id: idea-067-extract-dag-utils
 type: IDEA
 title: Extract DAG Utilities to Shared Module
-status: PENDING
+status: READY
 owner_persona: product_manager
-created_at: "2026-05-25"
-updated_at: "2026-05-25"
+created_at: '2026-05-25'
+updated_at: '2026-05-29'
 depends_on: []
 jules_session_id: null
 parent: null
@@ -15,8 +15,8 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Generated autonomously to reduce duplication in orchestration scripts"
+rejection_reason: ''
+notes: Generated autonomously to reduce duplication in orchestration scripts
 ---
 
 # Extract DAG Utilities to Shared Module
