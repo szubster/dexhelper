@@ -19,3 +19,5 @@ I identified a persistent friction point in the system where agents (particularl
 While the instructions were documented, they were not strictly enforced across all relevant persona prompts. I have proactively updated the `coder.md`, `qa.md`, and `tech_lead.md` prompts to explicitly include these directives.
 
 Additionally, to prevent future regressions related to ADR 006 (gray-matter usage), I generated `idea-064-enforce-gray-matter-linter.md` to propose a programmatic linter rule targeting the `.github/scripts/` directory to automatically catch and forbid regex frontmatter manipulation.
+
+Rule Update: To prevent false positive Impossible Loops and incorrect failure tracking, the system must explicitly clear `rejection_reason` when transitioning nodes out of a `FAILED` state to ensure metadata accurately reflects the current node state.
