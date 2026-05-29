@@ -4,6 +4,18 @@ import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
 
+function isValidLandmark(id: string): id is keyof typeof gen2Landmarks {
+  return id in gen2Landmarks;
+}
+
+function isValidMapGroup(id: string): id is keyof typeof gen2MapLocations {
+  return id in gen2MapLocations;
+}
+
+function isValidMapId<T extends Record<string, string>>(id: string, dict: T): id is keyof T & string {
+  return id in dict;
+}
+
 /**
  * Extracts the caught data (time of day, level, and location) from a Generation 2 Pokémon structure.
  * Caught data is only populated in Crystal version; Gold and Silver leave these bytes as 0.
@@ -33,7 +45,7 @@ function parseCaughtData(view: DataView, offset: number) {
   else if (location === 0x7f) locationName = 'Special Event/Traded';
   else {
     const locStr = location.toString();
-    locationName = locStr in gen2Landmarks ? gen2Landmarks[locStr as keyof typeof gen2Landmarks] : undefined;
+    locationName = isValidLandmark(locStr) ? gen2Landmarks[locStr] : undefined;
   }
 
   return { time, level: caughtLevel, location, locationName };
@@ -532,10 +544,8 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   let currentMapName = 'Unknown Map';
   const groupStr = mapGroup.toString();
   const mapIdStr = currentMapId.toString();
-  const mapGroupDict =
-    groupStr in gen2MapLocations ? gen2MapLocations[groupStr as keyof typeof gen2MapLocations] : undefined;
-  const foundMap =
-    mapGroupDict && mapIdStr in mapGroupDict ? mapGroupDict[mapIdStr as keyof typeof mapGroupDict] : undefined;
+  const mapGroupDict = isValidMapGroup(groupStr) ? gen2MapLocations[groupStr] : undefined;
+  const foundMap = mapGroupDict && isValidMapId(mapIdStr, mapGroupDict) ? mapGroupDict[mapIdStr] : undefined;
   if (foundMap) {
     currentMapName = foundMap;
   }
