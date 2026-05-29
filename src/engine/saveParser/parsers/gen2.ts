@@ -136,8 +136,13 @@ function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersi
 
 /**
  * Performs a structural check to verify if the save file is a valid Generation 2 save.
- * It dynamically checks the party offset based on the `crystal` flag, ensuring the party count
- * is valid (<= 6), correctly terminated with 0xFF, and contains valid internal Pokémon IDs.
+ *
+ * **Why check both offsets?**
+ * Gen 2 memory blocks shifted significantly between Gold/Silver and Crystal. The active Party block
+ * starts at `0x288A` in G/S and `0x2865` in Crystal.
+ * If the main save checksum is corrupt, we fallback to parsing these exact offsets.
+ * We dynamically check the `countOffset` based on the `crystal` flag, ensuring the party count
+ * is valid (<= 6), correctly terminated with `0xFF`, and contains valid internal Pokémon IDs.
  *
  * @param view - The raw save file view.
  * @param crystal - Whether to test offsets specific to Pokémon Crystal.
@@ -451,11 +456,13 @@ function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
 /**
  * Orchestrates the full extraction of a Generation 2 (Gold/Silver/Crystal) save file.
  *
- * **Extraction Flow:**
- * 1. Checks if the save is Crystal vs Gold/Silver using the `isCrystal` fallback detection (party counts).
- * 2. Assigns the correct base memory offsets based on version.
- * 3. Extracts Pokédex, Party, PC Boxes, Daycare, Inventory, and event flags (badges).
- * 4. Merges Kanto and Johto badges.
+ * **Extraction Flow & Memory Architecture:**
+ * 1. **Version Verification:** Gen 2 memory offsets differ significantly between Gold/Silver and Crystal
+ *    (e.g. Party data is at `0x288A` in G/S but shifted to `0x2865` in Crystal). It checks the party counts
+ *    at both offsets to verify if it's Crystal vs Gold/Silver.
+ * 2. **Offset Alignment:** Assigns the correct base memory offsets (`offsets` dictionary) based on the detected version.
+ * 3. **Data Extraction:** Extracts Pokédex, Party, PC Boxes, Daycare, Inventory, and event flags (badges).
+ * 4. **Badge Merging:** Merges Kanto and Johto badges.
  *
  * @param view - The raw save file DataView.
  * @param forceCrystal - An optional flag to force Crystal offset parsing.

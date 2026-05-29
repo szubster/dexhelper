@@ -119,6 +119,13 @@ Documenting these functions ensures that future maintainers understand the busin
 Documenting these highlights the fact that they modify the passed `suggestions` array in-place, which is a key performance optimization that avoids garbage collection overhead for intermediate array allocations in the hot path.
 - **Temporary Scripts**: After executing temporary inline scripts (e.g., `.cjs` Node.js scripts) to modify file contents, you must explicitly delete them (e.g., `rm script.cjs`) before submitting code review to prevent committing execution artifacts and polluting the repository.
 
+## 2026-05-25 - Save Parser Offset Logic Documentation
+
+**What:** Added explicit JSDoc to `isGen1Save`, `isGen2Save`, `parseGen1`, and `parseGen2` in `src/engine/saveParser/parsers/`.
+**Why:** The binary save parsers rely on seemingly arbitrary "magic numbers" (like `0x2F2C` for Gen 1 party counts, or `0x2865` vs `0x288A` for Gen 2).
+- `isGen1Save` & `parseGen1`: Documented that Gen 1 lacks robust checksums, requiring structural heuristics on the Party block. I also explained how Yellow version offsets the entire save by `+1` byte to accommodate Pikachu's friendship data.
+- `isGen2Save` & `parseGen2`: Documented that Gen 2 shifted memory blocks significantly between Gold/Silver and Crystal versions, explaining *why* the parser checks two different offsets to verify the save structure.
+Documenting this prevents developers from incorrectly refactoring offset lookups or failing to account for version-specific memory shifts during save file extraction.
 ## 2026-05-24 - Nuzlocke Tracker Architecture
 
 **What:** Added JSDoc documentation to `src/engine/nuzlocke/tracker.ts`.

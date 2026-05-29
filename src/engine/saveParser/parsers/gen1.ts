@@ -280,9 +280,13 @@ function detectGen1GameVersion(
 /**
  * Performs a structural check to verify if the binary data is a valid Generation 1 save.
  *
- * Unlike Gen 2 which has robust checksums, Gen 1 validation relies heavily on structural sanity checks.
- * It verifies that the party count is logical (<= 6), ensures the party list is correctly terminated with 0xFF,
- * and validates that the internal IDs in the party are not blank or terminator bytes.
+ * **Why these specific checks?**
+ * Gen 1 save files lack robust block checksums. If the main save checksum (`0x3523`) is corrupted,
+ * we must fallback to structural heuristics to prove the file is indeed a Gen 1 save.
+ * We do this by checking the active Party Pokémon block, which always starts at `0x2F2C`:
+ * 1. The byte at `0x2F2C` represents the number of Pokémon in the party (must be <= 6).
+ * 2. The subsequent array of species IDs starting at `0x2F2D` must be explicitly terminated with `0xFF`.
+ * 3. The internal IDs before the terminator must map to valid species.
  *
  * @param view - The raw save file DataView.
  * @returns True if the structure looks like a valid Gen 1 save.
@@ -529,11 +533,15 @@ function parsePCBoxes(
 /**
  * Orchestrates the full extraction of a Generation 1 (Red/Blue/Yellow) save file.
  *
- * **Extraction Flow:**
- * 1. Reads the trainer name and performs a fast scan of the party.
- * 2. Uses the party/trainer data to detect if the game is Yellow and calculates the memory shift (`+1`).
- * 3. Extracts the full party, PC boxes (WRAM + SRAM), inventory, badges, and event flags using
- *    the calculated `offsetShift`.
+ * **Extraction Flow & Memory Architecture:**
+ * 1. **Initial Probing:** Reads the trainer name (`0x2598`) and party (`0x2F2C`).
+ * 2. **Version Detection & Alignment:** Red/Blue and Yellow have slightly different internal
+ *    data structures (Yellow offsets much of the save by `+1` byte to accommodate Pikachu's friendship).
+ *    Because the save file doesn't explicitly declare its version, we pass the parsed party and
+ *    trainer data to `detectVersionAndOffsets` to heuristically determine the version and the required
+ *    `offsetShift`.
+ * 3. **Data Extraction:** Uses the calculated `offsetShift` to align reading of the full party,
+ *    PC boxes (WRAM + SRAM), inventory, badges, and event flags.
  *
  * @param view - The raw save file DataView.
  * @param forcedVersion - An optional version override provided by the user.
