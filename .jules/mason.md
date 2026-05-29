@@ -66,3 +66,8 @@
 - **Key Learnings**:
   - Separating `labelClassName` and `valueClassName` allows for necessary typographic variations (like alignment or colors) while still leveraging the base structural pattern.
   - Always manually verify existing files using tools like `grep` before attempting substitutions, as files may have drifted from expected state.
+## NavButton Extraction
+- **What**: Extracted repeated navigation button structures inside `BottomNav` into a reusable `NavButton` component.
+- **Why**: Reduced boilerplate and code duplication within the navigation bar. Simplified the implementation of different menu items by defining common styles and behaviors in one place.
+- **Key Learnings**:
+  - Encapsulating logic like `isActive` to handle both routing and generic click events (e.g., toggling the settings modal) provides a robust structure for complex navigational elements.
