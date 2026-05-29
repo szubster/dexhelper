@@ -52,3 +52,7 @@
 ## 2026-07-08
 **Learning:** System failures, node state transitions (e.g. from FAILED to READY), and "is now COMPLETED" status log entries in Foundry journals (like `tpm.md`) add zero value to future runs and unnecessarily expand the context window.
 **Action:** Removed all transient status logging from `tpm.md`. Such logs belong in orchestrator execution logs or PR history, not long-term agent journals.
+
+## 2026-05-25 - Archivist Run Learnings
+**Learning:** Agents frequently append "correction" or "update" entries to their journals instead of modifying the original entry, leading to contradictions and bloat.
+**Action:** Replaced and consolidated contradictory/duplicate entries. Agents must be reminded to rewrite/update existing learnings rather than appending corrections.
