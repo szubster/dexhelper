@@ -134,3 +134,9 @@
 **Outcome:** Accepted
 **Why:** Brings the search console vertically closer to the top-level application aesthetic by eliminating standard layouts in favor of the established sharp-edged, dashed-border hardware terminal layout.
 **Pattern:** Combine related navigation and filtering inputs into unified `<TacticalPanel>` structures rather than letting inputs float freely, and utilize segmented controls over generic pill arrays for filters.
+
+## 2026-06-26 - [Accepted] - 🖼️ Canvas: Tactical SyncProgress Redesign
+**What:** Redesigned the `SyncProgress` component to fully embrace the tactical "snooping" aesthetic by wrapping it in a `<TacticalPanel>` instead of a generic glassmorphism container. Converted the smooth sliding progress bar into a tactical segmented block visual.
+**Outcome:** Accepted
+**Why:** Brings the loading state interface in line with the heavily tactical, specialized hardware motif. Wrapping loaders and sync views in `TacticalPanel` ensures they fit the "terminal scanning" visual identity of the rest of the application.
+**Pattern:** Consistently utilize `TacticalPanel` for utility and overlay elements instead of relying on custom styled divs with generic shadows and blurs, and replace standard progress indicators with segmented, tactical layouts.
