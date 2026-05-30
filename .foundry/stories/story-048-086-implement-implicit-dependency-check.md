@@ -26,4 +26,4 @@ notes: ''
 We need to enforce implicit dependencies for macroscopic nodes like EPIC and STORY nodes so they cannot transition to VERIFYING (or COMPLETED) prematurely.
 
 ## Acceptance Criteria
-- [ ] Update `isHierarchicallyIncomplete` or node resolution logic in `foundry-orchestrator.ts` to ensure that a parent node isn't ready if its descendant tree has any nodes not in the COMPLETED state.
+- [x] Update `isHierarchicallyIncomplete` or node resolution logic in `foundry-orchestrator.ts` to ensure that a parent node isn't ready if its descendant tree has any nodes not in the COMPLETED state.
