@@ -18,7 +18,6 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 
 ## 2026-05-03 - Improved Orchestrator Late-Binding Completion
 **Learning:** Addressed a bug in `.github/scripts/foundry-orchestrator.ts` where Late-Binding parent nodes (nodes waiting for dynamically generated children to complete) would remain stuck in a PENDING state indefinitely even after all children successfully completed. Added a dedicated detection phase (Phase 4.1) to find these specific `PENDING` nodes, verify they possess children, check if strictly all children are `COMPLETED`, ensure no implicit/explicit dependencies are unfulfilled, and directly promote the parent node to `COMPLETED`. Unit tested and validated to maintain DAG integrity.
-# Sweeper
 
 ## 2026-05-05 - Safe Removal of Re-export Abstractions
 **Learning:** Files that serve only as re-exports for "backward compatibility" (like `src/utils/data.ts` re-exporting `src/engine/data/shared/staticData.ts`) introduce unnecessary indirection. While `knip` might not flag them if they are actively used, manually tracing their usage and updating call sites to point directly to the actual source file is a safe and effective way to reduce technical debt and simplify the module graph.
@@ -27,7 +26,10 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 ## 2026-05-18 - Refactoring large files and managing Knip ignore lists
 
 **Learning:** Sometime `knip` gives false positives on exports only used within the file itself. Setting `ignoreExportsUsedInFile` in `knip.json` safely resolves this issue. When refactoring massive functions, splitting them into logical helpers greatly reduces complexity while retaining the exact same functional output. Avoid configuring `knip` or any linter by globally disabling core rules, as it degrades codebase health. Ensure that disposable scripts are deleted before committing code.
-## 2026-06-07 - Knip dependency resolution\n\n**Learning:** Sometime a dependency or file may no longer need to be explicitly ignored in `knip.json` because `knip` successfully figures out the usage. \n**Action:** Pay attention to configuration hints in `knip` to remove `bundlemon` and `gray-matter` from `knip.json` `ignoreDependencies`.
+
+## 2026-06-07 - Knip dependency resolution
+**Learning:** Sometime a dependency or file may no longer need to be explicitly ignored in `knip.json` because `knip` successfully figures out the usage.
+**Action:** Pay attention to configuration hints in `knip` to remove `bundlemon` and `gray-matter` from `knip.json` `ignoreDependencies`.
 
 ## 2026-06-25 - Handling False Positives in Code Health Tasks
 **Learning:** Sometimes, an automated code health task may request fixes for issues (like an unused import) that have already been resolved on the `main` branch.
@@ -35,3 +37,7 @@ Removed unused type ClassValue import from src/utils/cn.ts by utilizing Paramete
 - Refactoring long files or text structures using string matching in python or javascript can be error prone with indentation or overlapping strings. Writing a script to accurately parse the abstract syntax tree and make changes is difficult. Often the easiest way to make surgical edits to a code file without manual human input is to find unique anchors, slice the text, and recreate it exactly.
 When using `pnpm knip --production` to identify dead code, it will often falsely flag non-production files such as CI scripts, tests, and testing utilities (e.g., in `.github/scripts/`, `scripts/`, or `tests/e2e/`) as unused. Always manually verify that flagged files are genuinely dead code before deletion.
 Before deleting code flagged as dead, always check the status of Foundry tasks (e.g., in `.foundry/`) as it may be related to recently closed or WIP tasks.
+
+## 2026-07-02 - Knip Production vs Dev
+**Learning:** Using `pnpm knip` alone might miss dead UI components if they are imported into a test file (which Knip considers an entrypoint). Running `pnpm knip --production` correctly identifies these components as unused in production.
+**Action:** Always run `pnpm knip --production` when looking for dead app components, then manually verify using `grep` that the file is not dynamically used or referenced in `src/`. Remember to also delete any associated `.test.tsx` files when deleting dead components to prevent testing regressions.
