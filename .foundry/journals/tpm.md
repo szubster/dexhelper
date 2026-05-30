@@ -13,3 +13,5 @@
 - **2026-05-30**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
 
 - **2026-05-30**: System failure detected for `task-071-136-visited-routes-checklist-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-05-30**: System failure detected for `task-071-138-graveyard-integration-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
