@@ -2,12 +2,12 @@
 id: task-071-136-visited-routes-checklist-impl
 type: TASK
 title: Implement Visited Routes Checklist
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10944906203879697413'
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:
