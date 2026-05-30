@@ -1,0 +1,24 @@
+<<<<<<< SEARCH
+  return (
+    <div
+      className={cn(
+        isGrid ? '' : 'flex border border-zinc-800 border-dashed',
+        className
+      )}
+      role={ariaLabel ? "radiogroup" : undefined}
+      aria-label={ariaLabel}
+      {...props}
+    >
+=======
+  return (
+    // biome-ignore lint/a11y/useAriaPropsSupportedByRole: dynamic role maps to valid aria-label
+    <div
+      className={cn(
+        isGrid ? '' : 'flex border border-zinc-800 border-dashed',
+        className
+      )}
+      role={ariaLabel ? "radiogroup" : undefined}
+      aria-label={ariaLabel}
+      {...props}
+    >
+>>>>>>> REPLACE

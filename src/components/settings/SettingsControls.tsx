@@ -2,6 +2,7 @@ import { Archive, CircleDot, Settings2, Skull } from 'lucide-react';
 import type { GameVersion, PokeballType } from '../../store';
 import type { GenerationConfig } from '../../utils/generationConfig';
 import { getGenerationConfig } from '../../utils/generationConfig';
+import { SegmentedControl, SegmentedControlButton } from '../SegmentedControl';
 import { SettingsRow } from '../SettingsRow';
 
 interface SettingsControlsProps {
@@ -43,26 +44,20 @@ export function SettingsControls({
         iconColorClass="border-blue-500/20 bg-blue-500/10"
         label="Version"
       >
-        <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Game Version">
+        <SegmentedControl className="grid grid-cols-3 gap-2" ariaLabel="Game Version">
           {versions.map((v) => (
-            // oxlint-disable jsx-a11y/prefer-tag-over-role
-            // biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling
-            <button
+            <SegmentedControlButton
               key={v.id}
-              role="radio"
-              type="button"
               onClick={() => setManualVersion(v.id === 'unknown' ? null : v.id)}
-              className={`rounded-none border border-dashed px-3 py-2 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
-                effectiveVersion === v.id || (v.id === 'unknown' && effectiveVersion === 'unknown')
-                  ? 'border-blue-500 bg-blue-500/20 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.3)]'
-                  : 'border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300'
-              }`}
-              aria-checked={effectiveVersion === v.id || (v.id === 'unknown' && effectiveVersion === 'unknown')}
+              isActive={effectiveVersion === v.id || (v.id === 'unknown' && effectiveVersion === 'unknown')}
+              activeClassName="border border-dashed border-blue-500 bg-blue-500/20 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.3)] focus-visible:ring-blue-500"
+              inactiveClassName="border border-dashed border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300 focus-visible:ring-blue-500"
+              className="px-3"
             >
               {v.label}
-            </button>
+            </SegmentedControlButton>
           ))}
-        </div>
+        </SegmentedControl>
       </SettingsRow>
 
       <SettingsRow
@@ -70,38 +65,18 @@ export function SettingsControls({
         iconColorClass="border-purple-500/20 bg-purple-500/10"
         label="Living Dex"
       >
-        <div className="flex border border-zinc-800 border-dashed" role="radiogroup" aria-label="Living Dex Mode">
-          {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
-          {/* biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling */}
-          <button
-            role="radio"
-            type="button"
+        <SegmentedControl ariaLabel="Living Dex Mode">
+          <SegmentedControlButton
             onClick={() => setIsLivingDex(false)}
-            aria-checked={!isLivingDex}
-            className={`flex-1 px-2 py-2 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
-              !isLivingDex
-                ? 'bg-zinc-800 text-white'
-                : 'bg-zinc-950 text-zinc-600 hover:bg-zinc-900/50 hover:text-zinc-400'
-            }`}
+            isActive={!isLivingDex}
+            activeClassName="bg-zinc-800 text-white"
           >
             [ STANDARD ]
-          </button>
-          {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
-          {/* biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling */}
-          <button
-            role="radio"
-            type="button"
-            onClick={() => setIsLivingDex(true)}
-            aria-checked={isLivingDex}
-            className={`flex-1 border-zinc-800 border-l border-dashed px-2 py-2 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
-              isLivingDex
-                ? 'bg-emerald-500 text-zinc-950 shadow-[0_0_15px_rgba(16,185,129,0.4)]'
-                : 'bg-zinc-950 text-zinc-600 hover:bg-zinc-900/50 hover:text-zinc-400'
-            }`}
-          >
+          </SegmentedControlButton>
+          <SegmentedControlButton onClick={() => setIsLivingDex(true)} isActive={isLivingDex}>
             [ LIVING DEX ]
-          </button>
-        </div>
+          </SegmentedControlButton>
+        </SegmentedControl>
       </SettingsRow>
 
       <SettingsRow
@@ -109,21 +84,15 @@ export function SettingsControls({
         iconColorClass="border-amber-500/20 bg-amber-500/10"
         label="Ball Style"
       >
-        <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Ball Style">
+        <SegmentedControl className="grid grid-cols-3 gap-2" ariaLabel="Ball Style">
           {filteredPokeballs.map((pb) => (
-            // oxlint-disable jsx-a11y/prefer-tag-over-role
-            // biome-ignore lint/a11y/useSemanticElements: segmented control needs proper styling
-            <button
+            <SegmentedControlButton
               key={pb.value}
-              role="radio"
-              type="button"
               onClick={() => setGlobalPokeball(pb.value)}
-              className={`flex flex-col items-center justify-center gap-1.5 rounded-none border border-dashed py-3 font-black font-mono text-[9px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
-                globalPokeball === pb.value
-                  ? 'border-amber-500 bg-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)]'
-                  : 'border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300'
-              }`}
-              aria-checked={globalPokeball === pb.value}
+              isActive={globalPokeball === pb.value}
+              activeClassName="border border-dashed border-amber-500 bg-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)] focus-visible:ring-amber-500"
+              inactiveClassName="border border-dashed border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300 focus-visible:ring-amber-500"
+              className="flex flex-col items-center justify-center gap-1.5 py-3"
             >
               <div
                 className={`h-4 w-4 rounded-none border ${
@@ -139,9 +108,9 @@ export function SettingsControls({
                 }`}
               />
               {pb.label}
-            </button>
+            </SegmentedControlButton>
           ))}
-        </div>
+        </SegmentedControl>
       </SettingsRow>
 
       <SettingsRow

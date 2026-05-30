@@ -1,0 +1,17 @@
+<<<<<<< SEARCH
+      <button
+        ref={ref}
+        type="button"
+        role={isRadio ? "radio" : undefined}
+        aria-checked={isRadio ? isActive : undefined}
+        aria-pressed={!isRadio ? isActive : undefined}
+=======
+      // oxlint-disable jsx-a11y/prefer-tag-over-role
+      // biome-ignore lint/a11y/useAriaPropsSupportedByRole: dynamic roles map to valid aria props
+      <button
+        ref={ref}
+        type="button"
+        role={isRadio ? "radio" : undefined}
+        aria-checked={isRadio ? isActive : undefined}
+        aria-pressed={!isRadio ? isActive : undefined}
+>>>>>>> REPLACE

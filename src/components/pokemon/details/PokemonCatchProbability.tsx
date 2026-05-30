@@ -3,6 +3,7 @@ import { useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
 import { DataPoint } from '../../DataPoint';
+import { SegmentedControl, SegmentedControlButton } from '../../SegmentedControl';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface PokemonCatchProbabilityProps {
@@ -68,27 +69,20 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Target Status">
+        <SegmentedControl className="grid grid-cols-3 gap-2" ariaLabel="Target Status">
           {STATUS_OPTIONS.map((item) => (
-            // oxlint-disable jsx-a11y/prefer-tag-over-role
-            // biome-ignore lint/a11y/useSemanticElements: custom radio segmented control needs proper styling
-            <button
-              type="button"
-              role="radio"
+            <SegmentedControlButton
               key={item.id}
-              aria-checked={status === item.id}
               onClick={() => setStatus(item.id)}
-              className={cn(
-                'rounded-none border border-dashed py-3 font-black text-[9px] uppercase tracking-widest outline-none transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95',
-                status === item.id
-                  ? 'border-emerald-400 bg-emerald-500 text-zinc-950 shadow-[0_5px_15px_rgba(16,185,129,0.3)]'
-                  : 'border-white/10 bg-black/40 text-emerald-500/50 hover:border-emerald-500/40 hover:bg-emerald-500/10',
-              )}
+              isActive={status === item.id}
+              activeClassName="border border-dashed border-emerald-400 bg-emerald-500 text-zinc-950 shadow-[0_5px_15px_rgba(16,185,129,0.3)]"
+              inactiveClassName="border border-dashed border-white/10 bg-black/40 text-emerald-500/50 hover:border-emerald-500/40 hover:bg-emerald-500/10"
+              className="py-3 active:scale-95"
             >
               {item.label}
-            </button>
+            </SegmentedControlButton>
           ))}
-        </div>
+        </SegmentedControl>
       </div>
 
       <div className="flex flex-col gap-2 border-emerald-500/10 border-t pt-8">

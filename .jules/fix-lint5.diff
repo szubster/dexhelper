@@ -1,0 +1,6 @@
+<<<<<<< SEARCH
+        const childElement = child as React.ReactElement<any>;
+=======
+        // biome-ignore lint/suspicious/noExplicitAny: required for cloneElement
+        const childElement = child as React.ReactElement<any>;
+>>>>>>> REPLACE

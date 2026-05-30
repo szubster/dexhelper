@@ -72,3 +72,12 @@
 - **Why**: Reduced duplicated JSX across `AssistantDebugView` which had 4 identical blocks. It can also be reused if other parts of the app need a telemetry card.
 - **Key Learnings**:
   - The `valueClassName` prop is crucial when extracting text components, allowing customization like `truncate` or `uppercase` while maintaining identical base text styles.
+
+## SegmentedControl Extraction
+- Identified repeating `div[role="radiogroup"]` flex and grid standard segmented control UI patterns with very similar classes (with exceptions like specific colors and `flex` vs `grid`).
+- **What**: Extracted repeated segmented control patterns found in `SettingsControls`, `SearchAndFilters`, and `PokemonCatchProbability` into `SegmentedControl` and `SegmentedControlButton` reusable components.
+- **Why**: Reduced duplicated JSX across settings pages, pokemon details screens, and filter settings, encapsulating the complex repeating tailwind utility classes, border-left styles, `aria` accessibility labels/roles, and `biome-ignore lint/a11y/useAriaPropsSupportedByRole` lint disables directly into the reusable wrapper.
+- **Key Learnings**:
+  - Using `React.Children.map` combined with `React.cloneElement` in wrappers like `SegmentedControl` is a great way to transparently pass border classes to specific non-first children depending on conditions, reducing boilerplate in parent consumption.
+  - Using the explicit `any` type with `React.ReactElement<any>` can trigger strict biome lint rules `lint/suspicious/noExplicitAny`. Adding a direct `// biome-ignore lint/suspicious/noExplicitAny` comment fixes it.
+  - Adding generic ARIA tags to custom standard div containers (like `aria-checked` to buttons, or `aria-label` with `role="radiogroup"` to divs) can trigger `lint/a11y/useAriaPropsSupportedByRole`. Adding `// biome-ignore lint/a11y/useAriaPropsSupportedByRole: dynamic roles map to valid aria props` prevents this from throwing in the CI check.
