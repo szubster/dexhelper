@@ -1,0 +1,2 @@
+sed -i 's/selector: any/selector: \/\* biome-ignore lint\/suspicious\/noExplicitAny: needed for mock \*\/ any/g' src/components/__tests__/run.test.tsx
+sed -i 's/RunRoute.options.component! as any/\/\/ biome-ignore lint\/style\/noNonNullAssertion: needed for tests\n    \/\/ biome-ignore lint\/suspicious\/noExplicitAny: needed for tests\n    component: RunRoute.options.component! as any/g' src/components/__tests__/run.test.tsx
