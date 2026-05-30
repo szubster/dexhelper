@@ -78,6 +78,9 @@ Critical learnings:
 
 ## 2026-05-23 - Updated Tooling Dependencies
 **Learning:** Updated dependencies to keep tooling modern and secure.
+
+## 2026-05-27 - Optimized Vite Chunk Strategy
+**Learning:** Added explicit chunk splitting in `vite.config.ts` for `@tanstack/react-query` and `lucide-react`. This extracts relatively static vendor logic from the main app chunk, slightly reducing its size and dramatically improving long-term cache hits for clients between minor app deployments. Corresponding limits in `.bundlemonrc.json` were updated to lock in these granular optimizations.
 \n## 2026-05-24 - Enforced package.json sorting in CI\n**Learning:** Discovered that the local `pnpm lint` pipeline had `lint:package-json` added, but the CI pipeline (`.github/workflows/ci.yml`) was missing it. I have added the `Package JSON Sort Check` to `ci.yml` to ensure `package.json` sorting is properly enforced in CI environments, preventing unsorted packages from slipping through into merged code.
 
 
