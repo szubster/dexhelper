@@ -1,3 +1,11 @@
 # TPM Journal
 
 - **2026-05-30**: Resurrection Loop triggered for `idea-066-rom-hack-support`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-05-30**: PR #1889 merged but has unchecked tasks (parent node). `epic-035-048-implicit-dependency-enforcement` is now PENDING.
+
+- **2026-05-30**: PR #1890 merged. `idea-064-smart-route-radar` is now VERIFYING.
+
+- **2026-05-30**: Resurrection Loop triggered for `idea-065-epic-verification-timing`. Reason: PR #1893 closed without merging.. Transitioned back to READY.
+
+- **2026-05-30**: Resurrection Loop triggered for `prd-064-035-smart-route-radar`. Reason: PR #1891 closed without merging.. Transitioned back to READY.
