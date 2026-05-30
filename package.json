@@ -46,7 +46,7 @@
     "zustand": "^5.0.13"
   },
   "devDependencies": {
-    "@argos-ci/playwright": "^7.0.2",
+    "@argos-ci/playwright": "^7.0.5",
     "@biomejs/biome": "^2.4.15",
     "@codecov/vite-plugin": "^2.0.1",
     "@playwright/test": "^1.60.0",
