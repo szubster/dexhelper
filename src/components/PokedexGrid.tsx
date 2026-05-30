@@ -44,32 +44,45 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
     // ⚡ Bolt: Hoist string allocation outside the loop
     const term = deferredSearchTerm ? deferredSearchTerm.toLowerCase() : '';
 
-    return pokemonList.slice(0, displayLimit).filter((pokemon) => {
-      // ⚡ Bolt: Combined filters into single pass to reduce O(N) iterations
+    // ⚡ Bolt: Replaced .slice().filter() with a for-loop to eliminate intermediate array allocations and closure overhead
+    const result = [];
+    const limit = Math.min(pokemonList.length, displayLimit);
+
+    for (let i = 0; i < limit; i++) {
+      const pokemon = pokemonList[i];
+      if (!pokemon) continue;
+
       // 1. Search term check
       if (term) {
         const matchesTerm = pokemon.nameLower.includes(term) || pokemon.idString.includes(term);
-        if (!matchesTerm) return false;
+        if (!matchesTerm) continue;
       }
 
       // 2. Location filter check
       if (locationPokemonIds && !locationPokemonIds.has(pokemon.id)) {
-        return false;
+        continue;
       }
 
       // 3. Storage/Dex filters check
-      if (!saveData || filtersSet.size === 0) return true;
+      if (!saveData || filtersSet.size === 0) {
+        result.push(pokemon);
+        continue;
+      }
 
       const inParty = partySet.has(pokemon.id);
       const inPC = pcSet.has(pokemon.id);
       const hasInStorage = inParty || inPC;
 
-      if (filtersSet.has('secured') && hasInStorage) return true;
-      if (filtersSet.has('missing') && !hasInStorage) return true;
-      if (filtersSet.has('dex-only') && saveData.owned.has(pokemon.id) && !hasInStorage) return true;
+      if (
+        (filtersSet.has('secured') && hasInStorage) ||
+        (filtersSet.has('missing') && !hasInStorage) ||
+        (filtersSet.has('dex-only') && saveData.owned.has(pokemon.id) && !hasInStorage)
+      ) {
+        result.push(pokemon);
+      }
+    }
 
-      return false;
-    });
+    return result;
   }, [pokemonList, displayLimit, deferredSearchTerm, saveData, filtersSet, partySet, pcSet, locationPokemonIds]);
 
   const shinySpeciesIds = useMemo(() => {
