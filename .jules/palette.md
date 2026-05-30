@@ -102,3 +102,6 @@
 ## 2026-06-25 - Missing aria-label on <select> inputs
 **Learning:** Native `<select>` inputs used for configuration options (like selecting a graveyard box) often lack a visible `<label>`. Screen readers cannot determine the purpose of the dropdown without an accessible name.
 **Action:** Always provide an `aria-label` to native `<select>` elements if they are not explicitly linked to a `<label>` element with a `for`/`id` pair. Ensure the label clearly describes the action or configuration being changed.
+## 2026-06-25 - ARIA Roles for Global Error Messages
+**Learning:** When rendering dynamic global error messages or panels (e.g., `GlobalError.tsx`), screen readers are not inherently aware of the new DOM elements appearing on the screen. Users might miss critical system errors.
+**Action:** Ensure the container for these global error messages uses `role="alert"` and `aria-live="assertive"`. This guarantees that screen readers will immediately interrupt the current announcement to read the error message, ensuring equal access to system feedback.
