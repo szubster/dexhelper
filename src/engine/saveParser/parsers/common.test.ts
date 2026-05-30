@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
-import { checkShiny, decodeGen12String, parseDVs } from './common';
+import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
 
 describe('common parsers', () => {
   describe('decodeGen12String', () => {
@@ -178,6 +178,24 @@ describe('common parsers', () => {
 
     test('returns false if Spc is not 10', () => {
       expect(checkShiny({ atk: 2, def: 10, spd: 10, spc: 9 })).toBe(false);
+    });
+  });
+
+  describe('checkShinyGene', () => {
+    test('identifies shiny gene carrier when Spc is 10', () => {
+      expect(checkShinyGene({ atk: 5, def: 10, spd: 5, spc: 10 })).toBe(true);
+    });
+
+    test('identifies shiny gene carrier when Spc is 2', () => {
+      expect(checkShinyGene({ atk: 5, def: 10, spd: 5, spc: 2 })).toBe(true);
+    });
+
+    test('returns false if Def is not 10', () => {
+      expect(checkShinyGene({ atk: 5, def: 9, spd: 5, spc: 10 })).toBe(false);
+    });
+
+    test('returns false if Spc is neither 2 nor 10', () => {
+      expect(checkShinyGene({ atk: 5, def: 10, spd: 5, spc: 3 })).toBe(false);
     });
   });
 });
