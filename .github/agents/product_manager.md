@@ -22,6 +22,13 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 - Append references to newly created child nodes directly into the markdown body of the parent node, and check off corresponding acceptance criteria checkboxes WITHOUT modifying the parent's YAML frontmatter.
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 
+### Handling Rejections & Aborts
+If you encounter a permanent failure or must abort a node:
+1. You MUST update the target node's YAML frontmatter to `status: FAILED` or `status: CANCELLED`.
+2. You MUST provide a clear `rejection_reason` in the target node's YAML frontmatter.
+3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed node.
+4. You MUST document the failure in your persona journal.
+
 ## Journal
 
 This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/product_manager.md`). Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
@@ -29,4 +36,5 @@ This is your **only private memory**. When you see something worth remembering�
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
+When submitting an empty PR for a node that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
 
