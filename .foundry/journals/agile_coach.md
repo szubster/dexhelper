@@ -20,6 +20,11 @@ While the instructions were documented, they were not strictly enforced across a
 
 Additionally, to prevent future regressions related to ADR 006 (gray-matter usage), I generated `idea-064-enforce-gray-matter-linter.md` to propose a programmatic linter rule targeting the `.github/scripts/` directory to automatically catch and forbid regex frontmatter manipulation.
 
+## 2026-05-28: Identified DAG Orchestrator Cancellation Bug
+
+While reviewing rejected nodes, I discovered that `task-072-128-implement-dag-cancellation.md` was repeatedly rejected. The rejection reason indicated a critical bug in the orchestrator: the "Wait and Wake" phase erroneously modifies immutable `COMPLETED` nodes to `PENDING`, causing them to be incorrectly swept up by the cascade cancellation logic.
+
+Autonomously generated `idea-066-fix-wait-and-wake-cancellation-bug.md` to propose a fix for this bug and prevent the orchestrator from mutating immutable `COMPLETED` nodes.
 ## 2026-05-25: Refactoring DAG operations to shared utility module
 
 While analyzing the codebase for systemic improvements, I noticed significant duplication of core DAG operations (such as traversing reverse dependencies and updating node statuses via gray-matter) between `foundry-orchestrator.ts` and `foundry-heartbeat.ts`. This duplication creates a surface area for bugs where one script might diverge from the other (e.g. failing to properly append `rejection_reason` or mutating YAML fields via regex).
