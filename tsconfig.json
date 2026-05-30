@@ -10,5 +10,5 @@
     "incremental": true,
     "types": ["@types/wicg-file-system-access"]
   },
-  "exclude": [".github/scripts", "functions"]
+  "exclude": [".github/scripts"]
 }
