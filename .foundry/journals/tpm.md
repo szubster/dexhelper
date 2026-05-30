@@ -9,3 +9,5 @@
 - **2026-05-30**: Resurrection Loop triggered for `idea-065-epic-verification-timing`. Reason: PR #1893 closed without merging.. Transitioned back to READY.
 
 - **2026-05-30**: Resurrection Loop triggered for `prd-064-035-smart-route-radar`. Reason: PR #1891 closed without merging.. Transitioned back to READY.
+
+- **2026-05-30**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
