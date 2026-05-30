@@ -78,3 +78,8 @@ Critical learnings:
 
 ## 2026-05-23 - Updated Tooling Dependencies
 **Learning:** Updated dependencies to keep tooling modern and secure.
+\n## 2026-05-24 - Enforced package.json sorting in CI\n**Learning:** Discovered that the local `pnpm lint` pipeline had `lint:package-json` added, but the CI pipeline (`.github/workflows/ci.yml`) was missing it. I have added the `Package JSON Sort Check` to `ci.yml` to ensure `package.json` sorting is properly enforced in CI environments, preventing unsorted packages from slipping through into merged code.
+
+
+## 2026-05-28 - Rejected strict dead code detection with Knip
+**Learning:** Configured `knip.json` with `"files": "error"` and `"exports": "error"` to strictly fail CI if there is any unused files or dead code exports. User rejected this change, stating "We can have some dead code. For features which are being worked on. That's fine. AI agent should verify findings (I think one already does it) and decide about deletion". Reverted strict Knip settings to allow dead code during active development.

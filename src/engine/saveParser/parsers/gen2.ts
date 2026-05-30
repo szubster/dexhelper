@@ -2,7 +2,19 @@ import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
-import { checkShiny, decodeGen12String, parseDVs } from './common';
+import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
+
+function isValidLandmark(id: string): id is keyof typeof gen2Landmarks {
+  return id in gen2Landmarks;
+}
+
+function isValidMapGroup(id: string): id is keyof typeof gen2MapLocations {
+  return id in gen2MapLocations;
+}
+
+function isValidMapId<T extends Record<string, string>>(id: string, dict: T): id is keyof T & string {
+  return id in dict;
+}
 
 /**
  * Extracts the caught data (time of day, level, and location) from a Generation 2 Pokémon structure.
@@ -33,7 +45,7 @@ function parseCaughtData(view: DataView, offset: number) {
   else if (location === 0x7f) locationName = 'Special Event/Traded';
   else {
     const locStr = location.toString();
-    locationName = locStr in gen2Landmarks ? gen2Landmarks[locStr as keyof typeof gen2Landmarks] : undefined;
+    locationName = isValidLandmark(locStr) ? gen2Landmarks[locStr] : undefined;
   }
 
   return { time, level: caughtLevel, location, locationName };
@@ -42,10 +54,16 @@ function parseCaughtData(view: DataView, offset: number) {
 /**
  * Extracts details for a single Pokémon from a Generation 2 save block.
  *
+ * **Memory Structure Differences:**
+ * - Party Pokémon use a 48-byte structure, which includes 16 additional bytes at the end for dynamic battle stats (e.g. current HP, max HP, attack, etc.).
+ * - PC/Box Pokémon use a smaller 32-byte structure, as these battle stats are recalculated upon withdrawal.
+ * - Unlike Gen 1, Daycare Pokémon store their Original Trainer (OT) name immediately adjacent to their data block (at `offset + 32`),
+ *   whereas Party and Box instances store OT names in entirely separate string array blocks elsewhere in memory.
+ *
  * @param view - The raw save file view.
- * @param offset - The memory offset for the start of the Pokémon's 32-byte data block.
- * @param isCrystal - Whether the save file is from Pokémon Crystal (determines if caught data exists).
- * @param storageLocation - A string indicating where the Pokémon is stored (e.g., 'Party', 'Box 1').
+ * @param offset - The memory offset for the start of the Pokémon's data block.
+ * @param isCrystal - Whether the save file is from Pokémon Crystal. Crystal uniquely utilizes bytes 29 and 30 for caught time/level/location data.
+ * @param storageLocation - A string indicating where the Pokémon is stored (e.g., 'Party', 'Box 1', 'Daycare').
  * @param slot - The 1-indexed slot the Pokémon occupies in its storage container.
  * @returns A fully constructed PokemonInstance object, or undefined if the species ID is invalid.
  */
@@ -67,6 +85,7 @@ function parseGen2PokemonInstance(
   }
   const dvs = parseDVs(view.getUint16(offset + 21, false));
   const isShiny = checkShiny(dvs);
+  const hasShinyGene = checkShinyGene(dvs);
   const friendship = view.getUint8(offset + 27);
   const pokerus = view.getUint8(offset + 28);
   const level = view.getUint8(offset + 31);
@@ -81,6 +100,7 @@ function parseGen2PokemonInstance(
     currentHp,
     level,
     isShiny,
+    hasShinyGene,
     item,
     moves,
     friendship,
@@ -128,8 +148,13 @@ function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersi
 
 /**
  * Performs a structural check to verify if the save file is a valid Generation 2 save.
- * It dynamically checks the party offset based on the `crystal` flag, ensuring the party count
- * is valid (<= 6), correctly terminated with 0xFF, and contains valid internal Pokémon IDs.
+ *
+ * **Why check both offsets?**
+ * Gen 2 memory blocks shifted significantly between Gold/Silver and Crystal. The active Party block
+ * starts at `0x288A` in G/S and `0x2865` in Crystal.
+ * If the main save checksum is corrupt, we fallback to parsing these exact offsets.
+ * We dynamically check the `countOffset` based on the `crystal` flag, ensuring the party count
+ * is valid (<= 6), correctly terminated with `0xFF`, and contains valid internal Pokémon IDs.
  *
  * @param view - The raw save file view.
  * @param crystal - Whether to test offsets specific to Pokémon Crystal.
@@ -202,15 +227,14 @@ function parsePokedex(view: DataView, offsets: { owned: number; seen: number }) 
  * Parses the player's active party from a Generation 2 save.
  *
  * **Memory Layout:**
- * The party structure is identical to Gen 1 but expanded:
- * 1. A 1-byte count (max 6).
- * 2. A 7-byte species array (terminated by `0xFF`).
- * 3. The 48-byte full data structures for each Pokémon.
+ * - The party block begins with a 1-byte count of the current party size (max 6).
+ * - This is immediately followed by a 7-byte array containing the species IDs of the party members (terminated by `0xFF`).
+ * - Following the species array is the sequential block of 48-byte Pokémon data instances (`offset + 7`).
  *
  * @param view - The raw save file DataView.
- * @param offsets - The dynamically resolved start offsets for the party list.
- * @param isCrystal - True if the save is Crystal (to correctly parse caught data).
- * @returns The simple list of species IDs (`party`) and the detailed instances (`partyDetails`).
+ * @param offsets - Dynamic offsets containing the start address for `partyCount` and `partySpecies`.
+ * @param isCrystal - True if the save file is Pokémon Crystal.
+ * @returns An object containing the simple species ID list and the array of fully constructed `PokemonInstance`s.
  */
 function parseParty(view: DataView, offsets: { partyCount: number; partySpecies: number }, isCrystal: boolean) {
   const partyCount = view.getUint8(offsets.partyCount);
@@ -444,11 +468,13 @@ function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
 /**
  * Orchestrates the full extraction of a Generation 2 (Gold/Silver/Crystal) save file.
  *
- * **Extraction Flow:**
- * 1. Checks if the save is Crystal vs Gold/Silver using the `isCrystal` fallback detection (party counts).
- * 2. Assigns the correct base memory offsets based on version.
- * 3. Extracts Pokédex, Party, PC Boxes, Daycare, Inventory, and event flags (badges).
- * 4. Merges Kanto and Johto badges.
+ * **Extraction Flow & Memory Architecture:**
+ * 1. **Version Verification:** Gen 2 memory offsets differ significantly between Gold/Silver and Crystal
+ *    (e.g. Party data is at `0x288A` in G/S but shifted to `0x2865` in Crystal). It checks the party counts
+ *    at both offsets to verify if it's Crystal vs Gold/Silver.
+ * 2. **Offset Alignment:** Assigns the correct base memory offsets (`offsets` dictionary) based on the detected version.
+ * 3. **Data Extraction:** Extracts Pokédex, Party, PC Boxes, Daycare, Inventory, and event flags (badges).
+ * 4. **Badge Merging:** Merges Kanto and Johto badges.
  *
  * @param view - The raw save file DataView.
  * @param forceCrystal - An optional flag to force Crystal offset parsing.
@@ -518,10 +544,8 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   let currentMapName = 'Unknown Map';
   const groupStr = mapGroup.toString();
   const mapIdStr = currentMapId.toString();
-  const mapGroupDict =
-    groupStr in gen2MapLocations ? gen2MapLocations[groupStr as keyof typeof gen2MapLocations] : undefined;
-  const foundMap =
-    mapGroupDict && mapIdStr in mapGroupDict ? mapGroupDict[mapIdStr as keyof typeof mapGroupDict] : undefined;
+  const mapGroupDict = isValidMapGroup(groupStr) ? gen2MapLocations[groupStr] : undefined;
+  const foundMap = mapGroupDict && isValidMapId(mapIdStr, mapGroupDict) ? mapGroupDict[mapIdStr] : undefined;
   if (foundMap) {
     currentMapName = foundMap;
   }
