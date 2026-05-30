@@ -7,7 +7,6 @@ owner_persona: story_owner
 created_at: '2026-05-17'
 updated_at: '2026-05-17'
 depends_on:
-  - story-032-062-gen3-data-generation-scripts
 jules_session_id: null
 parent: epic-053-024-032-gen3-encounters-implementation
 tags:
@@ -29,5 +28,5 @@ Transition the data serialization layer from JSON to MsgPack to handle larger Ge
 - [ ] Bundle size and parse time metrics are verified.
 
 ## Generated Tasks
-- .foundry/tasks/task-063-132-msgpack-transition-impl.md
-- .foundry/tasks/task-063-133-msgpack-transition-qa.md
+- .foundry/archive/.foundry/archive/tasks/task-063-132-msgpack-transition-impl.md
+- .foundry/archive/.foundry/archive/tasks/task-063-133-msgpack-transition-qa.md

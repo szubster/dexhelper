@@ -23,7 +23,7 @@ notes: ''
 # Investigate Death Tracking and Graveyard Logic Failure
 
 ## Context
-The implementation task `.foundry/tasks/task-070-116-implement-death-tracking.md` failed permanently. The assigned `coder` failed to fully satisfy the acceptance criteria, resulting in the `rejection_reason: Merged with unfulfilled acceptance criteria`. This triggered the Orchestrator's Impossible Loop.
+The implementation task `.foundry/archive/.foundry/archive/tasks/task-070-116-implement-death-tracking.md` failed permanently. The assigned `coder` failed to fully satisfy the acceptance criteria, resulting in the `rejection_reason: Merged with unfulfilled acceptance criteria`. This triggered the Orchestrator's Impossible Loop.
 
 ## Objective
 The objective of this research node is to investigate why the `coder` persona was unable to fulfill the requirements for Nuzlocke graveyard tracking.

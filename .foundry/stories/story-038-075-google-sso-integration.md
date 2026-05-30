@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-05-22'
 depends_on:
-  - story-038-074-cloudflare-auth-infrastructure
 jules_session_id: null
 pr_number: null
 parent: epic-030-038-cloudflare-google-sso

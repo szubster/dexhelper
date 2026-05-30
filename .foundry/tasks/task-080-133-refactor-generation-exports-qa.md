@@ -7,7 +7,6 @@ owner_persona: qa
 created_at: "2026-05-22"
 updated_at: "2026-05-22"
 depends_on:
-  - task-080-132-refactor-generation-exports-impl
 jules_session_id: null
 pr_number: null
 parent: story-042-080-refactor-generation-exports

@@ -7,7 +7,6 @@ owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-05-28'
 depends_on:
-  - task-082-140-implement-shiny-gene-utility
 jules_session_id: '6454736856522977689'
 pr_number: null
 parent: story-044-082-dv-shiny-gene-logic

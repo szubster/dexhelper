@@ -7,7 +7,6 @@ owner_persona: qa
 created_at: '2026-05-24'
 updated_at: '2026-05-24'
 depends_on:
-  - task-071-140-visited-routes-checklist-retry-impl
 jules_session_id: null
 pr_number: null
 parent: story-034-071-run-dashboard-ui

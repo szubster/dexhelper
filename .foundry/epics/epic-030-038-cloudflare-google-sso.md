@@ -40,6 +40,6 @@ As part of Phase 1 to introduce a backend while keeping the application offline-
 - [x] Story Owner: Break this Epic down into Stories.
 
 ### Generated Stories
-- .foundry/stories/story-038-074-cloudflare-auth-infrastructure.md
+- .foundry/archive/.foundry/archive/stories/story-038-074-cloudflare-auth-infrastructure.md
 - .foundry/stories/story-038-075-google-sso-integration.md
 - .foundry/stories/story-038-076-offline-auth-state.md

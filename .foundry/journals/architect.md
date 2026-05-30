@@ -1,7 +1,7 @@
 ## 2026-05-12: Fixed Invalid owner_persona mapping for TASK nodes
 
 ### Context
-The Foundry Orchestrator was flagging TASK nodes owned by the 'architect' persona as FAILED due to a restrictive persona-to-type mapping. Specifically, `.foundry/tasks/task-048-080-evaluate-graph-libraries.md` was unresolvable because it was owned by 'architect' but the schema only allowed 'coder', 'qa', or 'tech_lead' for TASK nodes.
+The Foundry Orchestrator was flagging TASK nodes owned by the 'architect' persona as FAILED due to a restrictive persona-to-type mapping. Specifically, `.foundry/archive/.foundry/archive/tasks/task-048-080-evaluate-graph-libraries.md` was unresolvable because it was owned by 'architect' but the schema only allowed 'coder', 'qa', or 'tech_lead' for TASK nodes.
 
 ### Rationale
 Architects frequently perform evaluation tasks (e.g., assessing graph libraries, prototyping integration approaches) that result in ADRs or technical specifications. These activities are best represented as TASK nodes within the Foundry DAG.

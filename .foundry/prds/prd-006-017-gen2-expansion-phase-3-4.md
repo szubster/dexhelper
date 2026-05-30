@@ -50,4 +50,4 @@ Formalize the implementation scope for Phase 3 (Johto/Kanto Map Graph Routing) a
 
 ## Generated Epics
 - [ ] Epic 028: [.foundry/epics/epic-017-028-map-graph-routing.md](.foundry/epics/epic-017-028-map-graph-routing.md)
-- [ ] Epic 029: [.foundry/epics/epic-017-029-strategy-engine-adaptations.md](.foundry/epics/epic-017-029-strategy-engine-adaptations.md)
+- [ ] Epic 029: [.foundry/archive/.foundry/archive/epics/epic-017-029-strategy-engine-adaptations.md](.foundry/archive/.foundry/archive/epics/epic-017-029-strategy-engine-adaptations.md)

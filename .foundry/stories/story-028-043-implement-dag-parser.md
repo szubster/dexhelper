@@ -33,10 +33,10 @@ This Story covers the backend/data layer for the DAG Dashboard Webview. It is re
 
 ## Acceptance Criteria
 - [x] Create a TASK to implement a utility function to read all relevant `.foundry` files.
-  - See `.foundry/tasks/task-043-073-read-foundry-files.md`
+  - See `.foundry/archive/.foundry/archive/tasks/task-043-073-read-foundry-files.md`
 - [x] Create a TASK to implement a parsing function to extract frontmatter into structured objects.
-  - See `.foundry/tasks/task-043-074-parse-frontmatter.md`
+  - See `.foundry/archive/.foundry/archive/tasks/task-043-074-parse-frontmatter.md`
 - [x] Create a TASK to implement a builder function that outputs the final node/edge graph data structure.
-  - See `.foundry/tasks/task-043-075-build-dag-graph.md`
+  - See `.foundry/archive/.foundry/archive/tasks/task-043-075-build-dag-graph.md`
 - [x] Create a QA TASK to verify the functionality of the DAG parser.
   - See `.foundry/archive/tasks/task-043-076-qa-dag-parser.md`

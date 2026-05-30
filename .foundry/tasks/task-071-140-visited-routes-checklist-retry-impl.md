@@ -7,7 +7,6 @@ owner_persona: coder
 created_at: '2026-05-24'
 updated_at: '2026-05-29'
 depends_on:
-  - research-071-005-investigate-visited-routes-checklist
 jules_session_id: '691846357888783510'
 pr_number: null
 parent: story-034-071-run-dashboard-ui

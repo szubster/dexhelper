@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-05-20'
 updated_at: '2026-05-23'
 depends_on:
-  - story-035-072-implement-cancellation-logic
 jules_session_id: null
 pr_number: null
 parent: epic-028-035-orchestrator-auto-cancel-orphaned-nodes
@@ -33,5 +32,5 @@ Add specific unit tests in `.github/scripts/foundry-orchestrator.test.ts` to ver
 
 
 ## Tasks
-- .foundry/tasks/task-073-140-impl-cancellation-unit-tests.md
+- .foundry/archive/.foundry/archive/tasks/task-073-140-impl-cancellation-unit-tests.md
 - .foundry/tasks/task-073-141-qa-cancellation-unit-tests.md

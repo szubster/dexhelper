@@ -36,7 +36,7 @@ The Gen 2 Save Parser Expansion Epic requires extracting the Hall of Fame counts
 
 ## Tasks
 - [.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md](.foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md)
-- [.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md](.foundry/tasks/task-042-069-qa-hall-of-fame-roamers.md)
-- [.foundry/tasks/task-042-068-extract-hall-of-fame.md](.foundry/tasks/task-042-068-extract-hall-of-fame.md)
-- [.foundry/tasks/task-042-069-extract-roamers.md](.foundry/tasks/task-042-069-extract-roamers.md)
-- [.foundry/tasks/task-042-070-qa-hall-of-fame-roamers.md](.foundry/tasks/task-042-070-qa-hall-of-fame-roamers.md)
+- [.foundry/archive/.foundry/archive/tasks/task-042-069-qa-hall-of-fame-roamers.md](.foundry/archive/.foundry/archive/tasks/task-042-069-qa-hall-of-fame-roamers.md)
+- [.foundry/archive/.foundry/archive/tasks/task-042-068-extract-hall-of-fame.md](.foundry/archive/.foundry/archive/tasks/task-042-068-extract-hall-of-fame.md)
+- [.foundry/archive/.foundry/archive/tasks/task-042-069-extract-roamers.md](.foundry/archive/.foundry/archive/tasks/task-042-069-extract-roamers.md)
+- [.foundry/archive/.foundry/archive/tasks/task-042-070-qa-hall-of-fame-roamers.md](.foundry/archive/.foundry/archive/tasks/task-042-070-qa-hall-of-fame-roamers.md)

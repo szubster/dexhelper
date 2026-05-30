@@ -7,7 +7,6 @@ owner_persona: product_manager
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
 depends_on:
-  - idea-055-cloudflare-sync-and-future-features
 jules_session_id: null
 pr_number: null
 parent: null

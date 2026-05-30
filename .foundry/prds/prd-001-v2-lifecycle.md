@@ -74,6 +74,6 @@ To enforce Atomic Handoffs, the product lifecycle pipeline is strictly defined a
 - [x] **Epic Planner:** Break down this PRD into Epics mapping out the necessary schema/doc updates, orchestration script refactors, and test coverage expansions to fully support Atomic Ownership.
 
 ### Generated Epics
-- `.foundry/epics/epic-007-atomic-handoff-schema.md`
-- `.foundry/epics/epic-008-atomic-handoff-orchestrator.md`
+- `.foundry/archive/.foundry/archive/epics/epic-007-atomic-handoff-schema.md`
+- `.foundry/archive/.foundry/archive/epics/epic-008-atomic-handoff-orchestrator.md`
 - `.foundry/epics/epic-009-atomic-handoff-testing.md`

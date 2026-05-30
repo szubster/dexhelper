@@ -48,6 +48,6 @@ Our application currently relies entirely on client-side state and browser stora
 - `.foundry/epics/epic-030-039-cloudflare-r2-save-sync.md`
 
 ## References
-- Parent Idea: `.foundry/ideas/idea-055-cloudflare-sync-and-future-features.md`
+- Parent Idea: `.foundry/archive/.foundry/archive/ideas/idea-055-cloudflare-sync-and-future-features.md`
 
 - Child Research Node: `.foundry/research/research-030-004-cloudflare-storage-evaluation.md`

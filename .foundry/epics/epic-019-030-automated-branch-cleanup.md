@@ -44,4 +44,4 @@ This Epic implements the requirements defined in `prd-019-019-automated-branch-c
 
 Target artifact: [.foundry/stories/story-030-046-branch-identification.md](.foundry/stories/story-030-046-branch-identification.md)
 
-Target artifact: [.foundry/stories/story-030-047-branch-cleanup-mechanism.md](.foundry/stories/story-030-047-branch-cleanup-mechanism.md)
+Target artifact: [.foundry/archive/.foundry/archive/stories/story-030-047-branch-cleanup-mechanism.md](.foundry/archive/.foundry/archive/stories/story-030-047-branch-cleanup-mechanism.md)

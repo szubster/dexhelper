@@ -39,5 +39,5 @@ Implement backend data parsing logic to calculate Gen 2 DVs (Determinant Values)
 - [x] Tech Lead: Break down into backend Tasks.
 
 ## Child Tasks
-- .foundry/tasks/task-082-140-implement-shiny-gene-utility.md
+- .foundry/archive/.foundry/archive/tasks/task-082-140-implement-shiny-gene-utility.md
 - .foundry/tasks/task-082-141-qa-shiny-gene-utility.md

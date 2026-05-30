@@ -25,6 +25,6 @@ notes: ''
 Break down the Automated Nuzlocke Tracker feature into stories and tasks. Refer to ADR 012 for the architectural decisions.
 
 ### STORIES
-- [x] .foundry/stories/story-034-069-automated-route-tracking.md
-- [ ] .foundry/stories/story-034-070-death-tracking-and-graveyard.md
+- [x] .foundry/archive/.foundry/archive/stories/story-034-069-automated-route-tracking.md
+- [ ] .foundry/archive/.foundry/archive/stories/story-034-070-death-tracking-and-graveyard.md
 - [ ] .foundry/stories/story-034-071-run-dashboard-ui.md

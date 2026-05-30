@@ -37,6 +37,6 @@ Implement the dual-region map graph for Johto and Kanto to support Gen 2 travers
 - [x] `getDistanceToMap` handles cross-region distances via transitions.
 
 ## Created Stories
-- [.foundry/stories/story-028-043-gen2-map-graph.md](.foundry/stories/story-028-043-gen2-map-graph.md)
-- [.foundry/stories/story-028-044-indoor-outdoor-resolution.md](.foundry/stories/story-028-044-indoor-outdoor-resolution.md)
-- [.foundry/stories/story-028-045-cross-region-distance.md](.foundry/stories/story-028-045-cross-region-distance.md)
+- [.foundry/archive/.foundry/archive/stories/story-028-043-gen2-map-graph.md](.foundry/archive/.foundry/archive/stories/story-028-043-gen2-map-graph.md)
+- [.foundry/archive/.foundry/archive/stories/story-028-044-indoor-outdoor-resolution.md](.foundry/archive/.foundry/archive/stories/story-028-044-indoor-outdoor-resolution.md)
+- [.foundry/archive/.foundry/archive/stories/story-028-045-cross-region-distance.md](.foundry/archive/.foundry/archive/stories/story-028-045-cross-region-distance.md)

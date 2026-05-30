@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-05-22'
 depends_on:
-  - story-040-074-orchestrator-verifying-state
 jules_session_id: null
 pr_number: null
 parent: epic-029-040-auditor-implementation
@@ -34,4 +33,4 @@ Update `foundry-heartbeat.ts` PR merge state transition logic and zombie timeout
 
 ## Derived Tasks
 - .foundry/tasks/task-075-132-implement-heartbeat-verifying-logic.md
-- .foundry/tasks/task-075-133-qa-heartbeat-verifying-logic.md
+- .foundry/archive/.foundry/archive/tasks/task-075-133-qa-heartbeat-verifying-logic.md
