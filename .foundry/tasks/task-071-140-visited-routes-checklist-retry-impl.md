@@ -2,21 +2,21 @@
 id: task-071-140-visited-routes-checklist-retry-impl
 type: TASK
 title: Implement Visited Routes Checklist Retry
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-24'
-updated_at: '2026-05-24'
+updated_at: '2026-05-29'
 depends_on:
   - research-071-005-investigate-visited-routes-checklist
-jules_session_id: null
+jules_session_id: '691846357888783510'
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:
   - feature
   - nuzlocke
   - verification
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

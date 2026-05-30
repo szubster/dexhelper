@@ -34,8 +34,8 @@ export function useFileSyncController() {
         await saveDB.putSave('last_save_file', new Uint8Array(buffer));
         setStatus('live');
         setErrorMsg(null);
-      } catch (err) {
-        console.error(err);
+      } catch {
+        console.error('Failed to parse live save file.');
         setStatus('error');
         setErrorMsg('Failed to parse live save file.');
       }
@@ -50,8 +50,7 @@ export function useFileSyncController() {
         throw new Error('File System Access API not supported');
       }
 
-      // biome-ignore lint/suspicious/noExplicitAny: File System Access API not fully typed yet
-      const [handle] = await (window as any).showOpenFilePicker({
+      const [handle] = await window.showOpenFilePicker({
         types: [
           {
             description: 'Game Boy Save File',
@@ -72,7 +71,7 @@ export function useFileSyncController() {
       lastModifiedRef.current = file.lastModified;
       await processFile(file);
     } catch (err) {
-      console.error('User cancelled or error:', err);
+      console.error('User cancelled or error');
       // Don't set error status if user just cancelled
       if (err instanceof Error && err.name !== 'AbortError') {
         setStatus('error');
@@ -89,8 +88,8 @@ export function useFileSyncController() {
         if (storedHandle) {
           setHasStoredHandle(true);
           // Check permissions
-          // biome-ignore lint/suspicious/noExplicitAny: File System Access API not fully typed yet
-          const perm = await (storedHandle as any).queryPermission({ mode: 'read' });
+
+          const perm = await storedHandle.queryPermission({ mode: 'read' });
           if (perm === 'granted') {
             handleRef.current = storedHandle;
             setStatus('syncing');
@@ -103,8 +102,8 @@ export function useFileSyncController() {
             setStatus('disconnected');
           }
         }
-      } catch (e) {
-        console.error('Failed to restore handle', e);
+      } catch {
+        console.error('Failed to restore handle');
       }
     }
     void restoreHandle();
@@ -114,8 +113,7 @@ export function useFileSyncController() {
     try {
       const storedHandle = await saveDB.getHandle('live_sync_handle');
       if (storedHandle) {
-        // biome-ignore lint/suspicious/noExplicitAny: File System Access API not fully typed yet
-        const perm = await (storedHandle as any).requestPermission({ mode: 'read' });
+        const perm = await storedHandle.requestPermission({ mode: 'read' });
         if (perm === 'granted') {
           handleRef.current = storedHandle;
           setStatus('syncing');
@@ -124,8 +122,8 @@ export function useFileSyncController() {
           await processFile(file);
         }
       }
-    } catch (err) {
-      console.error('Failed to resume sync', err);
+    } catch {
+      console.error('Failed to resume sync');
       setStatus('error');
     }
   }, [processFile]);
@@ -143,8 +141,8 @@ export function useFileSyncController() {
           lastModifiedRef.current = file.lastModified;
           await processFile(file);
         }
-      } catch (err) {
-        console.error('Polling error:', err);
+      } catch {
+        console.error('Polling error');
         // We might have lost permission or file was deleted
         setStatus('disconnected');
       }
