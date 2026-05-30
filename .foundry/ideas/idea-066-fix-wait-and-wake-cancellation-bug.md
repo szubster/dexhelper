@@ -2,10 +2,10 @@
 id: idea-066-fix-wait-and-wake-cancellation-bug
 type: IDEA
 title: Fix Wait and Wake Cancellation Bug
-status: PENDING
-owner_persona: "product_manager"
-created_at: "2026-05-28"
-updated_at: "2026-05-28"
+status: COMPLETED
+owner_persona: product_manager
+created_at: '2026-05-28'
+updated_at: '2026-05-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,10 @@ tags:
   - bug
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Created autonomously by agile_coach to fix an orchestrator bug causing COMPLETED nodes to be incorrectly cancelled."
+rejection_reason: ''
+notes: >-
+  Created autonomously by agile_coach to fix an orchestrator bug causing
+  COMPLETED nodes to be incorrectly cancelled.
 ---
 
 # Fix Wait and Wake Cancellation Bug
