@@ -5,9 +5,9 @@ title: Smart Radar Interactive UI
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-23'
-updated_at: '2026-05-23'
+updated_at: '2026-05-30'
 depends_on:
-  - epic-035-049-smart-radar-heatmap-generation
+  - .foundry/epics/epic-035-049-smart-radar-heatmap-generation.md
 jules_session_id: null
 pr_number: null
 parent: prd-064-035-smart-route-radar

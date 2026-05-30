@@ -43,11 +43,11 @@ Visualizing the assistant's data geographically shifts DexHelper from being just
 3.  **Interactive Nodes**: The map nodes must be clickable, triggering a detail view that shows the specific missing encounters, similar to the existing static map views but filtered by the user's save state.
 
 ## Next Steps
-- [x] Architect: Convert this PRD into an ADR detailing the system design for joining static encounter data with dynamic save state in the UI.
+- [ ] Architect: Convert this PRD into an ADR detailing the system design for joining static encounter data with dynamic save state in the UI.
 
 
 ## Generated Tasks
-- [x] [task-035-142-smart-radar-adr](.foundry/tasks/task-035-142-smart-radar-adr.md)
-- [x] [epic-035-048-smart-radar-data-unification](.foundry/epics/epic-035-048-smart-radar-data-unification.md)
-- [x] [epic-035-049-smart-radar-heatmap-generation](.foundry/epics/epic-035-049-smart-radar-heatmap-generation.md)
-- [x] [epic-035-050-smart-radar-interactive-ui](.foundry/epics/epic-035-050-smart-radar-interactive-ui.md)
+- [ ] [task-035-142-smart-radar-adr](.foundry/tasks/task-035-142-smart-radar-adr.md)
+- [ ] [epic-035-048-smart-radar-data-unification](.foundry/epics/epic-035-048-smart-radar-data-unification.md)
+- [ ] [epic-035-049-smart-radar-heatmap-generation](.foundry/epics/epic-035-049-smart-radar-heatmap-generation.md)
+- [ ] [epic-035-050-smart-radar-interactive-ui](.foundry/epics/epic-035-050-smart-radar-interactive-ui.md)

@@ -1,5 +1,7 @@
 Learning: For Gen 3 which encompasses games set in two different regions (Hoenn and Kanto), it's important to design a unified map graph architecture that supports both regions within a single module (gen3Graph.ts). This ensures consistency and simplifies strategy development across RSE and FRLG.
 When extracting Stories from an Epic that specifies acceptance criteria corresponding directly to the resulting tasks, we can map Epic criteria directly to Story completion criteria, ensuring they are explicitly checked off in the Epic but implemented down the chain.
 
-## Smart Route Radar (2026-05-23)
+## Smart Route Radar
 When creating Epic breakdowns that involve significant new architecture, such as combining dynamic save states with static map rendering logic (as seen in the Smart Route Radar feature), it is necessary to schedule an architectural TASK (assigned to `architect`) alongside the EPICS. The subsequent implementation EPICS (e.g., Data Unification) MUST explicitly declare a `depends_on` on the architect's TASK to ensure the ADR is written before the implementation stories are planned. This prevents the `story_owner` from starting work without an approved system design.
+
+Furthermore, when generating child nodes, always ensure that their references appended to the parent's markdown body are strictly unchecked (`- [ ]`) to prevent premature completion. The `depends_on` field of downstream nodes MUST use full, repo-relative file paths (e.g., `.foundry/tasks/task-000.md`) rather than short IDs to comply with the schema.

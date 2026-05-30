@@ -5,9 +5,9 @@ title: Smart Radar Data Unification
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-23'
-updated_at: '2026-05-23'
+updated_at: '2026-05-30'
 depends_on:
-  - task-035-142-smart-radar-adr
+  - .foundry/tasks/task-035-142-smart-radar-adr.md
 jules_session_id: null
 pr_number: null
 parent: prd-064-035-smart-route-radar
