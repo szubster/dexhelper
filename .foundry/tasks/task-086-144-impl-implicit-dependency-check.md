@@ -1,15 +1,15 @@
 ---
-id: story-048-086-implement-implicit-dependency-check
-type: STORY
+id: task-086-144-impl-implicit-dependency-check
+type: TASK
 title: Implement Implicit Dependency Check in Orchestrator
-status: READY
-owner_persona: tech_lead
-created_at: '2026-05-28'
+status: PENDING
+owner_persona: coder
+created_at: '2026-05-30'
 updated_at: '2026-05-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: epic-035-048-implicit-dependency-enforcement
+parent: story-048-086-implement-implicit-dependency-check
 tags:
   - foundry
   - process
@@ -27,5 +27,5 @@ We need to enforce implicit dependencies for macroscopic nodes like EPIC and STO
 
 ## Acceptance Criteria
 - [ ] Update `isHierarchicallyIncomplete` or node resolution logic in `foundry-orchestrator.ts` to ensure that a parent node isn't ready if its descendant tree has any nodes not in the COMPLETED state.
-- [ ] [.foundry/tasks/task-086-144-impl-implicit-dependency-check.md](./.foundry/tasks/task-086-144-impl-implicit-dependency-check.md)
-- [ ] [.foundry/tasks/task-086-145-qa-implicit-dependency-check.md](./.foundry/tasks/task-086-145-qa-implicit-dependency-check.md)
+- [ ] If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
+- [ ] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
