@@ -103,3 +103,9 @@ Mocking module exports in Vitest using vi.mock is safer than vi.spyOn for ensuri
 **Coverage:** Increased `src/engine/saveParser/parsers/gen2.ts` branch coverage from ~82% to ~92%.
 **Why:** The `pcItems` fallback structures (Crystal offset vs Gold/Silver offset) were completely untested, risking regressions.
 **Result:** All critical PC Item extraction logic paths in generation 2 are verified.
+
+### Vitest Browser Tests
+When writing component tests with `@vitest/browser` and `vitest-browser-react`, the `render()` function (and derived custom wrappers) is asynchronous and must be explicitly `await`ed to prevent Biome `lint/correctness/noFloatingPromises` errors.
+
+### Vitest Reporters
+When running manual Vitest coverage checks via bash, use `pnpm vitest run --coverage --reporter=default` instead of `--reporter=text` to avoid custom reporter load errors.
