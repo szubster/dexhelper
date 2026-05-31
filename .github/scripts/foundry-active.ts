@@ -49,7 +49,7 @@ export function transitionNodeToActive(repoPath: string, sessionId: string, repo
   const dateStr = todayISO();
 
   // 2. Perform mutation via gray-matter
-  const newData = { ...original.data, status: 'ACTIVE', jules_session_id: sessionId, updated_at: dateStr };
+  const newData = { ...original.data, status: 'ACTIVE', jules_session_id: sessionId, updated_at: dateStr, rejection_reason: '' };
   const newContent = matter.stringify(original.content, newData);
 
   // 3. Strict Diff Check

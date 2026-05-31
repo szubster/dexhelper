@@ -20,6 +20,7 @@ While the instructions were documented, they were not strictly enforced across a
 
 Additionally, to prevent future regressions related to ADR 006 (gray-matter usage), I generated `idea-064-enforce-gray-matter-linter.md` to propose a programmatic linter rule targeting the `.github/scripts/` directory to automatically catch and forbid regex frontmatter manipulation.
 
+Rule Update: To prevent false positive Impossible Loops and incorrect failure tracking, the system must explicitly clear `rejection_reason` when transitioning nodes out of a `FAILED` state to ensure metadata accurately reflects the current node state.
 ## 2026-05-28: Enforce Hierarchical Verification Timing for Macro Nodes
 
 I noticed that macroscopic Foundry nodes like `EPIC` and `STORY` nodes were prematurely transitioning to `VERIFYING` and `COMPLETED` states before their underlying child tasks were actually finished. This created a false sense of progress and unblocked downstream nodes too early.

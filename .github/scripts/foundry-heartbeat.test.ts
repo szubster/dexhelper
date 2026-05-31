@@ -656,7 +656,7 @@ status: ACTIVE
 
       const content = vi.mocked(fs.writeFileSync).mock.calls[0][1] as string;
       expect(content).toContain('status: PENDING');
-      expect(content).not.toContain('rejection_reason');
+      expect(content).toContain("rejection_reason: ''");
     });
   });
 
