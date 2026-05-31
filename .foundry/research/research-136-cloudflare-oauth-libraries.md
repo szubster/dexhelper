@@ -2,12 +2,12 @@
 id: research-136-cloudflare-oauth-libraries
 type: RESEARCH
 title: Evaluate Cloudflare Native OAuth Libraries
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-05-28'
 updated_at: '2026-05-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12945515588812393289'
 pr_number: null
 parent: story-038-075-google-sso-integration
 tags:
