@@ -21,6 +21,14 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 - When creating a new node, strictly follow the Parent-Linked ID Schema: `<type>-<parent_NNN>-<NNN>-<slug>` as detailed in `.foundry/docs/schema.md`.
 - Append references to newly created child nodes directly into the markdown body of the parent node, and check off corresponding acceptance criteria checkboxes WITHOUT modifying the parent's YAML frontmatter.
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
+- **CRITICAL:** Do NOT submit an Empty PR to transition an IDEA to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child PRD nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
+
+### Handling Rejections & Aborts
+If you encounter a permanent failure or must abort a node:
+1. You MUST update the target node's YAML frontmatter to `status: FAILED` or `status: CANCELLED`.
+2. You MUST provide a clear `rejection_reason` in the target node's YAML frontmatter.
+3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed node.
+4. You MUST document the failure in your persona journal.
 
 ## Journal
 
@@ -29,4 +37,5 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
+When submitting an empty PR for a node that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
 

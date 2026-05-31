@@ -5,16 +5,16 @@ title: Implement Graveyard Integration
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-22'
-updated_at: '2026-05-23'
+updated_at: '2026-05-30'
 depends_on: []
-jules_session_id: '3018337440080830551'
+jules_session_id: '7724802468825349742'
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:
   - feature
   - nuzlocke
   - verification
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

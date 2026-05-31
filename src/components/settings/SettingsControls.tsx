@@ -150,6 +150,7 @@ export function SettingsControls({
         label="Graveyard"
       >
         <select
+          aria-label="Select Nuzlocke Graveyard Box"
           value={nuzlockeGraveyardBox || ''}
           onChange={(e) => setNuzlockeGraveyardBox(e.target.value === '' ? null : e.target.value)}
           className="w-full appearance-none rounded-none border border-zinc-800 border-dashed bg-zinc-950 px-3 py-2 font-black font-mono text-[9px] text-zinc-500 uppercase tracking-widest transition-all hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"

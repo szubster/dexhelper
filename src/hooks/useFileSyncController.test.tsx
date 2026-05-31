@@ -1,0 +1,170 @@
+import { useState } from 'react';
+import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
+import { page } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+import type { GameVersion, SaveData } from '../engine/saveParser/index';
+import * as saveParser from '../engine/saveParser/index';
+import { useStore } from '../store';
+import { useFileSyncController } from './useFileSyncController';
+
+// Mock dependencies
+vi.mock('../db/SaveDB', () => ({
+  saveDB: {
+    putSave: vi.fn<() => void>(),
+    putHandle: vi.fn<() => void>(),
+    getHandle: vi.fn<() => void>(),
+  },
+}));
+
+vi.mock('../engine/saveParser/index', () => ({
+  parseSaveFile: vi.fn<() => void>(),
+}));
+
+function TestComponent() {
+  const { status, errorMsg, requestSync, resumeSync, hasStoredHandle } = useFileSyncController();
+
+  return (
+    <div>
+      <div data-testid="status">{status}</div>
+      <div data-testid="error">{errorMsg}</div>
+      <div data-testid="has-handle">{hasStoredHandle.toString()}</div>
+      <button type="button" onClick={requestSync} data-testid="request-btn">
+        Request
+      </button>
+      <button type="button" onClick={resumeSync} data-testid="resume-btn">
+        Resume
+      </button>
+    </div>
+  );
+}
+
+function WrapperComponent() {
+  const [show, setShow] = useState(true);
+  return (
+    <div>
+      {show && <TestComponent />}
+      <button type="button" onClick={() => setShow(false)} data-testid="unmount-btn">
+        Unmount
+      </button>
+    </div>
+  );
+}
+
+describe('useFileSyncController', () => {
+  let mockSetSaveData: Mock<(data: SaveData | null) => void>;
+  let mockSetIsVersionModalOpen: Mock<(v: boolean) => void>;
+  let mockSetManualVersion: Mock<(v: GameVersion | null) => void>;
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+    vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'setTimeout'] });
+
+    // Setup store mocks
+    mockSetSaveData = vi.fn<() => void>();
+    mockSetIsVersionModalOpen = vi.fn<() => void>();
+    mockSetManualVersion = vi.fn<() => void>();
+
+    useStore.setState({
+      setSaveData: mockSetSaveData,
+      setIsVersionModalOpen: mockSetIsVersionModalOpen,
+      setManualVersion: mockSetManualVersion,
+      manualVersion: null,
+    });
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it('should initialize with disconnected status', async () => {
+    void render(<TestComponent />);
+    await expect.element(page.getByTestId('status')).toHaveTextContent('disconnected');
+    await expect.element(page.getByTestId('has-handle')).toHaveTextContent('false');
+  });
+
+  it('should respect polling interval and update state only on file changes', async () => {
+    // Setup file mock
+    let lastModifiedValue = 1000;
+    const mockFile = {
+      arrayBuffer: vi.fn<() => Promise<ArrayBuffer>>().mockResolvedValue(new ArrayBuffer(8)),
+      get lastModified() {
+        return lastModifiedValue;
+      },
+    };
+
+    const mockHandle = {
+      getFile: vi.fn<() => Promise<unknown>>().mockImplementation(() => {
+        return Promise.resolve(mockFile);
+      }),
+    };
+
+    // Setup window mock
+    Object.defineProperty(window, 'showOpenFilePicker', {
+      value: vi.fn<() => Promise<unknown[]>>().mockResolvedValue([mockHandle]),
+      writable: true,
+      configurable: true,
+    });
+
+    vi.mocked(saveParser.parseSaveFile).mockReturnValue({
+      gameVersion: 'red',
+      // dummy data for save
+      // biome-ignore lint/suspicious/noExplicitAny: Mock value typing
+    } as any);
+
+    void render(<TestComponent />);
+
+    // Request sync
+    await page.getByTestId('request-btn').click();
+
+    // Process initial sync
+    // Wait for internal promises to resolve
+    await vi.advanceTimersByTimeAsync(0);
+
+    // State should be live
+    await expect.element(page.getByTestId('status')).toHaveTextContent('live');
+    expect(mockSetSaveData).toHaveBeenCalledTimes(1);
+
+    // Fast forward interval (3 seconds) without file change
+    await vi.advanceTimersByTimeAsync(3000);
+
+    // Should poll but not update state (parseSaveFile not called again)
+    expect(mockHandle.getFile).toHaveBeenCalledTimes(2); // Initial + 1 poll
+    expect(mockSetSaveData).toHaveBeenCalledTimes(1); // Still 1
+
+    // Fast forward another interval
+    await vi.advanceTimersByTimeAsync(3000);
+
+    expect(mockHandle.getFile).toHaveBeenCalledTimes(3); // Initial + 2 polls
+    expect(mockSetSaveData).toHaveBeenCalledTimes(1); // Still 1
+
+    // Change file lastModified
+    lastModifiedValue = 2000;
+
+    // Fast forward interval
+    await vi.advanceTimersByTimeAsync(3000);
+
+    // Should poll and update state
+    expect(mockHandle.getFile).toHaveBeenCalledTimes(4); // Initial + 3 polls
+    expect(mockSetSaveData).toHaveBeenCalledTimes(2); // Should have updated
+
+    // Check stability (no memory leaks / extra calls)
+    // We mock advance 10 times manually to avoid promise resolution issues with advanceTimersByTimeAsync and huge time jumps
+    for (let i = 0; i < 10; i++) {
+      await vi.advanceTimersByTimeAsync(3000);
+    }
+
+    expect(mockHandle.getFile).toHaveBeenCalledTimes(14); // 4 + 10 polls
+    expect(mockSetSaveData).toHaveBeenCalledTimes(2); // File didn't change again
+  });
+
+  it('should clean up interval on unmount', async () => {
+    void render(<WrapperComponent />);
+
+    // Spy on clearInterval
+    const clearIntervalSpy = vi.spyOn(globalThis, 'clearInterval');
+
+    await page.getByTestId('unmount-btn').click();
+
+    expect(clearIntervalSpy).toHaveBeenCalled();
+  });
+});

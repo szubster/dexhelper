@@ -2,14 +2,14 @@
 id: story-034-071-run-dashboard-ui
 type: STORY
 title: Run Dashboard UI Integration
-status: COMPLETED
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-18'
-updated_at: '2026-05-23'
+updated_at: '2026-05-28'
 depends_on:
   - story-034-069-automated-route-tracking
   - story-034-070-death-tracking-and-graveyard
-jules_session_id: null
+jules_session_id: '3973233747898753392'
 pr_number: null
 parent: epic-026-034-automated-nuzlocke-tracker
 tags:
@@ -27,12 +27,15 @@ notes: ''
 Build the UI components for the Nuzlocke Tracker mode, including the "Alive" team view, visited routes checklist, unvisited routes, and the Graveyard.
 
 ### TASKS
-- [ ] .foundry/tasks/task-071-134-run-dashboard-ui-impl.md
+- [x] .foundry/tasks/task-071-134-run-dashboard-ui-impl.md
 - [ ] .foundry/tasks/task-071-135-run-dashboard-ui-qa.md
-- [ ] .foundry/tasks/task-071-136-visited-routes-checklist-impl.md
-- [ ] .foundry/tasks/task-071-137-visited-routes-checklist-qa.md
+- [x] .foundry/tasks/task-071-136-visited-routes-checklist-impl.md
+- [x] .foundry/tasks/task-071-137-visited-routes-checklist-qa.md
 - [ ] .foundry/tasks/task-071-138-graveyard-integration-impl.md
 - [ ] .foundry/tasks/task-071-139-graveyard-integration-qa.md
-- [ ] .foundry/research/research-071-005-investigate-visited-routes-checklist.md
-- [ ] .foundry/tasks/task-071-140-visited-routes-checklist-retry-impl.md
-- [ ] .foundry/tasks/task-071-141-visited-routes-checklist-retry-qa.md
+- [x] .foundry/research/research-071-005-investigate-visited-routes-checklist.md
+- [x] .foundry/tasks/task-071-140-visited-routes-checklist-retry-impl.md
+- [x] .foundry/tasks/task-071-141-visited-routes-checklist-retry-qa.md
+- [ ] .foundry/research/research-071-006-investigate-checklist-retry-failure.md
+- [ ] .foundry/tasks/task-071-144-visited-routes-checklist-retry-v2-impl.md
+- [ ] .foundry/tasks/task-071-145-visited-routes-checklist-retry-v2-qa.md

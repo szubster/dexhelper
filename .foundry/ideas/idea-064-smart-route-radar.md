@@ -5,9 +5,9 @@ title: Smart Route Radar / Context-Aware Missing Encounter Map
 status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-23'
-updated_at: '2026-05-24'
+updated_at: '2026-05-30'
 depends_on: []
-jules_session_id: '4625416827053340742'
+jules_session_id: '8502424147329753709'
 pr_number: null
 parent: null
 tags:
@@ -16,7 +16,7 @@ tags:
   - map
   - exploration
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
