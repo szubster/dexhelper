@@ -2,13 +2,13 @@
 id: task-064-143-gen3-strategy-qa
 type: TASK
 title: QA Gen 3 Assistant Strategy Implementation
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-05-31'
 depends_on:
   - .foundry/tasks/task-064-142-gen3-strategy-impl.md
-jules_session_id: null
+jules_session_id: '13515931953310014717'
 parent: task-064-134-encounter-integration-impl
 tags:
   - gen3
