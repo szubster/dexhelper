@@ -71,3 +71,9 @@
 - **Why**: Reduced boilerplate and code duplication within the navigation bar. Simplified the implementation of different menu items by defining common styles and behaviors in one place.
 - **Key Learnings**:
   - Encapsulating logic like `isActive` to handle both routing and generic click events (e.g., toggling the settings modal) provides a robust structure for complex navigational elements.
+
+## DiagnosticCard Extraction
+- **What**: Extracted repeated telemetry/diagnostic card layout into `<DiagnosticCard>` component.
+- **Why**: Reduced duplicated JSX across `AssistantDebugView` which had 4 identical blocks. It can also be reused if other parts of the app need a telemetry card.
+- **Key Learnings**:
+  - The `valueClassName` prop is crucial when extracting text components, allowing customization like `truncate` or `uppercase` while maintaining identical base text styles.

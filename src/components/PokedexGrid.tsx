@@ -44,43 +44,62 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
     // ⚡ Bolt: Hoist string allocation outside the loop
     const term = deferredSearchTerm ? deferredSearchTerm.toLowerCase() : '';
 
-    return pokemonList.slice(0, displayLimit).filter((pokemon) => {
-      // ⚡ Bolt: Combined filters into single pass to reduce O(N) iterations
+    // ⚡ Bolt: Use a manual for-loop to prevent intermediate array allocation via slice().filter() overhead (O(N) -> O(1) memory)
+    const result: PokemonListItem[] = [];
+    const limit = Math.min(pokemonList.length, displayLimit);
+
+    for (let i = 0; i < limit; i++) {
+      const pokemon = pokemonList[i];
+      if (!pokemon) continue;
+
       // 1. Search term check
       if (term) {
         const matchesTerm = pokemon.nameLower.includes(term) || pokemon.idString.includes(term);
-        if (!matchesTerm) return false;
+        if (!matchesTerm) continue;
       }
 
       // 2. Location filter check
       if (locationPokemonIds && !locationPokemonIds.has(pokemon.id)) {
-        return false;
+        continue;
       }
 
       // 3. Storage/Dex filters check
-      if (!saveData || filtersSet.size === 0) return true;
+      if (!saveData || filtersSet.size === 0) {
+        result.push(pokemon);
+        continue;
+      }
 
       const inParty = partySet.has(pokemon.id);
       const inPC = pcSet.has(pokemon.id);
       const hasInStorage = inParty || inPC;
 
-      if (filtersSet.has('secured') && hasInStorage) return true;
-      if (filtersSet.has('missing') && !hasInStorage) return true;
-      if (filtersSet.has('dex-only') && saveData.owned.has(pokemon.id) && !hasInStorage) return true;
-
-      return false;
-    });
+      if (filtersSet.has('secured') && hasInStorage) {
+        result.push(pokemon);
+        continue;
+      }
+      if (filtersSet.has('missing') && !hasInStorage) {
+        result.push(pokemon);
+        continue;
+      }
+      if (filtersSet.has('dex-only') && saveData.owned.has(pokemon.id) && !hasInStorage) {
+        result.push(pokemon);
+      }
+    }
+    return result;
   }, [pokemonList, displayLimit, deferredSearchTerm, saveData, filtersSet, partySet, pcSet, locationPokemonIds]);
 
   const shinySpeciesIds = useMemo(() => {
     const set = new Set<number>();
     if (saveData) {
-      saveData.partyDetails.forEach((p) => {
-        if (p.isShiny) set.add(p.speciesId);
-      });
-      saveData.pcDetails.forEach((p) => {
-        if (p.isShiny) set.add(p.speciesId);
-      });
+      // ⚡ Bolt: Replaced .forEach with for loops to avoid closure creation and function call overhead
+      for (let i = 0; i < saveData.partyDetails.length; i++) {
+        const p = saveData.partyDetails[i];
+        if (p?.isShiny) set.add(p.speciesId);
+      }
+      for (let i = 0; i < saveData.pcDetails.length; i++) {
+        const p = saveData.pcDetails[i];
+        if (p?.isShiny) set.add(p.speciesId);
+      }
     }
     return set;
   }, [saveData]);
