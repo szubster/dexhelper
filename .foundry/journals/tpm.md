@@ -55,3 +55,5 @@
 - **2026-05-31**: Cleanup Loop deleted remote branch `cancel-idea-066-17630040877061059442`.
 
 - **2026-05-31**: Cleanup Loop deleted remote branch `jules-5276961841529432182-003748db`.
+
+- **2026-05-31**: PR #1975 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
