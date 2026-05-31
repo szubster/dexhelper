@@ -748,6 +748,38 @@ describe('foundry-orchestrator', () => {
     expect(result).toContain('status: PENDING');
   });
 
+  test('Wait and Wake: Suspends ACTIVE node if its descendant is incomplete', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
+      status: "ACTIVE",
+      owner_persona: "epic_planner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: "sess-1",
+    });
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/epics/epic-001.md",
+      jules_session_id: null,
+    });
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(result).toContain('status: PENDING');
+  });
+
   test('Wait and Wake: Suspends ACTIVE node if dependency is incomplete', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-incomplete.md', {
       id: "task-incomplete",
