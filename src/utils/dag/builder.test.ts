@@ -12,6 +12,7 @@ describe('buildDagGraph', () => {
           status: 'COMPLETED',
           owner_persona: 'coder',
           depends_on: [],
+          rejection_count: 0,
         },
       },
       {
@@ -22,6 +23,7 @@ describe('buildDagGraph', () => {
           status: 'PENDING',
           owner_persona: 'qa',
           depends_on: ['.foundry/tasks/task-1.md'],
+          rejection_count: 0,
         },
       },
     ];
@@ -36,6 +38,7 @@ describe('buildDagGraph', () => {
             type: 'TASK',
             status: 'COMPLETED',
             owner_persona: 'coder',
+            rejection_count: 0,
           },
         },
         {
@@ -44,6 +47,7 @@ describe('buildDagGraph', () => {
             type: 'TASK',
             status: 'PENDING',
             owner_persona: 'qa',
+            rejection_count: 0,
           },
         },
       ],
@@ -66,6 +70,7 @@ describe('buildDagGraph', () => {
           status: 'COMPLETED',
           owner_persona: 'coder',
           depends_on: [],
+          rejection_count: 0,
         },
       },
       {
@@ -76,6 +81,7 @@ describe('buildDagGraph', () => {
           status: 'PENDING',
           owner_persona: 'qa',
           depends_on: ['./.foundry/tasks/task-1.md'],
+          rejection_count: 0,
         },
       },
     ];
@@ -100,6 +106,7 @@ describe('buildDagGraph', () => {
           status: 'PENDING',
           owner_persona: 'coder',
           depends_on: ['.foundry/tasks/unknown-task.md'],
+          rejection_count: 0,
         },
       },
     ];
@@ -114,6 +121,7 @@ describe('buildDagGraph', () => {
             type: 'TASK',
             status: 'PENDING',
             owner_persona: 'coder',
+            rejection_count: 0,
           },
         },
       ],
@@ -125,11 +133,25 @@ describe('buildDagGraph', () => {
     const parsedNodes: ParsedNode[] = [
       {
         filePath: 'task-1.md',
-        data: { id: 't1', type: 'TASK', status: 'COMPLETED', owner_persona: 'coder', depends_on: [] },
+        data: {
+          id: 't1',
+          type: 'TASK',
+          status: 'COMPLETED',
+          owner_persona: 'coder',
+          depends_on: [],
+          rejection_count: 0,
+        },
       },
       {
         filePath: 'task-2.md',
-        data: { id: 't2', type: 'TASK', status: 'COMPLETED', owner_persona: 'coder', depends_on: [] },
+        data: {
+          id: 't2',
+          type: 'TASK',
+          status: 'COMPLETED',
+          owner_persona: 'coder',
+          depends_on: [],
+          rejection_count: 0,
+        },
       },
       {
         filePath: 'task-3.md',
@@ -139,6 +161,7 @@ describe('buildDagGraph', () => {
           status: 'READY',
           owner_persona: 'coder',
           depends_on: ['task-1.md', 'task-2.md'],
+          rejection_count: 0,
         },
       },
     ];

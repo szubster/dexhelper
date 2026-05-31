@@ -19,6 +19,28 @@ depends_on:
       status: 'READY',
       owner_persona: 'coder',
       depends_on: ['.foundry/tasks/task-043-073-read-foundry-files.md'],
+      rejection_count: 0,
+    });
+  });
+
+  it('should parse rejection_count correctly if present', () => {
+    const rawContent = `---
+id: task-043-074-parse-frontmatter
+type: TASK
+status: READY
+owner_persona: coder
+depends_on: []
+rejection_count: 3
+---
+# Content here`;
+    const result = parseFoundryNode(rawContent);
+    expect(result).toEqual({
+      id: 'task-043-074-parse-frontmatter',
+      type: 'TASK',
+      status: 'READY',
+      owner_persona: 'coder',
+      depends_on: [],
+      rejection_count: 3,
     });
   });
 
@@ -38,6 +60,7 @@ depends_on: []
       status: 'PENDING',
       owner_persona: 'coder',
       depends_on: [],
+      rejection_count: 0,
     });
   });
 
