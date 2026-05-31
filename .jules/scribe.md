@@ -132,3 +132,8 @@ Documenting this prevents developers from incorrectly refactoring offset lookups
 **Why:** The Nuzlocke tracker implements specific game rules (permadeath, one catch per route) through constraints in the binary save data structure.
 - **Permadeath (PC Healing Problem):** I learned that we cannot rely solely on `currentHp === 0` to track deaths because depositing a Pokémon in the PC fully heals it in the save data. To circumvent this, the engine relies on the player designating a specific PC box via string comparison (`storageLocation === graveyardBox`).
 - **Route Tracking (Gen 2 Dependency):** The "One Catch Per Route" rule is enforced by checking `caughtData.location` across all Party and PC structures. This means this strict Nuzlocke enforcement feature is inherently dependent on Generation 2 mechanics, as Generation 1 save files do not store catch location data.
+
+## 2026-05-31 - SaveData Interface Documentation
+
+**What:** Added JSDoc comments to the properties of the `SaveData` interface in `src/engine/saveParser/parsers/common.ts`.
+**Why:** The `SaveData` interface is the central structure connecting raw binary parsing with the application's suggestion engine logic. Previously, many fields were unclear in their specific purposes or formats. Adding detailed documentation for properties such as `owned` (O(1) lookups), `eventFlags` (in-game progression and static gifts), `daycareHasEgg`, and `partyDetails` prevents future developers from misusing fields or assuming behaviors that aren't true, which reduces confusion and improves overall code readability.
