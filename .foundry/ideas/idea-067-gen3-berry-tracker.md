@@ -2,12 +2,12 @@
 id: idea-067-gen3-berry-tracker
 type: IDEA
 title: Gen 3 Berry Farming Tracker
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-29'
 updated_at: '2026-05-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12010335444479552523'
 pr_number: null
 parent: null
 tags:
