@@ -49,3 +49,6 @@
 
 ## Data Integrity - Gen 1/2 Exclusives Refactoring
 * **Data Pipeline Gotchas:** The Gen 1 and Gen 2 version exclusive lists were missing some unobtainable Pokémon, or listing some as unobtainable when they are in fact obtainable. For example, Gen 1 Yellow exclusives missed a few entries, and Gen 2 Crystal missing exclusives also lacked some entries (like Arcanine / Growlithe line). PokeAPI encounters are the source of truth for base-form availability, but one must carefully check all versions (`version_details`) in the encounter data.
+# Oak Learnings
+
+- Within the `engine/exclusives/` data domain, the version-specific arrays (e.g., `GEN1_VERSION_EXCLUSIVES`, `GEN2_VERSION_EXCLUSIVES`) store the IDs of Pokémon that are **unobtainable (excluded)** in that game version, rather than the ones exclusively available. This is crucial for verifying data against Bulbapedia.

@@ -150,3 +150,9 @@
 **Outcome:** Accepted
 **Why:** The Auditor journal showed that Epics were transitioning to VERIFYING prematurely when their Acceptance Criteria (spawning child stories) were checked off, leading to failed audits because the actual implementation described was not merged.
 **Pattern:** When an agent (like the Story Owner) is responsible for breaking down high-level nodes, it must wait for the generated execution nodes to finish before submitting its Empty PR to complete the parent node.
+
+## YYYY-MM-DD - [Accepted] - Prompt improvement - Prevent premature verification for all macro nodes
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Auditor journal showed that macro nodes (e.g. Epics, Stories) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, even though the actual implementation described in their requirements had not yet been merged into the codebase.
+**Pattern:** When an agent (like the Epic Planner, Story Owner, or Tech Lead) is responsible for breaking down high-level nodes, it must wait for the generated execution nodes to reach COMPLETED before submitting its Empty PR to complete the parent node, ensuring the macroscopic progress representation accurately reflects implementation reality.

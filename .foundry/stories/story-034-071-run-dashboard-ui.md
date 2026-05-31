@@ -27,12 +27,15 @@ notes: ''
 Build the UI components for the Nuzlocke Tracker mode, including the "Alive" team view, visited routes checklist, unvisited routes, and the Graveyard.
 
 ### TASKS
-- [ ] .foundry/tasks/task-071-134-run-dashboard-ui-impl.md
+- [x] .foundry/tasks/task-071-134-run-dashboard-ui-impl.md
 - [ ] .foundry/tasks/task-071-135-run-dashboard-ui-qa.md
-- [ ] .foundry/tasks/task-071-136-visited-routes-checklist-impl.md
-- [ ] .foundry/tasks/task-071-137-visited-routes-checklist-qa.md
+- [x] .foundry/tasks/task-071-136-visited-routes-checklist-impl.md
+- [x] .foundry/tasks/task-071-137-visited-routes-checklist-qa.md
 - [ ] .foundry/tasks/task-071-138-graveyard-integration-impl.md
 - [ ] .foundry/tasks/task-071-139-graveyard-integration-qa.md
-- [ ] .foundry/research/research-071-005-investigate-visited-routes-checklist.md
-- [ ] .foundry/tasks/task-071-140-visited-routes-checklist-retry-impl.md
-- [ ] .foundry/tasks/task-071-141-visited-routes-checklist-retry-qa.md
+- [x] .foundry/research/research-071-005-investigate-visited-routes-checklist.md
+- [x] .foundry/tasks/task-071-140-visited-routes-checklist-retry-impl.md
+- [x] .foundry/tasks/task-071-141-visited-routes-checklist-retry-qa.md
+- [ ] .foundry/research/research-071-006-investigate-checklist-retry-failure.md
+- [ ] .foundry/tasks/task-071-144-visited-routes-checklist-retry-v2-impl.md
+- [ ] .foundry/tasks/task-071-145-visited-routes-checklist-retry-v2-qa.md

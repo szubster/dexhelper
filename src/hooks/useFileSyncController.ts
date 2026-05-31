@@ -3,8 +3,32 @@ import { saveDB } from '../db/SaveDB';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
 
+/**
+ * Represents the current state of the File System Access API synchronization.
+ * - `disconnected`: No active file handle, or permission was revoked.
+ * - `syncing`: A file change was detected and is currently being parsed.
+ * - `live`: The file is actively being watched and is up-to-date.
+ * - `error`: An error occurred during parsing or file access.
+ */
 export type SyncStatus = 'disconnected' | 'syncing' | 'live' | 'error';
 
+/**
+ * A React hook that orchestrates live synchronization of a save file using the
+ * HTML5 File System Access API.
+ *
+ * ## Architecture Overview
+ *
+ * 1. **Persistent Access:** When the user selects a file, its `FileSystemFileHandle`
+ *    is stored in IndexedDB (`saveDB`). This allows the app to request read permission
+ *    again on subsequent visits without reopening the file picker.
+ * 2. **Polling Mechanism:** The File System Access API does not currently support
+ *    events for file modifications. This hook implements a polling loop that checks
+ *    the `lastModified` timestamp every 3 seconds to trigger a re-parse.
+ * 3. **State Machine:** The hook manages transient UI state (`SyncStatus`) based on
+ *    permission grants, polling results, and parsing success/failures.
+ *
+ * @returns An object containing the current sync status, any error messages, and control functions.
+ */
 export function useFileSyncController() {
   const [status, setStatus] = useState<SyncStatus>('disconnected');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -17,6 +41,10 @@ export function useFileSyncController() {
   const setManualVersion = useStore((s) => s.setManualVersion);
   const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
 
+  /**
+   * Reads and parses the file buffer, updating the global Zustand store.
+   * If parsing succeeds, it saves a copy of the buffer to IndexedDB as the latest state.
+   */
   const processFile = useCallback(
     async (file: File) => {
       try {
@@ -43,7 +71,10 @@ export function useFileSyncController() {
     [manualVersion, setSaveData, setIsVersionModalOpen, setManualVersion],
   );
 
-  // Request new handle
+  /**
+   * Prompts the user with a file picker to select a save file.
+   * If successful, it stores the handle for future sessions and begins polling.
+   */
   const requestSync = useCallback(async () => {
     try {
       if (!('showOpenFilePicker' in window)) {
@@ -80,7 +111,11 @@ export function useFileSyncController() {
     }
   }, [processFile]);
 
-  // Try to restore on mount
+  /**
+   * On mount, attempts to automatically re-establish the connection using a previously
+   * stored file handle. If the browser natively retained permission, it resumes polling.
+   * Otherwise, it waits in the 'disconnected' state for the user to manually trigger `resumeSync()`.
+   */
   useEffect(() => {
     async function restoreHandle() {
       try {
@@ -109,6 +144,11 @@ export function useFileSyncController() {
     void restoreHandle();
   }, [processFile]);
 
+  /**
+   * Requests read permission from the browser for a previously stored file handle.
+   * This is typically triggered by a user action (e.g., clicking a "Resume Sync" button)
+   * after the initial automatic re-establishment fails due to expired permissions.
+   */
   const resumeSync = useCallback(async () => {
     try {
       const storedHandle = await saveDB.getHandle('live_sync_handle');
@@ -128,7 +168,10 @@ export function useFileSyncController() {
     }
   }, [processFile]);
 
-  // Polling loop
+  /**
+   * The core polling loop. Checks the file's `lastModified` timestamp every 3 seconds
+   * against the cached value. If a change is detected, it triggers `processFile`.
+   */
   useEffect(() => {
     const interval = setInterval(async () => {
       if (!handleRef.current) return;

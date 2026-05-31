@@ -27,9 +27,9 @@ notes: ''
 Verify the coder's implementation of the unit tests in `.github/scripts/foundry-orchestrator.test.ts` for DAG auto-cancellation logic.
 
 ## Acceptance Criteria
-- [ ] Verify that tests exist and pass for verifying dependent `PENDING` nodes are correctly transitioned to `CANCELLED` when their dependency hits the max rejection count.
-- [ ] Verify that tests exist and pass for asserting the exact `rejection_reason` string formatting (`Cancelled due to permanent failure of dependency: <dependency_id>`).
-- [ ] Verify that tests exist and pass for the anti-loop / cycle prevention mechanisms of the cancellation logic.
+- [x] Verify that tests exist and pass for verifying dependent `PENDING` nodes are correctly transitioned to `CANCELLED` when their dependency hits the max rejection count.
+- [x] Verify that tests exist and pass for asserting the exact `rejection_reason` string formatting (`Cancelled due to permanent failure of dependency: <dependency_id>`).
+- [x] Verify that tests exist and pass for the anti-loop / cycle prevention mechanisms of the cancellation logic.
 
 ## Technical Contract
 1. Run `pnpm exec vitest run --dir .github/scripts/` to verify tests pass.

@@ -1,0 +1,358 @@
+import { describe, expect, it } from 'vitest';
+import type { PokemonInstance, SaveData } from '../../saveParser/parsers/common';
+import type { AssistantStrategy, CatchSuggestion, EncounterDetail } from '../strategies/types';
+import type { AssistantApiData } from '../suggestionEngine';
+import { generateSuggestions } from '../suggestionEngine';
+
+describe('Catch Encounter Filtering', () => {
+  const createMockSaveData = (overrides?: Partial<SaveData>): SaveData =>
+    ({
+      trainerId: 12345,
+      trainerName: 'ASH',
+      gameVersion: 'crystal',
+      generation: 2,
+      playTime: { hours: 10, minutes: 20, seconds: 30, frames: 0 },
+      party: [],
+      partyDetails: [],
+      pc: [],
+      pcDetails: [],
+      inventory: [],
+      pcItems: [],
+      badges: [],
+      hallOfFameCount: 0,
+      pokedex: { seen: new Set(), owned: new Set([1]) },
+      owned: new Set([1]),
+      seen: new Set([1]),
+      ...overrides,
+    }) as unknown as SaveData;
+
+  const createMockApiData = (): AssistantApiData => ({
+    localAid: null,
+    localEncounters: null,
+    missingEncounters: {},
+    pokemonMetadata: {},
+    ancestralEncounters: {},
+    areaNames: {},
+    allLocations: [],
+  });
+
+  const mockStrategy: AssistantStrategy = {
+    generation: 2,
+    resolveMapAid: () => null,
+    getMapDistance: () => null,
+    getUnobtainableReason: () => null,
+    isInternallyObtainable: () => false,
+    getSpecialSuggestions: () => [],
+    postProcessSuggestions: () => {},
+  };
+
+  it('filters out headbutt encounters if player lacks the TM', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16],
+          priority: 120,
+          encounterInfo: {
+            16: [
+              {
+                method: 'headbutt',
+                minLevel: 10,
+                maxLevel: 10,
+                chance: 50,
+                aid: 1,
+              },
+            ],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16]),
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    expect(suggestions.find((s) => s.id === 'catch-local')).toBeUndefined();
+  });
+
+  it('retains headbutt encounters if player has the TM in inventory', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16],
+          priority: 120,
+          encounterInfo: {
+            16: [
+              {
+                method: 'headbutt',
+                minLevel: 10,
+                maxLevel: 10,
+                chance: 50,
+                aid: 1,
+              },
+            ],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16]),
+      // biome-ignore lint/suspicious/noExplicitAny: Required for mock data overrides
+      inventory: [{ id: 192, quantity: 1 } as any],
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
+    expect(catchLocal).toBeDefined();
+    expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
+  });
+
+  it('filters out rock-smash encounters if player lacks the TM', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16],
+          priority: 120,
+          encounterInfo: {
+            16: [
+              {
+                method: 'rock-smash',
+                minLevel: 10,
+                maxLevel: 10,
+                chance: 50,
+                aid: 1,
+              },
+            ],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16]),
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    expect(suggestions.find((s) => s.id === 'catch-local')).toBeUndefined();
+  });
+
+  it('retains rock-smash encounters if player has the TM in pcItems', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16],
+          priority: 120,
+          encounterInfo: {
+            16: [
+              {
+                method: 'rock-smash',
+                minLevel: 10,
+                maxLevel: 10,
+                chance: 50,
+                aid: 1,
+              },
+            ],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16]),
+      // biome-ignore lint/suspicious/noExplicitAny: Required for mock data overrides
+      pcItems: [{ id: 198, quantity: 1 } as any],
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
+    expect(catchLocal).toBeDefined();
+    expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
+  });
+
+  it('retains headbutt encounters if a pokemon in party has the move', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16],
+          priority: 120,
+          encounterInfo: {
+            16: [
+              {
+                method: 'headbutt',
+                minLevel: 10,
+                maxLevel: 10,
+                chance: 50,
+                aid: 1,
+              },
+            ],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16]),
+      partyDetails: [
+        { speciesId: 1, level: 10, otName: 'ASH', isShiny: false, moves: [29], storageLocation: 'party' },
+      ] as unknown as PokemonInstance[],
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
+    expect(catchLocal).toBeDefined();
+    expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
+  });
+
+  it('updates pokemonIds array when some pokemon lose all valid encounters', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16, 17],
+          priority: 120,
+          encounterInfo: {
+            16: [
+              {
+                method: 'walk',
+                minLevel: 10,
+                maxLevel: 10,
+                chance: 50,
+                aid: 1,
+              },
+            ],
+            17: [
+              {
+                method: 'headbutt',
+                minLevel: 10,
+                maxLevel: 10,
+                chance: 50,
+                aid: 1,
+              },
+            ],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16, 17]),
+      inventory: [],
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
+    expect(catchLocal).toBeDefined();
+    expect(catchLocal?.pokemonIds).toEqual([16]);
+    expect(catchLocal?.encounterInfo?.[16]).toBeDefined();
+    expect(catchLocal?.encounterInfo?.[17]).toBeUndefined();
+  });
+
+  describe('Edge cases', () => {
+    it('handles filtering when encounterInfo details contains undefined elements', () => {
+      const mockStrategyWithCatch: AssistantStrategy = {
+        ...mockStrategy,
+        getSpecialSuggestions: () => [
+          {
+            id: 'catch-local',
+            category: 'Catch',
+            title: 'Catch Right Here',
+            description: '...',
+            pokemonIds: [16],
+            priority: 120,
+            encounterInfo: {
+              16: [
+                undefined as unknown as EncounterDetail,
+                {
+                  method: 'headbutt',
+                  minLevel: 10,
+                  maxLevel: 10,
+                  chance: 50,
+                  aid: 1,
+                },
+              ],
+            },
+          } as unknown as CatchSuggestion,
+        ],
+      };
+
+      const saveData = createMockSaveData({
+        owned: new Set([16]),
+      });
+      const apiData = createMockApiData();
+
+      const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+      expect(suggestions.find((s) => s.id === 'catch-local')).toBeUndefined();
+    });
+
+    it('handles filtering when single pokemonId is used instead of pokemonIds array', () => {
+      const mockStrategyWithCatch: AssistantStrategy = {
+        ...mockStrategy,
+        getSpecialSuggestions: () => [
+          {
+            id: 'catch-local',
+            category: 'Catch',
+            title: 'Catch Right Here',
+            description: '...',
+            pokemonId: 16,
+            priority: 120,
+            encounterInfo: {
+              16: [
+                {
+                  method: 'headbutt',
+                  minLevel: 10,
+                  maxLevel: 10,
+                  chance: 50,
+                  aid: 1,
+                },
+              ],
+            },
+          } as unknown as CatchSuggestion,
+        ],
+      };
+
+      const saveData = createMockSaveData({
+        owned: new Set([16]),
+      });
+      const apiData = createMockApiData();
+
+      const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+      expect(suggestions.find((s) => s.id === 'catch-local')).toBeUndefined();
+    });
+  });
+});
