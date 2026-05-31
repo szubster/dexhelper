@@ -156,3 +156,9 @@
 **Outcome:** Merged
 **Why:** The Auditor journal showed that macro nodes (e.g. Epics, Stories) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, even though the actual implementation described in their requirements had not yet been merged into the codebase.
 **Pattern:** When an agent (like the Epic Planner, Story Owner, or Tech Lead) is responsible for breaking down high-level nodes, it must wait for the generated execution nodes to reach COMPLETED before submitting its Empty PR to complete the parent node, ensuring the macroscopic progress representation accurately reflects implementation reality.
+
+## 2026-07-09 - [Accepted] - Prompt improvement - Ensure Tech Lead checks unchecked checkboxes for empty PRs
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The Tech Lead was missing the explicit instruction about checking unchecked Acceptance Criteria checkboxes when submitting an empty PR, which is present in other persona prompts and required by ADR 007 and ADR 009.
+**Pattern:** Codify system memory constraints into agent prompts to avoid regressions and ensure consistency across personas.
