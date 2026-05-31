@@ -1,20 +1,24 @@
 ---
 id: idea-066-time-capsule-validator
 type: IDEA
-title: "Time Capsule Readiness Validator"
-status: PENDING
-owner_persona: "product_manager"
-created_at: "2025-05-24"
-updated_at: "2025-05-24"
+title: Time Capsule Readiness Validator
+status: ACTIVE
+owner_persona: product_manager
+created_at: '2025-05-24'
+updated_at: '2026-05-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11449756846678210122'
 pr_number: null
 parent: null
-tags: ["feature", "gen2", "trade", "tool"]
+tags:
+  - feature
+  - gen2
+  - trade
+  - tool
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Time Capsule Readiness Validator
