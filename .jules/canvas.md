@@ -134,3 +134,9 @@
 **Outcome:** Accepted
 **Why:** Brings the search console vertically closer to the top-level application aesthetic by eliminating standard layouts in favor of the established sharp-edged, dashed-border hardware terminal layout.
 **Pattern:** Combine related navigation and filtering inputs into unified `<TacticalPanel>` structures rather than letting inputs float freely, and utilize segmented controls over generic pill arrays for filters.
+
+## 2026-06-25 - [Accepted] - 🖼️ Canvas: Tactical SettingsLegend Redesign
+**What:** Redesigned the `SettingsLegend` component to fully embrace the tactical "snooping" aesthetic, removing generic layout patterns and utilizing `TacticalPanel` formatting (dashed borders, LCD background grid). Added monospace fonts (`font-mono`, `text-[9px]`, `tracking-widest`) and telemetry bracket styles (`[ IN PARTY ]`).
+**Outcome:** Accepted
+**Why:** Brings the secondary structural components inside the Settings panel tightly in line with the tactical hardware UI aesthetic, correcting the remaining instances of standard generic styling within the application.
+**Pattern:** Eliminate generic standard layout styles inside modal sub-components in favor of the specialized hardware grid aesthetic (using strict typography and dashes) to maintain the cohesive structural feel.
