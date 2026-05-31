@@ -341,9 +341,9 @@ export async function main() {
     const sessionId = node.frontmatter.jules_session_id;
     const isHuman = node.frontmatter.owner_persona === 'human';
 
-    if (!isHuman && (!sessionId || sessionId === 'null') && node.frontmatter.status === 'ACTIVE') {
-      warn(`Node ${node.repoPath} is ACTIVE but missing session ID. Failing.`);
-      await transitionNodeToFailed(node, repoRoot, 'ACTIVE node missing session ID');
+    if (!isHuman && (!sessionId || sessionId === 'null') && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING')) {
+      warn(`Node ${node.repoPath} is ${node.frontmatter.status} but missing session ID. Failing.`);
+      await transitionNodeToFailed(node, repoRoot, `${node.frontmatter.status} node missing session ID`);
       continue;
     }
 

@@ -163,7 +163,7 @@ ok: true,
   });
 
 
-  it.fails('should transition a node to FAILED if VERIFYING and jules_session_id is missing', async () => {
+  it('should transition a node to FAILED if VERIFYING and jules_session_id is missing', async () => {
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-1.md',
       repoPath: '.foundry/tasks/task-1.md',
@@ -225,10 +225,11 @@ ok: true,
       repoPath: '.foundry/tasks/task-1.md',
       frontmatter: {
         id: 'task-1',
+        type: 'TASK',
         status: 'ACTIVE',
         jules_session_id: 'session-pr-link'
       },
-      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-pr-link"\nupdated_at: "2023-01-01"\n---\nBody'
+      rawContent: '---\nstatus: ACTIVE\ntype: TASK\njules_session_id: "session-pr-link"\nupdated_at: "2023-01-01"\n---\nBody'
     };
 
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
@@ -361,10 +362,11 @@ ok: true,
       repoPath: '.foundry/tasks/task-1.md',
       frontmatter: {
         id: 'task-1',
+        type: 'TASK',
         status: 'ACTIVE',
         jules_session_id: 'session-pr-link'
       },
-      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-pr-link"\nupdated_at: "2023-01-01"\n---\nBody'
+      rawContent: '---\nstatus: ACTIVE\ntype: TASK\njules_session_id: "session-pr-link"\nupdated_at: "2023-01-01"\n---\nBody'
     };
 
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
@@ -697,12 +699,13 @@ status: ACTIVE
         repoPath: '.foundry/tasks/task-human.md',
         frontmatter: {
           id: 'task-human',
+          type: 'TASK',
           status: 'ACTIVE',
           jules_session_id: null,
           owner_persona: 'human',
           pr_number: 999
         },
-        rawContent: '---\nstatus: ACTIVE\njules_session_id: null\nowner_persona: "human"\npr_number: 999\nupdated_at: "2023-01-01"\n---\nBody'
+        rawContent: '---\nstatus: ACTIVE\ntype: TASK\njules_session_id: null\nowner_persona: "human"\npr_number: 999\nupdated_at: "2023-01-01"\n---\nBody'
       };
 
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-human.md']);
