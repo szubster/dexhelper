@@ -91,12 +91,12 @@ describe('generateSuggestions', () => {
       localEncounters: [
         {
           slug: 'pallet-town-area',
-          pid: 16, // Pidgey
-          enc: [
+          pokemonId: 16, // Pidgey
+          encounters: [
             {
-              aid: 1, // localAid matches
-              v: 1, // Red version (POKE_VERSION_MAP['red'] == 1)
-              d: [{ m: 1, c: 50, min: 2, max: 5 }],
+              areaId: 1, // localAid matches
+              versionId: 1, // Red version (POKE_VERSION_MAP['red'] == 1)
+              details: [{ method: 1, chance: 50, minLevel: 2, maxLevel: 5 }],
             },
           ],
         },
@@ -145,12 +145,12 @@ describe('generateSuggestions', () => {
       missingEncounters: {
         19: {
           slug: 'route-1-area',
-          pid: 19,
-          enc: [
+          pokemonId: 19,
+          encounters: [
             {
-              aid: 2, // nearby aid
-              v: 1, // Red
-              d: [{ m: 1, c: 50, min: 2, max: 5 }],
+              areaId: 2, // nearby aid
+              versionId: 1, // Red
+              details: [{ method: 1, chance: 50, minLevel: 2, maxLevel: 5 }],
             },
           ],
         },
@@ -565,14 +565,14 @@ describe('generateSuggestions', () => {
     const missingPid = 2;
     // Set missing encounter to require headbutt
     localApiData.missingEncounters[missingPid] = {
-      pid: missingPid,
-      enc: [
+      pokemonId: missingPid,
+      encounters: [
         {
-          aid: 2,
-          v: 4, // 4 = gold
-          d: [
-            { c: 100, m: 8, min: 5 },
-            { c: 100, m: 7, min: 5 },
+          areaId: 2,
+          versionId: 4, // 4 = gold
+          details: [
+            { chance: 100, method: 8, minLevel: 5 },
+            { chance: 100, method: 7, minLevel: 5 },
           ], // m = 8 is Headbutt, m = 7 is Rock Smash
         },
       ],
@@ -814,22 +814,22 @@ describe('generateSuggestions', () => {
       localAid: 2, // The player is at area 2
       localEncounters: [
         {
-          pid: 10,
-          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 8, min: 5 }] }], // Headbutt
+          pokemonId: 10,
+          encounters: [{ areaId: 2, versionId: 4, details: [{ chance: 100, method: 8, minLevel: 5 }] }], // Headbutt
         },
         {
-          pid: 11,
-          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 7, min: 5 }] }], // Rock Smash
+          pokemonId: 11,
+          encounters: [{ areaId: 2, versionId: 4, details: [{ chance: 100, method: 7, minLevel: 5 }] }], // Rock Smash
         },
       ] as unknown as import('../../../db/schema').LocationAreaEncounters[],
       missingEncounters: {
         10: {
-          pid: 10,
-          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 8, min: 5 }] }], // Headbutt
+          pokemonId: 10,
+          encounters: [{ areaId: 2, versionId: 4, details: [{ chance: 100, method: 8, minLevel: 5 }] }], // Headbutt
         },
         11: {
-          pid: 11,
-          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 7, min: 5 }] }], // Rock Smash
+          pokemonId: 11,
+          encounters: [{ areaId: 2, versionId: 4, details: [{ chance: 100, method: 7, minLevel: 5 }] }], // Rock Smash
         },
       },
       pokemonMetadata: {
@@ -839,7 +839,7 @@ describe('generateSuggestions', () => {
       ancestralEncounters: {},
       areaNames: { 2: 'Route 2' },
       allLocations: [
-        { aid: 2, name: 'Route 2', mapGraphIds: [] } as unknown as import('../../../db/schema').UnifiedLocation,
+        { areaId: 2, name: 'Route 2', mapGraphIds: [] } as unknown as import('../../../db/schema').UnifiedLocation,
       ],
     };
 

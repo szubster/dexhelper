@@ -42,13 +42,13 @@ export async function resolveOutdoorMapId(mapId: number): Promise<number> {
   while (true) {
     const loc = getLocation(allLocations, currentId);
     if (!loc) break;
-    if (loc.prnt === undefined) break;
+    if (loc.parentId === undefined) break;
 
     // Cycle detection
     if (visited.has(currentId)) break;
     visited.add(currentId);
 
-    currentId = loc.prnt;
+    currentId = loc.parentId;
   }
   return currentId;
 }
@@ -85,15 +85,15 @@ export async function getDistanceToMap(
 
   // Use the precomputed distance lookup table
   if (startOutdoorId === targetAid) {
-    return { distance: 0, name: targetLocation.n };
+    return { distance: 0, name: targetLocation.name };
   }
 
-  const dist = startLocation.dist?.[targetAid];
+  const dist = startLocation.distances?.[targetAid];
   if (dist === undefined) {
     return null;
   }
 
-  return { distance: dist, name: targetLocation.n };
+  return { distance: dist, name: targetLocation.name };
 }
 
 /**

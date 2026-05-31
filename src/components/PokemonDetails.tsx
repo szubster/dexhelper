@@ -54,29 +54,29 @@ export function PokemonDetails({
   });
 
   const pokemon = allData?.pokemon;
-  const encountersRaw = allData?.enc;
+  const encountersRaw = allData?.encounters;
   const encounters = React.useMemo(() => encountersRaw || [], [encountersRaw]);
   const nameMap = allData?.nameMap;
   const areaNames = allData?.areaNames;
 
-  const catchRate = pokemon?.cr ?? null;
+  const catchRate = pokemon?.captureRate ?? null;
 
   const evoReq = React.useMemo(() => {
-    if (!pokemon || pokemon.efrm.length === 0) return null;
+    if (!pokemon || pokemon.evolvesFrom.length === 0) return null;
 
-    const fromId = pokemon.efrm[0];
+    const fromId = pokemon.evolvesFrom[0];
     if (fromId === undefined) return null;
     if (saveData && fromId > getGenerationConfig(saveData.generation).maxDex) return null;
 
     let methodStr = 'Unknown';
 
-    const details = pokemon.det;
+    const details = pokemon.evolutionDetails;
     if (details && details.length > 0) {
       const d = details[0];
       if (!d) return null;
-      if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
-      else if (d.tr === 3) methodStr = 'Use Item';
-      else if (d.tr === 2) methodStr = 'Trade';
+      if (d.trigger === 1) methodStr = d.minLevel ? `Level ${d.minLevel}` : 'Level up';
+      else if (d.trigger === 3) methodStr = 'Use Item';
+      else if (d.trigger === 2) methodStr = 'Trade';
     }
 
     return {
@@ -89,7 +89,7 @@ export function PokemonDetails({
   const evolvesTo = React.useMemo(() => {
     if (!pokemon) return [];
 
-    const evos = pokemon.eto;
+    const evos = pokemon.evolvesTo;
     if (!evos || evos.length === 0) return [];
 
     return evos
@@ -98,11 +98,11 @@ export function PokemonDetails({
         if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
 
         let methodStr = 'Unknown';
-        const d = evo.det[0];
+        const d = evo.evolutionDetails[0];
         if (d) {
-          if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
-          else if (d.tr === 3) methodStr = 'Use Item';
-          else if (d.tr === 2) methodStr = 'Trade';
+          if (d.trigger === 1) methodStr = d.minLevel ? `Level ${d.minLevel}` : 'Level up';
+          else if (d.trigger === 3) methodStr = 'Use Item';
+          else if (d.trigger === 2) methodStr = 'Trade';
         }
         return {
           id,
@@ -117,7 +117,7 @@ export function PokemonDetails({
     if (!pokemon?.baby) return null;
     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
 
-    const rootId = pokemon.efrm.length > 0 ? pokemon.efrm[pokemon.efrm.length - 1] : pokemon.id;
+    const rootId = pokemon.evolvesFrom.length > 0 ? pokemon.evolvesFrom[pokemon.evolvesFrom.length - 1] : pokemon.id;
 
     if (rootId === undefined) return null;
 
@@ -132,9 +132,9 @@ export function PokemonDetails({
   const encountersByVersion = React.useMemo(() => {
     const map = new Map<number, typeof encounters>();
     for (const enc of encounters) {
-      const arr = map.get(enc.v) || [];
+      const arr = map.get(enc.versionId) || [];
       arr.push(enc);
-      map.set(enc.v, arr);
+      map.set(enc.versionId, arr);
     }
     return map;
   }, [encounters]);
@@ -145,12 +145,12 @@ export function PokemonDetails({
       const versionEncounters = encountersByVersion.get(versionId) || [];
 
       return versionEncounters.flatMap((enc) => {
-        return enc.d.map((detail) => {
-          const name = areaNames?.[enc.aid] || `Area #${enc.aid}`;
+        return enc.details.map((detail) => {
+          const name = areaNames?.[enc.areaId] || `Area #${enc.areaId}`;
 
           return {
             name,
-            details: `${detail.c}% chance, Lv ${detail.min}-${detail.max} (${REVERSE_METHOD_MAP[detail.m] || 'Walk'})`,
+            details: `${detail.chance}% chance, Lv ${detail.minLevel}-${detail.maxLevel} (${REVERSE_METHOD_MAP[detail.method] || 'Walk'})`,
           };
         });
       });

@@ -16,8 +16,8 @@ export const gen1Strategy: AssistantStrategy = {
     if (!loc) return null;
 
     // Resolve to parent if it's an indoor location
-    if (loc.prnt !== undefined) {
-      const parent = allLocations.find((p) => p.id === loc.prnt);
+    if (loc.parentId !== undefined) {
+      const parent = allLocations.find((p) => p.id === loc.parentId);
       if (parent) return parent.id;
     }
 

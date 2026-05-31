@@ -37,7 +37,7 @@ export function LocationSuggestions() {
       const filtered = [];
       for (let i = 0; i < locs.length; i++) {
         const l = locs[i];
-        if (l?.n.toLowerCase().includes(term)) {
+        if (l?.name.toLowerCase().includes(term)) {
           filtered.push(l);
           if (filtered.length >= 5) break;
         }
@@ -56,7 +56,7 @@ export function LocationSuggestions() {
 
   const selectedLocationName = useMemo(() => {
     if (!selectedLocationId) return 'Selected Area';
-    return suggestions.find((s) => s.id === selectedLocationId)?.n || 'Selected Area';
+    return suggestions.find((s) => s.id === selectedLocationId)?.name || 'Selected Area';
   }, [suggestions, selectedLocationId]);
 
   if (!isOpen && !selectedLocationId) return null;
@@ -106,7 +106,7 @@ export function LocationSuggestions() {
             type="button"
             role="option"
             aria-selected="false"
-            aria-label={loc.n}
+            aria-label={loc.name}
             key={loc.id}
             onClick={() => {
               setSelectedLocationId(loc.id);
@@ -122,7 +122,7 @@ export function LocationSuggestions() {
               </div>
               <div className="min-w-0 flex-1">
                 <div className="font-black font-mono text-[11px] text-white uppercase tracking-wider transition-colors group-hover:text-[var(--theme-primary)]">
-                  {loc.n}
+                  {loc.name}
                 </div>
                 <div className="font-bold font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
                   [{loc.count} DETECTED]

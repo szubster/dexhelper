@@ -24,10 +24,10 @@ describe('PokemonDetails', () => {
         cr: 45,
         baby: false,
       } as unknown as import('../../db/schema').PokemonMetadata,
-      enc: [
-        { v: 1, aid: 10, d: [{ c: 100, min: 5, max: 5, m: 1 }] },
-        { v: 1, aid: 11, d: [{ c: 50, min: 3, max: 6, m: 2 }] },
-        { v: 2, aid: 10, d: [{ c: 100, min: 5, max: 5, m: 1 }] },
+      encounters: [
+        { versionId: 1, areaId: 10, details: [{ chance: 100, minLevel: 5, maxLevel: 5, method: 1 }] },
+        { versionId: 1, areaId: 11, details: [{ chance: 50, minLevel: 3, maxLevel: 6, method: 2 }] },
+        { versionId: 2, areaId: 10, details: [{ chance: 100, minLevel: 5, maxLevel: 5, method: 1 }] },
       ],
       nameMap: { 1: 'Bulbasaur', 2: 'Ivysaur', 3: 'Venusaur' },
       areaNames: { 10: 'Safari Zone', 11: 'Another Area' },
@@ -83,7 +83,7 @@ describe('PokemonDetails', () => {
         cr: 45,
         baby: true,
       } as unknown as import('../../db/schema').PokemonMetadata,
-      enc: [],
+      encounters: [],
       nameMap: { 4: 'Charmander', 5: 'Charmeleon' },
       areaNames: {},
     });

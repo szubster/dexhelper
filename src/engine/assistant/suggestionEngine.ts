@@ -143,10 +143,10 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     for (let i = 0; i < allEncounters.length; i++) {
       const lae = allEncounters[i];
       if (!lae) continue;
-      const enc = lae.enc;
+      const enc = lae.encounters;
       for (let j = 0; j < enc.length; j++) {
         const e = enc[j];
-        if (e && e.aid === localAid) {
+        if (e && e.areaId === localAid) {
           localEncounters.push(lae);
           break;
         }
@@ -161,7 +161,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const encountersByPid = new Map<number, LocationAreaEncounters>();
   for (let i = 0; i < allEncounters.length; i++) {
     const e = allEncounters[i];
-    if (e) encountersByPid.set(e.pid, e);
+    if (e) encountersByPid.set(e.pokemonId, e);
   }
 
   // Fill missingEncounters
@@ -187,7 +187,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const areaNames: Record<number, string> = {};
   for (let i = 0; i < allLocations.length; i++) {
     const loc = allLocations[i];
-    if (loc) areaNames[loc.id] = loc.n;
+    if (loc) areaNames[loc.id] = loc.name;
   }
 
   return {
@@ -306,7 +306,7 @@ function generateCatchSuggestions(
     const localEncounterInfo: Record<number, EncounterDetail[]> = {};
 
     for (const lae of apiData.localEncounters) {
-      const pid = lae.pid;
+      const pid = lae.pokemonId;
       // ⚡ Bolt: Early exit to prevent processing if the pokemon is already owned or a static gift
       if (STATIC_GIFT_DATA[pid] && myOtIds.has(pid)) continue;
       if (!missingIds.has(pid)) continue;
@@ -315,21 +315,21 @@ function generateCatchSuggestions(
       let hasRelevant = false;
       const details: EncounterDetail[] = [];
 
-      for (let r = 0; r < lae.enc.length; r++) {
-        const re = lae.enc[r];
-        if (!re || re.aid !== localAid || re.v !== displayVersionId) continue;
+      for (let r = 0; r < lae.encounters.length; r++) {
+        const re = lae.encounters[r];
+        if (!re || re.areaId !== localAid || re.versionId !== displayVersionId) continue;
 
         hasRelevant = true;
-        for (let d = 0; d < re.d.length; d++) {
-          const ed = re.d[d];
+        for (let d = 0; d < re.details.length; d++) {
+          const ed = re.details[d];
           if (!ed) continue;
           details.push({
-            chance: ed.c,
-            method: METHOD_NAMES[ed.m] || 'walk',
-            minLevel: ed.min,
-            maxLevel: ed.max,
-            aid: re.aid,
-            time: ed.t,
+            chance: ed.chance,
+            method: METHOD_NAMES[ed.method] || 'walk',
+            minLevel: ed.minLevel,
+            maxLevel: ed.maxLevel,
+            aid: re.areaId,
+            time: ed.timeOfDay,
           });
         }
       }
@@ -360,18 +360,18 @@ function generateCatchSuggestions(
     if (localPids.has(pid)) continue;
 
     const encData = apiData.missingEncounters[pid];
-    if (!encData?.enc) continue;
+    if (!encData?.encounters) continue;
 
     let bestDist = 999;
     let bestAreaName = '';
     // ⚡ Bolt: Store the best encounter reference and defer mapping EncounterDetails until after the loop
     // to prevent redundant array allocations and O(N) mapping operations for every missing Pokémon.
-    let bestE: (typeof encData.enc)[0] | null = null;
+    let bestE: (typeof encData.encounters)[0] | null = null;
 
-    for (const e of encData.enc) {
-      if (e.v !== displayVersionId) continue;
+    for (const e of encData.encounters) {
+      if (e.versionId !== displayVersionId) continue;
 
-      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
+      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.areaId, apiData.allLocations);
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
         bestAreaName = distInfo.name;
@@ -380,18 +380,18 @@ function generateCatchSuggestions(
     }
 
     if (bestDist < 8 && bestE) {
-      const aid = bestE.aid;
+      const aid = bestE.areaId;
       const bestDetails: EncounterDetail[] = [];
-      for (let d = 0; d < bestE.d.length; d++) {
-        const ed = bestE.d[d];
+      for (let d = 0; d < bestE.details.length; d++) {
+        const ed = bestE.details[d];
         if (!ed) continue;
         bestDetails.push({
-          chance: ed.c,
-          method: METHOD_NAMES[ed.m] || 'walk',
-          minLevel: ed.min,
-          maxLevel: ed.max,
+          chance: ed.chance,
+          method: METHOD_NAMES[ed.method] || 'walk',
+          minLevel: ed.minLevel,
+          maxLevel: ed.maxLevel,
           aid,
-          time: ed.t,
+          time: ed.timeOfDay,
         });
       }
 
@@ -485,12 +485,12 @@ function generateGiftAndTradeSuggestions(
       // If they physically own a pre-evolution, they don't strictly need to trade, they can evolve it!
       const p = apiData.pokemonMetadata?.[pid];
       let hasPhysicalPreEvo = false;
-      if (p?.efrm && p.efrm.length > 0) {
+      if (p?.evolvesFrom && (p.evolvesFrom || []).length > 0) {
         // Iterate backwards through all ancestors (recursive ownership check)
         // The current logic only checked immediate parents, so if a player had Charmander,
         // Charizard might incorrectly be flagged as Unobtainable/Trade.
-        for (let i = p.efrm.length - 1; i >= 0; i--) {
-          const preId = p.efrm[i];
+        for (let i = (p.evolvesFrom || []).length - 1; i >= 0; i--) {
+          const preId = p.evolvesFrom[i];
           if (preId !== undefined && instancesBySpecies.has(preId)) {
             hasPhysicalPreEvo = true;
             break;
@@ -591,9 +591,9 @@ function generateBreedingSuggestions(
       let evolutionIdToBreed: number | null = null;
 
       // Only base Pokemon can be hatched from an egg
-      if (p.efrm === undefined || p.efrm.length === 0) {
+      if (p.evolvesFrom === undefined || (p.evolvesFrom || []).length === 0) {
         // Look at all evolutions of the target (recursive)
-        const stack = [...(p.eto || [])];
+        const stack = [...(p.evolvesTo || [])];
         while (stack.length > 0) {
           const evo = stack.pop();
           if (
@@ -604,8 +604,8 @@ function generateBreedingSuggestions(
             evolutionIdToBreed = evo.id;
             break;
           }
-          if (evo?.eto && evo.eto.length > 0) {
-            stack.push(...evo.eto);
+          if (evo?.evolvesTo && evo.evolvesTo.length > 0) {
+            stack.push(...evo.evolvesTo);
           }
         }
       }
@@ -688,11 +688,11 @@ function generateEvolutionSuggestions(
     let closestOwnedParentId: number | undefined;
     let immediateEvoTargetId: number = targetId;
 
-    for (let i = 0; i < p.efrm.length; i++) {
-      const ancestorId = p.efrm[i];
+    for (let i = 0; i < (p.evolvesFrom || []).length; i++) {
+      const ancestorId = p.evolvesFrom[i];
       if (ancestorId !== undefined && instancesBySpecies.has(ancestorId)) {
         closestOwnedParentId = ancestorId;
-        const nextTarget = i === 0 ? targetId : p.efrm[i - 1];
+        const nextTarget = i === 0 ? targetId : p.evolvesFrom[i - 1];
         if (nextTarget !== undefined) {
           immediateEvoTargetId = nextTarget;
         }
@@ -716,17 +716,17 @@ function generateEvolutionSuggestions(
       return;
     }
 
-    const details = immediateEvoTarget.det;
+    const details = immediateEvoTarget.evolutionDetails;
     if (!details || details.length === 0) return;
 
     for (const detail of details) {
-      const tr = detail.tr;
-      const min_l = detail.ml;
-      const min_h = detail.mh;
-      const item = detail.item;
-      const held = detail.held;
-      const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
-      const rps = detail.rps;
+      const tr = detail.trigger;
+      const min_l = detail.minLevel;
+      const min_h = detail.minHappiness;
+      const item = detail.itemId;
+      const held = detail.heldItemId;
+      const tod = detail.timeOfDay === 1 ? 'day' : detail.timeOfDay === 2 ? 'night' : undefined;
+      const rps = detail.relativePhysicalStats;
 
       // Filter out Yellow Starter Pikachu as it refuses to evolve
       const evolvableInstances = ownedInstances.filter(

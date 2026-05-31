@@ -44,26 +44,26 @@ async function bulkGet<T>(store: IDBObjectStore, ids: readonly number[]): Promis
 }
 
 const DEFAULT_POKEMON_METADATA = {
-  gr: 4,
+  genderRate: 4,
   baby: false,
-  eto: [],
-  efrm: [],
-  det: [],
+  evolvesTo: [],
+  evolvesFrom: [],
+  evolutionDetails: [],
 };
 
 const DEFAULT_EVO_DETAIL = {
-  tr: 1,
-  mh: 160,
+  trigger: 1,
+  minHappiness: 160,
 };
 
 const DEFAULT_ENCOUNTER_DETAIL = {
-  m: 1,
+  method: 1,
 };
 
 const DEFAULT_LOCATION = {
-  conn: [],
-  pids: [],
-  dist: {},
+  connections: [],
+  pokemonIds: [],
+  distances: {},
 };
 
 type ValidStoreName = (typeof DB_CONFIG.STORES)[keyof typeof DB_CONFIG.STORES];
@@ -79,7 +79,7 @@ export const getDB = () => {
         // Define key paths for each store
         const keyPaths: Record<ValidStoreName, string> = {
           [DB_CONFIG.STORES.POKEMON]: 'id',
-          [DB_CONFIG.STORES.ENCOUNTERS]: 'pid',
+          [DB_CONFIG.STORES.ENCOUNTERS]: 'pokemonId',
           [DB_CONFIG.STORES.LOCATIONS]: 'id',
           [DB_CONFIG.STORES.METADATA]: 'key',
         };
@@ -169,16 +169,16 @@ const syncData = async () => {
     const inflateChain = (links: CompactChainLink[] | undefined): CompactChainLink[] => {
       return (links || []).map((l) => ({
         ...l,
-        det: (l.det || []).map((d) => ({
+        evolutionDetails: (l.evolutionDetails || []).map((d) => ({
           ...DEFAULT_EVO_DETAIL,
           ...d,
         })),
-        eto: inflateChain(l.eto),
+        evolvesTo: inflateChain(l.evolvesTo),
       }));
     };
 
-    for (const p of data.poke) {
-      const inflatedDet = (p.det || []).map((d) => ({
+    for (const p of data.pokemon) {
+      const inflatedDet = (p.evolutionDetails || []).map((d) => ({
         ...DEFAULT_EVO_DETAIL,
         ...d,
       }));
@@ -186,30 +186,30 @@ const syncData = async () => {
       void pStore.put({
         ...DEFAULT_POKEMON_METADATA,
         ...p,
-        det: inflatedDet,
-        eto: inflateChain(p.eto),
+        evolutionDetails: inflatedDet,
+        evolvesTo: inflateChain(p.evolvesTo),
       });
     }
 
     emit(2, 3, 'Encounters');
-    for (const e of data.enc) {
-      const inflatedEnc = e.enc.map((enc) => ({
+    for (const e of data.encounters) {
+      const inflatedEnc = e.encounters.map((enc) => ({
         ...enc,
-        d: (enc.d || []).map((d) => ({
+        details: (enc.details || []).map((d) => ({
           ...DEFAULT_ENCOUNTER_DETAIL,
           ...d,
-          max: d.max ?? d.min,
+          maxLevel: d.maxLevel ?? d.minLevel,
         })),
       }));
-      void eStore.put({ pid: e.pid, enc: inflatedEnc });
+      void eStore.put({ pokemonId: e.pokemonId, encounters: inflatedEnc });
     }
 
     emit(3, 3, 'Locations');
-    for (const l of data.loc) {
+    for (const l of data.locations) {
       void lStore.put({
         ...DEFAULT_LOCATION,
         ...l,
-        prnt: l.prnt, // stay undefined if omitted
+        parentId: l.parentId, // stay undefined if omitted
       });
     }
 
@@ -274,7 +274,7 @@ export const pokeDB = {
     await pokeDB.ready();
     if (mid === undefined || mid === null || Number.isNaN(mid)) return undefined;
     const res = await (await getDB()).get(DB_CONFIG.STORES.LOCATIONS, mid);
-    return res?.pids;
+    return res?.pokemonIds;
   },
   getInverseIndexBulk: async (mids: number[]): Promise<(number[] | undefined)[]> => {
     await pokeDB.ready();
@@ -289,7 +289,7 @@ export const pokeDB = {
 
     const resultMap = new Map<number, number[] | undefined>();
     for (const loc of fetched) {
-      if (loc) resultMap.set(loc.id, loc.pids);
+      if (loc) resultMap.set(loc.id, loc.pokemonIds);
     }
 
     return mids.map((id) => {
@@ -312,7 +312,7 @@ export const pokeDB = {
     await tx.done;
     for (const loc of locations) {
       if (loc) {
-        names[loc.id] = loc.n;
+        names[loc.id] = loc.name;
       }
     }
     return names;
@@ -359,7 +359,7 @@ export const pokeDB = {
 
     const resultMap = new Map<number, LocationAreaEncounters>();
     for (const e of fetched) {
-      if (e) resultMap.set(e.pid, e);
+      if (e) resultMap.set(e.pokemonId, e);
     }
 
     return ids.map((id) => {

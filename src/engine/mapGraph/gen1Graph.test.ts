@@ -3,12 +3,12 @@ import type { UnifiedLocation } from '../../db/schema';
 import { getDistanceToMap, resolveOutdoorMapId } from './gen1Graph';
 
 const mockLocations: UnifiedLocation[] = [
-  { id: 0x00, n: 'Pallet Town', conn: [0x01], dist: { 0x00: 0, 0x01: 1, 0x02: 2 } },
-  { id: 0x01, n: 'Route 1', conn: [0x00, 0x02], dist: { 0x01: 0, 0x00: 1, 0x02: 1 } },
-  { id: 0x02, n: 'Viridian City', conn: [0x01, 0x03], dist: { 0x02: 0, 0x01: 1, 0x00: 2, 0x03: 1 } },
-  { id: 0x03, n: 'Route 2', conn: [0x02], dist: { 0x03: 0, 0x02: 1 } },
-  { id: 0x25, n: "Player's House", prnt: 0x00, conn: [], dist: {} },
-  { id: 0x26, n: "Player's House 2F", prnt: 0x25, conn: [], dist: {} },
+  { id: 0x00, name: 'Pallet Town', connections: [0x01], distances: { 0x00: 0, 0x01: 1, 0x02: 2 } },
+  { id: 0x01, name: 'Route 1', connections: [0x00, 0x02], distances: { 0x01: 0, 0x00: 1, 0x02: 1 } },
+  { id: 0x02, name: 'Viridian City', connections: [0x01, 0x03], distances: { 0x02: 0, 0x01: 1, 0x00: 2, 0x03: 1 } },
+  { id: 0x03, name: 'Route 2', connections: [0x02], distances: { 0x03: 0, 0x02: 1 } },
+  { id: 0x25, name: "Player's House", parentId: 0x00, connections: [], distances: {} },
+  { id: 0x26, name: "Player's House 2F", parentId: 0x25, connections: [], distances: {} },
 ];
 
 describe('getDistanceToMap', () => {
@@ -48,7 +48,7 @@ describe('getDistanceToMap', () => {
     // Unknown ID (0x999) -> resolving to start map 10 (Saffron)
     const locWithSaffron: UnifiedLocation[] = [
       ...mockLocations,
-      { id: 10, n: 'Saffron City', conn: [2], dist: { 10: 0 } },
+      { id: 10, name: 'Saffron City', connections: [2], distances: { 10: 0 } },
     ];
 
     const result = getDistanceToMap(locWithSaffron, 0x999, 10);
@@ -69,8 +69,8 @@ describe('getDistanceToMap', () => {
   it('returns null when no distance is precomputed between start and target', () => {
     // Distant map that has no distance entry
     const locationsWithoutDist: UnifiedLocation[] = [
-      { id: 0x00, n: 'Pallet Town', conn: [], dist: {} },
-      { id: 0x01, n: 'Route 1', conn: [], dist: {} },
+      { id: 0x00, name: 'Pallet Town', connections: [], distances: {} },
+      { id: 0x01, name: 'Route 1', connections: [], distances: {} },
     ];
     const result = getDistanceToMap(locationsWithoutDist, 0x00, 0x01);
     expect(result).toBeNull();
@@ -100,8 +100,8 @@ describe('resolveOutdoorMapId', () => {
     // Create a circular mock: 0x90 -> 0x91 -> 0x90
     const circularLocations = [
       ...mockLocations,
-      { id: 0x90, n: 'Loop A', prnt: 0x91, conn: [], dist: {} },
-      { id: 0x91, n: 'Loop B', prnt: 0x90, conn: [], dist: {} },
+      { id: 0x90, name: 'Loop A', parentId: 0x91, connections: [], distances: {} },
+      { id: 0x91, name: 'Loop B', parentId: 0x90, connections: [], distances: {} },
     ];
     // It should stop at the first revisited node
     const result = resolveOutdoorMapId(circularLocations, 0x90);

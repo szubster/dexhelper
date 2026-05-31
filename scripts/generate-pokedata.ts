@@ -157,15 +157,15 @@ async function main() {
 
     pokemon.push(sortObj({
       id: pData.id,
-      n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
-      cr: sData.capture_rate,
-      gr: sData.gender_rate,
+      name: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
+      captureRate: sData.capture_rate,
+      genderRate: sData.gender_rate,
       baby: sData.is_baby,
       // Temporaries to be filled in second pass
-      eto: [],
-      efrm: [],
-      det: [],
-    }, ['id', 'n']));
+      evolvesTo: [],
+      evolvesFrom: [],
+      evolutionDetails: [],
+    }, ['id', 'name']));
 
     const pokemonEncounters: { aid: number; version_details: { v: number; d: CompactEncounterDetail[] }[] }[] = [];
     for (const areaEnc of eData) {
@@ -226,11 +226,11 @@ async function main() {
 
               locationMap.set(gameId, sortObj({
                 id: gameId,
-                n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
-                conn: connections,
-                pids: [],
-                dist: {}
-              }, ['id', 'n']));
+                name: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
+                connections: connections,
+                pokemonIds: [],
+                distances: {}
+              }, ['id', 'name']));
             }
           }
         }
@@ -238,10 +238,10 @@ async function main() {
         // Update Pokémon index
         const loc = locationMap.get(gameId);
         if (loc) {
-          if (!loc.pids) loc.pids = [];
-          if (!loc.pids.includes(i)) {
-            loc.pids.push(i);
-            loc.pids.sort((a, b) => a - b);
+          if (!loc.pokemonIds) loc.pokemonIds = [];
+          if (!loc.pokemonIds.includes(i)) {
+            loc.pokemonIds.push(i);
+            loc.pokemonIds.sort((a, b) => a - b);
           }
         }
       }
@@ -255,10 +255,10 @@ async function main() {
           v: vId,
           d: vd.encounter_details.map((ed) => {
             const det: CompactEncounterDetail = {
-              c: ed.chance,
-              m: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
-              min: ed.min_level,
-              max: ed.max_level,
+              chance: ed.chance,
+              method: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
+              minLevel: ed.min_level,
+              maxLevel: ed.max_level,
             };
 
             if (ed.condition_values && ed.condition_values.length > 0) {
@@ -268,7 +268,7 @@ async function main() {
                 if (cv.name === 'time-day') timeMask |= 2;
                 if (cv.name === 'time-night') timeMask |= 4;
               }
-              if (timeMask > 0) det.t = timeMask;
+              if (timeMask > 0) det.timeOfDay = timeMask;
             }
             return det;
           })
@@ -307,10 +307,10 @@ async function main() {
       };
 
       const bccData = {
-        c: bccChance[i] || 5,
-        m: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
-        min: bccLevelRange[i]?.min || 24,
-        max: bccLevelRange[i]?.max || 36
+        chance: bccChance[i] || 5,
+        method: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
+        minLevel: bccLevelRange[i]?.min || 24,
+        maxLevel: bccLevelRange[i]?.max || 36
       };
 
       let npEncounter = pokemonEncounters.find(e => e.aid === 783);
@@ -334,9 +334,9 @@ async function main() {
       for (const pe of pokemonEncounters) {
         for (const vd of pe.version_details) {
           finalEncs.push({
-            aid: pe.aid,
-            v: vd.v,
-            d: vd.d
+            areaId: pe.aid,
+            versionId: vd.v,
+            details: vd.d
           });
         }
       }
@@ -351,16 +351,16 @@ async function main() {
     const existing = locationMap.get(gameId);
     if (existing) {
       if (map.connections) {
-        existing.conn = Array.from(new Set([...(existing.conn || []), ...map.connections]));
+        existing.connections = Array.from(new Set([...(existing.connections || []), ...map.connections]));
       }
     } else {
       locationMap.set(gameId, sortObj({
         id: gameId,
-        n: map.name,
-        conn: map.connections,
-        pids: [],
-        dist: {}
-      }, ['id', 'n']));
+        name: map.name,
+        connections: map.connections,
+        pokemonIds: [],
+        distances: {}
+      }, ['id', 'name']));
     }
   }
   for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
@@ -369,16 +369,16 @@ async function main() {
       const existing = locationMap.get(gameId);
       if (existing) {
         if (mapNode.connections) {
-          existing.conn = Array.from(new Set([...(existing.conn || []), ...mapNode.connections]));
+          existing.connections = Array.from(new Set([...(existing.connections || []), ...mapNode.connections]));
         }
       } else {
         locationMap.set(gameId, sortObj({
           id: gameId,
-          n: mapNode.name,
-          conn: mapNode.connections,
-          pids: [],
-          dist: {}
-        }, ['id', 'n']));
+          name: mapNode.name,
+          connections: mapNode.connections,
+          pokemonIds: [],
+          distances: {}
+        }, ['id', 'name']));
       }
     }
   }
@@ -388,16 +388,16 @@ async function main() {
       const existing = locationMap.get(gameId);
       if (existing) {
         if (mapNode.connections) {
-          existing.conn = Array.from(new Set([...(existing.conn || []), ...mapNode.connections]));
+          existing.connections = Array.from(new Set([...(existing.connections || []), ...mapNode.connections]));
         }
       } else {
         locationMap.set(gameId, sortObj({
           id: gameId,
-          n: mapNode.name,
-          conn: mapNode.connections,
-          pids: [],
-          dist: {}
-        }, ['id', 'n']));
+          name: mapNode.name,
+          connections: mapNode.connections,
+          pokemonIds: [],
+          distances: {}
+        }, ['id', 'name']));
       }
     }
   }
@@ -407,12 +407,12 @@ console.log('\nReconciling location parents...');
 for (const loc of locationMap.values()) {
   if (loc.id < 256) {
     const parentId = INDOOR_TO_PARENT_MAP[loc.id];
-    if (parentId !== undefined) loc.prnt = parentId;
+    if (parentId !== undefined) loc.parentId = parentId;
   } else if ((loc.id >> 16) === 3) {
     // Decode Gen 3 id to look up in the map, then re-encode the parent
     const decodedId = loc.id & 0xffff;
     const parentId = GEN3_INDOOR_TO_PARENT_MAP[decodedId];
-    if (parentId !== undefined) loc.prnt = (3 << 16) | parentId;
+    if (parentId !== undefined) loc.parentId = (3 << 16) | parentId;
   }
 }
 
@@ -433,8 +433,8 @@ for (const i of ids) {
 for (const loc of locations) {
   const distLoc = dist[loc.id];
   if (distLoc) {
-    if (loc.conn) {
-      for (const target of loc.conn) {
+    if (loc.connections) {
+      for (const target of loc.connections) {
         const distTarget = dist[target];
         if (distTarget) {
           distLoc[target] = 1;
@@ -442,8 +442,8 @@ for (const loc of locations) {
         }
       }
     }
-    if (loc.prnt !== undefined) {
-      const p = loc.prnt;
+    if (loc.parentId !== undefined) {
+      const p = loc.parentId;
       const distP = dist[p];
       if (distP) {
         distLoc[p] = 0; // Indoors are effectively "at" the town
@@ -484,7 +484,7 @@ for (const loc of locations) {
       }
     }
   }
-  loc.dist = reachable;
+  loc.distances = reachable;
 }
 
 console.log('\nProcessing Evolution Chains...');
@@ -517,19 +517,19 @@ for (const cid of uniqueChainIds) {
 
     return {
       id,
-      eto: link.evolves_to.map(l => mapLink(l, id)),
-      det: validEvolutionDetails.map((ed) => ({
-        tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
-        ml: ed.min_level ?? undefined,
-        mh: ed.min_happiness ?? undefined,
-        item: ed.item
+      evolvesTo: link.evolves_to.map(l => mapLink(l, id)),
+      evolutionDetails: validEvolutionDetails.map((ed) => ({
+        trigger: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
+        minLevel: ed.min_level ?? undefined,
+        minHappiness: ed.min_happiness ?? undefined,
+        itemId: ed.item
           ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10)
           : undefined,
-        held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
-        time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
-        rps: ed.relative_physical_stats ?? undefined,
+        heldItemId: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
+        timeOfDay: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
+        relativePhysicalStats: ed.relative_physical_stats ?? undefined,
       })),
-      ef,
+      evolvesFromId: ef,
     };
   };
 
@@ -538,12 +538,12 @@ for (const cid of uniqueChainIds) {
   const registerChain = (node: CompactChainLink, ancestors: number[]) => {
     const p = pokemon.find(p => p.id === node.id);
     if (p) {
-      p.eto = node.eto;
-      p.efrm = ancestors;
-      p.det = node.det;
+      p.evolvesTo = node.evolvesTo;
+      p.evolvesFrom = ancestors;
+      p.evolutionDetails = node.evolutionDetails;
     }
 
-    node.eto.forEach(child => registerChain(child, [node.id, ...ancestors]));
+    node.evolvesTo.forEach(child => registerChain(child, [node.id, ...ancestors]));
   };
 
   registerChain(fullChain, []);
@@ -571,18 +571,18 @@ function compact(obj: any): any {
       // Omit baby: false
       if (key === 'baby' && value === false) continue;
       // Omit m: 1 (WALK)
-      if (key === 'm' && value === 1) continue;
+      if (key === 'method' && value === 1) continue;
       // Omit empty objects (dist: {})
       if (value !== null && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) continue;
       
       // Omit gr: 4 (gender_rate default)
-      if (key === 'gr' && value === 4) continue;
+      if (key === 'genderRate' && value === 4) continue;
       // Omit tr: 1 (EVO_TRIGGER.LEVEL_UP default)
-      if (key === 'tr' && value === 1) continue;
+      if (key === 'trigger' && value === 1) continue;
       // Omit mh: 160 (min_happiness default)
-      if (key === 'mh' && value === 160) continue;
+      if (key === 'minHappiness' && value === 160) continue;
       // Omit max if same as min (encounter levels)
-      if (key === 'max' && value === obj.min) continue;
+      if (key === 'maxLevel' && value === obj.minLevel) continue;
 
       result[key] = compact(value);
     }
@@ -596,8 +596,8 @@ fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
 writeJsonl(path.join(OUTPUT_DIR, 'pokemon.jsonl'), pokemon.map(compact));
 writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
-  pid,
-  enc: encs.map(compact)
+  pokemonId: pid,
+  encounters: encs.map(compact)
 })));
 writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => a.id - b.id));
 

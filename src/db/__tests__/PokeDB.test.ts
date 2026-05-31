@@ -173,7 +173,7 @@ describe('PokeDB', () => {
           det: [],
         },
       ],
-      enc: [{ pid: 1, enc: [] }],
+      enc: [{ pokemonId: 1, enc: [] }],
       loc: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
     };
 
@@ -185,8 +185,8 @@ describe('PokeDB', () => {
     await pokeDB.sync();
 
     const p = await pokeDB.getPokemon(1);
-    expect(p?.n).toBe('Bulbasaur');
-    expect(p?.cr).toBe(45);
+    expect(p?.name).toBe('Bulbasaur');
+    expect(p?.captureRate).toBe(45);
   });
 
   it('performs bulk operations for pokemons', async () => {
@@ -212,11 +212,11 @@ describe('PokeDB', () => {
 
     const r1 = results[0];
     if (!r1 || r1 instanceof Error) throw r1 ?? new Error('r1 undefined');
-    expect(r1.n).toBe('P1');
+    expect(r1.name).toBe('P1');
 
     const r2 = results[1];
     if (!r2 || r2 instanceof Error) throw r2 ?? new Error('r2 undefined');
-    expect(r2.n).toBe('P2');
+    expect(r2.name).toBe('P2');
 
     expect(results[2]).toBeInstanceOf(Error);
   });
@@ -268,10 +268,10 @@ describe('PokeDB', () => {
     await pokeDB.sync();
 
     const p1 = await pokeDB.getPokemon(1);
-    expect(p1?.eto?.[0]?.id).toBe(2);
-    expect(p1?.eto?.[0]?.det?.[0]?.tr).toBe(1);
-    expect(p1?.eto?.[0]?.eto?.[0]?.id).toBe(3);
-    expect(p1?.eto?.[0]?.eto?.[0]?.det?.[0]?.tr).toBe(2);
+    expect(p1?.evolvesTo?.[0]?.id).toBe(2);
+    expect(p1?.evolvesTo?.[0]?.evolutionDetails?.[0]?.trigger).toBe(1);
+    expect(p1?.evolvesTo?.[0]?.evolvesTo?.[0]?.id).toBe(3);
+    expect(p1?.evolvesTo?.[0]?.evolvesTo?.[0]?.evolutionDetails?.[0]?.trigger).toBe(2);
   });
 
   it('resolves area names correctly', async () => {
@@ -357,7 +357,7 @@ describe('PokeDB', () => {
 
       const all = await pokeDB.getAllPokemon();
       expect(all).toHaveLength(2);
-      expect(all[0]?.n).toBe('Bulbasaur');
+      expect(all[0]?.name).toBe('Bulbasaur');
     });
 
     it('getEncounters returns undefined for invalid id', async () => {
@@ -368,7 +368,7 @@ describe('PokeDB', () => {
       const mockData = {
         hash: 'new-hash',
         poke: [],
-        enc: [{ pid: 1, enc: [] }],
+        enc: [{ pokemonId: 1, enc: [] }],
         loc: [],
       };
       vi.mocked(fetch).mockResolvedValue({
@@ -378,7 +378,7 @@ describe('PokeDB', () => {
       await pokeDB.sync();
 
       const enc = await pokeDB.getEncounters(1);
-      expect(enc?.pid).toBe(1);
+      expect(enc?.pokemonId).toBe(1);
     });
 
     it('getEncountersBulk returns correctly', async () => {
@@ -386,8 +386,8 @@ describe('PokeDB', () => {
         hash: 'new-hash',
         poke: [],
         enc: [
-          { pid: 1, enc: [] },
-          { pid: 2, enc: [] },
+          { pokemonId: 1, enc: [] },
+          { pokemonId: 2, enc: [] },
         ],
         loc: [],
       };
@@ -399,8 +399,8 @@ describe('PokeDB', () => {
 
       const results = await pokeDB.getEncountersBulk([1, 2, 999]);
       expect(results).toHaveLength(3);
-      expect((results[0] as { pid: number }).pid).toBe(1);
-      expect((results[1] as { pid: number }).pid).toBe(2);
+      expect((results[0] as { pokemonId: number }).pokemonId).toBe(1);
+      expect((results[1] as { pokemonId: number }).pokemonId).toBe(2);
       expect(results[2]).toBeInstanceOf(Error);
     });
 
@@ -414,8 +414,8 @@ describe('PokeDB', () => {
         hash: 'new-hash',
         poke: [],
         enc: [
-          { pid: 1, enc: [] },
-          { pid: 2, enc: [] },
+          { pokemonId: 1, enc: [] },
+          { pokemonId: 2, enc: [] },
         ],
         loc: [],
       };
@@ -447,7 +447,7 @@ describe('PokeDB', () => {
       await pokeDB.sync();
 
       const loc = await pokeDB.getLocation(1);
-      expect(loc?.n).toBe('Pallet Town');
+      expect(loc?.name).toBe('Pallet Town');
     });
 
     it('getLocations returns all locations', async () => {
@@ -489,7 +489,7 @@ describe('PokeDB', () => {
 
       const areas = await pokeDB.getAreas(1);
       expect(areas).toHaveLength(1);
-      expect(areas[0]?.n).toBe('Pallet Town');
+      expect(areas[0]?.name).toBe('Pallet Town');
     });
 
     it('getAllAreas returns all locations', async () => {

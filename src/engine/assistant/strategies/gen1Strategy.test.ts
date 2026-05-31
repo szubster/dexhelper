@@ -24,9 +24,9 @@ describe('gen1Strategy', () => {
 
   describe('resolveMapAid', () => {
     const mockLocations: UnifiedLocation[] = [
-      { id: 1, n: 'Pallet Town' },
-      { id: 2, n: "Red's House 1F", prnt: 1 },
-      { id: 3, n: 'Unknown Indoor House', prnt: 999 },
+      { id: 1, name: 'Pallet Town' },
+      { id: 2, name: "Red's House 1F", parentId: 1 },
+      { id: 3, name: 'Unknown Indoor House', parentId: 999 },
     ];
 
     it('returns null if location is not found', () => {
@@ -34,12 +34,12 @@ describe('gen1Strategy', () => {
       expect(gen1Strategy.resolveMapAid(mockSave, mockLocations)).toBeNull();
     });
 
-    it('returns the location id if it is an outdoor location (no prnt)', () => {
+    it('returns the location id if it is an outdoor location (no parentId)', () => {
       const mockSave = { currentMapId: 1 } as SaveData;
       expect(gen1Strategy.resolveMapAid(mockSave, mockLocations)).toBe(1);
     });
 
-    it('returns the parent location id if it is an indoor location (has prnt)', () => {
+    it('returns the parent location id if it is an indoor location (has parentId)', () => {
       const mockSave = { currentMapId: 2 } as SaveData;
       expect(gen1Strategy.resolveMapAid(mockSave, mockLocations)).toBe(1);
     });

@@ -23,15 +23,15 @@ describe('fetchAssistantApiData', () => {
     vi.spyOn(pokeDB, 'getAllEncounters').mockResolvedValue([]);
     vi.spyOn(pokeDB, 'getAllAreas').mockResolvedValue([]);
     vi.spyOn(pokeDB, 'getLocations').mockResolvedValue([
-      { id: 1, n: 'Test Area 1', pids: [] },
-      { id: 2, n: 'Test Area 2', pids: [] },
+      { id: 1, name: 'Test Area 1', pokemonIds: [] },
+      { id: 2, name: 'Test Area 2', pokemonIds: [] },
     ]);
     vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockImplementation(async (ids) => {
       const all: Record<number, unknown> = {
-        1: { id: 1, n: 'bulbasaur', efrm: [], eto: [], det: [] },
-        2: { id: 2, n: 'ivysaur', efrm: [1], eto: [], det: [] },
-        4: { id: 4, n: 'charmander', efrm: [], eto: [], det: [] },
-        5: { id: 5, n: 'charmeleon', efrm: [4], eto: [], det: [] },
+        1: { id: 1, name: 'bulbasaur', efrm: [], eto: [], det: [] },
+        2: { id: 2, name: 'ivysaur', efrm: [1], eto: [], det: [] },
+        4: { id: 4, name: 'charmander', efrm: [], eto: [], det: [] },
+        5: { id: 5, name: 'charmeleon', efrm: [4], eto: [], det: [] },
       };
       const arrIds = Array.from(ids) as number[];
       return arrIds.map((id) => (all[id] as PokemonMetadata) || (new Error('not found') as unknown as PokemonMetadata));
@@ -43,6 +43,6 @@ describe('fetchAssistantApiData', () => {
     // It should have correctly populated pokemonMetadata
     expect(result.pokemonMetadata[2]).toBeDefined();
     expect(result.pokemonMetadata[1]).toBeDefined();
-    expect(result.pokemonMetadata[2]?.n).toBe('ivysaur');
+    expect(result.pokemonMetadata[2]?.name).toBe('ivysaur');
   });
 });

@@ -5,7 +5,7 @@ title: Refactor Data Generation Pipeline to Verbose Keys - Implementation
 status: READY
 owner_persona: coder
 created_at: '2026-05-22'
-updated_at: '2026-05-30'
+updated_at: '2026-05-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -24,9 +24,9 @@ notes: ''
 Implement the verbose property names throughout the app and data generation script (e.g. `n` to `name`, `cr` to `captureRate`, `eto` to `evolvesTo`) as per ADR 015.
 
 ## Acceptance Criteria
-- [ ] `src/db/schema.ts` is updated with verbose names in `PokemonMetadata`, `CompactChainLink`, `CompactEncounterDetail`, `UnifiedLocation`, `LocationAreaEncounters`, `CompactEncounter`.
-- [ ] `scripts/generate-pokedata.ts` generates properties with verbose names.
-- [ ] `src/db/PokeDB.ts` is updated to correctly hydrate from verbose names.
-- [ ] Data-consuming components and engine files (like `src/components/PokemonDetails.tsx`, `src/engine/assistant/suggestionEngine.ts`) are refactored to read the new properties.
-- [ ] `pnpm run data:gen` runs without issues and generates the new files.
-- [ ] `pnpm lint && pnpm test && pnpm type-check` pass.
+- [x] `src/db/schema.ts` is updated with verbose names in `PokemonMetadata`, `CompactChainLink`, `CompactEncounterDetail`, `UnifiedLocation`, `LocationAreaEncounters`, `CompactEncounter`.
+- [x] `scripts/generate-pokedata.ts` generates properties with verbose names.
+- [x] `src/db/PokeDB.ts` is updated to correctly hydrate from verbose names.
+- [x] Data-consuming components and engine files (like `src/components/PokemonDetails.tsx`, `src/engine/assistant/suggestionEngine.ts`) are refactored to read the new properties.
+- [x] `pnpm run data:gen` runs without issues and generates the new files.
+- [x] `pnpm lint && pnpm test && pnpm type-check` pass.

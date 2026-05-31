@@ -47,7 +47,7 @@ export function PokemonLocations({
         <div className="relative z-10 grid grid-cols-1 gap-3" data-testid="location-list">
           {(() => {
             const staticEnc = staticEncounters[pokemonId]?.[gameVersion as keyof (typeof staticEncounters)[number]];
-            const versionEnc = encounters.filter((e) => e.v === currentVersionId);
+            const versionEnc = encounters.filter((e) => e.versionId === currentVersionId);
 
             if ((staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq) {
               return (
@@ -85,7 +85,7 @@ export function PokemonLocations({
                   {versionEnc.map((e) => {
                     return (
                       <div
-                        key={`${e.aid}-${e.v}`}
+                        key={`${e.areaId}-${e.versionId}`}
                         className="group flex flex-col space-y-3 rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
                       >
                         <div className="flex items-center justify-between">
@@ -94,30 +94,30 @@ export function PokemonLocations({
                               <MapPin size={14} />
                             </div>
                             <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
-                              {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
+                              {(areaNames?.[e.areaId] || `AREA #${e.areaId}`).toUpperCase()}
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
-                            {e.d.map((d: CompactEncounterDetail, di: number) => (
+                            {e.details.map((d: CompactEncounterDetail, di: number) => (
                               <TacticalBadge
                                 // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                                 key={di}
                                 variant="zinc"
                                 className="border-white/5 bg-white/5 py-0.5 text-zinc-500"
                               >
-                                LV.{d.min}-{d.max}
+                                LV.{d.minLevel}-{d.maxLevel}
                               </TacticalBadge>
                             ))}
                           </div>
                         </div>
                         <div className="flex flex-wrap gap-1.5 border-[var(--theme-primary)]/20 border-l-2 pl-1.5">
-                          {e.d.map((d: CompactEncounterDetail, di: number) => (
+                          {e.details.map((d: CompactEncounterDetail, di: number) => (
                             <span
                               // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                               key={di}
                               className="font-black text-[8px] text-[var(--theme-primary)]/70 uppercase"
                             >
-                              • {REVERSE_METHOD_MAP[d.m]?.replace('-', ' ')} ({d.c}%)
+                              • {REVERSE_METHOD_MAP[d.method]?.replace('-', ' ')} ({d.chance}%)
                             </span>
                           ))}
                         </div>
@@ -154,16 +154,16 @@ function FallbackLocations({
       </div>
       {encounters.map((e) => (
         <div
-          key={`${e.aid}-${e.v}`}
+          key={`${e.areaId}-${e.versionId}`}
           className="flex flex-col rounded-none border border-white/5 border-dashed bg-zinc-900/40 p-4 opacity-60"
         >
           <div className="flex items-center justify-between">
             <span className="font-bold text-xs text-zinc-500 uppercase">
-              {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
+              {(areaNames?.[e.areaId] || `AREA #${e.areaId}`).toUpperCase()}
             </span>
             <div className="flex gap-1">
               <span className="rounded-none border border-white/5 border-dashed bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase">
-                V-ID: {e.v}
+                V-ID: {e.versionId}
               </span>
             </div>
           </div>

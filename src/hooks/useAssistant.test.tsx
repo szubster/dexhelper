@@ -220,34 +220,49 @@ describe('useAssistant - generateSuggestions logic', () => {
     areaNames: {},
     ancestralEncounters: {
       40: {
-        39: { pid: 39, enc: [{ aid: 100, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Jigglypuff in Yellow
+        39: {
+          pokemonId: 39,
+          encounters: [{ areaId: 100, versionId: 3, details: [{ chance: 50, method: 1, minLevel: 2, maxLevel: 4 }] }],
+        }, // Jigglypuff in Yellow
       },
       62: {
-        60: { pid: 60, enc: [{ aid: 101, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] }, // Poliwag catchable
+        60: {
+          pokemonId: 60,
+          encounters: [{ areaId: 101, versionId: 3, details: [{ chance: 50, method: 1, minLevel: 2, maxLevel: 4 }] }],
+        }, // Poliwag catchable
         61: null, // Poliwhirl not directly catchable
       },
     },
     pokemonMetadata: {
-      39: { id: 39, n: 'Jigglypuff', cr: 170, gr: 6, baby: false, efrm: [], det: [], eto: [] } as PokemonMetadata,
+      39: {
+        id: 39,
+        name: 'Jigglypuff',
+        captureRate: 170,
+        genderRate: 6,
+        baby: false,
+        evolvesFrom: [],
+        evolutionDetails: [],
+        evolvesTo: [],
+      } as PokemonMetadata,
       40: {
         id: 40,
-        n: 'Wigglytuff',
-        cr: 50,
-        gr: 6,
+        name: 'Wigglytuff',
+        captureRate: 50,
+        genderRate: 6,
         baby: false,
-        efrm: [39],
-        det: [{ tr: 3, item: 81 }],
-        eto: [],
+        evolvesFrom: [39],
+        evolutionDetails: [{ trigger: 3, itemId: 81 }],
+        evolvesTo: [],
       } as PokemonMetadata,
       62: {
         id: 62,
-        n: 'Poliwrath',
-        cr: 45,
-        gr: 4,
+        name: 'Poliwrath',
+        captureRate: 45,
+        genderRate: 4,
         baby: false,
-        efrm: [61, 60],
-        det: [{ tr: 3, item: 84 }],
-        eto: [],
+        evolvesFrom: [61, 60],
+        evolutionDetails: [{ trigger: 3, itemId: 84 }],
+        evolvesTo: [],
       } as PokemonMetadata,
     },
     allLocations: [],
@@ -288,7 +303,16 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
       pokemonMetadata: {
         ...mockApiData.pokemonMetadata,
-        13: { id: 13, n: 'Weedle', cr: 255, gr: 4, baby: false, efrm: [], det: [], eto: [] } as PokemonMetadata,
+        13: {
+          id: 13,
+          name: 'Weedle',
+          captureRate: 255,
+          genderRate: 4,
+          baby: false,
+          evolvesFrom: [],
+          evolutionDetails: [],
+          evolvesTo: [],
+        } as PokemonMetadata,
       },
     };
 
@@ -309,15 +333,15 @@ describe('useAssistant - generateSuggestions logic', () => {
       ...mockApiData,
       localEncounters: [
         {
-          pid: 16,
-          enc: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+          pokemonId: 16,
+          encounters: [{ areaId: 1, versionId: 3, details: [{ chance: 50, method: 1, minLevel: 2, maxLevel: 4 }] }],
         },
       ],
       localAid: 1,
       missingEncounters: {
         16: {
-          pid: 16,
-          enc: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+          pokemonId: 16,
+          encounters: [{ areaId: 1, versionId: 3, details: [{ chance: 50, method: 1, minLevel: 2, maxLevel: 4 }] }],
         },
       },
     };

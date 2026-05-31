@@ -13,15 +13,15 @@ vi.mock('../../db/PokeDB', () => {
 });
 
 const mockLocations: UnifiedLocation[] = [
-  { id: 0, n: 'Littleroot Town', conn: [1], dist: { 0: 0, 1: 1, 2: 2 } },
-  { id: 1, n: 'Route 101', conn: [0, 2], dist: { 1: 0, 0: 1, 2: 1 } },
-  { id: 2, n: 'Oldale Town', conn: [1], dist: { 2: 0, 1: 1, 0: 2 } },
-  { id: 3, n: 'Player House', prnt: 0, conn: [], dist: {} },
-  { id: 4, n: 'Player House 2F', prnt: 3, conn: [], dist: {} },
-  { id: 42, n: 'Pallet Town', conn: [43], dist: { 42: 0, 43: 1 } },
-  { id: 43, n: 'Route 1', conn: [42], dist: { 43: 0, 42: 1 } },
-  { id: 44, n: 'Player House Kanto', prnt: 42, conn: [], dist: {} },
-  { id: 45, n: 'Player House Kanto 2F', prnt: 44, conn: [], dist: {} },
+  { id: 0, name: 'Littleroot Town', connections: [1], distances: { 0: 0, 1: 1, 2: 2 } },
+  { id: 1, name: 'Route 101', connections: [0, 2], distances: { 1: 0, 0: 1, 2: 1 } },
+  { id: 2, name: 'Oldale Town', connections: [1], distances: { 2: 0, 1: 1, 0: 2 } },
+  { id: 3, name: 'Player House', parentId: 0, connections: [], distances: {} },
+  { id: 4, name: 'Player House 2F', parentId: 3, connections: [], distances: {} },
+  { id: 42, name: 'Pallet Town', connections: [43], distances: { 42: 0, 43: 1 } },
+  { id: 43, name: 'Route 1', connections: [42], distances: { 43: 0, 42: 1 } },
+  { id: 44, name: 'Player House Kanto', parentId: 42, connections: [], distances: {} },
+  { id: 45, name: 'Player House Kanto 2F', parentId: 44, connections: [], distances: {} },
 ];
 
 describe('gen3Graph', () => {
@@ -75,7 +75,9 @@ describe('gen3Graph', () => {
     });
 
     it('returns null when start location cannot be resolved (no map id and no fallback map ID 0)', async () => {
-      const locationsWithoutZero: UnifiedLocation[] = [{ id: 1, n: 'Route 101', conn: [], dist: { 1: 0 } }];
+      const locationsWithoutZero: UnifiedLocation[] = [
+        { id: 1, name: 'Route 101', connections: [], distances: { 1: 0 } },
+      ];
       vi.mocked(pokeDB.getAllAreas).mockResolvedValue(locationsWithoutZero);
       const result = await getDistanceToMap(999, 1);
       expect(result).toBeNull();
@@ -83,8 +85,8 @@ describe('gen3Graph', () => {
 
     it('returns null when no distance is precomputed between start and target', async () => {
       const locationsWithoutDist: UnifiedLocation[] = [
-        { id: 0, n: 'Littleroot Town', conn: [], dist: {} },
-        { id: 1, n: 'Route 101', conn: [], dist: {} },
+        { id: 0, name: 'Littleroot Town', connections: [], distances: {} },
+        { id: 1, name: 'Route 101', connections: [], distances: {} },
       ];
       vi.mocked(pokeDB.getAllAreas).mockResolvedValue(locationsWithoutDist);
       const result = await getDistanceToMap(0, 1);
@@ -126,8 +128,8 @@ describe('gen3Graph', () => {
     it('handles circular prnt references gracefully', async () => {
       const circularLocations = [
         ...mockLocations,
-        { id: 90, n: 'Loop A', prnt: 91, conn: [], dist: {} },
-        { id: 91, n: 'Loop B', prnt: 90, conn: [], dist: {} },
+        { id: 90, name: 'Loop A', parentId: 91, connections: [], distances: {} },
+        { id: 91, name: 'Loop B', parentId: 90, connections: [], distances: {} },
       ];
       vi.mocked(pokeDB.getAllAreas).mockResolvedValue(circularLocations);
       const result = await resolveOutdoorMapId(90);

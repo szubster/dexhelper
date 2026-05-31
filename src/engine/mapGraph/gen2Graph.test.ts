@@ -4,13 +4,13 @@ import { getDistanceToMap, resolveOutdoorMapId } from './gen2Graph';
 
 const mockLocations: UnifiedLocation[] = [
   // Start locations (simulate Johto/Kanto structure)
-  { id: 0x0306, n: 'Goldenrod City', conn: [0x0a04, 0x0b01], dist: { 0x0306: 0, 0x0a04: 1, 0x0b01: 1 } }, // Fallback Group 3, Map 6
-  { id: 0x0a04, n: 'Route 34', conn: [0x0306], dist: { 0x0a04: 0, 0x0306: 1 } },
-  { id: 0x0b01, n: 'Route 35', conn: [0x0306], dist: { 0x0b01: 0, 0x0306: 1 } },
+  { id: 0x0306, name: 'Goldenrod City', connections: [0x0a04, 0x0b01], distances: { 0x0306: 0, 0x0a04: 1, 0x0b01: 1 } }, // Fallback Group 3, Map 6
+  { id: 0x0a04, name: 'Route 34', connections: [0x0306], distances: { 0x0a04: 0, 0x0306: 1 } },
+  { id: 0x0b01, name: 'Route 35', connections: [0x0306], distances: { 0x0b01: 0, 0x0306: 1 } },
   // Indoor
-  { id: 0x25, n: 'Goldenrod Pokecenter', prnt: 0x0306, conn: [], dist: {} },
+  { id: 0x25, name: 'Goldenrod Pokecenter', parentId: 0x0306, connections: [], distances: {} },
   // Multi-level indoor
-  { id: 0x26, n: 'Goldenrod Pokecenter 2F', prnt: 0x25, conn: [], dist: {} },
+  { id: 0x26, name: 'Goldenrod Pokecenter 2F', parentId: 0x25, connections: [], distances: {} },
 ];
 
 describe('getDistanceToMap (Gen 2)', () => {
@@ -53,7 +53,9 @@ describe('getDistanceToMap (Gen 2)', () => {
 
   it('returns null when start location cannot be resolved (no map id and no Goldenrod fallback)', () => {
     // Unknown start map, and no map with id 0x0306 in mockLocations
-    const locationsWithoutGoldenrod: UnifiedLocation[] = [{ id: 0x0a04, n: 'Route 34', conn: [], dist: { 0x0a04: 0 } }];
+    const locationsWithoutGoldenrod: UnifiedLocation[] = [
+      { id: 0x0a04, name: 'Route 34', connections: [], distances: { 0x0a04: 0 } },
+    ];
     const result = getDistanceToMap(locationsWithoutGoldenrod, 0x999, 0x0a04);
     expect(result).toBeNull();
   });
@@ -61,8 +63,8 @@ describe('getDistanceToMap (Gen 2)', () => {
   it('returns null when no distance is precomputed between start and target', () => {
     // Distant map that has no distance entry
     const locationsWithoutDist: UnifiedLocation[] = [
-      { id: 0x0306, n: 'Goldenrod City', conn: [], dist: {} },
-      { id: 0x1111, n: 'Unconnected Area', conn: [], dist: {} },
+      { id: 0x0306, name: 'Goldenrod City', connections: [], distances: {} },
+      { id: 0x1111, name: 'Unconnected Area', connections: [], distances: {} },
     ];
     const result = getDistanceToMap(locationsWithoutDist, 0x0306, 0x1111);
     expect(result).toBeNull();
@@ -92,8 +94,8 @@ describe('resolveOutdoorMapId', () => {
     // Create a circular mock: 0x90 -> 0x91 -> 0x90
     const circularLocations = [
       ...mockLocations,
-      { id: 0x90, n: 'Loop A', prnt: 0x91, conn: [], dist: {} },
-      { id: 0x91, n: 'Loop B', prnt: 0x90, conn: [], dist: {} },
+      { id: 0x90, name: 'Loop A', parentId: 0x91, connections: [], distances: {} },
+      { id: 0x91, name: 'Loop B', parentId: 0x90, connections: [], distances: {} },
     ];
     // It should stop at the first revisited node
     const result = resolveOutdoorMapId(circularLocations, 0x90);
@@ -105,10 +107,10 @@ describe('resolveOutdoorMapId', () => {
 
 describe('getDistanceToMap (Gen 2 Cross-Region)', () => {
   const crossRegionLocations: UnifiedLocation[] = [
-    { id: 0x0306, n: 'Goldenrod City', conn: [0x0a], dist: { 0x0a: 1, 0x05: 2, 0x0307: 3 } },
-    { id: 0x0a, n: 'Saffron City', conn: [0x0306, 0x05], dist: { 0x0306: 1, 0x05: 1, 0x0307: 2 } },
-    { id: 0x05, n: 'Vermilion City', conn: [0x0a, 0x0307], dist: { 0x0a: 1, 0x0307: 1, 0x0306: 2 } },
-    { id: 0x0307, n: 'Olivine City', conn: [0x05], dist: { 0x05: 1, 0x0a: 2, 0x0306: 3 } },
+    { id: 0x0306, name: 'Goldenrod City', connections: [0x0a], distances: { 0x0a: 1, 0x05: 2, 0x0307: 3 } },
+    { id: 0x0a, name: 'Saffron City', connections: [0x0306, 0x05], distances: { 0x0306: 1, 0x05: 1, 0x0307: 2 } },
+    { id: 0x05, name: 'Vermilion City', connections: [0x0a, 0x0307], distances: { 0x0a: 1, 0x0307: 1, 0x0306: 2 } },
+    { id: 0x0307, name: 'Olivine City', connections: [0x05], distances: { 0x05: 1, 0x0a: 2, 0x0306: 3 } },
   ];
 
   it('calculates distance from Goldenrod to Saffron (Magnet Train)', () => {
