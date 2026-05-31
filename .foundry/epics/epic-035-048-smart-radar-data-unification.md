@@ -2,10 +2,10 @@
 id: epic-035-048-smart-radar-data-unification
 type: EPIC
 title: Smart Radar Data Unification
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-23'
-updated_at: '2026-05-23'
+updated_at: '2026-05-31'
 depends_on:
   - task-035-142-smart-radar-adr
 jules_session_id: null

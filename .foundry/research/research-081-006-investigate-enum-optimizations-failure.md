@@ -2,10 +2,10 @@
 id: research-081-006-investigate-enum-optimizations-failure
 type: RESEARCH
 title: Investigate Enum Optimizations Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-05-29'
-updated_at: '2026-05-29'
+updated_at: '2026-05-31'
 depends_on: []
 jules_session_id: null
 parent: story-042-081-preserve-enum-optimizations

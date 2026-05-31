@@ -2,13 +2,13 @@
 id: story-041-079-ui-sync-status
 type: STORY
 title: UI Sync Status & Permissions
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-21'
-updated_at: '2026-05-28'
+updated_at: '2026-05-31'
 depends_on:
   - story-041-078-background-polling-loop
-jules_session_id: '9349774420626639744'
+jules_session_id: null
 pr_number: null
 parent: epic-033-041-emulator-auto-sync
 tags:
