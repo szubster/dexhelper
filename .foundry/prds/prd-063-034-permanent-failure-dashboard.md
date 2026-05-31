@@ -2,7 +2,7 @@
 id: prd-063-034-permanent-failure-dashboard
 type: PRD
 title: Permanent Failure Dashboard View
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-05-22'
 updated_at: '2026-05-31'
