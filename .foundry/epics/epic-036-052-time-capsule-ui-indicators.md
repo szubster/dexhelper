@@ -7,10 +7,10 @@ owner_persona: story_owner
 created_at: "2026-05-30"
 updated_at: "2026-05-30"
 depends_on:
-  - .foundry/epics/epic-036-051-time-capsule-validation-logic.md
+  - epic-036-051-time-capsule-validation-logic
 jules_session_id: null
 pr_number: null
-parent: prd-066-036-time-capsule-validator.md
+parent: prd-066-036-time-capsule-validator
 tags:
   - feature
   - gen2
