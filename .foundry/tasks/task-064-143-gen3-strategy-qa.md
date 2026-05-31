@@ -24,8 +24,8 @@ rejection_reason: ''
 QA validate the integration of Gen 3 encounter data into the suggestion engine and map graph by verifying the Gen 3 Assistant Strategy implementation.
 
 ## Acceptance Criteria
-- [ ] QA verifies suggestion engine correctly utilizes Gen 3 encounter data via `gen3Strategy`.
-- [ ] QA verifies location and encounter routing is aware of Gen 3 specific mechanics.
+- [x] QA verifies suggestion engine correctly utilizes Gen 3 encounter data via `gen3Strategy`.
+- [x] QA verifies location and encounter routing is aware of Gen 3 specific mechanics.
 
 > **CRITICAL REMINDER TO QA PERSONA**:
 > - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
