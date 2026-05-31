@@ -2,12 +2,12 @@
 id: idea-066-time-capsule-validator
 type: IDEA
 title: Time Capsule Readiness Validator
-status: VERIFYING
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2025-05-24'
 updated_at: '2026-05-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15304367626111594182'
 pr_number: null
 parent: null
 tags:
