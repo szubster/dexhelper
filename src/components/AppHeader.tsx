@@ -1,3 +1,4 @@
+import { useStore } from '../store';
 import { Link } from '@tanstack/react-router';
 import { Activity, Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
@@ -16,13 +17,16 @@ interface AppHeaderProps {
   handleFileUpload: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function AppHeader({
+export function AppHeader() {{
+  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
   saveData,
   effectiveVersion,
   setIsSettingsOpen,
   setIsVersionModalOpen,
   handleFileUpload,
 }: AppHeaderProps) {
+  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
+  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
   const { status: syncStatus, requestSync, resumeSync, hasStoredHandle } = useFileSyncController();
   return (
     <header className="sticky top-2 z-40 flex flex-col items-center justify-between gap-6 border-white/5 border-b bg-zinc-950/80 px-4 py-6 backdrop-blur-xl sm:px-8 sm:py-10 lg:flex-row">
@@ -97,21 +101,74 @@ export function AppHeader({
               <Sparkles size={14} />
               SYS.ASST
             </Link>
-            <Link
-              to="/run"
-              activeProps={{
-                className:
-                  'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
-              }}
-              inactiveProps={{
-                className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
-              }}
-              className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-            >
-              <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
-              <Activity size={14} />
-              SYS.RUN
-            </Link>
+            {nuzlockeGraveyardBox && (
+              <Link
+                to="/run"
+                activeProps={{
+                  className:
+                    'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+                }}
+                inactiveProps={{
+                  className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+                }}
+                className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              >
+                <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+                <Activity size={14} />
+                SYS.RUN
+              </Link>
+            )}
+            {nuzlockeGraveyardBox && (
+              <Link
+                to="/run"
+                activeProps={{
+                  className:
+                    'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+                }}
+                inactiveProps={{
+                  className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+                }}
+                className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              >
+                <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+                <Activity size={14} />
+                SYS.RUN
+              </Link>
+            )}
+            {nuzlockeGraveyardBox && (
+              <Link
+                to="/run"
+                activeProps={{
+                  className:
+                    'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+                }}
+                inactiveProps={{
+                  className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+                }}
+                className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              >
+                <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+                <Activity size={14} />
+                SYS.RUN
+              </Link>
+            )}
+                        {nuzlockeGraveyardBox && (
+              <Link
+                to="/run"
+                activeProps={{
+                  className:
+                    'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.3)]',
+                }}
+                inactiveProps={{
+                  className: 'border-transparent text-zinc-500 hover:text-white hover:border-white/20',
+                }}
+                className="group relative flex items-center gap-2 rounded-none border border-dashed px-6 py-2.5 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              >
+                <CornerCrosshairs className="h-1.5 w-1.5 border-current opacity-50 transition-colors group-hover:opacity-100" />
+                <Activity size={14} />
+                SYS.RUN
+              </Link>
+            )}
           </nav>
         )}
       </div>

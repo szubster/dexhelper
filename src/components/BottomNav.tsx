@@ -5,6 +5,10 @@ import { cn } from '../utils/cn';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
 export function BottomNav() {
+  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
+  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
+  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
+  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
   const saveData = useStore((s) => s.saveData);
   const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
   const isSettingsOpen = useStore((s) => s.isSettingsOpen);
@@ -138,26 +142,74 @@ export function BottomNav() {
           <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">{isDag ? '[ DAG ]' : 'DAG'}</span>
         </Link>
 
-        <Link
-          to="/run"
-          aria-label="Run Dashboard"
-          title="Run Dashboard"
-          aria-current={isRun ? 'page' : undefined}
-          className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-            isRun ? 'text-[var(--theme-primary)]' : 'text-zinc-600 hover:text-zinc-400',
-          )}
-        >
-          {isRun && <div className="lcd-flicker absolute inset-0 bg-[var(--theme-primary)]/5" />}
-          <div className={cn('transition-transform', isRun ? 'animate-pulse' : 'active:scale-90')}>
-            <Activity
-              size={20}
-              strokeWidth={isRun ? 2.5 : 2}
-              className={cn(isRun && 'drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),1)]')}
-            />
-          </div>
-          <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">{isRun ? '[ RUN ]' : 'RUN'}</span>
-        </Link>
+                {nuzlockeGraveyardBox && (
+          <Link
+            to="/run"
+            aria-label="Run Dashboard"
+            title="Run Dashboard"
+            aria-current={isRun ? 'page' : undefined}
+            className={cn(
+              'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+              isRun ? 'text-[var(--theme-primary)]' : 'text-zinc-600 hover:text-zinc-400',
+            )}
+          >
+            {isRun && <div className="lcd-flicker absolute inset-0 bg-[var(--theme-primary)]/5" />}
+            <div className={cn('transition-transform', isRun ? 'animate-pulse' : 'active:scale-90')}>
+              <Activity
+                size={20}
+                strokeWidth={isRun ? 2.5 : 2}
+                className={cn(isRun && 'drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),1)]')}
+              />
+            </div>
+            <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">{isRun ? '[ RUN ]' : 'RUN'}</span>
+          </Link>
+        )}
+
+                {nuzlockeGraveyardBox && (
+          <Link
+            to="/run"
+            aria-label="Run Dashboard"
+            title="Run Dashboard"
+            aria-current={isRun ? 'page' : undefined}
+            className={cn(
+              'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+              isRun ? 'text-[var(--theme-primary)]' : 'text-zinc-600 hover:text-zinc-400',
+            )}
+          >
+            {isRun && <div className="lcd-flicker absolute inset-0 bg-[var(--theme-primary)]/5" />}
+            <div className={cn('transition-transform', isRun ? 'animate-pulse' : 'active:scale-90')}>
+              <Activity
+                size={20}
+                strokeWidth={isRun ? 2.5 : 2}
+                className={cn(isRun && 'drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),1)]')}
+              />
+            </div>
+            <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">{isRun ? '[ RUN ]' : 'RUN'}</span>
+          </Link>
+        )}
+
+                {nuzlockeGraveyardBox && (
+          <Link
+            to="/run"
+            aria-label="Run Dashboard"
+            title="Run Dashboard"
+            aria-current={isRun ? 'page' : undefined}
+            className={cn(
+              'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+              isRun ? 'text-[var(--theme-primary)]' : 'text-zinc-600 hover:text-zinc-400',
+            )}
+          >
+            {isRun && <div className="lcd-flicker absolute inset-0 bg-[var(--theme-primary)]/5" />}
+            <div className={cn('transition-transform', isRun ? 'animate-pulse' : 'active:scale-90')}>
+              <Activity
+                size={20}
+                strokeWidth={isRun ? 2.5 : 2}
+                className={cn(isRun && 'drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),1)]')}
+              />
+            </div>
+            <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">{isRun ? '[ RUN ]' : 'RUN'}</span>
+          </Link>
+        )}
 
         <button
           type="button"
