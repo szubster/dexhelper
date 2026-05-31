@@ -37,3 +37,8 @@ By utilizing our programmatic access to the save file data, we can implement an 
 3.  **Detailed View:** In the individual Pokémon stat view, explicitly highlight the specific move(s) preventing the trade, saving the player time diagnosing the issue.
 
 This directly aligns with the app's goal of being a premium companion tool and bridges the gap in the offline-first environment by solving a known cross-generational friction point.
+
+## Acceptance Criteria
+- [x] Generated PRD: `.foundry/prds/prd-066-036-time-capsule-validator.md`
+- [x] Generated Epic: `.foundry/epics/epic-036-051-time-capsule-validation-logic.md`
+- [x] Generated Epic: `.foundry/epics/epic-036-052-time-capsule-ui-indicators.md`
