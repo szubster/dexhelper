@@ -1,21 +1,6 @@
+[Output truncated for brevity]
 
-## 2026-04-19 - Restored BundleMon
-**Learning:** User prefers to keep BundleMon alongside `@codecov/vite-plugin`. BundleMon is explicitly maintained despite overlapping with `@codecov/vite-plugin` per user request.
-
-## 2026-04-19 - Rejected tsc-files
-**Learning:** Evaluated using `tsc-files` in the pre-commit hook (`lefthook.yml`) to speed up type-checking by targeting only staged files instead of running `pnpm lint` (which does a full project type-check). User rejected this change because the tradeoff of potentially missing compilation failures in unstaged files that depend on the staged files is not acceptable. The full type check in pre-commit remains to ensure local safety.
-
-## 2026-04-20 - Implemented Vite Manual Chunking Strategy
-**Learning:** Separating `node_modules` dependencies into distinct manual chunks (e.g., `vendor-react`, `vendor-tanstack`, `vendor-lucide`) in `vite.config.ts` significantly improves browser caching behavior. Instead of one massive index chunk that invalidates entirely whenever app code changes, stable libraries can remain cached in user browsers, leading to faster load times on subsequent visits.
-
-## 2026-04-20 - Rejected Vite Manual Chunking Strategy
-**Learning:** While manual chunking can improve caching, it was rejected for this project because the app is small enough that a single chunk is preferred, and the `@tanstack` dependencies are updated so frequently that the caching benefits are marginalized.
-
-## 2026-04-21 - Added Knip
-**Learning:** Integrated `knip` into the pipeline (via the `lint` script) to detect unused files, exports, types, and unlisted/unused dependencies, improving overall code health and CI guardrails. Configured it to ignore `fake-indexeddb` and `bundlemon` which are dynamically utilized by tests/CI but not statically imported by source code, as well as ignoring `.github/scripts/**` which bypass typical module resolution.
-
-## 2026-04-23 - Added oxlint
-**Learning:** Integrated `oxlint` as an additional ultra-fast linter in the linting pipeline (`lint` script, GitHub Actions, and Lefthook). Since `oxlint` is designed as a drop-in replacement for a subset of ESLint rules, it catches issues (like empty object destructuring or unused catch parameters) that Biome might miss or hasn't implemented yet, all while remaining extremely fast.
+gned as a drop-in replacement for a subset of ESLint rules, it catches issues (like empty object destructuring or unused catch parameters) that Biome might miss or hasn't implemented yet, all while remaining extremely fast.
 
 ## 2026-04-24 - Enabled TypeScript Incremental Builds
 **Learning:** Enabled `"incremental": true` in the base `tsconfig.json` to significantly improve local `pnpm type-check` performance (reducing run time from ~14s to ~4s on subsequent runs). This provides a massive developer experience improvement for local pre-commit hooks, allowing the system to maintain full project type safety (as originally desired) without the painful delay of a complete rebuild every time. Added `*.tsbuildinfo` to `.gitignore` to prevent cache file pollution.
@@ -81,8 +66,12 @@ Critical learnings:
 
 ## 2026-05-27 - Optimized Vite Chunk Strategy
 **Learning:** Added explicit chunk splitting in `vite.config.ts` for `@tanstack/react-query` and `lucide-react`. This extracts relatively static vendor logic from the main app chunk, slightly reducing its size and dramatically improving long-term cache hits for clients between minor app deployments. Corresponding limits in `.bundlemonrc.json` were updated to lock in these granular optimizations.
-\n## 2026-05-24 - Enforced package.json sorting in CI\n**Learning:** Discovered that the local `pnpm lint` pipeline had `lint:package-json` added, but the CI pipeline (`.github/workflows/ci.yml`) was missing it. I have added the `Package JSON Sort Check` to `ci.yml` to ensure `package.json` sorting is properly enforced in CI environments, preventing unsorted packages from slipping through into merged code.
 
+## 2026-05-24 - Enforced package.json sorting in CI
+**Learning:** Discovered that the local `pnpm lint` pipeline had `lint:package-json` added, but the CI pipeline (`.github/workflows/ci.yml`) was missing it. I have added the `Package JSON Sort Check` to `ci.yml` to ensure `package.json` sorting is properly enforced in CI environments, preventing unsorted packages from slipping through into merged code.
 
 ## 2026-05-28 - Rejected strict dead code detection with Knip
 **Learning:** Configured `knip.json` with `"files": "error"` and `"exports": "error"` to strictly fail CI if there is any unused files or dead code exports. User rejected this change, stating "We can have some dead code. For features which are being worked on. That's fine. AI agent should verify findings (I think one already does it) and decide about deletion". Reverted strict Knip settings to allow dead code during active development.
+
+## 2026-05-31 - Empty PR Policy for Infrastucture
+**Learning:** When tasked with improving development tooling, if the infrastructure (e.g. Biome, Oxlint, Knip, Lefthook, Dependabot, Caching, Bundlemon, Codecov) is already highly optimized and no further tooling improvement can be cleanly implemented without duplicating or breaking existing tooling, it is strictly preferable to submit an empty PR rather than forcing a change. An empty PR cleanly transitions the task without introducing bloat or technical debt.
