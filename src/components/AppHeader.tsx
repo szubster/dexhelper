@@ -183,40 +183,65 @@ export function AppHeader({
             >
               <Settings2 size={16} />
             </TacticalButton>
-            {hasStoredHandle && syncStatus === 'disconnected' ? (
-              <TacticalButton
-                onClick={resumeSync}
-                variant="sidebar"
-                size="sm"
-                hasCrosshairs={true}
-                title="Resume Live Sync"
-                aria-label="Resume Live Sync"
-                className="p-1.5"
-              >
-                <Activity size={16} className="text-amber-500" />
-              </TacticalButton>
-            ) : (
-              <TacticalButton
-                onClick={requestSync}
-                variant="sidebar"
-                size="sm"
-                hasCrosshairs={true}
-                title="Live Auto-Sync"
-                aria-label="Live Auto-Sync"
-                className="p-1.5"
-              >
-                <Activity
-                  size={16}
-                  className={
-                    syncStatus === 'live'
-                      ? 'text-emerald-500'
+            {typeof window !== 'undefined' &&
+              'showOpenFilePicker' in window &&
+              (hasStoredHandle && syncStatus === 'disconnected' ? (
+                <TacticalButton
+                  onClick={resumeSync}
+                  variant="sidebar"
+                  size="sm"
+                  hasCrosshairs={true}
+                  title="Resume Live Sync"
+                  aria-label="Resume Live Sync"
+                  className="w-[140px] justify-start p-1.5"
+                >
+                  <Activity size={16} className="text-amber-500" />
+                  <span className="font-mono text-[9px] text-amber-500 uppercase tracking-wider">RESUME SYNC</span>
+                </TacticalButton>
+              ) : (
+                <TacticalButton
+                  onClick={requestSync}
+                  variant="sidebar"
+                  size="sm"
+                  hasCrosshairs={true}
+                  title="Live Auto-Sync"
+                  aria-label="Live Auto-Sync"
+                  className={cn(
+                    'w-[140px] justify-start p-1.5',
+                    syncStatus === 'live' ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-500' : '',
+                    syncStatus === 'error' ? 'border-red-500/50 bg-red-500/10 text-red-500' : '',
+                  )}
+                >
+                  <Activity
+                    size={16}
+                    className={
+                      syncStatus === 'live'
+                        ? 'text-emerald-500'
+                        : syncStatus === 'syncing'
+                          ? 'animate-pulse text-blue-500'
+                          : syncStatus === 'error'
+                            ? 'text-red-500'
+                            : ''
+                    }
+                  />
+                  <span
+                    className={cn(
+                      'font-mono text-[9px] uppercase tracking-wider',
+                      syncStatus === 'live' ? 'text-emerald-500' : '',
+                      syncStatus === 'syncing' ? 'animate-pulse text-blue-500' : '',
+                      syncStatus === 'error' ? 'text-red-500' : '',
+                    )}
+                  >
+                    {syncStatus === 'live'
+                      ? 'LIVE SYNC'
                       : syncStatus === 'syncing'
-                        ? 'animate-pulse text-blue-500'
-                        : ''
-                  }
-                />
-              </TacticalButton>
-            )}
+                        ? 'SYNCING...'
+                        : syncStatus === 'error'
+                          ? 'SYNC ERROR'
+                          : 'AUTO SYNC'}
+                  </span>
+                </TacticalButton>
+              ))}
             <TacticalButton
               onClick={() => document.getElementById('import-save-input')?.click()}
               variant="sidebar"
