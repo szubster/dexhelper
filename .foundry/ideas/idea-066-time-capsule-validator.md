@@ -42,3 +42,4 @@ This directly aligns with the app's goal of being a premium companion tool and b
 - [x] Generated PRD: `.foundry/prds/prd-066-036-time-capsule-validator.md`
 - [x] Generated Epic: `.foundry/epics/epic-036-051-time-capsule-validation-logic.md`
 - [x] Generated Epic: `.foundry/epics/epic-036-052-time-capsule-ui-indicators.md`
+- [x] Generated Research: `.foundry/research/research-066-138-premature-verifying-transitions.md`
