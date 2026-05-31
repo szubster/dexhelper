@@ -105,3 +105,10 @@
 ## 2026-06-25 - ARIA Roles for Global Error Messages
 **Learning:** When rendering dynamic global error messages or panels (e.g., `GlobalError.tsx`), screen readers are not inherently aware of the new DOM elements appearing on the screen. Users might miss critical system errors.
 **Action:** Ensure the container for these global error messages uses `role="alert"` and `aria-live="assertive"`. This guarantees that screen readers will immediately interrupt the current announcement to read the error message, ensuring equal access to system feedback.
+## 2026-06-25 - Redundant aria-label on <fieldset> contents
+**Learning:** When improving accessibility for grouped controls, do not add `role="group"` or `aria-label` to a generic container (like a `div`) if it is directly nested inside a `<fieldset>` with a `<legend>`. The `<fieldset>` implicitly provides the group role and accessible name, and duplicating them causes redundant announcements for screen reader users.
+**Action:** Always rely on native semantic HTML `<fieldset>` and `<legend>` for grouping form controls instead of manually re-applying redundant ARIA roles to inner child wrappers.
+
+## 2026-06-25 - Overriding aria-label on interactive elements
+**Learning:** Setting `aria-label` on an element with text content (like `<button aria-label="Name">Name [Count]</button>`) completely overrides and suppresses the text content of its children for screen readers. This hides critical information, such as counts or secondary data, from assistive technology users.
+**Action:** Do not use `aria-label` if it omits visible content. Either omit the `aria-label` and let the screen reader calculate the accessible name from the child text nodes, or ensure the `aria-label` accurately represents the full visible text (e.g., `aria-label={`${name}, ${count} detected`}`).
