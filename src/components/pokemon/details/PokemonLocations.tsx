@@ -1,7 +1,7 @@
 import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
-import { staticEncounters } from '../../../engine/data/shared/staticData';
+import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data/shared/staticData';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
@@ -46,7 +46,9 @@ export function PokemonLocations({
       ) : (
         <div className="relative z-10 grid grid-cols-1 gap-3" data-testid="location-list">
           {(() => {
-            const staticEnc = staticEncounters[pokemonId]?.[gameVersion as keyof (typeof staticEncounters)[number]];
+            const staticEnc = isValidStaticGameVersion(gameVersion)
+              ? staticEncounters[pokemonId]?.[gameVersion]
+              : undefined;
             const versionEnc = encounters.filter((e) => e.v === currentVersionId);
 
             if ((staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq) {
