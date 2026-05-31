@@ -2,12 +2,12 @@
 id: task-075-132-implement-heartbeat-verifying-logic
 type: TASK
 title: Implement Heartbeat VERIFYING Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6322166743020527496'
 pr_number: null
 parent: story-040-075-heartbeat-verifying-logic
 tags:

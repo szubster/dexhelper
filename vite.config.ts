@@ -102,6 +102,12 @@ export default defineConfig(() => {
             if (id.includes('node_modules/@tanstack/react-router/')) {
               return 'router';
             }
+            if (id.includes('node_modules/@tanstack/react-query/')) {
+              return 'query';
+            }
+            if (id.includes('node_modules/lucide-react/')) {
+              return 'icons';
+            }
             if (id.includes('node_modules/@xyflow/')) {
               return 'xyflow';
             }
