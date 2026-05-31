@@ -115,6 +115,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
         <button
           type="button"
           aria-label="Clear all filters"
+          title="Clear all filters"
           onClick={() => {
             useStore.getState().setSearchTerm('');
             useStore.getState().setFilters([]);
