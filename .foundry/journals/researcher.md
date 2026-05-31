@@ -10,3 +10,7 @@
 ## Research on Auditor Persona State Machine
 
 When implementing new pipeline states that involve temporary ownership handoffs (like the `VERIFYING` state owned by the `auditor`), it is a critical architectural constraint to **not** modify the `owner_persona` in the node's YAML frontmatter. If the frontmatter is overwritten, the system loses the history of the original implementer (e.g., `coder`). Instead, dynamic ownership should be injected only in the orchestrator's matrix JSON output during dispatch. This preserves the original owner, ensuring that if the temporary owner rejects the work (triggering the Resurrection Loop), the node will correctly route back to the original persona for rework.
+
+## Cloudflare Native Authentication
+- **Finding:** For Cloudflare Pages, `@cloudflare/pages-plugin-cloudflare-access` provides native middleware to validate JWTs from Cloudflare Access.
+- **Why it matters:** Generic Node.js OAuth libraries are difficult to maintain in edge environments. Relying on Cloudflare Access to handle the Google SSO flow at the infrastructure level removes the need to write custom callback/session management code. It also allows single-user restrictions to be configured via Zero Trust policies instead of application logic.
