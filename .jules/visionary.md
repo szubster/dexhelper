@@ -51,3 +51,8 @@
 **Idea:** Save State Version History and Metadata Inference
 **Learning:** Older generation games lack metadata (like "date caught" or "encounter location" in Gen 1). However, by storing a history of sequential save file uploads and diffing them (e.g., "Pikachu appeared in Box 1 between upload A and upload B"), we can infer and enrich the data locally, creating modern metadata for retro games. This completely redefines the tool from a static state viewer into a progressive timeline tracker.
 **Outcome:** Created IDEA node.
+
+## Learning
+**Idea:** Gen 3 Berry Farming Tracker
+**Learning:** When expanding to new generations (like Gen 3), target the unique, generation-specific mechanics (like RTC-based berry farming) that present new pain points for players. Automating time-based or heavily localized systems provides immediate high value that generic static views cannot match.
+**Outcome:** Created IDEA node.
