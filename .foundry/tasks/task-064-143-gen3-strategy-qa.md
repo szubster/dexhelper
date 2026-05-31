@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-05-31'
 depends_on:
-  - .foundry/tasks/task-064-142-gen3-strategy-impl.md
+  - task-064-142-gen3-strategy-impl
 jules_session_id: '13515931953310014717'
 parent: task-064-134-encounter-integration-impl
 tags:

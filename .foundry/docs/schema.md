@@ -234,12 +234,12 @@ notes: ""
 ```yaml
 # A story that is blocked by its parent epic being approved:
 depends_on:
-  - .foundry/epics/epic-001-auth-overhaul.md
+  - epic-001-auth-overhaul
 
 # A task blocked by two stories:
 depends_on:
-  - .foundry/stories/story-002-db-schema.md
-  - .foundry/stories/story-003-api-contract.md
+  - story-002-db-schema
+  - story-003-api-contract
 
 # An unblocked node (eligible for dispatch as soon as status = READY):
 depends_on: []

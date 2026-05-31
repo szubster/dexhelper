@@ -9,7 +9,7 @@ updated_at: '2026-05-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-014-cascade-cancellation.md
+parent: idea-014-cascade-cancellation
 tags:
   - foundry
   - dag
@@ -47,4 +47,4 @@ While agents have been explicitly instructed to use the `FAILED` or `CANCELLED` 
 ## Acceptance Criteria
 
 - [x] Epic Planner: Break this PRD down into actionable Epics.
-  - >> .foundry/epics/epic-013-023-orchestrator-cascade-cancellation.md
+  - epic-013-023-orchestrator-cascade-cancellation

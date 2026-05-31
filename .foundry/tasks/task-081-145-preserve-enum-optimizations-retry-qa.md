@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-05-29'
 updated_at: '2026-05-29'
 depends_on:
-  - .foundry/tasks/task-081-144-preserve-enum-optimizations-retry-impl.md
+  - task-081-144-preserve-enum-optimizations-retry-impl
 jules_session_id: null
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 0

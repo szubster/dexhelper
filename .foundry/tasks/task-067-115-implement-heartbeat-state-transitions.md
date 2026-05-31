@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on:
-  - .foundry/tasks/task-067-114-implement-heartbeat-state-transitions.md
+  - task-067-114-implement-heartbeat-state-transitions
 jules_session_id: null
 pr_number: null
 parent: story-033-067-heartbeat-state-transitions
