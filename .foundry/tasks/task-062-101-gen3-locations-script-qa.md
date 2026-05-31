@@ -15,7 +15,7 @@ rejection_reason: >-
   task-062-100-gen3-locations-script-impl
 ---
 
-**[CANCELLED]** This QA task is cancelled because its associated implementation task hit its Max Rejection Count and permanently failed. It is replaced by `.foundry/tasks/task-062-113-gen3-locations-script-retry-qa.md`.
+**[CANCELLED]** This QA task is cancelled because its associated implementation task hit its Max Rejection Count and permanently failed. It is replaced by `.foundry/archive/tasks/task-062-113-gen3-locations-script-retry-qa.md`.
 
 # QA Gen 3 Locations Fetch Script
 
