@@ -9,7 +9,7 @@ updated_at: '2026-04-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-012-029-document-gastown-migration-decision.md
+parent: story-012-029-document-gastown-migration-decision
 tags:
   - foundry-v2
   - architecture

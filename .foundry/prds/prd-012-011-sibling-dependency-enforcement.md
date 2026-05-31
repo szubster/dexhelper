@@ -8,7 +8,7 @@ created_at: '2026-05-01'
 updated_at: '2026-05-02'
 depends_on: []
 jules_session_id: null
-parent: .foundry/ideas/idea-012-sibling-dependency-enforcement.md
+parent: idea-012-sibling-dependency-enforcement
 tags:
   - orchestrator
   - dag

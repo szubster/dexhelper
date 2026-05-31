@@ -9,7 +9,7 @@ updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-008-024-update-status-on-merge.md
+parent: story-008-024-update-status-on-merge
 tags:
   - foundry-engine
   - orchestrator

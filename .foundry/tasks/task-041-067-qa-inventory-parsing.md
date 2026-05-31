@@ -7,10 +7,10 @@ owner_persona: qa
 created_at: '2025-05-15'
 updated_at: "2026-05-06"
 depends_on:
-  - .foundry/tasks/task-041-066-implement-inventory-parsing.md
+  - task-041-066-implement-inventory-parsing
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-026-041-inventory-parsing.md
+parent: story-026-041-inventory-parsing
 tags:
   - gen2
   - save-parser

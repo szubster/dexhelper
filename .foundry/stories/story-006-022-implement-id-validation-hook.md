@@ -8,7 +8,7 @@ created_at: '2026-04-25'
 updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
-parent: .foundry/epics/epic-006-id-pre-commit-hooks.md
+parent: epic-006-id-pre-commit-hooks
 rejection_reason: ''
 ---
 
