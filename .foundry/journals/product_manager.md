@@ -13,3 +13,9 @@ An idea was generated to enforce `gray-matter` usage in scripts via a custom Bio
 
 **Architectural Constraint:**
 When proposing system improvements or guardrails (like custom linters), we must strictly evaluate the ROI. Creating and maintaining highly specific custom rules for minor edge-cases often outweighs the benefits compared to relying on standard PR reviews. If the technical cost and maintenance burden are disproportionately high for the problem being solved, the idea should be declined/cancelled early in the pipeline to avoid wasting engineering cycles.
+## Anomaly: Target Artifact Exists Prior to Session (2026-05-28)
+**Observation:**
+During the session for node `idea-064-smart-route-radar`, it was discovered that the target artifact `prd-064-035-smart-route-radar.md` and all its child nodes already existed in the `.foundry` directory prior to execution. Additionally, the acceptance criteria in the parent IDEA node were already checked off.
+
+**Impact:**
+This implies that either a previous session successfully generated the node but failed to correctly transition the IDEA node's status, or there was a desync in the orchestrator. This behavior should be reviewed by the Agile Coach to prevent redundant work or silent failures in node progression.
