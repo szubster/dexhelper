@@ -2,12 +2,12 @@
 id: task-079-144-ui-sync-status-impl
 type: TASK
 title: Implement UI Sync Status & Permissions
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-28'
 updated_at: '2026-05-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14797373396629951401'
 pr_number: null
 parent: story-041-079-ui-sync-status
 tags:
