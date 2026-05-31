@@ -6,6 +6,7 @@ export interface FoundryNodeData {
   status: string;
   owner_persona: string;
   depends_on: string[];
+  rejection_count: number;
 }
 
 export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
@@ -29,6 +30,10 @@ export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
       return null;
     }
 
+    // biome-ignore lint/complexity/useLiteralKeys: TSConfig strictly requires bracket notation
+    const parsedRejectionCount = data['rejection_count'];
+    const rejection_count = typeof parsedRejectionCount === 'number' ? parsedRejectionCount : 0;
+
     return {
       // biome-ignore lint/complexity/useLiteralKeys: TSConfig strictly requires bracket notation
       id: data['id'],
@@ -40,6 +45,7 @@ export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
       owner_persona: data['owner_persona'],
       // biome-ignore lint/complexity/useLiteralKeys: TSConfig strictly requires bracket notation
       depends_on: data['depends_on'],
+      rejection_count,
     };
   } catch {
     // If gray-matter fails to parse, return null
