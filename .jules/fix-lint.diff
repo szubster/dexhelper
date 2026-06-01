@@ -1,9 +1,0 @@
-<<<<<<< SEARCH
-              {FILTER_TYPES.map((f, idx) => {
-                const isActive = filtersSet.has(f);
-                return (
-=======
-              {FILTER_TYPES.map((f) => {
-                const isActive = filtersSet.has(f);
-                return (
->>>>>>> REPLACE
