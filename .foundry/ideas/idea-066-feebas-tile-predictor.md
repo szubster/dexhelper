@@ -2,17 +2,18 @@
 id: idea-066-feebas-tile-predictor
 type: IDEA
 title: Gen 3 Feebas Tile Predictor
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-05-28'
-updated_at: '2026-05-30'
+updated_at: '2026-06-01'
 depends_on: []
-jules_session_id: '13240438150255918587'
+jules_session_id: null
 parent: null
 tags:
   - feature
   - gen3
 notes: ''
+rejection_reason: ''
 ---
 
 # Idea: Gen 3 Feebas Tile Predictor

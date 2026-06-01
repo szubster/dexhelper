@@ -2,10 +2,10 @@
 id: research-036-006-feebas-seed-investigation
 type: RESEARCH
 title: Investigate Feebas Seed Offset and Algorithm in R/S/E
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-05-30'
-updated_at: '2026-05-30'
+updated_at: '2026-06-01'
 depends_on: []
 jules_session_id: null
 parent: prd-066-036-feebas-tile-predictor

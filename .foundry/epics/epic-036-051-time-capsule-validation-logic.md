@@ -2,10 +2,10 @@
 id: epic-036-051-time-capsule-validation-logic
 type: EPIC
 title: Time Capsule Validation Core Logic
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-05-30"
-updated_at: "2026-05-30"
+created_at: '2026-05-30'
+updated_at: '2026-06-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - tool
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Time Capsule Validation Core Logic
