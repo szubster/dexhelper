@@ -7,7 +7,7 @@ owner_persona: product_manager
 created_at: '2026-05-14'
 updated_at: '2026-05-21'
 depends_on:
-  - .foundry/ideas/idea-017-dag-dashboard.md
+  - idea-017-dag-dashboard
 jules_session_id: null
 parent: null
 tags:

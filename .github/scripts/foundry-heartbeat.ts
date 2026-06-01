@@ -86,6 +86,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
        parsed.data.status = "PENDING";
        parsed.data.jules_session_id = null;
        parsed.data.updated_at = dateStr;
+       parsed.data.rejection_reason = '';
 
        const newContent = matter.stringify(parsed.content, parsed.data);
 
@@ -117,6 +118,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     parsed.data.status = "VERIFYING";
     parsed.data.jules_session_id = null;
     parsed.data.updated_at = dateStr;
+    parsed.data.rejection_reason = '';
 
     const newContent = matter.stringify(parsed.content, parsed.data);
 
@@ -129,6 +131,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     parsed.data.status = "COMPLETED";
     parsed.data.jules_session_id = null;
     parsed.data.updated_at = dateStr;
+    parsed.data.rejection_reason = '';
 
     const newContent = matter.stringify(parsed.content, parsed.data);
 
@@ -164,6 +167,7 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
     if (currentStatus === "VERIFYING") {
       parsed.data.status = "VERIFYING";
       parsed.data.jules_session_id = null;
+      parsed.data.rejection_reason = '';
       const newContent = matter.stringify(parsed.content, parsed.data);
 
       if (!DRY_RUN) {
@@ -174,6 +178,7 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
     } else {
       parsed.data.status = "READY";
       parsed.data.jules_session_id = null;
+      parsed.data.rejection_reason = '';
       const newContent = matter.stringify(parsed.content, parsed.data);
 
       if (!DRY_RUN) {
@@ -198,6 +203,7 @@ export async function transitionNodeToReadyWithoutPenalty(node: any, repoRoot: s
     parsed.data.status = "VERIFYING";
     parsed.data.jules_session_id = null;
     parsed.data.updated_at = dateStr;
+    parsed.data.rejection_reason = '';
 
     const newContent = matter.stringify(parsed.content, parsed.data);
 
@@ -210,6 +216,7 @@ export async function transitionNodeToReadyWithoutPenalty(node: any, repoRoot: s
     parsed.data.status = "READY";
     parsed.data.jules_session_id = null;
     parsed.data.updated_at = dateStr;
+    parsed.data.rejection_reason = '';
 
     const newContent = matter.stringify(parsed.content, parsed.data);
 
@@ -334,9 +341,9 @@ export async function main() {
     const sessionId = node.frontmatter.jules_session_id;
     const isHuman = node.frontmatter.owner_persona === 'human';
 
-    if (!isHuman && (!sessionId || sessionId === 'null') && node.frontmatter.status === 'ACTIVE') {
-      warn(`Node ${node.repoPath} is ACTIVE but missing session ID. Failing.`);
-      await transitionNodeToFailed(node, repoRoot, 'ACTIVE node missing session ID');
+    if (!isHuman && (!sessionId || sessionId === 'null') && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING')) {
+      warn(`Node ${node.repoPath} is ${node.frontmatter.status} but missing session ID. Failing.`);
+      await transitionNodeToFailed(node, repoRoot, `${node.frontmatter.status} node missing session ID`);
       continue;
     }
 

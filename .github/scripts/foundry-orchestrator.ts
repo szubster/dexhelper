@@ -506,6 +506,15 @@ function main(): void {
     if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'VERIFYING') continue;
 
     let shouldSuspend = false;
+
+    const children = parentToChildren.get(node.repoPath) || [];
+    for (const child of children) {
+      if (isHierarchicallyIncomplete(child.repoPath, node.repoPath)) {
+        shouldSuspend = true;
+        break;
+      }
+    }
+
     for (const depRef of node.frontmatter.depends_on) {
       const depPath = resolveNodePath(depRef)!;
       const dep = nodeMap.get(depPath);
@@ -534,6 +543,16 @@ function main(): void {
     }
 
 
+
+    if (!shouldSuspend) {
+      const children = parentToChildren.get(node.repoPath) || [];
+      for (const child of children) {
+        if (isHierarchicallyIncomplete(child.repoPath, node.repoPath)) {
+          shouldSuspend = true;
+          break;
+        }
+      }
+    }
 
     if (shouldSuspend) {
       info(`Suspending ${node.frontmatter.status} node: ${node.repoPath}`);

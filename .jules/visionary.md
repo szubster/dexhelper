@@ -21,6 +21,13 @@
 **Idea:** Smart Route Radar / Context-Aware Missing Encounter Map
 **Learning:** Currently DexHelper acts as an excellent static reference and passive save viewer. By dynamically intersecting the static game knowledge (e.g., encounter tables for specific maps) with the player's current save state (Pokédex/Box completion), we can create an "active guide". A feature that automatically highlights which routes the player should visit *next* to catch missing Pokémon bridges the gap between reference tool and proactive companion app.
 
+**Idea:** Gen 3 Feebas Tile Predictor
+**Learning:** Gen 3 introduced extremely cryptic, save-state dependent mechanics like the 6 random Feebas tiles on Route 119. Since we already parse `.sav` files, extracting the seed and visually highlighting these exact tiles on a route map provides tremendous utility, turning a tedious manual search into a targeted catch, thus perfectly leveraging our offline-first programmatic save access.
+## 2026-05-27
+**Idea:** ROM Hack Support via Custom Adapters
+**Learning:** Hardcoding our parsing engine strictly to vanilla Gen 1/2 saves alienates a massive, highly-engaged segment of the retro Pokémon community: ROM hack players (e.g., Crystal Clear, Polished Crystal). Since ROM hacks often modify save structures, our current heuristic detection fails. We need a pluggable adapter architecture to scale our user base to include these custom playstyles without breaking core functionality.
+**Outcome:** Rejected by the maintainer. Hard project constraint established: the maintainer will not play ROM hacks and considers supporting them too much effort. Do not generate ideas related to ROM hack support in the future.
+## 2026-05-26
 **Idea:** Save File Health & Corruption Scanner
 **Learning:** The application's core strength is its deep parsing of retro save files. By leaning into the "offline-first, client-side" architecture, we can leverage this existing parsing logic to not just display data, but *validate* it. This pivots the app's value proposition from being just a "tracker" to a critical "preservation utility" for a community plagued by dying cartridge batteries and bad dumps. Ideas that reuse our existing programmatic strengths to solve high-friction community problems outside of standard gameplay loops are highly valuable.
 
@@ -32,3 +39,9 @@
 
 **Idea:** Missing Hidden Items Finder
 **Learning:** Finding hidden items (like Rare Candies or TMs) in Gen 1/2 is extremely tedious without a guide, and players often forget which ones they've already picked up since the games don't track them explicitly in a user-facing way. By parsing the event flags in the save file, we can dynamically generate a checklist of *remaining* hidden items, turning static guide knowledge into personalized, actionable insights. This continues the trend of surfacing hidden save state to solve high-friction retro gaming pain points.
+**Outcome:** Created IDEA node.
+
+## Learning
+**Idea:** Gen 3 Berry Farming Tracker
+**Learning:** When expanding to new generations (like Gen 3), target the unique, generation-specific mechanics (like RTC-based berry farming) that present new pain points for players. Automating time-based or heavily localized systems provides immediate high value that generic static views cannot match.
+**Outcome:** Created IDEA node.

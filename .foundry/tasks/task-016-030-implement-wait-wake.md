@@ -9,7 +9,7 @@ updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-011-016-wait-wake-implementation.md
+parent: story-011-016-wait-wake-implementation
 rejection_reason: ''
 ---
 

@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-05-11'
 updated_at: '2026-05-13'
 depends_on:
-  - .foundry/tasks/task-048-080-evaluate-graph-libraries.md
+  - task-048-080-evaluate-graph-libraries
 jules_session_id: null
 pr_number: null
 parent: story-029-048-evaluate-graph-libraries

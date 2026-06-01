@@ -7,10 +7,10 @@ owner_persona: qa
 created_at: '2026-04-25'
 updated_at: '2026-04-26'
 depends_on:
-  - .foundry/tasks/task-016-030-implement-wait-wake.md
+  - task-016-030-implement-wait-wake
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-011-016-wait-wake-implementation.md
+parent: story-011-016-wait-wake-implementation
 rejection_reason: ''
 ---
 

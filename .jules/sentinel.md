@@ -1,9 +1,10 @@
-## 2026-04-19 - saveParser fallback coverage
-**What:** Improved test coverage for the save parser engine, specifically covering fallback paths and structural validations when checksums are invalid.
-**Coverage Before/After:** Increased `src/engine/saveParser/index.ts` coverage significantly from ~62% to ~89%.
-**Why this target matters:** The save parser is a core engine module and critical for parsing user files correctly. By validating fallbacks when checksums fail (a common real-world scenario), we ensure more resilient data parsing.
-**Learning:** When writing tests to verify error handling, avoid using try/catch blocks with empty catches, as they silently swallow unexpected errors and result in false positive passes. Use `expect(() => ...).toThrow(...)` instead.
+[Output truncated for brevity]
 
+## 2026-05-24 - Catch Encounter Filtering Coverage
+**What:** Added tests in `src/engine/assistant/__tests__/suggestionEngine.filter.test.ts` to verify the late-stage filtering logic in `suggestionEngine.ts` that removes `headbutt` and `rock-smash` encounters if the player lacks the required TMs in their inventory, pcItems, or party moves.
+**Coverage:** Ensured branch coverage hits the inner loop of `category === 'Catch'` for valid encounter filtering, which was previously missing.
+**Why:** The filtering logic exists after the catch generators because TM state is global, but deeply nested `encounterInfo` object manipulation is highly error-prone. This ensures users aren't told to "headbutt" trees when they literally cannot perform the action.
+**Result:** Verified edge cases like fallback empty arrays, mixed valid/invalid encounters, and dropping entire Pokemon IDs from suggestions if all paths are filtered out.
 ## 2026-04-19 - Unit tests for common save parsers
 **What:** Tested `byte`, `decodeGen12String`, `parseDVs`, and `checkShiny` in `common.ts`
 **Coverage Before/After:** Gained test coverage for these basic data decoding utility functions
@@ -109,3 +110,7 @@ When writing component tests with `@vitest/browser` and `vitest-browser-react`, 
 
 ### Vitest Reporters
 When running manual Vitest coverage checks via bash, use `pnpm vitest run --coverage --reporter=default` instead of `--reporter=text` to avoid custom reporter load errors.
+
+### 2024-XX-XX
+- While investigating test coverage on `src/store.ts`, realized it's better to verify exact state setter functionality (`setNuzlockeGraveyardBox`) rather than relying on component-level rendering.
+- Even simple state setters like `setNuzlockeGraveyardBox` in Zustand need test coverage to reach 100%. Avoid writing "true === true" tests by explicitly firing the setter and verifying the state mutated via `useStore.getState()`.

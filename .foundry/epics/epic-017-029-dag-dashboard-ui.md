@@ -7,10 +7,10 @@ owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-17'
 depends_on:
-  - .foundry/epics/epic-017-028-dag-dashboard-data.md
+  - epic-017-028-dag-dashboard-data
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-017-017-dag-dashboard.md
+parent: prd-017-017-dag-dashboard
 tags:
   - dag
   - dashboard

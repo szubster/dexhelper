@@ -9,7 +9,7 @@ updated_at: '2026-05-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-018-018-migrate-heartbeat-to-gray-matter.md
+parent: prd-018-018-migrate-heartbeat-to-gray-matter
 tags:
   - foundry
   - dag
