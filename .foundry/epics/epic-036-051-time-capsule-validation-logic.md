@@ -2,12 +2,12 @@
 id: epic-036-051-time-capsule-validation-logic
 type: EPIC
 title: Time Capsule Validation Core Logic
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-30'
 updated_at: '2026-06-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2268726338283817637'
 pr_number: null
 parent: prd-066-036-time-capsule-validator
 tags:
