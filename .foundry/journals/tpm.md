@@ -77,3 +77,7 @@
 - **2026-05-31**: PR #1991 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
 
 - **2026-05-31**: PR #1993 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-06-01**: PR #1997 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-06-01**: System failure detected for `task-071-138-graveyard-integration-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
