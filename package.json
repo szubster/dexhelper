@@ -102,6 +102,9 @@
       "ignoreCves": [
         "GHSA-rmmr-r34h-pfm5"
       ]
+    },
+    "overrides": {
+      "tmp": ">=0.2.6"
     }
   }
 }

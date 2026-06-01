@@ -26,9 +26,9 @@ describe('SettingsControls', () => {
       />,
     );
 
-    await expect.element(page.getByText('Version')).toBeInTheDocument();
-    await expect.element(page.getByText('Living Dex', { exact: true })).toBeInTheDocument();
-    await expect.element(page.getByText('Ball Style')).toBeInTheDocument();
+    await expect.element(page.getByRole('group', { name: 'Game Version' })).toBeInTheDocument();
+    await expect.element(page.getByRole('group', { name: 'Living Dex Mode' })).toBeInTheDocument();
+    await expect.element(page.getByRole('group', { name: 'Ball Style' })).toBeInTheDocument();
   });
 
   it('handles graveyard box change', async () => {

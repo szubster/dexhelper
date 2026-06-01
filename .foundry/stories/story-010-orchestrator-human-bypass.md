@@ -8,7 +8,7 @@ created_at: '2026-04-23'
 updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
-parent: .foundry/epics/epic-011-human-orchestrator.md
+parent: epic-011-human-orchestrator
 tags:
   - human-in-the-loop
   - orchestrator

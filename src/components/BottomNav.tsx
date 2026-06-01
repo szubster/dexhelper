@@ -1,7 +1,7 @@
-import { Link, useLocation } from '@tanstack/react-router';
+import { useLocation } from '@tanstack/react-router';
 import { Database, GitGraph, LayoutGrid, Settings2, Sparkles } from 'lucide-react';
 import { useStore } from '../store';
-import { cn } from '../utils/cn';
+import { NavButton } from './NavButton';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
 export function BottomNav() {
@@ -49,107 +49,36 @@ export function BottomNav() {
           </div>
         )}
 
-        <Link
-          to="/"
-          aria-label="Pokedex"
-          title="Pokedex"
-          aria-current={isDex ? 'page' : undefined}
-          className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-            isDex ? 'text-[var(--theme-primary)]' : 'text-zinc-600 hover:text-zinc-400',
-          )}
-        >
-          {isDex && <div className="lcd-flicker absolute inset-0 bg-[var(--theme-primary)]/5" />}
-          <div className={cn('transition-transform', isDex ? 'animate-pulse' : 'active:scale-90')}>
-            <LayoutGrid
-              size={20}
-              strokeWidth={isDex ? 2.5 : 2}
-              className={cn(isDex && 'drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),1)]')}
-            />
-          </div>
-          <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">{isDex ? '[ DEX ]' : 'DEX'}</span>
-        </Link>
+        <NavButton to="/" ariaLabel="Pokedex" label="DEX" activeLabel="[ DEX ]" icon={LayoutGrid} isActive={isDex} />
 
-        <Link
+        <NavButton
           to="/storage"
-          aria-label="Storage"
-          title="Storage"
-          aria-current={isStorage ? 'page' : undefined}
-          className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-            isStorage ? 'text-[var(--theme-primary)]' : 'text-zinc-600 hover:text-zinc-400',
-          )}
-        >
-          {isStorage && <div className="lcd-flicker absolute inset-0 bg-[var(--theme-primary)]/5" />}
-          <div className={cn('transition-transform', isStorage ? 'animate-pulse' : 'active:scale-90')}>
-            <Database
-              size={20}
-              strokeWidth={isStorage ? 2.5 : 2}
-              className={cn(isStorage && 'drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),1)]')}
-            />
-          </div>
-          <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">
-            {isStorage ? '[ STRG ]' : 'STRG'}
-          </span>
-        </Link>
+          ariaLabel="Storage"
+          label="STRG"
+          activeLabel="[ STRG ]"
+          icon={Database}
+          isActive={isStorage}
+        />
 
-        <Link
+        <NavButton
           to="/assistant"
-          aria-label="Assistant"
-          title="Assistant"
-          aria-current={isAssistant ? 'page' : undefined}
-          className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-            isAssistant ? 'text-[var(--theme-primary)]' : 'text-zinc-600 hover:text-zinc-400',
-          )}
-        >
-          {isAssistant && <div className="lcd-flicker absolute inset-0 bg-[var(--theme-primary)]/5" />}
-          <div className={cn('transition-transform', isAssistant ? 'animate-pulse' : 'active:scale-90')}>
-            <Sparkles
-              size={20}
-              strokeWidth={isAssistant ? 2.5 : 2}
-              className={cn(isAssistant && 'drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),1)]')}
-            />
-          </div>
-          <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">
-            {isAssistant ? '[ ASST ]' : 'ASST'}
-          </span>
-        </Link>
+          ariaLabel="Assistant"
+          label="ASST"
+          activeLabel="[ ASST ]"
+          icon={Sparkles}
+          isActive={isAssistant}
+        />
 
-        <Link
-          to="/dag"
-          aria-label="DAG"
-          title="DAG"
-          aria-current={isDag ? 'page' : undefined}
-          className={cn(
-            'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-            isDag ? 'text-[var(--theme-primary)]' : 'text-zinc-600 hover:text-zinc-400',
-          )}
-        >
-          {isDag && <div className="lcd-flicker absolute inset-0 bg-[var(--theme-primary)]/5" />}
-          <div className={cn('transition-transform', isDag ? 'animate-pulse' : 'active:scale-90')}>
-            <GitGraph
-              size={20}
-              strokeWidth={isDag ? 2.5 : 2}
-              className={cn(isDag && 'drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),1)]')}
-            />
-          </div>
-          <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">{isDag ? '[ DAG ]' : 'DAG'}</span>
-        </Link>
+        <NavButton to="/dag" ariaLabel="DAG" label="DAG" activeLabel="[ DAG ]" icon={GitGraph} isActive={isDag} />
 
-        <button
-          type="button"
+        <NavButton
           onClick={() => setIsSettingsOpen(true)}
-          aria-label="Open settings menu"
-          title="Open settings menu"
-          aria-expanded={isSettingsOpen}
-          className="group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 text-zinc-600 transition-all duration-300 hover:text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-        >
-          <div className="transition-transform active:scale-90">
-            <Settings2 size={20} strokeWidth={2} />
-          </div>
-          <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">MENU</span>
-        </button>
+          ariaLabel="Open settings menu"
+          label="MENU"
+          activeLabel="MENU"
+          icon={Settings2}
+          isActive={isSettingsOpen}
+        />
       </div>
     </nav>
   );

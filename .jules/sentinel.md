@@ -110,3 +110,7 @@ When writing component tests with `@vitest/browser` and `vitest-browser-react`, 
 
 ### Vitest Reporters
 When running manual Vitest coverage checks via bash, use `pnpm vitest run --coverage --reporter=default` instead of `--reporter=text` to avoid custom reporter load errors.
+
+### 2024-XX-XX
+- While investigating test coverage on `src/store.ts`, realized it's better to verify exact state setter functionality (`setNuzlockeGraveyardBox`) rather than relying on component-level rendering.
+- Even simple state setters like `setNuzlockeGraveyardBox` in Zustand need test coverage to reach 100%. Avoid writing "true === true" tests by explicitly firing the setter and verifying the state mutated via `useStore.getState()`.

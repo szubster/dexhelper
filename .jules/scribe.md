@@ -132,3 +132,8 @@ Documenting this prevents developers from incorrectly refactoring offset lookups
 **Why:** The Nuzlocke tracker implements specific game rules (permadeath, one catch per route) through constraints in the binary save data structure.
 - **Permadeath (PC Healing Problem):** I learned that we cannot rely solely on `currentHp === 0` to track deaths because depositing a Pokémon in the PC fully heals it in the save data. To circumvent this, the engine relies on the player designating a specific PC box via string comparison (`storageLocation === graveyardBox`).
 - **Route Tracking (Gen 2 Dependency):** The "One Catch Per Route" rule is enforced by checking `caughtData.location` across all Party and PC structures. This means this strict Nuzlocke enforcement feature is inherently dependent on Generation 2 mechanics, as Generation 1 save files do not store catch location data.
+
+## 2026-05-30 - Suggestion Engine Array Mutation Architecture Documentation
+
+**What:** Added comprehensive JSDoc to the generator functions (`generateCatchSuggestions`, `generateGiftAndTradeSuggestions`, `generateBreedingSuggestions`, `generateEvolutionSuggestions`) in `src/engine/assistant/suggestionEngine.ts`.
+**Why:** The sub-generators lacked explicit architectural documentation explaining *why* they mutate the `suggestions` and `localPids` arrays directly instead of returning new arrays or using pure functions. This mutation-in-place pattern is a critical O(1) memory optimization necessary for the engine's hot path to avoid O(N) garbage collection overhead when simultaneously evaluating hundreds of encounters. Documenting this ensures future maintainers do not accidentally "refactor" these functions into pure, immutable patterns which would lock the UI thread.

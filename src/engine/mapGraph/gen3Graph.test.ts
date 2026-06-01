@@ -1,16 +1,6 @@
-import { describe, expect, it, vi } from 'vitest';
-import { pokeDB } from '../../db/PokeDB';
+import { describe, expect, it } from 'vitest';
 import type { UnifiedLocation } from '../../db/schema';
 import { gen3HoennMapGraph, gen3KantoMapGraph, getDistanceToMap, resolveOutdoorMapId } from './gen3Graph';
-
-// Mock the pokeDB dependency
-vi.mock('../../db/PokeDB', () => {
-  return {
-    pokeDB: {
-      getAllAreas: vi.fn<() => Promise<UnifiedLocation[]>>(),
-    },
-  };
-});
 
 const mockLocations: UnifiedLocation[] = [
   { id: 0, n: 'Littleroot Town', conn: [1], dist: { 0: 0, 1: 1, 2: 2 } },
@@ -26,111 +16,95 @@ const mockLocations: UnifiedLocation[] = [
 
 describe('gen3Graph', () => {
   describe('getDistanceToMap', () => {
-    it('returns distance 0 when starting map is the target', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await getDistanceToMap(0, 0);
+    it('returns distance 0 when starting map is the target', () => {
+      const result = getDistanceToMap(mockLocations, 0, 0);
       expect(result).toEqual({ distance: 0, name: 'Littleroot Town' });
     });
 
-    it('returns distance 1 for an adjacent map', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await getDistanceToMap(0, 1);
+    it('returns distance 1 for an adjacent map', () => {
+      const result = getDistanceToMap(mockLocations, 0, 1);
       expect(result).toEqual({ distance: 1, name: 'Route 101' });
     });
 
-    it('gracefully falls back to parent map for indoor locations', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await getDistanceToMap(3, 1);
+    it('gracefully falls back to parent map for indoor locations', () => {
+      const result = getDistanceToMap(mockLocations, 3, 1);
       expect(result).toEqual({ distance: 1, name: 'Route 101' });
     });
 
-    it('gracefully falls back to root parent map for multi-level indoor locations', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await getDistanceToMap(4, 1);
+    it('gracefully falls back to root parent map for multi-level indoor locations', () => {
+      const result = getDistanceToMap(mockLocations, 4, 1);
       expect(result).toEqual({ distance: 1, name: 'Route 101' });
     });
 
-    it('gracefully falls back to parent map for indoor locations in Kanto', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await getDistanceToMap(44, 43);
+    it('gracefully falls back to parent map for indoor locations in Kanto', () => {
+      const result = getDistanceToMap(mockLocations, 44, 43);
       expect(result).toEqual({ distance: 1, name: 'Route 1' });
     });
 
-    it('gracefully falls back to root parent map for multi-level indoor locations in Kanto', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await getDistanceToMap(45, 43);
+    it('gracefully falls back to root parent map for multi-level indoor locations in Kanto', () => {
+      const result = getDistanceToMap(mockLocations, 45, 43);
       expect(result).toEqual({ distance: 1, name: 'Route 1' });
     });
 
-    it('defaults to map ID 0 for an unknown starting map', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await getDistanceToMap(999, 1);
+    it('defaults to map ID 0 for an unknown starting map', () => {
+      const result = getDistanceToMap(mockLocations, 999, 1);
       expect(result).toEqual({ distance: 1, name: 'Route 101' });
     });
 
-    it('returns null for an unknown target aid', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await getDistanceToMap(0, 9999);
+    it('returns null for an unknown target aid', () => {
+      const result = getDistanceToMap(mockLocations, 0, 9999);
       expect(result).toBeNull();
     });
 
-    it('returns null when start location cannot be resolved (no map id and no fallback map ID 0)', async () => {
+    it('returns null when start location cannot be resolved (no map id and no fallback map ID 0)', () => {
       const locationsWithoutZero: UnifiedLocation[] = [{ id: 1, n: 'Route 101', conn: [], dist: { 1: 0 } }];
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(locationsWithoutZero);
-      const result = await getDistanceToMap(999, 1);
+      const result = getDistanceToMap(locationsWithoutZero, 999, 1);
       expect(result).toBeNull();
     });
 
-    it('returns null when no distance is precomputed between start and target', async () => {
+    it('returns null when no distance is precomputed between start and target', () => {
       const locationsWithoutDist: UnifiedLocation[] = [
         { id: 0, n: 'Littleroot Town', conn: [], dist: {} },
         { id: 1, n: 'Route 101', conn: [], dist: {} },
       ];
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(locationsWithoutDist);
-      const result = await getDistanceToMap(0, 1);
+      const result = getDistanceToMap(locationsWithoutDist, 0, 1);
       expect(result).toBeNull();
     });
   });
 
   describe('resolveOutdoorMapId', () => {
-    it('correctly resolves a map ID with no prnt to itself', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await resolveOutdoorMapId(0);
+    it('correctly resolves a map ID with no prnt to itself', () => {
+      const result = resolveOutdoorMapId(mockLocations, 0);
       expect(result).toBe(0);
     });
 
-    it('correctly resolves a single-level indoor map to its outdoor hub', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await resolveOutdoorMapId(3);
+    it('correctly resolves a single-level indoor map to its outdoor hub', () => {
+      const result = resolveOutdoorMapId(mockLocations, 3);
       expect(result).toBe(0);
     });
 
-    it('correctly resolves a multi-level indoor map to its root outdoor hub', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await resolveOutdoorMapId(4);
+    it('correctly resolves a multi-level indoor map to its root outdoor hub', () => {
+      const result = resolveOutdoorMapId(mockLocations, 4);
       expect(result).toBe(0);
     });
 
-    it('correctly resolves a single-level indoor map to its outdoor hub in Kanto', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await resolveOutdoorMapId(44);
+    it('correctly resolves a single-level indoor map to its outdoor hub in Kanto', () => {
+      const result = resolveOutdoorMapId(mockLocations, 44);
       expect(result).toBe(42);
     });
 
-    it('correctly resolves a multi-level indoor map to its root outdoor hub in Kanto', async () => {
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(mockLocations);
-      const result = await resolveOutdoorMapId(45);
+    it('correctly resolves a multi-level indoor map to its root outdoor hub in Kanto', () => {
+      const result = resolveOutdoorMapId(mockLocations, 45);
       expect(result).toBe(42);
     });
 
-    it('handles circular prnt references gracefully', async () => {
+    it('handles circular prnt references gracefully', () => {
       const circularLocations = [
         ...mockLocations,
         { id: 90, n: 'Loop A', prnt: 91, conn: [], dist: {} },
         { id: 91, n: 'Loop B', prnt: 90, conn: [], dist: {} },
       ];
-      vi.mocked(pokeDB.getAllAreas).mockResolvedValue(circularLocations);
-      const result = await resolveOutdoorMapId(90);
+      const result = resolveOutdoorMapId(circularLocations, 90);
       expect(result).toBe(90);
     });
   });

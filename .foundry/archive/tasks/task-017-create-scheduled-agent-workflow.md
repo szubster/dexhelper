@@ -8,7 +8,7 @@ created_at: '2026-04-22'
 updated_at: '2026-04-22'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-004-generic-scheduling-workflow.md
+parent: story-004-generic-scheduling-workflow
 tags: []
 rejection_count: 0
 notes: ''

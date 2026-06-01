@@ -151,6 +151,11 @@
 **Why:** The Auditor journal showed that Epics were transitioning to VERIFYING prematurely when their Acceptance Criteria (spawning child stories) were checked off, leading to failed audits because the actual implementation described was not merged.
 **Pattern:** When an agent (like the Story Owner) is responsible for breaking down high-level nodes, it must wait for the generated execution nodes to finish before submitting its Empty PR to complete the parent node.
 
+## 2026-07-09 - [Accepted] - Prompt improvement - Prevent TPM from logging transient status logs
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The `.foundry/journals/tpm.md` journal was filled entirely with transient status logs (e.g., 'System failure detected', 'Resurrection Loop triggered') and orchestrator state transitions, which provide no long-term value, rot the context window, and explicitly violate the memory rules for journals.
+**Pattern:** Codify system memory constraints regarding journal content directly into the relevant agent's prompt, explicitly instructing them to purge and avoid logging transient status updates.
 ## YYYY-MM-DD - [Accepted] - Prompt improvement - Prevent premature verification for all macro nodes
 **Type:** Prompt improvement
 **Outcome:** Merged

@@ -7,9 +7,9 @@ owner_persona: qa
 created_at: '2026-04-26'
 updated_at: '2026-04-26'
 depends_on:
-  - .foundry/archive/tasks/task-021-030-implement-idb-wrapper.md
+  - task-021-030-implement-idb-wrapper
 jules_session_id: null
-parent: .foundry/archive/stories/story-013-021-indexeddb-wrapper-and-error-handling.md
+parent: story-013-021-indexeddb-wrapper-and-error-handling
 tags:
   - indexeddb
   - infrastructure

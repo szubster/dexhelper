@@ -8,7 +8,7 @@ created_at: '2026-04-24'
 updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: .foundry/prds/prd-007-006-automated-link-checker.md
+parent: prd-007-006-automated-link-checker
 tags:
   - infras
   - verification

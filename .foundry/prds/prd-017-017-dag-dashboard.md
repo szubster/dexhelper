@@ -9,7 +9,7 @@ updated_at: '2026-05-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-017-dag-dashboard.md
+parent: idea-017-dag-dashboard
 rejection_reason: ''
 ---
 
