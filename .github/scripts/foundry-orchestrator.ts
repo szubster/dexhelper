@@ -420,7 +420,7 @@ function main(): void {
     const children = parentToChildren.get(parentPath) || [];
     for (const child of children) {
       if (child.frontmatter.status !== 'COMPLETED' && child.frontmatter.status !== 'CANCELLED') {
-        promoteNodeStatus(child, child.frontmatter.status, 'CANCELLED');
+        promoteNodeToCancelledWithReason(child, 'Cancelled due to cascading cancellation from parent');
         cancelledNodes.add(child.repoPath);
         cascadeCancel(child.repoPath); // Recursive call
       }
