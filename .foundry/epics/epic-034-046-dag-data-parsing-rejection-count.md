@@ -2,12 +2,12 @@
 id: epic-034-046-dag-data-parsing-rejection-count
 type: EPIC
 title: Extract and Broadcast Rejection Count in DAG Data Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-22'
-updated_at: '2026-05-28'
+updated_at: '2026-05-31'
 depends_on: []
-jules_session_id: '14271103325217615947'
+jules_session_id: null
 pr_number: null
 parent: prd-063-034-permanent-failure-dashboard
 tags:
@@ -16,7 +16,7 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 2
-rejection_reason: 'Session terminated with state: NOT_FOUND'
+rejection_reason: ''
 notes: ''
 ---
 

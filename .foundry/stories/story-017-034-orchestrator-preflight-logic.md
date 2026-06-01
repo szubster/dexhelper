@@ -8,7 +8,7 @@ created_at: "2026-04-29"
 updated_at: "2026-04-30"
 depends_on: []
 jules_session_id: null
-parent: .foundry/epics/epic-008-017-orchestrator-preflight-checks.md
+parent: epic-008-017-orchestrator-preflight-checks
 tags: []
 rejection_count: 0
 rejection_reason: ""

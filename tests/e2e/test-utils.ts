@@ -10,10 +10,7 @@ export async function initializeWithSave(
   await expect(page.locator('header')).toBeVisible({ timeout: 15000 });
   await waitForSync(page);
 
-  const isInitialized = await page
-    .getByText(/TRAINER/i)
-    .first()
-    .isVisible({ timeout: 2000 });
+  const isInitialized = await page.getByText(/TRNR/i).first().isVisible({ timeout: 2000 });
 
   if (!isInitialized) {
     let fileBuffer: Buffer;
@@ -58,7 +55,7 @@ export async function initializeWithSave(
     await waitForSync(page);
   }
 
-  await expect(page.getByText(/TRAINER/i).first()).toBeVisible({ timeout: 20000 });
+  await expect(page.getByText(/TRNR/i).first()).toBeVisible({ timeout: 20000 });
   await expect(page.getByTestId('pokedex-card').first()).toBeVisible({ timeout: 30000 });
 }
 

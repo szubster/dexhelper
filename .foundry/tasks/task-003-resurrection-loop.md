@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-04-20'
 updated_at: '2026-04-21'
 depends_on:
-  - .foundry/tasks/task-002-create-heartbeat.md
+  - task-002-create-heartbeat
 jules_session_id: null
 rejection_count: 0
-parent: .foundry/stories/story-001-matrix-runner.md
+parent: story-001-matrix-runner
 rejection_reason: ''
 ---
 

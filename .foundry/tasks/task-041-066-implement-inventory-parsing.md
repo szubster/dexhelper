@@ -9,7 +9,7 @@ updated_at: "2026-05-06"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-026-041-inventory-parsing.md
+parent: story-026-041-inventory-parsing
 tags:
   - gen2
   - save-parser

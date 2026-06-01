@@ -29,3 +29,5 @@ QA the visited and unvisited routes checklist for the Run Dashboard UI.
 - [ ] Verify the visited routes checklist UI functions correctly.
 - [ ] Verify the unvisited routes checklist UI functions correctly.
 - [ ] Verify the component is visible and integrated in the Run Dashboard.
+
+**Update:** This task is CANCELLED and replaced by `.foundry/tasks/task-071-145-visited-routes-checklist-retry-v2-qa.md` due to the permanent failure of its implementation dependency.

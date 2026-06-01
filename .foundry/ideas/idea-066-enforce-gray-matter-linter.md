@@ -2,7 +2,7 @@
 id: idea-066-enforce-gray-matter-linter
 type: IDEA
 title: Enforce Gray-Matter Linter for Scripts
-status: ACTIVE
+status: CANCELLED
 owner_persona: product_manager
 created_at: '2026-05-25'
 updated_at: '2026-05-29'
@@ -15,7 +15,7 @@ tags:
   - foundry
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Low ROI; maintaining a custom Biome/Oxlint rule for a minor scripts edge-case outweighs the benefits over standard PR review.'
 notes: Generated autonomously to enforce ADR 006
 ---
 

@@ -9,7 +9,7 @@ updated_at: '2026-05-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-011-researcher-persona.md
+parent: idea-011-researcher-persona
 tags:
   - foundry
   - persona

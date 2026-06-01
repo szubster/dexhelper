@@ -17,6 +17,8 @@ notes: ""
 
 # Task: QA Preserve Enum Optimizations
 
+**CANCELLED:** This task is orphaned because the prerequisite implementation task failed permanently. It has been replaced by `.foundry/tasks/task-081-145-preserve-enum-optimizations-retry-qa.md`.
+
 ## Objective
 Verify that the enum-to-number optimizations are preserved when the data generation pipeline was transitioned to verbose keys.
 

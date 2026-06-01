@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-05-22'
 updated_at: '2026-05-28'
 depends_on:
-  - .foundry/tasks/task-075-132-implement-heartbeat-verifying-logic.md
+  - task-075-132-implement-heartbeat-verifying-logic
 jules_session_id: null
 pr_number: null
 parent: story-040-075-heartbeat-verifying-logic

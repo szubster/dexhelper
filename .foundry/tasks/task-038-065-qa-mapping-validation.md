@@ -7,10 +7,10 @@ owner_persona: qa
 created_at: '2026-05-04'
 updated_at: "2026-05-09"
 depends_on:
-  - .foundry/tasks/task-038-064-implement-mapping-validation.md
+  - task-038-064-implement-mapping-validation
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-025-038-implement-mapping-validation.md
+parent: story-025-038-implement-mapping-validation
 tags:
   - qa
 research_references: []

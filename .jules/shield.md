@@ -48,3 +48,5 @@ Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While t
 
 ## Incomplete URL Substring Matching (CWE-285)
 **Pattern:** While `.includes()` should be avoided for validating URLs (favoring `.startsWith()` or URL parsing), do NOT blindly apply this rule to `ErrorEvent.message` property checks (e.g., catching Vite chunk load errors). Browsers often prepend prefixes like `TypeError: ` to error messages, so `.startsWith()` will fail to match dynamically imported module errors, causing major application regressions. Use `.includes()` for generic error string matching.
+## Resolving Deep Dependencies
+**Pattern:** To resolve vulnerabilities inside deep dependencies found via `pnpm audit` (like `tmp`), add a `pnpm.overrides` section to `package.json` with the safe version constraint, and then run `pnpm install` to enforce the resolution.

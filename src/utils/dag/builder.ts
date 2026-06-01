@@ -11,6 +11,7 @@ export interface GraphNode {
     type: string;
     status: string;
     owner_persona: string;
+    rejection_count: number;
   };
 }
 
@@ -51,6 +52,7 @@ export function buildDagGraph(parsedNodes: ParsedNode[]): DagGraph {
         type: node.data.type,
         status: node.data.status,
         owner_persona: node.data.owner_persona,
+        rejection_count: node.data.rejection_count,
       },
     });
   }
