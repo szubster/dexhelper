@@ -10,7 +10,7 @@ depends_on:
   - .foundry/epics/epic-036-051-time-capsule-validation-logic.md
 jules_session_id: null
 pr_number: null
-parent: prd-066-036-time-capsule-validator.md
+parent: prd-066-036-time-capsule-validator
 tags:
   - feature
   - gen2
