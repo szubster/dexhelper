@@ -45,3 +45,8 @@
 **Idea:** Gen 3 Berry Farming Tracker
 **Learning:** When expanding to new generations (like Gen 3), target the unique, generation-specific mechanics (like RTC-based berry farming) that present new pain points for players. Automating time-based or heavily localized systems provides immediate high value that generic static views cannot match.
 **Outcome:** Created IDEA node.
+
+## 2026-05-31
+**Idea:** Unown Form Tracker
+**Learning:** Catering to end-game completionists adds significant value. Gen 2 has a specific quest to collect all 26 Unown forms (A-Z) which are determined by DVs. Since `DexHelper` already parses DVs for stats and shininess, extending this to explicitly track Unown forms gives players a visual checklist, transforming a tedious manual process into a highly actionable feature.
+**Outcome:** Created IDEA node.
