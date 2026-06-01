@@ -8,7 +8,7 @@ created_at: '2026-04-23'
 updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-005-id-schema-templates.md
+parent: story-005-id-schema-templates
 rejection_reason: ''
 ---
 

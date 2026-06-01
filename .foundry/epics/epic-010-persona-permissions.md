@@ -8,7 +8,7 @@ created_at: '2026-04-23'
 updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
-parent: .foundry/prds/prd-005-010-late-binding-orchestrator.md
+parent: prd-005-010-late-binding-orchestrator
 tags:
   - foundry-v2
   - architecture

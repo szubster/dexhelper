@@ -9,7 +9,7 @@ updated_at: '2026-05-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-011-relax-node-engine.md
+parent: idea-011-relax-node-engine
 tags:
   - infrastructure
 notes: ''

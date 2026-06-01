@@ -7,9 +7,9 @@ owner_persona: qa
 created_at: '2026-04-23'
 updated_at: '2026-04-25'
 depends_on:
-  - .foundry/tasks/task-005-025-update-orchestrator-validation.md
+  - task-005-025-update-orchestrator-validation
 jules_session_id: null
-parent: .foundry/stories/story-005-id-schema-templates.md
+parent: story-005-id-schema-templates
 rejection_reason: ''
 ---
 

@@ -8,7 +8,7 @@ created_at: '2026-04-22'
 updated_at: '2026-04-22'
 depends_on: []
 jules_session_id: null
-parent: .foundry/epics/epic-004-generic-agent-scheduling.md
+parent: epic-004-generic-agent-scheduling
 rejection_reason: ''
 ---
 

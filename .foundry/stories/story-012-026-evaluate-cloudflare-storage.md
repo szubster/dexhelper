@@ -9,7 +9,7 @@ updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-012-gastown-orchestrator.md
+parent: epic-012-gastown-orchestrator
 tags:
   - foundry-v2
   - architecture
