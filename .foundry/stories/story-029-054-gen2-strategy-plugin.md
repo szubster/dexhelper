@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-05-16'
 updated_at: '2026-05-17'
 depends_on:
-  - .foundry/stories/story-028-045-cross-region-distance.md
+  - story-028-045-cross-region-distance
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-029-strategy-engine-adaptations.md
+parent: epic-017-029-strategy-engine-adaptations
 tags:
   - gen2
   - expansion

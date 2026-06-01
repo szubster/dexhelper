@@ -8,7 +8,7 @@ created_at: '2026-04-20'
 updated_at: '2026-04-20'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-001-matrix-runner.md
+parent: story-001-matrix-runner
 rejection_reason: ''
 ---
 

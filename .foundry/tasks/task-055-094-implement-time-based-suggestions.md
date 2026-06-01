@@ -7,10 +7,10 @@ owner_persona: coder
 created_at: '2026-05-17'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/tasks/task-054-092-implement-gen2-strategy-plugin.md
+  - task-054-092-implement-gen2-strategy-plugin
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-055-time-based-suggestions.md
+parent: story-029-055-time-based-suggestions
 tags:
   - gen2
   - expansion

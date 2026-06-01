@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-05-29'
 updated_at: '2026-05-29'
 depends_on:
-  - .foundry/research/research-081-006-investigate-enum-optimizations-failure.md
+  - research-081-006-investigate-enum-optimizations-failure
 jules_session_id: null
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 0

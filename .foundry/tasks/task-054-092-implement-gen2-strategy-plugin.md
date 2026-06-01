@@ -9,7 +9,7 @@ updated_at: '2026-05-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-054-gen2-strategy-plugin.md
+parent: story-029-054-gen2-strategy-plugin
 tags:
   - gen2
   - expansion

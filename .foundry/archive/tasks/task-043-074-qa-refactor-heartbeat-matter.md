@@ -7,10 +7,10 @@ owner_persona: qa
 created_at: '2026-05-09'
 updated_at: '2026-05-10'
 depends_on:
-  - .foundry/tasks/task-043-073-refactor-heartbeat-matter.md
+  - task-043-073-refactor-heartbeat-matter
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-028-043-migrate-heartbeat-to-gray-matter.md
+parent: story-028-043-migrate-heartbeat-to-gray-matter
 tags:
   - foundry
   - orchestrator

@@ -9,7 +9,7 @@ updated_at: '2026-05-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-014-cascade-cancellation.md
+parent: idea-014-cascade-cancellation
 tags:
   - foundry
   - dag

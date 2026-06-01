@@ -7,11 +7,11 @@ owner_persona: qa
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
 depends_on:
-  - .foundry/research/research-053-002-dependency-highlighting-failure.md
-  - .foundry/tasks/task-053-124-retry-dependency-highlighting.md
+  - research-053-002-dependency-highlighting-failure
+  - task-053-124-retry-dependency-highlighting
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-053-implement-dependency-highlighting.md
+parent: story-029-053-implement-dependency-highlighting
 tags:
   - dag
   - dashboard

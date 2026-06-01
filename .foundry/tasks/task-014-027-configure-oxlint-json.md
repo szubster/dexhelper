@@ -8,7 +8,7 @@ created_at: '2026-04-24'
 updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-010-014-implement-oxlint-config.md
+parent: story-010-014-implement-oxlint-config
 rejection_reason: ''
 ---
 

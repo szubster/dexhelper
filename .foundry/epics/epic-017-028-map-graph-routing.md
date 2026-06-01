@@ -9,7 +9,7 @@ updated_at: "2026-05-09"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-006-017-gen2-expansion-phase-3-4.md
+parent: prd-006-017-gen2-expansion-phase-3-4
 tags:
   - gen2
   - expansion

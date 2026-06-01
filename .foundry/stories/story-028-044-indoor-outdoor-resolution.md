@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-05-08'
 updated_at: '2026-05-13'
 depends_on:
-  - .foundry/stories/story-028-043-gen2-map-graph.md
+  - story-028-043-gen2-map-graph
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-028-map-graph-routing.md
+parent: epic-017-028-map-graph-routing
 tags:
   - gen2
   - expansion

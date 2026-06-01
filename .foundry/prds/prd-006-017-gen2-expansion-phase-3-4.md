@@ -9,7 +9,7 @@ updated_at: '2026-05-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-006-gen2-expansion.md
+parent: idea-006-gen2-expansion
 tags:
   - gen2
   - expansion

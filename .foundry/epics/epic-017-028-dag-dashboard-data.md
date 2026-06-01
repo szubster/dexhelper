@@ -9,7 +9,7 @@ updated_at: "2026-05-09"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-017-017-dag-dashboard.md
+parent: prd-017-017-dag-dashboard
 tags:
   - dag
   - dashboard

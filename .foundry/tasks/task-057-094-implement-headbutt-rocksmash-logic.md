@@ -9,7 +9,7 @@ updated_at: '2026-05-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-057-interaction-logic.md
+parent: story-029-057-interaction-logic
 tags:
   - gen2
   - expansion

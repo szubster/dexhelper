@@ -234,7 +234,7 @@ notes: ""
 ```yaml
 # A story that is blocked by its parent epic being approved:
 depends_on:
-  - .foundry/epics/epic-001-auth-overhaul.md
+  - epic-001-auth-overhaul
 
 # A task blocked by two stories:
 depends_on:

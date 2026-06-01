@@ -8,7 +8,7 @@ created_at: '2026-04-21'
 updated_at: '2026-05-17'
 jules_session_id: null
 depends_on:
-  - .foundry/ideas/idea-001-the-foundry.md
+  - idea-001-the-foundry
 rejection_reason: ''
 ---
 

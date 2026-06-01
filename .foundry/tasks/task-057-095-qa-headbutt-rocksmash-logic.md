@@ -7,10 +7,10 @@ owner_persona: qa
 created_at: '2026-05-17'
 updated_at: '2026-05-19'
 depends_on:
-  - .foundry/tasks/task-057-094-implement-headbutt-rocksmash-logic.md
+  - task-057-094-implement-headbutt-rocksmash-logic
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-057-interaction-logic.md
+parent: story-029-057-interaction-logic
 tags:
   - gen2
   - expansion

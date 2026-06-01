@@ -7,10 +7,10 @@ owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/tasks/task-055-094-implement-time-based-suggestions.md
+  - task-055-094-implement-time-based-suggestions
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-055-time-based-suggestions.md
+parent: story-029-055-time-based-suggestions
 tags:
   - gen2
   - expansion
