@@ -99,3 +99,5 @@
 - **2026-06-01**: Resurrection Loop triggered for `story-048-086-implement-implicit-dependency-check`. Reason: PR #1947 closed without merging.. Transitioned back to READY.
 
 - **2026-06-01**: Resurrection Loop triggered for `task-080-132-refactor-generation-exports-impl`. Reason: PR #1948 closed without merging.. Transitioned back to READY.
+
+- **2026-06-01**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
