@@ -2,7 +2,7 @@
 id: task-075-134-implement-google-sso
 type: TASK
 title: Implement Google SSO Flow
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-28'
@@ -18,7 +18,7 @@ tags:
   - phase1
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Implementation rejected by CEO: Must use late-binding. Create research task for Cloudflare native OAuth libraries. Discarding custom implementation.'
 notes: ''
 ---
 

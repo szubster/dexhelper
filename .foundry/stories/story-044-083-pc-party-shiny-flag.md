@@ -1,14 +1,14 @@
 ---
 id: story-044-083-pc-party-shiny-flag
 type: STORY
-title: "Flag PC/Party Pokémon as Shiny Carriers"
-status: PENDING
+title: Flag PC/Party Pokémon as Shiny Carriers
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-22'
-updated_at: '2026-05-22'
+updated_at: '2026-05-31'
 depends_on:
   - story-044-082-dv-shiny-gene-logic
-jules_session_id: null
+jules_session_id: '10091447919003846222'
 pr_number: null
 parent: epic-034-044-shiny-gene-detection-engine
 tags:

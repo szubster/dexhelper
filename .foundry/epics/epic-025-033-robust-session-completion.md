@@ -7,7 +7,7 @@ owner_persona: epic_planner
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/docs/adrs/011-robust-session-completion.md
+  - 011-robust-session-completion
 jules_session_id: null
 pr_number: null
 parent: prd-054-025-robust-session-completion

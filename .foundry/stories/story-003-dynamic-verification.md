@@ -7,8 +7,8 @@ owner_persona: story_owner
 created_at: '2026-04-21'
 updated_at: '2026-04-23'
 depends_on:
-  - .foundry/docs/adrs/001-the-foundry-architecture.md
-  - .foundry/stories/story-002-personas.md
+  - 001-the-foundry-architecture
+  - story-002-personas
 jules_session_id: null
 rejection_reason: ''
 ---
@@ -22,14 +22,14 @@ Establish the formal separation of Architect and Agile Coach roles and mandate t
 
 ### 1. Persona Separation
 - Establish two distinct agent prompt files (to be implemented in Story 002):
-  - `architect.md`: Responsible for system-wide technical integrity (ADRs, Schema, App Architecture).
-  - `agile_coach.md`: Responsible for workflow evolution, persona performance, and learning loop optimization.
+  - `architect`: Responsible for system-wide technical integrity (ADRs, Schema, App Architecture).
+  - `agile_coach`: Responsible for workflow evolution, persona performance, and learning loop optimization.
 
 ### 2. Intelligent Verification Handoff
 - The `tech_lead` must now intelligently decide when a `STORY` requires a separate `qa` verification task.
 - **Protocol**: 
   - If a story involves complex logic or risk, the Tech Lead creates a matching `TASK` for the `qa` persona to verify the `coder`'s work.
-  - If simple/low-risk, the Tech Lead may designate the `coder` to self-verify (documented in the task journal).
+  - If low-risk, the Tech Lead may designate the `coder` to self-verify (documented in the task journal).
 
 ### 3. Agile Coach Evolution
 - The `agile_coach` is empowered to autonomously generate new `IDEA` or `TASK` nodes to improve the Foundry's own codebase and processes based on observed friction (e.g., repeating merge conflicts, failed sessions).

@@ -9,7 +9,7 @@ updated_at: "2026-05-04"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-012-024-improve-late-binding-completion.md
+parent: epic-012-024-improve-late-binding-completion
 tags:
   - orchestrator
   - late-binding

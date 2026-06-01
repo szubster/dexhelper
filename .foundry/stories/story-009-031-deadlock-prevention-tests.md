@@ -7,9 +7,9 @@ owner_persona: tech_lead
 created_at: '2026-04-27'
 updated_at: '2026-04-27'
 depends_on:
-  - .foundry/tasks/task-031-048-implement-deadlock-tests.md
+  - task-031-048-implement-deadlock-tests
 jules_session_id: null
-parent: .foundry/epics/epic-009-atomic-handoff-testing.md
+parent: epic-009-atomic-handoff-testing
 tags:
   - v2-architecture
   - lifecycle

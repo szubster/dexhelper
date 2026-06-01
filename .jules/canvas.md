@@ -129,6 +129,11 @@
 **Why:** Brings the mobile navigation interface tightly in line with the rest of the application's established tactical hardware motif (matching `AppLayout`, `Grid`, and `Details`), correcting the previous web-standard smooth transitions.
 **Pattern:** Ensure mobile layout structural components adhere to strict tactical aesthetics (sharp borders, corner crosshairs, scanning/flicker animations, monospace telemetry text) rather than generic app-like smoothed navigation bars, to maintain the specialized device illusion.
 
+## 2026-05-28 - [Accepted] - 🖼️ Canvas: Tactical AppHeader Bezel Redesign
+**What:** Redesigned the `AppHeader` component from a floating, rounded "sticky top-2" layout into a rigid, edge-to-edge tactical hardware bezel.
+**Outcome:** Accepted
+**Why:** Brings the main structural header of the application fully in line with the heavily tactical, specialized hardware motif, eliminating the generic "web-app" floating header feel.
+**Pattern:** Ensure structural top-level components adhere strictly to tactical aesthetics (sharp borders, edge-to-edge placement, dense telemetry layouts) rather than generic app-like floating bars to maintain the specialized device illusion.
 ## 2026-06-25 - [Accepted] - 🖼️ Canvas: Tactical Search Console Redesign
 **What:** Wrapped the entire `SearchAndFilters` component in a `<TacticalPanel>`, giving it a `[ SYS.QUERY_TERMINAL ]` telemetry header and redesigning the filter toggles below the search input as an interconnected segmented control to match settings configurations instead of side-scrolling pills.
 **Outcome:** Accepted
@@ -140,3 +145,8 @@
 **Outcome:** Accepted
 **Why:** Brings the run tracking/team interface in line with the established specialized hardware motif, solidifying the application's unique visual identity. Tactical panels, telemetry decorations, and segmented controls reinforce the snooping fantasy.
 **Pattern:** Consistently eliminate generic web UI patterns (rounded corners, standard cards, simple text stats) in favor of sharp, high-contrast, terminal-like telemetry elements and segmented displays to maintain the specialized device illusion.
+## 2026-06-26 - [Accepted] - 🖼️ Canvas: Tactical SyncProgress Redesign
+**What:** Redesigned the `SyncProgress` component to fully embrace the tactical "snooping" aesthetic by wrapping it in a `<TacticalPanel>` instead of a generic glassmorphism container. Converted the smooth sliding progress bar into a tactical segmented block visual.
+**Outcome:** Accepted
+**Why:** Brings the loading state interface in line with the heavily tactical, specialized hardware motif. Wrapping loaders and sync views in `TacticalPanel` ensures they fit the "terminal scanning" visual identity of the rest of the application.
+**Pattern:** Consistently utilize `TacticalPanel` for utility and overlay elements instead of relying on custom styled divs with generic shadows and blurs, and replace standard progress indicators with segmented, tactical layouts.

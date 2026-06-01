@@ -5,9 +5,9 @@ title: Update Data Generation Scripts for Gen 3
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-17'
-updated_at: '2026-05-28'
+updated_at: '2026-06-01'
 depends_on: []
-jules_session_id: '231111609979989708'
+jules_session_id: '14329897811169173141'
 parent: epic-053-024-032-gen3-encounters-implementation
 tags:
   - gen3
