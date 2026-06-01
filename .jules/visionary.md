@@ -56,3 +56,8 @@
 **Idea:** Gen 3 Berry Farming Tracker
 **Learning:** When expanding to new generations (like Gen 3), target the unique, generation-specific mechanics (like RTC-based berry farming) that present new pain points for players. Automating time-based or heavily localized systems provides immediate high value that generic static views cannot match.
 **Outcome:** Created IDEA node.
+
+## 2026-06-01
+**Idea:** Gen 3 Mirage Island Predictor
+**Learning:** Building on the Gen 3 support expansions, targeting obscure, RNG-based, or hidden daily mechanics (like Mirage Island, which relies on a matching RNG value with the party Pokémon) provides players with "superpower" utilities that they cannot easily achieve through normal gameplay. This aligns with DexHelper's vision as a premium companion app capable of deeply introspecting save states.
+**Outcome:** Created IDEA node.
