@@ -1,7 +1,0 @@
-I will create a reusable `SegmentedControl` and `SegmentedControlButton` component to extract the repeated segmented control pattern found across the app, specifically in `SettingsControls`, `SearchAndFilters`, and `PokemonCatchProbability`.
-
-Files to update:
-1. `src/components/SegmentedControl.tsx` (Create using a heredoc)
-2. `src/components/settings/SettingsControls.tsx` (Refactor 3 controls using `replace_with_git_merge_diff`)
-3. `src/components/SearchAndFilters.tsx` (Refactor 1 control using `replace_with_git_merge_diff`)
-4. `src/components/pokemon/details/PokemonCatchProbability.tsx` (Refactor 1 control using `replace_with_git_merge_diff`)
