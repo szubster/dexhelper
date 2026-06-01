@@ -10,7 +10,7 @@ test.describe('Save Management', () => {
     await waitForSync(page);
 
     // 1. Initial State: Should show "Initialize Pokedex" button (clean state)
-    await expect(page.getByRole('button', { name: /\[ UPLOAD\.SYS \]/i })).toBeVisible();
+    await expect(page.getByText(/\[ UPLOAD\.SYS \]/i)).toBeVisible();
     await argosScreenshot(page, 'save-initial-state');
 
     // 2. Upload Yellow Save

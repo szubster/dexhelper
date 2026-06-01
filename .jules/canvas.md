@@ -145,9 +145,3 @@
 **Outcome:** Accepted
 **Why:** Brings the loading state interface in line with the heavily tactical, specialized hardware motif. Wrapping loaders and sync views in `TacticalPanel` ensures they fit the "terminal scanning" visual identity of the rest of the application.
 **Pattern:** Consistently utilize `TacticalPanel` for utility and overlay elements instead of relying on custom styled divs with generic shadows and blurs, and replace standard progress indicators with segmented, tactical layouts.
-
-## 2026-06-27 - [Accepted] - 🖼️ Canvas: Tactical Boot Sequence Empty State
-**What:** Redesigned the "No Save Data" empty state in the root index route. Replaced the generic, empty 151-card `PokedexGrid` with a dramatic, full-screen `BootSequence` component featuring "NO SIGNAL" telemetry, `LcdGrid`, `ScanlineOverlay`, and tactical `CornerCrosshairs`.
-**Outcome:** Accepted
-**Why:** A specialized hardware terminal wouldn't display a grid of empty slots when disconnected; it would display a boot sequence or connection error. This deepens the "snooping / specialized hardware" illusion from the very first screen.
-**Pattern:** Apply tactical aesthetics (LCD grids, blinking cursors, "NO SIGNAL" telemetry) to empty states and loading screens to fully commit to the specialized device illusion, rather than showing empty data grids.
