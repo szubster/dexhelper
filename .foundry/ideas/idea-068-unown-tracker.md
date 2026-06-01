@@ -2,12 +2,12 @@
 id: idea-068-unown-tracker
 type: IDEA
 title: Unown Form Tracker
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-31'
 updated_at: '2026-06-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4478926210725735728'
 pr_number: null
 parent: null
 tags:
