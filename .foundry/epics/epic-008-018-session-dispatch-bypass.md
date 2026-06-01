@@ -8,7 +8,7 @@ created_at: "2026-04-29"
 updated_at: "2026-04-29"
 depends_on: []
 jules_session_id: "1586567066610752784"
-parent: .foundry/prds/prd-010-008-idempotent-node-generation.md
+parent: prd-010-008-idempotent-node-generation
 tags: ["orchestrator", "generation", "efficiency"]
 rejection_count: 1
 rejection_reason: ""

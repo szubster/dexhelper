@@ -7,17 +7,17 @@ owner_persona: qa
 created_at: '2026-05-17'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/tasks/task-056-094-implement-breeding-suggestions.md
+  - task-056-094-implement-breeding-suggestions
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-056-breeding-suggestions.md
+parent: story-029-056-breeding-suggestions
 tags:
   - gen2
   - expansion
   - suggestion-engine
   - qa
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''

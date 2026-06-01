@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-05-06'
 updated_at: "2026-05-08"
 depends_on:
-  - .foundry/stories/story-026-041-inventory-parsing.md
+  - story-026-041-inventory-parsing
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-015-026-save-parser-expansion.md
+parent: epic-015-026-save-parser-expansion
 tags:
   - gen2
   - save-parser

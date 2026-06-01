@@ -9,7 +9,7 @@ updated_at: '2026-05-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-014-013-cascade-cancellation.md
+parent: prd-014-013-cascade-cancellation
 tags:
   - foundry
   - dag
@@ -40,4 +40,4 @@ Update the Foundry DAG orchestrator script (`.github/scripts/foundry-orchestrato
 
 ## Acceptance Criteria
 - [x] Story Owner: Break this Epic down into actionable stories.
-  - >> .foundry/stories/story-023-036-implement-cascade-cancellation.md
+  - >> story-023-036-implement-cascade-cancellation

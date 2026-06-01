@@ -9,7 +9,7 @@ updated_at: '2026-05-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-051-implement-core-graph-visualization.md
+parent: story-029-051-implement-core-graph-visualization
 tags:
   - dag
   - dashboard

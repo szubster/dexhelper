@@ -7,12 +7,12 @@ owner_persona: story_owner
 created_at: '2026-04-24'
 updated_at: '2026-05-01'
 depends_on:
-  - .foundry/archive/epics/epic-005-013-idb-infrastructure.md
-  - .foundry/archive/stories/story-014-031-dual-write-save-persistence.md
-  - .foundry/archive/stories/story-014-029-async-startup-hydration.md
-  - .foundry/archive/stories/story-014-026-refactor-state-store-sync.md
+  - .foundry/archive/epics/epic-005-013-idb-infrastructure
+  - .foundry/archive/stories/story-014-031-dual-write-save-persistence
+  - .foundry/archive/stories/story-014-029-async-startup-hydration
+  - .foundry/archive/stories/story-014-026-refactor-state-store-sync
 jules_session_id: null
-parent: .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb.md
+parent: .foundry/archive/prds/prd-007-005-migrate-saves-to-indexeddb
 tags:
   - state
   - store

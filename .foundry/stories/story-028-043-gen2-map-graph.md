@@ -9,13 +9,13 @@ updated_at: '2026-05-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-028-map-graph-routing.md
+parent: epic-017-028-map-graph-routing
 tags:
   - gen2
   - expansion
   - map-graph
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''

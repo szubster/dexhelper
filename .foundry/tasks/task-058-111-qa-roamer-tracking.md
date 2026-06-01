@@ -7,16 +7,16 @@ owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/tasks/task-058-110-implement-roamer-tracking.md
+  - task-058-110-implement-roamer-tracking
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-058-roamer-tracking-and-stat-evolutions.md
+parent: story-029-058-roamer-tracking-and-stat-evolutions
 tags:
   - gen2
   - expansion
   - suggestion-engine
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''

@@ -8,7 +8,7 @@ created_at: '2026-04-29'
 updated_at: '2026-05-01'
 depends_on: []
 jules_session_id: null
-parent: .foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism.md
+parent: .foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism
 tags:
   - orchestrator
   - generation

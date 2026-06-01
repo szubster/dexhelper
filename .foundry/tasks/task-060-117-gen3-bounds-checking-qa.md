@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
 depends_on:
-  - .foundry/tasks/task-060-116-gen3-bounds-checking-impl.md
+  - task-060-116-gen3-bounds-checking-impl
 jules_session_id: null
 pr_number: null
 parent: story-032-060-gen3-bounds-checking

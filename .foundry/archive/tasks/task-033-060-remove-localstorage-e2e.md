@@ -8,7 +8,7 @@ created_at: '2026-05-01'
 updated_at: '2026-05-01'
 depends_on: []
 jules_session_id: null
-parent: .foundry/archive/stories/story-016-033-update-e2e-testing-for-idb.md
+parent: .foundry/archive/stories/story-016-033-update-e2e-testing-for-idb
 tags:
   - e2e
   - testing

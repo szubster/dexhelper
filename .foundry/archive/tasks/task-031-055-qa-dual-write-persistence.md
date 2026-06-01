@@ -7,9 +7,9 @@ owner_persona: qa
 created_at: '2026-04-28'
 updated_at: '2026-04-28'
 depends_on:
-  - .foundry/archive/tasks/task-031-051-implement-dual-write-persistence.md
+  - .foundry/archive/tasks/task-031-051-implement-dual-write-persistence
 jules_session_id: null
-parent: .foundry/archive/stories/story-014-031-dual-write-save-persistence.md
+parent: .foundry/archive/stories/story-014-031-dual-write-save-persistence
 tags:
   - persistence
   - indexeddb

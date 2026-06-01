@@ -8,7 +8,7 @@ created_at: '2026-04-29'
 updated_at: '2026-05-01'
 depends_on: []
 jules_session_id: null
-parent: .foundry/prds/prd-010-008-idempotent-node-generation.md
+parent: prd-010-008-idempotent-node-generation
 tags:
   - orchestrator
   - generation

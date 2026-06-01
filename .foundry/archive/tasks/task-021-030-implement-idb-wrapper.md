@@ -8,7 +8,7 @@ created_at: '2026-04-26'
 updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: .foundry/archive/stories/story-013-021-indexeddb-wrapper-and-error-handling.md
+parent: .foundry/archive/stories/story-013-021-indexeddb-wrapper-and-error-handling
 tags:
   - indexeddb
   - infrastructure

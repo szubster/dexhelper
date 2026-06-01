@@ -9,7 +9,7 @@ updated_at: '2026-05-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-023-036-implement-cascade-cancellation.md
+parent: story-023-036-implement-cascade-cancellation
 tags:
   - foundry
   - dag

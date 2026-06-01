@@ -9,7 +9,7 @@ updated_at: "2026-05-10"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-028-dag-dashboard-data.md
+parent: epic-017-028-dag-dashboard-data
 tags:
   - dag
   - dashboard
@@ -33,10 +33,10 @@ This Story covers the backend/data layer for the DAG Dashboard Webview. It is re
 
 ## Acceptance Criteria
 - [x] Create a TASK to implement a utility function to read all relevant `.foundry` files.
-  - See `.foundry/tasks/task-043-073-read-foundry-files.md`
+  - See `task-043-073-read-foundry-files`
 - [x] Create a TASK to implement a parsing function to extract frontmatter into structured objects.
-  - See `.foundry/tasks/task-043-074-parse-frontmatter.md`
+  - See `task-043-074-parse-frontmatter`
 - [x] Create a TASK to implement a builder function that outputs the final node/edge graph data structure.
-  - See `.foundry/tasks/task-043-075-build-dag-graph.md`
+  - See `task-043-075-build-dag-graph`
 - [x] Create a QA TASK to verify the functionality of the DAG parser.
-  - See `.foundry/archive/tasks/task-043-076-qa-dag-parser.md`
+  - See `.foundry/archive/tasks/task-043-076-qa-dag-parser`

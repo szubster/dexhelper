@@ -7,10 +7,10 @@ owner_persona: qa
 created_at: '2026-05-04'
 updated_at: '2026-05-04'
 depends_on:
-  - .foundry/tasks/task-036-062-implement-cascade-cancellation.md
+  - task-036-062-implement-cascade-cancellation
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-023-036-implement-cascade-cancellation.md
+parent: story-023-036-implement-cascade-cancellation
 tags:
   - foundry
   - dag

@@ -7,9 +7,9 @@ owner_persona: tech_lead
 created_at: '2026-04-26'
 updated_at: '2026-05-01'
 depends_on:
-  - .foundry/archive/tasks/task-029-050-implement-async-hydration.md
+  - .foundry/archive/tasks/task-029-050-implement-async-hydration
 jules_session_id: null
-parent: .foundry/archive/epics/epic-005-014-state-store-migration.md
+parent: .foundry/archive/epics/epic-005-014-state-store-migration
 tags:
   - state
   - store

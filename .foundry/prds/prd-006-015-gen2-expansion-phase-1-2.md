@@ -9,13 +9,13 @@ updated_at: "2026-05-05"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-006-gen2-expansion.md
+parent: idea-006-gen2-expansion
 tags:
   - gen2
   - expansion
   - save-parser
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - .foundry/docs/knowledge_base/development/gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -43,5 +43,5 @@ Formalize the implementation scope for Phase 1 (Save Parser Expansion) and Phase
 
 ## 4. Next Steps
 - [x] **Epic Planner**: Break down this PRD into Epics for Phase 1 and Phase 2.
-  - Epic 1: [.foundry/epics/epic-015-026-save-parser-expansion.md](.foundry/epics/epic-015-026-save-parser-expansion.md)
-  - Epic 2: [.foundry/epics/epic-015-027-exclusives-and-static-data.md](.foundry/epics/epic-015-027-exclusives-and-static-data.md)
+  - Epic 1: [epic-015-026-save-parser-expansion](epic-015-026-save-parser-expansion)
+  - Epic 2: [epic-015-027-exclusives-and-static-data](epic-015-027-exclusives-and-static-data)

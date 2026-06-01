@@ -9,7 +9,7 @@ updated_at: "2026-05-02"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: ".foundry/prds/prd-011-009-researcher-persona.md"
+parent: "prd-011-009-researcher-persona"
 tags: ["foundry", "persona", "research"]
 research_references: []
 rejection_count: 0
