@@ -73,3 +73,7 @@ Unnecessary 'as' casts were found where TypeScript already inferred the type cor
 ## 2024-05-21 - Type-Safety: File System Access API
 **Learning:** When using the File System Access API (`window.showOpenFilePicker`, `handle.queryPermission`, etc.), avoid bypassing type checks with `(window as any)`. Instead, add the community definitions like `@types/wicg-file-system-access` to `devDependencies` and explicitly include them in the `types` array of `tsconfig.json`. This allows the TypeScript compiler to natively check options and return types.
 **Action:** Replaced unsafe `as any` casts with correct File System Access API types via `@types/wicg-file-system-access`.
+
+## $(date +%Y-%m-%d) - Type-Safety: `as keyof typeof` for mapped arrays
+**Learning:** Hardcoding string arrays as objects mapped over by keys, and then utilizing `gameVersion as keyof (typeof staticEncounters)[number]` forces an implicit `any` bypass when trying to reference those values elsewhere in components.
+**Action:** Replace `as keyof typeof` casts that attempt to enforce string literals within mapped type arrays with strict type guard functions. By checking `includes` or equivalent logic within an `isValidKey` function and declaring `version is keyof (typeof Array)[number]`, we can natively narrow string literals and remove unsafe casts safely and correctly.
