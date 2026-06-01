@@ -2,10 +2,10 @@
 id: idea-068-hidden-items-finder
 type: IDEA
 title: Missing Hidden Items Finder
-status: PENDING
+status: READY
 owner_persona: product_manager
-created_at: "2026-06-01"
-updated_at: "2026-06-01"
+created_at: '2026-06-01'
+updated_at: '2026-06-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - quality-of-life
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Missing Hidden Items Finder

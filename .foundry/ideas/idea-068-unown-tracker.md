@@ -1,20 +1,23 @@
 ---
 id: idea-068-unown-tracker
 type: IDEA
-title: "Unown Form Tracker"
-status: PENDING
-owner_persona: "product_manager"
-created_at: "2026-05-31"
-updated_at: "2026-05-31"
+title: Unown Form Tracker
+status: READY
+owner_persona: product_manager
+created_at: '2026-05-31'
+updated_at: '2026-06-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: null
-tags: ["feature", "gen2", "tracking"]
+tags:
+  - feature
+  - gen2
+  - tracking
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Capturing Unown forms is a specific, grindy Gen 2 activity."
+rejection_reason: ''
+notes: 'Capturing Unown forms is a specific, grindy Gen 2 activity.'
 ---
 
 # Unown Form Tracker

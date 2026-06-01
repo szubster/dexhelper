@@ -2,18 +2,18 @@
 id: task-080-132-refactor-generation-exports-impl
 type: TASK
 title: Refactor Data Generation Pipeline to Verbose Keys - Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-05-22'
-updated_at: '2026-05-30'
+updated_at: '2026-06-01'
 depends_on: []
-jules_session_id: '4531031011821960651'
+jules_session_id: null
 pr_number: null
 parent: story-042-080-refactor-generation-exports
 tags:
   - data-pipeline
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

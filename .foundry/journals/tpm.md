@@ -93,3 +93,9 @@
 - **2026-06-01**: PR #2024 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
 
 - **2026-06-01**: System failure detected for `task-071-140-visited-routes-checklist-retry-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-01**: PR #2026 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-06-01**: Resurrection Loop triggered for `story-048-086-implement-implicit-dependency-check`. Reason: PR #1947 closed without merging.. Transitioned back to READY.
+
+- **2026-06-01**: Resurrection Loop triggered for `task-080-132-refactor-generation-exports-impl`. Reason: PR #1948 closed without merging.. Transitioned back to READY.
