@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-05-18'
 updated_at: '2026-05-21'
 depends_on:
-  - .foundry/stories/story-029-053-implement-dependency-highlighting.md
+  - story-029-053-implement-dependency-highlighting
 jules_session_id: null
 pr_number: null
 parent: epic-017-029-dag-dashboard-ui

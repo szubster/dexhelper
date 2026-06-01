@@ -2,12 +2,12 @@
 id: idea-067-extract-dag-utils
 type: IDEA
 title: Extract DAG Utilities to Shared Module
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-05-25'
-updated_at: '2026-05-29'
+updated_at: '2026-05-31'
 depends_on: []
-jules_session_id: '1756794087132262116'
+jules_session_id: null
 parent: null
 tags:
   - refactor
@@ -32,4 +32,7 @@ Operations to extract include:
 - Standardizing the `transitionNodeToFailed`, `transitionNodeToCompleted`, and `transitionNodeToReady` functions to ensure they uniformly apply ADR 006 (`gray-matter`) and appropriately append metadata like `rejection_reason`.
 
 ## Next Steps
-- [ ] Product Manager: Evaluate this proposal and convert it to a PRD detailing the specific functions to be extracted and the testing strategy.
+- [x] Product Manager: Evaluate this proposal and convert it to a PRD detailing the specific functions to be extracted and the testing strategy.
+
+## References
+- [prd-067-036-extract-dag-utils.md](./.foundry/prds/prd-067-036-extract-dag-utils.md)

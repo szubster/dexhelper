@@ -1,4 +1,3 @@
-import { pokeDB } from '../../db/PokeDB';
 import type { UnifiedLocation } from '../../db/schema';
 
 /**
@@ -34,8 +33,7 @@ function getLocation(allLocations: UnifiedLocation[], id: number): UnifiedLocati
  * @param mapId The ID to resolve.
  * @returns The resolved top-level outdoor map ID.
  */
-export async function resolveOutdoorMapId(mapId: number): Promise<number> {
-  const allLocations = await pokeDB.getAllAreas();
+export function resolveOutdoorMapId(allLocations: UnifiedLocation[], mapId: number): number {
   let currentId = mapId;
   const visited = new Set<number>();
 
@@ -55,15 +53,16 @@ export async function resolveOutdoorMapId(mapId: number): Promise<number> {
 
 /**
  * Calculates the distance between a starting map and a target map using precomputed dist mapping.
+ * @param allLocations The array of all locations.
  * @param startMapId The ID of the starting map.
  * @param targetAid The ID of the target map.
  * @returns An object containing distance and target name, or null if unresolvable.
  */
-export async function getDistanceToMap(
+export function getDistanceToMap(
+  allLocations: UnifiedLocation[],
   startMapId: number,
   targetAid: number,
-): Promise<{ distance: number; name: string } | null> {
-  const allLocations = await pokeDB.getAllAreas();
+): { distance: number; name: string } | null {
   const targetLocation = getLocation(allLocations, targetAid);
 
   if (!targetLocation) {
@@ -71,7 +70,7 @@ export async function getDistanceToMap(
   }
 
   // Resolve start map to an outdoor map if it's indoor
-  let startOutdoorId = await resolveOutdoorMapId(startMapId);
+  let startOutdoorId = resolveOutdoorMapId(allLocations, startMapId);
   let startLocation = getLocation(allLocations, startOutdoorId);
 
   // If the starting location isn't valid, try to default to Littleroot Town (0)

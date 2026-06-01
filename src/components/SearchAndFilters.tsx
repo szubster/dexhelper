@@ -63,6 +63,7 @@ export function SearchAndFilters() {
                 type="button"
                 onClick={() => setFilters([])}
                 aria-pressed={filtersSet.size === 0}
+                title="Clear filters"
                 className={`min-w-[100px] flex-1 border-zinc-800 border-r border-dashed px-2 py-3 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
                   filtersSet.size === 0
                     ? 'bg-[var(--theme-primary)]/20 text-[var(--theme-primary)] shadow-[inset_0_0_10px_rgba(var(--theme-primary-rgb),0.3)]'
@@ -81,6 +82,7 @@ export function SearchAndFilters() {
                     key={f}
                     onClick={() => toggleFilter(f)}
                     aria-pressed={isActive}
+                    title={`${f} filter`}
                     data-testid={`filter-${f}`}
                     className={`min-w-[100px] flex-1 ${!isLast ? 'border-zinc-800 border-r border-dashed' : ''} px-2 py-3 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
                       isActive

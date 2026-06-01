@@ -2,13 +2,13 @@
 id: task-082-141-qa-shiny-gene-utility
 type: TASK
 title: QA Shiny Gene Parsing and Evaluation
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-23'
-updated_at: '2026-05-28'
+updated_at: '2026-05-31'
 depends_on:
   - task-082-140-implement-shiny-gene-utility
-jules_session_id: '6454736856522977689'
+jules_session_id: null
 pr_number: null
 parent: story-044-082-dv-shiny-gene-logic
 tags:
@@ -36,10 +36,10 @@ Verify that the DVs are correctly parsed from the save file's binary data using 
 5. Run tests with `pnpm test` to ensure all tests pass.
 
 ## Acceptance Criteria
-- [ ] DVs are successfully decoded from `DataView` memory blocks.
-- [ ] `checkShinyGene` is correctly implemented according to Gen 2 mechanics.
-- [ ] Type definitions are updated correctly.
-- [ ] Unit tests are present and passing.
+- [x] DVs are successfully decoded from `DataView` memory blocks.
+- [x] `checkShinyGene` is correctly implemented according to Gen 2 mechanics.
+- [x] Type definitions are updated correctly.
+- [x] Unit tests are present and passing.
 
 ## Reminder for QA
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

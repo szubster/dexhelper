@@ -5,9 +5,9 @@ title: Save File Health & Corruption Scanner
 status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-26'
-updated_at: '2026-05-29'
+updated_at: '2026-05-31'
 depends_on: []
-jules_session_id: '14807191014705530377'
+jules_session_id: '2095434022242465265'
 pr_number: null
 parent: null
 tags:
@@ -38,4 +38,7 @@ Introduce a "Save File Health Scanner" feature. When a user uploads a `.sav` fil
 This feature pivots DexHelper from just a tracking tool into a critical utility for retro game preservation. It solves a massive pain point for retro gamers who live in fear of losing hundreds of hours of progress to battery failure or bad cartridge dumps, providing peace of mind and actionable recovery diagnostics.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+
+### References
+- Created PRD: `.foundry/prds/prd-066-036-save-file-health-scanner.md`

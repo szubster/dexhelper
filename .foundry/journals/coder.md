@@ -25,6 +25,11 @@ For Playwright E2E tests failing due to missing browser binaries or system depen
 - Found out Gen 2 Headbutt/Rock Smash didn't actually require badges internally despite some guides saying so.
 - Workaround vitest-browser-react pointer event issues on complex SVGs or wrappers (like ReactFlow) by evaluating the locator directly to the DOM element and calling .click()
 
+## 2026-05-31: Foundry DAG ID Strictness
+- **Constraint**: The `parent` and `depends_on` fields in Foundry node frontmatter MUST strictly use Node IDs (e.g., `prd-066-036-time-capsule-validator`).
+- **Regression**: Including the `.md` extension (e.g., `prd-066-036-time-capsule-validator.md`) or using full paths (e.g., `.foundry/epics/...`) causes the orchestrator to fail to resolve the dependency graph, resulting in "Parent not found" warnings and blocking node promotion.
+- **Verification**: Always run `node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --dry-run --strict` to verify DAG integrity after modifying node frontmatter.
+
 ## 2026-05-18 - Gen 3 Locations
 - The Gen 3 maps define their region mapping string representation inside `region_map_sections.json` within the decomp repo, mapped sequentially. Use this to construct proper lookup lists.
 
@@ -53,3 +58,4 @@ When using the File System Access API in TypeScript projects, you must install `
 ## 2026-05-24: Cancellation Tests Pre-existing
 
 During `task-073-140-impl-cancellation-unit-tests`, I found that the required test coverage for auto-canceling nodes when a dependency permanently fails was already fully implemented in `.github/scripts/foundry-orchestrator.test.ts`. This confirms our previous coverage efforts were effective. A reminder that when tests are already written, an empty PR approach correctly processes the task.
+When modifying `transitionNodeToCompleted` in `foundry-heartbeat.ts` to clear `jules_session_id`, be extremely careful with testing. Unit tests will fail if they assert on the presence of `jules_session_id` in `.foundry` files but the type isn't correctly identified, causing it to fall through to `COMPLETED` when it should have been `VERIFYING`, or vice-versa. Additionally, always make sure the frontmatter types match precisely between tests and the new logic you've implemented to ensure thorough testing. Tests mock nodes, meaning any logic relying on data dynamically inferred (like `node.frontmatter.type`) will fail unless the mock explicitly defines that `type` property.

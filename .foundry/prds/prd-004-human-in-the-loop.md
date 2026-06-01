@@ -8,7 +8,7 @@ created_at: '2026-04-21'
 updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
-parent: .foundry/ideas/idea-004-human-in-the-loop.md
+parent: idea-004-human-in-the-loop
 tags:
   - human-in-the-loop
 rejection_reason: ''

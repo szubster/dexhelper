@@ -1,3 +1,7 @@
+export function isValidStaticGameVersion(version: string): version is keyof (typeof staticEncounters)[number] {
+  return ['red', 'blue', 'yellow', 'gold', 'silver', 'crystal'].includes(version);
+}
+
 export const staticEncounters: Record<
   number,
   {

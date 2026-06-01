@@ -506,6 +506,15 @@ function main(): void {
     if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'VERIFYING') continue;
 
     let shouldSuspend = false;
+
+    const children = parentToChildren.get(node.repoPath) || [];
+    for (const child of children) {
+      if (isHierarchicallyIncomplete(child.repoPath, node.repoPath)) {
+        shouldSuspend = true;
+        break;
+      }
+    }
+
     for (const depRef of node.frontmatter.depends_on) {
       const depPath = resolveNodePath(depRef)!;
       const dep = nodeMap.get(depPath);
@@ -534,6 +543,16 @@ function main(): void {
     }
 
 
+
+    if (!shouldSuspend) {
+      const children = parentToChildren.get(node.repoPath) || [];
+      for (const child of children) {
+        if (isHierarchicallyIncomplete(child.repoPath, node.repoPath)) {
+          shouldSuspend = true;
+          break;
+        }
+      }
+    }
 
     if (shouldSuspend) {
       info(`Suspending ${node.frontmatter.status} node: ${node.repoPath}`);
@@ -587,7 +606,7 @@ function main(): void {
       const parentPath = resolveNodePath(node.frontmatter.parent);
       if (parentPath) {
         const parentNode = nodeMap.get(parentPath);
-        if (parentNode && parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'READY') {
+        if (parentNode && parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'READY' && parentNode.frontmatter.status !== 'COMPLETED') {
           info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
           if (parentNode.frontmatter.owner_persona === 'human') {
             promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');

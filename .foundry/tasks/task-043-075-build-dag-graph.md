@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-05-09'
 updated_at: '2026-05-11'
 depends_on:
-  - .foundry/tasks/task-043-074-parse-frontmatter.md
+  - task-043-074-parse-frontmatter
 jules_session_id: null
 pr_number: null
 parent: story-028-043-implement-dag-parser

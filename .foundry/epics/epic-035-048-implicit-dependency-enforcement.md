@@ -30,7 +30,7 @@ Update the `foundry-orchestrator.ts` to enforce implicit dependency. A node cann
 
 ## Acceptance Criteria
 - [x] Create STORY nodes to implement the implicit dependency enforcement in `foundry-orchestrator.ts`.
-- [ ] Ensure unit tests in `.github/scripts/foundry-orchestrator.test.ts` are updated or added.
+- [x] Ensure unit tests in `.github/scripts/foundry-orchestrator.test.ts` are updated or added.
 
 ### Implementation Stories
 - [.foundry/stories/story-048-086-implement-implicit-dependency-check.md](.foundry/stories/story-048-086-implement-implicit-dependency-check.md)
