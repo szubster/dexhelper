@@ -544,6 +544,16 @@ function main(): void {
 
 
 
+    if (!shouldSuspend) {
+      const children = parentToChildren.get(node.repoPath) || [];
+      for (const child of children) {
+        if (isHierarchicallyIncomplete(child.repoPath, node.repoPath)) {
+          shouldSuspend = true;
+          break;
+        }
+      }
+    }
+
     if (shouldSuspend) {
       info(`Suspending ${node.frontmatter.status} node: ${node.repoPath}`);
       promoteNodeStatus(node, node.frontmatter.status, 'PENDING');
