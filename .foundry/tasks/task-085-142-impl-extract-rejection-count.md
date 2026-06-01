@@ -5,9 +5,9 @@ title: Implement DAG Data Parsing for Rejection Count
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-23'
-updated_at: '2026-05-28'
+updated_at: '2026-05-31'
 depends_on: []
-jules_session_id: '10307410569802856023'
+jules_session_id: '13536361495268435373'
 pr_number: null
 parent: story-046-085-extract-broadcast-rejection-count
 tags:
@@ -15,7 +15,7 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

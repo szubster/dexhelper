@@ -7,9 +7,9 @@ owner_persona: tech_lead
 created_at: '2026-04-22'
 updated_at: '2026-04-24'
 depends_on:
-  - .foundry/stories/story-004-id-schema-decision.md
+  - story-004-id-schema-decision
 jules_session_id: null
-parent: .foundry/epics/epic-004-distributed-id-schema.md
+parent: epic-004-distributed-id-schema
 rejection_reason: ''
 ---
 
@@ -34,4 +34,4 @@ Implement the new collision-free ID schema across the orchestrator and all node 
 ## Generated Tasks
 - `.foundry/tasks/task-005-024-update-id-templates.md`
 - `.foundry/tasks/task-005-025-update-orchestrator-validation.md`
-- `.foundry/tasks/task-005-026-qa-orchestrator-validation.md`
+- `.foundry/archive/tasks/task-005-026-qa-orchestrator-validation.md`

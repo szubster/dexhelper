@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
 depends_on:
-  - .foundry/tasks/task-064-134-encounter-integration-impl.md
+  - task-064-134-encounter-integration-impl
 jules_session_id: null
 parent: story-032-064-gen3-encounter-integration
 tags:

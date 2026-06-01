@@ -8,7 +8,7 @@ created_at: '2026-04-22'
 updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-006-scheduling-configuration.md
+parent: story-006-scheduling-configuration
 tags:
   - infrastructure
 rejection_count: 1

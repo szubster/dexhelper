@@ -8,7 +8,7 @@ created_at: '2026-04-24'
 updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
-parent: .foundry/ideas/idea-007-automated-link-checker.md
+parent: idea-007-automated-link-checker
 tags:
   - infras
   - verification

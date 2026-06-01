@@ -8,7 +8,7 @@ created_at: '2026-04-23'
 updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
-parent: .foundry/epics/epic-005-tpm-agent-scheduling.md
+parent: epic-005-tpm-agent-scheduling
 tags:
   - infrastructure
 rejection_count: 0

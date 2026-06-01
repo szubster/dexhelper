@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { cn } from '../utils/cn';
 import { LcdGrid } from './LcdGrid';
+import { TacticalPanel } from './TacticalPanel';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
 interface SyncProgressDetail {
@@ -73,18 +74,14 @@ export function SyncProgress() {
         isComplete ? 'pointer-events-none bg-black/40 backdrop-blur-sm' : 'bg-black/80 backdrop-blur-xl',
       )}
     >
-      <div
+      <TacticalPanel
         data-testid="sync-progress"
+        variant={isComplete ? 'emerald' : 'blue'}
         className={cn(
-          'fade-in zoom-in-95 relative flex w-full max-w-sm animate-in flex-col items-center gap-6 border border-zinc-800 border-dashed bg-zinc-950 p-8 shadow-2xl duration-500',
+          'fade-in zoom-in-95 relative flex w-full max-w-sm animate-in flex-col items-center gap-6 bg-zinc-950 p-8 shadow-2xl duration-500',
           isComplete && 'fade-out zoom-out-95 animate-out fill-mode-forwards',
         )}
       >
-        <div className="absolute top-0 left-0 h-2 w-2 border-zinc-600 border-t-2 border-l-2" />
-        <div className="absolute top-0 right-0 h-2 w-2 border-zinc-600 border-t-2 border-r-2" />
-        <div className="absolute bottom-0 left-0 h-2 w-2 border-zinc-600 border-b-2 border-l-2" />
-        <div className="absolute right-0 bottom-0 h-2 w-2 border-zinc-600 border-r-2 border-b-2" />
-
         <TelemetryDecoration label="SYS.SYNC_ACTIVE" className="top-0 left-4" />
 
         <div className="relative mt-4 flex h-24 w-24 items-center justify-center border border-white/5 bg-zinc-900/50">
@@ -120,29 +117,38 @@ export function SyncProgress() {
           <div className="w-full space-y-2">
             <div className="flex justify-between font-black font-mono text-[10px] uppercase tracking-widest">
               <span className="text-zinc-500">TRANSFER</span>
-              <span className={isComplete ? 'text-emerald-500' : 'text-[var(--theme-primary)]'}>{percentage}%</span>
+              <span className={isComplete ? 'text-emerald-500' : 'text-blue-500'}>{percentage}%</span>
             </div>
-            <div className="h-2 w-full border border-zinc-800 bg-zinc-900/50 p-0.5">
-              <div
-                className={cn(
-                  'h-full transition-all duration-500 ease-out',
-                  isComplete ? 'bg-emerald-500' : 'bg-[var(--theme-primary)]',
-                )}
-                style={{ width: `${percentage}%` }}
-              />
+
+            {/* Tactical segmented progress bar */}
+            <div className="flex h-4 w-full gap-1 p-0.5">
+              {Array.from({ length: 10 }).map((_, i) => (
+                <div
+                  // biome-ignore lint/suspicious/noArrayIndexKey: Array has no unique values
+                  key={i}
+                  className={cn(
+                    'h-full flex-1 border transition-colors duration-300',
+                    i < Math.floor(percentage / 10)
+                      ? isComplete
+                        ? 'border-emerald-500 bg-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.3)]'
+                        : 'border-blue-500 bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.3)]'
+                      : 'border-zinc-800 bg-zinc-900/50',
+                  )}
+                />
+              ))}
             </div>
           </div>
         </div>
 
         {!isComplete && (
-          <div className="flex items-center gap-2 border border-zinc-800 border-dashed bg-zinc-900/50 px-4 py-2">
-            <div className="h-1.5 w-1.5 animate-pulse bg-[var(--theme-primary)]" />
-            <span className="font-black font-mono text-[9px] text-zinc-400 uppercase tracking-wider">
+          <div className="flex items-center gap-2 border border-blue-500/30 border-dashed bg-blue-500/10 px-4 py-2">
+            <div className="h-1.5 w-1.5 animate-pulse bg-blue-500" />
+            <span className="font-black font-mono text-[9px] text-blue-400 uppercase tracking-wider">
               SYNCING PROTOCOL
             </span>
           </div>
         )}
-      </div>
+      </TacticalPanel>
     </div>
   );
 }

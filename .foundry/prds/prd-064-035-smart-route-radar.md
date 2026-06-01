@@ -2,12 +2,12 @@
 id: prd-064-035-smart-route-radar
 type: PRD
 title: Smart Route Radar / Context-Aware Missing Encounter Map
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-05-23'
-updated_at: '2026-05-28'
+updated_at: '2026-05-31'
 depends_on: []
-jules_session_id: '7599001271280873298'
+jules_session_id: '3180153957064964970'
 pr_number: null
 parent: idea-064-smart-route-radar
 tags:
@@ -16,7 +16,7 @@ tags:
   - map
   - exploration
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

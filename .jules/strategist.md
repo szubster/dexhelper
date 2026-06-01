@@ -156,3 +156,8 @@
 **Outcome:** Accepted
 **Why:** The `.foundry/journals/tpm.md` journal was filled entirely with transient status logs (e.g., 'System failure detected', 'Resurrection Loop triggered') and orchestrator state transitions, which provide no long-term value, rot the context window, and explicitly violate the memory rules for journals.
 **Pattern:** Codify system memory constraints regarding journal content directly into the relevant agent's prompt, explicitly instructing them to purge and avoid logging transient status updates.
+## YYYY-MM-DD - [Accepted] - Prompt improvement - Prevent premature verification for all macro nodes
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Auditor journal showed that macro nodes (e.g. Epics, Stories) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, even though the actual implementation described in their requirements had not yet been merged into the codebase.
+**Pattern:** When an agent (like the Epic Planner, Story Owner, or Tech Lead) is responsible for breaking down high-level nodes, it must wait for the generated execution nodes to reach COMPLETED before submitting its Empty PR to complete the parent node, ensuring the macroscopic progress representation accurately reflects implementation reality.
