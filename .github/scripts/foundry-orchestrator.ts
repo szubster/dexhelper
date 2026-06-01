@@ -606,7 +606,7 @@ function main(): void {
       const parentPath = resolveNodePath(node.frontmatter.parent);
       if (parentPath) {
         const parentNode = nodeMap.get(parentPath);
-        if (parentNode && parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'READY') {
+        if (parentNode && parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'READY' && parentNode.frontmatter.status !== 'COMPLETED') {
           info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
           if (parentNode.frontmatter.owner_persona === 'human') {
             promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');
