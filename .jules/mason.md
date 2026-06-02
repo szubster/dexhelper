@@ -77,3 +77,10 @@
 - **Why**: Reduced duplicated JSX across `AssistantDebugView` which had 4 identical blocks. It can also be reused if other parts of the app need a telemetry card.
 - **Key Learnings**:
   - The `valueClassName` prop is crucial when extracting text components, allowing customization like `truncate` or `uppercase` while maintaining identical base text styles.
+
+## TacticalMultiSelectControl Extraction
+- **What**: Extracted repeated toggle button loops (e.g. mapping over arrays with `aria-pressed`, `onClick`, and toggle state logic) into a reusable `TacticalMultiSelectControl` component.
+- **Why**: Reduced duplicated boilerplate JSX across filtering controls like `SearchAndFilters` and `DagFilterPanel`. We already had `TacticalSegmentedControl` but it strictly uses `role="radiogroup"` for mutually-exclusive single selects. This new component is semantically correct for multi-selects.
+- **Key Learnings**:
+  - Standardizing multi-select options using an `items` array with properties like `isActive` instead of having individual components handle looping and unique active classes internally simplifies list rendering and state management at the parent level.
+  - Allowing rendering of standard React nodes for the `legend` prop provides flexibility when labels require complex layouts (like nested elements or specific margins) that plain text does not support.
