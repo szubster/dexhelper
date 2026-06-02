@@ -34,5 +34,5 @@ Create a dedicated "Permanent Failures" view or filter within the DAG Dashboard.
 - [x] Epic Planner: Create Epics for the permanent failure dashboard feature.
 
 ### Downstream Epics
-- `.foundry/epics/epic-034-046-dag-data-parsing-rejection-count.md`
-- `.foundry/epics/epic-034-047-permanent-failure-dashboard-ui.md`
+- [x] `.foundry/epics/epic-034-046-dag-data-parsing-rejection-count.md`
+- [ ] `.foundry/epics/epic-034-047-permanent-failure-dashboard-ui.md`
