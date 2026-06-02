@@ -23,17 +23,16 @@ notes: ''
 # PRD: Gen 3 Berry Farming Tracker
 
 ## Overview
-This PRD outlines the requirements for implementing a Gen 3 Berry Farming Tracker. It aims to automate the tracking of berry patches in Generation 3 games (Ruby, Sapphire, Emerald) using real-time clock (RTC) data extracted from save files.
+This PRD outlines the requirements for implementing a Gen 3 Berry Farming Tracker. It aims to automate the tracking of berry patches in Generation 3 games (Ruby, Sapphire, Emerald).
 
 ## Features
 1.  **Data Extraction (Engine Layer):**
-    *   Parse the real-time clock (RTC) data from the save file.
     *   Parse the state of all berry patches (planted, sprouted, taller, flowering, ripe) from the save file, using the `DataView` API as mandated by ADR 010.
 
 2.  **UI/UX Implementation:**
-    *   **Dashboard/List View:** Create a dedicated view displaying all active berry patches, their current growth stage, and the time remaining until the next stage or harvest.
+    *   **Dashboard/List View:** Create a dedicated view displaying all active berry patches and their current growth stage.
     *   **Map Integration:** Overlay berry patch locations and statuses on the static Gen 3 map graph (leveraging the map graph architecture defined in ADR 010).
-    *   **Harvest Reminders/Estimates:** Provide clear, actionable estimates on when to water or harvest berries based on the calculated delta between the game's RTC and the player's real-world time.
+    *   **Helpful Info:** Show helpful info mentioning expected growth times based on standard mechanics (without assuming save file RTC context) or calculate relative to the current real-world time if applicable.
 
 3.  **Optimization Engine:**
     *   Suggest optimal routes or patches to visit to maximize yield, particularly for endgame tasks like Pokéblock blending.
