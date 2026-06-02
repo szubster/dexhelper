@@ -59,7 +59,7 @@ test('DagDashboard renders correctly on successful load', async () => {
   // node-1 is TASK/COMPLETED, node-2 is TASK/ACTIVE
 
   // Toggle off ACTIVE nodes
-  const activeStatusButton = page.getByRole('button', { name: 'ACTIVE' });
+  const activeStatusButton = page.getByTestId('ACTIVE');
   await activeStatusButton.click();
 
   // node-2 should disappear from the graph (and document)
@@ -68,7 +68,7 @@ test('DagDashboard renders correctly on successful load', async () => {
   await expect.element(page.getByText('node-1')).toBeInTheDocument();
 
   // Toggle off TASK type
-  const taskTypeButton = page.getByRole('button', { name: 'TASK' });
+  const taskTypeButton = page.getByTestId('TASK');
   await taskTypeButton.click();
 
   // node-1 should also disappear
@@ -235,7 +235,7 @@ test('DagDashboard handles selection and highlighting', async () => {
   n2DagNode.element().dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
 
   // To make sure coverage on filter logic handles undefined
-  const taskTypeButton = page.getByRole('button', { name: 'TASK' });
+  const taskTypeButton = page.getByTestId('TASK');
   await taskTypeButton.click();
   await taskTypeButton.click();
 });
