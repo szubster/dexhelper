@@ -35,4 +35,5 @@ Leverage DexHelper's save file parsing to read the state of all berry patches an
 This automates a tedious real-world time-gated mechanic, acting as an active companion tool that encourages players to return to the game at specific times. It perfectly complements the Gen 3 support and expands DexHelper's utility beyond static collections.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD detailing the berry patch data structures and UI implementation.
+- [x] Product Manager: Convert this idea into a PRD detailing the berry patch data structures and UI implementation.
+- [ ] .foundry/prds/prd-067-037-gen3-berry-tracker.md
