@@ -47,7 +47,9 @@ Create `.github/scripts/dag-utils.ts`.
 - Ensure the test suite correctly executes `pnpm install && npx vitest run` in `.github/scripts/` to validate changes across both files.
 
 ## Next Steps
-- [ ] Epic Planner: Evaluate this PRD and convert it to Epics to extract the DAG utilities to a shared module.
+- [x] Epic Planner: Evaluate this PRD and convert it to Epics to extract the DAG utilities to a shared module.
+- [ ] .foundry/epics/epic-036-053-shared-dag-utilities.md
+- [ ] .foundry/epics/epic-036-054-unify-state-transitions.md
 
 ## Acceptance Criteria
 - [ ] `dag-utils.ts` created with shared functions.
