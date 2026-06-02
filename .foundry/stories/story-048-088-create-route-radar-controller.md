@@ -34,3 +34,7 @@ Scaffold the `RouteRadarController` module. It should act as the central dispatc
 - [ ] Create `RouteRadarController` in the appropriate directory (e.g., `src/engine/radar/` or similar).
 - [ ] Define the interface for its input (the raw suggestion engine output) and its expected heatmap data output.
 - [ ] Write unit tests to verify instantiation and basic method structures.
+
+## Generated Tasks
+- [ ] .foundry/tasks/task-088-146-scaffold-route-radar-controller.md
+- [ ] .foundry/tasks/task-088-147-qa-route-radar-controller.md
