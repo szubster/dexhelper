@@ -101,3 +101,11 @@
 - **2026-06-01**: Resurrection Loop triggered for `task-080-132-refactor-generation-exports-impl`. Reason: PR #1948 closed without merging.. Transitioned back to READY.
 
 - **2026-06-01**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-02**: PR #1960 merged but has unchecked tasks (parent node). `epic-035-048-smart-radar-data-unification` is now PENDING.
+
+- **2026-06-02**: PR #1964 merged. `idea-067-gen3-berry-tracker` is now VERIFYING.
+
+- **2026-06-02**: PR #1961 merged. `prd-066-036-save-file-health-scanner` is now VERIFYING.
+
+- **2026-06-02**: PR #1963 merged but has unchecked tasks (parent node). `prd-067-036-extract-dag-utils` is now PENDING.
