@@ -31,5 +31,7 @@ As defined in PRD `prd-064-035-smart-route-radar`, we need to integrate dynamic 
 Unify the data structures used by the suggestion engine and the map rendering components (as will be defined by the ADR produced in `task-035-142-smart-radar-adr`).
 
 ## Acceptance Criteria
-- [ ] Write stories to implement data unification according to the ADR.
+- [x] Write stories to implement data unification according to the ADR.
 - [ ] Complete child stories/tasks for data unification.
+- [ ] .foundry/stories/story-048-088-create-route-radar-controller.md
+- [ ] .foundry/stories/story-048-089-route-radar-density-aggregation.md
