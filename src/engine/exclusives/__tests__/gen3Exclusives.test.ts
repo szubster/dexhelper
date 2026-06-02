@@ -18,5 +18,23 @@ describe('gen3Exclusives', () => {
       const ownedSet = new Set<number>([382]);
       expect(getGen3UnobtainableReason(382, 'ruby', 0, ownedSet)).toBeNull();
     });
+
+    it('should lock Surskit in Emerald', () => {
+      const ownedSet = new Set<number>();
+      const reason = getGen3UnobtainableReason(283, 'emerald', 0, ownedSet);
+      expect(reason).toContain('not available in Emerald');
+    });
+
+    it('should not lock Seedot in Emerald', () => {
+      const ownedSet = new Set<number>();
+      const reason = getGen3UnobtainableReason(273, 'emerald', 0, ownedSet);
+      expect(reason).toBeNull();
+    });
+
+    it('should lock Ekans in LeafGreen', () => {
+      const ownedSet = new Set<number>();
+      const reason = getGen3UnobtainableReason(23, 'leafgreen', 0, ownedSet);
+      expect(reason).toContain('not available in Leafgreen'); // LeafGreen is capitalized as Leafgreen by standard logic
+    });
   });
 });

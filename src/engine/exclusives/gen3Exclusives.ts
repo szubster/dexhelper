@@ -4,12 +4,12 @@ export const GEN3_VERSION_EXCLUSIVES: Record<string, number[]> = {
   ruby: [270, 271, 272, 302, 336, 337, 382],
   // Sapphire missing (Ruby exclusives)
   sapphire: [273, 274, 275, 303, 335, 338, 383],
-  // Emerald missing (Ruby & Sapphire exclusives)
-  emerald: [273, 274, 275, 303, 335, 338, 383, 270, 271, 272, 302, 336, 337],
+  // Emerald missing (Surskit, Meditite, Roselia, Zangoose, Lunatone)
+  emerald: [283, 284, 307, 308, 315, 335, 337],
   // FireRed missing (LeafGreen exclusives)
-  firered: [27, 28, 37, 38, 69, 70, 71, 79, 80, 199, 120, 121, 126, 127, 183, 184, 298],
+  firered: [27, 28, 37, 38, 69, 70, 71, 79, 80, 199, 120, 121, 126, 240, 127, 183, 184, 298, 200, 215, 223, 224, 226],
   // LeafGreen missing (FireRed exclusives)
-  leafgreen: [23, 24, 43, 44, 45, 182, 54, 55, 58, 59, 66, 67, 68, 90, 91, 125, 123, 212, 238, 239, 240],
+  leafgreen: [23, 24, 43, 44, 45, 182, 54, 55, 58, 59, 90, 91, 125, 239, 123, 212, 194, 195, 198, 211, 225, 227],
 };
 
 export function getGen3UnobtainableReason(
