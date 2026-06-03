@@ -1,9 +1,10 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "ignoreExportsUsedInFile": true,
-  "ignoreDependencies": ["wrangler"],
+  "ignoreDependencies": ["wrangler", "@cloudflare/pages-plugin-cloudflare-access"],
   "ignore": [
     "src/test-setup.ts",
+    "functions/**",
     "scripts/validate-foundry-schema.ts",
     ".github/scripts/extract-research.ts",
     "scripts/gen3-fetch-locations.ts"
