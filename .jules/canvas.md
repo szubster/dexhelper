@@ -150,3 +150,9 @@
 **Outcome:** Accepted
 **Why:** Brings the loading state interface in line with the heavily tactical, specialized hardware motif. Wrapping loaders and sync views in `TacticalPanel` ensures they fit the "terminal scanning" visual identity of the rest of the application.
 **Pattern:** Consistently utilize `TacticalPanel` for utility and overlay elements instead of relying on custom styled divs with generic shadows and blurs, and replace standard progress indicators with segmented, tactical layouts.
+
+## 2026-07-02 - [Accepted] - 🖼️ Canvas: Tactical Multi-Select Filters
+**What:** Created a new `TacticalMultiSelectControl` component based on `TacticalSegmentedControl` but adapted for multi-select functionality using `role="group"` and `aria-pressed`. Refactored `SearchAndFilters` to use this new component instead of custom raw buttons, standardizing the filter toggles.
+**Outcome:** Accepted
+**Why:** Previous filter toggles were raw buttons styled to look like segmented controls, but they allowed multi-select (unlike the settings panels). By creating a dedicated `TacticalMultiSelectControl`, we maintain the strict hardware-style visual coherence while enforcing correct accessibility semantics for multi-select toggle groups.
+**Pattern:** Do not use `TacticalSegmentedControl` for multi-select scenarios as it breaks `role="radiogroup"` semantics. Use the dedicated `TacticalMultiSelectControl` for cohesive hardware aesthetics when multiple options can be toggled simultaneously.
