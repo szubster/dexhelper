@@ -2,13 +2,13 @@
 id: task-071-137-visited-routes-checklist-qa
 type: TASK
 title: QA Visited Routes Checklist
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-22'
 updated_at: '2026-06-03'
 depends_on:
   - task-071-136-visited-routes-checklist-impl
-jules_session_id: '16113775767292875840'
+jules_session_id: '15890747573554626728'
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:
@@ -16,7 +16,7 @@ tags:
   - nuzlocke
   - verification
 rejection_count: 1
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_reason: ''
 notes: ''
 ---
 
