@@ -8,7 +8,7 @@ created_at: '2026-04-26'
 updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
-parent: .foundry/archive/stories/story-010-028-verify-jest-tests.md
+parent: story-010-028-verify-jest-tests
 rejection_reason: ''
 ---
 

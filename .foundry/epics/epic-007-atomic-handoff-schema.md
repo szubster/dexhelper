@@ -8,7 +8,7 @@ created_at: '2026-04-22'
 updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
-parent: .foundry/prds/prd-001-v2-lifecycle.md
+parent: prd-001-v2-lifecycle
 tags:
   - v2-architecture
   - lifecycle

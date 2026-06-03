@@ -7,10 +7,10 @@ owner_persona: qa
 created_at: '2026-05-16'
 updated_at: '2026-05-17'
 depends_on:
-  - .foundry/tasks/task-052-090-implement-graph-filtering.md
+  - task-052-090-implement-graph-filtering
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-052-implement-graph-filtering.md
+parent: story-029-052-implement-graph-filtering
 tags:
   - dag
   - dashboard

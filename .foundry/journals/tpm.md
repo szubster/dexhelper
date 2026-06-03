@@ -81,3 +81,41 @@
 - **2026-06-01**: PR #1997 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
 
 - **2026-06-01**: System failure detected for `task-071-138-graveyard-integration-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-01**: PR #1942 merged. `idea-066-feebas-tile-predictor` is now VERIFYING.
+
+- **2026-06-01**: PR #2000 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-06-01**: Resurrection Loop triggered for `task-071-140-visited-routes-checklist-retry-impl`. Reason: PR #1928 closed without merging.. Transitioned back to READY.
+
+- **2026-06-01**: System failure detected for `research-081-006-investigate-enum-optimizations-failure`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-01**: PR #2024 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-06-01**: System failure detected for `task-071-140-visited-routes-checklist-retry-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-01**: PR #2026 merged. `story-032-062-gen3-data-generation-scripts` is now COMPLETED.
+
+- **2026-06-01**: Resurrection Loop triggered for `story-048-086-implement-implicit-dependency-check`. Reason: PR #1947 closed without merging.. Transitioned back to READY.
+
+- **2026-06-01**: Resurrection Loop triggered for `task-080-132-refactor-generation-exports-impl`. Reason: PR #1948 closed without merging.. Transitioned back to READY.
+
+- **2026-06-01**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-02**: PR #1960 merged but has unchecked tasks (parent node). `epic-035-048-smart-radar-data-unification` is now PENDING.
+
+- **2026-06-02**: PR #1964 merged. `idea-067-gen3-berry-tracker` is now VERIFYING.
+
+- **2026-06-02**: PR #1961 merged. `prd-066-036-save-file-health-scanner` is now VERIFYING.
+
+- **2026-06-02**: PR #1963 merged but has unchecked tasks (parent node). `prd-067-036-extract-dag-utils` is now PENDING.
+
+- **2026-06-02**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-02**: System failure detected for `task-071-140-visited-routes-checklist-retry-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-02**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-02**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-03**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.

@@ -44,34 +44,59 @@ export interface PokemonInstance {
 }
 
 /**
- * The root container for all parsed save file data.
- * Normalizes differences between Generation 1 and Generation 2 formats into a unified state structure.
+ * Represents the normalized player state extracted from a raw Game Boy save file.
+ * This structure bridges the gap between binary memory blocks and the suggestion engine.
  */
 export interface SaveData {
+  /** The generation of the parsed save file (1 or 2). */
   generation: Generation;
+  /** A set of Pokémon species IDs that have been caught (O(1) lookup). */
   owned: Set<number>;
+  /** A set of Pokémon species IDs that have been encountered. */
   seen: Set<number>;
+  /** Array of species IDs representing the Pokémon currently in the player's active party. */
   party: number[];
+  /** Array of species IDs representing all Pokémon currently stored in the PC boxes. */
   pc: number[];
+  /** Detailed structural data for each Pokémon in the active party. */
   partyDetails: PokemonInstance[];
+  /** Detailed structural data for all Pokémon stored in PC boxes. */
   pcDetails: PokemonInstance[];
+  /** The specific game version detected or forced (e.g., 'red', 'crystal'). */
   gameVersion: GameVersion;
+  /** Bitflag representation of the total number of gym badges obtained. */
   badges: number;
+  /** The decoded trainer name. */
   trainerName: string;
+  /** The player's unique Trainer ID (TID), used for static gift verification and shiny calculations in later gens. */
   trainerId: number;
+  /** The raw internal Map ID where the player last saved the game. */
   currentMapId: number;
+  /** The human-readable name of the current map, resolved via mapping constants. */
   currentMapName?: string;
+  /** Gen 2 specific: The Map Group ID used alongside currentMapId to uniquely identify a location. */
   mapGroup?: number;
+  /** Gen 2 specific: The number of Johto gym badges obtained. */
   johtoBadges?: number;
+  /** Gen 2 specific: The number of Kanto gym badges obtained. */
   kantoBadges?: number;
+  /** The player's active bag inventory. */
   inventory: { id: number; quantity: number }[];
+  /** Items stored in the player's PC. */
   pcItems?: { id: number; quantity: number }[];
+  /** The total number of Pokémon currently stored in the active PC box. */
   currentBoxCount: number;
+  /** The number of times the player has entered the Hall of Fame. Used to verify Mewtwo accessibility in Gen 1. */
   hallOfFameCount: number;
+  /** Raw byte array containing all in-game event flags (e.g., claimed static gifts, story progression). */
   eventFlags?: Uint8Array;
+  /** Bitflags representing which in-game NPC trades have already been completed. */
   npcTradeFlags?: number;
+  /** Detailed structural data for Pokémon currently left in the Daycare (Gen 2). */
   daycare?: PokemonInstance[];
+  /** Gen 2 specific: Indicates if an Egg is currently waiting to be picked up from the Daycare. */
   daycareHasEgg?: boolean;
+  /** Gen 2 specific: Information regarding currently roaming Legendary beasts (Raikou, Entei, Suicune). */
   roamingLegendaries?: {
     speciesId: number;
     level: number;

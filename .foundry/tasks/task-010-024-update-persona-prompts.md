@@ -8,7 +8,7 @@ created_at: '2026-04-23'
 updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-010-persona-permissions-matrix.md
+parent: story-010-persona-permissions-matrix
 tags:
   - foundry-v2
   - architecture

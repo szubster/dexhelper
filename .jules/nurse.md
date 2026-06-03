@@ -76,3 +76,7 @@ Unnecessary 'as' casts were found where TypeScript already inferred the type cor
 ## $(date +%Y-%m-%d) - Type-Safety: Narrowed primitive types down to strict literal unions
 **Learning:** Functions accepting `string` types for variables that are naturally constrained (like Game Versions) lead to unnecessary defensive casts `(val as GameVersion)` within components. Instead of allowing `string` and type-casting, use precise union types (e.g. `GameVersion | 'unknown'`) that fully eliminate the need for `as` and allow the compiler to enforce correctness statically.
 **Action:** When working with types that map to fixed sets of allowed states, tighten the interfaces from primitives like `string` to explicit unions, which automatically removes the need for downstream `as` casts while enabling proper discriminated typing.
+
+## $(date +%Y-%m-%d) - Type-Safety: `as keyof typeof` for mapped arrays
+**Learning:** Hardcoding string arrays as objects mapped over by keys, and then utilizing `gameVersion as keyof (typeof staticEncounters)[number]` forces an implicit `any` bypass when trying to reference those values elsewhere in components.
+**Action:** Replace `as keyof typeof` casts that attempt to enforce string literals within mapped type arrays with strict type guard functions. By checking `includes` or equivalent logic within an `isValidKey` function and declaring `version is keyof (typeof Array)[number]`, we can natively narrow string literals and remove unsafe casts safely and correctly.
