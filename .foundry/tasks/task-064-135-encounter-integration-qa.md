@@ -24,5 +24,5 @@ rejection_reason: ''
 QA validate the integration of Gen 3 encounter data into the suggestion engine and map graph.
 
 ## Acceptance Criteria
-- [ ] QA verifies suggestion engine correctly utilizes Gen 3 encounter data.
-- [ ] QA verifies location and encounter routing is aware of Gen 3 specific mechanics.
+- [x] QA verifies suggestion engine correctly utilizes Gen 3 encounter data.
+- [x] QA verifies location and encounter routing is aware of Gen 3 specific mechanics.
