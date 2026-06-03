@@ -26,5 +26,5 @@ notes: ''
 QA the Graveyard view in the Run Dashboard UI.
 
 ## Acceptance Criteria
-- [ ] Verify the Graveyard view correctly displays permanently dead Pokémon.
-- [ ] Verify integration with the death tracking logic functions as expected.
+- [x] Verify the Graveyard view correctly displays permanently dead Pokémon.
+- [x] Verify integration with the death tracking logic functions as expected.
