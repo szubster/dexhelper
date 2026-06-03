@@ -44,14 +44,14 @@ export function SettingsControls({
         iconColorClass="border-blue-500/20 bg-blue-500/10"
         label="Version"
       >
-        <TacticalSegmentedControl
+        <TacticalSegmentedControl<GameVersion | 'unknown'>
           ariaLabel="Game Version"
           containerClassName="grid grid-cols-3 gap-2 [&>div]:grid [&>div]:grid-cols-3 [&>div]:gap-2 [&>div]:border-none [&>button]:border"
           buttonBaseClassName="!border-dashed !border focus-visible:ring-blue-500 px-3 py-2 text-[9px]"
           defaultActiveClassName="border-blue-500 bg-blue-500/20 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.3)]"
           defaultInactiveClassName="border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300"
-          selectedValue={effectiveVersion}
-          onValueChange={(val) => setManualVersion(val === 'unknown' ? null : (val as GameVersion))}
+          selectedValue={effectiveVersion as GameVersion | 'unknown'}
+          onValueChange={(val) => setManualVersion(val === 'unknown' ? null : val)}
           items={versions.map((v) => ({
             id: v.id,
             label: v.label,
@@ -91,14 +91,14 @@ export function SettingsControls({
         iconColorClass="border-amber-500/20 bg-amber-500/10"
         label="Ball Style"
       >
-        <TacticalSegmentedControl
+        <TacticalSegmentedControl<PokeballType>
           ariaLabel="Ball Style"
           containerClassName="grid grid-cols-3 gap-2 [&>div]:grid [&>div]:grid-cols-3 [&>div]:gap-2 [&>div]:border-none [&>button]:border"
           buttonBaseClassName="flex flex-col items-center justify-center gap-1.5 py-3 text-[9px] !border-dashed !border focus-visible:ring-amber-500"
           defaultActiveClassName="border-amber-500 bg-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)]"
           defaultInactiveClassName="border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300"
           selectedValue={globalPokeball}
-          onValueChange={(val) => setGlobalPokeball(val as PokeballType)}
+          onValueChange={(val) => setGlobalPokeball(val)}
           items={filteredPokeballs.map((pb) => ({
             id: pb.value,
             label: (
