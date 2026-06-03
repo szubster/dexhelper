@@ -24,8 +24,7 @@ export function DagFilterPanel({ activeTypes, activeStatuses, onTypeToggle, onSt
                 key={type}
                 type="button"
                 aria-pressed={isActive}
-                aria-label={`Toggle ${type} type filter`}
-                title={`Toggle ${type} type filter`}
+                title={`${type} type filter`}
                 onClick={() => onTypeToggle(type)}
                 className={cn(
                   'rounded-none border border-dashed px-2 py-1 transition-colors hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
@@ -71,8 +70,7 @@ export function DagFilterPanel({ activeTypes, activeStatuses, onTypeToggle, onSt
                 key={status}
                 type="button"
                 aria-pressed={isActive}
-                aria-label={`Toggle ${status} status filter`}
-                title={`Toggle ${status} status filter`}
+                title={`${status} status filter`}
                 onClick={() => onStatusToggle(status)}
                 className={cn(
                   'rounded-none border border-dashed px-2 py-1 transition-colors hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
