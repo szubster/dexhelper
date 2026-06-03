@@ -2,6 +2,11 @@ import { describe, expect, it } from 'vitest';
 import { getGen3UnobtainableReason } from '../gen3Exclusives';
 
 describe('gen3Exclusives', () => {
+  it('should return missing in Emerald', () => {
+    const ownedSet = new Set<number>();
+    const reason = getGen3UnobtainableReason(283, 'emerald', 0, ownedSet);
+    expect(reason).toContain('not available in Emerald');
+  });
   describe('getGen3UnobtainableReason', () => {
     it('should return null for non-exclusive Pokemon', () => {
       const ownedSet = new Set<number>();
