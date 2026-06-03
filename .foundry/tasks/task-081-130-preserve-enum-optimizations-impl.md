@@ -2,12 +2,12 @@
 id: task-081-130-preserve-enum-optimizations-impl
 type: TASK
 title: Preserve Enum Optimizations with Verbose Keys in Generation Pipeline
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-05-22'
-updated_at: '2026-06-02'
+updated_at: '2026-06-03'
 depends_on: []
-jules_session_id: '11998668692290288421'
+jules_session_id: null
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 1
 rejection_reason: ''
