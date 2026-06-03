@@ -2,13 +2,13 @@
 id: task-079-145-ui-sync-status-qa
 type: TASK
 title: QA UI Sync Status & Permissions
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-28'
 updated_at: '2026-06-03'
 depends_on:
   - task-079-144-ui-sync-status-impl
-jules_session_id: null
+jules_session_id: '17796066045932441309'
 pr_number: null
 parent: story-041-079-ui-sync-status
 tags:
