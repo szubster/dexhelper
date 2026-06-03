@@ -119,3 +119,23 @@
 - **2026-06-02**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
 
 - **2026-06-03**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-03**: Resurrection Loop triggered for `idea-066-save-file-health-scanner`. Reason: PR #1967 closed without merging.. Transitioned back to READY.
+
+- **2026-06-03**: PR #1973 merged. `research-071-006-investigate-checklist-retry-failure` is now COMPLETED.
+
+- **2026-06-03**: PR #1972 merged. `research-136-cloudflare-oauth-libraries` is now COMPLETED.
+
+- **2026-06-03**: PR #1974 merged but has unchecked tasks (parent node). `story-044-083-pc-party-shiny-flag` is now PENDING.
+
+- **2026-06-03**: PR #1970 merged. `task-064-143-gen3-strategy-qa` is now COMPLETED.
+
+- **2026-06-03**: PR #1971 merged. `task-071-135-run-dashboard-ui-qa` is now COMPLETED.
+
+- **2026-06-03**: PR #1989 merged. `task-071-136-visited-routes-checklist-impl` is now COMPLETED.
+
+- **2026-06-03**: PR #2002 merged. `task-071-138-graveyard-integration-impl` is now COMPLETED.
+
+- **2026-06-03**: PR #1976 merged. `task-079-144-ui-sync-status-impl` is now COMPLETED.
+
+- **2026-06-03**: PR #1977 merged. `task-085-142-impl-extract-rejection-count` is now COMPLETED.

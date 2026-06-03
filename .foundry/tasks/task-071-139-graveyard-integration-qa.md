@@ -2,10 +2,10 @@
 id: task-071-139-graveyard-integration-qa
 type: TASK
 title: QA Graveyard Integration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-22'
-updated_at: '2026-05-22'
+updated_at: '2026-06-03'
 depends_on:
   - task-071-138-graveyard-integration-impl
 jules_session_id: null

@@ -1,11 +1,11 @@
 ---
 id: task-079-145-ui-sync-status-qa
 type: TASK
-title: "QA UI Sync Status & Permissions"
-status: PENDING
+title: QA UI Sync Status & Permissions
+status: READY
 owner_persona: qa
-created_at: "2026-05-28"
-updated_at: "2026-05-28"
+created_at: '2026-05-28'
+updated_at: '2026-06-03'
 depends_on:
   - task-079-144-ui-sync-status-impl
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA UI Sync Status & Permissions

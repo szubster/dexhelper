@@ -2,12 +2,12 @@
 id: research-071-006-investigate-checklist-retry-failure
 type: RESEARCH
 title: Investigate Visited Routes Checklist Retry Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-05-28'
-updated_at: '2026-05-31'
+updated_at: '2026-06-03'
 depends_on: []
-jules_session_id: '8821458039311503415'
+jules_session_id: null
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:

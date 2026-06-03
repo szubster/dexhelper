@@ -1,11 +1,11 @@
 ---
 id: task-083-146-flag-shiny-carriers-impl
 type: TASK
-title: "Implement isShinyCarrier Property in Parsed Data"
-status: PENDING
+title: Implement isShinyCarrier Property in Parsed Data
+status: READY
 owner_persona: coder
-created_at: "2026-06-01"
-updated_at: "2026-06-01"
+created_at: '2026-06-01'
+updated_at: '2026-06-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - backend
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement isShinyCarrier Property in Parsed Data
