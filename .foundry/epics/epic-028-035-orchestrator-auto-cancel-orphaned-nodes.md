@@ -40,4 +40,4 @@ This epic implements an enhancement to the orchestrator (`.github/scripts/foundr
 
 ## Assigned Stories
 - `.foundry/stories/story-035-072-implement-cancellation-logic.md`
-- `.foundry/stories/story-035-073-orchestrator-cancellation-tests.md`
+- `.foundry/archive/stories/story-035-073-orchestrator-cancellation-tests.md`
