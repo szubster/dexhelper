@@ -26,5 +26,5 @@ notes: ''
 QA the "Alive" team view for the Run Dashboard UI.
 
 ## Acceptance Criteria
-- [ ] Verify the "Alive" team view displays correctly.
-- [ ] Verify the UI meets all requirements for the Nuzlocke Tracker mode.
+- [x] Verify the "Alive" team view displays correctly.
+- [x] Verify the UI meets all requirements for the Nuzlocke Tracker mode.
