@@ -141,3 +141,11 @@ Documenting this prevents developers from incorrectly refactoring offset lookups
 
 **What:** Added comprehensive JSDoc to the generator functions (`generateCatchSuggestions`, `generateGiftAndTradeSuggestions`, `generateBreedingSuggestions`, `generateEvolutionSuggestions`) in `src/engine/assistant/suggestionEngine.ts`.
 **Why:** The sub-generators lacked explicit architectural documentation explaining *why* they mutate the `suggestions` and `localPids` arrays directly instead of returning new arrays or using pure functions. This mutation-in-place pattern is a critical O(1) memory optimization necessary for the engine's hot path to avoid O(N) garbage collection overhead when simultaneously evaluating hundreds of encounters. Documenting this ensures future maintainers do not accidentally "refactor" these functions into pure, immutable patterns which would lock the UI thread.
+
+## 2026-06-05 - Data Pipeline Architecture Documentation
+
+**What:** Added JSDoc documentation to `scripts/generate-pokedata.ts`, specifically for the `main()`, `compact()`, `readJson`, and `writeJsonl` functions.
+**Why:** The ETL pipeline is a complex process that bridges upstream PokeAPI data with the highly optimized, offline-first IndexedDB structure required by DexHelper.
+- `main()`: Documented the pipeline stages (Ingestion -> Extraction -> Transformation -> Bug Catching Contest Injection -> Graph Computation -> Load). This clarifies the high-level architecture of the script.
+- `compact()`: Documented *why* stripping `null` and empty arrays is critical for the React client. Since the data is shipped to the browser, reducing the payload size prevents OOM crashes on low-end devices and keeps the app within storage quotas.
+- `readJson` & `writeJsonl`: Documented the reasoning behind using JSONL (JSON Lines) to allow the frontend to progressively stream data into IndexedDB without holding massive arrays in memory.
