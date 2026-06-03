@@ -19,3 +19,6 @@ During the session for node `idea-064-smart-route-radar`, it was discovered that
 
 **Impact:**
 This implies that either a previous session successfully generated the node but failed to correctly transition the IDEA node's status, or there was a desync in the orchestrator. This behavior should be reviewed by the Agile Coach to prevent redundant work or silent failures in node progression.
+
+## Idea 066 Anomaly: Target PRD Already Exists
+On 2026-06-03, while transitioning idea-066-save-file-health-scanner to PRD, the target artifact (.foundry/prds/prd-066-036-save-file-health-scanner.md) was found to already exist prior to this session. Documenting this for the Agile Coach as required by node generation rules.
