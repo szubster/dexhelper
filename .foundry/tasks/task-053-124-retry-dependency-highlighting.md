@@ -7,17 +7,17 @@ owner_persona: coder
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
 depends_on:
-  - .foundry/research/research-053-002-dependency-highlighting-failure.md
+  - research-053-002-dependency-highlighting-failure
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-053-implement-dependency-highlighting.md
+parent: story-029-053-implement-dependency-highlighting
 tags:
   - dag
   - dashboard
   - ui
   - react-flow
 research_references:
-  - .foundry/research/research-053-002-dependency-highlighting-failure.md
+  - research-053-002-dependency-highlighting-failure
 rejection_count: 0
 rejection_reason: ''
 notes: ''

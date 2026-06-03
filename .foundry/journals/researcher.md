@@ -15,3 +15,6 @@ When implementing new pipeline states that involve temporary ownership handoffs 
 - **Failure**: `task-071-140-visited-routes-checklist-retry-impl` failed with `Merged with unfulfilled acceptance criteria`.
 - **Constraint**: The orchestrator checks for `/^\s*-\s*\[\s\]/m` to enforce task completeness (ADR 007, ADR 009).
 - **Why it matters**: When an agent determines the target codebase components are already completed (e.g., `VisitedRoutesChecklist` exists) and decides to submit an empty PR to advance the pipeline, they *must* edit the task's markdown file to check off the acceptance criteria boxes (`- [x]`). Submitting an empty PR while leaving the markdown boxes unchecked will cause the orchestrator to fail the node.
+## Cloudflare Native Authentication
+- **Finding:** For Cloudflare Pages, `@cloudflare/pages-plugin-cloudflare-access` provides native middleware to validate JWTs from Cloudflare Access.
+- **Why it matters:** Generic Node.js OAuth libraries are difficult to maintain in edge environments. Relying on Cloudflare Access to handle the Google SSO flow at the infrastructure level removes the need to write custom callback/session management code. It also allows single-user restrictions to be configured via Zero Trust policies instead of application logic.

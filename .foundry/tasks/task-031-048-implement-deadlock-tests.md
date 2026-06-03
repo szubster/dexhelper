@@ -8,7 +8,7 @@ created_at: '2026-04-27'
 updated_at: '2026-04-27'
 depends_on: []
 jules_session_id: '4640549639143018851'
-parent: .foundry/stories/story-009-031-deadlock-prevention-tests.md
+parent: story-009-031-deadlock-prevention-tests
 tags:
   - v2-architecture
   - lifecycle

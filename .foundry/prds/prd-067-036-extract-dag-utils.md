@@ -2,12 +2,12 @@
 id: prd-067-036-extract-dag-utils
 type: PRD
 title: Extract DAG Utilities to Shared Module
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-05-29'
-updated_at: '2026-05-31'
+updated_at: '2026-06-02'
 depends_on: []
-jules_session_id: '10684426308324052754'
+jules_session_id: null
 parent: idea-067-extract-dag-utils
 tags:
   - refactor
@@ -47,7 +47,9 @@ Create `.github/scripts/dag-utils.ts`.
 - Ensure the test suite correctly executes `pnpm install && npx vitest run` in `.github/scripts/` to validate changes across both files.
 
 ## Next Steps
-- [ ] Epic Planner: Evaluate this PRD and convert it to Epics to extract the DAG utilities to a shared module.
+- [x] Epic Planner: Evaluate this PRD and convert it to Epics to extract the DAG utilities to a shared module.
+- [ ] .foundry/epics/epic-036-053-shared-dag-utilities.md
+- [ ] .foundry/epics/epic-036-054-unify-state-transitions.md
 
 ## Acceptance Criteria
 - [ ] `dag-utils.ts` created with shared functions.

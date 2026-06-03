@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
 depends_on:
-  - .foundry/stories/story-032-059-gen3-map-graph-structure.md
+  - story-032-059-gen3-map-graph-structure
 jules_session_id: null
 pr_number: null
 parent: epic-053-032-gen3-map-graph-routing

@@ -272,6 +272,9 @@ const METHOD_NAMES: Record<number, string> = {
  *
  * It mutates the provided `suggestions` array and `localPids` set to avoid redundant
  * array allocations in the hot path.
+ * This mutation-in-place pattern is a critical architectural optimization (O(1) memory)
+ * that prevents the O(N) garbage collection overhead of allocating and merging massive
+ * arrays during the hot path.
  *
  * @param apiData - Pre-fetched lookup data, containing location definitions and encounter rates.
  * @param displayVersionId - The numeric ID of the current game version (e.g. Red, Blue, Gold).
@@ -280,7 +283,7 @@ const METHOD_NAMES: Record<number, string> = {
  * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
  * @param saveData - The player's parsed save file, containing current location and badges.
  * @param strategy - Generation-specific logic for calculating map distances.
- * @param suggestions - The shared array where new catch suggestions are pushed.
+ * @param suggestions - The shared array where new catch suggestions are pushed in-place.
  * @param localPids - A shared set tracking Pokémon found locally, preventing redundant nearby checks.
  */
 function generateCatchSuggestions(
@@ -436,6 +439,9 @@ function generateCatchSuggestions(
  * Evaluates version exclusives, in-game NPC trades, and static gift encounters.
  *
  * It mutates the provided `suggestions` array.
+ * This mutation-in-place pattern is a critical architectural optimization (O(1) memory)
+ * that prevents the O(N) garbage collection overhead of allocating and merging massive
+ * arrays during the hot path.
  *
  * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
  * @param saveData - The player's parsed save file, containing badges and event flags.
@@ -443,7 +449,7 @@ function generateCatchSuggestions(
  * @param ownedSet - A Set of Pokémon IDs the player already owns.
  * @param apiData - Pre-fetched metadata for Pokémon definitions.
  * @param instancesBySpecies - A Map of the player's physical Pokémon, used to check for required trade offerings or pre-evolutions.
- * @param suggestions - The shared array where new suggestions are pushed.
+ * @param suggestions - The shared array where new suggestions are pushed in-place.
  * @param missingIds - A Set of Pokémon IDs the player needs to obtain.
  */
 function generateGiftAndTradeSuggestions(
@@ -566,12 +572,15 @@ function generateGiftAndTradeSuggestions(
  * Checks if the player can breed a missing base Pokémon from an owned evolution.
  *
  * It mutates the provided `suggestions` array.
+ * This mutation-in-place pattern is a critical architectural optimization (O(1) memory)
+ * that prevents the O(N) garbage collection overhead of allocating and merging massive
+ * arrays during the hot path.
  *
  * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
  * @param saveData - The player's parsed save file, used to check Daycare status.
  * @param apiData - Pre-fetched metadata containing evolution chains.
  * @param instancesBySpecies - A Map of the player's physical Pokémon.
- * @param suggestions - The shared array where new breeding suggestions are pushed.
+ * @param suggestions - The shared array where new breeding suggestions are pushed in-place.
  */
 function generateBreedingSuggestions(
   queryTargets: number[],
@@ -659,12 +668,15 @@ function generateBreedingSuggestions(
  * Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached).
  *
  * It mutates the provided `suggestions` array.
+ * This mutation-in-place pattern is a critical architectural optimization (O(1) memory)
+ * that prevents the O(N) garbage collection overhead of allocating and merging massive
+ * arrays during the hot path.
  *
  * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
  * @param saveData - The parsed save data for checking items, friendship, and daylight (tod).
  * @param apiData - Pre-fetched metadata containing evolution criteria (level, item, time of day).
  * @param instancesBySpecies - A Map of the player's physical Pokémon, used to find valid pre-evolutions.
- * @param suggestions - The shared array where new evolution suggestions are pushed.
+ * @param suggestions - The shared array where new evolution suggestions are pushed in-place.
  * @param displayVersion - The current game version, used to handle special cases (like Yellow Pikachu refusing to evolve).
  * @param missingIds - A Set of Pokémon IDs the player needs to obtain.
  */

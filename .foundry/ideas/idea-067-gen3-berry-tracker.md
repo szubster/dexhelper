@@ -2,12 +2,12 @@
 id: idea-067-gen3-berry-tracker
 type: IDEA
 title: Gen 3 Berry Farming Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-05-29'
-updated_at: '2026-05-31'
+updated_at: '2026-06-02'
 depends_on: []
-jules_session_id: '12010335444479552523'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -35,4 +35,5 @@ Leverage DexHelper's save file parsing to read the state of all berry patches an
 This automates a tedious real-world time-gated mechanic, acting as an active companion tool that encourages players to return to the game at specific times. It perfectly complements the Gen 3 support and expands DexHelper's utility beyond static collections.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD detailing the berry patch data structures and UI implementation.
+- [x] Product Manager: Convert this idea into a PRD detailing the berry patch data structures and UI implementation.
+- [ ] .foundry/prds/prd-067-037-gen3-berry-tracker.md

@@ -27,4 +27,4 @@ notes: ''
 Tests must reflect the new implicit dependency enforcement logic added in the orchestrator.
 
 ## Acceptance Criteria
-- [ ] Add unit tests in `.github/scripts/foundry-orchestrator.test.ts` to verify implicit dependency evaluation.
+- [x] Add unit tests in `.github/scripts/foundry-orchestrator.test.ts` to verify implicit dependency evaluation.

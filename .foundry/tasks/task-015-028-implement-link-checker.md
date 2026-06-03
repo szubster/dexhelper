@@ -8,7 +8,7 @@ created_at: '2026-04-25'
 updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-006-015-implement-link-checker.md
+parent: story-006-015-implement-link-checker
 tags:
   - infras
   - verification

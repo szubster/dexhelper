@@ -439,6 +439,45 @@ describe('foundry-orchestrator', () => {
     expect(epicContent).toContain('status: PENDING');
   });
 
+  test('Hierarchical Completion: suspends ACTIVE parent to PENDING if it has incomplete children', () => {
+    // Epic 1: ACTIVE (started work, but child isn't done)
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
+      status: "ACTIVE",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: "sess-123",
+    });
+
+    // Story 1: Child of Epic 1, PENDING
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/epics/epic-001.md",
+      jules_session_id: null,
+    });
+
+    main();
+
+    // Epic 1 SHOULD be suspended back to PENDING because its child is incomplete
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: PENDING');
+
+    // Story 1 SHOULD become READY because it has no dependencies
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
+    expect(storyContent).toContain('status: READY');
+  });
+
   test('Cascade Cancellation: cancels child nodes of CANCELLED parent recursively', () => {
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
       id: "epic-001",

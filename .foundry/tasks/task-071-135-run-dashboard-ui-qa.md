@@ -2,13 +2,13 @@
 id: task-071-135-run-dashboard-ui-qa
 type: TASK
 title: QA Dashboard Alive Team View
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-22'
 updated_at: '2026-05-31'
 depends_on:
   - task-071-134-run-dashboard-ui-impl
-jules_session_id: null
+jules_session_id: '16730181737182222547'
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:
@@ -26,5 +26,5 @@ notes: ''
 QA the "Alive" team view for the Run Dashboard UI.
 
 ## Acceptance Criteria
-- [ ] Verify the "Alive" team view displays correctly.
-- [ ] Verify the UI meets all requirements for the Nuzlocke Tracker mode.
+- [x] Verify the "Alive" team view displays correctly.
+- [x] Verify the UI meets all requirements for the Nuzlocke Tracker mode.
