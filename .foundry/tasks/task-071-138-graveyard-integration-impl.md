@@ -25,5 +25,5 @@ notes: ''
 Implement the Graveyard view in the Run Dashboard UI.
 
 ## Acceptance Criteria
-- [ ] Implement the UI to display the Graveyard for permanently dead Pokémon.
-- [ ] Ensure integration with the death tracking logic.
+- [x] Implement the UI to display the Graveyard for permanently dead Pokémon.
+- [x] Ensure integration with the death tracking logic.
