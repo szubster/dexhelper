@@ -22,7 +22,7 @@ export default defineConfig(async (configEnv) => {
           test: {
             name: 'node',
             include: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
-            exclude: ['src/components/**/*.test.tsx', 'src/hooks/**/*.test.tsx', 'tests/e2e/**/*'],
+            exclude: ['src/components/**/*.test.tsx', 'src/hooks/**/*.test.tsx', 'tests/e2e/**/*', 'src/routes/**/*.test.tsx'],
             setupFiles: ['./src/node-setup.ts'],
             environment: 'node',
             globals: true,
@@ -32,7 +32,7 @@ export default defineConfig(async (configEnv) => {
           extends: true,
           test: {
             name: 'browser',
-            include: ['src/components/**/*.test.tsx', 'src/hooks/**/*.test.tsx'],
+            include: ['src/components/**/*.test.tsx', 'src/hooks/**/*.test.tsx', 'src/routes/**/*.test.tsx'],
             exclude: ['tests/e2e/**/*'],
             browser: {
               enabled: true,
