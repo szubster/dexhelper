@@ -30,9 +30,9 @@ See ADR 016 (`.foundry/docs/adrs/016-file-system-access-api-sync.md`) for the ar
 - Implement a UI gesture (e.g., a "Resume Sync" button) for cases where the browser requires user interaction to re-grant permission to the retained `FileSystemFileHandle`.
 
 ## Acceptance Criteria
-- [ ] UI displays current sync status.
-- [ ] Fallback for unsupported browsers is available.
-- [ ] "Resume Sync" button is available when needed.
+- [x] UI displays current sync status.
+- [x] Fallback for unsupported browsers is available.
+- [x] "Resume Sync" button is available when needed.
 
 ## Reminders
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
