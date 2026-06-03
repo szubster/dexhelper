@@ -2,7 +2,7 @@
 id: task-085-142-impl-extract-rejection-count
 type: TASK
 title: Implement DAG Data Parsing for Rejection Count
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-23'
 updated_at: '2026-06-03'
@@ -16,7 +16,7 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'The required React Context layer for shared DAG state is missing. ADR 013 and ADR 017 require the state to be lifted to a shared context rather than tightly coupled inside the DagDashboard component.'
 notes: ''
 ---
 

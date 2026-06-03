@@ -39,6 +39,9 @@ This is a verification task for `task-085-142-impl-extract-rejection-count`. In 
 - [ ] QA: Verify data models align with ADR 017.
 - [ ] QA: Verify context layer broadcasts `rejection_count`.
 
+## QA Notes
+**Validation Failed:** `task-085-142-impl-extract-rejection-count` is rejected. While the parsing logic correctly extracts `rejection_count` and models are updated, the required React Context layer to expose this data to connected UI views (as specified in ADR 013 and ADR 017) was not implemented. The state is still tightly coupled within `DagDashboard.tsx` instead of being lifted into a shared context.
+
 ## Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
