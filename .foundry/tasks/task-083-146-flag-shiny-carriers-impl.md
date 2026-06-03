@@ -2,12 +2,12 @@
 id: task-083-146-flag-shiny-carriers-impl
 type: TASK
 title: Implement isShinyCarrier Property in Parsed Data
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-01'
 updated_at: '2026-06-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10092150020180186448'
 pr_number: null
 parent: story-044-083-pc-party-shiny-flag
 tags:
