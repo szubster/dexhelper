@@ -988,6 +988,20 @@ export function generateSuggestions(
     (saveData.pcItems?.some((i) => i.id === 198 && i.quantity > 0) ?? false) ||
     allInstances.some((p) => p.moves?.includes(249));
 
+  const rodIds = genConfig.rodIds;
+  const hasOldRod = rodIds
+    ? saveData.inventory.some((i) => i.id === rodIds.OLD && i.quantity > 0) ||
+      (saveData.pcItems?.some((i) => i.id === rodIds.OLD && i.quantity > 0) ?? false)
+    : true;
+  const hasGoodRod = rodIds
+    ? saveData.inventory.some((i) => i.id === rodIds.GOOD && i.quantity > 0) ||
+      (saveData.pcItems?.some((i) => i.id === rodIds.GOOD && i.quantity > 0) ?? false)
+    : true;
+  const hasSuperRod = rodIds
+    ? saveData.inventory.some((i) => i.id === rodIds.SUPER && i.quantity > 0) ||
+      (saveData.pcItems?.some((i) => i.id === rodIds.SUPER && i.quantity > 0) ?? false)
+    : true;
+
   generateCatchSuggestions(
     apiData,
     displayVersionId,
@@ -1018,6 +1032,9 @@ export function generateSuggestions(
             if (d) {
               if (d.method === 'headbutt' && !hasHeadbutt) continue;
               if (d.method === 'rock-smash' && !hasRockSmash) continue;
+              if (d.method === 'old-rod' && !hasOldRod) continue;
+              if (d.method === 'good-rod' && !hasGoodRod) continue;
+              if (d.method === 'super-rod' && !hasSuperRod) continue;
               filteredDetails.push(d);
             }
           }
