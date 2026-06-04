@@ -172,3 +172,8 @@
 **Outcome:** Accepted
 **Why:** The Tech Lead was missing the explicit instruction about checking unchecked Acceptance Criteria checkboxes when submitting an empty PR, which is present in other persona prompts and required by ADR 007 and ADR 009.
 **Pattern:** Codify system memory constraints into agent prompts to avoid regressions and ensure consistency across personas.
+## 2026-06-02 - [Accepted] - Prompt improvement - Prevent premature verification for Product Manager and Auditor
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The Auditor journal showed that macro nodes (e.g. PRDs) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, leading to false progress signaling. Product Manager missed this explicit rule which the other planners already had. Auditor also needed explicit instructions to enforce this constraint.
+**Pattern:** Ensure all persona prompts involved in macroscopic planning (IDEA, PRD, EPIC, STORY) and auditing explicitly enforce the dependency graph constraint that a parent node must wait for all child execution nodes to finish before it can transition to VERIFYING or COMPLETED.
