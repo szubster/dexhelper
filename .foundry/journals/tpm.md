@@ -19,3 +19,7 @@
 - **2026-06-04**: PR #2029 merged. `story-048-086-implement-implicit-dependency-check` is now COMPLETED.
 
 - **2026-06-04**: PR #2046 merged but has unchecked tasks (parent node). `story-048-088-create-route-radar-controller` is now PENDING.
+
+- **2026-06-04**: System failure detected for `task-081-144-preserve-enum-optimizations-retry-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-04**: System failure detected for `task-086-146-impl-implicit-dependency-check`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
