@@ -3,6 +3,7 @@ import React from 'react';
 import { stadiumRewardsData } from '../../../engine/data/shared/staticData';
 import type { SaveData } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
+import { InlineLink } from '../../InlineLink';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface EvoReq {
@@ -64,14 +65,13 @@ function ProcurementStrategy({
         {evoReq ? (
           <>
             {' '}
-            <button
-              type="button"
+            <InlineLink
               aria-label={`Navigate to ${evoReq.fromName} details`}
               onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
-              className="rounded-none text-red-400 underline decoration-red-500/30 underline-offset-4 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              variant="red"
             >
               Evolving {evoReq.fromName.toUpperCase()}
-            </button>
+            </InlineLink>
             .
           </>
         ) : (
@@ -120,14 +120,13 @@ function EvolutionFrom({
       </h3>
       <div className="relative z-10 font-bold text-xs text-zinc-300 leading-relaxed">
         FROM{' '}
-        <button
-          type="button"
+        <InlineLink
           aria-label={`Navigate to ${evoReq.fromName} details`}
           onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
-          className="rounded-none text-white underline decoration-purple-500/30 underline-offset-4 transition-colors hover:text-purple-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          variant="purple"
         >
           {evoReq.fromName.toUpperCase()}
-        </button>
+        </InlineLink>
         <div className="mt-1 font-black text-[10px] text-purple-400/60 uppercase">METHOD: {evoReq.method}</div>
       </div>
       <div
@@ -162,14 +161,13 @@ function EvolutionTo({
         {evolvesTo.map((evo) => (
           <div key={evo.id} className="font-bold text-xs text-zinc-300 leading-relaxed">
             TO{' '}
-            <button
-              type="button"
+            <InlineLink
               aria-label={`Navigate to ${evo.name} details`}
               onClick={() => onNavigate(evo.id, evo.name)}
-              className="rounded-none text-white underline decoration-blue-500/30 underline-offset-4 transition-colors hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              variant="blue"
             >
               {evo.name.toUpperCase()}
-            </button>
+            </InlineLink>
             <div className="mt-1 font-black text-[10px] text-blue-400/60 uppercase">VIA {evo.method}</div>
           </div>
         ))}
@@ -200,17 +198,16 @@ function BreedingProtocol({
         CROSS-REF:{' '}
         {breedingInfo.parentNames.map((name: string, i: number) => (
           <React.Fragment key={name}>
-            <button
-              type="button"
+            <InlineLink
               aria-label={`Navigate to ${name} details`}
               onClick={() => {
                 const id = breedingInfo.parentIds[i];
                 if (id) onNavigate(id, name);
               }}
-              className="rounded-none text-white underline decoration-pink-500/30 underline-offset-4 transition-colors hover:text-pink-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              variant="pink"
             >
               {name.toUpperCase()}
-            </button>
+            </InlineLink>
             {i < breedingInfo.parentNames.length - 1 ? ', ' : ''}
           </React.Fragment>
         ))}
