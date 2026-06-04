@@ -34,3 +34,6 @@ Leverage our existing programmatic DV parsing in `saveParser` to explicitly comp
 
 ## Why it Matters
 This directly aligns with the core vision of `DexHelper` as a premium collection manager for hardcore players, turning hidden data (DVs) into a highly actionable and visually satisfying checklist.
+
+## Generated Nodes
+- .foundry/prds/prd-068-037-unown-tracker.md
