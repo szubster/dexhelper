@@ -2,12 +2,12 @@
 id: story-051-088-gen1-species-validity
 type: STORY
 title: Determine Gen 1 species validity
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-30'
 updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7657600701761297450'
 pr_number: null
 parent: epic-036-051-time-capsule-validation-logic
 tags:
