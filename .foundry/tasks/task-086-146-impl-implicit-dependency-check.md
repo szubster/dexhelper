@@ -2,12 +2,12 @@
 id: task-086-146-impl-implicit-dependency-check
 type: TASK
 title: Update implicit dependency check to include CANCELLED
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-01'
 updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2153042359345094137'
 pr_number: null
 parent: story-048-086-implement-implicit-dependency-check
 tags:
