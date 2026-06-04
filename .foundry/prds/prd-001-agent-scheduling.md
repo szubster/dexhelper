@@ -8,7 +8,7 @@ created_at: '2026-04-21'
 updated_at: '2026-04-21'
 depends_on: []
 jules_session_id: null
-parent: .foundry/ideas/idea-002-tpm-scheduling.md
+parent: idea-002-tpm-scheduling
 tags:
   - infrastructure
 rejection_count: 0

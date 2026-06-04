@@ -6,7 +6,7 @@ import { SettingsRow } from '../SettingsRow';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
 
 interface SettingsControlsProps {
-  effectiveVersion: string;
+  effectiveVersion: GameVersion | 'unknown';
   setManualVersion: (v: GameVersion | null) => void;
   isLivingDex: boolean;
   setIsLivingDex: (v: boolean) => void;
@@ -51,7 +51,7 @@ export function SettingsControls({
           defaultActiveClassName="border-blue-500 bg-blue-500/20 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.3)]"
           defaultInactiveClassName="border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300"
           selectedValue={effectiveVersion}
-          onValueChange={(val) => setManualVersion(val === 'unknown' ? null : (val as GameVersion))}
+          onValueChange={(val) => setManualVersion(val === 'unknown' ? null : val)}
           items={versions.map((v) => ({
             id: v.id,
             label: v.label,

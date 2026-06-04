@@ -140,6 +140,11 @@
 **Why:** Brings the search console vertically closer to the top-level application aesthetic by eliminating standard layouts in favor of the established sharp-edged, dashed-border hardware terminal layout.
 **Pattern:** Combine related navigation and filtering inputs into unified `<TacticalPanel>` structures rather than letting inputs float freely, and utilize segmented controls over generic pill arrays for filters.
 
+## 2026-06-30 - [Accepted] - 🖼️ Canvas: Tactical AliveTeamView Redesign
+**What:** Redesigned the `AliveTeamView` component to fully embrace the tactical "snooping" aesthetic by wrapping it in a `<TacticalPanel variant="emerald">`, using `<TelemetryDecoration>` for headers, removing rounded generic cards in favor of sharp, dashed borders with `CornerCrosshairs`, and implementing a segmented HP bar for team members. The Team Wipe state was also upgraded to a massive `<TacticalPanel variant="red">` CRT error screen.
+**Outcome:** Accepted
+**Why:** Brings the run tracking/team interface in line with the established specialized hardware motif, solidifying the application's unique visual identity. Tactical panels, telemetry decorations, and segmented controls reinforce the snooping fantasy.
+**Pattern:** Consistently eliminate generic web UI patterns (rounded corners, standard cards, simple text stats) in favor of sharp, high-contrast, terminal-like telemetry elements and segmented displays to maintain the specialized device illusion.
 ## 2026-06-26 - [Accepted] - 🖼️ Canvas: Tactical SyncProgress Redesign
 **What:** Redesigned the `SyncProgress` component to fully embrace the tactical "snooping" aesthetic by wrapping it in a `<TacticalPanel>` instead of a generic glassmorphism container. Converted the smooth sliding progress bar into a tactical segmented block visual.
 **Outcome:** Accepted

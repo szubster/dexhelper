@@ -8,7 +8,7 @@ created_at: '2026-04-22'
 updated_at: '2026-04-23'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-005-empty-state-handling.md
+parent: story-005-empty-state-handling
 tags: []
 rejection_count: 1
 notes: ''

@@ -8,7 +8,7 @@ created_at: '2026-04-26'
 updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
-parent: .foundry/ideas/idea-008-ui-component-reuse.md
+parent: idea-008-ui-component-reuse
 rejection_reason: ''
 ---
 

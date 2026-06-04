@@ -29,11 +29,11 @@ Implement a utility function to read all relevant `.foundry` files.
 ## Requirements
 - Create a utility function, for example `readFoundryFiles()`.
 - The function should recursively (or systematically) read all markdown (`.md`) files in the following directories:
-  - `.foundry/ideas/`
-  - `.foundry/prds/`
-  - `.foundry/epics/`
-  - `.foundry/stories/`
-  - `.foundry/tasks/`
+  - `
+  - `
+  - `
+  - `
+  - `
 - It should return an array of objects containing the file path and the raw string content of each file.
 - Use native Node.js `fs` or `fs/promises` module.
 

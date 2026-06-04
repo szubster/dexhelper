@@ -10,7 +10,7 @@ updated_at: '2026-04-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-002-personas.md
+parent: story-002-personas
 rejection_reason: ''
 ---
 

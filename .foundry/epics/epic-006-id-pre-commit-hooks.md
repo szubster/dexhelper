@@ -7,9 +7,9 @@ owner_persona: story_owner
 created_at: '2026-04-21'
 updated_at: '2026-04-25'
 depends_on:
-  - .foundry/epics/epic-004-distributed-id-schema.md
+  - epic-004-distributed-id-schema
 jules_session_id: null
-parent: .foundry/prds/prd-001-distributed-ids.md
+parent: prd-001-distributed-ids
 tags:
   - ci
   - pre-commit

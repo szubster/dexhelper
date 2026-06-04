@@ -7,15 +7,15 @@ owner_persona: story_owner
 created_at: '2026-05-04'
 updated_at: '2026-05-12'
 depends_on:
-  - .foundry/epics/epic-015-026-save-parser-expansion.md
+  - epic-015-026-save-parser-expansion
 jules_session_id: null
 pr_number: null
-parent: .foundry/prds/prd-006-015-gen2-expansion-phase-1-2.md
+parent: prd-006-015-gen2-expansion-phase-1-2
 tags:
   - gen2
   - data
 research_references:
-  - .foundry/docs/knowledge_base/development/gen2_implementation_plan.md
+  - gen2_implementation_plan
 rejection_count: 0
 rejection_reason: ''
 notes: ''

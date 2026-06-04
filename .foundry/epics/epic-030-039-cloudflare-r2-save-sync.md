@@ -18,7 +18,7 @@ tags:
   - r2
   - phase1
 research_references:
-  - .foundry/research/research-030-004-cloudflare-storage-evaluation.md
+  - research-030-004-cloudflare-storage-evaluation
 rejection_reason: ''
 notes: Derived from PRD 055-030 and Research 030-004. Uses Cloudflare R2 for strong consistency and file blob storage.
 ---

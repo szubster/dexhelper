@@ -9,7 +9,7 @@ updated_at: '2026-05-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/ideas/idea-016-precommit-schema-validation.md
+parent: idea-016-precommit-schema-validation
 tags:
   - foundry
   - dag
