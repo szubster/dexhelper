@@ -1,0 +1,33 @@
+--- src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
++++ src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
+@@ -237,4 +237,30 @@
+
+     await expect.element(page.getByText('30%')).toBeVisible();
+   });
++
++  it('renders correctly when encounterInfo does not have data for a pokemon', async () => {
++    const suggestion: Suggestion = {
++      id: 'test-7',
++      priority: 10,
++      category: 'Catch',
++      title: 'Catch an unknown mon',
++      description: 'Find it if you can.',
++      pokemonIds: [10],
++      encounterInfo: {
++      },
++    };
++
++    const areaNames = { 0: 'Route 1' };
++
++    await renderWithProviders(
++      <AssistantSuggestionCard
++        suggestion={suggestion}
++        style={defaultStyle}
++        showDebug={false}
++        saveData={mockSaveData}
++        getPokemonName={mockGetPokemonName}
++        areaNames={areaNames}
++      />,
++    );
++  });
+ });

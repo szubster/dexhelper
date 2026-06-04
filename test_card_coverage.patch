@@ -1,0 +1,40 @@
+--- src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
++++ src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
+@@ -194,4 +194,36 @@
+     await expect.element(page.getByText(/WARNING: Watch out!/i)).toBeVisible();
+     await expect.element(page.getByText(/P: 99/)).toBeVisible();
+   });
++
++  it('renders multiple encounters properly evaluating max chance', async () => {
++    const suggestion: Suggestion = {
++      id: 'test-6',
++      priority: 10,
++      category: 'Catch',
++      title: 'Catch a test mon',
++      description: 'Find it.',
++      pokemonIds: [7],
++      encounterInfo: {
++        7: [
++          { aid: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
++          { aid: 0, method: 'walk', chance: 30, minLevel: 6, maxLevel: 6 },
++          { aid: 0, method: 'walk', chance: 20, minLevel: 7, maxLevel: 7 },
++        ]
++      },
++    };
++
++    const areaNames = { 0: 'Route 1' };
++
++    await renderWithProviders(
++      <AssistantSuggestionCard
++        suggestion={suggestion}
++        style={defaultStyle}
++        showDebug={false}
++        saveData={mockSaveData}
++        getPokemonName={mockGetPokemonName}
++        areaNames={areaNames}
++      />,
++    );
++
++    await expect.element(page.getByText('30%')).toBeVisible();
++  });
++});
