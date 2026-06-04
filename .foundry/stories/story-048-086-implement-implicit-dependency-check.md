@@ -2,12 +2,12 @@
 id: story-048-086-implement-implicit-dependency-check
 type: STORY
 title: Implement Implicit Dependency Check in Orchestrator
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-28'
-updated_at: '2026-06-01'
+updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: '12308783839660635539'
+jules_session_id: null
 pr_number: null
 parent: epic-035-048-implicit-dependency-enforcement
 tags:

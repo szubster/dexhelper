@@ -2,12 +2,12 @@
 id: epic-036-053-health-scanner-core-engine
 type: EPIC
 title: Health Scanner Core Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-31'
-updated_at: '2026-06-02'
+updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: '11832123541437753896'
+jules_session_id: null
 pr_number: null
 parent: prd-066-036-save-file-health-scanner
 tags:

@@ -1,18 +1,21 @@
 ---
 id: idea-069-mirage-island-predictor
 type: IDEA
-title: "Gen 3 Mirage Island Predictor"
-status: PENDING
-owner_persona: "product_manager"
-created_at: "2026-06-02"
-updated_at: "2026-06-02"
+title: Gen 3 Mirage Island Predictor
+status: READY
+owner_persona: product_manager
+created_at: '2026-06-02'
+updated_at: '2026-06-04'
 depends_on: []
 jules_session_id: null
 parent: null
-tags: ["gen3", "mirage-island", "rng"]
+tags:
+  - gen3
+  - mirage-island
+  - rng
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 3 Mirage Island Predictor

@@ -2,10 +2,10 @@
 id: idea-068-069-pokerus-tracker
 type: IDEA
 title: Pokerus Tracker and Infection Spread Assistant
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-03'
-updated_at: '2026-06-03'
+updated_at: '2026-06-04'
 depends_on: []
 jules_session_id: null
 pr_number: null

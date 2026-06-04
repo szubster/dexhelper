@@ -1,11 +1,11 @@
 ---
 id: epic-037-055-gen3-berry-tracker-data-extraction
 type: EPIC
-title: "Gen 3 Berry Tracker Data Extraction"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-06-03"
-updated_at: "2026-06-03"
+title: Gen 3 Berry Tracker Data Extraction
+status: READY
+owner_persona: story_owner
+created_at: '2026-06-03'
+updated_at: '2026-06-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - engine
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Epic: Gen 3 Berry Tracker Data Extraction

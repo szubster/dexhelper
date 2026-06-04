@@ -2,13 +2,13 @@
 id: story-048-088-create-route-radar-controller
 type: STORY
 title: Create RouteRadarController Structure
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-05-31'
-updated_at: '2026-06-02'
+updated_at: '2026-06-04'
 depends_on:
   - task-035-142-smart-radar-adr
-jules_session_id: '16597791177162833819'
+jules_session_id: null
 pr_number: null
 parent: epic-035-048-smart-radar-data-unification
 tags:

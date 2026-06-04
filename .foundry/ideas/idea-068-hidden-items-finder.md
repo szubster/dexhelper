@@ -2,12 +2,12 @@
 id: idea-068-hidden-items-finder
 type: IDEA
 title: Missing Hidden Items Finder
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-01'
-updated_at: '2026-06-01'
+updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: '11550017534580844661'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
