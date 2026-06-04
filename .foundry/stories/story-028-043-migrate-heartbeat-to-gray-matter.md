@@ -9,7 +9,7 @@ updated_at: '2026-05-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-018-028-migrate-heartbeat-to-gray-matter.md
+parent: epic-018-028-migrate-heartbeat-to-gray-matter
 tags:
   - foundry
   - orchestrator

@@ -32,7 +32,7 @@ This task implements the branch cleanup mechanism defined in `story-030-047-bran
 - Call the existing `identifyBranchesForCleanup` function.
 - Iterate over the branches to delete:
   - If `DRY_RUN` is true, log the intention to delete.
-  - If `DRY_RUN` is false, delete the branch (e.g. using `git push origin --delete <branch>` or GitHub API `DELETE /repos/{owner}/{repo}/git/refs/heads/{branch}`).
+  - If `DRY_RUN` is false, delete the branch (e.g. using `git push origin --delete <branch>` or GitHub API `DELETE {branch}`).
   - Log the deleted branches to the TPM journal using the existing `logToJournal` function.
 - Call `cleanupRemoteBranches` at the end of the `main()` function in `foundry-heartbeat.ts`.
 - Write tests in `.github/scripts/foundry-heartbeat.test.ts` to verify the new logic, ensuring `DRY_RUN` mode is respected and actual deletion API calls are mocked appropriately.

@@ -8,7 +8,7 @@ created_at: '2026-04-24'
 updated_at: '2026-04-25'
 depends_on: []
 jules_session_id: null
-parent: .foundry/archive/epics/epic-005-013-idb-infrastructure.md
+parent: epic-005-013-idb-infrastructure
 tags:
   - indexeddb
   - infrastructure

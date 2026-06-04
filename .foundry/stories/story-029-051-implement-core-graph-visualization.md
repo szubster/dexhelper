@@ -7,10 +7,10 @@ owner_persona: tech_lead
 created_at: '2026-05-12'
 updated_at: '2026-05-14'
 depends_on:
-  - .foundry/stories/story-029-048-evaluate-graph-libraries.md
+  - story-029-048-evaluate-graph-libraries
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-017-029-dag-dashboard-ui.md
+parent: epic-017-029-dag-dashboard-ui
 tags:
   - dag
   - dashboard

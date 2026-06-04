@@ -92,25 +92,32 @@ export function PokemonDetails({
     const evos = pokemon.eto;
     if (!evos || evos.length === 0) return [];
 
-    return evos
-      .map((evo) => {
-        const id = evo.id;
-        if (saveData && id > getGenerationConfig(saveData.generation).maxDex) return null;
+    // ⚡ Bolt: Fused .map() and .filter() into a single pass to prevent intermediate object allocations
+    const result: { id: number; name: string; method: string }[] = [];
+    const maxDex = saveData ? getGenerationConfig(saveData.generation).maxDex : Number.POSITIVE_INFINITY;
 
-        let methodStr = 'Unknown';
-        const d = evo.det[0];
-        if (d) {
-          if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
-          else if (d.tr === 3) methodStr = 'Use Item';
-          else if (d.tr === 2) methodStr = 'Trade';
-        }
-        return {
-          id,
-          name: nameMap?.[id] || 'Next Form',
-          method: methodStr,
-        };
-      })
-      .filter((evo): evo is { id: number; name: string; method: string } => evo !== null);
+    for (let i = 0; i < evos.length; i++) {
+      const evo = evos[i];
+      if (!evo) continue;
+
+      const id = evo.id;
+      if (id > maxDex) continue;
+
+      let methodStr = 'Unknown';
+      const d = evo.det[0];
+      if (d) {
+        if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
+        else if (d.tr === 3) methodStr = 'Use Item';
+        else if (d.tr === 2) methodStr = 'Trade';
+      }
+
+      result.push({
+        id,
+        name: nameMap?.[id] || 'Next Form',
+        method: methodStr,
+      });
+    }
+    return result;
   }, [pokemon, nameMap, saveData]);
 
   const breedingInfo = React.useMemo(() => {

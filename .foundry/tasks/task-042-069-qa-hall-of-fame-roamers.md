@@ -7,10 +7,10 @@ owner_persona: qa
 created_at: '2026-05-06'
 updated_at: '2026-05-10'
 depends_on:
-  - .foundry/tasks/task-042-068-implement-hall-of-fame-roamers.md
+  - task-042-068-implement-hall-of-fame-roamers
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-026-042-hall-of-fame-roamers.md
+parent: story-026-042-hall-of-fame-roamers
 tags:
   - gen2
   - save-parser

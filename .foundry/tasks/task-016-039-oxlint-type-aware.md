@@ -8,7 +8,7 @@ created_at: '2026-04-26'
 updated_at: '2026-04-29'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-010-016-enable-expensive-oxlint-checks.md
+parent: story-010-016-enable-expensive-oxlint-checks
 rejection_reason: ''
 ---
 

@@ -52,3 +52,4 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
+When submitting an empty PR for a node that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.

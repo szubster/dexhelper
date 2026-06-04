@@ -420,7 +420,7 @@ function main(): void {
     const children = parentToChildren.get(parentPath) || [];
     for (const child of children) {
       if (child.frontmatter.status !== 'COMPLETED' && child.frontmatter.status !== 'CANCELLED') {
-        promoteNodeStatus(child, child.frontmatter.status, 'CANCELLED');
+        promoteNodeToCancelledWithReason(child, 'Cancelled due to cascading cancellation from parent');
         cancelledNodes.add(child.repoPath);
         cascadeCancel(child.repoPath); // Recursive call
       }
@@ -544,6 +544,16 @@ function main(): void {
 
 
 
+    if (!shouldSuspend) {
+      const children = parentToChildren.get(node.repoPath) || [];
+      for (const child of children) {
+        if (isHierarchicallyIncomplete(child.repoPath, node.repoPath)) {
+          shouldSuspend = true;
+          break;
+        }
+      }
+    }
+
     if (shouldSuspend) {
       info(`Suspending ${node.frontmatter.status} node: ${node.repoPath}`);
       promoteNodeStatus(node, node.frontmatter.status, 'PENDING');
@@ -596,7 +606,7 @@ function main(): void {
       const parentPath = resolveNodePath(node.frontmatter.parent);
       if (parentPath) {
         const parentNode = nodeMap.get(parentPath);
-        if (parentNode && parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'READY') {
+        if (parentNode && parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'READY' && parentNode.frontmatter.status !== 'COMPLETED') {
           info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
           if (parentNode.frontmatter.owner_persona === 'human') {
             promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');

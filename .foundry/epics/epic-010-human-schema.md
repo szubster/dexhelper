@@ -8,7 +8,7 @@ created_at: '2026-04-23'
 updated_at: '2026-04-24'
 depends_on: []
 jules_session_id: null
-parent: .foundry/prds/prd-004-human-in-the-loop.md
+parent: prd-004-human-in-the-loop
 tags:
   - human-in-the-loop
   - schema

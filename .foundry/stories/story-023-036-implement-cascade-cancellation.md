@@ -9,7 +9,7 @@ updated_at: '2026-05-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/epics/epic-013-023-orchestrator-cascade-cancellation.md
+parent: epic-013-023-orchestrator-cascade-cancellation
 tags:
   - foundry
   - dag

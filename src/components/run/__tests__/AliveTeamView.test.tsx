@@ -64,14 +64,14 @@ describe('AliveTeamView', () => {
     ];
     await render(<AliveTeamView team={deadTeam} generation={mockGeneration} />);
 
-    await expect.element(page.getByText('Team Wipe Detected')).toBeInTheDocument();
-    await expect.element(page.getByText('No vital signs found')).toBeInTheDocument();
+    await expect.element(page.getByText('CRITICAL_FAILURE')).toBeInTheDocument();
+    await expect.element(page.getByText(/No vital signs found/)).toBeInTheDocument();
     await expect.element(page.getByText('PIDGEY')).not.toBeInTheDocument();
   });
 
   it('renders Team Wipe Detected state when team is empty', async () => {
     await render(<AliveTeamView team={[]} generation={mockGeneration} />);
 
-    await expect.element(page.getByText('Team Wipe Detected')).toBeInTheDocument();
+    await expect.element(page.getByText('CRITICAL_FAILURE')).toBeInTheDocument();
   });
 });

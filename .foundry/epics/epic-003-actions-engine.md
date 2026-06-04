@@ -6,7 +6,7 @@ status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-04-20'
 updated_at: '2026-04-20'
-parent: .foundry/ideas/idea-001-the-foundry.md
+parent: idea-001-the-foundry
 depends_on: []
 jules_session_id: null
 rejection_reason: ''
