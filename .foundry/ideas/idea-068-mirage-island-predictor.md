@@ -2,12 +2,12 @@
 id: idea-068-mirage-island-predictor
 type: IDEA
 title: Gen 3 Mirage Island Predictor
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-06-01'
 updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5172218851878523942'
 pr_number: null
 parent: null
 tags:
