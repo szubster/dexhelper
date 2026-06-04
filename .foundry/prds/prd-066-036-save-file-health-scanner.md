@@ -2,12 +2,12 @@
 id: prd-066-036-save-file-health-scanner
 type: PRD
 title: Save File Health & Corruption Scanner
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-05-29'
-updated_at: '2026-05-31'
+updated_at: '2026-06-02'
 depends_on: []
-jules_session_id: '12315363704273574589'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -47,4 +47,8 @@ Leverage DexHelper's deep understanding of save file structures (checksums, magi
 - Fixing or automatically repairing corrupted save data. This PRD strictly focuses on scanning, diagnostics, and reporting.
 
 ## 5. Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into actionable Epics.
+- [x] Epic Planner: Break this PRD down into actionable Epics.
+
+## 6. Generated Epics
+- [ ] .foundry/epics/epic-036-053-health-scanner-core-engine.md
+- [ ] .foundry/epics/epic-036-054-diagnostic-reporting-ui.md

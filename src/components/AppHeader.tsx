@@ -183,40 +183,65 @@ export function AppHeader({
             >
               <Settings2 size={16} />
             </TacticalButton>
-            {hasStoredHandle && syncStatus === 'disconnected' ? (
-              <TacticalButton
-                onClick={resumeSync}
-                variant="sidebar"
-                size="sm"
-                hasCrosshairs={true}
-                title="Resume Live Sync"
-                aria-label="Resume Live Sync"
-                className="p-1.5"
-              >
-                <Activity size={16} className="text-amber-500" />
-              </TacticalButton>
-            ) : (
-              <TacticalButton
-                onClick={requestSync}
-                variant="sidebar"
-                size="sm"
-                hasCrosshairs={true}
-                title="Live Auto-Sync"
-                aria-label="Live Auto-Sync"
-                className="p-1.5"
-              >
-                <Activity
-                  size={16}
-                  className={
-                    syncStatus === 'live'
-                      ? 'text-emerald-500'
+            {typeof window !== 'undefined' &&
+              'showOpenFilePicker' in window &&
+              (hasStoredHandle && syncStatus === 'disconnected' ? (
+                <TacticalButton
+                  onClick={resumeSync}
+                  variant="sidebar"
+                  size="sm"
+                  hasCrosshairs={true}
+                  title="Resume Live Sync"
+                  aria-label="Resume Live Sync"
+                  className="w-[140px] justify-start p-1.5"
+                >
+                  <Activity size={16} className="text-amber-500" />
+                  <span className="font-mono text-[9px] text-amber-500 uppercase tracking-wider">RESUME SYNC</span>
+                </TacticalButton>
+              ) : (
+                <TacticalButton
+                  onClick={requestSync}
+                  variant="sidebar"
+                  size="sm"
+                  hasCrosshairs={true}
+                  title="Live Auto-Sync"
+                  aria-label="Live Auto-Sync"
+                  className={cn(
+                    'w-[140px] justify-start p-1.5',
+                    syncStatus === 'live' ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-500' : '',
+                    syncStatus === 'error' ? 'border-red-500/50 bg-red-500/10 text-red-500' : '',
+                  )}
+                >
+                  <Activity
+                    size={16}
+                    className={
+                      syncStatus === 'live'
+                        ? 'text-emerald-500'
+                        : syncStatus === 'syncing'
+                          ? 'animate-pulse text-blue-500'
+                          : syncStatus === 'error'
+                            ? 'text-red-500'
+                            : ''
+                    }
+                  />
+                  <span
+                    className={cn(
+                      'font-mono text-[9px] uppercase tracking-wider',
+                      syncStatus === 'live' ? 'text-emerald-500' : '',
+                      syncStatus === 'syncing' ? 'animate-pulse text-blue-500' : '',
+                      syncStatus === 'error' ? 'text-red-500' : '',
+                    )}
+                  >
+                    {syncStatus === 'live'
+                      ? 'LIVE SYNC'
                       : syncStatus === 'syncing'
-                        ? 'animate-pulse text-blue-500'
-                        : ''
-                  }
-                />
-              </TacticalButton>
-            )}
+                        ? 'SYNCING...'
+                        : syncStatus === 'error'
+                          ? 'SYNC ERROR'
+                          : 'AUTO SYNC'}
+                  </span>
+                </TacticalButton>
+              ))}
             <TacticalButton
               onClick={() => document.getElementById('import-save-input')?.click()}
               variant="sidebar"
@@ -243,6 +268,7 @@ export function AppHeader({
         <div className="flex flex-col gap-4 sm:flex-row">
           <button
             type="button"
+            aria-label="Upload Save File"
             onClick={() => document.getElementById('init-save-input')?.click()}
             className="group slide-in-from-bottom-2 fade-in relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black font-mono text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
           >
@@ -262,6 +288,7 @@ export function AppHeader({
           {typeof window !== 'undefined' && 'showOpenFilePicker' in window && (
             <button
               type="button"
+              aria-label="Start Live Sync"
               onClick={requestSync}
               className="group slide-in-from-bottom-2 fade-in relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black font-mono text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
             >

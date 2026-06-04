@@ -9,7 +9,7 @@ updated_at: "2026-04-26"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: ".foundry/prds/prd-008-007-tactical-card-component.md"
+parent: prd-008-007-tactical-card-component
 tags: ["ui", "refactoring"]
 rejection_count: 0
 rejection_reason: ""

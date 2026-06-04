@@ -7,10 +7,10 @@ owner_persona: coder
 created_at: '2026-05-07'
 updated_at: '2026-05-11'
 depends_on:
-  - .foundry/tasks/task-042-068-extract-hall-of-fame.md
+  - task-042-068-extract-hall-of-fame
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-026-042-hall-of-fame-roamers.md
+parent: story-026-042-hall-of-fame-roamers
 tags:
   - gen2
   - save-parser

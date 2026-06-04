@@ -7,9 +7,9 @@ owner_persona: tech_lead
 created_at: '2026-04-22'
 updated_at: '2026-04-22'
 depends_on:
-  - .foundry/stories/story-004-generic-scheduling-workflow.md
+  - story-004-generic-scheduling-workflow
 jules_session_id: null
-parent: .foundry/epics/epic-004-generic-agent-scheduling.md
+parent: epic-004-generic-agent-scheduling
 rejection_reason: ''
 ---
 

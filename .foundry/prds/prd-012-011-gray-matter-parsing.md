@@ -8,7 +8,7 @@ created_at: '2026-05-01'
 updated_at: '2026-05-02'
 depends_on: []
 jules_session_id: null
-parent: .foundry/ideas/idea-012-use-gray-matter-parsing.md
+parent: idea-012-use-gray-matter-parsing
 tags:
   - foundry
   - parsing

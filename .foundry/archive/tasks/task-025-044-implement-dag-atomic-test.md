@@ -8,7 +8,7 @@ created_at: '2026-04-26'
 updated_at: '2026-04-26'
 depends_on: []
 jules_session_id: null
-parent: .foundry/stories/story-008-025-verify-dag-resolution.md
+parent: story-008-025-verify-dag-resolution
 rejection_reason: ''
 ---
 

@@ -8,7 +8,7 @@ created_at: '2026-04-27'
 updated_at: '2026-04-30'
 depends_on: []
 jules_session_id: null
-parent: .foundry/archive/stories/story-015-032-legacy-save-migration-hook.md
+parent: story-015-032-legacy-save-migration-hook
 tags:
   - migration
   - indexeddb

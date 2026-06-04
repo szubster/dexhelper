@@ -5,9 +5,9 @@ title: Investigate Enum Optimizations Failure
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-05-29'
-updated_at: '2026-05-31'
+updated_at: '2026-06-01'
 depends_on: []
-jules_session_id: '3641220260851318212'
+jules_session_id: '282312166394939533'
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 0
 rejection_reason: ''

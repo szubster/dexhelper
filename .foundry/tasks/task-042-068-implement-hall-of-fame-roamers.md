@@ -9,7 +9,7 @@ updated_at: "2026-05-10"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-026-042-hall-of-fame-roamers.md
+parent: story-026-042-hall-of-fame-roamers
 tags:
   - gen2
   - save-parser

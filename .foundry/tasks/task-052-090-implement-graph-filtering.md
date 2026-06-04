@@ -9,7 +9,7 @@ updated_at: '2026-05-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-029-052-implement-graph-filtering.md
+parent: story-029-052-implement-graph-filtering
 tags:
   - dag
   - dashboard

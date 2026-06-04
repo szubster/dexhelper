@@ -9,7 +9,7 @@ updated_at: '2026-05-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: .foundry/stories/story-020-035-relax-node-engine.md
+parent: story-020-035-relax-node-engine
 tags:
   - infrastructure
 notes: ''

@@ -7,9 +7,9 @@ owner_persona: story_owner
 created_at: '2026-04-21'
 updated_at: '2026-04-23'
 depends_on:
-  - .foundry/epics/epic-004-generic-agent-scheduling.md
+  - epic-004-generic-agent-scheduling
 jules_session_id: null
-parent: .foundry/prds/prd-001-agent-scheduling.md
+parent: prd-001-agent-scheduling
 tags:
   - infrastructure
 rejection_count: 1

@@ -9,7 +9,7 @@ updated_at: "2026-05-30"
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: idea-066-time-capsule-validator.md
+parent: idea-066-time-capsule-validator
 tags:
   - feature
   - gen2
