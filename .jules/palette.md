@@ -116,3 +116,5 @@
 ## 2026-06-25 - ARIA Labels and Title tooltips for text buttons
 **Learning:** To prevent WCAG 2.5.3 (Label in Name) violations, do not apply `aria-label` to buttons that already have clear, visible text (like "ALL", "SECURED", "MISSING") if the `aria-label` overwrites and omits the visible text. This breaks voice dictation. Furthermore, if a button already has a semantic `aria-pressed` state handling screen reader announcements, explicitly adding "Toggle" to its `aria-label` or `title` causes redundant verbosity for assistive tech (e.g., "Toggle fire filter, toggle button, pressed").
 **Action:** When adding tooltip hover context to visible text buttons, prefer using the `title` attribute alone without `aria-label`. Ensure the `title` description is concise and omits redundant system states like "Toggle".
+## Learnings
+* Missing `aria-label`s on core interactive buttons can hinder screen readers. Always ensure icon-only or stylized interactive elements have descriptive `aria-label` properties.
