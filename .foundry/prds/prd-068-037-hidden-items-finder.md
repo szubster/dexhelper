@@ -25,14 +25,14 @@ notes: ''
 # PRD: Missing Hidden Items Finder
 
 ## 1. Context & Background
-In Generation 1 and 2, hidden items are scattered throughout the game world, often requiring the Itemfinder or randomly pressing the A button. Since there is no in-game tracker, completionists frequently lose track of which high-value items (Rare Candies, PP Ups, evolution stones) they have already collected, leading to tedious backtracking with external guides.
+In Generation 1, 2, and 3, hidden items are scattered throughout the game world, often requiring the Itemfinder or randomly pressing the A button. Since there is no in-game tracker, completionists frequently lose track of which high-value items (Rare Candies, PP Ups, evolution stones) they have already collected, leading to tedious backtracking with external guides.
 
 As DexHelper already parses the save file, we can read the underlying event flags for hidden items and present a unified, dynamic checklist. This actionable insight feature directly aligns with our goal of eliminating retro-gaming friction.
 
 ## 2. Product Requirements
 
 ### 2.1 Event Flag Parsing
-- Extend the Gen 1 & Gen 2 save parsing engine to read the hidden item event flags.
+- Extend the Gen 1, Gen 2, and Gen 3 save parsing engines to read the hidden item event flags.
 - Map the parsed flags to known hidden item locations in each game.
 
 ### 2.2 Data Structure & Aggregation
@@ -46,7 +46,7 @@ As DexHelper already parses the save file, we can read the underlying event flag
 - Implement the 'tactical hardware/snooping' aesthetic (sharp edges, dashed borders, monospaced telemetry fonts) for this component as defined in ADR 008.
 
 ## 3. Acceptance Criteria
-- [ ] Save parsing engine successfully extracts event flags for Gen 1 & Gen 2 hidden items.
+- [ ] Save parsing engine successfully extracts event flags for Gen 1, Gen 2, and Gen 3 hidden items.
 - [ ] UI component is built displaying the checklist, filtered and grouped logically.
 - [ ] UI updates dynamically to check off acquired items upon save file hydration.
 - [ ] Appropriate unit tests are added for the save parser extensions.
