@@ -2,12 +2,12 @@
 id: task-088-146-scaffold-route-radar-controller
 type: TASK
 title: Scaffold RouteRadarController
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-02'
 updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3551069384002810343'
 pr_number: null
 parent: story-048-088-create-route-radar-controller
 tags:
