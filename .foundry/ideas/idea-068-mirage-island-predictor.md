@@ -36,3 +36,7 @@ This feature transforms an almost impossible-to-find easter egg into a determini
 
 ## Next Steps
 - [ ] Product Manager: Convert this idea into a PRD detailing how to extract the daily Mirage Island value and the UI for alerting the player.
+
+### Generated PRDs
+- [ ] `.foundry/prds/prd-068-038-mirage-island-data-extraction.md`
+- [ ] `.foundry/prds/prd-068-039-mirage-island-ui-alerts.md`
