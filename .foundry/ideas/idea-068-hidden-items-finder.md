@@ -35,3 +35,6 @@ Introduce a "Missing Hidden Items Finder" feature in DexHelper.
 3.  **Actionable Insights:** This transforms static guide information into a personalized, actionable checklist, telling the player exactly which high-value hidden items are still available to grab in their specific save.
 
 This perfectly aligns with DexHelper's goal of surfacing hidden state to eliminate tedious, manual retro gaming tasks.
+
+## Generated Nodes
+- PRD: `.foundry/prds/prd-068-037-hidden-items-finder.md`

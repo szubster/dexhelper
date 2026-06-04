@@ -117,3 +117,8 @@ When running manual Vitest coverage checks via bash, use `pnpm vitest run --cove
 
 ### React Component Testing with `vitest-browser-react`
 When testing components that utilize `@tanstack/react-router` features like `<Link>` or `useNavigate()`, ensure the component is wrapped in a `RouterProvider`. Avoid using generic matchers like `.getByText()` when text might be partially matched or duplicate across interactive/non-interactive elements. Use stricter queries like `.getByRole('button', { name: '...' })` or pass exact parameters to `.getByText(text, { exact: true })` to prevent "resolved to 2 elements" errors in strict mode.
+## 2026-05-24 - AssistantDebugView test coverage
+**What:** Added tests for `src/components/assistant/AssistantDebugView.tsx`.
+**Coverage Before/After:** Test coverage for `AssistantDebugView.tsx` increased from 0% to 100%.
+**Why this target matters:** Ensures the debug view properly renders telemetry data and rejected logs without crashing, which is critical for troubleshooting AI assistant suggestions.
+**Learning:** When asserting the absence of an element using vitest-browser-react, ensure you use `not.toBeInTheDocument()` instead of `.not.toBeVisible()` if the element is conditionally excluded from the DOM entirely (e.g. `rejected.length > 0 && <div.../>`). Also, if the element returned by `render` is completely empty (e.g. `saveData` is null), `container.innerHTML` doesn't work, use `baseElement.innerHTML === '<div></div>'`. For matching text exactly, use `{ exact: true }` in `getByText` to avoid ambiguous matching if multiple elements share partial strings.
