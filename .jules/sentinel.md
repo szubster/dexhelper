@@ -115,6 +115,8 @@ When running manual Vitest coverage checks via bash, use `pnpm vitest run --cove
 - While investigating test coverage on `src/store.ts`, realized it's better to verify exact state setter functionality (`setNuzlockeGraveyardBox`) rather than relying on component-level rendering.
 - Even simple state setters like `setNuzlockeGraveyardBox` in Zustand need test coverage to reach 100%. Avoid writing "true === true" tests by explicitly firing the setter and verifying the state mutated via `useStore.getState()`.
 
+### React Component Testing with `vitest-browser-react`
+When testing components that utilize `@tanstack/react-router` features like `<Link>` or `useNavigate()`, ensure the component is wrapped in a `RouterProvider`. Avoid using generic matchers like `.getByText()` when text might be partially matched or duplicate across interactive/non-interactive elements. Use stricter queries like `.getByRole('button', { name: '...' })` or pass exact parameters to `.getByText(text, { exact: true })` to prevent "resolved to 2 elements" errors in strict mode.
 ## 2026-05-24 - AssistantDebugView test coverage
 **What:** Added tests for `src/components/assistant/AssistantDebugView.tsx`.
 **Coverage Before/After:** Test coverage for `AssistantDebugView.tsx` increased from 0% to 100%.
