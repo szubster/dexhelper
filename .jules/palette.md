@@ -120,3 +120,5 @@
 ## 2026-06-25 - WCAG 2.5.3 (Label in Name) violations with `aria-label`
 **Learning:** To avoid WCAG 2.5.3 (Label in Name) violations on UI components with visible text, prefer using `title` attributes for tooltips instead of `aria-label`. Using `aria-label` completely overwrites the accessible name and can break voice control software if the spoken text diverges from the aria-label.
 **Action:** Replaced `aria-label` with `title` on the "Clear Filters", "Abort", and "Initiate system purge" text buttons.
+## Learnings
+* Missing `aria-label`s on core interactive buttons can hinder screen readers. Always ensure icon-only or stylized interactive elements have descriptive `aria-label` properties.

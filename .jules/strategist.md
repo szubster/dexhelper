@@ -162,6 +162,11 @@
 **Why:** The Auditor journal showed that macro nodes (e.g. Epics, Stories) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, even though the actual implementation described in their requirements had not yet been merged into the codebase.
 **Pattern:** When an agent (like the Epic Planner, Story Owner, or Tech Lead) is responsible for breaking down high-level nodes, it must wait for the generated execution nodes to reach COMPLETED before submitting its Empty PR to complete the parent node, ensuring the macroscopic progress representation accurately reflects implementation reality.
 
+## 2026-07-09 - [Accepted] - Prompt improvement - Ensure QA gracefully exits cancelled tasks
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The QA journal highlighted a recurring issue where cancelled or replaced tasks reawaken in the DAG. The QA agent needs explicit instructions to check off the acceptance criteria for these nodes and submit an Empty PR so the node gracefully transitions to COMPLETED.
+**Pattern:** When an execution node must gracefully exit the DAG despite no implementation being completed (like replaced or cancelled tasks), the agent responsible MUST check off the markdown Acceptance Criteria boxes so the node can safely pass validation under ADR 007.
 ## 2026-07-09 - [Accepted] - Prompt improvement - Ensure Tech Lead checks unchecked checkboxes for empty PRs
 **Type:** Prompt improvement
 **Outcome:** Accepted

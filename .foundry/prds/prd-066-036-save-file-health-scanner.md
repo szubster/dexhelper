@@ -2,12 +2,12 @@
 id: prd-066-036-save-file-health-scanner
 type: PRD
 title: Save File Health & Corruption Scanner
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-05-29'
-updated_at: '2026-05-31'
+updated_at: '2026-06-02'
 depends_on: []
-jules_session_id: '12315363704273574589'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

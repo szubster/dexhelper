@@ -27,5 +27,5 @@ notes: ''
 Implement the underlying engine logic to validate Time Capsule readiness.
 
 ## Scope
-- Determine Gen 1 species validity.
-- Determine if any of the Pokémon's 4 moves are Generation 2 exclusive.
+- [ ] Determine Gen 1 species validity. (story-051-088-gen1-species-validity)
+- [ ] Determine if any of the Pokémon's 4 moves are Generation 2 exclusive. (story-051-089-gen2-exclusive-moves)
