@@ -52,3 +52,5 @@
 # Oak Learnings
 
 - Within the `engine/exclusives/` data domain, the version-specific arrays (e.g., `GEN1_VERSION_EXCLUSIVES`, `GEN2_VERSION_EXCLUSIVES`) store the IDs of Pokémon that are **unobtainable (excluded)** in that game version, rather than the ones exclusively available. This is crucial for verifying data against Bulbapedia.
+* Emerald's exclusive list was completely wrong, incorrectly stating that all Ruby/Sapphire exclusives were unavailable in Emerald. Fixed to reflect the actual canonical list (Surskit, Masquerain, Meditite, Medicham, Roselia, Zangoose, Lunatone) missing in Emerald.
+* Added tests for `getGen3UnobtainableReason` to prevent regressions for this fix.
