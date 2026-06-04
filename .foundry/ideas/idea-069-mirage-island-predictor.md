@@ -10,6 +10,8 @@ depends_on: []
 jules_session_id: null
 parent: null
 tags: ["gen3", "mirage-island", "rng"]
+rejection_count: 0
+rejection_reason: ""
 notes: ""
 ---
 
