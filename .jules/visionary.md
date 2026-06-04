@@ -50,3 +50,8 @@
 **Idea:** Unown Form Tracker
 **Learning:** Catering to end-game completionists adds significant value. Gen 2 has a specific quest to collect all 26 Unown forms (A-Z) which are determined by DVs. Since `DexHelper` already parses DVs for stats and shininess, extending this to explicitly track Unown forms gives players a visual checklist, transforming a tedious manual process into a highly actionable feature.
 **Outcome:** Created IDEA node.
+
+## 2026-06-04
+**Idea:** Gen 2 Daily and Weekly Event Tracker
+**Learning:** Expanding the app's capability to parse time-based data (RTC) from Gen 2 save files lets us create dynamic "daily to-do checklists". Turning a static collection viewer into an active agenda that reminds players of time-gated events (like swarms or daily rare encounters) solves a massive pain point for retro gamers without guides, continuing our trend of surfacing hidden state into actionable UI.
+**Outcome:** Created IDEA node.
