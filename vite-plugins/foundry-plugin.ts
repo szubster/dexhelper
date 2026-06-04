@@ -9,6 +9,7 @@ interface FoundryNodeData {
   status: string;
   owner_persona: string;
   depends_on: string[];
+  rejection_count: number;
 }
 
 export interface ParsedNode {
@@ -54,6 +55,7 @@ export function foundryPlugin(): Plugin {
                 status: data['status'],
                 owner_persona: data['owner_persona'],
                 depends_on: data['depends_on'],
+                rejection_count: typeof data['rejection_count'] === 'number' ? data['rejection_count'] : 0,
               },
             });
           }

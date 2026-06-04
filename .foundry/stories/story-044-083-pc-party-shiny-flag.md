@@ -2,13 +2,13 @@
 id: story-044-083-pc-party-shiny-flag
 type: STORY
 title: Flag PC/Party Pokémon as Shiny Carriers
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-05-22'
-updated_at: '2026-05-31'
+updated_at: '2026-06-03'
 depends_on:
   - story-044-082-dv-shiny-gene-logic
-jules_session_id: '10091447919003846222'
+jules_session_id: null
 pr_number: null
 parent: epic-034-044-shiny-gene-detection-engine
 tags:
@@ -37,4 +37,6 @@ Update the existing Gen 2 PC and party data parsing mechanisms to analyze and fl
 - [ ] Resulting Pokémon objects include an accurate `isShinyCarrier` property.
 
 ## Next Steps
-- [ ] Tech Lead: Break down into backend Tasks.
+- [x] Tech Lead: Break down into backend Tasks.
+- [ ] .foundry/tasks/task-083-146-flag-shiny-carriers-impl.md
+- [ ] .foundry/tasks/task-083-147-flag-shiny-carriers-qa.md

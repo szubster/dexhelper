@@ -2,13 +2,13 @@
 id: task-071-144-visited-routes-checklist-retry-v2-impl
 type: TASK
 title: Implement Visited Routes Checklist Retry V2
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-28'
-updated_at: '2026-05-28'
+updated_at: '2026-06-03'
 depends_on:
   - research-071-006-investigate-checklist-retry-failure
-jules_session_id: null
+jules_session_id: '12054512035749162780'
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:
