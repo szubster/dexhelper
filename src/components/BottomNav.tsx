@@ -1,5 +1,5 @@
 import { useLocation } from '@tanstack/react-router';
-import { Database, GitGraph, LayoutGrid, Settings2, Sparkles } from 'lucide-react';
+import { Activity, Database, GitGraph, LayoutGrid, Settings2, Sparkles } from 'lucide-react';
 import { useStore } from '../store';
 import { NavButton } from './NavButton';
 import { TelemetryDecoration } from './TelemetryDecoration';
@@ -16,8 +16,9 @@ export function BottomNav() {
   const isStorage = location.pathname === '/storage';
   const isAssistant = location.pathname === '/assistant';
   const isDag = location.pathname === '/dag';
+  const isRun = location.pathname === '/run';
 
-  const activeIndex = isDex ? 0 : isStorage ? 1 : isAssistant ? 2 : isDag ? 3 : -1;
+  const activeIndex = isDex ? 0 : isStorage ? 1 : isAssistant ? 2 : isDag ? 3 : isRun ? 4 : -1;
 
   return (
     <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-800 border-t border-dashed bg-zinc-950 px-2 pt-2 pb-[env(safe-area-inset-bottom,16px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.8)] sm:hidden">
@@ -30,7 +31,7 @@ export function BottomNav() {
         className="-top-[21px] left-4 rounded-none border-t border-b-0 bg-zinc-950"
       />
 
-      <div className="relative mx-auto grid max-w-md grid-cols-5 items-center">
+      <div className="relative mx-auto grid max-w-md grid-cols-6 items-center">
         {/* Active Indicator Hardware Frame */}
         {activeIndex !== -1 && (
           <div
@@ -70,6 +71,8 @@ export function BottomNav() {
         />
 
         <NavButton to="/dag" ariaLabel="DAG" label="DAG" activeLabel="[ DAG ]" icon={GitGraph} isActive={isDag} />
+
+        <NavButton to="/run" ariaLabel="Run" label="RUN" activeLabel="[ RUN ]" icon={Activity} isActive={isRun} />
 
         <NavButton
           onClick={() => setIsSettingsOpen(true)}
