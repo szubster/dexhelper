@@ -11,4 +11,4 @@ Formalizes the Gen 2 support expansion into the Foundry autonomous workflow.
   4. Strategy & Suggestion Engine.
 
 Linked Implementation Plan: [.foundry/docs/knowledge_base/development/gen2_implementation_plan.md](.foundry/docs/knowledge_base/development/gen2_implementation_plan.md)
-Foundry Idea: [.foundry/ideas/idea-006-gen2-expansion.md](.foundry/ideas/idea-006-gen2-expansion.md)
+Foundry Idea: [.foundry/ideas/idea-006-gen2-expansion.md](.foundry/archive/ideas/idea-006-gen2-expansion.md)
