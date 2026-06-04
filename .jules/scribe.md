@@ -141,3 +141,8 @@ Documenting this prevents developers from incorrectly refactoring offset lookups
 
 **What:** Added comprehensive JSDoc to the generator functions (`generateCatchSuggestions`, `generateGiftAndTradeSuggestions`, `generateBreedingSuggestions`, `generateEvolutionSuggestions`) in `src/engine/assistant/suggestionEngine.ts`.
 **Why:** The sub-generators lacked explicit architectural documentation explaining *why* they mutate the `suggestions` and `localPids` arrays directly instead of returning new arrays or using pure functions. This mutation-in-place pattern is a critical O(1) memory optimization necessary for the engine's hot path to avoid O(N) garbage collection overhead when simultaneously evaluating hundreds of encounters. Documenting this ensures future maintainers do not accidentally "refactor" these functions into pure, immutable patterns which would lock the UI thread.
+
+## 2026-06-01 - AssistantStrategy Decoupling Architecture
+
+**What:** Added JSDoc documentation to `getStrategy` and `fallbackStrategy` in `src/engine/assistant/strategies/index.ts`.
+**Why:** The `suggestionEngine.ts` orchestration loop supports Generation 1, 2, and 3 simultaneously. Instead of littering the core loop with `if (generation === X)` branches for specific mechanics (like Gen 2 Daycare breeding or Gen 2 Map Group parsing), this logic is completely decoupled using the Strategy pattern (`AssistantStrategy`). Documenting this ensures that future developers adding new mechanics (like Gen 3 properties) implement them within the generation's strategy class rather than cluttering the core recommendation loop. The null-object `fallbackStrategy` also guarantees that unsupported save files fail gracefully instead of crashing the UI with undefined errors.
