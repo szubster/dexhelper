@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-05-31'
 updated_at: '2026-06-02'
 depends_on:
-  - .foundry/tasks/task-035-142-smart-radar-adr.md
+  - task-035-142-smart-radar-adr
 jules_session_id: '16597791177162833819'
 pr_number: null
 parent: epic-035-048-smart-radar-data-unification
