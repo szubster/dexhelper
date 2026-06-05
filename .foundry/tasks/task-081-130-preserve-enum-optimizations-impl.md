@@ -5,11 +5,11 @@ title: Preserve Enum Optimizations with Verbose Keys in Generation Pipeline
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-22'
-updated_at: '2026-06-02'
+updated_at: '2026-06-05'
 depends_on: []
-jules_session_id: '11998668692290288421'
+jules_session_id: '53554741068568253'
 parent: story-042-081-preserve-enum-optimizations
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: >-
   ADR 015 specifies using verbose keys while preserving enum-to-number

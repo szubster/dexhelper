@@ -5,9 +5,9 @@ title: Implement DAG Data Parsing for Rejection Count
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-23'
-updated_at: '2026-05-31'
+updated_at: '2026-06-05'
 depends_on: []
-jules_session_id: '13536361495268435373'
+jules_session_id: '3811976765192046218'
 pr_number: null
 parent: story-046-085-extract-broadcast-rejection-count
 tags:
@@ -15,7 +15,7 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
@@ -34,9 +34,9 @@ In order to display permanent failures on the DAG dashboard, we need to surface 
 3. Verify that the React context layer correctly exposes the property to connected UI views.
 
 ## Acceptance Criteria
-- [ ] Coder: Update parsing logic.
-- [ ] Coder: Update `FoundryNode` TypeScript types.
-- [ ] Coder: Ensure React context layer correctly exposes the property.
+- [x] Coder: Update parsing logic.
+- [x] Coder: Update `FoundryNode` TypeScript types.
+- [x] Coder: Ensure React context layer correctly exposes the property.
 
 ## Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

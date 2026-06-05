@@ -17,6 +17,7 @@ test('DagDashboard renders correctly on successful load', async () => {
           owner_persona: 'human',
           label: 'node',
           title: 'Node 1',
+          rejection_count: 0,
           depends_on: [],
         },
       },
@@ -30,6 +31,7 @@ test('DagDashboard renders correctly on successful load', async () => {
           label: 'node',
           title: 'Node 2',
           parent: 'node-1.md',
+          rejection_count: 0,
           depends_on: ['node-1.md'],
         },
       },
@@ -59,7 +61,7 @@ test('DagDashboard renders correctly on successful load', async () => {
   // node-1 is TASK/COMPLETED, node-2 is TASK/ACTIVE
 
   // Toggle off ACTIVE nodes
-  const activeStatusButton = page.getByRole('button', { name: 'ACTIVE' });
+  const activeStatusButton = page.getByTestId('ACTIVE');
   await activeStatusButton.click();
 
   // node-2 should disappear from the graph (and document)
@@ -68,7 +70,7 @@ test('DagDashboard renders correctly on successful load', async () => {
   await expect.element(page.getByText('node-1')).toBeInTheDocument();
 
   // Toggle off TASK type
-  const taskTypeButton = page.getByRole('button', { name: 'TASK' });
+  const taskTypeButton = page.getByTestId('TASK');
   await taskTypeButton.click();
 
   // node-1 should also disappear
@@ -93,6 +95,7 @@ test('DagDashboard handles selection and highlighting', async () => {
           owner_persona: 'human',
           label: 'node',
           title: 'Node 1',
+          rejection_count: 0,
           depends_on: [],
         },
       },
@@ -106,6 +109,7 @@ test('DagDashboard handles selection and highlighting', async () => {
           label: 'node',
           title: 'Node 2',
           parent: 'node-1.md',
+          rejection_count: 0,
           depends_on: ['node-1.md'],
         },
       },
@@ -118,6 +122,7 @@ test('DagDashboard handles selection and highlighting', async () => {
           owner_persona: 'human',
           label: 'node-3',
           title: 'Node 3',
+          rejection_count: 0,
           depends_on: [],
         },
       },
@@ -130,6 +135,7 @@ test('DagDashboard handles selection and highlighting', async () => {
           owner_persona: 'human',
           label: 'node-4',
           title: 'Node 4',
+          rejection_count: 0,
           depends_on: [],
         },
       },
@@ -142,6 +148,7 @@ test('DagDashboard handles selection and highlighting', async () => {
           owner_persona: 'human',
           label: 'node-5',
           title: 'Node 5',
+          rejection_count: 0,
           depends_on: [],
         },
       },
@@ -154,6 +161,7 @@ test('DagDashboard handles selection and highlighting', async () => {
           owner_persona: 'human',
           label: 'node-6',
           title: 'Node 6',
+          rejection_count: 0,
           depends_on: [],
         } as unknown as import('../DagNode').DagNodeData,
       },
@@ -235,7 +243,7 @@ test('DagDashboard handles selection and highlighting', async () => {
   n2DagNode.element().dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
 
   // To make sure coverage on filter logic handles undefined
-  const taskTypeButton = page.getByRole('button', { name: 'TASK' });
+  const taskTypeButton = page.getByTestId('TASK');
   await taskTypeButton.click();
   await taskTypeButton.click();
 });
@@ -292,49 +300,49 @@ test('getMiniMapNodeColor returns correct color based on status', () => {
     getMiniMapNodeColor({
       id: '1',
       position: { x: 0, y: 0 },
-      data: { status: 'COMPLETED', type: 'TASK', owner_persona: 'human' },
+      data: { rejection_count: 0, status: 'COMPLETED', type: 'TASK', owner_persona: 'human' },
     }),
   ).toBe('#10b981');
   expect(
     getMiniMapNodeColor({
       id: '1',
       position: { x: 0, y: 0 },
-      data: { status: 'ACTIVE', type: 'TASK', owner_persona: 'human' },
+      data: { rejection_count: 0, status: 'ACTIVE', type: 'TASK', owner_persona: 'human' },
     }),
   ).toBe('#ef4444');
   expect(
     getMiniMapNodeColor({
       id: '1',
       position: { x: 0, y: 0 },
-      data: { status: 'IN_PROGRESS', type: 'TASK', owner_persona: 'human' },
+      data: { rejection_count: 0, status: 'IN_PROGRESS', type: 'TASK', owner_persona: 'human' },
     }),
   ).toBe('#ef4444');
   expect(
     getMiniMapNodeColor({
       id: '1',
       position: { x: 0, y: 0 },
-      data: { status: 'FAILED', type: 'TASK', owner_persona: 'human' },
+      data: { rejection_count: 0, status: 'FAILED', type: 'TASK', owner_persona: 'human' },
     }),
   ).toBe('#ef4444');
   expect(
     getMiniMapNodeColor({
       id: '1',
       position: { x: 0, y: 0 },
-      data: { status: 'BLOCKED', type: 'TASK', owner_persona: 'human' },
+      data: { rejection_count: 0, status: 'BLOCKED', type: 'TASK', owner_persona: 'human' },
     }),
   ).toBe('#ef4444');
   expect(
     getMiniMapNodeColor({
       id: '1',
       position: { x: 0, y: 0 },
-      data: { status: 'READY', type: 'TASK', owner_persona: 'human' },
+      data: { rejection_count: 0, status: 'READY', type: 'TASK', owner_persona: 'human' },
     }),
   ).toBe('#f59e0b');
   expect(
     getMiniMapNodeColor({
       id: '1',
       position: { x: 0, y: 0 },
-      data: { status: 'UNKNOWN' },
+      data: { rejection_count: 0, status: 'UNKNOWN' },
     } as unknown as import('@xyflow/react').Node<import('../DagNode').DagNodeData>),
   ).toBe('#52525b');
   expect(
