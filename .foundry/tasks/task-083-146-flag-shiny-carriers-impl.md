@@ -2,12 +2,12 @@
 id: task-083-146-flag-shiny-carriers-impl
 type: TASK
 title: Implement isShinyCarrier Property in Parsed Data
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-01'
-updated_at: '2026-06-05'
+updated_at: '2026-06-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10092150020180186448'
 pr_number: null
 parent: story-044-083-pc-party-shiny-flag
 tags:
@@ -36,9 +36,9 @@ Update `PokemonInstance` in the `common.ts` parser logic to use the `isShinyCarr
 4. Ensure all related unit tests are updated and pass.
 
 ## Acceptance Criteria
-- [x] `PokemonInstance` interface uses `isShinyCarrier` instead of `hasShinyGene`.
-- [x] Gen 1 and Gen 2 parsers correctly assign `isShinyCarrier`.
-- [x] Unit tests are updated and pass without errors.
+- [ ] `PokemonInstance` interface uses `isShinyCarrier` instead of `hasShinyGene`.
+- [ ] Gen 1 and Gen 2 parsers correctly assign `isShinyCarrier`.
+- [ ] Unit tests are updated and pass without errors.
 
 ## Reminder for Coder and QA
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

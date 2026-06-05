@@ -69,7 +69,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
           </div>
         </div>
 
-        <TacticalSegmentedControl<StatusType>
+        <TacticalSegmentedControl
           ariaLabel="Target Status"
           containerClassName="grid grid-cols-3 gap-2 [&>div]:grid [&>div]:grid-cols-3 [&>div]:gap-2 [&>div]:border-none [&>button]:border"
           buttonBaseClassName="!border-dashed !border focus-visible:ring-emerald-500 py-3 text-[9px] active:scale-95"

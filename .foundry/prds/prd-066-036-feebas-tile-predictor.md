@@ -2,12 +2,12 @@
 id: prd-066-036-feebas-tile-predictor
 type: PRD
 title: Gen 3 Feebas Tile Predictor
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: architect
 created_at: '2026-05-30'
-updated_at: '2026-06-05'
+updated_at: '2026-05-30'
 depends_on: []
-jules_session_id: '10691932586182049513'
+jules_session_id: null
 pr_number: null
 parent: idea-066-feebas-tile-predictor
 tags:

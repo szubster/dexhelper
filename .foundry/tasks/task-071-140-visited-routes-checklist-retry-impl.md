@@ -5,10 +5,10 @@ title: Implement Visited Routes Checklist Retry
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-24'
-updated_at: '2026-06-04'
+updated_at: '2026-06-03'
 depends_on:
   - research-071-005-investigate-visited-routes-checklist
-jules_session_id: '7899597118810097665'
+jules_session_id: '5447196428387585747'
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:

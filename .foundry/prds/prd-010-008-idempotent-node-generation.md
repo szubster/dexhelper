@@ -48,6 +48,6 @@ Implement an idempotent generation check in the orchestrator (`foundry-orchestra
 
 
 ### Generated Epics
-- [.foundry/epics/epic-008-017-orchestrator-preflight-checks.md](.foundry/archive/epics/epic-008-017-orchestrator-preflight-checks.md)
+- [.foundry/epics/epic-008-017-orchestrator-preflight-checks.md](.foundry/epics/epic-008-017-orchestrator-preflight-checks.md)
 - [.foundry/epics/epic-008-018-session-dispatch-bypass.md](.foundry/epics/epic-008-018-session-dispatch-bypass.md)
 - [.foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism.md](.foundry/archive/epics/epic-008-019-anomaly-reporting-mechanism.md)

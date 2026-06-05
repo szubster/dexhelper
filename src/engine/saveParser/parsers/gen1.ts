@@ -427,7 +427,7 @@ function parseGen1Pokemon(
   }
   const dvs = parseDVs(view.getUint16(offset + 27, false));
   const isShiny = checkShiny(dvs);
-  const isShinyCarrier = checkShinyGene(dvs);
+  const hasShinyGene = checkShinyGene(dvs);
   const otName = decodeGen12String(view, otOffset);
 
   return {
@@ -435,7 +435,7 @@ function parseGen1Pokemon(
     currentHp,
     level,
     isShiny,
-    isShinyCarrier,
+    hasShinyGene,
     moves,
     dvs,
     otName,

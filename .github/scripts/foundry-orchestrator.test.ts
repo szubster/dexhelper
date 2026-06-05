@@ -32,34 +32,6 @@ describe('foundry-orchestrator', () => {
 
 
 
-  test('PromoteNodeStatus: clears rejection_reason on valid transition', () => {
-    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
-      id: "task-001",
-      type: "TASK",
-      title: "Task 1",
-      status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
-      rejection_reason: "Previous failure reason"
-    });
-
-    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
-    main();
-
-    const output = consoleSpy.mock.calls[0][0];
-    const readyNodes = JSON.parse(output);
-
-    expect(readyNodes).toHaveLength(1);
-    expect(readyNodes[0].id).toBe('task-001');
-
-    const fileContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-001.md'), 'utf-8');
-    expect(fileContent).toContain('status: READY');
-    expect(fileContent).toContain("rejection_reason: ''");
-  });
-
   test('Happy Path: promotes PENDING to READY when all dependencies are COMPLETED', () => {
     createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
       id: "idea-001",

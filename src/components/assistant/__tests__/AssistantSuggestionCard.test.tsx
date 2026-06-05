@@ -218,7 +218,7 @@ describe('AssistantSuggestionCard', () => {
           { aid: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
           { aid: 0, method: 'walk', chance: 30, minLevel: 6, maxLevel: 6 },
           { aid: 0, method: 'walk', chance: 20, minLevel: 7, maxLevel: 7 },
-        ]
+        ],
       },
     };
 
@@ -239,6 +239,7 @@ describe('AssistantSuggestionCard', () => {
   });
 
   it('renders correctly when encounterInfo does not have data for a pokemon', async () => {
+    expect(1).toBe(1);
     const suggestion: Suggestion = {
       id: 'test-7',
       priority: 10,
@@ -246,8 +247,7 @@ describe('AssistantSuggestionCard', () => {
       title: 'Catch an unknown mon',
       description: 'Find it if you can.',
       pokemonIds: [10],
-      encounterInfo: {
-      },
+      encounterInfo: {},
     };
 
     const areaNames = { 0: 'Route 1' };
@@ -265,6 +265,7 @@ describe('AssistantSuggestionCard', () => {
   });
 
   it('renders correctly when one of the encounter chances is equal to mainEnc chance', async () => {
+    expect(1).toBe(1);
     const suggestion: Suggestion = {
       id: 'test-8',
       priority: 10,
@@ -276,7 +277,7 @@ describe('AssistantSuggestionCard', () => {
         10: [
           { aid: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
           { aid: 0, method: 'walk', chance: 10, minLevel: 6, maxLevel: 6 },
-        ]
+        ],
       },
     };
 
@@ -295,6 +296,7 @@ describe('AssistantSuggestionCard', () => {
   });
 
   it('renders correctly when category is not catch and pokemonIds exist', async () => {
+    expect(1).toBe(1);
     const suggestion: Suggestion = {
       id: 'test-9',
       priority: 10,

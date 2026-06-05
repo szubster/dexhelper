@@ -33,7 +33,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version-file: ".nvmrc" # Required for --strip-types
+          node-version: '24' # Required for --strip-types
           cache: "pnpm"
 
       - name: Install dependencies
@@ -159,7 +159,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version-file: ".nvmrc"
+          node-version: '24'
           cache: "pnpm"
 
       - name: Install dependencies

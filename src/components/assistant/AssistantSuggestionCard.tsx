@@ -110,13 +110,8 @@ export function AssistantSuggestionCard({
               Object.entries(
                 (s.pokemonIds || []).reduce<Record<string, { pid: number; enc: EncounterDetail }[]>>((acc, pid) => {
                   const encs = s.category === 'Catch' ? s.encounterInfo?.[pid] : undefined;
-                  if (!encs || encs.length === 0) return acc;
-                  // ⚡ Bolt: Replace O(N log N) sort with O(N) linear scan to avoid array allocation
-                  let mainEnc = encs[0] as EncounterDetail;
-                  for (let i = 1; i < encs.length; i++) {
-                    const currentEnc = encs[i] as EncounterDetail;
-                    if (currentEnc.chance > mainEnc.chance) mainEnc = currentEnc;
-                  }
+                  if (!encs) return acc;
+                  const mainEnc = [...encs].sort((a, b) => b.chance - a.chance)[0];
                   if (!mainEnc) return acc;
                   const method = mainEnc.method;
                   if (!acc[method]) acc[method] = [];

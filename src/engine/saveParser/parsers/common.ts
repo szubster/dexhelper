@@ -21,7 +21,7 @@ export interface PokemonInstance {
   speciesId: number;
   level: number;
   isShiny: boolean;
-  isShinyCarrier?: boolean;
+  hasShinyGene?: boolean;
   item?: number | undefined;
   moves: number[];
   friendship?: number | undefined;

@@ -75,5 +75,3 @@ Critical learnings:
 
 ## 2026-05-31 - Empty PR Policy for Infrastucture
 **Learning:** When tasked with improving development tooling, if the infrastructure (e.g. Biome, Oxlint, Knip, Lefthook, Dependabot, Caching, Bundlemon, Codecov) is already highly optimized and no further tooling improvement can be cleanly implemented without duplicating or breaking existing tooling, it is strictly preferable to submit an empty PR rather than forcing a change. An empty PR cleanly transitions the task without introducing bloat or technical debt.
-## 2026-06-02 - Use .nvmrc for GitHub Actions
-**Learning:** Replaced hardcoded `node-version: 24` and `node-version: '24'` with `node-version-file: \".nvmrc\"` in all GitHub Actions workflows (`ci.yml`, `deploy.yml`, `foundry-engine.yml`, `playwright.yml`, `sync-pokedata.yml`). This ensures that the CI environment always matches the exact local development version of Node.js specified in `.nvmrc`, providing a single source of truth and preventing version drift between environments.
