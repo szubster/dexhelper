@@ -50,4 +50,4 @@ Our application currently relies entirely on client-side state and browser stora
 ## References
 - Parent Idea: `.foundry/ideas/idea-055-cloudflare-sync-and-future-features.md`
 
-- Child Research Node: `.foundry/research/research-030-004-cloudflare-storage-evaluation.md`
+- Child Research Node: `.foundry/archive/research/research-030-004-cloudflare-storage-evaluation.md`

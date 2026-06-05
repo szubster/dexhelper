@@ -38,5 +38,5 @@ In order to display permanent failures on the DAG dashboard, we need to surface 
 - [x] Tech Lead: Ensure DAG data model typing is consistent with ADR 017.
 
 ## Generated Tasks
-- [ ] .foundry/tasks/task-085-142-impl-extract-rejection-count.md
+- [ ] .foundry/archive/tasks/task-085-142-impl-extract-rejection-count.md
 - [ ] .foundry/tasks/task-085-143-qa-extract-rejection-count.md

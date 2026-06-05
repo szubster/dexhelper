@@ -27,6 +27,6 @@ Detect fainted Pokémon in the party and implement logic to designate a PC Box a
 ### Tasks
 - [ ] .foundry/tasks/task-070-116-implement-death-tracking.md
 - [ ] .foundry/tasks/task-070-117-qa-death-tracking.md
-- [ ] .foundry/research/research-070-003-investigate-death-tracking-failure.md
+- [ ] .foundry/archive/research/research-070-003-investigate-death-tracking-failure.md
 - [ ] .foundry/tasks/task-070-126-implement-death-tracking-retry.md
 - [ ] .foundry/tasks/task-070-127-qa-death-tracking-retry.md

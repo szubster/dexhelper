@@ -31,4 +31,4 @@ Integrate the newly parsed Gen 3 encounter data into the suggestion engine and m
 
 ## Generated Tasks
 - [x] .foundry/tasks/task-064-142-gen3-strategy-impl.md
-- [x] .foundry/tasks/task-064-143-gen3-strategy-qa.md
+- [x] .foundry/archive/tasks/task-064-143-gen3-strategy-qa.md
