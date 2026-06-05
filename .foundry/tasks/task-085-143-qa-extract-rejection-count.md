@@ -2,7 +2,7 @@
 id: task-085-143-qa-extract-rejection-count
 type: TASK
 title: QA DAG Data Parsing for Rejection Count
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-06-05'
@@ -16,8 +16,8 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

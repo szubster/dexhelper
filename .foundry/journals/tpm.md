@@ -45,3 +45,9 @@
 - **2026-06-05**: PR #2069 merged with unchecked tasks. `task-085-143-qa-extract-rejection-count` is now FAILED.
 
 - **2026-06-05**: Resurrection Loop triggered for `task-085-142-impl-extract-rejection-count`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-05**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-05**: Resurrection Loop triggered for `task-081-130-preserve-enum-optimizations-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-05**: Resurrection Loop triggered for `task-085-143-qa-extract-rejection-count`. Reason: Retry from FAILED status.. Transitioned back to READY.
