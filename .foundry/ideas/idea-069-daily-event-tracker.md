@@ -2,10 +2,10 @@
 id: idea-069-daily-event-tracker
 type: IDEA
 title: Gen 2 Daily and Weekly Event Tracker
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-04'
-updated_at: '2026-06-04'
+updated_at: '2026-06-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
