@@ -1,3 +1,15 @@
+/**
+ * @module generate-pokedata
+ *
+ * Extracts, compacts, and maps Pokémon encounter, evolution, and location data
+ * from the PokeAPI project into the app's internal optimized format.
+ *
+ * **Data Source:** `PokeAPI/api-data` repository.
+ * **Inputs:** Raw JSON files from PokeAPI `v2` directory (e.g., `pokemon/`, `pokemon-species/`).
+ * **Outputs:** `data/db/pokemon.jsonl`, `encounters.jsonl`, `locations.jsonl`.
+ * **Regeneration Steps:** Run `pnpm run data:gen`.
+ */
+
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync, execFileSync } from 'node:child_process';
@@ -22,6 +34,10 @@ const OUTPUT_DIR = path.join(process.cwd(), 'data/db');
 
 
 
+/**
+ * Utility to safely read and parse JSON files from the shallow clone.
+ * Returns null if the file doesn't exist, preventing pipeline crashes on missing PokeAPI entities.
+ */
 function readJson(filePath: string) {
   if (!fs.existsSync(filePath)) return null;
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -403,6 +419,8 @@ async function main() {
   }
 
 // Second pass on locations to reconcile prnt for indoors
+// Why: Our static graph only maps outdoor hubs. To determine distance from indoor locations (e.g. houses)
+// we need to record their parent hub to "step outside" first.
 console.log('\nReconciling location parents...');
 for (const loc of locationMap.values()) {
   if (loc.id < 256) {
@@ -417,6 +435,8 @@ for (const loc of locationMap.values()) {
 }
 
 console.log('Computing All-Pairs Shortest Paths...');
+// Build-time Floyd-Warshall graph resolution.
+// This calculates the O(1) distance lookups used heavily by the suggestion engine.
 const locations = Array.from(locationMap.values());
 const ids = locations.map(l => l.id);
 const dist: Record<number, Record<number, number>> = {};
@@ -453,7 +473,7 @@ for (const loc of locations) {
   }
 }
 
-// Floyd-Warshall algorithm
+// Floyd-Warshall algorithm: computes the shortest path between all location pairs.
 for (const k of ids) {
   const distK = dist[k];
   if (!distK) continue;
