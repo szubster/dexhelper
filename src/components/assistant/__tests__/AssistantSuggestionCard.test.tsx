@@ -218,7 +218,7 @@ describe('AssistantSuggestionCard', () => {
           { aid: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
           { aid: 0, method: 'walk', chance: 30, minLevel: 6, maxLevel: 6 },
           { aid: 0, method: 'walk', chance: 20, minLevel: 7, maxLevel: 7 },
-        ]
+        ],
       },
     };
 
@@ -246,8 +246,7 @@ describe('AssistantSuggestionCard', () => {
       title: 'Catch an unknown mon',
       description: 'Find it if you can.',
       pokemonIds: [10],
-      encounterInfo: {
-      },
+      encounterInfo: {},
     };
 
     const areaNames = { 0: 'Route 1' };
@@ -276,7 +275,7 @@ describe('AssistantSuggestionCard', () => {
         10: [
           { aid: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
           { aid: 0, method: 'walk', chance: 10, minLevel: 6, maxLevel: 6 },
-        ]
+        ],
       },
     };
 
