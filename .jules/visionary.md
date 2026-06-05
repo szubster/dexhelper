@@ -61,3 +61,7 @@
 **Idea:** Gen 3 Mirage Island Predictor
 **Learning:** Continuing the trend of surfacing hidden global state (like Feebas tiles or daily swarms) and cross-referencing it with the player's large entity datasets (like hundreds of PC Pokémon PIDs), we can eliminate extremely tedious brute-force mechanics. This provides immediate, tangible value that perfectly aligns with our offline-first programmatic parsing strengths.
 **Outcome:** Created IDEA node.
+
+## 2026-06-05
+**Idea:** Hall of Fame Timeline and Certificate Exporter
+**Learning:** Expanding the app's scope to include social sharing and community engagement adds significant value. Extracting Hall of Fame data to generate shareable images targets the highly active challenge-running community, transforming DexHelper from a purely personal utility into a tool that drives organic, word-of-mouth growth.
