@@ -472,7 +472,7 @@ function main(): void {
       return true;
     }
 
-    if (node.frontmatter.status !== 'COMPLETED') {
+    if (node.frontmatter.status !== 'COMPLETED' && node.frontmatter.status !== 'CANCELLED') {
       evalCache.set(cacheKey, true);
       return true;
     }
