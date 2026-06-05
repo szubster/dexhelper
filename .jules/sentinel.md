@@ -115,6 +115,9 @@ When running manual Vitest coverage checks via bash, use `pnpm vitest run --cove
 - While investigating test coverage on `src/store.ts`, realized it's better to verify exact state setter functionality (`setNuzlockeGraveyardBox`) rather than relying on component-level rendering.
 - Even simple state setters like `setNuzlockeGraveyardBox` in Zustand need test coverage to reach 100%. Avoid writing "true === true" tests by explicitly firing the setter and verifying the state mutated via `useStore.getState()`.
 
+### Explicit Mock Types with Generic Components in Vitest
+When testing React components using custom hooks mapping to `vi.mock` imported classes or functions, explicitly cast `vi.fn()` logic to strict typings (e.g., `vi.fn<typeof pokeDB.getLocations>()`) instead of generic parameterizations to pass `tsc` without Biome errors when replacing `any`.
+In `vitest-browser-react` rendering, rendering `null` logic sets the `baseElement?.innerHTML` to `undefined` unlike React Testing Library's empty div default. Waiting for `not.toBeInTheDocument` directly via `@testing-library/jest-dom` logic mapped in `vitest/browser` is robust. Use `page.getByRole` to query elements gracefully rather than destructured variables off `render`.
 ### React Component Testing with `vitest-browser-react`
 When testing components that utilize `@tanstack/react-router` features like `<Link>` or `useNavigate()`, ensure the component is wrapped in a `RouterProvider`. Avoid using generic matchers like `.getByText()` when text might be partially matched or duplicate across interactive/non-interactive elements. Use stricter queries like `.getByRole('button', { name: '...' })` or pass exact parameters to `.getByText(text, { exact: true })` to prevent "resolved to 2 elements" errors in strict mode.
 ## 2026-05-24 - AssistantDebugView test coverage
