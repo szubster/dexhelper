@@ -1,7 +1,7 @@
 import type React from 'react';
 import { cn } from '../utils/cn';
 
-export interface MultiSelectControlItem<T extends string | number | readonly string[]> {
+export interface MultiSelectControlItem<T> {
   id: T;
   label: React.ReactNode;
   activeClassName?: string;
@@ -11,7 +11,7 @@ export interface MultiSelectControlItem<T extends string | number | readonly str
   testId?: string;
 }
 
-export interface TacticalMultiSelectControlProps<T extends string | number | readonly string[]> {
+export interface TacticalMultiSelectControlProps<T> {
   items: MultiSelectControlItem<T>[];
   selectedValues: Set<T>;
   onValueToggle: (value: T) => void;
@@ -24,7 +24,7 @@ export interface TacticalMultiSelectControlProps<T extends string | number | rea
   renderPrefixItem?: () => React.ReactNode;
 }
 
-export function TacticalMultiSelectControl<T extends string | number | readonly string[]>({
+export function TacticalMultiSelectControl<T>({
   items,
   selectedValues,
   onValueToggle,

@@ -1,7 +1,7 @@
 import type React from 'react';
 import { cn } from '../utils/cn';
 
-interface SegmentedControlItem<T extends string | number | readonly string[]> {
+interface SegmentedControlItem<T> {
   id: T;
   label: React.ReactNode;
   activeClassName?: string;
@@ -11,7 +11,7 @@ interface SegmentedControlItem<T extends string | number | readonly string[]> {
   testId?: string;
 }
 
-interface TacticalSegmentedControlProps<T extends string | number | readonly string[]> {
+interface TacticalSegmentedControlProps<T> {
   items: SegmentedControlItem<T>[];
   selectedValue: T;
   onValueChange: (value: T) => void;
@@ -23,7 +23,7 @@ interface TacticalSegmentedControlProps<T extends string | number | readonly str
   defaultInactiveClassName?: string;
 }
 
-export function TacticalSegmentedControl<T extends string | number | readonly string[]>({
+export function TacticalSegmentedControl<T>({
   items,
   selectedValue,
   onValueChange,
