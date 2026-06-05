@@ -36,9 +36,9 @@ Update `PokemonInstance` in the `common.ts` parser logic to use the `isShinyCarr
 4. Ensure all related unit tests are updated and pass.
 
 ## Acceptance Criteria
-- [ ] `PokemonInstance` interface uses `isShinyCarrier` instead of `hasShinyGene`.
-- [ ] Gen 1 and Gen 2 parsers correctly assign `isShinyCarrier`.
-- [ ] Unit tests are updated and pass without errors.
+- [x] `PokemonInstance` interface uses `isShinyCarrier` instead of `hasShinyGene`.
+- [x] Gen 1 and Gen 2 parsers correctly assign `isShinyCarrier`.
+- [x] Unit tests are updated and pass without errors.
 
 ## Reminder for Coder and QA
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
