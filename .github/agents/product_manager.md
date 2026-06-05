@@ -22,6 +22,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 - Append references to newly generated child nodes as **unchecked tasks (`- [ ]`)** directly into the markdown body of the parent node, and check off your specific acceptance criteria checkboxes (e.g., `- [x] Break down into Tasks`) WITHOUT modifying the parent's YAML frontmatter. This ensures the parent node does not prematurely transition to VERIFYING before its children are completed.
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 - **CRITICAL:** Do NOT submit an Empty PR to transition an IDEA to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child PRD nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
+- **CRITICAL:** Do NOT submit an Empty PR to transition a PRD to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child EPIC nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
 
 ### Handling Rejections & Aborts
 If you encounter a permanent failure or must abort a node:

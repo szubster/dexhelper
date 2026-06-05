@@ -77,7 +77,7 @@ describe('PokedexGrid', () => {
     const router = createMockRouter(<PokedexGrid pokemonList={mockList} />);
     await render(<RouterProvider router={router} />);
 
-    const btn = page.getByRole('button', { name: 'Clear all filters' });
+    const btn = page.getByRole('button', { name: 'Clear Filters' });
     await expect.element(btn).toBeInTheDocument();
 
     await userEvent.click(btn);
