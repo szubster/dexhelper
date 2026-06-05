@@ -81,9 +81,11 @@ interface PokeApiChainLink {
  * @remarks
  * **Why JSONL?**
  * The output data (encounters, locations, pokemon metadata) is extremely large.
- * By storing it as JSON Lines, the DexHelper React client can progressively stream
- * and parse the data into IndexedDB without holding a massive JSON array in memory,
- * preventing browser OOM crashes on low-end mobile devices.
+ * JSONL provides a human-readable format that can be easily diffed and committed
+ * to version control. At build time, Vitest and the pipeline parse these `.jsonl`
+ * files and transform them into a highly compact `msgpack` payload using `msgpackr`.
+ * This approach guarantees both human-readable source data and extremely fast,
+ * memory-efficient runtime parsing in the browser.
  */
 function writeJsonl(filePath: string, data: any[]) {
   const content = data.map(item => JSON.stringify(item)).join('\n');
