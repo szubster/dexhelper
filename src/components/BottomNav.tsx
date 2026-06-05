@@ -8,6 +8,7 @@ export function BottomNav() {
   const saveData = useStore((s) => s.saveData);
   const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
   const isSettingsOpen = useStore((s) => s.isSettingsOpen);
+  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
   const location = useLocation();
 
   if (!saveData) return null;
@@ -72,14 +73,16 @@ export function BottomNav() {
 
         <NavButton to="/dag" ariaLabel="DAG" label="DAG" activeLabel="[ DAG ]" icon={GitGraph} isActive={isDag} />
 
-        <NavButton
-          to="/run"
-          ariaLabel="Run Dashboard"
-          label="RUN"
-          activeLabel="[ RUN ]"
-          icon={Activity}
-          isActive={isRun}
-        />
+        {!!nuzlockeGraveyardBox && (
+          <NavButton
+            to="/run"
+            ariaLabel="Run Dashboard"
+            label="RUN"
+            activeLabel="[ RUN ]"
+            icon={Activity}
+            isActive={isRun}
+          />
+        )}
 
         <NavButton
           onClick={() => setIsSettingsOpen(true)}
