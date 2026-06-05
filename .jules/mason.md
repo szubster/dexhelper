@@ -77,3 +77,9 @@
 - **Why**: Reduced duplicated JSX across `AssistantDebugView` which had 4 identical blocks. It can also be reused if other parts of the app need a telemetry card.
 - **Key Learnings**:
   - The `valueClassName` prop is crucial when extracting text components, allowing customization like `truncate` or `uppercase` while maintaining identical base text styles.
+
+## InlineLink Extraction
+- **What**: Extracted repeated inline link button elements (standard `<button className="rounded-none underline..."></button>` with variant-specific colors) into an `InlineLink` reusable component.
+- **Why**: Reduced duplicated JSX in `PokemonEvolutions.tsx`. Standardized interaction styles, underline offsets, and hover variants for typical navigation links without needing to pass down the large class string every time.
+- **Key Learnings**:
+  - Make sure to extend standard attributes (e.g. `React.ButtonHTMLAttributes<HTMLButtonElement>`) and forward refs (`React.forwardRef`) so accessibility properties like `aria-label` or raw `onClick` handlers pass down appropriately without breaking.
