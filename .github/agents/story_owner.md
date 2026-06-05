@@ -23,7 +23,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 - Determine the correctly incremented global sequence number by listing and sorting the existing files in the corresponding directory (e.g., `ls -1 .foundry/tasks/ | sort -n -t '-' -k 3`).
 - The strict pipeline order and persona handoff for Foundry nodes is: IDEA (PM) -> PRD (PM) -> ADR (Architect) -> EPIC (Planner) -> STORY -> TASK.
 - When creating a new node, strictly follow the Parent-Linked ID Schema: `<type>-<parent_NNN>-<NNN>-<slug>` as detailed in `.foundry/docs/schema.md`.
-- Append references to newly created child nodes directly into the markdown body of the parent node, and check off corresponding acceptance criteria checkboxes WITHOUT modifying the parent's YAML frontmatter.
+- Append references to newly generated child nodes as **unchecked tasks (`- [ ]`)** directly into the markdown body of the parent node, and check off your specific acceptance criteria checkboxes (e.g., `- [x] Break down into Tasks`) WITHOUT modifying the parent's YAML frontmatter. This ensures the parent node does not prematurely transition to VERIFYING before its children are completed.
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 - **CRITICAL:** Do NOT submit an Empty PR to transition an Epic to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child STORY nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
 

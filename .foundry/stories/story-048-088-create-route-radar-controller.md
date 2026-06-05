@@ -2,13 +2,13 @@
 id: story-048-088-create-route-radar-controller
 type: STORY
 title: Create RouteRadarController Structure
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-05-31'
-updated_at: '2026-06-02'
+updated_at: '2026-06-04'
 depends_on:
-  - .foundry/tasks/task-035-142-smart-radar-adr.md
-jules_session_id: '16597791177162833819'
+  - task-035-142-smart-radar-adr
+jules_session_id: null
 pr_number: null
 parent: epic-035-048-smart-radar-data-unification
 tags:
@@ -34,3 +34,7 @@ Scaffold the `RouteRadarController` module. It should act as the central dispatc
 - [ ] Create `RouteRadarController` in the appropriate directory (e.g., `src/engine/radar/` or similar).
 - [ ] Define the interface for its input (the raw suggestion engine output) and its expected heatmap data output.
 - [ ] Write unit tests to verify instantiation and basic method structures.
+
+## Generated Tasks
+- [ ] .foundry/tasks/task-088-146-scaffold-route-radar-controller.md
+- [ ] .foundry/tasks/task-088-147-qa-route-radar-controller.md

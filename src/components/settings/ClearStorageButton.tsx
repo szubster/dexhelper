@@ -10,7 +10,7 @@ export function ClearStorageButton({ onClear }: { onClear: () => void }) {
       <div className="fade-in zoom-in-95 flex w-full animate-in gap-2 duration-200">
         <TacticalButton
           type="button"
-          aria-label="Abort purge"
+          title="Abort purge"
           onClick={() => setIsConfirming(false)}
           variant="secondary"
           className="flex-1"
@@ -19,7 +19,7 @@ export function ClearStorageButton({ onClear }: { onClear: () => void }) {
         </TacticalButton>
         <TacticalButton
           type="button"
-          aria-label="Confirm purge"
+          title="Confirm purge"
           onClick={onClear}
           variant="danger"
           className="flex-1"
@@ -34,7 +34,7 @@ export function ClearStorageButton({ onClear }: { onClear: () => void }) {
   return (
     <TacticalButton
       type="button"
-      aria-label="Initiate system purge"
+      title="Initiate system purge"
       onClick={() => setIsConfirming(true)}
       variant="danger-outline"
       className="fade-in zoom-in-95 w-full animate-in duration-200"

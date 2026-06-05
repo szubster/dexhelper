@@ -2,12 +2,12 @@
 id: idea-068-unown-tracker
 type: IDEA
 title: Unown Form Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-05-31'
-updated_at: '2026-06-01'
+updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: '4478926210725735728'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -34,3 +34,6 @@ Leverage our existing programmatic DV parsing in `saveParser` to explicitly comp
 
 ## Why it Matters
 This directly aligns with the core vision of `DexHelper` as a premium collection manager for hardcore players, turning hidden data (DVs) into a highly actionable and visually satisfying checklist.
+
+## Generated Nodes
+- .foundry/prds/prd-068-037-unown-tracker.md
