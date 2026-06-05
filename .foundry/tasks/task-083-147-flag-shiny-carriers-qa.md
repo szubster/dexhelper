@@ -2,13 +2,13 @@
 id: task-083-147-flag-shiny-carriers-qa
 type: TASK
 title: 'QA: Verify isShinyCarrier Property in Parsed Data'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-01'
 updated_at: '2026-06-05'
 depends_on:
   - task-083-146-flag-shiny-carriers-impl
-jules_session_id: null
+jules_session_id: '17927300998962807055'
 pr_number: null
 parent: story-044-083-pc-party-shiny-flag
 tags:
