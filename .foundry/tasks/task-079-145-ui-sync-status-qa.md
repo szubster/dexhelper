@@ -27,9 +27,9 @@ notes: ''
 Verify that the `coder` has successfully implemented the UI sync status as defined in `.foundry/tasks/task-079-144-ui-sync-status-impl.md` and ADR 016.
 
 ## Acceptance Criteria
-- [ ] Verified UI displays current sync status.
-- [ ] Verified fallback for unsupported browsers.
-- [ ] Verified "Resume Sync" button functionality.
+- [x] Verified UI displays current sync status.
+- [x] Verified fallback for unsupported browsers.
+- [x] Verified "Resume Sync" button functionality.
 
 ## Reminders
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
