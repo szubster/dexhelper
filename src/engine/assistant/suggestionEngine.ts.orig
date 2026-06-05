@@ -973,6 +973,21 @@ export function generateSuggestions(
     queryTargets.push(pid);
   }
 
+  // Special Strategy-Specific Suggestions (e.g. Box full warning)
+  const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds));
+  suggestions.push(...specialSuggestions);
+
+  const localPids = new Set<number>();
+
+  const hasHeadbutt =
+    saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) ||
+    (saveData.pcItems?.some((i) => i.id === 192 && i.quantity > 0) ?? false) ||
+    allInstances.some((p) => p.moves?.includes(29));
+  const hasRockSmash =
+    saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) ||
+    (saveData.pcItems?.some((i) => i.id === 198 && i.quantity > 0) ?? false) ||
+    allInstances.some((p) => p.moves?.includes(249));
+
   const rodIds = genConfig.rodIds;
   const hasOldRod = rodIds
     ? saveData.inventory.some((i) => i.id === rodIds.OLD && i.quantity > 0) ||
@@ -986,25 +1001,6 @@ export function generateSuggestions(
     ? saveData.inventory.some((i) => i.id === rodIds.SUPER && i.quantity > 0) ||
       (saveData.pcItems?.some((i) => i.id === rodIds.SUPER && i.quantity > 0) ?? false)
     : true;
-
-  // Special Strategy-Specific Suggestions (e.g. Box full warning)
-  const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds), {
-    hasOldRod,
-    hasGoodRod,
-    hasSuperRod,
-  });
-  suggestions.push(...specialSuggestions);
-
-  const localPids = new Set<number>();
-
-  const hasHeadbutt =
-    saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) ||
-    (saveData.pcItems?.some((i) => i.id === 192 && i.quantity > 0) ?? false) ||
-    allInstances.some((p) => p.moves?.includes(29));
-  const hasRockSmash =
-    saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) ||
-    (saveData.pcItems?.some((i) => i.id === 198 && i.quantity > 0) ?? false) ||
-    allInstances.some((p) => p.moves?.includes(249));
 
   generateCatchSuggestions(
     apiData,

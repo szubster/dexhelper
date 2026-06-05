@@ -1,0 +1,141 @@
+--- src/engine/assistant/strategies/types.ts
++++ src/engine/assistant/strategies/types.ts
+@@ -128,7 +128,7 @@
+    * @example
+    * const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds));
+    */
+-  getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[];
++  getSpecialSuggestions(saveData: SaveData, missingIds: number[], options?: { hasOldRod?: boolean; hasGoodRod?: boolean; hasSuperRod?: boolean }): Suggestion[];
+
+   /**
+    * Post-processes suggestions to add generation-specific warnings or modifications.
+--- src/engine/assistant/suggestionEngine.ts
++++ src/engine/assistant/suggestionEngine.ts
+@@ -974,8 +974,22 @@
+     queryTargets.push(pid);
+   }
+
++  const rodIds = genConfig.rodIds;
++  const hasOldRod = rodIds
++    ? saveData.inventory.some((i) => i.id === rodIds.OLD && i.quantity > 0) ||
++      (saveData.pcItems?.some((i) => i.id === rodIds.OLD && i.quantity > 0) ?? false)
++    : true;
++  const hasGoodRod = rodIds
++    ? saveData.inventory.some((i) => i.id === rodIds.GOOD && i.quantity > 0) ||
++      (saveData.pcItems?.some((i) => i.id === rodIds.GOOD && i.quantity > 0) ?? false)
++    : true;
++  const hasSuperRod = rodIds
++    ? saveData.inventory.some((i) => i.id === rodIds.SUPER && i.quantity > 0) ||
++      (saveData.pcItems?.some((i) => i.id === rodIds.SUPER && i.quantity > 0) ?? false)
++    : true;
++
+   // Special Strategy-Specific Suggestions (e.g. Box full warning)
+-  const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds));
++  const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds), { hasOldRod, hasGoodRod, hasSuperRod });
+   suggestions.push(...specialSuggestions);
+
+   const localPids = new Set<number>();
+@@ -988,20 +1002,6 @@
+     (saveData.pcItems?.some((i) => i.id === 198 && i.quantity > 0) ?? false) ||
+     allInstances.some((p) => p.moves?.includes(249));
+
+-  const rodIds = genConfig.rodIds;
+-  const hasOldRod = rodIds
+-    ? saveData.inventory.some((i) => i.id === rodIds.OLD && i.quantity > 0) ||
+-      (saveData.pcItems?.some((i) => i.id === rodIds.OLD && i.quantity > 0) ?? false)
+-    : true;
+-  const hasGoodRod = rodIds
+-    ? saveData.inventory.some((i) => i.id === rodIds.GOOD && i.quantity > 0) ||
+-      (saveData.pcItems?.some((i) => i.id === rodIds.GOOD && i.quantity > 0) ?? false)
+-    : true;
+-  const hasSuperRod = rodIds
+-    ? saveData.inventory.some((i) => i.id === rodIds.SUPER && i.quantity > 0) ||
+-      (saveData.pcItems?.some((i) => i.id === rodIds.SUPER && i.quantity > 0) ?? false)
+-    : true;
+-
+   generateCatchSuggestions(
+     apiData,
+     displayVersionId,
+--- src/engine/assistant/strategies/gen1Strategy.ts
++++ src/engine/assistant/strategies/gen1Strategy.ts
+@@ -32,7 +32,7 @@
+     return getUnobtainableReason(pokemonId, version, ownedCount, ownedSet);
+   },
+
+-  getSpecialSuggestions(saveData: SaveData, _missingIds: number[]): Suggestion[] {
++  getSpecialSuggestions(saveData: SaveData, _missingIds: number[], options?: { hasOldRod?: boolean; hasGoodRod?: boolean; hasSuperRod?: boolean }): Suggestion[] {
+     const suggestions: Suggestion[] = [];
+     const genConfig = getGenerationConfig(1);
+
+@@ -55,6 +55,16 @@
+       // This is handled by the main engine, not as a special suggestion
+     }
+
++    if (options && !options.hasOldRod && !options.hasGoodRod && !options.hasSuperRod) {
++      suggestions.push({
++        id: 'get-fishing-rod',
++        category: 'Utility',
++        title: 'Get a Fishing Rod',
++        description: 'You are missing fishing rods! Find the Old Rod in Vermilion City, the Good Rod in Fuchsia City, or the Super Rod on Route 12 to catch water Pokémon.',
++        priority: 60,
++      });
++    }
++
+     return suggestions;
+   },
+
+--- src/engine/assistant/strategies/gen2Strategy.ts
++++ src/engine/assistant/strategies/gen2Strategy.ts
+@@ -19,7 +19,7 @@
+     return getGen2UnobtainableReason(pokemonId, version, _ownedCount, ownedSet);
+   },
+
+-  getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[] {
++  getSpecialSuggestions(saveData: SaveData, missingIds: number[], options?: { hasOldRod?: boolean; hasGoodRod?: boolean; hasSuperRod?: boolean }): Suggestion[] {
+     const suggestions: Suggestion[] = [];
+     const missingSet = new Set(missingIds);
+
+@@ -83,6 +83,16 @@
+       priority: 50,
+     });
+
++    if (options && !options.hasOldRod && !options.hasGoodRod && !options.hasSuperRod) {
++      suggestions.push({
++        id: 'get-fishing-rod',
++        category: 'Utility',
++        title: 'Get a Fishing Rod',
++        description: 'You are missing fishing rods! Find the Old Rod in Route 32, the Good Rod in Olivine City, or the Super Rod on Route 12 to catch water Pokémon.',
++        priority: 60,
++      });
++    }
++
+     // Tyrogue Stat-based Evolutions warning
+     const tyrogueEvos = [106, 107, 237];
+     for (const evoId of tyrogueEvos) {
+--- src/engine/assistant/strategies/gen3Strategy.ts
++++ src/engine/assistant/strategies/gen3Strategy.ts
+@@ -19,7 +19,7 @@
+     return getGen3UnobtainableReason(pokemonId, version, _ownedCount, ownedSet);
+   },
+
+-  getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[] {
++  getSpecialSuggestions(saveData: SaveData, missingIds: number[], options?: { hasOldRod?: boolean; hasGoodRod?: boolean; hasSuperRod?: boolean }): Suggestion[] {
+     const suggestions: Suggestion[] = [];
+     const missingSet = new Set(missingIds);
+
+@@ -49,6 +49,16 @@
+       }
+     }
+
++    if (options && !options.hasOldRod && !options.hasGoodRod && !options.hasSuperRod) {
++      suggestions.push({
++        id: 'get-fishing-rod',
++        category: 'Utility',
++        title: 'Get a Fishing Rod',
++        description: 'You are missing fishing rods! Find the Old Rod in Dewford Town, the Good Rod on Route 118, or the Super Rod in Mossdeep City to catch water Pokémon.',
++        priority: 60,
++      });
++    }
++
+     return suggestions;
+   },
