@@ -2,12 +2,12 @@
 id: task-085-142-impl-extract-rejection-count
 type: TASK
 title: Implement DAG Data Parsing for Rejection Count
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-23'
-updated_at: '2026-05-31'
+updated_at: '2026-06-03'
 depends_on: []
-jules_session_id: '13536361495268435373'
+jules_session_id: null
 pr_number: null
 parent: story-046-085-extract-broadcast-rejection-count
 tags:
@@ -16,7 +16,7 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'The required React Context layer for shared DAG state is missing. ADR 013 and ADR 017 require the state to be lifted to a shared context rather than tightly coupled inside the DagDashboard component.'
 notes: ''
 ---
 
@@ -34,9 +34,9 @@ In order to display permanent failures on the DAG dashboard, we need to surface 
 3. Verify that the React context layer correctly exposes the property to connected UI views.
 
 ## Acceptance Criteria
-- [ ] Coder: Update parsing logic.
-- [ ] Coder: Update `FoundryNode` TypeScript types.
-- [ ] Coder: Ensure React context layer correctly exposes the property.
+- [x] Coder: Update parsing logic.
+- [x] Coder: Update `FoundryNode` TypeScript types.
+- [x] Coder: Ensure React context layer correctly exposes the property.
 
 ## Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

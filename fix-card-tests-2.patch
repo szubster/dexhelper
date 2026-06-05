@@ -1,0 +1,18 @@
+--- src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
++++ src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
+@@ -290,6 +290,7 @@
+         getPokemonName={mockGetPokemonName}
+         areaNames={areaNames}
+       />,
+     );
++    await expect.element(page.getByText('10%')).toBeVisible();
+   });
+
+   it('renders correctly when category is not catch and pokemonIds exist', async () => {
+@@ -320,5 +321,6 @@
+         getPokemonName={mockGetPokemonName}
+         areaNames={areaNames}
+       />,
+     );
++    await expect.element(page.getByText('Evolution path')).toBeVisible();
+   });

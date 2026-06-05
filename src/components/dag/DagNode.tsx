@@ -7,6 +7,7 @@ export type DagNodeData = Record<string, unknown> & {
   type: string;
   status: string;
   owner_persona: string;
+  rejection_count: number;
   label?: string;
   isHighlighted?: boolean;
   isDimmed?: boolean;

@@ -6,7 +6,7 @@ import { SettingsRow } from '../SettingsRow';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
 
 interface SettingsControlsProps {
-  effectiveVersion: string;
+  effectiveVersion: GameVersion | 'unknown';
   setManualVersion: (v: GameVersion | null) => void;
   isLivingDex: boolean;
   setIsLivingDex: (v: boolean) => void;
@@ -51,7 +51,7 @@ export function SettingsControls({
           defaultActiveClassName="border-blue-500 bg-blue-500/20 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.3)]"
           defaultInactiveClassName="border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300"
           selectedValue={effectiveVersion}
-          onValueChange={(val) => setManualVersion(val === 'unknown' ? null : (val as GameVersion))}
+          onValueChange={(val) => setManualVersion(val === 'unknown' ? null : val)}
           items={versions.map((v) => ({
             id: v.id,
             label: v.label,
@@ -91,7 +91,7 @@ export function SettingsControls({
         iconColorClass="border-amber-500/20 bg-amber-500/10"
         label="Ball Style"
       >
-        <TacticalSegmentedControl
+        <TacticalSegmentedControl<PokeballType>
           ariaLabel="Ball Style"
           containerClassName="grid grid-cols-3 gap-2 [&>div]:grid [&>div]:grid-cols-3 [&>div]:gap-2 [&>div]:border-none [&>button]:border"
           buttonBaseClassName="flex flex-col items-center justify-center gap-1.5 py-3 text-[9px] !border-dashed !border focus-visible:ring-amber-500"

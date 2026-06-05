@@ -32,11 +32,7 @@ export const gen1Strategy: AssistantStrategy = {
     return getUnobtainableReason(pokemonId, version, ownedCount, ownedSet);
   },
 
-  getSpecialSuggestions(
-    saveData: SaveData,
-    _missingIds: number[],
-    options?: { hasOldRod?: boolean; hasGoodRod?: boolean; hasSuperRod?: boolean },
-  ): Suggestion[] {
+  getSpecialSuggestions(saveData: SaveData, _missingIds: number[]): Suggestion[] {
     const suggestions: Suggestion[] = [];
     const genConfig = getGenerationConfig(1);
 
@@ -56,17 +52,6 @@ export const gen1Strategy: AssistantStrategy = {
     if (saveData.hallOfFameCount === 0 && !saveData.owned.has(150)) {
       // Mewtwo is locked behind beating E4 — not a suggestion but a rejection condition
       // This is handled by the main engine, not as a special suggestion
-    }
-
-    if (options && !options.hasOldRod && !options.hasGoodRod && !options.hasSuperRod) {
-      suggestions.push({
-        id: 'get-fishing-rod',
-        category: 'Utility',
-        title: 'Get a Fishing Rod',
-        description:
-          'You are missing fishing rods! Find the Old Rod in Vermilion City, the Good Rod in Fuchsia City, or the Super Rod on Route 12 to catch water Pokémon.',
-        priority: 60,
-      });
     }
 
     return suggestions;

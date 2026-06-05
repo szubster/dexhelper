@@ -19,11 +19,7 @@ export const gen2Strategy: AssistantStrategy = {
     return getGen2UnobtainableReason(pokemonId, version, _ownedCount, ownedSet);
   },
 
-  getSpecialSuggestions(
-    saveData: SaveData,
-    missingIds: number[],
-    options?: { hasOldRod?: boolean; hasGoodRod?: boolean; hasSuperRod?: boolean },
-  ): Suggestion[] {
+  getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[] {
     const suggestions: Suggestion[] = [];
     const missingSet = new Set(missingIds);
 
@@ -102,17 +98,6 @@ export const gen2Strategy: AssistantStrategy = {
         'Some Pokémon only appear during specific times of day (Morning, Day, Night). If you cannot find an encounter, check the time!',
       priority: 50,
     });
-
-    if (options && !options.hasOldRod && !options.hasGoodRod && !options.hasSuperRod) {
-      suggestions.push({
-        id: 'get-fishing-rod',
-        category: 'Utility',
-        title: 'Get a Fishing Rod',
-        description:
-          'You are missing fishing rods! Find the Old Rod in Route 32, the Good Rod in Olivine City, or the Super Rod on Route 12 to catch water Pokémon.',
-        priority: 60,
-      });
-    }
 
     // Tyrogue Stat-based Evolutions warning
     const tyrogueEvos = [106, 107, 237];

@@ -1,0 +1,30 @@
+--- src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
++++ src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
+@@ -259,6 +259,8 @@
+         getPokemonName={mockGetPokemonName}
+         areaNames={areaNames}
+       />,
+     );
++
++    await expect.element(page.getByText('Catch an unknown mon')).toBeVisible();
+   });
+
+   it('renders correctly when one of the encounter chances is equal to mainEnc chance', async () => {
+@@ -289,6 +291,8 @@
+         getPokemonName={mockGetPokemonName}
+         areaNames={areaNames}
+       />,
+     );
++
++    await expect.element(page.getByText('10%')).toBeVisible();
+   });
+
+   it('renders correctly when category is not catch and pokemonIds exist', async () => {
+@@ -318,5 +322,7 @@
+         getPokemonName={mockGetPokemonName}
+         areaNames={areaNames}
+       />,
+     );
++
++    await expect.element(page.getByText('Evolution path')).toBeVisible();
+   });

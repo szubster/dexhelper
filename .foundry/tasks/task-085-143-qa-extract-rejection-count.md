@@ -2,13 +2,13 @@
 id: task-085-143-qa-extract-rejection-count
 type: TASK
 title: QA DAG Data Parsing for Rejection Count
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-05-23'
-updated_at: '2026-05-23'
+updated_at: '2026-06-03'
 depends_on:
   - task-085-142-impl-extract-rejection-count
-jules_session_id: null
+jules_session_id: '13018437587878218172'
 pr_number: null
 parent: story-046-085-extract-broadcast-rejection-count
 tags:
@@ -17,8 +17,8 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA DAG Data Parsing for Rejection Count
@@ -38,6 +38,9 @@ This is a verification task for `task-085-142-impl-extract-rejection-count`. In 
 - [ ] QA: Verify parser extracts `rejection_count`.
 - [ ] QA: Verify data models align with ADR 017.
 - [ ] QA: Verify context layer broadcasts `rejection_count`.
+
+## QA Notes
+**Validation Failed:** `task-085-142-impl-extract-rejection-count` is rejected. While the parsing logic correctly extracts `rejection_count` and models are updated, the required React Context layer to expose this data to connected UI views (as specified in ADR 013 and ADR 017) was not implemented. The state is still tightly coupled within `DagDashboard.tsx` instead of being lifted into a shared context.
 
 ## Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

@@ -128,11 +128,7 @@ export interface AssistantStrategy {
    * @example
    * const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds));
    */
-  getSpecialSuggestions(
-    saveData: SaveData,
-    missingIds: number[],
-    options?: { hasOldRod?: boolean; hasGoodRod?: boolean; hasSuperRod?: boolean },
-  ): Suggestion[];
+  getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[];
 
   /**
    * Post-processes suggestions to add generation-specific warnings or modifications.

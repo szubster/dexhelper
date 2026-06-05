@@ -19,11 +19,7 @@ export const gen3Strategy: AssistantStrategy = {
     return getGen3UnobtainableReason(pokemonId, version, _ownedCount, ownedSet);
   },
 
-  getSpecialSuggestions(
-    saveData: SaveData,
-    missingIds: number[],
-    options?: { hasOldRod?: boolean; hasGoodRod?: boolean; hasSuperRod?: boolean },
-  ): Suggestion[] {
+  getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[] {
     const suggestions: Suggestion[] = [];
     const missingSet = new Set(missingIds);
 
@@ -52,17 +48,6 @@ export const gen3Strategy: AssistantStrategy = {
           priority: 85,
         });
       }
-    }
-
-    if (options && !options.hasOldRod && !options.hasGoodRod && !options.hasSuperRod) {
-      suggestions.push({
-        id: 'get-fishing-rod',
-        category: 'Utility',
-        title: 'Get a Fishing Rod',
-        description:
-          'You are missing fishing rods! Find the Old Rod in Dewford Town, the Good Rod on Route 118, or the Super Rod in Mossdeep City to catch water Pokémon.',
-        priority: 60,
-      });
     }
 
     return suggestions;

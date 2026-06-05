@@ -1,0 +1,9 @@
+--- src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
++++ src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
+@@ -315,5 +315,6 @@
+         getPokemonName={mockGetPokemonName}
+       />,
+     );
++    await expect.element(page.getByText('Evolve something')).toBeVisible();
+   });
+ });
