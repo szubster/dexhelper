@@ -57,6 +57,11 @@
 **Learning:** Catering to end-game completionists adds significant value. Gen 2 has a specific quest to collect all 26 Unown forms (A-Z) which are determined by DVs. Since `DexHelper` already parses DVs for stats and shininess, extending this to explicitly track Unown forms gives players a visual checklist, transforming a tedious manual process into a highly actionable feature.
 **Outcome:** Created IDEA node.
 
+## 2026-06-04
+**Idea:** Gen 2 Daily and Weekly Event Tracker
+**Learning:** Expanding the app's capability to parse time-based data (RTC) from Gen 2 save files lets us create dynamic "daily to-do checklists". Turning a static collection viewer into an active agenda that reminds players of time-gated events (like swarms or daily rare encounters) solves a massive pain point for retro gamers without guides, continuing our trend of surfacing hidden state into actionable UI.
+**Outcome:** Created IDEA node.
+**Feedback Update:** Noted that RTC is not reliably stored in all emulator `.sav` files. Instead of relying solely on the `.sav` file's RTC, we should use the user's system device clock combined with the save file's event flags to power this feature. This avoids creating features that break depending on the emulator used. Also learned to add filtering to only show events relevant to uncaught Pokémon to increase usefulness.
 ## 2026-06-02
 **Idea:** Gen 3 Mirage Island Predictor
 **Learning:** Continuing the trend of surfacing hidden global state (like Feebas tiles or daily swarms) and cross-referencing it with the player's large entity datasets (like hundreds of PC Pokémon PIDs), we can eliminate extremely tedious brute-force mechanics. This provides immediate, tangible value that perfectly aligns with our offline-first programmatic parsing strengths.
