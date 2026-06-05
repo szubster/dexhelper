@@ -55,3 +55,4 @@
 **Idea:** Gen 2 Daily and Weekly Event Tracker
 **Learning:** Expanding the app's capability to parse time-based data (RTC) from Gen 2 save files lets us create dynamic "daily to-do checklists". Turning a static collection viewer into an active agenda that reminds players of time-gated events (like swarms or daily rare encounters) solves a massive pain point for retro gamers without guides, continuing our trend of surfacing hidden state into actionable UI.
 **Outcome:** Created IDEA node.
+**Feedback Update:** Noted that RTC is not reliably stored in all emulator `.sav` files. Instead of relying solely on the `.sav` file's RTC, we should use the user's system device clock combined with the save file's event flags to power this feature. This avoids creating features that break depending on the emulator used. Also learned to add filtering to only show events relevant to uncaught Pokémon to increase usefulness.

@@ -26,8 +26,9 @@ notes: ''
 Generation 2 introduced a Real Time Clock (RTC) and numerous time-gated mechanics, such as the Bug Catching Contest (Tuesday/Thursday/Saturday), the S.S. Aqua sailings, daily swarms, the daily Lapras in Union Cave (Friday), the Haircut Brothers, and the daily Mystery Gift. Because the game relies entirely on the player remembering these days and times, it creates significant friction for players trying to optimize their playthrough or complete their Pokédex.
 
 ## Proposal
-Leverage DexHelper's deep save file parsing to track the RTC and event flags to build a dynamic "Daily/Weekly Event Checklist".
-- **Dynamic Daily Agenda:** Upon loading a save file, the app reads the RTC and presents a checklist of what events are available *today* (e.g., "It's Friday: Catch Lapras in Union Cave!").
+Leverage DexHelper's deep save file parsing to track event flags, combined with the device's local clock, to build a dynamic "Daily/Weekly Event Checklist". Since RTC is not reliably stored in all emulator `.sav` files, we will use the user's system time as the source of truth for the current day.
+- **Dynamic Daily Agenda:** Upon loading a save file, the app reads the current system day and presents a checklist of what events are available *today* (e.g., "It's Friday: Catch Lapras in Union Cave!").
+- **Smart Filtering:** Filter the daily events based on the player's Pokédex completion. Only show events that allow the player to catch Pokémon they do not currently have.
 - **State Validation:** Check event flags in the save file to determine if the player has *already* completed a daily event (like getting a haircut or completing a trade), greying it out on the checklist.
 - **Future Forecasting:** Allow players to see what events are coming up in the next few days to help them plan their playtime.
 
