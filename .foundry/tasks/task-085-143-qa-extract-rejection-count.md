@@ -2,7 +2,7 @@
 id: task-085-143-qa-extract-rejection-count
 type: TASK
 title: QA DAG Data Parsing for Rejection Count
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-06-05'
