@@ -2,12 +2,12 @@
 id: task-085-142-impl-extract-rejection-count
 type: TASK
 title: Implement DAG Data Parsing for Rejection Count
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-23'
 updated_at: '2026-06-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12487214010237626539'
 pr_number: null
 parent: story-046-085-extract-broadcast-rejection-count
 tags:
