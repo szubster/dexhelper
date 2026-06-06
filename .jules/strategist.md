@@ -172,6 +172,12 @@
 **Outcome:** Accepted
 **Why:** The Tech Lead was missing the explicit instruction about checking unchecked Acceptance Criteria checkboxes when submitting an empty PR, which is present in other persona prompts and required by ADR 007 and ADR 009.
 **Pattern:** Codify system memory constraints into agent prompts to avoid regressions and ensure consistency across personas.
+
+## 2026-06-04 - [Accepted] - Prompt improvement - Ensure QA agent increments rejection_count when rejecting an implementation
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** System memory requires the QA agent to increment the `rejection_count` in the target task's YAML frontmatter when it rejects an implementation task, but this instruction was missing from the QA agent's prompt. The `rejection_count` is critical for tracking chronic failure areas (e.g. for the Permanent Failure Dashboard - ADR 017).
+**Pattern:** Codify missing system memory constraints about updating specific schema fields (like `rejection_count`) directly into the responsible agent's prompt to ensure compliance and data integrity.
 ## 2026-07-09 - [Accepted] - Prompt improvement - Prevent premature verification for macro nodes
 **Type:** Prompt improvement
 **Outcome:** Merged
