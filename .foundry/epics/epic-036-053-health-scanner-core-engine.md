@@ -2,12 +2,12 @@
 id: epic-036-053-health-scanner-core-engine
 type: EPIC
 title: Health Scanner Core Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-31'
-updated_at: '2026-06-02'
+updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: '11832123541437753896'
+jules_session_id: null
 pr_number: null
 parent: prd-066-036-save-file-health-scanner
 tags:
@@ -40,4 +40,9 @@ Implement the core engine for scanning Gen 1 and Gen 2 Pokémon save files (`.sa
 None. This is the foundational engine epic.
 
 ## 4. Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into actionable Stories.
+- [x] Story Owner: Break this Epic down into actionable Stories.
+- [ ] .foundry/stories/story-053-090-health-scanner-diagnostic-models.md
+- [ ] .foundry/stories/story-053-091-health-scanner-gen1-checksum-validation.md
+- [ ] .foundry/stories/story-053-092-health-scanner-gen2-checksum-validation.md
+- [ ] .foundry/stories/story-053-093-health-scanner-pokemon-bounds-verification.md
+- [ ] .foundry/stories/story-053-094-health-scanner-moveset-inventory-validation.md

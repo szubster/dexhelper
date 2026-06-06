@@ -10,9 +10,6 @@ When drafting technical blueprints from stories that contain multiple independen
 *   **Incident:** The implementation task `task-053-092-implement-dependency-highlighting` failed permanently, triggering the Orchestrator's "Impossible Loop" and waking up the Tech Lead.
 *   **Action:** Handled the failure by spawning a `RESEARCH` node (`research-053-002`) to investigate the failure. Created replacement implementation and QA tasks (`task-053-124` and `task-053-125`) that depend on the research node. Updated the orphaned QA task (`task-053-093`) with a cancellation note in its Markdown body and unchecked the acceptance criteria checkboxes in the parent story (`story-029-053`), explicitly ensuring no YAML frontmatter was modified.
 
-## 2026-05-20: Empty PR Policy for previously un-checked story
-*   **Context:** The Tech Lead received a STORY node `story-029-053-implement-dependency-highlighting.md` which was kept alive because its acceptance criteria were unchecked, although the downstream replacement implementation and QA tasks (`task-053-124` and `task-053-125`) were already created and completed.
-*   **Action:** Handled the failure by simply checking the acceptance criteria checkboxes in the parent story, strictly adhering to the Empty PR policy to allow the parent node to transition to COMPLETED, as the implementation tasks were already successfully completed.
 
 ## 2026-05-22
 - ADR 015 Revert Data Format Optimizations: Verbose keys improve DX, but we must retain enum-to-number logic for values (e.g. method: 1 instead of method: 'WALK') because string values can't be deduplicated effectively in msgpackr arrays.

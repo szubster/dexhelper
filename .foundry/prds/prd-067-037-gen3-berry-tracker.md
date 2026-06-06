@@ -2,12 +2,12 @@
 id: prd-067-037-gen3-berry-tracker
 type: PRD
 title: Gen 3 Berry Farming Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-01'
-updated_at: '2026-06-02'
+updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: '12882880417281199889'
+jules_session_id: null
 pr_number: null
 parent: idea-067-gen3-berry-tracker
 tags:
@@ -47,4 +47,9 @@ This PRD outlines the requirements for implementing a Gen 3 Berry Farming Tracke
 *   Map integration must align with the unified `gen3Graph.ts` architecture defined in `010-gen3-map-graph-design.md`.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into Epics.
+- [x] Epic Planner: Break this PRD down into Epics.
+
+## Generated Nodes
+* `.foundry/epics/epic-037-055-gen3-berry-tracker-data-extraction.md`
+* `.foundry/epics/epic-037-056-gen3-berry-tracker-map-integration.md`
+* `.foundry/epics/epic-037-057-gen3-berry-tracker-ui-and-optimization.md`

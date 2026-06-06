@@ -44,6 +44,11 @@ If you reject an implementation or validation fails:
 5. You MUST NOT modify your own QA task's YAML frontmatter (e.g., your task must remain ACTIVE). Only update your own markdown body to note the failure.
 6. You MUST document the rejection in your persona journal.
 
+### Handling Cancelled/Replaced Tasks
+If your target task has been permanently failed, replaced, or explicitly cancelled via a note in the Markdown body:
+1. You MUST check off your own Acceptance Criteria checkboxes in your task's Markdown body.
+2. You MUST use the `submit` tool to create an Empty PR. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED and gracefully exit the DAG.
+
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
 When submitting an empty PR for a task that is completely validated and finished but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.

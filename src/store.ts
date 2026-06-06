@@ -4,6 +4,15 @@ import { saveDB } from './db/SaveDB';
 import type { GameVersion as GameVersionType, SaveData } from './engine/saveParser/index';
 import { parseSaveFile } from './engine/saveParser/index';
 
+/**
+ * @module store
+ *
+ * Central Zustand store for application state.
+ * Invariants:
+ * 1. Heavy payload data (e.g., parsed save data) must NOT be persisted to localStorage to avoid quota exhaustion.
+ * 2. Persistent user preferences (filters, version overrides) are selectively persisted via Zustand's `partialize`.
+ */
+
 // ─── Types ───────────────────────────────────────────────────────────
 export type GameVersion = GameVersionType;
 export const FILTER_TYPES = ['secured', 'missing', 'dex-only'] as const;
@@ -42,7 +51,15 @@ interface AppStore {
    */
   saveData: SaveData | null;
   error: string | null;
+  /**
+   * Updates the in-memory save data state.
+   * @param data - The parsed save data object to set, or null to clear it.
+   */
   setSaveData: (data: SaveData | null) => void;
+  /**
+   * Sets the global application error message.
+   * @param v - The error message string, or null to clear it.
+   */
   setError: (v: string | null) => void;
 
   // Persisted settings
@@ -56,9 +73,15 @@ interface AppStore {
   globalPokeball: PokeballType;
   /** Designated PC box for dead Pokemon in Nuzlocke mode. */
   nuzlockeGraveyardBox: string | null;
-  /** Toggles a specific UI filter type in the `filters` array. */
+  /**
+   * Toggles a specific UI filter type in the `filters` array.
+   * @param f - The filter type to toggle.
+   */
   toggleFilter: (f: FilterType) => void;
-  /** Overwrites the entire array of active UI filters. */
+  /**
+   * Overwrites the entire array of active UI filters.
+   * @param f - Array of filters to set as active.
+   */
   setFilters: (f: FilterType[]) => void;
   /** Sets the manual game version override. */
   setManualVersion: (v: GameVersion | null) => void;
@@ -88,11 +111,19 @@ interface AppStore {
   setIsVersionModalOpen: (v: boolean) => void;
 
   // Derived helpers
+  /**
+   * Returns the current active filters as a Set for O(1) lookups.
+   * @returns A Set of currently active FilterTypes.
+   * @example
+   * const hasMissing = useStore(state => state.filtersSet().has('missing'));
+   */
   filtersSet: () => Set<FilterType>;
 
   // Actions
   /**
-   * Rehydrates `saveData` from IndexedDB.
+   * Rehydrates `saveData` from IndexedDB asynchronously.
+   * Should be called on application mount to restore session state.
+   * @returns A Promise that resolves when the save data has been loaded.
    */
   loadSaveFromStorage: () => Promise<void>;
 }
