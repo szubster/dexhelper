@@ -70,7 +70,7 @@
     "bundlemon": "^3.1.0",
     "fake-indexeddb": "^6.2.5",
     "gray-matter": "^4.0.3",
-    "knip": "^6.15.0",
+    "knip": "^6.16.0",
     "lefthook": "^2.1.9",
     "lightningcss": "^1.32.0",
     "madge": "^8.0.0",
