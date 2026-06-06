@@ -28,3 +28,7 @@ Implement the logic to determine if a Generation 2 Pokémon is a valid Generatio
 
 ## Scope
 - Create a utility function to validate species ID against Generation 1 species.
+
+## Implementation Tasks
+- [ ] Implement Gen 1 species validity check (`.foundry/tasks/task-088-148-gen1-species-validity-impl.md`)
+- [ ] QA Gen 1 species validity check (`.foundry/tasks/task-088-149-gen1-species-validity-qa.md`)
