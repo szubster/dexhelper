@@ -38,3 +38,6 @@ As mandated by ADR 010 (`010-gen3-data-parsing.md`), all data parsing must stric
 - [ ] Handle bounds checking gracefully (e.g., throwing and catching `RangeError` on out-of-bounds reads).
 - [ ] Extract map location, berry ID, growth stage, and time metadata.
 - [ ] Serialize the extracted data using `msgpackr` and integrate with the runtime data API.
+
+### Generated Stories
+- [ ] .foundry/stories/story-055-095-gen3-berry-patch-parsing.md
