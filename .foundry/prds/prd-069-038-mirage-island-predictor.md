@@ -42,5 +42,8 @@ To ensure granular execution and minimize complexity, this PRD should be broken 
 - **Design Constraints**: Must adhere strictly to the "tactical hardware/snooping" aesthetic (`rounded-none`, dashed borders, monospace fonts) as defined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Epic 1 (Engine Updates) node created.
-- [ ] Epic 2 (UI Updates) node created.
+- [x] Epic 1 (Engine Updates) node created.
+- [x] Epic 2 (UI Updates) node created.
+
+- [ ] .foundry/epics/epic-038-061-mirage-island-engine.md
+- [ ] .foundry/epics/epic-038-062-mirage-island-ui.md
