@@ -27,3 +27,7 @@
 - **2026-06-06**: PR #2096 merged but has unchecked tasks (parent node). `story-053-090-extract-dag-utilities` is now PENDING.
 
 - **2026-06-06**: Resurrection Loop triggered for `task-071-144-visited-routes-checklist-retry-v2-impl`. Reason: PR #2070 closed without merging.. Transitioned back to READY.
+
+- **2026-06-06**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-06**: System failure detected for `task-081-144-preserve-enum-optimizations-retry-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
