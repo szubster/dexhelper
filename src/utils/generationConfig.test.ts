@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { GENERATION_CONFIGS, getGenerationConfig, POKEBALL_LABELS, VERSION_THEMES } from './generationConfig';
+import {
+  GENERATION_CONFIGS,
+  getGenerationConfig,
+  isGen1Species,
+  POKEBALL_LABELS,
+  VERSION_THEMES,
+} from './generationConfig';
 
 describe('getGenerationConfig', () => {
   it('should return the correct configuration for an existing generation (Gen 1)', () => {
@@ -28,6 +34,21 @@ describe('getGenerationConfig', () => {
 
   it('should throw an error for an arbitrarily large generation number', () => {
     expect(() => getGenerationConfig(999)).toThrow('Unknown generation: 999');
+  });
+});
+
+describe('isGen1Species', () => {
+  it('returns true for valid Gen 1 species', () => {
+    expect(isGen1Species(1)).toBe(true);
+    expect(isGen1Species(151)).toBe(true);
+    expect(isGen1Species(25)).toBe(true);
+  });
+
+  it('returns false for invalid IDs', () => {
+    expect(isGen1Species(0)).toBe(false);
+    expect(isGen1Species(152)).toBe(false);
+    expect(isGen1Species(251)).toBe(false);
+    expect(isGen1Species(-1)).toBe(false);
   });
 });
 

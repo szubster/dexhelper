@@ -40,6 +40,6 @@ Implement the logic to determine if a Generation 2 Pokémon is a valid Generatio
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Utility function implemented.
-- [ ] Unit tests pass.
-- [ ] `pnpm type-check` passes.
+- [x] Utility function implemented.
+- [x] Unit tests pass.
+- [x] `pnpm type-check` passes.

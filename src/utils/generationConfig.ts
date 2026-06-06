@@ -120,6 +120,14 @@ export function getGenerationConfig(gen: number): GenerationConfig {
   return config;
 }
 
+/**
+ * Determines if a Pokémon ID represents a valid Generation 1 species.
+ * Gen 1 species are those with IDs from 1 to 151 inclusive.
+ */
+export function isGen1Species(pokemonId: number): boolean {
+  return pokemonId >= 1 && pokemonId <= 151;
+}
+
 /** Reverse lookup: given a version ID like 'red', find its generation config and version info */
 
 /** The maximum Pokédex number across all registered generations */
