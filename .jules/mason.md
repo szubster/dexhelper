@@ -83,3 +83,9 @@
 - **Why**: Reduced duplicated JSX in `PokemonEvolutions.tsx`. Standardized interaction styles, underline offsets, and hover variants for typical navigation links without needing to pass down the large class string every time.
 - **Key Learnings**:
   - Make sure to extend standard attributes (e.g. `React.ButtonHTMLAttributes<HTMLButtonElement>`) and forward refs (`React.forwardRef`) so accessibility properties like `aria-label` or raw `onClick` handlers pass down appropriately without breaking.
+
+## SectionHeader Extraction
+- **What**: Extracted the repeating `<h3>` element pattern (including flex layout, font-black, size, uppercase, and large tracking) into a reusable `SectionHeader` component.
+- **Why**: Found multiple repeating patterns for section headers, particularly across all `PokemonDetails` subcomponents (`PokemonLocations`, `PokemonEvolutions`, `PokemonCatchProbability`, `PokemonCaughtDetails`) and `SettingsLegend`. Centralizing this makes global typography changes to section headers trivial.
+- **Key Learnings**:
+  - `React.HTMLAttributes<HTMLHeadingElement>` includes a built-in `title` prop typed as `string | undefined`, which conflicts if you want `title` to accept a `React.ReactNode` for rendering JSX elements inline. To fix this type clash when using TypeScript, use `Omit<React.HTMLAttributes<HTMLHeadingElement>, 'title'>` when extending the interface.
