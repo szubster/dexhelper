@@ -2,10 +2,10 @@
 id: epic-037-058-unown-tracker-engine
 type: EPIC
 title: Unown Form Tracker Engine Updates
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-06-04"
-updated_at: "2026-06-04"
+created_at: '2026-06-04'
+updated_at: '2026-06-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - tracking
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Epic: Unown Form Tracker Engine Updates

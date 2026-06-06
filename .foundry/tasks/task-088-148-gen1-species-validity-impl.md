@@ -2,10 +2,10 @@
 id: task-088-148-gen1-species-validity-impl
 type: TASK
 title: Implement Gen 1 species validity check
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-04'
-updated_at: '2026-06-04'
+updated_at: '2026-06-06'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: epic-037-058-hidden-items-save-parsing
 type: EPIC
 title: Parse Hidden Item Event Flags
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-04'
-updated_at: '2026-06-04'
+updated_at: '2026-06-06'
 depends_on: []
 jules_session_id: null
 pr_number: null

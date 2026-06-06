@@ -2,10 +2,10 @@
 id: task-090-148-extract-dag-utils-impl
 type: TASK
 title: Implement DAG Utilities Extraction
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-06-04"
-updated_at: "2026-06-04"
+created_at: '2026-06-04'
+updated_at: '2026-06-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Spawned from story-053-090-extract-dag-utilities"
+rejection_reason: ''
+notes: Spawned from story-053-090-extract-dag-utilities
 ---
 
 # Implement DAG Utilities Extraction
