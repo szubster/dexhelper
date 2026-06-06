@@ -93,6 +93,9 @@ describe('AssistantSuggestionCard', () => {
       />,
     );
 
+
+
+
     await expect.element(page.getByText('Do the thing')).toBeVisible();
     await expect.element(page.getByText('You should really do this thing.')).toBeVisible();
     await expect.element(page.getByText('Utility')).toBeVisible();
@@ -117,6 +120,9 @@ describe('AssistantSuggestionCard', () => {
       />,
     );
 
+
+
+
     await expect.element(page.getByText('Evolve Bulbasaur')).toBeVisible();
     await expect.element(page.getByText('Get a Charmander and Squirtle')).toBeVisible();
   });
@@ -140,6 +146,9 @@ describe('AssistantSuggestionCard', () => {
         getPokemonName={mockGetPokemonName}
       />,
     );
+
+
+
 
     await expect.element(page.getByText('TARGET ACQUIRED')).toBeVisible();
     await expect.element(page.getByText('#001')).toBeVisible();
@@ -172,6 +181,9 @@ describe('AssistantSuggestionCard', () => {
       />,
     );
 
+
+
+
     await expect.element(page.getByText('WALK')).toBeVisible();
     await expect.element(page.getByText('SURF')).toBeVisible();
     await expect.element(page.getByText('20%')).toBeVisible();
@@ -200,6 +212,9 @@ describe('AssistantSuggestionCard', () => {
       />,
     );
 
+
+
+
     await expect.element(page.getByText('CRITICAL MISSION')).toBeVisible();
     await expect.element(page.getByText(/WARNING: Watch out!/i)).toBeVisible();
     await expect.element(page.getByText(/P: 99/)).toBeVisible();
@@ -218,7 +233,7 @@ describe('AssistantSuggestionCard', () => {
           { aid: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
           { aid: 0, method: 'walk', chance: 30, minLevel: 6, maxLevel: 6 },
           { aid: 0, method: 'walk', chance: 20, minLevel: 7, maxLevel: 7 },
-        ]
+        ],
       },
     };
 
@@ -234,6 +249,9 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
+
+
+
 
     await expect.element(page.getByText('30%')).toBeVisible();
   });
@@ -246,8 +264,7 @@ describe('AssistantSuggestionCard', () => {
       title: 'Catch an unknown mon',
       description: 'Find it if you can.',
       pokemonIds: [10],
-      encounterInfo: {
-      },
+      encounterInfo: {},
     };
 
     const areaNames = { 0: 'Route 1' };
@@ -262,6 +279,9 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
+
+
+
   });
 
   it('renders correctly when one of the encounter chances is equal to mainEnc chance', async () => {
@@ -276,7 +296,7 @@ describe('AssistantSuggestionCard', () => {
         10: [
           { aid: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
           { aid: 0, method: 'walk', chance: 10, minLevel: 6, maxLevel: 6 },
-        ]
+        ],
       },
     };
 
@@ -292,6 +312,9 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
+
+
+
   });
 
   it('renders correctly when category is not catch and pokemonIds exist', async () => {
@@ -313,5 +336,8 @@ describe('AssistantSuggestionCard', () => {
         getPokemonName={mockGetPokemonName}
       />,
     );
+
+
+
   });
 });
