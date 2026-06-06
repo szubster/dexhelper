@@ -162,8 +162,23 @@
 **Why:** The Auditor journal showed that macro nodes (e.g. Epics, Stories) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, even though the actual implementation described in their requirements had not yet been merged into the codebase.
 **Pattern:** When an agent (like the Epic Planner, Story Owner, or Tech Lead) is responsible for breaking down high-level nodes, it must wait for the generated execution nodes to reach COMPLETED before submitting its Empty PR to complete the parent node, ensuring the macroscopic progress representation accurately reflects implementation reality.
 
+## 2026-07-09 - [Accepted] - Prompt improvement - Ensure QA gracefully exits cancelled tasks
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The QA journal highlighted a recurring issue where cancelled or replaced tasks reawaken in the DAG. The QA agent needs explicit instructions to check off the acceptance criteria for these nodes and submit an Empty PR so the node gracefully transitions to COMPLETED.
+**Pattern:** When an execution node must gracefully exit the DAG despite no implementation being completed (like replaced or cancelled tasks), the agent responsible MUST check off the markdown Acceptance Criteria boxes so the node can safely pass validation under ADR 007.
 ## 2026-07-09 - [Accepted] - Prompt improvement - Ensure Tech Lead checks unchecked checkboxes for empty PRs
 **Type:** Prompt improvement
 **Outcome:** Accepted
 **Why:** The Tech Lead was missing the explicit instruction about checking unchecked Acceptance Criteria checkboxes when submitting an empty PR, which is present in other persona prompts and required by ADR 007 and ADR 009.
 **Pattern:** Codify system memory constraints into agent prompts to avoid regressions and ensure consistency across personas.
+## 2026-07-09 - [Accepted] - Prompt improvement - Prevent premature verification for macro nodes
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Auditor journal showed that macro nodes (e.g. Epics, Stories) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, even though the actual implementation described in their requirements had not yet been merged into the codebase.
+**Pattern:** When an agent (like the Epic Planner, Story Owner, or Tech Lead) is responsible for breaking down high-level nodes, it must append newly generated child nodes as unchecked tasks (`- [ ]`) to its markdown body, so that the parent node correctly waits for the generated execution nodes to reach COMPLETED before it can be submitted via an Empty PR.
+## 2026-06-02 - [Accepted] - Prompt improvement - Prevent premature verification for Product Manager and Auditor
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The Auditor journal showed that macro nodes (e.g. PRDs) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, leading to false progress signaling. Product Manager missed this explicit rule which the other planners already had. Auditor also needed explicit instructions to enforce this constraint.
+**Pattern:** Ensure all persona prompts involved in macroscopic planning (IDEA, PRD, EPIC, STORY) and auditing explicitly enforce the dependency graph constraint that a parent node must wait for all child execution nodes to finish before it can transition to VERIFYING or COMPLETED.

@@ -251,7 +251,14 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: Status, targetStatus
     return;
   }
 
+  const clearRejectionReasonStatuses: Status[] = ['ACTIVE', 'READY', 'PENDING', 'VERIFYING', 'COMPLETED'];
+
   const newData = { ...node.frontmatter, status: targetStatus, updated_at: dateStr };
+
+  if (clearRejectionReasonStatuses.includes(targetStatus)) {
+    newData.rejection_reason = '';
+  }
+
   const newContent = matter.stringify(node.body, newData);
 
   if (!DRY_RUN) {

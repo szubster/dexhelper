@@ -1,7 +1,9 @@
 import { Ghost } from 'lucide-react';
 import type { PokemonInstance } from '../../engine/saveParser/parsers/common';
+import { CornerCrosshairs } from '../CornerCrosshairs';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
-import { TacticalCard } from '../TacticalCard';
+import { TacticalPanel } from '../TacticalPanel';
+import { TelemetryDecoration } from '../TelemetryDecoration';
 
 export interface GraveyardViewProps {
   graveyard: PokemonInstance[];
@@ -10,19 +12,17 @@ export interface GraveyardViewProps {
 
 export function GraveyardView({ graveyard, generation }: GraveyardViewProps) {
   return (
-    <div className="flex flex-col gap-3">
-      <h3 className="flex items-center gap-2 font-bold font-mono text-sm text-zinc-500 uppercase tracking-widest">
-        <Ghost className="h-4 w-4" />
-        SYS.GRAVEYARD
-      </h3>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+    <TacticalPanel variant="default" className="mb-6 flex flex-col gap-3 p-4 sm:p-6">
+      <TelemetryDecoration label="SYS.GRAVEYARD" className="-top-3 left-4" />
+      <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
         {graveyard.map((pokemon, idx) => (
-          <TacticalCard
+          <div
             // biome-ignore lint/suspicious/noArrayIndexKey: Graveyard members might not have unique identifiers
             key={`grave-${idx}-${pokemon.speciesId}`}
-            variant="default"
-            className="flex flex-col items-center rounded-none border-zinc-900/50 border-dashed bg-zinc-950/20 p-3 opacity-80 grayscale hover:border-zinc-500/50"
+            className="group relative flex flex-col items-center rounded-none border border-zinc-900/50 border-dashed bg-zinc-950/20 p-3 opacity-80 grayscale transition-colors hover:border-zinc-500/50"
           >
+            <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700/50 transition-colors group-hover:border-zinc-500" />
+
             <div className="relative mb-2 h-16 w-16">
               <PokemonSprite
                 pokemonId={pokemon.speciesId}
@@ -40,10 +40,11 @@ export function GraveyardView({ graveyard, generation }: GraveyardViewProps) {
                 <span className="font-bold font-mono text-[9px] text-red-900/70">DEAD</span>
               </div>
             </div>
-          </TacticalCard>
+          </div>
         ))}
         {graveyard.length === 0 && (
-          <div className="col-span-full flex flex-col items-center justify-center rounded-none border border-zinc-800/50 border-dashed bg-zinc-950/20 p-8 text-center">
+          <div className="relative col-span-full flex flex-col items-center justify-center border border-zinc-800/50 border-dashed bg-zinc-950/20 p-8 text-center">
+            <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700/50" />
             <Ghost className="mb-3 h-8 w-8 text-zinc-600" />
             <span className="font-bold font-mono text-sm text-zinc-500 uppercase tracking-widest">
               NO CASUALTIES RECORDED
@@ -51,6 +52,6 @@ export function GraveyardView({ graveyard, generation }: GraveyardViewProps) {
           </div>
         )}
       </div>
-    </div>
+    </TacticalPanel>
   );
 }

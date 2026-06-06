@@ -2,12 +2,12 @@
 id: idea-068-hidden-items-finder
 type: IDEA
 title: Missing Hidden Items Finder
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-01'
-updated_at: '2026-06-01'
+updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: '11550017534580844661'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -35,3 +35,6 @@ Introduce a "Missing Hidden Items Finder" feature in DexHelper.
 3.  **Actionable Insights:** This transforms static guide information into a personalized, actionable checklist, telling the player exactly which high-value hidden items are still available to grab in their specific save.
 
 This perfectly aligns with DexHelper's goal of surfacing hidden state to eliminate tedious, manual retro gaming tasks.
+
+## Generated Nodes
+- PRD: `.foundry/prds/prd-068-037-hidden-items-finder.md`
