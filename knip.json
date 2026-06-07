@@ -1,6 +1,7 @@
 {
-  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "$schema": "https://unpkg.com/knip@6/schema.json",
   "ignoreExportsUsedInFile": true,
+  "ignoreBinaries": ["gh"],
   "ignoreDependencies": ["wrangler"],
   "ignore": [
     "src/test-setup.ts",
