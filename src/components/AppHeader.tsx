@@ -7,6 +7,7 @@ import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { TacticalButton } from './TacticalButton';
+import { TacticalNavLink } from './TacticalNavLink';
 
 interface AppHeaderProps {
   saveData: SaveData | null;
@@ -55,47 +56,11 @@ export function AppHeader({
         {saveData && (
           <nav className="mt-4 hidden lg:mt-0 lg:flex lg:flex-1 lg:justify-center">
             <div className="flex bg-zinc-900/30">
-              <Link
-                to="/"
-                activeProps={{
-                  className: 'bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] border-b-[var(--theme-primary)]',
-                }}
-                inactiveProps={{
-                  className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
-                }}
-                className="group relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-              >
-                <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
-                <LayoutGrid size={14} className="mb-1" />[ SYS.DEX ]
-              </Link>
+              <TacticalNavLink to="/" icon={<LayoutGrid size={14} className="mb-1" />} label="SYS.DEX" />
               <div className="w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />
-              <Link
-                to="/storage"
-                activeProps={{
-                  className: 'bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] border-b-[var(--theme-primary)]',
-                }}
-                inactiveProps={{
-                  className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
-                }}
-                className="group relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-              >
-                <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
-                <Database size={14} className="mb-1" />[ SYS.STRG ]
-              </Link>
+              <TacticalNavLink to="/storage" icon={<Database size={14} className="mb-1" />} label="SYS.STRG" />
               <div className="w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />
-              <Link
-                to="/assistant"
-                activeProps={{
-                  className: 'bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] border-b-[var(--theme-primary)]',
-                }}
-                inactiveProps={{
-                  className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
-                }}
-                className="group relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-              >
-                <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
-                <Sparkles size={14} className="mb-1" />[ SYS.ASST ]
-              </Link>
+              <TacticalNavLink to="/assistant" icon={<Sparkles size={14} className="mb-1" />} label="SYS.ASST" />
             </div>
           </nav>
         )}
