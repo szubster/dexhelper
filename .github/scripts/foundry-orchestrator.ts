@@ -251,7 +251,14 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: Status, targetStatus
     return;
   }
 
+  const clearRejectionReasonStatuses: Status[] = ['ACTIVE', 'READY', 'PENDING', 'VERIFYING', 'COMPLETED'];
+
   const newData = { ...node.frontmatter, status: targetStatus, updated_at: dateStr };
+
+  if (clearRejectionReasonStatuses.includes(targetStatus)) {
+    newData.rejection_reason = '';
+  }
+
   const newContent = matter.stringify(node.body, newData);
 
   if (!DRY_RUN) {
@@ -472,7 +479,7 @@ function main(): void {
       return true;
     }
 
-    if (node.frontmatter.status !== 'COMPLETED') {
+    if (node.frontmatter.status !== 'COMPLETED' && node.frontmatter.status !== 'CANCELLED') {
       evalCache.set(cacheKey, true);
       return true;
     }
@@ -783,7 +790,7 @@ function main(): void {
         // Parent is PENDING and has children. Check if ALL children are COMPLETED.
         let allChildrenCompleted = true;
         for (const child of children) {
-          if (child.frontmatter.status !== 'COMPLETED') {
+          if (child.frontmatter.status !== 'COMPLETED' && child.frontmatter.status !== 'CANCELLED') {
             allChildrenCompleted = false;
             break;
           }
