@@ -301,4 +301,94 @@ describe('gen2 parsers', () => {
       );
     });
   });
+
+  describe('parseGen2 - Player Inventory', () => {
+    it('should parse Key Items pocket correctly for Gold/Silver', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Gold/Silver Key Items offset is 0x244a
+      view.setUint8(0x244a, 2); // 2 items
+      view.setUint8(0x244a + 1, 0x46); // Item ID 0x46 (Bicycle)
+      view.setUint8(0x244a + 2, 0x47); // Item ID 0x47 (Itemfinder)
+
+      const data = parseGen2(view);
+
+      expect(data.inventory).toEqual(
+        expect.arrayContaining([
+          { id: 0x46, quantity: 1 },
+          { id: 0x47, quantity: 1 },
+        ]),
+      );
+    });
+
+    it('should parse Balls pocket correctly for Gold/Silver', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Gold/Silver Balls offset is 0x2465
+      view.setUint8(0x2465, 2); // 2 items
+      view.setUint8(0x2465 + 1, 0x01); // Item ID 0x01 (Master Ball)
+      view.setUint8(0x2465 + 2, 5); // Quantity 5
+      view.setUint8(0x2465 + 3, 0x02); // Item ID 0x02 (Ultra Ball)
+      view.setUint8(0x2465 + 4, 15); // Quantity 15
+
+      const data = parseGen2(view);
+
+      expect(data.inventory).toEqual(
+        expect.arrayContaining([
+          { id: 0x01, quantity: 5 },
+          { id: 0x02, quantity: 15 },
+        ]),
+      );
+    });
+
+    it('should parse Key Items pocket correctly for Crystal', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Crystal Key Items offset is 0x242c
+      view.setUint8(0x2865, 1); // Mark as Crystal
+      view.setUint8(0x2866 + 1, 0xff); // Terminator
+      view.setUint8(0x2866, 1); // Bulbasaur
+
+      view.setUint8(0x242c, 2); // 2 items
+      view.setUint8(0x242c + 1, 0x46); // Item ID 0x46 (Bicycle)
+      view.setUint8(0x242c + 2, 0x47); // Item ID 0x47 (Itemfinder)
+
+      const data = parseGen2(view, true);
+
+      expect(data.inventory).toEqual(
+        expect.arrayContaining([
+          { id: 0x46, quantity: 1 },
+          { id: 0x47, quantity: 1 },
+        ]),
+      );
+    });
+
+    it('should parse Balls pocket correctly for Crystal', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Crystal Balls offset is 0x2447
+      view.setUint8(0x2865, 1); // Mark as Crystal
+      view.setUint8(0x2866 + 1, 0xff); // Terminator
+      view.setUint8(0x2866, 1); // Bulbasaur
+
+      view.setUint8(0x2447, 2); // 2 items
+      view.setUint8(0x2447 + 1, 0x01); // Item ID 0x01 (Master Ball)
+      view.setUint8(0x2447 + 2, 5); // Quantity 5
+      view.setUint8(0x2447 + 3, 0x02); // Item ID 0x02 (Ultra Ball)
+      view.setUint8(0x2447 + 4, 15); // Quantity 15
+
+      const data = parseGen2(view, true);
+
+      expect(data.inventory).toEqual(
+        expect.arrayContaining([
+          { id: 0x01, quantity: 5 },
+          { id: 0x02, quantity: 15 },
+        ]),
+      );
+    });
+  });
 });

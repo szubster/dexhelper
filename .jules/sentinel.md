@@ -125,3 +125,9 @@ When testing components that utilize `@tanstack/react-router` features like `<Li
 **Coverage Before/After:** Test coverage for `AssistantDebugView.tsx` increased from 0% to 100%.
 **Why this target matters:** Ensures the debug view properly renders telemetry data and rejected logs without crashing, which is critical for troubleshooting AI assistant suggestions.
 **Learning:** When asserting the absence of an element using vitest-browser-react, ensure you use `not.toBeInTheDocument()` instead of `.not.toBeVisible()` if the element is conditionally excluded from the DOM entirely (e.g. `rejected.length > 0 && <div.../>`). Also, if the element returned by `render` is completely empty (e.g. `saveData` is null), `container.innerHTML` doesn't work, use `baseElement.innerHTML === '<div></div>'`. For matching text exactly, use `{ exact: true }` in `getByText` to avoid ambiguous matching if multiple elements share partial strings.
+
+## 2026-06-25 - Gen 2 Save Parser Player Inventory Coverage
+**What:** Added test cases for `src/engine/saveParser/parsers/gen2.ts` covering Key Items and Balls pockets in both Gold/Silver and Crystal saves.
+**Coverage:** Increased statement coverage and branch coverage in `gen2.ts` for handling various pocket arrays.
+**Why:** The `inventory` tracking arrays handling logic for extracting Player's "Key Items" and "Balls" were completely untested for generation 2 variants, opening a vulnerability for regression mapping UI requirements later.
+**Result:** Gen 2 parsing accurately extracts and structures Key Items and Balls with associated quantities mapping to the application's overarching Pokemon UI data safely.
