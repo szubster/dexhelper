@@ -52,6 +52,11 @@
 ## 2026-06-01
 **Idea:** Gen 3 Mirage Island Predictor
 **Learning:** Building on the Gen 3 support expansions, targeting obscure, RNG-based, or hidden daily mechanics (like Mirage Island, which relies on a matching RNG value with the party Pokémon) provides players with "superpower" utilities that they cannot easily achieve through normal gameplay. This aligns with DexHelper's vision as a premium companion app capable of deeply introspecting save states.
+
+## 2026-06-07
+**Idea:** Roaming Legendary Location Tracker
+**Learning:** Tracking roaming legendaries (like the legendary beasts in Gen 2 or Lati/os in Gen 3) is a notoriously frustrating RNG mechanic. Since the `.sav` file stores their exact current map ID, surfacing this hidden positional data allows us to act as a precision radar. This reinforces a core product strategy: whenever the game hides dynamic entity state to create artificial difficulty/tedium, extracting and displaying that state provides massive utility.
+**Outcome:** Created IDEA node.
 ## 2026-05-31
 **Idea:** Unown Form Tracker
 **Learning:** Catering to end-game completionists adds significant value. Gen 2 has a specific quest to collect all 26 Unown forms (A-Z) which are determined by DVs. Since `DexHelper` already parses DVs for stats and shininess, extending this to explicitly track Unown forms gives players a visual checklist, transforming a tedious manual process into a highly actionable feature.
