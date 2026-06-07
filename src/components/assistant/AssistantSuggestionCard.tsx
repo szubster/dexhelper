@@ -112,10 +112,11 @@ export function AssistantSuggestionCard({
                   const encs = s.category === 'Catch' ? s.encounterInfo?.[pid] : undefined;
                   if (!encs || encs.length === 0) return acc;
                   // ⚡ Bolt: Replace O(N log N) sort with O(N) linear scan to avoid array allocation
-                  let mainEnc = encs[0] as EncounterDetail;
+                  let mainEnc = encs[0];
+                  if (!mainEnc) return acc;
                   for (let i = 1; i < encs.length; i++) {
-                    const currentEnc = encs[i] as EncounterDetail;
-                    if (currentEnc.chance > mainEnc.chance) mainEnc = currentEnc;
+                    const currentEnc = encs[i];
+                    if (currentEnc && currentEnc.chance > mainEnc.chance) mainEnc = currentEnc;
                   }
                   if (!mainEnc) return acc;
                   const method = mainEnc.method;
