@@ -9,12 +9,16 @@
 
 **Learning:** Duplicate agent learnings for tools like `knip` or `oxlint` can scatter across journals (e.g. `sweeper.md` and `strategist.md`).
 **Action:** Consolidate identical tool-specific learnings into a single comprehensive entry within the most relevant agent's journal to reduce noise and duplication.
+Removed unused type ClassValue import from src/utils/cn.ts by utilizing Parameters<typeof clsx> instead.
 
 ## 2026-05-02 - SaveParser API and Knip Cleanup
 
 **Learning:** Sometime a file may be mistakenly ignored in `knip.json` even if it is fully integrated into the module graph.
 **Action:** Run `pnpm exec knip` periodically and check the `Configuration hints` output to identify entries that can be safely removed from the `knip.json` `ignore` array.
 
+## 2026-05-03 - Improved Orchestrator Late-Binding Completion
+**Learning:** Addressed a bug in `.github/scripts/foundry-orchestrator.ts` where Late-Binding parent nodes (nodes waiting for dynamically generated children to complete) would remain stuck in a PENDING state indefinitely even after all children successfully completed. Added a dedicated detection phase (Phase 4.1) to find these specific `PENDING` nodes, verify they possess children, check if strictly all children are `COMPLETED`, ensure no implicit/explicit dependencies are unfulfilled, and directly promote the parent node to `COMPLETED`. Unit tested and validated to maintain DAG integrity.
+# Sweeper
 
 ## 2026-05-05 - Safe Removal of Re-export Abstractions
 **Learning:** Files that serve only as re-exports for "backward compatibility" (like `src/utils/data.ts` re-exporting `src/engine/data/shared/staticData.ts`) introduce unnecessary indirection. While `knip` might not flag them if they are actively used, manually tracing their usage and updating call sites to point directly to the actual source file is a safe and effective way to reduce technical debt and simplify the module graph.

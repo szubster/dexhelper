@@ -150,9 +150,3 @@
 **Outcome:** Accepted
 **Why:** Brings the loading state interface in line with the heavily tactical, specialized hardware motif. Wrapping loaders and sync views in `TacticalPanel` ensures they fit the "terminal scanning" visual identity of the rest of the application.
 **Pattern:** Consistently utilize `TacticalPanel` for utility and overlay elements instead of relying on custom styled divs with generic shadows and blurs, and replace standard progress indicators with segmented, tactical layouts.
-
-## 2026-07-05 - [Accepted] - 🖼️ Canvas: Tactical Run Tracker Subcomponents Redesign
-**What:** Redesigned `GraveyardView` and `VisitedRoutesChecklist` to fully embrace the tactical "snooping" aesthetic by wrapping them in `<TacticalPanel>` instead of plain `<div>`s or generic classes. The headers were upgraded to use `<TelemetryDecoration>`. Additionally, the inner elements (graveyard cards, route list items) were redesigned with sharp, dashed borders and `<CornerCrosshairs>` to match the `AliveTeamView` components.
-**Outcome:** Accepted
-**Why:** Brings the run tracker's subcomponents deeply in line with the established specialized hardware motif, eliminating generic web UI shapes. Tactical panels and telemetry decorations reinforce the snooping fantasy and maintain consistency across complex views.
-**Pattern:** Ensure even deeply nested subcomponents (like graveyard grids and route lists) adhere strictly to tactical aesthetics (sharp borders, corner crosshairs, telemetry decorations) to maintain absolute visual coherence and prevent reverting to generic structural layouts.

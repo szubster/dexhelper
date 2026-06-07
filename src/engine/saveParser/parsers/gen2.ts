@@ -85,7 +85,7 @@ function parseGen2PokemonInstance(
   }
   const dvs = parseDVs(view.getUint16(offset + 21, false));
   const isShiny = checkShiny(dvs);
-  const isShinyCarrier = checkShinyGene(dvs);
+  const hasShinyGene = checkShinyGene(dvs);
   const friendship = view.getUint8(offset + 27);
   const pokerus = view.getUint8(offset + 28);
   const level = view.getUint8(offset + 31);
@@ -100,7 +100,7 @@ function parseGen2PokemonInstance(
     currentHp,
     level,
     isShiny,
-    isShinyCarrier,
+    hasShinyGene,
     item,
     moves,
     friendship,

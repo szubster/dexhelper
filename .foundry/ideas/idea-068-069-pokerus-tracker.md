@@ -37,4 +37,3 @@ Create a **Pokerus Tracker and Infection Spread Assistant** within DexHelper tha
 
 ## Value Proposition
 This takes an obtuse, highly stressful hidden mechanic and turns it into a clear, manageable process. Dedicated players currently resort to spreadsheets or meticulous manual time-tracking to manage Pokerus. This feature eliminates that entirely, heavily aligning with DexHelper's vision of being a premium companion app that surfaces hidden state for actionable utility.
-Downstream Nodes Generated: - .foundry/prds/prd-069-038-pokerus-tracker.md

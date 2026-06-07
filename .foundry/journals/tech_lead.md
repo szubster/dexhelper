@@ -13,9 +13,6 @@ When drafting technical blueprints from stories that contain multiple independen
 
 ## 2026-05-22
 - ADR 015 Revert Data Format Optimizations: Verbose keys improve DX, but we must retain enum-to-number logic for values (e.g. method: 1 instead of method: 'WALK') because string values can't be deduplicated effectively in msgpackr arrays.
-## 2026-05-23: Empty PR Policy for already completed tasks
-*   **Context:** The Tech Lead received a TASK node task-063-132-msgpack-transition-impl.md for implementing the MsgPack transition. However, exploring the codebase revealed that the implementation had already been completed (via task-080-132-refactor-generation-exports-impl.md and related work).
-*   **Action:** Executed the Empty PR Policy by strictly checking off the acceptance criteria in the markdown body without modifying the YAML frontmatter. Ignored the false negative from the automated code review tool and submitted an empty PR to advance the node to COMPLETED.
 2026-05-23: When completing a QA task for a transition that has already been fully implemented by the Coder task and implicitly verified, and the only change required is checking off the acceptance criteria markdown boxes without modifying the frontmatter, `request_code_review` may correctly flag an error if unrelated codebase files were accidentally modified. Ensure to strictly `git restore` any unintended changes (like those automatically caused by running data generation pipelines) before submitting, so that the PR genuinely acts as an empty PR reflecting only the intended node update.
 ## 2026-05-29: Handling Permanent Failures (Impossible Loop)
 *   **Incident:** The implementation task `task-081-130-preserve-enum-optimizations-impl` failed permanently, triggering the Orchestrator's "Impossible Loop" and waking up the Tech Lead.
