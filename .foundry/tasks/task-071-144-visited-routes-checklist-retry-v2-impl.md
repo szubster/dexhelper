@@ -5,17 +5,17 @@ title: Implement Visited Routes Checklist Retry V2
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-28'
-updated_at: '2026-06-03'
+updated_at: '2026-06-06'
 depends_on:
   - research-071-006-investigate-checklist-retry-failure
-jules_session_id: '12054512035749162780'
+jules_session_id: '2762437339196550142'
 pr_number: null
 parent: story-034-071-run-dashboard-ui
 tags:
   - feature
   - nuzlocke
   - verification
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
