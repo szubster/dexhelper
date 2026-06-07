@@ -41,4 +41,4 @@ This feature pivots DexHelper from just a tracking tool into a critical utility 
 - [x] Product Manager: Convert this idea into a PRD.
 
 ### References
-- Created PRD: `.foundry/prds/prd-066-036-save-file-health-scanner.md`
+- [ ] `.foundry/prds/prd-066-036-save-file-health-scanner.md`
