@@ -2,12 +2,12 @@
 id: task-090-148-health-scanner-models-impl
 type: TASK
 title: Health Scanner Models Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-04'
 updated_at: '2026-06-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10366223918714663239'
 pr_number: null
 parent: story-053-090-health-scanner-diagnostic-models
 tags:
