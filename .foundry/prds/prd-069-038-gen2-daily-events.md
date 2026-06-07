@@ -2,12 +2,12 @@
 id: prd-069-038-gen2-daily-events
 type: PRD
 title: Gen 2 Daily and Weekly Event Tracker PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-05'
 updated_at: '2026-06-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17285931233531396895'
 pr_number: null
 parent: idea-069-daily-event-tracker
 tags:
