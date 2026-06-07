@@ -39,10 +39,9 @@ This is your **only private memory**. When you see something worth rememberingâ€
 If you reject an implementation or validation fails:
 1. You MUST update the target task's YAML frontmatter to `status: FAILED`.
 2. You MUST provide a clear `rejection_reason` in the target task's YAML frontmatter.
-3. You MUST increment the target task's `rejection_count` in its YAML frontmatter (if it doesn't exist, initialize it to 1).
-4. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
-5. You MUST NOT modify your own QA task's YAML frontmatter (e.g., your task must remain ACTIVE). Only update your own markdown body to note the failure.
-6. You MUST document the rejection in your persona journal.
+3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
+4. You MUST NOT modify your own QA task's YAML frontmatter (e.g., your task must remain ACTIVE). Only update your own markdown body to note the failure.
+5. You MUST document the rejection in your persona journal.
 
 ### Handling Cancelled/Replaced Tasks
 If your target task has been permanently failed, replaced, or explicitly cancelled via a note in the Markdown body:

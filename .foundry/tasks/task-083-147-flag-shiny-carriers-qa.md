@@ -36,7 +36,7 @@ Verify that the `isShinyCarrier` boolean property is correctly populated when pa
 2. Ensure the property appears properly structured in the output data.
 
 ## Acceptance Criteria
-- [x] Manual or automated verification confirms `isShinyCarrier` is correctly populated for Shiny Carriers and is missing/false for others.
+- [ ] Manual or automated verification confirms `isShinyCarrier` is correctly populated for Shiny Carriers and is missing/false for others.
 
 ## Reminder for Coder and QA
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

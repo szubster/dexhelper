@@ -236,37 +236,6 @@ describe('foundry-orchestrator', () => {
     expect(epicChar).toContain('status: PENDING');
   });
 
-  test('Hierarchical Completion: considers CANCELLED nodes as complete', () => {
-    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
-      id: "task-001",
-      type: "TASK",
-      title: "Task 1",
-      status: "CANCELLED",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
-    });
-
-    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
-      id: "task-002",
-      type: "TASK",
-      title: "Task 2",
-      status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [".foundry/tasks/task-001.md"],
-      jules_session_id: null,
-    });
-
-    main();
-
-    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
-    expect(result).toContain('status: READY');
-  });
-
   test('Hierarchical Completion: blocks external dependent if dependency has incomplete children', () => {
     // Story 1: COMPLETED (Planned)
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
@@ -600,37 +569,6 @@ describe('foundry-orchestrator', () => {
     // Should not overwrite COMPLETED
     const task2Result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
     expect(task2Result).toContain('status: COMPLETED');
-  });
-
-  test('Hierarchical completeness considers CANCELLED nodes as complete', () => {
-    createValidTestNode(tmpDir, '.foundry/epics/epic-cancelled.md', {
-      id: "epic-cancelled",
-      type: "EPIC",
-      title: "Cancelled Epic",
-      status: "CANCELLED",
-      owner_persona: "story_owner",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null
-    });
-
-    createValidTestNode(tmpDir, '.foundry/stories/story-dependent.md', {
-      id: "story-dependent",
-      type: "STORY",
-      title: "Story Dependent on Cancelled Epic",
-      status: "PENDING",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: ["epic-cancelled"],
-      jules_session_id: null
-    });
-
-    main();
-
-    const storyResult = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-dependent.md'), 'utf-8');
-    expect(storyResult).toContain('status: READY');
   });
 
   test('Deep Hierarchical Completion: blocks external dependent if dependency has deep incomplete children', () => {

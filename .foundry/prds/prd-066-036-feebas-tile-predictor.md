@@ -44,12 +44,6 @@ In Pokémon Ruby, Sapphire, and Emerald, Feebas can only be found by fishing on 
 - **Accuracy**: The calculated tiles must be 100% accurate based on the decompiled Gen 3 game logic.
 
 ## Acceptance Criteria
-- [x] Research: Spawn a RESEARCH node to investigate the exact memory offset for the Feebas seed in R/S/E save files.
-- [x] Architect: Produce an Architecture Decision Record (ADR) detailing how to integrate the Feebas tile visualization into the existing UI.
-- [x] Epic: Break down into Epics for backend parsing/logic and frontend visualization.
-
-## Downstream Nodes
-- [ ] .foundry/research/research-036-007-feebas-seed-offset.md
-- [ ] .foundry/tasks/task-036-148-feebas-visualization-adr.md
-- [ ] .foundry/epics/epic-036-058-feebas-backend-parsing.md
-- [ ] .foundry/epics/epic-036-059-feebas-frontend-visualization.md
+- [ ] Research: Spawn a RESEARCH node to investigate the exact memory offset for the Feebas seed in R/S/E save files.
+- [ ] Architect: Produce an Architecture Decision Record (ADR) detailing how to integrate the Feebas tile visualization into the existing UI.
+- [ ] Epic: Break down into Epics for backend parsing/logic and frontend visualization.

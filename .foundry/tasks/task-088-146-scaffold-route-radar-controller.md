@@ -41,7 +41,7 @@ You must scaffold the `RouteRadarController` module. It acts as the central disp
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Create `RouteRadarController` module at `src/engine/radar/RouteRadarController.ts`.
-- [x] Define interfaces for input from `suggestionEngine` and output for Heatmap State.
-- [x] Implement the basic `RouteRadarController` structure.
-- [x] Write unit tests verifying instantiation and method presence.
+- [ ] Create `RouteRadarController` module at `src/engine/radar/RouteRadarController.ts`.
+- [ ] Define interfaces for input from `suggestionEngine` and output for Heatmap State.
+- [ ] Implement the basic `RouteRadarController` structure.
+- [ ] Write unit tests verifying instantiation and method presence.

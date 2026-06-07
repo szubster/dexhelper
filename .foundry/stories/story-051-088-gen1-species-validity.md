@@ -2,12 +2,12 @@
 id: story-051-088-gen1-species-validity
 type: STORY
 title: Determine Gen 1 species validity
-status: COMPLETED
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-30'
-updated_at: '2026-06-06'
+updated_at: '2026-06-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7657600701761297450'
 pr_number: null
 parent: epic-036-051-time-capsule-validation-logic
 tags:
@@ -28,7 +28,3 @@ Implement the logic to determine if a Generation 2 Pokémon is a valid Generatio
 
 ## Scope
 - Create a utility function to validate species ID against Generation 1 species.
-
-## Implementation Tasks
-- [ ] Implement Gen 1 species validity check (`.foundry/tasks/task-088-148-gen1-species-validity-impl.md`)
-- [ ] QA Gen 1 species validity check (`.foundry/tasks/task-088-149-gen1-species-validity-qa.md`)
