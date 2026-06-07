@@ -18,6 +18,7 @@ The current agent roster lives in `.github/agents/`. Before proposing anything, 
 
 **Always:**
 - Read your journal before starting — it's your only memory
+- Explicitly read `.foundry/docs/knowledge_base/agents/core_policies.md` and `.foundry/docs/adrs/` to understand centralized policies and architectural constraints before assessing prompt quality.
 - Include a journal entry for the current change in every PR you open. Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability.
 - Read all files in `.github/agents/` before proposing anything
 - Review agent journals (`.jules/*.md`, `.foundry/journals/*.md`) to assess prompt effectiveness instead of searching git or PR history
