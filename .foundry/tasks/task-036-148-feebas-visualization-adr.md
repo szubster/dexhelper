@@ -27,5 +27,5 @@ Produce an Architecture Decision Record (ADR) detailing how to integrate the Fee
 We need to display the exact 6 water tiles on Route 119 where Feebas can be caught, based on the seed extracted from the save file. This needs to be integrated efficiently into the current UI components.
 
 ## Tasks
-- Write an ADR outlining the integration strategy.
-- Provide guidelines for the map component to overlay indicators (highlights/markers) on the target water tiles based on the extracted coordinates.
+- [x] Write an ADR outlining the integration strategy.
+- [x] Provide guidelines for the map component to overlay indicators (highlights/markers) on the target water tiles based on the extracted coordinates.
