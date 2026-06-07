@@ -83,3 +83,6 @@
 - **Why**: Reduced duplicated JSX in `PokemonEvolutions.tsx`. Standardized interaction styles, underline offsets, and hover variants for typical navigation links without needing to pass down the large class string every time.
 - **Key Learnings**:
   - Make sure to extend standard attributes (e.g. `React.ButtonHTMLAttributes<HTMLButtonElement>`) and forward refs (`React.forwardRef`) so accessibility properties like `aria-label` or raw `onClick` handlers pass down appropriately without breaking.
+
+### React Form Element Extraction & Tailwind Sibling States
+When extracting standard HTML form elements (like `<select>` or `<input>`) that are paired with custom decorative icons using Tailwind sibling selectors (`peer-hover`, `peer-focus`), it is crucial to explicitly preserve the `peer` class on the extracted HTML element itself. Failing to map the `peer` class onto the root input/select element within the new reusable component will break the hover/focus styling of its sibling icons.
