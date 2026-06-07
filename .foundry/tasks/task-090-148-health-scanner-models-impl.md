@@ -34,8 +34,8 @@ Define the following TypeScript interfaces and types, placing them in an appropr
 * Error codes or categories for specific corruption types (Checksum Error, Out of Bounds ID, Impossible Moveset, etc.)
 
 ## Acceptance Criteria
-- [ ] Models are defined in the codebase.
-- [ ] Models properly capture the required structure for Anomaly, Severity, and Location.
+- [x] Models are defined in the codebase.
+- [x] Models properly capture the required structure for Anomaly, Severity, and Location.
 
 ## Reminders
 * If you permanently fail or abort this task, you MUST update the YAML frontmatter to status: FAILED or status: CANCELLED with a rejection_reason.
