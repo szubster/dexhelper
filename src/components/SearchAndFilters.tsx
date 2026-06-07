@@ -61,7 +61,7 @@ export function SearchAndFilters() {
             legendLabel="[ FILTER_PARAMETERS ]"
             buttonBaseClassName="min-w-[100px]"
             selectedValues={filtersSet}
-            onValueToggle={(f) => toggleFilter(f as (typeof FILTER_TYPES)[number])}
+            onValueToggle={(f) => toggleFilter(f)}
             renderPrefixItem={() => (
               <button
                 type="button"
