@@ -2,13 +2,13 @@
 id: task-088-147-qa-route-radar-controller
 type: TASK
 title: QA Scaffold RouteRadarController
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-02'
 updated_at: '2026-06-07'
 depends_on:
   - .foundry/tasks/task-088-146-scaffold-route-radar-controller.md
-jules_session_id: null
+jules_session_id: '5058750215698495572'
 pr_number: null
 parent: story-048-088-create-route-radar-controller
 tags:
