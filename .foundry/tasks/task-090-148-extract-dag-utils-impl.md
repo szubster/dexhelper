@@ -33,9 +33,9 @@ This task requires extracting shared DAG utility functions from existing orchest
 - Update `foundry-orchestrator.ts`, `foundry-heartbeat.ts` and their respective tests to import and use the new module.
 
 ## Acceptance Criteria
-- [ ] `dag-utils.ts` is created and contains the extracted functions.
-- [ ] Appropriate unit tests are added in `dag-utils.test.ts`.
-- [ ] Existing functionality works seamlessly utilizing the new utility file.
+- [x] `dag-utils.ts` is created and contains the extracted functions.
+- [x] Appropriate unit tests are added in `dag-utils.test.ts`.
+- [x] Existing functionality works seamlessly utilizing the new utility file.
 
 **Important Instructions:**
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
