@@ -38,6 +38,6 @@ The `coder` has scaffolded the `RouteRadarController` as specified in `task-088-
 - If the coder's implementation task fails, you must NOT update your YAML frontmatter. Wait for instructions from the Tech Lead.
 
 ## Acceptance Criteria
-- [ ] Verified `RouteRadarController` exists in `src/engine/radar/`.
-- [ ] Verified interfaces for input/output are correct and align with ADRs.
-- [ ] Verified unit tests are written and pass successfully.
+- [x] Verified `RouteRadarController` exists in `src/engine/radar/`.
+- [x] Verified interfaces for input/output are correct and align with ADRs.
+- [x] Verified unit tests are written and pass successfully.
