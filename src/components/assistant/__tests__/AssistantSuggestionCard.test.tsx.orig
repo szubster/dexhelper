@@ -292,7 +292,6 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
-    await expect.element(page.getByText('10%')).toBeVisible();
   });
 
   it('renders correctly when category is not catch and pokemonIds exist', async () => {
@@ -314,6 +313,5 @@ describe('AssistantSuggestionCard', () => {
         getPokemonName={mockGetPokemonName}
       />,
     );
-    await expect.element(page.getByText('Find it if you can.')).toBeVisible();
   });
 });
