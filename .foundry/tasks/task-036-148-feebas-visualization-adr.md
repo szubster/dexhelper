@@ -2,10 +2,10 @@
 id: task-036-148-feebas-visualization-adr
 type: TASK
 title: Produce ADR for Feebas Visualization
-status: PENDING
+status: READY
 owner_persona: architect
 created_at: '2026-06-05'
-updated_at: '2026-06-05'
+updated_at: '2026-06-07'
 depends_on: []
 jules_session_id: null
 pr_number: null

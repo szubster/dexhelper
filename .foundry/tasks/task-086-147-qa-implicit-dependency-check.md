@@ -2,10 +2,10 @@
 id: task-086-147-qa-implicit-dependency-check
 type: TASK
 title: QA - Implicit dependency check updates
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-01'
-updated_at: '2026-06-01'
+updated_at: '2026-06-07'
 depends_on:
   - .foundry/tasks/task-086-146-impl-implicit-dependency-check.md
 jules_session_id: null
