@@ -29,7 +29,7 @@ notes: ''
 Verify the Google OAuth2/SSO login flow implementation within the Cloudflare backend.
 
 ## Acceptance Criteria
-- [ ] Verify Google OAuth2/SSO login flow works correctly using the standard Cloudflare Access/authentication library.
-- [ ] Verify authentication endpoints (e.g., login, callback, verify) respond correctly.
-- [ ] Verify that authentication is restricted to a single predefined Google user email or ID via Google SSO configuration.
-- [ ] Verify all other login attempts are rejected with a clear unauthorized response.
+- [x] Verify Google OAuth2/SSO login flow works correctly using the standard Cloudflare Access/authentication library.
+- [x] Verify authentication endpoints (e.g., login, callback, verify) respond correctly.
+- [x] Verify that authentication is restricted to a single predefined Google user email or ID via Google SSO configuration.
+- [x] Verify all other login attempts are rejected with a clear unauthorized response.
