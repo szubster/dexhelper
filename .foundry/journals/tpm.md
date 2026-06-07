@@ -19,3 +19,7 @@
 - **2026-06-07**: PR #2103 merged. `task-088-146-scaffold-route-radar-controller` is now COMPLETED.
 
 - **2026-06-07**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-07**: System failure detected for `task-071-144-visited-routes-checklist-retry-v2-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-07**: System failure detected for `task-090-148-extract-dag-utils-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
