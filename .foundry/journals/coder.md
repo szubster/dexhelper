@@ -57,3 +57,6 @@ When using the File System Access API in TypeScript projects, you must install `
 
 When modifying `transitionNodeToCompleted` in `foundry-heartbeat.ts` to clear `jules_session_id`, be extremely careful with testing. Unit tests will fail if they assert on the presence of `jules_session_id` in `.foundry` files but the type isn't correctly identified, causing it to fall through to `COMPLETED` when it should have been `VERIFYING`, or vice-versa. Additionally, always make sure the frontmatter types match precisely between tests and the new logic you've implemented to ensure thorough testing. Tests mock nodes, meaning any logic relying on data dynamically inferred (like `node.frontmatter.type`) will fail unless the mock explicitly defines that `type` property.
 
+
+## 2026-06-07: Unchecked Checkboxes and Orchestrator Empty PRs
+When dealing with tasks where the implementation is already complete, the empty PR submission is valid. However, you MUST ensure that all `- [ ]` checkboxes in the markdown body of the `.foundry` node are checked (`- [x]`) BEFORE committing and pushing. If you leave them unchecked, the Foundry orchestrator will fail the leaf node during its preflight verification phase, resulting in `Merged with unfulfilled acceptance criteria`.

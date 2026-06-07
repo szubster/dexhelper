@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Activity, Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
+import { Activity, Database, LayoutGrid, RefreshCw, Settings2, ShieldAlert, Sparkles, Upload, Zap } from 'lucide-react';
 import type React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { useFileSyncController } from '../hooks/useFileSyncController';
@@ -95,6 +95,20 @@ export function AppHeader({
               >
                 <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
                 <Sparkles size={14} className="mb-1" />[ SYS.ASST ]
+              </Link>
+              <div className="w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />
+              <Link
+                to="/run"
+                activeProps={{
+                  className: 'bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] border-b-[var(--theme-primary)]',
+                }}
+                inactiveProps={{
+                  className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
+                }}
+                className="group relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              >
+                <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
+                <ShieldAlert size={14} className="mb-1" />[ SYS.RUN ]
               </Link>
             </div>
           </nav>
