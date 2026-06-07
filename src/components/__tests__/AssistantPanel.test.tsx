@@ -9,7 +9,7 @@ import { useAssistant } from '../../hooks/useAssistant';
 import { AssistantPanel } from '../AssistantPanel';
 
 vi.mock('../../hooks/useAssistant', () => ({
-  useAssistant: vi.fn(),
+  useAssistant: vi.fn<typeof useAssistant>(),
 }));
 
 // Setup basic router
