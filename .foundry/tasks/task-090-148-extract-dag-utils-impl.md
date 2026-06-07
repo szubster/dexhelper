@@ -2,12 +2,12 @@
 id: task-090-148-extract-dag-utils-impl
 type: TASK
 title: Implement DAG Utilities Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-04'
 updated_at: '2026-06-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '540927818181657694'
 pr_number: null
 parent: story-053-090-extract-dag-utilities
 tags:
