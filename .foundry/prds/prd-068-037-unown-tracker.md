@@ -2,12 +2,12 @@
 id: prd-068-037-unown-tracker
 type: PRD
 title: Unown Form Tracker PRD
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-01'
-updated_at: '2026-06-04'
+updated_at: '2026-06-06'
 depends_on: []
-jules_session_id: '7483780772996906755'
+jules_session_id: null
 pr_number: null
 parent: idea-068-unown-tracker
 tags:
@@ -42,5 +42,5 @@ To ensure granular execution and minimize complexity, this PRD should be broken 
 - **Design Constraints**: Must adhere strictly to the "tactical hardware/snooping" aesthetic (`rounded-none`, dashed borders, monospace fonts) as defined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Epic 1 (Engine Updates) node created.
-- [ ] Epic 2 (UI Updates) node created.
+- [x] Epic 1 (Engine Updates) node created. (.foundry/epics/epic-037-058-unown-tracker-engine.md)
+- [x] Epic 2 (UI Updates) node created. (.foundry/epics/epic-037-059-unown-tracker-ui.md)
