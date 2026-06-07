@@ -33,10 +33,10 @@ Update the existing Gen 2 PC and party data parsing mechanisms to analyze and fl
 - Ensure the property is properly structured in the output `PokeData` representation.
 
 ## Acceptance Criteria
-- [ ] PC and Party Pokémon parsing pipelines correctly invoke Shiny Gene detection logic.
-- [ ] Resulting Pokémon objects include an accurate `isShinyCarrier` property.
+- [x] PC and Party Pokémon parsing pipelines correctly invoke Shiny Gene detection logic.
+- [x] Resulting Pokémon objects include an accurate `isShinyCarrier` property.
 
 ## Next Steps
 - [x] Tech Lead: Break down into backend Tasks.
-- [ ] .foundry/tasks/task-083-146-flag-shiny-carriers-impl.md
-- [ ] .foundry/tasks/task-083-147-flag-shiny-carriers-qa.md
+- [x] .foundry/tasks/task-083-146-flag-shiny-carriers-impl.md
+- [x] .foundry/tasks/task-083-147-flag-shiny-carriers-qa.md
