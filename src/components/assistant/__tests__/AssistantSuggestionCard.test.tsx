@@ -261,6 +261,7 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
+    await expect.element(page.getByText('Catch an unknown mon')).toBeVisible();
   });
 
   it('renders correctly when one of the encounter chances is equal to mainEnc chance', async () => {
@@ -291,6 +292,7 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
+    await expect.element(page.getByText('Catch an equal mon')).toBeVisible();
   });
 
   it('renders correctly when category is not catch and pokemonIds exist', async () => {
@@ -312,5 +314,6 @@ describe('AssistantSuggestionCard', () => {
         getPokemonName={mockGetPokemonName}
       />,
     );
+    await expect.element(page.getByText('Evolve something')).toBeVisible();
   });
 });

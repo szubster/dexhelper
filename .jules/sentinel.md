@@ -125,3 +125,7 @@ When testing components that utilize `@tanstack/react-router` features like `<Li
 **Coverage Before/After:** Test coverage for `AssistantDebugView.tsx` increased from 0% to 100%.
 **Why this target matters:** Ensures the debug view properly renders telemetry data and rejected logs without crashing, which is critical for troubleshooting AI assistant suggestions.
 **Learning:** When asserting the absence of an element using vitest-browser-react, ensure you use `not.toBeInTheDocument()` instead of `.not.toBeVisible()` if the element is conditionally excluded from the DOM entirely (e.g. `rejected.length > 0 && <div.../>`). Also, if the element returned by `render` is completely empty (e.g. `saveData` is null), `container.innerHTML` doesn't work, use `baseElement.innerHTML === '<div></div>'`. For matching text exactly, use `{ exact: true }` in `getByText` to avoid ambiguous matching if multiple elements share partial strings.
+## 2026-06-08 - Added assertions to AssistantSuggestionCard tests
+
+**What:** Added missing `expect.element(page.getByText(...)).toBeVisible()` assertions to three test cases in `src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx`.
+**Why:** The `vitest(expect-expect)` lint rule enforced by oxlint requires each test to contain at least one explicit assertion. Without them, the tests verify nothing beyond "it didn't crash during render." This was failing the CI run.
