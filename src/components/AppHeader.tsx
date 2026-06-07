@@ -3,6 +3,7 @@ import { Activity, Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload,
 import type React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { useFileSyncController } from '../hooks/useFileSyncController';
+import { useStore } from '../store';
 import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
@@ -24,6 +25,7 @@ export function AppHeader({
   handleFileUpload,
 }: AppHeaderProps) {
   const { status: syncStatus, requestSync, resumeSync, hasStoredHandle } = useFileSyncController();
+  const isNuzlocke = useStore((s) => s.nuzlockeGraveyardBox !== null);
   return (
     <header className="sticky top-0 z-50 flex w-full flex-col border-[var(--theme-primary)]/50 border-b-[3px] border-dashed bg-zinc-950 px-4 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] lg:flex-row lg:items-center lg:justify-between lg:px-8">
       {/* Top hardware lip */}
@@ -96,20 +98,25 @@ export function AppHeader({
                 <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
                 <Sparkles size={14} className="mb-1" />[ SYS.ASST ]
               </Link>
-              <div className="w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />
-              <Link
-                to="/run"
-                activeProps={{
-                  className: 'bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] border-b-[var(--theme-primary)]',
-                }}
-                inactiveProps={{
-                  className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
-                }}
-                className="group relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-              >
-                <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
-                <Activity size={14} className="mb-1" />[ SYS.RUN ]
-              </Link>
+              {isNuzlocke && (
+                <>
+                  <div className="w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />
+                  <Link
+                    to="/run"
+                    activeProps={{
+                      className:
+                        'bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] border-b-[var(--theme-primary)]',
+                    }}
+                    inactiveProps={{
+                      className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
+                    }}
+                    className="group relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                  >
+                    <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
+                    <Activity size={14} className="mb-1" />[ SYS.RUN ]
+                  </Link>
+                </>
+              )}
             </div>
           </nav>
         )}
