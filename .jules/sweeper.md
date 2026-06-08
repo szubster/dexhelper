@@ -31,3 +31,8 @@
 - Refactoring long files or text structures using string matching in python or javascript can be error prone with indentation or overlapping strings. Writing a script to accurately parse the abstract syntax tree and make changes is difficult. Often the easiest way to make surgical edits to a code file without manual human input is to find unique anchors, slice the text, and recreate it exactly.
 When using `pnpm knip --production` to identify dead code, it will often falsely flag non-production files such as CI scripts, tests, and testing utilities (e.g., in `.github/scripts/`, `scripts/`, or `tests/e2e/`) as unused. Always manually verify that flagged files are genuinely dead code before deletion.
 Before deleting code flagged as dead, always check the status of Foundry tasks (e.g., in `.foundry/`) as it may be related to recently closed or WIP tasks.
+
+## 2026-07-01 - Sweeper Knip Pitfalls
+
+**Learning:** When using `knip --production`, it falsely identifies files loaded during tests (e.g. `src/utils/dag/readFoundryFiles.ts`) and dynamically referenced objects (like `.foundry` files parsing tools) as "Unused". Furthermore, it identifies large unused blocks correctly, but blindly removing them all at once violates the Sweeper "tightly scoped to ONE issue" constraint.
+**Action:** When finding unused code, verify cross-domain dependencies using `grep`. Tightly scope cleanup pull requests to single features or directories (e.g., removing just the unused `RouteRadarController` rather than sweeping all unused files across the entire application).
