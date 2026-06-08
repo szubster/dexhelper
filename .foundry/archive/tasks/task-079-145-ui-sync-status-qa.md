@@ -24,7 +24,7 @@ notes: ''
 # QA UI Sync Status & Permissions
 
 ## Requirements
-Verify that the `coder` has successfully implemented the UI sync status as defined in `.foundry/tasks/task-079-144-ui-sync-status-impl.md` and ADR 016.
+Verify that the `coder` has successfully implemented the UI sync status as defined in `.foundry/archive/tasks/task-079-144-ui-sync-status-impl.md` and ADR 016.
 
 ## Acceptance Criteria
 - [x] Verified UI displays current sync status.

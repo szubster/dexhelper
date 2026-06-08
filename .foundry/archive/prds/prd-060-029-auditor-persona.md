@@ -42,7 +42,7 @@ Detail the technical and structural approach to introducing the `auditor` person
 - [x] Schema document (`.foundry/docs/schema.md`) is updated.
 - [x] Core policies document is updated.
 
-Spawned `.foundry/research/research-029-003-auditor-implementation-details.md` to figure out orchestrator and prompt changes.
+Spawned `.foundry/archive/research/research-029-003-auditor-implementation-details.md` to figure out orchestrator and prompt changes.
 Depends on: `research-029-003-auditor-implementation-details`
 
 Spawned `.foundry/epics/epic-029-040-auditor-implementation.md` to coordinate the implementation.

@@ -31,4 +31,4 @@ Leverage our programmatic `.sav` file parsing to extract the Dewford Town trendy
 
 ## Downstream Nodes
 - PRD: `.foundry/prds/prd-066-036-feebas-tile-predictor.md`
-- RESEARCH: `.foundry/research/research-036-006-feebas-seed-investigation.md`
+- RESEARCH: `.foundry/archive/research/research-036-006-feebas-seed-investigation.md`

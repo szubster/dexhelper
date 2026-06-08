@@ -38,4 +38,4 @@ This significantly reduces the friction of using the app during gameplay. It per
 - [x] Product Manager: Convert this idea into a PRD.
 
 ## Generated Nodes
-- PRD: `.foundry/prds/prd-061-033-emulator-auto-sync.md`
+- PRD: `.foundry/archive/prds/prd-061-033-emulator-auto-sync.md`

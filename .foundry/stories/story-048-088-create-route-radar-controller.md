@@ -36,5 +36,5 @@ Scaffold the `RouteRadarController` module. It should act as the central dispatc
 - [ ] Write unit tests to verify instantiation and basic method structures.
 
 ## Generated Tasks
-- [ ] .foundry/tasks/task-088-146-scaffold-route-radar-controller.md
+- [ ] .foundry/archive/tasks/task-088-146-scaffold-route-radar-controller.md
 - [ ] .foundry/tasks/task-088-147-qa-route-radar-controller.md

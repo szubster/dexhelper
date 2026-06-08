@@ -29,5 +29,5 @@ We need to enforce implicit dependencies for macroscopic nodes like EPIC and STO
 - [x] Update `isHierarchicallyIncomplete` or node resolution logic in `foundry-orchestrator.ts` to ensure that a parent node isn't ready if its descendant tree has any nodes not in the COMPLETED state.
 
 ## Implementation Tasks
-- `.foundry/tasks/task-086-146-impl-implicit-dependency-check.md`
+- `.foundry/archive/tasks/task-086-146-impl-implicit-dependency-check.md`
 - `.foundry/tasks/task-086-147-qa-implicit-dependency-check.md`

@@ -45,4 +45,4 @@ To implement a background auto-refresh mechanism utilizing the Web File System A
 - [x] Architect: Create an ADR evaluating the File System Access API implementation strategy (polling vs observer, handle retainment) and defining the application-level state synchronization architecture.
 
 ## Downstream
-- .foundry/epics/epic-033-041-emulator-auto-sync.md
+- .foundry/archive/epics/epic-033-041-emulator-auto-sync.md

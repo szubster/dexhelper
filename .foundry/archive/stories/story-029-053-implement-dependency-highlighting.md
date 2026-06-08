@@ -43,6 +43,6 @@ As the final interactive piece of the DAG Dashboard Visualization UI, this story
 - `.foundry/tasks/task-053-092-implement-dependency-highlighting.md`
 - `.foundry/tasks/task-053-093-qa-dependency-highlighting.md`
 
-- `.foundry/research/research-053-002-dependency-highlighting-failure.md`
+- `.foundry/archive/research/research-053-002-dependency-highlighting-failure.md`
 - `.foundry/tasks/task-053-124-retry-dependency-highlighting.md`
 - `.foundry/tasks/task-053-125-qa-retry-dependency-highlighting.md`

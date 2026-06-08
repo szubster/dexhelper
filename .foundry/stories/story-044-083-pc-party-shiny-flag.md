@@ -38,5 +38,5 @@ Update the existing Gen 2 PC and party data parsing mechanisms to analyze and fl
 
 ## Next Steps
 - [x] Tech Lead: Break down into backend Tasks.
-- [ ] .foundry/tasks/task-083-146-flag-shiny-carriers-impl.md
-- [ ] .foundry/tasks/task-083-147-flag-shiny-carriers-qa.md
+- [ ] .foundry/archive/tasks/task-083-146-flag-shiny-carriers-impl.md
+- [ ] .foundry/archive/tasks/task-083-147-flag-shiny-carriers-qa.md

@@ -35,4 +35,4 @@ Currently, the application supports Gen 1 and Gen 2. We should expand the scope 
 ## References
 - [.foundry/prds/prd-053-022-gen3-data-parsing.md](.foundry/archive/prds/prd-053-022-gen3-data-parsing.md)
 - [.foundry/prds/prd-053-023-gen3-map-graph.md](.foundry/archive/prds/prd-053-023-gen3-map-graph.md)
-- [.foundry/prds/prd-053-024-gen3-encounters.md](.foundry/prds/prd-053-024-gen3-encounters.md)
+- [.foundry/archive/prds/prd-053-024-gen3-encounters.md](.foundry/archive/prds/prd-053-024-gen3-encounters.md)

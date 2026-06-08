@@ -38,6 +38,6 @@ Modify existing data generation scripts to support fetching and formatting Gen 3
 - [x] .foundry/tasks/task-062-105-gen3-pokemon-script-qa.md
 - [x] .foundry/tasks/task-062-110-gen3-data-formatting-msgpack-impl.md
 - [x] .foundry/tasks/task-062-111-gen3-data-formatting-msgpack-qa.md
-- [x] .foundry/research/research-062-001-gen3-location-fetching.md
+- [x] .foundry/archive/research/research-062-001-gen3-location-fetching.md
 - [x] .foundry/tasks/task-062-112-gen3-locations-script-retry-impl.md
 - [x] .foundry/tasks/task-062-113-gen3-locations-script-retry-qa.md
