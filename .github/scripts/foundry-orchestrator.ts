@@ -27,6 +27,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
+import { todayISO, buildReverseDependencyGraph, getOrphanedNodes } from './dag-utils.ts';
 
 // gray-matter is CJS; import via require() for clean ESM interop.
 const require = createRequire(import.meta.url);
@@ -113,15 +114,6 @@ function info(msg: string): void {
 }
 
 // ─── Utilities ────────────────────────────────────────────────────────────────
-
-/** Returns today's date in ISO-8601 YYYY-MM-DD format (local time). */
-function todayISO(): string {
-  const d = new Date();
-  const yyyy = d.getFullYear();
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  const dd = String(d.getDate()).padStart(2, '0');
-  return `${yyyy}-${mm}-${dd}`;
-}
 
 // ─── Phase 1: DISCOVER ───────────────────────────────────────────────────────
 
@@ -574,37 +566,15 @@ function main(): void {
       // Auto-cancel orphaned PENDING nodes depending directly or indirectly on this permanently failed node
 
       // Build a reverse dependency graph
-      const dependents = new Map<string, string[]>();
-      for (const n of nodes) {
-        const deps = (n.frontmatter.depends_on || []).map(resolveNodePath).filter(Boolean) as string[];
-        for (const d of deps) {
-          if (!dependents.has(d)) {
-            dependents.set(d, []);
-          }
-          dependents.get(d)!.push(n.repoPath);
-        }
-      }
+      const dependents = buildReverseDependencyGraph(nodes, resolveNodePath);
+      const orphanedNodes = getOrphanedNodes(node.repoPath, dependents);
 
-      const visited = new Set<string>();
-      const queue = [node.repoPath];
-      visited.add(node.repoPath);
-
-      while (queue.length > 0) {
-        const currentPath = queue.shift()!;
-        const currentDependents = dependents.get(currentPath) || [];
-
-        for (const depPath of currentDependents) {
-          if (!visited.has(depPath)) {
-            visited.add(depPath);
-            queue.push(depPath);
-
-            const dependentNode = nodeMap.get(depPath);
-            if (dependentNode && dependentNode.frontmatter.status === 'PENDING') {
-              promoteNodeToCancelledWithReason(dependentNode, `Cancelled due to permanent failure of dependency: ${node.frontmatter.id}`);
-              cancelledNodes.add(dependentNode.repoPath);
-              cascadeCancel(dependentNode.repoPath);
-            }
-          }
+      for (const depPath of orphanedNodes) {
+        const dependentNode = nodeMap.get(depPath);
+        if (dependentNode && dependentNode.frontmatter.status === 'PENDING') {
+          promoteNodeToCancelledWithReason(dependentNode, `Cancelled due to permanent failure of dependency: ${node.frontmatter.id}`);
+          cancelledNodes.add(dependentNode.repoPath);
+          cascadeCancel(dependentNode.repoPath);
         }
       }
     }
