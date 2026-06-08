@@ -293,6 +293,8 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
+
+    await expect.element(page.getByText('Catch an unknown mon')).toBeVisible();
     await expect.element(page.getByText('Find it if you can.')).toBeVisible();
   });
 
@@ -348,6 +350,8 @@ describe('AssistantSuggestionCard', () => {
         getPokemonName={mockGetPokemonName}
       />,
     );
+
+    await expect.element(page.getByText('Evolve something')).toBeVisible();
     await expect.element(page.getByText('Find it if you can.')).toBeVisible();
   });
 });
