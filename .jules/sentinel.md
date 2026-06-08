@@ -129,3 +129,10 @@ When testing components that utilize `@tanstack/react-router` features like `<Li
 
 **What:** Added missing `expect.element(page.getByText(...)).toBeVisible()` assertions to three test cases in `src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx`.
 **Why:** The `vitest(expect-expect)` lint rule enforced by oxlint requires each test to contain at least one explicit assertion. Without them, the tests verify nothing beyond "it didn't crash during render." This was failing the CI run.
+
+### Playwright Best Practices for UI Assertions
+When writing UI or E2E assertions, do not guess or hallucinate CSS classes (e.g., Tailwind classes for active states). Always verify the exact class names by reading the component's source code (using `grep` or `read_file`) to comply with the Groundedness Rule before adding the assertions.
+
+### Playwright E2E with local test utils
+When writing E2E tests, do not import helper methods like `argosScreenshot` directly from the app source (`src/utils/argos`) if the testing framework instructs using the library itself (`@argos-ci/playwright`), and always ensure to call `waitForSync(page)` after any navigation commands like `page.reload()` to avoid flakey hydration states from IndexedDB.
+## 2026-05-24 - AssistantSuggestionCard MISSING_ROD Coverage\n**What:** Added test coverage for the `MISSING_ROD` UI warning state in `src/components/assistant/AssistantSuggestionCard.tsx`.\n**Coverage:** Verified the `MISSING_ROD` tag renders correctly when a user lacks the required rod for a suggested fishing encounter.\n**Why this matters:** The `AssistantSuggestionCard` has complex conditional rendering logic. Testing edge cases like missing inventory items ensures users receive clear warnings rather than silent UI failures.\n**Learning:** When testing UI components that rely heavily on complex nested props (like `SaveData` and `Suggestion`), inspecting existing test setups via `grep` or `cat` to identify available mock structures (like `mockSaveData` and `defaultStyle`) is crucial for maintaining consistency and avoiding boilerplate setup.

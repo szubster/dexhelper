@@ -156,3 +156,8 @@
 **Outcome:** Accepted
 **Why:** Brings the run tracker's subcomponents deeply in line with the established specialized hardware motif, eliminating generic web UI shapes. Tactical panels and telemetry decorations reinforce the snooping fantasy and maintain consistency across complex views.
 **Pattern:** Ensure even deeply nested subcomponents (like graveyard grids and route lists) adhere strictly to tactical aesthetics (sharp borders, corner crosshairs, telemetry decorations) to maintain absolute visual coherence and prevent reverting to generic structural layouts.
+## 2026-07-06 - [Accepted] - 🖼️ Canvas: Tactical Assistant Readout Redesign
+**What:** Redesigned `AssistantPanel` and `AssistantSuggestionCard` to fully embrace the tactical "snooping" aesthetic. Wrapped the card background in `<LcdGrid>` for a CRT effect, added a `<HoverScanner>` line animation, used sharp dashed borders, and introduced pulsing "TARGET ACQUIRED" telemetry badges. Upgraded text to strictly uppercase monospace.
+**Outcome:** Accepted
+**Why:** Brings the Assistant view entirely in line with the terminal scanning and data stream motifs. Eliminates the generic web UI "card" layout by treating smart suggestions like raw intelligence readouts.
+**Pattern:** Apply CRT background grids (`<LcdGrid>`), scanning beam animations (`<HoverScanner>`), and strict uppercase monospace typography to dynamic AI/smart suggestion components, treating them as specialized hardware intelligence readouts instead of generic info cards.
