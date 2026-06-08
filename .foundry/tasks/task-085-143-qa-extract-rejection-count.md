@@ -2,10 +2,10 @@
 id: task-085-143-qa-extract-rejection-count
 type: TASK
 title: QA DAG Data Parsing for Rejection Count
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-05-23'
-updated_at: '2026-06-05'
+updated_at: '2026-06-08'
 depends_on:
   - task-085-142-impl-extract-rejection-count
 jules_session_id: '16983964081630864995'
