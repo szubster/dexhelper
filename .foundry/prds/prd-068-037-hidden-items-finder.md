@@ -2,12 +2,12 @@
 id: prd-068-037-hidden-items-finder
 type: PRD
 title: Missing Hidden Items Finder Feature
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-01'
-updated_at: '2026-06-04'
+updated_at: '2026-06-06'
 depends_on: []
-jules_session_id: '17022816590318221252'
+jules_session_id: null
 pr_number: null
 parent: idea-068-hidden-items-finder
 tags:
@@ -51,3 +51,8 @@ As DexHelper already parses the save file, we can read the underlying event flag
 - [ ] UI updates dynamically to check off acquired items upon save file hydration.
 - [ ] Appropriate unit tests are added for the save parser extensions.
 - [ ] E2E tests verify the new view correctly renders based on an initialized save state.
+
+## 4. Generated Epics
+- [Parse Hidden Item Event Flags](../epics/epic-037-058-hidden-items-save-parsing.md)
+- [Hidden Items Data Structure & Aggregation](../epics/epic-037-059-hidden-items-data-layer.md)
+- [Missing Hidden Items Finder UI](../epics/epic-037-060-hidden-items-ui.md)
