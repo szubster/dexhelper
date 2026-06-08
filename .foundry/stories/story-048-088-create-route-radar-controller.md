@@ -31,10 +31,10 @@ As defined in Epic `epic-035-048-smart-radar-data-unification` and ADR `018-smar
 Scaffold the `RouteRadarController` module. It should act as the central dispatcher, taking the dynamic save state from the orchestrator and the output of the `suggestionEngine`, and structuring it in a way that the React map components can easily consume it.
 
 ## Acceptance Criteria
-- [ ] Create `RouteRadarController` in the appropriate directory (e.g., `src/engine/radar/` or similar).
-- [ ] Define the interface for its input (the raw suggestion engine output) and its expected heatmap data output.
-- [ ] Write unit tests to verify instantiation and basic method structures.
+- [x] Create `RouteRadarController` in the appropriate directory (e.g., `src/engine/radar/` or similar).
+- [x] Define the interface for its input (the raw suggestion engine output) and its expected heatmap data output.
+- [x] Write unit tests to verify instantiation and basic method structures.
 
 ## Generated Tasks
-- [ ] .foundry/tasks/task-088-146-scaffold-route-radar-controller.md
-- [ ] .foundry/tasks/task-088-147-qa-route-radar-controller.md
+- [x] .foundry/tasks/task-088-146-scaffold-route-radar-controller.md
+- [x] .foundry/tasks/task-088-147-qa-route-radar-controller.md
