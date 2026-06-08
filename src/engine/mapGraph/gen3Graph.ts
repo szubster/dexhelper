@@ -11,9 +11,13 @@ const locationCache = new Map<number, UnifiedLocation>();
 let lastLocationsRef: UnifiedLocation[] | null = null;
 
 /**
- * Helper to fetch a location by ID efficiently.
- * @param allLocations The array of all locations.
- * @param id The ID to search for.
+ * Retrieves a location by ID using a cached Map to ensure O(1) lookup performance.
+ * The cache is automatically invalidated and rebuilt if the `allLocations` array reference changes.
+ * This optimization is necessary because the suggestion engine frequently looks up locations
+ * by ID during graph traversal, and O(N) `Array.find` calls would degrade performance and lock the UI thread.
+ *
+ * @param allLocations - The unified list of all map locations.
+ * @param id - The ID of the location to retrieve.
  * @returns The UnifiedLocation object, or undefined if not found.
  */
 function getLocation(allLocations: UnifiedLocation[], id: number): UnifiedLocation | undefined {
@@ -29,8 +33,12 @@ function getLocation(allLocations: UnifiedLocation[], id: number): UnifiedLocati
 
 /**
  * Recursively resolves a map ID to its top-level (outdoor) parent map ID.
- * This is used to map indoor locations (houses, caves) back to their main hub.
- * @param mapId The ID to resolve.
+ * The Floyd-Warshall distance matrix is only computed between major outdoor hubs (e.g., Littleroot Town, Route 101)
+ * to save build time and payload size. If a player saves inside a building, we must recursively traverse
+ * the `prnt` property until we step outside to an outdoor map before we can use the O(1) distance lookup.
+ *
+ * @param allLocations - The unified list of all map locations.
+ * @param mapId - The ID to resolve.
  * @returns The resolved top-level outdoor map ID.
  */
 export function resolveOutdoorMapId(allLocations: UnifiedLocation[], mapId: number): number {
@@ -52,11 +60,21 @@ export function resolveOutdoorMapId(allLocations: UnifiedLocation[], mapId: numb
 }
 
 /**
- * Calculates the distance between a starting map and a target map using precomputed dist mapping.
- * @param allLocations The array of all locations.
- * @param startMapId The ID of the starting map.
- * @param targetAid The ID of the target map.
- * @returns An object containing distance and target name, or null if unresolvable.
+ * Calculates the shortest path distance (in graph edges/hops) between the player's
+ * current location and a target area.
+ *
+ * @param allLocations - The unified list of all map locations, pre-populated with Floyd-Warshall distances (`dist`).
+ * @param startMapId - The internal Map ID where the player is currently standing.
+ * @param targetAid - The location Area ID (aid) where the target Pokémon can be found.
+ * @returns An object containing the `distance` (number of hops) and the `name` of the target area, or `null` if unreachable.
+ *
+ * @remarks
+ * **Architecture Note:**
+ * This function does NOT perform real-time pathfinding (e.g., BFS or Dijkstra).
+ * Instead, it relies on the `dist` property of the `UnifiedLocation` objects, which contains
+ * a precomputed lookup table generated at build-time using the Floyd-Warshall algorithm.
+ * This ensures O(1) distance lookups during runtime, which is critical since the suggestion
+ * engine evaluates hundreds of potential encounters simultaneously without locking the UI thread.
  */
 export function getDistanceToMap(
   allLocations: UnifiedLocation[],

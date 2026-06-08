@@ -5,9 +5,9 @@ title: Gen 3 Berry Tracker Data Extraction
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-03'
-updated_at: '2026-06-06'
+updated_at: '2026-06-08'
 depends_on: []
-jules_session_id: '14762732077692672299'
+jules_session_id: '18157944186847607148'
 pr_number: null
 parent: prd-067-037-gen3-berry-tracker
 tags:
@@ -16,7 +16,7 @@ tags:
   - berries
   - engine
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

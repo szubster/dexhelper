@@ -194,3 +194,13 @@
 **Outcome:** Accepted
 **Why:** The QA journal identified an issue where cancelled or replaced tasks reawaken in the DAG because their previous dependency finished triggering the Empty PR flow. The QA agent needs explicit instructions to check off the acceptance criteria for these nodes and submit an Empty PR so the node gracefully exits the DAG to COMPLETED.
 **Pattern:** When an execution node must gracefully exit the DAG despite no real work being needed (like replaced or cancelled tasks), the agent responsible MUST check off the markdown Acceptance Criteria boxes so the node can safely pass validation under ADR 007.
+## 2026-07-10 - [Accepted] - Prompt improvement - Prevent Auditor from modifying YAML frontmatter
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The memory requires that when the Auditor persona fails a node verification, it must not modify the YAML frontmatter to set `status: FAILED`. Instead, it must uncheck the relevant Acceptance Criteria box and append an `### Auditor Rejection` section in the markdown body explaining the failure.
+**Pattern:** Ensure agent prompts respect the CRITICAL RULE against modifying node YAML when verifying implementations.
+## 2026-07-10 - [Accepted] - Prompt improvement - Require Strategist to read core policies and ADRs
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Strategist's own prompt lacked instructions to read the centralized `.foundry/docs/knowledge_base/agents/core_policies.md` and `.foundry/docs/adrs/` documents. Without this context, the Strategist could not effectively assess if other agents were violating core policies, and risked proposing duplicate or conflicting rules that were already centralized.
+**Pattern:** Ensure meta-agents that evaluate and modify prompts have explicit instructions to read centralized policy and architecture documents so they understand the system's baseline constraints.
