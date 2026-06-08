@@ -172,6 +172,12 @@
 **Outcome:** Accepted
 **Why:** The Tech Lead was missing the explicit instruction about checking unchecked Acceptance Criteria checkboxes when submitting an empty PR, which is present in other persona prompts and required by ADR 007 and ADR 009.
 **Pattern:** Codify system memory constraints into agent prompts to avoid regressions and ensure consistency across personas.
+
+## 2026-06-04 - [Accepted] - Prompt improvement - Ensure QA agent increments rejection_count when rejecting an implementation
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** System memory requires the QA agent to increment the `rejection_count` in the target task's YAML frontmatter when it rejects an implementation task, but this instruction was missing from the QA agent's prompt. The `rejection_count` is critical for tracking chronic failure areas (e.g. for the Permanent Failure Dashboard - ADR 017).
+**Pattern:** Codify missing system memory constraints about updating specific schema fields (like `rejection_count`) directly into the responsible agent's prompt to ensure compliance and data integrity.
 ## 2026-07-09 - [Accepted] - Prompt improvement - Prevent premature verification for macro nodes
 **Type:** Prompt improvement
 **Outcome:** Merged
@@ -188,3 +194,8 @@
 **Outcome:** Merged
 **Why:** The memory requires that when the Auditor persona fails a node verification, it must not modify the YAML frontmatter to set `status: FAILED`. Instead, it must uncheck the relevant Acceptance Criteria box and append an `### Auditor Rejection` section in the markdown body explaining the failure.
 **Pattern:** Ensure agent prompts respect the CRITICAL RULE against modifying node YAML when verifying implementations.
+## 2026-07-10 - [Accepted] - Prompt improvement - Require Strategist to read core policies and ADRs
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Strategist's own prompt lacked instructions to read the centralized `.foundry/docs/knowledge_base/agents/core_policies.md` and `.foundry/docs/adrs/` documents. Without this context, the Strategist could not effectively assess if other agents were violating core policies, and risked proposing duplicate or conflicting rules that were already centralized.
+**Pattern:** Ensure meta-agents that evaluate and modify prompts have explicit instructions to read centralized policy and architecture documents so they understand the system's baseline constraints.
