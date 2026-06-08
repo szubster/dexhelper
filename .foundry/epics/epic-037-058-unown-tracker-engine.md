@@ -35,5 +35,7 @@ The parser must append an `unownForm` property (e.g., `'A'`, `'B'`) to the parse
 Requires unit tests verifying the exact bitwise calculation against known DV combinations for Unown forms.
 
 ## Acceptance Criteria
-- [ ] Story for parser logic created.
-- [ ] Story for parser unit tests created.
+- [x] Story for parser logic created.
+- [x] Story for parser unit tests created.
+- [ ] .foundry/stories/story-058-095-unown-parser-logic.md
+- [ ] .foundry/stories/story-058-096-unown-parser-tests.md
