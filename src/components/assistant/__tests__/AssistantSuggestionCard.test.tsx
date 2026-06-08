@@ -350,7 +350,6 @@ describe('AssistantSuggestionCard', () => {
         getPokemonName={mockGetPokemonName}
       />,
     );
-
     await expect.element(page.getByText('Evolve something')).toBeVisible();
     await expect.element(page.getByText('Find it if you can.')).toBeVisible();
   });

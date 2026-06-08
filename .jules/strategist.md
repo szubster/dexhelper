@@ -189,6 +189,11 @@
 **Why:** The Auditor journal showed that macro nodes (e.g. PRDs) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, leading to false progress signaling. Product Manager missed this explicit rule which the other planners already had. Auditor also needed explicit instructions to enforce this constraint.
 **Pattern:** Ensure all persona prompts involved in macroscopic planning (IDEA, PRD, EPIC, STORY) and auditing explicitly enforce the dependency graph constraint that a parent node must wait for all child execution nodes to finish before it can transition to VERIFYING or COMPLETED.
 
+## 2026-07-10 - [Accepted] - Prompt improvement - Prevent Auditor from modifying YAML frontmatter
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The memory requires that when the Auditor persona fails a node verification, it must not modify the YAML frontmatter to set `status: FAILED`. Instead, it must uncheck the relevant Acceptance Criteria box and append an `### Auditor Rejection` section in the markdown body explaining the failure.
+**Pattern:** Ensure agent prompts respect the CRITICAL RULE against modifying node YAML when verifying implementations.
 ## 2026-07-10 - [Accepted] - Prompt improvement - Require Strategist to read core policies and ADRs
 **Type:** Prompt improvement
 **Outcome:** Merged
