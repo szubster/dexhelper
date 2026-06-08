@@ -293,8 +293,7 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
-
-    await expect.element(page.getByText('Catch an unknown mon')).toBeVisible();
+    await expect.element(page.getByText('Find it if you can.')).toBeVisible();
   });
 
   it('renders correctly when one of the encounter chances is equal to mainEnc chance', async () => {
@@ -315,7 +314,7 @@ describe('AssistantSuggestionCard', () => {
 
     const areaNames = { 0: 'Route 1' };
 
-    await renderWithProviders(
+    const { getByText } = await renderWithProviders(
       <AssistantSuggestionCard
         suggestion={suggestion}
         style={defaultStyle}
@@ -325,6 +324,7 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
+    await expect.element(getByText('Find it if you can.')).toBeVisible();
 
     await expect.element(page.getByText('Catch an equal mon')).toBeVisible();
   });
@@ -348,7 +348,6 @@ describe('AssistantSuggestionCard', () => {
         getPokemonName={mockGetPokemonName}
       />,
     );
-
-    await expect.element(page.getByText('Evolve something')).toBeVisible();
+    await expect.element(page.getByText('Find it if you can.')).toBeVisible();
   });
 });
