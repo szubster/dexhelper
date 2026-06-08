@@ -2,12 +2,12 @@
 id: idea-069-mirage-island-predictor
 type: IDEA
 title: Gen 3 Mirage Island Predictor
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-02'
-updated_at: '2026-06-04'
+updated_at: '2026-06-06'
 depends_on: []
-jules_session_id: '4766839389400114325'
+jules_session_id: null
 parent: null
 tags:
   - gen3
@@ -29,3 +29,6 @@ Leverage DexHelper's programmatic offline-first save file parsing to automatical
 The application would instantly surface a notification or dedicated tracker view indicating whether the player currently possesses a "Mirage Island Key" Pokémon for the current day. If a match is found, it would highlight exactly which Pokémon it is and which PC Box it resides in, transforming a frustrating brute-force mechanic into a rewarding, seamless discovery.
 
 This aligns perfectly with DexHelper's vision as a premium companion app that surfaces hidden state to eliminate tedious manual gameplay loops, similarly to the Gen 3 Feebas Tile Predictor and Gen 2 Shiny Carrier ideas.
+
+## Generated Nodes
+- .foundry/prds/prd-069-038-mirage-island-predictor.md
