@@ -1,5 +1,5 @@
 import { Search } from 'lucide-react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { FILTER_TYPES, useStore } from '../store';
 import { LocationSuggestions } from './LocationSuggestions';
 import { TacticalInput } from './TacticalInput';
@@ -16,9 +16,10 @@ export function SearchAndFilters() {
   const toggleFilter = useStore((s) => s.toggleFilter);
   const setFilters = useStore((s) => s.setFilters);
 
-  if (!saveData) return null;
+  // ⚡ Bolt: Memoize filtersSet to avoid creating a new Set on every render, preventing unnecessary re-renders in child components like TacticalMultiSelectControl.
+  const filtersSet = React.useMemo(() => new Set(filters), [filters]);
 
-  const filtersSet = new Set(filters);
+  if (!saveData) return null;
 
   const handleClearSearch = () => {
     setSearchTerm('');
