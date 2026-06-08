@@ -29,6 +29,6 @@ describe('TacticalSelect', () => {
       </TacticalSelect>,
     );
     // The select is now wrapped in a div with the container class
-    await expect(container.querySelector('.wrapper-class')).not.toBeNull();
+    expect(container.querySelector('.wrapper-class')).not.toBeNull();
   });
 });
