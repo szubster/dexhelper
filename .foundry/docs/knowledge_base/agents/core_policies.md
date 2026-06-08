@@ -27,3 +27,6 @@ Nodes in the Foundry transition from `ACTIVE` to `VERIFYING` after work is compl
 
 ## Component Integration Policy
 When creating implementation tasks for UI components, explicit integration steps and tests for rendering components must be included to ensure they are properly integrated into the application's view hierarchy. Otherwise, they risk permanent failure for being unlinked and unrenderable.
+
+## Transient Logs
+System failures, node state transitions (e.g. from FAILED to READY), and "is now COMPLETED" status log entries in Foundry journals add zero value to future runs and unnecessarily expand the context window. Such logs belong in orchestrator execution logs or PR history, not long-term agent journals.
