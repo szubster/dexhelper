@@ -13,6 +13,7 @@ While the system does not strictly block node creation, ANY scheduled or foundry
 When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
 
 **NODE GENERATION RULES:**
+- **DAG ID Strictness**: When setting the `depends_on` or `parent` fields in node frontmatter, you MUST strictly use exact Node IDs without file extensions (e.g., `prd-066-036-time-capsule-validator`), not repo-relative file paths.
 - **Encourage Granularity**: When generating downstream nodes, strongly prefer creating multiple, smaller, granular nodes rather than a single 1-to-1 mapped node (e.g., breaking a single PRD into several Epics, or a Story into several Tasks). Smaller scopes reduce complexity and improve execution success.
 - When a target Foundry artifact (such as a downstream PRD or generated node file) unexpectedly exists prior to the session, create a small journal entry detailing the anomaly for the Agile Coach to review later.
 - Set the `owner_persona` of newly created downstream nodes to the persona responsible for the NEXT pipeline transition (e.g., `story_owner` for EPICs, `tech_lead` for STORY nodes, `coder` for TASKs), not yourself.

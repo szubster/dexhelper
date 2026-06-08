@@ -194,3 +194,9 @@
 **Outcome:** Merged
 **Why:** The Strategist's own prompt lacked instructions to read the centralized `.foundry/docs/knowledge_base/agents/core_policies.md` and `.foundry/docs/adrs/` documents. Without this context, the Strategist could not effectively assess if other agents were violating core policies, and risked proposing duplicate or conflicting rules that were already centralized.
 **Pattern:** Ensure meta-agents that evaluate and modify prompts have explicit instructions to read centralized policy and architecture documents so they understand the system's baseline constraints.
+
+## 2026-07-10 - [Accepted] - Prompt improvement - Enforce Node ID strictness for planners
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The coder journal highlighted a regression (`2026-05-31: Foundry DAG ID Strictness`) where using `.md` extensions or full file paths in the `depends_on` or `parent` fields causes the orchestrator to fail to resolve the dependency graph. The TPM agent prompt already had a rule for Node IDs, but the agents responsible for creating the nodes initially (Product Manager, Epic Planner, Story Owner, Tech Lead) were not explicitly warned.
+**Pattern:** When a critical schema constraint is identified (like Node IDs vs file paths in frontmatter), codify it across all relevant upstream generative personas, not just the downstream maintenance ones, to prevent the issue at the source.
