@@ -23,7 +23,7 @@ notes: ''
 # Epic: Gen 2 Dynamic Checklist UI
 
 ## Objective
-Design and implement the frontend user interface to display the daily and weekly event checklist for Generation 2. This UI will consume the parsed event flags and RTC data to present a personalized agenda to the player.
+Design and implement the frontend user interface to display the daily and weekly event checklist for Generation 2. This UI will consume the parsed event flags to present a personalized agenda to the player.
 
 ## Acceptance Criteria
 - [ ] Create a dynamic checklist UI component.

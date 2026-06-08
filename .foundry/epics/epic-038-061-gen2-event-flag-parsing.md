@@ -22,9 +22,8 @@ notes: ''
 # Epic: Gen 2 Event Flag Parsing Engine
 
 ## Objective
-Develop the core save file parsing engine to extract Real Time Clock (RTC) data and specific time-gated event flags from Generation 2 save files. This is the foundational data layer required to power the dynamic event checklist.
+Develop the core save file parsing engine to extract specific time-gated event flags from Generation 2 save files. This is the foundational data layer required to power the dynamic event checklist. Note: We must NOT depend on RTC data from the save file itself, as it is emulator-dependent and incompatible with raw cartridge dumps.
 
 ## Acceptance Criteria
-- [ ] Parse RTC data from Gen 2 saves.
 - [ ] Parse event flags indicating completion of daily/weekly events.
 - [ ] Expose this data cleanly to the frontend UI components.
