@@ -2,10 +2,10 @@
 id: idea-070-gen3-contest-tracker
 type: IDEA
 title: Gen 3 Contest Stat and Ribbon Tracker
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-06'
-updated_at: '2026-06-06'
+updated_at: '2026-06-08'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,12 +2,12 @@
 id: epic-037-058-hidden-items-save-parsing
 type: EPIC
 title: Parse Hidden Item Event Flags
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-04'
-updated_at: '2026-06-06'
+updated_at: '2026-06-08'
 depends_on: []
-jules_session_id: '9419647924109291487'
+jules_session_id: null
 pr_number: null
 parent: prd-068-037-hidden-items-finder
 tags:
@@ -15,7 +15,7 @@ tags:
   - tool
   - quality-of-life
   - save-parsing
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
