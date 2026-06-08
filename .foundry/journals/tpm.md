@@ -61,3 +61,23 @@
 - **2026-06-08**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
 
 - **2026-06-08**: System failure detected for `task-081-144-preserve-enum-optimizations-retry-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-08**: PR #2165 merged. `idea-066-save-file-health-scanner` is now VERIFYING.
+
+- **2026-06-08**: PR #2159 merged. `prd-069-038-pokerus-tracker` is now VERIFYING.
+
+- **2026-06-08**: PR #2162 merged. `research-036-007-feebas-seed-offset` is now COMPLETED.
+
+- **2026-06-08**: PR #2160 merged. `story-044-083-pc-party-shiny-flag` is now COMPLETED.
+
+- **2026-06-08**: PR #2164 merged. `task-036-148-feebas-visualization-adr` is now COMPLETED.
+
+- **2026-06-08**: PR #2161 merged. `task-075-135-qa-google-sso` is now COMPLETED.
+
+- **2026-06-08**: PR #2158 merged. `task-086-147-qa-implicit-dependency-check` is now COMPLETED.
+
+- **2026-06-08**: PR #2167 merged. `task-088-147-qa-route-radar-controller` is now COMPLETED.
+
+- **2026-06-08**: PR #2168 merged. `task-090-148-extract-dag-utils-impl` is now COMPLETED.
+
+- **2026-06-08**: PR #2166 merged. `task-090-148-health-scanner-models-impl` is now COMPLETED.

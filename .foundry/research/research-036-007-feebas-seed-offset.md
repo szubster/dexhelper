@@ -2,12 +2,12 @@
 id: research-036-007-feebas-seed-offset
 type: RESEARCH
 title: Investigate Feebas Seed Memory Offset
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-05'
-updated_at: '2026-06-07'
+updated_at: '2026-06-08'
 depends_on: []
-jules_session_id: '3412824303524359205'
+jules_session_id: null
 pr_number: null
 parent: prd-066-036-feebas-tile-predictor
 tags:

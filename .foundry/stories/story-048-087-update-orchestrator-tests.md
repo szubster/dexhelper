@@ -2,10 +2,10 @@
 id: story-048-087-update-orchestrator-tests
 type: STORY
 title: Update Orchestrator Tests for Implicit Dependencies
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-28'
-updated_at: '2026-05-28'
+updated_at: '2026-06-08'
 depends_on:
   - story-048-086-implement-implicit-dependency-check
 jules_session_id: null
