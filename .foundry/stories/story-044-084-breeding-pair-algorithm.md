@@ -37,4 +37,6 @@ Develop an algorithm to suggest optimal breeding pairs by cross-referencing Egg 
 - [ ] Algorithm accurately identifies and highlights optimal pairs involving Shiny Carriers.
 
 ## Next Steps
-- [ ] Tech Lead: Break down into backend Tasks.
+- [x] Tech Lead: Break down into backend Tasks.
+- [ ] .foundry/tasks/task-084-150-breeding-pair-algorithm-impl.md
+- [ ] .foundry/tasks/task-084-151-breeding-pair-algorithm-qa.md
