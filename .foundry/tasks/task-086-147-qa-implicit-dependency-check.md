@@ -29,6 +29,6 @@ If you abort or permanently fail a task, you MUST update the YAML frontmatter to
 If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify that `isHierarchicallyIncomplete` or node resolution logic in `foundry-orchestrator.ts` ensures that a parent node isn't ready if its descendant tree has any nodes not in the COMPLETED or CANCELLED state.
-- [ ] Verify that `CANCELLED` nodes satisfy hierarchical completeness.
-- [ ] Verify that unit tests in `foundry-orchestrator.test.ts` pass and correctly test the new implicit dependency logic.
+- [x] Verify that `isHierarchicallyIncomplete` or node resolution logic in `foundry-orchestrator.ts` ensures that a parent node isn't ready if its descendant tree has any nodes not in the COMPLETED or CANCELLED state.
+- [x] Verify that `CANCELLED` nodes satisfy hierarchical completeness.
+- [x] Verify that unit tests in `foundry-orchestrator.test.ts` pass and correctly test the new implicit dependency logic.
