@@ -160,22 +160,34 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
               const catStyle = CATEGORY_STYLES[category] ?? CATEGORY_STYLES.Utility;
 
               return (
-                <div key={category} className="space-y-4">
-                  <div className="flex items-center gap-3 px-2">
-                    <div
-                      className={`border border-dashed p-2 ${catStyle.bg} ${catStyle.color.replace('border-', 'text-')}`}
-                    >
-                      {catStyle.icon}
+                <div key={category} className="space-y-6">
+                  {/* Tactical Data Stream Separator */}
+                  <div className="relative flex items-center">
+                    <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-zinc-800 via-zinc-700 to-transparent" />
+                    <div className="relative flex items-center gap-4 bg-zinc-950 pr-4">
+                      <div
+                        className={`flex items-center gap-3 border border-zinc-800 border-dashed bg-zinc-900/80 px-4 py-2`}
+                      >
+                        <div className="absolute -top-2 left-2 bg-zinc-950 px-1 font-mono text-[8px] text-zinc-500 uppercase tracking-widest">
+                          SYS.CAT
+                        </div>
+                        <div className={`${catStyle.bg} ${catStyle.color.replace('border-', 'text-')} p-1`}>
+                          {catStyle.icon}
+                        </div>
+                        <h3 className="font-black font-mono text-lg text-white uppercase tracking-widest">
+                          [{' '}
+                          {category === 'Catch'
+                            ? 'WILD ENCOUNTERS'
+                            : category === 'Trade'
+                              ? 'TRADE REQUIRED'
+                              : category.toUpperCase()}{' '}
+                          ]
+                        </h3>
+                        <div className="ml-2 flex h-5 w-5 items-center justify-center border border-zinc-700 border-dashed bg-zinc-800 font-mono text-[10px] text-zinc-400">
+                          {items.length}
+                        </div>
+                      </div>
                     </div>
-                    <h3 className="font-black font-mono text-lg text-white uppercase tracking-widest">
-                      [{' '}
-                      {category === 'Catch'
-                        ? 'WILD ENCOUNTERS'
-                        : category === 'Trade'
-                          ? 'TRADE REQUIRED'
-                          : category.toUpperCase()}{' '}
-                      ]
-                    </h3>
                   </div>
 
                   <div

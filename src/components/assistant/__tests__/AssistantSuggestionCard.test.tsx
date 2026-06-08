@@ -141,8 +141,8 @@ describe('AssistantSuggestionCard', () => {
       />,
     );
 
-    await expect.element(page.getByText('TARGET ACQUIRED')).toBeVisible();
-    await expect.element(page.getByText('#001')).toBeVisible();
+    await expect.element(page.getByText(/TARGET ACQUIRED/)).toBeVisible();
+    await expect.element(page.getByText('PT.001')).toBeVisible();
   });
 
   it('renders multiple pokemon suggestions with methods', async () => {
