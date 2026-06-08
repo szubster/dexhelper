@@ -189,6 +189,11 @@
 **Why:** The Auditor journal showed that macro nodes (e.g. PRDs) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, leading to false progress signaling. Product Manager missed this explicit rule which the other planners already had. Auditor also needed explicit instructions to enforce this constraint.
 **Pattern:** Ensure all persona prompts involved in macroscopic planning (IDEA, PRD, EPIC, STORY) and auditing explicitly enforce the dependency graph constraint that a parent node must wait for all child execution nodes to finish before it can transition to VERIFYING or COMPLETED.
 
+## 2026-06-07 - [Accepted] - Prompt improvement - Ensure QA checks off acceptance criteria for reawakened tasks
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The QA journal identified an issue where cancelled or replaced tasks reawaken in the DAG because their previous dependency finished triggering the Empty PR flow. The QA agent needs explicit instructions to check off the acceptance criteria for these nodes and submit an Empty PR so the node gracefully exits the DAG to COMPLETED.
+**Pattern:** When an execution node must gracefully exit the DAG despite no real work being needed (like replaced or cancelled tasks), the agent responsible MUST check off the markdown Acceptance Criteria boxes so the node can safely pass validation under ADR 007.
 ## 2026-07-10 - [Accepted] - Prompt improvement - Prevent Auditor from modifying YAML frontmatter
 **Type:** Prompt improvement
 **Outcome:** Merged
