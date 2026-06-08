@@ -2,12 +2,12 @@
 id: prd-069-038-mirage-island-predictor
 type: PRD
 title: Gen 3 Mirage Island Predictor PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-04'
 updated_at: '2026-06-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8612990663727416271'
 pr_number: null
 parent: idea-069-mirage-island-predictor
 tags:
