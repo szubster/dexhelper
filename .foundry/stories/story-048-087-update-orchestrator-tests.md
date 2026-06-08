@@ -28,3 +28,7 @@ Tests must reflect the new implicit dependency enforcement logic added in the or
 
 ## Acceptance Criteria
 - [x] Add unit tests in `.github/scripts/foundry-orchestrator.test.ts` to verify implicit dependency evaluation.
+
+## Generated Tasks
+- [ ] `.foundry/tasks/task-087-150-impl-orchestrator-tests.md`
+- [ ] `.foundry/tasks/task-087-151-qa-orchestrator-tests.md`
