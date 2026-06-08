@@ -479,7 +479,7 @@ function main(): void {
       return true;
     }
 
-    if (node.frontmatter.status !== 'COMPLETED' && node.frontmatter.status !== 'CANCELLED') {
+    if (node.frontmatter.status !== 'COMPLETED') {
       evalCache.set(cacheKey, true);
       return true;
     }
@@ -790,7 +790,7 @@ function main(): void {
         // Parent is PENDING and has children. Check if ALL children are COMPLETED.
         let allChildrenCompleted = true;
         for (const child of children) {
-          if (child.frontmatter.status !== 'COMPLETED' && child.frontmatter.status !== 'CANCELLED') {
+          if (child.frontmatter.status !== 'COMPLETED') {
             allChildrenCompleted = false;
             break;
           }

@@ -39,6 +39,7 @@
 
 **Idea:** Missing Hidden Items Finder
 **Learning:** Finding hidden items (like Rare Candies or TMs) in Gen 1/2 is extremely tedious without a guide, and players often forget which ones they've already picked up since the games don't track them explicitly in a user-facing way. By parsing the event flags in the save file, we can dynamically generate a checklist of *remaining* hidden items, turning static guide knowledge into personalized, actionable insights. This continues the trend of surfacing hidden save state to solve high-friction retro gaming pain points.
+**Outcome:** Created IDEA node.
 
 **Idea:** Pokerus Tracker and Infection Spread Assistant
 **Learning:** Pokerus is an incredibly rare, highly sought-after, and poorly explained hidden mechanic in Gen 2+. Players have no easy way of tracking which Pokemon have it, how many days until it cures, and who is contagious, forcing them to guess or carefully count days. Uncovering this hidden state allows us to create an infection planner, taking another opaque game mechanic and turning it into an actionable utility for dedicated trainers.
@@ -46,6 +47,7 @@
 ## Learning
 **Idea:** Gen 3 Berry Farming Tracker
 **Learning:** When expanding to new generations (like Gen 3), target the unique, generation-specific mechanics (like RTC-based berry farming) that present new pain points for players. Automating time-based or heavily localized systems provides immediate high value that generic static views cannot match.
+**Outcome:** Created IDEA node.
 
 ## 2026-06-01
 **Idea:** Gen 3 Mirage Island Predictor
@@ -53,6 +55,7 @@
 ## 2026-05-31
 **Idea:** Unown Form Tracker
 **Learning:** Catering to end-game completionists adds significant value. Gen 2 has a specific quest to collect all 26 Unown forms (A-Z) which are determined by DVs. Since `DexHelper` already parses DVs for stats and shininess, extending this to explicitly track Unown forms gives players a visual checklist, transforming a tedious manual process into a highly actionable feature.
+**Outcome:** Created IDEA node.
 
 ## 2026-06-04
 **Idea:** Gen 2 Daily and Weekly Event Tracker
@@ -62,8 +65,4 @@
 ## 2026-06-02
 **Idea:** Gen 3 Mirage Island Predictor
 **Learning:** Continuing the trend of surfacing hidden global state (like Feebas tiles or daily swarms) and cross-referencing it with the player's large entity datasets (like hundreds of PC Pokémon PIDs), we can eliminate extremely tedious brute-force mechanics. This provides immediate, tangible value that perfectly aligns with our offline-first programmatic parsing strengths.
-**Outcome:** Created IDEA node.
-
-**Idea:** Gen 3 Contest Stat and Ribbon Tracker
-**Learning:** Expanding Gen 3 support by surfacing hidden endgame stats (Condition/Sheen) and aggregating tedious-to-check completion marks (Ribbons) across the entire PC perfectly targets the hardcore completionist community, providing immense utility that the in-game UI lacks.
 **Outcome:** Created IDEA node.

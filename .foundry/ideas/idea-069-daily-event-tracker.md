@@ -2,12 +2,12 @@
 id: idea-069-daily-event-tracker
 type: IDEA
 title: Gen 2 Daily and Weekly Event Tracker
-status: PENDING
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-06-04'
-updated_at: '2026-06-07'
+updated_at: '2026-06-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7537792929661486006'
 pr_number: null
 parent: null
 tags:
@@ -36,5 +36,4 @@ Leverage DexHelper's deep save file parsing to track event flags, combined with 
 This feature transforms DexHelper from a static data viewer into an active, intelligent companion app. It directly addresses the pain points of retro game mechanics by automatically surfacing hidden state and saving players from relying on external wikis or manual notes.
 
 ## Next Steps
-- [x] Product Manager: Convert this idea into a PRD to define the specific event flags that need to be parsed and outline the UI checklist component.
-- [ ] [prd-069-038-gen2-daily-events.md](.foundry/prds/prd-069-038-gen2-daily-events.md)
+- [ ] Product Manager: Convert this idea into a PRD to define the specific event flags that need to be parsed and outline the UI checklist component.

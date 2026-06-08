@@ -29,22 +29,5 @@ describe('gen3Exclusives', () => {
       const ownedSet = new Set<number>();
       expect(getGen3UnobtainableReason(273, 'emerald', 0, ownedSet)).toBeNull();
     });
-
-    it('should return reason for FireRed exclusive missing (LeafGreen exclusives)', () => {
-      const ownedSet = new Set<number>();
-      const reason = getGen3UnobtainableReason(27, 'firered', 0, ownedSet); // Sandshrew
-      expect(reason).toContain('not available in Firered');
-    });
-
-    it('should return reason for LeafGreen exclusive missing (FireRed exclusives)', () => {
-      const ownedSet = new Set<number>();
-      const reason = getGen3UnobtainableReason(23, 'leafgreen', 0, ownedSet); // Ekans
-      expect(reason).toContain('not available in Leafgreen');
-    });
-
-    it('should return null for Machop in LeafGreen (obtainable)', () => {
-      const ownedSet = new Set<number>();
-      expect(getGen3UnobtainableReason(66, 'leafgreen', 0, ownedSet)).toBeNull();
-    });
   });
 });

@@ -1,10 +1,11 @@
 import { Check, CircleDot, Ghost, Info, Monitor } from 'lucide-react';
-import { SectionHeader } from '../SectionHeader';
 
 export function SettingsLegend() {
   return (
     <div className="space-y-4">
-      <SectionHeader className="tracking-widest" title="SYS.LEGEND" icon={<Info size={12} />} />
+      <h3 className="flex items-center gap-2 font-black text-[10px] text-zinc-500 uppercase tracking-widest">
+        <Info size={12} /> SYS.LEGEND
+      </h3>
       <div className="grid grid-cols-2 gap-3">
         {[
           { icon: <CircleDot size={14} className="text-rose-500" />, label: 'In Party' },

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
 import { DataPoint } from '../../DataPoint';
-import { SectionHeader } from '../../SectionHeader';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TacticalSegmentedControl } from '../../TacticalSegmentedControl';
 
@@ -30,7 +29,9 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
         <Target size={120} />
       </div>
       <div className="flex items-center justify-between">
-        <SectionHeader colorClass="text-emerald-400" title="Catch Probability" icon={<Target size={14} />} />
+        <h3 className="flex items-center gap-2 font-black text-[10px] text-emerald-400 uppercase tracking-[0.3em]">
+          <Target size={14} /> Catch Probability
+        </h3>
         <div className="rounded-none border border-emerald-500/30 border-dashed bg-emerald-500/20 px-3 py-1 font-black font-mono text-[10px] text-emerald-400">
           RATING: {catchRate}
         </div>

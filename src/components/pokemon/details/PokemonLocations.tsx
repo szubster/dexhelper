@@ -2,7 +2,6 @@ import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data/shared/staticData';
-import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
@@ -34,7 +33,9 @@ export function PokemonLocations({
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between border-white/5 border-b pb-4">
-        <SectionHeader title="Field Distribution" icon={<MapPin size={14} />} />
+        <h3 className="flex items-center gap-2 font-black text-[10px] text-zinc-500 uppercase tracking-[0.3em]">
+          <MapPin size={14} /> Field Distribution
+        </h3>
         <div className="rounded-none border border-white/10 border-dashed bg-white/5 px-3 py-1 font-black text-[10px] text-[var(--theme-primary)] uppercase tracking-widest backdrop-blur-md">
           DATA-SRC: {gameVersion.toUpperCase()}
         </div>

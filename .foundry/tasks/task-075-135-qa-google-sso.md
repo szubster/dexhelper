@@ -2,13 +2,13 @@
 id: task-075-135-qa-google-sso
 type: TASK
 title: QA Google SSO Flow
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-05-22'
-updated_at: '2026-06-07'
+updated_at: '2026-05-22'
 depends_on:
   - task-075-134-implement-google-sso
-jules_session_id: '5865036538524719933'
+jules_session_id: null
 pr_number: null
 parent: story-038-075-google-sso-integration
 tags:
