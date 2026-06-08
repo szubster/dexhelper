@@ -7,9 +7,9 @@ export const GEN3_VERSION_EXCLUSIVES: Record<string, number[]> = {
   // Emerald missing
   emerald: [283, 284, 307, 308, 315, 335, 337],
   // FireRed missing (LeafGreen exclusives)
-  firered: [27, 28, 37, 38, 69, 70, 71, 79, 80, 199, 120, 121, 126, 127, 183, 184, 298],
+  firered: [27, 28, 37, 38, 69, 70, 71, 79, 80, 120, 121, 126, 127, 183, 184, 199, 200, 215, 223, 224, 226, 240, 298],
   // LeafGreen missing (FireRed exclusives)
-  leafgreen: [23, 24, 43, 44, 45, 182, 54, 55, 58, 59, 66, 67, 68, 90, 91, 125, 123, 212, 238, 239, 240],
+  leafgreen: [23, 24, 43, 44, 45, 54, 55, 58, 59, 90, 91, 123, 125, 182, 198, 211, 212, 225, 227, 239],
 };
 
 export function getGen3UnobtainableReason(

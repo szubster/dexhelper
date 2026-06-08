@@ -2,12 +2,12 @@
 id: idea-068-069-pokerus-tracker
 type: IDEA
 title: Pokerus Tracker and Infection Spread Assistant
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-03'
-updated_at: '2026-06-04'
+updated_at: '2026-06-07'
 depends_on: []
-jules_session_id: '14845931105759107742'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -37,3 +37,4 @@ Create a **Pokerus Tracker and Infection Spread Assistant** within DexHelper tha
 
 ## Value Proposition
 This takes an obtuse, highly stressful hidden mechanic and turns it into a clear, manageable process. Dedicated players currently resort to spreadsheets or meticulous manual time-tracking to manage Pokerus. This feature eliminates that entirely, heavily aligning with DexHelper's vision of being a premium companion app that surfaces hidden state for actionable utility.
+Downstream Nodes Generated: - .foundry/prds/prd-069-038-pokerus-tracker.md
