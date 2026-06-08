@@ -180,6 +180,38 @@ describe('AssistantSuggestionCard', () => {
     await expect.element(page.getByText('Lv. 10-15')).toBeVisible();
   });
 
+  it('renders missing rod warning when rod is not in inventory', async () => {
+    const suggestion: Suggestion = {
+      id: 'test-6',
+      priority: 10,
+      category: 'Catch',
+      title: 'Catch this fish',
+      description: 'Fish it.',
+      pokemonIds: [129],
+      encounterInfo: {
+        129: [{ aid: 0, method: 'old-rod', chance: 100, minLevel: 5, maxLevel: 5 }],
+      },
+    };
+
+    const saveDataWithoutRod: SaveData = {
+      ...mockSaveData,
+      inventory: [],
+      pcItems: [],
+    };
+
+    await renderWithProviders(
+      <AssistantSuggestionCard
+        suggestion={suggestion}
+        style={defaultStyle}
+        showDebug={false}
+        saveData={saveDataWithoutRod}
+        getPokemonName={mockGetPokemonName}
+      />,
+    );
+
+    await expect.element(page.getByText('MISSING_ROD', { exact: false })).toBeVisible();
+  });
+
   it('renders warning and debug info', async () => {
     const suggestion: Suggestion = {
       id: 'test-5',
@@ -261,6 +293,8 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
+
+    await expect.element(page.getByText('Catch an unknown mon')).toBeVisible();
     await expect.element(page.getByText('Find it if you can.')).toBeVisible();
   });
 
@@ -282,7 +316,7 @@ describe('AssistantSuggestionCard', () => {
 
     const areaNames = { 0: 'Route 1' };
 
-    await renderWithProviders(
+    const { getByText } = await renderWithProviders(
       <AssistantSuggestionCard
         suggestion={suggestion}
         style={defaultStyle}
@@ -292,7 +326,8 @@ describe('AssistantSuggestionCard', () => {
         areaNames={areaNames}
       />,
     );
-    await expect.element(page.getByText('10%')).toBeVisible();
+    await expect.element(getByText('Find it if you can.')).toBeVisible();
+    await expect.element(page.getByText('Catch an equal mon')).toBeVisible();
   });
 
   it('renders correctly when category is not catch and pokemonIds exist', async () => {
@@ -314,6 +349,7 @@ describe('AssistantSuggestionCard', () => {
         getPokemonName={mockGetPokemonName}
       />,
     );
+    await expect.element(page.getByText('Evolve something')).toBeVisible();
     await expect.element(page.getByText('Find it if you can.')).toBeVisible();
   });
 });
