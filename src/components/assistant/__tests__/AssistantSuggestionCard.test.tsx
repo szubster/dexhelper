@@ -327,7 +327,6 @@ describe('AssistantSuggestionCard', () => {
       />,
     );
     await expect.element(getByText('Find it if you can.')).toBeVisible();
-
     await expect.element(page.getByText('Catch an equal mon')).toBeVisible();
   });
 
