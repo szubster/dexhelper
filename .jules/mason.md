@@ -77,3 +77,19 @@
 - **Why**: Reduced duplicated JSX across `AssistantDebugView` which had 4 identical blocks. It can also be reused if other parts of the app need a telemetry card.
 - **Key Learnings**:
   - The `valueClassName` prop is crucial when extracting text components, allowing customization like `truncate` or `uppercase` while maintaining identical base text styles.
+
+## InlineLink Extraction
+- **What**: Extracted repeated inline link button elements (standard `<button className="rounded-none underline..."></button>` with variant-specific colors) into an `InlineLink` reusable component.
+- **Why**: Reduced duplicated JSX in `PokemonEvolutions.tsx`. Standardized interaction styles, underline offsets, and hover variants for typical navigation links without needing to pass down the large class string every time.
+- **Key Learnings**:
+  - Make sure to extend standard attributes (e.g. `React.ButtonHTMLAttributes<HTMLButtonElement>`) and forward refs (`React.forwardRef`) so accessibility properties like `aria-label` or raw `onClick` handlers pass down appropriately without breaking.
+
+## SectionHeader Extraction
+- **What**: Extracted the repeating `<h3>` element pattern (including flex layout, font-black, size, uppercase, and large tracking) into a reusable `SectionHeader` component.
+- **Why**: Found multiple repeating patterns for section headers, particularly across all `PokemonDetails` subcomponents (`PokemonLocations`, `PokemonEvolutions`, `PokemonCatchProbability`, `PokemonCaughtDetails`) and `SettingsLegend`. Centralizing this makes global typography changes to section headers trivial.
+- **Key Learnings**:
+  - `React.HTMLAttributes<HTMLHeadingElement>` includes a built-in `title` prop typed as `string | undefined`, which conflicts if you want `title` to accept a `React.ReactNode` for rendering JSX elements inline. To fix this type clash when using TypeScript, use `Omit<React.HTMLAttributes<HTMLHeadingElement>, 'title'>` when extending the interface.
+
+## Fix CI: Test has no assertions
+- **What**: CI failed because three tests in `src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx` had no assertions. I added `await expect.element(page.getByText(...)).toBeVisible()` to satisfy the `oxlint` `vitest(expect-expect)` rule.
+- **Why**: The rule enforces that every test has at least one assertion.

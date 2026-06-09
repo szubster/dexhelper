@@ -39,7 +39,6 @@
 
 **Idea:** Missing Hidden Items Finder
 **Learning:** Finding hidden items (like Rare Candies or TMs) in Gen 1/2 is extremely tedious without a guide, and players often forget which ones they've already picked up since the games don't track them explicitly in a user-facing way. By parsing the event flags in the save file, we can dynamically generate a checklist of *remaining* hidden items, turning static guide knowledge into personalized, actionable insights. This continues the trend of surfacing hidden save state to solve high-friction retro gaming pain points.
-**Outcome:** Created IDEA node.
 
 **Idea:** Pokerus Tracker and Infection Spread Assistant
 **Learning:** Pokerus is an incredibly rare, highly sought-after, and poorly explained hidden mechanic in Gen 2+. Players have no easy way of tracking which Pokemon have it, how many days until it cures, and who is contagious, forcing them to guess or carefully count days. Uncovering this hidden state allows us to create an infection planner, taking another opaque game mechanic and turning it into an actionable utility for dedicated trainers.
@@ -47,7 +46,6 @@
 ## Learning
 **Idea:** Gen 3 Berry Farming Tracker
 **Learning:** When expanding to new generations (like Gen 3), target the unique, generation-specific mechanics (like RTC-based berry farming) that present new pain points for players. Automating time-based or heavily localized systems provides immediate high value that generic static views cannot match.
-**Outcome:** Created IDEA node.
 
 ## 2026-06-01
 **Idea:** Gen 3 Mirage Island Predictor
@@ -55,13 +53,27 @@
 ## 2026-05-31
 **Idea:** Unown Form Tracker
 **Learning:** Catering to end-game completionists adds significant value. Gen 2 has a specific quest to collect all 26 Unown forms (A-Z) which are determined by DVs. Since `DexHelper` already parses DVs for stats and shininess, extending this to explicitly track Unown forms gives players a visual checklist, transforming a tedious manual process into a highly actionable feature.
-**Outcome:** Created IDEA node.
 
+## 2026-06-04
+**Idea:** Gen 2 Daily and Weekly Event Tracker
+**Learning:** Expanding the app's capability to parse time-based data (RTC) from Gen 2 save files lets us create dynamic "daily to-do checklists". Turning a static collection viewer into an active agenda that reminds players of time-gated events (like swarms or daily rare encounters) solves a massive pain point for retro gamers without guides, continuing our trend of surfacing hidden state into actionable UI.
+**Outcome:** Created IDEA node.
+**Feedback Update:** Noted that RTC is not reliably stored in all emulator `.sav` files. Instead of relying solely on the `.sav` file's RTC, we should use the user's system device clock combined with the save file's event flags to power this feature. This avoids creating features that break depending on the emulator used. Also learned to add filtering to only show events relevant to uncaught Pokémon to increase usefulness.
 ## 2026-06-02
 **Idea:** Gen 3 Mirage Island Predictor
 **Learning:** Continuing the trend of surfacing hidden global state (like Feebas tiles or daily swarms) and cross-referencing it with the player's large entity datasets (like hundreds of PC Pokémon PIDs), we can eliminate extremely tedious brute-force mechanics. This provides immediate, tangible value that perfectly aligns with our offline-first programmatic parsing strengths.
+## 2026-06-08
+**Idea:** Roaming Pokémon Tracking Dashboard
+**Learning:** Gen 2 and Gen 3 feature "roaming" legendary Pokémon (like Entei, Raikou, Latios, Latias) whose locations change randomly as the player moves between routes. Tracking them is notoriously frustrating without external tools or constantly checking the Pokédex (if even seen yet). Since DexHelper already parses save state, we can extract the exact map coordinates of roaming Pokémon and display them on our map, turning one of the most tedious mechanics in retro Pokémon into a straightforward, predictable hunt. This perfectly leverages our core strength of surfacing hidden global state.
+**Outcome:** Created IDEA node.
+
+**Idea:** Gen 3 Contest Stat and Ribbon Tracker
+**Learning:** Expanding Gen 3 support by surfacing hidden endgame stats (Condition/Sheen) and aggregating tedious-to-check completion marks (Ribbons) across the entire PC perfectly targets the hardcore completionist community, providing immense utility that the in-game UI lacks.
 **Outcome:** Created IDEA node.
 
 ## 2026-06-05
 **Idea:** Hall of Fame Timeline and Certificate Exporter
 **Learning:** Expanding the app's scope to include social sharing and community engagement adds significant value. Extracting Hall of Fame data to generate shareable images targets the highly active challenge-running community, transforming DexHelper from a purely personal utility into a tool that drives organic, word-of-mouth growth.
+## 2026-06-05
+**Idea:** Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
+**Learning:** In Gen 3, tracking roaming legendaries (Latias/Latios) is notoriously frustrating, and the infamous "Roamer IV Glitch" in Ruby/Sapphire/FireRed/LeafGreen permanently ruins their stats upon generation. By surfacing this hidden generation data (current route, nature, and IVs) immediately after the roamer is released, players can decide whether to reset or continue hunting without wasting hours only to discover a glitched, unusable Pokémon. This strongly reinforces the principle of revealing critical hidden state to prevent high-friction, wasted effort in retro games.

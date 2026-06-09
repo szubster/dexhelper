@@ -39,14 +39,18 @@ This is your **only private memory**. When you see something worth rememberingâ€
 If you reject an implementation or validation fails:
 1. You MUST update the target task's YAML frontmatter to `status: FAILED`.
 2. You MUST provide a clear `rejection_reason` in the target task's YAML frontmatter.
-3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
-4. You MUST NOT modify your own QA task's YAML frontmatter (e.g., your task must remain ACTIVE). Only update your own markdown body to note the failure.
-5. You MUST document the rejection in your persona journal.
+3. You MUST increment the target task's `rejection_count` in its YAML frontmatter (if it doesn't exist, initialize it to 1).
+4. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
+5. You MUST NOT modify your own QA task's YAML frontmatter (e.g., your task must remain ACTIVE). Only update your own markdown body to note the failure.
+6. You MUST document the rejection in your persona journal.
 
 ### Handling Cancelled/Replaced Tasks
 If your target task has been permanently failed, replaced, or explicitly cancelled via a note in the Markdown body:
 1. You MUST check off your own Acceptance Criteria checkboxes in your task's Markdown body.
 2. You MUST use the `submit` tool to create an Empty PR. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED and gracefully exit the DAG.
+
+### Dealing with Cancelled/Replaced Tasks Reawakening
+If a cancelled or replaced task node is reawakened (e.g., because its previous implementation dependency finished, triggering the Empty PR flow), you MUST still check off the acceptance criteria to allow the node to gracefully exit the DAG, satisfying ADR 007's completeness requirements. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED.
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.

@@ -1,11 +1,11 @@
 ---
 id: task-083-147-flag-shiny-carriers-qa
 type: TASK
-title: "QA: Verify isShinyCarrier Property in Parsed Data"
-status: PENDING
+title: 'QA: Verify isShinyCarrier Property in Parsed Data'
+status: COMPLETED
 owner_persona: qa
-created_at: "2026-06-01"
-updated_at: "2026-06-01"
+created_at: '2026-06-01'
+updated_at: '2026-06-07'
 depends_on:
   - task-083-146-flag-shiny-carriers-impl
 jules_session_id: null
@@ -19,8 +19,8 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA: Verify isShinyCarrier Property in Parsed Data
@@ -36,7 +36,7 @@ Verify that the `isShinyCarrier` boolean property is correctly populated when pa
 2. Ensure the property appears properly structured in the output data.
 
 ## Acceptance Criteria
-- [ ] Manual or automated verification confirms `isShinyCarrier` is correctly populated for Shiny Carriers and is missing/false for others.
+- [x] Manual or automated verification confirms `isShinyCarrier` is correctly populated for Shiny Carriers and is missing/false for others.
 
 ## Reminder for Coder and QA
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

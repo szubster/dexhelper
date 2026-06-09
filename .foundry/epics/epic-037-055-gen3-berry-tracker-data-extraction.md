@@ -2,12 +2,12 @@
 id: epic-037-055-gen3-berry-tracker-data-extraction
 type: EPIC
 title: Gen 3 Berry Tracker Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-03'
-updated_at: '2026-06-04'
+updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: '8969196202804192116'
+jules_session_id: null
 pr_number: null
 parent: prd-067-037-gen3-berry-tracker
 tags:
@@ -16,7 +16,7 @@ tags:
   - berries
   - engine
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
@@ -38,3 +38,7 @@ As mandated by ADR 010 (`010-gen3-data-parsing.md`), all data parsing must stric
 - [ ] Handle bounds checking gracefully (e.g., throwing and catching `RangeError` on out-of-bounds reads).
 - [ ] Extract map location, berry ID, growth stage, and time metadata.
 - [ ] Serialize the extracted data using `msgpackr` and integrate with the runtime data API.
+
+### Generated Stories
+- [ ] .foundry/stories/story-055-095-gen3-berry-data-parsing.md
+- [ ] .foundry/stories/story-055-096-gen3-berry-msgpack-integration.md

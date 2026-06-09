@@ -4,6 +4,7 @@ import type { GenerationConfig } from '../../utils/generationConfig';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { SettingsRow } from '../SettingsRow';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
+import { TacticalSelect } from '../TacticalSelect';
 
 interface SettingsControlsProps {
   effectiveVersion: GameVersion | 'unknown';
@@ -91,14 +92,14 @@ export function SettingsControls({
         iconColorClass="border-amber-500/20 bg-amber-500/10"
         label="Ball Style"
       >
-        <TacticalSegmentedControl
+        <TacticalSegmentedControl<PokeballType>
           ariaLabel="Ball Style"
           containerClassName="grid grid-cols-3 gap-2 [&>div]:grid [&>div]:grid-cols-3 [&>div]:gap-2 [&>div]:border-none [&>button]:border"
           buttonBaseClassName="flex flex-col items-center justify-center gap-1.5 py-3 text-[9px] !border-dashed !border focus-visible:ring-amber-500"
           defaultActiveClassName="border-amber-500 bg-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)]"
           defaultInactiveClassName="border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300"
           selectedValue={globalPokeball}
-          onValueChange={(val) => setGlobalPokeball(val as PokeballType)}
+          onValueChange={(val) => setGlobalPokeball(val)}
           items={filteredPokeballs.map((pb) => ({
             id: pb.value,
             label: (
@@ -128,11 +129,11 @@ export function SettingsControls({
         iconColorClass="border-red-500/20 bg-red-500/10"
         label="Graveyard"
       >
-        <select
+        <TacticalSelect
           aria-label="Select Nuzlocke Graveyard Box"
           value={nuzlockeGraveyardBox || ''}
           onChange={(e) => setNuzlockeGraveyardBox(e.target.value === '' ? null : e.target.value)}
-          className="w-full appearance-none rounded-none border border-zinc-800 border-dashed bg-zinc-950 px-3 py-2 font-black font-mono text-[9px] text-zinc-500 uppercase tracking-widest transition-all hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          className="focus-visible:ring-red-500"
         >
           <option value="">[ NONE ]</option>
           {storageLocations.map((loc) => (
@@ -140,7 +141,7 @@ export function SettingsControls({
               [ {loc.toUpperCase()} ]
             </option>
           ))}
-        </select>
+        </TacticalSelect>
       </SettingsRow>
     </div>
   );

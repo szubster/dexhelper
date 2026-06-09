@@ -150,3 +150,20 @@
 **Outcome:** Accepted
 **Why:** Brings the loading state interface in line with the heavily tactical, specialized hardware motif. Wrapping loaders and sync views in `TacticalPanel` ensures they fit the "terminal scanning" visual identity of the rest of the application.
 **Pattern:** Consistently utilize `TacticalPanel` for utility and overlay elements instead of relying on custom styled divs with generic shadows and blurs, and replace standard progress indicators with segmented, tactical layouts.
+
+## 2026-07-05 - [Accepted] - 🖼️ Canvas: Tactical Run Tracker Subcomponents Redesign
+**What:** Redesigned `GraveyardView` and `VisitedRoutesChecklist` to fully embrace the tactical "snooping" aesthetic by wrapping them in `<TacticalPanel>` instead of plain `<div>`s or generic classes. The headers were upgraded to use `<TelemetryDecoration>`. Additionally, the inner elements (graveyard cards, route list items) were redesigned with sharp, dashed borders and `<CornerCrosshairs>` to match the `AliveTeamView` components.
+**Outcome:** Accepted
+**Why:** Brings the run tracker's subcomponents deeply in line with the established specialized hardware motif, eliminating generic web UI shapes. Tactical panels and telemetry decorations reinforce the snooping fantasy and maintain consistency across complex views.
+**Pattern:** Ensure even deeply nested subcomponents (like graveyard grids and route lists) adhere strictly to tactical aesthetics (sharp borders, corner crosshairs, telemetry decorations) to maintain absolute visual coherence and prevent reverting to generic structural layouts.
+## 2026-07-06 - [Accepted] - 🖼️ Canvas: Tactical Assistant Readout Redesign
+**What:** Redesigned `AssistantPanel` and `AssistantSuggestionCard` to fully embrace the tactical "snooping" aesthetic. Wrapped the card background in `<LcdGrid>` for a CRT effect, added a `<HoverScanner>` line animation, used sharp dashed borders, and introduced pulsing "TARGET ACQUIRED" telemetry badges. Upgraded text to strictly uppercase monospace.
+**Outcome:** Accepted
+**Why:** Brings the Assistant view entirely in line with the terminal scanning and data stream motifs. Eliminates the generic web UI "card" layout by treating smart suggestions like raw intelligence readouts.
+**Pattern:** Apply CRT background grids (`<LcdGrid>`), scanning beam animations (`<HoverScanner>`), and strict uppercase monospace typography to dynamic AI/smart suggestion components, treating them as specialized hardware intelligence readouts instead of generic info cards.
+
+## 2026-07-07 - [Accepted] - 🖼️ Canvas: Tactical Data Node Redesign
+**What:** Redesigned the `DataPoint` component into a "Tactical Data Node". Replaced the simple flex column text pair with a relative container featuring a dashed left border acting as a data pipe, an absolute positioned marker on the border, and fully monospaced uppercase telemetry typography (`text-[9px]` for labels, `text-[11px]` for values).
+**Outcome:** Accepted
+**Why:** Brings the granular data display components in line with the established specialized hardware motif. The previous `DataPoint` was too generic and didn't fit the "snooping" fantasy, whereas the new design looks like individual data nodes connected to a larger telemetry stream.
+**Pattern:** Apply tactical aesthetics (dashed borders acting as connecting lines, absolute positioning markers, tight monospace typography) even to the smallest, most granular data display elements to maintain absolute visual coherence deep within complex data views.

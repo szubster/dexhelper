@@ -10,6 +10,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import matter from 'gray-matter';
 import { discoverNodeFiles, parseNodeFile } from './foundry-orchestrator.ts';
+import { todayISO, logToJournal } from './dag-utils.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
@@ -19,14 +20,6 @@ function warn(msg: string): void {
 
 function info(msg: string): void {
   process.stderr.write(`[heartbeat] INFO  ${msg}\n`);
-}
-
-function todayISO(): string {
-  const d = new Date();
-  const yyyy = d.getFullYear();
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  const dd = String(d.getDate()).padStart(2, '0');
-  return `${yyyy}-${mm}-${dd}`;
 }
 
 const TERMINAL_STATES = ['FAILED', 'COMPLETED'];
@@ -304,12 +297,6 @@ async function findPRForSession(
   } catch { /* ignore list error */ }
 
   return { pr: null, sessionStatus, updateTime };
-}
-
-function logToJournal(repoRoot: string, entry: string): void {
-  const journalDir = path.join(repoRoot, '.foundry', 'journals');
-  if (!fs.existsSync(journalDir)) fs.mkdirSync(journalDir, { recursive: true });
-  fs.appendFileSync(path.join(journalDir, 'tpm.md'), entry, 'utf-8');
 }
 
 export async function main() {

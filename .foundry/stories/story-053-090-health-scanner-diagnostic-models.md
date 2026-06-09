@@ -5,9 +5,9 @@ title: Define Health Scanner Diagnostic Models
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-02'
-updated_at: '2026-06-04'
+updated_at: '2026-06-08'
 depends_on: []
-jules_session_id: '9418164059325405759'
+jules_session_id: '6641739856267262317'
 pr_number: null
 parent: epic-036-053-health-scanner-core-engine
 tags:
@@ -31,4 +31,8 @@ Before implementing the actual validation logic for the Health Scanner Core Engi
 * Establish error codes or categories for specific corruption types (Checksum Error, Out of Bounds ID, Impossible Moveset, etc.).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into actionable Tasks for the coder.
+- [x] Tech Lead: Break this Story down into actionable Tasks for the coder.
+- [x] All child tasks are COMPLETED.
+
+## Child Tasks
+* [.foundry/tasks/task-090-148-health-scanner-models-impl.md](.foundry/tasks/task-090-148-health-scanner-models-impl.md)

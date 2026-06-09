@@ -2,6 +2,7 @@ import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { DataPoint } from '../../DataPoint';
+import { SectionHeader } from '../../SectionHeader';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface PokemonCaughtDetailsProps {
@@ -13,9 +14,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
 
   return (
     <div className="slide-in-from-bottom-4 fade-in animate-in space-y-6 fill-mode-both duration-500">
-      <h3 className="flex items-center gap-2 font-black text-[10px] text-zinc-500 uppercase tracking-[0.3em]">
-        <CheckCircle2 size={14} className="text-emerald-500" /> Discovered Units
-      </h3>
+      <SectionHeader title="Discovered Units" icon={<CheckCircle2 size={14} className="text-emerald-500" />} />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {yourPokemon.map((p, i) => (
           <TacticalPanel

@@ -22,6 +22,17 @@ const OUTPUT_DIR = path.join(process.cwd(), 'data/db');
 
 
 
+/**
+ * Synchronously reads and parses a JSON file from the filesystem.
+ *
+ * @param filePath - The absolute or relative path to the JSON file.
+ * @returns The parsed JavaScript object, or `null` if the file does not exist.
+ *
+ * @remarks
+ * This utility handles the vast amount of individual JSON files extracted from the
+ * PokeAPI repository. Synchronous reading is preferred in this build script to maintain
+ * sequential processing order and simplify the ETL data flow.
+ */
 function readJson(filePath: string) {
   if (!fs.existsSync(filePath)) return null;
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -61,6 +72,21 @@ interface PokeApiChainLink {
   evolution_details: PokeApiEvolutionDetail[];
 }
 
+/**
+ * Writes an array of objects to a file in JSON Lines (JSONL) format.
+ *
+ * @param filePath - The output path for the JSONL file.
+ * @param data - An array of objects to be stringified.
+ *
+ * @remarks
+ * **Why JSONL?**
+ * The output data (encounters, locations, pokemon metadata) is extremely large.
+ * JSONL provides a human-readable format that can be easily diffed and committed
+ * to version control. At build time, Vitest and the pipeline parse these `.jsonl`
+ * files and transform them into a highly compact `msgpack` payload using `msgpackr`.
+ * This approach guarantees both human-readable source data and extremely fast,
+ * memory-efficient runtime parsing in the browser.
+ */
 function writeJsonl(filePath: string, data: any[]) {
   const content = data.map(item => JSON.stringify(item)).join('\n');
   fs.writeFileSync(filePath, content + '\n');
@@ -79,7 +105,26 @@ function sortObj(obj: any, order: string[]): any {
 }
 
 /**
- * Executes the core Extract, Transform, Load (ETL) data pipeline.
+ * Orchestrates the full Extract, Transform, Load (ETL) pipeline for static game data.
+ *
+ * **Architecture Overview**
+ * This script is the core data pipeline for DexHelper. It fetches raw game data from
+ * the PokeAPI repository, transforms it to match our highly optimized internal schemas,
+ * maps encounters to exact decompiled ROM Map IDs, and generates the graph distance matrix.
+ *
+ * **Inputs:**
+ * - Remote GitHub Repository: `PokeAPI/api-data` (cloned locally to `scratch/temp_pokeapi/data/api/v2`).
+ *   This provides the raw JSON files for encounters, locations, pokemon, and evolution chains.
+ * - Local Mapping Files: `scripts/data/gen1/mapping.ts`, `scripts/data/gen2/mapping.ts`,
+ *   and `scripts/data/gen3/mapping.ts`. These provide the crucial link between generic
+ *   PokeAPI area IDs and actual Game Boy ROM Map IDs (extracted from `pret` decompilations).
+ *
+ * **Outputs:**
+ * - `.jsonl` files generated in the `data/db/` directory:
+ *   - `pokemon.jsonl`: Core stats, types, and Dex IDs.
+ *   - `encounters.jsonl`: Locations where Pokémon can be caught, including version exclusives.
+ *   - `locations.jsonl`: The unified map graph, complete with Floyd-Warshall precomputed distances.
+ *   - `evolutions.jsonl`: The parsed evolution chains for all supported generations.
  *
  * **Why this exists:**
  * The application relies on massive datasets (all Pokémon, stats, encounters, and evolutions).
@@ -87,15 +132,20 @@ function sortObj(obj: any, order: string[]): any {
  * This pipeline extracts the data from PokeAPI, transforms it to map tightly to internal
  * Game Boy memory structures, and loads it into a compacted JSONL format for IndexedDB.
  *
- * **Key Transformations:**
- * 1. **Location Resolution:** PokeAPI has generic area IDs, but the app needs exact ROM map IDs (`gameId`)
+ * **Pipeline Stages & Key Transformations:**
+ * 1. **Data Ingestion:** Shallow clones the `PokeAPI/api-data` repository to avoid massive network payloads.
+ *    This avoids making thousands of individual HTTP requests to the public API, preventing rate limits.
+ * 2. **Extraction:** Reads the deeply nested JSON representations for Pokémon, Species, Evolution Chains, and Location Areas.
+ * 3. **Transformation & Mapping:** Flattens the PokeAPI structure into DexHelper's compact JSON schemas (`src/db/schema.ts`).
+ *    This includes mapping generic string IDs to internal integer keys (`POKE_VERSION_MAP`, `ENCOUNTER_METHOD_MAP`).
+ * 4. **Location Resolution:** PokeAPI has generic area IDs, but the app needs exact ROM map IDs (`gameId`)
  *    to match the player's in-game save data. We cross-reference `GEN1_MAPS` and `GEN2_MAP_TO_AID`
  *    to map API coordinates to actual game memory values.
- * 2. **Bug Catching Contest Injection:** PokeAPI completely omits the Gen 2 Bug Catching Contest encounters.
+ * 5. **Bug Catching Contest Injection:** PokeAPI completely omits the Gen 2 Bug Catching Contest encounters.
  *    We manually inject these into the National Park (Map 783) to ensure 100% accurate Gen 2 data.
- * 3. **Graph Precomputation:** Finding the distance between two maps at runtime using BFS would freeze
- *    the main thread. Instead, we use the Floyd-Warshall algorithm here at build time to compute and
- *    save an All-Pairs Shortest Path matrix for `O(1)` runtime lookups in the suggestion engine.
+ * 6. **Graph Computation:** Computes the O(1) All-Pairs Shortest Paths map distance matrix using the Floyd-Warshall algorithm
+ *    to prevent main thread freezing during runtime BFS calculations.
+ * 7. **Load:** Outputs the transformed and compressed data as `.jsonl` files in `data/db/` for the React client to consume.
  *
  * **Regeneration Steps:**
  * To regenerate this data locally after changes, run: `pnpm run data:gen`
@@ -213,6 +263,11 @@ async function main() {
             const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
             if (locData) {
               let connections: number[] | undefined = undefined;
+
+              // Map connections (edges) based on generation structure.
+              // Gen 1: IDs are simple 8-bit integers (0-255).
+              // Gen 3: IDs are encoded as (3 << 16) | (group << 8) | id.
+              // Gen 2: IDs are encoded as (group << 8) | id.
               if (gameId < 256) {
                 connections = GEN1_MAPS[gameId]?.connections;
               } else if ((gameId >> 16) === 3) {
@@ -550,13 +605,18 @@ for (const cid of uniqueChainIds) {
 }
 
 /**
- * Recursively compacts an object by stripping out common default values.
+ * Recursively strips nulls, undefined values, default falsy states, and empty arrays from an object.
  *
- * **Why this is necessary:**
+ * @param obj - The object to compact.
+ * @returns A structurally identical object with redundant keys removed.
+ *
+ * @remarks
+ * **Why this is critical:**
  * The generated JSON represents thousands of encounters and evolutions.
- * Fields like `baby: false`, `m: 1` (walking), or `tr: 1` (level-up evolution)
- * represent over 90% of the dataset. By stripping these known defaults before writing
- * to disk, we significantly reduce the bundle size and IndexedDB memory footprint.
+ * Fields like `baby: false`, `m: 1` (walking), or empty arrays (`condition_values: []`)
+ * represent over 90% of the dataset. Because this data is shipped to the user's browser
+ * and stored in IndexedDB, omitting these redundant keys drastically reduces the final `.jsonl`
+ * payload size, ensuring fast initialization times and staying within storage quota limits.
  * The client re-inflates these defaults upon load (see `src/db/PokeDB.ts`).
  */
 function compact(obj: any): any {

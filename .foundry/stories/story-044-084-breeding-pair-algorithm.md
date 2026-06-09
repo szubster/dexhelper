@@ -1,14 +1,14 @@
 ---
 id: story-044-084-breeding-pair-algorithm
 type: STORY
-title: "Shiny Carrier Breeding Pair Algorithm"
-status: PENDING
+title: Shiny Carrier Breeding Pair Algorithm
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-22'
-updated_at: '2026-05-22'
+updated_at: '2026-06-08'
 depends_on:
   - story-044-083-pc-party-shiny-flag
-jules_session_id: null
+jules_session_id: '10774499448502729725'
 pr_number: null
 parent: epic-034-044-shiny-gene-detection-engine
 tags:
@@ -37,4 +37,6 @@ Develop an algorithm to suggest optimal breeding pairs by cross-referencing Egg 
 - [ ] Algorithm accurately identifies and highlights optimal pairs involving Shiny Carriers.
 
 ## Next Steps
-- [ ] Tech Lead: Break down into backend Tasks.
+- [x] Tech Lead: Break down into backend Tasks.
+- [ ] .foundry/tasks/task-084-150-breeding-pair-algorithm-impl.md
+- [ ] .foundry/tasks/task-084-151-breeding-pair-algorithm-qa.md

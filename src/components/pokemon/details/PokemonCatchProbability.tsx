@@ -1,8 +1,9 @@
 import { Target } from 'lucide-react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
 import { DataPoint } from '../../DataPoint';
+import { SectionHeader } from '../../SectionHeader';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TacticalSegmentedControl } from '../../TacticalSegmentedControl';
 
@@ -23,15 +24,33 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
   const [hpPercent, setHpPercent] = useState<number>(100);
   const [status, setStatus] = useState<StatusType>('none');
 
+  const { finalChance, valueClassName } = useMemo(() => {
+    let ballMult = 1;
+    if (effectivePokeball === 'great') ballMult = 1.5;
+    if (effectivePokeball === 'ultra' || effectivePokeball === 'safari') ballMult = 2;
+
+    let statusBonus = 0;
+    if (status === 'sleep_freeze') statusBonus = 10;
+    if (status === 'paralyze_burn_poison') statusBonus = 5;
+
+    const hpFactor = 1 + ((100 - hpPercent) / 100) * 2;
+    const baseChance = (catchRate * ballMult * hpFactor) / 255;
+    const chance = Math.min(100, baseChance * 100 + statusBonus);
+
+    let colorClass = 'text-red-400 drop-shadow-[0_0_10px_rgba(248,113,113,0.5)]';
+    if (chance >= 70) colorClass = 'text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.5)]';
+    else if (chance >= 40) colorClass = 'text-amber-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]';
+
+    return { finalChance: chance.toFixed(1), valueClassName: colorClass };
+  }, [catchRate, effectivePokeball, hpPercent, status]);
+
   return (
     <TacticalPanel variant="emerald" className="space-y-8 rounded-none border border-dashed p-8">
       <div className="absolute top-0 right-0 p-4 opacity-5">
         <Target size={120} />
       </div>
       <div className="flex items-center justify-between">
-        <h3 className="flex items-center gap-2 font-black text-[10px] text-emerald-400 uppercase tracking-[0.3em]">
-          <Target size={14} /> Catch Probability
-        </h3>
+        <SectionHeader colorClass="text-emerald-400" title="Catch Probability" icon={<Target size={14} />} />
         <div className="rounded-none border border-emerald-500/30 border-dashed bg-emerald-500/20 px-3 py-1 font-black font-mono text-[10px] text-emerald-400">
           RATING: {catchRate}
         </div>
@@ -69,14 +88,14 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
           </div>
         </div>
 
-        <TacticalSegmentedControl
+        <TacticalSegmentedControl<StatusType>
           ariaLabel="Target Status"
           containerClassName="grid grid-cols-3 gap-2 [&>div]:grid [&>div]:grid-cols-3 [&>div]:gap-2 [&>div]:border-none [&>button]:border"
           buttonBaseClassName="!border-dashed !border focus-visible:ring-emerald-500 py-3 text-[9px] active:scale-95"
           defaultActiveClassName="border-emerald-400 bg-emerald-500 text-zinc-950 shadow-[0_5px_15px_rgba(16,185,129,0.3)]"
           defaultInactiveClassName="border-white/10 bg-black/40 text-emerald-500/50 hover:border-emerald-500/40 hover:bg-emerald-500/10"
           selectedValue={status}
-          onValueChange={(val) => setStatus(val as StatusType)}
+          onValueChange={(val) => setStatus(val)}
           items={STATUS_OPTIONS.map((item) => ({
             id: item.id,
             label: item.label,
@@ -89,34 +108,8 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
           <DataPoint
             label="Estimated Success"
             labelClassName="mb-1 text-[10px] text-emerald-500/40"
-            valueClassName={cn(
-              'font-black font-display text-5xl normal-case tracking-tighter',
-              (() => {
-                let ballMult = 1;
-                if (effectivePokeball === 'great') ballMult = 1.5;
-                if (effectivePokeball === 'ultra' || effectivePokeball === 'safari') ballMult = 2;
-                let statusBonus = 0;
-                if (status === 'sleep_freeze') statusBonus = 10;
-                if (status === 'paralyze_burn_poison') statusBonus = 5;
-                const hpFactor = 1 + ((100 - hpPercent) / 100) * 2;
-                const baseChance = (catchRate * ballMult * hpFactor) / 255;
-                const finalChance = Math.min(100, baseChance * 100 + statusBonus);
-                if (finalChance >= 70) return 'text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.5)]';
-                if (finalChance >= 40) return 'text-amber-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]';
-                return 'text-red-400 drop-shadow-[0_0_10px_rgba(248,113,113,0.5)]';
-              })(),
-            )}
-            value={`${(() => {
-              let ballMult = 1;
-              if (effectivePokeball === 'great') ballMult = 1.5;
-              if (effectivePokeball === 'ultra' || effectivePokeball === 'safari') ballMult = 2;
-              let statusBonus = 0;
-              if (status === 'sleep_freeze') statusBonus = 10;
-              if (status === 'paralyze_burn_poison') statusBonus = 5;
-              const hpFactor = 1 + ((100 - hpPercent) / 100) * 2;
-              const baseChance = (catchRate * ballMult * hpFactor) / 255;
-              return Math.min(100, baseChance * 100 + statusBonus).toFixed(1);
-            })()}%`}
+            valueClassName={cn('font-black font-display text-5xl normal-case tracking-tighter', valueClassName)}
+            value={`${finalChance}%`}
           />
           <div className="flex flex-col items-end text-right">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-none border border-white/10 border-dashed bg-black/40">

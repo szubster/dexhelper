@@ -19,3 +19,13 @@ During the session for node `idea-064-smart-route-radar`, it was discovered that
 
 **Impact:**
 This implies that either a previous session successfully generated the node but failed to correctly transition the IDEA node's status, or there was a desync in the orchestrator. This behavior should be reviewed by the Agile Coach to prevent redundant work or silent failures in node progression.
+
+## Idea 066 Anomaly: Target PRD Already Exists
+On 2026-06-03, while transitioning idea-066-save-file-health-scanner to PRD, the target artifact (.foundry/prds/prd-066-036-save-file-health-scanner.md) was found to already exist prior to this session. Documenting this for the Agile Coach as required by node generation rules.
+
+## Missing Checkboxes for Child Nodes (2026-06-07)
+**Observation:**
+During the conversion of `idea-066-save-file-health-scanner` to a PRD, the PR was rejected twice. The cause was that the generated child PRD was added as a plain text reference (`- Created PRD: ...`) instead of an unchecked task checkbox (`- [ ] ...`).
+
+**Architectural Constraint:**
+In the Foundry architecture, parent generation nodes (like `IDEA` and `PRD`) MUST include references to their generated child nodes as unchecked task checkboxes (`- [ ] <file_path>`) directly in their markdown body. This is a critical signal to the Orchestrator. If the checkbox is omitted or immediately checked, the Orchestrator assumes the parent node has met all its acceptance criteria and prematurely transitions it to `VERIFYING` before the descendant nodes are actually completed. This violates the dependency graph constraints and triggers a rejection.

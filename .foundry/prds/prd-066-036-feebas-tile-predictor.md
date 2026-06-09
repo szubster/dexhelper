@@ -2,12 +2,12 @@
 id: prd-066-036-feebas-tile-predictor
 type: PRD
 title: Gen 3 Feebas Tile Predictor
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-05-30'
-updated_at: '2026-06-04'
+updated_at: '2026-06-07'
 depends_on: []
-jules_session_id: '3478903326127914987'
+jules_session_id: null
 pr_number: null
 parent: idea-066-feebas-tile-predictor
 tags:
@@ -44,6 +44,12 @@ In Pokémon Ruby, Sapphire, and Emerald, Feebas can only be found by fishing on 
 - **Accuracy**: The calculated tiles must be 100% accurate based on the decompiled Gen 3 game logic.
 
 ## Acceptance Criteria
-- [ ] Research: Spawn a RESEARCH node to investigate the exact memory offset for the Feebas seed in R/S/E save files.
-- [ ] Architect: Produce an Architecture Decision Record (ADR) detailing how to integrate the Feebas tile visualization into the existing UI.
-- [ ] Epic: Break down into Epics for backend parsing/logic and frontend visualization.
+- [x] Research: Spawn a RESEARCH node to investigate the exact memory offset for the Feebas seed in R/S/E save files.
+- [x] Architect: Produce an Architecture Decision Record (ADR) detailing how to integrate the Feebas tile visualization into the existing UI.
+- [x] Epic: Break down into Epics for backend parsing/logic and frontend visualization.
+
+## Downstream Nodes
+- [ ] .foundry/research/research-036-007-feebas-seed-offset.md
+- [ ] .foundry/tasks/task-036-148-feebas-visualization-adr.md
+- [ ] .foundry/epics/epic-036-058-feebas-backend-parsing.md
+- [ ] .foundry/epics/epic-036-059-feebas-frontend-visualization.md
