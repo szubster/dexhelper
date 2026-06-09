@@ -99,7 +99,7 @@ export function SettingsControls({
           defaultActiveClassName="border-amber-500 bg-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)]"
           defaultInactiveClassName="border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300"
           selectedValue={globalPokeball}
-          onValueChange={(val) => setGlobalPokeball(val as PokeballType)}
+          onValueChange={setGlobalPokeball}
           items={filteredPokeballs.map((pb) => ({
             id: pb.value,
             label: (

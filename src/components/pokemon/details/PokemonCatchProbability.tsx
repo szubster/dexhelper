@@ -75,7 +75,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
           defaultActiveClassName="border-emerald-400 bg-emerald-500 text-zinc-950 shadow-[0_5px_15px_rgba(16,185,129,0.3)]"
           defaultInactiveClassName="border-white/10 bg-black/40 text-emerald-500/50 hover:border-emerald-500/40 hover:bg-emerald-500/10"
           selectedValue={status}
-          onValueChange={(val) => setStatus(val as StatusType)}
+          onValueChange={setStatus}
           items={STATUS_OPTIONS.map((item) => ({
             id: item.id,
             label: item.label,

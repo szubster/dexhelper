@@ -56,12 +56,12 @@ export function SearchAndFilters() {
           </TacticalInput>
 
           {/* Tactical Filter Toggles Segmented Control */}
-          <TacticalMultiSelectControl
+          <TacticalMultiSelectControl<(typeof FILTER_TYPES)[number]>
             ariaLabel="Filter Pokémon"
             legendLabel="[ FILTER_PARAMETERS ]"
             buttonBaseClassName="min-w-[100px]"
             selectedValues={filtersSet}
-            onValueToggle={(f) => toggleFilter(f as (typeof FILTER_TYPES)[number])}
+            onValueToggle={toggleFilter}
             renderPrefixItem={() => (
               <button
                 type="button"
