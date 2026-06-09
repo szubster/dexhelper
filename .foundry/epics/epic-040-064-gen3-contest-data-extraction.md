@@ -2,12 +2,12 @@
 id: epic-040-064-gen3-contest-data-extraction
 type: EPIC
 title: Gen 3 Contest Data Extraction Engine
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10188113170740738584'
 pr_number: null
 parent: prd-070-040-gen3-contest-data-parsing
 tags:
