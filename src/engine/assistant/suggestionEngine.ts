@@ -1028,31 +1028,57 @@ export function generateSuggestions(
         const pid = parseInt(pidStr, 10);
         const details = suggestion.encounterInfo[pid];
         if (details) {
-          // ⚡ Bolt: Replaced .filter() with loop to prevent closures and array allocations
-          const filteredDetails: EncounterDetail[] = [];
+          const missingTools = new Set<string>();
+          let hasAccessibleMethod = false;
+
           for (let dIdx = 0; dIdx < details.length; dIdx++) {
             const d = details[dIdx];
             if (d) {
-              if (d.method === 'headbutt' && !hasHeadbutt) continue;
-              if (d.method === 'rock-smash' && !hasRockSmash) continue;
-              if (d.method === 'surf' && !hasSurf) continue;
-              if (d.method === 'old-rod' && !hasOldRod) continue;
-              if (d.method === 'good-rod' && !hasGoodRod) continue;
-              if (d.method === 'super-rod' && !hasSuperRod) continue;
-              filteredDetails.push(d);
+              let methodAccessible = true;
+              if (d.method === 'headbutt' && !hasHeadbutt) {
+                methodAccessible = false;
+                missingTools.add('Headbutt');
+              } else if (d.method === 'rock-smash' && !hasRockSmash) {
+                methodAccessible = false;
+                missingTools.add('Rock Smash');
+              } else if (d.method === 'surf' && !hasSurf) {
+                methodAccessible = false;
+                missingTools.add('Surf');
+              } else if (d.method === 'old-rod' && !hasOldRod) {
+                methodAccessible = false;
+                missingTools.add('Old Rod');
+              } else if (d.method === 'good-rod' && !hasGoodRod) {
+                methodAccessible = false;
+                missingTools.add('Good Rod');
+              } else if (d.method === 'super-rod' && !hasSuperRod) {
+                methodAccessible = false;
+                missingTools.add('Super Rod');
+              }
+
+              if (methodAccessible) {
+                hasAccessibleMethod = true;
+              }
             }
           }
-          suggestion.encounterInfo[pid] = filteredDetails;
 
-          if (filteredDetails.length > 0) {
-            hasValidEncounter = true;
-          } else {
-            delete suggestion.encounterInfo[pid];
+          if (!hasAccessibleMethod && missingTools.size > 0) {
+            const warnings = Array.from(missingTools);
+            const warningStr = `Requires ${warnings.join(' or ')}`;
+            if (suggestion.warning) {
+              suggestion.warning += `, ${warningStr}`;
+            } else {
+              suggestion.warning = warningStr;
+            }
+            // Penalize priority since the user lacks the required tools
+            suggestion.priority = Math.min(suggestion.priority, 45);
           }
+
+          hasValidEncounter = true;
         }
       }
 
       // If no valid encounters remain for this suggestion, remove it completely.
+      // (This will only happen if there were actually zero encounter details generated originally)
       if (!hasValidEncounter) {
         suggestions.splice(i, 1);
         // Also remove from localPids so it can be picked up by other suggestions if applicable

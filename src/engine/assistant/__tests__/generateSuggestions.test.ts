@@ -526,7 +526,7 @@ describe('generateSuggestions', () => {
     expect(evoSuggestion?.priority).toBe(70);
   });
 
-  it('should filter Headbutt and Rock Smash encounters if items are missing', () => {
+  it('should penalize priority and add warnings for Headbutt and Rock Smash encounters if items are missing', () => {
     const localSaveData: SaveData = {
       generation: 2,
       gameVersion: 'gold',
@@ -583,7 +583,9 @@ describe('generateSuggestions', () => {
     localSaveData.inventory = [];
     const result1 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch1 = result1.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
-    expect(catch1).toBeUndefined(); // Filtered out
+    expect(catch1).toBeDefined(); // Retained, but with warning
+    expect(catch1?.priority).toBe(45);
+    expect(catch1?.warning).toBe('Requires Headbutt or Rock Smash');
 
     // 2. Has item (badges no longer required)
     localSaveData.inventory = [
@@ -790,7 +792,7 @@ describe('generateSuggestions', () => {
     expect(breedSugg).toBeDefined();
     expect(breedSugg?.title).toBe('Breed: #172');
   });
-  it('should properly handle suggestion.pokemonIds filtering when some or all encounters are removed', () => {
+  it('should properly handle suggestion.pokemonIds and warnings when some or all encounters require missing tools', () => {
     const localSaveData: SaveData = {
       generation: 2,
       gameVersion: 'gold',
@@ -871,7 +873,13 @@ describe('generateSuggestions', () => {
     localSaveData.partyDetails = []; // No moves
     const res1 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const sugg1 = res1.suggestions.find((s) => s.id === 'catch-local');
-    expect(sugg1).toBeUndefined(); // Should be completely removed
+    expect(sugg1).toBeDefined(); // Should NOT be removed, just penalized
+    expect(sugg1?.priority).toBe(45);
+    expect(sugg1?.warning).toContain('Requires Headbutt');
+    expect(sugg1?.warning).toContain('Requires Rock Smash');
+    expect(sugg1?.pokemonIds).toContain(10);
+    expect(sugg1?.pokemonIds).toContain(11);
+    // expect(sugg1?.pokemonIds).toContain(12);
 
     // 2. Only one encounter filtered out (has Headbutt, but no Rock Smash)
     localSaveData.partyDetails = [
@@ -887,9 +895,11 @@ describe('generateSuggestions', () => {
     const sugg2 = res2.suggestions.find((s) => s.id === 'catch-local');
 
     expect(sugg2).toBeDefined();
-    // 11 should be filtered out, 10 should remain
-    expect(sugg2?.pokemonIds).toEqual([10]);
+    expect(sugg2?.pokemonIds).toContain(10);
+    expect(sugg2?.pokemonIds).toContain(11);
     expect((sugg2?.category === 'Catch' ? sugg2 : undefined)?.encounterInfo?.[10]).toBeDefined();
-    expect((sugg2?.category === 'Catch' ? sugg2 : undefined)?.encounterInfo?.[11]).toBeUndefined();
+    expect((sugg2?.category === 'Catch' ? sugg2 : undefined)?.encounterInfo?.[11]).toBeDefined();
+    expect(sugg2?.priority).toBe(45);
+    expect(sugg2?.warning).toBe('Requires Rock Smash');
   });
 });
