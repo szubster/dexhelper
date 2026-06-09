@@ -35,4 +35,5 @@ As defined in the parent Epic, for Unown (`speciesId` 201) in Generation 2, we c
 - **Do not write tests in this story**. Unit tests will be handled in a separate story to encourage granular tasks.
 
 ## Acceptance Criteria
-- [ ] Task created for implementing the unown form parser logic.
+- [x] Task created for implementing the unown form parser logic.
+- [ ] .foundry/tasks/task-095-151-unown-parser-logic-impl.md
