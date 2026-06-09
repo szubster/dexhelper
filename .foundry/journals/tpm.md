@@ -81,3 +81,7 @@
 - **2026-06-08**: PR #2168 merged. `task-090-148-extract-dag-utils-impl` is now COMPLETED.
 
 - **2026-06-08**: PR #2166 merged. `task-090-148-health-scanner-models-impl` is now COMPLETED.
+
+- **2026-06-09**: PR #2163 merged but has unchecked tasks (parent node). `prd-069-038-gen2-daily-events` is now PENDING.
+
+- **2026-06-09**: Resurrection Loop triggered for `task-071-144-visited-routes-checklist-retry-v2-impl`. Reason: PR #2169 closed without merging.. Transitioned back to READY.
