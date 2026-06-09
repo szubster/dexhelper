@@ -2,12 +2,12 @@
 id: prd-070-042-gen3-contest-optimization-advisor
 type: PRD
 title: Gen 3 Contest Optimization Advisor
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-08'
 updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17614109815219284121'
 pr_number: null
 parent: idea-070-gen3-contest-tracker
 tags:
