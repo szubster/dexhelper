@@ -52,7 +52,10 @@ Based on an initial evaluation of the codebase:
 - [ ] Gen 2 and Gen 3 raw map coordinates are translated into recognizable Route names.
 - [ ] A dedicated UI component displays the current location of any active roamers.
 - [ ] The feature only displays roamers that have actually been released in the save file's event flags.
-- [ ] Break down this PRD into Epics.
+- [x] Break down this PRD into Epics.
 
 ## 5. Next Steps
-- [ ] Epic Planner: Break this PRD down into executable Epics (e.g., Engine Parsing, Mapping Translation, UI Dashboard).
+- [x] Epic Planner: Break this PRD down into executable Epics (e.g., Engine Parsing, Mapping Translation, UI Dashboard).
+- [ ] epic-043-067-roamer-data-extraction
+- [ ] epic-043-068-roamer-map-translation
+- [ ] epic-043-069-roamer-radar-ui
