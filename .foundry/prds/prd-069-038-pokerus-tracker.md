@@ -2,12 +2,12 @@
 id: prd-069-038-pokerus-tracker
 type: PRD
 title: Pokerus Tracker PRD
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-05'
-updated_at: '2026-06-07'
+updated_at: '2026-06-08'
 depends_on: []
-jules_session_id: '6690642495306356441'
+jules_session_id: null
 parent: idea-068-069-pokerus-tracker
 rejection_count: 0
 rejection_reason: ''
@@ -23,3 +23,8 @@ Add UI badges indicating Pokerus status (Uninfected, Infected/Contagious, Cured/
 
 ## 3. Spread Planner Epic
 Create a dedicated tool to strategically plan Pokerus spread, suggesting party configurations and warning before a cure.
+
+## Generated Epics
+- [ ] epic-038-061-pokerus-state-exfiltration
+- [ ] epic-038-062-pokerus-visual-tracker
+- [ ] epic-038-063-pokerus-spread-planner

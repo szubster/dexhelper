@@ -5,6 +5,8 @@ import type { EncounterDetail, Suggestion } from '../../engine/assistant/strateg
 import type { SaveData } from '../../engine/saveParser/index';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { CornerCrosshairs } from '../CornerCrosshairs';
+import { HoverScanner } from '../HoverScanner';
+import { LcdGrid } from '../LcdGrid';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
 import { TacticalBadge } from '../TacticalBadge';
 
@@ -56,34 +58,44 @@ export function AssistantSuggestionCard({
       />
 
       <div className="relative z-10 flex h-full flex-col gap-4 p-5">
-        <div className="space-y-3">
+        <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div
-              className={`flex items-center gap-1.5 border border-white/20 px-2 py-1 font-black text-[9px] uppercase tracking-widest ${style.bg} ${style.color.replace('border-', 'text-')} shadow-sm backdrop-blur-md`}
+              className={`flex items-center gap-1.5 border border-white/20 border-dashed px-2 py-1 font-black text-[9px] uppercase tracking-widest ${style.bg} ${style.color.replace('border-', 'text-')} shadow-sm backdrop-blur-md`}
             >
               {style.icon}
               {s.category}
               {showDebug && (
-                <span className="ml-1 border-white/20 border-l pl-1 text-[8px] opacity-70">P: {s.priority}</span>
+                <span className="ml-1 border-white/20 border-l border-dashed pl-1 text-[8px] opacity-70">
+                  P: {s.priority}
+                </span>
               )}
             </div>
             {s.pokemonId && (
-              <div className="flex flex-col items-end">
-                <span className="font-black font-mono text-[8px] text-[var(--theme-primary)] tracking-widest">
-                  [ TARGET ACQUIRED ]
+              <div className="flex items-center gap-2">
+                <span className="flex items-center gap-1 font-black font-mono text-[8px] text-[var(--theme-primary)] tracking-widest">
+                  <span className="h-1.5 w-1.5 animate-pulse bg-[var(--theme-primary)]" />[ TARGET ACQUIRED ]
                 </span>
-                <div className="font-bold font-mono text-[10px] text-zinc-400">
-                  #{s.pokemonId.toString().padStart(3, '0')}
-                </div>
+                <TacticalBadge className="px-1 py-0.5 font-mono text-[10px]">
+                  PT.{s.pokemonId.toString().padStart(3, '0')}
+                </TacticalBadge>
               </div>
             )}
           </div>
 
-          <h3 className={`font-bold text-white leading-tight ${s.category === 'Catch' ? 'text-xl' : 'text-sm'}`}>
-            {title}
-          </h3>
+          <div className="h-px w-full border-zinc-800 border-b border-dashed" />
 
-          <p className="max-w-[95%] font-medium text-xs text-zinc-400 leading-relaxed">{desc}</p>
+          <div className="space-y-2">
+            <h3
+              className={`font-bold font-mono text-white uppercase leading-tight ${s.category === 'Catch' ? 'text-lg' : 'text-sm'}`}
+            >
+              {title}
+            </h3>
+            <p className="max-w-[95%] font-mono text-[10px] text-zinc-400 uppercase leading-relaxed tracking-wide">
+              {desc}
+            </p>
+          </div>
+
           {s.warning && (
             <div className="mt-2 flex w-max items-center gap-1.5 border border-amber-500/30 border-dashed bg-amber-500/10 px-2 py-1">
               <span className="font-black font-mono text-[9px] text-amber-400 uppercase tracking-widest">
@@ -246,8 +258,17 @@ export function AssistantSuggestionCard({
   return (
     <div
       data-testid="assistant-suggestion-card"
-      className={`relative border-2 border-dashed ${isCritical ? 'animate-[pulse_2s_infinite] border-red-500/80' : 'border-zinc-700/80'} group overflow-hidden bg-black/60 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[var(--theme-primary)]/50 ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
+      className={`relative border-2 border-dashed ${isCritical ? 'animate-[pulse_2s_infinite] border-red-500/80' : 'border-zinc-700/80'} group overflow-hidden bg-zinc-950 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[var(--theme-primary)]/50 ${!hasMultiple && s.pokemonId ? 'cursor-pointer' : ''}`}
     >
+      {/* CRT Grid Overlay */}
+      <LcdGrid className="opacity-10" color="var(--theme-primary)" />
+
+      {/* Hover Scanner */}
+      <HoverScanner />
+
+      {/* Left glowing edge */}
+      <div className={`absolute top-0 left-0 h-full w-1 ${style.bg.replace('/10', '/50')}`} />
+
       {/* Tactical Corner Crosshairs */}
       <CornerCrosshairs
         thickness={2}

@@ -21,7 +21,7 @@ export function DagFilterPanel({ activeTypes, activeStatuses, onTypeToggle, onSt
         defaultActiveClassName="border-[var(--theme-primary)] text-[var(--theme-primary)] bg-transparent shadow-none"
         defaultInactiveClassName="border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400"
         selectedValues={activeTypes}
-        onValueToggle={(val) => onTypeToggle(val as string)}
+        onValueToggle={(val) => onTypeToggle(val)}
         items={ALL_TYPES.map((type) => ({
           id: type,
           label: type,
@@ -40,7 +40,7 @@ export function DagFilterPanel({ activeTypes, activeStatuses, onTypeToggle, onSt
         containerClassName="gap-2 [&>div]:flex-wrap [&>div]:gap-2 [&>div]:border-none [&>button]:border"
         buttonBaseClassName="!border-dashed !border focus-visible:ring-[var(--theme-primary)] px-2 py-1 text-xs"
         selectedValues={activeStatuses}
-        onValueToggle={(val) => onStatusToggle(val as string)}
+        onValueToggle={(val) => onStatusToggle(val)}
         items={ALL_STATUSES.map((status) => {
           const isActive = activeStatuses.has(status);
           let activeColorClass = 'border-[var(--theme-primary)] text-[var(--theme-primary)]';
