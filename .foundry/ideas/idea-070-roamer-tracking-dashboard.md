@@ -38,4 +38,5 @@ Leverage DexHelper's ability to parse save files to extract the exact current ma
 This feature eliminates one of the most frustrating and time-consuming mechanics in retro Pokémon games. By turning the opaque mechanic of roaming legendaries into a targeted hunt, DexHelper provides immense value to players striving to complete their Pokédex, further cementing the app as an essential, proactive companion tool.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to evaluate if the roamer tracking logic currently exists in the codebase and define the required UI implementation details.
+- [x] Product Manager: Convert this idea into a PRD to evaluate if the roamer tracking logic currently exists in the codebase and define the required UI implementation details.
+- [ ] .foundry/prds/prd-070-043-roamer-tracking-dashboard.md
