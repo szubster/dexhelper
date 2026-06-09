@@ -2,7 +2,7 @@
 id: research-071-137-tailwind-v4-utilities
 type: RESEARCH
 title: Explore Tailwind v4 APIs and Primitives
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-09'
 updated_at: '2026-06-09'
