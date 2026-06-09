@@ -36,3 +36,6 @@ This Epic corresponds to the first requirement in the Missing Hidden Items Finde
 - [ ] Save parsing engine successfully extracts event flags for Gen 2 hidden items.
 - [ ] Save parsing engine successfully extracts event flags for Gen 3 hidden items.
 - [ ] Appropriate unit tests are added for the save parser extensions.
+- [ ] .foundry/stories/story-058-095-gen1-hidden-item-parsing.md
+- [ ] .foundry/stories/story-058-096-gen2-hidden-item-parsing.md
+- [ ] .foundry/stories/story-058-097-gen3-hidden-item-parsing.md
