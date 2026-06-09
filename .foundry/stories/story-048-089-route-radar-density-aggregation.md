@@ -35,3 +35,7 @@ Implement the data transformation pipeline inside the `RouteRadarController`. It
 - [ ] Ensure the density score correctly maps `areaId`s to their corresponding missing species counts.
 - [ ] Ensure it accurately processes edge cases (e.g., areas with 0 missing encounters should not be present in the output or have a score of 0).
 - [ ] Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
+
+## Generated Tasks
+- [ ] .foundry/tasks/task-089-153-implement-radar-heatmap-logic.md
+- [ ] .foundry/tasks/task-089-154-qa-radar-heatmap-logic.md
