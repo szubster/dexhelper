@@ -2,10 +2,10 @@
 id: task-071-141-visited-routes-checklist-retry-qa
 type: TASK
 title: QA Visited Routes Checklist Retry
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-05-24'
-updated_at: '2026-05-24'
+updated_at: '2026-06-08'
 depends_on:
   - task-071-140-visited-routes-checklist-retry-impl
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - nuzlocke
   - verification
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-071-140-visited-routes-checklist-retry-impl
 notes: ''
 ---
 

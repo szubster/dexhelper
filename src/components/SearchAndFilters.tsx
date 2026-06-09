@@ -1,6 +1,6 @@
 import { Search } from 'lucide-react';
 import { useRef } from 'react';
-import { FILTER_TYPES, useStore } from '../store';
+import { FILTER_TYPES, type FilterType, useStore } from '../store';
 import { LocationSuggestions } from './LocationSuggestions';
 import { TacticalInput } from './TacticalInput';
 import { TacticalMultiSelectControl } from './TacticalMultiSelectControl';
@@ -56,12 +56,12 @@ export function SearchAndFilters() {
           </TacticalInput>
 
           {/* Tactical Filter Toggles Segmented Control */}
-          <TacticalMultiSelectControl
+          <TacticalMultiSelectControl<FilterType>
             ariaLabel="Filter Pokémon"
             legendLabel="[ FILTER_PARAMETERS ]"
             buttonBaseClassName="min-w-[100px]"
             selectedValues={filtersSet}
-            onValueToggle={(f) => toggleFilter(f as (typeof FILTER_TYPES)[number])}
+            onValueToggle={(f) => toggleFilter(f)}
             renderPrefixItem={() => (
               <button
                 type="button"

@@ -21,4 +21,14 @@ describe('TacticalSelect', () => {
     );
     await expect.element(page.getByRole('combobox')).toHaveClass(/custom-class/);
   });
+
+  test('applies containerClassName to wrapper', async () => {
+    const { container } = await render(
+      <TacticalSelect containerClassName="wrapper-class">
+        <option value="1">Option 1</option>
+      </TacticalSelect>,
+    );
+    // The select is now wrapped in a div with the container class
+    expect(container.querySelector('.wrapper-class')).not.toBeNull();
+  });
 });

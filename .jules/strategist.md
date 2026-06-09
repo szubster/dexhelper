@@ -189,8 +189,29 @@
 **Why:** The Auditor journal showed that macro nodes (e.g. PRDs) were transitioning to VERIFYING prematurely when their immediate Acceptance Criteria (spawning child nodes) were met, leading to false progress signaling. Product Manager missed this explicit rule which the other planners already had. Auditor also needed explicit instructions to enforce this constraint.
 **Pattern:** Ensure all persona prompts involved in macroscopic planning (IDEA, PRD, EPIC, STORY) and auditing explicitly enforce the dependency graph constraint that a parent node must wait for all child execution nodes to finish before it can transition to VERIFYING or COMPLETED.
 
+## 2026-06-07 - [Accepted] - Prompt improvement - Ensure QA checks off acceptance criteria for reawakened tasks
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The QA journal identified an issue where cancelled or replaced tasks reawaken in the DAG because their previous dependency finished triggering the Empty PR flow. The QA agent needs explicit instructions to check off the acceptance criteria for these nodes and submit an Empty PR so the node gracefully exits the DAG to COMPLETED.
+**Pattern:** When an execution node must gracefully exit the DAG despite no real work being needed (like replaced or cancelled tasks), the agent responsible MUST check off the markdown Acceptance Criteria boxes so the node can safely pass validation under ADR 007.
+## 2026-07-10 - [Accepted] - Prompt improvement - Prevent Auditor from modifying YAML frontmatter
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The memory requires that when the Auditor persona fails a node verification, it must not modify the YAML frontmatter to set `status: FAILED`. Instead, it must uncheck the relevant Acceptance Criteria box and append an `### Auditor Rejection` section in the markdown body explaining the failure.
+**Pattern:** Ensure agent prompts respect the CRITICAL RULE against modifying node YAML when verifying implementations.
 ## 2026-07-10 - [Accepted] - Prompt improvement - Require Strategist to read core policies and ADRs
 **Type:** Prompt improvement
 **Outcome:** Merged
 **Why:** The Strategist's own prompt lacked instructions to read the centralized `.foundry/docs/knowledge_base/agents/core_policies.md` and `.foundry/docs/adrs/` documents. Without this context, the Strategist could not effectively assess if other agents were violating core policies, and risked proposing duplicate or conflicting rules that were already centralized.
 **Pattern:** Ensure meta-agents that evaluate and modify prompts have explicit instructions to read centralized policy and architecture documents so they understand the system's baseline constraints.
+## 2026-06-09 - [Accepted] - Prompt improvement - Enforce unchecked checkboxes for child nodes in Product Manager
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `product_manager.md` journal recorded that when converting IDEA nodes to PRDs, the generated child PRDs were sometimes added as plain text instead of unchecked checkboxes (`- [ ]`). This caused the Orchestrator to assume the parent node had met all its acceptance criteria, prematurely transitioning it to VERIFYING before descendant nodes were actually completed, which led to rejections and violated the DAG constraints.
+**Pattern:** Codify strict orchestrator-level syntax constraints (like using unchecked task checkboxes for child nodes in generation nodes) directly into the agent's prompt to prevent premature verification bugs and DAG desyncs.
+
+## 2026-07-10 - [Accepted] - Prompt improvement - Enforce Node ID strictness for planners
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The coder journal highlighted a regression (`2026-05-31: Foundry DAG ID Strictness`) where using `.md` extensions or full file paths in the `depends_on` or `parent` fields causes the orchestrator to fail to resolve the dependency graph. The TPM agent prompt already had a rule for Node IDs, but the agents responsible for creating the nodes initially (Product Manager, Epic Planner, Story Owner, Tech Lead) were not explicitly warned.
+**Pattern:** When a critical schema constraint is identified (like Node IDs vs file paths in frontmatter), codify it across all relevant upstream generative personas, not just the downstream maintenance ones, to prevent the issue at the source.

@@ -19,3 +19,8 @@ When utilizing advanced serializers with object structure deduplication (like `m
 
 ## 2026-05-22
 Anomaly detected: Assigned to node `prd-063-034-permanent-failure-dashboard` despite Architects being forbidden from owning PRDs (`rejection_reason: Invalid owner_persona mapping`). I fulfilled the task constraints (creating the requested ADR and updating schema.md) and checked off the task in the PRD, but I am unable to change the invalid `owner_persona` mapping in the frontmatter due to core rules. This node will likely need to be re-assigned or recreated by the PM.
+
+## 2026-06-07: Feebas Route 119 Visualization Architecture (ADR 020)
+**Context:** Implemented an ADR for rendering the Feebas tile locations in Gen 3 (Ruby, Sapphire, Emerald).
+**Learning:** Separating the complex mathematics (LCG PRNG logic) used to calculate the 6 tiles based on the save file seed from the React UI representation is critical. This enforces testability and allows the `PokemonLocations` component to simply render an array of coordinates without knowing about memory offsets or game-specific PRNG nuances.
+**Impact:** Re-affirmed our commitment to a pure decoupled state/UI model, particularly necessary for the incredibly esoteric logic of Gen 3 hidden mechanics.

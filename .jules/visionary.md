@@ -65,3 +65,8 @@
 ## 2026-06-08
 **Idea:** Roaming Pokémon Tracking Dashboard
 **Learning:** Gen 2 and Gen 3 feature "roaming" legendary Pokémon (like Entei, Raikou, Latios, Latias) whose locations change randomly as the player moves between routes. Tracking them is notoriously frustrating without external tools or constantly checking the Pokédex (if even seen yet). Since DexHelper already parses save state, we can extract the exact map coordinates of roaming Pokémon and display them on our map, turning one of the most tedious mechanics in retro Pokémon into a straightforward, predictable hunt. This perfectly leverages our core strength of surfacing hidden global state.
+**Outcome:** Created IDEA node.
+
+**Idea:** Gen 3 Contest Stat and Ribbon Tracker
+**Learning:** Expanding Gen 3 support by surfacing hidden endgame stats (Condition/Sheen) and aggregating tedious-to-check completion marks (Ribbons) across the entire PC perfectly targets the hardcore completionist community, providing immense utility that the in-game UI lacks.
+**Outcome:** Created IDEA node.
