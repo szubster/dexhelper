@@ -107,6 +107,25 @@ function sortObj(obj: any, order: string[]): any {
 /**
  * Orchestrates the full Extract, Transform, Load (ETL) pipeline for static game data.
  *
+ * **Architecture Overview**
+ * This script is the core data pipeline for DexHelper. It fetches raw game data from
+ * the PokeAPI repository, transforms it to match our highly optimized internal schemas,
+ * maps encounters to exact decompiled ROM Map IDs, and generates the graph distance matrix.
+ *
+ * **Inputs:**
+ * - Remote GitHub Repository: `PokeAPI/api-data` (cloned locally to `scratch/temp_pokeapi/data/api/v2`).
+ *   This provides the raw JSON files for encounters, locations, pokemon, and evolution chains.
+ * - Local Mapping Files: `scripts/data/gen1/mapping.ts`, `scripts/data/gen2/mapping.ts`,
+ *   and `scripts/data/gen3/mapping.ts`. These provide the crucial link between generic
+ *   PokeAPI area IDs and actual Game Boy ROM Map IDs (extracted from `pret` decompilations).
+ *
+ * **Outputs:**
+ * - `.jsonl` files generated in the `data/db/` directory:
+ *   - `pokemon.jsonl`: Core stats, types, and Dex IDs.
+ *   - `encounters.jsonl`: Locations where Pokémon can be caught, including version exclusives.
+ *   - `locations.jsonl`: The unified map graph, complete with Floyd-Warshall precomputed distances.
+ *   - `evolutions.jsonl`: The parsed evolution chains for all supported generations.
+ *
  * **Why this exists:**
  * The application relies on massive datasets (all Pokémon, stats, encounters, and evolutions).
  * Shipping this data raw to the browser or querying it live via HTTP would be too slow.
@@ -244,6 +263,11 @@ async function main() {
             const locData = readJson(path.join(dataPath, `location/${lid}/index.json`));
             if (locData) {
               let connections: number[] | undefined = undefined;
+
+              // Map connections (edges) based on generation structure.
+              // Gen 1: IDs are simple 8-bit integers (0-255).
+              // Gen 3: IDs are encoded as (3 << 16) | (group << 8) | id.
+              // Gen 2: IDs are encoded as (group << 8) | id.
               if (gameId < 256) {
                 connections = GEN1_MAPS[gameId]?.connections;
               } else if ((gameId >> 16) === 3) {
