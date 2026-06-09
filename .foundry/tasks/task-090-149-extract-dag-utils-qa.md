@@ -33,10 +33,10 @@ This task requires verifying the DAG utility extraction implemented in `.foundry
 - Verify that `.github/scripts/foundry-orchestrator.ts` and `.github/scripts/foundry-heartbeat.ts` successfully import and use these utilities.
 
 ## Acceptance Criteria
-- [ ] `dag-utils.ts` is verified to contain extracted functions.
-- [ ] `dag-utils.test.ts` is verified to test the logic correctly.
-- [ ] All orchestrator script tests pass without issue.
-- [ ] Old implementations of the utility functions are removed from their original files.
+- [x] `dag-utils.ts` is verified to contain extracted functions.
+- [x] `dag-utils.test.ts` is verified to test the logic correctly.
+- [x] All orchestrator script tests pass without issue.
+- [x] Old implementations of the utility functions are removed from their original files.
 
 **Important Instructions:**
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
