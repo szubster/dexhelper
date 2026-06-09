@@ -57,3 +57,6 @@
 
 ## Data Integrity - Gen 3 Exclusives
 * **Data Pipeline Gotchas:** The Gen 3 version exclusives list for FireRed and LeafGreen was inaccurate because it improperly tracked Pokémon lines that cannot be naturally encountered but are still completely exclusive due to evolution chains (like Bellossom, Scizor, and babies like Elekid). Exclusivity must be evaluated on the entire evolutionary line, not just wild encounters. Additionally, the Machop evolution line is obtainable in both FireRed and LeafGreen and must not be marked as a version exclusive.
+
+## Data Integrity - Gen 3 Exclusives
+* **Data Pipeline Gotchas:** In version-exclusive logic (`src/engine/exclusives/*`), Pokémon are NOT considered unobtainable/exclusive if any pre-evolution in their family is catchable natively in that version (e.g., Dusclops is obtainable in Emerald because Duskull is available natively).
