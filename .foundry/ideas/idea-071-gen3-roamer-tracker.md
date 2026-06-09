@@ -37,4 +37,6 @@ Leverage DexHelper's programmatic save parsing to extract the hidden data struct
 This feature perfectly aligns with DexHelper's vision as a premium companion app by surfacing critical hidden state. It directly prevents hours of wasted effort caused by obscure retro game mechanics and engine glitches, providing immense utility for shiny hunters, completionists, and competitive players.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to detail the save offsets required for extracting the roamer data structure across different Gen 3 versions.
+- [x] Product Manager: Convert this idea into a PRD to detail the save offsets required for extracting the roamer data structure across different Gen 3 versions.
+- [ ] .foundry/prds/prd-071-044-gen3-roamer-tracker.md
+- [ ] .foundry/research/research-071-138-gen3-roamer-offsets.md
