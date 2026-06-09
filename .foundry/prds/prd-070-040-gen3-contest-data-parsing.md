@@ -49,3 +49,7 @@ As part of the Gen 3 Contest Stat and Ribbon Tracker feature, DexHelper needs th
 - [ ] Graceful error handling for corrupted or incomplete save segments is implemented.
 - [ ] All existing Gen 1 and Gen 2 save parsing tests pass without modification.
 - [ ] New unit tests confirm accurate extraction of contest data from known Gen 3 save file fixtures.
+
+### Epic Breakdown
+- [ ] `epic-040-064-gen3-contest-data-extraction`
+- [ ] `epic-040-065-gen3-contest-data-integration`
