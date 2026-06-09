@@ -32,4 +32,5 @@ Leverage the save parser to read the Hall of Fame data blocks in Gen 1 and Gen 2
 This transforms DexHelper from a personal utility into a social sharing tool. By automating the creation of beautiful team summaries, we provide immediate value to the large community of challenge runners who want to showcase their achievements, driving organic growth and visibility for the app.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD detailing the required save file offsets for Hall of Fame records and the UI requirements for the certificate generator.
+- [x] Product Manager: Convert this idea into a PRD detailing the required save file offsets for Hall of Fame records and the UI requirements for the certificate generator.
+- [ ] .foundry/prds/prd-070-044-hall-of-fame-exporter.md
