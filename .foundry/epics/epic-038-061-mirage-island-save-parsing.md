@@ -32,4 +32,6 @@ As defined in PRD `prd-068-038-mirage-island-data-extraction`, we need to implem
 4. **Graceful Error Handling**: Ensure `RangeError` on out-of-bounds reads are explicitly caught and propagated as validation errors (e.g., "Corrupted Save File").
 
 ## Acceptance Criteria
-- [ ] Story Owner: Generate child stories to implement the save file parsing logic and integrate it into the parser engine.
+- [x] Story Owner: Generate child stories to implement the save file parsing logic and integrate it into the parser engine.
+- [ ] story-061-098-locate-mirage-island-data
+- [ ] story-061-099-implement-mirage-island-parser
