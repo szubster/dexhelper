@@ -36,3 +36,8 @@ The parsed application data must include the current Mirage Island value and ide
 - [ ] Cross-reference the random value with Pokémon PIDs.
 - [ ] Add Mirage Island value and matches to parsed application data.
 - [ ] Write unit tests verifying extraction logic and PID matching.
+
+### Implementation Stories
+- [ ] .foundry/stories/story-061-098-parse-mirage-island-value.md
+- [ ] .foundry/stories/story-061-099-extract-pokemon-pids.md
+- [ ] .foundry/stories/story-061-100-mirage-island-cross-reference.md
