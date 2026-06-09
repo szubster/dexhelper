@@ -204,6 +204,11 @@
 **Outcome:** Merged
 **Why:** The Strategist's own prompt lacked instructions to read the centralized `.foundry/docs/knowledge_base/agents/core_policies.md` and `.foundry/docs/adrs/` documents. Without this context, the Strategist could not effectively assess if other agents were violating core policies, and risked proposing duplicate or conflicting rules that were already centralized.
 **Pattern:** Ensure meta-agents that evaluate and modify prompts have explicit instructions to read centralized policy and architecture documents so they understand the system's baseline constraints.
+## 2026-06-09 - [Accepted] - Prompt improvement - Enforce unchecked checkboxes for child nodes in Product Manager
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `product_manager.md` journal recorded that when converting IDEA nodes to PRDs, the generated child PRDs were sometimes added as plain text instead of unchecked checkboxes (`- [ ]`). This caused the Orchestrator to assume the parent node had met all its acceptance criteria, prematurely transitioning it to VERIFYING before descendant nodes were actually completed, which led to rejections and violated the DAG constraints.
+**Pattern:** Codify strict orchestrator-level syntax constraints (like using unchecked task checkboxes for child nodes in generation nodes) directly into the agent's prompt to prevent premature verification bugs and DAG desyncs.
 
 ## 2026-07-10 - [Accepted] - Prompt improvement - Enforce Node ID strictness for planners
 **Type:** Prompt improvement

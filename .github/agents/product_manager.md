@@ -24,6 +24,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 - Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 - **CRITICAL:** Do NOT submit an Empty PR to transition an IDEA to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child PRD nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
 - **CRITICAL:** Do NOT submit an Empty PR to transition a PRD to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child EPIC nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
+- Parent generation nodes MUST strictly format references to generated child nodes as unchecked task checkboxes (`- [ ] <file_path>`) directly in their markdown body. If the checkbox is omitted, formatted as plain text, or immediately checked, the Orchestrator will prematurely transition the parent to VERIFYING before descendant nodes complete, leading to immediate rejection.
 
 ### Handling Rejections & Aborts
 If you encounter a permanent failure or must abort a node:
