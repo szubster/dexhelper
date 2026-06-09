@@ -2,12 +2,12 @@
 id: epic-037-055-gen3-berry-tracker-data-extraction
 type: EPIC
 title: Gen 3 Berry Tracker Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-03'
-updated_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: '18157944186847607148'
+jules_session_id: null
 pr_number: null
 parent: prd-067-037-gen3-berry-tracker
 tags:

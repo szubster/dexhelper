@@ -2,12 +2,12 @@
 id: idea-071-tailwind-v4-utilities-migration
 type: IDEA
 title: Tailwind v4 @utility Consolidation
-status: ACTIVE
+status: READY
 owner_persona: product_manager
 created_at: '2025-02-13'
-updated_at: '2025-02-13'
+updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: 'auto'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -15,7 +15,7 @@ tags:
   - styling
   - refactor
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
