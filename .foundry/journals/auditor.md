@@ -19,3 +19,6 @@ As noted previously, this breaks the dependency graph and the concept of complet
 
 **Recommendation/Learnings:**
 We need to strongly enforce the rule that a macro node (IDEA, PRD, EPIC, STORY) MUST NOT be verified until its *functional requirements* are implemented and merged by its downstream child tasks. Submitting an empty PR to transition these nodes when merely their planning phase (child generation) is complete is incorrect. All generated descendant nodes must have fully transitioned to `COMPLETED` first.
+
+## 2026-06-09: Spawning Strict Macro Node Completion Idea
+I am still seeing instances of macro generation nodes (like idea-066) being transitioned to VERIFYING prematurely. We need strict hierarchical completion enforcement. Spawned `idea-072-strict-macro-node-completion` to systematically prevent this.
