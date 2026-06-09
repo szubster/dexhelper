@@ -35,5 +35,5 @@ Deeply explore Tailwind v4 APIs and primitives to determine the optimal strategy
 - A proposed structure for `src/index.css` to house these new tactical primitives.
 
 ## Tasks
-- [ ] Research the `@utility` directive documentation for Tailwind v4.
-- [ ] Document findings and formulate a concrete strategy for `src/index.css`.
+- [x] Research the `@utility` directive documentation for Tailwind v4.
+- [x] Document findings and formulate a concrete strategy for `src/index.css`.
