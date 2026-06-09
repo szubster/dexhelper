@@ -17,7 +17,7 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: ''
+notes: 'Make sure downstream agents cross reference this with other nodes in foundry and add proper depends_on if needed.'
 ---
 
 # Idea: Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
