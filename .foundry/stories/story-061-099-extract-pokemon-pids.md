@@ -2,7 +2,7 @@
 id: story-061-099-extract-pokemon-pids
 type: STORY
 title: Extract Pokemon PIDs
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-09'

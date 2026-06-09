@@ -16,8 +16,8 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 2
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: story-062-098-gen3-parse-32bit-pv
 type: STORY
 title: Extract full 32-bit PV using DataView API
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-06-09"
-updated_at: "2026-06-09"
+status: READY
+owner_persona: tech_lead
+created_at: '2026-06-09'
+updated_at: '2026-06-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - mirage-island
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Extract full 32-bit PV using DataView API

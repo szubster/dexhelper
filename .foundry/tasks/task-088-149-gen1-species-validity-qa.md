@@ -2,10 +2,10 @@
 id: task-088-149-gen1-species-validity-qa
 type: TASK
 title: QA Gen 1 species validity check
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-04'
-updated_at: '2026-06-04'
+updated_at: '2026-06-09'
 depends_on:
   - .foundry/tasks/task-088-148-gen1-species-validity-impl.md
 jules_session_id: null

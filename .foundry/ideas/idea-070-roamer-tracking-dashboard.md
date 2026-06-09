@@ -2,12 +2,12 @@
 id: idea-070-roamer-tracking-dashboard
 type: IDEA
 title: Roaming Pokémon Tracking Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-08'
 updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: '14871046946683743025'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

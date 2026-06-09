@@ -2,10 +2,10 @@
 id: story-053-091-health-scanner-gen1-checksum-validation
 type: STORY
 title: Implement Gen 1 Checksum Validation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-02'
-updated_at: '2026-06-02'
+updated_at: '2026-06-09'
 depends_on:
   - .foundry/stories/story-053-090-health-scanner-diagnostic-models.md
 jules_session_id: null

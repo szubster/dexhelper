@@ -2,10 +2,10 @@
 id: idea-070-hall-of-fame-exporter
 type: IDEA
 title: Hall of Fame Timeline and Certificate Exporter
-status: PENDING
+status: READY
 owner_persona: product_manager
-created_at: "2026-06-05"
-updated_at: "2026-06-05"
+created_at: '2026-06-05'
+updated_at: '2026-06-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - hall-of-fame
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Idea: Hall of Fame Timeline and Certificate Exporter

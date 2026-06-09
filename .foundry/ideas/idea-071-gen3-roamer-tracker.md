@@ -2,10 +2,10 @@
 id: idea-071-gen3-roamer-tracker
 type: IDEA
 title: Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-05'
-updated_at: '2026-06-05'
+updated_at: '2026-06-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,7 +17,9 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Make sure downstream agents cross reference this with other nodes in foundry and add proper depends_on if needed.'
+notes: >-
+  Make sure downstream agents cross reference this with other nodes in foundry
+  and add proper depends_on if needed.
 ---
 
 # Idea: Gen 3 Roaming Legendary Tracker and IV Glitch Inspector

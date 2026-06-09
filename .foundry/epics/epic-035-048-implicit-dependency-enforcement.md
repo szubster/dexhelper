@@ -2,10 +2,10 @@
 id: epic-035-048-implicit-dependency-enforcement
 type: EPIC
 title: Enforce Implicit Dependency in Orchestrator
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-24'
-updated_at: '2026-05-30'
+updated_at: '2026-06-09'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: story-053-090-extract-dag-utilities
 type: STORY
 title: Extract Shared DAG Utilities
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-02'
-updated_at: '2026-06-06'
+updated_at: '2026-06-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
