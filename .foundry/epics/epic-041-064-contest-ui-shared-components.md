@@ -32,6 +32,11 @@ This epic aims to build the basic foundation blocks for the new Gen 3 Contest Co
 - Develop badge/icon components for rendering individual Ribbons correctly.
 
 ## 3. Acceptance Criteria
-- [ ] Create numerical view components for Cool, Beauty, Cute, Smart, and Tough.
-- [ ] Create a Sheen display component.
-- [ ] Create ribbon display components.
+- [x] Create numerical view components for Cool, Beauty, Cute, Smart, and Tough.
+- [x] Create a Sheen display component.
+- [x] Create ribbon display components.
+
+## 4. Child Nodes
+- [ ] .foundry/stories/story-064-101-contest-condition-stats-ui.md
+- [ ] .foundry/stories/story-064-102-contest-sheen-display-ui.md
+- [ ] .foundry/stories/story-064-103-contest-ribbons-display-ui.md
