@@ -67,3 +67,6 @@
 **Idea:** Gen 3 Contest Stat and Ribbon Tracker
 **Learning:** Expanding Gen 3 support by surfacing hidden endgame stats (Condition/Sheen) and aggregating tedious-to-check completion marks (Ribbons) across the entire PC perfectly targets the hardcore completionist community, providing immense utility that the in-game UI lacks.
 **Outcome:** Created IDEA node.
+## 2026-06-05
+**Idea:** Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
+**Learning:** In Gen 3, tracking roaming legendaries (Latias/Latios) is notoriously frustrating, and the infamous "Roamer IV Glitch" in Ruby/Sapphire/FireRed/LeafGreen permanently ruins their stats upon generation. By surfacing this hidden generation data (current route, nature, and IVs) immediately after the roamer is released, players can decide whether to reset or continue hunting without wasting hours only to discover a glitched, unusable Pokémon. This strongly reinforces the principle of revealing critical hidden state to prevent high-friction, wasted effort in retro games.
