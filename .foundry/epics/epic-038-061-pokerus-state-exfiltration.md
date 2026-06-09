@@ -27,3 +27,5 @@ Read the specific byte flags for Pokerus for every Pokemon in the party and PC f
 
 ## Acceptance Criteria
 - [ ] Extract pokerus data
+- [ ] .foundry/stories/story-061-095-pokerus-byte-parsing.md
+- [ ] .foundry/stories/story-061-096-pokerus-tests.md
