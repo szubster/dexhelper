@@ -2,13 +2,13 @@
 id: task-090-149-extract-dag-utils-qa
 type: TASK
 title: QA DAG Utilities Extraction
-status: PENDING
+status: ACTIVE
 owner_persona: qa
-created_at: "2026-06-04"
-updated_at: "2026-06-04"
+created_at: '2026-06-04'
+updated_at: '2026-06-08'
 depends_on:
   - .foundry/tasks/task-090-148-extract-dag-utils-impl.md
-jules_session_id: null
+jules_session_id: '12075721704780086204'
 pr_number: null
 parent: story-053-090-extract-dag-utilities
 tags:
@@ -17,8 +17,8 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Spawned from story-053-090-extract-dag-utilities"
+rejection_reason: ''
+notes: Spawned from story-053-090-extract-dag-utilities
 ---
 
 # QA DAG Utilities Extraction

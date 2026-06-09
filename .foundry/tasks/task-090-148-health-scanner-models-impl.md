@@ -2,12 +2,12 @@
 id: task-090-148-health-scanner-models-impl
 type: TASK
 title: Health Scanner Models Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-04'
-updated_at: '2026-06-07'
+updated_at: '2026-06-08'
 depends_on: []
-jules_session_id: '10366223918714663239'
+jules_session_id: null
 pr_number: null
 parent: story-053-090-health-scanner-diagnostic-models
 tags:
@@ -34,8 +34,8 @@ Define the following TypeScript interfaces and types, placing them in an appropr
 * Error codes or categories for specific corruption types (Checksum Error, Out of Bounds ID, Impossible Moveset, etc.)
 
 ## Acceptance Criteria
-- [ ] Models are defined in the codebase.
-- [ ] Models properly capture the required structure for Anomaly, Severity, and Location.
+- [x] Models are defined in the codebase.
+- [x] Models properly capture the required structure for Anomaly, Severity, and Location.
 
 ## Reminders
 * If you permanently fail or abort this task, you MUST update the YAML frontmatter to status: FAILED or status: CANCELLED with a rejection_reason.
