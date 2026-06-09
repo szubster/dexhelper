@@ -2,12 +2,12 @@
 id: prd-068-038-mirage-island-data-extraction
 type: PRD
 title: Extract Gen 3 Mirage Island Value
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-04'
-updated_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: '15760875483858750259'
+jules_session_id: null
 pr_number: null
 parent: idea-068-mirage-island-predictor
 tags:

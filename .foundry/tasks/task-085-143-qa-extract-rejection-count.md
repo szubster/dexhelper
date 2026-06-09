@@ -2,13 +2,13 @@
 id: task-085-143-qa-extract-rejection-count
 type: TASK
 title: QA DAG Data Parsing for Rejection Count
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-06-09'
 depends_on:
   - task-085-142-impl-extract-rejection-count
-jules_session_id: '17578172966147140534'
+jules_session_id: null
 pr_number: null
 parent: story-046-085-extract-broadcast-rejection-count
 tags:
@@ -17,7 +17,7 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: story-058-097-gen3-hidden-item-parsing
 type: STORY
 title: Gen 3 Hidden Item Event Flags Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
 jules_session_id: null
 pr_number: null

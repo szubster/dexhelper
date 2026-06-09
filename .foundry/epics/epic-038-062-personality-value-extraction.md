@@ -1,11 +1,11 @@
 ---
 id: epic-038-062-personality-value-extraction
 type: EPIC
-title: "Extract Pokemon Personality Values"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-06-08"
-updated_at: "2026-06-08"
+title: Extract Pokemon Personality Values
+status: READY
+owner_persona: story_owner
+created_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - mirage-island
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Extract Pokemon Personality Values

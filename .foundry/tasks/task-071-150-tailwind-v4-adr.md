@@ -2,7 +2,7 @@
 id: task-071-150-tailwind-v4-adr
 type: TASK
 title: Draft ADR for Tailwind v4 Utilities
-status: PENDING
+status: READY
 owner_persona: architect
 created_at: '2026-06-09'
 updated_at: '2026-06-09'

@@ -2,10 +2,10 @@
 id: prd-070-040-gen3-contest-data-parsing
 type: PRD
 title: Gen 3 Contest Data Parsing
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-08'
-updated_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
 jules_session_id: null
 pr_number: null

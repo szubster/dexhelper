@@ -1,11 +1,11 @@
 ---
 id: epic-038-061-mirage-island-save-parsing
 type: EPIC
-title: "Parse Daily Mirage Island Value"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-06-08"
-updated_at: "2026-06-08"
+title: Parse Daily Mirage Island Value
+status: READY
+owner_persona: story_owner
+created_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - mirage-island
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Parse Daily Mirage Island Value

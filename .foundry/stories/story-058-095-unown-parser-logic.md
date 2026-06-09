@@ -2,10 +2,10 @@
 id: story-058-095-unown-parser-logic
 type: STORY
 title: Unown Form Parser Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
