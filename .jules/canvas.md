@@ -161,3 +161,9 @@
 **Outcome:** Accepted
 **Why:** Brings the Assistant view entirely in line with the terminal scanning and data stream motifs. Eliminates the generic web UI "card" layout by treating smart suggestions like raw intelligence readouts.
 **Pattern:** Apply CRT background grids (`<LcdGrid>`), scanning beam animations (`<HoverScanner>`), and strict uppercase monospace typography to dynamic AI/smart suggestion components, treating them as specialized hardware intelligence readouts instead of generic info cards.
+
+## 2026-07-07 - [Accepted] - 🖼️ Canvas: Tactical Data Node Redesign
+**What:** Redesigned the `DataPoint` component into a "Tactical Data Node". Replaced the simple flex column text pair with a relative container featuring a dashed left border acting as a data pipe, an absolute positioned marker on the border, and fully monospaced uppercase telemetry typography (`text-[9px]` for labels, `text-[11px]` for values).
+**Outcome:** Accepted
+**Why:** Brings the granular data display components in line with the established specialized hardware motif. The previous `DataPoint` was too generic and didn't fit the "snooping" fantasy, whereas the new design looks like individual data nodes connected to a larger telemetry stream.
+**Pattern:** Apply tactical aesthetics (dashed borders acting as connecting lines, absolute positioning markers, tight monospace typography) even to the smallest, most granular data display elements to maintain absolute visual coherence deep within complex data views.
