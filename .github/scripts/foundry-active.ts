@@ -12,6 +12,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
+import { todayISO } from './dag-utils.ts';
 
 const require = createRequire(import.meta.url);
 const matter = require('gray-matter') as typeof import('gray-matter');
@@ -22,14 +23,6 @@ function info(msg: string): void {
 
 function error(msg: string): void {
   process.stderr.write(`[active-transition] ERROR ${msg}\n`);
-}
-
-function todayISO(): string {
-  const d = new Date();
-  const yyyy = d.getFullYear();
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  const dd = String(d.getDate()).padStart(2, '0');
-  return `${yyyy}-${mm}-${dd}`;
 }
 
 export function transitionNodeToActive(repoPath: string, sessionId: string, repoRoot: string): void {

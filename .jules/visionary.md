@@ -62,3 +62,8 @@
 ## 2026-06-02
 **Idea:** Gen 3 Mirage Island Predictor
 **Learning:** Continuing the trend of surfacing hidden global state (like Feebas tiles or daily swarms) and cross-referencing it with the player's large entity datasets (like hundreds of PC Pokémon PIDs), we can eliminate extremely tedious brute-force mechanics. This provides immediate, tangible value that perfectly aligns with our offline-first programmatic parsing strengths.
+**Outcome:** Created IDEA node.
+
+**Idea:** Gen 3 Contest Stat and Ribbon Tracker
+**Learning:** Expanding Gen 3 support by surfacing hidden endgame stats (Condition/Sheen) and aggregating tedious-to-check completion marks (Ribbons) across the entire PC perfectly targets the hardcore completionist community, providing immense utility that the in-game UI lacks.
+**Outcome:** Created IDEA node.

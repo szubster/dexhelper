@@ -50,7 +50,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
 
     for (let i = 0; i < limit; i++) {
       const pokemon = pokemonList[i];
-      if (!pokemon) continue;
+      if (pokemon === undefined || pokemon === null) continue;
 
       // 1. Search term check
       if (term) {

@@ -5,9 +5,9 @@ title: Extract Gen 3 Mirage Island Value
 status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-04'
-updated_at: '2026-06-06'
+updated_at: '2026-06-08'
 depends_on: []
-jules_session_id: '3756888209761673723'
+jules_session_id: '15760875483858750259'
 pr_number: null
 parent: idea-068-mirage-island-predictor
 tags:
@@ -15,7 +15,7 @@ tags:
   - gen3
   - mirage-island
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
