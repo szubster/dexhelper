@@ -35,3 +35,7 @@ This story focuses on the first part of the epic `epic-037-058-hidden-items-save
 - [ ] `SaveData` interface includes `hiddenItemFlags`.
 - [ ] `parseGen1` correctly extracts hidden item event flags.
 - [ ] Unit tests for the Gen 1 save parser are updated and pass.
+
+## Generated Tasks
+- [ ] task-095-151-gen1-hidden-item-parsing-impl
+- [ ] task-095-152-gen1-hidden-item-parsing-qa
