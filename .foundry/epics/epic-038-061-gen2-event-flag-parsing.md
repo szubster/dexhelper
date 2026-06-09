@@ -27,3 +27,8 @@ Develop the core save file parsing engine to extract specific time-gated event f
 ## Acceptance Criteria
 - [ ] Parse event flags indicating completion of daily/weekly events.
 - [ ] Expose this data cleanly to the frontend UI components.
+
+
+### Implementation Tasks
+- [ ] .foundry/stories/story-061-095-gen2-event-flag-extraction.md
+- [ ] .foundry/stories/story-061-096-gen2-event-data-layer.md
