@@ -80,3 +80,6 @@ Critical learnings:
 
 ## 2026-06-05 - Bumped knip to latest
 **Learning:** Evaluated upgrading `knip` to `v6.16.0`. Discovered that the `$schema` URL in `knip.json` also needs to be updated to `@6` to avoid schema validation warnings. Discovered `pnpm knip` failing due to `gh` being used in bash scripts. Fixed this by adding `ignoreBinaries: ["gh"]` to `knip.json`. Also removed an unused barrel file `src/components/run/index.ts` identified by Knip. Finally, the test `AssistantSuggestionCard.test.tsx` needed to have `expect` statements added to satisfy `vitest/expect-expect` rule.
+
+## 2026-06-09 - Fix Biome schema version
+**Learning:** Config drift between `package.json` (`2.4.16`), `biome.yml` (`2.4.15`), and `biome.jsonc` schemas can cause `sort-package-json` or `pnpm lint:package-json` to fail in CI pipelines, as well as lead to config mismatch between local devs and CI runners. Always ensure Biome schema and runner versions are updated in sync when upgrading.
