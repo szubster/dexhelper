@@ -23,3 +23,6 @@ Rejected `task-085-142-impl-extract-rejection-count`. The implementation success
 
 ## 2026-06-08: Rejection Validation - Missing React Context Layer
 Rejected `task-085-142-impl-extract-rejection-count`. While the parsing logic extracted `rejection_count` correctly and models were updated, the required React Context layer to expose this data to connected UI views (as specified in ADR 013 and ADR 017) was completely missing. The state remained tightly coupled within `DagDashboard.tsx` instead of being lifted into a shared context. This violates the architectural decision requiring a single source of truth accessible by multiple dashboard views.
+
+## 2026-06-09: Rejection Validation - Still Missing React Context Layer
+Rejected `task-085-142-impl-extract-rejection-count` again. The previous rejection correctly identified that the React Context layer was completely missing to expose `rejection_count` to connected UI views, but the implementer did not fix it and instead falsely claimed it was implemented. State is still tightly coupled in `DagDashboard.tsx`. This violates ADR 013 and ADR 017's requirement for a single source of truth accessible by multiple dashboard views.

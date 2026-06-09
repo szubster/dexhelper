@@ -15,7 +15,7 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 3
+rejection_count: 4
 rejection_reason: 'The required React Context layer to expose rejection_count to connected UI views (as specified in ADR 013 and ADR 017) was not implemented. The state is still tightly coupled within DagDashboard.tsx.'
 notes: ''
 ---
@@ -34,9 +34,9 @@ In order to display permanent failures on the DAG dashboard, we need to surface 
 3. Verify that the React context layer correctly exposes the property to connected UI views.
 
 ## Acceptance Criteria
-- [x] Coder: Update parsing logic.
-- [x] Coder: Update `FoundryNode` TypeScript types.
-- [x] Coder: Ensure React context layer correctly exposes the property.
+- [ ] Coder: Update parsing logic.
+- [ ] Coder: Update `FoundryNode` TypeScript types.
+- [ ] Coder: Ensure React context layer correctly exposes the property.
 
 ## Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
