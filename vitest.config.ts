@@ -12,7 +12,7 @@ export default defineConfig(async (configEnv) => {
       coverage: {
         provider: 'v8',
         include: ['src/**/*.ts', 'src/**/*.tsx'],
-        exclude: ['**/*.json', '**/*.test.ts', '**/*.test.tsx', 'src/hooks/useFileSyncController.ts', 'src/db/SaveDB.ts', 'src/components/AppHeader.tsx'],
+        exclude: ['**/*.json', '**/*.test.ts', '**/*.test.tsx', 'src/hooks/useFileSyncController.ts', 'src/db/SaveDB.ts', 'src/components/AppHeader.tsx', 'src/components/BottomNav.tsx'],
       },
       reporters: ['default', ['junit', { outputFile: './test-report.junit.xml' }]],
       // Vitest 4 uses 'projects' instead of 'workspace'
@@ -32,7 +32,7 @@ export default defineConfig(async (configEnv) => {
           extends: true,
           test: {
             name: 'browser',
-            include: ['src/components/**/*.test.tsx', 'src/hooks/**/*.test.tsx'],
+            include: ['src/components/**/*.test.tsx', 'src/hooks/**/*.test.tsx', 'src/routes/**/*.test.tsx'],
             exclude: ['tests/e2e/**/*'],
             browser: {
               enabled: true,
