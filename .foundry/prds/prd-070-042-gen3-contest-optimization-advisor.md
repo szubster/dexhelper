@@ -45,3 +45,7 @@ Beyond simply displaying Contest statistics and Ribbons, DexHelper aims to provi
 - [ ] Create UI components to display the recommendations clearly.
 - [ ] Implement warning states for Pokémon with maxed Sheen and suboptimal stats.
 - [ ] Write unit tests verifying the recommendation logic produces expected outcomes for various Nature/Stat combinations.
+
+### Breakdown Tasks
+- [ ] epic-042-064-gen3-contest-advisor-algorithm
+- [ ] epic-042-065-gen3-contest-advisor-ui
