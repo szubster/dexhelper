@@ -31,4 +31,8 @@ As defined in PRD `prd-068-038-mirage-island-data-extraction`, the appearance of
 3. **DataView API**: Comply with ADR 010 by using the `DataView` API for any new PV parsing logic.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Generate child stories to ensure the personality value is correctly extracted and formatted.
+- [x] Story Owner: Generate child stories to ensure the personality value is correctly extracted and formatted.
+
+## Generated Stories
+- [ ] story-062-098-gen3-parse-32bit-pv
+- [ ] story-062-099-gen3-expose-lower-16bit-pv
