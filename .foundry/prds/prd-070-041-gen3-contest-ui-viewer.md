@@ -48,3 +48,8 @@ Following the data extraction phase, DexHelper must present the extracted Gen 3 
 - [ ] Provide filtering/sorting options in the Ribbon Checklist (e.g., sort by missing Ribbons, filter by category).
 - [ ] Ensure rendering performance is maintained when viewing hundreds of Pokémon in the checklist.
 - [ ] Pass visual regression and accessibility checks.
+
+## Generated Epics
+- [ ] .foundry/epics/epic-041-064-contest-ui-shared-components.md
+- [ ] .foundry/epics/epic-041-065-individual-contest-stats-view.md
+- [ ] .foundry/epics/epic-041-066-global-ribbon-checklist-dashboard.md
