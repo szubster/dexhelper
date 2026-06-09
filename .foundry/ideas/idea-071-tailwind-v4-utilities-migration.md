@@ -44,6 +44,10 @@ The eventual implementation must be an incremental migration to avoid breaking c
 This significantly improves DX (Developer Experience) and readability. Components will have drastically shorter `className` attributes, reducing noise while making it much easier to universally adjust the "tactical" aesthetic constraints in a single source of truth (`src/index.css`).
 
 ## Next Steps
-- [ ] Product Manager: Create RESEARCH nodes to deeply explore Tailwind v4 APIs and primitives.
+- [x] Product Manager: Create RESEARCH nodes to deeply explore Tailwind v4 APIs and primitives.
 - [ ] Technical Lead: Based on research findings, draft an ADR outlining the chosen consolidation strategy.
 - [ ] Technical Lead: Outline an incremental migration strategy to update components across `src/components/` without regressions.
+
+- [ ] .foundry/research/research-071-137-tailwind-v4-utilities.md
+- [ ] .foundry/tasks/task-071-150-tailwind-v4-adr.md
+- [ ] .foundry/prds/prd-071-040-tailwind-v4-utilities-migration.md
