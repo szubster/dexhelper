@@ -2,12 +2,12 @@
 id: epic-038-062-personality-value-extraction
 type: EPIC
 title: Extract Pokemon Personality Values
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-08'
 updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1906844815588971971'
 pr_number: null
 parent: prd-068-038-mirage-island-data-extraction
 tags:
