@@ -45,3 +45,5 @@ Derived from `prd-070-042-gen3-contest-optimization-advisor`, this epic focuses 
 - [ ] Create the data structure for Nature-to-Condition mappings.
 - [ ] Implement the core recommendation algorithm function.
 - [ ] Write unit tests to verify the recommendation engine outputs mathematically sound suggestions across various edge cases (e.g., max Sheen, conflicting Natures, all stats equal).
+- [ ] story-064-101-gen3-nature-condition-mapping
+- [ ] story-064-102-gen3-contest-recommendation-algorithm
