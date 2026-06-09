@@ -54,6 +54,7 @@
 - Within the `engine/exclusives/` data domain, the version-specific arrays (e.g., `GEN1_VERSION_EXCLUSIVES`, `GEN2_VERSION_EXCLUSIVES`) store the IDs of Pokémon that are **unobtainable (excluded)** in that game version, rather than the ones exclusively available. This is crucial for verifying data against Bulbapedia.
 ## Data Integrity - Gen 3 Exclusives
 * **Data Pipeline Gotchas:** The Gen 3 version exclusives list for Emerald incorrectly assumed it was just a combination of Ruby and Sapphire exclusives. However, Emerald has its own distinct missing list (Surskit, Masquerain, Meditite, Medicham, Roselia, Zangoose, and Lunatone). Always verify against PokeAPI encounters or canonical sources rather than assuming third versions simply exclude both base version exclusives.
+In the Dexhelper codebase, version-exclusive arrays (such as `GEN2_VERSION_EXCLUSIVES` in `engine/exclusives/`) track the Pokémon that are UNOBTAINABLE (missing) in that specific version, not the Pokémon that are exclusively present.
 
 ## Data Integrity - Gen 3 Exclusives
 * **Data Pipeline Gotchas:** The Gen 3 version exclusives list for FireRed and LeafGreen was inaccurate because it improperly tracked Pokémon lines that cannot be naturally encountered but are still completely exclusive due to evolution chains (like Bellossom, Scizor, and babies like Elekid). Exclusivity must be evaluated on the entire evolutionary line, not just wild encounters. Additionally, the Machop evolution line is obtainable in both FireRed and LeafGreen and must not be marked as a version exclusive.

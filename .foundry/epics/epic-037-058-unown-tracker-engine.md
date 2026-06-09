@@ -2,12 +2,12 @@
 id: epic-037-058-unown-tracker-engine
 type: EPIC
 title: Unown Form Tracker Engine Updates
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-04'
-updated_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: '12160991834065947716'
+jules_session_id: null
 pr_number: null
 parent: prd-068-037-unown-tracker
 tags:
@@ -35,5 +35,7 @@ The parser must append an `unownForm` property (e.g., `'A'`, `'B'`) to the parse
 Requires unit tests verifying the exact bitwise calculation against known DV combinations for Unown forms.
 
 ## Acceptance Criteria
-- [ ] Story for parser logic created.
-- [ ] Story for parser unit tests created.
+- [x] Story for parser logic created.
+- [x] Story for parser unit tests created.
+- [ ] .foundry/stories/story-058-095-unown-parser-logic.md
+- [ ] .foundry/stories/story-058-096-unown-parser-tests.md

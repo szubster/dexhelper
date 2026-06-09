@@ -2,12 +2,12 @@
 id: prd-069-038-mirage-island-predictor
 type: PRD
 title: Gen 3 Mirage Island Predictor PRD
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-04'
-updated_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: '8612990663727416271'
+jules_session_id: null
 pr_number: null
 parent: idea-069-mirage-island-predictor
 tags:
@@ -42,5 +42,8 @@ To ensure granular execution and minimize complexity, this PRD should be broken 
 - **Design Constraints**: Must adhere strictly to the "tactical hardware/snooping" aesthetic (`rounded-none`, dashed borders, monospace fonts) as defined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Epic 1 (Engine Updates) node created.
-- [ ] Epic 2 (UI Updates) node created.
+- [x] Epic 1 (Engine Updates) node created.
+- [x] Epic 2 (UI Updates) node created.
+
+- [ ] .foundry/epics/epic-038-061-mirage-island-engine.md
+- [ ] .foundry/epics/epic-038-062-mirage-island-ui.md

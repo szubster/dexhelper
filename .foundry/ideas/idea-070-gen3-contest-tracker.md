@@ -2,12 +2,12 @@
 id: idea-070-gen3-contest-tracker
 type: IDEA
 title: Gen 3 Contest Stat and Ribbon Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-06'
-updated_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: '3723843092276655015'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -35,4 +35,7 @@ Leverage DexHelper's programmatic save parsing to expose these hidden Contest st
 This caters directly to the hardcore completionist community, transforming an opaque and tedious endgame grind into a highly actionable, data-driven feature. It aligns perfectly with DexHelper's mission to surface hidden state and provide premium companion tools.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to define the data structures needed for parsing Contest stats and Ribbons from Gen 3 save formats.
+- [x] Product Manager: Convert this idea into a PRD to define the data structures needed for parsing Contest stats and Ribbons from Gen 3 save formats.
+- [ ] .foundry/prds/prd-070-040-gen3-contest-data-parsing.md
+- [ ] .foundry/prds/prd-070-041-gen3-contest-ui-viewer.md
+- [ ] .foundry/prds/prd-070-042-gen3-contest-optimization-advisor.md

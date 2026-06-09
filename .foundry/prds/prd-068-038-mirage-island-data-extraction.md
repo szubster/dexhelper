@@ -2,12 +2,12 @@
 id: prd-068-038-mirage-island-data-extraction
 type: PRD
 title: Extract Gen 3 Mirage Island Value
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-04'
-updated_at: '2026-06-08'
+updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: '15760875483858750259'
+jules_session_id: null
 pr_number: null
 parent: idea-068-mirage-island-predictor
 tags:
@@ -37,4 +37,7 @@ As defined in `idea-068-mirage-island-predictor`, we need to implement a predict
 - The parsed value should be included in the unified data payload and must maintain backwards compatibility with Gen 1 and Gen 2 files.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Generate child epics that implement the save file parsing updates and the application state hydration.
+- [x] Epic Planner: Generate child epics that implement the save file parsing updates and the application state hydration.
+- [ ] .foundry/epics/epic-038-061-mirage-island-save-parsing.md
+- [ ] .foundry/epics/epic-038-062-personality-value-extraction.md
+- [ ] .foundry/epics/epic-038-063-mirage-island-data-hydration.md

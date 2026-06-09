@@ -114,3 +114,8 @@ Memoized TacticalCard in StorageGrid.tsx and extracted StorageCard to avoid N+1 
 **What:** Replaced the `.sort()` array closure inside `src/components/AssistantPanel.tsx` that used `order.indexOf()` with a pre-calculated O(1) object lookup outside the component.
 **Why:** Inside a tight render loop or map/reduce/sort operation, calling `['a','b'].indexOf()` allocates an array and executes an `O(N)` scan on every comparison, burning CPU and triggering GC. By creating `const CATEGORY_ORDER = { Catch: 0, Gift: 1 ... }` as a static module-level constant, the lookup drops to `O(1)` without intermediate allocations.
 **Measured Improvement:** In standalone bench, array `.indexOf()` inside sort took ~5.3ms, whereas O(1) object mapping took ~3.8ms per 10k items. On complex assistant screens with 50+ suggestions, this ensures scrolling remains 60fps.
+
+## 2026-06-09 - ⚡ Bolt: Replaced O(N) Array.find calls with O(1) map cache lookup for strategy resolution
+**What:** In `src/engine/assistant/strategies/gen1Strategy.ts`, `resolveMapAid` used `Array.prototype.find()` on the `allLocations` array to resolve maps and parent maps, creating O(N) iterations. Replaced this entirely with `resolveOutdoorMapId` which uses an O(1) map cache internally.
+**Why:** `resolveMapAid` is called during the hot path of query initialization, and `allLocations` is large. Eliminating linear searches here brings `gen1Strategy` in line with `gen2Strategy` and `gen3Strategy`, standardizing behavior while removing a redundant CPU traversal.
+**Measured Improvement:** `Array.find` over hundreds of items takes `O(N)` time, whereas `Map.get()` handles it in `O(1)` time. Memory overhead remains constant as the map cache already existed for graph distance calculations.

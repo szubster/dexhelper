@@ -1,7 +1,7 @@
 import type { UnifiedLocation } from '../../../db/schema';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
-import { getDistanceToMap } from '../../mapGraph/gen1Graph';
+import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen1Graph';
 import type { SaveData } from '../../saveParser/index';
 import type { AssistantStrategy, Suggestion } from './types';
 
@@ -9,19 +9,8 @@ export const gen1Strategy: AssistantStrategy = {
   generation: 1,
 
   resolveMapAid(saveData: SaveData, allLocations: UnifiedLocation[]): number | null {
-    const mapId = saveData.currentMapId;
-
-    // Find location for this mapId
-    const loc = allLocations.find((l) => l.id === mapId);
-    if (!loc) return null;
-
-    // Resolve to parent if it's an indoor location
-    if (loc.prnt !== undefined) {
-      const parent = allLocations.find((p) => p.id === loc.prnt);
-      if (parent) return parent.id;
-    }
-
-    return loc.id;
+    // ⚡ Bolt: Replaced O(N) Array.find() calls with O(1) cached resolveOutdoorMapId for map resolution
+    return resolveOutdoorMapId(allLocations, saveData.currentMapId);
   },
 
   getMapDistance(currentMapId: number, targetAid: number, allLocations: UnifiedLocation[]) {
