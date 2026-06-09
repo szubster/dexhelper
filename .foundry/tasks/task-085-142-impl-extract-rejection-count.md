@@ -2,7 +2,7 @@
 id: task-085-142-impl-extract-rejection-count
 type: TASK
 title: Implement DAG Data Parsing for Rejection Count
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-23'
 updated_at: '2026-06-08'
@@ -15,8 +15,8 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'The required React Context layer to expose rejection_count to connected UI views (as specified in ADR 013 and ADR 017) was not implemented. The state is still tightly coupled within DagDashboard.tsx.'
 notes: ''
 ---
 

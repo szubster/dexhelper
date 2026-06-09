@@ -16,7 +16,7 @@ import { parseSaveFile } from './engine/saveParser/index';
 // ─── Types ───────────────────────────────────────────────────────────
 export type GameVersion = GameVersionType;
 export const FILTER_TYPES = ['secured', 'missing', 'dex-only'] as const;
-type FilterType = (typeof FILTER_TYPES)[number];
+export type FilterType = (typeof FILTER_TYPES)[number];
 export type PokeballType =
   | 'poke'
   | 'great'

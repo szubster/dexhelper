@@ -209,3 +209,9 @@
 **Outcome:** Merged
 **Why:** The `product_manager.md` journal recorded that when converting IDEA nodes to PRDs, the generated child PRDs were sometimes added as plain text instead of unchecked checkboxes (`- [ ]`). This caused the Orchestrator to assume the parent node had met all its acceptance criteria, prematurely transitioning it to VERIFYING before descendant nodes were actually completed, which led to rejections and violated the DAG constraints.
 **Pattern:** Codify strict orchestrator-level syntax constraints (like using unchecked task checkboxes for child nodes in generation nodes) directly into the agent's prompt to prevent premature verification bugs and DAG desyncs.
+
+## 2026-07-10 - [Accepted] - Prompt improvement - Enforce Node ID strictness for planners
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The coder journal highlighted a regression (`2026-05-31: Foundry DAG ID Strictness`) where using `.md` extensions or full file paths in the `depends_on` or `parent` fields causes the orchestrator to fail to resolve the dependency graph. The TPM agent prompt already had a rule for Node IDs, but the agents responsible for creating the nodes initially (Product Manager, Epic Planner, Story Owner, Tech Lead) were not explicitly warned.
+**Pattern:** When a critical schema constraint is identified (like Node IDs vs file paths in frontmatter), codify it across all relevant upstream generative personas, not just the downstream maintenance ones, to prevent the issue at the source.
