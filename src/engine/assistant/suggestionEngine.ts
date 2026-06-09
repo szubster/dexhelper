@@ -988,6 +988,23 @@ export function generateSuggestions(
     (saveData.pcItems?.some((i) => i.id === 198 && i.quantity > 0) ?? false) ||
     allInstances.some((p) => p.moves?.includes(249));
 
+  const hasSurf =
+    saveData.inventory.some((i) => [198, 245, 341].includes(i.id) && i.quantity > 0) ||
+    (saveData.pcItems?.some((i) => [198, 245, 341].includes(i.id) && i.quantity > 0) ?? false) ||
+    allInstances.some((p) => p.moves?.includes(57));
+
+  const hasOldRod =
+    saveData.inventory.some((i) => [52, 69, 260].includes(i.id) && i.quantity > 0) ||
+    (saveData.pcItems?.some((i) => [52, 69, 260].includes(i.id) && i.quantity > 0) ?? false);
+
+  const hasGoodRod =
+    saveData.inventory.some((i) => [53, 70, 261].includes(i.id) && i.quantity > 0) ||
+    (saveData.pcItems?.some((i) => [53, 70, 261].includes(i.id) && i.quantity > 0) ?? false);
+
+  const hasSuperRod =
+    saveData.inventory.some((i) => [54, 71, 262].includes(i.id) && i.quantity > 0) ||
+    (saveData.pcItems?.some((i) => [54, 71, 262].includes(i.id) && i.quantity > 0) ?? false);
+
   generateCatchSuggestions(
     apiData,
     displayVersionId,
@@ -1018,6 +1035,10 @@ export function generateSuggestions(
             if (d) {
               if (d.method === 'headbutt' && !hasHeadbutt) continue;
               if (d.method === 'rock-smash' && !hasRockSmash) continue;
+              if (d.method === 'surf' && !hasSurf) continue;
+              if (d.method === 'old-rod' && !hasOldRod) continue;
+              if (d.method === 'good-rod' && !hasGoodRod) continue;
+              if (d.method === 'super-rod' && !hasSuperRod) continue;
               filteredDetails.push(d);
             }
           }

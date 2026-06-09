@@ -283,6 +283,187 @@ describe('Catch Encounter Filtering', () => {
     expect(catchLocal?.encounterInfo?.[17]).toBeUndefined();
   });
 
+  it('filters out surf encounters if player lacks the HM and move', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16],
+          priority: 120,
+          encounterInfo: {
+            16: [
+              {
+                method: 'surf',
+                minLevel: 10,
+                maxLevel: 10,
+                chance: 50,
+                aid: 1,
+              },
+            ],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16]),
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    expect(suggestions.find((s) => s.id === 'catch-local')).toBeUndefined();
+  });
+
+  it('retains surf encounters if player has the HM in inventory', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16],
+          priority: 120,
+          encounterInfo: {
+            16: [
+              {
+                method: 'surf',
+                minLevel: 10,
+                maxLevel: 10,
+                chance: 50,
+                aid: 1,
+              },
+            ],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16]),
+      // biome-ignore lint/suspicious/noExplicitAny: Required for mock data overrides
+      inventory: [{ id: 245, quantity: 1 } as any],
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
+    expect(catchLocal).toBeDefined();
+    expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
+  });
+
+  it('retains surf encounters if a pokemon in party has the move', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16],
+          priority: 120,
+          encounterInfo: {
+            16: [
+              {
+                method: 'surf',
+                minLevel: 10,
+                maxLevel: 10,
+                chance: 50,
+                aid: 1,
+              },
+            ],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16]),
+      partyDetails: [
+        { speciesId: 1, level: 10, otName: 'ASH', isShiny: false, moves: [57], storageLocation: 'party' },
+      ] as unknown as PokemonInstance[],
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
+    expect(catchLocal).toBeDefined();
+    expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
+  });
+
+  it('filters out rod encounters if player lacks the Rod item', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16, 17, 18],
+          priority: 120,
+          encounterInfo: {
+            16: [{ method: 'old-rod', minLevel: 10, maxLevel: 10, chance: 50, aid: 1 }],
+            17: [{ method: 'good-rod', minLevel: 10, maxLevel: 10, chance: 50, aid: 1 }],
+            18: [{ method: 'super-rod', minLevel: 10, maxLevel: 10, chance: 50, aid: 1 }],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16, 17, 18]),
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    expect(suggestions.find((s) => s.id === 'catch-local')).toBeUndefined();
+  });
+
+  it('retains rod encounters if player has the correct rod in inventory', () => {
+    const mockStrategyWithCatch: AssistantStrategy = {
+      ...mockStrategy,
+      getSpecialSuggestions: () => [
+        {
+          id: 'catch-local',
+          category: 'Catch',
+          title: 'Catch Right Here',
+          description: '...',
+          pokemonIds: [16, 17, 18],
+          priority: 120,
+          encounterInfo: {
+            16: [{ method: 'old-rod', minLevel: 10, maxLevel: 10, chance: 50, aid: 1 }],
+            17: [{ method: 'good-rod', minLevel: 10, maxLevel: 10, chance: 50, aid: 1 }],
+            18: [{ method: 'super-rod', minLevel: 10, maxLevel: 10, chance: 50, aid: 1 }],
+          },
+        } as unknown as CatchSuggestion,
+      ],
+    };
+
+    const saveData = createMockSaveData({
+      owned: new Set([16, 17, 18]),
+      inventory: [
+        { id: 69, quantity: 1 }, // Old Rod (Gen 2)
+        { id: 70, quantity: 1 }, // Good Rod (Gen 2)
+        { id: 71, quantity: 1 }, // Super Rod (Gen 2)
+      ],
+    });
+    const apiData = createMockApiData();
+
+    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
+    expect(catchLocal).toBeDefined();
+    expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
+    expect(catchLocal?.encounterInfo?.[17]).toHaveLength(1);
+    expect(catchLocal?.encounterInfo?.[18]).toHaveLength(1);
+  });
+
   describe('Edge cases', () => {
     it('handles filtering when encounterInfo details contains undefined elements', () => {
       const mockStrategyWithCatch: AssistantStrategy = {
