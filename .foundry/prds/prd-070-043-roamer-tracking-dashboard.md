@@ -2,12 +2,12 @@
 id: prd-070-043-roamer-tracking-dashboard
 type: PRD
 title: Roamer Tracking Dashboard PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-09'
 updated_at: '2026-06-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7664086471755076321'
 pr_number: null
 parent: idea-070-roamer-tracking-dashboard
 tags:
