@@ -6,6 +6,7 @@ import { gen1Strategy } from './gen1Strategy';
 
 // Mock the dependencies
 vi.mock('../../mapGraph/gen1Graph', () => ({
+  resolveOutdoorMapId: vi.fn<(allLocations: UnifiedLocation[], id: number) => number>((_, id) => id),
   getDistanceToMap: vi
     .fn<() => { distance: number; name: string }>()
     .mockReturnValue({ distance: 5, name: 'Mocked Target' }),
@@ -15,6 +16,8 @@ vi.mock('../../exclusives/gen1Exclusives', () => ({
   getUnobtainableReason: vi.fn<() => string>().mockReturnValue('Mocked Reason'),
 }));
 
+import { resolveOutdoorMapId } from '../../mapGraph/gen1Graph';
+
 describe('gen1Strategy', () => {
   describe('generation', () => {
     it('is generation 1', () => {
@@ -23,30 +26,12 @@ describe('gen1Strategy', () => {
   });
 
   describe('resolveMapAid', () => {
-    const mockLocations: UnifiedLocation[] = [
-      { id: 1, n: 'Pallet Town' },
-      { id: 2, n: "Red's House 1F", prnt: 1 },
-      { id: 3, n: 'Unknown Indoor House', prnt: 999 },
-    ];
-
-    it('returns null if location is not found', () => {
-      const mockSave = { currentMapId: 999 } as SaveData;
-      expect(gen1Strategy.resolveMapAid(mockSave, mockLocations)).toBeNull();
-    });
-
-    it('returns the location id if it is an outdoor location (no prnt)', () => {
-      const mockSave = { currentMapId: 1 } as SaveData;
-      expect(gen1Strategy.resolveMapAid(mockSave, mockLocations)).toBe(1);
-    });
-
-    it('returns the parent location id if it is an indoor location (has prnt)', () => {
-      const mockSave = { currentMapId: 2 } as SaveData;
-      expect(gen1Strategy.resolveMapAid(mockSave, mockLocations)).toBe(1);
-    });
-
-    it('returns the location id if it is an indoor location but parent is not found', () => {
-      const mockSave = { currentMapId: 3 } as SaveData;
-      expect(gen1Strategy.resolveMapAid(mockSave, mockLocations)).toBe(3);
+    it('delegates resolveMapAid to resolveOutdoorMapId', () => {
+      const mockLocations: UnifiedLocation[] = [];
+      const mockSave = { currentMapId: 0x0306 } as SaveData;
+      const result = gen1Strategy.resolveMapAid(mockSave, mockLocations);
+      expect(resolveOutdoorMapId).toHaveBeenCalledWith(mockLocations, 0x0306);
+      expect(result).toBe(0x0306);
     });
   });
 
