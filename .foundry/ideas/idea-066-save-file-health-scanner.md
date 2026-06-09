@@ -44,4 +44,4 @@ This feature pivots DexHelper from just a tracking tool into a critical utility 
 - [ ] `.foundry/prds/prd-066-036-save-file-health-scanner.md`
 
 ### Auditor Rejection
-The generated PRD (`prd-066-036-save-file-health-scanner.md`) is still in the `PENDING` state. Macro nodes MUST NOT be verified or completed until all generated descendant nodes (the PRD, Epics, Stories, Tasks) have fully transitioned to `COMPLETED`. Do not submit this IDEA node for verification until its functional requirements have been fully implemented by the downstream pipeline.
+The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. I have spawned a new node `.foundry/ideas/idea-072-strict-macro-node-completion.md` to address this recurring systemic issue.
