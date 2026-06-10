@@ -2,12 +2,12 @@
 id: idea-073-refactor-dag-dashboard-context
 type: IDEA
 title: Refactor DagDashboard to use React Context (ADR 013/017)
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-06-10'
 updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13017891390830623794'
 tags:
   - architecture
   - ui
