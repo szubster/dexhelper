@@ -32,4 +32,7 @@ Determine the current map group and map number of the roaming Pokémon from the 
 - [ ] Parse the roamer's current location index from the save file.
 - [ ] Map the location index to the correct route or area in the application.
 - [ ] Integrate this location data with the Route Radar map display.
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Break down this Epic into executable Stories.
+- [ ] .foundry/stories/story-072-108-gen3-roamer-location-extraction.md
+- [ ] .foundry/stories/story-072-109-gen3-roamer-location-mapping.md
+- [ ] .foundry/stories/story-072-110-gen3-roamer-route-radar-ui.md
