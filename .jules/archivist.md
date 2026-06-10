@@ -52,3 +52,7 @@
 ## 2026-05-25 - Archivist Run Learnings
 **Learning:** Agents frequently append "correction" or "update" entries to their journals instead of modifying the original entry, leading to contradictions and bloat.
 **Action:** Replaced and consolidated contradictory/duplicate entries. Agents must be reminded to rewrite/update existing learnings rather than appending corrections.
+
+## 2026-06-10 - Archivist Run Learnings
+**Learning:** The TPM journal (`.foundry/journals/tpm.md`) was accumulating routine task verifications and state transitions instead of critical learnings.
+**Action:** Cleared out the transient status updates from the TPM journal to conserve context, as per the policy against logging routine actions.
