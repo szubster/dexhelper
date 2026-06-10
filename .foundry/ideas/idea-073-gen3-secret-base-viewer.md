@@ -35,4 +35,5 @@ Leverage DexHelper's programmatic save parsing to expose hidden Secret Base and 
 This transforms a highly opaque, easily-forgotten social feature into an actionable endgame utility. By revealing hidden state about where bases are located and what teams they contain, players can optimize their daily training routines and fully utilize the mixed record feature without manually checking dozens of potential Secret Base locations across Hoenn. This perfectly aligns with our vision of being a premium, intelligent companion app.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to define the data structures and save file offsets needed for parsing Secret Base and Mixed Record data in Gen 3.
+- [x] Product Manager: Convert this idea into a PRD to define the data structures and save file offsets needed for parsing Secret Base and Mixed Record data in Gen 3.
+- [ ] .foundry/prds/prd-073-045-gen3-secret-base-viewer.md
