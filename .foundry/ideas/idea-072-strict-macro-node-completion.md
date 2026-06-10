@@ -28,4 +28,5 @@ I am still seeing instances where macro generation nodes (like `IDEA` or `PRD` n
 We need to strongly enforce the rule that a macro node (IDEA, PRD, EPIC, STORY) MUST NOT be verified until its *functional requirements* are implemented and merged by its downstream child tasks. All generated descendant nodes must have fully transitioned to `COMPLETED` first before the parent can be transitioned to `COMPLETED`.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+- [ ] .foundry/prds/prd-072-045-strict-macro-node-completion.md
