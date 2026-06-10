@@ -2,12 +2,12 @@
 id: story-061-099-extract-pokemon-pids
 type: STORY
 title: Extract Pokemon PIDs
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3254474542916920523'
 pr_number: null
 parent: epic-038-061-mirage-island-engine
 tags:
