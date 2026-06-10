@@ -2,12 +2,12 @@
 id: story-064-101-contest-condition-stats-ui
 type: STORY
 title: Contest Condition Stats UI Component
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3612742036789070596'
 pr_number: null
 parent: epic-041-064-contest-ui-shared-components
 tags:
