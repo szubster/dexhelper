@@ -3,7 +3,7 @@ id: prd-073-045-gen3-secret-base-viewer
 type: PRD
 title: "Gen 3 Secret Base and Mixed Record Viewer"
 status: PENDING
-owner_persona: architect
+owner_persona: epic_planner
 created_at: "2026-06-10"
 updated_at: "2026-06-10"
 depends_on: []
