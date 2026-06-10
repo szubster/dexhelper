@@ -45,3 +45,6 @@ This feature pivots DexHelper from just a tracking tool into a critical utility 
 
 ### Auditor Rejection
 The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. I have spawned a new node `.foundry/ideas/idea-072-strict-macro-node-completion.md` to address this recurring systemic issue.
+
+### Auditor Rejection (Attempt 3)
+The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. The resurrection loop continues to fail because agents are resubmitting without waiting. We must wait for the implementation of IDEA-072 (Strict Macro Node Completion Enforcement).
