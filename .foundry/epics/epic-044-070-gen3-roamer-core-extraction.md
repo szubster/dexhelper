@@ -31,4 +31,6 @@ Based on the research, the roamer data structure contains critical information s
 ## Acceptance Criteria
 - [ ] Implement robust `DataView` parsing logic to extract the roamer data structure.
 - [ ] Correctly parse IVs, HP, Level, and Status Condition from the raw bytes.
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Break down this Epic into executable Stories.
+- [ ] .foundry/stories/story-070-108-gen3-roamer-dataview-extraction.md
+- [ ] .foundry/stories/story-070-109-gen3-roamer-status-parsing.md
