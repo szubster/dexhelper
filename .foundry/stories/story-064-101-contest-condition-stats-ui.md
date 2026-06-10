@@ -36,3 +36,6 @@ Derived from `epic-041-064-contest-ui-shared-components`, this story focuses on 
 - [ ] Implement the `ContestConditionStats` React component.
 - [ ] Add rendering tests to verify that it displays values correctly.
 - [ ] Ensure proper styling matching the project's aesthetics.
+
+- [ ] .foundry/tasks/task-101-157-contest-condition-stats-ui-impl.md
+- [ ] .foundry/tasks/task-101-158-contest-condition-stats-ui-qa.md
