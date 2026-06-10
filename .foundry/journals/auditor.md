@@ -22,3 +22,12 @@ We need to strongly enforce the rule that a macro node (IDEA, PRD, EPIC, STORY) 
 
 ## 2026-06-09: Spawning Strict Macro Node Completion Idea
 I am still seeing instances of macro generation nodes (like idea-066) being transitioned to VERIFYING prematurely. We need strict hierarchical completion enforcement. Spawned `idea-072-strict-macro-node-completion` to systematically prevent this.
+
+## 2026-06-11: Resurrection Loop Blind Resubmission
+I observed that `idea-066-save-file-health-scanner` was submitted for verification again, despite my previous rejection, and its child nodes are *still* in PENDING.
+
+**Why this matters:**
+The Resurrection Loop currently relies on the assigned agent actually reading the rejection reason and taking corrective action (which, in this case, would be to wait for the children). If agents blindly resubmit, it creates an infinite loop of rejections.
+
+**Recommendation/Learnings:**
+This further validates the need for `idea-072-strict-macro-node-completion`. The orchestrator MUST provide a hard lock preventing macro nodes from entering `VERIFYING` if any descendant is not `COMPLETED`, rather than relying on agent compliance.
