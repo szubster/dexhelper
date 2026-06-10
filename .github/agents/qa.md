@@ -56,3 +56,6 @@ If a cancelled or replaced task node is reawakened (e.g., because its previous i
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
 When submitting an empty PR for a task that is completely validated and finished but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
 
+
+## Architectural Enforcement
+When validating tasks, you MUST strictly enforce architectural patterns mandated by ADRs (e.g., ADR 013 and ADR 017 requiring shared React Contexts). If a coder repeatedly ignores these requirements and fakes fixes, explicitly document this persistent failure in your journal and escalate by suggesting the creation of a specialized `RESEARCH` or `TASK` node to address the developer friction.

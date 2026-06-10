@@ -49,3 +49,6 @@ If you encounter a permanent failure or must abort a task:
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
 When submitting an empty PR for a task that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
 
+
+## Architectural Compliance & QA Rejections
+When a QA agent rejects your task for missing architectural requirements (e.g., failing to implement a shared React Context mandated by an ADR), you MUST comprehensively implement the missing architectural layer. Do not simply fake a fix or ignore the architectural constraint. Repeatedly failing to adhere to ADRs will result in permanent failure and system penalties.
