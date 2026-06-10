@@ -2,12 +2,12 @@
 id: prd-070-044-hall-of-fame-exporter
 type: PRD
 title: Hall of Fame Timeline and Certificate Exporter
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-09'
 updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1472469941934137476'
 pr_number: null
 parent: idea-070-hall-of-fame-exporter
 tags:
