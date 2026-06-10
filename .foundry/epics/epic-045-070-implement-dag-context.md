@@ -1,0 +1,35 @@
+---
+id: epic-045-070-implement-dag-context
+type: EPIC
+title: Implement DagContext and Provider for DAG Data
+status: PENDING
+owner_persona: story_owner
+created_at: '2026-06-10'
+updated_at: '2026-06-10'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: prd-073-045-refactor-dag-dashboard-context
+tags:
+  - architecture
+  - ui
+  - dashboard
+  - context
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Implement DagContext and Provider for DAG Data
+
+## Overview
+As per ADR 013 and ADR 017, the core DAG data state must be lifted into a shared React Context to serve as a single source of truth for both the Graph View (React Flow) and the upcoming Kanban Board and Permanent Failure Dashboard.
+
+## Requirements
+- Create `DagContext` to manage the core DAG data state (nodes, edges).
+- Implement `DagProvider` to wrap the DAG views.
+- The context should expose the parsed DAG data.
+- Ensure the state structure is designed to support the upcoming Kanban Board and Permanent Failure Dashboard requirements.
+
+## Acceptance Criteria
+- [ ] Break down into Stories

@@ -34,4 +34,8 @@ Generation 2 save files have a more complex checksum system, involving both main
 * Return specific diagnostic models (from `story-053-090`) pinpointing which checksum (main/backup, specific bank) failed if inconsistencies are found.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into actionable Tasks for the coder.
+- [x] Tech Lead: Break this Story down into actionable Tasks for the coder.
+
+## Child Tasks
+- [ ] .foundry/tasks/task-092-157-gen2-checksum-impl.md
+- [ ] .foundry/tasks/task-092-158-gen2-checksum-qa.md

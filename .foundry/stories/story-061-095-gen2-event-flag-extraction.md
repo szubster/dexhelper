@@ -27,3 +27,5 @@ Implement a parser for Gen 2 save files to extract specific time-gated event fla
 ## Acceptance Criteria
 - [ ] Create extraction functions using DataView.
 - [ ] Add unit tests for successful extraction and bounds checking.
+- [ ] .foundry/tasks/task-095-157-gen2-event-flag-impl.md
+- [ ] .foundry/tasks/task-095-158-gen2-event-flag-qa.md

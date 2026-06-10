@@ -36,3 +36,5 @@ Derived from `epic-041-064-contest-ui-shared-components`, this story focuses on 
 - [ ] Implement the `ContestRibbonBadge` (or similar) React component(s).
 - [ ] Add rendering tests to verify various Ribbon combinations display correctly.
 - [ ] Ensure proper styling matching the project's aesthetics.
+- [ ] .foundry/tasks/task-103-157-contest-ribbons-ui-impl.md
+- [ ] .foundry/tasks/task-103-158-contest-ribbons-ui-qa.md

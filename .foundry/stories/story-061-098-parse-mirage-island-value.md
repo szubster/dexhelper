@@ -29,4 +29,6 @@ Use the `DataView` API to safely parse the 2-byte daily Mirage Island random val
 Ensure graceful handling of RangeError for corrupted files as per ADR 010.
 
 ## Acceptance Criteria
-- [ ] Create/Update TASK nodes to implement parsing the Mirage Island value.
+- [x] Create/Update TASK nodes to implement parsing the Mirage Island value.
+- [ ] .foundry/tasks/task-098-157-mirage-island-parsing-impl.md
+- [ ] .foundry/tasks/task-098-158-mirage-island-parsing-qa.md

@@ -31,3 +31,8 @@ Provide an immediate, exact breakdown of a roaming legendary's internal state (N
 - Extract and display Nature, IVs, HP, status condition, and location index.
 - Detect and display a warning if the "Roamer IV Glitch" affects the Pokémon.
 - Provide a Route Radar to map the roamer's current location index.
+
+- [ ] .foundry/epics/epic-044-070-gen3-roamer-core-extraction.md
+- [ ] .foundry/epics/epic-044-071-gen3-roamer-iv-glitch.md
+- [ ] .foundry/epics/epic-044-072-gen3-roamer-location-radar.md
+- [ ] .foundry/epics/epic-044-073-gen3-roamer-dashboard-ui.md
