@@ -26,4 +26,6 @@ notes: ''
 Parse the raw pokerus byte into structured state for Pokemon in Gen 2 saves.
 
 ## Acceptance Criteria
-- [ ] Parse raw pokerus byte.
+- [x] Parse raw pokerus byte.
+- [ ] .foundry/tasks/task-095-157-pokerus-byte-parsing-impl.md
+- [ ] .foundry/tasks/task-095-158-pokerus-byte-parsing-qa.md
