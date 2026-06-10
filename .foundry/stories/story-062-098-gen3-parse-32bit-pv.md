@@ -30,4 +30,6 @@ As part of the Mirage Island checking feature (Epic `epic-038-062-personality-va
 2. **Backwards Compatibility**: Keep the original Gen 1 and Gen 2 handlers functional without altering legacy parsing.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Generate child tasks to update the extraction logic.
+- [x] Tech Lead: Generate child tasks to update the extraction logic.
+- [ ] .foundry/tasks/task-098-157-gen3-parse-pv-impl.md
+- [ ] .foundry/tasks/task-098-158-gen3-parse-pv-qa.md
