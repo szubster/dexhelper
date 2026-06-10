@@ -2,12 +2,12 @@
 id: story-058-097-gen3-hidden-item-parsing
 type: STORY
 title: Gen 3 Hidden Item Event Flags Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5400694130827819732'
 pr_number: null
 parent: epic-037-058-hidden-items-save-parsing
 tags:
