@@ -20,7 +20,7 @@ describe('fetchAssistantApiData', () => {
       inventory: [],
     } as unknown as SaveData;
 
-    vi.spyOn(pokeDB, 'getAllEncounters').mockResolvedValue([]);
+    vi.spyOn(pokeDB, 'getEncountersBulk').mockResolvedValue([]);
     vi.spyOn(pokeDB, 'getAllAreas').mockResolvedValue([]);
     vi.spyOn(pokeDB, 'getLocations').mockResolvedValue([
       { id: 1, n: 'Test Area 1', pids: [] },
