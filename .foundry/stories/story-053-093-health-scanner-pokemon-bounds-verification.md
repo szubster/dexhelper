@@ -34,4 +34,9 @@ Even if checksums are valid, data can be corrupted or maliciously modified. We n
 * Generate diagnostic output for any out-of-bounds data found, specifying exact location.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into actionable Tasks for the coder.
+- [x] Tech Lead: Break this Story down into actionable Tasks for the coder.
+
+
+## Child Tasks
+- [ ] .foundry/tasks/task-093-157-pokemon-bounds-verification-impl.md
+- [ ] .foundry/tasks/task-093-158-pokemon-bounds-verification-qa.md
