@@ -215,3 +215,9 @@
 **Outcome:** Merged
 **Why:** The coder journal highlighted a regression (`2026-05-31: Foundry DAG ID Strictness`) where using `.md` extensions or full file paths in the `depends_on` or `parent` fields causes the orchestrator to fail to resolve the dependency graph. The TPM agent prompt already had a rule for Node IDs, but the agents responsible for creating the nodes initially (Product Manager, Epic Planner, Story Owner, Tech Lead) were not explicitly warned.
 **Pattern:** When a critical schema constraint is identified (like Node IDs vs file paths in frontmatter), codify it across all relevant upstream generative personas, not just the downstream maintenance ones, to prevent the issue at the source.
+
+## 2026-06-10 - [Accepted] - Prompt improvement - Require Coder to read rejection reasons for failed tasks
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** To prevent impossible loops, implementation agents must not ignore rejection reasons when resurrecting failed tasks.
+**Pattern:** Explicitly instruct implementation agents (like the Coder) to read the `rejection_reason` and the QA journal when resuming a previously failed task to ensure they fix the actual problem rather than blindly resubmitting.
