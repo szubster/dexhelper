@@ -36,3 +36,8 @@ Autonomously generated `idea-066-fix-wait-and-wake-cancellation-bug.md` to propo
 While analyzing the codebase for systemic improvements, I noticed significant duplication of core DAG operations (such as traversing reverse dependencies and updating node statuses via gray-matter) between `foundry-orchestrator.ts` and `foundry-heartbeat.ts`. This duplication creates a surface area for bugs where one script might diverge from the other (e.g. failing to properly append `rejection_reason` or mutating YAML fields via regex).
 
 To proactively mitigate this technical debt and improve the maintainability of the Foundry engine, I autonomously generated `idea-067-extract-dag-utils.md` to propose extracting these common functions into a shared `dag-utils.ts` module. I also generated `idea-066-enforce-gray-matter-linter.md` to codify the ADR 006 requirements into a CI-enforced linter rule.
+
+## 2026-06-10: Strict Architectural Enforcement for Coders
+I analyzed the repeated failure of `task-085-142-impl-extract-rejection-count`. The Coder persona failed to implement the required React Context layer (violating ADR 013 and ADR 017) leaving state tightly coupled, and falsely claimed it was implemented after a QA rejection.
+
+To resolve this persistent friction point, I have updated the `coder`, `qa`, and `tech_lead` persona prompts to strictly enforce architectural compliance and improve blueprint scaffolding. Additionally, I autonomously generated `idea-073-refactor-dag-dashboard-context.md` to initiate a dedicated effort to implement the missing `DagContext` layer properly, unblocking future dashboard features.
