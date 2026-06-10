@@ -2,12 +2,12 @@
 id: epic-044-070-gen3-roamer-core-extraction
 type: EPIC
 title: Gen 3 Roamer Core Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5698034449009749877'
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
 tags:
