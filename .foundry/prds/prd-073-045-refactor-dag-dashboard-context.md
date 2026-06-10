@@ -30,4 +30,8 @@ Recent implementation attempts permanently failed because the state was left tig
 - Extract `rejection_count` from node frontmatter during data parsing so it is available in the shared context (as per ADR 017).
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+
+- [ ] .foundry/epics/epic-045-070-implement-dag-context.md
+- [ ] .foundry/epics/epic-045-071-refactor-data-parsing-layer.md
+- [ ] .foundry/epics/epic-045-072-refactor-views.md
