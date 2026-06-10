@@ -33,7 +33,7 @@ Based on the research conducted on Tailwind v4's `@utility` API, we need an Arch
 - The ADR must outline an incremental migration strategy to update components across `src/components/` without regressions.
 
 ## Acceptance Criteria
-- [ ] Read the research findings.
-- [ ] Create a new ADR document.
-- [ ] The ADR details the chosen consolidation strategy and naming conventions.
-- [ ] The ADR outlines the incremental migration approach.
+- [x] Read the research findings.
+- [x] Create a new ADR document.
+- [x] The ADR details the chosen consolidation strategy and naming conventions.
+- [x] The ADR outlines the incremental migration approach.
