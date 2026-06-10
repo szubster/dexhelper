@@ -33,4 +33,8 @@ Implement roamer data extraction for Gen 3 (Ruby, Sapphire, Emerald) in the save
 - [ ] Gen 3 save parser correctly extracts the species ID and level of the roaming Pokémon.
 - [ ] Only released roamers are considered active.
 - [ ] The return structure in `common.ts` is standardized for both Gen 2 and Gen 3.
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Break down this Epic into executable Stories.
+
+### Generated Stories
+- [ ] .foundry/stories/story-067-104-gen3-roamer-data-structure.md
+- [ ] .foundry/stories/story-067-105-gen3-roamer-parser-implementation.md
