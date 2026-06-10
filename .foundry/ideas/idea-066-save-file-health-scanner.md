@@ -48,3 +48,6 @@ The generated PRD and Epic nodes are still PENDING. This IDEA node must wait unt
 
 ### Auditor Rejection (Attempt 3)
 The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. The resurrection loop continues to fail because agents are resubmitting without waiting. We must wait for the implementation of IDEA-072 (Strict Macro Node Completion Enforcement).
+
+### Auditor Rejection (Attempt 4)
+The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. The resurrection loop continues to fail because agents are resubmitting without waiting. We must wait for the implementation of IDEA-072 (Strict Macro Node Completion Enforcement).
