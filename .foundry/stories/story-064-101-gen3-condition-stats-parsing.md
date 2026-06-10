@@ -34,5 +34,9 @@ This Story focuses on parsing the Condition stats (Cool, Beauty, Cute, Smart, To
 - **Strict DataView API Usage**: All parsing logic for contest data MUST exclusively use the native `DataView` API (e.g., `getUint8`) as mandated by ADR 010.
 
 ## 3. Acceptance Criteria
-- [ ] Write tasks to update the Gen 3 parsing engine to extract Condition stats using the `DataView` API.
-- [ ] Ensure unit tests are planned to verify the exact extracted condition values for each stat.
+- [x] Write tasks to update the Gen 3 parsing engine to extract Condition stats using the `DataView` API.
+- [x] Ensure unit tests are planned to verify the exact extracted condition values for each stat.
+
+### Spawned Tasks
+- [ ] .foundry/tasks/task-101-157-gen3-condition-stats-parsing.md
+- [ ] .foundry/tasks/task-101-158-gen3-condition-stats-parsing-qa.md
