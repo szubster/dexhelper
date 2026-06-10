@@ -2,12 +2,12 @@
 id: prd-073-045-refactor-dag-dashboard-context
 type: PRD
 title: Refactor DagDashboard to use React Context (ADR 013/017)
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-10'
 updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16203138639735173443'
 parent: idea-073-refactor-dag-dashboard-context
 tags:
   - architecture
