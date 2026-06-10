@@ -48,7 +48,7 @@ const VALID_STATUSES = [
 
 type Status = (typeof VALID_STATUSES)[number];
 
-const VALID_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH'] as const;
+const VALID_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH', 'ADR'] as const;
 type NodeType = (typeof VALID_TYPES)[number];
 
 /** Mirrors the YAML frontmatter schema defined in .foundry/docs/schema.md §3 */
@@ -138,7 +138,7 @@ function discoverNodeFiles(dir: string): string[] {
 
       if (entry.isDirectory()) {
         // Skip the journals/ and docs/ subtrees entirely.
-        if (entry.name === 'journals' || entry.name === 'docs') continue;
+        if (entry.name === 'journals') continue;
         walk(fullPath);
       } else if (entry.isFile() && entry.name.endsWith('.md')) {
         results.push(fullPath);
@@ -401,6 +401,13 @@ function main(): void {
   function resolveNodePath(ref: string | null | undefined): string | null {
     if (!ref) return null;
     if (idToPathMap.has(ref)) return idToPathMap.get(ref)!;
+
+    // Check if it's a known ADR in the docs/adrs/ directory if not found in idToPathMap
+    if (ref.startsWith('adr-')) {
+      const adrPath = `.foundry/docs/adrs/${ref}.md`;
+      if (nodeMap.has(adrPath)) return adrPath;
+    }
+
     return ref;
   }
 
@@ -471,12 +478,10 @@ function main(): void {
       return true;
     }
 
-    if (node.frontmatter.status !== 'COMPLETED' && node.frontmatter.status !== 'CANCELLED') {
-      evalCache.set(cacheKey, true);
-      return true;
+    if (node.frontmatter.status === 'COMPLETED' || node.frontmatter.status === 'CANCELLED') {
+      evalCache.set(cacheKey, false);
+      return false;
     }
-
-    evalCache.set(cacheKey, true);
 
     const children = parentToChildren.get(nodePath) || [];
     for (const child of children) {
@@ -871,6 +876,7 @@ function main(): void {
     STORY: ['tech_lead', 'story_owner'],
     TASK: ['coder', 'qa', 'tech_lead', 'architect'],
     RESEARCH: ['researcher'],
+    ADR: ['architect'],
   };
 
   for (const node of finalEligible) {
