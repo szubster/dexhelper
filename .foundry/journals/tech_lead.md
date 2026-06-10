@@ -1,22 +1,35 @@
-## 2026-05-12 - Graph Rendering Library Evaluation
-Evaluated graph rendering libraries for the DAG Dashboard. Selected React Flow over Mermaid.js and Cytoscape.js. React Flow offers the best balance of seamless integration with our React/Tailwind ecosystem (critical for enforcing the strict tactical hardware aesthetic with custom DOM nodes) and out-of-the-box interactivity features. Documented in ADR 008.
-## 2026-05-18 - Granular Task Generation
-When drafting technical blueprints from stories that contain multiple independent logical components (e.g., roamer tracking AND stat-based evolutions), it is critical to break them down into separate, granular TASK nodes rather than combining them into a single task. The `coder` persona struggled and failed on a combined task due to its broad scope. Creating smaller scopes reduces complexity, minimizes the risk of PR deadlocks, and improves execution success.
-## 2026-05-19: Gen 2 TM vs Move Checks (Headbutt/Rock Smash)
-*   **Learning:** In Gen 2 (Gold/Silver/Crystal), Headbutt and Rock Smash are single-use TMs (TM02 and TM08), not HMs. Furthermore, they do not require any gym badges to be used in the field. Because they disappear from the inventory when taught, our suggestion engine logic cannot solely rely on TM inventory checks to see if the player has access to these field mechanics.
-*   **Action:** We must cross-reference if any Pokémon in the player's party or PC (`allInstances`) actually knows the move (Headbutt ID: 29, Rock Smash ID: 249) instead of just checking the TM pocket, and we must remove the gym badge requirements for these specific interactions.
+---
+id: adr-102-024-gen3-sheen-dataview-strict
+type: ADR
+title: Gen 3 Sheen DataView Strict Adherence
+status: COMPLETED
+owner_persona: tech_lead
+created_at: 2026-06-10
+updated_at: 2026-06-10
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - architecture
+  - gen3
+  - dataview
+research_references: []
+rejection_count: 0
+rejection_reason: ""
+notes: ""
+---
 
-## 2026-05-20: Handling Permanent Failures (Impossible Loop)
-*   **Incident:** The implementation task `task-053-092-implement-dependency-highlighting` failed permanently, triggering the Orchestrator's "Impossible Loop" and waking up the Tech Lead.
-*   **Action:** Handled the failure by spawning a `RESEARCH` node (`research-053-002`) to investigate the failure. Created replacement implementation and QA tasks (`task-053-124` and `task-053-125`) that depend on the research node. Updated the orphaned QA task (`task-053-093`) with a cancellation note in its Markdown body and unchecked the acceptance criteria checkboxes in the parent story (`story-029-053`), explicitly ensuring no YAML frontmatter was modified.
+# ADR 024: Gen 3 Sheen DataView Strict Adherence
 
+## Status
+Accepted
 
-## 2026-05-22
-- ADR 015 Revert Data Format Optimizations: Verbose keys improve DX, but we must retain enum-to-number logic for values (e.g. method: 1 instead of method: 'WALK') because string values can't be deduplicated effectively in msgpackr arrays.
-## 2026-05-23: Empty PR Policy for already completed tasks
-*   **Context:** The Tech Lead received a TASK node task-063-132-msgpack-transition-impl.md for implementing the MsgPack transition. However, exploring the codebase revealed that the implementation had already been completed (via task-080-132-refactor-generation-exports-impl.md and related work).
-*   **Action:** Executed the Empty PR Policy by strictly checking off the acceptance criteria in the markdown body without modifying the YAML frontmatter. Ignored the false negative from the automated code review tool and submitted an empty PR to advance the node to COMPLETED.
-2026-05-23: When completing a QA task for a transition that has already been fully implemented by the Coder task and implicitly verified, and the only change required is checking off the acceptance criteria markdown boxes without modifying the frontmatter, `request_code_review` may correctly flag an error if unrelated codebase files were accidentally modified. Ensure to strictly `git restore` any unintended changes (like those automatically caused by running data generation pipelines) before submitting, so that the PR genuinely acts as an empty PR reflecting only the intended node update.
-## 2026-05-29: Handling Permanent Failures (Impossible Loop)
-*   **Incident:** The implementation task `task-081-130-preserve-enum-optimizations-impl` failed permanently, triggering the Orchestrator's "Impossible Loop" and waking up the Tech Lead.
-*   **Action:** Handled the failure by spawning a `RESEARCH` node (`research-081-006-investigate-enum-optimizations-failure.md`) to investigate the failure. Created replacement implementation and QA tasks (`task-081-144` and `task-081-145`) that depend on the research node. Updated the orphaned QA task (`task-081-131`) with a cancellation note in its Markdown body and unchecked the acceptance criteria checkboxes in the parent story (`story-042-081`), explicitly ensuring no YAML frontmatter was modified.
+## Context
+When implementing Gen 3 Sheen value parsing, we must strictly adhere to ADR 010.
+
+## Decision
+All new Gen 3 Sheen data parsing logic MUST exclusively use the native `DataView` API.
+
+## Consequences
+Prevents silent failures and ensures backwards compatibility.
