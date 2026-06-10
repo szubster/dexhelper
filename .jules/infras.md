@@ -83,3 +83,5 @@ Critical learnings:
 
 ## 2026-06-09 - Fix Biome schema version
 **Learning:** Config drift between `package.json` (`2.4.16`), `biome.yml` (`2.4.15`), and `biome.jsonc` schemas can cause `sort-package-json` or `pnpm lint:package-json` to fail in CI pipelines, as well as lead to config mismatch between local devs and CI runners. Always ensure Biome schema and runner versions are updated in sync when upgrading.
+Do not migrate Vite's React plugin to `@vitejs/plugin-react-swc`. The project explicitly uses `@vitejs/plugin-react` (Babel) as recommended by Vite for future compatibility, such as integration with Rolldown.
+If `pnpm install` blocks or prompts interactively for packages requiring build scripts (like `@swc/core`), bypass the prompt by running `pnpm config set allow-builds "[\"<package_name>\"]"` prior to installation.
