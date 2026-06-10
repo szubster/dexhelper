@@ -1,13 +1,16 @@
 import { useNavigate } from '@tanstack/react-router';
-import { ChevronRight, CircleDot, Monitor, Sparkles } from 'lucide-react';
+import { CircleDot, Monitor, Sparkles } from 'lucide-react';
 import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
 import type { PokemonListItem } from '../utils/pokemonQueries';
+import { DataPoint } from './DataPoint';
+import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { PokemonStatusBadge } from './pokemon/PokemonStatusBadge';
 import { TacticalCard } from './TacticalCard';
+import { TelemetryDecoration } from './TelemetryDecoration';
 
 interface PokedexCardProps {
   pokemon: PokemonListItem;
@@ -63,26 +66,17 @@ export const PokedexCard = React.memo(function PokedexCard({
       onClick={() => navigate({ to: `/pokemon/${pokemon.id}`, search: { from: '/' } })}
       variant={variant}
       style={{ animationDelay: `${(idx % 20) * 0.02}s` }}
+      className="!p-0"
     >
-      {/* Card Header: Num & Icons */}
-      <div className="mb-3 flex items-center justify-between">
-        <div className="flex items-center gap-1 rounded-none border border-zinc-800 border-dashed bg-white/5 px-2 py-0.5">
-          <span className="font-black font-mono text-[9px] text-zinc-500 uppercase tracking-tighter">ID</span>
-          <span className="font-black font-mono text-[10px] text-zinc-300">
-            {pokemon.id.toString().padStart(3, '0')}
-          </span>
-        </div>
-
-        {saveData && !isUnseen && (
-          <div className="flex gap-1">
-            {inParty && <CircleDot size={12} className="animate-pulse text-rose-500" />}
-            {inPC && <Monitor size={12} className="text-[var(--theme-primary)]" />}
-          </div>
-        )}
-      </div>
+      <TelemetryDecoration
+        label={pokemon.name}
+        className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
+        textClassName={cn(isUnseen ? 'text-zinc-700' : isShiny ? 'text-amber-400' : 'text-white')}
+        dotClassName={cn(isUnseen ? 'hidden' : '')}
+      />
 
       {/* Sprite Container */}
-      <div className="relative mb-4 flex aspect-square items-center justify-center overflow-hidden border border-white/5 bg-black/40 transition-colors group-hover:bg-black/60">
+      <div className="relative mt-6 flex aspect-square items-center justify-center overflow-hidden border-zinc-800 border-b border-dashed bg-black/40 transition-colors group-hover:bg-black/60">
         {/* LCD Grid Background */}
         <LcdGrid className="opacity-[0.05]" />
 
@@ -91,6 +85,8 @@ export const PokedexCard = React.memo(function PokedexCard({
             <Sparkles size={16} fill="currentColor" className="animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
           </div>
         )}
+
+        <HoverScanner />
 
         <PokemonSprite
           pokemonId={pokemon.id}
@@ -109,38 +105,35 @@ export const PokedexCard = React.memo(function PokedexCard({
 
         {/* Scanline overlay for sprite */}
         <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
-
-        {/* Scanner overlay on hover */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[var(--theme-primary)]/20 to-transparent opacity-0 transition-opacity group-hover:animate-[scan_2s_linear_infinite] group-hover:opacity-100" />
       </div>
 
-      {/* Card Footer: Name & Status */}
-      <div className="space-y-2">
-        <h3
-          className={cn(
-            'truncate text-center font-black text-[10px] uppercase tracking-widest sm:text-[11px]',
-            isUnseen ? 'text-zinc-700' : isShiny ? 'text-amber-400' : 'text-white',
-          )}
-        >
-          {pokemon.name}
-        </h3>
-
-        {saveData && (
-          <div className="flex justify-center">
-            <PokemonStatusBadge
-              hasInStorage={hasInStorage}
-              isOwnedInDex={isOwnedInDex}
-              isSeenInDex={isSeenInDex}
-              isShiny={isShiny}
-            />
+      <div className="flex w-full divide-x divide-dashed divide-zinc-800">
+        <div className="flex-1 p-2">
+          <DataPoint
+            label="ID"
+            value={pokemon.id.toString().padStart(3, '0')}
+            labelClassName="text-[7px]"
+            valueClassName="text-[10px]"
+          />
+        </div>
+        {saveData && !isUnseen && (
+          <div className="flex items-center justify-center p-2">
+            <div className="flex gap-1.5">
+              {inParty && <CircleDot size={12} className="animate-pulse text-rose-500" />}
+              {inPC && <Monitor size={12} className="text-[var(--theme-primary)]" />}
+            </div>
           </div>
         )}
       </div>
 
-      {/* Corner Accent */}
-      <div className="absolute right-[-10px] bottom-[-10px] p-4 opacity-0 transition-opacity group-hover:opacity-100">
-        <ChevronRight size={14} className="text-[var(--theme-primary)]" />
-      </div>
+      {saveData && (
+        <PokemonStatusBadge
+          hasInStorage={hasInStorage}
+          isOwnedInDex={isOwnedInDex}
+          isSeenInDex={isSeenInDex}
+          isShiny={isShiny}
+        />
+      )}
     </TacticalCard>
   );
 });

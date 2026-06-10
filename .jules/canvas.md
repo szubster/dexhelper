@@ -167,3 +167,9 @@
 **Outcome:** Accepted
 **Why:** Brings the granular data display components in line with the established specialized hardware motif. The previous `DataPoint` was too generic and didn't fit the "snooping" fantasy, whereas the new design looks like individual data nodes connected to a larger telemetry stream.
 **Pattern:** Apply tactical aesthetics (dashed borders acting as connecting lines, absolute positioning markers, tight monospace typography) even to the smallest, most granular data display elements to maintain absolute visual coherence deep within complex data views.
+
+## 2026-07-08 - [Accepted] - 🖼️ Canvas: Tactical Telemetry Datacube Redesign
+**What:** Redesigned the main Pokedex grid (`PokedexCard.tsx` and `PokemonStatusBadge.tsx`) to act as dense, "tactical telemetry datacubes". Replaced rounded corner web cards with edge-to-edge dashed borders, integrated `<LcdGrid>` and `<HoverScanner>`, and added strict telemetry text arrays (`[ DATA.SYS ]`). Converted the status badge from a padded pill to a full-width segmented terminal block.
+**Outcome:** Accepted
+**Why:** Brings the primary data grid of the application deeply in line with the terminal scanning hardware motif. The original grid felt like a generic web Pokedex, whereas the new implementation solidifies the feeling of looking through a specialized hardware surveillance scanner.
+**Pattern:** Eliminate generic web cards entirely. When rendering lists or grids of items, treat each item container as a raw data terminal block, utilizing edge-to-edge dashed borders, CRT grid backgrounds, scanner animations, and segmented blocks for badges instead of floating pill shapes.

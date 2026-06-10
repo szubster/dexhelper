@@ -18,7 +18,7 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
     return (
       <div
         className={cn(
-          'flex items-center gap-1.5 rounded-none border border-dashed px-2.5 py-1',
+          'flex w-full items-center justify-center border-t border-dashed py-1.5',
           isShiny ? 'border-amber-500/50 bg-amber-500/10' : 'border-emerald-500/50 bg-emerald-500/10',
         )}
       >
@@ -36,7 +36,7 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
 
   if (isOwnedInDex) {
     return (
-      <div className="flex items-center gap-1.5 rounded-none border border-amber-500/50 border-dashed bg-amber-500/10 px-2.5 py-1">
+      <div className="flex w-full items-center justify-center border-amber-500/50 border-t border-dashed bg-amber-500/10 py-1.5">
         <span className="font-black font-mono text-[8px] text-amber-400 uppercase tracking-widest">[ DEX_ONLY ]</span>
       </div>
     );
@@ -44,14 +44,14 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
 
   if (isSeenInDex) {
     return (
-      <div className="flex items-center gap-1.5 rounded-none border border-rose-500/50 border-dashed bg-rose-500/10 px-2.5 py-1">
+      <div className="flex w-full items-center justify-center border-rose-500/50 border-t border-dashed bg-rose-500/10 py-1.5">
         <span className="font-black font-mono text-[8px] text-rose-400 uppercase tracking-widest">[ SEEN ]</span>
       </div>
     );
   }
 
   return (
-    <div className="flex items-center gap-1.5 rounded-none border border-zinc-700 border-dashed bg-white/5 px-2.5 py-1">
+    <div className="flex w-full items-center justify-center border-zinc-700 border-t border-dashed bg-white/5 py-1.5">
       <span className="font-black font-mono text-[8px] text-zinc-600 uppercase tracking-widest">[ UNKNOWN ]</span>
     </div>
   );
