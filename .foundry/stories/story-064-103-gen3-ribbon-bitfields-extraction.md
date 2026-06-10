@@ -34,5 +34,7 @@ This Story focuses specifically on navigating the blocks and offsets to locate a
 - **Strict DataView API Usage**: All parsing logic for contest data MUST exclusively use the native `DataView` API (e.g., `getUint32`) as mandated by ADR 010.
 
 ## 3. Acceptance Criteria
-- [ ] Write tasks to update the Gen 3 parsing engine to extract the Ribbon bitfields using the `DataView` API.
-- [ ] Ensure unit tests are planned to verify the exact extracted bitfields are accurate.
+- [x] Write tasks to update the Gen 3 parsing engine to extract the Ribbon bitfields using the `DataView` API.
+- [ ] .foundry/tasks/task-103-157-gen3-ribbon-bitfields-impl.md
+- [ ] .foundry/tasks/task-103-158-gen3-ribbon-bitfields-qa.md
+- [x] Ensure unit tests are planned to verify the exact extracted bitfields are accurate.
