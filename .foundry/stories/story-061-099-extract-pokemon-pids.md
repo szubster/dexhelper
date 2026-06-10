@@ -29,4 +29,8 @@ Parse the 32-bit personality values (PIDs) from all Pokémon in the player's act
 Use the `DataView` API for safe data parsing as per ADR 010.
 
 ## Acceptance Criteria
-- [ ] Create/Update TASK nodes to implement parsing the 32-bit PIDs for all party and PC Pokémon in Gen 3 saves.
+- [x] Create/Update TASK nodes to implement parsing the 32-bit PIDs for all party and PC Pokémon in Gen 3 saves.
+
+### Implementation Tasks
+- [ ] .foundry/tasks/task-099-157-gen3-extract-pokemon-pids-impl.md
+- [ ] .foundry/tasks/task-099-158-gen3-extract-pokemon-pids-qa.md
