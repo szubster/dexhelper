@@ -33,3 +33,7 @@ This story implements the first part of `epic-042-064-gen3-contest-advisor-algor
 - [ ] Create the data structure mapping Natures to Contest Conditions.
 - [ ] Implement utility functions for querying preferences.
 - [ ] Write unit tests to verify the mappings are accurate for all 25 natures.
+
+## 4. Breakdown
+- [ ] .foundry/tasks/task-101-157-gen3-nature-condition-mapping-impl.md
+- [ ] .foundry/tasks/task-101-158-gen3-nature-condition-mapping-qa.md
