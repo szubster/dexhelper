@@ -30,4 +30,6 @@ As part of Epic `epic-038-061-mirage-island-save-parsing`, we need to locate the
 - Document these findings to be used by the implementation tasks.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Generate child tasks to locate and document the offset for the Mirage Island value.
+- [x] Tech Lead: Generate child tasks to locate and document the offset for the Mirage Island value.
+- [ ] .foundry/tasks/task-098-157-locate-mirage-island-offset.md
+- [ ] .foundry/tasks/task-098-158-qa-mirage-island-offset.md
