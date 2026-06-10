@@ -77,3 +77,7 @@
 ## 2026-06-05
 **Idea:** Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
 **Learning:** In Gen 3, tracking roaming legendaries (Latias/Latios) is notoriously frustrating, and the infamous "Roamer IV Glitch" in Ruby/Sapphire/FireRed/LeafGreen permanently ruins their stats upon generation. By surfacing this hidden generation data (current route, nature, and IVs) immediately after the roamer is released, players can decide whether to reset or continue hunting without wasting hours only to discover a glitched, unusable Pokémon. This strongly reinforces the principle of revealing critical hidden state to prevent high-friction, wasted effort in retro games.
+
+## 2026-06-10
+**Idea:** Gen 3 Secret Base and Mixed Record Viewer
+**Learning:** Expanding Gen 3 support by surfacing hidden state from social features (like mixed records and secret bases) provides players with actionable endgame utilities. Revealing exact locations and NPC trainer data turns a highly opaque feature into an optimized tool for EXP/EV farming, fitting perfectly with DexHelper's core value proposition as an intelligent companion app.
