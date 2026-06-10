@@ -36,3 +36,7 @@ Derived from `epic-041-064-contest-ui-shared-components`, this story focuses on 
 - [ ] Implement the `ContestSheenDisplay` React component.
 - [ ] Add rendering tests to verify empty, partial, and full sheen displays.
 - [ ] Ensure proper styling matching the project's aesthetics.
+
+## Tasks
+- [ ] .foundry/tasks/task-102-157-contest-sheen-display-impl.md
+- [ ] .foundry/tasks/task-102-158-contest-sheen-display-qa.md
