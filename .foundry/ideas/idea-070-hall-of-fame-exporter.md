@@ -2,12 +2,12 @@
 id: idea-070-hall-of-fame-exporter
 type: IDEA
 title: Hall of Fame Timeline and Certificate Exporter
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-05'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: '3535106256842837083'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

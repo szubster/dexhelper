@@ -2,12 +2,12 @@
 id: idea-071-gen3-roamer-tracker
 type: IDEA
 title: Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-05'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: '16470446756348541606'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

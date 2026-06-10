@@ -2,19 +2,22 @@
 id: research-071-138-gen3-roamer-offsets
 type: RESEARCH
 title: Investigate Gen 3 Roamer Save Offsets
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-071-gen3-roamer-tracker
-tags: ["gen3", "roamer", "save-offsets"]
+tags:
+  - gen3
+  - roamer
+  - save-offsets
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Investigate Gen 3 Roamer Save Offsets

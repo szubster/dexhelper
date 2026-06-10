@@ -2,10 +2,10 @@
 id: task-071-144-visited-routes-checklist-retry-v2-impl
 type: TASK
 title: Implement Visited Routes Checklist Retry V2
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-28'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on:
   - research-071-006-investigate-checklist-retry-failure
 jules_session_id: '9152946018810917492'
@@ -15,8 +15,8 @@ tags:
   - feature
   - nuzlocke
   - verification
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 ---
 

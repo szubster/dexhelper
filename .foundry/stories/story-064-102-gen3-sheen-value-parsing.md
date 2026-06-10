@@ -1,11 +1,11 @@
 ---
 id: story-064-102-gen3-sheen-value-parsing
 type: STORY
-title: "Gen 3 Sheen Value Parsing"
-status: PENDING
+title: Gen 3 Sheen Value Parsing
+status: READY
 owner_persona: tech_lead
-created_at: "2026-06-09"
-updated_at: "2026-06-09"
+created_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # STORY: Gen 3 Sheen Value Parsing

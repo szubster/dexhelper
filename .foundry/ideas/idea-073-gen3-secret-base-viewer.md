@@ -2,7 +2,7 @@
 id: idea-073-gen3-secret-base-viewer
 type: IDEA
 title: Gen 3 Secret Base and Mixed Record Viewer
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-10'
 updated_at: '2026-06-10'

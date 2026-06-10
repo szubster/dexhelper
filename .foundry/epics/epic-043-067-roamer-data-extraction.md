@@ -2,10 +2,10 @@
 id: epic-043-067-roamer-data-extraction
 type: EPIC
 title: Roamer Data Extraction
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
 jules_session_id: null
 pr_number: null

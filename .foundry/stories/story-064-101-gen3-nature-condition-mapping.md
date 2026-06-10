@@ -2,10 +2,10 @@
 id: story-064-101-gen3-nature-condition-mapping
 type: STORY
 title: Gen 3 Nature to Contest Condition Mapping
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
