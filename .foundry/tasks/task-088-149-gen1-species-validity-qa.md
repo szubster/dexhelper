@@ -39,5 +39,5 @@ Verify the implementation of the Generation 1 species validity check.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Functionality verified.
-- [ ] Tests verified.
+- [x] Functionality verified.
+- [x] Tests verified.
