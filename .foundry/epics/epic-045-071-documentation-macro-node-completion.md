@@ -2,10 +2,10 @@
 id: epic-045-071-documentation-macro-node-completion
 type: EPIC
 title: Documentation Updates for Macro Node Completion
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-06-10"
-updated_at: "2026-06-10"
+created_at: '2026-06-10'
+updated_at: '2026-06-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - documentation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Epic: Documentation Updates for Macro Node Completion

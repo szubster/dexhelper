@@ -2,7 +2,7 @@
 id: task-101-157-contest-condition-stats-ui-impl
 type: TASK
 title: Implement ContestConditionStats Component
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-10'

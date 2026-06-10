@@ -2,7 +2,7 @@
 id: task-102-157-contest-sheen-display-impl
 type: TASK
 title: Implement Contest Sheen Display Component
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-10'

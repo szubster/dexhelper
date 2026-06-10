@@ -2,7 +2,7 @@
 id: task-093-157-pokemon-bounds-verification-impl
 type: TASK
 title: Implement Pokemon ID and DV Bounds Verification
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-10'

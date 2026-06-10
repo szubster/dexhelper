@@ -2,10 +2,10 @@
 id: task-092-157-gen2-checksum-impl
 type: TASK
 title: Implement Gen 2 Checksum Calculation and Validation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
 jules_session_id: null
 pr_number: null

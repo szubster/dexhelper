@@ -2,10 +2,10 @@
 id: task-094-157-moveset-inventory-validation-impl
 type: TASK
 title: Implement Moveset and Inventory Validation
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: 2026-06-10
-updated_at: 2026-06-10
+created_at: 2026-06-10T00:00:00.000Z
+updated_at: '2026-06-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - validation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Task: Implement Moveset and Inventory Validation

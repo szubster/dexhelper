@@ -2,7 +2,7 @@
 id: story-053-106-dag-utils-unit-tests
 type: STORY
 title: Unit Tests for Shared DAG Utilities
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-10'
