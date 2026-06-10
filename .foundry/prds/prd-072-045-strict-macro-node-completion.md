@@ -2,12 +2,12 @@
 id: prd-072-045-strict-macro-node-completion
 type: PRD
 title: Strict Macro Node Completion Enforcement
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-10'
 updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17818990175469455511'
 pr_number: null
 parent: idea-072-strict-macro-node-completion
 tags:
