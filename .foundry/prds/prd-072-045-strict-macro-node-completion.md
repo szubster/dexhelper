@@ -32,4 +32,9 @@ Enforce the rule that a macro node (IDEA, PRD, EPIC, STORY) MUST NOT be verified
 2.  **Documentation Updates**: Update schema rules, `the-foundry-architecture.md` (ADR 001), and any relevant knowledge base articles to explicitly outline this new behavior.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into Epics.
+- [x] Epic Planner: Break down this PRD into Epics.
+
+
+### Generated Epics
+- [ ] .foundry/epics/epic-045-070-orchestrator-strict-completion.md
+- [ ] .foundry/epics/epic-045-071-documentation-macro-node-completion.md
