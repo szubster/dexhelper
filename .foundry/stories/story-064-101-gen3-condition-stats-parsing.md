@@ -2,12 +2,12 @@
 id: story-064-101-gen3-condition-stats-parsing
 type: STORY
 title: Gen 3 Condition Stats Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11216825274831920847'
 pr_number: null
 parent: epic-040-064-gen3-contest-data-extraction
 tags:
