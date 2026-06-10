@@ -32,4 +32,6 @@ As per ADR 013 and ADR 017, the core DAG data state must be lifted into a shared
 - Ensure the state structure is designed to support the upcoming Kanban Board and Permanent Failure Dashboard requirements.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] .foundry/stories/story-070-108-create-dag-context-interfaces.md
+- [ ] .foundry/stories/story-070-109-implement-dag-provider.md
