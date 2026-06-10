@@ -2,12 +2,12 @@
 id: story-064-102-gen3-sheen-value-parsing
 type: STORY
 title: Gen 3 Sheen Value Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4358794344665330270'
 pr_number: null
 parent: epic-040-064-gen3-contest-data-extraction
 tags:
