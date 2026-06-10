@@ -136,12 +136,36 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const strategy = getStrategy(saveData.generation);
   const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations) : null;
 
-  const allEncounters = await pokeDB.getAllEncounters();
-  // ⚡ Bolt: Removed .filter().some() to prevent closures and O(N) intermediate array allocations
-  const localEncounters: LocationAreaEncounters[] = [];
+  let localPids: number[] = [];
   if (localAid) {
-    for (let i = 0; i < allEncounters.length; i++) {
-      const lae = allEncounters[i];
+    for (let i = 0; i < allLocations.length; i++) {
+      const loc = allLocations[i];
+      if (loc && loc.id === localAid) {
+        localPids = loc.pids || [];
+        break;
+      }
+    }
+  }
+
+  // ⚡ Bolt: Avoid N+1 and massive O(N) overhead by bulk querying specific ids instead of getAll
+  const targetPids = [...new Set([...queryTargets, ...localPids])];
+  const targetEncounters = await pokeDB.getEncountersBulk(targetPids);
+
+  const localEncounters: LocationAreaEncounters[] = [];
+  const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
+  const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
+
+  const encountersByPid = new Map<number, LocationAreaEncounters>();
+  for (let i = 0; i < targetEncounters.length; i++) {
+    const e = targetEncounters[i];
+    if (e && !(e instanceof Error)) encountersByPid.set(e.pid, e);
+  }
+
+  if (localAid) {
+    for (let i = 0; i < localPids.length; i++) {
+      const pid = localPids[i];
+      if (pid === undefined) continue;
+      const lae = encountersByPid.get(pid);
       if (!lae) continue;
       const enc = lae.enc;
       for (let j = 0; j < enc.length; j++) {
@@ -154,18 +178,9 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     }
   }
 
-  const missingEncounters: Record<number, LocationAreaEncounters | null> = {};
-  const ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>> = {};
-
-  // ⚡ Bolt: Prevent intermediate array tuple allocations during map construction
-  const encountersByPid = new Map<number, LocationAreaEncounters>();
-  for (let i = 0; i < allEncounters.length; i++) {
-    const e = allEncounters[i];
-    if (e) encountersByPid.set(e.pid, e);
-  }
-
-  // Fill missingEncounters
-  for (const pid of queryTargets) {
+  for (let i = 0; i < queryTargets.length; i++) {
+    const pid = queryTargets[i];
+    if (pid === undefined) continue;
     const enc = encountersByPid.get(pid);
     if (enc) missingEncounters[pid] = enc;
   }
