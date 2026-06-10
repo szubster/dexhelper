@@ -2,7 +2,7 @@
 id: idea-072-strict-macro-node-completion
 type: IDEA
 title: Strict Macro Node Completion Enforcement
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-09'
 updated_at: '2026-06-10'
