@@ -40,6 +40,6 @@ This story details the technical steps for extracting shared DAG utility functio
   - [.foundry/tasks/task-090-149-extract-dag-utils-qa.md](.foundry/tasks/task-090-149-extract-dag-utils-qa.md)
 
 ## Acceptance Criteria
-- [ ] `dag-utils.ts` is created containing `todayISO`, `logToJournal`, `buildReverseDependencyGraph`, and `getOrphanedNodes`.
-- [ ] Appropriate unit tests are added for the new utility file.
-- [ ] Existing functionality works seamlessly utilizing the new utility file.
+- [x] `dag-utils.ts` is created containing `todayISO`, `logToJournal`, `buildReverseDependencyGraph`, and `getOrphanedNodes`.
+- [x] Appropriate unit tests are added for the new utility file.
+- [x] Existing functionality works seamlessly utilizing the new utility file.
