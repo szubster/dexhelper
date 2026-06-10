@@ -32,4 +32,7 @@ Transform DexHelper into a social sharing utility by parsing Hall of Fame record
 4. Build a UI timeline component to view multiple past victories.
 
 ## Acceptance Criteria
-- [ ] Break down into ADRs
+- [x] Break down into ADRs
+- [ ] .foundry/docs/adrs/021-hof-data-parsing-architecture.md
+- [ ] .foundry/docs/adrs/022-hof-certificate-generation.md
+- [ ] .foundry/docs/adrs/023-hof-timeline-ui.md
