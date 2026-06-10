@@ -3,9 +3,9 @@ id: prd-070-044-hall-of-fame-exporter
 type: PRD
 title: Hall of Fame Timeline and Certificate Exporter
 status: PENDING
-owner_persona: architect
+owner_persona: epic_planner
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
