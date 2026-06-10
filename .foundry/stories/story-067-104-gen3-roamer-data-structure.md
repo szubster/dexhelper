@@ -28,4 +28,6 @@ Currently, Gen 2 provides `speciesId`, `level`, `mapGroup`, and `mapId` for its 
 ## Acceptance Criteria
 - [ ] Ensure `SaveData.roamingLegendaries` is robust for both generations.
 - [ ] Document map group/id differences between Gen 2 and Gen 3 within the interface comments.
-- [ ] Break down this Story into executable Tasks.
+- [x] Break down this Story into executable Tasks.
+- [ ] .foundry/tasks/task-104-159-gen3-roamer-interface-impl.md
+- [ ] .foundry/tasks/task-104-159-gen3-roamer-interface-qa.md
