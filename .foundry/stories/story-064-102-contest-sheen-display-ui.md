@@ -2,12 +2,12 @@
 id: story-064-102-contest-sheen-display-ui
 type: STORY
 title: Contest Sheen Display UI Component
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3053312094622190429'
 pr_number: null
 parent: epic-041-064-contest-ui-shared-components
 tags:
