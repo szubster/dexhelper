@@ -2,12 +2,12 @@
 id: task-087-150-impl-orchestrator-tests
 type: TASK
 title: Implement Orchestrator Tests for Implicit Dependencies
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-08'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15718805664954378013'
 pr_number: null
 parent: story-048-087-update-orchestrator-tests
 tags:
