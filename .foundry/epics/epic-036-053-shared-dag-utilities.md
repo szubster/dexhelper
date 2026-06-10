@@ -2,10 +2,10 @@
 id: epic-036-053-shared-dag-utilities
 type: EPIC
 title: Shared DAG Utilities Module
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-31'
-updated_at: '2026-06-04'
+updated_at: '2026-06-10'
 depends_on: []
 jules_session_id: null
 parent: prd-067-036-extract-dag-utils

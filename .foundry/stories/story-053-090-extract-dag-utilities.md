@@ -2,12 +2,12 @@
 id: story-053-090-extract-dag-utilities
 type: STORY
 title: Extract Shared DAG Utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-02'
 updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: '2722312691225987841'
+jules_session_id: null
 pr_number: null
 parent: epic-036-053-shared-dag-utilities
 tags:

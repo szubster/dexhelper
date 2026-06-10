@@ -2,12 +2,12 @@
 id: story-055-095-gen3-berry-data-parsing
 type: STORY
 title: Gen 3 Berry Tracker DataView Parsing Logic
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on: []
-jules_session_id: '5757606475932707929'
+jules_session_id: null
 pr_number: null
 parent: epic-037-055-gen3-berry-tracker-data-extraction
 tags:
