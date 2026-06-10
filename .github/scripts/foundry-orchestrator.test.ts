@@ -1716,4 +1716,142 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(verifyingResult).toContain('owner_persona: coder');
   });
 
+  test('Implicit Dependency: blocks node if parent is missing or unresolvable', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
+      id: "task-001",
+      type: "TASK",
+      title: "Task 1",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/stories/story-missing.md",
+      jules_session_id: null,
+    });
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-001.md'), 'utf-8');
+    expect(result).toContain('status: PENDING');
+  });
+
+  test('Implicit Dependency: resolves non-foundry files in depends_on as implicitly met if they exist on disk', () => {
+    // Create a non-foundry file on disk
+    fs.mkdirSync(path.join(tmpDir, 'src'), { recursive: true });
+    fs.writeFileSync(path.join(tmpDir, 'src/test.ts'), 'console.log("hello");');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
+      id: "task-001",
+      type: "TASK",
+      title: "Task 1",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: ["src/test.ts"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-001.md'), 'utf-8');
+    expect(result).toContain('status: READY');
+  });
+
+  test('Sibling Dependency: allows sibling nodes to be processed concurrently if no explicit dependency exists', () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-sibling-1.md', {
+      id: "task-sibling-1",
+      type: "TASK",
+      title: "Sibling Task 1",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/stories/story-001.md",
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-sibling-2.md', {
+      id: "task-sibling-2",
+      type: "TASK",
+      title: "Sibling Task 2",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/stories/story-001.md",
+      jules_session_id: null,
+    });
+
+    main();
+
+    const result1 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-sibling-1.md'), 'utf-8');
+    expect(result1).toContain('status: READY');
+
+    const result2 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-sibling-2.md'), 'utf-8');
+    expect(result2).toContain('status: READY');
+  });
+
+  test('Sibling Dependency: blocks sibling if explicit dependency exists', () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-sibling-1.md', {
+      id: "task-sibling-1",
+      type: "TASK",
+      title: "Sibling Task 1",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/stories/story-001.md",
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-sibling-2.md', {
+      id: "task-sibling-2",
+      type: "TASK",
+      title: "Sibling Task 2",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-sibling-1.md"],
+      parent: ".foundry/stories/story-001.md",
+      jules_session_id: null,
+    });
+
+    main();
+
+    const result1 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-sibling-1.md'), 'utf-8');
+    expect(result1).toContain('status: READY');
+
+    const result2 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-sibling-2.md'), 'utf-8');
+    expect(result2).toContain('status: PENDING');
+  });
 });
