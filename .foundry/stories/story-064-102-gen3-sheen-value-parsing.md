@@ -34,5 +34,10 @@ This Story focuses specifically on the extraction logic for the Pokémon's Sheen
 - **Strict DataView API Usage**: All parsing logic for contest data MUST exclusively use the native `DataView` API (e.g., `getUint8`) as mandated by ADR 010.
 
 ## 3. Acceptance Criteria
-- [ ] Write tasks to update the Gen 3 parsing engine to extract the Sheen value using the `DataView` API.
-- [ ] Ensure unit tests are planned to verify the exact extracted Sheen value.
+- [x] Write tasks to update the Gen 3 parsing engine to extract the Sheen value using the `DataView` API.
+- [x] Ensure unit tests are planned to verify the exact extracted Sheen value.
+
+
+## Tasks
+- [ ] .foundry/tasks/task-102-157-impl-gen3-sheen-parsing.md
+- [ ] .foundry/tasks/task-102-158-qa-gen3-sheen-parsing.md
