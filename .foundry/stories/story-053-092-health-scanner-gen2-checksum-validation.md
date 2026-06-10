@@ -2,13 +2,13 @@
 id: story-053-092-health-scanner-gen2-checksum-validation
 type: STORY
 title: Implement Gen 2 Checksum Validation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-02'
-updated_at: '2026-06-09'
+updated_at: '2026-06-10'
 depends_on:
   - .foundry/stories/story-053-090-health-scanner-diagnostic-models.md
-jules_session_id: null
+jules_session_id: '6304855021154202428'
 pr_number: null
 parent: epic-036-053-health-scanner-core-engine
 tags:
