@@ -71,6 +71,148 @@ describe('generateSuggestions', () => {
     expect(suggestion?.description).toBe('Your pre-evolution is already holding the Metal Coat! Trade it to evolve!');
   });
 
+  it('should suggest taking an evolution item from another pokemon if equipped for Trade evolutions', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(208); // Missing Steelix
+    const mockSaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      trainerName: 'ASH',
+      owned: ownedSet, // Owns Onix
+      party: [],
+      pc: [95, 16],
+      inventory: [{ id: 1, quantity: 5 }], // No Metal Coat (id: 0x8f) in bag
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 95,
+          level: 20,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+          otName: 'ASH',
+        },
+        {
+          speciesId: 16, // Random Pidgey
+          level: 5,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+          item: 0x8f, // Holding Metal Coat!
+          otName: 'ASH',
+        },
+      ],
+    } as unknown as SaveData;
+
+    const mockApiData = {
+      pokemonMetadata: {
+        95: {
+          id: 95,
+          n: 'Onix',
+          cr: 45,
+          baby: false,
+          eto: [{ id: 208, eto: [], det: [{ tr: 2, held: 210 }], ef: 95 }],
+          efrm: [],
+          det: [],
+        },
+        208: {
+          id: 208,
+          n: 'Steelix',
+          cr: 25,
+          baby: false,
+          eto: [],
+          efrm: [95],
+          det: [{ tr: 2, held: 210 }],
+        },
+      },
+      missingEncounters: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const mockStrategy = {
+      ...gen1Strategy,
+      generation: 2,
+    };
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const suggestion = suggestions.find((s) => s.id === 'evo-trade-held-208');
+    expect(suggestion).toBeDefined();
+    expect(suggestion?.title).toBe('Ready to Trade Evolve: #208!');
+    expect(suggestion?.description).toBe(
+      'Take the Metal Coat held by your Pokémon (#16), have your pre-evolution hold it, and trade to evolve!',
+    );
+  });
+
+  it('should suggest taking an evolution item from another pokemon if equipped for USE_ITEM evolutions', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(36); // Missing Clefable
+    const mockSaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      trainerName: 'ASH',
+      owned: ownedSet, // Owns Clefairy (35)
+      party: [],
+      pc: [35, 16],
+      inventory: [{ id: 1, quantity: 5 }], // No Moon Stone (id: 0x08) in bag
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 35,
+          level: 20,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+          otName: 'ASH',
+        },
+        {
+          speciesId: 16, // Random Pidgey
+          level: 5,
+          isShiny: false,
+          moves: [],
+          storageLocation: 'Box 1',
+          item: 0x08, // Holding Moon Stone!
+          otName: 'ASH',
+        },
+      ],
+    } as unknown as SaveData;
+
+    const mockApiData = {
+      pokemonMetadata: {
+        35: {
+          id: 35,
+          n: 'Clefairy',
+          cr: 45,
+          baby: false,
+          eto: [{ id: 36, eto: [], det: [{ tr: 3, item: 81 }], ef: 35 }],
+          efrm: [173],
+          det: [],
+        },
+        36: {
+          id: 36,
+          n: 'Clefable',
+          cr: 25,
+          baby: false,
+          eto: [],
+          efrm: [35],
+          det: [{ tr: 3, item: 81 }], // tr: 3 is USE_ITEM, item 81 is Moon Stone pokeapi ID
+        },
+      },
+      missingEncounters: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const mockStrategy = {
+      ...gen1Strategy,
+      generation: 2,
+    };
+
+    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const suggestion = suggestions.find((s) => s.id === 'evo-item-36-81');
+    expect(suggestion).toBeDefined();
+    expect(suggestion?.title).toBe('Ready to Evolve: #36!');
+    expect(suggestion?.description).toBe('Take the Moon Stone held by your Pokémon (#16) and use it to evolve it!');
+  });
+
   it('should generate "Catch Right Here" (catch-local) suggestions', () => {
     const mockSaveData: SaveData = {
       generation: 1,

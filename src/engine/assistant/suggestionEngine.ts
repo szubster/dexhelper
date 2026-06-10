@@ -680,6 +680,21 @@ function generateBreedingSuggestions(
  * @param displayVersion - The current game version, used to handle special cases (like Yellow Pikachu refusing to evolve).
  * @param missingIds - A Set of Pokémon IDs the player needs to obtain.
  */
+function findInstanceHoldingItem(
+  instancesMap: Map<number, PokemonInstance[]>,
+  itemId: number,
+): PokemonInstance | undefined {
+  for (const instances of instancesMap.values()) {
+    for (let i = 0; i < instances.length; i++) {
+      const inst = instances[i];
+      if (inst && inst.item === itemId) {
+        return inst;
+      }
+    }
+  }
+  return undefined;
+}
+
 function generateEvolutionSuggestions(
   queryTargets: number[],
   saveData: SaveData,
@@ -837,10 +852,23 @@ function generateEvolutionSuggestions(
         }
       } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
         const gameItemId = getGameItemId(item, saveData.generation);
-        const hasStone =
+        const hasStoneInBag =
           saveData.inventory.some((i) => i.id === gameItemId && i.quantity > 0) ||
           (saveData.pcItems?.some((i) => i.id === gameItemId && i.quantity > 0) ?? false);
+        const otherHoldingInstance = hasStoneInBag
+          ? undefined
+          : findInstanceHoldingItem(instancesBySpecies, gameItemId);
+        const hasStone = hasStoneInBag || !!otherHoldingInstance;
         const itemName = EVO_ITEM_NAMES[item] || 'item';
+
+        let description = hasStone
+          ? `Use your ${itemName} to evolve it${evolveTargetText}!`
+          : `Find a ${itemName} to evolve it${evolveTargetText}.`;
+
+        if (!hasStoneInBag && otherHoldingInstance) {
+          description = `Take the ${itemName} held by your Pokémon (#${otherHoldingInstance.speciesId}) and use it to evolve it${evolveTargetText}!`;
+        }
+
         suggestions.push({
           id: `evo-item-${targetId}-${item}`,
           category: 'Evolve',
@@ -849,9 +877,7 @@ function generateEvolutionSuggestions(
             : hasStone
               ? `Ready to Evolve: #${targetId}!`
               : `Item Needed: #${targetId}`,
-          description: hasStone
-            ? `Use your ${itemName} to evolve it${evolveTargetText}!`
-            : `Find a ${itemName} to evolve it${evolveTargetText}.`,
+          description,
           pokemonId: targetId,
           priority: hasStone ? 95 : 40,
         });
@@ -861,17 +887,23 @@ function generateEvolutionSuggestions(
           const hasHeldItemInBag =
             saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0) ||
             (saveData.pcItems?.some((i) => i.id === gameHeldId && i.quantity > 0) ?? false);
-          const holdingInstance =
+          const holdingPreEvoInstance =
             evolvableInstances.find((inst) => inst.item === gameHeldId) ||
             ownedInstances.find((inst) => inst.item === gameHeldId);
-          const hasHeldItem = hasHeldItemInBag || !!holdingInstance;
+          let otherHoldingInstance: PokemonInstance | undefined;
+          if (!hasHeldItemInBag && !holdingPreEvoInstance) {
+            otherHoldingInstance = findInstanceHoldingItem(instancesBySpecies, gameHeldId);
+          }
+          const hasHeldItem = hasHeldItemInBag || !!holdingPreEvoInstance || !!otherHoldingInstance;
           const itemName = EVO_ITEM_NAMES[held] || 'item';
 
           let description = `Find a ${itemName}, have your pre-evolution hold it, and trade to evolve${evolveTargetText}.`;
-          if (holdingInstance) {
+          if (holdingPreEvoInstance) {
             description = `Your pre-evolution is already holding the ${itemName}! Trade it to evolve${evolveTargetText}!`;
           } else if (hasHeldItemInBag) {
             description = `Have your pre-evolution hold the ${itemName} and trade it to evolve${evolveTargetText}!`;
+          } else if (otherHoldingInstance) {
+            description = `Take the ${itemName} held by your Pokémon (#${otherHoldingInstance.speciesId}), have your pre-evolution hold it, and trade to evolve${evolveTargetText}!`;
           }
 
           suggestions.push({
