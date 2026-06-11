@@ -17,10 +17,33 @@ export class RouteRadarController {
   /**
    * Calculates the heatmap density data from the provided suggestions.
    *
-   * @param _suggestions The raw output from the suggestionEngine.
+   * @param suggestions The raw output from the suggestionEngine.
    * @returns Heatmap data mapping areaId to density score.
    */
-  public calculateHeatmap(_suggestions: Suggestion[]): RouteRadarHeatmap {
-    throw new Error('Not implemented');
+  public calculateHeatmap(suggestions: Suggestion[]): RouteRadarHeatmap {
+    const heatmap: RouteRadarHeatmap = {};
+
+    for (const suggestion of suggestions) {
+      if (suggestion.category === 'Catch' && suggestion.encounterInfo) {
+        const uniqueAreaIds = new Set<number>();
+
+        // Iterate through all map IDs (keys) and extract areaIds (aid) from the encounter details
+        for (const mapId in suggestion.encounterInfo) {
+          const encounters = suggestion.encounterInfo[mapId];
+          if (encounters) {
+            for (const encounter of encounters) {
+              uniqueAreaIds.add(encounter.aid);
+            }
+          }
+        }
+
+        // Increment the density score for each unique areaId found for this suggestion
+        for (const areaId of uniqueAreaIds) {
+          heatmap[areaId] = (heatmap[areaId] || 0) + 1;
+        }
+      }
+    }
+
+    return heatmap;
   }
 }
