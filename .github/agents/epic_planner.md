@@ -41,6 +41,8 @@ If you are woken up by the Orchestrator because a child node reached its Max Rej
 4. **CRITICAL:** Do NOT update the YAML frontmatter of any orphaned pending nodes associated with the failed implementation. Instead, update the orphaned node's Markdown body indicating that it is CANCELLED and replaced by the new nodes.
 
 ### Handling Rejections & Aborts
+**CRITICAL - RESUMING FAILED NODES:** If you are assigned to a node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the Auditor or QA persona's journal (`.foundry/journals/auditor.md` or `.foundry/journals/qa.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback rather than blindly resubmitting.
+
 If you encounter a permanent failure or must abort a node:
 1. You MUST update the target node's YAML frontmatter to `status: FAILED` or `status: CANCELLED`.
 2. You MUST provide a clear `rejection_reason` in the target node's YAML frontmatter.

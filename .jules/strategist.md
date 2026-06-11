@@ -221,3 +221,9 @@
 **Outcome:** Merged
 **Why:** To prevent impossible loops, implementation agents must not ignore rejection reasons when resurrecting failed tasks.
 **Pattern:** Explicitly instruct implementation agents (like the Coder) to read the `rejection_reason` and the QA journal when resuming a previously failed task to ensure they fix the actual problem rather than blindly resubmitting.
+
+## 2026-06-11 - [Accepted] - Prompt improvement - Prevent planner blind resubmission
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Auditor journal observed that failed macro nodes (e.g., IDEA, PRD) in the Resurrection Loop were being blindly resubmitted by the planners without addressing the rejection reasons. This led to infinite loops. Planners previously lacked the explicit instructions that implementation agents (like Coder) had for resuming FAILED nodes.
+**Pattern:** Ensure all upstream generating personas (Product Manager, Epic Planner, Story Owner, Tech Lead) have explicit instructions to read the `rejection_reason` and the reviewing persona's journal (Auditor or QA) when assigned a resurrected FAILED node, to fix the actual issue instead of blindly resubmitting.
