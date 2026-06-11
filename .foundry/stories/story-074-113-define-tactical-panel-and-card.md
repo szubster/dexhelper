@@ -2,12 +2,12 @@
 id: story-074-113-define-tactical-panel-and-card
 type: STORY
 title: Define tactical-panel and tactical-card utilities
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-11'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2014117752626600383'
 pr_number: null
 parent: epic-071-074-define-tailwind-v4-utilities
 tags:
