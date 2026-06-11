@@ -32,3 +32,6 @@ Extract and consolidate common, repetitive Tailwind class patterns used for pane
 ## Acceptance Criteria
 - [ ] Appropriate `@utility tactical-panel` and `@utility tactical-card` primitives are defined in `src/index.css`.
 - [ ] Tailwind v4 formatting and structure is respected.
+
+- [ ] task-113-165-define-tactical-utilities-impl
+- [ ] task-113-166-define-tactical-utilities-qa
