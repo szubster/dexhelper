@@ -2,12 +2,12 @@
 id: task-089-153-implement-radar-heatmap-logic
 type: TASK
 title: Implement RouteRadarController Heatmap Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-09'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '15596705652860509977'
+jules_session_id: null
 pr_number: null
 parent: story-048-089-route-radar-density-aggregation
 tags:

@@ -2,10 +2,10 @@
 id: task-091-156-gen1-checksum-qa
 type: TASK
 title: QA Gen 1 Checksum Calculation
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-11'
 depends_on:
   - task-091-155-gen1-checksum-impl
 jules_session_id: null

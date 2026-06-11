@@ -2,10 +2,10 @@
 id: task-104-159-gen3-roamer-interface-impl
 type: TASK
 title: Update SaveData.roamingLegendaries interface for Gen 3
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
 jules_session_id: null
 pr_number: null

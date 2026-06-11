@@ -2,7 +2,7 @@
 id: task-095-158-feebas-seed-qa
 type: TASK
 title: QA Feebas Seed Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-11'

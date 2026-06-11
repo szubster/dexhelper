@@ -2,10 +2,10 @@
 id: task-095-152-gen1-hidden-item-parsing-qa
 type: TASK
 title: Gen 1 Hidden Item Event Flags Parsing QA
-status: PENDING
+status: READY
 owner_persona: qa
-created_at: "2026-06-09"
-updated_at: "2026-06-09"
+created_at: '2026-06-09'
+updated_at: '2026-06-11'
 depends_on:
   - task-095-151-gen1-hidden-item-parsing-impl
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 1 Hidden Item Event Flags Parsing QA

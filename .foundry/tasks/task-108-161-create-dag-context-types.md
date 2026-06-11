@@ -2,10 +2,10 @@
 id: task-108-161-create-dag-context-types
 type: TASK
 title: Create DagContext Interfaces and Types
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-06-11"
-updated_at: "2026-06-11"
+created_at: '2026-06-11'
+updated_at: '2026-06-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - ui
   - context
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Create DagContext Interfaces and Types

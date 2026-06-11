@@ -2,10 +2,10 @@
 id: task-092-158-gen2-checksum-qa
 type: TASK
 title: QA Gen 2 Checksum Validation Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-11'
 depends_on:
   - task-092-157-gen2-checksum-impl
 jules_session_id: null

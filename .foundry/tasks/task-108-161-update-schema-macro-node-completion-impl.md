@@ -2,10 +2,10 @@
 id: task-108-161-update-schema-macro-node-completion-impl
 type: TASK
 title: Implement update to schema.md with strict macro node completion rules
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-06-11"
-updated_at: "2026-06-11"
+created_at: '2026-06-11'
+updated_at: '2026-06-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - documentation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement update to schema.md with strict macro node completion rules

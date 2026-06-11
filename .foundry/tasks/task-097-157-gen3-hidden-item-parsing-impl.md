@@ -2,12 +2,12 @@
 id: task-097-157-gen3-hidden-item-parsing-impl
 type: TASK
 title: Gen 3 Hidden Item Event Flags Parsing Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '4170935313123243092'
+jules_session_id: null
 pr_number: null
 parent: story-058-097-gen3-hidden-item-parsing
 tags:

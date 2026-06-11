@@ -2,12 +2,12 @@
 id: task-098-157-locate-mirage-island-offset
 type: TASK
 title: Locate Mirage Island Data Block Offset
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '15014971352603587928'
+jules_session_id: null
 pr_number: null
 parent: story-061-098-locate-mirage-island-data
 tags:

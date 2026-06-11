@@ -2,12 +2,12 @@
 id: task-092-157-gen2-checksum-impl
 type: TASK
 title: Implement Gen 2 Checksum Calculation and Validation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-09'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '18017440010052810548'
+jules_session_id: null
 pr_number: null
 parent: story-053-092-health-scanner-gen2-checksum-validation
 tags:
