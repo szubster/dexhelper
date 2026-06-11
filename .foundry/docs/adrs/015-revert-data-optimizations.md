@@ -1,3 +1,23 @@
+---
+id: adr-015-revert-data-optimizations
+type: ADR
+title: 'ADR 015: Revert Data Format Optimizations (Short Property Names)'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-05-21'
+updated_at: '2026-05-21'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - foundry
+  - architecture
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
 # ADR 015: Revert Data Format Optimizations (Short Property Names)
 
 ## Date

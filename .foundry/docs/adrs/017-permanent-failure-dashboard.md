@@ -1,3 +1,23 @@
+---
+id: adr-017-permanent-failure-dashboard
+type: ADR
+title: 'ADR 017: Permanent Failure Dashboard & State Synchronization Architecture'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-05-22'
+updated_at: '2026-05-22'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - foundry
+  - architecture
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
 # ADR 017: Permanent Failure Dashboard & State Synchronization Architecture
 
 ## Date
