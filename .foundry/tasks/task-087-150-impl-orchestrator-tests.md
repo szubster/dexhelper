@@ -31,8 +31,8 @@ Tests must reflect the new implicit dependency enforcement logic added in the or
 - Specifically, tests should verify that nodes with missing or unresolvable dependencies are handled correctly, or that sibling dependencies are managed properly based on the recent changes.
 
 ## Acceptance Criteria
-- [ ] Added unit tests in `.github/scripts/foundry-orchestrator.test.ts` for implicit dependencies.
-- [ ] Run `pnpm test` successfully within `.github/scripts`.
+- [x] Added unit tests in `.github/scripts/foundry-orchestrator.test.ts` for implicit dependencies.
+- [x] Run `pnpm test` successfully within `.github/scripts`.
 
 ## Coder Contract
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
