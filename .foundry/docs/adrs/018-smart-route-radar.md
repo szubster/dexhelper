@@ -1,3 +1,23 @@
+---
+id: adr-018-smart-route-radar
+type: ADR
+title: 'ADR 018: Smart Route Radar Architecture'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-05-25'
+updated_at: '2026-05-25'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - foundry
+  - architecture
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
 # ADR 018: Smart Route Radar Architecture
 
 ## Status
