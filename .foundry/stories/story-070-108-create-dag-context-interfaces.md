@@ -25,4 +25,5 @@ notes: ''
 Define the TypeScript interfaces and types for the `DagContext`. This includes the shape of the context state (nodes, edges, and potentially `rejection_count`), and any actions or reducers if needed.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] .foundry/tasks/task-108-161-create-dag-context-types.md
