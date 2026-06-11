@@ -48,7 +48,7 @@ const VALID_STATUSES = [
 
 type Status = (typeof VALID_STATUSES)[number];
 
-const VALID_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH'] as const;
+const VALID_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH', 'ADR'] as const;
 type NodeType = (typeof VALID_TYPES)[number];
 
 /** Mirrors the YAML frontmatter schema defined in .foundry/docs/schema.md §3 */
@@ -137,8 +137,13 @@ function discoverNodeFiles(dir: string): string[] {
       const fullPath = path.join(current, entry.name);
 
       if (entry.isDirectory()) {
-        // Skip the journals/ and docs/ subtrees entirely.
-        if (entry.name === 'journals' || entry.name === 'docs') continue;
+        // Skip journals and docs subtrees, EXCEPT for docs/adrs/
+        if (entry.name === 'journals') continue;
+        if (entry.name === 'docs') {
+          const adrsPath = path.join(fullPath, 'adrs');
+          if (fs.existsSync(adrsPath)) walk(adrsPath);
+          continue;
+        }
         walk(fullPath);
       } else if (entry.isFile() && entry.name.endsWith('.md')) {
         results.push(fullPath);
@@ -871,6 +876,7 @@ function main(): void {
     STORY: ['tech_lead', 'story_owner'],
     TASK: ['coder', 'qa', 'tech_lead', 'architect'],
     RESEARCH: ['researcher'],
+    ADR: ['architect'],
   };
 
   for (const node of finalEligible) {

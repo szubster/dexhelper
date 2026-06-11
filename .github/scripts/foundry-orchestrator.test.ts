@@ -1395,6 +1395,7 @@ describe('foundry-orchestrator', () => {
   });
 
   test('Mapping Validation: Enforces type to persona mappings before dispatch', () => {
+    createValidTestNode(tmpDir, '.foundry/docs/adrs/adr-001.md', { id: "adr-001", type: "ADR", title: "ADR 1", status: "PENDING", owner_persona: "architect", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', { id: "idea-001", type: "IDEA", title: "Idea", status: "PENDING", owner_persona: "product_manager", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/prds/prd-invalid.md', { id: "prd-invalid", type: "PRD", title: "Invalid PRD", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/tasks/task-human.md', { id: "task-human", type: "TASK", title: "Human Task", status: "PENDING", owner_persona: "human", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
@@ -1404,6 +1405,9 @@ describe('foundry-orchestrator', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-architect.md', { id: "task-architect", type: "TASK", title: "Architect Task", status: "PENDING", owner_persona: "architect", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
 
     main();
+
+    const adrResult = fs.readFileSync(path.join(tmpDir, '.foundry/docs/adrs/adr-001.md'), 'utf-8');
+    expect(adrResult).toContain('status: READY');
 
     const ideaResult = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
     expect(ideaResult).toContain('status: READY');
