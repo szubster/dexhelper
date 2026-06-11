@@ -49,3 +49,5 @@ DexHelper is transitioning from repetitive inline Tailwind classes to semantic c
 - [ ] epic-071-074-define-tailwind-v4-utilities
 - [ ] epic-071-075-migrate-core-tactical-components
 - [ ] epic-071-076-migrate-complex-app-components
+
+- [ ] epic-071-077-tailwind-designer-persona
