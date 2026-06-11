@@ -23,19 +23,17 @@ notes: ''
 # Epic: Implement Tailwind Designer Persona Ownership
 
 ## Objective
-Establish the `designer` persona (or extend `palette_agent`) as the official owner and maintainer of the Tailwind and styling ecosystem, as recommended in ADR 024.
+Enhance the existing scheduled `palette` persona to maintain `src/index.css`, enforce the tactical hardware aesthetic, and manage custom `@utility` primitives, fulfilling the intent of ADR 024.
 
 ## Scope
-1. **Persona Prompt/Role Definition**: Update the relevant agent prompts or system configurations to explicitly define the `designer` persona's responsibility for maintaining `src/index.css`, enforcing the tactical hardware aesthetic, and managing custom `@utility` primitives.
-2. **Review Workflows**: Configure the Foundry Orchestrator or GitHub Actions (if applicable) to route styling-heavy PRs or tasks that modify `src/index.css` to this persona for review or implementation.
-3. **Documentation**: Update `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` to formally document this new domain ownership within the multi-agent pipeline.
+1. **Persona Prompt/Role Definition**: Update the relevant agent prompts or system configurations to explicitly define the `palette` persona's responsibility for maintaining `src/index.css`, enforcing the tactical hardware aesthetic, and managing custom `@utility` primitives.
+2. **Documentation**: Update `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` to formally document this new domain ownership within the multi-agent pipeline.
 
 ## Acceptance Criteria
-- [ ] Agent prompts/configurations are updated to assign styling ownership to the `designer` persona.
+- [ ] Agent prompts/configurations are updated to assign styling ownership to the `palette` persona.
 - [ ] Relevant documentation is updated to reflect this new responsibility.
 
 ### Child Stories
-- [ ] story-077-113-update-designer-persona
-- [ ] story-077-114-configure-orchestrator-routing
-- [ ] story-077-115-document-designer-ownership
+- [ ] story-077-113-update-palette-persona
+- [ ] story-077-114-document-palette-styling-ownership
 - [x] Break down into Stories
