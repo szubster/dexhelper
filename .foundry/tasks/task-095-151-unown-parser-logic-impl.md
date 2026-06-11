@@ -40,6 +40,6 @@ As defined in the parent Epic and Story, we need to extract the Unown form from 
 - **Coder**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `PokemonInstance` type updated with `unownForm`.
-- [ ] Gen 2 parser calculates Unown form from DVs for `speciesId === 201`.
-- [ ] Gen 2 parser correctly adds the `unownForm` character to the `PokemonInstance`.
+- [x] `PokemonInstance` type updated with `unownForm`.
+- [x] Gen 2 parser calculates Unown form from DVs for `speciesId === 201`.
+- [x] Gen 2 parser correctly adds the `unownForm` character to the `PokemonInstance`.
