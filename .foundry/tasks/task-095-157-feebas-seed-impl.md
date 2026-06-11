@@ -47,7 +47,7 @@ Implement a utility function to extract the 16-bit Feebas seed from Gen 3 save f
 - If you submit an Empty PR for a completed task (e.g., the code already existed), you **MUST** check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `src/engine/gen3/feebas.ts` exists and implements `extractFeebasSeed`.
-- [ ] Uses `DataView` API with explicit `RangeError` bounds-checking catch logic.
-- [ ] Handles version-specific offsets correctly.
-- [ ] Unit tests added and passing.
+- [x] `src/engine/gen3/feebas.ts` exists and implements `extractFeebasSeed`.
+- [x] Uses `DataView` API with explicit `RangeError` bounds-checking catch logic.
+- [x] Handles version-specific offsets correctly.
+- [x] Unit tests added and passing.
