@@ -33,3 +33,6 @@ Update `.foundry/docs/adrs/001-the-foundry-architecture.md` (ADR 001) to reflect
 
 ## Acceptance Criteria
 - [ ] Update `001-the-foundry-architecture.md` (ADR 001) to detail the behavior.
+
+## Tasks
+- [ ] task-109-161-update-adr001-macro-node-completion-impl
