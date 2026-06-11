@@ -2,7 +2,7 @@
 id: story-074-115-define-tactical-input-and-text
 type: STORY
 title: Define tactical-input and tactical-text utilities
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-11'
 updated_at: '2026-06-11'

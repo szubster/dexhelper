@@ -70,3 +70,9 @@ No critical learnings logged yet.
 - **2026-06-11**: PR #2358 merged but has unchecked tasks (parent node). `story-070-108-parse-secret-base-locations` is now PENDING.
 
 - **2026-06-11**: Resurrection Loop triggered for `task-095-157-gen3-berry-dataview-parsing`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-11**: PR #2368 merged. `adr-044-023-hof-timeline-ui` is now COMPLETED.
+
+- **2026-06-11**: PR #2365 merged but has unchecked tasks (parent node). `epic-071-074-define-tailwind-v4-utilities` is now PENDING.
+
+- **2026-06-11**: PR #2366 merged. `research-095-139-gen3-berry-patch-offsets` is now COMPLETED.

@@ -2,12 +2,12 @@
 id: research-095-139-gen3-berry-patch-offsets
 type: RESEARCH
 title: Investigate Gen 3 Berry Patch Memory Offsets and Structures
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-11'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '12604466888960027377'
+jules_session_id: null
 pr_number: null
 parent: task-095-157-gen3-berry-dataview-parsing
 tags:
