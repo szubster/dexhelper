@@ -2,10 +2,10 @@
 id: task-089-163-gen2-exclusive-moves-impl
 type: TASK
 title: Implement Gen 2 exclusive moves check
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-11'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,7 +2,7 @@
 id: epic-071-074-define-tailwind-v4-utilities
 type: EPIC
 title: Define Tailwind v4 Tactical Utilities
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-11'
 updated_at: '2026-06-11'

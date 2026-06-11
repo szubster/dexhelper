@@ -52,3 +52,21 @@ No critical learnings logged yet.
 - **2026-06-11**: PR #2338 merged. `task-098-157-gen3-parse-pv-impl` is now COMPLETED.
 
 - **2026-06-11**: PR #2351 merged. `task-098-157-locate-mirage-island-offset` is now COMPLETED.
+
+- **2026-06-11**: PR #2355 merged. `adr-044-022-hof-certificate-generation` is now COMPLETED.
+
+- **2026-06-11**: PR #2357 merged but has unchecked tasks (parent node). `epic-044-070-hof-data-parsing` is now PENDING.
+
+- **2026-06-11**: PR #2361 merged. `idea-074-gen3-battle-frontier-tracker` is now VERIFYING.
+
+- **2026-06-11**: PR #2360 merged. `idea-074-refactor-dag-dashboard-context` is now VERIFYING.
+
+- **2026-06-11**: PR #2359 merged but has unchecked tasks (parent node). `prd-071-040-tailwind-v4-utilities-migration` is now PENDING.
+
+- **2026-06-11**: PR #2362 merged. `story-051-089-gen2-exclusive-moves` is now COMPLETED.
+
+- **2026-06-11**: PR #2363 merged but has unchecked tasks (parent node). `story-058-095-unown-parser-logic` is now PENDING.
+
+- **2026-06-11**: PR #2358 merged but has unchecked tasks (parent node). `story-070-108-parse-secret-base-locations` is now PENDING.
+
+- **2026-06-11**: Resurrection Loop triggered for `task-095-157-gen3-berry-dataview-parsing`. Reason: Retry from FAILED status.. Transitioned back to READY.

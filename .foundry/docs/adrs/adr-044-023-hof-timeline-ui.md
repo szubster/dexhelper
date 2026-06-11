@@ -2,10 +2,10 @@
 id: adr-044-023-hof-timeline-ui
 type: ADR
 title: Hall of Fame Timeline UI Architecture
-status: PENDING
+status: READY
 owner_persona: architect
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on:
   - adr-044-022-hof-certificate-generation
 jules_session_id: null
