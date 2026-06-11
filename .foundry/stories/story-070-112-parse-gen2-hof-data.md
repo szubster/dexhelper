@@ -32,4 +32,7 @@ Implement logic to extract the Hall of Fame data and count from Generation 2 (Go
 - Parse the value at `johtoBadgesOffset + 0xA8` as an 8-bit unsigned integer.
 
 ## Acceptance Criteria
-- [ ] Create task to implement parsing for Gen 2 Hall of Fame.
+- [x] Create task to implement parsing for Gen 2 Hall of Fame.
+
+- [ ] task-112-165-implement-gen2-hof-parsing
+- [ ] task-112-166-qa-gen2-hof-parsing
