@@ -100,3 +100,5 @@ No critical learnings logged yet.
 - **2026-06-11**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
 
 - **2026-06-11**: System failure detected for `task-081-144-preserve-enum-optimizations-retry-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-11**: System failure detected for `task-094-157-moveset-inventory-validation-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
