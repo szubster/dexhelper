@@ -32,3 +32,6 @@ Extract and consolidate common, repetitive Tailwind class patterns used for inpu
 ## Acceptance Criteria
 - [ ] Appropriate `@utility tactical-input` and `@utility tactical-text` primitives are defined in `src/index.css`.
 - [ ] Tailwind v4 formatting and structure is respected.
+
+- [ ] task-115-165-implement-tactical-input-text
+- [ ] task-115-166-qa-tactical-input-text
