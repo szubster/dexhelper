@@ -36,7 +36,7 @@ Generation 2 save files employ a checksum system to verify data integrity, prote
 * **Coder:** Implement the logic and ensure unit tests are provided. If you permanently fail or abort, update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 checksum calculation algorithm.
-- [ ] Implement validation logic for Gen 2 main and backup checksums.
-- [ ] Return specific diagnostic models pinpointing checksum failures (main/backup, specific bank).
-- [ ] Write unit tests for the checksum logic.
+- [x] Implement Gen 2 checksum calculation algorithm.
+- [x] Implement validation logic for Gen 2 main and backup checksums.
+- [x] Return specific diagnostic models pinpointing checksum failures (main/backup, specific bank).
+- [x] Write unit tests for the checksum logic.
