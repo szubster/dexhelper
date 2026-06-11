@@ -31,6 +31,10 @@ export function PokemonLocations({
 }: PokemonLocationsProps) {
   const currentVersionId = POKE_VERSION_MAP[gameVersion.toLowerCase()];
 
+  const staticEnc = isValidStaticGameVersion(gameVersion) ? staticEncounters[pokemonId]?.[gameVersion] : undefined;
+  const versionEnc = encounters.filter((e) => e.v === currentVersionId);
+  const hasEncounters = (staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq;
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between border-white/5 border-b pb-4">
@@ -44,94 +48,85 @@ export function PokemonLocations({
         <TacticalPanel className="h-40 animate-pulse rounded-none border border-dashed" />
       ) : (
         <div className="relative z-10 grid grid-cols-1 gap-3" data-testid="location-list">
-          {(() => {
-            const staticEnc = isValidStaticGameVersion(gameVersion)
-              ? staticEncounters[pokemonId]?.[gameVersion]
-              : undefined;
-            const versionEnc = encounters.filter((e) => e.v === currentVersionId);
-
-            if ((staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq) {
-              return (
-                <>
-                  {evoReq && (
-                    <div className="group flex items-center justify-between rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30">
+          {hasEncounters ? (
+            <>
+              {evoReq && (
+                <div className="group flex items-center justify-between rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30">
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-none bg-amber-500/10 p-2 text-amber-500">
+                      <ArrowUpCircle size={14} />
+                    </div>
+                    <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
+                      Available via Evolving {evoReq.fromName.toUpperCase()}
+                    </span>
+                  </div>
+                  <TacticalBadge variant="amber">EVOLUTION</TacticalBadge>
+                </div>
+              )}
+              {staticEnc?.map((loc, i) => (
+                <div
+                  // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
+                  key={`static-${i}`}
+                  className="group flex items-center justify-between rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-none bg-red-500/10 p-2 text-red-500">
+                      <Target size={14} />
+                    </div>
+                    <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
+                      {loc}
+                    </span>
+                  </div>
+                  <TacticalBadge variant="red">STATIONARY</TacticalBadge>
+                </div>
+              ))}
+              {versionEnc.map((e) => {
+                return (
+                  <div
+                    key={`${e.aid}-${e.v}`}
+                    className="group flex flex-col space-y-3 rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
+                  >
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="rounded-none bg-amber-500/10 p-2 text-amber-500">
-                          <ArrowUpCircle size={14} />
+                        <div className="rounded-none bg-[var(--theme-primary)]/10 p-2 text-[var(--theme-primary)]">
+                          <MapPin size={14} />
                         </div>
                         <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
-                          Available via Evolving {evoReq.fromName.toUpperCase()}
+                          {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
                         </span>
                       </div>
-                      <TacticalBadge variant="amber">EVOLUTION</TacticalBadge>
+                      <div className="flex items-center gap-2">
+                        {e.d.map((d: CompactEncounterDetail, di: number) => (
+                          <TacticalBadge
+                            // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
+                            key={di}
+                            variant="zinc"
+                            className="border-white/5 bg-white/5 py-0.5 text-zinc-500"
+                          >
+                            LV.{d.min}-{d.max}
+                          </TacticalBadge>
+                        ))}
+                      </div>
                     </div>
-                  )}
-                  {staticEnc?.map((loc, i) => (
-                    <div
-                      // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-                      key={`static-${i}`}
-                      className="group flex items-center justify-between rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="rounded-none bg-red-500/10 p-2 text-red-500">
-                          <Target size={14} />
-                        </div>
-                        <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
-                          {loc}
+                    <div className="flex flex-wrap gap-1.5 border-[var(--theme-primary)]/20 border-l-2 pl-1.5">
+                      {e.d.map((d: CompactEncounterDetail, di: number) => (
+                        <span
+                          // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
+                          key={di}
+                          className="font-black text-[8px] text-[var(--theme-primary)]/70 uppercase"
+                        >
+                          • {REVERSE_METHOD_MAP[d.m]?.replace('-', ' ')} ({d.c}%)
                         </span>
-                      </div>
-                      <TacticalBadge variant="red">STATIONARY</TacticalBadge>
+                      ))}
                     </div>
-                  ))}
-                  {versionEnc.map((e) => {
-                    return (
-                      <div
-                        key={`${e.aid}-${e.v}`}
-                        className="group flex flex-col space-y-3 rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="rounded-none bg-[var(--theme-primary)]/10 p-2 text-[var(--theme-primary)]">
-                              <MapPin size={14} />
-                            </div>
-                            <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
-                              {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            {e.d.map((d: CompactEncounterDetail, di: number) => (
-                              <TacticalBadge
-                                // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-                                key={di}
-                                variant="zinc"
-                                className="border-white/5 bg-white/5 py-0.5 text-zinc-500"
-                              >
-                                LV.{d.min}-{d.max}
-                              </TacticalBadge>
-                            ))}
-                          </div>
-                        </div>
-                        <div className="flex flex-wrap gap-1.5 border-[var(--theme-primary)]/20 border-l-2 pl-1.5">
-                          {e.d.map((d: CompactEncounterDetail, di: number) => (
-                            <span
-                              // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-                              key={di}
-                              className="font-black text-[8px] text-[var(--theme-primary)]/70 uppercase"
-                            >
-                              • {REVERSE_METHOD_MAP[d.m]?.replace('-', ' ')} ({d.c}%)
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </>
-              );
-            }
-
+                  </div>
+                );
+              })}
+            </>
+          ) : (
             // Fallback to other versions ONLY if missing in current (and no evolution path)
-            return <FallbackLocations gameVersion={gameVersion} encounters={encounters} areaNames={areaNames} />;
-          })()}
+            <FallbackLocations gameVersion={gameVersion} encounters={encounters} areaNames={areaNames} />
+          )}
         </div>
       )}
     </div>
