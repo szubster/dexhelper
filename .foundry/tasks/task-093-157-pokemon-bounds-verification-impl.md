@@ -36,8 +36,8 @@ Even if checksums are valid, data can be corrupted or maliciously modified. We n
 *   Provide unit tests confirming the bounds validation logic.
 
 ## Acceptance Criteria
-- [ ] Implementation complete.
-- [ ] Unit tests written and passing.
+- [x] Implementation complete.
+- [x] Unit tests written and passing.
 
 ## Reminders
 *   If you permanently fail or abort this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
