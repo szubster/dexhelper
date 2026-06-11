@@ -31,4 +31,8 @@ This story handles the base extraction logic in the save parser for Gen 3. The `
 ## Acceptance Criteria
 - [ ] Implement `DataView` reading logic for the 20-byte Gen 3 roamer structure.
 - [ ] Implement parsing logic for IVs, HP, and Level from the structure.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+
+## Generated Tasks
+- [ ] task-108-161-gen3-roamer-dataview-extraction-impl
+- [ ] task-108-162-gen3-roamer-dataview-extraction-qa
