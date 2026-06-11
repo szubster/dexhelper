@@ -2,13 +2,13 @@
 id: adr-044-022-hof-certificate-generation
 type: ADR
 title: Hall of Fame Certificate Generation
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-06-10'
 updated_at: '2026-06-11'
 depends_on:
   - adr-044-021-hof-data-parsing-architecture
-jules_session_id: null
+jules_session_id: '17850356702365656365'
 pr_number: null
 parent: prd-070-044-hall-of-fame-exporter
 tags:
