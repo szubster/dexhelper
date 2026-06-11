@@ -30,4 +30,4 @@ Integrate the newly parsed Gen 3 encounter data into the suggestion engine and m
 
 ## Generated Tasks
 - [ ] .foundry/tasks/task-064-134-encounter-integration-impl.md
-- [ ] .foundry/tasks/task-064-135-encounter-integration-qa.md
+- [ ] .foundry/archive/tasks/task-064-135-encounter-integration-qa.md
