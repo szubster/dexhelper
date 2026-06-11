@@ -2,7 +2,7 @@
 id: task-095-157-gen3-berry-dataview-parsing
 type: TASK
 title: Implement Gen 3 Berry Tracker DataView Parsing Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-11'
@@ -17,7 +17,10 @@ tags:
   - engine
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Abort: Missing exact memory block offsets and structure details for Gen 3
+  berry patches in the knowledge base/PRD. A RESEARCH node has been spawned to
+  investigate this.
 notes: ''
 ---
 
