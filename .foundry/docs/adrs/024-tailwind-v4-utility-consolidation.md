@@ -37,6 +37,7 @@ We will consolidate repetitive tactical utility combinations into custom primiti
     *   Example: A panel background utility will be named `tactical-panel`.
     *   Example: A focus state utility will be named `tactical-focus`.
 3.  **File Location**: All `@utility` definitions will be placed in `src/index.css`.
+4.  **Ownership and Maintenance**: The `designer` persona (or extended `palette_agent`) shall take ownership of the Tailwind and styling ecosystem. This includes maintaining these primitives, performing refactoring and extraction of new utilities, and ensuring adherence to the overall aesthetic guidelines.
 
 ### Migration Strategy
 The migration from inline classes to the new `tactical-*` utilities will be performed incrementally to avoid regressions.
