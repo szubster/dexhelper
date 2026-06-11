@@ -95,8 +95,6 @@ export interface SaveData {
   hiddenItemFlags?: Uint8Array;
   /** Bitflags representing which in-game NPC trades have already been completed. */
   npcTradeFlags?: number;
-  /** Raw byte array containing all in-game hidden item flags. */
-  hiddenItemFlags?: Uint8Array;
   /** Detailed structural data for Pokémon currently left in the Daycare (Gen 2). */
   daycare?: PokemonInstance[];
   /** Gen 2 specific: Indicates if an Egg is currently waiting to be picked up from the Daycare. */
