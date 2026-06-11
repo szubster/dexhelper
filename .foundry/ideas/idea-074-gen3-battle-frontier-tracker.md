@@ -2,12 +2,12 @@
 id: idea-074-gen3-battle-frontier-tracker
 type: IDEA
 title: Gen 3 Battle Frontier Dashboard
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-06-11'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: visionary-run
+jules_session_id: '3672308030394080779'
 pr_number: null
 parent: null
 tags:
