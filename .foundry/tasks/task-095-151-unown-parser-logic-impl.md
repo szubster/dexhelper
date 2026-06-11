@@ -2,12 +2,12 @@
 id: task-095-151-unown-parser-logic-impl
 type: TASK
 title: Implement Unown Form Parser Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-09'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6528623856030873325'
 pr_number: null
 parent: story-058-095-unown-parser-logic
 tags:
