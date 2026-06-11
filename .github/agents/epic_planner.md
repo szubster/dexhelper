@@ -32,6 +32,14 @@ While the system does not strictly block node creation, ANY scheduled or foundry
 - **CRITICAL:** Do NOT submit an Empty PR to transition a PRD to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child EPIC nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
 
 
+
+**HANDLING PERMANENT CHILD FAILURES (THE IMPOSSIBLE LOOP):**
+If you are woken up by the Orchestrator because a child node reached its Max Rejection Count (e.g., a STORY failed permanently), you MUST:
+1. Spawn a `RESEARCH` node to investigate the root cause of the failure.
+2. Create a new set of replacement nodes (e.g., stories) that explicitly depend on the `RESEARCH` node being completed.
+3. Append these new nodes to your own markdown body.
+4. **CRITICAL:** Do NOT update the YAML frontmatter of any orphaned pending nodes associated with the failed implementation. Instead, update the orphaned node's Markdown body indicating that it is CANCELLED and replaced by the new nodes.
+
 ### Handling Rejections & Aborts
 If you encounter a permanent failure or must abort a node:
 1. You MUST update the target node's YAML frontmatter to `status: FAILED` or `status: CANCELLED`.
@@ -45,6 +53,7 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 
 ## Core Policies
+**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
 When submitting an empty PR for a node that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
 
