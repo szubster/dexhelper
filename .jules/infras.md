@@ -83,3 +83,6 @@ Critical learnings:
 
 ## 2026-06-09 - Fix Biome schema version
 **Learning:** Config drift between `package.json` (`2.4.16`), `biome.yml` (`2.4.15`), and `biome.jsonc` schemas can cause `sort-package-json` or `pnpm lint:package-json` to fail in CI pipelines, as well as lead to config mismatch between local devs and CI runners. Always ensure Biome schema and runner versions are updated in sync when upgrading.
+
+## 2026-06-11 - Empty PR Policy for Infrastructure
+**Learning:** When tasked with improving development tooling, and the existing infrastructure (Biome, Oxlint, Knip, Lefthook, Dependabot, Caching, Bundlemon, Codecov) is highly optimized, it is strictly preferable to submit an empty PR rather than forcing a change. An empty PR cleanly transitions the task without introducing bloat or technical debt. Do not modify the application logic or UI code to address tooling findings like unused files during an infrastructure task.
