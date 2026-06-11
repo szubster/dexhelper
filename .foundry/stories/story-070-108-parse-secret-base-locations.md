@@ -2,12 +2,12 @@
 id: story-070-108-parse-secret-base-locations
 type: STORY
 title: Parse Gen 3 Secret Base Locations
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15163698416381868638'
 pr_number: null
 parent: epic-045-070-gen3-secret-base-parsing
 tags:
@@ -31,4 +31,7 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to extract the
 - Map the internal location IDs to the unified Gen 3 map graph.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+
+- [ ] task-108-163-gen3-secret-base-parser
+- [ ] task-108-164-gen3-secret-base-parser-qa

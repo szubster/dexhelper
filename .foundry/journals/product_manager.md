@@ -32,3 +32,9 @@ In the Foundry architecture, parent generation nodes (like `IDEA` and `PRD`) MUS
 
 ## 2026-06-11: Bash Output Truncation Awareness
 When discovering a large number of files or searching for the highest sequence number in a directory with many files (like `.foundry/prds/`), standard bash outputs might be truncated if combined with other output-heavy commands (like `cat`) in the same execution block. This can lead to ungrounded assumptions (e.g., guessing the next sequence number). It is essential to run critical discovery commands (like `ls -1 | sort | tail`) in isolation or pipe them safely to ensure complete data retrieval before acting.
+## Anomaly: Duplicate PRD Node Exists (2026-06-11)
+**Observation:**
+During the generation of `prd-074-046-dag-context-architecture` for `idea-074-refactor-dag-dashboard-context`, it was discovered that an identical PRD (`prd-073-045-refactor-dag-dashboard-context`) already existed, apparently spawned from `idea-073-refactor-dag-dashboard-context`.
+
+**Impact:**
+This duplicate node creation could lead to redundant work being dispatched and confusion within the DAG graph. The Agile Coach should review the system to see why `idea-073` and `idea-074` were created as duplicate entries, and potentially introduce checks to prevent duplicate IDEA generation before they reach the PRD transformation step.
