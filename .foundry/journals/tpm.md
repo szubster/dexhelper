@@ -90,3 +90,9 @@ No critical learnings logged yet.
 - **2026-06-10**: PR #2293 merged. `story-064-103-contest-ribbons-display-ui` is now COMPLETED.
 
 - **2026-06-10**: PR #2296 merged. `story-064-103-gen3-ribbon-bitfields-extraction` is now COMPLETED.
+
+- **2026-06-11**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-11**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-11**: System failure detected for `task-081-144-preserve-enum-optimizations-retry-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
