@@ -2,10 +2,10 @@
 id: story-071-108-update-schema-macro-node-completion
 type: STORY
 title: Update schema.md with strict macro node completion rules
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-06-10"
-updated_at: "2026-06-10"
+created_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - documentation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Update schema.md with strict macro node completion rules

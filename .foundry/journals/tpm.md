@@ -102,3 +102,15 @@ No critical learnings logged yet.
 - **2026-06-11**: System failure detected for `task-081-144-preserve-enum-optimizations-retry-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
 
 - **2026-06-11**: System failure detected for `task-094-157-moveset-inventory-validation-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-11**: PR #2300 merged but has unchecked tasks (parent node). `epic-044-070-gen3-roamer-core-extraction` is now PENDING.
+
+- **2026-06-11**: PR #2301 merged but has unchecked tasks (parent node). `epic-044-072-gen3-roamer-location-radar` is now PENDING.
+
+- **2026-06-11**: PR #2302 merged but has unchecked tasks (parent node). `epic-045-070-implement-dag-context` is now PENDING.
+
+- **2026-06-11**: PR #2305 merged but has unchecked tasks (parent node). `epic-045-070-orchestrator-strict-completion` is now PENDING.
+
+- **2026-06-11**: PR #2304 merged but has unchecked tasks (parent node). `epic-045-071-documentation-macro-node-completion` is now PENDING.
+
+- **2026-06-11**: PR #2303 merged but has unchecked tasks (parent node). `story-053-106-dag-utils-unit-tests` is now PENDING.

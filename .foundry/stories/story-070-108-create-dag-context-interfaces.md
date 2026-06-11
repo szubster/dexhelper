@@ -2,10 +2,10 @@
 id: story-070-108-create-dag-context-interfaces
 type: STORY
 title: Create DagContext Interfaces and Types
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
