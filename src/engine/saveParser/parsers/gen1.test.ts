@@ -79,6 +79,11 @@ describe('parseGen1 - specific data extraction', () => {
     view.setUint8(bOff, 153);
     view.setUint8(bOff + 3, 5); // Level
 
+    // Hidden Item Event Flags
+    const hiddenItemOffset = 0x299c;
+    view.setUint8(hiddenItemOffset, 0b10101010);
+    view.setUint8(hiddenItemOffset + 1, 0b01010101);
+
     // Parse!
     const data = parseGen1(view);
 
@@ -100,6 +105,11 @@ describe('parseGen1 - specific data extraction', () => {
     expect(data.pcDetails.length).toBe(1);
     expect(data.pcDetails[0]?.speciesId).toBe(1);
     expect(data.pcDetails[0]?.level).toBe(5);
+
+    expect(data.hiddenItemFlags).toBeDefined();
+    expect(data.hiddenItemFlags?.length).toBe(14);
+    expect(data.hiddenItemFlags?.[0]).toBe(0b10101010);
+    expect(data.hiddenItemFlags?.[1]).toBe(0b01010101);
   });
 
   it('should parse other PC boxes correctly', () => {
