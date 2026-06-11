@@ -2,12 +2,12 @@
 id: task-095-157-gen2-event-flag-impl
 type: TASK
 title: Gen 2 Event Flag Extraction - Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4219745778665735245'
 pr_number: null
 parent: story-061-095-gen2-event-flag-extraction
 tags:
