@@ -95,6 +95,17 @@ function parseGen2PokemonInstance(
   // OT names in daycare are immediately after the data block
   const otName = storageLocation === 'Daycare' ? decodeGen12String(view, offset + 32) : undefined;
 
+  let unownForm: string | undefined;
+  if (speciesId === 201) {
+    const atkBits = (dvs.atk >> 1) & 0b11;
+    const defBits = (dvs.def >> 1) & 0b11;
+    const spdBits = (dvs.spd >> 1) & 0b11;
+    const spcBits = (dvs.spc >> 1) & 0b11;
+    const value = (atkBits << 6) | (defBits << 4) | (spdBits << 2) | spcBits;
+    const modValue = value % 28;
+    unownForm = modValue < 26 ? String.fromCharCode(65 + modValue) : 'A';
+  }
+
   return {
     speciesId,
     currentHp,
@@ -110,6 +121,7 @@ function parseGen2PokemonInstance(
     otName,
     storageLocation,
     slot,
+    unownForm,
   };
 }
 
