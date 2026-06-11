@@ -32,10 +32,10 @@ This task implements the third part of the epic `epic-037-058-hidden-items-save-
 4. **Update Tests**: Add or update unit tests for the Gen 3 save parser to assert that the `hiddenItemFlags` are parsed correctly, injecting mock byte values into the dummy save buffer to verify extraction logic.
 
 ## Acceptance Criteria
-- [ ] `parseGen3` correctly parses the save file sections to locate the event flags.
-- [ ] `parseGen3` extracts the hidden item flags into a `Uint8Array` using exclusively the `DataView` API.
-- [ ] Bounds checking is handled natively by catching `DataView` `RangeError`s and propagating them appropriately.
-- [ ] Unit tests for the Gen 3 save parser verify hidden item parsing logic.
+- [x] `parseGen3` correctly parses the save file sections to locate the event flags.
+- [x] `parseGen3` extracts the hidden item flags into a `Uint8Array` using exclusively the `DataView` API.
+- [x] Bounds checking is handled natively by catching `DataView` `RangeError`s and propagating them appropriately.
+- [x] Unit tests for the Gen 3 save parser verify hidden item parsing logic.
 
 ## IMPORTANT REMINDERS
 - **If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.**

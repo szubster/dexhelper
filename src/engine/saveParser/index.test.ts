@@ -253,8 +253,8 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     // Mock isGen3Save to return true
     const isGen3Spy = vi.spyOn(gen3Module, 'isGen3Save').mockReturnValue(true);
 
-    // Should call parseGen3, which throws 'Gen 3 parsing not implemented yet'
-    expect(() => parseSaveFile(buffer.buffer)).toThrow('Gen 3 parsing not implemented yet');
+    // Should call parseGen3, which throws 'The save file is corrupted or incomplete.'
+    expect(() => parseSaveFile(buffer.buffer)).toThrow('The save file is corrupted or incomplete.');
 
     isGen3Spy.mockRestore();
   });
