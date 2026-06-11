@@ -33,3 +33,9 @@ Establish the `designer` persona (or extend `palette_agent`) as the official own
 ## Acceptance Criteria
 - [ ] Agent prompts/configurations are updated to assign styling ownership to the `designer` persona.
 - [ ] Relevant documentation is updated to reflect this new responsibility.
+
+### Child Stories
+- [ ] story-077-113-update-designer-persona
+- [ ] story-077-114-configure-orchestrator-routing
+- [ ] story-077-115-document-designer-ownership
+- [x] Break down into Stories
