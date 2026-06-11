@@ -36,6 +36,6 @@ As part of the Mirage Island save parsing feature (Story `story-061-098-locate-m
 - **Failure Condition**: If you cannot locate the offset or encounter permanent failures, you MUST update this node's YAML frontmatter to `status: FAILED` with a clear `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Document the exact byte offset(s) for the Mirage Island value in R/S/E.
-- [ ] Document the data structure size (expected to be a 16-bit integer).
-- [ ] Create `.foundry/docs/knowledge_base/gen3_mirage_island_offsets.md` with the findings.
+- [x] Document the exact byte offset(s) for the Mirage Island value in R/S/E.
+- [x] Document the data structure size (expected to be a 16-bit integer).
+- [x] Create `.foundry/docs/knowledge_base/gen3_mirage_island_offsets.md` with the findings.
