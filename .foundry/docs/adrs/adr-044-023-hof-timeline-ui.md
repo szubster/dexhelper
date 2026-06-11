@@ -29,5 +29,15 @@ The user interface must display multiple past League victories in a timeline for
 ## Decision
 We will build a React component that visualizes the Hall of Fame data as a timeline. It will integrate the certificate rendering engine to provide social sharing hooks.
 
+### Component Structure
+1. **`<HallOfFameTimeline>`**: The primary container component. It will fetch or receive the parsed Hall of Fame data array as props. It manages the overall layout, scrolling, and empty states.
+2. **`<TimelineEvent>`**: A sub-component representing a single League victory. It will display the date/time of the victory and the 6 Pokémon used in that specific run.
+3. **`<CertificateRenderer>`**: A wrapper component (integrating `html-to-image` as per ADR 022) that takes the data of a single `<TimelineEvent>` and provides a "Share" or "Download" button to generate the high-resolution certificate.
+
+### Integration Points
+- **Data Source**: The timeline will consume data parsed by the logic defined in ADR 021, likely passed down from a parent page component or global state store.
+- **Rendering Engine**: The `<CertificateRenderer>` will wrap or be invoked by the `<TimelineEvent>` to access the specific team data for the certificate generation.
+- **UI State**: The component will need local state to manage loading states while the certificate is being generated (e.g., displaying a spinner on the "Share" button).
+
 ## Acceptance Criteria
-- [ ] Define the React component structure and integration points.
+- [x] Define the React component structure and integration points.
