@@ -2,7 +2,7 @@
 id: task-095-151-unown-parser-logic-impl
 type: TASK
 title: Implement Unown Form Parser Logic
-status: COMPLETED
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-09'
 updated_at: '2026-06-11'
