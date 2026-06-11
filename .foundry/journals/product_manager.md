@@ -30,6 +30,8 @@ During the conversion of `idea-066-save-file-health-scanner` to a PRD, the PR wa
 **Architectural Constraint:**
 In the Foundry architecture, parent generation nodes (like `IDEA` and `PRD`) MUST include references to their generated child nodes as unchecked task checkboxes (`- [ ] <file_path>`) directly in their markdown body. This is a critical signal to the Orchestrator. If the checkbox is omitted or immediately checked, the Orchestrator assumes the parent node has met all its acceptance criteria and prematurely transitions it to `VERIFYING` before the descendant nodes are actually completed. This violates the dependency graph constraints and triggers a rejection.
 
+## 2026-06-11: Bash Output Truncation Awareness
+When discovering a large number of files or searching for the highest sequence number in a directory with many files (like `.foundry/prds/`), standard bash outputs might be truncated if combined with other output-heavy commands (like `cat`) in the same execution block. This can lead to ungrounded assumptions (e.g., guessing the next sequence number). It is essential to run critical discovery commands (like `ls -1 | sort | tail`) in isolation or pipe them safely to ensure complete data retrieval before acting.
 ## Anomaly: Duplicate PRD Node Exists (2026-06-11)
 **Observation:**
 During the generation of `prd-074-046-dag-context-architecture` for `idea-074-refactor-dag-dashboard-context`, it was discovered that an identical PRD (`prd-073-045-refactor-dag-dashboard-context`) already existed, apparently spawned from `idea-073-refactor-dag-dashboard-context`.
