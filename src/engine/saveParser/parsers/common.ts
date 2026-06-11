@@ -25,7 +25,7 @@ export interface PokemonInstance {
   item?: number | undefined;
   moves: number[];
   friendship?: number | undefined;
-  pokerus?: number | undefined;
+  pokerus?: { strain: number; daysRemaining: number } | undefined;
   currentHp?: number | undefined;
   dvs?: { hp: number; atk: number; def: number; spd: number; spc: number };
   statExp?: { hp: number; atk: number; def: number; spd: number; spc: number };

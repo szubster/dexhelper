@@ -87,7 +87,14 @@ function parseGen2PokemonInstance(
   const isShiny = checkShiny(dvs);
   const isShinyCarrier = checkShinyGene(dvs);
   const friendship = view.getUint8(offset + 27);
-  const pokerus = view.getUint8(offset + 28);
+  const rawPokerus = view.getUint8(offset + 28);
+  const pokerus =
+    rawPokerus > 0
+      ? {
+          strain: rawPokerus >> 4,
+          daysRemaining: rawPokerus & 0x0f,
+        }
+      : undefined;
   const level = view.getUint8(offset + 31);
   const currentHp = storageLocation === 'Party' ? view.getUint16(offset + 34, false) : undefined;
   const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
