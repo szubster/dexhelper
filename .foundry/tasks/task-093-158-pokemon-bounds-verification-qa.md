@@ -2,10 +2,10 @@
 id: task-093-158-pokemon-bounds-verification-qa
 type: TASK
 title: QA Pokemon ID and DV Bounds Verification
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on:
   - task-093-157-pokemon-bounds-verification-impl
 jules_session_id: null

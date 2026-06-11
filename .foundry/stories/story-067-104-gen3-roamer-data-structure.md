@@ -2,12 +2,12 @@
 id: story-067-104-gen3-roamer-data-structure
 type: STORY
 title: Gen 3 Roamer Data Structure Standardization
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '9692195046910554050'
+jules_session_id: null
 pr_number: null
 parent: epic-043-067-roamer-data-extraction
 tags: []
@@ -28,4 +28,6 @@ Currently, Gen 2 provides `speciesId`, `level`, `mapGroup`, and `mapId` for its 
 ## Acceptance Criteria
 - [ ] Ensure `SaveData.roamingLegendaries` is robust for both generations.
 - [ ] Document map group/id differences between Gen 2 and Gen 3 within the interface comments.
-- [ ] Break down this Story into executable Tasks.
+- [x] Break down this Story into executable Tasks.
+- [ ] .foundry/tasks/task-104-159-gen3-roamer-interface-impl.md
+- [ ] .foundry/tasks/task-104-159-gen3-roamer-interface-qa.md

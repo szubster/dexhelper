@@ -5,10 +5,10 @@ title: QA Feebas Seed Extraction
 status: READY
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on:
   - task-095-157-feebas-seed-impl
-jules_session_id: null
+jules_session_id: '9142624326640615811'
 pr_number: null
 parent: story-058-095-feebas-seed-extraction
 tags:

@@ -50,6 +50,14 @@ function ProcurementStrategy({
   saveData: SaveData | null;
   onNavigate: (id: number, name: string) => void;
 }) {
+  const stadiumRewards = React.useMemo(() => {
+    const rewardObj = stadiumRewardsData[pokemonId];
+    if (!rewardObj) return null;
+    const gen = saveData?.generation || (['gold', 'silver', 'crystal'].includes(gameVersion) ? 2 : 1);
+    const rewards = gen === 2 ? rewardObj.stadium2 : rewardObj.stadium1;
+    return rewards && rewards.length > 0 ? { gen, rewards } : null;
+  }, [pokemonId, saveData, gameVersion]);
+
   return (
     <TacticalPanel
       variant="red"
@@ -81,25 +89,18 @@ function ProcurementStrategy({
         ) : (
           <> field capture or specialized interaction.</>
         )}
-        {(() => {
-          const rewardObj = stadiumRewardsData[pokemonId];
-          if (!rewardObj) return null;
-          const gen = saveData?.generation || (['gold', 'silver', 'crystal'].includes(gameVersion) ? 2 : 1);
-          const rewards = gen === 2 ? rewardObj.stadium2 : rewardObj.stadium1;
-          if (!rewards || rewards.length === 0) return null;
-          return (
-            <div className="mt-2 flex flex-wrap gap-2">
-              {rewards.map((r) => (
-                <span
-                  key={r}
-                  className="rounded-none border border-red-500/20 border-dashed bg-red-500/10 px-2 py-0.5 font-black text-[9px] text-red-500"
-                >
-                  STADIUM {gen} REWARD: {r.toUpperCase()}
-                </span>
-              ))}
-            </div>
-          );
-        })()}
+        {stadiumRewards && (
+          <div className="mt-2 flex flex-wrap gap-2">
+            {stadiumRewards.rewards.map((r) => (
+              <span
+                key={r}
+                className="rounded-none border border-red-500/20 border-dashed bg-red-500/10 px-2 py-0.5 font-black text-[9px] text-red-500"
+              >
+                STADIUM {stadiumRewards.gen} REWARD: {r.toUpperCase()}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </TacticalPanel>
   );

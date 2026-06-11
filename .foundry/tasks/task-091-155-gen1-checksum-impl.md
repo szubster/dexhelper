@@ -2,12 +2,12 @@
 id: task-091-155-gen1-checksum-impl
 type: TASK
 title: Implement Gen 1 Checksum Calculation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-09'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '15894191402877134460'
+jules_session_id: null
 pr_number: null
 parent: story-053-091-health-scanner-gen1-checksum-validation
 tags:
@@ -33,8 +33,8 @@ Generation 1 save files rely on a main checksum to verify the integrity of the a
 * If a mismatch is detected, return appropriate diagnostic models (e.g., `HealthScanResult`, `Anomaly`) as defined in `story-053-090`.
 
 ## Acceptance Criteria
-- [ ] Implement checksum calculation and validation logic.
-- [ ] Ensure validation logic handles missing or invalid save data structures gracefully.
+- [x] Implement checksum calculation and validation logic.
+- [x] Ensure validation logic handles missing or invalid save data structures gracefully.
 
 ## Reminders
 * If you permanently fail or abort this task, you MUST update the YAML frontmatter to status: FAILED or status: CANCELLED with a rejection_reason.

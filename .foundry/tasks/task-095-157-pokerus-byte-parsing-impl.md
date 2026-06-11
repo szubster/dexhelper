@@ -2,10 +2,10 @@
 id: task-095-157-pokerus-byte-parsing-impl
 type: TASK
 title: Implement Pokerus Byte Parsing
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-08'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -48,8 +48,8 @@ const pokerus = rawPokerusByte > 0 ? {
 Update `parseGen2PokemonInstance` in `src/engine/saveParser/parsers/gen2.ts` to parse the raw byte into this object.
 
 ## Acceptance Criteria
-- [ ] Update `PokemonInstance.pokerus` type in `src/engine/saveParser/parsers/common.ts`
-- [ ] Update `parseGen2PokemonInstance` to parse the pokerus byte into the structured object.
+- [x] Update `PokemonInstance.pokerus` type in `src/engine/saveParser/parsers/common.ts`
+- [x] Update `parseGen2PokemonInstance` to parse the pokerus byte into the structured object.
 
 ### Critical Contract Reminders
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

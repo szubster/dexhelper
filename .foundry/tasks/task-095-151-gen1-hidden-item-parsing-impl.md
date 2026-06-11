@@ -2,12 +2,12 @@
 id: task-095-151-gen1-hidden-item-parsing-impl
 type: TASK
 title: Gen 1 Hidden Item Event Flags Parsing Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-09'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '6712306764376916269'
+jules_session_id: null
 pr_number: null
 parent: story-058-095-gen1-hidden-item-parsing
 tags:
@@ -32,9 +32,9 @@ This task implements the first part of the epic `epic-037-058-hidden-items-save-
 4. **Update Tests**: Update the unit tests in `src/engine/saveParser/parsers/gen1.test.ts` to assert that the `hiddenItemFlags` are parsed correctly, injecting mock byte values into the dummy save buffer to test.
 
 ## Acceptance Criteria
-- [ ] `SaveData` interface includes `hiddenItemFlags?: Uint8Array;`.
-- [ ] `parseGen1` correctly calculates the offset (including Yellow `offsetShift`) and extracts the hidden item flags.
-- [ ] Unit tests for the Gen 1 save parser are updated to verify hidden item parsing logic.
+- [x] `SaveData` interface includes `hiddenItemFlags?: Uint8Array;`.
+- [x] `parseGen1` correctly calculates the offset (including Yellow `offsetShift`) and extracts the hidden item flags.
+- [x] Unit tests for the Gen 1 save parser are updated to verify hidden item parsing logic.
 
 ## IMPORTANT REMINDERS
 - **If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.**

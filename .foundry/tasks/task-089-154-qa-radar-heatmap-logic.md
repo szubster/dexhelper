@@ -2,10 +2,10 @@
 id: task-089-154-qa-radar-heatmap-logic
 type: TASK
 title: QA RouteRadarController Heatmap Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-11'
 depends_on:
   - task-089-153-implement-radar-heatmap-logic
 jules_session_id: null

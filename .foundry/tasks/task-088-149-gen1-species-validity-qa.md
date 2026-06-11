@@ -2,13 +2,13 @@
 id: task-088-149-gen1-species-validity-qa
 type: TASK
 title: QA Gen 1 species validity check
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-04'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on:
   - .foundry/tasks/task-088-148-gen1-species-validity-impl.md
-jules_session_id: '30574920551099475'
+jules_session_id: null
 pr_number: null
 parent: story-051-088-gen1-species-validity
 tags:
@@ -39,5 +39,5 @@ Verify the implementation of the Generation 1 species validity check.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Functionality verified.
-- [ ] Tests verified.
+- [x] Functionality verified.
+- [x] Tests verified.

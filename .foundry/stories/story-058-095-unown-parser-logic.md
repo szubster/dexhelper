@@ -2,12 +2,12 @@
 id: story-058-095-unown-parser-logic
 type: STORY
 title: Unown Form Parser Logic
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-06-09'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4001737636652127117'
 pr_number: null
 parent: epic-037-058-unown-tracker-engine
 tags:
@@ -37,3 +37,4 @@ As defined in the parent Epic, for Unown (`speciesId` 201) in Generation 2, we c
 ## Acceptance Criteria
 - [x] Task created for implementing the unown form parser logic.
 - [ ] .foundry/tasks/task-095-151-unown-parser-logic-impl.md
+- [ ] .foundry/tasks/task-095-152-unown-parser-logic-qa.md

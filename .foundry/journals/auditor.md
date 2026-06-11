@@ -31,3 +31,12 @@ The Resurrection Loop currently relies on the assigned agent actually reading th
 
 **Recommendation/Learnings:**
 This further validates the need for `idea-072-strict-macro-node-completion`. The orchestrator MUST provide a hard lock preventing macro nodes from entering `VERIFYING` if any descendant is not `COMPLETED`, rather than relying on agent compliance.
+
+## 2026-06-12: Recurring Blind Resubmission of Macro Nodes
+I observed that `idea-066-save-file-health-scanner` was submitted for verification yet again (Attempt 4) while its generated child nodes (PRD-066 and Epic) are still in PENDING.
+
+**Why this matters:**
+The Resurrection Loop is failing because agents are blindly resubmitting nodes without reading the previous rejection reasons or verifying that the entire generated sub-tree is COMPLETED. The system is entering an impossible loop of rejections.
+
+**Recommendation/Learnings:**
+The implementation of `idea-072-strict-macro-node-completion` is critically needed. The orchestrator must provide a hard block to prevent macro nodes from entering VERIFYING if any descendant is not COMPLETED, as relying solely on agent compliance is demonstrably insufficient.

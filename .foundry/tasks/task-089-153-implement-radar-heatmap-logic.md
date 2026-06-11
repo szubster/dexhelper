@@ -2,12 +2,12 @@
 id: task-089-153-implement-radar-heatmap-logic
 type: TASK
 title: Implement RouteRadarController Heatmap Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-09'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '15596705652860509977'
+jules_session_id: null
 pr_number: null
 parent: story-048-089-route-radar-density-aggregation
 tags:
@@ -40,10 +40,10 @@ Implement the data transformation pipeline inside the `RouteRadarController` in 
 Also, write unit tests in `src/engine/radar/__tests__/RouteRadarController.test.ts` to validate the logic (including empty array handling, single CatchSuggestion on multiple areas, multiple CatchSuggestions on same area, and StandardSuggestion handling).
 
 ## Acceptance Criteria
-- [ ] Implement the aggregation method in `RouteRadarController`.
-- [ ] Ensure the density score correctly maps `areaId`s to their corresponding unique missing species counts.
-- [ ] Ensure it accurately processes edge cases (e.g., areas with 0 missing encounters should not be present in the output or have a score of 0).
-- [ ] Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
+- [x] Implement the aggregation method in `RouteRadarController`.
+- [x] Ensure the density score correctly maps `areaId`s to their corresponding unique missing species counts.
+- [x] Ensure it accurately processes edge cases (e.g., areas with 0 missing encounters should not be present in the output or have a score of 0).
+- [x] Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
 
 **Important Persona Instructions:**
 - **CODER**: If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not modify the frontmatter otherwise.

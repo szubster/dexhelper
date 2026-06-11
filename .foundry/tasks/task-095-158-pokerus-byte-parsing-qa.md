@@ -2,10 +2,10 @@
 id: task-095-158-pokerus-byte-parsing-qa
 type: TASK
 title: QA Pokerus Byte Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-08'
-updated_at: '2026-06-08'
+updated_at: '2026-06-11'
 depends_on:
   - task-095-157-pokerus-byte-parsing-impl
 jules_session_id: null

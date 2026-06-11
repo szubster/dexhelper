@@ -17,7 +17,7 @@ interface AssistantPanelProps {
 }
 
 // ⚡ Bolt: Pre-calculate category sort order to avoid O(N) array allocation and indexOf lookups during render
-const CATEGORY_ORDER: Record<string, number> = {
+const CATEGORY_ORDER: Record<SuggestionCategory, number> = {
   Catch: 0,
   Gift: 1,
   Evolve: 2,
@@ -25,6 +25,8 @@ const CATEGORY_ORDER: Record<string, number> = {
   Progress: 4,
   Event: 5,
   Utility: 6,
+
+  Breed: 7,
 };
 
 const CATEGORY_STYLES: Record<SuggestionCategory, { icon: React.ReactNode; color: string; bg: string }> = {
@@ -152,8 +154,8 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
           )
             .sort(([a], [b]) => {
               // ⚡ Bolt: Use O(1) object lookup instead of array indexOf inside sort callback
-              const orderA = CATEGORY_ORDER[a as string] ?? 99;
-              const orderB = CATEGORY_ORDER[b as string] ?? 99;
+              const orderA = CATEGORY_ORDER[a as keyof typeof CATEGORY_ORDER] ?? 99;
+              const orderB = CATEGORY_ORDER[b as keyof typeof CATEGORY_ORDER] ?? 99;
               return orderA - orderB;
             })
             .map(([category, items]) => {

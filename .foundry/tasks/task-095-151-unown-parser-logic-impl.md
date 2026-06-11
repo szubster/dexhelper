@@ -2,12 +2,12 @@
 id: task-095-151-unown-parser-logic-impl
 type: TASK
 title: Implement Unown Form Parser Logic
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-09'
 updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '11846348104367803657'
+jules_session_id: null
 pr_number: null
 parent: story-058-095-unown-parser-logic
 tags:
@@ -40,6 +40,6 @@ As defined in the parent Epic and Story, we need to extract the Unown form from 
 - **Coder**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `PokemonInstance` type updated with `unownForm`.
-- [ ] Gen 2 parser calculates Unown form from DVs for `speciesId === 201`.
-- [ ] Gen 2 parser correctly adds the `unownForm` character to the `PokemonInstance`.
+- [x] `PokemonInstance` type updated with `unownForm`.
+- [x] Gen 2 parser calculates Unown form from DVs for `speciesId === 201`.
+- [x] Gen 2 parser correctly adds the `unownForm` character to the `PokemonInstance`.

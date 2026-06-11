@@ -2,12 +2,12 @@
 id: epic-045-070-implement-dag-context
 type: EPIC
 title: Implement DagContext and Provider for DAG Data
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '7826238330098730560'
+jules_session_id: null
 pr_number: null
 parent: prd-073-045-refactor-dag-dashboard-context
 tags:
@@ -32,4 +32,6 @@ As per ADR 013 and ADR 017, the core DAG data state must be lifted into a shared
 - Ensure the state structure is designed to support the upcoming Kanban Board and Permanent Failure Dashboard requirements.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] .foundry/stories/story-070-108-create-dag-context-interfaces.md
+- [ ] .foundry/stories/story-070-109-implement-dag-provider.md

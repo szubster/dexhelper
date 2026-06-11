@@ -5,9 +5,9 @@ title: Implement Gen 3 Berry Tracker DataView Parsing Logic
 status: FAILED
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12096087891705446769'
 pr_number: null
 parent: story-055-095-gen3-berry-data-parsing
 tags:

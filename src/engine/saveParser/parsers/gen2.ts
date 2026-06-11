@@ -87,13 +87,31 @@ function parseGen2PokemonInstance(
   const isShiny = checkShiny(dvs);
   const isShinyCarrier = checkShinyGene(dvs);
   const friendship = view.getUint8(offset + 27);
-  const pokerus = view.getUint8(offset + 28);
+  const rawPokerus = view.getUint8(offset + 28);
+  const pokerus =
+    rawPokerus > 0
+      ? {
+          strain: rawPokerus >> 4,
+          daysRemaining: rawPokerus & 0x0f,
+        }
+      : undefined;
   const level = view.getUint8(offset + 31);
   const currentHp = storageLocation === 'Party' ? view.getUint16(offset + 34, false) : undefined;
   const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
 
   // OT names in daycare are immediately after the data block
   const otName = storageLocation === 'Daycare' ? decodeGen12String(view, offset + 32) : undefined;
+
+  let unownForm: string | undefined;
+  if (speciesId === 201) {
+    const atkBits = (dvs.atk >> 1) & 0b11;
+    const defBits = (dvs.def >> 1) & 0b11;
+    const spdBits = (dvs.spd >> 1) & 0b11;
+    const spcBits = (dvs.spc >> 1) & 0b11;
+    const value = (atkBits << 6) | (defBits << 4) | (spdBits << 2) | spcBits;
+    const modValue = value % 28;
+    unownForm = modValue < 26 ? String.fromCharCode(65 + modValue) : 'A';
+  }
 
   return {
     speciesId,
@@ -110,6 +128,7 @@ function parseGen2PokemonInstance(
     otName,
     storageLocation,
     slot,
+    unownForm,
   };
 }
 

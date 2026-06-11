@@ -25,7 +25,7 @@ export interface PokemonInstance {
   item?: number | undefined;
   moves: number[];
   friendship?: number | undefined;
-  pokerus?: number | undefined;
+  pokerus?: { strain: number; daysRemaining: number } | undefined;
   currentHp?: number | undefined;
   dvs?: { hp: number; atk: number; def: number; spd: number; spc: number };
   statExp?: { hp: number; atk: number; def: number; spd: number; spc: number };
@@ -41,6 +41,7 @@ export interface PokemonInstance {
   storageLocation: string;
   /** The 1-indexed position of the Pokémon within its storage container. */
   slot?: number | undefined;
+  unownForm?: string | undefined;
 }
 
 /**
@@ -90,6 +91,8 @@ export interface SaveData {
   hallOfFameCount: number;
   /** Raw byte array containing all in-game event flags (e.g., claimed static gifts, story progression). */
   eventFlags?: Uint8Array;
+  /** Raw byte array containing hidden item event flags. */
+  hiddenItemFlags?: Uint8Array;
   /** Bitflags representing which in-game NPC trades have already been completed. */
   npcTradeFlags?: number;
   /** Detailed structural data for Pokémon currently left in the Daycare (Gen 2). */

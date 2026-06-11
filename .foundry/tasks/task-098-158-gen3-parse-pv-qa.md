@@ -2,10 +2,10 @@
 id: task-098-158-gen3-parse-pv-qa
 type: TASK
 title: QA Gen3 32-bit PV parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on:
   - task-098-157-gen3-parse-pv-impl
 jules_session_id: null

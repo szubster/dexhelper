@@ -5,9 +5,9 @@ title: Save File Health & Corruption Scanner
 status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-26'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '12841119178625114608'
+jules_session_id: '12859432609511959889'
 pr_number: null
 parent: null
 tags:
@@ -47,4 +47,7 @@ This feature pivots DexHelper from just a tracking tool into a critical utility 
 The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. I have spawned a new node `.foundry/ideas/idea-072-strict-macro-node-completion.md` to address this recurring systemic issue.
 
 ### Auditor Rejection (Attempt 3)
+The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. The resurrection loop continues to fail because agents are resubmitting without waiting. We must wait for the implementation of IDEA-072 (Strict Macro Node Completion Enforcement).
+
+### Auditor Rejection (Attempt 4)
 The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. The resurrection loop continues to fail because agents are resubmitting without waiting. We must wait for the implementation of IDEA-072 (Strict Macro Node Completion Enforcement).
