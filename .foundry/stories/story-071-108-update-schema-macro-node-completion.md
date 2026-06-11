@@ -32,4 +32,5 @@ Update `.foundry/docs/schema.md` to detail the new macro node completion rules s
 Update `.foundry/docs/schema.md` to explain the new hierarchical completion rules. Ensure it explicitly states that macro nodes cannot complete until all their descendants are fully completed.
 
 ## Acceptance Criteria
-- [ ] Update `schema.md` with hierarchical completion rules.
+- [x] Break down into Tasks
+- [ ] task-108-161-update-schema-macro-node-completion-impl
