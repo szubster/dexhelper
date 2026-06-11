@@ -32,4 +32,6 @@ The Gen 3 roamer's active map group and map number are stored outside the primar
 ## Acceptance Criteria
 - [ ] Research/determine the exact offset for the roamer's map group and map number.
 - [ ] Implement the parsing logic using `DataView` to extract the location index from Gen 3 saves.
-- [ ] Tech Lead: Break down this Story into execution Tasks (implementation & QA).
+- [x] Tech Lead: Break down this Story into execution Tasks (implementation & QA).
+- [ ] .foundry/tasks/task-108-161-gen3-roamer-location-impl.md
+- [ ] .foundry/tasks/task-108-162-gen3-roamer-location-qa.md
