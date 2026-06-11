@@ -45,3 +45,22 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     throw error;
   }
 }
+
+/**
+ * Parses the 32-bit Personality Value (PV) from a Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the PV from.
+ * @returns The 32-bit unsigned integer representing the PV.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3PersonalityValue(view: DataView, offset: number): number {
+  try {
+    return view.getUint32(offset, true);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
