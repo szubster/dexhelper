@@ -173,3 +173,9 @@
 **Outcome:** Accepted
 **Why:** Brings the primary data grid of the application deeply in line with the terminal scanning hardware motif. The original grid felt like a generic web Pokedex, whereas the new implementation solidifies the feeling of looking through a specialized hardware surveillance scanner.
 **Pattern:** Eliminate generic web cards entirely. When rendering lists or grids of items, treat each item container as a raw data terminal block, utilizing edge-to-edge dashed borders, CRT grid backgrounds, scanner animations, and segmented blocks for badges instead of floating pill shapes.
+
+## 2026-07-09 - [Accepted] - 🖼️ Canvas: Tactical DiagnosticCard Redesign
+**What:** Redesigned the `DiagnosticCard` component to fully embrace the tactical "snooping" aesthetic by turning it into a "Tactical Telemetry Sensor". Replaced the simple static `div` with a complex, interactive read-out component that includes raw dashed borders, an embedded `LcdGrid` and `HoverScanner` for a CRT/scanning feel, a left-aligned data pipe with a pulsing LED on hover, and a faux SVG telemetry graph that fades in. Telemetry headers were styled with mono bracketed fonts (`[ SYS.VER ]`).
+**Outcome:** Accepted
+**Why:** Brings the debug diagnostics view fully into the tactical specialization motif. The previous cards were simple floating rectangles with shadow, which broke the terminal simulation. Treating system stats as raw telemetry streams with data pipes and faux active graph lines perfectly fits the tactical design language.
+**Pattern:** Always elevate simple data readouts (like diagnostics and simple stats) into active "Telemetry Sensors" by utilizing data pipe visuals (solid left borders with pulsing indicators), CRT/Scanline backgrounds, mono brackets, and faux animated graphics (like simple SVG paths) to reinforce the specialized hardware aesthetic instead of settling for static standard cards.
