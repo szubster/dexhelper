@@ -1,3 +1,23 @@
+---
+id: adr-005-sibling-dependency-enforcement
+type: ADR
+title: 'ADR 005: Sibling Dependency Recommendations'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-04-20'
+updated_at: '2026-04-20'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - foundry
+  - architecture
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
 # ADR 005: Sibling Dependency Recommendations
 
 ## Status

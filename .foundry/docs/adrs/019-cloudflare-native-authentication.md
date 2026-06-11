@@ -1,3 +1,23 @@
+---
+id: adr-019-cloudflare-native-authentication
+type: ADR
+title: 'ADR 019: Cloudflare Native Authentication'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-05-28'
+updated_at: '2026-05-28'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - foundry
+  - architecture
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
 # ADR 019: Cloudflare Native Authentication
 
 ## Status

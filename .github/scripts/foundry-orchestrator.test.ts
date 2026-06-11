@@ -1716,4 +1716,38 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(verifyingResult).toContain('owner_persona: coder');
   });
 
+  test('ADR Resolution: resolves dependencies pointing to ADRs in .foundry/docs/adrs/', () => {
+    // 1. Create COMPLETED ADR in .foundry/docs/adrs/
+    createValidTestNode(tmpDir, '.foundry/docs/adrs/021-hof-parsing.md', {
+      id: "adr-044-021-hof-parsing",
+      type: "ADR",
+      title: "ADR 021",
+      status: "COMPLETED",
+      owner_persona: "architect",
+      created_at: "2026-06-10",
+      updated_at: "2026-06-10",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // 2. Create PENDING Epic depending on ADR ID
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-06-10",
+      updated_at: "2026-06-10",
+      depends_on: ["adr-044-021-hof-parsing"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    // 3. Verify Epic promoted to READY
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: READY');
+  });
+
 });

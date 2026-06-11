@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { Activity, Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
-import type React from 'react';
+import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { useFileSyncController } from '../hooks/useFileSyncController';
 import { cn } from '../utils/cn';
@@ -24,6 +24,13 @@ export function AppHeader({
   handleFileUpload,
 }: AppHeaderProps) {
   const { status: syncStatus, requestSync, resumeSync, hasStoredHandle } = useFileSyncController();
+
+  const progressPercentage = React.useMemo(() => {
+    if (!saveData) return 0;
+    const securedIds = new Set([...saveData.party, ...saveData.pc]);
+    const total = getGenerationConfig(saveData.generation).maxDex;
+    return total > 0 ? (securedIds.size / total) * 100 : 0;
+  }, [saveData]);
   return (
     <header className="sticky top-0 z-50 flex w-full flex-col border-[var(--theme-primary)]/50 border-b-[3px] border-dashed bg-zinc-950 px-4 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] lg:flex-row lg:items-center lg:justify-between lg:px-8">
       {/* Top hardware lip */}
@@ -127,21 +134,13 @@ export function AppHeader({
               <div className="mb-1 flex items-center justify-between">
                 <span className="font-black font-mono text-[8px] text-zinc-500 uppercase tracking-widest">L-DEX</span>
                 <span className="font-black font-mono text-[9px] text-[var(--theme-primary)]">
-                  {(() => {
-                    const securedIds = new Set([...saveData.party, ...saveData.pc]);
-                    const total = getGenerationConfig(saveData.generation).maxDex;
-                    return `${Math.floor((securedIds.size / total) * 100)}%`;
-                  })()}
+                  {Math.floor(progressPercentage)}%
                 </span>
               </div>
               <div className="relative h-1 overflow-hidden border border-white/10 bg-black/50">
                 <div
                   style={{
-                    width: `${(() => {
-                      const securedIds = new Set([...saveData.party, ...saveData.pc]);
-                      const total = getGenerationConfig(saveData.generation).maxDex;
-                      return (securedIds.size / total) * 100;
-                    })()}%`,
+                    width: `${progressPercentage}%`,
                   }}
                   className="absolute inset-y-0 left-0 bg-[var(--theme-primary)] shadow-[0_0_8px_var(--theme-primary)] transition-all duration-1000"
                 />

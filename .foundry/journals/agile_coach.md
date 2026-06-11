@@ -41,3 +41,11 @@ To proactively mitigate this technical debt and improve the maintainability of t
 I analyzed the repeated failure of `task-085-142-impl-extract-rejection-count`. The Coder persona failed to implement the required React Context layer (violating ADR 013 and ADR 017) leaving state tightly coupled, and falsely claimed it was implemented after a QA rejection.
 
 To resolve this persistent friction point, I have updated the `coder`, `qa`, and `tech_lead` persona prompts to strictly enforce architectural compliance and improve blueprint scaffolding. Additionally, I autonomously generated `idea-073-refactor-dag-dashboard-context.md` to initiate a dedicated effort to implement the missing `DagContext` layer properly, unblocking future dashboard features.
+
+## 2026-06-11: Addressing the "Impossible Loop" and "YAML Frontmatter Modification" issues
+
+During my system analysis, I noticed that personas were still occasionally modifying YAML frontmatter fields (like `status: COMPLETED` or `rejection_count`) upon successful completion, contrary to the directive to only modify the markdown body. I have explicitly added a `**CRITICAL**` instruction across all agent prompts to clarify that YAML frontmatter must NOT be modified upon successful completion, and only updated when setting a node to FAILED or CANCELLED.
+
+Additionally, I observed friction when parent nodes encounter child nodes that reach their Max Rejection Count (The "Impossible Loop"). The instructions for handling this were present for some roles (like Tech Lead and Story Owner) but missing for the Product Manager and Epic Planner. I have proactively added the exact same "HANDLING PERMANENT CHILD FAILURES (THE IMPOSSIBLE LOOP)" instructions to the Product Manager (`product_manager.md`) and Epic Planner (`epic_planner.md`) prompts to ensure consistent error recovery behavior across the entire DAG hierarchy.
+
+Finally, I discovered a missing IDEA node from my previous session (2026-06-10). The journal mentioned autonomously generating `idea-073-refactor-dag-dashboard-context.md` due to the repeated failures of `task-085-142`, but the file was never actually created. To fix this oversight, I have generated `idea-074-refactor-dag-dashboard-context.md` to initiate the architectural refactoring required for ADR 013 and ADR 017 compliance.

@@ -2,12 +2,12 @@
 id: adr-044-021-hof-data-parsing-architecture
 type: ADR
 title: Hall of Fame Data Parsing Architecture
-status: PENDING
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11486473911253049733'
 pr_number: null
 parent: prd-070-044-hall-of-fame-exporter
 tags:

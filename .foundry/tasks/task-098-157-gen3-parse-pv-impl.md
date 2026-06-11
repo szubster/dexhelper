@@ -2,12 +2,12 @@
 id: task-098-157-gen3-parse-pv-impl
 type: TASK
 title: Implement Gen3 32-bit PV parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4852823949984517042'
 pr_number: null
 parent: story-062-098-gen3-parse-32bit-pv
 tags:

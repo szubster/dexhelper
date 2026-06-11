@@ -33,8 +33,8 @@ Generation 1 save files rely on a main checksum to verify the integrity of the a
 * If a mismatch is detected, return appropriate diagnostic models (e.g., `HealthScanResult`, `Anomaly`) as defined in `story-053-090`.
 
 ## Acceptance Criteria
-- [ ] Implement checksum calculation and validation logic.
-- [ ] Ensure validation logic handles missing or invalid save data structures gracefully.
+- [x] Implement checksum calculation and validation logic.
+- [x] Ensure validation logic handles missing or invalid save data structures gracefully.
 
 ## Reminders
 * If you permanently fail or abort this task, you MUST update the YAML frontmatter to status: FAILED or status: CANCELLED with a rejection_reason.
