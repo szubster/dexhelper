@@ -28,5 +28,17 @@ We need to extract Hall of Fame records from Gen 1 and Gen 2 save files to build
 ## Decision
 We will extend the existing save parsing engine to include specific logic for Gen 1 and Gen 2 Hall of Fame data blocks. The parser must gracefully handle the 0xA8 offset for Gen 2.
 
+### Parsing Logic and Offsets
+
+**Generation 1:**
+- The Hall of Fame count is located at the base offset `0x25B3`.
+- An `offsetShift` must be added to this base offset. The `offsetShift` is `1` for the Yellow version and `0` for Red/Blue versions.
+- The value at `0x25B3 + offsetShift` is a single 8-bit unsigned integer. Note that a raw value of `0xFF` should be interpreted as `0`.
+
+**Generation 2:**
+- The Hall of Fame count is determined using a relative offset, specifically `0xA8` (168) bytes after the `johtoBadgesOffset`.
+- The `johtoBadgesOffset` is `0x23E5` for Crystal and `0x23E4` for Gold/Silver.
+- The exact offset for the Hall of Fame count is therefore calculated as `johtoBadgesOffset + 0xA8`.
+
 ## Acceptance Criteria
-- [ ] Detail the parsing logic and offsets for Gen 1 and Gen 2.
+- [x] Detail the parsing logic and offsets for Gen 1 and Gen 2.
