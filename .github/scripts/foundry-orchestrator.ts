@@ -48,7 +48,7 @@ const VALID_STATUSES = [
 
 type Status = (typeof VALID_STATUSES)[number];
 
-const VALID_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH'] as const;
+const VALID_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH', 'ADR'] as const;
 type NodeType = (typeof VALID_TYPES)[number];
 
 /** Mirrors the YAML frontmatter schema defined in .foundry/docs/schema.md §3 */
@@ -137,8 +137,8 @@ function discoverNodeFiles(dir: string): string[] {
       const fullPath = path.join(current, entry.name);
 
       if (entry.isDirectory()) {
-        // Skip the journals/ and docs/ subtrees entirely.
-        if (entry.name === 'journals' || entry.name === 'docs') continue;
+        // Skip the journals/ subtrees entirely.
+        if (entry.name === 'journals') continue;
         walk(fullPath);
       } else if (entry.isFile() && entry.name.endsWith('.md')) {
         results.push(fullPath);
@@ -471,32 +471,15 @@ function main(): void {
       return true;
     }
 
-    if (node.frontmatter.status !== 'COMPLETED' && node.frontmatter.status !== 'CANCELLED') {
-      evalCache.set(cacheKey, true);
-      return true;
+    if (node.frontmatter.status === 'COMPLETED' || node.frontmatter.status === 'CANCELLED') {
+      evalCache.set(cacheKey, false);
+      return false;
     }
 
+    // Any other status (PENDING, ACTIVE, READY, FAILED, BLOCKED) is incomplete.
+    // We don't need to check children/dependencies because the node itself is not terminal-success.
     evalCache.set(cacheKey, true);
-
-    const children = parentToChildren.get(nodePath) || [];
-    for (const child of children) {
-      if (evaluatingFor && (child.repoPath === evaluatingFor || isDescendant(evaluatingFor, child.repoPath))) {
-        continue;
-      }
-      if (isHierarchicallyIncomplete(child.repoPath, evaluatingFor)) {
-        return true;
-      }
-    }
-
-    for (const depRef of node.frontmatter.depends_on) {
-      const depPath = resolveNodePath(depRef)!;
-      if (isHierarchicallyIncomplete(depPath, evaluatingFor)) {
-        return true;
-      }
-    }
-
-    evalCache.set(cacheKey, false);
-    return false;
+    return true;
   }
 
   // ── Phase 3.5: SUSPEND (Wait & Wake) ───────────────────────────────────────
@@ -871,6 +854,7 @@ function main(): void {
     STORY: ['tech_lead', 'story_owner'],
     TASK: ['coder', 'qa', 'tech_lead', 'architect'],
     RESEARCH: ['researcher'],
+    ADR: ['architect'],
   };
 
   for (const node of finalEligible) {

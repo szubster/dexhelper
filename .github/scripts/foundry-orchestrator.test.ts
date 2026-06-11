@@ -267,7 +267,7 @@ describe('foundry-orchestrator', () => {
     expect(result).toContain('status: READY');
   });
 
-  test('Hierarchical Completion: blocks external dependent if dependency has incomplete children', () => {
+  test('Hierarchical Completion: does NOT block external dependent if dependency is COMPLETED, even with incomplete children', () => {
     // Story 1: COMPLETED (Planned)
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",
@@ -314,9 +314,9 @@ describe('foundry-orchestrator', () => {
     const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-001.md'), 'utf-8');
     expect(taskContent).toContain('status: READY');
 
-    // Story 2 SHOULD NOT be promoted (it waits for Story 1's children)
+    // Story 2 SHOULD be promoted to READY (it only cares that Story 1 is COMPLETED)
     const story2Content = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-002.md'), 'utf-8');
-    expect(story2Content).toContain('status: PENDING');
+    expect(story2Content).toContain('status: READY');
   });
 
   test('Late-Binding: allows child of PENDING parent to proceed if parent already has children', () => {
@@ -633,7 +633,7 @@ describe('foundry-orchestrator', () => {
     expect(storyResult).toContain('status: READY');
   });
 
-  test('Deep Hierarchical Completion: blocks external dependent if dependency has deep incomplete children', () => {
+  test('Deep Hierarchical Completion: does NOT block external dependent if dependency has deep incomplete children', () => {
     // Story 1: COMPLETED
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",
@@ -690,9 +690,9 @@ describe('foundry-orchestrator', () => {
 
     main();
 
-    // Story 2 SHOULD NOT be promoted (it waits for Subtask 1)
+    // Story 2 SHOULD be promoted to READY
     const story2Content = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-002.md'), 'utf-8');
-    expect(story2Content).toContain('status: PENDING');
+    expect(story2Content).toContain('status: READY');
   });
 
   test('Human Task Bypass: PENDING human task promotes directly to ACTIVE', () => {
@@ -940,7 +940,7 @@ describe('foundry-orchestrator', () => {
     expect(result).toContain('status: PENDING');
   });
 
-  test('Wait and Wake: Suspends ACTIVE node if dependency is hierarchically incomplete', () => {
+  test('Wait and Wake: Does NOT suspend ACTIVE node if dependency is COMPLETED, even with incomplete children', () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",
       type: "STORY",
@@ -975,13 +975,13 @@ describe('foundry-orchestrator', () => {
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [".foundry/stories/story-001.md"],
-      jules_session_id: null,
+      jules_session_id: "sess-123",
     });
 
     main();
 
     const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active.md'), 'utf-8');
-    expect(result).toContain('status: PENDING');
+    expect(result).toContain('status: ACTIVE');
   });
 
   test('Wait and Wake: Does not suspend ACTIVE node if all dependencies are COMPLETED', () => {
