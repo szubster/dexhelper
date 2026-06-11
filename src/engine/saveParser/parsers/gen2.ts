@@ -569,6 +569,9 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
 
   const roamingLegendaries = parseRoamingLegendaries(view, isCrystal);
 
+  const eventFlagsOffset = isCrystal ? 0x2600 : 0x2624;
+  const eventFlags = new Uint8Array(view.buffer, view.byteOffset + eventFlagsOffset, 0x100);
+
   return {
     generation: 2,
     owned,
@@ -593,5 +596,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     currentBoxCount: 0,
     hallOfFameCount,
     roamingLegendaries,
+    eventFlags,
+    hiddenItemFlags: eventFlags,
   };
 }

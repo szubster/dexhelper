@@ -301,4 +301,46 @@ describe('gen2 parsers', () => {
       );
     });
   });
+
+  describe('parseGen2 - Event Flags', () => {
+    it('should parse eventFlags correctly for Gold/Silver', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // GS event flags offset is 0x2624
+      view.setUint8(0x2624, 0x11);
+      view.setUint8(0x2624 + 0xff, 0x88);
+
+      const data = parseGen2(view, false);
+
+      expect(data.eventFlags).toBeDefined();
+      expect(data.eventFlags?.length).toBe(0x100);
+      expect(data.eventFlags?.[0]).toBe(0x11);
+      expect(data.eventFlags?.[0xff]).toBe(0x88);
+
+      // Hidden item flags should map to the same array
+      expect(data.hiddenItemFlags).toBeDefined();
+      expect(data.hiddenItemFlags?.[0]).toBe(0x11);
+    });
+
+    it('should parse eventFlags correctly for Crystal', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Crystal event flags offset is 0x2600
+      view.setUint8(0x2600, 0x22);
+      view.setUint8(0x2600 + 0xff, 0x99);
+
+      const data = parseGen2(view, true);
+
+      expect(data.eventFlags).toBeDefined();
+      expect(data.eventFlags?.length).toBe(0x100);
+      expect(data.eventFlags?.[0]).toBe(0x22);
+      expect(data.eventFlags?.[0xff]).toBe(0x99);
+
+      // Hidden item flags should map to the same array
+      expect(data.hiddenItemFlags).toBeDefined();
+      expect(data.hiddenItemFlags?.[0]).toBe(0x22);
+    });
+  });
 });

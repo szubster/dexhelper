@@ -32,9 +32,9 @@ This task implements the second part of the epic `epic-037-058-hidden-items-save
 4. **Update Tests**: Update the unit tests in `src/engine/saveParser/parsers/gen2.test.ts` to assert that the `eventFlags` and `hiddenItemFlags` are parsed correctly, injecting mock byte values into the dummy save buffer to test both Gold/Silver and Crystal offsets.
 
 ## Acceptance Criteria
-- [ ] `SaveData` interface includes `hiddenItemFlags?: Uint8Array;`.
-- [ ] `parseGen2` correctly extracts the event flags for Gen 2 (Crystal and GS) into `SaveData.hiddenItemFlags`.
-- [ ] Unit tests for the Gen 2 save parser are updated to verify hidden item parsing logic.
+- [x] `SaveData` interface includes `hiddenItemFlags?: Uint8Array;`.
+- [x] `parseGen2` correctly extracts the event flags for Gen 2 (Crystal and GS) into `SaveData.hiddenItemFlags`.
+- [x] Unit tests for the Gen 2 save parser are updated to verify hidden item parsing logic.
 
 ## IMPORTANT REMINDERS
 - **If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.**

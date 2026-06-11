@@ -90,6 +90,8 @@ export interface SaveData {
   hallOfFameCount: number;
   /** Raw byte array containing all in-game event flags (e.g., claimed static gifts, story progression). */
   eventFlags?: Uint8Array;
+  /** Gen 2 specific: Raw byte array containing all hidden item flags. In Gen 2, this is identical to event flags. */
+  hiddenItemFlags?: Uint8Array;
   /** Bitflags representing which in-game NPC trades have already been completed. */
   npcTradeFlags?: number;
   /** Detailed structural data for Pokémon currently left in the Daycare (Gen 2). */
