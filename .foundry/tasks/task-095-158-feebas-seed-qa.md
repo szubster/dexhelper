@@ -42,3 +42,6 @@ Verify the implementation of the 16-bit Feebas seed extraction utility from Gen 
 - [ ] Code uses `DataView` and explicitly catches `RangeError` to handle out-of-bounds.
 - [ ] Offsets `0x2DD6` and `0x2E66` are correctly applied based on version.
 - [ ] Tests cover all paths and pass successfully.
+
+## QA Update
+Task rejected. Implementation completely missing. `src/engine/gen3/feebas.ts` does not exist.

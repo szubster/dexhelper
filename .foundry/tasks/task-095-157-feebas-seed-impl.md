@@ -2,7 +2,7 @@
 id: task-095-157-feebas-seed-impl
 type: TASK
 title: Implement Feebas Seed Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-11'
@@ -14,8 +14,10 @@ tags:
   - gen3
   - backend
   - save-parsing
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: >-
+  The implementation is completely missing. src/engine/gen3/feebas.ts does not
+  exist.
 notes: ''
 ---
 

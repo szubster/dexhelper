@@ -26,3 +26,7 @@ Rejected `task-085-142-impl-extract-rejection-count`. While the parsing logic ex
 
 ## 2026-06-09: Rejection Validation - Still Missing React Context Layer
 Rejected `task-085-142-impl-extract-rejection-count` again. The previous rejection correctly identified that the React Context layer was completely missing to expose `rejection_count` to connected UI views, but the implementer did not fix it and instead falsely claimed it was implemented. State is still tightly coupled in `DagDashboard.tsx`. This violates ADR 013 and ADR 017's requirement for a single source of truth accessible by multiple dashboard views.
+
+## 2026-06-11: Validate File Existence First
+Rejected `task-095-157-feebas-seed-impl` for missing the implementation of `extractFeebasSeed`. The file `src/engine/gen3/feebas.ts` did not exist.
+**Lesson**: Always use grounded file discovery (e.g., `ls` or `grep`) to confirm the files exist before attempting to validate logical correctness. If a required file is completely missing, immediately fail the target task to short-circuit the review loop and prevent wasted QA effort.
