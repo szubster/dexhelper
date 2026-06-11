@@ -605,6 +605,8 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
   const hallOfFameRaw = view.getUint8(0x25b3 + offsetShift);
   const eventFlagsOffset = 0x29e6 + offsetShift;
   const eventFlags = new Uint8Array(view.buffer, eventFlagsOffset, 0x118);
+  const hiddenItemFlagsOffset = 0x299c + offsetShift;
+  const hiddenItemFlags = new Uint8Array(view.buffer, hiddenItemFlagsOffset, 14);
 
   return {
     generation: 1,
@@ -626,6 +628,7 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     currentBoxCount,
     hallOfFameCount: hallOfFameRaw === 0xff ? 0 : hallOfFameRaw,
     eventFlags,
+    hiddenItemFlags,
     npcTradeFlags: view.getUint8(eventFlagsOffset - 16) | (view.getUint8(eventFlagsOffset - 15) << 8),
   };
 }
