@@ -2,12 +2,12 @@
 id: epic-045-070-orchestrator-strict-completion
 type: EPIC
 title: Orchestrator Hierarchical Completion Checks
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '801512707516802333'
+jules_session_id: null
 pr_number: null
 parent: prd-072-045-strict-macro-node-completion
 tags:
@@ -38,3 +38,6 @@ Update the DAG Orchestrator to ensure strict hierarchical completion. A node mus
 - [ ] Implement hierarchical completion logic in `foundry-orchestrator.ts`.
 - [ ] Add unit tests verifying the behavior blocks transition when children are not completed.
 - [ ] Ensure tests cover both `parent` field links and markdown body references.
+
+- [ ] .foundry/stories/story-070-108-orchestrator-hierarchical-completion-logic.md
+- [ ] .foundry/stories/story-070-109-orchestrator-hierarchical-completion-tests.md

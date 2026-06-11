@@ -2,12 +2,12 @@
 id: epic-044-070-gen3-roamer-core-extraction
 type: EPIC
 title: Gen 3 Roamer Core Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-11'
 depends_on: []
-jules_session_id: '5698034449009749877'
+jules_session_id: null
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
 tags:
@@ -31,4 +31,6 @@ Based on the research, the roamer data structure contains critical information s
 ## Acceptance Criteria
 - [ ] Implement robust `DataView` parsing logic to extract the roamer data structure.
 - [ ] Correctly parse IVs, HP, Level, and Status Condition from the raw bytes.
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Break down this Epic into executable Stories.
+- [ ] .foundry/stories/story-070-108-gen3-roamer-dataview-extraction.md
+- [ ] .foundry/stories/story-070-109-gen3-roamer-status-parsing.md

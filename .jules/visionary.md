@@ -81,3 +81,7 @@
 ## 2026-06-10
 **Idea:** Gen 3 Secret Base and Mixed Record Viewer
 **Learning:** Expanding Gen 3 support by surfacing hidden state from social features (like mixed records and secret bases) provides players with actionable endgame utilities. Revealing exact locations and NPC trainer data turns a highly opaque feature into an optimized tool for EXP/EV farming, fitting perfectly with DexHelper's core value proposition as an intelligent companion app.
+
+## 2026-06-11
+**Idea:** Gen 3 Battle Frontier Dashboard
+**Learning:** For extensive, multi-faceted endgame content (like the 7 facilities of the Emerald Battle Frontier), data is often deeply fragmented across the in-game UI or requires physical in-game travel to check. Centralizing this distributed state into a unified, actionable dashboard perfectly aligns with DexHelper's vision. Aggregating hidden or hard-to-reach progress data into one screen provides immense value by eliminating tedious navigation and allowing players to easily track their ultimate endgame goals.

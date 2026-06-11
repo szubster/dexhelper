@@ -1,3 +1,23 @@
+---
+id: adr-014-auditor-persona-state-machine
+type: ADR
+title: 'ADR 014: Auditor Persona and VERIFYING State Machine Modifications'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-05-20'
+updated_at: '2026-05-20'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - foundry
+  - architecture
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
 # ADR 014: Auditor Persona and VERIFYING State Machine Modifications
 
 ## Context

@@ -1,3 +1,23 @@
+---
+id: adr-010-gen3-map-graph-design
+type: ADR
+title: 'ADR 010: Gen 3 Map Graph Design'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-05-17'
+updated_at: '2026-05-17'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - foundry
+  - architecture
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
 # ADR 010: Gen 3 Map Graph Design
 
 ## Date

@@ -1,3 +1,23 @@
+---
+id: adr-007-enforce-acceptance-criteria-checkboxes
+type: ADR
+title: 'ADR 007: Enforce Acceptance Criteria Checkboxes'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-05-11'
+updated_at: '2026-05-11'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - foundry
+  - architecture
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
 # ADR 007: Enforce Acceptance Criteria Checkboxes
 
 ## Date

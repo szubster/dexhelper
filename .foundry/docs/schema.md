@@ -61,7 +61,7 @@ Every node file (idea, PRD, epic, story, task) **must** begin with a YAML frontm
 ```yaml
 ---
 id: ""                  # Required. Globally unique slug. Convention: <type>-<parent_NNN>-<NNN>-<slug>
-type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK | RESEARCH
+type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK | RESEARCH | ADR
 title: ""               # Required. Human-readable short title.
 status: ""              # Required. Enum: see Status Lifecycle section.
 owner_persona: "coder"  # Required. Enum: see Owner Persona section.
@@ -84,7 +84,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | Field | Type | Required | Description |
 |---|---|---|---|
 | `id` | `string` | ✅ | Globally unique. Convention: `<type>-<parent_NNN>-<NNN>-<slug>` (IDEA nodes omit parent NNN). Used by humans and search; the DAG uses file paths. |
-| `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK \| RESEARCH` |
+| `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK \| RESEARCH \| ADR` |
 | `title` | `string` | ✅ | Short, human-readable description. |
 | `status` | `enum` | ✅ | Current lifecycle state. See §4. |
 | `owner_persona` | `enum` | ✅ | Persona responsible for progressing this node. Must be exactly one assigned persona (no arrays or multiple personas). See §5. |

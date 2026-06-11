@@ -1,3 +1,23 @@
+---
+id: adr-020-feebas-visualization-architecture
+type: ADR
+title: 'ADR 020: Feebas Route 119 Visualizer Integration Strategy'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-06-07'
+updated_at: '2026-06-07'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - foundry
+  - architecture
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
 # ADR 020: Feebas Route 119 Visualizer Integration Strategy
 
 ## Date

@@ -1,3 +1,23 @@
+---
+id: adr-006-gray-matter-parsing
+type: ADR
+title: 'ADR 006: Gray-Matter Markdown Parsing Migration'
+status: COMPLETED
+owner_persona: architect
+created_at: '2026-04-20'
+updated_at: '2026-04-20'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - foundry
+  - architecture
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
 # ADR 006: Gray-Matter Markdown Parsing Migration
 
 ## Status
