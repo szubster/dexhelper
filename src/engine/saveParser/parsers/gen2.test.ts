@@ -129,6 +129,22 @@ describe('gen2 parsers', () => {
       expect(typeof data.partyDetails[2]?.caughtData?.locationName).toBe('string');
     });
 
+    it('should parse pokerus byte correctly', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 2); // 2 in party
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288c, 2);
+      view.setUint8(0x288b + 7, 1); // p1
+      view.setUint8(0x288b + 7 + 28, 0x00); // 0 pokerus
+      view.setUint8(0x288b + 7 + 48, 2); // p2
+      view.setUint8(0x288b + 7 + 48 + 28, 0x1a); // pokerus: strain 1, days 10
+
+      const data = parseGen2(view, false);
+      expect(data.partyDetails[0]?.pokerus).toBeUndefined();
+      expect(data.partyDetails[1]?.pokerus).toEqual({ strain: 1, daysRemaining: 10 });
+    });
+
     it('should correctly detect silver/gold using pokedex seen/owned', () => {
       const buffer = new ArrayBuffer(32768);
       const view = new DataView(buffer);
