@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isGen3Save, parseGen3 } from './gen3';
+import { isGen3Save, parseGen3, parseGen3PersonalityValue } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
   it('isGen3Save should return false normally', () => {
@@ -44,5 +44,31 @@ describe('gen3 parser scaffolding', () => {
 
     // Restore
     view.getUint8 = originalGetUint8;
+  });
+});
+
+describe('parseGen3PersonalityValue', () => {
+  it('should extract a 32-bit little-endian value correctly', () => {
+    const buffer = new ArrayBuffer(8);
+    const view = new DataView(buffer);
+
+    // Set up a 32-bit value at offset 2: 0x12345678 (little endian)
+    // 0x78, 0x56, 0x34, 0x12
+    view.setUint8(2, 0x78);
+    view.setUint8(3, 0x56);
+    view.setUint8(4, 0x34);
+    view.setUint8(5, 0x12);
+
+    const result = parseGen3PersonalityValue(view, 2);
+
+    expect(result).toBe(0x12345678);
+  });
+
+  it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+
+    // Attempting to read a 32-bit integer (4 bytes) starting at offset 2 will exceed the 4-byte buffer
+    expect(() => parseGen3PersonalityValue(view, 2)).toThrowError('The save file is corrupted or incomplete.');
   });
 });
