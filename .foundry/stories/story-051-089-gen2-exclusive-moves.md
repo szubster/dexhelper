@@ -29,3 +29,7 @@ Implement the logic to cross-reference the Pokémon's current 4 moves against th
 
 ## Scope
 - Create a utility to check move IDs to determine if any are Generation 2 exclusive.
+
+## Implementation Tasks
+- [ ] task-089-163-gen2-exclusive-moves-impl
+- [ ] task-089-164-gen2-exclusive-moves-qa
