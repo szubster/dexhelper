@@ -36,4 +36,5 @@ Leverage DexHelper's programmatic save parsing to extract all Battle Frontier da
 Centralizing highly distributed, endgame state data into a unified, easy-to-read dashboard perfectly aligns with DexHelper's vision as a premium companion app. It removes the friction of in-game navigation and provides hardcore players with a clear, actionable overview of their progress toward one of the most difficult challenges in the entire franchise.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to outline the technical approach for parsing Frontier data from the Emerald save structure and designing the unified dashboard UI.
+- [x] Product Manager: Convert this idea into a PRD to outline the technical approach for parsing Frontier data from the Emerald save structure and designing the unified dashboard UI.
+- [ ] prd-074-046-gen3-battle-frontier-tracker
