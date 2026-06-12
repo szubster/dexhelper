@@ -2,12 +2,12 @@
 id: story-058-095-unown-parser-logic
 type: STORY
 title: Unown Form Parser Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-08'
 updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16289425858759877478'
 pr_number: null
 parent: epic-037-058-unown-tracker-engine
 tags:
