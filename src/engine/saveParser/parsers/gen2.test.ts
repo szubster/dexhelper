@@ -272,6 +272,44 @@ describe('gen2 parsers', () => {
         mapId: 3,
       });
     });
+
+    it('should extract eventFlags and hiddenItemFlags for Gold/Silver', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Set some bytes in the GS wEventFlags block
+      view.setUint8(0x2624, 0x11);
+      view.setUint8(0x2624 + 255, 0x99);
+
+      const data = parseGen2(view, false);
+      expect(data.eventFlags).toBeDefined();
+      expect(data.eventFlags?.[0]).toBe(0x11);
+      expect(data.eventFlags?.[255]).toBe(0x99);
+      expect(data.eventFlags?.length).toBe(0x100);
+      expect(data.hiddenItemFlags).toBe(data.eventFlags);
+    });
+
+    it('should extract eventFlags and hiddenItemFlags for Crystal', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x2865, 1);
+      view.setUint8(0x2866, 1);
+      view.setUint8(0x2866 + 7, 1);
+
+      // Set some bytes in the Crystal wEventFlags block
+      view.setUint8(0x2600, 0x22);
+      view.setUint8(0x2600 + 255, 0xaa);
+
+      const data = parseGen2(view, true);
+      expect(data.eventFlags).toBeDefined();
+      expect(data.eventFlags?.[0]).toBe(0x22);
+      expect(data.eventFlags?.[255]).toBe(0xaa);
+      expect(data.eventFlags?.length).toBe(0x100);
+      expect(data.hiddenItemFlags).toBe(data.eventFlags);
+    });
   });
 
   describe('parseGen2 - PC Items', () => {
