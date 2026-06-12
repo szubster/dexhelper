@@ -58,4 +58,8 @@ As outlined in `idea-074-gen3-battle-frontier-tracker`, players of Generation 3 
 - Ensure the dashboard updates dynamically when a new save file is uploaded or synced (ADR 016).
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into Epics. Epics should cover Data Parsing (and potentially research for offsets), Dashboard UI creation, and Data Integration.
+- [x] Epic Planner: Break down this PRD into Epics. Epics should cover Data Parsing (and potentially research for offsets), Dashboard UI creation, and Data Integration.
+- [ ] research-046-140-gen3-battle-frontier
+- [ ] epic-046-078-gen3-battle-frontier-data-extraction
+- [ ] epic-046-079-gen3-battle-frontier-dashboard-ui
+- [ ] epic-046-080-gen3-battle-frontier-data-integration
