@@ -60,3 +60,6 @@ When modifying `transitionNodeToCompleted` in `foundry-heartbeat.ts` to clear `j
 
 ## 2026-06-11: Requirement for Concrete Memory Mapping Before Implementation
 When implementing save parser tasks (e.g., Gen 3 berry patches), concrete memory offsets and byte structures (e.g., `SaveBlock` layouts) MUST be provided in the task notes, the PRD, or a related RESEARCH node. If these exact offsets and structural definitions are missing, it is impossible to correctly implement the `DataView` parsing logic. In such cases, a `RESEARCH` node should be spawned to identify and document the offsets, and the implementation task should be failed/aborted until the research is complete. This prevents guessing and potential data corruption.
+
+## Aborted Task: Missing Gen 3 Berry Patch Offsets (2026-06-11)
+Aborted `task-095-157-gen3-berry-dataview-parsing` because the PRD required extracting `map ID`, `time planted`, and `last watered time`, but the knowledge base (`gen3_berry_patch_offsets.md`) lacked exact memory offsets and byte structures for these fields. Spawned `research-095-158-gen3-berry-missing-offsets` to identify them. We must not make assumptions about binary data layouts.
