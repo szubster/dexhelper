@@ -80,3 +80,55 @@ No critical learnings logged yet.
 - **2026-06-12**: System failure detected for `task-084-150-breeding-pair-algorithm-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
 
 - **2026-06-12**: PR #2382 merged. `task-095-151-unown-parser-logic-impl` is now COMPLETED.
+
+- **2026-06-12**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-12**: PR #2367 merged but has unchecked tasks (parent node). `epic-071-077-tailwind-designer-persona` is now PENDING.
+
+- **2026-06-12**: PR #2369 merged but has unchecked tasks (parent node). `prd-074-046-dag-context-architecture` is now PENDING.
+
+- **2026-06-12**: PR #2370 merged but has unchecked tasks (parent node). `prd-074-046-gen3-battle-frontier-tracker` is now PENDING.
+
+- **2026-06-12**: PR #2371 merged but has unchecked tasks (parent node). `story-070-111-parse-gen1-hof-data` is now PENDING.
+
+- **2026-06-12**: PR #2372 merged but has unchecked tasks (parent node). `story-070-112-parse-gen2-hof-data` is now PENDING.
+
+- **2026-06-12**: PR #2377 merged but has unchecked tasks (parent node). `story-074-113-define-tactical-panel-and-card` is now PENDING.
+
+- **2026-06-12**: PR #2381 merged but has unchecked tasks (parent node). `story-074-114-define-tactical-button-and-focus` is now PENDING.
+
+- **2026-06-12**: PR #2379 merged but has unchecked tasks (parent node). `story-074-115-define-tactical-input-and-text` is now PENDING.
+
+- **2026-06-12**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-12**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-12**: System failure detected for `task-081-144-preserve-enum-optimizations-retry-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-12**: PR #2373 merged. `task-087-150-impl-orchestrator-tests` is now COMPLETED.
+
+- **2026-06-12**: PR #2374 merged. `task-089-154-qa-radar-heatmap-logic` is now COMPLETED.
+
+- **2026-06-12**: PR #2378 merged. `task-089-163-gen2-exclusive-moves-impl` is now COMPLETED.
+
+- **2026-06-12**: PR #2380 merged. `task-091-156-gen1-checksum-qa` is now COMPLETED.
+
+- **2026-06-12**: PR #2376 merged. `task-092-158-gen2-checksum-qa` is now COMPLETED.
+
+- **2026-06-12**: PR #2375 merged. `task-093-158-pokemon-bounds-verification-qa` is now COMPLETED.
+
+- **2026-06-12**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-12**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-12**: PR #2411 merged. `task-087-151-qa-orchestrator-tests` is now COMPLETED.
+
+- **2026-06-12**: System failure detected for `task-094-157-moveset-inventory-validation-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-12**: PR #2389 merged. `task-095-152-gen1-hidden-item-parsing-qa` is now COMPLETED.
+
+- **2026-06-12**: PR #2390 merged. `task-095-152-unown-parser-logic-qa` is now COMPLETED.
+
+- **2026-06-12**: System failure detected for `task-095-157-gen2-event-flag-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-12**: PR #2391 merged. `task-095-158-feebas-seed-qa` is now COMPLETED.

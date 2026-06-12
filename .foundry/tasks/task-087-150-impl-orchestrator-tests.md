@@ -2,12 +2,12 @@
 id: task-087-150-impl-orchestrator-tests
 type: TASK
 title: Implement Orchestrator Tests for Implicit Dependencies
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-08'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: '14801827846280519674'
+jules_session_id: null
 pr_number: null
 parent: story-048-087-update-orchestrator-tests
 tags:
@@ -31,8 +31,8 @@ Tests must reflect the new implicit dependency enforcement logic added in the or
 - Specifically, tests should verify that nodes with missing or unresolvable dependencies are handled correctly, or that sibling dependencies are managed properly based on the recent changes.
 
 ## Acceptance Criteria
-- [ ] Added unit tests in `.github/scripts/foundry-orchestrator.test.ts` for implicit dependencies.
-- [ ] Run `pnpm test` successfully within `.github/scripts`.
+- [x] Added unit tests in `.github/scripts/foundry-orchestrator.test.ts` for implicit dependencies.
+- [x] Run `pnpm test` successfully within `.github/scripts`.
 
 ## Coder Contract
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

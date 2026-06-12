@@ -2,13 +2,13 @@
 id: task-092-158-gen2-checksum-qa
 type: TASK
 title: QA Gen 2 Checksum Validation Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-09'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on:
   - task-092-157-gen2-checksum-impl
-jules_session_id: '14245095565246857882'
+jules_session_id: null
 pr_number: null
 parent: story-053-092-health-scanner-gen2-checksum-validation
 tags:
@@ -39,7 +39,7 @@ The Coder has implemented the Gen 2 checksum calculation and validation logic fo
 * **QA:** Verify the implementation and ensure the unit tests provide adequate coverage. If you permanently fail or abort, update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify Gen 2 checksum calculation is correct.
-- [ ] Verify main and backup checksums are correctly validated for all relevant banks.
-- [ ] Verify diagnostic models accurately report the location and type of checksum failures.
-- [ ] Ensure comprehensive test coverage for the checksum logic.
+- [x] Verify Gen 2 checksum calculation is correct.
+- [x] Verify main and backup checksums are correctly validated for all relevant banks.
+- [x] Verify diagnostic models accurately report the location and type of checksum failures.
+- [x] Ensure comprehensive test coverage for the checksum logic.

@@ -2,12 +2,12 @@
 id: story-074-114-define-tactical-button-and-focus
 type: STORY
 title: Define tactical-button and tactical-focus utilities
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: '2253317125127000293'
+jules_session_id: null
 pr_number: null
 parent: epic-071-074-define-tailwind-v4-utilities
 tags:
@@ -32,3 +32,4 @@ Extract and consolidate common, repetitive Tailwind class patterns used for butt
 ## Acceptance Criteria
 - [ ] Appropriate `@utility tactical-button` and `@utility tactical-focus` primitives are defined in `src/index.css`.
 - [ ] Tailwind v4 formatting and structure is respected.
+- [ ] task-114-165-tactical-button-focus-impl
