@@ -35,7 +35,7 @@ This epic extracts pure functions from `.github/scripts/foundry-orchestrator.ts`
 
 ## Next Steps
 - [x] Story Owner: Write Story to create the `dag-utils.ts` module with pure functions and basic utilities.
-  - Spawned: `.foundry/stories/story-053-090-extract-dag-utilities.md`
+  - Spawned: `.foundry/archive/stories/story-053-090-extract-dag-utilities.md`
 
 
 - [ ] Story Owner: Write Story to create unit tests for `dag-utils.ts`.

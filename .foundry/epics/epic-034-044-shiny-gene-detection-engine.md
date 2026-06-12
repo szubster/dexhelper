@@ -39,5 +39,5 @@ None.
 
 ## Child Stories
 - .foundry/stories/story-044-082-dv-shiny-gene-logic.md
-- .foundry/stories/story-044-083-pc-party-shiny-flag.md
+- .foundry/archive/stories/story-044-083-pc-party-shiny-flag.md
 - .foundry/stories/story-044-084-breeding-pair-algorithm.md
