@@ -61,3 +61,5 @@ In the Dexhelper codebase, version-exclusive arrays (such as `GEN2_VERSION_EXCLU
 
 ## Data Integrity - Gen 3 Exclusives
 * **Data Pipeline Gotchas:** In version-exclusive logic (`src/engine/exclusives/*`), Pokémon are NOT considered unobtainable/exclusive if any pre-evolution in their family is catchable natively in that version (e.g., Dusclops is obtainable in Emerald because Duskull is available natively).
+## Data Integrity - Gen 2 Exclusives (Caterpie and Weedle Update)
+* **Data Pipeline Gotchas:** The arrays in `src/engine/exclusives/` represent lists of **unobtainable** Pokémon. Caterpie (10-12) and Weedle (13-15) were previously incorrectly marked as unobtainable in Silver and Gold, respectively. However, both evolution lines can be caught in both game versions during the Bug-Catching Contest, meaning they are not truly version exclusive in Gen 2. They must not be included in the exclusion lists (`GEN2_VERSION_EXCLUSIVES`) for Gold or Silver.
