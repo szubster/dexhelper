@@ -29,5 +29,5 @@ Integrate the newly parsed Gen 3 encounter data into the suggestion engine and m
 - [ ] Location and encounter routing is aware of Gen 3 specific mechanics.
 
 ## Generated Tasks
-- [ ] .foundry/tasks/task-064-134-encounter-integration-impl.md
+- [ ] .foundry/archive/tasks/task-064-134-encounter-integration-impl.md
 - [ ] .foundry/archive/tasks/task-064-135-encounter-integration-qa.md

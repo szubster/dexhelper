@@ -34,10 +34,10 @@ This QA task verifies the coder's implementation for Gen 3 hidden item parsing (
 4. **Verify Test Coverage**: Check the Gen 3 save parser unit tests. They must provide adequate mock data reflecting the Gen 3 save format and assert that `hiddenItemFlags` are extracted properly with the correct byte values. Tests must pass successfully.
 
 ## Acceptance Criteria
-- [ ] Code strictly adheres to ADR 010 (`DataView` API usage).
-- [ ] Out-of-bounds `DataView` accesses are handled gracefully.
-- [ ] Gen 3 section parsing logic accurately targets and extracts the hidden item flags.
-- [ ] Unit tests for Gen 3 hidden item parsing exist, provide sufficient coverage, and pass.
+- [x] Code strictly adheres to ADR 010 (`DataView` API usage).
+- [x] Out-of-bounds `DataView` accesses are handled gracefully.
+- [x] Gen 3 section parsing logic accurately targets and extracts the hidden item flags.
+- [x] Unit tests for Gen 3 hidden item parsing exist, provide sufficient coverage, and pass.
 
 ## IMPORTANT REMINDERS
 - **If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.**

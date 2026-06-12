@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-06-02'
 updated_at: '2026-06-10'
 depends_on:
-  - .foundry/stories/story-053-090-health-scanner-diagnostic-models.md
+  - story-053-090-health-scanner-diagnostic-models
 jules_session_id: null
 pr_number: null
 parent: epic-036-053-health-scanner-core-engine
@@ -37,5 +37,5 @@ Generation 1 save files rely on a specific main checksum to verify the integrity
 - [x] Tech Lead: Break this Story down into actionable Tasks for the coder.
 
 ## Child Tasks
-- [ ] .foundry/tasks/task-091-155-gen1-checksum-impl.md
+- [ ] .foundry/archive/tasks/task-091-155-gen1-checksum-impl.md
 - [ ] .foundry/tasks/task-091-156-gen1-checksum-qa.md

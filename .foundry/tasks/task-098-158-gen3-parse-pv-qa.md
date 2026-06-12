@@ -33,6 +33,6 @@ As part of the Mirage Island checking feature (Epic `epic-038-062-personality-va
 4. **Important for QA**: If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `DataView` parsing logic correctly extracts Gen 3 PV.
-- [ ] Verify `RangeError` is properly caught and handled for out-of-bounds reads.
-- [ ] Verify Gen 1 and Gen 2 handlers remain functional and are not altered.
+- [x] Verify `DataView` parsing logic correctly extracts Gen 3 PV.
+- [x] Verify `RangeError` is properly caught and handled for out-of-bounds reads.
+- [x] Verify Gen 1 and Gen 2 handlers remain functional and are not altered.

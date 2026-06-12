@@ -179,3 +179,9 @@
 **Outcome:** Accepted
 **Why:** Brings the debug diagnostics view fully into the tactical specialization motif. The previous cards were simple floating rectangles with shadow, which broke the terminal simulation. Treating system stats as raw telemetry streams with data pipes and faux active graph lines perfectly fits the tactical design language.
 **Pattern:** Always elevate simple data readouts (like diagnostics and simple stats) into active "Telemetry Sensors" by utilizing data pipe visuals (solid left borders with pulsing indicators), CRT/Scanline backgrounds, mono brackets, and faux animated graphics (like simple SVG paths) to reinforce the specialized hardware aesthetic instead of settling for static standard cards.
+
+## 2026-07-10 - [Accepted] - 🖼️ Canvas: Tactical Server Rack Redesign for StorageGrid
+**What:** Redesigned the `StorageGrid` section headers to resemble physical server rack blades. Replaced standard text headers with a `TacticalPanel` layout featuring metallic rack handles, LED capacity indicators (segmented bars), and status warning lights (e.g., Shiny Anomaly, System Error/Quarantine).
+**Outcome:** Accepted
+**Why:** Transforms the abstract concept of "PC Boxes" into a tangible, specialized hardware interface, reinforcing the app's core "snooping" and tactical terminal fantasy perfectly.
+**Pattern:** When presenting grouped data (like boxes or categories), style the containers or headers as physical hardware components (like server blades or memory banks) to ground the data in the physical device illusion.

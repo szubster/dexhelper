@@ -2,13 +2,14 @@
 id: task-095-157-gen2-event-flag-impl
 type: TASK
 title: Gen 2 Event Flag Extraction - Implementation
-status: FAILED
+depends_on:
+  - research-task-095-157-gen2-event-flag-offsets
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-12'
-depends_on:
-  - research-task-095-157-gen2-event-flag-offsets
-jules_session_id: null
+depends_on: []
+jules_session_id: '12729977573204018786'
 pr_number: null
 parent: story-061-095-gen2-event-flag-extraction
 tags:

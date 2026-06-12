@@ -40,6 +40,6 @@ Verify the implementation of the Gen 2 exclusive moves check utility.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Utility function verified.
-- [ ] Logic correctly distinguishes Gen 1 and Gen 2 moves based on ID threshold (165).
-- [ ] Tests comprehensively cover functionality.
+- [x] Utility function verified.
+- [x] Logic correctly distinguishes Gen 1 and Gen 2 moves based on ID threshold (165).
+- [x] Tests comprehensively cover functionality.

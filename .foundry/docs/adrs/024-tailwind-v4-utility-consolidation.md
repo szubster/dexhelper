@@ -15,7 +15,7 @@ tags:
   - tailwind
   - styling
 research_references:
-  - .foundry/research/research-071-137-tailwind-v4-utilities.md
+  - research-071-137-tailwind-v4-utilities
 rejection_count: 0
 rejection_reason: ''
 notes: ''

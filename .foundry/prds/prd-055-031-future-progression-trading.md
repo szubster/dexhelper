@@ -44,7 +44,7 @@ Following the implementation of Phase 1 (basic authentication and save syncing),
 - [x] Epic Planner: Break this PRD down into Epics.
 
 ## References
-- Parent Idea: `.foundry/ideas/idea-055-cloudflare-sync-and-future-features.md`
+- Parent Idea: `.foundry/archive/ideas/idea-055-cloudflare-sync-and-future-features.md`
 
 ## Generated Epics
 - `.foundry/epics/epic-031-036-progression-tracking.md`

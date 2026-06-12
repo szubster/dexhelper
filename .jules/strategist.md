@@ -227,3 +227,8 @@
 **Outcome:** Merged
 **Why:** The Auditor journal observed that failed macro nodes (e.g., IDEA, PRD) in the Resurrection Loop were being blindly resubmitted by the planners without addressing the rejection reasons. This led to infinite loops. Planners previously lacked the explicit instructions that implementation agents (like Coder) had for resuming FAILED nodes.
 **Pattern:** Ensure all upstream generating personas (Product Manager, Epic Planner, Story Owner, Tech Lead) have explicit instructions to read the `rejection_reason` and the reviewing persona's journal (Auditor or QA) when assigned a resurrected FAILED node, to fix the actual issue instead of blindly resubmitting.
+## 2026-06-11 - [Accepted] - Prompt improvement - Add Scratchpad Cleanup rule
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The Tech Lead journal ("2026-06-10") observed that temporary scratchpad scripts (like generate_reads.sh) left in the workspace pollute the repository and cause code review rejections.
+**Pattern:** Ensure all agents are explicitly instructed to clean up any temporary scripts or scratchpads they create before submitting their work to prevent repository pollution and PR rejections.

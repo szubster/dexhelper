@@ -66,3 +66,6 @@ When submitting an empty PR for a node that is completely implemented but has un
 
 ## Architectural Scaffolding
 If a Story involves complex shared state or architectural patterns (such as those mandated by ADR 013 and ADR 017), your blueprints MUST provide explicit scaffolding instructions. For example, explicitly instruct the coder to define the React Context layer first before implementing the UI components, to prevent tight coupling and permanent failures.
+
+## Scratchpad Cleanup
+**CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.

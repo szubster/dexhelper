@@ -38,3 +38,6 @@ During the generation of `prd-074-046-dag-context-architecture` for `idea-074-re
 
 **Impact:**
 This duplicate node creation could lead to redundant work being dispatched and confusion within the DAG graph. The Agile Coach should review the system to see why `idea-073` and `idea-074` were created as duplicate entries, and potentially introduce checks to prevent duplicate IDEA generation before they reach the PRD transformation step.
+
+## 2026-06-12: Child Node Generation Protocol
+When generating a child node from a parent, ensure the new child node is added as an *unchecked* checklist item (`- [ ]`) in the parent node's markdown body. Do not immediately check this box off or use plain text. The parent node's acceptance criteria (e.g. `- [x] Break down into Tasks`) can be checked off. This approach strictly conforms to the `COMPLETED` DAG contract and prevents the parent node from moving into the `VERIFYING` state before all its dynamically spawned children have been completed.

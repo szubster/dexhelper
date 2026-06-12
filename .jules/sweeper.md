@@ -31,3 +31,7 @@
 - Refactoring long files or text structures using string matching in python or javascript can be error prone with indentation or overlapping strings. Writing a script to accurately parse the abstract syntax tree and make changes is difficult. Often the easiest way to make surgical edits to a code file without manual human input is to find unique anchors, slice the text, and recreate it exactly.
 When using `pnpm knip --production` to identify dead code, it will often falsely flag non-production files such as CI scripts, tests, and testing utilities (e.g., in `.github/scripts/`, `scripts/`, or `tests/e2e/`) as unused. Always manually verify that flagged files are genuinely dead code before deletion.
 Before deleting code flagged as dead, always check the status of Foundry tasks (e.g., in `.foundry/`) as it may be related to recently closed or WIP tasks.
+
+## 2026-06-07 - Verify Unused Code Removals
+**Learning:** Tools like `knip` can identify unused exports and dependencies, but they sometimes have blind spots or misinterpret usage (especially for global configurations, setup scripts, or exported test helpers/fixtures).
+**Action:** When using tools like `knip` to find unused exports or files, always verify potential implicit usage with a global repository search (e.g., `grep`) before removing them to ensure they aren't dynamically referenced by tests or CI scripts.

@@ -30,3 +30,4 @@ Create the `BattleFrontierDashboard` UI component. It must adhere to the "tactic
 - [ ] Create BP wallet display.
 - [ ] Create progress visuals towards the next Frontier Brain encounter.
 - [ ] Apply tactical styling (ADR 008, ADR 024).
+- [ ] story-079-116-battle-frontier-dashboard-ui
