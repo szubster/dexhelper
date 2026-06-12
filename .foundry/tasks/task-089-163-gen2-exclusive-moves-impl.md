@@ -42,6 +42,6 @@ Implement a utility function to determine if any of a Pokémon's 4 moves are Gen
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Utility function implemented.
-- [ ] Unit tests pass.
-- [ ] `pnpm type-check` passes.
+- [x] Utility function implemented.
+- [x] Unit tests pass.
+- [x] `pnpm type-check` passes.
