@@ -36,6 +36,9 @@ Implement the data transformation pipeline inside the `RouteRadarController`. It
 - [ ] Ensure it accurately processes edge cases (e.g., areas with 0 missing encounters should not be present in the output or have a score of 0).
 - [ ] Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
 
+## Tech Lead Actions
+- [x] Break down into Tasks
+
 ## Generated Tasks
-- [ ] .foundry/tasks/task-089-153-implement-radar-heatmap-logic.md
-- [ ] .foundry/tasks/task-089-154-qa-radar-heatmap-logic.md
+- [ ] .foundry/tasks/task-089-165-implement-radar-heatmap-logic.md
+- [ ] .foundry/tasks/task-089-166-qa-radar-heatmap-logic.md
