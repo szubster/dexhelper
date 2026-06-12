@@ -2,7 +2,7 @@
 id: task-098-157-locate-mirage-island-offset
 type: TASK
 title: Locate Mirage Island Data Block Offset
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-11'
@@ -15,8 +15,8 @@ tags:
   - mirage-island
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'The section is documented incorrectly as Section 3-4 instead of Section 2'
 notes: ''
 ---
 

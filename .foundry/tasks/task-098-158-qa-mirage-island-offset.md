@@ -38,3 +38,6 @@ The `coder` persona has documented the exact offset and data structure for the d
 ## Acceptance Criteria
 - [ ] Verify the documented byte offsets for the Mirage Island value in R/S/E are correct.
 - [ ] Verify the data size is documented as a 16-bit integer.
+
+## QA Results
+Target task failed because the offset is documented under Section 3-4 instead of Section 2.
