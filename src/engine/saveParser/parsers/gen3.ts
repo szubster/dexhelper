@@ -76,6 +76,41 @@ export function isGen3Save(view: DataView): boolean {
 }
 
 /**
+ * Extracts the 16-bit Mirage Island daily random value from a Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param gameVersion - The detected GameVersion of the save file.
+ * @returns The 16-bit unsigned integer representing the Mirage Island value.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function extractMirageIslandValue(view: DataView, gameVersion: GameVersion): number {
+  try {
+    let section3Offset: number;
+    try {
+      section3Offset = getLatestSectionOffset(view, 3);
+    } catch {
+      throw new RangeError('Out of bounds during block scan');
+    }
+
+    let offsetWithinSection = 0;
+    if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
+      offsetWithinSection = 0x0408;
+    } else if (gameVersion === 'emerald') {
+      offsetWithinSection = 0x0464;
+    } else {
+      throw new Error(`Unsupported game version for Mirage Island extraction: ${gameVersion}`);
+    }
+
+    return view.getUint16(section3Offset + offsetWithinSection, true);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
  * Extracts all relevant game data from a Gen 3 save.
  * Placeholder implementation for scaffolding.
  *

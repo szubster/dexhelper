@@ -34,8 +34,8 @@ This must adhere strictly to ADR 010:
 - Catch the `RangeError` and handle it gracefully (e.g. by throwing a specific validation error like "Corrupted Save File" or returning a designated safe error state, depending on the parser's existing error handling patterns).
 
 ## Acceptance Criteria
-- [ ] Logic implemented to extract the Mirage Island random value using `DataView.getUint16`.
-- [ ] Out-of-bounds reads (`RangeError`) are caught and handled gracefully as per ADR 010.
+- [x] Logic implemented to extract the Mirage Island random value using `DataView.getUint16`.
+- [x] Out-of-bounds reads (`RangeError`) are caught and handled gracefully as per ADR 010.
 
 ## Important Note for Coder
 If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isGen3Save, parseGen3, parseGen3PersonalityValue } from './gen3';
+import { extractMirageIslandValue, isGen3Save, parseGen3, parseGen3PersonalityValue } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
   it('isGen3Save should return false normally', () => {
@@ -105,5 +105,87 @@ describe('parseGen3PersonalityValue', () => {
 
     // Attempting to read a 32-bit integer (4 bytes) starting at offset 2 will exceed the 4-byte buffer
     expect(() => parseGen3PersonalityValue(view, 2)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('extractMirageIslandValue', () => {
+  it('extracts the Mirage Island value for Ruby/Sapphire', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    // Setup Section 3 at block A, index 3
+    const sectionOffset = 0x0000 + 3 * 4096;
+    view.setUint16(sectionOffset + 4084, 3, true); // Section ID 3
+    view.setUint32(sectionOffset + 4088, 0x08012025, true); // Signature
+    view.setUint32(sectionOffset + 4092, 10, true); // Save Index
+
+    // Set Mirage Island value
+    view.setUint16(sectionOffset + 0x0408, 0xabcd, true);
+
+    expect(extractMirageIslandValue(view, 'ruby')).toBe(0xabcd);
+    expect(extractMirageIslandValue(view, 'sapphire')).toBe(0xabcd);
+  });
+
+  it('extracts the Mirage Island value for Emerald', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    // Setup Section 3 at block B, index 0
+    const sectionOffset = 0xe000 + 0;
+    view.setUint16(sectionOffset + 4084, 3, true); // Section ID 3
+    view.setUint32(sectionOffset + 4088, 0x08012025, true); // Signature
+    view.setUint32(sectionOffset + 4092, 15, true); // Save Index
+
+    // Set Mirage Island value
+    view.setUint16(sectionOffset + 0x0464, 0x1234, true);
+
+    expect(extractMirageIslandValue(view, 'emerald')).toBe(0x1234);
+  });
+
+  it('throws an error for unsupported game versions', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    // Setup Section 3
+    const sectionOffset = 0x0000 + 3 * 4096;
+    view.setUint16(sectionOffset + 4084, 3, true); // Section ID 3
+    view.setUint32(sectionOffset + 4088, 0x08012025, true); // Signature
+    view.setUint32(sectionOffset + 4092, 10, true); // Save Index
+
+    expect(() => extractMirageIslandValue(view, 'firered')).toThrow('Unsupported game version');
+    expect(() => extractMirageIslandValue(view, 'leafgreen')).toThrow('Unsupported game version');
+  });
+
+  it('throws corrupted file error if out of bounds', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    // Setup Section 3 near the end of the buffer, making the data access out of bounds
+    // (Wait, actually if section is at the end, 0x0464 might be out of bounds if it's placed incorrectly,
+    // let's just mock getUint16)
+    const sectionOffset = 0xe000 + 13 * 4096;
+    view.setUint16(sectionOffset + 4084, 3, true); // Section ID 3
+    view.setUint32(sectionOffset + 4088, 0x08012025, true); // Signature
+    view.setUint32(sectionOffset + 4092, 10, true); // Save Index
+
+    const originalGetUint16 = view.getUint16.bind(view);
+    view.getUint16 = (offset: number, littleEndian?: boolean) => {
+      if (offset === sectionOffset + 0x0408) {
+        throw new RangeError('Out of bounds');
+      }
+      return originalGetUint16(offset, littleEndian);
+    };
+
+    expect(() => extractMirageIslandValue(view, 'ruby')).toThrow('The save file is corrupted or incomplete.');
+
+    // Restore
+    view.getUint16 = originalGetUint16;
+  });
+
+  it('throws corrupted file error if block scan throws RangeError', () => {
+    const buffer = new ArrayBuffer(10); // Too small for block scan
+    const view = new DataView(buffer);
+
+    expect(() => extractMirageIslandValue(view, 'emerald')).toThrow('The save file is corrupted or incomplete.');
   });
 });
