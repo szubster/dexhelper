@@ -29,4 +29,6 @@ The orchestrator must handle late-binding correctly with the new hierarchical co
 Create tasks to verify the late-binding logic in `foundry-orchestrator.ts` and ensure comprehensive test coverage for this specific scenario.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes to verify late-binding logic and tests.
+- [x] Break down into TASK nodes to verify late-binding logic and tests.
+- [ ] task-116-169-verify-late-binding-impl
+- [ ] task-116-170-verify-late-binding-qa
