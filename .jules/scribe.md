@@ -159,3 +159,8 @@ Documenting this prevents developers from incorrectly refactoring offset lookups
 
 **What:** Added JSDoc documentation to `src/engine/mapGraph/gen3Graph.ts`.
 **Why:** The `gen3Graph.ts` module implements crucial logic for the suggestion engine but lacked comments explaining *why* it resolves outdoor map IDs recursively and uses the precomputed `dist` array instead of performing real-time graph traversal. Adding these architectural notes clarifies that this design choice is necessary to prevent locking the UI thread during the synchronous suggestion generation process and guarantees O(1) performance. Additionally, the cache invalidation strategy in `getLocation` was documented to clarify its role in optimizing runtime lookups.
+
+## 2026-06-11 - Health Scanner Bounds Verification Architecture
+
+**What:** Added comprehensive JSDoc to `verifyBounds` in `src/engine/healthScanner/boundsVerifier.ts`.
+**Why:** The `verifyBounds` function performs critical runtime validation of internal Pokemon IDs and Stat Determinant Values (DVs). It enforces strict generation boundaries (`0-151` for Gen 1, `0-251` for Gen 2) and `0-15` boundaries for all 5 DV stats. Documenting this ensures that future engineers understand *why* the scanner must identify and flag these out-of-bounds structural anomalies as critical severity issues. If corrupted IDs or DVs (caused by glitches or bad dumps) were permitted to pass silently, they would cause severe downstream logic errors in the suggestion engine or crash the React UI when attempting to render assets.
