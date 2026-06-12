@@ -86,3 +86,5 @@ Critical learnings:
 
 ## 2026-06-11 - Empty PR Policy for Infrastructure
 **Learning:** When tasked with improving development tooling, and the existing infrastructure (Biome, Oxlint, Knip, Lefthook, Dependabot, Caching, Bundlemon, Codecov) is highly optimized, it is strictly preferable to submit an empty PR rather than forcing a change. An empty PR cleanly transitions the task without introducing bloat or technical debt. Do not modify the application logic or UI code to address tooling findings like unused files during an infrastructure task.
+## 2026-06-12 - Empty PR Policy for Infrastructure
+**Learning:** When tasked with improving development tooling, and the existing infrastructure (Biome, Oxlint, Knip, Lefthook, Dependabot, Caching, Bundlemon, Codecov) is highly optimized, it is strictly preferable to submit an empty PR rather than forcing a change. An empty PR cleanly transitions the task without introducing bloat or technical debt. Do not modify the application logic or UI code to address tooling findings like unused files during an infrastructure task. Empty PR Policy is also applicable for tasks dynamically spawned by Foundry.
