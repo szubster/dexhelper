@@ -1,5 +1,5 @@
 ---
-id: research-task-095-157-gen2-event-flag-offsets
+id: research-095-157-gen2-event-flag-offsets
 type: RESEARCH
 title: Investigate Gen 2 Event Flag Offsets
 status: PENDING

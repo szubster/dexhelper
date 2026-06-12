@@ -25,6 +25,12 @@ The `BerryTree` struct represents the state of a single berry patch. Due to 32-b
 
 *Total Size: 8 bytes per BerryTree.*
 
+### Unstored and Implicit Fields
+
+- **Map ID / Location:** Not stored. The array is statically ordered. The 128 indices correspond 1:1 with specific map locations (defined as `BERRY_TREE_*` constants in the game code, such as `#define BERRY_TREE_ROUTE_102_PECHA 1`).
+- **Time Planted:** Not stored. The game manages growth using the countdown timer (`minutesUntilNextStage`).
+- **Last Watered Time:** Not stored. The game only records the boolean state of whether watering occurred during a given stage (`watered1`-`watered4`).
+
 ## 2. Enigma Berry Data
 
 Gen 3 introduced the Enigma Berry, which acts as a dynamic placeholder for e-Reader berries. Its data is also stored within `SaveBlock1`.

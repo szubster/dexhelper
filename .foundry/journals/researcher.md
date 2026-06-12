@@ -18,3 +18,4 @@ When implementing new pipeline states that involve temporary ownership handoffs 
 ## Cloudflare Native Authentication
 - **Finding:** For Cloudflare Pages, `@cloudflare/pages-plugin-cloudflare-access` provides native middleware to validate JWTs from Cloudflare Access.
 - **Why it matters:** Generic Node.js OAuth libraries are difficult to maintain in edge environments. Relying on Cloudflare Access to handle the Google SSO flow at the infrastructure level removes the need to write custom callback/session management code. It also allows single-user restrictions to be configured via Zero Trust policies instead of application logic.
+When investigating decompilations (like pokeemerald) to discover save file offsets, prioritize searching struct definitions and array index mappings over runtime timestamp values, as many hardware-constrained systems compute time deltas or use implicit array-to-map mappings instead of raw storage.
