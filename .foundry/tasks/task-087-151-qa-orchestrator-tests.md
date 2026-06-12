@@ -32,8 +32,8 @@ Verify the tests added for the new implicit dependency enforcement logic in the 
 - Run the tests to ensure they execute successfully and pass.
 
 ## Acceptance Criteria
-- [ ] Unit tests for implicit dependencies exist and provide adequate coverage in `.github/scripts/foundry-orchestrator.test.ts`.
-- [ ] `pnpm test` runs successfully within `.github/scripts`.
+- [x] Unit tests for implicit dependencies exist and provide adequate coverage in `.github/scripts/foundry-orchestrator.test.ts`.
+- [x] `pnpm test` runs successfully within `.github/scripts`.
 
 ## QA Contract
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
