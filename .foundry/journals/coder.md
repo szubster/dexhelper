@@ -60,3 +60,6 @@ When modifying `transitionNodeToCompleted` in `foundry-heartbeat.ts` to clear `j
 
 ## 2026-06-11: Requirement for Concrete Memory Mapping Before Implementation
 When implementing save parser tasks (e.g., Gen 3 berry patches), concrete memory offsets and byte structures (e.g., `SaveBlock` layouts) MUST be provided in the task notes, the PRD, or a related RESEARCH node. If these exact offsets and structural definitions are missing, it is impossible to correctly implement the `DataView` parsing logic. In such cases, a `RESEARCH` node should be spawned to identify and document the offsets, and the implementation task should be failed/aborted until the research is complete. This prevents guessing and potential data corruption.
+
+## 2026-06-12: Late Binding for Unknown Offsets
+While attempting `task-095-157-gen2-event-flag-impl`, the exact memory offsets for Gen 2 (Gold/Silver and Crystal) event flags could not be confirmed in the documentation. Rather than guessing `0x283E` / `0x281A` and potentially extracting corrupted data, I utilized the late binding pattern. A `RESEARCH` node (`.foundry/research-task-095-157-gen2-event-flag-offsets.md`) was appended to the task's `depends_on` array. This effectively suspends the task until the precise offsets are investigated and documented.

@@ -2,11 +2,12 @@
 id: task-095-157-gen2-event-flag-impl
 type: TASK
 title: Gen 2 Event Flag Extraction - Implementation
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-12'
-depends_on: []
+depends_on:
+  - research-task-095-157-gen2-event-flag-offsets
 jules_session_id: null
 pr_number: null
 parent: story-061-095-gen2-event-flag-extraction
@@ -15,7 +16,7 @@ tags:
   - backend
   - save-parsing
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Exact Gen 2 event flag offsets are not documented. Spawned a RESEARCH node to investigate.'
 notes: ''
 ---
 
