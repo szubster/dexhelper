@@ -116,3 +116,19 @@ No critical learnings logged yet.
 - **2026-06-12**: PR #2376 merged. `task-092-158-gen2-checksum-qa` is now COMPLETED.
 
 - **2026-06-12**: PR #2375 merged. `task-093-158-pokemon-bounds-verification-qa` is now COMPLETED.
+
+- **2026-06-12**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-12**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-12**: PR #2411 merged. `task-087-151-qa-orchestrator-tests` is now COMPLETED.
+
+- **2026-06-12**: System failure detected for `task-094-157-moveset-inventory-validation-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-12**: PR #2389 merged. `task-095-152-gen1-hidden-item-parsing-qa` is now COMPLETED.
+
+- **2026-06-12**: PR #2390 merged. `task-095-152-unown-parser-logic-qa` is now COMPLETED.
+
+- **2026-06-12**: System failure detected for `task-095-157-gen2-event-flag-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-12**: PR #2391 merged. `task-095-158-feebas-seed-qa` is now COMPLETED.

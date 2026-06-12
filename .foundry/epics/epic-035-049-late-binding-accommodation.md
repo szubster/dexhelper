@@ -1,11 +1,11 @@
 ---
 id: epic-035-049-late-binding-accommodation
 type: EPIC
-title: "Late-Binding Accommodation & Journal Update"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-05-24"
-updated_at: "2026-05-24"
+title: Late-Binding Accommodation & Journal Update
+status: READY
+owner_persona: story_owner
+created_at: '2026-05-24'
+updated_at: '2026-06-12'
 depends_on:
   - epic-035-048-implicit-dependency-enforcement
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Late-Binding Accommodation & Journal Update

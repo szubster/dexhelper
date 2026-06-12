@@ -2,13 +2,13 @@
 id: task-095-158-feebas-seed-qa
 type: TASK
 title: QA Feebas Seed Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-12'
 depends_on:
   - task-095-157-feebas-seed-impl
-jules_session_id: '5279859606031193851'
+jules_session_id: null
 pr_number: null
 parent: story-058-095-feebas-seed-extraction
 tags:
