@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-06-02'
 updated_at: '2026-06-08'
 depends_on:
-  - .foundry/tasks/task-088-146-scaffold-route-radar-controller.md
+  - task-088-146-scaffold-route-radar-controller
 jules_session_id: null
 pr_number: null
 parent: story-048-088-create-route-radar-controller

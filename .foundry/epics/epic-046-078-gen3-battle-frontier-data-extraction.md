@@ -16,7 +16,7 @@ tags:
   - gen3
   - endgame
 research_references:
-  - .foundry/research/research-046-140-gen3-battle-frontier.md
+  - research-046-140-gen3-battle-frontier
 rejection_count: 0
 rejection_reason: ''
 notes: ''

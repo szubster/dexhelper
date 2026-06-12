@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-06-05'
 updated_at: '2026-06-09'
 depends_on:
-  - .foundry/research/research-036-007-feebas-seed-offset.md
+  - research-036-007-feebas-seed-offset
 jules_session_id: null
 pr_number: null
 parent: prd-066-036-feebas-tile-predictor

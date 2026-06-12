@@ -17,7 +17,7 @@ tags:
   - map
   - qa
 research_references:
-  - .foundry/research/research-071-138-gen3-roamer-offsets.md
+  - research-071-138-gen3-roamer-offsets
 rejection_count: 0
 rejection_reason: ''
 notes: ''

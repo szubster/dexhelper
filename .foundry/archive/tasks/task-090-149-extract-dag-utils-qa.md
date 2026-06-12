@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-06-04'
 updated_at: '2026-06-09'
 depends_on:
-  - .foundry/tasks/task-090-148-extract-dag-utils-impl.md
+  - task-090-148-extract-dag-utils-impl
 jules_session_id: null
 pr_number: null
 parent: story-053-090-extract-dag-utilities

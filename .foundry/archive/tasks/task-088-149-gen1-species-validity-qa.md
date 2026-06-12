@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-06-04'
 updated_at: '2026-06-11'
 depends_on:
-  - .foundry/tasks/task-088-148-gen1-species-validity-impl.md
+  - task-088-148-gen1-species-validity-impl
 jules_session_id: null
 pr_number: null
 parent: story-051-088-gen1-species-validity

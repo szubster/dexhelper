@@ -7,8 +7,8 @@ owner_persona: story_owner
 created_at: '2026-06-05'
 updated_at: '2026-06-05'
 depends_on:
-  - .foundry/epics/epic-036-058-feebas-backend-parsing.md
-  - .foundry/tasks/task-036-148-feebas-visualization-adr.md
+  - epic-036-058-feebas-backend-parsing
+  - task-036-148-feebas-visualization-adr
 jules_session_id: null
 pr_number: null
 parent: prd-066-036-feebas-tile-predictor
