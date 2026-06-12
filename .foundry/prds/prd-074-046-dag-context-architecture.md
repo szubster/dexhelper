@@ -30,4 +30,6 @@ Recent implementation attempts permanently failed because the state was left tig
 - Extract `rejection_count` from node frontmatter during data parsing so it is available in the shared context (as per ADR 017).
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-046-078-shared-dag-context-foundation
+- [ ] epic-046-079-react-flow-visualizer-refactor
