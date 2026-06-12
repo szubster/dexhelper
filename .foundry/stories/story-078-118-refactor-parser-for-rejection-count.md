@@ -2,7 +2,7 @@
 id: story-078-118-refactor-parser-for-rejection-count
 type: STORY
 title: Refactor DAG Parser for Rejection Count
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-12'

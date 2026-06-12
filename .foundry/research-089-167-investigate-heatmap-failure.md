@@ -2,7 +2,7 @@
 id: research-089-167-investigate-heatmap-failure
 type: RESEARCH
 title: Investigate Route Radar Heatmap Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-12'
 updated_at: '2026-06-12'

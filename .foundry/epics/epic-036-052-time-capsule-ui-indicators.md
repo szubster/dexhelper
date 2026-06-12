@@ -2,13 +2,13 @@
 id: epic-036-052-time-capsule-ui-indicators
 type: EPIC
 title: Time Capsule UI Indicators
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-30'
 updated_at: '2026-06-12'
 depends_on:
   - epic-036-051-time-capsule-validation-logic
-jules_session_id: '14059814909028095262'
+jules_session_id: null
 pr_number: null
 parent: prd-066-036-time-capsule-validator
 tags:

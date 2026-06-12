@@ -2,7 +2,7 @@
 id: research-095-157-gen2-event-flag-offsets
 type: RESEARCH
 title: Investigate Gen 2 Event Flag Offsets
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-12'
 updated_at: '2026-06-12'
