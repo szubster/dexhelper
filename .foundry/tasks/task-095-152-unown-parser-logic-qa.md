@@ -2,10 +2,10 @@
 id: task-095-152-unown-parser-logic-qa
 type: TASK
 title: QA Unown Form Parser Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on:
   - .foundry/tasks/task-095-151-unown-parser-logic-impl.md
 jules_session_id: null
