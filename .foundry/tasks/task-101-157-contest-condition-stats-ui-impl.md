@@ -2,12 +2,12 @@
 id: task-101-157-contest-condition-stats-ui-impl
 type: TASK
 title: Implement ContestConditionStats Component
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: '10866943988801587640'
+jules_session_id: null
 pr_number: null
 parent: story-064-101-contest-condition-stats-ui
 tags:

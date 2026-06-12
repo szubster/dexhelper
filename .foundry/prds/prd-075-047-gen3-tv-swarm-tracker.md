@@ -2,7 +2,7 @@
 id: prd-075-047-gen3-tv-swarm-tracker
 type: PRD
 title: Gen 3 TV Broadcast and Swarm Tracker
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-12'
 updated_at: '2026-06-12'

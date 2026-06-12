@@ -2,10 +2,10 @@
 id: story-061-095-pokerus-byte-parsing
 type: STORY
 title: Pokerus Byte Parsing Story
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-06-10'
+updated_at: '2026-06-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

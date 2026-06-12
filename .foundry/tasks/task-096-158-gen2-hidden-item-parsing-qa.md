@@ -2,10 +2,10 @@
 id: task-096-158-gen2-hidden-item-parsing-qa
 type: TASK
 title: Gen 2 Hidden Item Event Flags Parsing QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-12'
 depends_on:
   - task-096-157-gen2-hidden-item-parsing-impl
 jules_session_id: null

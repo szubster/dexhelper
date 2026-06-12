@@ -132,3 +132,43 @@ No critical learnings logged yet.
 - **2026-06-12**: System failure detected for `task-095-157-gen2-event-flag-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
 
 - **2026-06-12**: PR #2391 merged. `task-095-158-feebas-seed-qa` is now COMPLETED.
+
+- **2026-06-12**: PR #2416 merged but has unchecked tasks (parent node). `epic-035-049-late-binding-accommodation` is now PENDING.
+
+- **2026-06-12**: Resurrection Loop triggered for `epic-046-078-shared-dag-context-foundation`. Reason: PR #2407 closed without merging.. Transitioned back to READY.
+
+- **2026-06-12**: PR #2408 merged but has unchecked tasks (parent node). `epic-046-079-gen3-battle-frontier-dashboard-ui` is now PENDING.
+
+- **2026-06-12**: PR #2409 merged. `idea-075-gen3-tv-swarm-tracker` is now VERIFYING.
+
+- **2026-06-12**: PR #2412 merged. `research-046-140-gen3-battle-frontier` is now COMPLETED.
+
+- **2026-06-12**: Resurrection Loop triggered for `story-048-089-route-radar-density-aggregation`. Reason: PR #2410 closed without merging.. Transitioned back to READY.
+
+- **2026-06-12**: Resurrection Loop triggered for `story-058-095-feebas-seed-extraction`. Reason: PR #2415 closed without merging.. Transitioned back to READY.
+
+- **2026-06-12**: PR #2417 merged but has unchecked tasks (parent node). `story-058-095-gen1-hidden-item-parsing` is now PENDING.
+
+- **2026-06-12**: PR #2413 merged but has unchecked tasks (parent node). `story-077-113-update-palette-persona` is now PENDING.
+
+- **2026-06-12**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-12**: PR #2414 merged. `task-089-164-gen2-exclusive-moves-qa` is now COMPLETED.
+
+- **2026-06-12**: PR #2393 merged but has unchecked tasks (parent node). `task-095-157-gen3-berry-dataview-parsing` is now PENDING.
+
+- **2026-06-12**: PR #2402 merged. `task-095-158-pokerus-byte-parsing-qa` is now COMPLETED.
+
+- **2026-06-12**: PR #2406 merged. `task-096-157-gen2-hidden-item-parsing-impl` is now COMPLETED.
+
+- **2026-06-12**: PR #2400 merged. `task-097-158-gen3-hidden-item-parsing-qa` is now COMPLETED.
+
+- **2026-06-12**: Resurrection Loop triggered for `task-098-157-mirage-island-parsing-impl`. Reason: PR #2405 closed without merging.. Transitioned back to READY.
+
+- **2026-06-12**: PR #2401 merged. `task-098-158-gen3-parse-pv-qa` is now COMPLETED.
+
+- **2026-06-12**: Resurrection Loop triggered for `task-098-158-qa-mirage-island-offset`. Reason: PR #2404 closed without merging.. Transitioned back to READY.
+
+- **2026-06-12**: PR #2403 merged. `task-101-157-contest-condition-stats-ui-impl` is now COMPLETED.
+
+- **2026-06-12**: Resurrection Loop triggered for `task-094-157-moveset-inventory-validation-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.

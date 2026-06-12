@@ -2,13 +2,13 @@
 id: story-048-089-route-radar-density-aggregation
 type: STORY
 title: Implement Density Aggregation Logic
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-31'
 updated_at: '2026-06-12'
 depends_on:
   - story-048-088-create-route-radar-controller
-jules_session_id: '12287065830069308303'
+jules_session_id: null
 pr_number: null
 parent: epic-035-048-smart-radar-data-unification
 tags:
@@ -17,7 +17,7 @@ tags:
   - map
   - data
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

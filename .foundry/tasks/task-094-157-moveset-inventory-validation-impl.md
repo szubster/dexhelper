@@ -2,12 +2,12 @@
 id: task-094-157-moveset-inventory-validation-impl
 type: TASK
 title: Implement Moveset and Inventory Validation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: 2026-06-10T00:00:00.000Z
 updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: '13808820864696588939'
+jules_session_id: null
 pr_number: null
 parent: story-053-094-health-scanner-moveset-inventory-validation
 tags:
@@ -16,8 +16,8 @@ tags:
   - gen2
   - validation
 research_references: []
-rejection_count: 0
-rejection_reason: 'Missing necessary exact memory offsets for Move PP extraction in Gen 1 and Gen 2, and missing authoritative list of valid Item IDs and Move Base PP values. These are required to satisfy the Acceptance Criteria. A RESEARCH node (research-094-157-moveset-inventory-memory-offsets.md) has been spawned to investigate this.'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
