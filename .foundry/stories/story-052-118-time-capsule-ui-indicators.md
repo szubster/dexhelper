@@ -2,12 +2,12 @@
 id: story-052-118-time-capsule-ui-indicators
 type: STORY
 title: Time Capsule UI Indicators Setup
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14846745929571635318'
 pr_number: null
 parent: epic-036-052-time-capsule-ui-indicators
 tags:
