@@ -2,13 +2,13 @@
 id: task-087-151-qa-orchestrator-tests
 type: TASK
 title: QA Orchestrator Tests for Implicit Dependencies
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-08'
 updated_at: '2026-06-12'
 depends_on:
   - task-087-150-impl-orchestrator-tests
-jules_session_id: null
+jules_session_id: '14311710340044562433'
 pr_number: null
 parent: story-048-087-update-orchestrator-tests
 tags:
