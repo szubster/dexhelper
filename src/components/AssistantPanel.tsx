@@ -16,6 +16,10 @@ interface AssistantPanelProps {
   manualVersion: string | null;
 }
 
+function isValidCategory(category: string): category is SuggestionCategory {
+  return category in CATEGORY_ORDER;
+}
+
 // ⚡ Bolt: Pre-calculate category sort order to avoid O(N) array allocation and indexOf lookups during render
 const CATEGORY_ORDER: Record<SuggestionCategory, number> = {
   Catch: 0,
@@ -154,8 +158,8 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
           )
             .sort(([a], [b]) => {
               // ⚡ Bolt: Use O(1) object lookup instead of array indexOf inside sort callback
-              const orderA = CATEGORY_ORDER[a as keyof typeof CATEGORY_ORDER] ?? 99;
-              const orderB = CATEGORY_ORDER[b as keyof typeof CATEGORY_ORDER] ?? 99;
+              const orderA = isValidCategory(a) ? CATEGORY_ORDER[a] : 99;
+              const orderB = isValidCategory(b) ? CATEGORY_ORDER[b] : 99;
               return orderA - orderB;
             })
             .map(([category, items]) => {
