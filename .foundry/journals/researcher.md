@@ -18,3 +18,10 @@ When implementing new pipeline states that involve temporary ownership handoffs 
 ## Cloudflare Native Authentication
 - **Finding:** For Cloudflare Pages, `@cloudflare/pages-plugin-cloudflare-access` provides native middleware to validate JWTs from Cloudflare Access.
 - **Why it matters:** Generic Node.js OAuth libraries are difficult to maintain in edge environments. Relying on Cloudflare Access to handle the Google SSO flow at the infrastructure level removes the need to write custom callback/session management code. It also allows single-user restrictions to be configured via Zero Trust policies instead of application logic.
+
+## Missing Architectural Integration & Data Schema Violations
+**Lesson**: When investigating implementation failures, look beyond whether utility functions exist and unit tests pass.
+- **Example (`story-048-089-route-radar-density-aggregation`)**: The heatmap logic implementation failed permanently for two structural reasons:
+  1.  **Missing Architectural Integration (ADR 018)**: `RouteRadarController` was created as an isolated class but was never integrated into the application's data flow (`Save State -> suggestionEngine -> RouteRadarController -> Heatmap State`) nor passed as props to the Map UI component.
+  2.  **Data Schema Violation (ADR 015)**: The implementation continued to use the shortened data property `aid` (as seen in `encounter.aid`) instead of the fully expanded `areaId` property mandated by ADR 015 ("Revert Data Format Optimizations").
+Agents must ensure actual structural integration and strict adherence to data schema ADRs, not just isolated utility completion.
