@@ -2,12 +2,12 @@
 id: prd-074-046-gen3-battle-frontier-tracker
 type: PRD
 title: Gen 3 Battle Frontier Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: '16658035023970796916'
+jules_session_id: null
 pr_number: null
 parent: idea-074-gen3-battle-frontier-tracker
 tags:

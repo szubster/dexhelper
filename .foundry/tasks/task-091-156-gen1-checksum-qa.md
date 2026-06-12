@@ -2,13 +2,13 @@
 id: task-091-156-gen1-checksum-qa
 type: TASK
 title: QA Gen 1 Checksum Calculation
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-09'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on:
   - task-091-155-gen1-checksum-impl
-jules_session_id: '12661218676157828777'
+jules_session_id: null
 pr_number: null
 parent: story-053-091-health-scanner-gen1-checksum-validation
 tags:

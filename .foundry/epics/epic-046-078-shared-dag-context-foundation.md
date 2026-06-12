@@ -2,10 +2,10 @@
 id: epic-046-078-shared-dag-context-foundation
 type: EPIC
 title: Shared DagContext Foundation
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

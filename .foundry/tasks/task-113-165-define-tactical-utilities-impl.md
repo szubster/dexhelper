@@ -2,10 +2,10 @@
 id: task-113-165-define-tactical-utilities-impl
 type: TASK
 title: Define tactical-panel and tactical-card utilities
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

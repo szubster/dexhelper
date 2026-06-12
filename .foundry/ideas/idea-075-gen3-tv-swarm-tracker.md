@@ -2,7 +2,7 @@
 id: idea-075-gen3-tv-swarm-tracker
 type: IDEA
 title: Gen 3 TV Broadcast and Swarm Tracker
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-12'
 updated_at: '2026-06-12'

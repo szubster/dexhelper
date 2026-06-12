@@ -2,7 +2,7 @@
 id: task-089-164-gen2-exclusive-moves-qa
 type: TASK
 title: QA Gen 2 exclusive moves check
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-12'
 updated_at: '2026-06-12'

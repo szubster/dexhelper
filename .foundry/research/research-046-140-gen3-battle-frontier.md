@@ -2,10 +2,10 @@
 id: research-046-140-gen3-battle-frontier
 type: RESEARCH
 title: Gen 3 Battle Frontier Offset Research
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
