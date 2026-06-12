@@ -2,12 +2,12 @@
 id: research-089-167-investigate-heatmap-failure
 type: RESEARCH
 title: Investigate Route Radar Heatmap Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-12'
 updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6983425208422488672'
 pr_number: null
 parent: story-048-089-route-radar-density-aggregation
 tags:
