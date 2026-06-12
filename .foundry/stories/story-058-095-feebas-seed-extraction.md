@@ -30,5 +30,5 @@ Implement a utility function to extract the 16-bit Feebas seed from Gen 3 save f
 - [x] Handle version-specific offsets (`0x2DD6` for Ruby/Sapphire, `0x2E66` for Emerald) within `SaveBlock1`.
 - [x] Use `DataView` API (e.g. `getUint16`) to read the seed value.
 - [x] Write unit tests to verify extraction for all supported Gen 3 versions.
-- [ ] .foundry/tasks/task-095-157-feebas-seed-impl.md
+- [ ] .foundry/archive/tasks/task-095-157-feebas-seed-impl.md
 - [ ] .foundry/tasks/task-095-158-feebas-seed-qa.md

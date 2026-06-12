@@ -37,4 +37,4 @@ With the Cloudflare infrastructure in place, we need to implement the Google SSO
 
 ## Child Nodes
 - .foundry/tasks/task-075-134-implement-google-sso.md
-- .foundry/tasks/task-075-135-qa-google-sso.md
+- .foundry/archive/tasks/task-075-135-qa-google-sso.md

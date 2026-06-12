@@ -7,7 +7,7 @@ owner_persona: epic_planner
 created_at: '2026-06-04'
 updated_at: '2026-06-04'
 depends_on:
-  - .foundry/prds/prd-068-038-mirage-island-data-extraction.md
+  - prd-068-038-mirage-island-data-extraction
 jules_session_id: null
 pr_number: null
 parent: idea-068-mirage-island-predictor

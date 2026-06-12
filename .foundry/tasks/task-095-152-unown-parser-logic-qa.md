@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-06-11'
 updated_at: '2026-06-12'
 depends_on:
-  - .foundry/tasks/task-095-151-unown-parser-logic-impl.md
+  - task-095-151-unown-parser-logic-impl
 jules_session_id: null
 pr_number: null
 parent: story-058-095-unown-parser-logic

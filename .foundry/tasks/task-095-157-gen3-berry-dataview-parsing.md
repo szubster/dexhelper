@@ -5,8 +5,9 @@ title: Implement Gen 3 Berry Tracker DataView Parsing Logic
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-12'
-depends_on: []
+updated_at: '2026-06-11'
+depends_on:
+  - research-095-158-gen3-berry-missing-offsets
 jules_session_id: '4188478885404544459'
 pr_number: null
 parent: story-055-095-gen3-berry-data-parsing

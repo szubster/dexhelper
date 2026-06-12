@@ -48,6 +48,6 @@ This significantly improves DX (Developer Experience) and readability. Component
 - [ ] Technical Lead: Based on research findings, draft an ADR outlining the chosen consolidation strategy.
 - [ ] Technical Lead: Outline an incremental migration strategy to update components across `src/components/` without regressions.
 
-- [ ] .foundry/research/research-071-137-tailwind-v4-utilities.md
-- [ ] .foundry/tasks/task-071-150-tailwind-v4-adr.md
+- [ ] .foundry/archive/research/research-071-137-tailwind-v4-utilities.md
+- [ ] .foundry/archive/tasks/task-071-150-tailwind-v4-adr.md
 - [ ] .foundry/prds/prd-071-040-tailwind-v4-utilities-migration.md

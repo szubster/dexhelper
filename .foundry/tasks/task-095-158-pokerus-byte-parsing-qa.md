@@ -28,8 +28,8 @@ notes: ''
 Verify the implementation of Pokerus byte parsing.
 
 ## Acceptance Criteria
-- [ ] Verify `PokemonInstance.pokerus` type in `src/engine/saveParser/parsers/common.ts` is updated.
-- [ ] Verify `parseGen2PokemonInstance` correctly parses the raw byte into `strain` and `daysRemaining`.
+- [x] Verify `PokemonInstance.pokerus` type in `src/engine/saveParser/parsers/common.ts` is updated.
+- [x] Verify `parseGen2PokemonInstance` correctly parses the raw byte into `strain` and `daysRemaining`.
 
 ### Critical Contract Reminders
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

@@ -60,3 +60,6 @@ When submitting an empty PR for a task that is completely validated and finished
 
 ## Architectural Enforcement
 When validating tasks, you MUST strictly enforce architectural patterns mandated by ADRs (e.g., ADR 013 and ADR 017 requiring shared React Contexts). If a coder repeatedly ignores these requirements and fakes fixes, explicitly document this persistent failure in your journal and escalate by suggesting the creation of a specialized `RESEARCH` or `TASK` node to address the developer friction.
+
+## Scratchpad Cleanup
+**CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.

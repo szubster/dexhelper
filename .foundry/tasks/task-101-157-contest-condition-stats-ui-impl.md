@@ -37,6 +37,6 @@ Implement a reusable React component `ContestConditionStats` to display a Pokém
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] Create the `ContestConditionStats` React component.
-- [ ] Add rendering tests for the component.
-- [ ] Ensure the styling strictly follows the project's tactical style guidelines.
+- [x] Create the `ContestConditionStats` React component.
+- [x] Add rendering tests for the component.
+- [x] Ensure the styling strictly follows the project's tactical style guidelines.
