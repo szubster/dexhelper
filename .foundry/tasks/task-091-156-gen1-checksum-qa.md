@@ -34,9 +34,9 @@ The Coder has implemented the Generation 1 checksum validation logic. As QA, you
 * Verify that diagnostic models are returned correctly on mismatch.
 
 ## Acceptance Criteria
-- [ ] Validate the checksum calculation logic against known good values.
-- [ ] Validate the correct diagnostic models are returned for checksum mismatches.
-- [ ] Ensure adequate test coverage.
+- [x] Validate the checksum calculation logic against known good values.
+- [x] Validate the correct diagnostic models are returned for checksum mismatches.
+- [x] Ensure adequate test coverage.
 
 ## Reminders
 * If you permanently fail or abort this task, you MUST update the YAML frontmatter to status: FAILED or status: CANCELLED with a rejection_reason.
