@@ -43,4 +43,6 @@ This feature will parse the TV event data structures and RTC from Gen 3 save fil
 - **Architectural Constraint (ADR 008):** The UI must strictly adhere to the 'tactical hardware/snooping' aesthetic. This includes sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry fonts. Avoid generic visual patterns like soft shadows or rounded corners.
 
 ## 3. Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into granular EPICs, ensuring separate epics for Data Parsing and UI/Dashboard implementation.
+- [x] Epic Planner: Break this PRD down into granular EPICs, ensuring separate epics for Data Parsing and UI/Dashboard implementation.
+- [ ] epic-047-081-gen3-tv-swarm-data-extraction
+- [ ] epic-047-082-gen3-tv-swarm-dashboard-ui
