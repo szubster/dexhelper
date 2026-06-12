@@ -30,5 +30,8 @@ The orchestrator must handle late-binding correctly with the new hierarchical co
 Ensure late-binding nodes work smoothly with the new implicit dependencies. Update the TPM/Agile Coach journal with process changes.
 
 ## Acceptance Criteria
-- [ ] Create STORY nodes to verify late-binding logic in `foundry-orchestrator.ts`.
-- [ ] Create STORY nodes to append process change notes to the TPM or Agile Coach journal.
+- [x] Create STORY nodes to verify late-binding logic in `foundry-orchestrator.ts`.
+- [x] Create STORY nodes to append process change notes to the TPM or Agile Coach journal.
+
+- [ ] .foundry/stories/story-049-116-verify-late-binding-logic.md
+- [ ] .foundry/stories/story-049-117-update-tpm-agile-coach-journal.md
