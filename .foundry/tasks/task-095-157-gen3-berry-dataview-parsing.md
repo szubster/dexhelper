@@ -2,11 +2,12 @@
 id: task-095-157-gen3-berry-dataview-parsing
 type: TASK
 title: Implement Gen 3 Berry Tracker DataView Parsing Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-11'
-depends_on: []
+depends_on:
+  - research-095-158-gen3-berry-missing-offsets
 jules_session_id: null
 pr_number: null
 parent: story-055-095-gen3-berry-data-parsing
@@ -17,7 +18,7 @@ tags:
   - engine
 research_references: []
 rejection_count: 1
-rejection_reason: 'Missing exact memory offsets for map ID, time planted, and last watered time in PRD and knowledge base.'
+rejection_reason: ''
 notes: ''
 ---
 
