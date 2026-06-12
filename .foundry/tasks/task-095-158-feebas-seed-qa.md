@@ -39,6 +39,6 @@ Verify the implementation of the 16-bit Feebas seed extraction utility from Gen 
 - If the implementation passes and you submit an Empty PR, you **MUST** check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Code uses `DataView` and explicitly catches `RangeError` to handle out-of-bounds.
-- [ ] Offsets `0x2DD6` and `0x2E66` are correctly applied based on version.
-- [ ] Tests cover all paths and pass successfully.
+- [x] Code uses `DataView` and explicitly catches `RangeError` to handle out-of-bounds.
+- [x] Offsets `0x2DD6` and `0x2E66` are correctly applied based on version.
+- [x] Tests cover all paths and pass successfully.
