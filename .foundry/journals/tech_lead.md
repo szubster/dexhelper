@@ -49,3 +49,7 @@ All new Gen 3 Sheen data parsing logic MUST exclusively use the native `DataView
 
 ## Consequences
 Prevents silent failures and ensures backwards compatibility.
+## 2026-06-11: Reliable Offsets via Anchors (Gen 2 Hall of Fame)
+
+- **Observation**: Standard documentation often lists Hall of Fame counts at fixed absolute offsets (e.g. `0x24EC` for GS). However, relying on these can be unreliable due to emulator artifacts or regional shifts, causing task failures.
+- **Action**: When drafting tasks for parsing variable save data, enforce the use of relative offsets based on known, stable anchor points within the player data block. For example, explicitly mapping the Hall of Fame count to `johtoBadgesOffset + 0xA8` ensures cross-version stability and prevents rigid absolute offset failures.
