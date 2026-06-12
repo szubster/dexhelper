@@ -41,3 +41,6 @@ If you determine there is no actionable work to be done during this run, simply 
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+
+## Scratchpad Cleanup
+**CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.

@@ -53,3 +53,6 @@ When submitting an empty PR for a task that is completely implemented but has un
 
 ## Architectural Compliance & QA Rejections
 When a QA agent rejects your task for missing architectural requirements (e.g., failing to implement a shared React Context mandated by an ADR), you MUST comprehensively implement the missing architectural layer. Do not simply fake a fix or ignore the architectural constraint. Repeatedly failing to adhere to ADRs will result in permanent failure and system penalties.
+
+## Scratchpad Cleanup
+**CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
