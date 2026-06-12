@@ -2,13 +2,13 @@
 id: task-091-156-gen1-checksum-qa
 type: TASK
 title: QA Gen 1 Checksum Calculation
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-09'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on:
   - task-091-155-gen1-checksum-impl
-jules_session_id: '12661218676157828777'
+jules_session_id: null
 pr_number: null
 parent: story-053-091-health-scanner-gen1-checksum-validation
 tags:
@@ -34,9 +34,9 @@ The Coder has implemented the Generation 1 checksum validation logic. As QA, you
 * Verify that diagnostic models are returned correctly on mismatch.
 
 ## Acceptance Criteria
-- [ ] Validate the checksum calculation logic against known good values.
-- [ ] Validate the correct diagnostic models are returned for checksum mismatches.
-- [ ] Ensure adequate test coverage.
+- [x] Validate the checksum calculation logic against known good values.
+- [x] Validate the correct diagnostic models are returned for checksum mismatches.
+- [x] Ensure adequate test coverage.
 
 ## Reminders
 * If you permanently fail or abort this task, you MUST update the YAML frontmatter to status: FAILED or status: CANCELLED with a rejection_reason.

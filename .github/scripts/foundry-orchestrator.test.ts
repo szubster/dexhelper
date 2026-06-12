@@ -217,6 +217,105 @@ describe('foundry-orchestrator', () => {
     expect(result).toContain('status: READY');
   });
 
+
+  test('Implicit Dependency: PENDING node remains PENDING if an unresolvable dependency exists', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-with-unresolvable.md', {
+      id: "task-with-unresolvable",
+      type: "TASK",
+      title: "Task with Unresolvable",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/missing/missing.md"],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-with-unresolvable.md'), 'utf-8');
+    expect(result).toContain('status: PENDING');
+    const parsedOutput = JSON.parse(consoleSpy.mock.calls[0][0]);
+    expect(parsedOutput).toHaveLength(0);
+  });
+
+
+  test('Implicit Dependency: ACTIVE node suspends to PENDING if an unresolvable dependency is added', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-active-unresolvable.md', {
+      id: "task-active-unresolvable",
+      type: "TASK",
+      title: "Active Task Unresolvable",
+      status: "ACTIVE",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/missing/missing.md"],
+      jules_session_id: "sess-123",
+    });
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active-unresolvable.md'), 'utf-8');
+    expect(result).toContain('status: PENDING');
+  });
+
+
+  test('Implicit Dependency: PENDING node with sequential sibling dependencies waits for prerequisite', () => {
+    // Sibling 1
+    createValidTestNode(tmpDir, '.foundry/tasks/task-sibling-1.md', {
+      id: "task-sibling-1",
+      type: "TASK",
+      title: "Task Sibling 1",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/stories/story-001.md",
+      jules_session_id: null,
+    });
+
+    // Sibling 2 depends on Sibling 1 explicitly
+    createValidTestNode(tmpDir, '.foundry/tasks/task-sibling-2.md', {
+      id: "task-sibling-2",
+      type: "TASK",
+      title: "Task Sibling 2",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-sibling-1.md"],
+      parent: ".foundry/stories/story-001.md",
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+
+    const result1 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-sibling-1.md'), 'utf-8');
+    expect(result1).toContain('status: READY');
+
+    const result2 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-sibling-2.md'), 'utf-8');
+    expect(result2).toContain('status: PENDING');
+
+    const parsedOutput = JSON.parse(consoleSpy.mock.calls[0][0]);
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].id).toBe('task-sibling-1');
+  });
+
   test('Unresolvable: logs warning and remains PENDING if dep is missing', () => {
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
       id: "epic-001",
@@ -265,6 +364,41 @@ describe('foundry-orchestrator', () => {
 
     const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
     expect(result).toContain('status: READY');
+  });
+
+  test('Hierarchical Completion: considers CANCELLED child nodes as complete', () => {
+    // Epic 1: PENDING (Waiting for children)
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Story 1: Child of Epic 1, CANCELLED
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "CANCELLED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/epics/epic-001.md",
+      jules_session_id: null,
+    });
+
+    main();
+
+    // Epic 1 SHOULD be promoted to COMPLETED because its child is CANCELLED (which counts as completed)
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: COMPLETED');
   });
 
   test('Hierarchical Completion: blocks external dependent if dependency has incomplete children', () => {
@@ -907,6 +1041,39 @@ describe('foundry-orchestrator', () => {
 
     const result = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
     expect(result).toContain('status: PENDING');
+  });
+
+  test('Wait and Wake: Suspends ACTIVE node if dependency is incomplete (CANCELLED counts as complete)', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-cancelled.md', {
+      id: "task-cancelled",
+      type: "TASK",
+      title: "Cancelled Task",
+      status: "CANCELLED",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-active.md', {
+      id: "task-active",
+      type: "TASK",
+      title: "Active Task",
+      status: "ACTIVE",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-cancelled.md"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    // Since the dependency is CANCELLED (which counts as complete),
+    // the ACTIVE node should NOT be suspended to PENDING.
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-active.md'), 'utf-8');
+    expect(result).toContain('status: ACTIVE');
   });
 
   test('Wait and Wake: Suspends ACTIVE node if dependency is incomplete', () => {

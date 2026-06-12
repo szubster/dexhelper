@@ -60,3 +60,6 @@ When modifying `transitionNodeToCompleted` in `foundry-heartbeat.ts` to clear `j
 
 ## 2026-06-11: Requirement for Concrete Memory Mapping Before Implementation
 When implementing save parser tasks (e.g., Gen 3 berry patches), concrete memory offsets and byte structures (e.g., `SaveBlock` layouts) MUST be provided in the task notes, the PRD, or a related RESEARCH node. If these exact offsets and structural definitions are missing, it is impossible to correctly implement the `DataView` parsing logic. In such cases, a `RESEARCH` node should be spawned to identify and document the offsets, and the implementation task should be failed/aborted until the research is complete. This prevents guessing and potential data corruption.
+
+## Late Binding for Missing Dependencies (2026-06-11)
+Based on PR feedback for `task-095-157-gen3-berry-dataview-parsing`, instead of permanently failing tasks that lack explicit data specifications (like exact memory offsets), we should utilize the DAG's late binding capability. We spawn the necessary `RESEARCH` node and dynamically inject it into the current task's `depends_on` array. This suspends the implementation task in the orchestrator until the research is complete, allowing it to gracefully resume instead of dying.

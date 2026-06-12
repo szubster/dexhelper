@@ -2,12 +2,12 @@
 id: prd-074-046-dag-context-architecture
 type: PRD
 title: Refactor DagDashboard to use React Context (ADR 013/017)
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: '14353729922279820758'
+jules_session_id: null
 parent: idea-074-refactor-dag-dashboard-context
 tags:
   - architecture
@@ -30,4 +30,6 @@ Recent implementation attempts permanently failed because the state was left tig
 - Extract `rejection_count` from node frontmatter during data parsing so it is available in the shared context (as per ADR 017).
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-046-078-shared-dag-context-foundation
+- [ ] epic-046-079-react-flow-visualizer-refactor

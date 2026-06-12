@@ -2,12 +2,12 @@
 id: story-070-111-parse-gen1-hof-data
 type: STORY
 title: Parse Gen 1 Hall of Fame Data
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: '6862706199302140594'
+jules_session_id: null
 pr_number: null
 parent: epic-044-070-hof-data-parsing
 tags:
@@ -32,4 +32,7 @@ Implement logic to extract the Hall of Fame data and count from Generation 1 (Re
 - Parse the value at `0x25B3 + offsetShift` as an 8-bit unsigned integer (ignore `0xFF` by treating it as `0`).
 
 ## Acceptance Criteria
-- [ ] Create task to implement parsing for Gen 1 Hall of Fame.
+- [x] Create task to implement parsing for Gen 1 Hall of Fame.
+
+- [ ] task-111-165-gen1-hof-parser-impl
+- [ ] task-111-166-gen1-hof-parser-qa

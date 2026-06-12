@@ -2,13 +2,13 @@
 id: task-089-164-gen2-exclusive-moves-qa
 type: TASK
 title: QA Gen 2 exclusive moves check
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-12'
 updated_at: '2026-06-12'
 depends_on:
   - task-089-163-gen2-exclusive-moves-impl
-jules_session_id: null
+jules_session_id: '5869589377975961618'
 pr_number: null
 parent: story-051-089-gen2-exclusive-moves
 tags:

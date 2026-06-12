@@ -2,10 +2,10 @@
 id: task-095-152-unown-parser-logic-qa
 type: TASK
 title: QA Unown Form Parser Logic
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on:
   - .foundry/tasks/task-095-151-unown-parser-logic-impl.md
 jules_session_id: null
@@ -41,6 +41,6 @@ As defined in the parent Epic and Story, the Coder has implemented logic to extr
 - **QA**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Code review completed.
-- [ ] Unown logic correctly maps bits and handles modulo 28 logic correctly.
-- [ ] No regressions introduced in parsing other species.
+- [x] Code review completed.
+- [x] Unown logic correctly maps bits and handles modulo 28 logic correctly.
+- [x] No regressions introduced in parsing other species.

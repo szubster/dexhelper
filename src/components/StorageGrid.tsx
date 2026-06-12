@@ -144,17 +144,75 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
         return (
           <div key={location} className="slide-in-from-bottom-4 animate-in space-y-8 duration-500">
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-3 border-zinc-800 border-b border-dashed pb-2">
-                <span className="font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-widest">
-                  [ SYS.DIR ]
-                </span>
-                <h2 className="font-black font-display text-3xl text-white uppercase tracking-tight">{location}</h2>
+            {/* Server Rack Blade Header */}
+            <div className="relative overflow-hidden rounded-none border border-zinc-800 border-dashed bg-zinc-950 p-1">
+              <div className="relative flex items-stretch gap-4 bg-zinc-900/50 p-3">
+                {/* Rack Handle */}
+                <div className="flex w-4 shrink-0 flex-col justify-between border-zinc-700/50 border-r border-dashed pr-2">
+                  <div className="h-2 w-2 rounded-full border border-zinc-600 bg-zinc-800 shadow-inner" />
+                  <div className="my-2 w-1.5 flex-1 rounded-sm bg-gradient-to-b from-zinc-700 via-zinc-600 to-zinc-700 shadow-[inset_1px_0_2px_rgba(255,255,255,0.2)]" />
+                  <div className="h-2 w-2 rounded-full border border-zinc-600 bg-zinc-800 shadow-inner" />
+                </div>
+
+                {/* Main Content Area */}
+                <div className="flex flex-1 flex-col justify-between gap-2 py-1 sm:flex-row sm:items-center">
+                  {/* Title & Sys Dir */}
+                  <div className="flex items-center gap-3">
+                    <span className="border border-[var(--theme-primary)]/30 border-dashed bg-[var(--theme-primary)]/10 px-1.5 font-mono text-[9px] text-[var(--theme-primary)] uppercase tracking-[0.2em]">
+                      SYS.DIR
+                    </span>
+                    <h2 className="font-black font-mono text-white text-xl uppercase tracking-tight">{location}</h2>
+                  </div>
+
+                  {/* Telemetry & LEDs */}
+                  <div className="flex items-center gap-4">
+                    {/* Capacity Segmented Bar */}
+                    <div className="flex items-center gap-2">
+                      <span className="min-w-[40px] text-right font-black font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
+                        {pokemonInLocation.length} /{' '}
+                        {location === 'Party' ? 6 : location === 'Daycare' ? 2 : genConfig.boxCapacity}
+                      </span>
+                      <div className="flex h-1.5 w-24 gap-px bg-black p-px">
+                        {Array.from({ length: 15 }).map((_, i) => {
+                          const max = location === 'Party' ? 6 : location === 'Daycare' ? 2 : genConfig.boxCapacity;
+                          const ratio = pokemonInLocation.length / max;
+                          const threshold = (i + 1) / 15;
+                          const isActive = ratio >= threshold;
+
+                          let colorClass = 'bg-zinc-800';
+                          if (isActive) {
+                            if (ratio > 0.9) colorClass = 'bg-red-500 shadow-[0_0_5px_rgba(239,68,68,0.8)]';
+                            else if (ratio > 0.7) colorClass = 'bg-amber-500 shadow-[0_0_5px_rgba(245,158,11,0.8)]';
+                            else colorClass = 'bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.8)]';
+                          }
+                          return (
+                            <div /* biome-ignore lint/suspicious/noArrayIndexKey: Fixed size static array */
+                              key={`capacity-segment-${i}`}
+                              className={`flex-1 ${colorClass}`}
+                            />
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="h-6 w-px border-zinc-700 border-r border-dashed" />
+
+                    {/* Status LEDs */}
+                    <div className="flex gap-2">
+                      {/* Shiny Anomaly LED */}
+                      <div
+                        className={`h-2 w-2 rounded-none border ${pokemonInLocation.some((p) => p.p.isShiny) ? 'animate-pulse border-amber-400 bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
+                        title="Anomaly Detector"
+                      />
+                      {/* Error / Dead LED */}
+                      <div
+                        className={`h-2 w-2 rounded-none border ${location === nuzlockeGraveyardBox || pokemonInLocation.some((p) => location === 'Party' && p.p.currentHp === 0) ? 'animate-[pulse_0.5s_ease-in-out_infinite] border-red-500 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
+                        title="System Error / Quarantine"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="h-px flex-1 border-zinc-800 border-b border-dashed bg-zinc-900"></div>
-              <span className="font-black font-mono text-[10px] text-zinc-600 uppercase tracking-widest">
-                {pokemonInLocation.length} Units
-              </span>
             </div>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
