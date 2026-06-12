@@ -30,3 +30,5 @@ Update the DexHelper UI to visualize Time Capsule readiness based on the validat
 ## Scope
 - Integrate a visual indicator in the Storage View for ready Pokémon.
 - Highlight specific invalid moves in the detailed individual Pokémon stat view.
+
+- [ ] .foundry/stories/story-052-118-time-capsule-ui-indicators.md
