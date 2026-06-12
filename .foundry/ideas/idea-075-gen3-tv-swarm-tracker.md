@@ -36,4 +36,5 @@ Leverage DexHelper's programmatic save parsing to read the TV event data structu
 This feature targets highly obscure, time-gated mechanics in Gen 3 that are incredibly frustrating to track manually. Surfacing this hidden TV and swarm state transforms random, easily missed events into actionable, scheduled gameplay opportunities, aligning perfectly with DexHelper's mission as a proactive companion app.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to define the data structures for Gen 3 TV events and outline the UI dashboard.
+- [x] Product Manager: Convert this idea into a PRD to define the data structures for Gen 3 TV events and outline the UI dashboard.
+- [ ] .foundry/prds/prd-075-047-gen3-tv-swarm-tracker.md
