@@ -31,3 +31,6 @@ Extend the Gen 3 save parser to extract Battle Frontier data using the offsets d
 - [ ] Parse win streaks, max records, and symbol status for all 7 facilities.
 - [ ] Parse total BP.
 - [ ] Handle out-of-bounds reads gracefully via `DataView`.
+
+- [ ] story-078-118-gen3-battle-frontier-win-streaks-parsing
+- [ ] story-078-119-gen3-battle-frontier-bp-parsing
