@@ -37,5 +37,5 @@ Generation 2 save files have a more complex checksum system, involving both main
 - [x] Tech Lead: Break this Story down into actionable Tasks for the coder.
 
 ## Child Tasks
-- [ ] .foundry/tasks/task-092-157-gen2-checksum-impl.md
+- [ ] .foundry/archive/tasks/task-092-157-gen2-checksum-impl.md
 - [ ] .foundry/tasks/task-092-158-gen2-checksum-qa.md

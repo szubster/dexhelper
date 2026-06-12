@@ -37,5 +37,5 @@ Generation 1 save files rely on a specific main checksum to verify the integrity
 - [x] Tech Lead: Break this Story down into actionable Tasks for the coder.
 
 ## Child Tasks
-- [ ] .foundry/tasks/task-091-155-gen1-checksum-impl.md
+- [ ] .foundry/archive/tasks/task-091-155-gen1-checksum-impl.md
 - [ ] .foundry/tasks/task-091-156-gen1-checksum-qa.md

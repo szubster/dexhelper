@@ -25,6 +25,6 @@ Ensure that the enum-to-number mapping logic (like `EVO_TRIGGER`, `ENCOUNTER_MET
 ### Child Nodes
 - `.foundry/tasks/task-081-130-preserve-enum-optimizations-impl.md`
 - `.foundry/tasks/task-081-131-preserve-enum-optimizations-qa.md`
-- `.foundry/research/research-081-006-investigate-enum-optimizations-failure.md`
+- `.foundry/archive/research/research-081-006-investigate-enum-optimizations-failure.md`
 - `.foundry/tasks/task-081-144-preserve-enum-optimizations-retry-impl.md`
 - `.foundry/tasks/task-081-145-preserve-enum-optimizations-retry-qa.md`

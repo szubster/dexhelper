@@ -39,4 +39,4 @@ This feature perfectly aligns with DexHelper's vision as a premium companion app
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to detail the save offsets required for extracting the roamer data structure across different Gen 3 versions.
 - [ ] .foundry/prds/prd-071-044-gen3-roamer-tracker.md
-- [ ] .foundry/research/research-071-138-gen3-roamer-offsets.md
+- [ ] .foundry/archive/research/research-071-138-gen3-roamer-offsets.md

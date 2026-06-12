@@ -49,7 +49,7 @@ In Pokémon Ruby, Sapphire, and Emerald, Feebas can only be found by fishing on 
 - [x] Epic: Break down into Epics for backend parsing/logic and frontend visualization.
 
 ## Downstream Nodes
-- [ ] .foundry/research/research-036-007-feebas-seed-offset.md
-- [ ] .foundry/tasks/task-036-148-feebas-visualization-adr.md
+- [ ] .foundry/archive/research/research-036-007-feebas-seed-offset.md
+- [ ] .foundry/archive/tasks/task-036-148-feebas-visualization-adr.md
 - [ ] .foundry/epics/epic-036-058-feebas-backend-parsing.md
 - [ ] .foundry/epics/epic-036-059-feebas-frontend-visualization.md

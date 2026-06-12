@@ -38,5 +38,5 @@ Even if checksums are valid, data can be corrupted or maliciously modified. We n
 
 
 ## Child Tasks
-- [ ] .foundry/tasks/task-093-157-pokemon-bounds-verification-impl.md
+- [ ] .foundry/archive/tasks/task-093-157-pokemon-bounds-verification-impl.md
 - [ ] .foundry/tasks/task-093-158-pokemon-bounds-verification-qa.md
