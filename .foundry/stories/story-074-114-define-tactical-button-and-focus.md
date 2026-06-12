@@ -32,3 +32,4 @@ Extract and consolidate common, repetitive Tailwind class patterns used for butt
 ## Acceptance Criteria
 - [ ] Appropriate `@utility tactical-button` and `@utility tactical-focus` primitives are defined in `src/index.css`.
 - [ ] Tailwind v4 formatting and structure is respected.
+- [ ] task-114-165-tactical-button-focus-impl
