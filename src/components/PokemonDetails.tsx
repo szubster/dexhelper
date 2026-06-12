@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { AlertCircle, CheckCircle2, Monitor, Sparkles, X } from 'lucide-react';
 import React, { useEffect } from 'react';
 import { dexDataLoader } from '../db/DexDataLoader';
-import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../db/schema';
+import { POKE_VERSION_MAP } from '../db/schema';
 import { stadiumRewardsSummary } from '../engine/data/shared/staticData';
 import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
@@ -146,32 +146,24 @@ export function PokemonDetails({
     return map;
   }, [encounters]);
 
-  const getLocationsForVersion = React.useCallback(
-    (version: string) => {
-      const versionId = POKE_VERSION_MAP[version] || 0;
-      const versionEncounters = encountersByVersion.get(versionId) || [];
-
-      return versionEncounters.flatMap((enc) => {
-        return enc.d.map((detail) => {
-          const name = areaNames?.[enc.aid] || `Area #${enc.aid}`;
-
-          return {
-            name,
-            details: `${detail.c}% chance, Lv ${detail.min}-${detail.max} (${REVERSE_METHOD_MAP[detail.m] || 'Walk'})`,
-          };
-        });
-      });
-    },
-    [encountersByVersion, areaNames],
-  );
-
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : getGenerationConfig(1);
   const displayVersion = gameVersion === 'unknown' ? genConfig.defaultVersion : gameVersion;
 
   const isSafariNative = React.useMemo(() => {
-    const locations = getLocationsForVersion(displayVersion) || [];
-    return locations.some((loc) => loc.name.toLowerCase().includes('safari zone'));
-  }, [displayVersion, getLocationsForVersion]);
+    // ⚡ Bolt: Eliminate O(N) array and string allocations by directly iterating over version encounters to check for Safari Zone
+    const versionId = POKE_VERSION_MAP[displayVersion] || 0;
+    const versionEncounters = encountersByVersion.get(versionId) || [];
+    for (let i = 0; i < versionEncounters.length; i++) {
+      const enc = versionEncounters[i];
+      if (enc) {
+        const name = areaNames?.[enc.aid] || `Area #${enc.aid}`;
+        if (name.toLowerCase().includes('safari zone')) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }, [displayVersion, encountersByVersion, areaNames]);
 
   const effectivePokeball = isSafariNative ? 'safari' : defaultPokeball;
 

@@ -2,10 +2,10 @@
 id: task-087-151-qa-orchestrator-tests
 type: TASK
 title: QA Orchestrator Tests for Implicit Dependencies
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-08'
-updated_at: '2026-06-08'
+updated_at: '2026-06-12'
 depends_on:
   - task-087-150-impl-orchestrator-tests
 jules_session_id: null
@@ -32,8 +32,8 @@ Verify the tests added for the new implicit dependency enforcement logic in the 
 - Run the tests to ensure they execute successfully and pass.
 
 ## Acceptance Criteria
-- [ ] Unit tests for implicit dependencies exist and provide adequate coverage in `.github/scripts/foundry-orchestrator.test.ts`.
-- [ ] `pnpm test` runs successfully within `.github/scripts`.
+- [x] Unit tests for implicit dependencies exist and provide adequate coverage in `.github/scripts/foundry-orchestrator.test.ts`.
+- [x] `pnpm test` runs successfully within `.github/scripts`.
 
 ## QA Contract
 - If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

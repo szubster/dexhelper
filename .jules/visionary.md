@@ -85,3 +85,7 @@
 ## 2026-06-11
 **Idea:** Gen 3 Battle Frontier Dashboard
 **Learning:** For extensive, multi-faceted endgame content (like the 7 facilities of the Emerald Battle Frontier), data is often deeply fragmented across the in-game UI or requires physical in-game travel to check. Centralizing this distributed state into a unified, actionable dashboard perfectly aligns with DexHelper's vision. Aggregating hidden or hard-to-reach progress data into one screen provides immense value by eliminating tedious navigation and allowing players to easily track their ultimate endgame goals.
+
+## 2026-06-12
+**Idea:** Gen 3 TV Broadcast and Swarm Tracker
+**Learning:** Gen 3 features a hidden time-based event system driven by in-game TV broadcasts (which trigger swarms, sales, etc.). Like the Berry Tracker and Daily Events ideas, targeting time-gated mechanics that players easily miss without playing every day provides a massive QoL improvement. Automating these reminders based on save file event timers perfectly leverages our programmatic access to create actionable schedules.

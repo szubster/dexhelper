@@ -2,12 +2,12 @@
 id: task-089-163-gen2-exclusive-moves-impl
 type: TASK
 title: Implement Gen 2 exclusive moves check
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-12'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: '12626021209880016295'
+jules_session_id: null
 pr_number: null
 parent: story-051-089-gen2-exclusive-moves
 tags:
@@ -42,6 +42,6 @@ Implement a utility function to determine if any of a Pokémon's 4 moves are Gen
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Utility function implemented.
-- [ ] Unit tests pass.
-- [ ] `pnpm type-check` passes.
+- [x] Utility function implemented.
+- [x] Unit tests pass.
+- [x] `pnpm type-check` passes.

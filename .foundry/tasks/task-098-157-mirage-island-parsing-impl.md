@@ -2,12 +2,12 @@
 id: task-098-157-mirage-island-parsing-impl
 type: TASK
 title: Implement Gen 3 Mirage Island Value Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5132959753148782405'
 pr_number: null
 parent: story-061-098-parse-mirage-island-value
 tags:

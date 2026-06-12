@@ -2,12 +2,12 @@
 id: story-074-113-define-tactical-panel-and-card
 type: STORY
 title: Define tactical-panel and tactical-card utilities
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-12'
 depends_on: []
-jules_session_id: '2014117752626600383'
+jules_session_id: null
 pr_number: null
 parent: epic-071-074-define-tailwind-v4-utilities
 tags:
@@ -32,3 +32,6 @@ Extract and consolidate common, repetitive Tailwind class patterns used for pane
 ## Acceptance Criteria
 - [ ] Appropriate `@utility tactical-panel` and `@utility tactical-card` primitives are defined in `src/index.css`.
 - [ ] Tailwind v4 formatting and structure is respected.
+
+- [ ] task-113-165-define-tactical-utilities-impl
+- [ ] task-113-166-define-tactical-utilities-qa
