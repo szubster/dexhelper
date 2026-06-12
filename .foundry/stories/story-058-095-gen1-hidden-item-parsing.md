@@ -38,4 +38,6 @@ This story focuses on the first part of the epic `epic-037-058-hidden-items-save
 
 ## Generated Tasks
 - [ ] task-095-151-gen1-hidden-item-parsing-impl
+- [ ] task-095-167-gen1-hidden-coin-parsing-impl
 - [ ] task-095-152-gen1-hidden-item-parsing-qa
+- [ ] task-095-168-gen1-hidden-coin-parsing-qa
