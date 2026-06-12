@@ -19,6 +19,11 @@ function resolveNodeIdToPath(nodeId: string): string {
   const folder = folderMap[type];
   if (!folder) return nodeId;
 
+  const rootPath = `.foundry/${nodeId}.md`;
+  if (fs.existsSync(rootPath)) {
+    return rootPath;
+  }
+
   const basePath = `.foundry/${folder}/${nodeId}.md`;
   if (fs.existsSync(basePath)) {
     return basePath;
