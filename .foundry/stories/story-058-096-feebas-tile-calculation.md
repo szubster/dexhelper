@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-06-08'
 updated_at: '2026-06-08'
 depends_on:
-  - .foundry/stories/story-058-095-feebas-seed-extraction.md
+  - story-058-095-feebas-seed-extraction
 jules_session_id: null
 pr_number: null
 parent: epic-036-058-feebas-backend-parsing
