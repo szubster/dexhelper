@@ -6,7 +6,8 @@ status: READY
 owner_persona: coder
 created_at: 2026-06-10T00:00:00.000Z
 updated_at: '2026-06-12'
-depends_on: []
+depends_on:
+  - idea-077-dynamic-pokeapi-data
 jules_session_id: null
 pr_number: null
 parent: story-053-094-health-scanner-moveset-inventory-validation
