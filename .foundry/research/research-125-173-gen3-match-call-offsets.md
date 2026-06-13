@@ -37,7 +37,7 @@ As mandated by ADR 010, memory offsets MUST map to their correct logical 4KB sec
 - **Rematch Tier States**: Discover the data structure used for trainer match tiers/levels.
 
 ## Acceptance Criteria
-- [ ] Document the starting offset and length of the Match Call memory block, including the correct section ID.
-- [ ] Document the byte mapping and exact bitwise locations for rematch readiness flags.
-- [ ] Document the memory location and structure of rematch tier states.
-- [ ] Provide references to Bulbapedia or Bulbapedia source code confirming these locations.
+- [x] Document the starting offset and length of the Match Call memory block, including the correct section ID.
+- [x] Document the byte mapping and exact bitwise locations for rematch readiness flags.
+- [x] Document the memory location and structure of rematch tier states.
+- [x] Provide references to Bulbapedia or Bulbapedia source code confirming these locations.
