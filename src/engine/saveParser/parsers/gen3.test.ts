@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isGen3Save, parseGen3, parseGen3PersonalityValue } from './gen3';
+import { isGen3Save, parseGen3, parseGen3MirageIslandValue, parseGen3PersonalityValue } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
   it('isGen3Save should return false normally', () => {
@@ -79,6 +79,30 @@ describe('gen3 parser scaffolding', () => {
 
     // Restore
     view.getUint8 = originalGetUint8;
+  });
+});
+
+describe('parseGen3MirageIslandValue', () => {
+  it('should extract a 16-bit little-endian value correctly', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+
+    // Set up a 16-bit value at offset 2: 0x1234 (little endian)
+    // 0x34, 0x12
+    view.setUint8(2, 0x34);
+    view.setUint8(3, 0x12);
+
+    const result = parseGen3MirageIslandValue(view, 2);
+
+    expect(result).toBe(0x1234);
+  });
+
+  it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
+    const buffer = new ArrayBuffer(2);
+    const view = new DataView(buffer);
+
+    // Attempting to read a 16-bit integer (2 bytes) starting at offset 2 will exceed the 2-byte buffer
+    expect(() => parseGen3MirageIslandValue(view, 2)).toThrowError('The save file is corrupted or incomplete.');
   });
 });
 

@@ -76,6 +76,25 @@ export function isGen3Save(view: DataView): boolean {
 }
 
 /**
+ * Parses the 16-bit Mirage Island value from a Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the value from.
+ * @returns The 16-bit unsigned integer representing the Mirage Island value.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3MirageIslandValue(view: DataView, offset: number): number {
+  try {
+    return view.getUint16(offset, true);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
  * Extracts all relevant game data from a Gen 3 save.
  * Placeholder implementation for scaffolding.
  *
