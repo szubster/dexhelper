@@ -316,3 +316,21 @@ No critical learnings logged yet.
 - **2026-06-13**: PR #2497 merged but has unchecked tasks (parent node). `story-083-125-gen3-match-call-memory-offset-discovery` is now PENDING.
 
 - **2026-06-13**: PR #2499 merged but has unchecked tasks (parent node). `story-084-125-match-call-etl` is now PENDING.
+
+- **2026-06-13**: PR #2510 merged. `adr-078-025-rtc-strategy` is now COMPLETED.
+
+- **2026-06-13**: PR #2506 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-13**: PR #2509 merged but has unchecked tasks (parent node). `epic-049-086-dynamic-move-pp-parsing` is now PENDING.
+
+- **2026-06-13**: PR #2507 merged but has unchecked tasks (parent node). `epic-049-087-dynamic-item-list-parsing` is now PENDING.
+
+- **2026-06-13**: System failure detected for `story-052-118-time-capsule-ui-indicators`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-13**: System failure detected for `story-058-095-feebas-seed-extraction`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-13**: PR #2508 merged. `story-058-096-unown-parser-tests` is now COMPLETED.
+
+- **2026-06-13**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-13**: PR #2505 merged. `task-095-157-gen3-berry-dataview-parsing` is now COMPLETED.

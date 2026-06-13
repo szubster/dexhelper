@@ -1,8 +1,8 @@
 ---
 id: story-086-128-move-data-extraction
 type: STORY
-title: "Move Data Extraction from PokeAPI"
-status: PENDING
+title: Move Data Extraction from PokeAPI
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

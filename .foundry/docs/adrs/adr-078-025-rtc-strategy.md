@@ -2,13 +2,13 @@
 id: adr-078-025-rtc-strategy
 type: ADR
 title: RTC Strategy Architecture Decision
-status: ACTIVE
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on:
   - research-078-172-rtc-strategy-investigation
-jules_session_id: '490883717544951060'
+jules_session_id: null
 pr_number: null
 parent: idea-078-settle-rtc-strategy
 tags:

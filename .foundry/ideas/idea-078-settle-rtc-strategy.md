@@ -2,7 +2,7 @@
 id: idea-078-settle-rtc-strategy
 type: IDEA
 title: Settle RTC Strategy Once and For All
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
