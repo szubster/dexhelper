@@ -2,12 +2,12 @@
 id: prd-077-049-dynamic-pokedata-parsing
 type: PRD
 title: Dynamic Generation of Moves and Items PokeData
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15710274444595008829'
 pr_number: null
 parent: idea-077-dynamic-pokeapi-data
 tags:
