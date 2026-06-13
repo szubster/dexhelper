@@ -2,13 +2,13 @@
 id: task-096-170-pokerus-tests-qa
 type: TASK
 title: QA Pokerus Parser Edge-Case Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on:
   - task-096-169-pokerus-tests-impl
-jules_session_id: null
+jules_session_id: '17390129936736499979'
 pr_number: null
 parent: story-061-096-pokerus-tests
 tags:
