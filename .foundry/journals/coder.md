@@ -57,7 +57,6 @@ When using the File System Access API in TypeScript projects, you must install `
 
 When modifying `transitionNodeToCompleted` in `foundry-heartbeat.ts` to clear `jules_session_id`, be extremely careful with testing. Unit tests will fail if they assert on the presence of `jules_session_id` in `.foundry` files but the type isn't correctly identified, causing it to fall through to `COMPLETED` when it should have been `VERIFYING`, or vice-versa. Additionally, always make sure the frontmatter types match precisely between tests and the new logic you've implemented to ensure thorough testing. Tests mock nodes, meaning any logic relying on data dynamically inferred (like `node.frontmatter.type`) will fail unless the mock explicitly defines that `type` property.
 
-
 ## 2026-06-11: Requirement for Concrete Memory Mapping Before Implementation
 When implementing save parser tasks (e.g., Gen 3 berry patches), concrete memory offsets and byte structures (e.g., `SaveBlock` layouts) MUST be provided in the task notes, the PRD, or a related RESEARCH node. If these exact offsets and structural definitions are missing, it is impossible to correctly implement the `DataView` parsing logic. In such cases, a `RESEARCH` node should be spawned to identify and document the offsets, and the implementation task should be failed/aborted until the research is complete. This prevents guessing and potential data corruption.
 
