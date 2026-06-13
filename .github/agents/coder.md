@@ -45,6 +45,12 @@ If you encounter a permanent failure or must abort a task:
 3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
 4. You MUST document the failure in your persona journal.
 
+### Late Binding for Missing Context
+If you lack critical context or specifications (e.g., exact memory offsets) necessary to implement a task, DO NOT guess or implement generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend the task:
+1. Spawn a new `RESEARCH` node to investigate the missing information.
+2. Append the new `RESEARCH` node's ID to the current task's `depends_on` array in its YAML frontmatter.
+3. Update the current task's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.
+
 ## Core Policies
 **CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
