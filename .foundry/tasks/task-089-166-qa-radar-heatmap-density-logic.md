@@ -33,10 +33,10 @@ Validate that `calculateHeatmap` in `src/engine/radar/RouteRadarController.ts` c
 Ensure unit tests in `src/engine/radar/__tests__/RouteRadarController.test.ts` thoroughly test edge cases.
 
 ## Acceptance Criteria
-- [ ] Verify the aggregation correctly maps `areaId`s to missing species count without double-counting a species in the same area.
-- [ ] Ensure non-Catch suggestions are ignored.
-- [ ] Validate unit tests cover edge cases.
-- [ ] Run test suite (`pnpm exec vitest run src/engine/radar/__tests__/RouteRadarController.test.ts`) and confirm passing.
+- [x] Verify the aggregation correctly maps `areaId`s to missing species count without double-counting a species in the same area.
+- [x] Ensure non-Catch suggestions are ignored.
+- [x] Validate unit tests cover edge cases.
+- [x] Run test suite (`pnpm exec vitest run src/engine/radar/__tests__/RouteRadarController.test.ts`) and confirm passing.
 
 **Important Persona Instructions:**
 - **QA**: If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not modify the frontmatter otherwise.
