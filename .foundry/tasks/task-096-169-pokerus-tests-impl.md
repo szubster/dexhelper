@@ -2,12 +2,12 @@
 id: task-096-169-pokerus-tests-impl
 type: TASK
 title: Implement Pokerus Parser Edge-Case Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1237814858030854352'
 pr_number: null
 parent: story-061-096-pokerus-tests
 tags:
