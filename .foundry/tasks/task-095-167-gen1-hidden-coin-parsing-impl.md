@@ -32,9 +32,9 @@ This task implements the final part of the story `story-058-095-gen1-hidden-item
 4. **Update Tests**: Update the unit tests in `src/engine/saveParser/parsers/gen1.test.ts` to assert that the `hiddenCoinFlags` are parsed correctly, injecting mock byte values into the dummy save buffer to test.
 
 ## Acceptance Criteria
-- [ ] `SaveData` interface includes `hiddenCoinFlags?: Uint8Array;`.
-- [ ] `parseGen1` correctly calculates the offset (including Yellow `offsetShift`) and extracts the hidden coin flags.
-- [ ] Unit tests for the Gen 1 save parser are updated to verify hidden coin parsing logic.
+- [x] `SaveData` interface includes `hiddenCoinFlags?: Uint8Array;`.
+- [x] `parseGen1` correctly calculates the offset (including Yellow `offsetShift`) and extracts the hidden coin flags.
+- [x] Unit tests for the Gen 1 save parser are updated to verify hidden coin parsing logic.
 
 ## IMPORTANT REMINDERS
 - **If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.**
