@@ -2,7 +2,7 @@
 id: task-094-157-moveset-inventory-validation-impl
 type: TASK
 title: Implement Moveset and Inventory Validation
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: 2026-06-10T00:00:00.000Z
 updated_at: '2026-06-13'

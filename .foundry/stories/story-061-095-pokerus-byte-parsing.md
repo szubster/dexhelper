@@ -2,12 +2,12 @@
 id: story-061-095-pokerus-byte-parsing
 type: STORY
 title: Pokerus Byte Parsing Story
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-08'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '6409549408434693429'
+jules_session_id: null
 pr_number: null
 parent: epic-038-061-pokerus-state-exfiltration
 tags:

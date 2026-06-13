@@ -188,3 +188,7 @@ No critical learnings logged yet.
 - **2026-06-12**: PR #2418 merged but has unchecked tasks (parent node). `task-095-157-gen2-event-flag-impl` is now PENDING.
 
 - **2026-06-13**: System failure detected for `research-095-157-gen2-event-flag-offsets`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-13**: PR #2439 merged. `story-061-095-pokerus-byte-parsing` is now COMPLETED.
+
+- **2026-06-13**: System failure detected for `task-084-150-breeding-pair-algorithm-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
