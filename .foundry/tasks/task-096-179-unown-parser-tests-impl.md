@@ -37,6 +37,6 @@ The logic for determining the Unown form in Gen 2 uses a bitwise operation on th
 - If you submit an empty PR for a completed task (e.g., if the tests already exist), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Unit tests written to verify the exact bitwise calculation against known DV combinations for Unown forms (A, Z, etc.).
-- [ ] Tests assert that `unownForm` is appended to the output structure when `speciesId` is 201.
-- [ ] Tests assert that `unownForm` is omitted or undefined for non-Unown Pokemon.
+- [x] Unit tests written to verify the exact bitwise calculation against known DV combinations for Unown forms (A, Z, etc.).
+- [x] Tests assert that `unownForm` is appended to the output structure when `speciesId` is 201.
+- [x] Tests assert that `unownForm` is omitted or undefined for non-Unown Pokemon.
