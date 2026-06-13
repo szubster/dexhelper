@@ -38,4 +38,7 @@ This epic covers the extraction of PokéNav Match Call data from Gen 3 Pokémon 
 - Expose this extracted state gracefully to the rest of the application via the `SaveData` schema.
 
 ## Next Steps
-- [ ] Story Owner: Break this Epic down into actionable Stories (e.g., Memory Offset Discovery, `DataView` Implementation, Schema Integration).
+- [x] Story Owner: Break this Epic down into actionable Stories (e.g., Memory Offset Discovery, `DataView` Implementation, Schema Integration).
+- [ ] story-083-125-gen3-match-call-memory-offset-discovery
+- [ ] story-083-126-gen3-match-call-dataview-implementation
+- [ ] story-083-127-gen3-match-call-schema-integration
