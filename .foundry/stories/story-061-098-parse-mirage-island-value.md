@@ -2,12 +2,12 @@
 id: story-061-098-parse-mirage-island-value
 type: STORY
 title: Parse Daily Mirage Island Value
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5759854550018495550'
 pr_number: null
 parent: epic-038-061-mirage-island-engine
 tags:
@@ -30,5 +30,5 @@ Ensure graceful handling of RangeError for corrupted files as per ADR 010.
 
 ## Acceptance Criteria
 - [x] Create/Update TASK nodes to implement parsing the Mirage Island value.
-- [ ] .foundry/tasks/task-098-157-mirage-island-parsing-impl.md
-- [ ] .foundry/tasks/task-098-158-mirage-island-parsing-qa.md
+- [ ] .foundry/tasks/task-098-175-mirage-island-parsing-impl.md
+- [ ] .foundry/tasks/task-098-176-mirage-island-parsing-qa.md

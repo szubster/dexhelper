@@ -2,12 +2,12 @@
 id: story-058-095-gen1-hidden-item-parsing
 type: STORY
 title: Gen 1 Hidden Item Event Flags Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-08'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1959047677959747394'
 pr_number: null
 parent: epic-037-058-hidden-items-save-parsing
 tags:
@@ -32,12 +32,12 @@ This story focuses on the first part of the epic `epic-037-058-hidden-items-save
 4. Ensure adequate unit tests are added or updated.
 
 ## Acceptance Criteria
-- [ ] `SaveData` interface includes `hiddenItemFlags`.
-- [ ] `parseGen1` correctly extracts hidden item event flags.
-- [ ] Unit tests for the Gen 1 save parser are updated and pass.
+- [x] `SaveData` interface includes `hiddenItemFlags`.
+- [x] `parseGen1` correctly extracts hidden item event flags.
+- [x] Unit tests for the Gen 1 save parser are updated and pass.
 
 ## Generated Tasks
-- [ ] task-095-151-gen1-hidden-item-parsing-impl
-- [ ] task-095-167-gen1-hidden-coin-parsing-impl
-- [ ] task-095-152-gen1-hidden-item-parsing-qa
-- [ ] task-095-168-gen1-hidden-coin-parsing-qa
+- [x] task-095-151-gen1-hidden-item-parsing-impl
+- [x] task-095-167-gen1-hidden-coin-parsing-impl
+- [x] task-095-152-gen1-hidden-item-parsing-qa
+- [x] task-095-168-gen1-hidden-coin-parsing-qa

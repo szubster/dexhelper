@@ -2,12 +2,12 @@
 id: prd-077-048-gen3-match-call-tracker
 type: PRD
 title: 'PRD: Gen 3 PokéNav Match Call & Rematch Tracker'
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2862607300991190962'
 pr_number: null
 parent: idea-077-gen3-match-call-tracker
 tags:

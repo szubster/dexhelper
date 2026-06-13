@@ -558,7 +558,7 @@ function main(): void {
       }
     }
 
-    if (shouldSuspend && (node.frontmatter.status as string) !== 'COMPLETED') {
+    if (shouldSuspend && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING')) {
       info(`Suspending ${node.frontmatter.status} node: ${node.repoPath}`);
       promoteNodeStatus(node, node.frontmatter.status, 'PENDING');
     }
