@@ -2,13 +2,13 @@
 id: epic-037-059-hidden-items-data-layer
 type: EPIC
 title: Hidden Items Data Structure & Aggregation
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-04'
 updated_at: '2026-06-13'
 depends_on:
   - epic-037-058-hidden-items-save-parsing
-jules_session_id: null
+jules_session_id: '12093153266034103900'
 pr_number: null
 parent: prd-068-037-hidden-items-finder
 tags:
