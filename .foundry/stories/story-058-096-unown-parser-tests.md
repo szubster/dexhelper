@@ -35,4 +35,8 @@ The logic for determining the Unown form in Gen 2 uses a bitwise operation on th
 - Ensure the property is omitted or undefined for non-Unown Pokemon.
 
 ## Acceptance Criteria
-- [ ] Task created for implementing unit tests for the unown form parser logic.
+- [x] Task created for implementing unit tests for the unown form parser logic.
+
+## Generated Tasks
+- [ ] `task-096-179-unown-parser-tests-impl`
+- [ ] `task-096-180-unown-parser-tests-qa`
