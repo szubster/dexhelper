@@ -2,12 +2,12 @@
 id: task-095-167-gen1-hidden-coin-parsing-impl
 type: TASK
 title: Gen 1 Hidden Coin Event Flags Parsing Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11880583601192648566'
 pr_number: null
 parent: story-058-095-gen1-hidden-item-parsing
 tags:
