@@ -36,4 +36,5 @@ Leverage DexHelper's save parsing to read the Trainer Hill/Match Call data block
 This perfectly aligns with DexHelper's vision as an intelligent companion app. It takes a tedious, opaque in-game system and transforms it into an actionable utility for competitive training and endgame optimization, offering massive value to the hardcore playerbase.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to detail the UI requirements and required memory offsets for Emerald Match Call flags.
+- [x] Product Manager: Convert this idea into a PRD to detail the UI requirements and required memory offsets for Emerald Match Call flags.
+- [ ] .foundry/prds/prd-077-048-gen3-match-call-tracker.md
