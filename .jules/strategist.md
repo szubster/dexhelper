@@ -156,6 +156,12 @@
 **Outcome:** Accepted
 **Why:** The `.foundry/journals/tpm.md` journal was filled entirely with transient status logs (e.g., 'System failure detected', 'Resurrection Loop triggered') and orchestrator state transitions, which provide no long-term value, rot the context window, and explicitly violate the memory rules for journals.
 **Pattern:** Codify system memory constraints regarding journal content directly into the relevant agent's prompt, explicitly instructing them to purge and avoid logging transient status updates.
+## 2026-07-11 - [Accepted] - Prompt improvement - Formalize Late Binding protocol for Coder
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The coder journal repeatedly noted that tasks lacking explicit data specifications (like memory offsets) should not be guessed, but rather suspended by spawning a RESEARCH node and dynamically injecting it into `depends_on`. However, the coder's prompt lacked explicit instructions for this late binding workflow, leading to instances where the agent didn't know how to gracefully suspend the task.
+**Pattern:** When a persona discovers a critical workflow pattern for handling missing context (like Late Binding), codify the exact operational steps into their prompt so they can execute it consistently without relying solely on passive memory.
+
 ## YYYY-MM-DD - [Accepted] - Prompt improvement - Prevent premature verification for all macro nodes
 **Type:** Prompt improvement
 **Outcome:** Merged
