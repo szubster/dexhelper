@@ -37,5 +37,5 @@ Requires unit tests verifying the exact bitwise calculation against known DV com
 ## Acceptance Criteria
 - [x] Story for parser logic created.
 - [x] Story for parser unit tests created.
-- [ ] .foundry/stories/story-058-095-unown-parser-logic.md
-- [ ] .foundry/stories/story-058-096-unown-parser-tests.md
+- [x] .foundry/stories/story-058-095-unown-parser-logic.md
+- [x] .foundry/stories/story-058-096-unown-parser-tests.md
