@@ -2,7 +2,7 @@
 id: story-081-122-gen3-rtc-extraction
 type: STORY
 title: Extract Gen 3 RTC Data
-status: READY
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-13'
@@ -16,7 +16,7 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'RTC data in Gen 3 is emulator dependent and highly unreliable. Event mapping must be RTC-independent.'
 notes: ''
 ---
 
@@ -28,7 +28,3 @@ Extract and parse the Real-Time Clock (RTC) value from Gen 3 save files to allow
 ## Acceptance Criteria
 - [ ] Implement parser logic to extract the RTC value from the save.
 - [ ] Provide utility functions to format/interpret the RTC data against current active events.
-
-## Child Nodes
-- [ ] task-122-171-gen3-rtc-extraction-impl
-- [ ] task-122-172-gen3-rtc-extraction-qa
