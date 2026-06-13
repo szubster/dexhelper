@@ -1,8 +1,8 @@
 ---
 id: prd-077-048-gen3-match-call-tracker
 type: PRD
-title: "PRD: Gen 3 PokéNav Match Call & Rematch Tracker"
-status: PENDING
+title: 'PRD: Gen 3 PokéNav Match Call & Rematch Tracker'
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

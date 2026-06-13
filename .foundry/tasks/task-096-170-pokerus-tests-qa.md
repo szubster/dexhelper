@@ -2,7 +2,7 @@
 id: task-096-170-pokerus-tests-qa
 type: TASK
 title: QA Pokerus Parser Edge-Case Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

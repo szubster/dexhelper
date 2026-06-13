@@ -2,10 +2,10 @@
 id: task-124-171-gen3-event-schedule-parser
 type: TASK
 title: Gen 3 Event Schedule Parser Implementation
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-06-13"
-updated_at: "2026-06-13"
+created_at: '2026-06-13'
+updated_at: '2026-06-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 3 Event Schedule Parser Implementation

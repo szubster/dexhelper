@@ -2,10 +2,10 @@
 id: story-058-095-gen1-hidden-item-parsing
 type: STORY
 title: Gen 1 Hidden Item Event Flags Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on: []
 jules_session_id: null
 pr_number: null

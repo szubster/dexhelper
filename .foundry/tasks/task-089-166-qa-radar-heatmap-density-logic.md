@@ -2,10 +2,10 @@
 id: task-089-166-qa-radar-heatmap-density-logic
 type: TASK
 title: QA Route Radar Heatmap Density Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on:
   - task-089-165-radar-heatmap-density-logic-impl
 jules_session_id: null

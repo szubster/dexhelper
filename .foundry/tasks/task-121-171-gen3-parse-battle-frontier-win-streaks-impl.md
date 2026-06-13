@@ -2,10 +2,10 @@
 id: task-121-171-gen3-parse-battle-frontier-win-streaks-impl
 type: TASK
 title: Implement Gen 3 Parse Battle Frontier Win Streaks
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-06-13"
-updated_at: "2026-06-13"
+created_at: '2026-06-13'
+updated_at: '2026-06-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
 research_references:
   - research-046-140-gen3-battle-frontier
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement Gen 3 Parse Battle Frontier Win Streaks
