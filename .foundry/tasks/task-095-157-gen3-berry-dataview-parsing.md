@@ -2,7 +2,7 @@
 id: task-095-157-gen3-berry-dataview-parsing
 type: TASK
 title: Implement Gen 3 Berry Tracker DataView Parsing Logic
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-13'
@@ -17,8 +17,8 @@ tags:
   - berries
   - engine
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'Offset calculation is incorrect (must be relative to Section 1 payload size 0x0F80, so 0x071C instead of 0x169C). Also, Time Planted and Last Watered cannot be extracted as per research findings.'
 notes: ''
 ---
 
@@ -34,6 +34,6 @@ Implement the extraction logic for Gen 3 berry patches using the native `DataVie
 - IMPORTANT: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Implement `DataView` reading logic for Gen 3 berry patches.
-- [x] Implement graceful handling of bounds checking by throwing/catching `RangeError`.
-- [x] Extract map ID, berry ID, current growth stage, time planted, and last watered time.
+- [ ] Implement `DataView` reading logic for Gen 3 berry patches.
+- [ ] Implement graceful handling of bounds checking by throwing/catching `RangeError`.
+- [ ] Extract map ID, berry ID, current growth stage, time planted, and last watered time.
