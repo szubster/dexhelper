@@ -30,9 +30,9 @@ This story focuses on the second part of the epic `epic-037-058-hidden-items-sav
 2. Ensure adequate unit tests are added or updated.
 
 ## Acceptance Criteria
-- [ ] `parseGen2` correctly extracts hidden item event flags.
-- [ ] Unit tests for the Gen 2 save parser are updated and pass.
+- [x] `parseGen2` correctly extracts hidden item event flags.
+- [x] Unit tests for the Gen 2 save parser are updated and pass.
 
 ## Generated Tasks
-- [ ] .foundry/tasks/task-096-157-gen2-hidden-item-parsing-impl.md
-- [ ] .foundry/tasks/task-096-158-gen2-hidden-item-parsing-qa.md
+- [x] .foundry/tasks/task-096-157-gen2-hidden-item-parsing-impl.md
+- [x] .foundry/tasks/task-096-158-gen2-hidden-item-parsing-qa.md
