@@ -93,3 +93,10 @@
 ## Fix CI: Test has no assertions
 - **What**: CI failed because three tests in `src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx` had no assertions. I added `await expect.element(page.getByText(...)).toBeVisible()` to satisfy the `oxlint` `vitest(expect-expect)` rule.
 - **Why**: The rule enforces that every test has at least one assertion.
+
+## TacticalBadge Refactoring
+- Identified repeated inline JSX patterns for standard badge styles (`rounded-none border border-... border-dashed bg-... px-... py-... font-black text-... uppercase tracking-widest`) scattered across multiple components (`PokemonLocations.tsx`, `PokemonCatchProbability.tsx`, `PokemonEvolutions.tsx`, `PokemonCaughtDetails.tsx`).
+- Replaced these repetitive raw `div` and `span` blocks with the existing `TacticalBadge` reusable component, significantly cleaning up the markup.
+- **Key Learnings**:
+  - Reusing existing components like `TacticalBadge` is crucial for code modularity and adherence to the project's aesthetic constraints (e.g., sharp edges, dashed borders).
+  - Always verify that the extracted component matches the exact styling variants (e.g., `emerald`, `red`, `zinc`, `primary`) needed by the specific contexts.

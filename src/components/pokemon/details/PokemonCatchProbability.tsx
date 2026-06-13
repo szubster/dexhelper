@@ -4,6 +4,7 @@ import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
 import { DataPoint } from '../../DataPoint';
 import { SectionHeader } from '../../SectionHeader';
+import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TacticalSegmentedControl } from '../../TacticalSegmentedControl';
 
@@ -51,9 +52,12 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
       </div>
       <div className="flex items-center justify-between">
         <SectionHeader colorClass="text-emerald-400" title="Catch Probability" icon={<Target size={14} />} />
-        <div className="rounded-none border border-emerald-500/30 border-dashed bg-emerald-500/20 px-3 py-1 font-black font-mono text-[10px] text-emerald-400">
+        <TacticalBadge
+          variant="emerald"
+          className="border-emerald-500/30 bg-emerald-500/20 px-3 font-mono text-[10px] text-emerald-400"
+        >
           RATING: {catchRate}
-        </div>
+        </TacticalBadge>
       </div>
 
       <div className="space-y-6">
