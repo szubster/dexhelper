@@ -31,3 +31,5 @@ We need to settle the RTC strategy once and for all to establish a unified appro
 - Spawn a `RESEARCH` node to investigate the viability, alternatives, and emulator dependencies of RTC data across generations (especially Gen 2 and Gen 3).
 - Based on the research, author an `ADR` (Architecture Decision Record) defining exactly how the application should handle time-dependent events. This might mean always using the system's current time, building RTC-independent event suggestions, or prompting the user for manual overrides.
 - No immediate feature implementation is expected under this idea unless the research explicitly dictates a necessary structural change. This is primarily a discovery and standardization effort.
+- [ ] .foundry/research/research-078-172-rtc-strategy-investigation.md
+- [ ] .foundry/docs/adrs/adr-078-025-rtc-strategy.md
