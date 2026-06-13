@@ -290,5 +290,10 @@ As defined in ADR 015, with the transition to MsgPack (`msgpackr`) and the confi
 *   `pokemon` (formerly `poke`)
 *   `locations` (formerly `loc`)
 *   `hash` (remains `hash`)
+*   `power` (formerly `p`)
+*   `accuracy` (formerly `acc`)
+*   `damageClass` (formerly `dmg_class`)
+*   `flingPower` (formerly `fling_p`)
+*   `sprite` (formerly `spr`)
 
 Enum-to-number optimizations (e.g., mapping encounter methods or string triggers to integer values) are preserved.
