@@ -2,13 +2,13 @@
 id: story-058-096-unown-parser-tests
 type: STORY
 title: Unown Form Parser Unit Tests
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-08'
 updated_at: '2026-06-13'
 depends_on:
   - story-058-095-unown-parser-logic
-jules_session_id: null
+jules_session_id: '12736298741286988768'
 pr_number: null
 parent: epic-037-058-unown-tracker-engine
 tags:
