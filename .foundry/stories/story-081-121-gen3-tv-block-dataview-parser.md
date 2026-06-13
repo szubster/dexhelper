@@ -28,3 +28,7 @@ Implement the foundational logic to locate and read the TV broadcast data block 
 ## Acceptance Criteria
 - [ ] Implement parser logic using `DataView` to read the TV event block.
 - [ ] Handle bounds checking and corrupted reads gracefully.
+
+## Child Tasks
+- [ ] task-121-171-gen3-tv-block-parser-impl
+- [ ] task-121-172-gen3-tv-block-parser-qa
