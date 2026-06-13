@@ -28,4 +28,8 @@ Update the existing DAG data parser to read and extract the `rejection_count` pr
 As required by ADR 017, we need to extract the `rejection_count` to display permanent failures on the DAG dashboard. The parser must capture this field alongside existing properties.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+
+### Generated Tasks
+- [ ] task-118-168-impl-extract-rejection-count
+- [ ] task-118-169-qa-extract-rejection-count
