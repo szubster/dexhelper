@@ -30,3 +30,4 @@ Determine the exact memory offsets in Pokémon Emerald `.sav` files for the Matc
 - [ ] Determine memory block offsets
 - [ ] Find rematch readiness bitflags
 - [ ] Determine rematch tier states offsets
+- [ ] research-125-173-gen3-match-call-offsets
