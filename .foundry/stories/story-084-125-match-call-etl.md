@@ -31,3 +31,7 @@ Extract the 69 Match Call trainers from game data sources, structure them with t
 ## Acceptance Criteria
 - [ ] Implement ETL script to process trainer match call data.
 - [ ] Calculate and aggregate the total EV yield for defeating each team.
+
+### Auto-Generated Child Tasks
+- [ ] task-125-177-match-call-etl-impl
+- [ ] task-125-178-match-call-etl-qa
