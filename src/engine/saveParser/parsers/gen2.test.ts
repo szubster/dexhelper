@@ -132,17 +132,29 @@ describe('gen2 parsers', () => {
     it('should parse pokerus byte correctly', () => {
       const buffer = new ArrayBuffer(32768);
       const view = new DataView(buffer);
-      view.setUint8(0x288a, 2); // 2 in party
+      view.setUint8(0x288a, 4); // 4 in party
       view.setUint8(0x288b, 1);
       view.setUint8(0x288c, 2);
+      view.setUint8(0x288d, 3);
+      view.setUint8(0x288e, 4);
+
       view.setUint8(0x288b + 7, 1); // p1
       view.setUint8(0x288b + 7 + 28, 0x00); // 0 pokerus
+
       view.setUint8(0x288b + 7 + 48, 2); // p2
       view.setUint8(0x288b + 7 + 48 + 28, 0x1a); // pokerus: strain 1, days 10
+
+      view.setUint8(0x288b + 7 + 96, 3); // p3
+      view.setUint8(0x288b + 7 + 96 + 28, 0x50); // pokerus: strain 5, days 0 (cured state)
+
+      view.setUint8(0x288b + 7 + 144, 4); // p4
+      view.setUint8(0x288b + 7 + 144 + 28, 0xff); // pokerus: strain 15, days 15 (max boundary)
 
       const data = parseGen2(view, false);
       expect(data.partyDetails[0]?.pokerus).toBeUndefined();
       expect(data.partyDetails[1]?.pokerus).toEqual({ strain: 1, daysRemaining: 10 });
+      expect(data.partyDetails[2]?.pokerus).toEqual({ strain: 5, daysRemaining: 0 }); // cured state
+      expect(data.partyDetails[3]?.pokerus).toEqual({ strain: 15, daysRemaining: 15 }); // max boundary
     });
 
     it('should correctly detect silver/gold using pokedex seen/owned', () => {
