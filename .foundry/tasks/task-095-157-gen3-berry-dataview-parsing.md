@@ -34,6 +34,6 @@ Implement the extraction logic for Gen 3 berry patches using the native `DataVie
 - IMPORTANT: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView` reading logic for Gen 3 berry patches.
-- [ ] Implement graceful handling of bounds checking by throwing/catching `RangeError`.
-- [ ] Extract map ID, berry ID, current growth stage, time planted, and last watered time.
+- [x] Implement `DataView` reading logic for Gen 3 berry patches.
+- [x] Implement graceful handling of bounds checking by throwing/catching `RangeError`.
+- [x] Extract map ID, berry ID, current growth stage, time planted, and last watered time.

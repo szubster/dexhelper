@@ -24,6 +24,12 @@ describe('gen3 parser scaffolding', () => {
     view.setUint32(blockBSection2Offset + 4088, 0x08012025, true); // Signature
     view.setUint32(blockBSection2Offset + 4092, 25, true); // Save Index 25
 
+    // Block B (offset 0xE000) Setup - Section 1 with a higher save index
+    const blockBSection1Offset = 0xe000 + 1 * 4096;
+    view.setUint16(blockBSection1Offset + 4084, 1, true); // Section ID 1
+    view.setUint32(blockBSection1Offset + 4088, 0x08012025, true); // Signature
+    view.setUint32(blockBSection1Offset + 4092, 25, true); // Save Index 25
+
     // Write mock flags data at Block B, Section 2, offset 0x02F0 + 62
     const flagsOffset = blockBSection2Offset + 0x02f0;
 
@@ -44,6 +50,50 @@ describe('gen3 parser scaffolding', () => {
     expect(saveData.hiddenItemFlags?.[1]).toBe(0);
   });
 
+  it('parseGen3 should correctly extract berry patches data from section 1', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    // Section 1 setup
+    const section1Offset = 0xe000 + 1 * 4096;
+    view.setUint16(section1Offset + 4084, 1, true);
+    view.setUint32(section1Offset + 4088, 0x08012025, true);
+    view.setUint32(section1Offset + 4092, 25, true);
+
+    // Section 2 setup (required by parseGen3)
+    const section2Offset = 0xe000 + 2 * 4096;
+    view.setUint16(section2Offset + 4084, 2, true);
+    view.setUint32(section2Offset + 4088, 0x08012025, true);
+    view.setUint32(section2Offset + 4092, 25, true);
+
+    // Write mock berry data at Section 1, offset 0x169C + (0 * 8)
+    const baseOffset = section1Offset + 0x169c;
+
+    // Patch 0
+    view.setUint8(baseOffset + 0, 15); // berryId
+    view.setUint8(baseOffset + 1, 0x82); // stage=2, stopGrowth=true
+    view.setUint16(baseOffset + 2, 120, true); // minutesUntilNextStage
+    view.setUint8(baseOffset + 4, 3); // berryYield
+    view.setUint8(baseOffset + 5, 0x51); // regrowthCount=1, watered1=true, watered3=true (0x50 = 01010000, 0x51 = 01010001)
+
+    const saveData = parseGen3(view);
+    expect(saveData.gen3BerryPatches).toBeDefined();
+    expect(saveData.gen3BerryPatches?.length).toBe(128);
+
+    const patch0 = saveData.gen3BerryPatches?.[0];
+    expect(patch0?.mapId).toBe(0);
+    expect(patch0?.berryId).toBe(15);
+    expect(patch0?.stage).toBe(2);
+    expect(patch0?.stopGrowth).toBe(true);
+    expect(patch0?.minutesUntilNextStage).toBe(120);
+    expect(patch0?.berryYield).toBe(3);
+    expect(patch0?.regrowthCount).toBe(1);
+    expect(patch0?.watered1).toBe(true);
+    expect(patch0?.watered2).toBe(false);
+    expect(patch0?.watered3).toBe(true);
+    expect(patch0?.watered4).toBe(false);
+  });
+
   it('isGen3Save should catch RangeError and return false', () => {
     const buffer = new ArrayBuffer(8);
     const view = new DataView(buffer);
@@ -55,6 +105,34 @@ describe('gen3 parser scaffolding', () => {
     };
 
     expect(isGen3Save(view)).toBe(false);
+
+    // Restore
+    view.getUint8 = originalGetUint8;
+  });
+
+  it('parseGen3 should catch RangeError when parsing berry patches and throw corrupted error', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    const section1Offset = 0xe000 + 1 * 4096;
+    view.setUint16(section1Offset + 4084, 1, true);
+    view.setUint32(section1Offset + 4088, 0x08012025, true);
+    view.setUint32(section1Offset + 4092, 25, true);
+
+    const section2Offset = 0xe000 + 2 * 4096;
+    view.setUint16(section2Offset + 4084, 2, true);
+    view.setUint32(section2Offset + 4088, 0x08012025, true);
+    view.setUint32(section2Offset + 4092, 25, true);
+
+    const originalGetUint8 = view.getUint8.bind(view);
+    view.getUint8 = (offset: number) => {
+      if (offset >= section1Offset + 0x169c) {
+        throw new RangeError('Out of bounds reading berry patch');
+      }
+      return originalGetUint8(offset);
+    };
+
+    expect(() => parseGen3(view)).toThrowError('The save file is corrupted or incomplete.');
 
     // Restore
     view.getUint8 = originalGetUint8;
