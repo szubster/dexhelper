@@ -39,7 +39,7 @@ Verify the implementation of the `ContestConditionStats` component.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] Verify the `ContestConditionStats` component renders correctly with valid data.
-- [ ] Verify the component gracefully handles zero/missing data.
-- [ ] Verify the tests are passing and correctly implemented.
-- [ ] Verify the styling matches the required aesthetic.
+- [x] Verify the `ContestConditionStats` component renders correctly with valid data.
+- [x] Verify the component gracefully handles zero/missing data.
+- [x] Verify the tests are passing and correctly implemented.
+- [x] Verify the styling matches the required aesthetic.
