@@ -2,7 +2,7 @@
 id: task-098-170-extract-32bit-pv-qa
 type: TASK
 title: QA - Extract 32-bit PV using DataView
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

@@ -2,7 +2,7 @@
 id: story-059-125-hidden-items-data-model
 type: STORY
 title: Hidden Items Data Model
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

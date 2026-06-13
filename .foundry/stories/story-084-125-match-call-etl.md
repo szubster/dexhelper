@@ -2,7 +2,7 @@
 id: story-084-125-match-call-etl
 type: STORY
 title: 'Story: Gen 3 Match Call Static Data ETL'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

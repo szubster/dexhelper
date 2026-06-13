@@ -276,3 +276,25 @@ No critical learnings logged yet.
 - **2026-06-13**: PR #2483 merged. `task-089-166-qa-radar-heatmap-density-logic` is now COMPLETED.
 
 - **2026-06-13**: Cleanup Loop deleted remote branch `tech-lead/story-081-122-gen3-rtc-extraction-3210903558433520834`.
+
+- **2026-06-13**: PR #2489 merged. `epic-037-059-hidden-items-data-layer` is now VERIFYING.
+
+- **2026-06-13**: PR #2490 merged. `epic-048-083-gen3-match-call-save-parsing` is now VERIFYING.
+
+- **2026-06-13**: PR #2488 merged. `epic-048-084-gen3-match-call-static-data` is now VERIFYING.
+
+- **2026-06-13**: PR #2494 merged. `idea-078-settle-rtc-strategy` is now VERIFYING.
+
+- **2026-06-13**: PR #2493 merged but has unchecked tasks (parent node). `prd-077-049-dynamic-pokedata-parsing` is now PENDING.
+
+- **2026-06-13**: System failure detected for `story-048-089-route-radar-density-aggregation`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-13**: System failure detected for `story-058-095-unown-parser-logic`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-13**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-13**: PR #2487 merged. `task-096-170-pokerus-tests-qa` is now COMPLETED.
+
+- **2026-06-13**: PR #2492 merged. `task-098-158-qa-mirage-island-offset` is now COMPLETED.
+
+- **2026-06-13**: PR #2491 merged. `task-098-169-extract-32bit-pv-impl` is now COMPLETED.

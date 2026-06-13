@@ -1,8 +1,8 @@
 ---
 id: story-083-125-gen3-match-call-memory-offset-discovery
 type: STORY
-title: 'Discover Gen 3 Match Call Memory Offsets'
-status: PENDING
+title: Discover Gen 3 Match Call Memory Offsets
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
