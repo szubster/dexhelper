@@ -2,13 +2,13 @@
 id: task-101-158-contest-condition-stats-ui-qa
 type: TASK
 title: QA ContestConditionStats Component
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on:
   - task-101-157-contest-condition-stats-ui-impl
-jules_session_id: null
+jules_session_id: '13954981915504361769'
 pr_number: null
 parent: story-064-101-contest-condition-stats-ui
 tags:
