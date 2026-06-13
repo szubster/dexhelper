@@ -15,23 +15,24 @@ interface NavButtonProps {
 export function NavButton({ to, isActive, onClick, icon: Icon, label, activeLabel, ariaLabel }: NavButtonProps) {
   const content = (
     <>
-      {isActive && <div className="lcd-flicker absolute inset-0 bg-[var(--theme-primary)]/5" />}
-      <div className={cn('transition-transform', isActive ? 'animate-pulse' : 'active:scale-90')}>
+      <div className={cn('relative z-10 flex flex-col items-center gap-1.5 transition-transform', isActive ? 'animate-pulse' : 'active:scale-90')}>
         <Icon
-          size={20}
+          size={18}
           strokeWidth={isActive ? 2.5 : 2}
-          className={cn(isActive && 'drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),1)]')}
+          className={cn(isActive && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.8)]')}
         />
+        <span className="font-black font-mono text-[9px] uppercase tracking-[0.2em]">
+          {isActive ? activeLabel : label}
+        </span>
       </div>
-      <span className="font-bold font-mono text-[9px] uppercase tracking-[0.2em]">
-        {isActive ? activeLabel : label}
-      </span>
     </>
   );
 
   const className = cn(
-    'group relative z-10 flex flex-col items-center gap-1.5 rounded-none py-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-    isActive ? 'text-[var(--theme-primary)]' : 'text-zinc-600 hover:text-zinc-400',
+    'group relative z-10 flex h-full flex-col items-center justify-center rounded-none border border-dashed transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+    isActive
+      ? 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/20 text-[var(--theme-primary)] shadow-[inset_0_0_15px_rgba(var(--theme-primary-rgb),0.3)]'
+      : 'border-zinc-800 bg-zinc-950/80 text-zinc-600 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-400 shadow-[inset_0_2px_4px_rgba(255,255,255,0.05)]',
   );
 
   if (to) {

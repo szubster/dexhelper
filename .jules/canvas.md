@@ -185,3 +185,9 @@
 **Outcome:** Accepted
 **Why:** Transforms the abstract concept of "PC Boxes" into a tangible, specialized hardware interface, reinforcing the app's core "snooping" and tactical terminal fantasy perfectly.
 **Pattern:** When presenting grouped data (like boxes or categories), style the containers or headers as physical hardware components (like server blades or memory banks) to ground the data in the physical device illusion.
+
+## 2026-07-15 - [Accepted] - 🖼️ Canvas: Tactical BottomNav Redesign
+**What:** Redesigned `BottomNav` and `NavButton` to resemble a rigid, physical instrument panel with chunky membrane switches instead of a generic floating app bar. Added layered borders, inset shadows for depressed states, and mechanical-looking sliding brackets for the active indicator.
+**Outcome:** Accepted
+**Why:** Brings the mobile bottom navigation fully into the tactical specialized hardware motif. Floating app bars and subtle flicker animations break the illusion of using a rugged, purpose-built device.
+**Pattern:** Apply "bracketed" physical hardware layouts and explicit "membrane switch" button designs (using inset shadows, dashed borders, and strict monospaced labels) to navigation structures to maintain the device simulation across all viewports.
