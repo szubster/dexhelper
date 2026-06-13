@@ -24,6 +24,9 @@ notes: ''
 
 # QA Route Radar Heatmap Density Logic
 
+**Status: CANCELLED**
+*This task has been permanently replaced by `task-089-178-qa-radar-heatmap-ui-integration` and its parent implementation tasks following a permanent failure. The Impossible Loop protocol triggered a new `RESEARCH` node to investigate.*
+
 ## Context
 As defined in Story `story-048-089-route-radar-density-aggregation`, the Coder will implement the aggregation logic inside the `RouteRadarController`.
 
