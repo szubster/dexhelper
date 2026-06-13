@@ -2,13 +2,13 @@
 id: task-098-158-qa-mirage-island-offset
 type: TASK
 title: QA - Verify Mirage Island Data Block Offset Documentation
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-13'
 depends_on:
   - task-098-157-locate-mirage-island-offset
-jules_session_id: '8709978016308017184'
+jules_session_id: null
 pr_number: null
 parent: story-061-098-locate-mirage-island-data
 tags:
@@ -18,7 +18,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

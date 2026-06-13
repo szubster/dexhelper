@@ -2,12 +2,12 @@
 id: research-094-157-moveset-inventory-memory-offsets
 type: RESEARCH
 title: Investigate Memory Offsets for Move PPs and Known Good Item Lists
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '9412363121579024242'
+jules_session_id: null
 pr_number: null
 parent: task-094-157-moveset-inventory-validation-impl
 tags:

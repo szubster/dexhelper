@@ -2,10 +2,10 @@
 id: task-098-158-mirage-island-parsing-qa
 type: TASK
 title: QA Gen 3 Mirage Island Value Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-13'
 depends_on:
   - task-098-157-mirage-island-parsing-impl
 jules_session_id: null

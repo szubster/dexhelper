@@ -2,7 +2,7 @@
 id: idea-077-gen3-match-call-tracker
 type: IDEA
 title: Gen 3 PokéNav Match Call & Rematch Tracker
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

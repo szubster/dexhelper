@@ -2,10 +2,10 @@
 id: task-095-168-gen1-hidden-coin-parsing-qa
 type: TASK
 title: Gen 1 Hidden Coin Event Flags Parsing QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on:
   - task-095-167-gen1-hidden-coin-parsing-impl
 jules_session_id: null

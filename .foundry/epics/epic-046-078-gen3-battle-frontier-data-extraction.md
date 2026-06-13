@@ -2,13 +2,13 @@
 id: epic-046-078-gen3-battle-frontier-data-extraction
 type: EPIC
 title: Gen 3 Battle Frontier Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on:
   - research-046-140-gen3-battle-frontier
-jules_session_id: '15788758606280647564'
+jules_session_id: null
 pr_number: null
 parent: prd-074-046-gen3-battle-frontier-tracker
 tags:

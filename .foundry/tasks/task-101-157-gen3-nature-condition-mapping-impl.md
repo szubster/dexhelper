@@ -2,12 +2,12 @@
 id: task-101-157-gen3-nature-condition-mapping-impl
 type: TASK
 title: Implement Gen 3 Nature to Contest Condition Mapping
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '7442841337385241427'
+jules_session_id: null
 pr_number: null
 parent: story-064-101-gen3-nature-condition-mapping
 tags:

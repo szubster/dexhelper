@@ -2,12 +2,12 @@
 id: story-062-098-gen3-parse-32bit-pv
 type: STORY
 title: Extract full 32-bit PV using DataView API
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '4856856061899924339'
+jules_session_id: null
 pr_number: null
 parent: epic-038-062-personality-value-extraction
 tags:

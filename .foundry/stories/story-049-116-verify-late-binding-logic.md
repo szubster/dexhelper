@@ -2,12 +2,12 @@
 id: story-049-116-verify-late-binding-logic
 type: STORY
 title: Verify Late-Binding Logic in Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '16829829035142579108'
+jules_session_id: null
 pr_number: null
 parent: epic-035-049-late-binding-accommodation
 tags:

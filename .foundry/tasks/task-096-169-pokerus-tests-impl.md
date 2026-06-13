@@ -2,7 +2,7 @@
 id: task-096-169-pokerus-tests-impl
 type: TASK
 title: Implement Pokerus Parser Edge-Case Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

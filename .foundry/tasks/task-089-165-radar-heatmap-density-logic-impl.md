@@ -2,10 +2,10 @@
 id: task-089-165-radar-heatmap-density-logic-impl
 type: TASK
 title: Implement Route Radar Heatmap Density Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on:
   - research-089-167-investigate-heatmap-failure
 jules_session_id: null

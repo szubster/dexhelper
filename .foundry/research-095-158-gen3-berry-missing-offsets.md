@@ -4,12 +4,12 @@ type: RESEARCH
 title: >-
   Investigate Missing Gen 3 Berry Patch Offsets (Map ID, Time Planted, Last
   Watered)
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-11'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '4472931738996298865'
+jules_session_id: null
 pr_number: null
 parent: story-055-095-gen3-berry-data-parsing
 tags:

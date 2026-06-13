@@ -2,10 +2,10 @@
 id: task-095-157-gen3-berry-dataview-parsing
 type: TASK
 title: Implement Gen 3 Berry Tracker DataView Parsing Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on:
   - research-095-158-gen3-berry-missing-offsets
 jules_session_id: null

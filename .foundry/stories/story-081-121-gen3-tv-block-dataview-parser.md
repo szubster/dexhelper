@@ -2,10 +2,10 @@
 id: story-081-121-gen3-tv-block-dataview-parser
 type: STORY
 title: Parse Gen 3 TV Block Data with DataView
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-13'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,7 +2,7 @@
 id: task-098-157-locate-mirage-island-offset
 type: TASK
 title: Locate Mirage Island Data Block Offset
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-13'
@@ -15,8 +15,8 @@ tags:
   - mirage-island
   - save-parsing
 research_references: []
-rejection_count: 1
-rejection_reason: 'The documented offset attributes the data to "Section 3-4 - Game Specific Data" but the Mirage Island random value actually belongs to "Section 2 - Game State" in Bulbapedia.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

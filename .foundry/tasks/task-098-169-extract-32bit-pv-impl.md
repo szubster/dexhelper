@@ -2,7 +2,7 @@
 id: task-098-169-extract-32bit-pv-impl
 type: TASK
 title: Extract 32-bit PV using DataView
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

@@ -192,3 +192,47 @@ No critical learnings logged yet.
 - **2026-06-13**: PR #2439 merged. `story-061-095-pokerus-byte-parsing` is now COMPLETED.
 
 - **2026-06-13**: System failure detected for `task-084-150-breeding-pair-algorithm-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-13**: PR #2433 merged but has unchecked tasks (parent node). `epic-046-078-gen3-battle-frontier-data-extraction` is now PENDING.
+
+- **2026-06-13**: PR #2438 merged. `epic-047-081-gen3-tv-swarm-data-extraction` is now VERIFYING.
+
+- **2026-06-13**: PR #2356 merged. `idea-066-save-file-health-scanner` is now VERIFYING.
+
+- **2026-06-13**: PR #2436 merged. `research-089-167-investigate-heatmap-failure` is now COMPLETED.
+
+- **2026-06-13**: PR #2431 merged. `research-094-157-moveset-inventory-memory-offsets` is now COMPLETED.
+
+- **2026-06-13**: PR #2435 merged. `research-095-158-gen3-berry-missing-offsets` is now COMPLETED.
+
+- **2026-06-13**: PR #2437 merged but has unchecked tasks (parent node). `story-049-116-verify-late-binding-logic` is now PENDING.
+
+- **2026-06-13**: PR #2434 merged. `story-058-097-gen3-hidden-item-parsing` is now COMPLETED.
+
+- **2026-06-13**: PR #2457 merged but has unchecked tasks (parent node). `story-061-096-pokerus-tests` is now PENDING.
+
+- **2026-06-13**: PR #2440 merged but has unchecked tasks (parent node). `story-062-098-gen3-parse-32bit-pv` is now PENDING.
+
+- **2026-06-13**: PR #2442 merged but has unchecked tasks (parent node). `story-078-118-refactor-parser-for-rejection-count` is now PENDING.
+
+- **2026-06-13**: PR #2443 merged but has unchecked tasks (parent node). `story-079-116-battle-frontier-dashboard-ui` is now PENDING.
+
+- **2026-06-13**: PR #2445 merged. `task-095-167-gen1-hidden-coin-parsing-impl` is now COMPLETED.
+
+- **2026-06-13**: PR #2441 merged. `task-096-158-gen2-hidden-item-parsing-qa` is now COMPLETED.
+
+- **2026-06-13**: PR #2460 merged. `task-098-157-mirage-island-parsing-impl` is now COMPLETED.
+
+- **2026-06-13**: PR #2461 merged with unchecked tasks. `task-098-158-qa-mirage-island-offset` is now FAILED.
+
+- **2026-06-13**: System failure detected for `task-099-157-gen3-extract-pokemon-pids-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-13**: Resurrection Loop triggered for `task-101-157-gen3-condition-stats-parsing`. Reason: PR #2463 closed without merging.. Transitioned back to READY.
+
+- **2026-06-13**: PR #2459 merged. `task-101-157-gen3-nature-condition-mapping-impl` is now COMPLETED.
+
+- **2026-06-13**: PR #2458 merged. `task-101-158-contest-condition-stats-ui-qa` is now COMPLETED.
+
+- **2026-06-13**: PR #2462 merged. `task-102-157-contest-sheen-display-impl` is now COMPLETED.
+
+- **2026-06-13**: Resurrection Loop triggered for `task-098-157-locate-mirage-island-offset`. Reason: Retry from FAILED status.. Transitioned back to READY.

@@ -2,10 +2,10 @@
 id: story-061-098-locate-mirage-island-data
 type: STORY
 title: Locate Mirage Island Data Block
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-09'
-updated_at: '2026-06-10'
+updated_at: '2026-06-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
