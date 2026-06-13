@@ -36,8 +36,8 @@ The `coder` persona has documented the exact offset and data structure for the d
 - **Failure Condition**: If the documentation is incorrect or missing, you MUST update this node's YAML frontmatter to `status: FAILED` with a clear `rejection_reason` so the tech lead can resurrect the work. Do NOT mark this task as FAILED if the task itself passes but you found a bug in the target; report bugs in the rejection_reason and FAILED status if necessary.
 
 ## Acceptance Criteria
-- [ ] Verify the documented byte offsets for the Mirage Island value in R/S/E are correct.
-- [ ] Verify the data size is documented as a 16-bit integer.
+- [x] Verify the documented byte offsets for the Mirage Island value in R/S/E are correct.
+- [x] Verify the data size is documented as a 16-bit integer.
 
 ### QA Notes
 - Validation FAILED: The documentation incorrectly attributes the offset to "Section 3-4 - Game Specific Data". According to Bulbapedia, 0x0408 and 0x0464 belong to "Section 2 - Game State". The target task has been failed and reverted for correction.
