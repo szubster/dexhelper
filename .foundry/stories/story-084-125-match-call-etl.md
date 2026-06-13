@@ -2,12 +2,12 @@
 id: story-084-125-match-call-etl
 type: STORY
 title: 'Story: Gen 3 Match Call Static Data ETL'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4380526324425258964'
 pr_number: null
 parent: epic-048-084-gen3-match-call-static-data
 tags:
