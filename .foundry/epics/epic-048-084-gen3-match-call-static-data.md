@@ -2,12 +2,12 @@
 id: epic-048-084-gen3-match-call-static-data
 type: EPIC
 title: 'Epic: Gen 3 Match Call Static Data Generation'
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6869000542714863980'
 pr_number: null
 parent: prd-077-048-gen3-match-call-tracker
 tags:
