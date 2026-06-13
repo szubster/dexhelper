@@ -8,7 +8,7 @@ export const Route = createFileRoute('/pokemon/$pokemonId')({
   validateSearch: (search: Record<string, unknown>) => {
     return {
       // biome-ignore lint/complexity/useLiteralKeys: Bracket notation required for index signature under noPropertyAccessFromIndexSignature
-      from: (search['from'] as string) || '/',
+      from: typeof search['from'] === 'string' ? search['from'] : '/',
     };
   },
   component: PokemonPage,
