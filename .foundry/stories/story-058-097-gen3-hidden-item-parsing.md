@@ -30,7 +30,7 @@ This story focuses on the third part of the epic `epic-037-058-hidden-items-save
 2. Ensure adequate unit tests are added or updated.
 
 ## Acceptance Criteria
-- [ ] `parseGen3` correctly extracts hidden item event flags.
-- [ ] Unit tests for the Gen 3 save parser are updated and pass.
+- [x] `parseGen3` correctly extracts hidden item event flags.
+- [x] Unit tests for the Gen 3 save parser are updated and pass.
 - [x] .foundry/archive/tasks/task-097-157-gen3-hidden-item-parsing-impl.md
 - [x] .foundry/tasks/task-097-158-gen3-hidden-item-parsing-qa.md
