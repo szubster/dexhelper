@@ -36,9 +36,9 @@ This task implements the logic defined in `story-064-101-gen3-nature-condition-m
 - Follow existing project conventions for data structures.
 
 ## Acceptance Criteria
-- [ ] The data structure mapping all 25 Natures to Contest Conditions is implemented.
-- [ ] Utility functions for querying preferences and dislikes are implemented and exported.
-- [ ] Unit tests cover all 25 natures to verify accuracy.
+- [x] The data structure mapping all 25 Natures to Contest Conditions is implemented.
+- [x] Utility functions for querying preferences and dislikes are implemented and exported.
+- [x] Unit tests cover all 25 natures to verify accuracy.
 
 > **Note to Coder**:
 > - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

@@ -1,0 +1,28 @@
+export type Nature =
+  | 'hardy'
+  | 'bold'
+  | 'modest'
+  | 'calm'
+  | 'timid'
+  | 'lonely'
+  | 'docile'
+  | 'mild'
+  | 'gentle'
+  | 'hasty'
+  | 'adamant'
+  | 'impish'
+  | 'bashful'
+  | 'careful'
+  | 'rash'
+  | 'jolly'
+  | 'naughty'
+  | 'lax'
+  | 'quirky'
+  | 'naive'
+  | 'brave'
+  | 'relaxed'
+  | 'quiet'
+  | 'sassy'
+  | 'serious';
+
+export type ContestCondition = 'cool' | 'beauty' | 'cute' | 'smart' | 'tough';
