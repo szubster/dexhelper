@@ -2,7 +2,7 @@
 id: story-081-122-gen3-rtc-extraction
 type: STORY
 title: Extract Gen 3 RTC Data
-status: ACTIVE
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-13'
@@ -16,7 +16,7 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'RTC data in Gen 3 is emulator dependent and highly unreliable. Event mapping must be RTC-independent.'
 notes: ''
 ---
 
