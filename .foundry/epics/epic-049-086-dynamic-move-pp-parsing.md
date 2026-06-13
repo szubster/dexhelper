@@ -36,3 +36,7 @@ Currently, data such as move PPs are either manually maintained or fetched ad-ho
 - [ ] Implement parsing logic in `scripts/generate-pokedata.ts` to extract moves data (including PPs).
 - [ ] Handle any discrepancies between generations for moves.
 - [ ] Output the correct `moves.jsonl` data payload.
+
+- [ ] story-086-128-move-data-extraction
+- [ ] story-086-129-move-generation-discrepancies
+- [ ] story-086-130-move-jsonl-compaction
