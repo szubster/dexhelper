@@ -89,3 +89,7 @@
 ## 2026-06-12
 **Idea:** Gen 3 TV Broadcast and Swarm Tracker
 **Learning:** Gen 3 features a hidden time-based event system driven by in-game TV broadcasts (which trigger swarms, sales, etc.). Like the Berry Tracker and Daily Events ideas, targeting time-gated mechanics that players easily miss without playing every day provides a massive QoL improvement. Automating these reminders based on save file event timers perfectly leverages our programmatic access to create actionable schedules.
+
+## 2026-06-13
+**Idea:** Gen 3 PokéNav Match Call & Rematch Tracker
+**Learning:** Expanding Gen 3 support by surfacing hidden, dynamically changing state (like the obfuscated step-counter-driven Match Call rematch flags) provides players with highly actionable utilities. Transforming a tedious, scroll-heavy in-game UI into an optimized dashboard for EV and EXP farming perfectly leverages our offline-first programmatic parsing strengths, turning hidden state into a competitive advantage for the hardcore playerbase.
