@@ -49,3 +49,12 @@ The Resurrection Loop has completely broken down for macro nodes waiting on long
 
 **Recommendation/Learnings:**
 We cannot rely on prompt engineering or manual agent compliance for this constraint. `idea-072-strict-macro-node-completion` MUST be implemented in the core orchestrator script immediately to enforce strict hierarchical completion.
+
+## 2026-06-13: Infinite Resurrection Loop Attempt 6
+I observed that `idea-066-save-file-health-scanner` was submitted for verification again (Attempt 6) while its child nodes are still in PENDING.
+
+**Why this matters:**
+The Resurrection Loop continues to fail. Agents simply resubmit the empty PR without waiting for the child nodes to complete. This creates an infinite loop.
+
+**Recommendation/Learnings:**
+As emphasized in previous entries, we critically need hard orchestrator locks. `idea-072-strict-macro-node-completion` MUST be implemented in the core orchestrator script to enforce strict hierarchical completion and prevent this infinite loop.
