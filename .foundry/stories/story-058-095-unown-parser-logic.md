@@ -36,5 +36,5 @@ As defined in the parent Epic, for Unown (`speciesId` 201) in Generation 2, we c
 
 ## Acceptance Criteria
 - [x] Task created for implementing the unown form parser logic.
-- [ ] .foundry/tasks/task-095-151-unown-parser-logic-impl.md
-- [ ] .foundry/tasks/task-095-152-unown-parser-logic-qa.md
+- [x] .foundry/tasks/task-095-151-unown-parser-logic-impl.md
+- [x] .foundry/tasks/task-095-152-unown-parser-logic-qa.md
