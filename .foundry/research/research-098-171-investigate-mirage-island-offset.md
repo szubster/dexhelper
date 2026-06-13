@@ -2,12 +2,12 @@
 id: research-098-171-investigate-mirage-island-offset
 type: RESEARCH
 title: Investigate Mirage Island Offset and Section
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2450565622412988491'
 pr_number: null
 parent: story-061-098-locate-mirage-island-data
 tags:
