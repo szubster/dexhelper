@@ -28,3 +28,7 @@ Extract and parse the Real-Time Clock (RTC) value from Gen 3 save files to allow
 ## Acceptance Criteria
 - [ ] Implement parser logic to extract the RTC value from the save.
 - [ ] Provide utility functions to format/interpret the RTC data against current active events.
+
+## Child Nodes
+- [ ] task-122-171-gen3-rtc-extraction-impl
+- [ ] task-122-172-gen3-rtc-extraction-qa
