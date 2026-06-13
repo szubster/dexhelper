@@ -29,7 +29,7 @@ notes: ''
 Verify the implementation of Pokerus parsing edge-case tests in `src/engine/saveParser/parsers/gen2.test.ts`.
 
 ## Acceptance Criteria
-- [ ] Verify that Pokerus parsing tests cover boundary values such as non-zero strain with 0 days remaining.
-- [ ] Verify that the test suite runs correctly (`pnpm test`) and passes successfully.
-- [ ] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-- [ ] If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
+- [x] Verify that Pokerus parsing tests cover boundary values such as non-zero strain with 0 days remaining.
+- [x] Verify that the test suite runs correctly (`pnpm test`) and passes successfully.
+- [x] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
