@@ -65,3 +65,10 @@ The `EnigmaBerry` struct is composed of a `Berry2` structure (which defines the 
 
 The `DataView` parser in `task-095-157-gen3-berry-dataview-parsing` should seek to offset `0x169C` in `SaveBlock1` and iterate 128 times, advancing by 8 bytes per iteration.
 Bitwise operations will be needed for offsets `0x01` and `0x05` to extract the correct growth stages, stop flags, regrowth counts, and watering history.
+## 3. Implicit and Missing Data (Map ID, Time Planted, Last Watered)
+
+During research, it was found that certain data points often assumed to exist are **not explicitly stored** in the Gen 3 save format.
+
+- **Map ID:** The Map ID is not stored within the `BerryTree` struct. Instead, the 128 `BerryTree` slots are pre-allocated to specific locations in the game world. The mapping between the array index (the "Berry Tree ID") and its location is implicit. In the game's code, `constants/berry.h` defines constants like `BERRY_TREE_ROUTE_102_PECHA` which correspond to these array indices. In map data (`map.json`), these IDs are directly assigned to the `trainerRange_berryTreeId` field of `ObjectEvent` entities. Therefore, to determine a berry patch's map location, one must map the array index to its hardcoded map location.
+- **Time Planted:** The exact time a berry was planted is not saved. The game instead uses the `lastBerryTreeUpdate` global timestamp (stored at offset `0xA0` in `SaveBlock2`) and calculates time differences to decrement the `minutesUntilNextStage` value.
+- **Last Watered Time:** The time a berry was last watered is not recorded. The `BerryTree` struct only tracks boolean flags (`watered1`, `watered2`, `watered3`, `watered4`) for whether the plant was watered during each of its four growth stages.
