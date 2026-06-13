@@ -53,3 +53,6 @@ Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While t
 
 ## Empty PR Policy Execution
 **Pattern:** When the Shield persona concludes that no actionable security updates are needed in the application code, and no vulnerable dependencies exist (No known vulnerabilities found), it should submit an empty PR directly via the `submit` tool, instead of fabricating arbitrary string modifications.
+
+## Package.json Sorting
+**Pattern:** When making any modifications to `package.json`, always remember to run `pnpm exec sort-package-json package.json` (or `pnpm lint:package-json` to check) before submitting to prevent linting failures.
