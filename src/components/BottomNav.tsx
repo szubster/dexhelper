@@ -43,15 +43,15 @@ export function BottomNav() {
             <div className="absolute -top-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-l-[4px]" />
             <div className="absolute -top-1 -right-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-r-[4px]" />
             <div className="absolute -bottom-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-b-[4px] border-l-[4px]" />
-            <div className="absolute -bottom-1 -right-1 h-3 w-3 border-[var(--theme-primary)] border-r-[4px] border-b-[4px]" />
+            <div className="absolute -right-1 -bottom-1 h-3 w-3 border-[var(--theme-primary)] border-r-[4px] border-b-[4px]" />
           </div>
         )}
 
-        <div className="flex-1 h-full">
+        <div className="h-full flex-1">
           <NavButton to="/" ariaLabel="Pokedex" label="DEX" activeLabel="DEX" icon={LayoutGrid} isActive={isDex} />
         </div>
 
-        <div className="flex-1 h-full">
+        <div className="h-full flex-1">
           <NavButton
             to="/storage"
             ariaLabel="Storage"
@@ -62,7 +62,7 @@ export function BottomNav() {
           />
         </div>
 
-        <div className="flex-1 h-full">
+        <div className="h-full flex-1">
           <NavButton
             to="/assistant"
             ariaLabel="Assistant"
@@ -73,11 +73,11 @@ export function BottomNav() {
           />
         </div>
 
-        <div className="flex-1 h-full">
+        <div className="h-full flex-1">
           <NavButton to="/dag" ariaLabel="DAG" label="DAG" activeLabel="DAG" icon={GitGraph} isActive={isDag} />
         </div>
 
-        <div className="flex-1 h-full">
+        <div className="h-full flex-1">
           <NavButton
             onClick={() => setIsSettingsOpen(true)}
             ariaLabel="Open settings menu"
