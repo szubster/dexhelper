@@ -42,7 +42,7 @@ Currently, data such as move PPs and valid item lists are either manually mainta
 - [ ] Write an ADR detailing the architectural approach for integrating this dynamic generation into the existing data pipeline.
 
 ### Epic Breakdown
-- [ ] .foundry/docs/adrs/025-dynamic-pokedata-parsing.md
+- [ ] .foundry/docs/adrs/adr-049-025-dynamic-pokedata-parsing.md
 - [ ] .foundry/epics/epic-049-086-dynamic-move-pp-parsing.md
 - [ ] .foundry/epics/epic-049-087-dynamic-item-list-parsing.md
 - [ ] .foundry/epics/epic-049-088-vite-plugin-jsonl-integration.md
