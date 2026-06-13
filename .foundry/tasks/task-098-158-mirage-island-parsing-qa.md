@@ -2,7 +2,7 @@
 id: task-098-158-mirage-island-parsing-qa
 type: TASK
 title: QA Gen 3 Mirage Island Value Parsing
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-13'
@@ -35,9 +35,9 @@ Verify the implementation from `task-098-157-mirage-island-parsing-impl.md` to e
 - Tests must cover both successful extraction and graceful failure on truncated files.
 
 ## Acceptance Criteria
-- [ ] Code reviewed to ensure `DataView.getUint16` is used.
-- [ ] Code reviewed to ensure `RangeError` is caught and handled.
-- [ ] Tests verify behavior with valid and artificially truncated save files.
+- [x] Code reviewed to ensure `DataView.getUint16` is used.
+- [x] Code reviewed to ensure `RangeError` is caught and handled.
+- [x] Tests verify behavior with valid and artificially truncated save files.
 
 ## Important Note for QA
 If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

@@ -24,10 +24,10 @@ rejection_reason: ''
 Transition the data serialization layer from JSON to MsgPack to handle larger Gen 3 datasets efficiently, as mandated by ADR 010.
 
 ## Acceptance Criteria
-- [ ] Data generation scripts output `.msgpack` files instead of `.json`.
-- [ ] Client-side loading logic is updated to fetch and decode MsgPack data using `msgpackr`.
-- [ ] Bundle size and parse time metrics are verified.
+- [x] Data generation scripts output `.msgpack` files instead of `.json`.
+- [x] Client-side loading logic is updated to fetch and decode MsgPack data using `msgpackr`.
+- [x] Bundle size and parse time metrics are verified.
 
 ## Generated Tasks
-- [ ] .foundry/tasks/task-063-132-msgpack-transition-impl.md
-- [ ] .foundry/tasks/task-063-133-msgpack-transition-qa.md
+- [x] .foundry/tasks/task-063-132-msgpack-transition-impl.md
+- [x] .foundry/tasks/task-063-133-msgpack-transition-qa.md

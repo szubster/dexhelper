@@ -2,13 +2,13 @@
 id: story-078-121-gen3-parse-battle-frontier-win-streaks
 type: STORY
 title: Gen 3 Parse Battle Frontier Win Streaks
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-13'
 depends_on:
   - research-046-140-gen3-battle-frontier
-jules_session_id: '8408414113669936455'
+jules_session_id: null
 pr_number: null
 parent: epic-046-078-gen3-battle-frontier-data-extraction
 tags:
@@ -31,3 +31,6 @@ Based on the offset research in `research-046-140-gen3-battle-frontier`, extract
 - [ ] Extract current win streaks for Tower, Dome, Palace, Arena, Factory, Pike, and Pyramid.
 - [ ] Extract max win records for all 7 facilities.
 - [ ] Implement error handling for out-of-bounds reads.
+
+- [ ] task-121-171-gen3-parse-battle-frontier-win-streaks-impl
+- [ ] task-121-172-gen3-parse-battle-frontier-win-streaks-qa

@@ -2,12 +2,12 @@
 id: idea-077-gen3-match-call-tracker
 type: IDEA
 title: Gen 3 PokéNav Match Call & Rematch Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '13286115731284163579'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -36,4 +36,5 @@ Leverage DexHelper's save parsing to read the Trainer Hill/Match Call data block
 This perfectly aligns with DexHelper's vision as an intelligent companion app. It takes a tedious, opaque in-game system and transforms it into an actionable utility for competitive training and endgame optimization, offering massive value to the hardcore playerbase.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to detail the UI requirements and required memory offsets for Emerald Match Call flags.
+- [x] Product Manager: Convert this idea into a PRD to detail the UI requirements and required memory offsets for Emerald Match Call flags.
+- [ ] .foundry/prds/prd-077-048-gen3-match-call-tracker.md

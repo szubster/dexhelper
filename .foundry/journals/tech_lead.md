@@ -53,3 +53,7 @@ Prevents silent failures and ensures backwards compatibility.
 
 - **Observation**: Standard documentation often lists Hall of Fame counts at fixed absolute offsets (e.g. `0x24EC` for GS). However, relying on these can be unreliable due to emulator artifacts or regional shifts, causing task failures.
 - **Action**: When drafting tasks for parsing variable save data, enforce the use of relative offsets based on known, stable anchor points within the player data block. For example, explicitly mapping the Hall of Fame count to `johtoBadgesOffset + 0xA8` ensures cross-version stability and prevents rigid absolute offset failures.
+## 2026-06-13: Verifying Save File Sections against Bulbapedia
+
+- **Observation**: When documenting Gen 3 save file offsets, simply finding the correct byte offset is insufficient. The offset must be mapped to the correct logical 4KB section boundary as defined by authoritative sources like Bulbapedia. For instance, the Mirage Island offset (`0x0408`/`0x0464`) was incorrectly attributed to "Section 3-4 - Game Specific Data" instead of the correct "Section 2 - Game State", leading to QA rejection.
+- **Action**: Always explicitly verify the logical section of any discovered offset against authoritative documentation before finalizing parsing specs to prevent incorrect data extraction by the orchestrator.

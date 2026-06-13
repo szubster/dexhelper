@@ -25,9 +25,9 @@ rejection_reason: ''
 Integrate the newly parsed Gen 3 encounter data into the suggestion engine and map graph.
 
 ## Acceptance Criteria
-- [ ] Suggestion engine correctly utilizes Gen 3 encounter data.
-- [ ] Location and encounter routing is aware of Gen 3 specific mechanics.
+- [x] Suggestion engine correctly utilizes Gen 3 encounter data.
+- [x] Location and encounter routing is aware of Gen 3 specific mechanics.
 
 ## Generated Tasks
-- [ ] .foundry/archive/tasks/task-064-134-encounter-integration-impl.md
-- [ ] .foundry/archive/tasks/task-064-135-encounter-integration-qa.md
+- [x] .foundry/archive/tasks/task-064-134-encounter-integration-impl.md
+- [x] .foundry/archive/tasks/task-064-135-encounter-integration-qa.md

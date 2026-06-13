@@ -2,7 +2,7 @@
 id: story-081-124-gen3-event-forecast-schedule
 type: STORY
 title: Parse Gen 3 Event Forecasting and Mix Records
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-13'
@@ -28,3 +28,7 @@ Extract the forecasting schedule for upcoming events (e.g., Energy Guru sales) a
 ## Acceptance Criteria
 - [ ] Extract upcoming event schedule data from the save file.
 - [ ] Extract Mix Record flags/data to identify inherited events.
+- [ ] task-124-171-gen3-event-schedule-parser
+- [ ] task-124-172-gen3-mix-record-events-parser
+- [ ] task-124-173-qa-gen3-event-schedule-parser
+- [ ] task-124-174-qa-gen3-mix-record-events-parser

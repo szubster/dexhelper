@@ -2,7 +2,7 @@
 id: task-089-165-radar-heatmap-density-logic-impl
 type: TASK
 title: Implement Route Radar Heatmap Density Logic
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-12'
 updated_at: '2026-06-13'
@@ -42,10 +42,10 @@ Implement the data transformation pipeline inside the `RouteRadarController` in 
 - Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs in `src/engine/radar/__tests__/RouteRadarController.test.ts`.
 
 ## Acceptance Criteria
-- [ ] Implement the aggregation method in `RouteRadarController`.
-- [ ] Ensure the density score correctly maps `areaId`s to their corresponding missing species counts.
-- [ ] Ensure it accurately processes edge cases (e.g., areas with 0 missing encounters should not be present in the output or have a score of 0).
-- [ ] Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
+- [x] Implement the aggregation method in `RouteRadarController`.
+- [x] Ensure the density score correctly maps `areaId`s to their corresponding missing species counts.
+- [x] Ensure it accurately processes edge cases (e.g., areas with 0 missing encounters should not be present in the output or have a score of 0).
+- [x] Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
 
 **Important Persona Instructions:**
 - **CODER**: If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not modify the frontmatter otherwise.

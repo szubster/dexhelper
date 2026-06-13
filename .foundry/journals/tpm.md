@@ -236,3 +236,29 @@ No critical learnings logged yet.
 - **2026-06-13**: PR #2462 merged. `task-102-157-contest-sheen-display-impl` is now COMPLETED.
 
 - **2026-06-13**: Resurrection Loop triggered for `task-098-157-locate-mirage-island-offset`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-13**: Resurrection Loop triggered for `task-098-158-qa-mirage-island-offset`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-13**: PR #2466 merged. `idea-077-gen3-match-call-tracker` is now VERIFYING.
+
+- **2026-06-13**: PR #2469 merged. `story-058-096-gen2-hidden-item-parsing` is now COMPLETED.
+
+- **2026-06-13**: PR #2468 merged but has unchecked tasks (parent node). `story-078-121-gen3-parse-battle-frontier-win-streaks` is now PENDING.
+
+- **2026-06-13**: PR #2471 merged but has unchecked tasks (parent node). `story-081-121-gen3-tv-block-dataview-parser` is now PENDING.
+
+- **2026-06-13**: PR #2477 merged but has unchecked tasks (parent node). `story-081-124-gen3-event-forecast-schedule` is now PENDING.
+
+- **2026-06-13**: System failure detected for `task-081-144-preserve-enum-optimizations-retry-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-13**: PR #2476 merged. `task-089-165-radar-heatmap-density-logic-impl` is now COMPLETED.
+
+- **2026-06-13**: System failure detected for `task-095-157-gen3-berry-dataview-parsing`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-13**: PR #2475 merged. `task-095-168-gen1-hidden-coin-parsing-qa` is now COMPLETED.
+
+- **2026-06-13**: PR #2479 merged. `task-096-169-pokerus-tests-impl` is now COMPLETED.
+
+- **2026-06-13**: PR #2478 merged. `task-098-157-locate-mirage-island-offset` is now COMPLETED.
+
+- **2026-06-13**: PR #2473 merged. `task-098-158-mirage-island-parsing-qa` is now COMPLETED.

@@ -2,7 +2,7 @@
 id: task-095-168-gen1-hidden-coin-parsing-qa
 type: TASK
 title: Gen 1 Hidden Coin Event Flags Parsing QA
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-12'
 updated_at: '2026-06-13'
@@ -27,10 +27,10 @@ notes: ''
 This task verifies the implementation of the `task-095-167-gen1-hidden-coin-parsing-impl` task, ensuring the `SaveData` interface and Gen 1 save parser correctly handle hidden coin event flags.
 
 ## QA Verification Criteria
-- [ ] Verify that `hiddenCoinFlags?: Uint8Array` has been added to the `SaveData` interface in `src/engine/saveParser/parsers/common.ts`.
-- [ ] Verify that the `parseGen1` function correctly calculates the offset and extracts the hidden coin flags.
-- [ ] Verify that the implementation correctly uses the `offsetShift` when calculating the hidden coin flags offset to ensure Pokemon Yellow compatibility.
-- [ ] Verify that unit tests were added or updated in `src/engine/saveParser/parsers/gen1.test.ts` and that they cover the extraction logic, injecting mock data and verifying it is correctly extracted.
+- [x] Verify that `hiddenCoinFlags?: Uint8Array` has been added to the `SaveData` interface in `src/engine/saveParser/parsers/common.ts`.
+- [x] Verify that the `parseGen1` function correctly calculates the offset and extracts the hidden coin flags.
+- [x] Verify that the implementation correctly uses the `offsetShift` when calculating the hidden coin flags offset to ensure Pokemon Yellow compatibility.
+- [x] Verify that unit tests were added or updated in `src/engine/saveParser/parsers/gen1.test.ts` and that they cover the extraction logic, injecting mock data and verifying it is correctly extracted.
 
 ## IMPORTANT REMINDERS
 - **If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.**

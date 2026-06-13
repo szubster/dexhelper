@@ -1,13 +1,13 @@
 ---
-id: task-098-158-qa-mirage-island-offset
+id: task-098-173-qa-mirage-island-offset-retry
 type: TASK
-title: QA - Verify Mirage Island Data Block Offset Documentation
-status: READY
+title: QA - Verify Mirage Island Data Block Offset Documentation (Retry)
+status: PENDING
 owner_persona: qa
-created_at: '2026-06-10'
+created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on:
-  - task-098-157-locate-mirage-island-offset
+  - task-098-172-locate-mirage-island-offset-retry
 jules_session_id: null
 pr_number: null
 parent: story-061-098-locate-mirage-island-data
@@ -17,19 +17,19 @@ tags:
   - mirage-island
   - save-parsing
 research_references: []
-rejection_count: 2
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
 
-# QA - Verify Mirage Island Data Block Offset Documentation
+# QA - Verify Mirage Island Data Block Offset Documentation (Retry)
 
 ## Context
-The `coder` persona has documented the exact offset and data structure for the daily/random variables block containing the Mirage Island value in Gen 3 save files (Ruby, Sapphire, Emerald) in `task-098-157-locate-mirage-island-offset`. We need to verify the accuracy of this documentation.
+The `coder` persona has documented the exact offset, section, and data structure for the daily/random variables block containing the Mirage Island value in Gen 3 save files (Ruby, Sapphire, Emerald) in `task-098-172-locate-mirage-island-offset-retry`. We need to verify the accuracy of this documentation.
 
 ## Requirements
 1. Review `.foundry/docs/knowledge_base/gen3_mirage_island_offsets.md`.
-2. Verify the documented offsets and data structure size (expected 16-bit integer) match known Gen 3 save structures (e.g., from Bulbapedia, Pret repositories, etc.).
+2. Verify the documented offsets, sections, and data structure size match known Gen 3 save structures (e.g., from Bulbapedia, Pret repositories, etc.) and align with the findings from `research-098-171-investigate-mirage-island-offset.md`.
 
 ## Tech Lead Instructions for QA
 - **Empty PR Reminder**: Since this is a QA verification task and you are unlikely to make code changes, you MUST check off the Acceptance Criteria (`- [x]`) in this node's markdown and use the `submit` tool to create an empty Pull Request.
@@ -37,9 +37,5 @@ The `coder` persona has documented the exact offset and data structure for the d
 
 ## Acceptance Criteria
 - [ ] Verify the documented byte offsets for the Mirage Island value in R/S/E are correct.
+- [ ] Verify the documented section for the Mirage Island value is correct according to Bulbapedia.
 - [ ] Verify the data size is documented as a 16-bit integer.
-
-### QA Notes
-- Validation FAILED: The documentation incorrectly attributes the offset to "Section 3-4 - Game Specific Data". According to Bulbapedia, 0x0408 and 0x0464 belong to "Section 2 - Game State". The target task has been failed and reverted for correction.
-
-**Note:** This task is CANCELLED and has been replaced by `task-098-173-qa-mirage-island-offset-retry.md` due to incorrect Bulbapedia section documentation.

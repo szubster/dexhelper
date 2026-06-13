@@ -2,12 +2,12 @@
 id: story-058-096-gen2-hidden-item-parsing
 type: STORY
 title: Gen 2 Hidden Item Event Flags Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-08'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '499494427789620136'
+jules_session_id: null
 pr_number: null
 parent: epic-037-058-hidden-items-save-parsing
 tags:
@@ -30,9 +30,9 @@ This story focuses on the second part of the epic `epic-037-058-hidden-items-sav
 2. Ensure adequate unit tests are added or updated.
 
 ## Acceptance Criteria
-- [ ] `parseGen2` correctly extracts hidden item event flags.
-- [ ] Unit tests for the Gen 2 save parser are updated and pass.
+- [x] `parseGen2` correctly extracts hidden item event flags.
+- [x] Unit tests for the Gen 2 save parser are updated and pass.
 
 ## Generated Tasks
-- [ ] .foundry/tasks/task-096-157-gen2-hidden-item-parsing-impl.md
-- [ ] .foundry/tasks/task-096-158-gen2-hidden-item-parsing-qa.md
+- [x] .foundry/tasks/task-096-157-gen2-hidden-item-parsing-impl.md
+- [x] .foundry/tasks/task-096-158-gen2-hidden-item-parsing-qa.md

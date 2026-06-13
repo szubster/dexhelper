@@ -2,7 +2,7 @@
 id: task-096-169-pokerus-tests-impl
 type: TASK
 title: Implement Pokerus Parser Edge-Case Tests
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
@@ -30,8 +30,8 @@ The Pokerus byte parsing logic in Gen 2 currently has a happy-path test in `src/
 3. Validating the fallback handling if needed.
 
 ## Acceptance Criteria
-- [ ] Add extensive Pokerus parsing tests in `src/engine/saveParser/parsers/gen2.test.ts`.
-- [ ] Ensure edge cases like 0 days remaining with non-zero strain (cured state) are explicitly tested.
-- [ ] Ensure all tests pass.
-- [ ] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-- [ ] If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
+- [x] Add extensive Pokerus parsing tests in `src/engine/saveParser/parsers/gen2.test.ts`.
+- [x] Ensure edge cases like 0 days remaining with non-zero strain (cured state) are explicitly tested.
+- [x] Ensure all tests pass.
+- [x] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] If you abort or permanently fail a task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
