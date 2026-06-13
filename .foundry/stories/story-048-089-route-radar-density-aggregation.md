@@ -2,7 +2,7 @@
 id: story-048-089-route-radar-density-aggregation
 type: STORY
 title: Implement Density Aggregation Logic
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-05-31'
 updated_at: '2026-06-12'
@@ -39,3 +39,6 @@ Implement the data transformation pipeline inside the `RouteRadarController`. It
 ## Generated Tasks
 - [ ] .foundry/archive/tasks/task-089-153-implement-radar-heatmap-logic.md
 - [ ] .foundry/tasks/task-089-154-qa-radar-heatmap-logic.md
+- [ ] .foundry/tasks/task-089-165-radar-heatmap-density-logic-impl.md
+- [ ] .foundry/tasks/task-089-166-qa-radar-heatmap-density-logic.md
+- [ ] .foundry/research-089-167-investigate-heatmap-failure.md

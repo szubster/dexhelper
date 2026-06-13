@@ -172,3 +172,23 @@ No critical learnings logged yet.
 - **2026-06-12**: PR #2403 merged. `task-101-157-contest-condition-stats-ui-impl` is now COMPLETED.
 
 - **2026-06-12**: Resurrection Loop triggered for `task-094-157-moveset-inventory-validation-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-12**: PR #2425 merged. `epic-036-052-time-capsule-ui-indicators` is now VERIFYING.
+
+- **2026-06-12**: Resurrection Loop triggered for `epic-046-078-gen3-battle-frontier-data-extraction`. Reason: PR #2426 closed without merging.. Transitioned back to READY.
+
+- **2026-06-12**: PR #2429 merged but has unchecked tasks (parent node). `epic-046-078-shared-dag-context-foundation` is now PENDING.
+
+- **2026-06-12**: PR #2432 merged. `prd-075-047-gen3-tv-swarm-tracker` is now VERIFYING.
+
+- **2026-06-12**: Resurrection Loop triggered for `research-095-158-gen3-berry-missing-offsets`. Reason: PR #2430 closed without merging.. Transitioned back to READY.
+
+- **2026-06-12**: PR #2428 merged but has unchecked tasks (parent node). `story-048-089-route-radar-density-aggregation` is now PENDING.
+
+- **2026-06-12**: PR #2418 merged but has unchecked tasks (parent node). `task-095-157-gen2-event-flag-impl` is now PENDING.
+
+- **2026-06-13**: System failure detected for `research-095-157-gen2-event-flag-offsets`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-13**: PR #2439 merged. `story-061-095-pokerus-byte-parsing` is now COMPLETED.
+
+- **2026-06-13**: System failure detected for `task-084-150-breeding-pair-algorithm-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.

@@ -2,13 +2,13 @@
 id: task-094-157-moveset-inventory-validation-impl
 type: TASK
 title: Implement Moveset and Inventory Validation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: 2026-06-10T00:00:00.000Z
-updated_at: '2026-06-12'
 depends_on:
   - idea-077-dynamic-pokeapi-data
-jules_session_id: null
+updated_at: '2026-06-13'
+jules_session_id: '8724805382122507598'
 pr_number: null
 parent: story-053-094-health-scanner-moveset-inventory-validation
 tags:
