@@ -31,3 +31,6 @@ Based on the offset research in `research-046-140-gen3-battle-frontier`, extract
 - [ ] Extract current win streaks for Tower, Dome, Palace, Arena, Factory, Pike, and Pyramid.
 - [ ] Extract max win records for all 7 facilities.
 - [ ] Implement error handling for out-of-bounds reads.
+
+- [ ] task-121-171-gen3-parse-battle-frontier-win-streaks-impl
+- [ ] task-121-172-gen3-parse-battle-frontier-win-streaks-qa
