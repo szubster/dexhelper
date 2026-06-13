@@ -298,3 +298,21 @@ No critical learnings logged yet.
 - **2026-06-13**: PR #2492 merged. `task-098-158-qa-mirage-island-offset` is now COMPLETED.
 
 - **2026-06-13**: PR #2491 merged. `task-098-169-extract-32bit-pv-impl` is now COMPLETED.
+
+- **2026-06-13**: PR #2496 merged. `adr-049-025-dynamic-pokedata-parsing` is now COMPLETED.
+
+- **2026-06-13**: System failure detected for `idea-076-tpm-journal-bloat`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-13**: PR #2501 merged. `research-078-172-rtc-strategy-investigation` is now COMPLETED.
+
+- **2026-06-13**: PR #2498 merged but has unchecked tasks (parent node). `story-048-089-route-radar-density-aggregation` is now PENDING.
+
+- **2026-06-13**: PR #2502 merged. `story-058-095-unown-parser-logic` is now COMPLETED.
+
+- **2026-06-13**: PR #2500 merged. `story-059-125-hidden-items-data-model` is now COMPLETED.
+
+- **2026-06-13**: PR #2495 merged. `story-061-096-pokerus-tests` is now COMPLETED.
+
+- **2026-06-13**: PR #2497 merged but has unchecked tasks (parent node). `story-083-125-gen3-match-call-memory-offset-discovery` is now PENDING.
+
+- **2026-06-13**: PR #2499 merged but has unchecked tasks (parent node). `story-084-125-match-call-etl` is now PENDING.

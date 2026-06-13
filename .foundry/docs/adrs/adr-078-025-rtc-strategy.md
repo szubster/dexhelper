@@ -2,10 +2,10 @@
 id: adr-078-025-rtc-strategy
 type: ADR
 title: RTC Strategy Architecture Decision
-status: PENDING
+status: READY
 owner_persona: architect
-created_at: "2026-06-13"
-updated_at: "2026-06-13"
+created_at: '2026-06-13'
+updated_at: '2026-06-13'
 depends_on:
   - research-078-172-rtc-strategy-investigation
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - architecture
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # ADR 025: RTC Strategy Architecture Decision

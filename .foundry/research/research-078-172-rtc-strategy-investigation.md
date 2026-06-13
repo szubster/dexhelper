@@ -2,12 +2,12 @@
 id: research-078-172-rtc-strategy-investigation
 type: RESEARCH
 title: RTC Strategy and Viability Investigation
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '14011111358112477414'
+jules_session_id: null
 pr_number: null
 parent: idea-078-settle-rtc-strategy
 tags:

@@ -2,7 +2,7 @@
 id: task-125-177-match-call-etl-impl
 type: TASK
 title: 'Task: Gen 3 Match Call Static Data ETL Implementation'
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

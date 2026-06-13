@@ -2,12 +2,12 @@
 id: story-059-125-hidden-items-data-model
 type: STORY
 title: Hidden Items Data Model
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '4086521540624457308'
+jules_session_id: null
 pr_number: null
 parent: epic-037-059-hidden-items-data-layer
 tags:

@@ -2,7 +2,7 @@
 id: research-125-173-gen3-match-call-offsets
 type: RESEARCH
 title: Discover Gen 3 Match Call Memory Offsets
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

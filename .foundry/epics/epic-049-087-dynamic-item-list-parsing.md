@@ -2,7 +2,7 @@
 id: epic-049-087-dynamic-item-list-parsing
 type: EPIC
 title: Dynamic Generation of Items PokeData
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

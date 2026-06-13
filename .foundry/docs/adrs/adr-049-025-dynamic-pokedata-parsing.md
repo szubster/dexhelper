@@ -2,12 +2,12 @@
 id: adr-049-025-dynamic-pokedata-parsing
 type: ADR
 title: Dynamic PokeData Parsing Architecture
-status: ACTIVE
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: '11621008747326650951'
+jules_session_id: null
 pr_number: null
 parent: prd-077-049-dynamic-pokedata-parsing
 tags:

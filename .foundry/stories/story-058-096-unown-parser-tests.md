@@ -2,10 +2,10 @@
 id: story-058-096-unown-parser-tests
 type: STORY
 title: Unown Form Parser Unit Tests
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-06-08'
+updated_at: '2026-06-13'
 depends_on:
   - story-058-095-unown-parser-logic
 jules_session_id: null

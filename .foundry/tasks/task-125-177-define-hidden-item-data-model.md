@@ -2,7 +2,7 @@
 id: task-125-177-define-hidden-item-data-model
 type: TASK
 title: Define Hidden Item Data Model Interfaces
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
