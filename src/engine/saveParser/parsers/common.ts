@@ -29,6 +29,7 @@ export interface PokemonInstance {
   currentHp?: number | undefined;
   dvs?: { hp: number; atk: number; def: number; spd: number; spc: number };
   statExp?: { hp: number; atk: number; def: number; spd: number; spc: number };
+  condition?: { cool: number; beauty: number; cute: number; smart: number; tough: number };
   caughtData?:
     | {
         time: 'Morning' | 'Day' | 'Night' | 'Unknown';

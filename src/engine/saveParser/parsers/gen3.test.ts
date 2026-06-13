@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isGen3Save, parseGen3, parseGen3PersonalityValue } from './gen3';
+import { isGen3Save, parseGen3, parseGen3ConditionStats, parseGen3PersonalityValue } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
   it('isGen3Save should return false normally', () => {
@@ -79,6 +79,91 @@ describe('gen3 parser scaffolding', () => {
 
     // Restore
     view.getUint8 = originalGetUint8;
+  });
+});
+
+describe('parseGen3ConditionStats', () => {
+  it('should correctly decrypt and extract condition stats from substruct E', () => {
+    // 80 bytes is the size of the pokemon struct
+    const buffer = new ArrayBuffer(80);
+    const view = new DataView(buffer);
+
+    const pokemonOffset = 0;
+    const personalityValue = 0; // % 24 = 0 -> Substruct order: GAEM -> E is index 2
+    const otId = 0x12345678;
+    const decryptionKey = personalityValue ^ otId;
+
+    // Substruct E starts at pokemonOffset + 32 + (2 * 12) = 56
+    const substructStart = 56;
+
+    // We want cool=10, beauty=20, cute=30, smart=40, tough=50
+    // dword1 covers bytes 4-7. cool is at byte 2, beauty is at byte 3.
+    // So decrypted dword1 should be: (beauty << 24) | (cool << 16) = (20 << 24) | (10 << 16) = 0x140A0000
+    const decryptedDword1 = (20 << 24) | (10 << 16);
+
+    // dword2 covers bytes 8-11. cute is at byte 0, smart is at byte 1, tough is at byte 2.
+    // So decrypted dword2 should be: (tough << 16) | (smart << 8) | cute = (50 << 16) | (40 << 8) | 30 = 0x0032281E
+    const decryptedDword2 = (50 << 16) | (40 << 8) | 30;
+
+    // Encrypt the dwords
+    const encryptedDword1 = decryptedDword1 ^ decryptionKey;
+    const encryptedDword2 = decryptedDword2 ^ decryptionKey;
+
+    view.setUint32(substructStart + 4, encryptedDword1, true);
+    view.setUint32(substructStart + 8, encryptedDword2, true);
+
+    const result = parseGen3ConditionStats(view, pokemonOffset, personalityValue, otId);
+
+    expect(result).toEqual({
+      cool: 10,
+      beauty: 20,
+      cute: 30,
+      smart: 40,
+      tough: 50,
+    });
+  });
+
+  it('should correctly decrypt and extract from a different substruct order', () => {
+    const buffer = new ArrayBuffer(80);
+    const view = new DataView(buffer);
+
+    const pokemonOffset = 0;
+    const personalityValue = 12; // % 24 = 12 -> Substruct order: EGAM -> E is index 0
+    const otId = 0x87654321;
+    const decryptionKey = personalityValue ^ otId;
+
+    // Substruct E starts at pokemonOffset + 32 + (0 * 12) = 32
+    const substructStart = 32;
+
+    const decryptedDword1 = (255 << 24) | (128 << 16); // beauty=255, cool=128
+    const decryptedDword2 = (1 << 16) | (2 << 8) | 3; // tough=1, smart=2, cute=3
+
+    view.setUint32(substructStart + 4, decryptedDword1 ^ decryptionKey, true);
+    view.setUint32(substructStart + 8, decryptedDword2 ^ decryptionKey, true);
+
+    const result = parseGen3ConditionStats(view, pokemonOffset, personalityValue, otId);
+
+    expect(result).toEqual({
+      cool: 128,
+      beauty: 255,
+      cute: 3,
+      smart: 2,
+      tough: 1,
+    });
+  });
+
+  it('should throw corrupted file error on out of bounds read', () => {
+    // A buffer that is too small (less than 80 bytes)
+    const buffer = new ArrayBuffer(40);
+    const view = new DataView(buffer);
+
+    const pokemonOffset = 0;
+    const personalityValue = 0; // E is index 2, needs offset 56
+    const otId = 0;
+
+    expect(() => parseGen3ConditionStats(view, pokemonOffset, personalityValue, otId)).toThrowError(
+      'The save file is corrupted or incomplete.',
+    );
   });
 });
 
