@@ -186,3 +186,5 @@ No critical learnings logged yet.
 - **2026-06-12**: PR #2428 merged but has unchecked tasks (parent node). `story-048-089-route-radar-density-aggregation` is now PENDING.
 
 - **2026-06-12**: PR #2418 merged but has unchecked tasks (parent node). `task-095-157-gen2-event-flag-impl` is now PENDING.
+
+- **2026-06-13**: System failure detected for `research-095-157-gen2-event-flag-offsets`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
