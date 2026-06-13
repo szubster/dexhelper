@@ -2,7 +2,7 @@
 id: task-098-172-locate-mirage-island-offset-retry
 type: TASK
 title: Locate Mirage Island Data Block Offset (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

@@ -2,7 +2,7 @@
 id: prd-077-049-dynamic-pokedata-parsing
 type: PRD
 title: Dynamic Generation of Moves and Items PokeData
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

@@ -2,7 +2,7 @@
 id: epic-048-084-gen3-match-call-static-data
 type: EPIC
 title: 'Epic: Gen 3 Match Call Static Data Generation'
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-13'
 updated_at: '2026-06-13'

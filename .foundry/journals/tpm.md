@@ -262,3 +262,17 @@ No critical learnings logged yet.
 - **2026-06-13**: PR #2478 merged. `task-098-157-locate-mirage-island-offset` is now COMPLETED.
 
 - **2026-06-13**: PR #2473 merged. `task-098-158-mirage-island-parsing-qa` is now COMPLETED.
+
+- **2026-06-13**: PR #2486 merged. `idea-077-dynamic-pokeapi-data` is now VERIFYING.
+
+- **2026-06-13**: PR #2485 merged. `prd-077-048-gen3-match-call-tracker` is now VERIFYING.
+
+- **2026-06-13**: PR #2484 merged. `research-098-171-investigate-mirage-island-offset` is now COMPLETED.
+
+- **2026-06-13**: PR #2481 merged. `story-058-095-gen1-hidden-item-parsing` is now COMPLETED.
+
+- **2026-06-13**: PR #2482 merged but has unchecked tasks (parent node). `story-061-098-parse-mirage-island-value` is now PENDING.
+
+- **2026-06-13**: PR #2483 merged. `task-089-166-qa-radar-heatmap-density-logic` is now COMPLETED.
+
+- **2026-06-13**: Cleanup Loop deleted remote branch `tech-lead/story-081-122-gen3-rtc-extraction-3210903558433520834`.
