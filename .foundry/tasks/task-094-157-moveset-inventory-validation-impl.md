@@ -2,11 +2,12 @@
 id: task-094-157-moveset-inventory-validation-impl
 type: TASK
 title: Implement Moveset and Inventory Validation
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: 2026-06-10T00:00:00.000Z
-updated_at: '2026-06-12'
-depends_on: []
+updated_at: '2026-06-13'
+depends_on:
+  - research-094-157-moveset-inventory-memory-offsets
 jules_session_id: null
 pr_number: null
 parent: story-053-094-health-scanner-moveset-inventory-validation
@@ -16,8 +17,8 @@ tags:
   - gen2
   - validation
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'Suspended via late binding: The exact memory offsets for Gen 1 and Gen 2 move PPs, as well as authoritative item lists, are undocumented. Waiting for research node to complete before implementation can begin.'
 notes: ''
 ---
 
