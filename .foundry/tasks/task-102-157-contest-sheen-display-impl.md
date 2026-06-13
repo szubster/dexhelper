@@ -39,6 +39,6 @@ This task is part of `story-064-102-contest-sheen-display-ui`, which aims to cre
 - Do NOT modify the YAML frontmatter unless permanently failing or cancelling the task. Only check off the markdown boxes below when completing the work.
 
 ## Acceptance Criteria
-- [ ] Implement `ContestSheenDisplay` React component in `src/components/pokemon/details/`.
-- [ ] Ensure the component properly handles values from 0 to 255, filling up a visual meter/bar.
-- [ ] Ensure styles follow the tactical hardware aesthetic.
+- [x] Implement `ContestSheenDisplay` React component in `src/components/pokemon/details/`.
+- [x] Ensure the component properly handles values from 0 to 255, filling up a visual meter/bar.
+- [x] Ensure styles follow the tactical hardware aesthetic.
