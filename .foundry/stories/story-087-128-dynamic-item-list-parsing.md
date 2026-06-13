@@ -34,4 +34,6 @@ To eliminate manually maintained static item lists in the repository, we need to
 - [ ] Implement parsing logic in `scripts/generate-pokedata.ts` to extract item data from PokeAPI resources.
 - [ ] Perform compaction to omit nulls and default values.
 - [ ] Output the final structure to `data/db/items.jsonl`.
-- [ ] Break down this STORY into concrete TASK nodes for implementation.
+- [x] Break down this STORY into concrete TASK nodes for implementation.
+- [ ] task-128-181-implement-item-list-parsing
+- [ ] task-128-182-qa-item-list-parsing
