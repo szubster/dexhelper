@@ -26,6 +26,6 @@ notes: ''
 Read the specific byte flags for Pokerus for every Pokemon in the party and PC from the Gen 2 sav files.
 
 ## Acceptance Criteria
-- [ ] Extract pokerus data
-- [ ] .foundry/stories/story-061-095-pokerus-byte-parsing.md
-- [ ] .foundry/stories/story-061-096-pokerus-tests.md
+- [x] Extract pokerus data
+- [x] .foundry/stories/story-061-095-pokerus-byte-parsing.md
+- [x] .foundry/stories/story-061-096-pokerus-tests.md
