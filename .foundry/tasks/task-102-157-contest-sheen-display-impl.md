@@ -2,12 +2,12 @@
 id: task-102-157-contest-sheen-display-impl
 type: TASK
 title: Implement Contest Sheen Display Component
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4303746179125692537'
 pr_number: null
 parent: story-064-102-contest-sheen-display-ui
 tags:
