@@ -12,3 +12,6 @@ When executing the Empty PR Policy for tasks where target artifacts are already 
 
 ## 2026-06-12
 - Scope Strictness Warning: Keep git patches strictly scoped. When working on feature branches, DO NOT manually fix schema or frontmatter errors in completely unrelated files (like Gen 2 tasks) just because the schema validator flagged them. Fixing out-of-scope errors creates major regressions and pollutes the dependency graph. Rely solely on checking out or reverting the unrelated files to restore the pristine state.
+
+## 2026-06-13: DAG Linkage Requirement for Epics
+When breaking down a PRD into Epic nodes, if an architectural document is required, do NOT create a `TASK` node for the Architect and make the Epics depend on it. This violates the Foundry DAG execution hierarchy (`IDEA -> PRD -> ADR -> EPIC -> STORY -> TASK`). Instead, dynamically create an `ADR` node (`type: ADR`) directly in `.foundry/docs/adrs/` and set the Epics to depend on that ADR node. Furthermore, ensure that all `depends_on` array references strictly use the exact Node IDs (e.g., `adr-049-025-dynamic-pokedata-parsing`) and never repo-relative file paths to prevent DAG resolution deadlocks.
