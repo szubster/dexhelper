@@ -2,7 +2,7 @@
 id: task-098-158-qa-mirage-island-offset
 type: TASK
 title: QA - Verify Mirage Island Data Block Offset Documentation
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-13'
@@ -17,8 +17,8 @@ tags:
   - mirage-island
   - save-parsing
 research_references: []
-rejection_count: 1
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
