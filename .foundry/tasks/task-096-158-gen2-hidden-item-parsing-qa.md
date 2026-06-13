@@ -34,9 +34,9 @@ The Coder has implemented the Gen 2 hidden item event flags parsing logic as spe
 4. **Code Review**: Ensure there are no type errors or linting issues introduced.
 
 ## Acceptance Criteria
-- [ ] `SaveData` interface correctly includes `hiddenItemFlags`.
-- [ ] `parseGen2` extracts `hiddenItemFlags` using the correct Gen 2 offsets safely.
-- [ ] Unit tests pass successfully.
+- [x] `SaveData` interface correctly includes `hiddenItemFlags`.
+- [x] `parseGen2` extracts `hiddenItemFlags` using the correct Gen 2 offsets safely.
+- [x] Unit tests pass successfully.
 
 ## IMPORTANT REMINDERS
 - **If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.**
