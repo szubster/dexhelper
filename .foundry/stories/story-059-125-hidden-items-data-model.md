@@ -31,4 +31,5 @@ This Story addresses defining the structural representation of hidden items. The
 
 ## 3. Acceptance Criteria
 - [ ] TypeScript interfaces for `HiddenItemData` are defined.
-- [ ] Technical implementation details for creating those interfaces are defined as child `TASK`s.
+- [x] Technical implementation details for creating those interfaces are defined as child `TASK`s.
+- [ ] task-125-177-define-hidden-item-data-model
