@@ -5,8 +5,9 @@ title: Implement Moveset and Inventory Validation
 status: PENDING
 owner_persona: coder
 created_at: 2026-06-10T00:00:00.000Z
+depends_on:
+  - idea-077-dynamic-pokeapi-data
 updated_at: '2026-06-13'
-depends_on: []
 jules_session_id: '8724805382122507598'
 pr_number: null
 parent: story-053-094-health-scanner-moveset-inventory-validation
