@@ -48,6 +48,21 @@ export interface PokemonInstance {
  * Represents the normalized player state extracted from a raw Game Boy save file.
  * This structure bridges the gap between binary memory blocks and the suggestion engine.
  */
+
+export interface Gen3BerryPatch {
+  mapId: number;
+  berryId: number;
+  stage: number;
+  stopGrowth: boolean;
+  minutesUntilNextStage: number;
+  berryYield: number;
+  regrowthCount: number;
+  watered1: boolean;
+  watered2: boolean;
+  watered3: boolean;
+  watered4: boolean;
+}
+
 export interface SaveData {
   /** The generation of the parsed save file (1 or 2). */
   generation: Generation;
@@ -101,6 +116,8 @@ export interface SaveData {
   daycare?: PokemonInstance[];
   /** Gen 2 specific: Indicates if an Egg is currently waiting to be picked up from the Daycare. */
   daycareHasEgg?: boolean;
+  /** Gen 2 specific: Information regarding currently roaming Legendary beasts (Raikou, Entei, Suicune). */
+  gen3BerryPatches?: Gen3BerryPatch[];
   /** Gen 2 specific: Information regarding currently roaming Legendary beasts (Raikou, Entei, Suicune). */
   roamingLegendaries?: {
     speciesId: number;

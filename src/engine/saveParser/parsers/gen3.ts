@@ -1,4 +1,4 @@
-import type { GameVersion, SaveData } from './common';
+import type { GameVersion, Gen3BerryPatch, SaveData } from './common';
 
 const SIGNATURE = 0x08012025;
 const SECTION_SIZE = 4096;
@@ -60,6 +60,52 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  * @param view - The raw save file DataView.
  * @returns True if the structure looks like a valid Gen 3 save.
  */
+
+function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
+  const patches: Gen3BerryPatch[] = [];
+  const baseOffset = saveBlock1Offset + 0x169c;
+
+  for (let i = 0; i < 128; i++) {
+    const offset = baseOffset + i * 8;
+    try {
+      const berryId = view.getUint8(offset);
+      const stageByte = view.getUint8(offset + 1);
+      const stage = stageByte & 0x7f;
+      const stopGrowth = (stageByte & 0x80) !== 0;
+
+      const minutesUntilNextStage = view.getUint16(offset + 2, true);
+      const berryYield = view.getUint8(offset + 4);
+
+      const wateredByte = view.getUint8(offset + 5);
+      const regrowthCount = wateredByte & 0x0f;
+      const watered1 = (wateredByte & 0x10) !== 0;
+      const watered2 = (wateredByte & 0x20) !== 0;
+      const watered3 = (wateredByte & 0x40) !== 0;
+      const watered4 = (wateredByte & 0x80) !== 0;
+
+      patches.push({
+        mapId: i, // We use the array index as the mapId, as researched.
+        berryId,
+        stage,
+        stopGrowth,
+        minutesUntilNextStage,
+        berryYield,
+        regrowthCount,
+        watered1,
+        watered2,
+        watered3,
+        watered4,
+      });
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('Out of bounds reading berry patches');
+      }
+      throw e;
+    }
+  }
+  return patches;
+}
+
 export function isGen3Save(view: DataView): boolean {
   try {
     // Scaffolding read to allow testing of RangeError handling
@@ -112,6 +158,15 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       throw new RangeError('Out of bounds during block scan');
     }
 
+    let section1Offset: number;
+    try {
+      section1Offset = getLatestSectionOffset(view, 1);
+    } catch {
+      throw new RangeError('Out of bounds during block scan');
+    }
+
+    const gen3BerryPatches = extractBerryPatches(view, section1Offset);
+
     const flagsOffset = section2Offset + 0x02f0;
     const hiddenItemFlags = new Uint8Array(14);
 
@@ -138,6 +193,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       inventory: [],
       currentBoxCount: 0,
       hallOfFameCount: 0,
+      gen3BerryPatches,
       hiddenItemFlags,
     };
   } catch (error) {
