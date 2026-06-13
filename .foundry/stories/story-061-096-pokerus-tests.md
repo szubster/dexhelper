@@ -29,3 +29,5 @@ Implement tests for the Pokerus byte parsing logic.
 
 ## Acceptance Criteria
 - [ ] Add tests for Pokerus parsing.
+- [ ] task-096-169-pokerus-tests-impl
+- [ ] task-096-170-pokerus-tests-qa
