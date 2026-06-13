@@ -33,3 +33,5 @@ As part of the Mirage Island checking feature (Epic `epic-038-062-personality-va
 - [x] Tech Lead: Generate child tasks to update the extraction logic.
 - [x] .foundry/archive/tasks/task-098-157-gen3-parse-pv-impl.md
 - [x] .foundry/tasks/task-098-158-gen3-parse-pv-qa.md
+- [ ] task-098-169-extract-32bit-pv-impl
+- [ ] task-098-170-extract-32bit-pv-qa
