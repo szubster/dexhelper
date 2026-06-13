@@ -38,4 +38,6 @@ This epic focuses on building the static dataset necessary to enrich the raw Mat
 - Integrate the dataset into the IndexedDB persistence layer (`PokeDB.ts`) for quick runtime hydration.
 
 ## Next Steps
-- [ ] Story Owner: Break this Epic down into actionable Stories (e.g., ETL Scripting, EV Calculation Logic, MsgPack Integration).
+- [x] Story Owner: Break this Epic down into actionable Stories (e.g., ETL Scripting, EV Calculation Logic, MsgPack Integration).
+- [ ] story-084-125-match-call-etl
+- [ ] story-084-126-match-call-msgpack
