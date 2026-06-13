@@ -39,9 +39,12 @@ export function PokemonLocations({
     <div className="space-y-6">
       <div className="flex items-center justify-between border-white/5 border-b pb-4">
         <SectionHeader title="Field Distribution" icon={<MapPin size={14} />} />
-        <div className="rounded-none border border-white/10 border-dashed bg-white/5 px-3 py-1 font-black text-[10px] text-[var(--theme-primary)] uppercase tracking-widest backdrop-blur-md">
+        <TacticalBadge
+          variant="zinc"
+          className="border-white/10 bg-white/5 px-3 text-[10px] text-[var(--theme-primary)] backdrop-blur-md"
+        >
           DATA-SRC: {gameVersion.toUpperCase()}
-        </div>
+        </TacticalBadge>
       </div>
 
       {loading ? (
@@ -158,9 +161,9 @@ function FallbackLocations({
               {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
             </span>
             <div className="flex gap-1">
-              <span className="rounded-none border border-white/5 border-dashed bg-white/5 px-1.5 py-0.5 font-black text-[7px] uppercase">
+              <TacticalBadge variant="zinc" className="border-white/5 bg-white/5 px-1.5 py-0.5 text-[7px]">
                 V-ID: {e.v}
-              </span>
+              </TacticalBadge>
             </div>
           </div>
         </div>

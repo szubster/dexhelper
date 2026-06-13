@@ -5,6 +5,7 @@ import type { SaveData } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
 import { InlineLink } from '../../InlineLink';
 import { SectionHeader } from '../../SectionHeader';
+import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface EvoReq {
@@ -92,12 +93,13 @@ function ProcurementStrategy({
         {stadiumRewards && (
           <div className="mt-2 flex flex-wrap gap-2">
             {stadiumRewards.rewards.map((r) => (
-              <span
+              <TacticalBadge
                 key={r}
-                className="rounded-none border border-red-500/20 border-dashed bg-red-500/10 px-2 py-0.5 font-black text-[9px] text-red-500"
+                variant="red"
+                className="border-red-500/20 bg-red-500/10 py-0.5 text-[9px] text-red-500"
               >
                 STADIUM {stadiumRewards.gen} REWARD: {r.toUpperCase()}
-              </span>
+              </TacticalBadge>
             ))}
           </div>
         )}

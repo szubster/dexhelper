@@ -3,6 +3,7 @@ import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMa
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { DataPoint } from '../../DataPoint';
 import { SectionHeader } from '../../SectionHeader';
+import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface PokemonCaughtDetailsProps {
@@ -34,17 +35,19 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
               <div>
                 <div className="font-black font-display text-2xl text-white tracking-tighter">LV.{p.level}</div>
                 <div className="mt-1 flex items-center gap-2">
-                  <div className="rounded-none border border-[var(--theme-primary)]/30 border-dashed bg-[var(--theme-primary)]/20 px-2 py-0.5">
-                    <span className="font-black text-[9px] text-[var(--theme-primary)] uppercase leading-none tracking-widest">
-                      {p.location}
-                    </span>
-                  </div>
+                  <TacticalBadge
+                    variant="primary"
+                    className="border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/20 px-2 py-0.5 text-[9px] leading-none"
+                  >
+                    {p.location}
+                  </TacticalBadge>
                   {p.slot && (
-                    <div className="rounded-none border border-white/10 border-dashed bg-white/5 px-2 py-0.5">
-                      <span className="font-black text-[9px] text-zinc-500 uppercase leading-none tracking-widest">
-                        Slot {p.slot}
-                      </span>
-                    </div>
+                    <TacticalBadge
+                      variant="zinc"
+                      className="border-white/10 bg-white/5 px-2 py-0.5 text-[9px] text-zinc-500 leading-none"
+                    >
+                      Slot {p.slot}
+                    </TacticalBadge>
                   )}
                 </div>
               </div>
