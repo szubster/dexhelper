@@ -26,5 +26,8 @@ notes: ''
 Create the `BattleFrontierDashboard` UI component for Gen 3. It must adhere to the "tactical hardware/snooping" aesthetic, displaying facility cards, BP wallet, and progress visuals.
 
 ## Acceptance Criteria
-- [ ] Translate Epic requirements into technical TASKS.
-- [ ] Ensure all TASKS adhere to ADR 008 (React Flow) and ADR 024 (Tailwind v4 tactical primitives).
+- [x] Translate Epic requirements into technical TASKS.
+- [x] Ensure all TASKS adhere to ADR 008 (React Flow) and ADR 024 (Tailwind v4 tactical primitives).
+
+- [ ] task-116-169-battle-frontier-dashboard-impl
+- [ ] task-116-170-battle-frontier-dashboard-qa
