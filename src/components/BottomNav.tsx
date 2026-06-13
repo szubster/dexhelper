@@ -20,65 +20,73 @@ export function BottomNav() {
   const activeIndex = isDex ? 0 : isStorage ? 1 : isAssistant ? 2 : isDag ? 3 : -1;
 
   return (
-    <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-800 border-t border-dashed bg-zinc-950 px-2 pt-2 pb-[env(safe-area-inset-bottom,16px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.8)] sm:hidden">
+    <nav className="fixed right-0 bottom-0 left-0 z-50 border-[var(--theme-primary)]/30 border-t-[3px] border-dashed bg-zinc-950 p-2 pb-[env(safe-area-inset-bottom,16px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.8)] sm:hidden">
       {/* Hardware top lip */}
-      <div className="absolute top-0 right-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-zinc-700 to-transparent opacity-50" />
+      <div className="absolute top-0 right-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       {/* Telemetry decoration */}
       <TelemetryDecoration
-        label="LINK_ACTIVE"
-        className="-top-[21px] left-4 rounded-none border-t border-b-0 bg-zinc-950"
+        label="SYS_LINK_ACTIVE"
+        className="-top-[21px] left-4 rounded-none border-t border-b-0 bg-zinc-950 text-[10px]"
       />
 
-      <div className="relative mx-auto grid max-w-md grid-cols-5 items-center">
+      <div className="relative mx-auto flex h-16 max-w-md items-center gap-2 rounded-none border border-zinc-800 border-dashed bg-black/60 p-1">
         {/* Active Indicator Hardware Frame */}
         {activeIndex !== -1 && (
           <div
-            className="pointer-events-none absolute z-0 h-full w-[20%] transition-transform duration-300 ease-[cubic-bezier(0.2,1,0.2,1)]"
-            style={{ transform: `translateX(${activeIndex * 100}%)` }}
+            className="pointer-events-none absolute z-0 h-[calc(100%-8px)] w-[calc(20%-8px)] transition-transform duration-300 ease-[cubic-bezier(0.2,1,0.2,1)]"
+            style={{ transform: `translateX(calc(${activeIndex * 100}% + ${activeIndex * 8}px))` }}
           >
-            <div className="absolute inset-x-1 inset-y-0.5 border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10" />
-            <div className="absolute top-0 left-1 h-2 w-2 border-[var(--theme-primary)] border-t-[3px] border-l-[3px]" />
-            <div className="absolute top-0 right-1 h-2 w-2 border-[var(--theme-primary)] border-t-[3px] border-r-[3px]" />
-            <div className="absolute bottom-0 left-1 h-2 w-2 border-[var(--theme-primary)] border-b-[3px] border-l-[3px]" />
-            <div className="absolute right-1 bottom-0 h-2 w-2 border-[var(--theme-primary)] border-r-[3px] border-b-[3px]" />
+            <div className="absolute inset-0 border-[3px] border-[var(--theme-primary)] opacity-80 shadow-[0_0_10px_var(--theme-primary)]" />
 
-            {/* Scanning Laser Line */}
-            <div className="absolute inset-x-1 top-0 h-[1px] animate-[scan_2s_linear_infinite] bg-[var(--theme-primary)] opacity-50 shadow-[0_0_8px_var(--theme-primary)]" />
-            <div className="scanline-overlay absolute inset-x-1 inset-y-0.5 opacity-30" />
+            {/* Sliding Bracket Corners */}
+            <div className="absolute -top-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-l-[4px]" />
+            <div className="absolute -top-1 -right-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-r-[4px]" />
+            <div className="absolute -bottom-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-b-[4px] border-l-[4px]" />
+            <div className="absolute -right-1 -bottom-1 h-3 w-3 border-[var(--theme-primary)] border-r-[4px] border-b-[4px]" />
           </div>
         )}
 
-        <NavButton to="/" ariaLabel="Pokedex" label="DEX" activeLabel="[ DEX ]" icon={LayoutGrid} isActive={isDex} />
+        <div className="h-full flex-1">
+          <NavButton to="/" ariaLabel="Pokedex" label="DEX" activeLabel="DEX" icon={LayoutGrid} isActive={isDex} />
+        </div>
 
-        <NavButton
-          to="/storage"
-          ariaLabel="Storage"
-          label="STRG"
-          activeLabel="[ STRG ]"
-          icon={Database}
-          isActive={isStorage}
-        />
+        <div className="h-full flex-1">
+          <NavButton
+            to="/storage"
+            ariaLabel="Storage"
+            label="STRG"
+            activeLabel="STRG"
+            icon={Database}
+            isActive={isStorage}
+          />
+        </div>
 
-        <NavButton
-          to="/assistant"
-          ariaLabel="Assistant"
-          label="ASST"
-          activeLabel="[ ASST ]"
-          icon={Sparkles}
-          isActive={isAssistant}
-        />
+        <div className="h-full flex-1">
+          <NavButton
+            to="/assistant"
+            ariaLabel="Assistant"
+            label="ASST"
+            activeLabel="ASST"
+            icon={Sparkles}
+            isActive={isAssistant}
+          />
+        </div>
 
-        <NavButton to="/dag" ariaLabel="DAG" label="DAG" activeLabel="[ DAG ]" icon={GitGraph} isActive={isDag} />
+        <div className="h-full flex-1">
+          <NavButton to="/dag" ariaLabel="DAG" label="DAG" activeLabel="DAG" icon={GitGraph} isActive={isDag} />
+        </div>
 
-        <NavButton
-          onClick={() => setIsSettingsOpen(true)}
-          ariaLabel="Open settings menu"
-          label="MENU"
-          activeLabel="MENU"
-          icon={Settings2}
-          isActive={isSettingsOpen}
-        />
+        <div className="h-full flex-1">
+          <NavButton
+            onClick={() => setIsSettingsOpen(true)}
+            ariaLabel="Open settings menu"
+            label="MENU"
+            activeLabel="MENU"
+            icon={Settings2}
+            isActive={isSettingsOpen}
+          />
+        </div>
       </div>
     </nav>
   );
