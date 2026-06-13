@@ -32,6 +32,6 @@ As part of the Mirage Island checking feature, we need to parse the full 32-bit 
 5. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement the 32-bit PV extraction using `DataView`.
-- [ ] Explicitly throw and propagate `RangeError` on out-of-bounds reads.
-- [ ] Verify Gen 1 and Gen 2 parsing handlers remain functional.
+- [x] Implement the 32-bit PV extraction using `DataView`.
+- [x] Explicitly throw and propagate `RangeError` on out-of-bounds reads.
+- [x] Verify Gen 1 and Gen 2 parsing handlers remain functional.
