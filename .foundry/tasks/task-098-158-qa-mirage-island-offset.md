@@ -41,3 +41,5 @@ The `coder` persona has documented the exact offset and data structure for the d
 
 ### QA Notes
 - Validation FAILED: The documentation incorrectly attributes the offset to "Section 3-4 - Game Specific Data". According to Bulbapedia, 0x0408 and 0x0464 belong to "Section 2 - Game State". The target task has been failed and reverted for correction.
+
+**Note:** This task is CANCELLED and has been replaced by `task-098-173-qa-mirage-island-offset-retry.md` due to incorrect Bulbapedia section documentation.
