@@ -2,10 +2,10 @@
 id: task-098-157-locate-mirage-island-offset
 type: TASK
 title: Locate Mirage Island Data Block Offset
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-11'
+updated_at: '2026-06-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - mirage-island
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'The documented offset attributes the data to "Section 3-4 - Game Specific Data" but the Mirage Island random value actually belongs to "Section 2 - Game State" in Bulbapedia.'
 notes: ''
 ---
 
@@ -36,6 +36,6 @@ As part of the Mirage Island save parsing feature (Story `story-061-098-locate-m
 - **Failure Condition**: If you cannot locate the offset or encounter permanent failures, you MUST update this node's YAML frontmatter to `status: FAILED` with a clear `rejection_reason`.
 
 ## Acceptance Criteria
-- [x] Document the exact byte offset(s) for the Mirage Island value in R/S/E.
-- [x] Document the data structure size (expected to be a 16-bit integer).
-- [x] Create `.foundry/docs/knowledge_base/gen3_mirage_island_offsets.md` with the findings.
+- [ ] Document the exact byte offset(s) for the Mirage Island value in R/S/E.
+- [ ] Document the data structure size (expected to be a 16-bit integer).
+- [ ] Create `.foundry/docs/knowledge_base/gen3_mirage_island_offsets.md` with the findings.

@@ -38,3 +38,6 @@ The `coder` persona has documented the exact offset and data structure for the d
 ## Acceptance Criteria
 - [ ] Verify the documented byte offsets for the Mirage Island value in R/S/E are correct.
 - [ ] Verify the data size is documented as a 16-bit integer.
+
+### QA Notes
+- Validation FAILED: The documentation incorrectly attributes the offset to "Section 3-4 - Game Specific Data". According to Bulbapedia, 0x0408 and 0x0464 belong to "Section 2 - Game State". The target task has been failed and reverted for correction.
