@@ -34,3 +34,6 @@ As part of the EPIC to dynamically generate move PP PokeData, we need to first e
 - [ ] Determine how to fetch move data efficiently during the build.
 - [ ] Implement the extraction logic to capture the necessary fields for each move.
 - [ ] Ensure that default values and nulls are appropriately handled at the extraction boundary.
+
+- [ ] task-128-181-move-data-extraction-impl
+- [ ] task-128-182-move-data-extraction-qa
