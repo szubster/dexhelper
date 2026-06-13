@@ -84,6 +84,11 @@ describe('parseGen1 - specific data extraction', () => {
     view.setUint8(hiddenItemOffset, 0b10101010);
     view.setUint8(hiddenItemOffset + 1, 0b01010101);
 
+    // Hidden Coin Event Flags
+    const hiddenCoinOffset = 0x29aa;
+    view.setUint8(hiddenCoinOffset, 0b11001100);
+    view.setUint8(hiddenCoinOffset + 1, 0b00110011);
+
     // Parse!
     const data = parseGen1(view);
 
@@ -110,6 +115,11 @@ describe('parseGen1 - specific data extraction', () => {
     expect(data.hiddenItemFlags?.length).toBe(14);
     expect(data.hiddenItemFlags?.[0]).toBe(0b10101010);
     expect(data.hiddenItemFlags?.[1]).toBe(0b01010101);
+
+    expect(data.hiddenCoinFlags).toBeDefined();
+    expect(data.hiddenCoinFlags?.length).toBe(2);
+    expect(data.hiddenCoinFlags?.[0]).toBe(0b11001100);
+    expect(data.hiddenCoinFlags?.[1]).toBe(0b00110011);
   });
 
   it('should parse other PC boxes correctly', () => {
