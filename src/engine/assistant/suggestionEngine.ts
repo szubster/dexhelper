@@ -106,13 +106,29 @@ const STATIC_GIFT_ENTRIES = Object.entries(STATIC_GIFT_DATA).map(([idStr, gift])
   gift,
 }));
 
+/**
+ * Represents the massive block of pre-fetched relational data loaded synchronously
+ * from IndexedDB before the Suggestion Engine starts.
+ *
+ * **Why pre-fetch everything?**
+ * If the engine queried the DB inside its loops (e.g., checking if a location has encounters
+ * for missing Pokemon #42), it would result in thousands of asynchronous round trips,
+ * utterly locking the UI thread and taking multiple seconds to render.
+ */
 export interface AssistantApiData {
+  /** The specific Area ID where the player's character is currently standing. */
   localAid: number | null;
+  /** All encounters available in the area where the player is currently standing. */
   localEncounters: LocationAreaEncounters[] | null;
+  /** Encounters for every missing target Pokemon (indexed by Species ID). */
   missingEncounters: Record<number, LocationAreaEncounters | null>;
+  /** Core metadata (evolutions, items) for every target Pokemon. */
   pokemonMetadata: Record<number, PokemonMetadata | null>;
+  /** Nested map caching the encounter tables for the ancestors of missing targets (to check if pre-evolutions can be caught). */
   ancestralEncounters: Record<number, Record<number, LocationAreaEncounters | null>>;
+  /** Display string lookup map for Area IDs. */
   areaNames: Record<number, string>;
+  /** The unified graph of all navigable map nodes, used for distance checks. */
   allLocations: UnifiedLocation[];
 }
 
@@ -1020,7 +1036,10 @@ export function generateSuggestions(
     queryTargets.push(pid);
   }
 
+  // === PHASE 1: Core Target Generation ===
+
   // Special Strategy-Specific Suggestions (e.g. Box full warning)
+  // Processed first so they can bypass the standard encounter generation logic if necessary.
   const specialSuggestions = strategy.getSpecialSuggestions(saveData, Array.from(missingIds));
   suggestions.push(...specialSuggestions);
 
@@ -1064,9 +1083,13 @@ export function generateSuggestions(
     localPids,
   );
 
-  // Filter out headbutt and rock-smash encounters if the player lacks the required TMs.
-  // This is done as a post-processing step rather than during generation because
-  // TM/HM possession is a global state, whereas encounter details are deeply nested.
+  // === PHASE 2: Post-Processing & Global State Filtering ===
+  // Filter out HM/Item dependent encounters (like Headbutt, Surf, Fishing) if the player lacks the required tools.
+  // Why is this done as a post-processing step rather than during generation?
+  // `generateCatchSuggestions` iterates through thousands of granular encounter nodes deep within the graph.
+  // Pushing HM possession checks (global state) down into every individual encounter loop would severely
+  // degrade performance. Instead, we generate all *potential* catch suggestions first, and then do a single
+  // O(N) sweep over the final high-level suggestions to prune the impossible ones.
   for (let i = suggestions.length - 1; i >= 0; i--) {
     const suggestion = suggestions[i];
     if (suggestion && suggestion.category === 'Catch' && suggestion.encounterInfo) {
@@ -1152,6 +1175,7 @@ export function generateSuggestions(
     }
   }
 
+  // === PHASE 3: Context-Aware Suggestions (Gifts, Trades, Evolutions) ===
   // Organize physical instances by species to check for evolutions and prevent redundant exclusive suggestions.
   // Why? If a player needs a Raichu, we shouldn't just suggest catching Pikachu if they already have one in their PC.
   // Grouping by species ID (O(N) pass) allows sub-generators to do O(1) checks for pre-evolutions or specific forms.
