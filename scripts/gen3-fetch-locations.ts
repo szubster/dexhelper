@@ -217,7 +217,6 @@ async function run() {
   }
   output += `};\n\n`;
 
-  output += `export const decodeGen3Id = (encoded: number) => ({ group: encoded >> 8, id: encoded & 0xff });\n\n`;
   output += `export interface MapNode {\n  id: number;\n  aid: number;\n  name: string;\n  connections: number[];\n}\n`;
 
   fs.mkdirSync('scripts/data/gen3', { recursive: true });

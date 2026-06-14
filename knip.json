@@ -11,7 +11,7 @@
   ],
   "rules": {
     "files": "warn",
-    "exports": "off",
+    "exports": "warn",
     "types": "warn",
     "dependencies": "error",
     "devDependencies": "error",

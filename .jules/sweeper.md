@@ -35,3 +35,7 @@ Before deleting code flagged as dead, always check the status of Foundry tasks (
 ## 2026-06-07 - Verify Unused Code Removals
 **Learning:** Tools like `knip` can identify unused exports and dependencies, but they sometimes have blind spots or misinterpret usage (especially for global configurations, setup scripts, or exported test helpers/fixtures).
 **Action:** When using tools like `knip` to find unused exports or files, always verify potential implicit usage with a global repository search (e.g., `grep`) before removing them to ensure they aren't dynamically referenced by tests or CI scripts.
+
+## 2026-06-14 - Knip Configuration Maintenance
+**Learning:** `knip`'s internal rules, such as `"exports": "off"`, can silently hide valid tech-debt refactoring opportunities.
+**Action:** When running sweeping tech-debt tasks, verify the configuration in `knip.json` to ensure rules like `exports` and `types` are set to at least `"warn"` or `"error"`. Doing so forces `knip` to output unused exports and interface definitions, revealing safe deletion opportunities (e.g. `MapGraphNode`, `decodeGen3Id`) that would otherwise be masked by the configuration.
