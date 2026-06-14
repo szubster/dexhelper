@@ -2,12 +2,12 @@
 id: idea-079-foundry-zombie-node-cleanup
 type: IDEA
 title: Foundry Zombie Node Garbage Collection
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-06-14'
 updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14689750101582934654'
 pr_number: null
 parent: null
 tags:
