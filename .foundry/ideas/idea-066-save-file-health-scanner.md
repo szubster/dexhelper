@@ -2,10 +2,10 @@
 id: idea-066-save-file-health-scanner
 type: IDEA
 title: Save File Health & Corruption Scanner
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-05-26'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on: []
 jules_session_id: '6077114422208207376'
 pr_number: null

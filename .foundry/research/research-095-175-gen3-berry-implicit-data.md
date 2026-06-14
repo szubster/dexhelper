@@ -2,7 +2,7 @@
 id: research-095-175-gen3-berry-implicit-data
 type: RESEARCH
 title: Investigate Gen 3 Berry Patch Implicit Data and Offsets
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-14'
 updated_at: '2026-06-14'

@@ -2,13 +2,13 @@
 id: story-064-102-gen3-contest-recommendation-algorithm
 type: STORY
 title: Gen 3 Contest Recommendation Algorithm
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-14'
 depends_on:
   - story-064-101-gen3-nature-condition-mapping
-jules_session_id: '16933352995176693064'
+jules_session_id: null
 pr_number: null
 parent: epic-042-064-gen3-contest-advisor-algorithm
 tags:

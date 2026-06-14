@@ -2,10 +2,10 @@
 id: task-104-159-gen3-roamer-interface-qa
 type: TASK
 title: QA - Verify Gen 3 Roamer Interface Update
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-14'
 depends_on:
   - task-104-159-gen3-roamer-interface-impl
 jules_session_id: null

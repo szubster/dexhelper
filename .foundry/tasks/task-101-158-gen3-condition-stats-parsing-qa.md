@@ -2,10 +2,10 @@
 id: task-101-158-gen3-condition-stats-parsing-qa
 type: TASK
 title: QA Gen 3 Condition Stats Parsing
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-14'
 depends_on:
   - task-101-157-gen3-condition-stats-parsing
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-101-157-gen3-condition-stats-parsing
 notes: ''
 ---
 

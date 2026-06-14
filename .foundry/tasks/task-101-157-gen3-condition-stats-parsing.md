@@ -2,7 +2,7 @@
 id: task-101-157-gen3-condition-stats-parsing
 type: TASK
 title: Implement Gen 3 Condition Stats Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-14'
@@ -17,8 +17,8 @@ tags:
   - contests
   - parsing
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 ---
 

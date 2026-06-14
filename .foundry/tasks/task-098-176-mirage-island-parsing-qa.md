@@ -2,13 +2,13 @@
 id: task-098-176-mirage-island-parsing-qa
 type: TASK
 title: QA Gen 3 Mirage Island Value Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-14'
 depends_on:
   - task-098-175-mirage-island-parsing-impl
-jules_session_id: '8379506548438862062'
+jules_session_id: null
 pr_number: null
 parent: story-061-098-parse-mirage-island-value
 tags:

@@ -2,10 +2,10 @@
 id: epic-042-064-gen3-contest-advisor-algorithm
 type: EPIC
 title: Gen 3 Contest Advisor Algorithm
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-10'
+updated_at: '2026-06-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

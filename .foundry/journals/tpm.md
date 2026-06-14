@@ -400,3 +400,53 @@ No critical learnings logged yet.
 - **2026-06-14**: PR #2543 merged with unchecked tasks. `research-101-157-gen3-condition-stats-offsets` is now FAILED.
 
 - **2026-06-14**: PR #2540 merged but has unchecked tasks (parent node). `story-058-096-feebas-tile-calculation` is now PENDING.
+
+- **2026-06-14**: PR #2564 merged. `epic-037-059-unown-tracker-ui` is now VERIFYING.
+
+- **2026-06-14**: PR #2567 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-14**: PR #2568 merged. `prd-079-050-foundry-zombie-node-cleanup` is now VERIFYING.
+
+- **2026-06-14**: Heartbeat detected zombie session for `research-103-157-gen3-ribbon-offsets`. Transitioned to FAILED.
+
+- **2026-06-14**: PR #2562 merged. `research-175-176-gen3-pokerus-extraction` is now COMPLETED.
+
+- **2026-06-14**: PR #2569 merged but has unchecked tasks (parent node). `story-055-095-gen3-berry-data-parsing` is now PENDING.
+
+- **2026-06-14**: PR #2563 merged. `story-061-098-locate-mirage-island-data` is now COMPLETED.
+
+- **2026-06-14**: PR #2545 merged but has unchecked tasks (parent node). `story-062-098-gen3-parse-32bit-pv` is now PENDING.
+
+- **2026-06-14**: PR #2549 merged. `story-064-102-gen3-contest-recommendation-algorithm` is now COMPLETED.
+
+- **2026-06-14**: PR #2546 merged but has unchecked tasks (parent node). `story-081-123-gen3-active-swarm-parsing` is now PENDING.
+
+- **2026-06-14**: PR #2552 merged but has unchecked tasks (parent node). `story-083-125-gen3-match-call-memory-offset-discovery` is now PENDING.
+
+- **2026-06-14**: System failure detected for `task-089-177-radar-heatmap-ui-integration-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-14**: PR #2554 merged. `task-098-176-mirage-island-parsing-qa` is now COMPLETED.
+
+- **2026-06-14**: Max rejection count reached for `task-101-157-gen3-condition-stats-parsing`. Reason: PR #2573 closed without merging.. Transitioned to FAILED.
+
+- **2026-06-14**: PR #2553 merged. `task-102-158-contest-sheen-display-qa` is now COMPLETED.
+
+- **2026-06-14**: PR #2559 merged. `task-103-157-contest-ribbons-ui-impl` is now COMPLETED.
+
+- **2026-06-14**: PR #2556 merged. `task-104-159-gen3-roamer-interface-impl` is now COMPLETED.
+
+- **2026-06-14**: PR #2557 merged. `task-106-159-dag-utils-unit-tests-impl` is now COMPLETED.
+
+- **2026-06-14**: Resurrection Loop triggered for `task-108-161-gen3-roamer-location-impl`. Reason: PR #2571 closed without merging.. Transitioned back to READY.
+
+- **2026-06-14**: PR #2570 merged. `task-108-161-hierarchical-completion-impl` is now COMPLETED.
+
+- **2026-06-14**: PR #2574 merged. `task-108-161-update-schema-macro-node-completion-impl` is now COMPLETED.
+
+- **2026-06-14**: Resurrection Loop triggered for `research-101-157-gen3-condition-stats-offsets`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-14**: Resurrection Loop triggered for `task-096-183-feebas-tile-calculation-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-14**: Resurrection Loop triggered for `task-103-157-gen3-ribbon-bitfields-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-14**: Resurrection Loop triggered for `task-108-161-gen3-roamer-dataview-extraction-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.

@@ -2,7 +2,7 @@
 id: research-101-157-gen3-condition-stats-offsets
 type: RESEARCH
 title: Investigate Gen 3 Condition Stats Offsets
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-06-14'
 updated_at: '2026-06-14'
@@ -16,8 +16,8 @@ tags:
   - contests
   - parsing
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

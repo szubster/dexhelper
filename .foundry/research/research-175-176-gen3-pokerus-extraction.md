@@ -2,12 +2,12 @@
 id: research-175-176-gen3-pokerus-extraction
 type: RESEARCH
 title: Investigate Gen 3 Pokerus Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-14'
 updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: '16329644812449438361'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

@@ -2,12 +2,12 @@
 id: story-083-125-gen3-match-call-memory-offset-discovery
 type: STORY
 title: Discover Gen 3 Match Call Memory Offsets
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: '4247984994830806741'
+jules_session_id: null
 pr_number: null
 parent: epic-048-083-gen3-match-call-save-parsing
 tags:
