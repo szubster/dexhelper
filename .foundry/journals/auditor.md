@@ -65,3 +65,12 @@ Bitwise operations on raw bytes are effectively handling state extraction in the
     * The byte is structured as two bitfields: the upper 4 bits (`rawPokerus >> 4`) represent the virus *strain*, and the lower 4 bits (`rawPokerus & 0x0f`) denote the *days remaining*.
     * It is crucial to handle the "cured" edge case: when a strain is non-zero but the days remaining is `0`, the Pokemon is immune/cured. This state is mathematically distinguishable from never having had the virus (where both are `0`).
     * This offset map (`+28`) and its extraction strategy should be preserved and referenced when building cross-generation migration logic.
+
+## 2026-06-15: Final Verification of Gen 2 Pokerus State Exfiltration Epic
+I verified the Epic `epic-038-061-pokerus-state-exfiltration` and its child nodes which exfiltrate Pokerus state from Gen 2 saves. The Epic nodes and all subsequent child tasks have been completed.
+
+**Why this matters:**
+This confirms the Gen 2 Pokerus parsing logic works and successfully covers the boundaries such as the "cured" state (where strain > 0 but days remaining == 0), preventing regressions in the core parser where it matters. This state handling acts as a strong reference for migrating or implementing the equivalent Gen 3 logic.
+
+**Recommendation/Learnings:**
+The extraction code correctly uses bitwise logic on the +28 offset raw byte (`rawPokerus >> 4` for strain, `rawPokerus & 0x0f` for days) and cleanly handles the differentiation between never infected (`0`) and cured. The tests cover these bounds accurately.
