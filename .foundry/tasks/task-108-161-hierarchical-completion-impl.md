@@ -43,7 +43,7 @@ Update `.github/scripts/foundry-orchestrator.ts` to block `VERIFYING` and `COMPL
    - If you submit an empty PR for this completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `childToParents` map is populated correctly using both explicit `frontmatter.parent` and regex markdown links.
-- [ ] `parentToChildren` includes children discovered via regex markdown links.
-- [ ] `isDescendant` handles multi-parent traversal correctly via BFS.
-- [ ] Phase 4 inheritance check uses BFS over `childToParents` instead of single-parent traversal.
+- [x] `childToParents` map is populated correctly using both explicit `frontmatter.parent` and regex markdown links.
+- [x] `parentToChildren` includes children discovered via regex markdown links.
+- [x] `isDescendant` handles multi-parent traversal correctly via BFS.
+- [x] Phase 4 inheritance check uses BFS over `childToParents` instead of single-parent traversal.

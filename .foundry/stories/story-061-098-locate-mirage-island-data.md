@@ -31,8 +31,8 @@ As part of Epic `epic-038-061-mirage-island-save-parsing`, we need to locate the
 
 ## Acceptance Criteria
 - [x] Tech Lead: Generate child tasks to locate and document the offset for the Mirage Island value.
-- [ ] .foundry/archive/tasks/task-098-157-locate-mirage-island-offset.md
-- [ ] .foundry/tasks/task-098-158-qa-mirage-island-offset.md
-- [ ] .foundry/research/research-098-171-investigate-mirage-island-offset.md
-- [ ] .foundry/tasks/task-098-172-locate-mirage-island-offset-retry.md
-- [ ] .foundry/tasks/task-098-173-qa-mirage-island-offset-retry.md
+- [x] .foundry/archive/tasks/task-098-157-locate-mirage-island-offset.md
+- [x] .foundry/tasks/task-098-158-qa-mirage-island-offset.md
+- [x] .foundry/research/research-098-171-investigate-mirage-island-offset.md
+- [x] .foundry/tasks/task-098-172-locate-mirage-island-offset-retry.md
+- [x] .foundry/tasks/task-098-173-qa-mirage-island-offset-retry.md
