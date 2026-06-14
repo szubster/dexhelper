@@ -63,3 +63,7 @@
 ## 2026-06-12 - Archivist Run Learnings
 **Learning:** The TPM journal (`.foundry/journals/tpm.md`) was accumulating routine task verifications and state transitions again instead of critical learnings.
 **Action:** Cleared out the transient status updates from the TPM journal to conserve context, as per the policy against logging routine actions.
+
+## 2026-06-14 - Archivist Run Learnings
+**Learning:** The TPM journal was once again filled completely with routine PR merge notifications ("PR #... merged. ... is now COMPLETED"). Additionally, the Tech Lead journal contained an entire embedded ADR block (ADR 024) replacing its frontmatter and header.
+**Action:** Wiped all routine execution logs from `.foundry/journals/tpm.md`, leaving only the header. Removed the malformed ADR block from `.foundry/journals/tech_lead.md` and restored its title header, as ADRs belong strictly in `.foundry/docs/adrs/`.

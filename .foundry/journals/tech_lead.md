@@ -1,29 +1,4 @@
----
-id: adr-102-024-gen3-sheen-dataview-strict
-type: ADR
-title: Gen 3 Sheen DataView Strict Adherence
-status: COMPLETED
-owner_persona: tech_lead
-created_at: 2026-06-10
-updated_at: 2026-06-10
-depends_on: []
-jules_session_id: null
-pr_number: null
-parent: null
-tags:
-  - architecture
-  - gen3
-  - dataview
-research_references: []
-rejection_count: 0
-rejection_reason: ""
-notes: ""
----
-
-# ADR 024: Gen 3 Sheen DataView Strict Adherence
-
-## Status
-Accepted
+# Tech Lead Journal
 
 ## 2026-05-22
 - ADR 015 Revert Data Format Optimizations: Verbose keys improve DX, but we must retain enum-to-number logic for values (e.g. method: 1 instead of method: 'WALK') because string values can't be deduplicated effectively in msgpackr arrays.
@@ -41,14 +16,6 @@ Accepted
 - **Action**: Always use individual `read_file` tool calls for every document required by the context gathering rules before requesting a plan review.
 - **Observation**: Any developer scratchpad scripts created during a session (like `generate_reads.sh`) must be cleaned up (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
 - **Observation**: The `depends_on` field in generated task frontmatter must strictly use the exact Node ID (e.g. `task-103-157-gen3-ribbon-bitfields-impl`), without a file path or `.md` extension, to conform to the Node ID schema validation.
-## Context
-When implementing Gen 3 Sheen value parsing, we must strictly adhere to ADR 010.
-
-## Decision
-All new Gen 3 Sheen data parsing logic MUST exclusively use the native `DataView` API.
-
-## Consequences
-Prevents silent failures and ensures backwards compatibility.
 ## 2026-06-11: Reliable Offsets via Anchors (Gen 2 Hall of Fame)
 
 - **Observation**: Standard documentation often lists Hall of Fame counts at fixed absolute offsets (e.g. `0x24EC` for GS). However, relying on these can be unreliable due to emulator artifacts or regional shifts, causing task failures.
