@@ -30,5 +30,7 @@ Ensure graceful handling of RangeError for corrupted files as per ADR 010.
 
 ## Acceptance Criteria
 - [x] Create/Update TASK nodes to implement parsing the Mirage Island value.
-- [ ] .foundry/tasks/task-098-175-mirage-island-parsing-impl.md
-- [ ] .foundry/tasks/task-098-176-mirage-island-parsing-qa.md
+- [x] .foundry/tasks/task-098-175-mirage-island-parsing-impl.md
+- [x] .foundry/tasks/task-098-176-mirage-island-parsing-qa.md
+
+<!-- Tech Lead: Verified all child tasks completed. -->
