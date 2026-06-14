@@ -1,3 +1,27 @@
+/**
+ * @module gen3Parser
+ *
+ * This module handles the extraction and parsing of Game Boy Advance Generation 3
+ * (Ruby, Sapphire, Emerald, FireRed, LeafGreen) save files.
+ *
+ * ## Architecture Overview
+ *
+ * Generation 3 save files (typically 128KB) use a double-buffered flash memory system
+ * to prevent data corruption during saves. The memory is divided into two primary blocks:
+ * - **SaveBlock A (0x0000 - 0xDFFF)**
+ * - **SaveBlock B (0xE000 - 0x1BFFF)**
+ *
+ * Each block is divided into 14 distinct 4KB Sections (0-13), each responsible for specific
+ * game data (e.g., Trainer Info, Party, PC Boxes, Berry Trees).
+ *
+ * To parse the save safely:
+ * 1. The engine scans both blocks to find the latest valid save by comparing the `saveIndex`.
+ * 2. It reads the 32-bit `signature` (0x08012025) located at offset 0xFF8 within each 4KB section.
+ * 3. It groups the latest version of each Section ID together.
+ *
+ * This ensures that even if power is lost during saving, the previous valid sections
+ * are still used.
+ */
 import type { GameVersion, Gen3BerryPatch, SaveData } from './common';
 
 const SIGNATURE = 0x08012025;
@@ -6,6 +30,19 @@ const NUM_SECTIONS = 14;
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
 
+/**
+ * Scans the double-buffered flash memory banks to find the byte offset of the latest,
+ * valid instance of a specific 4KB data section.
+ *
+ * Gen 3 rotates sections across two blocks (A and B). To find the active data,
+ * we must check both blocks, verify the section signature, and return the offset
+ * of the section with the highest `saveIndex`.
+ *
+ * @param view - The raw save file DataView.
+ * @param targetSectionId - The 16-bit ID (0-13) of the data section to locate.
+ * @returns The absolute byte offset within the DataView where the valid section begins.
+ * @throws Error if the section cannot be found or the signature is invalid.
+ */
 function getLatestSectionOffset(view: DataView, targetSectionId: number): number {
   let saveIndexA = -1;
   let saveIndexB = -1;
@@ -54,13 +91,16 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
 }
 
 /**
- * Performs a structural check to verify if the binary data is a valid Generation 3 save.
- * Placeholder implementation for scaffolding.
+ * Extracts data for all 128 overworld Berry Trees from the player's save file.
+ *
+ * Berry tree data is stored sequentially in Section 1 (SaveBlock1) at logical offset 0x169C.
+ * Each tree takes exactly 8 bytes and tracks growth stages, time remaining, and watering state.
  *
  * @param view - The raw save file DataView.
- * @returns True if the structure looks like a valid Gen 3 save.
+ * @param saveBlock1Offset - The absolute byte offset to the start of the valid Section 1.
+ * @returns An array of parsed Gen3BerryPatch objects.
+ * @throws RangeError if reading extends past the end of the file buffer.
  */
-
 function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
   const patches: Gen3BerryPatch[] = [];
   const baseOffset = saveBlock1Offset + 0x169c;
@@ -69,6 +109,10 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
     const offset = baseOffset + i * 8;
     try {
       const berryId = view.getUint8(offset);
+
+      // Stage and Growth state are packed into a single byte.
+      // Lower 7 bits: Current growth stage (0-4).
+      // Highest bit: If 1, the berry tree has reached its final stage or is dead.
       const stageByte = view.getUint8(offset + 1);
       const stage = stageByte & 0x7f;
       const stopGrowth = (stageByte & 0x80) !== 0;
@@ -76,6 +120,9 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
       const minutesUntilNextStage = view.getUint16(offset + 2, true);
       const berryYield = view.getUint8(offset + 4);
 
+      // Watering state and regrowth count are packed into a single byte.
+      // Lower 4 bits: Number of times the berry has regrown after dying.
+      // Upper 4 bits: Bit flags representing if the plant was watered at each of the 4 growth stages.
       const wateredByte = view.getUint8(offset + 5);
       const regrowthCount = wateredByte & 0x0f;
       const watered1 = (wateredByte & 0x10) !== 0;
@@ -106,6 +153,13 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
   return patches;
 }
 
+/**
+ * Performs a structural check to verify if the binary data is a valid Generation 3 save.
+ * Placeholder implementation for scaffolding.
+ *
+ * @param view - The raw save file DataView.
+ * @returns True if the structure looks like a valid Gen 3 save.
+ */
 export function isGen3Save(view: DataView): boolean {
   try {
     // Scaffolding read to allow testing of RangeError handling
