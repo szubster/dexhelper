@@ -58,3 +58,10 @@ This confirms the data parsing architecture's ability to extract specific sub-by
 
 **Recommendation/Learnings:**
 Bitwise operations on raw bytes are effectively handling state extraction in the Gen 2 parsing engine. The usage of extensive unit tests around the boundaries of the parsing (such as the "cured" state where strain > 0 but days remaining == 0) ensures reliability.
+
+### Gen 2 Pokerus State Parsing
+* Architectural Constraints & Learnings:
+    * In Gen 2, a Pokemon's Pokerus status is stored within a single raw byte at offset `+28` of its data structure.
+    * The byte is structured as two bitfields: the upper 4 bits (`rawPokerus >> 4`) represent the virus *strain*, and the lower 4 bits (`rawPokerus & 0x0f`) denote the *days remaining*.
+    * It is crucial to handle the "cured" edge case: when a strain is non-zero but the days remaining is `0`, the Pokemon is immune/cured. This state is mathematically distinguishable from never having had the virus (where both are `0`).
+    * This offset map (`+28`) and its extraction strategy should be preserved and referenced when building cross-generation migration logic.
