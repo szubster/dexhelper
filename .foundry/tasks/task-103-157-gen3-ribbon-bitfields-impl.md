@@ -2,11 +2,12 @@
 id: task-103-157-gen3-ribbon-bitfields-impl
 type: TASK
 title: Implement Gen 3 Ribbon Bitfields Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-14'
-depends_on: []
+depends_on:
+  - research-103-157-gen3-ribbon-offsets
 jules_session_id: '17521075895284367794'
 pr_number: null
 parent: story-064-103-gen3-ribbon-bitfields-extraction
@@ -17,7 +18,7 @@ tags:
   - parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Suspended pending research on memory offsets for Gen 3 Ribbon bitfields (see research-103-157-gen3-ribbon-offsets).'
 notes: ''
 ---
 
