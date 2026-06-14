@@ -2,13 +2,13 @@
 id: task-101-157-gen3-condition-stats-parsing
 type: TASK
 title: Implement Gen 3 Condition Stats Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-14'
 depends_on:
   - research-101-157-gen3-condition-stats-offsets
-jules_session_id: '6447672882646232507'
+jules_session_id: '16111919894717915824'
 pr_number: null
 parent: story-064-101-gen3-condition-stats-parsing
 tags:
@@ -35,10 +35,10 @@ This task implements the logic to extract Gen 3 contest condition statistics (Co
 4. **Error Handling**: Allow `DataView` to throw `RangeError` on out-of-bounds reads and handle them gracefully as required by ADR 010.
 
 ## Acceptance Criteria
-- [ ] Logic correctly parses Gen 3 Condition stats (Cool, Beauty, Cute, Smart, Tough).
-- [ ] The `DataView` API is exclusively used for all new parsing logic.
-- [ ] No regressions in Gen 1 and Gen 2 parsing interfaces.
-- [ ] research-101-157-gen3-condition-stats-offsets
+- [x] Logic correctly parses Gen 3 Condition stats (Cool, Beauty, Cute, Smart, Tough).
+- [x] The `DataView` API is exclusively used for all new parsing logic.
+- [x] No regressions in Gen 1 and Gen 2 parsing interfaces.
+- [x] research-101-157-gen3-condition-stats-offsets
 
 ---
 

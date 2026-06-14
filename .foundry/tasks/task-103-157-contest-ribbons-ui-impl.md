@@ -38,6 +38,6 @@ This task is derived from `story-064-103-contest-ribbons-display-ui` and involve
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement the `ContestRibbonBadge` React component(s).
-- [ ] Ensure proper styling matching the project's aesthetics.
-- [ ] Add rendering tests to verify various Ribbon combinations display correctly.
+- [x] Implement the `ContestRibbonBadge` React component(s).
+- [x] Ensure proper styling matching the project's aesthetics.
+- [x] Add rendering tests to verify various Ribbon combinations display correctly.

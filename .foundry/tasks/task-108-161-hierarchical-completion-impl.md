@@ -2,12 +2,12 @@
 id: task-108-161-hierarchical-completion-impl
 type: TASK
 title: Implement Hierarchical Completion and Markdown Link Extraction in Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11836272577078114994'
 pr_number: null
 parent: story-070-108-orchestrator-hierarchical-completion-logic
 tags:
@@ -43,7 +43,7 @@ Update `.github/scripts/foundry-orchestrator.ts` to block `VERIFYING` and `COMPL
    - If you submit an empty PR for this completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `childToParents` map is populated correctly using both explicit `frontmatter.parent` and regex markdown links.
-- [ ] `parentToChildren` includes children discovered via regex markdown links.
-- [ ] `isDescendant` handles multi-parent traversal correctly via BFS.
-- [ ] Phase 4 inheritance check uses BFS over `childToParents` instead of single-parent traversal.
+- [x] `childToParents` map is populated correctly using both explicit `frontmatter.parent` and regex markdown links.
+- [x] `parentToChildren` includes children discovered via regex markdown links.
+- [x] `isDescendant` handles multi-parent traversal correctly via BFS.
+- [x] Phase 4 inheritance check uses BFS over `childToParents` instead of single-parent traversal.

@@ -51,4 +51,6 @@ The mechanism will:
 - [ ] Unit tests for the new GC logic.
 
 ## 5. Next Steps
-- [ ] Break down into Epics.
+- [x] Break down into Epics.
+  - [ ] epic-050-089-zombie-node-detection-engine
+  - [ ] epic-050-090-zombie-node-remediation-and-gc
