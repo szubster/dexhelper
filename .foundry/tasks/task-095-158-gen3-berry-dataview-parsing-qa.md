@@ -2,13 +2,13 @@
 id: task-095-158-gen3-berry-dataview-parsing-qa
 type: TASK
 title: QA Verification for Gen 3 Berry Tracker DataView Parsing Logic
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on:
   - task-095-157-gen3-berry-dataview-parsing
-jules_session_id: '12714644709529663939'
+jules_session_id: null
 pr_number: null
 parent: story-055-095-gen3-berry-data-parsing
 tags:
@@ -19,7 +19,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

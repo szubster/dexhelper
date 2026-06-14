@@ -2,10 +2,10 @@
 id: task-128-181-implement-item-list-parsing
 type: TASK
 title: Implement Dynamic Item List Parsing in scripts/generate-pokedata.ts
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

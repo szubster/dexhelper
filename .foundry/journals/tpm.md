@@ -342,3 +342,37 @@ No critical learnings logged yet.
 - **2026-06-14**: System failure detected for `research-095-157-gen2-event-flag-offsets`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
 
 - **2026-06-14**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-14**: PR #2534 merged. `epic-037-058-unown-tracker-engine` is now VERIFYING.
+
+- **2026-06-14**: PR #2523 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-14**: PR #2511 merged but has unchecked tasks (parent node). `idea-076-tpm-journal-bloat` is now PENDING.
+
+- **2026-06-14**: PR #2512 merged. `research-125-173-gen3-match-call-offsets` is now COMPLETED.
+
+- **2026-06-14**: PR #2515 merged. `story-052-118-time-capsule-ui-indicators` is now COMPLETED.
+
+- **2026-06-14**: PR #2521 merged. `story-058-095-feebas-seed-extraction` is now COMPLETED.
+
+- **2026-06-14**: PR #2514 merged but has unchecked tasks (parent node). `story-086-128-move-data-extraction` is now PENDING.
+
+- **2026-06-14**: PR #2517 merged but has unchecked tasks (parent node). `story-087-128-dynamic-item-list-parsing` is now PENDING.
+
+- **2026-06-14**: System failure detected for `task-084-150-breeding-pair-algorithm-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-14**: PR #2520 merged with unchecked tasks. `task-095-158-gen3-berry-dataview-parsing-qa` is now FAILED.
+
+- **2026-06-14**: PR #2519 merged. `task-096-179-unown-parser-tests-impl` is now COMPLETED.
+
+- **2026-06-14**: PR #2518 merged. `task-098-170-extract-32bit-pv-qa` is now COMPLETED.
+
+- **2026-06-14**: PR #2535 merged. `task-098-172-locate-mirage-island-offset-retry` is now COMPLETED.
+
+- **2026-06-14**: PR #2537 merged. `task-098-175-mirage-island-parsing-impl` is now COMPLETED.
+
+- **2026-06-14**: PR #2536 merged. `task-101-158-gen3-nature-condition-mapping-qa` is now COMPLETED.
+
+- **2026-06-14**: Max rejection count reached for `task-095-157-gen3-berry-dataview-parsing`. Reason: Retry from FAILED status.. Transitioned to FAILED.
+
+- **2026-06-14**: Resurrection Loop triggered for `task-101-157-gen3-condition-stats-parsing`. Reason: Retry from FAILED status.. Transitioned back to READY.

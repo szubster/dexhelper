@@ -2,12 +2,12 @@
 id: research-125-173-gen3-match-call-offsets
 type: RESEARCH
 title: Discover Gen 3 Match Call Memory Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: '15227747561538335360'
+jules_session_id: null
 pr_number: null
 parent: story-083-125-gen3-match-call-memory-offset-discovery
 tags:

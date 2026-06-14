@@ -5,7 +5,7 @@ title: Implement Gen 3 Berry Tracker DataView Parsing Logic
 status: FAILED
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on:
   - research-095-158-gen3-berry-missing-offsets
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - berries
   - engine
 research_references: []
-rejection_count: 2
-rejection_reason: 'Offset calculation is incorrect (must be relative to Section 1 payload size 0x0F80, so 0x071C instead of 0x169C). Also, Time Planted and Last Watered cannot be extracted as per research findings.'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 ---
 

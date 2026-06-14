@@ -1,21 +1,21 @@
 ---
 id: research-076-174-investigate-tpm-journal-bloat
 type: RESEARCH
-title: "Investigate Orchestrator TPM Journal Logging Mechanism"
-status: PENDING
-owner_persona: "researcher"
-created_at: "2026-06-13"
-updated_at: "2026-06-13"
+title: Investigate Orchestrator TPM Journal Logging Mechanism
+status: READY
+owner_persona: researcher
+created_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: "idea-076-tpm-journal-bloat"
+parent: idea-076-tpm-journal-bloat
 tags:
   - architecture
   - logging
   - orchestrator
 rejection_count: 0
-rejection_reason: ""
+rejection_reason: ''
 ---
 
 # Investigate Orchestrator TPM Journal Logging Mechanism

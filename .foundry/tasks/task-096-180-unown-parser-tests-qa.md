@@ -2,10 +2,10 @@
 id: task-096-180-unown-parser-tests-qa
 type: TASK
 title: QA - Unown Form Parser Unit Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on:
   - task-096-179-unown-parser-tests-impl
 jules_session_id: null

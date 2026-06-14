@@ -2,13 +2,13 @@
 id: task-101-157-gen3-condition-stats-parsing
 type: TASK
 title: Implement Gen 3 Condition Stats Parsing
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-14'
 depends_on:
   - research-101-157-gen3-condition-stats-offsets
-jules_session_id: '8986521882516828404'
+jules_session_id: null
 pr_number: null
 parent: story-064-101-gen3-condition-stats-parsing
 tags:
@@ -17,8 +17,8 @@ tags:
   - contests
   - parsing
 research_references: []
-rejection_count: 1
-rejection_reason: 'Suspended pending research for exact Gen 3 Condition stats memory offsets.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
