@@ -35,3 +35,5 @@ As part of the Mirage Island checking feature (Epic `epic-038-062-personality-va
 - [x] .foundry/tasks/task-098-158-gen3-parse-pv-qa.md
 - [ ] task-098-169-extract-32bit-pv-impl
 - [ ] task-098-170-extract-32bit-pv-qa
+- [ ] task-098-183-extract-32bit-pv-impl
+- [ ] task-098-184-extract-32bit-pv-qa
