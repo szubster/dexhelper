@@ -1,26 +1,26 @@
 ---
-id: story-058-096-feebas-tile-calculation
-type: STORY
-title: Feebas Tile Calculation Algorithm
-status: READY
-owner_persona: tech_lead
-created_at: '2026-06-08'
+id: task-096-183-feebas-tile-calculation-impl
+type: TASK
+title: Implement Feebas Tile Calculation Algorithm
+status: PENDING
+owner_persona: coder
+created_at: '2026-06-14'
 updated_at: '2026-06-14'
-depends_on:
-  - story-058-095-feebas-seed-extraction
+depends_on: []
 jules_session_id: null
 pr_number: null
-parent: epic-036-058-feebas-backend-parsing
+parent: story-058-096-feebas-tile-calculation
 tags:
   - gen3
   - backend
   - algorithm
+research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
 
-# Feebas Tile Calculation Algorithm
+# Implement Feebas Tile Calculation Algorithm
 
 ## Objective
 Implement the Gen 3 Linear Congruential Generator (LCG) algorithm to translate the 16-bit Feebas seed into the 6 specific valid spot IDs on Route 119, and map those spot IDs to physical map coordinates.
@@ -32,8 +32,8 @@ Implement the Gen 3 Linear Congruential Generator (LCG) algorithm to translate t
 - [ ] Implement spot rejection for values `< 4` (inaccessible spots), looping until 6 valid spot IDs are selected.
 - [ ] Add `mapSpotIdsToCoordinates(spotIds: number[])` to map 1D spot IDs to `(x, y)` relative grid coordinates.
 - [ ] Write unit tests verifying the exact 6 spots generated for a set of known seeds.
-- [x] Break down into Tasks
 
-## Tasks
-- [ ] .foundry/tasks/task-096-183-feebas-tile-calculation-impl.md
-- [ ] .foundry/tasks/task-096-184-feebas-tile-calculation-qa.md
+## Rules & Constraints
+- If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
