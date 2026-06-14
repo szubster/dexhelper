@@ -412,7 +412,7 @@ function main(): void {
     }
 
     // Parse body for regex to find markdown links to children
-    const regex = /\.foundry\/(?:ideas|prds|epics|stories|tasks|research)\/[^\s"'`\)]+\.md/g;
+    const regex = /\.foundry\/(?:ideas|prds|epics|stories|tasks|research)\/[^\s"'`)]+\.md/g;
     const body = node.body;
     const matches = [...new Set(body.match(regex) || [])];
 
