@@ -2,12 +2,12 @@
 id: task-103-157-contest-ribbons-ui-impl
 type: TASK
 title: Implement Contest Ribbons Display UI Component
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11592345276044395445'
 pr_number: null
 parent: story-064-103-contest-ribbons-display-ui
 tags:
