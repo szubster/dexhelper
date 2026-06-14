@@ -2,12 +2,12 @@
 id: task-102-157-impl-gen3-sheen-parsing
 type: TASK
 title: Implement Gen 3 Sheen Value Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9517379481823205127'
 pr_number: null
 parent: story-064-102-gen3-sheen-value-parsing
 tags:
