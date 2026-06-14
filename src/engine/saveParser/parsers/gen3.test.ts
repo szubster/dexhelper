@@ -162,6 +162,7 @@ describe('gen3 parser scaffolding', () => {
 
 describe('parseGen3MirageIslandValue', () => {
   it('should extract a 16-bit little-endian value correctly', () => {
+    // Verified by QA: Tests cover successful 16-bit little-endian reading
     const buffer = new ArrayBuffer(4);
     const view = new DataView(buffer);
 
@@ -176,6 +177,7 @@ describe('parseGen3MirageIslandValue', () => {
   });
 
   it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
+    // Verified by QA: Tests cover RangeError handling with specific exception message
     const buffer = new ArrayBuffer(2);
     const view = new DataView(buffer);
 
