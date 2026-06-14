@@ -2,13 +2,13 @@
 id: task-098-172-locate-mirage-island-offset-retry
 type: TASK
 title: Locate Mirage Island Data Block Offset (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on:
   - research-098-171-investigate-mirage-island-offset
-jules_session_id: null
+jules_session_id: '11731261898899691522'
 pr_number: null
 parent: story-061-098-locate-mirage-island-data
 tags:
