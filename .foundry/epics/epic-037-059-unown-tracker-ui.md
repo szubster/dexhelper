@@ -37,5 +37,9 @@ It should visually represent which of the 26 Gen 2 forms are currently owned by 
 Must adhere strictly to the "tactical hardware/snooping" aesthetic (`rounded-none`, dashed borders, monospace fonts) as defined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Story for Unown Dex panel UI created.
-- [ ] Story for Unown Dex panel data integration created.
+- [x] Story for Unown Dex panel UI created.
+- [x] Story for Unown Dex panel data integration created.
+
+## Generated Stories
+- [ ] `story-059-131-unown-dex-panel-ui`
+- [ ] `story-059-132-unown-dex-data-integration`
