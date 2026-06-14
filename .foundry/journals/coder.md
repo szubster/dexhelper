@@ -75,5 +75,10 @@ When implementing `task-101-157-gen3-condition-stats-parsing`, the exact memory 
 ## Verifying Gen 3 Save File Sections
 When verifying save file documentation (e.g. Generation 3 save parsing), it is crucial to ensure that the stated offsets fall within the correct section headers as defined by authoritative sources like Bulbapedia. Failing to map byte offsets to the correct logical 4KB section boundaries can lead to incorrect data extraction in the orchestrator.
 
+## 2026-06-14: Missing Route 119 Map Data
+
+While implementing the Feebas Tile Calculation Algorithm, I discovered that the `mapSpotIdsToCoordinates` function could not be completed because the project's knowledge base and codebase currently lack the actual physical grid mapping data for Route 119. Specifically, the conversion of a 1D spot ID (from 1 to 447) into a 2D (x, y) relative grid coordinate requires the width and height of the map grid, as well as an understanding of which exact tiles are considered "surfable and not waterfall".
+
+Following the Late Binding for Missing Context pattern, rather than making assumptions or failing silently, I spawned a new RESEARCH node (`research-096-185-feebas-route119-grid-mapping`) and suspended the task by setting its status to `FAILED` with a clear `rejection_reason`.
 ## 2026-06-14: Missing Bitfield Formulas in Research
 When implementing save parser logic, research handoffs occasionally identify bitfields (e.g., Gen 3 Roamer IVs) without specifying the exact bit shifts or field sizes required for correct extraction. It's critical to avoid hallucinating these exact mathematical formulas to comply with groundedness rules. When this occurs, always spawn a late-bound `RESEARCH` node to determine the exact parsing formula and suspend the implementation task until the data is verified.

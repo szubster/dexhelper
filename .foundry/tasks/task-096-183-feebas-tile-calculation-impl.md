@@ -2,11 +2,12 @@
 id: task-096-183-feebas-tile-calculation-impl
 type: TASK
 title: Implement Feebas Tile Calculation Algorithm
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-14'
 updated_at: '2026-06-14'
-depends_on: []
+depends_on:
+  - research-096-185-feebas-route119-grid-mapping
 jules_session_id: '6277852711043171824'
 pr_number: null
 parent: story-058-096-feebas-tile-calculation
@@ -16,7 +17,7 @@ tags:
   - algorithm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Suspended pending research: The 1D Feebas spot IDs (1 to 447) need to be mapped to 2D physical map coordinates (x, y). However, the dimensions of the Route 119 map grid and the exact logic or mapping for the 447 valid surfable water tiles are missing from the current context, preventing the implementation of `mapSpotIdsToCoordinates(spotIds)`.'
 notes: ''
 ---
 
