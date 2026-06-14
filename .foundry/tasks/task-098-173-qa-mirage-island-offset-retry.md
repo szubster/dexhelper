@@ -2,13 +2,13 @@
 id: task-098-173-qa-mirage-island-offset-retry
 type: TASK
 title: QA - Verify Mirage Island Data Block Offset Documentation (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-14'
 depends_on:
   - task-098-172-locate-mirage-island-offset-retry
-jules_session_id: '13888584630131910429'
+jules_session_id: null
 pr_number: null
 parent: story-061-098-locate-mirage-island-data
 tags:

@@ -380,3 +380,13 @@ No critical learnings logged yet.
 - **2026-06-14**: System failure detected for `story-081-123-gen3-active-swarm-parsing`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
 
 - **2026-06-14**: Resurrection Loop triggered for `task-095-158-gen3-berry-dataview-parsing-qa`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-14**: PR #2539 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-14**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-14**: System failure detected for `task-081-144-preserve-enum-optimizations-retry-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-14**: PR #2547 merged. `task-096-180-unown-parser-tests-qa` is now COMPLETED.
+
+- **2026-06-14**: PR #2548 merged. `task-098-173-qa-mirage-island-offset-retry` is now COMPLETED.
