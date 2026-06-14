@@ -2,13 +2,13 @@
 id: story-058-096-feebas-tile-calculation
 type: STORY
 title: Feebas Tile Calculation Algorithm
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-08'
 updated_at: '2026-06-14'
 depends_on:
   - story-058-095-feebas-seed-extraction
-jules_session_id: '15160987497054339941'
+jules_session_id: null
 pr_number: null
 parent: epic-036-058-feebas-backend-parsing
 tags:

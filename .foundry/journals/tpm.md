@@ -390,3 +390,13 @@ No critical learnings logged yet.
 - **2026-06-14**: PR #2547 merged. `task-096-180-unown-parser-tests-qa` is now COMPLETED.
 
 - **2026-06-14**: PR #2548 merged. `task-098-173-qa-mirage-island-offset-retry` is now COMPLETED.
+
+- **2026-06-14**: PR #2561 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-14**: PR #2542 merged. `idea-079-foundry-zombie-node-cleanup` is now VERIFYING.
+
+- **2026-06-14**: PR #2541 merged. `research-076-174-investigate-tpm-journal-bloat` is now COMPLETED.
+
+- **2026-06-14**: PR #2543 merged with unchecked tasks. `research-101-157-gen3-condition-stats-offsets` is now FAILED.
+
+- **2026-06-14**: PR #2540 merged but has unchecked tasks (parent node). `story-058-096-feebas-tile-calculation` is now PENDING.
