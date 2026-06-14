@@ -40,7 +40,7 @@ This task verifies the implementation of the `ContestSheenDisplay` React compone
 - Do NOT modify the YAML frontmatter unless permanently failing or cancelling the task. Only check off the markdown boxes below when completing the work.
 
 ## Acceptance Criteria
-- [ ] Implement tests in `src/components/pokemon/details/ContestSheenDisplay.test.tsx` using `vitest-browser-react` or `@testing-library/react`.
-- [ ] Verify rendering for 0 sheen.
-- [ ] Verify rendering for partial sheen.
-- [ ] Verify rendering for maxed (255) sheen and confirm the max indicator is present.
+- [x] Implement tests in `src/components/pokemon/details/ContestSheenDisplay.test.tsx` using `vitest-browser-react` or `@testing-library/react`.
+- [x] Verify rendering for 0 sheen.
+- [x] Verify rendering for partial sheen.
+- [x] Verify rendering for maxed (255) sheen and confirm the max indicator is present.
