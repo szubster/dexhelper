@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { isGen3Save, parseGen3, parseGen3MirageIslandValue, parseGen3PersonalityValue } from './gen3';
+import {
+  isGen3Save,
+  parseGen3,
+  parseGen3ConditionStats,
+  parseGen3MirageIslandValue,
+  parseGen3PersonalityValue,
+} from './gen3';
 
 describe('gen3 parser scaffolding', () => {
   it('isGen3Save should return false normally', () => {
@@ -209,5 +215,48 @@ describe('parseGen3PersonalityValue', () => {
 
     // Attempting to read a 32-bit integer (4 bytes) starting at offset 2 will exceed the 4-byte buffer
     expect(() => parseGen3PersonalityValue(view, 2)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3ConditionStats', () => {
+  it('should extract condition stats correctly given a PV and offset', () => {
+    // 100 bytes is the size of the Pokémon structure
+    const buffer = new ArrayBuffer(100);
+    const view = new DataView(buffer);
+
+    // PV = 25. 25 % 24 = 1.
+    // Order index 1 is ['G', 'A', 'M', 'E']
+    // So 'E' (EVs & Condition) is at index 3.
+    // Absolute offset: 0x20 + (3 * 12) = 32 + 36 = 68 (0x44)
+    const pv = 25;
+
+    const offset = 0;
+    const evsSubstructureOffset = offset + 0x20 + 3 * 12;
+
+    // Set the condition stats at their internal offsets within the E substructure
+    // Cool (0x06), Beauty (0x07), Cute (0x08), Smart (0x09), Tough (0x0A)
+    view.setUint8(evsSubstructureOffset + 0x06, 10);
+    view.setUint8(evsSubstructureOffset + 0x07, 20);
+    view.setUint8(evsSubstructureOffset + 0x08, 30);
+    view.setUint8(evsSubstructureOffset + 0x09, 40);
+    view.setUint8(evsSubstructureOffset + 0x0a, 50);
+
+    const result = parseGen3ConditionStats(view, offset, pv);
+    expect(result).toEqual({
+      cool: 10,
+      beauty: 20,
+      cute: 30,
+      smart: 40,
+      tough: 50,
+    });
+  });
+
+  it('should explicitly catch RangeError and throw corrupted file error', () => {
+    const buffer = new ArrayBuffer(20);
+    const view = new DataView(buffer);
+
+    const pv = 0; // Order index 0. 'E' is at index 2. Offset: 0x20 + (2 * 12) = 56.
+
+    expect(() => parseGen3ConditionStats(view, 0, pv)).toThrowError('The save file is corrupted or incomplete.');
   });
 });

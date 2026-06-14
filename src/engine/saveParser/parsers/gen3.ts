@@ -227,3 +227,77 @@ export function parseGen3PersonalityValue(view: DataView, offset: number): numbe
     throw error;
   }
 }
+
+/**
+ * The 24 possible permutations for the Gen 3 data substructure order.
+ * G = Growth, A = Attacks, E = EVs & Condition, M = Miscellaneous
+ * The index of 'E' determines the position of the EVs & Condition substructure.
+ */
+const SUBSTRUCTURE_ORDERS = [
+  ['G', 'A', 'E', 'M'], // 0
+  ['G', 'A', 'M', 'E'], // 1
+  ['G', 'E', 'A', 'M'], // 2
+  ['G', 'E', 'M', 'A'], // 3
+  ['G', 'M', 'A', 'E'], // 4
+  ['G', 'M', 'E', 'A'], // 5
+  ['A', 'G', 'E', 'M'], // 6
+  ['A', 'G', 'M', 'E'], // 7
+  ['A', 'E', 'G', 'M'], // 8
+  ['A', 'E', 'M', 'G'], // 9
+  ['A', 'M', 'G', 'E'], // 10
+  ['A', 'M', 'E', 'G'], // 11
+  ['E', 'G', 'A', 'M'], // 12
+  ['E', 'G', 'M', 'A'], // 13
+  ['E', 'A', 'G', 'M'], // 14
+  ['E', 'A', 'M', 'G'], // 15
+  ['E', 'M', 'G', 'A'], // 16
+  ['E', 'M', 'A', 'G'], // 17
+  ['M', 'G', 'A', 'E'], // 18
+  ['M', 'G', 'E', 'A'], // 19
+  ['M', 'A', 'G', 'E'], // 20
+  ['M', 'A', 'E', 'G'], // 21
+  ['M', 'E', 'G', 'A'], // 22
+  ['M', 'E', 'A', 'G'], // 23
+];
+
+/**
+ * Parses the Gen 3 Contest Condition Stats (Cool, Beauty, Cute, Smart, Tough)
+ * from a Pokémon's data structure.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The memory offset where the Pokémon's 100-byte structure begins.
+ * @param pv - The Pokémon's 32-bit Personality Value.
+ * @returns The parsed condition stats object.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3ConditionStats(
+  view: DataView,
+  offset: number,
+  pv: number,
+): { cool: number; beauty: number; cute: number; smart: number; tough: number } {
+  try {
+    const orderIndex = pv % 24;
+    const order = SUBSTRUCTURE_ORDERS[orderIndex];
+    if (!order) {
+      throw new Error('Invalid PV calculated order index.');
+    }
+    const evsSubstructureIndex = order.indexOf('E');
+
+    // Calculate the absolute offset for the "EVs & Condition" substructure
+    // 0x20 is the start of the Data section within the 100-byte Pokémon structure
+    const evsSubstructureOffset = offset + 0x20 + evsSubstructureIndex * 12;
+
+    const cool = view.getUint8(evsSubstructureOffset + 0x06);
+    const beauty = view.getUint8(evsSubstructureOffset + 0x07);
+    const cute = view.getUint8(evsSubstructureOffset + 0x08);
+    const smart = view.getUint8(evsSubstructureOffset + 0x09);
+    const tough = view.getUint8(evsSubstructureOffset + 0x0a);
+
+    return { cool, beauty, cute, smart, tough };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}

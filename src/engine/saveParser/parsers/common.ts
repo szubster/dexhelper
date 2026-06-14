@@ -42,6 +42,7 @@ export interface PokemonInstance {
   /** The 1-indexed position of the Pokémon within its storage container. */
   slot?: number | undefined;
   unownForm?: string | undefined;
+  conditionStats?: { cool: number; beauty: number; cute: number; smart: number; tough: number };
 }
 
 /**
