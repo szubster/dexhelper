@@ -18,3 +18,6 @@ When an implementation task only creates standalone UI components but fails to i
 
 ### Lesson Learned: Verifying Gen 3 Save File Sections
 When verifying save file documentation (e.g. Generation 3 save parsing), it is crucial to ensure that the stated offsets fall within the correct section headers as defined by authoritative sources like Bulbapedia. Failing to map byte offsets to the correct logical 4KB section boundaries can lead to incorrect data extraction in the orchestrator.
+
+## 2026-06-13: Gen 3 Save Parsing and Implicit Data
+Learned to carefully verify relative vs. logical offsets in Gen 3 blocks. For example, Gen 3 Berry Trees at logical offset `0x169C` are located in Section 1 of `SaveBlock1`, so we must calculate the relative offset into Section 1 using the Section 0 payload size (`0x0F80`), making the correct relative offset `0x071C`. Additionally, we must firmly reject tasks whose acceptance criteria require extraction of implicit/missing data like "Time Planted" or "Last Watered Time" when research findings explicitly show they are not stored.
