@@ -2,12 +2,12 @@
 id: task-096-183-feebas-tile-calculation-impl
 type: TASK
 title: Implement Feebas Tile Calculation Algorithm
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-14'
 updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6277852711043171824'
 pr_number: null
 parent: story-058-096-feebas-tile-calculation
 tags:
