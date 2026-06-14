@@ -2,7 +2,7 @@
 id: task-095-158-gen3-berry-dataview-parsing-qa
 type: TASK
 title: QA Verification for Gen 3 Berry Tracker DataView Parsing Logic
-status: ACTIVE
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-14'
@@ -19,7 +19,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-095-157-gen3-berry-dataview-parsing
 notes: ''
 ---
 
