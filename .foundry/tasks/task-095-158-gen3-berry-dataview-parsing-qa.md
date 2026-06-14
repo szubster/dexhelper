@@ -44,3 +44,5 @@ Verify the implementation of the extraction logic for Gen 3 berry patches.
 - [ ] Verify correct extraction of map ID, berry ID, current growth stage, time planted, and last watered time.
 
 **Note**: The implementation `task-095-157-gen3-berry-dataview-parsing` has been rejected due to incorrect offset calculations and the inclusion of implicit/missing data in the acceptance criteria.
+
+**CANCELLED**: This task has been replaced by `task-095-183-gen3-berry-dataview-parsing-retry-impl` and its QA counterpart `task-095-184-gen3-berry-dataview-parsing-retry-qa`.

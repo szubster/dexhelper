@@ -59,3 +59,6 @@ Prevents silent failures and ensures backwards compatibility.
 - **Action**: Always explicitly verify the logical section of any discovered offset against authoritative documentation before finalizing parsing specs to prevent incorrect data extraction by the orchestrator.
 ## 2026-06-13: Handling Cancelled QA Tasks from Missing Integrations
 When a coder task fails permanently due to missing architectural integration (like missing context/props), resulting in a resurrection loop and a RESEARCH node, it is critical that the orphaned QA task from the previous failed run is marked as CANCELLED in its markdown body. If left un-cancelled, the orchestrator will assign an agent to verify the failed task, leading to deadlocks. The parent macro node must be updated with the newly generated child tasks, and the orphaned QA task must be explicitly replaced.
+
+## 2026-06-14: Aligning Acceptance Criteria with Implicit Data Reality
+When a `RESEARCH` node confirms that requested data is implicitly stored or simply missing from the save file (e.g., Gen 3 "Time Planted" or "Last Watered Time"), the Tech Lead MUST update the parent Story's acceptance criteria to reflect reality before spawning replacement tasks. Failing to update the macro node's AC leads to infinite failure loops where agents attempt to extract non-existent data to satisfy outdated requirements.
