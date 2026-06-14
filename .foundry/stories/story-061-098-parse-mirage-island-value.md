@@ -2,12 +2,12 @@
 id: story-061-098-parse-mirage-island-value
 type: STORY
 title: Parse Daily Mirage Island Value
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7182133204623692935'
 pr_number: null
 parent: epic-038-061-mirage-island-engine
 tags:
