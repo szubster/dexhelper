@@ -33,5 +33,5 @@ During the implementation of `task-101-157-gen3-condition-stats-parsing`, it was
 4. Update the knowledge base (e.g., in `.foundry/docs/knowledge_base/`) with these findings.
 
 ## Acceptance Criteria
-- [ ] Memory offsets and structure for Gen 3 Condition stats are fully documented in the knowledge base.
-- [ ] The exact block, offset, and size for Cool, Beauty, Cute, Smart, and Tough are identified.
+- [x] Memory offsets and structure for Gen 3 Condition stats are fully documented in the knowledge base.
+- [x] The exact block, offset, and size for Cool, Beauty, Cute, Smart, and Tough are identified.
