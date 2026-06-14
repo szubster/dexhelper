@@ -2,13 +2,13 @@
 id: task-101-158-gen3-nature-condition-mapping-qa
 type: TASK
 title: QA Gen 3 Nature to Contest Condition Mapping
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on:
   - task-101-157-gen3-nature-condition-mapping-impl
-jules_session_id: null
+jules_session_id: '12390198917359310727'
 pr_number: null
 parent: story-064-101-gen3-nature-condition-mapping
 tags:
