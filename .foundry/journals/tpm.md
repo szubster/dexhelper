@@ -334,3 +334,7 @@ No critical learnings logged yet.
 - **2026-06-13**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
 
 - **2026-06-13**: PR #2505 merged. `task-095-157-gen3-berry-dataview-parsing` is now COMPLETED.
+
+- **2026-06-14**: PR #2513 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-14**: System failure detected for `story-058-095-feebas-seed-extraction`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
