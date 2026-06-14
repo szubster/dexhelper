@@ -131,6 +131,7 @@ export function isGen3Save(view: DataView): boolean {
  */
 export function parseGen3MirageIslandValue(view: DataView, offset: number): number {
   try {
+    // Read the 16-bit little-endian value using the DataView API
     return view.getUint16(offset, true);
   } catch (error) {
     if (error instanceof RangeError) {
@@ -176,6 +177,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       hiddenItemFlags[i] = ((currentByte >> 4) | ((nextByte & 0x0f) << 4)) & 0xff;
     }
 
+    const mirageIslandOffset = _forcedVersion === 'emerald' ? 0x0464 : 0x0408;
+    const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
+
     // Dummy scaffold values for now until fully implemented
     return {
       generation: 3,
@@ -195,6 +199,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       hallOfFameCount: 0,
       gen3BerryPatches,
       hiddenItemFlags,
+      mirageIslandValue,
     };
   } catch (error) {
     if (error instanceof RangeError) {
