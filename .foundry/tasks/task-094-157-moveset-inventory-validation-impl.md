@@ -42,4 +42,4 @@ Corrupted save files often manifest as impossible movesets or corrupted inventor
 - [ ] Coder: Implement inventory validation logic (check item IDs and quantities).
 - [ ] Coder: Diagnostic output models accurately reflect invalid moves/items.
 
-- [x] .foundry/research-094-157-moveset-inventory-memory-offsets.md
+- [x] research-094-157-moveset-inventory-memory-offsets
