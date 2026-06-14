@@ -125,6 +125,8 @@ export interface SaveData {
     mapGroup: number;
     mapId: number;
   }[];
+  /** Gen 3 specific: The 16-bit daily Mirage Island random value. */
+  mirageIslandValue?: number;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.
