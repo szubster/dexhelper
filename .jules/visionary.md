@@ -93,3 +93,7 @@
 ## 2026-06-13
 **Idea:** Gen 3 PokéNav Match Call & Rematch Tracker
 **Learning:** Expanding Gen 3 support by surfacing hidden, dynamically changing state (like the obfuscated step-counter-driven Match Call rematch flags) provides players with highly actionable utilities. Transforming a tedious, scroll-heavy in-game UI into an optimized dashboard for EV and EXP farming perfectly leverages our offline-first programmatic parsing strengths, turning hidden state into a competitive advantage for the hardcore playerbase.
+
+## 2026-06-14
+**Idea:** Hidden Power Type and Base Power Revealer
+**Learning:** Deriving complex competitive stats (like Hidden Power Type and Base Power) from already extracted hidden state (DVs) is a strong continuation of the project's core value proposition. It takes existing programmatic data and transforms it into highly actionable utility, eliminating tedious manual calculations or the need for external tools. This perfectly aligns with DexHelper's vision as an intelligent, offline-first companion app.
