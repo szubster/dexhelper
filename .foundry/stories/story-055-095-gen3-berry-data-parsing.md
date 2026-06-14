@@ -31,8 +31,8 @@ Implement the extraction logic for Gen 3 berry patches using the native `DataVie
 - [ ] Implement graceful handling of bounds checking by throwing/catching `RangeError`.
 - [ ] Extract map ID, berry ID, current growth stage, time planted, and last watered time.
 
-- [ ] .foundry/tasks/task-095-157-gen3-berry-dataview-parsing.md
-- [ ] .foundry/tasks/task-095-158-gen3-berry-dataview-parsing-qa.md
+- [ ] .foundry/tasks/task-095-157-gen3-berry-dataview-parsing.md // Tech Lead: Verified failure of initial implementation.
+- [ ] .foundry/tasks/task-095-158-gen3-berry-dataview-parsing-qa.md // Tech Lead: Reverted incorrect frontmatter modification.
 - [ ] .foundry/research/research-095-175-gen3-berry-implicit-data.md
 - [ ] .foundry/tasks/task-095-183-gen3-berry-dataview-parsing-retry.md
 - [ ] .foundry/tasks/task-095-184-gen3-berry-dataview-parsing-retry-qa.md
