@@ -59,3 +59,7 @@ Prevents silent failures and ensures backwards compatibility.
 - **Action**: Always explicitly verify the logical section of any discovered offset against authoritative documentation before finalizing parsing specs to prevent incorrect data extraction by the orchestrator.
 ## 2026-06-13: Handling Cancelled QA Tasks from Missing Integrations
 When a coder task fails permanently due to missing architectural integration (like missing context/props), resulting in a resurrection loop and a RESEARCH node, it is critical that the orphaned QA task from the previous failed run is marked as CANCELLED in its markdown body. If left un-cancelled, the orchestrator will assign an agent to verify the failed task, leading to deadlocks. The parent macro node must be updated with the newly generated child tasks, and the orphaned QA task must be explicitly replaced.
+
+## 2026-06-14: Handling Research Findings for Missing/Implicit Data
+- **Observation**: When a `RESEARCH` node reveals that originally requested data fields are implicit or simply not present in the game's data structures (e.g., Gen 3 Berry Tracker missing explicit "time planted" and "map ID" fields), the subsequent retry `TASK` nodes must explicitly instruct the coder to omit these fields from explicit extraction.
+- **Action**: Do not attempt to force parsers to extract non-existent data. Update the technical blueprints to explicitly reflect the research findings and omit the missing fields, ensuring the QA constraints match the newly established physical reality of the data structure.
