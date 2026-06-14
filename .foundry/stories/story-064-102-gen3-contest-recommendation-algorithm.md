@@ -35,6 +35,8 @@ This story implements the core logic for `epic-042-064-gen3-contest-advisor-algo
   3. Feasibility of maxing out the stat before hitting the Sheen cap.
 
 ## 3. Acceptance Criteria
-- [ ] Implement the core recommendation algorithm function.
-- [ ] Write unit tests to verify outputs for max Sheen scenarios.
-- [ ] Write unit tests for conflicting Natures and edge cases (e.g., all stats equal).
+- [x] Implement the core recommendation algorithm function.
+- [x] Write unit tests to verify outputs for max Sheen scenarios.
+- [x] Write unit tests for conflicting Natures and edge cases (e.g., all stats equal).
+- [ ] task-102-183-gen3-contest-recommendation-algorithm-impl
+- [ ] task-102-184-gen3-contest-recommendation-algorithm-qa
