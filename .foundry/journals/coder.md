@@ -75,6 +75,10 @@ When implementing `task-101-157-gen3-condition-stats-parsing`, the exact memory 
 ## Verifying Gen 3 Save File Sections
 When verifying save file documentation (e.g. Generation 3 save parsing), it is crucial to ensure that the stated offsets fall within the correct section headers as defined by authoritative sources like Bulbapedia. Failing to map byte offsets to the correct logical 4KB section boundaries can lead to incorrect data extraction in the orchestrator.
 
+## Self-Verification of task-108-161-update-schema-macro-node-completion-impl
+Documenting self-verification of the schema.md updates:
+1. Checked schema.md using `sed -n '180,201p' .foundry/docs/schema.md | tail -n 8` to verify "Invariant 15" was correctly added as: `Macro nodes (\`IDEA\`, \`PRD\`, \`EPIC\`, \`STORY\`) cannot complete until all of their descendant nodes are \`COMPLETED\`.`
+2. Used `cat` to verify that `.foundry/tasks/task-108-161-update-schema-macro-node-completion-impl.md`'s acceptance criteria box was successfully checked: `- [x] Update schema.md to explain hierarchical completion rules.`
 ## 2026-06-14: Missing Route 119 Map Data
 
 While implementing the Feebas Tile Calculation Algorithm, I discovered that the `mapSpotIdsToCoordinates` function could not be completed because the project's knowledge base and codebase currently lack the actual physical grid mapping data for Route 119. Specifically, the conversion of a 1D spot ID (from 1 to 447) into a 2D (x, y) relative grid coordinate requires the width and height of the map grid, as well as an understanding of which exact tiles are considered "surfable and not waterfall".

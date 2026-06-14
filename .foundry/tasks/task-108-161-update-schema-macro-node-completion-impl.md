@@ -39,4 +39,4 @@ Update `.foundry/docs/schema.md` to detail the new macro node completion rules s
 - This is a simple/low-risk documentation update. The `coder` is designated to self-verify. Document your self-verification in your task journal.
 
 ## Acceptance Criteria
-- [ ] Update `schema.md` to explain hierarchical completion rules.
+- [x] Update `schema.md` to explain hierarchical completion rules.
