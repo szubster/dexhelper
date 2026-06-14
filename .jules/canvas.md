@@ -191,3 +191,9 @@
 **Outcome:** Accepted
 **Why:** Brings the mobile bottom navigation fully into the tactical specialized hardware motif. Floating app bars and subtle flicker animations break the illusion of using a rugged, purpose-built device.
 **Pattern:** Apply "bracketed" physical hardware layouts and explicit "membrane switch" button designs (using inset shadows, dashed borders, and strict monospaced labels) to navigation structures to maintain the device simulation across all viewports.
+
+## 2026-07-20 - [Accepted] - 🖼️ Canvas: Tactical Global Hardware Frame Redesign
+**What:** Redesigned the entire application layout (`AppLayout.tsx` and `RetroBackground.tsx`) to sit inside a physical "Hardware Monitor Frame". Added thick edge bezels, persistent edge telemetry, a CRT vignette overlay, and completely replaced the floating number background with a dense, scrolling tactical hex-grid and radar sweep background.
+**Outcome:** Accepted
+**Why:** Brings the fundamental app framing into the specialized hardware motif. The application no longer looks like a website occupying the browser window; it looks like a physical CRT terminal monitor displaying a war-room data grid.
+**Pattern:** Apply heavy, physical-looking frames and global screen-space overlays (vignettes, scanlines, hex grids) to the root application layout to permanently break the "web page" illusion and enforce the specialized device fantasy at the macro level.
