@@ -2,12 +2,12 @@
 id: research-101-157-gen3-condition-stats-offsets
 type: RESEARCH
 title: Investigate Gen 3 Condition Stats Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-14'
 updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1225310311106080453'
 pr_number: null
 parent: task-101-157-gen3-condition-stats-parsing
 tags:
