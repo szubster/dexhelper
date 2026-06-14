@@ -31,3 +31,5 @@ Implement UI indicators for Time Capsule readiness in the DexHelper Storage View
 - Ensure the visual indicator logic correctly consumes the core validation logic (from Epic 051).
 
 ## Tasks
+- [ ] .foundry/tasks/task-118-181-time-capsule-ui-indicators-impl.md
+- [ ] .foundry/tasks/task-118-182-time-capsule-ui-indicators-qa.md
