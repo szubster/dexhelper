@@ -70,7 +70,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={cn(
-        'fixed inset-0 overflow-hidden bg-black font-sans text-zinc-100 transition-colors duration-500 selection:bg-[var(--theme-primary)]/30',
+        'relative h-screen w-full overflow-hidden bg-black font-sans text-zinc-100 transition-colors duration-500 selection:bg-[var(--theme-primary)]/30',
         themeClass,
       )}
     >
