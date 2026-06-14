@@ -37,7 +37,7 @@ This task was generated from `.foundry/stories/story-053-106-dag-utils-unit-test
 *   If submitting an empty PR for a completed task (e.g., if you realize the file already has complete tests), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] `.github/scripts/dag-utils.test.ts` is created.
-- [ ] Comprehensive unit tests for `buildReverseDependencyGraph` are written and pass.
-- [ ] Comprehensive unit tests for `getOrphanedNodes` are written and pass.
-- [ ] Running `pnpm exec vitest run` passes without errors.
+- [x] `.github/scripts/dag-utils.test.ts` is created.
+- [x] Comprehensive unit tests for `buildReverseDependencyGraph` are written and pass.
+- [x] Comprehensive unit tests for `getOrphanedNodes` are written and pass.
+- [x] Running `pnpm exec vitest run` passes without errors.
