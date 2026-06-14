@@ -33,3 +33,6 @@ Implement the extraction logic for Gen 3 berry patches using the native `DataVie
 
 - [ ] .foundry/tasks/task-095-157-gen3-berry-dataview-parsing.md
 - [ ] .foundry/tasks/task-095-158-gen3-berry-dataview-parsing-qa.md
+- [ ] .foundry/tasks/research-095-183-gen3-berry-missing-offsets.md
+- [ ] .foundry/tasks/task-095-184-gen3-berry-dataview-parsing-impl.md
+- [ ] .foundry/tasks/task-095-185-gen3-berry-dataview-parsing-qa.md

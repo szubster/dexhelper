@@ -1,14 +1,14 @@
 ---
-id: task-095-158-gen3-berry-dataview-parsing-qa
+id: task-095-185-gen3-berry-dataview-parsing-qa
 type: TASK
 title: QA Verification for Gen 3 Berry Tracker DataView Parsing Logic
-status: CANCELLED
+status: READY
 owner_persona: qa
-created_at: '2026-06-10'
+created_at: '2026-06-14'
 updated_at: '2026-06-14'
 depends_on:
-  - task-095-157-gen3-berry-dataview-parsing
-jules_session_id: '9115765459047761295'
+  - task-095-184-gen3-berry-dataview-parsing-impl
+jules_session_id: null
 pr_number: null
 parent: story-055-095-gen3-berry-data-parsing
 tags:
@@ -18,10 +18,8 @@ tags:
   - engine
   - qa
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-095-157-gen3-berry-dataview-parsing
+rejection_count: 0
+rejection_reason: ''
 notes: ''
 ---
 
@@ -33,7 +31,7 @@ Verify the implementation of the extraction logic for Gen 3 berry patches.
 ## Constraints & Verification Steps
 - Verify that the implementation uses the `DataView` API exclusively, avoiding raw `Uint8Array` manipulations.
 - Verify that bounds checking is gracefully handled by catching `RangeError` exceptions and raising proper errors (e.g., "Corrupted Save File").
-- Verify that map ID, berry ID, current growth stage, time planted, and last watered time are extracted correctly.
+- Verify that only explicitly available fields are extracted and that "Time Planted" and "Last Watered Time" are ignored, consistent with prior research.
 - Ensure that the tests correctly mock range bounds and corrupted save files without crashing the process.
 - IMPORTANT: If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
 - IMPORTANT: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
@@ -41,8 +39,4 @@ Verify the implementation of the extraction logic for Gen 3 berry patches.
 ## Acceptance Criteria
 - [ ] Verify `DataView` reading logic for Gen 3 berry patches implementation is correct.
 - [ ] Verify graceful handling of bounds checking (throwing/catching `RangeError`) without process crash.
-- [ ] Verify correct extraction of map ID, berry ID, current growth stage, time planted, and last watered time.
-
-**Note**: The implementation `task-095-157-gen3-berry-dataview-parsing` has been rejected due to incorrect offset calculations and the inclusion of implicit/missing data in the acceptance criteria.
-
-**CANCELLED**: This task has been replaced by `task-095-185-gen3-berry-dataview-parsing-qa` to account for Gen 3 berry missing/implicit offsets discovered during research.
+- [ ] Verify extraction logic does not incorrectly attempt to parse non-existent/implicit data fields like "Time Planted".
