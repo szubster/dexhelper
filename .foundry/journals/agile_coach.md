@@ -49,3 +49,13 @@ During my system analysis, I noticed that personas were still occasionally modif
 Additionally, I observed friction when parent nodes encounter child nodes that reach their Max Rejection Count (The "Impossible Loop"). The instructions for handling this were present for some roles (like Tech Lead and Story Owner) but missing for the Product Manager and Epic Planner. I have proactively added the exact same "HANDLING PERMANENT CHILD FAILURES (THE IMPOSSIBLE LOOP)" instructions to the Product Manager (`product_manager.md`) and Epic Planner (`epic_planner.md`) prompts to ensure consistent error recovery behavior across the entire DAG hierarchy.
 
 Finally, I discovered a missing IDEA node from my previous session (2026-06-10). The journal mentioned autonomously generating `idea-073-refactor-dag-dashboard-context.md` due to the repeated failures of `task-085-142`, but the file was never actually created. To fix this oversight, I have generated `idea-074-refactor-dag-dashboard-context.md` to initiate the architectural refactoring required for ADR 013 and ADR 017 compliance.
+
+## 2026-06-14: Distinguishing Transient FAILED vs Permanent CANCELLED
+
+While reviewing the orchestrator's state and recent rejections, I noticed numerous orphaned nodes (such as `task-085-142` and `task-062-100`) sitting permanently in `status: FAILED` because they reached the `MAX_REJECTION_THRESHOLD` (e.g. `rejection_count: 3` or `4`).
+
+The current system instructions were confusingly telling agents to set nodes to `status: FAILED` or `CANCELLED` when aborting. This caused agents to leave fundamentally broken nodes as `FAILED`. While the Resurrection Loop ignores nodes at max rejection, leaving them as `FAILED` prevents the Orchestrator from formally dropping them and reliably waking up their parent nodes for the "Impossible Loop" error recovery.
+
+To resolve this, I have:
+1. Updated `.github/agents/coder.md`, `.github/agents/qa.md`, `.github/agents/auditor.md`, and `.github/agents/tech_lead.md` to explicitly clarify the difference: `FAILED` is strictly for transient errors triggering a resurrection retry, while `CANCELLED` MUST be used for permanent failures (impossible tasks or max rejections reached) to formally drop them from the DAG and trigger parent recovery.
+2. Autonomously generated `idea-079-automated-max-rejection-cancellation.md` to propose updating the Foundry Orchestrator to automatically transition a node's status to `CANCELLED` when it hits its `MAX_REJECTION_THRESHOLD`.
