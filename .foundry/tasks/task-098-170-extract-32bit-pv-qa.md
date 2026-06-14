@@ -33,6 +33,6 @@ The coder has implemented the extraction of the 32-bit personality value (PV) fo
 5. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify Gen 3 PV extraction uses `DataView`.
-- [ ] Verify `RangeError` propagation for out-of-bounds reads.
-- [ ] Verify Gen 1 and 2 handlers are functional.
+- [x] Verify Gen 3 PV extraction uses `DataView`.
+- [x] Verify `RangeError` propagation for out-of-bounds reads.
+- [x] Verify Gen 1 and 2 handlers are functional.

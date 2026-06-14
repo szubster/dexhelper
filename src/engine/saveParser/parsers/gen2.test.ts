@@ -324,6 +324,51 @@ describe('gen2 parsers', () => {
     });
   });
 
+  describe('parseGen2 - Unown Forms', () => {
+    it('should correctly parse Unown Form A', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 201); // Unown species
+      view.setUint8(0x288b + 7, 201); // speciesId inside struct
+
+      // Form A (value 0): DVs = 0
+      view.setUint16(0x288b + 7 + 21, 0, false);
+
+      const data = parseGen2(view, false);
+      expect(data.partyDetails[0]?.unownForm).toBe('A');
+    });
+
+    it('should correctly parse Unown Form Z', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 201); // Unown species
+      view.setUint8(0x288b + 7, 201); // speciesId inside struct
+
+      // Form Z (value 25): DVs = 578
+      view.setUint16(0x288b + 7 + 21, 578, false);
+
+      const data = parseGen2(view, false);
+      expect(data.partyDetails[0]?.unownForm).toBe('Z');
+    });
+
+    it('should not parse Unown form for non-Unown Pokemon even with same DVs', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1); // Bulbasaur
+      view.setUint8(0x288b + 7, 1); // speciesId inside struct
+
+      // DVs = 578 (which would be Form Z for Unown)
+      view.setUint16(0x288b + 7 + 21, 578, false);
+
+      const data = parseGen2(view, false);
+      expect(data.partyDetails[0]?.speciesId).toBe(1);
+      expect(data.partyDetails[0]?.unownForm).toBeUndefined();
+    });
+  });
+
   describe('parseGen2 - PC Items', () => {
     it('should parse pcItems correctly for Gold/Silver', () => {
       const buffer = new ArrayBuffer(0x8000);

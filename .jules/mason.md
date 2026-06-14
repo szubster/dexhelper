@@ -100,3 +100,10 @@
 - **Key Learnings**:
   - Reusing existing components like `TacticalBadge` is crucial for code modularity and adherence to the project's aesthetic constraints (e.g., sharp edges, dashed borders).
   - Always verify that the extracted component matches the exact styling variants (e.g., `emerald`, `red`, `zinc`, `primary`) needed by the specific contexts.
+
+## InlineDataPoint Extraction
+- **What**: Extracted a repeated JSX pattern in `AppHeader.tsx` consisting of a side-by-side uppercase tracking label and a bold value into an `InlineDataPoint` reusable component.
+- **Why**: Reduced duplication of the verbose tactical utility classes `font-black font-mono text-[8px] text-zinc-500 uppercase tracking-widest` and allowed for standard horizontal metrics presentation.
+- **Key Learnings**:
+  - Distinguishing between vertical representations (like the existing `DataPoint` component) and horizontal ones (`InlineDataPoint`) is necessary since the layout structures (`flex-col` vs `items-center`) dictate the context of the data.
+  - Using `valueClassName` and `labelClassName` gives flexibility for minor styling tweaks like making values bold or specific colors (like `text-zinc-300`) without breaking the core pattern.

@@ -36,5 +36,5 @@ As defined in Story `story-061-098-parse-mirage-island-value` and ADR 010, we ne
 - **Empty PR Constraint:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `parseGen3MirageIslandValue` reads a 16-bit unsigned integer using `DataView`.
-- [ ] It catches `RangeError` and throws a specific corruption error message.
+- [x] `parseGen3MirageIslandValue` reads a 16-bit unsigned integer using `DataView`.
+- [x] It catches `RangeError` and throws a specific corruption error message.
