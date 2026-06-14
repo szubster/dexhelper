@@ -37,8 +37,8 @@ Verify the implementation of the extraction logic for Gen 3 berry patches.
 - IMPORTANT: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `DataView` reading logic for Gen 3 berry patches implementation is correct.
-- [ ] Verify graceful handling of bounds checking (throwing/catching `RangeError`) without process crash.
-- [ ] Verify correct extraction of map ID, berry ID, current growth stage, time planted, and last watered time.
+- [x] Verify `DataView` reading logic for Gen 3 berry patches implementation is correct.
+- [x] Verify graceful handling of bounds checking (throwing/catching `RangeError`) without process crash.
+- [x] Verify correct extraction of map ID, berry ID, current growth stage, time planted, and last watered time.
 
 **Note**: The implementation `task-095-157-gen3-berry-dataview-parsing` has been rejected due to incorrect offset calculations and the inclusion of implicit/missing data in the acceptance criteria.
