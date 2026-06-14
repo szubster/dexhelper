@@ -37,5 +37,5 @@ The coder has implemented the `parseGen3MirageIslandValue` function for extracti
 - **Empty PR Constraint:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Tests cover successful 16-bit little-endian reading.
-- [ ] Tests cover `RangeError` handling with specific exception message.
+- [x] Tests cover successful 16-bit little-endian reading.
+- [x] Tests cover `RangeError` handling with specific exception message.
