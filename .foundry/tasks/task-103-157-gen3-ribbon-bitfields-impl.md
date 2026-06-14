@@ -2,12 +2,12 @@
 id: task-103-157-gen3-ribbon-bitfields-impl
 type: TASK
 title: Implement Gen 3 Ribbon Bitfields Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17521075895284367794'
 pr_number: null
 parent: story-064-103-gen3-ribbon-bitfields-extraction
 tags:
