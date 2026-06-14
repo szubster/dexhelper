@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { isGen3Save, parseGen3, parseGen3MirageIslandValue, parseGen3PersonalityValue } from './gen3';
+import {
+  isGen3Save,
+  parseGen3,
+  parseGen3ConditionStats,
+  parseGen3MirageIslandValue,
+  parseGen3PersonalityValue,
+} from './gen3';
 
 describe('gen3 parser scaffolding', () => {
   it('isGen3Save should return false normally', () => {
@@ -181,6 +187,65 @@ describe('parseGen3MirageIslandValue', () => {
 
     // Attempting to read a 16-bit integer (2 bytes) starting at offset 2 will exceed the 2-byte buffer
     expect(() => parseGen3MirageIslandValue(view, 2)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3ConditionStats', () => {
+  it('should extract the condition stats correctly', () => {
+    const buffer = new ArrayBuffer(12);
+    const view = new DataView(buffer);
+
+    // Set up condition stats starting at offset 0
+    // Cool, Beauty, Cute, Smart, Tough, Feel
+    view.setUint8(0x06, 10);
+    view.setUint8(0x07, 20);
+    view.setUint8(0x08, 30);
+    view.setUint8(0x09, 40);
+    view.setUint8(0x0a, 50);
+    view.setUint8(0x0b, 60);
+
+    const result = parseGen3ConditionStats(view, 0);
+
+    expect(result).toEqual({
+      cool: 10,
+      beauty: 20,
+      cute: 30,
+      smart: 40,
+      tough: 50,
+      feel: 60,
+    });
+  });
+
+  it('should extract the condition stats correctly with an offset', () => {
+    const buffer = new ArrayBuffer(24);
+    const view = new DataView(buffer);
+
+    // Set up condition stats starting at offset 12
+    view.setUint8(12 + 0x06, 15);
+    view.setUint8(12 + 0x07, 25);
+    view.setUint8(12 + 0x08, 35);
+    view.setUint8(12 + 0x09, 45);
+    view.setUint8(12 + 0x0a, 55);
+    view.setUint8(12 + 0x0b, 65);
+
+    const result = parseGen3ConditionStats(view, 12);
+
+    expect(result).toEqual({
+      cool: 15,
+      beauty: 25,
+      cute: 35,
+      smart: 45,
+      tough: 55,
+      feel: 65,
+    });
+  });
+
+  it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
+    const buffer = new ArrayBuffer(10); // Not enough space for the full 12 bytes
+    const view = new DataView(buffer);
+
+    // Attempting to read up to offset 0x0B (11) will exceed the 10-byte buffer
+    expect(() => parseGen3ConditionStats(view, 0)).toThrowError('The save file is corrupted or incomplete.');
   });
 });
 
