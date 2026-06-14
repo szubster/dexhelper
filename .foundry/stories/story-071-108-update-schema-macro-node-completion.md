@@ -2,12 +2,12 @@
 id: story-071-108-update-schema-macro-node-completion
 type: STORY
 title: Update schema.md with strict macro node completion rules
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15548778028033024433'
 pr_number: null
 parent: epic-045-071-documentation-macro-node-completion
 tags:
