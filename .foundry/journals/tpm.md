@@ -376,3 +376,7 @@ No critical learnings logged yet.
 - **2026-06-14**: Max rejection count reached for `task-095-157-gen3-berry-dataview-parsing`. Reason: Retry from FAILED status.. Transitioned to FAILED.
 
 - **2026-06-14**: Resurrection Loop triggered for `task-101-157-gen3-condition-stats-parsing`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-14**: System failure detected for `story-081-123-gen3-active-swarm-parsing`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-14**: Resurrection Loop triggered for `task-095-158-gen3-berry-dataview-parsing-qa`. Reason: Retry from FAILED status.. Transitioned back to READY.

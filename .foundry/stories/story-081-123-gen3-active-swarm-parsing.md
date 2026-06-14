@@ -2,12 +2,12 @@
 id: story-081-123-gen3-active-swarm-parsing
 type: STORY
 title: Parse Gen 3 Active Swarms
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: '17078617637427998427'
+jules_session_id: null
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:
