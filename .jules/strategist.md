@@ -238,3 +238,9 @@
 **Outcome:** Accepted
 **Why:** The Tech Lead journal ("2026-06-10") observed that temporary scratchpad scripts (like generate_reads.sh) left in the workspace pollute the repository and cause code review rejections.
 **Pattern:** Ensure all agents are explicitly instructed to clean up any temporary scripts or scratchpads they create before submitting their work to prevent repository pollution and PR rejections.
+
+## YYYY-MM-DD - [Accepted] - Prompt improvement - Enforce CANCELLED for permanent failure status
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The memory specifically states: "Permanent Failure Status Rule: When rejecting an implementation permanently, aborting an impossible task, or reaching the max rejection count, you MUST set the node's YAML frontmatter to `status: CANCELLED` (triggering the Impossible Loop), not `FAILED` (which triggers the transient Resurrection Loop)." However, agent schedules were telling agents to use `status: FAILED` or `status: CANCELLED`.
+**Pattern:** Codify system memory constraints into agent prompts to avoid regressions and ensure consistency across personas.

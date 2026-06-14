@@ -26,7 +26,7 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 
 ### Handling Rejections & Aborts
 If you encounter a permanent failure or must abort a node:
-1. You MUST update the target node's YAML frontmatter to `status: FAILED` or `status: CANCELLED`.
+1. You MUST update the target node's YAML frontmatter to `status: CANCELLED` (triggering the Impossible Loop), not `status: FAILED`.
 2. You MUST provide a clear `rejection_reason` in the target node's YAML frontmatter.
 3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed node.
 4. You MUST document the failure in your persona journal.
