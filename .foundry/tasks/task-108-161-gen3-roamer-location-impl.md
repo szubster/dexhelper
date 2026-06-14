@@ -2,12 +2,13 @@
 id: task-108-161-gen3-roamer-location-impl
 type: TASK
 title: Implement Gen 3 Roamer Location Data Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-14'
 depends_on:
   - research-071-138-gen3-roamer-offsets
+  - research-108-163-gen3-sroamerlocation-offsets
 jules_session_id: '13009823998726891357'
 pr_number: null
 parent: story-072-108-gen3-roamer-location-extraction
@@ -18,7 +19,7 @@ tags:
 research_references:
   - research-071-138-gen3-roamer-offsets
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'The exact memory offsets for sRoamerLocation (map group and map number) are missing from the provided research context. Suspended task using Late Binding by spawning research-108-163-gen3-sroamerlocation-offsets.'
 notes: ''
 ---
 

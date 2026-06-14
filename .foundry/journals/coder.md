@@ -74,3 +74,7 @@ When implementing `task-101-157-gen3-condition-stats-parsing`, the exact memory 
 
 ## Verifying Gen 3 Save File Sections
 When verifying save file documentation (e.g. Generation 3 save parsing), it is crucial to ensure that the stated offsets fall within the correct section headers as defined by authoritative sources like Bulbapedia. Failing to map byte offsets to the correct logical 4KB section boundaries can lead to incorrect data extraction in the orchestrator.
+
+## 2026-06-14: Late Binding for Unknown Offsets (Gen 3 sRoamerLocation)
+When attempting to implement `task-108-161-gen3-roamer-location-impl` to extract the Gen 3 roamer's active map group and map number, the previous research (`research-071-138-gen3-roamer-offsets`) only documented the 20-byte `struct Roamer` and noted that the location (`sRoamerLocation`) is stored separately in EWRAM/save block, but did not provide the exact offsets.
+Following the system's Late Binding pattern for missing context, rather than guessing offsets or hallucinating data limits, I suspended the implementation task (`status: FAILED` with a clear `rejection_reason`), spawned a new research node (`research-108-163-gen3-sroamerlocation-offsets`), and appended it to the task's `depends_on` array. This ensures the implementation is halted until precise memory offsets are discovered.
