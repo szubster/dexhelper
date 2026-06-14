@@ -129,6 +129,24 @@ export function isGen3Save(view: DataView): boolean {
  * @returns The 16-bit unsigned integer representing the Mirage Island value.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
+export function parseGen3ConditionStats(view: DataView, offset: number) {
+  try {
+    const cool = view.getUint8(offset + 0x06);
+    const beauty = view.getUint8(offset + 0x07);
+    const cute = view.getUint8(offset + 0x08);
+    const smart = view.getUint8(offset + 0x09);
+    const tough = view.getUint8(offset + 0x0a);
+    const feel = view.getUint8(offset + 0x0b);
+
+    return { cool, beauty, cute, smart, tough, feel };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3MirageIslandValue(view: DataView, offset: number): number {
   try {
     // Read the 16-bit little-endian value using the DataView API
