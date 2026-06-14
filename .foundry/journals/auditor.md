@@ -49,3 +49,12 @@ The Resurrection Loop has completely broken down for macro nodes waiting on long
 
 **Recommendation/Learnings:**
 We cannot rely on prompt engineering or manual agent compliance for this constraint. `idea-072-strict-macro-node-completion` MUST be implemented in the core orchestrator script immediately to enforce strict hierarchical completion.
+
+## 2026-06-14: Verification of Pokerus Exfiltration
+I verified the Epic `epic-038-061-pokerus-state-exfiltration` and its child nodes which exfiltrate Pokerus state from Gen 2 saves.
+
+**Why this matters:**
+This confirms the data parsing architecture's ability to extract specific sub-byte states (strain and days remaining) from an 8-bit integer reliably. This gives us confidence in scaling out similar bit-level extractions across other engine layers.
+
+**Recommendation/Learnings:**
+Bitwise operations on raw bytes are effectively handling state extraction in the Gen 2 parsing engine. The usage of extensive unit tests around the boundaries of the parsing (such as the "cured" state where strain > 0 but days remaining == 0) ensures reliability.
