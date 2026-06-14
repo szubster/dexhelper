@@ -6,6 +6,7 @@ import { useFileSyncController } from '../hooks/useFileSyncController';
 import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { InlineDataPoint } from './InlineDataPoint';
 import { TacticalButton } from './TacticalButton';
 
 interface AppHeaderProps {
@@ -114,29 +115,23 @@ export function AppHeader({
           <div className="zoom-in-95 fade-in relative flex animate-in items-center bg-zinc-900/50 p-2 duration-500">
             <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700" />
             <div className="flex flex-col pr-4 pl-2">
-              <div className="flex items-center gap-2">
-                <span className="font-black font-mono text-[8px] text-zinc-500 uppercase tracking-widest">TRNR</span>
-                <span className="font-black font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-tight">
-                  {saveData.trainerName || 'UNKNOWN'}
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="font-black font-mono text-[8px] text-zinc-500 uppercase tracking-widest">ID</span>
-                <span className="font-bold font-mono text-[10px] text-zinc-300">
-                  {String(saveData.trainerId).padStart(5, '0')}
-                </span>
-              </div>
+              <InlineDataPoint label="TRNR" value={saveData.trainerName || 'UNKNOWN'} />
+              <InlineDataPoint
+                label="ID"
+                value={String(saveData.trainerId).padStart(5, '0')}
+                valueClassName="font-bold text-[10px] text-zinc-300"
+              />
             </div>
 
             <div className="h-8 w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />
 
             <div className="flex min-w-[100px] flex-col justify-center px-4">
-              <div className="mb-1 flex items-center justify-between">
-                <span className="font-black font-mono text-[8px] text-zinc-500 uppercase tracking-widest">L-DEX</span>
-                <span className="font-black font-mono text-[9px] text-[var(--theme-primary)]">
-                  {Math.floor(progressPercentage)}%
-                </span>
-              </div>
+              <InlineDataPoint
+                label="L-DEX"
+                value={`${Math.floor(progressPercentage)}%`}
+                className="mb-1 justify-between"
+                valueClassName="text-[9px]"
+              />
               <div className="relative h-1 overflow-hidden border border-white/10 bg-black/50">
                 <div
                   style={{
