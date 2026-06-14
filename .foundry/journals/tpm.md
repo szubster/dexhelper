@@ -338,3 +338,7 @@ No critical learnings logged yet.
 - **2026-06-14**: PR #2513 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
 
 - **2026-06-14**: System failure detected for `story-058-095-feebas-seed-extraction`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-14**: System failure detected for `research-095-157-gen2-event-flag-offsets`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-14**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
