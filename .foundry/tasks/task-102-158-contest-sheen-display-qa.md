@@ -2,13 +2,13 @@
 id: task-102-158-contest-sheen-display-qa
 type: TASK
 title: QA Contest Sheen Display Component
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on:
   - task-102-157-contest-sheen-display-impl
-jules_session_id: null
+jules_session_id: '11241092726212563046'
 pr_number: null
 parent: story-064-102-contest-sheen-display-ui
 tags:
