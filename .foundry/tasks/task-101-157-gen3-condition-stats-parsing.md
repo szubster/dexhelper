@@ -2,12 +2,12 @@
 id: task-101-157-gen3-condition-stats-parsing
 type: TASK
 title: Implement Gen 3 Condition Stats Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-13'
+updated_at: '2026-06-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8986521882516828404'
 pr_number: null
 parent: story-064-101-gen3-condition-stats-parsing
 tags:
