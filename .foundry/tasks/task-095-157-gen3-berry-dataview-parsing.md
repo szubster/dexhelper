@@ -2,7 +2,7 @@
 id: task-095-157-gen3-berry-dataview-parsing
 type: TASK
 title: Implement Gen 3 Berry Tracker DataView Parsing Logic
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-14'
