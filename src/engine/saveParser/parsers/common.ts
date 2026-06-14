@@ -116,9 +116,15 @@ export interface SaveData {
   daycare?: PokemonInstance[];
   /** Gen 2 specific: Indicates if an Egg is currently waiting to be picked up from the Daycare. */
   daycareHasEgg?: boolean;
-  /** Gen 2 specific: Information regarding currently roaming Legendary beasts (Raikou, Entei, Suicune). */
+  /** Gen 3 specific: Information regarding the state of Berry Patches across Hoenn. */
   gen3BerryPatches?: Gen3BerryPatch[];
-  /** Gen 2 specific: Information regarding currently roaming Legendary beasts (Raikou, Entei, Suicune). */
+  /**
+   * Information regarding currently roaming Legendaries (Gen 2: Raikou, Entei, Suicune. Gen 3: Latios, Latias).
+   *
+   * Generation differences for map identification:
+   * - Gen 2: `mapGroup` and `mapId` are read as separate distinct bytes from the save file.
+   * - Gen 3: Utilizes the unified Map Group / Map Index architecture. `mapGroup` and `mapId` can be conceptually derived from a 16-bit Map ID `(GroupIndex << 8) | MapIndex` (though often stored as separate bytes or fields internally, they form a single coordinate).
+   */
   roamingLegendaries?: {
     speciesId: number;
     level: number;

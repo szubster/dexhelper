@@ -33,7 +33,7 @@ We need to ensure the `roamingLegendaries` type signature in the `SaveData` inte
   - Gen 3: Utilizes the unified Map Group / Map Index architecture.
 
 ## Acceptance Criteria
-- [ ] `roamingLegendaries` documentation in `SaveData` explicitly states support for Gen 2 and Gen 3 roamers.
-- [ ] Interface comments explain the map group/id differences between the generations.
-- [ ] If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
-- [ ] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] `roamingLegendaries` documentation in `SaveData` explicitly states support for Gen 2 and Gen 3 roamers.
+- [x] Interface comments explain the map group/id differences between the generations.
+- [x] If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
+- [x] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
