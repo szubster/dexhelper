@@ -32,9 +32,9 @@ This task verifies the logic implemented in `task-101-157-gen3-nature-condition-
 3.  **Test Verification**: Verify that the implemented unit tests cover all 25 natures and that they all pass.
 
 ## Acceptance Criteria
-- [ ] The data structure mapping all 25 Natures to Contest Conditions is reviewed and correct.
-- [ ] Utility functions for querying preferences and dislikes are verified.
-- [ ] Unit tests are verified to cover all 25 natures successfully.
+- [x] The data structure mapping all 25 Natures to Contest Conditions is reviewed and correct.
+- [x] Utility functions for querying preferences and dislikes are verified.
+- [x] Unit tests are verified to cover all 25 natures successfully.
 
 > **Note to QA**:
 > - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
