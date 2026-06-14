@@ -385,6 +385,11 @@ function main(): void {
     idToPathMap.set(node.frontmatter.id, node.repoPath);
   }
 
+  const childToParents = new Map<string, Set<string>>();
+
+  // 1. First pass: strictly populate nodeMap and idToPathMap (Already done above)
+
+  // 2. Second pass: evaluate explicit parents and markdown links
   for (const node of nodes) {
     let parentPath = node.frontmatter.parent;
     if (parentPath) {
@@ -396,7 +401,38 @@ function main(): void {
       if (!parentToChildren.has(parentPath)) {
         parentToChildren.set(parentPath, []);
       }
-      parentToChildren.get(parentPath)!.push(node);
+      if (!parentToChildren.get(parentPath)!.find(n => n.repoPath === node.repoPath)) {
+        parentToChildren.get(parentPath)!.push(node);
+      }
+
+      if (!childToParents.has(node.repoPath)) {
+        childToParents.set(node.repoPath, new Set());
+      }
+      childToParents.get(node.repoPath)!.add(parentPath);
+    }
+
+    // Parse body for regex to find markdown links to children
+    const regex = /\.foundry\/(?:ideas|prds|epics|stories|tasks|research)\/[^\s"'`\)]+\.md/g;
+    const body = node.body;
+    const matches = [...new Set(body.match(regex) || [])];
+
+    for (const match of matches) {
+      // node.repoPath is the parent, match is the child
+      if (match !== node.repoPath) {
+        if (!parentToChildren.has(node.repoPath)) {
+          parentToChildren.set(node.repoPath, []);
+        }
+        const matchedNode = nodeMap.get(match);
+        if (matchedNode) {
+          if (!parentToChildren.get(node.repoPath)!.find(n => n.repoPath === match)) {
+            parentToChildren.get(node.repoPath)!.push(matchedNode);
+          }
+          if (!childToParents.has(match)) {
+            childToParents.set(match, new Set());
+          }
+          childToParents.get(match)!.add(node.repoPath);
+        }
+      }
     }
   }
 
@@ -446,10 +482,21 @@ function main(): void {
 
   // Helper to safely check if 'child' is a deep descendant of 'ancestor'
   function isDescendant(childPath: string, ancestorPath: string): boolean {
-    let curr = resolveNodePath(nodeMap.get(childPath)?.frontmatter.parent);
-    while (curr) {
-      if (curr === ancestorPath) return true;
-      curr = resolveNodePath(nodeMap.get(curr)?.frontmatter.parent);
+    const queue = [childPath];
+    const visited = new Set<string>();
+
+    while (queue.length > 0) {
+      const curr = queue.shift()!;
+      if (visited.has(curr)) continue;
+      visited.add(curr);
+
+      const parents = childToParents.get(curr);
+      if (parents) {
+        for (const p of parents) {
+          if (p === ancestorPath) return true;
+          queue.push(p);
+        }
+      }
     }
     return false;
   }
@@ -618,21 +665,23 @@ function main(): void {
     let blocked = false;
 
         // Check parent inheritance
-    let currParent = resolveNodePath(node.frontmatter.parent);
-    while (currParent) {
-      let parentStatus: string | undefined = undefined;
-      let nextParent: string | undefined | null = undefined;
+    const initialParents = childToParents.get(node.repoPath) || new Set<string>();
+    let queue = Array.from(initialParents);
+    let visited = new Set<string>();
+
+    while (queue.length > 0) {
+      const currParent = queue.shift()!;
+      if (visited.has(currParent)) continue;
+      visited.add(currParent);
 
       const parentNode = nodeMap.get(currParent);
       if (!parentNode) {
         warn(`Parent '${currParent}' not found for: ${node.repoPath}`);
         blocked = true;
         break;
-      } else {
-        parentStatus = parentNode.frontmatter.status;
-        nextParent = resolveNodePath(parentNode.frontmatter.parent);
       }
 
+      const parentStatus = parentNode.frontmatter.status;
       if (parentStatus !== 'ACTIVE' && parentStatus !== 'COMPLETED' && parentStatus !== 'VERIFYING') {
         const parentChildren = parentToChildren.get(currParent) || [];
         if (parentStatus === 'PENDING' && parentChildren.length > 0) {
@@ -643,7 +692,13 @@ function main(): void {
           break;
         }
       }
-      currParent = nextParent;
+
+      const grandParents = childToParents.get(currParent);
+      if (grandParents) {
+        for (const gp of grandParents) {
+          queue.push(gp);
+        }
+      }
     }
 
     if (blocked) continue;
