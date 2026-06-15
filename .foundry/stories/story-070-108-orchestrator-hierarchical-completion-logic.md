@@ -41,5 +41,5 @@ Update `.github/scripts/foundry-orchestrator.ts` to block `VERIFYING` and `COMPL
 - [ ] `isDescendant` accurately traverses multiple parents using `childToParents`.
 - [ ] Hierarchical completion strictly blocks transition when either explicit or markdown-referenced children are incomplete.
 
-- [ ] .foundry/tasks/task-108-161-hierarchical-completion-impl.md
-- [ ] .foundry/tasks/task-108-162-hierarchical-completion-qa.md
+- [ ] .foundry/tasks/task-108-189-hierarchical-completion-impl.md
+- [ ] .foundry/tasks/task-108-190-hierarchical-completion-qa.md
