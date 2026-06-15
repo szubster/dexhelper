@@ -1,4 +1,4 @@
-import type { GameVersion, Gen3BerryPatch, SaveData } from './common';
+import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, SaveData } from './common';
 
 const SIGNATURE = 0x08012025;
 const SECTION_SIZE = 4096;
@@ -237,6 +237,33 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 export function parseGen3PersonalityValue(view: DataView, offset: number): number {
   try {
     return view.getUint32(offset, true);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
+ * Parses the 32-bit Ribbon bitfield from a Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the value from.
+ * @returns An object containing the extracted 3-bit Contest Ribbon ranks.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
+  try {
+    const bitfield = view.getUint32(offset, true);
+
+    const cool = bitfield & 0x07;
+    const beauty = (bitfield >> 3) & 0x07;
+    const cute = (bitfield >> 6) & 0x07;
+    const smart = (bitfield >> 9) & 0x07;
+    const tough = (bitfield >> 12) & 0x07;
+
+    return { cool, beauty, cute, smart, tough };
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');
