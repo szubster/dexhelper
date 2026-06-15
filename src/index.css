@@ -124,3 +124,16 @@ body {
 .lcd-flicker {
   animation: screen-flicker 0.1s infinite;
 }
+
+
+/* =========================================
+   Tactical Primitives (@utility definitions)
+   ========================================= */
+
+@utility tactical-panel {
+  @apply overflow-hidden rounded-none border border-dashed bg-zinc-900/50 text-zinc-100 font-mono transition-all duration-300;
+}
+
+@utility tactical-card {
+  @apply flex flex-col rounded-none border border-dashed bg-zinc-950 p-4 font-mono transition-all duration-500 hover:scale-[1.02] active:scale-[0.98];
+}
