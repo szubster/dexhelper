@@ -991,7 +991,19 @@ function main(): void {
       ...n.frontmatter,
       repo_path: n.repoPath,
       owner_persona: n.frontmatter.status === 'VERIFYING' ? 'auditor' : n.frontmatter.owner_persona,
-    }));
+    }))
+    .sort((a, b) => {
+      const dateA = new Date(a.created_at).getTime();
+      const dateB = new Date(b.created_at).getTime();
+
+      // Sort by created_at ascending (oldest first)
+      if (!Number.isNaN(dateA) && !Number.isNaN(dateB) && dateA !== dateB) {
+        return dateA - dateB;
+      }
+
+      // Fallback: sort by numeric id ascending
+      return a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' });
+    });
 
   info(`Total READY nodes: ${readyNodes.length}`);
 
