@@ -63,3 +63,10 @@
 ## 2026-06-12 - Archivist Run Learnings
 **Learning:** The TPM journal (`.foundry/journals/tpm.md`) was accumulating routine task verifications and state transitions again instead of critical learnings.
 **Action:** Cleared out the transient status updates from the TPM journal to conserve context, as per the policy against logging routine actions.
+
+## $(date +%Y-%m-%d) - Archivist Run Learnings
+**Learning:** Agents frequently fail to recognize that journals (especially the TPM journal) are not logbooks. They often log routine execution traces (e.g., "PR #... merged", "Session timed out"). This bloats context windows and provides no lasting value.
+**Action:** Cleared out over 400 lines of transient logs from the TPM journal. Emphasize in agent instructions that journals are strictly for long-term architectural constraints and critical lessons, not execution traces.
+
+**Learning:** Agents often copy-paste or append similar learnings for recurring issues (e.g., Late Binding pattern for missing memory offsets or handling Permanent Failures) across multiple entries rather than consolidating them.
+**Action:** Consolidated redundant entries in the Coder and Tech Lead journals into unified, canonical sections to reduce duplication and improve clarity.
