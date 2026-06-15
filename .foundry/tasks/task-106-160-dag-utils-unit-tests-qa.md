@@ -1,10 +1,10 @@
 ---
 id: task-106-160-dag-utils-unit-tests-qa
 type: TASK
-title: QA Verification for DAG Utilities Unit Tests
-status: COMPLETED
+title: QA Unit Tests for Shared DAG Utilities
+status: PENDING
 owner_persona: qa
-created_at: '2026-06-10'
+created_at: '2026-06-15'
 updated_at: '2026-06-15'
 depends_on:
   - task-106-159-dag-utils-unit-tests-impl
@@ -13,30 +13,28 @@ pr_number: null
 parent: story-053-106-dag-utils-unit-tests
 tags:
   - testing
+  - qa
   - foundry
   - orchestrator
-  - qa
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: Spawned from story-053-106-dag-utils-unit-tests
+notes: ''
 ---
 
-# QA Verification for DAG Utilities Unit Tests
+# QA Unit Tests for Shared DAG Utilities
 
-## 1. Context
-This task verifies the implementation of unit tests for the shared DAG utility functions located in `.github/scripts/dag-utils.ts` implemented in `task-106-159-dag-utils-unit-tests-impl`.
+## Context
+Review and verify the unit tests for shared DAG utilities in `.github/scripts/dag-utils.test.ts`.
 
-## 2. Verification Steps
-1.  **Code Review:** Review the test coverage in `.github/scripts/dag-utils.test.ts`. Verify that both `buildReverseDependencyGraph` and `getOrphanedNodes` have adequate test coverage including edge cases (e.g., missing properties, circular logic if applicable, empty inputs).
-2.  **Test Execution:** Run `pnpm exec vitest run` to ensure all tests pass.
-3.  **Code Quality:** Check for clean, maintainable, and well-structured tests.
+## Constraints & Architecture
+- Run the tests using Vitest to ensure they pass.
+- Use `read_file` to review both `dag-utils.ts` and the new test file to ensure coverage and correctness.
+- If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
-## 3. Important Reminders
-*   If you encounter a permanent failure or discover tests are insufficient, you MUST update the YAML frontmatter to `status: FAILED` or `CANCELLED` with a `rejection_reason`.
-*   If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-
-## 4. Acceptance Criteria
-- [x] Code review confirms unit tests cover core functionality and edge cases.
-- [x] `pnpm exec vitest run` executes all test suites without failure.
-- [x] Test cases are robust and effectively mock dependencies where applicable.
+## Acceptance Criteria
+- [ ] Tests for `buildReverseDependencyGraph` are correct.
+- [ ] Tests for `getOrphanedNodes` are correct.
+- [ ] Tests pass successfully without errors.
