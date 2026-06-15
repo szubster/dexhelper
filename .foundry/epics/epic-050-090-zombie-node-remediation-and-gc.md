@@ -43,4 +43,8 @@ This Epic handles the remediation logic (state transitions) and the integration 
 - [ ] Ensure unit test coverage for the remediation functionality.
 
 ## 5. Next Steps
-- [ ] Break down into Stories.
+- [x] Break down into Stories.
+
+### Generated Stories
+- [ ] story-090-133-remediation-state-transition-logic
+- [ ] story-090-134-garbage-collection-integration
