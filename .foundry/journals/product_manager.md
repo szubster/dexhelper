@@ -41,3 +41,8 @@ This duplicate node creation could lead to redundant work being dispatched and c
 
 ## 2026-06-12: Child Node Generation Protocol
 When generating a child node from a parent, ensure the new child node is added as an *unchecked* checklist item (`- [ ]`) in the parent node's markdown body. Do not immediately check this box off or use plain text. The parent node's acceptance criteria (e.g. `- [x] Break down into Tasks`) can be checked off. This approach strictly conforms to the `COMPLETED` DAG contract and prevents the parent node from moving into the `VERIFYING` state before all its dynamically spawned children have been completed.
+
+## 2026-06-15: Impossible Loop Cascade
+
+*   **Observation:** It is critical to ensure that dynamically triggered cancellations (such as nodes reaching their `MAX_REJECTION_THRESHOLD`) hook into the proper cascade logics (like Phase 3.1 and Phase 3.6 of the orchestrator) to prevent orphaned siblings and gracefully awake downstream dependencies or parent nodes.
+*   **Action:** Automated the transition of `FAILED` nodes with max rejections into `CANCELLED` during the Orchestrator DAG resolution loop.

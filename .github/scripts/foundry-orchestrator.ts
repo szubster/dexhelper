@@ -103,6 +103,8 @@ const REQUIRED_FIELDS: ReadonlyArray<keyof FoundryFrontmatter> = [
 const DRY_RUN: boolean = process.argv.includes('--dry-run');
 const STRICT: boolean = process.argv.includes('--strict');
 
+const MAX_REJECTION_THRESHOLD = 3;
+
 // ─── Logging (all diagnostic output → stderr; only the matrix JSON → stdout) ─
 
 function warn(msg: string): void {
@@ -445,6 +447,14 @@ function main(): void {
     return ref;
   }
 
+  // ── Phase 3.0: MAX REJECTION THRESHOLD CHECK ───────────────────────────────
+  info('Phase 3.0: Checking for max rejection threshold...');
+  for (const node of nodes) {
+    if (node.frontmatter.status === 'FAILED' && (node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
+      promoteNodeToCancelledWithReason(node, 'Max rejection count reached');
+    }
+  }
+
   // ── Phase 3.1: CASCADE CANCELLATIONS ───────────────────────────────────────
   info('Phase 3.1: Cascading CANCELLED statuses...');
   // Find all explicitly cancelled nodes
@@ -614,7 +624,7 @@ function main(): void {
   // ── Phase 3.6: IMPOSSIBLE LOOP ─────────────────────────────────────────────
   info('Phase 3.6: Checking for Impossible Loop conditions...');
   for (const node of nodes) {
-    if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason === 'Max rejection count reached') {
+    if ((node.frontmatter.status === 'FAILED' || node.frontmatter.status === 'CANCELLED') && node.frontmatter.rejection_reason === 'Max rejection count reached') {
       // Auto-cancel orphaned PENDING nodes depending directly or indirectly on this permanently failed node
 
       const dependents = buildReverseDependencyGraph(nodes, resolveNodePath as (ref: string) => string | null);
