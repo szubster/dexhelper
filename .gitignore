@@ -24,3 +24,4 @@ scratch/
 
 # TypeScript
 *.tsbuildinfo
+pokeapi_cache/
