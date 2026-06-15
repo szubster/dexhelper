@@ -23,7 +23,7 @@ export interface Gen3ConditionStats {
   cute: number;
   smart: number;
   tough: number;
-  feel: number;
+  sheen: number;
 }
 
 export interface PokemonInstance {

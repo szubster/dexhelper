@@ -32,7 +32,7 @@ As part of `story-064-102-gen3-sheen-value-parsing`, we need to implement logic 
 - **Strict DataView API Usage**: All parsing logic for contest data MUST exclusively use the native `DataView` API (e.g., `getUint8`) as mandated by ADR 010.
 
 ## 3. Acceptance Criteria
-- [ ] Implement Sheen value extraction logic using the `DataView` API.
-- [ ] Ensure unit tests are added or updated to verify the extracted Sheen value.
-- [ ] **Important:** If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
-- [ ] **Important:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] Implement Sheen value extraction logic using the `DataView` API.
+- [x] Ensure unit tests are added or updated to verify the extracted Sheen value.
+- [x] **Important:** If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
+- [x] **Important:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
