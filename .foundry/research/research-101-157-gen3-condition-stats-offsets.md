@@ -35,3 +35,5 @@ During the implementation of `task-101-157-gen3-condition-stats-parsing`, it was
 ## Acceptance Criteria
 - [x] Memory offsets and structure for Gen 3 Condition stats are fully documented in the knowledge base.
 - [x] The exact block, offset, and size for Cool, Beauty, Cute, Smart, and Tough are identified.
+
+<!-- Tech Lead: Verified knowledge base has the Gen 3 Contest Condition stats offsets documented and acceptance criteria are met -->
