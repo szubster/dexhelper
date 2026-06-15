@@ -35,7 +35,7 @@ As part of the Gen 3 contest data extraction (Story `story-064-103-gen3-ribbon-b
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Locate blocks and offsets for the Ribbon bitfields.
-- [ ] Extract the bitfields and expose the structured data.
-- [ ] Ensure `DataView` API is used exclusively for reading the bitfields.
-- [ ] Include error handling for out-of-bounds access.
+- [x] Locate blocks and offsets for the Ribbon bitfields.
+- [x] Extract the bitfields and expose the structured data.
+- [x] Ensure `DataView` API is used exclusively for reading the bitfields.
+- [x] Include error handling for out-of-bounds access.

@@ -17,6 +17,14 @@ type Generation = number;
  * Represents a single caught Pokémon found in the player's party, PC boxes, or Daycare.
  * Extracted directly from the 32-byte (Gen 2) or 44-byte (Gen 1) internal save data blocks.
  */
+export interface Gen3Ribbons {
+  cool: number;
+  beauty: number;
+  cute: number;
+  smart: number;
+  tough: number;
+}
+
 export interface Gen3ConditionStats {
   cool: number;
   beauty: number;
@@ -52,6 +60,7 @@ export interface PokemonInstance {
   slot?: number | undefined;
   unownForm?: string | undefined;
   condition?: Gen3ConditionStats | undefined;
+  ribbons?: Gen3Ribbons | undefined;
 }
 
 /**

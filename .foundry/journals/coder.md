@@ -86,3 +86,5 @@ While implementing the Feebas Tile Calculation Algorithm, I discovered that the 
 Following the Late Binding for Missing Context pattern, rather than making assumptions or failing silently, I spawned a new RESEARCH node (`research-096-185-feebas-route119-grid-mapping`) and suspended the task by setting its status to `FAILED` with a clear `rejection_reason`.
 ## 2026-06-14: Missing Bitfield Formulas in Research
 When implementing save parser logic, research handoffs occasionally identify bitfields (e.g., Gen 3 Roamer IVs) without specifying the exact bit shifts or field sizes required for correct extraction. It's critical to avoid hallucinating these exact mathematical formulas to comply with groundedness rules. When this occurs, always spawn a late-bound `RESEARCH` node to determine the exact parsing formula and suspend the implementation task until the data is verified.
+
+- **Gen 3 Contest Ribbons**: Added `parseGen3Ribbons` utilizing `getUint32` to parse the 32-bit ribbon bitfields to correctly extract Cool, Beauty, Cute, Smart, and Tough contest ranks using bitwise isolation.
