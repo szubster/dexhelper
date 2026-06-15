@@ -31,7 +31,7 @@ A coder task (`task-104-159-gen3-roamer-interface-impl`) has been implemented to
 - Ensure the interface comments explicitly describe Gen 2 map properties and Gen 3 map properties (unified map group/index).
 
 ## Acceptance Criteria
-- [ ] Verified `SaveData.roamingLegendaries` documentation supports both Gen 2 and Gen 3.
-- [ ] Verified interface comments explain map group/id differences between generations.
-- [ ] If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
-- [ ] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] Verified `SaveData.roamingLegendaries` documentation supports both Gen 2 and Gen 3.
+- [x] Verified interface comments explain map group/id differences between generations.
+- [x] If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
+- [x] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
