@@ -520,3 +520,17 @@ No critical learnings logged yet.
 - **2026-06-15**: PR #2617 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
 
 - **2026-06-15**: PR #2618 merged. `task-102-158-qa-gen3-sheen-parsing` is now COMPLETED.
+
+- **2026-06-15**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-15**: PR #2623 merged. `task-103-157-gen3-ribbon-bitfields-impl` is now COMPLETED.
+
+- **2026-06-15**: PR #2621 merged. `task-103-158-contest-ribbons-ui-qa` is now COMPLETED.
+
+- **2026-06-15**: PR #2622 merged. `task-104-159-gen3-roamer-interface-qa` is now COMPLETED.
+
+- **2026-06-15**: PR #2619 merged. `task-106-160-dag-utils-unit-tests-qa` is now COMPLETED.
+
+- **2026-06-15**: Resurrection Loop triggered for `task-084-150-breeding-pair-algorithm-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-15**: Resurrection Loop triggered for `task-108-161-gen3-roamer-dataview-extraction-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.

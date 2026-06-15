@@ -2,10 +2,10 @@
 id: task-103-158-gen3-ribbon-bitfields-qa
 type: TASK
 title: QA Gen 3 Ribbon Bitfields Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-15'
 depends_on:
   - task-103-157-gen3-ribbon-bitfields-impl
 jules_session_id: null

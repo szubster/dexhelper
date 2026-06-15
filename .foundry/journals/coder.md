@@ -88,3 +88,7 @@ Following the Late Binding for Missing Context pattern, rather than making assum
 When implementing save parser logic, research handoffs occasionally identify bitfields (e.g., Gen 3 Roamer IVs) without specifying the exact bit shifts or field sizes required for correct extraction. It's critical to avoid hallucinating these exact mathematical formulas to comply with groundedness rules. When this occurs, always spawn a late-bound `RESEARCH` node to determine the exact parsing formula and suspend the implementation task until the data is verified.
 
 - **Gen 3 Contest Ribbons**: Added `parseGen3Ribbons` utilizing `getUint32` to parse the 32-bit ribbon bitfields to correctly extract Cool, Beauty, Cute, Smart, and Tough contest ranks using bitwise isolation.
+
+## 2026-06-15: Late Binding for Missing Context
+
+When implementing tasks that require specific data offsets (e.g., Gen 3 Secret Base memory offsets), and that information is missing from the provided `.foundry/docs/knowledge_base/` files or the task context, I must suspend the task using the "Late Binding" pattern. I should create a `RESEARCH` node to investigate the missing context, append the new exact node ID to the current task's `depends_on` array, update the current task's `status` to `FAILED`, and provide a clear `rejection_reason` in the YAML frontmatter. This ensures the orchestrator pauses the task until the prerequisite research is complete.

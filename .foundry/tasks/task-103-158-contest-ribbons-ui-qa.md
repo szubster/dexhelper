@@ -2,13 +2,13 @@
 id: task-103-158-contest-ribbons-ui-qa
 type: TASK
 title: QA Contest Ribbons Display UI Component
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-15'
 depends_on:
   - task-103-157-contest-ribbons-ui-impl
-jules_session_id: '14617578800780338948'
+jules_session_id: null
 pr_number: null
 parent: story-064-103-contest-ribbons-display-ui
 tags:

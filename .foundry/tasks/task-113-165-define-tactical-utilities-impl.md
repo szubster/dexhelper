@@ -47,5 +47,5 @@ Based on analysis of `TacticalPanel` and `TacticalCard` in `src/components/`, th
 * **CRITICAL**: If the target artifacts are already completely implemented, you MUST check all Acceptance Criteria checkboxes (`- [x]`) before submitting an empty PR. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009.
 
 ## Acceptance Criteria
-- [ ] Appropriate `@utility tactical-panel` and `@utility tactical-card` primitives are defined in `src/index.css`.
-- [ ] Tailwind v4 formatting and structure is respected.
+- [x] Appropriate `@utility tactical-panel` and `@utility tactical-card` primitives are defined in `src/index.css`.
+- [x] Tailwind v4 formatting and structure is respected.

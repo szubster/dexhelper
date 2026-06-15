@@ -38,6 +38,6 @@ Implement logic to extract the Hall of Fame data and count from Generation 1 (Re
 - If you submit an empty PR to verify a pre-existing target artifact, you MUST check off all Acceptance Criteria checkboxes before doing so.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 1 Hall of Fame count parsing using `DataView.getUint8`.
-- [ ] Account for the `offsetShift` (`1` for Yellow, `0` for Red/Blue) from base offset `0x25B3`.
-- [ ] Treat a raw parsed value of `0xFF` as `0`.
+- [x] Implement Gen 1 Hall of Fame count parsing using `DataView.getUint8`.
+- [x] Account for the `offsetShift` (`1` for Yellow, `0` for Red/Blue) from base offset `0x25B3`.
+- [x] Treat a raw parsed value of `0xFF` as `0`.
