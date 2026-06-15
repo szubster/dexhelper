@@ -66,3 +66,8 @@ When a coder task fails permanently due to missing architectural integration (li
 ## 2026-06-14: Fixing Orphaned QA Task YAML Frontmatter
 *   **Incident**: The orphaned QA task (`task-095-158`) for a permanently failed implementation had its YAML frontmatter incorrectly modified (e.g., `status: CANCELLED`, `jules_session_id`, `rejection_count`) by a prior agent, violating the strict Orphaned QA Task Cancellation Rule.
 *   **Action**: Reverted the YAML frontmatter of the orphaned QA task to its original `status: PENDING` and `jules_session_id: null`, ensuring that cancellation details are strictly limited to the Markdown body as mandated by the rule.
+## 2026-06-16: Scratchpad Cleanup and Tooling Constraints
+
+- **Scratchpad Cleanup**: Any temporary developer scratchpad scripts created during a session to manipulate files MUST be explicitly deleted before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
+- **Node.js Scripts**: When using Node.js scratchpad scripts to modify markdown files with YAML frontmatter, avoid importing external packages like `gray-matter`. Depending on the workspace configuration, they may not be resolvable (e.g. `ERR_MODULE_NOT_FOUND`). Rely on standard string manipulation or regex instead.
+- **Dependency References**: When defining dependencies in YAML frontmatter for generated tasks, strictly use the Node ID (e.g., `task-123-abc`), NOT the file path.
