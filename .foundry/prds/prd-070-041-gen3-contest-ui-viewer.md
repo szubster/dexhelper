@@ -53,3 +53,4 @@ Following the data extraction phase, DexHelper must present the extracted Gen 3 
 - [ ] .foundry/archive/epics/epic-041-064-contest-ui-shared-components.md
 - [ ] .foundry/epics/epic-041-065-individual-contest-stats-view.md
 - [ ] .foundry/epics/epic-041-066-global-ribbon-checklist-dashboard.md
+- [ ] .foundry/epics/epic-041-091-visual-regression-accessibility.md
