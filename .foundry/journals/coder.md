@@ -88,3 +88,6 @@ Following the Late Binding for Missing Context pattern, rather than making assum
 When implementing save parser logic, research handoffs occasionally identify bitfields (e.g., Gen 3 Roamer IVs) without specifying the exact bit shifts or field sizes required for correct extraction. It's critical to avoid hallucinating these exact mathematical formulas to comply with groundedness rules. When this occurs, always spawn a late-bound `RESEARCH` node to determine the exact parsing formula and suspend the implementation task until the data is verified.
 
 - **Gen 3 Contest Ribbons**: Added `parseGen3Ribbons` utilizing `getUint32` to parse the 32-bit ribbon bitfields to correctly extract Cool, Beauty, Cute, Smart, and Tough contest ranks using bitwise isolation.
+
+## Late Binding for Missing Egg Groups Data
+When implementing `task-084-150-breeding-pair-algorithm-impl`, it was discovered that `PokemonMetadata` inside `src/db/schema.ts` lacks `egg_groups` data, and there is no utility to calculate gender from Gen 2 DVs. Following the late-binding pattern for missing context, a `RESEARCH` node (`research-150-186-egg-groups-missing`) was appended to `depends_on`, and the task was suspended (`status: FAILED`) with a clear `rejection_reason` until the research is completed.
