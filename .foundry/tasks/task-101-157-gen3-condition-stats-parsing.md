@@ -2,10 +2,10 @@
 id: task-101-157-gen3-condition-stats-parsing
 type: TASK
 title: Implement Gen 3 Condition Stats Parsing
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on:
   - research-101-157-gen3-condition-stats-offsets
 jules_session_id: '16111919894717915824'

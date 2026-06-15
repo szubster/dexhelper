@@ -2,10 +2,10 @@
 id: task-071-140-visited-routes-checklist-retry-impl
 type: TASK
 title: Implement Visited Routes Checklist Retry
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-05-24'
-updated_at: '2026-06-08'
+updated_at: '2026-06-15'
 depends_on:
   - research-071-005-investigate-visited-routes-checklist
 jules_session_id: '7899597118810097665'

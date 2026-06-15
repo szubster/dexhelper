@@ -2,12 +2,12 @@
 id: research-096-185-feebas-route119-grid-mapping
 type: RESEARCH
 title: Investigate Route 119 Grid Dimensions and Feebas Spot ID Mapping
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-14'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '11702271797782313578'
+jules_session_id: null
 pr_number: null
 parent: task-096-183-feebas-tile-calculation-impl
 tags:

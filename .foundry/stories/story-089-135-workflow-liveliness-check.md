@@ -2,10 +2,10 @@
 id: story-089-135-workflow-liveliness-check
 type: STORY
 title: Workflow Liveliness Check
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on: []
 jules_session_id: null
 pr_number: null

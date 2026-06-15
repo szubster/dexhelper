@@ -476,3 +476,29 @@ No critical learnings logged yet.
 - **2026-06-15**: System failure detected for `task-099-157-gen3-extract-pokemon-pids-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
 
 - **2026-06-15**: System failure detected for `task-102-157-impl-gen3-sheen-parsing`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-15**: PR #2608 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-15**: PR #2586 merged. `epic-050-089-zombie-node-detection-engine` is now VERIFYING.
+
+- **2026-06-15**: PR #2606 merged. `idea-079-automated-max-rejection-cancellation` is now VERIFYING.
+
+- **2026-06-15**: System failure detected for `research-095-157-gen2-event-flag-offsets`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-15**: PR #2604 merged. `research-096-185-feebas-route119-grid-mapping` is now COMPLETED.
+
+- **2026-06-15**: PR #2595 merged. `research-103-157-gen3-ribbon-offsets` is now COMPLETED.
+
+- **2026-06-15**: System failure detected for `task-084-150-breeding-pair-algorithm-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-15**: PR #2597 merged. `task-095-158-gen3-berry-dataview-parsing-qa` is now COMPLETED.
+
+- **2026-06-15**: PR #2607 merged. `task-095-183-gen3-berry-dataview-parsing-retry` is now COMPLETED.
+
+- **2026-06-15**: PR #2598 merged. `task-098-183-extract-32bit-pv-impl` is now COMPLETED.
+
+- **2026-06-15**: PR #2609 merged. `task-099-185-mirage-island-parser-impl` is now COMPLETED.
+
+- **2026-06-15**: PR #2605 merged. `task-102-157-impl-gen3-sheen-parsing` is now COMPLETED.
+
+- **2026-06-15**: PR #2599 merged. `task-102-183-gen3-contest-recommendation-algorithm-impl` is now COMPLETED.

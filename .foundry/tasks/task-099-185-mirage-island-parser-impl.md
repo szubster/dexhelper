@@ -2,12 +2,12 @@
 id: task-099-185-mirage-island-parser-impl
 type: TASK
 title: Implement Gen 3 Mirage Island Parser
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-14'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '14972239701512750635'
+jules_session_id: null
 pr_number: null
 parent: story-061-099-implement-mirage-island-parser
 tags:

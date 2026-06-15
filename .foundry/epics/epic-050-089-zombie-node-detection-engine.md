@@ -2,12 +2,12 @@
 id: epic-050-089-zombie-node-detection-engine
 type: EPIC
 title: Zombie Node Detection Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '14379556503952367981'
+jules_session_id: null
 pr_number: null
 parent: prd-079-050-foundry-zombie-node-cleanup
 tags:

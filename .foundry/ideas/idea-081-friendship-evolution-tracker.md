@@ -2,14 +2,18 @@
 id: idea-081-friendship-evolution-tracker
 type: IDEA
 title: Exact Friendship & Evolution Tracker
-status: PENDING
+status: READY
 owner_persona: product_manager
-created_at: "2026-06-15"
-updated_at: "2026-06-15"
+created_at: '2026-06-15'
+updated_at: '2026-06-15'
 depends_on: []
 jules_session_id: null
 parent: null
-tags: ["gen2", "gen3", "companion-app"]
+tags:
+  - gen2
+  - gen3
+  - companion-app
+rejection_reason: ''
 ---
 
 # Exact Friendship & Evolution Tracker

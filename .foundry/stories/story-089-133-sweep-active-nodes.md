@@ -2,10 +2,10 @@
 id: story-089-133-sweep-active-nodes
 type: STORY
 title: Sweep Active Nodes
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on: []
 jules_session_id: null
 pr_number: null

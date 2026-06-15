@@ -2,13 +2,13 @@
 id: task-095-183-gen3-berry-dataview-parsing-retry
 type: TASK
 title: Implement Gen 3 Berry Tracker DataView Parsing Logic (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-14'
 updated_at: '2026-06-15'
 depends_on:
   - research-095-175-gen3-berry-implicit-data
-jules_session_id: '208369059633576429'
+jules_session_id: null
 pr_number: null
 parent: story-055-095-gen3-berry-data-parsing
 tags:
