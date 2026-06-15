@@ -2,10 +2,10 @@
 id: research-108-163-gen3-roamer-iv-bitfield
 type: RESEARCH
 title: Investigate Gen 3 Roamer IVs Bitfield Parsing Formula
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on: []
 jules_session_id: null
 pr_number: null

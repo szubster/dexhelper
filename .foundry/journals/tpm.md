@@ -516,3 +516,7 @@ No critical learnings logged yet.
 - **2026-06-15**: PR #2613 merged. `story-089-134-session-id-validator` is now COMPLETED.
 
 - **2026-06-15**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-15**: PR #2617 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-15**: PR #2618 merged. `task-102-158-qa-gen3-sheen-parsing` is now COMPLETED.
