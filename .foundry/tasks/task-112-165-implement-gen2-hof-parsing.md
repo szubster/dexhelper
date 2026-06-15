@@ -2,12 +2,12 @@
 id: task-112-165-implement-gen2-hof-parsing
 type: TASK
 title: Implement Gen 2 Hall of Fame Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-11'
-updated_at: '2026-06-12'
+updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16885243995833885890'
 pr_number: null
 parent: story-070-112-parse-gen2-hof-data
 tags:
