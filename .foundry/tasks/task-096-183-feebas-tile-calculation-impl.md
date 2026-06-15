@@ -2,7 +2,7 @@
 id: task-096-183-feebas-tile-calculation-impl
 type: TASK
 title: Implement Feebas Tile Calculation Algorithm
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-14'
 updated_at: '2026-06-15'
@@ -17,7 +17,7 @@ tags:
   - algorithm
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Suspended pending research-096-185-feebas-route119-grid-mapping for physical grid dimensions and surfable water tile coordinates.'
 notes: ''
 ---
 
