@@ -2,10 +2,10 @@
 id: task-111-166-gen1-hof-parser-qa
 type: TASK
 title: Verify Gen 1 Hall of Fame Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-15'
 depends_on:
   - task-111-165-gen1-hof-parser-impl
 jules_session_id: null

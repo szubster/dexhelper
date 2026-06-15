@@ -2,13 +2,13 @@
 id: epic-041-065-individual-contest-stats-view
 type: EPIC
 title: Individual Contest Stats View
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-06-15'
 depends_on:
   - epic-041-064-contest-ui-shared-components
-jules_session_id: null
+jules_session_id: '2464091821288463285'
 pr_number: null
 parent: prd-070-041-gen3-contest-ui-viewer
 tags:
@@ -35,3 +35,8 @@ This epic covers the integration of the shared contest UI components into the de
 - [ ] Integrate numerical contest stats into the detailed Pokémon view.
 - [ ] Integrate the Sheen display into the detailed Pokémon view.
 - [ ] Integrate Ribbons for a single Pokémon.
+
+## Child Stories
+- [ ] .foundry/stories/story-065-137-individual-contest-stats-ui.md
+- [ ] .foundry/stories/story-065-138-individual-contest-sheen-ui.md
+- [ ] .foundry/stories/story-065-139-individual-contest-ribbons-ui.md

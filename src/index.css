@@ -124,3 +124,32 @@ body {
 .lcd-flicker {
   animation: screen-flicker 0.1s infinite;
 }
+
+
+/* =========================================
+   Tactical Primitives (@utility definitions)
+   ========================================= */
+
+@utility tactical-button {
+  @apply rounded-none border-dashed font-mono bg-[var(--theme-surface)] border border-[var(--theme-border)] text-white px-4 py-2 text-sm transition-all;
+
+  &:hover {
+    @apply bg-[rgba(var(--theme-primary-rgb),0.2)] border-[var(--theme-primary)] text-[var(--theme-primary)];
+  }
+
+  &:active {
+    @apply scale-95;
+  }
+}
+
+@utility tactical-focus {
+  @apply outline-dashed outline-1 outline-[var(--theme-primary)] outline-offset-1 rounded-none;
+}
+
+@utility tactical-panel {
+  @apply overflow-hidden rounded-none border border-dashed bg-zinc-900/50 text-zinc-100 font-mono transition-all duration-300;
+}
+
+@utility tactical-card {
+  @apply flex flex-col rounded-none border border-dashed bg-zinc-950 p-4 font-mono transition-all duration-500 hover:scale-[1.02] active:scale-[0.98];
+}

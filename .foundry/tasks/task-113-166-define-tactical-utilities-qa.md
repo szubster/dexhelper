@@ -2,10 +2,10 @@
 id: task-113-166-define-tactical-utilities-qa
 type: TASK
 title: QA - Verify tactical-panel and tactical-card utilities
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-15'
 depends_on:
   - task-113-165-define-tactical-utilities-impl
 jules_session_id: null

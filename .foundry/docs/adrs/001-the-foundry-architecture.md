@@ -110,5 +110,8 @@ The `.foundry/` monofolder has been scaffolded at the repository root. All 9 fil
 1. Technical implementation of the GitHub Actions engine (`task-001`).
 2. Draft initial Persona `.md` frameworks inside `.github/agents/`.
 
-## 7. EMPTY PR POLICY
+## 7. System Invariants (Macro Node Completion)
+Macro nodes (`IDEA`, `PRD`, `EPIC`, `STORY`) MUST NOT transition to `COMPLETED` until all of their descendant nodes in the DAG have reached the `COMPLETED` or `CANCELLED` status. A macro node with pending, active, or failed descendants is inherently incomplete.
+
+## 8. EMPTY PR POLICY
 Empty PRs (0 files changed) are submitted when a persona determines that the target artifact already exists and is complete. These PRs are automatically merged to allow the Foundry DAG to progress, while the persona documents the outcome in its journal.

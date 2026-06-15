@@ -2,12 +2,12 @@
 id: task-109-161-update-adr001-macro-node-completion-impl
 type: TASK
 title: Implement macro node completion rules in ADR 001
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '350837188325313940'
+jules_session_id: null
 pr_number: null
 parent: story-071-109-update-adr001-macro-node-completion
 tags:
@@ -36,4 +36,4 @@ Update `.foundry/docs/adrs/001-the-foundry-architecture.md` to detail the new ma
 5. Reminder: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Update `001-the-foundry-architecture.md` (ADR 001) to detail the behavior of macro nodes completion.
+- [x] Update `001-the-foundry-architecture.md` (ADR 001) to detail the behavior of macro nodes completion.

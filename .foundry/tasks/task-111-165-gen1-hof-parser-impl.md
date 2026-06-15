@@ -2,12 +2,12 @@
 id: task-111-165-gen1-hof-parser-impl
 type: TASK
 title: Implement Gen 1 Hall of Fame Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '2358782563801532452'
+jules_session_id: null
 pr_number: null
 parent: story-070-111-parse-gen1-hof-data
 tags:
@@ -38,6 +38,6 @@ Implement logic to extract the Hall of Fame data and count from Generation 1 (Re
 - If you submit an empty PR to verify a pre-existing target artifact, you MUST check off all Acceptance Criteria checkboxes before doing so.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 1 Hall of Fame count parsing using `DataView.getUint8`.
-- [ ] Account for the `offsetShift` (`1` for Yellow, `0` for Red/Blue) from base offset `0x25B3`.
-- [ ] Treat a raw parsed value of `0xFF` as `0`.
+- [x] Implement Gen 1 Hall of Fame count parsing using `DataView.getUint8`.
+- [x] Account for the `offsetShift` (`1` for Yellow, `0` for Red/Blue) from base offset `0x25B3`.
+- [x] Treat a raw parsed value of `0xFF` as `0`.

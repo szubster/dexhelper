@@ -2,12 +2,12 @@
 id: task-108-161-create-dag-context-types
 type: TASK
 title: Create DagContext Interfaces and Types
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-06-11'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '8648544695662883844'
+jules_session_id: null
 pr_number: null
 parent: story-070-108-create-dag-context-interfaces
 tags:

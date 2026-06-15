@@ -2,12 +2,12 @@
 id: task-114-165-tactical-button-focus-impl
 type: TASK
 title: Implement tactical-button and tactical-focus utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '10402501446780179862'
+jules_session_id: null
 pr_number: null
 parent: story-074-114-define-tactical-button-and-focus
 tags:
@@ -35,5 +35,5 @@ Define the custom utilities in `src/index.css` leveraging `@apply` to enforce th
 - If an empty PR is submitted for a completed task, the Coder MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Appropriate `@utility tactical-button` and `@utility tactical-focus` primitives are defined in `src/index.css`.
-- [ ] Tailwind v4 formatting and structure is respected.
+- [x] Appropriate `@utility tactical-button` and `@utility tactical-focus` primitives are defined in `src/index.css`.
+- [x] Tailwind v4 formatting and structure is respected.

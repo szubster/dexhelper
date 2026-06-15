@@ -534,3 +534,31 @@ No critical learnings logged yet.
 - **2026-06-15**: Resurrection Loop triggered for `task-084-150-breeding-pair-algorithm-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-06-15**: Resurrection Loop triggered for `task-108-161-gen3-roamer-dataview-extraction-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-15**: PR #2629 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-15**: System failure detected for `task-076-179-remove-tpm-logging-orchestrator`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-15**: System failure detected for `task-080-132-refactor-generation-exports-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-15**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-15**: System failure detected for `task-081-144-preserve-enum-optimizations-retry-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-15**: System failure detected for `task-108-161-create-dag-context-types`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-15**: PR #2627 merged. `task-108-162-hierarchical-completion-qa` is now COMPLETED.
+
+- **2026-06-15**: PR #2631 merged. `task-109-161-update-adr001-macro-node-completion-impl` is now COMPLETED.
+
+- **2026-06-15**: PR #2625 merged. `task-111-165-gen1-hof-parser-impl` is now COMPLETED.
+
+- **2026-06-15**: PR #2628 merged. `task-112-165-implement-gen2-hof-parsing` is now COMPLETED.
+
+- **2026-06-15**: PR #2632 merged. `task-113-165-define-tactical-utilities-impl` is now COMPLETED.
+
+- **2026-06-15**: PR #2633 merged. `task-114-165-tactical-button-focus-impl` is now COMPLETED.
+
+- **2026-06-15**: Resurrection Loop triggered for `task-108-161-gen3-roamer-location-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-15**: Resurrection Loop triggered for `task-108-163-gen3-secret-base-parser`. Reason: Retry from FAILED status.. Transitioned back to READY.

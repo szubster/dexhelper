@@ -2,12 +2,12 @@
 id: task-113-165-define-tactical-utilities-impl
 type: TASK
 title: Define tactical-panel and tactical-card utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '7599354570018371525'
+jules_session_id: null
 pr_number: null
 parent: story-074-113-define-tactical-panel-and-card
 tags:
@@ -47,5 +47,5 @@ Based on analysis of `TacticalPanel` and `TacticalCard` in `src/components/`, th
 * **CRITICAL**: If the target artifacts are already completely implemented, you MUST check all Acceptance Criteria checkboxes (`- [x]`) before submitting an empty PR. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009.
 
 ## Acceptance Criteria
-- [ ] Appropriate `@utility tactical-panel` and `@utility tactical-card` primitives are defined in `src/index.css`.
-- [ ] Tailwind v4 formatting and structure is respected.
+- [x] Appropriate `@utility tactical-panel` and `@utility tactical-card` primitives are defined in `src/index.css`.
+- [x] Tailwind v4 formatting and structure is respected.
