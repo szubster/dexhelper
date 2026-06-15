@@ -409,3 +409,166 @@ test('coverage for recursive missing exclusive logic', () => {
   const exclusiveSuggestion = suggestions.find((s) => s.id === 'exclusive-6');
   expect(exclusiveSuggestion).toBeUndefined();
 });
+
+test('coverage for localPids.delete with array of pokemonIds', () => {
+  const mockSaveData = {
+    generation: 2,
+    gameVersion: 'crystal',
+    owned: new Set([]), // Empty to trigger catch logic
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {
+      1: {
+        aid: 1,
+        locId: 1,
+        pids: [1, 2], // Both will be filtered out because no valid details
+        details: [
+          // No details means hasValidEncounter will be false
+        ],
+      },
+    },
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
+      2: { id: 2, n: 'Ivysaur', efrm: [1], det: [], eto: [] },
+    },
+    areaNames: {},
+    allLocations: [{ id: 1, name: 'Route 1', pids: [1, 2], type: 'route', gen: 2, isLandmark: false }],
+    allAreas: [],
+    localAid: 1,
+  } as unknown as AssistantApiData;
+
+  const mockStrategyWithCatch = {
+    ...gen1Strategy,
+    generation: 2,
+    isInternallyObtainable: () => true,
+    getUnobtainableReason: () => null,
+    resolveMapAid: () => 1,
+  } as unknown as import('../strategies/types').AssistantStrategy;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
+
+  // Both should be filtered out, suggestions length should be >0 but not contain Route 1 catch
+  const locSugg = suggestions.find((s) => s.category === 'Catch');
+  expect(locSugg).toBeUndefined();
+});
+
+test('coverage for localPids.delete with single pokemonId', () => {
+  const mockSaveData = {
+    generation: 2,
+    gameVersion: 'crystal',
+    owned: new Set([]), // Empty to trigger catch logic
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {
+      1: {
+        aid: 1,
+        locId: 1,
+        pids: [1], // Single ID, filtered out because no details
+        details: [],
+      },
+    },
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
+    },
+    areaNames: {},
+    allLocations: [{ id: 1, name: 'Route 1', pids: [1], type: 'route', gen: 2, isLandmark: false }],
+    allAreas: [],
+    localAid: 1,
+  } as unknown as AssistantApiData;
+
+  const mockStrategyWithCatch = {
+    ...gen1Strategy,
+    generation: 2,
+    isInternallyObtainable: () => true,
+    getUnobtainableReason: () => null,
+    resolveMapAid: () => 1,
+  } as unknown as import('../strategies/types').AssistantStrategy;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
+
+  const locSugg = suggestions.find((s) => s.category === 'Catch');
+  expect(locSugg).toBeUndefined();
+});
+
+test('coverage for localPids.delete with some ids filtered out', () => {
+  const mockSaveData = {
+    generation: 2,
+    gameVersion: 'crystal',
+    owned: new Set([]), // Empty to trigger catch logic
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {
+      1: {
+        aid: 1,
+        locId: 1,
+        pids: [1, 2], // 1 has details, 2 doesn't
+        details: [
+          {
+            method: 'WALK',
+            methodId: 1,
+            conditionId: 0,
+            chance: 100,
+            minLevel: 10,
+            maxLevel: 10,
+            games: [],
+            pid: 1, // Only pid 1 is valid
+          },
+        ],
+      },
+    },
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
+      2: { id: 2, n: 'Ivysaur', efrm: [1], det: [], eto: [] },
+    },
+    areaNames: {},
+    allLocations: [{ id: 1, name: 'Route 1', pids: [1, 2], type: 'route', gen: 2, isLandmark: false }],
+    allAreas: [],
+    localAid: 1,
+  } as unknown as AssistantApiData;
+
+  const mockStrategyWithCatch = {
+    ...gen1Strategy,
+    generation: 2,
+    isInternallyObtainable: () => true,
+    getUnobtainableReason: () => null,
+    resolveMapAid: () => 1,
+  } as unknown as import('../strategies/types').AssistantStrategy;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
+
+  // Suggestion exists but only has 1
+  expect(suggestions.length).toBeGreaterThan(0);
+});
