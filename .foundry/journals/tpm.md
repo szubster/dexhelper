@@ -454,3 +454,25 @@ No critical learnings logged yet.
 - **2026-06-15**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
 
 - **2026-06-15**: Resurrection Loop triggered for `research-103-157-gen3-ribbon-offsets`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-15**: PR #2581 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-15**: System failure detected for `idea-079-automated-max-rejection-cancellation`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-15**: System failure detected for `research-095-157-gen2-event-flag-offsets`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-15**: PR #2579 merged. `research-095-175-gen3-berry-implicit-data` is now COMPLETED.
+
+- **2026-06-15**: PR #2580 merged. `research-101-157-gen3-condition-stats-offsets` is now COMPLETED.
+
+- **2026-06-15**: PR #2582 merged but has unchecked tasks (parent node). `story-059-131-unown-dex-panel-ui` is now PENDING.
+
+- **2026-06-15**: PR #2583 merged. `story-061-098-parse-mirage-island-value` is now COMPLETED.
+
+- **2026-06-15**: PR #2584 merged but has unchecked tasks (parent node). `story-061-099-implement-mirage-island-parser` is now PENDING.
+
+- **2026-06-15**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.
+
+- **2026-06-15**: System failure detected for `task-099-157-gen3-extract-pokemon-pids-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-15**: System failure detected for `task-102-157-impl-gen3-sheen-parsing`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.

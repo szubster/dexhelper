@@ -2,10 +2,10 @@
 id: task-131-185-implement-unown-dex-panel-ui
 type: TASK
 title: Implement Unown Dex Panel UI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
