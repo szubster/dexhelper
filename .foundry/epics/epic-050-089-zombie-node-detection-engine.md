@@ -44,4 +44,7 @@ This Epic focuses exclusively on the logic required to sweep `.foundry/` directo
 - [ ] Unit tests for the detection functions.
 
 ## 5. Next Steps
-- [ ] Break down into Stories.
+- [x] Break down into Stories
+- [ ] [Sweep Active Nodes](../stories/story-089-133-sweep-active-nodes.md)
+- [ ] [Session ID Validator](../stories/story-089-134-session-id-validator.md)
+- [ ] [Workflow Liveliness Check](../stories/story-089-135-workflow-liveliness-check.md)
