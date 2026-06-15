@@ -32,5 +32,8 @@ As per ADR 017 and PRD `prd-063-034-permanent-failure-dashboard`, we need a "Per
 3. **Visual Highlighting**: Ensure permanently failed nodes are visually distinct to allow the Tech Lead or Product Manager to quickly identify deadlocks.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Create a Story to implement the UI for the permanent failure view/filter.
-- [ ] Story Owner: Ensure the new UI correctly consumes the `rejection_count` property from the shared React Context.
+- [x] Story Owner: Create a Story to implement the UI for the permanent failure view/filter.
+- [x] Story Owner: Ensure the new UI correctly consumes the `rejection_count` property from the shared React Context.
+
+### Generated Stories
+- [ ] story-047-136-permanent-failure-dashboard-ui
