@@ -214,7 +214,7 @@ describe('parseGen3ConditionStats', () => {
       cute: 30,
       smart: 40,
       tough: 50,
-      feel: 60,
+      sheen: 60,
     });
   });
 
@@ -238,7 +238,7 @@ describe('parseGen3ConditionStats', () => {
       cute: 35,
       smart: 45,
       tough: 55,
-      feel: 65,
+      sheen: 65,
     });
   });
 

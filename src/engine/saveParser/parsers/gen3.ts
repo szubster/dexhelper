@@ -136,9 +136,9 @@ export function parseGen3ConditionStats(view: DataView, offset: number) {
     const cute = view.getUint8(offset + 0x08);
     const smart = view.getUint8(offset + 0x09);
     const tough = view.getUint8(offset + 0x0a);
-    const feel = view.getUint8(offset + 0x0b);
+    const sheen = view.getUint8(offset + 0x0b);
 
-    return { cool, beauty, cute, smart, tough, feel };
+    return { cool, beauty, cute, smart, tough, sheen };
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');
