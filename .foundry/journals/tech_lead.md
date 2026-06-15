@@ -66,3 +66,11 @@ When a coder task fails permanently due to missing architectural integration (li
 ## 2026-06-14: Fixing Orphaned QA Task YAML Frontmatter
 *   **Incident**: The orphaned QA task (`task-095-158`) for a permanently failed implementation had its YAML frontmatter incorrectly modified (e.g., `status: CANCELLED`, `jules_session_id`, `rejection_count`) by a prior agent, violating the strict Orphaned QA Task Cancellation Rule.
 *   **Action**: Reverted the YAML frontmatter of the orphaned QA task to its original `status: PENDING` and `jules_session_id: null`, ensuring that cancellation details are strictly limited to the Markdown body as mandated by the rule.
+
+## 2026-06-15: DAG ID Strictness Enforcement
+### Observation
+When defining the `depends_on` array or `parent` field in node YAML frontmatter (e.g., creating a QA task that depends on an implementation task), using relative file paths (e.g., `.foundry/tasks/task-123.md`) violates the DAG ID Strictness rule.
+### Architectural Constraint
+The orchestrator specifically requires exact node IDs (e.g., `task-123`) to build the dependency tree properly. Injecting file paths with extensions causes DAG resolution to fail and breaks the pipeline.
+### Action
+Always use the exact, short ID slug for DAG references. Do not include directory prefixes or `.md` extensions in `depends_on` or `parent` fields.

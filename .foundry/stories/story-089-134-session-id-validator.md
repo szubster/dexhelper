@@ -36,4 +36,6 @@ Following the identification of `ACTIVE` nodes, we need to extract and validate 
 - [ ] Create tests handling cases with valid, null, missing, or malformed session IDs.
 
 ## 4. Next Steps
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] .foundry/tasks/task-134-187-session-id-validator-impl.md
+- [ ] .foundry/tasks/task-134-188-session-id-validator-qa.md
