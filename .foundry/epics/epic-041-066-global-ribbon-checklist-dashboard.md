@@ -38,3 +38,9 @@ This epic builds the centralized aggregate view (or dashboard) across the entire
 - [ ] Add tracking elements for Master Rank in specific categories.
 - [ ] Implement filtering and sorting for Ribbons.
 - [ ] Ensure adequate rendering performance for hundreds of Pokémon.
+
+## 4. Child Nodes
+- [ ] .foundry/stories/story-066-137-global-ribbon-dashboard-scaffold.md
+- [ ] .foundry/stories/story-066-138-master-rank-tracking.md
+- [ ] .foundry/stories/story-066-139-ribbon-filtering-sorting.md
+- [ ] .foundry/stories/story-066-140-ribbon-dashboard-performance.md
