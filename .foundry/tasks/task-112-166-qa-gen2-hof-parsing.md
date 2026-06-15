@@ -2,10 +2,10 @@
 id: task-112-166-qa-gen2-hof-parsing
 type: TASK
 title: QA Gen 2 Hall of Fame Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-15'
 depends_on:
   - task-112-165-implement-gen2-hof-parsing
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: task-114-165-tactical-button-focus-impl
 type: TASK
 title: Implement tactical-button and tactical-focus utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '10402501446780179862'
+jules_session_id: null
 pr_number: null
 parent: story-074-114-define-tactical-button-and-focus
 tags:

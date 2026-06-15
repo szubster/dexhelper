@@ -2,7 +2,7 @@
 id: task-084-150-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Gen 2 Breeding Pair Algorithm
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-08'
 updated_at: '2026-06-15'
