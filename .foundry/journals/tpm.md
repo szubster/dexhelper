@@ -450,3 +450,7 @@ No critical learnings logged yet.
 - **2026-06-14**: Resurrection Loop triggered for `task-103-157-gen3-ribbon-bitfields-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-06-14**: Resurrection Loop triggered for `task-108-161-gen3-roamer-dataview-extraction-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-15**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-15**: Resurrection Loop triggered for `research-103-157-gen3-ribbon-offsets`. Reason: Retry from FAILED status.. Transitioned back to READY.

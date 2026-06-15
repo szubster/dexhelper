@@ -2,10 +2,10 @@
 id: epic-050-090-zombie-node-remediation-and-gc
 type: EPIC
 title: Zombie Node Remediation and GC Logic
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on:
   - epic-050-089-zombie-node-detection-engine
 jules_session_id: '11685995354736408843'

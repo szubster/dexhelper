@@ -2,10 +2,10 @@
 id: research-103-157-gen3-ribbon-offsets
 type: RESEARCH
 title: Investigate Gen 3 Ribbon Bitfields Offsets
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - contests
   - parsing
 research_references: []
-rejection_count: 0
-rejection_reason: ACTIVE node missing session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
