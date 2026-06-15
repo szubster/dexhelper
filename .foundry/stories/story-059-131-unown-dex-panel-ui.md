@@ -33,4 +33,6 @@ Create a new panel or filter UI that visually represents the Unown checklist.
 Must observe the "tactical hardware/snooping" styling requirements defined in ADR 008 and ADR 024 (e.g. sharp edges, dashed borders, monospace fonts, using the new `tactical-*` utility classes).
 
 ## Acceptance Criteria
-- [ ] Task for creating the Unown Dex Panel UI component created.
+- [x] Task for creating the Unown Dex Panel UI component created.
+
+- [ ] task-131-185-implement-unown-dex-panel-ui
