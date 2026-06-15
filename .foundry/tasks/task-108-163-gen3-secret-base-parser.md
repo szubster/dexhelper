@@ -2,11 +2,12 @@
 id: task-108-163-gen3-secret-base-parser
 type: TASK
 title: Implement Gen 3 Secret Base Parser
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-15'
-depends_on: []
+depends_on:
+  - research-108-187-gen3-secret-base-offsets
 jules_session_id: '1097762190059818453'
 pr_number: null
 parent: story-070-108-parse-secret-base-locations
@@ -17,7 +18,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Late binding: suspended pending research for Gen 3 Secret Base memory offsets.'
 notes: ''
 ---
 
