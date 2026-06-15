@@ -63,7 +63,7 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
 
 function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
   const patches: Gen3BerryPatch[] = [];
-  const baseOffset = saveBlock1Offset + 0x169c;
+  const baseOffset = saveBlock1Offset + 0x071c;
 
   for (let i = 0; i < 128; i++) {
     const offset = baseOffset + i * 8;
@@ -84,7 +84,6 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
       const watered4 = (wateredByte & 0x80) !== 0;
 
       patches.push({
-        mapId: i, // We use the array index as the mapId, as researched.
         berryId,
         stage,
         stopGrowth,

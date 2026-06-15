@@ -60,7 +60,6 @@ export interface PokemonInstance {
  */
 
 export interface Gen3BerryPatch {
-  mapId: number;
   berryId: number;
   stage: number;
   stopGrowth: boolean;
