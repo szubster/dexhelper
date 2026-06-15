@@ -77,3 +77,11 @@ The extraction code correctly uses bitwise logic on the +28 offset raw byte (`ra
 
 ### Lesson: Impossible Loop Awakening for CANCELLED Nodes
 When nodes are transitioned to CANCELLED (e.g. due to max rejection threshold), they must trigger the same Impossible Loop parent awakening logic as FAILED nodes, otherwise the DAG deadlocks. Parent awakening conditions must include CANCELLED status when a rejection reason is present.
+
+## 2026-06-16: Bitwise Extraction and the "Cured" Edge Case
+
+**Why this matters:**
+When scaling state extraction across different Pokemon generations, relying on bitwise offsets requires careful handling of boundary states that the game interprets differently from absolute zeros.
+
+**Recommendation/Learnings:**
+The Gen 2 extraction cleanly uses bitwise logic on the `+28` offset raw byte (`rawPokerus >> 4` for strain, `rawPokerus & 0x0f` for days). It's crucial that we correctly handle the "cured" edge case: when the strain is non-zero but the days remaining is `0`. The game considers this immune/cured, separating it from never having been infected (both values at `0`). This exact bitwise approach and its specific tests for the cured boundary should act as the template for scaling into Gen 3 logic.
