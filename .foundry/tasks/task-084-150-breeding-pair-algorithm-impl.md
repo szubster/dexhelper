@@ -2,11 +2,12 @@
 id: task-084-150-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Gen 2 Breeding Pair Algorithm
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-08'
 updated_at: '2026-06-15'
-depends_on: []
+depends_on:
+  - research-150-186-egg-groups-missing
 jules_session_id: '7103759404911118140'
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
@@ -17,7 +18,7 @@ tags:
   - backend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Late Binding: Missing Egg Groups in PokemonMetadata schema. Suspending task until research node is resolved.'
 notes: ''
 ---
 

@@ -5,6 +5,7 @@ import {
   parseGen3ConditionStats,
   parseGen3MirageIslandValue,
   parseGen3PersonalityValue,
+  parseGen3Ribbons,
 } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
@@ -350,5 +351,45 @@ describe('parseGen3 mirageIslandValue', () => {
     };
 
     expect(() => parseGen3(view, 'ruby')).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3Ribbons', () => {
+  it('should extract the contest ribbon ranks correctly', () => {
+    const buffer = new ArrayBuffer(8);
+    const view = new DataView(buffer);
+
+    // Let's create a bitfield:
+    // cool: 1 (001) -> bits 0-2 -> 1
+    // beauty: 2 (010) -> bits 3-5 -> 2 << 3 = 16
+    // cute: 3 (011) -> bits 6-8 -> 3 << 6 = 192
+    // smart: 4 (100) -> bits 9-11 -> 4 << 9 = 2048
+    // tough: 0 (000) -> bits 12-14 -> 0
+    // Total value: 1 + 16 + 192 + 2048 = 2257 (0x08D1)
+
+    // 32-bit little endian at offset 2
+    // 0x000008D1
+    view.setUint8(2, 0xd1);
+    view.setUint8(3, 0x08);
+    view.setUint8(4, 0x00);
+    view.setUint8(5, 0x00);
+
+    const result = parseGen3Ribbons(view, 2);
+
+    expect(result).toEqual({
+      cool: 1,
+      beauty: 2,
+      cute: 3,
+      smart: 4,
+      tough: 0,
+    });
+  });
+
+  it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+
+    // Attempting to read a 32-bit integer (4 bytes) starting at offset 2 will exceed the 4-byte buffer
+    expect(() => parseGen3Ribbons(view, 2)).toThrowError('The save file is corrupted or incomplete.');
   });
 });

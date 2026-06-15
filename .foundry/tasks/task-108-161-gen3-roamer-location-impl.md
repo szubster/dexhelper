@@ -2,13 +2,13 @@
 id: task-108-161-gen3-roamer-location-impl
 type: TASK
 title: Implement Gen 3 Roamer Location Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-11'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on:
   - research-071-138-gen3-roamer-offsets
-jules_session_id: null
+jules_session_id: '11454315226701866301'
 pr_number: null
 parent: story-072-108-gen3-roamer-location-extraction
 tags:
