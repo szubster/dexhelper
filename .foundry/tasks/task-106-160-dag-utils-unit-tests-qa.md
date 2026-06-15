@@ -37,6 +37,6 @@ This task verifies the implementation of unit tests for the shared DAG utility f
 *   If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] Code review confirms unit tests cover core functionality and edge cases.
-- [ ] `pnpm exec vitest run` executes all test suites without failure.
-- [ ] Test cases are robust and effectively mock dependencies where applicable.
+- [x] Code review confirms unit tests cover core functionality and edge cases.
+- [x] `pnpm exec vitest run` executes all test suites without failure.
+- [x] Test cases are robust and effectively mock dependencies where applicable.
