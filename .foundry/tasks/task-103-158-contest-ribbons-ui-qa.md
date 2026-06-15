@@ -38,5 +38,5 @@ This task verifies the implementation of the `ContestRibbonBadge` UI component a
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `ContestRibbonBadge` rendering behavior and visual correctness.
-- [ ] Review implementation code and tests.
+- [x] Verify `ContestRibbonBadge` rendering behavior and visual correctness.
+- [x] Review implementation code and tests.
