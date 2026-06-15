@@ -31,3 +31,6 @@ Create a dedicated "Friendship Tracker" view or overlay that:
 
 ## Why It Matters
 This perfectly aligns with DexHelper's vision as a premium companion app. It takes an obtuse, high-friction, hidden mechanic and surfaces it into actionable, exact data. This eliminates the guesswork from one of the most common mid-game progression blockers, directly improving the player's experience.
+
+## Generated PRDs
+- [ ] .foundry/prds/prd-081-051-friendship-evolution-tracker.md
