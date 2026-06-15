@@ -2,10 +2,10 @@
 id: story-067-104-gen3-roamer-data-structure
 type: STORY
 title: Gen 3 Roamer Data Structure Standardization
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-11'
+updated_at: '2026-06-15'
 depends_on: []
 jules_session_id: null
 pr_number: null

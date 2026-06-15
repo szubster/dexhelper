@@ -2,12 +2,12 @@
 id: task-112-165-implement-gen2-hof-parsing
 type: TASK
 title: Implement Gen 2 Hall of Fame Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-11'
-updated_at: '2026-06-12'
+updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16885243995833885890'
 pr_number: null
 parent: story-070-112-parse-gen2-hof-data
 tags:
@@ -37,9 +37,9 @@ As part of the social sharing utility expansion, we need to extract the Hall of 
 - `.foundry/docs/knowledge_base/engine/save_parsing/gen2_hall_of_fame.md`
 
 ## Acceptance Criteria
-- [ ] Parsing logic correctly calculates the offset relative to `johtoBadgesOffset`.
-- [ ] Logic correctly extracts the 8-bit unsigned integer count.
-- [ ] Unit tests are added to verify the extraction logic specifically for Gen 2.
+- [x] Parsing logic correctly calculates the offset relative to `johtoBadgesOffset`.
+- [x] Logic correctly extracts the 8-bit unsigned integer count.
+- [x] Unit tests are added to verify the extraction logic specifically for Gen 2.
 
 > **IMPORTANT REMINDER**:
 > - If you permanently fail or abort this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

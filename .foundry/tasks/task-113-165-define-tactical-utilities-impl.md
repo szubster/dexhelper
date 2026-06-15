@@ -2,12 +2,12 @@
 id: task-113-165-define-tactical-utilities-impl
 type: TASK
 title: Define tactical-panel and tactical-card utilities
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-11'
-updated_at: '2026-06-12'
+updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7599354570018371525'
 pr_number: null
 parent: story-074-113-define-tactical-panel-and-card
 tags:
