@@ -2,12 +2,12 @@
 id: task-111-165-gen1-hof-parser-impl
 type: TASK
 title: Implement Gen 1 Hall of Fame Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-11'
-updated_at: '2026-06-12'
+updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2358782563801532452'
 pr_number: null
 parent: story-070-111-parse-gen1-hof-data
 tags:
