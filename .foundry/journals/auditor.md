@@ -74,3 +74,6 @@ This confirms the Gen 2 Pokerus parsing logic works and successfully covers the 
 
 **Recommendation/Learnings:**
 The extraction code correctly uses bitwise logic on the +28 offset raw byte (`rawPokerus >> 4` for strain, `rawPokerus & 0x0f` for days) and cleanly handles the differentiation between never infected (`0`) and cured. The tests cover these bounds accurately.
+
+### Lesson: Impossible Loop Awakening for CANCELLED Nodes
+When nodes are transitioned to CANCELLED (e.g. due to max rejection threshold), they must trigger the same Impossible Loop parent awakening logic as FAILED nodes, otherwise the DAG deadlocks. Parent awakening conditions must include CANCELLED status when a rejection reason is present.
