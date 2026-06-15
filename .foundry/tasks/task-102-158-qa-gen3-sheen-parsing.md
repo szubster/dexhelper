@@ -33,7 +33,7 @@ Verify the implementation of Sheen value parsing in Gen 3 save files.
 - Verify unit tests cover the Sheen value extraction.
 
 ## 3. Acceptance Criteria
-- [ ] Verify Sheen value extraction logic correctly uses the `DataView` API.
-- [ ] Verify unit tests correctly test the Sheen value extraction.
-- [ ] **Important:** If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
-- [ ] **Important:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] Verify Sheen value extraction logic correctly uses the `DataView` API.
+- [x] Verify unit tests correctly test the Sheen value extraction.
+- [x] **Important:** If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
+- [x] **Important:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
