@@ -33,6 +33,6 @@ During the implementation of `task-103-157-gen3-ribbon-bitfields-impl`, it was d
 4. Update the knowledge base (e.g., in `.foundry/docs/knowledge_base/`) with these findings.
 
 ## Acceptance Criteria
-- [ ] Memory offsets and structure for Gen 3 Ribbon bitfields are fully documented in the knowledge base.
-- [ ] The exact block, offset, and size for the bitfields are identified.
-- [ ] The mapping of individual bits to specific ribbons is documented.
+- [x] Memory offsets and structure for Gen 3 Ribbon bitfields are fully documented in the knowledge base.
+- [x] The exact block, offset, and size for the bitfields are identified.
+- [x] The mapping of individual bits to specific ribbons is documented.
