@@ -32,3 +32,43 @@ To extract the Pokerus data in Gen 3, the engine must:
 3. Locate the Miscellaneous (M) substructure within the 48-byte Data block.
 4. Decrypt the Data block (or specifically the M substructure).
 5. Read the first byte of the M substructure and apply the bitwise operations (`byte >> 4` for strain, `byte & 0x0f` for days).
+
+## Contest Ribbons and Obedience
+The Contest Ribbons and Obedience bitfield is a 4-byte (32-bit) structure located in the **Miscellaneous (M)** substructure at **offset 8** (bytes 8-11 of the 12-byte M substructure).
+
+Since the M substructure itself is part of the 48-byte encrypted Data block, the exact physical offset within the 100-byte Pokémon data structure depends on the `PV % 24` substructure permutation.
+
+### Ribbon Bitmask Definition
+The 32 bits represent specific ribbons or obedience flags. A value of `1` means the ribbon is present. For Contest Ribbons (Cool, Beauty, Cute, Smart, Tough), they are grouped into 3-bit fields because there are 4 ranks (Normal, Super, Hyper, Master), represented by values 1 to 4 respectively.
+
+| Bits  | Description |
+|---|---|
+| 0-2   | Cool Contest Ribbon Rank (0=None, 1=Normal, 2=Super, 3=Hyper, 4=Master) |
+| 3-5   | Beauty Contest Ribbon Rank |
+| 6-8   | Cute Contest Ribbon Rank |
+| 9-11  | Smart Contest Ribbon Rank |
+| 12-14 | Tough Contest Ribbon Rank |
+| 15    | Champion Ribbon |
+| 16    | Winning Ribbon |
+| 17    | Victory Ribbon |
+| 18    | Artist Ribbon |
+| 19    | Effort Ribbon |
+| 20    | Battle Champion Ribbon |
+| 21    | Regional Champion Ribbon |
+| 22    | National Champion Ribbon |
+| 23    | Country Ribbon |
+| 24    | National Ribbon |
+| 25    | Earth Ribbon |
+| 26    | World Ribbon |
+| 27-30 | Unused/Reserved |
+| 31    | Obedience flag (Used for Mew/Deoxys to prevent disobedience; fateful encounter flag when transferred) |
+
+### Implementation Strategy for Ribbons
+To extract a specific Contest Ribbon rank:
+1. Locate and decrypt the **Miscellaneous (M)** substructure.
+2. Read the 32-bit integer (little-endian) starting at offset 8 of the M substructure.
+3. Apply a bitwise right-shift `>>` to move the target field to the least significant bits.
+4. Apply a bitwise AND `& 0x07` (binary `111`) to isolate the 3-bit rank value.
+
+Example for Smart Contest Ribbon (Bits 9-11):
+`smartRank = (ribbonsBitfield >> 9) & 0x07;`
