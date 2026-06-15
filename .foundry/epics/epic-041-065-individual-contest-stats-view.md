@@ -35,3 +35,8 @@ This epic covers the integration of the shared contest UI components into the de
 - [ ] Integrate numerical contest stats into the detailed Pokémon view.
 - [ ] Integrate the Sheen display into the detailed Pokémon view.
 - [ ] Integrate Ribbons for a single Pokémon.
+
+## Child Stories
+- [ ] .foundry/stories/story-065-137-individual-contest-stats-ui.md
+- [ ] .foundry/stories/story-065-138-individual-contest-sheen-ui.md
+- [ ] .foundry/stories/story-065-139-individual-contest-ribbons-ui.md
