@@ -27,7 +27,7 @@ notes: ""
 This story implements a requirement for `epic-041-065-individual-contest-stats-view`.
 
 ## 2. Requirements
-- Implement the detailed individual view component requirement.
+- Integrate numerical contest stats into the detailed Pokémon view.
 
 ## 3. Acceptance Criteria
-- [ ] Implement required features.
+- [ ] Integrate numerical contest stats into the detailed Pokémon view.

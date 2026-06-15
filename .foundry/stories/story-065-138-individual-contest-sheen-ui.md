@@ -27,7 +27,7 @@ notes: ""
 This story implements a requirement for `epic-041-065-individual-contest-stats-view`.
 
 ## 2. Requirements
-- Implement the detailed individual view component requirement.
+- Integrate the Sheen display into the detailed Pokémon view.
 
 ## 3. Acceptance Criteria
-- [ ] Implement required features.
+- [ ] Integrate the Sheen display into the detailed Pokémon view.
