@@ -1,4 +1,4 @@
-import type React from 'react';
+import React from 'react';
 import { cn } from '../utils/cn';
 
 interface DataPointProps {
@@ -10,7 +10,15 @@ interface DataPointProps {
   valueClassName?: string;
 }
 
-export function DataPoint({ label, value, children, className, labelClassName, valueClassName }: DataPointProps) {
+// ⚡ Bolt: Wrapped DataPoint in React.memo to prevent unnecessary re-renders in large grids like PokedexGrid
+export const DataPoint = React.memo(function DataPoint({
+  label,
+  value,
+  children,
+  className,
+  labelClassName,
+  valueClassName,
+}: DataPointProps) {
   return (
     <div className={cn('relative flex flex-col border-zinc-800 border-l border-dashed pl-3', className)}>
       <div className="absolute top-1.5 left-[-2px] h-1.5 w-1.5 border border-zinc-500 bg-zinc-950" />
@@ -24,4 +32,4 @@ export function DataPoint({ label, value, children, className, labelClassName, v
       </span>
     </div>
   );
-}
+});
