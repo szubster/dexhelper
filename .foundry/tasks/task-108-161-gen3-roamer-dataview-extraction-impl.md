@@ -2,12 +2,13 @@
 id: task-108-161-gen3-roamer-dataview-extraction-impl
 type: TASK
 title: Implement Gen 3 Roamer DataView Extraction and Core Parsing
-status: PENDING
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-15'
 depends_on:
   - research-108-163-gen3-roamer-iv-bitfield
+  - research-161-186-gen3-roamer-iv-bitfield
 jules_session_id: '11913365427553299727'
 pr_number: null
 parent: story-070-108-gen3-roamer-dataview-extraction
@@ -17,7 +18,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'suspended pending research'
 notes: ''
 ---
 
@@ -38,3 +39,5 @@ Following ADR 010, the base extraction logic in the save parser for Gen 3 must s
 **Important Instructions:**
 If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
 If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+- [ ] .foundry/research/research-161-186-gen3-roamer-iv-bitfield.md
