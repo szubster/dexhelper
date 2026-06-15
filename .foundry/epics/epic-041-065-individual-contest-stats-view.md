@@ -2,10 +2,10 @@
 id: epic-041-065-individual-contest-stats-view
 type: EPIC
 title: Individual Contest Stats View
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-15'
 depends_on:
   - epic-041-064-contest-ui-shared-components
 jules_session_id: null
