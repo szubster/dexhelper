@@ -97,3 +97,6 @@
 ## 2026-06-14
 **Idea:** Foundry Zombie Node Garbage Collection
 **Learning:** It is critical to balance ideation between the core product (DexHelper) and the internal tooling that builds it (Foundry). Relying solely on the heartbeat workflow for node state management can lead to DAG deadlocks if edge cases occur. Proposing self-healing mechanisms for the orchestrator, like garbage collecting zombie nodes, ensures the autonomous software factory remains resilient and requires less manual TPM intervention.
+
+**Idea:** Exact Friendship & Evolution Tracker
+**Learning:** Expanding the app to parse the hidden exact numerical Friendship/Happiness value from the save file (which ranges 0-255) surfaces a critical game mechanic that players often struggle with in Gen 2 and Gen 3 due to vague in-game feedback. By overlaying this into a tracker view that estimates remaining actions for evolution, it turns an obtuse, high-friction mechanic into an actionable, premium feature.
