@@ -2,13 +2,13 @@
 id: task-084-150-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Gen 2 Breeding Pair Algorithm
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-06-08'
 updated_at: '2026-06-15'
 depends_on:
   - research-150-186-egg-groups-missing
-jules_session_id: '356444961333607899'
+jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:
@@ -17,8 +17,8 @@ tags:
   - gen2
   - backend
 research_references: []
-rejection_count: 1
-rejection_reason: 'Suspended pending completion of research-150-186-egg-groups-missing for missing egg groups schema and gender formulas.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

@@ -564,3 +564,15 @@ No critical learnings logged yet.
 - **2026-06-15**: Resurrection Loop triggered for `task-108-163-gen3-secret-base-parser`. Reason: Retry from FAILED status.. Transitioned back to READY.
 
 - **2026-06-15**: PR #2634 merged. `epic-041-065-individual-contest-stats-view` is now VERIFYING.
+
+- **2026-06-15**: PR #2636 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-15**: Heartbeat detected zombie session for `epic-041-065-individual-contest-stats-view`. Transitioned to FAILED.
+
+- **2026-06-15**: PR #2637 merged. `epic-041-066-global-ribbon-checklist-dashboard` is now VERIFYING.
+
+- **2026-06-15**: PR #2638 merged but has unchecked tasks (parent node). `story-053-106-dag-utils-unit-tests` is now PENDING.
+
+- **2026-06-15**: PR #2639 merged but has unchecked tasks (parent node). `story-070-108-orchestrator-hierarchical-completion-logic` is now PENDING.
+
+- **2026-06-15**: Resurrection Loop triggered for `task-084-150-breeding-pair-algorithm-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.

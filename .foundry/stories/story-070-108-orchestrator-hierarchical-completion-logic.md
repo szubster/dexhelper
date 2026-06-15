@@ -2,12 +2,12 @@
 id: story-070-108-orchestrator-hierarchical-completion-logic
 type: STORY
 title: Implement Hierarchical Completion Logic and Markdown Link Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '17727495224813449979'
+jules_session_id: null
 pr_number: null
 parent: epic-045-070-orchestrator-strict-completion
 tags:

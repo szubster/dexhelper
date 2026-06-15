@@ -2,10 +2,10 @@
 id: task-108-189-hierarchical-completion-impl
 type: TASK
 title: Implement Hierarchical Completion and Markdown Link Extraction in Orchestrator
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-16'
-updated_at: '2026-06-16'
+updated_at: '2026-06-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
