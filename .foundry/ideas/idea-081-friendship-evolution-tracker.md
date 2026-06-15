@@ -2,12 +2,12 @@
 id: idea-081-friendship-evolution-tracker
 type: IDEA
 title: Exact Friendship & Evolution Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-15'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '2026436305007940227'
+jules_session_id: null
 parent: null
 tags:
   - gen2

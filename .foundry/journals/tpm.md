@@ -502,3 +502,17 @@ No critical learnings logged yet.
 - **2026-06-15**: PR #2605 merged. `task-102-157-impl-gen3-sheen-parsing` is now COMPLETED.
 
 - **2026-06-15**: PR #2599 merged. `task-102-183-gen3-contest-recommendation-algorithm-impl` is now COMPLETED.
+
+- **2026-06-15**: PR #2610 merged but has unchecked tasks (parent node). `epic-034-047-permanent-failure-dashboard-ui` is now PENDING.
+
+- **2026-06-15**: PR #2611 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-15**: PR #2615 merged but has unchecked tasks (parent node). `idea-079-automated-max-rejection-cancellation` is now PENDING.
+
+- **2026-06-15**: PR #2614 merged. `idea-081-friendship-evolution-tracker` is now VERIFYING.
+
+- **2026-06-15**: PR #2612 merged. `story-089-133-sweep-active-nodes` is now COMPLETED.
+
+- **2026-06-15**: PR #2613 merged. `story-089-134-session-id-validator` is now COMPLETED.
+
+- **2026-06-15**: System failure detected for `task-081-130-preserve-enum-optimizations-impl`. Reason: Session terminated with state: COMPLETED. Transitioned back to READY without penalty.

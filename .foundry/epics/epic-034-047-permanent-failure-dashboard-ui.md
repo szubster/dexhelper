@@ -2,13 +2,13 @@
 id: epic-034-047-permanent-failure-dashboard-ui
 type: EPIC
 title: Implement Permanent Failure Dashboard UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-22'
 updated_at: '2026-06-15'
 depends_on:
   - epic-034-046-dag-data-parsing-rejection-count
-jules_session_id: '9221934097684156644'
+jules_session_id: null
 pr_number: null
 parent: prd-063-034-permanent-failure-dashboard
 tags:

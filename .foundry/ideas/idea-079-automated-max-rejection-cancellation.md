@@ -2,12 +2,12 @@
 id: idea-079-automated-max-rejection-cancellation
 type: IDEA
 title: Automated Max Rejection Cancellation
-status: ACTIVE
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-14'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: '9853881304709285025'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
