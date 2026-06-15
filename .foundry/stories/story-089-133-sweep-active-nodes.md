@@ -36,4 +36,7 @@ As part of the Zombie Node Detection Engine (Epic 050-089), we need a mechanism 
 - [ ] Create tests to verify the sweeping logic correctly identifies active nodes and ignores non-active ones.
 
 ## 4. Next Steps
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+
+- [ ] .foundry/tasks/task-133-187-sweep-active-nodes-impl.md
+- [ ] .foundry/tasks/task-133-188-sweep-active-nodes-qa.md

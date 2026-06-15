@@ -74,3 +74,8 @@ When defining the `depends_on` array or `parent` field in node YAML frontmatter 
 The orchestrator specifically requires exact node IDs (e.g., `task-123`) to build the dependency tree properly. Injecting file paths with extensions causes DAG resolution to fail and breaks the pipeline.
 ### Action
 Always use the exact, short ID slug for DAG references. Do not include directory prefixes or `.md` extensions in `depends_on` or `parent` fields.
+## 2026-06-16: Scratchpad Cleanup and Tooling Constraints
+
+- **Scratchpad Cleanup**: Any temporary developer scratchpad scripts created during a session to manipulate files MUST be explicitly deleted before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
+- **Node.js Scripts**: When using Node.js scratchpad scripts to modify markdown files with YAML frontmatter, avoid importing external packages like `gray-matter`. Depending on the workspace configuration, they may not be resolvable (e.g. `ERR_MODULE_NOT_FOUND`). Rely on standard string manipulation or regex instead.
+- **Dependency References**: When defining dependencies in YAML frontmatter for generated tasks, strictly use the Node ID (e.g., `task-123-abc`), NOT the file path.
