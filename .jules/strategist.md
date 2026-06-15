@@ -238,3 +238,9 @@
 **Outcome:** Accepted
 **Why:** The Tech Lead journal ("2026-06-10") observed that temporary scratchpad scripts (like generate_reads.sh) left in the workspace pollute the repository and cause code review rejections.
 **Pattern:** Ensure all agents are explicitly instructed to clean up any temporary scripts or scratchpads they create before submitting their work to prevent repository pollution and PR rejections.
+
+## 2026-06-14 - [Accepted] - Prompt improvement - Standardize permanent failure handling across all agents
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Agile Coach journal (`2026-06-14`) identified that the instructions for handling permanent failures (like reaching max rejection count) were inconsistent across the different agent personas. Some agents (like `coder` and `qa`) were instructed to use `CANCELLED` and explicitly warned not to use `FAILED` because it prevents the Orchestrator from formally dropping the node and waking up the parent for error recovery. Other agents (like `architect`, `epic_planner`, `product_manager`, `researcher`, `story_owner`, and `tech_lead`) were incorrectly instructed to use either `FAILED` or `CANCELLED`.
+**Pattern:** Codify system memory constraints regarding permanent node failures across all relevant agent prompts to ensure consistent error recovery behavior across the entire DAG hierarchy. When an execution node must gracefully exit the DAG because it is permanently failed or replaced, the agent responsible MUST update its status to `CANCELLED`, not `FAILED`.
