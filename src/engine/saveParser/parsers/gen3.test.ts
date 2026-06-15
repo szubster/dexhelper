@@ -72,8 +72,8 @@ describe('gen3 parser scaffolding', () => {
     view.setUint32(section2Offset + 4088, 0x08012025, true);
     view.setUint32(section2Offset + 4092, 25, true);
 
-    // Write mock berry data at Section 1, offset 0x169C + (0 * 8)
-    const baseOffset = section1Offset + 0x169c;
+    // Write mock berry data at Section 1, offset 0x071c + (0 * 8)
+    const baseOffset = section1Offset + 0x071c;
 
     // Patch 0
     view.setUint8(baseOffset + 0, 15); // berryId
@@ -87,7 +87,7 @@ describe('gen3 parser scaffolding', () => {
     expect(saveData.gen3BerryPatches?.length).toBe(128);
 
     const patch0 = saveData.gen3BerryPatches?.[0];
-    expect(patch0?.mapId).toBe(0);
+    expect(patch0).not.toHaveProperty('mapId');
     expect(patch0?.berryId).toBe(15);
     expect(patch0?.stage).toBe(2);
     expect(patch0?.stopGrowth).toBe(true);
@@ -132,7 +132,7 @@ describe('gen3 parser scaffolding', () => {
 
     const originalGetUint8 = view.getUint8.bind(view);
     view.getUint8 = (offset: number) => {
-      if (offset >= section1Offset + 0x169c) {
+      if (offset >= section1Offset + 0x071c) {
         throw new RangeError('Out of bounds reading berry patch');
       }
       return originalGetUint8(offset);

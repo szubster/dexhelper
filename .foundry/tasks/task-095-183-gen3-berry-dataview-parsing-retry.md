@@ -36,7 +36,7 @@ Implement the extraction logic for Gen 3 berry patches using the native `DataVie
 - IMPORTANT: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView` reading logic for Gen 3 berry patches using correct relative offsets.
-- [ ] Implement graceful handling of bounds checking by throwing/catching `RangeError`.
-- [ ] Extract explicit data such as berry ID, current growth stage, regrowth count, and watering history booleans.
-- [ ] Ensure implicit data (map ID, time planted, last watered time) are NOT included in the extraction schema.
+- [x] Implement `DataView` reading logic for Gen 3 berry patches using correct relative offsets.
+- [x] Implement graceful handling of bounds checking by throwing/catching `RangeError`.
+- [x] Extract explicit data such as berry ID, current growth stage, regrowth count, and watering history booleans.
+- [x] Ensure implicit data (map ID, time planted, last watered time) are NOT included in the extraction schema.
