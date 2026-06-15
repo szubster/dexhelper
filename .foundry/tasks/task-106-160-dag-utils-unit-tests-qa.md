@@ -2,13 +2,13 @@
 id: task-106-160-dag-utils-unit-tests-qa
 type: TASK
 title: QA Verification for DAG Utilities Unit Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on:
   - task-106-159-dag-utils-unit-tests-impl
-jules_session_id: null
+jules_session_id: '6005434505065903502'
 pr_number: null
 parent: story-053-106-dag-utils-unit-tests
 tags:
