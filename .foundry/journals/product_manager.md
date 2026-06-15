@@ -46,3 +46,8 @@ When generating a child node from a parent, ensure the new child node is added a
 
 *   **Observation:** It is critical to ensure that dynamically triggered cancellations (such as nodes reaching their `MAX_REJECTION_THRESHOLD`) hook into the proper cascade logics (like Phase 3.1 and Phase 3.6 of the orchestrator) to prevent orphaned siblings and gracefully awake downstream dependencies or parent nodes.
 *   **Action:** Automated the transition of `FAILED` nodes with max rejections into `CANCELLED` during the Orchestrator DAG resolution loop.
+
+## 2026-06-15: Strict Pipeline Compliance and Handoff
+
+*   **Lesson:** When transforming an `IDEA` node into a `PRD` node, the Product Manager must rigorously adhere to the pipeline's expected sequence for the `owner_persona` field. Despite the "not yourself" rule seeming ambiguous when creating consecutive nodes (e.g., if a PM creates an Epic directly), the core pipeline dictate `IDEA (PM) -> PRD (PM) -> ADR (Architect) -> EPIC (Planner) -> STORY -> TASK` must be respected. Specifically, when generating a PRD, the `owner_persona` should be set to `epic_planner` to facilitate the correct downstream handoff. Assigning it back to `product_manager` breaks the handoff chain by failing to transfer ownership correctly.
+*   **Actionable Rule:** Always assign `owner_persona: epic_planner` to newly spawned PRD artifacts, regardless of whether the PM persona expects to participate again later.
