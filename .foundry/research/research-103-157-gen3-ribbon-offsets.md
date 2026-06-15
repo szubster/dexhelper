@@ -2,12 +2,12 @@
 id: research-103-157-gen3-ribbon-offsets
 type: RESEARCH
 title: Investigate Gen 3 Ribbon Bitfields Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-14'
 updated_at: '2026-06-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '489438693303231296'
 pr_number: null
 parent: task-103-157-gen3-ribbon-bitfields-impl
 tags:
