@@ -2,13 +2,13 @@
 id: task-108-162-hierarchical-completion-qa
 type: TASK
 title: QA Hierarchical Completion and Markdown Link Extraction in Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-14'
+updated_at: '2026-06-15'
 depends_on:
   - task-108-161-hierarchical-completion-impl
-jules_session_id: null
+jules_session_id: '2470953843234020873'
 pr_number: null
 parent: story-070-108-orchestrator-hierarchical-completion-logic
 tags:
