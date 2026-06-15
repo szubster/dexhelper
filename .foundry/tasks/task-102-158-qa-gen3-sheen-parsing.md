@@ -2,13 +2,13 @@
 id: task-102-158-qa-gen3-sheen-parsing
 type: TASK
 title: QA Gen 3 Sheen Value Parsing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-15'
 depends_on:
   - task-102-157-impl-gen3-sheen-parsing
-jules_session_id: null
+jules_session_id: '12158353846388074748'
 pr_number: null
 parent: story-064-102-gen3-sheen-value-parsing
 tags:
