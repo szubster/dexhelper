@@ -35,9 +35,9 @@ The Mirage Island value is stored as a random value within the "Section 2 - Game
 4.  **Unit Tests**: Add unit tests in `src/engine/saveParser/parsers/gen3.test.ts` to verify correct parsing.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 Mirage Island value parsing logic using `DataView`.
-- [ ] Ensure `RangeError` is caught and handled gracefully as per ADR 010.
-- [ ] Add unit tests covering Ruby/Sapphire and Emerald offset logic.
+- [x] Implement Gen 3 Mirage Island value parsing logic using `DataView`.
+- [x] Ensure `RangeError` is caught and handled gracefully as per ADR 010.
+- [x] Add unit tests covering Ruby/Sapphire and Emerald offset logic.
 
 ## Coder Persona Reminders
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

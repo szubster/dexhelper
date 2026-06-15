@@ -276,3 +276,79 @@ describe('parseGen3PersonalityValue', () => {
     expect(() => parseGen3PersonalityValue(view, 2)).toThrowError('The save file is corrupted or incomplete.');
   });
 });
+
+describe('parseGen3 mirageIslandValue', () => {
+  it('should correctly extract mirageIslandValue for ruby/sapphire', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    // Section 1 setup
+    const section1Offset = 0xe000 + 1 * 4096;
+    view.setUint16(section1Offset + 4084, 1, true);
+    view.setUint32(section1Offset + 4088, 0x08012025, true);
+    view.setUint32(section1Offset + 4092, 25, true);
+
+    // Section 2 setup
+    const section2Offset = 0xe000 + 2 * 4096;
+    view.setUint16(section2Offset + 4084, 2, true);
+    view.setUint32(section2Offset + 4088, 0x08012025, true);
+    view.setUint32(section2Offset + 4092, 25, true);
+
+    // Write mirageIslandValue (16-bit little-endian) for ruby at offset 0x0408
+    view.setUint16(section2Offset + 0x0408, 0xabcd, true);
+
+    const saveData = parseGen3(view, 'ruby');
+    expect(saveData.mirageIslandValue).toBe(0xabcd);
+  });
+
+  it('should correctly extract mirageIslandValue for emerald', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    // Section 1 setup
+    const section1Offset = 0xe000 + 1 * 4096;
+    view.setUint16(section1Offset + 4084, 1, true);
+    view.setUint32(section1Offset + 4088, 0x08012025, true);
+    view.setUint32(section1Offset + 4092, 25, true);
+
+    // Section 2 setup
+    const section2Offset = 0xe000 + 2 * 4096;
+    view.setUint16(section2Offset + 4084, 2, true);
+    view.setUint32(section2Offset + 4088, 0x08012025, true);
+    view.setUint32(section2Offset + 4092, 25, true);
+
+    // Write mirageIslandValue (16-bit little-endian) for emerald at offset 0x0464
+    view.setUint16(section2Offset + 0x0464, 0x1234, true);
+
+    const saveData = parseGen3(view, 'emerald');
+    expect(saveData.mirageIslandValue).toBe(0x1234);
+  });
+
+  it('should explicitly catch RangeError when parsing mirage island value and throw a corrupted file error', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    // Section 1 setup
+    const section1Offset = 0xe000 + 1 * 4096;
+    view.setUint16(section1Offset + 4084, 1, true);
+    view.setUint32(section1Offset + 4088, 0x08012025, true);
+    view.setUint32(section1Offset + 4092, 25, true);
+
+    // Section 2 setup
+    const section2Offset = 0xe000 + 2 * 4096;
+    view.setUint16(section2Offset + 4084, 2, true);
+    view.setUint32(section2Offset + 4088, 0x08012025, true);
+    view.setUint32(section2Offset + 4092, 25, true);
+
+    const originalGetUint16 = view.getUint16.bind(view);
+    view.getUint16 = (offset: number, le: boolean) => {
+      // Offset 0x0408 is the mirage island offset for Ruby/Sapphire
+      if (offset === section2Offset + 0x0408) {
+        throw new RangeError('Out of bounds reading mirage island value');
+      }
+      return originalGetUint16(offset, le);
+    };
+
+    expect(() => parseGen3(view, 'ruby')).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
