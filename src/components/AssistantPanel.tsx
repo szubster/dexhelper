@@ -131,9 +131,15 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
       </div>
 
       {isLoading ? (
-        <div className="relative flex items-center justify-center border border-zinc-800/50 bg-zinc-900/50 p-12">
+        <div
+          className="relative flex items-center justify-center border border-zinc-800/50 bg-zinc-900/50 p-12"
+          // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role
+          role="status"
+          aria-live="polite"
+        >
           <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/20" />
           <Loader2 className="animate-spin text-zinc-500" size={32} />
+          <span className="sr-only">Loading suggestions...</span>
         </div>
       ) : suggestions.length === 0 ? (
         <div className="relative flex flex-col items-center justify-center border border-zinc-800/50 bg-zinc-900/50 p-12 text-center">

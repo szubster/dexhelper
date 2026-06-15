@@ -97,8 +97,13 @@ export function SyncProgress() {
               <div className="flex h-16 w-16 items-center justify-center border border-blue-500/20 bg-blue-500/10">
                 <Database className="text-blue-500/50" size={28} />
               </div>
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div
+                className="absolute inset-0 flex items-center justify-center" // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role
+                role="status"
+                aria-live="polite"
+              >
                 <Loader2 className="animate-spin text-blue-500/20" size={80} strokeWidth={0.5} />
+                <span className="sr-only">Syncing data...</span>
               </div>
             </>
           )}

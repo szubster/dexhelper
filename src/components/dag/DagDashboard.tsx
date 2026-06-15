@@ -223,8 +223,13 @@ export function DagDashboard() {
 
   if (isLoading) {
     return (
-      <div className="flex h-full w-full items-center justify-center font-mono text-zinc-500">
-        [ SYSTEM.LOADING_DAG ]
+      <div
+        className="flex h-full w-full items-center justify-center font-mono text-zinc-500"
+        // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role
+        role="status"
+        aria-live="polite"
+      >
+        <span aria-hidden="true">[ SYSTEM.LOADING_DAG ]</span> <span className="sr-only">Loading DAG...</span>
       </div>
     );
   }

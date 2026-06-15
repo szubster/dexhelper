@@ -62,3 +62,7 @@
 ## 2026-07-01 - Missing native indicators for custom select inputs
 **Learning:** When using `appearance-none` on native `<select>` elements to remove default browser styling (e.g., the dropdown arrow), developers must explicitly provide an alternative visual indicator (like a custom chevron icon) so users recognize the element as a dropdown menu. Simply styling it as a text box or button without an indicator reduces discoverability.
 **Action:** Wrapped the custom `<select>` component in a `relative` container and positioned a `ChevronDown` icon from the design system's icon library absolutely on the right to restore the dropdown affordance. Handled disabled states appropriately with `disabled:opacity-50 disabled:cursor-not-allowed`.
+
+## 2026-07-15 - ARIA Live Regions for Loading States
+**Learning:** When using dynamic loading components (like spinners) that replace content, screen readers are not inherently aware of the loading state unless they are explicitly marked as live regions.
+**Action:** Use `role="status"` and `aria-live="polite"` on loading spinner containers, and include a visually hidden text element (e.g., `<span className="sr-only">Loading...</span>`) to ensure the state is announced. Note that oxlint may complain about `jsx-a11y/prefer-tag-over-role` (suggesting `<output>` instead of `role="status"`); use `// oxlint-disable-next-line jsx-a11y/prefer-tag-over-role` to suppress this when a `<div>` structure is required for layout.
