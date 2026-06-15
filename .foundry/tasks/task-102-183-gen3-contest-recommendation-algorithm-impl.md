@@ -48,10 +48,10 @@ This task implements the core recommendation logic for advising players on the b
 - Ensure the types for Condition stats and Nature match existing project schemas.
 
 ## Acceptance Criteria
-- [ ] Implement the recommendation algorithm matching the requirements.
-- [ ] Write unit tests verifying the algorithm recommends the correct category for a Pokémon with a preferred nature and matching high stats.
-- [ ] Write unit tests for max Sheen scenarios (where remaining potential is 0).
-- [ ] Write unit tests handling conflicting Natures and edge cases (e.g., all stats equal).
+- [x] Implement the recommendation algorithm matching the requirements.
+- [x] Write unit tests verifying the algorithm recommends the correct category for a Pokémon with a preferred nature and matching high stats.
+- [x] Write unit tests for max Sheen scenarios (where remaining potential is 0).
+- [x] Write unit tests handling conflicting Natures and edge cases (e.g., all stats equal).
 
 ## Important Reminder for the Coder
 - **Transient Failure**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
