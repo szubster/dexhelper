@@ -32,5 +32,5 @@ Refactor the Foundry Orchestrator (`foundry-orchestrator.ts`) to automatically t
 3. This ensures the parent node explicitly realizes its child branch has permanently failed, waking up the parent for "Impossible Loop" recovery (e.g. creating RESEARCH nodes and replacing the failed tasks).
 
 ## Acceptance Criteria
-- [ ] Implement orchestrator logic to transition `FAILED` nodes to `CANCELLED` when `rejection_count` >= max threshold.
-- [ ] Ensure this triggers the proper parent awakening logic.
+- [x] Implement orchestrator logic to transition `FAILED` nodes to `CANCELLED` when `rejection_count` >= max threshold.
+- [x] Ensure this triggers the proper parent awakening logic.

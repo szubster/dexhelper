@@ -1361,6 +1361,48 @@ describe('foundry-orchestrator', () => {
     expect(completedResult).not.toContain('status: CANCELLED');
   });
 
+  test('Impossible Loop: Auto-cancels node when max rejection count is reached', async () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+    }, "- [ ] .foundry/tasks/task-001.md\n- [ ] .foundry/tasks/task-002.md");
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
+      id: "task-001",
+      type: "TASK",
+      title: "Task 1",
+      status: "FAILED",
+      owner_persona: "coder",
+      parent: ".foundry/stories/story-001.md",
+      rejection_reason: "Failed a lot",
+      rejection_count: 3
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task 2",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-001.md"],
+      parent: ".foundry/stories/story-001.md"
+    });
+
+    const orchestratorPath = path.resolve(__dirname, 'foundry-orchestrator.ts');
+    require('child_process').execSync(`node --experimental-strip-types "${orchestratorPath}"`, { cwd: tmpDir }).toString();
+
+    const task1Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-001.md'), 'utf-8');
+    expect(task1Content).toContain('status: CANCELLED');
+    expect(task1Content).toContain('rejection_reason: Max rejection count reached');
+
+    const task2Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
+    expect(task2Content).toContain('status: CANCELLED');
+    expect(task2Content).toContain('rejection_reason: \'Cancelled due to permanent failure of dependency: task-001\'');
+  });
+
   test('Impossible Loop: Auto-cancels PENDING nodes depending indirectly on permanently failed node', () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",
