@@ -44,3 +44,6 @@ Verify the implementation of the extraction logic for Gen 3 berry patches.
 **Note**: The implementation `task-095-157-gen3-berry-dataview-parsing` has been rejected due to incorrect offset calculations and the inclusion of implicit/missing data in the acceptance criteria.
 
 **STATUS**: CANCELLED. Replaced by `task-095-184-gen3-berry-dataview-parsing-retry-qa.md` due to permanent failure of the original implementation.
+
+
+<!-- QA: Verified empty PR for cancelled task -->
