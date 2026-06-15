@@ -35,11 +35,13 @@ jobs:
       - name: Type Check
         run: pnpm type-check
       - name: Oxlint
-        run: pnpm exec oxlint --type-aware .
+        run: pnpm exec oxlint --type-aware --type-check --import-plugin --promise-plugin .
       - name: Knip
         run: pnpm knip
       - name: Circular Dependency Check
         run: pnpm lint:circular
+      - name: Type Coverage Check
+        run: pnpm lint:type-coverage
       - name: Package JSON Sort Check
         run: pnpm lint:package-json
 
