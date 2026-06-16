@@ -33,9 +33,9 @@ A coder has implemented the parsing logic for extracting the Hall of Fame count 
 - Confirm that unit tests adequately cover this specific Gen 2 parsing logic.
 
 ## Acceptance Criteria
-- [ ] Code properly calculates the relative offset.
-- [ ] Code extracts the unsigned 8-bit integer.
-- [ ] Unit tests pass and provide sufficient coverage.
+- [x] Code properly calculates the relative offset.
+- [x] Code extracts the unsigned 8-bit integer.
+- [x] Unit tests pass and provide sufficient coverage.
 
 > **IMPORTANT REMINDER**:
 > - If you permanently fail or abort this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
