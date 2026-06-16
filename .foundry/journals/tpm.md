@@ -576,3 +576,11 @@ No critical learnings logged yet.
 - **2026-06-15**: PR #2639 merged but has unchecked tasks (parent node). `story-070-108-orchestrator-hierarchical-completion-logic` is now PENDING.
 
 - **2026-06-15**: Resurrection Loop triggered for `task-084-150-breeding-pair-algorithm-impl`. Reason: Retry from FAILED status.. Transitioned back to READY.
+
+- **2026-06-16**: PR #2640 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-16**: System failure detected for `story-071-108-update-schema-macro-node-completion`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-16**: System failure detected for `task-108-161-gen3-roamer-dataview-extraction-impl`. Reason: Session terminated with state: FAILED. Transitioned back to READY without penalty.
+
+- **2026-06-16**: Resurrection Loop triggered for `epic-041-065-individual-contest-stats-view`. Reason: Retry from FAILED status.. Transitioned back to READY.
