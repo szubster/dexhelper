@@ -2,13 +2,13 @@
 id: task-076-179-remove-tpm-logging-orchestrator
 type: TASK
 title: Remove Unnecessary TPM Journal Logging from Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-13'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on:
   - research-076-174-investigate-tpm-journal-bloat
-jules_session_id: null
+jules_session_id: '10031438533348375144'
 pr_number: null
 parent: idea-076-tpm-journal-bloat
 tags:
