@@ -2,12 +2,12 @@
 id: task-125-177-match-call-etl-impl
 type: TASK
 title: 'Task: Gen 3 Match Call Static Data ETL Implementation'
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-16'
 depends_on: []
-jules_session_id: '15996409917752046360'
+jules_session_id: null
 pr_number: null
 parent: story-084-125-match-call-etl
 tags:
