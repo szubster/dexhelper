@@ -1,16 +1,15 @@
 ---
-id: story-044-084-breeding-pair-algorithm
-type: STORY
-title: Shiny Carrier Breeding Pair Algorithm
-status: ACTIVE
-owner_persona: tech_lead
-created_at: '2026-05-22'
-updated_at: '2026-06-16'
-depends_on:
-  - story-044-083-pc-party-shiny-flag
-jules_session_id: '15805163045530833860'
+id: task-084-192-breeding-pair-algorithm-impl
+type: TASK
+title: Implement Shiny Carrier Breeding Pair Algorithm
+status: PENDING
+owner_persona: coder
+created_at: "2026-06-16"
+updated_at: "2026-06-16"
+depends_on: []
+jules_session_id: null
 pr_number: null
-parent: epic-034-044-shiny-gene-detection-engine
+parent: story-044-084-breeding-pair-algorithm
 tags:
   - feature
   - breeding
@@ -18,11 +17,11 @@ tags:
   - backend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: ''
+rejection_reason: ""
+notes: "If you experience a transient failure requiring retry, update the YAML frontmatter to status: FAILED with a rejection_reason. If you must abort permanently, update the YAML frontmatter to status: CANCELLED with a rejection_reason. If submitting an empty PR, check off all Acceptance Criteria checkboxes before submitting."
 ---
 
-# Shiny Carrier Breeding Pair Algorithm
+# Implement Shiny Carrier Breeding Pair Algorithm
 
 ## Objective
 Develop an algorithm to suggest optimal breeding pairs by cross-referencing Egg Groups, genders, and Shiny Carrier status across the user's PC storage.
@@ -35,8 +34,3 @@ Develop an algorithm to suggest optimal breeding pairs by cross-referencing Egg 
 ## Acceptance Criteria
 - [ ] Algorithm correctly identifies valid breeding pairs based on Egg Groups and genders.
 - [ ] Algorithm accurately identifies and highlights optimal pairs involving Shiny Carriers.
-
-## Next Steps
-- [x] Tech Lead: Break down into backend Tasks.
-- [ ] .foundry/tasks/task-084-192-breeding-pair-algorithm-impl.md
-- [ ] .foundry/tasks/task-084-193-breeding-pair-algorithm-qa.md
