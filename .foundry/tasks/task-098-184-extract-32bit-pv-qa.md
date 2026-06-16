@@ -2,13 +2,13 @@
 id: task-098-184-extract-32bit-pv-qa
 type: TASK
 title: QA - Extract 32-bit PV using DataView
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-14'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on:
   - task-098-183-extract-32bit-pv-impl
-jules_session_id: null
+jules_session_id: '3690420226975909455'
 pr_number: null
 parent: story-062-098-gen3-parse-32bit-pv
 tags:
