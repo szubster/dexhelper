@@ -24,3 +24,6 @@ Learned to carefully verify relative vs. logical offsets in Gen 3 blocks. For ex
 
 ## 2026-06-14: Rejecting Task due to Max Rejections
 Permanently failed `task-095-157-gen3-berry-dataview-parsing` since it reached the maximum rejection count of 3. The task was initially rejected due to incorrect offset calculations and the inclusion of implicit/missing data in the acceptance criteria, as noted earlier. Its status has been updated to CANCELLED to prevent it from looping in the resurrection loop indefinitely. `task-095-158-gen3-berry-dataview-parsing-qa` checkboxes were ticked so it gracefully exits the DAG as per Empty PR policy (ADR 007).
+
+## Missing Persona Prompt Updates (2026-06-16)
+Rejected `task-113-167-update-palette-persona-impl` because the coder completely failed to update the `.github/agents/palette.md` prompt file with the required changes (ownership of `src/index.css`, enforcing tactical hardware aesthetic, and managing custom `@utility` primitives via ADR 024). Agents must actually modify the files they are tasked with updating.
