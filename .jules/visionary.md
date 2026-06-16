@@ -100,3 +100,11 @@
 
 **Idea:** Exact Friendship & Evolution Tracker
 **Learning:** Expanding the app to parse the hidden exact numerical Friendship/Happiness value from the save file (which ranges 0-255) surfaces a critical game mechanic that players often struggle with in Gen 2 and Gen 3 due to vague in-game feedback. By overlaying this into a tracker view that estimates remaining actions for evolution, it turns an obtuse, high-friction mechanic into an actionable, premium feature.
+
+## 2026-06-16
+**Idea:** Gen 3 Secret ID Viewer and Shiny RNG Assistant
+**Learning:** Foundational values like the Secret ID (SID) in Generation 3 are permanently hidden from the player but are the core requirement for advanced community metas like RNG manipulation (especially given Emerald's fixed seed and R/S's dry battery mechanics). Surfacing this single hidden integer unlocks entirely new ways to play the game, reinforcing our strategy of turning static save data into powerful, meta-enabling utilities for hardcore players.
+
+## 2026-06-16 (Update)
+**Idea:** Gen 3 Secret ID Viewer and Shiny RNG Assistant
+**Learning:** The maintainer rejected the idea of exposing the Gen 3 Secret ID for RNG manipulation. While uncovering hidden variables like SID technically aligns with programmatic save parsing, tools explicitly supporting RNG manipulation are out of scope. In the future, do not propose features that assist with RNG manipulation or explicitly display the Secret ID.
