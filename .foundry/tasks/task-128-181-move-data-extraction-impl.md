@@ -2,7 +2,7 @@
 id: task-128-181-move-data-extraction-impl
 type: TASK
 title: Implement Move Data Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-16'
@@ -15,8 +15,8 @@ tags:
   - build
   - db
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'The implementation is completely missing. scripts/generate-pokedata.ts does not contain any logic for move data extraction, and data/db/moves.jsonl is not generated.'
 notes: ''
 ---
 

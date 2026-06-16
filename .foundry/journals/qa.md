@@ -24,3 +24,6 @@ Learned to carefully verify relative vs. logical offsets in Gen 3 blocks. For ex
 
 ## 2026-06-14: Rejecting Task due to Max Rejections
 Permanently failed `task-095-157-gen3-berry-dataview-parsing` since it reached the maximum rejection count of 3. The task was initially rejected due to incorrect offset calculations and the inclusion of implicit/missing data in the acceptance criteria, as noted earlier. Its status has been updated to CANCELLED to prevent it from looping in the resurrection loop indefinitely. `task-095-158-gen3-berry-dataview-parsing-qa` checkboxes were ticked so it gracefully exits the DAG as per Empty PR policy (ADR 007).
+
+## 2026-06-16: Missing Implementation Validation
+Rejected task-128-181-move-data-extraction-impl because the implementation was completely absent. The agent marked the task as complete but failed to write any move data extraction logic to the required files, meaning `data/db/moves.jsonl` was never generated. When verifying tasks, we must always check that the files are actually created and populated.

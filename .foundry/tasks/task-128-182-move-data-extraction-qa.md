@@ -41,3 +41,6 @@ The coder has implemented move data extraction in `scripts/generate-pokedata.ts`
 - [ ] The generated data structure strictly follows the ADR 025 schema constraints.
 - [ ] Compaction logic effectively omits default/empty values to minimize payload size.
 - [ ] The generated `moves.jsonl` file is successfully created and verified.
+
+## QA Failure Note (2026-06-16)
+Rejected target task due to missing implementation.
