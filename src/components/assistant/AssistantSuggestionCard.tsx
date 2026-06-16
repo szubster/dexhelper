@@ -73,7 +73,7 @@ export function AssistantSuggestionCard({
             </div>
             {s.pokemonId && (
               <div className="flex items-center gap-2">
-                <span className="flex items-center gap-1 font-black font-mono text-[8px] text-[var(--theme-primary)] tracking-widest">
+                <span className="tactical-text flex items-center gap-1 font-black text-[8px] text-[var(--theme-primary)]">
                   <span className="h-1.5 w-1.5 animate-pulse bg-[var(--theme-primary)]" />[ TARGET ACQUIRED ]
                 </span>
                 <TacticalBadge className="px-1 py-0.5 font-mono text-[10px]">
@@ -98,9 +98,7 @@ export function AssistantSuggestionCard({
 
           {s.warning && (
             <div className="mt-2 flex w-max items-center gap-1.5 border border-amber-500/30 border-dashed bg-amber-500/10 px-2 py-1">
-              <span className="font-black font-mono text-[9px] text-amber-400 uppercase tracking-widest">
-                [ WARNING: {s.warning} ]
-              </span>
+              <span className="tactical-text font-black text-[9px] text-amber-400">[ WARNING: {s.warning} ]</span>
             </div>
           )}
         </div>
