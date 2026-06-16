@@ -1,11 +1,11 @@
 ---
 id: story-065-138-individual-contest-sheen-ui
 type: STORY
-title: "Individual Contest Sheen Ui"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-06-15"
-updated_at: "2026-06-15"
+title: Individual Contest Sheen Ui
+status: READY
+owner_persona: tech_lead
+created_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Individual Contest Sheen Ui
