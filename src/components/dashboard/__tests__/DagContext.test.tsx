@@ -1,7 +1,7 @@
-import React from 'react';
 import { expect, test } from 'vitest';
-import { renderHook } from 'vitest-browser-react';
 import { useDagContext } from '../DagContext';
+import { renderHook } from 'vitest-browser-react';
+import React from 'react';
 
 // Use an error boundary component because useDagContext is expected to throw when outside DagProvider
 class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean; error: Error | null }> {
