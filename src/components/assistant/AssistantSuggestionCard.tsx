@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { Fish, Target, Trees, Waves } from 'lucide-react';
-import type React from 'react';
+import React from 'react';
 import type { EncounterDetail, Suggestion } from '../../engine/assistant/strategies/types';
 import type { SaveData } from '../../engine/saveParser/index';
 import { getGenerationConfig } from '../../utils/generationConfig';
@@ -42,6 +42,29 @@ export function AssistantSuggestionCard({
   desc = replacePids(desc);
 
   const hasMultiple = s.pokemonIds && s.pokemonIds.length > 0;
+
+  const catchMethods = React.useMemo(() => {
+    if (s.category !== 'Catch' || !s.pokemonIds) return [];
+
+    const grouped = (s.pokemonIds || []).reduce<Record<string, { pid: number; enc: EncounterDetail }[]>>((acc, pid) => {
+      const encs = s.category === 'Catch' && 'encounterInfo' in s ? s.encounterInfo?.[pid] : undefined;
+      if (!encs || encs.length === 0) return acc;
+      // ⚡ Bolt: Replace O(N log N) sort with O(N) linear scan to avoid array allocation
+      let mainEnc = encs[0];
+      if (!mainEnc) return acc;
+      for (let i = 1; i < encs.length; i++) {
+        const currentEnc = encs[i];
+        if (currentEnc && currentEnc.chance > mainEnc.chance) mainEnc = currentEnc;
+      }
+      if (!mainEnc) return acc;
+      const method = mainEnc.method;
+      if (!acc[method]) acc[method] = [];
+      acc[method]?.push({ pid, enc: mainEnc });
+      return acc;
+    }, {});
+
+    return Object.entries(grouped);
+  }, [s]);
 
   const CardContent = (
     <>
@@ -119,24 +142,7 @@ export function AssistantSuggestionCard({
         {hasMultiple && (
           <div className={`relative z-20 mt-0 flex flex-col gap-4`}>
             {s.category === 'Catch' ? (
-              Object.entries(
-                (s.pokemonIds || []).reduce<Record<string, { pid: number; enc: EncounterDetail }[]>>((acc, pid) => {
-                  const encs = s.category === 'Catch' ? s.encounterInfo?.[pid] : undefined;
-                  if (!encs || encs.length === 0) return acc;
-                  // ⚡ Bolt: Replace O(N log N) sort with O(N) linear scan to avoid array allocation
-                  let mainEnc = encs[0];
-                  if (!mainEnc) return acc;
-                  for (let i = 1; i < encs.length; i++) {
-                    const currentEnc = encs[i];
-                    if (currentEnc && currentEnc.chance > mainEnc.chance) mainEnc = currentEnc;
-                  }
-                  if (!mainEnc) return acc;
-                  const method = mainEnc.method;
-                  if (!acc[method]) acc[method] = [];
-                  acc[method]?.push({ pid, enc: mainEnc });
-                  return acc;
-                }, {}),
-              ).map(([method, pokes]: [string, { pid: number; enc: EncounterDetail }[]]) => {
+              catchMethods.map(([method, pokes]: [string, { pid: number; enc: EncounterDetail }[]]) => {
                 const isRod = method.includes('rod');
                 const isSurf = method === 'surf';
                 const isGrass = method === 'walk';
