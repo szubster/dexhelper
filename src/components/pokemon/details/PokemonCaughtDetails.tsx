@@ -1,6 +1,8 @@
-import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
+import { CheckCircle2, CircleDot, MapPin, ShieldAlert, ShieldCheck, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
+import { useStore } from '../../../store';
+import { validateTimeCapsuleEligibility } from '../../../utils/timeCapsule';
 import { DataPoint } from '../../DataPoint';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
@@ -11,6 +13,7 @@ interface PokemonCaughtDetailsProps {
 }
 
 export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps) {
+  const saveData = useStore((s) => s.saveData);
   if (yourPokemon.length === 0) return null;
 
   return (
@@ -88,6 +91,33 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                 <div className="truncate font-black text-[10px] text-zinc-300 uppercase tracking-tight">
                   {gen2Locations[p.caughtData.location] || 'UNKNOWN ZONE'}
                 </div>
+              </div>
+            )}
+
+            {saveData?.generation === 2 && (
+              <div className="relative z-10 mt-4 space-y-1 border-white/5 border-t pt-4">
+                <span className="flex items-center gap-1 font-black text-[8px] text-zinc-500 uppercase tracking-widest">
+                  Time Capsule Status
+                </span>
+                {(() => {
+                  const { isEligible, reasons } = validateTimeCapsuleEligibility(p.speciesId, p.moves);
+                  return isEligible ? (
+                    <div className="flex items-center gap-1.5 font-black text-[10px] text-emerald-400 uppercase tracking-tight">
+                      <ShieldCheck size={12} />[ TIME CAPSULE READY ]
+                    </div>
+                  ) : (
+                    <div className="flex flex-col gap-1 font-black text-[10px] text-rose-400 uppercase tracking-tight">
+                      <div className="flex items-center gap-1.5">
+                        <ShieldAlert size={12} />[ INELIGIBLE ]
+                      </div>
+                      <ul className="list-inside list-disc pl-2 text-[8px] text-zinc-400">
+                        {reasons.map((r) => (
+                          <li key={`${p.storageLocation}-${p.slot}-reason-${r}`}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })()}
               </div>
             )}
           </TacticalPanel>

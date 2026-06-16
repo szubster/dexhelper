@@ -4,6 +4,7 @@ import React from 'react';
 import type { PokemonInstance } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
+import { validateTimeCapsuleEligibility } from '../utils/timeCapsule';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalCard } from './TacticalCard';
@@ -46,6 +47,13 @@ const StorageCard = React.memo(
         variant={variant}
       >
         <div className="absolute top-3 left-3 font-bold font-mono text-[10px] text-zinc-600">LV.{p.level}</div>
+        {generation === 2 && validateTimeCapsuleEligibility(p.speciesId, p.moves).isEligible && (
+          <div className="absolute right-1 bottom-1 z-10 flex items-center justify-center">
+            <div className="whitespace-nowrap rounded-none border border-emerald-400/50 border-dashed bg-emerald-400/20 px-1 py-0.5 font-bold font-mono text-[6px] text-emerald-400 uppercase tracking-widest">
+              TC-READY
+            </div>
+          </div>
+        )}
         <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-1.5">
           {p.isShiny && <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />}
           {p.otName && (
