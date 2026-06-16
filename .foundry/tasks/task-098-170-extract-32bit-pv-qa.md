@@ -36,3 +36,6 @@ The coder has implemented the extraction of the 32-bit personality value (PV) fo
 - [x] Verify Gen 3 PV extraction uses `DataView`.
 - [x] Verify `RangeError` propagation for out-of-bounds reads.
 - [x] Verify Gen 1 and 2 handlers are functional.
+
+### Auditor Rejection
+This task is CANCELLED and replaced by new tasks due to permanent child failures.
