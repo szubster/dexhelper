@@ -1,0 +1,14 @@
+<<<<<<< SEARCH
+@utility tactical-card {
+  @apply flex flex-col rounded-none border border-dashed bg-zinc-950 p-4 font-mono transition-all duration-500 hover:scale-[1.02] active:scale-[0.98];
+}
+=======
+@utility tactical-card {
+  @apply flex flex-col rounded-none border border-dashed bg-zinc-950 p-4 font-mono transition-all duration-500 hover:scale-[1.02] active:scale-[0.98];
+}
+
+/* React Flow Control Overrides for Tactical Theme */
+.react-flow__controls-button {
+  @apply !rounded-none !border-none !bg-zinc-900 !fill-zinc-400 hover:!bg-zinc-800 hover:!fill-zinc-100 transition-colors;
+}
+>>>>>>> REPLACE
