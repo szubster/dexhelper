@@ -36,4 +36,6 @@ To confirm if an `ACTIVE` node is truly a "zombie", we must cross-reference its 
 - [ ] Create tests to mock API responses and verify correct liveliness determination.
 
 ## 4. Next Steps
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-135-191-session-api-integration-impl
+- [ ] task-135-192-session-api-integration-qa
