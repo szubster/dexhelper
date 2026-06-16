@@ -34,10 +34,10 @@ The Coder has implemented the Gen 3 Mirage Island Parser. This QA task ensures t
 4.  **Test Coverage**: Review the added unit tests in `src/engine/saveParser/parsers/gen3.test.ts`. Verify they sufficiently cover both Ruby/Sapphire and Emerald variations, and edge cases. Run `pnpm test` to ensure all tests pass.
 
 ## Acceptance Criteria
-- [ ] Code properly extracts Mirage Island value using documented offsets.
-- [ ] Code strictly follows ADR 010 (DataView API).
-- [ ] `RangeError` is handled gracefully without crashing.
-- [ ] Unit tests are complete and passing.
+- [x] Code properly extracts Mirage Island value using documented offsets.
+- [x] Code strictly follows ADR 010 (DataView API).
+- [x] `RangeError` is handled gracefully without crashing.
+- [x] Unit tests are complete and passing.
 
 ## QA Persona Reminders
 - If you find defects or architecture violations, you MUST update the YAML frontmatter to `status: FAILED` with a clear `rejection_reason` so the Coder can fix it.
