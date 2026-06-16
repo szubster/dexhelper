@@ -2,14 +2,17 @@
 id: task-135-191-session-api-integration-impl
 type: TASK
 title: Implement API query for jules_session_id liveliness
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-16'
 updated_at: '2026-06-16'
 depends_on: []
 jules_session_id: null
 parent: story-089-135-workflow-liveliness-check
-tags: [foundry, orchestrator, api]
+tags:
+  - foundry
+  - orchestrator
+  - api
 research_references: []
 rejection_count: 0
 rejection_reason: ''

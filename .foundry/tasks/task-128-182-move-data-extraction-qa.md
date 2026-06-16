@@ -2,7 +2,7 @@
 id: task-128-182-move-data-extraction-qa
 type: TASK
 title: QA Move Data Extraction
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-16'

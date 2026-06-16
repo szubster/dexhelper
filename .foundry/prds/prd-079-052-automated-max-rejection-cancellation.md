@@ -2,7 +2,7 @@
 id: prd-079-052-automated-max-rejection-cancellation
 type: PRD
 title: Automated Max Rejection Cancellation
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-16'
 updated_at: '2026-06-16'
@@ -16,6 +16,7 @@ tags:
   - resilience
 research_references: []
 notes: ''
+rejection_reason: ''
 ---
 
 # Automated Max Rejection Cancellation PRD

@@ -2,10 +2,10 @@
 id: story-055-096-gen3-berry-msgpack-integration
 type: STORY
 title: Gen 3 Berry Tracker MsgPack Serialization
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-06-08'
+updated_at: '2026-06-16'
 depends_on:
   - story-055-095-gen3-berry-data-parsing
 jules_session_id: null

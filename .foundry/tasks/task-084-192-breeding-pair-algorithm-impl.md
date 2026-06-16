@@ -2,10 +2,10 @@
 id: task-084-192-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Shiny Carrier Breeding Pair Algorithm
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-06-16"
-updated_at: "2026-06-16"
+created_at: '2026-06-16'
+updated_at: '2026-06-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,13 @@ tags:
   - backend
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "If you experience a transient failure requiring retry, update the YAML frontmatter to status: FAILED with a rejection_reason. If you must abort permanently, update the YAML frontmatter to status: CANCELLED with a rejection_reason. If submitting an empty PR, check off all Acceptance Criteria checkboxes before submitting."
+rejection_reason: ''
+notes: >-
+  If you experience a transient failure requiring retry, update the YAML
+  frontmatter to status: FAILED with a rejection_reason. If you must abort
+  permanently, update the YAML frontmatter to status: CANCELLED with a
+  rejection_reason. If submitting an empty PR, check off all Acceptance Criteria
+  checkboxes before submitting.
 ---
 
 # Implement Shiny Carrier Breeding Pair Algorithm

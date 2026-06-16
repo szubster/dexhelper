@@ -2,7 +2,7 @@
 id: story-065-141-gen3-contest-error-handling
 type: STORY
 title: Gen 3 Contest Data Error Handling
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-16'
 updated_at: '2026-06-16'

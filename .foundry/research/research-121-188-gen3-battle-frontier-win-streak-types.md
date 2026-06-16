@@ -2,7 +2,7 @@
 id: research-121-188-gen3-battle-frontier-win-streak-types
 type: RESEARCH
 title: Gen 3 Battle Frontier Win Streak Data Types
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-16'
 updated_at: '2026-06-16'

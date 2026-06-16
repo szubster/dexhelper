@@ -2,13 +2,13 @@
 id: task-124-171-gen3-event-schedule-parser
 type: TASK
 title: Gen 3 Event Schedule Parser Implementation
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-16'
 depends_on:
   - research-124-171-investigate-gen3-event-schedule-offsets
-jules_session_id: '10172201567164946548'
+jules_session_id: null
 pr_number: null
 parent: story-081-124-gen3-event-forecast-schedule
 tags:
@@ -16,8 +16,8 @@ tags:
   - gen3
   - data-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: 'Suspended pending research on Gen 3 Event Schedule memory offsets and data structures.'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

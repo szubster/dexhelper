@@ -2,7 +2,7 @@
 id: research-121-171-gen3-tv-block-offsets
 type: RESEARCH
 title: Investigate Gen 3 TV Block Memory Offsets and Structures
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-16'
 updated_at: '2026-06-16'
