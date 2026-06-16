@@ -37,3 +37,7 @@ As derived from PRD `prd-070-040-gen3-contest-data-parsing`, this Epic handles i
 - [ ] Map the extracted Condition, Sheen, and Ribbon data to appropriate fields in the internal Pokémon data structure.
 - [ ] Confirm all existing Gen 1 and Gen 2 save parsing tests pass without modification.
 - [ ] Write integration tests confirming the parsing engine successfully processes full Gen 3 save files and maps contest data correctly.
+
+- [ ] .foundry/stories/story-065-141-gen3-contest-error-handling.md
+- [ ] .foundry/stories/story-065-142-gen3-contest-data-mapping.md
+- [ ] .foundry/stories/story-065-143-gen3-contest-integration-tests.md
