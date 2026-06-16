@@ -26,8 +26,8 @@ Review and standardize the `roamingLegendaries` interface in `src/engine/savePar
 Currently, Gen 2 provides `speciesId`, `level`, `mapGroup`, and `mapId` for its roamers. We must ensure this structure is adequate for Gen 3 (Latios/Latias), and document any generation-specific differences in the unified structure so the suggestion engine can properly route them.
 
 ## Acceptance Criteria
-- [ ] Ensure `SaveData.roamingLegendaries` is robust for both generations.
-- [ ] Document map group/id differences between Gen 2 and Gen 3 within the interface comments.
+- [x] Ensure `SaveData.roamingLegendaries` is robust for both generations.
+- [x] Document map group/id differences between Gen 2 and Gen 3 within the interface comments.
 - [x] Break down this Story into executable Tasks.
-- [ ] .foundry/tasks/task-104-159-gen3-roamer-interface-impl.md
-- [ ] .foundry/tasks/task-104-159-gen3-roamer-interface-qa.md
+- [x] .foundry/tasks/task-104-159-gen3-roamer-interface-impl.md
+- [x] .foundry/tasks/task-104-159-gen3-roamer-interface-qa.md
