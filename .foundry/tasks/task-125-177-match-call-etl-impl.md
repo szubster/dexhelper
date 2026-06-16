@@ -39,6 +39,6 @@ This task requires writing an ETL script that will:
 - **Empty PR Policy:** If you submit an empty PR because the artifacts are already complete, you MUST check off all Acceptance Criteria checkboxes (`- [x]`) before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement ETL script to extract trainer match call data.
-- [ ] Structure data with Trainer Name, Location, and 5 team tiers.
-- [ ] Implement logic to calculate and aggregate EV yield for each team at each tier.
+- [x] Implement ETL script to extract trainer match call data.
+- [x] Structure data with Trainer Name, Location, and 5 team tiers.
+- [x] Implement logic to calculate and aggregate EV yield for each team at each tier.
