@@ -444,7 +444,8 @@ function main(): void {
   function resolveNodePath(ref: string | null | undefined): string | null {
     if (!ref) return null;
     if (idToPathMap.has(ref)) return idToPathMap.get(ref)!;
-    return ref;
+    if (ref.startsWith('.foundry/')) return ref;
+    return null;
   }
 
   // ── Phase 3.0: MAX REJECTION THRESHOLD CHECK ───────────────────────────────
@@ -488,7 +489,6 @@ function main(): void {
   // 1. Its status is not COMPLETED (and it's not the target node we are evaluating).
   // 2. ANY of its recursive dependencies are blocked.
   // 3. ANY of its recursive children are blocked.
-  const evalCache = new Map<string, boolean>();
 
   // Helper to safely check if 'child' is a deep descendant of 'ancestor'
   function isDescendant(childPath: string, ancestorPath: string): boolean {
@@ -520,70 +520,75 @@ function main(): void {
    * 2. ANY of its recursive children (sub-tasks/stories) are incomplete.
    * 3. ANY of its recursive dependencies are incomplete.
    */
-  function isHierarchicallyIncomplete(nodePath: string, evaluatingFor?: string): boolean {
-    const cacheKey = evaluatingFor ? `${nodePath}|${evaluatingFor}` : nodePath;
-    // skip caching as it causes test issues since tests mock multiple times within same global env
-    // if (evalCache.has(cacheKey)) return evalCache.get(cacheKey)!;
+  function isHierarchicallyIncomplete(nodePath: string, ignoredRefs: string | string[] = [], visited = new Set<string>()): boolean {
+    const ignoredPaths = Array.isArray(ignoredRefs) ? ignoredRefs : [ignoredRefs];
+    if (visited.has(nodePath)) return false;
+    visited.add(nodePath);
 
     const node = nodeMap.get(nodePath);
 
     if (!node) {
       hasUnresolvableDeps = true;
-      evalCache.set(cacheKey, true);
       return true;
     }
 
-    if (node.frontmatter.status !== 'COMPLETED' && node.frontmatter.status !== 'CANCELLED') {
-      evalCache.set(cacheKey, true);
+    const isIgnored = ignoredPaths.includes(node.repoPath);
+
+    if (!isIgnored && node.frontmatter.status !== 'COMPLETED' && node.frontmatter.status !== 'CANCELLED') {
       return true;
     }
-
-    evalCache.set(cacheKey, true);
 
     const children = parentToChildren.get(nodePath) || [];
     for (const child of children) {
-      if (evaluatingFor && (child.repoPath === evaluatingFor || isDescendant(evaluatingFor, child.repoPath))) {
-        continue;
-      }
-      if (isHierarchicallyIncomplete(child.repoPath, evaluatingFor)) {
+      if (ignoredPaths.includes(child.repoPath)) continue;
+
+      if (isHierarchicallyIncomplete(child.repoPath, ignoredPaths, visited)) {
         return true;
       }
     }
 
     for (const depRef of node.frontmatter.depends_on) {
-      const depPath = resolveNodePath(depRef)!;
-      if (isHierarchicallyIncomplete(depPath, evaluatingFor)) {
+      const depPath = resolveNodePath(depRef);
+      if (!depPath || ignoredPaths.includes(depPath)) continue;
+
+      if (isHierarchicallyIncomplete(depPath, ignoredPaths, visited)) {
         return true;
       }
     }
 
-    evalCache.set(cacheKey, false);
     return false;
   }
 
   // ── Phase 3.5: SUSPEND (Wait & Wake) ───────────────────────────────────────
-  info('Phase 3.5: Checking ACTIVE/VERIFYING nodes for suspension...');
+  info('Phase 3.5: Checking ACTIVE/VERIFYING/READY nodes for suspension...');
   for (const node of nodes) {
-    if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'VERIFYING') continue;
+    if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'VERIFYING' && node.frontmatter.status !== 'READY') continue;
 
     let shouldSuspend = false;
 
     const children = parentToChildren.get(node.repoPath) || [];
     for (const child of children) {
-      if (isHierarchicallyIncomplete(child.repoPath, node.repoPath)) {
+      if (isHierarchicallyIncomplete(child.repoPath, [node.repoPath])) {
         shouldSuspend = true;
         break;
       }
     }
 
     for (const depRef of node.frontmatter.depends_on) {
-      const depPath = resolveNodePath(depRef)!;
+      const depPath = resolveNodePath(depRef);
+      if (!depPath) {
+        warn(`Unresolvable dependency '${depRef}' referenced by ${node.frontmatter.status} node: ${node.repoPath}`);
+        hasUnresolvableDeps = true;
+        shouldSuspend = true;
+        break;
+      }
+
       const dep = nodeMap.get(depPath);
       if (!dep) {
         if (fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
         }
-        warn(`Unresolvable dependency '${depRef}' referenced by ${node.frontmatter.status} node: ${node.repoPath}`);
+        warn(`Dependency file '${depPath}' not found for ${node.frontmatter.status} node: ${node.repoPath}`);
         hasUnresolvableDeps = true;
         shouldSuspend = true;
         break;
@@ -591,7 +596,7 @@ function main(): void {
 
       // If it is an ancestor, we only care that it is status ACTIVE or COMPLETED.
       if (!isDescendant(node.repoPath, depPath)) {
-        if (isHierarchicallyIncomplete(depPath, node.repoPath)) {
+        if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
           shouldSuspend = true;
           break;
         }
@@ -603,19 +608,7 @@ function main(): void {
       }
     }
 
-
-
-    if (!shouldSuspend) {
-      const children = parentToChildren.get(node.repoPath) || [];
-      for (const child of children) {
-        if (isHierarchicallyIncomplete(child.repoPath, node.repoPath)) {
-          shouldSuspend = true;
-          break;
-        }
-      }
-    }
-
-    if (shouldSuspend && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING')) {
+    if (shouldSuspend && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING' || node.frontmatter.status === 'READY')) {
       info(`Suspending ${node.frontmatter.status} node: ${node.repoPath}`);
       promoteNodeStatus(node, node.frontmatter.status, 'PENDING');
     }
@@ -642,7 +635,16 @@ function main(): void {
     }
 
     if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason) {
+      // Skip waking up parent if the child is merely suspended (waiting for dependencies/children).
+      // We ignore the parent node itself during this check because it's exactly what we want to find out
+      // (if something OTHER than the parent is blocking the child).
       const parentPath = resolveNodePath(node.frontmatter.parent);
+      const ignoredPaths = [node.repoPath];
+      if (parentPath) ignoredPaths.push(parentPath);
+
+      if (isHierarchicallyIncomplete(node.repoPath, ignoredPaths)) {
+        continue;
+      }
       if (parentPath) {
         const parentNode = nodeMap.get(parentPath);
         if (parentNode && parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'READY' && parentNode.frontmatter.status !== 'COMPLETED') {
@@ -701,7 +703,7 @@ function main(): void {
           let isParentDepIncomplete = false;
           for (const depRef of parentNode.frontmatter.depends_on) {
             const depPath = resolveNodePath(depRef)!;
-            if (isHierarchicallyIncomplete(depPath, node.repoPath)) {
+            if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
               isParentDepIncomplete = true;
               break;
             }
@@ -729,7 +731,7 @@ function main(): void {
     // Check if node is explicitly blocked by its own incomplete children
     const children = parentToChildren.get(node.repoPath) || [];
     for (const child of children) {
-      if (isHierarchicallyIncomplete(child.repoPath, node.repoPath)) {
+      if (isHierarchicallyIncomplete(child.repoPath, [node.repoPath])) {
         blocked = true;
         break;
       }
@@ -754,7 +756,7 @@ function main(): void {
 
       // If it is an ancestor, we only care that it is status ACTIVE or COMPLETED.
       if (!isDescendant(node.repoPath, depPath)) {
-        if (isHierarchicallyIncomplete(depPath, node.repoPath)) {
+        if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
           blocked = true;
           break;
         }
@@ -853,7 +855,7 @@ function main(): void {
           let isDepIncomplete = false;
           for (const depRef of node.frontmatter.depends_on) {
             const depPath = resolveNodePath(depRef)!;
-            if (isHierarchicallyIncomplete(depPath, node.repoPath)) {
+            if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
               isDepIncomplete = true;
               break;
             }
