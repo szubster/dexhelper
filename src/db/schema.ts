@@ -140,6 +140,14 @@ export interface PokemonMetadata {
   det: CompactEvolutionDetail[]; // Evolutionary requirements to reach THIS pokemon from parent
 }
 
+export interface HiddenItemData {
+  flagOffset: number;
+  flagBit: number;
+  locationId: number;
+  itemId: number;
+  isAcquired?: boolean;
+}
+
 export interface PokeDataExport {
   poke: PokemonMetadata[];
   enc: LocationAreaEncounters[];
