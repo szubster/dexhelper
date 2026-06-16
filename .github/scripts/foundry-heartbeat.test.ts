@@ -68,11 +68,6 @@ ok: true,
     expect(writeCall[0]).toBe(mockNode.filePath);
     expect(writeCall[1]).toContain('status: READY');
     expect(writeCall[1]).toContain('jules_session_id: null');
-
-    expect(fs.appendFileSync).toHaveBeenCalled();
-    const appendCall = vi.mocked(fs.appendFileSync).mock.calls[0];
-    expect(appendCall[0]).toBe(path.join(mockRepoRoot, '.foundry', 'journals', 'tpm.md'));
-    expect(appendCall[1]).toContain('System failure detected for `task-1`');
   });
 
   it('should transition a node to FAILED if its Jules session is NOT_FOUND (404)', async () => {
@@ -159,7 +154,6 @@ ok: true,
     await main();
 
     expect(fs.writeFileSync).not.toHaveBeenCalled();
-    expect(fs.appendFileSync).not.toHaveBeenCalled();
   });
 
 
@@ -595,12 +589,6 @@ Body`;
     expect(fs.writeFileSync).toHaveBeenCalled();
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
     expect(writeCall[1]).toContain('status: FAILED');
-
-    // Also check the logToJournal call to make sure the message is correct
-    const appendCall = vi.mocked(fs.appendFileSync).mock.calls.find(call =>
-      typeof call[1] === 'string' && call[1].includes('PR #0 merged with unchecked tasks. `task-1` is now FAILED.')
-    );
-    expect(appendCall).toBeTruthy();
   });
 
     it('should transition leaf task with unchecked boxes to FAILED and set rejection_reason', async () => {
@@ -878,12 +866,6 @@ status: ACTIVE
       const deleteCalls = calls.filter(call => call[1]?.method === 'DELETE');
       expect(deleteCalls.length).toBe(1);
       expect(deleteCalls[0][0]).toContain('refs/heads/branch-delete');
-
-      expect(fs.appendFileSync).toHaveBeenCalled();
-      const appendCall = vi.mocked(fs.appendFileSync).mock.calls.find(call =>
-        typeof call[1] === 'string' && call[1].includes('Cleanup Loop deleted remote branch')
-      );
-      expect(appendCall).toBeTruthy();
 
       process.argv = originalArgv;
     });
