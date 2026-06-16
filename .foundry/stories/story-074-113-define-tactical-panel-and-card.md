@@ -2,10 +2,10 @@
 id: story-074-113-define-tactical-panel-and-card
 type: STORY
 title: Define tactical-panel and tactical-card utilities
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-11'
-updated_at: '2026-06-12'
+updated_at: '2026-06-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

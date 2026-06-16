@@ -2,12 +2,12 @@
 id: story-067-104-gen3-roamer-data-structure
 type: STORY
 title: Gen 3 Roamer Data Structure Standardization
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on: []
-jules_session_id: '10400394478151602500'
+jules_session_id: null
 pr_number: null
 parent: epic-043-067-roamer-data-extraction
 tags: []

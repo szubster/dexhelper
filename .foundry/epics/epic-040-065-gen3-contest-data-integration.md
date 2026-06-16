@@ -2,10 +2,10 @@
 id: epic-040-065-gen3-contest-data-integration
 type: EPIC
 title: Gen 3 Contest Data Integration & Validation
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-16'
 depends_on:
   - epic-040-064-gen3-contest-data-extraction
 jules_session_id: null

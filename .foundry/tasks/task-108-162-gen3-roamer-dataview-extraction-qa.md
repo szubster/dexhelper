@@ -2,10 +2,10 @@
 id: task-108-162-gen3-roamer-dataview-extraction-qa
 type: TASK
 title: QA Gen 3 Roamer DataView Extraction and Core Parsing
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-16'
 depends_on:
   - task-108-161-gen3-roamer-dataview-extraction-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-108-161-gen3-roamer-dataview-extraction-impl
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: research-150-186-egg-groups-missing
 type: RESEARCH
 title: Investigate Missing Egg Groups Data for Breeding Algorithm
-status: READY
+status: CANCELLED
 owner_persona: researcher
-created_at: "2026-06-15"
-updated_at: "2026-06-15"
+created_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - breeding
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: Cancelled due to cascading cancellation from parent
+notes: ''
 ---
 
 # Investigate Missing Egg Groups Data for Breeding Algorithm

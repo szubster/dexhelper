@@ -2,7 +2,7 @@
 id: task-108-191-update-schema-parent-child-formatting-impl
 type: TASK
 title: Update schema.md with parent-child relationship formatting constraints
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-16'
 updated_at: '2026-06-16'

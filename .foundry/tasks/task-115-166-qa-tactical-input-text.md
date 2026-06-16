@@ -2,10 +2,10 @@
 id: task-115-166-qa-tactical-input-text
 type: TASK
 title: QA verification for tactical-input and tactical-text utilities
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-16'
 depends_on:
   - task-115-165-implement-tactical-input-text
 jules_session_id: null

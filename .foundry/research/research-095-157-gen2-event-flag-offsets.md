@@ -2,12 +2,12 @@
 id: research-095-157-gen2-event-flag-offsets
 type: RESEARCH
 title: Investigate Gen 2 Event Flag Offsets
-status: ACTIVE
+status: READY
 owner_persona: researcher
 created_at: '2026-06-12'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on: []
-jules_session_id: '9610820878940041420'
+jules_session_id: null
 pr_number: null
 parent: task-095-157-gen2-event-flag-impl
 tags:
