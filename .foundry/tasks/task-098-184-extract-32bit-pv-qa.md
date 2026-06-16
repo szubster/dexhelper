@@ -34,6 +34,6 @@ The coder has implemented the extraction logic for the 32-bit personality value 
 5. **Completion Contract:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `DataView` is used for Gen 3 PV extraction.
-- [ ] Verify `RangeError` is propagated on out-of-bounds reads.
-- [ ] Verify Gen 1 and Gen 2 parsing handlers are fully functional.
+- [x] Verify `DataView` is used for Gen 3 PV extraction.
+- [x] Verify `RangeError` is propagated on out-of-bounds reads.
+- [x] Verify Gen 1 and Gen 2 parsing handlers are fully functional.
