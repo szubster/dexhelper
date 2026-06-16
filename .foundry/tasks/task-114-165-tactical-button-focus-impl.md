@@ -2,7 +2,7 @@
 id: task-114-165-tactical-button-focus-impl
 type: TASK
 title: Implement tactical-button and tactical-focus utilities
-status: COMPLETED
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-15'
@@ -29,11 +29,11 @@ Define the custom utilities in `src/index.css` leveraging `@apply` to enforce th
 
 ## Constraints
 - Ensure hover and focus states can be correctly inherited.
-- Do NOT modify YAML frontmatter. Update markdown Acceptance Criteria upon completion.
+- Do NOT modify YAML frontmatter when checking off acceptance criteria. Update markdown Acceptance Criteria upon completion.
 - Follow ADR 024.
 - If aborted or permanently failed, the Coder MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
 - If an empty PR is submitted for a completed task, the Coder MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Appropriate `@utility tactical-button` and `@utility tactical-focus` primitives are defined in `src/index.css`.
-- [x] Tailwind v4 formatting and structure is respected.
+- [ ] Appropriate `@utility tactical-button` and `@utility tactical-focus` primitives are defined in `src/index.css`.
+- [ ] Tailwind v4 formatting and structure is respected.
