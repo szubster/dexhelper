@@ -34,5 +34,5 @@ Implement logic to extract the Hall of Fame data and count from Generation 2 (Go
 ## Acceptance Criteria
 - [x] Create task to implement parsing for Gen 2 Hall of Fame.
 
-- [ ] task-112-165-implement-gen2-hof-parsing
-- [ ] task-112-166-qa-gen2-hof-parsing
+- [x] task-112-165-implement-gen2-hof-parsing
+- [x] task-112-166-qa-gen2-hof-parsing
