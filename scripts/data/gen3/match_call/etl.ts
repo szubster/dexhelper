@@ -160,4 +160,5 @@ for (const t of trainers) {
   }
 }
 
-fs.writeFileSync('data/gen3_match_call.json', JSON.stringify(output, null, 2));
+const jsonlContent = output.map((row) => JSON.stringify(row)).join('\n') + '\n';
+fs.writeFileSync('data/gen3_match_call.jsonl', jsonlContent);
