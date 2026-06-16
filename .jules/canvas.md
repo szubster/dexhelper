@@ -197,3 +197,9 @@
 **Outcome:** Accepted
 **Why:** Brings the fundamental app framing into the specialized hardware motif. The application no longer looks like a website occupying the browser window; it looks like a physical CRT terminal monitor displaying a war-room data grid.
 **Pattern:** Apply heavy, physical-looking frames and global screen-space overlays (vignettes, scanlines, hex grids) to the root application layout to permanently break the "web page" illusion and enforce the specialized device fantasy at the macro level.
+
+## 2026-07-25 - [Accepted] - 🖼️ Canvas: Tactical Input Terminal Line Redesign
+**What:** Redesigned the `TacticalInput` component to resemble a physical "terminal entry line". Introduced a left-side data pipe border with an absolute marker, an embedded `<LcdGrid>` background, and an animated blinking `█` terminal cursor when the input is focused and empty. Labels were moved out of the input and restyled with mono brackets.
+**Outcome:** Accepted
+**Why:** Brings the interactive text inputs completely into the tactical specialized hardware motif. Standard web input fields break the terminal simulation, but the data pipe and cursor effects ensure that typing feels like entering a raw telemetry query into a snooping device.
+**Pattern:** Eliminate standard input field shapes. Use external data pipes (left borders), background CRT/LCD grids, bracketed external labels, and physical terminal cursors to reinforce the specialized hardware aesthetic for text entry.
