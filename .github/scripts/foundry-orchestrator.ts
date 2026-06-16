@@ -489,7 +489,6 @@ function main(): void {
   // 1. Its status is not COMPLETED (and it's not the target node we are evaluating).
   // 2. ANY of its recursive dependencies are blocked.
   // 3. ANY of its recursive children are blocked.
-  const evalCache = new Map<string, boolean>();
 
   // Helper to safely check if 'child' is a deep descendant of 'ancestor'
   function isDescendant(childPath: string, ancestorPath: string): boolean {
