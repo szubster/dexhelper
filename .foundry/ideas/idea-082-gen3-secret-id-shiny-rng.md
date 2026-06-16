@@ -2,7 +2,7 @@
 id: idea-082-gen3-secret-id-shiny-rng
 type: IDEA
 title: Gen 3 Secret ID Viewer and Shiny RNG Assistant
-status: PENDING
+status: CANCELLED
 owner_persona: product_manager
 created_at: '2026-06-16'
 updated_at: '2026-06-16'
@@ -16,6 +16,7 @@ tags:
   - rng
   - shiny-hunting
 research_references: []
+rejection_reason: 'Abandoned by maintainer.'
 notes: ''
 ---
 
