@@ -158,3 +158,11 @@ body {
 .react-flow__controls-button {
   @apply !rounded-none !border-none !bg-zinc-900 !fill-zinc-400 hover:!bg-zinc-800 hover:!fill-zinc-100 transition-colors;
 }
+  
+@utility tactical-input {
+  @apply rounded-none border border-white/20 border-dashed bg-zinc-900/50 py-4 font-black font-mono text-white text-xs uppercase tracking-[0.2em] outline-none transition-all placeholder:text-zinc-600 focus:border-[var(--theme-primary)] focus:bg-zinc-900/80;
+}
+
+@utility tactical-text {
+  @apply font-mono uppercase tracking-widest;
+}

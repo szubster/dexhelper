@@ -15,3 +15,9 @@ When executing the Empty PR Policy for tasks where target artifacts are already 
 
 ## 2026-06-13: DAG Linkage Requirement for Epics
 When breaking down a PRD into Epic nodes, if an architectural document is required, do NOT create a `TASK` node for the Architect and make the Epics depend on it. This violates the Foundry DAG execution hierarchy (`IDEA -> PRD -> ADR -> EPIC -> STORY -> TASK`). Instead, dynamically create an `ADR` node (`type: ADR`) directly in `.foundry/docs/adrs/` and set the Epics to depend on that ADR node. Furthermore, ensure that all `depends_on` array references strictly use the exact Node IDs (e.g., `adr-049-025-dynamic-pokedata-parsing`) and never repo-relative file paths to prevent DAG resolution deadlocks.
+
+## 2026-06-16: Parent Node Strict DAG Dependency & PRD Completion
+When breaking down a PRD into Epics, it is crucial to ensure every functional requirement maps to at least one Epic.
+Additionally, when a PRD relies on its generated child Epics to be completed, it acts as a "Late-Binding Parent". To correctly keep the parent node in `PENDING` mode while it waits for children, its acceptance criteria boxes MUST remain unchecked (`- [ ]`). Submitting an empty PR with checked boxes transitions it prematurely to `VERIFYING`, violating the dependency graph.
+
+Furthermore, generated Epics MUST have their dependencies explicitly defined. For example, if an Epic is for Visual Regression Testing, its `depends_on` array must contain the IDs of the Epics that build the UI components it will test. Failure to set these dependencies allows the testing Epic to run concurrently with the UI Epic, resulting in immediate failures.

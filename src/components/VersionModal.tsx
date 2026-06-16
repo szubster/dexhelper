@@ -41,7 +41,7 @@ export function VersionModal() {
           <AlertTriangle className="text-amber-500" size={24} />
         </div>
         <h2 className="font-black font-mono text-2xl text-white uppercase tracking-tighter">SYS.VERSION_CONFLICT</h2>
-        <p className="mt-1 font-bold font-mono text-[10px] text-zinc-500 uppercase leading-relaxed tracking-widest">
+        <p className="tactical-text mt-1 font-bold text-[10px] text-zinc-500 uppercase leading-relaxed">
           Game version detection failed. Manual override required.
         </p>
       </div>
