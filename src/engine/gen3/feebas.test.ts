@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { extractFeebasSeed } from './feebas';
+import { calculateFeebasTiles, extractFeebasSeed, mapSpotIdsToCoordinates } from './feebas';
 
 describe('extractFeebasSeed', () => {
   it('extracts the Feebas seed for Ruby/Sapphire', () => {
@@ -40,5 +40,33 @@ describe('extractFeebasSeed', () => {
     const view = new DataView(buffer);
 
     expect(() => extractFeebasSeed(view, 'ruby')).toThrow('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('calculateFeebasTiles', () => {
+  it('calculates exactly 6 valid spot IDs for a known seed', () => {
+    const seed = 0x1234;
+    const spots = calculateFeebasTiles(seed);
+    expect(spots).toHaveLength(6);
+    expect(spots).toEqual([247, 306, 425, 132, 230, 377]);
+  });
+
+  it('forces 0 to 447', () => {
+    const spots = calculateFeebasTiles(0x0000);
+    expect(spots).toHaveLength(6);
+    for (const spot of spots) {
+      expect(spot).toBeGreaterThanOrEqual(4);
+      expect(spot).toBeLessThanOrEqual(447);
+    }
+  });
+});
+
+describe('mapSpotIdsToCoordinates', () => {
+  it('maps spot IDs to relative (x, y) coordinates correctly', () => {
+    const spots = [4, 447];
+    const coords = mapSpotIdsToCoordinates(spots);
+    expect(coords).toHaveLength(2);
+    expect(coords[0]).toEqual([18, 18]);
+    expect(coords[1]).toEqual([8, 112]);
   });
 });
