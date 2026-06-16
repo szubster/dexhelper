@@ -2,13 +2,13 @@
 id: task-115-166-qa-tactical-input-text
 type: TASK
 title: QA verification for tactical-input and tactical-text utilities
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-11'
 updated_at: '2026-06-16'
 depends_on:
   - task-115-165-implement-tactical-input-text
-jules_session_id: null
+jules_session_id: '6340187536535947698'
 pr_number: null
 parent: story-074-115-define-tactical-input-and-text
 tags:
