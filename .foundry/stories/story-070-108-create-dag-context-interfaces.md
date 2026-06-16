@@ -26,4 +26,4 @@ Define the TypeScript interfaces and types for the `DagContext`. This includes t
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] .foundry/tasks/task-108-161-create-dag-context-types.md
+- [x] .foundry/tasks/task-108-161-create-dag-context-types.md
