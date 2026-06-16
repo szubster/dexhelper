@@ -588,3 +588,7 @@ No critical learnings logged yet.
 - **2026-06-16**: PR #2646 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
 
 - **2026-06-16**: System failure detected for `task-089-177-radar-heatmap-ui-integration-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.
+
+- **2026-06-16**: PR #2661 merged. `epic-038-061-pokerus-state-exfiltration` is now VERIFYING.
+
+- **2026-06-16**: System failure detected for `task-099-157-gen3-extract-pokemon-pids-impl`. Reason: Session timed out (>24h). Transitioned back to READY without penalty.

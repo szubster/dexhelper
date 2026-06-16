@@ -2,7 +2,7 @@
 id: task-113-168-update-palette-persona-qa
 type: TASK
 title: QA - Update palette agent prompt to define ownership of Tailwind styling
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-06-12'
 updated_at: '2026-06-16'
