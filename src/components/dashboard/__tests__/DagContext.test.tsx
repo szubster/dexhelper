@@ -28,10 +28,10 @@ function ErrorConsumer() {
 }
 
 test('DagContext throws error outside provider', async () => {
-  render(
+  void render(
     <ErrorBoundary>
       <ErrorConsumer />
-    </ErrorBoundary>
+    </ErrorBoundary>,
   );
 
   await expect.element(page.getByTestId('error')).toHaveTextContent('useDagContext must be used within a DagProvider');
@@ -43,21 +43,53 @@ function ValidConsumer() {
     <div>
       <div data-testid="active-view">{context.activeView}</div>
       <div data-testid="is-loading">{context.isLoading.toString()}</div>
-      <button type="button" data-testid="set-board" onClick={() => context.setActiveView('board')}>Set Board</button>
-      <button type="button" data-testid="set-loading" onClick={() => context.setIsLoading(false)}>Set Loading</button>
-      <button type="button" data-testid="set-nodes" onClick={() => context.setNodes([{ id: '1', type: 'task', position: {x: 0, y:0}, data: { id: '1', type: 'TASK', status: 'READY', owner_persona: 'coder', depends_on: [], rejection_count: 0 } }])}>Set Nodes</button>
+      <button type="button" data-testid="set-board" onClick={() => context.setActiveView('board')}>
+        Set Board
+      </button>
+      <button type="button" data-testid="set-loading" onClick={() => context.setIsLoading(false)}>
+        Set Loading
+      </button>
+      <button
+        type="button"
+        data-testid="set-nodes"
+        onClick={() =>
+          context.setNodes([
+            {
+              id: '1',
+              type: 'task',
+              position: { x: 0, y: 0 },
+              data: {
+                id: '1',
+                type: 'TASK',
+                status: 'READY',
+                owner_persona: 'coder',
+                depends_on: [],
+                rejection_count: 0,
+              },
+            },
+          ])
+        }
+      >
+        Set Nodes
+      </button>
       <div data-testid="nodes-count">{context.nodes.length.toString()}</div>
-      <button type="button" data-testid="set-edges" onClick={() => context.setEdges([{ id: 'e1', source: 'a', target: 'b' }])}>Set Edges</button>
+      <button
+        type="button"
+        data-testid="set-edges"
+        onClick={() => context.setEdges([{ id: 'e1', source: 'a', target: 'b' }])}
+      >
+        Set Edges
+      </button>
       <div data-testid="edges-count">{context.edges.length.toString()}</div>
     </div>
   );
 }
 
 test('DagProvider provides default state and allows updates', async () => {
-  render(
+  void render(
     <DagProvider>
       <ValidConsumer />
-    </DagProvider>
+    </DagProvider>,
   );
 
   // Check initial state
