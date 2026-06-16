@@ -30,7 +30,7 @@ export const TacticalInput = React.forwardRef<HTMLInputElement, TacticalInputPro
           ref={ref}
           value={value}
           className={cn(
-            'w-full rounded-none border border-white/20 border-dashed bg-zinc-900/50 py-4 font-black font-mono text-white text-xs uppercase tracking-[0.2em] outline-none transition-all placeholder:text-zinc-600 focus:border-[var(--theme-primary)] focus:bg-zinc-900/80',
+            'tactical-input w-full',
             icon ? 'pl-14' : 'pl-4',
             onClear && value ? 'pr-12' : 'pr-4',
             className,
@@ -39,7 +39,7 @@ export const TacticalInput = React.forwardRef<HTMLInputElement, TacticalInputPro
         />
 
         {label && (
-          <div className="pointer-events-none absolute -top-2 left-4 bg-zinc-950 px-1 font-mono text-[9px] text-zinc-500 uppercase tracking-widest transition-colors group-focus-within:text-[var(--theme-primary)]">
+          <div className="tactical-text pointer-events-none absolute -top-2 left-4 bg-zinc-950 px-1 text-[9px] text-zinc-500 transition-colors group-focus-within:text-[var(--theme-primary)]">
             {label}
           </div>
         )}
