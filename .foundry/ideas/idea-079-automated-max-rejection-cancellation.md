@@ -33,8 +33,10 @@ Refactor the Foundry Orchestrator (`foundry-orchestrator.ts`) to automatically t
 
 ## Acceptance Criteria
 - [x] Implement orchestrator logic to transition `FAILED` nodes to `CANCELLED` when `rejection_count` >= max threshold.
-- [ ] Ensure this triggers the proper parent awakening logic.
+- [x] Ensure this triggers the proper parent awakening logic.
 
+## Generated Nodes
+- [ ] .foundry/prds/prd-079-052-automated-max-rejection-cancellation.md
 
 ### Auditor Rejection
 While the nodes are transitioned to CANCELLED, they bypass the parent awakening logic in Phase 3.6 of `foundry-orchestrator.ts`. The condition `node.frontmatter.status === 'FAILED'` must be expanded to include `CANCELLED` nodes with a rejection reason (like max rejection reached).
