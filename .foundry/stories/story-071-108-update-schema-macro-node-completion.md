@@ -2,12 +2,12 @@
 id: story-071-108-update-schema-macro-node-completion
 type: STORY
 title: Update schema.md with strict macro node completion rules
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-16'
 depends_on: []
-jules_session_id: '5363089858899866500'
+jules_session_id: null
 pr_number: null
 parent: epic-045-071-documentation-macro-node-completion
 tags:
@@ -34,3 +34,4 @@ Update `.foundry/docs/schema.md` to explain the new hierarchical completion rule
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-108-161-update-schema-macro-node-completion-impl
+- [ ] task-108-191-update-schema-parent-child-formatting-impl

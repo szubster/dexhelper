@@ -2,10 +2,10 @@
 id: task-095-184-gen3-berry-dataview-parsing-retry-qa
 type: TASK
 title: QA Verification for Gen 3 Berry Tracker DataView Parsing Logic (Retry)
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-14'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on:
   - task-095-183-gen3-berry-dataview-parsing-retry
 jules_session_id: null
@@ -38,7 +38,7 @@ Verify the implementation of the extraction logic for Gen 3 berry patches, ensur
 - IMPORTANT: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `DataView` reading logic for Gen 3 berry patches implementation uses the correct relative offset.
-- [ ] Verify graceful handling of bounds checking (throwing/catching `RangeError`) without process crash.
-- [ ] Verify explicit data is extracted correctly.
-- [ ] Verify implicit data (map ID, time planted, last watered time) are NOT included in the extraction schema.
+- [x] Verify `DataView` reading logic for Gen 3 berry patches implementation uses the correct relative offset.
+- [x] Verify graceful handling of bounds checking (throwing/catching `RangeError`) without process crash.
+- [x] Verify explicit data is extracted correctly.
+- [x] Verify implicit data (map ID, time planted, last watered time) are NOT included in the extraction schema.

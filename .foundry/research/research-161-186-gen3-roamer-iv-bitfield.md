@@ -2,10 +2,10 @@
 id: research-161-186-gen3-roamer-iv-bitfield
 type: RESEARCH
 title: Investigate Gen 3 Roamer IVs Bitfield Parsing Formula
-status: READY
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-06-15'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,7 +18,7 @@ tags:
 research_references:
   - .foundry/archive/research/research-071-138-gen3-roamer-offsets.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

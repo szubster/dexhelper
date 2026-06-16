@@ -2,10 +2,10 @@
 id: task-125-177-match-call-etl-impl
 type: TASK
 title: 'Task: Gen 3 Match Call Static Data ETL Implementation'
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -39,6 +39,6 @@ This task requires writing an ETL script that will:
 - **Empty PR Policy:** If you submit an empty PR because the artifacts are already complete, you MUST check off all Acceptance Criteria checkboxes (`- [x]`) before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement ETL script to extract trainer match call data.
-- [ ] Structure data with Trainer Name, Location, and 5 team tiers.
-- [ ] Implement logic to calculate and aggregate EV yield for each team at each tier.
+- [x] Implement ETL script to extract trainer match call data.
+- [x] Structure data with Trainer Name, Location, and 5 team tiers.
+- [x] Implement logic to calculate and aggregate EV yield for each team at each tier.

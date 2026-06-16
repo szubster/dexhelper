@@ -2,13 +2,13 @@
 id: task-113-166-define-tactical-utilities-qa
 type: TASK
 title: QA - Verify tactical-panel and tactical-card utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-11'
 updated_at: '2026-06-16'
 depends_on:
   - task-113-165-define-tactical-utilities-impl
-jules_session_id: '4965198108838204829'
+jules_session_id: null
 pr_number: null
 parent: story-074-113-define-tactical-panel-and-card
 tags:
@@ -35,6 +35,6 @@ The Coder has been tasked with defining `@utility tactical-panel` and `@utility 
 * **CRITICAL**: If the target artifacts are already verified, you MUST check all Acceptance Criteria checkboxes (`- [x]`) before submitting an empty PR. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009.
 
 ## Acceptance Criteria
-- [ ] Confirmed that `@utility tactical-panel` is properly defined in `src/index.css`.
-- [ ] Confirmed that `@utility tactical-card` is properly defined in `src/index.css`.
-- [ ] Confirmed the implementation adheres to the aesthetic requirements defined in ADR 024.
+- [x] Confirmed that `@utility tactical-panel` is properly defined in `src/index.css`.
+- [x] Confirmed that `@utility tactical-card` is properly defined in `src/index.css`.
+- [x] Confirmed the implementation adheres to the aesthetic requirements defined in ADR 024.

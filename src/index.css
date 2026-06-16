@@ -153,3 +153,11 @@ body {
 @utility tactical-card {
   @apply flex flex-col rounded-none border border-dashed bg-zinc-950 p-4 font-mono transition-all duration-500 hover:scale-[1.02] active:scale-[0.98];
 }
+
+@utility tactical-input {
+  @apply rounded-none border border-white/20 border-dashed bg-zinc-900/50 py-4 font-black font-mono text-white text-xs uppercase tracking-[0.2em] outline-none transition-all placeholder:text-zinc-600 focus:border-[var(--theme-primary)] focus:bg-zinc-900/80;
+}
+
+@utility tactical-text {
+  @apply font-mono uppercase tracking-widest;
+}

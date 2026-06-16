@@ -8,7 +8,7 @@ created_at: '2026-06-13'
 updated_at: '2026-06-16'
 depends_on:
   - research-124-171-investigate-gen3-event-schedule-offsets
-jules_session_id: null
+jules_session_id: '10172201567164946548'
 pr_number: null
 parent: story-081-124-gen3-event-forecast-schedule
 tags:

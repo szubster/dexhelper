@@ -2,10 +2,10 @@
 id: task-084-151-breeding-pair-algorithm-qa
 type: TASK
 title: QA Gen 2 Breeding Pair Algorithm
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-08'
-updated_at: '2026-06-08'
+updated_at: '2026-06-16'
 depends_on:
   - task-084-150-breeding-pair-algorithm-impl
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - backend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-084-150-breeding-pair-algorithm-impl
 notes: ''
 ---
 

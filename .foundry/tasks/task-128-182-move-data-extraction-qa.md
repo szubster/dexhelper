@@ -5,7 +5,7 @@ title: QA Move Data Extraction
 status: READY
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-16'
 depends_on:
   - task-128-181-move-data-extraction-impl
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - build
   - db
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

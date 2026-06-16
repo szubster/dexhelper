@@ -244,3 +244,9 @@
 **Outcome:** Merged
 **Why:** The Agile Coach journal (`2026-06-14`) identified that the instructions for handling permanent failures (like reaching max rejection count) were inconsistent across the different agent personas. Some agents (like `coder` and `qa`) were instructed to use `CANCELLED` and explicitly warned not to use `FAILED` because it prevents the Orchestrator from formally dropping the node and waking up the parent for error recovery. Other agents (like `architect`, `epic_planner`, `product_manager`, `researcher`, `story_owner`, and `tech_lead`) were incorrectly instructed to use either `FAILED` or `CANCELLED`.
 **Pattern:** Codify system memory constraints regarding permanent node failures across all relevant agent prompts to ensure consistent error recovery behavior across the entire DAG hierarchy. When an execution node must gracefully exit the DAG because it is permanently failed or replaced, the agent responsible MUST update its status to `CANCELLED`, not `FAILED`.
+
+## 2026-07-12 - [Accepted] - Prompt improvement - Ensure Canvas uses frontend_verification_instructions tool
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The Canvas prompt instructed the agent to manually write Playwright scripts, but the system now provides the `frontend_verification_instructions` tool which provides exact, up-to-date headless environment instructions.
+**Pattern:** UI agents must explicitly use the `frontend_verification_instructions` tool instead of guessing Playwright setups in headless environments.

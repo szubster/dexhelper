@@ -2,10 +2,10 @@
 id: task-098-184-extract-32bit-pv-qa
 type: TASK
 title: QA - Extract 32-bit PV using DataView
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-14'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on:
   - task-098-183-extract-32bit-pv-impl
 jules_session_id: null
@@ -34,6 +34,6 @@ The coder has implemented the extraction logic for the 32-bit personality value 
 5. **Completion Contract:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `DataView` is used for Gen 3 PV extraction.
-- [ ] Verify `RangeError` is propagated on out-of-bounds reads.
-- [ ] Verify Gen 1 and Gen 2 parsing handlers are fully functional.
+- [x] Verify `DataView` is used for Gen 3 PV extraction.
+- [x] Verify `RangeError` is propagated on out-of-bounds reads.
+- [x] Verify Gen 1 and Gen 2 parsing handlers are fully functional.

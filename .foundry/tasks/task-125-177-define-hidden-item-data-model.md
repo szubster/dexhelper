@@ -2,10 +2,10 @@
 id: task-125-177-define-hidden-item-data-model
 type: TASK
 title: Define Hidden Item Data Model Interfaces
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -37,5 +37,5 @@ This task defines the data model for Hidden Items based on the requirements of `
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] TypeScript interfaces for `HiddenItemData` are defined and exported.
-- [ ] The properties strictly follow the ADR 015 naming convention.
+- [x] TypeScript interfaces for `HiddenItemData` are defined and exported.
+- [x] The properties strictly follow the ADR 015 naming convention.
