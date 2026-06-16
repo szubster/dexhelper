@@ -46,9 +46,7 @@ export function GraveyardView({ graveyard, generation }: GraveyardViewProps) {
           <div className="relative col-span-full flex flex-col items-center justify-center border border-zinc-800/50 border-dashed bg-zinc-950/20 p-8 text-center">
             <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700/50" />
             <Ghost className="mb-3 h-8 w-8 text-zinc-600" />
-            <span className="font-bold font-mono text-sm text-zinc-500 uppercase tracking-widest">
-              NO CASUALTIES RECORDED
-            </span>
+            <span className="tactical-text font-bold text-sm text-zinc-500">NO CASUALTIES RECORDED</span>
           </div>
         )}
       </div>

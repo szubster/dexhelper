@@ -696,7 +696,20 @@ function main(): void {
         const parentChildren = parentToChildren.get(currParent) || [];
         if (parentStatus === 'PENDING' && parentChildren.length > 0) {
           // Exception for Late-Binding: If parent is PENDING and has children,
-          // it is waiting for those children. Do not block the child.
+          // it is waiting for those children. Do not block the child...
+          // UNLESS the parent itself has incomplete dependencies.
+          let isParentDepIncomplete = false;
+          for (const depRef of parentNode.frontmatter.depends_on) {
+            const depPath = resolveNodePath(depRef)!;
+            if (isHierarchicallyIncomplete(depPath, node.repoPath)) {
+              isParentDepIncomplete = true;
+              break;
+            }
+          }
+          if (isParentDepIncomplete) {
+            blocked = true;
+            break;
+          }
         } else {
           blocked = true;
           break;

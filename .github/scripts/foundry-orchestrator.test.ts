@@ -1959,4 +1959,48 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(epicContent).toContain('status: READY');
   });
 
+  test('Late-Binding: Child of PENDING parent should be blocked if parent dependencies are incomplete', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/epics/epic-002.md', {
+      id: "epic-002",
+      type: "EPIC",
+      title: "Epic 2",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/epics/epic-001.md"], // Parent depends on Epic 1
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/epics/epic-002.md",
+      jules_session_id: null,
+    });
+
+    main();
+
+    const storyResult = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
+    expect(storyResult).toContain('status: PENDING'); // Should be blocked
+  });
+
 });

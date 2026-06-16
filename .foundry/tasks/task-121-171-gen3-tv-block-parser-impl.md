@@ -8,7 +8,7 @@ created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on:
   - research-121-171-gen3-tv-block-offsets
-jules_session_id: null
+jules_session_id: '5304034001390251030'
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
 tags:

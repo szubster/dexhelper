@@ -49,9 +49,7 @@ export function SettingsModal() {
       <div className="flex items-center justify-between border-zinc-800 border-b border-dashed p-8 pt-10">
         <div>
           <h2 className="font-black font-mono text-2xl uppercase tracking-tighter">SYS.CONFIG</h2>
-          <p className="mt-1 font-bold font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
-            Configure your experience
-          </p>
+          <p className="tactical-text mt-1 font-bold text-[10px] text-zinc-500">Configure your experience</p>
         </div>
         <TacticalButton
           onClick={() => setIsSettingsOpen(false)}

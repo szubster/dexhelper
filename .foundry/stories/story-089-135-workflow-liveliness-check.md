@@ -2,12 +2,12 @@
 id: story-089-135-workflow-liveliness-check
 type: STORY
 title: Workflow Liveliness Check
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-14'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9379356454892505533'
 pr_number: null
 parent: epic-050-089-zombie-node-detection-engine
 tags:

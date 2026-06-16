@@ -20,9 +20,7 @@ export function InlineDataPoint({
 }: InlineDataPointProps) {
   return (
     <div className={cn('flex items-center gap-2', className)}>
-      <span className={cn('font-black font-mono text-[8px] text-zinc-500 uppercase tracking-widest', labelClassName)}>
-        {label}
-      </span>
+      <span className={cn('tactical-text font-black text-[8px] text-zinc-500', labelClassName)}>{label}</span>
       <span
         className={cn(
           'font-black font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-tight',
