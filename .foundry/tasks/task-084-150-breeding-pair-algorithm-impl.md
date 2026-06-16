@@ -5,10 +5,10 @@ title: Implement Gen 2 Breeding Pair Algorithm
 status: FAILED
 owner_persona: coder
 created_at: '2026-06-08'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on:
   - research-150-186-egg-groups-missing
-jules_session_id: null
+jules_session_id: '8310229436544301302'
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:

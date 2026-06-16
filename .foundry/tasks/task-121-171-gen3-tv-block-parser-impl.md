@@ -2,12 +2,12 @@
 id: task-121-171-gen3-tv-block-parser-impl
 type: TASK
 title: Implement Gen 3 TV Block DataView Parser
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5304034001390251030'
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
 tags:

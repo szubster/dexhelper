@@ -2,13 +2,13 @@
 id: task-112-166-qa-gen2-hof-parsing
 type: TASK
 title: QA Gen 2 Hall of Fame Parsing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on:
   - task-112-165-implement-gen2-hof-parsing
-jules_session_id: null
+jules_session_id: '3819104371184660541'
 pr_number: null
 parent: story-070-112-parse-gen2-hof-data
 tags:

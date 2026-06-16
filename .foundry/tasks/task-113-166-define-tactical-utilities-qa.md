@@ -2,13 +2,13 @@
 id: task-113-166-define-tactical-utilities-qa
 type: TASK
 title: QA - Verify tactical-panel and tactical-card utilities
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on:
   - task-113-165-define-tactical-utilities-impl
-jules_session_id: null
+jules_session_id: '4965198108838204829'
 pr_number: null
 parent: story-074-113-define-tactical-panel-and-card
 tags:

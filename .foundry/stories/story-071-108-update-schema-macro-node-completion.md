@@ -5,9 +5,9 @@ title: Update schema.md with strict macro node completion rules
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-14'
+updated_at: '2026-06-16'
 depends_on: []
-jules_session_id: '15548778028033024433'
+jules_session_id: '5363089858899866500'
 pr_number: null
 parent: epic-045-071-documentation-macro-node-completion
 tags:
