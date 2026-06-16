@@ -1,18 +1,13 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "ignoreExportsUsedInFile": true,
-  "ignoreBinaries": [
-    "gh"
-  ],
-  "ignoreDependencies": [
-    "wrangler"
-  ],
+  "ignoreBinaries": ["gh"],
+  "ignoreDependencies": ["wrangler"],
   "ignore": [
     "src/test-setup.ts",
     "scripts/validate-foundry-schema.ts",
     ".github/scripts/extract-research.ts",
-    "scripts/gen3-fetch-locations.ts",
-    "src/components/dashboard/DagContext.tsx"
+    "scripts/gen3-fetch-locations.ts"
   ],
   "rules": {
     "files": "warn",

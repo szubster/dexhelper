@@ -114,13 +114,13 @@ export function SyncProgress() {
             <h3 className="font-black font-mono text-white text-xl uppercase tracking-tighter">
               {isComplete ? 'SYSTEM PRIMED' : 'INITIALIZING DATA'}
             </h3>
-            <p className="tactical-text font-bold text-[10px] text-zinc-500">
+            <p className="font-bold font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
               {isComplete ? 'DATABASE HANDSHAKE SUCCESSFUL' : `PROCESSING ${progress?.stage}...`}
             </p>
           </div>
 
           <div className="w-full space-y-2">
-            <div className="tactical-text flex justify-between font-black text-[10px]">
+            <div className="flex justify-between font-black font-mono text-[10px] uppercase tracking-widest">
               <span className="text-zinc-500">TRANSFER</span>
               <span className={isComplete ? 'text-emerald-500' : 'text-blue-500'}>{percentage}%</span>
             </div>

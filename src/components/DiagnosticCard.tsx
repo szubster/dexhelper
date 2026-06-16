@@ -28,7 +28,7 @@ export function DiagnosticCard({ label, value, subValue, valueClassName }: Diagn
 
       <div className="relative z-10 flex flex-1 flex-col p-4 pl-6">
         <div className="mb-3 flex items-center justify-between border-zinc-800/50 border-b border-dashed pb-2">
-          <p className="tactical-text font-black text-[9px] text-zinc-500 transition-colors group-hover:text-[var(--theme-primary)]">
+          <p className="font-black font-mono text-[9px] text-zinc-500 uppercase tracking-widest transition-colors group-hover:text-[var(--theme-primary)]">
             [ {label} ]
           </p>
           <Activity size={10} className="text-zinc-600 transition-colors group-hover:text-[var(--theme-primary)]" />

@@ -103,7 +103,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
       <div className="relative flex flex-col justify-between gap-4 border border-zinc-800/80 bg-zinc-900/50 p-6 sm:flex-row sm:items-center">
         <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/20" />
         <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-emerald-500/50 via-amber-500/50 to-purple-500/50" />
-        <div className="tactical-text pointer-events-none absolute -top-2.5 left-4 bg-zinc-950 px-1 text-[9px] text-[var(--theme-primary)]">
+        <div className="pointer-events-none absolute -top-2.5 left-4 bg-zinc-950 px-1 font-mono text-[9px] text-[var(--theme-primary)] uppercase tracking-widest">
           SYS.ASST
         </div>
 
@@ -124,7 +124,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
               <Bug size={18} />
             </button>
           </div>
-          <p className="tactical-text mt-1 text-[10px] text-zinc-500">
+          <p className="mt-1 font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
             [ SMART SUGGESTIONS GENERATED FROM SAVE TELEMETRY ]
           </p>
         </div>
@@ -180,13 +180,13 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                       <div
                         className={`flex items-center gap-3 border border-zinc-800 border-dashed bg-zinc-900/80 px-4 py-2`}
                       >
-                        <div className="tactical-text absolute -top-2 left-2 bg-zinc-950 px-1 text-[8px] text-zinc-500">
+                        <div className="absolute -top-2 left-2 bg-zinc-950 px-1 font-mono text-[8px] text-zinc-500 uppercase tracking-widest">
                           SYS.CAT
                         </div>
                         <div className={`${catStyle.bg} ${catStyle.color.replace('border-', 'text-')} p-1`}>
                           {catStyle.icon}
                         </div>
-                        <h3 className="tactical-text font-black text-lg text-white">
+                        <h3 className="font-black font-mono text-lg text-white uppercase tracking-widest">
                           [{' '}
                           {category === 'Catch'
                             ? 'WILD ENCOUNTERS'

@@ -21,7 +21,9 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
         <div className="rounded-none border border-zinc-700 border-dashed bg-zinc-800 p-2 text-zinc-400">
           <Bug size={16} />
         </div>
-        <h3 className="tactical-text font-black text-[14px] text-[var(--theme-primary)]">[ SYS.DIAGNOSTICS ]</h3>
+        <h3 className="font-black font-mono text-[14px] text-[var(--theme-primary)] uppercase tracking-widest">
+          [ SYS.DIAGNOSTICS ]
+        </h3>
       </div>
 
       <TacticalPanel variant="default" className="space-y-4 rounded-none border-dashed p-6 shadow-inner">
@@ -52,7 +54,9 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
           <div className="rounded-none border border-amber-500/30 border-dashed bg-amber-500/10 p-2 text-amber-400">
             <AlertCircle size={16} />
           </div>
-          <h4 className="tactical-text font-black text-[12px] text-amber-500">[ REJECTED_LOGS ]</h4>
+          <h4 className="font-black font-mono text-[12px] text-amber-500 uppercase tracking-widest">
+            [ REJECTED_LOGS ]
+          </h4>
         </div>
       )}
 

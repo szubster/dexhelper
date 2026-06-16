@@ -2,13 +2,13 @@
 id: task-099-186-mirage-island-parser-qa
 type: TASK
 title: QA Gen 3 Mirage Island Parser
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-06-14'
-updated_at: '2026-06-16'
+updated_at: '2026-06-15'
 depends_on:
   - task-099-185-mirage-island-parser-impl
-jules_session_id: '1077307730495745622'
+jules_session_id: null
 pr_number: null
 parent: story-061-099-implement-mirage-island-parser
 tags:

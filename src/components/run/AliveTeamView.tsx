@@ -48,7 +48,7 @@ export function AliveTeamView({ team, generation }: AliveTeamViewProps) {
                 </span>
 
                 <div className="mt-2 w-full space-y-1">
-                  <div className="tactical-text flex items-center justify-between px-1 text-[9px]">
+                  <div className="flex items-center justify-between px-1 font-mono text-[9px] uppercase tracking-widest">
                     <span className="text-zinc-500">LVL {pokemon.level}</span>
                     <span className="font-bold text-emerald-400">{pokemon.currentHp} HP</span>
                   </div>
@@ -87,7 +87,7 @@ export function AliveTeamView({ team, generation }: AliveTeamViewProps) {
               <span className="font-black font-mono text-red-500 text-xl uppercase tracking-[0.3em] drop-shadow-md">
                 CRITICAL_FAILURE
               </span>
-              <span className="tactical-text mt-2 font-black text-[10px] text-red-400/80">
+              <span className="mt-2 font-black font-mono text-[10px] text-red-400/80 uppercase tracking-widest">
                 [ TEAM_WIPE_DETECTED ] No vital signs found
               </span>
             </TacticalPanel>

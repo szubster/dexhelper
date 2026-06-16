@@ -36,6 +36,6 @@ This is the QA verification for `task-103-157-gen3-ribbon-bitfields-impl` to ext
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [x] Verify test cases cover the various ribbons and block formats.
-- [x] Verify `DataView` API is exclusively used.
-- [x] Verify out-of-bounds read errors are handled gracefully.
+- [ ] Verify test cases cover the various ribbons and block formats.
+- [ ] Verify `DataView` API is exclusively used.
+- [ ] Verify out-of-bounds read errors are handled gracefully.

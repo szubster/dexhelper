@@ -47,7 +47,7 @@ As per ADR 024, we are enforcing a strict "tactical hardware" aesthetic characte
    - If you submit an Empty PR because the target artifacts are already completely implemented, you MUST check off all Acceptance Criteria checkboxes (`- [x]`) below before submitting, as per ADR 007 and ADR 009.
 
 ## Acceptance Criteria
-- [x] `@utility tactical-input` is defined in `src/index.css` using Tailwind v4 syntax.
-- [x] `@utility tactical-text` is defined in `src/index.css` using Tailwind v4 syntax.
-- [x] Repetitive inline classes in `src/components/` (especially inputs and text blocks) have been replaced with the new utilities.
-- [x] No visual regressions are introduced; the tactical aesthetic remains unchanged.
+- [ ] `@utility tactical-input` is defined in `src/index.css` using Tailwind v4 syntax.
+- [ ] `@utility tactical-text` is defined in `src/index.css` using Tailwind v4 syntax.
+- [ ] Repetitive inline classes in `src/components/` (especially inputs and text blocks) have been replaced with the new utilities.
+- [ ] No visual regressions are introduced; the tactical aesthetic remains unchanged.

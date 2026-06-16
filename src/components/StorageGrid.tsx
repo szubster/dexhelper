@@ -168,7 +168,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                   <div className="flex items-center gap-4">
                     {/* Capacity Segmented Bar */}
                     <div className="flex items-center gap-2">
-                      <span className="tactical-text min-w-[40px] text-right font-black text-[9px] text-zinc-500">
+                      <span className="min-w-[40px] text-right font-black font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
                         {pokemonInLocation.length} /{' '}
                         {location === 'Party' ? 6 : location === 'Daycare' ? 2 : genConfig.boxCapacity}
                       </span>

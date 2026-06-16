@@ -31,5 +31,5 @@ Implement the removal of unnecessary logging statements from the orchestrator, a
 If you must abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` and provide a clear `rejection_reason`.
 
 ## Acceptance Criteria
-- [x] Remove routine state transition and verification logging to the TPM journal from `.github/scripts/foundry-heartbeat.ts` and related files.
-- [x] Ensure tests pass after removing the logging.
+- [ ] Remove routine state transition and verification logging to the TPM journal from `.github/scripts/foundry-heartbeat.ts` and related files.
+- [ ] Ensure tests pass after removing the logging.

@@ -10,7 +10,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import matter from 'gray-matter';
 import { discoverNodeFiles, parseNodeFile } from './foundry-orchestrator.ts';
-import { todayISO } from './dag-utils.ts';
+import { todayISO, logToJournal } from './dag-utils.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
@@ -42,6 +42,7 @@ export async function transitionNodeToFailed(node: any, repoRoot: string, reject
 
   if (!DRY_RUN) {
     fs.writeFileSync(node.filePath, newContent, 'utf-8');
+    logToJournal(repoRoot, `\n- **${dateStr}**: Heartbeat detected zombie session for \`${node.frontmatter.id}\`. Transitioned to FAILED.\n`);
   }
   info(`${dryTag}Transitioned ACTIVE → FAILED: ${node.repoPath}`);
 }
@@ -84,6 +85,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
 
        if (!DRY_RUN) {
          fs.writeFileSync(node.filePath, newContent, 'utf-8');
+         logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged but has unchecked tasks (parent node). \`${node.frontmatter.id}\` is now PENDING.\n`);
        }
        info(`${dryTag}Transitioned ACTIVE → PENDING: ${node.repoPath} (PR #${prNumber})`);
        return;
@@ -97,6 +99,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
 
        if (!DRY_RUN) {
          fs.writeFileSync(node.filePath, newContent, 'utf-8');
+         logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged with unchecked tasks. \`${node.frontmatter.id}\` is now FAILED.\n`);
        }
        info(`${dryTag}Transitioned ACTIVE → FAILED: ${node.repoPath} (PR #${prNumber})`);
        return;
@@ -114,6 +117,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
 
     if (!DRY_RUN) {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged. \`${node.frontmatter.id}\` is now VERIFYING.\n`);
     }
     info(`${dryTag}Transitioned ACTIVE → VERIFYING: ${node.repoPath} (PR #${prNumber})`);
   } else {
@@ -126,6 +130,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
 
     if (!DRY_RUN) {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: PR #${prNumber} merged. \`${node.frontmatter.id}\` is now COMPLETED.\n`);
     }
     info(`${dryTag}Transitioned ACTIVE → COMPLETED: ${node.repoPath} (PR #${prNumber})`);
   }
@@ -147,6 +152,7 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
     const newContent = matter.stringify(parsed.content, parsed.data);
     if (!DRY_RUN) {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: Max rejection count reached for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned to FAILED.\n`);
     }
     info(`${dryTag}Max rejection count reached → FAILED: ${node.repoPath} (${reason})`);
   } else {
@@ -159,6 +165,7 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
 
       if (!DRY_RUN) {
         fs.writeFileSync(node.filePath, newContent, 'utf-8');
+        logToJournal(repoRoot, `\n- **${dateStr}**: Resurrection Loop triggered for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to VERIFYING.\n`);
       }
       info(`${dryTag}Resurrected → VERIFYING: ${node.repoPath} (${reason})`);
     } else {
@@ -169,6 +176,7 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
 
       if (!DRY_RUN) {
         fs.writeFileSync(node.filePath, newContent, 'utf-8');
+        logToJournal(repoRoot, `\n- **${dateStr}**: Resurrection Loop triggered for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY.\n`);
       }
       info(`${dryTag}Resurrected → READY: ${node.repoPath} (${reason})`);
     }
@@ -194,6 +202,7 @@ export async function transitionNodeToReadyWithoutPenalty(node: any, repoRoot: s
 
     if (!DRY_RUN) {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: System failure detected for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to VERIFYING without penalty.\n`);
     }
     info(`${dryTag}System failure detected → VERIFYING: ${node.repoPath} (${reason})`);
   } else {
@@ -206,6 +215,7 @@ export async function transitionNodeToReadyWithoutPenalty(node: any, repoRoot: s
 
     if (!DRY_RUN) {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      logToJournal(repoRoot, `\n- **${dateStr}**: System failure detected for \`${node.frontmatter.id}\`. Reason: ${reason}. Transitioned back to READY without penalty.\n`);
     }
     info(`${dryTag}System failure detected → READY: ${node.repoPath} (${reason})`);
   }
@@ -463,6 +473,7 @@ export async function cleanupRemoteBranches(repoRoot: string, repoFullName: stri
     }
 
     // 4. Delete branches
+    const dateStr = todayISO();
     for (const branch of branchesToDelete) {
       if (DRY_RUN) {
         info(`[DRY-RUN] Would delete remote branch: ${branch}`);
@@ -474,6 +485,7 @@ export async function cleanupRemoteBranches(repoRoot: string, repoFullName: stri
 
         if (deleteRes.ok || deleteRes.status === 404 /* already deleted? */) {
           info(`Deleted remote branch: ${branch}`);
+          logToJournal(repoRoot, `\n- **${dateStr}**: Cleanup Loop deleted remote branch \`${branch}\`.\n`);
         } else {
           warn(`Failed to delete remote branch ${branch}: ${deleteRes.status} ${deleteRes.statusText}`);
         }

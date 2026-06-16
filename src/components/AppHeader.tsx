@@ -52,7 +52,9 @@ export function AppHeader({
               <span className="font-retro text-[8px] text-zinc-500 uppercase tracking-[0.3em]">
                 {saveData ? getGenerationConfig(saveData.generation).label : 'Protocol X'}
               </span>
-              <span className="tactical-text text-[8px] text-[var(--theme-primary)]">[ ONLINE ]</span>
+              <span className="font-mono text-[8px] text-[var(--theme-primary)] uppercase tracking-widest">
+                [ ONLINE ]
+              </span>
             </div>
           </div>
         </Link>
@@ -262,7 +264,7 @@ export function AppHeader({
             type="button"
             aria-label="Upload Save File"
             onClick={() => document.getElementById('init-save-input')?.click()}
-            className="group slide-in-from-bottom-2 fade-in tactical-text relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
+            className="group slide-in-from-bottom-2 fade-in relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black font-mono text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
           >
             <CornerCrosshairs className="h-2 w-2 border-current" />
             <Upload size={20} />[ UPLOAD.SYS ]
@@ -282,7 +284,7 @@ export function AppHeader({
               type="button"
               aria-label="Start Live Sync"
               onClick={requestSync}
-              className="group slide-in-from-bottom-2 fade-in tactical-text relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
+              className="group slide-in-from-bottom-2 fade-in relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black font-mono text-[11px] text-[var(--theme-primary)] uppercase tracking-widest transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
             >
               <CornerCrosshairs className="h-2 w-2 border-current" />
               <Activity size={20} />[ LIVE_SYNC.SYS ]

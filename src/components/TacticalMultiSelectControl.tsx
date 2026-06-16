@@ -41,7 +41,7 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
       {legendLabel && (
         <>
           <legend className="sr-only">{ariaLabel || legendLabel}</legend>
-          <span className="tactical-text text-[9px] text-zinc-500">{legendLabel}</span>
+          <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">{legendLabel}</span>
         </>
       )}
       {!legendLabel && ariaLabel && <legend className="sr-only">{ariaLabel}</legend>}
@@ -65,7 +65,7 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
               data-testid={item.testId}
               title={typeof item.label === 'string' ? `${item.label} filter` : undefined}
               className={cn(
-                'tactical-text flex-1 px-2 py-3 font-black text-[10px] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+                'flex-1 px-2 py-3 font-black font-mono text-[10px] uppercase tracking-widest transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
                 !isLast && 'border-zinc-800 border-r border-dashed',
                 isActive ? activeClass : inactiveClass,
                 buttonBaseClassName,

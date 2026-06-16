@@ -35,6 +35,6 @@ The Coder has been tasked with defining `@utility tactical-panel` and `@utility 
 * **CRITICAL**: If the target artifacts are already verified, you MUST check all Acceptance Criteria checkboxes (`- [x]`) before submitting an empty PR. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009.
 
 ## Acceptance Criteria
-- [x] Confirmed that `@utility tactical-panel` is properly defined in `src/index.css`.
-- [x] Confirmed that `@utility tactical-card` is properly defined in `src/index.css`.
-- [x] Confirmed the implementation adheres to the aesthetic requirements defined in ADR 024.
+- [ ] Confirmed that `@utility tactical-panel` is properly defined in `src/index.css`.
+- [ ] Confirmed that `@utility tactical-card` is properly defined in `src/index.css`.
+- [ ] Confirmed the implementation adheres to the aesthetic requirements defined in ADR 024.

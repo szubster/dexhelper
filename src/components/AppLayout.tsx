@@ -81,10 +81,12 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="absolute inset-0 border-[26px] border-black/80" />
 
         {/* Hardware details in bezel */}
-        <div className="tactical-text absolute top-2 left-6 font-black text-[8px] text-zinc-700">
+        <div className="absolute top-2 left-6 font-black font-mono text-[8px] text-zinc-700 uppercase tracking-widest">
           [ MODEL: DEX-OS V2 ]
         </div>
-        <div className="tactical-text absolute right-6 bottom-2 font-black text-[8px] text-zinc-700">POWER: ONLINE</div>
+        <div className="absolute right-6 bottom-2 font-black font-mono text-[8px] text-zinc-700 uppercase tracking-widest">
+          POWER: ONLINE
+        </div>
 
         {/* Physical Screws */}
         <div className="absolute top-2 left-2 flex h-2 w-2 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]">

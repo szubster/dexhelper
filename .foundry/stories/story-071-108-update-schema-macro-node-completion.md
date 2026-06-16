@@ -34,4 +34,3 @@ Update `.foundry/docs/schema.md` to explain the new hierarchical completion rule
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-108-161-update-schema-macro-node-completion-impl
-- [ ] task-108-191-update-schema-parent-child-formatting-impl

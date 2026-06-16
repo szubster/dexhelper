@@ -38,7 +38,7 @@ export function VisitedRoutesChecklist({ visited, unvisited }: VisitedRoutesChec
                 <span className="truncate font-bold text-xs text-zinc-300 uppercase tracking-wider">
                   {route.locationName}
                 </span>
-                <span className="tactical-text text-[10px] text-zinc-500">
+                <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
                   {route.encounters.length} ENCOUNTER{route.encounters.length !== 1 ? 'S' : ''}
                 </span>
               </div>

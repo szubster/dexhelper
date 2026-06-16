@@ -37,5 +37,5 @@ Verify the Coder's implementation of the Gen 1 Hall of Fame parser.
 - If you submit an empty PR to verify a pre-existing target artifact, you MUST check off all Acceptance Criteria checkboxes before doing so.
 
 ## Acceptance Criteria
-- [x] Tests exist for Gen 1 HoF count extraction (Red/Blue vs Yellow).
-- [x] Code uses `DataView` API.
+- [ ] Tests exist for Gen 1 HoF count extraction (Red/Blue vs Yellow).
+- [ ] Code uses `DataView` API.

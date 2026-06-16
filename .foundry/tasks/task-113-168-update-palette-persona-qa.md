@@ -2,7 +2,7 @@
 id: task-113-168-update-palette-persona-qa
 type: TASK
 title: QA - Update palette agent prompt to define ownership of Tailwind styling
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-12'
 updated_at: '2026-06-16'
@@ -25,7 +25,6 @@ notes: ''
 
 ## Objective
 Verify the changes implemented in `task-113-167-update-palette-persona-impl` to `.github/agents/palette.md`.
-**Validation Failed**: The implementation task failed to update .github/agents/palette.md with the required changes.
 
 ## Context
 The coder was tasked with updating the `palette` agent prompt to assign ownership of `src/index.css`, enforce the tactical hardware aesthetic, and manage custom `@utility` primitives via ADR 024. This verification task ensures those requirements were met.

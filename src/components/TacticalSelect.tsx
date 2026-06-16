@@ -13,7 +13,7 @@ export const TacticalSelect = React.forwardRef<HTMLSelectElement, TacticalSelect
         <select
           ref={ref}
           className={cn(
-            'tactical-text w-full appearance-none rounded-none border border-zinc-800 border-dashed bg-zinc-950 px-3 py-2 pr-8 font-black text-[9px] text-zinc-500 transition-all hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:cursor-not-allowed disabled:opacity-50',
+            'w-full appearance-none rounded-none border border-zinc-800 border-dashed bg-zinc-950 px-3 py-2 pr-8 font-black font-mono text-[9px] text-zinc-500 uppercase tracking-widest transition-all hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:cursor-not-allowed disabled:opacity-50',
             className,
           )}
           {...props}

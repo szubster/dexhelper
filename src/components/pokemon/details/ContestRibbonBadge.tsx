@@ -36,7 +36,7 @@ export const ContestRibbonBadge = React.forwardRef<HTMLDivElement, ContestRibbon
         ref={ref}
         title={getTooltipText(type, rank)}
         className={cn(
-          'tactical-text inline-flex items-center gap-1.5 rounded-none border border-dashed px-2 py-1 text-xs',
+          'inline-flex items-center gap-1.5 rounded-none border border-dashed px-2 py-1 font-mono text-xs uppercase tracking-widest',
           typeColorMap[type],
           className,
         )}

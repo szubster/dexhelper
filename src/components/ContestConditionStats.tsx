@@ -56,7 +56,7 @@ export const ContestConditionStats = React.forwardRef<HTMLDivElement, ContestCon
     return (
       <TacticalPanel ref={ref} variant="default" className={cn('flex flex-col gap-4 p-4', className)} {...props}>
         <div className="flex items-center gap-2 border-white/20 border-b border-dashed pb-2">
-          <span className="tactical-text font-bold text-sm text-white">Contest Conditions</span>
+          <span className="font-bold font-mono text-sm text-white uppercase tracking-widest">Contest Conditions</span>
         </div>
 
         <div className="flex flex-col gap-3">

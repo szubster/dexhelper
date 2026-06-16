@@ -2,13 +2,13 @@
 id: task-095-184-gen3-berry-dataview-parsing-retry-qa
 type: TASK
 title: QA Verification for Gen 3 Berry Tracker DataView Parsing Logic (Retry)
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-06-14'
-updated_at: '2026-06-16'
+updated_at: '2026-06-15'
 depends_on:
   - task-095-183-gen3-berry-dataview-parsing-retry
-jules_session_id: '3223297852091900288'
+jules_session_id: null
 pr_number: null
 parent: story-055-095-gen3-berry-data-parsing
 tags:

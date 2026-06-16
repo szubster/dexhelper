@@ -244,7 +244,7 @@ export function PokemonDetails({
                 </h2>
                 <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
                   {stadiumReward && (
-                    <div className="tactical-text flex items-center gap-1.5 rounded-none border border-blue-500/50 border-dashed bg-blue-500/10 px-3 py-1 text-[10px] text-blue-400 backdrop-blur-md">
+                    <div className="flex items-center gap-1.5 rounded-none border border-blue-500/50 border-dashed bg-blue-500/10 px-3 py-1 font-mono text-[10px] text-blue-400 uppercase tracking-widest backdrop-blur-md">
                       <Monitor size={12} /> Stadium Reward
                     </div>
                   )}

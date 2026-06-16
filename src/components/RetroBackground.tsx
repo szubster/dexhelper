@@ -46,7 +46,7 @@ export function RetroBackground(_props: RetroBackgroundProps) {
           SYS.TER
         </div>
 
-        <div className="tactical-text absolute top-10 left-10 origin-top-left rotate-90 font-black text-4xl text-white/[0.02]">
+        <div className="absolute top-10 left-10 origin-top-left rotate-90 font-black font-mono text-4xl text-white/[0.02] uppercase tracking-widest">
           [ DEPLOYED ]
         </div>
       </div>
