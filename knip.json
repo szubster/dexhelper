@@ -5,14 +5,16 @@
     "gh"
   ],
   "ignoreDependencies": [
-    "wrangler"
+    "wrangler",
+    "@cloudflare/pages-plugin-cloudflare-access"
   ],
   "ignore": [
     "src/test-setup.ts",
     "scripts/validate-foundry-schema.ts",
     ".github/scripts/extract-research.ts",
     "scripts/gen3-fetch-locations.ts",
-    "src/components/dashboard/DagContext.tsx"
+    "functions/_middleware.ts",
+    "scripts/data/gen3/match_call/etl.ts"
   ],
   "rules": {
     "files": "warn",

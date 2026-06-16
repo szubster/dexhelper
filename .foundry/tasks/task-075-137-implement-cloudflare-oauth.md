@@ -30,7 +30,7 @@ notes: ''
 Based on the outcomes of `research-136-cloudflare-oauth-libraries`, implement the Google SSO flow using the selected Cloudflare-native approach or Access policies.
 
 ## Acceptance Criteria
-- [ ] Implement Google OAuth2/SSO login flow within the Cloudflare backend using the library/approach recommended in the preceding research.
-- [ ] Add necessary authentication endpoints or middleware routing.
-- [ ] Configure the single user restriction on the Google SSO side or via Cloudflare Access policies, adhering strictly to the "no custom application logic" constraint.
-- [ ] Reject all other login attempts with a clear unauthorized response.
+- [x] Implement Google OAuth2/SSO login flow within the Cloudflare backend using the library/approach recommended in the preceding research.
+- [x] Add necessary authentication endpoints or middleware routing.
+- [x] Configure the single user restriction on the Google SSO side or via Cloudflare Access policies, adhering strictly to the "no custom application logic" constraint.
+- [x] Reject all other login attempts with a clear unauthorized response.
