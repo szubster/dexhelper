@@ -37,6 +37,6 @@ Verify the late-binding logic in the orchestrator and add any missing test cases
 - Ensure test changes are robust and maintain current testing patterns. Do not modify global graph state tests without extreme caution.
 
 ## Acceptance Criteria
-- [ ] Review late-binding logic (`Late-Binding Parent` handling, exceptions for PENDING parents) in `.github/scripts/foundry-orchestrator.ts`.
-- [ ] Add or verify comprehensive test cases for late-binding logic in `.github/scripts/foundry-orchestrator.test.ts`.
-- [ ] Ensure `pnpm test` passes.
+- [x] Review late-binding logic (`Late-Binding Parent` handling, exceptions for PENDING parents) in `.github/scripts/foundry-orchestrator.ts`.
+- [x] Add or verify comprehensive test cases for late-binding logic in `.github/scripts/foundry-orchestrator.test.ts`.
+- [x] Ensure `pnpm test` passes.
