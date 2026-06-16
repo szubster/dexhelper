@@ -37,5 +37,5 @@ This task defines the data model for Hidden Items based on the requirements of `
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] TypeScript interfaces for `HiddenItemData` are defined and exported.
-- [ ] The properties strictly follow the ADR 015 naming convention.
+- [x] TypeScript interfaces for `HiddenItemData` are defined and exported.
+- [x] The properties strictly follow the ADR 015 naming convention.
