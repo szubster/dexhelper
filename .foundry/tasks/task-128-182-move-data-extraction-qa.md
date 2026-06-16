@@ -2,13 +2,13 @@
 id: task-128-182-move-data-extraction-qa
 type: TASK
 title: QA Move Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-16'
 depends_on:
   - task-128-181-move-data-extraction-impl
-jules_session_id: null
+jules_session_id: '3121992045520011283'
 pr_number: null
 parent: story-086-128-move-data-extraction
 tags:

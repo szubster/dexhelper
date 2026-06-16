@@ -2,12 +2,12 @@
 id: task-115-165-implement-tactical-input-text
 type: TASK
 title: Implement tactical-input and tactical-text utilities
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-11'
-updated_at: '2026-06-12'
+updated_at: '2026-06-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14471850506295913779'
 pr_number: null
 parent: story-074-115-define-tactical-input-and-text
 tags:

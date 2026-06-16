@@ -2,13 +2,13 @@
 id: task-112-166-qa-gen2-hof-parsing
 type: TASK
 title: QA Gen 2 Hall of Fame Parsing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-15'
+updated_at: '2026-06-16'
 depends_on:
   - task-112-165-implement-gen2-hof-parsing
-jules_session_id: null
+jules_session_id: '3819104371184660541'
 pr_number: null
 parent: story-070-112-parse-gen2-hof-data
 tags:
@@ -33,9 +33,9 @@ A coder has implemented the parsing logic for extracting the Hall of Fame count 
 - Confirm that unit tests adequately cover this specific Gen 2 parsing logic.
 
 ## Acceptance Criteria
-- [ ] Code properly calculates the relative offset.
-- [ ] Code extracts the unsigned 8-bit integer.
-- [ ] Unit tests pass and provide sufficient coverage.
+- [x] Code properly calculates the relative offset.
+- [x] Code extracts the unsigned 8-bit integer.
+- [x] Unit tests pass and provide sufficient coverage.
 
 > **IMPORTANT REMINDER**:
 > - If you permanently fail or abort this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

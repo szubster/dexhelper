@@ -2,7 +2,7 @@
 id: epic-041-065-individual-contest-stats-view
 type: EPIC
 title: Individual Contest Stats View
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-06-16'
