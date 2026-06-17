@@ -3,6 +3,7 @@ import {
   isGen3Save,
   parseGen3,
   parseGen3ConditionStats,
+  parseGen3MatchCall,
   parseGen3MirageIslandValue,
   parseGen3PersonalityValue,
   parseGen3PokeNews,
@@ -425,5 +426,43 @@ describe('parseGen3PokeNews', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3PokeNews(view, 0)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3MatchCall', () => {
+  it('should extract match call data correctly', () => {
+    const buffer = new ArrayBuffer(8192);
+    const view = new DataView(buffer);
+
+    const section1Offset = 0;
+    const section2Offset = 4096;
+
+    // Set hasMatchCall flag (bit 7 of 0x0315)
+    view.setUint8(section2Offset + 0x0315, 128);
+
+    // Set registered trainers (start at 0x031B, bit 4)
+    // We'll set the very first trainer (bit 4) to true
+    view.setUint8(section2Offset + 0x031b, 16);
+
+    // Set trainer rematches
+    view.setUint8(section1Offset + 0x09ca, 2); // Trainer 0 ready, tier 2
+    view.setUint8(section1Offset + 0x09cb, 0); // Trainer 1 not ready
+
+    const result = parseGen3MatchCall(view, section1Offset, section2Offset);
+
+    expect(result.hasMatchCall).toBe(true);
+    expect(result.registeredTrainers[0]).toBe(true);
+    expect(result.registeredTrainers[1]).toBe(false);
+    expect(result.trainerRematches[0]).toBe(2);
+    expect(result.trainerRematches[1]).toBe(0);
+    expect(result.trainerRematches).toHaveLength(100);
+    expect(result.registeredTrainers).toHaveLength(78);
+  });
+
+  it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3MatchCall(view, 0, 0)).toThrowError('The save file is corrupted or incomplete.');
   });
 });

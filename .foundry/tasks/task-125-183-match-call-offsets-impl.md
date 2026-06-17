@@ -35,10 +35,10 @@ Refer to the findings in `research-125-173-gen3-match-call-offsets.md`.
 - Define memory locations and structure of rematch tier states.
 
 ## Acceptance Criteria
-- [ ] Implement offset constants for the Match Call data block.
-- [ ] Implement offset constants for rematch readiness flags.
-- [ ] Implement offset constants for rematch tier states.
-- [ ] Conform to ADR 010.
+- [x] Implement offset constants for the Match Call data block.
+- [x] Implement offset constants for rematch readiness flags.
+- [x] Implement offset constants for rematch tier states.
+- [x] Conform to ADR 010.
 
 ## Instructions
 - Ensure you read the associated research node.

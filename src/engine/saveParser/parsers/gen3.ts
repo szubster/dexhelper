@@ -199,6 +199,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const mirageIslandOffset = _forcedVersion === 'emerald' ? 0x0464 : 0x0408;
     const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
+    const gen3MatchCall = parseGen3MatchCall(view, section1Offset, section2Offset);
+
     // Dummy scaffold values for now until fully implemented
     return {
       generation: 3,
@@ -220,6 +222,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       hiddenItemFlags,
       mirageIslandValue,
       gen3PokeNews,
+      gen3MatchCall,
     };
   } catch (error) {
     if (error instanceof RangeError) {
@@ -294,6 +297,47 @@ export function parseGen3PokeNews(view: DataView, offset: number) {
       news.push({ kind, state, dayCountdown });
     }
     return news;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+export const GEN3_MATCH_CALL_DATA_OFFSET = 0x09ca;
+export const GEN3_MATCH_CALL_DATA_LENGTH = 100;
+
+export const GEN3_FLAGS_SECTION2_OFFSET = 0x02f0;
+export const GEN3_HAS_MATCH_CALL_FLAG_ID = 303;
+export const GEN3_TRAINER_REGISTERED_FLAGS_START_ID = 348;
+export const GEN3_REMATCH_TABLE_ENTRIES = 78;
+
+export function parseGen3MatchCall(view: DataView, section1Offset: number, section2Offset: number) {
+  try {
+    const trainerRematches: number[] = [];
+    const matchCallDataOffset = section1Offset + GEN3_MATCH_CALL_DATA_OFFSET;
+    for (let i = 0; i < GEN3_MATCH_CALL_DATA_LENGTH; i++) {
+      trainerRematches.push(view.getUint8(matchCallDataOffset + i));
+    }
+
+    // FLAG_HAS_MATCH_CALL is flag 303
+    const hasMatchCallByteOffset = Math.floor(GEN3_HAS_MATCH_CALL_FLAG_ID / 8);
+    const hasMatchCallBitIndex = GEN3_HAS_MATCH_CALL_FLAG_ID % 8;
+    const hasMatchCallByte = view.getUint8(section2Offset + GEN3_FLAGS_SECTION2_OFFSET + hasMatchCallByteOffset);
+    const hasMatchCall = (hasMatchCallByte & (1 << hasMatchCallBitIndex)) !== 0;
+
+    const registeredTrainers: boolean[] = [];
+    const flagsOffset = section2Offset + GEN3_FLAGS_SECTION2_OFFSET;
+    for (let i = 0; i < GEN3_REMATCH_TABLE_ENTRIES; i++) {
+      const flagId = GEN3_TRAINER_REGISTERED_FLAGS_START_ID + i;
+      const byteOffset = Math.floor(flagId / 8);
+      const bitIndex = flagId % 8;
+      const byteValue = view.getUint8(flagsOffset + byteOffset);
+      registeredTrainers.push((byteValue & (1 << bitIndex)) !== 0);
+    }
+
+    return { hasMatchCall, registeredTrainers, trainerRematches };
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');

@@ -100,3 +100,9 @@ When implementing `task-121-171-gen3-tv-block-parser-impl`, the exact memory off
 ## 2026-06-17: Cloudflare Pages Integration
 When creating or modifying `functions/_middleware.ts` to implement `@cloudflare/pages-plugin-cloudflare-access`, ensure that both `@cloudflare/pages-plugin-cloudflare-access` and `@cloudflare/workers-types` are installed to the workspace root using the `-w` flag.
 Furthermore, the `functions/_middleware.ts` file and these dependencies must be properly ignored in `knip.json` to avoid unused exports warnings, as Knip does not natively understand Cloudflare Pages Functions directory structure without custom configuration.
+
+## Memory Offset Constants
+When implementing save file parsing or data definitions, explicitly define and use reusable constants for memory offsets, lengths, and bit locations instead of hardcoding inline magic numbers. Failing to do so will result in code review rejection for lack of reusability and clarity.
+
+## Documentation Truncation and Groundedness
+If reading a documentation or research file results in truncated output, do not rely on pre-trained knowledge for specific technical values (e.g., memory offsets or bit locations). Use `tail` or `sed` to read the remainder of the file and explicitly verify the values in the execution trace before including them in plans or code.
