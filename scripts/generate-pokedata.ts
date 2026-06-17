@@ -604,6 +604,54 @@ for (const cid of uniqueChainIds) {
   registerChain(fullChain, []);
 }
 
+console.log('\nProcessing Moves...');
+const moves: any[] = [];
+// We primarily care about moves present up to Gen 3
+const MAX_MOVE_ID = 354;
+for (let i = 1; i <= MAX_MOVE_ID; i++) {
+  const mDataPath = path.join(dataPath, `move/${i}/index.json`);
+  const mData = readJson(mDataPath);
+  if (!mData) continue;
+
+  const typeId = parseInt(mData.type.url.split('/').filter(Boolean).pop() || '0', 10);
+
+  let dmgClass = 0;
+  if (mData.damage_class) {
+    const dcId = parseInt(mData.damage_class.url.split('/').filter(Boolean).pop() || '0', 10);
+    // PokeAPI: 1=status, 2=physical, 3=special
+    // Our DB: 1=physical, 2=special, 3=status
+    if (dcId === 2) dmgClass = 1;
+    else if (dcId === 3) dmgClass = 2;
+    else if (dcId === 1) dmgClass = 3;
+  }
+
+  let effect: number | undefined;
+  if (mData.effect_chance !== null && mData.effect_chance > 0) {
+    effect = mData.effect_chance;
+  } else if (mData.meta && mData.meta.ailment && mData.meta.ailment.url) {
+    const ailmentId = parseInt(mData.meta.ailment.url.split('/').filter(Boolean).pop() || '0', 10);
+    if (ailmentId > 0) {
+      effect = ailmentId;
+    }
+  }
+
+  const move: any = {
+    id: mData.id,
+    name: mData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || mData.name,
+    type: typeId,
+    p: mData.power,
+    acc: mData.accuracy,
+    pp: mData.pp,
+    dmg_class: dmgClass,
+  };
+
+  if (effect !== undefined) {
+    move.effect = effect;
+  }
+
+  moves.push(move);
+}
+
 /**
  * Recursively strips nulls, undefined values, default falsy states, and empty arrays from an object.
  *
@@ -644,6 +692,11 @@ function compact(obj: any): any {
       // Omit max if same as min (encounter levels)
       if (key === 'max' && value === obj.min) continue;
 
+      // Omit move power p if 0 or null
+      if (key === 'p' && (value === 0 || value === null)) continue;
+      // Omit move acc if 100 or null
+      if (key === 'acc' && (value === 100 || value === null)) continue;
+
       result[key] = compact(value);
     }
     return result;
@@ -660,6 +713,7 @@ writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounte
   enc: encs.map(compact)
 })));
 writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => a.id - b.id));
+writeJsonl(path.join(OUTPUT_DIR, 'moves.jsonl'), moves.map(compact));
 
   // Write metadata
   fs.writeFileSync(path.join(OUTPUT_DIR, 'metadata.json'), JSON.stringify({
