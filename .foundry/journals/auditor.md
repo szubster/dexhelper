@@ -108,7 +108,18 @@ Engine parsing rules MUST consistently use relative offsets based on known, stab
 ## Epic-071-074: Tailwind v4 Tactical Utilities Consolidation
 
 Verification was successful for `epic-071-074-define-tailwind-v4-utilities`.
-* **Learnings**: Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block, unless defining specific internal overrides.
-* **Findings**: The CSS primitives (`tactical-panel`, `tactical-button`, `tactical-focus`, `tactical-card`, `tactical-input`, `tactical-text`) were successfully defined in `src/index.css` following ADR 024.
-* **Outcome**: The epic is complete. No new architecture/research nodes need to be spawned currently since the implementation matches the ADR completely.
+
+**Learnings**: Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block, unless defining specific internal overrides.
+
 When verifying macro nodes like EPICs, it's critical to recursively check that all spawned descendant nodes (down to the TASK level) have fully transitioned to the COMPLETED state before submitting an empty PR. Relying solely on the parent node's acceptance criteria checkboxes or immediate child nodes can prematurely transition the node to VERIFYING, leading to system inconsistency as the actual implementation might not yet be merged into the codebase. This applies to all deep levels of the spawned sub-tree.
+
+## 2026-06-18: Verification of Gen 2 Pokerus State Exfiltration Epic
+I verified the Epic `epic-038-061-pokerus-state-exfiltration` and its child nodes which exfiltrate Pokerus state from Gen 2 saves. The Epic nodes and all subsequent child tasks have been verified as completed, successfully parsing the strain and days remaining from the single raw Pokerus byte.
+
+**Why this matters:**
+This confirms the architecture accurately scales bitwise state extractions, reliably handling nuances such as the "cured" boundary state where the game differentiates between non-zero strain/zero days and pure zeros.
+
+**Recommendation/Learnings:**
+The usage of specific bitwise operators (`>> 4` and `& 0x0f`) accompanied by targeted edge-case unit tests ensures regressions are caught early in core data structures. This pattern of boundary testing for custom bit fields is crucial and should be propagated to other similar bit-level extraction systems in Gen 3/4.
+## Save File Parsing Strategy
+When implementing save file parsing, strictly use dynamic relative offset calculations (anchored to known base offsets) instead of absolute hardcoded offsets for extracting dynamic data blocks to ensure robustness against version-specific shifts and prevent regressions.

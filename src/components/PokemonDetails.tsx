@@ -16,6 +16,7 @@ import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
 import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
 import { PokemonLocations } from './pokemon/details/PokemonLocations';
 import { PokemonSprite } from './pokemon/PokemonSprite';
+import { UnownDexPanel } from './pokemon/unown/UnownDexPanel';
 import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalIconButton } from './TacticalIconButton';
 import { TacticalModal } from './TacticalModal';
@@ -300,6 +301,7 @@ export function PokemonDetails({
           {/* Right Column: Details & Locations */}
           <div className="space-y-12 lg:col-span-7">
             <PokemonCaughtDetails yourPokemon={yourPokemon} />
+            {pokemonId === 201 && saveData?.generation === 2 && <UnownDexPanel yourPokemon={yourPokemon} />}
 
             <PokemonEvolutions
               evoReq={evoReq}

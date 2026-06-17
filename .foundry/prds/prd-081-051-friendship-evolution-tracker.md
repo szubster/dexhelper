@@ -2,12 +2,12 @@
 id: prd-081-051-friendship-evolution-tracker
 type: PRD
 title: Exact Friendship & Evolution Tracker
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-15'
-updated_at: '2026-06-15'
+updated_at: '2026-06-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12750907497075449705'
 parent: idea-081-friendship-evolution-tracker
 tags:
   - gen2
@@ -46,9 +46,13 @@ Removes the guesswork and tedious NPC checking from the Friendship mechanic. By 
 - Tracking Friendship in Generation 1 (as the mechanic did not exist in the same way, except for Pikachu in Yellow, which is tracked separately).
 
 ## Acceptance Criteria
+- [x] Break down into Tasks
 - [ ] Read Friendship data from Generation 2 save files (Party and PC).
 - [ ] Read Friendship data from Generation 3 save files (Party and PC).
 - [ ] Implement UI to display exact Friendship value and progress bar.
 - [ ] Implement UI to calculate and display Return/Frustration base power.
 - [ ] Implement filtering for Pokémon that evolve via Friendship.
 - [ ] Provide estimated "actions needed" to reach the 220 threshold.
+
+- [ ] epic-051-094-friendship-data-extraction
+- [ ] epic-051-095-friendship-tracker-ui

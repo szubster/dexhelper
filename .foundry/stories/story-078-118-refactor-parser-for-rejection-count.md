@@ -31,5 +31,5 @@ As required by ADR 017, we need to extract the `rejection_count` to display perm
 - [x] Break down into Tasks
 
 ### Generated Tasks
-- [ ] task-118-168-impl-extract-rejection-count
-- [ ] task-118-169-qa-extract-rejection-count
+- [x] task-118-168-impl-extract-rejection-count
+- [x] task-118-169-qa-extract-rejection-count

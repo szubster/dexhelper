@@ -27,10 +27,10 @@ notes: ''
 Implement the parsing logic to extract Mix Record flags/data from Gen 3 save files to identify inherited events. The parser MUST use the `DataView` API as mandated by ADR-010 to ensure bounds checking and prevent silent failures on corrupted saves.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView`-based parser for Gen 3 Mix Record flags/data.
-- [ ] Parse data to identify if events were inherited from the "Mix Record" feature.
-- [ ] Handle potential out-of-bounds reads via `DataView` `RangeError` with graceful propagation.
-- [ ] Ensure backward compatibility with existing parsers as required by ADR-010.
+- [x] Implement `DataView`-based parser for Gen 3 Mix Record flags/data.
+- [x] Parse data to identify if events were inherited from the "Mix Record" feature.
+- [x] Handle potential out-of-bounds reads via `DataView` `RangeError` with graceful propagation.
+- [x] Ensure backward compatibility with existing parsers as required by ADR-010.
 
 ## Contract Reminders
 **To Coder / QA:**

@@ -4,6 +4,7 @@ import {
   parseGen3,
   parseGen3ConditionStats,
   parseGen3MirageIslandValue,
+  parseGen3MixRecords,
   parseGen3PersonalityValue,
   parseGen3PokeNews,
   parseGen3Ribbons,
@@ -395,6 +396,46 @@ describe('parseGen3Ribbons', () => {
 
     // Attempting to read a 32-bit integer (4 bytes) starting at offset 2 will exceed the 4-byte buffer
     expect(() => parseGen3Ribbons(view, 2)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3MixRecords', () => {
+  it('should extract active mix record events correctly', () => {
+    const buffer = new ArrayBuffer(900); // 25 shows * 36 bytes
+    const view = new DataView(buffer);
+
+    // Show 1: Normal show (kind 1, active) - should be ignored
+    view.setUint8(0, 1);
+    view.setUint8(1, 1);
+
+    // Show 2: Mix Record show (kind 22, active) - should be included
+    view.setUint8(36, 22);
+    view.setUint8(37, 1);
+
+    // Show 3: Mix Record show (kind 31, active) - should be included
+    view.setUint8(72, 31);
+    view.setUint8(73, 1);
+
+    // Show 4: Mix Record show (kind 33, inactive) - should be ignored
+    view.setUint8(108, 33);
+    view.setUint8(109, 0);
+
+    // Show 5: Outbreak show (kind 45, active) - should be ignored
+    view.setUint8(144, 45);
+    view.setUint8(145, 1);
+
+    const result = parseGen3MixRecords(view, 0);
+
+    expect(result).toHaveLength(2);
+    expect(result[0]).toEqual({ kind: 22, active: true });
+    expect(result[1]).toEqual({ kind: 31, active: true });
+  });
+
+  it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
+    const buffer = new ArrayBuffer(800); // Not enough space for 25 items (900 bytes)
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3MixRecords(view, 0)).toThrowError('The save file is corrupted or incomplete.');
   });
 });
 

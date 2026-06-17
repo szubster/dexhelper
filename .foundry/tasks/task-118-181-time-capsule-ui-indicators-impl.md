@@ -47,8 +47,8 @@ Implement UI indicators for Time Capsule readiness in the DexHelper application,
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Time Capsule validation utility implemented and uses `isGen1Species` and `hasGen2ExclusiveMove`.
-- [ ] Visual indicator added to the Storage View for Gen 2 saves.
-- [ ] Detailed Pokémon view displays Time Capsule status and highlights validation failures.
-- [ ] Unit tests implemented and passing.
-- [ ] `pnpm type-check` passes.
+ - [x] Time Capsule validation utility implemented and uses `isGen1Species` and `hasGen2ExclusiveMove`.
+ - [x] Visual indicator added to the Storage View for Gen 2 saves.
+ - [x] Detailed Pokémon view displays Time Capsule status and highlights validation failures.
+ - [x] Unit tests implemented and passing.
+ - [x] `pnpm type-check` passes.
