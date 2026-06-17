@@ -2,13 +2,13 @@
 id: task-095-158-gen2-event-flag-qa
 type: TASK
 title: Gen 2 Event Flag Extraction - QA Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-17'
 depends_on:
   - task-095-157-gen2-event-flag-impl
-jules_session_id: '18067792966618578876'
+jules_session_id: null
 pr_number: null
 parent: story-061-095-gen2-event-flag-extraction
 tags:

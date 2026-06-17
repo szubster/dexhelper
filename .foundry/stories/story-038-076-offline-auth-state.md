@@ -2,13 +2,13 @@
 id: story-038-076-offline-auth-state
 type: STORY
 title: Client-side Offline Auth State Management
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-06-17'
 depends_on:
   - story-038-075-google-sso-integration
-jules_session_id: '9039517708020495839'
+jules_session_id: null
 pr_number: null
 parent: epic-030-038-cloudflare-google-sso
 tags:

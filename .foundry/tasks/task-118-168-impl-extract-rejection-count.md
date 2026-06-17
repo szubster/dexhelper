@@ -2,12 +2,12 @@
 id: task-118-168-impl-extract-rejection-count
 type: TASK
 title: Implement DAG Data Parsing for Rejection Count
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-12'
 updated_at: '2026-06-17'
 depends_on: []
-jules_session_id: '8042649799923813950'
+jules_session_id: null
 pr_number: null
 parent: story-078-118-refactor-parser-for-rejection-count
 tags:
