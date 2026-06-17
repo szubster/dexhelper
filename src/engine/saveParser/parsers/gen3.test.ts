@@ -5,6 +5,7 @@ import {
   parseGen3ConditionStats,
   parseGen3MirageIslandValue,
   parseGen3PersonalityValue,
+  parseGen3PokeNews,
   parseGen3Ribbons,
 } from './gen3';
 
@@ -99,6 +100,9 @@ describe('gen3 parser scaffolding', () => {
     expect(patch0?.watered2).toBe(false);
     expect(patch0?.watered3).toBe(true);
     expect(patch0?.watered4).toBe(false);
+
+    expect(saveData.gen3PokeNews).toBeDefined();
+    expect(saveData.gen3PokeNews?.length).toBe(16);
   });
 
   it('isGen3Save should catch RangeError and return false', () => {
@@ -391,5 +395,35 @@ describe('parseGen3Ribbons', () => {
 
     // Attempting to read a 32-bit integer (4 bytes) starting at offset 2 will exceed the 4-byte buffer
     expect(() => parseGen3Ribbons(view, 2)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3PokeNews', () => {
+  it('should extract 16 news items correctly', () => {
+    const buffer = new ArrayBuffer(64);
+    const view = new DataView(buffer);
+
+    // Set up a news item at offset 0 (kind: 1, state: 2, countdown: 4)
+    view.setUint8(0, 1);
+    view.setUint8(1, 2);
+    view.setUint16(2, 4, true);
+
+    // Set up another news item at index 15 (offset 60)
+    view.setUint8(60, 3);
+    view.setUint8(61, 1);
+    view.setUint16(62, 10, true);
+
+    const result = parseGen3PokeNews(view, 0);
+
+    expect(result).toHaveLength(16);
+    expect(result[0]).toEqual({ kind: 1, state: 2, dayCountdown: 4 });
+    expect(result[15]).toEqual({ kind: 3, state: 1, dayCountdown: 10 });
+  });
+
+  it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
+    const buffer = new ArrayBuffer(60); // Not enough space for 16 items (64 bytes)
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3PokeNews(view, 0)).toThrowError('The save file is corrupted or incomplete.');
   });
 });
