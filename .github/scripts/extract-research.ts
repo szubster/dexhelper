@@ -61,9 +61,9 @@ while (currentPath && !visitedPaths.has(currentPath)) {
   visitedPaths.add(currentPath);
   if (!fs.existsSync(currentPath)) break;
   try {
-    const raw = fs.readFileSync(currentPath, 'utf-8');
-    const parsed = matter(raw);
-    const fm = parsed.data || {};
+    const raw: string = fs.readFileSync(currentPath, 'utf-8');
+    const parsed: any = matter(raw);
+    const fm: any = parsed.data || {};
 
     if (Array.isArray(fm.research_references)) {
       fm.research_references.forEach((ref: any) => {
@@ -73,7 +73,7 @@ while (currentPath && !visitedPaths.has(currentPath)) {
       });
     }
 
-    const parent = fm.parent;
+    const parent: any = fm.parent;
     if (typeof parent === 'string') {
       if (idToPath.has(parent)) {
         currentPath = idToPath.get(parent)!;

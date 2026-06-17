@@ -590,9 +590,9 @@ function main(): void {
         break;
       }
 
-      const dep = depPath ? nodeMap.get(depPath) : null;
+      const dep = nodeMap.get(depPath);
       if (!dep) {
-        if (depPath && fs.existsSync(path.join(repoRoot, depPath))) {
+        if (fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
         }
         warn(`Dependency file '${depRef}' not found for ${node.frontmatter.status} node: ${node.repoPath}`);
@@ -602,8 +602,8 @@ function main(): void {
       }
 
       // If it is an ancestor, we only care that it is status ACTIVE or COMPLETED.
-      if (!isDescendant(node.repoPath, depPath)) {
-        if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
+      if (!isDescendant(node.repoPath, depPath!)) {
+        if (isHierarchicallyIncomplete(depPath!, [node.repoPath])) {
           shouldSuspend = true;
           break;
         }
@@ -750,9 +750,16 @@ function main(): void {
 
     for (const depRef of deps) {
       const depPath = resolveNodePath(depRef);
-      const dep = depPath ? nodeMap.get(depPath) : null;
+      if (!depPath) {
+        warn(`Unresolvable dependency '${depRef}' referenced by: ${node.repoPath}`);
+        hasUnresolvableDeps = true;
+        blocked = true;
+        break;
+      }
+
+      const dep = nodeMap.get(depPath);
       if (!dep) {
-        if (depPath && fs.existsSync(path.join(repoRoot, depPath))) {
+        if (fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
         }
         warn(`Unresolvable dependency '${depRef}' referenced by: ${node.repoPath}`);
@@ -762,8 +769,8 @@ function main(): void {
       }
 
       // If it is an ancestor, we only care that it is status ACTIVE or COMPLETED.
-      if (!isDescendant(node.repoPath, depPath)) {
-        if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
+      if (!isDescendant(node.repoPath, depPath!)) {
+        if (isHierarchicallyIncomplete(depPath!, [node.repoPath])) {
           blocked = true;
           break;
         }
