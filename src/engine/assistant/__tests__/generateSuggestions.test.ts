@@ -5,8 +5,8 @@ import type { PokemonInstance } from '../../saveParser/parsers/common';
 import { getStrategy } from '../strategies';
 import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { EncounterDetail } from '../strategies/types';
-import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
+import type { AssistantApiData } from '../suggestionEngineTypes';
 
 describe('generateSuggestions', () => {
   it('should detect when an evolution item is already equipped for Trade evolutions', () => {

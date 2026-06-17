@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { PokemonInstance, SaveData } from '../../saveParser/parsers/common';
 import type { AssistantStrategy, CatchSuggestion, EncounterDetail } from '../strategies/types';
-import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
+import type { AssistantApiData } from '../suggestionEngineTypes';
 
 describe('Catch Encounter Filtering', () => {
   const createMockSaveData = (overrides?: Partial<SaveData>): SaveData =>

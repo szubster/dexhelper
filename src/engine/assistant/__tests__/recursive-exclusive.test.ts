@@ -43,7 +43,7 @@ describe('Recursive Exclusive Checking', () => {
       mockSaveData as unknown as import('../../saveParser/index').SaveData,
       false,
       null,
-      mockApiData as unknown as import('../suggestionEngine').AssistantApiData,
+      mockApiData as unknown as import('../suggestionEngineTypes').AssistantApiData,
       mockStrategy as unknown as import('../strategies/types').AssistantStrategy,
     );
 
