@@ -34,9 +34,9 @@ In order to display permanent failures on the DAG dashboard, we need to surface 
 3.  Update the React Context layer to expose the `rejection_count` property to all connected UI views.
 
 ## Acceptance Criteria
-- [ ] Coder: Update parsing logic.
-- [ ] Coder: Update `FoundryNode` TypeScript types.
-- [ ] Coder: Ensure React context layer correctly exposes the property.
+- [x] Coder: Update parsing logic.
+- [x] Coder: Update `FoundryNode` TypeScript types.
+- [x] Coder: Ensure React context layer correctly exposes the property.
 
 ## Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
