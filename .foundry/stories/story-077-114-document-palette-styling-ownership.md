@@ -33,3 +33,6 @@ Update `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_po
 ## Acceptance Criteria
 - [ ] `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` is updated.
 - [ ] Documentation accurately reflects `palette` ownership of styling per ADR 024.
+
+## Child Tasks
+- [ ] task-114-201-document-palette-styling-ownership-impl
