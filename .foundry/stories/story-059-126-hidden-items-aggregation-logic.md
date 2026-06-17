@@ -32,4 +32,6 @@ Now that the data structure is defined (`story-059-125-hidden-items-data-model`)
 ## 3. Acceptance Criteria
 - [ ] Logic correctly joins parsed event flags with hidden item source data.
 - [ ] Logic provides utility to filter items by acquisition status.
-- [ ] Technical tasks are drafted for the implementations.
+- [x] Technical tasks are drafted for the implementations.
+- [ ] task-126-194-hidden-items-aggregation-impl
+- [ ] task-126-195-hidden-items-aggregation-qa
