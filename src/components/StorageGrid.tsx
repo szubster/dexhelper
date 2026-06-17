@@ -4,6 +4,7 @@ import React from 'react';
 import type { PokemonInstance } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
+import { getTimeCapsuleValidation } from '../utils/timeCapsule';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalCard } from './TacticalCard';
@@ -17,6 +18,7 @@ const StorageCard = React.memo(
     generation,
     onNavigate,
     isDead,
+    timeCapsuleValidation,
   }: {
     p: PokemonInstance;
     pokemon: { id: number; name: string };
@@ -24,6 +26,7 @@ const StorageCard = React.memo(
     generation: number;
     onNavigate: (id: number) => void;
     isDead?: boolean;
+    timeCapsuleValidation?: { isEligible: boolean; reason?: string } | undefined;
   }) => {
     const handleClick = React.useCallback(() => onNavigate(pokemon.id), [onNavigate, pokemon.id]);
 
@@ -45,6 +48,23 @@ const StorageCard = React.memo(
         onClick={handleClick}
         variant={variant}
       >
+        {timeCapsuleValidation && (
+          <div className="absolute right-2 bottom-2 z-10">
+            {timeCapsuleValidation.isEligible ? (
+              <TacticalBadge variant="emerald" className="rounded-none px-1 py-0 font-mono text-[8px] leading-none">
+                [ TIME CAPSULE READY ]
+              </TacticalBadge>
+            ) : (
+              <TacticalBadge
+                variant="red"
+                className="rounded-none px-1 py-0 font-mono text-[8px] leading-none"
+                title={timeCapsuleValidation.reason}
+              >
+                [ ERR ]
+              </TacticalBadge>
+            )}
+          </div>
+        )}
         <div className="absolute top-3 left-3 font-bold font-mono text-[10px] text-zinc-600">LV.{p.level}</div>
         <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-1.5">
           {p.isShiny && <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />}
@@ -234,6 +254,9 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       generation={saveData?.generation ?? 1}
                       onNavigate={handleNavigate}
                       isDead={location === nuzlockeGraveyardBox || (location === 'Party' && p.currentHp === 0)}
+                      timeCapsuleValidation={
+                        saveData?.generation === 2 ? getTimeCapsuleValidation(p.speciesId, p.moves) : undefined
+                      }
                     />
                   );
                 })
