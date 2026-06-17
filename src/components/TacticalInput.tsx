@@ -2,6 +2,7 @@ import { X } from 'lucide-react';
 import React from 'react';
 import { cn } from '../utils/cn';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { TacticalIconButton } from './TacticalIconButton';
 
 interface TacticalInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value'> {
   label?: string;
@@ -45,15 +46,14 @@ export const TacticalInput = React.forwardRef<HTMLInputElement, TacticalInputPro
         )}
 
         {onClear && value && (
-          <button
-            type="button"
+          <TacticalIconButton
             onClick={onClear}
             aria-label="Clear input"
             title="Clear input"
-            className="absolute top-1/2 right-4 -translate-y-1/2 p-2 text-zinc-500 transition-all hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            className="absolute top-1/2 right-4 -translate-y-1/2 p-2 text-zinc-500 hover:text-white"
           >
             <X size={14} />
-          </button>
+          </TacticalIconButton>
         )}
 
         <CornerCrosshairs

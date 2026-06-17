@@ -107,3 +107,11 @@
 - **Key Learnings**:
   - Distinguishing between vertical representations (like the existing `DataPoint` component) and horizontal ones (`InlineDataPoint`) is necessary since the layout structures (`flex-col` vs `items-center`) dictate the context of the data.
   - Using `valueClassName` and `labelClassName` gives flexibility for minor styling tweaks like making values bold or specific colors (like `text-zinc-300`) without breaking the core pattern.
+
+## TacticalIconButton Extraction
+- **What**: Extracted repeated icon-only button patterns (often containing a single Lucide `X` icon, absolute positioning, hover effects, and strict accessibility tags) into a reusable `<TacticalIconButton>` component.
+- **Why**: Consolidated complex, duplicated `focus-visible` Tailwind classes and transition behaviors into a standardized component. This pattern was found across `LocationSuggestions.tsx`, `TacticalInput.tsx`, and `PokemonDetails.tsx`.
+- **Key Learnings**:
+  - Always extend standard HTML attributes (e.g. `React.ButtonHTMLAttributes<HTMLButtonElement>`) and forward refs (`React.forwardRef`) to ensure callers can supply strict accessibility properties (`aria-label`, `title`) without redefining them on the props interface.
+  - Set a default `type="button"` on the inner element to prevent accidental form submissions when the component is eventually utilized inside a `fieldset` or `form`.
+  - Ensure the internal `className` explicitly allows for overriding absolute positioning and padding since icon-only buttons often serve as absolute-positioned decorators (like close buttons or input clear buttons).
