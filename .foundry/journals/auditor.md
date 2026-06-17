@@ -96,3 +96,11 @@ This confirms the robustness of our data extraction architecture, particularly i
 The implementation successfully parses Gen 1 using an absolute base offset (`0x25B3`) with a version-specific `offsetShift` (for Yellow). Crucially, the Gen 2 implementation correctly relies on a dynamic, relative offset calculation (`0xA8` bytes after the `johtoBadgesOffset`). This reinforces that save data parsing must avoid hardcoded absolute offsets when the data structure dynamically shifts based on version or state, opting instead for calculated relative offsets anchored to known stable points.
 ### Pokerus Bitwise Parsing
 When parsing bit-shifted state flags like Pokerus, explicitly testing the boundaries (e.g., 0 days remaining with non-zero strain for the "cured" state) is critical to prevent state regressions.
+## 2026-06-18: Verification of Gen 1 and Gen 2 Hall of Fame Parsing Architecture
+I verified the Epic `epic-044-070-hof-data-parsing` and its descendant nodes which implement Hall of Fame count extraction from Gen 1 and Gen 2 save files. All child nodes have successfully transitioned to the COMPLETED state and the codebase has proper test coverage.
+
+**Why this matters:**
+This verification proves that the strategy to dynamically calculate relative offsets—specifically anchoring Gen 2 Hall of Fame data `0xA8` bytes after `johtoBadgesOffset`—is both effective and robust against version-specific shifts. Absolute hardcoded offsets cause regressions when parsing dynamic blocks, and the offset mapping architecture ensures correct bounds checking using the DataView API.
+
+**Recommendation/Learnings:**
+Engine parsing rules MUST consistently use relative offsets based on known, stable anchor points within the player data block rather than absolute offsets when mapping variable blocks like Gen 2 Hall of Fame. We should carry this architectural constraint forward when expanding parsing to Gen 3 and Gen 4.
