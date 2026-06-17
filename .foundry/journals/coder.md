@@ -101,5 +101,12 @@ When implementing `task-121-171-gen3-tv-block-parser-impl`, the exact memory off
 When creating or modifying `functions/_middleware.ts` to implement `@cloudflare/pages-plugin-cloudflare-access`, ensure that both `@cloudflare/pages-plugin-cloudflare-access` and `@cloudflare/workers-types` are installed to the workspace root using the `-w` flag.
 Furthermore, the `functions/_middleware.ts` file and these dependencies must be properly ignored in `knip.json` to avoid unused exports warnings, as Knip does not natively understand Cloudflare Pages Functions directory structure without custom configuration.
 
+## 2026-06-17: Late Binding for Missing Context
+**Pattern/Lesson:** When implementing Gen 3 TVShow parsing (specifically Mass Outbreaks/Swarms), the documentation (`gen3_tv_shows_and_events.md`) states the `TVShow` struct has a `massOutbreak` payload but omits the exact internal offsets for species, location, and daysRemaining.
+**Action Taken:** Enforced the Late Binding pattern. Suspended `task-123-183-gen3-active-swarm-parsing-impl` by leaving acceptance criteria unchecked and spawning `research-123-202-gen3-outbreak-offsets` to find the missing specifications, linking it in `depends_on`.
+
+## 2026-06-17: Late Binding Process
+**Pattern/Lesson:** When executing a Late Binding fallback, it is not necessary to manually mark the current task as `FAILED` or provide a `rejection_reason` in the YAML frontmatter. Adding the new RESEARCH node to the `depends_on` array and submitting with unchecked acceptance criteria is enough for the orchestrator to keep the task suspended.
+**Action Taken:** Documented this rule to avoid unnecessary YAML frontmatter modifications in future late-binding scenarios.
 ## Unown Dex Panel Implementation
 Implemented Unown Dex Panel using tactical hardware styling constraints (ADR 008, 024). Verification was self-performed via local Playwright script taking a screenshot of the panel. The component dynamically derives owned forms by looping through the `yourPokemon` property, checking `speciesId === 201` and extracting the `unownForm` field.
