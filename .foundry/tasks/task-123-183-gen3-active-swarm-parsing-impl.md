@@ -2,11 +2,12 @@
 id: task-123-183-gen3-active-swarm-parsing-impl
 type: TASK
 title: Implement Gen 3 Active Swarm Parsing
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
-depends_on: []
+updated_at: '2026-06-17'
+depends_on:
+  - research-123-202-gen3-outbreak-offsets
 jules_session_id: null
 pr_number: null
 parent: story-081-123-gen3-active-swarm-parsing
@@ -16,7 +17,7 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Suspended pending research on exact memory offsets within the massOutbreak payload of the Gen 3 TVShow structure for species, location, and daysRemaining.'
 notes: ''
 ---
 

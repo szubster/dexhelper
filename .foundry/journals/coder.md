@@ -100,3 +100,7 @@ When implementing `task-121-171-gen3-tv-block-parser-impl`, the exact memory off
 ## 2026-06-17: Cloudflare Pages Integration
 When creating or modifying `functions/_middleware.ts` to implement `@cloudflare/pages-plugin-cloudflare-access`, ensure that both `@cloudflare/pages-plugin-cloudflare-access` and `@cloudflare/workers-types` are installed to the workspace root using the `-w` flag.
 Furthermore, the `functions/_middleware.ts` file and these dependencies must be properly ignored in `knip.json` to avoid unused exports warnings, as Knip does not natively understand Cloudflare Pages Functions directory structure without custom configuration.
+
+## 2026-06-17: Late Binding for Missing Context
+**Pattern/Lesson:** When implementing Gen 3 TVShow parsing (specifically Mass Outbreaks/Swarms), the documentation (`gen3_tv_shows_and_events.md`) states the `TVShow` struct has a `massOutbreak` payload but omits the exact internal offsets for species, location, and daysRemaining.
+**Action Taken:** Enforced the Late Binding pattern. Aborted `task-123-183-gen3-active-swarm-parsing-impl`, marked it as `FAILED` with a clear `rejection_reason`, and spawned `research-123-202-gen3-outbreak-offsets` to find the missing specifications, linking it in `depends_on`.
