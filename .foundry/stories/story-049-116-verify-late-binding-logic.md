@@ -2,10 +2,10 @@
 id: story-049-116-verify-late-binding-logic
 type: STORY
 title: Verify Late-Binding Logic in Orchestrator
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-13'
+updated_at: '2026-06-17'
 depends_on: []
 jules_session_id: null
 pr_number: null

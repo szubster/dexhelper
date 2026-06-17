@@ -2,12 +2,12 @@
 id: story-070-108-create-dag-context-interfaces
 type: STORY
 title: Create DagContext Interfaces and Types
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-16'
+updated_at: '2026-06-17'
 depends_on: []
-jules_session_id: '7428338416453081945'
+jules_session_id: null
 pr_number: null
 parent: epic-045-070-implement-dag-context
 tags:

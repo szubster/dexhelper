@@ -2,10 +2,10 @@
 id: idea-083-daycare-egg-tracker
 type: IDEA
 title: Daycare Status and Exact Egg Hatch Tracker
-status: PENDING
-owner_persona: "product_manager"
-created_at: "2026-06-17"
-updated_at: "2026-06-17"
+status: READY
+owner_persona: product_manager
+created_at: '2026-06-17'
+updated_at: '2026-06-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - breeding
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Idea: Daycare Status and Exact Egg Hatch Tracker

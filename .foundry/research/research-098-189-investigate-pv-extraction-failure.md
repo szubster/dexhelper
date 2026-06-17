@@ -2,10 +2,10 @@
 id: research-098-189-investigate-pv-extraction-failure
 type: RESEARCH
 title: Investigate PV extraction failures
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-16'
-updated_at: '2026-06-16'
+updated_at: '2026-06-17'
 depends_on: []
 jules_session_id: null
 pr_number: null

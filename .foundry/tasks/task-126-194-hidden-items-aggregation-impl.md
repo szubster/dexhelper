@@ -2,7 +2,7 @@
 id: task-126-194-hidden-items-aggregation-impl
 type: TASK
 title: Implement Hidden Items Aggregation Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-17'
 updated_at: '2026-06-17'
