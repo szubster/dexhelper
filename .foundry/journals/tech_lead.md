@@ -79,3 +79,8 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 - **Scratchpad Cleanup**: Any temporary developer scratchpad scripts created during a session to manipulate files MUST be explicitly deleted before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
 - **Node.js Scripts**: When using Node.js scratchpad scripts to modify markdown files with YAML frontmatter, avoid importing external packages like `gray-matter`. Depending on the workspace configuration, they may not be resolvable (e.g. `ERR_MODULE_NOT_FOUND`). Rely on standard string manipulation or regex instead.
 - **Dependency References**: When defining dependencies in YAML frontmatter for generated tasks, strictly use the Node ID (e.g., `task-123-abc`), NOT the file path.
+
+## 2026-06-16: Handling Gen 3 Roamer IV Bitfield Failure
+- **Pattern:** The coder implementation task (`task-108-161-gen3-roamer-dataview-extraction-impl`) failed permanently (max rejection count) due to missing specifics on how to parse the 32-bit IV bitfield for Gen 3 roamers. The existing research (`research-071-138-gen3-roamer-offsets.md`) provided the offset but not the bit sizes and masks required.
+- **Lesson:** When writing implementation blueprints for binary data extraction, it is insufficient to provide only the memory offset. The blueprint must explicitly define the bitwise logic (shifts and masks) to prevent hallucination by the coder persona.
+- **Action:** Created a new research node (`research-108-194-gen3-roamer-iv-bitfield`) to discover the exact parsing formula before retrying the implementation (`task-108-192-gen3-roamer-dataview-extraction-impl`).
