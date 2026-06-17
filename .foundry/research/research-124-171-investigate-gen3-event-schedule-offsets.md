@@ -2,12 +2,12 @@
 id: research-124-171-investigate-gen3-event-schedule-offsets
 type: RESEARCH
 title: Investigate Gen 3 Event Schedule Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-13'
 updated_at: '2026-06-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14040143309139528579'
 pr_number: null
 parent: task-124-171-gen3-event-schedule-parser
 tags:

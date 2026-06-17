@@ -94,3 +94,5 @@ This confirms the robustness of our data extraction architecture, particularly i
 
 **Recommendation/Learnings:**
 The implementation successfully parses Gen 1 using an absolute base offset (`0x25B3`) with a version-specific `offsetShift` (for Yellow). Crucially, the Gen 2 implementation correctly relies on a dynamic, relative offset calculation (`0xA8` bytes after the `johtoBadgesOffset`). This reinforces that save data parsing must avoid hardcoded absolute offsets when the data structure dynamically shifts based on version or state, opting instead for calculated relative offsets anchored to known stable points.
+### Pokerus Bitwise Parsing
+When parsing bit-shifted state flags like Pokerus, explicitly testing the boundaries (e.g., 0 days remaining with non-zero strain for the "cured" state) is critical to prevent state regressions.
