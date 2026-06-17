@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
-import type { AssistantApiData } from '../suggestionEngine';
 import { generateSuggestions } from '../suggestionEngine';
+import type { AssistantApiData } from '../suggestionEngineTypes';
 
 describe('suggestionEngine - checkFlag Edge Cases', () => {
   it('should ignore gift suggestion when eventFlags is undefined', () => {
