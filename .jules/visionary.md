@@ -108,3 +108,7 @@
 ## 2026-06-16 (Update)
 **Idea:** Gen 3 Secret ID Viewer and Shiny RNG Assistant
 **Learning:** The maintainer rejected the idea of exposing the Gen 3 Secret ID for RNG manipulation. While uncovering hidden variables like SID technically aligns with programmatic save parsing, tools explicitly supporting RNG manipulation are out of scope. In the future, do not propose features that assist with RNG manipulation or explicitly display the Secret ID.
+
+## 2026-06-17
+**Idea:** Daycare Status and Exact Egg Hatch Tracker
+**Learning:** Targeting opaque, heavily-utilized progression mechanics like breeding (Daycare status and Egg steps) for actionable QoL improvements perfectly aligns with the app's offline-first programmatic save parsing strengths. Extracting exact cycle counts transforms vague in-game text into precise data, removing tedious guesswork for hardcore players.
