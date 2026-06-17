@@ -8,7 +8,7 @@ created_at: '2026-06-10'
 updated_at: '2026-06-17'
 depends_on:
   - adr-044-021-hof-data-parsing-architecture
-jules_session_id: '3690164224070980336'
+jules_session_id: '15407129725335092618'
 pr_number: null
 parent: prd-070-044-hall-of-fame-exporter
 tags:
