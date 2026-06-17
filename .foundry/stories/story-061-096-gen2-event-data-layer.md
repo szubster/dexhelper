@@ -2,10 +2,10 @@
 id: story-061-096-gen2-event-data-layer
 type: STORY
 title: Gen 2 Event Data Layer
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-09'
-updated_at: '2026-06-09'
+updated_at: '2026-06-17'
 depends_on:
   - story-061-095-gen2-event-flag-extraction
 jules_session_id: null

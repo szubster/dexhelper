@@ -2,13 +2,13 @@
 id: task-096-184-feebas-tile-calculation-qa
 type: TASK
 title: QA Feebas Tile Calculation Algorithm
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-14'
 updated_at: '2026-06-17'
 depends_on:
   - task-096-183-feebas-tile-calculation-impl
-jules_session_id: '11420868822435990992'
+jules_session_id: null
 pr_number: null
 parent: story-058-096-feebas-tile-calculation
 tags:

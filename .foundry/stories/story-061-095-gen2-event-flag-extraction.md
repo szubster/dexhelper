@@ -2,12 +2,12 @@
 id: story-061-095-gen2-event-flag-extraction
 type: STORY
 title: Gen 2 Event Flag Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-17'
 depends_on: []
-jules_session_id: '12154182678497109890'
+jules_session_id: null
 pr_number: null
 parent: epic-038-061-gen2-event-flag-parsing
 tags:

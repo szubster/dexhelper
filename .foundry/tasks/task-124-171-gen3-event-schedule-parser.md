@@ -2,13 +2,13 @@
 id: task-124-171-gen3-event-schedule-parser
 type: TASK
 title: Gen 3 Event Schedule Parser Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-17'
 depends_on:
   - research-124-171-investigate-gen3-event-schedule-offsets
-jules_session_id: '3927667530971781843'
+jules_session_id: null
 pr_number: null
 parent: story-081-124-gen3-event-forecast-schedule
 tags:

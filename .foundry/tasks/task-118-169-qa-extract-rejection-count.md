@@ -2,13 +2,13 @@
 id: task-118-169-qa-extract-rejection-count
 type: TASK
 title: QA DAG Data Parsing for Rejection Count
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-12'
 updated_at: '2026-06-17'
 depends_on:
   - task-118-168-impl-extract-rejection-count
-jules_session_id: '1547014858441964513'
+jules_session_id: null
 pr_number: null
 parent: story-078-118-refactor-parser-for-rejection-count
 tags:
