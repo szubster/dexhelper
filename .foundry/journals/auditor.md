@@ -85,3 +85,12 @@ When scaling state extraction across different Pokemon generations, relying on b
 
 **Recommendation/Learnings:**
 The Gen 2 extraction cleanly uses bitwise logic on the `+28` offset raw byte (`rawPokerus >> 4` for strain, `rawPokerus & 0x0f` for days). It's crucial that we correctly handle the "cured" edge case: when the strain is non-zero but the days remaining is `0`. The game considers this immune/cured, separating it from never having been infected (both values at `0`). This exact bitwise approach and its specific tests for the cured boundary should act as the template for scaling into Gen 3 logic.
+
+## 2026-06-17: Verification of Gen 1 and Gen 2 Hall of Fame Parsing
+I verified the Epic `epic-044-070-hof-data-parsing` and its child stories/tasks for parsing Hall of Fame counts from Gen 1 and Gen 2 save files.
+
+**Why this matters:**
+This confirms the robustness of our data extraction architecture, particularly its ability to handle complex relative offset logic dynamically across different game versions.
+
+**Recommendation/Learnings:**
+The implementation successfully parses Gen 1 using an absolute base offset (`0x25B3`) with a version-specific `offsetShift` (for Yellow). Crucially, the Gen 2 implementation correctly relies on a dynamic, relative offset calculation (`0xA8` bytes after the `johtoBadgesOffset`). This reinforces that save data parsing must avoid hardcoded absolute offsets when the data structure dynamically shifts based on version or state, opting instead for calculated relative offsets anchored to known stable points.
