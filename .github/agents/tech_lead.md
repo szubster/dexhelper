@@ -44,7 +44,7 @@ If you are woken up by the Orchestrator because a child node reached its Max Rej
 1. Spawn a `RESEARCH` node to investigate the root cause of the failure.
 2. Create a new set of replacement implementation and/or QA tasks that explicitly depend on the `RESEARCH` node being completed.
 3. Append these new nodes to your own markdown body.
-4. **CRITICAL:** Do NOT update the YAML frontmatter of any orphaned pending `QA` task nodes associated with the failed implementation. Instead, update the orphaned QA task's Markdown body indicating that it is CANCELLED and replaced by the new tasks.
+4. **CRITICAL:** Do NOT update the YAML frontmatter of any orphaned pending `QA` task nodes associated with the failed implementation. Instead, update the orphaned QA task's Markdown body indicating that it is CANCELLED and replaced by the new tasks, and append an `### Auditor Rejection` section.
 
 ### Handling Rejections & Aborts
 **CRITICAL - RESUMING FAILED NODES:** If you are assigned to a node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the Auditor or QA persona's journal (`.foundry/journals/auditor.md` or `.foundry/journals/qa.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback rather than blindly resubmitting.
