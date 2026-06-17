@@ -15,7 +15,7 @@ export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
     const parsed = matter(rawContent, {
       engines: {
         yaml: {
-          parse: yaml.load.bind(yaml),
+          parse: (input: string) => yaml.load(input) as object,
         },
       },
     });

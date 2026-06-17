@@ -59,3 +59,6 @@ Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While t
 
 ## Upgrading `js-yaml` and `gray-matter`
 **Pattern:** Upgrading `js-yaml` from version `3.x` to `4.x` (often required to resolve quadratic complexity DoS vulnerabilities) introduces a breaking change: the `safeLoad` method is removed, and its secure behavior is moved to the standard `load` method. Because `gray-matter` uses `safeLoad` internally, forcing an upgrade to `js-yaml@4.x` via `package.json` overrides will cause the application to crash (`TypeError: safeLoad is not a function`). To fix this, explicitly provide a custom engine to `gray-matter` mapping `parse` to `yaml.load` (e.g., `matter(content, { engines: { yaml: { parse: yaml.load.bind(yaml) } } })`).
+
+## Fixing Type Check Errors After Installing New Dependencies
+**Pattern:** If installing a new package causes type-check errors in CI due to missing declarations (e.g. `Could not find a declaration file for module 'js-yaml'`), explicitly install its `@types/` counterpart using `pnpm add -D -w @types/<package-name>`. For instance, when adding `js-yaml`, also install `@types/js-yaml` and ensure that type assertions correctly align with the expected types of functions used within custom bindings or callbacks to satisfy strict `tsc` checks.
