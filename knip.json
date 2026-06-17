@@ -12,7 +12,7 @@
     "scripts/validate-foundry-schema.ts",
     ".github/scripts/extract-research.ts",
     "scripts/gen3-fetch-locations.ts",
-    "src/components/dashboard/DagContext.tsx"
+    "scripts/data/gen3/match_call/etl.ts"
   ],
   "rules": {
     "files": "warn",
