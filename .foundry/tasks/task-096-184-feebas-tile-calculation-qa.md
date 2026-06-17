@@ -28,11 +28,11 @@ notes: ''
 Verify the Gen 3 Linear Congruential Generator (LCG) algorithm implementation correctly translates the 16-bit Feebas seed into 6 specific valid spot IDs on Route 119 and maps them to coordinates.
 
 ## Acceptance Criteria
-- [ ] Verify `calculateFeebasTiles(seed: number)` exists in `src/engine/gen3/feebas.ts` and uses the correct LCG formula (`1103515245 * sFeebasRngValue + 12345`).
-- [ ] Verify spot selection modulo math `(sFeebasRngValue >> 16) % 447` and force `0` to `447` are implemented correctly.
-- [ ] Verify spot rejection logic correctly rejects values `< 4` and guarantees 6 valid spot IDs are generated.
-- [ ] Verify `mapSpotIdsToCoordinates(spotIds: number[])` correctly maps 1D spot IDs to `(x, y)` relative grid coordinates.
-- [ ] Verify unit tests pass and explicitly test known seeds to verify the exact 6 spots generated.
+- [x] Verify `calculateFeebasTiles(seed: number)` exists in `src/engine/gen3/feebas.ts` and uses the correct LCG formula (`1103515245 * sFeebasRngValue + 12345`).
+- [x] Verify spot selection modulo math `(sFeebasRngValue >> 16) % 447` and force `0` to `447` are implemented correctly.
+- [x] Verify spot rejection logic correctly rejects values `< 4` and guarantees 6 valid spot IDs are generated.
+- [x] Verify `mapSpotIdsToCoordinates(spotIds: number[])` correctly maps 1D spot IDs to `(x, y)` relative grid coordinates.
+- [x] Verify unit tests pass and explicitly test known seeds to verify the exact 6 spots generated.
 
 ## Rules & Constraints
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
