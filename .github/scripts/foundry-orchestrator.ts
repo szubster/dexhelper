@@ -575,9 +575,20 @@ function main(): void {
 
     const children = parentToChildren.get(node.repoPath) || [];
     for (const child of children) {
+      // Skip child-based suspension if the child has a terminal failure (FAILED or CANCELLED with rejection reason)
+      // and is not otherwise blocked by its own sub-tree or dependencies (which is what isHierarchicallyIncomplete(..., [node.repoPath]) checks).
+      // However, if the child IS hierarchically incomplete (meaning it's waiting on something OTHER than this node),
+      // we SHOULD suspend the parent.
       if (isHierarchicallyIncomplete(child.repoPath, [node.repoPath])) {
-        shouldSuspend = true;
-        break;
+        // Only suspend if the child is NOT a terminal failure that is ready to wake the parent.
+        const isTerminalFailure = (child.frontmatter.status === 'FAILED' || child.frontmatter.status === 'CANCELLED') &&
+                                   !!child.frontmatter.rejection_reason &&
+                                   !isHierarchicallyIncomplete(child.repoPath, [node.repoPath, node.frontmatter.parent || '']);
+
+        if (!isTerminalFailure) {
+          shouldSuspend = true;
+          break;
+        }
       }
     }
 
@@ -661,11 +672,25 @@ function main(): void {
           parentNode.frontmatter.status !== 'COMPLETED' &&
           parentNode.frontmatter.status !== 'CANCELLED'
         ) {
-          info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
-          if (parentNode.frontmatter.owner_persona === 'human') {
-            promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');
+          // Parent wake-up check: Ensure parent is NOT blocked by its own incomplete dependencies.
+          let isParentBlockedByDeps = false;
+          for (const depRef of parentNode.frontmatter.depends_on) {
+            const depPath = resolveNodePath(depRef);
+            if (depPath && isHierarchicallyIncomplete(depPath, [parentNode.repoPath])) {
+              isParentBlockedByDeps = true;
+              break;
+            }
+          }
+
+          if (!isParentBlockedByDeps) {
+            info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
+            if (parentNode.frontmatter.owner_persona === 'human') {
+              promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');
+            } else {
+              promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'READY');
+            }
           } else {
-            promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'READY');
+            info(`Impossible Loop: Child ${node.repoPath} is failed, but parent ${parentNode.repoPath} is still blocked by its own dependencies.`);
           }
         }
       } else if (node.frontmatter.owner_persona !== 'tpm') {
