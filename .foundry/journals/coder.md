@@ -100,3 +100,6 @@ When implementing `task-121-171-gen3-tv-block-parser-impl`, the exact memory off
 ## 2026-06-17: Cloudflare Pages Integration
 When creating or modifying `functions/_middleware.ts` to implement `@cloudflare/pages-plugin-cloudflare-access`, ensure that both `@cloudflare/pages-plugin-cloudflare-access` and `@cloudflare/workers-types` are installed to the workspace root using the `-w` flag.
 Furthermore, the `functions/_middleware.ts` file and these dependencies must be properly ignored in `knip.json` to avoid unused exports warnings, as Knip does not natively understand Cloudflare Pages Functions directory structure without custom configuration.
+
+## Unown Dex Panel Implementation
+Implemented Unown Dex Panel using tactical hardware styling constraints (ADR 008, 024). Verification was self-performed via local Playwright script taking a screenshot of the panel. The component dynamically derives owned forms by looping through the `yourPokemon` property, checking `speciesId === 201` and extracting the `unownForm` field.
