@@ -29,5 +29,5 @@ This epic covers the implementation details for extracting Hall of Fame data fro
 ## Acceptance Criteria
 - [x] Break down into Stories
 
-- [ ] story-070-111-parse-gen1-hof-data
-- [ ] story-070-112-parse-gen2-hof-data
+- [x] story-070-111-parse-gen1-hof-data
+- [x] story-070-112-parse-gen2-hof-data
