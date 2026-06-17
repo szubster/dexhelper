@@ -4,11 +4,11 @@ type: TASK
 title: Gen 2 Event Flag Extraction - Implementation
 depends_on:
   - research-095-157-gen2-event-flag-offsets
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-17'
-jules_session_id: null
+jules_session_id: '2023761918715979577'
 pr_number: null
 parent: story-061-095-gen2-event-flag-extraction
 tags:
