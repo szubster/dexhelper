@@ -445,6 +445,9 @@ function main(): void {
     if (!ref) return null;
     if (idToPathMap.has(ref)) return idToPathMap.get(ref)!;
     if (ref.startsWith('.foundry/')) return ref;
+
+    // Log a warning if we can't resolve a non-empty reference.
+    warn(`Unresolvable node reference: '${ref}'`);
     return null;
   }
 
@@ -528,6 +531,7 @@ function main(): void {
     const node = nodeMap.get(nodePath);
 
     if (!node) {
+      warn(`Node not found in resolution map: ${nodePath}`);
       hasUnresolvableDeps = true;
       return true;
     }
@@ -549,6 +553,9 @@ function main(): void {
 
     for (const depRef of node.frontmatter.depends_on) {
       const depPath = resolveNodePath(depRef);
+      if (depRef && !depPath) {
+        return true;
+      }
       if (!depPath || ignoredPaths.includes(depPath)) continue;
 
       if (isHierarchicallyIncomplete(depPath, ignoredPaths, visited)) {

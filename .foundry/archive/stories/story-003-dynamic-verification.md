@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-04-21'
 updated_at: '2026-04-23'
 depends_on:
-  - 001-the-foundry-architecture
+  - adr-001-foundry-architecture
   - story-002-personas
 jules_session_id: null
 rejection_reason: ''
