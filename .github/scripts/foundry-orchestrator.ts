@@ -595,15 +595,15 @@ function main(): void {
         if (fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
         }
-        warn(`Dependency file '${depPath}' not found for ${node.frontmatter.status} node: ${node.repoPath}`);
+        warn(`Dependency file '${depRef}' not found for ${node.frontmatter.status} node: ${node.repoPath}`);
         hasUnresolvableDeps = true;
         shouldSuspend = true;
         break;
       }
 
       // If it is an ancestor, we only care that it is status ACTIVE or COMPLETED.
-      if (!isDescendant(node.repoPath, depPath)) {
-        if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
+      if (!isDescendant(node.repoPath, depPath!)) {
+        if (isHierarchicallyIncomplete(depPath!, [node.repoPath])) {
           shouldSuspend = true;
           break;
         }
@@ -709,8 +709,8 @@ function main(): void {
           // UNLESS the parent itself has incomplete dependencies.
           let isParentDepIncomplete = false;
           for (const depRef of parentNode.frontmatter.depends_on) {
-            const depPath = resolveNodePath(depRef)!;
-            if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
+            const depPath = resolveNodePath(depRef);
+            if (depPath && isHierarchicallyIncomplete(depPath, [node.repoPath])) {
               isParentDepIncomplete = true;
               break;
             }
@@ -749,7 +749,14 @@ function main(): void {
     const deps = node.frontmatter.depends_on;
 
     for (const depRef of deps) {
-      const depPath = resolveNodePath(depRef)!;
+      const depPath = resolveNodePath(depRef);
+      if (!depPath) {
+        warn(`Unresolvable dependency '${depRef}' referenced by: ${node.repoPath}`);
+        hasUnresolvableDeps = true;
+        blocked = true;
+        break;
+      }
+
       const dep = nodeMap.get(depPath);
       if (!dep) {
         if (fs.existsSync(path.join(repoRoot, depPath))) {
@@ -762,8 +769,8 @@ function main(): void {
       }
 
       // If it is an ancestor, we only care that it is status ACTIVE or COMPLETED.
-      if (!isDescendant(node.repoPath, depPath)) {
-        if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
+      if (!isDescendant(node.repoPath, depPath!)) {
+        if (isHierarchicallyIncomplete(depPath!, [node.repoPath])) {
           blocked = true;
           break;
         }
@@ -861,8 +868,8 @@ function main(): void {
         if (allChildrenCompleted) {
           let isDepIncomplete = false;
           for (const depRef of node.frontmatter.depends_on) {
-            const depPath = resolveNodePath(depRef)!;
-            if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
+            const depPath = resolveNodePath(depRef);
+            if (depPath && isHierarchicallyIncomplete(depPath, [node.repoPath])) {
               isDepIncomplete = true;
               break;
             }
