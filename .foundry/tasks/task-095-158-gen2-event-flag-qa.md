@@ -33,5 +33,5 @@ Verify the work completed in `task-095-157-gen2-event-flag-impl`.
 4. **Permanent Failure Policy (ADR 017):** If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a specific `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Verify that the extraction logic uses the `DataView` API exclusively.
-- [ ] Verify the implementation has robust unit tests and handles bounds checking correctly (`RangeError`).
+- [x] Verify that the extraction logic uses the `DataView` API exclusively.
+- [x] Verify the implementation has robust unit tests and handles bounds checking correctly (`RangeError`).
