@@ -74,6 +74,11 @@ export interface Gen3PokeNews {
   dayCountdown: number;
 }
 
+export interface Gen3MixRecord {
+  kind: number;
+  active: boolean;
+}
+
 export interface Gen3BerryPatch {
   berryId: number;
   stage: number;
@@ -144,6 +149,8 @@ export interface SaveData {
   gen3BerryPatches?: Gen3BerryPatch[];
   /** Gen 3 specific: Upcoming event schedule. */
   gen3PokeNews?: Gen3PokeNews[];
+  /** Gen 3 specific: Inherited Mix Record events. */
+  gen3MixRecords?: Gen3MixRecord[];
   /**
    * Information regarding currently roaming Legendaries (Gen 2: Raikou, Entei, Suicune. Gen 3: Latios, Latias).
    *
