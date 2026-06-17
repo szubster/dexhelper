@@ -48,6 +48,6 @@ Since this is a straightforward UI implementation without highly complex risk, t
 - **Node Modification Rule:** DO NOT modify this YAML frontmatter upon successful completion. Only update the markdown body (e.g., check off acceptance criteria). Modifying YAML is ONLY allowed for FAILED or CANCELLED status updates.
 
 ## Acceptance Criteria
-- [ ] Create the Unown Dex Panel UI component using `tactical-*` classes.
-- [ ] Integrate the component into the main application view hierarchy.
-- [ ] Self-verify the component rendering and document it in the coder journal.
+- [x] Create the Unown Dex Panel UI component using `tactical-*` classes.
+- [x] Integrate the component into the main application view hierarchy.
+- [x] Self-verify the component rendering and document it in the coder journal.
