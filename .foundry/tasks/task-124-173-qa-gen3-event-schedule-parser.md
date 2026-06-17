@@ -2,13 +2,13 @@
 id: task-124-173-qa-gen3-event-schedule-parser
 type: TASK
 title: QA Gen 3 Event Schedule Parser
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-17'
 depends_on:
   - task-124-171-gen3-event-schedule-parser
-jules_session_id: null
+jules_session_id: '8545084035930751325'
 pr_number: null
 parent: story-081-124-gen3-event-forecast-schedule
 tags:
