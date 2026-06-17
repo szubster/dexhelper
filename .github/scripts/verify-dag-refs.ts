@@ -44,7 +44,7 @@ for (const fp of files) {
       idToPath.set(parsed.data.id, repoPath);
       nodes.push({ repoPath, fm: parsed.data });
     }
-  } catch (e) {
+  } catch {
     console.error(`Failed to parse ${repoPath}`);
   }
 }
