@@ -32,5 +32,5 @@ As requested in Story `story-061-095-gen2-event-flag-extraction`, you are to imp
 4. **Permanent Failure Policy (ADR 017):** If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a specific `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 event flag extraction logic using the `DataView` API.
-- [ ] Add unit tests demonstrating successful extraction and bounds checking (`RangeError` scenarios).
+- [x] Implement Gen 2 event flag extraction logic using the `DataView` API.
+- [x] Add unit tests demonstrating successful extraction and bounds checking (`RangeError` scenarios).

@@ -589,7 +589,17 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   const roamingLegendaries = parseRoamingLegendaries(view, isCrystal);
 
   const eventFlagsOffset = isCrystal ? 0x2600 : 0x2624;
-  const eventFlags = new Uint8Array(view.buffer, view.byteOffset + eventFlagsOffset, 0x100);
+  const eventFlags = new Uint8Array(0x100);
+  try {
+    for (let i = 0; i < 0x100; i++) {
+      eventFlags[i] = view.getUint8(eventFlagsOffset + i);
+    }
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('Corrupted Save File');
+    }
+    throw error;
+  }
   const hiddenItemFlags = eventFlags;
 
   return {
