@@ -322,6 +322,22 @@ describe('gen2 parsers', () => {
       expect(data.eventFlags?.length).toBe(0x100);
       expect(data.hiddenItemFlags).toBe(data.eventFlags);
     });
+
+    it('should throw "Corrupted Save File" if reading event flags out of bounds', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x2865, 1);
+      view.setUint8(0x2866, 1);
+      view.setUint8(0x2866 + 7, 1);
+
+      const originalGetUint8 = view.getUint8.bind(view);
+      view.getUint8 = (offset: number) => {
+        if (offset === 0x2600) throw new RangeError('Out of bounds');
+        return originalGetUint8(offset);
+      };
+
+      expect(() => parseGen2(view, true)).toThrow('Corrupted Save File');
+    });
   });
 
   describe('parseGen2 - Unown Forms', () => {
