@@ -44,6 +44,6 @@ The Coder has been tasked with defining `@utility tactical-input` and `@utility 
    - If you submit an Empty PR because the target artifacts are already completely verified/implemented, you MUST check off all Acceptance Criteria checkboxes (`- [x]`) below before submitting.
 
 ## Acceptance Criteria
-- [ ] `@utility tactical-input` and `@utility tactical-text` are verified in `src/index.css` using Tailwind v4 syntax.
-- [ ] Components use the new utilities correctly instead of long inline class strings.
-- [ ] No visual regressions or deviations from the "tactical hardware" aesthetic are present.
+- [x] `@utility tactical-input` and `@utility tactical-text` are verified in `src/index.css` using Tailwind v4 syntax.
+- [x] Components use the new utilities correctly instead of long inline class strings.
+- [x] No visual regressions or deviations from the "tactical hardware" aesthetic are present.
