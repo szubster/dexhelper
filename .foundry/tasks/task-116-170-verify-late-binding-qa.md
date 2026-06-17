@@ -36,6 +36,6 @@ Verify the test coverage added by the coder for the late-binding logic in `found
 - **CRITICAL**: If you submit an empty PR because the logic is already sound and tests are adequate, you MUST check off all Acceptance Criteria checkboxes before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009.
 
 ## Acceptance Criteria
-- [ ] Review the PR or changes made by the coder for `foundry-orchestrator.test.ts`.
-- [ ] Ensure that tests adequately cover the late-binding specific logic, including exceptions for children of PENDING parents and waking up PENDING parents.
-- [ ] Confirm that running `pnpm test` successfully executes the new tests without failures.
+- [x] Review the PR or changes made by the coder for `foundry-orchestrator.test.ts`.
+- [x] Ensure that tests adequately cover the late-binding specific logic, including exceptions for children of PENDING parents and waking up PENDING parents.
+- [x] Confirm that running `pnpm test` successfully executes the new tests without failures.
