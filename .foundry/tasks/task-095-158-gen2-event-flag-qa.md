@@ -2,10 +2,10 @@
 id: task-095-158-gen2-event-flag-qa
 type: TASK
 title: Gen 2 Event Flag Extraction - QA Verification
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-17'
 depends_on:
   - task-095-157-gen2-event-flag-impl
 jules_session_id: null

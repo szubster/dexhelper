@@ -2,12 +2,12 @@
 id: story-074-115-define-tactical-input-and-text
 type: STORY
 title: Define tactical-input and tactical-text utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-11'
 updated_at: '2026-06-17'
 depends_on: []
-jules_session_id: '14963342151692000427'
+jules_session_id: null
 pr_number: null
 parent: epic-071-074-define-tailwind-v4-utilities
 tags:

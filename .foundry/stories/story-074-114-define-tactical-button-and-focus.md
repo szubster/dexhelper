@@ -2,12 +2,12 @@
 id: story-074-114-define-tactical-button-and-focus
 type: STORY
 title: Define tactical-button and tactical-focus utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-11'
 updated_at: '2026-06-17'
 depends_on: []
-jules_session_id: '513592357775963530'
+jules_session_id: null
 pr_number: null
 parent: epic-071-074-define-tailwind-v4-utilities
 tags:
