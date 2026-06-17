@@ -36,5 +36,5 @@ The objective is to determine if the continuous logging into the TPM journal ind
 - [x] Analyze the research findings.
 - [x] Create a TASK node (if applicable) to implement the removal of the logging statements from the orchestrator.
 
-- [ ] .foundry/research/research-076-174-investigate-tpm-journal-bloat.md
-- [ ] .foundry/tasks/task-076-179-remove-tpm-logging-orchestrator.md
+- [ ] .foundry/research/research-076-189-investigate-tpm-journal-bloat.md
+- [ ] .foundry/tasks/task-076-194-remove-tpm-logging-orchestrator.md
