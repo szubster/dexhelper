@@ -2,13 +2,13 @@
 id: task-075-137-implement-cloudflare-oauth
 type: TASK
 title: Implement Cloudflare Native OAuth Flow
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-28'
 updated_at: '2026-06-17'
 depends_on:
   - research-136-cloudflare-oauth-libraries
-jules_session_id: null
+jules_session_id: '17267852995670512558'
 pr_number: null
 parent: story-038-075-google-sso-integration
 tags:
