@@ -27,6 +27,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 import { todayISO, buildReverseDependencyGraph, getOrphanedNodes } from './dag-utils.ts';
 
 // gray-matter is CJS; import via require() for clean ESM interop.
@@ -353,7 +354,7 @@ function main(): void {
     info('⚠️  Strict mode active — unresolvable deps will cause exit(1).');
   }
 
-  const repoRoot = process.cwd();
+  const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
   const foundryDir = path.join(repoRoot, '.foundry');
 
   if (!fs.existsSync(foundryDir)) {
@@ -574,10 +575,26 @@ function main(): void {
     let shouldSuspend = false;
 
     const children = parentToChildren.get(node.repoPath) || [];
+    let hasImpossibleLoopChild = false;
     for (const child of children) {
-      if (isHierarchicallyIncomplete(child.repoPath, [node.repoPath])) {
-        shouldSuspend = true;
+      const childNode = nodeMap.get(child.repoPath);
+      if (
+        childNode &&
+        (childNode.frontmatter.status === 'FAILED' || childNode.frontmatter.status === 'CANCELLED') &&
+        childNode.frontmatter.rejection_reason &&
+        !isHierarchicallyIncomplete(child.repoPath, [node.repoPath, child.repoPath])
+      ) {
+        hasImpossibleLoopChild = true;
         break;
+      }
+    }
+
+    if (!hasImpossibleLoopChild) {
+      for (const child of children) {
+        if (isHierarchicallyIncomplete(child.repoPath, [node.repoPath])) {
+          shouldSuspend = true;
+          break;
+        }
       }
     }
 

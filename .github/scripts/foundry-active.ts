@@ -12,6 +12,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 import { todayISO } from './dag-utils.ts';
 
 const require = createRequire(import.meta.url);
@@ -78,7 +79,8 @@ async function main() {
   }
 
   try {
-    transitionNodeToActive(repoPath, sessionId, process.cwd());
+    const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+    transitionNodeToActive(repoPath, sessionId, repoRoot);
   } catch (err) {
     error(String(err));
     process.exit(1);

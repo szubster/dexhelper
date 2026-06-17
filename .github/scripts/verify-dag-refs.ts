@@ -1,6 +1,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 
 const require = createRequire(import.meta.url);
 const matter = require('gray-matter');
@@ -28,7 +29,7 @@ function discoverNodeFiles(dir: string): string[] {
   return results;
 }
 
-const repoRoot = process.cwd();
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const foundryDir = path.join(repoRoot, '.foundry');
 const files = discoverNodeFiles(foundryDir);
 

@@ -8,6 +8,7 @@
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { discoverNodeFiles, parseNodeFile } from './foundry-orchestrator.ts';
 import { todayISO } from './dag-utils.ts';
@@ -299,7 +300,7 @@ export async function main() {
     return;
   }
 
-  const repoRoot = process.cwd();
+  const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
   const filePaths = discoverNodeFiles(path.join(repoRoot, '.foundry'));
   const activeNodes = [];
   const failedNodes = [];
