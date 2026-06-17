@@ -2,13 +2,13 @@
 id: story-059-126-hidden-items-aggregation-logic
 type: STORY
 title: Hidden Items Aggregation Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-13'
-updated_at: '2026-06-16'
+updated_at: '2026-06-17'
 depends_on:
   - story-059-125-hidden-items-data-model
-jules_session_id: null
+jules_session_id: '3326214950292460764'
 pr_number: null
 parent: epic-037-059-hidden-items-data-layer
 tags:
