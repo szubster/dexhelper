@@ -30,8 +30,8 @@ Extract and consolidate common, repetitive Tailwind class patterns used for pane
 3. **Verify Compliance**: Ensure custom utilities correctly use `@apply` or raw CSS to define the desired baseline "tactical hardware" aesthetic as dictated by ADR 024. Ensure hover and focus states can be correctly inherited natively through v4's directive structure.
 
 ## Acceptance Criteria
-- [ ] Appropriate `@utility tactical-panel` and `@utility tactical-card` primitives are defined in `src/index.css`.
-- [ ] Tailwind v4 formatting and structure is respected.
+- [x] Appropriate `@utility tactical-panel` and `@utility tactical-card` primitives are defined in `src/index.css`.
+- [x] Tailwind v4 formatting and structure is respected.
 
-- [ ] task-113-165-define-tactical-utilities-impl
-- [ ] task-113-166-define-tactical-utilities-qa
+- [x] task-113-165-define-tactical-utilities-impl
+- [x] task-113-166-define-tactical-utilities-qa
