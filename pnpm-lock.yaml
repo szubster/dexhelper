@@ -12,6 +12,9 @@ importers:
 
   .:
     dependencies:
+      '@cloudflare/pages-plugin-cloudflare-access':
+        specifier: ^1.0.5
+        version: 1.0.5
       '@tanstack/react-query':
         specifier: ^5.101.0
         version: 5.101.0(react@19.2.7)
@@ -61,6 +64,9 @@ importers:
       '@biomejs/biome':
         specifier: ^2.5.0
         version: 2.5.0
+      '@cloudflare/workers-types':
+        specifier: ^4.20260617.1
+        version: 4.20260617.1
       '@codecov/vite-plugin':
         specifier: ^2.0.1
         version: 2.0.1(vite@8.0.16(@types/node@25.9.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0)(yaml@2.9.0))
@@ -177,7 +183,7 @@ importers:
         version: 2.2.0(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(vitest@4.1.8)
       wrangler:
         specifier: ^4.101.0
-        version: 4.101.0
+        version: 4.101.0(@cloudflare/workers-types@4.20260617.1)
 
   .github/scripts:
     devDependencies:
@@ -803,6 +809,9 @@ packages:
     resolution: {integrity: sha512-jxQYkj8dSIzc0cD6cMMNdOc1UVjqSqu8BZdor5s8cGjW2I8BjODt/kWPVdY+u9zj3ms75Q5qaZgnxUad83+eAg==}
     engines: {node: '>=22.0.0'}
 
+  '@cloudflare/pages-plugin-cloudflare-access@1.0.5':
+    resolution: {integrity: sha512-EGVSaUoFLxKfds2tgLWGzIk/xXLO2RqwZDUKsH/olXdNOckOMr4ShR8Pt1AJpZrakCDNiDVXmfLDJYTufxuQRw==}
+
   '@cloudflare/unenv-preset@2.16.1':
     resolution: {integrity: sha512-ECxObrMfyTl5bhQf/lZCXwo5G6xX9IAUo+nDMKK4SZ8m4Jvvxp52vilxyySSWh2YTZz8+HQ07qGH/2rEom1vDw==}
     peerDependencies:
@@ -841,6 +850,9 @@ packages:
     engines: {node: '>=16'}
     cpu: [x64]
     os: [win32]
+
+  '@cloudflare/workers-types@4.20260617.1':
+    resolution: {integrity: sha512-HdbP3CNcdMZBwegitFDjWvzv+6wPkFXvV9gBXMnf6RjV2Cy3W8TJL3IhSEGul0S6F1DHjnucP7lrpIsvkzNEjA==}
 
   '@codecov/bundler-plugin-core@2.0.1':
     resolution: {integrity: sha512-TkdKn/rEwZQ723M7DDUmHe5r0IJa23rUT4TAx5jXmg12wGZGAHGWWU7LKeQsYCsKdLMxK7bLaGk9M++4wSRD5w==}
@@ -5625,6 +5637,8 @@ snapshots:
 
   '@cloudflare/kv-asset-handler@0.5.0': {}
 
+  '@cloudflare/pages-plugin-cloudflare-access@1.0.5': {}
+
   '@cloudflare/unenv-preset@2.16.1(unenv@2.0.0-rc.24)(workerd@1.20260616.1)':
     dependencies:
       unenv: 2.0.0-rc.24
@@ -5645,6 +5659,8 @@ snapshots:
 
   '@cloudflare/workerd-windows-64@1.20260616.1':
     optional: true
+
+  '@cloudflare/workers-types@4.20260617.1': {}
 
   '@codecov/bundler-plugin-core@2.0.1':
     dependencies:
@@ -9368,7 +9384,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260616.1
       '@cloudflare/workerd-windows-64': 1.20260616.1
 
-  wrangler@4.101.0:
+  wrangler@4.101.0(@cloudflare/workers-types@4.20260617.1):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.1(unenv@2.0.0-rc.24)(workerd@1.20260616.1)
@@ -9379,6 +9395,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       workerd: 1.20260616.1
     optionalDependencies:
+      '@cloudflare/workers-types': 4.20260617.1
       fsevents: 2.3.3
     transitivePeerDependencies:
       - bufferutil
