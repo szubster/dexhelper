@@ -30,4 +30,6 @@ Process changes related to the orchestrator's handling of late-binding (where a 
 Ensure the TPM and Agile Coach personas are aware of the new late-binding process by updating their journals.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes to append process change notes regarding late-binding to the TPM or Agile Coach journal.
+- [x] Break down into TASK nodes to append process change notes regarding late-binding to the TPM or Agile Coach journal.
+
+- [ ] task-117-201-update-tpm-agile-coach-journals

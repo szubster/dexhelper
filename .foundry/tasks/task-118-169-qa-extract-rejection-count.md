@@ -35,9 +35,9 @@ This is a verification task for `task-118-168-impl-extract-rejection-count`. In 
 3. Verify context layer broadcasts `rejection_count` correctly, per ADR 013 and ADR 017.
 
 ## Acceptance Criteria
-- [ ] QA: Verify parser extracts `rejection_count`.
-- [ ] QA: Verify models are updated.
-- [ ] QA: Verify context layer broadcasts `rejection_count`.
+- [x] QA: Verify parser extracts `rejection_count`.
+- [x] QA: Verify models are updated.
+- [x] QA: Verify context layer broadcasts `rejection_count`.
 
 ## Reminders
 - If QA validation fails, you MUST update the target implementation task's YAML frontmatter (set `status: FAILED`, provide `rejection_reason`, increment `rejection_count`), leave its Acceptance Criteria unchecked, and document the failure in `.foundry/journals/qa.md`, while leaving this QA task's frontmatter completely untouched.
