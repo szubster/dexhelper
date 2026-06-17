@@ -641,7 +641,7 @@ function main(): void {
       }
     }
 
-    if (node.frontmatter.status === 'FAILED' && node.frontmatter.rejection_reason) {
+    if ((node.frontmatter.status === 'FAILED' || node.frontmatter.status === 'CANCELLED') && node.frontmatter.rejection_reason) {
       // Skip waking up parent if the child is merely suspended (waiting for dependencies/children).
       // We ignore the parent node itself during this check because it's exactly what we want to find out
       // (if something OTHER than the parent is blocking the child).
@@ -654,7 +654,13 @@ function main(): void {
       }
       if (parentPath) {
         const parentNode = nodeMap.get(parentPath);
-        if (parentNode && parentNode.frontmatter.status !== 'ACTIVE' && parentNode.frontmatter.status !== 'READY' && parentNode.frontmatter.status !== 'COMPLETED') {
+        if (
+          parentNode &&
+          parentNode.frontmatter.status !== 'ACTIVE' &&
+          parentNode.frontmatter.status !== 'READY' &&
+          parentNode.frontmatter.status !== 'COMPLETED' &&
+          parentNode.frontmatter.status !== 'CANCELLED'
+        ) {
           info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
           if (parentNode.frontmatter.owner_persona === 'human') {
             promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');

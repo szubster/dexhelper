@@ -2,7 +2,7 @@
 id: task-096-202-gen2-event-data-layer-impl
 type: TASK
 title: Gen 2 Event Data Layer - Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-17'
 updated_at: '2026-06-17'
