@@ -46,9 +46,13 @@ Removes the guesswork and tedious NPC checking from the Friendship mechanic. By 
 - Tracking Friendship in Generation 1 (as the mechanic did not exist in the same way, except for Pikachu in Yellow, which is tracked separately).
 
 ## Acceptance Criteria
+- [x] Break down into Tasks
 - [ ] Read Friendship data from Generation 2 save files (Party and PC).
 - [ ] Read Friendship data from Generation 3 save files (Party and PC).
 - [ ] Implement UI to display exact Friendship value and progress bar.
 - [ ] Implement UI to calculate and display Return/Frustration base power.
 - [ ] Implement filtering for Pokémon that evolve via Friendship.
 - [ ] Provide estimated "actions needed" to reach the 220 threshold.
+
+- [ ] epic-051-094-friendship-data-extraction
+- [ ] epic-051-095-friendship-tracker-ui
