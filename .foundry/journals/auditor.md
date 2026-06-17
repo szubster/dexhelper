@@ -85,3 +85,6 @@ When scaling state extraction across different Pokemon generations, relying on b
 
 **Recommendation/Learnings:**
 The Gen 2 extraction cleanly uses bitwise logic on the `+28` offset raw byte (`rawPokerus >> 4` for strain, `rawPokerus & 0x0f` for days). It's crucial that we correctly handle the "cured" edge case: when the strain is non-zero but the days remaining is `0`. The game considers this immune/cured, separating it from never having been infected (both values at `0`). This exact bitwise approach and its specific tests for the cured boundary should act as the template for scaling into Gen 3 logic.
+
+### Pokerus Bitwise Parsing
+When parsing bit-shifted state flags like Pokerus, explicitly testing the boundaries (e.g., 0 days remaining with non-zero strain for the "cured" state) is critical to prevent state regressions.
