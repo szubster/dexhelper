@@ -37,8 +37,8 @@ The coder was tasked with updating the `palette` agent prompt to assign ownershi
 4. Verify that the constraint prohibiting adding custom CSS has been removed or modified to allow for `@utility` definitions.
 
 ## Acceptance Criteria
-- [ ] Confirmed `.github/agents/palette.md` asserts `palette` ownership of `src/index.css`.
-- [ ] Confirmed `.github/agents/palette.md` tasks `palette` with enforcing tactical hardware aesthetic and managing custom `@utility` primitives.
+- [x] Confirmed `.github/agents/palette.md` asserts `palette` ownership of `src/index.css`.
+- [x] Confirmed `.github/agents/palette.md` tasks `palette` with enforcing tactical hardware aesthetic and managing custom `@utility` primitives.
 
 ## Critical Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
