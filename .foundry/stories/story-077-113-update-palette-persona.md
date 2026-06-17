@@ -29,7 +29,7 @@ Update the relevant agent prompts or system configurations to explicitly define 
 2. Explicitly define responsibility for tactical utility definitions via `@utility` per ADR 024.
 
 ## Acceptance Criteria
-- [ ] Agent prompt explicitly states `palette` persona owns `src/index.css`.
-- [ ] Palette persona is tasked with enforcing the tactical hardware aesthetic and managing custom `@utility` primitives.
-- [ ] task-113-167-update-palette-persona-impl
-- [ ] task-113-168-update-palette-persona-qa
+- [x] Agent prompt explicitly states `palette` persona owns `src/index.css`.
+- [x] Palette persona is tasked with enforcing the tactical hardware aesthetic and managing custom `@utility` primitives.
+- [x] task-113-167-update-palette-persona-impl
+- [x] task-113-168-update-palette-persona-qa
