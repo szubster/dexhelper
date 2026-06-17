@@ -35,5 +35,5 @@ Define the custom utilities in `src/index.css` leveraging `@apply` to enforce th
 - If an empty PR is submitted for a completed task, the Coder MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Appropriate `@utility tactical-button` and `@utility tactical-focus` primitives are defined in `src/index.css`.
-- [ ] Tailwind v4 formatting and structure is respected.
+- [x] Appropriate `@utility tactical-button` and `@utility tactical-focus` primitives are defined in `src/index.css`.
+- [x] Tailwind v4 formatting and structure is respected.
