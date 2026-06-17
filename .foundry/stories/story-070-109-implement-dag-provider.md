@@ -26,4 +26,6 @@ notes: ''
 Implement the `DagProvider` React component that will wrap the DAG views and provide the shared DAG state (nodes and edges) to child components.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-109-196-implement-dag-provider-impl
+- [ ] task-109-197-implement-dag-provider-qa
