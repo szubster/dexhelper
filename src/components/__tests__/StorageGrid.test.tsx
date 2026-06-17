@@ -79,3 +79,37 @@ test('renders grid with pokemon', async () => {
   const btn = page.getByText('Bulbasaur');
   await btn.click();
 });
+
+test('renders Time Capsule UI indicator for Gen 2 save if eligible', async () => {
+  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+    (selector: unknown) =>
+      (selector as (state: unknown) => unknown)({
+        saveData: {
+          generation: 2,
+          partyDetails: [{ speciesId: 1, storageLocation: 'Party', level: 5, isShiny: false, moves: [1, 2, 3] }],
+          pcDetails: [],
+        },
+      }),
+  );
+
+  await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
+
+  await expect.element(page.getByText('TIME CAPSULE READY')).toBeInTheDocument();
+});
+
+test('renders Time Capsule error indicator for Gen 2 save if ineligible', async () => {
+  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+    (selector: unknown) =>
+      (selector as (state: unknown) => unknown)({
+        saveData: {
+          generation: 2,
+          partyDetails: [{ speciesId: 152, storageLocation: 'Party', level: 5, isShiny: false, moves: [1, 2, 3] }],
+          pcDetails: [],
+        },
+      }),
+  );
+
+  await render(<StorageGrid pokemonList={[{ id: 152, name: 'Chikorita' }]} />);
+
+  await expect.element(page.getByText('ERR')).toBeInTheDocument();
+});

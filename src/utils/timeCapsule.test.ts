@@ -19,4 +19,9 @@ describe('Time Capsule Validation', () => {
       reason: 'INVALID: Gen 2 Exclusive Move(s)',
     });
   });
+
+  it('should handle undefined moves', () => {
+    expect(getTimeCapsuleValidation(1, undefined as any)).toEqual({ isEligible: true });
+    expect(isTimeCapsuleEligible(1, undefined as any)).toEqual(true);
+  });
 });
