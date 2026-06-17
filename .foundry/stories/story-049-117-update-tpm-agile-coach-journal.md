@@ -2,7 +2,7 @@
 id: story-049-117-update-tpm-agile-coach-journal
 type: STORY
 title: Update TPM/Agile Coach Journal with Late-Binding Process
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-17'
