@@ -20,6 +20,7 @@ describe('foundry-orchestrator', () => {
     fs.mkdirSync(path.join(foundryDir, 'tasks'));
 
     // Mock process context
+    process.env.FOUNDRY_REPO_ROOT = tmpDir;
     vi.spyOn(process, 'cwd').mockReturnValue(tmpDir);
     vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
     vi.spyOn(process.stderr, 'write').mockImplementation(() => true);

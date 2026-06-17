@@ -354,7 +354,7 @@ function main(): void {
     info('⚠️  Strict mode active — unresolvable deps will cause exit(1).');
   }
 
-  const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+  const repoRoot = process.env.FOUNDRY_REPO_ROOT || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
   const foundryDir = path.join(repoRoot, '.foundry');
 
   if (!fs.existsSync(foundryDir)) {
