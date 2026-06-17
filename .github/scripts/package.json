@@ -7,9 +7,11 @@
     "orchestrate": "node --strip-types foundry-orchestrator.ts",
     "orchestrate:dry": "node --strip-types foundry-orchestrator.ts --dry-run",
     "orchestrate:strict": "node --strip-types foundry-orchestrator.ts --strict",
+    "verify:refs": "node --strip-types verify-dag-refs.ts",
     "test": "vitest run"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",

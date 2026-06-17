@@ -186,6 +186,10 @@ importers:
         version: 4.101.0(@cloudflare/workers-types@4.20260617.1)
 
   .github/scripts:
+    dependencies:
+      gray-matter:
+        specifier: ^4.0.3
+        version: 4.0.3
     devDependencies:
       '@types/node':
         specifier: ^25.9.1
