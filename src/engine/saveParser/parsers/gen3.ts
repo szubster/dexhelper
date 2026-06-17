@@ -121,6 +121,36 @@ export function isGen3Save(view: DataView): boolean {
 }
 
 /**
+ * Parses Mix Record events from a Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the value from.
+ * @returns An array of inherited Mix Record events.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3MixRecords(view: DataView, offset: number) {
+  try {
+    const mixRecords = [];
+    for (let i = 0; i < 25; i++) {
+      const itemOffset = offset + i * 36;
+      const kind = view.getUint8(itemOffset);
+      const active = view.getUint8(itemOffset + 1) !== 0;
+
+      // Check if the show is a Mix Record event (21 to 40)
+      if (active && kind >= 21 && kind <= 40) {
+        mixRecords.push({ kind, active });
+      }
+    }
+    return mixRecords;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
  * Parses the 16-bit Mirage Island value from a Gen 3 save file.
  *
  * @param view - The raw save file DataView.
@@ -186,6 +216,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
 
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset + 0x2b50);
+    const gen3MixRecords = parseGen3MixRecords(view, section1Offset + 0x27cc);
 
     const flagsOffset = section2Offset + 0x02f0;
     const hiddenItemFlags = new Uint8Array(14);
@@ -220,6 +251,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       hiddenItemFlags,
       mirageIslandValue,
       gen3PokeNews,
+      gen3MixRecords,
     };
   } catch (error) {
     if (error instanceof RangeError) {
