@@ -27,9 +27,9 @@ notes: ''
 Implement the parsing logic to extract upcoming event schedule data (such as Energy Guru sales) from Gen 3 save files. The parser MUST use the `DataView` API as mandated by ADR-010 to ensure bounds checking and prevent silent failures on corrupted saves.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView`-based parser for Gen 3 upcoming event schedule.
-- [ ] Handle potential out-of-bounds reads via `DataView` `RangeError` with graceful propagation.
-- [ ] Ensure backward compatibility with existing parsers as required by ADR-010.
+- [x] Implement `DataView`-based parser for Gen 3 upcoming event schedule.
+- [x] Handle potential out-of-bounds reads via `DataView` `RangeError` with graceful propagation.
+- [x] Ensure backward compatibility with existing parsers as required by ADR-010.
 
 ## Contract Reminders
 **To Coder / QA:**

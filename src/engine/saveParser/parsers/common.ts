@@ -68,6 +68,12 @@ export interface PokemonInstance {
  * This structure bridges the gap between binary memory blocks and the suggestion engine.
  */
 
+export interface Gen3PokeNews {
+  kind: number;
+  state: number;
+  dayCountdown: number;
+}
+
 export interface Gen3BerryPatch {
   berryId: number;
   stage: number;
@@ -136,6 +142,8 @@ export interface SaveData {
   daycareHasEgg?: boolean;
   /** Gen 3 specific: Information regarding the state of Berry Patches across Hoenn. */
   gen3BerryPatches?: Gen3BerryPatch[];
+  /** Gen 3 specific: Upcoming event schedule. */
+  gen3PokeNews?: Gen3PokeNews[];
   /**
    * Information regarding currently roaming Legendaries (Gen 2: Raikou, Entei, Suicune. Gen 3: Latios, Latias).
    *

@@ -185,6 +185,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
 
+    const gen3PokeNews = parseGen3PokeNews(view, section1Offset + 0x2b50);
+
     const flagsOffset = section2Offset + 0x02f0;
     const hiddenItemFlags = new Uint8Array(14);
 
@@ -217,6 +219,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3BerryPatches,
       hiddenItemFlags,
       mirageIslandValue,
+      gen3PokeNews,
     };
   } catch (error) {
     if (error instanceof RangeError) {
@@ -264,6 +267,33 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
     const tough = (bitfield >> 12) & 0x07;
 
     return { cool, beauty, cute, smart, tough };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
+ * Parses the upcoming event schedule (PokeNews) from a Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the value from.
+ * @returns An array of news events.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3PokeNews(view: DataView, offset: number) {
+  try {
+    const news = [];
+    for (let i = 0; i < 16; i++) {
+      const itemOffset = offset + i * 4;
+      const kind = view.getUint8(itemOffset);
+      const state = view.getUint8(itemOffset + 1);
+      const dayCountdown = view.getUint16(itemOffset + 2, true);
+      news.push({ kind, state, dayCountdown });
+    }
+    return news;
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');
