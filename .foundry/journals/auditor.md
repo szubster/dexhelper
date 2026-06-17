@@ -112,3 +112,6 @@ Verification was successful for `epic-071-074-define-tailwind-v4-utilities`.
 * **Findings**: The CSS primitives (`tactical-panel`, `tactical-button`, `tactical-focus`, `tactical-card`, `tactical-input`, `tactical-text`) were successfully defined in `src/index.css` following ADR 024.
 * **Outcome**: The epic is complete. No new architecture/research nodes need to be spawned currently since the implementation matches the ADR completely.
 When verifying macro nodes like EPICs, it's critical to recursively check that all spawned descendant nodes (down to the TASK level) have fully transitioned to the COMPLETED state before submitting an empty PR. Relying solely on the parent node's acceptance criteria checkboxes or immediate child nodes can prematurely transition the node to VERIFYING, leading to system inconsistency as the actual implementation might not yet be merged into the codebase. This applies to all deep levels of the spawned sub-tree.
+
+## Save File Parsing Strategy
+When implementing save file parsing, strictly use dynamic relative offset calculations (anchored to known base offsets) instead of absolute hardcoded offsets for extracting dynamic data blocks to ensure robustness against version-specific shifts and prevent regressions.
