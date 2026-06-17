@@ -1,6 +1,8 @@
 import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
+import { useStore } from '../../../store';
+import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
 import { DataPoint } from '../../DataPoint';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
@@ -11,6 +13,8 @@ interface PokemonCaughtDetailsProps {
 }
 
 export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps) {
+  const generation = useStore((s) => s.saveData?.generation);
+
   if (yourPokemon.length === 0) return null;
 
   return (
@@ -52,6 +56,23 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                 </div>
               </div>
             </div>
+
+            {generation === 2 && (
+              <div className="relative z-10 border-white/5 border-t pt-4 pb-2">
+                {(() => {
+                  const validation = getTimeCapsuleValidation(p.speciesId, p.moves);
+                  return validation.isEligible ? (
+                    <TacticalBadge variant="emerald" className="rounded-none font-mono text-[9px] uppercase">
+                      [ TIME CAPSULE READY ]
+                    </TacticalBadge>
+                  ) : (
+                    <TacticalBadge variant="red" className="rounded-none font-mono text-[9px] uppercase">
+                      {validation.reason}
+                    </TacticalBadge>
+                  );
+                })()}
+              </div>
+            )}
 
             <div className="relative z-10 grid grid-cols-2 gap-x-4 gap-y-2">
               {p.otName && (
