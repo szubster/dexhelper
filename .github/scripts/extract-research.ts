@@ -1,4 +1,5 @@
 import * as fs from 'node:fs';
+import * as path from 'node:path';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
@@ -9,9 +10,52 @@ if (!targetNodePath) {
   process.exit(0);
 }
 
+const idToPath = new Map<string, string>();
+
+function discoverNodeFiles(dir: string): string[] {
+  const results: string[] = [];
+  function walk(current: string): void {
+    if (!fs.existsSync(current)) return;
+    const entries = fs.readdirSync(current, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name === 'journals') continue;
+        if (entry.name === 'docs') {
+            const adrsPath = path.join(fullPath, 'adrs');
+            if (fs.existsSync(adrsPath)) walk(adrsPath);
+            continue;
+        }
+        walk(fullPath);
+      } else if (entry.isFile() && entry.name.endsWith('.md')) {
+        results.push(fullPath);
+      }
+    }
+  }
+  walk(dir);
+  return results;
+}
+
+const repoRoot = process.cwd();
+const foundryDir = path.join(repoRoot, '.foundry');
+const files = discoverNodeFiles(foundryDir);
+
+for (const fp of files) {
+  const repoPath = path.relative(repoRoot, fp).replace(/\\/g, '/');
+  try {
+    const content = fs.readFileSync(fp, 'utf-8');
+    const parsed = matter(content);
+    if (parsed.data && parsed.data.id) {
+      idToPath.set(parsed.data.id, repoPath);
+    }
+  } catch {
+    // Skip unparseable files
+  }
+}
+
 const researchPaths = new Set<string>();
 const visitedPaths = new Set<string>();
-let currentPath = targetNodePath;
+let currentPath: string | null = targetNodePath;
 
 while (currentPath && !visitedPaths.has(currentPath)) {
   visitedPaths.add(currentPath);
@@ -30,8 +74,18 @@ while (currentPath && !visitedPaths.has(currentPath)) {
     }
 
     const parent = fm.parent;
-    if (typeof parent === 'string' && parent.endsWith('.md') && parent !== currentPath) {
-      currentPath = parent;
+    if (typeof parent === 'string') {
+      if (idToPath.has(parent)) {
+        currentPath = idToPath.get(parent)!;
+      } else if (parent.endsWith('.md')) {
+        currentPath = parent;
+      } else {
+        currentPath = null;
+      }
+
+      if (currentPath === visitedPaths.values().next().value) { // Very basic circular check
+         break;
+      }
     } else {
       break;
     }

@@ -590,12 +590,12 @@ function main(): void {
         break;
       }
 
-      const dep = nodeMap.get(depPath);
+      const dep = depPath ? nodeMap.get(depPath) : null;
       if (!dep) {
-        if (fs.existsSync(path.join(repoRoot, depPath))) {
+        if (depPath && fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
         }
-        warn(`Dependency file '${depPath}' not found for ${node.frontmatter.status} node: ${node.repoPath}`);
+        warn(`Dependency file '${depRef}' not found for ${node.frontmatter.status} node: ${node.repoPath}`);
         hasUnresolvableDeps = true;
         shouldSuspend = true;
         break;
@@ -709,8 +709,8 @@ function main(): void {
           // UNLESS the parent itself has incomplete dependencies.
           let isParentDepIncomplete = false;
           for (const depRef of parentNode.frontmatter.depends_on) {
-            const depPath = resolveNodePath(depRef)!;
-            if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
+            const depPath = resolveNodePath(depRef);
+            if (depPath && isHierarchicallyIncomplete(depPath, [node.repoPath])) {
               isParentDepIncomplete = true;
               break;
             }
@@ -749,10 +749,10 @@ function main(): void {
     const deps = node.frontmatter.depends_on;
 
     for (const depRef of deps) {
-      const depPath = resolveNodePath(depRef)!;
-      const dep = nodeMap.get(depPath);
+      const depPath = resolveNodePath(depRef);
+      const dep = depPath ? nodeMap.get(depPath) : null;
       if (!dep) {
-        if (fs.existsSync(path.join(repoRoot, depPath))) {
+        if (depPath && fs.existsSync(path.join(repoRoot, depPath))) {
           continue;
         }
         warn(`Unresolvable dependency '${depRef}' referenced by: ${node.repoPath}`);
@@ -861,8 +861,8 @@ function main(): void {
         if (allChildrenCompleted) {
           let isDepIncomplete = false;
           for (const depRef of node.frontmatter.depends_on) {
-            const depPath = resolveNodePath(depRef)!;
-            if (isHierarchicallyIncomplete(depPath, [node.repoPath])) {
+            const depPath = resolveNodePath(depRef);
+            if (depPath && isHierarchicallyIncomplete(depPath, [node.repoPath])) {
               isDepIncomplete = true;
               break;
             }

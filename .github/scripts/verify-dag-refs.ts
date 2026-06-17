@@ -37,15 +37,15 @@ const nodes: any[] = [];
 
 for (const fp of files) {
   const repoPath = path.relative(repoRoot, fp).replace(/\\/g, '/');
-  const content = fs.readFileSync(fp, 'utf-8');
   try {
+    const content = fs.readFileSync(fp, 'utf-8');
     const parsed = matter(content);
     if (parsed.data && parsed.data.id) {
       idToPath.set(parsed.data.id, repoPath);
       nodes.push({ repoPath, fm: parsed.data });
     }
   } catch {
-    console.error(`Failed to parse ${repoPath}`);
+    process.stderr.write(`Failed to parse ${repoPath}\n`);
   }
 }
 
