@@ -28,10 +28,10 @@ notes: ''
 Verify the implementation of the Gen 3 upcoming event schedule parser (`task-124-171-gen3-event-schedule-parser`).
 
 ## Acceptance Criteria
-- [ ] Verify that the parser extracts upcoming event schedule data from Gen 3 save files correctly.
-- [ ] Verify that the parser exclusively uses the `DataView` API for all new Gen 3 save parsing logic.
-- [ ] Verify that out-of-bounds reads via `DataView` throw `RangeError` and are caught/handled gracefully.
-- [ ] Verify backward compatibility with existing parsers is maintained.
+- [x] Verify that the parser extracts upcoming event schedule data from Gen 3 save files correctly.
+- [x] Verify that the parser exclusively uses the `DataView` API for all new Gen 3 save parsing logic.
+- [x] Verify that out-of-bounds reads via `DataView` throw `RangeError` and are caught/handled gracefully.
+- [x] Verify backward compatibility with existing parsers is maintained.
 
 ## Contract Reminders
 **To Coder / QA:**
