@@ -197,3 +197,9 @@
 **Outcome:** Accepted
 **Why:** Brings the fundamental app framing into the specialized hardware motif. The application no longer looks like a website occupying the browser window; it looks like a physical CRT terminal monitor displaying a war-room data grid.
 **Pattern:** Apply heavy, physical-looking frames and global screen-space overlays (vignettes, scanlines, hex grids) to the root application layout to permanently break the "web page" illusion and enforce the specialized device fantasy at the macro level.
+
+## 2026-07-21 - [Accepted] - 🖼️ Canvas: Tactical Telemetry Datapoints Redesign
+**What:** Redesigned the `DataPoint` and `InlineDataPoint` components to fully embrace the tactical "snooping" aesthetic. Added bracketed text (`[ LABEL ]`) for all telemetry headers, included LCD indicator dots and active scanning lines (hover states), and replaced generic flex layouts with rigid, segmented terminal block layouts (e.g. `bg-black/40 px-1 border-b border-dashed`).
+**Outcome:** Accepted
+**Why:** Brings the most granular, fundamental data readout components in line with the established specialized hardware motif. The previous datapoints were simple flex column text pairs, which broke the terminal simulation on dense screens (like the Header and Details Panel). Treating individual stats as active telemetry nodes reinforces the physical device fantasy.
+**Pattern:** Apply tactical aesthetics (bracketed telemetry labels, rigid block backgrounds, dashed borders acting as connection wires, and LCD indicator dots) even to the smallest, most atomic data display elements to maintain absolute visual coherence deep within complex data views.
