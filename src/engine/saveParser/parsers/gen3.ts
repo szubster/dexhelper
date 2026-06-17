@@ -1,3 +1,31 @@
+/**
+ * @module gen3Parser
+ *
+ * Generation 3 (R/S/E/FR/LG) Pokémon save files abandon the static SRAM layout
+ * of Generations 1 and 2 in favor of a Flash Memory compatible architecture.
+ *
+ * ## Architecture Overview
+ *
+ * 1. **A/B Dual-Block Saving**:
+ *    To prevent data corruption if power is lost during a save, the 128KB flash memory
+ *    is split into two 56KB save blocks (Block A at 0x0000, Block B at 0xE000).
+ *    The parser must scan both blocks and determine which is the most recent based
+ *    on an incremental "Save Index".
+ *
+ * 2. **Dynamically Shuffled Sections**:
+ *    Within a 56KB save block, data is split into 14 distinct 4KB sections (0-13).
+ *    Unlike Gen 1/2 where Party Data is always at a hardcoded offset, Gen 3 shuffles
+ *    the order of these 14 sections every time the game is saved (to wear-level the flash memory).
+ *
+ * 3. **Section Footers**:
+ *    Because sections are shuffled, the parser cannot rely on static offsets. Instead,
+ *    it must read the 12-byte footer at the end of each 4KB section (offset 4084).
+ *    The footer contains:
+ *    - `0x08012025`: The magic signature validating the section.
+ *    - Section ID (0-13): Identifies the data contained (e.g., Section 1 is Party, Section 2 is PC).
+ *    - Save Index: Used to resolve A/B block precedence.
+ */
+
 import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, SaveData } from './common';
 
 const SIGNATURE = 0x08012025;
@@ -6,6 +34,17 @@ const NUM_SECTIONS = 14;
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
 
+/**
+ * Scans both Save Block A and B to find a specific 4KB data section.
+ * It reads the footer of each section to validate the signature and Section ID.
+ * If the section exists in both blocks, it compares the Save Index and returns
+ * the offset belonging to the most recent, successfully written save.
+ *
+ * @param view - The raw save file DataView.
+ * @param targetSectionId - The internal ID (0-13) of the data section to locate.
+ * @returns The absolute byte offset of the section within the file.
+ * @throws An Error if the section cannot be found or signatures are invalid.
+ */
 function getLatestSectionOffset(view: DataView, targetSectionId: number): number {
   let saveIndexA = -1;
   let saveIndexB = -1;
@@ -61,6 +100,16 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  * @returns True if the structure looks like a valid Gen 3 save.
  */
 
+/**
+ * Extracts the state of the 128 plantable Berry Patches located in Hoenn.
+ * This function iterates through the sequential array located within Section 1 (SaveBlock1),
+ * unpacking the bitfields used to track growth stage, yield, and watering flags.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The absolute offset of Section 1.
+ * @returns An array of parsed Gen3BerryPatch objects.
+ * @throws A RangeError if reading extends beyond the file buffer.
+ */
 function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
   const patches: Gen3BerryPatch[] = [];
   const baseOffset = saveBlock1Offset + 0x071c;
