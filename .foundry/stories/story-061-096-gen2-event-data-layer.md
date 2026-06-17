@@ -2,13 +2,13 @@
 id: story-061-096-gen2-event-data-layer
 type: STORY
 title: Gen 2 Event Data Layer
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-17'
 depends_on:
   - story-061-095-gen2-event-flag-extraction
-jules_session_id: null
+jules_session_id: '16506502738905096627'
 pr_number: null
 parent: epic-038-061-gen2-event-flag-parsing
 tags:
