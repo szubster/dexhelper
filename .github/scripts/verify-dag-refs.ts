@@ -1,4 +1,5 @@
 import * as fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
 
@@ -28,7 +29,8 @@ function discoverNodeFiles(dir: string): string[] {
   return results;
 }
 
-const repoRoot = process.cwd();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(__dirname, '..', '..');
 const foundryDir = path.join(repoRoot, '.foundry');
 const files = discoverNodeFiles(foundryDir);
 

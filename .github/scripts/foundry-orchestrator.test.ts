@@ -7,6 +7,13 @@ import { createValidTestNode } from './foundry-test-utils';
 
 describe('foundry-orchestrator', () => {
   let tmpDir: string;
+vi.doMock('node:url', async (importOriginal) => {
+  const actual = await importOriginal();
+  return {
+    ...actual,
+    fileURLToPath: () => require('path').join(tmpDir, '.github/scripts/file.ts')
+  };
+});
   let foundryDir: string;
 
   beforeEach(() => {
@@ -21,6 +28,16 @@ describe('foundry-orchestrator', () => {
 
     // Mock process context
     vi.spyOn(process, 'cwd').mockReturnValue(tmpDir);
+
+    // @ts-ignore
+    vi.doMock('node:url', async (importOriginal) => {
+      const actual = await importOriginal();
+      return {
+        ...actual,
+        fileURLToPath: () => require('path').join(process.cwd(), '.github/scripts/file.ts')
+      };
+    });
+
     vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
     vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
   });
