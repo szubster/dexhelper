@@ -46,4 +46,20 @@ test.describe('Filtering Logic', () => {
 
     await argosScreenshot(page, 'filter-status-missing');
   });
+
+  test('should filter by Dex Only status', async ({ page }) => {
+    // 1. Toggle "Dex Only" filter
+    await page.getByTestId('filter-dex-only').click();
+
+    // 2. Bulbasaur (ID 1) is owned but not in PC/Party in Yellow save, should be visible
+    await expect(page.locator('[data-pokemon-id="1"]')).toBeVisible();
+
+    // 3. Pikachu (ID 25) is in Party (Secured), should be hidden
+    await expect(page.locator('[data-pokemon-id="25"]')).not.toBeVisible();
+
+    // 4. Weedle (ID 13) is not owned in Yellow save, should be hidden
+    await expect(page.locator('[data-pokemon-id="13"]')).not.toBeVisible();
+
+    await argosScreenshot(page, 'filter-status-dex-only');
+  });
 });
