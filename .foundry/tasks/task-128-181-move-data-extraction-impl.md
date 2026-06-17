@@ -45,7 +45,7 @@ As per ADR 025 and Story 128, we need to extract move data from PokeAPI and writ
 - If you submit an empty PR for a completed task (which shouldn't be the case here, as code changes are expected), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Logic is added to `scripts/generate-pokedata.ts` to parse move data from the PokeAPI dataset.
-- [ ] The generated move structures conform strictly to the ADR 025 schema (with abbreviations `p`, `acc`, `pp`, `dmg_class`).
-- [ ] Values matching defaults (e.g., accuracy 100) are explicitly omitted via the existing compaction logic.
-- [ ] The data is written to `moves.jsonl` in the `data/db` directory.
+- [x] Logic is added to `scripts/generate-pokedata.ts` to parse move data from the PokeAPI dataset.
+- [x] The generated move structures conform strictly to the ADR 025 schema (with abbreviations `p`, `acc`, `pp`, `dmg_class`).
+- [x] Values matching defaults (e.g., accuracy 100) are explicitly omitted via the existing compaction logic.
+- [x] The data is written to `moves.jsonl` in the `data/db` directory.
