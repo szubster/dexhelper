@@ -84,3 +84,7 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 - **Pattern:** The coder implementation task (`task-108-161-gen3-roamer-dataview-extraction-impl`) failed permanently (max rejection count) due to missing specifics on how to parse the 32-bit IV bitfield for Gen 3 roamers. The existing research (`research-071-138-gen3-roamer-offsets.md`) provided the offset but not the bit sizes and masks required.
 - **Lesson:** When writing implementation blueprints for binary data extraction, it is insufficient to provide only the memory offset. The blueprint must explicitly define the bitwise logic (shifts and masks) to prevent hallucination by the coder persona.
 - **Action:** Created a new research node (`research-108-194-gen3-roamer-iv-bitfield`) to discover the exact parsing formula before retrying the implementation (`task-108-192-gen3-roamer-dataview-extraction-impl`).
+
+## 2026-06-18: Unexpected Artifact Existence
+- **Observation**: While processing `story-074-115-define-tactical-input-and-text.md`, it was discovered that its target artifacts (`task-115-165-implement-tactical-input-text.md` and `task-115-166-qa-tactical-input-text.md`) already unexpectedly existed in the `.foundry/tasks/` directory and were marked as `COMPLETED`.
+- **Action**: Followed the Empty PR Policy by checking off the acceptance criteria checkboxes in the story node's markdown body and proceeding with an Empty PR submission, logging this anomaly for the Agile Coach.
