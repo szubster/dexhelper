@@ -1,4 +1,5 @@
 import matter from 'gray-matter';
+import yaml from 'js-yaml';
 
 export interface FoundryNodeData {
   id: string;
@@ -11,7 +12,13 @@ export interface FoundryNodeData {
 
 export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
   try {
-    const parsed = matter(rawContent);
+    const parsed = matter(rawContent, {
+      engines: {
+        yaml: {
+          parse: yaml.load.bind(yaml),
+        },
+      },
+    });
     const data = parsed.data;
 
     // Validate required fields

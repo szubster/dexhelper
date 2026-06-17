@@ -56,3 +56,6 @@ Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While t
 
 ## Package.json Sorting
 **Pattern:** When making any modifications to `package.json`, always remember to run `pnpm exec sort-package-json package.json` (or `pnpm lint:package-json` to check) before submitting to prevent linting failures.
+
+## Upgrading `js-yaml` and `gray-matter`
+**Pattern:** Upgrading `js-yaml` from version `3.x` to `4.x` (often required to resolve quadratic complexity DoS vulnerabilities) introduces a breaking change: the `safeLoad` method is removed, and its secure behavior is moved to the standard `load` method. Because `gray-matter` uses `safeLoad` internally, forcing an upgrade to `js-yaml@4.x` via `package.json` overrides will cause the application to crash (`TypeError: safeLoad is not a function`). To fix this, explicitly provide a custom engine to `gray-matter` mapping `parse` to `yaml.load` (e.g., `matter(content, { engines: { yaml: { parse: yaml.load.bind(yaml) } } })`).
