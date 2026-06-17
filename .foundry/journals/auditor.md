@@ -96,3 +96,10 @@ This confirms the robustness of our data extraction architecture, particularly i
 The implementation successfully parses Gen 1 using an absolute base offset (`0x25B3`) with a version-specific `offsetShift` (for Yellow). Crucially, the Gen 2 implementation correctly relies on a dynamic, relative offset calculation (`0xA8` bytes after the `johtoBadgesOffset`). This reinforces that save data parsing must avoid hardcoded absolute offsets when the data structure dynamically shifts based on version or state, opting instead for calculated relative offsets anchored to known stable points.
 ### Pokerus Bitwise Parsing
 When parsing bit-shifted state flags like Pokerus, explicitly testing the boundaries (e.g., 0 days remaining with non-zero strain for the "cured" state) is critical to prevent state regressions.
+
+## Epic-071-074: Tailwind v4 Tactical Utilities Consolidation
+
+Verification was successful for `epic-071-074-define-tailwind-v4-utilities`.
+* **Learnings**: Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block, unless defining specific internal overrides.
+* **Findings**: The CSS primitives (`tactical-panel`, `tactical-button`, `tactical-focus`, `tactical-card`, `tactical-input`, `tactical-text`) were successfully defined in `src/index.css` following ADR 024.
+* **Outcome**: The epic is complete. No new architecture/research nodes need to be spawned currently since the implementation matches the ADR completely.
