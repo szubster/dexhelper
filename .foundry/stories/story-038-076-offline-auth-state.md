@@ -34,3 +34,7 @@ The application is designed to be offline-first. Therefore, the client needs to 
 - [ ] Ensure the UI reflects the authenticated state.
 - [ ] Ensure the authenticated state persists across page reloads and when the device goes offline.
 - [ ] Implement a logout mechanism that clears the client-side state.
+
+## Child Nodes
+- [ ] .foundry/tasks/task-076-199-offline-auth-state-impl.md
+- [ ] .foundry/tasks/task-076-200-offline-auth-state-qa.md
