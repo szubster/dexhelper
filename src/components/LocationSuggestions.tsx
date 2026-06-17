@@ -5,6 +5,7 @@ import { pokeDB } from '../db/PokeDB';
 import type { GenericLocation } from '../db/schema';
 import { useStore } from '../store';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { TacticalIconButton } from './TacticalIconButton';
 
 export function LocationSuggestions() {
   const searchTerm = useStore((s) => s.searchTerm);
@@ -74,15 +75,14 @@ export function LocationSuggestions() {
             <MapPin size={12} className="shrink-0" />
             <span>Location: {selectedLocationName}</span>
           </div>
-          <button
-            type="button"
+          <TacticalIconButton
             onClick={() => setSelectedLocationId(null)}
             aria-label="Clear location filter"
             title="Clear location filter"
-            className="relative z-10 ml-2 text-zinc-400 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            className="relative z-10 ml-2 text-zinc-400 hover:text-white"
           >
             <X size={10} />
-          </button>
+          </TacticalIconButton>
         </div>
       </div>
     );
