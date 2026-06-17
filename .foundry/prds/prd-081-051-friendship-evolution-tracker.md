@@ -2,7 +2,7 @@
 id: prd-081-051-friendship-evolution-tracker
 type: PRD
 title: Exact Friendship & Evolution Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-15'
 updated_at: '2026-06-17'

@@ -2,7 +2,7 @@
 id: research-123-202-gen3-outbreak-offsets
 type: RESEARCH
 title: Research Gen 3 Mass Outbreak Memory Offsets
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-17'
 updated_at: '2026-06-17'
