@@ -39,7 +39,17 @@ This document catalogs the save file offsets for Pokémon Gold, Silver, and Crys
 | **Owned Flags** | `0x2A4C` | `0x29CE` |
 | **Seen Flags** | `0x2A6C` | `0x29EE` |
 
-## 4. Item Inventory (Bank 1)
+## 4. Event Flags (Bank 1)
+
+| Field | GS (Standard) | Crystal (Standard) | Size | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **English Event Flags** | `0x2624` | `0x2600` | 256 | 2048 flags. Offset is 0x100 bytes before Current PC Box. |
+| **Japanese Event Flags**| `0x2600` | `0x25E2` | 256 | Shifted back due to Japanese string encodings. |
+
+> [!NOTE]
+> Previous documentation falsely claimed `0x283E` (GS) and `0x281A` (Crystal) for Event Flags. Those offsets actually correspond to **Party Data** for English Crystal and Japanese Crystal respectively. `wEventFlags` is consistently located exactly 256 bytes prior to `wCurBox`.
+
+## 5. Item Inventory (Bank 1)
 
 | Pocket | GS (Standard) | Crystal (Standard) |
 | :--- | :--- | :--- |

@@ -25,3 +25,6 @@ When implementing new pipeline states that involve temporary ownership handoffs 
   1.  **Missing Architectural Integration (ADR 018)**: `RouteRadarController` was created as an isolated class but was never integrated into the application's data flow (`Save State -> suggestionEngine -> RouteRadarController -> Heatmap State`) nor passed as props to the Map UI component.
   2.  **Data Schema Violation (ADR 015)**: The implementation continued to use the shortened data property `aid` (as seen in `encounter.aid`) instead of the fully expanded `areaId` property mandated by ADR 015 ("Revert Data Format Optimizations").
 Agents must ensure actual structural integration and strict adherence to data schema ADRs, not just isolated utility completion.
+
+### Lesson: Save File Offsets Trust
+When performing research on save file offsets, never blindly trust task descriptions or previous documentation if it conflicts with the disassembly. In task-095-157, the PM/author confused the Party Data offsets (0x283E/0x281A) with Event Flag offsets. Always cross-reference the WRAM memory map directly and calculate offsets by subtracting relative to known anchors (e.g., wCurBox).
