@@ -26,9 +26,13 @@ export function generateBreedingSuggestions(
 ) {
   // F. Breeding (Gen 2 Only)
   if (saveData.generation === 2) {
-    queryTargets.forEach((targetId: number) => {
+    // ⚡ Bolt: Replaced .forEach with for loop to avoid closure creation and function call overhead
+    for (let i = 0; i < queryTargets.length; i++) {
+      const targetId = queryTargets[i];
+      if (targetId === undefined) continue;
+
       const p = apiData.pokemonMetadata?.[targetId];
-      if (!p) return;
+      if (!p) continue;
 
       // Check if we are missing a base Pokemon, but we own an evolution of it
       let canBreed = false;
@@ -90,6 +94,6 @@ export function generateBreedingSuggestions(
           priority,
         });
       }
-    });
+    }
   }
 }

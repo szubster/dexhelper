@@ -127,10 +127,14 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const allPokemon = await dexDataLoader.pokemon.loadMany(allNeededPids);
   const pokemonMetadata: Record<number, PokemonMetadata | null> = {};
 
-  allNeededPids.forEach((pid, idx) => {
-    const p = allPokemon[idx];
-    pokemonMetadata[pid] = p && !(p instanceof Error) ? p : null;
-  });
+  // ⚡ Bolt: Replaced .forEach with for loop to avoid closure creation and function call overhead
+  for (let idx = 0; idx < allNeededPids.length; idx++) {
+    const pid = allNeededPids[idx];
+    if (pid !== undefined) {
+      const p = allPokemon[idx];
+      pokemonMetadata[pid] = p && !(p instanceof Error) ? p : null;
+    }
+  }
 
   // ⚡ Bolt: Removed Object.fromEntries(map(...)) chain to prevent intermediate array allocations (O(N) -> O(1) memory overhead)
   const areaNames: Record<number, string> = {};
