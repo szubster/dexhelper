@@ -48,8 +48,8 @@ Verify the implementation of Time Capsule UI indicators in DexHelper, ensuring c
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Time Capsule validation logic verified.
-- [ ] Storage View UI indicators verified.
-- [ ] Detailed Pokémon view status and error messages verified.
-- [ ] Aesthetics verified against ADR 008.
-- [ ] `pnpm test` and `pnpm type-check` pass.
+- [x] Time Capsule validation logic verified.
+- [x] Storage View UI indicators verified.
+- [x] Detailed Pokémon view status and error messages verified.
+- [x] Aesthetics verified against ADR 008.
+- [x] `pnpm test` and `pnpm type-check` pass.
