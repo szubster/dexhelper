@@ -2,7 +2,7 @@
 id: epic-071-074-define-tailwind-v4-utilities
 type: EPIC
 title: Define Tailwind v4 Tactical Utilities
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-11'
 updated_at: '2026-06-18'
@@ -15,8 +15,8 @@ tags:
   - styling
   - tailwind
 research_references: []
-rejection_count: 0
-rejection_reason: VERIFYING node missing session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
