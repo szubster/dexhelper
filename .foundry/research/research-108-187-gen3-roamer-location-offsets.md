@@ -2,12 +2,12 @@
 id: research-108-187-gen3-roamer-location-offsets
 type: RESEARCH
 title: Investigate Gen 3 Roamer Location Save Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-15'
-updated_at: '2026-06-15'
+updated_at: '2026-06-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9240626839193653308'
 pr_number: null
 parent: task-108-161-gen3-roamer-location-impl
 tags:

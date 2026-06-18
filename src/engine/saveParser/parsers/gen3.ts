@@ -121,6 +121,61 @@ export function isGen3Save(view: DataView): boolean {
 }
 
 /**
+ * Parses the Gen 3 Roamer data from the save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The offset where SaveBlock1 starts.
+ * @param gameVersion - The version of the Gen 3 game.
+ * @returns An object containing the extracted roamer data.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVersion: string) {
+  let offset = saveBlock1Offset;
+  if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
+    offset += 0x3144;
+  } else if (gameVersion === 'emerald') {
+    offset += 0x31dc;
+  } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
+    offset += 0x30d0;
+  } else {
+    // Defaulting to ruby offset if unknown
+    offset += 0x3144;
+  }
+
+  try {
+    const ivs = view.getUint32(offset, true);
+    const personalityValue = view.getUint32(offset + 4, true);
+    const speciesId = view.getUint16(offset + 8, true);
+    const hp = view.getUint16(offset + 10, true);
+    const level = view.getUint8(offset + 12);
+    const statusCondition = view.getUint8(offset + 13);
+    const active = view.getUint8(offset + 19) !== 0;
+
+    const ivHp = ivs & 0x1f;
+    const atk = (ivs >> 5) & 0x1f;
+    const def = (ivs >> 10) & 0x1f;
+    const spd = (ivs >> 15) & 0x1f;
+    const spAtk = (ivs >> 20) & 0x1f;
+    const spDef = (ivs >> 25) & 0x1f;
+
+    return {
+      ivs: { hp: ivHp, atk, def, spd, spAtk, spDef },
+      personalityValue,
+      speciesId,
+      hp,
+      level,
+      statusCondition,
+      active,
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
  * Parses Mix Record events from a Gen 3 save file.
  *
  * @param view - The raw save file DataView.
