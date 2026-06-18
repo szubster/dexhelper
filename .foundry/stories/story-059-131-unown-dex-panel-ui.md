@@ -35,4 +35,4 @@ Must observe the "tactical hardware/snooping" styling requirements defined in AD
 ## Acceptance Criteria
 - [x] Task for creating the Unown Dex Panel UI component created.
 
-- [ ] task-131-185-implement-unown-dex-panel-ui
+- [x] task-131-185-implement-unown-dex-panel-ui
