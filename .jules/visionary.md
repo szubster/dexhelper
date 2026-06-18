@@ -112,3 +112,7 @@
 ## 2026-06-17
 **Idea:** Daycare Status and Exact Egg Hatch Tracker
 **Learning:** Targeting opaque, heavily-utilized progression mechanics like breeding (Daycare status and Egg steps) for actionable QoL improvements perfectly aligns with the app's offline-first programmatic save parsing strengths. Extracting exact cycle counts transforms vague in-game text into precise data, removing tedious guesswork for hardcore players.
+
+## 2026-06-18
+**Idea:** Hidden Power Type and Base Power Analyzer
+**Learning:** Calculating and surfacing critical combat metrics (like Hidden Power Type and Power) that are derived from entirely hidden internal stats (DVs/IVs) provides immediate, immense quality-of-life value for competitive and challenge players. Transforming complex, opaque, and historically tedious external spreadsheet math into direct, actionable in-app UI reinforces DexHelper's strength as an intelligent, offline-first save parser.
