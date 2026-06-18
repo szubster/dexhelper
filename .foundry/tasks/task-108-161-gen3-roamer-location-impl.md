@@ -2,7 +2,7 @@
 id: task-108-161-gen3-roamer-location-impl
 type: TASK
 title: Implement Gen 3 Roamer Location Data Extraction
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-18'
@@ -18,7 +18,7 @@ tags:
 research_references:
   - research-071-138-gen3-roamer-offsets
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Roamer locations are stored in EWRAM and are not serialized into the .sav file, making extraction impossible.'
 notes: ''
 ---
 
