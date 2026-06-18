@@ -123,3 +123,6 @@ This confirms the architecture accurately scales bitwise state extractions, reli
 The usage of specific bitwise operators (`>> 4` and `& 0x0f`) accompanied by targeted edge-case unit tests ensures regressions are caught early in core data structures. This pattern of boundary testing for custom bit fields is crucial and should be propagated to other similar bit-level extraction systems in Gen 3/4.
 ## Save File Parsing Strategy
 When implementing save file parsing, strictly use dynamic relative offset calculations (anchored to known base offsets) instead of absolute hardcoded offsets for extracting dynamic data blocks to ensure robustness against version-specific shifts and prevent regressions.
+
+### Lesson: Pokerus Bitwise Parsing and Cured State
+When extracting Pokerus state from an 8-bit integer, relying on bitwise operations requires explicitly handling boundary conditions like the "cured" state (where strain is non-zero but days remaining is 0). This is critical to distinguish from a completely uninfected state (all zeros) and prevents state regressions across generations.
