@@ -8,7 +8,7 @@ created_at: '2026-06-11'
 updated_at: '2026-06-18'
 depends_on:
   - research-071-138-gen3-roamer-offsets
-jules_session_id: '3908572349586531623'
+jules_session_id: '15120034865594314940'
 pr_number: null
 parent: story-072-108-gen3-roamer-location-extraction
 tags:
