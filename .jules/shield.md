@@ -56,3 +56,7 @@ Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While t
 
 ## Package.json Sorting
 **Pattern:** When making any modifications to `package.json`, always remember to run `pnpm exec sort-package-json package.json` (or `pnpm lint:package-json` to check) before submitting to prevent linting failures.
+
+## 2026-06-03 - [Mitigated] - Mitigated dependency vulnerabilities
+**Pattern:** When mitigating vulnerable sub-dependencies flagged by `pnpm audit`, use the `pnpm.overrides` field in `package.json` to securely enforce the patched version down the dependency tree.
+**Constraint:** Do not use `pnpm.overrides` to force upgrade `js-yaml` to v4 (e.g., `>=4.2.0`), as dependencies like `gray-matter` rely on the deprecated `yaml.safeLoad` function removed in v4, causing runtime crashes.
