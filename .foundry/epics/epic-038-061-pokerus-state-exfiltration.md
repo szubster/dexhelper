@@ -31,3 +31,6 @@ Read the specific byte flags for Pokerus for every Pokemon in the party and PC f
 - [x] .foundry/stories/story-061-096-pokerus-tests.md
 
 <!-- Tech Lead: Verified complete. Pokerus bitwise logic is thoroughly tested including cured state boundaries. -->
+
+## Follow-up Nodes
+- [ ] .foundry/docs/adrs/adr-061-026-bitwise-state-extraction.md

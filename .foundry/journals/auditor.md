@@ -125,7 +125,7 @@ The usage of specific bitwise operators (`>> 4` and `& 0x0f`) accompanied by tar
 When implementing save file parsing, strictly use dynamic relative offset calculations (anchored to known base offsets) instead of absolute hardcoded offsets for extracting dynamic data blocks to ensure robustness against version-specific shifts and prevent regressions.
 
 ### Lesson: Pokerus Bitwise Parsing and Cured State
-When extracting Pokerus state from an 8-bit integer, relying on bitwise operations requires explicitly handling boundary conditions like the "cured" state (where strain is non-zero but days remaining is 0). This is critical to distinguish from a completely uninfected state (all zeros) and prevents state regressions across generations.
+When extracting Pokerus state from an 8-bit integer, relying on bitwise operations requires explicitly handling boundary conditions like the "cured" state (where strain is non-zero but days remaining is 0). This is critical to distinguish from a completely uninfected state (all zeros) and prevents state regressions across generations. We have formally documented this requirement in `ADR 026: Bitwise State Extraction and Cured Boundaries` to act as an architectural constraint for future Gens.
 ## 2026-06-19: Enforcing Reusable Constants for Memory Offsets
 I rejected the Epic `epic-036-058-feebas-backend-parsing` because the implementer used inline magic numbers (e.g., `0x2dd6`) directly in the parsing functions instead of explicitly defined constants.
 
