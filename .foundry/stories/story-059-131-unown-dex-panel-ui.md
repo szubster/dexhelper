@@ -2,12 +2,12 @@
 id: story-059-131-unown-dex-panel-ui
 type: STORY
 title: Unown Dex Panel UI
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-14'
 updated_at: '2026-06-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16185387138745098743'
 pr_number: null
 parent: epic-037-059-unown-tracker-ui
 tags:
