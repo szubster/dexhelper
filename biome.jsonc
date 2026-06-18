@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.0/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -26,7 +26,7 @@
       "types": "recommended"
     },
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "nursery": {
         "useSortedClasses": {
           "level": "error",
@@ -40,13 +40,13 @@
         "useSimpleNumberKeys": "off"
       },
       "correctness": {
-        "recommended": true
+        "preset": "recommended"
       },
       "style": {
         "useNodejsImportProtocol": "error"
       },
       "security": {
-        "recommended": true
+        "preset": "recommended"
       }
     }
   },
