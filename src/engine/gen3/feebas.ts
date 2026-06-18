@@ -1,5 +1,8 @@
 import type { GameVersion } from '../saveParser/parsers/common';
 
+export const FEEBAS_SEED_OFFSET_RS = 0x2dd6;
+export const FEEBAS_SEED_OFFSET_EMERALD = 0x2e66;
+
 /**
  * Extracts the 16-bit Feebas seed from Gen 3 save files using the native DataView API.
  *
@@ -13,9 +16,9 @@ export function extractFeebasSeed(saveData: DataView, gameVersion: GameVersion):
     let offset = 0;
 
     if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
-      offset = 0x2dd6;
+      offset = FEEBAS_SEED_OFFSET_RS;
     } else if (gameVersion === 'emerald') {
-      offset = 0x2e66;
+      offset = FEEBAS_SEED_OFFSET_EMERALD;
     } else {
       throw new Error(`Unsupported game version for Feebas seed extraction: ${gameVersion}`);
     }
