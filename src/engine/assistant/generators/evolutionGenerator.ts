@@ -53,9 +53,13 @@ export function generateEvolutionSuggestions(
   // Evaluates the player's current boxes and party to find pre-evolutions.
   // Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached, evolution stone in inventory).
 
-  queryTargets.forEach((targetId: number) => {
+  // ⚡ Bolt: Replaced .forEach with for loop to avoid closure creation and function call overhead
+  for (let idx = 0; idx < queryTargets.length; idx++) {
+    const targetId = queryTargets[idx];
+    if (targetId === undefined) continue;
+
     const p = apiData.pokemonMetadata?.[targetId];
-    if (!p) return;
+    if (!p) continue;
 
     let closestOwnedParentId: number | undefined;
     let immediateEvoTargetId: number = targetId;
@@ -275,5 +279,5 @@ export function generateEvolutionSuggestions(
         }
       }
     }
-  });
+  }
 }
