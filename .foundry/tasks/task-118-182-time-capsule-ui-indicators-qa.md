@@ -2,10 +2,10 @@
 id: task-118-182-time-capsule-ui-indicators-qa
 type: TASK
 title: QA Time Capsule UI Indicators
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-18'
 depends_on:
   - task-118-181-time-capsule-ui-indicators-impl
 jules_session_id: null

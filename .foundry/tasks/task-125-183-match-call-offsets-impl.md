@@ -2,13 +2,13 @@
 id: task-125-183-match-call-offsets-impl
 type: TASK
 title: Implement Gen 3 Match Call Offset Definitions
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-06-14'
-updated_at: '2026-06-17'
+updated_at: '2026-06-18'
 depends_on:
   - research-125-173-gen3-match-call-offsets
-jules_session_id: '3570994571534168954'
+jules_session_id: null
 pr_number: null
 parent: story-083-125-gen3-match-call-memory-offset-discovery
 tags:
@@ -18,7 +18,7 @@ tags:
   - save-parsing
 research_references:
   - .foundry/research/research-125-173-gen3-match-call-offsets.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

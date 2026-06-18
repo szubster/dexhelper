@@ -2,12 +2,12 @@
 id: story-078-118-refactor-parser-for-rejection-count
 type: STORY
 title: Refactor DAG Parser for Rejection Count
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-17'
+updated_at: '2026-06-18'
 depends_on: []
-jules_session_id: '9612697177018592385'
+jules_session_id: null
 pr_number: null
 parent: epic-046-078-shared-dag-context-foundation
 tags:

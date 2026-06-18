@@ -2,13 +2,13 @@
 id: task-124-172-gen3-mix-record-events-parser
 type: TASK
 title: Gen 3 Mix Record Events Parser Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-13'
-updated_at: '2026-06-17'
+updated_at: '2026-06-18'
 depends_on:
   - task-124-171-gen3-event-schedule-parser
-jules_session_id: '17002292908072378993'
+jules_session_id: null
 pr_number: null
 parent: story-081-124-gen3-event-forecast-schedule
 tags:

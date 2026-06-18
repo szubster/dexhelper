@@ -2,12 +2,12 @@
 id: task-118-181-time-capsule-ui-indicators-impl
 type: TASK
 title: Implement Time Capsule UI Indicators
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-13'
-updated_at: '2026-06-17'
+updated_at: '2026-06-18'
 depends_on: []
-jules_session_id: '5271476438252027635'
+jules_session_id: null
 pr_number: null
 parent: story-052-118-time-capsule-ui-indicators
 tags:

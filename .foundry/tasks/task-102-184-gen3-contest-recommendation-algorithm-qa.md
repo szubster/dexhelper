@@ -2,13 +2,13 @@
 id: task-102-184-gen3-contest-recommendation-algorithm-qa
 type: TASK
 title: QA Gen 3 Contest Recommendation Algorithm
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-14'
-updated_at: '2026-06-17'
+updated_at: '2026-06-18'
 depends_on:
   - task-102-183-gen3-contest-recommendation-algorithm-impl
-jules_session_id: '11213117862088619748'
+jules_session_id: null
 pr_number: null
 parent: story-064-102-gen3-contest-recommendation-algorithm
 tags:

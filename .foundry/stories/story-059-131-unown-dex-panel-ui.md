@@ -2,10 +2,10 @@
 id: story-059-131-unown-dex-panel-ui
 type: STORY
 title: Unown Dex Panel UI
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-14'
-updated_at: '2026-06-15'
+updated_at: '2026-06-18'
 depends_on: []
 jules_session_id: null
 pr_number: null

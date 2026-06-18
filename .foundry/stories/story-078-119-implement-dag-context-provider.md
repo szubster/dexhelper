@@ -2,10 +2,10 @@
 id: story-078-119-implement-dag-context-provider
 type: STORY
 title: Implement DagContext and Provider
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-18'
 depends_on:
   - story-078-118-refactor-parser-for-rejection-count
 jules_session_id: null
