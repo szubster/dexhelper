@@ -29,4 +29,6 @@ Establish the `DagContext` React Context and `DagProvider` component to host the
 As mandated by ADR 013, the DAG Kanban Board and the React Flow visualizer must share the same underlying data without redundant fetching or parsing. This story implements the shared context structure that provides this single source of truth.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-119-204-dag-context-provider-impl
+- [ ] task-119-205-dag-context-provider-qa
