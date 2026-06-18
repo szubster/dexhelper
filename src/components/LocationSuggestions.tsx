@@ -111,7 +111,7 @@ export function LocationSuggestions() {
               setSearchTerm('');
               setIsOpen(false);
             }}
-            className="group relative flex w-full items-center gap-3 border border-transparent px-4 py-3 text-left transition-all hover:border-white/10 hover:bg-zinc-900/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            className="group focus-visible:tactical-focus relative flex w-full items-center gap-3 border border-transparent px-4 py-3 text-left transition-all hover:border-white/10 hover:bg-zinc-900/80"
           >
             <div className="absolute top-0 left-0 h-full w-1 bg-transparent transition-colors group-hover:bg-[var(--theme-primary)]" />
             <div className="relative z-10 flex w-full items-center gap-3">

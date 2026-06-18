@@ -38,10 +38,7 @@ export function AppHeader({
       <div className="absolute top-0 right-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--theme-primary)]/20 to-transparent" />
 
       <div className="flex w-full items-center justify-between gap-8 lg:w-auto">
-        <Link
-          to="/"
-          className="relative flex items-center gap-4 rounded-none px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-        >
+        <Link to="/" className="focus-visible:tactical-focus relative flex items-center gap-4 rounded-none px-2 py-1">
           <CornerCrosshairs className="h-2 w-2 border-[var(--theme-primary)] opacity-50" />
           <div className="group slide-in-from-left-4 fade-in flex animate-in items-center gap-3 duration-500">
             <span className="font-black text-3xl text-white tracking-tighter transition-colors group-hover:text-[var(--theme-primary)]">
@@ -69,7 +66,7 @@ export function AppHeader({
                 inactiveProps={{
                   className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
                 }}
-                className="group relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                className="group focus-visible:tactical-focus relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all"
               >
                 <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
                 <LayoutGrid size={14} className="mb-1" />[ SYS.DEX ]
@@ -83,7 +80,7 @@ export function AppHeader({
                 inactiveProps={{
                   className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
                 }}
-                className="group relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                className="group focus-visible:tactical-focus relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all"
               >
                 <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
                 <Database size={14} className="mb-1" />[ SYS.STRG ]
@@ -97,7 +94,7 @@ export function AppHeader({
                 inactiveProps={{
                   className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
                 }}
-                className="group relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                className="group focus-visible:tactical-focus relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all"
               >
                 <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
                 <Sparkles size={14} className="mb-1" />[ SYS.ASST ]
@@ -148,7 +145,7 @@ export function AppHeader({
               aria-label="Select Game Version"
               onClick={() => setIsVersionModalOpen(true)}
               className={cn(
-                'group zoom-in-95 fade-in relative animate-in overflow-hidden rounded-none border border-dashed px-3 py-1.5 font-black font-mono text-[9px] uppercase tracking-[0.2em] transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+                'group zoom-in-95 fade-in focus-visible:tactical-focus relative animate-in overflow-hidden rounded-none border border-dashed px-3 py-1.5 font-black font-mono text-[9px] uppercase tracking-[0.2em] transition-all duration-500',
                 effectiveVersion === 'unknown'
                   ? 'border-amber-500/50 bg-amber-500/10 text-amber-500 hover:bg-amber-500 hover:text-zinc-950'
                   : 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-zinc-950',
@@ -262,7 +259,7 @@ export function AppHeader({
             type="button"
             aria-label="Upload Save File"
             onClick={() => document.getElementById('init-save-input')?.click()}
-            className="group slide-in-from-bottom-2 fade-in tactical-text relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
+            className="group slide-in-from-bottom-2 fade-in tactical-text focus-visible:tactical-focus relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 active:scale-95 sm:w-auto"
           >
             <CornerCrosshairs className="h-2 w-2 border-current" />
             <Upload size={20} />[ UPLOAD.SYS ]
@@ -282,7 +279,7 @@ export function AppHeader({
               type="button"
               aria-label="Start Live Sync"
               onClick={requestSync}
-              className="group slide-in-from-bottom-2 fade-in tactical-text relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95 sm:w-auto"
+              className="group slide-in-from-bottom-2 fade-in tactical-text focus-visible:tactical-focus relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 active:scale-95 sm:w-auto"
             >
               <CornerCrosshairs className="h-2 w-2 border-current" />
               <Activity size={20} />[ LIVE_SYNC.SYS ]

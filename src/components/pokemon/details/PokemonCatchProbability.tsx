@@ -81,7 +81,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
                   aria-pressed={isActive}
                   onClick={() => setHpPercent(segmentValue)}
                   className={cn(
-                    'h-3 flex-1 rounded-none border border-white/5 border-dashed transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+                    'focus-visible:tactical-focus h-3 flex-1 rounded-none border border-white/5 border-dashed transition-all',
                     isActive
                       ? 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]'
                       : 'bg-black/40 hover:bg-emerald-500/20',

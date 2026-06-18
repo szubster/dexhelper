@@ -8,15 +8,7 @@ interface TacticalIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonE
 export const TacticalIconButton = React.forwardRef<HTMLButtonElement, TacticalIconButtonProps>(
   ({ className, children, type = 'button', ...props }, ref) => {
     return (
-      <button
-        ref={ref}
-        type={type}
-        className={cn(
-          'transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
-          className,
-        )}
-        {...props}
-      >
+      <button ref={ref} type={type} className={cn('focus-visible:tactical-focus transition-all', className)} {...props}>
         {children}
       </button>
     );

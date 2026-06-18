@@ -34,7 +34,7 @@ export function NavButton({ to, isActive, onClick, icon: Icon, label, activeLabe
   );
 
   const className = cn(
-    'group relative z-10 flex h-full flex-col items-center justify-center rounded-none border border-dashed transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+    'group focus-visible:tactical-focus relative z-10 flex h-full flex-col items-center justify-center rounded-none border border-dashed transition-all duration-300',
     isActive
       ? 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/20 text-[var(--theme-primary)] shadow-[inset_0_0_15px_rgba(var(--theme-primary-rgb),0.3)]'
       : 'border-zinc-800 bg-zinc-950/80 text-zinc-600 shadow-[inset_0_2px_4px_rgba(255,255,255,0.05)] hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-400',

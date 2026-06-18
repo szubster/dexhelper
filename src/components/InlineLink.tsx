@@ -13,7 +13,7 @@ export const InlineLink = React.forwardRef<HTMLButtonElement, InlineLinkProps>(
         ref={ref}
         type="button"
         className={cn(
-          'rounded-none underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+          'focus-visible:tactical-focus rounded-none underline underline-offset-4 transition-colors',
           {
             'text-red-400 decoration-red-500/30 hover:text-white': variant === 'red',
             'text-white decoration-purple-500/30 hover:text-purple-400': variant === 'purple',

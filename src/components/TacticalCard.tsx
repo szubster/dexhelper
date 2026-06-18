@@ -56,7 +56,7 @@ export const TacticalCard = React.memo(
           data-pokemon-id={pokemonId}
           onClick={onClick}
           className={cn(
-            'group relative w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+            'group focus-visible:tactical-focus relative w-full cursor-pointer text-left',
             isStorageVariant
               ? 'flex flex-col items-center rounded-none border border-dashed p-5 transition-all duration-200 hover:-translate-y-1 active:scale-95'
               : 'rounded-none border border-dashed p-4 font-mono transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]',
