@@ -168,3 +168,9 @@ Documenting this prevents developers from incorrectly refactoring offset lookups
 - **Synchronous Suggestion Engine**: The recommendation engine (`suggestionEngine.ts`) is designed to run synchronously using pre-fetched data (`AssistantApiData`). Asynchronous operations inside the core loops would lock the UI thread and degrade performance due to the sheer volume of node evaluations.
 - **Set/Map Dominance**: O(N) array operations like `.includes()` or `.find()` are strictly avoided in hot loops in favor of `Set.has()` and `Map.get()`. This is crucial for maintaining real-time responsiveness when filtering hundreds of encounters.
 - **Global State Filtering**: Context-aware tool filtering (e.g., verifying if the player has HM Surf or a Good Rod) is implemented as a post-processing sweep (Phase 2) rather than being deeply nested inside individual encounter node generation. This decouples global progression state from localized graph traversal.
+## 2026-06-18 - File System Access API & IndexedDB Documentation
+
+**What:** Added comprehensive JSDoc to `useFileSyncController.ts` hook and `SyncStatus` type.
+**Why:** The File System Access API (`window.showOpenFilePicker`) has non-obvious constraints regarding long-term file access.
+- **Permission Revocation:** Even when a `FileSystemFileHandle` is persisted perfectly in IndexedDB, the browser automatically revokes the *read permission* when the tab is closed for security reasons. Documenting this constraint explains *why* the `resumeSync` function exists (to re-request permission via `handle.requestPermission()`) and why the hook differentiates between having a stored handle and being in a 'live' state.
+- **Polling Loop:** The modern web lacks a standard `FileSystemObserver` API. Documenting this explains *why* a manual `setInterval` polling loop checking `file.lastModified` is required to detect emulator saves.

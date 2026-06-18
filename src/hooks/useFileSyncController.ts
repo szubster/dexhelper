@@ -5,29 +5,40 @@ import { useStore } from '../store';
 
 /**
  * Represents the current state of the File System Access API synchronization.
- * - `disconnected`: No active file handle, or permission was revoked.
- * - `syncing`: A file change was detected and is currently being parsed.
- * - `live`: The file is actively being watched and is up-to-date.
- * - `error`: An error occurred during parsing or file access.
+ * - `disconnected`: No active file handle is present, or the browser automatically revoked the background read permission between sessions.
+ * - `syncing`: A file change was detected via the polling loop, and the binary `.sav` data is currently being re-parsed.
+ * - `live`: The file is actively being watched, the `lastModified` timestamp matches, and the Zustand store is up-to-date.
+ * - `error`: A fatal error occurred during parsing or a `DOMException` was thrown during file access (e.g., file deleted externally).
  */
 export type SyncStatus = 'disconnected' | 'syncing' | 'live' | 'error';
 
 /**
- * A React hook that orchestrates live synchronization of a save file using the
- * HTML5 File System Access API.
+ * A React hook that orchestrates live synchronization of a Game Boy save file using the
+ * HTML5 File System Access API (`window.showOpenFilePicker`).
  *
  * ## Architecture Overview
  *
  * 1. **Persistent Access:** When the user selects a file, its `FileSystemFileHandle`
- *    is stored in IndexedDB (`saveDB`). This allows the app to request read permission
- *    again on subsequent visits without reopening the file picker.
- * 2. **Polling Mechanism:** The File System Access API does not currently support
- *    events for file modifications. This hook implements a polling loop that checks
- *    the `lastModified` timestamp every 3 seconds to trigger a re-parse.
- * 3. **State Machine:** The hook manages transient UI state (`SyncStatus`) based on
- *    permission grants, polling results, and parsing success/failures.
+ *    is stored in IndexedDB (`saveDB`). This prevents the user from needing to manually
+ *    re-select the file on subsequent visits.
+ * 2. **Permission Lifecycle:** Although the *handle* is saved, browsers automatically revoke
+ *    the background *read permission* when the tab is closed for security reasons. This hook
+ *    distinguishes between having a stored handle (`hasStoredHandle = true`) and having active
+ *    permission (`status = 'live'`).
+ * 3. **Polling Mechanism:** Because the modern web lacks a standard `FileSystemObserver` to emit
+ *    events on file modifications, this hook implements a manual polling loop that checks the
+ *    `file.lastModified` timestamp every 3 seconds to trigger a re-parse.
  *
  * @returns An object containing the current sync status, any error messages, and control functions.
+ *
+ * @example
+ * ```tsx
+ * const { status, requestSync, resumeSync, hasStoredHandle } = useFileSyncController();
+ *
+ * if (status === 'disconnected' && hasStoredHandle) {
+ *   return <button onClick={resumeSync}>Resume Live Sync</button>;
+ * }
+ * ```
  */
 export function useFileSyncController() {
   const [status, setStatus] = useState<SyncStatus>('disconnected');
@@ -43,7 +54,11 @@ export function useFileSyncController() {
 
   /**
    * Reads and parses the file buffer, updating the global Zustand store.
-   * If parsing succeeds, it saves a copy of the buffer to IndexedDB as the latest state.
+   * If parsing succeeds, it saves a copy of the raw binary buffer to IndexedDB (`saveDB`) as the latest state.
+   * This ensures that even if live sync fails later or the user reloads the page, they don't lose their data.
+   *
+   * @param file - The `File` object returned from the `FileSystemFileHandle`.
+   * @throws Will set the `SyncStatus` to `error` if binary parsing fails (e.g., due to a corrupted save file).
    */
   const processFile = useCallback(
     async (file: File) => {
@@ -72,8 +87,13 @@ export function useFileSyncController() {
   );
 
   /**
-   * Prompts the user with a file picker to select a save file.
-   * If successful, it stores the handle for future sessions and begins polling.
+   * Prompts the user with the native operating system file picker to select a `.sav` file.
+   * If successful, it stores the resulting `FileSystemFileHandle` in IndexedDB for future sessions
+   * and immediately begins the polling loop.
+   *
+   * @remarks
+   * This relies on `window.showOpenFilePicker()`, which requires a secure context (HTTPS)
+   * and must be triggered directly by a transient user activation (e.g., a button click).
    */
   const requestSync = useCallback(async () => {
     try {
@@ -145,9 +165,17 @@ export function useFileSyncController() {
   }, [processFile]);
 
   /**
-   * Requests read permission from the browser for a previously stored file handle.
-   * This is typically triggered by a user action (e.g., clicking a "Resume Sync" button)
-   * after the initial automatic re-establishment fails due to expired permissions.
+   * Requests active read permission from the browser for a previously stored file handle.
+   *
+   * @remarks
+   * **Why is this needed?**
+   * Even though the `FileSystemFileHandle` is persisted in IndexedDB, the browser automatically
+   * revokes the actual *permission* to read from the disk when the browser session ends.
+   * When the user returns to the app, the `useEffect` above checks `handle.queryPermission()`.
+   * If it returns 'prompt' or 'denied', the app enters the 'disconnected' state.
+   * This function calls `handle.requestPermission()`, which triggers the native browser prompt
+   * (e.g., "Let dexhelper.com view files?") to restore access without needing the full file picker.
+   * Like `requestSync`, this must be triggered by a user action.
    */
   const resumeSync = useCallback(async () => {
     try {
@@ -169,8 +197,15 @@ export function useFileSyncController() {
   }, [processFile]);
 
   /**
-   * The core polling loop. Checks the file's `lastModified` timestamp every 3 seconds
-   * against the cached value. If a change is detected, it triggers `processFile`.
+   * The core live-sync polling loop.
+   *
+   * @remarks
+   * **Why polling?**
+   * The modern web does not yet have a widely supported `FileSystemObserver` API to push
+   * events when a file changes on disk. Therefore, we must manually poll the file handle.
+   * By calling `handleRef.current.getFile()`, we retrieve a lightweight `File` metadata object.
+   * We compare its `lastModified` integer against our `lastModifiedRef` cache. If it differs,
+   * we know the emulator has written new save data, and we trigger the heavy `processFile` binary parse.
    */
   useEffect(() => {
     const interval = setInterval(async () => {
