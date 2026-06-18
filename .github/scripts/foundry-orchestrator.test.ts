@@ -8,7 +8,7 @@ import { createValidTestNode } from './foundry-test-utils';
 describe('foundry-orchestrator', () => {
   let tmpDir: string;
 vi.doMock('node:url', async (importOriginal) => {
-  const actual = await importOriginal();
+  const actual = await importOriginal() as Record<string, any>;
   return {
     ...actual,
     fileURLToPath: () => require('path').join(tmpDir, '.github/scripts/file.ts')
@@ -31,7 +31,7 @@ vi.doMock('node:url', async (importOriginal) => {
 
     // @ts-ignore
     vi.doMock('node:url', async (importOriginal) => {
-      const actual = await importOriginal();
+      const actual = await importOriginal() as Record<string, any>;
       return {
         ...actual,
         fileURLToPath: () => require('path').join(process.cwd(), '.github/scripts/file.ts')
