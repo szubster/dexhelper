@@ -31,9 +31,9 @@ As part of the EPIC to dynamically generate move PP PokeData, we need to first e
 2. Focus on extracting `id`, `name`, `type`, `power`, `accuracy`, `pp`, `damage_class`, and `effect_chance` as defined in ADR 025.
 
 ## Acceptance Criteria
-- [ ] Determine how to fetch move data efficiently during the build.
-- [ ] Implement the extraction logic to capture the necessary fields for each move.
-- [ ] Ensure that default values and nulls are appropriately handled at the extraction boundary.
+- [x] Determine how to fetch move data efficiently during the build.
+- [x] Implement the extraction logic to capture the necessary fields for each move.
+- [x] Ensure that default values and nulls are appropriately handled at the extraction boundary.
 
-- [ ] task-128-181-move-data-extraction-impl
-- [ ] task-128-182-move-data-extraction-qa
+- [x] task-128-181-move-data-extraction-impl
+- [x] task-128-182-move-data-extraction-qa
