@@ -40,5 +40,5 @@ Following the implementation of the core graph visualization for the DAG Dashboa
 - [x] Verify that the styling of the filter controls matches the project's strict design system requirements.
 
 ## Tasks
-- [.foundry/tasks/task-052-090-implement-graph-filtering.md](../../.foundry/tasks/task-052-090-implement-graph-filtering.md)
-- [.foundry/tasks/task-052-091-qa-graph-filtering.md](../../.foundry/tasks/task-052-091-qa-graph-filtering.md)
+- [.foundry/archive/tasks/task-052-090-implement-graph-filtering.md](../tasks/task-052-090-implement-graph-filtering.md)
+- [.foundry/archive/tasks/task-052-091-qa-graph-filtering.md](../tasks/task-052-091-qa-graph-filtering.md)

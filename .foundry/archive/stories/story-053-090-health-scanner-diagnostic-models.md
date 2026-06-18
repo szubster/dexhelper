@@ -35,4 +35,4 @@ Before implementing the actual validation logic for the Health Scanner Core Engi
 - [x] All child tasks are COMPLETED.
 
 ## Child Tasks
-* [.foundry/tasks/task-090-148-health-scanner-models-impl.md](.foundry/tasks/task-090-148-health-scanner-models-impl.md)
+* [.foundry/archive/tasks/task-090-148-health-scanner-models-impl.md](../tasks/task-090-148-health-scanner-models-impl.md)

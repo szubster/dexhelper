@@ -36,8 +36,8 @@ This story details the technical steps for extracting shared DAG utility functio
 
 ## Next Steps
 - [x] Tech Lead: Write Tasks to implement the file creation, extraction, test writing, and test updates.
-  - [.foundry/tasks/task-090-148-extract-dag-utils-impl.md](.foundry/tasks/task-090-148-extract-dag-utils-impl.md)
-  - [.foundry/tasks/task-090-149-extract-dag-utils-qa.md](.foundry/tasks/task-090-149-extract-dag-utils-qa.md)
+  - [.foundry/archive/tasks/task-090-148-extract-dag-utils-impl.md](../tasks/task-090-148-extract-dag-utils-impl.md)
+  - [.foundry/archive/tasks/task-090-149-extract-dag-utils-qa.md](../tasks/task-090-149-extract-dag-utils-qa.md)
 
 ## Acceptance Criteria
 - [x] `dag-utils.ts` is created containing `todayISO`, `logToJournal`, `buildReverseDependencyGraph`, and `getOrphanedNodes`.

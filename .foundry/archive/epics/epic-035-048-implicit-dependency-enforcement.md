@@ -33,5 +33,5 @@ Update the `foundry-orchestrator.ts` to enforce implicit dependency. A node cann
 - [x] Ensure unit tests in `.github/scripts/foundry-orchestrator.test.ts` are updated or added.
 
 ### Implementation Stories
-- [.foundry/stories/story-048-086-implement-implicit-dependency-check.md](.foundry/stories/story-048-086-implement-implicit-dependency-check.md)
-- [.foundry/stories/story-048-087-update-orchestrator-tests.md](.foundry/stories/story-048-087-update-orchestrator-tests.md)
+- [.foundry/archive/stories/story-048-086-implement-implicit-dependency-check.md](../stories/story-048-086-implement-implicit-dependency-check.md)
+- [.foundry/stories/story-048-087-update-orchestrator-tests.md](../../stories/story-048-087-update-orchestrator-tests.md)

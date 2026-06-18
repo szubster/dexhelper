@@ -28,6 +28,22 @@ function resolveNodeIdToPath(nodeId: string): string {
   if (fs.existsSync(basePath)) {
     return basePath;
   }
+
+  // Handle ADRs that might not have the adr- prefix in the filename (e.g. adr-001 -> 001-...)
+  if (type === 'adr') {
+    const adrDir = path.join(process.cwd(), '.foundry/docs/adrs');
+    if (fs.existsSync(adrDir)) {
+      const adrFiles = fs.readdirSync(adrDir);
+      const numericPart = nodeId.split('-')[1];
+      if (numericPart) {
+        const match = adrFiles.find(f => f.startsWith(numericPart + '-'));
+        if (match) {
+          return `.foundry/docs/adrs/${match}`;
+        }
+      }
+    }
+  }
+
   const archivePath = `.foundry/archive/${folder}/${nodeId}.md`;
   if (fs.existsSync(archivePath)) {
     return archivePath;

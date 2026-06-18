@@ -33,4 +33,4 @@ In response to CEO feedback (PR comment 4303644512), we need to schedule work in
 - [.foundry/stories/story-010-014-implement-oxlint-config.md](../stories/story-010-014-implement-oxlint-config.md)
 - [.foundry/stories/story-010-016-enable-expensive-oxlint-checks.md](../stories/story-010-016-enable-expensive-oxlint-checks.md)
 - [.foundry/stories/story-010-017-fix-jest-rules.md](../stories/story-010-017-fix-jest-rules.md)
-- [.foundry/archive/stories/story-010-028-verify-jest-tests.md](../archive/stories/story-010-028-verify-jest-tests.md)
+- [.foundry/archive/stories/story-010-028-verify-jest-tests.md](../stories/story-010-028-verify-jest-tests.md)

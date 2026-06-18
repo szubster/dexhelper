@@ -27,5 +27,5 @@ notes: ''
 - [x] Implement a UI gesture (like a "Resume Sync" button) if the browser needs a user interaction to re-grant permission.
 
 ## Generated Tasks
-- [x] [.foundry/tasks/task-079-144-ui-sync-status-impl.md](.foundry/tasks/task-079-144-ui-sync-status-impl.md)
-- [x] [.foundry/tasks/task-079-145-ui-sync-status-qa.md](.foundry/tasks/task-079-145-ui-sync-status-qa.md)
+- [x] [.foundry/archive/tasks/task-079-144-ui-sync-status-impl.md](../tasks/task-079-144-ui-sync-status-impl.md)
+- [x] [.foundry/archive/tasks/task-079-145-ui-sync-status-qa.md](../tasks/task-079-145-ui-sync-status-qa.md)
