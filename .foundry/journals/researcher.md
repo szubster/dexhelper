@@ -28,3 +28,8 @@ Agents must ensure actual structural integration and strict adherence to data sc
 
 ### Lesson: Save File Offsets Trust
 When performing research on save file offsets, never blindly trust task descriptions or previous documentation if it conflicts with the disassembly. In task-095-157, the PM/author confused the Party Data offsets (0x283E/0x281A) with Event Flag offsets. Always cross-reference the WRAM memory map directly and calculate offsets by subtracting relative to known anchors (e.g., wCurBox).
+
+### Gen 3 Roamer Location Memory Offset Investigation
+- **Date**: 2026-06-18
+- **Observation**: Roamer locations (`sRoamerLocation` and `sLocationHistory`) are kept in dynamic `EWRAM_DATA` and are not directly saved to the `.sav` file; they re-initialize dynamically upon startup.
+- **Pattern/Constraint**: It is mathematically impossible to extract the exact current route of a roaming Pokémon directly from a static Gen 3 `.sav` file unless the player saved while the roamer was active on their current route.
