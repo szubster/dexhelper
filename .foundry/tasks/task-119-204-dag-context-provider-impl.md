@@ -2,7 +2,7 @@
 id: task-119-204-dag-context-provider-impl
 type: TASK
 title: Implement DagContext and Provider Impl
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-18'
 updated_at: '2026-06-18'

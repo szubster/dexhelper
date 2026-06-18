@@ -2,7 +2,7 @@
 id: task-108-161-gen3-roamer-dataview-extraction-impl
 type: TASK
 title: Implement Gen 3 Roamer DataView Extraction and Core Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-18'
@@ -10,7 +10,7 @@ depends_on:
   - research-108-163-gen3-roamer-iv-bitfield
   - research-161-186-gen3-roamer-iv-bitfield
   - research-161-188-gen3-roamer-iv-bitfield-formula
-jules_session_id: '11679163152443792366'
+jules_session_id: null
 pr_number: null
 parent: story-070-108-gen3-roamer-dataview-extraction
 tags:

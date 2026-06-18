@@ -2,13 +2,13 @@
 id: story-078-119-implement-dag-context-provider
 type: STORY
 title: Implement DagContext and Provider
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-18'
 depends_on:
   - story-078-118-refactor-parser-for-rejection-count
-jules_session_id: '14944188106378842573'
+jules_session_id: null
 pr_number: null
 parent: epic-046-078-shared-dag-context-foundation
 tags:

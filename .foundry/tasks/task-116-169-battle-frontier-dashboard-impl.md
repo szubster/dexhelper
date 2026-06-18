@@ -2,13 +2,13 @@
 id: task-116-169-battle-frontier-dashboard-impl
 type: TASK
 title: Implement Gen 3 Battle Frontier Dashboard UI
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-18'
 depends_on:
   - research-116-204-gen3-battle-frontier-data
-jules_session_id: '14792903690927096036'
+jules_session_id: null
 pr_number: null
 parent: story-079-116-battle-frontier-dashboard-ui
 tags:
@@ -17,8 +17,8 @@ tags:
   - endgame
   - frontend
 research_references: []
-rejection_count: 1
-rejection_reason: 'Suspended pending research on Battle Frontier facility data and BP wallet offsets due to lack of specification in the knowledge base.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
