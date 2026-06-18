@@ -61,16 +61,10 @@ When modifying `transitionNodeToCompleted` in `foundry-heartbeat.ts` to clear `j
 ## 2026-06-11: Requirement for Concrete Memory Mapping Before Implementation
 When implementing save parser tasks (e.g., Gen 3 berry patches), concrete memory offsets and byte structures (e.g., `SaveBlock` layouts) MUST be provided in the task notes, the PRD, or a related RESEARCH node. If these exact offsets and structural definitions are missing, it is impossible to correctly implement the `DataView` parsing logic. In such cases, a `RESEARCH` node should be spawned to identify and document the offsets, and the implementation task should be failed/aborted until the research is complete. This prevents guessing and potential data corruption.
 
-## 2026-06-12: Suspended task due to missing memory offsets
-When implementing `task-094-157-moveset-inventory-validation-impl`, the acceptance criteria demanded validation of Move PPs and Inventory Items against known good lists. However, the exact memory offsets for Move PP extraction in Gen 1 (44-byte structure) and Gen 2 (48-byte structure) were undocumented in the codebase or memory. Furthermore, the base PP values for all moves and the authoritative valid item list for Gen 1 were missing. Rather than implementing generic bounds (like simply checking PP <= 64 or Item ID <= 255) which violated the explicit instruction to use "known good lists", I created a `RESEARCH` node to investigate these values.
 
-**Key Rule:** When specific constraints or memory offsets are missing and cannot be found in the current codebase or `adrs/`, do not implement fallback limits that violate the exact prompt. Instead, create a `RESEARCH` node, append it to the task as an unchecked dependency, and permanently fail the target task with a clear rejection reason.
-## 2026-06-12: Late Binding for Unknown Offsets
-While attempting `task-095-157-gen2-event-flag-impl`, the exact memory offsets for Gen 2 (Gold/Silver and Crystal) event flags could not be confirmed in the documentation. Rather than guessing `0x283E` / `0x281A` and potentially extracting corrupted data, I utilized the late binding pattern. A `RESEARCH` node (`.foundry/research-task-095-157-gen2-event-flag-offsets.md`) was appended to the task's `depends_on` array. This effectively suspends the task until the precise offsets are investigated and documented.
-## Late Binding for Missing Dependencies (2026-06-11)
-Based on PR feedback for `task-095-157-gen3-berry-dataview-parsing`, instead of permanently failing tasks that lack explicit data specifications (like exact memory offsets), we should utilize the DAG's late binding capability. We spawn the necessary `RESEARCH` node and dynamically inject it into the current task's `depends_on` array. This suspends the implementation task in the orchestrator until the research is complete, allowing it to gracefully resume instead of dying.
-## 2026-06-14: Late Binding for Unknown Offsets (Gen 3 Condition Stats)
-When implementing `task-101-157-gen3-condition-stats-parsing`, the exact memory offsets for Gen 3 Contest Condition stats (Cool, Beauty, Cute, Smart, Tough) within the Pokémon data structure were undocumented. Following the Late Binding pattern, instead of guessing, a `RESEARCH` node (`research-101-157-gen3-condition-stats-offsets`) was created, appended to the task's `depends_on` array, and the task was suspended (`status: FAILED` with a `rejection_reason`).
+
+
+
 
 ## Verifying Gen 3 Save File Sections
 When verifying save file documentation (e.g. Generation 3 save parsing), it is crucial to ensure that the stated offsets fall within the correct section headers as defined by authoritative sources like Bulbapedia. Failing to map byte offsets to the correct logical 4KB section boundaries can lead to incorrect data extraction in the orchestrator.
@@ -79,34 +73,31 @@ When verifying save file documentation (e.g. Generation 3 save parsing), it is c
 Documenting self-verification of the schema.md updates:
 1. Checked schema.md using `sed -n '180,201p' .foundry/docs/schema.md | tail -n 8` to verify "Invariant 15" was correctly added as: `Macro nodes (\`IDEA\`, \`PRD\`, \`EPIC\`, \`STORY\`) cannot complete until all of their descendant nodes are \`COMPLETED\`.`
 2. Used `cat` to verify that `.foundry/tasks/task-108-161-update-schema-macro-node-completion-impl.md`'s acceptance criteria box was successfully checked: `- [x] Update schema.md to explain hierarchical completion rules.`
-## 2026-06-14: Missing Route 119 Map Data
 
-While implementing the Feebas Tile Calculation Algorithm, I discovered that the `mapSpotIdsToCoordinates` function could not be completed because the project's knowledge base and codebase currently lack the actual physical grid mapping data for Route 119. Specifically, the conversion of a 1D spot ID (from 1 to 447) into a 2D (x, y) relative grid coordinate requires the width and height of the map grid, as well as an understanding of which exact tiles are considered "surfable and not waterfall".
-
-Following the Late Binding for Missing Context pattern, rather than making assumptions or failing silently, I spawned a new RESEARCH node (`research-096-185-feebas-route119-grid-mapping`) and suspended the task by setting its status to `FAILED` with a clear `rejection_reason`.
 ## 2026-06-14: Missing Bitfield Formulas in Research
 When implementing save parser logic, research handoffs occasionally identify bitfields (e.g., Gen 3 Roamer IVs) without specifying the exact bit shifts or field sizes required for correct extraction. It's critical to avoid hallucinating these exact mathematical formulas to comply with groundedness rules. When this occurs, always spawn a late-bound `RESEARCH` node to determine the exact parsing formula and suspend the implementation task until the data is verified.
 
 - **Gen 3 Contest Ribbons**: Added `parseGen3Ribbons` utilizing `getUint32` to parse the 32-bit ribbon bitfields to correctly extract Cool, Beauty, Cute, Smart, and Tough contest ranks using bitwise isolation.
 
-## Late Binding for Missing Egg Groups Data
-When implementing `task-084-150-breeding-pair-algorithm-impl`, it was discovered that `PokemonMetadata` inside `src/db/schema.ts` lacks `egg_groups` data, and there is no utility to calculate gender from Gen 2 DVs. Following the late-binding pattern for missing context, a `RESEARCH` node (`research-150-186-egg-groups-missing`) was appended to `depends_on`, and the task was suspended (`status: FAILED`) with a clear `rejection_reason` until the research is completed.
-## 2026-06-15: Late Binding for Missing Context
 
-When implementing tasks that require specific data offsets (e.g., Gen 3 Secret Base memory offsets), and that information is missing from the provided `.foundry/docs/knowledge_base/` files or the task context, I must suspend the task using the "Late Binding" pattern. I should create a `RESEARCH` node to investigate the missing context, append the new exact node ID to the current task's `depends_on` array, update the current task's `status` to `FAILED`, and provide a clear `rejection_reason` in the YAML frontmatter. This ensures the orchestrator pauses the task until the prerequisite research is complete.
-## 2026-06-16: Late Binding for Unknown Offsets (Gen 3 TV Block)
-When implementing `task-121-171-gen3-tv-block-parser-impl`, the exact memory offsets for Gen 3 TV block data were undocumented in the `.foundry/docs/knowledge_base/` directory. Following the Late Binding pattern, instead of hallucinating values, a `RESEARCH` node (`research-121-171-gen3-tv-block-offsets`) was created, appended to the task's `depends_on` array, and the task was suspended (`status: FAILED` with a clear `rejection_reason`).
+
+
 
 ## 2026-06-17: Cloudflare Pages Integration
 When creating or modifying `functions/_middleware.ts` to implement `@cloudflare/pages-plugin-cloudflare-access`, ensure that both `@cloudflare/pages-plugin-cloudflare-access` and `@cloudflare/workers-types` are installed to the workspace root using the `-w` flag.
 Furthermore, the `functions/_middleware.ts` file and these dependencies must be properly ignored in `knip.json` to avoid unused exports warnings, as Knip does not natively understand Cloudflare Pages Functions directory structure without custom configuration.
 
-## 2026-06-17: Late Binding for Missing Context
-**Pattern/Lesson:** When implementing Gen 3 TVShow parsing (specifically Mass Outbreaks/Swarms), the documentation (`gen3_tv_shows_and_events.md`) states the `TVShow` struct has a `massOutbreak` payload but omits the exact internal offsets for species, location, and daysRemaining.
-**Action Taken:** Enforced the Late Binding pattern. Suspended `task-123-183-gen3-active-swarm-parsing-impl` by leaving acceptance criteria unchecked and spawning `research-123-202-gen3-outbreak-offsets` to find the missing specifications, linking it in `depends_on`.
 
-## 2026-06-17: Late Binding Process
-**Pattern/Lesson:** When executing a Late Binding fallback, it is not necessary to manually mark the current task as `FAILED` or provide a `rejection_reason` in the YAML frontmatter. Adding the new RESEARCH node to the `depends_on` array and submitting with unchecked acceptance criteria is enough for the orchestrator to keep the task suspended.
-**Action Taken:** Documented this rule to avoid unnecessary YAML frontmatter modifications in future late-binding scenarios.
+
+
 ## Unown Dex Panel Implementation
 Implemented Unown Dex Panel using tactical hardware styling constraints (ADR 008, 024). Verification was self-performed via local Playwright script taking a screenshot of the panel. The component dynamically derives owned forms by looping through the `yourPokemon` property, checking `speciesId === 201` and extracting the `unownForm` field.
+
+## The Late Binding Pattern for Missing Dependencies & Context
+**Pattern/Lesson:** When implementing tasks that require specific data offsets (e.g., Gen 2 event flags, Gen 3 memory offsets) or specific context that is missing from the provided `.foundry/docs/knowledge_base/` files, you MUST NOT hallucinate or guess these values. Instead, enforce the Late Binding pattern.
+
+**Process:**
+1. Spawn a new `RESEARCH` node to investigate and document the missing specifications (e.g., `research-123-202-gen3-outbreak-offsets`).
+2. Append the exact ID of the newly created node to the current implementation task's `depends_on` array.
+3. Submit the empty PR with unchecked acceptance criteria to gracefully suspend the task. The orchestrator will automatically pause the task until the prerequisite research is complete.
+4. It is *not* necessary to manually mark the current task as `FAILED` or provide a `rejection_reason` in the YAML frontmatter. Adding the new RESEARCH node to the `depends_on` array and submitting with unchecked acceptance criteria is sufficient for the orchestrator to keep the task suspended.
