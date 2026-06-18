@@ -574,10 +574,14 @@ function main(): void {
     let shouldSuspend = false;
 
     const children = parentToChildren.get(node.repoPath) || [];
+    let hasTerminalFailure = false;
     for (const child of children) {
+      if ((child.frontmatter.status === 'FAILED' || child.frontmatter.status === 'CANCELLED') && child.frontmatter.rejection_reason) {
+        hasTerminalFailure = true;
+        break;
+      }
       if (isHierarchicallyIncomplete(child.repoPath, [node.repoPath])) {
         shouldSuspend = true;
-        break;
       }
     }
 
@@ -601,6 +605,11 @@ function main(): void {
         break;
       }
 
+      if ((dep.frontmatter.status === 'FAILED' || dep.frontmatter.status === 'CANCELLED') && dep.frontmatter.rejection_reason) {
+        hasTerminalFailure = true;
+        break;
+      }
+
       // If it is an ancestor, we only care that it is status ACTIVE or COMPLETED.
       if (!isDescendant(node.repoPath, depPath!)) {
         if (isHierarchicallyIncomplete(depPath!, [node.repoPath])) {
@@ -613,6 +622,10 @@ function main(): void {
           break;
         }
       }
+    }
+
+    if (hasTerminalFailure) {
+      shouldSuspend = false;
     }
 
     if (shouldSuspend && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING' || node.frontmatter.status === 'READY')) {
@@ -658,9 +671,23 @@ function main(): void {
           parentNode &&
           parentNode.frontmatter.status !== 'ACTIVE' &&
           parentNode.frontmatter.status !== 'READY' &&
+          parentNode.frontmatter.status !== 'VERIFYING' &&
           parentNode.frontmatter.status !== 'COMPLETED' &&
           parentNode.frontmatter.status !== 'CANCELLED'
         ) {
+          let isParentDepIncomplete = false;
+          for (const depRef of parentNode.frontmatter.depends_on) {
+            const depPath = resolveNodePath(depRef);
+            if (depPath && isHierarchicallyIncomplete(depPath, [parentNode.repoPath])) {
+              isParentDepIncomplete = true;
+              break;
+            }
+          }
+
+          if (isParentDepIncomplete) {
+            continue;
+          }
+
           info(`Impossible Loop: waking up parent ${parentNode.repoPath}`);
           if (parentNode.frontmatter.owner_persona === 'human') {
             promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'ACTIVE');
