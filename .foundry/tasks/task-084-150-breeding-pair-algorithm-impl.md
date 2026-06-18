@@ -2,7 +2,7 @@
 id: task-084-150-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Gen 2 Breeding Pair Algorithm
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-08'
 updated_at: '2026-06-18'
@@ -18,7 +18,7 @@ tags:
   - backend
 research_references: []
 rejection_count: 3
-rejection_reason: ''
+rejection_reason: 'Aborted: Task reached maximum rejection count of 3. Missing critical context regarding Egg Groups and Gen 2 gender computation. Dependency research-150-186-egg-groups-missing is also cancelled.'
 notes: ''
 ---
 
