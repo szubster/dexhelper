@@ -1,12 +1,18 @@
 import { describe, expect, it } from 'vitest';
-import { calculateFeebasTiles, extractFeebasSeed, mapSpotIdsToCoordinates } from './feebas';
+import {
+  calculateFeebasTiles,
+  extractFeebasSeed,
+  FEEBAS_SEED_OFFSET_EMERALD,
+  FEEBAS_SEED_OFFSET_RS,
+  mapSpotIdsToCoordinates,
+} from './feebas';
 
 describe('extractFeebasSeed', () => {
   it('extracts the Feebas seed for Ruby/Sapphire', () => {
     // 0x2dd6 + 2 bytes = 11736 bytes
     const buffer = new ArrayBuffer(12000);
     const view = new DataView(buffer);
-    view.setUint16(0x2dd6, 0x1234, true);
+    view.setUint16(FEEBAS_SEED_OFFSET_RS, 0x1234, true);
 
     const seedRuby = extractFeebasSeed(view, 'ruby');
     expect(seedRuby).toBe(0x1234);
@@ -19,7 +25,7 @@ describe('extractFeebasSeed', () => {
     // 0x2e66 + 2 bytes = 11880 bytes
     const buffer = new ArrayBuffer(12000);
     const view = new DataView(buffer);
-    view.setUint16(0x2e66, 0x5678, true);
+    view.setUint16(FEEBAS_SEED_OFFSET_EMERALD, 0x5678, true);
 
     const seedEmerald = extractFeebasSeed(view, 'emerald');
     expect(seedEmerald).toBe(0x5678);

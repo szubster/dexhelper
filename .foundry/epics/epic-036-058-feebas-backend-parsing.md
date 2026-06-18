@@ -25,7 +25,7 @@ notes: ''
 Create a utility module that reads the parsed save file's data at the identified offset to extract the Feebas seed, and implements the PRNG/math algorithm used by Gen 3 to translate the seed into the 6 specific tile coordinates on Route 119.
 
 ## Acceptance Criteria
-- [ ] Create a utility module for Feebas seed extraction.
+- [x] Create a utility module for Feebas seed extraction.
 - [x] Implement Gen 3 algorithm to calculate the 6 tile coordinates based on the seed.
 - [x] Ensure fast calculation concurrent with save file hydration.
 - [x] .foundry/stories/story-058-095-feebas-seed-extraction.md
