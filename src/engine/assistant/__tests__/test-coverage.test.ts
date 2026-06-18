@@ -572,3 +572,134 @@ test('coverage for localPids.delete with some ids filtered out', () => {
   // Suggestion exists but only has 1
   expect(suggestions.length).toBeGreaterThan(0);
 });
+
+test('coverage for suggestionEngine catch filtering with single pokemonId', () => {
+  const mockSaveData = {
+    generation: 2,
+    gameVersion: 'crystal',
+    owned: new Set([]), // Empty to trigger catch logic
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {
+      1: {
+        aid: 1,
+        locId: 1,
+        pids: [1], // Single ID
+        details: [], // No details -> hasValidEncounter = false
+      },
+    },
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
+    },
+    areaNames: {},
+    allLocations: [{ id: 1, name: 'Route 1', pids: [1], type: 'route', gen: 2, isLandmark: false }],
+    allAreas: [],
+    localAid: 1,
+  } as unknown as AssistantApiData;
+
+  const mockStrategyWithCatch = {
+    ...gen1Strategy,
+    generation: 2,
+    isInternallyObtainable: () => true,
+    getUnobtainableReason: () => null,
+    resolveMapAid: () => 1,
+    getSpecialSuggestions: () => [
+      {
+        id: 'catch-local',
+        category: 'Catch',
+        title: 'Catch Right Here',
+        description: '...',
+        pokemonId: 1, // Notice this is a single ID, not array pokemonIds
+        priority: 120,
+        encounterInfo: {
+          1: undefined,
+        },
+      } as unknown as import('../strategies/types').CatchSuggestion,
+    ],
+  } as unknown as import('../strategies/types').AssistantStrategy;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
+
+  const locSugg = suggestions.find((s) => s.category === 'Catch');
+  expect(locSugg).toBeUndefined();
+});
+
+test('coverage for suggestionEngine catch filtering when pokemonIds has undefined encounterInfo elements', () => {
+  const mockSaveData = {
+    generation: 2,
+    gameVersion: 'crystal',
+    owned: new Set([]), // Empty to trigger catch logic
+    seen: new Set(),
+    party: [],
+    inventory: [],
+    currentMapId: 0,
+    eventFlags: new Uint8Array(300),
+    partyDetails: [],
+    pcDetails: [],
+    trainerName: 'PLAYER',
+  } as unknown as SaveData;
+
+  const mockApiData = {
+    localEncounters: [],
+    missingEncounters: {},
+    ancestralEncounters: {},
+    pokemonMetadata: {
+      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
+      2: { id: 2, n: 'Ivysaur', efrm: [1], det: [], eto: [] },
+    },
+    areaNames: {},
+    allLocations: [{ id: 1, name: 'Route 1', pids: [1, 2], type: 'route', gen: 2, isLandmark: false }],
+    allAreas: [],
+    localAid: 1,
+  } as unknown as AssistantApiData;
+
+  const mockStrategyWithCatch = {
+    ...gen1Strategy,
+    generation: 2,
+    isInternallyObtainable: () => true,
+    getUnobtainableReason: () => null,
+    resolveMapAid: () => 1,
+    getSpecialSuggestions: () => [
+      {
+        id: 'catch-local',
+        category: 'Catch',
+        title: 'Catch Right Here',
+        description: '...',
+        pokemonIds: [1, 2],
+        priority: 120,
+        encounterInfo: {
+          1: [
+            {
+              method: 'walk',
+              methodId: 1,
+              conditionId: 0,
+              chance: 100,
+              minLevel: 10,
+              maxLevel: 10,
+              games: [],
+              pid: 1,
+            },
+          ],
+          2: undefined,
+        },
+      } as unknown as import('../strategies/types').CatchSuggestion,
+    ],
+  } as unknown as import('../strategies/types').AssistantStrategy;
+
+  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
+
+  const locSugg = suggestions.find((s) => s.category === 'Catch');
+  expect(locSugg).toBeDefined();
+  expect(locSugg?.pokemonIds).toEqual([1]); // 2 is filtered out
+});

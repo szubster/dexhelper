@@ -139,3 +139,10 @@ When writing E2E tests, do not import helper methods like `argosScreenshot` dire
 * In Playwright E2E tests, use `initializeWithSave(page)` from `tests/e2e/test-utils.ts` to hydrate state, call `await waitForSync(page)` after navigation for IndexedDB sync, and use `argosScreenshot(page, 'name')` from `@argos-ci/playwright` for visual regression.
 * Use Vitest for unit/React component tests and Playwright for E2E tests. Use real save fixtures from `tests/fixtures` for integration/E2E tests.
 * Always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()`) in Vitest tests to satisfy strict Biome type-checking and avoid `any`.
+## 2026-06-18 - suggestionEngine Catch filtering coverage
+**What:** Added tests to `src/engine/assistant/__tests__/test-coverage.test.ts` to cover uncovered branches in `suggestionEngine.ts` filtering logic (lines 339-346, 355-356).
+**Why:** The branches dealing with filtering out `Catch` suggestions when the `encounterInfo` object is entirely missing/empty or specifically removing single `pokemonIds` that evaluate to `undefined` were previously untested.
+**Learning:**
+* `test:e2e` Playwright tests must be run during verification to fulfill the repo mandate.
+* If testing environments fail with `browserType.launch: Executable doesn't exist`, use `pnpm exec playwright install`.
+* Use explicit type casts (`as unknown as import('../strategies/types').AssistantStrategy`) when constructing partial mocks for strategies with specific methods like `getSpecialSuggestions` to satisfy strict checking in `test-coverage.test.ts`.
