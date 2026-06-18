@@ -126,3 +126,11 @@ When implementing save file parsing, strictly use dynamic relative offset calcul
 
 ### Lesson: Pokerus Bitwise Parsing and Cured State
 When extracting Pokerus state from an 8-bit integer, relying on bitwise operations requires explicitly handling boundary conditions like the "cured" state (where strain is non-zero but days remaining is 0). This is critical to distinguish from a completely uninfected state (all zeros) and prevents state regressions across generations.
+## 2026-06-19: Enforcing Reusable Constants for Memory Offsets
+I rejected the Epic `epic-036-058-feebas-backend-parsing` because the implementer used inline magic numbers (e.g., `0x2dd6`) directly in the parsing functions instead of explicitly defined constants.
+
+**Why this matters:**
+Scattering magic numbers across the codebase makes maintaining version-specific parsing offsets difficult and brittle. The memory rule mandates that when implementing save file parsing or data definitions, explicitly define and use reusable constants for memory offsets, lengths, and bit locations.
+
+**Recommendation/Learnings:**
+Always enforce the rule against inline magic numbers during verification. All memory offsets, bit lengths, and shifts must be defined as reusable, descriptive constants at the module level.

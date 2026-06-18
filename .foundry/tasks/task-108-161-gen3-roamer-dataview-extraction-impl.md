@@ -32,13 +32,13 @@ Implement the logic to extract the 20-byte hidden roamer data structure from Gen
 Following ADR 010, the base extraction logic in the save parser for Gen 3 must safely read the 20-byte roamer structure exclusively using the `DataView` API. After extraction, correctly parse the IVs, HP, and Level of the roamer from this raw byte structure. Ensure that any out-of-bounds reads result in a `RangeError` that is caught and handled gracefully by propagating a validation error (e.g., "Corrupted Save File").
 
 ## Acceptance Criteria
-- [ ] Read the 20-byte Gen 3 roamer structure strictly using the `DataView` API.
-- [ ] Parse IVs, HP, and Level correctly from the extracted structure.
-- [ ] Handle `RangeError` on out-of-bounds reads gracefully and throw a clear validation error.
-- [ ] Tests and lint must pass.
+- [x] Read the 20-byte Gen 3 roamer structure strictly using the `DataView` API.
+- [x] Parse IVs, HP, and Level correctly from the extracted structure.
+- [x] Handle `RangeError` on out-of-bounds reads gracefully and throw a clear validation error.
+- [x] Tests and lint must pass.
 
 **Important Instructions:**
 If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
 If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
-- [ ] .foundry/research/research-161-186-gen3-roamer-iv-bitfield.md
+- [x] .foundry/research/research-161-186-gen3-roamer-iv-bitfield.md

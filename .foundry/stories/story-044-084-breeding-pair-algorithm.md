@@ -8,7 +8,7 @@ created_at: '2026-05-22'
 updated_at: '2026-06-18'
 depends_on:
   - story-044-083-pc-party-shiny-flag
-jules_session_id: '12820609065493123302'
+jules_session_id: '8802201015002154149'
 pr_number: null
 parent: epic-034-044-shiny-gene-detection-engine
 tags:
