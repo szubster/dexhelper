@@ -15,7 +15,8 @@
     ".github/scripts/extract-research.ts",
     "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",
-    "scripts/data/gen3/match_call/etl.ts"
+    "scripts/data/gen3/match_call/etl.ts",
+    ".github/scripts/verify-dag-refs.ts"
   ],
   "rules": {
     "files": "warn",
