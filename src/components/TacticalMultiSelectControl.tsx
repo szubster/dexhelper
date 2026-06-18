@@ -65,7 +65,7 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
               data-testid={item.testId}
               title={typeof item.label === 'string' ? `${item.label} filter` : undefined}
               className={cn(
-                'tactical-text flex-1 px-2 py-3 font-black text-[10px] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950',
+                'tactical-text focus-visible:tactical-focus flex-1 px-2 py-3 font-black text-[10px] transition-all',
                 !isLast && 'border-zinc-800 border-r border-dashed',
                 isActive ? activeClass : inactiveClass,
                 buttonBaseClassName,

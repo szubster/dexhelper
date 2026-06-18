@@ -192,7 +192,7 @@ export function AssistantSuggestionCard({
                             to="/pokemon/$pokemonId"
                             params={{ pokemonId: pid.toString() }}
                             search={{ from: '/assistant' }}
-                            className="relative flex h-14 w-14 items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-800/80 p-2 shadow-md transition-all hover:scale-110 hover:border-emerald-500/50 hover:bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                            className="focus-visible:tactical-focus relative flex h-14 w-14 items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-800/80 p-2 shadow-md transition-all hover:scale-110 hover:border-emerald-500/50 hover:bg-zinc-700"
                             title={getPokemonName(pid)}
                             aria-label={`View details for ${getPokemonName(pid)}`}
                             onClick={(e) => e.stopPropagation()}
@@ -231,7 +231,7 @@ export function AssistantSuggestionCard({
                     to="/pokemon/$pokemonId"
                     params={{ pokemonId: pid.toString() }}
                     search={{ from: '/assistant' }}
-                    className="group/sprite relative h-10 w-10 rounded-none border border-white/10 border-dashed bg-black/40 p-1 transition-all hover:scale-110 hover:border-white/40 hover:bg-black/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                    className="group/sprite focus-visible:tactical-focus relative h-10 w-10 rounded-none border border-white/10 border-dashed bg-black/40 p-1 transition-all hover:scale-110 hover:border-white/40 hover:bg-black/60"
                     title={getPokemonName(pid)}
                     aria-label={`View details for ${getPokemonName(pid)}`}
                     onClick={(e) => e.stopPropagation()}
@@ -284,7 +284,7 @@ export function AssistantSuggestionCard({
           to="/pokemon/$pokemonId"
           params={{ pokemonId: s.pokemonId.toString() }}
           search={{ from: '/assistant' }}
-          className="block h-full w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          className="focus-visible:tactical-focus block h-full w-full"
         >
           {CardContent}
         </Link>

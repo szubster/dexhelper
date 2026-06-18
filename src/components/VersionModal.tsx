@@ -56,7 +56,7 @@ export function VersionModal() {
               setManualVersion(v.id);
               setIsVersionModalOpen(false);
             }}
-            className="group relative border border-zinc-800 border-dashed bg-zinc-950 p-6 text-center transition-all hover:border-[var(--theme-primary)]/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            className="group focus-visible:tactical-focus relative border border-zinc-800 border-dashed bg-zinc-950 p-6 text-center transition-all hover:border-[var(--theme-primary)]/50"
           >
             <CornerCrosshairs className="h-1 w-1 border-zinc-700 transition-colors group-hover:border-[var(--theme-primary)]" />
 

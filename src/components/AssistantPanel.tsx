@@ -116,7 +116,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
             <button
               type="button"
               onClick={() => setShowDebug(!showDebug)}
-              className={`border border-dashed p-2 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${showDebug ? 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]' : 'border-zinc-700 bg-zinc-800 text-zinc-500 hover:text-zinc-300'}`}
+              className={`focus-visible:tactical-focus border border-dashed p-2 transition-all ${showDebug ? 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]' : 'border-zinc-700 bg-zinc-800 text-zinc-500 hover:text-zinc-300'}`}
               aria-pressed={showDebug}
               title="Toggle Debug Mode"
               aria-label="Toggle Debug Mode"
