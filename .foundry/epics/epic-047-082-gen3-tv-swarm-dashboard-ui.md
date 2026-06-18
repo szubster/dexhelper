@@ -46,4 +46,9 @@ This epic covers the frontend implementation of a tactical UI dashboard for disp
 - Strictly avoid generic visual patterns like soft shadows or rounded corners.
 
 ## 3. Acceptance Criteria
-- [ ] Story Owner: Break down into Stories.
+- [x] Story Owner: Break down into Stories.
+
+- [ ] story-082-145-gen3-tv-swarm-dashboard-scaffold
+- [ ] story-082-146-gen3-active-swarm-radar-ui
+- [ ] story-082-147-gen3-broadcast-schedule-view-ui
+- [ ] story-082-148-gen3-mix-record-insights-ui
