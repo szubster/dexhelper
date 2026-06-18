@@ -2,13 +2,13 @@
 id: epic-042-065-gen3-contest-advisor-ui
 type: EPIC
 title: Gen 3 Contest Advisor UI
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-06-18'
 depends_on:
   - epic-042-064-gen3-contest-advisor-algorithm
-jules_session_id: null
+jules_session_id: '5459317542824301753'
 pr_number: null
 parent: prd-070-042-gen3-contest-optimization-advisor
 tags:
