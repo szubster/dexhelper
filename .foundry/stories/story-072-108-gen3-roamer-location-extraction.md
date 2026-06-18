@@ -2,10 +2,10 @@
 id: story-072-108-gen3-roamer-location-extraction
 type: STORY
 title: Gen 3 Roamer Location Data Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-11'
+updated_at: '2026-06-18'
 depends_on: []
 jules_session_id: null
 pr_number: null

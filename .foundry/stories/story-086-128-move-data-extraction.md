@@ -2,13 +2,13 @@
 id: story-086-128-move-data-extraction
 type: STORY
 title: Move Data Extraction from PokeAPI
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-18'
 depends_on:
   - adr-049-025-dynamic-pokedata-parsing
-jules_session_id: '9537391178265902714'
+jules_session_id: null
 pr_number: null
 parent: epic-049-086-dynamic-move-pp-parsing
 tags:
