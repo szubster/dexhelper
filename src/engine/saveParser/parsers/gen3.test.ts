@@ -8,6 +8,7 @@ import {
   parseGen3PersonalityValue,
   parseGen3PokeNews,
   parseGen3Ribbons,
+  parseGen3Roamer,
 } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
@@ -466,5 +467,57 @@ describe('parseGen3PokeNews', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3PokeNews(view, 0)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3Roamer', () => {
+  it('should parse Gen 3 roamer data', () => {
+    const buffer = new ArrayBuffer(0x3144 + 20);
+    const view = new DataView(buffer);
+    const offset = 0x3144;
+
+    // Set ivs: HP=31, Atk=10, Def=15, Spd=20, SpAtk=25, SpDef=30
+    // 31 = 0x1F, 10 = 0x0A, 15 = 0x0F, 20 = 0x14, 25 = 0x19, 30 = 0x1E
+    // ivs = 31 | (10 << 5) | (15 << 10) | (20 << 15) | (25 << 20) | (30 << 25)
+    // ivs = 31 | 320 | 15360 | 655360 | 26214400 | 1006632960 = 1033518431 (0x3D9A3D5F)
+    view.setUint32(offset, 0x3d9a3d5f, true);
+
+    // Set personalityValue
+    view.setUint32(offset + 4, 0x12345678, true);
+
+    // Set speciesId (e.g. 380 for Latias)
+    view.setUint16(offset + 8, 380, true);
+
+    // Set hp
+    view.setUint16(offset + 10, 150, true);
+
+    // Set level
+    view.setUint8(offset + 12, 40);
+
+    // Set statusCondition (e.g. 1 for Sleep)
+    view.setUint8(offset + 13, 1);
+
+    // Set active
+    view.setUint8(offset + 19, 1);
+
+    const result = parseGen3Roamer(view, 0, 'ruby');
+
+    expect(result).toEqual({
+      ivs: { hp: 31, atk: 10, def: 15, spd: 20, spAtk: 25, spDef: 30 },
+      personalityValue: 0x12345678,
+      speciesId: 380,
+      hp: 150,
+      level: 40,
+      statusCondition: 1,
+      active: true,
+    });
+  });
+
+  it('should explicitly catch RangeError and throw corrupted file error on out-of-bounds reads', () => {
+    // A buffer that is not large enough to hold the 20-byte roamer struct at the correct offset
+    const buffer = new ArrayBuffer(0x3144 + 10);
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3Roamer(view, 0, 'ruby')).toThrowError('The save file is corrupted or incomplete.');
   });
 });
