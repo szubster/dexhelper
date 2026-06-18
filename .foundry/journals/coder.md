@@ -101,3 +101,6 @@ Implemented Unown Dex Panel using tactical hardware styling constraints (ADR 008
 2. Append the exact ID of the newly created node to the current implementation task's `depends_on` array.
 3. Submit the empty PR with unchecked acceptance criteria to gracefully suspend the task. The orchestrator will automatically pause the task until the prerequisite research is complete.
 4. It is *not* necessary to manually mark the current task as `FAILED` or provide a `rejection_reason` in the YAML frontmatter. Adding the new RESEARCH node to the `depends_on` array and submitting with unchecked acceptance criteria is sufficient for the orchestrator to keep the task suspended.
+
+## 2026-06-18: Rejecting Task due to Max Rejections & Missing Dependencies
+Permanently failed `task-084-150-breeding-pair-algorithm-impl` since it reached the maximum rejection count of 3. The task lacked critical context (Gen 2 Egg Groups data and gender calculation logic), and its dependency `research-150-186-egg-groups-missing` was already CANCELLED via cascading cancellation. Its status has been updated to CANCELLED in the frontmatter, with a descriptive `rejection_reason`. Crucially, its acceptance criteria checkboxes were left unchecked, ensuring it does not mistakenly masquerade as successfully completed, correctly triggering its exit from the DAG.
