@@ -625,8 +625,8 @@ test('coverage for suggestionEngine catch filtering with single pokemonId', () =
         encounterInfo: {
           1: undefined,
         },
-      } as unknown as import('../suggestionEngineTypes').CatchSuggestion,
-    ]
+      } as unknown as import('../strategies/types').CatchSuggestion,
+    ],
   } as unknown as import('../strategies/types').AssistantStrategy;
 
   const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
@@ -679,20 +679,22 @@ test('coverage for suggestionEngine catch filtering when pokemonIds has undefine
         pokemonIds: [1, 2],
         priority: 120,
         encounterInfo: {
-          1: [{
-            method: 'walk',
-            methodId: 1,
-            conditionId: 0,
-            chance: 100,
-            minLevel: 10,
-            maxLevel: 10,
-            games: [],
-            pid: 1,
-          }],
+          1: [
+            {
+              method: 'walk',
+              methodId: 1,
+              conditionId: 0,
+              chance: 100,
+              minLevel: 10,
+              maxLevel: 10,
+              games: [],
+              pid: 1,
+            },
+          ],
           2: undefined,
         },
-      } as unknown as import('../suggestionEngineTypes').CatchSuggestion,
-    ]
+      } as unknown as import('../strategies/types').CatchSuggestion,
+    ],
   } as unknown as import('../strategies/types').AssistantStrategy;
 
   const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
