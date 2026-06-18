@@ -255,3 +255,9 @@
 **Outcome:** Merged
 **Why:** The memory requires appending an '### Auditor Rejection' section to orphaned QA tasks during a permanent child failure to properly cancel it, which the Tech Lead prompt lacked.
 **Pattern:** Codify system memory constraints regarding permanent node failures across all relevant agent prompts to ensure consistent error recovery behavior across the entire DAG hierarchy.
+
+## 2026-06-18 - [Accepted] - Prompt improvement - Ensure Strategist checks unchecked checkboxes for empty PRs
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Strategist prompt was missing the explicit instruction about checking unchecked Acceptance Criteria checkboxes when submitting an empty PR, which is present in other persona prompts and required by ADR 007 and ADR 009.
+**Pattern:** Codify system memory constraints into agent prompts to avoid regressions and ensure consistency across personas.
