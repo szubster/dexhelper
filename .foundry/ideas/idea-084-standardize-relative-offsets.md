@@ -34,6 +34,6 @@ We need an architectural rule (e.g., an ADR) or a linter check to enforce that, 
 - Ensures regressions caused by absolute offset shifts are mitigated at compile-time/review-time.
 
 ## Acceptance Criteria
-- [ ] Investigate if a linter rule can be built to flag hardcoded offsets during save parsing.
+- [x] Investigate if a linter rule can be built to flag hardcoded offsets during save parsing.
 - [ ] If a linter is not feasible, establish a strict architectural ADR mandating relative offset mapping for dynamic save block extraction.
 - [ ] Roll out guidance to Coder and QA personas.
