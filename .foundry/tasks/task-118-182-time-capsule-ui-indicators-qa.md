@@ -2,13 +2,13 @@
 id: task-118-182-time-capsule-ui-indicators-qa
 type: TASK
 title: QA Time Capsule UI Indicators
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-18'
 depends_on:
   - task-118-181-time-capsule-ui-indicators-impl
-jules_session_id: null
+jules_session_id: '3650889600132096622'
 pr_number: null
 parent: story-052-118-time-capsule-ui-indicators
 tags:
