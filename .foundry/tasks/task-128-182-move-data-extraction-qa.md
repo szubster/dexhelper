@@ -37,7 +37,7 @@ The coder has implemented move data extraction in `scripts/generate-pokedata.ts`
 - If the implementation is verified, submit an empty PR to transition your own task to COMPLETED, and ensure you check off your own acceptance criteria first.
 
 ## Acceptance Criteria
-- [ ] Code changes in `scripts/generate-pokedata.ts` accurately implement the extraction logic.
-- [ ] The generated data structure strictly follows the ADR 025 schema constraints.
-- [ ] Compaction logic effectively omits default/empty values to minimize payload size.
-- [ ] The generated `moves.jsonl` file is successfully created and verified.
+- [x] Code changes in `scripts/generate-pokedata.ts` accurately implement the extraction logic.
+- [x] The generated data structure strictly follows the ADR 025 schema constraints.
+- [x] Compaction logic effectively omits default/empty values to minimize payload size.
+- [x] The generated `moves.jsonl` file is successfully created and verified.
