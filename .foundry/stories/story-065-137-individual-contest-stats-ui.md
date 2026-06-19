@@ -30,4 +30,6 @@ This story implements a requirement for `epic-041-065-individual-contest-stats-v
 - Integrate numerical contest stats into the detailed Pokémon view.
 
 ## 3. Acceptance Criteria
-- [ ] Integrate numerical contest stats into the detailed Pokémon view.
+- [x] Integrate numerical contest stats into the detailed Pokémon view.
+- [ ] .foundry/tasks/task-137-209-individual-contest-stats-ui-impl.md
+- [ ] .foundry/tasks/task-137-210-individual-contest-stats-ui-qa.md
