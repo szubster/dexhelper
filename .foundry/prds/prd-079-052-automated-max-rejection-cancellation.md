@@ -31,4 +31,5 @@ Refactor the Foundry Orchestrator (`foundry-orchestrator.ts`) to automatically t
 2. Ensure this triggers the proper parent awakening logic in Phase 3.6 of `foundry-orchestrator.ts`. The condition `node.frontmatter.status === 'FAILED'` must be expanded to include `CANCELLED` nodes with a rejection reason.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics.
+- [x] Break down into Epics.
+- [ ] .foundry/epics/epic-052-096-automated-max-rejection-cancellation.md
