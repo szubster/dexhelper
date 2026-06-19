@@ -2,7 +2,7 @@
 id: epic-044-072-gen3-roamer-location-radar
 type: EPIC
 title: Gen 3 Roamer Location Radar
-status: READY
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-06-19'
@@ -16,7 +16,7 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Roamer locations are stored in EWRAM and are not serialized into the .sav file, making extraction and mapping impossible (per adr-108-027).'
 notes: ''
 ---
 

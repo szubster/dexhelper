@@ -33,3 +33,6 @@ Take the raw location indices parsed from the save file (map group and map numbe
 - [ ] Map the raw map group and map number to our unified location constants.
 - [ ] Implement logic to handle edge cases (like indoor locations mapping to outdoor parents).
 - [ ] Tech Lead: Break down this Story into execution Tasks (implementation & QA).
+
+### CANCELLED
+This story is cancelled because its parent epic `epic-044-072-gen3-roamer-location-radar` is permanently cancelled due to technical impossibility.
