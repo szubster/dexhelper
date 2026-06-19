@@ -2,7 +2,7 @@
 id: task-129-207-move-generation-discrepancies-qa
 type: TASK
 title: Verify Move Generation Discrepancies
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-19'

@@ -2,10 +2,10 @@
 id: story-070-149-parse-gen1-hof-records
 type: STORY
 title: Parse Gen 1 Hall of Fame Records Data
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-18'
-updated_at: '2026-06-18'
+updated_at: '2026-06-19'
 depends_on: []
 jules_session_id: null
 pr_number: null

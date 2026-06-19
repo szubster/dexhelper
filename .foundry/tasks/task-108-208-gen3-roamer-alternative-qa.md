@@ -2,7 +2,7 @@
 id: task-108-208-gen3-roamer-alternative-qa
 type: TASK
 title: QA Gen 3 Roamer Alternative Strategy
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-19'
@@ -18,7 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

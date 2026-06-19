@@ -2,7 +2,7 @@
 id: research-108-206-gen3-roamer-ewram-investigation
 type: RESEARCH
 title: Investigate Gen 3 Roamer Location Extration Failure
-status: PENDING
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-06-19'
 updated_at: '2026-06-19'
@@ -16,7 +16,7 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

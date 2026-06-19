@@ -2,13 +2,13 @@
 id: story-086-129-move-generation-discrepancies
 type: STORY
 title: Handle Move Generation Discrepancies
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-19'
 depends_on:
   - story-086-128-move-data-extraction
-jules_session_id: '9847015453033433408'
+jules_session_id: null
 pr_number: null
 parent: epic-049-086-dynamic-move-pp-parsing
 tags:

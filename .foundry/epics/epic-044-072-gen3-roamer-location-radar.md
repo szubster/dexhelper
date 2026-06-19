@@ -2,10 +2,10 @@
 id: epic-044-072-gen3-roamer-location-radar
 type: EPIC
 title: Gen 3 Roamer Location Radar
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-06-11'
+updated_at: '2026-06-19'
 depends_on: []
 jules_session_id: null
 pr_number: null

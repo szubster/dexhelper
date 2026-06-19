@@ -2,10 +2,10 @@
 id: task-108-162-gen3-roamer-location-qa
 type: TASK
 title: QA Gen 3 Roamer Location Data Extraction
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-19'
 depends_on:
   - task-108-161-gen3-roamer-location-impl
 jules_session_id: null
@@ -19,7 +19,7 @@ tags:
 research_references:
   - research-071-138-gen3-roamer-offsets
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 
