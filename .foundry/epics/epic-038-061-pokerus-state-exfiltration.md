@@ -5,9 +5,9 @@ title: Pokerus State Exfiltration Epic
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-07'
-updated_at: '2026-06-18'
+updated_at: '2026-06-19'
 depends_on: []
-jules_session_id: '2153722328432767725'
+jules_session_id: '308688722566665989'
 pr_number: null
 parent: prd-069-038-pokerus-tracker
 tags:
@@ -33,4 +33,4 @@ Read the specific byte flags for Pokerus for every Pokemon in the party and PC f
 <!-- Tech Lead: Verified complete. Pokerus bitwise logic is thoroughly tested including cured state boundaries. -->
 
 ## Follow-up Nodes
-- [ ] .foundry/docs/adrs/adr-061-026-bitwise-state-extraction.md
+- [x] .foundry/docs/adrs/adr-061-026-bitwise-state-extraction.md

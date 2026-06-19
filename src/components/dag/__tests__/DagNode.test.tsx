@@ -160,3 +160,33 @@ test('DagNode applies styles for other statuses', async () => {
   await expect.element(page.getByText('READY', { exact: true })).toBeInTheDocument();
   await expect.element(page.getByText('PENDING', { exact: true })).toBeInTheDocument();
 });
+
+test('DagNode applies permanent failure styles when rejection_count >= 3', async () => {
+  const data = {
+    id: 'test-task-001',
+    label: 'test-task-001',
+    type: 'TASK',
+    owner_persona: 'coder',
+    status: 'FAILED',
+    rejection_count: 3,
+  };
+
+  const nodes = [
+    {
+      id: 'test-task-001',
+      type: 'custom',
+      data,
+      position: { x: 0, y: 0 },
+    },
+  ];
+
+  await render(
+    <div style={{ width: '500px', height: '500px' }}>
+      <ReactFlow nodes={nodes} nodeTypes={nodeTypes} />
+    </div>,
+  );
+
+  const node = page.getByTestId('dag-node');
+  await expect.element(node).toHaveClass('border-red-500');
+  await expect.element(node).toHaveClass('border-2');
+});

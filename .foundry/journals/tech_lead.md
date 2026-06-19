@@ -1,29 +1,9 @@
 ---
-id: adr-102-024-gen3-sheen-dataview-strict
-type: ADR
-title: Gen 3 Sheen DataView Strict Adherence
-status: COMPLETED
-owner_persona: tech_lead
-created_at: 2026-06-10
-updated_at: 2026-06-10
-depends_on: []
-jules_session_id: null
-pr_number: null
-parent: null
-tags:
-  - architecture
-  - gen3
-  - dataview
-research_references: []
-rejection_count: 0
-rejection_reason: ""
-notes: ""
----
+# Tech Lead Journal
 
-# ADR 024: Gen 3 Sheen DataView Strict Adherence
-
-## Status
-Accepted
+## 2026-06-10: ADR 024 Gen 3 Sheen DataView Strict Adherence
+**Learning:** Found an anomaly where ADR 024's contents and YAML frontmatter were injected directly into the `tech_lead.md` journal instead of a dedicated ADR file in `.foundry/docs/adrs/`. Journals should not contain YAML frontmatter.
+**Action:** Removed the YAML block from the journal to restore file integrity. The core architectural constraint remains: All new Gen 3 Sheen data parsing logic MUST exclusively use the native `DataView` API to prevent silent failures and ensure backwards compatibility (as per ADR 010).
 
 ## 2026-05-22
 - ADR 015 Revert Data Format Optimizations: Verbose keys improve DX, but we must retain enum-to-number logic for values (e.g. method: 1 instead of method: 'WALK') because string values can't be deduplicated effectively in msgpackr arrays.
@@ -41,14 +21,6 @@ Accepted
 - **Action**: Always use individual `read_file` tool calls for every document required by the context gathering rules before requesting a plan review.
 - **Observation**: Any developer scratchpad scripts created during a session (like `generate_reads.sh`) must be cleaned up (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
 - **Observation**: The `depends_on` field in generated task frontmatter must strictly use the exact Node ID (e.g. `task-103-157-gen3-ribbon-bitfields-impl`), without a file path or `.md` extension, to conform to the Node ID schema validation.
-## Context
-When implementing Gen 3 Sheen value parsing, we must strictly adhere to ADR 010.
-
-## Decision
-All new Gen 3 Sheen data parsing logic MUST exclusively use the native `DataView` API.
-
-## Consequences
-Prevents silent failures and ensures backwards compatibility.
 ## 2026-06-11: Reliable Offsets via Anchors (Gen 2 Hall of Fame)
 
 - **Observation**: Standard documentation often lists Hall of Fame counts at fixed absolute offsets (e.g. `0x24EC` for GS). However, relying on these can be unreliable due to emulator artifacts or regional shifts, causing task failures.
@@ -93,3 +65,9 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 - **Observation**: The implementation task (`task-108-161-gen3-roamer-location-impl`) failed permanently. Research (`research-108-187-gen3-roamer-location-offsets`) confirmed that the Gen 3 roamer's current map location (`sRoamerLocation`) and its location history (`sLocationHistory`) are kept in dynamic `EWRAM_DATA` and are **not** saved to the `.sav` file.
 - **Action**: Cancelled `story-072-108-gen3-roamer-location-extraction` by setting its status to `CANCELLED` with a rejection reason, leaving its checkboxes unchecked. Cancelled the orphaned QA task (`task-108-162-gen3-roamer-location-qa`) by appending an auditor rejection note to its markdown body without modifying its frontmatter.
 - **Lesson**: It is impossible to extract the immediate location coordinates of a roaming Pokémon directly from a static Gen 3 `.sav` file since this data is exclusively EWRAM state.
+## 2026-06-19: Handling Permanent Failure of Gen 3 Roamer Location Extraction
+- **Incident**: The implementation task `task-108-161-gen3-roamer-location-impl` failed permanently (Max rejection count reached) because extracting exact map coordinates for Gen 3 roamers directly from `.sav` files is impossible (data only exists in EWRAM, not serialized).
+- **Action**: Spawned a new `RESEARCH` node (`research-108-206-gen3-roamer-ewram-investigation.md`) to explicitly document this limitation. Created replacement implementation and QA tasks (`task-108-207` and `task-108-208`) that depend on the research node, focusing on alternative extraction or fallback strategies. Appended these new tasks to the parent story and added a cancellation note to the orphaned QA task (`task-108-162-gen3-roamer-location-qa.md`) without touching its YAML frontmatter.
+## 2026-06-18: Gen 3 Roamer Location Constraint
+- **Observation**: Extracting the exact current map location and location history of the roaming Pokémon from a Gen 3 `.sav` file is mathematically impossible. These values (`sRoamerLocation` and `sLocationHistory`) are kept dynamically in `EWRAM` and are never serialized into the static save file.
+- **Action**: The technical blueprint generation for extracting this data must be cancelled. An ADR was created to permanently document this architectural impossibility to prevent future wasted cycles.

@@ -9,12 +9,16 @@ test('DagFilterPanel renders all types and statuses', async () => {
   const mockOnTypeToggle = vi.fn<(type: string) => void>();
   const mockOnStatusToggle = vi.fn<(status: string) => void>();
 
+  const mockOnTogglePermanentFailures = vi.fn<() => void>();
+
   await render(
     <DagFilterPanel
       activeTypes={activeTypes}
       activeStatuses={activeStatuses}
+      showPermanentFailures={false}
       onTypeToggle={mockOnTypeToggle}
       onStatusToggle={mockOnStatusToggle}
+      onTogglePermanentFailures={mockOnTogglePermanentFailures}
     />,
   );
 
@@ -30,4 +34,7 @@ test('DagFilterPanel renders all types and statuses', async () => {
 
   await page.getByText('READY').click();
   expect(mockOnStatusToggle).toHaveBeenCalledWith('READY');
+
+  await page.getByText('[ PERMANENT_FAILURES_ONLY ]').click();
+  expect(mockOnTogglePermanentFailures).toHaveBeenCalled();
 });
