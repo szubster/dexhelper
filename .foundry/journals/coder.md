@@ -107,3 +107,6 @@ Permanently failed `task-084-150-breeding-pair-algorithm-impl` since it reached 
 
 ## 2026-06-18: Rejecting Gen 3 Roamer Location Task
 Permanently failed \`task-108-161-gen3-roamer-location-impl\`. As discovered in \`research-108-187-gen3-roamer-location-offsets\`, the Gen 3 roamer's current map location (\`sRoamerLocation\`) and location history (\`sLocationHistory\`) are kept in dynamic \`EWRAM_DATA\` and are not directly saved to the \`.sav\` file. They re-initialize dynamically upon startup. Therefore, extracting the specific map group and number directly from the \`.sav\` file via DataView parsing is mathematically impossible. The task has been marked as CANCELLED in its frontmatter with a rejection reason, and its acceptance criteria have been left unchecked to exit the DAG gracefully.
+
+## 2026-06-19: Late Binding for Breeding Algorithm
+Following the Late Binding pattern, `task-084-192-breeding-pair-algorithm-impl` was suspended (marked `FAILED` with a `rejection_reason` and unchecked checkboxes). A new `RESEARCH` node `research-192-209-egg-groups-missing-data` was spawned and appended to the `depends_on` array because the `PokemonMetadata` schema is missing `egg_groups` data and Gen 2 gender calculation logic (based on DVs and gender ratios) is unknown, making the algorithm impossible to implement safely.
