@@ -1,3 +1,4 @@
+import { getGenerationConfig } from '../../../utils/generationConfig';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import type { Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
@@ -25,7 +26,8 @@ export function generateBreedingSuggestions(
   suggestions: Suggestion[],
 ) {
   // F. Breeding (Gen 2 Only)
-  if (saveData.generation === 2) {
+  const genConfig = getGenerationConfig(saveData.generation);
+  if (genConfig.hasBreeding) {
     // ⚡ Bolt: Replaced .forEach with for loop to avoid closure creation and function call overhead
     for (let i = 0; i < queryTargets.length; i++) {
       const targetId = queryTargets[i];
