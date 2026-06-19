@@ -43,3 +43,6 @@ If you submit an empty PR for a completed task, you MUST check off all Acceptanc
 
 ### CANCELLED
 This task has been cancelled due to the permanent failure of its dependency `task-108-161-gen3-roamer-dataview-extraction-impl`. It has been replaced by `task-108-193-gen3-roamer-dataview-extraction-qa` which will depend on the new implementation task.
+
+### Auditor Rejection
+This task is permanently cancelled and replaced by task-108-193-gen3-roamer-dataview-extraction-qa because the original dependency failed permanently.
