@@ -2,7 +2,7 @@
 id: story-072-108-gen3-roamer-location-extraction
 type: STORY
 title: Gen 3 Roamer Location Data Extraction
-status: ACTIVE
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-19'
@@ -17,7 +17,7 @@ tags:
 research_references:
   - research-071-138-gen3-roamer-offsets
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Extracting exact Gen 3 roamer map locations from save files is impossible as the data is stored in EWRAM, not the save file (see research-108-187-gen3-roamer-location-offsets).'
 notes: ''
 ---
 

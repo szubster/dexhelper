@@ -88,3 +88,7 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 ## 2026-06-18: Unexpected Artifact Existence
 - **Observation**: While processing `story-074-115-define-tactical-input-and-text.md`, it was discovered that its target artifacts (`task-115-165-implement-tactical-input-text.md` and `task-115-166-qa-tactical-input-text.md`) already unexpectedly existed in the `.foundry/tasks/` directory and were marked as `COMPLETED`.
 - **Action**: Followed the Empty PR Policy by checking off the acceptance criteria checkboxes in the story node's markdown body and proceeding with an Empty PR submission, logging this anomaly for the Agile Coach.
+
+## 2026-06-18: Gen 3 Roamer Location Constraint
+- **Observation**: Extracting the exact current map location and location history of the roaming Pokémon from a Gen 3 `.sav` file is mathematically impossible. These values (`sRoamerLocation` and `sLocationHistory`) are kept dynamically in `EWRAM` and are never serialized into the static save file.
+- **Action**: The technical blueprint generation for extracting this data must be cancelled. An ADR was created to permanently document this architectural impossibility to prevent future wasted cycles.
