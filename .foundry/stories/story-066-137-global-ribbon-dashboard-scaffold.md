@@ -35,3 +35,7 @@ Derived from `epic-041-066-global-ribbon-checklist-dashboard`, this story focuse
 - [ ] Scaffold `GlobalRibbonChecklistDashboard` React component.
 - [ ] Integrate with Living Dex / PC Box data store.
 - [ ] Render the basic ribbon display components for the aggregated data.
+
+## 4. Child Nodes
+- [ ] .foundry/tasks/task-137-209-global-ribbon-dashboard-scaffold-impl.md
+- [ ] .foundry/tasks/task-137-210-global-ribbon-dashboard-scaffold-qa.md
