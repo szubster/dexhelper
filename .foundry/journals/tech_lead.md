@@ -88,3 +88,8 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 ## 2026-06-18: Unexpected Artifact Existence
 - **Observation**: While processing `story-074-115-define-tactical-input-and-text.md`, it was discovered that its target artifacts (`task-115-165-implement-tactical-input-text.md` and `task-115-166-qa-tactical-input-text.md`) already unexpectedly existed in the `.foundry/tasks/` directory and were marked as `COMPLETED`.
 - **Action**: Followed the Empty PR Policy by checking off the acceptance criteria checkboxes in the story node's markdown body and proceeding with an Empty PR submission, logging this anomaly for the Agile Coach.
+
+## 2026-06-19: Cancelling Gen 3 Roamer Location Task and Story
+- **Observation**: The implementation task (`task-108-161-gen3-roamer-location-impl`) failed permanently. Research (`research-108-187-gen3-roamer-location-offsets`) confirmed that the Gen 3 roamer's current map location (`sRoamerLocation`) and its location history (`sLocationHistory`) are kept in dynamic `EWRAM_DATA` and are **not** saved to the `.sav` file.
+- **Action**: Cancelled `story-072-108-gen3-roamer-location-extraction` by setting its status to `CANCELLED` with a rejection reason, leaving its checkboxes unchecked. Cancelled the orphaned QA task (`task-108-162-gen3-roamer-location-qa`) by appending an auditor rejection note to its markdown body without modifying its frontmatter.
+- **Lesson**: It is impossible to extract the immediate location coordinates of a roaming Pokémon directly from a static Gen 3 `.sav` file since this data is exclusively EWRAM state.

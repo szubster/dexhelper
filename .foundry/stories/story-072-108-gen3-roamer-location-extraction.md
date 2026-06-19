@@ -2,7 +2,7 @@
 id: story-072-108-gen3-roamer-location-extraction
 type: STORY
 title: Gen 3 Roamer Location Data Extraction
-status: READY
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-19'
@@ -17,7 +17,7 @@ tags:
 research_references:
   - research-071-138-gen3-roamer-offsets
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Roamer locations are stored in EWRAM and are not serialized into the .sav file, making extraction impossible (per research-108-187).'
 notes: ''
 ---
 

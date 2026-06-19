@@ -40,3 +40,6 @@ The `coder` persona was tasked with implementing the `DataView` parsing logic to
 - [ ] Verify that the `DataView` API is used exclusively for the Gen 3 roamer location extraction.
 - [ ] Verify that bounds checking is correctly implemented and RangeErrors are gracefully handled.
 - [ ] Verify that the provided tests adequately cover the extraction logic and error conditions.
+
+### Auditor Rejection
+**CANCELLED:** The associated implementation task failed permanently because Gen 3 roamer locations are kept in dynamic EWRAM data and are not serialized into the `.sav` file. Verification is therefore impossible.
