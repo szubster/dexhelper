@@ -34,3 +34,6 @@ Pass the resolved roamer location to the Route Radar UI component. The UI should
 - [ ] Supply the mapped Gen 3 roamer location to the Route Radar component.
 - [ ] Update the UI to visually display the roamer's current location on the map.
 - [ ] Tech Lead: Break down this Story into execution Tasks (implementation & QA).
+
+### Architect Rejection
+This story has been permanently CANCELLED because its parent objective is impossible. Gen 3 roamer locations are not serialized in the save file.
