@@ -2,7 +2,7 @@
 id: task-108-162-gen3-roamer-dataview-extraction-qa
 type: TASK
 title: QA Gen 3 Roamer DataView Extraction and Core Parsing
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-06-11'
 updated_at: '2026-06-16'
@@ -17,9 +17,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-108-161-gen3-roamer-dataview-extraction-impl
+rejection_reason: ''
 notes: ''
 ---
 
@@ -41,5 +39,5 @@ Verify that the implementation safely reads the 20-byte roamer structure exclusi
 If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
 If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
-### CANCELLED
+### Auditor Rejection
 This task has been cancelled due to the permanent failure of its dependency `task-108-161-gen3-roamer-dataview-extraction-impl`. It has been replaced by `task-108-193-gen3-roamer-dataview-extraction-qa` which will depend on the new implementation task.
