@@ -2,12 +2,12 @@
 id: story-070-108-gen3-roamer-dataview-extraction
 type: STORY
 title: Gen 3 Roamer DataView Extraction and Core Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-19'
 depends_on: []
-jules_session_id: '4350292950788017666'
+jules_session_id: '16821201132558622268'
 pr_number: null
 parent: epic-044-070-gen3-roamer-core-extraction
 tags:
