@@ -2,7 +2,7 @@
 id: story-072-108-gen3-roamer-location-extraction
 type: STORY
 title: Gen 3 Roamer Location Data Extraction
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-19'

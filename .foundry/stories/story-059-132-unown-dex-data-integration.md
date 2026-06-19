@@ -2,13 +2,13 @@
 id: story-059-132-unown-dex-data-integration
 type: STORY
 title: Unown Dex Panel Data Integration
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-14'
 updated_at: '2026-06-19'
 depends_on:
   - story-059-131-unown-dex-panel-ui
-jules_session_id: '6314845693546714138'
+jules_session_id: null
 pr_number: null
 parent: epic-037-059-unown-tracker-ui
 tags:
