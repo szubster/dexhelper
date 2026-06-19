@@ -3,14 +3,23 @@ import { TacticalMultiSelectControl } from '../TacticalMultiSelectControl';
 export interface DagFilterPanelProps {
   activeTypes: Set<string>;
   activeStatuses: Set<string>;
+  showPermanentFailures: boolean;
   onTypeToggle: (type: string) => void;
   onStatusToggle: (status: string) => void;
+  onTogglePermanentFailures: () => void;
 }
 
 const ALL_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK'];
 const ALL_STATUSES = ['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
 
-export function DagFilterPanel({ activeTypes, activeStatuses, onTypeToggle, onStatusToggle }: DagFilterPanelProps) {
+export function DagFilterPanel({
+  activeTypes,
+  activeStatuses,
+  showPermanentFailures,
+  onTypeToggle,
+  onStatusToggle,
+  onTogglePermanentFailures,
+}: DagFilterPanelProps) {
   return (
     <div className="absolute top-4 left-4 z-10 flex flex-col gap-4 border border-zinc-800 border-dashed bg-zinc-950/90 p-4 font-mono text-xs text-zinc-400 backdrop-blur-sm">
       <TacticalMultiSelectControl
@@ -72,6 +81,17 @@ export function DagFilterPanel({ activeTypes, activeStatuses, onTypeToggle, onSt
           };
         })}
       />
+      <button
+        type="button"
+        className={`!border-dashed border px-2 py-1 text-xs focus-visible:ring-[var(--theme-primary)] ${
+          showPermanentFailures
+            ? 'border-red-500 bg-red-950/20 text-red-500 shadow-none'
+            : 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400'
+        }`}
+        onClick={onTogglePermanentFailures}
+      >
+        [ PERMANENT_FAILURES_ONLY ]
+      </button>
     </div>
   );
 }
