@@ -2,7 +2,7 @@
 id: epic-044-072-gen3-roamer-location-radar
 type: EPIC
 title: Gen 3 Roamer Location Radar
-status: READY
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-06-19'
@@ -16,7 +16,7 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Extracting exact Gen 3 roamer map locations from save files is impossible as the data is stored in EWRAM, not the save file (see ADR 108-027).'
 notes: ''
 ---
 
@@ -36,3 +36,6 @@ Determine the current map group and map number of the roaming Pokémon from the 
 - [x] .foundry/stories/story-072-108-gen3-roamer-location-extraction.md
 - [ ] .foundry/stories/story-072-109-gen3-roamer-location-mapping.md
 - [ ] .foundry/stories/story-072-110-gen3-roamer-route-radar-ui.md
+
+### Auditor Rejection
+**CANCELLED:** This Epic has been permanently cancelled. As established in ADR 108-027, the Gen 3 roamer's active map coordinates are stored in dynamically initialized EWRAM and are never serialized into the `.sav` file. Therefore, statically extracting the map route for the Route Radar is mathematically impossible.
