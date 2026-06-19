@@ -132,3 +132,10 @@ Scattering magic numbers across the codebase makes maintaining version-specific 
 
 **Recommendation/Learnings:**
 Always enforce the rule against inline magic numbers during verification. All memory offsets, bit lengths, and shifts must be defined as reusable, descriptive constants at the module level.
+
+
+### Tailwind v4 @utility Consolidation
+Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block, unless defining specific internal overrides. This greatly reduces repetitive class usage.
+
+### Tailwind v4 @utility vs @layer components
+Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block. This is a critical architectural pattern to follow when consolidating complex, repetitive UI combinations into single semantic classes.
