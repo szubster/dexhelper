@@ -23,6 +23,8 @@ notes: ''
 
 # Gen 3 Roamer Location Mapping
 
+**CANCELLED:** The parent Epic was cancelled because Gen 3 roamer locations cannot be extracted statically from save files (as they live in EWRAM, per ADR-108-027).
+
 ## Objective
 Map the Gen 3 extracted map group and map number to unified location objects.
 

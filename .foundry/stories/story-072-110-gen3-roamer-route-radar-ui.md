@@ -24,6 +24,8 @@ notes: ''
 
 # Gen 3 Roamer Route Radar UI Integration
 
+**CANCELLED:** The parent Epic was cancelled because Gen 3 roamer locations cannot be extracted statically from save files (as they live in EWRAM, per ADR-108-027).
+
 ## Objective
 Integrate the resolved Gen 3 roamer location with the Route Radar UI.
 
