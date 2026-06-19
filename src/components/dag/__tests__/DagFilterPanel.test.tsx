@@ -34,4 +34,7 @@ test('DagFilterPanel renders all types and statuses', async () => {
 
   await page.getByText('READY').click();
   expect(mockOnStatusToggle).toHaveBeenCalledWith('READY');
+
+  await page.getByText('[ PERMANENT_FAILURES_ONLY ]').click();
+  expect(mockOnTogglePermanentFailures).toHaveBeenCalled();
 });
