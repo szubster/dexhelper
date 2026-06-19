@@ -6,6 +6,24 @@ const NUM_SECTIONS = 14;
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
 
+/**
+ * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
+ *
+ * **A/B Bank Architecture:**
+ * Gen 3 games use flash memory divided into two 56KB blocks: Bank A (`0x0000`) and Bank B (`0xE000`).
+ * When saving, the game writes to whichever bank was NOT used previously, acting as a fail-safe
+ * against data corruption if the device powers off mid-save.
+ * Each bank is further divided into 14 4KB sections.
+ *
+ * This function scans both banks for the target section using the magic signature `0x08012025`.
+ * If the section exists in both banks, it compares their `saveIndex` values (the number of times
+ * the game has been saved) to return the offset of the most recent, non-corrupted write.
+ *
+ * @param view - The raw save file DataView.
+ * @param targetSectionId - The internal ID of the section to locate (e.g., 1 for SaveBlock1, 2 for SaveBlock2).
+ * @returns The memory offset of the most recent section.
+ * @throws Error if the section cannot be found or if neither bank contains a valid signature.
+ */
 function getLatestSectionOffset(view: DataView, targetSectionId: number): number {
   let saveIndexA = -1;
   let saveIndexB = -1;
@@ -61,6 +79,26 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  * @returns True if the structure looks like a valid Gen 3 save.
  */
 
+/**
+ * Extracts the status and growth data of all 128 Berry Patches in Hoenn.
+ *
+ * **Binary Data Structure:**
+ * Each berry patch is represented by an 8-byte structure:
+ * - `Byte 0`: Berry ID (which berry is planted).
+ * - `Byte 1`: Growth Stage & Stop Flag. The lower 7 bits represent the current growth stage.
+ *   The highest bit (`0x80`) is a boolean flag indicating if growth has been stopped (e.g., fully grown).
+ * - `Bytes 2-3`: 16-bit timer indicating minutes until the next growth stage.
+ * - `Byte 4`: The total berry yield expected when harvested.
+ * - `Byte 5`: Regrowth Count & Watering Flags. The lower 4 bits track how many times the plant has
+ *   regrown after dropping its berries. The upper 4 bits are individual boolean flags indicating
+ *   if the plant was watered during each of its 4 growth stages (`0x10`, `0x20`, `0x40`, `0x80`).
+ * - `Bytes 6-7`: Padding / unused.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The base offset of SaveBlock1.
+ * @returns An array of parsed `Gen3BerryPatch` objects.
+ * @throws RangeError if the read goes out of bounds.
+ */
 function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
   const patches: Gen3BerryPatch[] = [];
   const baseOffset = saveBlock1Offset + 0x071c;

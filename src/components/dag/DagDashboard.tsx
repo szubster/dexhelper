@@ -10,6 +10,10 @@ import { DagFilterPanel } from './DagFilterPanel';
 import { DagNode, type DagNodeData } from './DagNode';
 
 export function getMiniMapNodeColor(node: FlowNode<DagNodeData>): string {
+  if (node.data?.status === 'FAILED' && (node.data?.rejection_count ?? 0) >= 3) {
+    return '#dc2626'; // red-600
+  }
+
   switch (node.data?.status) {
     case 'COMPLETED':
       return '#10b981'; // emerald-500
@@ -79,6 +83,7 @@ export function DagDashboard() {
   const [activeStatuses, setActiveStatuses] = useState<Set<string>>(
     new Set(['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED']),
   );
+  const [showPermanentFailures, setShowPermanentFailures] = useState(false);
 
   const handleTypeToggle = (type: string) => {
     setActiveTypes((prev) => {
@@ -158,7 +163,13 @@ export function DagDashboard() {
       if (n) {
         const type = n.data.type;
         const status = n.data.status;
-        if (type && status && activeTypes.has(type) && activeStatuses.has(status)) {
+        let shouldInclude = type && status && activeTypes.has(type) && activeStatuses.has(status);
+
+        if (shouldInclude && showPermanentFailures) {
+          shouldInclude = n.data.status === 'FAILED' && n.data.rejection_count >= 3;
+        }
+
+        if (shouldInclude) {
           const isHighlighted = activeNodeId ? highlightSet.has(n.id) : false;
           const isDimmed = activeNodeId ? !highlightSet.has(n.id) : false;
           result.push({
@@ -173,7 +184,7 @@ export function DagDashboard() {
       }
     }
     return result;
-  }, [nodes, activeTypes, activeStatuses, activeNodeId, highlightSet]);
+  }, [nodes, activeTypes, activeStatuses, activeNodeId, highlightSet, showPermanentFailures]);
 
   const displayEdges = useMemo(() => {
     // ⚡ Bolt: Prevent array allocation in Set construction
@@ -239,8 +250,10 @@ export function DagDashboard() {
       <DagFilterPanel
         activeTypes={activeTypes}
         activeStatuses={activeStatuses}
+        showPermanentFailures={showPermanentFailures}
         onTypeToggle={handleTypeToggle}
         onStatusToggle={handleStatusToggle}
+        onTogglePermanentFailures={() => setShowPermanentFailures((prev) => !prev)}
       />
       <ReactFlow
         nodes={displayNodes}

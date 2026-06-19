@@ -17,6 +17,9 @@ When modifying the Foundry Orchestrator (`.github/scripts/foundry-orchestrator.t
 When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
 
 
+## Save File Parsing & Magic Numbers
+When implementing save file parsing or data definitions, you MUST explicitly define and use reusable constants for memory offsets, lengths, bit locations, and shifts at the module level. Strictly avoid using inline magic numbers (e.g., `0x2dd6`, `>> 4`) directly in parsing functions. This ensures robustness against version-specific shifts and prevents brittle code.
+
 ## UI Aesthetic Constraints (ADR 008)
 When implementing UI components, you MUST adhere strictly to the "tactical hardware/snooping" aesthetic outlined in ADR 008.
 - Explicitly use sharp edges (`rounded-none`).
