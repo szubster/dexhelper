@@ -36,3 +36,7 @@ Implement the core data extraction logic to read the Friendship (Happiness) valu
 - [ ] Gen 3 Party parsing extracts Friendship value (handling PV % 24 substructure permutation).
 - [ ] Gen 3 PC parsing extracts Friendship value.
 - [ ] Unit tests added/updated to verify Friendship extraction against known save fixtures.
+
+- [x] Break down into Tasks
+- [ ] story-094-151-gen2-friendship-extraction
+- [ ] story-094-152-gen3-friendship-extraction
