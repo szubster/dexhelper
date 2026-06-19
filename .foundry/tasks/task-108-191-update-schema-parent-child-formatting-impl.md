@@ -44,4 +44,4 @@ Update rule 15 in `.foundry/docs/schema.md` to include these exact instructions:
 This is a low-risk documentation task. The `coder` is designated to self-verify.
 
 ## Acceptance Criteria
-- [ ] Ensure `.foundry/docs/schema.md` rule 15 fully explains parent-child formatting constraints.
+- [x] Ensure `.foundry/docs/schema.md` rule 15 fully explains parent-child formatting constraints.
