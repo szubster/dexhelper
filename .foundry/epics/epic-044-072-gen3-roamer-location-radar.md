@@ -2,7 +2,7 @@
 id: epic-044-072-gen3-roamer-location-radar
 type: EPIC
 title: Gen 3 Roamer Location Radar
-status: ACTIVE
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-06-19'
@@ -16,7 +16,7 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Extraction of Gen 3 roamer location from save file is mathematically impossible per ADR 027.'
 notes: ''
 ---
 

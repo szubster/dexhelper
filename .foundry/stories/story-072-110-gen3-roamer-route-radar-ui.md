@@ -34,3 +34,6 @@ Pass the resolved roamer location to the Route Radar UI component. The UI should
 - [ ] Supply the mapped Gen 3 roamer location to the Route Radar component.
 - [ ] Update the UI to visually display the roamer's current location on the map.
 - [ ] Tech Lead: Break down this Story into execution Tasks (implementation & QA).
+
+### Cancelled
+This story is cancelled because its parent epic (`epic-044-072-gen3-roamer-location-radar`) was cancelled. The extraction of Gen 3 roamer location from the save file is mathematically impossible per ADR 027.
