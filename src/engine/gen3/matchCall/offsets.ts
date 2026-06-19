@@ -1,0 +1,17 @@
+export const MATCH_CALL_BLOCK_SECTION_ID = 1;
+export const MATCH_CALL_BLOCK_SECTION_OFFSET = 0x09ca;
+export const MATCH_CALL_BLOCK_LENGTH = 100;
+
+export const MATCH_CALL_REGISTERED_FLAGS_SECTION_ID = 2;
+export const MATCH_CALL_REGISTERED_FLAGS_SECTION_OFFSET = 0x031b;
+export const MATCH_CALL_REGISTERED_FLAGS_START_BIT = 4;
+export const MATCH_CALL_REGISTERED_FLAGS_COUNT = 78;
+
+export const MATCH_CALL_UNLOCK_FLAG_SECTION_ID = 2;
+export const MATCH_CALL_UNLOCK_FLAG_SECTION_OFFSET = 0x0315;
+export const MATCH_CALL_UNLOCK_FLAG_BIT = 7;
+
+// Rematch readiness and tier states
+export const MATCH_CALL_REMATCH_NOT_READY = 0;
+// Where 0 is not ready, >0 means ready and represents the internal tier index
+export type MatchCallRematchEntry = number;
