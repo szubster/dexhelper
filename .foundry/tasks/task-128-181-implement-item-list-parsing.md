@@ -39,11 +39,11 @@ The items must be structured with the following fields:
 Ensure the generation logic leverages generation-specific datasets (e.g., `past_values` or `version_group_details`) when mapping past generation properties, falling back to Gen 1-3 accurate stats or latest stats as available.
 
 ## Acceptance Criteria
-- [ ] Implement parsing logic in `scripts/generate-pokedata.ts` to extract item data from the local PokeAPI dataset.
-- [ ] Apply compaction to remove nulls, default values, and zeros (like a cost of 0).
-- [ ] Ensure the generated structure matches the specification in ADR-049-025.
-- [ ] Output the processed data as `data/db/items.jsonl`.
-- [ ] Run the updated script to generate the initial `items.jsonl` file.
+- [x] Implement parsing logic in `scripts/generate-pokedata.ts` to extract item data from the local PokeAPI dataset.
+- [x] Apply compaction to remove nulls, default values, and zeros (like a cost of 0).
+- [x] Ensure the generated structure matches the specification in ADR-049-025.
+- [x] Output the processed data as `data/db/items.jsonl`.
+- [x] Run the updated script to generate the initial `items.jsonl` file.
 
 ## Critical Instructions for Coder
 - **Failure Policy**: If you must abort this task or it fails permanently, you MUST update the YAML frontmatter to `status: FAILED` and provide a `rejection_reason`. Do NOT check off any Acceptance Criteria in the event of failure.
