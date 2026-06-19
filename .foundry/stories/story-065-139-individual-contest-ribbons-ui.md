@@ -31,3 +31,7 @@ This story implements a requirement for `epic-041-065-individual-contest-stats-v
 
 ## 3. Acceptance Criteria
 - [ ] Integrate Ribbons for a single Pokémon.
+
+## Child Tasks
+- [ ] .foundry/tasks/task-139-209-individual-contest-ribbons-impl.md
+- [ ] .foundry/tasks/task-139-210-individual-contest-ribbons-qa.md
