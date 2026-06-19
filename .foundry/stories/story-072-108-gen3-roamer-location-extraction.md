@@ -2,12 +2,12 @@
 id: story-072-108-gen3-roamer-location-extraction
 type: STORY
 title: Gen 3 Roamer Location Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-19'
 depends_on: []
-jules_session_id: '8499086342884173453'
+jules_session_id: '9059928968093764890'
 pr_number: null
 parent: epic-044-072-gen3-roamer-location-radar
 tags:
