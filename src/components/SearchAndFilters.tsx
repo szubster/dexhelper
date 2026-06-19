@@ -68,6 +68,7 @@ export function SearchAndFilters() {
                 onClick={() => setFilters([])}
                 aria-pressed={filtersSet.size === 0}
                 title="Clear filters"
+                aria-label="Clear filters"
                 className={`tactical-text focus-visible:tactical-focus min-w-[100px] flex-1 border-zinc-800 border-r border-dashed px-2 py-3 font-black text-[10px] transition-all ${
                   filtersSet.size === 0
                     ? 'bg-[var(--theme-primary)]/20 text-[var(--theme-primary)] shadow-[inset_0_0_10px_rgba(var(--theme-primary-rgb),0.3)]'

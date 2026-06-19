@@ -350,4 +350,11 @@ test('getMiniMapNodeColor returns correct color based on status', () => {
       import('../DagNode').DagNodeData
     >),
   ).toBe('#52525b');
+  expect(
+    getMiniMapNodeColor({
+      id: '1',
+      position: { x: 0, y: 0 },
+      data: { rejection_count: 3, status: 'FAILED', type: 'TASK', owner_persona: 'human' },
+    }),
+  ).toBe('#dc2626');
 });

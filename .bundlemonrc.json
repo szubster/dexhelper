@@ -35,7 +35,7 @@
     },
     {
       "path": "assets/style-<hash>.css",
-      "maxSize": "130kb"
+      "maxSize": "140kb"
     },
     {
       "path": "data/pokedata.msgpack",

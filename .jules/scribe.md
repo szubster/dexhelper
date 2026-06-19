@@ -174,3 +174,10 @@ Documenting this prevents developers from incorrectly refactoring offset lookups
 **Why:** The File System Access API (`window.showOpenFilePicker`) has non-obvious constraints regarding long-term file access.
 - **Permission Revocation:** Even when a `FileSystemFileHandle` is persisted perfectly in IndexedDB, the browser automatically revokes the *read permission* when the tab is closed for security reasons. Documenting this constraint explains *why* the `resumeSync` function exists (to re-request permission via `handle.requestPermission()`) and why the hook differentiates between having a stored handle and being in a 'live' state.
 - **Polling Loop:** The modern web lacks a standard `FileSystemObserver` API. Documenting this explains *why* a manual `setInterval` polling loop checking `file.lastModified` is required to detect emulator saves.
+
+## 2026-06-25 - Gen 3 Memory Architecture and Berry Patch Documentation
+
+**What:** Added comprehensive JSDoc to `getLatestSectionOffset` and `extractBerryPatches` in `src/engine/saveParser/parsers/gen3.ts`.
+**Why:** The Generation 3 save format uses a complex A/B bank flash memory architecture (unlike Gen 1/2 SRAM) where the game alternates writing between two 56KB blocks (`0x0000` and `0xE000`) to prevent data corruption during saves.
+- `getLatestSectionOffset`: I documented how this function scans both banks for the `0x08012025` signature and compares the `saveIndex` to determine which block contains the most recent, non-corrupted data. Without this documentation, developers might incorrectly assume a linear memory structure or rely on the first signature they find, leading to rollback bugs where outdated data is read.
+- `extractBerryPatches`: I documented the explicit binary structure of Hoenn's 128 berry patches. The growth stage and watering flags are densely packed into bitwise offsets (e.g., the top bit of the stage byte indicates if growth is stopped, and watering data is split across four specific bits). Explaining this dense packing prevents developers from misreading the offsets or overwriting flags during potential future save-editing features.

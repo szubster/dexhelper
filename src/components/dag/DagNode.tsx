@@ -35,6 +35,9 @@ export function DagNode({ data }: { data: DagNodeData }) {
       statusColor = 'text-red-500';
       dotColor = 'text-red-500';
       bgClass = 'bg-red-950/20 border-red-500/50';
+      if (data.status === 'FAILED' && data.rejection_count >= 3) {
+        bgClass = 'bg-red-900/40 border-red-500 border-2 brightness-125';
+      }
       break;
     case 'READY':
       statusColor = 'text-amber-500';
