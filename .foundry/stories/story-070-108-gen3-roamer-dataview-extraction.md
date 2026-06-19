@@ -38,4 +38,4 @@ This story handles the base extraction logic in the save parser for Gen 3. The `
 - [x] task-108-162-gen3-roamer-dataview-extraction-qa
 - [ ] task-108-192-gen3-roamer-dataview-extraction-impl
 - [ ] task-108-193-gen3-roamer-dataview-extraction-qa
-- [ ] research-108-194-gen3-roamer-iv-bitfield
+- [x] research-108-194-gen3-roamer-iv-bitfield
