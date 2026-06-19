@@ -88,3 +88,7 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 ## 2026-06-18: Unexpected Artifact Existence
 - **Observation**: While processing `story-074-115-define-tactical-input-and-text.md`, it was discovered that its target artifacts (`task-115-165-implement-tactical-input-text.md` and `task-115-166-qa-tactical-input-text.md`) already unexpectedly existed in the `.foundry/tasks/` directory and were marked as `COMPLETED`.
 - **Action**: Followed the Empty PR Policy by checking off the acceptance criteria checkboxes in the story node's markdown body and proceeding with an Empty PR submission, logging this anomaly for the Agile Coach.
+
+## 2026-06-19: Handling Permanent Failure of Gen 3 Roamer Location Extraction
+- **Incident**: The implementation task `task-108-161-gen3-roamer-location-impl` failed permanently (Max rejection count reached) because extracting exact map coordinates for Gen 3 roamers directly from `.sav` files is impossible (data only exists in EWRAM, not serialized).
+- **Action**: Spawned a new `RESEARCH` node (`research-108-206-gen3-roamer-ewram-investigation.md`) to explicitly document this limitation. Created replacement implementation and QA tasks (`task-108-207` and `task-108-208`) that depend on the research node, focusing on alternative extraction or fallback strategies. Appended these new tasks to the parent story and added a cancellation note to the orphaned QA task (`task-108-162-gen3-roamer-location-qa.md`) without touching its YAML frontmatter.
