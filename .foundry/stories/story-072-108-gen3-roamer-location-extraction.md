@@ -17,7 +17,7 @@ tags:
 research_references:
   - research-071-138-gen3-roamer-offsets
 rejection_count: 0
-rejection_reason: 'Extracting exact Gen 3 roamer map locations from save files is impossible as the data is stored in EWRAM, not the save file (see research-108-187-gen3-roamer-location-offsets).'
+rejection_reason: 'Roamer locations are stored in EWRAM and are not serialized into the .sav file, making extraction impossible (per research-108-187).'
 notes: ''
 ---
 

@@ -59,3 +59,9 @@ The current system instructions were confusingly telling agents to set nodes to 
 To resolve this, I have:
 1. Updated `.github/agents/coder.md`, `.github/agents/qa.md`, `.github/agents/auditor.md`, and `.github/agents/tech_lead.md` to explicitly clarify the difference: `FAILED` is strictly for transient errors triggering a resurrection retry, while `CANCELLED` MUST be used for permanent failures (impossible tasks or max rejections reached) to formally drop them from the DAG and trigger parent recovery.
 2. Autonomously generated `idea-079-automated-max-rejection-cancellation.md` to propose updating the Foundry Orchestrator to automatically transition a node's status to `CANCELLED` when it hits its `MAX_REJECTION_THRESHOLD`.
+
+## 2026-06-15: Introduced Permanent Failures Dashboard View
+
+To improve visibility into system deadlocks (ADR 017), I have implemented a 'Permanent Failures' toggle on the DAG Dashboard. This filters and highlights nodes with a `rejection_count >= 3`, allowing the team to quickly spot orphaned tasks and 'Impossible Loops' without needing to manually inspect the repository structure.
+
+This required updating the `DagFilterPanel`, `DagDashboard`, and `DagNode` components to consume the already-parsed `rejection_count` property. Going forward, PMs and Tech Leads should check this view regularly.

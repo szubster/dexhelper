@@ -261,3 +261,9 @@
 **Outcome:** Merged
 **Why:** The Strategist prompt was missing the explicit instruction about checking unchecked Acceptance Criteria checkboxes when submitting an empty PR, which is present in other persona prompts and required by ADR 007 and ADR 009.
 **Pattern:** Codify system memory constraints into agent prompts to avoid regressions and ensure consistency across personas.
+
+## 2026-06-20 - [Accepted] - Prompt improvement - Prevent magic numbers in save file parsing
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The Auditor journal noted that using inline magic numbers for save file parsing offsets leads to brittle code. The `tech_lead`, `coder`, and `qa` agents lacked explicit instructions to prevent this.
+**Pattern:** Ensure agents involved in save file parsing explicitly define and enforce the use of reusable constants for memory offsets, lengths, and bit locations at the module level instead of using inline magic numbers.

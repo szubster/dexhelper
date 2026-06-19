@@ -47,3 +47,8 @@ Derived from `prd-070-042-gen3-contest-optimization-advisor`, this epic handles 
 - [ ] Integrate components into the Pokémon detail view.
 - [ ] Implement clear reasoning copy for recommendations.
 - [ ] Implement and test visual warning states for maxed Sheen scenarios.
+
+### Stories
+- [ ] .foundry/stories/story-065-149-contest-recommendation-ui-components.md
+- [ ] .foundry/stories/story-065-150-contest-warning-states-ui.md
+- [ ] .foundry/stories/story-065-151-contest-advisor-ui-integration.md

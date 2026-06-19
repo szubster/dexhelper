@@ -203,3 +203,9 @@
 **Outcome:** Accepted
 **Why:** Brings the most granular, fundamental data readout components in line with the established specialized hardware motif. The previous datapoints were simple flex column text pairs, which broke the terminal simulation on dense screens (like the Header and Details Panel). Treating individual stats as active telemetry nodes reinforces the physical device fantasy.
 **Pattern:** Apply tactical aesthetics (bracketed telemetry labels, rigid block backgrounds, dashed borders acting as connection wires, and LCD indicator dots) even to the smallest, most atomic data display elements to maintain absolute visual coherence deep within complex data views.
+
+## 2024-06-19 - Accepted - Canvas: Tactical Sidebar Dossier Redesign
+**What:** Redesigned the `PokemonDetails` modal into a "Tactical Sidebar Dossier" layout, shifting from a vertically stacked structure to a dual-pane `flex-row` on large screens. The left pane functions as a sticky ID card (sprite, ID, telemetry, status) with a hard border separator, while the right pane holds catch probabilities, evolutions, and locations. Handled long text overlaps by employing tight, responsive breakpoints with `break-all`/`break-normal`.
+**Outcome:** Merged / Accepted
+**Why:** Improves spatial efficiency on widescreen displays and heavily reinforces the tactical "database terminal/personnel file" aesthetic established across the application.
+**Pattern:** Continue identifying opportunities to transform generic modals/dialogs into structured, specialized interfaces (like dossier panels or telemetry overlays) that use sidebars, borders, and monospaced meta-data fields. Avoid monolithic stacks on large screens.

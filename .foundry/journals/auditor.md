@@ -132,3 +132,17 @@ Scattering magic numbers across the codebase makes maintaining version-specific 
 
 **Recommendation/Learnings:**
 Always enforce the rule against inline magic numbers during verification. All memory offsets, bit lengths, and shifts must be defined as reusable, descriptive constants at the module level.
+## 2026-06-19: Final Verification of Gen 2 Pokerus State Exfiltration Epic
+
+**Why this matters:**
+This confirms the architecture accurately scales bitwise state extractions, reliably handling nuances such as the "cured" boundary state where the game differentiates between non-zero strain/zero days and pure zeros.
+
+**Recommendation/Learnings:**
+The usage of specific bitwise operators (`>> 4` and `& 0x0f`) accompanied by targeted edge-case unit tests ensures regressions are caught early in core data structures. This pattern of boundary testing for custom bit fields is crucial and should be propagated to other similar bit-level extraction systems. We have formally documented this requirement in `ADR 026: Bitwise State Extraction and Cured Boundaries` to act as an architectural constraint for future Gens.
+
+
+### Tailwind v4 @utility Consolidation
+Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block, unless defining specific internal overrides. This greatly reduces repetitive class usage.
+
+### Tailwind v4 @utility vs @layer components
+Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block. This is a critical architectural pattern to follow when consolidating complex, repetitive UI combinations into single semantic classes.
