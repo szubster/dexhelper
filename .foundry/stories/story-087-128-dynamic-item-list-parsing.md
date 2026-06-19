@@ -2,10 +2,10 @@
 id: story-087-128-dynamic-item-list-parsing
 type: STORY
 title: Dynamic Item List Generation Script
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
-updated_at: '2026-06-14'
+updated_at: '2026-06-19'
 depends_on: []
 jules_session_id: null
 pr_number: null

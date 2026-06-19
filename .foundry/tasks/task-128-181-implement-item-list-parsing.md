@@ -2,12 +2,12 @@
 id: task-128-181-implement-item-list-parsing
 type: TASK
 title: Implement Dynamic Item List Parsing in scripts/generate-pokedata.ts
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-19'
 depends_on: []
-jules_session_id: '18390344676706828213'
+jules_session_id: null
 pr_number: null
 parent: story-087-128-dynamic-item-list-parsing
 tags:
@@ -16,7 +16,7 @@ tags:
   - db
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 
