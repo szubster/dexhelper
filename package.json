@@ -91,7 +91,7 @@
     "vitest-browser-react": "^2.2.0",
     "wrangler": "^4.101.0"
   },
-  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
+  "packageManager": "pnpm@11.8.0+sha512.c1f5e7c4cb241c8f174b743851d82f42b802324afc8b0f116b96adb15aa06664948dde36960a3ba1079ba5b4b29dd0140135b94b5b5f5263592249d68e555f26",
   "engines": {
     "node": ">=22.0.0",
     "pnpm": ">=10.33.0"
@@ -108,11 +108,7 @@
       ]
     },
     "overrides": {
-      "esbuild": ">=0.28.1",
-      "form-data": ">=4.0.6",
-      "tmp": ">=0.2.6",
-      "undici": "^7.28.0",
-      "ws": ">=8.21.0"
+      "undici": "^7.28.0"
     }
   }
 }

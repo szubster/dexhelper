@@ -1,3 +1,9 @@
 packages:
   - "."
   - ".github/scripts"
+allowBuilds:
+  - esbuild
+  - lefthook
+  - msgpackr-extract
+  - sharp
+  - workerd
