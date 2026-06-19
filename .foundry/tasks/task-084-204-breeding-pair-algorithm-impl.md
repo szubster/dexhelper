@@ -7,6 +7,7 @@ owner_persona: coder
 created_at: '2026-06-18'
 updated_at: '2026-06-18'
 depends_on:
+  - research-084-209-egg-groups-missing
   - story-044-083-pc-party-shiny-flag
 jules_session_id: null
 pr_number: null
