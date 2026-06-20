@@ -2,7 +2,7 @@
 id: task-084-204-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Shiny Carrier Breeding Pair Algorithm
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-18'
 updated_at: '2026-06-18'
@@ -18,7 +18,7 @@ tags:
   - backend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Missing prerequisite: utility to compute Gen 2 Pokemon gender based on Attack DV and Gender Ratio.'
 notes: ''
 ---
 

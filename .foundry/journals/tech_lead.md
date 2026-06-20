@@ -71,3 +71,5 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 ## 2026-06-18: Gen 3 Roamer Location Constraint
 - **Observation**: Extracting the exact current map location and location history of the roaming Pokémon from a Gen 3 `.sav` file is mathematically impossible. These values (`sRoamerLocation` and `sLocationHistory`) are kept dynamically in `EWRAM` and are never serialized into the static save file.
 - **Action**: The technical blueprint generation for extracting this data must be cancelled. An ADR was created to permanently document this architectural impossibility to prevent future wasted cycles.
+
+- [2026-06-20] Missing prerequisites for complex logic (like Gen 2 gender computation for breeding algorithms) cause downstream pipeline failures. Always proactively verify and create prerequisite tasks for foundational data schemas and utilities before drafting implementation logic.
