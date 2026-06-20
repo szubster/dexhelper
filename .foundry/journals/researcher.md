@@ -33,3 +33,8 @@ When performing research on save file offsets, never blindly trust task descript
 - **Date**: 2026-06-18
 - **Observation**: Roamer locations (`sRoamerLocation` and `sLocationHistory`) are kept in dynamic `EWRAM_DATA` and are not directly saved to the `.sav` file; they re-initialize dynamically upon startup.
 - **Pattern/Constraint**: It is mathematically impossible to extract the exact current route of a roaming Pokémon directly from a static Gen 3 `.sav` file unless the player saved while the roamer was active on their current route.
+
+## 2026-06-19: Empty PRs and Phantom Implementation Failures
+**Lesson**: When investigating recurring task failures for code that appears to be fully functional, check if the root cause is a pipeline violation rather than a code defect.
+- **Example (research-098-189)**: The Gen 3 PV extraction tasks were stuck in a failure/retry loop despite `parseGen3PersonalityValue` already existing and passing tests. The failures were caused by implementers violating the strict Empty PR Policy (ADR 007 and ADR 009) — they submitted empty PRs without checking off the Acceptance Criteria checkboxes in the task markdown, leading to automated rejection and continuous resurrection.
+- **Action**: Always adhere strictly to Empty PR protocols. If the code exists, only update the task markdown to check off the boxes and submit an empty PR. Do not modify the YAML frontmatter.
