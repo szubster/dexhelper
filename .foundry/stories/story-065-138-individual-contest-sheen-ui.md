@@ -31,3 +31,7 @@ This story implements a requirement for `epic-041-065-individual-contest-stats-v
 
 ## 3. Acceptance Criteria
 - [ ] Integrate the Sheen display into the detailed Pokémon view.
+
+## Child Tasks
+- [ ] .foundry/tasks/task-138-209-individual-contest-sheen-ui-impl.md
+- [ ] .foundry/tasks/task-138-210-individual-contest-sheen-ui-qa.md
