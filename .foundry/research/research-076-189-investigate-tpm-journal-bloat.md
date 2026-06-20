@@ -2,12 +2,12 @@
 id: research-076-189-investigate-tpm-journal-bloat
 type: RESEARCH
 title: Investigate TPM Journal Bloat and Orchestrator Logging
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-16'
-updated_at: '2026-06-19'
+updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: '17896782057739072735'
+jules_session_id: null
 pr_number: null
 parent: idea-076-tpm-journal-bloat
 tags:

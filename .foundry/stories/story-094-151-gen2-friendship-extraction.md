@@ -2,10 +2,10 @@
 id: story-094-151-gen2-friendship-extraction
 type: STORY
 title: Gen 2 Friendship Data Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-19'
-updated_at: '2026-06-19'
+updated_at: '2026-06-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
