@@ -2,10 +2,10 @@
 id: story-072-110-gen3-roamer-route-radar-ui
 type: STORY
 title: Gen 3 Roamer Route Radar UI Integration
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-20'
 depends_on:
   - story-072-109-gen3-roamer-location-mapping
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 
