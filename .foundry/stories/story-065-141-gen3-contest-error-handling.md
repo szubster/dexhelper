@@ -2,12 +2,12 @@
 id: story-065-141-gen3-contest-error-handling
 type: STORY
 title: Gen 3 Contest Data Error Handling
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-16'
-updated_at: '2026-06-16'
+updated_at: '2026-06-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16665530269339498987'
 pr_number: null
 parent: epic-040-065-gen3-contest-data-integration
 tags:

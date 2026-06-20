@@ -29,3 +29,9 @@ While attempting to implement `task-084-204-breeding-pair-algorithm-impl`, the p
 - Determine how to add Egg Groups to the DB schema (and update `scripts/generate-pokedata.ts`).
 - Determine how to calculate gender using DVs and Gender Ratio (`gr`).
 - Outline the necessary changes to supply this data to the Breeding Algorithm.
+While attempting to implement the Shiny Carrier Breeding Pair Algorithm, it was discovered that `PokemonMetadata` inside `src/db/schema.ts` does not currently include `egg_groups` data. In addition, there isn't a documented utility to accurately compute Gen 2 Pokemon gender based on Attack DV and Gender Ratio.
+
+## Objectives
+- Determine how to extract and add Egg Groups to the DB schema (e.g., updating `scripts/generate-pokedata.ts`).
+- Determine how to calculate gender mathematically using Gen 2 DVs and the Gender Ratio (`gr`).
+- Outline the necessary data model changes required to unblock the Breeding Algorithm.

@@ -2,12 +2,12 @@
 id: task-109-196-implement-dag-provider-impl
 type: TASK
 title: Implement DagProvider Component Impl
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-17'
-updated_at: '2026-06-17'
+updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1707078946532778434'
 pr_number: null
 parent: story-070-109-implement-dag-provider
 tags:
