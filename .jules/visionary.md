@@ -112,3 +112,7 @@
 ## 2026-06-17
 **Idea:** Daycare Status and Exact Egg Hatch Tracker
 **Learning:** Targeting opaque, heavily-utilized progression mechanics like breeding (Daycare status and Egg steps) for actionable QoL improvements perfectly aligns with the app's offline-first programmatic save parsing strengths. Extracting exact cycle counts transforms vague in-game text into precise data, removing tedious guesswork for hardcore players.
+
+## 2026-06-25
+**Idea:** Hidden Power Type and Base Power Calculator
+**Learning:** Hidden Power is a highly sought-after mechanic for competitive battling and challenge runs (like Nuzlockes), especially in Gens 2 and 3. Since the move's attributes are determined entirely by the Pokémon's hidden IVs/DVs—which players cannot easily see in-game without trial and error or external calculators—automatically extracting and calculating this information from the save file provides immediate, immense value. This perfectly fits the "premium companion app" ethos: taking opaque, hidden data and rendering it directly actionable.
