@@ -54,3 +54,8 @@ When generating a child node from a parent, ensure the new child node is added a
 
 ## 2026-06-16: Parent Node Awakening and Generated Nodes
 When transforming an `IDEA` to a `PRD`, and there are existing acceptance criteria on the `IDEA` that cannot be fulfilled before all generated child nodes are complete, the `IDEA` node MUST NOT have all its acceptance criteria checked off. Check off only what is fulfilled, and always append the newly generated nodes as unchecked checkboxes (`- [ ] <filepath>`) in the markdown body. Checking all acceptance criteria prematurely causes the empty PR submission to be verified before children complete, violating the strict pipeline graph.
+
+## 2026-06-20
+- **Execution Plan Strictness**: Ensure that Execution Plans do not contain internal monologues or deliberations (e.g. "Wait, the rule says..."). Plans must contain concrete, direct, and actionable steps.
+- **Sequence Verification**: Ensure you do not guess the highest sequence number when generating node IDs if `ls` output is truncated. Use `tail` explicitly (e.g. `ls -1 | sort -n | tail -n 5`) to confirm sequence numbers.
+- **Node Handoff Strictness**: The pipeline handoff order (IDEA -> PRD -> ADR -> EPIC) strictly maps to personas (PM -> PM -> Architect -> Epic Planner). When generating PRDs from an IDEA, the next target in the DAG is an ADR, meaning the generated PRDs must be assigned `owner_persona: architect` (not epic planner).
