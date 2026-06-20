@@ -34,6 +34,8 @@ Take the raw location indices parsed from the save file (map group and map numbe
 - [ ] Implement logic to handle edge cases (like indoor locations mapping to outdoor parents).
 - [ ] Tech Lead: Break down this Story into execution Tasks (implementation & QA).
 
+### Architect Rejection
+This story has been permanently CANCELLED because its parent objective is impossible. Gen 3 roamer locations are not serialized in the save file.
 ### CANCELLED
 This story is cancelled because its parent epic `epic-044-072-gen3-roamer-location-radar` is permanently cancelled due to technical impossibility.
 ### Auditor Rejection

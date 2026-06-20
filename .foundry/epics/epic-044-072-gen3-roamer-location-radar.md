@@ -16,7 +16,7 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: 'Roamer locations are stored in EWRAM and are not serialized into the .sav file, making extraction and mapping impossible (per adr-108-027).'
+rejection_reason: 'Objective is impossible; Gen 3 roamer locations are not serialized in the save file (see adr-108-027).'
 notes: ''
 ---
 
