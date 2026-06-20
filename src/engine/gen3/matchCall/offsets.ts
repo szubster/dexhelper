@@ -14,4 +14,3 @@ export const MATCH_CALL_UNLOCK_FLAG_BIT = 7;
 // Rematch readiness and tier states
 export const MATCH_CALL_REMATCH_NOT_READY = 0;
 // Where 0 is not ready, >0 means ready and represents the internal tier index
-export type MatchCallRematchEntry = number;

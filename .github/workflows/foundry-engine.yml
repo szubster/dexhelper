@@ -33,7 +33,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version-file: ".nvmrc" # Required for --strip-types
+          node-version-file: ".nvmrc" # Required for --experimental-strip-types
           cache: "pnpm"
 
       - name: Install dependencies
@@ -49,7 +49,7 @@ jobs:
           JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          node --strip-types .github/scripts/foundry-heartbeat.ts
+          node --experimental-strip-types .github/scripts/foundry-heartbeat.ts
 
       - name: Verify DAG References
         run: |
@@ -59,7 +59,7 @@ jobs:
         id: set-matrix
         run: |
           set +e
-          output=$(node --strip-types .github/scripts/foundry-orchestrator.ts --strict 2> orchestrator-err.log | tail -n 1)
+          output=$(node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --strict 2> orchestrator-err.log | tail -n 1)
           exit_code=${PIPESTATUS[0]}
           set -e
           cat orchestrator-err.log >&2
@@ -193,7 +193,7 @@ jobs:
             fi
 
             # 1.5 Extract research_references from parent chain safely
-            research_context_str=$(node --strip-types .github/scripts/extract-research.ts "${{ matrix.node.repo_path }}")
+            research_context_str=$(node --experimental-strip-types .github/scripts/extract-research.ts "${{ matrix.node.repo_path }}")
 
             if [[ -n "$research_context_str" ]]; then
               agent_context="${agent_context}\n\n### RESEARCH REFERENCES\nThe following research context paths have been automatically injected from the node dependency chain. You may use the read_file tool to read their contents if necessary:\n${research_context_str}"
@@ -250,7 +250,7 @@ jobs:
         run: |
           set -o pipefail
           # Transition the file to ACTIVE state and inject the real Jules ID
-          node --strip-types .github/scripts/foundry-active.ts "${{ matrix.node.repo_path }}" "$SESSION_ID" 2>&1 | tee active-transition.log
+          node --experimental-strip-types .github/scripts/foundry-active.ts "${{ matrix.node.repo_path }}" "$SESSION_ID" 2>&1 | tee active-transition.log
 
       - name: Commit State Change
         run: |

@@ -14,7 +14,7 @@
  *   8. EXIT      — 0 on success; 1 if unresolvable deps found in --strict mode
  *
  * Usage:
- *   node --strip-types foundry-orchestrator.ts [--dry-run] [--strict]
+ *   node --experimental-strip-types foundry-orchestrator.ts [--dry-run] [--strict]
  *
  * Flags:
  *   --dry-run   Log what would be promoted; do NOT write any files.

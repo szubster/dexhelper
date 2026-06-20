@@ -4,10 +4,10 @@
   "description": "Foundry DAG orchestration scripts — run with Node 24 native TypeScript support.",
   "type": "module",
   "scripts": {
-    "orchestrate": "node --strip-types foundry-orchestrator.ts",
-    "orchestrate:dry": "node --strip-types foundry-orchestrator.ts --dry-run",
-    "orchestrate:strict": "node --strip-types foundry-orchestrator.ts --strict",
-    "verify:refs": "node --strip-types verify-dag-refs.ts",
+    "orchestrate": "node --experimental-strip-types foundry-orchestrator.ts",
+    "orchestrate:dry": "node --experimental-strip-types foundry-orchestrator.ts --dry-run",
+    "orchestrate:strict": "node --experimental-strip-types foundry-orchestrator.ts --strict",
+    "verify:refs": "node --experimental-strip-types verify-dag-refs.ts",
     "test": "vitest run"
   },
   "dependencies": {

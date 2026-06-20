@@ -35,3 +35,8 @@ Before deleting code flagged as dead, always check the status of Foundry tasks (
 ## 2026-06-07 - Verify Unused Code Removals
 **Learning:** Tools like `knip` can identify unused exports and dependencies, but they sometimes have blind spots or misinterpret usage (especially for global configurations, setup scripts, or exported test helpers/fixtures).
 **Action:** When using tools like `knip` to find unused exports or files, always verify potential implicit usage with a global repository search (e.g., `grep`) before removing them to ensure they aren't dynamically referenced by tests or CI scripts.
+
+## 2026-06-25 - Node v22 native TypeScript flags & Knip ignore lists
+
+**Learning:** Node.js v22+ requires the `--experimental-strip-types` flag instead of `--strip-types` to execute TypeScript natively. Additionally, `knip` natively understands GitHub Actions workflow files (`.github/workflows/`), meaning scripts executed within those workflows are automatically tracked and do not need to be manually added to the `ignore` array in `knip.json`.
+**Action:** Always verify that script execution commands align with the Node.js version, and rely on `knip`'s automatic GitHub Actions integration before manually ignoring files.
