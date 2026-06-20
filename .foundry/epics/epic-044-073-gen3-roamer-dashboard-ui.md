@@ -36,3 +36,6 @@ Develop a dashboard view that presents the exact state of the roaming Pokémon, 
 - [ ] Implement a visual warning indicator for the IV Glitch.
 - [ ] Ensure seamless integration with the Route Radar UI component.
 - [ ] Story Owner: Break down this Epic into executable Stories.
+
+### Auditor Rejection
+**CANCELLED:** This Epic has been permanently cancelled. As established in ADR 108-027, the Gen 3 roamer's active map coordinates are stored in dynamically initialized EWRAM and are never serialized into the `.sav` file. Therefore, building a UI component that relies on the cancelled Route Radar feature is impossible. This node is replaced by `research-044-207-gen3-roamer-alternative-ui` and `epic-044-096-gen3-roamer-alternative-dashboard-ui`.
