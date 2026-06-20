@@ -32,5 +32,5 @@ Implement the `DagProvider` React component that will wrap the DAG views and pro
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify that `DagProvider` component exists in `src/components/dashboard/DagContext.tsx`.
-- [ ] Verify that it manages `nodes`, `edges`, `isLoading`, and `activeView`.
+- [x] Verify that `DagProvider` component exists in `src/components/dashboard/DagContext.tsx`.
+- [x] Verify that it manages `nodes`, `edges`, `isLoading`, and `activeView`.
