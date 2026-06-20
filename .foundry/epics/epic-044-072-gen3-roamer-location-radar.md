@@ -16,7 +16,7 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: 'Objective is impossible; Gen 3 roamer locations are not serialized in the save file (see adr-108-027).'
+rejection_reason: 'Gen 3 roamer locations (map group and map number) are stored exclusively in dynamically allocated EWRAM during gameplay and are never serialized into the static save file, making extraction impossible (per adr-108-027).'
 notes: ''
 ---
 

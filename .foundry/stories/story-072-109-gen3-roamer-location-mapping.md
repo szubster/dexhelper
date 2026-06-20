@@ -34,6 +34,8 @@ Take the raw location indices parsed from the save file (map group and map numbe
 - [ ] Implement logic to handle edge cases (like indoor locations mapping to outdoor parents).
 - [ ] Tech Lead: Break down this Story into execution Tasks (implementation & QA).
 
+### Auditor Rejection
+**CANCELLED:** This story is cancelled because the parent epic's objective (extracting Gen 3 roamer locations from static save files) is mathematically impossible, as the data is stored exclusively in EWRAM and never serialized (per `adr-108-027-gen3-roamer-location-impossible`).
 ### Architect Rejection
 This story has been permanently CANCELLED because its parent objective is impossible. Gen 3 roamer locations are not serialized in the save file.
 ### CANCELLED
