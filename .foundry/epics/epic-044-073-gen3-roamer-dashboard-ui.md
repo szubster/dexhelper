@@ -25,6 +25,9 @@ notes: ''
 
 # Gen 3 Roamer Dashboard UI
 
+### Auditor Rejection
+**CANCELLED:** This epic has been cancelled and replaced due to the impossibility of extracting static map locations from save files.
+
 ## Objective
 Create a user interface to display the comprehensive breakdown of the roaming legendary's internal state.
 

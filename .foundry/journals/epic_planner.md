@@ -23,3 +23,13 @@ Additionally, when a PRD relies on its generated child Epics to be completed, it
 Furthermore, generated Epics MUST have their dependencies explicitly defined. For example, if an Epic is for Visual Regression Testing, its `depends_on` array must contain the IDs of the Epics that build the UI components it will test. Failure to set these dependencies allows the testing Epic to run concurrently with the UI Epic, resulting in immediate failures.
 ### Lessons Learned: Bash scripts using `printf` with numbers containing leading zeros (e.g., `091`) will fail due to invalid octal interpretation. Strip leading zeros before mathematical operations or use Python for accurate zero-padded sequence generation.
 ### Lessons Learned: Execution Plan Verification Rule: If files are generated or modified via custom scripts, the execution plan must include an explicit step to verify the exact contents of the resulting files using `read_file`, as well as a step to clean up any temporary scratchpad scripts using `rm`, before proceeding to testing or pre-commit.
+
+## 2026-06-20: Handling Permanent Failures and Cascading Cancellations
+**Context:** I was dispatched to a node (`prd-071-044-gen3-roamer-tracker`) where a child epic (`epic-044-072`) was permanently cancelled. The cancellation was due to mathematical impossibility discovered during research: Gen 3 roamer active map coordinates are stored dynamically in EWRAM and are not serialized into the `.sav` file.
+**Pattern / Action Taken:** Because `epic-044-072` was cancelled, its dependent sibling epic (`epic-044-073-gen3-roamer-dashboard-ui`) also needed to be replaced, as its acceptance criteria explicitly required Route Radar integration.
+**Resolution:**
+1. I left the YAML frontmatter of the orphaned `epic-044-073` intact but updated its markdown body with a cancellation notice.
+2. I spawned a new `RESEARCH` node (`research-044-211-gen3-roamer-ui-alternatives`) to investigate UI alternatives that omit the impossible map tracking.
+3. I created a replacement epic (`epic-044-212-gen3-roamer-dashboard-ui-v2`) that explicitly depends on the new research.
+4. I checked off the cancelled child epics in the parent PRD markdown body to ensure the macro node doesn't get blocked indefinitely, and appended the new nodes.
+**Lesson:** When a core technical assumption fails (e.g., data availability in save files), it's crucial to not just cancel the failing node but also proactively cancel and replace dependent nodes (like UI integrations) and spawn new research to find viable alternatives, keeping the macro feature unblocked.
