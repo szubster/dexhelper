@@ -18,7 +18,7 @@ tags:
 research_references:
   - .foundry/archive/research/research-071-138-gen3-roamer-offsets.md
 rejection_count: 0
-rejection_reason: 'Redundant task. The parsing formula was already extracted from the previous research-161-186-gen3-roamer-iv-bitfield.md'
+rejection_reason: 'Cancelled and replaced by research-108-209-gen3-roamer-iv-bitfield'
 notes: ''
 ---
 
@@ -33,3 +33,7 @@ During the implementation of `task-108-161-gen3-roamer-dataview-extraction-impl`
 ## Acceptance Criteria
 - [ ] Determine the exact bit size for each of the 6 IV stats within the 32-bit field.
 - [ ] Document the precise bitwise shift (`>>`) and mask (`&`) required to extract HP, Attack, Defense, Speed, Special Attack, and Special Defense from the 32-bit IV integer.
+
+
+### Auditor Rejection
+This task is permanently cancelled and replaced by research-108-209-gen3-roamer-iv-bitfield.
