@@ -2,10 +2,10 @@
 id: story-071-109-update-adr001-macro-node-completion
 type: STORY
 title: Update ADR 001 with strict macro node completion rules
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-17'
+updated_at: '2026-06-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

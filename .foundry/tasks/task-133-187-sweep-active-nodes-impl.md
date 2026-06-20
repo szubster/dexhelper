@@ -2,12 +2,12 @@
 id: task-133-187-sweep-active-nodes-impl
 type: TASK
 title: Implement Sweep Active Nodes Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-16'
 updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: '10726551524848580115'
+jules_session_id: null
 pr_number: null
 parent: story-089-133-sweep-active-nodes
 tags:

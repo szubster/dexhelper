@@ -2,13 +2,13 @@
 id: task-084-192-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Shiny Carrier Breeding Pair Algorithm
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-16'
-updated_at: '2026-06-19'
+updated_at: '2026-06-20'
 depends_on:
   - research-192-209-egg-groups-missing-data
-jules_session_id: '5212016432115345538'
+jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:
@@ -17,8 +17,8 @@ tags:
   - gen2
   - backend
 research_references: []
-rejection_count: 0
-rejection_reason: Suspended pending research on missing Egg Groups and gender calculation logic.
+rejection_count: 1
+rejection_reason: ''
 notes: >-
   If you experience a transient failure requiring retry, update the YAML
   frontmatter to status: FAILED with a rejection_reason. If you must abort

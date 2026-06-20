@@ -2,7 +2,7 @@
 id: story-058-152-refactor-feebas-magic-numbers
 type: STORY
 title: Refactor Feebas Magic Numbers
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-20'
 updated_at: '2026-06-20'

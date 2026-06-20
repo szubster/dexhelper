@@ -2,12 +2,12 @@
 id: research-121-188-gen3-battle-frontier-win-streak-types
 type: RESEARCH
 title: Gen 3 Battle Frontier Win Streak Data Types
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-16'
-updated_at: '2026-06-19'
+updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: '17333848215615577179'
+jules_session_id: null
 pr_number: null
 parent: task-121-171-gen3-parse-battle-frontier-win-streaks-impl
 tags:

@@ -2,10 +2,10 @@
 id: task-133-188-sweep-active-nodes-qa
 type: TASK
 title: Verify Sweep Active Nodes Utility
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-16'
-updated_at: '2026-06-16'
+updated_at: '2026-06-20'
 depends_on:
   - task-133-187-sweep-active-nodes-impl
 jules_session_id: null
