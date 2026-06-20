@@ -2,10 +2,10 @@
 id: idea-085-hidden-power-calculator
 type: IDEA
 title: Hidden Power Type and Base Power Calculator
-status: READY
+status: ACTIVE
 owner_persona: human
 created_at: '2026-06-25'
-updated_at: '2026-06-25'
+updated_at: '2026-06-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

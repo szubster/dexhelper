@@ -2,10 +2,10 @@
 id: task-128-182-qa-item-list-parsing
 type: TASK
 title: QA - Verify Dynamic Item List Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-20'
 depends_on:
   - task-128-181-implement-item-list-parsing
 jules_session_id: null
