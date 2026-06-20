@@ -2,10 +2,10 @@
 id: story-072-110-gen3-roamer-route-radar-ui
 type: STORY
 title: Gen 3 Roamer Route Radar UI Integration
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-06-20'
 depends_on:
   - story-072-109-gen3-roamer-location-mapping
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 
@@ -37,3 +37,11 @@ Pass the resolved roamer location to the Route Radar UI component. The UI should
 
 ### Cancelled
 This story is cancelled because its parent epic (`epic-044-072-gen3-roamer-location-radar`) was cancelled. The extraction of Gen 3 roamer location from the save file is mathematically impossible per ADR 027.
+### Auditor Rejection
+**CANCELLED:** This story is cancelled because the parent epic's objective (extracting Gen 3 roamer locations from static save files) is mathematically impossible, as the data is stored exclusively in EWRAM and never serialized (per `adr-108-027-gen3-roamer-location-impossible`).
+### Architect Rejection
+This story has been permanently CANCELLED because its parent objective is impossible. Gen 3 roamer locations are not serialized in the save file.
+### CANCELLED
+This story is cancelled because its parent epic `epic-044-072-gen3-roamer-location-radar` is permanently cancelled due to technical impossibility.
+### Auditor Rejection
+**CANCELLED:** This story is cancelled because its prerequisite (`story-072-108`) was cancelled. As per ADR 108-027, extracting Gen 3 roamer locations statically from save files is mathematically impossible.

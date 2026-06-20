@@ -5,7 +5,7 @@ title: Pokerus Tracker PRD
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-05'
-updated_at: '2026-06-08'
+updated_at: '2026-06-20'
 depends_on: []
 jules_session_id: null
 parent: idea-068-069-pokerus-tracker

@@ -2,12 +2,12 @@
 id: epic-047-081-gen3-tv-swarm-data-extraction
 type: EPIC
 title: Gen 3 TV Broadcast and Swarm Tracker Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-12'
-updated_at: '2026-06-19'
+updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: '7960494157153894637'
+jules_session_id: '374702685018879368'
 pr_number: null
 parent: prd-075-047-gen3-tv-swarm-tracker
 tags:
@@ -43,7 +43,7 @@ This epic covers the backend logic to extract TV broadcast events and swarm trac
 - [x] Story Owner: Break down into Stories.
 
 - [ ] story-081-121-gen3-tv-block-dataview-parser
-- [x] story-081-122-gen3-rtc-extraction
+- [ ] story-081-122-gen3-rtc-extraction
 - [ ] story-081-123-gen3-active-swarm-parsing
 - [ ] story-081-124-gen3-event-forecast-schedule
 - [ ] research-081-144-gen3-rtc-strategy
