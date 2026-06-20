@@ -1,0 +1,10 @@
+--- src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
++++ src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx
+@@ -106,6 +106,7 @@
+       id: 'test-multiple',
+       category: 'Catch',
+       title: 'Catch Right Here',
+       description: 'You are at Route 1! There are 3 missing Pokémon right here.',
+       pokemonIds: [10, 13, 16], // Caterpie, Weedle, Pidgey
+       priority: 120,
+     };
