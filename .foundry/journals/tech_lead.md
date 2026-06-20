@@ -72,6 +72,9 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 - **Observation**: Extracting the exact current map location and location history of the roaming Pokémon from a Gen 3 `.sav` file is mathematically impossible. These values (`sRoamerLocation` and `sLocationHistory`) are kept dynamically in `EWRAM` and are never serialized into the static save file.
 - **Action**: The technical blueprint generation for extracting this data must be cancelled. An ADR was created to permanently document this architectural impossibility to prevent future wasted cycles.
 
+## 2026-06-19: Handling Permanent Failure of Shiny Carrier Breeding Pair Algorithm implementation
+- **Incident**: The implementation task `task-084-192-breeding-pair-algorithm-impl` failed permanently because the codebase (`PokemonMetadata` inside `src/db/schema.ts`) lacks `egg_groups` data and lacks a method to compute Gen 2 Pokemon gender based on DVs.
+- **Action**: Set the status of `task-084-192-breeding-pair-algorithm-impl` to `CANCELLED` via its YAML frontmatter with an appropriate `rejection_reason`. Spawned a new `RESEARCH` node (`research-084-209-egg-groups-missing.md`) to explicitly document this missing data and how to extract it. Updated the replacement implementation task (`task-084-204-breeding-pair-algorithm-impl.md`) to depend on the new research node. Appended the research node to the parent story and appended a cancellation note to the orphaned QA task (`task-084-193-breeding-pair-algorithm-qa.md`) without touching its YAML frontmatter.
 ## 2026-06-19: Handling the Impossible Loop for Failed Gen 3 Roamer DataView Extraction Tasks
 
 When dealing with a permanent failure of child tasks (e.g. `task-108-192-gen3-roamer-dataview-extraction-impl`), it is critical to adhere to the strict instructions regarding orphaned QA tasks and parent updates.
