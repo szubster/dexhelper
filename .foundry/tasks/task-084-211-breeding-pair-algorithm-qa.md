@@ -1,13 +1,13 @@
 ---
-id: task-084-205-breeding-pair-algorithm-qa
+id: task-084-211-breeding-pair-algorithm-qa
 type: TASK
 title: QA Shiny Carrier Breeding Pair Algorithm
 status: PENDING
 owner_persona: qa
-created_at: '2026-06-18'
-updated_at: '2026-06-18'
+created_at: '2026-06-19'
+updated_at: '2026-06-19'
 depends_on:
-  - task-084-204-breeding-pair-algorithm-impl
+  - task-084-210-breeding-pair-algorithm-impl
 jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
@@ -45,7 +45,3 @@ Verify the correctness of the Shiny Carrier breeding algorithm implementation, e
 - [ ] All associated unit tests pass.
 - [ ] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
 - [ ] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-
-### Auditor Rejection
-**CANCELLED**
-This QA task has been permanently cancelled because the target implementation task failed permanently due to missing Egg Groups and Gender derivation logic in the DB schema. It has been replaced by a new task following the completion of the required research node.

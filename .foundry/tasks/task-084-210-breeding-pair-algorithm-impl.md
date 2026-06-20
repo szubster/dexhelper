@@ -1,14 +1,13 @@
 ---
-id: task-084-204-breeding-pair-algorithm-impl
+id: task-084-210-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Shiny Carrier Breeding Pair Algorithm
-status: CANCELLED
+status: PENDING
 owner_persona: coder
-created_at: '2026-06-18'
-updated_at: '2026-06-18'
+created_at: '2026-06-19'
+updated_at: '2026-06-19'
 depends_on:
   - research-084-209-egg-groups-missing
-  - story-044-083-pc-party-shiny-flag
 jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
@@ -19,14 +18,14 @@ tags:
   - backend
 research_references: []
 rejection_count: 0
-rejection_reason: 'Missing Egg Groups and Gender derivation logic in DB Schema'
+rejection_reason: ''
 notes: ''
 ---
 
 # Implement Shiny Carrier Breeding Pair Algorithm
 
 ## Objective
-Implement a core backend algorithm (`src/engine/breeding/pair_algorithm.ts` or similar) that takes a user's Pokémon storage as input, cross-references Gen 2 Egg Groups, Genders, and Shiny Carrier flags, and outputs a list of valid breeding pairs prioritized by Shiny Carrier status.
+Implement a core backend algorithm (`src/engine/breeding/pair_algorithm.ts` or similar) that takes a user's Pokémon storage as input, cross-references Gen 2 Egg Groups, Genders, and Shiny Carrier flags, and outputs a list of valid breeding pairs prioritized by Shiny Carrier status. This task explicitly depends on the data additions and formulas discovered in `research-084-209-egg-groups-missing`.
 
 ## Technical Contract
 - Create a function (e.g., `calculateBreedingPairs(pokemonList: Pokemon[])`) that returns an array of `BreedingPair` objects.
