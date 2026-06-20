@@ -33,6 +33,6 @@ To successfully implement the Gen 3 Secret Base Parser (`task-108-163-gen3-secre
 4. Are there version differences (Ruby/Sapphire vs. Emerald) for these offsets?
 
 ## Action Plan
-- Research documentation on Gen 3 save file structures.
-- Analyze decompilation repositories like `pret/pokeemerald` if necessary.
-- Document findings in `.foundry/docs/knowledge_base/gen3_secret_base_offsets.md`.
+- [x] Research documentation on Gen 3 save file structures.
+- [x] Analyze decompilation repositories like `pret/pokeemerald` if necessary.
+- [x] Document findings in `.foundry/docs/knowledge_base/gen3_secret_base_offsets.md`.

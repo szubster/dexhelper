@@ -33,3 +33,4 @@ When performing research on save file offsets, never blindly trust task descript
 - **Date**: 2026-06-18
 - **Observation**: Roamer locations (`sRoamerLocation` and `sLocationHistory`) are kept in dynamic `EWRAM_DATA` and are not directly saved to the `.sav` file; they re-initialize dynamically upon startup.
 - **Pattern/Constraint**: It is mathematically impossible to extract the exact current route of a roaming Pokémon directly from a static Gen 3 `.sav` file unless the player saved while the roamer was active on their current route.
+Learned: Execution Plan Groundedness Rule for Markdown Lists: Do not assume the existence of empty checkboxes (`[ ]`) in task or issue descriptions. If the target text uses standard bullet points (`- `), explicitly plan to change them to checked boxes (`- [x] `) rather than replacing non-existent empty checkboxes.
