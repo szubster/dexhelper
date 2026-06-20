@@ -33,7 +33,7 @@ This task implements unit tests for the shared DAG utility functions located in 
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `.github/scripts/dag-utils.test.ts` is created.
-- [ ] Unit tests for `buildReverseDependencyGraph` are implemented.
-- [ ] Unit tests for `getOrphanedNodes` are implemented.
-- [ ] All tests pass successfully (`pnpm install && npx vitest run`).
+- [x] `.github/scripts/dag-utils.test.ts` is created.
+- [x] Unit tests for `buildReverseDependencyGraph` are implemented.
+- [x] Unit tests for `getOrphanedNodes` are implemented.
+- [x] All tests pass successfully (`pnpm install && npx vitest run`).
