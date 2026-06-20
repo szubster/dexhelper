@@ -2,13 +2,13 @@
 id: task-109-192-update-adr001-formatting-rules-impl
 type: TASK
 title: Update ADR 001 with parent-child formatting rules for macro nodes
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-16'
-updated_at: '2026-06-17'
+updated_at: '2026-06-20'
 depends_on:
   - task-109-161-update-adr001-macro-node-completion-impl
-jules_session_id: null
+jules_session_id: '411723853960272582'
 pr_number: null
 parent: story-071-109-update-adr001-macro-node-completion
 tags:

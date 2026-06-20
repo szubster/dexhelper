@@ -2,12 +2,12 @@
 id: prd-079-052-automated-max-rejection-cancellation
 type: PRD
 title: Automated Max Rejection Cancellation
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-16'
-updated_at: '2026-06-16'
+updated_at: '2026-06-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13716340861959204909'
 pr_number: null
 parent: idea-079-automated-max-rejection-cancellation
 tags:
@@ -31,4 +31,5 @@ Refactor the Foundry Orchestrator (`foundry-orchestrator.ts`) to automatically t
 2. Ensure this triggers the proper parent awakening logic in Phase 3.6 of `foundry-orchestrator.ts`. The condition `node.frontmatter.status === 'FAILED'` must be expanded to include `CANCELLED` nodes with a rejection reason.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics.
+- [x] Break down into Epics.
+- [ ] .foundry/epics/epic-052-096-automated-max-rejection-cancellation.md

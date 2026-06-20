@@ -75,3 +75,11 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 ## 2026-06-19: Handling Permanent Failure of Shiny Carrier Breeding Pair Algorithm implementation
 - **Incident**: The implementation task `task-084-192-breeding-pair-algorithm-impl` failed permanently because the codebase (`PokemonMetadata` inside `src/db/schema.ts`) lacks `egg_groups` data and lacks a method to compute Gen 2 Pokemon gender based on DVs.
 - **Action**: Set the status of `task-084-192-breeding-pair-algorithm-impl` to `CANCELLED` via its YAML frontmatter with an appropriate `rejection_reason`. Spawned a new `RESEARCH` node (`research-084-209-egg-groups-missing.md`) to explicitly document this missing data and how to extract it. Updated the replacement implementation task (`task-084-204-breeding-pair-algorithm-impl.md`) to depend on the new research node. Appended the research node to the parent story and appended a cancellation note to the orphaned QA task (`task-084-193-breeding-pair-algorithm-qa.md`) without touching its YAML frontmatter.
+## 2026-06-19: Handling the Impossible Loop for Failed Gen 3 Roamer DataView Extraction Tasks
+
+When dealing with a permanent failure of child tasks (e.g. `task-108-192-gen3-roamer-dataview-extraction-impl`), it is critical to adhere to the strict instructions regarding orphaned QA tasks and parent updates.
+
+**Learnings & Constraints**:
+1.  **Do NOT check off failed tasks**: In the parent node (e.g. `story-070-108`), do NOT check off the acceptance criteria checkboxes for permanently failed nodes (`task-108-192` or `task-108-193`). They must remain unchecked to accurately reflect their aborted status and to avoid tricking the orchestrator into prematurely advancing the parent node.
+2.  **Orphaned QA tasks YAML**: For pending QA tasks whose dependencies permanently failed (e.g. `task-108-193`), you MUST NOT modify their YAML frontmatter (e.g. `status` or `rejection_reason`). You only append a cancellation notice and an `### Auditor Rejection` section in their markdown body. Modifying the YAML frontmatter of orphaned pending QA tasks breaks the state machine.
+3.  **Properly CANCEL failed dependencies**: If the failing task is an implementation task or a research task (e.g. `research-108-194`), you DO update its YAML frontmatter `status` to `CANCELLED` and add a `rejection_reason`.
