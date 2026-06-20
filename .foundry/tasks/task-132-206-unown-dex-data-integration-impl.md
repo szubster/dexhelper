@@ -2,10 +2,10 @@
 id: task-132-206-unown-dex-data-integration-impl
 type: TASK
 title: Unown Dex Panel Data Integration Implementation
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-06-19"
-updated_at: "2026-06-19"
+created_at: '2026-06-19'
+updated_at: '2026-06-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Unown Dex Panel Data Integration Implementation

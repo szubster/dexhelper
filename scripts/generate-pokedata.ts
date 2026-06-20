@@ -652,6 +652,35 @@ for (let i = 1; i <= MAX_MOVE_ID; i++) {
   moves.push(move);
 }
 
+console.log('\nProcessing Items...');
+const items: any[] = [];
+const MAX_ITEM_ID = 2180;
+for (let i = 1; i <= MAX_ITEM_ID; i++) {
+  const iDataPath = path.join(dataPath, `item/${i}/index.json`);
+  const iData = readJson(iDataPath);
+  if (!iData) continue;
+
+  const categoryUrlParts = iData.category?.url?.split('/').filter(Boolean) || [];
+  const categoryId = categoryUrlParts.length ? parseInt(categoryUrlParts.pop() || '0', 10) : 0;
+
+  const enEffect = iData.effect_entries?.find((e: any) => e.language?.name === 'en')?.short_effect;
+  const spriteUrl = iData.sprites?.default;
+  const spriteFilename = spriteUrl ? spriteUrl.split('/').pop() : undefined;
+
+  const item: any = {
+    id: iData.id,
+    name: iData.names?.find((n: PokeApiName) => n.language.name === 'en')?.name || iData.name,
+    cost: iData.cost,
+    category: categoryId,
+    fling_p: iData.fling_power,
+    effect: enEffect,
+    sprite: spriteFilename,
+  };
+
+  items.push(item);
+}
+
+
 /**
  * Recursively strips nulls, undefined values, default falsy states, and empty arrays from an object.
  *
@@ -697,6 +726,16 @@ function compact(obj: any): any {
       // Omit move acc if 100 or null
       if (key === 'acc' && (value === 100 || value === null)) continue;
 
+      // Omit item cost if 0 or null
+      if (key === 'cost' && (value === 0 || value === null)) continue;
+      // Omit item fling_p if null
+      if (key === 'fling_p' && value === null) continue;
+      // Omit item effect if null or empty
+      if (key === 'effect' && (value === null || value === '')) continue;
+      // Omit item sprite if null
+      if (key === 'sprite' && value === null) continue;
+
+
       result[key] = compact(value);
     }
     return result;
@@ -714,6 +753,7 @@ writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounte
 })));
 writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => a.id - b.id));
 writeJsonl(path.join(OUTPUT_DIR, 'moves.jsonl'), moves.map(compact));
+writeJsonl(path.join(OUTPUT_DIR, 'items.jsonl'), items.map(compact));
 
   // Write metadata
   fs.writeFileSync(path.join(OUTPUT_DIR, 'metadata.json'), JSON.stringify({
