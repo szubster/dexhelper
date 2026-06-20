@@ -41,4 +41,4 @@ Update `.foundry/docs/adrs/001-the-foundry-architecture.md` (ADR 001) to detail 
 5. Reminder for Coder/QA: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Update `001-the-foundry-architecture.md` to detail how to format parent-child relationships for macro nodes.
+- [x] Update `001-the-foundry-architecture.md` to detail how to format parent-child relationships for macro nodes.

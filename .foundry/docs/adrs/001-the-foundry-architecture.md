@@ -113,5 +113,11 @@ The `.foundry/` monofolder has been scaffolded at the repository root. All 9 fil
 ## 7. System Invariants (Macro Node Completion)
 Macro nodes (`IDEA`, `PRD`, `EPIC`, `STORY`) MUST NOT transition to `COMPLETED` until all of their descendant nodes in the DAG have reached the `COMPLETED` or `CANCELLED` status. A macro node with pending, active, or failed descendants is inherently incomplete.
 
+To comply with the above constraints, personas generating new child nodes MUST adhere to the following formatting rules:
+- Append references to newly generated child nodes as unchecked tasks (`- [ ] <file_path>`) directly into the markdown body of the parent node.
+- Do NOT modify the parent's YAML frontmatter.
+- Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
+- Do NOT submit an Empty PR to transition a macro node to VERIFYING until ALL of its generated child nodes have transitioned to COMPLETED.
+
 ## 8. EMPTY PR POLICY
 Empty PRs (0 files changed) are submitted when a persona determines that the target artifact already exists and is complete. These PRs are automatically merged to allow the Foundry DAG to progress, while the persona documents the outcome in its journal.
