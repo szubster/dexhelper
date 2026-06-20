@@ -27,3 +27,6 @@ Permanently failed `task-095-157-gen3-berry-dataview-parsing` since it reached t
 
 ## Missing Persona Prompt Updates (2026-06-16)
 Rejected `task-113-167-update-palette-persona-impl` because the coder completely failed to update the `.github/agents/palette.md` prompt file with the required changes (ownership of `src/index.css`, enforcing tactical hardware aesthetic, and managing custom `@utility` primitives via ADR 024). Agents must actually modify the files they are tasked with updating.
+
+## Missing Configuration Update (2026-06-21)
+Rejected `task-128-181-implement-item-list-parsing` because the coder failed to update `vite-plugins/pokedata-plugin.ts` to include the new `items.jsonl` data file into the final `pokedata.msgpack` payload, which was an explicit requirement in ADR-049-025. It is critical to enforce not just the generation scripts, but the build-time ingestion config to ensure the frontend receives the data.
