@@ -112,3 +112,7 @@
 ## 2026-06-17
 **Idea:** Daycare Status and Exact Egg Hatch Tracker
 **Learning:** Targeting opaque, heavily-utilized progression mechanics like breeding (Daycare status and Egg steps) for actionable QoL improvements perfectly aligns with the app's offline-first programmatic save parsing strengths. Extracting exact cycle counts transforms vague in-game text into precise data, removing tedious guesswork for hardcore players.
+
+## 2026-06-20
+**Idea:** Exact Hidden Power Type and Base Power Exposer
+**Learning:** Expanding the app's capability to calculate derived stats from base hidden values (like computing Hidden Power from DVs/IVs) is a natural evolution of our core value proposition. Since we already parse the difficult-to-reach hidden state, adding a computation layer on top of it to expose complex, highly sought-after mechanics (like competitive move properties) provides immense utility without needing to parse new areas of the save file. This reinforces the idea that we can create new features purely by recombining or running calculations on data we already have.
