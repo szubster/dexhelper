@@ -33,6 +33,6 @@ As part of the Zombie Node Detection Engine (Epic 050-089) and Story 089-133, we
 - **Reminder**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Implement directory traversal logic for `.foundry/`.
-- [ ] Correctly parse node frontmatter using `gray-matter` and filter for `ACTIVE` status.
-- [ ] Create tests to verify the sweeping logic.
+- [x] Implement directory traversal logic for `.foundry/`.
+- [x] Correctly parse node frontmatter using `gray-matter` and filter for `ACTIVE` status.
+- [x] Create tests to verify the sweeping logic.
