@@ -41,6 +41,7 @@ To parse the IVs from the 32-bit IV integer, use the following 5-bit mask and sh
 - [ ] Implement a `DataView`-based reader for the 20-byte Gen 3 roamer structure.
 - [ ] Implement parsing logic to extract IVs, HP, and Level.
 - [ ] Ensure `DataView` native API is used exclusively for reading bytes (e.g., `getUint8`, `getUint16`, `getUint32`).
+- [ ] Ensure all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
 
 ## Execution Constraints
 - **CRITICAL**: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
