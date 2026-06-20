@@ -2,12 +2,12 @@
 id: prd-079-052-automated-max-rejection-cancellation
 type: PRD
 title: Automated Max Rejection Cancellation
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-16'
-updated_at: '2026-06-16'
+updated_at: '2026-06-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13716340861959204909'
 pr_number: null
 parent: idea-079-automated-max-rejection-cancellation
 tags:

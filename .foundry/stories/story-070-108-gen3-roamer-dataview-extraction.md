@@ -5,9 +5,9 @@ title: Gen 3 Roamer DataView Extraction and Core Parsing
 status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-19'
+updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15124628827825334682'
 pr_number: null
 parent: epic-044-070-gen3-roamer-core-extraction
 tags:

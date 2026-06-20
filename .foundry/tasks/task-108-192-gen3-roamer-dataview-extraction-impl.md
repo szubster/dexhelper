@@ -6,8 +6,7 @@ status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-16'
 updated_at: '2026-06-16'
-depends_on:
-  - research-108-194-gen3-roamer-iv-bitfield
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-070-108-gen3-roamer-dataview-extraction
@@ -28,6 +27,15 @@ Implement logic to extract the 20-byte hidden roamer data structure from Gen 3 s
 
 ## Description
 This task involves writing the core extraction logic for the Gen 3 roamer data. The 20-byte structure must be read safely using the `DataView` API (avoiding raw `Uint8Array` manipulations). After extracting the raw data, implement the specific logic to correctly parse the IVs, HP, and Level from this byte structure.
+
+To parse the IVs from the 32-bit IV integer, use the following 5-bit mask and shift formulas:
+- **HP:** `(ivs >> 0) & 0x1F`
+- **Attack:** `(ivs >> 5) & 0x1F`
+- **Defense:** `(ivs >> 10) & 0x1F`
+- **Speed:** `(ivs >> 15) & 0x1F`
+- **Special Attack:** `(ivs >> 20) & 0x1F`
+- **Special Defense:** `(ivs >> 25) & 0x1F`
+
 
 ## Acceptance Criteria
 - [ ] Implement a `DataView`-based reader for the 20-byte Gen 3 roamer structure.
