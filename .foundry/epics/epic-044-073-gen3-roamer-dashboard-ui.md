@@ -36,3 +36,6 @@ Develop a dashboard view that presents the exact state of the roaming Pokémon, 
 - [ ] Implement a visual warning indicator for the IV Glitch.
 - [ ] Ensure seamless integration with the Route Radar UI component.
 - [ ] Story Owner: Break down this Epic into executable Stories.
+
+### Epic Planner Rejection
+**CANCELLED:** This Epic has been permanently cancelled and replaced by `.foundry/epics/epic-044-096-gen3-roamer-dashboard-ui-v2.md` because the original requirements included integrating with the Gen 3 Route Radar (`epic-044-072-gen3-roamer-location-radar`), which has been determined to be mathematically impossible due to the roamer's active map coordinates not being serialized into the `.sav` file.
