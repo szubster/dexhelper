@@ -38,5 +38,5 @@ Develop an algorithm to suggest optimal breeding pairs by cross-referencing Egg 
 
 ## Next Steps
 - [x] Tech Lead: Break down into backend Tasks.
-- [ ] .foundry/tasks/task-084-204-breeding-pair-algorithm-impl.md
-- [ ] .foundry/tasks/task-084-205-breeding-pair-algorithm-qa.md
+- [ ] .foundry/tasks/task-084-211-breeding-pair-algorithm-impl.md
+- [ ] .foundry/tasks/task-084-212-breeding-pair-algorithm-qa.md
