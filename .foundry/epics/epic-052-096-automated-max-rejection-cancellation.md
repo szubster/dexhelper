@@ -23,4 +23,6 @@ notes: ''
 # Epic: Automated Max Rejection Cancellation Implementation
 
 ## Acceptance Criteria
-- [ ] Break down into Stories.
+- [x] Break down into Stories.
+- [ ] story-096-153-max-rejection-cancellation
+- [ ] story-096-154-parent-awakening-logic
