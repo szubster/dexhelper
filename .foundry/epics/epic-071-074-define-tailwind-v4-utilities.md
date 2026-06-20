@@ -47,4 +47,4 @@ Extract and consolidate common, repetitive Tailwind class patterns used througho
 
 ### Auditor Notes
 - Verified that all `tactical-*` utility classes were correctly defined in `src/index.css` leveraging Tailwind v4's native `@utility` directive.
-- Discovered that `story-074-114` lacked a corresponding QA task for its implementation task. Spawned `idea-085-enforce-qa-task-pairing` to address this architectural gap in process enforcement.
+- Discovered that `story-074-114` lacked a corresponding QA task for its implementation task. Noted in journal that for simple tasks, the Tech Lead can decide QA task pairing is not strictly required.

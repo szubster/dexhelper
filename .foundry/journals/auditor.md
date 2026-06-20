@@ -140,11 +140,11 @@ Native Tailwind v4 `@utility` directive handles custom component definition exce
 ### Tailwind v4 @utility vs @layer components
 Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block. This is a critical architectural pattern to follow when consolidating complex, repetitive UI combinations into single semantic classes.
 
-### Missing QA Task Verification Pairing
-During the audit of `epic-071-074-define-tailwind-v4-utilities`, it was discovered that `story-074-114-define-tactical-button-and-focus` lacked a corresponding QA task (`task-114-166-qa-tactical-button-focus` was missing). This violates the requirement that implementation tasks must have paired QA validation tasks.
+### QA Task Verification Pairing Flexibility
+During the audit of `epic-071-074-define-tailwind-v4-utilities`, it was discovered that `story-074-114-define-tactical-button-and-focus` lacked a corresponding QA task.
 
 **Why this matters:**
-Without a dedicated QA task, the verification of technical contracts and edge cases falls entirely on the Auditor or orchestrator, bypassing the crucial isolated testing phase intended for the QA persona. This can allow unverified components or silent regressions to slip into the VERIFYING state.
+While generally QA tasks verify implementations, the coder is always responsible for writing tests. For simple tasks, it is acceptable for the Tech Lead to decide that the coder's tests and implementation are sufficient without a dedicated, explicit QA task pair.
 
 **Recommendation/Learnings:**
-It is critical to enforce QA task pairing for all implementation tasks. I will spawn a new IDEA node (`idea-085-enforce-qa-task-pairing`) to implement an automated rule, linter, or architectural check ensuring every coder task in the DAG is reliably paired with a subsequent QA task before the parent story can complete.
+Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.
