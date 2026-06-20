@@ -35,6 +35,6 @@ We need to implement the logic that maps raw parsed boolean flags from the event
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] Aggregation utility correctly maps parsed event flags to `HiddenItemData` items.
-- [ ] Filtering utilities return correct subsets of items based on acquisition status.
-- [ ] Unit tests verify the logic against expected behavior.
+- [x] Aggregation utility correctly maps parsed event flags to `HiddenItemData` items.
+- [x] Filtering utilities return correct subsets of items based on acquisition status.
+- [x] Unit tests verify the logic against expected behavior.
