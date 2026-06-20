@@ -2,12 +2,12 @@
 id: research-108-194-gen3-roamer-iv-bitfield
 type: RESEARCH
 title: Investigate Gen 3 Roamer IVs Bitfield Parsing Formula
-status: READY
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-06-16'
-updated_at: '2026-06-17'
+updated_at: '2026-06-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15487323551431902588'
 pr_number: null
 parent: story-070-108-gen3-roamer-dataview-extraction
 tags:
@@ -18,7 +18,7 @@ tags:
 research_references:
   - .foundry/archive/research/research-071-138-gen3-roamer-offsets.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Redundant task. The parsing formula was already extracted from the previous research-161-186-gen3-roamer-iv-bitfield.md'
 notes: ''
 ---
 
