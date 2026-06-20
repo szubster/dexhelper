@@ -43,6 +43,8 @@ To parse the IVs from the 32-bit IV integer, use the following 5-bit mask and sh
 - [ ] Ensure `DataView` native API is used exclusively for reading bytes (e.g., `getUint8`, `getUint16`, `getUint32`).
 
 ## Execution Constraints
+- **CRITICAL**: All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
+- **CRITICAL**: Ensure that any out-of-bounds reads result in a `RangeError` that is caught and handled gracefully by propagating a validation error (e.g., "Corrupted Save File" or "The save file is corrupted or incomplete.").
 - **CRITICAL**: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - **CRITICAL**: If you must abort or permanently fail a task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **CRITICAL**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
