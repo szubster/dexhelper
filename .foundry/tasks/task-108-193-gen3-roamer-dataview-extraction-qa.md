@@ -33,8 +33,13 @@ Validate that the `DataView` API is used correctly and exclusively for reading t
 - [ ] Verify `DataView` native API is used exclusively for reading the 20-byte structure.
 - [ ] Verify the parsing logic accurately extracts IVs, HP, and Level.
 - [ ] Write tests confirming accurate parsing for edge cases and known data structures.
+- [ ] Verify that no inline magic numbers were used for memory offsets, lengths, bit locations, or shifts, ensuring they are defined as reusable constants at the module level.
 
 ## Execution Constraints
 - **CRITICAL**: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - **CRITICAL**: If you must abort or permanently fail a task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **CRITICAL**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+
+### Auditor Rejection
+This task is permanently cancelled and replaced by task-108-211-gen3-roamer-dataview-extraction-qa to include magic number rule.

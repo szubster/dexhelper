@@ -2,11 +2,12 @@
 id: task-084-204-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Shiny Carrier Breeding Pair Algorithm
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-18'
 updated_at: '2026-06-18'
 depends_on:
+  - research-084-209-egg-groups-missing
   - story-044-083-pc-party-shiny-flag
 jules_session_id: null
 pr_number: null
@@ -18,7 +19,7 @@ tags:
   - backend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Missing Egg Groups and Gender derivation logic in DB Schema'
 notes: ''
 ---
 
@@ -28,6 +29,7 @@ notes: ''
 Implement a core backend algorithm (`src/engine/breeding/pair_algorithm.ts` or similar) that takes a user's Pokémon storage as input, cross-references Gen 2 Egg Groups, Genders, and Shiny Carrier flags, and outputs a list of valid breeding pairs prioritized by Shiny Carrier status.
 
 ## Technical Contract
+- Ensure the `PokemonMetadata` interface in `src/db/schema.ts` is updated to include `egg_groups` data.
 - Create a function (e.g., `calculateBreedingPairs(pokemonList: Pokemon[])`) that returns an array of `BreedingPair` objects.
 - A valid pair in Gen 2 must share at least one Egg Group and have opposite genders (or one must be Ditto).
 - Gen 2 specific: The Ditto Egg Group CAN breed with anything except the "No Eggs" (Undiscovered) group.

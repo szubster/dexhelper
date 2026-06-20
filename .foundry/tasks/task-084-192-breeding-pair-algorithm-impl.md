@@ -40,3 +40,6 @@ Develop an algorithm to suggest optimal breeding pairs by cross-referencing Egg 
 ## Acceptance Criteria
 - [ ] Algorithm correctly identifies valid breeding pairs based on Egg Groups and genders.
 - [ ] Algorithm accurately identifies and highlights optimal pairs involving Shiny Carriers.
+
+### Auditor Rejection
+**CANCELLED:** This task was cancelled and replaced by `task-084-204-breeding-pair-algorithm-impl` because it lacked sufficient clarity or dependencies related to Egg Groups.
