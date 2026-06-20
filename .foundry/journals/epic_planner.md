@@ -23,3 +23,11 @@ Additionally, when a PRD relies on its generated child Epics to be completed, it
 Furthermore, generated Epics MUST have their dependencies explicitly defined. For example, if an Epic is for Visual Regression Testing, its `depends_on` array must contain the IDs of the Epics that build the UI components it will test. Failure to set these dependencies allows the testing Epic to run concurrently with the UI Epic, resulting in immediate failures.
 ### Lessons Learned: Bash scripts using `printf` with numbers containing leading zeros (e.g., `091`) will fail due to invalid octal interpretation. Strip leading zeros before mathematical operations or use Python for accurate zero-padded sequence generation.
 ### Lessons Learned: Execution Plan Verification Rule: If files are generated or modified via custom scripts, the execution plan must include an explicit step to verify the exact contents of the resulting files using `read_file`, as well as a step to clean up any temporary scratchpad scripts using `rm`, before proceeding to testing or pre-commit.
+
+## 2026-06-20: Cascading Cancellations and Orphaned Pending Nodes
+When a child node fails permanently (e.g., an Epic is proven technically impossible to implement and is cancelled by the Auditor), any sibling nodes that depend on the failed node must be handled carefully to avoid DAG deadlocks.
+If a sibling node is currently in the `PENDING` status waiting on the failed node:
+1.  **Do NOT update the YAML frontmatter** of the pending node to `CANCELLED`. Changing the status of a pending node can corrupt the Orchestrator's dependency graph resolution.
+2.  Instead, update the pending node's **Markdown body** explicitly stating that it is CANCELLED due to its dependency failing.
+3.  Spawn a new `RESEARCH` node to investigate the failure, and create a **new replacement node** that depends on the research and excludes the impossible features.
+4.  Append the new `RESEARCH` and replacement nodes to the parent's markdown body as unchecked tasks to ensure the macro node cannot prematurely transition to VERIFYING.
