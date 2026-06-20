@@ -36,9 +36,9 @@ Implement a core backend algorithm (`src/engine/breeding/pair_algorithm.ts` or s
 - Include explicit scaffolding instructions: Implement the `BreedingPair` type and the algorithm.
 
 ## Acceptance Criteria
-- [ ] Algorithm correctly matches valid Gen 2 breeding pairs based on Egg Groups and Gender.
-- [ ] Algorithm correctly accounts for Ditto mechanics.
-- [ ] Output explicitly highlights/prioritizes pairs involving Shiny Carriers.
-- [ ] Include unit tests (`test.ts`) validating these specific matching rules with mocked Gen 2 Pokémon data.
-- [ ] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
-- [ ] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] Algorithm correctly matches valid Gen 2 breeding pairs based on Egg Groups and Gender.
+- [x] Algorithm correctly accounts for Ditto mechanics.
+- [x] Output explicitly highlights/prioritizes pairs involving Shiny Carriers.
+- [x] Include unit tests (`test.ts`) validating these specific matching rules with mocked Gen 2 Pokémon data.
+- [x] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
+- [x] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
