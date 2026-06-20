@@ -23,3 +23,11 @@ Additionally, when a PRD relies on its generated child Epics to be completed, it
 Furthermore, generated Epics MUST have their dependencies explicitly defined. For example, if an Epic is for Visual Regression Testing, its `depends_on` array must contain the IDs of the Epics that build the UI components it will test. Failure to set these dependencies allows the testing Epic to run concurrently with the UI Epic, resulting in immediate failures.
 ### Lessons Learned: Bash scripts using `printf` with numbers containing leading zeros (e.g., `091`) will fail due to invalid octal interpretation. Strip leading zeros before mathematical operations or use Python for accurate zero-padded sequence generation.
 ### Lessons Learned: Execution Plan Verification Rule: If files are generated or modified via custom scripts, the execution plan must include an explicit step to verify the exact contents of the resulting files using `read_file`, as well as a step to clean up any temporary scratchpad scripts using `rm`, before proceeding to testing or pre-commit.
+
+## 2026-06-20: Handling Impossibility Constraints & Node Failures
+When an Epic fails permanently (e.g., due to an architectural impossibility discovered by the Auditor, such as extracting Gen 3 roamer locations dynamically), and that Epic acts as a dependency for other pending Epics (e.g., the Dashboard UI Epic), this creates an impossible loop. The correct response is:
+1. Do not modify the YAML frontmatter of the stranded pending nodes (e.g. Dashboard UI).
+2. Append a `CANCELLED` notice inside their markdown body.
+3. Spawn a new `RESEARCH` node to investigate alternative solutions given the new constraint.
+4. Spawn replacement `EPIC` nodes (e.g., Dashboard UI V2) that depend on this new research node.
+5. Append these new generated child nodes (both the research and replacement epic) as unchecked tasks (`- [ ]`) in the parent PRD's markdown body.

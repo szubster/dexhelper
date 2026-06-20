@@ -36,3 +36,5 @@ Provide an immediate, exact breakdown of a roaming legendary's internal state (N
 - [ ] .foundry/epics/epic-044-071-gen3-roamer-iv-glitch.md
 - [ ] .foundry/epics/epic-044-072-gen3-roamer-location-radar.md
 - [ ] .foundry/epics/epic-044-073-gen3-roamer-dashboard-ui.md
+- [ ] .foundry/research/research-044-210-investigate-location-radar-failure.md
+- [ ] .foundry/epics/epic-044-097-gen3-roamer-dashboard-ui-v2.md
