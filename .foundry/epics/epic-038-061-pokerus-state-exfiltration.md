@@ -2,7 +2,7 @@
 id: epic-038-061-pokerus-state-exfiltration
 type: EPIC
 title: Pokerus State Exfiltration Epic
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-07'
 updated_at: '2026-06-20'
@@ -15,8 +15,8 @@ tags:
   - save-engine
   - pokerus
 research_references: []
-rejection_count: 0
-rejection_reason: VERIFYING node missing session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
