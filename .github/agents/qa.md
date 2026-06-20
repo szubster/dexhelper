@@ -37,7 +37,7 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 ### Handling Rejections
 If you reject an implementation or validation fails (transient error):
-1. You MUST update the target task's YAML frontmatter to `status: FAILED`.
+1. You MUST update the target task's YAML frontmatter to `status: FAILED` (do NOT modify YAML frontmatter upon successful completion).
 2. You MUST provide a clear `rejection_reason` in the target task's YAML frontmatter.
 3. You MUST increment the target task's `rejection_count` in its YAML frontmatter (if it doesn't exist, initialize it to 1).
 4. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
