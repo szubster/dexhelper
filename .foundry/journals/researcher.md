@@ -33,3 +33,4 @@ When performing research on save file offsets, never blindly trust task descript
 - **Date**: 2026-06-18
 - **Observation**: Roamer locations (`sRoamerLocation` and `sLocationHistory`) are kept in dynamic `EWRAM_DATA` and are not directly saved to the `.sav` file; they re-initialize dynamically upon startup.
 - **Pattern/Constraint**: It is mathematically impossible to extract the exact current route of a roaming Pokémon directly from a static Gen 3 `.sav` file unless the player saved while the roamer was active on their current route.
+- When tasked with finding memory offsets in Gen 3 (like the roamer released flag), the data is often split between the `SaveBlock1` structure and bitfield `flags`. Ensure you use decompilation code (e.g., `pret/pokeemerald`, `pret/pokeruby`, `pret/pokefirered`) to determine exact structures, array indices, and offsets. Note that offsets and flags can differ between RS, Emerald, and FRLG.
