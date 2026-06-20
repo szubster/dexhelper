@@ -21,14 +21,14 @@ export function calculateBreedingPairs(pokemonList: PokemonWithMetadata[]): Bree
       const p1 = pokemonList[i];
       const p2 = pokemonList[j];
 
-      if (isValidPair(p1, p2)) {
+      if (p1 && p2 && isValidPair(p1, p2)) {
         let score = 0;
         if (p1.isShinyCarrier || p1.isShiny) score += 1;
         if (p2.isShinyCarrier || p2.isShiny) score += 1;
         pairs.push({
           parentA: p1,
           parentB: p2,
-          score
+          score,
         });
       }
     }
@@ -55,5 +55,5 @@ function isValidPair(p1: PokemonWithMetadata, p2: PokemonWithMetadata): boolean 
   if (p1.gender === 'Genderless' || p2.gender === 'Genderless') return false;
   if (p1.gender === p2.gender) return false;
 
-  return p1.eggGroups.some(group => p2.eggGroups.includes(group));
+  return p1.eggGroups.some((group) => p2.eggGroups.includes(group));
 }
