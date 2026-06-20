@@ -2,12 +2,12 @@
 id: research-108-194-gen3-roamer-iv-bitfield
 type: RESEARCH
 title: Investigate Gen 3 Roamer IVs Bitfield Parsing Formula
-status: READY
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-06-16'
-updated_at: '2026-06-17'
+updated_at: '2026-06-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15487323551431902588'
 pr_number: null
 parent: story-070-108-gen3-roamer-dataview-extraction
 tags:
@@ -18,7 +18,7 @@ tags:
 research_references:
   - .foundry/archive/research/research-071-138-gen3-roamer-offsets.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Cancelled and replaced by research-108-209-gen3-roamer-iv-bitfield'
 notes: ''
 ---
 
@@ -51,3 +51,6 @@ The specific bitwise shifts (`>>`) and masks (`&`) required to extract each stat
 * **Speed:** `(ivs >> 15) & 0x1F`
 * **Special Attack:** `(ivs >> 20) & 0x1F`
 * **Special Defense:** `(ivs >> 25) & 0x1F`
+
+### Auditor Rejection
+This task is permanently cancelled and replaced by research-108-209-gen3-roamer-iv-bitfield.

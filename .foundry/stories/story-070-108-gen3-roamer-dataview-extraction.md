@@ -2,12 +2,12 @@
 id: story-070-108-gen3-roamer-dataview-extraction
 type: STORY
 title: Gen 3 Roamer DataView Extraction and Core Parsing
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-19'
+updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: '4350292950788017666'
+jules_session_id: '15124628827825334682'
 pr_number: null
 parent: epic-044-070-gen3-roamer-core-extraction
 tags:
@@ -39,3 +39,6 @@ This story handles the base extraction logic in the save parser for Gen 3. The `
 - [ ] task-108-192-gen3-roamer-dataview-extraction-impl
 - [ ] task-108-193-gen3-roamer-dataview-extraction-qa
 - [ ] research-108-194-gen3-roamer-iv-bitfield
+- [ ] research-108-209-gen3-roamer-iv-bitfield
+- [ ] task-108-210-gen3-roamer-dataview-extraction-impl
+- [ ] task-108-211-gen3-roamer-dataview-extraction-qa

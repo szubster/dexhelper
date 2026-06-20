@@ -71,3 +71,12 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 ## 2026-06-18: Gen 3 Roamer Location Constraint
 - **Observation**: Extracting the exact current map location and location history of the roaming Pokémon from a Gen 3 `.sav` file is mathematically impossible. These values (`sRoamerLocation` and `sLocationHistory`) are kept dynamically in `EWRAM` and are never serialized into the static save file.
 - **Action**: The technical blueprint generation for extracting this data must be cancelled. An ADR was created to permanently document this architectural impossibility to prevent future wasted cycles.
+
+## 2026-06-19: Handling the Impossible Loop for Failed Gen 3 Roamer DataView Extraction Tasks
+
+When dealing with a permanent failure of child tasks (e.g. `task-108-192-gen3-roamer-dataview-extraction-impl`), it is critical to adhere to the strict instructions regarding orphaned QA tasks and parent updates.
+
+**Learnings & Constraints**:
+1.  **Do NOT check off failed tasks**: In the parent node (e.g. `story-070-108`), do NOT check off the acceptance criteria checkboxes for permanently failed nodes (`task-108-192` or `task-108-193`). They must remain unchecked to accurately reflect their aborted status and to avoid tricking the orchestrator into prematurely advancing the parent node.
+2.  **Orphaned QA tasks YAML**: For pending QA tasks whose dependencies permanently failed (e.g. `task-108-193`), you MUST NOT modify their YAML frontmatter (e.g. `status` or `rejection_reason`). You only append a cancellation notice and an `### Auditor Rejection` section in their markdown body. Modifying the YAML frontmatter of orphaned pending QA tasks breaks the state machine.
+3.  **Properly CANCEL failed dependencies**: If the failing task is an implementation task or a research task (e.g. `research-108-194`), you DO update its YAML frontmatter `status` to `CANCELLED` and add a `rejection_reason`.
