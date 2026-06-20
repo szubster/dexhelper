@@ -27,3 +27,4 @@ Permanently failed `task-095-157-gen3-berry-dataview-parsing` since it reached t
 
 ## Missing Persona Prompt Updates (2026-06-16)
 Rejected `task-113-167-update-palette-persona-impl` because the coder completely failed to update the `.github/agents/palette.md` prompt file with the required changes (ownership of `src/index.css`, enforcing tactical hardware aesthetic, and managing custom `@utility` primitives via ADR 024). Agents must actually modify the files they are tasked with updating.
+Execution Plan Tense Rule: Execution plans must consist solely of forward-looking, actionable steps required to complete the task. Do not include past-tense descriptions or summaries of actions already completed during the exploratory phase (e.g., 'I have read the file' or 'I ran the tests').
