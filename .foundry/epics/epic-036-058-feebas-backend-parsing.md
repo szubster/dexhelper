@@ -30,6 +30,7 @@ Create a utility module that reads the parsed save file's data at the identified
 - [x] Ensure fast calculation concurrent with save file hydration.
 - [x] .foundry/stories/story-058-095-feebas-seed-extraction.md
 - [x] .foundry/stories/story-058-096-feebas-tile-calculation.md
+- [ ] .foundry/stories/story-058-152-refactor-feebas-magic-numbers.md
 
 ### Auditor Rejection
 Inline magic numbers are used for memory offsets (0x2dd6, 0x2e66) in `src/engine/gen3/feebas.ts` instead of explicitly defined and reusable constants, violating the memory rule.
