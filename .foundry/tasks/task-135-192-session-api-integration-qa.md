@@ -32,9 +32,9 @@ Verify the implementation of the API query used to check the liveliness of a \`j
 - Test error scenarios (network failure, missing authentication, run not found).
 
 ## 3. Acceptance Criteria
-- [ ] Create tests to mock API responses and verify correct liveliness determination.
-- [ ] Ensure all mock scenarios (active, terminated, error) are covered.
-- [ ] Run tests to ensure they pass correctly.
+- [x] Create tests to mock API responses and verify correct liveliness determination.
+- [x] Ensure all mock scenarios (active, terminated, error) are covered.
+- [x] Run tests to ensure they pass correctly.
 
 ## 4. Notes
 - If a transient failure occurs, transition this node to \`FAILED\` with a \`rejection_reason\`. If permanent, \`CANCELLED\`.
