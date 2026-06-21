@@ -103,6 +103,16 @@ export function generateCatchSuggestions(
   // A2. Nearby logic (1-8 areas away)
   // Distance is calculated via graph traversal in the generation's strategy.
   // Priority dynamically scales inversely with distance (closer = higher priority).
+  const nearbyByArea = new Map<
+    string,
+    {
+      dist: number;
+      areaName: string;
+      pids: Set<number>;
+      encounterInfo: Record<number, EncounterDetail[]>;
+    }
+  >();
+
   for (const pid of queryTargets) {
     if (localPids.has(pid)) continue;
 
@@ -142,15 +152,26 @@ export function generateCatchSuggestions(
         });
       }
 
-      suggestions.push({
-        id: `catch-nearby-${pid}`,
-        category: 'Catch',
-        title: `Nearby: #${pid}`,
-        description: `Found at ${bestAreaName} (${bestDist === 0 ? 'very close' : `${bestDist} areas away`}).`,
-        pokemonId: pid,
-        priority: Math.max(10, 110 - bestDist * 12),
-        encounterInfo: { [pid]: bestDetails },
-      });
+      const key = `${aid}-${bestDist}`;
+      let group = nearbyByArea.get(key);
+      if (!group) {
+        group = { dist: bestDist, areaName: bestAreaName, pids: new Set(), encounterInfo: {} };
+        nearbyByArea.set(key, group);
+      }
+      group.pids.add(pid);
+      group.encounterInfo[pid] = bestDetails;
     }
+  }
+
+  for (const [key, group] of nearbyByArea.entries()) {
+    suggestions.push({
+      id: `catch-nearby-${key}`,
+      category: 'Catch',
+      title: `Nearby: ${group.areaName}`,
+      description: `Found ${group.pids.size} missing Pokémon at ${group.areaName} (${group.dist === 0 ? 'very close' : `${group.dist} areas away`}).`,
+      pokemonIds: Array.from(group.pids),
+      priority: Math.max(10, 110 - group.dist * 12),
+      encounterInfo: group.encounterInfo,
+    });
   }
 }
