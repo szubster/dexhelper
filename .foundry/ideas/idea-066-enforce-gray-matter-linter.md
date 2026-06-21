@@ -2,7 +2,7 @@
 id: idea-066-enforce-gray-matter-linter
 type: IDEA
 title: Enforce Gray-Matter Linter for Scripts
-status: BLOCKED
+status: CANCELLED
 owner_persona: tpm
 created_at: '2026-05-25'
 updated_at: '2026-06-17'

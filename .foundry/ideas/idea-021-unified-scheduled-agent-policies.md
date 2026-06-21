@@ -2,7 +2,7 @@
 id: idea-021-unified-scheduled-agent-policies
 type: IDEA
 title: Unified Scheduled Agent Policies Module
-status: BLOCKED
+status: CANCELLED
 owner_persona: tpm
 created_at: '2026-05-14'
 updated_at: '2026-05-14'

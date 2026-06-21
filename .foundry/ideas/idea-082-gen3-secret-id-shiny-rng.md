@@ -2,7 +2,7 @@
 id: idea-082-gen3-secret-id-shiny-rng
 type: IDEA
 title: Gen 3 Secret ID Viewer and Shiny RNG Assistant
-status: BLOCKED
+status: CANCELLED
 owner_persona: tpm
 created_at: '2026-06-16'
 updated_at: '2026-06-17'
