@@ -26,6 +26,25 @@ const NUM_SECTIONS = 14;
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
 
+const GEN3_ROAMER_OFFSET_RS = 0x3144;
+const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
+const GEN3_ROAMER_OFFSET_FRLG = 0x30d0;
+
+const ROAMER_IVS_OFFSET = 0;
+const ROAMER_PV_OFFSET = 4;
+const ROAMER_SPECIES_ID_OFFSET = 8;
+const ROAMER_HP_OFFSET = 10;
+const ROAMER_LEVEL_OFFSET = 12;
+const ROAMER_STATUS_OFFSET = 13;
+const ROAMER_ACTIVE_OFFSET = 19;
+
+const IV_MASK = 0x1f;
+const IV_SHIFT_ATK = 5;
+const IV_SHIFT_DEF = 10;
+const IV_SHIFT_SPD = 15;
+const IV_SHIFT_SPATK = 20;
+const IV_SHIFT_SPDEF = 25;
+
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
  *
@@ -210,31 +229,31 @@ export function isGen3Save(view: DataView): boolean {
 export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVersion: string) {
   let offset = saveBlock1Offset;
   if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
-    offset += 0x3144;
+    offset += GEN3_ROAMER_OFFSET_RS;
   } else if (gameVersion === 'emerald') {
-    offset += 0x31dc;
+    offset += GEN3_ROAMER_OFFSET_EMERALD;
   } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
-    offset += 0x30d0;
+    offset += GEN3_ROAMER_OFFSET_FRLG;
   } else {
     // Defaulting to ruby offset if unknown
-    offset += 0x3144;
+    offset += GEN3_ROAMER_OFFSET_RS;
   }
 
   try {
-    const ivs = view.getUint32(offset, true);
-    const personalityValue = view.getUint32(offset + 4, true);
-    const speciesId = view.getUint16(offset + 8, true);
-    const hp = view.getUint16(offset + 10, true);
-    const level = view.getUint8(offset + 12);
-    const statusCondition = view.getUint8(offset + 13);
-    const active = view.getUint8(offset + 19) !== 0;
+    const ivs = view.getUint32(offset + ROAMER_IVS_OFFSET, true);
+    const personalityValue = view.getUint32(offset + ROAMER_PV_OFFSET, true);
+    const speciesId = view.getUint16(offset + ROAMER_SPECIES_ID_OFFSET, true);
+    const hp = view.getUint16(offset + ROAMER_HP_OFFSET, true);
+    const level = view.getUint8(offset + ROAMER_LEVEL_OFFSET);
+    const statusCondition = view.getUint8(offset + ROAMER_STATUS_OFFSET);
+    const active = view.getUint8(offset + ROAMER_ACTIVE_OFFSET) !== 0;
 
-    const ivHp = ivs & 0x1f;
-    const atk = (ivs >> 5) & 0x1f;
-    const def = (ivs >> 10) & 0x1f;
-    const spd = (ivs >> 15) & 0x1f;
-    const spAtk = (ivs >> 20) & 0x1f;
-    const spDef = (ivs >> 25) & 0x1f;
+    const ivHp = ivs & IV_MASK;
+    const atk = (ivs >> IV_SHIFT_ATK) & IV_MASK;
+    const def = (ivs >> IV_SHIFT_DEF) & IV_MASK;
+    const spd = (ivs >> IV_SHIFT_SPD) & IV_MASK;
+    const spAtk = (ivs >> IV_SHIFT_SPATK) & IV_MASK;
+    const spDef = (ivs >> IV_SHIFT_SPDEF) & IV_MASK;
 
     return {
       ivs: { hp: ivHp, atk, def, spd, spAtk, spDef },
