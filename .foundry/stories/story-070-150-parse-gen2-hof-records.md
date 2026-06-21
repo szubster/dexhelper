@@ -35,4 +35,6 @@ Implement logic to extract actual Hall of Fame records from Generation 2 (Gold, 
 - Ensure the parsing logic integrates with the existing save parsing engine and uses `DataView`.
 
 ## Acceptance Criteria
-- [ ] Create tasks to implement parsing for Gen 2 Hall of Fame records data.
+- [x] Create tasks to implement parsing for Gen 2 Hall of Fame records data.
+- [ ] .foundry/tasks/task-150-212-gen2-hof-records-extraction-impl.md
+- [ ] .foundry/tasks/task-150-213-gen2-hof-records-extraction-qa.md
