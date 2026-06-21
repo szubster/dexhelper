@@ -2,14 +2,19 @@
 id: task-135-192-session-api-integration-qa
 type: TASK
 title: QA - Verify API query for jules_session_id liveliness
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-16'
-updated_at: '2026-06-16'
-depends_on: [task-135-191-session-api-integration-impl]
+updated_at: '2026-06-21'
+depends_on:
+  - task-135-191-session-api-integration-impl
 jules_session_id: null
 parent: story-089-135-workflow-liveliness-check
-tags: [foundry, orchestrator, api, qa]
+tags:
+  - foundry
+  - orchestrator
+  - api
+  - qa
 research_references: []
 rejection_count: 0
 rejection_reason: ''
