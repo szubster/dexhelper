@@ -40,6 +40,6 @@ Verify that the `foundry-orchestrator.ts` correctly blocks node transitions when
    - If you submit an empty PR for this completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `foundry-orchestrator.ts` parses markdown links and adds them to `parentToChildren` and `childToParents`.
-- [ ] Multiple parents are correctly traversed.
-- [ ] Tests pass verifying hierarchical completion blocks `VERIFYING` or `COMPLETED` when any explicit or markdown child is not `COMPLETED`.
+- [x] `foundry-orchestrator.ts` parses markdown links and adds them to `parentToChildren` and `childToParents`.
+- [x] Multiple parents are correctly traversed.
+- [x] Tests pass verifying hierarchical completion blocks `VERIFYING` or `COMPLETED` when any explicit or markdown child is not `COMPLETED`.
