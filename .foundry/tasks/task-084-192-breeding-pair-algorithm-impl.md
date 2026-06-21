@@ -2,12 +2,13 @@
 id: task-084-192-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Shiny Carrier Breeding Pair Algorithm
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-16'
-updated_at: '2026-06-19'
-depends_on: []
-jules_session_id: '5212016432115345538'
+updated_at: '2026-06-20'
+depends_on:
+  - research-192-209-egg-groups-missing-data
+jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:
@@ -16,7 +17,7 @@ tags:
   - gen2
   - backend
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: >-
   If you experience a transient failure requiring retry, update the YAML
@@ -39,3 +40,6 @@ Develop an algorithm to suggest optimal breeding pairs by cross-referencing Egg 
 ## Acceptance Criteria
 - [ ] Algorithm correctly identifies valid breeding pairs based on Egg Groups and genders.
 - [ ] Algorithm accurately identifies and highlights optimal pairs involving Shiny Carriers.
+
+### Auditor Rejection
+**CANCELLED:** This task was cancelled and replaced by `task-084-204-breeding-pair-algorithm-impl` because it lacked sufficient clarity or dependencies related to Egg Groups.

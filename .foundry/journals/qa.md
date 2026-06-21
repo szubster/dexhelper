@@ -30,3 +30,4 @@ Rejected `task-113-167-update-palette-persona-impl` because the coder completely
 
 ## Missing Configuration Update (2026-06-21)
 Rejected `task-128-181-implement-item-list-parsing` because the coder failed to update `vite-plugins/pokedata-plugin.ts` to include the new `items.jsonl` data file into the final `pokedata.msgpack` payload, which was an explicit requirement in ADR-049-025. It is critical to enforce not just the generation scripts, but the build-time ingestion config to ensure the frontend receives the data.
+Execution Plan Tense Rule: Execution plans must consist solely of forward-looking, actionable steps required to complete the task. Do not include past-tense descriptions or summaries of actions already completed during the exploratory phase (e.g., 'I have read the file' or 'I ran the tests').

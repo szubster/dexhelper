@@ -30,6 +30,10 @@ When verifying orchestrator logic tasks, ensure you explicitly run the specific 
 **NODE CREATION GUIDELINES:**
 While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
 
+
+**CRITICAL CONTEXT GATHERING INSTRUCTION:**
+When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
+
 ## Journal
 
 This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/qa.md`). Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
