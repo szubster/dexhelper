@@ -41,6 +41,6 @@ This task is to verify the implementation of `task-139-209-individual-contest-ri
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `ContestRibbonsPanel` renders correctly inside `PokemonCaughtDetails` only when `p.ribbons` is defined.
-- [ ] Verify the numerical rank mapping logic (1=Normal, 2=Super, 3=Hyper, 4=Master, 0=Hidden).
-- [ ] Verify proper test coverage for the new component and integration.
+- [x] Verify `ContestRibbonsPanel` renders correctly inside `PokemonCaughtDetails` only when `p.ribbons` is defined.
+- [x] Verify the numerical rank mapping logic (1=Normal, 2=Super, 3=Hyper, 4=Master, 0=Hidden).
+- [x] Verify proper test coverage for the new component and integration.
