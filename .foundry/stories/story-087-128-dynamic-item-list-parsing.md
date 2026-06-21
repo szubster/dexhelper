@@ -35,5 +35,8 @@ To eliminate manually maintained static item lists in the repository, we need to
 - [ ] Perform compaction to omit nulls and default values.
 - [ ] Output the final structure to `data/db/items.jsonl`.
 - [x] Break down this STORY into concrete TASK nodes for implementation.
-- [ ] task-128-181-implement-item-list-parsing
-- [ ] task-128-182-qa-item-list-parsing
+- [ ] task-128-181-implement-item-list-parsing (CANCELLED)
+- [ ] task-128-182-qa-item-list-parsing (CANCELLED)
+- [ ] research-128-212-missing-vite-plugin-integration
+- [ ] task-128-213-implement-item-list-parsing-retry
+- [ ] task-128-214-qa-item-list-parsing-retry

@@ -50,3 +50,6 @@ The implementation of `task-128-181-implement-item-list-parsing` has been REJECT
 ## Critical Instructions for QA
 - **Failure Policy**: If the coder's implementation is flawed and you must reject it, you MUST update the YAML frontmatter of the target task (`task-128-181-implement-item-list-parsing`) to `status: FAILED`, provide a `rejection_reason`, and increment its `rejection_count`. Do NOT modify your own task's YAML frontmatter (it remains ACTIVE) and do NOT check off any Acceptance Criteria. Document the failure in your QA journal.
 - **Empty PR Policy**: Since this is a verification task that may involve no code changes, you MUST check off all Acceptance Criteria checkboxes (`- [x]`) and explicitly call the `submit` tool to create an Empty PR when the validation is successful. Do NOT end your session without calling `submit`.
+
+### Auditor Rejection
+This task is CANCELLED because the implementation task reached its maximum rejection count. It is replaced by task-128-214-qa-item-list-parsing-retry.
