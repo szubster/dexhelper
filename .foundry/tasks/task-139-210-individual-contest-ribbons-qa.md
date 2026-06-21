@@ -2,13 +2,13 @@
 id: task-139-210-individual-contest-ribbons-qa
 type: TASK
 title: QA Individual Contest Ribbons Integration
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-16'
 updated_at: '2026-06-21'
 depends_on:
   - task-139-209-individual-contest-ribbons-impl
-jules_session_id: null
+jules_session_id: '16164931986732063545'
 pr_number: null
 parent: story-065-139-individual-contest-ribbons-ui
 tags:
