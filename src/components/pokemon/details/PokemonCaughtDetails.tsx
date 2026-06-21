@@ -7,6 +7,7 @@ import { DataPoint } from '../../DataPoint';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
+import { ContestRibbonsPanel } from './ContestRibbonsPanel';
 
 interface PokemonCaughtDetailsProps {
   yourPokemon: (PokemonInstance & { location: string })[];
@@ -111,6 +112,8 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                 </div>
               </div>
             )}
+
+            {p.ribbons && generation === 3 && <ContestRibbonsPanel ribbons={p.ribbons} />}
           </TacticalPanel>
         ))}
       </div>
