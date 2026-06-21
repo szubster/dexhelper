@@ -18,13 +18,20 @@
  * is determined by `PV % 24`.
  */
 
-import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, SaveData } from './common';
+import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, Gen3TVShow, SaveData } from './common';
 
 const SIGNATURE = 0x08012025;
 const SECTION_SIZE = 4096;
 const NUM_SECTIONS = 14;
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
+
+const TV_SHOWS_COUNT = 25;
+const TV_SHOW_STRUCT_SIZE = 36;
+const POKENEWS_COUNT = 16;
+const POKENEWS_STRUCT_SIZE = 4;
+const SECTION_1_POKENEWS_OFFSET = 0x2b50;
+const SECTION_1_TV_SHOWS_OFFSET = 0x27cc;
 
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
@@ -254,6 +261,37 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
 }
 
 /**
+ * Parses TV Broadcast data from a Gen 3 save file.
+ *
+ * @remarks
+ * The TV shows array contains 25 structs, each 36 bytes long.
+ * The first byte is the `kind`, and the second byte is an `active` boolean flag.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the value from.
+ * @returns An array of TV Show events.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3TVShows(view: DataView, offset: number): Gen3TVShow[] {
+  try {
+    const tvShows: Gen3TVShow[] = [];
+    for (let i = 0; i < TV_SHOWS_COUNT; i++) {
+      const itemOffset = offset + i * TV_SHOW_STRUCT_SIZE;
+      const kind = view.getUint8(itemOffset);
+      const active = view.getUint8(itemOffset + 1) !== 0;
+
+      tvShows.push({ kind, active });
+    }
+    return tvShows;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
  * Parses Mix Record events from a Gen 3 save file.
  *
  * @remarks
@@ -270,8 +308,8 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
 export function parseGen3MixRecords(view: DataView, offset: number) {
   try {
     const mixRecords = [];
-    for (let i = 0; i < 25; i++) {
-      const itemOffset = offset + i * 36;
+    for (let i = 0; i < TV_SHOWS_COUNT; i++) {
+      const itemOffset = offset + i * TV_SHOW_STRUCT_SIZE;
       const kind = view.getUint8(itemOffset);
       const active = view.getUint8(itemOffset + 1) !== 0;
 
@@ -372,8 +410,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
 
-    const gen3PokeNews = parseGen3PokeNews(view, section1Offset + 0x2b50);
-    const gen3MixRecords = parseGen3MixRecords(view, section1Offset + 0x27cc);
+    const gen3PokeNews = parseGen3PokeNews(view, section1Offset + SECTION_1_POKENEWS_OFFSET);
+    const gen3TVShows = parseGen3TVShows(view, section1Offset + SECTION_1_TV_SHOWS_OFFSET);
+    const gen3MixRecords = parseGen3MixRecords(view, section1Offset + SECTION_1_TV_SHOWS_OFFSET);
 
     const flagsOffset = section2Offset + 0x02f0;
     const hiddenItemFlags = new Uint8Array(14);
@@ -408,6 +447,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       hiddenItemFlags,
       mirageIslandValue,
       gen3PokeNews,
+      gen3TVShows,
       gen3MixRecords,
     };
   } catch (error) {
@@ -494,8 +534,8 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
 export function parseGen3PokeNews(view: DataView, offset: number) {
   try {
     const news = [];
-    for (let i = 0; i < 16; i++) {
-      const itemOffset = offset + i * 4;
+    for (let i = 0; i < POKENEWS_COUNT; i++) {
+      const itemOffset = offset + i * POKENEWS_STRUCT_SIZE;
       const kind = view.getUint8(itemOffset);
       const state = view.getUint8(itemOffset + 1);
       const dayCountdown = view.getUint16(itemOffset + 2, true);

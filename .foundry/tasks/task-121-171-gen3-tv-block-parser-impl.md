@@ -31,9 +31,9 @@ You must avoid legacy `Uint8Array` manual read methods and instead use `DataView
 Any out-of-bounds reads or structurally corrupt states within the TV block MUST trigger a gracefully caught `RangeError` which the parser translates into a descriptive structural error, rather than crashing the application.
 
 ## Acceptance Criteria
-- [ ] The TV block extraction logic is built entirely using `DataView`.
-- [ ] Explicit error handling is in place to catch `RangeError` exceptions natively thrown by `DataView` on malformed saves.
-- [ ] New parsing functions conform to the existing Gen 1 and Gen 2 backward-compatible parsing interfaces without breaking them.
+- [x] The TV block extraction logic is built entirely using `DataView`.
+- [x] Explicit error handling is in place to catch `RangeError` exceptions natively thrown by `DataView` on malformed saves.
+- [x] New parsing functions conform to the existing Gen 1 and Gen 2 backward-compatible parsing interfaces without breaking them.
 
 ## Important Protocols (For Coder)
 - **Empty PR Protocol:** If the required logic is already implemented and the criteria are satisfied by existing code, you MUST still submit an empty Pull Request (with 0 file changes). However, before submitting an empty PR, you MUST check off all Acceptance Criteria checkboxes above (`- [x]`).

@@ -9,6 +9,7 @@ import {
   parseGen3PokeNews,
   parseGen3Ribbons,
   parseGen3Roamer,
+  parseGen3TVShows,
 } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
@@ -397,6 +398,41 @@ describe('parseGen3Ribbons', () => {
 
     // Attempting to read a 32-bit integer (4 bytes) starting at offset 2 will exceed the 4-byte buffer
     expect(() => parseGen3Ribbons(view, 2)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3TVShows', () => {
+  it('should extract all TV show events correctly', () => {
+    const buffer = new ArrayBuffer(900); // 25 shows * 36 bytes
+    const view = new DataView(buffer);
+
+    // Show 1: Normal show (kind 1, active)
+    view.setUint8(0, 1);
+    view.setUint8(1, 1);
+
+    // Show 2: Mix Record show (kind 22, inactive)
+    view.setUint8(36, 22);
+    view.setUint8(37, 0);
+
+    // Show 3: Outbreak show (kind 45, active)
+    view.setUint8(72, 45);
+    view.setUint8(73, 1);
+
+    const result = parseGen3TVShows(view, 0);
+
+    expect(result).toHaveLength(25);
+    expect(result[0]).toEqual({ kind: 1, active: true });
+    expect(result[1]).toEqual({ kind: 22, active: false });
+    expect(result[2]).toEqual({ kind: 45, active: true });
+    // The rest should be kind: 0, active: false
+    expect(result[3]).toEqual({ kind: 0, active: false });
+  });
+
+  it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
+    const buffer = new ArrayBuffer(800); // Not enough space for 25 items (900 bytes)
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3TVShows(view, 0)).toThrowError('The save file is corrupted or incomplete.');
   });
 });
 
