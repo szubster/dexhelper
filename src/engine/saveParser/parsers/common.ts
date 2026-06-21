@@ -92,6 +92,26 @@ export interface Gen3BerryPatch {
   watered4: boolean;
 }
 
+export interface Gen3BattleFrontierFacility2D {
+  winStreaks: number[][]; // [battleModes][levelModes]
+  recordWinStreaks: number[][]; // [battleModes][levelModes]
+}
+
+export interface Gen3BattleFrontierFacility1D {
+  winStreaks: number[]; // [levelModes]
+  recordWinStreaks: number[]; // [levelModes]
+}
+
+export interface Gen3BattleFrontier {
+  tower: Gen3BattleFrontierFacility2D; // [4][2]
+  dome: Gen3BattleFrontierFacility2D; // [2][2]
+  palace: Gen3BattleFrontierFacility2D; // [2][2]
+  arena: Gen3BattleFrontierFacility1D; // [2]
+  factory: Gen3BattleFrontierFacility2D; // [2][2]
+  pike: Gen3BattleFrontierFacility1D; // [2]
+  pyramid: Gen3BattleFrontierFacility1D; // [2]
+}
+
 export interface SaveData {
   /** The generation of the parsed save file (1 or 2). */
   generation: Generation;
@@ -166,6 +186,8 @@ export interface SaveData {
   }[];
   /** Gen 3 specific: The 16-bit daily Mirage Island random value. */
   mirageIslandValue?: number;
+  /** Gen 3 specific: Battle Frontier win streaks and records. */
+  gen3BattleFrontier?: Gen3BattleFrontier;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.

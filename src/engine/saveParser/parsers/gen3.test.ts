@@ -9,6 +9,7 @@ import {
   parseGen3PokeNews,
   parseGen3Ribbons,
   parseGen3Roamer,
+  parseGen3BattleFrontier,
 } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
@@ -519,5 +520,62 @@ describe('parseGen3Roamer', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3Roamer(view, 0, 'ruby')).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3BattleFrontier', () => {
+  it('should extract the Battle Frontier win streaks correctly', () => {
+    const buffer = new ArrayBuffer(8192); // Large enough to encompass saveblock offsets
+    const view = new DataView(buffer);
+    const offset = 0x1000; // Mock SaveBlock2 offset
+
+    // Set some sample values for Tower (2D array [4][2])
+    view.setUint16(offset + 0x0ce0, 10, true); // Tower mode 0, level 0
+    view.setUint16(offset + 0x0ce0 + 2, 20, true); // Tower mode 0, level 1
+    view.setUint16(offset + 0x0ce0 + 14, 80, true); // Tower mode 3, level 1
+
+    // Set some sample values for Tower records
+    view.setUint16(offset + 0x0cf0, 15, true);
+    view.setUint16(offset + 0x0cf0 + 14, 85, true);
+
+    // Set some sample values for Arena (1D array [2])
+    view.setUint16(offset + 0x0dda, 30, true); // Arena level 0
+    view.setUint16(offset + 0x0dda + 2, 40, true); // Arena level 1
+
+    // Set some sample values for Pyramid records
+    view.setUint16(offset + 0x0e1e, 50, true);
+    view.setUint16(offset + 0x0e1e + 2, 60, true);
+
+    const result = parseGen3BattleFrontier(view, offset);
+
+    // Assert Tower (2D)
+    expect(result.tower.winStreaks[0][0]).toBe(10);
+    expect(result.tower.winStreaks[0][1]).toBe(20);
+    expect(result.tower.winStreaks[3][1]).toBe(80);
+    expect(result.tower.recordWinStreaks[0][0]).toBe(15);
+    expect(result.tower.recordWinStreaks[3][1]).toBe(85);
+
+    // Assert Arena (1D)
+    expect(result.arena.winStreaks[0]).toBe(30);
+    expect(result.arena.winStreaks[1]).toBe(40);
+
+    // Assert Pyramid records (1D)
+    expect(result.pyramid.recordWinStreaks[0]).toBe(50);
+    expect(result.pyramid.recordWinStreaks[1]).toBe(60);
+
+    // Assert uninitialized values are 0
+    expect(result.dome.winStreaks[0][0]).toBe(0);
+    expect(result.palace.winStreaks[1][1]).toBe(0);
+    expect(result.factory.recordWinStreaks[1][0]).toBe(0);
+    expect(result.pike.winStreaks[0]).toBe(0);
+  });
+
+  it('should explicitly catch RangeError and throw corrupted file error on out-of-bounds reads', () => {
+    // A buffer that is too small for the required offsets
+    const buffer = new ArrayBuffer(0x0e1e + 1);
+    const view = new DataView(buffer);
+
+    // Using a large saveBlock2 offset that pushes the read out of bounds
+    expect(() => parseGen3BattleFrontier(view, 100)).toThrowError('The save file is corrupted or incomplete.');
   });
 });

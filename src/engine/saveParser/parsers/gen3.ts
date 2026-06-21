@@ -18,7 +18,7 @@
  * is determined by `PV % 24`.
  */
 
-import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, SaveData } from './common';
+import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, SaveData, Gen3BattleFrontier } from './common';
 
 const SIGNATURE = 0x08012025;
 const SECTION_SIZE = 4096;
@@ -387,6 +387,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const mirageIslandOffset = _forcedVersion === 'emerald' ? 0x0464 : 0x0408;
     const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
+    const gen3BattleFrontier = parseGen3BattleFrontier(view, section2Offset);
+
     // Dummy scaffold values for now until fully implemented
     return {
       generation: 3,
@@ -407,8 +409,92 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3BerryPatches,
       hiddenItemFlags,
       mirageIslandValue,
+      gen3BattleFrontier,
       gen3PokeNews,
       gen3MixRecords,
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+const TOWER_WIN_STREAKS_OFFSET = 0x0ce0;
+const TOWER_RECORD_WIN_STREAKS_OFFSET = 0x0cf0;
+const DOME_WIN_STREAKS_OFFSET = 0x0d0c;
+const DOME_RECORD_WIN_STREAKS_OFFSET = 0x0d14;
+const PALACE_WIN_STREAKS_OFFSET = 0x0dc8;
+const PALACE_RECORD_WIN_STREAKS_OFFSET = 0x0dd0;
+const ARENA_WIN_STREAKS_OFFSET = 0x0dda;
+const ARENA_RECORD_STREAKS_OFFSET = 0x0dde;
+const FACTORY_WIN_STREAKS_OFFSET = 0x0de2;
+const FACTORY_RECORD_WIN_STREAKS_OFFSET = 0x0dea;
+const PIKE_WIN_STREAKS_OFFSET = 0x0e04;
+const PIKE_RECORD_STREAKS_OFFSET = 0x0e08;
+const PYRAMID_WIN_STREAKS_OFFSET = 0x0e1a;
+const PYRAMID_RECORD_STREAKS_OFFSET = 0x0e1e;
+
+/**
+ * Parses the Battle Frontier win streaks from a Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock2Offset - The offset within the buffer to the start of SaveBlock2.
+ * @returns The Battle Frontier win streaks data structure.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3BattleFrontier(view: DataView, saveBlock2Offset: number): Gen3BattleFrontier {
+  try {
+    const read1D = (baseOffset: number): number[] => {
+      const arr = [];
+      for (let lvl = 0; lvl < 2; lvl++) {
+        arr.push(view.getUint16(saveBlock2Offset + baseOffset + lvl * 2, true));
+      }
+      return arr;
+    };
+
+    const read2D = (baseOffset: number, battleModes: number): number[][] => {
+      const arr: number[][] = [];
+      for (let battle = 0; battle < battleModes; battle++) {
+        const lvlArr = [];
+        for (let lvl = 0; lvl < 2; lvl++) {
+          lvlArr.push(view.getUint16(saveBlock2Offset + baseOffset + (battle * 2 + lvl) * 2, true));
+        }
+        arr.push(lvlArr);
+      }
+      return arr;
+    };
+
+    return {
+      tower: {
+        winStreaks: read2D(TOWER_WIN_STREAKS_OFFSET, 4),
+        recordWinStreaks: read2D(TOWER_RECORD_WIN_STREAKS_OFFSET, 4),
+      },
+      dome: {
+        winStreaks: read2D(DOME_WIN_STREAKS_OFFSET, 2),
+        recordWinStreaks: read2D(DOME_RECORD_WIN_STREAKS_OFFSET, 2),
+      },
+      palace: {
+        winStreaks: read2D(PALACE_WIN_STREAKS_OFFSET, 2),
+        recordWinStreaks: read2D(PALACE_RECORD_WIN_STREAKS_OFFSET, 2),
+      },
+      arena: {
+        winStreaks: read1D(ARENA_WIN_STREAKS_OFFSET),
+        recordWinStreaks: read1D(ARENA_RECORD_STREAKS_OFFSET),
+      },
+      factory: {
+        winStreaks: read2D(FACTORY_WIN_STREAKS_OFFSET, 2),
+        recordWinStreaks: read2D(FACTORY_RECORD_WIN_STREAKS_OFFSET, 2),
+      },
+      pike: {
+        winStreaks: read1D(PIKE_WIN_STREAKS_OFFSET),
+        recordWinStreaks: read1D(PIKE_RECORD_STREAKS_OFFSET),
+      },
+      pyramid: {
+        winStreaks: read1D(PYRAMID_WIN_STREAKS_OFFSET),
+        recordWinStreaks: read1D(PYRAMID_RECORD_STREAKS_OFFSET),
+      },
     };
   } catch (error) {
     if (error instanceof RangeError) {
