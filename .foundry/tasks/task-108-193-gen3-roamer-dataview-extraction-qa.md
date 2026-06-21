@@ -41,5 +41,8 @@ Validate that the `DataView` API is used correctly and exclusively for reading t
 - **CRITICAL**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 
+### CANCELLED
+This task is CANCELLED as its dependency failed permanently. It is replaced by task-108-211-gen3-roamer-dataview-extraction-qa.
+
 ### Auditor Rejection
 This task is permanently cancelled and replaced by task-108-211-gen3-roamer-dataview-extraction-qa to include magic number rule.
