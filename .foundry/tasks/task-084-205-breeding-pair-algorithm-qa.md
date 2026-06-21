@@ -48,4 +48,4 @@ Verify the correctness of the Shiny Carrier breeding algorithm implementation, e
 
 ### Auditor Rejection
 **CANCELLED**
-This QA task has been permanently cancelled because the target implementation task failed permanently due to missing Egg Groups and Gender derivation logic in the DB schema. It has been replaced by a new task following the completion of the required research node.
+This QA task has been permanently cancelled because the target implementation task failed permanently due to missing Egg Groups and Gender derivation logic in the DB schema. It has been replaced by `task-084-211-breeding-pair-algorithm-qa` following the completion of the required research node.
