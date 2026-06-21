@@ -2,7 +2,7 @@
 id: task-128-181-implement-item-list-parsing
 type: TASK
 title: Implement Dynamic Item List Parsing in scripts/generate-pokedata.ts
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-21'
@@ -15,8 +15,8 @@ tags:
   - build
   - db
 research_references: []
-rejection_count: 2
-rejection_reason: 'The vite-plugins/pokedata-plugin.ts was not updated to include items.jsonl in the msgpackr payload as required by ADR-049-025.'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 ---
 

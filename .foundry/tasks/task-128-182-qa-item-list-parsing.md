@@ -2,13 +2,13 @@
 id: task-128-182-qa-item-list-parsing
 type: TASK
 title: QA - Verify Dynamic Item List Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-20'
+updated_at: '2026-06-21'
 depends_on:
   - task-128-181-implement-item-list-parsing
-jules_session_id: '6149366934739891448'
+jules_session_id: null
 pr_number: null
 parent: story-087-128-dynamic-item-list-parsing
 tags:
@@ -16,7 +16,7 @@ tags:
   - db
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 
