@@ -44,3 +44,7 @@ Extract and consolidate common, repetitive Tailwind class patterns used througho
 - [x] story-074-113-define-tactical-panel-and-card
 - [x] story-074-114-define-tactical-button-and-focus
 - [x] story-074-115-define-tactical-input-and-text
+
+### Auditor Notes
+- Verified that all `tactical-*` utility classes were correctly defined in `src/index.css` leveraging Tailwind v4's native `@utility` directive.
+- Discovered that `story-074-114` lacked a corresponding QA task for its implementation task. Noted in journal that for simple tasks, the Tech Lead can decide QA task pairing is not strictly required.
