@@ -196,6 +196,10 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
 13. **Composite Nodes are an anti-pattern.** Do not create "Composite Nodes". They bundle multiple lifecycle states or responsibilities that conflict with the strict Directed Acyclic Graph orchestrator. This leads to circular dependencies or unresolved `depends_on` chains, causing DAG deadlocks.
 14. **Sibling Dependency Recommendations.** If multiple sibling nodes (e.g. TASK nodes from the same STORY) are created with sequential implementation dependencies, their `depends_on` field SHOULD explicitly point to the prerequisite task to prevent DAG deadlocks. This is the responsibility of the tech lead and is not enforced by the orchestrator.
 15. **Macro nodes (`IDEA`, `PRD`, `EPIC`, `STORY`) cannot complete until all of their descendant nodes are `COMPLETED`.**
+    - When creating downstream/child nodes, personas MUST append references to newly generated child nodes as unchecked tasks (`- [ ]`) directly into the markdown body of the parent node.
+    - You must check off your specific acceptance criteria checkboxes in the parent node WITHOUT modifying its YAML frontmatter.
+    - Do NOT submit an Empty PR to transition a parent node to VERIFYING (by checking off its own acceptance criteria) until ALL of its generated child nodes have transitioned to COMPLETED.
+    - If a parent node has incomplete children, you must leave its own acceptance criteria checkboxes unchecked to keep it in PENDING status.
 
 ---
 

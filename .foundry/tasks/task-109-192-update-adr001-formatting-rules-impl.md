@@ -2,13 +2,13 @@
 id: task-109-192-update-adr001-formatting-rules-impl
 type: TASK
 title: Update ADR 001 with parent-child formatting rules for macro nodes
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-16'
 updated_at: '2026-06-20'
 depends_on:
   - task-109-161-update-adr001-macro-node-completion-impl
-jules_session_id: '411723853960272582'
+jules_session_id: null
 pr_number: null
 parent: story-071-109-update-adr001-macro-node-completion
 tags:
@@ -41,4 +41,4 @@ Update `.foundry/docs/adrs/001-the-foundry-architecture.md` (ADR 001) to detail 
 5. Reminder for Coder/QA: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Update `001-the-foundry-architecture.md` to detail how to format parent-child relationships for macro nodes.
+- [x] Update `001-the-foundry-architecture.md` to detail how to format parent-child relationships for macro nodes.

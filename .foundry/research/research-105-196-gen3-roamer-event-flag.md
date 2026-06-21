@@ -2,12 +2,12 @@
 id: research-105-196-gen3-roamer-event-flag
 type: RESEARCH
 title: Investigate Gen 3 Roamer Event Flag Offset
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-17'
-updated_at: '2026-06-17'
+updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13546096748202455729'
 pr_number: null
 parent: story-067-105-gen3-roamer-parser-implementation
 tags:

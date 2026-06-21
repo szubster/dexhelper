@@ -2,12 +2,12 @@
 id: task-108-191-update-schema-parent-child-formatting-impl
 type: TASK
 title: Update schema.md with parent-child relationship formatting constraints
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-16'
-updated_at: '2026-06-19'
+updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: '14643769167712650168'
+jules_session_id: null
 pr_number: null
 parent: story-071-108-update-schema-macro-node-completion
 tags:
@@ -44,4 +44,4 @@ Update rule 15 in `.foundry/docs/schema.md` to include these exact instructions:
 This is a low-risk documentation task. The `coder` is designated to self-verify.
 
 ## Acceptance Criteria
-- [ ] Ensure `.foundry/docs/schema.md` rule 15 fully explains parent-child formatting constraints.
+- [x] Ensure `.foundry/docs/schema.md` rule 15 fully explains parent-child formatting constraints.

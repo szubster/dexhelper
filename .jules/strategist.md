@@ -267,3 +267,9 @@
 **Outcome:** Accepted
 **Why:** The Auditor journal noted that using inline magic numbers for save file parsing offsets leads to brittle code. The `tech_lead`, `coder`, and `qa` agents lacked explicit instructions to prevent this.
 **Pattern:** Ensure agents involved in save file parsing explicitly define and enforce the use of reusable constants for memory offsets, lengths, and bit locations at the module level instead of using inline magic numbers.
+
+## 2026-07-13 - [Accepted] - Prompt improvement - Enforce Exploration Rule and Scratchpad Cleanup
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The memory requires that context gathering is done using the `read_file` tool rather than bash scripts/`cat` to avoid truncation. Several agent prompts (qa, auditor, researcher, strategist) lacked this explicit `CRITICAL CONTEXT GATHERING INSTRUCTION`. Additionally, the Strategist prompt lacked the `Scratchpad Cleanup` section to prevent repository pollution.
+**Pattern:** Apply systemic rules consistently across all relevant agent personas. When an architectural constraint or tool rule applies to exploration or repository hygiene, it must be explicitly included in all agent prompts to ensure compliance.

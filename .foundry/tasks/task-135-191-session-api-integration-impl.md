@@ -2,12 +2,12 @@
 id: task-135-191-session-api-integration-impl
 type: TASK
 title: Implement API query for jules_session_id liveliness
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-16'
-updated_at: '2026-06-20'
+updated_at: '2026-06-21'
 depends_on: []
-jules_session_id: '12153661677902076613'
+jules_session_id: null
 parent: story-089-135-workflow-liveliness-check
 tags:
   - foundry
@@ -31,9 +31,9 @@ We need to determine if a given \`jules_session_id\` is truly active or if it ha
 - If the API call fails or the run is not found, classify it appropriately (e.g. assume it is dead/terminated).
 
 ## 3. Acceptance Criteria
-- [ ] Implement an async function \`checkSessionLiveliness(sessionId: string): Promise<string>\` or similar that queries the API.
-- [ ] Map the API response states to internal liveliness indicators.
-- [ ] Ensure the function falls back gracefully if the API fails or rate limits.
+- [x] Implement an async function \`checkSessionLiveliness(sessionId: string): Promise<string>\` or similar that queries the API.
+- [x] Map the API response states to internal liveliness indicators.
+- [x] Ensure the function falls back gracefully if the API fails or rate limits.
 
 ## 4. Notes
 - Remember that if a transient failure occurs, you must transition this node to \`FAILED\` with a \`rejection_reason\`. If permanent, \`CANCELLED\`.

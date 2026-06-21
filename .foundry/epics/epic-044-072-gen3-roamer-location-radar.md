@@ -16,7 +16,7 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: 'Extracting exact Gen 3 roamer map locations from save files is impossible as the data is stored in EWRAM, not the save file (see ADR 108-027).'
+rejection_reason: 'Gen 3 roamer locations cannot be extracted statically from save files (as they live in EWRAM, per ADR-108-027).'
 notes: ''
 ---
 
