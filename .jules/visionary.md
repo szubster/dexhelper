@@ -116,3 +116,7 @@
 ## 2026-06-25
 **Idea:** Hidden Power Type and Base Power Calculator
 **Learning:** Hidden Power is a highly sought-after mechanic for competitive battling and challenge runs (like Nuzlockes), especially in Gens 2 and 3. Since the move's attributes are determined entirely by the Pokémon's hidden IVs/DVs—which players cannot easily see in-game without trial and error or external calculators—automatically extracting and calculating this information from the save file provides immediate, immense value. This perfectly fits the "premium companion app" ethos: taking opaque, hidden data and rendering it directly actionable.
+
+## 2026-06-22
+**Idea:** PC Box Duplicate Analyzer & Release Assistant
+**Learning:** Hardcore players often fill their PC boxes with duplicates during shiny hunting, breeding (especially in Gen 2 and Gen 3), or Safari Zone trips. Identifying which duplicates to keep (best IVs/DVs, Natures) and which to release is a massive pain point given the slow in-game UI. Surfacing "Duplicate Groups" directly from the parsed save file and comparing their stats side-by-side turns a tedious box-management chore into an optimized, actionable task. This aligns perfectly with the goal of being a premium, data-driven companion app for retro games.
