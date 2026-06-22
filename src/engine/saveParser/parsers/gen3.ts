@@ -103,20 +103,18 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  * Extracts the status and growth data of all 128 Berry Patches in Hoenn.
  *
  * **Binary Data Structure:**
- * Each berry patch is represented by an 8-byte structure:
+ * Each berry patch is represented by an 8-byte structure starting at offset `0x071C` within SaveBlock1.
  * - `Byte 0`: Berry ID (which berry is planted).
- * - `Byte 1`: Growth Stage & Stop Flag. The lower 7 bits represent the current growth stage.
- *   The highest bit (`0x80`) is a boolean flag indicating if growth has been stopped (e.g., fully grown).
- * - `Bytes 2-3`: 16-bit timer indicating minutes until the next growth stage.
- * - `Byte 4`: The total berry yield expected when harvested.
- * - `Byte 5`: Regrowth Count & Watering Flags. The lower 4 bits track how many times the plant has
- *   regrown after dropping its berries. The upper 4 bits are individual boolean flags indicating
- *   if the plant was watered during each of its 4 growth stages (`0x10`, `0x20`, `0x40`, `0x80`).
- * - `Bytes 6-7`: Padding / unused.
+ * - `Byte 1`: Growth stage (bits 0-6) and a flag indicating if growth has stopped (bit 7).
+ * - `Bytes 2-3`: A 16-bit little-endian integer tracking minutes until the next growth stage.
+ * - `Byte 4`: Berry yield (how many berries can be picked).
+ * - `Byte 5`: A packed bitfield tracking watering history across the 4 growth stages,
+ *             plus the number of times the patch has regrown without being picked (lower 4 bits).
+ * - `Bytes 6-7`: Unused padding.
  *
  * @param view - The raw save file DataView.
- * @param saveBlock1Offset - The base offset of SaveBlock1.
- * @returns An array of parsed `Gen3BerryPatch` objects.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @returns An array of parsed `Gen3BerryPatch` objects representing the state of all 128 patches.
  * @throws RangeError if the read goes out of bounds.
  */
 function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
@@ -192,19 +190,33 @@ export function isGen3Save(view: DataView): boolean {
 /**
  * Parses the Gen 3 Roamer data (e.g., Latias or Latios) from the save file.
  *
- * @remarks
- * Roaming Pokémon data is stored in a specific memory block depending on the game version.
- * The structure contains the Pokémon's IVs (packed into a 32-bit integer), Personality Value,
- * Species ID, HP, Level, Status Condition, and an active boolean flag.
+ * **Version-Specific Memory Shifts:**
+ * The roamer data block does not have a fixed location; it shifts significantly depending
+ * on the game engine version due to differing lengths of preceding data structures
+ * (like PC items, mail, or battle tower stats):
+ * - Ruby/Sapphire: `SaveBlock1 + 0x3144`
+ * - Emerald: `SaveBlock1 + 0x31DC`
+ * - FireRed/LeafGreen: `SaveBlock1 + 0x30D0`
  *
- * Note: Gen 3 Pokémon roamer map locations are stored in dynamic EWRAM while the game is running
- * and are *not* serialized into the .sav battery save file. Therefore, only static attributes
- * (like IVs and PV) can be extracted.
+ * **Binary Data Structure:**
+ * - `Bytes 0-3`: A 32-bit little-endian integer containing the packed Individual Values (IVs).
+ *   The IVs are densely packed as six 5-bit sequences:
+ *   - HP (bits 0-4), Attack (bits 5-9), Defense (bits 10-14),
+ *   - Speed (bits 15-19), Sp. Attack (bits 20-24), Sp. Defense (bits 25-29).
+ * - `Bytes 4-7`: The 32-bit Personality Value (PV).
+ * - `Bytes 8-9`: The 16-bit Species ID.
+ * - `Bytes 10-11`: Current HP.
+ * - `Byte 12`: Level.
+ * - `Byte 13`: Status Condition.
+ * - `Byte 19`: Active boolean flag (determines if the roamer is currently roaming or caught/fainted).
+ *
+ * *Note:* Gen 3 Pokémon roamer map locations are stored in dynamic EWRAM while the game is running
+ * and are *not* serialized into the .sav battery save file. Therefore, only static attributes can be extracted.
  *
  * @param view - The raw save file DataView.
- * @param saveBlock1Offset - The offset where SaveBlock1 starts.
- * @param gameVersion - The version of the Gen 3 game.
- * @returns An object containing the extracted roamer data.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @param gameVersion - The detected game version used to apply the correct memory shift.
+ * @returns An object containing the extracted roamer data, including unpacked IVs.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVersion: string) {
