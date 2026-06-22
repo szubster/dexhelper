@@ -2,12 +2,12 @@
 id: task-114-201-document-palette-styling-ownership-impl
 type: TASK
 title: Implement palette persona documentation updates
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-18'
-updated_at: '2026-06-17'
+updated_at: '2026-06-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1910259929368199347'
 pr_number: null
 parent: story-077-114-document-palette-styling-ownership
 tags:
@@ -38,5 +38,5 @@ You are tasked with fulfilling the documentation update as requested by `story-0
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` is updated.
-- [ ] Documentation accurately reflects `palette` ownership of styling per ADR 024.
+- [x] `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` is updated.
+- [x] Documentation accurately reflects `palette` ownership of styling per ADR 024.

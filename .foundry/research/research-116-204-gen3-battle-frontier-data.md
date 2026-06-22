@@ -29,7 +29,7 @@ We need to implement the Battle Frontier Dashboard UI for Gen 3 saves, but curre
 3. The metrics, states, or offsets needed to visualize progress towards the next Frontier Brain encounter for each facility.
 
 ## Acceptance Criteria
-- [ ] Determine the 7 facility names and their representation in the data layer.
-- [ ] Determine how to extract BP wallet balance from the save file.
-- [ ] Determine the progress metrics required to display Frontier Brain encounter progress.
-- [ ] Update the knowledge base with the findings or output a data schema that can be consumed by the dashboard UI.
+- [x] Determine the 7 facility names and their representation in the data layer.
+- [x] Determine how to extract BP wallet balance from the save file.
+- [x] Determine the progress metrics required to display Frontier Brain encounter progress.
+- [x] Update the knowledge base with the findings or output a data schema that can be consumed by the dashboard UI.

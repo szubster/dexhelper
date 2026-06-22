@@ -2,7 +2,7 @@
 id: task-105-197-gen3-roamer-parser-impl
 type: TASK
 title: Implement Gen 3 Roamer Parse Logic
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-17'
 updated_at: '2026-06-21'
@@ -18,7 +18,7 @@ tags:
   - parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Extraction of Gen 3 roamer mapId and mapGroup is impossible as they are not serialized in the save file per adr-108-027-gen3-roamer-location-impossible'
 notes: ''
 ---
 

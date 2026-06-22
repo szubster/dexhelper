@@ -2,12 +2,12 @@
 id: task-106-159-dag-utils-unit-tests-impl
 type: TASK
 title: Implement Unit Tests for Shared DAG Utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-15'
-updated_at: '2026-06-20'
+updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: '9565618731398937782'
+jules_session_id: null
 pr_number: null
 parent: story-053-106-dag-utils-unit-tests
 tags:
@@ -33,7 +33,7 @@ This task implements unit tests for the shared DAG utility functions located in 
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `.github/scripts/dag-utils.test.ts` is created.
-- [ ] Unit tests for `buildReverseDependencyGraph` are implemented.
-- [ ] Unit tests for `getOrphanedNodes` are implemented.
-- [ ] All tests pass successfully (`pnpm install && npx vitest run`).
+- [x] `.github/scripts/dag-utils.test.ts` is created.
+- [x] Unit tests for `buildReverseDependencyGraph` are implemented.
+- [x] Unit tests for `getOrphanedNodes` are implemented.
+- [x] All tests pass successfully (`pnpm install && npx vitest run`).

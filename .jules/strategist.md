@@ -162,6 +162,12 @@
 **Why:** The coder journal repeatedly noted that tasks lacking explicit data specifications (like memory offsets) should not be guessed, but rather suspended by spawning a RESEARCH node and dynamically injecting it into `depends_on`. However, the coder's prompt lacked explicit instructions for this late binding workflow, leading to instances where the agent didn't know how to gracefully suspend the task.
 **Pattern:** When a persona discovers a critical workflow pattern for handling missing context (like Late Binding), codify the exact operational steps into their prompt so they can execute it consistently without relying solely on passive memory.
 
+## 2026-06-21 - [Accepted] - Prompt improvement - Enforce PRD handoff to Epic Planner
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Product Manager journal observed that when generating a PRD from an IDEA, assigning the PRD's `owner_persona` back to `product_manager` breaks the downstream pipeline handoff chain. The PM prompt had a misleading pipeline string (`PRD (PM)`) and lacked a specific rule to assign ownership of PRDs to the `epic_planner`.
+**Pattern:** Codify correct orchestrator handoff roles in the prompts of upstream generating agents so that newly spawned nodes are correctly routed to the downstream persona (e.g., `epic_planner`), preventing pipeline deadlocks.
+
 ## YYYY-MM-DD - [Accepted] - Prompt improvement - Prevent premature verification for all macro nodes
 **Type:** Prompt improvement
 **Outcome:** Merged

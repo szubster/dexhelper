@@ -2,13 +2,13 @@
 id: task-133-188-sweep-active-nodes-qa
 type: TASK
 title: Verify Sweep Active Nodes Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-16'
-updated_at: '2026-06-21'
+updated_at: '2026-06-22'
 depends_on:
   - task-133-187-sweep-active-nodes-impl
-jules_session_id: '16030383422897987893'
+jules_session_id: null
 pr_number: null
 parent: story-089-133-sweep-active-nodes
 tags:
@@ -34,6 +34,6 @@ The implementation task (task-133-187-sweep-active-nodes-impl) has built the uti
 - **Reminder**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Implementations correctly traverses `.foundry/`.
-- [ ] Parsing correctly uses `gray-matter` and filters for `ACTIVE`.
-- [ ] Tests successfully verify the functionality.
+- [x] Implementations correctly traverses `.foundry/`.
+- [x] Parsing correctly uses `gray-matter` and filters for `ACTIVE`.
+- [x] Tests successfully verify the functionality.

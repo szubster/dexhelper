@@ -65,3 +65,7 @@ To resolve this, I have:
 To improve visibility into system deadlocks (ADR 017), I have implemented a 'Permanent Failures' toggle on the DAG Dashboard. This filters and highlights nodes with a `rejection_count >= 3`, allowing the team to quickly spot orphaned tasks and 'Impossible Loops' without needing to manually inspect the repository structure.
 
 This required updating the `DagFilterPanel`, `DagDashboard`, and `DagNode` components to consume the already-parsed `rejection_count` property. Going forward, PMs and Tech Leads should check this view regularly.
+
+## 2026-06-17: Late-Binding Hierarchy Orchestrator Exception
+
+Added formal notes regarding the Late-Binding process to clarify orchestrator deadlock prevention. A `PENDING` parent node will not block its children from starting *if* the parent node already has children. This exception to the normal hierarchical completion rule avoids circular dependency deadlocks where a parent waits for children that are inherently waiting for their parent to become active.

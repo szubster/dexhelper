@@ -2,12 +2,12 @@
 id: story-071-109-update-adr001-macro-node-completion
 type: STORY
 title: Update ADR 001 with strict macro node completion rules
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-20'
+updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: '16067376261874940412'
+jules_session_id: null
 pr_number: null
 parent: epic-045-071-documentation-macro-node-completion
 tags:
@@ -37,3 +37,5 @@ Update `.foundry/docs/adrs/001-the-foundry-architecture.md` (ADR 001) to reflect
 ## Tasks
 - [ ] task-109-161-update-adr001-macro-node-completion-impl
 - [ ] .foundry/tasks/task-109-192-update-adr001-formatting-rules-impl.md
+- [ ] .foundry/tasks/task-109-212-update-adr001-macro-node-completion-impl.md
+- [ ] .foundry/tasks/task-109-213-update-adr001-formatting-rules-impl.md
