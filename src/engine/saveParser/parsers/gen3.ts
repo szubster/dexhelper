@@ -1,3 +1,23 @@
+/**
+ * @module gen3Parser
+ *
+ * Contains logic for parsing Generation 3 Game Boy Advance save files (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
+ *
+ * ## Architecture Overview
+ * Generation 3 uses a complex A/B bank flash memory architecture to prevent data corruption.
+ * The game alternates writing between two 56KB blocks (`0x0000` and `0xE000`). Each block is
+ * further divided into 14 4KB sections. The engine must scan both banks, verify the `0x08012025`
+ * signature, and compare `saveIndex` values to locate the most recent, non-corrupted data block.
+ *
+ * - **SaveBlock1:** Contains player data, inventory, event flags, and active party Pokémon.
+ * - **SaveBlock2:** Contains system data, PC storage, and global time values.
+ *
+ * Furthermore, individual Pokémon data structures are 100 bytes long, with a 48-byte encrypted
+ * substructure block. The decryption key is derived from the Pokémon's Personality Value (PV)
+ * XORed with the Original Trainer (OT) ID, and the substructure permutation (e.g., GAEM vs MGEA)
+ * is determined by `PV % 24`.
+ */
+
 import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, SaveData } from './common';
 
 const SIGNATURE = 0x08012025;
@@ -143,6 +163,17 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
   return patches;
 }
 
+/**
+ * Performs a structural check to verify if the binary data is a valid Generation 3 save.
+ *
+ * @param view - The raw save file DataView.
+ * @returns True if the structure looks like a valid Gen 3 save.
+ *
+ * @remarks
+ * This is currently a placeholder implementation for scaffolding purposes. A full implementation
+ * would scan both `0x0000` and `0xE000` memory banks for the `0x08012025` flash memory signature
+ * to confirm the presence of Gen 3 save structures.
+ */
 export function isGen3Save(view: DataView): boolean {
   try {
     // Scaffolding read to allow testing of RangeError handling
@@ -159,7 +190,16 @@ export function isGen3Save(view: DataView): boolean {
 }
 
 /**
- * Parses the Gen 3 Roamer data from the save file.
+ * Parses the Gen 3 Roamer data (e.g., Latias or Latios) from the save file.
+ *
+ * @remarks
+ * Roaming Pokémon data is stored in a specific memory block depending on the game version.
+ * The structure contains the Pokémon's IVs (packed into a 32-bit integer), Personality Value,
+ * Species ID, HP, Level, Status Condition, and an active boolean flag.
+ *
+ * Note: Gen 3 Pokémon roamer map locations are stored in dynamic EWRAM while the game is running
+ * and are *not* serialized into the .sav battery save file. Therefore, only static attributes
+ * (like IVs and PV) can be extracted.
  *
  * @param view - The raw save file DataView.
  * @param saveBlock1Offset - The offset where SaveBlock1 starts.
@@ -216,6 +256,12 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
 /**
  * Parses Mix Record events from a Gen 3 save file.
  *
+ * @remarks
+ * The Mix Record feature allows players to share television shows, secret bases, and other
+ * events with friends via the Game Link Cable. These events are stored sequentially in memory,
+ * each taking 36 bytes. The first byte identifies the event `kind` (21 to 40 for Mix Records),
+ * and the second byte acts as an `active` boolean flag.
+ *
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to read the value from.
  * @returns An array of inherited Mix Record events.
@@ -244,11 +290,16 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
 }
 
 /**
- * Parses the 16-bit Mirage Island value from a Gen 3 save file.
+ * Parses the 6-byte Condition stats (Contest attributes) for a Gen 3 Pokémon.
+ *
+ * @remarks
+ * Contest attributes (Cool, Beauty, Cute, Smart, Tough) and Sheen (Feel) are stored as individual
+ * bytes within the 12-byte "EVs & Condition (E)" substructure of the 48-byte encrypted Data block.
+ * They are extracted sequentially from offset `0x06` to `0x0B` relative to the substructure's base.
  *
  * @param view - The raw save file DataView.
- * @param offset - The offset within the buffer to read the value from.
- * @returns The 16-bit unsigned integer representing the Mirage Island value.
+ * @param offset - The offset within the buffer to the base of the E substructure.
+ * @returns An object containing the extracted Contest attributes.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 export function parseGen3ConditionStats(view: DataView, offset: number) {
@@ -269,6 +320,19 @@ export function parseGen3ConditionStats(view: DataView, offset: number) {
   }
 }
 
+/**
+ * Parses the 16-bit Mirage Island value from a Gen 3 save file.
+ *
+ * @remarks
+ * The Mirage Island value is a 16-bit random number generated daily by the game's RTC.
+ * It is compared against the lower 16 bits of the Personality Values of all Pokémon in
+ * the player's party to determine if Mirage Island spawns on Route 130.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the value from.
+ * @returns The 16-bit unsigned integer representing the Mirage Island value.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
 export function parseGen3MirageIslandValue(view: DataView, offset: number): number {
   try {
     // Read the 16-bit little-endian value using the DataView API
@@ -357,6 +421,11 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 /**
  * Parses the 32-bit Personality Value (PV) from a Gen 3 save file.
  *
+ * @remarks
+ * The PV is a central cryptographic and mechanical mechanism in Gen 3. It dictates
+ * a Pokémon's gender, ability, nature, shininess, Unown letter, Spinda spot pattern,
+ * and the 24-permutation substructure ordering (`PV % 24`) used to decrypt its 48-byte Data block.
+ *
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to read the PV from.
  * @returns The 32-bit unsigned integer representing the PV.
@@ -374,7 +443,16 @@ export function parseGen3PersonalityValue(view: DataView, offset: number): numbe
 }
 
 /**
- * Parses the 32-bit Ribbon bitfield from a Gen 3 save file.
+ * Parses the 32-bit Ribbon and Obedience bitfield from a Gen 3 save file.
+ *
+ * @remarks
+ * Ribbons are densely packed into a 32-bit integer located at offset `8` of the
+ * "Miscellaneous (M)" substructure. Contest Ribbons (Cool, Beauty, Cute, Smart, Tough)
+ * require 3 bits each because they represent 4 sequential ranks (Normal=1, Super=2,
+ * Hyper=3, Master=4).
+ *
+ * For example, the `smart` rank is extracted by right-shifting the bitfield by 9 bits
+ * and masking with `0x07` (binary `111`).
  *
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to read the value from.
@@ -402,6 +480,11 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
 
 /**
  * Parses the upcoming event schedule (PokeNews) from a Gen 3 save file.
+ *
+ * @remarks
+ * PokeNews tracks TV broadcasts like swarms, sales, or the Lilycove Department Store clearance.
+ * It is an array of 16 events, each taking 4 bytes: `kind` (event type), `state` (active/inactive),
+ * and a 16-bit `dayCountdown` dictating when the event will occur relative to the RTC.
  *
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to read the value from.

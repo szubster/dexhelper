@@ -2,12 +2,12 @@
 id: idea-084-standardize-relative-offsets
 type: IDEA
 title: Standardize Relative Offsets for Dynamic Data Parsing
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-06-18'
-updated_at: '2026-06-18'
+updated_at: '2026-06-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8911951387394209150'
 pr_number: null
 parent: null
 tags:

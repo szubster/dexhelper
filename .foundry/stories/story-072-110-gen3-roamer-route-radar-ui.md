@@ -24,6 +24,8 @@ notes: ''
 
 # Gen 3 Roamer Route Radar UI Integration
 
+**CANCELLED:** The parent Epic was cancelled because Gen 3 roamer locations cannot be extracted statically from save files (as they live in EWRAM, per ADR-108-027).
+
 ## Objective
 Integrate the resolved Gen 3 roamer location with the Route Radar UI.
 
@@ -35,6 +37,10 @@ Pass the resolved roamer location to the Route Radar UI component. The UI should
 - [ ] Update the UI to visually display the roamer's current location on the map.
 - [ ] Tech Lead: Break down this Story into execution Tasks (implementation & QA).
 
+### Cancelled
+This story is cancelled because its parent epic (`epic-044-072-gen3-roamer-location-radar`) was cancelled. The extraction of Gen 3 roamer location from the save file is mathematically impossible per ADR 027.
+### Auditor Rejection
+**CANCELLED:** This story is cancelled because the parent epic's objective (extracting Gen 3 roamer locations from static save files) is mathematically impossible, as the data is stored exclusively in EWRAM and never serialized (per `adr-108-027-gen3-roamer-location-impossible`).
 ### Architect Rejection
 This story has been permanently CANCELLED because its parent objective is impossible. Gen 3 roamer locations are not serialized in the save file.
 ### CANCELLED

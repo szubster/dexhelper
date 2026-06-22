@@ -2,12 +2,12 @@
 id: research-108-187-gen3-secret-base-offsets
 type: RESEARCH
 title: Investigate Gen 3 Secret Base Memory Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-15'
 updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16755142100366917858'
 pr_number: null
 parent: task-108-163-gen3-secret-base-parser
 tags:
