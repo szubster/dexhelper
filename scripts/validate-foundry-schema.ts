@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import matter from 'gray-matter';
+import matter from '@11ty/gray-matter';
 
 function getFiles(dir: string, fileList: string[] = []): string[] {
   const files = fs.readdirSync(dir);
