@@ -1,13 +1,13 @@
 ---
-id: task-105-198-gen3-roamer-parser-qa
+id: task-105-215-gen3-roamer-parser-alternative-qa
 type: TASK
-title: QA Gen 3 Roamer Parse Logic
+title: QA Gen 3 Roamer Alternative Parse Logic
 status: PENDING
 owner_persona: qa
-created_at: '2026-06-17'
-updated_at: '2026-06-17'
+created_at: '2026-06-22'
+updated_at: '2026-06-22'
 depends_on:
-  - task-105-197-gen3-roamer-parser-impl
+  - task-105-214-gen3-roamer-parser-alternative-impl
 jules_session_id: null
 pr_number: null
 parent: story-067-105-gen3-roamer-parser-implementation
@@ -22,24 +22,22 @@ rejection_reason: ''
 notes: ''
 ---
 
-# QA Gen 3 Roamer Parse Logic
+# QA Gen 3 Roamer Alternative Parse Logic
 
 ## Objective
-Verify the Gen 3 roamer parsing implementation.
+Verify the Gen 3 alternative roamer parsing implementation.
 
 ## Description
-Ensure that the parser correctly extracts `speciesId`, `level`, and `mapId`/`mapGroup` of the active roamer using the `DataView` API and that it correctly verifies the roamer released event flag.
+Ensure that the parser correctly extracts `speciesId`, `level`, `active` status boolean, and IV metadata of the roamer using the `DataView` API. Verify that no map location parsing is attempted and that all parsing relies on module-level constants instead of inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Verify parser extracts Latios/Latias map group and ID using DataView.
 - [ ] Verify parser extracts species ID and level using DataView.
-- [ ] Verify parser checks event flags before marking roamer as active.
+- [ ] Verify parser extracts active status flag using DataView.
+- [ ] Verify parser extracts IV metadata using DataView.
 - [ ] Verify `RangeError` from out-of-bounds reads is handled gracefully.
+- [ ] Verify no inline magic numbers are used in the parsing logic.
 
 ## Execution Constraints
 - **CRITICAL**: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - **CRITICAL**: If you must abort or permanently fail a task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **CRITICAL**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-
-### Auditor Rejection
-CANCELLED: The implementation task failed permanently because extraction of Gen 3 roamer mapId and mapGroup is impossible (per adr-108-027-gen3-roamer-location-impossible). Replaced by new tasks focusing on IVs and active flag.
