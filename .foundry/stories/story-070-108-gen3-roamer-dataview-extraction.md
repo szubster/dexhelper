@@ -36,6 +36,8 @@ This story handles the base extraction logic in the save parser for Gen 3. The `
 ## Generated Tasks
 - [ ] task-108-212-gen3-roamer-dataview-extraction-impl
 - [ ] task-108-213-gen3-roamer-dataview-extraction-qa
+- [ ] task-108-214-gen3-roamer-dataview-extraction-impl
+- [ ] task-108-215-gen3-roamer-dataview-extraction-qa
 - [x] task-108-161-gen3-roamer-dataview-extraction-impl
 - [x] task-108-162-gen3-roamer-dataview-extraction-qa
 - [x] task-108-192-gen3-roamer-dataview-extraction-impl

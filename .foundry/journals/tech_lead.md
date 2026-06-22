@@ -86,3 +86,6 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 - **Incident**: The implementation task `task-128-181-implement-item-list-parsing` failed permanently because the coder correctly implemented the data generation script (`scripts/generate-pokedata.ts`) but neglected to update the Vite plugin (`vite-plugins/pokedata-plugin.ts`) to include the new file in the build payload.
 - **Action**: Spawned a RESEARCH node (`research-128-210-item-list-parsing-failure`) to investigate the exact changes needed in the Vite plugin, and created replacement TASK nodes that explicitly depend on this research and require updating the integration point. Appended the new child nodes to the parent story and appended a cancellation note to the orphaned QA task (`task-128-182`) without touching its YAML frontmatter.
 - **Lesson**: When writing technical blueprints for adding new data generation files, it is insufficient to only describe the generation logic. The blueprint MUST explicitly define the integration points (like Vite plugins or indexer registries) required to expose that newly generated data to the application.
+
+## 2026-06-22: Roamer Bitwise State
+- **Lesson**: When writing extraction tasks for bitwise fields (like IVs), explicitly instruct the coder and QA to handle and test boundary conditions as per ADR 026.
