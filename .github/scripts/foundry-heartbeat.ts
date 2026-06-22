@@ -25,6 +25,15 @@ function info(msg: string): void {
 
 const TERMINAL_STATES = ['FAILED', 'COMPLETED'];
 
+/** Extracts and strictly validates jules_session_id from a node */
+function getSessionId(node: any): string | null {
+  const rawId = node.frontmatter.jules_session_id;
+  if (typeof rawId !== 'string') return null;
+  const trimmed = rawId.trim();
+  if (!trimmed || trimmed === 'null' || trimmed === 'undefined') return null;
+  return trimmed;
+}
+
 /** Surgical mutation to FAILED */
 export async function transitionNodeToFailed(node: any, repoRoot: string, rejectionReason?: string): Promise<void> {
   const dateStr = todayISO();
@@ -317,12 +326,12 @@ export async function main() {
 
   // --- Pass 1: Check ACTIVE Nodes ---
   for (const node of activeNodes) {
-    const sessionId = node.frontmatter.jules_session_id;
+    const sessionId = getSessionId(node);
     const isHuman = node.frontmatter.owner_persona === 'human';
 
-    if (!isHuman && (!sessionId || sessionId === 'null') && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING')) {
+    if (!isHuman && !sessionId && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING')) {
       warn(`Node ${node.repoPath} is ${node.frontmatter.status} but missing session ID. Failing.`);
-      await transitionNodeToFailed(node, repoRoot, `${node.frontmatter.status} node missing session ID`);
+      await transitionNodeToFailed(node, repoRoot, `${node.frontmatter.status} node missing or malformed session ID`);
       continue;
     }
 
@@ -502,9 +511,9 @@ export async function identifyBranchesForCleanup(repoRoot: string, remoteBranche
     if (!node) continue;
 
     const status = node.frontmatter.status;
-    const sessionId = node.frontmatter.jules_session_id;
+    const sessionId = getSessionId(node);
 
-    if (!sessionId || sessionId === 'null') {
+    if (!sessionId) {
       continue;
     }
 

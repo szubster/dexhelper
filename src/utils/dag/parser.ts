@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import matter from '@11ty/gray-matter';
 
 export interface FoundryNodeData {
   id: string;

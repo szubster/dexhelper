@@ -2,10 +2,10 @@
 id: task-106-160-dag-utils-unit-tests-qa
 type: TASK
 title: QA Unit Tests for Shared DAG Utilities
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-15'
-updated_at: '2026-06-15'
+updated_at: '2026-06-22'
 depends_on:
   - task-106-159-dag-utils-unit-tests-impl
 jules_session_id: null

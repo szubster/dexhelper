@@ -46,5 +46,5 @@ Ensure the generation logic leverages generation-specific datasets (e.g., `past_
 - [ ] Run the updated script to generate the initial `items.jsonl` file.
 
 ## Critical Instructions for Coder
-- **Failure Policy**: If you must abort this task or it fails permanently, you MUST update the YAML frontmatter to `status: FAILED` and provide a `rejection_reason`. Do NOT check off any Acceptance Criteria in the event of failure.
+- **Failure Policy**: If you must abort this task or it fails permanently, you MUST update the YAML frontmatter to `status: CANCELLED` and provide a `rejection_reason`. Do NOT check off any Acceptance Criteria in the event of failure.
 - **Empty PR Policy**: If you find that the artifacts are already complete and no code changes are necessary, you MUST check off all Acceptance Criteria checkboxes (`- [x]`) and then explicitly call the `submit` tool to create an Empty PR. Do NOT end your session without calling `submit`.
