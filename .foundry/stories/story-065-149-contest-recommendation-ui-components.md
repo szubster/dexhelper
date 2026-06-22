@@ -32,3 +32,6 @@ Design and build reusable UI components to display Contest recommendations, cons
 - [ ] Develop reusable UI components for Contest recommendations.
 - [ ] Clearly display the top 1-2 recommended Contest categories.
 - [ ] Implement clear reasoning copy for recommendations (e.g. highlighting favorable Nature or high existing stat).
+
+- [ ] .foundry/tasks/task-149-212-contest-recommendation-ui-components-impl.md
+- [ ] .foundry/tasks/task-149-213-contest-recommendation-ui-components-qa.md
