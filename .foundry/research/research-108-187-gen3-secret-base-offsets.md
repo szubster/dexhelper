@@ -2,12 +2,12 @@
 id: research-108-187-gen3-secret-base-offsets
 type: RESEARCH
 title: Investigate Gen 3 Secret Base Memory Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-15'
-updated_at: '2026-06-20'
+updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: '16755142100366917858'
+jules_session_id: null
 pr_number: null
 parent: task-108-163-gen3-secret-base-parser
 tags:
@@ -33,6 +33,6 @@ To successfully implement the Gen 3 Secret Base Parser (`task-108-163-gen3-secre
 4. Are there version differences (Ruby/Sapphire vs. Emerald) for these offsets?
 
 ## Action Plan
-- Research documentation on Gen 3 save file structures.
-- Analyze decompilation repositories like `pret/pokeemerald` if necessary.
-- Document findings in `.foundry/docs/knowledge_base/gen3_secret_base_offsets.md`.
+- [x] Research documentation on Gen 3 save file structures.
+- [x] Analyze decompilation repositories like `pret/pokeemerald` if necessary.
+- [x] Document findings in `.foundry/docs/knowledge_base/gen3_secret_base_offsets.md`.

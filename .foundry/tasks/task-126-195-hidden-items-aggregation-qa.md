@@ -2,10 +2,10 @@
 id: task-126-195-hidden-items-aggregation-qa
 type: TASK
 title: QA Hidden Items Aggregation Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-17'
-updated_at: '2026-06-17'
+updated_at: '2026-06-22'
 depends_on:
   - task-126-194-hidden-items-aggregation-impl
 jules_session_id: null

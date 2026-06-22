@@ -2,12 +2,12 @@
 id: story-087-128-dynamic-item-list-parsing
 type: STORY
 title: Dynamic Item List Generation Script
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
-updated_at: '2026-06-21'
+updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: '12174888266524984013'
+jules_session_id: '8480079868462597470'
 pr_number: null
 parent: epic-049-087-dynamic-item-list-parsing
 tags:
@@ -35,5 +35,8 @@ To eliminate manually maintained static item lists in the repository, we need to
 - [ ] Perform compaction to omit nulls and default values.
 - [ ] Output the final structure to `data/db/items.jsonl`.
 - [x] Break down this STORY into concrete TASK nodes for implementation.
-- [ ] task-128-181-implement-item-list-parsing
-- [ ] task-128-182-qa-item-list-parsing
+- [ ] task-128-181-implement-item-list-parsing (CANCELLED)
+- [ ] task-128-182-qa-item-list-parsing (CANCELLED)
+- [ ] research-128-210-item-list-parsing-failure
+- [ ] task-128-212-item-list-parsing-impl
+- [ ] task-128-213-item-list-parsing-qa
