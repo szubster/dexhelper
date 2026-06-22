@@ -35,3 +35,6 @@ Verify the implementation of the Shiny Carrier Breeding Pair Algorithm.
 ## Acceptance Criteria
 - [ ] Implementation passes all tests and correctly identifies valid breeding pairs.
 - [ ] Optimal pairs involving Shiny Carriers are correctly highlighted.
+
+### Auditor Rejection
+**CANCELLED:** This task was cancelled and replaced by `task-084-205-breeding-pair-algorithm-qa` due to the cancellation of its implementation dependency.

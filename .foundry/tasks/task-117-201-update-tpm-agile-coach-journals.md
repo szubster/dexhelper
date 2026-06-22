@@ -2,12 +2,12 @@
 id: task-117-201-update-tpm-agile-coach-journals
 type: TASK
 title: Update TPM/Agile Coach Journal with Late-Binding Process
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-17'
-updated_at: '2026-06-17'
+updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17954604461018051065'
 pr_number: null
 parent: story-049-117-update-tpm-agile-coach-journal
 tags:
@@ -29,8 +29,8 @@ Process changes related to the orchestrator's handling of late-binding (where a 
 Ensure the TPM and Agile Coach personas are aware of the new late-binding process by updating their journals.
 
 ## Acceptance Criteria
-- [ ] Append process change notes regarding late-binding to the `.foundry/journals/tpm.md` journal.
-- [ ] Append process change notes regarding late-binding to the `.foundry/journals/agile_coach.md` journal.
+- [x] Append process change notes regarding late-binding to the `.foundry/journals/tpm.md` journal.
+- [x] Append process change notes regarding late-binding to the `.foundry/journals/agile_coach.md` journal.
 
 ## Developer Reminders
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

@@ -322,10 +322,10 @@ describe('generateSuggestions', () => {
 
     const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, mockStrategy);
 
-    const nearbySuggestion = suggestions.find((s) => s.id === 'catch-nearby-19');
+    const nearbySuggestion = suggestions.find((s) => s.id === 'catch-nearby-2-1');
     expect(nearbySuggestion).toBeDefined();
-    expect(nearbySuggestion?.title).toBe('Nearby: #19');
-    expect(nearbySuggestion?.pokemonId).toBe(19);
+    expect(nearbySuggestion?.title).toBe('Nearby: Route 1');
+    expect(nearbySuggestion?.pokemonIds).toContain(19);
     // Best distance is 1. Math.max(10, 110 - 1 * 12) = 110 - 12 = 98
     expect(nearbySuggestion?.priority).toBe(98);
   });

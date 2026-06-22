@@ -16,7 +16,7 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: 'Objective is impossible; Gen 3 roamer locations are not serialized in the save file (see adr-108-027).'
+rejection_reason: 'Gen 3 roamer locations cannot be extracted statically from save files (as they live in EWRAM, per ADR-108-027).'
 notes: ''
 ---
 

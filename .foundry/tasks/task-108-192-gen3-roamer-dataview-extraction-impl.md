@@ -2,7 +2,7 @@
 id: task-108-192-gen3-roamer-dataview-extraction-impl
 type: TASK
 title: Implement Gen 3 Roamer DataView Extraction and Core Parsing
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-16'
 updated_at: '2026-06-16'
@@ -16,7 +16,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Cancelled and replaced by task-108-210-gen3-roamer-dataview-extraction-impl to include magic number rule'
 notes: ''
 ---
 
@@ -41,8 +41,15 @@ To parse the IVs from the 32-bit IV integer, use the following 5-bit mask and sh
 - [ ] Implement a `DataView`-based reader for the 20-byte Gen 3 roamer structure.
 - [ ] Implement parsing logic to extract IVs, HP, and Level.
 - [ ] Ensure `DataView` native API is used exclusively for reading bytes (e.g., `getUint8`, `getUint16`, `getUint32`).
+- [ ] Ensure all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
 
 ## Execution Constraints
+- **CRITICAL**: All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
+- **CRITICAL**: Ensure that any out-of-bounds reads result in a `RangeError` that is caught and handled gracefully by propagating a validation error (e.g., "Corrupted Save File" or "The save file is corrupted or incomplete.").
 - **CRITICAL**: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - **CRITICAL**: If you must abort or permanently fail a task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **CRITICAL**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+
+### Auditor Rejection
+This task is permanently cancelled and replaced by task-108-210-gen3-roamer-dataview-extraction-impl to include magic number rule.

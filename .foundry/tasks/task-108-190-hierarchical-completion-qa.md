@@ -2,13 +2,13 @@
 id: task-108-190-hierarchical-completion-qa
 type: TASK
 title: QA Hierarchical Completion and Markdown Link Extraction in Orchestrator
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-16'
-updated_at: '2026-06-20'
+updated_at: '2026-06-21'
 depends_on:
   - task-108-189-hierarchical-completion-impl
-jules_session_id: '3689848670533081350'
+jules_session_id: null
 pr_number: null
 parent: story-070-108-orchestrator-hierarchical-completion-logic
 tags:
@@ -40,6 +40,6 @@ Verify that the `foundry-orchestrator.ts` correctly blocks node transitions when
    - If you submit an empty PR for this completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `foundry-orchestrator.ts` parses markdown links and adds them to `parentToChildren` and `childToParents`.
-- [ ] Multiple parents are correctly traversed.
-- [ ] Tests pass verifying hierarchical completion blocks `VERIFYING` or `COMPLETED` when any explicit or markdown child is not `COMPLETED`.
+- [x] `foundry-orchestrator.ts` parses markdown links and adds them to `parentToChildren` and `childToParents`.
+- [x] Multiple parents are correctly traversed.
+- [x] Tests pass verifying hierarchical completion blocks `VERIFYING` or `COMPLETED` when any explicit or markdown child is not `COMPLETED`.

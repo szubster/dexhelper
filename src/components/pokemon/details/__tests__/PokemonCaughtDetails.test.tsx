@@ -74,4 +74,32 @@ describe('PokemonCaughtDetails', () => {
 
     await expect.element(page.getByText('INVALID: Gen 2 Species')).toBeInTheDocument();
   });
+
+  it('renders ContestRibbonsPanel for Gen 3 pokemon with ribbons', async () => {
+    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+      (selector: unknown) =>
+        (selector as (state: unknown) => unknown)({
+          saveData: {
+            generation: 3,
+          },
+        }),
+    );
+
+    const gen3PokemonWithRibbons = {
+      ...mockPokemon,
+      ribbons: {
+        cool: 4,
+        beauty: 0,
+        cute: 0,
+        smart: 0,
+        tough: 0,
+      },
+    };
+
+    await render(<PokemonCaughtDetails yourPokemon={[gen3PokemonWithRibbons]} />);
+
+    await expect.element(page.getByText('Contest Ribbons')).toBeInTheDocument();
+    await expect.element(page.getByText('Cool')).toBeInTheDocument();
+    await expect.element(page.getByText('Master')).toBeInTheDocument();
+  });
 });

@@ -2,12 +2,12 @@
 id: task-119-204-dag-context-provider-impl
 type: TASK
 title: Implement DagContext and Provider Impl
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-18'
-updated_at: '2026-06-18'
+updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16182709352608554863'
 pr_number: null
 parent: story-078-119-implement-dag-context-provider
 tags:
