@@ -120,3 +120,11 @@
 ## 2026-06-25
 **Idea:** Gen 4 Poké Radar Chain Tracker
 **Learning:** When expanding into a new generation (Gen 4), focus on identifying the most stressful and highly volatile manual mechanics—like the 40-chain Poké Radar limit, where a single mistake breaks the chain. By directly reading the active chain counter from the save file, we replace a fragile manual tracking process with absolute programmatic certainty, deeply reinforcing DexHelper's value as an indispensable premium companion app.
+
+## 2026-06-25 (Update)
+**Idea:** Gen 4 Poké Radar Chain Tracker
+**Learning:** The maintainer rejected the idea of extracting Gen 4 Poké Radar chain data because Generation 4 is currently completely unsupported and out of scope for the immediate roadmap. In the future, strictly limit ideation to generations currently supported by the app (Gen 1-3) unless specifically requested otherwise.
+
+## 2026-06-25 (Second Attempt)
+**Idea:** Gen 3 Pokéblock Inventory and Contest Planner
+**Learning:** When generating new ideas after a rejection due to scope (like proposing Gen 4 features), pivot back to the core mechanics of the currently supported generations. Expanding on existing Gen 3 support (like Contests) by revealing the hidden, exact stats of items (like Pokéblocks' feel and flavor) perfectly aligns with DexHelper's strength of turning opaque game data into actionable strategy without overstepping the project roadmap.
