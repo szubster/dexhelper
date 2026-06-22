@@ -33,6 +33,6 @@ As part of the Zombie Node Detection Engine (Epic 050), we need to extract and s
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Implement robust extraction logic for `jules_session_id`.
-- [ ] Implement format and existence validation for the extracted ID.
-- [ ] Create or update tests handling cases with valid, null, missing, or malformed session IDs.
+- [x] Implement robust extraction logic for `jules_session_id`.
+- [x] Implement format and existence validation for the extracted ID.
+- [x] Create or update tests handling cases with valid, null, missing, or malformed session IDs.
