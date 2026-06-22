@@ -162,3 +162,18 @@ I verified `epic-071-074-define-tailwind-v4-utilities` and its child stories and
 
 ### Strict Hierarchical Verification for Macro Nodes
 When verifying macro nodes like EPICs, it's critical to recursively check that all spawned descendant nodes (down to the TASK level) have fully transitioned to the COMPLETED state before submitting an empty PR. Relying solely on the parent node's acceptance criteria checkboxes or immediate child nodes can prematurely transition the node to VERIFYING, leading to system inconsistency as the actual implementation might not yet be merged into the codebase. This applies to all deep levels of the spawned sub-tree.
+
+## Tailwind v4 @utility Variant Inheritance
+**Pattern:** tactical-* utilities correctly utilized Tailwind v4 native @utility to inherit hover and focus states naturally without nested variant requirements.
+
+### QA Task Verification Pairing Flexibility
+During the audit of `epic-071-074-define-tailwind-v4-utilities`, it was discovered that `story-074-114-define-tactical-button-and-focus` lacked a corresponding QA task.
+
+**Why this matters:**
+While generally QA tasks verify implementations, the coder is always responsible for writing tests. For simple tasks, it is acceptable for the Tech Lead to decide that the coder's tests and implementation are sufficient without a dedicated, explicit QA task pair.
+
+**Recommendation/Learnings:**
+Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.
+
+**Why this matters (Tailwind v4 @utility):**
+Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block. This greatly reduces repetitive class usage.
