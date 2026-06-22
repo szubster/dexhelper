@@ -37,5 +37,5 @@ Develop a dashboard view that presents the exact state of the roaming Pokémon, 
 - [ ] Ensure seamless integration with the Route Radar UI component.
 - [ ] Story Owner: Break down this Epic into executable Stories.
 
-### Cancellation Notice
+### Auditor Rejection
 **CANCELLED:** This epic is cancelled and replaced by `epic-044-096-gen3-roamer-dashboard-ui-v2.md` because its dependency on the Gen 3 Roamer Location Radar is impossible to satisfy.
