@@ -29,8 +29,8 @@ Process changes related to the orchestrator's handling of late-binding (where a 
 Ensure the TPM and Agile Coach personas are aware of the new late-binding process by updating their journals.
 
 ## Acceptance Criteria
-- [ ] Append process change notes regarding late-binding to the `.foundry/journals/tpm.md` journal.
-- [ ] Append process change notes regarding late-binding to the `.foundry/journals/agile_coach.md` journal.
+- [x] Append process change notes regarding late-binding to the `.foundry/journals/tpm.md` journal.
+- [x] Append process change notes regarding late-binding to the `.foundry/journals/agile_coach.md` journal.
 
 ## Developer Reminders
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
