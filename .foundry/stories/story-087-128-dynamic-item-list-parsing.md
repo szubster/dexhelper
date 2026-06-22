@@ -37,3 +37,6 @@ To eliminate manually maintained static item lists in the repository, we need to
 - [x] Break down this STORY into concrete TASK nodes for implementation.
 - [ ] task-128-181-implement-item-list-parsing
 - [ ] task-128-182-qa-item-list-parsing
+- [ ] research-128-210-item-list-parsing-failure
+- [ ] task-128-212-implement-item-list-parsing-retry
+- [ ] task-128-213-qa-item-list-parsing-retry
