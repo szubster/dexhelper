@@ -2,7 +2,7 @@
 id: idea-086-box-duplicate-analyzer
 type: IDEA
 title: PC Box Duplicate Analyzer & Release Assistant
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-22'
 updated_at: '2026-06-22'
