@@ -83,6 +83,8 @@ export function DagFilterPanel({
       />
       <button
         type="button"
+        aria-label="Toggle permanent failures only"
+        title="Toggle permanent failures only"
         className={`!border-dashed border px-2 py-1 text-xs focus-visible:ring-[var(--theme-primary)] ${
           showPermanentFailures
             ? 'border-red-500 bg-red-950/20 text-red-500 shadow-none'

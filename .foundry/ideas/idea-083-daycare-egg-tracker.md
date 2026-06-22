@@ -36,3 +36,4 @@ Leverage DexHelper's offline-first programmatic save parsing to extract and disp
 ## Value Proposition
 
 By surfacing these highly opaque, heavily utilized mechanics, DexHelper immediately solves a massive pain point for competitive breeders and completionists. Transforming vague in-game hints into exact, actionable data points perfectly aligns with the app's mission to be the ultimate premium companion tool for retro Pokémon.
+- [ ] .foundry/prds/prd-083-053-daycare-egg-tracker.md

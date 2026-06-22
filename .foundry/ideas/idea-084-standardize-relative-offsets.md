@@ -35,5 +35,6 @@ We need an architectural rule (e.g., an ADR) or a linter check to enforce that, 
 
 ## Acceptance Criteria
 - [x] Investigate if a linter rule can be built to flag hardcoded offsets during save parsing.
+- [ ] .foundry/prds/prd-084-053-standardize-relative-offsets.md
 - [ ] If a linter is not feasible, establish a strict architectural ADR mandating relative offset mapping for dynamic save block extraction.
 - [ ] Roll out guidance to Coder and QA personas.

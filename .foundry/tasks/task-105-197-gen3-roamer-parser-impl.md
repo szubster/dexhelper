@@ -2,14 +2,14 @@
 id: task-105-197-gen3-roamer-parser-impl
 type: TASK
 title: Implement Gen 3 Roamer Parse Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-17'
 updated_at: '2026-06-21'
 depends_on:
   - research-105-196-gen3-roamer-event-flag
   - task-108-192-gen3-roamer-dataview-extraction-impl
-jules_session_id: null
+jules_session_id: '11037981089361676713'
 pr_number: null
 parent: story-067-105-gen3-roamer-parser-implementation
 tags:

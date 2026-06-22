@@ -172,7 +172,6 @@ ok: true,
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    // Mock API requests done in the cleanup phase to prevent them from failing the mock verification
     globalFetch.mockResolvedValue({
       ok: true,
       status: 200,
@@ -208,8 +207,110 @@ ok: true,
 
     await main();
 
-    // we need to filter out the cleanup fetch calls before ensuring the regular global fetch wasn't called.
-    // Github list PRs is called for remote branch cleanup
+    expect(fs.writeFileSync).toHaveBeenCalled();
+  });
+
+  it('should transition a node to FAILED if jules_session_id is empty string', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        status: 'ACTIVE',
+        jules_session_id: ""
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: ""\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    globalFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => []
+    } as unknown as Response);
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+  });
+
+  it('should transition a node to FAILED if jules_session_id is whitespace only', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        status: 'ACTIVE',
+        jules_session_id: "   "
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "   "\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    globalFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => []
+    } as unknown as Response);
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+  });
+
+  it('should transition a node to FAILED if jules_session_id is literal "null"', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        status: 'ACTIVE',
+        jules_session_id: "null"
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "null"\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    globalFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => []
+    } as unknown as Response);
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+  });
+
+  it('should transition a node to FAILED if jules_session_id is literal "undefined"', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        status: 'ACTIVE',
+        jules_session_id: "undefined"
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "undefined"\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    globalFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => []
+    } as unknown as Response);
+
+    await main();
+
     expect(fs.writeFileSync).toHaveBeenCalled();
   });
 

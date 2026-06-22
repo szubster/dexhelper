@@ -2,12 +2,12 @@
 id: research-192-209-egg-groups-missing-data
 type: RESEARCH
 title: Investigate Missing Egg Groups Data for Breeding Algorithm
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-18'
-updated_at: '2026-06-18'
+updated_at: '2026-06-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12323051297088765958'
 pr_number: null
 parent: task-084-192-breeding-pair-algorithm-impl
 tags:

@@ -5,9 +5,9 @@ title: Implement Gen 3 Pokemon PID Extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
-updated_at: '2026-06-20'
+updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: '1383118929299349175'
+jules_session_id: '1801508928717259214'
 pr_number: null
 parent: story-061-099-extract-pokemon-pids
 tags:

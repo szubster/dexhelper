@@ -26,6 +26,25 @@ const NUM_SECTIONS = 14;
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
 
+const GEN3_ROAMER_OFFSET_RS = 0x3144;
+const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
+const GEN3_ROAMER_OFFSET_FRLG = 0x30d0;
+
+const ROAMER_IVS_OFFSET = 0;
+const ROAMER_PV_OFFSET = 4;
+const ROAMER_SPECIES_ID_OFFSET = 8;
+const ROAMER_HP_OFFSET = 10;
+const ROAMER_LEVEL_OFFSET = 12;
+const ROAMER_STATUS_OFFSET = 13;
+const ROAMER_ACTIVE_OFFSET = 19;
+
+const IV_MASK = 0x1f;
+const IV_SHIFT_ATK = 5;
+const IV_SHIFT_DEF = 10;
+const IV_SHIFT_SPD = 15;
+const IV_SHIFT_SPATK = 20;
+const IV_SHIFT_SPDEF = 25;
+
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
  *
@@ -103,20 +122,18 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  * Extracts the status and growth data of all 128 Berry Patches in Hoenn.
  *
  * **Binary Data Structure:**
- * Each berry patch is represented by an 8-byte structure:
+ * Each berry patch is represented by an 8-byte structure starting at offset `0x071C` within SaveBlock1.
  * - `Byte 0`: Berry ID (which berry is planted).
- * - `Byte 1`: Growth Stage & Stop Flag. The lower 7 bits represent the current growth stage.
- *   The highest bit (`0x80`) is a boolean flag indicating if growth has been stopped (e.g., fully grown).
- * - `Bytes 2-3`: 16-bit timer indicating minutes until the next growth stage.
- * - `Byte 4`: The total berry yield expected when harvested.
- * - `Byte 5`: Regrowth Count & Watering Flags. The lower 4 bits track how many times the plant has
- *   regrown after dropping its berries. The upper 4 bits are individual boolean flags indicating
- *   if the plant was watered during each of its 4 growth stages (`0x10`, `0x20`, `0x40`, `0x80`).
- * - `Bytes 6-7`: Padding / unused.
+ * - `Byte 1`: Growth stage (bits 0-6) and a flag indicating if growth has stopped (bit 7).
+ * - `Bytes 2-3`: A 16-bit little-endian integer tracking minutes until the next growth stage.
+ * - `Byte 4`: Berry yield (how many berries can be picked).
+ * - `Byte 5`: A packed bitfield tracking watering history across the 4 growth stages,
+ *             plus the number of times the patch has regrown without being picked (lower 4 bits).
+ * - `Bytes 6-7`: Unused padding.
  *
  * @param view - The raw save file DataView.
- * @param saveBlock1Offset - The base offset of SaveBlock1.
- * @returns An array of parsed `Gen3BerryPatch` objects.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @returns An array of parsed `Gen3BerryPatch` objects representing the state of all 128 patches.
  * @throws RangeError if the read goes out of bounds.
  */
 function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
@@ -192,49 +209,63 @@ export function isGen3Save(view: DataView): boolean {
 /**
  * Parses the Gen 3 Roamer data (e.g., Latias or Latios) from the save file.
  *
- * @remarks
- * Roaming Pokémon data is stored in a specific memory block depending on the game version.
- * The structure contains the Pokémon's IVs (packed into a 32-bit integer), Personality Value,
- * Species ID, HP, Level, Status Condition, and an active boolean flag.
+ * **Version-Specific Memory Shifts:**
+ * The roamer data block does not have a fixed location; it shifts significantly depending
+ * on the game engine version due to differing lengths of preceding data structures
+ * (like PC items, mail, or battle tower stats):
+ * - Ruby/Sapphire: `SaveBlock1 + 0x3144`
+ * - Emerald: `SaveBlock1 + 0x31DC`
+ * - FireRed/LeafGreen: `SaveBlock1 + 0x30D0`
  *
- * Note: Gen 3 Pokémon roamer map locations are stored in dynamic EWRAM while the game is running
- * and are *not* serialized into the .sav battery save file. Therefore, only static attributes
- * (like IVs and PV) can be extracted.
+ * **Binary Data Structure:**
+ * - `Bytes 0-3`: A 32-bit little-endian integer containing the packed Individual Values (IVs).
+ *   The IVs are densely packed as six 5-bit sequences:
+ *   - HP (bits 0-4), Attack (bits 5-9), Defense (bits 10-14),
+ *   - Speed (bits 15-19), Sp. Attack (bits 20-24), Sp. Defense (bits 25-29).
+ * - `Bytes 4-7`: The 32-bit Personality Value (PV).
+ * - `Bytes 8-9`: The 16-bit Species ID.
+ * - `Bytes 10-11`: Current HP.
+ * - `Byte 12`: Level.
+ * - `Byte 13`: Status Condition.
+ * - `Byte 19`: Active boolean flag (determines if the roamer is currently roaming or caught/fainted).
+ *
+ * *Note:* Gen 3 Pokémon roamer map locations are stored in dynamic EWRAM while the game is running
+ * and are *not* serialized into the .sav battery save file. Therefore, only static attributes can be extracted.
  *
  * @param view - The raw save file DataView.
- * @param saveBlock1Offset - The offset where SaveBlock1 starts.
- * @param gameVersion - The version of the Gen 3 game.
- * @returns An object containing the extracted roamer data.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @param gameVersion - The detected game version used to apply the correct memory shift.
+ * @returns An object containing the extracted roamer data, including unpacked IVs.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVersion: string) {
   let offset = saveBlock1Offset;
   if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
-    offset += 0x3144;
+    offset += GEN3_ROAMER_OFFSET_RS;
   } else if (gameVersion === 'emerald') {
-    offset += 0x31dc;
+    offset += GEN3_ROAMER_OFFSET_EMERALD;
   } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
-    offset += 0x30d0;
+    offset += GEN3_ROAMER_OFFSET_FRLG;
   } else {
     // Defaulting to ruby offset if unknown
-    offset += 0x3144;
+    offset += GEN3_ROAMER_OFFSET_RS;
   }
 
   try {
-    const ivs = view.getUint32(offset, true);
-    const personalityValue = view.getUint32(offset + 4, true);
-    const speciesId = view.getUint16(offset + 8, true);
-    const hp = view.getUint16(offset + 10, true);
-    const level = view.getUint8(offset + 12);
-    const statusCondition = view.getUint8(offset + 13);
-    const active = view.getUint8(offset + 19) !== 0;
+    const ivs = view.getUint32(offset + ROAMER_IVS_OFFSET, true);
+    const personalityValue = view.getUint32(offset + ROAMER_PV_OFFSET, true);
+    const speciesId = view.getUint16(offset + ROAMER_SPECIES_ID_OFFSET, true);
+    const hp = view.getUint16(offset + ROAMER_HP_OFFSET, true);
+    const level = view.getUint8(offset + ROAMER_LEVEL_OFFSET);
+    const statusCondition = view.getUint8(offset + ROAMER_STATUS_OFFSET);
+    const active = view.getUint8(offset + ROAMER_ACTIVE_OFFSET) !== 0;
 
-    const ivHp = ivs & 0x1f;
-    const atk = (ivs >> 5) & 0x1f;
-    const def = (ivs >> 10) & 0x1f;
-    const spd = (ivs >> 15) & 0x1f;
-    const spAtk = (ivs >> 20) & 0x1f;
-    const spDef = (ivs >> 25) & 0x1f;
+    const ivHp = ivs & IV_MASK;
+    const atk = (ivs >> IV_SHIFT_ATK) & IV_MASK;
+    const def = (ivs >> IV_SHIFT_DEF) & IV_MASK;
+    const spd = (ivs >> IV_SHIFT_SPD) & IV_MASK;
+    const spAtk = (ivs >> IV_SHIFT_SPATK) & IV_MASK;
+    const spDef = (ivs >> IV_SHIFT_SPDEF) & IV_MASK;
 
     return {
       ivs: { hp: ivHp, atk, def, spd, spAtk, spDef },

@@ -33,6 +33,7 @@ Validate that the `DataView` API is used correctly and exclusively for reading t
 - [ ] Verify `DataView` native API is used exclusively for reading the 20-byte structure.
 - [ ] Verify the parsing logic accurately extracts IVs, HP, and Level.
 - [ ] Write tests confirming accurate parsing for edge cases and known data structures.
+- [ ] Verify that any out-of-bounds reads throw a `RangeError` which is caught and gracefully handled (e.g., throwing "The save file is corrupted or incomplete.").
 - [ ] Verify that no inline magic numbers were used for memory offsets, lengths, bit locations, or shifts, ensuring they are defined as reusable constants at the module level.
 
 ## Execution Constraints

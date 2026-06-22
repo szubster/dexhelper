@@ -32,11 +32,11 @@ Ensure that any out-of-bounds reads result in a `RangeError` that is caught and 
 All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView` reading logic for the 20-byte Gen 3 roamer structure.
-- [ ] Implement parsing logic for IVs, HP, and Level from the structure.
-- [ ] Handle `RangeError` on out-of-bounds reads gracefully and throw a clear validation error.
-- [ ] All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
-- [ ] Tests and lint must pass.
+- [x] Implement `DataView` reading logic for the 20-byte Gen 3 roamer structure.
+- [x] Implement parsing logic for IVs, HP, and Level from the structure.
+- [x] Handle `RangeError` on out-of-bounds reads gracefully and throw a clear validation error.
+- [x] All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
+- [x] Tests and lint must pass.
 
 **Important Instructions:**
 If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
