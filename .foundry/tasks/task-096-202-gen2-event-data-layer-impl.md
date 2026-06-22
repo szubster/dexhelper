@@ -2,12 +2,12 @@
 id: task-096-202-gen2-event-data-layer-impl
 type: TASK
 title: Gen 2 Event Data Layer - Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-06-17'
-updated_at: '2026-06-21'
+updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: '10252554512704470389'
+jules_session_id: null
 pr_number: null
 parent: story-061-096-gen2-event-data-layer
 tags:
