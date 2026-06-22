@@ -57,7 +57,7 @@ describe('PokemonCaughtDetails', () => {
 
     await render(<PokemonCaughtDetails yourPokemon={[mockPokemon]} />);
 
-    await expect.element(page.getByText('[ TIME CAPSULE READY ]')).toBeInTheDocument();
+    await expect.element(page.getByText('[ TIME CAPSULE COMPATIBLE ]')).toBeInTheDocument();
   });
 
   it('renders Gen 2 specific info and Time Capsule validation with error', async () => {
