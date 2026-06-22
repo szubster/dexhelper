@@ -209,3 +209,9 @@
 **Outcome:** Merged / Accepted
 **Why:** Improves spatial efficiency on widescreen displays and heavily reinforces the tactical "database terminal/personnel file" aesthetic established across the application.
 **Pattern:** Continue identifying opportunities to transform generic modals/dialogs into structured, specialized interfaces (like dossier panels or telemetry overlays) that use sidebars, borders, and monospaced meta-data fields. Avoid monolithic stacks on large screens.
+
+## 2026-07-22 - [Accepted] - 🖼️ Canvas: Tactical Biometric Data Node Redesign
+**What:** Redesigned the `PokemonCaughtDetails` component into a "Biometric Data Node" layout. Replaced the generic grid of standard `TacticalPanel`s with a design that treats each caught instance as a specialized biometric or telemetry read-out node using `LcdGrid`, `HoverScanner`, and `TelemetryDecoration`. Replaced standard text labels with complex dashed telemetry pipes and bracketed monospaced fonts (`[ OT_ID ]`, `[ HELD_ITEM ]`).
+**Outcome:** Accepted
+**Why:** Brings the "Discovered Units" display fully in line with the tactical, snooping specialized hardware motif. The previous design used standard structural cards, which felt generic. Treating individual caught Pokémon as active biometric scans with anomaly detection (shiny status) and detailed data pipes reinforces the specialized device fantasy.
+**Pattern:** Apply tactical aesthetics (telemetry pipes, bracketed labels, scanning background grids, anomaly text) to instance-level data views, transforming them from basic stat lists into active "Biometric Data Nodes" to maintain absolute visual coherence.

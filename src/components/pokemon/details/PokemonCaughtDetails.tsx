@@ -1,12 +1,14 @@
-import { CheckCircle2, CircleDot, MapPin, Sparkles } from 'lucide-react';
+import { Activity, Dna, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { useStore } from '../../../store';
 import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
-import { DataPoint } from '../../DataPoint';
+import { HoverScanner } from '../../HoverScanner';
+import { LcdGrid } from '../../LcdGrid';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
+import { TelemetryDecoration } from '../../TelemetryDecoration';
 import { ContestRibbonsPanel } from './ContestRibbonsPanel';
 
 interface PokemonCaughtDetailsProps {
@@ -20,25 +22,29 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
 
   return (
     <div className="slide-in-from-bottom-4 fade-in animate-in space-y-6 fill-mode-both duration-500">
-      <SectionHeader title="Discovered Units" icon={<CheckCircle2 size={14} className="text-emerald-500" />} />
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <SectionHeader title="Biometric Signatures" icon={<Dna size={14} className="text-emerald-500" />} />
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {yourPokemon.map((p, i) => (
           <TacticalPanel
             key={`${p.storageLocation}-${p.slot || i}`}
-            variant="white"
-            className="group space-y-5 rounded-none border border-dashed p-6"
+            variant={p.isShiny ? 'amber' : 'emerald'}
+            className="group !p-0 relative flex flex-col gap-0 rounded-none border border-dashed"
           >
-            <div className="absolute top-0 right-0 p-3 opacity-10 transition-transform group-hover:scale-110">
-              {p.isShiny ? (
-                <Sparkles size={40} className="text-amber-400" />
-              ) : (
-                <CircleDot size={40} className="text-white/20" />
-              )}
-            </div>
+            <LcdGrid className="opacity-[0.03]" />
+            <HoverScanner />
 
-            <div className="relative z-10 flex items-start justify-between">
-              <div>
-                <div className="font-black font-display text-2xl text-white tracking-tighter">LV.{p.level}</div>
+            <TelemetryDecoration
+              label={p.isShiny ? 'ANOMALY DETECTED' : 'STANDARD ISSUE'}
+              className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
+              textClassName={p.isShiny ? 'text-amber-400' : 'text-emerald-500'}
+            />
+
+            <div className="relative z-10 mt-6 flex items-start justify-between border-white/5 border-b border-dashed bg-black/40 p-4">
+              <div className="flex flex-col">
+                <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
+                  [ SECURITY CLEARANCE ]
+                </span>
+                <div className="font-black font-display text-4xl text-white tracking-tighter">LV.{p.level}</div>
                 <div className="mt-1 flex items-center gap-2">
                   <TacticalBadge
                     variant="primary"
@@ -56,18 +62,52 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                   )}
                 </div>
               </div>
+              <div className="opacity-80 mix-blend-screen transition-transform duration-500 group-hover:scale-110">
+                {p.isShiny ? (
+                  <Sparkles size={48} className="text-amber-500 drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
+                ) : (
+                  <Activity size={48} className="text-emerald-500 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]" />
+                )}
+              </div>
+            </div>
+
+            <div className="relative z-10 flex flex-1 flex-col justify-center gap-0 border-white/10 border-l-2 border-dashed bg-zinc-950/40 p-4">
+              {p.otName && (
+                <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed pb-3 pl-3 before:absolute before:top-2 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
+                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ OT_ID ]</span>
+                  <span className="truncate font-mono text-[11px] text-zinc-300">{p.otName}</span>
+                </div>
+              )}
+              {p.item !== undefined && p.item > 0 && (
+                <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed py-3 pl-3 before:absolute before:top-4 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
+                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ HELD_ITEM ]</span>
+                  <span className="truncate font-mono text-[11px] text-zinc-300">{gen2Items[p.item]}</span>
+                </div>
+              )}
+              {p.friendship !== undefined && (
+                <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed pt-3 pl-3 before:absolute before:top-4 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
+                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ SYNC_RATE ]</span>
+                  <span className="font-mono text-[11px] text-rose-400">{p.friendship} PT</span>
+                </div>
+              )}
             </div>
 
             {generation === 2 && (
-              <div className="relative z-10 border-white/5 border-t pt-4 pb-2">
+              <div className="relative z-10 border-white/5 border-t border-dashed bg-black/60 p-4">
                 {(() => {
                   const validation = getTimeCapsuleValidation(p.speciesId, p.moves);
                   return validation.isEligible ? (
-                    <TacticalBadge variant="emerald" className="rounded-none font-mono text-[9px] uppercase">
-                      [ TIME CAPSULE READY ]
+                    <TacticalBadge
+                      variant="emerald"
+                      className="w-full justify-center rounded-none font-mono text-[9px] uppercase"
+                    >
+                      [ TIME CAPSULE COMPATIBLE ]
                     </TacticalBadge>
                   ) : (
-                    <TacticalBadge variant="red" className="rounded-none font-mono text-[9px] uppercase">
+                    <TacticalBadge
+                      variant="red"
+                      className="w-full justify-center rounded-none font-mono text-[9px] uppercase"
+                    >
                       {validation.reason}
                     </TacticalBadge>
                   );
@@ -75,45 +115,22 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
               </div>
             )}
 
-            <div className="relative z-10 grid grid-cols-2 gap-x-4 gap-y-2">
-              {p.otName && (
-                <DataPoint
-                  label="Original Trainer"
-                  value={p.otName}
-                  labelClassName="text-[8px]"
-                  valueClassName="truncate text-[10px] text-zinc-200"
-                />
-              )}
-              {p.item !== undefined && p.item > 0 && (
-                <DataPoint
-                  label="Held Item"
-                  value={gen2Items[p.item]}
-                  labelClassName="text-[8px]"
-                  valueClassName="truncate text-[10px] text-zinc-200"
-                />
-              )}
-              {p.friendship !== undefined && (
-                <DataPoint
-                  label="Friendship"
-                  value={`${p.friendship} pt`}
-                  labelClassName="text-[8px]"
-                  valueClassName="text-[10px] text-rose-400"
-                />
-              )}
-            </div>
-
             {p.caughtData && (
-              <div className="relative z-10 space-y-1 border-white/5 border-t pt-4">
+              <div className="relative z-10 flex items-center justify-between border-white/5 border-t border-dashed bg-zinc-900/40 p-4">
                 <span className="flex items-center gap-1 font-black text-[8px] text-zinc-500 uppercase tracking-widest">
-                  <MapPin size={8} /> Origin Point
+                  <MapPin size={10} className="text-[var(--theme-primary)]" /> EXTRACTION POINT
                 </span>
-                <div className="truncate font-black text-[10px] text-zinc-300 uppercase tracking-tight">
+                <span className="truncate font-black text-[10px] text-[var(--theme-primary)] uppercase tracking-tight">
                   {gen2Locations[p.caughtData.location] || 'UNKNOWN ZONE'}
-                </div>
+                </span>
               </div>
             )}
 
-            {p.ribbons && generation === 3 && <ContestRibbonsPanel ribbons={p.ribbons} />}
+            {p.ribbons && generation === 3 && (
+              <div className="relative z-10 border-white/5 border-t border-dashed bg-black/40 p-4">
+                <ContestRibbonsPanel ribbons={p.ribbons} />
+              </div>
+            )}
           </TacticalPanel>
         ))}
       </div>
