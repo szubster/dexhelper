@@ -30,3 +30,9 @@ When creating implementation tasks for UI components, explicit integration steps
 
 ## Transient Logs
 System failures, node state transitions (e.g. from FAILED to READY), and "is now COMPLETED" status log entries in Foundry journals add zero value to future runs and unnecessarily expand the context window. Such logs belong in orchestrator execution logs or PR history, not long-term agent journals.
+
+## Styling Ownership (Palette Persona)
+The `palette` persona is the master of the Tailwind and styling ecosystem. This includes:
+1. Maintaining custom primitives in `src/index.css` using the `@utility` directive.
+2. Consolidating repeating utility combinations.
+3. Ensuring styling adherence to the tactical hardware aesthetic guidelines (e.g., `rounded-none`, `border-dashed`, monospaced fonts) as defined in ADR 024.

@@ -149,6 +149,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 
 | Value | Role |
 |---|---|
+| `palette` | Master of Tailwind and styling ecosystem. Maintains `src/index.css` and custom tactical `@utility` primitives as per ADR 024. |
 | `product_manager` | Transforms `IDEA` → `PRD`. |
 | `epic_planner` | Transforms `PRD` → `EPIC` breakdown. |
 | `story_owner` | Monitors active epics; writes `STORY` nodes dynamically (late-binding). |
