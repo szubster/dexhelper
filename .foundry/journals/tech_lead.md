@@ -64,6 +64,9 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 ## 2026-06-18: Gen 3 Roamer Location Constraint
 - **Observation**: Extracting the exact current map location and location history of the roaming Pokémon from a Gen 3 `.sav` file is mathematically impossible. These values (`sRoamerLocation` and `sLocationHistory`) are kept dynamically in `EWRAM` and are never serialized into the static save file.
 - **Action**: The technical blueprint generation for extracting this data must be cancelled. An ADR was created to permanently document this architectural impossibility to prevent future wasted cycles.
+## 2026-06-20: Late-Binding Orchestrator Demotion Compliance
+- **Observation**: When woken up by the orchestrator for a `STORY` node that is `ACTIVE` but whose generated child `TASK` nodes are still `PENDING`, the persona must submit an Empty PR without modifying the file (e.g., checking off the generated task checkboxes).
+- **Action**: Followed the Orchestrator Late-Binding Rule. Ensuring the parent node's checkboxes remain unchecked allows the heartbeat script to properly demote the parent node back to `PENDING` so it waits for its children to complete.
 
 ## 2026-06-19: Handling Permanent Failure of Shiny Carrier Breeding Pair Algorithm implementation
 - **Incident**: The implementation task `task-084-192-breeding-pair-algorithm-impl` failed permanently because the codebase (`PokemonMetadata` inside `src/db/schema.ts`) lacks `egg_groups` data and lacks a method to compute Gen 2 Pokemon gender based on DVs.
@@ -76,3 +79,10 @@ When dealing with a permanent failure of child tasks (e.g. `task-108-192-gen3-ro
 1.  **Do NOT check off failed tasks**: In the parent node (e.g. `story-070-108`), do NOT check off the acceptance criteria checkboxes for permanently failed nodes (`task-108-192` or `task-108-193`). They must remain unchecked to accurately reflect their aborted status and to avoid tricking the orchestrator into prematurely advancing the parent node.
 2.  **Orphaned QA tasks YAML**: For pending QA tasks whose dependencies permanently failed (e.g. `task-108-193`), you MUST NOT modify their YAML frontmatter (e.g. `status` or `rejection_reason`). You only append a cancellation notice and an `### Auditor Rejection` section in their markdown body. Modifying the YAML frontmatter of orphaned pending QA tasks breaks the state machine.
 3.  **Properly CANCEL failed dependencies**: If the failing task is an implementation task or a research task (e.g. `research-108-194`), you DO update its YAML frontmatter `status` to `CANCELLED` and add a `rejection_reason`.
+
+### 2026-06-21: DAG ID Strictness and YAML Immutability
+When drafting QA tasks, explicitly use exact Node IDs without file extensions or repo-relative paths in the `depends_on` array to prevent blocking DAG resolution. Furthermore, never modify a task or story's YAML frontmatter (such as `updated_at`) when appending child nodes; only modify the markdown body.
+## 2026-06-21: Explicit Integration in Data Pipeline Blueprints
+- **Incident**: The implementation task `task-128-181-implement-item-list-parsing` failed permanently because the coder correctly implemented the data generation script (`scripts/generate-pokedata.ts`) but neglected to update the Vite plugin (`vite-plugins/pokedata-plugin.ts`) to include the new file in the build payload.
+- **Action**: Spawned a RESEARCH node (`research-128-210-item-list-parsing-failure`) to investigate the exact changes needed in the Vite plugin, and created replacement TASK nodes that explicitly depend on this research and require updating the integration point. Appended the new child nodes to the parent story and appended a cancellation note to the orphaned QA task (`task-128-182`) without touching its YAML frontmatter.
+- **Lesson**: When writing technical blueprints for adding new data generation files, it is insufficient to only describe the generation logic. The blueprint MUST explicitly define the integration points (like Vite plugins or indexer registries) required to expose that newly generated data to the application.

@@ -33,9 +33,16 @@ When performing research on save file offsets, never blindly trust task descript
 - **Date**: 2026-06-18
 - **Observation**: Roamer locations (`sRoamerLocation` and `sLocationHistory`) are kept in dynamic `EWRAM_DATA` and are not directly saved to the `.sav` file; they re-initialize dynamically upon startup.
 - **Pattern/Constraint**: It is mathematically impossible to extract the exact current route of a roaming Pokémon directly from a static Gen 3 `.sav` file unless the player saved while the roamer was active on their current route.
+Learned: Execution Plan Groundedness Rule for Markdown Lists: Do not assume the existence of empty checkboxes (`[ ]`) in task or issue descriptions. If the target text uses standard bullet points (`- `), explicitly plan to change them to checked boxes (`- [x] `) rather than replacing non-existent empty checkboxes.
 - When tasked with finding memory offsets in Gen 3 (like the roamer released flag), the data is often split between the `SaveBlock1` structure and bitfield `flags`. Ensure you use decompilation code (e.g., `pret/pokeemerald`, `pret/pokeruby`, `pret/pokefirered`) to determine exact structures, array indices, and offsets. Note that offsets and flags can differ between RS, Emerald, and FRLG.
 
 ## 2026-06-19: Empty PRs and Phantom Implementation Failures
 **Lesson**: When investigating recurring task failures for code that appears to be fully functional, check if the root cause is a pipeline violation rather than a code defect.
 - **Example (research-098-189)**: The Gen 3 PV extraction tasks were stuck in a failure/retry loop despite `parseGen3PersonalityValue` already existing and passing tests. The failures were caused by implementers violating the strict Empty PR Policy (ADR 007 and ADR 009) — they submitted empty PRs without checking off the Acceptance Criteria checkboxes in the task markdown, leading to automated rejection and continuous resurrection.
 - **Action**: Always adhere strictly to Empty PR protocols. If the code exists, only update the task markdown to check off the boxes and submit an empty PR. Do not modify the YAML frontmatter.
+
+## Gen 2 Breeding Mechanics
+In Gen 2, gender is intrinsically linked to the Attack DV. The `gender_rate` from PokeAPI represents the female ratio in eighths. The female Attack DV threshold in Gen 2 is simply `gender_rate * 2`. A Pokemon is female if its Attack DV is less than this threshold. This means a Pokemon with a high Attack DV is more likely to be male, creating interesting constraints when trying to breed physical attackers.
+
+## PokeAPI Egg Groups
+Egg groups are retrieved from the `pokemon-species` endpoint. They must be mapped to integer constants to fit within DexHelper's memory-optimized schemas.

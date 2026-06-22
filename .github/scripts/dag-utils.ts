@@ -1,5 +1,3 @@
-import * as fs from 'node:fs';
-import * as path from 'node:path';
 
 export function todayISO(): string {
   const d = new Date();
@@ -7,12 +5,6 @@ export function todayISO(): string {
   const mm = String(d.getMonth() + 1).padStart(2, '0');
   const dd = String(d.getDate()).padStart(2, '0');
   return `${yyyy}-${mm}-${dd}`;
-}
-
-export function logToJournal(repoRoot: string, entry: string): void {
-  const journalDir = path.join(repoRoot, '.foundry', 'journals');
-  if (!fs.existsSync(journalDir)) fs.mkdirSync(journalDir, { recursive: true });
-  fs.appendFileSync(path.join(journalDir, 'tpm.md'), entry, 'utf-8');
 }
 
 export function buildReverseDependencyGraph(nodes: any[], resolveNodePath: (ref: string) => string | null): Map<string, string[]> {

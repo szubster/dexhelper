@@ -83,3 +83,25 @@ Shows with IDs between `TVGROUP_RECORD_MIX_START` (`21`) and `TVGROUP_RECORD_MIX
 - `33`: `TVSHOW_BATTLE_SEMINAR`
 
 By parsing these specific shows, the system can extract the original player's name and details of their actions, effectively acting as an asynchronous multiplayer history log.
+
+### `TVSHOW_MASS_OUTBREAK` Payload
+When the `kind` field of a `TVShow` struct indicates a mass outbreak event (e.g. ID `TVSHOW_MASS_OUTBREAK` or another appropriate outbreak constant), the remaining bytes are structured as follows:
+
+| Offset | Type | Name | Description |
+|---|---|---|---|
+| `0x00` | `u8` | `kind` | The ID of the TV show broadcast (common header). |
+| `0x01` | `bool8` | `active` | Boolean flag indicating if the show is actively in rotation (common header). |
+| `0x02` | `u8` | `unused1` | Unused byte. |
+| `0x03` | `u8` | `unused3` | Unused byte. |
+| `0x04` | `u16[4]` | `moves` | The 4 moves the mass outbreak Pokémon will have. |
+| `0x0C` | `u16` | `species` | The internal species ID of the swarming Pokémon. |
+| `0x0E` | `u16` | `unused2` | Unused half-word. |
+| `0x10` | `u8` | `locationMapNum` | The Map Num where the outbreak occurs. |
+| `0x11` | `u8` | `locationMapGroup` | The Map Group where the outbreak occurs. |
+| `0x12` | `u8` | `unused4` | Unused byte. |
+| `0x13` | `u8` | `probability` | Probability factor for the outbreak. |
+| `0x14` | `u8` | `level` | The level of the swarming Pokémon. |
+| `0x15` | `u8` | `unused5` | Unused byte. |
+| `0x16` | `u16` | `daysBeforeOutbreak` | Days remaining until the mass outbreak happens (if not already started). |
+| `0x18` | `u8` | `language` | The language of the broadcast. |
+| `0x19` | `padding` | `padding` | Padding bytes (struct total size 36 bytes / 0x24). |
