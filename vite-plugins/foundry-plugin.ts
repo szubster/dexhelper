@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import matter from 'gray-matter';
+import * as yaml from 'js-yaml';
 import type { Plugin } from 'vite';
 
 interface FoundryNodeData {
@@ -37,10 +37,14 @@ export function foundryPlugin(): Plugin {
         const content = fs.readFileSync(filePath, 'utf-8');
 
         try {
-          const parsed = matter(content);
-          const data = parsed.data;
+          const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+          if (!match || match.length < 2 || typeof match[1] !== 'string') continue;
+
+          const data = yaml.load(match[1]) as Record<string, unknown>;
 
           if (
+            data &&
+            typeof data === 'object' &&
             typeof data['id'] === 'string' &&
             typeof data['type'] === 'string' &&
             typeof data['status'] === 'string' &&

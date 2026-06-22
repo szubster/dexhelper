@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import matter from 'gray-matter';
+import * as yaml from 'js-yaml';
 
 function getFiles(dir: string, fileList: string[] = []): string[] {
   const files = fs.readdirSync(dir);
@@ -74,17 +74,22 @@ function validateSchema() {
 
   for (const file of targetFiles) {
     const content = fs.readFileSync(file, 'utf-8');
-    let parsed;
+    let data: Record<string, unknown>;
     try {
-      parsed = matter(content);
+      const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+      if (!match || match.length < 2 || typeof match[1] !== 'string') {
+        throw new Error('No frontmatter found or invalid format');
+      }
+      data = yaml.load(match[1]) as Record<string, unknown>;
+      if (!data || typeof data !== 'object') {
+        throw new Error('Frontmatter is not an object');
+      }
     } catch (e) {
       console.error(`Error: Failed to parse frontmatter for file ${file}`);
       console.error(e);
       hasError = true;
       continue;
     }
-
-    const data = parsed.data;
 
     // 1. Check required fields
     for (const field of requiredFields) {
@@ -94,7 +99,10 @@ function validateSchema() {
       }
     }
 
-    const { id, type, status, owner_persona } = data;
+    const id = data['id'] as string | undefined;
+    const type = data['type'] as string | undefined;
+    const status = data['status'] as string | undefined;
+    const owner_persona = data['owner_persona'] as string | undefined;
 
     // 2. Validate Enums
     if (type && !validTypes.includes(type)) {
@@ -112,7 +120,7 @@ function validateSchema() {
 
     // 2.5 Validate persona mapping
     if (type && owner_persona && owner_persona !== 'human' && owner_persona !== 'tpm' && owner_persona !== 'agile_coach') {
-      const allowedPersonas = validMappings[type as string] || [];
+      const allowedPersonas = validMappings[type] || [];
       if (!allowedPersonas.includes(owner_persona)) {
         console.error(`Error: Invalid mapping: ${type} node '${file}' cannot be owned by '${owner_persona}'`);
         hasError = true;

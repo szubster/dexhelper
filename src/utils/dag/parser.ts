@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import * as yaml from 'js-yaml';
 
 export interface FoundryNodeData {
   id: string;
@@ -11,8 +11,13 @@ export interface FoundryNodeData {
 
 export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
   try {
-    const parsed = matter(rawContent);
-    const data = parsed.data;
+    // Extract frontmatter using regex
+    const match = rawContent.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    if (!match || match.length < 2 || typeof match[1] !== 'string') return null;
+
+    const data = yaml.load(match[1]) as Record<string, unknown>;
+
+    if (!data || typeof data !== 'object') return null;
 
     // Validate required fields
     if (
