@@ -128,3 +128,7 @@
 ## 2026-06-25 (Second Attempt)
 **Idea:** Gen 3 Pokéblock Inventory and Contest Planner
 **Learning:** When generating new ideas after a rejection due to scope (like proposing Gen 4 features), pivot back to the core mechanics of the currently supported generations. Expanding on existing Gen 3 support (like Contests) by revealing the hidden, exact stats of items (like Pokéblocks' feel and flavor) perfectly aligns with DexHelper's strength of turning opaque game data into actionable strategy without overstepping the project roadmap.
+
+## 2026-06-25 (Third Attempt)
+**Idea:** Gen 3 Trick House Tracker
+**Learning:** When proposing ideas for complex mechanics (like Contests/Pokéblocks), ensure they aren't already covered by existing macroscopic ideas (like the overall Contest Tracker). If a collision occurs, pivot to a distinct, highly localized mechanic (like the Gen 3 Trick House progression) that has clear save-file presence but isn't part of a larger, already-planned system.
