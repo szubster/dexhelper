@@ -68,3 +68,6 @@ This required updating the `DagFilterPanel`, `DagDashboard`, and `DagNode` compo
 
 ## 2026-06-22: Archive CANCELLED nodes
 I noticed CANCELLED nodes were accumulating in the workspace. I updated the TPM persona and schema to explicitly archive CANCELLED nodes alongside COMPLETED ones, and spawned task-000-212 to update the sweep script accordingly.
+## 2026-06-17: Late-Binding Hierarchy Orchestrator Exception
+
+Added formal notes regarding the Late-Binding process to clarify orchestrator deadlock prevention. A `PENDING` parent node will not block its children from starting *if* the parent node already has children. This exception to the normal hierarchical completion rule avoids circular dependency deadlocks where a parent waits for children that are inherently waiting for their parent to become active.

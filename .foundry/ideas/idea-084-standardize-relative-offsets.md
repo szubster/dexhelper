@@ -2,12 +2,12 @@
 id: idea-084-standardize-relative-offsets
 type: IDEA
 title: Standardize Relative Offsets for Dynamic Data Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-18'
-updated_at: '2026-06-21'
+updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: '8911951387394209150'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -35,5 +35,6 @@ We need an architectural rule (e.g., an ADR) or a linter check to enforce that, 
 
 ## Acceptance Criteria
 - [x] Investigate if a linter rule can be built to flag hardcoded offsets during save parsing.
+- [ ] .foundry/prds/prd-084-053-standardize-relative-offsets.md
 - [ ] If a linter is not feasible, establish a strict architectural ADR mandating relative offset mapping for dynamic save block extraction.
 - [ ] Roll out guidance to Coder and QA personas.

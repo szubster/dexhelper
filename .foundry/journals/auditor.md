@@ -155,3 +155,10 @@ While generally QA tasks verify implementations, the coder is always responsible
 
 **Recommendation/Learnings:**
 Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.
+
+## 2026-06-21: Verification of Tailwind v4 Tactical Utilities Epic
+
+I verified `epic-071-074-define-tailwind-v4-utilities` and its child stories and tasks.
+
+### Strict Hierarchical Verification for Macro Nodes
+When verifying macro nodes like EPICs, it's critical to recursively check that all spawned descendant nodes (down to the TASK level) have fully transitioned to the COMPLETED state before submitting an empty PR. Relying solely on the parent node's acceptance criteria checkboxes or immediate child nodes can prematurely transition the node to VERIFYING, leading to system inconsistency as the actual implementation might not yet be merged into the codebase. This applies to all deep levels of the spawned sub-tree.
