@@ -115,7 +115,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `COMPLETED` | PR merged (or auditor verification passed). TPM archives the node. |
 | `FAILED` | Session crashed silently or PR was rejected/closed without merge. Resurrection Loop re-spawns a fresh session. |
 | `BLOCKED` | DAG deadlock or explicit TPM hold. Requires CEO or TPM intervention to resolve. |
-| `CANCELLED` | Node retired by CEO decision. Will never be dispatched. |
+| `CANCELLED` | Node retired by CEO decision or permanently failed. TPM archives the node. |
 
 ### 4.2 Valid State Transitions
 
