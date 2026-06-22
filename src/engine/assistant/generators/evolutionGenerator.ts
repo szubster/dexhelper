@@ -113,12 +113,21 @@ export function generateEvolutionSuggestions(
 
       let bestInstance = evolvableInstances[0];
       if (!bestInstance) continue;
+      // ⚡ Bolt: Replace array reduce closure with explicit loop to eliminate intermediate array allocations and closure overhead on the hot path
       if (tr === EVO_TRIGGER.LEVEL_UP && min_h) {
-        bestInstance = evolvableInstances.reduce((prev, current) =>
-          (prev.friendship ?? 0) > (current.friendship ?? 0) ? prev : current,
-        );
+        for (let i = 1; i < evolvableInstances.length; i++) {
+          const inst = evolvableInstances[i];
+          if (inst && (inst.friendship ?? 0) > (bestInstance.friendship ?? 0)) {
+            bestInstance = inst;
+          }
+        }
       } else {
-        bestInstance = evolvableInstances.reduce((prev, current) => (prev.level > current.level ? prev : current));
+        for (let i = 1; i < evolvableInstances.length; i++) {
+          const inst = evolvableInstances[i];
+          if (inst && inst.level > bestInstance.level) {
+            bestInstance = inst;
+          }
+        }
       }
 
       const isIntermediate = immediateEvoTargetId !== targetId;
