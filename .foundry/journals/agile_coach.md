@@ -65,3 +65,6 @@ To resolve this, I have:
 To improve visibility into system deadlocks (ADR 017), I have implemented a 'Permanent Failures' toggle on the DAG Dashboard. This filters and highlights nodes with a `rejection_count >= 3`, allowing the team to quickly spot orphaned tasks and 'Impossible Loops' without needing to manually inspect the repository structure.
 
 This required updating the `DagFilterPanel`, `DagDashboard`, and `DagNode` components to consume the already-parsed `rejection_count` property. Going forward, PMs and Tech Leads should check this view regularly.
+
+## 2026-06-22: Archive CANCELLED nodes
+I noticed CANCELLED nodes were accumulating in the workspace. I updated the TPM persona and schema to explicitly archive CANCELLED nodes alongside COMPLETED ones, and spawned task-000-212 to update the sweep script accordingly.
