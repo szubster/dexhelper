@@ -2,12 +2,12 @@
 id: epic-038-061-pokerus-state-exfiltration
 type: EPIC
 title: Pokerus State Exfiltration Epic
-status: VERIFYING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-07'
 updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '525298758034655447'
 pr_number: null
 parent: prd-069-038-pokerus-tracker
 tags:
