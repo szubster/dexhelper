@@ -1,21 +1,21 @@
 ---
-id: task-128-182-qa-item-list-parsing
+id: task-128-214-qa-item-list-parsing
 type: TASK
 title: QA - Verify Dynamic Item List Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: qa
-created_at: '2026-06-13'
-updated_at: '2026-06-21'
+created_at: '2026-06-22'
+updated_at: '2026-06-22'
 depends_on:
-  - task-128-181-implement-item-list-parsing
-jules_session_id: '16562040030628466568'
+  - task-128-213-implement-item-list-parsing
+jules_session_id: null
 pr_number: null
 parent: story-087-128-dynamic-item-list-parsing
 tags:
   - qa
   - db
 research_references: []
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
@@ -23,7 +23,8 @@ notes: ''
 # TASK: QA - Verify Dynamic Item List Parsing
 
 ## Context & Background
-The coder has implemented logic in `scripts/generate-pokedata.ts` to fetch and parse item data from the local PokeAPI dataset dynamically (task-128-181-implement-item-list-parsing), per ADR-049-025. This task serves as the QA step to verify the generation logic and the resulting payload.
+The coder has implemented logic in `scripts/generate-pokedata.ts` to fetch and parse item data from the local PokeAPI dataset dynamically (`task-128-213-implement-item-list-parsing`), per ADR-049-025. This task serves as the QA step to verify the generation logic and the resulting payload.
+This replaces a previous task where the payload integration into `vite-plugins/pokedata-plugin.ts` was missed. Ensure this is explicitly verified.
 
 ## Verification Requirements
 You need to verify that the item parser extracts the right fields, properly compacts data, and writes the output correctly:
@@ -37,19 +38,15 @@ You need to verify that the item parser extracts the right fields, properly comp
     *   `effect`: `string | undefined` (Short effect description, if applicable)
     *   `sprite`: `string | undefined` (Item sprite filename/URL, if applicable)
 3. Ensure compaction effectively stripped out zero-value costs and empty effects/sprites.
+4. Verify that `vite-plugins/pokedata-plugin.ts` includes `items.jsonl` in the generated payload.
 
 ## Acceptance Criteria
 - [ ] Review the updated code in `scripts/generate-pokedata.ts` to ensure it parses the `item` resource.
 - [ ] Inspect the generated `data/db/items.jsonl` to ensure all fields align with the schema.
 - [ ] Confirm compaction logic works accurately.
+- [ ] Verify `vite-plugins/pokedata-plugin.ts` correctly integrates the new dataset.
 - [ ] Test that the build process succeeds and `items.jsonl` is correctly integrated by the Vite plugin.
 
-## QA Notes (2026-06-21)
-The implementation of `task-128-181-implement-item-list-parsing` has been REJECTED. The generation logic was implemented and the dataset was accurately produced, but the developer neglected to update `vite-plugins/pokedata-plugin.ts` to include `items.jsonl` in the generated msgpack bundle payload, violating `ADR-049-025`. The target task's frontmatter has been updated to `FAILED`, the status of this node is left active without checked acceptance criteria, and this has been recorded in the QA journal.
-
 ## Critical Instructions for QA
-- **Failure Policy**: If the coder's implementation is flawed and you must reject it, you MUST update the YAML frontmatter of the target task (`task-128-181-implement-item-list-parsing`) to `status: FAILED`, provide a `rejection_reason`, and increment its `rejection_count`. Do NOT modify your own task's YAML frontmatter (it remains ACTIVE) and do NOT check off any Acceptance Criteria. Document the failure in your QA journal.
+- **Failure Policy**: If the coder's implementation is flawed and you must reject it, you MUST update the YAML frontmatter of the target task (`task-128-213-implement-item-list-parsing`) to `status: FAILED`, provide a `rejection_reason`, and increment its `rejection_count`. If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`. Do NOT modify your own task's YAML frontmatter (it remains ACTIVE) and do NOT check off any Acceptance Criteria. Document the failure in your QA journal.
 - **Empty PR Policy**: Since this is a verification task that may involve no code changes, you MUST check off all Acceptance Criteria checkboxes (`- [x]`) and explicitly call the `submit` tool to create an Empty PR when the validation is successful. Do NOT end your session without calling `submit`.
-
-### Auditor Rejection
-This QA task is CANCELLED as the target implementation task reached its max rejection count. The implementation and verification have been replaced by .foundry/tasks/task-128-213-implement-item-list-parsing.md and .foundry/tasks/task-128-214-qa-item-list-parsing.md.
