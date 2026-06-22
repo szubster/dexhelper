@@ -348,3 +348,28 @@ export function checkShiny(dvs: { atk: number; def: number; spd: number; spc: nu
 export function checkShinyGene(dvs: { atk: number; def: number; spd: number; spc: number }) {
   return dvs.def === 10 && (dvs.spc === 2 || dvs.spc === 10);
 }
+
+/**
+ * Extracts the Pokerus status (strain and days remaining) from a raw status byte.
+ *
+ * @param rawByte - The 8-bit Pokerus status byte.
+ * @returns An object containing the 4-bit strain and 4-bit daysRemaining, or undefined if no infection is present.
+ *
+ * @remarks
+ * In Generation 2, Pokerus is stored as a single byte where the upper 4 bits
+ * represent the strain (identity) and the lower 4 bits represent the number
+ * of days remaining before the Pokémon is cured.
+ *
+ * Standard bitwise rules (ADR 026):
+ * - If the entire byte is 0, the Pokémon has never had Pokerus.
+ * - If strain > 0 but daysRemaining is 0, the Pokémon is "Cured" (can no longer spread it).
+ * - If strain > 0 and daysRemaining > 0, the Pokémon is currently "Infected".
+ */
+export function parsePokerusByte(rawByte: number) {
+  if (rawByte === 0) return undefined;
+
+  return {
+    strain: rawByte >> 4,
+    daysRemaining: rawByte & 0x0f,
+  };
+}

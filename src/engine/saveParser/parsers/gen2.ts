@@ -2,7 +2,18 @@ import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
-import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
+import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerusByte } from './common';
+
+const GEN2_POKEMON_STRUCT_SIZE_PARTY = 48;
+const GEN2_POKEMON_STRUCT_SIZE_PC = 32;
+
+const GEN2_OFF_OT_FRIENDSHIP = 27;
+const GEN2_OFF_POKERUS = 28;
+const GEN2_OFF_CAUGHT_DATA_1 = 29;
+const GEN2_OFF_CAUGHT_DATA_2 = 30;
+const GEN2_OFF_LEVEL = 31;
+const GEN2_OFF_DAYCARE_OT = 32;
+const GEN2_OFF_PARTY_HP = 34;
 
 function isValidLandmark(id: string): id is keyof typeof gen2Landmarks {
   return id in gen2Landmarks;
@@ -26,8 +37,8 @@ function isValidMapId<T extends Record<string, string>>(id: string, dict: T): id
  * @returns An object containing the time, level, location ID, and location name, or undefined if missing.
  */
 function parseCaughtData(view: DataView, offset: number) {
-  const caughtByte1 = view.getUint8(offset + 29);
-  const caughtByte2 = view.getUint8(offset + 30);
+  const caughtByte1 = view.getUint8(offset + GEN2_OFF_CAUGHT_DATA_1);
+  const caughtByte2 = view.getUint8(offset + GEN2_OFF_CAUGHT_DATA_2);
 
   if (caughtByte1 === 0 && caughtByte2 === 0) return undefined;
 
@@ -86,21 +97,15 @@ function parseGen2PokemonInstance(
   const dvs = parseDVs(view.getUint16(offset + 21, false));
   const isShiny = checkShiny(dvs);
   const isShinyCarrier = checkShinyGene(dvs);
-  const friendship = view.getUint8(offset + 27);
-  const rawPokerus = view.getUint8(offset + 28);
-  const pokerus =
-    rawPokerus > 0
-      ? {
-          strain: rawPokerus >> 4,
-          daysRemaining: rawPokerus & 0x0f,
-        }
-      : undefined;
-  const level = view.getUint8(offset + 31);
-  const currentHp = storageLocation === 'Party' ? view.getUint16(offset + 34, false) : undefined;
+  const friendship = view.getUint8(offset + GEN2_OFF_OT_FRIENDSHIP);
+  const rawPokerus = view.getUint8(offset + GEN2_OFF_POKERUS);
+  const pokerus = parsePokerusByte(rawPokerus);
+  const level = view.getUint8(offset + GEN2_OFF_LEVEL);
+  const currentHp = storageLocation === 'Party' ? view.getUint16(offset + GEN2_OFF_PARTY_HP, false) : undefined;
   const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
 
   // OT names in daycare are immediately after the data block
-  const otName = storageLocation === 'Daycare' ? decodeGen12String(view, offset + 32) : undefined;
+  const otName = storageLocation === 'Daycare' ? decodeGen12String(view, offset + GEN2_OFF_DAYCARE_OT) : undefined;
 
   let unownForm: string | undefined;
   if (speciesId === 201) {
@@ -266,7 +271,7 @@ function parseParty(view: DataView, offsets: { partyCount: number; partySpecies:
   const partyDetails: PokemonInstance[] = [];
   const partyDataOffset = offsets.partySpecies + 7; // After species list
   for (let i = 0; i < partyCount; i++) {
-    const offset = partyDataOffset + i * 48;
+    const offset = partyDataOffset + i * GEN2_POKEMON_STRUCT_SIZE_PARTY;
     const p = parseGen2PokemonInstance(view, offset, isCrystal, 'Party', i + 1);
     if (p) {
       partyDetails.push(p);
@@ -308,7 +313,7 @@ function parsePCBoxes(
   const pcDetails: PokemonInstance[] = [];
   const currentBoxDataOffset = offsets.currentBoxSpecies + 21; // After species list
   for (let i = 0; i < currentBoxCount; i++) {
-    const offset = currentBoxDataOffset + i * 32;
+    const offset = currentBoxDataOffset + i * GEN2_POKEMON_STRUCT_SIZE_PC;
     const p = parseGen2PokemonInstance(view, offset, isCrystal, `Box ${currentBoxNum + 1}`, i + 1);
     if (p) {
       pcDetails.push(p);
@@ -343,7 +348,7 @@ function parsePCBoxes(
 
     const boxDataOffset = offset + 22;
     for (let j = 0; j < count; j++) {
-      const pOff = boxDataOffset + j * 32;
+      const pOff = boxDataOffset + j * GEN2_POKEMON_STRUCT_SIZE_PC;
       const p = parseGen2PokemonInstance(view, pOff, isCrystal, `Box ${i + 1}`, j + 1);
       if (p) {
         pcDetails.push(p);

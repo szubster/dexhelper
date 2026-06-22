@@ -210,6 +210,24 @@ describe('gen2 parsers', () => {
       expect(data.pcDetails.length).toBe(2);
     });
 
+    it('should parse pokerus for PC pokemon', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      view.setUint8(0x2724, 0);
+      view.setUint8(0x2d10, 1);
+      view.setUint8(0x2d11, 2); // ID Ivysaur
+      const pcOff = 0x2d11 + 21;
+      view.setUint8(pcOff, 2); // speciesId
+      view.setUint8(pcOff + 28, 0x42); // Pokerus: strain 4, days 2
+
+      const data = parseGen2(view, false);
+      expect(data.pcDetails[0]?.pokerus).toEqual({ strain: 4, daysRemaining: 2 });
+    });
+
     it('should correctly count badges and map location', () => {
       const buffer = new ArrayBuffer(32768);
       const view = new DataView(buffer);

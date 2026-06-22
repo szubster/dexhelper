@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
-import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
+import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerusByte } from './common';
 
 describe('common parsers', () => {
   describe('decodeGen12String', () => {
@@ -196,6 +196,24 @@ describe('common parsers', () => {
 
     test('returns false if Spc is neither 2 nor 10', () => {
       expect(checkShinyGene({ atk: 5, def: 10, spd: 5, spc: 3 })).toBe(false);
+    });
+  });
+
+  describe('parsePokerusByte', () => {
+    test('returns undefined for 0x00', () => {
+      expect(parsePokerusByte(0x00)).toBeUndefined();
+    });
+
+    test('parses strain and daysRemaining correctly', () => {
+      expect(parsePokerusByte(0x1a)).toEqual({ strain: 1, daysRemaining: 10 });
+    });
+
+    test('parses cured state (non-zero strain, 0 days remaining)', () => {
+      expect(parsePokerusByte(0x50)).toEqual({ strain: 5, daysRemaining: 0 });
+    });
+
+    test('parses max boundary (strain 15, days 15)', () => {
+      expect(parsePokerusByte(0xff)).toEqual({ strain: 15, daysRemaining: 15 });
     });
   });
 });
