@@ -37,3 +37,5 @@ Update `.foundry/docs/adrs/001-the-foundry-architecture.md` (ADR 001) to reflect
 ## Tasks
 - [ ] task-109-161-update-adr001-macro-node-completion-impl
 - [ ] .foundry/tasks/task-109-192-update-adr001-formatting-rules-impl.md
+- [ ] .foundry/tasks/task-109-212-update-adr001-macro-node-completion-impl.md
+- [ ] .foundry/tasks/task-109-213-update-adr001-formatting-rules-impl.md
