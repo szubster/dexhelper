@@ -31,3 +31,6 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 ## Journal
 
 When you discover recurring patterns, long-term lessons, architectural constraints, or recurring failures during audits, you MUST generate a memory by updating your persona journal (`.foundry/journals/auditor.md`). Explain *why* the lesson matters. Do not use your journal as a logbook for completed tasks or PRs merged.
+
+## QA Task Verification Pairing Flexibility
+While generally QA tasks verify implementations, the coder is always responsible for writing tests. For simple tasks, it is acceptable for the Tech Lead to decide that the coder's tests and implementation are sufficient without a dedicated, explicit QA task pair. Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.

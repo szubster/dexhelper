@@ -273,3 +273,9 @@
 **Outcome:** Accepted
 **Why:** The memory requires that context gathering is done using the `read_file` tool rather than bash scripts/`cat` to avoid truncation. Several agent prompts (qa, auditor, researcher, strategist) lacked this explicit `CRITICAL CONTEXT GATHERING INSTRUCTION`. Additionally, the Strategist prompt lacked the `Scratchpad Cleanup` section to prevent repository pollution.
 **Pattern:** Apply systemic rules consistently across all relevant agent personas. When an architectural constraint or tool rule applies to exploration or repository hygiene, it must be explicitly included in all agent prompts to ensure compliance.
+
+## 2026-07-14 - [Accepted] - Prompt improvement - Relax QA task pairing enforcement for Auditor
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The Auditor journal noted that the coder is always responsible for writing tests, and for simple tasks, the Tech Lead can bypass creating a dedicated QA task. The Auditor agent must not falsely reject macro nodes due to missing QA tasks if the Tech Lead deemed them unnecessary.
+**Pattern:** Codify system memory constraints into agent prompts to avoid false-positive rejections. Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough.
