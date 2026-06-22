@@ -5,10 +5,10 @@ title: Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
 status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-09'
-updated_at: '2026-06-20'
+updated_at: '2026-06-22'
 depends_on:
   - research-071-138-gen3-roamer-offsets
-jules_session_id: '13855830088104043526'
+jules_session_id: '14971613666850564830'
 pr_number: null
 parent: idea-071-gen3-roamer-tracker
 tags:
@@ -36,3 +36,5 @@ Provide an immediate, exact breakdown of a roaming legendary's internal state (N
 - [ ] .foundry/epics/epic-044-071-gen3-roamer-iv-glitch.md
 - [ ] .foundry/epics/epic-044-072-gen3-roamer-location-radar.md
 - [ ] .foundry/epics/epic-044-073-gen3-roamer-dashboard-ui.md
+- [ ] .foundry/research/research-044-207-gen3-roamer-ui-alternatives.md
+- [ ] .foundry/epics/epic-044-096-gen3-roamer-dashboard-ui-v2.md

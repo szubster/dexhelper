@@ -2,12 +2,12 @@
 id: research-116-204-gen3-battle-frontier-data
 type: RESEARCH
 title: Investigate Gen 3 Battle Frontier Data Structures
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-18'
-updated_at: '2026-06-18'
+updated_at: '2026-06-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6388336586198322548'
 pr_number: null
 parent: task-116-169-battle-frontier-dashboard-impl
 tags:

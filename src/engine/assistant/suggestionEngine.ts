@@ -40,7 +40,6 @@ import { getGenerationConfig } from '../../utils/generationConfig';
 import { STATIC_GIFT_DATA } from '../data/gen1/assistantData';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
 import { generateBreedingSuggestions } from './generators/breedGenerator';
-
 // Generators
 import { generateCatchSuggestions } from './generators/catchGenerator';
 import { generateEvolutionSuggestions } from './generators/evolutionGenerator';
@@ -48,6 +47,7 @@ import { generateGiftAndTradeSuggestions } from './generators/tradeGenerator';
 import { getStrategy } from './strategies';
 import type { AssistantStrategy, RejectedSuggestion, Suggestion } from './strategies/types';
 import type { AssistantApiData } from './suggestionEngineTypes';
+import { extractPlayerTools, filterSuggestionsByMissingTools } from './utils/encounterTools';
 
 // ⚡ Bolt: Eliminate O(N) tuple allocation and string parsing by pre-calculating static gift arrays
 const STATIC_GIFT_PIDS = Object.keys(STATIC_GIFT_DATA).map((id) => parseInt(id, 10));
@@ -235,31 +235,7 @@ export function generateSuggestions(
 
   const localPids = new Set<number>();
 
-  const hasHeadbutt =
-    saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) ||
-    (saveData.pcItems?.some((i) => i.id === 192 && i.quantity > 0) ?? false) ||
-    allInstances.some((p) => p.moves?.includes(29));
-  const hasRockSmash =
-    saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) ||
-    (saveData.pcItems?.some((i) => i.id === 198 && i.quantity > 0) ?? false) ||
-    allInstances.some((p) => p.moves?.includes(249));
-
-  const hasSurf =
-    saveData.inventory.some((i) => [198, 245, 341].includes(i.id) && i.quantity > 0) ||
-    (saveData.pcItems?.some((i) => [198, 245, 341].includes(i.id) && i.quantity > 0) ?? false) ||
-    allInstances.some((p) => p.moves?.includes(57));
-
-  const hasOldRod =
-    saveData.inventory.some((i) => [52, 69, 260].includes(i.id) && i.quantity > 0) ||
-    (saveData.pcItems?.some((i) => [52, 69, 260].includes(i.id) && i.quantity > 0) ?? false);
-
-  const hasGoodRod =
-    saveData.inventory.some((i) => [53, 70, 261].includes(i.id) && i.quantity > 0) ||
-    (saveData.pcItems?.some((i) => [53, 70, 261].includes(i.id) && i.quantity > 0) ?? false);
-
-  const hasSuperRod =
-    saveData.inventory.some((i) => [54, 71, 262].includes(i.id) && i.quantity > 0) ||
-    (saveData.pcItems?.some((i) => [54, 71, 262].includes(i.id) && i.quantity > 0) ?? false);
+  const playerTools = extractPlayerTools(saveData, allInstances);
 
   generateCatchSuggestions(
     apiData,
@@ -280,90 +256,7 @@ export function generateSuggestions(
   // Pushing HM possession checks (global state) down into every individual encounter loop would severely
   // degrade performance. Instead, we generate all *potential* catch suggestions first, and then do a single
   // O(N) sweep over the final high-level suggestions to prune the impossible ones.
-  for (let i = suggestions.length - 1; i >= 0; i--) {
-    const suggestion = suggestions[i];
-    if (suggestion && suggestion.category === 'Catch' && suggestion.encounterInfo) {
-      let hasValidEncounter = false;
-      for (const pidStr in suggestion.encounterInfo) {
-        const pid = parseInt(pidStr, 10);
-        const details = suggestion.encounterInfo[pid];
-        if (details) {
-          const missingTools = new Set<string>();
-          let hasAccessibleMethod = false;
-
-          for (let dIdx = 0; dIdx < details.length; dIdx++) {
-            const d = details[dIdx];
-            if (d) {
-              let methodAccessible = true;
-              if (d.method === 'headbutt' && !hasHeadbutt) {
-                methodAccessible = false;
-                missingTools.add('Headbutt');
-              } else if (d.method === 'rock-smash' && !hasRockSmash) {
-                methodAccessible = false;
-                missingTools.add('Rock Smash');
-              } else if (d.method === 'surf' && !hasSurf) {
-                methodAccessible = false;
-                missingTools.add('Surf');
-              } else if (d.method === 'old-rod' && !hasOldRod) {
-                methodAccessible = false;
-                missingTools.add('Old Rod');
-              } else if (d.method === 'good-rod' && !hasGoodRod) {
-                methodAccessible = false;
-                missingTools.add('Good Rod');
-              } else if (d.method === 'super-rod' && !hasSuperRod) {
-                methodAccessible = false;
-                missingTools.add('Super Rod');
-              }
-
-              if (methodAccessible) {
-                hasAccessibleMethod = true;
-              }
-            }
-          }
-
-          if (!hasAccessibleMethod && missingTools.size > 0) {
-            const warnings = Array.from(missingTools);
-            const warningStr = `Requires ${warnings.join(' or ')}`;
-            if (suggestion.warning) {
-              suggestion.warning += `, ${warningStr}`;
-            } else {
-              suggestion.warning = warningStr;
-            }
-            // Penalize priority since the user lacks the required tools
-            suggestion.priority = Math.min(suggestion.priority, 45);
-          }
-
-          hasValidEncounter = true;
-        }
-      }
-
-      // If no valid encounters remain for this suggestion, remove it completely.
-      // (This will only happen if there were actually zero encounter details generated originally)
-      if (!hasValidEncounter) {
-        suggestions.splice(i, 1);
-        // Also remove from localPids so it can be picked up by other suggestions if applicable
-        if (suggestion.pokemonIds) {
-          for (const pid of suggestion.pokemonIds) {
-            localPids.delete(pid);
-          }
-        } else if (suggestion.pokemonId) {
-          localPids.delete(suggestion.pokemonId);
-        }
-      } else {
-        // Update pokemonIds if some were completely filtered out
-        if (suggestion.pokemonIds) {
-          suggestion.pokemonIds = suggestion.pokemonIds.filter((pid) => {
-            if (suggestion.encounterInfo?.[pid] !== undefined) {
-              return true;
-            } else {
-              localPids.delete(pid);
-              return false;
-            }
-          });
-        }
-      }
-    }
-  }
+  filterSuggestionsByMissingTools(suggestions, playerTools, localPids);
 
   // === PHASE 3: Context-Aware Suggestions (Gifts, Trades, Evolutions) ===
   // Organize physical instances by species to check for evolutions and prevent redundant exclusive suggestions.

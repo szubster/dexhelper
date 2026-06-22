@@ -146,3 +146,13 @@ When writing E2E tests, do not import helper methods like `argosScreenshot` dire
 * `test:e2e` Playwright tests must be run during verification to fulfill the repo mandate.
 * If testing environments fail with `browserType.launch: Executable doesn't exist`, use `pnpm exec playwright install`.
 * Use explicit type casts (`as unknown as import('../strategies/types').AssistantStrategy`) when constructing partial mocks for strategies with specific methods like `getSpecialSuggestions` to satisfy strict checking in `test-coverage.test.ts`.
+
+## 2026-06-20 - Visual Regression coverage in E2E
+**What:** Added visual regression tests () to .
+**Why:** Fulfills the boundary to cover untested visual flows.
+**Learning:** When writing E2E tests for visual components, ensure  is imported directly from  as per instructions, avoiding local wrappers unless specifically told otherwise.
+
+## 2026-06-20 - Visual Regression coverage in E2E
+**What:** Added visual regression tests (`argosScreenshot`) to `tests/e2e/pokemon-details.spec.ts`.
+**Why:** Fulfills the boundary to cover untested visual flows.
+**Learning:** When writing E2E tests for visual components, ensure `argosScreenshot` is imported directly from `@argos-ci/playwright` as per instructions, avoiding local wrappers unless specifically told otherwise.

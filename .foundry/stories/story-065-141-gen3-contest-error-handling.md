@@ -2,12 +2,12 @@
 id: story-065-141-gen3-contest-error-handling
 type: STORY
 title: Gen 3 Contest Data Error Handling
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-16'
-updated_at: '2026-06-19'
+updated_at: '2026-06-20'
 depends_on: []
-jules_session_id: '16665530269339498987'
+jules_session_id: null
 pr_number: null
 parent: epic-040-065-gen3-contest-data-integration
 tags:
@@ -34,3 +34,7 @@ Derived from `epic-040-065-gen3-contest-data-integration`, this story ensures th
 ## 3. Acceptance Criteria
 - [ ] Implement graceful error handling (e.g., `RangeError` from `DataView`) for corrupted or incomplete save segments within contest data extraction.
 - [ ] Ensure that errors are appropriately handled upstream in `parseGen3` and do not cause application crashes.
+
+## 4. Tasks
+- [ ] task-141-209-gen3-contest-error-handling-impl
+- [ ] task-141-210-gen3-contest-error-handling-qa
