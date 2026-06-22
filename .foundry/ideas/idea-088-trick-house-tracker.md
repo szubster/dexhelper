@@ -2,10 +2,10 @@
 id: idea-088-trick-house-tracker
 type: IDEA
 title: Gen 3 Trick House Progression Tracker
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-25'
-updated_at: '2026-06-25'
+updated_at: '2026-06-22'
 depends_on: []
 jules_session_id: null
 pr_number: null

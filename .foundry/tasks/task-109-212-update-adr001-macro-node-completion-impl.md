@@ -2,10 +2,10 @@
 id: task-109-212-update-adr001-macro-node-completion-impl
 type: TASK
 title: Implement macro node completion rules in ADR 001
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-20'
-updated_at: '2026-06-20'
+updated_at: '2026-06-22'
 depends_on: []
 jules_session_id: null
 pr_number: null

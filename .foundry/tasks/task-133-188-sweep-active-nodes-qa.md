@@ -2,13 +2,13 @@
 id: task-133-188-sweep-active-nodes-qa
 type: TASK
 title: Verify Sweep Active Nodes Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-16'
-updated_at: '2026-06-21'
+updated_at: '2026-06-22'
 depends_on:
   - task-133-187-sweep-active-nodes-impl
-jules_session_id: '16030383422897987893'
+jules_session_id: null
 pr_number: null
 parent: story-089-133-sweep-active-nodes
 tags:

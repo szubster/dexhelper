@@ -2,13 +2,13 @@
 id: task-135-192-session-api-integration-qa
 type: TASK
 title: QA - Verify API query for jules_session_id liveliness
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-16'
-updated_at: '2026-06-21'
+updated_at: '2026-06-22'
 depends_on:
   - task-135-191-session-api-integration-impl
-jules_session_id: '15446818260624168936'
+jules_session_id: null
 parent: story-089-135-workflow-liveliness-check
 tags:
   - foundry

@@ -2,12 +2,12 @@
 id: task-126-194-hidden-items-aggregation-impl
 type: TASK
 title: Implement Hidden Items Aggregation Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-17'
-updated_at: '2026-06-20'
+updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: '14065136062561741134'
+jules_session_id: null
 pr_number: null
 parent: story-059-126-hidden-items-aggregation-logic
 tags:

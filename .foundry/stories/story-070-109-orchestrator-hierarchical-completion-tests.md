@@ -1,11 +1,11 @@
 ---
 id: story-070-109-orchestrator-hierarchical-completion-tests
 type: STORY
-title: "Add Unit Tests for Hierarchical Completion Logic"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-06-10"
-updated_at: "2026-06-10"
+title: Add Unit Tests for Hierarchical Completion Logic
+status: READY
+owner_persona: tech_lead
+created_at: '2026-06-10'
+updated_at: '2026-06-22'
 depends_on:
   - story-070-108-orchestrator-hierarchical-completion-logic
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Add Unit Tests for Hierarchical Completion Logic
