@@ -40,3 +40,6 @@ Ensure that the parser correctly extracts `speciesId`, `level`, and `mapId`/`map
 - **CRITICAL**: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - **CRITICAL**: If you must abort or permanently fail a task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **CRITICAL**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+### Auditor Rejection
+This QA task has been CANCELLED and replaced by `task-105-215-gen3-roamer-parser-retry-qa` due to the permanent failure of its implementation dependency (`task-105-197`).
