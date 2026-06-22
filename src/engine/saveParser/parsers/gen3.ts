@@ -207,6 +207,22 @@ export function isGen3Save(view: DataView): boolean {
  * @returns An object containing the extracted roamer data.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
+const ROAMER_IVS_OFFSET = 0x00;
+const ROAMER_PERSONALITY_OFFSET = 0x04;
+const ROAMER_SPECIES_OFFSET = 0x08;
+const ROAMER_HP_OFFSET = 0x0a;
+const ROAMER_LEVEL_OFFSET = 12;
+const ROAMER_STATUS_OFFSET = 13;
+const ROAMER_ACTIVE_OFFSET = 19;
+
+const IV_MASK = 0x1f;
+const IV_HP_SHIFT = 0;
+const IV_ATK_SHIFT = 5;
+const IV_DEF_SHIFT = 10;
+const IV_SPD_SHIFT = 15;
+const IV_SP_ATK_SHIFT = 20;
+const IV_SP_DEF_SHIFT = 25;
+
 export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVersion: string) {
   let offset = saveBlock1Offset;
   if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
@@ -221,20 +237,20 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
   }
 
   try {
-    const ivs = view.getUint32(offset, true);
-    const personalityValue = view.getUint32(offset + 4, true);
-    const speciesId = view.getUint16(offset + 8, true);
-    const hp = view.getUint16(offset + 10, true);
-    const level = view.getUint8(offset + 12);
-    const statusCondition = view.getUint8(offset + 13);
-    const active = view.getUint8(offset + 19) !== 0;
+    const ivs = view.getUint32(offset + ROAMER_IVS_OFFSET, true);
+    const personalityValue = view.getUint32(offset + ROAMER_PERSONALITY_OFFSET, true);
+    const speciesId = view.getUint16(offset + ROAMER_SPECIES_OFFSET, true);
+    const hp = view.getUint16(offset + ROAMER_HP_OFFSET, true);
+    const level = view.getUint8(offset + ROAMER_LEVEL_OFFSET);
+    const statusCondition = view.getUint8(offset + ROAMER_STATUS_OFFSET);
+    const active = view.getUint8(offset + ROAMER_ACTIVE_OFFSET) !== 0;
 
-    const ivHp = ivs & 0x1f;
-    const atk = (ivs >> 5) & 0x1f;
-    const def = (ivs >> 10) & 0x1f;
-    const spd = (ivs >> 15) & 0x1f;
-    const spAtk = (ivs >> 20) & 0x1f;
-    const spDef = (ivs >> 25) & 0x1f;
+    const ivHp = (ivs >> IV_HP_SHIFT) & IV_MASK;
+    const atk = (ivs >> IV_ATK_SHIFT) & IV_MASK;
+    const def = (ivs >> IV_DEF_SHIFT) & IV_MASK;
+    const spd = (ivs >> IV_SPD_SHIFT) & IV_MASK;
+    const spAtk = (ivs >> IV_SP_ATK_SHIFT) & IV_MASK;
+    const spDef = (ivs >> IV_SP_DEF_SHIFT) & IV_MASK;
 
     return {
       ivs: { hp: ivHp, atk, def, spd, spAtk, spDef },
