@@ -60,3 +60,7 @@
 ## 2026-07-06 - Archivist Run Learnings
 **Learning:** Over time, agents logging redundant failures or rejections for the same task (e.g., `task-085-142`) creates duplicated entries in their journals (e.g., QA journal).
 **Action:** Consolidated the repeated rejection learnings in `.foundry/journals/qa.md` into a single canonical entry explaining the Missing Architectural Integration for ADR 013 & ADR 017. Also verified that `.foundry/journals/tpm.md` is cleared of routine status updates.
+
+## 2026-07-08 - Archivist Run Learnings
+**Learning:** Foundry journals (`coder.md`, `tech_lead.md`, `auditor.md`, `story_owner.md`) frequently accumulate pure execution logs ("I did X", task verification records) and heavily duplicated pattern insights (e.g., Epic cancellation procedures).
+**Action:** Scrubbed pure execution logs to preserve context windows and consolidated duplicated pattern insights into canonical architectural constraints.

@@ -1,11 +1,3 @@
-## 2026-05-11: Updated Foundry Orchestrator Persona Mappings
-
-Resolved an issue where TASK nodes owned by the 'architect' persona were being flagged as invalid.
-- Updated `.github/scripts/foundry-orchestrator.ts` to allow 'architect' to own 'TASK' nodes.
-- Synchronized `scripts/validate-foundry-schema.ts` with these mapping changes.
-- Proactively added 'RESEARCH' node support to the schema validator.
-- Added a regression test in `.github/scripts/foundry-orchestrator.test.ts` to verify the new mapping.
-
 ## 2026-05-12: Enforcing Acceptance Criteria Checkboxes in Orchestrator Preflight
 - The DAG must accurately distinguish between generation (late-binding parent) nodes and execution (leaf) nodes.
 - Leaf nodes with `hasUncheckedTasks === true` should NOT be kept perpetually in `PENDING` during the `bypassDispatch` state (when target artifacts exist). Instead, they are considered an invalid completion attempt and are failed directly using `promoteNodeToFailedWithReason(node, 'Merged with unfulfilled acceptance criteria');`.
@@ -89,9 +81,6 @@ Furthermore, the `functions/_middleware.ts` file and these dependencies must be 
 
 
 
-
-## Unown Dex Panel Implementation
-Implemented Unown Dex Panel using tactical hardware styling constraints (ADR 008, 024). Verification was self-performed via local Playwright script taking a screenshot of the panel. The component dynamically derives owned forms by looping through the `yourPokemon` property, checking `speciesId === 201` and extracting the `unownForm` field.
 
 ## The Late Binding Pattern for Missing Dependencies & Context
 **Pattern/Lesson:** When implementing tasks that require specific data offsets (e.g., Gen 2 event flags, Gen 3 memory offsets) or specific context that is missing from the provided `.foundry/docs/knowledge_base/` files, you MUST NOT hallucinate or guess these values. Instead, enforce the Late Binding pattern.
