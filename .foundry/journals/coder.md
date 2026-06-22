@@ -1,11 +1,3 @@
-## 2026-05-11: Updated Foundry Orchestrator Persona Mappings
-
-Resolved an issue where TASK nodes owned by the 'architect' persona were being flagged as invalid.
-- Updated `.github/scripts/foundry-orchestrator.ts` to allow 'architect' to own 'TASK' nodes.
-- Synchronized `scripts/validate-foundry-schema.ts` with these mapping changes.
-- Proactively added 'RESEARCH' node support to the schema validator.
-- Added a regression test in `.github/scripts/foundry-orchestrator.test.ts` to verify the new mapping.
-
 ## 2026-05-12: Enforcing Acceptance Criteria Checkboxes in Orchestrator Preflight
 - The DAG must accurately distinguish between generation (late-binding parent) nodes and execution (leaf) nodes.
 - Leaf nodes with `hasUncheckedTasks === true` should NOT be kept perpetually in `PENDING` during the `bypassDispatch` state (when target artifacts exist). Instead, they are considered an invalid completion attempt and are failed directly using `promoteNodeToFailedWithReason(node, 'Merged with unfulfilled acceptance criteria');`.
@@ -90,9 +82,6 @@ Furthermore, the `functions/_middleware.ts` file and these dependencies must be 
 
 
 
-## Unown Dex Panel Implementation
-Implemented Unown Dex Panel using tactical hardware styling constraints (ADR 008, 024). Verification was self-performed via local Playwright script taking a screenshot of the panel. The component dynamically derives owned forms by looping through the `yourPokemon` property, checking `speciesId === 201` and extracting the `unownForm` field.
-
 ## The Late Binding Pattern for Missing Dependencies & Context
 **Pattern/Lesson:** When implementing tasks that require specific data offsets (e.g., Gen 2 event flags, Gen 3 memory offsets) or specific context that is missing from the provided `.foundry/docs/knowledge_base/` files, you MUST NOT hallucinate or guess these values. Instead, enforce the Late Binding pattern.
 
@@ -102,11 +91,3 @@ Implemented Unown Dex Panel using tactical hardware styling constraints (ADR 008
 3. Submit the empty PR with unchecked acceptance criteria to gracefully suspend the task. The orchestrator will automatically pause the task until the prerequisite research is complete.
 4. It is *not* necessary to manually mark the current task as `FAILED` or provide a `rejection_reason` in the YAML frontmatter. Adding the new RESEARCH node to the `depends_on` array and submitting with unchecked acceptance criteria is sufficient for the orchestrator to keep the task suspended.
 
-## 2026-06-18: Rejecting Task due to Max Rejections & Missing Dependencies
-Permanently failed `task-084-150-breeding-pair-algorithm-impl` since it reached the maximum rejection count of 3. The task lacked critical context (Gen 2 Egg Groups data and gender calculation logic), and its dependency `research-150-186-egg-groups-missing` was already CANCELLED via cascading cancellation. Its status has been updated to CANCELLED in the frontmatter, with a descriptive `rejection_reason`. Crucially, its acceptance criteria checkboxes were left unchecked, ensuring it does not mistakenly masquerade as successfully completed, correctly triggering its exit from the DAG.
-
-## 2026-06-18: Rejecting Gen 3 Roamer Location Task
-Permanently failed \`task-108-161-gen3-roamer-location-impl\`. As discovered in \`research-108-187-gen3-roamer-location-offsets\`, the Gen 3 roamer's current map location (\`sRoamerLocation\`) and location history (\`sLocationHistory\`) are kept in dynamic \`EWRAM_DATA\` and are not directly saved to the \`.sav\` file. They re-initialize dynamically upon startup. Therefore, extracting the specific map group and number directly from the \`.sav\` file via DataView parsing is mathematically impossible. The task has been marked as CANCELLED in its frontmatter with a rejection reason, and its acceptance criteria have been left unchecked to exit the DAG gracefully.
-
-## 2026-06-19: Late Binding for Breeding Algorithm
-Following the Late Binding pattern, `task-084-192-breeding-pair-algorithm-impl` was suspended (marked `FAILED` with a `rejection_reason` and unchecked checkboxes). A new `RESEARCH` node `research-192-209-egg-groups-missing-data` was spawned and appended to the `depends_on` array because the `PokemonMetadata` schema is missing `egg_groups` data and Gen 2 gender calculation logic (based on DVs and gender ratios) is unknown, making the algorithm impossible to implement safely.
