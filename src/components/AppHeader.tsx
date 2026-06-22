@@ -7,7 +7,9 @@ import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { InlineDataPoint } from './InlineDataPoint';
+import { NavigationTab } from './NavigationTab';
 import { TacticalButton } from './TacticalButton';
+import { VerticalDivider } from './VerticalDivider';
 
 interface AppHeaderProps {
   saveData: SaveData | null;
@@ -58,47 +60,11 @@ export function AppHeader({
         {saveData && (
           <nav className="mt-4 hidden lg:mt-0 lg:flex lg:flex-1 lg:justify-center">
             <div className="flex bg-zinc-900/30">
-              <Link
-                to="/"
-                activeProps={{
-                  className: 'bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] border-b-[var(--theme-primary)]',
-                }}
-                inactiveProps={{
-                  className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
-                }}
-                className="group focus-visible:tactical-focus relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all"
-              >
-                <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
-                <LayoutGrid size={14} className="mb-1" />[ SYS.DEX ]
-              </Link>
-              <div className="w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />
-              <Link
-                to="/storage"
-                activeProps={{
-                  className: 'bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] border-b-[var(--theme-primary)]',
-                }}
-                inactiveProps={{
-                  className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
-                }}
-                className="group focus-visible:tactical-focus relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all"
-              >
-                <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
-                <Database size={14} className="mb-1" />[ SYS.STRG ]
-              </Link>
-              <div className="w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />
-              <Link
-                to="/assistant"
-                activeProps={{
-                  className: 'bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] border-b-[var(--theme-primary)]',
-                }}
-                inactiveProps={{
-                  className: 'border-b-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5',
-                }}
-                className="group focus-visible:tactical-focus relative flex flex-col items-center gap-1 border-b-2 border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all"
-              >
-                <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
-                <Sparkles size={14} className="mb-1" />[ SYS.ASST ]
-              </Link>
+              <NavigationTab to="/" icon={<LayoutGrid size={14} />} label="SYS.DEX" />
+              <VerticalDivider />
+              <NavigationTab to="/storage" icon={<Database size={14} />} label="SYS.STRG" />
+              <VerticalDivider />
+              <NavigationTab to="/assistant" icon={<Sparkles size={14} />} label="SYS.ASST" />
             </div>
           </nav>
         )}
@@ -118,7 +84,7 @@ export function AppHeader({
               />
             </div>
 
-            <div className="h-8 w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />
+            <VerticalDivider className="h-8" />
 
             <div className="flex min-w-[100px] flex-col justify-center px-4">
               <InlineDataPoint
@@ -159,7 +125,7 @@ export function AppHeader({
               <div className="lcd-flicker absolute inset-0 bg-white/5 opacity-0 transition-opacity group-hover:opacity-100" />
             </button>
 
-            <div className="h-6 w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />
+            <VerticalDivider className="h-6" />
 
             <TacticalButton
               onClick={() => setIsSettingsOpen(true)}

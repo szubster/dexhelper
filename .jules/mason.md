@@ -115,3 +115,12 @@
   - Always extend standard HTML attributes (e.g. `React.ButtonHTMLAttributes<HTMLButtonElement>`) and forward refs (`React.forwardRef`) to ensure callers can supply strict accessibility properties (`aria-label`, `title`) without redefining them on the props interface.
   - Set a default `type="button"` on the inner element to prevent accidental form submissions when the component is eventually utilized inside a `fieldset` or `form`.
   - Ensure the internal `className` explicitly allows for overriding absolute positioning and padding since icon-only buttons often serve as absolute-positioned decorators (like close buttons or input clear buttons).
+
+## AppHeader Refactoring - VerticalDivider and NavigationTab
+- **What**: Extracted repeated vertical dashed divider elements (`<div className="w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />`) into a reusable `<VerticalDivider>` component.
+- **What**: Extracted repeated navigation link setups inside the main header (incorporating active/inactive tailwind states, corner crosshairs, and monospaced text) into `<NavigationTab>`.
+- **Why**: Cleaned up the heavily dense `AppHeader.tsx`. Consolidating `NavigationTab` ensures we do not have to copy-paste the extremely verbose Tailwind class list and `CornerCrosshairs` setup every time we add a new primary navigational route to the app.
+- **Key Learnings**:
+  - Utilizing `Omit<LinkProps, 'activeProps' | 'inactiveProps' | 'className'>` ensures the parent `<NavigationTab>` strictly governs the styling and routing state styles, preventing accidental overrides from callers while still allowing them to pass standard Tanstack `to` attributes.
+  - Exposing `className` on tiny, structural components like `<VerticalDivider>` using `cn()` is incredibly powerful, because we can trivially apply specific height classes (`className="h-8"`) contextually without rebuilding the component.
+  - To automatically fix formatting errors identified by the Biome linter, execute `pnpm biome check --write .`.
