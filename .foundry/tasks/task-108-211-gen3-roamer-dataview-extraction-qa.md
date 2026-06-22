@@ -36,6 +36,9 @@ Verify that the implementation safely reads the 20-byte roamer structure exclusi
 - [ ] Verify that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, and no inline magic numbers are used.
 - [ ] Confirm all tests and linting checks pass.
 
+### Auditor Rejection
+This task was permanently aborted and replaced by `task-108-212-gen3-roamer-dataview-extraction-impl` and `task-108-213-gen3-roamer-dataview-extraction-qa`.
+
 **Important Instructions:**
 If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
