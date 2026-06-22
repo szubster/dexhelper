@@ -42,11 +42,11 @@ The struct layout is:
 **Constraint:** All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level. Inline magic numbers are forbidden.
 
 ## Acceptance Criteria
-- [ ] Define all memory offsets, lengths, bit locations, and shifts as reusable constants at the module level (no inline magic numbers).
-- [ ] Implement `DataView` logic to read the 20-byte Gen 3 roamer structure from the correct save offset based on version.
-- [ ] Parse the 32-bit IV field into 6 distinct integer stats (HP, Atk, Def, Spe, SpA, SpD).
-- [ ] Parse the Level and Current HP fields correctly.
-- [ ] Include unit tests validating data extraction against known good boundary cases (e.g., all 0 IVs, all 31 IVs).
-- [ ] **Coder Mandate:** If experiencing a transient failure requiring a retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- [ ] **Coder Mandate:** If the task must be permanently aborted, update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- [ ] **Coder Mandate:** If submitting an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
+- [x] Define all memory offsets, lengths, bit locations, and shifts as reusable constants at the module level (no inline magic numbers).
+- [x] Implement `DataView` logic to read the 20-byte Gen 3 roamer structure from the correct save offset based on version.
+- [x] Parse the 32-bit IV field into 6 distinct integer stats (HP, Atk, Def, Spe, SpA, SpD).
+- [x] Parse the Level and Current HP fields correctly.
+- [x] Include unit tests validating data extraction against known good boundary cases (e.g., all 0 IVs, all 31 IVs).
+- [x] **Coder Mandate:** If experiencing a transient failure requiring a retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- [x] **Coder Mandate:** If the task must be permanently aborted, update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- [x] **Coder Mandate:** If submitting an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
