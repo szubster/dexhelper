@@ -2,12 +2,12 @@
 id: prd-069-038-pokerus-tracker
 type: PRD
 title: Pokerus Tracker PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-05'
 updated_at: '2026-06-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3648297763513979128'
 parent: idea-068-069-pokerus-tracker
 rejection_count: 0
 rejection_reason: ''
