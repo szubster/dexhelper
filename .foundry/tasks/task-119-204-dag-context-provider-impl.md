@@ -32,6 +32,6 @@ Implement the `DagContext` React Context and `DagProvider` component to host the
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify that `DagContext` and `DagProvider` manage `nodes` and `edges` state.
-- [ ] Verify that `DagNodeData` includes `rejection_count` (ADR 017).
-- [ ] Verify that `DagProvider` provides state correctly.
+- [x] Verify that `DagContext` and `DagProvider` manage `nodes` and `edges` state.
+- [x] Verify that `DagNodeData` includes `rejection_count` (ADR 017).
+- [x] Verify that `DagProvider` provides state correctly.
