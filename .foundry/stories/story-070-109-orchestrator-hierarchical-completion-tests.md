@@ -36,3 +36,5 @@ Add tests in `.github/scripts/foundry-orchestrator.test.ts` to ensure the new hi
 ## Acceptance Criteria
 - [ ] Test added for hierarchical completion block via markdown reference.
 - [ ] Test added for late-binding exception handling nodes referenced via markdown.
+
+- [ ] [.foundry/tasks/task-109-214-orchestrator-hierarchical-completion-tests-impl.md](.foundry/tasks/task-109-214-orchestrator-hierarchical-completion-tests-impl.md)
