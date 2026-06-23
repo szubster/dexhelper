@@ -2,13 +2,13 @@
 id: story-067-105-gen3-roamer-parser-implementation
 type: STORY
 title: Gen 3 Roamer Save Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-23'
 depends_on:
   - story-067-104-gen3-roamer-data-structure
-jules_session_id: null
+jules_session_id: '5631808965513098027'
 pr_number: null
 parent: epic-043-067-roamer-data-extraction
 tags: []
