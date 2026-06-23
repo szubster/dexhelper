@@ -79,6 +79,10 @@ export interface Gen3MixRecord {
   active: boolean;
 }
 
+export interface Gen3SecretBase {
+  secretBaseId: number;
+}
+
 export interface Gen3BerryPatch {
   berryId: number;
   stage: number;
@@ -147,6 +151,8 @@ export interface SaveData {
   daycareHasEgg?: boolean;
   /** Gen 3 specific: Information regarding the state of Berry Patches across Hoenn. */
   gen3BerryPatches?: Gen3BerryPatch[];
+  /** Gen 3 specific: Active Secret Bases. */
+  gen3SecretBases?: Gen3SecretBase[];
   /** Gen 3 specific: Upcoming event schedule. */
   gen3PokeNews?: Gen3PokeNews[];
   /** Gen 3 specific: Inherited Mix Record events. */

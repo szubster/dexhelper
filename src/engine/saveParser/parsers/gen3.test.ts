@@ -9,6 +9,7 @@ import {
   parseGen3PokeNews,
   parseGen3Ribbons,
   parseGen3Roamer,
+  parseGen3SecretBases,
 } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
@@ -88,6 +89,8 @@ describe('gen3 parser scaffolding', () => {
 
     const saveData = parseGen3(view);
     expect(saveData.gen3BerryPatches).toBeDefined();
+    expect(saveData.gen3SecretBases).toBeDefined();
+    expect(saveData.gen3SecretBases?.length).toBe(0);
     expect(saveData.gen3BerryPatches?.length).toBe(128);
 
     const patch0 = saveData.gen3BerryPatches?.[0];
@@ -572,5 +575,52 @@ describe('parseGen3Roamer', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3Roamer(view, 0, 'ruby')).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3SecretBases', () => {
+  it('should parse Gen 3 Secret Bases for Ruby/Sapphire', () => {
+    const buffer = new ArrayBuffer(0x1a08 + 20 * 160);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0;
+    const baseOffset = saveBlock1Offset + 0x1a08;
+
+    // Active base 1
+    view.setUint8(baseOffset, 5); // secretBaseId = 5
+
+    // Inactive base
+    view.setUint8(baseOffset + 1 * 160, 0); // secretBaseId = 0
+
+    // Active base 2
+    view.setUint8(baseOffset + 2 * 160, 10); // secretBaseId = 10
+
+    const result = parseGen3SecretBases(view, saveBlock1Offset, 'ruby');
+
+    expect(result).toHaveLength(2);
+    expect(result[0]).toEqual({ secretBaseId: 5 });
+    expect(result[1]).toEqual({ secretBaseId: 10 });
+  });
+
+  it('should parse Gen 3 Secret Bases for Emerald', () => {
+    const buffer = new ArrayBuffer(0x1a9c + 20 * 160);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0;
+    const baseOffset = saveBlock1Offset + 0x1a9c;
+
+    // Active base
+    view.setUint8(baseOffset + 5 * 160, 42); // secretBaseId = 42
+
+    const result = parseGen3SecretBases(view, saveBlock1Offset, 'emerald');
+
+    expect(result).toHaveLength(1);
+    expect(result[0]).toEqual({ secretBaseId: 42 });
+  });
+
+  it('should explicitly catch RangeError and throw corrupted file error on out-of-bounds reads', () => {
+    // A buffer that is not large enough to hold the secret bases struct
+    const buffer = new ArrayBuffer(0x1a08 + 10);
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3SecretBases(view, 0, 'ruby')).toThrowError('The save file is corrupted or incomplete.');
   });
 });

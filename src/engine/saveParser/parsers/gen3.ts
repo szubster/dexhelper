@@ -18,11 +18,16 @@
  * is determined by `PV % 24`.
  */
 
-import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, SaveData } from './common';
+import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, Gen3SecretBase, SaveData } from './common';
 
 const SIGNATURE = 0x08012025;
 const SECTION_SIZE = 4096;
 const NUM_SECTIONS = 14;
+const SECRET_BASES_COUNT = 20;
+const SECRET_BASE_SIZE = 160;
+const SECRET_BASE_OFFSET_RS = 0x1a08;
+const SECRET_BASE_OFFSET_EMERALD = 0x1a9c;
+
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
 
@@ -386,6 +391,44 @@ export function parseGen3MirageIslandValue(view: DataView, offset: number): numb
  * @returns The fully parsed and structured SaveData object.
  * @throws Error - Gen 3 parsing not implemented yet, or "Corrupted Save File" on RangeError.
  */
+
+/**
+ * Parses Secret Base records from a Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @param gameVersion - The detected game version used to apply the correct memory shift.
+ * @returns An array of active secret base locations.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3SecretBases(view: DataView, saveBlock1Offset: number, gameVersion: string): Gen3SecretBase[] {
+  let baseOffset = saveBlock1Offset;
+  if (gameVersion === 'emerald') {
+    baseOffset += SECRET_BASE_OFFSET_EMERALD;
+  } else {
+    baseOffset += SECRET_BASE_OFFSET_RS; // Defaulting to RS offset for ruby/sapphire and unknown since FRLG doesn't use secret bases in the same way.
+  }
+
+  try {
+    const secretBases: Gen3SecretBase[] = [];
+    for (let i = 0; i < SECRET_BASES_COUNT; i++) {
+      const offset = baseOffset + i * SECRET_BASE_SIZE;
+      const secretBaseId = view.getUint8(offset);
+
+      // We only consider secret bases with an ID > 0 as active
+      if (secretBaseId > 0) {
+        secretBases.push({ secretBaseId });
+      }
+    }
+    return secretBases;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {
   try {
     let section2Offset: number;
@@ -403,6 +446,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
 
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
+    const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
 
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset + 0x2b50);
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + 0x27cc);
@@ -437,6 +481,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       currentBoxCount: 0,
       hallOfFameCount: 0,
       gen3BerryPatches,
+      gen3SecretBases,
       hiddenItemFlags,
       mirageIslandValue,
       gen3PokeNews,
