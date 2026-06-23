@@ -2,13 +2,13 @@
 id: epic-035-049-late-binding-accommodation
 type: EPIC
 title: Late-Binding Accommodation & Journal Update
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-24'
 updated_at: '2026-06-23'
 depends_on:
   - epic-035-048-implicit-dependency-enforcement
-jules_session_id: null
+jules_session_id: '5406707982053972160'
 pr_number: null
 parent: prd-065-035-epic-verification-timing
 tags:
