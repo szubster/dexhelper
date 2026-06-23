@@ -29,18 +29,18 @@ Extract the 20-byte hidden roamer data structure from Gen 3 save files using `Da
 This story handles the base extraction logic in the save parser for Gen 3. The `DataView` API must be used to safely read the 20-byte structure. Following extraction, logic should be implemented to correctly parse the IVs, HP, and Level of the roamer from this raw byte structure.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView` reading logic for the 20-byte Gen 3 roamer structure.
-- [ ] Implement parsing logic for IVs, HP, and Level from the structure.
+- [x] Implement `DataView` reading logic for the 20-byte Gen 3 roamer structure.
+- [x] Implement parsing logic for IVs, HP, and Level from the structure.
 - [x] Tech Lead: Break down this Story into executable Tasks.
 
 ## Generated Tasks
-- [ ] task-108-212-gen3-roamer-dataview-extraction-impl
-- [ ] task-108-213-gen3-roamer-dataview-extraction-qa
+- [x] task-108-212-gen3-roamer-dataview-extraction-impl
+- [x] task-108-213-gen3-roamer-dataview-extraction-qa
 - [x] task-108-161-gen3-roamer-dataview-extraction-impl
 - [x] task-108-162-gen3-roamer-dataview-extraction-qa
 - [x] task-108-192-gen3-roamer-dataview-extraction-impl
 - [x] task-108-193-gen3-roamer-dataview-extraction-qa
 - [x] research-108-194-gen3-roamer-iv-bitfield
-- [ ] research-108-209-gen3-roamer-iv-bitfield
-- [ ] task-108-210-gen3-roamer-dataview-extraction-impl
-- [ ] task-108-211-gen3-roamer-dataview-extraction-qa
+- [x] research-108-209-gen3-roamer-iv-bitfield
+- [x] task-108-210-gen3-roamer-dataview-extraction-impl
+- [x] task-108-211-gen3-roamer-dataview-extraction-qa

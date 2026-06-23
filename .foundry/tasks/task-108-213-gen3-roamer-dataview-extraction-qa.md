@@ -2,7 +2,7 @@
 id: task-108-213-gen3-roamer-dataview-extraction-qa
 type: TASK
 title: QA Gen 3 Roamer DataView Extraction
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-21'
 updated_at: '2026-06-21'
@@ -18,7 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Redundant task, implementation was already completed in task-108-161'
 notes: ''
 ---
 
@@ -40,3 +40,6 @@ The primary concerns are validating the use of the `DataView` API over raw `Uint
 - [ ] **QA Mandate:** If experiencing a transient failure requiring a retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - [ ] **QA Mandate:** If the task must be permanently aborted, update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - [ ] **QA Mandate:** If submitting an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
+
+### Auditor Rejection
+This task is permanently cancelled as it is redundant. The extraction logic was already fully implemented and verified in task-108-161.
