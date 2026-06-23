@@ -513,6 +513,59 @@ describe('parseGen3Roamer', () => {
     });
   });
 
+  it('should parse Gen 3 roamer data with all 0 IVs', () => {
+    const buffer = new ArrayBuffer(0x3144 + 20);
+    const view = new DataView(buffer);
+    const offset = 0x3144;
+
+    view.setUint32(offset, 0, true);
+    view.setUint32(offset + 4, 0x12345678, true);
+    view.setUint16(offset + 8, 380, true);
+    view.setUint16(offset + 10, 150, true);
+    view.setUint8(offset + 12, 40);
+    view.setUint8(offset + 13, 1);
+    view.setUint8(offset + 19, 1);
+
+    const result = parseGen3Roamer(view, 0, 'ruby');
+
+    expect(result).toEqual({
+      ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
+      personalityValue: 0x12345678,
+      speciesId: 380,
+      hp: 150,
+      level: 40,
+      statusCondition: 1,
+      active: true,
+    });
+  });
+
+  it('should parse Gen 3 roamer data with all 31 IVs', () => {
+    const buffer = new ArrayBuffer(0x3144 + 20);
+    const view = new DataView(buffer);
+    const offset = 0x3144;
+
+    // 31 | (31 << 5) | (31 << 10) | (31 << 15) | (31 << 20) | (31 << 25) = 1073741823 (0x3FFFFFFF)
+    view.setUint32(offset, 0x3fffffff, true);
+    view.setUint32(offset + 4, 0x12345678, true);
+    view.setUint16(offset + 8, 380, true);
+    view.setUint16(offset + 10, 150, true);
+    view.setUint8(offset + 12, 40);
+    view.setUint8(offset + 13, 1);
+    view.setUint8(offset + 19, 1);
+
+    const result = parseGen3Roamer(view, 0, 'ruby');
+
+    expect(result).toEqual({
+      ivs: { hp: 31, atk: 31, def: 31, spd: 31, spAtk: 31, spDef: 31 },
+      personalityValue: 0x12345678,
+      speciesId: 380,
+      hp: 150,
+      level: 40,
+      statusCondition: 1,
+      active: true,
+    });
+  });
+
   it('should explicitly catch RangeError and throw corrupted file error on out-of-bounds reads', () => {
     // A buffer that is not large enough to hold the 20-byte roamer struct at the correct offset
     const buffer = new ArrayBuffer(0x3144 + 10);

@@ -39,6 +39,7 @@ const ROAMER_STATUS_OFFSET = 13;
 const ROAMER_ACTIVE_OFFSET = 19;
 
 const IV_MASK = 0x1f;
+const IV_SHIFT_HP = 0;
 const IV_SHIFT_ATK = 5;
 const IV_SHIFT_DEF = 10;
 const IV_SHIFT_SPD = 15;
@@ -260,7 +261,7 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
     const statusCondition = view.getUint8(offset + ROAMER_STATUS_OFFSET);
     const active = view.getUint8(offset + ROAMER_ACTIVE_OFFSET) !== 0;
 
-    const ivHp = ivs & IV_MASK;
+    const ivHp = (ivs >> IV_SHIFT_HP) & IV_MASK;
     const atk = (ivs >> IV_SHIFT_ATK) & IV_MASK;
     const def = (ivs >> IV_SHIFT_DEF) & IV_MASK;
     const spd = (ivs >> IV_SHIFT_SPD) & IV_MASK;
