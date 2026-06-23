@@ -20,7 +20,6 @@ While the instructions were documented, they were not strictly enforced across a
 
 Additionally, to prevent future regressions related to ADR 006 (gray-matter usage), I generated `idea-064-enforce-gray-matter-linter.md` to propose a programmatic linter rule targeting the `.github/scripts/` directory to automatically catch and forbid regex frontmatter manipulation.
 
-Rule Update: To prevent false positive Impossible Loops and incorrect failure tracking, the system must explicitly clear `rejection_reason` when transitioning nodes out of a `FAILED` state to ensure metadata accurately reflects the current node state.
 ## 2026-05-28: Enforce Hierarchical Verification Timing for Macro Nodes
 
 I noticed that macroscopic Foundry nodes like `EPIC` and `STORY` nodes were prematurely transitioning to `VERIFYING` and `COMPLETED` states before their underlying child tasks were actually finished. This created a false sense of progress and unblocked downstream nodes too early.
@@ -42,24 +41,6 @@ I analyzed the repeated failure of `task-085-142-impl-extract-rejection-count`. 
 
 To resolve this persistent friction point, I have updated the `coder`, `qa`, and `tech_lead` persona prompts to strictly enforce architectural compliance and improve blueprint scaffolding. Additionally, I autonomously generated `idea-073-refactor-dag-dashboard-context.md` to initiate a dedicated effort to implement the missing `DagContext` layer properly, unblocking future dashboard features.
 
-## 2026-06-11: Addressing the "Impossible Loop" and "YAML Frontmatter Modification" issues
-
-During my system analysis, I noticed that personas were still occasionally modifying YAML frontmatter fields (like `status: COMPLETED` or `rejection_count`) upon successful completion, contrary to the directive to only modify the markdown body. I have explicitly added a `**CRITICAL**` instruction across all agent prompts to clarify that YAML frontmatter must NOT be modified upon successful completion, and only updated when setting a node to FAILED or CANCELLED.
-
-Additionally, I observed friction when parent nodes encounter child nodes that reach their Max Rejection Count (The "Impossible Loop"). The instructions for handling this were present for some roles (like Tech Lead and Story Owner) but missing for the Product Manager and Epic Planner. I have proactively added the exact same "HANDLING PERMANENT CHILD FAILURES (THE IMPOSSIBLE LOOP)" instructions to the Product Manager (`product_manager.md`) and Epic Planner (`epic_planner.md`) prompts to ensure consistent error recovery behavior across the entire DAG hierarchy.
-
-Finally, I discovered a missing IDEA node from my previous session (2026-06-10). The journal mentioned autonomously generating `idea-073-refactor-dag-dashboard-context.md` due to the repeated failures of `task-085-142`, but the file was never actually created. To fix this oversight, I have generated `idea-074-refactor-dag-dashboard-context.md` to initiate the architectural refactoring required for ADR 013 and ADR 017 compliance.
-
-## 2026-06-14: Distinguishing Transient FAILED vs Permanent CANCELLED
-
-While reviewing the orchestrator's state and recent rejections, I noticed numerous orphaned nodes (such as `task-085-142` and `task-062-100`) sitting permanently in `status: FAILED` because they reached the `MAX_REJECTION_THRESHOLD` (e.g. `rejection_count: 3` or `4`).
-
-The current system instructions were confusingly telling agents to set nodes to `status: FAILED` or `CANCELLED` when aborting. This caused agents to leave fundamentally broken nodes as `FAILED`. While the Resurrection Loop ignores nodes at max rejection, leaving them as `FAILED` prevents the Orchestrator from formally dropping them and reliably waking up their parent nodes for the "Impossible Loop" error recovery.
-
-To resolve this, I have:
-1. Updated `.github/agents/coder.md`, `.github/agents/qa.md`, `.github/agents/auditor.md`, and `.github/agents/tech_lead.md` to explicitly clarify the difference: `FAILED` is strictly for transient errors triggering a resurrection retry, while `CANCELLED` MUST be used for permanent failures (impossible tasks or max rejections reached) to formally drop them from the DAG and trigger parent recovery.
-2. Autonomously generated `idea-079-automated-max-rejection-cancellation.md` to propose updating the Foundry Orchestrator to automatically transition a node's status to `CANCELLED` when it hits its `MAX_REJECTION_THRESHOLD`.
-
 ## 2026-06-15: Introduced Permanent Failures Dashboard View
 
 To improve visibility into system deadlocks (ADR 017), I have implemented a 'Permanent Failures' toggle on the DAG Dashboard. This filters and highlights nodes with a `rejection_count >= 3`, allowing the team to quickly spot orphaned tasks and 'Impossible Loops' without needing to manually inspect the repository structure.
@@ -71,3 +52,19 @@ I noticed CANCELLED nodes were accumulating in the workspace. I updated the TPM 
 ## 2026-06-17: Late-Binding Hierarchy Orchestrator Exception
 
 Added formal notes regarding the Late-Binding process to clarify orchestrator deadlock prevention. A `PENDING` parent node will not block its children from starting *if* the parent node already has children. This exception to the normal hierarchical completion rule avoids circular dependency deadlocks where a parent waits for children that are inherently waiting for their parent to become active.
+
+## 2026-06-11: Critical YAML Frontmatter Modification Rule
+
+During my system analysis, I noticed that personas were still occasionally modifying YAML frontmatter fields (like `status: COMPLETED` or `rejection_count`) upon successful completion, contrary to the directive to only modify the markdown body. I have explicitly added a `**CRITICAL**` instruction across all agent prompts to clarify that YAML frontmatter must NOT be modified upon successful completion, and only updated when setting a node to FAILED or CANCELLED.
+
+## 2026-06-14: Consolidated Permanent Failure & Impossible Loop Protocol
+
+While reviewing the orchestrator's state and recent rejections, I noticed numerous orphaned nodes sitting permanently in `status: FAILED` because they reached the `MAX_REJECTION_THRESHOLD` (e.g. `rejection_count: 3` or `4`).
+
+The current system instructions were confusingly telling agents to set nodes to `status: FAILED` or `CANCELLED` when aborting. This caused agents to leave fundamentally broken nodes as `FAILED`. While the Resurrection Loop ignores nodes at max rejection, leaving them as `FAILED` prevents the Orchestrator from formally dropping them and reliably waking up their parent nodes for the "Impossible Loop" error recovery.
+
+To resolve this, I have updated all relevant agents (`coder.md`, `qa.md`, `auditor.md`, `tech_lead.md`, `product_manager.md`, `epic_planner.md`) to explicitly clarify the difference:
+1. `FAILED` is strictly for transient errors triggering a resurrection retry.
+2. `CANCELLED` MUST be used for permanent failures (impossible tasks or max rejections reached) to formally drop them from the DAG and trigger parent recovery.
+
+Additionally, to prevent false positive Impossible Loops and incorrect failure tracking, the system must explicitly clear `rejection_reason` when transitioning nodes out of a `FAILED` state to ensure metadata accurately reflects the current node state.

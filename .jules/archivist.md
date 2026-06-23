@@ -64,3 +64,4 @@
 ## 2026-07-08 - Archivist Run Learnings
 **Learning:** Foundry journals (`coder.md`, `tech_lead.md`, `auditor.md`, `story_owner.md`) frequently accumulate pure execution logs ("I did X", task verification records) and heavily duplicated pattern insights (e.g., Epic cancellation procedures).
 **Action:** Scrubbed pure execution logs to preserve context windows and consolidated duplicated pattern insights into canonical architectural constraints.
+- The directory `.serena/memories/` is a symbolic link mapping to `../.foundry/docs/knowledge_base/`. Agents must be careful not to mistake it for a duplicate directory or attempt recursive operations that result in duplicate changes.
