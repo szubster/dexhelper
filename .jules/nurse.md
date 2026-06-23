@@ -95,3 +95,7 @@ To avoid unsafe `as` casts in callbacks for generic UI components like `Tactical
 **Learning:** When sorting or reducing over Object keys/entries that are inferred as `string`, using `[a as keyof typeof MY_OBJ]` bypasses TypeScript's strict mode checks.
 **Action:** Replace `as keyof typeof` casts by implementing a strict type guard function, e.g., `function isValidKey(k: string): k is KeyType { return k in MY_OBJ; }`. Using this type guard inside loops or `sort` functions safely narrows the string to the correct key type without needing `as`.
 - **Safe `unknown` handling with `typeof`**: Avoid unsafe casting like `(obj['key'] as string)` when extracting properties from `Record<string, unknown>`. Instead, use standard type guards like `typeof obj['key'] === 'string' ? obj['key'] : fallback` to safely narrow the type at runtime.
+
+## $(date +%Y-%m-%d) - Type-Safety: Avoid inline `as` casts for Object.entries
+**Learning:** When iterating over objects with string literal union keys, using `Object.entries(obj) as [Key, Value][]` is an unsafe cast that circumvents the type checker, which naturally widens keys to `string`.
+**Action:** Use the generic typed utilities `objectEntries` or `objectKeys` located in `src/utils/object.ts` instead. This elegantly narrows the keys without needing hardcoded casts or compromising runtime behavior.
