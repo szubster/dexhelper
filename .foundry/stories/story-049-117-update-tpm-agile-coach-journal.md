@@ -32,4 +32,4 @@ Ensure the TPM and Agile Coach personas are aware of the new late-binding proces
 ## Acceptance Criteria
 - [x] Break down into TASK nodes to append process change notes regarding late-binding to the TPM or Agile Coach journal.
 
-- [ ] task-117-201-update-tpm-agile-coach-journals
+- [x] task-117-201-update-tpm-agile-coach-journals
