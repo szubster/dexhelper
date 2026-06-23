@@ -30,11 +30,11 @@ Implement binary parsing logic in `src/engine/saveParser/parsers/gen3.ts` to ext
 Based on the alternative approach research, update the Gen 3 parser to extract valid data for the roaming Pokémon (such as `speciesId`, `level`, and the `active` status boolean, or IVs) using the `DataView` API. Do NOT attempt to extract map location data. Ensure that the parser accurately reflects the roamer's active status. Ensure all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level. Inline magic numbers are forbidden.
 
 ## Acceptance Criteria
-- [ ] Parser extracts species ID and level using DataView.
-- [ ] Parser extracts active status flag using DataView.
-- [ ] Parser extracts available valid metadata (like IVs) using DataView.
-- [ ] Gracefully handles `RangeError` from out-of-bounds reads.
-- [ ] No inline magic numbers are used for parsing; all constants are defined at the module level.
+- [x] Parser extracts species ID and level using DataView.
+- [x] Parser extracts active status flag using DataView.
+- [x] Parser extracts available valid metadata (like IVs) using DataView.
+- [x] Gracefully handles `RangeError` from out-of-bounds reads.
+- [x] No inline magic numbers are used for parsing; all constants are defined at the module level.
 
 ## Execution Constraints
 - **CRITICAL**: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

@@ -31,11 +31,11 @@ Verify the Gen 3 alternative roamer parsing implementation.
 Ensure that the parser correctly extracts `speciesId`, `level`, `active` status boolean, and IV metadata of the roamer using the `DataView` API. Verify that no map location parsing is attempted and that all parsing relies on module-level constants instead of inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Verify parser extracts species ID and level using DataView.
-- [ ] Verify parser extracts active status flag using DataView.
-- [ ] Verify parser extracts IV metadata using DataView.
-- [ ] Verify `RangeError` from out-of-bounds reads is handled gracefully.
-- [ ] Verify no inline magic numbers are used in the parsing logic.
+- [x] Verify parser extracts species ID and level using DataView.
+- [x] Verify parser extracts active status flag using DataView.
+- [x] Verify parser extracts IV metadata using DataView.
+- [x] Verify `RangeError` from out-of-bounds reads is handled gracefully.
+- [x] Verify no inline magic numbers are used in the parsing logic.
 
 ## Execution Constraints
 - **CRITICAL**: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

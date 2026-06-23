@@ -161,8 +161,13 @@ export interface SaveData {
   roamingLegendaries?: {
     speciesId: number;
     level: number;
-    mapGroup: number;
-    mapId: number;
+    mapGroup?: number;
+    mapId?: number;
+    isActive?: boolean;
+    ivs?: { hp: number; atk: number; def: number; spd: number; spAtk: number; spDef: number };
+    personalityValue?: number;
+    hp?: number;
+    statusCondition?: number;
   }[];
   /** Gen 3 specific: The 16-bit daily Mirage Island random value. */
   mirageIslandValue?: number;
