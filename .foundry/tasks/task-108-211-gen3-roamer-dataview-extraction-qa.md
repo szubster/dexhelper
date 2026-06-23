@@ -2,7 +2,7 @@
 id: task-108-211-gen3-roamer-dataview-extraction-qa
 type: TASK
 title: "Gen 3 Roamer DataView Extraction QA"
-status: PENDING
+status: CANCELLED
 owner_persona: "qa"
 created_at: "2026-06-19"
 updated_at: "2026-06-19"
@@ -17,7 +17,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Redundant task, implementation was already completed in task-108-161'
 notes: ''
 ---
 
@@ -40,3 +40,7 @@ Verify that the implementation safely reads the 20-byte roamer structure exclusi
 If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+
+### Auditor Rejection
+This task is permanently cancelled as it is redundant. The extraction logic was already fully implemented and verified in task-108-161.

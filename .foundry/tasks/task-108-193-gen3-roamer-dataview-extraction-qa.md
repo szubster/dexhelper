@@ -2,7 +2,7 @@
 id: task-108-193-gen3-roamer-dataview-extraction-qa
 type: TASK
 title: QA Gen 3 Roamer DataView Extraction and Core Parsing
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-16'
 updated_at: '2026-06-16'
@@ -17,7 +17,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Redundant task, implementation was already completed in task-108-161'
 notes: ''
 ---
 
@@ -44,3 +44,7 @@ Validate that the `DataView` API is used correctly and exclusively for reading t
 
 ### Auditor Rejection
 This task is permanently cancelled and replaced by task-108-211-gen3-roamer-dataview-extraction-qa to include magic number rule.
+
+
+### Auditor Rejection
+This task is permanently cancelled as it is redundant. The extraction logic was already fully implemented and verified in task-108-161.
