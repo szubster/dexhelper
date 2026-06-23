@@ -2,7 +2,7 @@
 id: task-121-171-gen3-tv-block-parser-impl
 type: TASK
 title: Implement Gen 3 TV Block DataView Parser
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-22'
@@ -17,7 +17,7 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Reached max rejection count. Replaced by research-121-216 and task-121-217.'
 notes: ''
 ---
 
@@ -38,3 +38,6 @@ Any out-of-bounds reads or structurally corrupt states within the TV block MUST 
 ## Important Protocols (For Coder)
 - **Empty PR Protocol:** If the required logic is already implemented and the criteria are satisfied by existing code, you MUST still submit an empty Pull Request (with 0 file changes). However, before submitting an empty PR, you MUST check off all Acceptance Criteria checkboxes above (`- [x]`).
 - **Failure Protocol:** If you encounter a deadlock or a fundamental impossibility to complete this task, you MUST NOT check off the acceptance criteria. Instead, modify the YAML frontmatter to set `status: FAILED` and provide a clear `rejection_reason`. You must also document the failure in your persona journal.
+
+### Auditor Rejection
+**CANCELLED:** This task reached its max rejection count and has been replaced by `research-121-216`, `task-121-217`, and `task-121-218`.
