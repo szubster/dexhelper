@@ -126,3 +126,12 @@ Do not strictly enforce QA task pairing for every single implementation task if 
 
 **Why this matters (Tailwind v4 @utility):**
 Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block. This greatly reduces repetitive class usage.
+
+### QA Task Verification Pairing Flexibility
+During the audit of `epic-071-074-define-tailwind-v4-utilities`, it was discovered that `story-074-114-define-tactical-button-and-focus` lacked a corresponding QA task.
+
+**Why this matters:**
+While generally QA tasks verify implementations, the coder is always responsible for writing tests. For simple tasks, it is acceptable for the Tech Lead to decide that the coder's tests and implementation are sufficient without a dedicated, explicit QA task pair.
+
+**Recommendation/Learnings:**
+Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.
