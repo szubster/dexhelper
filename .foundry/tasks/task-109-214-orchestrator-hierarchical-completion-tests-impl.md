@@ -2,13 +2,14 @@
 id: task-109-214-orchestrator-hierarchical-completion-tests-impl
 type: TASK
 title: Add Unit Tests for Hierarchical Completion Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-22'
-updated_at: '2026-06-22'
+updated_at: '2026-06-23'
 depends_on: []
 parent: story-070-109-orchestrator-hierarchical-completion-tests
 jules_session_id: null
+rejection_reason: ''
 ---
 
 # Add Unit Tests for Hierarchical Completion Logic

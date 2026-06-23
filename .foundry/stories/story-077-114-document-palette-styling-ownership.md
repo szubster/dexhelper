@@ -2,13 +2,13 @@
 id: story-077-114-document-palette-styling-ownership
 type: STORY
 title: Update documentation to reflect palette persona styling ownership
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-11'
-updated_at: '2026-06-22'
+updated_at: '2026-06-23'
 depends_on:
   - story-077-113-update-palette-persona
-jules_session_id: '133483591519394539'
+jules_session_id: null
 pr_number: null
 parent: epic-071-077-tailwind-designer-persona
 tags:
