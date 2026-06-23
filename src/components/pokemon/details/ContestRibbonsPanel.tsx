@@ -1,5 +1,6 @@
 import { Award } from 'lucide-react';
 import type { Gen3Ribbons } from '../../../engine/saveParser/parsers/common';
+import { objectEntries } from '../../../utils/object';
 import { type ContestConditionType, ContestRibbonBadge, type ContestRibbonRank } from './ContestRibbonBadge';
 
 interface ContestRibbonsPanelProps {
@@ -34,7 +35,7 @@ export function ContestRibbonsPanel({ ribbons }: ContestRibbonsPanelProps) {
         <Award size={8} /> Contest Ribbons
       </span>
       <div className="flex flex-wrap gap-2">
-        {(Object.entries(ribbons) as [keyof Gen3Ribbons, number][]).map(([key, rank]) => {
+        {objectEntries(ribbons).map(([key, rank]) => {
           if (rank === 0 || !rankMap[rank]) return null;
 
           return <ContestRibbonBadge key={key} type={conditionMap[key]} rank={rankMap[rank]} />;
