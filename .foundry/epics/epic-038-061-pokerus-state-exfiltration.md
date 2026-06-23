@@ -29,6 +29,7 @@ Read the specific byte flags for Pokerus for every Pokemon in the party and PC f
 - [ ] Extract pokerus data
 - [x] .foundry/stories/story-061-095-pokerus-byte-parsing.md
 - [x] .foundry/stories/story-061-096-pokerus-tests.md
+- [ ] .foundry/stories/story-061-155-refactor-pokerus-bitwise.md
 
 <!-- Tech Lead: Verified complete. Pokerus bitwise logic is thoroughly tested including cured state boundaries. -->
 
