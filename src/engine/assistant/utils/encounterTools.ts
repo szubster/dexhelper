@@ -15,24 +15,66 @@ export interface PlayerTools {
  * Used to determine if the player can access certain encounters.
  */
 export function extractPlayerTools(saveData: SaveData, allInstances: PokemonInstance[]): PlayerTools {
-  const hasItem = (ids: number[]) => {
-    return (
-      saveData.inventory.some((i) => ids.includes(i.id) && i.quantity > 0) ||
-      (saveData.pcItems?.some((i) => ids.includes(i.id) && i.quantity > 0) ?? false)
-    );
-  };
+  // ⚡ Bolt: Removed .some() chains and closures in favor of imperative loops to eliminate intermediate array/closure allocations (O(N) -> O(1) memory overhead)
+  let hasHeadbutt = false;
+  let hasRockSmash = false;
+  let hasSurf = false;
+  let hasOldRod = false;
+  let hasGoodRod = false;
+  let hasSuperRod = false;
 
-  const hasMove = (ids: number[]) => {
-    return allInstances.some((p) => p.moves?.some((m) => ids.includes(m)));
-  };
+  const inventory = saveData.inventory || [];
+  for (let i = 0; i < inventory.length; i++) {
+    const item = inventory[i];
+    if (item && item.quantity > 0) {
+      const id = item.id;
+      if (id === 192) hasHeadbutt = true;
+      else if (id === 198) {
+        hasRockSmash = true;
+        hasSurf = true;
+      } else if (id === 245 || id === 341) hasSurf = true;
+      else if (id === 52 || id === 69 || id === 260) hasOldRod = true;
+      else if (id === 53 || id === 70 || id === 261) hasGoodRod = true;
+      else if (id === 54 || id === 71 || id === 262) hasSuperRod = true;
+    }
+  }
+
+  const pcItems = saveData.pcItems || [];
+  for (let i = 0; i < pcItems.length; i++) {
+    const item = pcItems[i];
+    if (item && item.quantity > 0) {
+      const id = item.id;
+      if (id === 192) hasHeadbutt = true;
+      else if (id === 198) {
+        hasRockSmash = true;
+        hasSurf = true;
+      } else if (id === 245 || id === 341) hasSurf = true;
+      else if (id === 52 || id === 69 || id === 260) hasOldRod = true;
+      else if (id === 53 || id === 70 || id === 261) hasGoodRod = true;
+      else if (id === 54 || id === 71 || id === 262) hasSuperRod = true;
+    }
+  }
+
+  for (let i = 0; i < allInstances.length; i++) {
+    const p = allInstances[i];
+    if (p) {
+      const moves = p.moves || [];
+      for (let j = 0; j < moves.length; j++) {
+        const m = moves[j];
+        if (m === 29) hasHeadbutt = true;
+        else if (m === 249) hasRockSmash = true;
+        else if (m === 57) hasSurf = true;
+      }
+    }
+  }
 
   return {
-    hasHeadbutt: hasItem([192]) || hasMove([29]),
-    hasRockSmash: hasItem([198]) || hasMove([249]),
-    hasSurf: hasItem([198, 245, 341]) || hasMove([57]),
-    hasOldRod: hasItem([52, 69, 260]),
-    hasGoodRod: hasItem([53, 70, 261]),
-    hasSuperRod: hasItem([54, 71, 262]),
+    hasHeadbutt,
+    hasRockSmash,
+    hasSurf,
+    hasOldRod,
+    hasGoodRod,
+    hasSuperRod,
   };
 }
 
