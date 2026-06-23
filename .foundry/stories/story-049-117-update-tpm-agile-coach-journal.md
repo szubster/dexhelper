@@ -2,13 +2,13 @@
 id: story-049-117-update-tpm-agile-coach-journal
 type: STORY
 title: Update TPM/Agile Coach Journal with Late-Binding Process
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-23'
 depends_on:
   - story-049-116-verify-late-binding-logic
-jules_session_id: '10436959882815233233'
+jules_session_id: null
 pr_number: null
 parent: epic-035-049-late-binding-accommodation
 tags:
