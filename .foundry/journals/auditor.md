@@ -135,3 +135,8 @@ While generally QA tasks verify implementations, the coder is always responsible
 
 **Recommendation/Learnings:**
 Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.
+
+## 2026-06-23: Late-Binding Hierarchy Orchestrator Exception
+
+**Pattern / Constraint:**
+A new process change regarding late-binding hierarchical dependencies has been implemented in the orchestrator. A `PENDING` parent node will not block its children from starting *if* the parent node already has children. This exception to the normal hierarchical completion rule avoids circular dependency deadlocks where a parent waits for children that are waiting for their parent to become active.
