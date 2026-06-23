@@ -285,3 +285,8 @@
 **Outcome:** Merged
 **Why:** The Auditor journal noted that the coder is always responsible for writing tests, and for simple tasks, the Tech Lead can bypass creating a dedicated QA task. The Auditor agent must not falsely reject macro nodes due to missing QA tasks if the Tech Lead deemed them unnecessary.
 **Pattern:** Codify system memory constraints into agent prompts to avoid false-positive rejections. Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough.
+## 2026-06-21 - [Rejected] - Prompt improvement - Correct Late Binding status transition for Coder
+**Type:** Prompt improvement
+**Outcome:** Rejected → journaled
+**Why:** Modifying the `coder.md` prompt to submit an Empty PR for late-binding dependencies created a severe logical contradiction. If the agent modifies the node file's YAML to add the new dependency, committing those changes means the PR is *not* empty. Conversely, if it strictly submits an empty PR, the dependency changes are discarded, breaking the late binding pattern entirely. Additionally, it instructed the agent *not* to change the status to `FAILED`, which violated the "Core Policies" restricting YAML modifications *only* to `FAILED` or `CANCELLED` statuses. The proposed workflow for the Coder agent was impossible.
+**Pattern:** Do not propose prompt changes that create logical paradoxes or impossible workflows, such as requiring an "Empty PR" for a step that inherently requires file modifications (like updating a `depends_on` array).
