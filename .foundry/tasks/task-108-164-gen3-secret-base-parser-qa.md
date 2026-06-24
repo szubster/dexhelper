@@ -2,7 +2,7 @@
 id: task-108-164-gen3-secret-base-parser-qa
 type: TASK
 title: QA Gen 3 Secret Base Parser
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-06-11'
 updated_at: '2026-06-24'
@@ -18,8 +18,8 @@ tags:
   - save-parsing
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
