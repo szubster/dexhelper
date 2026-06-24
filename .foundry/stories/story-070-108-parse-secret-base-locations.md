@@ -33,5 +33,9 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to extract the
 ## Acceptance Criteria
 - [x] Break down into Tasks.
 
-- [ ] task-108-163-gen3-secret-base-parser
-- [ ] task-108-164-gen3-secret-base-parser-qa
+- [x] task-108-163-gen3-secret-base-parser
+- [x] task-108-164-gen3-secret-base-parser-qa
+
+- [ ] research-108-221-gen3-secret-base-rangeerror
+- [ ] task-108-222-gen3-secret-base-parser-retry-impl
+- [ ] task-108-223-gen3-secret-base-parser-retry-qa

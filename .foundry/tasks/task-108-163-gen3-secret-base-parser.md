@@ -18,7 +18,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: 'Max rejection count reached due to failure to explicitly catch and handle RangeError from out-of-bounds DataView reads (ADR 010)'
 notes: ''
 ---
 
