@@ -32,9 +32,9 @@ Provide an immediate, exact breakdown of a roaming legendary's internal state (N
 - Detect and display a warning if the "Roamer IV Glitch" affects the Pokémon.
 - Provide a Route Radar to map the roamer's current location index.
 
-- [ ] .foundry/epics/epic-044-070-gen3-roamer-core-extraction.md
-- [ ] .foundry/epics/epic-044-071-gen3-roamer-iv-glitch.md
+- [x] .foundry/epics/epic-044-070-gen3-roamer-core-extraction.md
+- [x] .foundry/epics/epic-044-071-gen3-roamer-iv-glitch.md
 - [x] .foundry/epics/epic-044-072-gen3-roamer-location-radar.md
 - [x] .foundry/epics/epic-044-073-gen3-roamer-dashboard-ui.md
-- [ ] .foundry/research/research-044-207-gen3-roamer-ui-alternatives.md
-- [ ] .foundry/epics/epic-044-096-gen3-roamer-dashboard-ui-v2.md
+- [x] .foundry/research/research-044-207-gen3-roamer-ui-alternatives.md
+- [x] .foundry/epics/epic-044-096-gen3-roamer-dashboard-ui-v2.md
