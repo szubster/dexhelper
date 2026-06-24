@@ -2,7 +2,7 @@
 id: prd-071-040-tailwind-v4-utilities-migration
 type: PRD
 title: Tailwind v4 @utility Consolidation
-status: ACTIVE
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-09'
 updated_at: '2026-06-24'
