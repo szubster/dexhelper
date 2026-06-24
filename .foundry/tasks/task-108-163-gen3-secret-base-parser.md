@@ -2,7 +2,7 @@
 id: task-108-163-gen3-secret-base-parser
 type: TASK
 title: Implement Gen 3 Secret Base Parser
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-24'
@@ -17,8 +17,8 @@ tags:
   - secret-base
   - save-parsing
 research_references: []
-rejection_count: 2
-rejection_reason: 'Fails to properly catch and handle RangeError from DataView out-of-bounds reads, violating ADR 010.'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 ---
 

@@ -2,13 +2,13 @@
 id: task-108-164-gen3-secret-base-parser-qa
 type: TASK
 title: QA Gen 3 Secret Base Parser
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-06-11'
 updated_at: '2026-06-24'
 depends_on:
   - task-108-163-gen3-secret-base-parser
-jules_session_id: '848887983537193600'
+jules_session_id: null
 pr_number: null
 parent: story-070-108-parse-secret-base-locations
 tags:
@@ -19,7 +19,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 
