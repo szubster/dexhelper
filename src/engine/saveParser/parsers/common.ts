@@ -68,6 +68,11 @@ export interface PokemonInstance {
  * This structure bridges the gap between binary memory blocks and the suggestion engine.
  */
 
+export interface Gen3TVShow {
+  kind: number;
+  active: boolean;
+}
+
 export interface Gen3PokeNews {
   kind: number;
   state: number;
@@ -149,6 +154,8 @@ export interface SaveData {
   gen3BerryPatches?: Gen3BerryPatch[];
   /** Gen 3 specific: Upcoming event schedule. */
   gen3PokeNews?: Gen3PokeNews[];
+  /** Gen 3 specific: TV broadcast shows. */
+  gen3TVShows?: Gen3TVShow[];
   /** Gen 3 specific: Inherited Mix Record events. */
   gen3MixRecords?: Gen3MixRecord[];
   /**

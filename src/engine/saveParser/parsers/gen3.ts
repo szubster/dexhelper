@@ -18,7 +18,7 @@
  * is determined by `PV % 24`.
  */
 
-import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, SaveData } from './common';
+import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, Gen3TVShow, SaveData } from './common';
 
 const SIGNATURE = 0x08012025;
 const SECTION_SIZE = 4096;
@@ -386,6 +386,10 @@ export function parseGen3MirageIslandValue(view: DataView, offset: number): numb
  * @returns The fully parsed and structured SaveData object.
  * @throws Error - Gen 3 parsing not implemented yet, or "Corrupted Save File" on RangeError.
  */
+const GEN3_TV_SHOW_OFFSET = 0x27cc;
+const GEN3_TV_SHOW_COUNT = 25;
+const GEN3_TV_SHOW_STRUCT_SIZE = 36;
+
 export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {
   try {
     let section2Offset: number;
@@ -405,6 +409,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
 
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset + 0x2b50);
+    const gen3TVShows = parseGen3TVShows(view, section1Offset + GEN3_TV_SHOW_OFFSET);
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + 0x27cc);
 
     const flagsOffset = section2Offset + 0x02f0;
@@ -440,6 +445,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       hiddenItemFlags,
       mirageIslandValue,
       gen3PokeNews,
+      gen3TVShows,
       gen3MixRecords,
     };
   } catch (error) {
@@ -523,6 +529,38 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
  * @returns An array of news events.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
+/**
+ * Parses the TV broadcast data block from a Gen 3 save file.
+ *
+ * @remarks
+ * The TV broadcast data block stores the shows currently active in rotation.
+ * The block starts at a specific offset and consists of an array of 25 structures,
+ * each 36 bytes long. The first byte represents the `kind` of show, and the second
+ * byte is an `active` boolean flag.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the value from.
+ * @returns An array of parsed TV shows.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3TVShows(view: DataView, offset: number): Gen3TVShow[] {
+  try {
+    const shows: Gen3TVShow[] = [];
+    for (let i = 0; i < GEN3_TV_SHOW_COUNT; i++) {
+      const itemOffset = offset + i * GEN3_TV_SHOW_STRUCT_SIZE;
+      const kind = view.getUint8(itemOffset);
+      const active = view.getUint8(itemOffset + 1) !== 0;
+      shows.push({ kind, active });
+    }
+    return shows;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3PokeNews(view: DataView, offset: number) {
   try {
     const news = [];
