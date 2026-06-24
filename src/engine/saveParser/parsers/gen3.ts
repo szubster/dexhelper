@@ -451,6 +451,24 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset + 0x2b50);
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + 0x27cc);
 
+    const roamingLegendaries = [];
+    try {
+      const roamer = parseGen3Roamer(view, section1Offset, _forcedVersion || 'ruby');
+      if (roamer?.active) {
+        roamingLegendaries.push({
+          speciesId: roamer.speciesId,
+          level: roamer.level,
+          isActive: roamer.active,
+          ivs: roamer.ivs,
+          personalityValue: roamer.personalityValue,
+          hp: roamer.hp,
+          statusCondition: roamer.statusCondition,
+        });
+      }
+    } catch {
+      // Ignored
+    }
+
     const flagsOffset = section2Offset + 0x02f0;
     const hiddenItemFlags = new Uint8Array(14);
 
@@ -486,6 +504,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       mirageIslandValue,
       gen3PokeNews,
       gen3MixRecords,
+      roamingLegendaries,
     };
   } catch (error) {
     if (error instanceof RangeError) {

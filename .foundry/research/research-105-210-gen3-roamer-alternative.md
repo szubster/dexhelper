@@ -26,7 +26,10 @@ notes: ''
 Investigate an alternative parsing approach for tracking the Gen 3 roaming Pokémon (Latios/Latias in RS/E or Legendary Beast in FRLG), given that extracting dynamic map locations from the save file is impossible as established in `adr-108-027-gen3-roamer-location-impossible`.
 
 ## Description
-Determine what data can realistically be extracted from the save file to track the roamer's state. Based on prior research (`gen3_roamer_offsets.md`), we know the `Roamer` struct contains:
+Determine what data can realistically be extracted from the save file to track the roamer's state.
+
+## Acceptance Criteria
+- [x] Investigate alternative data fields. Based on prior research (`gen3_roamer_offsets.md`), we know the `Roamer` struct contains:
 - IVs
 - Personality
 - Species ID
