@@ -139,3 +139,7 @@
 ## 2026-06-26
 **Idea:** Gen 3 Volcanic Ash Gathering Tracker
 **Learning:** Targeting highly localized, item-gathering grinds (like collecting volcanic ash on Route 113 for glass flutes) perfectly aligns with DexHelper's 'premium companion app' vision. By surfacing the exact hidden step counter from the save file, we replace tedious, blind running back and forth with precise, actionable data, giving hardcore completionists a unique utility that standard gameplay lacks.
+
+## 2026-06-27
+**Idea:** Gen 2 Pokegear Phone Call Predictor & Tracker
+**Learning:** Expanding Gen 2 support by surfacing hidden state related to core mechanics like the Pokégear Phone provides immense utility. Rematches, rare item gifts (evolution stones), and swarms are all tied to this system, but it is entirely opaque and relies on RNG. By analyzing the save file to reveal which NPCs are active or ready, we transform a frustrating waiting game into a predictable, actionable dashboard. This perfectly aligns with DexHelper's vision as a premium companion app that eliminates tedious guesswork in retro games.
