@@ -40,7 +40,7 @@ This epic covers the backend logic to extract TV broadcast events and swarm trac
 - Extract data indicating if events were inherited from another player's save file via the "Mix Record" feature.
 
 ## 3. Acceptance Criteria
-- [x] Story Owner: Break down into Stories.
+- [ ] Story Owner: Break down into Stories.
 
 - [ ] story-081-121-gen3-tv-block-dataview-parser
 - [x] story-081-122-gen3-rtc-extraction
