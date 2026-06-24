@@ -47,3 +47,8 @@ Verify the implementation of the Gen 3 Secret Base Parser task. Because save fil
 ## Reminders for Personas
 - **Coder/QA:** If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
 - **Coder/QA:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+### Auditor Rejection
+**Validation Failed:** `task-108-163-gen3-secret-base-parser` is rejected because it fails to explicitly catch and handle `RangeError` from out-of-bounds `DataView` reads, which is a requirement defined in ADR 010.
+
+*Note: This task is cancelled as the implementation failed permanently. Replaced by `task-108-223-gen3-secret-base-parser-retry-qa`.*
