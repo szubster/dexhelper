@@ -23,10 +23,10 @@ Following the project's `.agents/rules/testing_rules.md`:
 
 ## Visual Excellence & Design Standards
 
-- **Premium UI**: Use curated color palettes, glassmorphism, and smooth gradients. Avoid generic styles.
-- **Modern Retro**: Blend classic Pokédex aesthetics with high-fidelity modern UI patterns.
+- **Tactical Hardware Aesthetic**: Adhere strictly to the "tactical hardware/snooping" aesthetic as defined in ADR 024. Use sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry fonts (`font-mono`). Avoid rounded glassmorphism or overly slick holographic elements.
+- **Modern Retro**: Blend classic Pokédex utility with specialized hardware UI patterns to evoke the feeling of a real device.
 - **No Placeholders**: Never use placeholder images. Use `generate_image` or real assets.
-- **Animations**: Implement subtle micro-animations and interactive transitions (hover effects, smooth state changes) to make the UI feel "alive".
+- **Animations**: Prefer immediate, utilitarian state changes or blocky segmented loading effects over smooth web-standard transitions.
 
 ## Code Analysis and Formatting
 

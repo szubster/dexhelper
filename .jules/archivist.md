@@ -65,3 +65,8 @@
 **Learning:** Foundry journals (`coder.md`, `tech_lead.md`, `auditor.md`, `story_owner.md`) frequently accumulate pure execution logs ("I did X", task verification records) and heavily duplicated pattern insights (e.g., Epic cancellation procedures).
 **Action:** Scrubbed pure execution logs to preserve context windows and consolidated duplicated pattern insights into canonical architectural constraints.
 - The directory `.serena/memories/` is a symbolic link mapping to `../.foundry/docs/knowledge_base/`. Agents must be careful not to mistake it for a duplicate directory or attempt recursive operations that result in duplicate changes.
+
+## 2026-07-15 - Archivist Run Learnings
+
+**Learning:** High-level onboarding documents (like `style_and_conventions.md`) are highly susceptible to knowledge rot when overarching application aesthetics or paradigms change. For example, the project's design standard shifted from "glassmorphism" to a "tactical hardware/snooping" aesthetic (ADR 024, logged heavily in Canvas journals), but the onboarding document still instructed agents to use generic premium UI and smooth gradients, causing contradictory behaviors.
+**Action:** Resolved the contradiction in `onboarding/style_and_conventions.md` by explicitly pointing to the "tactical hardware" guidelines in ADR 024. Going forward, when sweeping architectural or aesthetic decisions are made, maintainers and planning agents MUST ensure that introductory/onboarding documentation is explicitly updated to reflect the new paradigms to prevent confusing future agents.
