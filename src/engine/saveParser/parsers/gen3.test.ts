@@ -7,9 +7,9 @@ import {
   parseGen3MixRecords,
   parseGen3PersonalityValue,
   parseGen3PokeNews,
-  parseGen3TVShows,
   parseGen3Ribbons,
   parseGen3Roamer,
+  parseGen3TVShows,
 } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
@@ -412,11 +412,11 @@ describe('parseGen3TVShows', () => {
 
     // Show 2 at index 10 (offset 360)
     view.setUint8(360, 12); // kind
-    view.setUint8(361, 0);  // inactive
+    view.setUint8(361, 0); // inactive
 
     // Show 3 at index 24 (offset 864)
     view.setUint8(864, 255); // kind
-    view.setUint8(865, 1);   // active
+    view.setUint8(865, 1); // active
 
     const result = parseGen3TVShows(view, 0);
 
