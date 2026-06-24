@@ -2,7 +2,7 @@
 id: task-108-163-gen3-secret-base-parser
 type: TASK
 title: Implement Gen 3 Secret Base Parser
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-24'
@@ -17,8 +17,8 @@ tags:
   - secret-base
   - save-parsing
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'Fails to properly catch and handle RangeError from DataView out-of-bounds reads, violating ADR 010.'
 notes: ''
 ---
 
@@ -36,10 +36,10 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to extract the
 - Ensure the legacy Gen 1 and Gen 2 parsers remain unchanged (backwards compatibility).
 
 ## Acceptance Criteria
-- [x] Gen 3 Secret Base parser is implemented using `DataView`.
-- [x] It correctly identifies and extracts map location IDs for active secret bases.
-- [x] Rejections or errors handle corrupted/truncated data gracefully via `RangeError` catching.
-- [x] Appropriate unit tests are added for the parsing logic.
+- [ ] Gen 3 Secret Base parser is implemented using `DataView`.
+- [ ] It correctly identifies and extracts map location IDs for active secret bases.
+- [ ] Rejections or errors handle corrupted/truncated data gracefully via `RangeError` catching.
+- [ ] Appropriate unit tests are added for the parsing logic.
 
 ## Reminders for Personas
 - **Coder/QA:** If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
