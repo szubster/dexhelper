@@ -35,5 +35,5 @@ Identify the exact memory offsets for Latios/Latias in Ruby/Sapphire/Emerald sav
 - [x] .foundry/tasks/task-105-197-gen3-roamer-parser-impl.md
 - [x] .foundry/tasks/task-105-198-gen3-roamer-parser-qa.md
 - [x] .foundry/research/research-105-210-gen3-roamer-alternative.md
-- [x] .foundry/tasks/task-105-214-gen3-roamer-parser-alternative-impl.md
-- [x] .foundry/tasks/task-105-215-gen3-roamer-parser-alternative-qa.md
+- [ ] .foundry/tasks/task-105-214-gen3-roamer-parser-alternative-impl.md
+- [ ] .foundry/tasks/task-105-215-gen3-roamer-parser-alternative-qa.md
