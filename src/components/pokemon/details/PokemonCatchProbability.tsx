@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
 import { DataPoint } from '../../DataPoint';
+import { PanelWatermark } from '../../PanelWatermark';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
@@ -47,9 +48,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
 
   return (
     <TacticalPanel variant="emerald" className="space-y-8 rounded-none border border-dashed p-8">
-      <div className="absolute top-0 right-0 p-4 opacity-5">
-        <Target size={120} />
-      </div>
+      <PanelWatermark icon={<Target size={120} />} />
       <div className="flex items-center justify-between">
         <SectionHeader colorClass="text-emerald-400" title="Catch Probability" icon={<Target size={14} />} />
         <TacticalBadge

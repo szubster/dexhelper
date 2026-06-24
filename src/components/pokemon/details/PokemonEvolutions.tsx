@@ -4,6 +4,7 @@ import { stadiumRewardsData } from '../../../engine/data/shared/staticData';
 import type { SaveData } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
 import { InlineLink } from '../../InlineLink';
+import { PanelWatermark } from '../../PanelWatermark';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
@@ -64,9 +65,7 @@ function ProcurementStrategy({
       variant="red"
       className="group col-span-1 space-y-4 rounded-none border border-dashed p-6 sm:col-span-2"
     >
-      <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:scale-110">
-        <AlertTriangle size={80} />
-      </div>
+      <PanelWatermark icon={<AlertTriangle size={80} />} className="group-hover:scale-110" />
       <SectionHeader
         className="relative z-10"
         colorClass="text-red-400"
@@ -119,9 +118,7 @@ function EvolutionFrom({
 }) {
   return (
     <TacticalPanel variant="purple" className="group space-y-4 rounded-none border border-dashed p-6">
-      <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:rotate-12">
-        <ArrowUpCircle size={80} />
-      </div>
+      <PanelWatermark icon={<ArrowUpCircle size={80} />} className="group-hover:rotate-12" />
       <SectionHeader
         className="relative z-10"
         colorClass="text-purple-400"
@@ -161,9 +158,7 @@ function EvolutionTo({
   if (!evolvesTo || evolvesTo.length === 0) return null;
   return (
     <TacticalPanel variant="blue" className="group space-y-4 rounded-none border border-dashed p-6">
-      <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:-rotate-12">
-        <ChevronRight size={80} />
-      </div>
+      <PanelWatermark icon={<ChevronRight size={80} />} className="group-hover:-rotate-12" />
       <SectionHeader
         className="relative z-10"
         colorClass="text-blue-400"
@@ -201,9 +196,7 @@ function BreedingProtocol({
       variant="pink"
       className="group col-span-1 space-y-4 rounded-none border border-dashed p-6 sm:col-span-2"
     >
-      <div className="absolute top-0 right-0 p-4 opacity-5 transition-transform group-hover:scale-110">
-        <Heart size={80} />
-      </div>
+      <PanelWatermark icon={<Heart size={80} />} className="group-hover:scale-110" />
       <SectionHeader
         className="relative z-10"
         colorClass="text-pink-400"

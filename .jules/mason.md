@@ -124,3 +124,8 @@
   - Utilizing `Omit<LinkProps, 'activeProps' | 'inactiveProps' | 'className'>` ensures the parent `<NavigationTab>` strictly governs the styling and routing state styles, preventing accidental overrides from callers while still allowing them to pass standard Tanstack `to` attributes.
   - Exposing `className` on tiny, structural components like `<VerticalDivider>` using `cn()` is incredibly powerful, because we can trivially apply specific height classes (`className="h-8"`) contextually without rebuilding the component.
   - To automatically fix formatting errors identified by the Biome linter, execute `pnpm biome check --write .`.
+## PanelWatermark Extraction
+- **What**: Extracted a repeated watermark-style background icon pattern (`<div className="absolute top-0 right-0 p-4 opacity-5 transition-transform...">`) found across various tactical panels into a reusable `<PanelWatermark>` component.
+- **Why**: Reduced duplicated JSX across `PokemonEvolutions.tsx` and `PokemonCatchProbability.tsx` and enforced consistent positioning, opacity, and transition durations for background embellishments.
+- **Key Learnings**:
+  - The extraction allows callers to pass specific hover transforms (like `group-hover:scale-110` or `group-hover:rotate-12`) via the `className` prop while the internal component handles the shared absolute positioning and opacity.
