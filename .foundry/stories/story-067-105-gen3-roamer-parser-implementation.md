@@ -31,9 +31,9 @@ Identify the exact memory offsets for Latios/Latias in Ruby/Sapphire/Emerald sav
 - [ ] Parser extracts species ID and level.
 - [ ] Parser verifies event flags before marking roamer as active.
 - [x] Break down this Story into executable Tasks.
-- [ ] .foundry/research/research-105-196-gen3-roamer-event-flag.md
-- [ ] .foundry/tasks/task-105-197-gen3-roamer-parser-impl.md
-- [ ] .foundry/tasks/task-105-198-gen3-roamer-parser-qa.md
+- [x] .foundry/research/research-105-196-gen3-roamer-event-flag.md
+- [x] .foundry/tasks/task-105-197-gen3-roamer-parser-impl.md
+- [x] .foundry/tasks/task-105-198-gen3-roamer-parser-qa.md
 - [ ] .foundry/research/research-105-210-gen3-roamer-alternative.md
 - [ ] .foundry/tasks/task-105-214-gen3-roamer-parser-alternative-impl.md
 - [ ] .foundry/tasks/task-105-215-gen3-roamer-parser-alternative-qa.md
