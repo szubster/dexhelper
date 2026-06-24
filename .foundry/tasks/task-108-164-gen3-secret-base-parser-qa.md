@@ -47,3 +47,7 @@ Verify the implementation of the Gen 3 Secret Base Parser task. Because save fil
 ## Reminders for Personas
 - **Coder/QA:** If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
 - **Coder/QA:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+### Auditor Rejection
+**Status: CANCELLED**
+This QA task has been permanently cancelled because its dependency `task-108-163-gen3-secret-base-parser` reached the maximum rejection count. It is being replaced by new tasks that correctly address the `DataView` RangeError handling and memory offset reusable constant constraints.
