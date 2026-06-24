@@ -12,7 +12,18 @@ export interface PlayerTools {
 
 /**
  * Extracts tool availability (items and moves) from the player's save data.
- * Used to determine if the player can access certain encounters.
+ * Used to determine if the player can access certain map areas or encounter methods
+ * (e.g., using Surf to cross water, or Old Rod to fish).
+ *
+ * @param saveData - The parsed save data containing the player's inventory and PC items.
+ * @param allInstances - An array of all Pokémon currently owned by the player (Party + PC), used to check for learned HM moves.
+ * @returns A `PlayerTools` object indicating which tools and HMs are currently accessible.
+ *
+ * @example
+ * const tools = extractPlayerTools(saveData, [...saveData.partyDetails, ...saveData.pcDetails]);
+ * if (tools.hasSurf) {
+ *   // Player can access water encounters
+ * }
  */
 export function extractPlayerTools(saveData: SaveData, allInstances: PokemonInstance[]): PlayerTools {
   // ⚡ Bolt: Removed .some() chains and closures in favor of imperative loops to eliminate intermediate array/closure allocations (O(N) -> O(1) memory overhead)
@@ -80,14 +91,27 @@ export function extractPlayerTools(saveData: SaveData, allInstances: PokemonInst
 
 /**
  * Filters out HM/Item dependent encounters (like Headbutt, Surf, Fishing) if the player lacks the required tools.
- * Penalizes priority if tools are missing but encounter might still be conceptually valid.
- * Removes suggestions entirely if no accessible encounter methods remain.
+ *
+ * If a Pokémon requires a missing tool to be encountered but is still conceptually valid,
+ * its priority is heavily penalized rather than being removed entirely, serving as a hint
+ * for future progression. If all possible encounter methods for a suggestion require missing tools
+ * and no accessible method remains, the suggestion is removed completely.
+ *
+ * @param suggestions - The array of generated `Suggestion` objects to filter. This array is mutated in-place.
+ * @param playerTools - The object defining which tools the player currently possesses.
+ * @param localPids - A `Set` tracking which Pokémon IDs have been found locally. If a local encounter is removed, its ID is deleted from this set so it can be evaluated by fallback generators.
+ * @returns void - The `suggestions` array and `localPids` set are mutated in-place to avoid array reallocation overhead.
+ *
+ * @example
+ * filterSuggestionsByMissingTools(suggestions, playerTools, localPids);
  */
 export function filterSuggestionsByMissingTools(
   suggestions: Suggestion[],
   playerTools: PlayerTools,
   localPids: Set<number>,
 ): void {
+  // We iterate backwards through the array. This allows us to `splice` (remove)
+  // elements in-place safely without skipping the next element, maintaining O(1) space.
   for (let i = suggestions.length - 1; i >= 0; i--) {
     const suggestion = suggestions[i];
     if (suggestion && suggestion.category === 'Catch' && suggestion.encounterInfo) {
@@ -137,7 +161,9 @@ export function filterSuggestionsByMissingTools(
             } else {
               suggestion.warning = warningStr;
             }
-            // Penalize priority since the user lacks the required tools
+            // Penalize priority to 45 (below 'Ready-to-Evolve' and standard progression tasks).
+            // We do not remove it completely, so the user still gets a hint that the Pokémon
+            // is available here if they come back later with the right tool.
             suggestion.priority = Math.min(suggestion.priority, 45);
           }
 
@@ -149,7 +175,9 @@ export function filterSuggestionsByMissingTools(
       // (This will only happen if there were actually zero encounter details generated originally)
       if (!hasValidEncounter) {
         suggestions.splice(i, 1);
-        // Also remove from localPids so it can be picked up by other suggestions if applicable
+        // Also remove from localPids. Because this local encounter was physically impossible
+        // to reach, deleting the PID from `localPids` allows the suggestion engine's later stages
+        // (like evolution or trade generators) to try and find an alternative way to obtain it.
         if (suggestion.pokemonIds) {
           for (const pid of suggestion.pokemonIds) {
             localPids.delete(pid);
