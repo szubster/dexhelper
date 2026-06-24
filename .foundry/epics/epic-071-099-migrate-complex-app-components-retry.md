@@ -1,13 +1,13 @@
 ---
-id: epic-071-076-migrate-complex-app-components
+id: epic-071-099-migrate-complex-app-components-retry
 type: EPIC
-title: Migrate Complex Application Components
+title: Migrate Complex Application Components Retry
 status: PENDING
 owner_persona: story_owner
-created_at: '2026-06-11'
-updated_at: '2026-06-11'
+created_at: '2026-06-24'
+updated_at: '2026-06-24'
 depends_on:
-  - epic-071-075-migrate-core-tactical-components
+  - epic-071-098-migrate-core-tactical-components-retry
 jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
@@ -20,7 +20,7 @@ rejection_reason: ''
 notes: ''
 ---
 
-# Epic: Migrate Complex Application Components
+# Epic: Migrate Complex Application Components Retry
 
 ## Objective
 Refactor the more complex, composite application components and page layouts to utilize the new `@utility` classes, or to swap out raw HTML elements for the newly refactored core `Tactical*` components.
@@ -46,6 +46,3 @@ Refactor the more complex, composite application components and page layouts to 
 - [ ] Complex application components and layouts are updated to use the new `tactical-*` utilities or refactored to use the newly updated core `Tactical*` components.
 - [ ] The overall application aesthetic is perfectly preserved without visual regressions.
 - [ ] Components pass `pnpm run lint` and `pnpm test`.
-
-### Auditor Rejection
-This node has been CANCELLED because its dependency chain failed permanently. It is replaced by epic-071-099-migrate-complex-app-components-retry.

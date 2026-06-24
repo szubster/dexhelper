@@ -1,13 +1,14 @@
 ---
-id: epic-071-074-define-tailwind-v4-utilities
+id: epic-071-097-define-tailwind-v4-utilities-retry
 type: EPIC
-title: Define Tailwind v4 Tactical Utilities
-status: CANCELLED
+title: Define Tailwind v4 Tactical Utilities Retry
+status: PENDING
 owner_persona: story_owner
-created_at: '2026-06-11'
+created_at: '2026-06-24'
 updated_at: '2026-06-24'
 depends_on:
   - task-071-150-tailwind-v4-adr
+  - research-071-217-investigate-session-id-failure
 jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
@@ -15,12 +16,12 @@ tags:
   - styling
   - tailwind
 research_references: []
-rejection_count: 1
-rejection_reason: Reached max rejection count due to missing or malformed session ID.
+rejection_count: 0
+rejection_reason: ''
 notes: ''
 ---
 
-# Epic: Define Tailwind v4 Tactical Utilities
+# Epic: Define Tailwind v4 Tactical Utilities Retry
 
 ## Objective
 Extract and consolidate common, repetitive Tailwind class patterns used throughout `src/components/` into semantic custom utilities. Define these new primitives using Tailwind v4's native `@utility` directive in `src/index.css`.
@@ -37,17 +38,5 @@ Extract and consolidate common, repetitive Tailwind class patterns used througho
 3. **Verify Compliance**: Ensure all custom utilities correctly use `@apply` or raw CSS to define the desired baseline "tactical hardware" aesthetic as dictated by ADR 024. Confirm that hover and focus states can be correctly inherited natively through v4's directive structure.
 
 ## Acceptance Criteria
-- [x] Appropriate `@utility` primitives are defined in `src/index.css`.
-- [x] Tailwind v4 formatting and structure is respected.
-
-### Generated Stories
-- [x] story-074-113-define-tactical-panel-and-card
-- [x] story-074-114-define-tactical-button-and-focus
-- [x] story-074-115-define-tactical-input-and-text
-
-### Auditor Notes
-- Verified that all `tactical-*` utility classes were correctly defined in `src/index.css` leveraging Tailwind v4's native `@utility` directive.
-- Discovered that `story-074-114` lacked a corresponding QA task for its implementation task. Noted in journal that for simple tasks, the Tech Lead can decide QA task pairing is not strictly required.
-
-### Auditor Rejection
-This node has been CANCELLED due to max rejection count and is replaced by research-071-217-investigate-session-id-failure and epic-071-097-define-tailwind-v4-utilities-retry.
+- [ ] Appropriate `@utility` primitives are defined in `src/index.css`.
+- [ ] Tailwind v4 formatting and structure is respected.

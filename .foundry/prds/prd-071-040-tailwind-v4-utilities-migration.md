@@ -46,8 +46,17 @@ DexHelper is transitioning from repetitive inline Tailwind classes to semantic c
 - [x] Epics are created to handle the migration in manageable chunks.
 
 
-- [ ] epic-071-074-define-tailwind-v4-utilities
-- [ ] epic-071-075-migrate-core-tactical-components
-- [ ] epic-071-076-migrate-complex-app-components
+- [x] epic-071-074-define-tailwind-v4-utilities
+- [x] epic-071-075-migrate-core-tactical-components
+- [x] epic-071-076-migrate-complex-app-components
 
-- [ ] epic-071-077-tailwind-designer-persona
+- [x] epic-071-077-tailwind-designer-persona
+
+### Auditor Rejection
+The epic-071-074 permanently failed. All its children are cancelled. Replaced by research-071-217 and retried epics.
+
+- [ ] research-071-217-investigate-session-id-failure
+- [ ] epic-071-097-define-tailwind-v4-utilities-retry
+- [ ] epic-071-098-migrate-core-tactical-components-retry
+- [ ] epic-071-099-migrate-complex-app-components-retry
+- [ ] epic-071-100-tailwind-designer-persona-retry

@@ -1,13 +1,13 @@
 ---
-id: epic-071-075-migrate-core-tactical-components
+id: epic-071-098-migrate-core-tactical-components-retry
 type: EPIC
-title: Migrate Core Tactical Components
+title: Migrate Core Tactical Components Retry
 status: PENDING
 owner_persona: story_owner
-created_at: '2026-06-11'
-updated_at: '2026-06-11'
+created_at: '2026-06-24'
+updated_at: '2026-06-24'
 depends_on:
-  - epic-071-074-define-tailwind-v4-utilities
+  - epic-071-097-define-tailwind-v4-utilities-retry
 jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
@@ -20,7 +20,7 @@ rejection_reason: ''
 notes: ''
 ---
 
-# Epic: Migrate Core Tactical Components
+# Epic: Migrate Core Tactical Components Retry
 
 ## Objective
 Refactor the fundamental tactical UI components within the `src/components/` directory to utilize the new `@utility` classes defined in `src/index.css`.
@@ -43,6 +43,3 @@ Refactor the fundamental tactical UI components within the `src/components/` dir
 - [ ] Core tactical components are updated to use the new `tactical-*` utilities.
 - [ ] Component aesthetics remain strictly consistent with the tactical hardware style (no visual regressions).
 - [ ] Components pass `pnpm run lint` and `pnpm test`.
-
-### Auditor Rejection
-This node has been CANCELLED because its parent epic-071-074 failed permanently. It is replaced by epic-071-098-migrate-core-tactical-components-retry.

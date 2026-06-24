@@ -27,3 +27,6 @@ Furthermore, generated Epics MUST have their dependencies explicitly defined. Fo
 ## 2026-06-20: Gen 3 Roamer Location Radar Impossibility
 When a child node is permanently cancelled due to an impossible objective (e.g., extracting map locations from Gen 3 save files because the data is only stored dynamically in EWRAM, as documented in ADR 108-027), the parent node must be updated safely.
 I learned that the cancelled child node (`epic-044-072-gen3-roamer-location-radar`) must remain with its Acceptance Criteria unchecked to prevent premature progression, and its YAML `status` must be `CANCELLED` with a clear `rejection_reason`. Orphaned dependent nodes (`epic-044-073-gen3-roamer-dashboard-ui`) should also be updated via their Markdown body to indicate cancellation. To resolve the roadblock, I must dynamically spawn a `RESEARCH` node to define a new approach (e.g., alternative UI layouts without map data) and a replacement node that depends on this research.
+
+## 2026-06-24: Handling permanently failed child nodes
+When handling permanent child failures, I must cancel the failed node and any orphaned pending nodes by updating their markdown bodies, NOT their YAML frontmatter (for pending ones). I must also check off the cancelled tasks in the parent PRD and append the new replacement tasks including a RESEARCH node to investigate the root cause.
