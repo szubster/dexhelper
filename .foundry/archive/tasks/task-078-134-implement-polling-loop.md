@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-05-23'
-depends_on:
-  - story-041-077-file-system-access-idb
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-041-078-background-polling-loop
 tags:

@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
-depends_on:
-  - story-033-066-heartbeat-prless-detection
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-025-033-robust-session-completion
 tags:

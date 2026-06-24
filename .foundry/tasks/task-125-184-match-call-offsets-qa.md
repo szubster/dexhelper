@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: qa
 created_at: '2026-06-14'
 updated_at: '2026-06-14'
-depends_on:
-  - task-125-183-match-call-offsets-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-083-125-gen3-match-call-memory-offset-discovery
 tags:

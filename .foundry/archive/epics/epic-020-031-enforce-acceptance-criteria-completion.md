@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-11'
 updated_at: '2026-05-14'
-depends_on:
-  - prd-020-020-enforce-acceptance-criteria-completion
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: prd-020-020-enforce-acceptance-criteria-completion
 tags: []

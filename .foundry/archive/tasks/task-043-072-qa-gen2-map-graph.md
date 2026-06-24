@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-09'
 updated_at: '2026-05-11'
-depends_on:
-  - task-043-071-implement-gen2-map-graph
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-028-043-gen2-map-graph
 tags:

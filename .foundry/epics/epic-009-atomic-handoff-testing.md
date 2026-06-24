@@ -6,13 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-04-22'
 updated_at: '2026-04-27'
-depends_on:
-  - epic-008-atomic-handoff-orchestrator
-  - story-009-032-lifecycle-integration-tests
-  - story-009-031-deadlock-prevention-tests
-  - story-009-030-single-persona-dag-tests
-jules_session_id: null
-parent: prd-001-v2-lifecycle
+depends_on: []parent: prd-001-v2-lifecycle
 tags:
   - v2-architecture
   - lifecycle

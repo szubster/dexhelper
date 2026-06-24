@@ -6,11 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-15'
 updated_at: '2026-06-15'
-depends_on:
-  - epic-041-065-individual-contest-stats-view
-  - epic-041-066-global-ribbon-checklist-dashboard
-jules_session_id: null
-pr_number: null
+depends_on: []pr_number: null
 parent: prd-070-041-gen3-contest-ui-viewer
 tags:
   - feature

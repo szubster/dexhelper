@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-21'
 updated_at: '2026-05-22'
-depends_on:
-  - story-040-074-orchestrator-verifying-state
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-029-040-auditor-implementation
 tags:

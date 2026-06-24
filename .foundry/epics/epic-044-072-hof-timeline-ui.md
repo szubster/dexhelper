@@ -6,11 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-06-10'
-depends_on:
-  - adr-044-023-hof-timeline-ui
-  - epic-044-071-hof-certificate-rendering
-jules_session_id: null
-pr_number: null
+depends_on: []pr_number: null
 parent: prd-070-044-hall-of-fame-exporter
 tags:
   - epic

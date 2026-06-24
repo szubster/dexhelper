@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-04-21'
 updated_at: '2026-04-23'
-depends_on:
-  - epic-004-generic-agent-scheduling
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: prd-001-agent-scheduling
 tags:
   - infrastructure

@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-20'
-depends_on:
-  - task-062-110-gen3-data-formatting-msgpack-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: story-032-062-gen3-data-generation-scripts
 rejection_count: 0
 rejection_reason: ''

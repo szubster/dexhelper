@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-10'
 updated_at: '2026-05-11'
-depends_on:
-  - story-030-046-branch-identification
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-019-030-automated-branch-cleanup
 tags:

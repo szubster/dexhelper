@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-09'
 updated_at: '2026-06-18'
-depends_on:
-  - task-071-150-tailwind-v4-adr
-jules_session_id: '18168795712351055980'
+depends_on: []jules_session_id: '18168795712351055980'
 pr_number: null
 parent: idea-071-tailwind-v4-utilities-migration
 tags:

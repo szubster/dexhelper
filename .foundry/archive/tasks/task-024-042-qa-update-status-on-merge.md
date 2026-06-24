@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-04-26'
 updated_at: '2026-04-26'
-depends_on:
-  - task-024-041-update-status-on-merge
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-008-024-update-status-on-merge
 tags:

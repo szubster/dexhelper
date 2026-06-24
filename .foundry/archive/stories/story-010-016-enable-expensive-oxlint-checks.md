@@ -6,10 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-04-26'
 updated_at: '2026-05-01'
-depends_on:
-  - task-016-040-oxlint-import-promise-plugins
-  - task-016-039-oxlint-type-aware
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: epic-010-oxlint-config
 rejection_reason: ''
 ---

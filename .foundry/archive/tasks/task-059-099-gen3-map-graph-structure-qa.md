@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
-depends_on:
-  - task-059-098-gen3-map-graph-structure-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-032-059-gen3-map-graph-structure
 tags:

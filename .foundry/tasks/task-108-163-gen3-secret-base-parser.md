@@ -6,9 +6,7 @@ status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-11'
 updated_at: '2026-06-23'
-depends_on:
-  - research-108-187-gen3-secret-base-offsets
-jules_session_id: '6191669443938434121'
+depends_on: []jules_session_id: '6191669443938434121'
 pr_number: null
 parent: story-070-108-parse-secret-base-locations
 tags:

@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-09'
 updated_at: '2026-05-10'
-depends_on:
-  - task-039-071-implement-failure-handling
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-025-039-implement-failure-handling
 tags:

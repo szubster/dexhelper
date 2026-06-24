@@ -6,12 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-04-24'
 updated_at: '2026-05-01'
-depends_on:
-  - epic-005-013-idb-infrastructure
-  - story-014-031-dual-write-save-persistence
-  - story-014-029-async-startup-hydration
-  - story-014-026-refactor-state-store-sync
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: prd-007-005-migrate-saves-to-indexeddb
 tags:
   - state

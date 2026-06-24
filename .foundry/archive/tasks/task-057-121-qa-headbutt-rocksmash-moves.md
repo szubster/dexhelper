@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-19'
 updated_at: '2026-05-19'
-depends_on:
-  - task-057-120-fix-headbutt-rocksmash-moves
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-029-057-interaction-logic
 tags:

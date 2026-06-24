@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-07'
 updated_at: '2026-05-11'
-depends_on:
-  - task-042-068-extract-hall-of-fame
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-026-042-hall-of-fame-roamers
 tags:

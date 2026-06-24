@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-04-27'
 updated_at: '2026-04-28'
-depends_on:
-  - task-032-048-implement-lifecycle-tests
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: story-009-032-lifecycle-integration-tests
 tags:
   - v2-architecture

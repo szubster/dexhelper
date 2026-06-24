@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-22'
 updated_at: '2026-05-28'
-depends_on:
-  - task-078-134-implement-polling-loop
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-041-078-background-polling-loop
 tags:

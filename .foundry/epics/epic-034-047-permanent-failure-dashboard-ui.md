@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-22'
 updated_at: '2026-06-15'
-depends_on:
-  - epic-034-046-dag-data-parsing-rejection-count
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: prd-063-034-permanent-failure-dashboard
 tags:

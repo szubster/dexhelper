@@ -1,0 +1,31 @@
+---
+id: story-061-096-pokerus-tests
+type: STORY
+title: Pokerus Parser Tests Story
+status: COMPLETED
+owner_persona: tech_lead
+created_at: '2026-06-08'
+updated_at: '2026-06-13'
+depends_on: []jules_session_id: null
+pr_number: null
+parent: epic-038-061-pokerus-state-exfiltration
+tags:
+  - gen2
+  - save-engine
+  - pokerus
+  - testing
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Pokerus Parser Tests Story
+
+## Description
+Implement tests for the Pokerus byte parsing logic.
+
+## Acceptance Criteria
+- [x] Add tests for Pokerus parsing.
+- [x] task-096-169-pokerus-tests-impl
+- [x] task-096-170-pokerus-tests-qa

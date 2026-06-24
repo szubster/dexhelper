@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-04-21'
 updated_at: '2026-04-25'
-depends_on:
-  - epic-004-distributed-id-schema
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: prd-001-distributed-ids
 tags:
   - ci

@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
-depends_on:
-  - task-066-106-implement-prless-detection
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-033-066-heartbeat-prless-detection
 tags:

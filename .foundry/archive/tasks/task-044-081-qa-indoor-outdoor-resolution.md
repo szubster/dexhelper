@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-11'
 updated_at: '2026-05-12'
-depends_on:
-  - task-044-080-implement-indoor-outdoor-resolution
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-028-044-indoor-outdoor-resolution
 tags:

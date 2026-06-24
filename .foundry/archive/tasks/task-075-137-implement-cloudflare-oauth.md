@@ -1,0 +1,34 @@
+---
+id: task-075-137-implement-cloudflare-oauth
+type: TASK
+title: Implement Cloudflare Native OAuth Flow
+status: COMPLETED
+owner_persona: coder
+created_at: '2026-05-28'
+updated_at: '2026-06-17'
+depends_on: []jules_session_id: null
+pr_number: null
+parent: story-038-075-google-sso-integration
+tags:
+  - backend
+  - authentication
+  - sso
+  - cloudflare
+  - phase1
+research_references:
+  - research-136-cloudflare-oauth-libraries
+rejection_count: 2
+rejection_reason: ''
+notes: ''
+---
+
+# Task: Implement Cloudflare Native OAuth Flow
+
+## Context
+Based on the outcomes of `research-136-cloudflare-oauth-libraries`, implement the Google SSO flow using the selected Cloudflare-native approach or Access policies.
+
+## Acceptance Criteria
+- [x] Implement Google OAuth2/SSO login flow within the Cloudflare backend using the library/approach recommended in the preceding research.
+- [x] Add necessary authentication endpoints or middleware routing.
+- [x] Configure the single user restriction on the Google SSO side or via Cloudflare Access policies, adhering strictly to the "no custom application logic" constraint.
+- [x] Reject all other login attempts with a clear unauthorized response.

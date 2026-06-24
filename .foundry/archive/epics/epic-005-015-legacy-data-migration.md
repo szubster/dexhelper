@@ -6,11 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-04-24'
 updated_at: '2026-05-02'
-depends_on:
-  - epic-005-013-idb-infrastructure
-  - epic-005-014-state-store-migration
-  - story-015-032-legacy-save-migration-hook
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: prd-007-005-migrate-saves-to-indexeddb
 tags:
   - migration

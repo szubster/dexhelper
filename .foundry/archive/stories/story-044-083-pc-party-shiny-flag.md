@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-22'
 updated_at: '2026-06-08'
-depends_on:
-  - story-044-082-dv-shiny-gene-logic
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-034-044-shiny-gene-detection-engine
 tags:

@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-11'
 updated_at: '2026-06-12'
-depends_on:
-  - task-071-150-tailwind-v4-adr
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:

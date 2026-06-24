@@ -6,12 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-04-23'
 updated_at: '2026-05-01'
-depends_on:
-  - epic-011-wait-and-wake-protocol
-  - story-012-029-document-gastown-migration-decision
-  - story-012-027-design-sync-mechanism
-  - story-012-026-evaluate-cloudflare-storage
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: prd-005-010-late-binding-orchestrator
 tags:
   - foundry-v2

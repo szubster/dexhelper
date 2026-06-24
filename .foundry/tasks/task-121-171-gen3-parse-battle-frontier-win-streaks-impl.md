@@ -6,9 +6,7 @@ status: READY
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-22'
-depends_on:
-  - research-121-188-gen3-battle-frontier-win-streak-types
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-078-121-gen3-parse-battle-frontier-win-streaks
 tags:

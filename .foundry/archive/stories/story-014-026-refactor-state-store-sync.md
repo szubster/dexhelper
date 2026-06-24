@@ -6,10 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-04-26'
 updated_at: '2026-05-01'
-depends_on:
-  - story-014-029-async-startup-hydration
-  - task-026-044-refactor-state-store-sync
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: epic-005-014-state-store-migration
 tags:
   - state

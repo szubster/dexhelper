@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-04-20'
 updated_at: '2026-04-21'
-depends_on:
-  - task-002-create-heartbeat
-jules_session_id: null
+depends_on: []jules_session_id: null
 rejection_count: 0
 parent: story-001-matrix-runner
 rejection_reason: ''

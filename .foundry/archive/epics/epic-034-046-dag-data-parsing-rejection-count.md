@@ -35,4 +35,4 @@ As per ADR 017 and PRD `prd-063-034-permanent-failure-dashboard`, we need a "Per
 - [x] Story Owner: Verify the newly created Story follows the correct dependency chain and schema.
 
 ## Child Nodes
-- .foundry/stories/story-046-085-extract-broadcast-rejection-count.md
+- .foundry/archive/stories/story-046-085-extract-broadcast-rejection-count.md

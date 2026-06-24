@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-16'
 updated_at: '2026-05-17'
-depends_on:
-  - story-028-045-cross-region-distance
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-017-029-strategy-engine-adaptations
 tags:

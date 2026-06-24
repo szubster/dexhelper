@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-08'
 updated_at: '2026-05-13'
-depends_on:
-  - story-028-043-gen2-map-graph
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-017-028-map-graph-routing
 tags:

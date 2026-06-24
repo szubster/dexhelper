@@ -41,6 +41,6 @@ This Epic focuses specifically on the core extraction logic, navigating the Gen 
 - [ ] Implement `DataView`-based parsing logic to extract Gen 3 Ribbon bitfields.
 - [ ] Write targeted unit tests confirming extraction logic accurately reads raw binary fixtures representing Gen 3 contest data.
 
-- [ ] .foundry/stories/story-064-101-gen3-condition-stats-parsing.md
-- [ ] .foundry/stories/story-064-102-gen3-sheen-value-parsing.md
-- [ ] .foundry/stories/story-064-103-gen3-ribbon-bitfields-extraction.md
+- [ ] .foundry/archive/stories/story-064-101-gen3-condition-stats-parsing.md
+- [ ] .foundry/archive/stories/story-064-102-gen3-sheen-value-parsing.md
+- [ ] .foundry/archive/stories/story-064-103-gen3-ribbon-bitfields-extraction.md

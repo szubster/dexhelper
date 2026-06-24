@@ -6,10 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-04-25'
 updated_at: '2026-04-26'
-depends_on:
-  - story-008-023-validate-single-owner
-  - story-008-024-update-status-on-merge
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: epic-008-atomic-handoff-orchestrator
 rejection_reason: ''
 ---

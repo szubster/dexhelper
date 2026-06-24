@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-16'
 updated_at: '2026-06-16'
-depends_on:
-  - story-066-137-global-ribbon-dashboard-scaffold
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-041-066-global-ribbon-checklist-dashboard
 tags:

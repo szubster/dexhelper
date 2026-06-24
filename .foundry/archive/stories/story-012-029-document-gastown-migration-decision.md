@@ -6,10 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-04-26'
 updated_at: '2026-04-29'
-depends_on:
-  - story-012-027-design-sync-mechanism
-  - task-029-047-write-gastown-adr
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-012-gastown-orchestrator
 tags:

@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-05-31'
-depends_on:
-  - task-082-140-implement-shiny-gene-utility
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-044-082-dv-shiny-gene-logic
 tags:

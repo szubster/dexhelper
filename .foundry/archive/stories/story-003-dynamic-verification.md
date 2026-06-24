@@ -6,10 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-04-21'
 updated_at: '2026-04-23'
-depends_on:
-  - adr-001-foundry-architecture
-  - story-002-personas
-jules_session_id: null
+depends_on: []jules_session_id: null
 rejection_reason: ''
 ---
 

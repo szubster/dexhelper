@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-06-16'
-depends_on:
-  - epic-040-064-gen3-contest-data-extraction
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: prd-070-040-gen3-contest-data-parsing
 tags:

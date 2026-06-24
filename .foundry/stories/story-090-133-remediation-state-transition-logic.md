@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-14'
 updated_at: '2026-06-14'
-depends_on:
-  - epic-050-089-zombie-node-detection-engine
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-050-090-zombie-node-remediation-and-gc
 tags:

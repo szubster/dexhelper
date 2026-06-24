@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-06'
 updated_at: '2026-05-10'
-depends_on:
-  - task-042-068-implement-hall-of-fame-roamers
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-026-042-hall-of-fame-roamers
 tags:

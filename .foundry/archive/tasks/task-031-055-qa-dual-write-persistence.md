@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-04-28'
 updated_at: '2026-04-28'
-depends_on:
-  - task-031-051-implement-dual-write-persistence
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: story-014-031-dual-write-save-persistence
 tags:
   - persistence

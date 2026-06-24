@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
-depends_on:
-  - task-060-114-gen3-indoor-resolution-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-032-060-gen3-indoor-resolution
 tags:

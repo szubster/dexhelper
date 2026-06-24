@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-06-03'
-depends_on:
-  - task-064-142-gen3-strategy-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: task-064-134-encounter-integration-impl
 tags:
   - gen3

@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-04-22'
 updated_at: '2026-04-24'
-depends_on:
-  - story-004-id-schema-decision
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: epic-004-distributed-id-schema
 rejection_reason: ''
 ---

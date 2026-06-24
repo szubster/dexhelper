@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-01'
 updated_at: '2026-06-07'
-depends_on:
-  - task-083-146-flag-shiny-carriers-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-044-083-pc-party-shiny-flag
 tags:

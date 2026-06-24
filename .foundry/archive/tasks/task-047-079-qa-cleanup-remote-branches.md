@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-10'
 updated_at: '2026-05-11'
-depends_on:
-  - task-047-078-implement-cleanup-remote-branches
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-030-047-branch-cleanup-mechanism
 tags:

@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-20'
 updated_at: '2026-05-23'
-depends_on:
-  - story-035-072-implement-cancellation-logic
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-028-035-orchestrator-auto-cancel-orphaned-nodes
 tags:

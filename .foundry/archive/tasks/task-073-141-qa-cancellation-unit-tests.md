@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-23'
 updated_at: '2026-05-31'
-depends_on:
-  - task-073-140-impl-cancellation-unit-tests
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-035-073-orchestrator-cancellation-tests
 tags:

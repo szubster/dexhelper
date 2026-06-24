@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-14'
 updated_at: '2026-06-15'
-depends_on:
-  - epic-050-089-zombie-node-detection-engine
-jules_session_id: '11685995354736408843'
+depends_on: []jules_session_id: '11685995354736408843'
 pr_number: null
 parent: prd-079-050-foundry-zombie-node-cleanup
 tags:

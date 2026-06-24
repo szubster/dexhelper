@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-16'
 updated_at: '2026-05-18'
-depends_on:
-  - story-029-054-gen2-strategy-plugin
-jules_session_id: '2746406269049050831'
+depends_on: []jules_session_id: '2746406269049050831'
 pr_number: null
 parent: epic-017-029-strategy-engine-adaptations
 tags:

@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: qa
 created_at: '2026-06-23'
 updated_at: '2026-06-23'
-depends_on:
-  - task-121-217-gen3-tv-block-parser-retry-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
 tags:

@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
-depends_on:
-  - task-125-177-match-call-etl-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-084-125-match-call-etl
 tags:

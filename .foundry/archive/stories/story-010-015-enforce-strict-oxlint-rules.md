@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-04-24'
 updated_at: '2026-04-25'
-depends_on:
-  - task-014-027-configure-oxlint-json
-parent: epic-010-oxlint-config
+depends_on: []parent: epic-010-oxlint-config
 jules_session_id: null
 rejection_reason: ''
 ---

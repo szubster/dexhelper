@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-14'
 updated_at: '2026-05-16'
-depends_on:
-  - task-051-087-implement-core-graph-visualizer
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-029-051-implement-core-graph-visualization
 tags:

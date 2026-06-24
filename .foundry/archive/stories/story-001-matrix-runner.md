@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-04-20'
 updated_at: '2026-04-20'
-depends_on:
-  - epic-003-actions-engine
-jules_session_id: null
+depends_on: []jules_session_id: null
 rejection_reason: ''
 ---
 

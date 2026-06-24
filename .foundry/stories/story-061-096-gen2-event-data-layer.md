@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-17'
-depends_on:
-  - story-061-095-gen2-event-flag-extraction
-jules_session_id: '16506502738905096627'
+depends_on: []jules_session_id: '16506502738905096627'
 pr_number: null
 parent: epic-038-061-gen2-event-flag-parsing
 tags:

@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: architect
 created_at: '2026-06-09'
 updated_at: '2026-06-11'
-depends_on:
-  - research-071-137-tailwind-v4-utilities
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: idea-071-tailwind-v4-utilities-migration
 tags:

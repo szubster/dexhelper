@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-04-23'
 updated_at: '2026-04-25'
-depends_on:
-  - task-005-025-update-orchestrator-validation
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: story-005-id-schema-templates
 rejection_reason: ''
 ---

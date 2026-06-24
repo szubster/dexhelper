@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-04-23T14:21:34.000Z'
 updated_at: '2026-05-02'
-depends_on:
-  - prd-007-005-migrate-saves-to-indexeddb
-jules_session_id: null
+depends_on: []jules_session_id: null
 rejection_reason: ''
 ---
 

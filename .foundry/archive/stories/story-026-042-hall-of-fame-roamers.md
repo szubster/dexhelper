@@ -6,9 +6,7 @@ status: "COMPLETED"
 owner_persona: tech_lead
 created_at: '2026-05-06'
 updated_at: "2026-05-08"
-depends_on:
-  - story-026-041-inventory-parsing
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-015-026-save-parser-expansion
 tags:

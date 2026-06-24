@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-18'
 updated_at: '2026-05-18'
-depends_on:
-  - task-055-094-implement-time-based-suggestions
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-029-055-time-based-suggestions
 tags:

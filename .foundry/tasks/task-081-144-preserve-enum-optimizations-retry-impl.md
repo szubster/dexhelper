@@ -6,9 +6,7 @@ status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-29'
 updated_at: '2026-06-23'
-depends_on:
-  - research-081-006-investigate-enum-optimizations-failure
-jules_session_id: '1601269844435490722'
+depends_on: []jules_session_id: '1601269844435490722'
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 0
 rejection_reason: ''

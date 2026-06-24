@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-17'
 updated_at: '2026-05-19'
-depends_on:
-  - task-057-094-implement-headbutt-rocksmash-logic
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-029-057-interaction-logic
 tags:

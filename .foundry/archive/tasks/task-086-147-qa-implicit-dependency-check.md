@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-01'
 updated_at: '2026-06-08'
-depends_on:
-  - task-086-146-impl-implicit-dependency-check
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-048-086-implement-implicit-dependency-check
 tags:

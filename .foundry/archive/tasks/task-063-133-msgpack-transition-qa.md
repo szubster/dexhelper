@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-22'
 updated_at: '2026-05-23'
-depends_on:
-  - task-063-132-msgpack-transition-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: story-032-063-gen3-msgpack-transition
 tags:
   - gen3

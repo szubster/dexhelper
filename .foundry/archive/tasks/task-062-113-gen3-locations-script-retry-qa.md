@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-19'
 updated_at: '2026-05-21'
-depends_on:
-  - task-062-112-gen3-locations-script-retry-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 rejection_reason: ''
 parent: story-032-062-gen3-data-generation-scripts
 ---

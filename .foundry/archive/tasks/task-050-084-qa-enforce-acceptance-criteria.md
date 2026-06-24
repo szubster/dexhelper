@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-12'
 updated_at: '2026-05-14'
-depends_on:
-  - task-050-083-enforce-acceptance-criteria
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-031-050-enforce-acceptance-criteria-completion
 tags: []

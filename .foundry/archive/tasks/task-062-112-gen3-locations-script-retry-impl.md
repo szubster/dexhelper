@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: coder
 created_at: '2026-05-19'
 updated_at: '2026-05-21'
-depends_on:
-  - research-062-001-gen3-location-fetching
-research_references:
+depends_on: []research_references:
   - research-062-001-gen3-location-fetching
 jules_session_id: null
 rejection_reason: ''

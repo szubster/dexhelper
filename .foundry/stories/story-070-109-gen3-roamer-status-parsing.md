@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-10'
-depends_on:
-  - story-070-108-gen3-roamer-dataview-extraction
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-044-070-gen3-roamer-core-extraction
 tags:

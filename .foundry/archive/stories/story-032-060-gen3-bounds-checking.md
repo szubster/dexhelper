@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-17'
 updated_at: '2026-05-18'
-depends_on:
-  - story-032-059-gen3-dataview-scaffolding
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: epic-022-032-gen3-data-parsing
 tags:

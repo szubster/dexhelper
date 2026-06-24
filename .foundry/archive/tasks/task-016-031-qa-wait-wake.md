@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-04-25'
 updated_at: '2026-04-26'
-depends_on:
-  - task-016-030-implement-wait-wake
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-011-016-wait-wake-implementation
 rejection_reason: ''

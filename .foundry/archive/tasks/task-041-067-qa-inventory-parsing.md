@@ -6,9 +6,7 @@ status: "COMPLETED"
 owner_persona: qa
 created_at: '2025-05-15'
 updated_at: "2026-05-06"
-depends_on:
-  - task-041-066-implement-inventory-parsing
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-026-041-inventory-parsing
 tags:

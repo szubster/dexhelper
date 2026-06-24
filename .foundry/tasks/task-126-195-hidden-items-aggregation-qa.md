@@ -6,9 +6,7 @@ status: READY
 owner_persona: qa
 created_at: '2026-06-17'
 updated_at: '2026-06-22'
-depends_on:
-  - task-126-194-hidden-items-aggregation-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-059-126-hidden-items-aggregation-logic
 tags:

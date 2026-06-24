@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-06-20'
-depends_on:
-  - epic-041-064-contest-ui-shared-components
-jules_session_id: '1404635959218522513'
+depends_on: []jules_session_id: '1404635959218522513'
 pr_number: null
 parent: prd-070-041-gen3-contest-ui-viewer
 tags:
@@ -39,4 +37,4 @@ This epic covers the integration of the shared contest UI components into the de
 ## Child Stories
 - [ ] .foundry/stories/story-065-137-individual-contest-stats-ui.md
 - [ ] .foundry/stories/story-065-138-individual-contest-sheen-ui.md
-- [ ] .foundry/stories/story-065-139-individual-contest-ribbons-ui.md
+- [ ] .foundry/archive/stories/story-065-139-individual-contest-ribbons-ui.md

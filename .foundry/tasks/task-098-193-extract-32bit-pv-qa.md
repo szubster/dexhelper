@@ -6,9 +6,7 @@ status: READY
 owner_persona: qa
 created_at: '2026-06-16'
 updated_at: '2026-06-22'
-depends_on:
-  - task-098-192-extract-32bit-pv-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-062-098-gen3-parse-32bit-pv
 tags:

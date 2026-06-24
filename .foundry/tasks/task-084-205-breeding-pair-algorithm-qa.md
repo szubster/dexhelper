@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: qa
 created_at: '2026-06-18'
 updated_at: '2026-06-18'
-depends_on:
-  - task-084-204-breeding-pair-algorithm-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:

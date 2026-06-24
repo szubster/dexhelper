@@ -7,9 +7,7 @@ owner_persona: product_manager
 created_at: '2026-04-21'
 updated_at: '2026-05-17'
 jules_session_id: null
-depends_on:
-  - idea-001-the-foundry
-rejection_reason: ''
+depends_on: []rejection_reason: ''
 ---
 
 # Gen 2 Support Expansion: Johto/Kanto Lifecycle

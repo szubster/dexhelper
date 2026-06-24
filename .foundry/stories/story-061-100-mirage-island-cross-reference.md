@@ -6,11 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-09'
-depends_on:
-  - story-061-098-parse-mirage-island-value
-  - story-061-099-extract-pokemon-pids
-jules_session_id: null
-pr_number: null
+depends_on: []pr_number: null
 parent: epic-038-061-mirage-island-engine
 tags:
   - gen3

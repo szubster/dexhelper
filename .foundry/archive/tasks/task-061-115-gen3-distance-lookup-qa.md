@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-18'
 updated_at: '2026-05-19'
-depends_on:
-  - task-061-114-gen3-distance-lookup-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-032-061-gen3-distance-lookup
 tags:

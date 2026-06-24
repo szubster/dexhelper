@@ -6,9 +6,7 @@ status: READY
 owner_persona: qa
 created_at: '2026-06-15'
 updated_at: '2026-06-22'
-depends_on:
-  - task-106-159-dag-utils-unit-tests-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-053-106-dag-utils-unit-tests
 tags:

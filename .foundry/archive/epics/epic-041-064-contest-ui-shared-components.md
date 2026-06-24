@@ -37,6 +37,6 @@ This epic aims to build the basic foundation blocks for the new Gen 3 Contest Co
 - [x] Create ribbon display components.
 
 ## 4. Child Nodes
-- [ ] .foundry/stories/story-064-101-contest-condition-stats-ui.md
-- [ ] .foundry/stories/story-064-102-contest-sheen-display-ui.md
-- [ ] .foundry/stories/story-064-103-contest-ribbons-display-ui.md
+- [ ] .foundry/archive/stories/story-064-101-contest-condition-stats-ui.md
+- [ ] .foundry/archive/stories/story-064-102-contest-sheen-display-ui.md
+- [ ] .foundry/archive/stories/story-064-103-contest-ribbons-display-ui.md

@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-04'
 updated_at: '2026-06-04'
-depends_on:
-  - epic-037-059-hidden-items-data-layer
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: prd-068-037-hidden-items-finder
 tags:

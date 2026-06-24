@@ -7,11 +7,7 @@ owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-06-10'
 depends_on:
-  - epic-044-070-gen3-roamer-core-extraction
-  - epic-044-071-gen3-roamer-iv-glitch
-  - epic-044-072-gen3-roamer-location-radar
-jules_session_id: null
-pr_number: null
+  - epic-044-070-gen3-roamer-core-extractionpr_number: null
 parent: prd-071-044-gen3-roamer-tracker
 tags:
   - gen3

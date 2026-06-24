@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-05'
 updated_at: '2026-06-20'
-depends_on:
-  - research-036-007-feebas-seed-offset
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: prd-066-036-feebas-tile-predictor
 tags:
@@ -28,8 +26,8 @@ Create a utility module that reads the parsed save file's data at the identified
 - [x] Create a utility module for Feebas seed extraction.
 - [x] Implement Gen 3 algorithm to calculate the 6 tile coordinates based on the seed.
 - [x] Ensure fast calculation concurrent with save file hydration.
-- [x] .foundry/stories/story-058-095-feebas-seed-extraction.md
-- [x] .foundry/stories/story-058-096-feebas-tile-calculation.md
+- [x] .foundry/archive/stories/story-058-095-feebas-seed-extraction.md
+- [x] .foundry/archive/stories/story-058-096-feebas-tile-calculation.md
 - [ ] .foundry/stories/story-058-152-refactor-feebas-magic-numbers.md
 
 ### Auditor Rejection

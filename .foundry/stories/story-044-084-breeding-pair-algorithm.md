@@ -6,9 +6,7 @@ status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-22'
 updated_at: '2026-06-23'
-depends_on:
-  - story-044-083-pc-party-shiny-flag
-jules_session_id: '3329822177173230665'
+depends_on: []jules_session_id: '3329822177173230665'
 pr_number: null
 parent: epic-034-044-shiny-gene-detection-engine
 tags:
@@ -38,7 +36,7 @@ Develop an algorithm to suggest optimal breeding pairs by cross-referencing Egg 
 
 ## Next Steps
 - [x] Tech Lead: Break down into backend Tasks.
-- [x] .foundry/tasks/task-084-204-breeding-pair-algorithm-impl.md
+- [x] .foundry/archive/tasks/task-084-204-breeding-pair-algorithm-impl.md
 - [x] .foundry/tasks/task-084-205-breeding-pair-algorithm-qa.md
 - [ ] .foundry/research/research-084-209-egg-groups-missing.md
 - [ ] .foundry/tasks/task-084-210-breeding-pair-algorithm-impl.md

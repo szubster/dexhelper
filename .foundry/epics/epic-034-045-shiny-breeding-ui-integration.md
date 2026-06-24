@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-22'
 updated_at: '2026-05-22'
-depends_on:
-  - epic-034-044-shiny-gene-detection-engine
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: prd-063-034-shiny-breeding-assistant
 tags:

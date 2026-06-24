@@ -6,9 +6,7 @@ status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-11'
 updated_at: '2026-06-23'
-depends_on:
-  - task-071-150-tailwind-v4-adr
-jules_session_id: '15980469257492003960'
+depends_on: []jules_session_id: '15980469257492003960'
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:

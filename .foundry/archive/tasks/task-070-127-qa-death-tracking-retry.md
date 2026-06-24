@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-20'
 updated_at: '2026-05-22'
-depends_on:
-  - task-070-126-implement-death-tracking-retry
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-034-070-death-tracking-and-graveyard
 tags:

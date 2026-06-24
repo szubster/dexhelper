@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-21'
 updated_at: '2026-05-21'
-depends_on:
-  - epic-030-038-cloudflare-google-sso
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: prd-055-030-cloudflare-auth-sync
 tags:

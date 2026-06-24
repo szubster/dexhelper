@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: qa
 created_at: "2026-06-13"
 updated_at: "2026-06-13"
-depends_on:
-  - task-124-172-gen3-mix-record-events-parser
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-081-124-gen3-event-forecast-schedule
 tags:

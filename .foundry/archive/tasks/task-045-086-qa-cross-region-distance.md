@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-14'
 updated_at: '2026-05-16'
-depends_on:
-  - task-045-085-implement-cross-region-distance
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-028-045-cross-region-distance
 tags:

@@ -6,11 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-04-27'
 updated_at: '2026-05-01'
-depends_on:
-  - story-014-029-async-startup-hydration
-  - story-014-031-dual-write-save-persistence
-  - task-032-052-implement-migration-logic
-jules_session_id: null
+depends_on: []jules_session_id: null
 parent: epic-005-015-legacy-data-migration
 tags:
   - migration

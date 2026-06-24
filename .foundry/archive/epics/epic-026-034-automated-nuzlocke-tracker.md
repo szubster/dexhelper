@@ -27,4 +27,4 @@ Break down the Automated Nuzlocke Tracker feature into stories and tasks. Refer 
 ### STORIES
 - [x] .foundry/stories/story-034-069-automated-route-tracking.md
 - [ ] .foundry/stories/story-034-070-death-tracking-and-graveyard.md
-- [ ] .foundry/stories/story-034-071-run-dashboard-ui.md
+- [ ] .foundry/archive/stories/story-034-071-run-dashboard-ui.md

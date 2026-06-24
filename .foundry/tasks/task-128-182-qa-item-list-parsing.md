@@ -6,9 +6,7 @@ status: READY
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-22'
-depends_on:
-  - task-128-181-implement-item-list-parsing
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-087-128-dynamic-item-list-parsing
 tags:

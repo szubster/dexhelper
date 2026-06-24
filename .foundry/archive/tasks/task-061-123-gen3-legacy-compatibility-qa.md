@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-19'
 updated_at: '2026-05-20'
-depends_on:
-  - task-061-122-gen3-legacy-compatibility-impl
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-032-061-gen3-legacy-compatibility
 tags:

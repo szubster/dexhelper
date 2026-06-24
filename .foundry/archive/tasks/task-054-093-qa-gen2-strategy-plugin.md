@@ -6,9 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-05-17'
 updated_at: '2026-05-18'
-depends_on:
-  - task-054-092-implement-gen2-strategy-plugin
-jules_session_id: null
+depends_on: []jules_session_id: null
 pr_number: null
 parent: story-029-054-gen2-strategy-plugin
 tags:
