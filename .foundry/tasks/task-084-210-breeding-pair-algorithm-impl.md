@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-06-19'
 updated_at: '2026-06-19'
 depends_on:
-  - research-084-209-egg-groups-missing
+  - task-084-212-breeding-pair-algorithm-impl
 jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm

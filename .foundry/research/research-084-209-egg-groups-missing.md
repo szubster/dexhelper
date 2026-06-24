@@ -2,7 +2,7 @@
 id: research-084-209-egg-groups-missing
 type: RESEARCH
 title: Investigate Missing Egg Groups Data for Breeding Algorithm
-status: PENDING
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-06-19'
 updated_at: '2026-06-19'
@@ -16,7 +16,7 @@ tags:
   - breeding
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Researched already, creating implementation tasks directly'
 notes: ''
 ---
 
