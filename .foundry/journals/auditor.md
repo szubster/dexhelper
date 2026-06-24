@@ -140,3 +140,6 @@ Do not strictly enforce QA task pairing for every single implementation task if 
 
 **Pattern / Constraint:**
 A new process change regarding late-binding hierarchical dependencies has been implemented in the orchestrator. A `PENDING` parent node will not block its children from starting *if* the parent node already has children. This exception to the normal hierarchical completion rule avoids circular dependency deadlocks where a parent waits for children that are waiting for their parent to become active.
+
+### Orchestrator Late-Binding Verification
+The orchestrator's exception for late-binding parent nodes (allowing them to remain PENDING while their generated children execute, preventing DAG deadlocks) was successfully verified. The corresponding tests in `foundry-orchestrator.test.ts` provide adequate coverage for this specific hierarchical logic exception. This ensures smooth progression of macro nodes without triggering infinite wait loops.
