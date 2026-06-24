@@ -2,13 +2,13 @@
 id: task-108-163-gen3-secret-base-parser
 type: TASK
 title: Implement Gen 3 Secret Base Parser
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-11'
-updated_at: '2026-06-23'
+updated_at: '2026-06-24'
 depends_on:
   - research-108-187-gen3-secret-base-offsets
-jules_session_id: '6191669443938434121'
+jules_session_id: null
 pr_number: null
 parent: story-070-108-parse-secret-base-locations
 tags:

@@ -2,10 +2,10 @@
 id: task-108-164-gen3-secret-base-parser-qa
 type: TASK
 title: QA Gen 3 Secret Base Parser
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-24'
 depends_on:
   - task-108-163-gen3-secret-base-parser
 jules_session_id: null
