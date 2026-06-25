@@ -143,3 +143,7 @@
 ## 2026-06-27
 **Idea:** Gen 2 Pokegear Phone Call Predictor & Tracker
 **Learning:** Expanding Gen 2 support by surfacing hidden state related to core mechanics like the Pokégear Phone provides immense utility. Rematches, rare item gifts (evolution stones), and swarms are all tied to this system, but it is entirely opaque and relies on RNG. By analyzing the save file to reveal which NPCs are active or ready, we transform a frustrating waiting game into a predictable, actionable dashboard. This perfectly aligns with DexHelper's vision as a premium companion app that eliminates tedious guesswork in retro games.
+
+## 2026-06-28
+**Idea:** Smart Egg Move Breeding Path Finder
+**Learning:** Crossing complex static game data (like multi-step Egg Group breeding chains) with the dynamic inventory state of the player's save file (PC boxes, genders) provides immense value. This shifts the app from being just an information viewer into a personalized pathfinding engine, deeply serving the hardcore competitive and challenge-run communities.
