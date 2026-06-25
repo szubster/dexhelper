@@ -32,8 +32,8 @@ Update the `PokemonMetadata` interface in `src/db/schema.ts` to include `egg_gro
 - Write unit tests for the gender calculation logic.
 
 ## Acceptance Criteria
-- [ ] `PokemonMetadata` includes an `eg` (egg groups) property.
-- [ ] `scripts/generate-pokedata.ts` correctly extracts egg groups.
-- [ ] Utility for Gen 2 gender calculation based on Attack DV and `gr` is implemented and tested.
-- [ ] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
-- [ ] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] `PokemonMetadata` includes an `eg` (egg groups) property.
+- [x] `scripts/generate-pokedata.ts` correctly extracts egg groups.
+- [x] Utility for Gen 2 gender calculation based on Attack DV and `gr` is implemented and tested.
+- [x] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
+- [x] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
