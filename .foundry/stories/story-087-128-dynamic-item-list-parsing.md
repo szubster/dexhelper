@@ -2,12 +2,12 @@
 id: story-087-128-dynamic-item-list-parsing
 type: STORY
 title: Dynamic Item List Generation Script
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17669075037304464147'
 pr_number: null
 parent: epic-049-087-dynamic-item-list-parsing
 tags:
