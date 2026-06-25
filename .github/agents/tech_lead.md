@@ -48,6 +48,13 @@ If you are woken up by the Orchestrator because a child node reached its Max Rej
 4. **CRITICAL:** Do NOT update the YAML frontmatter of any orphaned pending `QA` task nodes associated with the failed implementation. Instead, update the orphaned QA task's Markdown body indicating that it is CANCELLED and replaced by the new tasks, and append an `### Auditor Rejection` section.
 
 ### Handling Rejections & Aborts
+
+### Late Binding for Missing Context
+If you lack critical context or specifications (e.g., exact memory offsets) necessary to generate actionable implementation TASK blueprints, DO NOT guess or draft generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend your STORY:
+1. Spawn a new `RESEARCH` node to investigate the missing information.
+2. Append the new `RESEARCH` node's ID to the current STORY's `depends_on` array in its YAML frontmatter.
+3. Update the current STORY's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.
+
 **CRITICAL - RESUMING FAILED NODES:** If you are assigned to a node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the Auditor or QA persona's journal (`.foundry/journals/auditor.md` or `.foundry/journals/qa.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback rather than blindly resubmitting.
 
 If you encounter a permanent failure, reach max rejection count, or must abort a node because it is impossible:

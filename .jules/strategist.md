@@ -239,6 +239,12 @@
 **Outcome:** Merged
 **Why:** The Auditor journal observed that failed macro nodes (e.g., IDEA, PRD) in the Resurrection Loop were being blindly resubmitted by the planners without addressing the rejection reasons. This led to infinite loops. Planners previously lacked the explicit instructions that implementation agents (like Coder) had for resuming FAILED nodes.
 **Pattern:** Ensure all upstream generating personas (Product Manager, Epic Planner, Story Owner, Tech Lead) have explicit instructions to read the `rejection_reason` and the reviewing persona's journal (Auditor or QA) when assigned a resurrected FAILED node, to fix the actual issue instead of blindly resubmitting.
+## 2026-07-15 - [Accepted] - Prompt improvement - Add Late Binding protocol to Tech Lead
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `coder` persona already utilizes the Late Binding pattern to gracefully suspend tasks when missing critical context (like memory offsets) by spawning a RESEARCH node and adding it to `depends_on`. The `tech_lead` persona often faces the exact same issue when attempting to translate a vague STORY into actionable technical TASK blueprints. Without explicit Late Binding instructions, the Tech Lead might hallucinate data or write impossible tasks instead of suspending the parent story pending proper research.
+**Pattern:** Apply successful operational patterns (like Late Binding) universally across all relevant personas in the pipeline (from planning to implementation) to ensure consistent error handling and context discovery without hallucination.
+
 ## 2026-06-11 - [Accepted] - Prompt improvement - Add Scratchpad Cleanup rule
 **Type:** Prompt improvement
 **Outcome:** Accepted
