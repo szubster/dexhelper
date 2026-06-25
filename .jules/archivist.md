@@ -70,3 +70,8 @@
 
 **Learning:** High-level onboarding documents (like `style_and_conventions.md`) are highly susceptible to knowledge rot when overarching application aesthetics or paradigms change. For example, the project's design standard shifted from "glassmorphism" to a "tactical hardware/snooping" aesthetic (ADR 024, logged heavily in Canvas journals), but the onboarding document still instructed agents to use generic premium UI and smooth gradients, causing contradictory behaviors.
 **Action:** Resolved the contradiction in `onboarding/style_and_conventions.md` by explicitly pointing to the "tactical hardware" guidelines in ADR 024. Going forward, when sweeping architectural or aesthetic decisions are made, maintainers and planning agents MUST ensure that introductory/onboarding documentation is explicitly updated to reflect the new paradigms to prevent confusing future agents.
+
+## 2026-07-16 - Archivist Run Learnings
+
+**Learning:** Duplicate entries inside journals (e.g. `.foundry/journals/auditor.md`) frequently happen when the same or similar concept is independently observed multiple times and recorded by the auditor without checking if it already exists. The auditor journal had heavily duplicated learnings for "Tailwind v4 @utility Consolidation", "QA Task Verification Pairing Flexibility", "Strict Hierarchical Verification for Macro Nodes", and "Pokerus Bitwise Parsing".
+**Action:** Consolidated duplicated pattern insights into canonical architectural constraints in the auditor journal, removing redundancy. Agents should check journals for existing similar entries before appending new ones.
