@@ -842,14 +842,10 @@ function main(): void {
           info(`Preflight success: Valid target artifacts exist and are completed. Bypassing dispatch for ${node.repoPath}`);
           promoteNodeStatus(node, 'PENDING', 'COMPLETED');
         }
-      } else if (targetArtifacts.length === 0 && children.length > 0) {
-        if (hasUncheckedTasks) {
-          info(`Late-Binding Parent Waking Up: ${node.repoPath} has completed children, but still has unchecked tasks. Promoting to READY.`);
-          eligible.push(node);
-        } else {
-          info(`Late binding completion: ${node.repoPath} has no pending target artifacts and all spawned children are complete.`);
-          promoteNodeStatus(node, 'PENDING', 'COMPLETED');
-        }
+      } else if (children.length > 0) {
+        // If the node already has children, it is in a Late-Binding wait state.
+        // We MUST NOT push it to eligible here. Phase 4.1 will wake it up if all children are completed.
+        info(`Late-Binding Parent: ${node.repoPath} is waiting for children to complete.`);
       } else {
         eligible.push(node);
       }
