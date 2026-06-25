@@ -81,7 +81,8 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     }
   }
 
-  // ⚡ Bolt: Avoid N+1 and massive O(N) overhead by bulk querying specific ids instead of getAll
+  // ⚡ Bolt: Avoid N+1 and massive O(N) overhead by bulk querying specific ids instead of getAll.
+  // We use Sets to ensure unique PIDs, minimizing the database payload.
   const targetPids = [...new Set([...queryTargets, ...localPids])];
   const targetEncounters = await pokeDB.getEncountersBulk(targetPids);
 
@@ -127,7 +128,9 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const allPokemon = await dexDataLoader.pokemon.loadMany(allNeededPids);
   const pokemonMetadata: Record<number, PokemonMetadata | null> = {};
 
-  // ⚡ Bolt: Replaced .forEach with for loop to avoid closure creation and function call overhead
+  // ⚡ Bolt: Replaced .forEach with for loop to avoid closure creation and function call overhead.
+  // Iterating manually prevents the V8 engine from constantly allocating new closure scopes,
+  // which is critical when processing hundreds of Pokémon in a tight loop.
   for (let idx = 0; idx < allNeededPids.length; idx++) {
     const pid = allNeededPids[idx];
     if (pid !== undefined) {
@@ -219,7 +222,9 @@ export function generateSuggestions(
   const effectiveVersion = manualVersion || saveData.gameVersion;
   const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
   const displayVersionId = POKE_VERSION_MAP[displayVersion] || 1;
-  // ⚡ Bolt: Use a manual loop instead of Array.from().slice() to eliminate intermediate array allocations
+  // ⚡ Bolt: Use a manual loop instead of Array.from().slice() to eliminate intermediate array allocations.
+  // We strictly limit queryTargets to 100 to prevent the UI thread from freezing when evaluating massive
+  // encounter graphs (e.g. processing a fresh save file where nearly all Pokémon are missing).
   const queryTargets: number[] = [];
   for (const pid of missingIds) {
     if (queryTargets.length >= 100) break;
@@ -291,7 +296,9 @@ export function generateSuggestions(
     missingIds,
   );
 
-  // ⚡ Bolt: Eliminate O(N) array tuple allocation during suggestion deduplication
+  // ⚡ Bolt: Eliminate O(N) array tuple allocation during suggestion deduplication.
+  // We manually iterate and set Map values instead of `Array.from(new Set(suggestions))`
+  // because generating a massive intermediate array of tuples would cause significant garbage collection pauses.
   const uniqueMap = new Map<string, Suggestion>();
   for (let i = 0; i < suggestions.length; i++) {
     const s = suggestions[i];
