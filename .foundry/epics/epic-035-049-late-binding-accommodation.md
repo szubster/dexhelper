@@ -35,3 +35,7 @@ Ensure late-binding nodes work smoothly with the new implicit dependencies. Upda
 
 - [x] .foundry/stories/story-049-116-verify-late-binding-logic.md
 - [x] .foundry/stories/story-049-117-update-tpm-agile-coach-journal.md
+
+### Auditor Output
+Spawned follow-up research node to investigate edge cases:
+- .foundry/research/research-049-215-late-binding-cancellation.md
