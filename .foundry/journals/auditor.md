@@ -77,8 +77,6 @@ The Gen 2 extraction cleanly uses bitwise logic on the `+28` offset raw byte (`r
 **Constraint:**
 The implementation successfully parses Gen 1 using an absolute base offset (`0x25B3`) with a version-specific `offsetShift` (for Yellow). Crucially, the Gen 2 implementation correctly relies on a dynamic, relative offset calculation (`0xA8` bytes after the `johtoBadgesOffset`). This reinforces that save data parsing must avoid hardcoded absolute offsets when the data structure dynamically shifts based on version or state, opting instead for calculated relative offsets anchored to known stable points.
 
-### Pokerus Bitwise Parsing
-When parsing bit-shifted state flags like Pokerus, explicitly testing the boundaries (e.g., 0 days remaining with non-zero strain for the "cured" state) is critical to prevent state regressions.
 ### Tailwind v4 @utility Consolidation
 Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block, unless defining specific internal overrides. This greatly reduces repetitive class usage.
 
@@ -93,9 +91,6 @@ When extracting Pokerus state from an 8-bit integer, relying on bitwise operatio
 ## 2026-06-19: Enforcing Reusable Constants for Memory Offsets
 **Constraint:**
 Always enforce the rule against inline magic numbers during verification. All memory offsets, bit lengths, and shifts must be defined as reusable, descriptive constants at the module level.
-### Tailwind v4 @utility Consolidation
-Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block, unless defining specific internal overrides. This greatly reduces repetitive class usage.
-
 ### QA Task Verification Pairing Flexibility
 During the audit of `epic-071-074-define-tailwind-v4-utilities`, it was discovered that `story-074-114-define-tactical-button-and-focus` lacked a corresponding QA task.
 
@@ -109,32 +104,8 @@ Do not strictly enforce QA task pairing for every single implementation task if 
 
 I verified `epic-071-074-define-tailwind-v4-utilities` and its child stories and tasks.
 
-### Strict Hierarchical Verification for Macro Nodes
-When verifying macro nodes like EPICs, it's critical to recursively check that all spawned descendant nodes (down to the TASK level) have fully transitioned to the COMPLETED state before submitting an empty PR. Relying solely on the parent node's acceptance criteria checkboxes or immediate child nodes can prematurely transition the node to VERIFYING, leading to system inconsistency as the actual implementation might not yet be merged into the codebase. This applies to all deep levels of the spawned sub-tree.
-
 ## Tailwind v4 @utility Variant Inheritance
 **Pattern:** tactical-* utilities correctly utilized Tailwind v4 native @utility to inherit hover and focus states naturally without nested variant requirements.
-
-### QA Task Verification Pairing Flexibility
-During the audit of `epic-071-074-define-tailwind-v4-utilities`, it was discovered that `story-074-114-define-tactical-button-and-focus` lacked a corresponding QA task.
-
-**Why this matters:**
-While generally QA tasks verify implementations, the coder is always responsible for writing tests. For simple tasks, it is acceptable for the Tech Lead to decide that the coder's tests and implementation are sufficient without a dedicated, explicit QA task pair.
-
-**Recommendation/Learnings:**
-Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.
-
-**Why this matters (Tailwind v4 @utility):**
-Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block. This greatly reduces repetitive class usage.
-
-### QA Task Verification Pairing Flexibility
-During the audit of `epic-071-074-define-tailwind-v4-utilities`, it was discovered that `story-074-114-define-tactical-button-and-focus` lacked a corresponding QA task.
-
-**Why this matters:**
-While generally QA tasks verify implementations, the coder is always responsible for writing tests. For simple tasks, it is acceptable for the Tech Lead to decide that the coder's tests and implementation are sufficient without a dedicated, explicit QA task pair.
-
-**Recommendation/Learnings:**
-Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.
 
 ## 2026-06-23: Late-Binding Hierarchy Orchestrator Exception
 
