@@ -66,3 +66,6 @@ In the Dexhelper codebase, version-exclusive arrays (such as `GEN2_VERSION_EXCLU
 
 ## Data Integrity - Gen 2 Exclusives (Crystal Re-Verification)
 * **Data Pipeline Gotchas:** In Gen 2 Pokémon Crystal, while Teddiursa and Ursaring are Gold exclusives when compared directly against Silver, they **are obtainable** in Crystal (specifically in Dark Cave). When verifying version exclusivity against PokeAPI encounter data, be aware that filtering encounters specifically for `version: 6` (Crystal) correctly shows them present. Do not mistakenly add them to the Crystal unobtainable array (`crystal`) based on their absence in Silver. The existing Gen 2 missing list is factually correct.
+
+All Pokémon data in dexhelper is offline-first and pre-generated. To fix data discrepancies, modify the source scripts (e.g., `scripts/generate-pokedata.ts`) or hardcoded lists (e.g., `src/engine/exclusives/`), then regenerate the committed data using `pnpm data:gen` or `pnpm data:gen-maps`. Do not patch output files directly.
+Execution Plan Specificity (File Modifications): When proposing a plan to modify files, formulate a single, un-nested step dictating the exact tool (e.g., `replace_with_git_merge_diff`) and the exact code block to use. Avoid conversational monologues or vague 'modify' instructions.
