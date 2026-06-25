@@ -29,3 +29,7 @@
 
 **Learning:** Refactoring long files or text structures using string matching in python or javascript can be error prone with indentation or overlapping strings. Writing a script to accurately parse the abstract syntax tree and make changes is difficult.
 **Action:** Often the easiest way to make surgical edits to a code file without manual human input is to find unique anchors, slice the text, and recreate it exactly. When refactoring massive functions, splitting them into logical helpers greatly reduces complexity while retaining the exact same functional output. Avoid configuring any linter by globally disabling core rules, as it degrades codebase health. Ensure that disposable scripts are deleted before committing code.
+## 2026-06-25 - Sweeper: Entry-point false positives with knip
+
+**Learning:** When using `knip` to find dead code, be extremely careful with standalone scripts (e.g., `.github/scripts/*`). Knip often falsely flags these entry points as 'unused'.
+**Action:** Always verify their usage via global search (`grep`) in files like `package.json` or CI workflows before attempting removal.
