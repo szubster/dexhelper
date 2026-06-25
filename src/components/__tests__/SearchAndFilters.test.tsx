@@ -48,7 +48,7 @@ describe('SearchAndFilters', () => {
     );
 
     // It should not render anything
-    await expect.element(page.getByText('[ FILTER_PARAMETERS ]')).not.toBeInTheDocument();
+    await expect.element(page.getByText('[ PARAMETER_MATRIX ]')).not.toBeInTheDocument();
   });
 
   it('renders correctly', async () => {
@@ -58,7 +58,7 @@ describe('SearchAndFilters', () => {
       </QueryClientProvider>,
     );
 
-    await expect.element(page.getByText('[ FILTER_PARAMETERS ]')).toBeInTheDocument();
+    await expect.element(page.getByText('[ PARAMETER_MATRIX ]')).toBeInTheDocument();
   });
 
   it('updates search term on input', async () => {

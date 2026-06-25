@@ -31,6 +31,7 @@ const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
     15, // Weedle, Kakuna, Beedrill
     23,
     24, // Ekans, Arbok
+    26, // Raichu
     52,
     53, // Meowth, Persian
     109,

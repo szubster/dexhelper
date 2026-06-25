@@ -1,14 +1,14 @@
 import { Link } from '@tanstack/react-router';
-import { Activity, Database, LayoutGrid, RefreshCw, Settings2, Sparkles, Upload, Zap } from 'lucide-react';
+import { Database, LayoutGrid, Sparkles } from 'lucide-react';
 import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { useFileSyncController } from '../hooks/useFileSyncController';
-import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
-import { InlineDataPoint } from './InlineDataPoint';
+import { OfflineControls } from './header/OfflineControls';
+import { SystemControls } from './header/SystemControls';
+import { TelemetryMatrix } from './header/TelemetryMatrix';
 import { NavigationTab } from './NavigationTab';
-import { TacticalButton } from './TacticalButton';
 import { VerticalDivider } from './VerticalDivider';
 
 interface AppHeaderProps {
@@ -73,185 +73,21 @@ export function AppHeader({
       {saveData ? (
         <div className="mt-4 flex w-full flex-wrap items-center justify-between gap-4 border-zinc-800 border-t border-dashed pt-4 lg:mt-0 lg:w-auto lg:border-t-0 lg:pt-0">
           {/* Dense Telemetry Data Matrix */}
-          <div className="zoom-in-95 fade-in relative flex animate-in items-center bg-zinc-900/50 p-2 duration-500">
-            <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700" />
-            <div className="flex flex-col pr-4 pl-2">
-              <InlineDataPoint label="TRNR" value={saveData.trainerName || 'UNKNOWN'} />
-              <InlineDataPoint
-                label="ID"
-                value={String(saveData.trainerId).padStart(5, '0')}
-                valueClassName="font-bold text-[10px] text-zinc-300"
-              />
-            </div>
+          <TelemetryMatrix saveData={saveData} progressPercentage={progressPercentage} />
 
-            <VerticalDivider className="h-8" />
-
-            <div className="flex min-w-[100px] flex-col justify-center px-4">
-              <InlineDataPoint
-                label="L-DEX"
-                value={`${Math.floor(progressPercentage)}%`}
-                className="mb-1 justify-between"
-                valueClassName="text-[9px]"
-              />
-              <div className="relative h-1 overflow-hidden border border-white/10 bg-black/50">
-                <div
-                  style={{
-                    width: `${progressPercentage}%`,
-                  }}
-                  className="absolute inset-y-0 left-0 bg-[var(--theme-primary)] shadow-[0_0_8px_var(--theme-primary)] transition-all duration-1000"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              data-testid="version-selector"
-              aria-label="Select Game Version"
-              onClick={() => setIsVersionModalOpen(true)}
-              className={cn(
-                'group zoom-in-95 fade-in focus-visible:tactical-focus relative animate-in overflow-hidden rounded-none border border-dashed px-3 py-1.5 font-black font-mono text-[9px] uppercase tracking-[0.2em] transition-all duration-500',
-                effectiveVersion === 'unknown'
-                  ? 'border-amber-500/50 bg-amber-500/10 text-amber-500 hover:bg-amber-500 hover:text-zinc-950'
-                  : 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-zinc-950',
-              )}
-            >
-              <CornerCrosshairs className="h-1 w-1 border-current opacity-50 transition-colors group-hover:opacity-100" />
-              <div className="relative z-10 flex items-center gap-1.5">
-                <Zap size={10} className="group-hover:animate-bounce" />
-                {effectiveVersion}
-              </div>
-              <div className="lcd-flicker absolute inset-0 bg-white/5 opacity-0 transition-opacity group-hover:opacity-100" />
-            </button>
-
-            <VerticalDivider className="h-6" />
-
-            <TacticalButton
-              onClick={() => setIsSettingsOpen(true)}
-              aria-label="System Settings"
-              variant="sidebar"
-              size="sm"
-              hasCrosshairs={true}
-              title="System Settings"
-              className="p-1.5"
-            >
-              <Settings2 size={16} />
-            </TacticalButton>
-            {typeof window !== 'undefined' &&
-              'showOpenFilePicker' in window &&
-              (hasStoredHandle && syncStatus === 'disconnected' ? (
-                <TacticalButton
-                  onClick={resumeSync}
-                  variant="sidebar"
-                  size="sm"
-                  hasCrosshairs={true}
-                  title="Resume Live Sync"
-                  aria-label="Resume Live Sync"
-                  className="w-[140px] justify-start p-1.5"
-                >
-                  <Activity size={16} className="text-amber-500" />
-                  <span className="font-mono text-[9px] text-amber-500 uppercase tracking-wider">RESUME SYNC</span>
-                </TacticalButton>
-              ) : (
-                <TacticalButton
-                  onClick={requestSync}
-                  variant="sidebar"
-                  size="sm"
-                  hasCrosshairs={true}
-                  title="Live Auto-Sync"
-                  aria-label="Live Auto-Sync"
-                  className={cn(
-                    'w-[140px] justify-start p-1.5',
-                    syncStatus === 'live' ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-500' : '',
-                    syncStatus === 'error' ? 'border-red-500/50 bg-red-500/10 text-red-500' : '',
-                  )}
-                >
-                  <Activity
-                    size={16}
-                    className={
-                      syncStatus === 'live'
-                        ? 'text-emerald-500'
-                        : syncStatus === 'syncing'
-                          ? 'animate-pulse text-blue-500'
-                          : syncStatus === 'error'
-                            ? 'text-red-500'
-                            : ''
-                    }
-                  />
-                  <span
-                    className={cn(
-                      'font-mono text-[9px] uppercase tracking-wider',
-                      syncStatus === 'live' ? 'text-emerald-500' : '',
-                      syncStatus === 'syncing' ? 'animate-pulse text-blue-500' : '',
-                      syncStatus === 'error' ? 'text-red-500' : '',
-                    )}
-                  >
-                    {syncStatus === 'live'
-                      ? 'LIVE SYNC'
-                      : syncStatus === 'syncing'
-                        ? 'SYNCING...'
-                        : syncStatus === 'error'
-                          ? 'SYNC ERROR'
-                          : 'AUTO SYNC'}
-                  </span>
-                </TacticalButton>
-              ))}
-            <TacticalButton
-              onClick={() => document.getElementById('import-save-input')?.click()}
-              variant="sidebar"
-              size="sm"
-              hasCrosshairs={true}
-              title="Import New Save"
-              aria-label="Import New Save"
-              className="p-1.5"
-            >
-              <RefreshCw size={16} />
-            </TacticalButton>
-            <input
-              id="import-save-input"
-              type="file"
-              tabIndex={-1}
-              aria-label="Import New Save"
-              accept=".sav"
-              className="sr-only"
-              onChange={handleFileUpload}
-            />
-          </div>
+          <SystemControls
+            effectiveVersion={effectiveVersion}
+            syncStatus={syncStatus}
+            hasStoredHandle={hasStoredHandle}
+            setIsVersionModalOpen={setIsVersionModalOpen}
+            setIsSettingsOpen={setIsSettingsOpen}
+            resumeSync={resumeSync}
+            requestSync={requestSync}
+            handleFileUpload={handleFileUpload}
+          />
         </div>
       ) : (
-        <div className="flex flex-col gap-4 sm:flex-row">
-          <button
-            type="button"
-            aria-label="Upload Save File"
-            onClick={() => document.getElementById('init-save-input')?.click()}
-            className="group slide-in-from-bottom-2 fade-in tactical-text focus-visible:tactical-focus relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 active:scale-95 sm:w-auto"
-          >
-            <CornerCrosshairs className="h-2 w-2 border-current" />
-            <Upload size={20} />[ UPLOAD.SYS ]
-          </button>
-          <input
-            id="init-save-input"
-            type="file"
-            tabIndex={-1}
-            aria-label="Initialize Pokedex"
-            accept=".sav"
-            className="sr-only"
-            onChange={handleFileUpload}
-          />
-
-          {typeof window !== 'undefined' && 'showOpenFilePicker' in window && (
-            <button
-              type="button"
-              aria-label="Start Live Sync"
-              onClick={requestSync}
-              className="group slide-in-from-bottom-2 fade-in tactical-text focus-visible:tactical-focus relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 active:scale-95 sm:w-auto"
-            >
-              <CornerCrosshairs className="h-2 w-2 border-current" />
-              <Activity size={20} />[ LIVE_SYNC.SYS ]
-            </button>
-          )}
-        </div>
+        <OfflineControls requestSync={requestSync} handleFileUpload={handleFileUpload} />
       )}
     </header>
   );

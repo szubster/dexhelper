@@ -1,9 +1,9 @@
 // Following Gen 1 and 2 patterns, these lists represent Pokémon that are UNOBTAINABLE in the key's version.
 export const GEN3_VERSION_EXCLUSIVES: Record<string, number[]> = {
   // Ruby missing (Sapphire exclusives)
-  ruby: [270, 271, 272, 302, 336, 337, 382],
+  ruby: [270, 271, 272, 302, 336, 337, 380, 382],
   // Sapphire missing (Ruby exclusives)
-  sapphire: [273, 274, 275, 303, 335, 338, 383],
+  sapphire: [273, 274, 275, 303, 335, 338, 381, 383],
   // Emerald missing
   emerald: [283, 284, 307, 308, 315, 335, 337],
   // FireRed missing (LeafGreen exclusives)

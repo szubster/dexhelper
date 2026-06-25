@@ -215,3 +215,9 @@
 **Outcome:** Accepted
 **Why:** Brings the "Discovered Units" display fully in line with the tactical, snooping specialized hardware motif. The previous design used standard structural cards, which felt generic. Treating individual caught Pokémon as active biometric scans with anomaly detection (shiny status) and detailed data pipes reinforces the specialized device fantasy.
 **Pattern:** Apply tactical aesthetics (telemetry pipes, bracketed labels, scanning background grids, anomaly text) to instance-level data views, transforming them from basic stat lists into active "Biometric Data Nodes" to maintain absolute visual coherence.
+
+## 2026-07-23 - [Accepted] - 🖼️ Canvas: Tactical Command Console Redesign
+**What:** Redesigned the `SearchAndFilters` component into a "Tactical Command Console". Transformed the generic flex-col layout into a dual-pane hardware dashboard (`QUERY_UPLINK` and `PARAMETER_MATRIX`). Added a sticky header for persistence, replaced the basic input icon with a simulated hardware radar scanner, and upgraded the filter toggles into physical "membrane switches" with active LED status indicators.
+**Outcome:** Accepted
+**Why:** The search and filter controls are primary interaction points, but they looked like standard web form inputs. By styling them as a specialized hardware console with distinct labeled panes, radar visualizer, and physical-looking switch states, the user's primary interface for manipulating the data grid now fully aligns with the tactical device simulation.
+**Pattern:** When designing dense control clusters (like search bars and filter sets), wrap them in labeled hardware panels (`[ UPLINK ]`, `[ MATRIX ]`). Integrate faux-hardware visualizers (like radar sweeps) near inputs, and treat selectable options as physical membrane switches with LED dots, moving away from generic segmented controls.
