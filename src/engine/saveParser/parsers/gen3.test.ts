@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   isGen3Save,
   parseGen3,
+  parseGen3BattleFrontierWinStreaks,
   parseGen3ConditionStats,
   parseGen3MirageIslandValue,
   parseGen3MixRecords,
@@ -470,6 +471,58 @@ describe('parseGen3PokeNews', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3PokeNews(view, 0)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3BattleFrontierWinStreaks', () => {
+  const saveBlock2Offset = 0x1000;
+
+  it('extracts win streaks and records for all 7 facilities', () => {
+    const buffer = new ArrayBuffer(8192);
+    const view = new DataView(buffer);
+    const base = saveBlock2Offset;
+
+    // Set some dummy data using the defined offsets
+    view.setUint16(base + 0x0ce0, 10, true); // tower current
+    view.setUint16(base + 0x0cf0, 20, true); // tower record
+
+    view.setUint16(base + 0x0d0c, 5, true); // dome current
+    view.setUint16(base + 0x0d14, 15, true); // dome record
+
+    view.setUint16(base + 0x0dc8, 12, true); // palace current
+    view.setUint16(base + 0x0dd0, 22, true); // palace record
+
+    view.setUint16(base + 0x0dda, 7, true); // arena current
+    view.setUint16(base + 0x0dde, 17, true); // arena record
+
+    view.setUint16(base + 0x0de2, 8, true); // factory current
+    view.setUint16(base + 0x0dea, 18, true); // factory record
+
+    view.setUint16(base + 0x0e04, 3, true); // pike current
+    view.setUint16(base + 0x0e08, 13, true); // pike record
+
+    view.setUint16(base + 0x0e1a, 2, true); // pyramid current
+    view.setUint16(base + 0x0e1e, 12, true); // pyramid record
+
+    const result = parseGen3BattleFrontierWinStreaks(view, saveBlock2Offset);
+
+    expect(result.tower).toEqual({ current: 10, record: 20 });
+    expect(result.dome).toEqual({ current: 5, record: 15 });
+    expect(result.palace).toEqual({ current: 12, record: 22 });
+    expect(result.arena).toEqual({ current: 7, record: 17 });
+    expect(result.factory).toEqual({ current: 8, record: 18 });
+    expect(result.pike).toEqual({ current: 3, record: 13 });
+    expect(result.pyramid).toEqual({ current: 2, record: 12 });
+  });
+
+  it('throws "The save file is corrupted or incomplete." on out-of-bounds reads', () => {
+    // Buffer too small to hold all offsets
+    const buffer = new ArrayBuffer(0x0e00);
+    const view = new DataView(buffer);
+
+    expect(() => {
+      parseGen3BattleFrontierWinStreaks(view, 0);
+    }).toThrow('The save file is corrupted or incomplete.');
   });
 });
 

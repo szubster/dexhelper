@@ -49,6 +49,6 @@ Offsets (relative to start of `SaveBlock2`, `0x0000`):
 - `0x0E1E` - `pyramidRecordStreaks`
 
 ## Acceptance Criteria
-- [ ] Extract current win streaks for Tower, Dome, Palace, Arena, Factory, Pike, and Pyramid.
-- [ ] Extract max win records for all 7 facilities.
-- [ ] Implement error handling for out-of-bounds reads.
+- [x] Extract current win streaks for Tower, Dome, Palace, Arena, Factory, Pike, and Pyramid.
+- [x] Extract max win records for all 7 facilities.
+- [x] Implement error handling for out-of-bounds reads.
