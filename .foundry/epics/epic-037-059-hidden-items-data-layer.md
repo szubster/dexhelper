@@ -33,5 +33,5 @@ This Epic corresponds to the second requirement in the Missing Hidden Items Find
 ## 3. Acceptance Criteria
 - [ ] Data model accurately maps hidden items to location and type.
 - [ ] Data aggregation allows logical mapping and filtering of the parsed hidden item event flags.
-- [ ] .foundry/stories/story-059-125-hidden-items-data-model.md
+- [ ] .foundry/archive/stories/story-059-125-hidden-items-data-model.md
 - [ ] .foundry/stories/story-059-126-hidden-items-aggregation-logic.md

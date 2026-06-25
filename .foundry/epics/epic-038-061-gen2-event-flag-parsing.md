@@ -30,5 +30,5 @@ Develop the core save file parsing engine to extract specific time-gated event f
 
 
 ### Implementation Tasks
-- [ ] .foundry/stories/story-061-095-gen2-event-flag-extraction.md
+- [ ] .foundry/archive/stories/story-061-095-gen2-event-flag-extraction.md
 - [ ] .foundry/stories/story-061-096-gen2-event-data-layer.md

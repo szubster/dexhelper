@@ -32,7 +32,7 @@ This story details the technical steps for creating unit tests for the extracted
 - Write unit tests for `getOrphanedNodes`.
 
 ## Generated Tasks
-- [ ] .foundry/tasks/task-106-159-dag-utils-unit-tests-impl.md
+- [ ] .foundry/archive/tasks/task-106-159-dag-utils-unit-tests-impl.md
 - [ ] .foundry/tasks/task-106-160-dag-utils-unit-tests-qa.md
 
 ## Acceptance Criteria

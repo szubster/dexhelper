@@ -38,6 +38,6 @@ The parsed application data must include the current Mirage Island value and ide
 - [ ] Write unit tests verifying extraction logic and PID matching.
 
 ### Implementation Stories
-- [ ] .foundry/stories/story-061-098-parse-mirage-island-value.md
+- [ ] .foundry/archive/stories/story-061-098-parse-mirage-island-value.md
 - [ ] .foundry/stories/story-061-099-extract-pokemon-pids.md
 - [ ] .foundry/stories/story-061-100-mirage-island-cross-reference.md

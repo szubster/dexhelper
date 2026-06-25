@@ -36,5 +36,5 @@ Implement roamer data extraction for Gen 3 (Ruby, Sapphire, Emerald) in the save
 - [x] Story Owner: Break down this Epic into executable Stories.
 
 ### Generated Stories
-- [ ] .foundry/stories/story-067-104-gen3-roamer-data-structure.md
+- [ ] .foundry/archive/stories/story-067-104-gen3-roamer-data-structure.md
 - [ ] .foundry/stories/story-067-105-gen3-roamer-parser-implementation.md

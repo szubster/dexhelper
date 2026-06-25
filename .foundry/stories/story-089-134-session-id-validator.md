@@ -37,5 +37,5 @@ Following the identification of `ACTIVE` nodes, we need to extract and validate 
 
 ## 4. Next Steps
 - [x] Break down into Tasks.
-- [ ] .foundry/tasks/task-134-187-session-id-validator-impl.md
+- [ ] .foundry/archive/tasks/task-134-187-session-id-validator-impl.md
 - [ ] .foundry/tasks/task-134-188-session-id-validator-qa.md

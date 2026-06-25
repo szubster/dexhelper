@@ -33,5 +33,5 @@ Ensure late-binding nodes work smoothly with the new implicit dependencies. Upda
 - [x] Create STORY nodes to verify late-binding logic in `foundry-orchestrator.ts`.
 - [x] Create STORY nodes to append process change notes to the TPM or Agile Coach journal.
 
-- [x] .foundry/stories/story-049-116-verify-late-binding-logic.md
-- [x] .foundry/stories/story-049-117-update-tpm-agile-coach-journal.md
+- [x] .foundry/archive/stories/story-049-116-verify-late-binding-logic.md
+- [x] .foundry/archive/stories/story-049-117-update-tpm-agile-coach-journal.md
