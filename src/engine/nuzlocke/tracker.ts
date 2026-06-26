@@ -24,23 +24,33 @@ export interface LocationEncounters {
 export function aggregateEncountersByLocation(saveData: SaveData): LocationEncounters[] {
   const locationMap = new Map<number, LocationEncounters>();
 
-  const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
+  // ⚡ Bolt: Eliminate O(N) array spread allocation by using imperative loops
+  const processInstances = (instances: PokemonInstance[]) => {
+    for (let i = 0; i < instances.length; i++) {
+      const instance = instances[i];
+      if (instance?.caughtData?.location) {
+        const { location, locationName } = instance.caughtData;
 
-  for (const instance of allInstances) {
-    if (instance.caughtData?.location) {
-      const { location, locationName } = instance.caughtData;
-
-      let entry = locationMap.get(location);
-      if (!entry) {
-        entry = {
-          locationId: location,
-          locationName: locationName || `Location ${location}`,
-          encounters: [],
-        };
-        locationMap.set(location, entry);
+        let entry = locationMap.get(location);
+        if (!entry) {
+          entry = {
+            locationId: location,
+            locationName: locationName || `Location ${location}`,
+            encounters: [],
+          };
+          locationMap.set(location, entry);
+        }
+        entry.encounters.push(instance);
       }
-      entry.encounters.push(instance);
     }
+  };
+
+  if (saveData.partyDetails) {
+    processInstances(saveData.partyDetails);
+  }
+
+  if (saveData.pcDetails) {
+    processInstances(saveData.pcDetails);
   }
 
   return Array.from(locationMap.values());
@@ -57,7 +67,16 @@ export function aggregateEncountersByLocation(saveData: SaveData): LocationEncou
  * regardless of whether the Pokémon is currently in the party or PC.
  */
 export function detectNuzlockeViolations(saveData: SaveData): LocationEncounters[] {
-  return aggregateEncountersByLocation(saveData).filter((location) => location.encounters.length > 1);
+  // ⚡ Bolt: Eliminate O(N) intermediate array allocation and .filter() overhead
+  const violations: LocationEncounters[] = [];
+  const aggregates = aggregateEncountersByLocation(saveData);
+  for (let i = 0; i < aggregates.length; i++) {
+    const location = aggregates[i];
+    if (location && location.encounters.length > 1) {
+      violations.push(location);
+    }
+  }
+  return violations;
 }
 
 /**
@@ -71,7 +90,17 @@ export function detectNuzlockeViolations(saveData: SaveData): LocationEncounters
  * This function only checks the active party, as Pokémon deposited in the PC have their HP fully restored.
  */
 export function getDeadPokemon(saveData: SaveData): PokemonInstance[] {
-  return (saveData.partyDetails || []).filter((p) => p.currentHp === 0);
+  // ⚡ Bolt: Eliminate O(N) intermediate array allocation and .filter() overhead
+  const dead: PokemonInstance[] = [];
+  if (saveData.partyDetails) {
+    for (let i = 0; i < saveData.partyDetails.length; i++) {
+      const p = saveData.partyDetails[i];
+      if (p && p.currentHp === 0) {
+        dead.push(p);
+      }
+    }
+  }
+  return dead;
 }
 
 /**
@@ -87,5 +116,15 @@ export function getDeadPokemon(saveData: SaveData): PokemonInstance[] {
  * dead Pokémon into a specific string-matched PC Box.
  */
 export function getGraveyardPokemon(saveData: SaveData, graveyardBox: string): PokemonInstance[] {
-  return (saveData.pcDetails || []).filter((p) => p.storageLocation === graveyardBox);
+  // ⚡ Bolt: Eliminate O(N) intermediate array allocation and .filter() overhead
+  const dead: PokemonInstance[] = [];
+  if (saveData.pcDetails) {
+    for (let i = 0; i < saveData.pcDetails.length; i++) {
+      const p = saveData.pcDetails[i];
+      if (p && p.storageLocation === graveyardBox) {
+        dead.push(p);
+      }
+    }
+  }
+  return dead;
 }
