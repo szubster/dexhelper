@@ -1,15 +1,20 @@
 ---
 id: idea-092-gen3-ev-training-dashboard
 type: IDEA
-title: "Gen 3 Effort Value (EV) Training Dashboard"
-status: PENDING
+title: Gen 3 Effort Value (EV) Training Dashboard
+status: READY
 owner_persona: product_manager
-created_at: "2026-06-29"
-updated_at: "2026-06-29"
+created_at: '2026-06-29'
+updated_at: '2026-06-26'
 depends_on: []
 jules_session_id: null
 parent: null
-tags: ["gen3", "save-engine", "endgame", "competitive"]
+tags:
+  - gen3
+  - save-engine
+  - endgame
+  - competitive
+rejection_reason: ''
 ---
 
 # Gen 3 Effort Value (EV) Training Dashboard
