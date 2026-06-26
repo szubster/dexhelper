@@ -168,12 +168,12 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
  * mapping and metadata into memory (passed via `apiData`). It extensively uses Sets and Map caching
  * internally to maintain O(1) lookups during array processing, preventing UI thread blockage.
  *
- * @param saveData - The parsed save data.
- * @param isLivingDex - Whether the engine should recommend catching duplicates for a Living Dex.
- * @param manualVersion - An optional version override provided by the user.
- * @param apiData - The pre-fetched data from IndexedDB (locations, encounters, etc.).
- * @param strategy - The generation-specific logic implementation (e.g. Gen 1 vs Gen 2 mechanical differences).
- * @returns An object containing an ordered array of deduplicated, prioritized `Suggestion`s and debug information.
+ * @param saveData - The parsed binary save data indicating the player's progress, location, and inventory.
+ * @param isLivingDex - If true, evaluates missing Pokémon based on exact quantity rather than just Pokédex flags (e.g., needing 3 Bulbasaur lines instead of just 1 Venusaur).
+ * @param manualVersion - Optional manual override for game version if auto-detection falls back to "unknown".
+ * @param apiData - The pre-fetched, complete database of Pokémon metadata, evolution rules, and encounter tables.
+ * @param strategy - The generation-specific strategy object containing mechanical rules (Gen 1 vs Gen 2 vs Gen 3).
+ * @returns An object containing the final sorted list of `suggestions`, and a `debug` payload containing `rejected` reasons for Pokémon that were filtered out (e.g., version exclusives).
  */
 export function generateSuggestions(
   saveData: SaveData | null,
