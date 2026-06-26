@@ -24,3 +24,12 @@ Extracted complex inline IIFE math calculations and tailwind styling logic for c
 
 - Extracted `TelemetryMatrix`, `SystemControls`, and `OfflineControls` from `AppHeader.tsx` into a dedicated `src/components/header/` directory.
 - AI Readability Impact: `AppHeader.tsx` was a monolithic component spanning over 250 lines with deeply nested layout and control logic. Breaking it into focused structural components greatly improves parseability and helps AI isolate navigation from system telemetry and settings state.
+
+- Refactored  by extracting the complex inline SVG (faux telemetry sparkline) into a dedicated  component.
+- AI Readability Impact: Moving verbose vector path data out of the main card's JSX significantly reduces visual noise and cognitive load. It makes the primary structure of  immediately apparent to AI parsers, decoupling raw UI rendering from layout logic.
+- Refactored `DataPoint` to utilize the existing `@utility tactical-text` standard class.
+- AI Readability Impact: Reducing dense inline tailwind utility duplication (`font-black text-[9px] text-zinc-500 tracking-widest`) in favor of centralized standard classes creates a more uniform and predictable structure across the codebase, making it easier for AI to identify and replicate established visual patterns.
+- Refactored `DiagnosticCard` by extracting the complex inline SVG (faux telemetry sparkline) into a dedicated `TelemetrySparkline` component.
+- AI Readability Impact: Moving verbose vector path data out of the main card's JSX significantly reduces visual noise and cognitive load. It makes the primary structure of `DiagnosticCard` immediately apparent to AI parsers, decoupling raw UI rendering from layout logic.
+- Refactored `DataPoint` to utilize the existing `@utility tactical-text` standard class.
+- AI Readability Impact: Reducing dense inline tailwind utility duplication (`font-black text-[9px] text-zinc-500 tracking-widest`) in favor of centralized standard classes creates a more uniform and predictable structure across the codebase, making it easier for AI to identify and replicate established visual patterns.
