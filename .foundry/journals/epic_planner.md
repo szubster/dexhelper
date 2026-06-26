@@ -30,3 +30,6 @@ I learned that the cancelled child node (`epic-044-072-gen3-roamer-location-rada
 
 ## 2026-06-24: Handling permanently failed child nodes
 When handling permanent child failures, I must cancel the failed node and any orphaned pending nodes by updating their markdown bodies, NOT their YAML frontmatter (for pending ones). I must also check off the cancelled tasks in the parent PRD and append the new replacement tasks including a RESEARCH node to investigate the root cause.
+
+## 2026-06-26: Handling permanently failed child nodes (Update)
+When handling permanent child failures (like an impossible dependency), I must update the YAML frontmatter of the target failed node to `status: CANCELLED` and provide a `rejection_reason`. I must also check off the cancelled tasks in the parent's markdown body (`- [x]`) to prevent the parent from being permanently blocked, as per ADR 007. I must never update the YAML frontmatter of orphaned pending nodes, only their markdown bodies if necessary.
