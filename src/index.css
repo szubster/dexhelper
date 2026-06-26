@@ -96,7 +96,7 @@ body {
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: rgba(var(--theme-primary-rgb), 0.3);
-  border-radius: 10px;
+  border-radius: 0;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(var(--theme-primary-rgb), 0.5);
