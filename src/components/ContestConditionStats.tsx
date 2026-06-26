@@ -1,6 +1,7 @@
 import React from 'react';
 import { cn } from '../utils/cn';
 import { TacticalPanel } from './TacticalPanel';
+import { TelemetryDecoration } from './TelemetryDecoration';
 
 export interface ContestConditionStatsProps extends React.HTMLAttributes<HTMLDivElement> {
   cool?: number;
@@ -15,56 +16,89 @@ const StatBar = ({
   value,
   max = 255,
   colorClass,
-  bgClass,
+  emptyColorClass,
 }: {
   label: string;
   value: number;
   max?: number;
   colorClass: string;
-  bgClass: string;
+  emptyColorClass: string;
 }) => {
-  const percentage = Math.min(100, Math.max(0, (value / max) * 100));
+  const segmentCount = 15;
 
   return (
-    <div className="flex flex-col gap-1 font-mono text-sm">
-      <div className="flex justify-between text-white/70">
-        <span className="uppercase tracking-wider">{label}</span>
-        <span>{value}</span>
+    <div className="flex flex-col gap-1.5 border-zinc-800 border-l border-dashed pl-3 transition-colors hover:border-zinc-500">
+      <div className="tactical-text flex justify-between text-[9px] text-zinc-400">
+        <span className="font-black uppercase tracking-widest">[ {label} ]</span>
+        <span className="font-mono text-zinc-500">{value}</span>
       </div>
-      <div className={cn('h-3 w-full rounded-none border border-dashed p-[1px]', borderClassMap[colorClass])}>
-        <div
-          className={cn('h-full rounded-none', bgClass)}
-          style={{ width: `${percentage}%` }}
-          data-role="progressbar"
-          data-valuenow={value}
-        />
+      {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
+      <div
+        className="flex h-2 w-full gap-px bg-black p-px"
+        role="progressbar"
+        aria-valuenow={value}
+        aria-valuemax={max}
+      >
+        {Array.from({ length: segmentCount }).map((_, i) => {
+          const ratio = value / max;
+          const threshold = (i + 1) / segmentCount;
+          const isActive = ratio >= threshold;
+
+          return (
+            <div
+              // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and safe here
+              key={`stat-segment-${i}`}
+              className={cn('h-full flex-1', isActive ? colorClass : emptyColorClass)}
+            />
+          );
+        })}
       </div>
     </div>
   );
 };
 
-const borderClassMap: Record<string, string> = {
-  'bg-red-500': 'border-red-500/50',
-  'bg-blue-500': 'border-blue-500/50',
-  'bg-pink-500': 'border-pink-500/50',
-  'bg-emerald-500': 'border-emerald-500/50',
-  'bg-amber-500': 'border-amber-500/50',
-};
-
 export const ContestConditionStats = React.forwardRef<HTMLDivElement, ContestConditionStatsProps>(
   ({ cool = 0, beauty = 0, cute = 0, smart = 0, tough = 0, className, ...props }, ref) => {
     return (
-      <TacticalPanel ref={ref} variant="default" className={cn('flex flex-col gap-4 p-4', className)} {...props}>
-        <div className="flex items-center gap-2 border-white/20 border-b border-dashed pb-2">
-          <span className="tactical-text font-bold text-sm text-white">Contest Conditions</span>
-        </div>
+      <TacticalPanel
+        ref={ref}
+        variant="default"
+        className={cn('relative flex flex-col gap-6 p-6 pt-8', className)}
+        {...props}
+      >
+        <TelemetryDecoration label="SYS.CONTEST_STATS" className="-top-1 left-4" />
 
-        <div className="flex flex-col gap-3">
-          <StatBar label="Cool" value={cool} colorClass="bg-red-500" bgClass="bg-red-500/60" />
-          <StatBar label="Beauty" value={beauty} colorClass="bg-blue-500" bgClass="bg-blue-500/60" />
-          <StatBar label="Cute" value={cute} colorClass="bg-pink-500" bgClass="bg-pink-500/60" />
-          <StatBar label="Smart" value={smart} colorClass="bg-emerald-500" bgClass="bg-emerald-500/60" />
-          <StatBar label="Tough" value={tough} colorClass="bg-amber-500" bgClass="bg-amber-500/60" />
+        <div className="flex flex-col gap-4">
+          <StatBar
+            label="Cool"
+            value={cool}
+            colorClass="bg-red-500 shadow-[0_0_5px_rgba(239,68,68,0.8)]"
+            emptyColorClass="bg-red-950/30"
+          />
+          <StatBar
+            label="Beauty"
+            value={beauty}
+            colorClass="bg-blue-500 shadow-[0_0_5px_rgba(59,130,246,0.8)]"
+            emptyColorClass="bg-blue-950/30"
+          />
+          <StatBar
+            label="Cute"
+            value={cute}
+            colorClass="bg-pink-500 shadow-[0_0_5px_rgba(236,72,153,0.8)]"
+            emptyColorClass="bg-pink-950/30"
+          />
+          <StatBar
+            label="Smart"
+            value={smart}
+            colorClass="bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.8)]"
+            emptyColorClass="bg-emerald-950/30"
+          />
+          <StatBar
+            label="Tough"
+            value={tough}
+            colorClass="bg-amber-500 shadow-[0_0_5px_rgba(245,158,11,0.8)]"
+            emptyColorClass="bg-amber-950/30"
+          />
         </div>
       </TacticalPanel>
     );

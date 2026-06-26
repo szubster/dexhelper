@@ -221,3 +221,9 @@
 **Outcome:** Accepted
 **Why:** The search and filter controls are primary interaction points, but they looked like standard web form inputs. By styling them as a specialized hardware console with distinct labeled panes, radar visualizer, and physical-looking switch states, the user's primary interface for manipulating the data grid now fully aligns with the tactical device simulation.
 **Pattern:** When designing dense control clusters (like search bars and filter sets), wrap them in labeled hardware panels (`[ UPLINK ]`, `[ MATRIX ]`). Integrate faux-hardware visualizers (like radar sweeps) near inputs, and treat selectable options as physical membrane switches with LED dots, moving away from generic segmented controls.
+
+## 2026-07-25 - [Accepted] - 🖼️ Canvas: Tactical Contest Stats Redesign
+**What:** Redesigned the `ContestConditionStats` component to fully embrace the tactical "snooping" aesthetic. Replaced the generic continuous progress bars with segmented tactical displays, utilizing an array of individual block elements for stats, matching `AliveTeamView` and `StorageGrid`. Also updated the label layout to strictly use bracketed monospaced telemetry fonts (e.g., `[ COOL ]`) and wrapped the stats inside a `<TacticalPanel>` and `<TelemetryDecoration>` (`SYS.CONTEST_STATS`).
+**Outcome:** Accepted
+**Why:** Brings the contest attribute component in line with the established specialized hardware motif. Continuous smooth progress bars break the "specialized hardware" illusion, whereas segmented terminal bars effectively mimic a rugged, low-resolution CRT display.
+**Pattern:** Avoid continuous progress bars for visualizing data distributions. Consistently use segmented bars built from distinct block elements for all health, capacity, or attribute statistics across the application to reinforce the hardware simulation.
