@@ -147,3 +147,7 @@
 ## 2026-06-28
 **Idea:** Smart Egg Move Breeding Path Finder
 **Learning:** Crossing complex static game data (like multi-step Egg Group breeding chains) with the dynamic inventory state of the player's save file (PC boxes, genders) provides immense value. This shifts the app from being just an information viewer into a personalized pathfinding engine, deeply serving the hardcore competitive and challenge-run communities.
+
+## 2026-06-29
+**Idea:** Gen 3 Effort Value (EV) Training Dashboard
+**Learning:** Effort Values (EVs) are arguably the most impactful yet most obtuse and hidden mechanics for endgame players across Generations 1-3. When deciding which new mechanics to surface, prioritize those that are highly sought after by the competitive community but completely invisible in-game. Automatically extracting this data from the save file transforms DexHelper from a passive viewer into a required tool for competitive preparation, directly solving one of the most tedious manual tracking problems in the game.
