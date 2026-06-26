@@ -2,13 +2,13 @@
 id: story-044-084-breeding-pair-algorithm
 type: STORY
 title: Shiny Carrier Breeding Pair Algorithm
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-22'
 updated_at: '2026-06-26'
 depends_on:
   - story-044-083-pc-party-shiny-flag
-jules_session_id: '4034244969011457758'
+jules_session_id: '14449906241142730928'
 pr_number: null
 parent: epic-034-044-shiny-gene-detection-engine
 tags:
