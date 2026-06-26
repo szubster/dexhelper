@@ -96,3 +96,5 @@ Critical learnings:
 
 ## 2026-06-25 - Workspace Root Dependency Installation
 **Learning:** When attempting to add or upgrade a dependency at the workspace root level using `pnpm` in a monorepo setup (indicated by `pnpm-workspace.yaml`), you must explicitly include the `-w` or `--workspace-root` flag (e.g., `pnpm install -Dw @biomejs/biome@2.5.1`). Failing to do so will result in an `ERR_PNPM_ADDING_TO_ROOT` error and halt the installation process.
+## 2026-06-25 - Vitest Coverage Parsing Errors
+**Learning:** The `coverage` blocks in `vitest.config.ts` must exclusively `include: ['src/**/*.ts', 'src/**/*.tsx']` and explicitly `exclude: ['**/*.json']` to prevent `rolldown` (used by `@vitest/coverage-v8`) from attempting to parse statically imported `.json` files as modules, which causes noisy syntax errors and breaks test suite exits.
