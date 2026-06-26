@@ -34,3 +34,6 @@ Based on the research, the roamer data structure contains critical information s
 - [x] Story Owner: Break down this Epic into executable Stories.
 - [ ] .foundry/stories/story-070-108-gen3-roamer-dataview-extraction.md
 - [ ] .foundry/stories/story-070-109-gen3-roamer-status-parsing.md
+
+### Epic Planner Rejection
+**CANCELLED:** This epic is cancelled and replaced by `epic-044-101-gen3-roamer-core-extraction-v2.md` because of the cancellation of its sibling node.

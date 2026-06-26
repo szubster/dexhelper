@@ -33,3 +33,6 @@ The "Roamer IV Glitch" is a known bug in specific Gen 3 games (Ruby/Sapphire and
 - [ ] Implement logic to compute the Nature from the roamer data structure.
 - [ ] Implement detection logic to identify if the roaming Pokémon is affected by the IV Glitch.
 - [ ] Story Owner: Break down this Epic into executable Stories.
+
+### Epic Planner Rejection
+**CANCELLED:** This epic is cancelled and replaced by `epic-044-102-gen3-roamer-iv-glitch-v2.md` because of the cancellation of its sibling node.
