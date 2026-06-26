@@ -129,3 +129,10 @@
 - **Why**: Reduced duplicated JSX across `PokemonEvolutions.tsx` and `PokemonCatchProbability.tsx` and enforced consistent positioning, opacity, and transition durations for background embellishments.
 - **Key Learnings**:
   - The extraction allows callers to pass specific hover transforms (like `group-hover:scale-110` or `group-hover:rotate-12`) via the `className` prop while the internal component handles the shared absolute positioning and opacity.
+
+## CapacitySegmentedBar Extraction
+- **What**: Extracted the repeated capacity segmented progress bar in `StorageGrid.tsx` into a reusable `CapacitySegmentedBar` component.
+- **Why**: Reduced duplicated JSX across the storage grid views. The component encapsulates the complex logic of rendering multiple segments based on a ratio of current vs max capacity, and applying color thresholds (emerald, amber, red).
+- **Key Learnings**:
+  - The extraction allows `CapacitySegmentedBar` to be easily dropped into other panels that require a tactical capacity readout (e.g. PC storage, memory limits, team size).
+  - Passing `current` and `max` directly rather than the full `PokemonInstance[]` array decouples the component from domain-specific data models.
