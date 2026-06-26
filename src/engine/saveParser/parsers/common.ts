@@ -96,6 +96,16 @@ export interface Gen3BerryPatch {
   watered4: boolean;
 }
 
+export interface Gen3BattleFrontierWinStreaks {
+  tower: { current: number; record: number };
+  dome: { current: number; record: number };
+  palace: { current: number; record: number };
+  arena: { current: number; record: number };
+  factory: { current: number; record: number };
+  pike: { current: number; record: number };
+  pyramid: { current: number; record: number };
+}
+
 export interface SaveData {
   /** The generation of the parsed save file (1 or 2). */
   generation: Generation;
@@ -177,6 +187,8 @@ export interface SaveData {
   }[];
   /** Gen 3 specific: The 16-bit daily Mirage Island random value. */
   mirageIslandValue?: number;
+  /** Gen 3 specific: Battle Frontier win streaks */
+  gen3BattleFrontierWinStreaks?: Gen3BattleFrontierWinStreaks;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.

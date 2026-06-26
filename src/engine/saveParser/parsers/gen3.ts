@@ -18,7 +18,14 @@
  * is determined by `PV % 24`.
  */
 
-import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, Gen3SecretBase, SaveData } from './common';
+import type {
+  GameVersion,
+  Gen3BattleFrontierWinStreaks,
+  Gen3BerryPatch,
+  Gen3Ribbons,
+  Gen3SecretBase,
+  SaveData,
+} from './common';
 
 const SIGNATURE = 0x08012025;
 const SECTION_SIZE = 4096;
@@ -50,6 +57,21 @@ const IV_SHIFT_DEF = 10;
 const IV_SHIFT_SPD = 15;
 const IV_SHIFT_SPATK = 20;
 const IV_SHIFT_SPDEF = 25;
+
+const TOWER_WIN_STREAKS_OFFSET = 0x0ce0;
+const TOWER_RECORD_WIN_STREAKS_OFFSET = 0x0cf0;
+const DOME_WIN_STREAKS_OFFSET = 0x0d0c;
+const DOME_RECORD_WIN_STREAKS_OFFSET = 0x0d14;
+const PALACE_WIN_STREAKS_OFFSET = 0x0dc8;
+const PALACE_RECORD_WIN_STREAKS_OFFSET = 0x0dd0;
+const ARENA_WIN_STREAKS_OFFSET = 0x0dda;
+const ARENA_RECORD_WIN_STREAKS_OFFSET = 0x0dde;
+const FACTORY_WIN_STREAKS_OFFSET = 0x0de2;
+const FACTORY_RECORD_WIN_STREAKS_OFFSET = 0x0dea;
+const PIKE_WIN_STREAKS_OFFSET = 0x0e04;
+const PIKE_RECORD_WIN_STREAKS_OFFSET = 0x0e08;
+const PYRAMID_WIN_STREAKS_OFFSET = 0x0e1a;
+const PYRAMID_RECORD_WIN_STREAKS_OFFSET = 0x0e1e;
 
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
@@ -429,6 +451,59 @@ export function parseGen3SecretBases(view: DataView, saveBlock1Offset: number, g
   }
 }
 
+/**
+ * Parses the Gen 3 Battle Frontier win streaks from the save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock2Offset - The resolved memory offset to the active SaveBlock2.
+ * @returns An object containing the extracted win streaks and records for all 7 facilities.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3BattleFrontierWinStreaks(
+  view: DataView,
+  saveBlock2Offset: number,
+): Gen3BattleFrontierWinStreaks {
+  try {
+    const baseOffset = saveBlock2Offset; // Using relative offsets to SaveBlock2 start directly, rather than baseOffset + BATTLE_FRONTIER_OFFSET, because the task requirements list offsets relative to the start of SaveBlock2.
+
+    return {
+      tower: {
+        current: view.getUint16(baseOffset + TOWER_WIN_STREAKS_OFFSET, true),
+        record: view.getUint16(baseOffset + TOWER_RECORD_WIN_STREAKS_OFFSET, true),
+      },
+      dome: {
+        current: view.getUint16(baseOffset + DOME_WIN_STREAKS_OFFSET, true),
+        record: view.getUint16(baseOffset + DOME_RECORD_WIN_STREAKS_OFFSET, true),
+      },
+      palace: {
+        current: view.getUint16(baseOffset + PALACE_WIN_STREAKS_OFFSET, true),
+        record: view.getUint16(baseOffset + PALACE_RECORD_WIN_STREAKS_OFFSET, true),
+      },
+      arena: {
+        current: view.getUint16(baseOffset + ARENA_WIN_STREAKS_OFFSET, true),
+        record: view.getUint16(baseOffset + ARENA_RECORD_WIN_STREAKS_OFFSET, true),
+      },
+      factory: {
+        current: view.getUint16(baseOffset + FACTORY_WIN_STREAKS_OFFSET, true),
+        record: view.getUint16(baseOffset + FACTORY_RECORD_WIN_STREAKS_OFFSET, true),
+      },
+      pike: {
+        current: view.getUint16(baseOffset + PIKE_WIN_STREAKS_OFFSET, true),
+        record: view.getUint16(baseOffset + PIKE_RECORD_WIN_STREAKS_OFFSET, true),
+      },
+      pyramid: {
+        current: view.getUint16(baseOffset + PYRAMID_WIN_STREAKS_OFFSET, true),
+        record: view.getUint16(baseOffset + PYRAMID_RECORD_WIN_STREAKS_OFFSET, true),
+      },
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {
   try {
     let section2Offset: number;
@@ -481,8 +556,17 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const mirageIslandOffset = _forcedVersion === 'emerald' ? 0x0464 : 0x0408;
     const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
+    let gen3BattleFrontierWinStreaks: Gen3BattleFrontierWinStreaks | undefined;
+    if (_forcedVersion === 'emerald') {
+      try {
+        gen3BattleFrontierWinStreaks = parseGen3BattleFrontierWinStreaks(view, section2Offset);
+      } catch {
+        // Ignored if missing or corrupted, allowing the rest of the save to load
+      }
+    }
+
     // Dummy scaffold values for now until fully implemented
-    return {
+    const result: SaveData = {
       generation: 3,
       owned: new Set(),
       seen: new Set(),
@@ -506,6 +590,10 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3MixRecords,
       roamingLegendaries,
     };
+    if (gen3BattleFrontierWinStreaks) {
+      result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
+    }
+    return result;
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');
