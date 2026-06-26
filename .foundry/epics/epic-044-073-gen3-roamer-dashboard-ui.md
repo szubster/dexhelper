@@ -38,4 +38,4 @@ Develop a dashboard view that presents the exact state of the roaming Pokémon, 
 - [ ] Story Owner: Break down this Epic into executable Stories.
 
 ### Auditor Rejection
-**CANCELLED:** This epic is cancelled and replaced by `epic-044-096-gen3-roamer-dashboard-ui-v2.md` because its dependency on the Gen 3 Roamer Location Radar is impossible to satisfy.
+**CANCELLED:** This epic is cancelled and replaced by `epic-044-096-gen3-roamer-dashboard-ui-v2.md` and `research-044-207-gen3-roamer-ui-alternatives.md` because its dependency on the Gen 3 Roamer Location Radar is impossible to satisfy.
