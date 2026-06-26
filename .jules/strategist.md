@@ -296,3 +296,9 @@
 **Outcome:** Rejected → journaled
 **Why:** Modifying the `coder.md` prompt to submit an Empty PR for late-binding dependencies created a severe logical contradiction. If the agent modifies the node file's YAML to add the new dependency, committing those changes means the PR is *not* empty. Conversely, if it strictly submits an empty PR, the dependency changes are discarded, breaking the late binding pattern entirely. Additionally, it instructed the agent *not* to change the status to `FAILED`, which violated the "Core Policies" restricting YAML modifications *only* to `FAILED` or `CANCELLED` statuses. The proposed workflow for the Coder agent was impossible.
 **Pattern:** Do not propose prompt changes that create logical paradoxes or impossible workflows, such as requiring an "Empty PR" for a step that inherently requires file modifications (like updating a `depends_on` array).
+
+## 2026-07-16 - [Accepted] - Prompt improvement - Enforce checkbox checking for failed child nodes
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The journals for several planner personas (`story_owner`, `tech_lead`) noted that when handling a permanent child node failure, the parent node's markdown checkbox for the failed child node must be checked off (`- [x]`) so that the parent can eventually be marked COMPLETED and pass the ADR 007 validation. If left unchecked, the parent node will be permanently stuck in the PENDING state. This explicit instruction was missing from the "HANDLING PERMANENT CHILD FAILURES" section in the prompts for all generative personas (`product_manager`, `epic_planner`, `story_owner`, `tech_lead`).
+**Pattern:** Codify system constraints discovered by implementation agents (ADR 007 checklist compliance for failed/cancelled child nodes) explicitly into the prompts of the generative upstream agents to avoid task freezing or endless parent node PENDING loops.

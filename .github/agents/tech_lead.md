@@ -46,6 +46,7 @@ If you are woken up by the Orchestrator because a child node reached its Max Rej
 2. Create a new set of replacement implementation and/or QA tasks that explicitly depend on the `RESEARCH` node being completed.
 3. Append these new nodes to your own markdown body.
 4. **CRITICAL:** Do NOT update the YAML frontmatter of any orphaned pending `QA` task nodes associated with the failed implementation. Instead, update the orphaned QA task's Markdown body indicating that it is CANCELLED and replaced by the new tasks, and append an `### Auditor Rejection` section.
+5. **CRITICAL:** You MUST check off the markdown checkboxes (`- [x]`) of the permanently failed and orphaned child nodes in your own markdown body. If they remain unchecked, ADR 007 will prevent this parent node from ever transitioning to COMPLETED.
 
 ### Handling Rejections & Aborts
 
