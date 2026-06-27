@@ -1,6 +1,9 @@
 import { Search } from 'lucide-react';
 import { useRef } from 'react';
 import { FILTER_TYPES, type FilterType, useStore } from '../store';
+import { ClearFiltersBadge } from './ClearFiltersBadge';
+import { FilterBadge } from './FilterBadge';
+
 import { LocationSuggestions } from './LocationSuggestions';
 import { TacticalInput } from './TacticalInput';
 import { TacticalMultiSelectControl } from './TacticalMultiSelectControl';
@@ -82,33 +85,15 @@ export function SearchAndFilters() {
               defaultActiveClassName="!border-[var(--theme-primary)] bg-[var(--theme-primary)]/20 text-[var(--theme-primary)] shadow-[inset_0_0_15px_rgba(var(--theme-primary-rgb),0.2)]"
               defaultInactiveClassName="!border-zinc-800 bg-zinc-950/80 text-zinc-600 hover:!border-zinc-600 hover:bg-zinc-900 hover:text-zinc-400"
               renderPrefixItem={() => (
-                <button
-                  type="button"
-                  onClick={() => setFilters([])}
-                  aria-pressed={filtersSet.size === 0}
-                  title="Clear filters"
-                  aria-label="Clear filters"
-                  className={`group tactical-text focus-visible:tactical-focus !border !border-dashed relative flex h-10 min-w-[80px] flex-col items-center justify-center gap-1 font-black text-[10px] transition-all xl:min-w-[100px] ${
-                    filtersSet.size === 0
-                      ? '!border-[var(--theme-primary)] bg-[var(--theme-primary)]/20 text-[var(--theme-primary)] shadow-[inset_0_0_15px_rgba(var(--theme-primary-rgb),0.2)]'
-                      : '!border-zinc-800 hover:!border-zinc-600 bg-zinc-950/80 text-zinc-600 hover:bg-zinc-900 hover:text-zinc-400'
-                  }`}
-                >
-                  <div
-                    className={`absolute top-1 right-1 h-1.5 w-1.5 rounded-full ${filtersSet.size === 0 ? 'bg-[var(--theme-primary)] shadow-[0_0_5px_var(--theme-primary)]' : 'bg-zinc-800'}`}
-                  />
-                  [ ALL ]
-                </button>
+                <ClearFiltersBadge isActive={filtersSet.size === 0} onClick={() => setFilters([])} />
               )}
               items={FILTER_TYPES.map((f) => ({
                 id: f,
                 label: (
-                  <>
-                    <div
-                      className={`absolute top-1 right-1 h-1.5 w-1.5 rounded-full ${filtersSet.has(f) ? 'bg-[var(--theme-primary)] shadow-[0_0_5px_var(--theme-primary)]' : 'bg-zinc-800'}`}
-                    />
-                    <span>[ {f === 'secured' ? 'SECURED' : f === 'missing' ? 'MISSING' : 'DEX ONLY'} ]</span>
-                  </>
+                  <FilterBadge
+                    isActive={filtersSet.has(f)}
+                    label={f === 'secured' ? 'SECURED' : f === 'missing' ? 'MISSING' : 'DEX ONLY'}
+                  />
                 ),
                 testId: `filter-${f}`,
               }))}
