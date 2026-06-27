@@ -302,3 +302,9 @@
 **Outcome:** Accepted
 **Why:** The journals for several planner personas (`story_owner`, `tech_lead`) noted that when handling a permanent child node failure, the parent node's markdown checkbox for the failed child node must be checked off (`- [x]`) so that the parent can eventually be marked COMPLETED and pass the ADR 007 validation. If left unchecked, the parent node will be permanently stuck in the PENDING state. This explicit instruction was missing from the "HANDLING PERMANENT CHILD FAILURES" section in the prompts for all generative personas (`product_manager`, `epic_planner`, `story_owner`, `tech_lead`).
 **Pattern:** Codify system constraints discovered by implementation agents (ADR 007 checklist compliance for failed/cancelled child nodes) explicitly into the prompts of the generative upstream agents to avoid task freezing or endless parent node PENDING loops.
+
+## 2026-07-17 - [Accepted] - Prompt improvement - Centralize Execution Plan Rules in Core Policies
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The memory requires multiple strict rules for execution plans (Execution Plan Sequencing Rule, Execution Plan Verification Rule, Empty PR Verification Rule, Execution Plan Groundedness Rule, Execution Plan Specificity Rule, and Execution Plan Tense Rule). These rules were repeatedly violated by agents because they were scattered and not centralized in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+**Pattern:** Apply systemic rules consistently across all relevant agent personas. When an architectural constraint or tool rule applies universally, it must be explicitly included in the centralized `core_policies.md` to ensure compliance without bloating individual prompts.
