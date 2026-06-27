@@ -35,6 +35,6 @@ Review and verify the unit tests for shared DAG utilities in `.github/scripts/da
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Tests for `buildReverseDependencyGraph` are correct.
-- [ ] Tests for `getOrphanedNodes` are correct.
-- [ ] Tests pass successfully without errors.
+- [x] Tests for `buildReverseDependencyGraph` are correct.
+- [x] Tests for `getOrphanedNodes` are correct.
+- [x] Tests pass successfully without errors.
