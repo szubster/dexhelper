@@ -608,6 +608,18 @@ console.log('\nProcessing Moves...');
 const moves: any[] = [];
 // We primarily care about moves present up to Gen 3
 const MAX_MOVE_ID = 354;
+
+const genMap: Record<number, number> = {
+  1: 1, 2: 1,
+  3: 2, 4: 2,
+  5: 3, 6: 3, 7: 3, 12: 3, 13: 3,
+  8: 4, 9: 4, 10: 4,
+  11: 5, 14: 5,
+  15: 6, 16: 6,
+  17: 7, 18: 7, 19: 7,
+  20: 8
+};
+
 for (let i = 1; i <= MAX_MOVE_ID; i++) {
   const mDataPath = path.join(dataPath, `move/${i}/index.json`);
   const mData = readJson(mDataPath);
@@ -644,6 +656,30 @@ for (let i = 1; i <= MAX_MOVE_ID; i++) {
     pp: mData.pp,
     dmg_class: dmgClass,
   };
+
+  if (mData.past_values && mData.past_values.length > 0) {
+    const targetGen = 3;
+    const sortedPastValues = [...mData.past_values].sort((a, b) => {
+      const vgA = parseInt(a.version_group.url.split('/').filter(Boolean).pop() || '0', 10);
+      const vgB = parseInt(b.version_group.url.split('/').filter(Boolean).pop() || '0', 10);
+      return (genMap[vgA] || 99) - (genMap[vgB] || 99);
+    });
+
+    for (const pv of sortedPastValues) {
+      const vgId = parseInt(pv.version_group.url.split('/').filter(Boolean).pop() || '0', 10);
+      const vgGen = genMap[vgId] || 99;
+
+      if (vgGen > targetGen) {
+        if (pv.accuracy !== null) move.acc = pv.accuracy;
+        if (pv.power !== null) move.p = pv.power;
+        if (pv.pp !== null) move.pp = pv.pp;
+        if (pv.type !== null) {
+          move.type = parseInt(pv.type.url.split('/').filter(Boolean).pop() || '0', 10);
+        }
+        break;
+      }
+    }
+  }
 
   if (effect !== undefined) {
     move.effect = effect;
