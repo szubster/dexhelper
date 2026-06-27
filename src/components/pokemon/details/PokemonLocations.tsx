@@ -5,6 +5,7 @@ import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
+import { LocationRow } from './LocationRow';
 
 interface EvoReq {
   fromId: number;
@@ -54,34 +55,22 @@ export function PokemonLocations({
           {hasEncounters ? (
             <>
               {evoReq && (
-                <div className="group flex items-center justify-between rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30">
-                  <div className="flex items-center gap-3">
-                    <div className="rounded-none bg-amber-500/10 p-2 text-amber-500">
-                      <ArrowUpCircle size={14} />
-                    </div>
-                    <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
-                      Available via Evolving {evoReq.fromName.toUpperCase()}
-                    </span>
-                  </div>
-                  <TacticalBadge variant="amber">EVOLUTION</TacticalBadge>
-                </div>
+                <LocationRow
+                  icon={<ArrowUpCircle size={14} />}
+                  iconColorClass="bg-amber-500/10 text-amber-500"
+                  label={`Available via Evolving ${evoReq.fromName.toUpperCase()}`}
+                  badge={<TacticalBadge variant="amber">EVOLUTION</TacticalBadge>}
+                />
               )}
               {staticEnc?.map((loc, i) => (
-                <div
+                <LocationRow
                   // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                   key={`static-${i}`}
-                  className="group flex items-center justify-between rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="rounded-none bg-red-500/10 p-2 text-red-500">
-                      <Target size={14} />
-                    </div>
-                    <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
-                      {loc}
-                    </span>
-                  </div>
-                  <TacticalBadge variant="red">STATIONARY</TacticalBadge>
-                </div>
+                  icon={<Target size={14} />}
+                  iconColorClass="bg-red-500/10 text-red-500"
+                  label={loc}
+                  badge={<TacticalBadge variant="red">STATIONARY</TacticalBadge>}
+                />
               ))}
               {versionEnc.map((e) => {
                 return (
