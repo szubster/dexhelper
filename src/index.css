@@ -142,6 +142,18 @@ body {
   }
 }
 
+@utility tactical-icon-button {
+  @apply rounded-none border border-dashed border-[var(--theme-border)] bg-[var(--theme-surface)] p-2 text-white font-mono transition-all focus-visible:tactical-focus disabled:cursor-not-allowed disabled:opacity-50;
+
+  &:hover:not(:disabled) {
+    @apply border-[var(--theme-primary)] bg-[rgba(var(--theme-primary-rgb),0.2)] text-[var(--theme-primary)];
+  }
+
+  &:active:not(:disabled) {
+    @apply scale-95;
+  }
+}
+
 @utility tactical-focus {
   @apply outline-2 outline-dashed outline-[var(--theme-primary)] outline-offset-2 ring-0;
 }
