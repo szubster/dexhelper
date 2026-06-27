@@ -31,10 +31,10 @@ Verify the Gen 3 roamer parsing implementation.
 Ensure that the parser correctly extracts `speciesId`, `level`, and `mapId`/`mapGroup` of the active roamer using the `DataView` API and that it correctly verifies the roamer released event flag.
 
 ## Acceptance Criteria
-- [ ] Verify parser extracts Latios/Latias map group and ID using DataView.
-- [ ] Verify parser extracts species ID and level using DataView.
-- [ ] Verify parser checks event flags before marking roamer as active.
-- [ ] Verify `RangeError` from out-of-bounds reads is handled gracefully.
+- [x] Verify parser extracts Latios/Latias map group and ID using DataView.
+- [x] Verify parser extracts species ID and level using DataView.
+- [x] Verify parser checks event flags before marking roamer as active.
+- [x] Verify `RangeError` from out-of-bounds reads is handled gracefully.
 
 ## Execution Constraints
 - **CRITICAL**: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
