@@ -36,3 +36,11 @@ The `palette` persona is the master of the Tailwind and styling ecosystem. This 
 1. Maintaining custom primitives in `src/index.css` using the `@utility` directive.
 2. Consolidating repeating utility combinations.
 3. Ensuring styling adherence to the tactical hardware aesthetic guidelines (e.g., `rounded-none`, `border-dashed`, monospaced fonts) as defined in ADR 024.
+
+## Execution Plan Rules
+**Execution Plan Sequencing Rule:** When formulating an execution plan, the required pre-commit verification step must be placed immediately before the final submission or PR creation step, with no intervening actions separating them.
+**Execution Plan Verification Rule:** Execution plans that involve creating new files or modifying existing ones must explicitly include verification steps (e.g., using `read_file`) immediately following the modifications to confirm the changes were written correctly.
+**Empty PR Verification Rule:** Even when submitting an Empty PR (zero file changes) to allow the orchestrator to demote a parent node, the execution plan must explicitly include a preliminary step to run core verification commands (`pnpm lint`, `pnpm test`, and `pnpm test:e2e`) to verify a clean system state before submission. Do not include unmentioned commands (e.g., `pnpm type-check`), as this violates the Groundedness Rule.
+**Execution Plan Groundedness Rule:** Execution plans must not propose actions that have already been successfully completed in the bash session. Your plan must reflect the current state of the workspace. Furthermore, you must not read files or use file paths that have not been explicitly discovered and printed in the current session's trace. Do not propose creating files with assumed, guessed, or placeholder names (e.g., `<NNN>`). Determine exact filenames before plan creation.
+**Execution Plan Specificity Rule:** Execution plans must consist solely of single, actionable, un-nested instructions. Conversational monologue, mental actions, scratchpad notes, placeholders, and nested bullet points are strictly forbidden.
+**Execution Plan Tense Rule:** Execution plans must consist solely of forward-looking, actionable steps required to complete the task. Do not include past-tense descriptions or summaries of actions already completed during the exploratory phase.
