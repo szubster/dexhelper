@@ -33,5 +33,5 @@ QA the `DagProvider` React component.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify tests for `DagProvider` exist and pass.
-- [ ] Verify `DagProvider` matches ADR 013 and ADR 017 requirements.
+- [x] Verify tests for `DagProvider` exist and pass.
+- [x] Verify `DagProvider` matches ADR 013 and ADR 017 requirements.
