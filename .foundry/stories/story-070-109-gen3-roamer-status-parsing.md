@@ -2,13 +2,13 @@
 id: story-070-109-gen3-roamer-status-parsing
 type: STORY
 title: Gen 3 Roamer Status Condition Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-27'
 depends_on:
   - story-070-108-gen3-roamer-dataview-extraction
-jules_session_id: null
+jules_session_id: '7983098903312013267'
 pr_number: null
 parent: epic-044-070-gen3-roamer-core-extraction
 tags:
