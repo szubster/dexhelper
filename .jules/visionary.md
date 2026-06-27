@@ -151,3 +151,7 @@
 ## 2026-06-29
 **Idea:** Gen 3 Effort Value (EV) Training Dashboard
 **Learning:** Effort Values (EVs) are arguably the most impactful yet most obtuse and hidden mechanics for endgame players across Generations 1-3. When deciding which new mechanics to surface, prioritize those that are highly sought after by the competitive community but completely invisible in-game. Automatically extracting this data from the save file transforms DexHelper from a passive viewer into a required tool for competitive preparation, directly solving one of the most tedious manual tracking problems in the game.
+
+## 2026-06-30
+**Idea:** Gen 3 Ribbon Master Challenge Tracker
+**Learning:** Expanding DexHelper to support community-driven end-game challenges (like the Ribbon Master challenge) provides immense utility. Aggregating widely distributed, hard-to-check completion marks (like Ribbons from contests and battle facilities) into a single, comprehensive dashboard eliminates tedious in-game UI navigation. This deeply aligns with the app's core vision as a premium companion tool, leveraging programmatic save parsing to prevent players from accidentally migrating Pokémon before completing their challenge.
