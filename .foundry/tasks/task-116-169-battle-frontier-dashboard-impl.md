@@ -2,13 +2,13 @@
 id: task-116-169-battle-frontier-dashboard-impl
 type: TASK
 title: Implement Gen 3 Battle Frontier Dashboard UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-06-27'
 depends_on:
   - research-116-204-gen3-battle-frontier-data
-jules_session_id: null
+jules_session_id: '1491883001636844338'
 pr_number: null
 parent: story-079-116-battle-frontier-dashboard-ui
 tags:
