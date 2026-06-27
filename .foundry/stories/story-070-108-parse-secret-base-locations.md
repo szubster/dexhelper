@@ -2,12 +2,12 @@
 id: story-070-108-parse-secret-base-locations
 type: STORY
 title: Parse Gen 3 Secret Base Locations
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-27'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12362910842071219675'
 pr_number: null
 parent: epic-045-070-gen3-secret-base-parsing
 tags:
