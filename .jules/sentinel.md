@@ -156,3 +156,8 @@ When writing E2E tests, do not import helper methods like `argosScreenshot` dire
 **What:** Added visual regression tests (`argosScreenshot`) to `tests/e2e/pokemon-details.spec.ts`.
 **Why:** Fulfills the boundary to cover untested visual flows.
 **Learning:** When writing E2E tests for visual components, ensure `argosScreenshot` is imported directly from `@argos-ci/playwright` as per instructions, avoiding local wrappers unless specifically told otherwise.
+The Sentinel persona's private memory is strictly `.jules/sentinel.md` and must be used solely to log long-term lessons, architectural constraints, and recurring failures, never as an execution logbook or a ledger to record completed tasks.
+In Playwright E2E tests, always call `await waitForSync(page)` after navigation to ensure IndexedDB sync completes.
+Always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()`) to satisfy strict Biome type-checking and avoid `any` usage.
+When writing E2E tests for visual components, use `argosScreenshot(page, 'name')` from `@argos-ci/playwright` to ensure visual fidelity.
+When writing test cases, ensure correct typing is applied to mocked objects to avoid 'any' usage, using assertions such as 'as unknown as string' when strictly required to bypass type errors during mock data injection without disabling the linting check altogether.
