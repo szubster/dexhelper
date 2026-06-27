@@ -102,3 +102,6 @@ Following the Late Binding pattern, `task-084-192-breeding-pair-algorithm-impl` 
 
 ## 2026-06-21: Gen 3 Roamer Location Parsing Limitation
 When assigned a task to extract Gen 3 roamer map coordinates (`mapId` and `mapGroup`) from a save file, the task MUST be cancelled or failed. Per `adr-108-027-gen3-roamer-location-impossible`, the exact map coordinates are exclusively stored in dynamic `EWRAM_DATA` during gameplay and are never serialized into the `.sav` battery save file. Any attempt to parse this data statically is mathematically impossible and will result in failure.
+
+## 2026-06-27: Rejecting Task due to Missing Dependencies
+Permanently failed `task-084-192-breeding-pair-algorithm-impl`. The task lacked sufficient clarity and missing dependencies related to Egg Groups. It was cancelled and replaced by `task-084-204-breeding-pair-algorithm-impl`. Its status has been updated to CANCELLED in the frontmatter, with a descriptive `rejection_reason`. Its acceptance criteria checkboxes were left unchecked, ensuring it correctly exits the DAG without masquerading as successfully completed.

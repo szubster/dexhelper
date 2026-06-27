@@ -2,10 +2,10 @@
 id: task-084-192-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Shiny Carrier Breeding Pair Algorithm
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-16'
-updated_at: '2026-06-22'
+updated_at: '2026-06-27'
 depends_on:
   - research-192-209-egg-groups-missing-data
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - backend
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Cancelled and replaced by task-084-204-breeding-pair-algorithm-impl because it lacked sufficient clarity or dependencies related to Egg Groups.'
 notes: >-
   If you experience a transient failure requiring retry, update the YAML
   frontmatter to status: FAILED with a rejection_reason. If you must abort
