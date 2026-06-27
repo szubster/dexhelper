@@ -136,3 +136,4 @@
 - **Key Learnings**:
   - The extraction allows `CapacitySegmentedBar` to be easily dropped into other panels that require a tactical capacity readout (e.g. PC storage, memory limits, team size).
   - Passing `current` and `max` directly rather than the full `PokemonInstance[]` array decouples the component from domain-specific data models.
+## LocationRow Extraction\n- Identified a repeating JSX pattern in `PokemonLocations.tsx` for displaying location information (both evolution requirements and static encounters).\n- Extracted the pattern into a reusable `LocationRow` component.\n- **Key Learnings**:\n  - When extracting rows with specific, variable icon structures and tactical badges, leveraging React nodes (`icon`, `badge`) as props ensures maximum flexibility for the parent while containing the rigid wrapper styling logic.
