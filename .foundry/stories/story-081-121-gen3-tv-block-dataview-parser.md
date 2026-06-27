@@ -2,12 +2,12 @@
 id: story-081-121-gen3-tv-block-dataview-parser
 type: STORY
 title: Parse Gen 3 TV Block Data with DataView
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-27'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18402301682445620466'
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:
