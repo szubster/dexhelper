@@ -524,6 +524,38 @@ describe('parseGen3BattleFrontierWinStreaks', () => {
       parseGen3BattleFrontierWinStreaks(view, 0);
     }).toThrow('The save file is corrupted or incomplete.');
   });
+
+  it('correctly handles a save file with all zero win streaks and records', () => {
+    const buffer = new ArrayBuffer(8192);
+    const view = new DataView(buffer);
+    const base = saveBlock2Offset;
+
+    // By default, ArrayBuffer initializes with zeros, but let's be explicit for safety
+    view.setUint16(base + 0x0ce0, 0, true);
+    view.setUint16(base + 0x0cf0, 0, true);
+    view.setUint16(base + 0x0d0c, 0, true);
+    view.setUint16(base + 0x0d14, 0, true);
+    view.setUint16(base + 0x0dc8, 0, true);
+    view.setUint16(base + 0x0dd0, 0, true);
+    view.setUint16(base + 0x0dda, 0, true);
+    view.setUint16(base + 0x0dde, 0, true);
+    view.setUint16(base + 0x0de2, 0, true);
+    view.setUint16(base + 0x0dea, 0, true);
+    view.setUint16(base + 0x0e04, 0, true);
+    view.setUint16(base + 0x0e08, 0, true);
+    view.setUint16(base + 0x0e1a, 0, true);
+    view.setUint16(base + 0x0e1e, 0, true);
+
+    const result = parseGen3BattleFrontierWinStreaks(view, saveBlock2Offset);
+
+    expect(result.tower).toEqual({ current: 0, record: 0 });
+    expect(result.dome).toEqual({ current: 0, record: 0 });
+    expect(result.palace).toEqual({ current: 0, record: 0 });
+    expect(result.arena).toEqual({ current: 0, record: 0 });
+    expect(result.factory).toEqual({ current: 0, record: 0 });
+    expect(result.pike).toEqual({ current: 0, record: 0 });
+    expect(result.pyramid).toEqual({ current: 0, record: 0 });
+  });
 });
 
 describe('parseGen3Roamer', () => {

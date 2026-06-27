@@ -33,6 +33,6 @@ Validate the implementation of the Battle Frontier win streak parsing functional
 Verify that current win streaks and max win records for all 7 facilities (Tower, Dome, Palace, Arena, Factory, Pike, and Pyramid) are correctly extracted and that error handling for out-of-bounds reads functions properly. Add corresponding unit tests.
 
 ## Acceptance Criteria
-- [ ] Verify unit tests correctly parse current win streaks.
-- [ ] Verify unit tests correctly parse max win records.
-- [ ] Verify unit tests handle out-of-bounds read errors.
+- [x] Verify unit tests correctly parse current win streaks.
+- [x] Verify unit tests correctly parse max win records.
+- [x] Verify unit tests handle out-of-bounds read errors.
