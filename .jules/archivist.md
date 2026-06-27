@@ -20,11 +20,6 @@
 **Action:** Update the archivist schedule/prompt to explicitly note this mapping, so reviewers do not block valid cleanup tasks.
 
 
-## 2026-04-22 - Archivist Run Learnings
-
-**Learning:** Keeping the single most impactful cleanup as the core focus is critical to respect boundaries.
-**Action:** Found that `jules_agents_dispatch.md` had an outdated list of agents. Updated it to properly reflect the 13 agents deployed, instead of 11.
-
 ## 2026-04-26 - Archivist Run Learnings
 
 **Learning:** When refactoring drops a dependency (like `pokenode-ts`), references to it often persist in onboarding documents, creating an inaccurate view of the tech stack.
@@ -34,11 +29,6 @@
 
 **Learning:** Memory entries describing the removal of fields (like `pr_number`) can become contradictory if later features (like `human-in-the-loop`) reintroduce them partially.
 **Action:** Updated `conflict-resolution-v1.md` to clarify that `pr_number` was only removed for automated tasks, resolving the contradiction with `human-in-the-loop.md`.
-
-## 2026-06-25 - Archivist Run Learnings
-
-**Learning:** `.foundry/docs/knowledge_base/infrastructure/jules_agents_dispatch.md` had an outdated list of agents.
-**Action:** Updated it to properly reflect the 15 agents deployed, by adding the missing `researcher` agent to the list.
 
 ## 2026-06-26 - Archivist Run Learnings
 
