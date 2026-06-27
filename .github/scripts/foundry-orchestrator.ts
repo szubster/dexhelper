@@ -655,6 +655,9 @@ function main(): void {
         continue;
       }
       if (parentPath) {
+        if (isHierarchicallyIncomplete(parentPath, ignoredPaths)) {
+          continue;
+        }
         const parentNode = nodeMap.get(parentPath);
         if (
           parentNode &&
