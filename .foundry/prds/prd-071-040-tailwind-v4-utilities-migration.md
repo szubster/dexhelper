@@ -5,7 +5,7 @@ title: Tailwind v4 @utility Consolidation
 status: READY
 owner_persona: epic_planner
 created_at: '2026-06-09'
-updated_at: '2026-06-26'
+updated_at: '2026-06-27'
 depends_on:
   - task-071-150-tailwind-v4-adr
 jules_session_id: '3185632799529156251'

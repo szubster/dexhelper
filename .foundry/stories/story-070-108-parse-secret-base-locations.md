@@ -5,7 +5,7 @@ title: Parse Gen 3 Secret Base Locations
 status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-26'
+updated_at: '2026-06-27'
 depends_on: []
 jules_session_id: '5079166440873702640'
 pr_number: null

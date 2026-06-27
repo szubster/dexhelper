@@ -5,7 +5,7 @@ title: Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
 status: READY
 owner_persona: epic_planner
 created_at: '2026-06-09'
-updated_at: '2026-06-26'
+updated_at: '2026-06-27'
 depends_on:
   - research-071-138-gen3-roamer-offsets
 jules_session_id: '1356269887786367069'

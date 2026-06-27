@@ -5,7 +5,7 @@ title: Gen 3 TV Broadcast and Swarm Tracker Data Extraction
 status: READY
 owner_persona: story_owner
 created_at: '2026-06-12'
-updated_at: '2026-06-26'
+updated_at: '2026-06-27'
 depends_on: []
 jules_session_id: '5465314856337105375'
 pr_number: null
