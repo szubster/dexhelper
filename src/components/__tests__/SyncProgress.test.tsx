@@ -41,7 +41,7 @@ describe('SyncProgress', () => {
     await sleep(100);
 
     await expect.element(page.getByTestId('sync-progress-overlay')).toBeInTheDocument();
-    await expect.element(page.getByText('INITIALIZING DATA')).toBeInTheDocument();
+    await expect.element(page.getByText('[ INITIALIZING_UPLINK ]')).toBeInTheDocument();
   });
 
   it('handles the pokedata-sync-progress event', async () => {
@@ -53,7 +53,7 @@ describe('SyncProgress', () => {
     await render(<SyncProgress />);
     await sleep(100);
 
-    await expect.element(page.getByText('INITIALIZING DATA')).toBeInTheDocument();
+    await expect.element(page.getByText('[ INITIALIZING_UPLINK ]')).toBeInTheDocument();
 
     const event = new CustomEvent('pokedata-sync-progress', {
       detail: { current: 50, total: 100, stage: 'Downloading Data' },
@@ -62,7 +62,7 @@ describe('SyncProgress', () => {
 
     await sleep(100);
 
-    await expect.element(page.getByText('PROCESSING Downloading Data...')).toBeInTheDocument();
+    await expect.element(page.getByText('PROCESSING: Downloading Data')).toBeInTheDocument();
     await expect.element(page.getByText('50%')).toBeInTheDocument();
   });
 
@@ -82,8 +82,8 @@ describe('SyncProgress', () => {
 
     await sleep(100);
 
-    await expect.element(page.getByText('SYSTEM PRIMED')).toBeInTheDocument();
-    await expect.element(page.getByText('DATABASE HANDSHAKE SUCCESSFUL')).toBeInTheDocument();
+    await expect.element(page.getByText('[ DATABASE_PRIMED ]')).toBeInTheDocument();
+    await expect.element(page.getByText('HANDSHAKE VERIFIED')).toBeInTheDocument();
     await expect.element(page.getByText('100%')).toBeInTheDocument();
   });
 
@@ -105,6 +105,6 @@ describe('SyncProgress', () => {
     await sleep(100);
 
     // Should still be in the initial state since the event was ignored
-    await expect.element(page.getByText('PROCESSING undefined...')).toBeInTheDocument();
+    await expect.element(page.getByText('PROCESSING: WAITING')).toBeInTheDocument();
   });
 });

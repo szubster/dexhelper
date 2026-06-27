@@ -1,4 +1,4 @@
-import { CheckCircle2, Database, Loader2 } from 'lucide-react';
+import { ArrowRightCircle, CheckCircle2, Database, Loader2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { cn } from '../utils/cn';
@@ -65,94 +65,134 @@ export function SyncProgress() {
   if (!shouldRender) return null;
 
   const percentage = progress ? Math.round((progress.current / progress.total) * 100) : 100;
+  // Create a 5x20 matrix for the data stream visualization
+  const matrixBlocks = 100;
+  const blocksToFill = Math.floor((percentage / 100) * matrixBlocks);
 
   return (
     <div
       data-testid="sync-progress-overlay"
       className={cn(
-        'fixed inset-0 z-[200] flex items-center justify-center p-6 transition-all duration-700',
-        isComplete ? 'pointer-events-none bg-black/40 backdrop-blur-sm' : 'bg-black/80 backdrop-blur-xl',
+        'fixed inset-0 z-[200] flex items-center justify-center p-4 transition-all duration-700',
+        isComplete ? 'pointer-events-none bg-black/40 backdrop-blur-sm' : 'bg-black/90 backdrop-blur-md',
       )}
     >
       <TacticalPanel
         data-testid="sync-progress"
         variant={isComplete ? 'emerald' : 'blue'}
         className={cn(
-          'fade-in zoom-in-95 relative flex w-full max-w-sm animate-in flex-col items-center gap-6 bg-zinc-950 p-8 shadow-2xl duration-500',
+          'fade-in zoom-in-95 relative flex w-full max-w-4xl animate-in flex-col gap-0 p-0 shadow-2xl duration-500',
           isComplete && 'fade-out zoom-out-95 animate-out fill-mode-forwards',
         )}
       >
-        <TelemetryDecoration label="SYS.SYNC_ACTIVE" className="top-0 left-4" />
+        <TelemetryDecoration label="SYS.SYNC_TERMINAL" className="top-0 left-4 bg-zinc-950" />
 
-        <div className="relative mt-4 flex h-24 w-24 items-center justify-center border border-white/5 bg-zinc-900/50">
-          <LcdGrid className="opacity-[0.05]" />
-          <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
-
-          {isComplete ? (
-            <div className="zoom-in-50 flex h-16 w-16 animate-in items-center justify-center border border-emerald-500/20 bg-emerald-500/10">
-              <CheckCircle2 className="text-emerald-500" size={32} />
+        {/* Terminal Header */}
+        <div className="flex items-center justify-between border-white/5 border-b border-dashed bg-zinc-900/80 px-6 py-4">
+          <div className="flex items-center gap-4">
+            <div
+              className={cn(
+                'flex h-8 w-8 items-center justify-center border border-dashed',
+                isComplete
+                  ? 'border-emerald-500/50 bg-emerald-500/20 text-emerald-400'
+                  : 'animate-pulse border-blue-500/50 bg-blue-500/20 text-blue-400',
+              )}
+            >
+              {isComplete ? <CheckCircle2 size={16} /> : <ArrowRightCircle size={16} />}
             </div>
-          ) : (
-            <>
-              <div className="flex h-16 w-16 items-center justify-center border border-blue-500/20 bg-blue-500/10">
-                <Database className="text-blue-500/50" size={28} />
-              </div>
-              <div
-                className="absolute inset-0 flex items-center justify-center" // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role
-                role="status"
-                aria-live="polite"
-              >
-                <Loader2 className="animate-spin text-blue-500/20" size={80} strokeWidth={0.5} />
-                <span className="sr-only">Syncing data...</span>
-              </div>
-            </>
-          )}
-        </div>
-
-        <div className="flex w-full flex-col items-center gap-4 text-center">
-          <div className="space-y-1">
-            <h3 className="font-black font-mono text-white text-xl uppercase tracking-tighter">
-              {isComplete ? 'SYSTEM PRIMED' : 'INITIALIZING DATA'}
-            </h3>
-            <p className="tactical-text font-bold text-[10px] text-zinc-500">
-              {isComplete ? 'DATABASE HANDSHAKE SUCCESSFUL' : `PROCESSING ${progress?.stage}...`}
-            </p>
-          </div>
-
-          <div className="w-full space-y-2">
-            <div className="tactical-text flex justify-between font-black text-[10px]">
-              <span className="text-zinc-500">TRANSFER</span>
-              <span className={isComplete ? 'text-emerald-500' : 'text-blue-500'}>{percentage}%</span>
-            </div>
-
-            {/* Tactical segmented progress bar */}
-            <div className="flex h-4 w-full gap-1 p-0.5">
-              {Array.from({ length: 10 }).map((_, i) => (
-                <div
-                  // biome-ignore lint/suspicious/noArrayIndexKey: Array has no unique values
-                  key={i}
-                  className={cn(
-                    'h-full flex-1 border transition-colors duration-300',
-                    i < Math.floor(percentage / 10)
-                      ? isComplete
-                        ? 'border-emerald-500 bg-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.3)]'
-                        : 'border-blue-500 bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.3)]'
-                      : 'border-zinc-800 bg-zinc-900/50',
-                  )}
-                />
-              ))}
+            <div>
+              <h3 className="font-black font-mono text-lg text-white uppercase leading-none tracking-tighter">
+                {isComplete ? '[ DATABASE_PRIMED ]' : '[ INITIALIZING_UPLINK ]'}
+              </h3>
+              <p className="tactical-text mt-1 font-bold text-[9px] text-zinc-500 uppercase tracking-widest">
+                {isComplete ? 'HANDSHAKE VERIFIED' : `PROCESSING: ${progress?.stage || 'WAITING'}`}
+              </p>
             </div>
           </div>
-        </div>
 
-        {!isComplete && (
-          <div className="flex items-center gap-2 border border-blue-500/30 border-dashed bg-blue-500/10 px-4 py-2">
-            <div className="h-1.5 w-1.5 animate-pulse bg-blue-500" />
-            <span className="font-black font-mono text-[9px] text-blue-400 uppercase tracking-wider">
-              SYNCING PROTOCOL
+          <div className="flex flex-col items-end">
+            <span className="tactical-text font-black text-[9px] text-zinc-600 tracking-widest">SYNC_RATE</span>
+            <span
+              className={cn(
+                'font-black font-mono text-2xl tracking-tighter',
+                isComplete ? 'text-emerald-500' : 'text-blue-500',
+              )}
+            >
+              {percentage}%
             </span>
           </div>
-        )}
+        </div>
+
+        <div className="flex flex-col bg-zinc-950/50 md:flex-row">
+          {/* Left Pane: Uplink Status */}
+          <div className="relative flex-1 border-white/5 border-r border-dashed p-6">
+            <span className="tactical-text absolute -top-2 left-4 bg-zinc-950 px-1 text-[9px] text-zinc-500">
+              [ UPLINK_STATUS ]
+            </span>
+
+            <div className="relative mx-auto flex aspect-square w-full max-w-[240px] items-center justify-center overflow-hidden border border-white/5 bg-zinc-900/50">
+              <LcdGrid className="opacity-[0.05]" />
+              <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
+
+              {/* Faux Radar Grid */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0,var(--theme-primary)_100%)] opacity-5" />
+              <div className="absolute top-1/2 left-0 h-[1px] w-full bg-white/5" />
+              <div className="absolute top-0 left-1/2 h-full w-[1px] bg-white/5" />
+
+              {isComplete ? (
+                <div className="zoom-in-50 flex h-24 w-24 animate-in items-center justify-center border border-emerald-500/20 bg-emerald-500/10 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+                  <CheckCircle2 className="text-emerald-500" size={48} />
+                </div>
+              ) : (
+                <>
+                  <div className="absolute inset-0 scale-75 animate-ping rounded-full border border-blue-500/20 opacity-20" />
+                  <div className="relative z-10 flex h-20 w-20 items-center justify-center border border-blue-500/30 bg-blue-500/10 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                    <Database className="text-blue-400" size={32} />
+                  </div>
+                  <div className="absolute inset-0 z-20 flex items-center justify-center">
+                    <Loader2 className="animate-spin text-blue-500/30" size={120} strokeWidth={0.5} />
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Right Pane: Data Stream Matrix */}
+          <div className="relative flex-[2] p-6">
+            <span className="tactical-text absolute -top-2 left-4 bg-zinc-950 px-1 text-[9px] text-zinc-500">
+              [ DATA_STREAM ]
+            </span>
+
+            <div className="grid h-full min-h-[200px] grid-cols-[repeat(20,minmax(0,1fr))] content-start gap-1">
+              {Array.from({ length: matrixBlocks }).map((_, i) => {
+                const isFilled = i < blocksToFill;
+                return (
+                  <div
+                    // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable
+                    key={`matrix-block-${i}`}
+                    className={cn(
+                      'aspect-square border border-dashed transition-colors duration-300',
+                      isFilled
+                        ? isComplete
+                          ? 'border-emerald-500/50 bg-emerald-500/30 shadow-[0_0_8px_rgba(16,185,129,0.3)]'
+                          : 'border-blue-500/50 bg-blue-500/30 shadow-[0_0_8px_rgba(59,130,246,0.3)]'
+                        : 'border-white/5 bg-black/40',
+                    )}
+                  />
+                );
+              })}
+            </div>
+
+            {!isComplete && (
+              <div className="absolute right-6 bottom-6 flex items-center gap-2 border border-blue-500/30 border-dashed bg-blue-500/10 px-4 py-2">
+                <div className="h-1.5 w-1.5 animate-pulse bg-blue-500" />
+                <span className="font-black font-mono text-[9px] text-blue-400 uppercase tracking-wider">
+                  RECEIVING PACKETS
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
       </TacticalPanel>
     </div>
   );

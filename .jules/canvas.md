@@ -227,3 +227,9 @@
 **Outcome:** Accepted
 **Why:** Brings the contest attribute component in line with the established specialized hardware motif. Continuous smooth progress bars break the "specialized hardware" illusion, whereas segmented terminal bars effectively mimic a rugged, low-resolution CRT display.
 **Pattern:** Avoid continuous progress bars for visualizing data distributions. Consistently use segmented bars built from distinct block elements for all health, capacity, or attribute statistics across the application to reinforce the hardware simulation.
+
+## 2026-07-28 - [Accepted] - 🖼️ Canvas: Tactical Sync Terminal Redesign
+**What:** Redesigned the `SyncProgress` overlay into a "Database Synchronization Terminal". Replaced the simple modal and 10-bar progress line with a wide, dual-pane hardware dashboard (`[ UPLINK_STATUS ]` and `[ DATA_STREAM ]`). Added a faux radar grid with scanner animations, bracketed telemetry labels (`[ DATABASE_PRIMED ]`), and visualized the sync progress using a dense matrix of 100 individual data blocks instead of a single continuous or segmented bar.
+**Outcome:** Accepted
+**Why:** The previous sync modal felt too much like a standard web loading state, breaking the "specialized hardware" immersion during a critical application action. Evolving it into a multi-pane data terminal with explicit radar and block-matrix visualizations reinforces the fantasy of intercepting and processing raw hardware data.
+**Pattern:** For loading states or long-running processes, avoid standard spinners or simple progress bars. Transform them into active "Terminal Operations" featuring multi-pane layouts, explicit data stream visualizations (like block matrices or hex grids), and faux hardware scanners to maintain the specialized device aesthetic.
