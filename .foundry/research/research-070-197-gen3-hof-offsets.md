@@ -33,5 +33,5 @@ With the successful extraction of Hall of Fame data from Gen 1 and Gen 2, the ne
 - Document how the Hall of Fame count is stored and incremented.
 
 ## Acceptance Criteria
-- [ ] Document the memory offsets and data structure for Gen 3 Hall of Fame data.
-- [ ] Detail any differences between Ruby/Sapphire, Emerald, and FireRed/LeafGreen implementations.
+- [x] Document the memory offsets and data structure for Gen 3 Hall of Fame data.
+- [x] Detail any differences between Ruby/Sapphire, Emerald, and FireRed/LeafGreen implementations.
