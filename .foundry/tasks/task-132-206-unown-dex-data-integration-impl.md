@@ -40,6 +40,6 @@ Determine which of the 26 Unown forms (A-Z) the player possesses in their active
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Data integration logic mapping the `unownForm` property to the Unown Dex Panel UI component is implemented.
-- [ ] The UI component correctly displays the owned/missing states for the 26 Unown forms.
-- [ ] Appropriate tests are added to verify the integration.
+- [x] Data integration logic mapping the `unownForm` property to the Unown Dex Panel UI component is implemented.
+- [x] The UI component correctly displays the owned/missing states for the 26 Unown forms.
+- [x] Appropriate tests are added to verify the integration.
