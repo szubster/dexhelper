@@ -1,5 +1,6 @@
 import { type IDBPDatabase, openDB, unwrap } from 'idb';
 import { Unpackr } from 'msgpackr';
+import { objectValues } from '../utils/object';
 import {
   type CompactChainLink,
   DB_CONFIG,
@@ -74,7 +75,7 @@ export const getDB = () => {
       /* v8 ignore start */
       upgrade(db) {
         const currentStores = Array.from(db.objectStoreNames);
-        const targetStores = Object.values(DB_CONFIG.STORES) as readonly ValidStoreName[];
+        const targetStores = objectValues(DB_CONFIG.STORES);
 
         // Define key paths for each store
         const keyPaths: Record<ValidStoreName, string> = {
