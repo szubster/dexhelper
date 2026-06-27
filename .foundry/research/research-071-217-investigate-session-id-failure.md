@@ -2,10 +2,10 @@
 id: research-071-217-investigate-session-id-failure
 type: RESEARCH
 title: Investigate VERIFYING node session ID failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-24'
-updated_at: '2026-06-24'
+updated_at: '2026-06-27'
 depends_on: []
 jules_session_id: null
 pr_number: null

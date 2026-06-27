@@ -2,10 +2,10 @@
 id: task-121-172-gen3-tv-block-parser-qa
 type: TASK
 title: QA Gen 3 TV Block DataView Parser
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-27'
 depends_on:
   - task-121-171-gen3-tv-block-parser-impl
 jules_session_id: null

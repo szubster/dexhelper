@@ -2,10 +2,10 @@
 id: research-105-210-gen3-roamer-alternative
 type: RESEARCH
 title: Gen 3 Roamer Parsing Alternative Approach
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-22'
-updated_at: '2026-06-22'
+updated_at: '2026-06-27'
 depends_on: []
 jules_session_id: null
 pr_number: null

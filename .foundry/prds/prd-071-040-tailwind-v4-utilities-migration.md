@@ -2,13 +2,13 @@
 id: prd-071-040-tailwind-v4-utilities-migration
 type: PRD
 title: Tailwind v4 @utility Consolidation
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-09'
 updated_at: '2026-06-27'
 depends_on:
   - task-071-150-tailwind-v4-adr
-jules_session_id: '17724107379864545864'
+jules_session_id: null
 pr_number: null
 parent: idea-071-tailwind-v4-utilities-migration
 tags:
@@ -16,7 +16,7 @@ tags:
   - styling
   - refactor
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

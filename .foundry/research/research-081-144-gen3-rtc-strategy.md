@@ -2,10 +2,10 @@
 id: research-081-144-gen3-rtc-strategy
 type: RESEARCH
 title: Research RTC Fallback Strategy for Gen 3
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-18'
-updated_at: '2026-06-18'
+updated_at: '2026-06-27'
 depends_on: []
 jules_session_id: null
 pr_number: null

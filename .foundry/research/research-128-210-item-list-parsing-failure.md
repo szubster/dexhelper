@@ -2,10 +2,10 @@
 id: research-128-210-item-list-parsing-failure
 type: RESEARCH
 title: Investigate Missing Integration in Item List Parsing
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-21'
-updated_at: '2026-06-21'
+updated_at: '2026-06-27'
 depends_on: []
 jules_session_id: null
 pr_number: null

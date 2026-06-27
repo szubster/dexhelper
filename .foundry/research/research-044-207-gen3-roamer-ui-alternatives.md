@@ -2,10 +2,10 @@
 id: research-044-207-gen3-roamer-ui-alternatives
 type: RESEARCH
 title: Gen 3 Roamer Alternative UI Research
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-20'
-updated_at: '2026-06-20'
+updated_at: '2026-06-27'
 depends_on: []
 jules_session_id: null
 pr_number: null
