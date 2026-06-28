@@ -53,5 +53,5 @@ This ensures that "Epic implementation is done" is semantically accurate.
 
 
 ## Generated Epics
-- [.foundry/archive/epics/epic-035-048-implicit-dependency-enforcement.md](./../epics/epic-035-048-implicit-dependency-enforcement.md)
+- [.foundry/archive/epics/epic-035-048-implicit-dependency-enforcement.md](./../archive/epics/epic-035-048-implicit-dependency-enforcement.md)
 - [.foundry/epics/epic-035-049-late-binding-accommodation.md](./../epics/epic-035-049-late-binding-accommodation.md)
