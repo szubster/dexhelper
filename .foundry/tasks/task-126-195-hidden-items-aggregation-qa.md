@@ -36,6 +36,6 @@ Verify the implementation from `task-126-194-hidden-items-aggregation-impl` whic
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] Verification of mapping between boolean flags and `HiddenItemData` is successful.
-- [ ] Verification of filtering by acquisition status is successful.
-- [ ] All unit tests pass and provide adequate coverage.
+- [x] Verification of mapping between boolean flags and `HiddenItemData` is successful.
+- [x] Verification of filtering by acquisition status is successful.
+- [x] All unit tests pass and provide adequate coverage.
