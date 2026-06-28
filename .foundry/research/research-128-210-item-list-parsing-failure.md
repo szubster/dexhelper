@@ -2,12 +2,12 @@
 id: research-128-210-item-list-parsing-failure
 type: RESEARCH
 title: Investigate Missing Integration in Item List Parsing
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-21'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14090294499529964245'
 pr_number: null
 parent: story-087-128-dynamic-item-list-parsing
 tags:
