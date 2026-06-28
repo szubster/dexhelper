@@ -2,13 +2,13 @@
 id: story-062-099-gen3-expose-lower-16bit-pv
 type: STORY
 title: Expose lower 16-bits of PV
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-09'
 updated_at: '2026-06-28'
 depends_on:
   - story-062-098-gen3-parse-32bit-pv
-jules_session_id: null
+jules_session_id: '466856835351046852'
 pr_number: null
 parent: epic-038-062-personality-value-extraction
 tags:
