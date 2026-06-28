@@ -44,13 +44,7 @@ describe('calculateBreedingPairs', () => {
     };
 
     const pairs = calculateBreedingPairs([p1, p2, p3]);
-    // p1 + p2
-    // p1 + p3
-    // p2 + p3 -> both female, invalid!
-    // So there are only 2 pairs.
     expect(pairs).toHaveLength(2);
-
-    // p1 (carrier) + p3 (carrier) should be highest score (2)
     expect(pairs[0]?.score).toBe(2);
     expect(pairs[0]?.parentA.id).toBe('1');
     expect(pairs[0]?.parentB.id).toBe('3');
@@ -84,18 +78,14 @@ describe('calculateBreedingPairs', () => {
 
     const pairs = calculateBreedingPairs([ditto, maleBulba, genderlessMagnemite, noEggsMewtwo]);
 
-    // Ditto + male = valid
-    // Ditto + genderless = valid
-    // Ditto + no eggs = invalid
-    // male + genderless = invalid
     expect(pairs).toHaveLength(2);
 
     const pairAIds = pairs.map((p) => p.parentA.id);
     const pairBIds = pairs.map((p) => p.parentB.id);
     const allIdsInPairs = new Set([...pairAIds, ...pairBIds]);
 
-    expect(allIdsInPairs.has('1')).toBe(true); // Ditto is in all pairs
-    expect(allIdsInPairs.has('4')).toBe(false); // Mewtwo is not in any pair
+    expect(allIdsInPairs.has('1')).toBe(true);
+    expect(allIdsInPairs.has('4')).toBe(false);
   });
 
   test('does not match same gender', () => {
