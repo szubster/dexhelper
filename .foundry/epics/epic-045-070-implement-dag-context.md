@@ -2,12 +2,12 @@
 id: epic-045-070-implement-dag-context
 type: EPIC
 title: Implement DagContext and Provider for DAG Data
-status: VERIFYING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3895849437340516865'
 pr_number: null
 parent: prd-073-045-refactor-dag-dashboard-context
 tags:
