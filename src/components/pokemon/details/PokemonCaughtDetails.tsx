@@ -3,6 +3,7 @@ import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMa
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { useStore } from '../../../store';
 import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
+import { ContestConditionStats } from '../../ContestConditionStats';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
 import { SectionHeader } from '../../SectionHeader';
@@ -10,6 +11,7 @@ import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 import { ContestRibbonsPanel } from './ContestRibbonsPanel';
+import { ContestSheenDisplay } from './ContestSheenDisplay';
 
 interface PokemonCaughtDetailsProps {
   yourPokemon: (PokemonInstance & { location: string })[];
@@ -129,6 +131,19 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
             {p.ribbons && generation === 3 && (
               <div className="relative z-10 border-white/5 border-t border-dashed bg-black/40 p-4">
                 <ContestRibbonsPanel ribbons={p.ribbons} />
+              </div>
+            )}
+
+            {p.condition && (
+              <div className="relative z-10 flex flex-col gap-4 border-white/5 border-t border-dashed bg-black/40 p-4">
+                <ContestConditionStats
+                  cool={p.condition.cool}
+                  beauty={p.condition.beauty}
+                  cute={p.condition.cute}
+                  smart={p.condition.smart}
+                  tough={p.condition.tough}
+                />
+                {p.condition.sheen !== undefined && <ContestSheenDisplay sheen={p.condition.sheen} />}
               </div>
             )}
           </TacticalPanel>

@@ -99,7 +99,36 @@ describe('PokemonCaughtDetails', () => {
     await render(<PokemonCaughtDetails yourPokemon={[gen3PokemonWithRibbons]} />);
 
     await expect.element(page.getByText('Contest Ribbons')).toBeInTheDocument();
-    await expect.element(page.getByText('Cool')).toBeInTheDocument();
+    await expect.element(page.getByText('Cool', { exact: true })).toBeInTheDocument();
     await expect.element(page.getByText('Master')).toBeInTheDocument();
+  });
+
+  it('renders ContestConditionStats and ContestSheenDisplay for pokemon with condition', async () => {
+    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+      (selector: unknown) =>
+        (selector as (state: unknown) => unknown)({
+          saveData: {
+            generation: 3,
+          },
+        }),
+    );
+
+    const pokemonWithCondition = {
+      ...mockPokemon,
+      condition: {
+        cool: 50,
+        beauty: 60,
+        cute: 70,
+        smart: 80,
+        tough: 90,
+        sheen: 200,
+      },
+    };
+
+    await render(<PokemonCaughtDetails yourPokemon={[pokemonWithCondition]} />);
+
+    await expect.element(page.getByText('SYS.CONTEST_STATS')).toBeInTheDocument();
+    await expect.element(page.getByText('Sheen')).toBeInTheDocument();
+    await expect.element(page.getByText('200 / 255')).toBeInTheDocument();
   });
 });
