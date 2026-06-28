@@ -31,9 +31,9 @@ Moves can have different stats (like PP, Power, Accuracy) across different gener
 2. Ensure base PP values are accurately stored, leaving max PP calculations to the client runtime as per ADR 025.
 
 ## Acceptance Criteria
-- [ ] Identify generation discrepancies for moves relevant to Gen 1-3.
-- [ ] Apply necessary overrides to the extracted move data.
-- [ ] Verify that base PP is stored correctly according to the target generation.
+- [x] Identify generation discrepancies for moves relevant to Gen 1-3.
+- [x] Apply necessary overrides to the extracted move data.
+- [x] Verify that base PP is stored correctly according to the target generation.
 
-- [ ] task-129-206-move-generation-discrepancies-impl
-- [ ] task-129-207-move-generation-discrepancies-qa
+- [x] task-129-206-move-generation-discrepancies-impl
+- [x] task-129-207-move-generation-discrepancies-qa
