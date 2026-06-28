@@ -18,14 +18,7 @@
  * is determined by `PV % 24`.
  */
 
-import type {
-  GameVersion,
-  Gen3BattleFrontierWinStreaks,
-  Gen3BerryPatch,
-  Gen3Ribbons,
-  Gen3SecretBase,
-  SaveData,
-} from './common';
+import type { GameVersion, Gen3BerryPatch, Gen3Ribbons, Gen3SecretBase, SaveData } from './common';
 
 const SIGNATURE = 0x08012025;
 const SECTION_SIZE = 4096;
@@ -72,6 +65,23 @@ const PIKE_WIN_STREAKS_OFFSET = 0x0e04;
 const PIKE_RECORD_WIN_STREAKS_OFFSET = 0x0e08;
 const PYRAMID_WIN_STREAKS_OFFSET = 0x0e1a;
 const PYRAMID_RECORD_WIN_STREAKS_OFFSET = 0x0e1e;
+
+const BATTLE_POINTS_OFFSET = 0x0eb8;
+const FLAG_SYS_TOWER_SILVER = 0x8c4;
+const FLAG_SYS_TOWER_GOLD = 0x8c5;
+const FLAG_SYS_DOME_SILVER = 0x8c6;
+const FLAG_SYS_DOME_GOLD = 0x8c7;
+const FLAG_SYS_PALACE_SILVER = 0x8c8;
+const FLAG_SYS_PALACE_GOLD = 0x8c9;
+const FLAG_SYS_ARENA_SILVER = 0x8ca;
+const FLAG_SYS_ARENA_GOLD = 0x8cb;
+const FLAG_SYS_FACTORY_SILVER = 0x8cc;
+const FLAG_SYS_FACTORY_GOLD = 0x8cd;
+const FLAG_SYS_PIKE_SILVER = 0x8ce;
+const FLAG_SYS_PIKE_GOLD = 0x8cf;
+const FLAG_SYS_PYRAMID_SILVER = 0x8d0;
+const FLAG_SYS_PYRAMID_GOLD = 0x8d1;
+const EMERALD_FLAGS_OFFSET = 0x1270;
 
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
@@ -459,42 +469,65 @@ export function parseGen3SecretBases(view: DataView, saveBlock1Offset: number, g
  * @returns An object containing the extracted win streaks and records for all 7 facilities.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3BattleFrontierWinStreaks(
+export function parseGen3BattleFrontierProgress(
   view: DataView,
+  saveBlock1Offset: number,
   saveBlock2Offset: number,
-): Gen3BattleFrontierWinStreaks {
+): import('./common').Gen3BattleFrontierProgress {
   try {
     const baseOffset = saveBlock2Offset; // Using relative offsets to SaveBlock2 start directly, rather than baseOffset + BATTLE_FRONTIER_OFFSET, because the task requirements list offsets relative to the start of SaveBlock2.
+
+    const check = (flagIndex: number) => {
+      const byteIndex = Math.floor(flagIndex / 8);
+      const bitIndex = flagIndex % 8;
+      // The `flags` bit array in SaveBlock1 (Emerald) starts at offset 0x1270
+      return (view.getUint8(saveBlock1Offset + EMERALD_FLAGS_OFFSET + byteIndex) & (1 << bitIndex)) !== 0;
+    };
 
     return {
       tower: {
         current: view.getUint16(baseOffset + TOWER_WIN_STREAKS_OFFSET, true),
         record: view.getUint16(baseOffset + TOWER_RECORD_WIN_STREAKS_OFFSET, true),
+        silverFlag: check(FLAG_SYS_TOWER_SILVER),
+        goldFlag: check(FLAG_SYS_TOWER_GOLD),
       },
       dome: {
         current: view.getUint16(baseOffset + DOME_WIN_STREAKS_OFFSET, true),
         record: view.getUint16(baseOffset + DOME_RECORD_WIN_STREAKS_OFFSET, true),
+        silverFlag: check(FLAG_SYS_DOME_SILVER),
+        goldFlag: check(FLAG_SYS_DOME_GOLD),
       },
       palace: {
         current: view.getUint16(baseOffset + PALACE_WIN_STREAKS_OFFSET, true),
         record: view.getUint16(baseOffset + PALACE_RECORD_WIN_STREAKS_OFFSET, true),
+        silverFlag: check(FLAG_SYS_PALACE_SILVER),
+        goldFlag: check(FLAG_SYS_PALACE_GOLD),
       },
       arena: {
         current: view.getUint16(baseOffset + ARENA_WIN_STREAKS_OFFSET, true),
         record: view.getUint16(baseOffset + ARENA_RECORD_WIN_STREAKS_OFFSET, true),
+        silverFlag: check(FLAG_SYS_ARENA_SILVER),
+        goldFlag: check(FLAG_SYS_ARENA_GOLD),
       },
       factory: {
         current: view.getUint16(baseOffset + FACTORY_WIN_STREAKS_OFFSET, true),
         record: view.getUint16(baseOffset + FACTORY_RECORD_WIN_STREAKS_OFFSET, true),
+        silverFlag: check(FLAG_SYS_FACTORY_SILVER),
+        goldFlag: check(FLAG_SYS_FACTORY_GOLD),
       },
       pike: {
         current: view.getUint16(baseOffset + PIKE_WIN_STREAKS_OFFSET, true),
         record: view.getUint16(baseOffset + PIKE_RECORD_WIN_STREAKS_OFFSET, true),
+        silverFlag: check(FLAG_SYS_PIKE_SILVER),
+        goldFlag: check(FLAG_SYS_PIKE_GOLD),
       },
       pyramid: {
         current: view.getUint16(baseOffset + PYRAMID_WIN_STREAKS_OFFSET, true),
         record: view.getUint16(baseOffset + PYRAMID_RECORD_WIN_STREAKS_OFFSET, true),
+        silverFlag: check(FLAG_SYS_PYRAMID_SILVER),
+        goldFlag: check(FLAG_SYS_PYRAMID_GOLD),
       },
+      battlePoints: view.getUint16(baseOffset + BATTLE_POINTS_OFFSET, true),
     };
   } catch (error) {
     if (error instanceof RangeError) {
@@ -556,10 +589,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const mirageIslandOffset = _forcedVersion === 'emerald' ? 0x0464 : 0x0408;
     const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
-    let gen3BattleFrontierWinStreaks: Gen3BattleFrontierWinStreaks | undefined;
+    let gen3BattleFrontierProgress: import('./common').Gen3BattleFrontierProgress | undefined;
     if (_forcedVersion === 'emerald') {
+      let section0Offset: number;
       try {
-        gen3BattleFrontierWinStreaks = parseGen3BattleFrontierWinStreaks(view, section2Offset);
+        section0Offset = getLatestSectionOffset(view, 0);
+        gen3BattleFrontierProgress = parseGen3BattleFrontierProgress(view, section0Offset, section2Offset);
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
@@ -590,8 +625,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3MixRecords,
       roamingLegendaries,
     };
-    if (gen3BattleFrontierWinStreaks) {
-      result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
+    if (gen3BattleFrontierProgress) {
+      result.gen3BattleFrontierProgress = gen3BattleFrontierProgress;
     }
     return result;
   } catch (error) {

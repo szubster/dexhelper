@@ -96,14 +96,15 @@ export interface Gen3BerryPatch {
   watered4: boolean;
 }
 
-export interface Gen3BattleFrontierWinStreaks {
-  tower: { current: number; record: number };
-  dome: { current: number; record: number };
-  palace: { current: number; record: number };
-  arena: { current: number; record: number };
-  factory: { current: number; record: number };
-  pike: { current: number; record: number };
-  pyramid: { current: number; record: number };
+export interface Gen3BattleFrontierProgress {
+  tower: { current: number; record: number; silverFlag: boolean; goldFlag: boolean };
+  dome: { current: number; record: number; silverFlag: boolean; goldFlag: boolean };
+  palace: { current: number; record: number; silverFlag: boolean; goldFlag: boolean };
+  arena: { current: number; record: number; silverFlag: boolean; goldFlag: boolean };
+  factory: { current: number; record: number; silverFlag: boolean; goldFlag: boolean };
+  pike: { current: number; record: number; silverFlag: boolean; goldFlag: boolean };
+  pyramid: { current: number; record: number; silverFlag: boolean; goldFlag: boolean };
+  battlePoints: number;
 }
 
 export interface SaveData {
@@ -187,8 +188,8 @@ export interface SaveData {
   }[];
   /** Gen 3 specific: The 16-bit daily Mirage Island random value. */
   mirageIslandValue?: number;
-  /** Gen 3 specific: Battle Frontier win streaks */
-  gen3BattleFrontierWinStreaks?: Gen3BattleFrontierWinStreaks;
+  /** Gen 3 specific: Battle Frontier progress */
+  gen3BattleFrontierProgress?: Gen3BattleFrontierProgress;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   isGen3Save,
   parseGen3,
-  parseGen3BattleFrontierWinStreaks,
+  parseGen3BattleFrontierProgress,
   parseGen3ConditionStats,
   parseGen3MirageIslandValue,
   parseGen3MixRecords,
@@ -474,11 +474,12 @@ describe('parseGen3PokeNews', () => {
   });
 });
 
-describe('parseGen3BattleFrontierWinStreaks', () => {
+describe('parseGen3BattleFrontierProgress', () => {
+  const saveBlock1Offset = 0;
   const saveBlock2Offset = 0x1000;
 
   it('extracts win streaks and records for all 7 facilities', () => {
-    const buffer = new ArrayBuffer(8192);
+    const buffer = new ArrayBuffer(16384);
     const view = new DataView(buffer);
     const base = saveBlock2Offset;
 
@@ -504,15 +505,25 @@ describe('parseGen3BattleFrontierWinStreaks', () => {
     view.setUint16(base + 0x0e1a, 2, true); // pyramid current
     view.setUint16(base + 0x0e1e, 12, true); // pyramid record
 
-    const result = parseGen3BattleFrontierWinStreaks(view, saveBlock2Offset);
+    view.setUint16(base + 0x0eb8, 100, true); // battle points
 
-    expect(result.tower).toEqual({ current: 10, record: 20 });
-    expect(result.dome).toEqual({ current: 5, record: 15 });
-    expect(result.palace).toEqual({ current: 12, record: 22 });
-    expect(result.arena).toEqual({ current: 7, record: 17 });
-    expect(result.factory).toEqual({ current: 8, record: 18 });
-    expect(result.pike).toEqual({ current: 3, record: 13 });
-    expect(result.pyramid).toEqual({ current: 2, record: 12 });
+    const result = parseGen3BattleFrontierProgress(view, saveBlock1Offset, saveBlock2Offset);
+
+    expect(result.tower.current).toEqual(10);
+    expect(result.tower.record).toEqual(20);
+    expect(result.dome.current).toEqual(5);
+    expect(result.dome.record).toEqual(15);
+    expect(result.palace.current).toEqual(12);
+    expect(result.palace.record).toEqual(22);
+    expect(result.arena.current).toEqual(7);
+    expect(result.arena.record).toEqual(17);
+    expect(result.factory.current).toEqual(8);
+    expect(result.factory.record).toEqual(18);
+    expect(result.pike.current).toEqual(3);
+    expect(result.pike.record).toEqual(13);
+    expect(result.pyramid.current).toEqual(2);
+    expect(result.pyramid.record).toEqual(12);
+    expect(result.battlePoints).toEqual(100);
   });
 
   it('throws "The save file is corrupted or incomplete." on out-of-bounds reads', () => {
@@ -521,7 +532,7 @@ describe('parseGen3BattleFrontierWinStreaks', () => {
     const view = new DataView(buffer);
 
     expect(() => {
-      parseGen3BattleFrontierWinStreaks(view, 0);
+      parseGen3BattleFrontierProgress(view, 0, 0);
     }).toThrow('The save file is corrupted or incomplete.');
   });
 });

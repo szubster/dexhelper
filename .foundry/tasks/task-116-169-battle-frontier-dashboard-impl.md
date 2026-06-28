@@ -34,11 +34,11 @@ Implement the `BattleFrontierDashboard` React component to visualize the Gen 3 B
 *   Integration is critical: You MUST include tests to ensure `BattleFrontierDashboard` integrates cleanly and renders properly, otherwise it will permanently fail.
 
 ## Acceptance Criteria
-- [ ] Implement the `BattleFrontierDashboard` React component utilizing React Flow.
-- [ ] Create UI nodes for the 7 facilities.
-- [ ] Create UI for the BP wallet display.
-- [ ] Add progress visuals towards the next Frontier Brain encounter.
-- [ ] Add rendering and integration tests to ensure the component behaves correctly.
+- [x] Implement the `BattleFrontierDashboard` React component utilizing React Flow.
+- [x] Create UI nodes for the 7 facilities.
+- [x] Create UI for the BP wallet display.
+- [x] Add progress visuals towards the next Frontier Brain encounter.
+- [x] Add rendering and integration tests to ensure the component behaves correctly.
 
 ## Contract Reminder
 *   If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
