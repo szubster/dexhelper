@@ -2,13 +2,13 @@
 id: story-086-130-move-jsonl-compaction
 type: STORY
 title: Move JSONL Compaction and Output
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-28'
 depends_on:
   - story-086-129-move-generation-discrepancies
-jules_session_id: null
+jules_session_id: '8386531238191625590'
 pr_number: null
 parent: epic-049-086-dynamic-move-pp-parsing
 tags:
