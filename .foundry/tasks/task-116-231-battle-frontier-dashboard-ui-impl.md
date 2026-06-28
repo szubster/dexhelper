@@ -2,7 +2,7 @@
 id: task-116-231-battle-frontier-dashboard-ui-impl
 type: TASK
 title: Gen 3 Battle Frontier Dashboard UI
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-28'
 updated_at: '2026-06-28'

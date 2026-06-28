@@ -2,7 +2,7 @@
 id: task-116-232-battle-frontier-dashboard-qa
 type: TASK
 title: QA Verification - Gen 3 Battle Frontier Dashboard UI
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-06-28'
 updated_at: '2026-06-28'
