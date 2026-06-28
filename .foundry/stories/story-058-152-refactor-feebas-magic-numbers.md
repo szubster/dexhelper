@@ -32,4 +32,5 @@ While the memory offsets (`0x2dd6` and `0x2e66`) were previously addressed, the 
 - [ ] Extract bit shift (`16`) into a constant.
 - [ ] Extract lengths and boundaries (`447` total spots, `6` valid spots, `4` inaccessible boundary) into constants.
 - [ ] Ensure all constants are exported at the module level.
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-152-230-refactor-feebas-magic-numbers-impl
