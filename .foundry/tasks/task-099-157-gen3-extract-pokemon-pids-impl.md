@@ -2,12 +2,12 @@
 id: task-099-157-gen3-extract-pokemon-pids-impl
 type: TASK
 title: Implement Gen 3 Pokemon PID Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11255319375532419037'
 pr_number: null
 parent: story-061-099-extract-pokemon-pids
 tags:
