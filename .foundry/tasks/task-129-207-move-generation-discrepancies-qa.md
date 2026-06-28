@@ -43,5 +43,5 @@ Move data extraction has been updated to apply generation-specific overrides for
 - **Empty PR Policy:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Confirmed generation discrepancies are properly applied in `moves.jsonl` output for sample moves.
-- [ ] Confirmed that base PP is stored correctly instead of max PP.
+- [x] Confirmed generation discrepancies are properly applied in `moves.jsonl` output for sample moves.
+- [x] Confirmed that base PP is stored correctly instead of max PP.
