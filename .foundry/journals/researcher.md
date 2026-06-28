@@ -46,3 +46,13 @@ In Gen 2, gender is intrinsically linked to the Attack DV. The `gender_rate` fro
 
 ## PokeAPI Egg Groups
 Egg groups are retrieved from the `pokemon-species` endpoint. They must be mapped to integer constants to fit within DexHelper's memory-optimized schemas.
+
+## Gen 3 Roamer Location Constraints (ADR 108-027)
+
+When designing features for Generation 3 hardware, be aware of the stark difference between persistent save data and dynamic EWRAM data.
+
+**The Lesson:** Data that feels "persistent" to the player (like the exact current location of a roaming legendary) may actually be highly ephemeral and recalculated on the fly. In Gen 3, `sRoamerLocation` and `sLocationHistory` exist exclusively in dynamically allocated EWRAM during gameplay. When the game saves, these precise coordinates are **not** serialized.
+
+**Architectural Constraint:** It is impossible to statically extract a roamer's exact map location from a `.sav` file.
+
+**UI Pivot Strategy:** When faced with impossible geographic extraction, pivot UI designs from "map-based tracking" (e.g., Route Radars) to "stat-based interception dossiers." We can still provide value by exposing the hidden internal state that *is* saved, such as the `Roamer` struct (IVs, HP, Nature) and its overarching `active` boolean flag, presenting it under a tactical "data snooping" aesthetic.
