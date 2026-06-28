@@ -29,9 +29,9 @@ This task implements the UI required to show individual contest stats for a spec
 4. Update `src/components/pokemon/details/__tests__/PokemonCaughtDetails.test.tsx` to include testing for these new visual components.
 
 ## 3. Acceptance Criteria
-- [ ] `ContestConditionStats` renders correctly within `PokemonCaughtDetails` if `condition` data is passed.
-- [ ] `ContestSheenDisplay` renders correctly within `PokemonCaughtDetails` if `condition` data contains `sheen`.
-- [ ] Tests in `PokemonCaughtDetails.test.tsx` cover the rendering of these new condition stat displays.
-- [ ] If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- [ ] If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- [ ] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] `ContestConditionStats` renders correctly within `PokemonCaughtDetails` if `condition` data is passed.
+- [x] `ContestSheenDisplay` renders correctly within `PokemonCaughtDetails` if `condition` data contains `sheen`.
+- [x] Tests in `PokemonCaughtDetails.test.tsx` cover the rendering of these new condition stat displays.
+- [x] If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- [x] If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- [x] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
