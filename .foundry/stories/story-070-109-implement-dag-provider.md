@@ -27,5 +27,5 @@ Implement the `DagProvider` React component that will wrap the DAG views and pro
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-109-196-implement-dag-provider-impl
-- [ ] task-109-197-implement-dag-provider-qa
+- [x] task-109-196-implement-dag-provider-impl
+- [x] task-109-197-implement-dag-provider-qa
