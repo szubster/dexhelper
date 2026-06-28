@@ -133,6 +133,7 @@ export interface PokemonMetadata {
   n: string; // name
   cr: number; // capture rate
   gr?: number | undefined; // gender rate
+  eg?: string[] | undefined; // egg groups
   baby: boolean; // is baby
   // Embedded evolution data
   eto: CompactChainLink[];
