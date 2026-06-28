@@ -28,8 +28,8 @@ This task verifies the implementation of the individual contest stats display wi
 2. Verify test cases were written in `PokemonCaughtDetails.test.tsx` and that they pass.
 
 ## 3. Acceptance Criteria
-- [ ] `PokemonCaughtDetails` successfully renders the new stats visually.
-- [ ] Unit tests pass cleanly.
-- [ ] If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- [ ] If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- [ ] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] `PokemonCaughtDetails` successfully renders the new stats visually.
+- [x] Unit tests pass cleanly.
+- [x] If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- [x] If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- [x] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
