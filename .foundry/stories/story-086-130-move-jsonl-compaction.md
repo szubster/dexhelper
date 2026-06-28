@@ -34,3 +34,5 @@ With move data extracted and generation discrepancies handled, the final step fo
 - [ ] Implement the compaction pass for move data based on the schema in ADR 025.
 - [ ] Write the final compacted data to `data/db/moves.jsonl`.
 - [ ] Ensure the output structure matches the specifications for the Vite plugin and IndexedDB integration.
+- [ ] task-130-238-move-jsonl-compaction-impl
+- [ ] task-130-239-move-jsonl-compaction-qa
