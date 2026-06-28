@@ -30,5 +30,5 @@ As mandated by ADR 013, the DAG Kanban Board and the React Flow visualizer must 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-119-204-dag-context-provider-impl
-- [ ] task-119-205-dag-context-provider-qa
+- [x] task-119-204-dag-context-provider-impl
+- [x] task-119-205-dag-context-provider-qa
