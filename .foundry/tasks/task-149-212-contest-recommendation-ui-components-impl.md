@@ -46,11 +46,11 @@ This task implements the reusable UI components for the Contest Recommendation A
    - Create tests ensuring the components render correctly with varying mock data (e.g., 1 recommendation, 2 recommendations, edge cases where all stats are zero).
 
 ## Acceptance Criteria
-- [ ] Develop reusable UI components for Contest recommendations.
-- [ ] Clearly display the top 1-2 recommended Contest categories.
-- [ ] Implement clear reasoning copy for recommendations (e.g. highlighting favorable Nature or high existing stat).
-- [ ] Apply the tactical hardware aesthetic (ADR 008).
-- [ ] Write tests ensuring component renders correctly with algorithm outputs.
+- [x] Develop reusable UI components for Contest recommendations.
+- [x] Clearly display the top 1-2 recommended Contest categories.
+- [x] Implement clear reasoning copy for recommendations (e.g. highlighting favorable Nature or high existing stat).
+- [x] Apply the tactical hardware aesthetic (ADR 008).
+- [x] Write tests ensuring component renders correctly with algorithm outputs.
 
 ## Important Reminder for the Coder
 - **Transient Failure**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
