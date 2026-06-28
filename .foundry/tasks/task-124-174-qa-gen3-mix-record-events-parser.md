@@ -2,13 +2,13 @@
 id: task-124-174-qa-gen3-mix-record-events-parser
 type: TASK
 title: QA Gen 3 Mix Record Events Parser
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-27'
 depends_on:
   - task-124-172-gen3-mix-record-events-parser
-jules_session_id: null
+jules_session_id: '15461981535474274633'
 pr_number: null
 parent: story-081-124-gen3-event-forecast-schedule
 tags:
@@ -28,10 +28,10 @@ notes: ''
 Verify the implementation of the Gen 3 Mix Record events parser (`task-124-172-gen3-mix-record-events-parser`).
 
 ## Acceptance Criteria
-- [ ] Verify that the parser correctly extracts Mix Record flags/data to identify inherited events.
-- [ ] Verify that the parser exclusively uses the `DataView` API for all new Gen 3 save parsing logic.
-- [ ] Verify that out-of-bounds reads via `DataView` throw `RangeError` and are caught/handled gracefully.
-- [ ] Verify backward compatibility with existing parsers is maintained.
+- [x] Verify that the parser correctly extracts Mix Record flags/data to identify inherited events.
+- [x] Verify that the parser exclusively uses the `DataView` API for all new Gen 3 save parsing logic.
+- [x] Verify that out-of-bounds reads via `DataView` throw `RangeError` and are caught/handled gracefully.
+- [x] Verify backward compatibility with existing parsers is maintained.
 
 ## Contract Reminders
 **To Coder / QA:**

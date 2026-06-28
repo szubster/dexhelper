@@ -2,13 +2,13 @@
 id: task-084-192-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Shiny Carrier Breeding Pair Algorithm
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-16'
-updated_at: '2026-06-22'
+updated_at: '2026-06-27'
 depends_on:
   - research-192-209-egg-groups-missing-data
-jules_session_id: null
+jules_session_id: '4932733436202586555'
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:

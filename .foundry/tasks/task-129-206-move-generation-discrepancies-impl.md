@@ -2,12 +2,12 @@
 id: task-129-206-move-generation-discrepancies-impl
 type: TASK
 title: Apply Move Generation Discrepancies
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-19'
-updated_at: '2026-06-19'
+updated_at: '2026-06-27'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13525768377188504297'
 pr_number: null
 parent: story-086-129-move-generation-discrepancies
 tags:

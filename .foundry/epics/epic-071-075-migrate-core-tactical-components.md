@@ -8,7 +8,7 @@ created_at: '2026-06-11'
 updated_at: '2026-06-27'
 depends_on:
   - epic-071-074-define-tailwind-v4-utilities
-jules_session_id: null
+jules_session_id: '5924211060719376072'
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:
