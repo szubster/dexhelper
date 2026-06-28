@@ -38,6 +38,6 @@ Implement error handling during Gen 3 contest data extraction (condition stats a
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] `parseGen3ConditionStats` catches `RangeError` and throws a specific generic validation error.
-- [ ] `parseGen3Ribbons` catches `RangeError` and throws a specific generic validation error.
-- [ ] All tests for Gen 3 parsing pass.
+- [x] `parseGen3ConditionStats` catches `RangeError` and throws a specific generic validation error.
+- [x] `parseGen3Ribbons` catches `RangeError` and throws a specific generic validation error.
+- [x] All tests for Gen 3 parsing pass.

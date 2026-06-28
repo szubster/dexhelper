@@ -50,6 +50,20 @@ const ROAMER_LEVEL_OFFSET = 12;
 const ROAMER_STATUS_OFFSET = 13;
 const ROAMER_ACTIVE_OFFSET = 19;
 
+const CONDITION_COOL_OFFSET = 0x06;
+const CONDITION_BEAUTY_OFFSET = 0x07;
+const CONDITION_CUTE_OFFSET = 0x08;
+const CONDITION_SMART_OFFSET = 0x09;
+const CONDITION_TOUGH_OFFSET = 0x0a;
+const CONDITION_SHEEN_OFFSET = 0x0b;
+
+const RIBBON_RANK_MASK = 0x07;
+const RIBBON_COOL_SHIFT = 0;
+const RIBBON_BEAUTY_SHIFT = 3;
+const RIBBON_CUTE_SHIFT = 6;
+const RIBBON_SMART_SHIFT = 9;
+const RIBBON_TOUGH_SHIFT = 12;
+
 const IV_MASK = 0x1f;
 const IV_SHIFT_HP = 0;
 const IV_SHIFT_ATK = 5;
@@ -363,12 +377,12 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
  */
 export function parseGen3ConditionStats(view: DataView, offset: number) {
   try {
-    const cool = view.getUint8(offset + 0x06);
-    const beauty = view.getUint8(offset + 0x07);
-    const cute = view.getUint8(offset + 0x08);
-    const smart = view.getUint8(offset + 0x09);
-    const tough = view.getUint8(offset + 0x0a);
-    const sheen = view.getUint8(offset + 0x0b);
+    const cool = view.getUint8(offset + CONDITION_COOL_OFFSET);
+    const beauty = view.getUint8(offset + CONDITION_BEAUTY_OFFSET);
+    const cute = view.getUint8(offset + CONDITION_CUTE_OFFSET);
+    const smart = view.getUint8(offset + CONDITION_SMART_OFFSET);
+    const tough = view.getUint8(offset + CONDITION_TOUGH_OFFSET);
+    const sheen = view.getUint8(offset + CONDITION_SHEEN_OFFSET);
 
     return { cool, beauty, cute, smart, tough, sheen };
   } catch (error) {
@@ -647,11 +661,11 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
   try {
     const bitfield = view.getUint32(offset, true);
 
-    const cool = bitfield & 0x07;
-    const beauty = (bitfield >> 3) & 0x07;
-    const cute = (bitfield >> 6) & 0x07;
-    const smart = (bitfield >> 9) & 0x07;
-    const tough = (bitfield >> 12) & 0x07;
+    const cool = (bitfield >> RIBBON_COOL_SHIFT) & RIBBON_RANK_MASK;
+    const beauty = (bitfield >> RIBBON_BEAUTY_SHIFT) & RIBBON_RANK_MASK;
+    const cute = (bitfield >> RIBBON_CUTE_SHIFT) & RIBBON_RANK_MASK;
+    const smart = (bitfield >> RIBBON_SMART_SHIFT) & RIBBON_RANK_MASK;
+    const tough = (bitfield >> RIBBON_TOUGH_SHIFT) & RIBBON_RANK_MASK;
 
     return { cool, beauty, cute, smart, tough };
   } catch (error) {
