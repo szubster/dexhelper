@@ -2,13 +2,13 @@
 id: story-081-144-gen3-rtc-fallback-strategy
 type: STORY
 title: Implement Gen 3 System Time Fallback and Manual UI Overrides
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-18'
 updated_at: '2026-06-28'
 depends_on:
   - research-081-144-gen3-rtc-strategy
-jules_session_id: null
+jules_session_id: '8320311161937253980'
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:
