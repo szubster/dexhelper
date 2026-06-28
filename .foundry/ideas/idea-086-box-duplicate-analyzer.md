@@ -38,4 +38,5 @@ Introduce a "Duplicate Analyzer" view within DexHelper's PC Box tracking system.
 This feature transforms DexHelper from a passive storage viewer into an active box management assistant. By heavily leveraging our offline-first `.sav` parsing capabilities to instantly aggregate and compare hidden data (DVs/IVs) across hundreds of PC entities, we eliminate one of the most tedious logistical chores in retro Pokémon games. This deeply serves the hardcore, end-game player base.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+- [ ] .foundry/prds/prd-086-054-box-duplicate-analyzer.md
