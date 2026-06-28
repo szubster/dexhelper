@@ -2,12 +2,12 @@
 id: research-108-221-gen3-secret-base-rangeerror
 type: RESEARCH
 title: Investigate Gen 3 Secret Base RangeError Handling
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-24'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18409133827750611623'
 pr_number: null
 parent: story-070-108-parse-secret-base-locations
 tags:
