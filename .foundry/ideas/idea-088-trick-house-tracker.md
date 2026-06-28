@@ -34,4 +34,5 @@ Leverage DexHelper's save file parsing to extract the current Trick House progre
 This targets a highly localized, easily forgettable side-quest mechanic. By surfacing this specific progression state, DexHelper provides a perfect "companion" feature that reminds players of actionable content they might otherwise skip entirely, fitting perfectly into the app's offline-first utility model without overlapping with macroscopic tracking systems like the Pokédex or Contests.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to investigate the exact save file offsets and bitflags used to track the Trick House puzzle state in Ruby/Sapphire/Emerald.
+- [x] Product Manager: Convert this idea into a PRD to investigate the exact save file offsets and bitflags used to track the Trick House puzzle state in Ruby/Sapphire/Emerald.
+- [ ] .foundry/prds/prd-088-054-trick-house-tracker.md
