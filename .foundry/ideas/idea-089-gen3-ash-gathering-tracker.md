@@ -34,4 +34,5 @@ Leverage DexHelper's save file parsing to extract the current Volcanic Ash count
 This targets a highly localized, tedious item-gathering grind. By surfacing the exact hidden step counter from the save file, DexHelper replaces blind running back and forth with precise, actionable data. It gives hardcore completionists and casual players alike a unique utility that standard gameplay lacks, reinforcing the app's value as a premium companion tool.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to investigate the exact save file offsets for the Soot Sack step counter in Ruby/Sapphire/Emerald.
+- [x] Product Manager: Convert this idea into a PRD to investigate the exact save file offsets for the Soot Sack step counter in Ruby/Sapphire/Emerald.
+- [ ] .foundry/prds/prd-089-054-gen3-ash-gathering-tracker.md
