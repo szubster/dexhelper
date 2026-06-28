@@ -93,3 +93,28 @@ There are two primary ways to check if the roamer is released and active:
     *   **Pros:** The `active` boolean (`0x13` within the `struct Roamer`) directly determines if the game currently considers the roamer to be active on the map. This gets set to `FALSE` if the player defeats or catches the roamer. This is likely the exact data point the radar needs, as opposed to just whether the TV event happened.
 
 I will document both the event flag offsets and the `Roamer` structure offsets (specifically the `active` field) in `.foundry/docs/knowledge_base/gen3_roamer_offsets.md`.
+
+## 5. Roamer Data Schema
+
+Given the impossibility of statically extracting the roamer's map coordinates from the save file (as documented in `adr-108-027-gen3-roamer-location-impossible`), the application should utilize a tracking schema focused on the roamer's state, identity, and stats.
+
+### Proposed Data Structure
+
+```typescript
+export interface Gen3RoamerState {
+    isActive: boolean;    // Derived from the 'active' boolean (offset 0x13 in Roamer struct). True if roaming the map.
+    speciesId: number;    // The species ID of the roamer (e.g., Latios/Latias in RS/E, Legendary Beast in FRLG).
+    level: number;        // Current level of the roamer.
+    hp: number;           // Current HP (useful for tracking damage across encounters).
+    status: number;       // Status condition (Sleep, Paralysis, etc.).
+    personality: number;  // Personality Value (PID).
+    ivs: number;          // 32-bit integer containing IVs. Can be unpacked into individual stats.
+    cool: number;         // Cool contest stat.
+    beauty: number;       // Beauty contest stat.
+    cute: number;         // Cute contest stat.
+    smart: number;        // Smart contest stat.
+    tough: number;        // Tough contest stat.
+}
+```
+
+This alternative schema provides significant value (e.g., for RNG tracking or confirming encounter readiness) by surfacing the exact state of the roamer when the save file was generated, completely avoiding the impossible requirement of live map tracking.
