@@ -36,3 +36,5 @@ We need an architectural rule (e.g., an ADR) or a linter check to enforce that, 
 ## Acceptance Criteria
 - [ ] If a linter is not feasible, establish a strict architectural ADR mandating relative offset mapping for dynamic save block extraction.
 - [ ] Roll out guidance to Coder and QA personas.
+- [ ] .foundry/epics/epic-053-103-relative-offsets-adr.md
+- [ ] .foundry/epics/epic-053-104-relative-offsets-guidance.md
