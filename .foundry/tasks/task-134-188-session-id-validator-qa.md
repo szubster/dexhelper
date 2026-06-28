@@ -34,6 +34,6 @@ The implementation for extracting and validating the `jules_session_id` in `ACTI
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Verify extraction logic covers edge cases.
-- [ ] Verify validation catches malformed or missing IDs.
-- [ ] Review implementation tests for completeness.
+- [x] Verify extraction logic covers edge cases.
+- [x] Verify validation catches malformed or missing IDs.
+- [x] Review implementation tests for completeness.
