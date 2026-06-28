@@ -2,7 +2,7 @@
 id: epic-071-076-migrate-complex-app-components
 type: EPIC
 title: Migrate Complex Application Components
-status: ACTIVE
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-11'
 updated_at: '2026-06-28'
@@ -16,7 +16,7 @@ tags:
   - refactor
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Dependency chain failed permanently. Replaced by epic-071-099-migrate-complex-app-components-retry.'
 notes: ''
 ---
 
