@@ -505,6 +505,57 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(storyContent).toContain('status: READY');
   });
 
+  test('Late-Binding: Parent wakes up when some children are CANCELLED and others COMPLETED', () => {
+    // Epic 1: PENDING (Waiting for children)
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Story 1: Child of Epic 1, COMPLETED
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+      parent: "epic-001"
+    });
+
+    // Story 2: Child of Epic 1, CANCELLED
+    createValidTestNode(tmpDir, '.foundry/stories/story-002.md', {
+      id: "story-002",
+      type: "STORY",
+      title: "Story 2",
+      status: "CANCELLED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+      parent: "epic-001",
+      rejection_reason: "Feature deprecated"
+    });
+
+    fs.appendFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), '\n\n## Acceptance Criteria\n- [ ] Create child nodes');
+
+    main();
+
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: READY'); // Because it has an unchecked box
+  });
+
   test('Late-Binding: Parent wakes up when children are COMPLETED', () => {
     // Epic 1: PENDING (Waiting for children)
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
