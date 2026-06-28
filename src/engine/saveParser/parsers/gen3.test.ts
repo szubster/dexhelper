@@ -535,6 +535,19 @@ describe('parseGen3BattleFrontierProgress', () => {
       parseGen3BattleFrontierProgress(view, 0, 0);
     }).toThrow('The save file is corrupted or incomplete.');
   });
+
+  it('correctly handles a save file with all zero win streaks and records', () => {
+    const buffer = new ArrayBuffer(16384);
+    const view = new DataView(buffer);
+    const base = saveBlock2Offset;
+
+    view.setUint16(base + 0x0ce0, 0, true);
+    view.setUint16(base + 0x0cf0, 0, true);
+
+    const result = parseGen3BattleFrontierProgress(view, saveBlock1Offset, saveBlock2Offset);
+
+    expect(result.tower).toEqual({ current: 0, record: 0, silverFlag: false, goldFlag: false });
+});
 });
 
 describe('parseGen3Roamer', () => {
