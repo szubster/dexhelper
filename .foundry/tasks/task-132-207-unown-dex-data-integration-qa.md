@@ -36,6 +36,6 @@ Verify the integration, ensuring the UI correctly displays the owned/missing sta
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verified that the `unownForm` property is correctly mapped from the save file data instances to the UI component.
-- [ ] Verified that the Unown Dex Panel UI component correctly displays the owned/missing states for all 26 Unown forms.
-- [ ] Verified that appropriate tests are in place and passing.
+- [x] Verified that the `unownForm` property is correctly mapped from the save file data instances to the UI component.
+- [x] Verified that the Unown Dex Panel UI component correctly displays the owned/missing states for all 26 Unown forms.
+- [x] Verified that appropriate tests are in place and passing.
