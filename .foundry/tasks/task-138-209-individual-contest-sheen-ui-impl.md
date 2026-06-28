@@ -2,12 +2,12 @@
 id: task-138-209-individual-contest-sheen-ui-impl
 type: TASK
 title: Implement Contest Sheen UI Integration
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-19'
 updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: '16079316102261161037'
+jules_session_id: null
 pr_number: null
 parent: story-065-138-individual-contest-sheen-ui
 tags:
@@ -46,6 +46,6 @@ This task integrates the `ContestSheenDisplay` component into the detailed Poké
 - **Empty PR Policy**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not modify the YAML frontmatter on successful completion.
 
 ## 4. Acceptance Criteria
-- [ ] Integrate `ContestSheenDisplay` into `PokemonCaughtDetails.tsx` for Gen 3 Pokémon with condition stats.
-- [ ] Ensure the component renders beautifully and fits the tactical UI aesthetic.
-- [ ] Add tests to verify the integration.
+- [x] Integrate `ContestSheenDisplay` into `PokemonCaughtDetails.tsx` for Gen 3 Pokémon with condition stats.
+- [x] Ensure the component renders beautifully and fits the tactical UI aesthetic.
+- [x] Add tests to verify the integration.

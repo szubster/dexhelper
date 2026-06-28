@@ -2,13 +2,13 @@
 id: task-137-210-individual-contest-stats-ui-qa
 type: TASK
 title: QA Individual Contest Stats UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-28'
 depends_on:
   - task-137-209-individual-contest-stats-ui-impl
-jules_session_id: '696712558778014925'
+jules_session_id: null
 pr_number: null
 parent: story-065-137-individual-contest-stats-ui
 tags: []
@@ -28,8 +28,8 @@ This task verifies the implementation of the individual contest stats display wi
 2. Verify test cases were written in `PokemonCaughtDetails.test.tsx` and that they pass.
 
 ## 3. Acceptance Criteria
-- [ ] `PokemonCaughtDetails` successfully renders the new stats visually.
-- [ ] Unit tests pass cleanly.
-- [ ] If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- [ ] If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- [ ] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] `PokemonCaughtDetails` successfully renders the new stats visually.
+- [x] Unit tests pass cleanly.
+- [x] If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- [x] If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- [x] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.

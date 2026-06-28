@@ -2,12 +2,12 @@
 id: task-141-209-gen3-contest-error-handling-impl
 type: TASK
 title: Implement Gen 3 Contest Data Error Handling
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-20'
 updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: '11723907360497603002'
+jules_session_id: null
 pr_number: null
 parent: story-065-141-gen3-contest-error-handling
 tags:
@@ -38,6 +38,6 @@ Implement error handling during Gen 3 contest data extraction (condition stats a
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] `parseGen3ConditionStats` catches `RangeError` and throws a specific generic validation error.
-- [ ] `parseGen3Ribbons` catches `RangeError` and throws a specific generic validation error.
-- [ ] All tests for Gen 3 parsing pass.
+- [x] `parseGen3ConditionStats` catches `RangeError` and throws a specific generic validation error.
+- [x] `parseGen3Ribbons` catches `RangeError` and throws a specific generic validation error.
+- [x] All tests for Gen 3 parsing pass.

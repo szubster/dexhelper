@@ -2,13 +2,13 @@
 id: story-078-120-integrate-dag-context-with-views
 type: STORY
 title: Integrate DagContext with Dashboard Views
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-28'
 depends_on:
   - story-078-119-implement-dag-context-provider
-jules_session_id: null
+jules_session_id: '8617718184112593029'
 pr_number: null
 parent: epic-046-078-shared-dag-context-foundation
 tags:

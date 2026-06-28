@@ -2,13 +2,13 @@
 id: task-149-213-gen1-hof-records-qa
 type: TASK
 title: Verify Gen 1 Hall of Fame Records Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-28'
 depends_on:
   - task-149-212-gen1-hof-records-impl
-jules_session_id: '6760416979217652540'
+jules_session_id: null
 pr_number: null
 parent: story-070-149-parse-gen1-hof-records
 tags:
@@ -41,7 +41,7 @@ This QA task ensures the coder has correctly implemented the parsing logic for G
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `parseGen1HallOfFameRecords` is implemented correctly and uses `DataView`.
-- [ ] Verify `SaveData` interface is updated.
-- [ ] Verify module-level constants are used for offsets, lengths, and no magic numbers are inline.
-- [ ] Verify unit tests are written and pass.
+- [x] Verify `parseGen1HallOfFameRecords` is implemented correctly and uses `DataView`.
+- [x] Verify `SaveData` interface is updated.
+- [x] Verify module-level constants are used for offsets, lengths, and no magic numbers are inline.
+- [x] Verify unit tests are written and pass.

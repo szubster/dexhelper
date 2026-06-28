@@ -2,13 +2,13 @@
 id: task-129-207-move-generation-discrepancies-qa
 type: TASK
 title: Verify Move Generation Discrepancies
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-28'
 depends_on:
   - task-129-206-move-generation-discrepancies-impl
-jules_session_id: '2225765230607992872'
+jules_session_id: null
 pr_number: null
 parent: story-086-129-move-generation-discrepancies
 tags:
@@ -43,5 +43,5 @@ Move data extraction has been updated to apply generation-specific overrides for
 - **Empty PR Policy:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Confirmed generation discrepancies are properly applied in `moves.jsonl` output for sample moves.
-- [ ] Confirmed that base PP is stored correctly instead of max PP.
+- [x] Confirmed generation discrepancies are properly applied in `moves.jsonl` output for sample moves.
+- [x] Confirmed that base PP is stored correctly instead of max PP.

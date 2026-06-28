@@ -334,7 +334,16 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
     for (let pokemonIndex = 0; pokemonIndex < HOF_POKEMON_COUNT; pokemonIndex++) {
       const offset = HOF_BASE_OFFSET + recordIndex * HOF_RECORD_LENGTH + pokemonIndex * HOF_POKEMON_LENGTH;
 
-      const internalId = view.getUint8(offset);
+      let internalId: number;
+      try {
+        internalId = view.getUint8(offset);
+      } catch (e) {
+        if (e instanceof RangeError) {
+          break;
+        }
+        throw e;
+      }
+
       if (internalId === 0x00 || internalId === 0xff) {
         continue;
       }
@@ -344,7 +353,16 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
         continue;
       }
 
-      const level = view.getUint8(offset + 1);
+      let level: number;
+      try {
+        level = view.getUint8(offset + 1);
+      } catch (e) {
+        if (e instanceof RangeError) {
+          break;
+        }
+        throw e;
+      }
+
       const nickname = decodeGen12String(view, offset + 2, 11);
 
       pokemon.push({ speciesId, level, nickname });

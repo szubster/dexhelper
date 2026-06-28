@@ -2,10 +2,10 @@
 id: story-059-132-unown-dex-data-integration
 type: STORY
 title: Unown Dex Panel Data Integration
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-14'
-updated_at: '2026-06-20'
+updated_at: '2026-06-28'
 depends_on:
   - story-059-131-unown-dex-panel-ui
 jules_session_id: null
