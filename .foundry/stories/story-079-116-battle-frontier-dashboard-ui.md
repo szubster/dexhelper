@@ -29,5 +29,6 @@ Create the `BattleFrontierDashboard` UI component for Gen 3. It must adhere to t
 - [x] Translate Epic requirements into technical TASKS.
 - [x] Ensure all TASKS adhere to ADR 008 (React Flow) and ADR 024 (Tailwind v4 tactical primitives).
 
-- [ ] task-116-169-battle-frontier-dashboard-impl
-- [ ] task-116-170-battle-frontier-dashboard-qa
+- [ ] task-116-230-battle-frontier-parser-impl
+- [ ] task-116-231-battle-frontier-dashboard-ui-impl
+- [ ] task-116-232-battle-frontier-dashboard-qa
