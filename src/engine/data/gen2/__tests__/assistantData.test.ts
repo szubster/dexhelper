@@ -21,6 +21,19 @@ describe('STATIC_GIFT_DATA', () => {
     expect(togepi?.location).toBe('Violet City');
     expect(togepi?.reason).toBe('Gift from Aide');
     expect(togepi?.gen).toBe(2);
+    expect(togepi?.eventFlag).toBe(0x2d);
+  });
+
+  it('should have correct eventFlag mappings for other gifts', () => {
+    expect(STATIC_GIFT_DATA[133]?.eventFlag).toBe(0x4f); // Eevee
+    expect(STATIC_GIFT_DATA[213]?.eventFlag).toBe(0x45); // Shuckle
+    expect(STATIC_GIFT_DATA[147]?.eventFlag).toBe(0xbd); // Dratini
+    expect(STATIC_GIFT_DATA[236]?.eventFlag).toBe(0x61); // Tyrogue
+    expect(STATIC_GIFT_DATA[185]?.eventFlag).toBe(0x2a); // Sudowoodo
+    expect(STATIC_GIFT_DATA[130]?.eventFlag).toBe(0x751); // Gyarados
+    expect(STATIC_GIFT_DATA[249]?.eventFlag).toBe(0x318); // Lugia
+    expect(STATIC_GIFT_DATA[250]?.eventFlag).toBe(0x317); // Ho-oh
+    expect(STATIC_GIFT_DATA[245]?.eventFlag).toBe(0x335); // Suicune
   });
 });
 

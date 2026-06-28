@@ -37,7 +37,8 @@ import { pokeDB } from '../../db/PokeDB';
 import { type LocationAreaEncounters, POKE_VERSION_MAP, type PokemonMetadata } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
-import { STATIC_GIFT_DATA } from '../data/gen1/assistantData';
+import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN1 } from '../data/gen1/assistantData';
+import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2 } from '../data/gen2/assistantData';
 import type { PokemonInstance, SaveData } from '../saveParser/index';
 import { generateBreedingSuggestions } from './generators/breedGenerator';
 // Generators
@@ -50,7 +51,8 @@ import type { AssistantApiData } from './suggestionEngineTypes';
 import { extractPlayerTools, filterSuggestionsByMissingTools } from './utils/encounterTools';
 
 // ⚡ Bolt: Eliminate O(N) tuple allocation and string parsing by pre-calculating static gift arrays
-const STATIC_GIFT_PIDS = Object.keys(STATIC_GIFT_DATA).map((id) => parseInt(id, 10));
+const STATIC_GIFT_PIDS_GEN1 = Object.keys(STATIC_GIFT_DATA_GEN1).map((id) => parseInt(id, 10));
+const STATIC_GIFT_PIDS_GEN2 = Object.keys(STATIC_GIFT_DATA_GEN2).map((id) => parseInt(id, 10));
 
 /**
  * Fetches all necessary background data from local IndexedDB to power the suggestion engine.
@@ -122,7 +124,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
 
   // 1. Get all relevant Pokemon details (Target, Party, Gifts)
   const partyPids = saveData.party || [];
-  const giftPids = STATIC_GIFT_PIDS;
+  const giftPids = saveData.generation === 2 ? STATIC_GIFT_PIDS_GEN2 : STATIC_GIFT_PIDS_GEN1;
   const allNeededPids = [...new Set([...queryTargets, ...partyPids, ...giftPids])];
 
   const allPokemon = await dexDataLoader.pokemon.loadMany(allNeededPids);
