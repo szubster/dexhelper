@@ -29,4 +29,6 @@ Update the existing DAG views (e.g., the React Flow DAG visualizer) to consume t
 Following the creation of `DagProvider` (ADR 013), existing visualization components must be refactored to consume the unified DAG data (nodes, edges, and `rejection_count`). This ensures consistent state across the UI.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-120-236-refactor-dagdashboard-context-impl
+- [ ] task-120-237-refactor-dagdashboard-context-qa
