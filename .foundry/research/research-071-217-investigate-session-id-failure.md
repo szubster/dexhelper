@@ -2,12 +2,12 @@
 id: research-071-217-investigate-session-id-failure
 type: RESEARCH
 title: Investigate VERIFYING node session ID failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-24'
 updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: '10988734401999645831'
+jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:

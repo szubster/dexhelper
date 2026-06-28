@@ -2,13 +2,13 @@
 id: task-141-210-gen3-contest-error-handling-qa
 type: TASK
 title: QA Gen 3 Contest Data Error Handling
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-20'
 updated_at: '2026-06-28'
 depends_on:
   - task-141-209-gen3-contest-error-handling-impl
-jules_session_id: '12801622351199077331'
+jules_session_id: null
 pr_number: null
 parent: story-065-141-gen3-contest-error-handling
 tags:

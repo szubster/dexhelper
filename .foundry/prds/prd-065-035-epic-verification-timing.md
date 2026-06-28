@@ -2,10 +2,10 @@
 id: prd-065-035-epic-verification-timing
 type: PRD
 title: Enforce Hierarchical Verification Timing for Macro Nodes
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-05-23'
-updated_at: '2026-05-31'
+updated_at: '2026-06-28'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,7 +2,7 @@
 id: task-155-234-refactor-pokerus-bitwise-impl
 type: TASK
 title: Refactor Pokerus Bitwise Extraction Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-28'
 updated_at: '2026-06-28'

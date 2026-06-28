@@ -2,7 +2,7 @@
 id: task-120-236-refactor-dagdashboard-context-impl
 type: TASK
 title: Refactor DagDashboard and DagProvider to use DagContext
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-28'
 updated_at: '2026-06-28'

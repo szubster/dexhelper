@@ -2,10 +2,10 @@
 id: task-122-234-parse-battle-frontier-symbols-impl
 type: TASK
 title: Gen 3 Parse Battle Frontier Symbols Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-28'
 depends_on:
   - story-078-121-gen3-parse-battle-frontier-win-streaks
 jules_session_id: null
