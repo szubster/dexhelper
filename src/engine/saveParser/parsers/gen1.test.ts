@@ -305,8 +305,12 @@ describe('parseGen1 - additional branches', () => {
     const originalGetUint8 = view.getUint8.bind(view);
     view.getUint8 = (byteOffset: number) => {
       // HOF_BASE_OFFSET is 0x0598
-      if (byteOffset >= 0x0598 && byteOffset < 0x0600) {
+      if (byteOffset === 0x0598) {
         throw new RangeError('Simulated Out of bounds');
+      }
+      if (byteOffset === 0x0599) {
+        // Trigger the second catch for the level
+        throw new RangeError('Simulated Out of bounds on level');
       }
       return originalGetUint8(byteOffset);
     };
@@ -315,6 +319,78 @@ describe('parseGen1 - additional branches', () => {
     expect(data.hallOfFameCount).toBe(1);
     expect(data.hallOfFameRecords?.length).toBe(1); // Since it breaks, it creates an empty record for the iteration?
     expect(data.hallOfFameRecords?.[0]?.pokemon.length).toBe(0);
+  });
+
+  it('should safely catch RangeError when reading HOF level out of bounds', () => {
+    // Standard size buffer, but we will wrap the view to throw RangeError for HOF
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    // Trainer name 'AB'
+    view.setUint8(0x2598, 0x80);
+    view.setUint8(0x2599, 0x81);
+    view.setUint8(0x259a, 0x50);
+
+    // Party count 0
+    view.setUint8(0x2f2c, 0);
+
+    // hallOfFameCount = 1
+    view.setUint8(0x25b3, 1);
+
+    view.setUint8(0x0598, 0x01); // Set a valid species ID so it reaches the level
+
+    // Override the getUint8 to throw a RangeError at the HOF level offset
+    const originalGetUint8 = view.getUint8.bind(view);
+    view.getUint8 = (byteOffset: number) => {
+      // HOF_BASE_OFFSET is 0x0598. Level is at 0x0599.
+      if (byteOffset === 0x0599) {
+        throw new RangeError('Simulated Out of bounds');
+      }
+      return originalGetUint8(byteOffset);
+    };
+
+    const data = parseGen1(view);
+    expect(data.hallOfFameCount).toBe(1);
+    expect(data.hallOfFameRecords?.length).toBe(1);
+    expect(data.hallOfFameRecords?.[0]?.pokemon.length).toBe(0);
+  });
+
+  it('should rethrow unexpected errors', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    // hallOfFameCount = 1
+    view.setUint8(0x25b3, 1);
+
+    // Override the getUint8 to throw a general Error at the HOF offsets
+    const originalGetUint8 = view.getUint8.bind(view);
+    view.getUint8 = (byteOffset: number) => {
+      // HOF_BASE_OFFSET is 0x0598
+      if (byteOffset >= 0x0598 && byteOffset < 0x0600) {
+        throw new Error('Simulated Unexpected Error');
+      }
+      return originalGetUint8(byteOffset);
+    };
+
+    expect(() => parseGen1(view)).toThrow('Simulated Unexpected Error');
+  });
+
+  it('should rethrow unexpected errors for HOF level out of bounds', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    view.setUint8(0x25b3, 1); // hallOfFameCount = 1
+    view.setUint8(0x0598, 0x01); // Set a valid species ID so it reaches the level
+
+    const originalGetUint8 = view.getUint8.bind(view);
+    view.getUint8 = (byteOffset: number) => {
+      if (byteOffset === 0x0599) {
+        throw new Error('Simulated Unexpected Error on Level');
+      }
+      return originalGetUint8(byteOffset);
+    };
+
+    expect(() => parseGen1(view)).toThrow('Simulated Unexpected Error on Level');
   });
 });
 
