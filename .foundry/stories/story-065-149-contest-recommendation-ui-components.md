@@ -29,9 +29,9 @@ notes: ''
 Design and build reusable UI components to display Contest recommendations, consuming outputs from the algorithm epic (`epic-042-064-gen3-contest-advisor-algorithm`). The component needs to clearly display the top 1-2 recommended Contest categories and provide a brief, generated explanation for *why* a category was chosen.
 
 ## Acceptance Criteria
-- [ ] Develop reusable UI components for Contest recommendations.
-- [ ] Clearly display the top 1-2 recommended Contest categories.
-- [ ] Implement clear reasoning copy for recommendations (e.g. highlighting favorable Nature or high existing stat).
+- [x] Develop reusable UI components for Contest recommendations.
+- [x] Clearly display the top 1-2 recommended Contest categories.
+- [x] Implement clear reasoning copy for recommendations (e.g. highlighting favorable Nature or high existing stat).
 
-- [ ] .foundry/tasks/task-149-212-contest-recommendation-ui-components-impl.md
-- [ ] .foundry/tasks/task-149-213-contest-recommendation-ui-components-qa.md
+- [x] .foundry/tasks/task-149-212-contest-recommendation-ui-components-impl.md
+- [x] .foundry/tasks/task-149-213-contest-recommendation-ui-components-qa.md
