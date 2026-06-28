@@ -39,6 +39,6 @@ Validate the Gen 3 contest data error handling modifications to ensure that `Ran
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 4. Acceptance Criteria
-- [ ] Confirmed that `parseGen3ConditionStats` correctly handles `RangeError`.
-- [ ] Confirmed that `parseGen3Ribbons` correctly handles `RangeError`.
-- [ ] Confirmed that errors are handled upstream without application crashes.
+- [x] Confirmed that `parseGen3ConditionStats` correctly handles `RangeError`.
+- [x] Confirmed that `parseGen3Ribbons` correctly handles `RangeError`.
+- [x] Confirmed that errors are handled upstream without application crashes.
