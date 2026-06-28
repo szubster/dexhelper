@@ -36,3 +36,7 @@ This Epic corresponds to the third requirement in the Missing Hidden Items Finde
 - [ ] UI component is built displaying the checklist, filtered and grouped logically.
 - [ ] UI updates dynamically to check off acquired items upon save file hydration.
 - [ ] E2E tests verify the new view correctly renders based on an initialized save state.
+
+## 4. Generated Stories
+- [ ] .foundry/stories/story-060-156-hidden-items-checklist-component.md
+- [ ] .foundry/stories/story-060-157-hidden-items-e2e-tests.md
