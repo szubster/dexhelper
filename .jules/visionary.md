@@ -155,3 +155,7 @@
 ## 2026-06-30
 **Idea:** Gen 3 Ribbon Master Challenge Tracker
 **Learning:** Expanding DexHelper to support community-driven end-game challenges (like the Ribbon Master challenge) provides immense utility. Aggregating widely distributed, hard-to-check completion marks (like Ribbons from contests and battle facilities) into a single, comprehensive dashboard eliminates tedious in-game UI navigation. This deeply aligns with the app's core vision as a premium companion tool, leveraging programmatic save parsing to prevent players from accidentally migrating Pokémon before completing their challenge.
+
+## 2026-06-28
+**Idea:** Gen 3 Move Tutor Availability Dashboard
+**Learning:** Targeting limited, one-time-use game resources (like Move Tutors) for data aggregation provides massive value to hardcore players. Automatically parsing which tutors have been used and instantly cross-referencing that against the player's current PC box contents for compatibility perfectly fits the offline-first companion app vision, eliminating tedious in-game traveling and wiki searches.
