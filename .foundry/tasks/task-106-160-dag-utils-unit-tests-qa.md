@@ -2,13 +2,13 @@
 id: task-106-160-dag-utils-unit-tests-qa
 type: TASK
 title: QA Unit Tests for Shared DAG Utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-15'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on:
   - task-106-159-dag-utils-unit-tests-impl
-jules_session_id: '925670375874131733'
+jules_session_id: null
 pr_number: null
 parent: story-053-106-dag-utils-unit-tests
 tags:

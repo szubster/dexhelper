@@ -2,12 +2,12 @@
 id: research-070-197-gen3-hof-offsets
 type: RESEARCH
 title: Investigate Gen 3 Hall of Fame Data Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-18'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: '17203521076526655183'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

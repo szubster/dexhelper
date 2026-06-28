@@ -2,10 +2,10 @@
 id: story-078-121-gen3-parse-battle-frontier-win-streaks
 type: STORY
 title: Gen 3 Parse Battle Frontier Win Streaks
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-13'
+updated_at: '2026-06-28'
 depends_on:
   - research-046-140-gen3-battle-frontier
 jules_session_id: null

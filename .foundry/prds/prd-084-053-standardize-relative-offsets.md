@@ -2,12 +2,12 @@
 id: prd-084-053-standardize-relative-offsets
 type: PRD
 title: Standardize Relative Offsets for Dynamic Data Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-18'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: '3423314044753651255'
+jules_session_id: null
 pr_number: null
 parent: idea-084-standardize-relative-offsets
 tags:

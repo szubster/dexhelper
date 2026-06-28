@@ -2,13 +2,13 @@
 id: task-124-174-qa-gen3-mix-record-events-parser
 type: TASK
 title: QA Gen 3 Mix Record Events Parser
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on:
   - task-124-172-gen3-mix-record-events-parser
-jules_session_id: '15461981535474274633'
+jules_session_id: null
 pr_number: null
 parent: story-081-124-gen3-event-forecast-schedule
 tags:

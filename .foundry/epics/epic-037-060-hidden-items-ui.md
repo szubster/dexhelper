@@ -2,10 +2,10 @@
 id: epic-037-060-hidden-items-ui
 type: EPIC
 title: Missing Hidden Items Finder UI
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-04'
-updated_at: '2026-06-04'
+updated_at: '2026-06-28'
 depends_on:
   - epic-037-059-hidden-items-data-layer
 jules_session_id: null

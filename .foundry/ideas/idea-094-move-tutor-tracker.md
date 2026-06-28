@@ -1,11 +1,11 @@
 ---
 id: idea-094-move-tutor-tracker
 type: IDEA
-title: "Gen 3 Move Tutor Availability Dashboard"
-status: PENDING
-owner_persona: "product_manager"
-created_at: "2026-06-28"
-updated_at: "2026-06-28"
+title: Gen 3 Move Tutor Availability Dashboard
+status: READY
+owner_persona: product_manager
+created_at: '2026-06-28'
+updated_at: '2026-06-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,8 +13,8 @@ parent: null
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 3 Move Tutor Availability Dashboard

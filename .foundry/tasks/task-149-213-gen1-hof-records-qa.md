@@ -2,10 +2,10 @@
 id: task-149-213-gen1-hof-records-qa
 type: TASK
 title: Verify Gen 1 Hall of Fame Records Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-19'
-updated_at: '2026-06-19'
+updated_at: '2026-06-28'
 depends_on:
   - task-149-212-gen1-hof-records-impl
 jules_session_id: null

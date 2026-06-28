@@ -2,10 +2,10 @@
 id: research-199-222-cloudflare-access-paths
 type: RESEARCH
 title: Investigate Cloudflare Access Auth Paths
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-27'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,12 +2,12 @@
 id: task-132-206-unown-dex-data-integration-impl
 type: TASK
 title: Unown Dex Panel Data Integration Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-19'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: '793392214438386512'
+jules_session_id: null
 pr_number: null
 parent: story-059-132-unown-dex-data-integration
 tags:

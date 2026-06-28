@@ -2,10 +2,10 @@
 id: epic-071-076-migrate-complex-app-components
 type: EPIC
 title: Migrate Complex Application Components
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-06-11'
+updated_at: '2026-06-28'
 depends_on:
   - epic-071-075-migrate-core-tactical-components
 jules_session_id: null

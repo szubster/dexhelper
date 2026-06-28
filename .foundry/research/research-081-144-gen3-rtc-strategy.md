@@ -2,12 +2,12 @@
 id: research-081-144-gen3-rtc-strategy
 type: RESEARCH
 title: Research RTC Fallback Strategy for Gen 3
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-18'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: '4481148683720956029'
+jules_session_id: null
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:

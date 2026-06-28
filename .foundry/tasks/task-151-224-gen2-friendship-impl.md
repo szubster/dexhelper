@@ -2,10 +2,10 @@
 id: task-151-224-gen2-friendship-impl
 type: TASK
 title: Gen 2 Friendship Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: 2026-06-27T00:00:00.000Z
-updated_at: 2026-06-27T00:00:00.000Z
+updated_at: '2026-06-28'
 depends_on: []
 jules_session_id: null
 pr_number: null

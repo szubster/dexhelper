@@ -2,13 +2,13 @@
 id: task-076-199-offline-auth-state-impl
 type: TASK
 title: Implement Client-side Offline Auth State Management
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-17'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on:
   - research-199-222-cloudflare-access-paths
-jules_session_id: '2479577009823059105'
+jules_session_id: null
 pr_number: null
 parent: story-038-076-offline-auth-state
 tags:
@@ -18,8 +18,8 @@ tags:
   - cloudflare
   - offline
 research_references: []
-rejection_count: 1
-rejection_reason: 'Suspended pending research on Cloudflare access paths'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

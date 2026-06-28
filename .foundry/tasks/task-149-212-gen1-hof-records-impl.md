@@ -2,12 +2,12 @@
 id: task-149-212-gen1-hof-records-impl
 type: TASK
 title: Implement Gen 1 Hall of Fame Records Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-19'
 updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: '1213026116768773068'
+jules_session_id: null
 pr_number: null
 parent: story-070-149-parse-gen1-hof-records
 tags:

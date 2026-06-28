@@ -2,13 +2,13 @@
 id: task-121-172-gen3-parse-battle-frontier-win-streaks-qa
 type: TASK
 title: QA Gen 3 Parse Battle Frontier Win Streaks
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-27'
+updated_at: '2026-06-28'
 depends_on:
   - task-121-171-gen3-parse-battle-frontier-win-streaks-impl
-jules_session_id: '13322314103033658418'
+jules_session_id: null
 pr_number: null
 parent: story-078-121-gen3-parse-battle-frontier-win-streaks
 tags:
