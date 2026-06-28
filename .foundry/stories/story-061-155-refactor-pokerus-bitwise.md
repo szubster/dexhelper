@@ -29,3 +29,5 @@ Refactor the inline bitwise logic for Pokerus state extraction from `src/engine/
 - [ ] Create `parsePokerus` in `common.ts`
 - [ ] Refactor `gen2.ts` to use `parsePokerus`
 - [ ] Ensure tests cover boundary states
+- [ ] task-155-234-refactor-pokerus-bitwise-impl
+- [ ] task-155-235-refactor-pokerus-bitwise-qa
