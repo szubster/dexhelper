@@ -28,9 +28,9 @@ notes: ''
 Based on the offset research in `research-046-140-gen3-battle-frontier`, extract the current and max win streaks for the 7 Battle Frontier facilities from SaveBlock2 using `DataView`.
 
 ## Acceptance Criteria
-- [ ] Extract current win streaks for Tower, Dome, Palace, Arena, Factory, Pike, and Pyramid.
-- [ ] Extract max win records for all 7 facilities.
-- [ ] Implement error handling for out-of-bounds reads.
+- [x] Extract current win streaks for Tower, Dome, Palace, Arena, Factory, Pike, and Pyramid.
+- [x] Extract max win records for all 7 facilities.
+- [x] Implement error handling for out-of-bounds reads.
 
-- [ ] task-121-171-gen3-parse-battle-frontier-win-streaks-impl
-- [ ] task-121-172-gen3-parse-battle-frontier-win-streaks-qa
+- [x] task-121-171-gen3-parse-battle-frontier-win-streaks-impl
+- [x] task-121-172-gen3-parse-battle-frontier-win-streaks-qa
