@@ -28,10 +28,10 @@ notes: ''
 Verify the implementation of the Gen 3 Mix Record events parser (`task-124-172-gen3-mix-record-events-parser`).
 
 ## Acceptance Criteria
-- [ ] Verify that the parser correctly extracts Mix Record flags/data to identify inherited events.
-- [ ] Verify that the parser exclusively uses the `DataView` API for all new Gen 3 save parsing logic.
-- [ ] Verify that out-of-bounds reads via `DataView` throw `RangeError` and are caught/handled gracefully.
-- [ ] Verify backward compatibility with existing parsers is maintained.
+- [x] Verify that the parser correctly extracts Mix Record flags/data to identify inherited events.
+- [x] Verify that the parser exclusively uses the `DataView` API for all new Gen 3 save parsing logic.
+- [x] Verify that out-of-bounds reads via `DataView` throw `RangeError` and are caught/handled gracefully.
+- [x] Verify backward compatibility with existing parsers is maintained.
 
 ## Contract Reminders
 **To Coder / QA:**
