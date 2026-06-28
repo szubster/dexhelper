@@ -31,4 +31,7 @@ As part of the Mirage Island checking feature (Epic `epic-038-062-personality-va
 2. **Data Structure Consistency**: Add this logic securely and optimally alongside the newly minted 32-bit PV value.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Generate child tasks to update formatting and exposure logic.
+- [x] Tech Lead: Generate child tasks to update formatting and exposure logic.
+
+- [ ] .foundry/tasks/task-099-228-expose-lower-16bit-pv-impl.md
+- [ ] .foundry/tasks/task-099-229-expose-lower-16bit-pv-qa.md
