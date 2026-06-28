@@ -2,10 +2,10 @@
 id: story-078-122-gen3-parse-battle-frontier-symbols
 type: STORY
 title: Gen 3 Parse Battle Frontier Symbols
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-12'
+updated_at: '2026-06-28'
 depends_on:
   - story-078-121-gen3-parse-battle-frontier-win-streaks
 jules_session_id: null

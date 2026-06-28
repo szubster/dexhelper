@@ -2,7 +2,7 @@
 id: task-133-230-remediation-state-transition-logic-impl
 type: TASK
 title: Remediation State Transition Logic Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-28'
 updated_at: '2026-06-28'
