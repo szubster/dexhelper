@@ -106,6 +106,16 @@ export interface Gen3BattleFrontierWinStreaks {
   pyramid: { current: number; record: number };
 }
 
+export interface Gen3BattleFrontierSymbols {
+  tower: { silver: boolean; gold: boolean };
+  dome: { silver: boolean; gold: boolean };
+  palace: { silver: boolean; gold: boolean };
+  arena: { silver: boolean; gold: boolean };
+  factory: { silver: boolean; gold: boolean };
+  pike: { silver: boolean; gold: boolean };
+  pyramid: { silver: boolean; gold: boolean };
+}
+
 export interface SaveData {
   /** The generation of the parsed save file (1 or 2). */
   generation: Generation;
@@ -198,6 +208,8 @@ export interface SaveData {
   mirageIslandValue?: number;
   /** Gen 3 specific: Battle Frontier win streaks */
   gen3BattleFrontierWinStreaks?: Gen3BattleFrontierWinStreaks;
+  /** Gen 3 specific: Battle Frontier symbols */
+  gen3BattleFrontierSymbols?: Gen3BattleFrontierSymbols;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.

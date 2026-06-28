@@ -20,6 +20,7 @@
 
 import type {
   GameVersion,
+  Gen3BattleFrontierSymbols,
   Gen3BattleFrontierWinStreaks,
   Gen3BerryPatch,
   Gen3Ribbons,
@@ -86,6 +87,35 @@ const PIKE_WIN_STREAKS_OFFSET = 0x0e04;
 const PIKE_RECORD_WIN_STREAKS_OFFSET = 0x0e08;
 const PYRAMID_WIN_STREAKS_OFFSET = 0x0e1a;
 const PYRAMID_RECORD_WIN_STREAKS_OFFSET = 0x0e1e;
+
+const TOWER_SILVER_OFFSET = 0x1388;
+const TOWER_SILVER_BIT = 4;
+const TOWER_GOLD_OFFSET = 0x1388;
+const TOWER_GOLD_BIT = 5;
+const DOME_SILVER_OFFSET = 0x1388;
+const DOME_SILVER_BIT = 6;
+const DOME_GOLD_OFFSET = 0x1388;
+const DOME_GOLD_BIT = 7;
+const PALACE_SILVER_OFFSET = 0x1389;
+const PALACE_SILVER_BIT = 0;
+const PALACE_GOLD_OFFSET = 0x1389;
+const PALACE_GOLD_BIT = 1;
+const ARENA_SILVER_OFFSET = 0x1389;
+const ARENA_SILVER_BIT = 2;
+const ARENA_GOLD_OFFSET = 0x1389;
+const ARENA_GOLD_BIT = 3;
+const FACTORY_SILVER_OFFSET = 0x1389;
+const FACTORY_SILVER_BIT = 4;
+const FACTORY_GOLD_OFFSET = 0x1389;
+const FACTORY_GOLD_BIT = 5;
+const PIKE_SILVER_OFFSET = 0x1389;
+const PIKE_SILVER_BIT = 6;
+const PIKE_GOLD_OFFSET = 0x1389;
+const PIKE_GOLD_BIT = 7;
+const PYRAMID_SILVER_OFFSET = 0x138a;
+const PYRAMID_SILVER_BIT = 0;
+const PYRAMID_GOLD_OFFSET = 0x138a;
+const PYRAMID_GOLD_BIT = 1;
 
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
@@ -466,6 +496,54 @@ export function parseGen3SecretBases(view: DataView, saveBlock1Offset: number, g
 }
 
 /**
+ * Parses the Gen 3 Battle Frontier symbols from the save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @returns An object containing the extracted symbols for all 7 facilities.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3BattleFrontierSymbols(view: DataView, saveBlock1Offset: number): Gen3BattleFrontierSymbols {
+  try {
+    return {
+      tower: {
+        silver: !!((view.getUint8(saveBlock1Offset + TOWER_SILVER_OFFSET) >> TOWER_SILVER_BIT) & 1),
+        gold: !!((view.getUint8(saveBlock1Offset + TOWER_GOLD_OFFSET) >> TOWER_GOLD_BIT) & 1),
+      },
+      dome: {
+        silver: !!((view.getUint8(saveBlock1Offset + DOME_SILVER_OFFSET) >> DOME_SILVER_BIT) & 1),
+        gold: !!((view.getUint8(saveBlock1Offset + DOME_GOLD_OFFSET) >> DOME_GOLD_BIT) & 1),
+      },
+      palace: {
+        silver: !!((view.getUint8(saveBlock1Offset + PALACE_SILVER_OFFSET) >> PALACE_SILVER_BIT) & 1),
+        gold: !!((view.getUint8(saveBlock1Offset + PALACE_GOLD_OFFSET) >> PALACE_GOLD_BIT) & 1),
+      },
+      arena: {
+        silver: !!((view.getUint8(saveBlock1Offset + ARENA_SILVER_OFFSET) >> ARENA_SILVER_BIT) & 1),
+        gold: !!((view.getUint8(saveBlock1Offset + ARENA_GOLD_OFFSET) >> ARENA_GOLD_BIT) & 1),
+      },
+      factory: {
+        silver: !!((view.getUint8(saveBlock1Offset + FACTORY_SILVER_OFFSET) >> FACTORY_SILVER_BIT) & 1),
+        gold: !!((view.getUint8(saveBlock1Offset + FACTORY_GOLD_OFFSET) >> FACTORY_GOLD_BIT) & 1),
+      },
+      pike: {
+        silver: !!((view.getUint8(saveBlock1Offset + PIKE_SILVER_OFFSET) >> PIKE_SILVER_BIT) & 1),
+        gold: !!((view.getUint8(saveBlock1Offset + PIKE_GOLD_OFFSET) >> PIKE_GOLD_BIT) & 1),
+      },
+      pyramid: {
+        silver: !!((view.getUint8(saveBlock1Offset + PYRAMID_SILVER_OFFSET) >> PYRAMID_SILVER_BIT) & 1),
+        gold: !!((view.getUint8(saveBlock1Offset + PYRAMID_GOLD_OFFSET) >> PYRAMID_GOLD_BIT) & 1),
+      },
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
  * Parses the Gen 3 Battle Frontier win streaks from the save file.
  *
  * @param view - The raw save file DataView.
@@ -571,9 +649,15 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
     let gen3BattleFrontierWinStreaks: Gen3BattleFrontierWinStreaks | undefined;
+    let gen3BattleFrontierSymbols: Gen3BattleFrontierSymbols | undefined;
     if (_forcedVersion === 'emerald') {
       try {
         gen3BattleFrontierWinStreaks = parseGen3BattleFrontierWinStreaks(view, section2Offset);
+      } catch {
+        // Ignored if missing or corrupted, allowing the rest of the save to load
+      }
+      try {
+        gen3BattleFrontierSymbols = parseGen3BattleFrontierSymbols(view, section1Offset);
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
@@ -606,6 +690,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     };
     if (gen3BattleFrontierWinStreaks) {
       result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
+    }
+    if (gen3BattleFrontierSymbols) {
+      result.gen3BattleFrontierSymbols = gen3BattleFrontierSymbols;
     }
     return result;
   } catch (error) {

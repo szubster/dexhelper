@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   isGen3Save,
   parseGen3,
+  parseGen3BattleFrontierSymbols,
   parseGen3BattleFrontierWinStreaks,
   parseGen3ConditionStats,
   parseGen3MirageIslandValue,
@@ -471,6 +472,91 @@ describe('parseGen3PokeNews', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3PokeNews(view, 0)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3BattleFrontierSymbols', () => {
+  const saveBlock1Offset = 0;
+
+  it('correctly extracts silver and gold flags using bitwise logic', () => {
+    const buffer = new ArrayBuffer(0x1390); // Large enough to include 0x138A + 1
+    const view = new DataView(buffer);
+
+    // Tower: Silver (bit 4), Gold (bit 5) at 0x1388
+    // 0011 0000 -> 0x30
+    view.setUint8(0x1388, 0x30);
+
+    // Dome: Silver (bit 6), Gold (bit 7) at 0x1388
+    // 1111 0000 -> 0xF0 (Includes Tower)
+    view.setUint8(0x1388, 0xf0);
+
+    // Palace: Silver (bit 0), Gold (bit 1) at 0x1389
+    // 0000 0011 -> 0x03
+    // Arena: Silver (bit 2), Gold (bit 3) at 0x1389
+    // Factory: Silver (bit 4), Gold (bit 5) at 0x1389
+    // Pike: Silver (bit 6), Gold (bit 7) at 0x1389
+    // Let's set Palace Silver, Arena Gold, Factory Silver, Pike Gold
+    // Palace Silver: 1 << 0 = 1
+    // Arena Gold: 1 << 3 = 8
+    // Factory Silver: 1 << 4 = 16
+    // Pike Gold: 1 << 7 = 128
+    // 1 + 8 + 16 + 128 = 153 -> 0x99
+    view.setUint8(0x1389, 0x99);
+
+    // Pyramid: Silver (bit 0), Gold (bit 1) at 0x138A
+    // Let's set both: 0000 0011 -> 0x03
+    view.setUint8(0x138a, 0x03);
+
+    const result = parseGen3BattleFrontierSymbols(view, saveBlock1Offset);
+
+    expect(result.tower.silver).toBe(true);
+    expect(result.tower.gold).toBe(true);
+    expect(result.dome.silver).toBe(true);
+    expect(result.dome.gold).toBe(true);
+
+    expect(result.palace.silver).toBe(true);
+    expect(result.palace.gold).toBe(false);
+    expect(result.arena.silver).toBe(false);
+    expect(result.arena.gold).toBe(true);
+    expect(result.factory.silver).toBe(true);
+    expect(result.factory.gold).toBe(false);
+    expect(result.pike.silver).toBe(false);
+    expect(result.pike.gold).toBe(true);
+
+    expect(result.pyramid.silver).toBe(true);
+    expect(result.pyramid.gold).toBe(true);
+  });
+
+  it('handles absolute zero state parsing properly', () => {
+    const buffer = new ArrayBuffer(0x1390);
+    const view = new DataView(buffer);
+    // ArrayBuffer is initialized with zeros
+
+    const result = parseGen3BattleFrontierSymbols(view, saveBlock1Offset);
+
+    expect(result.tower.silver).toBe(false);
+    expect(result.tower.gold).toBe(false);
+    expect(result.dome.silver).toBe(false);
+    expect(result.dome.gold).toBe(false);
+    expect(result.palace.silver).toBe(false);
+    expect(result.palace.gold).toBe(false);
+    expect(result.arena.silver).toBe(false);
+    expect(result.arena.gold).toBe(false);
+    expect(result.factory.silver).toBe(false);
+    expect(result.factory.gold).toBe(false);
+    expect(result.pike.silver).toBe(false);
+    expect(result.pike.gold).toBe(false);
+    expect(result.pyramid.silver).toBe(false);
+    expect(result.pyramid.gold).toBe(false);
+  });
+
+  it('explicitly catches RangeError on out-of-bounds reads and throws corrupted file error', () => {
+    const buffer = new ArrayBuffer(0x1300); // Too small
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3BattleFrontierSymbols(view, saveBlock1Offset)).toThrowError(
+      'The save file is corrupted or incomplete.',
+    );
   });
 });
 
