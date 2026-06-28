@@ -47,6 +47,9 @@ In Gen 2, gender is intrinsically linked to the Attack DV. The `gender_rate` fro
 ## PokeAPI Egg Groups
 Egg groups are retrieved from the `pokemon-species` endpoint. They must be mapped to integer constants to fit within DexHelper's memory-optimized schemas.
 
+## VERIFYING Node State
+- **Finding:** The `VERIFYING` state, introduced in ADR 014, functions as a queue state for the `auditor` persona, similar to the `READY` state.
+- **Constraint:** When a node transitions to `VERIFYING`, its `jules_session_id` is explicitly stripped (set to `null`). Therefore, pipeline validation logic must not expect or enforce the presence of a `jules_session_id` on `VERIFYING` nodes. Doing so causes false positive system failures.
 ## Gen 3 DataView RangeError Handling
 **Lesson:** When parsing dynamically structured Gen 3 save data like Secret Bases, which iterate across large flat arrays (`3200` bytes inside `SaveBlock1`), we cannot trust the internal offset pointers implicitly. A truncated save file or malformed index will cause standard `DataView.getUint8` calls to throw out-of-bounds errors.
 - **Constraint (ADR 010):** We must not crash the application on these bounds errors. Parsers like `parseGen3SecretBases` must explicitly wrap iterating logic in a `try/catch`, filter for `error instanceof RangeError`, and gracefully re-throw the standard normalized error (`Error('The save file is corrupted or incomplete.')`).

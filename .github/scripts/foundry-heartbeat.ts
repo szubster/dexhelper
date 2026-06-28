@@ -318,7 +318,7 @@ export async function main() {
   for (const fp of filePaths) {
     const node = parseNodeFile(fp, repoRoot);
     if (!node) continue;
-    if (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING') activeNodes.push(node);
+    if (node.frontmatter.status === 'ACTIVE' ) activeNodes.push(node);
     if (node.frontmatter.status === 'FAILED') failedNodes.push(node);
   }
 
@@ -329,7 +329,7 @@ export async function main() {
     const sessionId = getSessionId(node);
     const isHuman = node.frontmatter.owner_persona === 'human';
 
-    if (!isHuman && !sessionId && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING')) {
+    if (!isHuman && !sessionId && (node.frontmatter.status === 'ACTIVE' )) {
       warn(`Node ${node.repoPath} is ${node.frontmatter.status} but missing session ID. Failing.`);
       await transitionNodeToFailed(node, repoRoot, `${node.frontmatter.status} node missing or malformed session ID`);
       continue;

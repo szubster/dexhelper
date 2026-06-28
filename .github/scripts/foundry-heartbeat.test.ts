@@ -157,7 +157,7 @@ ok: true,
   });
 
 
-  it('should transition a node to FAILED if VERIFYING and jules_session_id is missing', async () => {
+  it('should NOT transition a node to FAILED if VERIFYING and jules_session_id is missing', async () => {
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-1.md',
       repoPath: '.foundry/tasks/task-1.md',
@@ -180,7 +180,7 @@ ok: true,
 
     await main();
 
-    expect(fs.writeFileSync).toHaveBeenCalled();
+    expect(fs.writeFileSync).not.toHaveBeenCalled();
   });
 
   it('should transition a node to FAILED if jules_session_id is missing', async () => {
