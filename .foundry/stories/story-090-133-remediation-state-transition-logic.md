@@ -30,7 +30,9 @@ Implement functionality to safely update the YAML frontmatter of identified zomb
 Following the detection of "zombie" nodes (nodes incorrectly stuck in the `ACTIVE` state) by the engine developed in `epic-050-089-zombie-node-detection-engine`, the system must remediate them by transitioning their state to `FAILED`. This allows the existing Resurrection Loop to pick them up and retry them.
 
 ## Acceptance Criteria
-- [ ] Create task breakdown.
+- [x] Create task breakdown.
 
 ### Next Steps
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] .foundry/tasks/task-133-230-remediation-state-transition-logic-impl.md
+- [ ] .foundry/tasks/task-133-231-remediation-state-transition-logic-qa.md
