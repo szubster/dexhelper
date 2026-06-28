@@ -2,12 +2,12 @@
 id: task-000-212-tpm-sweep-cancelled-nodes-impl
 type: TASK
 title: Update TPM Sweep Script for CANCELLED Nodes
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: 2026-06-15T00:00:00.000Z
 updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15509870276393270770'
 pr_number: null
 parent: null
 tags:
