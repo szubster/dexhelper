@@ -40,6 +40,6 @@ This QA task verifies the integration of the `ContestSheenDisplay` component int
 - **Empty PR Policy**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not modify the YAML frontmatter on successful completion.
 
 ## 4. Acceptance Criteria
-- [ ] Verify `ContestSheenDisplay` is correctly integrated for Gen 3 Pokémon in `PokemonCaughtDetails.tsx`.
-- [ ] Verify unit tests cover the new component rendering.
-- [ ] Verify aesthetic fit.
+- [x] Verify `ContestSheenDisplay` is correctly integrated for Gen 3 Pokémon in `PokemonCaughtDetails.tsx`.
+- [x] Verify unit tests cover the new component rendering.
+- [x] Verify aesthetic fit.

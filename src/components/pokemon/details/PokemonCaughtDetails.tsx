@@ -134,7 +134,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
               </div>
             )}
 
-            {p.condition && (
+            {p.condition && generation === 3 && (
               <div className="relative z-10 flex flex-col gap-4 border-white/5 border-t border-dashed bg-black/40 p-4">
                 <ContestConditionStats
                   cool={p.condition.cool}
