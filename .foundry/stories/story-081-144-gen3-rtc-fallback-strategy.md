@@ -34,3 +34,9 @@ This involves:
 - [ ] Implement System Time Fallback for Gen 3 time-gated events.
 - [ ] Implement Manual UI Overrides to allow users to force a specific time state.
 - [ ] Ensure that save file parsing engines gracefully ignore trailing emulator bytes (e.g., VBA-M appending 44/48 bytes) without crashing, as required by ADR 025.
+
+### Generated Tasks
+- [ ] task-144-230-gen3-rtc-fallback-impl
+- [ ] task-144-231-gen3-rtc-fallback-qa
+- [ ] task-144-232-ignore-emulator-trailing-bytes-impl
+- [ ] task-144-233-ignore-emulator-trailing-bytes-qa
