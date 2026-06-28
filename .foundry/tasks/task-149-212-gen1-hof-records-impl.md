@@ -52,9 +52,9 @@ The Hall of Fame data structure described by Bulbapedia does *not* include the p
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement `parseGen1HallOfFameRecords` function in `src/engine/saveParser/parsers/gen1.ts` (or similar appropriate location).
-- [ ] Define reusable constants at the module level for all Hall of Fame offsets and lengths.
-- [ ] Extract the Pokémon species, level, and nickname for each record.
-- [ ] Use the global `trainerName` for the player name associated with the records.
-- [ ] Update the `SaveData` interface in `src/engine/saveParser/parsers/common.ts` to include the new `hallOfFameRecords` property (array of records).
-- [ ] Integrate the extraction logic into `parseGen1` and populate the new property.
+- [x] Implement `parseGen1HallOfFameRecords` function in `src/engine/saveParser/parsers/gen1.ts` (or similar appropriate location).
+- [x] Define reusable constants at the module level for all Hall of Fame offsets and lengths.
+- [x] Extract the Pokémon species, level, and nickname for each record.
+- [x] Use the global `trainerName` for the player name associated with the records.
+- [x] Update the `SaveData` interface in `src/engine/saveParser/parsers/common.ts` to include the new `hallOfFameRecords` property (array of records).
+- [x] Integrate the extraction logic into `parseGen1` and populate the new property.
