@@ -33,7 +33,7 @@ export const gen2Strategy: AssistantStrategy = {
     ];
     for (const roamer of roamers) {
       // In Crystal, Suicune is a static encounter, not a roamer. Suppress roamer logic for it.
-      if (roamer.id === 245 && saveData.version === 'crystal') continue;
+      if (roamer.id === 245 && saveData.gameVersion === 'crystal') continue;
 
       if (missingSet.has(roamer.id)) {
         let isTracked = false;
