@@ -33,5 +33,5 @@ QA the `DagContext` and `DagProvider` implementation for the shared DAG state.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Run and verify that tests for `DagContext` exist and pass.
-- [ ] Verify `DagProvider` aligns with the single source of truth and error reporting principles outlined in ADR 013 and ADR 017.
+- [x] Run and verify that tests for `DagContext` exist and pass.
+- [x] Verify `DagProvider` aligns with the single source of truth and error reporting principles outlined in ADR 013 and ADR 017.
