@@ -29,9 +29,9 @@ You must verify that the Gen 3 TV broadcast data block parsing logic strictly ut
 You must test that the parsing gracefully handles out-of-bounds reads and malformed files by catching `RangeError` exceptions natively thrown by `DataView`.
 
 ## Acceptance Criteria
-- [ ] Verified that `DataView` API is used exclusively in the new TV block parsing code.
-- [ ] Verified that out-of-bounds reads are successfully caught and mapped to a structured parsing error instead of crashing.
-- [ ] Confirmed that backward compatibility with Gen 1 and Gen 2 parsing functions remains unbroken.
+- [x] Verified that `DataView` API is used exclusively in the new TV block parsing code.
+- [x] Verified that out-of-bounds reads are successfully caught and mapped to a structured parsing error instead of crashing.
+- [x] Confirmed that backward compatibility with Gen 1 and Gen 2 parsing functions remains unbroken.
 
 ## Important Protocols (For QA)
 - **Empty PR Protocol:** Once you have manually run tests and verified the code is correct, you MUST submit an empty Pull Request (with 0 file changes). However, before submitting the empty PR, you MUST check off all Acceptance Criteria checkboxes above (`- [x]`).

@@ -31,4 +31,7 @@ Building upon the base structure extracted in the previous story, implement the 
 
 ## Acceptance Criteria
 - [ ] Implement parsing logic for the Status Condition from the 20-byte roamer structure.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+
+- [ ] .foundry/tasks/task-109-224-gen3-roamer-status-parsing-impl.md
+- [ ] .foundry/tasks/task-109-225-gen3-roamer-status-parsing-qa.md

@@ -2,13 +2,13 @@
 id: task-119-205-dag-context-provider-qa
 type: TASK
 title: Implement DagContext and Provider QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-18'
-updated_at: '2026-06-22'
+updated_at: '2026-06-27'
 depends_on:
   - task-119-204-dag-context-provider-impl
-jules_session_id: null
+jules_session_id: '8116972794760657539'
 pr_number: null
 parent: story-078-119-implement-dag-context-provider
 tags:

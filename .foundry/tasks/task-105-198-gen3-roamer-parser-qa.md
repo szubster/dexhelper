@@ -2,13 +2,13 @@
 id: task-105-198-gen3-roamer-parser-qa
 type: TASK
 title: QA Gen 3 Roamer Parse Logic
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-17'
 updated_at: '2026-06-27'
 depends_on:
   - task-105-197-gen3-roamer-parser-impl
-jules_session_id: null
+jules_session_id: '356520759127306862'
 pr_number: null
 parent: story-067-105-gen3-roamer-parser-implementation
 tags:
