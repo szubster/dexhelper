@@ -2,13 +2,13 @@
 id: task-149-213-gen1-hof-records-qa
 type: TASK
 title: Verify Gen 1 Hall of Fame Records Parsing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-28'
 depends_on:
   - task-149-212-gen1-hof-records-impl
-jules_session_id: null
+jules_session_id: '6760416979217652540'
 pr_number: null
 parent: story-070-149-parse-gen1-hof-records
 tags:
