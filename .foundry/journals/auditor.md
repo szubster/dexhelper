@@ -47,3 +47,11 @@ A new process change regarding late-binding hierarchical dependencies has been i
 
 ### Orchestrator Late-Binding Verification
 The orchestrator's exception for late-binding parent nodes (allowing them to remain PENDING while their generated children execute, preventing DAG deadlocks) was successfully verified. The corresponding tests in `foundry-orchestrator.test.ts` provide adequate coverage for this specific hierarchical logic exception. This ensures smooth progression of macro nodes without triggering infinite wait loops.
+
+## 2026-06-28: React Context as DAG Data Single Source of Truth
+
+**Pattern / Constraint:**
+When implementing shared state for multiple visual representations of the same underlying Directed Acyclic Graph (DAG) data (e.g., a React Flow spatial visualizer alongside a Kanban/Scrum board view), lifting the core parsed data (nodes, edges) into a shared React Context (like `DagContext`) serves as an effective "Single Source of Truth".
+
+**Why this matters:**
+This prevents disjointed UI states, eliminates redundant parsing overhead, and simplifies synchronization. Future UI features that need DAG data (e.g., a Permanent Failure Dashboard) must subscribe to this central provider rather than establishing independent data fetching or parsing pipelines.
