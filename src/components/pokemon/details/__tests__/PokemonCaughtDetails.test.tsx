@@ -102,4 +102,32 @@ describe('PokemonCaughtDetails', () => {
     await expect.element(page.getByText('Cool')).toBeInTheDocument();
     await expect.element(page.getByText('Master')).toBeInTheDocument();
   });
+
+  it('renders ContestSheenDisplay for Gen 3 pokemon with condition stats', async () => {
+    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+      (selector: unknown) =>
+        (selector as (state: unknown) => unknown)({
+          saveData: {
+            generation: 3,
+          },
+        }),
+    );
+
+    const gen3PokemonWithCondition = {
+      ...mockPokemon,
+      condition: {
+        cool: 10,
+        beauty: 20,
+        cute: 30,
+        smart: 40,
+        tough: 50,
+        sheen: 150,
+      },
+    };
+
+    await render(<PokemonCaughtDetails yourPokemon={[gen3PokemonWithCondition]} />);
+
+    await expect.element(page.getByText('Sheen')).toBeInTheDocument();
+    await expect.element(page.getByText('150 / 255')).toBeInTheDocument();
+  });
 });

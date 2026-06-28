@@ -46,6 +46,6 @@ This task integrates the `ContestSheenDisplay` component into the detailed Poké
 - **Empty PR Policy**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not modify the YAML frontmatter on successful completion.
 
 ## 4. Acceptance Criteria
-- [ ] Integrate `ContestSheenDisplay` into `PokemonCaughtDetails.tsx` for Gen 3 Pokémon with condition stats.
-- [ ] Ensure the component renders beautifully and fits the tactical UI aesthetic.
-- [ ] Add tests to verify the integration.
+- [x] Integrate `ContestSheenDisplay` into `PokemonCaughtDetails.tsx` for Gen 3 Pokémon with condition stats.
+- [x] Ensure the component renders beautifully and fits the tactical UI aesthetic.
+- [x] Add tests to verify the integration.

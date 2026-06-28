@@ -10,6 +10,7 @@ import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 import { ContestRibbonsPanel } from './ContestRibbonsPanel';
+import { ContestSheenDisplay } from './ContestSheenDisplay';
 
 interface PokemonCaughtDetailsProps {
   yourPokemon: (PokemonInstance & { location: string })[];
@@ -123,6 +124,12 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                 <span className="truncate font-black text-[10px] text-[var(--theme-primary)] uppercase tracking-tight">
                   {gen2Locations[p.caughtData.location] || 'UNKNOWN ZONE'}
                 </span>
+              </div>
+            )}
+
+            {generation === 3 && p.condition && (
+              <div className="relative z-10 border-white/5 border-t border-dashed bg-black/40 p-4">
+                <ContestSheenDisplay sheen={p.condition.sheen} />
               </div>
             )}
 
