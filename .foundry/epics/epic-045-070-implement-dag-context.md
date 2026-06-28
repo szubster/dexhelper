@@ -2,10 +2,10 @@
 id: epic-045-070-implement-dag-context
 type: EPIC
 title: Implement DagContext and Provider for DAG Data
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-06-11'
+updated_at: '2026-06-28'
 depends_on: []
 jules_session_id: null
 pr_number: null

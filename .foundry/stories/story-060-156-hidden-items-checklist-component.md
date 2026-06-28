@@ -2,7 +2,7 @@
 id: story-060-156-hidden-items-checklist-component
 type: STORY
 title: Build Hidden Items Checklist Component
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-28'
 updated_at: '2026-06-28'

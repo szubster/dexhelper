@@ -2,10 +2,10 @@
 id: story-079-116-battle-frontier-dashboard-ui
 type: STORY
 title: Gen 3 Battle Frontier Dashboard UI
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-13'
+updated_at: '2026-06-28'
 depends_on: []
 jules_session_id: null
 pr_number: null

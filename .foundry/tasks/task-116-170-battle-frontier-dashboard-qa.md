@@ -2,10 +2,10 @@
 id: task-116-170-battle-frontier-dashboard-qa
 type: TASK
 title: QA Gen 3 Battle Frontier Dashboard UI
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-06-28'
 depends_on:
   - task-116-169-battle-frontier-dashboard-impl
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - frontend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-116-169-battle-frontier-dashboard-impl
 notes: ''
 ---
 
