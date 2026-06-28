@@ -27,17 +27,17 @@ export function NavButton({ to, isActive, onClick, icon: Icon, label, activeLabe
           className={cn(isActive && 'drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.8)]')}
         />
         <span className="font-black font-mono text-[9px] uppercase tracking-[0.2em]">
-          {isActive ? activeLabel : label}
+          [ {isActive ? activeLabel : label} ]
         </span>
       </div>
     </>
   );
 
   const className = cn(
-    'group focus-visible:tactical-focus relative z-10 flex h-full flex-col items-center justify-center rounded-none border border-dashed transition-all duration-300',
+    'group focus-visible:tactical-focus relative z-10 flex h-full flex-col items-center justify-center rounded-none transition-all duration-300',
     isActive
-      ? 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/20 text-[var(--theme-primary)] shadow-[inset_0_0_15px_rgba(var(--theme-primary-rgb),0.3)]'
-      : 'border-zinc-800 bg-zinc-950/80 text-zinc-600 shadow-[inset_0_2px_4px_rgba(255,255,255,0.05)] hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-400',
+      ? 'border-2 border-zinc-900 bg-zinc-950 text-[var(--theme-primary)] shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)]'
+      : 'border-2 border-t-zinc-700 border-r-zinc-900 border-b-zinc-900 border-l-zinc-700 bg-zinc-800 text-zinc-500 shadow-[2px_2px_0px_rgba(0,0,0,0.5)] hover:bg-zinc-700 hover:text-zinc-300',
   );
 
   if (to) {

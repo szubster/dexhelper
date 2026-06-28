@@ -233,3 +233,9 @@
 **Outcome:** Accepted
 **Why:** The previous sync modal felt too much like a standard web loading state, breaking the "specialized hardware" immersion during a critical application action. Evolving it into a multi-pane data terminal with explicit radar and block-matrix visualizations reinforces the fantasy of intercepting and processing raw hardware data.
 **Pattern:** For loading states or long-running processes, avoid standard spinners or simple progress bars. Transform them into active "Terminal Operations" featuring multi-pane layouts, explicit data stream visualizations (like block matrices or hex grids), and faux hardware scanners to maintain the specialized device aesthetic.
+
+## 2026-07-15 - [Accepted] - 🖼️ Canvas: Tactical BottomNav Redesign
+**What:** Redesigned `BottomNav` and `NavButton` to resemble a rigid, physical instrument panel with chunky membrane switches instead of a generic floating app bar. Added layered borders, inset shadows for depressed states, and mechanical-looking sliding brackets for the active indicator.
+**Outcome:** Accepted
+**Why:** Brings the mobile bottom navigation fully into the tactical specialized hardware motif. Floating app bars and subtle flicker animations break the illusion of using a rugged, purpose-built device.
+**Pattern:** Apply "bracketed" physical hardware layouts and explicit "membrane switch" button designs (using inset shadows, dashed borders, and strict monospaced labels) to navigation structures to maintain the device simulation across all viewports.
