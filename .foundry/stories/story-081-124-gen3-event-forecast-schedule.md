@@ -26,9 +26,9 @@ notes: ''
 Extract the forecasting schedule for upcoming events (e.g., Energy Guru sales) and parse data indicating if events were inherited from "Mix Record" feature.
 
 ## Acceptance Criteria
-- [ ] Extract upcoming event schedule data from the save file.
-- [ ] Extract Mix Record flags/data to identify inherited events.
-- [ ] task-124-171-gen3-event-schedule-parser
-- [ ] task-124-172-gen3-mix-record-events-parser
-- [ ] task-124-173-qa-gen3-event-schedule-parser
-- [ ] task-124-174-qa-gen3-mix-record-events-parser
+- [x] Extract upcoming event schedule data from the save file.
+- [x] Extract Mix Record flags/data to identify inherited events.
+- [x] task-124-171-gen3-event-schedule-parser
+- [x] task-124-172-gen3-mix-record-events-parser
+- [x] task-124-173-qa-gen3-event-schedule-parser
+- [x] task-124-174-qa-gen3-mix-record-events-parser
