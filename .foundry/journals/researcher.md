@@ -51,3 +51,12 @@ Egg groups are retrieved from the `pokemon-species` endpoint. They must be mappe
 **Lesson:** When parsing dynamically structured Gen 3 save data like Secret Bases, which iterate across large flat arrays (`3200` bytes inside `SaveBlock1`), we cannot trust the internal offset pointers implicitly. A truncated save file or malformed index will cause standard `DataView.getUint8` calls to throw out-of-bounds errors.
 - **Constraint (ADR 010):** We must not crash the application on these bounds errors. Parsers like `parseGen3SecretBases` must explicitly wrap iterating logic in a `try/catch`, filter for `error instanceof RangeError`, and gracefully re-throw the standard normalized error (`Error('The save file is corrupted or incomplete.')`).
 - **Why it matters:** Higher-order validation engines rely on matching this exact string to detect bad saves rather than generic JS errors. Failing to handle `RangeError` properly results in unhandled promise rejections that bring down the orchestration pipeline and result in immediate rejection by the QA/Auditor persona.
+## Gen 3 Roamer Location Constraints (ADR 108-027)
+
+When designing features for Generation 3 hardware, be aware of the stark difference between persistent save data and dynamic EWRAM data.
+
+**The Lesson:** Data that feels "persistent" to the player (like the exact current location of a roaming legendary) may actually be highly ephemeral and recalculated on the fly. In Gen 3, `sRoamerLocation` and `sLocationHistory` exist exclusively in dynamically allocated EWRAM during gameplay. When the game saves, these precise coordinates are **not** serialized.
+
+**Architectural Constraint:** It is impossible to statically extract a roamer's exact map location from a `.sav` file.
+
+**UI Pivot Strategy:** When faced with impossible geographic extraction, pivot UI designs from "map-based tracking" (e.g., Route Radars) to "stat-based interception dossiers." We can still provide value by exposing the hidden internal state that *is* saved, such as the `Roamer` struct (IVs, HP, Nature) and its overarching `active` boolean flag, presenting it under a tactical "data snooping" aesthetic.

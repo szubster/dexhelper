@@ -38,5 +38,5 @@ You are tasked with fulfilling the documentation update as requested by `story-0
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` is updated.
-- [ ] Documentation accurately reflects `palette` ownership of styling per ADR 024.
+- [x] `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` is updated.
+- [x] Documentation accurately reflects `palette` ownership of styling per ADR 024.

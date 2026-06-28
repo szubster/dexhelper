@@ -2,12 +2,12 @@
 id: prd-083-053-daycare-egg-tracker
 type: PRD
 title: Daycare Status and Exact Egg Hatch Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-21'
 updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: '82116722747390302'
+jules_session_id: null
 pr_number: null
 parent: idea-083-daycare-egg-tracker
 tags:
@@ -35,4 +35,7 @@ Leverage DexHelper's offline-first programmatic save parsing to extract and disp
 By surfacing these highly opaque, heavily utilized mechanics, DexHelper immediately solves a massive pain point for competitive breeders and completionists. Transforming vague in-game hints into exact, actionable data points perfectly aligns with the app's mission to be the ultimate premium companion tool for retro Pokémon.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics.
+- [x] Break down into Epics.
+- [ ] epic-053-105-daycare-save-parsing
+- [ ] epic-053-106-egg-hatch-parsing
+- [ ] epic-053-107-daycare-egg-tracker-ui

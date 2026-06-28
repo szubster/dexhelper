@@ -2,12 +2,12 @@
 id: research-049-215-late-binding-cancellation
 type: RESEARCH
 title: Orchestrator Late-Binding Parent Node Cancellation Logic
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-25'
-updated_at: '2026-06-25'
+updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11357373016189294279'
 pr_number: null
 parent: null
 tags:
