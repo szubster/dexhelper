@@ -30,20 +30,18 @@ export function BottomNav() {
         className="-top-[21px] left-4 rounded-none border-t border-b-0 bg-zinc-950 text-[10px]"
       />
 
-      <div className="relative mx-auto flex h-16 max-w-md items-center gap-2 rounded-none border border-zinc-800 border-dashed bg-black/60 p-1">
+      <div className="relative mx-auto flex h-16 max-w-md items-center gap-1 rounded-none border-[4px] border-zinc-800 border-t-zinc-700 border-l-zinc-700 bg-zinc-900 p-1 shadow-[4px_4px_0px_rgba(0,0,0,0.8)]">
         {/* Active Indicator Hardware Frame */}
         {activeIndex !== -1 && (
           <div
-            className="pointer-events-none absolute z-0 h-[calc(100%-8px)] w-[calc(20%-8px)] transition-transform duration-300 ease-[cubic-bezier(0.2,1,0.2,1)]"
-            style={{ transform: `translateX(calc(${activeIndex * 100}% + ${activeIndex * 8}px))` }}
+            className="pointer-events-none absolute z-20 h-[calc(100%-8px)] w-[calc(20%-5.6px)] transition-transform duration-300 ease-[cubic-bezier(0.2,1,0.2,1)]"
+            style={{ transform: `translateX(calc(${activeIndex * 100}% + ${activeIndex * 4}px))` }}
           >
-            <div className="absolute inset-0 border-[3px] border-[var(--theme-primary)] opacity-80 shadow-[0_0_10px_var(--theme-primary)]" />
-
             {/* Sliding Bracket Corners */}
-            <div className="absolute -top-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-l-[4px]" />
-            <div className="absolute -top-1 -right-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-r-[4px]" />
-            <div className="absolute -bottom-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-b-[4px] border-l-[4px]" />
-            <div className="absolute -right-1 -bottom-1 h-3 w-3 border-[var(--theme-primary)] border-r-[4px] border-b-[4px]" />
+            <div className="absolute -top-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-l-[4px] drop-shadow-[0_0_5px_var(--theme-primary)]" />
+            <div className="absolute -top-1 -right-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-r-[4px] drop-shadow-[0_0_5px_var(--theme-primary)]" />
+            <div className="absolute -bottom-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-b-[4px] border-l-[4px] drop-shadow-[0_0_5px_var(--theme-primary)]" />
+            <div className="absolute -right-1 -bottom-1 h-3 w-3 border-[var(--theme-primary)] border-r-[4px] border-b-[4px] drop-shadow-[0_0_5px_var(--theme-primary)]" />
           </div>
         )}
 
