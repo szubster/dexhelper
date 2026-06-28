@@ -13,6 +13,18 @@ export interface BreedingPair {
   score: number; // Prioritize by Shiny Carrier status
 }
 
+/**
+ * Calculates all valid breeding combinations from a list of Pokémon and ranks them by shiny inheritance likelihood.
+ *
+ * Pairs are scored based on the shiny status of the parents. Breeding with a shiny or shiny carrier increases the chance of the offspring being shiny.
+ *
+ * @param pokemonList - An array of Pokémon metadata including egg groups, gender, and shiny status.
+ * @returns An array of valid BreedingPairs sorted descending by score.
+ *
+ * @example
+ * const pairs = calculateBreedingPairs([pikachu, ditto]);
+ * // Returns [{ parentA: pikachu, parentB: ditto, score: 0 }]
+ */
 export function calculateBreedingPairs(pokemonList: PokemonWithMetadata[]): BreedingPair[] {
   const pairs: BreedingPair[] = [];
 
@@ -37,6 +49,22 @@ export function calculateBreedingPairs(pokemonList: PokemonWithMetadata[]): Bree
   return pairs.sort((a, b) => b.score - a.score);
 }
 
+/**
+ * Determines if two Pokémon can breed.
+ *
+ * Enforces standard mechanics:
+ * - A Pokémon cannot breed with itself.
+ * - 'No Eggs' group cannot breed.
+ * - Two Dittos cannot breed.
+ * - Ditto can breed with any valid non-Ditto.
+ * - Genderless Pokémon can only breed with Ditto.
+ * - Genders must be opposite.
+ * - At least one egg group must intersect.
+ *
+ * @param p1 - First parent candidate.
+ * @param p2 - Second parent candidate.
+ * @returns True if the pair can breed, false otherwise.
+ */
 function isValidPair(p1: PokemonWithMetadata, p2: PokemonWithMetadata): boolean {
   if (p1.speciesId === p2.speciesId && p1.id === p2.id) return false;
 
