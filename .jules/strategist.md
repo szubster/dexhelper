@@ -308,3 +308,9 @@
 **Outcome:** Accepted
 **Why:** The memory requires multiple strict rules for execution plans (Execution Plan Sequencing Rule, Execution Plan Verification Rule, Empty PR Verification Rule, Execution Plan Groundedness Rule, Execution Plan Specificity Rule, and Execution Plan Tense Rule). These rules were repeatedly violated by agents because they were scattered and not centralized in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 **Pattern:** Apply systemic rules consistently across all relevant agent personas. When an architectural constraint or tool rule applies universally, it must be explicitly included in the centralized `core_policies.md` to ensure compliance without bloating individual prompts.
+
+## 2026-07-18 - [Accepted] - Prompt improvement - Enforce RangeError verification in QA prompt
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `qa.md` journal recorded that when verifying tasks that involve adding or modifying parsers for save files (like `task-124-172-gen3-mix-record-events-parser`), the QA agent must closely inspect that they properly catch `RangeError` from the `DataView` API when checking for out-of-bounds reads. However, this explicit validation constraint was missing from the QA agent's prompt.
+**Pattern:** Codify system memory constraints and specific validation requirements (like checking for `RangeError` handling in save file parsers) directly into the QA agent's prompt to ensure strict and consistent architectural enforcement.
