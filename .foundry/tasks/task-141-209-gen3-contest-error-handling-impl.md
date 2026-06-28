@@ -2,12 +2,12 @@
 id: task-141-209-gen3-contest-error-handling-impl
 type: TASK
 title: Implement Gen 3 Contest Data Error Handling
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-20'
-updated_at: '2026-06-20'
+updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11723907360497603002'
 pr_number: null
 parent: story-065-141-gen3-contest-error-handling
 tags:
