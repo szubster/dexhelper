@@ -35,4 +35,7 @@ Leverage DexHelper's offline-first programmatic save parsing to extract and disp
 By surfacing these highly opaque, heavily utilized mechanics, DexHelper immediately solves a massive pain point for competitive breeders and completionists. Transforming vague in-game hints into exact, actionable data points perfectly aligns with the app's mission to be the ultimate premium companion tool for retro Pokémon.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics.
+- [x] Break down into Epics.
+- [ ] epic-053-105-daycare-save-parsing
+- [ ] epic-053-106-egg-hatch-parsing
+- [ ] epic-053-107-daycare-egg-tracker-ui
