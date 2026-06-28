@@ -210,6 +210,7 @@ async function main() {
       n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
       cr: sData.capture_rate,
       gr: sData.gender_rate,
+      eg: sData.egg_groups?.map((g: any) => g.name) || [],
       baby: sData.is_baby,
       // Temporaries to be filled in second pass
       eto: [],
