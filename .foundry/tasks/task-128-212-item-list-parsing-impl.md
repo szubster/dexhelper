@@ -2,10 +2,10 @@
 id: task-128-212-item-list-parsing-impl
 type: TASK
 title: Implement Dynamic Item List Parsing and Integrate
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-21'
-updated_at: '2026-06-21'
+updated_at: '2026-06-28'
 depends_on:
   - research-128-210-item-list-parsing-failure
 jules_session_id: null

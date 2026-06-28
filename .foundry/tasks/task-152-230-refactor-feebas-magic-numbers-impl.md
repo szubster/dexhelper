@@ -1,11 +1,11 @@
 ---
 id: task-152-230-refactor-feebas-magic-numbers-impl
 type: TASK
-title: "Refactor Feebas Magic Numbers"
-status: PENDING
-owner_persona: "coder"
-created_at: "2026-06-28"
-updated_at: "2026-06-28"
+title: Refactor Feebas Magic Numbers
+status: READY
+owner_persona: coder
+created_at: '2026-06-28'
+updated_at: '2026-06-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - refactor
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Refactor Feebas Magic Numbers

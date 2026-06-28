@@ -2,13 +2,13 @@
 id: task-149-213-contest-recommendation-ui-components-qa
 type: TASK
 title: QA Contest Recommendation UI Components
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-28'
 depends_on:
   - task-149-212-contest-recommendation-ui-components-impl
-jules_session_id: '8197289248864435749'
+jules_session_id: null
 pr_number: null
 parent: story-065-149-contest-recommendation-ui-components
 tags:

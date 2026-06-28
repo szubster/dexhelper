@@ -2,13 +2,13 @@
 id: task-132-207-unown-dex-data-integration-qa
 type: TASK
 title: Unown Dex Panel Data Integration QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-28'
 depends_on:
   - task-132-206-unown-dex-data-integration-impl
-jules_session_id: '103975339284584283'
+jules_session_id: null
 pr_number: null
 parent: story-059-132-unown-dex-data-integration
 tags:

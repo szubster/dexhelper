@@ -2,12 +2,12 @@
 id: prd-083-053-daycare-egg-tracker
 type: PRD
 title: Daycare Status and Exact Egg Hatch Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-21'
 updated_at: '2026-06-28'
 depends_on: []
-jules_session_id: '82116722747390302'
+jules_session_id: null
 pr_number: null
 parent: idea-083-daycare-egg-tracker
 tags:

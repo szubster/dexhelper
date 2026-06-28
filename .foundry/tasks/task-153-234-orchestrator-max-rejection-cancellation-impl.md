@@ -2,7 +2,7 @@
 id: task-153-234-orchestrator-max-rejection-cancellation-impl
 type: TASK
 title: Implement Max Rejection Cancellation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-28'
 updated_at: '2026-06-28'
@@ -16,8 +16,8 @@ tags:
   - resilience
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement Max Rejection Cancellation

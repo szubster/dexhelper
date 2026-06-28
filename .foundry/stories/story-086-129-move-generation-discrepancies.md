@@ -2,10 +2,10 @@
 id: story-086-129-move-generation-discrepancies
 type: STORY
 title: Handle Move Generation Discrepancies
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
-updated_at: '2026-06-19'
+updated_at: '2026-06-28'
 depends_on:
   - story-086-128-move-data-extraction
 jules_session_id: null

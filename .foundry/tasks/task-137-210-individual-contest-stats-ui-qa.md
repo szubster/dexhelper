@@ -2,13 +2,13 @@
 id: task-137-210-individual-contest-stats-ui-qa
 type: TASK
 title: QA Individual Contest Stats UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-28'
 depends_on:
   - task-137-209-individual-contest-stats-ui-impl
-jules_session_id: '696712558778014925'
+jules_session_id: null
 pr_number: null
 parent: story-065-137-individual-contest-stats-ui
 tags: []
