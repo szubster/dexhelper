@@ -99,3 +99,8 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 ## 2026-06-24: Gen 3 Secret Base Parsing Verification
 - **Observation**: While assigned to the parent story `story-070-108-parse-secret-base-locations.md` after a permanent failure of its child task, the replacement task blueprints (`research-108-221`, `task-108-222`, `task-108-223`) were already fully drafted and appended to the markdown body as PENDING unchecked tasks.
 - **Action**: Adhering to the Late-Binding Orchestrator Demotion Compliance Rule, submitted an Empty PR without modifying the file or checking off any acceptance criteria. This guarantees the orchestrator properly demotes the parent node to PENDING while it waits for its newly generated children to complete.
+
+## 2026-06-28 - Premature State Transition Prevention
+**Context**: While breaking down a Story into tasks, I erroneously checked off the acceptance criteria for the parent Story node *before* the child tasks had been completed.
+**Consequence**: This triggers an immediate transition of the Story to `VERIFYING` state via the "Empty PR Policy", which breaks the DAG dependency graph because its children are still pending.
+**Lesson Learned**: Parent node acceptance criteria must *never* be checked off until all dynamically spawned child nodes (which are appended as unchecked `- [ ]` tasks) have been formally transitioned to `COMPLETED`.
