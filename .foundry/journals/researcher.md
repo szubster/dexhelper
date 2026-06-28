@@ -46,3 +46,7 @@ In Gen 2, gender is intrinsically linked to the Attack DV. The `gender_rate` fro
 
 ## PokeAPI Egg Groups
 Egg groups are retrieved from the `pokemon-species` endpoint. They must be mapped to integer constants to fit within DexHelper's memory-optimized schemas.
+
+## VERIFYING Node State
+- **Finding:** The `VERIFYING` state, introduced in ADR 014, functions as a queue state for the `auditor` persona, similar to the `READY` state.
+- **Constraint:** When a node transitions to `VERIFYING`, its `jules_session_id` is explicitly stripped (set to `null`). Therefore, pipeline validation logic must not expect or enforce the presence of a `jules_session_id` on `VERIFYING` nodes. Doing so causes false positive system failures.
