@@ -31,3 +31,7 @@ Extract the Gold and Silver symbol status flags for the 7 Battle Frontier facili
 - [ ] Parse Silver and Gold symbol flags for all 7 facilities.
 - [ ] Read correctly using byte offsets and bit indices within the flags array.
 - [ ] Fail gracefully if out of bounds.
+
+### Tasks
+- [ ] task-122-234-parse-battle-frontier-symbols-impl
+- [ ] task-122-235-parse-battle-frontier-symbols-qa
