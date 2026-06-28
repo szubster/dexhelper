@@ -147,6 +147,15 @@ export interface SaveData {
   currentBoxCount: number;
   /** The number of times the player has entered the Hall of Fame. Used to verify Mewtwo accessibility in Gen 1. */
   hallOfFameCount: number;
+  /** The extracted records of the player's Hall of Fame teams. */
+  hallOfFameRecords?: {
+    playerName: string;
+    pokemon: {
+      speciesId: number;
+      level: number;
+      nickname: string;
+    }[];
+  }[];
   /** Raw byte array containing all in-game event flags (e.g., claimed static gifts, story progression). */
   eventFlags?: Uint8Array;
   /** Raw byte array containing hidden item event flags. */

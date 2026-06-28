@@ -6,6 +6,12 @@ function isValidMapId(id: string): id is keyof typeof gen1MapLocations {
   return id in gen1MapLocations;
 }
 
+const HOF_BASE_OFFSET = 0x0598;
+const HOF_RECORD_LENGTH = 0x60;
+const HOF_MAX_RECORDS = 50;
+const HOF_POKEMON_COUNT = 6;
+const HOF_POKEMON_LENGTH = 0x10;
+
 const INTERNAL_ID_TO_DEX: Record<number, number> = {
   1: 112,
   2: 115,
@@ -307,6 +313,53 @@ export function isGen1Save(view: DataView): boolean {
 }
 
 /**
+ * Parses the Hall of Fame records from a Gen 1 save.
+ *
+ * @param view - The raw save file DataView.
+ * @param hallOfFameCount - The total number of times the player has entered the Hall of Fame.
+ * @param trainerName - The player's Original Trainer name.
+ * @returns An array of parsed Hall of Fame records.
+ */
+function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, trainerName: string) {
+  const records: {
+    playerName: string;
+    pokemon: { speciesId: number; level: number; nickname: string }[];
+  }[] = [];
+
+  const maxRecords = Math.min(hallOfFameCount, HOF_MAX_RECORDS);
+
+  for (let recordIndex = 0; recordIndex < maxRecords; recordIndex++) {
+    const pokemon: { speciesId: number; level: number; nickname: string }[] = [];
+
+    for (let pokemonIndex = 0; pokemonIndex < HOF_POKEMON_COUNT; pokemonIndex++) {
+      const offset = HOF_BASE_OFFSET + recordIndex * HOF_RECORD_LENGTH + pokemonIndex * HOF_POKEMON_LENGTH;
+
+      const internalId = view.getUint8(offset);
+      if (internalId === 0x00 || internalId === 0xff) {
+        continue;
+      }
+
+      const speciesId = INTERNAL_ID_TO_DEX[internalId];
+      if (!speciesId) {
+        continue;
+      }
+
+      const level = view.getUint8(offset + 1);
+      const nickname = decodeGen12String(view, offset + 2, 11);
+
+      pokemon.push({ speciesId, level, nickname });
+    }
+
+    records.push({
+      playerName: trainerName,
+      pokemon,
+    });
+  }
+
+  return records;
+}
+
+/**
  * Extracts all relevant game data (party, PC boxes, inventory, Pokédex, etc.) from a Gen 1 save.
  *
  * Gen 1 save file structures differ slightly based on version and region. Notably, Yellow version
@@ -603,6 +656,9 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
   }
 
   const hallOfFameRaw = view.getUint8(0x25b3 + offsetShift);
+  const hallOfFameCount = hallOfFameRaw === 0xff ? 0 : hallOfFameRaw;
+  const hallOfFameRecords = parseGen1HallOfFameRecords(view, hallOfFameCount, trainerName);
+
   const eventFlagsOffset = 0x29e6 + offsetShift;
   const eventFlags = new Uint8Array(view.buffer, eventFlagsOffset, 0x118);
   const hiddenItemFlagsOffset = 0x299c + offsetShift;
@@ -628,7 +684,8 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     inventory,
     pcItems,
     currentBoxCount,
-    hallOfFameCount: hallOfFameRaw === 0xff ? 0 : hallOfFameRaw,
+    hallOfFameCount,
+    hallOfFameRecords,
     eventFlags,
     hiddenItemFlags,
     hiddenCoinFlags,

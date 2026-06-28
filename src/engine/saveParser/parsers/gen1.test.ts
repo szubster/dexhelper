@@ -241,6 +241,49 @@ describe('parseGen1 - additional branches', () => {
     const data = parseGen1(view);
     expect(data.hallOfFameCount).toBe(0);
   });
+
+  it('should extract Hall of Fame records correctly', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+
+    // Trainer name 'AB'
+    view.setUint8(0x2598, 0x80);
+    view.setUint8(0x2599, 0x81);
+    view.setUint8(0x259a, 0x50);
+
+    // Party count 0
+    view.setUint8(0x2f2c, 0);
+
+    // hallOfFameCount = 1
+    view.setUint8(0x25b3, 1);
+
+    // HoF record 0
+    const hofBase = 0x0598;
+    // Pokemon 0 in record 0
+    view.setUint8(hofBase + 0, 0x01); // internal ID 0x01 -> dex 112 (Rhydon)
+    view.setUint8(hofBase + 1, 16); // level 16
+    // Nickname 'B'
+    view.setUint8(hofBase + 2, 0x81);
+    view.setUint8(hofBase + 3, 0x50);
+
+    // Empty Pokemon 1 in record 0 (to test skip)
+    view.setUint8(hofBase + 0x10, 0xff);
+
+    const data = parseGen1(view);
+
+    expect(data.hallOfFameCount).toBe(1);
+    expect(data.hallOfFameRecords).toBeDefined();
+    expect(data.hallOfFameRecords?.length).toBe(1);
+
+    const record = data.hallOfFameRecords?.[0];
+    expect(record?.playerName).toBe('AB');
+    expect(record?.pokemon.length).toBe(1);
+
+    const pkmn = record?.pokemon[0];
+    expect(pkmn?.speciesId).toBe(112);
+    expect(pkmn?.level).toBe(16);
+    expect(pkmn?.nickname).toBe('B');
+  });
 });
 
 describe('parseGen1 - yellow version fallbacks', () => {
