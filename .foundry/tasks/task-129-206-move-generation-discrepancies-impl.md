@@ -40,6 +40,6 @@ Moves can have different stats (like PP, Power, Accuracy) across different gener
 - **Empty PR Policy:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Identify generation discrepancies for moves relevant to Gen 1-3 within the generation script logic.
-- [ ] Apply necessary overrides to the extracted move data before saving to `moves.jsonl`.
-- [ ] Ensure that only base PP is stored for each move.
+- [x] Identify generation discrepancies for moves relevant to Gen 1-3 within the generation script logic.
+- [x] Apply necessary overrides to the extracted move data before saving to `moves.jsonl`.
+- [x] Ensure that only base PP is stored for each move.
