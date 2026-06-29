@@ -2,21 +2,21 @@
 id: epic-071-100-tailwind-designer-persona-retry
 type: EPIC
 title: Implement Tailwind Designer Persona Ownership Retry
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-24'
 updated_at: '2026-06-29'
 depends_on:
   - task-071-150-tailwind-v4-adr
   - research-071-217-investigate-session-id-failure
-jules_session_id: '10266001252234200173'
+jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:
   - styling
   - agents
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

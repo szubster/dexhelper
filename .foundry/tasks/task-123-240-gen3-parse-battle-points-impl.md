@@ -2,7 +2,7 @@
 id: task-123-240-gen3-parse-battle-points-impl
 type: TASK
 title: Gen 3 Parse Total Battle Points Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-29'
 updated_at: '2026-06-29'

@@ -2,10 +2,10 @@
 id: task-121-219-gen3-tv-block-parser-retry-impl
 type: TASK
 title: Implement Gen 3 TV Block DataView Parser (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-23'
-updated_at: '2026-06-23'
+updated_at: '2026-06-29'
 depends_on:
   - research-121-216-gen3-tv-block-parser-failure
 jules_session_id: null

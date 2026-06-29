@@ -2,13 +2,13 @@
 id: task-084-211-breeding-pair-algorithm-qa
 type: TASK
 title: QA Shiny Carrier Breeding Pair Algorithm
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-29'
 depends_on:
   - task-084-210-breeding-pair-algorithm-impl
-jules_session_id: '14717565454511215675'
+jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:
@@ -19,7 +19,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

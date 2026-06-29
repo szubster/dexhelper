@@ -2,7 +2,7 @@
 id: idea-096-macro-node-boundary-enforcement
 type: IDEA
 title: Enforce Macro Node Functional Boundaries
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-29'
 updated_at: '2026-06-29'
@@ -15,7 +15,7 @@ tags:
   - orchestrator
 rejection_count: 0
 rejection_reason: ''
-notes: 'Spawned by Auditor after epic-045-070 rejection'
+notes: Spawned by Auditor after epic-045-070 rejection
 ---
 
 # Enforce Macro Node Functional Boundaries

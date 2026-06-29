@@ -2,13 +2,13 @@
 id: task-108-222-gen3-secret-base-parser-retry-impl
 type: TASK
 title: Implement Gen 3 Secret Base Parser (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-24'
 updated_at: '2026-06-29'
 depends_on:
   - research-108-221-gen3-secret-base-rangeerror
-jules_session_id: '10559902784584627559'
+jules_session_id: null
 pr_number: null
 parent: story-070-108-parse-secret-base-locations
 tags:

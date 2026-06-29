@@ -2,13 +2,13 @@
 id: task-084-213-breeding-pair-algorithm-qa
 type: TASK
 title: QA - Update DB Schema and Generate Script for Egg Groups
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-25'
 updated_at: '2026-06-29'
 depends_on:
   - task-084-212-breeding-pair-algorithm-impl
-jules_session_id: '3551124628864158072'
+jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:

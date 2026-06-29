@@ -2,14 +2,14 @@
 id: epic-071-097-define-tailwind-v4-utilities-retry
 type: EPIC
 title: Define Tailwind v4 Tactical Utilities Retry
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-24'
 updated_at: '2026-06-29'
 depends_on:
   - task-071-150-tailwind-v4-adr
   - research-071-217-investigate-session-id-failure
-jules_session_id: '4043626321245444506'
+jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:
