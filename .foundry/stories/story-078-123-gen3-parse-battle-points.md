@@ -30,3 +30,5 @@ Extract the total accumulated Battle Points (BP) from SaveBlock2 using `DataView
 ## Acceptance Criteria
 - [ ] Parse total BP correctly.
 - [ ] Implement error handling for out-of-bounds reads.
+- [ ] task-123-240-gen3-parse-battle-points-impl
+- [ ] task-123-241-gen3-parse-battle-points-qa
