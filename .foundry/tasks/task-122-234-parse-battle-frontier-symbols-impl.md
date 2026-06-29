@@ -2,13 +2,13 @@
 id: task-122-234-parse-battle-frontier-symbols-impl
 type: TASK
 title: Gen 3 Parse Battle Frontier Symbols Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-12'
-updated_at: '2026-06-28'
+updated_at: '2026-06-29'
 depends_on:
   - story-078-121-gen3-parse-battle-frontier-win-streaks
-jules_session_id: '16380654223830525386'
+jules_session_id: null
 pr_number: null
 parent: story-078-122-gen3-parse-battle-frontier-symbols
 tags:

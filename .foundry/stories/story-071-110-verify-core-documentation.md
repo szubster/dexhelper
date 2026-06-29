@@ -2,10 +2,10 @@
 id: story-071-110-verify-core-documentation
 type: STORY
 title: Verify core documentation for conflicting statements
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-06-10"
-updated_at: "2026-06-10"
+created_at: '2026-06-10'
+updated_at: '2026-06-29'
 depends_on:
   - story-071-108-update-schema-macro-node-completion
   - story-071-109-update-adr001-macro-node-completion
@@ -17,8 +17,8 @@ tags:
   - documentation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Verify core documentation for conflicting statements

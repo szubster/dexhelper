@@ -2,10 +2,10 @@
 id: task-096-203-gen2-event-data-layer-qa
 type: TASK
 title: Gen 2 Event Data Layer - QA Verification
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-17'
-updated_at: '2026-06-17'
+updated_at: '2026-06-29'
 depends_on:
   - task-096-202-gen2-event-data-layer-impl
 jules_session_id: null
