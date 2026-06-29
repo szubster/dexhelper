@@ -40,3 +40,8 @@ Extract and consolidate common, repetitive Tailwind class patterns used througho
 ## Acceptance Criteria
 - [ ] Appropriate `@utility` primitives are defined in `src/index.css`.
 - [ ] Tailwind v4 formatting and structure is respected.
+
+## Child Nodes
+- [ ] .foundry/stories/story-097-242-tailwind-v4-tactical-containers.md
+- [ ] .foundry/stories/story-097-243-tailwind-v4-tactical-interactive.md
+- [ ] .foundry/stories/story-097-244-tailwind-v4-tactical-typography.md
