@@ -2,12 +2,12 @@
 id: research-121-216-gen3-tv-block-parser-failure
 type: RESEARCH
 title: Investigate Gen 3 TV Block Parser Failure
-status: ACTIVE
+status: READY
 owner_persona: researcher
 created_at: '2026-06-23'
-updated_at: '2026-06-28'
+updated_at: '2026-06-29'
 depends_on: []
-jules_session_id: '11337366680785282324'
+jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
 tags:
