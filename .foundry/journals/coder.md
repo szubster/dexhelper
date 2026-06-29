@@ -105,3 +105,6 @@ When assigned a task to extract Gen 3 roamer map coordinates (`mapId` and `mapGr
 
 ## 2026-06-27: Rejecting Task due to Missing Dependencies
 Permanently failed `task-084-192-breeding-pair-algorithm-impl`. The task lacked sufficient clarity and missing dependencies related to Egg Groups. It was cancelled and replaced by `task-084-204-breeding-pair-algorithm-impl`. Its status has been updated to CANCELLED in the frontmatter, with a descriptive `rejection_reason`. Its acceptance criteria checkboxes were left unchecked, ensuring it correctly exits the DAG without masquerading as successfully completed.
+
+## 2026-06-29: Gen 2 Breeding Constraints
+In Generation 2, two Shiny or Shiny Carrier Pokémon cannot breed with each other. Shininess is determined by DVs, and Pokémon with identical or similar DVs are considered 'related' and incompatible for breeding. The breeding algorithm must explicitly exclude these pairs.
