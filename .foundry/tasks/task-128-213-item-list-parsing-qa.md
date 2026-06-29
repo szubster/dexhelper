@@ -2,13 +2,13 @@
 id: task-128-213-item-list-parsing-qa
 type: TASK
 title: QA - Verify Dynamic Item List Parsing and Integration
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-21'
 updated_at: '2026-06-29'
 depends_on:
   - task-128-212-item-list-parsing-impl
-jules_session_id: '4741764116868011529'
+jules_session_id: null
 pr_number: null
 parent: story-087-128-dynamic-item-list-parsing
 tags:
