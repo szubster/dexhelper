@@ -34,4 +34,6 @@ Implement offline save parsing to calculate exact steps remaining for Eggs.
 - Multiply the parsed byte by the generation-specific cycle length to calculate exact numerical step count remaining.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories.
+- [x] Break down into Stories.
+- [ ] .foundry/stories/story-106-158-gen2-egg-hatch-parsing.md
+- [ ] .foundry/stories/story-106-159-gen3-egg-hatch-parsing.md
