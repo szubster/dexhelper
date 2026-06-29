@@ -37,11 +37,11 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to extract the
 - Ensure the legacy Gen 1 and Gen 2 parsers remain unchanged (backwards compatibility).
 
 ## Acceptance Criteria
-- [ ] Gen 3 Secret Base parser is implemented using `DataView`.
-- [ ] It correctly identifies and extracts map location IDs for active secret bases.
-- [ ] Reusable module-level constants are used for all memory offsets and sizes (no magic numbers).
-- [ ] Rejections or errors handle corrupted/truncated data gracefully via explicit `RangeError` catching.
-- [ ] Appropriate unit tests are added for the parsing logic, including tests for `RangeError` handling.
+- [x] Gen 3 Secret Base parser is implemented using `DataView`.
+- [x] It correctly identifies and extracts map location IDs for active secret bases.
+- [x] Reusable module-level constants are used for all memory offsets and sizes (no magic numbers).
+- [x] Rejections or errors handle corrupted/truncated data gracefully via explicit `RangeError` catching.
+- [x] Appropriate unit tests are added for the parsing logic, including tests for `RangeError` handling.
 
 ## Reminders for Personas
 - **Coder:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
