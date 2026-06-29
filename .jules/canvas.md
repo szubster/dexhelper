@@ -239,9 +239,3 @@
 **Outcome:** Accepted
 **Why:** Brings the mobile bottom navigation fully into the tactical specialized hardware motif. Floating app bars and subtle flicker animations break the illusion of using a rugged, purpose-built device.
 **Pattern:** Apply "bracketed" physical hardware layouts and explicit "membrane switch" button designs (using inset shadows, dashed borders, and strict monospaced labels) to navigation structures to maintain the device simulation across all viewports.
-
-## 2026-06-29 - [Accepted] - 🖼️ Canvas: Tactical Graveyard Select Redesign
-**What:** Redesigned the "Graveyard" control in the `SettingsControls` component to fully embrace the tactical "snooping" aesthetic. Replaced the generic HTML `<select>` dropdown (wrapped in `TacticalSelect`) with a dense, grid-based `TacticalSegmentedControl`.
-**Outcome:** Accepted
-**Why:** Brings the settings interface further in line with the heavily tactical, specialized hardware motif. Native browser dropdowns break the specialized device illusion, whereas a dense grid of physical-looking toggle buttons aligns perfectly with the tactical terminal visual identity.
-**Pattern:** Consistently eliminate generic web UI patterns (like native `<select>` dropdowns) for selecting options from lists. For sets with multiple options (like 14 storage boxes), use dense grid layouts within `TacticalSegmentedControl` to mimic hardware selection matrices.
