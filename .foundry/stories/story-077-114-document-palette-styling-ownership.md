@@ -31,10 +31,10 @@ Update `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_po
 2. Ensure it aligns with ADR 024.
 
 ## Acceptance Criteria
-- [ ] `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` is updated.
-- [ ] Documentation accurately reflects `palette` ownership of styling per ADR 024.
+- [x] `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` is updated.
+- [x] Documentation accurately reflects `palette` ownership of styling per ADR 024.
 
 ## Child Tasks
 - [x] task-114-201-document-palette-styling-ownership-impl
-- [ ] task-114-214-document-palette-styling-ownership-impl
-- [ ] task-114-215-document-palette-styling-ownership-qa
+- [x] task-114-214-document-palette-styling-ownership-impl
+- [x] task-114-215-document-palette-styling-ownership-qa
