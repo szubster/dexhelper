@@ -83,5 +83,9 @@ function isValidPair(p1: PokemonWithMetadata, p2: PokemonWithMetadata): boolean 
   if (p1.gender === 'Genderless' || p2.gender === 'Genderless') return false;
   if (p1.gender === p2.gender) return false;
 
+  const p1IsShiny = p1.isShiny || p1.isShinyCarrier;
+  const p2IsShiny = p2.isShiny || p2.isShinyCarrier;
+  if (p1IsShiny && p2IsShiny) return false;
+
   return p1.eggGroups.some((group) => p2.eggGroups.includes(group));
 }

@@ -44,10 +44,36 @@ describe('calculateBreedingPairs', () => {
     };
 
     const pairs = calculateBreedingPairs([p1, p2, p3]);
-    expect(pairs).toHaveLength(2);
-    expect(pairs[0]?.score).toBe(2);
-    expect(pairs[0]?.parentA.id).toBe('1');
-    expect(pairs[0]?.parentB.id).toBe('3');
+    // Since p1 and p3 are both shiny carriers, they cannot breed.
+    // p2 and p3 are both Female, so they cannot breed.
+    // So the only valid pair is p1 + p2.
+    expect(pairs).toHaveLength(1);
+    expect(pairs[0]?.score).toBe(1);
+
+    // Check that p1 and p3 are not paired together
+    const pairIds = pairs.map((p) => `${p.parentA.id}-${p.parentB.id}`);
+    expect(pairIds).not.toContain('1-3');
+    expect(pairIds).not.toContain('3-1');
+  });
+
+  test('two shiny/shiny carrier parents cannot breed', () => {
+    const p1: PokemonWithMetadata = {
+      id: '1',
+      speciesId: 1,
+      gender: 'Male',
+      eggGroups: ['Monster'],
+      isShinyCarrier: true,
+    };
+    const p2: PokemonWithMetadata = {
+      id: '2',
+      speciesId: 2,
+      gender: 'Female',
+      eggGroups: ['Monster'],
+      isShiny: true,
+    };
+
+    const pairs = calculateBreedingPairs([p1, p2]);
+    expect(pairs).toHaveLength(0);
   });
 
   test('handles Ditto mechanics correctly', () => {
