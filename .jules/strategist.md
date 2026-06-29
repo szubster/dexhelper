@@ -314,3 +314,9 @@
 **Outcome:** Merged
 **Why:** The `qa.md` journal recorded that when verifying tasks that involve adding or modifying parsers for save files (like `task-124-172-gen3-mix-record-events-parser`), the QA agent must closely inspect that they properly catch `RangeError` from the `DataView` API when checking for out-of-bounds reads. However, this explicit validation constraint was missing from the QA agent's prompt.
 **Pattern:** Codify system memory constraints and specific validation requirements (like checking for `RangeError` handling in save file parsers) directly into the QA agent's prompt to ensure strict and consistent architectural enforcement.
+
+## 2026-07-20 - [Accepted] - Prompt improvement - Add Empty PR Verification Rule to Sweeper
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The memory requires that when submitting empty PRs for nodes that are completely implemented, any unchecked Acceptance Criteria checkboxes MUST be checked (`- [x]`) before submitting to satisfy ADR 007 and ADR 009. This constraint is explicitly detailed in other agent prompts but was missing in the Sweeper prompt.
+**Pattern:** Codify system memory constraints into agent prompts to avoid regressions and ensure consistency across personas.
