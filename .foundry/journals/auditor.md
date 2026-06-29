@@ -55,3 +55,6 @@ When implementing shared state for multiple visual representations of the same u
 
 **Why this matters:**
 This prevents disjointed UI states, eliminates redundant parsing overhead, and simplifies synchronization. Future UI features that need DAG data (e.g., a Permanent Failure Dashboard) must subscribe to this central provider rather than establishing independent data fetching or parsing pipelines.
+
+### Epic Documentation Macro Node Completion Verification
+When verifying `epic-045-071-documentation-macro-node-completion`, it was noted that `story-071-110-verify-core-documentation` was completed without any corresponding child tasks. Late-binding nodes can be closed out if the work is verified or completed manually, but this highlights the need for the Auditor to always recursively confirm that all descendants are truly COMPLETED, and if a node has no children, that the intent of the node was actually fulfilled in the codebase.
