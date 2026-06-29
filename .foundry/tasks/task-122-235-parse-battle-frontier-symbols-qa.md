@@ -36,10 +36,10 @@ Verify the implementation in `task-122-234-parse-battle-frontier-symbols-impl` p
 5. **Run all tests**: Run the unit test suite and verify everything passes correctly.
 
 ## Acceptance Criteria
-- [ ] Offsets and bits are correctly defined as module-level constants.
-- [ ] Bitwise logic extracts correctly from `DataView` according to ADR 026.
-- [ ] `RangeError` fallback tests pass and propagate as expected.
-- [ ] Implementation tests run successfully.
+- [x] Offsets and bits are correctly defined as module-level constants.
+- [x] Bitwise logic extracts correctly from `DataView` according to ADR 026.
+- [x] `RangeError` fallback tests pass and propagate as expected.
+- [x] Implementation tests run successfully.
 
 ## Reminders
 - If you encounter a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
