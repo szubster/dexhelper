@@ -6,6 +6,7 @@ import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import type { PokemonListItem } from '../utils/pokemonQueries';
 import { PokedexCard } from './PokedexCard';
+import { TacticalButton } from './TacticalButton';
 import { TacticalPanel } from './TacticalPanel';
 
 export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] }) {
@@ -112,18 +113,18 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
         <p className="mt-2 max-w-sm font-medium font-mono text-sm text-zinc-600">
           No matches found in database. Adjust search parameters or clear active filters.
         </p>
-        <button
-          type="button"
+        <TacticalButton
+          variant="primary"
           title="Clear all filters"
           onClick={() => {
             useStore.getState().setSearchTerm('');
             useStore.getState().setFilters([]);
             useStore.getState().setSelectedLocationId(null);
           }}
-          className="tactical-text focus-visible:tactical-focus mt-6 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-6 py-2.5 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-white"
+          className="mt-6"
         >
           Clear Filters
-        </button>
+        </TacticalButton>
       </TacticalPanel>
     );
   }

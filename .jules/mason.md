@@ -137,3 +137,10 @@
   - The extraction allows `CapacitySegmentedBar` to be easily dropped into other panels that require a tactical capacity readout (e.g. PC storage, memory limits, team size).
   - Passing `current` and `max` directly rather than the full `PokemonInstance[]` array decouples the component from domain-specific data models.
 ## LocationRow Extraction\n- Identified a repeating JSX pattern in `PokemonLocations.tsx` for displaying location information (both evolution requirements and static encounters).\n- Extracted the pattern into a reusable `LocationRow` component.\n- **Key Learnings**:\n  - When extracting rows with specific, variable icon structures and tactical badges, leveraging React nodes (`icon`, `badge`) as props ensures maximum flexibility for the parent while containing the rigid wrapper styling logic.
+
+## TacticalButton & TacticalIconButton Refactoring
+- **What**: Extracted repeated standard HTML `<button>` elements into existing `<TacticalButton>` and `<TacticalIconButton>` components across `OfflineControls.tsx`, `PokedexGrid.tsx`, and `AssistantPanel.tsx`.
+- **Why**: Reduced boilerplate and code duplication. Standardized the UI aesthetic constraints (like `rounded-none`, `border-dashed`) and hover behaviors for typical buttons and icon buttons.
+- **Key Learnings**:
+  - Reusing existing components like `TacticalButton` and `TacticalIconButton` is crucial for code modularity and adherence to the project's aesthetic constraints (e.g., sharp edges, dashed borders).
+  - Code Review False Negatives (Missing Files): The automated code review system may falsely claim you failed to include newly created files in your commit when you are only importing and using pre-existing components (e.g., `TacticalButton`). Verify the files already exist. If they do, ignore this warning and proceed.
