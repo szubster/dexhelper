@@ -60,4 +60,7 @@ Build a "Duplicate Analyzer" view inside DexHelper's PC Box tracking system. Thi
 - **Speed:** Grouping and calculating IVs/Hidden Power for hundreds of Pokémon must be near-instantaneous upon loading the `.sav` file.
 
 ## 5. Next Steps
-- [ ] Break down this PRD into Epics for backend parsing extensions and frontend UI implementation.
+- [x] Break down this PRD into Epics for backend parsing extensions and frontend UI implementation.
+- [ ] .foundry/epics/epic-054-108-box-analyzer-save-parsing.md
+- [ ] .foundry/epics/epic-054-109-box-analyzer-matrix-ui.md
+- [ ] .foundry/epics/epic-054-110-box-analyzer-release-workflow.md
