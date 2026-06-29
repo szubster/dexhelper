@@ -4,7 +4,6 @@ import type { GenerationConfig } from '../../utils/generationConfig';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { SettingsRow } from '../SettingsRow';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
-import { TacticalSelect } from '../TacticalSelect';
 
 interface SettingsControlsProps {
   effectiveVersion: GameVersion | 'unknown';
@@ -129,19 +128,22 @@ export function SettingsControls({
         iconColorClass="border-red-500/20 bg-red-500/10"
         label="Graveyard"
       >
-        <TacticalSelect
-          aria-label="Select Nuzlocke Graveyard Box"
-          value={nuzlockeGraveyardBox || ''}
-          onChange={(e) => setNuzlockeGraveyardBox(e.target.value === '' ? null : e.target.value)}
-          className="focus-visible:ring-red-500"
-        >
-          <option value="">[ NONE ]</option>
-          {storageLocations.map((loc) => (
-            <option key={loc} value={loc}>
-              [ {loc.toUpperCase()} ]
-            </option>
-          ))}
-        </TacticalSelect>
+        <TacticalSegmentedControl<string>
+          ariaLabel="Select Nuzlocke Graveyard Box"
+          containerClassName="[&>div]:grid [&>div]:grid-cols-3 [&>div]:sm:grid-cols-4 [&>div]:gap-2 [&>div]:border-none [&>button]:border"
+          buttonBaseClassName="!border-dashed !border focus-visible:ring-red-500 px-2 py-2 text-[8px]"
+          defaultActiveClassName="border-red-500 bg-red-500/20 text-red-400 shadow-[0_0_10px_rgba(239,68,68,0.3)]"
+          defaultInactiveClassName="border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300"
+          selectedValue={nuzlockeGraveyardBox || ''}
+          onValueChange={(val) => setNuzlockeGraveyardBox(val === '' ? null : val)}
+          items={[
+            { id: '', label: '[ NONE ]' },
+            ...storageLocations.map((loc) => ({
+              id: loc,
+              label: `[ ${loc.toUpperCase()} ]`,
+            })),
+          ]}
+        />
       </SettingsRow>
     </div>
   );

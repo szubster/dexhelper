@@ -53,12 +53,10 @@ describe('SettingsControls', () => {
       />,
     );
 
-    const select = page.getByRole('combobox');
-
-    await userEvent.selectOptions(select.element(), 'Box 1');
+    await page.getByText('[ BOX 1 ]').click();
     expect(setNuzlockeGraveyardBox).toHaveBeenCalledWith('Box 1');
 
-    await userEvent.selectOptions(select.element(), '');
+    await page.getByText('[ NONE ]').click();
     expect(setNuzlockeGraveyardBox).toHaveBeenCalledWith(null);
   });
 
