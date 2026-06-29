@@ -2,7 +2,7 @@
 id: task-084-211-breeding-pair-algorithm-qa
 type: TASK
 title: QA Shiny Carrier Breeding Pair Algorithm
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-29'

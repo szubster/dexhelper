@@ -2,7 +2,7 @@
 id: story-106-159-gen3-egg-hatch-parsing
 type: STORY
 title: Gen 3 Egg Hatch Data Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-29'
 updated_at: '2026-06-29'

@@ -2,10 +2,10 @@
 id: task-105-215-gen3-roamer-parser-alternative-qa
 type: TASK
 title: QA Gen 3 Roamer Alternative Parse Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-22'
-updated_at: '2026-06-22'
+updated_at: '2026-06-29'
 depends_on:
   - task-105-214-gen3-roamer-parser-alternative-impl
 jules_session_id: null
