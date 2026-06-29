@@ -1,16 +1,16 @@
 ---
-id: story-077-114-document-palette-styling-ownership
+id: story-100-243-document-palette-styling-ownership-retry
 type: STORY
 title: Update documentation to reflect palette persona styling ownership
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
-created_at: '2026-06-11'
+created_at: '2026-06-29'
 updated_at: '2026-06-29'
 depends_on:
-  - story-077-113-update-palette-persona
-jules_session_id: '8904531309543643607'
+  - story-100-242-update-palette-persona-retry
+jules_session_id: null
 pr_number: null
-parent: epic-071-077-tailwind-designer-persona
+parent: epic-071-100-tailwind-designer-persona-retry
 tags:
   - styling
   - agents
@@ -33,11 +33,3 @@ Update `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_po
 ## Acceptance Criteria
 - [ ] `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` is updated.
 - [ ] Documentation accurately reflects `palette` ownership of styling per ADR 024.
-
-## Child Tasks
-- [x] task-114-201-document-palette-styling-ownership-impl
-- [ ] task-114-214-document-palette-styling-ownership-impl
-- [ ] task-114-215-document-palette-styling-ownership-qa
-
-### Auditor Rejection
-This node has been CANCELLED because its parent epic failed permanently. It is replaced by story-100-243-document-palette-styling-ownership-retry.

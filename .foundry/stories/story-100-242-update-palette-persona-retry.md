@@ -1,15 +1,15 @@
 ---
-id: story-077-113-update-palette-persona
+id: story-100-242-update-palette-persona-retry
 type: STORY
 title: Update palette agent prompt to define ownership of Tailwind styling
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
-created_at: '2026-06-11'
-updated_at: '2026-06-17'
+created_at: '2026-06-29'
+updated_at: '2026-06-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: epic-071-077-tailwind-designer-persona
+parent: epic-071-100-tailwind-designer-persona-retry
 tags:
   - styling
   - agents
@@ -29,10 +29,5 @@ Update the relevant agent prompts or system configurations to explicitly define 
 2. Explicitly define responsibility for tactical utility definitions via `@utility` per ADR 024.
 
 ## Acceptance Criteria
-- [x] Agent prompt explicitly states `palette` persona owns `src/index.css`.
-- [x] Palette persona is tasked with enforcing the tactical hardware aesthetic and managing custom `@utility` primitives.
-- [x] task-113-167-update-palette-persona-impl
-- [x] task-113-168-update-palette-persona-qa
-
-### Auditor Rejection
-This node has been CANCELLED because its parent epic failed permanently. It is replaced by story-100-242-update-palette-persona-retry.
+- [ ] Agent prompt explicitly states `palette` persona owns `src/index.css`.
+- [ ] Palette persona is tasked with enforcing the tactical hardware aesthetic and managing custom `@utility` primitives.
