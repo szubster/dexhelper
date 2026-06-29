@@ -22,7 +22,7 @@ export function ClearFiltersBadge({ isActive, onClick }: ClearFiltersBadgeProps)
     >
       <div
         className={cn(
-          'absolute top-1 right-1 h-1.5 w-1.5 rounded-full',
+          'absolute top-1 right-1 h-1.5 w-1.5 rounded-none',
           isActive ? 'bg-[var(--theme-primary)] shadow-[0_0_5px_var(--theme-primary)]' : 'bg-zinc-800',
         )}
       />
