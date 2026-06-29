@@ -159,3 +159,7 @@
 ## 2026-06-28
 **Idea:** Gen 3 Move Tutor Availability Dashboard
 **Learning:** Targeting limited, one-time-use game resources (like Move Tutors) for data aggregation provides massive value to hardcore players. Automatically parsing which tutors have been used and instantly cross-referencing that against the player's current PC box contents for compatibility perfectly fits the offline-first companion app vision, eliminating tedious in-game traveling and wiki searches.
+
+## 2026-06-29
+**Idea:** Gen 2/3 In-Game Trade Assistant Dashboard
+**Learning:** Expanding on the success of the Move Tutor dashboard, targeting other one-time limited NPC interactions—like in-game trades—provides excellent utility. By automatically parsing the save file's event flags to determine trade availability, and cross-referencing requested species with the player's current PC box contents, we transform static event data into an actionable, dynamic "to-do" list. This strongly reinforces DexHelper's value as a premium companion app that eliminates tedious wiki searches and manual tracking.
