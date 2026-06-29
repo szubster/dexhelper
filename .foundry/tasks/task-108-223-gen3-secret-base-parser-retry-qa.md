@@ -37,11 +37,11 @@ Verify the implementation of the Gen 3 Secret Base Parser task. Because save fil
 - Use `pnpm run test` and ensure all tests pass.
 
 ## Acceptance Criteria
-- [ ] Confirmed `DataView` API usage.
-- [ ] Confirmed no magic numbers are used; all offsets/sizes are reusable constants.
-- [ ] Confirmed explicit and graceful `RangeError` exception handling for out-of-bounds reads.
-- [ ] Existing Gen 1/2 tests pass.
-- [ ] Secret base extraction logic has adequate test coverage, including boundary failure cases.
+- [x] Confirmed `DataView` API usage.
+- [x] Confirmed no magic numbers are used; all offsets/sizes are reusable constants.
+- [x] Confirmed explicit and graceful `RangeError` exception handling for out-of-bounds reads.
+- [x] Existing Gen 1/2 tests pass.
+- [x] Secret base extraction logic has adequate test coverage, including boundary failure cases.
 
 ## Reminders for Personas
 - **QA:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
