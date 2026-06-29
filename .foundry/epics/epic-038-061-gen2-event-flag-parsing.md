@@ -25,10 +25,10 @@ notes: ''
 Develop the core save file parsing engine to extract specific time-gated event flags from Generation 2 save files. This is the foundational data layer required to power the dynamic event checklist. Note: We must NOT depend on RTC data from the save file itself, as it is emulator-dependent and incompatible with raw cartridge dumps.
 
 ## Acceptance Criteria
-- [ ] Parse event flags indicating completion of daily/weekly events.
-- [ ] Expose this data cleanly to the frontend UI components.
+- [x] Parse event flags indicating completion of daily/weekly events.
+- [x] Expose this data cleanly to the frontend UI components.
 
 
 ### Implementation Tasks
-- [ ] .foundry/stories/story-061-095-gen2-event-flag-extraction.md
-- [ ] .foundry/stories/story-061-096-gen2-event-data-layer.md
+- [x] .foundry/stories/story-061-095-gen2-event-flag-extraction.md
+- [x] .foundry/stories/story-061-096-gen2-event-data-layer.md
