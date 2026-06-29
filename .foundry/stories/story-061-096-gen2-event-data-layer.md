@@ -26,9 +26,9 @@ notes: ''
 Expose the extracted event flags from the save file cleanly to the frontend UI components.
 
 ## Acceptance Criteria
-- [ ] Implement data layer integration for Gen 2 event flags.
-- [ ] Add tests for data layer integration.
+- [x] Implement data layer integration for Gen 2 event flags.
+- [x] Add tests for data layer integration.
 
 ### Implementation Tasks
-- [ ] .foundry/tasks/task-096-202-gen2-event-data-layer-impl.md
-- [ ] .foundry/tasks/task-096-203-gen2-event-data-layer-qa.md
+- [x] .foundry/tasks/task-096-202-gen2-event-data-layer-impl.md
+- [x] .foundry/tasks/task-096-203-gen2-event-data-layer-qa.md
