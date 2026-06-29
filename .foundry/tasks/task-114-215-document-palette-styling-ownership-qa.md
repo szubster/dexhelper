@@ -40,5 +40,5 @@ You are tasked with verifying the completion of `task-114-214-document-palette-s
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` is correctly updated.
-- [ ] Documentation accurately reflects `palette` ownership of styling per ADR 024.
+- [x] `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` is correctly updated.
+- [x] Documentation accurately reflects `palette` ownership of styling per ADR 024.
