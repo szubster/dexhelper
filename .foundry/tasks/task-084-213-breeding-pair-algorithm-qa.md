@@ -32,7 +32,7 @@ Verify that `PokemonMetadata` properly includes egg groups and that the generato
 - Verify that unit tests for the Gen 2 gender calculation pass and handle edge cases (e.g. 100% female, 100% male, genderless).
 
 ## Acceptance Criteria
-- [ ] DB generation correctly includes egg groups in the `PokemonMetadata`.
-- [ ] Gender calculation logic accurately reflects Gen 2 mechanics based on Attack DV and `gr`.
-- [ ] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
-- [ ] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] DB generation correctly includes egg groups in the `PokemonMetadata`.
+- [x] Gender calculation logic accurately reflects Gen 2 mechanics based on Attack DV and `gr`.
+- [x] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
+- [x] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
