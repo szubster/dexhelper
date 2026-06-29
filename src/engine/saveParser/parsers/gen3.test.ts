@@ -441,7 +441,9 @@ describe('parseGen3MixRecords', () => {
     const buffer = new ArrayBuffer(800); // Not enough space for 25 items (900 bytes)
     const view = new DataView(buffer);
 
-    expect(() => parseGen3MixRecords(view, 0)).toThrowError('The save file is corrupted or incomplete.');
+    expect(() => parseGen3MixRecords(view, 0)).toThrowError(
+      'The save file is corrupted or incomplete: Invalid TV block struct.',
+    );
   });
 });
 
@@ -471,7 +473,9 @@ describe('parseGen3PokeNews', () => {
     const buffer = new ArrayBuffer(60); // Not enough space for 16 items (64 bytes)
     const view = new DataView(buffer);
 
-    expect(() => parseGen3PokeNews(view, 0)).toThrowError('The save file is corrupted or incomplete.');
+    expect(() => parseGen3PokeNews(view, 0)).toThrowError(
+      'The save file is corrupted or incomplete: Invalid PokeNews struct.',
+    );
   });
 });
 
