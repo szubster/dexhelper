@@ -2,7 +2,7 @@
 id: task-084-210-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Shiny Carrier Breeding Pair Algorithm
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-06-19'
 updated_at: '2026-06-29'
@@ -17,8 +17,8 @@ tags:
   - gen2
   - backend
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Algorithm does not account for the Gen 2 rule that prevents two Shiny (or Shiny Carrier) Pokémon from breeding together due to identical DVs.'
 notes: ''
 ---
 

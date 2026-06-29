@@ -45,3 +45,6 @@ Verify the correctness of the Shiny Carrier breeding algorithm implementation, e
 - [ ] All associated unit tests pass.
 - [ ] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
 - [ ] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+### QA Rejection
+Task implementation rejected because the algorithm does not handle the Gen 2 rule that prevents two Shiny (or Shiny Carrier) Pokémon from breeding with each other due to overlapping DVs.
