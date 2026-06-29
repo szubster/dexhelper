@@ -1,3 +1,34 @@
+/**
+ * @module generate-pokedata
+ *
+ * This script serves as the primary data ingestion and transformation pipeline.
+ *
+ * It bridges the gap between massive, generalized external datasets (PokeAPI)
+ * and the specific, highly-optimized needs of the DexHelper client application.
+ *
+ * **Data Sources:**
+ * - **PokeAPI Data Repository:** Cloned dynamically from `https://github.com/PokeAPI/api-data.git`.
+ *   This provides the raw JSON for Pokemon metadata, encounters, evolutions, moves, and items.
+ * - **Decompiled ROM Mappings:** Static mapping configurations (e.g., `src/data/gen1/mapping.ts`,
+ *   `src/data/gen2/mapping.ts`, `src/data/gen3/mapping.ts`) bridge PokeAPI's location IDs with
+ *   the internal Map IDs used by the actual Game Boy game code (necessary for save file parsing).
+ *
+ * **Input:**
+ * 1. Clones the entire PokeAPI `api-data` repository into a temporary scratch folder.
+ * 2. Reads thousands of granular JSON files.
+ *
+ * **Output:**
+ * Generates tightly-packed, normalized JSONL files in `data/db/`:
+ * - `pokemon.jsonl`
+ * - `encounters.jsonl`
+ * - `locations.jsonl`
+ * - `moves.jsonl`
+ * - `items.jsonl`
+ * - `metadata.json` (tracking the upstream commit SHA for caching/invalidation).
+ *
+ * These artifacts are shipped with the application and loaded into IndexedDB by the client.
+ */
+
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync, execFileSync } from 'node:child_process';
@@ -25,13 +56,15 @@ const OUTPUT_DIR = path.join(process.cwd(), 'data/db');
 /**
  * Synchronously reads and parses a JSON file from the filesystem.
  *
- * @param filePath - The absolute or relative path to the JSON file.
+ * @param filePath - The absolute or relative path to the JSON file to read.
  * @returns The parsed JavaScript object, or `null` if the file does not exist.
  *
  * @remarks
- * This utility handles the vast amount of individual JSON files extracted from the
- * PokeAPI repository. Synchronous reading is preferred in this build script to maintain
- * sequential processing order and simplify the ETL data flow.
+ * **Why synchronous?**
+ * This pipeline sequentially extracts and transforms data from thousands of small,
+ * deeply nested JSON files located in the cloned PokeAPI repository. Using `readFileSync`
+ * avoids asynchronous callback overhead and memory pressure from firing thousands of concurrent
+ * promises, keeping the transformation logic linear and easier to debug.
  */
 function readJson(filePath: string) {
   if (!fs.existsSync(filePath)) return null;
@@ -149,6 +182,20 @@ function sortObj(obj: any, order: string[]): any {
  *
  * **Regeneration Steps:**
  * To regenerate this data locally after changes, run: `pnpm run data:gen`
+ *
+ * ---
+ *
+ * Executes the primary data extraction, transformation, and load (ETL) pipeline.
+ *
+ * **Pipeline Execution Steps:**
+ * 1. **Fetch Latest:** Retrieves the latest commit SHA from the PokeAPI `api-data` repo via the GitHub CLI.
+ * 2. **Clone/Sync:** Clones the repo to `scratch/temp_pokeapi` (or pulls the latest changes if it exists).
+ * 3. **Extract Locations:** Parses region-specific location and area data, linking them to internal game map IDs using static mapping files.
+ * 4. **Calculate Distances:** Computes shortest-path distances between all map locations using the Floyd-Warshall algorithm, saving the engine from calculating paths dynamically at runtime.
+ * 5. **Extract Pokemon & Encounters:** Parses base stats, types, and granular encounter rates for all Pokemon up to Gen 3.
+ * 6. **Extract Evolutions:** Traverses evolution chains, mapping triggers (level, items, happiness).
+ * 7. **Extract Moves & Items:** Parses move data (power, accuracy, type) mapping them to specific generations to handle historical changes (e.g. Gen 2 vs Gen 3 accuracy differences).
+ * 8. **Compact & Load:** Recursively strips default, null, and empty values to drastically compress the final payload size, then writes the output to `.jsonl` files in `data/db/`.
  */
 async function main() {
   console.log('--- PokéAPI Data Pipeline (GitHub Source) ---');
@@ -719,19 +766,22 @@ for (let i = 1; i <= MAX_ITEM_ID; i++) {
 
 
 /**
- * Recursively strips nulls, undefined values, default falsy states, and empty arrays from an object.
+ * Recursively strips nulls, undefined values, default states, and empty arrays from an object.
  *
- * @param obj - The object to compact.
- * @returns A structurally identical object with redundant keys removed.
+ * @param obj - The raw JSON-parsed object to be compressed.
+ * @returns A structurally identical object with redundant keys entirely removed.
  *
  * @remarks
- * **Why this is critical:**
- * The generated JSON represents thousands of encounters and evolutions.
- * Fields like `baby: false`, `m: 1` (walking), or empty arrays (`condition_values: []`)
- * represent over 90% of the dataset. Because this data is shipped to the user's browser
- * and stored in IndexedDB, omitting these redundant keys drastically reduces the final `.jsonl`
- * payload size, ensuring fast initialization times and staying within storage quota limits.
- * The client re-inflates these defaults upon load (see `src/db/PokeDB.ts`).
+ * **Why this is critical for frontend performance:**
+ * The generated JSON contains thousands of highly granular encounters and evolutions.
+ * Fields like `baby: false`, `m: 1` (walking method), or empty arrays (`condition_values: []`)
+ * occur constantly and account for over 90% of the total JSON payload size.
+ * Because this compiled database is downloaded directly to the user's browser and stored
+ * in IndexedDB, aggressive compaction is mandatory. It significantly reduces bandwidth usage,
+ * minimizes the parsing time on the UI thread during app initialization, and prevents quota
+ * exhaustion limits on mobile devices.
+ * The client implicitly understands these omissions and re-inflates default values upon
+ * access (see `src/db/PokeDB.ts`).
  */
 function compact(obj: any): any {
   if (Array.isArray(obj)) {
