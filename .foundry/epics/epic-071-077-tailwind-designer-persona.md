@@ -2,7 +2,7 @@
 id: epic-071-077-tailwind-designer-persona
 type: EPIC
 title: Implement Tailwind Designer Persona Ownership
-status: READY
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-11'
 updated_at: '2026-06-29'
@@ -16,7 +16,7 @@ tags:
   - agents
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Dependency chain failed permanently.'
 notes: ''
 ---
 
