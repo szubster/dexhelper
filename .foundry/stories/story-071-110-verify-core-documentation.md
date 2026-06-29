@@ -33,4 +33,4 @@ Verify that there are no conflicting statements across other core documentation 
 Verify that there are no conflicting statements across other core documentation.
 
 ## Acceptance Criteria
-- [ ] Verify that there are no conflicting statements across other core documentation.
+- [x] Verify that there are no conflicting statements across other core documentation.
