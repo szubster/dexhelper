@@ -34,11 +34,11 @@ Update the core system documentation to detail the new macro node completion rul
 3. **Other Knowledge Base Updates**: Update any other relevant documents if necessary (e.g. `core_policies.md`).
 
 ## Acceptance Criteria
-- [ ] Update `schema.md` with hierarchical completion rules.
-- [ ] Update `001-the-foundry-architecture.md` (ADR 001) to detail the behavior.
-- [ ] Verify that there are no conflicting statements across other core documentation.
+- [x] Update `schema.md` with hierarchical completion rules.
+- [x] Update `001-the-foundry-architecture.md` (ADR 001) to detail the behavior.
+- [x] Verify that there are no conflicting statements across other core documentation.
 
 ### Stories
-- [ ] .foundry/stories/story-071-108-update-schema-macro-node-completion.md
-- [ ] .foundry/stories/story-071-109-update-adr001-macro-node-completion.md
-- [ ] .foundry/stories/story-071-110-verify-core-documentation.md
+- [x] .foundry/stories/story-071-108-update-schema-macro-node-completion.md
+- [x] .foundry/stories/story-071-109-update-adr001-macro-node-completion.md
+- [x] .foundry/stories/story-071-110-verify-core-documentation.md
