@@ -1,4 +1,4 @@
-import type React from 'react';
+import React from 'react';
 import { cn } from '../utils/cn';
 
 interface DataPointProps {
@@ -10,7 +10,15 @@ interface DataPointProps {
   valueClassName?: string;
 }
 
-export function DataPoint({ label, value, children, className, labelClassName, valueClassName }: DataPointProps) {
+// ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders
+export const DataPoint = React.memo(function DataPoint({
+  label,
+  value,
+  children,
+  className,
+  labelClassName,
+  valueClassName,
+}: DataPointProps) {
   return (
     <div
       className={cn(
@@ -32,4 +40,4 @@ export function DataPoint({ label, value, children, className, labelClassName, v
       </span>
     </div>
   );
-}
+});

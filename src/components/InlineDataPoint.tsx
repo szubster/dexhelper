@@ -1,4 +1,4 @@
-import type React from 'react';
+import React from 'react';
 import { cn } from '../utils/cn';
 
 interface InlineDataPointProps {
@@ -10,7 +10,8 @@ interface InlineDataPointProps {
   valueClassName?: string;
 }
 
-export function InlineDataPoint({
+// ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders
+export const InlineDataPoint = React.memo(function InlineDataPoint({
   label,
   value,
   children,
@@ -34,4 +35,4 @@ export function InlineDataPoint({
       </span>
     </div>
   );
-}
+});
