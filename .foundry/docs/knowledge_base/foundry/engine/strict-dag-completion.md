@@ -6,7 +6,7 @@ The Foundry engine now utilizes a **Strict DAG Completion** model. Traditional m
 ## Engine Behavior
 1.  **Heartbeat (`foundry-heartbeat.ts`)**: 
     - No longer scans for unchecked boxes.
-    - Automatically transitions a node to `COMPLETED` immediately upon its associated Pull Request being merged.
+    - Automatically transitions a node to `COMPLETED` immediately upon its associated Pull Request being merged (except for macro nodes which must wait for all children to complete).
 2.  **Orchestrator (`foundry-orchestrator.ts`)**:
     - Implements a **Self-Healing DAG** via Phase 3.5.
     - If a `COMPLETED` node is found to be **Hierarchically Incomplete** (i.e., it has children or dependencies that are not `COMPLETED`), it is demoted back to `PENDING`.

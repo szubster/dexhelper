@@ -11,6 +11,8 @@ Completely empty PRs should be fine and automerged by GitHub actions (there is a
 
 **CRITICAL EXCEPTION TO EMPTY PR POLICY:** If you determine the target artifacts are already complete, but the current node's Markdown body contains unchecked Acceptance Criteria checkboxes (`- [ ]`), you MUST check those boxes (`- [x]`) and commit the file. Checking these boxes is NOT considered a trivial formatting change; it is required to satisfy the strict completeness contract (ADR 007). Submitting an empty PR for a leaf node with unchecked boxes will result in immediate rejection.
 
+**MACRO NODE COMPLETION EXCEPTION:** Personas must NOT submit an Empty PR to transition a macro node (`IDEA`, `PRD`, `EPIC`, `STORY`) to VERIFYING (e.g. by checking off its acceptance criteria) until ALL of its generated descendant nodes have transitioned to COMPLETED. Premature verification violates hierarchical completion rules.
+
 ### Mason Prompt Adjustments
 When finding standard HTML elements or repeated JSX patterns, it is perfectly acceptable and encouraged to reuse existing reusable components (e.g. replacing `<button>` with `<TacticalButton>`) rather than strictly creating a new component, as long as it improves modularity and reduces code duplication.
 
