@@ -38,3 +38,4 @@ Currently, valid item lists are either manually maintained or fetched ad-hoc. Ma
 - [ ] Output the correct `items.jsonl` data payload.
 
 - [x] .foundry/stories/story-087-128-dynamic-item-list-parsing.md
+- [ ] .foundry/stories/story-087-245-item-list-validation.md
