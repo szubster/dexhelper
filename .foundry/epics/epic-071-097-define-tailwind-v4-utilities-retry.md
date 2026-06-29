@@ -2,14 +2,14 @@
 id: epic-071-097-define-tailwind-v4-utilities-retry
 type: EPIC
 title: Define Tailwind v4 Tactical Utilities Retry
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-24'
-updated_at: '2026-06-28'
+updated_at: '2026-06-29'
 depends_on:
   - task-071-150-tailwind-v4-adr
   - research-071-217-investigate-session-id-failure
-jules_session_id: null
+jules_session_id: '4043626321245444506'
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:
@@ -40,3 +40,8 @@ Extract and consolidate common, repetitive Tailwind class patterns used througho
 ## Acceptance Criteria
 - [ ] Appropriate `@utility` primitives are defined in `src/index.css`.
 - [ ] Tailwind v4 formatting and structure is respected.
+
+## Child Nodes
+- [ ] .foundry/stories/story-097-242-tailwind-v4-tactical-containers.md
+- [ ] .foundry/stories/story-097-243-tailwind-v4-tactical-interactive.md
+- [ ] .foundry/stories/story-097-244-tailwind-v4-tactical-typography.md

@@ -63,3 +63,6 @@ When designing features for Generation 3 hardware, be aware of the stark differe
 **Architectural Constraint:** It is impossible to statically extract a roamer's exact map location from a `.sav` file.
 
 **UI Pivot Strategy:** When faced with impossible geographic extraction, pivot UI designs from "map-based tracking" (e.g., Route Radars) to "stat-based interception dossiers." We can still provide value by exposing the hidden internal state that *is* saved, such as the `Roamer` struct (IVs, HP, Nature) and its overarching `active` boolean flag, presenting it under a tactical "data snooping" aesthetic.
+
+## Lesson: Save File Parsing Reusable Constants
+When documenting memory offsets or drafting parser requirements, it is a strict architectural constraint (enforced by QA Validation Rules) that all memory offsets, lengths, bit locations, and shifts must be defined as reusable, descriptive constants at the module level. Inline magic numbers are strictly forbidden and will result in permanent failure.

@@ -2,13 +2,13 @@
 id: story-078-123-gen3-parse-battle-points
 type: STORY
 title: Gen 3 Parse Total Battle Points
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-06-29'
 depends_on:
   - story-078-122-gen3-parse-battle-frontier-symbols
-jules_session_id: null
+jules_session_id: '5158504269135544965'
 pr_number: null
 parent: epic-046-078-gen3-battle-frontier-data-extraction
 tags:
@@ -30,3 +30,5 @@ Extract the total accumulated Battle Points (BP) from SaveBlock2 using `DataView
 ## Acceptance Criteria
 - [ ] Parse total BP correctly.
 - [ ] Implement error handling for out-of-bounds reads.
+- [ ] task-123-240-gen3-parse-battle-points-impl
+- [ ] task-123-241-gen3-parse-battle-points-qa
