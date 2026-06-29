@@ -34,4 +34,6 @@ Implement offline save parsing to extract real-time Daycare data.
 - Surface the hidden "Egg is waiting" memory flag.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories.
+- [x] Break down into Stories.
+- [ ] .foundry/stories/story-105-240-daycare-gen2-parsing.md
+- [ ] .foundry/stories/story-105-241-daycare-gen3-parsing.md
