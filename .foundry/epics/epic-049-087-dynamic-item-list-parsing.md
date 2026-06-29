@@ -37,4 +37,4 @@ Currently, valid item lists are either manually maintained or fetched ad-hoc. Ma
 - [ ] Handle any validation required for items (e.g. mapping across generations, PokeAPI IDs to internal ROM IDs).
 - [ ] Output the correct `items.jsonl` data payload.
 
-- [ ] .foundry/stories/story-087-128-dynamic-item-list-parsing.md
+- [x] .foundry/stories/story-087-128-dynamic-item-list-parsing.md
