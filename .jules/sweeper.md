@@ -33,3 +33,8 @@
 
 **Learning:** When using `knip` to find dead code, be extremely careful with standalone scripts (e.g., `.github/scripts/*`). Knip often falsely flags these entry points as 'unused'.
 **Action:** Always verify their usage via global search (`grep`) in files like `package.json` or CI workflows before attempting removal.
+
+## 2026-06-25 - Sweeper: Verify dead logic removals via global searches
+
+**Learning:** When cleaning up dead code identified by `knip`, it's not enough to just delete the exported interface. You must also proactively search the repository for all usages of that interface and delete the associated dead utility functions and tests that consume it. The automated tools will not always cascade their dead code flags to dependent internal utility functions if they are technically imported by test files within the same module scope.
+**Action:** Always run a global search (`grep`) for the exported identifier. If it leads to utility functions or files that are solely dedicated to operating on the dead type, delete those files entirely (e.g. `src/engine/saveParser/utils/hiddenItems.ts` and its test file) and ensure all related testing artifacts are removed.
