@@ -146,3 +146,5 @@ Memoized TacticalCard in StorageGrid.tsx and extracted StorageCard to avoid N+1 
 **What:** Replaced intermediate array spreads (`[...party, ...pc]`) and `.filter()` calls with direct imperative `for` loops in `src/engine/nuzlocke/tracker.ts`.
 **Why:** Array spreads allocate new memory proportional to the size of the combined lists. `.filter()` also allocates a new array and creates closure overhead for every element. In processing save data (especially with large PC arrays), this causes unnecessary CPU and GC overhead. Changing to imperative loops avoids intermediate memory allocations and early returns.
 **Measured Improvement:** Micro-benchmarks demonstrate a ~20-30% drop in execution time for aggregate operations (`aggregateEncountersByLocation`) and significant reduction for `getGraveyardPokemon` (332ms -> 179ms for 10k iterations).
+Performance Learnings:
+- In React lists or frequently rendering components, identify deeply nested child components like DataPoint that do not need to re-render when a parent context updates. Wrapping them in React.memo reduces main thread blocking time during state updates.
