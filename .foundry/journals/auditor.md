@@ -56,6 +56,8 @@ When implementing shared state for multiple visual representations of the same u
 **Why this matters:**
 This prevents disjointed UI states, eliminates redundant parsing overhead, and simplifies synchronization. Future UI features that need DAG data (e.g., a Permanent Failure Dashboard) must subscribe to this central provider rather than establishing independent data fetching or parsing pipelines.
 
+### Lesson: Hierarchical Verification Failures
+When verifying macro nodes (EPICs/STORYs), verify that the implemented code actually fulfills the parent's requirements. In epic-045-070-implement-dag-context, the sub-tasks created the context and provider, but the provider didn't actually implement the data fetching or wrap the views, leading to premature verification. Macro node requirements must be fully realized in the codebase, not just partially scaffolded, before the parent is verified.
 ## 2026-06-29: Verification of Gen 2 Event Flag Parsing Engine
 **Lesson: Explicit Bit Mapping for Bulk Event Arrays**
 When a feature (like the daily event tracker) relies on extracting a large block of bitwise flags (e.g., the 256-byte `eventFlags` array), extracting the array is only the first step. The specific, individual bit offsets corresponding to the target events must be explicitly mapped and documented so that downstream UI or data layer tasks can actually consume them. If these are not mapped during the initial extraction epic, explicit `RESEARCH` nodes must be spawned to identify them before the UI implementation begins.
