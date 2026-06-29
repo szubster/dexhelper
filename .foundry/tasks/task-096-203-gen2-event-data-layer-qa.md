@@ -32,5 +32,5 @@ Verify the implementation of `task-096-202-gen2-event-data-layer-impl`.
   - If you submit an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Run test suite to verify Gen 2 event data layer integration.
-- [ ] Confirm no regressions in the strategy engine test coverage.
+- [x] Run test suite to verify Gen 2 event data layer integration.
+- [x] Confirm no regressions in the strategy engine test coverage.
