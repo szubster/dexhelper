@@ -1,4 +1,5 @@
-import { STATIC_GIFT_DATA } from '../../data/gen1/assistantData';
+import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN1 } from '../../data/gen1/assistantData';
+import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2 } from '../../data/gen2/assistantData';
 import type { SaveData } from '../../saveParser/index';
 import { METHOD_NAMES } from '../constants';
 import type { AssistantStrategy, EncounterDetail, Suggestion } from '../strategies/types';
@@ -51,11 +52,12 @@ export function generateCatchSuggestions(
     const localAid = apiData.localAid;
 
     const localEncounterInfo: Record<number, EncounterDetail[]> = {};
+    const staticGiftData = saveData.generation === 2 ? STATIC_GIFT_DATA_GEN2 : STATIC_GIFT_DATA_GEN1;
 
     for (const lae of apiData.localEncounters) {
       const pid = lae.pid;
       // ⚡ Bolt: Early exit to prevent processing if the pokemon is already owned or a static gift
-      if (STATIC_GIFT_DATA[pid] && myOtIds.has(pid)) continue;
+      if (staticGiftData[pid] && myOtIds.has(pid)) continue;
       if (!missingIds.has(pid)) continue;
 
       // ⚡ Bolt: Replaced .filter() with a for loop to eliminate intermediate array allocations

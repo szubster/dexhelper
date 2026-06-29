@@ -31,6 +31,6 @@ As requested in `story-061-096-gen2-event-data-layer`, you are to expose the ext
   - If you submit an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Add `eventFlag` mappings to Gen 2 static gifts and trades.
-- [ ] Ensure frontend suggestion generation respects Gen 2 event flags.
-- [ ] Add unit tests verifying the data layer integration for Gen 2 event flags.
+- [x] Add `eventFlag` mappings to Gen 2 static gifts and trades.
+- [x] Ensure frontend suggestion generation respects Gen 2 event flags.
+- [x] Add unit tests verifying the data layer integration for Gen 2 event flags.

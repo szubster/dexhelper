@@ -4,11 +4,11 @@ export const STATIC_GIFT_DATA: Record<
   number,
   { name: string; location: string; reason: string; gen?: number; eventFlag?: number; requiredBadges?: number }
 > = {
-  175: { name: 'Togepi', location: 'Violet City', reason: 'Gift from Aide', gen: 2 },
-  133: { name: 'Eevee', location: 'Goldenrod City', reason: 'Gift from Bill', gen: 2 },
-  213: { name: 'Shuckle', location: 'Cianwood City', reason: 'Gift from Kirk', gen: 2 },
-  147: { name: 'Dratini', location: "Dragon's Den", reason: 'Gift from Dragon Elder', gen: 2 },
-  236: { name: 'Tyrogue', location: 'Mt. Mortar', reason: 'Gift from Kiyo', gen: 2 },
+  175: { name: 'Togepi', location: 'Violet City', reason: 'Gift from Aide', gen: 2, eventFlag: 0x2d },
+  133: { name: 'Eevee', location: 'Goldenrod City', reason: 'Gift from Bill', gen: 2, eventFlag: 0x4f },
+  213: { name: 'Shuckle', location: 'Cianwood City', reason: 'Gift from Kirk', gen: 2, eventFlag: 0x45 },
+  147: { name: 'Dratini', location: "Dragon's Den", reason: 'Gift from Dragon Elder', gen: 2, eventFlag: 0xbd },
+  236: { name: 'Tyrogue', location: 'Mt. Mortar', reason: 'Gift from Kiyo', gen: 2, eventFlag: 0x61 },
 
   152: { name: 'Chikorita', location: 'New Bark Town', reason: 'Starter', gen: 2 },
   155: { name: 'Cyndaquil', location: 'New Bark Town', reason: 'Starter', gen: 2 },
@@ -18,16 +18,18 @@ export const STATIC_GIFT_DATA: Record<
     location: 'Route 36',
     reason: 'Static (Requires SquirtBottle)',
     gen: 2,
+    eventFlag: 0x2a,
   },
-  130: { name: 'Gyarados', location: 'Lake of Rage', reason: 'Static (Shiny)', gen: 2 },
-  249: { name: 'Lugia', location: 'Whirl Islands', reason: 'Static', gen: 2 },
-  250: { name: 'Ho-oh', location: 'Tin Tower', reason: 'Static', gen: 2 },
-  245: { name: 'Suicune', location: 'Tin Tower', reason: 'Static (Crystal)', gen: 2 },
+  130: { name: 'Gyarados', location: 'Lake of Rage', reason: 'Static (Shiny)', gen: 2, eventFlag: 0x751 },
+  249: { name: 'Lugia', location: 'Whirl Islands', reason: 'Static', gen: 2, eventFlag: 0x318 },
+  250: { name: 'Ho-oh', location: 'Tin Tower', reason: 'Static', gen: 2, eventFlag: 0x317 },
+  245: { name: 'Suicune', location: 'Tin Tower', reason: 'Static (Crystal)', gen: 2, eventFlag: 0x335 },
 };
 
 export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
   // --- GOLD/SILVER TRADES ---
   {
+    tradeIndex: 0,
     receivedId: 66,
     offeredId: 96,
     location: 'Goldenrod City (trade house)',
@@ -36,6 +38,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['gold', 'silver'],
   },
   {
+    tradeIndex: 1,
     receivedId: 95,
     offeredId: 69,
     location: 'Violet City (trade house)',
@@ -44,6 +47,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['gold', 'silver'],
   },
   {
+    tradeIndex: 2,
     receivedId: 100,
     offeredId: 98,
     location: 'Olivine City (trade house)',
@@ -52,6 +56,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['gold', 'silver'],
   },
   {
+    tradeIndex: 3,
     receivedId: 112,
     offeredId: 148,
     location: 'Blackthorn City (trade house)',
@@ -60,6 +65,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['gold', 'silver'],
   },
   {
+    tradeIndex: 4,
     receivedId: 78,
     offeredId: 44,
     location: 'Pewter City (trade house)',
@@ -68,6 +74,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['gold', 'silver'],
   },
   {
+    tradeIndex: 5,
     receivedId: 142,
     offeredId: 113,
     location: 'Route 14 (trade house)',
@@ -78,6 +85,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
 
   // --- CRYSTAL TRADES ---
   {
+    tradeIndex: 0,
     receivedId: 66,
     offeredId: 63,
     location: 'Goldenrod City (trade house)',
@@ -86,6 +94,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['crystal'],
   },
   {
+    tradeIndex: 1,
     receivedId: 95,
     offeredId: 69,
     location: 'Violet City (trade house)',
@@ -94,6 +103,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['crystal'],
   },
   {
+    tradeIndex: 2,
     receivedId: 100,
     offeredId: 98,
     location: 'Olivine City (trade house)',
@@ -102,6 +112,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['crystal'],
   },
   {
+    tradeIndex: 3,
     receivedId: 85,
     offeredId: 148,
     location: 'Blackthorn City (trade house)',
@@ -110,6 +121,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['crystal'],
   },
   {
+    tradeIndex: 4,
     receivedId: 178,
     offeredId: 93,
     location: 'Pewter City (trade house)',
@@ -118,6 +130,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['crystal'],
   },
   {
+    tradeIndex: 5,
     receivedId: 142,
     offeredId: 113,
     location: 'Route 14 (trade house)',
@@ -126,6 +139,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     versions: ['crystal'],
   },
   {
+    tradeIndex: 6,
     receivedId: 82,
     offeredId: 51,
     location: 'Power Plant',

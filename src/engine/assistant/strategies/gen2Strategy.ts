@@ -32,6 +32,9 @@ export const gen2Strategy: AssistantStrategy = {
       { id: 245, name: 'Suicune' },
     ];
     for (const roamer of roamers) {
+      // In Crystal, Suicune is a static encounter, not a roamer. Suppress roamer logic for it.
+      if (roamer.id === 245 && saveData.gameVersion === 'crystal') continue;
+
       if (missingSet.has(roamer.id)) {
         let isTracked = false;
         const rData = roamerMap.get(roamer.id);

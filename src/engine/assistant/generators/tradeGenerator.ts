@@ -1,4 +1,11 @@
-import { STATIC_GIFT_DATA, STATIC_NPC_TRADE_DATA } from '../../data/gen1/assistantData';
+import {
+  STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN1,
+  STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN1,
+} from '../../data/gen1/assistantData';
+import {
+  STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2,
+  STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN2,
+} from '../../data/gen2/assistantData';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
 import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
@@ -6,7 +13,12 @@ import type { Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 import { checkFlag } from '../utils/flags';
 
-const STATIC_GIFT_ENTRIES = Object.entries(STATIC_GIFT_DATA).map(([idStr, gift]) => ({
+const STATIC_GIFT_ENTRIES_GEN1 = Object.entries(STATIC_GIFT_DATA_GEN1).map(([idStr, gift]) => ({
+  giftId: parseInt(idStr, 10),
+  gift,
+}));
+
+const STATIC_GIFT_ENTRIES_GEN2 = Object.entries(STATIC_GIFT_DATA_GEN2).map(([idStr, gift]) => ({
   giftId: parseInt(idStr, 10),
   gift,
 }));
@@ -38,13 +50,16 @@ export function generateGiftAndTradeSuggestions(
   suggestions: Suggestion[],
   missingIds: Set<number>,
 ) {
+  const staticNpcTradeData = saveData.generation === 2 ? STATIC_NPC_TRADE_DATA_GEN2 : STATIC_NPC_TRADE_DATA_GEN1;
+  const staticGiftEntries = saveData.generation === 2 ? STATIC_GIFT_ENTRIES_GEN2 : STATIC_GIFT_ENTRIES_GEN1;
+
   // B. Unobtainable / Exclusive logic
   // Checks if the target is completely locked out of the current version (e.g. Red exclusives on Blue).
   // These are assigned the lowest base priority (10) since they require external action (link cable trades).
   // ⚡ Bolt: Convert O(N^2) array lookup to O(1) Set has for NPC trades
   const validNpcTradeIds = new Set<number>();
-  for (let i = 0; i < STATIC_NPC_TRADE_DATA.length; i++) {
-    const t = STATIC_NPC_TRADE_DATA[i];
+  for (let i = 0; i < staticNpcTradeData.length; i++) {
+    const t = staticNpcTradeData[i];
     if (t && t.gen === saveData.generation && (!t.versions || t.versions.includes(displayVersion))) {
       validNpcTradeIds.add(t.receivedId);
     }
@@ -94,7 +109,7 @@ export function generateGiftAndTradeSuggestions(
 
   // C. In-Game NPC Trades
   // Priority boosts if the player already physically possesses the required "offered" Pokemon (65 -> 85).
-  for (const trade of STATIC_NPC_TRADE_DATA) {
+  for (const trade of staticNpcTradeData) {
     if (trade.gen !== saveData.generation) continue;
     if (trade.versions && !trade.versions.includes(displayVersion)) continue;
     if (!missingIds.has(trade.receivedId)) continue;
@@ -119,8 +134,8 @@ export function generateGiftAndTradeSuggestions(
 
   // D. Static Gifts
   // Suggests available static encounters and gifts that haven't been claimed yet.
-  for (let i = 0; i < STATIC_GIFT_ENTRIES.length; i++) {
-    const entry = STATIC_GIFT_ENTRIES[i];
+  for (let i = 0; i < staticGiftEntries.length; i++) {
+    const entry = staticGiftEntries[i];
     if (!entry) continue;
     const { giftId, gift } = entry;
     if (gift.gen && gift.gen !== saveData.generation) continue;
