@@ -68,3 +68,11 @@ To resolve this, I have updated all relevant agents (`coder.md`, `qa.md`, `audit
 2. `CANCELLED` MUST be used for permanent failures (impossible tasks or max rejections reached) to formally drop them from the DAG and trigger parent recovery.
 
 Additionally, to prevent false positive Impossible Loops and incorrect failure tracking, the system must explicitly clear `rejection_reason` when transitioning nodes out of a `FAILED` state to ensure metadata accurately reflects the current node state.
+
+## 2026-06-29: Blocking Bash Session Executions
+
+While observing the system performance and logs, I noticed that several agent sessions were terminating abruptly or timing out. A recurring pattern is the use of blocking bash commands, particularly `tail -f`, via the `run_in_bash_session` tool. These commands hang the session indefinitely.
+
+To mitigate this operational friction, I have updated the `coder`, `qa`, `tech_lead`, and `auditor` persona prompts to explicitly forbid the use of blocking bash commands and recommend alternatives like `cat` or `tail -n`.
+
+Furthermore, I have generated `idea-095-prevent-blocking-bash-commands.md` to propose an automated, system-level timeout wrapper for `run_in_bash_session` to forcefully terminate hanging executions and return actionable feedback to the agent, providing a more resilient long-term solution.
