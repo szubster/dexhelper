@@ -40,10 +40,10 @@ You need to verify that the item parser extracts the right fields, properly comp
 4. Ensure `vite-plugins/pokedata-plugin.ts` correctly reads and includes the new `items.jsonl` in the msgpack bundle payload.
 
 ## Acceptance Criteria
-- [ ] Review the updated code in `scripts/generate-pokedata.ts` to ensure it parses the `item` resource.
-- [ ] Inspect the generated `data/db/items.jsonl` to ensure all fields align with the schema.
-- [ ] Confirm compaction logic works accurately.
-- [ ] Test that the build process succeeds and `items.jsonl` is correctly integrated by the Vite plugin.
+- [x] Review the updated code in `scripts/generate-pokedata.ts` to ensure it parses the `item` resource.
+- [x] Inspect the generated `data/db/items.jsonl` to ensure all fields align with the schema.
+- [x] Confirm compaction logic works accurately.
+- [x] Test that the build process succeeds and `items.jsonl` is correctly integrated by the Vite plugin.
 
 ## Critical Instructions for QA
 - **Failure Policy**: If the coder's implementation is flawed and you must reject it, you MUST update the YAML frontmatter of the target task (`task-128-212-item-list-parsing-impl`) to `status: FAILED`, provide a `rejection_reason`, and increment its `rejection_count`. Do NOT modify your own task's YAML frontmatter (it remains ACTIVE) and do NOT check off any Acceptance Criteria. Document the failure in your QA journal.
