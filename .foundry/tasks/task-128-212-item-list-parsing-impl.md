@@ -44,11 +44,11 @@ Ensure the generation logic leverages generation-specific datasets (e.g., `past_
 2. Ensure you read the conclusions from the research task `research-128-210-item-list-parsing-failure.md` to properly integrate `items.jsonl` into the bundle payload in `vite-plugins/pokedata-plugin.ts`.
 
 ## Acceptance Criteria
-- [ ] Implement parsing logic in `scripts/generate-pokedata.ts` to extract item data from the local PokeAPI dataset.
-- [ ] Apply compaction to remove nulls, default values, and zeros (like a cost of 0).
-- [ ] Ensure the generated structure matches the specification in ADR-049-025.
-- [ ] Output the processed data as `data/db/items.jsonl`.
-- [ ] Integrate `items.jsonl` into the payload within `vite-plugins/pokedata-plugin.ts`.
+- [x] Implement parsing logic in `scripts/generate-pokedata.ts` to extract item data from the local PokeAPI dataset.
+- [x] Apply compaction to remove nulls, default values, and zeros (like a cost of 0).
+- [x] Ensure the generated structure matches the specification in ADR-049-025.
+- [x] Output the processed data as `data/db/items.jsonl`.
+- [x] Integrate `items.jsonl` into the payload within `vite-plugins/pokedata-plugin.ts`.
 
 ## Critical Instructions for Coder
 - **Failure Policy**: If you must abort this task or it fails permanently, you MUST update the YAML frontmatter to `status: FAILED` and provide a `rejection_reason`. Do NOT check off any Acceptance Criteria in the event of failure.
