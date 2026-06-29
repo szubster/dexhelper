@@ -48,3 +48,4 @@ Verify the correctness of the Shiny Carrier breeding algorithm implementation, e
 
 ### QA Rejection
 Task implementation rejected because the algorithm does not handle the Gen 2 rule that prevents two Shiny (or Shiny Carrier) Pokémon from breeding with each other due to overlapping DVs.
+- Note: Failed the target task `task-084-210-breeding-pair-algorithm-impl` because the algorithm does not handle the Gen 2 rule that prevents two Shiny (or Shiny Carrier) Pokémon from breeding with each other due to overlapping DVs.
