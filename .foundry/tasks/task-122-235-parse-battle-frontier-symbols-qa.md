@@ -2,13 +2,13 @@
 id: task-122-235-parse-battle-frontier-symbols-qa
 type: TASK
 title: Gen 3 Parse Battle Frontier Symbols QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-12'
 updated_at: '2026-06-29'
 depends_on:
   - task-122-234-parse-battle-frontier-symbols-impl
-jules_session_id: null
+jules_session_id: '3164250630270601014'
 pr_number: null
 parent: story-078-122-gen3-parse-battle-frontier-symbols
 tags:
