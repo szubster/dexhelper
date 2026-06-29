@@ -23,6 +23,9 @@ export function sweepActiveNodes(repoRoot: string): string[] {
 
     for (const e of entries) {
       if (e.isDirectory()) {
+        if (e.name === 'archive' && current === foundryDir) {
+          continue;
+        }
         walk(path.join(current, e.name));
       } else if (e.isFile() && e.name.endsWith('.md')) {
         results.push(path.join(current, e.name));
@@ -38,9 +41,20 @@ export function sweepActiveNodes(repoRoot: string): string[] {
     try {
       const content = fs.readFileSync(fp, 'utf-8');
       const parsed = matter(content);
-      if (parsed.data && parsed.data['status'] === 'ACTIVE') {
+      const status = parsed.data?.['status'];
+
+      if (status === 'ACTIVE') {
         const relativePath = path.relative(repoRoot, fp);
         activeNodes.push(relativePath);
+      } else if (status === 'COMPLETED' || status === 'CANCELLED') {
+        // Move file to archive preserving structure
+        // e.g. .foundry/tasks/task.md -> .foundry/archive/tasks/task.md
+        const relativeToFoundry = path.relative(foundryDir, fp);
+        const archivePath = path.join(foundryDir, 'archive', relativeToFoundry);
+        const archiveDir = path.dirname(archivePath);
+
+        fs.mkdirSync(archiveDir, { recursive: true });
+        fs.renameSync(fp, archivePath);
       }
     } catch {
       // Ignore parse errors
