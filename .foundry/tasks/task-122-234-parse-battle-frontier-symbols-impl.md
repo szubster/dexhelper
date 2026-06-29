@@ -55,10 +55,10 @@ This task follows ADR 010 (Mandate `DataView` API) and ADR 026 (Bitwise State Ex
 4. **Testing**: Write unit tests to verify the bitwise extraction logic, boundary tests for the `DataView`, and ensure absolute zero state parsing handles properly (as per ADR 026).
 
 ## Acceptance Criteria
-- [ ] Implement symbol flags parsing using `DataView` with exact offsets and bit masks.
-- [ ] Define module-level constants for all offsets and bits.
-- [ ] Catch `RangeError` from `DataView` and handle it gracefully.
-- [ ] Write unit tests to cover the implementation.
+- [x] Implement symbol flags parsing using `DataView` with exact offsets and bit masks.
+- [x] Define module-level constants for all offsets and bits.
+- [x] Catch `RangeError` from `DataView` and handle it gracefully.
+- [x] Write unit tests to cover the implementation.
 
 ## Reminders
 - If you encounter a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
