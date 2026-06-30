@@ -64,4 +64,8 @@ By extracting the Volcanic Ash count from the Gen 3 save file, DexHelper can pro
 - **No PokeAPI Dependency:** This feature relies entirely on internal logic and local save data, adhering to the offline-first modernization strategy.
 
 ## 5. Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into corresponding EPICs (e.g., Save Parsing, UI Dashboard, Goal Planner Logic).
+- [x] Epic Planner: Break down this PRD into corresponding EPICs (e.g., Save Parsing, UI Dashboard, Goal Planner Logic).
+- [ ] .foundry/research/research-054-243-gen3-ash-gathering-offsets.md
+- [ ] .foundry/epics/epic-054-113-gen3-ash-save-parsing.md
+- [ ] .foundry/epics/epic-054-114-gen3-ash-dashboard.md
+- [ ] .foundry/epics/epic-054-115-gen3-ash-goal-planner.md
