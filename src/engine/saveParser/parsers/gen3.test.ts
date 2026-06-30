@@ -278,7 +278,7 @@ describe('parseGen3PersonalityValue', () => {
 
     const result = parseGen3PersonalityValue(view, 2);
 
-    expect(result).toBe(0x12345678);
+    expect(result).toEqual({ pv: 0x12345678, lower16: 0x5678 });
   });
 
   it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {

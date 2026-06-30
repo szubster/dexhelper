@@ -39,6 +39,7 @@ const SECRET_BASE_OFFSET_EMERALD = 0x1a9c;
 
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
+const LOWER_16_BIT_MASK = 0xffff;
 
 const GEN3_ROAMER_OFFSET_RS = 0x3144;
 const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
@@ -793,12 +794,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
  *
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to read the PV from.
- * @returns The 32-bit unsigned integer representing the PV.
+ * @returns An object containing the 32-bit PV and its lower 16-bits pre-calculated.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3PersonalityValue(view: DataView, offset: number): number {
+export function parseGen3PersonalityValue(view: DataView, offset: number): { pv: number; lower16: number } {
   try {
-    return view.getUint32(offset, true);
+    const pv = view.getUint32(offset, true);
+    return { pv, lower16: pv & LOWER_16_BIT_MASK };
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');
