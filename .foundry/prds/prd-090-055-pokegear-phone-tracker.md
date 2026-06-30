@@ -32,4 +32,8 @@ In Generation 2 (Gold, Silver, Crystal), the Pokégear Phone is a central featur
 - **Swarm/Item Alerts:** Specifically highlight NPCs that offer rare items (like Water Stone from Fisher Tully) or notify about swarms, separating them from standard rematch calls.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] .foundry/research/research-055-244-pokegear-mechanics.md
+- [ ] .foundry/epics/epic-055-116-pokegear-active-callers.md
+- [ ] .foundry/epics/epic-055-117-pokegear-predictor.md
+- [ ] .foundry/epics/epic-055-118-pokegear-alerts.md
