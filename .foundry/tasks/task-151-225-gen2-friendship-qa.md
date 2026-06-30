@@ -2,13 +2,13 @@
 id: task-151-225-gen2-friendship-qa
 type: TASK
 title: Gen 2 Friendship QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: 2026-06-27T00:00:00.000Z
 updated_at: '2026-06-30'
 depends_on:
   - task-151-224-gen2-friendship-impl
-jules_session_id: null
+jules_session_id: '7998284397520791000'
 pr_number: null
 parent: story-094-151-gen2-friendship-extraction
 tags:
