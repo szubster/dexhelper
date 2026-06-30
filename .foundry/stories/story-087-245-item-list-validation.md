@@ -2,13 +2,13 @@
 id: story-087-245-item-list-validation
 type: STORY
 title: Item List Generation Validation and Mapping
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on:
   - story-087-128-dynamic-item-list-parsing
-jules_session_id: null
+jules_session_id: '16815775460935980595'
 pr_number: null
 parent: epic-049-087-dynamic-item-list-parsing
 tags:
