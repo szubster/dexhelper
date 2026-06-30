@@ -28,5 +28,5 @@ notes: ''
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Ensure foundry-orchestrator.ts has logic in Phase 3.0 to change a node's status to CANCELLED if its status is FAILED and its rejection_count >= MAX_REJECTION_THRESHOLD.
-- [ ] If the artifact already correctly implements this feature, apply the Empty PR policy.
+- [x] Ensure foundry-orchestrator.ts has logic in Phase 3.0 to change a node's status to CANCELLED if its status is FAILED and its rejection_count >= MAX_REJECTION_THRESHOLD.
+- [x] If the artifact already correctly implements this feature, apply the Empty PR policy.
