@@ -34,6 +34,6 @@ Update the `sweep-active-nodes.ts` script to also sweep and archive nodes that a
 3. Update any relevant unit tests (e.g., `sweep-active-nodes.test.ts`) to cover `CANCELLED` nodes.
 
 ## Acceptance Criteria
-- [ ] The `sweep-active-nodes.ts` script successfully identifies and archives `CANCELLED` nodes.
-- [ ] Existing functionality for sweeping `COMPLETED` nodes remains intact.
-- [ ] Unit tests are updated and all pass.
+- [x] The `sweep-active-nodes.ts` script successfully identifies and archives `CANCELLED` nodes.
+- [x] Existing functionality for sweeping `COMPLETED` nodes remains intact.
+- [x] Unit tests are updated and all pass.
