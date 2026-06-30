@@ -26,10 +26,10 @@ notes: ''
 We have recently extracted shared DAG utility functions into \`.github/scripts/dag-utils.ts\`. This task is to write comprehensive unit tests for these utilities to ensure reliability.
 
 ## Acceptance Criteria
-- [ ] Create \`.github/scripts/dag-utils.test.ts\`.
-- [ ] Write unit tests for \`buildReverseDependencyGraph\`.
-- [ ] Write unit tests for \`getOrphanedNodes\`.
-- [ ] Tests must cover standard cases, edge cases, and ensure proper typing.
+- [x] Create \`.github/scripts/dag-utils.test.ts\`.
+- [x] Write unit tests for \`buildReverseDependencyGraph\`.
+- [x] Write unit tests for \`getOrphanedNodes\`.
+- [x] Tests must cover standard cases, edge cases, and ensure proper typing.
 
 ## Directives
 - Implement the unit tests using the existing testing framework used for other orchestrator scripts.

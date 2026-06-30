@@ -108,3 +108,6 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 - **Observation**: When preparing an execution plan to investigate a permanent failure, the proposed `RESEARCH` and `TASK` nodes included specific mathematical formulas (e.g., exact DV relatedness checks) and edge cases (e.g., Ditto mechanics) that were assumed from general knowledge rather than confirmed from the provided context or trace.
 - **Action**: The plan was rejected until the hallucinated domain knowledge was removed from the generated files.
 - **Lesson**: Do not hallucinate or assume unconfirmed domain knowledge, specific game mechanics, or mathematical formulas in generated tasks or research nodes unless they are explicitly present and verified in the read context files or issue description. Use research nodes strictly to *discover* this information if it is missing.
+## 2026-06-29: Blueprinting Gen 2 Daycare Parsing
+- **Observation**: When creating the blueprints for parsing Gen 2 Daycare save data, there are different memory offset structures for Gold/Silver vs Crystal, but the internal slot structure (57 bytes) is uniform.
+- **Action**: Drafted implementation and QA tasks for Gen 2 Daycare parsing, explicitly reinforcing the constraint that all memory offsets and sizes must be defined as reusable module-level constants.

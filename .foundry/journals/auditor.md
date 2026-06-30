@@ -68,3 +68,6 @@ When verifying `epic-045-071-documentation-macro-node-completion`, it was noted 
 During the verification of `epic-045-071-documentation-macro-node-completion`, it was discovered that `schema.md` contains contradictions. Invariant 7 states "`COMPLETED` nodes are read-only. Once a PR is merged, the node must not be edited. The TPM archives it." However, `ADR 014` introduced the `VERIFYING` state, meaning when a PR is merged, the node transitions to `VERIFYING`, not `COMPLETED`. Documentation updates for process changes must holistically review all related invariants.
 ## Lesson: Bitwise Flag Parsing with DataView
 - When parsing bitwise flags or blocks (like Gen 2 event flags) with the DataView API, explicit bounds checking and RangeError handling is an effective strategy to prevent corrupted save files from crashing the application.
+
+## Lesson: Bitwise Flag Mapping with DataView
+- When parsing large bitwise blocks (like the 256-byte Gen 2 eventFlags array) using the DataView API, ensure you explicitly map the specific bit offsets corresponding to target events (e.g., Togepi, Eevee static gifts). Just extracting the array is insufficient for downstream frontend consumption; explicitly identifying the individual bit offsets is required for successful strategy layer integration.

@@ -2,12 +2,12 @@
 id: idea-092-gen3-ev-training-dashboard
 type: IDEA
 title: Gen 3 Effort Value (EV) Training Dashboard
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-06-29'
-updated_at: '2026-06-26'
+updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16406703755634407022'
 parent: null
 tags:
   - gen3
