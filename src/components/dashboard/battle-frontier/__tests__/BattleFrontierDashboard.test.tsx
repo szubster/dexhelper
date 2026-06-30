@@ -55,3 +55,15 @@ test('renders dashboard with correct data', async () => {
   await expect.element(page.getByText('SILVER SYMBOL ACQUIRED')).toBeInTheDocument();
   await expect.element(page.getByText('GOLD SYMBOL ACQUIRED')).toBeInTheDocument();
 });
+
+test('does not throw an error if no symbols or win streaks exist', async () => {
+  const data = { generation: 3, gen3BattlePoints: 100 } as SaveData;
+  await render(<BattleFrontierDashboard saveData={data} />);
+  await expect.element(page.getByText('NO BATTLE FRONTIER DATA FOUND')).toBeInTheDocument();
+});
+
+test('does not throw an error if no battle points exist', async () => {
+  const data = { generation: 3, gen3BattleFrontierWinStreaks: mockSaveData.gen3BattleFrontierWinStreaks, gen3BattleFrontierSymbols: mockSaveData.gen3BattleFrontierSymbols } as SaveData;
+  await render(<BattleFrontierDashboard saveData={data} />);
+  await expect.element(page.getByText('NO BATTLE FRONTIER DATA FOUND')).toBeInTheDocument();
+});

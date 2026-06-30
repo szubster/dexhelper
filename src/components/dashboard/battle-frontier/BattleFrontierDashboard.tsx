@@ -1,9 +1,5 @@
 import type React from 'react';
 import type { Gen3BattleFrontierWinStreaks, SaveData } from '../../../engine/saveParser/parsers/common';
-// If using context: import { useSaveState } from '../../../contexts/SaveContext';
-// Since I haven't found SaveContext location, I'll export a component that accepts SaveData as a prop, or finds it.
-// Assuming we have a standard way to get SaveData. Let's build a pure component first.
-
 export interface BattleFrontierDashboardProps {
   saveData: SaveData;
 }
