@@ -31,6 +31,6 @@ Extract Friendship value for Gen 2 Pokémon in both Party and PC boxes.
 - Reminder: Change status to FAILED or CANCELLED on failure.
 
 ## Acceptance Criteria
-- [ ] Export friendship at offset 27.
-- [ ] Add unit tests for the extracted value in gen2.test.ts.
-- [ ] Ensure all memory offsets are defined as reusable constants at the module level.
+- [x] Export friendship at offset 27.
+- [x] Add unit tests for the extracted value in gen2.test.ts.
+- [x] Ensure all memory offsets are defined as reusable constants at the module level.

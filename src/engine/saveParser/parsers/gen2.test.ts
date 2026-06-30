@@ -129,6 +129,18 @@ describe('gen2 parsers', () => {
       expect(typeof data.partyDetails[2]?.caughtData?.locationName).toBe('string');
     });
 
+    it('should parse friendship correctly', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1); // p1
+      view.setUint8(0x288b + 7 + 27, 210); // friendship value
+
+      const data = parseGen2(view, false);
+      expect(data.partyDetails[0]?.friendship).toBe(210);
+    });
+
     it('should parse pokerus byte correctly', () => {
       const buffer = new ArrayBuffer(32768);
       const view = new DataView(buffer);
