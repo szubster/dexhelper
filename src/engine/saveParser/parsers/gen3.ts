@@ -609,6 +609,19 @@ export function parseGen3BattleFrontierWinStreaks(
   }
 }
 
+/**
+ * Main entry point for parsing a Generation 3 (R/S/E/FR/LG) save file.
+ *
+ * ## Execution Flow
+ * 1. **Section Resolution:** Scans the A/B flash memory banks to locate the most recent, valid memory offsets for SaveBlock2 (Section 2) and SaveBlock1 (Section 1).
+ * 2. **State Extraction:** Extracts world state data including Berry Patches, Secret Bases, PokeNews, Mix Records, Roaming Legendaries, and Mirage Island values.
+ * 3. **Data Compilation:** Compiles the parsed values into a unified `SaveData` object. Note: Party and PC box parsing are currently stubbed in this scaffold.
+ *
+ * @param view - The raw save file DataView.
+ * @param _forcedVersion - An optional game version override (e.g. 'ruby', 'emerald') to dictate memory offsets.
+ * @returns The fully constructed SaveData object.
+ * @throws {Error} If the save file is corrupted, incomplete, or out-of-bounds reads occur.
+ */
 export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {
   try {
     let section2Offset: number;
