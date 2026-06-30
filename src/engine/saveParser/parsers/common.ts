@@ -392,3 +392,23 @@ export function checkShiny(dvs: { atk: number; def: number; spd: number; spc: nu
 export function checkShinyGene(dvs: { atk: number; def: number; spd: number; spc: number }) {
   return dvs.def === 10 && (dvs.spc === 2 || dvs.spc === 10);
 }
+
+const POKERUS_STRAIN_SHIFT = 4;
+const POKERUS_DAYS_MASK = 0x0f;
+
+/**
+ * Parses the Pokerus byte.
+ *
+ * @param rawPokerus - The raw byte value representing Pokerus.
+ * @returns An object with strain and daysRemaining if the Pokemon was infected, otherwise undefined.
+ */
+export function parsePokerus(rawPokerus: number) {
+  if (rawPokerus === 0) {
+    return undefined;
+  }
+
+  return {
+    strain: rawPokerus >> POKERUS_STRAIN_SHIFT,
+    daysRemaining: rawPokerus & POKERUS_DAYS_MASK,
+  };
+}

@@ -30,8 +30,8 @@ As per ADR 026:
 2. Cured State Enforcement: Any bitwise data structure representing a "condition" that degrades or changes over time (like Pokerus or Contest conditions) MUST explicitly define and test its boundary states.
 
 ## Acceptance Criteria
-- [ ] Create `parsePokerus` in `common.ts` using constants for shifts and masks
-- [ ] Refactor `gen2.ts` to use `parsePokerus`
+- [x] Create `parsePokerus` in `common.ts` using constants for shifts and masks
+- [x] Refactor `gen2.ts` to use `parsePokerus`
 
 ### Important Constraints
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
