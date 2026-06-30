@@ -38,7 +38,7 @@ Implement a data parsing module for extracting the Battle Frontier data from Gen
 - **Empty PR Policy:** If you submit an empty PR because the parsing module is already fully implemented, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Define module-level constants for all Battle Frontier offsets and sizes.
-- [ ] Implement a `DataView`-based parser function to extract BP balance.
-- [ ] Implement extraction logic for Frontier Brain progress metrics (win streaks and symbol flags) across all 7 facilities.
-- [ ] Write unit tests verifying parsing logic with mock `DataView` buffers.
+- [x] Define module-level constants for all Battle Frontier offsets and sizes.
+- [x] Implement a `DataView`-based parser function to extract BP balance.
+- [x] Implement extraction logic for Frontier Brain progress metrics (win streaks and symbol flags) across all 7 facilities.
+- [x] Write unit tests verifying parsing logic with mock `DataView` buffers.
