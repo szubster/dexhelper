@@ -33,6 +33,6 @@ The Coder has implemented the logic to pre-calculate and expose the lower 16 bit
 4. **Completion Contract**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Validate logic correctly exposes lower 16-bits of PV.
-- [ ] Write/update tests to verify functionality.
-- [ ] Run `pnpm test` to ensure tests pass.
+- [x] Validate logic correctly exposes lower 16-bits of PV.
+- [x] Write/update tests to verify functionality.
+- [x] Run `pnpm test` to ensure tests pass.
