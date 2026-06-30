@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   isGen3Save,
   parseGen3,
+  parseGen3ActiveSwarm,
   parseGen3BattleFrontierSymbols,
   parseGen3BattleFrontierWinStreaks,
   parseGen3ConditionStats,
@@ -797,5 +798,64 @@ describe('parseGen3SecretBases', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3SecretBases(view, 0, 'ruby')).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3ActiveSwarm', () => {
+  it('should return undefined if no active swarm is found', () => {
+    const buffer = new ArrayBuffer(25 * 36);
+    const view = new DataView(buffer);
+    const offset = 0;
+    expect(parseGen3ActiveSwarm(view, offset)).toBeUndefined();
+  });
+
+  it('should correctly parse an active swarm', () => {
+    const buffer = new ArrayBuffer(25 * 36);
+    const view = new DataView(buffer);
+    const offset = 0;
+
+    const itemOffset = offset + 2 * 36;
+    view.setUint8(itemOffset + 0, 41); // kind = 41 (TV_SHOW_MASS_OUTBREAK)
+    view.setUint8(itemOffset + 1, 1); // active = true
+
+    view.setUint16(itemOffset + 0x0c, 273, true); // speciesId
+    view.setUint8(itemOffset + 0x10, 114); // mapId
+    view.setUint8(itemOffset + 0x11, 0); // mapGroup
+    view.setUint16(itemOffset + 0x16, 2, true); // daysRemaining
+
+    const swarm = parseGen3ActiveSwarm(view, offset);
+    expect(swarm).toEqual({
+      speciesId: 273,
+      mapId: 114,
+      mapGroup: 0,
+      daysRemaining: 2,
+    });
+  });
+
+  it('should ignore inactive mass outbreaks', () => {
+    const buffer = new ArrayBuffer(25 * 36);
+    const view = new DataView(buffer);
+    const offset = 0;
+
+    const itemOffset = offset;
+    view.setUint8(itemOffset + 0, 41); // kind = 41 (TV_SHOW_MASS_OUTBREAK)
+    view.setUint8(itemOffset + 1, 0); // active = false
+
+    view.setUint16(itemOffset + 0x0c, 273, true);
+    view.setUint8(itemOffset + 0x10, 114);
+    view.setUint8(itemOffset + 0x11, 0);
+    view.setUint16(itemOffset + 0x16, 2, true);
+
+    expect(parseGen3ActiveSwarm(view, offset)).toBeUndefined();
+  });
+
+  it('should throw RangeError on malformed saves', () => {
+    const buffer = new ArrayBuffer(10); // Too small
+    const view = new DataView(buffer);
+    const offset = 0;
+
+    expect(() => parseGen3ActiveSwarm(view, offset)).toThrow(
+      'The save file is corrupted or incomplete: Invalid TV block struct.',
+    );
   });
 });

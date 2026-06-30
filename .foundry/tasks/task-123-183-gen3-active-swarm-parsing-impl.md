@@ -2,13 +2,13 @@
 id: task-123-183-gen3-active-swarm-parsing-impl
 type: TASK
 title: Implement Gen 3 Active Swarm Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-14'
 updated_at: '2026-06-30'
 depends_on:
   - research-123-202-gen3-outbreak-offsets
-jules_session_id: null
+jules_session_id: '5935355783169104429'
 pr_number: null
 parent: story-081-123-gen3-active-swarm-parsing
 tags:
@@ -31,9 +31,9 @@ You must avoid legacy `Uint8Array` manual read methods and instead use `DataView
 Any out-of-bounds reads or structurally corrupt states MUST trigger a gracefully caught `RangeError` which the parser translates into a descriptive structural error, rather than crashing the application.
 
 ## Acceptance Criteria
-- [ ] Implement extraction of active swarm data (species, location) entirely using `DataView`.
-- [ ] Implement extraction of the remaining days for the active swarm using `DataView`.
-- [ ] Explicit error handling is in place to catch `RangeError` exceptions natively thrown by `DataView` on malformed saves.
+- [x] Implement extraction of active swarm data (species, location) entirely using `DataView`.
+- [x] Implement extraction of the remaining days for the active swarm using `DataView`.
+- [x] Explicit error handling is in place to catch `RangeError` exceptions natively thrown by `DataView` on malformed saves.
 
 ## Important Protocols (For Coder)
 - **Empty PR Protocol:** If the required logic is already implemented and the criteria are satisfied by existing code, you MUST still submit an empty Pull Request (with 0 file changes). However, before submitting an empty PR, you MUST check off all Acceptance Criteria checkboxes above (`- [x]`).

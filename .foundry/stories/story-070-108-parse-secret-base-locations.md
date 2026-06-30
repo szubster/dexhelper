@@ -2,12 +2,12 @@
 id: story-070-108-parse-secret-base-locations
 type: STORY
 title: Parse Gen 3 Secret Base Locations
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3805352297163419392'
 pr_number: null
 parent: epic-045-070-gen3-secret-base-parsing
 tags:
@@ -36,6 +36,6 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to extract the
 - [x] task-108-163-gen3-secret-base-parser
 - [x] task-108-164-gen3-secret-base-parser-qa
 
-- [ ] research-108-221-gen3-secret-base-rangeerror
-- [ ] task-108-222-gen3-secret-base-parser-retry-impl
-- [ ] task-108-223-gen3-secret-base-parser-retry-qa
+- [x] research-108-221-gen3-secret-base-rangeerror
+- [x] task-108-222-gen3-secret-base-parser-retry-impl
+- [x] task-108-223-gen3-secret-base-parser-retry-qa

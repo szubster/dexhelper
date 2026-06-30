@@ -2,13 +2,13 @@
 id: task-121-220-gen3-tv-block-parser-retry-qa
 type: TASK
 title: QA Gen 3 TV Block DataView Parser (Retry)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-23'
 updated_at: '2026-06-30'
 depends_on:
   - task-121-219-gen3-tv-block-parser-retry-impl
-jules_session_id: null
+jules_session_id: '10619841385818447542'
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
 tags:
@@ -25,6 +25,8 @@ notes: ''
 
 ## Description
 Verify the implementation of the Gen 3 TV block `DataView` parser to ensure it correctly and safely parses the data according to the architecture guidelines and the findings from `research-121-216`.
+
+**Validation Note (2026-06-30):** Rejected `task-121-219-gen3-tv-block-parser-retry-impl`. The implementer correctly used `DataView` but violated the strict constraint against inline magic numbers by using `21` and `40` directly in the `parseGen3MixRecords` conditional check instead of defining them as module-level reusable constants. The task has been failed and sent back for retry.
 
 ## Acceptance Criteria
 - [ ] Verify the TV block extraction logic uses `DataView` exclusively, with no legacy `Uint8Array` manual read methods.

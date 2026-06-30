@@ -8,7 +8,7 @@ created_at: '2026-06-09'
 updated_at: '2026-06-30'
 depends_on:
   - epic-043-067-roamer-data-extraction
-jules_session_id: null
+jules_session_id: '10427083293234593843'
 pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
 tags: []

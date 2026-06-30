@@ -20,6 +20,7 @@
 
 import type {
   GameVersion,
+  Gen3ActiveSwarm,
   Gen3BattleFrontierSymbols,
   Gen3BattleFrontierWinStreaks,
   Gen3BerryPatch,
@@ -93,6 +94,12 @@ const TV_SHOWS_COUNT = 25;
 const TV_SHOW_SIZE = 36;
 const TV_SHOW_KIND_OFFSET = 0;
 const TV_SHOW_ACTIVE_OFFSET = 1;
+
+const TV_SHOW_MASS_OUTBREAK = 41;
+const MASS_OUTBREAK_SPECIES_OFFSET = 0x0c;
+const MASS_OUTBREAK_LOCATION_MAP_NUM_OFFSET = 0x10;
+const MASS_OUTBREAK_LOCATION_MAP_GROUP_OFFSET = 0x11;
+const MASS_OUTBREAK_DAYS_BEFORE_OFFSET = 0x16;
 
 const POKE_NEWS_OFFSET = 0x2b50;
 const POKE_NEWS_COUNT = 16;
@@ -406,6 +413,51 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
 }
 
 /**
+ * Parses Active Swarm (Mass Outbreak) data from a Gen 3 save file.
+ *
+ * @remarks
+ * Mass outbreak events are stored within the TV Show array. Shows with a specific
+ * kind (e.g., 41) indicate a mass outbreak. We scan the array to extract the active
+ * swarm data (species, location, and days remaining).
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the TV Shows array from.
+ * @returns An object containing the extracted Gen3ActiveSwarm data or undefined if none found.
+ * @throws Error - "The save file is corrupted or incomplete: Invalid TV block struct." on out-of-bounds reads.
+ */
+export function parseGen3ActiveSwarm(view: DataView, offset: number): Gen3ActiveSwarm | undefined {
+  try {
+    for (let i = 0; i < TV_SHOWS_COUNT; i++) {
+      const itemOffset = offset + i * TV_SHOW_SIZE;
+      const kind = view.getUint8(itemOffset + TV_SHOW_KIND_OFFSET);
+      const active = view.getUint8(itemOffset + TV_SHOW_ACTIVE_OFFSET) !== 0;
+
+      // Check if the show is a Mass Outbreak event and active
+      if (active && kind === TV_SHOW_MASS_OUTBREAK) {
+        const speciesId = view.getUint16(itemOffset + MASS_OUTBREAK_SPECIES_OFFSET, true);
+        const mapId = view.getUint8(itemOffset + MASS_OUTBREAK_LOCATION_MAP_NUM_OFFSET);
+        const mapGroup = view.getUint8(itemOffset + MASS_OUTBREAK_LOCATION_MAP_GROUP_OFFSET);
+        const daysRemaining = view.getUint16(itemOffset + MASS_OUTBREAK_DAYS_BEFORE_OFFSET, true);
+
+        // We only extract the first active swarm we find
+        return {
+          speciesId,
+          mapId,
+          mapGroup,
+          daysRemaining,
+        };
+      }
+    }
+    return undefined;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete: Invalid TV block struct.');
+    }
+    throw error;
+  }
+}
+
+/**
  * Parses the 6-byte Condition stats (Contest attributes) for a Gen 3 Pokémon.
  *
  * @remarks
@@ -643,6 +695,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset + POKE_NEWS_OFFSET);
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
+    const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
 
     const roamingLegendaries = [];
     try {
@@ -712,6 +765,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       mirageIslandValue,
       gen3PokeNews,
       gen3MixRecords,
+      ...(gen3ActiveSwarm !== undefined ? { gen3ActiveSwarm } : {}),
       roamingLegendaries,
     };
     if (gen3BattleFrontierWinStreaks) {

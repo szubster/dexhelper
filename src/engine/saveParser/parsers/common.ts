@@ -79,6 +79,13 @@ export interface Gen3MixRecord {
   active: boolean;
 }
 
+export interface Gen3ActiveSwarm {
+  speciesId: number;
+  mapId: number;
+  mapGroup: number;
+  daysRemaining: number;
+}
+
 export interface Gen3SecretBase {
   secretBaseId: number;
 }
@@ -186,6 +193,8 @@ export interface SaveData {
   gen3PokeNews?: Gen3PokeNews[];
   /** Gen 3 specific: Inherited Mix Record events. */
   gen3MixRecords?: Gen3MixRecord[];
+  /** Gen 3 specific: Active Swarm (Mass Outbreak) data. */
+  gen3ActiveSwarm?: Gen3ActiveSwarm;
   /**
    * Information regarding currently roaming Legendaries (Gen 2: Raikou, Entei, Suicune. Gen 3: Latios, Latias).
    *

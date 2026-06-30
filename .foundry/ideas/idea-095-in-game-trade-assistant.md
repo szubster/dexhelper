@@ -2,12 +2,12 @@
 id: idea-095-in-game-trade-assistant
 type: IDEA
 title: Gen 2/3 In-Game Trade Assistant Dashboard
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17002018617277256621'
 pr_number: null
 parent: null
 tags: []

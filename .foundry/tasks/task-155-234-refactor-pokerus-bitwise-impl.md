@@ -2,12 +2,12 @@
 id: task-155-234-refactor-pokerus-bitwise-impl
 type: TASK
 title: Refactor Pokerus Bitwise Extraction Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-28'
-updated_at: '2026-06-28'
+updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17898480374231205194'
 pr_number: null
 parent: story-061-155-refactor-pokerus-bitwise
 tags:
