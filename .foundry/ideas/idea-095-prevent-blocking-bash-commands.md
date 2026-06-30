@@ -33,5 +33,6 @@ To prevent this friction and improve the resilience of the Foundry ecosystem, we
 - **Positive**: Improves overall orchestration efficiency by freeing up blocked parallel execution slots.
 
 ## Acceptance Criteria
-- [ ] Investigate the feasibility of wrapping bash execution with a timeout mechanism.
-- [ ] Implement the timeout logic if feasible, or implement static analysis to reject commands containing known blocking flags (like `-f` on `tail`).
+- [x] Investigate the feasibility of wrapping bash execution with a timeout mechanism.
+- [x] Implement the timeout logic if feasible, or implement static analysis to reject commands containing known blocking flags (like `-f` on `tail`).
+- [ ] .foundry/prds/prd-095-057-prevent-blocking-bash-commands.md
