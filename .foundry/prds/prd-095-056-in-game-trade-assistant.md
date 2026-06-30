@@ -2,10 +2,10 @@
 id: prd-095-056-in-game-trade-assistant
 type: PRD
 title: Gen 2/3 In-Game Trade Assistant Dashboard
-status: PENDING
+status: READY
 owner_persona: epic_planner
-created_at: "2026-06-30"
-updated_at: "2026-06-30"
+created_at: '2026-06-30'
+updated_at: '2026-06-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,8 +13,8 @@ parent: idea-095-in-game-trade-assistant
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 # Gen 2/3 In-Game Trade Assistant Dashboard PRD
 

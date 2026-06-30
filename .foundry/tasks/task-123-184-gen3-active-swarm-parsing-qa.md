@@ -2,10 +2,10 @@
 id: task-123-184-gen3-active-swarm-parsing-qa
 type: TASK
 title: QA Gen 3 Active Swarm Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-06-30'
 depends_on:
   - task-123-183-gen3-active-swarm-parsing-impl
 jules_session_id: null

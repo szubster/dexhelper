@@ -2,7 +2,7 @@
 id: research-054-243-gen3-ash-gathering-offsets
 type: RESEARCH
 title: Gen 3 Volcanic Ash Offsets
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-30'
 updated_at: '2026-06-30'

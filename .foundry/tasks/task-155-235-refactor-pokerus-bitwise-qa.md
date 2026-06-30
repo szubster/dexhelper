@@ -2,10 +2,10 @@
 id: task-155-235-refactor-pokerus-bitwise-qa
 type: TASK
 title: Refactor Pokerus Bitwise Extraction QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-28'
-updated_at: '2026-06-28'
+updated_at: '2026-06-30'
 depends_on:
   - task-155-234-refactor-pokerus-bitwise-impl
 jules_session_id: null

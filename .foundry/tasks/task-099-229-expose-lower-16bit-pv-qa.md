@@ -2,10 +2,10 @@
 id: task-099-229-expose-lower-16bit-pv-qa
 type: TASK
 title: QA - Expose lower 16-bits of PV
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-28'
-updated_at: '2026-06-28'
+updated_at: '2026-06-30'
 depends_on:
   - task-099-228-expose-lower-16bit-pv-impl
 jules_session_id: null

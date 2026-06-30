@@ -2,12 +2,12 @@
 id: task-106-226-dag-utils-unit-tests-impl
 type: TASK
 title: Implement Unit Tests for Shared DAG Utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-28'
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: '2350041201530531065'
+jules_session_id: null
 pr_number: null
 parent: story-053-106-dag-utils-unit-tests
 tags:

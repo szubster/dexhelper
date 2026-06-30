@@ -2,13 +2,13 @@
 id: task-109-225-gen3-roamer-status-parsing-qa
 type: TASK
 title: QA Gen 3 Roamer Status Condition Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-27'
 updated_at: '2026-06-30'
 depends_on:
   - task-109-224-gen3-roamer-status-parsing-impl
-jules_session_id: '9935011387757845807'
+jules_session_id: null
 pr_number: null
 parent: story-070-109-gen3-roamer-status-parsing
 tags:

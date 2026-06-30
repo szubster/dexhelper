@@ -2,7 +2,7 @@
 id: task-121-219-gen3-tv-block-parser-retry-impl
 type: TASK
 title: Implement Gen 3 TV Block DataView Parser (Retry)
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-06-23'
 updated_at: '2026-06-30'
@@ -16,8 +16,8 @@ tags:
   - gen3
   - data-parsing
 research_references: []
-rejection_count: 1
-rejection_reason: 'Implementation used inline magic numbers (21 and 40) in parseGen3MixRecords instead of defining reusable constants at the module level for the mix record kind range.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

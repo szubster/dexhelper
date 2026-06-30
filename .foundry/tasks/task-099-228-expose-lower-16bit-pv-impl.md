@@ -2,12 +2,12 @@
 id: task-099-228-expose-lower-16bit-pv-impl
 type: TASK
 title: Expose lower 16-bits of PV implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-28'
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: '11380305713727725481'
+jules_session_id: null
 pr_number: null
 parent: story-062-099-gen3-expose-lower-16bit-pv
 tags:

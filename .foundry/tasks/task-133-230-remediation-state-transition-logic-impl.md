@@ -2,12 +2,12 @@
 id: task-133-230-remediation-state-transition-logic-impl
 type: TASK
 title: Remediation State Transition Logic Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-28'
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: '15138185971453067695'
+jules_session_id: null
 pr_number: null
 parent: story-090-133-remediation-state-transition-logic
 tags:
