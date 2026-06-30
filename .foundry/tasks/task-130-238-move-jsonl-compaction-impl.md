@@ -38,9 +38,9 @@ We need to apply compaction logic to the move data extracted in `scripts/generat
 - If there are generation-specific overrides or PP max calculations, make sure only the base `pp` is saved (which may already be happening). The ADR mentions: "The generation logic should only store the base `pp`; the client runtime will calculate the max PP dynamically when needed."
 
 ## Acceptance Criteria
-- [ ] Compaction logic correctly omits move `p` (power) when 0 or null.
-- [ ] Compaction logic correctly omits move `acc` (accuracy) when 100 or null.
-- [ ] The generated `moves.jsonl` contains the correct, minimal payload structure.
+- [x] Compaction logic correctly omits move `p` (power) when 0 or null.
+- [x] Compaction logic correctly omits move `acc` (accuracy) when 100 or null.
+- [x] The generated `moves.jsonl` contains the correct, minimal payload structure.
 
 ## Important Note for Coder
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
