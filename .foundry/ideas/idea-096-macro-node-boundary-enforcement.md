@@ -2,12 +2,12 @@
 id: idea-096-macro-node-boundary-enforcement
 type: IDEA
 title: Enforce Macro Node Functional Boundaries
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2440599855560762801'
 pr_number: null
 parent: null
 tags:
