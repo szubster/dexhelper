@@ -2,13 +2,13 @@
 id: story-070-109-extract-mixed-record-trainer-data
 type: STORY
 title: Extract Gen 3 Mixed Record Trainer Data
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
 updated_at: '2026-06-30'
 depends_on:
   - story-070-108-parse-secret-base-locations
-jules_session_id: null
+jules_session_id: '324226336566927318'
 pr_number: null
 parent: epic-045-070-gen3-secret-base-parsing
 tags:
