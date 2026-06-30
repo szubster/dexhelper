@@ -2,13 +2,13 @@
 id: task-084-211-breeding-pair-algorithm-qa
 type: TASK
 title: QA Shiny Carrier Breeding Pair Algorithm
-status: FAILED
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-29'
 depends_on:
   - task-084-210-breeding-pair-algorithm-impl
-jules_session_id: null
+jules_session_id: '16951829864894664390'
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:
@@ -18,8 +18,8 @@ tags:
   - backend
   - qa
 research_references: []
-rejection_count: 1
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
@@ -49,3 +49,7 @@ Verify the correctness of the Shiny Carrier breeding algorithm implementation, e
 ### QA Rejection
 Task implementation rejected because the algorithm does not handle the Gen 2 rule that prevents two Shiny (or Shiny Carrier) Pokémon from breeding with each other due to overlapping DVs.
 - Note: Failed the target task `task-084-210-breeding-pair-algorithm-impl` because the algorithm does not handle the Gen 2 rule that prevents two Shiny (or Shiny Carrier) Pokémon from breeding with each other due to overlapping DVs.
+
+### Auditor Rejection
+**CANCELLED**
+This QA task has been permanently cancelled because it was merged with unfulfilled acceptance criteria. It has been replaced by a new task following the completion of the required research node.

@@ -104,3 +104,7 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 **Context**: While breaking down a Story into tasks, I erroneously checked off the acceptance criteria for the parent Story node *before* the child tasks had been completed.
 **Consequence**: This triggers an immediate transition of the Story to `VERIFYING` state via the "Empty PR Policy", which breaks the DAG dependency graph because its children are still pending.
 **Lesson Learned**: Parent node acceptance criteria must *never* be checked off until all dynamically spawned child nodes (which are appended as unchecked `- [ ]` tasks) have been formally transitioned to `COMPLETED`.
+## 2026-06-29: Execution Plan Groundedness Rule (Domain Knowledge)
+- **Observation**: When preparing an execution plan to investigate a permanent failure, the proposed `RESEARCH` and `TASK` nodes included specific mathematical formulas (e.g., exact DV relatedness checks) and edge cases (e.g., Ditto mechanics) that were assumed from general knowledge rather than confirmed from the provided context or trace.
+- **Action**: The plan was rejected until the hallucinated domain knowledge was removed from the generated files.
+- **Lesson**: Do not hallucinate or assume unconfirmed domain knowledge, specific game mechanics, or mathematical formulas in generated tasks or research nodes unless they are explicitly present and verified in the read context files or issue description. Use research nodes strictly to *discover* this information if it is missing.
