@@ -98,6 +98,19 @@ const DOME_GOLD_OFFSET = 0x1388;
 const DOME_GOLD_BIT = 7;
 const PALACE_SILVER_OFFSET = 0x1389;
 const PALACE_SILVER_BIT = 0;
+
+const TV_SHOWS_COUNT = 25;
+const TV_SHOW_STRIDE = 36;
+const MIX_RECORD_KIND_MIN = 21;
+const MIX_RECORD_KIND_MAX = 40;
+const OUTBREAK_KIND_MIN = 41;
+const OUTBREAK_KIND_MAX = 60;
+const SWARM_SPECIES_OFFSET = 0x0c;
+const SWARM_MAP_NUM_OFFSET = 0x10;
+const SWARM_MAP_GROUP_OFFSET = 0x11;
+const SWARM_DAYS_REMAINING_OFFSET = 0x16;
+const TV_SHOWS_ARRAY_OFFSET = 0x27cc;
+const POKE_NEWS_ARRAY_OFFSET = 0x2b50;
 const PALACE_GOLD_OFFSET = 0x1389;
 const PALACE_GOLD_BIT = 1;
 const ARENA_SILVER_OFFSET = 0x1389;
@@ -279,6 +292,40 @@ export function isGen3Save(view: DataView): boolean {
 }
 
 /**
+ * Parses the active mass outbreak (swarm) details from the TV shows array.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the value from.
+ * @returns An object containing the outbreak details, or undefined if none are active.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3ActiveSwarm(view: DataView, offset: number) {
+  try {
+    for (let i = 0; i < TV_SHOWS_COUNT; i++) {
+      const itemOffset = offset + i * TV_SHOW_STRIDE;
+      const kind = view.getUint8(itemOffset);
+      const active = view.getUint8(itemOffset + 1) !== 0;
+
+      // Check if the show is an Outbreak event (41 to 60)
+      if (active && kind >= OUTBREAK_KIND_MIN && kind <= OUTBREAK_KIND_MAX) {
+        return {
+          speciesId: view.getUint16(itemOffset + SWARM_SPECIES_OFFSET, true),
+          mapId: view.getUint8(itemOffset + SWARM_MAP_NUM_OFFSET),
+          mapGroup: view.getUint8(itemOffset + SWARM_MAP_GROUP_OFFSET),
+          daysRemaining: view.getUint16(itemOffset + SWARM_DAYS_REMAINING_OFFSET, true),
+        };
+      }
+    }
+    return undefined;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
  * Parses the Gen 3 Roamer data (e.g., Latias or Latios) from the save file.
  *
  * **Version-Specific Memory Shifts:**
@@ -373,13 +420,13 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
 export function parseGen3MixRecords(view: DataView, offset: number) {
   try {
     const mixRecords = [];
-    for (let i = 0; i < 25; i++) {
-      const itemOffset = offset + i * 36;
+    for (let i = 0; i < TV_SHOWS_COUNT; i++) {
+      const itemOffset = offset + i * TV_SHOW_STRIDE;
       const kind = view.getUint8(itemOffset);
       const active = view.getUint8(itemOffset + 1) !== 0;
 
       // Check if the show is a Mix Record event (21 to 40)
-      if (active && kind >= 21 && kind <= 40) {
+      if (active && kind >= MIX_RECORD_KIND_MIN && kind <= MIX_RECORD_KIND_MAX) {
         mixRecords.push({ kind, active });
       }
     }
@@ -615,8 +662,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
 
-    const gen3PokeNews = parseGen3PokeNews(view, section1Offset + 0x2b50);
-    const gen3MixRecords = parseGen3MixRecords(view, section1Offset + 0x27cc);
+    const gen3PokeNews = parseGen3PokeNews(view, section1Offset + POKE_NEWS_ARRAY_OFFSET);
+    const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_ARRAY_OFFSET);
+    const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_ARRAY_OFFSET);
 
     const roamingLegendaries = [];
     try {
@@ -688,6 +736,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3MixRecords,
       roamingLegendaries,
     };
+    if (gen3ActiveSwarm) {
+      result.gen3ActiveSwarm = gen3ActiveSwarm;
+    }
     if (gen3BattleFrontierWinStreaks) {
       result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
     }

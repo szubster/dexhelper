@@ -186,6 +186,8 @@ export interface SaveData {
   gen3PokeNews?: Gen3PokeNews[];
   /** Gen 3 specific: Inherited Mix Record events. */
   gen3MixRecords?: Gen3MixRecord[];
+  /** Gen 3 specific: Active Swarm (Mass Outbreak) details. */
+  gen3ActiveSwarm?: { speciesId: number; mapId: number; mapGroup: number; daysRemaining: number };
   /**
    * Information regarding currently roaming Legendaries (Gen 2: Raikou, Entei, Suicune. Gen 3: Latios, Latias).
    *
