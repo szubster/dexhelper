@@ -45,9 +45,9 @@ The algorithm in `calculateFeebasTiles` still contains inline magic numbers for 
 - **Magic Number Rules**: When drafting blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] PRNG multiplier (`1103515245`) and addend (`12345`) are extracted into descriptive constants.
-- [ ] Bit shift (`16`) is extracted into a constant.
-- [ ] Lengths and boundaries (`447` total spots, `6` valid spots, `4` inaccessible boundary) are extracted into constants.
-- [ ] All new constants are exported at the module level.
-- [ ] The `calculateFeebasTiles` function is updated to use the new constants instead of inline magic numbers.
-- [ ] Tests pass (self-verified by coder).
+- [x] PRNG multiplier (`1103515245`) and addend (`12345`) are extracted into descriptive constants.
+- [x] Bit shift (`16`) is extracted into a constant.
+- [x] Lengths and boundaries (`447` total spots, `6` valid spots, `4` inaccessible boundary) are extracted into constants.
+- [x] All new constants are exported at the module level.
+- [x] The `calculateFeebasTiles` function is updated to use the new constants instead of inline magic numbers.
+- [x] Tests pass (self-verified by coder).

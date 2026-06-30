@@ -3,6 +3,13 @@ import type { GameVersion } from '../saveParser/parsers/common';
 export const FEEBAS_SEED_OFFSET_RS = 0x2dd6;
 export const FEEBAS_SEED_OFFSET_EMERALD = 0x2e66;
 
+export const LCG_MULTIPLIER = 1103515245;
+export const LCG_ADDEND = 12345;
+export const FEEBAS_SPOT_BIT_SHIFT = 16;
+export const FEEBAS_TOTAL_SPOTS = 447;
+export const FEEBAS_VALID_SPOTS = 6;
+export const FEEBAS_BOUNDARY = 4;
+
 /**
  * Extracts the 16-bit Feebas seed from Gen 3 save files using the native DataView API.
  *
@@ -42,14 +49,14 @@ export function extractFeebasSeed(saveData: DataView, gameVersion: GameVersion):
 export function calculateFeebasTiles(seed: number): number[] {
   let rng = seed;
   const spots: number[] = [];
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < FEEBAS_VALID_SPOTS; i++) {
     let spot = 0;
     do {
-      rng = Math.imul(rng, 1103515245) + 12345;
+      rng = Math.imul(rng, LCG_MULTIPLIER) + LCG_ADDEND;
       rng = rng >>> 0;
-      spot = (rng >>> 16) % 447;
-      if (spot === 0) spot = 447;
-    } while (spot < 4);
+      spot = (rng >>> FEEBAS_SPOT_BIT_SHIFT) % FEEBAS_TOTAL_SPOTS;
+      if (spot === 0) spot = FEEBAS_TOTAL_SPOTS;
+    } while (spot < FEEBAS_BOUNDARY);
     spots.push(spot);
   }
   return spots;
