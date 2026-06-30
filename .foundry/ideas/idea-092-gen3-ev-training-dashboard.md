@@ -31,3 +31,5 @@ Features should include:
 - A quick reference for which nearby routes or trainers yield specific EVs to help plan the rest of the training.
 
 This directly aligns with DexHelper's vision as a premium companion app that surfaces hidden game state to eliminate tedious manual tracking for hardcore players.
+
+- [ ] .foundry/prds/prd-092-056-gen3-ev-training-dashboard.md
