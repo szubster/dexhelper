@@ -111,3 +111,6 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 ## 2026-06-29: Blueprinting Gen 2 Daycare Parsing
 - **Observation**: When creating the blueprints for parsing Gen 2 Daycare save data, there are different memory offset structures for Gold/Silver vs Crystal, but the internal slot structure (57 bytes) is uniform.
 - **Action**: Drafted implementation and QA tasks for Gen 2 Daycare parsing, explicitly reinforcing the constraint that all memory offsets and sizes must be defined as reusable module-level constants.
+
+## Explicit Provider Responsibilities
+When a task involves creating a "Provider" (e.g., `DagProvider` for a React Context), it is not enough to just define the context and export the provider shell. The blueprint must explicitly instruct the `coder` to implement the actual data fetching and state management logic *within* that provider, and to explicitly wrap the relevant views so they can consume the context. Failure to explicitly state this requirement leads to incomplete implementations where the provider is functionally empty and the state is never actually lifted, violating architectural decisions like ADR 013 and ADR 017.
