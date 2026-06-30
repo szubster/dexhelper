@@ -36,6 +36,6 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to extract the
 - [x] task-108-163-gen3-secret-base-parser
 - [x] task-108-164-gen3-secret-base-parser-qa
 
-- [ ] research-108-221-gen3-secret-base-rangeerror
-- [ ] task-108-222-gen3-secret-base-parser-retry-impl
-- [ ] task-108-223-gen3-secret-base-parser-retry-qa
+- [x] research-108-221-gen3-secret-base-rangeerror
+- [x] task-108-222-gen3-secret-base-parser-retry-impl
+- [x] task-108-223-gen3-secret-base-parser-retry-qa
