@@ -2,7 +2,7 @@ import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
-import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
+import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
 
 const POKEMON_OFFSET_SPECIES_ID = 0;
 const POKEMON_OFFSET_ITEM = 1;
@@ -15,9 +15,6 @@ const POKEMON_OFFSET_CAUGHT_BYTE_2 = 30;
 const POKEMON_OFFSET_LEVEL = 31;
 const POKEMON_OFFSET_OT_NAME = 32;
 const POKEMON_OFFSET_CURRENT_HP = 34;
-
-const POKERUS_STRAIN_SHIFT = 4;
-const POKERUS_DAYS_MASK = 0x0f;
 
 function isValidLandmark(id: string): id is keyof typeof gen2Landmarks {
   return id in gen2Landmarks;
@@ -103,13 +100,7 @@ function parseGen2PokemonInstance(
   const isShinyCarrier = checkShinyGene(dvs);
   const friendship = view.getUint8(offset + POKEMON_OFFSET_FRIENDSHIP);
   const rawPokerus = view.getUint8(offset + POKEMON_OFFSET_POKERUS);
-  const pokerus =
-    rawPokerus > 0
-      ? {
-          strain: rawPokerus >> POKERUS_STRAIN_SHIFT,
-          daysRemaining: rawPokerus & POKERUS_DAYS_MASK,
-        }
-      : undefined;
+  const pokerus = parsePokerus(rawPokerus);
   const level = view.getUint8(offset + POKEMON_OFFSET_LEVEL);
   const currentHp = storageLocation === 'Party' ? view.getUint16(offset + POKEMON_OFFSET_CURRENT_HP, false) : undefined;
   const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
