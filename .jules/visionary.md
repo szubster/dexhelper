@@ -163,3 +163,7 @@
 ## 2026-06-29
 **Idea:** Gen 2/3 In-Game Trade Assistant Dashboard
 **Learning:** Expanding on the success of the Move Tutor dashboard, targeting other one-time limited NPC interactions—like in-game trades—provides excellent utility. By automatically parsing the save file's event flags to determine trade availability, and cross-referencing requested species with the player's current PC box contents, we transform static event data into an actionable, dynamic "to-do" list. This strongly reinforces DexHelper's value as a premium companion app that eliminates tedious wiki searches and manual tracking.
+
+## 2026-07-01
+**Idea:** Gen 3 Nuzlocke Route Tracker
+**Learning:** Catering to massive community-driven metagames (like Nuzlocke challenges) provides tremendous value. By converting tedious external spreadsheet tracking into a programmatic, automated UI feature (via cross-referencing `caughtData.location` from the save parser's `PokemonInstance` against static route data), we position the app as an indispensable companion tool. It reinforces the strategy of using raw, validated save data to solve the hardcore community's most persistent manual tracking pain points.
