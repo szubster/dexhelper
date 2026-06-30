@@ -2,13 +2,13 @@
 id: task-130-239-move-jsonl-compaction-qa
 type: TASK
 title: Verify Move JSONL Compaction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-28'
 updated_at: '2026-06-30'
 depends_on:
   - task-130-238-move-jsonl-compaction-impl
-jules_session_id: null
+jules_session_id: '15415524742039991474'
 pr_number: null
 parent: story-086-130-move-jsonl-compaction
 tags:
