@@ -1,6 +1,7 @@
 import { Ghost } from 'lucide-react';
 import type { PokemonInstance } from '../../engine/saveParser/parsers/common';
 import { CornerCrosshairs } from '../CornerCrosshairs';
+import { EmptyState } from '../EmptyState';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
 import { TacticalPanel } from '../TacticalPanel';
 import { TelemetryDecoration } from '../TelemetryDecoration';
@@ -43,11 +44,12 @@ export function GraveyardView({ graveyard, generation }: GraveyardViewProps) {
           </div>
         ))}
         {graveyard.length === 0 && (
-          <div className="relative col-span-full flex flex-col items-center justify-center border border-zinc-800/50 border-dashed bg-zinc-950/20 p-8 text-center">
-            <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700/50" />
-            <Ghost className="mb-3 h-8 w-8 text-zinc-600" />
-            <span className="tactical-text font-bold text-sm text-zinc-500">NO CASUALTIES RECORDED</span>
-          </div>
+          <EmptyState
+            label="NO CASUALTIES RECORDED"
+            icon={<Ghost className="h-8 w-8" />}
+            className="p-8"
+            labelClassName="tactical-text font-bold text-sm"
+          />
         )}
       </div>
     </TacticalPanel>
