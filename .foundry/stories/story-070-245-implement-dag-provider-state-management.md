@@ -2,13 +2,13 @@
 id: story-070-245-implement-dag-provider-state-management
 type: STORY
 title: Implement DagProvider State Management and Wrapper
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-29'
 updated_at: '2026-06-30'
 depends_on:
   - story-070-108-create-dag-context-interfaces
-jules_session_id: null
+jules_session_id: '12198292210459213411'
 pr_number: null
 parent: epic-045-070-implement-dag-context
 tags:
