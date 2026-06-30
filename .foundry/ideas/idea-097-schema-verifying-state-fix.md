@@ -2,12 +2,12 @@
 id: idea-097-schema-verifying-state-fix
 type: IDEA
 title: Fix contradiction in schema.md regarding VERIFYING state
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-06-29'
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18201326834989065594'
 pr_number: null
 parent: null
 tags:
