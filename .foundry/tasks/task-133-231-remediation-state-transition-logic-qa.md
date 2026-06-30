@@ -2,13 +2,13 @@
 id: task-133-231-remediation-state-transition-logic-qa
 type: TASK
 title: QA Remediation State Transition Logic Implementation
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-28'
 updated_at: '2026-06-30'
 depends_on:
   - task-133-230-remediation-state-transition-logic-impl
-jules_session_id: null
+jules_session_id: '2958845553093926294'
 pr_number: null
 parent: story-090-133-remediation-state-transition-logic
 tags:
