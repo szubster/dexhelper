@@ -32,5 +32,5 @@ As part of the Mirage Island checking feature, after parsing the 32-bit PV, we n
 4. **Completion Contract**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement logic to expose lower 16-bits of PV.
-- [ ] Run `pnpm test` to ensure there are no regressions.
+- [x] Implement logic to expose lower 16-bits of PV.
+- [x] Run `pnpm test` to ensure there are no regressions.
