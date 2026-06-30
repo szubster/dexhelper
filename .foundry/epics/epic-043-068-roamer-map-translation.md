@@ -2,7 +2,7 @@
 id: epic-043-068-roamer-map-translation
 type: EPIC
 title: Roamer Map Translation
-status: ACTIVE
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-06-30'
@@ -14,7 +14,7 @@ parent: prd-070-043-roamer-tracking-dashboard
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Dependency epic-043-067-roamer-data-extraction failed permanently due to Gen 3 roamer locations not being serialized in save files.'
 notes: ''
 ---
 
