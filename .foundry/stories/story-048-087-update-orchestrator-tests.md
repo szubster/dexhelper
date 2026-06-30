@@ -31,4 +31,4 @@ Tests must reflect the new implicit dependency enforcement logic added in the or
 
 ## Generated Tasks
 - [ ] `.foundry/archive/tasks/task-087-150-impl-orchestrator-tests.md`
-- [ ] `.foundry/tasks/task-087-151-qa-orchestrator-tests.md`
+- [ ] `.foundry/archive/tasks/task-087-151-qa-orchestrator-tests.md`
