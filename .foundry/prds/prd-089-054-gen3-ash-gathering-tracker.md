@@ -2,12 +2,12 @@
 id: prd-089-054-gen3-ash-gathering-tracker
 type: PRD
 title: PRD for Gen 3 Volcanic Ash Gathering Tracker
-status: ACTIVE
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-28'
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: '128732875727715607'
+jules_session_id: null
 pr_number: null
 parent: idea-089-gen3-ash-gathering-tracker
 tags:
