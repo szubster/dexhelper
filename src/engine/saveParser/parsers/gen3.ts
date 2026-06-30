@@ -88,6 +88,19 @@ const PIKE_RECORD_WIN_STREAKS_OFFSET = 0x0e08;
 const PYRAMID_WIN_STREAKS_OFFSET = 0x0e1a;
 const PYRAMID_RECORD_WIN_STREAKS_OFFSET = 0x0e1e;
 
+const TV_SHOWS_OFFSET = 0x27cc;
+const TV_SHOWS_COUNT = 25;
+const TV_SHOW_SIZE = 36;
+const TV_SHOW_KIND_OFFSET = 0;
+const TV_SHOW_ACTIVE_OFFSET = 1;
+
+const POKE_NEWS_OFFSET = 0x2b50;
+const POKE_NEWS_COUNT = 16;
+const POKE_NEWS_SIZE = 4;
+const POKE_NEWS_KIND_OFFSET = 0;
+const POKE_NEWS_STATE_OFFSET = 1;
+const POKE_NEWS_COUNTDOWN_OFFSET = 2;
+
 const TOWER_SILVER_OFFSET = 0x1388;
 const TOWER_SILVER_BIT = 4;
 const TOWER_GOLD_OFFSET = 0x1388;
@@ -373,10 +386,10 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
 export function parseGen3MixRecords(view: DataView, offset: number) {
   try {
     const mixRecords = [];
-    for (let i = 0; i < 25; i++) {
-      const itemOffset = offset + i * 36;
-      const kind = view.getUint8(itemOffset);
-      const active = view.getUint8(itemOffset + 1) !== 0;
+    for (let i = 0; i < TV_SHOWS_COUNT; i++) {
+      const itemOffset = offset + i * TV_SHOW_SIZE;
+      const kind = view.getUint8(itemOffset + TV_SHOW_KIND_OFFSET);
+      const active = view.getUint8(itemOffset + TV_SHOW_ACTIVE_OFFSET) !== 0;
 
       // Check if the show is a Mix Record event (21 to 40)
       if (active && kind >= 21 && kind <= 40) {
@@ -386,7 +399,7 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
     return mixRecords;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error('The save file is corrupted or incomplete.');
+      throw new Error('The save file is corrupted or incomplete: Invalid TV block struct.');
     }
     throw error;
   }
@@ -615,8 +628,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
 
-    const gen3PokeNews = parseGen3PokeNews(view, section1Offset + 0x2b50);
-    const gen3MixRecords = parseGen3MixRecords(view, section1Offset + 0x27cc);
+    const gen3PokeNews = parseGen3PokeNews(view, section1Offset + POKE_NEWS_OFFSET);
+    const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
 
     const roamingLegendaries = [];
     try {
@@ -779,17 +792,17 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
 export function parseGen3PokeNews(view: DataView, offset: number) {
   try {
     const news = [];
-    for (let i = 0; i < 16; i++) {
-      const itemOffset = offset + i * 4;
-      const kind = view.getUint8(itemOffset);
-      const state = view.getUint8(itemOffset + 1);
-      const dayCountdown = view.getUint16(itemOffset + 2, true);
+    for (let i = 0; i < POKE_NEWS_COUNT; i++) {
+      const itemOffset = offset + i * POKE_NEWS_SIZE;
+      const kind = view.getUint8(itemOffset + POKE_NEWS_KIND_OFFSET);
+      const state = view.getUint8(itemOffset + POKE_NEWS_STATE_OFFSET);
+      const dayCountdown = view.getUint16(itemOffset + POKE_NEWS_COUNTDOWN_OFFSET, true);
       news.push({ kind, state, dayCountdown });
     }
     return news;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error('The save file is corrupted or incomplete.');
+      throw new Error('The save file is corrupted or incomplete: Invalid PokeNews struct.');
     }
     throw error;
   }

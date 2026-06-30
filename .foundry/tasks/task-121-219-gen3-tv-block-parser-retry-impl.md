@@ -34,10 +34,10 @@ Any out-of-bounds reads or structurally corrupt states within the TV block MUST 
 **CRITICAL CONSTRAINT:** All memory offsets, lengths, bit locations, and shifts MUST be defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
 
 ## Acceptance Criteria
-- [ ] The TV block extraction logic is built entirely using `DataView` as per the research findings.
-- [ ] All memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level.
-- [ ] Explicit error handling is in place to catch `RangeError` exceptions natively thrown by `DataView` on malformed saves.
-- [ ] New parsing functions conform to the existing Gen 1 and Gen 2 backward-compatible parsing interfaces without breaking them.
+- [x] The TV block extraction logic is built entirely using `DataView` as per the research findings.
+- [x] All memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level.
+- [x] Explicit error handling is in place to catch `RangeError` exceptions natively thrown by `DataView` on malformed saves.
+- [x] New parsing functions conform to the existing Gen 1 and Gen 2 backward-compatible parsing interfaces without breaking them.
 
 ## Important Protocols (For Coder)
 - **Transient Failure:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
