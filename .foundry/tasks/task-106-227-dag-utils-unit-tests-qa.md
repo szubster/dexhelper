@@ -27,10 +27,10 @@ notes: ''
 Unit tests have been implemented for \`.github/scripts/dag-utils.ts\`. Verify the tests are comprehensive and pass successfully.
 
 ## Acceptance Criteria
-- [ ] Verify \`.github/scripts/dag-utils.test.ts\` exists.
-- [ ] Verify comprehensive tests exist for \`buildReverseDependencyGraph\`.
-- [ ] Verify comprehensive tests exist for \`getOrphanedNodes\`.
-- [ ] All tests pass successfully (\`pnpm test\` in the appropriate directory).
+- [x] Verify \`.github/scripts/dag-utils.test.ts\` exists.
+- [x] Verify comprehensive tests exist for \`buildReverseDependencyGraph\`.
+- [x] Verify comprehensive tests exist for \`getOrphanedNodes\`.
+- [x] All tests pass successfully (\`pnpm test\` in the appropriate directory).
 
 ## Directives
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to \`status: FAILED\` with a \`rejection_reason\`.
