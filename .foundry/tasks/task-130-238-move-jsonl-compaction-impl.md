@@ -2,12 +2,12 @@
 id: task-130-238-move-jsonl-compaction-impl
 type: TASK
 title: Implement Move JSONL Compaction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-28'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4245090968866798672'
 pr_number: null
 parent: story-086-130-move-jsonl-compaction
 tags:
