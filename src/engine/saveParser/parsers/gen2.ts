@@ -4,6 +4,21 @@ import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
 
+const POKEMON_OFFSET_SPECIES_ID = 0;
+const POKEMON_OFFSET_ITEM = 1;
+const POKEMON_OFFSET_MOVES = 2;
+const POKEMON_OFFSET_DVS = 21;
+const POKEMON_OFFSET_FRIENDSHIP = 27;
+const POKEMON_OFFSET_POKERUS = 28;
+const POKEMON_OFFSET_CAUGHT_BYTE_1 = 29;
+const POKEMON_OFFSET_CAUGHT_BYTE_2 = 30;
+const POKEMON_OFFSET_LEVEL = 31;
+const POKEMON_OFFSET_OT_NAME = 32;
+const POKEMON_OFFSET_CURRENT_HP = 34;
+
+const POKERUS_STRAIN_SHIFT = 4;
+const POKERUS_DAYS_MASK = 0x0f;
+
 function isValidLandmark(id: string): id is keyof typeof gen2Landmarks {
   return id in gen2Landmarks;
 }
@@ -26,8 +41,8 @@ function isValidMapId<T extends Record<string, string>>(id: string, dict: T): id
  * @returns An object containing the time, level, location ID, and location name, or undefined if missing.
  */
 function parseCaughtData(view: DataView, offset: number) {
-  const caughtByte1 = view.getUint8(offset + 29);
-  const caughtByte2 = view.getUint8(offset + 30);
+  const caughtByte1 = view.getUint8(offset + POKEMON_OFFSET_CAUGHT_BYTE_1);
+  const caughtByte2 = view.getUint8(offset + POKEMON_OFFSET_CAUGHT_BYTE_2);
 
   if (caughtByte1 === 0 && caughtByte2 === 0) return undefined;
 
@@ -74,33 +89,33 @@ function parseGen2PokemonInstance(
   storageLocation: string,
   slot?: number,
 ): PokemonInstance | undefined {
-  const speciesId = view.getUint8(offset);
+  const speciesId = view.getUint8(offset + POKEMON_OFFSET_SPECIES_ID);
   if (!speciesId || (speciesId > 251 && speciesId !== 253)) return undefined;
 
-  const item = view.getUint8(offset + 1);
+  const item = view.getUint8(offset + POKEMON_OFFSET_ITEM);
   const moves: number[] = [];
   for (let i = 0; i < 4; i++) {
-    const m = view.getUint8(offset + 2 + i);
+    const m = view.getUint8(offset + POKEMON_OFFSET_MOVES + i);
     if (m > 0) moves.push(m);
   }
-  const dvs = parseDVs(view.getUint16(offset + 21, false));
+  const dvs = parseDVs(view.getUint16(offset + POKEMON_OFFSET_DVS, false));
   const isShiny = checkShiny(dvs);
   const isShinyCarrier = checkShinyGene(dvs);
-  const friendship = view.getUint8(offset + 27);
-  const rawPokerus = view.getUint8(offset + 28);
+  const friendship = view.getUint8(offset + POKEMON_OFFSET_FRIENDSHIP);
+  const rawPokerus = view.getUint8(offset + POKEMON_OFFSET_POKERUS);
   const pokerus =
     rawPokerus > 0
       ? {
-          strain: rawPokerus >> 4,
-          daysRemaining: rawPokerus & 0x0f,
+          strain: rawPokerus >> POKERUS_STRAIN_SHIFT,
+          daysRemaining: rawPokerus & POKERUS_DAYS_MASK,
         }
       : undefined;
-  const level = view.getUint8(offset + 31);
-  const currentHp = storageLocation === 'Party' ? view.getUint16(offset + 34, false) : undefined;
+  const level = view.getUint8(offset + POKEMON_OFFSET_LEVEL);
+  const currentHp = storageLocation === 'Party' ? view.getUint16(offset + POKEMON_OFFSET_CURRENT_HP, false) : undefined;
   const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
 
   // OT names in daycare are immediately after the data block
-  const otName = storageLocation === 'Daycare' ? decodeGen12String(view, offset + 32) : undefined;
+  const otName = storageLocation === 'Daycare' ? decodeGen12String(view, offset + POKEMON_OFFSET_OT_NAME) : undefined;
 
   let unownForm: string | undefined;
   if (speciesId === 201) {
