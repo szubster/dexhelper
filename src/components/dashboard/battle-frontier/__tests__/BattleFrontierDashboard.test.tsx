@@ -1,8 +1,8 @@
 import { expect, test } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { BattleFrontierDashboard } from '../BattleFrontierDashboard';
 import type { SaveData } from '../../../../engine/saveParser/parsers/common';
+import { BattleFrontierDashboard } from '../BattleFrontierDashboard';
 
 const mockSaveData: Partial<SaveData> = {
   generation: 3,
@@ -24,7 +24,7 @@ const mockSaveData: Partial<SaveData> = {
     factory: { silver: false, gold: false },
     pike: { silver: false, gold: false },
     pyramid: { silver: false, gold: false },
-  }
+  },
 };
 
 test('returns null if generation is not 3', async () => {
