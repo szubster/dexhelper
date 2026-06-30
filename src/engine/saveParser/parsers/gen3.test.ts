@@ -5,6 +5,7 @@ import {
   parseGen3ActiveSwarm,
   parseGen3BattleFrontierSymbols,
   parseGen3BattleFrontierWinStreaks,
+  parseGen3BattlePoints,
   parseGen3ConditionStats,
   parseGen3MirageIslandValue,
   parseGen3MixRecords,
@@ -562,6 +563,32 @@ describe('parseGen3BattleFrontierSymbols', () => {
     expect(() => parseGen3BattleFrontierSymbols(view, saveBlock1Offset)).toThrowError(
       'The save file is corrupted or incomplete.',
     );
+  });
+});
+
+describe('parseGen3BattlePoints', () => {
+  const saveBlock2Offset = 0x1000;
+
+  it('extracts BP balance correctly', () => {
+    const buffer = new ArrayBuffer(16384);
+    const view = new DataView(buffer);
+    const base = saveBlock2Offset;
+
+    // Offset is 0x1504 relative to SaveBlock2
+    view.setUint16(base + 0x1504, 1337, true);
+
+    const result = parseGen3BattlePoints(view, saveBlock2Offset);
+    expect(result).toBe(1337);
+  });
+
+  it('throws an error on out-of-bounds read', () => {
+    const buffer = new ArrayBuffer(4096);
+    const view = new DataView(buffer);
+
+    expect(() => {
+      // 0x1504 + 2 is out of bounds for a 4096 byte buffer
+      parseGen3BattlePoints(view, 4000);
+    }).toThrow('The save file is corrupted or incomplete.');
   });
 });
 

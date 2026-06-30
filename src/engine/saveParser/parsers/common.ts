@@ -219,6 +219,8 @@ export interface SaveData {
   gen3BattleFrontierWinStreaks?: Gen3BattleFrontierWinStreaks;
   /** Gen 3 specific: Battle Frontier symbols */
   gen3BattleFrontierSymbols?: Gen3BattleFrontierSymbols;
+  /** Gen 3 specific: Battle Points (BP) balance */
+  gen3BattlePoints?: number;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.
