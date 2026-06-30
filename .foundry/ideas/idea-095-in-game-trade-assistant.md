@@ -29,3 +29,6 @@ Build an "In-Game Trade Assistant Dashboard" that:
 3. Automatically cross-references the requested Pokémon species for available trades against the player's current party and PC box contents, highlighting trades that can be executed immediately.
 
 This turns opaque, hidden game state into an actionable, highly useful strategy for casual players, completionists, and Nuzlockers alike, removing the need for external resources and tedious PC box checking.
+
+## Acceptance Criteria
+- [ ] .foundry/prds/prd-095-056-in-game-trade-assistant.md
