@@ -28,9 +28,9 @@ Refactor `src/engine/gen3/feebas.ts` to replace all inline magic numbers with ex
 While the memory offsets (`0x2dd6` and `0x2e66`) were previously addressed, the algorithm still contains inline magic numbers for shifts, lengths, and multipliers (e.g., `1103515245`, `12345`, `16`, `447`, `6`, `4`). The architectural rule forbids these from being inline.
 
 ## Acceptance Criteria
-- [ ] Extract PRNG multiplier (`1103515245`) and addend (`12345`) into descriptive constants.
-- [ ] Extract bit shift (`16`) into a constant.
-- [ ] Extract lengths and boundaries (`447` total spots, `6` valid spots, `4` inaccessible boundary) into constants.
-- [ ] Ensure all constants are exported at the module level.
+- [x] Extract PRNG multiplier (`1103515245`) and addend (`12345`) into descriptive constants.
+- [x] Extract bit shift (`16`) into a constant.
+- [x] Extract lengths and boundaries (`447` total spots, `6` valid spots, `4` inaccessible boundary) into constants.
+- [x] Ensure all constants are exported at the module level.
 - [x] Break down into Tasks
-- [ ] task-152-230-refactor-feebas-magic-numbers-impl
+- [x] task-152-230-refactor-feebas-magic-numbers-impl
