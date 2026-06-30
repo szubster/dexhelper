@@ -33,5 +33,5 @@ Following the detection of "zombie" nodes (nodes incorrectly stuck in the `ACTIV
 - **Reminder**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Implement utility function to update node frontmatter status to `FAILED`.
-- [ ] Create unit tests to verify state transition logic.
+- [x] Implement utility function to update node frontmatter status to `FAILED`.
+- [x] Create unit tests to verify state transition logic.
