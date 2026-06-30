@@ -65,8 +65,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       '@argos-ci/playwright':
-        specifier: ^7.0.8
-        version: 7.0.8
+        specifier: ^7.1.2
+        version: 7.1.2
       '@biomejs/biome':
         specifier: ^2.5.1
         version: 2.5.1
@@ -231,20 +231,20 @@ packages:
     peerDependencies:
       ajv: '>=8'
 
-  '@argos-ci/api-client@0.22.0':
-    resolution: {integrity: sha512-CzMDTZXT6+0fvtfdwUwu4NIzyS0zhEJoGd/0m/zSFIK+kXvWIJyIl/eZqyGRr5+B6OPFR1cRtOI9pX5w3u4i8A==}
+  '@argos-ci/api-client@0.23.0':
+    resolution: {integrity: sha512-LlGMFqWQz0S3JpCyUGC7/Ao/zUkDCfjak4z4HNXjEnKzpiNKsxt2tApl1UYn4bzrsVyZZmr4NFQGTY+6OArkpQ==}
     engines: {node: '>=22.0.0'}
 
-  '@argos-ci/browser@6.1.0':
-    resolution: {integrity: sha512-9R508bY/qzZ14ZkddAfRL9Oq5K9gPRlLaUfv3SFGoKGSWlufsHnVvTTeHAAO9kLIXxJ3/bTW0MxLQD93Fs9DqQ==}
+  '@argos-ci/browser@6.2.0':
+    resolution: {integrity: sha512-AZUI5mDQ+XWa29Bcj23bW6UbFwMLfwItmR4QClgcjt/5auW57fwnRN7p0enOetx+v5DNz4jG4ZhgLFM/1P4kFQ==}
     engines: {node: '>=22.0.0'}
 
-  '@argos-ci/core@6.2.1':
-    resolution: {integrity: sha512-sYvjntBP8pvjChTyhAw+/x6onj0HZRlaYVXdBQB0K24yJs9HtePXzhJthrSui1P7qm9HCaikzlQMDSPu7f2ZIw==}
+  '@argos-ci/core@6.3.0':
+    resolution: {integrity: sha512-zxuiK5Fx6fr1ctigUF82FFRxkdMbGOMK64nmcOo0jV8e85LA4iA55VFmmwHMTd04jLk0trvKVU+7a7LGy6zNzQ==}
     engines: {node: '>=22.0.0'}
 
-  '@argos-ci/playwright@7.0.8':
-    resolution: {integrity: sha512-t9lt6cBW/10lw0sFr1GuJYSDCcKRJBH4wLi7R5B99mvEUo0PchybJPjM0w1VAyBN4Y1qXAFxkepMH20PFdKAOA==}
+  '@argos-ci/playwright@7.1.2':
+    resolution: {integrity: sha512-XIQAU4dKnc/su6mYVvobvN6TBqmgpa1dU2HkkG0aYmOU+t8/SAcuVr9nk5zfPWEddJqbkdaooOaTs4+rTOHkEQ==}
     engines: {node: '>=22.0.0'}
 
   '@argos-ci/util@4.0.0':
@@ -3106,8 +3106,8 @@ packages:
   electron-to-chromium@1.5.368:
     resolution: {integrity: sha512-7RckJJK4uESJF9PxvfMWd3TGqIiieUTG4HxnKaKuIpGbcr+r2ZEB3g2gAhCP3Fqm42vJSzLfgab9eva/C4/XVw==}
 
-  electron-to-chromium@1.5.380:
-    resolution: {integrity: sha512-W6d5AbuEoRayO447cqrg6lKJIlscgRnnxOZl/08kfV71BQDoEBC7Wwis68z87LjyK6f4kWyTaubuDbhHKrZkbA==}
+  electron-to-chromium@1.5.381:
+    resolution: {integrity: sha512-n9Wa6yB+vDsGuA8AKbl/0z7HbvWqt5jxIdvr1IUicd0ryPrk7/xzwqLv8D9AbbvZ6avVNtXYLTfmgFHkwkyelg==}
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -3224,8 +3224,8 @@ packages:
   fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
 
-  fast-uri@3.1.2:
-    resolution: {integrity: sha512-rVjf7ArG3LTk+FS6Yw81V1DLuZl1bRbNrev6Tmd/9RaroeeRRJhAt7jg/6YFxbvAQXUCavSoZhPPj6oOx+5KjQ==}
+  fast-uri@3.1.3:
+    resolution: {integrity: sha512-i70LwGWUduXqzicKXWshooq+sWL1K3WUU5rKZNG/0i3a1OSoX3HqhH5WbWwTmqWfor4urUakGPiRQcleRZTwOg==}
 
   fastq@1.20.1:
     resolution: {integrity: sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw==}
@@ -5092,7 +5092,7 @@ snapshots:
       jsonpointer: 5.0.1
       leven: 3.1.0
 
-  '@argos-ci/api-client@0.22.0':
+  '@argos-ci/api-client@0.23.0':
     dependencies:
       debug: 4.4.3
       openapi-fetch: 0.17.0
@@ -5100,25 +5100,26 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@argos-ci/browser@6.1.0': {}
+  '@argos-ci/browser@6.2.0': {}
 
-  '@argos-ci/core@6.2.1':
+  '@argos-ci/core@6.3.0':
     dependencies:
-      '@argos-ci/api-client': 0.22.0
+      '@argos-ci/api-client': 0.23.0
       '@argos-ci/util': 4.0.0
       convict: 6.2.5
       debug: 4.4.3
       fast-glob: 3.3.3
       mime-types: 3.0.2
+      p-retry: 8.0.0
       sharp: 0.35.2
       tmp: 0.2.7
     transitivePeerDependencies:
       - supports-color
 
-  '@argos-ci/playwright@7.0.8':
+  '@argos-ci/playwright@7.1.2':
     dependencies:
-      '@argos-ci/browser': 6.1.0
-      '@argos-ci/core': 6.2.1
+      '@argos-ci/browser': 6.2.0
+      '@argos-ci/core': 6.3.0
       '@argos-ci/util': 4.0.0
       chalk: 5.6.2
       debug: 4.4.3
@@ -7204,7 +7205,7 @@ snapshots:
   ajv@8.20.0:
     dependencies:
       fast-deep-equal: 3.1.3
-      fast-uri: 3.1.2
+      fast-uri: 3.1.3
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
@@ -7363,7 +7364,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.10.40
       caniuse-lite: 1.0.30001799
-      electron-to-chromium: 1.5.380
+      electron-to-chromium: 1.5.381
       node-releases: 2.0.50
       update-browserslist-db: 1.2.3(browserslist@4.28.4)
 
@@ -7702,7 +7703,7 @@ snapshots:
 
   electron-to-chromium@1.5.368: {}
 
-  electron-to-chromium@1.5.380: {}
+  electron-to-chromium@1.5.381: {}
 
   emoji-regex@10.6.0: {}
 
@@ -7889,7 +7890,7 @@ snapshots:
 
   fast-json-stable-stringify@2.1.0: {}
 
-  fast-uri@3.1.2: {}
+  fast-uri@3.1.3: {}
 
   fastq@1.20.1:
     dependencies:

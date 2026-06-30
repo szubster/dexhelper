@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@11ty/gray-matter": "^2.1.0",
-    "@argos-ci/playwright": "^7.0.8",
+    "@argos-ci/playwright": "^7.1.2",
     "@biomejs/biome": "^2.5.1",
     "@cloudflare/workers-types": "^4.20260621.1",
     "@codecov/vite-plugin": "^2.0.1",
