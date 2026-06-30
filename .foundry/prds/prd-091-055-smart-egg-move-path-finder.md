@@ -2,12 +2,12 @@
 id: prd-091-055-smart-egg-move-path-finder
 type: PRD
 title: Smart Egg Move Breeding Path Finder
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-28'
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6460575044581034299'
 pr_number: null
 parent: idea-091-smart-egg-move-path-finder
 tags:
