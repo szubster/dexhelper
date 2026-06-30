@@ -31,3 +31,7 @@ Currently, save file extraction uses absolute hardcoded offsets for dynamic bloc
 ## Acceptance Criteria
 - [ ] Investigate linter feasibility.
 - [ ] Create ADR or implement linter rule.
+
+## Child Stories
+- [ ] .foundry/stories/story-103-245-investigate-offset-linter.md
+- [ ] .foundry/stories/story-103-246-create-relative-offsets-adr.md
