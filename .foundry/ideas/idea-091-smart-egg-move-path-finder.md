@@ -35,4 +35,5 @@ Leverage DexHelper's static database (Egg Groups, Egg Moves, learnsets) and comb
 This feature eliminates the need for complex, manual cross-referencing between wikis and the game UI. By joining complex static pathfinding data with the player's dynamic inventory, DexHelper provides a highly personalized, actionable strategy that is impossible to achieve with standard guides. This heavily reinforces DexHelper as the ultimate, indispensable companion app for hardcore players.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to investigate the graph algorithms needed to calculate breeding chains across Egg Groups.
+- [x] Product Manager: Convert this idea into a PRD to investigate the graph algorithms needed to calculate breeding chains across Egg Groups.
+- [ ] .foundry/prds/prd-091-055-smart-egg-move-path-finder.md
