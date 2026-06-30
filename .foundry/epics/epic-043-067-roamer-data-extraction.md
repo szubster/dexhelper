@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2642757766813408295'
 pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
 tags: []

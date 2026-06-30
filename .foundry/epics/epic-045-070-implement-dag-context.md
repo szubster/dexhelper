@@ -2,12 +2,12 @@
 id: epic-045-070-implement-dag-context
 type: EPIC
 title: Implement DagContext and Provider for DAG Data
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-06-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10055485629191340062'
 pr_number: null
 parent: prd-073-045-refactor-dag-dashboard-context
 tags:
@@ -35,6 +35,7 @@ As per ADR 013 and ADR 017, the core DAG data state must be lifted into a shared
 - [x] Break down into Stories
 - [x] .foundry/stories/story-070-108-create-dag-context-interfaces.md
 - [ ] .foundry/stories/story-070-109-implement-dag-provider.md
+- [ ] .foundry/stories/story-070-245-implement-dag-provider-state-management.md
 
 ### Auditor Rejection
 The generated artifacts do not meet the Acceptance Criteria of the Epic. While DagContext and DagProvider were created, DagProvider does not actually manage the core DAG data state (nodes, edges) by fetching it, nor does it wrap the DAG views. This work was improperly deferred to story-078-120. The Epic cannot be verified until the provider fully manages and provides the state as originally required.

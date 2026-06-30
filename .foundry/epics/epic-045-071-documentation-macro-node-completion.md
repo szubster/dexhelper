@@ -2,12 +2,12 @@
 id: epic-045-071-documentation-macro-node-completion
 type: EPIC
 title: Documentation Updates for Macro Node Completion
-status: VERIFYING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-06-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11462455817042724482'
 pr_number: null
 parent: prd-072-045-strict-macro-node-completion
 tags:
@@ -42,3 +42,6 @@ Update the core system documentation to detail the new macro node completion rul
 - [x] .foundry/stories/story-071-108-update-schema-macro-node-completion.md
 - [x] .foundry/stories/story-071-109-update-adr001-macro-node-completion.md
 - [x] .foundry/stories/story-071-110-verify-core-documentation.md
+
+### Follow-up Work
+- [ ] .foundry/ideas/idea-097-schema-verifying-state-fix.md

@@ -2,13 +2,13 @@
 id: task-121-218-gen3-tv-block-parser-retry-qa
 type: TASK
 title: QA Gen 3 TV Block DataView Parser (Retry)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-23'
 updated_at: '2026-06-29'
 depends_on:
   - task-121-217-gen3-tv-block-parser-retry-impl
-jules_session_id: null
+jules_session_id: '6224152370430396555'
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
 tags:
@@ -29,9 +29,9 @@ You must verify that the Gen 3 TV broadcast data block parsing logic strictly ut
 You must test that the parsing gracefully handles out-of-bounds reads and malformed files by catching `RangeError` exceptions natively thrown by `DataView`.
 
 ## Acceptance Criteria
-- [ ] Verified that `DataView` API is used exclusively in the new TV block parsing code.
-- [ ] Verified that out-of-bounds reads are successfully caught and mapped to a structured parsing error instead of crashing.
-- [ ] Confirmed that backward compatibility with Gen 1 and Gen 2 parsing functions remains unbroken.
+- [x] Verified that `DataView` API is used exclusively in the new TV block parsing code.
+- [x] Verified that out-of-bounds reads are successfully caught and mapped to a structured parsing error instead of crashing.
+- [x] Confirmed that backward compatibility with Gen 1 and Gen 2 parsing functions remains unbroken.
 
 ### Auditor Rejection
 **CANCELLED:** This task has been cancelled and replaced by `task-121-220-gen3-tv-block-parser-retry-qa` because its dependencies changed after investigating a permanent failure.

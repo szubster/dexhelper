@@ -5,10 +5,10 @@ title: Implement Gen 3 Active Swarm Parsing
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-14'
-updated_at: '2026-06-28'
+updated_at: '2026-06-29'
 depends_on:
   - research-123-202-gen3-outbreak-offsets
-jules_session_id: '6503055045198713748'
+jules_session_id: '5749739839450138583'
 pr_number: null
 parent: story-081-123-gen3-active-swarm-parsing
 tags:
