@@ -112,15 +112,3 @@ export function getDistanceToMap(
 
   return { distance: dist, name: targetLocation.n };
 }
-
-/**
- * Exported Gen 3 Map Graph defining nodes and their connections.
- */
-export interface MapGraphNode {
-  name: string;
-  connections: number[];
-}
-
-export const gen3HoennMapGraph: Record<number, MapGraphNode> = {};
-
-export const gen3KantoMapGraph: Record<number, MapGraphNode> = {};

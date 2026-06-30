@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { UnifiedLocation } from '../../db/schema';
-import { gen3HoennMapGraph, gen3KantoMapGraph, getDistanceToMap, resolveOutdoorMapId } from './gen3Graph';
+import { getDistanceToMap, resolveOutdoorMapId } from './gen3Graph';
 
 const mockLocations: UnifiedLocation[] = [
   { id: 0, n: 'Littleroot Town', conn: [1], dist: { 0: 0, 1: 1, 2: 2 } },
@@ -106,16 +106,6 @@ describe('gen3Graph', () => {
       ];
       const result = resolveOutdoorMapId(circularLocations, 90);
       expect(result).toBe(90);
-    });
-  });
-
-  describe('Constants', () => {
-    it('should export gen3HoennMapGraph', () => {
-      expect(gen3HoennMapGraph).toBeDefined();
-    });
-
-    it('should export gen3KantoMapGraph', () => {
-      expect(gen3KantoMapGraph).toBeDefined();
     });
   });
 });
