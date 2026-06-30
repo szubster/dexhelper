@@ -111,3 +111,6 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 ## 2026-06-29: Blueprinting Gen 2 Daycare Parsing
 - **Observation**: When creating the blueprints for parsing Gen 2 Daycare save data, there are different memory offset structures for Gold/Silver vs Crystal, but the internal slot structure (57 bytes) is uniform.
 - **Action**: Drafted implementation and QA tasks for Gen 2 Daycare parsing, explicitly reinforcing the constraint that all memory offsets and sizes must be defined as reusable module-level constants.
+
+## [Anomaly] Target artifacts existed prior to session
+When assigned to STORY `story-058-152-refactor-feebas-magic-numbers`, I found that the child task `task-152-230-refactor-feebas-magic-numbers-impl.md` already existed and was in the `COMPLETED` state, and the code changes in `feebas.ts` were already made. Proceeding to submit empty PR to complete the story.
