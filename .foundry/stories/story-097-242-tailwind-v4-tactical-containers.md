@@ -2,12 +2,12 @@
 id: story-097-242-tailwind-v4-tactical-containers
 type: STORY
 title: Extract Tactical Container Utilities
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18066449194125424496'
 pr_number: null
 parent: epic-071-097-define-tailwind-v4-utilities-retry
 tags:
