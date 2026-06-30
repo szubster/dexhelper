@@ -33,4 +33,6 @@ The extraction of item data into `items.jsonl` has been implemented. However, we
 ## Acceptance Criteria
 - [ ] Implement cross-generation mapping logic for items.
 - [ ] Ensure PokeAPI IDs are mapped to internal ROM IDs accurately.
-- [ ] Break down this STORY into concrete TASK nodes for implementation.
+- [x] Break down this STORY into concrete TASK nodes for implementation.
+- [ ] task-245-249-item-mapping-logic
+- [ ] task-245-250-item-mapping-qa
