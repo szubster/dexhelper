@@ -34,4 +34,6 @@ Extract the Trick House puzzle state using DexHelper's save file parsing capabil
 - Create a localized view component for Route 110 to display the progression and reward.
 
 ## 4. Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into Epics for the Tracker Tracker, focusing on the data parsing logic and the frontend presentation logic.
+- [x] Epic Planner: Break down this PRD into Epics for the Tracker Tracker, focusing on the data parsing logic and the frontend presentation logic.
+- [ ] .foundry/epics/epic-054-111-trick-house-save-parsing.md
+- [ ] .foundry/epics/epic-054-112-trick-house-ui.md
