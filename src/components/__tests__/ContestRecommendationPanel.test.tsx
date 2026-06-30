@@ -6,7 +6,7 @@ import { ContestRecommendationPanel } from '../ContestRecommendationPanel';
 
 test('renders correctly with 0 recommendations', async () => {
   await render(<ContestRecommendationPanel recommendations={[]} />);
-  await expect.element(page.getByText('NO RECOMMENDATIONS FOUND')).toBeInTheDocument();
+  await expect.element(page.getByText('NO_ACTIONABLE_INTELLIGENCE')).toBeInTheDocument();
 });
 
 test('renders correctly with 1 recommendation', async () => {
@@ -14,9 +14,9 @@ test('renders correctly with 1 recommendation', async () => {
   await render(<ContestRecommendationPanel recommendations={recommendations} />);
 
   await expect.element(page.getByText('cool')).toBeInTheDocument();
-  await expect.element(page.getByText('[PRIMARY]')).toBeInTheDocument();
+  await expect.element(page.getByText('[ PRIME_DIR ]')).toBeInTheDocument();
   await expect.element(page.getByText(/450/)).toBeInTheDocument();
-  await expect.element(page.getByText('[SECONDARY]')).not.toBeInTheDocument();
+  await expect.element(page.getByText('[ ALT_DIR ]')).not.toBeInTheDocument();
 });
 
 test('renders correctly with 2 recommendations', async () => {
@@ -27,11 +27,11 @@ test('renders correctly with 2 recommendations', async () => {
   await render(<ContestRecommendationPanel recommendations={recommendations} />);
 
   await expect.element(page.getByText('beauty')).toBeInTheDocument();
-  await expect.element(page.getByText('[PRIMARY]')).toBeInTheDocument();
+  await expect.element(page.getByText('[ PRIME_DIR ]')).toBeInTheDocument();
   await expect.element(page.getByText(/250/)).toBeInTheDocument();
 
   await expect.element(page.getByText('cute')).toBeInTheDocument();
-  await expect.element(page.getByText('[SECONDARY]')).toBeInTheDocument();
+  await expect.element(page.getByText('[ ALT_DIR ]')).toBeInTheDocument();
   await expect.element(page.getByText(/150/)).toBeInTheDocument();
 });
 
@@ -56,10 +56,10 @@ test('applies ADR 008 aesthetic classes (rounded-none, border-dashed, font-mono)
   expect(panel.className).toContain('rounded-none');
   expect(panel.className).toContain('border-dashed');
 
-  const recommendationContainer = container.querySelector('.bg-zinc-900\\/50');
+  const recommendationContainer = container.querySelector('.bg-black\\/40');
   expect(recommendationContainer?.className).toContain('rounded-none');
   expect(recommendationContainer?.className).toContain('border-dashed');
 
-  const reasonText = container.querySelector('.text-xs');
+  const reasonText = container.querySelector('.leading-relaxed');
   expect(reasonText?.className).toContain('font-mono');
 });

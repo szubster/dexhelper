@@ -1,6 +1,8 @@
 import React from 'react';
 import type { ContestRecommendation } from '../engine/gen3/contests/recommendation';
 import { cn } from '../utils/cn';
+import { HoverScanner } from './HoverScanner';
+import { LcdGrid } from './LcdGrid';
 import { TacticalPanel } from './TacticalPanel';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
@@ -10,12 +12,12 @@ export interface ContestRecommendationPanelProps extends React.HTMLAttributes<HT
 
 function getReasoningCopy(score: number): string {
   if (score >= 400) {
-    return 'Optimal condition trajectory detected. High existing base stats and highly favorable nature synergize well with remaining sheen potential.';
+    return 'OPTIMAL TRAJECTORY DETECTED. SYNERGISTIC NATURE/BASE STATS ALIGNED WITH REMAINING POTENTIAL.';
   }
   if (score >= 200) {
-    return 'Viable condition trajectory. Favorable base stats and sufficient remaining potential to reach competitive sheen limits.';
+    return 'VIABLE PATHWAY. FAVORABLE METRICS DETECTED. SUFFICIENT POTENTIAL FOR COMPETITIVE THRESHOLDS.';
   }
-  return 'Sub-optimal but recommended path. Acceptable condition given current nature and sheen limits.';
+  return 'SUB-OPTIMAL ALLOCATION. PROCEED WITH CAUTION. MARGINAL VIABILITY GIVEN CURRENT STATS.';
 }
 
 export const ContestRecommendationPanel = React.forwardRef<HTMLDivElement, ContestRecommendationPanelProps>(
@@ -27,34 +29,47 @@ export const ContestRecommendationPanel = React.forwardRef<HTMLDivElement, Conte
         className={cn('relative flex flex-col gap-4 p-6 pt-8', className)}
         {...props}
       >
-        <TelemetryDecoration label="SYS.RECOMMENDATION" className="-top-1 left-4" />
+        <TelemetryDecoration label="SYS.STRATEGY_MATRIX" className="-top-1 left-4" />
 
         {recommendations.length === 0 ? (
-          <div className="flex h-16 items-center justify-center rounded-none border border-zinc-800 border-dashed bg-black/20">
-            <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
-              NO RECOMMENDATIONS FOUND
+          <div className="relative flex h-16 items-center justify-center overflow-hidden rounded-none border border-zinc-800 border-dashed bg-black/40">
+            <LcdGrid />
+            <HoverScanner />
+            <span className="relative z-10 font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
+              [ NO_ACTIONABLE_INTELLIGENCE ]
             </span>
           </div>
         ) : (
-          <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             {recommendations.slice(0, 2).map((rec, idx) => (
               <div
                 key={rec.category}
-                className="flex flex-col gap-2 rounded-none border border-zinc-800 border-dashed bg-zinc-900/50 p-4"
+                className="group relative flex flex-col overflow-hidden rounded-none border border-zinc-800 border-dashed bg-black/40 p-4"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="font-black font-mono text-[10px] text-zinc-400">
-                      [{idx === 0 ? 'PRIMARY' : 'SECONDARY'}]
-                    </span>
-                    <span className="font-bold font-mono text-sm text-zinc-200 uppercase tracking-widest">
-                      {rec.category}
-                    </span>
+                <LcdGrid />
+                <HoverScanner />
+
+                {/* Tactical Data Pipe */}
+                <div className="absolute top-0 bottom-0 left-0 w-[3px] border-zinc-800 border-r border-dashed bg-zinc-950/80 transition-colors duration-500 group-hover:border-[var(--theme-primary)]/50" />
+                <div className="absolute top-4 left-[-1px] h-2 w-[4px] bg-[var(--theme-primary)]/30 transition-all duration-300 group-hover:bg-[var(--theme-primary)] group-hover:shadow-[0_0_8px_var(--theme-primary)]" />
+
+                <div className="relative z-10 pl-3">
+                  <div className="mb-3 flex items-center justify-between border-zinc-800/50 border-b border-dashed pb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="font-black font-mono text-[9px] text-zinc-500">
+                        {idx === 0 ? '[ PRIME_DIR ]' : '[ ALT_DIR ]'}
+                      </span>
+                      <span className="font-bold font-mono text-[var(--theme-primary)] text-sm uppercase tracking-widest drop-shadow-[0_0_4px_rgba(var(--theme-primary-rgb),0.5)]">
+                        {rec.category}
+                      </span>
+                    </div>
+                    <div className="border border-zinc-800 border-dashed bg-zinc-950 px-2 py-0.5 font-mono text-[10px] text-zinc-400">
+                      CONF:{Math.round(rec.score)}%
+                    </div>
                   </div>
-                  <div className="font-mono text-[10px] text-zinc-500">SCORE: {Math.round(rec.score)}</div>
-                </div>
-                <div className="border-zinc-800 border-t border-dashed pt-2 font-mono text-xs text-zinc-400 leading-relaxed">
-                  {getReasoningCopy(rec.score)}
+                  <div className="font-mono text-[10px] text-zinc-400 uppercase leading-relaxed">
+                    {getReasoningCopy(rec.score)}
+                  </div>
                 </div>
               </div>
             ))}

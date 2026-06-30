@@ -239,3 +239,9 @@
 **Outcome:** Accepted
 **Why:** Brings the mobile bottom navigation fully into the tactical specialized hardware motif. Floating app bars and subtle flicker animations break the illusion of using a rugged, purpose-built device.
 **Pattern:** Apply "bracketed" physical hardware layouts and explicit "membrane switch" button designs (using inset shadows, dashed borders, and strict monospaced labels) to navigation structures to maintain the device simulation across all viewports.
+
+## 2026-07-30 - [Accepted] - 🖼️ Canvas: Tactical Strategy Matrix Redesign
+**What:** Redesigned the `ContestRecommendationPanel` component into a "Tactical Strategy Matrix". Replaced the simple stacked boxes with a grid layout containing active "telemetry nodes". Added `LcdGrid` backgrounds, `HoverScanner` line sweeps, thick left-aligned data pipes with active LED indicators, and fully capitalized bracketed telemetry copy (e.g. `[ PRIME_DIR ]`).
+**Outcome:** Accepted
+**Why:** Brings the AI recommendation panel fully into the tactical specialization motif. Standard shaded boxes look like a regular web UI; the new data-pipe nodes feel like an active intelligence analysis readout.
+**Pattern:** Always elevate AI or recommendation readouts into active "Strategy Matrices" by utilizing data pipe visuals, CRT/Scanline backgrounds, mono brackets, and strictly capitalized terminal-style copy to reinforce the specialized intelligence fantasy.
