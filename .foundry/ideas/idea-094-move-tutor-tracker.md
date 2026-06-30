@@ -29,3 +29,6 @@ Build a "Move Tutor Tracker" dashboard that:
 3. For each available Tutor, automatically cross-references the move's compatibility matrix with the player's current PC box contents, displaying a list of viable Pokémon that can learn the move right now.
 
 This turns opaque, hidden game state into actionable strategy for competitive players and Nuzlockers, saving time and removing the need for external resources.
+
+## Generated PRDs
+- [ ] .foundry/prds/prd-094-055-move-tutor-tracker.md
