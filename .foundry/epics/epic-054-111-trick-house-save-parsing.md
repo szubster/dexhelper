@@ -2,7 +2,7 @@
 id: epic-054-111-trick-house-save-parsing
 type: EPIC
 title: Gen 3 Trick House Save Parsing
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-06-30'

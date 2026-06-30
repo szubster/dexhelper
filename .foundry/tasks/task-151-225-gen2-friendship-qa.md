@@ -2,10 +2,10 @@
 id: task-151-225-gen2-friendship-qa
 type: TASK
 title: Gen 2 Friendship QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: 2026-06-27T00:00:00.000Z
-updated_at: 2026-06-27T00:00:00.000Z
+updated_at: '2026-06-30'
 depends_on:
   - task-151-224-gen2-friendship-impl
 jules_session_id: null

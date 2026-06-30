@@ -2,10 +2,10 @@
 id: task-150-242-contest-warning-states-ui-impl
 type: TASK
 title: Implement Contest Warning States UI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on: []
 jules_session_id: null
 pr_number: null

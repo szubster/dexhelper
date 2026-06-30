@@ -2,13 +2,13 @@
 id: task-121-218-gen3-tv-block-parser-retry-qa
 type: TASK
 title: QA Gen 3 TV Block DataView Parser (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-23'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on:
   - task-121-217-gen3-tv-block-parser-retry-impl
-jules_session_id: '6224152370430396555'
+jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
 tags:

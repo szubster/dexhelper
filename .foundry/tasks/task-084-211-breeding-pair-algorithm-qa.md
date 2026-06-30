@@ -2,13 +2,13 @@
 id: task-084-211-breeding-pair-algorithm-qa
 type: TASK
 title: QA Shiny Carrier Breeding Pair Algorithm
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-19'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on:
   - task-084-210-breeding-pair-algorithm-impl
-jules_session_id: '16951829864894664390'
+jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:

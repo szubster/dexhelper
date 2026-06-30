@@ -2,13 +2,13 @@
 id: task-123-183-gen3-active-swarm-parsing-impl
 type: TASK
 title: Implement Gen 3 Active Swarm Parsing
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-06-14'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on:
   - research-123-202-gen3-outbreak-offsets
-jules_session_id: '5749739839450138583'
+jules_session_id: null
 pr_number: null
 parent: story-081-123-gen3-active-swarm-parsing
 tags:
@@ -16,7 +16,7 @@ tags:
   - gen3
   - data-parsing
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

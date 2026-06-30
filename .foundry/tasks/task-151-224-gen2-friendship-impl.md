@@ -2,12 +2,12 @@
 id: task-151-224-gen2-friendship-impl
 type: TASK
 title: Gen 2 Friendship Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: 2026-06-27T00:00:00.000Z
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: '3227191360121022696'
+jules_session_id: null
 pr_number: null
 parent: story-094-151-gen2-friendship-extraction
 tags:

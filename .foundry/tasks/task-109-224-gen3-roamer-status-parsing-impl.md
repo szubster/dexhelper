@@ -2,12 +2,12 @@
 id: task-109-224-gen3-roamer-status-parsing-impl
 type: TASK
 title: Implement Gen 3 Roamer Status Condition Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-27'
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: '2158167670346913792'
+jules_session_id: null
 pr_number: null
 parent: story-070-109-gen3-roamer-status-parsing
 tags:

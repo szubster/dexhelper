@@ -2,10 +2,10 @@
 id: story-108-246-gen3-box-parsing
 type: STORY
 title: Gen 3 Box Parsing and Grouping
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on: []
 jules_session_id: null
 pr_number: null

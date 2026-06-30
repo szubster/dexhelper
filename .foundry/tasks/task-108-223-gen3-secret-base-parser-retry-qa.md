@@ -2,13 +2,13 @@
 id: task-108-223-gen3-secret-base-parser-retry-qa
 type: TASK
 title: QA Gen 3 Secret Base Parser (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-24'
-updated_at: '2026-06-29'
+updated_at: '2026-06-30'
 depends_on:
   - task-108-222-gen3-secret-base-parser-retry-impl
-jules_session_id: '4395998564425362461'
+jules_session_id: null
 pr_number: null
 parent: story-070-108-parse-secret-base-locations
 tags:

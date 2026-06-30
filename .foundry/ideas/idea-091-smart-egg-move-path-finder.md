@@ -2,12 +2,12 @@
 id: idea-091-smart-egg-move-path-finder
 type: IDEA
 title: Smart Egg Move Breeding Path Finder
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-28'
 updated_at: '2026-06-30'
 depends_on: []
-jules_session_id: '10496626212696601499'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
