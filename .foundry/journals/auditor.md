@@ -64,5 +64,7 @@ When a feature (like the daily event tracker) relies on extracting a large block
 ### Epic Documentation Macro Node Completion Verification
 When verifying `epic-045-071-documentation-macro-node-completion`, it was noted that `story-071-110-verify-core-documentation` was completed without any corresponding child tasks. Late-binding nodes can be closed out if the work is verified or completed manually, but this highlights the need for the Auditor to always recursively confirm that all descendants are truly COMPLETED, and if a node has no children, that the intent of the node was actually fulfilled in the codebase.
 
+### Lesson: Documentation Lagging State Machine Updates
+During the verification of `epic-045-071-documentation-macro-node-completion`, it was discovered that `schema.md` contains contradictions. Invariant 7 states "`COMPLETED` nodes are read-only. Once a PR is merged, the node must not be edited. The TPM archives it." However, `ADR 014` introduced the `VERIFYING` state, meaning when a PR is merged, the node transitions to `VERIFYING`, not `COMPLETED`. Documentation updates for process changes must holistically review all related invariants.
 ## Lesson: Bitwise Flag Parsing with DataView
 - When parsing bitwise flags or blocks (like Gen 2 event flags) with the DataView API, explicit bounds checking and RangeError handling is an effective strategy to prevent corrupted save files from crashing the application.
