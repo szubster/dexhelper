@@ -1,6 +1,7 @@
 import { Check, CircleDot } from 'lucide-react';
 import type { PokemonInstance } from '../../engine/saveParser/parsers/common';
 import { CornerCrosshairs } from '../CornerCrosshairs';
+import { EmptyState } from '../EmptyState';
 import { TacticalPanel } from '../TacticalPanel';
 import { TelemetryDecoration } from '../TelemetryDecoration';
 
@@ -44,12 +45,7 @@ export function VisitedRoutesChecklist({ visited, unvisited }: VisitedRoutesChec
               </div>
             </div>
           ))}
-          {visited.length === 0 && (
-            <div className="relative col-span-full rounded-none border border-zinc-800/50 border-dashed bg-zinc-950/20 p-6 text-center font-mono text-xs text-zinc-500 uppercase">
-              <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700/50" />
-              NO ROUTES VISITED YET
-            </div>
-          )}
+          {visited.length === 0 && <EmptyState label="NO ROUTES VISITED YET" />}
         </div>
       </TacticalPanel>
 
@@ -68,12 +64,7 @@ export function VisitedRoutesChecklist({ visited, unvisited }: VisitedRoutesChec
               </span>
             </div>
           ))}
-          {unvisited.length === 0 && (
-            <div className="relative col-span-full rounded-none border border-zinc-800/50 border-dashed bg-zinc-950/20 p-6 text-center font-mono text-xs text-zinc-500 uppercase">
-              <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700/50" />
-              ALL ROUTES VISITED
-            </div>
-          )}
+          {unvisited.length === 0 && <EmptyState label="ALL ROUTES VISITED" />}
         </div>
       </TacticalPanel>
     </div>
