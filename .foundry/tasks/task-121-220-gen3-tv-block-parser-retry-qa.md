@@ -2,7 +2,7 @@
 id: task-121-220-gen3-tv-block-parser-retry-qa
 type: TASK
 title: QA Gen 3 TV Block DataView Parser (Retry)
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-06-23'
 updated_at: '2026-06-30'
@@ -16,8 +16,8 @@ tags:
   - gen3
   - data-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
