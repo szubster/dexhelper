@@ -3,7 +3,7 @@ id: idea-066-enforce-gray-matter-linter
 type: IDEA
 title: Enforce Gray-Matter Linter for Scripts
 status: ACTIVE
-owner_persona: tpm
+owner_persona: product_manager
 created_at: '2026-05-25'
 updated_at: '2026-07-01'
 depends_on: []

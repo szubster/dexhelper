@@ -3,7 +3,7 @@ id: idea-066-save-state-history
 type: IDEA
 title: Save State Version History and Metadata Inference
 status: ACTIVE
-owner_persona: tpm
+owner_persona: product_manager
 created_at: '2026-05-24'
 updated_at: '2026-07-01'
 depends_on: []

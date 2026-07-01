@@ -3,7 +3,7 @@ id: idea-021-unified-scheduled-agent-policies
 type: IDEA
 title: Unified Scheduled Agent Policies Module
 status: COMPLETED
-owner_persona: tpm
+owner_persona: product_manager
 created_at: '2026-05-14'
 updated_at: '2026-07-01'
 depends_on: []
