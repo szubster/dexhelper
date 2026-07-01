@@ -79,6 +79,12 @@ export interface Gen3MixRecord {
   active: boolean;
 }
 
+export interface Gen3TVShow {
+  kind: number;
+  active: boolean;
+  itemOffset: number;
+}
+
 export interface Gen3ActiveSwarm {
   speciesId: number;
   mapId: number;
