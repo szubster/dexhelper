@@ -31,3 +31,4 @@ Update the relevant agent prompts or system configurations to explicitly define 
 ## Acceptance Criteria
 - [ ] Agent prompt explicitly states `palette` persona owns `src/index.css`.
 - [ ] Palette persona is tasked with enforcing the tactical hardware aesthetic and managing custom `@utility` primitives.
+- [ ] .foundry/tasks/task-245-249-update-palette-persona-impl.md
