@@ -314,3 +314,9 @@
 **Outcome:** Merged
 **Why:** The `qa.md` journal recorded that when verifying tasks that involve adding or modifying parsers for save files (like `task-124-172-gen3-mix-record-events-parser`), the QA agent must closely inspect that they properly catch `RangeError` from the `DataView` API when checking for out-of-bounds reads. However, this explicit validation constraint was missing from the QA agent's prompt.
 **Pattern:** Codify system memory constraints and specific validation requirements (like checking for `RangeError` handling in save file parsers) directly into the QA agent's prompt to ensure strict and consistent architectural enforcement.
+
+## 2026-07-19 - [Accepted] - Prompt improvement - Enforce formatting for appended child nodes
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The memory requires that when appending child nodes as unchecked tasks (`- [ ] <node_id>`) to a parent node, the parent must have an `## Acceptance Criteria` section, and the `<node_id>` must be strictly the exact Node ID without file extensions or directory paths. Several agent prompts lacked these instructions, which could lead to malformed parent nodes or DAG validation errors.
+**Pattern:** Apply systemic rules consistently across all relevant agent personas. When an architectural constraint or tool rule applies to formatting or ID usage, it must be explicitly included in all generative agent prompts to ensure compliance.
