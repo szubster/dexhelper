@@ -124,7 +124,7 @@ describe('buildDagGraph', () => {
             status: 'PENDING',
             owner_persona: 'coder',
             rejection_count: 0,
-            depends_on: ['.foundry/tasks/unknown-task.md'],
+            depends_on: ['./.foundry/tasks/task-1.md'],
           },
         },
       ],
