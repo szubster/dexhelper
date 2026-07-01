@@ -36,10 +36,10 @@ As per ADR 026:
    - Max boundary values (e.g., max strain and max days remaining).
 
 ## Acceptance Criteria
-- [ ] Verify tests in `common.test.ts` for `parsePokerus` cover absolute zero state
-- [ ] Verify tests in `common.test.ts` for `parsePokerus` cover cured boundary state
-- [ ] Verify tests in `common.test.ts` for `parsePokerus` cover max boundary values
-- [ ] Ensure all parsing logic involving bitwise extraction defines constants at module level (no magic numbers)
+- [x] Verify tests in `common.test.ts` for `parsePokerus` cover absolute zero state
+- [x] Verify tests in `common.test.ts` for `parsePokerus` cover cured boundary state
+- [x] Verify tests in `common.test.ts` for `parsePokerus` cover max boundary values
+- [x] Ensure all parsing logic involving bitwise extraction defines constants at module level (no magic numbers)
 
 ### Important Constraints
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
