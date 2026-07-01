@@ -37,5 +37,7 @@ Leverage DexHelper's programmatic save parsing to extract and display the player
 ## Value Proposition
 By surfacing this single hidden variable, DexHelper instantly becomes a mandatory foundational tool for a massive segment of the hardcore playerbase: Shiny Hunters and RNG Manipulators. It bridges the gap between raw save data and advanced community gameplay strategies, perfectly fitting the app's "premium utility" vision.
 
-## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to define the implementation of Gen 3 Trainer Data extraction including the SID.
+## Acceptance Criteria
+- [x] Product Manager: Convert this idea into a PRD to define the implementation of Gen 3 Trainer Data extraction including the SID.
+- [ ] prd-082-099-gen3-trainer-data-extraction
+- [ ] prd-082-100-rng-calculator-integration
