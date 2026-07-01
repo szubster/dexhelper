@@ -2,12 +2,12 @@
 id: task-150-242-contest-warning-states-ui-impl
 type: TASK
 title: Implement Contest Warning States UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-29'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2245414162262557999'
 pr_number: null
 parent: story-065-150-contest-warning-states-ui
 tags:
