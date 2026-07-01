@@ -34,3 +34,5 @@ As part of the Missing Hidden Items Finder feature, we need to create a dedicate
 - [ ] Checklist UI is built and styled correctly.
 - [ ] Checklist is logically grouped and filterable.
 - [ ] Component is connected to save file state for dynamic checking of acquired items.
+- [ ] task-156-254-hidden-items-checklist-impl
+- [ ] task-156-255-hidden-items-checklist-qa
