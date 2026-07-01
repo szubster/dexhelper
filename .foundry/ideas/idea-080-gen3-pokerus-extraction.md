@@ -40,3 +40,7 @@ Implement the necessary infrastructure in `src/engine/saveParser/parsers/gen3.ts
 
 ## Value
 This is a required precursor for enabling the Pokerus Tracker and Infection Spread Assistant (idea-068-069-pokerus-tracker) for Generation 3 games, expanding feature parity across generations.
+
+## Acceptance Criteria
+- [ ] prd-080-097-gen3-data-parsing-infrastructure
+- [ ] prd-080-098-gen3-pokerus-extraction
