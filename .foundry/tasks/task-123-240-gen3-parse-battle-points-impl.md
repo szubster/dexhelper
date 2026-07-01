@@ -35,6 +35,6 @@ Implement logic to extract the total accumulated Battle Points (BP) from `SaveBl
 - If submitting an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Parse total BP correctly from offset `0x0EB8`.
-- [ ] Module-level constants are used for offsets.
-- [ ] Error handling captures out-of-bounds reads (`RangeError`).
+- [x] Parse total BP correctly from offset `0x0EB8`.
+- [x] Module-level constants are used for offsets.
+- [x] Error handling captures out-of-bounds reads (`RangeError`).
