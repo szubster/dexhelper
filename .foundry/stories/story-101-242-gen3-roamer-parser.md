@@ -37,4 +37,6 @@ We must extract IVs (`0x00`), Personality (`0x04`), Species (`0x08`), HP (`0x0A`
 - [ ] Implement a parser using `DataView` API that extracts the `Roamer` struct based on the version-specific offsets.
 - [ ] Extract and expose the `active` boolean properly.
 - [ ] Add unit tests using Vitest verifying the extraction logic against mock save data blocks for Emerald, RS, and FRLG.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-242-249-gen3-roamer-dataview-parser-impl
+- [ ] task-242-250-gen3-roamer-dataview-parser-qa
