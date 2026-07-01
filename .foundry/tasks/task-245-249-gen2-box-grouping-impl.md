@@ -41,7 +41,7 @@ The goal is to prepare Gen 2 PC box data for the frontend Comparison Matrix UI. 
 *   If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Grouping logic is implemented to group `PokemonInstance` objects by `speciesId`.
-- [ ] Party and Daycare Pokémon are actively excluded from the grouping output.
-- [ ] Unit tests are written to verify grouping and filtering behavior.
-- [ ] Ensure that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
+- [x] Grouping logic is implemented to group `PokemonInstance` objects by `speciesId`.
+- [x] Party and Daycare Pokémon are actively excluded from the grouping output.
+- [x] Unit tests are written to verify grouping and filtering behavior.
+- [x] Ensure that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
