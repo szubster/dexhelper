@@ -41,6 +41,7 @@ export interface PokemonInstance {
   isShinyCarrier?: boolean;
   item?: number | undefined;
   moves: number[];
+  eggSteps?: number | undefined;
   friendship?: number | undefined;
   pokerus?: { strain: number; daysRemaining: number } | undefined;
   currentHp?: number | undefined;

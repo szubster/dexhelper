@@ -50,6 +50,6 @@ In `src/engine/saveParser/saveParser.test.ts` (or the appropriate test file like
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `PokemonInstance` is updated with `eggSteps?: number`.
-- [ ] `parseGen2PokemonInstance` calculates `eggSteps` correctly for eggs (species ID 253).
-- [ ] Unit tests are written to verify the calculation.
+- [x] `PokemonInstance` is updated with `eggSteps?: number`.
+- [x] `parseGen2PokemonInstance` calculates `eggSteps` correctly for eggs (species ID 253).
+- [x] Unit tests are written to verify the calculation.
