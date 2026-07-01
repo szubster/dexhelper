@@ -2,6 +2,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Gen3RTCProvider } from './contexts/Gen3RTCContext';
 import { pokeDB } from './db/PokeDB';
 import { queryClient } from './queryClient';
 import { routeTree } from './routeTree.gen';
@@ -31,7 +32,9 @@ if (!rootElement) throw new Error('Root element not found');
 createRoot(rootElement).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <Gen3RTCProvider>
+        <RouterProvider router={router} />
+      </Gen3RTCProvider>
     </QueryClientProvider>
   </StrictMode>,
 );

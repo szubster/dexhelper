@@ -35,7 +35,7 @@ This task implements an RTC-Independent Fallback Strategy for Gen 3 time-gated e
 - **Save Parsing Guidelines**: When drafting or implementing blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Define and implement a React Context layer that tracks Gen 3 time-of-day / time-gated event state.
-- [ ] Ensure the context defaults to the host device's current system time.
-- [ ] Implement UI controls allowing users to manually override the time state.
-- [ ] Integrate the context provider securely and without tight coupling to downstream UI components.
+- [x] Define and implement a React Context layer that tracks Gen 3 time-of-day / time-gated event state.
+- [x] Ensure the context defaults to the host device's current system time.
+- [x] Implement UI controls allowing users to manually override the time state.
+- [x] Integrate the context provider securely and without tight coupling to downstream UI components.
