@@ -2,18 +2,20 @@
 id: idea-056-living-dex-tracker
 type: IDEA
 title: Specialized "Living Dex" Organization Tracker UI
-status: READY
+status: ACTIVE
 owner_persona: tpm
 created_at: '2026-05-18'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16390116739271571586'
 parent: null
 tags:
   - feature
   - ui
   - living-dex
-notes: 'Resurrected: Auditor found that the specialized numerical grid and box/slot overlay are missing.'
+notes: >-
+  Resurrected: Auditor found that the specialized numerical grid and box/slot
+  overlay are missing.
 rejection_reason: ''
 rejection_count: 0
 ---
