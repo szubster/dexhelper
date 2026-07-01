@@ -2,12 +2,12 @@
 id: idea-082-gen3-secret-id-shiny-rng
 type: IDEA
 title: Gen 3 Secret ID Viewer and Shiny RNG Assistant
-status: READY
+status: ACTIVE
 owner_persona: tpm
 created_at: '2026-06-16'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8819210191031062634'
 pr_number: null
 parent: null
 tags:
@@ -17,7 +17,9 @@ tags:
   - shiny-hunting
 research_references: []
 rejection_reason: ''
-notes: 'Resurrected: Auditor found that Gen 3 trainer data extraction is missing/scaffolded.'
+notes: >-
+  Resurrected: Auditor found that Gen 3 trainer data extraction is
+  missing/scaffolded.
 ---
 
 # Idea: Gen 3 Secret ID Viewer and Shiny RNG Assistant
