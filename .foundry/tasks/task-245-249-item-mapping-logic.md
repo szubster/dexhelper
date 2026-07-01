@@ -2,10 +2,10 @@
 id: task-245-249-item-mapping-logic
 type: TASK
 title: Item List Generation Validation and Mapping
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: null
 pr_number: null

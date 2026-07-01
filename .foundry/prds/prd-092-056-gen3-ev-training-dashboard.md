@@ -2,12 +2,12 @@
 id: prd-092-056-gen3-ev-training-dashboard
 type: PRD
 title: PRD - Gen 3 Effort Value (EV) Training Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-29'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: '1984652679342753907'
+jules_session_id: null
 parent: idea-092-gen3-ev-training-dashboard
 tags:
   - gen3

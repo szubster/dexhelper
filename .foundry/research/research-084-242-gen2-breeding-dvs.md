@@ -2,12 +2,12 @@
 id: research-084-242-gen2-breeding-dvs
 type: RESEARCH
 title: Investigate Gen 2 Shiny / DV Overlap Breeding Constraints
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-06-29'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: '6040152355837937194'
+jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:

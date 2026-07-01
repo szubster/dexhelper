@@ -2,10 +2,10 @@
 id: task-242-249-gen3-roamer-dataview-parser-impl
 type: TASK
 title: Gen 3 Roamer DataView Parsing Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: null
 pr_number: null

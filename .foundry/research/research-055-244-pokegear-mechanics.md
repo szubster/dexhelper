@@ -2,10 +2,10 @@
 id: research-055-244-pokegear-mechanics
 type: RESEARCH
 title: Gen 2 Pokegear Call Mechanics Research
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-06-30'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: null
 pr_number: null

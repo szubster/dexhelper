@@ -2,10 +2,10 @@
 id: epic-092-116-gen3-ev-data-extraction
 type: EPIC
 title: Epic - Gen 3 EV Data Extraction
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: null
 pr_number: null

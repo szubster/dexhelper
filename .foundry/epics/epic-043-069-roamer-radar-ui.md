@@ -2,13 +2,13 @@
 id: epic-043-069-roamer-radar-ui
 type: EPIC
 title: Roamer Radar UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on:
   - epic-043-068-roamer-map-translation
-jules_session_id: '14345830178703057270'
+jules_session_id: null
 pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
 tags: []

@@ -2,10 +2,10 @@
 id: story-062-099-gen3-expose-lower-16bit-pv
 type: STORY
 title: Expose lower 16-bits of PV
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-09'
-updated_at: '2026-06-28'
+updated_at: '2026-07-01'
 depends_on:
   - story-062-098-gen3-parse-32bit-pv
 jules_session_id: null

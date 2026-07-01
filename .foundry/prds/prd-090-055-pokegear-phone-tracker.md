@@ -2,12 +2,12 @@
 id: prd-090-055-pokegear-phone-tracker
 type: PRD
 title: Gen 2 Pokegear Phone Call Predictor & Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-29'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: '2400102194657318913'
+jules_session_id: null
 pr_number: null
 parent: idea-090-pokegear-phone-tracker
 tags:
