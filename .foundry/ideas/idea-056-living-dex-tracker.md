@@ -2,12 +2,12 @@
 id: idea-056-living-dex-tracker
 type: IDEA
 title: Specialized "Living Dex" Organization Tracker UI
-status: ACTIVE
+status: READY
 owner_persona: tpm
 created_at: '2026-05-18'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: '16390116739271571586'
+jules_session_id: null
 parent: null
 tags:
   - feature
