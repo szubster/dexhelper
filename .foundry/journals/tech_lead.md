@@ -114,3 +114,7 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 
 ## [Anomaly] Target artifacts existed prior to session
 When assigned to STORY `story-058-152-refactor-feebas-magic-numbers`, I found that the child task `task-152-230-refactor-feebas-magic-numbers-impl.md` already existed and was in the `COMPLETED` state, and the code changes in `feebas.ts` were already made. Proceeding to submit empty PR to complete the story.
+
+When setting node references in YAML fields (`depends_on`, `parent`) or appending child node references to a parent's markdown checklist (`- [ ]`), strictly use the exact Node ID without file extensions or directory paths (e.g., use `task-123-slug`, NOT `.foundry/tasks/task-123-slug.md`). Violating this causes orchestrator DAG validation errors.
+
+When determining the next available sequence number for nodes using the `<type>-<parent_NNN>-<NNN>-<slug>` schema, extract the third token (the actual `NNN`) from existing files using tools like `awk -F'-' '{print $3}'` rather than relying on standard directory sorting, to prevent sequence ID collisions and sorting misalignments.
