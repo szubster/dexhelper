@@ -69,7 +69,7 @@ test('does not throw an error if no battle points exist', async () => {
     gen3BattleFrontierSymbols: mockSaveData.gen3BattleFrontierSymbols,
   } as SaveData;
   await render(<BattleFrontierDashboard saveData={data} />);
-  await expect.element(page.getByText('BATTLE FRONTIER STATUS')).toBeInTheDocument();
+  await expect.element(page.getByText('NO BATTLE FRONTIER DATA FOUND')).toBeInTheDocument();
 });
 
 test('renders with no facilities safely', async () => {
