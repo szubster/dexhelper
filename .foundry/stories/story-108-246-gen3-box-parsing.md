@@ -2,11 +2,12 @@
 id: story-108-246-gen3-box-parsing
 type: STORY
 title: Gen 3 Box Parsing and Grouping
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
-depends_on: []
+updated_at: '2026-07-02'
+depends_on:
+  - research-246-244-gen3-box-parsing
 jules_session_id: '276488564319222029'
 pr_number: null
 parent: epic-054-108-box-analyzer-save-parsing
@@ -17,7 +18,7 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Suspended pending research on exact memory offsets for Gen 3 PC Box data.'
 notes: ''
 ---
 
@@ -37,3 +38,4 @@ Implement the backend data grouping and aggregation logic to parse PC box data f
 - [ ] Implement Gen 3 PC box parsing and species grouping.
 - [ ] Verify that Party Pokémon are successfully excluded from the extracted data.
 - [ ] Ensure all required stats (IVs, Natures, Hidden Power, Shininess) are calculated correctly for each Pokémon.
+- [ ] research-246-244-gen3-box-parsing
