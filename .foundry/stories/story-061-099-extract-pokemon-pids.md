@@ -17,6 +17,7 @@ tags:
 research_references: []
 notes: ''
 rejection_reason: ''
+
 ---
 
 # Extract Pokemon PIDs
@@ -32,5 +33,5 @@ Use the `DataView` API for safe data parsing as per ADR 010.
 - [x] Create/Update TASK nodes to implement parsing the 32-bit PIDs for all party and PC Pokémon in Gen 3 saves.
 
 ### Implementation Tasks
-- [ ] .foundry/tasks/task-099-157-gen3-extract-pokemon-pids-impl.md
-- [ ] .foundry/tasks/task-099-158-gen3-extract-pokemon-pids-qa.md
+- [ ] .foundry/archive/tasks/task-099-157-gen3-extract-pokemon-pids-impl.md
+- [ ] .foundry/archive/tasks/task-099-158-gen3-extract-pokemon-pids-qa.md

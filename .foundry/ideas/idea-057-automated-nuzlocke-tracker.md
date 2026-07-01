@@ -17,6 +17,7 @@ notes: >-
   Resurrected: Auditor found that automated encounter tracking and the status
   dashboard are missing.
 rejection_reason: ''
+
 ---
 
 # Idea: Automated Nuzlocke Verification and Run Tracker
@@ -37,4 +38,4 @@ This significantly reduces the friction of playing Nuzlocke challenges on origin
 - [x] Product Manager: Convert this idea into a PRD.
 
 ## Downstream Nodes
-- PRD: `.foundry/prds/prd-057-026-automated-nuzlocke-tracker.md`
+- PRD: `.foundry/archive/prds/prd-057-026-automated-nuzlocke-tracker.md`

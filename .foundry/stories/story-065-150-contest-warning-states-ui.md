@@ -21,6 +21,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # Story: Contest Warning States UI
@@ -31,5 +32,5 @@ Implement visual warning states for edge cases identified by the Gen 3 Contest O
 ## Acceptance Criteria
 - [ ] Implement visual warnings for edge cases.
 - [ ] Alert users when a Pokémon has maxed out its Sheen but lacks stats for Master Rank contests.
-- [ ] .foundry/tasks/task-150-242-contest-warning-states-ui-impl.md
-- [ ] .foundry/tasks/task-150-243-contest-warning-states-ui-qa.md
+- [ ] .foundry/archive/tasks/task-150-242-contest-warning-states-ui-impl.md
+- [ ] .foundry/archive/tasks/task-150-243-contest-warning-states-ui-qa.md

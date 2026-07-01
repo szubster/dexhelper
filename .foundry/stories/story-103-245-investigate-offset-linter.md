@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # Investigate Linter for Save Parsing Offsets
@@ -33,4 +34,4 @@ Currently, save file extraction uses absolute hardcoded offsets for dynamic bloc
 - [ ] Document findings and propose next steps (either create the rule or fall back to an ADR).
 
 ### Generated Tasks
-- [ ] .foundry/tasks/task-245-249-investigate-offset-linter.md
+- [ ] .foundry/archive/tasks/task-245-249-investigate-offset-linter.md

@@ -21,6 +21,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # Story: Client-side Offline Auth State Management
@@ -36,5 +37,5 @@ The application is designed to be offline-first. Therefore, the client needs to 
 - [ ] Implement a logout mechanism that clears the client-side state.
 
 ## Child Nodes
-- [ ] .foundry/tasks/task-076-199-offline-auth-state-impl.md
-- [ ] .foundry/tasks/task-076-200-offline-auth-state-qa.md
+- [ ] .foundry/archive/tasks/task-076-199-offline-auth-state-impl.md
+- [ ] .foundry/archive/tasks/task-076-200-offline-auth-state-qa.md

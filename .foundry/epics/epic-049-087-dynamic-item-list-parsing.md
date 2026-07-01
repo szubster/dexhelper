@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # EPIC: Dynamic Generation of Items PokeData
@@ -37,5 +38,5 @@ Currently, valid item lists are either manually maintained or fetched ad-hoc. Ma
 - [ ] Handle any validation required for items (e.g. mapping across generations, PokeAPI IDs to internal ROM IDs).
 - [ ] Output the correct `items.jsonl` data payload.
 
-- [x] .foundry/stories/story-087-128-dynamic-item-list-parsing.md
+- [x] .foundry/archive/stories/story-087-128-dynamic-item-list-parsing.md
 - [ ] .foundry/stories/story-087-245-item-list-validation.md

@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # Story: Extract Tactical Container Utilities
@@ -28,4 +29,4 @@ Define the `tactical-panel` and `tactical-card` custom utilities in `src/index.c
 - [ ] `tactical-panel` utility is defined in `src/index.css`.
 - [ ] `tactical-card` utility is defined in `src/index.css`.
 - [ ] The definitions follow the guidelines in ADR 024.
-- [ ] .foundry/tasks/task-242-249-extract-tactical-containers.md
+- [ ] .foundry/archive/tasks/task-242-249-extract-tactical-containers.md

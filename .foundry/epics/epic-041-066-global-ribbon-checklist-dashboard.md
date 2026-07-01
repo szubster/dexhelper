@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # Epic: Global Ribbon Checklist Dashboard
@@ -40,7 +41,7 @@ This epic builds the centralized aggregate view (or dashboard) across the entire
 - [ ] Ensure adequate rendering performance for hundreds of Pokémon.
 
 ## 4. Child Nodes
-- [ ] .foundry/stories/story-066-137-global-ribbon-dashboard-scaffold.md
+- [ ] .foundry/archive/stories/story-066-137-global-ribbon-dashboard-scaffold.md
 - [ ] .foundry/stories/story-066-138-master-rank-tracking.md
 - [ ] .foundry/stories/story-066-139-ribbon-filtering-sorting.md
 - [ ] .foundry/stories/story-066-140-ribbon-dashboard-performance.md

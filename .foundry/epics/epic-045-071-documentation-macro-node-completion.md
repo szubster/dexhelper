@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # Epic: Documentation Updates for Macro Node Completion
@@ -39,9 +40,9 @@ Update the core system documentation to detail the new macro node completion rul
 - [x] Verify that there are no conflicting statements across other core documentation.
 
 ### Stories
-- [x] .foundry/stories/story-071-108-update-schema-macro-node-completion.md
-- [x] .foundry/stories/story-071-109-update-adr001-macro-node-completion.md
-- [x] .foundry/stories/story-071-110-verify-core-documentation.md
+- [x] .foundry/archive/stories/story-071-108-update-schema-macro-node-completion.md
+- [x] .foundry/archive/stories/story-071-109-update-adr001-macro-node-completion.md
+- [x] .foundry/archive/stories/story-071-110-verify-core-documentation.md
 
 ### Follow-up Work
 - [ ] .foundry/ideas/idea-097-schema-verifying-state-fix.md

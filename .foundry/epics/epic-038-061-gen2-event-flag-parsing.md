@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # Epic: Gen 2 Event Flag Parsing Engine
@@ -30,5 +31,5 @@ Develop the core save file parsing engine to extract specific time-gated event f
 
 
 ### Implementation Tasks
-- [x] .foundry/stories/story-061-095-gen2-event-flag-extraction.md
-- [x] .foundry/stories/story-061-096-gen2-event-data-layer.md
+- [x] .foundry/archive/stories/story-061-095-gen2-event-flag-extraction.md
+- [x] .foundry/archive/stories/story-061-096-gen2-event-data-layer.md

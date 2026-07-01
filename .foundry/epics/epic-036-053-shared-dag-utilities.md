@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: Spawned from prd-067-036-extract-dag-utils.
+
 ---
 
 # Extract Shared DAG Utilities
@@ -39,7 +40,7 @@ This epic extracts pure functions from `.github/scripts/foundry-orchestrator.ts`
 
 
 - [ ] Story Owner: Write Story to create unit tests for `dag-utils.ts`.
-  - Spawned: `.foundry/stories/story-053-106-dag-utils-unit-tests.md`
+  - Spawned: `.foundry/archive/stories/story-053-106-dag-utils-unit-tests.md`
 - [ ] Story Owner: Write Story to update DAG orchestration tests.
   - Spawned: `.foundry/stories/story-053-107-update-dag-orchestration-tests.md`
 

@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # Gen 3 Egg Hatch Data Extraction
@@ -33,5 +34,5 @@ Similar to Gen 2, Gen 3 repurposes the Friendship byte to store remaining "Egg C
 - [ ] Ensure `DataView` API is used.
 - [ ] Write unit tests verifying the calculation.
 
-- [ ] .foundry/tasks/task-159-249-gen3-egg-hatch-parsing-impl.md
-- [ ] .foundry/tasks/task-159-250-gen3-egg-hatch-parsing-qa.md
+- [ ] .foundry/archive/tasks/task-159-249-gen3-egg-hatch-parsing-impl.md
+- [ ] .foundry/archive/tasks/task-159-250-gen3-egg-hatch-parsing-qa.md

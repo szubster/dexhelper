@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # Implement DagProvider State Management and Wrapper
@@ -27,5 +28,5 @@ The Auditor rejected `epic-045-070-implement-dag-context` because `DagProvider` 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] .foundry/tasks/task-245-249-implement-dag-provider-logic.md
-- [ ] .foundry/tasks/task-245-250-implement-dag-provider-logic-qa.md
+- [ ] .foundry/archive/tasks/task-245-249-implement-dag-provider-logic.md
+- [ ] .foundry/archive/tasks/task-245-250-implement-dag-provider-logic-qa.md

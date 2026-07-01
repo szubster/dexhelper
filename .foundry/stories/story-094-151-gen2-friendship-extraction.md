@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+
 ---
 
 # Gen 2 Friendship Data Extraction
@@ -28,5 +29,5 @@ Implement the logic to extract the Friendship (Happiness) value for Gen 2 Pokém
 - [ ] Implement Gen 2 PC parsing to extract Friendship.
 - [ ] Update Gen 2 unit tests to verify the extracted Friendship value.
 
-- [ ] .foundry/tasks/task-151-224-gen2-friendship-impl.md
+- [ ] .foundry/archive/tasks/task-151-224-gen2-friendship-impl.md
 - [ ] .foundry/tasks/task-151-225-gen2-friendship-qa.md
