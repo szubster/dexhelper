@@ -34,5 +34,5 @@ Following the detection of "zombie" nodes (nodes incorrectly stuck in the `ACTIV
 
 ### Next Steps
 - [x] Break down into Tasks.
-- [ ] .foundry/tasks/task-133-230-remediation-state-transition-logic-impl.md
-- [ ] .foundry/tasks/task-133-231-remediation-state-transition-logic-qa.md
+- [ ] task-133-251-remediation-state-transition-logic-impl
+- [ ] task-133-252-remediation-state-transition-logic-qa
