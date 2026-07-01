@@ -7,13 +7,13 @@ export type { GameVersion, PokemonInstance, SaveData };
 
 /**
  * Main entry point for decoding a raw Pokémon save file buffer.
- * It identifies whether the file belongs to Generation 1 (R/B/Y) or Generation 2 (G/S/C)
- * by verifying checksums and internal structures.
+ * It identifies whether the file belongs to Generation 1 (R/B/Y), Generation 2 (G/S/C), or
+ * Generation 3 (R/S/E/FR/LG) by verifying checksums, signatures, and internal structures.
  *
  * @param buffer - The raw binary data of the .sav file.
- * @param forcedVersion - An optional version override provided by the user to force specific parsing logic (e.g., forcing Yellow or Crystal).
+ * @param forcedVersion - An optional version override provided by the user to force specific parsing logic (e.g., forcing Yellow, Crystal, or Emerald).
  * @returns The structured SaveData object representing the player's progress and Pokémon.
- * @throws An Error if the file size is invalid or if neither Gen 1 nor Gen 2 structures could be matched.
+ * @throws An Error if the file size is invalid or if no known Generation structure could be matched.
  */
 export function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: GameVersion): SaveData {
   const view = new DataView(buffer);
