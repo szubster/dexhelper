@@ -42,8 +42,7 @@ export function extractPlayerTools(saveData: SaveData, allInstances: PokemonInst
       if (id === 192) hasHeadbutt = true;
       else if (id === 198) {
         hasRockSmash = true;
-        hasSurf = true;
-      } else if (id === 245 || id === 341) hasSurf = true;
+      } else if (id === 399) hasSurf = true;
       else if (id === 52 || id === 69 || id === 260) hasOldRod = true;
       else if (id === 53 || id === 70 || id === 261) hasGoodRod = true;
       else if (id === 54 || id === 71 || id === 262) hasSuperRod = true;
@@ -58,8 +57,7 @@ export function extractPlayerTools(saveData: SaveData, allInstances: PokemonInst
       if (id === 192) hasHeadbutt = true;
       else if (id === 198) {
         hasRockSmash = true;
-        hasSurf = true;
-      } else if (id === 245 || id === 341) hasSurf = true;
+      } else if (id === 399) hasSurf = true;
       else if (id === 52 || id === 69 || id === 260) hasOldRod = true;
       else if (id === 53 || id === 70 || id === 261) hasGoodRod = true;
       else if (id === 54 || id === 71 || id === 262) hasSuperRod = true;

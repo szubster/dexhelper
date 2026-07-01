@@ -358,7 +358,7 @@ describe('Catch Encounter Filtering', () => {
     const saveData = createMockSaveData({
       owned: new Set([16]),
       // biome-ignore lint/suspicious/noExplicitAny: Required for mock data overrides
-      inventory: [{ id: 245, quantity: 1 } as any],
+      inventory: [{ id: 399, quantity: 1 } as any],
     });
     const apiData = createMockApiData();
 
