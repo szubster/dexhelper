@@ -2,13 +2,13 @@
 id: task-130-239-move-jsonl-compaction-qa
 type: TASK
 title: Verify Move JSONL Compaction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-28'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on:
   - task-130-238-move-jsonl-compaction-impl
-jules_session_id: '15415524742039991474'
+jules_session_id: null
 pr_number: null
 parent: story-086-130-move-jsonl-compaction
 tags:
@@ -37,9 +37,9 @@ The implementation task `task-130-238-move-jsonl-compaction-impl` was meant to u
 6. Verify no other required fields from ADR 025 were inadvertently dropped.
 
 ## Acceptance Criteria
-- [ ] The `moves.jsonl` file correctly omits `p` (power) when 0 or null.
-- [ ] The `moves.jsonl` file correctly omits `acc` (accuracy) when 100 or null.
-- [ ] The payload matches the expected schema per ADR 025.
+- [x] The `moves.jsonl` file correctly omits `p` (power) when 0 or null.
+- [x] The `moves.jsonl` file correctly omits `acc` (accuracy) when 100 or null.
+- [x] The payload matches the expected schema per ADR 025.
 
 ## Important Note for QA
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

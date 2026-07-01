@@ -163,3 +163,7 @@
 ## 2026-06-29
 **Idea:** Gen 2/3 In-Game Trade Assistant Dashboard
 **Learning:** Expanding on the success of the Move Tutor dashboard, targeting other one-time limited NPC interactions—like in-game trades—provides excellent utility. By automatically parsing the save file's event flags to determine trade availability, and cross-referencing requested species with the player's current PC box contents, we transform static event data into an actionable, dynamic "to-do" list. This strongly reinforces DexHelper's value as a premium companion app that eliminates tedious wiki searches and manual tracking.
+
+## 2026-07-01
+**Idea:** Gen 3 Pokémon Lottery Predictor
+**Learning:** Expanding the app to parse the hidden daily PRNG seed for the Pokémon Lottery Corner and cross-referencing it with the player's PC box Original Trainer IDs turns a highly tedious, manual daily chore into an instant actionable insight. This strongly fits the project's vision of providing premium utility features for hardcore players and shiny hunters.

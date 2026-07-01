@@ -2,13 +2,13 @@
 id: story-053-106-dag-utils-unit-tests
 type: STORY
 title: Unit Tests for Shared DAG Utilities
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-06-28'
+updated_at: '2026-07-01'
 depends_on:
   - story-053-090-extract-dag-utilities
-jules_session_id: null
+jules_session_id: '13774953492407018505'
 pr_number: null
 parent: epic-036-053-shared-dag-utilities
 tags:

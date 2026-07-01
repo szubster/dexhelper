@@ -2,13 +2,13 @@
 id: task-153-235-orchestrator-max-rejection-cancellation-qa
 type: TASK
 title: QA Max Rejection Cancellation
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-28'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on:
   - task-153-234-orchestrator-max-rejection-cancellation-impl
-jules_session_id: '5935484291540394699'
+jules_session_id: null
 pr_number: null
 parent: story-096-153-max-rejection-cancellation
 tags:
@@ -29,5 +29,5 @@ notes: ''
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Review foundry-orchestrator.ts to verify the cancellation logic for max rejection threshold is correctly implemented and works as expected.
-- [ ] If the artifact is already completely implemented, apply the Empty PR policy.
+- [x] Review foundry-orchestrator.ts to verify the cancellation logic for max rejection threshold is correctly implemented and works as expected.
+- [x] If the artifact is already completely implemented, apply the Empty PR policy.

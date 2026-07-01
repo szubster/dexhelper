@@ -71,3 +71,7 @@ During the verification of `epic-045-071-documentation-macro-node-completion`, i
 
 ## Lesson: Bitwise Flag Mapping with DataView
 - When parsing large bitwise blocks (like the 256-byte Gen 2 eventFlags array) using the DataView API, ensure you explicitly map the specific bit offsets corresponding to target events (e.g., Togepi, Eevee static gifts). Just extracting the array is insufficient for downstream frontend consumption; explicitly identifying the individual bit offsets is required for successful strategy layer integration.
+
+## Lesson: DataView Bounds Checking as Architectural Requirement
+**Context:** When integrating Gen 2 event flags (or any bitwise block), relying on the `DataView` API over raw `Uint8Array` manipulations is an established architectural standard (ADR 010).
+**Why this matters:** Simply extracting data is insufficient. A critical pattern emerged: robust implementation *requires* explicit unit tests that intentionally trigger and catch `RangeError` exceptions for out-of-bounds reads. This test-driven approach ensures the parsing engine fails gracefully on corrupted `.sav` files, propagating predictable validation errors to the UI layer instead of silent crashes. Future parsing tasks must couple `DataView` usage with these strict boundary failure tests.

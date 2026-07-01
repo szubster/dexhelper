@@ -26,6 +26,7 @@ import type {
   Gen3BerryPatch,
   Gen3Ribbons,
   Gen3SecretBase,
+  Gen3TVShow,
   SaveData,
 } from './common';
 
@@ -97,6 +98,9 @@ const TV_SHOWS_COUNT = 25;
 const TV_SHOW_SIZE = 36;
 const TV_SHOW_KIND_OFFSET = 0;
 const TV_SHOW_ACTIVE_OFFSET = 1;
+
+const TV_SHOW_MIX_RECORD_START = 21;
+const TV_SHOW_MIX_RECORD_END = 40;
 
 const TV_SHOW_MASS_OUTBREAK = 41;
 const MASS_OUTBREAK_SPECIES_OFFSET = 0x0c;
@@ -380,6 +384,37 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
 }
 
 /**
+ * Core DataView parser for the Gen 3 TV Block.
+ *
+ * @remarks
+ * Safely iterates through the TV Block array extracting structural metadata.
+ * Uses native DataView methods to prevent out-of-bounds reads.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The offset within the buffer to read the TV Shows array from.
+ * @returns An array of parsed Gen3TVShow metadata.
+ * @throws Error - "The save file is corrupted or incomplete: Invalid TV block struct." on out-of-bounds reads.
+ */
+export function parseGen3TVBlock(view: DataView, offset: number): Gen3TVShow[] {
+  try {
+    const shows: Gen3TVShow[] = [];
+    for (let i = 0; i < TV_SHOWS_COUNT; i++) {
+      const itemOffset = offset + i * TV_SHOW_SIZE;
+      const kind = view.getUint8(itemOffset + TV_SHOW_KIND_OFFSET);
+      const active = view.getUint8(itemOffset + TV_SHOW_ACTIVE_OFFSET) !== 0;
+
+      shows.push({ kind, active, itemOffset });
+    }
+    return shows;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete: Invalid TV block struct.');
+    }
+    throw error;
+  }
+}
+
+/**
  * Parses Mix Record events from a Gen 3 save file.
  *
  * @remarks
@@ -394,25 +429,16 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 export function parseGen3MixRecords(view: DataView, offset: number) {
-  try {
-    const mixRecords = [];
-    for (let i = 0; i < TV_SHOWS_COUNT; i++) {
-      const itemOffset = offset + i * TV_SHOW_SIZE;
-      const kind = view.getUint8(itemOffset + TV_SHOW_KIND_OFFSET);
-      const active = view.getUint8(itemOffset + TV_SHOW_ACTIVE_OFFSET) !== 0;
+  const mixRecords = [];
+  const shows = parseGen3TVBlock(view, offset);
 
-      // Check if the show is a Mix Record event (21 to 40)
-      if (active && kind >= 21 && kind <= 40) {
-        mixRecords.push({ kind, active });
-      }
+  for (const show of shows) {
+    // Check if the show is a Mix Record event (21 to 40)
+    if (show.active && show.kind >= TV_SHOW_MIX_RECORD_START && show.kind <= TV_SHOW_MIX_RECORD_END) {
+      mixRecords.push({ kind: show.kind, active: show.active });
     }
-    return mixRecords;
-  } catch (error) {
-    if (error instanceof RangeError) {
-      throw new Error('The save file is corrupted or incomplete: Invalid TV block struct.');
-    }
-    throw error;
   }
+  return mixRecords;
 }
 
 /**
@@ -430,17 +456,15 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
  */
 export function parseGen3ActiveSwarm(view: DataView, offset: number): Gen3ActiveSwarm | undefined {
   try {
-    for (let i = 0; i < TV_SHOWS_COUNT; i++) {
-      const itemOffset = offset + i * TV_SHOW_SIZE;
-      const kind = view.getUint8(itemOffset + TV_SHOW_KIND_OFFSET);
-      const active = view.getUint8(itemOffset + TV_SHOW_ACTIVE_OFFSET) !== 0;
+    const shows = parseGen3TVBlock(view, offset);
 
+    for (const show of shows) {
       // Check if the show is a Mass Outbreak event and active
-      if (active && kind === TV_SHOW_MASS_OUTBREAK) {
-        const speciesId = view.getUint16(itemOffset + MASS_OUTBREAK_SPECIES_OFFSET, true);
-        const mapId = view.getUint8(itemOffset + MASS_OUTBREAK_LOCATION_MAP_NUM_OFFSET);
-        const mapGroup = view.getUint8(itemOffset + MASS_OUTBREAK_LOCATION_MAP_GROUP_OFFSET);
-        const daysRemaining = view.getUint16(itemOffset + MASS_OUTBREAK_DAYS_BEFORE_OFFSET, true);
+      if (show.active && show.kind === TV_SHOW_MASS_OUTBREAK) {
+        const speciesId = view.getUint16(show.itemOffset + MASS_OUTBREAK_SPECIES_OFFSET, true);
+        const mapId = view.getUint8(show.itemOffset + MASS_OUTBREAK_LOCATION_MAP_NUM_OFFSET);
+        const mapGroup = view.getUint8(show.itemOffset + MASS_OUTBREAK_LOCATION_MAP_GROUP_OFFSET);
+        const daysRemaining = view.getUint16(show.itemOffset + MASS_OUTBREAK_DAYS_BEFORE_OFFSET, true);
 
         // We only extract the first active swarm we find
         return {

@@ -66,3 +66,6 @@ When designing features for Generation 3 hardware, be aware of the stark differe
 
 ## Lesson: Save File Parsing Reusable Constants
 When documenting memory offsets or drafting parser requirements, it is a strict architectural constraint (enforced by QA Validation Rules) that all memory offsets, lengths, bit locations, and shifts must be defined as reusable, descriptive constants at the module level. Inline magic numbers are strictly forbidden and will result in permanent failure.
+
+## Proper Knowledge Storage
+**Lesson:** When I uncover universally applicable domain knowledge (e.g., Gen 2 breeding DV overlap rules), I MUST document it in `.foundry/docs/knowledge_base/` rather than adding it to my persona journal. My journal must be reserved for recording recurring pipeline failures, systemic constraints, and meta-lessons to prevent context window bloat.

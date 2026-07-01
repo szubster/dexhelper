@@ -63,3 +63,7 @@
 >> 2024-05-24 - Assistant Breeding Suggestion Dynamic Support
 **Learning:** The Daycare breeding suggestion logic in `breedGenerator.ts` originally hardcoded `saveData.generation === 2`, which prevented breeding recommendations from functioning properly for subsequent generations (e.g., Gen 3). Breeding rules and availability are properly defined in the generation config files, not purely at the generation level.
 **Action:** Use `getGenerationConfig(saveData.generation)` to retrieve the active generation configuration, and perform the check using `if (genConfig.hasBreeding)` instead of hardcoding the generation number. This ensures smooth feature expansion as later games with breeding mechanics are added.
+
+## 2024-05-25 - Assistant HM03 Surf Requirements Fix
+**Learning:** In the suggestion engine's `extractPlayerTools` helper, the logic checking whether the player possessed the `hasSurf` capability incorrectly verified `id === 245` (Expert Belt) or `id === 341` (TM37 Sandstorm) instead of `id === 399` (HM03 Surf) due to a copy-paste error. This caused water-based catch encounter recommendations to be incorrectly surfaced or blocked.
+**Action:** When filtering assistant map recommendations by player capabilities, ensure that the `id === 399` correctly maps to the Surf HM for filtering water encounters via `extractPlayerTools`.

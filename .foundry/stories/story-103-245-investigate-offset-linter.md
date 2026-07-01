@@ -2,12 +2,12 @@
 id: story-103-245-investigate-offset-linter
 type: STORY
 title: Investigate Linter for Save Parsing Offsets
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-29'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: '8160692046162054621'
+jules_session_id: null
 pr_number: null
 parent: epic-053-103-relative-offsets-adr
 tags:
@@ -31,3 +31,6 @@ Currently, save file extraction uses absolute hardcoded offsets for dynamic bloc
 ## Acceptance Criteria
 - [ ] Investigate the feasibility of creating a custom ESLint or Biome rule.
 - [ ] Document findings and propose next steps (either create the rule or fall back to an ADR).
+
+### Generated Tasks
+- [ ] .foundry/tasks/task-245-249-investigate-offset-linter.md

@@ -2,12 +2,12 @@
 id: story-106-159-gen3-egg-hatch-parsing
 type: STORY
 title: Gen 3 Egg Hatch Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-29'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: '1113459532486879533'
+jules_session_id: null
 pr_number: null
 parent: epic-053-106-egg-hatch-parsing
 tags:
@@ -32,3 +32,6 @@ Similar to Gen 2, Gen 3 repurposes the Friendship byte to store remaining "Egg C
 - [ ] Multiply the parsed cycle count by 256 to calculate exact steps.
 - [ ] Ensure `DataView` API is used.
 - [ ] Write unit tests verifying the calculation.
+
+- [ ] .foundry/tasks/task-159-249-gen3-egg-hatch-parsing-impl.md
+- [ ] .foundry/tasks/task-159-250-gen3-egg-hatch-parsing-qa.md

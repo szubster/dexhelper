@@ -2,13 +2,13 @@
 id: epic-043-069-roamer-radar-ui
 type: EPIC
 title: Roamer Radar UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on:
   - epic-043-068-roamer-map-translation
-jules_session_id: '14345830178703057270'
+jules_session_id: null
 pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
 tags: []
@@ -35,4 +35,6 @@ Build a visible dashboard or map widget that lists all active roaming Pokémon i
 - [ ] The component shows the human-readable route location for each roamer.
 - [ ] Status tags ("Active", "Caught", "Defeated") are correctly displayed based on save data.
 - [ ] The roamer's current route is highlighted on the map.
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Break down this Epic into executable Stories.
+- [ ] story-069-247-gen2-roamer-radar-widget
+- [ ] story-069-248-gen2-roamer-radar-map-integration

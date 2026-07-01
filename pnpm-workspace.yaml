@@ -1,3 +1,17 @@
 packages:
   - "."
   - ".github/scripts"
+
+legacyPeerDeps: true
+
+minimumReleaseAgeExclude:
+  - "@oxlint-tsgolint/*"
+  - "oxlint-tsgolint"
+  - "serialize-javascript"
+
+allowBuilds:
+  esbuild: true
+  lefthook: true
+  sharp: true
+  msgpackr-extract: true
+  workerd: true

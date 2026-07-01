@@ -14,3 +14,4 @@ When a child node (e.g., an Epic or Story) is proven mathematically or technical
 
 ## Pattern: Parent-Linked ID Schema Enforcement
 When generating downstream nodes using the parent-linked ID schema (`<type>-<parent_NNN>-<NNN>-<slug>`), ensure that the `<parent_NNN>` segment strictly corresponds to the direct parent's sequence number (e.g., `054` from `prd-088-054-trick-house-tracker`), not the grandparent or project grouping ID (`088`). Similarly, `depends_on` arrays must reference exact Node IDs without file paths or extensions.
+When updating a parent node (like a PRD), do NOT check off its functional acceptance criteria. Only append newly generated child node references as unchecked tasks (`- [ ]`). The parent node's functional criteria must remain unchecked until all child nodes are completely finished.

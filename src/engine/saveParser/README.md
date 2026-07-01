@@ -7,7 +7,8 @@ The `saveParser` module is responsible for reading raw binary Game Boy Pokémon 
 - **`index.ts` (Entry Point):** Determines whether the uploaded file is a Generation 1 or Generation 2 save. It calculates checksums across specific memory blocks and falls back to structural validation (like valid party counts and terminator bytes) if checksums are corrupted.
 - **`parsers/gen1.ts`:** Handles Red, Blue, and Yellow saves.
 - **`parsers/gen2.ts`:** Handles Gold, Silver, and Crystal saves.
-- **`parsers/common.ts`:** Contains shared utilities like text decoding (converting proprietary Gen 1/2 character encoding to UTF-8), DV parsing (for stats and shiny checks), and type definitions.
+- **`parsers/gen3.ts`:** Handles Ruby, Sapphire, Emerald, FireRed, and LeafGreen saves.
+- **`parsers/common.ts`:** Contains shared utilities like text decoding (converting proprietary character encoding to UTF-8), IV/DV parsing (for stats and shiny checks), and type definitions.
 
 ## Memory Offsets & Heuristics
 
@@ -23,5 +24,11 @@ Gen 2 saves are significantly larger and employ a two-block system (a main save 
 - **Offsets:** Unlike Gen 1, Gen 2 offsets are more standardized, though Japanese versions still differ from International ones.
 - **Checksums:** Gen 2 uses a robust checksum stored at `0x2D0D` (sum of bytes from `0x2009` to `0x2D0C`), which allows `index.ts` to easily validate the save file.
 
+### Generation 3 (R/S/E/FR/LG)
+Generation 3 introduces a complex A/B flash memory architecture to prevent data corruption.
+- **Flash Memory Banks:** The game alternates writing between two 56KB blocks (`0x0000` and `0xE000`). Each block is further divided into 14 4KB sections.
+- **Section Resolution:** The parser must scan both banks, verify the signature (`0x08012025`), and compare `saveIndex` values to locate the most recent, non-corrupted data sections (SaveBlock1 for player data, SaveBlock2 for system data).
+- **Encrypted Structures:** Individual Pokémon data structures are 100 bytes long, with a 48-byte encrypted substructure block. The decryption key is derived from the Pokémon's Personality Value (PV) XORed with the Original Trainer (OT) ID, and the substructure permutation (e.g., GAEM vs MGEA) is determined by `PV % 24`.
+
 ## Why this matters?
-Documenting these offsets and heuristics is crucial because a 1-byte misalignment will cascade, resulting in corrupted party data, missing inventory, and incorrect location mappings.
+Documenting these offsets, architectures, and heuristics is crucial because a 1-byte misalignment will cascade, resulting in corrupted party data, missing inventory, and incorrect location mappings.

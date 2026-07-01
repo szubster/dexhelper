@@ -2,12 +2,12 @@
 id: story-097-242-tailwind-v4-tactical-containers
 type: STORY
 title: Extract Tactical Container Utilities
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: '18066449194125424496'
+jules_session_id: null
 pr_number: null
 parent: epic-071-097-define-tailwind-v4-utilities-retry
 tags:
@@ -28,3 +28,4 @@ Define the `tactical-panel` and `tactical-card` custom utilities in `src/index.c
 - [ ] `tactical-panel` utility is defined in `src/index.css`.
 - [ ] `tactical-card` utility is defined in `src/index.css`.
 - [ ] The definitions follow the guidelines in ADR 024.
+- [ ] .foundry/tasks/task-242-249-extract-tactical-containers.md

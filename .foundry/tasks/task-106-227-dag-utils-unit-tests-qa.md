@@ -2,13 +2,13 @@
 id: task-106-227-dag-utils-unit-tests-qa
 type: TASK
 title: QA Unit Tests for Shared DAG Utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-28'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on:
   - task-106-226-dag-utils-unit-tests-impl
-jules_session_id: '8306250613588506871'
+jules_session_id: null
 pr_number: null
 parent: story-053-106-dag-utils-unit-tests
 tags:
@@ -27,10 +27,10 @@ notes: ''
 Unit tests have been implemented for \`.github/scripts/dag-utils.ts\`. Verify the tests are comprehensive and pass successfully.
 
 ## Acceptance Criteria
-- [ ] Verify \`.github/scripts/dag-utils.test.ts\` exists.
-- [ ] Verify comprehensive tests exist for \`buildReverseDependencyGraph\`.
-- [ ] Verify comprehensive tests exist for \`getOrphanedNodes\`.
-- [ ] All tests pass successfully (\`pnpm test\` in the appropriate directory).
+- [x] Verify \`.github/scripts/dag-utils.test.ts\` exists.
+- [x] Verify comprehensive tests exist for \`buildReverseDependencyGraph\`.
+- [x] Verify comprehensive tests exist for \`getOrphanedNodes\`.
+- [x] All tests pass successfully (\`pnpm test\` in the appropriate directory).
 
 ## Directives
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to \`status: FAILED\` with a \`rejection_reason\`.

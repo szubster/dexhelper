@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Database, LayoutGrid, Sparkles } from 'lucide-react';
+import { Database, GitGraph, LayoutGrid, Sparkles, Swords } from 'lucide-react';
 import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { useFileSyncController } from '../hooks/useFileSyncController';
@@ -65,6 +65,14 @@ export function AppHeader({
               <NavigationTab to="/storage" icon={<Database size={14} />} label="SYS.STRG" />
               <VerticalDivider />
               <NavigationTab to="/assistant" icon={<Sparkles size={14} />} label="SYS.ASST" />
+              <VerticalDivider />
+              <NavigationTab to="/dag" icon={<GitGraph size={14} />} label="SYS.DAG" />
+              {saveData.generation === 3 && (
+                <>
+                  <VerticalDivider />
+                  <NavigationTab to="/dashboard" icon={<Swords size={14} />} label="SYS.BTFR" />
+                </>
+              )}
             </div>
           </nav>
         )}

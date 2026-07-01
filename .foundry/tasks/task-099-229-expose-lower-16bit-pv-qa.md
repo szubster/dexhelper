@@ -2,13 +2,13 @@
 id: task-099-229-expose-lower-16bit-pv-qa
 type: TASK
 title: QA - Expose lower 16-bits of PV
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-28'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on:
   - task-099-228-expose-lower-16bit-pv-impl
-jules_session_id: '13983523466967499658'
+jules_session_id: null
 pr_number: null
 parent: story-062-099-gen3-expose-lower-16bit-pv
 tags:
@@ -33,6 +33,6 @@ The Coder has implemented the logic to pre-calculate and expose the lower 16 bit
 4. **Completion Contract**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Validate logic correctly exposes lower 16-bits of PV.
-- [ ] Write/update tests to verify functionality.
-- [ ] Run `pnpm test` to ensure tests pass.
+- [x] Validate logic correctly exposes lower 16-bits of PV.
+- [x] Write/update tests to verify functionality.
+- [x] Run `pnpm test` to ensure tests pass.
