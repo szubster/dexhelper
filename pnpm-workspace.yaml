@@ -3,7 +3,11 @@ packages:
   - ".github/scripts"
 
 legacyPeerDeps: true
-minimumReleaseAge: 0
+
+minimumReleaseAgeExclude:
+  - "@oxlint-tsgolint/*"
+  - "oxlint-tsgolint"
+  - "serialize-javascript"
 
 allowBuilds:
   esbuild: true
