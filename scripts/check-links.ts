@@ -32,6 +32,12 @@ function resolveNodeIdToPath(nodeId: string): string {
   if (fs.existsSync(archivePath)) {
     return archivePath;
   }
+
+  const rootArchivePath = `.foundry/archive/${nodeId}.md`;
+  if (fs.existsSync(rootArchivePath)) {
+    return rootArchivePath;
+  }
+
   return nodeId;
 }
 
