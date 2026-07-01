@@ -36,5 +36,6 @@ This significantly reduces the friction of playing Nuzlocke challenges on origin
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD.
 
-## Downstream Nodes
-- PRD: `.foundry/prds/prd-057-026-automated-nuzlocke-tracker.md`
+## Acceptance Criteria
+- [x] prd-057-026-automated-nuzlocke-tracker
+- [ ] prd-057-097-automated-nuzlocke-tracker
