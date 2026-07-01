@@ -1,5 +1,5 @@
 import { Search } from 'lucide-react';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { FILTER_TYPES, type FilterType, useStore } from '../store';
 import { ClearFiltersBadge } from './ClearFiltersBadge';
 import { FilterBadge } from './FilterBadge';
@@ -19,9 +19,10 @@ export function SearchAndFilters() {
   const toggleFilter = useStore((s) => s.toggleFilter);
   const setFilters = useStore((s) => s.setFilters);
 
-  if (!saveData) return null;
+  // ⚡ Bolt: Memoized filter set creation to avoid redundant object allocation on every keystroke
+  const filtersSet = useMemo(() => new Set(filters), [filters]);
 
-  const filtersSet = new Set(filters);
+  if (!saveData) return null;
 
   const handleClearSearch = () => {
     setSearchTerm('');
