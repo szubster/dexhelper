@@ -2,12 +2,12 @@
 id: story-060-156-hidden-items-checklist-component
 type: STORY
 title: Build Hidden Items Checklist Component
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-28'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12592215220324126298'
 pr_number: null
 parent: epic-037-060-hidden-items-ui
 tags:
