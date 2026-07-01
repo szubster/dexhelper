@@ -37,7 +37,7 @@ Implement the `BattleFrontierDashboard` React component utilizing the Gen 3 Batt
 - **Empty PR Policy:** If you submit an empty PR because the UI module is already fully implemented, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Build the `BattleFrontierDashboard` displaying BP and facility progress.
-- [ ] Strictly implement the "tactical hardware/snooping" aesthetic using Tailwind `tactical-*` classes.
-- [ ] Ensure components render correctly without any standard "soft" styling (no rounded corners).
-- [ ] Integrate React Flow for progression visualizations (if applicable).
+- [x] Build the `BattleFrontierDashboard` displaying BP and facility progress.
+- [x] Strictly implement the "tactical hardware/snooping" aesthetic using Tailwind `tactical-*` classes.
+- [x] Ensure components render correctly without any standard "soft" styling (no rounded corners).
+- [x] Integrate React Flow for progression visualizations (if applicable).

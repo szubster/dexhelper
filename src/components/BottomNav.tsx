@@ -1,5 +1,5 @@
 import { useLocation } from '@tanstack/react-router';
-import { Database, GitGraph, LayoutGrid, Settings2, Sparkles } from 'lucide-react';
+import { Database, GitGraph, LayoutGrid, Settings2, Sparkles, Swords } from 'lucide-react';
 import { useStore } from '../store';
 import { NavButton } from './NavButton';
 import { TelemetryDecoration } from './TelemetryDecoration';
@@ -16,8 +16,9 @@ export function BottomNav() {
   const isStorage = location.pathname === '/storage';
   const isAssistant = location.pathname === '/assistant';
   const isDag = location.pathname === '/dag';
+  const isFrontier = location.pathname === '/dashboard';
 
-  const activeIndex = isDex ? 0 : isStorage ? 1 : isAssistant ? 2 : isDag ? 3 : -1;
+  const activeIndex = isDex ? 0 : isStorage ? 1 : isAssistant ? 2 : isDag ? 3 : isFrontier ? 4 : -1;
 
   return (
     <nav className="fixed right-0 bottom-0 left-0 z-50 border-[var(--theme-primary)]/30 border-t-[3px] border-dashed bg-zinc-950 p-2 pb-[env(safe-area-inset-bottom,16px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.8)] sm:hidden">
@@ -73,6 +74,17 @@ export function BottomNav() {
 
         <div className="h-full flex-1">
           <NavButton to="/dag" ariaLabel="DAG" label="DAG" activeLabel="DAG" icon={GitGraph} isActive={isDag} />
+        </div>
+
+        <div className="h-full flex-1">
+          <NavButton
+            to="/dashboard"
+            ariaLabel="Battle Frontier"
+            label="BTFR"
+            activeLabel="BTFR"
+            icon={Swords}
+            isActive={isFrontier}
+          />
         </div>
 
         <div className="h-full flex-1">
