@@ -148,3 +148,7 @@ Memoized TacticalCard in StorageGrid.tsx and extracted StorageCard to avoid N+1 
 **Measured Improvement:** Micro-benchmarks demonstrate a ~20-30% drop in execution time for aggregate operations (`aggregateEncountersByLocation`) and significant reduction for `getGraveyardPokemon` (332ms -> 179ms for 10k iterations).
 Performance Learnings:
 - In React lists or frequently rendering components, identify deeply nested child components like DataPoint that do not need to re-render when a parent context updates. Wrapping them in React.memo reduces main thread blocking time during state updates.
+## Execution Learnings
+- **React.useMemo & Set Allocation**: In UI panels with heavy text input (like `SearchAndFilters.tsx`), creating a `new Set` from an array on every keystroke render causes O(N) memory allocation and garbage collection overhead. Wrapping it in `React.useMemo` prevents unnecessary instantiation.
+- **Hook Placement Constraint**: When adding `useMemo`, it must be placed *before* any early returns (`if (!data) return null;`) to strictly adhere to React's Rules of Hooks, otherwise Biome's `lint/correctness/useHookAtTopLevel` check will fail.
+- **Environment Dependency**: Running `pnpm test` requires Playwright browsers to be downloaded (`pnpm exec playwright install chromium`) because `@vitest/browser` depends on them.
