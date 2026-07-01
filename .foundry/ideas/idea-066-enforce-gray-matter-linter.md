@@ -2,19 +2,19 @@
 id: idea-066-enforce-gray-matter-linter
 type: IDEA
 title: Enforce Gray-Matter Linter for Scripts
-status: ACTIVE
+status: READY
 owner_persona: product_manager
 created_at: '2026-05-25'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: '12071354677474365150'
+jules_session_id: null
 parent: null
 tags:
   - lint
   - schema
   - foundry
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: >-
   Resurrected: Auditor found that frontmatter regressions are still common and a

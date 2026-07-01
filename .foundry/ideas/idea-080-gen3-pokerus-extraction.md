@@ -2,12 +2,12 @@
 id: idea-080-gen3-pokerus-extraction
 type: IDEA
 title: Implement Gen 3 Pokerus Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-14'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: '11021849206051556164'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
