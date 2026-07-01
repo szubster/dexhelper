@@ -35,8 +35,10 @@ jobs:
       - name: Invoke Jules Agent
         env:
           JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
+          PERSONA: ${{ inputs.persona }}
+          GITHUB_REPO: ${{ github.repository }}
         run: |
-          persona="${{ inputs.persona }}"
+          persona="$PERSONA"
           agent_file=".github/agents/${persona}.md"
 
           if [[ ! -f "$agent_file" ]]; then
@@ -50,8 +52,8 @@ jobs:
           prompt_json=$(jq -n \
             --arg agent_context "$agent_context" \
             --arg empty_state "If you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session. An empty PR diff is acceptable and will be closed automatically." \
-            --arg repo "${{ github.repository }}" \
-            --arg schema_url "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" \
+            --arg repo "$GITHUB_REPO" \
+            --arg schema_url "https://github.com/$GITHUB_REPO/blob/main/.foundry/docs/schema.md" \
             --arg title "Scheduled Agent: $persona" \
             '{
               "prompt": "\($agent_context)\n\n\($empty_state)\n\n### SCHEMA\n\($schema_url)",
