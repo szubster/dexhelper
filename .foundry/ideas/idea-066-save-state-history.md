@@ -2,12 +2,12 @@
 id: idea-066-save-state-history
 type: IDEA
 title: Save State Version History and Metadata Inference
-status: READY
+status: ACTIVE
 owner_persona: tpm
 created_at: '2026-05-24'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4345976712595334962'
 pr_number: null
 parent: null
 tags:
@@ -18,7 +18,9 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Resurrected: Auditor found no evidence of save history or diffing logic in the engine.'
+notes: >-
+  Resurrected: Auditor found no evidence of save history or diffing logic in the
+  engine.
 ---
 
 # Idea: Save State Version History and Metadata Inference
