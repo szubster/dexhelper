@@ -1,3 +1,22 @@
 packages:
   - "."
   - ".github/scripts"
+
+legacyPeerDeps: true
+minimumReleaseAge: 0
+
+allowBuilds:
+  esbuild: true
+  lefthook: true
+  sharp: true
+
+auditConfig:
+  ignoreGhsas:
+    - GHSA-rmmr-r34h-pfm5
+
+overrides:
+  esbuild: ">=0.28.1"
+  form-data: ">=4.0.6"
+  tmp: ">=0.2.6"
+  undici: "^7.28.0"
+  ws: ">=8.21.0"
