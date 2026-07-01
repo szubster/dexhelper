@@ -31,3 +31,6 @@ Currently, save file extraction uses absolute hardcoded offsets for dynamic bloc
 ## Acceptance Criteria
 - [ ] Investigate the feasibility of creating a custom ESLint or Biome rule.
 - [ ] Document findings and propose next steps (either create the rule or fall back to an ADR).
+
+### Generated Tasks
+- [ ] .foundry/tasks/task-245-249-investigate-offset-linter.md
