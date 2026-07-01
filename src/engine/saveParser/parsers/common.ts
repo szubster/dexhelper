@@ -220,6 +220,7 @@ export interface SaveData {
   /** Gen 3 specific: Battle Frontier symbols */
   gen3BattleFrontierSymbols?: Gen3BattleFrontierSymbols;
   /** Gen 3 specific: Battle Points (BP) balance */
+  gen3TotalBattlePoints?: number;
   gen3BattlePoints?: number;
 }
 

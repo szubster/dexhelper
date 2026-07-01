@@ -14,6 +14,7 @@ import {
   parseGen3Ribbons,
   parseGen3Roamer,
   parseGen3SecretBases,
+  parseGen3TotalBattlePoints,
 } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
@@ -883,6 +884,28 @@ describe('parseGen3ActiveSwarm', () => {
 
     expect(() => parseGen3ActiveSwarm(view, offset)).toThrow(
       'The save file is corrupted or incomplete: Invalid TV block struct.',
+    );
+  });
+
+  it('parseGen3TotalBattlePoints should correctly extract the total BP balance', () => {
+    const buffer = new ArrayBuffer(8192);
+    const view = new DataView(buffer);
+    const saveBlock2Offset = 0;
+
+    // Set some total BP balance
+    view.setUint16(0x0eb8, 500, true);
+
+    const result = parseGen3TotalBattlePoints(view, saveBlock2Offset);
+    expect(result).toBe(500);
+  });
+
+  it('parseGen3TotalBattlePoints should throw custom error on RangeError', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+    const saveBlock2Offset = 0;
+
+    expect(() => parseGen3TotalBattlePoints(view, saveBlock2Offset)).toThrow(
+      'The save file is corrupted or incomplete.',
     );
   });
 });

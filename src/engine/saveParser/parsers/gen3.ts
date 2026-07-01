@@ -90,6 +90,7 @@ const PIKE_RECORD_WIN_STREAKS_OFFSET = 0x0e08;
 const PYRAMID_WIN_STREAKS_OFFSET = 0x0e1a;
 const PYRAMID_RECORD_WIN_STREAKS_OFFSET = 0x0e1e;
 
+const TOTAL_BATTLE_POINTS_OFFSET = 0x0eb8;
 const BATTLE_POINTS_OFFSET = 0x1504;
 
 const TV_SHOWS_OFFSET = 0x27cc;
@@ -619,6 +620,26 @@ export function parseGen3BattleFrontierSymbols(view: DataView, saveBlock1Offset:
  * @returns The battle points balance.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
+
+/**
+ * Parses the total accumulated BP (Battle Points) from the save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock2Offset - The resolved memory offset to the active SaveBlock2.
+ * @returns The total battle points accumulated.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3TotalBattlePoints(view: DataView, saveBlock2Offset: number): number {
+  try {
+    return view.getUint16(saveBlock2Offset + TOTAL_BATTLE_POINTS_OFFSET, true);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3BattlePoints(view: DataView, saveBlock2Offset: number): number {
   try {
     return view.getUint16(saveBlock2Offset + BATTLE_POINTS_OFFSET, true);
@@ -751,6 +772,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 
     let gen3BattleFrontierWinStreaks: Gen3BattleFrontierWinStreaks | undefined;
     let gen3BattleFrontierSymbols: Gen3BattleFrontierSymbols | undefined;
+    let gen3TotalBattlePoints: number | undefined;
     let gen3BattlePoints: number | undefined;
     if (_forcedVersion === 'emerald') {
       try {
@@ -760,6 +782,11 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       }
       try {
         gen3BattleFrontierSymbols = parseGen3BattleFrontierSymbols(view, section1Offset);
+      } catch {
+        // Ignored if missing or corrupted, allowing the rest of the save to load
+      }
+      try {
+        gen3TotalBattlePoints = parseGen3TotalBattlePoints(view, section2Offset);
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
@@ -801,6 +828,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
     if (gen3BattleFrontierSymbols) {
       result.gen3BattleFrontierSymbols = gen3BattleFrontierSymbols;
+    }
+    if (gen3TotalBattlePoints !== undefined) {
+      result.gen3TotalBattlePoints = gen3TotalBattlePoints;
     }
     if (gen3BattlePoints !== undefined) {
       result.gen3BattlePoints = gen3BattlePoints;
