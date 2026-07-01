@@ -9,6 +9,8 @@ allowBuilds:
   esbuild: true
   lefthook: true
   sharp: true
+  msgpackr-extract: true
+  workerd: true
 
 auditConfig:
   ignoreGhsas:
