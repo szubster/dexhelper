@@ -32,9 +32,9 @@ This story details the technical steps for creating unit tests for the extracted
 - Write unit tests for `getOrphanedNodes`.
 
 ## Generated Tasks
-- [ ] .foundry/tasks/task-106-226-dag-utils-unit-tests-impl.md
-- [ ] .foundry/tasks/task-106-227-dag-utils-unit-tests-qa.md
+- [x] task-106-226-dag-utils-unit-tests-impl
+- [x] task-106-227-dag-utils-unit-tests-qa
 
 ## Acceptance Criteria
-- [ ] Appropriate unit tests are added in `dag-utils.test.ts`.
-- [ ] Existing functionality works seamlessly utilizing the new utility file.
+- [x] Appropriate unit tests are added in `dag-utils.test.ts`.
+- [x] Existing functionality works seamlessly utilizing the new utility file.
