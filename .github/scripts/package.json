@@ -14,8 +14,8 @@
     "gray-matter": "^4.0.3"
   },
   "devDependencies": {
-    "@types/node": "^25.9.1",
-    "vitest": "^4.1.7"
+    "@types/node": "^26.0.1",
+    "vitest": "^4.1.9"
   },
   "engines": {
     "node": ">=22.0.0"
