@@ -3,7 +3,7 @@ id: idea-076-tpm-journal-bloat
 type: IDEA
 title: Investigate TPM Journal Bloat and Orchestrator Logging
 status: COMPLETED
-owner_persona: tpm
+owner_persona: product_manager
 created_at: '2026-06-12'
 updated_at: '2026-07-01'
 depends_on: []

@@ -3,7 +3,7 @@ id: idea-056-living-dex-tracker
 type: IDEA
 title: Specialized "Living Dex" Organization Tracker UI
 status: ACTIVE
-owner_persona: tpm
+owner_persona: product_manager
 created_at: '2026-05-18'
 updated_at: '2026-07-01'
 depends_on: []
@@ -38,4 +38,4 @@ Create a dedicated "Living Dex Tracker" view in the DexHelper UI.
 This directly addresses a hardcore collector playstyle, heavily leaning into our "premium storage viewer" capabilities by solving a specific, highly manual pain point in older Pokémon generations.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
