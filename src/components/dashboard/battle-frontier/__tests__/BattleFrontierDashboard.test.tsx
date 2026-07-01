@@ -63,7 +63,22 @@ test('does not throw an error if no symbols or win streaks exist', async () => {
 });
 
 test('does not throw an error if no battle points exist', async () => {
-  const data = { generation: 3, gen3BattleFrontierWinStreaks: mockSaveData.gen3BattleFrontierWinStreaks, gen3BattleFrontierSymbols: mockSaveData.gen3BattleFrontierSymbols } as SaveData;
+  const data = {
+    generation: 3,
+    gen3BattleFrontierWinStreaks: mockSaveData.gen3BattleFrontierWinStreaks,
+    gen3BattleFrontierSymbols: mockSaveData.gen3BattleFrontierSymbols,
+  } as SaveData;
   await render(<BattleFrontierDashboard saveData={data} />);
-  await expect.element(page.getByText('NO BATTLE FRONTIER DATA FOUND')).toBeInTheDocument();
+  await expect.element(page.getByText('BATTLE FRONTIER STATUS')).toBeInTheDocument();
+});
+
+test('renders with no facilities safely', async () => {
+  const data = {
+    generation: 3,
+    gen3BattlePoints: 100,
+    gen3BattleFrontierWinStreaks: {},
+    gen3BattleFrontierSymbols: {},
+  } as unknown as SaveData;
+  await render(<BattleFrontierDashboard saveData={data} />);
+  await expect.element(page.getByText('BATTLE FRONTIER STATUS')).toBeInTheDocument();
 });

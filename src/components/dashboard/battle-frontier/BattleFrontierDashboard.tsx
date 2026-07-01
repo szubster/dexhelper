@@ -33,8 +33,8 @@ export const BattleFrontierDashboard: React.FC<BattleFrontierDashboardProps> = (
     return {
       key,
       name: FACILITY_NAMES[key],
-      streaks: gen3BattleFrontierWinStreaks[key],
-      symbols: gen3BattleFrontierSymbols[key],
+      streaks: gen3BattleFrontierWinStreaks[key] || { current: 0, record: 0 },
+      symbols: gen3BattleFrontierSymbols[key] || { silver: false, gold: false },
     };
   });
 
