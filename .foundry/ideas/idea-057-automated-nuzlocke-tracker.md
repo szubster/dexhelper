@@ -2,18 +2,20 @@
 id: idea-057-automated-nuzlocke-tracker
 type: IDEA
 title: Automated Nuzlocke Verification and Run Tracker
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-18'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14467244275825006133'
 parent: null
 tags:
   - feature
   - nuzlocke
   - verification
-notes: 'Resurrected: Auditor found that automated encounter tracking and the status dashboard are missing.'
+notes: >-
+  Resurrected: Auditor found that automated encounter tracking and the status
+  dashboard are missing.
 rejection_reason: ''
 ---
 
