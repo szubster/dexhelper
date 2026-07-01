@@ -26,4 +26,6 @@ notes: ''
 The Auditor rejected `epic-045-070-implement-dag-context` because `DagProvider` does not fetch or manage the core DAG data state, nor does it wrap the DAG views. This story ensures that the state management, data fetching, and view wrapping logic are correctly implemented in `DagProvider`.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] .foundry/tasks/task-245-249-implement-dag-provider-logic.md
+- [ ] .foundry/tasks/task-245-250-implement-dag-provider-logic-qa.md
