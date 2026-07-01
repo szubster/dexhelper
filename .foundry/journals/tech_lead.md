@@ -114,3 +114,7 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 
 ## [Anomaly] Target artifacts existed prior to session
 When assigned to STORY `story-058-152-refactor-feebas-magic-numbers`, I found that the child task `task-152-230-refactor-feebas-magic-numbers-impl.md` already existed and was in the `COMPLETED` state, and the code changes in `feebas.ts` were already made. Proceeding to submit empty PR to complete the story.
+## 2026-07-02: Gen 3 PC Box Parsing Missing Context
+- **Observation**: When analyzing `story-108-246-gen3-box-parsing`, the exact memory offsets and structure for Gen 3 PC Box data (`SaveBlock1`, `SaveBlock2`, etc.) were missing from the knowledge base.
+- **Action**: Spawned a `RESEARCH` node (`research-246-244-gen3-box-parsing`) to uncover the required offsets. Suspended the story node by updating its status to FAILED in the YAML frontmatter, adding the research node to the depends_on array, and providing a rejection_reason. Appended the new research node as an unchecked task to the parent story's markdown body.
+- **Lesson**: Do not hallucinate or guess memory offsets when writing tasks. Always spawn a research node when context is missing to explicitly locate memory structures, adhering to the Execution Plan Groundedness Rule and preventing parser failures.
