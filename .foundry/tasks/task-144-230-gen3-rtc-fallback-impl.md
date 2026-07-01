@@ -2,12 +2,12 @@
 id: task-144-230-gen3-rtc-fallback-impl
 type: TASK
 title: Implement System Time Fallback and Manual UI Overrides for Gen 3
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-28'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13924460324995748544'
 pr_number: null
 parent: story-081-144-gen3-rtc-fallback-strategy
 tags:
