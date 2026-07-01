@@ -2,10 +2,10 @@
 id: idea-066-save-state-history
 type: IDEA
 title: Save State Version History and Metadata Inference
-status: BLOCKED
+status: READY
 owner_persona: tpm
 created_at: '2026-05-24'
-updated_at: '2026-05-28'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - indexeddb
 research_references: []
 rejection_count: 0
-rejection_reason: ACTIVE node missing session ID
-notes: ''
+rejection_reason: ''
+notes: 'Resurrected: Auditor found no evidence of save history or diffing logic in the engine.'
 ---
 
 # Idea: Save State Version History and Metadata Inference

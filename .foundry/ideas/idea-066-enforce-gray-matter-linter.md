@@ -2,10 +2,10 @@
 id: idea-066-enforce-gray-matter-linter
 type: IDEA
 title: Enforce Gray-Matter Linter for Scripts
-status: BLOCKED
+status: READY
 owner_persona: tpm
 created_at: '2026-05-25'
-updated_at: '2026-06-17'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: '17630040877061059442'
 parent: null
@@ -15,10 +15,8 @@ tags:
   - foundry
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Low ROI; maintaining a custom Biome/Oxlint rule for a minor scripts edge-case
-  outweighs the benefits over standard PR review.
-notes: Generated autonomously to enforce ADR 006
+rejection_reason: ''
+notes: 'Resurrected: Auditor found that frontmatter regressions are still common and a linter would be valuable.'
 ---
 
 # Enforce Gray-Matter Linter for Scripts

@@ -2,10 +2,10 @@
 id: idea-080-gen3-pokerus-extraction
 type: IDEA
 title: Implement Gen 3 Pokerus Extraction
-status: COMPLETED
+status: READY
 owner_persona: product_manager
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,7 +18,7 @@ research_references:
   - .foundry/research/research-175-176-gen3-pokerus-extraction.md
 rejection_count: 0
 rejection_reason: ''
-notes: ''
+notes: 'Resurrected: Auditor found that gen3.ts is still a scaffold and does not extract party/PC details.'
 ---
 
 # Idea: Implement Gen 3 Pokerus Extraction

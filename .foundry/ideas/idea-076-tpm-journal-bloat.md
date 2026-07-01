@@ -2,10 +2,10 @@
 id: idea-076-tpm-journal-bloat
 type: IDEA
 title: Investigate TPM Journal Bloat and Orchestrator Logging
-status: BLOCKED
+status: COMPLETED
 owner_persona: tpm
 created_at: '2026-06-12'
-updated_at: '2026-06-23'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,8 @@ tags:
   - logging
   - orchestrator
 rejection_count: 0
-rejection_reason: VERIFYING node missing or malformed session ID
+rejection_reason: ''
+notes: 'Implemented: Research and tasks to remove logging were completed.'
 ---
 
 # Idea: Investigate TPM Journal Bloat and Orchestrator Logging
