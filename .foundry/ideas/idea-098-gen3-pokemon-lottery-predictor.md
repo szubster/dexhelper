@@ -2,7 +2,7 @@
 id: idea-098-gen3-pokemon-lottery-predictor
 type: IDEA
 title: Gen 3 Pokémon Lottery Predictor
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-07-01'
 updated_at: '2026-07-01'

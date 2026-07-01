@@ -2,12 +2,12 @@
 id: task-123-240-gen3-parse-battle-points-impl
 type: TASK
 title: Gen 3 Parse Total Battle Points Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-29'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: '9107657610271688818'
+jules_session_id: null
 pr_number: null
 parent: story-078-123-gen3-parse-battle-points
 tags:

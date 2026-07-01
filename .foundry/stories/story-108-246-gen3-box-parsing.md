@@ -2,13 +2,13 @@
 id: story-108-246-gen3-box-parsing
 type: STORY
 title: Gen 3 Box Parsing and Grouping
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-07-02'
+updated_at: '2026-07-01'
 depends_on:
   - research-246-244-gen3-box-parsing
-jules_session_id: '276488564319222029'
+jules_session_id: null
 pr_number: null
 parent: epic-054-108-box-analyzer-save-parsing
 tags:
@@ -17,8 +17,8 @@ tags:
   - save-parsing
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: 'Suspended pending research on exact memory offsets for Gen 3 PC Box data.'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

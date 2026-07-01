@@ -2,10 +2,10 @@
 id: epic-038-062-personality-value-extraction
 type: EPIC
 title: Extract Pokemon Personality Values
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-08'
-updated_at: '2026-06-09'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: task-133-251-remediation-state-transition-logic-impl
 type: TASK
 title: Remediation State Transition Logic Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
