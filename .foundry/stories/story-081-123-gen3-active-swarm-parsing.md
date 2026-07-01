@@ -28,9 +28,9 @@ Extract the data pertaining to active swarms, identifying the specific Pokémon 
 ## Acceptance Criteria
 - [x] Break down into Tasks
 
-- [ ] task-123-183-gen3-active-swarm-parsing-impl
-- [ ] task-123-184-gen3-active-swarm-parsing-qa
+- [x] task-123-183-gen3-active-swarm-parsing-impl
+- [x] task-123-184-gen3-active-swarm-parsing-qa
 
 ### Original Story Requirements
-- [ ] Implement extraction of active swarm data (species, location).
-- [ ] Calculate or extract remaining days for the active swarm.
+- [x] Implement extraction of active swarm data (species, location).
+- [x] Calculate or extract remaining days for the active swarm.
