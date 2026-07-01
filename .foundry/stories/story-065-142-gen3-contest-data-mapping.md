@@ -35,3 +35,7 @@ Derived from `epic-040-065-gen3-contest-data-integration`, this story focuses on
 ## 3. Acceptance Criteria
 - [ ] Map the extracted Condition, Sheen, and Ribbon data to the appropriate `condition` and `ribbons` fields in the internal Pokémon data structure (`PokemonInstance`).
 - [ ] Confirm all existing Gen 1 and Gen 2 save parsing tests pass without modification.
+
+## 4. Tasks
+- [ ] task-142-249-gen3-contest-data-mapping-impl
+- [ ] task-142-250-gen3-contest-data-mapping-qa
