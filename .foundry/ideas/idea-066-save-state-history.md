@@ -2,12 +2,12 @@
 id: idea-066-save-state-history
 type: IDEA
 title: Save State Version History and Metadata Inference
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-24'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2835810479515254543'
 pr_number: null
 parent: null
 tags:
