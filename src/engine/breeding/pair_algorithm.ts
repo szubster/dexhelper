@@ -1,3 +1,10 @@
+export interface PokemonDVs {
+  attack: number;
+  defense: number;
+  speed: number;
+  special: number;
+}
+
 export interface PokemonWithMetadata {
   id: string; // Unique identifier for the specific pokemon instance
   speciesId: number;
@@ -5,6 +12,7 @@ export interface PokemonWithMetadata {
   eggGroups: string[];
   isShinyCarrier?: boolean;
   isShiny?: boolean;
+  dvs?: PokemonDVs;
 }
 
 export interface BreedingPair {
@@ -60,6 +68,7 @@ export function calculateBreedingPairs(pokemonList: PokemonWithMetadata[]): Bree
  * - Genderless Pokémon can only breed with Ditto.
  * - Genders must be opposite.
  * - At least one egg group must intersect.
+ * - In Gen 2, two Pokémon are incompatible if their Defense DVs are identical and their Special DVs are identical or differ by exactly 8.
  *
  * @param p1 - First parent candidate.
  * @param p2 - Second parent candidate.
@@ -74,18 +83,28 @@ function isValidPair(p1: PokemonWithMetadata, p2: PokemonWithMetadata): boolean 
   const p1IsDitto = p1.eggGroups.includes('Ditto');
   const p2IsDitto = p2.eggGroups.includes('Ditto');
 
-  // Two dittos can't breed with each other, right? Let's check Pokemon breeding rules.
-  // Wait, in Gen 2 two Dittos CAN breed, yielding a Ditto. But usually "Two Dittos cannot breed". Let's assume standard rules: Two Dittos CANNOT breed.
   if (p1IsDitto && p2IsDitto) return false;
-
-  if (p1IsDitto || p2IsDitto) return true;
+  if (p1IsDitto || p2IsDitto) {
+    if (checkDvsIncompatible(p1, p2)) return false;
+    return true;
+  }
 
   if (p1.gender === 'Genderless' || p2.gender === 'Genderless') return false;
   if (p1.gender === p2.gender) return false;
 
-  const p1IsShiny = p1.isShiny || p1.isShinyCarrier;
-  const p2IsShiny = p2.isShiny || p2.isShinyCarrier;
-  if (p1IsShiny && p2IsShiny) return false;
+  if (checkDvsIncompatible(p1, p2)) return false;
 
   return p1.eggGroups.some((group) => p2.eggGroups.includes(group));
+}
+
+function checkDvsIncompatible(p1: PokemonWithMetadata, p2: PokemonWithMetadata): boolean {
+  if (p1.dvs && p2.dvs) {
+    if (p1.dvs.defense === p2.dvs.defense) {
+      const specialDiff = Math.abs(p1.dvs.special - p2.dvs.special);
+      if (specialDiff === 0 || specialDiff === 8) {
+        return true; // Related and incompatible
+      }
+    }
+  }
+  return false;
 }
