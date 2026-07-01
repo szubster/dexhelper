@@ -31,5 +31,5 @@ Verify Friendship value extraction for Gen 2 Pokémon.
 - Reminder: Change status to FAILED or CANCELLED on failure.
 
 ## Acceptance Criteria
-- [ ] Verify the extracted friendship value logic is correct.
-- [ ] Verify the unit tests accurately cover the extraction.
+- [x] Verify the extracted friendship value logic is correct.
+- [x] Verify the unit tests accurately cover the extraction.
