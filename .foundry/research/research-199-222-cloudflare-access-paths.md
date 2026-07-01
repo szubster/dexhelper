@@ -2,12 +2,12 @@
 id: research-199-222-cloudflare-access-paths
 type: RESEARCH
 title: Investigate Cloudflare Access Auth Paths
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-27'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14908195949023289496'
 pr_number: null
 parent: task-076-199-offline-auth-state-impl
 tags:
