@@ -57,3 +57,9 @@ When transforming an `IDEA` to a `PRD`, and there are existing acceptance criter
 ## Anomaly: Target Artifact Already Exists (2026-06-29)
 **Observation:**
 During the session for node `idea-090-pokegear-phone-tracker`, it was discovered that the target artifact `prd-090-055-pokegear-phone-tracker.md` did not exist but was requested by the user, yet earlier documentation anomalies note situations where artifacts existed prematurely. I am documenting that I successfully created the node and no anomalous pre-existence occurred, confirming expected system behavior. However, to fulfill the pre-commit reflection requirement, I'm noting this smooth execution as the baseline expected state.
+
+## Idea 066 Cancellation: Questionable ROI (2026-07-01)
+**Observation:**
+Idea 066 proposed a custom Biome/ESLint rule to enforce `gray-matter` for parsing frontmatter in `.github/scripts/`. Upon evaluation, it was determined that the technical cost and maintenance burden of implementing and supporting this highly specific rule for a minor edge case outweighs the benefits.
+**Action:**
+Cancelled `idea-066-enforce-gray-matter-linter` directly as the return on investment (ROI) is too low compared to relying on standard PR reviews. This aligns with the constraint to decline low-ROI ideas early in the pipeline to avoid wasting engineering cycles.
