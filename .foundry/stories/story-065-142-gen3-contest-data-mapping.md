@@ -5,10 +5,10 @@ title: Gen 3 Contest Data Mapping
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-16'
-updated_at: '2026-06-30'
+updated_at: '2026-07-01'
 depends_on:
   - story-065-141-gen3-contest-error-handling
-jules_session_id: '16391860939213431751'
+jules_session_id: '4825660412000648075'
 pr_number: null
 parent: epic-040-065-gen3-contest-data-integration
 tags:

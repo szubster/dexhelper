@@ -114,3 +114,5 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 
 ## Explicit Provider Responsibilities
 When a task involves creating a "Provider" (e.g., `DagProvider` for a React Context), it is not enough to just define the context and export the provider shell. The blueprint must explicitly instruct the `coder` to implement the actual data fetching and state management logic *within* that provider, and to explicitly wrap the relevant views so they can consume the context. Failure to explicitly state this requirement leads to incomplete implementations where the provider is functionally empty and the state is never actually lifted, violating architectural decisions like ADR 013 and ADR 017.
+## [Anomaly] Target artifacts existed prior to session
+When assigned to STORY `story-058-152-refactor-feebas-magic-numbers`, I found that the child task `task-152-230-refactor-feebas-magic-numbers-impl.md` already existed and was in the `COMPLETED` state, and the code changes in `feebas.ts` were already made. Proceeding to submit empty PR to complete the story.
