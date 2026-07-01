@@ -2,12 +2,12 @@
 id: task-120-236-refactor-dagdashboard-context-impl
 type: TASK
 title: Refactor DagDashboard and DagProvider to use DagContext
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-28'
 updated_at: '2026-07-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14622488259263687890'
 pr_number: null
 parent: story-078-120-integrate-dag-context-with-views
 tags:
