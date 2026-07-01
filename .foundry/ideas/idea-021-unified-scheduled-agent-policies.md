@@ -2,10 +2,10 @@
 id: idea-021-unified-scheduled-agent-policies
 type: IDEA
 title: Unified Scheduled Agent Policies Module
-status: BLOCKED
+status: COMPLETED
 owner_persona: tpm
 created_at: '2026-05-14'
-updated_at: '2026-05-14'
+updated_at: '2026-07-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,10 +16,9 @@ tags:
   - meta
 research_references: []
 rejection_count: 0
-rejection_reason: 'Resolved: Validated by human/agent'
+rejection_reason: ''
 notes: >-
-  Proposed by Agile Coach to reduce duplication and inconsistencies across agent
-  prompts.
+  Implemented: Core policies are centralized in .foundry/docs/knowledge_base/agents/core_policies.md and integrated into agent prompts.
 ---
 
 # Unified Scheduled Agent Policies Module
