@@ -20,6 +20,8 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 ## Save File Parsing & Magic Numbers
 When implementing save file parsing or data definitions, you MUST explicitly define and use reusable constants for memory offsets, lengths, bit locations, and shifts at the module level. Strictly avoid using inline magic numbers (e.g., `0x2dd6`, `>> 4`) directly in parsing functions. This ensures robustness against version-specific shifts and prevents brittle code.
 
+When parsing bitwise blocks (like event flag arrays) using the `DataView` API, you must explicitly map the specific bit offsets corresponding to target events. Just extracting the array is insufficient; explicitly identifying the individual bit offsets is required for downstream consumption.
+
 ## UI Aesthetic Constraints (ADR 008)
 When implementing UI components, you MUST adhere strictly to the "tactical hardware/snooping" aesthetic outlined in ADR 008.
 - Explicitly use sharp edges (`rounded-none`).
