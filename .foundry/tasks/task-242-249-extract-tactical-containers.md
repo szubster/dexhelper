@@ -2,12 +2,12 @@
 id: task-242-249-extract-tactical-containers
 type: TASK
 title: Extract Tactical Container Utilities
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '12585668935700709030'
+jules_session_id: null
 pr_number: null
 parent: story-097-242-tailwind-v4-tactical-containers
 tags:

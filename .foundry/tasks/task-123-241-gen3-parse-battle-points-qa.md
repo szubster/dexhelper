@@ -2,13 +2,13 @@
 id: task-123-241-gen3-parse-battle-points-qa
 type: TASK
 title: Gen 3 Parse Total Battle Points QA
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on:
   - task-123-240-gen3-parse-battle-points-impl
-jules_session_id: '14923612127588403753'
+jules_session_id: null
 pr_number: null
 parent: story-078-123-gen3-parse-battle-points
 tags:
