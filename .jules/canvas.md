@@ -245,3 +245,9 @@
 **Outcome:** Accepted
 **Why:** Brings the AI recommendation panel fully into the tactical specialization motif. Standard shaded boxes look like a regular web UI; the new data-pipe nodes feel like an active intelligence analysis readout.
 **Pattern:** Always elevate AI or recommendation readouts into active "Strategy Matrices" by utilizing data pipe visuals, CRT/Scanline backgrounds, mono brackets, and strictly capitalized terminal-style copy to reinforce the specialized intelligence fantasy.
+
+## 2025-10-25 - [Accepted] - 🖼️ Canvas: Tactical Battle Frontier Matrix Redesign
+**What:** Redesigned the `BattleFrontierDashboard` component into a 'Tactical Combat Simulation Matrix'. Replaced the generic flex-col layout and basic `tactical-panel` div classes with active `TacticalPanel` components featuring `LcdGrid`, `HoverScanner`, and `CornerCrosshairs`. Replaced the basic wallet balance display with a dedicated `DataPoint`. The facility panels dynamically adapt their `TacticalPanel` variants (`amber` for gold, `white` for silver) and use rigid segmented telemetry structures for streaks instead of standard flex layouts.
+**Outcome:** Accepted
+**Why:** Brings the Battle Frontier dashboard fully in line with the established specialized hardware motif. Standard shaded boxes looked like a regular web UI; treating the facilities as active simulation nodes with scanning grids and physical crosshairs fits the tactical intelligence readouts seen elsewhere.
+**Pattern:** Consistently elevate generic dashboard lists into active 'Simulation Matrices' or 'Telemetry Nodes' by wrapping them in `TacticalPanel`, applying `LcdGrid`/`HoverScanner` for CRT effects, and utilizing `DataPoint` components for core stats to reinforce the specialized hardware fantasy.
