@@ -38,3 +38,6 @@ This epic covers the backend/data layer requirements of the Gen 3 EV Training Da
 - [ ] Save engine successfully extracts EV data for party and PC Pokémon in Gen 3.
 - [ ] Extraction logic handles all Generation 3 games (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
 - [ ] The parsing implementation strictly uses the `DataView` API.
+- [ ] story-116-249-gen3-ev-interface-definition
+- [ ] story-116-250-gen3-ev-parsing-logic
+- [ ] story-116-251-gen3-ev-integration
