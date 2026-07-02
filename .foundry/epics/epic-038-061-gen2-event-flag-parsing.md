@@ -26,9 +26,13 @@ Develop the core save file parsing engine to extract specific time-gated event f
 
 ## Acceptance Criteria
 - [x] Parse event flags indicating completion of daily/weekly events.
-- [x] Expose this data cleanly to the frontend UI components.
+- [ ] Expose this data cleanly to the frontend UI components.
 
 
 ### Implementation Tasks
-- [x] .foundry/stories/story-061-095-gen2-event-flag-extraction.md
-- [x] .foundry/stories/story-061-096-gen2-event-data-layer.md
+- [x] story-061-095-gen2-event-flag-extraction
+- [x] story-061-096-gen2-event-data-layer
+- [ ] research-061-245-gen2-daily-event-offsets
+
+### Auditor Rejection
+The node was implemented to parse the raw event flags byte array, and basic static gifts were added. However, the core requirement of the parent PRD is a "Gen 2 Daily and Weekly Event Tracker", and none of the specific time-gated event flags (Lapras, Haircut Brothers, Bug Catching Contest) were mapped or exposed to the UI layer. Spawning a research node to find these offsets.
