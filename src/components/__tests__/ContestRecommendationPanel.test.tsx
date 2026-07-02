@@ -48,6 +48,28 @@ test('renders only the top 2 recommendations if more are provided', async () => 
   await expect.element(page.getByText('cool')).not.toBeInTheDocument();
 });
 
+test('renders warning state when sheen is 255 and score is below 200', async () => {
+  const recommendations: ContestRecommendation[] = [{ category: 'cool', score: 190 }];
+  await render(<ContestRecommendationPanel recommendations={recommendations} sheen={255} />);
+
+  await expect.element(page.getByText(/WARNING: OPTIMIZATION_DEAD_END/)).toBeInTheDocument();
+  await expect.element(page.getByText(/MAXIMUM SHEEN \(255\) DETECTED/)).toBeInTheDocument();
+});
+
+test('does not render warning state when sheen is below 255', async () => {
+  const recommendations: ContestRecommendation[] = [{ category: 'cool', score: 190 }];
+  await render(<ContestRecommendationPanel recommendations={recommendations} sheen={254} />);
+
+  await expect.element(page.getByText(/WARNING: OPTIMIZATION_DEAD_END/)).not.toBeInTheDocument();
+});
+
+test('does not render warning state when sheen is 255 but score is 200 or above', async () => {
+  const recommendations: ContestRecommendation[] = [{ category: 'cool', score: 200 }];
+  await render(<ContestRecommendationPanel recommendations={recommendations} sheen={255} />);
+
+  await expect.element(page.getByText(/WARNING: OPTIMIZATION_DEAD_END/)).not.toBeInTheDocument();
+});
+
 test('applies ADR 008 aesthetic classes (rounded-none, border-dashed, font-mono)', async () => {
   const recommendations: ContestRecommendation[] = [{ category: 'smart', score: 500 }];
   const { container } = await render(<ContestRecommendationPanel recommendations={recommendations} />);
