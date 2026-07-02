@@ -2,10 +2,10 @@
 id: epic-044-073-gen3-roamer-dashboard-ui
 type: EPIC
 title: Gen 3 Roamer Dashboard UI
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-07-02'
 depends_on:
   - epic-044-070-gen3-roamer-core-extraction
   - epic-044-071-gen3-roamer-iv-glitch

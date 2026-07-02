@@ -2,10 +2,10 @@
 id: research-055-247-gen3-move-tutor-offsets
 type: RESEARCH
 title: Gen 3 Move Tutor Memory Offsets & Event Flags
-status: PENDING
+status: READY
 owner_persona: researcher
-created_at: 2026-06-30
-updated_at: 2026-06-30
+created_at: 2026-06-30T00:00:00.000Z
+updated_at: '2026-07-02'
 depends_on: []
 jules_session_id: null
 pr_number: null

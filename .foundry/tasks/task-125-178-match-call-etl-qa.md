@@ -2,10 +2,10 @@
 id: task-125-178-match-call-etl-qa
 type: TASK
 title: 'Task: QA for Gen 3 Match Call Static Data ETL'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-07-02'
 depends_on:
   - task-125-177-match-call-etl-impl
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-125-184-match-call-offsets-qa
 type: TASK
 title: QA - Verify Gen 3 Match Call Offset Definitions
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-07-02'
 depends_on:
   - task-125-183-match-call-offsets-impl
 jules_session_id: null
