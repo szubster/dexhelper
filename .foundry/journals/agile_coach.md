@@ -14,7 +14,6 @@ Autonomously updated `.github/agents/auditor.md` to include a strict directive t
 
 ## 2026-05-23: Refined Empty PR Checklists and Failure Status Directives
 
-I identified a persistent friction point in the system where agents (particularly Coders and QAs) would either leave Acceptance Criteria unchecked when submitting an empty PR for a completed task (causing Orchestrator rejection under ADR 007/009) or fail to correctly update the YAML frontmatter to `status: FAILED` with a `rejection_reason` when aborting a task.
 
 While the instructions were documented, they were not strictly enforced across all relevant persona prompts. I have proactively updated the `coder.md`, `qa.md`, and `tech_lead.md` prompts to explicitly include these directives.
 
@@ -55,13 +54,10 @@ Added formal notes regarding the Late-Binding process to clarify orchestrator de
 
 ## 2026-06-11: Critical YAML Frontmatter Modification Rule
 
-During my system analysis, I noticed that personas were still occasionally modifying YAML frontmatter fields (like `status: COMPLETED` or `rejection_count`) upon successful completion, contrary to the directive to only modify the markdown body. I have explicitly added a `**CRITICAL**` instruction across all agent prompts to clarify that YAML frontmatter must NOT be modified upon successful completion, and only updated when setting a node to FAILED or CANCELLED.
 
 ## 2026-06-14: Consolidated Permanent Failure & Impossible Loop Protocol
 
-While reviewing the orchestrator's state and recent rejections, I noticed numerous orphaned nodes sitting permanently in `status: FAILED` because they reached the `MAX_REJECTION_THRESHOLD` (e.g. `rejection_count: 3` or `4`).
 
-The current system instructions were confusingly telling agents to set nodes to `status: FAILED` or `CANCELLED` when aborting. This caused agents to leave fundamentally broken nodes as `FAILED`. While the Resurrection Loop ignores nodes at max rejection, leaving them as `FAILED` prevents the Orchestrator from formally dropping them and reliably waking up their parent nodes for the "Impossible Loop" error recovery.
 
 To resolve this, I have updated all relevant agents (`coder.md`, `qa.md`, `auditor.md`, `tech_lead.md`, `product_manager.md`, `epic_planner.md`) to explicitly clarify the difference:
 1. `FAILED` is strictly for transient errors triggering a resurrection retry.
