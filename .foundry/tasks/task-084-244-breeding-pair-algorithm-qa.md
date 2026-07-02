@@ -38,9 +38,9 @@ Verify the correctness of the Shiny Carrier breeding algorithm implementation, e
 3. Run the unit tests locally to ensure they pass.
 
 ## Acceptance Criteria
-- [ ] Verified that the algorithm correctly identifies valid Gen 2 breeding pairs.
-- [ ] Verified that the algorithm correctly prevents breeding between related Pokémon based on Gen 2 DV rules.
-- [ ] Verified that the algorithm correctly prioritizes Shiny Carriers.
-- [ ] All associated unit tests pass.
-- [ ] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
-- [ ] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] Verified that the algorithm correctly identifies valid Gen 2 breeding pairs.
+- [x] Verified that the algorithm correctly prevents breeding between related Pokémon based on Gen 2 DV rules.
+- [x] Verified that the algorithm correctly prioritizes Shiny Carriers.
+- [x] All associated unit tests pass.
+- [x] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
+- [x] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
