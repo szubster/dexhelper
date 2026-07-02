@@ -833,6 +833,11 @@ function main(): void {
       if (bypassDispatch) {
         if (hasUncheckedTasks) {
           const type = node.frontmatter.type;
+          let hasRealChildren = false;
+          for (const child of children) {
+            // Markdown links to completed tasks shouldn't upgrade a leaf task to a late-binding parent if it's just referencing a target artifact
+            if (child.frontmatter.parent === node.repoPath || ['IDEA', 'PRD', 'EPIC', 'STORY'].includes(type)) hasRealChildren = true;
+          }
           const isLateBindingParent = (children.length > 0 && type !== 'TASK') || ['IDEA', 'PRD', 'EPIC', 'STORY'].includes(type);
           if (isLateBindingParent) {
             info(`Preflight success: Valid target artifacts exist and are completed, but ${node.repoPath} still has unchecked tasks. Promoting to READY.`);

@@ -108,3 +108,7 @@ Permanently failed `task-084-192-breeding-pair-algorithm-impl`. The task lacked 
 
 ## 2026-06-29: Gen 2 Breeding Constraints
 In Generation 2, two Shiny or Shiny Carrier Pokémon cannot breed with each other. Shininess is determined by DVs, and Pokémon with identical or similar DVs are considered 'related' and incompatible for breeding. The breeding algorithm must explicitly exclude these pairs.
+
+### Orchestrator Testing
+- **Observation:** Verified hierarchical completion via markdown links logic by adding unit tests in `.github/scripts/foundry-orchestrator.test.ts`.
+- **Action:** Created explicit tests for markdown link parsing and verification that children completion appropriately blocks and unblocks parents. Checked off acceptance criteria. Tested suite via vitest locally.
