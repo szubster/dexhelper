@@ -37,11 +37,9 @@ Introduce a "Save File Health Scanner" feature. When a user uploads a `.sav` fil
 ## Value Proposition
 This feature pivots DexHelper from just a tracking tool into a critical utility for retro game preservation. It solves a massive pain point for retro gamers who live in fear of losing hundreds of hours of progress to battery failure or bad cartridge dumps, providing peace of mind and actionable recovery diagnostics.
 
-## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
-
-### References
-- [ ] `.foundry/prds/prd-066-036-save-file-health-scanner.md`
+## Acceptance Criteria
+- [x] Product Manager: Convert this idea into a PRD.
+- [ ] prd-066-036-save-file-health-scanner
 
 ### Auditor Rejection
 The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. I have spawned a new node `.foundry/ideas/idea-072-strict-macro-node-completion.md` to address this recurring systemic issue.
