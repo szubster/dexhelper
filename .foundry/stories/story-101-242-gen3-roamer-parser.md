@@ -2,10 +2,10 @@
 id: story-101-242-gen3-roamer-parser
 type: STORY
 title: Gen 3 Roamer DataView Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
 jules_session_id: null
 pr_number: null

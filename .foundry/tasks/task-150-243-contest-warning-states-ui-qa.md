@@ -2,13 +2,13 @@
 id: task-150-243-contest-warning-states-ui-qa
 type: TASK
 title: QA Contest Warning States UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-29'
 updated_at: '2026-07-02'
 depends_on:
   - task-150-242-contest-warning-states-ui-impl
-jules_session_id: '16511068275781913397'
+jules_session_id: null
 pr_number: null
 parent: story-065-150-contest-warning-states-ui
 tags:

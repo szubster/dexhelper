@@ -2,8 +2,8 @@
 id: idea-099-gen3-shoal-cave-tracker
 type: IDEA
 title: Gen 3 Shoal Cave Tide Tracker
-status: CANCELLED
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-07-02'
 updated_at: '2026-07-02'
 depends_on: []
@@ -17,7 +17,9 @@ tags:
   - rtc
 research_references: []
 rejection_count: 0
-rejection_reason: 'ADR 025 specifically forbids relying on extracting RTC state from save files due to emulator inconsistency and cartridge dumps.'
+rejection_reason: >-
+  ADR 025 specifically forbids relying on extracting RTC state from save files
+  due to emulator inconsistency and cartridge dumps.
 notes: ''
 ---
 

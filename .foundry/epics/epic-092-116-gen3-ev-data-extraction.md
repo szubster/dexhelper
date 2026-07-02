@@ -2,12 +2,12 @@
 id: epic-092-116-gen3-ev-data-extraction
 type: EPIC
 title: Epic - Gen 3 EV Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '6898239128233894775'
+jules_session_id: null
 pr_number: null
 parent: prd-092-056-gen3-ev-training-dashboard
 tags:
