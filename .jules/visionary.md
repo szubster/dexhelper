@@ -167,3 +167,7 @@
 ## 2026-07-01
 **Idea:** Gen 3 Pokémon Lottery Predictor
 **Learning:** Expanding the app to parse the hidden daily PRNG seed for the Pokémon Lottery Corner and cross-referencing it with the player's PC box Original Trainer IDs turns a highly tedious, manual daily chore into an instant actionable insight. This strongly fits the project's vision of providing premium utility features for hardcore players and shiny hunters.
+
+## 2026-07-02
+**Idea:** Gen 3 Shoal Cave Tide Tracker
+**Learning:** Time-based events (RTC) in Gen 3 are notoriously difficult for players to track, especially given the dry battery issue. Shoal Cave's high/low tide mechanics restrict access to unique items (Shoal Salt/Shell) and Pokémon (Snorunt). By parsing the save file's RTC state and daily item event flags, we can offer a predictable, actionable dashboard. This continues our successful pattern of targeting highly localized, opaque mechanics (like the Ash Gathering Tracker) to provide premium utility for hardcore players.
