@@ -27,4 +27,6 @@ In-game NPC trades provide Pokémon with good IVs and rare items, but tracking t
 - Automatically cross-reference requested Pokémon against the player's party and PC box to highlight actionable trades.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics (Parse Data, Build UI).
+- [x] Break down into Epics (Parse Data, Build UI).
+- [ ] epic-056-119-in-game-trade-data-parsing
+- [ ] epic-056-120-in-game-trade-dashboard-ui
