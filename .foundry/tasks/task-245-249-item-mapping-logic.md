@@ -36,5 +36,5 @@ Update the generation scripts and/or the runtime mapping utilities to accurately
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement robust cross-generation mapping logic for items.
-- [ ] Ensure PokeAPI item IDs are mapped to internal ROM IDs accurately for Gen 1, Gen 2, and Gen 3.
+- [x] Implement robust cross-generation mapping logic for items.
+- [x] Ensure PokeAPI item IDs are mapped to internal ROM IDs accurately for Gen 1, Gen 2, and Gen 3.
