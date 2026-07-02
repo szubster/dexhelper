@@ -44,10 +44,10 @@ This task is for the `qa` persona to verify the Contest Warning States UI implem
    - Verify that tests exist and are passing, specifically ensuring the warning state renders correctly under the "dead-end" conditions.
 
 ## Acceptance Criteria
-- [ ] Verify `ContestRecommendationPanel` accepts the `sheen` prop.
-- [ ] Verify the visual warning for the edge case (maxed sheen, low stats) is implemented.
-- [ ] Verify the tactical hardware aesthetic (ADR 008) is applied.
-- [ ] Verify tests are written and passing for the warning state.
+- [x] Verify `ContestRecommendationPanel` accepts the `sheen` prop.
+- [x] Verify the visual warning for the edge case (maxed sheen, low stats) is implemented.
+- [x] Verify the tactical hardware aesthetic (ADR 008) is applied.
+- [x] Verify tests are written and passing for the warning state.
 
 ## Important Reminder for QA
 - **Transient Failure**: If you experience a transient failure requiring retry or the implementation is incomplete, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
