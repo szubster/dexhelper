@@ -36,6 +36,6 @@ Verify the implementation of the total Battle Points (BP) extraction logic for G
 - If submitting an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] BP parsing logic correctly handles offset `0x0EB8`.
-- [ ] Module-level constants are used.
-- [ ] Error handling catches `RangeError`.
+- [x] BP parsing logic correctly handles offset `0x0EB8`.
+- [x] Module-level constants are used.
+- [x] Error handling catches `RangeError`.
