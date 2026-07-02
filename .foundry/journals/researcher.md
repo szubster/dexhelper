@@ -69,3 +69,6 @@ When documenting memory offsets or drafting parser requirements, it is a strict 
 
 ## Proper Knowledge Storage
 **Lesson:** When I uncover universally applicable domain knowledge (e.g., Gen 2 breeding DV overlap rules), I MUST document it in `.foundry/docs/knowledge_base/` rather than adding it to my persona journal. My journal must be reserved for recording recurring pipeline failures, systemic constraints, and meta-lessons to prevent context window bloat.
+
+## Cloudflare Access Integration
+For applications utilizing Cloudflare Zero Trust (Cloudflare Access), the built-in authentication flow URLs, relative to the protected domain, are `/cdn-cgi/access/login` (login), `/cdn-cgi/access/logout` (session termination), and `/cdn-cgi/access/get-identity` (user information). These paths provide native integration without requiring complex manual OAuth configuration and callbacks.
