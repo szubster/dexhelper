@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
 import fs from 'node:fs';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('node:fs');
 
@@ -16,12 +16,12 @@ describe('Gen 3 Match Call ETL', () => {
 
     mockExistsSync.mockImplementation((path) => {
       if (typeof path === 'string' && path.includes('temp_pokeapi')) {
-         return path.includes('pokemon/1/') || path.includes('pokemon/2/');
+        return path.includes('pokemon/1/') || path.includes('pokemon/2/');
       }
       return false;
     });
 
-    mockReadFileSync.mockImplementation((path: fs.PathOrFileDescriptor, options?: any) => {
+    mockReadFileSync.mockImplementation((path: fs.PathOrFileDescriptor) => {
       const p = path.toString();
       if (p === 'scratch/pokeemerald/src/battle_setup.c') {
         return `
@@ -75,7 +75,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Rose2[] = {
             { effort: 0, stat: { name: 'special-attack' } },
             { effort: 0, stat: { name: 'special-defense' } },
             { effort: 0, stat: { name: 'speed' } },
-          ]
+          ],
         });
       }
       if (p.includes('pokemon/2/index.json')) {
@@ -87,7 +87,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Rose2[] = {
             { effort: 0, stat: { name: 'special-attack' } },
             { effort: 1, stat: { name: 'special-defense' } },
             { effort: 0, stat: { name: 'speed' } },
-          ]
+          ],
         });
       }
       return '';
@@ -96,13 +96,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Rose2[] = {
     await import('../../../../scripts/data/gen3/match_call/etl.ts');
 
     expect(mockWriteFileSync).toHaveBeenCalled();
-    const writeCall = mockWriteFileSync.mock.calls[0];
+    const writeCall = mockWriteFileSync.mock.calls[0] as [
+      fs.PathOrFileDescriptor,
+      string | NodeJS.ArrayBufferView,
+      fs.WriteFileOptions,
+    ];
     expect(writeCall[0]).toBe('data/gen3_match_call.jsonl');
 
     const lines = (writeCall[1] as string).trim().split('\n');
     expect(lines).toHaveLength(1);
 
-    const data = JSON.parse(lines[0]);
+    const data = JSON.parse(lines[0] as string);
     expect(data.id).toBe('REMATCH_ROSE');
     expect(data.name).toBe('ROSE');
     expect(data.map).toBe('MAP_ROUTE118');
