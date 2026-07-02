@@ -170,4 +170,4 @@
 
 ## 2026-07-02
 **Idea:** Gen 3 Shoal Cave Tide Tracker
-**Learning:** Time-based events (RTC) in Gen 3 are notoriously difficult for players to track, especially given the dry battery issue. Shoal Cave's high/low tide mechanics restrict access to unique items (Shoal Salt/Shell) and Pokémon (Snorunt). By parsing the save file's RTC state and daily item event flags, we can offer a predictable, actionable dashboard. This continues our successful pattern of targeting highly localized, opaque mechanics (like the Ash Gathering Tracker) to provide premium utility for hardcore players.
+**Learning:** The orchestrator architecture (specifically ADR 025) strictly forbids features that rely on extracting RTC data from save files because emulator handling is fragmented and physical dumps omit it. Future ideation must ensure proposed mechanics do not rely on exact internal RTC block parsing, and instead rely on the system-level fallback strategy.
