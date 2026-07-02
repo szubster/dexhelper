@@ -33,6 +33,6 @@ Verify the implementation of the System Time Fallback and Manual UI Overrides in
 - **Empty PR Policy**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes in this markdown body before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify that a React Context layer is correctly implemented for time state.
-- [ ] Validate that the default time state correctly falls back to the system time.
-- [ ] Validate that the UI override toggles function correctly and correctly override the state.
+- [x] Verify that a React Context layer is correctly implemented for time state.
+- [x] Validate that the default time state correctly falls back to the system time.
+- [x] Validate that the UI override toggles function correctly and correctly override the state.
