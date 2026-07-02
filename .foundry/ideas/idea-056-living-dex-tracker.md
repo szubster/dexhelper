@@ -38,7 +38,7 @@ Create a dedicated "Living Dex Tracker" view in the DexHelper UI.
 This directly addresses a hardcore collector playstyle, heavily leaning into our "premium storage viewer" capabilities by solving a specific, highly manual pain point in older Pokémon generations.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
 
 ### Auditor Rejection
 The specialized "Living Dex Tracker" UI has not been implemented. While there is a global "Living Dex" toggle in the settings that modifies the standard Pokédex view, the specific requirements of this IDEA (a dedicated view with numerical grid, PC Box/Slot overlay, and highlighting for ghosts/duplicates) are completely missing from the codebase. Furthermore, no downstream PRD node exists for this idea. The Product Manager must create a formal PRD that details the implementation of this dedicated UI view, and it must be fully implemented and merged by downstream child tasks before this IDEA can be verified as complete.
@@ -48,3 +48,6 @@ The node has been rejected again. The Product Manager must create the correspond
 
 ### Auditor Rejection
 The PRD has still not been created. The `product_manager` MUST create the actual PRD file in `.foundry/prds/` (e.g., `prd-056-101-living-dex-tracker.md`) and append a reference to it in this node's Acceptance Criteria. Do not submit this node for verification until the PRD and its downstream implementations are fully complete.
+
+## Acceptance Criteria
+- [ ] prd-056-103-living-dex-tracker
