@@ -15,6 +15,8 @@ const POKEMON_OFFSET_CAUGHT_BYTE_2 = 30;
 const POKEMON_OFFSET_LEVEL = 31;
 const POKEMON_OFFSET_OT_NAME = 32;
 const POKEMON_OFFSET_CURRENT_HP = 34;
+const GEN2_EGG_SPECIES_ID = 253;
+const GEN2_EGG_CYCLE_STEPS = 256;
 
 function isValidLandmark(id: string): id is keyof typeof gen2Landmarks {
   return id in gen2Landmarks;
@@ -102,6 +104,8 @@ function parseGen2PokemonInstance(
   const rawPokerus = view.getUint8(offset + POKEMON_OFFSET_POKERUS);
   const pokerus = parsePokerus(rawPokerus);
   const level = view.getUint8(offset + POKEMON_OFFSET_LEVEL);
+
+  const eggSteps = speciesId === GEN2_EGG_SPECIES_ID ? friendship * GEN2_EGG_CYCLE_STEPS : undefined;
   const currentHp = storageLocation === 'Party' ? view.getUint16(offset + POKEMON_OFFSET_CURRENT_HP, false) : undefined;
   const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
 
@@ -127,6 +131,7 @@ function parseGen2PokemonInstance(
     isShinyCarrier,
     item,
     moves,
+    eggSteps,
     friendship,
     pokerus,
     caughtData,
