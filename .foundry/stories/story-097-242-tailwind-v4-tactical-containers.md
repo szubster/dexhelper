@@ -25,7 +25,7 @@ notes: ''
 Define the `tactical-panel` and `tactical-card` custom utilities in `src/index.css` using Tailwind v4's native `@utility` directive.
 
 ## Acceptance Criteria
-- [ ] `tactical-panel` utility is defined in `src/index.css`.
-- [ ] `tactical-card` utility is defined in `src/index.css`.
-- [ ] The definitions follow the guidelines in ADR 024.
-- [ ] .foundry/tasks/task-242-249-extract-tactical-containers.md
+- [x] `tactical-panel` utility is defined in `src/index.css`.
+- [x] `tactical-card` utility is defined in `src/index.css`.
+- [x] The definitions follow the guidelines in ADR 024.
+- [x] task-242-249-extract-tactical-containers
