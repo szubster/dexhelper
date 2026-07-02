@@ -2,12 +2,12 @@
 id: task-150-242-contest-warning-states-ui-impl
 type: TASK
 title: Implement Contest Warning States UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '2245414162262557999'
+jules_session_id: null
 pr_number: null
 parent: story-065-150-contest-warning-states-ui
 tags:
@@ -45,11 +45,11 @@ This task implements visual warning states for edge cases identified by the Gen 
    - Update `src/components/__tests__/ContestRecommendationPanel.test.tsx` to include a test case that verifies the warning state renders correctly when `sheen` is 255 and scores are below 200.
 
 ## Acceptance Criteria
-- [ ] Update `ContestRecommendationPanel` to accept a `sheen` prop.
-- [ ] Implement the "dead-end" detection logic (`sheen >= 255` and top score `< 200`).
-- [ ] Display a distinct visual warning when the dead-end state is reached.
-- [ ] Adhere strictly to the tactical hardware aesthetic (ADR 008).
-- [ ] Write tests to verify the warning state renders properly.
+- [x] Update `ContestRecommendationPanel` to accept a `sheen` prop.
+- [x] Implement the "dead-end" detection logic (`sheen >= 255` and top score `< 200`).
+- [x] Display a distinct visual warning when the dead-end state is reached.
+- [x] Adhere strictly to the tactical hardware aesthetic (ADR 008).
+- [x] Write tests to verify the warning state renders properly.
 
 ## Important Reminder for the Coder
 - **Transient Failure**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

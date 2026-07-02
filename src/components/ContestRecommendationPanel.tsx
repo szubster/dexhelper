@@ -8,6 +8,7 @@ import { TelemetryDecoration } from './TelemetryDecoration';
 
 export interface ContestRecommendationPanelProps extends React.HTMLAttributes<HTMLDivElement> {
   recommendations: ContestRecommendation[];
+  sheen?: number;
 }
 
 function getReasoningCopy(score: number): string {
@@ -21,7 +22,10 @@ function getReasoningCopy(score: number): string {
 }
 
 export const ContestRecommendationPanel = React.forwardRef<HTMLDivElement, ContestRecommendationPanelProps>(
-  ({ recommendations, className, ...props }, ref) => {
+  ({ recommendations, sheen, className, ...props }, ref) => {
+    const topScore = recommendations?.length > 0 && recommendations[0] ? recommendations[0].score : 0;
+    const isDeadEnd = sheen !== undefined && sheen >= 255 && topScore < 200;
+
     return (
       <TacticalPanel
         ref={ref}
@@ -30,6 +34,22 @@ export const ContestRecommendationPanel = React.forwardRef<HTMLDivElement, Conte
         {...props}
       >
         <TelemetryDecoration label="SYS.STRATEGY_MATRIX" className="-top-1 left-4" />
+
+        {isDeadEnd && (
+          <div className="relative mb-2 flex flex-col gap-2 rounded-none border border-amber-500/50 border-dashed bg-amber-500/10 p-4">
+            <LcdGrid />
+            <HoverScanner />
+            <div className="relative z-10 flex items-center gap-2 border-amber-500/30 border-b border-dashed pb-2">
+              <span className="font-bold font-mono text-amber-500 text-sm uppercase tracking-widest drop-shadow-[0_0_4px_rgba(245,158,11,0.5)]">
+                [ WARNING: OPTIMIZATION_DEAD_END ]
+              </span>
+            </div>
+            <div className="relative z-10 font-mono text-[10px] text-amber-400/90 uppercase leading-relaxed">
+              MAXIMUM SHEEN (255) DETECTED. INSUFFICIENT METRICS FOR MASTER RANK. FURTHER ENHANCEMENT VIA POKÉBLOCKS IS
+              IMPOSSIBLE.
+            </div>
+          </div>
+        )}
 
         {recommendations.length === 0 ? (
           <div className="relative flex h-16 items-center justify-center overflow-hidden rounded-none border border-zinc-800 border-dashed bg-black/40">

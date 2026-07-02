@@ -1,11 +1,9 @@
 import { Background, BackgroundVariant, Controls, MiniMap, ReactFlow } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { type Edge as FlowEdge, type Node as FlowNode, Position } from '@xyflow/react';
-import dagre from 'dagre';
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { ParsedNode } from '../../utils/dag/builder';
-import { buildDagGraph } from '../../utils/dag/builder';
+import type { Edge as FlowEdge, Node as FlowNode } from '@xyflow/react';
+import { useCallback, useMemo, useState } from 'react';
 import { getHighlightPath } from '../../utils/dag/highlighting';
+import { useDagContext } from '../dashboard/DagContext';
 import { DagFilterPanel } from './DagFilterPanel';
 import { DagNode, type DagNodeData } from './DagNode';
 
@@ -34,47 +32,8 @@ const nodeTypes = {
   custom: DagNode,
 };
 
-const dagreGraph = new dagre.graphlib.Graph();
-dagreGraph.setDefaultEdgeLabel(() => ({}));
-
-const nodeWidth = 300;
-const nodeHeight = 100;
-
-// Uses Dagre to automatically layout the graph top-to-bottom
-function getLayoutedElements(nodes: FlowNode<DagNodeData>[], edges: FlowEdge[], direction = 'TB') {
-  dagreGraph.setGraph({ rankdir: direction, ranksep: 150, nodesep: 150 });
-
-  nodes.forEach((node) => {
-    dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight });
-  });
-
-  edges.forEach((edge) => {
-    dagreGraph.setEdge(edge.source, edge.target);
-  });
-
-  dagre.layout(dagreGraph);
-
-  const newNodes = nodes.map((node) => {
-    const nodeWithPosition = dagreGraph.node(node.id);
-    const newNode = {
-      ...node,
-      targetPosition: Position.Top,
-      sourcePosition: Position.Bottom,
-      position: {
-        x: nodeWithPosition.x - nodeWidth / 2,
-        y: nodeWithPosition.y - nodeHeight / 2,
-      },
-    };
-    return newNode;
-  });
-
-  return { nodes: newNodes, edges };
-}
-
 export function DagDashboard() {
-  const [nodes, setNodes] = useState<FlowNode<DagNodeData>[]>([]);
-  const [edges, setEdges] = useState<FlowEdge[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { nodes, edges, isLoading } = useDagContext();
 
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
@@ -108,49 +67,6 @@ export function DagDashboard() {
       return next;
     });
   };
-
-  useEffect(() => {
-    async function loadData() {
-      try {
-        const response = await fetch(`${import.meta.env.BASE_URL}data/foundry.json`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch DAG data');
-        }
-        const parsedNodes: ParsedNode[] = await response.json();
-        const dagGraph = buildDagGraph(parsedNodes);
-
-        // Convert the DAG build output to React Flow format
-        const initialNodes: FlowNode<DagNodeData>[] = dagGraph.nodes.map((node) => ({
-          id: node.id,
-          type: 'custom',
-          data: {
-            ...node.data,
-            label: node.id,
-          },
-          position: { x: 0, y: 0 }, // Initial position, layout will overwrite
-        }));
-
-        const initialEdges = dagGraph.edges.map((edge) => ({
-          id: `e-${edge.source}-${edge.target}`,
-          source: edge.source,
-          target: edge.target,
-          animated: true,
-          style: { stroke: '#52525b', strokeWidth: 2, strokeDasharray: '4 4' }, // Zinc-600 dashed
-        }));
-
-        const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(initialNodes, initialEdges);
-
-        setNodes(layoutedNodes);
-        setEdges(layoutedEdges);
-      } catch {
-        console.error('System: DAG loading failed');
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    void loadData();
-  }, []);
 
   const activeNodeId = hoveredNodeId || selectedNodeId;
   const highlightSet = useMemo(() => getHighlightPath(activeNodeId, edges), [activeNodeId, edges]);

@@ -2,10 +2,10 @@
 id: idea-066-enforce-gray-matter-linter
 type: IDEA
 title: Enforce Gray-Matter Linter for Scripts
-status: CANCELLED
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-05-25'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
 jules_session_id: '3707606369679750578'
 parent: null
@@ -15,7 +15,10 @@ tags:
   - foundry
 research_references: []
 rejection_count: 1
-rejection_reason: 'Low Return on Investment (ROI) to implement a custom Biome/ESLint rule for this edge case. The maintenance overhead outweighs the benefits compared to standard PR reviews.'
+rejection_reason: >-
+  Low Return on Investment (ROI) to implement a custom Biome/ESLint rule for
+  this edge case. The maintenance overhead outweighs the benefits compared to
+  standard PR reviews.
 notes: >-
   Resurrected: Auditor found that frontmatter regressions are still common and a
   linter would be valuable.

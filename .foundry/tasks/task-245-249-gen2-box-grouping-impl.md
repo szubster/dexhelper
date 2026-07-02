@@ -2,12 +2,12 @@
 id: task-245-249-gen2-box-grouping-impl
 type: TASK
 title: Implement Gen 2 Box Parsing Grouping
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '2324158207491763169'
+jules_session_id: null
 pr_number: null
 parent: story-108-245-gen2-box-parsing
 tags:
@@ -41,7 +41,7 @@ The goal is to prepare Gen 2 PC box data for the frontend Comparison Matrix UI. 
 *   If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Grouping logic is implemented to group `PokemonInstance` objects by `speciesId`.
-- [ ] Party and Daycare Pokémon are actively excluded from the grouping output.
-- [ ] Unit tests are written to verify grouping and filtering behavior.
-- [ ] Ensure that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
+- [x] Grouping logic is implemented to group `PokemonInstance` objects by `speciesId`.
+- [x] Party and Daycare Pokémon are actively excluded from the grouping output.
+- [x] Unit tests are written to verify grouping and filtering behavior.
+- [x] Ensure that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.

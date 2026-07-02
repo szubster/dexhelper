@@ -5,9 +5,9 @@ title: Specialized "Living Dex" Organization Tracker UI
 status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-18'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '12430912300994567339'
+jules_session_id: '14876162240733066291'
 parent: null
 tags:
   - feature
@@ -42,3 +42,6 @@ This directly addresses a hardcore collector playstyle, heavily leaning into our
 
 ### Auditor Rejection
 The specialized "Living Dex Tracker" UI has not been implemented. While there is a global "Living Dex" toggle in the settings that modifies the standard Pokédex view, the specific requirements of this IDEA (a dedicated view with numerical grid, PC Box/Slot overlay, and highlighting for ghosts/duplicates) are completely missing from the codebase. Furthermore, no downstream PRD node exists for this idea. The Product Manager must create a formal PRD that details the implementation of this dedicated UI view, and it must be fully implemented and merged by downstream child tasks before this IDEA can be verified as complete.
+
+### Auditor Rejection
+The node has been rejected again. The Product Manager must create the corresponding PRD (`.foundry/prds/prd-056-<NNN>-living-dex-tracker.md`) and append it as a checkbox in this IDEA node. The IDEA node cannot be verified and transitioned to COMPLETED until the PRD and its downstream implementation tasks are fully completed and merged.

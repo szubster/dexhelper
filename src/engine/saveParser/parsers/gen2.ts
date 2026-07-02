@@ -13,8 +13,21 @@ const POKEMON_OFFSET_POKERUS = 28;
 const POKEMON_OFFSET_CAUGHT_BYTE_1 = 29;
 const POKEMON_OFFSET_CAUGHT_BYTE_2 = 30;
 const POKEMON_OFFSET_LEVEL = 31;
-const POKEMON_OFFSET_OT_NAME = 32;
+const POKEMON_DATA_BLOCK_SIZE = 32;
+const POKEMON_NAME_LENGTH = 11;
+const POKEMON_OFFSET_OT_NAME = POKEMON_DATA_BLOCK_SIZE;
+const POKEMON_OFFSET_NICKNAME = POKEMON_DATA_BLOCK_SIZE + POKEMON_NAME_LENGTH;
 const POKEMON_OFFSET_CURRENT_HP = 34;
+const GEN2_EGG_SPECIES_ID = 253;
+const GEN2_EGG_CYCLE_STEPS = 256;
+
+const DAYCARE_SLOT_1_OFFSET_GS = 0x2850;
+const DAYCARE_SLOT_2_OFFSET_GS = 0x2817;
+const DAYCARE_EGG_FLAG_OFFSET_GS = 0x284f;
+const DAYCARE_SLOT_1_OFFSET_CRYSTAL = 0x282c;
+const DAYCARE_SLOT_2_OFFSET_CRYSTAL = 0x27f3;
+const DAYCARE_EGG_FLAG_OFFSET_CRYSTAL = 0x282b;
+const DAYCARE_EGG_FLAG_MASK = 0x01;
 
 function isValidLandmark(id: string): id is keyof typeof gen2Landmarks {
   return id in gen2Landmarks;
@@ -102,11 +115,20 @@ function parseGen2PokemonInstance(
   const rawPokerus = view.getUint8(offset + POKEMON_OFFSET_POKERUS);
   const pokerus = parsePokerus(rawPokerus);
   const level = view.getUint8(offset + POKEMON_OFFSET_LEVEL);
+
+  const eggSteps = speciesId === GEN2_EGG_SPECIES_ID ? friendship * GEN2_EGG_CYCLE_STEPS : undefined;
   const currentHp = storageLocation === 'Party' ? view.getUint16(offset + POKEMON_OFFSET_CURRENT_HP, false) : undefined;
   const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
 
   // OT names in daycare are immediately after the data block
-  const otName = storageLocation === 'Daycare' ? decodeGen12String(view, offset + POKEMON_OFFSET_OT_NAME) : undefined;
+  const otName =
+    storageLocation === 'Daycare'
+      ? decodeGen12String(view, offset + POKEMON_OFFSET_OT_NAME, POKEMON_NAME_LENGTH)
+      : undefined;
+  const nickname =
+    storageLocation === 'Daycare'
+      ? decodeGen12String(view, offset + POKEMON_OFFSET_NICKNAME, POKEMON_NAME_LENGTH)
+      : undefined;
 
   let unownForm: string | undefined;
   if (speciesId === 201) {
@@ -127,11 +149,13 @@ function parseGen2PokemonInstance(
     isShinyCarrier,
     item,
     moves,
+    eggSteps,
     friendship,
     pokerus,
     caughtData,
     dvs,
     otName,
+    nickname,
     storageLocation,
     slot,
     unownForm,
@@ -314,7 +338,7 @@ function parsePCBoxes(
   const pcDetails: PokemonInstance[] = [];
   const currentBoxDataOffset = offsets.currentBoxSpecies + 21; // After species list
   for (let i = 0; i < currentBoxCount; i++) {
-    const offset = currentBoxDataOffset + i * 32;
+    const offset = currentBoxDataOffset + i * POKEMON_DATA_BLOCK_SIZE;
     const p = parseGen2PokemonInstance(view, offset, isCrystal, `Box ${currentBoxNum + 1}`, i + 1);
     if (p) {
       pcDetails.push(p);
@@ -349,7 +373,7 @@ function parsePCBoxes(
 
     const boxDataOffset = offset + 22;
     for (let j = 0; j < count; j++) {
-      const pOff = boxDataOffset + j * 32;
+      const pOff = boxDataOffset + j * POKEMON_DATA_BLOCK_SIZE;
       const p = parseGen2PokemonInstance(view, pOff, isCrystal, `Box ${i + 1}`, j + 1);
       if (p) {
         pcDetails.push(p);
@@ -374,23 +398,26 @@ function parsePCBoxes(
  * @returns The Daycare Pokémon instances and a boolean indicating if an egg is ready.
  */
 function parseDaycare(view: DataView, isCrystal: boolean) {
-  const daycare1Offset = isCrystal ? 0x282c : 0x2850;
-  const daycare2Offset = daycare1Offset - 57;
-  const daycareEggOffset = daycare1Offset - 1;
+  const daycare1Offset = isCrystal ? DAYCARE_SLOT_1_OFFSET_CRYSTAL : DAYCARE_SLOT_1_OFFSET_GS;
+  const daycare2Offset = isCrystal ? DAYCARE_SLOT_2_OFFSET_CRYSTAL : DAYCARE_SLOT_2_OFFSET_GS;
+  const daycareEggOffset = isCrystal ? DAYCARE_EGG_FLAG_OFFSET_CRYSTAL : DAYCARE_EGG_FLAG_OFFSET_GS;
 
   const daycare: PokemonInstance[] = [];
 
-  for (const offset of [daycare1Offset, daycare2Offset]) {
+  const offsets = [daycare1Offset, daycare2Offset];
+  for (let i = 0; i < offsets.length; i++) {
+    const offset = offsets[i];
+    if (offset === undefined) continue;
     const speciesId = view.getUint8(offset);
     if (speciesId !== 0 && speciesId !== 0xff) {
-      const p = parseGen2PokemonInstance(view, offset, isCrystal, 'Daycare');
+      const p = parseGen2PokemonInstance(view, offset, isCrystal, 'Daycare', i + 1);
       if (p) {
         daycare.push(p);
       }
     }
   }
 
-  const daycareHasEgg = (view.getUint8(daycareEggOffset) & 0x01) !== 0;
+  const daycareHasEgg = (view.getUint8(daycareEggOffset) & DAYCARE_EGG_FLAG_MASK) !== 0;
 
   return { daycare, daycareHasEgg };
 }

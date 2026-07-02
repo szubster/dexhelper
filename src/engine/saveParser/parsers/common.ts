@@ -41,6 +41,7 @@ export interface PokemonInstance {
   isShinyCarrier?: boolean;
   item?: number | undefined;
   moves: number[];
+  eggSteps?: number | undefined;
   friendship?: number | undefined;
   pokerus?: { strain: number; daysRemaining: number } | undefined;
   currentHp?: number | undefined;
@@ -55,6 +56,7 @@ export interface PokemonInstance {
       }
     | undefined;
   otName?: string | undefined;
+  nickname?: string | undefined;
   storageLocation: string;
   /** The 1-indexed position of the Pokémon within its storage container. */
   slot?: number | undefined;

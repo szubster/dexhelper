@@ -2,13 +2,13 @@
 id: task-084-243-breeding-pair-algorithm-impl
 type: TASK
 title: Implement Shiny Carrier Breeding Pair Algorithm
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on:
   - research-084-242-gen2-breeding-dvs
-jules_session_id: '17791331143296889944'
+jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
 tags:
@@ -35,9 +35,9 @@ Implement a core backend algorithm (`src/engine/breeding/pair_algorithm.ts` or s
 - **Constraint**: Do not implement UI in this task. Focus strictly on the data structure and pure function logic.
 
 ## Acceptance Criteria
-- [ ] Algorithm correctly matches valid Gen 2 breeding pairs based on Egg Groups and Gender.
-- [ ] Algorithm correctly prevents "related" Pokémon (e.g. two Shinies) from breeding based on DVs.
-- [ ] Output explicitly highlights/prioritizes pairs involving Shiny Carriers.
-- [ ] Include unit tests (`test.ts`) validating these specific matching rules with mocked Gen 2 Pokémon data.
-- [ ] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
-- [ ] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] Algorithm correctly matches valid Gen 2 breeding pairs based on Egg Groups and Gender.
+- [x] Algorithm correctly prevents "related" Pokémon (e.g. two Shinies) from breeding based on DVs.
+- [x] Output explicitly highlights/prioritizes pairs involving Shiny Carriers.
+- [x] Include unit tests (`test.ts`) validating these specific matching rules with mocked Gen 2 Pokémon data.
+- [x] If transient failures occur, update YAML to `status: FAILED` with a `rejection_reason`. If aborting, update to `status: CANCELLED` with `rejection_reason`.
+- [x] If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.

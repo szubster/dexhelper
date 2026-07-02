@@ -28,12 +28,14 @@ describe('calculateBreedingPairs', () => {
       gender: 'Male',
       eggGroups: ['Monster'],
       isShinyCarrier: true,
+      dvs: { attack: 15, defense: 10, speed: 10, special: 2 },
     };
     const p2: PokemonWithMetadata = {
       id: '2',
       speciesId: 2,
       gender: 'Female',
       eggGroups: ['Monster'],
+      dvs: { attack: 1, defense: 1, speed: 1, special: 1 },
     };
     const p3: PokemonWithMetadata = {
       id: '3',
@@ -41,10 +43,11 @@ describe('calculateBreedingPairs', () => {
       gender: 'Female',
       eggGroups: ['Monster'],
       isShinyCarrier: true,
+      dvs: { attack: 15, defense: 10, speed: 10, special: 10 },
     };
 
     const pairs = calculateBreedingPairs([p1, p2, p3]);
-    // Since p1 and p3 are both shiny carriers, they cannot breed.
+    // Since p1 and p3 are both shiny carriers, but they share defense 10 and special difference is 8 (10-2). Thus they cannot breed.
     // p2 and p3 are both Female, so they cannot breed.
     // So the only valid pair is p1 + p2.
     expect(pairs).toHaveLength(1);
@@ -56,13 +59,14 @@ describe('calculateBreedingPairs', () => {
     expect(pairIds).not.toContain('3-1');
   });
 
-  test('two shiny/shiny carrier parents cannot breed', () => {
+  test('Test Case 1: Two Shiny Pokémon', () => {
     const p1: PokemonWithMetadata = {
       id: '1',
       speciesId: 1,
       gender: 'Male',
       eggGroups: ['Monster'],
-      isShinyCarrier: true,
+      isShiny: true,
+      dvs: { attack: 10, defense: 10, speed: 10, special: 10 },
     };
     const p2: PokemonWithMetadata = {
       id: '2',
@@ -70,10 +74,74 @@ describe('calculateBreedingPairs', () => {
       gender: 'Female',
       eggGroups: ['Monster'],
       isShiny: true,
+      dvs: { attack: 10, defense: 10, speed: 10, special: 10 },
     };
 
     const pairs = calculateBreedingPairs([p1, p2]);
-    expect(pairs).toHaveLength(0);
+    expect(pairs).toHaveLength(0); // Defense 10 == 10, Special 10 == 10
+  });
+
+  test('Test Case 2: Shiny and Shiny Carrier (Difference of 8)', () => {
+    const p1: PokemonWithMetadata = {
+      id: '1',
+      speciesId: 1,
+      gender: 'Male',
+      eggGroups: ['Monster'],
+      isShiny: true,
+      dvs: { attack: 10, defense: 10, speed: 10, special: 10 },
+    };
+    const p2: PokemonWithMetadata = {
+      id: '2',
+      speciesId: 2,
+      gender: 'Female',
+      eggGroups: ['Monster'],
+      isShinyCarrier: true,
+      dvs: { attack: 15, defense: 10, speed: 15, special: 2 },
+    };
+
+    const pairs = calculateBreedingPairs([p1, p2]);
+    expect(pairs).toHaveLength(0); // Defense 10 == 10, Special |10-2| == 8
+  });
+
+  test('Test Case 3: Shiny and Unrelated Non-Shiny', () => {
+    const p1: PokemonWithMetadata = {
+      id: '1',
+      speciesId: 1,
+      gender: 'Male',
+      eggGroups: ['Monster'],
+      isShiny: true,
+      dvs: { attack: 10, defense: 10, speed: 10, special: 10 },
+    };
+    const p2: PokemonWithMetadata = {
+      id: '2',
+      speciesId: 2,
+      gender: 'Female',
+      eggGroups: ['Monster'],
+      dvs: { attack: 15, defense: 7, speed: 15, special: 10 },
+    };
+
+    const pairs = calculateBreedingPairs([p1, p2]);
+    expect(pairs).toHaveLength(1); // Defense 10 != 7
+  });
+
+  test('Test Case 4: Identical Non-Shiny Defense, Different Special', () => {
+    const p1: PokemonWithMetadata = {
+      id: '1',
+      speciesId: 1,
+      gender: 'Male',
+      eggGroups: ['Monster'],
+      dvs: { attack: 15, defense: 14, speed: 15, special: 5 },
+    };
+    const p2: PokemonWithMetadata = {
+      id: '2',
+      speciesId: 2,
+      gender: 'Female',
+      eggGroups: ['Monster'],
+      dvs: { attack: 15, defense: 14, speed: 15, special: 10 },
+    };
+
+    const pairs = calculateBreedingPairs([p1, p2]);
+    expect(pairs).toHaveLength(1); // Defense 14 == 14, Special |5-10| = 5 != 8 or 0
   });
 
   test('handles Ditto mechanics correctly', () => {
@@ -82,18 +150,21 @@ describe('calculateBreedingPairs', () => {
       speciesId: 132,
       gender: 'Genderless',
       eggGroups: ['Ditto'],
+      dvs: { attack: 1, defense: 1, speed: 1, special: 1 },
     };
     const maleBulba: PokemonWithMetadata = {
       id: '2',
       speciesId: 1,
       gender: 'Male',
       eggGroups: ['Monster'],
+      dvs: { attack: 2, defense: 2, speed: 2, special: 2 },
     };
     const genderlessMagnemite: PokemonWithMetadata = {
       id: '3',
       speciesId: 81,
       gender: 'Genderless',
       eggGroups: ['Mineral'],
+      dvs: { attack: 3, defense: 3, speed: 3, special: 3 },
     };
     const noEggsMewtwo: PokemonWithMetadata = {
       id: '4',

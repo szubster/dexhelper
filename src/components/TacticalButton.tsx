@@ -10,9 +10,11 @@ interface TacticalButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
 
 export const TacticalButton = React.forwardRef<HTMLButtonElement, TacticalButtonProps>(
   ({ className, variant = 'default', size = 'default', hasCrosshairs = false, children, ...props }, ref) => {
+    const title = props.title || props['aria-label'];
     return (
       <button
         ref={ref}
+        title={title}
         className={cn(
           'group tactical-text focus-visible:tactical-focus relative inline-flex shrink-0 items-center justify-center gap-3 overflow-hidden rounded-none border border-dashed font-black transition-all disabled:cursor-not-allowed disabled:opacity-50',
           {
