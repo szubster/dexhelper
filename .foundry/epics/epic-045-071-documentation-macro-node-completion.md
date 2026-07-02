@@ -34,9 +34,9 @@ Update the core system documentation to detail the new macro node completion rul
 3. **Other Knowledge Base Updates**: Update any other relevant documents if necessary (e.g. `core_policies.md`).
 
 ## Acceptance Criteria
-- [x] Update `schema.md` with hierarchical completion rules.
-- [x] Update `001-the-foundry-architecture.md` (ADR 001) to detail the behavior.
-- [x] Verify that there are no conflicting statements across other core documentation.
+- [ ] Update `schema.md` with hierarchical completion rules.
+- [ ] Update `001-the-foundry-architecture.md` (ADR 001) to detail the behavior.
+- [ ] Verify that there are no conflicting statements across other core documentation.
 
 ### Stories
 - [x] .foundry/stories/story-071-108-update-schema-macro-node-completion.md
@@ -45,3 +45,6 @@ Update the core system documentation to detail the new macro node completion rul
 
 ### Follow-up Work
 - [x] .foundry/ideas/idea-097-schema-verifying-state-fix.md
+
+### Auditor Rejection
+Verification failed. The descendant macro node `idea-097-schema-verifying-state-fix` is in PENDING state, not COMPLETED. Macro nodes cannot be verified as completed until all of their spawned descendant nodes in the generated sub-tree have fully transitioned to the COMPLETED state.
