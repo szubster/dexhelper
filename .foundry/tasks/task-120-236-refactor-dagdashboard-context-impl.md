@@ -2,12 +2,12 @@
 id: task-120-236-refactor-dagdashboard-context-impl
 type: TASK
 title: Refactor DagDashboard and DagProvider to use DagContext
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-28'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '14622488259263687890'
+jules_session_id: null
 pr_number: null
 parent: story-078-120-integrate-dag-context-with-views
 tags:
@@ -39,6 +39,6 @@ Following ADR 013, we need to unify the DAG data state management into `DagConte
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Move fetching and layout logic from `DagDashboard` to `DagProvider`.
-- [ ] `DagDashboard` consumes state from `useDagContext()`.
-- [ ] Existing functionality works as before and tests pass.
+- [x] Move fetching and layout logic from `DagDashboard` to `DagProvider`.
+- [x] `DagDashboard` consumes state from `useDagContext()`.
+- [x] Existing functionality works as before and tests pass.

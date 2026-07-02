@@ -2,10 +2,10 @@
 id: task-245-250-gen2-box-grouping-qa
 type: TASK
 title: QA Gen 2 Box Parsing Grouping
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on:
   - task-245-249-gen2-box-grouping-impl
 jules_session_id: null

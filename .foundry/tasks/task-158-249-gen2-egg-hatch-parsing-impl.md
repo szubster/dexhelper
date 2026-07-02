@@ -2,12 +2,12 @@
 id: task-158-249-gen2-egg-hatch-parsing-impl
 type: TASK
 title: Implement Gen 2 Egg Hatch Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '14734252185691957192'
+jules_session_id: null
 pr_number: null
 parent: story-106-158-gen2-egg-hatch-parsing
 tags:
@@ -50,6 +50,6 @@ In `src/engine/saveParser/saveParser.test.ts` (or the appropriate test file like
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `PokemonInstance` is updated with `eggSteps?: number`.
-- [ ] `parseGen2PokemonInstance` calculates `eggSteps` correctly for eggs (species ID 253).
-- [ ] Unit tests are written to verify the calculation.
+- [x] `PokemonInstance` is updated with `eggSteps?: number`.
+- [x] `parseGen2PokemonInstance` calculates `eggSteps` correctly for eggs (species ID 253).
+- [x] Unit tests are written to verify the calculation.

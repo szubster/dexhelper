@@ -2,12 +2,12 @@
 id: task-242-249-gen3-roamer-dataview-parser-impl
 type: TASK
 title: Gen 3 Roamer DataView Parsing Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '11075382855893639921'
+jules_session_id: null
 pr_number: null
 parent: story-101-242-gen3-roamer-parser
 tags:
@@ -53,7 +53,7 @@ The `Roamer` struct holds the state of the roaming legendary Pokémon in Generat
   - If you must abort or permanently fail the task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Create or update the Gen 3 parsing module to extract the `Roamer` struct using `DataView`.
-- [ ] Define all offsets (`0x31DC`, `0x3144`, `0x30D0`, `0x00`, `0x04`, `0x08`, `0x0A`, `0x0C`, `0x0D`, `0x13`) as module-level constants.
-- [ ] Extract the `active` boolean properly from offset `0x13`.
-- [ ] Catch `RangeError` from `DataView` operations and handle them gracefully.
+- [x] Create or update the Gen 3 parsing module to extract the `Roamer` struct using `DataView`.
+- [x] Define all offsets (`0x31DC`, `0x3144`, `0x30D0`, `0x00`, `0x04`, `0x08`, `0x0A`, `0x0C`, `0x0D`, `0x13`) as module-level constants.
+- [x] Extract the `active` boolean properly from offset `0x13`.
+- [x] Catch `RangeError` from `DataView` operations and handle them gracefully.

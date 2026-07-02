@@ -2,13 +2,13 @@
 id: story-078-123-gen3-parse-battle-points
 type: STORY
 title: Gen 3 Parse Total Battle Points
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-06-29'
+updated_at: '2026-07-02'
 depends_on:
   - story-078-122-gen3-parse-battle-frontier-symbols
-jules_session_id: null
+jules_session_id: '10222621611499379604'
 pr_number: null
 parent: epic-046-078-gen3-battle-frontier-data-extraction
 tags:

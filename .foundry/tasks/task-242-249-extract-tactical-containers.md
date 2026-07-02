@@ -2,12 +2,12 @@
 id: task-242-249-extract-tactical-containers
 type: TASK
 title: Extract Tactical Container Utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '12585668935700709030'
+jules_session_id: null
 pr_number: null
 parent: story-097-242-tailwind-v4-tactical-containers
 tags:
@@ -36,6 +36,6 @@ Per ADR 024, we are migrating to Tailwind v4 and consolidating our tactical aest
 - When drafting blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers. (Included for compliance).
 
 ## Acceptance Criteria
-- [ ] `@utility tactical-panel` is properly defined in `src/index.css` using standard Tailwind styling for tactical UI.
-- [ ] `@utility tactical-card` is properly defined in `src/index.css` using standard Tailwind styling for tactical UI.
-- [ ] The definitions follow the guidelines in ADR 024.
+- [x] `@utility tactical-panel` is properly defined in `src/index.css` using standard Tailwind styling for tactical UI.
+- [x] `@utility tactical-card` is properly defined in `src/index.css` using standard Tailwind styling for tactical UI.
+- [x] The definitions follow the guidelines in ADR 024.

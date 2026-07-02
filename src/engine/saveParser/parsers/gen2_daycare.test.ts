@@ -12,6 +12,12 @@ describe('gen2 daycare parsing', () => {
     view.setUint8(daycare1Offset, 1); // Species
     view.setUint8(daycare1Offset + 31, 5); // Level
 
+    const nameOffsets = daycare1Offset + 32;
+    view.setUint8(nameOffsets, 0x80); // 'A' (OT Name)
+    view.setUint8(nameOffsets + 1, 0x50); // end of string
+    view.setUint8(daycare1Offset + 43, 0x81); // 'B' (Nickname)
+    view.setUint8(daycare1Offset + 43 + 1, 0x50);
+
     // Egg flag
     view.setUint8(eggFlagOffset, 0);
 
@@ -21,6 +27,9 @@ describe('gen2 daycare parsing', () => {
       speciesId: 1,
       level: 5,
       storageLocation: 'Daycare',
+      otName: 'A',
+      nickname: 'B',
+      slot: 1,
     });
     expect(data.daycareHasEgg).toBe(false);
   });

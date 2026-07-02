@@ -2,12 +2,12 @@
 id: idea-082-gen3-secret-id-shiny-rng
 type: IDEA
 title: Gen 3 Secret ID Viewer and Shiny RNG Assistant
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-16'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '17569399166325870915'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -37,5 +37,7 @@ Leverage DexHelper's programmatic save parsing to extract and display the player
 ## Value Proposition
 By surfacing this single hidden variable, DexHelper instantly becomes a mandatory foundational tool for a massive segment of the hardcore playerbase: Shiny Hunters and RNG Manipulators. It bridges the gap between raw save data and advanced community gameplay strategies, perfectly fitting the app's "premium utility" vision.
 
-## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to define the implementation of Gen 3 Trainer Data extraction including the SID.
+## Acceptance Criteria
+- [x] Product Manager: Convert this idea into a PRD to define the implementation of Gen 3 Trainer Data extraction including the SID.
+- [ ] prd-082-099-gen3-trainer-data-extraction
+- [ ] prd-082-100-rng-calculator-integration

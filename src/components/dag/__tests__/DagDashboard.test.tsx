@@ -1,6 +1,7 @@
 import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { DagProvider } from '../../dashboard/DagContext';
 import { DagDashboard, getMiniMapNodeColor } from '../DagDashboard';
 
 test('DagDashboard renders correctly on successful load', async () => {
@@ -39,9 +40,11 @@ test('DagDashboard renders correctly on successful load', async () => {
   } as unknown as Response);
 
   await render(
-    <div style={{ width: '800px', height: '600px' }}>
-      <DagDashboard />
-    </div>,
+    <DagProvider>
+      <div style={{ width: '800px', height: '600px' }}>
+        <DagDashboard />
+      </div>
+    </DagProvider>,
   );
 
   // Wait for fetch to complete and nodes to be rendered
@@ -169,9 +172,11 @@ test('DagDashboard handles selection and highlighting', async () => {
   } as unknown as Response);
 
   await render(
-    <div style={{ width: '800px', height: '600px' }}>
-      <DagDashboard />
-    </div>,
+    <DagProvider>
+      <div style={{ width: '800px', height: '600px' }}>
+        <DagDashboard />
+      </div>
+    </DagProvider>,
   );
 
   await vi.waitUntil(
@@ -255,9 +260,11 @@ test('DagDashboard handles non-ok fetch response', async () => {
   globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({ ok: false } as unknown as Response);
 
   await render(
-    <div style={{ width: '800px', height: '600px' }}>
-      <DagDashboard />
-    </div>,
+    <DagProvider>
+      <div style={{ width: '800px', height: '600px' }}>
+        <DagDashboard />
+      </div>
+    </DagProvider>,
   );
 
   await vi.waitUntil(async () => {
@@ -276,9 +283,11 @@ test('DagDashboard catches and logs fetch errors securely', async () => {
   globalThis.fetch = vi.fn<typeof fetch>().mockRejectedValue(new Error('Network error'));
 
   await render(
-    <div style={{ width: '800px', height: '600px' }}>
-      <DagDashboard />
-    </div>,
+    <DagProvider>
+      <div style={{ width: '800px', height: '600px' }}>
+        <DagDashboard />
+      </div>
+    </DagProvider>,
   );
 
   // Wait for the finally block to execute (loading is false)

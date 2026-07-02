@@ -5,9 +5,9 @@ title: Refactor Data Generation Pipeline to Verbose Keys - Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-22'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '14419765824348144576'
+jules_session_id: '14219730281593183798'
 pr_number: null
 parent: story-042-080-refactor-generation-exports
 tags:

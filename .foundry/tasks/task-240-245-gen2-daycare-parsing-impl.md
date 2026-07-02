@@ -2,12 +2,12 @@
 id: task-240-245-gen2-daycare-parsing-impl
 type: TASK
 title: Implement Gen 2 Daycare Data Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '14562293871297410461'
+jules_session_id: null
 pr_number: null
 parent: story-105-240-daycare-gen2-parsing
 tags:
@@ -42,7 +42,7 @@ The Egg species ID is `253` (`0xFD`).
 - If submitting an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement a parser for Gen 2 Daycare slots that extracts the Pokémon in Slot 1 and Slot 2.
-- [ ] Implement parsing of the Egg Flag.
-- [ ] Ensure all offsets and sizes (e.g. 57, 32, 11, `0x2850`, `0x282c`, etc.) are defined as module-level constants.
-- [ ] Add unit tests verifying the parsing logic.
+- [x] Implement a parser for Gen 2 Daycare slots that extracts the Pokémon in Slot 1 and Slot 2.
+- [x] Implement parsing of the Egg Flag.
+- [x] Ensure all offsets and sizes (e.g. 57, 32, 11, `0x2850`, `0x282c`, etc.) are defined as module-level constants.
+- [x] Add unit tests verifying the parsing logic.

@@ -2,13 +2,13 @@
 id: task-120-237-refactor-dagdashboard-context-qa
 type: TASK
 title: QA Verification for DagContext Refactor in DagDashboard
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-28'
-updated_at: '2026-06-28'
+updated_at: '2026-07-02'
 depends_on:
   - task-120-236-refactor-dagdashboard-context-impl
-jules_session_id: null
+jules_session_id: '3600001216461530497'
 pr_number: null
 parent: story-078-120-integrate-dag-context-with-views
 tags:

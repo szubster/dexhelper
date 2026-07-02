@@ -2,12 +2,12 @@
 id: idea-066-save-state-history
 type: IDEA
 title: Save State Version History and Metadata Inference
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-05-24'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '2835810479515254543'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -38,4 +38,8 @@ By utilizing IndexedDB to store a local history of sequential save file uploads 
 This unlocks "modern" features for retro games entirely locally. It allows players to build a true history and narrative of their playthrough, making the app much stickier and encouraging frequent save uploads (especially if paired with Emulator Auto-Sync).
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD detailing the diffing logic and storage requirements for save file versioning.
+- [x] Product Manager: Convert this idea into a PRD detailing the diffing logic and storage requirements for save file versioning.
+
+## Acceptance Criteria
+- [ ] prd-066-099-save-state-history-storage
+- [ ] prd-066-100-save-state-history-diffing

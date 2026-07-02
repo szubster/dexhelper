@@ -2,13 +2,13 @@
 id: task-123-241-gen3-parse-battle-points-qa
 type: TASK
 title: Gen 3 Parse Total Battle Points QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on:
   - task-123-240-gen3-parse-battle-points-impl
-jules_session_id: '14923612127588403753'
+jules_session_id: null
 pr_number: null
 parent: story-078-123-gen3-parse-battle-points
 tags:
@@ -36,6 +36,6 @@ Verify the implementation of the total Battle Points (BP) extraction logic for G
 - If submitting an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] BP parsing logic correctly handles offset `0x0EB8`.
-- [ ] Module-level constants are used.
-- [ ] Error handling catches `RangeError`.
+- [x] BP parsing logic correctly handles offset `0x0EB8`.
+- [x] Module-level constants are used.
+- [x] Error handling catches `RangeError`.

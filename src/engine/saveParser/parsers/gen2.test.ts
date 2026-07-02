@@ -352,6 +352,43 @@ describe('gen2 parsers', () => {
     });
   });
 
+  describe('Gen 2 Egg Parsing', () => {
+    it('should correctly calculate eggSteps for an Egg (speciesId 253)', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 253); // Party species list: Egg
+
+      // Party Pokémon data offset for GS is 0x288A + 8 = 0x2892
+      const dataOffset = 0x2892;
+      view.setUint8(dataOffset, 253); // speciesId
+      view.setUint8(dataOffset + 27, 10); // friendship byte (cycle count)
+
+      const data = parseGen2(view, false);
+      expect(data.partyDetails[0]?.speciesId).toBe(253);
+      expect(data.partyDetails[0]?.eggSteps).toBe(10 * 256);
+      expect(data.partyDetails[0]?.friendship).toBe(10);
+    });
+
+    it('should not define eggSteps for non-Egg Pokemon', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1); // Party species list: Bulbasaur
+
+      // Party Pokémon data offset for GS is 0x288A + 8 = 0x2892
+      const dataOffset = 0x2892;
+      view.setUint8(dataOffset, 1); // speciesId
+      view.setUint8(dataOffset + 27, 70); // friendship byte
+
+      const data = parseGen2(view, false);
+      expect(data.partyDetails[0]?.speciesId).toBe(1);
+      expect(data.partyDetails[0]?.eggSteps).toBeUndefined();
+    });
+  });
+
   describe('parseGen2 - Unown Forms', () => {
     it('should correctly parse Unown Form A', () => {
       const buffer = new ArrayBuffer(32768);
