@@ -416,9 +416,9 @@ function main(): void {
     }
 
     // Parse body for regex to find markdown links to children
-    const regex = /\.foundry\/(?:ideas|prds|epics|stories|tasks|research)\/[^\s"'`)]+\.md/g;
+    const linkRegex = /\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks|research)\/[^)]+\.md)\)/g;
     const body = node.body;
-    const matches = [...new Set(body.match(regex) || [])];
+    const matches = [...new Set([...body.matchAll(linkRegex)].map(m => m[1]))];
 
     for (const match of matches) {
       // node.repoPath is the parent, match is the child
@@ -833,7 +833,7 @@ function main(): void {
       if (bypassDispatch) {
         if (hasUncheckedTasks) {
           const type = node.frontmatter.type;
-          const isLateBindingParent = children.length > 0 || ['IDEA', 'PRD', 'EPIC', 'STORY'].includes(type);
+          const isLateBindingParent = (children.length > 0 && type !== 'TASK') || ['IDEA', 'PRD', 'EPIC', 'STORY'].includes(type);
           if (isLateBindingParent) {
             info(`Preflight success: Valid target artifacts exist and are completed, but ${node.repoPath} still has unchecked tasks. Promoting to READY.`);
             eligible.push(node);

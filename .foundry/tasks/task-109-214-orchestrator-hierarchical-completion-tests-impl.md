@@ -34,5 +34,5 @@ See `.foundry/docs/knowledge_base/foundry/orchestrator/hierarchical-completion.m
    - Verify that existing hierarchy checks (via `parent` field) continue to function identically.
 
 ## Acceptance Criteria
-- [ ] Test added for hierarchical completion block via markdown reference.
-- [ ] Test added for late-binding exception handling nodes referenced via markdown.
+- [x] Test added for hierarchical completion block via markdown reference.
+- [x] Test added for late-binding exception handling nodes referenced via markdown.

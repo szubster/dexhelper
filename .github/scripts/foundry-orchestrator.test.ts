@@ -2071,4 +2071,72 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(storyResult).toContain('status: PENDING'); // Should be blocked
   });
 
+
+  test('Markdown Link Child: suspends ACTIVE parent to PENDING if markdown-linked child is incomplete', () => {
+    // Epic 1: ACTIVE (started work, but child isn't done)
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
+      status: "ACTIVE",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: "sess-123",
+    }, `## Acceptance Criteria\n- [ ] Child task: [.foundry/stories/story-001.md](.foundry/stories/story-001.md)\n`);
+
+    // Story 1: Child of Epic 1, PENDING
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: PENDING');
+
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
+    expect(storyContent).toContain('status: READY');
+  });
+
+  test('Late-Binding with Markdown Link: Parent wakes up to READY if it has unchecked tasks and completed children', () => {
+    createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
+      id: "idea-001",
+      type: "IDEA",
+      title: "Idea 1",
+      status: "PENDING",
+      owner_persona: "product_manager",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `# Title\n## Acceptance Criteria\n\n- [ ] Unchecked task\n- Spawned via link: [.foundry/prds/prd-001.md](.foundry/prds/prd-001.md)\n`);
+
+    createValidTestNode(tmpDir, '.foundry/prds/prd-001.md', {
+      id: "prd-001",
+      type: "PRD",
+      title: "PRD 1",
+      status: "COMPLETED",
+      owner_persona: "epic_planner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
+    expect(ideaContent).toContain('status: READY');
+  });
+
 });
