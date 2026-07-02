@@ -39,6 +39,7 @@ describe('buildDagGraph', () => {
             status: 'COMPLETED',
             owner_persona: 'coder',
             rejection_count: 0,
+            depends_on: [],
           },
         },
         {
@@ -48,6 +49,7 @@ describe('buildDagGraph', () => {
             status: 'PENDING',
             owner_persona: 'qa',
             rejection_count: 0,
+            depends_on: ['.foundry/tasks/task-1.md'],
           },
         },
       ],
@@ -122,6 +124,7 @@ describe('buildDagGraph', () => {
             status: 'PENDING',
             owner_persona: 'coder',
             rejection_count: 0,
+            depends_on: ['.foundry/tasks/unknown-task.md'],
           },
         },
       ],

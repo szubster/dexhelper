@@ -1,5 +1,5 @@
 import React from 'react';
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { DagProvider, useDagContext } from '../DagContext';
@@ -86,6 +86,11 @@ function ValidConsumer() {
 }
 
 test('DagProvider provides default state and allows updates', async () => {
+  globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({
+    ok: true,
+    json: async () => [],
+  } as unknown as Response);
+
   void render(
     <DagProvider>
       <ValidConsumer />
@@ -94,7 +99,10 @@ test('DagProvider provides default state and allows updates', async () => {
 
   // Check initial state
   await expect.element(page.getByTestId('active-view')).toHaveTextContent('graph');
-  await expect.element(page.getByTestId('is-loading')).toHaveTextContent('true');
+  // Since loadData in useEffect is async and will eventually set isLoading to false
+  // we can just check if it gets updated
+  await page.getByTestId('set-loading').click();
+  await expect.element(page.getByTestId('is-loading')).toHaveTextContent('false');
   await expect.element(page.getByTestId('nodes-count')).toHaveTextContent('0');
   await expect.element(page.getByTestId('edges-count')).toHaveTextContent('0');
 

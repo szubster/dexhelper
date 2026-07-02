@@ -39,6 +39,6 @@ Following ADR 013, we need to unify the DAG data state management into `DagConte
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Move fetching and layout logic from `DagDashboard` to `DagProvider`.
-- [ ] `DagDashboard` consumes state from `useDagContext()`.
-- [ ] Existing functionality works as before and tests pass.
+- [x] Move fetching and layout logic from `DagDashboard` to `DagProvider`.
+- [x] `DagDashboard` consumes state from `useDagContext()`.
+- [x] Existing functionality works as before and tests pass.
