@@ -2,10 +2,10 @@
 id: task-242-250-gen3-roamer-dataview-parser-qa
 type: TASK
 title: Gen 3 Roamer DataView Parsing QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-07-02'
 depends_on:
   - task-242-249-gen3-roamer-dataview-parser-impl
 jules_session_id: null

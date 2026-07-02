@@ -2,12 +2,12 @@
 id: story-096-153-max-rejection-cancellation
 type: STORY
 title: Max Rejection Cancellation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-20'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '551008995648742183'
+jules_session_id: null
 pr_number: null
 parent: epic-052-096-automated-max-rejection-cancellation
 tags:

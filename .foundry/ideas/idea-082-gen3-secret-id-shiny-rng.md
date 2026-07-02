@@ -2,12 +2,12 @@
 id: idea-082-gen3-secret-id-shiny-rng
 type: IDEA
 title: Gen 3 Secret ID Viewer and Shiny RNG Assistant
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-16'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '17569399166325870915'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

@@ -2,10 +2,10 @@
 id: story-097-242-tailwind-v4-tactical-containers
 type: STORY
 title: Extract Tactical Container Utilities
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
 jules_session_id: null
 pr_number: null

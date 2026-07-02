@@ -2,12 +2,12 @@
 id: story-061-155-refactor-pokerus-bitwise
 type: STORY
 title: Refactor Pokerus Bitwise Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-23'
-updated_at: '2026-07-01'
+updated_at: '2026-07-02'
 depends_on: []
-jules_session_id: '10032969055075359786'
+jules_session_id: null
 pr_number: null
 parent: epic-038-061-pokerus-state-exfiltration
 tags:
