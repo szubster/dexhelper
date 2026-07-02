@@ -78,3 +78,6 @@ During the verification of `epic-045-071-documentation-macro-node-completion`, i
 
 ### Lesson: Macro Node Spawn Verification
 When evaluating macro nodes like IDEA, PRD, EPIC, or STORY, the Auditor must verify that the downstream child nodes were actually spawned and fully completed before transitioning the macro node to COMPLETED. If an IDEA node's acceptance criteria are marked as completed (e.g., "- [x] Product Manager: Convert this idea into a PRD"), but no corresponding PRD file actually exists in the codebase, the verification MUST fail. A macro node is only verified if its intent is actually realized in the implementation through its generated descendants.
+
+### Lesson: Macro Node Recurring Verification Failures
+When evaluating macro nodes (like IDEA, PRD), a recurring pattern of failure is agents submitting the macro node (with an Empty PR) without actually spawning the required child nodes (e.g., the Product Manager marking the IDEA as complete without creating the PRD). This violates the core invariant that macro nodes cannot complete until all of their descendant nodes in the DAG have reached the COMPLETED or CANCELLED status. If the child nodes do not exist, the macro node's intent is unrealized, and verification MUST fail, rejecting the submission back to the responsible agent to generate the downstream nodes.
