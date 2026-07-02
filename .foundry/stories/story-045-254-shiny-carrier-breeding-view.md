@@ -2,7 +2,7 @@
 id: story-045-254-shiny-carrier-breeding-view
 type: STORY
 title: Shiny Carrier Breeding View
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-02'
 updated_at: '2026-07-02'
