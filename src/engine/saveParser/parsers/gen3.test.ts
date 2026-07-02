@@ -780,6 +780,81 @@ describe('parseGen3Roamer', () => {
 
     expect(() => parseGen3Roamer(view, 0, 'ruby')).toThrowError('The save file is corrupted or incomplete.');
   });
+
+  it('should parse Gen 3 roamer data for Emerald', () => {
+    const buffer = new ArrayBuffer(0x31dc + 20);
+    const view = new DataView(buffer);
+    const offset = 0x31dc;
+
+    view.setUint32(offset, 0, true);
+    view.setUint32(offset + 4, 0x12345678, true);
+    view.setUint16(offset + 8, 381, true); // Latios
+    view.setUint16(offset + 10, 150, true);
+    view.setUint8(offset + 12, 40);
+    view.setUint8(offset + 13, 0);
+    view.setUint8(offset + 19, 1);
+
+    const result = parseGen3Roamer(view, 0, 'emerald');
+
+    expect(result).toEqual({
+      ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
+      personalityValue: 0x12345678,
+      speciesId: 381,
+      hp: 150,
+      level: 40,
+      statusCondition: 0,
+      active: true,
+    });
+  });
+
+  it('should parse Gen 3 roamer data for FireRed/LeafGreen', () => {
+    const buffer = new ArrayBuffer(0x30d0 + 20);
+    const view = new DataView(buffer);
+    const offset = 0x30d0;
+
+    view.setUint32(offset, 0, true);
+    view.setUint32(offset + 4, 0x12345678, true);
+    view.setUint16(offset + 8, 244, true); // Entei
+    view.setUint16(offset + 10, 150, true);
+    view.setUint8(offset + 12, 50);
+    view.setUint8(offset + 13, 0);
+    view.setUint8(offset + 19, 1);
+
+    const result = parseGen3Roamer(view, 0, 'firered');
+
+    expect(result).toEqual({
+      ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
+      personalityValue: 0x12345678,
+      speciesId: 244,
+      hp: 150,
+      level: 50,
+      statusCondition: 0,
+      active: true,
+    });
+  });
+
+  it('should correctly parse active boolean from offset 19', () => {
+    const buffer = new ArrayBuffer(0x3144 + 20);
+    const view = new DataView(buffer);
+    const offset = 0x3144;
+
+    view.setUint32(offset, 0, true);
+    view.setUint32(offset + 4, 0, true);
+    view.setUint16(offset + 8, 0, true);
+    view.setUint16(offset + 10, 0, true);
+    view.setUint8(offset + 12, 0);
+    view.setUint8(offset + 13, 0);
+
+    // False case
+    view.setUint8(offset + 19, 0);
+    let result = parseGen3Roamer(view, 0, 'ruby');
+    expect(result.active).toBe(false);
+
+    // True case (anything != 0)
+    view.setUint8(offset + 19, 2);
+    result = parseGen3Roamer(view, 0, 'ruby');
+    expect(result.active).toBe(true);
+  });
 });
 
 describe('parseGen3SecretBases', () => {

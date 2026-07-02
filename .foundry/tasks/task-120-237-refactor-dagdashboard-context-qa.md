@@ -2,13 +2,13 @@
 id: task-120-237-refactor-dagdashboard-context-qa
 type: TASK
 title: QA Verification for DagContext Refactor in DagDashboard
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-28'
 updated_at: '2026-07-02'
 depends_on:
   - task-120-236-refactor-dagdashboard-context-impl
-jules_session_id: null
+jules_session_id: '3600001216461530497'
 pr_number: null
 parent: story-078-120-integrate-dag-context-with-views
 tags:
@@ -39,6 +39,6 @@ The Coder has refactored the DAG visualization to share state management via `Da
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] DagDashboard is verified to render properly using DagContext.
-- [ ] Interactivity behaves as expected with the new context provider.
-- [ ] All tests run and pass without regressions.
+- [x] DagDashboard is verified to render properly using DagContext.
+- [x] Interactivity behaves as expected with the new context provider.
+- [x] All tests run and pass without regressions.

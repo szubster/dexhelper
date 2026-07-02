@@ -34,3 +34,4 @@ Extract the Trick House puzzle state from Gen 3 save files using the `DataView` 
 - [ ] Determine the exact memory offset for Trick House data.
 - [ ] Implement a parser using `DataView`.
 - [ ] Write tests ensuring accurate data extraction across progression states.
+- [ ] story-111-249-investigate-trick-house-offsets

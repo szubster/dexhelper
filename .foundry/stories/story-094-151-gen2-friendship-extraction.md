@@ -24,9 +24,9 @@ notes: ''
 Implement the logic to extract the Friendship (Happiness) value for Gen 2 Pokémon in both the active Party and PC Boxes.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 Party parsing to extract Friendship.
-- [ ] Implement Gen 2 PC parsing to extract Friendship.
-- [ ] Update Gen 2 unit tests to verify the extracted Friendship value.
+- [x] Implement Gen 2 Party parsing to extract Friendship.
+- [x] Implement Gen 2 PC parsing to extract Friendship.
+- [x] Update Gen 2 unit tests to verify the extracted Friendship value.
 
-- [ ] .foundry/tasks/task-151-224-gen2-friendship-impl.md
-- [ ] .foundry/tasks/task-151-225-gen2-friendship-qa.md
+- [x] task-151-224-gen2-friendship-impl
+- [x] task-151-225-gen2-friendship-qa
