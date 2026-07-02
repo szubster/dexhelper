@@ -26,8 +26,9 @@ notes: ''
 Create the `BattleFrontierDashboard` UI component. It must adhere to the "tactical hardware/snooping" aesthetic, displaying facility cards, BP wallet, and progress visuals.
 
 ## Acceptance Criteria
-- [ ] Create UI for the 7 facilities.
-- [ ] Create BP wallet display.
+- [x] Create UI for the 7 facilities.
+- [x] Create BP wallet display.
 - [ ] Create progress visuals towards the next Frontier Brain encounter.
-- [ ] Apply tactical styling (ADR 008, ADR 024).
-- [ ] story-079-116-battle-frontier-dashboard-ui
+- [x] Apply tactical styling (ADR 008, ADR 024).
+- [x] story-079-116-battle-frontier-dashboard-ui
+- [ ] story-079-252-battle-frontier-brain-progress-visuals
