@@ -81,3 +81,7 @@ When evaluating macro nodes like IDEA, PRD, EPIC, or STORY, the Auditor must ver
 
 ### Lesson: Macro Node Recurring Verification Failures
 When evaluating macro nodes (like IDEA, PRD), a recurring pattern of failure is agents submitting the macro node (with an Empty PR) without actually spawning the required child nodes (e.g., the Product Manager marking the IDEA as complete without creating the PRD). This violates the core invariant that macro nodes cannot complete until all of their descendant nodes in the DAG have reached the COMPLETED or CANCELLED status. If the child nodes do not exist, the macro node's intent is unrealized, and verification MUST fail, rejecting the submission back to the responsible agent to generate the downstream nodes.
+
+## 2026-07-02: Verification of Pokerus Bitwise Refactoring
+
+I verified `epic-038-061-pokerus-state-exfiltration`. The previous rejection citing the inline bitwise logic implementation violation of ADR 026 has been successfully resolved. The logic was appropriately refactored into a standardized `parsePokerus` helper in `src/engine/saveParser/parsers/common.ts` and integrated correctly into the main parser, accompanied by comprehensive boundary state tests. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards.
