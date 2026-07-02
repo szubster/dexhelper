@@ -45,3 +45,6 @@ The specialized "Living Dex Tracker" UI has not been implemented. While there is
 
 ### Auditor Rejection
 The node has been rejected again. The Product Manager must create the corresponding PRD (`.foundry/prds/prd-056-<NNN>-living-dex-tracker.md`) and append it as a checkbox in this IDEA node. The IDEA node cannot be verified and transitioned to COMPLETED until the PRD and its downstream implementation tasks are fully completed and merged.
+
+### Auditor Rejection
+The PRD has still not been created. The `product_manager` MUST create the actual PRD file in `.foundry/prds/` (e.g., `prd-056-101-living-dex-tracker.md`) and append a reference to it in this node's Acceptance Criteria. Do not submit this node for verification until the PRD and its downstream implementations are fully complete.
