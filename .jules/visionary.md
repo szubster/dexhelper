@@ -167,3 +167,7 @@
 ## 2026-07-01
 **Idea:** Gen 3 Pokémon Lottery Predictor
 **Learning:** Expanding the app to parse the hidden daily PRNG seed for the Pokémon Lottery Corner and cross-referencing it with the player's PC box Original Trainer IDs turns a highly tedious, manual daily chore into an instant actionable insight. This strongly fits the project's vision of providing premium utility features for hardcore players and shiny hunters.
+
+## 2026-07-02
+**Idea:** Gen 3 Shoal Cave Tide Tracker
+**Learning:** The orchestrator architecture (specifically ADR 025) strictly forbids features that rely on extracting RTC data from save files because emulator handling is fragmented and physical dumps omit it. Future ideation must ensure proposed mechanics do not rely on exact internal RTC block parsing, and instead rely on the system-level fallback strategy.
