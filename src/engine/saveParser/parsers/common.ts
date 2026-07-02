@@ -56,6 +56,7 @@ export interface PokemonInstance {
       }
     | undefined;
   otName?: string | undefined;
+  nickname?: string | undefined;
   storageLocation: string;
   /** The 1-indexed position of the Pokémon within its storage container. */
   slot?: number | undefined;
