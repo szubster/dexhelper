@@ -42,8 +42,8 @@ The implementation task `task-242-249-gen3-roamer-dataview-parser-impl` added lo
   - If you must abort or permanently fail the task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Add unit tests using Vitest verifying the extraction logic against mock save data blocks for Emerald.
-- [ ] Add unit tests using Vitest verifying the extraction logic against mock save data blocks for Ruby/Sapphire.
-- [ ] Add unit tests using Vitest verifying the extraction logic against mock save data blocks for FireRed/LeafGreen.
-- [ ] Add unit tests verifying that out-of-bounds `DataView` reads throw `RangeError` and are caught/handled appropriately.
-- [ ] Verify the `active` boolean is extracted correctly from offset `0x13` in all version mock tests.
+- [x] Add unit tests using Vitest verifying the extraction logic against mock save data blocks for Emerald.
+- [x] Add unit tests using Vitest verifying the extraction logic against mock save data blocks for Ruby/Sapphire.
+- [x] Add unit tests using Vitest verifying the extraction logic against mock save data blocks for FireRed/LeafGreen.
+- [x] Add unit tests verifying that out-of-bounds `DataView` reads throw `RangeError` and are caught/handled appropriately.
+- [x] Verify the `active` boolean is extracted correctly from offset `0x13` in all version mock tests.

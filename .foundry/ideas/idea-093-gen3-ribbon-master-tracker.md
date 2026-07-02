@@ -31,3 +31,8 @@ Features should include:
 - Warnings for "point of no return" actions, such as preventing a player from assuming a Pokémon is ready to transfer out of Gen 3 if it is still missing available Ribbons.
 
 This aligns perfectly with DexHelper's vision as a premium companion app by taking an obtuse, multi-faceted endgame goal and turning it into an actionable, tracked dashboard that prevents high-friction failures.
+
+## Acceptance Criteria
+- [ ] prd-093-101-gen3-ribbon-data-extraction
+- [ ] prd-093-102-gen3-ribbon-dashboard
+- [x] Break down into PRDs

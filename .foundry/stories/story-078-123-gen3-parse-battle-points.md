@@ -28,7 +28,7 @@ notes: ''
 Extract the total accumulated Battle Points (BP) from SaveBlock2 using `DataView`, based on the offset research in `research-046-140-gen3-battle-frontier`.
 
 ## Acceptance Criteria
-- [ ] Parse total BP correctly.
-- [ ] Implement error handling for out-of-bounds reads.
-- [ ] task-123-240-gen3-parse-battle-points-impl
-- [ ] task-123-241-gen3-parse-battle-points-qa
+- [x] Parse total BP correctly.
+- [x] Implement error handling for out-of-bounds reads.
+- [x] task-123-240-gen3-parse-battle-points-impl
+- [x] task-123-241-gen3-parse-battle-points-qa

@@ -39,6 +39,6 @@ The Coder has refactored the DAG visualization to share state management via `Da
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] DagDashboard is verified to render properly using DagContext.
-- [ ] Interactivity behaves as expected with the new context provider.
-- [ ] All tests run and pass without regressions.
+- [x] DagDashboard is verified to render properly using DagContext.
+- [x] Interactivity behaves as expected with the new context provider.
+- [x] All tests run and pass without regressions.

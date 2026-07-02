@@ -333,7 +333,7 @@ test('coverage for missing target metadata entirely in evo logic', () => {
 
 test('coverage for suggestionEngine getGameItemId unknown generation', () => {
   const mockSaveData: SaveData = {
-    generation: 3, // Forcing this to 3 to hit the return on line 59.
+    generation: 4, // Forcing this to 4 to hit the return on line 59.
     gameVersion: 'red',
     owned: new Set([133]),
     seen: new Set(),

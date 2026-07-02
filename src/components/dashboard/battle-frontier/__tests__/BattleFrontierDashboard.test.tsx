@@ -43,7 +43,7 @@ test('renders dashboard with correct data', async () => {
   const data = mockSaveData as SaveData;
   await render(<BattleFrontierDashboard saveData={data} />);
 
-  await expect.element(page.getByText('BATTLE FRONTIER STATUS')).toBeInTheDocument();
+  await expect.element(page.getByText('COMBAT SIMULATION MATRIX')).toBeInTheDocument();
   await expect.element(page.getByText('1234 BP')).toBeInTheDocument();
 
   await expect.element(page.getByText('BATTLE TOWER')).toBeInTheDocument();
@@ -52,8 +52,8 @@ test('renders dashboard with correct data', async () => {
   await expect.element(page.getByText('35')).toBeInTheDocument();
   await expect.element(page.getByText('70')).toBeInTheDocument();
 
-  await expect.element(page.getByText('SILVER SYMBOL ACQUIRED')).toBeInTheDocument();
-  await expect.element(page.getByText('GOLD SYMBOL ACQUIRED')).toBeInTheDocument();
+  await expect.element(page.getByText('SILVER_SYMBOL_ACQUIRED')).toBeInTheDocument();
+  await expect.element(page.getByText('GOLD_SYMBOL_ACQUIRED')).toBeInTheDocument();
 });
 
 test('does not throw an error if no symbols or win streaks exist', async () => {
@@ -80,5 +80,5 @@ test('renders with no facilities safely', async () => {
     gen3BattleFrontierSymbols: {},
   } as unknown as SaveData;
   await render(<BattleFrontierDashboard saveData={data} />);
-  await expect.element(page.getByText('BATTLE FRONTIER STATUS')).toBeInTheDocument();
+  await expect.element(page.getByText('COMBAT SIMULATION MATRIX')).toBeInTheDocument();
 });

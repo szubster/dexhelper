@@ -38,3 +38,6 @@ Verify the implementation of the Gen 3 TV block `DataView` parser to ensure it c
 - **Transient Failure:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - **Permanent Failure:** If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **Empty PR Protocol:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+### Auditor Rejection
+**CANCELLED:** The associated implementation task `task-121-219-gen3-tv-block-parser-retry-impl` reached its max rejection count. This QA task is therefore orphaned and cancelled. It is replaced by `research-121-246-gen3-tv-block-parser-retry-failure`, `task-121-256-gen3-tv-block-parser-retry2-impl`, and `task-121-257-gen3-tv-block-parser-retry2-qa`.

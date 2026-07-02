@@ -2,13 +2,13 @@
 id: task-150-243-contest-warning-states-ui-qa
 type: TASK
 title: QA Contest Warning States UI
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-29'
 updated_at: '2026-07-02'
 depends_on:
   - task-150-242-contest-warning-states-ui-impl
-jules_session_id: null
+jules_session_id: '16511068275781913397'
 pr_number: null
 parent: story-065-150-contest-warning-states-ui
 tags:
@@ -44,10 +44,10 @@ This task is for the `qa` persona to verify the Contest Warning States UI implem
    - Verify that tests exist and are passing, specifically ensuring the warning state renders correctly under the "dead-end" conditions.
 
 ## Acceptance Criteria
-- [ ] Verify `ContestRecommendationPanel` accepts the `sheen` prop.
-- [ ] Verify the visual warning for the edge case (maxed sheen, low stats) is implemented.
-- [ ] Verify the tactical hardware aesthetic (ADR 008) is applied.
-- [ ] Verify tests are written and passing for the warning state.
+- [x] Verify `ContestRecommendationPanel` accepts the `sheen` prop.
+- [x] Verify the visual warning for the edge case (maxed sheen, low stats) is implemented.
+- [x] Verify the tactical hardware aesthetic (ADR 008) is applied.
+- [x] Verify tests are written and passing for the warning state.
 
 ## Important Reminder for QA
 - **Transient Failure**: If you experience a transient failure requiring retry or the implementation is incomplete, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

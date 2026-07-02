@@ -2,13 +2,13 @@
 id: task-158-250-gen2-egg-hatch-parsing-qa
 type: TASK
 title: QA - Verify Gen 2 Egg Hatch Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-29'
 updated_at: '2026-07-02'
 depends_on:
   - task-158-249-gen2-egg-hatch-parsing-impl
-jules_session_id: null
+jules_session_id: '3708510901769832663'
 pr_number: null
 parent: story-106-158-gen2-egg-hatch-parsing
 tags:
@@ -37,6 +37,6 @@ Verify that the coder successfully implemented the Gen 2 egg hatch data extracti
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `PokemonInstance` is confirmed to have the `eggSteps` property.
-- [ ] `parseGen2PokemonInstance` is confirmed to correctly calculate `eggSteps` for eggs.
-- [ ] Unit tests for `eggSteps` pass and cover edge cases.
+- [x] `PokemonInstance` is confirmed to have the `eggSteps` property.
+- [x] `parseGen2PokemonInstance` is confirmed to correctly calculate `eggSteps` for eggs.
+- [x] Unit tests for `eggSteps` pass and cover edge cases.

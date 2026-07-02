@@ -2,13 +2,13 @@
 id: epic-049-086-dynamic-move-pp-parsing
 type: EPIC
 title: Dynamic Generation of Moves PP PokeData
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-13'
 updated_at: '2026-07-02'
 depends_on:
   - adr-049-025-dynamic-pokedata-parsing
-jules_session_id: null
+jules_session_id: '17229713725675796890'
 pr_number: null
 parent: prd-077-049-dynamic-pokedata-parsing
 tags:
@@ -33,10 +33,10 @@ Currently, data such as move PPs are either manually maintained or fetched ad-ho
 4. Replace manual/hardcoded tables for move data.
 
 ## Acceptance Criteria
-- [ ] Implement parsing logic in `scripts/generate-pokedata.ts` to extract moves data (including PPs).
-- [ ] Handle any discrepancies between generations for moves.
-- [ ] Output the correct `moves.jsonl` data payload.
+- [x] Implement parsing logic in `scripts/generate-pokedata.ts` to extract moves data (including PPs).
+- [x] Handle any discrepancies between generations for moves.
+- [x] Output the correct `moves.jsonl` data payload.
 
-- [ ] story-086-128-move-data-extraction
-- [ ] story-086-129-move-generation-discrepancies
-- [ ] story-086-130-move-jsonl-compaction
+- [x] story-086-128-move-data-extraction
+- [x] story-086-129-move-generation-discrepancies
+- [x] story-086-130-move-jsonl-compaction
