@@ -1,11 +1,11 @@
 ---
 id: task-144-231-gen3-rtc-fallback-qa
 type: TASK
-title: "QA: Verify System Time Fallback and Manual UI Overrides for Gen 3"
-status: PENDING
-owner_persona: "qa"
-created_at: "2026-06-28"
-updated_at: "2026-06-28"
+title: 'QA: Verify System Time Fallback and Manual UI Overrides for Gen 3'
+status: READY
+owner_persona: qa
+created_at: '2026-06-28'
+updated_at: '2026-07-02'
 depends_on:
   - task-144-230-gen3-rtc-fallback-impl
 jules_session_id: null
@@ -18,8 +18,8 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA: Verify System Time Fallback and Manual UI Overrides for Gen 3

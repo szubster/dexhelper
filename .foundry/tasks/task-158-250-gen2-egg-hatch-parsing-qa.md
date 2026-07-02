@@ -2,10 +2,10 @@
 id: task-158-250-gen2-egg-hatch-parsing-qa
 type: TASK
 title: QA - Verify Gen 2 Egg Hatch Data Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-07-02'
 depends_on:
   - task-158-249-gen2-egg-hatch-parsing-impl
 jules_session_id: null
