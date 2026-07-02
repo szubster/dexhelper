@@ -70,3 +70,10 @@ During the resurrection loop for `idea-066-save-file-health-scanner` (Attempt 5)
 
 **Action & Constraint:**
 When assigned to a macro node (like an IDEA) that has spawned children, DO NOT transition it to VERIFYING (by submitting an Empty PR with all boxes checked) until ALL descendant nodes have transitioned to COMPLETED. If the downstream nodes are still PENDING, you MUST keep the macro node in a PENDING state. To do this, uncheck the Acceptance Criteria checkbox corresponding to the uncompleted downstream dependency and submit the PR. This breaks the premature verification loop and allows the system to wait for downstream implementation.
+
+## 2026-07-03: IDEA Node Wait State
+**Observation:**
+During the attempt to process `idea-066-save-file-health-scanner`, it was noted that checking off its acceptance criteria violates the Strict Macro Node Completion rules since its generated children are still `PENDING`. As directed by the Auditor's notes, I must submit the PR with the checkboxes unchecked to explicitly wait for downstream nodes.
+
+**Action:**
+Reverted the checked acceptance criteria box for `idea-066-save-file-health-scanner` and will submit an empty PR with all boxes unchecked to ensure the DAG waits properly.
