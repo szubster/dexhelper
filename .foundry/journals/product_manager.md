@@ -63,3 +63,10 @@ During the session for node `idea-090-pokegear-phone-tracker`, it was discovered
 Idea 066 proposed a custom Biome/ESLint rule to enforce `gray-matter` for parsing frontmatter in `.github/scripts/`. Upon evaluation, it was determined that the technical cost and maintenance burden of implementing and supporting this highly specific rule for a minor edge case outweighs the benefits.
 **Action:**
 Cancelled `idea-066-enforce-gray-matter-linter` directly as the return on investment (ROI) is too low compared to relying on standard PR reviews. This aligns with the constraint to decline low-ROI ideas early in the pipeline to avoid wasting engineering cycles.
+
+## 2026-07-02: Strict Macro Node Completion Enforcement and Wait States
+**Observation:**
+During the resurrection loop for `idea-066-save-file-health-scanner` (Attempt 5), the IDEA node repeatedly failed verification because it was submitted via Empty PR while its generated downstream PRD and Epic nodes were still `PENDING`. This violates the Strict Macro Node Completion rules (IDEA-072).
+
+**Action & Constraint:**
+When assigned to a macro node (like an IDEA) that has spawned children, DO NOT transition it to VERIFYING (by submitting an Empty PR with all boxes checked) until ALL descendant nodes have transitioned to COMPLETED. If the downstream nodes are still PENDING, you MUST keep the macro node in a PENDING state. To do this, uncheck the Acceptance Criteria checkbox corresponding to the uncompleted downstream dependency and submit the PR. This breaks the premature verification loop and allows the system to wait for downstream implementation.
