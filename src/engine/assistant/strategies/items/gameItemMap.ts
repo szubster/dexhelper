@@ -32,17 +32,33 @@ const POKEAPI_TO_GEN2_ITEM: Record<number, number> = {
   229: 0xac, // Up-Grade
 };
 
+const POKEAPI_TO_GEN3_ITEM: Record<number, number> = {
+  80: 93, // Sun Stone
+  81: 94, // Moon Stone
+  82: 95, // Fire Stone
+  83: 96, // Thunder Stone
+  84: 97, // Water Stone
+  85: 98, // Leaf Stone
+  198: 187, // King's Rock
+  210: 199, // Metal Coat
+  212: 201, // Dragon Scale
+  229: 218, // Up-Grade
+  203: 192, // Deep Sea Tooth
+  204: 193, // Deep Sea Scale
+};
+
 /**
  * Maps a modern PokeAPI evolution item ID to its corresponding internal item ID
  * for a specific game generation. This is necessary because Gen 1 and Gen 2 use
  * distinct hex values for items (e.g., Moon Stone is 0x0A in Gen 1, but 0x08 in Gen 2).
  *
  * @param pokeApiId - The item ID returned from the modern PokeAPI data source.
- * @param generation - The target game generation (1 or 2).
+ * @param generation - The target game generation (1, 2, or 3).
  * @returns The internal game item ID for the given generation, or the original ID as a fallback.
  */
 export function getGameItemId(pokeApiId: number, generation: number): number {
   if (generation === 1) return POKEAPI_TO_GEN1_ITEM[pokeApiId] || pokeApiId;
   if (generation === 2) return POKEAPI_TO_GEN2_ITEM[pokeApiId] || pokeApiId;
+  if (generation === 3) return POKEAPI_TO_GEN3_ITEM[pokeApiId] || pokeApiId;
   return pokeApiId;
 }
