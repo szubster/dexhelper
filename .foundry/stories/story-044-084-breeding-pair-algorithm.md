@@ -35,17 +35,17 @@ Develop an algorithm to suggest optimal breeding pairs by cross-referencing Egg 
 ## Acceptance Criteria
 - [ ] Algorithm correctly identifies valid breeding pairs based on Egg Groups and genders.
 - [ ] Algorithm accurately identifies and highlights optimal pairs involving Shiny Carriers.
-
-## Next Steps
 - [x] Tech Lead: Break down into backend Tasks.
 - [x] Tech Lead: Update schema and generate scripts to include Egg Group.
-- [x] .foundry/tasks/task-084-204-breeding-pair-algorithm-impl.md
-- [x] .foundry/tasks/task-084-205-breeding-pair-algorithm-qa.md
-- [x] .foundry/research/research-084-209-egg-groups-missing.md
-- [x] .foundry/tasks/task-084-210-breeding-pair-algorithm-impl.md
-- [x] .foundry/tasks/task-084-211-breeding-pair-algorithm-qa.md
-- [ ] .foundry/tasks/task-084-212-breeding-pair-algorithm-impl.md
-- [ ] .foundry/tasks/task-084-213-breeding-pair-algorithm-qa.md
-- [ ] .foundry/research/research-084-242-gen2-breeding-dvs.md
-- [ ] .foundry/tasks/task-084-243-breeding-pair-algorithm-impl.md
-- [ ] .foundry/tasks/task-084-244-breeding-pair-algorithm-qa.md
+- [x] task-084-204-breeding-pair-algorithm-impl
+- [x] task-084-205-breeding-pair-algorithm-qa
+- [x] research-084-209-egg-groups-missing
+- [x] task-084-210-breeding-pair-algorithm-impl
+- [x] task-084-211-breeding-pair-algorithm-qa
+- [ ] task-084-212-breeding-pair-algorithm-impl
+- [ ] task-084-213-breeding-pair-algorithm-qa
+- [ ] research-084-242-gen2-breeding-dvs
+- [ ] task-084-243-breeding-pair-algorithm-impl
+- [ ] task-084-244-breeding-pair-algorithm-qa
+
+## Next Steps
