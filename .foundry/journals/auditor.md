@@ -92,3 +92,9 @@ I verified `epic-049-086-dynamic-move-pp-parsing` and its child stories (`story-
 
 **Lesson: Verifying Macro Nodes with Downstream Artifacts**
 This epic successfully demonstrated the end-to-end flow of dynamic data extraction. When auditing build-time scripts (like `generate-pokedata.ts`), it is important to check the actual output artifacts (e.g. `data/db/moves.jsonl`) to ensure the compacted data matches expectations. I verified the generated JSONL structure and properties matched the logic implemented in the script.
+
+### Lesson: Strict Verification of Architectural ADRs (ADR 026)
+During the audit of `epic-038-061-pokerus-state-exfiltration`, the implementation correctly adhered to `ADR 026: Bitwise State Extraction and Cured Boundaries`. The logic was properly refactored to use explicit bitwise operators (`>>` and `&`) within a shared helper (`parsePokerus` in `common.ts`), moving away from localized inline parsing.
+
+**Why this matters:**
+This centralization and the explicit testing of boundary cases (specifically, the absolute zero uninfected state vs. the "cured" state where duration is zero but strain remains) completely prevented regressions when migrating the parsing engine across states. This highlights that Auditor rejections (like the previous rejection for this epic) are highly effective in enforcing architectural standards, and that comprehensive boundary testing on seemingly trivial numeric bitfields is critical for correct game state representation.

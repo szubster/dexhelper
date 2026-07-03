@@ -35,3 +35,4 @@ Read the specific byte flags for Pokerus for every Pokemon in the party and PC f
 
 ## Follow-up Nodes
 - [x] .foundry/docs/adrs/adr-061-026-bitwise-state-extraction.md
+Appending a newline to force the epic into the diff
