@@ -5,8 +5,8 @@ import { AUTH_OFFLINE_INDICATOR, AuthProvider, useAuth } from '../AuthContext';
 
 // Mock redirectPage
 vi.mock('../../utils/window', () => ({
-  redirectPage: vi.fn(),
-  reloadPage: vi.fn(),
+  redirectPage: vi.fn<typeof windowUtils.redirectPage>(),
+  reloadPage: vi.fn<typeof windowUtils.reloadPage>(),
 }));
 
 const TestComponent = () => {
