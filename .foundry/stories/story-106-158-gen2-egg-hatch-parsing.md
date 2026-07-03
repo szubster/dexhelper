@@ -27,8 +27,8 @@ Implement the logic to calculate the exact remaining steps for an Egg to hatch i
 In Gen 2, if a Pokémon is an Egg (species ID 253), its Friendship byte is repurposed to store the remaining "Egg Cycles". We need to parse this byte and multiply it by the standard Gen 2 cycle length (256 steps) to get the exact numerical step count.
 
 ## Acceptance Criteria
-- [ ] Parse the Friendship byte for Gen 2 Eggs (Party and PC).
-- [ ] Multiply the parsed cycle count by 256 to calculate exact steps.
-- [ ] Write unit tests verifying the calculation.
-- [ ] task-158-249-gen2-egg-hatch-parsing-impl
-- [ ] task-158-250-gen2-egg-hatch-parsing-qa
+- [x] Parse the Friendship byte for Gen 2 Eggs (Party and PC).
+- [x] Multiply the parsed cycle count by 256 to calculate exact steps.
+- [x] Write unit tests verifying the calculation.
+- [x] task-158-249-gen2-egg-hatch-parsing-impl
+- [x] task-158-250-gen2-egg-hatch-parsing-qa
