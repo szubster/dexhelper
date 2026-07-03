@@ -69,3 +69,7 @@ In the Dexhelper codebase, version-exclusive arrays (such as `GEN2_VERSION_EXCLU
 
 All Pokémon data in dexhelper is offline-first and pre-generated. To fix data discrepancies, modify the source scripts (e.g., `scripts/generate-pokedata.ts`) or hardcoded lists (e.g., `src/engine/exclusives/`), then regenerate the committed data using `pnpm data:gen` or `pnpm data:gen-maps`. Do not patch output files directly.
 Execution Plan Specificity (File Modifications): When proposing a plan to modify files, formulate a single, un-nested step dictating the exact tool (e.g., `replace_with_git_merge_diff`) and the exact code block to use. Avoid conversational monologues or vague 'modify' instructions.
+
+## Data Integrity - Gen 2 Map Locations (Johto Routes)
+* **Data Pipeline Gotchas:** When modifying Pokémon map generation scripts (e.g., `scripts/data/gen2/mapping.ts`), verify the PokeAPI Location Area ID (`aid`) using PokeAPI's `/api/v2/location/<name>` endpoint, specifically looking at the `areas` array in the response to fetch the exact ID from the URL. Many Johto routes were mapped to Hoenn route area IDs (e.g., `415` for Hoenn Route 123 instead of `188` for Johto Route 31) which resulted in incorrect data extraction.
+* **Important:** Always execute *both* `pnpm data:gen-maps` to update `src/engine/data/` and `pnpm data:gen` to update `data/db/` so the committed data exactly matches the script fixes before submitting.
