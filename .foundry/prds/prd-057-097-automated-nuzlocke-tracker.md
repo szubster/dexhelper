@@ -56,4 +56,9 @@ Currently, players track this information manually using spreadsheets or third-p
 
 ## Next Steps
 - [ ] Break down into Tasks
-- [ ] Break down into Epics
+- [x] Break down into Epics
+
+## Acceptance Criteria
+- [ ] epic-097-130-nuzlocke-route-tracking
+- [ ] epic-097-131-nuzlocke-death-tracking
+- [ ] epic-097-132-nuzlocke-dashboard-ui
