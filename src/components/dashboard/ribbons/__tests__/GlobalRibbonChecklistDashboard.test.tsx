@@ -6,14 +6,14 @@ import { useStore } from '../../../../store';
 import { GlobalRibbonChecklistDashboard } from '../GlobalRibbonChecklistDashboard';
 
 vi.mock('../../../../store', () => ({
-  useStore: vi.fn(),
+  useStore: vi.fn<() => unknown>(),
 }));
 
 describe('GlobalRibbonChecklistDashboard', () => {
   it('renders nothing if not generation 3', async () => {
-    vi.mocked(useStore).mockImplementation((selector: any) => {
-      const state = { saveData: { generation: 2 } };
-      return selector(state);
+    vi.mocked(useStore).mockImplementation((selector) => {
+      const state = { saveData: { generation: 2 } as SaveData, isLivingDex: false };
+      return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
     await render(<GlobalRibbonChecklistDashboard />);
@@ -21,7 +21,7 @@ describe('GlobalRibbonChecklistDashboard', () => {
   });
 
   it('renders NO POKEMON WITH RIBBONS FOUND if no pokemon have ribbons', async () => {
-    vi.mocked(useStore).mockImplementation((selector: any) => {
+    vi.mocked(useStore).mockImplementation((selector) => {
       const state = {
         saveData: {
           generation: 3,
@@ -30,7 +30,7 @@ describe('GlobalRibbonChecklistDashboard', () => {
         } as unknown as SaveData,
         isLivingDex: false,
       };
-      return selector(state);
+      return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
     await render(<GlobalRibbonChecklistDashboard />);
@@ -38,7 +38,7 @@ describe('GlobalRibbonChecklistDashboard', () => {
   });
 
   it('renders list of pokemon with ribbons', async () => {
-    vi.mocked(useStore).mockImplementation((selector: any) => {
+    vi.mocked(useStore).mockImplementation((selector) => {
       const state = {
         saveData: {
           generation: 3,
@@ -54,7 +54,7 @@ describe('GlobalRibbonChecklistDashboard', () => {
         } as unknown as SaveData,
         isLivingDex: true,
       };
-      return selector(state);
+      return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
     await render(<GlobalRibbonChecklistDashboard />);

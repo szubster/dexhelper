@@ -15,7 +15,7 @@ export const GlobalRibbonChecklistDashboard: React.FC = () => {
   const isLivingDex = useStore((s) => s.isLivingDex);
 
   const pokemonList = useMemo(() => {
-    if (!saveData || saveData.generation !== 3) {
+    if (saveData?.generation !== 3) {
       return [];
     }
     const allPokemon = [...saveData.partyDetails, ...saveData.pcDetails];
