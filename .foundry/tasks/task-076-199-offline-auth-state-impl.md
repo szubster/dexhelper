@@ -2,13 +2,13 @@
 id: task-076-199-offline-auth-state-impl
 type: TASK
 title: Implement Client-side Offline Auth State Management
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-17'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on:
   - research-199-222-cloudflare-access-paths
-jules_session_id: null
+jules_session_id: '4258210176476482035'
 pr_number: null
 parent: story-038-076-offline-auth-state
 tags:
