@@ -2,12 +2,12 @@
 id: prd-097-096-schema-verifying-state-fix
 type: PRD
 title: Fix contradiction in schema.md regarding VERIFYING state
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-30'
 updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: '14002497237857172310'
+jules_session_id: null
 pr_number: null
 parent: idea-097-schema-verifying-state-fix
 tags:

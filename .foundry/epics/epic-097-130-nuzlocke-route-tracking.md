@@ -2,7 +2,7 @@
 id: epic-097-130-nuzlocke-route-tracking
 type: EPIC
 title: Automated Route Tracking
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-03'
 updated_at: '2026-07-03'

@@ -2,12 +2,12 @@
 id: prd-082-099-gen3-trainer-data-extraction
 type: PRD
 title: Gen 3 Trainer Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-01'
 updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: '5654781344642398498'
+jules_session_id: null
 pr_number: null
 parent: idea-082-gen3-secret-id-shiny-rng
 tags:
