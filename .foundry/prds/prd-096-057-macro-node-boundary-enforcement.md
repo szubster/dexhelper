@@ -40,3 +40,6 @@ Ensure that an EPIC cannot be marked `COMPLETED` until its functional requiremen
 - [ ] Investigate Orchestrator changes for boundary enforcement.
 - [ ] Define the process changes for Epic Planners.
 - [ ] Update necessary documentation and schemas.
+- [ ] epic-057-127-orchestrator-safeguard-investigation
+- [ ] epic-057-128-epic-planner-process-update
+- [ ] epic-057-129-schema-documentation-updates
