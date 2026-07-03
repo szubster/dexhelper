@@ -29,9 +29,9 @@ As part of building the static dataset for Match Call tracking, we need an ETL (
 Extract the 69 Match Call trainers from game data sources, structure them with trainer Name, Location (Route/Cave), and their 5 possible team tiers, and implement EV (Effort Value) calculation logic for defeating each specific team at each tier.
 
 ## Acceptance Criteria
-- [ ] Implement ETL script to process trainer match call data.
-- [ ] Calculate and aggregate the total EV yield for defeating each team.
+- [x] Implement ETL script to process trainer match call data.
+- [x] Calculate and aggregate the total EV yield for defeating each team.
 
 ### Auto-Generated Child Tasks
-- [ ] task-125-177-match-call-etl-impl
-- [ ] task-125-178-match-call-etl-qa
+- [x] task-125-177-match-call-etl-impl
+- [x] task-125-178-match-call-etl-qa
