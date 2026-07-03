@@ -29,6 +29,6 @@ As required by PRD `prd-074-046-dag-context-architecture`, we need to extract th
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-078-118-refactor-parser-for-rejection-count
-- [ ] story-078-119-implement-dag-context-provider
-- [ ] story-078-120-integrate-dag-context-with-views
+- [x] story-078-118-refactor-parser-for-rejection-count
+- [x] story-078-119-implement-dag-context-provider
+- [x] story-078-120-integrate-dag-context-with-views
