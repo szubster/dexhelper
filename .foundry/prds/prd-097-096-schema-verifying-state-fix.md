@@ -32,3 +32,4 @@ This issue updates the invariant to reflect the `VERIFYING` state accurately.
 
 ## Acceptance Criteria
 - [ ] Invariant 7 is updated to clarify that `VERIFYING` and `COMPLETED` nodes are read-only for implementing personas.
+- [ ] epic-097-130-schema-verifying-state-update
