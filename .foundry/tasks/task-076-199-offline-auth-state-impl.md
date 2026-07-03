@@ -33,11 +33,11 @@ Per ADR 019, the application relies on Cloudflare Access (Zero Trust) for Google
 - Store a lightweight session indicator locally (e.g. `isLoggedIn: true` in LocalStorage or IndexedDB) so the app knows it is authenticated even when offline.
 
 ## Acceptance Criteria
-- [ ] Create an `AuthContext` to manage client-side authentication state.
-- [ ] Implement logic to store and retrieve the offline auth indicator securely.
-- [ ] Provide functions to initiate login (redirecting to Cloudflare Access) and logout (clearing local state and redirecting to Cloudflare logout).
-- [ ] Ensure the context provides the current authenticated state to consumer UI components.
-- [ ] Write tests ensuring context provider logic functions as expected (especially offline simulation).
+- [x] Create an `AuthContext` to manage client-side authentication state.
+- [x] Implement logic to store and retrieve the offline auth indicator securely.
+- [x] Provide functions to initiate login (redirecting to Cloudflare Access) and logout (clearing local state and redirecting to Cloudflare logout).
+- [x] Ensure the context provides the current authenticated state to consumer UI components.
+- [x] Write tests ensuring context provider logic functions as expected (especially offline simulation).
 
 ## Important Constraints
 - **Transient Failures:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
