@@ -2,10 +2,10 @@
 id: epic-044-101-gen3-roamer-core-extraction-v2
 type: EPIC
 title: Gen 3 Roamer Core Extraction v2
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-26'
-updated_at: '2026-06-29'
+updated_at: '2026-07-03'
 depends_on:
   - research-044-207-gen3-roamer-ui-alternatives
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
 research_references:
   - research-071-138-gen3-roamer-offsets
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

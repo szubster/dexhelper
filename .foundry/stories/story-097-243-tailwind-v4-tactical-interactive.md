@@ -2,10 +2,10 @@
 id: story-097-243-tailwind-v4-tactical-interactive
 type: STORY
 title: Extract Tactical Interactive Utilities
-status: READY
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on:
   - story-097-242-tailwind-v4-tactical-containers
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - tailwind
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

@@ -1,11 +1,11 @@
 ---
 id: task-144-233-ignore-emulator-trailing-bytes-qa
 type: TASK
-title: "QA: Verify Graceful Handling of Emulator Trailing Bytes in Save Files"
-status: PENDING
-owner_persona: "qa"
-created_at: "2026-06-28"
-updated_at: "2026-06-28"
+title: 'QA: Verify Graceful Handling of Emulator Trailing Bytes in Save Files'
+status: CANCELLED
+owner_persona: qa
+created_at: '2026-06-28'
+updated_at: '2026-07-03'
 depends_on:
   - task-144-232-ignore-emulator-trailing-bytes-impl
 jules_session_id: null
@@ -19,8 +19,8 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: Cancelled due to cascading cancellation from parent
+notes: ''
 ---
 
 # QA: Verify Graceful Handling of Emulator Trailing Bytes in Save Files

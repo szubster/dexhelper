@@ -2,10 +2,10 @@
 id: epic-071-099-migrate-complex-app-components-retry
 type: EPIC
 title: Migrate Complex Application Components Retry
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-24'
-updated_at: '2026-06-24'
+updated_at: '2026-07-03'
 depends_on:
   - epic-071-098-migrate-core-tactical-components-retry
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - refactor
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: epic-071-100-tailwind-designer-persona-retry
 type: EPIC
 title: Implement Tailwind Designer Persona Ownership Retry
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-24'
-updated_at: '2026-06-30'
+updated_at: '2026-07-03'
 depends_on:
   - task-071-150-tailwind-v4-adr
   - research-071-217-investigate-session-id-failure
@@ -17,7 +17,7 @@ tags:
   - agents
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: task-076-200-offline-auth-state-qa
 type: TASK
 title: QA Client-side Offline Auth State Management
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-17'
-updated_at: '2026-06-17'
+updated_at: '2026-07-03'
 depends_on:
   - task-076-199-offline-auth-state-impl
 jules_session_id: null

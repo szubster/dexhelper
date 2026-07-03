@@ -2,10 +2,10 @@
 id: story-101-243-gen3-roamer-state-schema
 type: STORY
 title: Gen 3 Roamer State Schema
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-06-29'
+updated_at: '2026-07-03'
 depends_on:
   - story-101-242-gen3-roamer-parser
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - schema
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

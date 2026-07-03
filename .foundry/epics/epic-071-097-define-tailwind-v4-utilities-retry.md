@@ -2,10 +2,10 @@
 id: epic-071-097-define-tailwind-v4-utilities-retry
 type: EPIC
 title: Define Tailwind v4 Tactical Utilities Retry
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-24'
-updated_at: '2026-06-29'
+updated_at: '2026-07-03'
 depends_on:
   - task-071-150-tailwind-v4-adr
   - research-071-217-investigate-session-id-failure
@@ -17,7 +17,7 @@ tags:
   - tailwind
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

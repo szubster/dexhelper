@@ -2,10 +2,10 @@
 id: idea-093-gen3-ribbon-master-tracker
 type: IDEA
 title: Gen 3 Ribbon Master Challenge Tracker
-status: READY
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-06-30'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on: []
 jules_session_id: null
 parent: null

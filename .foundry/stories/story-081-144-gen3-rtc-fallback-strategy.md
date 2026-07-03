@@ -2,10 +2,10 @@
 id: story-081-144-gen3-rtc-fallback-strategy
 type: STORY
 title: Implement Gen 3 System Time Fallback and Manual UI Overrides
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-06-18'
-updated_at: '2026-06-28'
+updated_at: '2026-07-03'
 depends_on:
   - research-081-144-gen3-rtc-strategy
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - rtc
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

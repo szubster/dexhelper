@@ -2,10 +2,10 @@
 id: task-255-255-cleanup-duplicate-ideas
 type: TASK
 title: Clean up duplicate idea nodes
-status: READY
+status: PENDING
 owner_persona: tpm
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on: []
 jules_session_id: null
 pr_number: null

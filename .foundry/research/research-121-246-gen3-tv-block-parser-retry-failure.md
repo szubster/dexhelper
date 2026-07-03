@@ -2,10 +2,10 @@
 id: research-121-246-gen3-tv-block-parser-retry-failure
 type: RESEARCH
 title: Investigate Gen 3 TV Block Parser Retry Failure
-status: READY
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on: []
 jules_session_id: null
 pr_number: null

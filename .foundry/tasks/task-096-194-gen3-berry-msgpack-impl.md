@@ -2,7 +2,7 @@
 id: task-096-194-gen3-berry-msgpack-impl
 type: TASK
 title: Implement Gen 3 Berry Tracker MsgPack Serialization
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: 2026-06-16T00:00:00.000Z
 updated_at: '2026-07-03'
