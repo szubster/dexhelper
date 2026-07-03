@@ -2,12 +2,12 @@
 id: story-108-245-gen2-box-parsing
 type: STORY
 title: Gen 2 Box Parsing and Grouping
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-29'
 updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: '4256574530633766134'
+jules_session_id: null
 pr_number: null
 parent: epic-054-108-box-analyzer-save-parsing
 tags:

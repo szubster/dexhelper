@@ -2,7 +2,7 @@
 id: research-113-248-egg-move-precomputation
 type: RESEARCH
 title: Feasibility of Precomputing Egg Move Paths
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-03'
 updated_at: '2026-07-03'

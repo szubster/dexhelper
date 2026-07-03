@@ -1,8 +1,8 @@
 ---
 id: story-119-258-gen2-npc-trade-parsing
 type: STORY
-title: "Gen 2 NPC Trade Extraction"
-status: PENDING
+title: Gen 2 NPC Trade Extraction
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-03'
