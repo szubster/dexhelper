@@ -2,13 +2,13 @@
 id: epic-031-036-progression-tracking
 type: EPIC
 title: Progression Tracking & Multiple Saves
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-20'
 updated_at: '2026-07-03'
 depends_on:
   - prd-055-030-cloudflare-auth-sync
-jules_session_id: null
+jules_session_id: '7336513781442121775'
 pr_number: null
 parent: prd-055-031-future-progression-trading
 tags:
