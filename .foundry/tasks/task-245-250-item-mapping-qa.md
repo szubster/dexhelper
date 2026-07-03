@@ -2,13 +2,13 @@
 id: task-245-250-item-mapping-qa
 type: TASK
 title: QA Verification for Item List Generation Validation and Mapping
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-29'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on:
   - task-245-249-item-mapping-logic
-jules_session_id: null
+jules_session_id: '3715528631313904651'
 pr_number: null
 parent: story-087-245-item-list-validation
 tags:
