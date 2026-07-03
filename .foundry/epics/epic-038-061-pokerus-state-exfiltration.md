@@ -27,14 +27,11 @@ Read the specific byte flags for Pokerus for every Pokemon in the party and PC f
 
 ## Acceptance Criteria
 - [x] Extract pokerus data
-- [ ] story-061-095-pokerus-byte-parsing
+- [x] story-061-095-pokerus-byte-parsing
 - [x] story-061-096-pokerus-tests
-- [ ] story-061-155-refactor-pokerus-bitwise
+- [x] story-061-155-refactor-pokerus-bitwise
 
 <!-- Tech Lead: Verified complete. Pokerus bitwise logic is thoroughly tested including cured state boundaries. -->
-
-### Auditor Rejection
-The macro node cannot be verified yet because its child nodes `story-061-095-pokerus-byte-parsing` and `story-061-155-refactor-pokerus-bitwise` are still in the active `.foundry/stories/` directory, which indicates they have not fully transitioned to the `COMPLETED` state (they would be in `.foundry/archive/` if they were). Wait for all spawned child nodes to be fully completed before transitioning this macro node to VERIFYING.
 
 ## Follow-up Nodes
 - [x] adr-061-026-bitwise-state-extraction
