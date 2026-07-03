@@ -26,7 +26,7 @@ notes: ''
 Verify the implementation of Gen 2 Daycare parsing.
 
 ## Acceptance Criteria
-- [ ] Verify that Gen 2 Daycare slots (1 and 2) are correctly parsed for Gold/Silver and Crystal.
-- [ ] Verify that the Egg flag is correctly checked.
-- [ ] Verify that ALL memory offsets and sizes are implemented as module-level reusable constants.
-- [ ] Verify that unit tests cover the Daycare parsing logic adequately.
+- [x] Verify that Gen 2 Daycare slots (1 and 2) are correctly parsed for Gold/Silver and Crystal.
+- [x] Verify that the Egg flag is correctly checked.
+- [x] Verify that ALL memory offsets and sizes are implemented as module-level reusable constants.
+- [x] Verify that unit tests cover the Daycare parsing logic adequately.
