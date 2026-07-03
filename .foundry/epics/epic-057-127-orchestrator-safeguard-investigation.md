@@ -2,7 +2,7 @@
 id: epic-057-127-orchestrator-safeguard-investigation
 type: EPIC
 title: Orchestrator Safeguard Investigation
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-03'
 updated_at: '2026-07-03'

@@ -2,12 +2,12 @@
 id: prd-096-057-macro-node-boundary-enforcement
 type: PRD
 title: Enforce Macro Node Functional Boundaries
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-30'
 updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: '1134262754955394232'
+jules_session_id: null
 pr_number: null
 parent: idea-096-macro-node-boundary-enforcement
 tags:

@@ -2,13 +2,13 @@
 id: epic-049-086-dynamic-move-pp-parsing
 type: EPIC
 title: Dynamic Generation of Moves PP PokeData
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-13'
 updated_at: '2026-07-03'
 depends_on:
   - adr-049-025-dynamic-pokedata-parsing
-jules_session_id: '12538625410769065546'
+jules_session_id: null
 pr_number: null
 parent: prd-077-049-dynamic-pokedata-parsing
 tags:
