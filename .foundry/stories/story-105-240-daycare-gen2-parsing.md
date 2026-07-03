@@ -26,5 +26,5 @@ Extracting Gen 2 daycare info.
 
 ## Acceptance Criteria
 - [x] Create task to parse Gen 2 Daycare Pokémon.
-- [ ] .foundry/tasks/task-240-245-gen2-daycare-parsing-impl.md
-- [ ] .foundry/tasks/task-240-246-gen2-daycare-parsing-qa.md
+- [x] task-240-245-gen2-daycare-parsing-impl
+- [x] task-240-246-gen2-daycare-parsing-qa
