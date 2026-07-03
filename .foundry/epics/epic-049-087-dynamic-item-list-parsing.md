@@ -33,9 +33,9 @@ Currently, valid item lists are either manually maintained or fetched ad-hoc. Ma
 4. Replace manual/hardcoded tables for item data.
 
 ## Acceptance Criteria
-- [ ] Implement parsing logic in `scripts/generate-pokedata.ts` to extract item lists.
-- [ ] Handle any validation required for items (e.g. mapping across generations, PokeAPI IDs to internal ROM IDs).
-- [ ] Output the correct `items.jsonl` data payload.
+- [x] Implement parsing logic in `scripts/generate-pokedata.ts` to extract item lists.
+- [x] Handle any validation required for items (e.g. mapping across generations, PokeAPI IDs to internal ROM IDs).
+- [x] Output the correct `items.jsonl` data payload.
 
-- [x] .foundry/stories/story-087-128-dynamic-item-list-parsing.md
-- [ ] .foundry/stories/story-087-245-item-list-validation.md
+- [x] story-087-128-dynamic-item-list-parsing
+- [x] story-087-245-item-list-validation
