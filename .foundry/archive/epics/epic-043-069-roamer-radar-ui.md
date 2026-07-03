@@ -2,7 +2,7 @@
 id: epic-043-069-roamer-radar-ui
 type: EPIC
 title: Roamer Radar UI
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-07-01'
@@ -14,7 +14,7 @@ parent: prd-070-043-roamer-tracking-dashboard
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Dependencies cancelled'
 notes: ''
 ---
 

@@ -26,7 +26,7 @@ notes: >-
 # Idea: Implement Gen 3 Pokerus Extraction
 
 ## Context
-Based on the findings in `.foundry/research/research-175-176-gen3-pokerus-extraction.md`, the memory structure and bitwise logic for Pokerus in Generation 3 have been fully documented. While the bitwise extraction logic (`>> 4` and `& 0x0f`) is identical to Gen 2, locating the Pokerus byte requires full decryption and parsing of the 48-byte Gen 3 Pokémon Data block and its four substructures (Growth, Attacks, EVs & Condition, Miscellaneous).
+Based on the findings in `.foundry/archive/research/research-175-176-gen3-pokerus-extraction.md`, the memory structure and bitwise logic for Pokerus in Generation 3 have been fully documented. While the bitwise extraction logic (`>> 4` and `& 0x0f`) is identical to Gen 2, locating the Pokerus byte requires full decryption and parsing of the 48-byte Gen 3 Pokémon Data block and its four substructures (Growth, Attacks, EVs & Condition, Miscellaneous).
 
 ## Proposal
 Implement the necessary infrastructure in `src/engine/saveParser/parsers/gen3.ts` to fully parse and decrypt the Gen 3 Pokémon data structures, and then extract the Pokerus state from the Miscellaneous (M) substructure.

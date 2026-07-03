@@ -2,7 +2,7 @@
 id: epic-044-096-gen3-roamer-dashboard-ui-v2
 type: EPIC
 title: Gen 3 Roamer Dashboard UI v2
-status: READY
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-20'
 updated_at: '2026-07-02'
@@ -19,7 +19,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Dependencies cancelled'
 notes: ''
 ---
 

@@ -33,8 +33,8 @@ As per ADR 013 and ADR 017, the core DAG data state must be lifted into a shared
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [x] .foundry/stories/story-070-108-create-dag-context-interfaces.md
-- [ ] .foundry/stories/story-070-109-implement-dag-provider.md
+- [x] .foundry/archive/stories/story-070-108-create-dag-context-interfaces.md
+- [ ] .foundry/archive/stories/story-070-109-implement-dag-provider.md
 - [ ] .foundry/stories/story-070-245-implement-dag-provider-state-management.md
 
 ### Auditor Rejection

@@ -39,9 +39,9 @@ Update the core system documentation to detail the new macro node completion rul
 - [ ] Verify that there are no conflicting statements across other core documentation.
 
 ### Stories
-- [x] .foundry/stories/story-071-108-update-schema-macro-node-completion.md
-- [x] .foundry/stories/story-071-109-update-adr001-macro-node-completion.md
-- [x] .foundry/stories/story-071-110-verify-core-documentation.md
+- [x] .foundry/archive/stories/story-071-108-update-schema-macro-node-completion.md
+- [x] .foundry/archive/stories/story-071-109-update-adr001-macro-node-completion.md
+- [x] .foundry/archive/stories/story-071-110-verify-core-documentation.md
 
 ### Follow-up Work
 - [x] .foundry/ideas/idea-097-schema-verifying-state-fix.md

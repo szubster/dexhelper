@@ -38,5 +38,5 @@ Implement the backend data grouping and aggregation logic to parse PC box data f
 - [ ] Verify that Party Pokémon are successfully excluded from the extracted data.
 - [ ] Ensure all required stats (DVs, Shininess) are calculated correctly for each Pokémon.
 
-- [ ] .foundry/tasks/task-245-249-gen2-box-grouping-impl.md
+- [ ] .foundry/archive/tasks/task-245-249-gen2-box-grouping-impl.md
 - [ ] .foundry/tasks/task-245-250-gen2-box-grouping-qa.md
