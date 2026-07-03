@@ -42,7 +42,7 @@ A coder has implemented logic to group Gen 2 `PokemonInstance` data by `speciesI
 *   If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Grouping logic correctly aggregates by species ID.
-- [ ] Grouping logic successfully filters out Party and Daycare Pokémon.
-- [ ] Unit tests pass and provide sufficient coverage.
-- [ ] Verify that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
+- [x] Grouping logic correctly aggregates by species ID.
+- [x] Grouping logic successfully filters out Party and Daycare Pokémon.
+- [x] Unit tests pass and provide sufficient coverage.
+- [x] Verify that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
