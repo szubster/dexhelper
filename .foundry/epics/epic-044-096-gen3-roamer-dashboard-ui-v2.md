@@ -2,15 +2,15 @@
 id: epic-044-096-gen3-roamer-dashboard-ui-v2
 type: EPIC
 title: Gen 3 Roamer Dashboard UI v2
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-20'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on:
   - research-044-207-gen3-roamer-ui-alternatives
   - epic-044-070-gen3-roamer-core-extraction
   - epic-044-071-gen3-roamer-iv-glitch
-jules_session_id: null
+jules_session_id: '3219428730082674023'
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
 tags:
