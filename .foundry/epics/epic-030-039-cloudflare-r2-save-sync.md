@@ -38,4 +38,9 @@ Following the establishment of a secure authentication layer, the application ne
 - Ensure graceful degradation so save files continue to use local browser storage without errors when Cloudflare is unavailable (e.g., hosted on GitHub pages).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
+- [x] Story Owner: Break this Epic down into Stories.
+- [ ] story-039-262-r2-client-infrastructure
+- [ ] story-039-263-r2-pull-sync-logic
+- [ ] story-039-264-r2-push-sync-logic
+- [ ] story-039-265-r2-offline-conflict-resolution
+- [ ] story-039-266-r2-graceful-degradation
