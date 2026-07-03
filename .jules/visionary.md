@@ -171,3 +171,7 @@
 ## 2026-07-02
 **Idea:** Gen 3 Shoal Cave Tide Tracker
 **Learning:** The orchestrator architecture (specifically ADR 025) strictly forbids features that rely on extracting RTC data from save files because emulator handling is fragmented and physical dumps omit it. Future ideation must ensure proposed mechanics do not rely on exact internal RTC block parsing, and instead rely on the system-level fallback strategy.
+
+## 2026-07-03
+**Idea:** Gen 1-3 Static Encounter & Legendary Checklist
+**Learning:** Expanding DexHelper's collection capabilities beyond the full Pokédex to track limited, one-time static encounters provides immense unique value. While standard Pokédex trackers tell a player *what* they are missing, leveraging save-state event flags tells them exactly *where* to go in their specific playthrough to find non-respawning Pokémon (like Snorlax, Sudowoodo, or Legendaries). This directly reduces friction and aligns perfectly with the premium companion app philosophy.

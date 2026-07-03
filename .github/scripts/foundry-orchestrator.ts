@@ -415,10 +415,18 @@ function main(): void {
       childToParents.get(node.repoPath)!.add(parentPath);
     }
 
-    // Parse body for regex to find markdown links to children
+    // Parse body for regex to find markdown links to children and raw node IDs
     const linkRegex = /\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks|research)\/[^)]+\.md)\)/g;
+    const idRegex = /(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+/g;
     const body = node.body;
-    const matches = [...new Set([...body.matchAll(linkRegex)].map(m => m[1]))];
+
+    const linkMatches = [...body.matchAll(linkRegex)].map(m => m[1]);
+    const idMatches = [...body.matchAll(idRegex)]
+      .map(m => m[0])
+      .map(id => idToPathMap.get(id))
+      .filter((path): path is string => !!path);
+
+    const matches = [...new Set([...linkMatches, ...idMatches])];
 
     for (const match of matches) {
       // node.repoPath is the parent, match is the child
