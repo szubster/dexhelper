@@ -2,12 +2,12 @@
 id: prd-080-097-gen3-data-parsing-infrastructure
 type: PRD
 title: Gen 3 Pokemon Data Parsing Infrastructure
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-07-01'
+updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '117904704488365652'
 pr_number: null
 parent: idea-080-gen3-pokerus-extraction
 tags:
