@@ -30,9 +30,9 @@ Investigate if a custom ESLint or Biome rule can be built to flag hardcoded abso
 Currently, save file extraction uses absolute hardcoded offsets for dynamic blocks, which can lead to unpredictable behavior and regressions. We need to investigate tooling options to enforce that memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level rather than as inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Investigate the feasibility of creating a custom ESLint or Biome rule.
-- [ ] Document findings and propose next steps (either create the rule or fall back to an ADR). The documentation should be placed in `.foundry/docs/architecture/offset_linter_investigation.md` (or similar appropriate location).
-- [ ] Self-verification: The `coder` persona will self-verify the findings in their journal, as this is an exploratory task with no runtime risks.
+- [x] Investigate the feasibility of creating a custom ESLint or Biome rule.
+- [x] Document findings and propose next steps (either create the rule or fall back to an ADR). The documentation should be placed in `.foundry/docs/architecture/offset_linter_investigation.md` (or similar appropriate location).
+- [x] Self-verification: The `coder` persona will self-verify the findings in their journal, as this is an exploratory task with no runtime risks.
 
 ## Developer Reminders
 - **Transient Failures:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

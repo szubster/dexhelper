@@ -112,3 +112,6 @@ In Generation 2, two Shiny or Shiny Carrier Pokémon cannot breed with each othe
 ### Orchestrator Testing
 - **Observation:** Verified hierarchical completion via markdown links logic by adding unit tests in `.github/scripts/foundry-orchestrator.test.ts`.
 - **Action:** Created explicit tests for markdown link parsing and verification that children completion appropriately blocks and unblocks parents. Checked off acceptance criteria. Tested suite via vitest locally.
+
+## Investigation: Linter for Save Parsing Offsets
+Biome and Oxlint do not currently support custom JS linting rules. The built-in `noMagicNumbers` rule in Biome does not allow the granularity needed to specifically target `DataView` offset arguments, making it unsuitable for our strict save parsing guidelines. Introducing ESLint solely for this purpose would contradict our current tooling choices and add bloat. We should fall back to an ADR and code-review enforcement.
