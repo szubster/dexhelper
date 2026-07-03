@@ -93,6 +93,10 @@ I verified `epic-049-086-dynamic-move-pp-parsing` and its child stories (`story-
 **Lesson: Verifying Macro Nodes with Downstream Artifacts**
 This epic successfully demonstrated the end-to-end flow of dynamic data extraction. When auditing build-time scripts (like `generate-pokedata.ts`), it is important to check the actual output artifacts (e.g. `data/db/moves.jsonl`) to ensure the compacted data matches expectations. I verified the generated JSONL structure and properties matched the logic implemented in the script.
 
+## 2026-07-03: Verification of Gen 3 Battle Frontier Data Extraction
+
+**Findings / Learnings:**
+During the verification of `epic-046-078-gen3-battle-frontier-data-extraction`, the parser implementation for Battle Frontier Data (Win Streaks, Symbols, Total BP, and BP) was reviewed. The implementation currently gates parsing of all Battle Frontier structures behind a hardcoded version check (`_forcedVersion === 'emerald'`), meaning none of this data is extracted for Ruby and Sapphire. While the Frontier itself was fully expanded in Emerald, Ruby and Sapphire *do* feature a Battle Tower. It is currently unresolved whether Ruby and Sapphire save files contain a different structural representation for their Battle Tower win streaks and records, or if the current extraction logic is simply overly restrictive. This gap requires further research to ensure comprehensive Gen 3 support.
 ### Lesson: Strict Verification of Architectural ADRs (ADR 026)
 During the audit of `epic-038-061-pokerus-state-exfiltration`, the implementation correctly adhered to `ADR 026: Bitwise State Extraction and Cured Boundaries`. The logic was properly refactored to use explicit bitwise operators (`>>` and `&`) within a shared helper (`parsePokerus` in `common.ts`), moving away from localized inline parsing.
 
