@@ -43,7 +43,7 @@ We need to scaffold the `GlobalRibbonChecklistDashboard` component to provide a 
 - **Empty PR Policy:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Scaffold `GlobalRibbonChecklistDashboard` component in the frontend.
-- [ ] Connect the component to read from Living Dex / PC Box data context.
-- [ ] Render a list or grid displaying basic ribbon availability for each Pokémon.
-- [ ] Add explicit integration tests or usage to verify rendering and prevent orphaned components.
+- [x] Scaffold `GlobalRibbonChecklistDashboard` component in the frontend.
+- [x] Connect the component to read from Living Dex / PC Box data context.
+- [x] Render a list or grid displaying basic ribbon availability for each Pokémon.
+- [x] Add explicit integration tests or usage to verify rendering and prevent orphaned components.
