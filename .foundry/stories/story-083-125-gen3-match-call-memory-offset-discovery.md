@@ -27,9 +27,9 @@ notes: ''
 Determine the exact memory offsets in Pokémon Emerald `.sav` files for the Match Call data block, including trainer registers, rematch readiness flags, and tier states.
 
 ## Acceptance Criteria
-- [ ] Determine memory block offsets
-- [ ] Find rematch readiness bitflags
-- [ ] Determine rematch tier states offsets
-- [ ] research-125-173-gen3-match-call-offsets
-- [ ] task-125-183-match-call-offsets-impl
-- [ ] task-125-184-match-call-offsets-qa
+- [x] Determine memory block offsets
+- [x] Find rematch readiness bitflags
+- [x] Determine rematch tier states offsets
+- [x] research-125-173-gen3-match-call-offsets
+- [x] task-125-183-match-call-offsets-impl
+- [x] task-125-184-match-call-offsets-qa
