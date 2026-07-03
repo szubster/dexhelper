@@ -30,5 +30,5 @@ Following the creation of `DagProvider` (ADR 013), existing visualization compon
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-120-236-refactor-dagdashboard-context-impl
-- [ ] task-120-237-refactor-dagdashboard-context-qa
+- [x] task-120-236-refactor-dagdashboard-context-impl
+- [x] task-120-237-refactor-dagdashboard-context-qa
