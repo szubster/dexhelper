@@ -2,12 +2,12 @@
 id: prd-082-100-rng-calculator-integration
 type: PRD
 title: RNG Calculator Integration
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1160459720360475784'
 pr_number: null
 parent: idea-082-gen3-secret-id-shiny-rng
 tags:
