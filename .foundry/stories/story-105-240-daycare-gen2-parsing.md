@@ -2,10 +2,10 @@
 id: story-105-240-daycare-gen2-parsing
 type: STORY
 title: Parse Gen 2 Daycare Data
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-06-30'
+updated_at: '2026-07-03'
 depends_on: []
 jules_session_id: null
 pr_number: null

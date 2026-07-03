@@ -2,13 +2,13 @@
 id: story-065-150-contest-warning-states-ui
 type: STORY
 title: Contest Warning States UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-19'
 updated_at: '2026-07-03'
 depends_on:
   - story-065-149-contest-recommendation-ui-components
-jules_session_id: '1256997256556738775'
+jules_session_id: null
 pr_number: null
 parent: epic-042-065-gen3-contest-advisor-ui
 tags:

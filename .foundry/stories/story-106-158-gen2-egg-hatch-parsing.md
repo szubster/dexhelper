@@ -2,12 +2,12 @@
 id: story-106-158-gen2-egg-hatch-parsing
 type: STORY
 title: Gen 2 Egg Hatch Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-29'
 updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: '11281835104666971175'
+jules_session_id: null
 pr_number: null
 parent: epic-053-106-egg-hatch-parsing
 tags:
