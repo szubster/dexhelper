@@ -29,12 +29,12 @@ notes: ''
 The application is designed to be offline-first. Therefore, the client needs to gracefully handle the authentication state, persisting it securely so that the user remains authenticated even when the connection drops or the app is loaded entirely offline.
 
 ## Acceptance Criteria
-- [ ] Implement client-side logic to initiate the Google SSO login flow.
-- [ ] Securely store the authentication token or session state on the client (e.g., HttpOnly cookies if applicable via Cloudflare, or secure LocalStorage/IndexedDB).
-- [ ] Ensure the UI reflects the authenticated state.
-- [ ] Ensure the authenticated state persists across page reloads and when the device goes offline.
-- [ ] Implement a logout mechanism that clears the client-side state.
+- [x] Implement client-side logic to initiate the Google SSO login flow.
+- [x] Securely store the authentication token or session state on the client (e.g., HttpOnly cookies if applicable via Cloudflare, or secure LocalStorage/IndexedDB).
+- [x] Ensure the UI reflects the authenticated state.
+- [x] Ensure the authenticated state persists across page reloads and when the device goes offline.
+- [x] Implement a logout mechanism that clears the client-side state.
 
 ## Child Nodes
-- [ ] .foundry/tasks/task-076-199-offline-auth-state-impl.md
-- [ ] .foundry/tasks/task-076-200-offline-auth-state-qa.md
+- [x] task-076-199-offline-auth-state-impl
+- [x] task-076-200-offline-auth-state-qa
