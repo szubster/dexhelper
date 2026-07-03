@@ -22,4 +22,4 @@ notes: ''
 
 # Gen 3 Volcanic Ash Offsets
 
-- [ ] Research Volcanic Ash counter offsets in Gen 3 saves (Ruby, Sapphire, Emerald).
+- [x] Research Volcanic Ash counter offsets in Gen 3 saves (Ruby, Sapphire, Emerald).
