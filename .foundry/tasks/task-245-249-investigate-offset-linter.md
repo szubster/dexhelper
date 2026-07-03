@@ -2,12 +2,12 @@
 id: task-245-249-investigate-offset-linter
 type: TASK
 title: Investigate Linter for Save Parsing Offsets
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-30'
 updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15291319001689934054'
 pr_number: null
 parent: story-103-245-investigate-offset-linter
 tags:
