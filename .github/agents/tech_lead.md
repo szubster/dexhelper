@@ -56,7 +56,7 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 2. Append the new `RESEARCH` node's ID to the current STORY's `depends_on` array in its YAML frontmatter.
 3. Update the current STORY's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.
 
-**CRITICAL - RESUMING FAILED NODES:** If you are assigned to a node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the Auditor or QA persona's journal (`.foundry/journals/auditor.md` or `.foundry/journals/qa.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback rather than blindly resubmitting.
+**CRITICAL - RESUMING FAILED NODES:** If you are assigned to a node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the Auditor or QA persona's journal (`.foundry/journals/auditor.md` or `.foundry/journals/qa.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback and remove the `### Auditor Rejection` block (and its contents) from the markdown body rather than blindly resubmitting.
 
 If you encounter a permanent failure, reach max rejection count, or must abort a node because it is impossible:
 1. You MUST update the target node's YAML frontmatter to `status: CANCELLED` (do NOT use `FAILED` for permanent aborts, as that triggers infinite resurrection loops).
