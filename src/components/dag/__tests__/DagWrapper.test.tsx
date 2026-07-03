@@ -8,7 +8,21 @@ test('DagWrapper renders DagProvider and DagDashboard without crashing', async (
   // Need to mock fetch to prevent the provider from trying to fetch real data and crashing/hanging
   globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({
     ok: true,
-    json: async () => [],
+    json: async () => [
+      {
+        filePath: 'node-1.md',
+        data: {
+          id: 'node-1',
+          type: 'TASK',
+          status: 'COMPLETED',
+          owner_persona: 'human',
+          label: 'node',
+          title: 'Node 1',
+          rejection_count: 0,
+          depends_on: [],
+        },
+      },
+    ],
   } as unknown as Response);
 
   await render(
@@ -17,7 +31,6 @@ test('DagWrapper renders DagProvider and DagDashboard without crashing', async (
     </div>,
   );
 
-  // Since nodes/edges are empty it will just render the ReactFlow container and the filter panel.
   await vi.waitUntil(
     async () => {
       const loadingEl = page.getByText('[ SYSTEM.LOADING_DAG ]').all();
@@ -26,7 +39,7 @@ test('DagWrapper renders DagProvider and DagDashboard without crashing', async (
     { timeout: 2000 },
   );
 
-  await expect.element(page.getByText('IDEA')).toBeInTheDocument();
+  await expect.element(page.getByText('node-1')).toBeInTheDocument();
 
   // Clean up
   vi.restoreAllMocks();
