@@ -37,10 +37,10 @@ Ensure the coder correctly implemented the offsets discovered in `research-125-1
 - Ensure the implementation strictly adheres to ADR 010 (bounds checking).
 
 ## Acceptance Criteria
-- [ ] Verify offset constants for the Match Call data block.
-- [ ] Verify offset constants for rematch readiness flags.
-- [ ] Verify offset constants for rematch tier states.
-- [ ] Verify adherence to ADR 010.
+- [x] Verify offset constants for the Match Call data block.
+- [x] Verify offset constants for rematch readiness flags.
+- [x] Verify offset constants for rematch tier states.
+- [x] Verify adherence to ADR 010.
 
 ## Instructions
 - If the implementation is incorrect, mark the target node `task-125-183-match-call-offsets-impl` as FAILED, provide a `rejection_reason`, and increment its `rejection_count`. DO NOT change this QA task's status to FAILED.
