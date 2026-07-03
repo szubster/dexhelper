@@ -36,6 +36,6 @@ The Gen 3 Move Tutor Availability Dashboard requires parsing the save file to de
 4.  **Documentation:** Provide a clear mapping of Tutor Name -> Game Version -> Event Flag ID / Offset / Bit.
 
 ## Acceptance Criteria
-- [ ] Memory offsets and bit flags for all Emerald one-time Move Tutors are identified and documented.
-- [ ] Memory offsets and bit flags for all FireRed/LeafGreen one-time Move Tutors are identified and documented.
-- [ ] Findings are formatted clearly for immediate use in `DataView`-based save parsing logic.
+- [x] Memory offsets and bit flags for all Emerald one-time Move Tutors are identified and documented.
+- [x] Memory offsets and bit flags for all FireRed/LeafGreen one-time Move Tutors are identified and documented.
+- [x] Findings are formatted clearly for immediate use in `DataView`-based save parsing logic.
