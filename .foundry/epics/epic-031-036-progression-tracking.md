@@ -31,4 +31,7 @@ As part of Phase 2 of the Cloudflare Sync backend, we need to support storing an
 - Maintain offline-first mandate.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
+- [x] Story Owner: Break this Epic down into Stories.
+- [ ] story-036-255-progression-save-model
+- [ ] story-036-256-progression-sync-logic
+- [ ] story-036-257-concurrent-game-management
