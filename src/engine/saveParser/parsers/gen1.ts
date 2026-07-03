@@ -394,24 +394,25 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
  */
 
 /**
- * Detects the Generation 1 game version and calculates the necessary memory offset shift.
+ * Detects the specific Generation 1 game version and calculates the necessary offset shift.
  *
- * **Why this is needed:**
- * Pokémon Yellow introduces a `+1` byte shift to almost all memory addresses starting
- * from the Pikachu Friendship byte. Because saves don't self-identify their version, we must
- * dynamically determine this shift.
+ * **Why is an offset shift needed?**
+ * Pokémon Yellow added new memory structures (like Pikachu's friendship data) that forced
+ * many subsequent data blocks (like the Pokédex and PC Boxes) to shift forward by exactly 1 byte
+ * compared to Red and Blue. Because the save file doesn't explicitly declare its version,
+ * we must dynamically "probe" the memory to see which alignment produces valid data.
  *
- * **Strategy:**
- * The function probes the Pokédex padding bits (bytes `0x25a3` and `0x25a4`). These bits
- * are guaranteed to be 0 by the game engine. By checking which byte is strictly zero, we can
- * confidently determine if the save is Red/Blue (no shift) or Yellow (`+1` shift).
- * If probing fails, it falls back to analyzing exclusive Pokémon logic.
+ * We do this by checking the Pokédex data. The Gen 1 Pokédex has 152 bits allocated for
+ * owned/seen flags (19 bytes * 8 bits = 152 bits). Since there are only 151 Pokémon, the 152nd
+ * bit (the MSB of the 19th byte) is unused padding and must be `0`.
+ * By checking this padding bit at both the Red/Blue offset (`0x25A3`) and the Yellow offset (`0x25A4`),
+ * we can determine the correct alignment for the entire save file.
  *
- * @param view - The raw save file DataView.
- * @param forcedVersion - An optional game version override to bypass heuristics.
- * @param trainerName - The player's Original Trainer name (used for fallback heuristics).
- * @param quickParty - Basic party details (used for fallback heuristics).
- * @returns The determined offset shift (`0` or `1`), the inferred version, and the parsed Pokédex.
+ * @param view - The raw save file data view.
+ * @param forcedVersion - An optional version override.
+ * @param trainerName - The player's trainer name (used for native Pokémon heuristic checks).
+ * @param quickParty - Basic party details (used to check for version-exclusive Pokémon).
+ * @returns The determined offset shift (0 for R/B, 1 for Yellow), the game version, and the parsed Pokédex sets.
  */
 function detectVersionAndOffsets(
   view: DataView,
@@ -419,6 +420,7 @@ function detectVersionAndOffsets(
   trainerName: string,
   quickParty: { speciesId: number; otName: string }[],
 ) {
+  // A helper function to parse the Pokédex flags starting at a given base address
   const detectForOffset = (ownedBase: number) => {
     const owned = new Set<number>();
     const seen = new Set<number>();
@@ -427,18 +429,23 @@ function detectVersionAndOffsets(
       const byteIdx = Math.floor((i - 1) / 8);
       const bitIdx = (i - 1) % 8;
       const oByte = view.getUint8(ownedBase + byteIdx);
+      // The "Seen" Pokédex flags start 19 bytes after the "Owned" flags (0x25B6 - 0x25A3 = 19)
       const sByte = view.getUint8(ownedBase + (0x25b6 - 0x25a3) + byteIdx);
       if ((oByte & (1 << bitIdx)) !== 0) owned.add(i);
       if ((sByte & (1 << bitIdx)) !== 0) seen.add(i);
     }
+    // Byte 18 (the 19th byte) holds bits for IDs 145-152. ID 152 does not exist, so bit 7 (0x80) must be 0.
     const paddingBitIsCorrect = (view.getUint8(ownedBase + 18) & 0x80) === 0;
     const version = detectGen1GameVersion(view, owned, seen, trainerName, quickParty);
     return { version, owned, seen, paddingBitIsCorrect };
   };
 
+  // Probe offset 0x25A3 (Expected Red/Blue start address for Pokédex Owned flags)
   const res0 = detectForOffset(0x25a3);
+  // Probe offset 0x25A4 (Expected Yellow start address for Pokédex Owned flags, shifted by +1)
   const res1 = detectForOffset(0x25a4);
 
+  // If the Yellow offset produces a valid padding bit but the Red/Blue offset does not, we use the shifted offset.
   const resToUse = res1.paddingBitIsCorrect && !res0.paddingBitIsCorrect ? res1 : res0;
 
   let isYellow = forcedVersion === 'yellow';
