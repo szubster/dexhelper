@@ -1,5 +1,6 @@
 import type React from 'react';
 import type { Gen3BattleFrontierWinStreaks, SaveData } from '../../../engine/saveParser/parsers/common';
+import { objectKeys } from '../../../utils/object';
 import { DataPoint } from '../../DataPoint';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
@@ -33,14 +34,15 @@ export const BattleFrontierDashboard: React.FC<BattleFrontierDashboardProps> = (
     );
   }
 
-  const facilities = (Object.keys(FACILITY_NAMES) as Array<keyof Gen3BattleFrontierWinStreaks>).map((key) => {
+  const facilities = objectKeys(FACILITY_NAMES).map((key) => {
     const symbols = gen3BattleFrontierSymbols[key] || { silver: false, gold: false };
+    const variant: 'amber' | 'white' | 'default' = symbols.gold ? 'amber' : symbols.silver ? 'white' : 'default';
     return {
       key,
       name: FACILITY_NAMES[key],
       streaks: gen3BattleFrontierWinStreaks[key] || { current: 0, record: 0 },
       symbols,
-      variant: symbols.gold ? 'amber' : symbols.silver ? 'white' : 'default',
+      variant,
     };
   });
 
@@ -60,11 +62,7 @@ export const BattleFrontierDashboard: React.FC<BattleFrontierDashboardProps> = (
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {facilities.map((facility) => (
-          <TacticalPanel
-            key={facility.key}
-            variant={facility.variant as 'amber' | 'white' | 'default'}
-            className="flex flex-col gap-0 border-l-2 p-0"
-          >
+          <TacticalPanel key={facility.key} variant={facility.variant} className="flex flex-col gap-0 border-l-2 p-0">
             <div className="flex items-center justify-between border-zinc-800 border-b border-dashed bg-black/40 p-3 pb-2">
               <span className="tactical-text z-10 font-black text-white">[ {facility.name} ]</span>
             </div>
