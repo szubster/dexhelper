@@ -30,4 +30,8 @@ Develop the core algorithmic engine for calculating valid breeding chains. This 
 - [ ] Ensure the algorithm correctly adheres to Gen 2 and Gen 3 breeding mechanics (matching Egg Groups, opposite genders).
 - [ ] Exclude invalid breeding pairs (e.g., "No Eggs" group).
 - [ ] Support chains requiring multiple intermediate parents.
-- [ ] Story Owner: Break this Epic down into actionable STORIES.
+- [x] Story Owner: Break this Epic down into actionable STORIES.
+- [ ] story-113-258-egg-move-pathfinding-core
+- [ ] story-113-259-egg-move-breeding-rules
+- [ ] story-113-260-egg-move-multi-step-chains
+- [ ] research-113-248-egg-move-precomputation
