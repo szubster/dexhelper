@@ -30,10 +30,10 @@ notes: ''
 Verify the implementation of `task-076-199-offline-auth-state-impl`. The application needs to correctly handle offline auth state using Context and local storage.
 
 ## Acceptance Criteria
-- [ ] Verify `AuthContext` provides the correct authentication state to the application.
-- [ ] Verify the offline auth indicator is correctly persisted across page reloads and when simulated offline.
-- [ ] Verify the login initiation and logout mechanisms work correctly with the application UI.
-- [ ] Ensure any automated tests pass and adequately cover edge cases (offline state).
+- [x] Verify `AuthContext` provides the correct authentication state to the application.
+- [x] Verify the offline auth indicator is correctly persisted across page reloads and when simulated offline.
+- [x] Verify the login initiation and logout mechanisms work correctly with the application UI.
+- [x] Ensure any automated tests pass and adequately cover edge cases (offline state).
 
 ## Important Constraints
 - **Transient Failures:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
