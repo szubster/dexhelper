@@ -40,4 +40,6 @@ Agent sessions executing long-running or blocking bash commands (like `tail -f`)
 - **Feedback Mechanism**: If a command is interrupted, return a clear, user-facing error message describing why it was stopped and suggesting non-blocking alternatives.
 
 ## Acceptance Criteria
-- [ ] Break down this PRD into Epics mapping out the implementation strategy (e.g., exploring wrapper feasibility, updating bash tool infrastructure).
+- [x] Break down this PRD into Epics mapping out the implementation strategy (e.g., exploring wrapper feasibility, updating bash tool infrastructure).
+- [ ] epic-057-127-bash-timeout-wrapper
+- [ ] epic-057-128-bash-static-analysis-linter
