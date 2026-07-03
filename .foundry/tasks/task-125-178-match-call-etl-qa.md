@@ -37,5 +37,5 @@ This QA task ensures the correctness of the Match Call ETL script. You must:
 - **Empty PR Policy:** If you submit an empty PR because the artifacts are already complete, you MUST check off all Acceptance Criteria checkboxes (`- [x]`) before submitting.
 
 ## Acceptance Criteria
-- [ ] Write tests verifying the extraction and structuring of trainer match call data.
-- [ ] Write tests verifying the EV calculation and aggregation logic for each team tier.
+- [x] Write tests verifying the extraction and structuring of trainer match call data.
+- [x] Write tests verifying the EV calculation and aggregation logic for each team tier.
