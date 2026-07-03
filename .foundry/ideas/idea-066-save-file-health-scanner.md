@@ -40,15 +40,3 @@ This feature pivots DexHelper from just a tracking tool into a critical utility 
 ## Acceptance Criteria
 - [ ] Product Manager: Convert this idea into a PRD.
 - [ ] prd-066-036-save-file-health-scanner
-
-### Auditor Rejection
-The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. I have spawned a new node `.foundry/ideas/idea-072-strict-macro-node-completion.md` to address this recurring systemic issue.
-
-### Auditor Rejection (Attempt 3)
-The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. The resurrection loop continues to fail because agents are resubmitting without waiting. We must wait for the implementation of IDEA-072 (Strict Macro Node Completion Enforcement).
-
-### Auditor Rejection (Attempt 4)
-The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. The resurrection loop continues to fail because agents are resubmitting without waiting. We must wait for the implementation of IDEA-072 (Strict Macro Node Completion Enforcement).
-
-### Auditor Rejection (Attempt 5)
-The generated PRD and Epic nodes are still PENDING. This IDEA node must wait until its entire generated sub-tree is COMPLETED. The resurrection loop continues to fail because agents are resubmitting without waiting. We must wait for the implementation of IDEA-072 (Strict Macro Node Completion Enforcement).
