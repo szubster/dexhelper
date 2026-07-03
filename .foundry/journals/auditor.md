@@ -102,3 +102,11 @@ During the audit of `epic-038-061-pokerus-state-exfiltration`, the implementatio
 
 **Why this matters:**
 This centralization and the explicit testing of boundary cases (specifically, the absolute zero uninfected state vs. the "cured" state where duration is zero but strain remains) completely prevented regressions when migrating the parsing engine across states. This highlights that Auditor rejections (like the previous rejection for this epic) are highly effective in enforcing architectural standards, and that comprehensive boundary testing on seemingly trivial numeric bitfields is critical for correct game state representation.
+
+## 2026-07-03: Verification of Orchestrator Hierarchical Completion Checks
+
+**Pattern / Constraint:**
+During the verification of `epic-045-070-orchestrator-strict-completion`, the implementation for enforcing strict hierarchical completion in the orchestrator was reviewed. The orchestrator now correctly extracts child node relationships from markdown body references (e.g. `- [ ] path/to/file.md`) and establishes multi-parent DAG traversal (via BFS) for resolving completion constraints.
+
+**Why this matters:**
+This prevents macro nodes (like `IDEA`, `PRD`, `EPIC`, `STORY`) from prematurely transitioning to `VERIFYING` or `COMPLETED` when their functional requirements (delegated to child tasks spawned via markdown references) are not actually implemented. Enforcing strictness on macro node completion ensures that when an Epic is reported as complete, all spawned asynchronous research or follow-up tasks have also successfully fulfilled their contracts, protecting the structural integrity of the DAG.
