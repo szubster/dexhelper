@@ -1,20 +1,32 @@
-import { render } from 'vitest-browser-react';
 import { expect, test, vi } from 'vitest';
+import { page } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
 import { DagWrapper } from '../DagWrapper';
-import { DagProvider } from '../../dashboard/DagContext';
 
 test('DagWrapper renders DagProvider and DagDashboard without crashing', async () => {
   // We can just render the wrapper to get coverage
   // Need to mock fetch to prevent the provider from trying to fetch real data and crashing/hanging
-  globalThis.fetch = vi.fn().mockResolvedValue({
+  globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({
     ok: true,
     json: async () => [],
-  });
+  } as unknown as Response);
 
-  const { getByText } = render(<DagWrapper />);
+  await render(
+    <div style={{ width: '800px', height: '600px' }}>
+      <DagWrapper />
+    </div>,
+  );
 
-  // It renders DagDashboard which will show "SYSTEM.LOADING_DAG" while fetch is pending
-  // Then since nodes/edges are empty it will just render the ReactFlow container.
+  // Since nodes/edges are empty it will just render the ReactFlow container and the filter panel.
+  await vi.waitUntil(
+    async () => {
+      const loadingEl = page.getByText('[ SYSTEM.LOADING_DAG ]').all();
+      return loadingEl.length === 0;
+    },
+    { timeout: 2000 },
+  );
+
+  await expect.element(page.getByText('IDEA')).toBeInTheDocument();
 
   // Clean up
   vi.restoreAllMocks();
