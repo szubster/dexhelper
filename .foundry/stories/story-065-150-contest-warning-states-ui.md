@@ -29,7 +29,7 @@ notes: ''
 Implement visual warning states for edge cases identified by the Gen 3 Contest Optimization Advisor algorithm. Specifically, alert users when a Pokémon has maxed out its Sheen but lacks the requisite stats for Master Rank contests, indicating a dead-end for optimization.
 
 ## Acceptance Criteria
-- [ ] Implement visual warnings for edge cases.
-- [ ] Alert users when a Pokémon has maxed out its Sheen but lacks stats for Master Rank contests.
-- [ ] task-150-242-contest-warning-states-ui-impl
-- [ ] task-150-243-contest-warning-states-ui-qa
+- [x] Implement visual warnings for edge cases.
+- [x] Alert users when a Pokémon has maxed out its Sheen but lacks stats for Master Rank contests.
+- [x] task-150-242-contest-warning-states-ui-impl
+- [x] task-150-243-contest-warning-states-ui-qa
