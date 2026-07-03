@@ -2,12 +2,12 @@
 id: epic-045-071-documentation-macro-node-completion
 type: EPIC
 title: Documentation Updates for Macro Node Completion
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: '6829845630386846429'
+jules_session_id: null
 pr_number: null
 parent: prd-072-045-strict-macro-node-completion
 tags:

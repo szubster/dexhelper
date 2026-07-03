@@ -2,13 +2,13 @@
 id: task-125-184-match-call-offsets-qa
 type: TASK
 title: QA - Verify Gen 3 Match Call Offset Definitions
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-14'
 updated_at: '2026-07-03'
 depends_on:
   - task-125-183-match-call-offsets-impl
-jules_session_id: '15988133562719257414'
+jules_session_id: null
 pr_number: null
 parent: story-083-125-gen3-match-call-memory-offset-discovery
 tags:

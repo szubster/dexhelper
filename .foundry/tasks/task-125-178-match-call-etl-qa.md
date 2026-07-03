@@ -2,13 +2,13 @@
 id: task-125-178-match-call-etl-qa
 type: TASK
 title: 'Task: QA for Gen 3 Match Call Static Data ETL'
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on:
   - task-125-177-match-call-etl-impl
-jules_session_id: '2993762822878479836'
+jules_session_id: null
 pr_number: null
 parent: story-084-125-match-call-etl
 tags:
