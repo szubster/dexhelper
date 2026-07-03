@@ -34,3 +34,4 @@ Develop the core algorithmic engine for calculating valid breeding chains. This 
 - [ ] story-113-258-egg-move-pathfinding-core
 - [ ] story-113-259-egg-move-breeding-rules
 - [ ] story-113-260-egg-move-multi-step-chains
+- [ ] research-113-248-egg-move-precomputation
