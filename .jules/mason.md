@@ -90,10 +90,6 @@
 - **Key Learnings**:
   - `React.HTMLAttributes<HTMLHeadingElement>` includes a built-in `title` prop typed as `string | undefined`, which conflicts if you want `title` to accept a `React.ReactNode` for rendering JSX elements inline. To fix this type clash when using TypeScript, use `Omit<React.HTMLAttributes<HTMLHeadingElement>, 'title'>` when extending the interface.
 
-## Fix CI: Test has no assertions
-- **What**: CI failed because three tests in `src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx` had no assertions. I added `await expect.element(page.getByText(...)).toBeVisible()` to satisfy the `oxlint` `vitest(expect-expect)` rule.
-- **Why**: The rule enforces that every test has at least one assertion.
-
 ## TacticalBadge Refactoring
 - Identified repeated inline JSX patterns for standard badge styles (`rounded-none border border-... border-dashed bg-... px-... py-... font-black text-... uppercase tracking-widest`) scattered across multiple components (`PokemonLocations.tsx`, `PokemonCatchProbability.tsx`, `PokemonEvolutions.tsx`, `PokemonCaughtDetails.tsx`).
 - Replaced these repetitive raw `div` and `span` blocks with the existing `TacticalBadge` reusable component, significantly cleaning up the markup.
