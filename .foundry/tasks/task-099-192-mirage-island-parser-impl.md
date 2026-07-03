@@ -34,6 +34,6 @@ We need to implement the Gen 3 save parser logic for extracting the Mirage Islan
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement the Mirage Island parsing logic using `DataView`.
-- [ ] Ensure out-of-bounds `RangeError`s are caught and handled gracefully.
-- [ ] Update the parent story `.foundry/stories/story-061-099-implement-mirage-island-parser.md` by checking off this task's checkbox.
+- [x] Implement the Mirage Island parsing logic using `DataView`.
+- [x] Ensure out-of-bounds `RangeError`s are caught and handled gracefully.
+- [x] Update the parent story `.foundry/stories/story-061-099-implement-mirage-island-parser.md` by checking off this task's checkbox.

@@ -33,5 +33,5 @@ With the data offsets located, we need to implement the actual parser for the Ge
 
 ## Acceptance Criteria
 - [x] Tech Lead: Generate child tasks to implement the parsing logic and integrate it into the parser engine.
-- [ ] task-099-192-mirage-island-parser-impl
+- [x] task-099-192-mirage-island-parser-impl
 - [ ] task-099-193-mirage-island-parser-qa
