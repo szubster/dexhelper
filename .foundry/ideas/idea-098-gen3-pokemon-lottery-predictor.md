@@ -31,4 +31,8 @@ Leverage DexHelper's programmatic save parsing to read the current Lottery PRNG 
 This transforms a tedious, manual daily chore (flying to Lilycove, checking the lotto, potentially missing a match because of a buried PC box Pokémon) into an instant, actionable insight. It aligns with DexHelper's vision of turning opaque game data into a premium utility feature for hardcore players and shiny hunters (who often have many traded Pokémon with different IDs).
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+
+## Acceptance Criteria
+- [ ] prd-098-104-gen3-lottery-data-extraction
+- [ ] prd-098-105-gen3-lottery-predictor-ui
