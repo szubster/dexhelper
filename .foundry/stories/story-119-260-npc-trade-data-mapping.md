@@ -1,0 +1,30 @@
+---
+id: story-119-260-npc-trade-data-mapping
+type: STORY
+title: "NPC Trade Data Mapping"
+status: PENDING
+owner_persona: tech_lead
+created_at: '2026-07-03'
+updated_at: '2026-07-03'
+depends_on:
+  - story-119-258-gen2-npc-trade-parsing
+  - story-119-259-gen3-npc-trade-parsing
+jules_session_id: null
+pr_number: null
+parent: epic-095-119-in-game-trade-data-extraction
+tags:
+  - backend
+  - mapping
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Story: NPC Trade Data Mapping
+
+## Objective
+Create a standard mapping connecting raw bitflags to specific NPC trade encounters (e.g., MUSCLE the Machop).
+
+## Acceptance Criteria
+- [ ] Tech Lead: Break down into tasks for creating data maps across generations.
