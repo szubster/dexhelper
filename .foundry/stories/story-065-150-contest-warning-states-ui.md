@@ -2,13 +2,13 @@
 id: story-065-150-contest-warning-states-ui
 type: STORY
 title: Contest Warning States UI
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-19'
 updated_at: '2026-07-03'
 depends_on:
   - story-065-149-contest-recommendation-ui-components
-jules_session_id: '11988758455390449295'
+jules_session_id: null
 pr_number: null
 parent: epic-042-065-gen3-contest-advisor-ui
 tags:
@@ -31,5 +31,5 @@ Implement visual warning states for edge cases identified by the Gen 3 Contest O
 ## Acceptance Criteria
 - [ ] Implement visual warnings for edge cases.
 - [ ] Alert users when a Pokémon has maxed out its Sheen but lacks stats for Master Rank contests.
-- [ ] .foundry/tasks/task-150-242-contest-warning-states-ui-impl.md
-- [ ] .foundry/tasks/task-150-243-contest-warning-states-ui-qa.md
+- [ ] task-150-242-contest-warning-states-ui-impl
+- [ ] task-150-243-contest-warning-states-ui-qa

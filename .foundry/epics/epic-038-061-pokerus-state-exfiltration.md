@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-06-07'
 updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: '11246232396798982707'
+jules_session_id: '16227587426132788393'
 pr_number: null
 parent: prd-069-038-pokerus-tracker
 tags:
@@ -35,6 +35,3 @@ Read the specific byte flags for Pokerus for every Pokemon in the party and PC f
 
 ## Follow-up Nodes
 - [x] .foundry/docs/adrs/adr-061-026-bitwise-state-extraction.md
-
-### Auditor Rejection
-Verification failed. The bitwise logic for Pokerus state extraction was implemented directly inline in `src/engine/saveParser/parsers/gen2.ts` instead of being standardized into shared helper functions in `src/engine/saveParser/parsers/common.ts`. This is a direct violation of ADR 026. Please refactor the extraction logic into a shared helper function in `common.ts` and update the parsing logic accordingly.

@@ -5,9 +5,9 @@ title: Documentation Updates for Macro Node Completion
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: '6829845630386846429'
+jules_session_id: '7033322333510645735'
 pr_number: null
 parent: prd-072-045-strict-macro-node-completion
 tags:
@@ -44,7 +44,7 @@ Update the core system documentation to detail the new macro node completion rul
 - [x] .foundry/stories/story-071-110-verify-core-documentation.md
 
 ### Follow-up Work
-- [x] .foundry/ideas/idea-097-schema-verifying-state-fix.md
+- [ ] idea-097-schema-verifying-state-fix
 
 ### Auditor Rejection
 Verification failed. The descendant macro node `idea-097-schema-verifying-state-fix` is in PENDING state, not COMPLETED. Macro nodes cannot be verified as completed until all of their spawned descendant nodes in the generated sub-tree have fully transitioned to the COMPLETED state.

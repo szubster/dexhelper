@@ -24,6 +24,49 @@ interface PokedexCardProps {
 
 // ⚡ Bolt: Wrapped PokedexCard in React.memo to prevent unnecessary re-renders when parent PokedexGrid updates.
 // This prevents up to 251 (Gen 2 max dex) unneeded DOM re-evaluations on every search keystroke, significantly reducing main thread blocking time.
+function getPokemonStatusFlags(
+  pokemonId: number,
+  saveData: SaveData | null,
+  isLivingDex: boolean,
+  partySet: Set<number>,
+  pcSet: Set<number>,
+  shinySpeciesIds: Set<number>,
+) {
+  const inParty = saveData ? partySet.has(pokemonId) : false;
+  const inPC = saveData ? pcSet.has(pokemonId) : false;
+  const hasInStorage = inParty || inPC;
+
+  const isOwnedInDex = saveData ? saveData.owned.has(pokemonId) : false;
+  const isSeenInDex = saveData ? saveData.seen.has(pokemonId) : false;
+
+  const isOwned = saveData ? (isLivingDex ? hasInStorage : isOwnedInDex || hasInStorage) : false;
+
+  const isSeen = saveData ? isSeenInDex || isOwned || hasInStorage : false;
+  const isUnseen = saveData && !isSeen;
+  const isSeenNotOwned = saveData && isSeen && !isOwned;
+
+  const isShiny = shinySpeciesIds.has(pokemonId);
+
+  let variant: 'default' | 'emerald' | 'amber' = 'default';
+  if (hasInStorage) {
+    variant = 'emerald';
+  } else if (saveData?.owned.has(pokemonId)) {
+    variant = 'amber';
+  }
+
+  return {
+    inParty,
+    inPC,
+    hasInStorage,
+    isOwnedInDex,
+    isSeenInDex,
+    isUnseen,
+    isSeenNotOwned,
+    isShiny,
+    variant,
+  };
+}
+
 export const PokedexCard = React.memo(function PokedexCard({
   pokemon,
   idx,
@@ -35,27 +78,8 @@ export const PokedexCard = React.memo(function PokedexCard({
 }: PokedexCardProps) {
   const navigate = useNavigate();
 
-  const inParty = saveData ? partySet.has(pokemon.id) : false;
-  const inPC = saveData ? pcSet.has(pokemon.id) : false;
-  const hasInStorage = inParty || inPC;
-
-  const isOwnedInDex = saveData ? saveData.owned.has(pokemon.id) : false;
-  const isSeenInDex = saveData ? saveData.seen.has(pokemon.id) : false;
-
-  const isOwned = saveData ? (isLivingDex ? hasInStorage : isOwnedInDex || hasInStorage) : false;
-
-  const isSeen = saveData ? isSeenInDex || isOwned || hasInStorage : false;
-  const isUnseen = saveData && !isSeen;
-  const isSeenNotOwned = saveData && isSeen && !isOwned;
-
-  const isShiny = shinySpeciesIds.has(pokemon.id);
-
-  let variant: 'default' | 'emerald' | 'amber' = 'default';
-  if (hasInStorage) {
-    variant = 'emerald';
-  } else if (saveData?.owned.has(pokemon.id)) {
-    variant = 'amber';
-  }
+  const { inParty, inPC, hasInStorage, isOwnedInDex, isSeenInDex, isUnseen, isSeenNotOwned, isShiny, variant } =
+    getPokemonStatusFlags(pokemon.id, saveData, isLivingDex, partySet, pcSet, shinySpeciesIds);
 
   return (
     <TacticalCard

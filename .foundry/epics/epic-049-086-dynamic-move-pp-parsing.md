@@ -8,7 +8,7 @@ created_at: '2026-06-13'
 updated_at: '2026-07-03'
 depends_on:
   - adr-049-025-dynamic-pokedata-parsing
-jules_session_id: '8550489948971836185'
+jules_session_id: '12508570519968788040'
 pr_number: null
 parent: prd-077-049-dynamic-pokedata-parsing
 tags:

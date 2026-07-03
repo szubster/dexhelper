@@ -2,13 +2,13 @@
 id: task-125-184-match-call-offsets-qa
 type: TASK
 title: QA - Verify Gen 3 Match Call Offset Definitions
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-14'
 updated_at: '2026-07-03'
 depends_on:
   - task-125-183-match-call-offsets-impl
-jules_session_id: '15988133562719257414'
+jules_session_id: null
 pr_number: null
 parent: story-083-125-gen3-match-call-memory-offset-discovery
 tags:
@@ -37,10 +37,10 @@ Ensure the coder correctly implemented the offsets discovered in `research-125-1
 - Ensure the implementation strictly adheres to ADR 010 (bounds checking).
 
 ## Acceptance Criteria
-- [ ] Verify offset constants for the Match Call data block.
-- [ ] Verify offset constants for rematch readiness flags.
-- [ ] Verify offset constants for rematch tier states.
-- [ ] Verify adherence to ADR 010.
+- [x] Verify offset constants for the Match Call data block.
+- [x] Verify offset constants for rematch readiness flags.
+- [x] Verify offset constants for rematch tier states.
+- [x] Verify adherence to ADR 010.
 
 ## Instructions
 - If the implementation is incorrect, mark the target node `task-125-183-match-call-offsets-impl` as FAILED, provide a `rejection_reason`, and increment its `rejection_count`. DO NOT change this QA task's status to FAILED.

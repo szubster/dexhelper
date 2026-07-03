@@ -2,13 +2,13 @@
 id: story-078-120-integrate-dag-context-with-views
 type: STORY
 title: Integrate DagContext with Dashboard Views
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-07-03'
 depends_on:
   - story-078-119-implement-dag-context-provider
-jules_session_id: '12278260915296288000'
+jules_session_id: null
 pr_number: null
 parent: epic-046-078-shared-dag-context-foundation
 tags:
@@ -30,5 +30,5 @@ Following the creation of `DagProvider` (ADR 013), existing visualization compon
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-120-236-refactor-dagdashboard-context-impl
-- [ ] task-120-237-refactor-dagdashboard-context-qa
+- [x] task-120-236-refactor-dagdashboard-context-impl
+- [x] task-120-237-refactor-dagdashboard-context-qa

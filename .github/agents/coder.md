@@ -42,7 +42,7 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 
 ### Handling Rejections & Aborts
-**CRITICAL - RESUMING FAILED TASKS:** If you are assigned to a TASK node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the QA persona's journal (`.foundry/journals/qa.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback rather than blindly resubmitting the same code.
+**CRITICAL - RESUMING FAILED TASKS:** If you are assigned to a TASK node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the QA persona's journal (`.foundry/journals/qa.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback and remove the `### Auditor Rejection` block (and its contents) from the markdown body rather than blindly resubmitting the same code.
 
 If you encounter a permanent failure, reach max rejection count, or must abort a task because it is impossible:
 1. You MUST update the target task's YAML frontmatter to `status: CANCELLED` (do NOT use `FAILED` for permanent aborts, as that triggers infinite resurrection loops).

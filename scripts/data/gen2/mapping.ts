@@ -40,24 +40,24 @@ export const GEN2_MAP_TO_AID: Record<number, Record<number, Gen2MapNode>> = {
     83: { name: 'Tohjo Falls', aid: 843, connections: [0x1802] }, // Rd 27
   },
   10: { 
-    1: { name: 'Route 31', aid: 415, connections: [0x1a01, 0x0303, 0x034e] }, 
-    2: { name: 'Route 32', aid: 418, connections: [0x0303, 0x0316, 0x0325] }, 
-    3: { name: 'Route 33', aid: 419, connections: [0x0325, 0x0304] }, 
-    4: { name: 'Route 34', aid: 420, connections: [0x0334, 0x0306] } 
+    1: { name: 'Route 31', aid: 188, connections: [0x1a01, 0x0303, 0x034e] },
+    2: { name: 'Route 32', aid: 192, connections: [0x0303, 0x0316, 0x0325] },
+    3: { name: 'Route 33', aid: 201, connections: [0x0325, 0x0304] },
+    4: { name: 'Route 34', aid: 205, connections: [0x0334, 0x0306] }
   },
   24: { 
-    1: { name: 'Route 26', aid: 409, connections: [0x1802, 0x20] }, // Route 22
-    2: { name: 'Route 27', aid: 410, connections: [0x1803, 0x0353, 0x1801] }, 
-    3: { name: 'Route 29', aid: 412, connections: [0x0301, 0x1802, 0x0302] }, 
+    1: { name: 'Route 26', aid: 287, connections: [0x1802, 0x20] }, // Route 22
+    2: { name: 'Route 27', aid: 288, connections: [0x1803, 0x0353, 0x1801] },
+    3: { name: 'Route 29', aid: 185, connections: [0x0301, 0x1802, 0x0302] },
     4: { name: 'New Bark Town', aid: 184, connections: [0x1803] } 
   },
   26: { 
-    1: { name: 'Route 30', aid: 413, connections: [0x0302, 0x1a02] }, 
-    2: { name: 'Route 31', aid: 414, connections: [0x1a01, 0x0303, 0x034e] } 
+    1: { name: 'Route 30', aid: 187, connections: [0x0302, 0x1a02] },
+    2: { name: 'Route 31', aid: 188, connections: [0x1a01, 0x0303, 0x034e] }
   },
   1: { 
-    9: { name: 'Route 38', aid: 421, connections: [0x0308, 0x010a] }, 
-    10: { name: 'Route 39', aid: 422, connections: [0x0109, 0x0307] } 
+    9: { name: 'Route 38', aid: 222, connections: [0x0308, 0x010a] },
+    10: { name: 'Route 39', aid: 223, connections: [0x0109, 0x0307] }
   },
   2: { 
     4: { name: 'Route 42', aid: 236, connections: [0x0308, 0x0339, 0x0309] },
@@ -65,9 +65,9 @@ export const GEN2_MAP_TO_AID: Record<number, Record<number, Gen2MapNode>> = {
     6: { name: 'Route 44', aid: 243, connections: [0x0309, 0x033d] }
   },
   11: { 
-    1: { name: 'Route 35', aid: 417, connections: [0x0306, 0x030f] }, 
-    22: { name: 'Route 34', aid: 420 }, 
-    23: { name: 'Route 34', aid: 420 } 
+    1: { name: 'Route 35', aid: 206, connections: [0x0306, 0x030f] },
+    22: { name: 'Route 34', aid: 205 },
+    23: { name: 'Route 34', aid: 205 }
   },
   5: { 
     8: { name: 'Route 45', aid: 251, connections: [0x030b, 0x034e, 0x0509] },

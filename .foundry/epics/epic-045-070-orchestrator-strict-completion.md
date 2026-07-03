@@ -5,9 +5,9 @@ title: Orchestrator Hierarchical Completion Checks
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-07-02'
+updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: '9059450868363838237'
+jules_session_id: '2247757745395510242'
 pr_number: null
 parent: prd-072-045-strict-macro-node-completion
 tags:
@@ -35,9 +35,9 @@ Update the DAG Orchestrator to ensure strict hierarchical completion. A node mus
 3. **Tests**: Add unit tests in `.github/scripts/foundry-orchestrator.test.ts` to ensure these new validations work correctly and don't break existing functionality.
 
 ## Acceptance Criteria
-- [ ] Implement hierarchical completion logic in `foundry-orchestrator.ts`.
-- [ ] Add unit tests verifying the behavior blocks transition when children are not completed.
-- [ ] Ensure tests cover both `parent` field links and markdown body references.
+- [x] Implement hierarchical completion logic in `foundry-orchestrator.ts`.
+- [x] Add unit tests verifying the behavior blocks transition when children are not completed.
+- [x] Ensure tests cover both `parent` field links and markdown body references.
 
-- [ ] story-070-108-orchestrator-hierarchical-completion-logic
-- [ ] story-070-109-orchestrator-hierarchical-completion-tests
+- [x] story-070-108-orchestrator-hierarchical-completion-logic
+- [x] story-070-109-orchestrator-hierarchical-completion-tests

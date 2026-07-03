@@ -320,3 +320,9 @@
 **Outcome:** Merged
 **Why:** The memory requires that when appending child nodes as unchecked tasks (`- [ ] <node_id>`) to a parent node, the parent must have an `## Acceptance Criteria` section, and the `<node_id>` must be strictly the exact Node ID without file extensions or directory paths. Several agent prompts lacked these instructions, which could lead to malformed parent nodes or DAG validation errors.
 **Pattern:** Apply systemic rules consistently across all relevant agent personas. When an architectural constraint or tool rule applies to formatting or ID usage, it must be explicitly included in all generative agent prompts to ensure compliance.
+
+## 2026-07-20 - [Accepted] - Prompt improvement - Remove Auditor Rejection blocks on resubmission
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** Agents were repeatedly leaving the `### Auditor Rejection` blocks in the markdown bodies of their nodes after resolving the issues and resubmitting. This left dead/stale comments cluttering the files.
+**Pattern:** Explicitly instruct implementation agents (Coder, Tech Lead, Story Owner, Epic Planner, and Product Manager) to not only address the feedback but also explicitly remove the `### Auditor Rejection` block (and its contents) from the markdown body when resubmitting, keeping node bodies clean.

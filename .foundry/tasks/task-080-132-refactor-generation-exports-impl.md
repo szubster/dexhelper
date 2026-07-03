@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-07-03'
 depends_on: []
-jules_session_id: '758475248386915695'
+jules_session_id: '15012982940294298005'
 pr_number: null
 parent: story-042-080-refactor-generation-exports
 tags:
