@@ -123,3 +123,6 @@ When setting node references in YAML fields (`depends_on`, `parent`) or appendin
 
 When determining the next available sequence number for nodes using the `<type>-<parent_NNN>-<NNN>-<slug>` schema, extract the third token (the actual `NNN`) from existing files using tools like `awk -F'-' '{print $3}'` rather than relying on standard directory sorting, to prevent sequence ID collisions and sorting misalignments.
 2026-07-02: Enforced constraint where appending references to newly generated child nodes in a parent node's markdown body MUST strictly format them as unchecked tasks using the exact Node ID without file extensions or directory paths (e.g., `- [ ] <node_id>`).
+
+### 2026-07-04 - Late Binding for Gen 3 NPC Trades
+Suspended story-119-259-gen3-npc-trade-parsing and spawned research-259-249-gen3-npc-trade-parsing. Gen 3 NPC Trade data structures/offsets were missing from the knowledge base, necessitating late binding to gather accurate constraints before drafting technical blueprints.
