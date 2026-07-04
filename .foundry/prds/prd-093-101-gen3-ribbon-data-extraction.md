@@ -58,3 +58,6 @@ This PRD outlines the requirements for extending our programmatic save parsing e
 - [ ] Implement extraction logic for the 32-bit Ribbon bitfield from the 'M' substructure.
 - [ ] Implement extraction logic for Contest stats from the 'E' substructure.
 - [ ] Write unit tests to verify Ribbon and Condition data extraction using known Gen 3 save file fixtures (`test.extend` pattern).
+- [ ] epic-101-133-gen3-ribbon-extraction
+- [ ] epic-101-134-gen3-condition-stats-extraction
+- [ ] epic-101-135-save-parser-integration
