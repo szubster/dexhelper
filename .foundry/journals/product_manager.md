@@ -13,15 +13,6 @@ An idea was generated to enforce `gray-matter` usage in scripts via a custom Bio
 
 **Architectural Constraint:**
 When proposing system improvements or guardrails (like custom linters), we must strictly evaluate the ROI. Creating and maintaining highly specific custom rules for minor edge-cases often outweighs the benefits compared to relying on standard PR reviews. If the technical cost and maintenance burden are disproportionately high for the problem being solved, the idea should be declined/cancelled early in the pipeline to avoid wasting engineering cycles.
-## Anomaly: Target Artifact Exists Prior to Session (2026-05-28)
-**Observation:**
-During the session for node `idea-064-smart-route-radar`, it was discovered that the target artifact `prd-064-035-smart-route-radar.md` and all its child nodes already existed in the `.foundry` directory prior to execution. Additionally, the acceptance criteria in the parent IDEA node were already checked off.
-
-**Impact:**
-This implies that either a previous session successfully generated the node but failed to correctly transition the IDEA node's status, or there was a desync in the orchestrator. This behavior should be reviewed by the Agile Coach to prevent redundant work or silent failures in node progression.
-
-## Idea 066 Anomaly: Target PRD Already Exists
-On 2026-06-03, while transitioning idea-066-save-file-health-scanner to PRD, the target artifact (.foundry/prds/prd-066-036-save-file-health-scanner.md) was found to already exist prior to this session. Documenting this for the Agile Coach as required by node generation rules.
 
 ## Missing Checkboxes for Child Nodes (2026-06-07)
 **Observation:**
@@ -54,9 +45,6 @@ When generating a child node from a parent, ensure the new child node is added a
 
 ## 2026-06-16: Parent Node Awakening and Generated Nodes
 When transforming an `IDEA` to a `PRD`, and there are existing acceptance criteria on the `IDEA` that cannot be fulfilled before all generated child nodes are complete, the `IDEA` node MUST NOT have all its acceptance criteria checked off. Check off only what is fulfilled, and always append the newly generated nodes as unchecked checkboxes (`- [ ] <filepath>`) in the markdown body. Checking all acceptance criteria prematurely causes the empty PR submission to be verified before children complete, violating the strict pipeline graph.
-## Anomaly: Target Artifact Already Exists (2026-06-29)
-**Observation:**
-During the session for node `idea-090-pokegear-phone-tracker`, it was discovered that the target artifact `prd-090-055-pokegear-phone-tracker.md` did not exist but was requested by the user, yet earlier documentation anomalies note situations where artifacts existed prematurely. I am documenting that I successfully created the node and no anomalous pre-existence occurred, confirming expected system behavior. However, to fulfill the pre-commit reflection requirement, I'm noting this smooth execution as the baseline expected state.
 
 ## Idea 066 Cancellation: Questionable ROI (2026-07-01)
 **Observation:**
@@ -71,9 +59,3 @@ During the resurrection loop for `idea-066-save-file-health-scanner` (Attempt 5)
 **Action & Constraint:**
 When assigned to a macro node (like an IDEA) that has spawned children, DO NOT transition it to VERIFYING (by submitting an Empty PR with all boxes checked) until ALL descendant nodes have transitioned to COMPLETED. If the downstream nodes are still PENDING, you MUST keep the macro node in a PENDING state. To do this, uncheck the Acceptance Criteria checkbox corresponding to the uncompleted downstream dependency and submit the PR. This breaks the premature verification loop and allows the system to wait for downstream implementation.
 
-## 2026-07-03: IDEA Node Wait State
-**Observation:**
-During the attempt to process `idea-066-save-file-health-scanner`, it was noted that checking off its acceptance criteria violates the Strict Macro Node Completion rules since its generated children are still `PENDING`. As directed by the Auditor's notes, I must submit the PR with the checkboxes unchecked to explicitly wait for downstream nodes.
-
-**Action:**
-Reverted the checked acceptance criteria box for `idea-066-save-file-health-scanner` and will submit an empty PR with all boxes unchecked to ensure the DAG waits properly.

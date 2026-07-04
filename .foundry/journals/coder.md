@@ -61,11 +61,6 @@ When implementing save parser tasks (e.g., Gen 3 berry patches), concrete memory
 ## Verifying Gen 3 Save File Sections
 When verifying save file documentation (e.g. Generation 3 save parsing), it is crucial to ensure that the stated offsets fall within the correct section headers as defined by authoritative sources like Bulbapedia. Failing to map byte offsets to the correct logical 4KB section boundaries can lead to incorrect data extraction in the orchestrator.
 
-## Self-Verification of task-108-161-update-schema-macro-node-completion-impl
-Documenting self-verification of the schema.md updates:
-1. Checked schema.md using `sed -n '180,201p' .foundry/docs/schema.md | tail -n 8` to verify "Invariant 15" was correctly added as: `Macro nodes (\`IDEA\`, \`PRD\`, \`EPIC\`, \`STORY\`) cannot complete until all of their descendant nodes are \`COMPLETED\`.`
-2. Used `cat` to verify that `.foundry/tasks/task-108-161-update-schema-macro-node-completion-impl.md`'s acceptance criteria box was successfully checked: `- [x] Update schema.md to explain hierarchical completion rules.`
-
 ## 2026-06-14: Missing Bitfield Formulas in Research
 When implementing save parser logic, research handoffs occasionally identify bitfields (e.g., Gen 3 Roamer IVs) without specifying the exact bit shifts or field sizes required for correct extraction. It's critical to avoid hallucinating these exact mathematical formulas to comply with groundedness rules. When this occurs, always spawn a late-bound `RESEARCH` node to determine the exact parsing formula and suspend the implementation task until the data is verified.
 
