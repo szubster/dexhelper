@@ -2,12 +2,12 @@
 id: task-152-260-refactor-feebas-magic-numbers-impl
 type: TASK
 title: Refactor Feebas Magic Numbers Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-03'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13613789069987090617'
 pr_number: null
 parent: story-058-152-refactor-feebas-magic-numbers
 tags:
