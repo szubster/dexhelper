@@ -32,4 +32,6 @@ Based on the UI specification in `.foundry/docs/knowledge_base/ui/gen3_roamer_da
 ## Acceptance Criteria
 - [ ] Build a React component for the IV Glitch Warning Module.
 - [ ] Connect the component to the glitch detection logic output.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-269-262-gen3-roamer-iv-glitch-warning-ui-impl
+- [ ] task-269-263-gen3-roamer-iv-glitch-warning-ui-qa
