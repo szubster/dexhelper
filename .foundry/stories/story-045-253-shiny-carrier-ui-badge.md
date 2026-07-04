@@ -33,6 +33,8 @@ Introduce a distinct UI badge/indicator for "Shiny Carrier" Pokémon in PC boxes
 - Ensure the visual distinction between Shiny Carriers and actual Shiny Pokémon is clear.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into frontend Tasks.
+- [x] Tech Lead: Break down into frontend Tasks.
+- [ ] task-253-260-shiny-carrier-ui-badge-impl
+- [ ] task-253-261-shiny-carrier-ui-badge-qa
 
 ## Next Steps
