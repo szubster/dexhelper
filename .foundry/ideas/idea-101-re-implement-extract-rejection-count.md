@@ -2,7 +2,7 @@
 id: idea-101-re-implement-extract-rejection-count
 type: IDEA
 title: Re-implement Rejection Count Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-07-04'
 updated_at: '2026-07-04'
@@ -16,6 +16,7 @@ tags:
   - dashboard
 research_references: []
 notes: ''
+rejection_reason: ''
 ---
 
 # Re-implement Rejection Count Extraction
