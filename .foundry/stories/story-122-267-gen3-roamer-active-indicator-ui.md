@@ -31,4 +31,6 @@ Based on the UI specification in `.foundry/docs/knowledge_base/ui/gen3_roamer_da
 ## Acceptance Criteria
 - [ ] Build a React component for the Active Status Indicator.
 - [ ] Connect the component to the parsed `active` boolean state.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-267-262-gen3-roamer-active-indicator-impl
+- [ ] task-267-263-gen3-roamer-active-indicator-qa
