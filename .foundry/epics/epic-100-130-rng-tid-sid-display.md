@@ -27,4 +27,6 @@ Provide UI elements to clearly display both the Trainer ID (TID) and Secret ID (
 ## Acceptance Criteria
 - [ ] Ensure TID and SID are displayed together in the UI.
 - [ ] Implement a copy-to-clipboard button for the TID/SID combination.
-- [ ] Story Owner: Convert this Epic into actionable Stories.
+- [x] Story Owner: Convert this Epic into actionable Stories.
+- [ ] story-130-269-rng-tid-sid-component
+- [ ] story-130-270-rng-tid-sid-integration
