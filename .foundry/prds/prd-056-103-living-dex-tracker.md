@@ -38,4 +38,7 @@ We need a dedicated "Living Dex Tracker" view in the DexHelper UI.
 - Toggleable or accessible from the main DexHelper storage view.
 
 ## 4. Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into manageable Epics.
+- [x] Epic Planner: Break down this PRD into manageable Epics.
+- [ ] epic-103-133-living-dex-data-engine
+- [ ] epic-103-134-living-dex-grid-ui
+- [ ] epic-103-135-living-dex-evolution-highlighting
