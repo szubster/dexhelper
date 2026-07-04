@@ -175,3 +175,7 @@
 ## 2026-07-03
 **Idea:** Gen 1-3 Static Encounter & Legendary Checklist
 **Learning:** Expanding DexHelper's collection capabilities beyond the full Pokédex to track limited, one-time static encounters provides immense unique value. While standard Pokédex trackers tell a player *what* they are missing, leveraging save-state event flags tells them exactly *where* to go in their specific playthrough to find non-respawning Pokémon (like Snorlax, Sudowoodo, or Legendaries). This directly reduces friction and aligns perfectly with the premium companion app philosophy.
+
+## 2026-07-04
+**Idea:** Gen 1-3 PC Box Organization Assistant
+**Learning:** When faced with a hard technical limitation (e.g., we cannot write to the save file to auto-sort boxes), we can still provide immense value by creating a "guided assistant." Providing a visual comparison of the "current state" vs "optimal sorted state" and a move planner turns our read-only constraint into an actionable, premium QoL feature for hardcore collectors.
