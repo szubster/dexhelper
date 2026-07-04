@@ -36,3 +36,4 @@ When players mix records in Gen 3, they exchange Secret Bases and trainer data. 
 - [x] Break down into Tasks.
 - [ ] task-109-247-parse-secret-base-trainer-party
 - [ ] task-109-248-parse-secret-base-trainer-party-qa
+- [ ] research-109-262-secret-base-party-offsets
