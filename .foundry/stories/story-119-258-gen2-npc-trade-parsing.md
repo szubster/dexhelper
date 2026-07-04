@@ -26,4 +26,6 @@ notes: ''
 Implement extraction of NPC trade completion flags from Gen 2 (Gold, Silver, Crystal) save files.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks for identifying and extracting Gen 2 trade flags.
+- [x] Tech Lead: Break down into tasks for identifying and extracting Gen 2 trade flags.
+- [ ] task-258-261-gen2-npc-trade-parsing-impl
+- [ ] task-258-262-gen2-npc-trade-parsing-qa
