@@ -2,12 +2,12 @@
 id: story-111-249-investigate-trick-house-offsets
 type: STORY
 title: Investigate Gen 3 Trick House Offsets
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5574182834864354917'
 pr_number: null
 parent: epic-054-111-trick-house-save-parsing
 tags:
