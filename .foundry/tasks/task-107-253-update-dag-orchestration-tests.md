@@ -2,12 +2,12 @@
 id: task-107-253-update-dag-orchestration-tests
 type: TASK
 title: Update DAG Orchestration Tests
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-01'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: '14909575923590777515'
+jules_session_id: null
 pr_number: null
 parent: story-053-107-update-dag-orchestration-tests
 tags:
