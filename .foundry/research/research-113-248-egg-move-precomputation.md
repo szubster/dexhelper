@@ -2,12 +2,12 @@
 id: research-113-248-egg-move-precomputation
 type: RESEARCH
 title: Feasibility of Precomputing Egg Move Paths
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-03'
-updated_at: '2026-07-03'
+updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15377415144645135185'
 pr_number: null
 parent: epic-055-113-egg-move-pathfinding-engine
 tags:
