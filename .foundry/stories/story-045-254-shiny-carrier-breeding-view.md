@@ -33,6 +33,8 @@ Create a dedicated "Breeding" view or section in the UI that displays the optima
 - Ensure the UI components adhere to the tactical hardware aesthetic (`rounded-none`, `border-dashed`, monospaced fonts).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into frontend Tasks.
+- [x] Tech Lead: Break down into frontend Tasks.
 
 ## Next Steps
+- [ ] task-254-260-shiny-carrier-breeding-view-impl
+- [ ] task-254-261-shiny-carrier-breeding-view-qa
