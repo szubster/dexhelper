@@ -2,12 +2,12 @@
 id: prd-093-101-gen3-ribbon-data-extraction
 type: PRD
 title: Gen 3 Ribbon Master Challenge Tracker - Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-02'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: '4556250785732090485'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

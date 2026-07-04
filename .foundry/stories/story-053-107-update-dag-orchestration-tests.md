@@ -2,10 +2,10 @@
 id: story-053-107-update-dag-orchestration-tests
 type: STORY
 title: Update DAG Orchestration Tests
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-07-01'
+updated_at: '2026-07-04'
 depends_on:
   - story-053-106-dag-utils-unit-tests
 jules_session_id: null

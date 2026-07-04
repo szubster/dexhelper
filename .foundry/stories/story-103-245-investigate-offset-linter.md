@@ -2,12 +2,12 @@
 id: story-103-245-investigate-offset-linter
 type: STORY
 title: Investigate Linter for Save Parsing Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-29'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: '13193010394557700095'
+jules_session_id: null
 pr_number: null
 parent: epic-053-103-relative-offsets-adr
 tags:

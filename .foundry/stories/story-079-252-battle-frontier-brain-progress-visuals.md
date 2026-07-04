@@ -2,12 +2,12 @@
 id: story-079-252-battle-frontier-brain-progress-visuals
 type: STORY
 title: Battle Frontier Brain Progress Visuals
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-02'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: '9297545464459992522'
+jules_session_id: null
 pr_number: null
 parent: epic-046-079-gen3-battle-frontier-dashboard-ui
 tags:

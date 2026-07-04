@@ -2,10 +2,10 @@
 id: story-122-269-gen3-roamer-iv-glitch-warning-ui
 type: STORY
 title: Gen 3 Roamer IV Glitch Warning UI
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-07-03"
-updated_at: "2026-07-03"
+created_at: '2026-07-03'
+updated_at: '2026-07-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - iv-glitch
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 3 Roamer IV Glitch Warning UI

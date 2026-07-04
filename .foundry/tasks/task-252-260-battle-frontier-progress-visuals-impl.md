@@ -2,7 +2,7 @@
 id: task-252-260-battle-frontier-progress-visuals-impl
 type: TASK
 title: Battle Frontier Brain Progress Visuals Impl
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-04'
 updated_at: '2026-07-04'
