@@ -24,4 +24,6 @@ notes: ''
 
 # Gen 3 Ash Gathering Save Parsing
 
-- [ ] Create Story for extracting Volcanic Ash count using DataView API based on research findings.
+## Acceptance Criteria
+- [x] Create Story for extracting Volcanic Ash count using DataView API based on research findings.
+- [ ] story-113-267-gen3-ash-dataview-extraction
