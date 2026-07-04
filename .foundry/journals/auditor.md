@@ -104,3 +104,8 @@ During the verification of `epic-045-070-orchestrator-strict-completion`, the im
 
 **Why this matters:**
 This prevents macro nodes (like `IDEA`, `PRD`, `EPIC`, `STORY`) from prematurely transitioning to `VERIFYING` or `COMPLETED` when their functional requirements (delegated to child tasks spawned via markdown references) are not actually implemented. Enforcing strictness on macro node completion ensures that when an Epic is reported as complete, all spawned asynchronous research or follow-up tasks have also successfully fulfilled their contracts, protecting the structural integrity of the DAG.
+
+## 2026-07-04: Verification of Gen 2 Pokerus State Exfiltration
+
+**Lesson: Explicit Bitwise Extraction and Boundary Testing**
+When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026`. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero, and absolute zero state) were comprehensively tested. This ensures accurate rendering of pokerus indicators on the UI and protects against scaling regressions.
