@@ -2,12 +2,12 @@
 id: idea-100-static-encounter-tracker
 type: IDEA
 title: Gen 1-3 Static Encounter & Legendary Checklist
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-03'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2827931442751923945'
 pr_number: null
 parent: null
 tags:
