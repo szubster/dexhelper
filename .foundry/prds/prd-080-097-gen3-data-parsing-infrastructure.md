@@ -30,3 +30,7 @@ Implement the core infrastructure to parse and decrypt the 100-byte Gen 3 Pokém
 2. Calculate the decryption key using `PV XOR OT ID`.
 3. Resolve the substructure order using `PV % 24` to map the decrypted 48-byte block to G, A, E, M components.
 4. Support all Gen 3 games (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
+
+## Acceptance Criteria
+- [ ] epic-097-130-gen3-data-structure-extraction
+- [ ] epic-097-131-gen3-data-decryption-mapping
