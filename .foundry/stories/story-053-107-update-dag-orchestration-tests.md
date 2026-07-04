@@ -31,6 +31,6 @@ This story details the technical steps for updating the DAG orchestration tests 
 - Ensure all existing tests pass after the refactor.
 
 ## Acceptance Criteria
-- [ ] Existing orchestration tests are updated to use the new module.
-- [ ] All existing tests pass successfully.
-- [ ] task-107-253-update-dag-orchestration-tests
+- [x] Existing orchestration tests are updated to use the new module.
+- [x] All existing tests pass successfully.
+- [x] task-107-253-update-dag-orchestration-tests
