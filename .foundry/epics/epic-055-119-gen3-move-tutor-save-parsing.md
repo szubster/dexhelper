@@ -42,3 +42,5 @@ Implement the logic to parse Gen 3 save files and extract the event flags indica
 - [ ] Move Tutor flags are correctly extracted from FireRed/LeafGreen save files using `DataView`.
 - [ ] The parser correctly distinguishes between "Available" (flag unset) and "Used" (flag set) tutors.
 - [ ] Out-of-bounds reads or malformed saves are handled gracefully without application crashes.
+- [ ] story-119-267-gen3-move-tutor-emerald-parsing
+- [ ] story-119-268-gen3-move-tutor-frlg-parsing
