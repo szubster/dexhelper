@@ -123,3 +123,8 @@ When setting node references in YAML fields (`depends_on`, `parent`) or appendin
 
 When determining the next available sequence number for nodes using the `<type>-<parent_NNN>-<NNN>-<slug>` schema, extract the third token (the actual `NNN`) from existing files using tools like `awk -F'-' '{print $3}'` rather than relying on standard directory sorting, to prevent sequence ID collisions and sorting misalignments.
 2026-07-02: Enforced constraint where appending references to newly generated child nodes in a parent node's markdown body MUST strictly format them as unchecked tasks using the exact Node ID without file extensions or directory paths (e.g., `- [ ] <node_id>`).
+
+## 2026-07-04: Empty PR Policy for Completed Children
+- **Observation**: When assigned to an `ACTIVE` story (e.g., `story-103-245-investigate-offset-linter`) where all of its dynamically generated child tasks (e.g., `task-245-249-investigate-offset-linter`) have already transitioned to `COMPLETED` in a prior execution loop, the Orchestrator expects the parent node to be explicitly verified.
+- **Action**: To transition the Story to `VERIFYING` without prematurely violating the DAG, the Tech Lead must explicitly check off the acceptance criteria and child node checkboxes in the Story's markdown body and submit an Empty PR. No new task nodes need to be generated if the existing completed tasks fully satisfy the Story's requirements.
+- **Lesson**: Do not hallucinate or spawn redundant fallback tasks when the existing child tasks are demonstrably `COMPLETED`. Instead, rely on the Empty PR policy to formalize the completion of the parent Story.

@@ -29,8 +29,8 @@ Investigate if a linter rule can be built to flag hardcoded absolute offsets dur
 Currently, save file extraction uses absolute hardcoded offsets for dynamic blocks, which can lead to unpredictable behavior and regressions.
 
 ## Acceptance Criteria
-- [ ] Investigate the feasibility of creating a custom ESLint or Biome rule.
-- [ ] Document findings and propose next steps (either create the rule or fall back to an ADR).
+- [x] Investigate the feasibility of creating a custom ESLint or Biome rule.
+- [x] Document findings and propose next steps (either create the rule or fall back to an ADR).
 
 ### Generated Tasks
-- [ ] .foundry/tasks/task-245-249-investigate-offset-linter.md
+- [x] task-245-249-investigate-offset-linter
