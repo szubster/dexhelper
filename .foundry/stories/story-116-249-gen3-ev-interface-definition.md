@@ -32,3 +32,6 @@ To properly represent EV data extracted from Gen 3 save files, the `PokemonInsta
 - The `evs` property should be an object containing `hp`, `atk`, `def`, `spa`, `spd`, and `spe` properties.
 
 ## 4. Acceptance Criteria
+
+- [x] Break down into Tasks
+- [ ] task-249-261-gen3-ev-interface-impl
