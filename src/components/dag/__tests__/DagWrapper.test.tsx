@@ -1,6 +1,7 @@
 import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { Route } from '../../../routes/dag';
 import { DagWrapper } from '../DagWrapper';
 
 test('DagWrapper renders DagProvider and DagDashboard without crashing', async () => {
@@ -43,4 +44,9 @@ test('DagWrapper renders DagProvider and DagDashboard without crashing', async (
 
   // Clean up
   vi.restoreAllMocks();
+});
+
+test('Dag route definition is correct', () => {
+  expect(Route).toBeDefined();
+  expect(Route.options.component).toBeDefined();
 });
