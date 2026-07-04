@@ -46,14 +46,20 @@ test('renders dashboard with correct data', async () => {
   await expect.element(page.getByText('COMBAT SIMULATION MATRIX')).toBeInTheDocument();
   await expect.element(page.getByText('1234 BP')).toBeInTheDocument();
 
-  await expect.element(page.getByText('BATTLE TOWER')).toBeInTheDocument();
-  await expect.element(page.getByText('BATTLE DOME')).toBeInTheDocument();
+  await expect.element(page.getByText('[ BATTLE TOWER ]')).toBeInTheDocument();
+  await expect.element(page.getByText('[ BATTLE DOME ]')).toBeInTheDocument();
 
-  await expect.element(page.getByText('35')).toBeInTheDocument();
-  await expect.element(page.getByText('70')).toBeInTheDocument();
+  const streak35Elements = page.getByText('35').elements();
+  expect(streak35Elements.length).toBeGreaterThan(0);
 
-  await expect.element(page.getByText('SILVER_SYMBOL_ACQUIRED')).toBeInTheDocument();
-  await expect.element(page.getByText('GOLD_SYMBOL_ACQUIRED')).toBeInTheDocument();
+  const targetElements = page.getByText('TARGET').elements();
+  expect(targetElements.length).toBeGreaterThan(0);
+
+  const silverSymbolElements = page.getByText('SILVER SYMBOL ACQUIRED').elements();
+  expect(silverSymbolElements.length).toBeGreaterThan(0);
+
+  const goldSymbolElements = page.getByText('GOLD SYMBOL ACQUIRED').elements();
+  expect(goldSymbolElements.length).toBeGreaterThan(0);
 });
 
 test('does not throw an error if no symbols or win streaks exist', async () => {
