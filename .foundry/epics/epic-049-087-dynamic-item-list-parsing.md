@@ -37,8 +37,5 @@ Currently, valid item lists are either manually maintained or fetched ad-hoc. Ma
 - [x] Handle any validation required for items (e.g. mapping across generations, PokeAPI IDs to internal ROM IDs).
 - [x] Output the correct `items.jsonl` data payload.
 
-- [ ] story-087-128-dynamic-item-list-parsing
-- [ ] story-087-245-item-list-validation
-
-### Auditor Rejection
-The child stories (`story-087-128-dynamic-item-list-parsing` and `story-087-245-item-list-validation`) are still located in their active directory (`.foundry/stories/`) instead of the `.foundry/archive/` directory. This means they have not fully transitioned to the COMPLETED state by the orchestrator. A macro node MUST NOT be verified until its descendant nodes have actually been fully implemented and archived.
+- [x] story-087-128-dynamic-item-list-parsing
+- [x] story-087-245-item-list-validation

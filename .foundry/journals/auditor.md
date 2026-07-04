@@ -112,5 +112,5 @@ During the verification of `epic-045-070-orchestrator-strict-completion`, the im
 **Why this matters:**
 This prevents macro nodes (like `IDEA`, `PRD`, `EPIC`, `STORY`) from prematurely transitioning to `VERIFYING` or `COMPLETED` when their functional requirements (delegated to child tasks spawned via markdown references) are not actually implemented. Enforcing strictness on macro node completion ensures that when an Epic is reported as complete, all spawned asynchronous research or follow-up tasks have also successfully fulfilled their contracts, protecting the structural integrity of the DAG.
 
-### Lesson: Checking File Paths for Fully Completed Nodes
-When verifying if descendant nodes have fully transitioned to the COMPLETED state, check their file paths. Fully completed nodes are moved to the `.foundry/archive/` directory by the orchestrator. Nodes still located in their active directories (e.g., `.foundry/stories/`, `.foundry/tasks/`) are not fully complete and must trigger an Auditor Rejection.
+### Lesson: TPM Persona and Archive Directory
+The Archive is maintained independently by the Tpm persona. The fact that a node is not in the archive directory does not mean it's not complete.
