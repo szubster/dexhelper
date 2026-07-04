@@ -36,4 +36,7 @@ Leverage DexHelper's capability to read event flags and hidden state from the sa
 This directly tackles the anxiety of "Did I already catch the Snorlax on Route 12?" by surfacing hidden event flags. It perfectly complements existing collection trackers by transforming static game knowledge (wiki lists of legendaries/static spawns) into a highly personalized, dynamic "to-do list" based strictly on the player's unique save state. This deepens DexHelper's role as the ultimate completionist companion app.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to detail the event flags to parse across Gens 1-3 for static encounters and define the UI presentation.
+- [x] Product Manager: Convert this idea into a PRD to detail the event flags to parse across Gens 1-3 for static encounters and define the UI presentation.
+
+## Acceptance Criteria
+- [ ] prd-100-106-static-encounter-tracker
