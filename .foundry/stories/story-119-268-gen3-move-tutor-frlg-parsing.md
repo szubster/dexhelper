@@ -32,4 +32,6 @@ As described in `research-055-247-gen3-move-tutor-offsets` (detailed in `gen3_mo
 - Data must be extracted using `DataView` as mandated by ADR 010.
 
 ## Acceptance Criteria
-- [ ] Create tasks for implementing DataView-based extraction of FRLG Move Tutor bits.
+- [x] Create tasks for implementing DataView-based extraction of FRLG Move Tutor bits.
+- [ ] task-268-261-gen3-move-tutor-frlg-parsing-impl
+- [ ] task-268-262-gen3-move-tutor-frlg-parsing-qa
