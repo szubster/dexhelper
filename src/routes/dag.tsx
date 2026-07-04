@@ -1,6 +1,6 @@
 import { createFileRoute, lazyRouteComponent } from '@tanstack/react-router';
 
-const LazyDagDashboard = lazyRouteComponent(() => import('../components/dag'), 'DagDashboard');
+const LazyDagWrapper = lazyRouteComponent(() => import('../components/dag'), 'DagWrapper');
 
 export const Route = createFileRoute('/dag')({
   component: DagRoute,
@@ -9,7 +9,7 @@ export const Route = createFileRoute('/dag')({
 function DagRoute() {
   return (
     <div className="h-[calc(100vh-140px)] w-full">
-      <LazyDagDashboard />
+      <LazyDagWrapper />
     </div>
   );
 }

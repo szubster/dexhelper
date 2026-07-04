@@ -35,6 +35,6 @@ As mandated by ADR 013 and ADR 017, the core DAG data state must be lifted into 
 *   **Empty PRs**: If you submit an empty PR for a completed task (e.g., the target artifact already exists and matches the required state), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement data fetching and state management logic in `DagProvider`.
-- [ ] Wrap the DAG views with `DagProvider`.
-- [ ] Ensure `DagProvider` provides the correct data structure required by ADR 013 and ADR 017.
+- [x] Implement data fetching and state management logic in `DagProvider`.
+- [x] Wrap the DAG views with `DagProvider`.
+- [x] Ensure `DagProvider` provides the correct data structure required by ADR 013 and ADR 017.
