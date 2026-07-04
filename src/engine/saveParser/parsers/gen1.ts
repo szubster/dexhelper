@@ -188,7 +188,8 @@ function hasYellowPikachuMarkers(view: DataView): boolean {
 }
 
 /**
- * Calculates heuristic scores representing the likelihood of the save originating from Red, Blue, or Yellow.
+ * Calculates a heuristic score for determining if a save file is Red, Blue, or Yellow
+ * by counting the number of version-exclusive Pokémon the player owns or has seen.
  *
  * This iterates through known version-exclusive Pokémon arrays (e.g., Vulpix in Blue, Growlithe in Red,
  * or Weedle missing in Yellow) and awards points based on whether the player has seen or natively caught them.
@@ -215,6 +216,9 @@ function calculateVersionScores(
   let blueScore = 0;
   let yellowPenalty = 0;
 
+  // We only want to count Pokemon caught natively in this save file towards the version score.
+  // Traded exclusives from other versions would skew the heuristic.
+  // We verify this by checking if the Original Trainer (OT) matches the player.
   const isNative = (id: number) => {
     const inParty = partyDetails.find((p) => p.speciesId === id);
     if (inParty) return inParty.otName === trainerName;
@@ -238,21 +242,19 @@ function calculateVersionScores(
 }
 
 /**
- * Attempts to heuristically determine the specific Generation 1 game version (Red, Blue, or Yellow).
+ * Attempts to determine the exact Generation 1 game version (Red, Blue, or Yellow).
  *
- * Gen 1 saves do not contain a dedicated byte that explicitly identifies the game version.
- * Instead, this function infers the version by analyzing the player's Pokédex (owned/seen exclusives),
- * in-game trade OT names (which differ between versions), and Yellow-specific markers (like Pikachu's happiness).
- * It first checks for high-confidence Yellow markers (Pikachu friendship/status bytes).
- * If those are inconclusive, it falls back to a scoring system based on version-exclusive
- * Pokémon found in the player's Pokédex and party.
+ * **Detection Heuristics:**
+ * 1. **Yellow Explicit Markers:** Checks for Pikachu-specific memory addresses (e.g., following Pikachu state).
+ * 2. **Pokédex Analysis:** If not explicitly Yellow, it evaluates the number of Red/Blue exclusives the player owns.
+ * 3. **Native Verification:** Cross-references the party OT names to ensure traded exclusives do not skew the score.
  *
- * @param view - The raw save file DataView.
- * @param owned - A set of Pokémon Pokédex IDs the player has caught.
- * @param seen - A set of Pokémon Pokédex IDs the player has seen.
- * @param trainerName - The player's Original Trainer (OT) name.
- * @param partyDetails - A quick parsing of the player's party to verify if Pikachu is a native starter.
- * @returns 'red', 'blue', 'yellow', or 'unknown' if the heuristic scores are too close to confidently decide.
+ * @param view - The raw save file data view.
+ * @param owned - Set of owned Pokémon species IDs.
+ * @param seen - Set of seen Pokémon species IDs.
+ * @param trainerName - The player's trainer name.
+ * @param partyDetails - Basic party details to check OT names.
+ * @returns The determined game version, or 'unknown' if inconclusive.
  */
 function detectGen1GameVersion(
   view: DataView,
@@ -441,6 +443,7 @@ function detectVersionAndOffsets(
   };
 
   // Probe offset 0x25A3 (Expected Red/Blue start address for Pokédex Owned flags)
+  // If the MSB of the 19th byte is 0, this offset alignment is structurally valid.
   const res0 = detectForOffset(0x25a3);
   // Probe offset 0x25A4 (Expected Yellow start address for Pokédex Owned flags, shifted by +1)
   const res1 = detectForOffset(0x25a4);
