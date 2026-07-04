@@ -2,18 +2,20 @@
 id: story-069-247-gen2-roamer-radar-widget
 type: STORY
 title: Gen 2 Roamer Radar Widget
-status: READY
+status: FAILED
+rejection_reason: 'Suspended pending research'
 owner_persona: tech_lead
 created_at: '2026-06-30'
 updated_at: '2026-07-04'
-depends_on: []
+depends_on:
+  - research-247-248-gen2-roamer-offsets
 jules_session_id: null
 pr_number: null
 parent: epic-043-069-roamer-radar-ui
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+
 notes: ''
 ---
 
@@ -32,3 +34,4 @@ Construct a UI component that displays a list of active Gen 2 roamers (Raikou, E
 - [ ] The component shows the human-readable route location for each roamer.
 - [ ] Status tags are correctly displayed based on save data.
 - [ ] Tech Lead: Break down into tasks.
+- [ ] research-247-248-gen2-roamer-offsets
