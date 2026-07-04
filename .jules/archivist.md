@@ -65,3 +65,8 @@
 
 **Learning:** Duplicate entries inside journals (e.g. `.foundry/journals/auditor.md`) frequently happen when the same or similar concept is independently observed multiple times and recorded by the auditor without checking if it already exists. The auditor journal had heavily duplicated learnings for "Tailwind v4 @utility Consolidation", "QA Task Verification Pairing Flexibility", "Strict Hierarchical Verification for Macro Nodes", and "Pokerus Bitwise Parsing".
 **Action:** Consolidated duplicated pattern insights into canonical architectural constraints in the auditor journal, removing redundancy. Agents should check journals for existing similar entries before appending new ones.
+
+## 2026-07-16 - Archivist Run Learnings
+
+**Learning:** Agents continue to pollute their journals with transient execution logs such as "I verified X" or "[Anomaly] Target artifact existed", violating the policy that journals are only for architectural constraints and critical lessons.
+**Action:** Systematically scrubbed execution logs from Auditor, Coder, Product Manager, QA, and Tech Lead journals.
