@@ -27,5 +27,6 @@ As part of enforcing macro node functional boundaries, we need to ensure that an
 Investigate `.github/scripts/foundry-orchestrator.ts` and `.github/scripts/foundry-heartbeat.ts` to see if there are programmatic ways to enforce that an EPIC cannot bypass the verification stage without a dedicated Integration/E2E story.
 
 ## Acceptance Criteria
-- [ ] Analyze orchestrator scripts for programmatic safeguards.
-- [ ] Create necessary STORY nodes for investigation and implementation if viable.
+- [x] Analyze orchestrator scripts for programmatic safeguards.
+- [x] Create necessary STORY nodes for investigation and implementation if viable.
+- [ ] story-127-269-epic-e2e-safeguard
