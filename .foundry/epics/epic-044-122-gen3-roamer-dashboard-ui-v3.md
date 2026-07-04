@@ -35,4 +35,7 @@ Develop a dashboard view that presents the exact state of the roaming Pokémon, 
 - [ ] Build a UI component to display the roamer's Nature, IVs, HP, and Status.
 - [ ] Implement a visual warning indicator for the IV Glitch.
 - [ ] Ensure the UI adheres to the alternative design determined by the research phase.
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Break down this Epic into executable Stories.
+- [ ] story-122-267-gen3-roamer-active-indicator-ui
+- [ ] story-122-268-gen3-roamer-dossier-ui
+- [ ] story-122-269-gen3-roamer-iv-glitch-warning-ui
