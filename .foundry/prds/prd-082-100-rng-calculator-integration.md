@@ -29,4 +29,6 @@ Provide utilities and UI that displays TID and SID and formats this combo for RN
 - Provide a brief explainer in the UI on how to use these values with RNG tools.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Convert this PRD into Epics.
+- [x] Epic Planner: Convert this PRD into Epics.
+- [ ] epic-100-130-rng-tid-sid-display
+- [ ] epic-100-131-rng-explainer-section
