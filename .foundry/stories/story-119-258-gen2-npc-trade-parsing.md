@@ -2,12 +2,12 @@
 id: story-119-258-gen2-npc-trade-parsing
 type: STORY
 title: Gen 2 NPC Trade Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-03'
+updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7153710896196149525'
 pr_number: null
 parent: epic-095-119-in-game-trade-data-extraction
 tags:
