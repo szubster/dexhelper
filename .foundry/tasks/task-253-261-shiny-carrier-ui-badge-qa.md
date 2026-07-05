@@ -2,13 +2,13 @@
 id: task-253-261-shiny-carrier-ui-badge-qa
 type: TASK
 title: QA Shiny Carrier UI Badge
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-07-02'
 updated_at: '2026-07-05'
 depends_on:
   - task-253-260-shiny-carrier-ui-badge-impl
-jules_session_id: '9450066256659107405'
+jules_session_id: null
 pr_number: null
 parent: story-045-253-shiny-carrier-ui-badge
 tags:
@@ -18,7 +18,7 @@ tags:
   - frontend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

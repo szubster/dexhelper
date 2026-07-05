@@ -2,10 +2,10 @@
 id: story-096-154-parent-awakening-logic
 type: STORY
 title: Parent Awakening Logic for Cancelled Nodes
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-20'
-updated_at: '2026-06-20'
+updated_at: '2026-07-05'
 depends_on:
   - story-096-153-max-rejection-cancellation
 jules_session_id: null

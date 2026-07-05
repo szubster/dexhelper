@@ -2,12 +2,12 @@
 id: epic-045-070-orchestrator-strict-completion
 type: EPIC
 title: Orchestrator Hierarchical Completion Checks
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '13673485737422298775'
+jules_session_id: null
 pr_number: null
 parent: prd-072-045-strict-macro-node-completion
 tags:

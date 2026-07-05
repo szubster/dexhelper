@@ -2,10 +2,10 @@
 id: epic-053-103-relative-offsets-adr
 type: EPIC
 title: Relative Offsets ADR
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-27'
-updated_at: '2026-06-30'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

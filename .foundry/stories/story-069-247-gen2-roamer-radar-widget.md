@@ -2,14 +2,14 @@
 id: story-069-247-gen2-roamer-radar-widget
 type: STORY
 title: Gen 2 Roamer Radar Widget
-status: ACTIVE
+status: PENDING
 rejection_reason: ''
 owner_persona: tech_lead
 created_at: '2026-06-30'
 updated_at: '2026-07-05'
 depends_on:
   - research-247-248-gen2-roamer-offsets
-jules_session_id: '8561838446032319747'
+jules_session_id: null
 pr_number: null
 parent: epic-043-069-roamer-radar-ui
 tags: []

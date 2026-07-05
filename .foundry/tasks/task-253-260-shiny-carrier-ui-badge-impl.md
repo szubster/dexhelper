@@ -2,7 +2,7 @@
 id: task-253-260-shiny-carrier-ui-badge-impl
 type: TASK
 title: Implement Shiny Carrier UI Badge
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-02'
 updated_at: '2026-07-05'
@@ -16,8 +16,8 @@ tags:
   - gen2
   - frontend
 research_references: []
-rejection_count: 1
-rejection_reason: 'Shiny Carrier UI badges in PokemonDetails.tsx and StorageGrid.tsx lack border-dashed, violating ADR 008.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

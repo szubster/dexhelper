@@ -2,10 +2,10 @@
 id: story-079-252-battle-frontier-brain-progress-visuals
 type: STORY
 title: Battle Frontier Brain Progress Visuals
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-02'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
