@@ -10,3 +10,8 @@ I rejected the implementation of the `calculateBreedingPairs` algorithm because 
 
 ## 2026-06-30: Magic Numbers in Gen 3 Parser Retry
 The implementer (`coder`) failed `task-121-219-gen3-tv-block-parser-retry-impl` because they used inline magic numbers (`21` and `40`) in `parseGen3MixRecords` to check for Mix Record events, despite the task description explicitly forbidding inline magic numbers and a previous rejection for the same reason (documented in `research-121-216`). This indicates a recurring failure pattern where the coder ignores module-level constant requirements for bounds checking. We must enforce this architectural constraint strictly to prevent fragile parsing logic.
+
+## Shiny Carrier Badge Rejection
+- **Date**: 2026-07-05
+- **Node**: task-253-260-shiny-carrier-ui-badge-impl
+- **Reason**: The developer implemented the Shiny Carrier UI badges (e.g., animate-[pulse...] divs in PokemonDetails.tsx and StorageGrid.tsx) without the mandated `border-dashed` class, violating ADR 008's strict tactical hardware aesthetic constraints.
