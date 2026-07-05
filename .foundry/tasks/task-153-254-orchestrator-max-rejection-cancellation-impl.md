@@ -2,12 +2,12 @@
 id: task-153-254-orchestrator-max-rejection-cancellation-impl
 type: TASK
 title: Implement Max Rejection Cancellation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-01'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '9434273731710679964'
+jules_session_id: null
 pr_number: null
 parent: story-096-153-max-rejection-cancellation
 tags:
