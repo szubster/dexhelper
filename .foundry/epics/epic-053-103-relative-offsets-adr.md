@@ -2,12 +2,12 @@
 id: epic-053-103-relative-offsets-adr
 type: EPIC
 title: Relative Offsets ADR
-status: ACTIVE
+status: VERIFYING
 owner_persona: story_owner
 created_at: '2026-06-27'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '12549553148058141654'
+jules_session_id: null
 pr_number: null
 parent: prd-084-053-standardize-relative-offsets
 tags:
