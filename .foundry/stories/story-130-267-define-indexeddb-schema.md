@@ -26,6 +26,6 @@ notes: ''
 Define the database name, version, and object stores for storing save files, metadata, and indexes for efficient retrieval.
 
 ## Acceptance Criteria
-- [ ] Define DB name and version.
-- [ ] Define object stores.
-- [ ] task-267-261-impl-indexeddb-schema
+- [x] Define DB name and version.
+- [x] Define object stores.
+- [x] task-267-261-impl-indexeddb-schema
