@@ -1,4 +1,7 @@
+import { Background, ReactFlow } from '@xyflow/react';
+import '@xyflow/react/dist/style.css';
 import type React from 'react';
+import { FRONTIER_BRAIN_THRESHOLDS } from '../../../engine/gen3/battleFrontier/constants';
 import type { Gen3BattleFrontierWinStreaks, SaveData } from '../../../engine/saveParser/parsers/common';
 import { objectKeys } from '../../../utils/object';
 import { DataPoint } from '../../DataPoint';
@@ -19,6 +22,36 @@ const FACILITY_NAMES: Record<keyof Gen3BattleFrontierWinStreaks, string> = {
   pyramid: 'BATTLE PYRAMID',
 };
 
+// biome-ignore lint/suspicious/noExplicitAny: Required for ReactFlow node typings
+const ProgressNode = ({ data }: any) => {
+  return (
+    <div className="flex w-[180px] flex-col gap-0 border-2 border-zinc-700 border-dashed bg-black/80 font-mono text-white">
+      <div className="border-zinc-700 border-b border-dashed bg-black/40 p-2 text-center font-black text-[10px] text-zinc-400 uppercase">
+        {data.label}
+      </div>
+      <div className="flex flex-col gap-1 p-2 text-center">
+        <span className="text-[10px] text-zinc-500">STREAK</span>
+        <span className="font-bold text-xl">{data.current}</span>
+        {data.target && (
+          <>
+            <span className="text-[10px] text-zinc-500">TARGET</span>
+            <span className="font-bold text-amber-500 text-sm">{data.target}</span>
+            <span className="text-[10px] text-zinc-500">REMAINING</span>
+            <span className="font-bold text-sm text-white">{Math.max(0, data.target - data.current)}</span>
+          </>
+        )}
+      </div>
+      {data.status && (
+        <div className={`p-1 text-center font-black text-[9px] tracking-widest ${data.statusColor}`}>{data.status}</div>
+      )}
+    </div>
+  );
+};
+
+const nodeTypes = {
+  progressNode: ProgressNode,
+};
+
 export const BattleFrontierDashboard: React.FC<BattleFrontierDashboardProps> = ({ saveData }) => {
   if (saveData.generation !== 3) {
     return null;
@@ -37,12 +70,45 @@ export const BattleFrontierDashboard: React.FC<BattleFrontierDashboardProps> = (
   const facilities = objectKeys(FACILITY_NAMES).map((key) => {
     const symbols = gen3BattleFrontierSymbols[key] || { silver: false, gold: false };
     const variant: 'amber' | 'white' | 'default' = symbols.gold ? 'amber' : symbols.silver ? 'white' : 'default';
+    const currentStreak = gen3BattleFrontierWinStreaks[key]?.current || 0;
+
+    let target = null;
+    let status = null;
+    let statusColor = '';
+
+    if (symbols.gold) {
+      status = 'GOLD SYMBOL ACQUIRED';
+      statusColor = 'bg-amber-500/20 text-amber-500 border-t border-dashed border-amber-500';
+    } else if (symbols.silver) {
+      target = FRONTIER_BRAIN_THRESHOLDS[key].gold;
+      status = 'SILVER SYMBOL ACQUIRED';
+      statusColor = 'bg-zinc-300/20 text-zinc-300 border-t border-dashed border-zinc-300';
+    } else {
+      target = FRONTIER_BRAIN_THRESHOLDS[key].silver;
+    }
+
+    const nodes = [
+      {
+        id: `node-${key}`,
+        type: 'progressNode',
+        position: { x: 0, y: 0 },
+        data: {
+          label: FACILITY_NAMES[key],
+          current: currentStreak,
+          target,
+          status,
+          statusColor,
+        },
+      },
+    ];
+
     return {
       key,
       name: FACILITY_NAMES[key],
       streaks: gen3BattleFrontierWinStreaks[key] || { current: 0, record: 0 },
       symbols,
       variant,
+      nodes,
     };
   });
 
@@ -62,41 +128,31 @@ export const BattleFrontierDashboard: React.FC<BattleFrontierDashboardProps> = (
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {facilities.map((facility) => (
-          <TacticalPanel key={facility.key} variant={facility.variant} className="flex flex-col gap-0 border-l-2 p-0">
+          <TacticalPanel
+            key={facility.key}
+            variant={facility.variant}
+            className="flex h-[250px] flex-col gap-0 border-l-2 p-0"
+          >
             <div className="flex items-center justify-between border-zinc-800 border-b border-dashed bg-black/40 p-3 pb-2">
               <span className="tactical-text z-10 font-black text-white">[ {facility.name} ]</span>
             </div>
 
-            <div className="z-10 flex flex-col gap-0 divide-y divide-dashed divide-zinc-800 bg-black/20 p-2">
-              <div className="flex items-center justify-between px-2 py-1.5 hover:bg-white/5">
-                <span className="tactical-text font-black text-[10px] text-zinc-500">CURRENT_STREAK</span>
-                <span className="font-bold font-mono text-[12px] text-white">{facility.streaks.current}</span>
-              </div>
-              <div className="flex items-center justify-between px-2 py-1.5 hover:bg-white/5">
-                <span className="tactical-text font-black text-[10px] text-zinc-500">RECORD_STREAK</span>
-                <span className="font-bold font-mono text-[12px] text-zinc-400">{facility.streaks.record}</span>
-              </div>
-
-              {(facility.symbols.silver || facility.symbols.gold) && (
-                <div className="flex flex-col gap-1 px-2 py-2">
-                  {facility.symbols.silver && !facility.symbols.gold && (
-                    <div className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 animate-pulse rounded-none bg-zinc-300" />
-                      <span className="font-black font-mono text-[9px] text-zinc-300 uppercase tracking-widest">
-                        SILVER_SYMBOL_ACQUIRED
-                      </span>
-                    </div>
-                  )}
-                  {facility.symbols.gold && (
-                    <div className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 animate-[pulse_2s_ease-in-out_infinite] rounded-none bg-amber-500" />
-                      <span className="font-black font-mono text-[9px] text-amber-500 uppercase tracking-widest">
-                        GOLD_SYMBOL_ACQUIRED
-                      </span>
-                    </div>
-                  )}
-                </div>
-              )}
+            <div className="h-full w-full bg-black">
+              <ReactFlow
+                nodes={facility.nodes}
+                nodeTypes={nodeTypes}
+                panOnDrag={false}
+                zoomOnScroll={false}
+                zoomOnDoubleClick={false}
+                elementsSelectable={false}
+                nodesConnectable={false}
+                nodesDraggable={false}
+                fitView
+                fitViewOptions={{ padding: 0.2 }}
+                proOptions={{ hideAttribution: true }}
+              >
+                <Background color="#3f3f46" gap={12} size={1} />
+              </ReactFlow>
             </div>
           </TacticalPanel>
         ))}

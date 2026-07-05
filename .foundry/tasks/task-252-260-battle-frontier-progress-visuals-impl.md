@@ -36,6 +36,6 @@ Implement progress visuals towards the next Frontier Brain encounter using React
 - **Empty PR Policy:** If you submit an empty PR because the UI module is already fully implemented, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement `React Flow` progress graph showing remaining streak required for next Frontier Brain encounter.
-- [ ] Define reusable constants for encounter thresholds from `gen3_battle_frontier_data.md`.
-- [ ] Apply tactical styling constraints (ADR 024).
+- [x] Implement `React Flow` progress graph showing remaining streak required for next Frontier Brain encounter.
+- [x] Define reusable constants for encounter thresholds from `gen3_battle_frontier_data.md`.
+- [x] Apply tactical styling constraints (ADR 024).
