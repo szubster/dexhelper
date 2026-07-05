@@ -2,12 +2,12 @@
 id: prd-100-106-static-encounter-tracker
 type: PRD
 title: Gen 1-3 Static Encounter & Legendary Checklist
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12905265120070037452'
 pr_number: null
 parent: idea-100-static-encounter-tracker
 tags:
