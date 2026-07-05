@@ -2,12 +2,12 @@
 id: research-247-248-gen2-roamer-offsets
 type: RESEARCH
 title: Gen 2 Roamer Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17686555086702566520'
 pr_number: null
 parent: story-069-247-gen2-roamer-radar-widget
 tags:
