@@ -30,4 +30,6 @@ We need to establish the basic API bindings and infrastructure to connect to Clo
 - Implement fundamental read/write/list operations for the save files.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-262-261-r2-client-impl
+- [ ] task-262-262-r2-client-qa
