@@ -25,6 +25,6 @@ notes: ''
 Investigate memory offsets and mechanisms for tracking Gen 2 Roaming Pokémon (Raikou, Entei, Suicune).
 
 ## Acceptance Criteria
-- [ ] Find the offsets for Gen 2 roamers.
-- [ ] Determine how to determine a roamer's active status.
-- [ ] Document findings.
+- [x] Find the offsets for Gen 2 roamers.
+- [x] Determine how to determine a roamer's active status.
+- [x] Document findings.
