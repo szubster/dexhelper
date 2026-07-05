@@ -29,8 +29,8 @@ Establish a strict architectural ADR mandating that all memory offsets, lengths,
 Based on the offset linter investigation (`.foundry/docs/architecture/offset_linter_investigation.md`), tooling limitations make a custom ESLint or Biome rule unfeasible or bloated. We are falling back to an ADR and code-review enforcement to ensure that dynamic save block extraction does not use inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Create a new ADR in `.foundry/docs/adrs/` mandating relative offsets and the use of reusable constants.
-- [ ] Ensure all documentation specifies the requirements for dynamic save block extraction.
+- [x] Create a new ADR in `.foundry/docs/adrs/` mandating relative offsets and the use of reusable constants.
+- [x] Ensure all documentation specifies the requirements for dynamic save block extraction.
 
 ## Developer Reminders
 - **Transient Failures:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
