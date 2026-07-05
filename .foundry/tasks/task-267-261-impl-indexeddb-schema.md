@@ -26,15 +26,15 @@ notes: ''
 We need to define a new IndexedDB schema (`SaveHistoryDB`) to store save files. This database will run alongside the existing `PokeDB` (which is used for read-only static game data). The new database will be used for persisting the user's sequential save states.
 
 ## Acceptance Criteria
-- [ ] In `src/db/schema.ts`, define a new constant `SAVE_HISTORY_DB_CONFIG` containing:
+- [x] In `src/db/schema.ts`, define a new constant `SAVE_HISTORY_DB_CONFIG` containing:
   - `NAME`: 'SaveHistoryDB'
   - `VERSION`: 1
   - `STORES`: `{ SAVES: 'saves', METADATA: 'metadata', INDEXES: 'indexes' }`
-- [ ] In `src/db/schema.ts`, define the TypeScript interface `SaveHistoryDBSchema` extending `DBSchema` from `idb`.
+- [x] In `src/db/schema.ts`, define the TypeScript interface `SaveHistoryDBSchema` extending `DBSchema` from `idb`.
   - The `saves` store should store save files.
   - The `metadata` store should store metadata.
   - The `indexes` store should store indexes for efficient retrieval.
-- [ ] The coder is responsible for self-verifying these changes by running `pnpm test` and ensuring no regressions, as this is a low-risk structural typing task.
+- [x] The coder is responsible for self-verifying these changes by running `pnpm test` and ensuring no regressions, as this is a low-risk structural typing task.
 
 ## Rules
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
