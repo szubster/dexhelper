@@ -30,4 +30,6 @@ Based on research findings, the Volcanic Ash gather count is stored as game vari
 - Ruby/Sapphire Absolute Offset: `0x13D0`
 
 ## Acceptance Criteria
-- [ ] Create tasks for the DataView extraction using the identified offsets.
+- [x] Create tasks for the DataView extraction using the identified offsets.
+- [ ] task-267-261-gen3-ash-dataview-extraction-impl
+- [ ] task-267-262-gen3-ash-dataview-extraction-qa
