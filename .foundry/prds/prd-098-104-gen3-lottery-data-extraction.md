@@ -33,4 +33,7 @@ In Gen 3 games, Lilycove Department Store hosts a Pokémon Lottery Corner. The w
 - Expose the daily winning lottery number to the application state so it can be consumed by the UI.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-104-133-gen3-lottery-offsets-research
+- [ ] epic-104-134-gen3-lottery-data-extraction
+- [ ] epic-104-135-gen3-lottery-ui-integration
