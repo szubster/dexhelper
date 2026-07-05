@@ -25,6 +25,11 @@ notes: ''
 Design and implement a reusable UI component that clearly displays both the Trainer ID (TID) and Secret ID (SID) side-by-side. The component must adhere to the tactical hardware aesthetic.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Generate actionable Tasks.
+- [x] Tech Lead: Generate actionable Tasks.
 - [ ] Component displays TID and SID.
 - [ ] Component includes a "Copy to Clipboard" feature that formats them appropriately for RNG tools.
+- [ ] task-269-262-rng-tid-sid-component-impl
+- [ ] task-269-263-rng-tid-sid-component-qa
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
