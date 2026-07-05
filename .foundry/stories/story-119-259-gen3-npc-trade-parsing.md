@@ -28,4 +28,4 @@ Identify and extract NPC trade flags for all core Gen 3 versions (RSE/FRLG) usin
 
 ## Acceptance Criteria
 - [ ] Tech Lead: Break down into tasks for Gen 3 extraction and offset discovery.
-- [ ] research-259-249-gen3-npc-trade-parsing
+- [x] research-259-249-gen3-npc-trade-parsing
