@@ -34,5 +34,8 @@ Following the detection of "zombie" nodes (nodes incorrectly stuck in the `ACTIV
 
 ### Next Steps
 - [x] Break down into Tasks.
-- [ ] task-133-251-remediation-state-transition-logic-impl
-- [ ] task-133-252-remediation-state-transition-logic-qa
+- [x] task-133-251-remediation-state-transition-logic-impl
+- [x] task-133-252-remediation-state-transition-logic-qa
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
