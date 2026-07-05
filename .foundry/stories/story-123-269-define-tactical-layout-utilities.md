@@ -32,3 +32,8 @@ Define the base layout-related `@utility` primitives in `src/index.css` to conso
 - [ ] `tactical-panel` utility is defined.
 - [ ] `tactical-card` utility is defined.
 - [ ] `tactical-button` utility is defined.
+- [ ] task-269-272-define-tactical-layout-utilities-impl
+- [ ] task-269-273-define-tactical-layout-utilities-qa
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
