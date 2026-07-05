@@ -2,12 +2,12 @@
 id: research-259-249-gen3-npc-trade-parsing
 type: RESEARCH
 title: Research Gen 3 NPC Trade Memory Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5049408165153821465'
 pr_number: null
 parent: story-119-259-gen3-npc-trade-parsing
 tags:
