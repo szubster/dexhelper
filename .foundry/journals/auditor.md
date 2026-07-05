@@ -126,3 +126,7 @@ When verifying `epic-036-058-feebas-backend-parsing`, the implementation success
 ## 2026-07-06: Final Audit of Feebas Seed Backend Parsing
 **Lesson: Extending ADR 028 to Algorithmic Magic Numbers (Confirmation)**
 The implementation of the LCG algorithm in `src/engine/gen3/feebas.ts` confirms that the mandate against magic numbers (ADR 028) strictly applies to both memory operations and algorithmic constants (like LCG multipliers, addends, and bit shifts). Extracting these into module-level constants ensures long-term readability and compliance with architectural rules.
+## 2026-07-06: Verification of Pokerus State Exfiltration Epic
+
+**Lesson: Verifying Epics with Downstream Architectural Refactors**
+When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation correctly adhered to the Acceptance Criteria, which included the completion of downstream child stories (`story-061-095-pokerus-byte-parsing`, `story-061-096-pokerus-tests`, `story-061-155-refactor-pokerus-bitwise`) and an ADR (`adr-061-026-bitwise-state-extraction`). The refactoring strictly enforced `ADR 026` by using explicit bitwise operators and constants for the `parsePokerus` helper. Checking the state of the codebase ensures that when a parent node transitions to `COMPLETED`, its intended functionality and architectural constraints are fully realized and verified by tests.

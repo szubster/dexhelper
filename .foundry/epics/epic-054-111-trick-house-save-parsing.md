@@ -2,12 +2,12 @@
 id: epic-054-111-trick-house-save-parsing
 type: EPIC
 title: Gen 3 Trick House Save Parsing
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2868960942674138000'
 pr_number: null
 parent: prd-088-054-trick-house-tracker
 tags:
@@ -34,4 +34,6 @@ Extract the Trick House puzzle state from Gen 3 save files using the `DataView` 
 - [ ] Determine the exact memory offset for Trick House data.
 - [ ] Implement a parser using `DataView`.
 - [ ] Write tests ensuring accurate data extraction across progression states.
-- [ ] story-111-249-investigate-trick-house-offsets
+- [x] story-111-249-investigate-trick-house-offsets
+- [ ] story-111-276-trick-house-parser-impl
+- [ ] story-111-277-trick-house-parser-qa

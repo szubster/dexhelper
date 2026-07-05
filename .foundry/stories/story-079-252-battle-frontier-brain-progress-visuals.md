@@ -2,12 +2,12 @@
 id: story-079-252-battle-frontier-brain-progress-visuals
 type: STORY
 title: Battle Frontier Brain Progress Visuals
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-02'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '143772982977465451'
 pr_number: null
 parent: epic-046-079-gen3-battle-frontier-dashboard-ui
 tags:
@@ -27,5 +27,5 @@ Create progress visuals towards the next Frontier Brain encounter using React Fl
 
 ## Acceptance Criteria
 - [x] Translate into technical Tasks
-- [ ] task-252-260-battle-frontier-progress-visuals-impl
-- [ ] task-252-261-battle-frontier-progress-visuals-qa
+- [x] task-252-260-battle-frontier-progress-visuals-impl
+- [x] task-252-261-battle-frontier-progress-visuals-qa
