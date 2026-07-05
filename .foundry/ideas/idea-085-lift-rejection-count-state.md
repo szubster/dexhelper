@@ -29,8 +29,9 @@ When reviewing the DAG Dashboard code, it was observed that the permanent failur
 2. Update `DagDashboard.tsx`, `DagNode.tsx`, and relevant test files to use this shared threshold instead of hardcoding `3`.
 
 ## Acceptance Criteria
-- [ ] DagDashboard and DagNode no longer hardcode the threshold for rejection_count.
-- [ ] The threshold is properly lifted or shared.
+- [ ] prd-085-107-lift-rejection-count-state
+- [x] DagDashboard and DagNode no longer hardcode the threshold for rejection_count.
+- [x] The threshold is properly lifted or shared.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
