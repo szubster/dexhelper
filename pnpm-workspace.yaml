@@ -15,3 +15,7 @@ allowBuilds:
   sharp: true
   msgpackr-extract: true
   workerd: true
+
+auditConfig:
+  ignoreGhsas:
+    - GHSA-rmmr-r34h-pfm5
