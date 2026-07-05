@@ -33,4 +33,7 @@ Provide an intelligent, side-by-side guided sorting tool for Generation 1, 2, an
 4.  **Interactive Checklist:** A step-by-step checklist of operations (e.g., "Move Pikachu from Box 1 to Box 5").
 
 ## Acceptance Criteria
-- [ ] Break down this PRD into distinct Epics covering UI, diff engine logic, and sorting algorithms.
+- [x] Break down this PRD into distinct Epics covering UI, diff engine logic, and sorting algorithms.
+- [ ] epic-106-136-pc-box-sorting-algorithms
+- [ ] epic-106-137-pc-box-diff-engine-move-planner
+- [ ] epic-106-138-pc-box-organization-ui
