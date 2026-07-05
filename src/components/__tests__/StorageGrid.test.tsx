@@ -85,3 +85,23 @@ test('renders grid with pokemon', async () => {
   const btn = page.getByText('Bulbasaur');
   await btn.click();
 });
+
+test('renders carrier anomaly LED correctly', async () => {
+  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+    (selector: unknown) =>
+      (selector as (state: unknown) => unknown)({
+        saveData: {
+          generation: 1,
+          partyDetails: [],
+          pcDetails: [
+            { speciesId: 4, storageLocation: 'Box 1', level: 10, isShiny: false, isShinyCarrier: true, otName: 'BLUE' },
+          ],
+        },
+      }),
+  );
+
+  const { container } = await render(<StorageGrid pokemonList={[{ id: 4, name: 'Charmander' }]} />);
+
+  const led = container.querySelector('.border-cyan-400.border-dashed');
+  expect(led).toBeInTheDocument();
+});
