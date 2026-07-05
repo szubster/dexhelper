@@ -2,12 +2,12 @@
 id: idea-100-static-encounter-tracker
 type: IDEA
 title: Gen 1-3 Static Encounter & Legendary Checklist
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-03'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '2827931442751923945'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -36,4 +36,7 @@ Leverage DexHelper's capability to read event flags and hidden state from the sa
 This directly tackles the anxiety of "Did I already catch the Snorlax on Route 12?" by surfacing hidden event flags. It perfectly complements existing collection trackers by transforming static game knowledge (wiki lists of legendaries/static spawns) into a highly personalized, dynamic "to-do list" based strictly on the player's unique save state. This deepens DexHelper's role as the ultimate completionist companion app.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to detail the event flags to parse across Gens 1-3 for static encounters and define the UI presentation.
+- [x] Product Manager: Convert this idea into a PRD to detail the event flags to parse across Gens 1-3 for static encounters and define the UI presentation.
+
+## Acceptance Criteria
+- [ ] prd-100-106-static-encounter-tracker

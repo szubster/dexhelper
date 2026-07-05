@@ -32,3 +32,4 @@ Based on the investigation into linter feasibility for hardcoded offsets, we eit
 ## Acceptance Criteria
 - [ ] Depending on the investigation, implement the linter rule or write an ADR in `.foundry/docs/adrs/`.
 - [ ] Ensure all documentation specifies the requirements for dynamic save block extraction.
+- [ ] task-246-262-create-relative-offsets-adr

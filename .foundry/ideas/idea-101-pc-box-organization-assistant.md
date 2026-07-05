@@ -2,12 +2,12 @@
 id: idea-101-pc-box-organization-assistant
 type: IDEA
 title: Gen 1-3 PC Box Organization Assistant
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '15006018774896473315'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -36,4 +36,7 @@ Create a "PC Box Organization Assistant" view within DexHelper that acts as a ma
 This feature transforms the limitation of read-only save parsing into an actionable utility. It significantly reduces the cognitive load of organizing large collections in retro games, turning a daunting, chaotic manual task into a guided, satisfying checklist. This perfectly aligns with DexHelper's vision as a premium companion app.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to explore sorting algorithms and the UI design for a move planner.
+- [x] Product Manager: Convert this idea into a PRD to explore sorting algorithms and the UI design for a move planner.
+
+## Acceptance Criteria
+- [ ] prd-101-106-pc-box-organization-assistant

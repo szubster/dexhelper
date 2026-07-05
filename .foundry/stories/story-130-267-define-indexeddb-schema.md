@@ -2,12 +2,12 @@
 id: story-130-267-define-indexeddb-schema
 type: STORY
 title: Define IndexedDB Schema
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '14755508417148514817'
+jules_session_id: null
 pr_number: null
 parent: epic-099-130-indexeddb-schema-design
 tags:
@@ -28,3 +28,4 @@ Define the database name, version, and object stores for storing save files, met
 ## Acceptance Criteria
 - [ ] Define DB name and version.
 - [ ] Define object stores.
+- [ ] task-267-261-impl-indexeddb-schema

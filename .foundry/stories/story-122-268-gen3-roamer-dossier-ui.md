@@ -31,4 +31,6 @@ Based on the UI specification in `.foundry/docs/knowledge_base/ui/gen3_roamer_da
 ## Acceptance Criteria
 - [ ] Build a React component for the Roamer Dossier.
 - [ ] Connect the component to the extracted roamer state data.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-268-262-gen3-roamer-dossier-ui-impl
+- [ ] task-268-263-gen3-roamer-dossier-ui-qa

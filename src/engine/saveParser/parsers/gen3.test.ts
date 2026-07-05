@@ -7,6 +7,7 @@ import {
   parseGen3BattleFrontierWinStreaks,
   parseGen3BattlePoints,
   parseGen3ConditionStats,
+  parseGen3EggSteps,
   parseGen3MirageIslandValue,
   parseGen3MixRecords,
   parseGen3PersonalityValue,
@@ -446,6 +447,54 @@ describe('parseGen3MixRecords', () => {
 
     expect(() => parseGen3MixRecords(view, 0)).toThrowError(
       'The save file is corrupted or incomplete: Invalid TV block struct.',
+    );
+  });
+});
+
+describe('parseGen3EggSteps', () => {
+  it('should return null if the Pokémon is not an egg', () => {
+    const buffer = new ArrayBuffer(100);
+    const view = new DataView(buffer);
+    const miscSubstructureOffset = 0;
+    const growthSubstructureOffset = 50;
+
+    // Set "Is Egg" bit flag to 0 (bit 30)
+    view.setUint32(miscSubstructureOffset + 4, 0, true);
+
+    const result = parseGen3EggSteps(view, miscSubstructureOffset, growthSubstructureOffset);
+    expect(result).toBeNull();
+  });
+
+  it('should calculate the remaining egg steps if the Pokémon is an egg', () => {
+    const buffer = new ArrayBuffer(100);
+    const view = new DataView(buffer);
+    const miscSubstructureOffset = 0;
+    const growthSubstructureOffset = 50;
+
+    // Set "Is Egg" bit flag to 1 (bit 30)
+    // 1 << 30 = 1073741824 (0x40000000)
+    view.setUint32(miscSubstructureOffset + 4, 0x40000000, true);
+
+    // Set egg cycles to 10
+    view.setUint8(growthSubstructureOffset + 4, 10);
+
+    const result = parseGen3EggSteps(view, miscSubstructureOffset, growthSubstructureOffset);
+    // 10 cycles * 256 steps = 2560 steps
+    expect(result).toBe(2560);
+  });
+
+  it('should explicitly catch RangeError and throw corrupted file error on out-of-bounds reads', () => {
+    // Buffer too small for reading the egg cycles at growthSubstructureOffset + 4
+    const buffer = new ArrayBuffer(50);
+    const view = new DataView(buffer);
+    const miscSubstructureOffset = 0;
+    const growthSubstructureOffset = 50;
+
+    // We can read IV/Egg/Ability here since misc is at 0 and +4 is within 50 bytes.
+    view.setUint32(miscSubstructureOffset + 4, 0x40000000, true);
+
+    expect(() => parseGen3EggSteps(view, miscSubstructureOffset, growthSubstructureOffset)).toThrowError(
+      'The save file is corrupted or incomplete.',
     );
   });
 });

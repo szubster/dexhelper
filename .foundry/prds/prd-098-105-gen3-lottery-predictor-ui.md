@@ -2,12 +2,12 @@
 id: prd-098-105-gen3-lottery-predictor-ui
 type: PRD
 title: Gen 3 Lottery Predictor UI
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-03'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '1276569396073041963'
+jules_session_id: null
 pr_number: null
 parent: idea-098-gen3-pokemon-lottery-predictor
 tags:
@@ -34,4 +34,6 @@ Once the winning lottery number is extracted from the save file, we need to matc
 - Ensure the UI adheres to the tactical hardware aesthetic (ADR 024 and ADR 008 style guidelines).
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-105-133-lottery-matching-logic
+- [ ] epic-105-134-lottery-predictor-ui-component

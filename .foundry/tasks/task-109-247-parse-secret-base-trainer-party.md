@@ -2,12 +2,12 @@
 id: task-109-247-parse-secret-base-trainer-party
 type: TASK
 title: Implement Gen 3 Secret Base Trainer and Party Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-30'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5207905172172294078'
 pr_number: null
 parent: story-070-109-extract-mixed-record-trainer-data
 tags:
