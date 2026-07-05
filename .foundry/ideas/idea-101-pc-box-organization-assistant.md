@@ -2,12 +2,12 @@
 id: idea-101-pc-box-organization-assistant
 type: IDEA
 title: Gen 1-3 PC Box Organization Assistant
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '15006018774896473315'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
