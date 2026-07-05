@@ -29,9 +29,9 @@ Investigate if a linter rule can be built to flag hardcoded offsets during save 
 Currently, save file extraction uses absolute hardcoded offsets for dynamic blocks, which can lead to unpredictable behavior and regressions.
 
 ## Acceptance Criteria
-- [ ] Investigate linter feasibility.
-- [ ] Create ADR or implement linter rule.
+- [x] Investigate linter feasibility.
+- [x] Create ADR or implement linter rule.
 
 ## Child Stories
-- [ ] .foundry/stories/story-103-245-investigate-offset-linter.md
-- [ ] .foundry/stories/story-103-246-create-relative-offsets-adr.md
+- [x] .foundry/stories/story-103-245-investigate-offset-linter.md
+- [x] .foundry/stories/story-103-246-create-relative-offsets-adr.md
