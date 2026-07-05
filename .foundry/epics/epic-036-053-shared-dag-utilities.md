@@ -38,12 +38,12 @@ This epic extracts pure functions from `.github/scripts/foundry-orchestrator.ts`
   - Spawned: `.foundry/archive/stories/story-053-090-extract-dag-utilities.md`
 
 
-- [ ] Story Owner: Write Story to create unit tests for `dag-utils.ts`.
+- [x] Story Owner: Write Story to create unit tests for `dag-utils.ts`.
   - Spawned: `.foundry/archive/story-053-106-dag-utils-unit-tests.md`
-- [ ] Story Owner: Write Story to update DAG orchestration tests.
+- [x] Story Owner: Write Story to update DAG orchestration tests.
   - Spawned: `.foundry/stories/story-053-107-update-dag-orchestration-tests.md`
 
 ## Acceptance Criteria
-- [ ] `dag-utils.ts` is created and contains the extracted pure functions and utilities.
-- [ ] New unit tests are written for `dag-utils.ts`.
-- [ ] Existing tests still pass.
+- [x] `dag-utils.ts` is created and contains the extracted pure functions and utilities.
+- [x] New unit tests are written for `dag-utils.ts`.
+- [x] Existing tests still pass.
