@@ -2,7 +2,7 @@
 id: task-253-261-shiny-carrier-ui-badge-qa
 type: TASK
 title: QA Shiny Carrier UI Badge
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-02'
 updated_at: '2026-07-05'
@@ -17,8 +17,8 @@ tags:
   - gen2
   - frontend
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

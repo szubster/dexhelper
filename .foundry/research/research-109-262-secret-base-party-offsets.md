@@ -2,7 +2,7 @@
 id: research-109-262-secret-base-party-offsets
 type: RESEARCH
 title: Investigate Gen 3 Secret Base Party Memory Offsets
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
@@ -15,8 +15,8 @@ tags:
   - save-parsing
   - secret-base
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
