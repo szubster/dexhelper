@@ -30,4 +30,7 @@ Implement the logic to track dead Pokémon based on HP and Graveyard box assignm
 - Permanently mark any Pokémon in the Graveyard box as dead, regardless of HP.
 
 ## Acceptance Criteria
-- [ ] Stories are generated
+- [x] Stories are generated
+- [ ] story-131-269-detect-party-zero-hp
+- [ ] story-131-270-graveyard-box-state
+- [ ] story-131-271-graveyard-box-ui
