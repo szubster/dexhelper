@@ -123,6 +123,9 @@ When setting node references in YAML fields (`depends_on`, `parent`) or appendin
 
 When determining the next available sequence number for nodes using the `<type>-<parent_NNN>-<NNN>-<slug>` schema, extract the third token (the actual `NNN`) from existing files using tools like `awk -F'-' '{print $3}'` rather than relying on standard directory sorting, to prevent sequence ID collisions and sorting misalignments.
 2026-07-02: Enforced constraint where appending references to newly generated child nodes in a parent node's markdown body MUST strictly format them as unchecked tasks using the exact Node ID without file extensions or directory paths (e.g., `- [ ] <node_id>`).
+
+### 2026-07-04 - Late Binding for Gen 3 NPC Trades
+Suspended story-119-259-gen3-npc-trade-parsing and spawned research-259-249-gen3-npc-trade-parsing. Gen 3 NPC Trade data structures/offsets were missing from the knowledge base, necessitating late binding to gather accurate constraints before drafting technical blueprints.
 When drafting task blueprints, use the Intelligent Verification Protocol: for tasks with complex logic or risk, explicitly create a matching verification TASK for the 'qa' persona; for simple or low-risk tasks, explicitly designate the 'coder' to self-verify.
 The Tech Lead persona's private memory is strictly `.foundry/journals/tech_lead.md` and must be used solely to log long-term lessons, architectural constraints, and recurring failures, never as an execution logbook. Universally applicable knowledge should instead be documented in `.foundry/docs/`.
 When drafting technical blueprints for Stories involving complex shared state or architecture (e.g., ADR 013, ADR 017), the blueprints must provide explicit architectural scaffolding instructions, such as instructing the coder to define React Context layers before implementing dependent UI components.
