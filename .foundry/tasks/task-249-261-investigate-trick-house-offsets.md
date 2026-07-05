@@ -2,12 +2,12 @@
 id: task-249-261-investigate-trick-house-offsets
 type: TASK
 title: Investigate Gen 3 Trick House Offsets
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8330659139280225959'
 pr_number: null
 parent: story-111-249-investigate-trick-house-offsets
 tags:
