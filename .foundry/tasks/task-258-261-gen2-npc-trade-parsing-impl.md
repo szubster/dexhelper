@@ -2,12 +2,12 @@
 id: task-258-261-gen2-npc-trade-parsing-impl
 type: TASK
 title: Implement Gen 2 NPC Trade Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '2080824182611884773'
+jules_session_id: null
 pr_number: null
 parent: story-119-258-gen2-npc-trade-parsing
 tags:

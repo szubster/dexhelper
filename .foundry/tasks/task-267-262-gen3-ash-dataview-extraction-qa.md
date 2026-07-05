@@ -2,7 +2,7 @@
 id: task-267-262-gen3-ash-dataview-extraction-qa
 type: TASK
 title: QA Gen 3 Volcanic Ash Count DataView Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-04'
 updated_at: '2026-07-05'

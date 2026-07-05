@@ -2,7 +2,7 @@
 id: story-103-246-create-relative-offsets-adr
 type: STORY
 title: Create ADR or Implement Offset Linter Rule
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-29'
 updated_at: '2026-07-05'

@@ -2,7 +2,7 @@
 id: story-133-272-research-lottery-offsets
 type: STORY
 title: Research Lottery Offsets
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-05'
 updated_at: '2026-07-05'

@@ -2,7 +2,7 @@
 id: story-069-247-gen2-roamer-radar-widget
 type: STORY
 title: Gen 2 Roamer Radar Widget
-status: PENDING
+status: READY
 rejection_reason: ''
 owner_persona: tech_lead
 created_at: '2026-06-30'

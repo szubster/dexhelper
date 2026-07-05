@@ -2,7 +2,7 @@
 id: story-111-249-investigate-trick-house-offsets
 type: STORY
 title: Investigate Gen 3 Trick House Offsets
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-02'
 updated_at: '2026-07-05'

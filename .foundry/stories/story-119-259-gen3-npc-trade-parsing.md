@@ -2,7 +2,7 @@
 id: story-119-259-gen3-npc-trade-parsing
 type: STORY
 title: Gen 3 NPC Trade Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-05'

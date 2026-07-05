@@ -2,7 +2,7 @@
 id: story-133-273-gen3-lottery-matching-algorithm
 type: STORY
 title: Gen3 Lottery Matching Algorithm
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-05'
 updated_at: '2026-07-05'

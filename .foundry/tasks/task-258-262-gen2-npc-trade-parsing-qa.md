@@ -1,11 +1,11 @@
 ---
 id: task-258-262-gen2-npc-trade-parsing-qa
 type: TASK
-title: "QA Gen 2 NPC Trade Extraction"
-status: PENDING
+title: QA Gen 2 NPC Trade Extraction
+status: READY
 owner_persona: qa
-created_at: "2026-07-04"
-updated_at: "2026-07-04"
+created_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on:
   - task-258-261-gen2-npc-trade-parsing-impl
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA Gen 2 NPC Trade Extraction

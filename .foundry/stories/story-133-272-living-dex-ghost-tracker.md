@@ -2,10 +2,10 @@
 id: story-133-272-living-dex-ghost-tracker
 type: STORY
 title: Living Dex Ghost Tracker
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-06'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

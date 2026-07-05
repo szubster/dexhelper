@@ -2,10 +2,10 @@
 id: task-253-261-shiny-carrier-ui-badge-qa
 type: TASK
 title: QA Shiny Carrier UI Badge
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-07-05'
 depends_on:
   - task-253-260-shiny-carrier-ui-badge-impl
 jules_session_id: null
