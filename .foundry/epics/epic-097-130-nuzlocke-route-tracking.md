@@ -31,4 +31,7 @@ Implement the logic to track which Pokémon were caught on which routes based on
 - Flag violations when multiple Pokémon share the same `met_location`.
 
 ## Acceptance Criteria
-- [ ] Stories are generated
+- [x] Stories are generated
+- [ ] story-097-261-extract-pokemon-met-locations
+- [ ] story-097-262-aggregate-first-catch-by-route
+- [ ] story-097-263-flag-nuzlocke-route-violations
