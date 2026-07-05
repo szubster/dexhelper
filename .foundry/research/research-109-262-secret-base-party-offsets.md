@@ -2,12 +2,12 @@
 id: research-109-262-secret-base-party-offsets
 type: RESEARCH
 title: Investigate Gen 3 Secret Base Party Memory Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16835498824022713118'
 pr_number: null
 parent: story-070-109-extract-mixed-record-trainer-data
 tags:
