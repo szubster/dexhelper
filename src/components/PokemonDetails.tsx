@@ -234,7 +234,7 @@ export function PokemonDetails({
                 <Sparkles size={18} />
               </div>
             ) : isShinyCarrier ? (
-              <div className="absolute -top-3 -right-3 z-20 animate-[pulse_3s_ease-in-out_infinite] rounded-none border border-cyan-500/50 bg-cyan-500/20 p-2 text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.5)] backdrop-blur-sm">
+              <div className="absolute -top-3 -right-3 z-20 animate-[pulse_3s_ease-in-out_infinite] rounded-none border border-cyan-500/50 border-dashed bg-cyan-500/20 p-2 text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.5)] backdrop-blur-sm">
                 <Sparkles size={18} />
               </div>
             ) : null}
