@@ -28,3 +28,4 @@ Define the database name, version, and object stores for storing save files, met
 ## Acceptance Criteria
 - [ ] Define DB name and version.
 - [ ] Define object stores.
+- [ ] task-267-261-impl-indexeddb-schema
