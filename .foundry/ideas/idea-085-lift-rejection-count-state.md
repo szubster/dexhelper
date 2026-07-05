@@ -2,12 +2,12 @@
 id: idea-085-lift-rejection-count-state
 type: IDEA
 title: Lift rejection_count state to DagContext
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '353295372918637244'
 pr_number: null
 parent: null
 tags:
