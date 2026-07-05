@@ -14,7 +14,8 @@ In Gen 3 save files (Ruby, Sapphire, Emerald), the game stores a flat array of `
 
 The structure of the `SecretBase` record differs slightly between Ruby/Sapphire and Emerald. Emerald introduces an additional `language` byte. However, due to 16-bit alignment padding in Ruby/Sapphire, the final total size remains exactly `160` bytes for both versions, and the offset of the `party` struct is identical (`0x34` or 52 bytes in).
 
-**Crucially, the `trainerName` field is 7 bytes in both Ruby/Sapphire and Emerald.**
+**Crucially, according to the decompiled source codes (`pokeemerald` and `pokeruby`), `PLAYER_NAME_LENGTH` and `OT_NAME_LENGTH` are exactly 7 bytes, and `TRAINER_ID_LENGTH` is 4 bytes.**
+Therefore, `trainerName` is 7 bytes (offset `0x02` to `0x08`) and `trainerId` is 4 bytes (offset `0x09` to `0x0C`) identically across all Gen 3 games.
 
 | Field Name | Type | Size | RS Offset | Emerald Offset | Description |
 |---|---|---|---|---|---|
@@ -81,6 +82,16 @@ The 108-byte `party` structure stores the 6 Pokémon owned by the Secret Base tr
 | `heldItems` | `u16[6]` | 12 | `0x54` | Held Item IDs. |
 | `levels` | `u8[6]` | 6 | `0x60` | Levels of the Pokémon. |
 | `EVs` | `u8[6]` | 6 | `0x66` | A single EV value (0-255) distributed across all stats by the engine during battle setup. |
+
+### Memory Offsets by Pokémon Index
+To calculate the exact internal offset for a specific Pokémon at index `i` (0 to 5) within the `SecretBaseParty` structure, use the following formulas:
+- `personality`: `0x00 + (i * 4)`
+- `moves` (start of 4 moves): `0x18 + (i * 8)` (Each move is 2 bytes)
+- `species`: `0x48 + (i * 2)`
+- `heldItems`: `0x54 + (i * 2)`
+- `levels`: `0x60 + i`
+- `EVs`: `0x66 + i`
+
 
 ## 4. Map Location Representation (`secretBaseId`)
 The physical location of the Secret Base in the game world is defined by the `secretBaseId` (Offset 0).
