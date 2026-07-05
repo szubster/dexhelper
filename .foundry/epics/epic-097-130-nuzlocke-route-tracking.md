@@ -2,12 +2,12 @@
 id: epic-097-130-nuzlocke-route-tracking
 type: EPIC
 title: Automated Route Tracking
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '13148628970996678850'
+jules_session_id: null
 pr_number: null
 parent: prd-057-097-automated-nuzlocke-tracker
 tags:
@@ -31,4 +31,7 @@ Implement the logic to track which Pokémon were caught on which routes based on
 - Flag violations when multiple Pokémon share the same `met_location`.
 
 ## Acceptance Criteria
-- [ ] Stories are generated
+- [x] Stories are generated
+- [ ] story-097-261-extract-pokemon-met-locations
+- [ ] story-097-262-aggregate-first-catch-by-route
+- [ ] story-097-263-flag-nuzlocke-route-violations

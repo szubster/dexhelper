@@ -2,12 +2,12 @@
 id: story-122-268-gen3-roamer-dossier-ui
 type: STORY
 title: Gen 3 Roamer Dossier UI
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '4442873045585834796'
+jules_session_id: null
 pr_number: null
 parent: epic-044-122-gen3-roamer-dashboard-ui-v3
 tags:
@@ -31,4 +31,6 @@ Based on the UI specification in `.foundry/docs/knowledge_base/ui/gen3_roamer_da
 ## Acceptance Criteria
 - [ ] Build a React component for the Roamer Dossier.
 - [ ] Connect the component to the extracted roamer state data.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-268-262-gen3-roamer-dossier-ui-impl
+- [ ] task-268-263-gen3-roamer-dossier-ui-qa

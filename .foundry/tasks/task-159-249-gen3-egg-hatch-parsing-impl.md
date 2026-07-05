@@ -2,12 +2,12 @@
 id: task-159-249-gen3-egg-hatch-parsing-impl
 type: TASK
 title: Implement Gen 3 Egg Hatch Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-02'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '657138697970413617'
+jules_session_id: null
 pr_number: null
 parent: story-106-159-gen3-egg-hatch-parsing
 tags:
@@ -40,8 +40,8 @@ Similar to Gen 2, Gen 3 repurposes the Friendship byte to store remaining "Egg C
 - Explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Implement module-level constants for offsets, lengths, and bit shifts.
-- [ ] Extract the "Is Egg" bit flag from the Miscellaneous (M) substructure using `DataView`.
-- [ ] If it is an egg, parse the Friendship byte from the Growth (G) substructure using `DataView`.
-- [ ] Multiply the parsed cycle count by 256 to calculate exact steps.
-- [ ] Write unit tests verifying the calculation and ensuring `RangeError` handling.
+- [x] Implement module-level constants for offsets, lengths, and bit shifts.
+- [x] Extract the "Is Egg" bit flag from the Miscellaneous (M) substructure using `DataView`.
+- [x] If it is an egg, parse the Friendship byte from the Growth (G) substructure using `DataView`.
+- [x] Multiply the parsed cycle count by 256 to calculate exact steps.
+- [x] Write unit tests verifying the calculation and ensuring `RangeError` handling.

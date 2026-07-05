@@ -8,7 +8,7 @@ created_at: '2026-06-30'
 updated_at: '2026-07-04'
 depends_on:
   - research-109-262-secret-base-party-offsets
-jules_session_id: null
+jules_session_id: '5207905172172294078'
 pr_number: null
 parent: story-070-109-extract-mixed-record-trainer-data
 tags:

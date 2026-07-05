@@ -2,12 +2,12 @@
 id: story-039-262-r2-client-infrastructure
 type: STORY
 title: Cloudflare R2 Client Infrastructure
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '8289274668446359218'
+jules_session_id: null
 pr_number: null
 parent: epic-030-039-cloudflare-r2-save-sync
 tags:
@@ -30,4 +30,6 @@ We need to establish the basic API bindings and infrastructure to connect to Clo
 - Implement fundamental read/write/list operations for the save files.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-262-261-r2-client-impl
+- [ ] task-262-262-r2-client-qa

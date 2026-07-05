@@ -36,6 +36,10 @@ Currently, data such as move PPs are either manually maintained or fetched ad-ho
 - [x] Implement parsing logic in `scripts/generate-pokedata.ts` to extract moves data (including PPs).
 - [x] Handle any discrepancies between generations for moves.
 - [x] Output the correct `moves.jsonl` data payload.
+- [ ] Replace manual/hardcoded tables for move data in the application runtime.
+
+### Auditor Rejection
+The implementation successfully generated `moves.jsonl`, but completely failed Goal 4: "Replace manual/hardcoded tables for move data." The client runtime (`src/db/schema.ts`, `src/db/PokeDB.ts`, etc.) was never updated to actually load, inflate, or use this newly generated data. A follow-up story is required to integrate this data into the application and replace the hardcoded tables.
 
 - [x] story-086-128-move-data-extraction
 - [x] story-086-129-move-generation-discrepancies

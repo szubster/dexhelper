@@ -2,12 +2,12 @@
 id: story-122-269-gen3-roamer-iv-glitch-warning-ui
 type: STORY
 title: Gen 3 Roamer IV Glitch Warning UI
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7557743343955259655'
 pr_number: null
 parent: epic-044-122-gen3-roamer-dashboard-ui-v3
 tags:
