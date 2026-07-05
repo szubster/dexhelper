@@ -30,6 +30,6 @@ Establish a strict architectural ADR mandating relative offset mapping, or imple
 Based on the investigation into linter feasibility for hardcoded offsets, we either need to write a custom rule to enforce this or formally establish an ADR to guide future parsers to use relative offsets dynamically.
 
 ## Acceptance Criteria
-- [ ] Depending on the investigation, implement the linter rule or write an ADR in `.foundry/docs/adrs/`.
-- [ ] Ensure all documentation specifies the requirements for dynamic save block extraction.
-- [ ] task-246-262-create-relative-offsets-adr
+- [x] Depending on the investigation, implement the linter rule or write an ADR in `.foundry/docs/adrs/`.
+- [x] Ensure all documentation specifies the requirements for dynamic save block extraction.
+- [x] task-246-262-create-relative-offsets-adr
