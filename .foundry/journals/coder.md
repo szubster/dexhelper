@@ -61,11 +61,6 @@ When implementing save parser tasks (e.g., Gen 3 berry patches), concrete memory
 ## Verifying Gen 3 Save File Sections
 When verifying save file documentation (e.g. Generation 3 save parsing), it is crucial to ensure that the stated offsets fall within the correct section headers as defined by authoritative sources like Bulbapedia. Failing to map byte offsets to the correct logical 4KB section boundaries can lead to incorrect data extraction in the orchestrator.
 
-## Self-Verification of task-108-161-update-schema-macro-node-completion-impl
-Documenting self-verification of the schema.md updates:
-1. Checked schema.md using `sed -n '180,201p' .foundry/docs/schema.md | tail -n 8` to verify "Invariant 15" was correctly added as: `Macro nodes (\`IDEA\`, \`PRD\`, \`EPIC\`, \`STORY\`) cannot complete until all of their descendant nodes are \`COMPLETED\`.`
-2. Used `cat` to verify that `.foundry/tasks/task-108-161-update-schema-macro-node-completion-impl.md`'s acceptance criteria box was successfully checked: `- [x] Update schema.md to explain hierarchical completion rules.`
-
 ## 2026-06-14: Missing Bitfield Formulas in Research
 When implementing save parser logic, research handoffs occasionally identify bitfields (e.g., Gen 3 Roamer IVs) without specifying the exact bit shifts or field sizes required for correct extraction. It's critical to avoid hallucinating these exact mathematical formulas to comply with groundedness rules. When this occurs, always spawn a late-bound `RESEARCH` node to determine the exact parsing formula and suspend the implementation task until the data is verified.
 
@@ -112,3 +107,6 @@ In Generation 2, two Shiny or Shiny Carrier Pokémon cannot breed with each othe
 ### Orchestrator Testing
 - **Observation:** Verified hierarchical completion via markdown links logic by adding unit tests in `.github/scripts/foundry-orchestrator.test.ts`.
 - **Action:** Created explicit tests for markdown link parsing and verification that children completion appropriately blocks and unblocks parents. Checked off acceptance criteria. Tested suite via vitest locally.
+
+## Investigation: Linter for Save Parsing Offsets
+Biome and Oxlint do not currently support custom JS linting rules. The built-in `noMagicNumbers` rule in Biome does not allow the granularity needed to specifically target `DataView` offset arguments, making it unsuitable for our strict save parsing guidelines. Introducing ESLint solely for this purpose would contradict our current tooling choices and add bloat. We should fall back to an ADR and code-review enforcement.

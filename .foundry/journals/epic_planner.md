@@ -1,17 +1,4 @@
-# Epic Planner Journal
-
-## Pattern: Handling Impossible Child Nodes
-When a child node (e.g., an Epic or Story) is proven mathematically or technically impossible (such as static extraction of Gen 3 roamer locations per ADR-108-027) and must be permanently CANCELLED:
-1. **Sibling Nodes Must Be Re-evaluated**: The cancellation of one child node often invalidates the assumptions or dependencies of its siblings.
-2. **Orphan and Replace Strategy**: Do not attempt to salvage the existing sibling nodes if their scope was tied to the impossible feature. Instead, transition those orphaned sibling nodes to `CANCELLED` and dynamically generate new replacement nodes with an updated scope.
-3. **DAG Constraint Compliance**: Crucially, the parent PRD *cannot* transition to `COMPLETED` if any of its generated child nodes remain in a PENDING state or if their checkboxes are left unchecked. When cancelling and replacing, ensure the checkboxes of the *failed/orphaned* nodes are checked off (`- [x]`) in the parent's markdown body to unblock the DAG, and append the new replacement nodes as unchecked items (`- [ ]`).
-
-## Pattern: Handling Impossible Child Nodes
-When a child node (e.g., an Epic or Story) is proven mathematically or technically impossible (such as static extraction of Gen 3 roamer locations per ADR-108-027) and must be permanently CANCELLED:
-1. **Sibling Nodes Must Be Re-evaluated**: The cancellation of one child node often invalidates the assumptions or dependencies of its siblings.
-2. **Orphan and Replace Strategy**: Do not attempt to salvage the existing sibling nodes if their scope was tied to the impossible feature. Instead, transition those orphaned sibling nodes to `CANCELLED` and dynamically generate new replacement nodes with an updated scope.
-3. **DAG Constraint Compliance**: Crucially, the parent PRD *cannot* transition to `COMPLETED` if any of its generated child nodes remain in a PENDING state or if their checkboxes are left unchecked. When cancelling and replacing, ensure the checkboxes of the *failed/orphaned* nodes are checked off (`- [x]`) in the parent's markdown body to unblock the DAG, and append the new replacement nodes as unchecked items (`- [ ]`).
-
-## Pattern: Parent-Linked ID Schema Enforcement
-When generating downstream nodes using the parent-linked ID schema (`<type>-<parent_NNN>-<NNN>-<slug>`), ensure that the `<parent_NNN>` segment strictly corresponds to the direct parent's sequence number (e.g., `054` from `prd-088-054-trick-house-tracker`), not the grandparent or project grouping ID (`088`). Similarly, `depends_on` arrays must reference exact Node IDs without file paths or extensions.
-When updating a parent node (like a PRD), do NOT check off its functional acceptance criteria. Only append newly generated child node references as unchecked tasks (`- [ ]`). The parent node's functional criteria must remain unchecked until all child nodes are completely finished.
+- **DAG ID Strictness Enforcement**: When referencing nodes in the `depends_on` or `parent` arrays of the YAML frontmatter, it is an absolute requirement to use the exact Node ID (e.g., `epic-101-133-gen3-ribbon-extraction`) and strictly exclude any directory paths or file extensions (e.g., `.foundry/epics/...md`). Including file paths causes critical orchestrator failures.
+- **Handling PRD Breakdowns with Multiple Epics**: When generating multiple descendant epics that must be executed sequentially or have dependencies among themselves (such as an Integration Epic depending on Data Extraction Epics), explicitly map these dependencies in the child node's frontmatter while still appending all children to the parent PRD's Acceptance Criteria.
+- **Node Sequence Numbering (`<NNN>`)**: Always verify the correct maximum sequence number by running `ls -1 .foundry/<node_type>/ | sort -n -t '-' -k 3 | tail -n 10`. Do not guess the next ID based on truncated output or memory, as it leads to sequence ID collisions.
+- **Completeness Mapping**: Do not skip PRD requirements during breakdown. If the PRD has a final "Integration" or "Serialization" objective, it requires a dedicated Epic in the breakdown just like the primary feature implementation requirements.

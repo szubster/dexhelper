@@ -32,7 +32,7 @@ export default defineConfig(async (configEnv) => {
           extends: true,
           test: {
             name: 'browser',
-            include: ['src/components/**/*.test.tsx', 'src/hooks/**/*.test.tsx', 'src/contexts/**/*.test.tsx'],
+            include: ['src/components/**/*.test.tsx', 'src/hooks/**/*.test.tsx', 'src/contexts/**/*.test.tsx', 'src/routes/__tests__/**/*.test.tsx'],
             exclude: ['tests/e2e/**/*'],
             browser: {
               enabled: true,

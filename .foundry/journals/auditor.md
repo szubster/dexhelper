@@ -36,10 +36,6 @@ While generally QA tasks verify implementations, the coder is always responsible
 **Recommendation/Learnings:**
 Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.
 
-## 2026-06-21: Verification of Tailwind v4 Tactical Utilities Epic
-
-I verified `epic-071-074-define-tailwind-v4-utilities` and its child stories and tasks.
-
 ## 2026-06-23: Late-Binding Hierarchy Orchestrator Exception
 
 **Pattern / Constraint:**
@@ -84,15 +80,12 @@ When evaluating macro nodes (like IDEA, PRD), a recurring pattern of failure is 
 
 ## 2026-07-02: Verification of Pokerus Bitwise Refactoring
 
-I verified `epic-038-061-pokerus-state-exfiltration`. The previous rejection citing the inline bitwise logic implementation violation of ADR 026 has been successfully resolved. The logic was appropriately refactored into a standardized `parsePokerus` helper in `src/engine/saveParser/parsers/common.ts` and integrated correctly into the main parser, accompanied by comprehensive boundary state tests. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards.
+The previous rejection citing the inline bitwise logic implementation violation of ADR 026 has been successfully resolved. The logic was appropriately refactored into a standardized `parsePokerus` helper in `src/engine/saveParser/parsers/common.ts` and integrated correctly into the main parser, accompanied by comprehensive boundary state tests. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards.
 
 ## 2026-07-03: Verification of Dynamic Moves PP PokeData
 
-I verified `epic-049-086-dynamic-move-pp-parsing` and its child stories (`story-086-128`, `story-086-129`, `story-086-130`). The implementation successfully shifted move parsing into the `scripts/generate-pokedata.ts` pipeline, including extracting data directly from PokéAPI, parsing historical accuracy/power/pp based on generation overrides, and outputting to `moves.jsonl`. The node's Acceptance Criteria and spawned child nodes were fully completed in the codebase.
-
 **Lesson: Verifying Macro Nodes with Downstream Artifacts**
-This epic successfully demonstrated the end-to-end flow of dynamic data extraction. When auditing build-time scripts (like `generate-pokedata.ts`), it is important to check the actual output artifacts (e.g. `data/db/moves.jsonl`) to ensure the compacted data matches expectations. I verified the generated JSONL structure and properties matched the logic implemented in the script.
-
+The implementation successfully shifted move parsing into the `scripts/generate-pokedata.ts` pipeline, including extracting data directly from PokéAPI, parsing historical accuracy/power/pp based on generation overrides, and outputting to `moves.jsonl`. When auditing build-time scripts (like `generate-pokedata.ts`), it is important to check the actual output artifacts (e.g. `data/db/moves.jsonl`) to ensure the compacted data matches expectations.
 ## 2026-07-03: Verification of Gen 3 Battle Frontier Data Extraction
 
 **Findings / Learnings:**
@@ -111,3 +104,6 @@ During the verification of `epic-045-070-orchestrator-strict-completion`, the im
 
 **Why this matters:**
 This prevents macro nodes (like `IDEA`, `PRD`, `EPIC`, `STORY`) from prematurely transitioning to `VERIFYING` or `COMPLETED` when their functional requirements (delegated to child tasks spawned via markdown references) are not actually implemented. Enforcing strictness on macro node completion ensures that when an Epic is reported as complete, all spawned asynchronous research or follow-up tasks have also successfully fulfilled their contracts, protecting the structural integrity of the DAG.
+
+### Lesson: TPM Persona and Archive Directory
+The Archive is maintained independently by the Tpm persona. The fact that a node is not in the archive directory does not mean it's not complete.

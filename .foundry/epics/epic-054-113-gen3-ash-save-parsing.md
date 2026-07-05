@@ -2,13 +2,13 @@
 id: epic-054-113-gen3-ash-save-parsing
 type: EPIC
 title: Gen 3 Ash Gathering Save Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-07-04'
 depends_on:
   - research-054-243-gen3-ash-gathering-offsets
-jules_session_id: '6759288689994116764'
+jules_session_id: null
 pr_number: null
 parent: prd-089-054-gen3-ash-gathering-tracker
 tags:
@@ -24,4 +24,6 @@ notes: ''
 
 # Gen 3 Ash Gathering Save Parsing
 
-- [ ] Create Story for extracting Volcanic Ash count using DataView API based on research findings.
+## Acceptance Criteria
+- [x] Create Story for extracting Volcanic Ash count using DataView API based on research findings.
+- [ ] story-113-267-gen3-ash-dataview-extraction

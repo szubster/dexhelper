@@ -2,12 +2,12 @@
 id: prd-080-097-gen3-data-parsing-infrastructure
 type: PRD
 title: Gen 3 Pokemon Data Parsing Infrastructure
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-07-03'
+updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: '117904704488365652'
+jules_session_id: null
 pr_number: null
 parent: idea-080-gen3-pokerus-extraction
 tags:
@@ -30,3 +30,7 @@ Implement the core infrastructure to parse and decrypt the 100-byte Gen 3 Pokém
 2. Calculate the decryption key using `PV XOR OT ID`.
 3. Resolve the substructure order using `PV % 24` to map the decrypted 48-byte block to G, A, E, M components.
 4. Support all Gen 3 games (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
+
+## Acceptance Criteria
+- [ ] epic-097-130-gen3-data-structure-extraction
+- [ ] epic-097-131-gen3-data-decryption-mapping

@@ -2,13 +2,13 @@
 id: story-090-133-remediation-state-transition-logic
 type: STORY
 title: Remediation State Transition Logic for Zombie Nodes
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-14'
-updated_at: '2026-07-01'
+updated_at: '2026-07-04'
 depends_on:
   - epic-050-089-zombie-node-detection-engine
-jules_session_id: null
+jules_session_id: '10087894287776808483'
 pr_number: null
 parent: epic-050-090-zombie-node-remediation-and-gc
 tags:

@@ -11,13 +11,17 @@ interface TacticalCardProps {
   pokemonId?: number;
   className?: string;
   style?: React.CSSProperties;
+  disabled?: boolean;
   variant?: 'default' | 'emerald' | 'amber' | 'storage-default' | 'storage-emerald' | 'storage-amber' | 'storage-red';
 }
 
 // ⚡ Bolt: Wrapped TacticalCard in React.memo to prevent unnecessary DOM re-renders of up to 400 PC boxes when parent states change
 export const TacticalCard = React.memo(
   React.forwardRef<HTMLButtonElement, TacticalCardProps>(
-    ({ children, onClick, ariaLabel, title, testId, pokemonId, className, style, variant = 'default' }, ref) => {
+    (
+      { children, onClick, ariaLabel, title, testId, pokemonId, className, style, disabled, variant = 'default' },
+      ref,
+    ) => {
       let variantClasses = '';
 
       switch (variant) {
@@ -55,8 +59,9 @@ export const TacticalCard = React.memo(
           data-testid={testId}
           data-pokemon-id={pokemonId}
           onClick={onClick}
+          disabled={disabled}
           className={cn(
-            'group focus-visible:tactical-focus relative w-full cursor-pointer text-left',
+            'group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50',
             isStorageVariant
               ? 'flex flex-col items-center rounded-none border border-dashed p-5 transition-all duration-200 hover:-translate-y-1 active:scale-95'
               : 'rounded-none border border-dashed p-4 font-mono transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]',

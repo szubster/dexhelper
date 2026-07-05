@@ -2,10 +2,10 @@
 id: story-116-249-gen3-ev-interface-definition
 type: STORY
 title: Story - Gen 3 EV Interface Definition
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-07-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,3 +32,6 @@ To properly represent EV data extracted from Gen 3 save files, the `PokemonInsta
 - The `evs` property should be an object containing `hp`, `atk`, `def`, `spa`, `spd`, and `spe` properties.
 
 ## 4. Acceptance Criteria
+
+- [x] Break down into Tasks
+- [ ] task-249-261-gen3-ev-interface-impl
