@@ -303,3 +303,11 @@ As defined in ADR 015, with the transition to MsgPack (`msgpackr`) and the confi
 *   `sprite` (formerly `spr`)
 
 Enum-to-number optimizations (e.g., mapping encounter methods or string triggers to integer values) are preserved.
+
+---
+
+## 13. Dynamic Save Block Extraction Guidelines
+
+As defined in ADR 028, to ensure maintainability and readability within the save parsing engine, the following rules apply when extracting dynamic save blocks:
+*   **Module-Level Constants:** All memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level.
+*   **No Magic Numbers:** The use of inline magic numbers for memory operations during dynamic save block extraction is strictly forbidden. This constraint must be enforced during code reviews.
