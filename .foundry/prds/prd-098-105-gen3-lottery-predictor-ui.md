@@ -34,4 +34,6 @@ Once the winning lottery number is extracted from the save file, we need to matc
 - Ensure the UI adheres to the tactical hardware aesthetic (ADR 024 and ADR 008 style guidelines).
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-105-133-lottery-matching-logic
+- [ ] epic-105-134-lottery-predictor-ui-component
