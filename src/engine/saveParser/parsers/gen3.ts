@@ -145,6 +145,11 @@ const PYRAMID_SILVER_BIT = 0;
 const PYRAMID_GOLD_OFFSET = 0x138a;
 const PYRAMID_GOLD_BIT = 1;
 
+const MISC_IV_EGG_ABILITY_OFFSET = 4;
+const IS_EGG_BIT_SHIFT = 30;
+const GROWTH_FRIENDSHIP_OFFSET = 4;
+const EGG_CYCLE_STEPS = 256;
+
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
  *
@@ -301,6 +306,43 @@ export function isGen3Save(view: DataView): boolean {
   } catch (error) {
     if (error instanceof RangeError) {
       return false;
+    }
+    throw error;
+  }
+}
+
+/**
+ * Calculates the exact remaining steps for an Egg to hatch in Gen 3.
+ *
+ * @remarks
+ * In Gen 3, the "Is Egg" bit flag is located at bit 30 of the 32-bit IVs/Egg/Ability bitfield
+ * within the Miscellaneous (M) substructure. If set, the Friendship byte in the Growth (G)
+ * substructure is repurposed to store the remaining Egg Cycles. Each cycle takes 256 steps.
+ *
+ * @param view - The raw save file DataView.
+ * @param miscSubstructureOffset - The resolved memory offset to the Miscellaneous (M) substructure.
+ * @param growthSubstructureOffset - The resolved memory offset to the Growth (G) substructure.
+ * @returns The exact remaining steps to hatch, or null if the Pokémon is not an egg.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3EggSteps(
+  view: DataView,
+  miscSubstructureOffset: number,
+  growthSubstructureOffset: number,
+): number | null {
+  try {
+    const ivEggAbility = view.getUint32(miscSubstructureOffset + MISC_IV_EGG_ABILITY_OFFSET, true);
+    const isEgg = (ivEggAbility >> IS_EGG_BIT_SHIFT) & 1;
+
+    if (!isEgg) {
+      return null;
+    }
+
+    const eggCycles = view.getUint8(growthSubstructureOffset + GROWTH_FRIENDSHIP_OFFSET);
+    return eggCycles * EGG_CYCLE_STEPS;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }

@@ -40,8 +40,8 @@ Similar to Gen 2, Gen 3 repurposes the Friendship byte to store remaining "Egg C
 - Explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Implement module-level constants for offsets, lengths, and bit shifts.
-- [ ] Extract the "Is Egg" bit flag from the Miscellaneous (M) substructure using `DataView`.
-- [ ] If it is an egg, parse the Friendship byte from the Growth (G) substructure using `DataView`.
-- [ ] Multiply the parsed cycle count by 256 to calculate exact steps.
-- [ ] Write unit tests verifying the calculation and ensuring `RangeError` handling.
+- [x] Implement module-level constants for offsets, lengths, and bit shifts.
+- [x] Extract the "Is Egg" bit flag from the Miscellaneous (M) substructure using `DataView`.
+- [x] If it is an egg, parse the Friendship byte from the Growth (G) substructure using `DataView`.
+- [x] Multiply the parsed cycle count by 256 to calculate exact steps.
+- [x] Write unit tests verifying the calculation and ensuring `RangeError` handling.
