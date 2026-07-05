@@ -2,12 +2,12 @@
 id: epic-104-133-gen3-lottery-offsets-research
 type: EPIC
 title: Gen3 Lottery Offsets Research
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14911342463393623895'
 pr_number: null
 parent: prd-098-104-gen3-lottery-data-extraction
 tags:
