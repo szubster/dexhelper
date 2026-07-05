@@ -3,6 +3,7 @@ import { getGen3UnobtainableReason } from '../../exclusives/gen3Exclusives';
 import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen3Graph';
 import type { SaveData } from '../../saveParser/index';
 import type { AssistantStrategy, Suggestion } from './types';
+import { getRoamerSuggestions } from './utils/roamer';
 
 export const gen3Strategy: AssistantStrategy = {
   generation: 3,
@@ -23,32 +24,11 @@ export const gen3Strategy: AssistantStrategy = {
     const suggestions: Suggestion[] = [];
     const missingSet = new Set(missingIds);
 
-    const roamerMap = new Map(saveData.roamingLegendaries?.map((r) => [r.speciesId, r]));
     const roamers = [
       { id: 380, name: 'Latias' },
       { id: 381, name: 'Latios' },
     ];
-
-    for (const roamer of roamers) {
-      if (missingSet.has(roamer.id)) {
-        let isTracked = false;
-        const rData = roamerMap.get(roamer.id);
-        if (rData && rData.mapId !== 0) {
-          isTracked = true;
-        }
-
-        suggestions.push({
-          id: `roamer-${roamer.id}`,
-          category: 'Catch',
-          title: `Track ${roamer.name}`,
-          description: isTracked
-            ? `${roamer.name} is currently roaming! Check your Pokédex to see its current route.`
-            : `Encounter ${roamer.name} in the wild, then use your Pokédex to track its location!`,
-          pokemonId: roamer.id,
-          priority: 85,
-        });
-      }
-    }
+    suggestions.push(...getRoamerSuggestions(saveData, missingSet, roamers));
 
     return suggestions;
   },
