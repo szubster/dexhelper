@@ -29,4 +29,7 @@ notes: ''
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Review `foundry-orchestrator.ts` to verify the cancellation logic for max rejection threshold is correctly implemented and works as expected.
+- [x] Review `foundry-orchestrator.ts` to verify the cancellation logic for max rejection threshold is correctly implemented and works as expected.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
