@@ -2,13 +2,13 @@
 id: task-252-261-battle-frontier-progress-visuals-qa
 type: TASK
 title: Battle Frontier Brain Progress Visuals QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
 depends_on:
   - task-252-260-battle-frontier-progress-visuals-impl
-jules_session_id: null
+jules_session_id: '562750158651665669'
 pr_number: null
 parent: story-079-252-battle-frontier-brain-progress-visuals
 tags:
