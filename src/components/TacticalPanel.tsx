@@ -2,6 +2,7 @@ import React from 'react';
 import { cn } from '../utils/cn';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { LcdGrid } from './LcdGrid';
+import { ScanlineOverlay } from './ScanlineOverlay';
 
 interface TacticalPanelProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: 'emerald' | 'amber' | 'red' | 'purple' | 'blue' | 'pink' | 'white' | 'default';
@@ -36,7 +37,7 @@ export const TacticalPanel = React.forwardRef<HTMLDivElement, TacticalPanelProps
         <LcdGrid className="opacity-[0.03]" />
 
         {/* Scanline overlay */}
-        <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-10" />
+        <ScanlineOverlay opacityClass="opacity-10" />
 
         {/* Corner Crosshairs */}
         <CornerCrosshairs

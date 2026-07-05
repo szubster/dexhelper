@@ -143,3 +143,8 @@
 - **Why**: Reduced duplication of the verbose tactical utility classes `relative col-span-full flex flex-col items-center justify-center rounded-none border border-zinc-800/50 border-dashed bg-zinc-950/20 p-6 text-center` and standardizes the empty state presentation.
 - **Key Learnings**:
   - Separating `className` and `labelClassName` gives flexibility for minor styling tweaks like making values bold or specific text sizes without breaking the core pattern.
+## ScanlineOverlay Refactoring
+- **What**: Replaced instances of `<div className="scanline-overlay pointer-events-none absolute inset-0 opacity-10" />` with `<ScanlineOverlay opacityClass="opacity-10" />`.
+- **Why**: Standardizes the usage of the scanline overlay and ensures it's consistent across the application.
+- **Key Learnings**:
+  - The `ScanlineOverlay` component already includes `pointer-events-none` and `absolute inset-0` classes, so we can replace raw `div` elements with it directly.
