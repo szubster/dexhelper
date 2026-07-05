@@ -33,9 +33,9 @@ Implement a distinct UI badge/indicator for "Shiny Carrier" Pokémon in PC boxes
 - Ensure the visual distinction between Shiny Carriers and actual Shiny Pokémon is clear.
 
 ## Acceptance Criteria
-- [ ] Badge component implemented and styled correctly according to ADR 008.
-- [ ] Badge integrated into PC Box view.
-- [ ] Badge integrated into Pokémon Detailed view.
+- [x] Badge component implemented and styled correctly according to ADR 008.
+- [x] Badge integrated into PC Box view.
+- [x] Badge integrated into Pokémon Detailed view.
 
 ## Reminders
 - If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

@@ -29,6 +29,22 @@ describe('PokemonCaughtDetails', () => {
     item: 0,
   };
 
+  it('renders correctly for shiny carrier', async () => {
+    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+      (selector: unknown) =>
+        (selector as (state: unknown) => unknown)({
+          saveData: {
+            generation: 1,
+          },
+        }),
+    );
+
+    const carrierPokemon = { ...mockPokemon, isShinyCarrier: true };
+    await render(<PokemonCaughtDetails yourPokemon={[carrierPokemon]} />);
+
+    await expect.element(page.getByText('CARRIER ANOMALY')).toBeInTheDocument();
+  });
+
   it('renders correctly', async () => {
     (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
       (selector: unknown) =>

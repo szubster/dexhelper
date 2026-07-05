@@ -29,16 +29,16 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
         {yourPokemon.map((p, i) => (
           <TacticalPanel
             key={`${p.storageLocation}-${p.slot || i}`}
-            variant={p.isShiny ? 'amber' : 'emerald'}
+            variant={p.isShiny ? 'amber' : p.isShinyCarrier ? 'cyan' : 'emerald'}
             className="group !p-0 relative flex flex-col gap-0 rounded-none border border-dashed"
           >
             <LcdGrid className="opacity-[0.03]" />
             <HoverScanner />
 
             <TelemetryDecoration
-              label={p.isShiny ? 'ANOMALY DETECTED' : 'STANDARD ISSUE'}
+              label={p.isShiny ? 'ANOMALY DETECTED' : p.isShinyCarrier ? 'CARRIER ANOMALY' : 'STANDARD ISSUE'}
               className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
-              textClassName={p.isShiny ? 'text-amber-400' : 'text-emerald-500'}
+              textClassName={p.isShiny ? 'text-amber-400' : p.isShinyCarrier ? 'text-cyan-400' : 'text-emerald-500'}
             />
 
             <div className="relative z-10 mt-6 flex items-start justify-between border-white/5 border-b border-dashed bg-black/40 p-4">
@@ -67,6 +67,8 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
               <div className="opacity-80 mix-blend-screen transition-transform duration-500 group-hover:scale-110">
                 {p.isShiny ? (
                   <Sparkles size={48} className="text-amber-500 drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
+                ) : p.isShinyCarrier ? (
+                  <Dna size={48} className="text-cyan-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]" />
                 ) : (
                   <Activity size={48} className="text-emerald-500 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]" />
                 )}
