@@ -2,12 +2,12 @@
 id: task-267-261-gen3-ash-dataview-extraction-impl
 type: TASK
 title: Implement Gen 3 Volcanic Ash Count DataView Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '222727710770471921'
 pr_number: null
 parent: story-113-267-gen3-ash-dataview-extraction
 tags:
