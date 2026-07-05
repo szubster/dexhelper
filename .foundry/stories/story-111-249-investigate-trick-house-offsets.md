@@ -30,6 +30,6 @@ Investigate and document the exact memory offsets and bitflags used for Trick Ho
 - Documenting the findings in the `.foundry/docs/knowledge_base/` directory (e.g., as `gen3_trick_house_offsets.md`).
 
 ## Acceptance Criteria
-- [ ] task-249-261-investigate-trick-house-offsets
-- [ ] Locate the memory offset and data structure for Trick House.
-- [ ] Document the findings in the knowledge base.
+- [x] task-249-261-investigate-trick-house-offsets
+- [x] Locate the memory offset and data structure for Trick House.
+- [x] Document the findings in the knowledge base.
