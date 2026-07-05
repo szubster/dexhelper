@@ -29,4 +29,9 @@ Update the parser and interface to properly extract the Trainer ID (TID) and Sec
 Based on Bulbapedia's "Save data structure (Generation III)" documentation, the Trainer ID is a 4-byte value located at offset `0x000A` within Section 0 (Trainer Info).
 
 ## Acceptance Criteria
-- [ ] Create Tasks for the implementation.
+- [x] Create Tasks for the implementation.
+- [ ] task-269-263-gen3-trainer-id-secret-id-impl
+- [ ] task-269-264-gen3-trainer-id-secret-id-qa
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
