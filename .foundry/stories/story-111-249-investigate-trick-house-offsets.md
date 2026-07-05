@@ -2,12 +2,12 @@
 id: story-111-249-investigate-trick-house-offsets
 type: STORY
 title: Investigate Gen 3 Trick House Offsets
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5574182834864354917'
 pr_number: null
 parent: epic-054-111-trick-house-save-parsing
 tags:
@@ -30,5 +30,6 @@ Investigate and document the exact memory offsets and bitflags used for Trick Ho
 - Documenting the findings in the `.foundry/docs/knowledge_base/` directory (e.g., as `gen3_trick_house_offsets.md`).
 
 ## Acceptance Criteria
+- [ ] task-249-261-investigate-trick-house-offsets
 - [ ] Locate the memory offset and data structure for Trick House.
 - [ ] Document the findings in the knowledge base.

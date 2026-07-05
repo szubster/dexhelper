@@ -2,12 +2,12 @@
 id: prd-098-104-gen3-lottery-data-extraction
 type: PRD
 title: Gen 3 Lottery Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-03'
-updated_at: '2026-07-03'
+updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15674574689352747709'
 pr_number: null
 parent: idea-098-gen3-pokemon-lottery-predictor
 tags:

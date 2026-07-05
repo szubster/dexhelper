@@ -2,12 +2,12 @@
 id: epic-057-127-bash-timeout-wrapper
 type: EPIC
 title: Timeout Wrapper for Bash Sessions
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-02'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: '17075280736157658586'
+jules_session_id: null
 pr_number: null
 parent: prd-095-057-prevent-blocking-bash-commands
 tags:
@@ -28,3 +28,5 @@ Implement a timeout wrapper for `run_in_bash_session` to interrupt commands that
 ## Acceptance Criteria
 - [ ] Implement timeout wrapper.
 - [ ] Implement feedback mechanism for interrupted commands.
+- [ ] story-127-267-bash-timeout-wrapper
+- [ ] story-127-268-bash-timeout-feedback

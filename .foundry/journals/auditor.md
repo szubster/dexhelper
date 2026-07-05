@@ -109,3 +109,5 @@ This prevents macro nodes (like `IDEA`, `PRD`, `EPIC`, `STORY`) from prematurely
 
 **Lesson: Explicit Bitwise Extraction and Boundary Testing**
 When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026`. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero, and absolute zero state) were comprehensively tested. This ensures accurate rendering of pokerus indicators on the UI and protects against scaling regressions.
+### Lesson: TPM Persona and Archive Directory
+The Archive is maintained independently by the Tpm persona. The fact that a node is not in the archive directory does not mean it's not complete.

@@ -2,12 +2,12 @@
 id: task-107-253-update-dag-orchestration-tests
 type: TASK
 title: Update DAG Orchestration Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-01'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: '9127575521615074271'
+jules_session_id: null
 pr_number: null
 parent: story-053-107-update-dag-orchestration-tests
 tags:
@@ -39,5 +39,5 @@ A recent refactor moved DAG utilities (like `todayISO`, `buildReverseDependencyG
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Existing orchestration tests are verified to pass successfully.
-- [ ] Any necessary imports are updated, or if no changes are needed, an empty PR is submitted with this checkbox checked.
+- [x] Existing orchestration tests are verified to pass successfully.
+- [x] Any necessary imports are updated, or if no changes are needed, an empty PR is submitted with this checkbox checked.

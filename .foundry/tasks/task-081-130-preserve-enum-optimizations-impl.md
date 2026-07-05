@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-05-22'
 updated_at: '2026-07-04'
 depends_on: []
-jules_session_id: '18052272907843875263'
+jules_session_id: '3296371238515535478'
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 2
 rejection_reason: ''
