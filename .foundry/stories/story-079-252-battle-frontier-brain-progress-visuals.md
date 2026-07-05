@@ -27,5 +27,5 @@ Create progress visuals towards the next Frontier Brain encounter using React Fl
 
 ## Acceptance Criteria
 - [x] Translate into technical Tasks
-- [ ] task-252-260-battle-frontier-progress-visuals-impl
-- [ ] task-252-261-battle-frontier-progress-visuals-qa
+- [x] task-252-260-battle-frontier-progress-visuals-impl
+- [x] task-252-261-battle-frontier-progress-visuals-qa
