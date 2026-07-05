@@ -35,6 +35,7 @@ Update the DAG Orchestrator to ensure strict hierarchical completion. A node mus
 3. **Tests**: Add unit tests in `.github/scripts/foundry-orchestrator.test.ts` to ensure these new validations work correctly and don't break existing functionality.
 
 ## Acceptance Criteria
+- [x] Break down into Tasks
 - [ ] Implement hierarchical completion logic in `foundry-orchestrator.ts`.
 - [ ] Add unit tests verifying the behavior blocks transition when children are not completed.
 - [ ] Ensure tests cover both `parent` field links and markdown body references.
@@ -42,5 +43,4 @@ Update the DAG Orchestrator to ensure strict hierarchical completion. A node mus
 - [ ] story-070-108-orchestrator-hierarchical-completion-logic
 - [ ] story-070-109-orchestrator-hierarchical-completion-tests
 
-### Auditor Rejection
-The hierarchical completion logic in `.github/scripts/foundry-orchestrator.ts` fails to treat `VERIFYING` children as incomplete. Because of this, parent macro nodes are prematurely transitioning to `VERIFYING` or `COMPLETED` when their descendant nodes have only reached `VERIFYING`, instead of waiting for them to fully reach `COMPLETED` or `CANCELLED`.
+- [ ] story-070-276-orchestrator-verifying-block
