@@ -19,18 +19,20 @@ function validateSchema() {
   const args = process.argv.slice(2);
   let targetFiles: string[] = [];
 
+  const foundryDir = path.resolve('.foundry');
+
   if (args.length > 0) {
     targetFiles = args.filter(file => {
       if (!file.endsWith('.md')) return false;
       const normalizedRelative = file.split(path.sep).join('/');
       if (!normalizedRelative.includes('.foundry/')) return false;
-      if (normalizedRelative.includes('.foundry/docs/')) return false;
+      // Allow docs/adrs but exclude other docs
+      if (normalizedRelative.includes('.foundry/docs/') && !normalizedRelative.includes('.foundry/docs/adrs/')) return false;
       if (normalizedRelative.includes('.foundry/journals/')) return false;
       if (normalizedRelative.includes('.foundry/archive/journals/')) return false;
       return true;
     });
   } else {
-    const foundryDir = path.resolve('.foundry');
     if (!fs.existsSync(foundryDir)) {
       console.error('No .foundry directory found.');
       process.exit(0);
@@ -41,7 +43,8 @@ function validateSchema() {
       if (!file.endsWith('.md')) return false;
       const relativePath = path.relative(foundryDir, file);
       const normalizedRelative = relativePath.split(path.sep).join('/');
-      if (normalizedRelative.startsWith('docs/')) return false;
+      // Allow docs/adrs but exclude other docs
+      if (normalizedRelative.startsWith('docs/') && !normalizedRelative.startsWith('docs/adrs/')) return false;
       if (normalizedRelative.startsWith('journals/')) return false;
       if (normalizedRelative.startsWith('archive/journals/')) return false;
       return true;
@@ -52,9 +55,9 @@ function validateSchema() {
   let hasError = false;
 
   const ideaRegex = /^idea-\d{3}(-[a-z0-9-]+)?$/;
-  const otherRegex = /^(prd|epic|story|task|research)-\d{3}(-\d{3})?(-[a-z0-9-]+)?$/;
+  const otherRegex = /^(prd|epic|story|task|research|adr)-\d{3}(-\d{3})?(-[a-z0-9-]+)?$/;
 
-  const validTypes = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH'];
+  const validTypes = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH', 'ADR'];
   const validStatuses = ['PENDING', 'READY', 'ACTIVE', 'VERIFYING', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
   const validPersonas = [
     'product_manager', 'epic_planner', 'story_owner', 'architect',
@@ -68,6 +71,17 @@ function validateSchema() {
     STORY: ['tech_lead', 'story_owner'],
     TASK: ['coder', 'qa', 'tech_lead', 'architect'],
     RESEARCH: ['researcher'],
+    ADR: ['architect'],
+  };
+
+  const folderMap: Record<string, string> = {
+    IDEA: 'ideas',
+    PRD: 'prds',
+    EPIC: 'epics',
+    STORY: 'stories',
+    TASK: 'tasks',
+    RESEARCH: 'research',
+    ADR: 'docs/adrs'
   };
 
   const requiredFields = ['id', 'title', 'created_at', 'updated_at', 'depends_on', 'jules_session_id'];
@@ -127,8 +141,6 @@ function validateSchema() {
         hasError = true;
       }
     } else if (status === 'ACTIVE' || status === 'COMPLETED' || status === 'READY' || status === 'VERIFYING') {
-      // Proactively ensure rejection_reason is populated if it exists to prevent edge-case validation failures
-      // during transitions, but do not fail for non-FAILED nodes unless it's explicitly malformed.
       const reason = data['rejection_reason'];
       if (reason === undefined) {
         console.warn(`Warning: Missing rejection_reason field in file ${file}. It should be present for all nodes.`);
@@ -159,12 +171,30 @@ function validateSchema() {
     }
 
     if (data['parent']) {
-      // Parent might be an ID or a path. If it looks like a path (contains '/'), verify it exists.
       if (typeof data['parent'] === 'string' && data['parent'].includes('/')) {
         if (!fs.existsSync(data['parent'])) {
           console.error(`Error: Parent path does not exist: '${data['parent']}' in file ${file}`);
           hasError = true;
         }
+      }
+    }
+
+    // 2.8 Validate directory placement
+    if (type) {
+      const expectedFolder = folderMap[type as string];
+      const normalizedPath = file.split(path.sep).join('/');
+      if (expectedFolder && !normalizedPath.includes(`/${expectedFolder}/`) && !normalizedPath.includes(`/archive/${expectedFolder}/`)) {
+        console.error(`Error: Node of type ${type} is in the wrong directory: ${file}. Expected it to be in .foundry/${expectedFolder}/ or .foundry/archive/${expectedFolder}/`);
+        hasError = true;
+      }
+    }
+
+    // 2.9 Validate filename matches ID (except ADRs which have inconsistent naming)
+    if (id && type !== 'ADR') {
+      const filename = path.basename(file, '.md');
+      if (filename !== id) {
+        console.error(`Error: Filename '${filename}' does not match frontmatter id '${id}' in file ${file}`);
+        hasError = true;
       }
     }
 
