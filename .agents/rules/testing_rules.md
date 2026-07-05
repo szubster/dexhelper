@@ -15,9 +15,9 @@ Whenever a new feature is implemented, you **must** add appropriate tests. Choos
 
 ## 2. Visual Excellence & Design Standards
 The USER expects a **premium, "WOW" experience**. Follow these design axioms strictly:
-- **Modern Retro Aesthetics**: Blend retro Pokédex vibes with modern design systems (vibrant colors, dark modes, glassmorphism, dynamic animations).
+- **Tactical Hardware Aesthetics**: Blend retro Pokédex vibes with utility-driven tactical hardware design patterns (sharp edges, dashed borders, monospaced telemetry fonts, dark modes). Avoid generic glassmorphism or overly smooth elements (see ADR 024).
 - **Prohibit Placeholders**: NEVER use placeholder images. Use the `generate_image` tool to create high-quality assets.
-- **Micro-animations**: Implement hover effects and interactive transitions to make the UI feel alive.
+- **Micro-animations**: Prefer immediate, utilitarian state changes or blocky segmented effects over smooth web-standard transitions.
 - **Predefined Styles**: Use Tailwind v4 standard tokens. Avoid ad-hoc utilities.
 
 ## 3. Bug & Regression Prevention
