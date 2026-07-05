@@ -326,3 +326,9 @@
 **Outcome:** Merged
 **Why:** Agents were repeatedly leaving the `### Auditor Rejection` blocks in the markdown bodies of their nodes after resolving the issues and resubmitting. This left dead/stale comments cluttering the files.
 **Pattern:** Explicitly instruct implementation agents (Coder, Tech Lead, Story Owner, Epic Planner, and Product Manager) to not only address the feedback but also explicitly remove the `### Auditor Rejection` block (and its contents) from the markdown body when resubmitting, keeping node bodies clean.
+
+## 2026-07-21 - [Accepted] - Prompt improvement - Enforce Exploration Rule and Scratchpad Cleanup universally
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The memory requires that context gathering is done using the `read_file` tool rather than bash scripts/`cat` to avoid truncation, and any temporary scratchpad scripts created must be deleted to prevent repository pollution. While this was added to several agent prompts on 2026-07-13, a review revealed that many agents (archivist, bolt, canvas, infras, mason, nurse, oak, palette, scribe, sculptor, sentinel, shield, sweeper, trainer, visionary) were still missing the `CRITICAL CONTEXT GATHERING INSTRUCTION`, and almost all were missing the `Scratchpad Cleanup` instruction (including the `auditor`).
+**Pattern:** Apply systemic rules universally across all agent personas. When an architectural constraint or tool rule applies to exploration or repository hygiene, it must be explicitly included in every single agent prompt to ensure full system-wide compliance and prevent arbitrary failures.
