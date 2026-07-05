@@ -150,6 +150,9 @@ const IS_EGG_BIT_SHIFT = 30;
 const GROWTH_FRIENDSHIP_OFFSET = 4;
 const EGG_CYCLE_STEPS = 256;
 
+export const GEN3_EMERALD_ASH_OFFSET = 0x142c;
+export const GEN3_RS_ASH_OFFSET = 0x13d0;
+
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
  *
@@ -497,6 +500,27 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
  * @returns An object containing the extracted Gen3ActiveSwarm data or undefined if none found.
  * @throws Error - "The save file is corrupted or incomplete: Invalid TV block struct." on out-of-bounds reads.
  */
+/**
+ * Extracts the Volcanic Ash gather count from a Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The absolute offset of SaveBlock1.
+ * @param version - The specific game version.
+ * @returns The amount of Volcanic Ash gathered.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3VolcanicAsh(view: DataView, saveBlock1Offset: number, version: GameVersion): number {
+  try {
+    const offset = version === 'emerald' ? GEN3_EMERALD_ASH_OFFSET : GEN3_RS_ASH_OFFSET;
+    return view.getUint16(saveBlock1Offset + offset, true);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3ActiveSwarm(view: DataView, offset: number): Gen3ActiveSwarm | undefined {
   try {
     const shows = parseGen3TVBlock(view, offset);
@@ -805,6 +829,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset + POKE_NEWS_OFFSET);
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
+    const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
 
     const roamingLegendaries = [];
     try {
@@ -888,6 +913,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3MixRecords,
       ...(gen3ActiveSwarm !== undefined ? { gen3ActiveSwarm } : {}),
       roamingLegendaries,
+      gen3VolcanicAsh,
     };
     if (gen3BattleFrontierWinStreaks) {
       result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;

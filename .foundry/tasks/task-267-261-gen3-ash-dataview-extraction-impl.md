@@ -35,10 +35,10 @@ Based on research findings, the Volcanic Ash gather count is stored as game vari
 3. All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Implement the extraction logic for Gen 3 Volcanic Ash count.
-- [ ] Define reusable constants for all memory offsets (`0x142C`, `0x13D0`).
-- [ ] Properly catch `RangeError` to handle out-of-bounds reads.
-- [ ] Write unit tests for the extraction logic.
+- [x] Implement the extraction logic for Gen 3 Volcanic Ash count.
+- [x] Define reusable constants for all memory offsets (`0x142C`, `0x13D0`).
+- [x] Properly catch `RangeError` to handle out-of-bounds reads.
+- [x] Write unit tests for the extraction logic.
 
 ## Persona Instructions
 - **Coder**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
