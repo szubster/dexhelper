@@ -2,12 +2,12 @@
 id: story-058-152-refactor-feebas-magic-numbers
 type: STORY
 title: Refactor Feebas Magic Numbers
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-01'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '11862079725862627964'
+jules_session_id: null
 pr_number: null
 parent: epic-036-058-feebas-backend-parsing
 tags:

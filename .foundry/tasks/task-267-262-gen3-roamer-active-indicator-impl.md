@@ -2,10 +2,10 @@
 id: task-267-262-gen3-roamer-active-indicator-impl
 type: TASK
 title: Gen 3 Roamer Active Indicator UI Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

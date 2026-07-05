@@ -2,10 +2,10 @@
 id: story-090-134-garbage-collection-integration
 type: STORY
 title: Garbage Collection Integration and Execution
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-07-05'
 depends_on:
   - story-090-133-remediation-state-transition-logic
 jules_session_id: null

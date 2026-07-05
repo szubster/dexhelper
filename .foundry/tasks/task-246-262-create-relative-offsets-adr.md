@@ -2,10 +2,10 @@
 id: task-246-262-create-relative-offsets-adr
 type: TASK
 title: Write Relative Offsets ADR
-status: PENDING
+status: READY
 owner_persona: architect
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

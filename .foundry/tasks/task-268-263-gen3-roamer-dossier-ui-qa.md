@@ -2,10 +2,10 @@
 id: task-268-263-gen3-roamer-dossier-ui-qa
 type: TASK
 title: Gen 3 Roamer Dossier UI QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on:
   - task-268-262-gen3-roamer-dossier-ui-impl
 jules_session_id: null
