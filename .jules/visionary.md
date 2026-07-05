@@ -179,3 +179,7 @@
 ## 2026-07-04
 **Idea:** Gen 1-3 PC Box Organization Assistant
 **Learning:** When faced with a hard technical limitation (e.g., we cannot write to the save file to auto-sort boxes), we can still provide immense value by creating a "guided assistant." Providing a visual comparison of the "current state" vs "optimal sorted state" and a move planner turns our read-only constraint into an actionable, premium QoL feature for hardcore collectors.
+
+## 2026-07-05
+**Idea:** Gen 3 Trainer Card Stars & Achievements Dashboard
+**Learning:** Consolidating disparate game-spanning goals (like the 4-star Trainer Card in Emerald, which spans HoF, Pokédex, Contests, Battle Frontier) into a unified dashboard significantly increases user value for hardcore completionists. This pattern of turning fragmented in-game UI states into a cohesive macro-view should be repeated for other complex end-game challenges across generations.
