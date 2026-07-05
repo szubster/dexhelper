@@ -2,10 +2,10 @@
 id: idea-085-lift-rejection-count-state
 type: IDEA
 title: Lift rejection_count state to DagContext
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Created by Agile Coach to address orphaned requirements'
+notes: Created by Agile Coach to address orphaned requirements
 ---
 
 # Lift rejection_count state to DagContext

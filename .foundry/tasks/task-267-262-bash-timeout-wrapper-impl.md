@@ -2,10 +2,10 @@
 id: task-267-262-bash-timeout-wrapper-impl
 type: TASK
 title: Implement timeout wrapper for bash sessions
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

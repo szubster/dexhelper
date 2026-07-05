@@ -2,10 +2,10 @@
 id: task-269-263-gen3-roamer-iv-glitch-warning-ui-qa
 type: TASK
 title: Gen 3 Roamer IV Glitch Warning UI QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on:
   - task-269-262-gen3-roamer-iv-glitch-warning-ui-impl
 jules_session_id: null

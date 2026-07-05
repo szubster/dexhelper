@@ -2,10 +2,10 @@
 id: idea-086-fix-orchestrator-phase-3-6
 type: IDEA
 title: Fix orchestrator phase 3.6 for CANCELLED nodes
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,7 +17,9 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Created by Agile Coach to address auditor rejection of max rejection cancellation'
+notes: >-
+  Created by Agile Coach to address auditor rejection of max rejection
+  cancellation
 ---
 
 # Fix orchestrator phase 3.6 for CANCELLED nodes

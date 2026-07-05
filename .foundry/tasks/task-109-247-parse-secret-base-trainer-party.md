@@ -2,13 +2,13 @@
 id: task-109-247-parse-secret-base-trainer-party
 type: TASK
 title: Implement Gen 3 Secret Base Trainer and Party Parsing
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-06-30'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on:
   - research-109-262-secret-base-party-offsets
-jules_session_id: '5207905172172294078'
+jules_session_id: null
 pr_number: null
 parent: story-070-109-extract-mixed-record-trainer-data
 tags:
@@ -16,8 +16,8 @@ tags:
   - save-parsing
   - secret-base
 research_references: []
-rejection_count: 0
-rejection_reason: 'Suspended pending research on SecretBaseParty exact offsets and trainerName/ID version differences.'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
