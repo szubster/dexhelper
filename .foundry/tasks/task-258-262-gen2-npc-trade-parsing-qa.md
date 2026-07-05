@@ -27,10 +27,10 @@ notes: ''
 The `coder` has implemented parsing logic to extract Gen 2 NPC trade flags from save files.
 
 ## Acceptance Criteria
-- [ ] Verify unit tests have been added/updated in `src/engine/saveParser/parsers/gen2.test.ts`.
-- [ ] Ensure tests cover both Gold/Silver and Crystal offsets.
-- [ ] Ensure the tests assert correct extraction of the 7 bitwise flags into a boolean array.
-- [ ] Run the tests (`npx vitest run src/engine/saveParser/parsers/gen2.test.ts`) and ensure they pass.
-- [ ] If transient failures require retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- [ ] If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- [ ] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] Verify unit tests have been added/updated in `src/engine/saveParser/parsers/gen2.test.ts`.
+- [x] Ensure tests cover both Gold/Silver and Crystal offsets.
+- [x] Ensure the tests assert correct extraction of the 7 bitwise flags into a boolean array.
+- [x] Run the tests (`npx vitest run src/engine/saveParser/parsers/gen2.test.ts`) and ensure they pass.
+- [x] If transient failures require retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- [x] If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- [x] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
