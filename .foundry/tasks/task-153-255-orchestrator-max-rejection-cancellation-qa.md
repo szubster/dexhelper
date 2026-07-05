@@ -2,13 +2,13 @@
 id: task-153-255-orchestrator-max-rejection-cancellation-qa
 type: TASK
 title: QA Max Rejection Cancellation
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-01'
 updated_at: '2026-07-05'
 depends_on:
   - task-153-254-orchestrator-max-rejection-cancellation-impl
-jules_session_id: null
+jules_session_id: '3648207962258004008'
 pr_number: null
 parent: story-096-153-max-rejection-cancellation
 tags:
