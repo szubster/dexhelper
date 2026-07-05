@@ -2,12 +2,12 @@
 id: story-131-270-graveyard-box-state
 type: STORY
 title: Graveyard Box State and Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6654195536530470578'
 pr_number: null
 parent: epic-097-131-nuzlocke-death-tracking
 tags:
