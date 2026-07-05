@@ -37,3 +37,6 @@ Verify the implementation of the "Shiny Carrier" UI badge in PC boxes and detail
 - If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - If you must abort or permanently fail the task, update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+### QA Note
+Implementation rejected: Shiny Carrier badges lack border-dashed.
