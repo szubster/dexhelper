@@ -2,12 +2,12 @@
 id: task-267-261-impl-indexeddb-schema
 type: TASK
 title: Implement SaveHistoryDB IndexedDB Schema
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15955742087342046380'
 pr_number: null
 parent: story-130-267-define-indexeddb-schema
 tags:
