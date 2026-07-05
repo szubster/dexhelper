@@ -34,4 +34,10 @@ Completionists and players revisiting old save files who want to track their pro
 - Provide actionable hints (location, level, prerequisites) for available encounters.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into EPIC nodes for Gen 1, Gen 2, and Gen 3 event flag parsing and checklist UI implementation.
+- [x] Epic Planner: Break this PRD down into EPIC nodes for Gen 1, Gen 2, and Gen 3 event flag parsing and checklist UI implementation.
+- [ ] epic-106-136-gen1-static-encounters
+- [ ] epic-106-137-gen2-static-encounters
+- [ ] epic-106-138-gen3-static-encounters
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
