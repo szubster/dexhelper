@@ -26,8 +26,8 @@ notes: ''
 Investigate the decompiled source code (e.g., `pret/pokeemerald`) or other documentation to locate exactly where the Trick House puzzle state is stored in `SaveBlock1` or `SaveBlock2` for Gen 3 save files (Ruby, Sapphire, Emerald). Document the exact memory offsets and bitflags used for Trick House progression.
 
 ## Acceptance Criteria
-- [ ] Locate the memory offset and data structure for Trick House.
-- [ ] Document the findings in `.foundry/docs/knowledge_base/gen3_trick_house_offsets.md`.
+- [x] Locate the memory offset and data structure for Trick House.
+- [x] Document the findings in `.foundry/docs/knowledge_base/gen3_trick_house_offsets.md`.
 
 ## Notes
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
