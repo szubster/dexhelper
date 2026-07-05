@@ -12,25 +12,25 @@ In Gen 3 save files (Ruby, Sapphire, Emerald), the game stores a flat array of `
 
 ## 2. Secret Base Struct Definition (`SecretBase` / `SecretBaseRecord`)
 
-The structure of the `SecretBase` record differs slightly between Ruby/Sapphire and Emerald. Emerald introduces an additional `language` byte, which shifts the subsequent fields. However, due to 16-bit alignment padding in Ruby/Sapphire, the final total size remains exactly `160` bytes for both versions, and the offset of the `party` struct is identical (`0x34` or 52 bytes in).
+The structure of the `SecretBase` record differs slightly between Ruby/Sapphire and Emerald. Emerald introduces an additional `language` byte. However, due to 16-bit alignment padding in Ruby/Sapphire, the final total size remains exactly `160` bytes for both versions, and the offset of the `party` struct is identical (`0x34` or 52 bytes in).
+
+**Crucially, the `trainerName` field is 7 bytes in both Ruby/Sapphire and Emerald.**
 
 | Field Name | Type | Size | RS Offset | Emerald Offset | Description |
 |---|---|---|---|---|---|
 | `secretBaseId` | `u8` | 1 | `0x00` | `0x00` | ID of the Secret Base location. |
 | `flags` | `u8` (Bitfield) | 1 | `0x01` | `0x01` | `toRegister` (4), `gender` (1), `battledOwnerToday` (1), `registryStatus` (2). |
-| `trainerName` | `u8[7]` / `[8]` | 7 (RS) / 8 (E) | `0x02` | `0x02` | Name of the base owner. Emerald increased player name length to 8. |
-| `trainerId` | `u8[4]` | 4 | `0x09` | `0x0A` | Trainer ID (used to determine class/sprite). |
-| `language` | `u8` | 1 | - | `0x0E` | Language ID (Emerald only). |
+| `trainerName` | `u8[7]` | 7 | `0x02` | `0x02` | Name of the base owner. Max 7 characters. |
+| `trainerId` | `u8[4]` | 4 | `0x09` | `0x09` | Trainer ID (used to determine class/sprite). |
+| `language` | `u8` | 1 | - | `0x0D` | Language ID (Emerald only). |
 | (Padding) | `u8` | 1 | `0x0D` | - | Implicit padding in RS to align `numSecretBasesReceived` to 16-bit. |
-| `numSecretBasesReceived` | `u16` | 2 | `0x0E` | `0x0F` | Number of bases received via Mix Records. |
-| `numTimesEntered` | `u8` | 1 | `0x10` | `0x11` | Times the player has entered this specific base. |
-| `unused` | `u8` | 1 | `0x11` | `0x12` | Unused byte. |
-| `decorations` | `u8[16]` | 16 | `0x12` | `0x13` | Array of 16 Decoration IDs (Constant `DECOR_MAX_SECRET_BASE`). |
-| `decorationPos` | `u8[16]` | 16 | `0x22` | `0x23` | Array of 16 spatial coordinates corresponding to the decorations. |
-| (Padding) | `u8[2]` | 2 | `0x32` | `0x33` | Implicit padding to align `party` to 32-bit. |
+| `numSecretBasesReceived` | `u16` | 2 | `0x0E` | `0x0E` | Number of bases received via Mix Records. |
+| `numTimesEntered` | `u8` | 1 | `0x10` | `0x10` | Times the player has entered this specific base. |
+| `unused` | `u8` | 1 | `0x11` | `0x11` | Unused byte. |
+| `decorations` | `u8[16]` | 16 | `0x12` | `0x12` | Array of 16 Decoration IDs (Constant `DECOR_MAX_SECRET_BASE`). |
+| `decorationPos` | `u8[16]` | 16 | `0x22` | `0x22` | Array of 16 spatial coordinates corresponding to the decorations. |
+| (Padding) | `u8[2]` | 2 | `0x32` | `0x32` | Implicit padding to align `party` to 32-bit. |
 | `party` | `SecretBaseParty` | 108 | `0x34` | `0x34` | The Pokémon party of the base owner. |
-
-*(Note: Although `trainerName` is 7 bytes in RS, 7 + 1 + 1 = 9. `trainerId` starts at offset 9. `numSecretBasesReceived` is a `u16`, so it must start at an even address (offset 14), leaving offset 13 as padding in RS. In Emerald, `trainerName` is 8 bytes, so `trainerId` starts at 10. `language` is at 14, and `numSecretBasesReceived` starts at 15. Wait, this breaks 16-bit alignment in Emerald? Let's check: 10 + 4 = 14. `language` is at 14. `numSecretBasesReceived` is a `u16`. In Emerald, `numSecretBasesReceived` starts at offset 15 (`0x1AAA` - `0x1A9C` = `0x0E` = 14? Ah. Wait. Offset `0x1AAA` - `0x1A9C` = `14` (`0x0E`). Wait, let me recalculate the offsets for Emerald based on decompilation).*
 
 Let's look at the Emerald struct accurately based on the source code:
 ```c
@@ -68,8 +68,6 @@ struct SecretBaseRecord
     /*0x1A3C*/ struct SecretBaseParty party; // Offset 52..159
 };
 ```
-
-**Correction:** Both RS and Emerald use 7 characters for the player name in Secret Bases. The only structural difference is that Emerald fills the 1-byte padding at offset `13` with a `language` byte. The overall size (160 bytes) and all other offsets remain identical between the two games!
 
 ## 3. Secret Base Party Struct (`SecretBaseParty`)
 
