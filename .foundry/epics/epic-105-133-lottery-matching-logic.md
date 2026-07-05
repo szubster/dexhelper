@@ -30,4 +30,10 @@ Develop a logic module to iterate through the player's party and PC boxes to com
 - Determine the corresponding prize tier based on the match.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-133-272-gen3-lottery-data-extraction
+- [ ] story-133-273-gen3-lottery-matching-algorithm
+- [ ] story-133-274-gen3-lottery-ui-integration
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
