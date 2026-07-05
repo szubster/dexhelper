@@ -28,11 +28,11 @@ In Generation 2 (Gold, Silver, Crystal), we want to extract the state of the 7 i
 - Gold/Silver: `0x250F`
 
 ## Acceptance Criteria
-- [ ] Define the magic number constants `NPC_TRADE_FLAGS_OFFSET_CRYSTAL = 0x24EB;` and `NPC_TRADE_FLAGS_OFFSET_GS = 0x250F;` at the module level in `src/engine/saveParser/parsers/gen2.ts` (forbidding inline magic numbers).
-- [ ] Extend the `SaveData` interface or create a new property for `npcTradeFlags` in the parsed output (as a boolean array of length 7) representing `[MIKE, KYLE, TIM, EMY, CHRIS, KIM, FOREST]`.
-- [ ] Update the `parseGen2Save` function to read the byte at the appropriate offset (`isCrystal ? NPC_TRADE_FLAGS_OFFSET_CRYSTAL : NPC_TRADE_FLAGS_OFFSET_GS`).
-- [ ] Extract the 7 boolean flags using bitwise masking (`byte & (1 << i)`).
-- [ ] Add the `npcTradeFlags` array to the returned data structure.
-- [ ] If transient failures require retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- [ ] If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- [ ] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+- [x] Define the magic number constants `NPC_TRADE_FLAGS_OFFSET_CRYSTAL = 0x24EB;` and `NPC_TRADE_FLAGS_OFFSET_GS = 0x250F;` at the module level in `src/engine/saveParser/parsers/gen2.ts` (forbidding inline magic numbers).
+- [x] Extend the `SaveData` interface or create a new property for `npcTradeFlags` in the parsed output (as a boolean array of length 7) representing `[MIKE, KYLE, TIM, EMY, CHRIS, KIM, FOREST]`.
+- [x] Update the `parseGen2Save` function to read the byte at the appropriate offset (`isCrystal ? NPC_TRADE_FLAGS_OFFSET_CRYSTAL : NPC_TRADE_FLAGS_OFFSET_GS`).
+- [x] Extract the 7 boolean flags using bitwise masking (`byte & (1 << i)`).
+- [x] Add the `npcTradeFlags` array to the returned data structure.
+- [x] If transient failures require retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- [x] If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- [x] If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
