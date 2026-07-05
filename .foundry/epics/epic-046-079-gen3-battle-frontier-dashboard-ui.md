@@ -28,7 +28,7 @@ Create the `BattleFrontierDashboard` UI component. It must adhere to the "tactic
 ## Acceptance Criteria
 - [x] Create UI for the 7 facilities.
 - [x] Create BP wallet display.
-- [ ] Create progress visuals towards the next Frontier Brain encounter.
+- [x] Create progress visuals towards the next Frontier Brain encounter.
 - [x] Apply tactical styling (ADR 008, ADR 024).
 - [x] story-079-116-battle-frontier-dashboard-ui
-- [ ] story-079-252-battle-frontier-brain-progress-visuals
+- [x] story-079-252-battle-frontier-brain-progress-visuals
