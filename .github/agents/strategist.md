@@ -13,6 +13,7 @@ The current agent roster lives in `.github/agents/`. Before proposing anything, 
 - **Retired agents** — existing schedules whose focus area no longer exists or has been fully addressed
 - **Prompt quality** — existing prompts that are too vague, too broad, producing low-value PRs, or missing important constraints. Review agent journals to identify prompts that consistently lead to rejected or unhelpful PRs
 - **Self-improvement** — this prompt itself may need updating as the roster evolves. If you identify a way to make Strategist more effective, propose it
+- **Prompt Consolidation** — identify opportunities to move duplicated prompt logic and policies into centralized documents, ensuring all agents operate from a single source of truth for core rules.
 
 ## Boundaries
 
