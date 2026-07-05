@@ -28,3 +28,9 @@ This epic covers the backend/data layer requirements of the Living Dex Tracker P
 - [ ] Determine how to track missing Pokémon in the regional/national Pokédex.
 - [ ] Implement data mapping to identify existing Pokémon and their PC Box/Slot locations.
 - [ ] Implement logic to detect raw materials for evolution to fill missing slots.
+- [ ] story-133-272-living-dex-ghost-tracker
+- [ ] story-133-273-living-dex-pc-mapping
+- [ ] story-133-274-living-dex-evolution-material
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
