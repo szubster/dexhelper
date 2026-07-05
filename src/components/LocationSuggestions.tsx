@@ -5,6 +5,7 @@ import { pokeDB } from '../db/PokeDB';
 import type { GenericLocation } from '../db/schema';
 import { useStore } from '../store';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalIconButton } from './TacticalIconButton';
 
 export function LocationSuggestions() {
@@ -96,7 +97,7 @@ export function LocationSuggestions() {
       className="fade-in zoom-in-95 absolute top-full left-0 z-50 mt-2 w-full animate-in border border-white/20 border-dashed bg-zinc-950 shadow-2xl duration-200"
     >
       <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/40" />
-      <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-10" />
+      <ScanlineOverlay opacityClass="opacity-10" />
       <div className="relative z-10 space-y-1 p-2">
         <div className="tactical-text px-3 py-2 font-black text-[9px] text-zinc-600">[ SCAN RESULTS ]</div>
         {suggestions.map((loc) => (

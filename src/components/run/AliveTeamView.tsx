@@ -1,6 +1,7 @@
 import { ShieldAlert, Zap } from 'lucide-react';
 import type { PokemonInstance } from '../../engine/saveParser/parsers/common';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
+import { ScanlineOverlay } from '../ScanlineOverlay';
 import { TacticalPanel } from '../TacticalPanel';
 import { TelemetryDecoration } from '../TelemetryDecoration';
 
@@ -39,7 +40,7 @@ export function AliveTeamView({ team, generation }: AliveTeamViewProps) {
                   isShiny={pokemon.isShiny}
                   className="z-10 h-full w-full object-contain drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] transition-transform group-hover:scale-110"
                 />
-                <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
+                <ScanlineOverlay />
               </div>
 
               <div className="flex w-full flex-col items-center">

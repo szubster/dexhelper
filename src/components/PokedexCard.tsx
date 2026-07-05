@@ -9,6 +9,7 @@ import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { PokemonStatusBadge } from './pokemon/PokemonStatusBadge';
+import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalCard } from './TacticalCard';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
@@ -128,7 +129,7 @@ export const PokedexCard = React.memo(function PokedexCard({
         />
 
         {/* Scanline overlay for sprite */}
-        <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
+        <ScanlineOverlay />
       </div>
 
       <div className="flex w-full divide-x divide-dashed divide-zinc-800">

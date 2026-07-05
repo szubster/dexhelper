@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { cn } from '../utils/cn';
 import { LcdGrid } from './LcdGrid';
+import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalPanel } from './TacticalPanel';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
@@ -132,7 +133,7 @@ export function SyncProgress() {
 
             <div className="relative mx-auto flex aspect-square w-full max-w-[240px] items-center justify-center overflow-hidden border border-white/5 bg-zinc-900/50">
               <LcdGrid className="opacity-[0.05]" />
-              <div className="scanline-overlay pointer-events-none absolute inset-0 opacity-20" />
+              <ScanlineOverlay />
 
               {/* Faux Radar Grid */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0,var(--theme-primary)_100%)] opacity-5" />

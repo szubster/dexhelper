@@ -1,4 +1,5 @@
 import type { SaveData } from '../engine/saveParser';
+import { ScanlineOverlay } from './ScanlineOverlay';
 
 interface RetroBackgroundProps {
   saveData: SaveData | null;
@@ -9,7 +10,7 @@ export function RetroBackground(_props: RetroBackgroundProps) {
     <>
       {/* Tactical War Room Background */}
       <div className="pointer-events-none fixed inset-0 z-[-1] overflow-hidden bg-zinc-950">
-        <div className="scanline-overlay absolute inset-0 opacity-20" />
+        <ScanlineOverlay />
 
         {/* Radar / Topo Grid */}
         <div
