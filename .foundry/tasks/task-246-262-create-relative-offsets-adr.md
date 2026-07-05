@@ -2,12 +2,12 @@
 id: task-246-262-create-relative-offsets-adr
 type: TASK
 title: Write Relative Offsets ADR
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4680703567719832282'
 pr_number: null
 parent: story-103-246-create-relative-offsets-adr
 tags:
