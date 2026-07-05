@@ -34,6 +34,6 @@ Verify the implementation of the `BattleFrontierDashboard` progress visuals. Ens
 - **Permanent Failures:** If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Visuals tested to accurately show distance to Silver and Gold threshold based on current streak.
-- [ ] Tactical hardware aesthetic verified.
-- [ ] Reusable constants verified against magic numbers.
+- [x] Visuals tested to accurately show distance to Silver and Gold threshold based on current streak.
+- [x] Tactical hardware aesthetic verified.
+- [x] Reusable constants verified against magic numbers.

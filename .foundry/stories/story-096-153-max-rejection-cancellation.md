@@ -24,6 +24,6 @@ notes: ''
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] Update `foundry-orchestrator.ts` so that when a node is evaluated and `status === 'FAILED'`, if `rejection_count >= MAX_REJECTION_THRESHOLD`, its status changes to `CANCELLED`.
-- [ ] task-153-254-orchestrator-max-rejection-cancellation-impl
-- [ ] task-153-255-orchestrator-max-rejection-cancellation-qa
+- [x] Update `foundry-orchestrator.ts` so that when a node is evaluated and `status === 'FAILED'`, if `rejection_count >= MAX_REJECTION_THRESHOLD`, its status changes to `CANCELLED`.
+- [x] task-153-254-orchestrator-max-rejection-cancellation-impl
+- [x] task-153-255-orchestrator-max-rejection-cancellation-qa

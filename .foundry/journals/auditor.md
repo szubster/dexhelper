@@ -118,3 +118,7 @@ When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation suc
 
 ## Learnings from epic-038-061-pokerus-state-exfiltration
 When dealing with compressed data like Pokerus status, explicit bitwise logic and masking must be used to isolate multi-value bitfields into discrete properties. This prevents bugs related to edge cases like a non-zero strain with zero days remaining (the 'cured' state).
+## 2026-07-06: Verification of Feebas Seed Backend Parsing Epic
+
+**Lesson: Extending ADR 028 to Algorithmic Magic Numbers**
+When verifying `epic-036-058-feebas-backend-parsing`, the implementation successfully extracted the Feebas seed and correctly implemented the LCG algorithm. It also correctly adhered to `ADR 028: Relative Offsets & Magic Numbers` after a prior rejection (`story-058-152-refactor-feebas-magic-numbers`). Not only were the save file offsets refactored, but algorithmic magic numbers (like LCG multipliers, addends, and bit shifts) were also extracted into explicit, reusable constants at the module level. This confirms that the mandate against magic numbers applies to both memory operations and algorithmic implementations to improve code readability and maintainability.
