@@ -122,6 +122,10 @@ When dealing with compressed data like Pokerus status, explicit bitwise logic an
 
 **Lesson: Extending ADR 028 to Algorithmic Magic Numbers**
 When verifying `epic-036-058-feebas-backend-parsing`, the implementation successfully extracted the Feebas seed and correctly implemented the LCG algorithm. It also correctly adhered to `ADR 028: Relative Offsets & Magic Numbers` after a prior rejection (`story-058-152-refactor-feebas-magic-numbers`). Not only were the save file offsets refactored, but algorithmic magic numbers (like LCG multipliers, addends, and bit shifts) were also extracted into explicit, reusable constants at the module level. This confirms that the mandate against magic numbers applies to both memory operations and algorithmic implementations to improve code readability and maintainability.
+
+## 2026-07-06: Final Audit of Feebas Seed Backend Parsing
+**Lesson: Extending ADR 028 to Algorithmic Magic Numbers (Confirmation)**
+The implementation of the LCG algorithm in `src/engine/gen3/feebas.ts` confirms that the mandate against magic numbers (ADR 028) strictly applies to both memory operations and algorithmic constants (like LCG multipliers, addends, and bit shifts). Extracting these into module-level constants ensures long-term readability and compliance with architectural rules.
 ## 2026-07-06: Verification of Pokerus State Exfiltration Epic
 
 **Lesson: Verifying Epics with Downstream Architectural Refactors**
