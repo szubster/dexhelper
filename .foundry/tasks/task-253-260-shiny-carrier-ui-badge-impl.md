@@ -2,12 +2,12 @@
 id: task-253-260-shiny-carrier-ui-badge-impl
 type: TASK
 title: Implement Shiny Carrier UI Badge
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-02'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '5429777617685089162'
+jules_session_id: null
 pr_number: null
 parent: story-045-253-shiny-carrier-ui-badge
 tags:
