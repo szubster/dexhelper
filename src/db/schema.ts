@@ -175,3 +175,28 @@ export interface PokeDBSchema extends DBSchema {
     value: { key: string; value: string };
   };
 }
+
+export const SAVE_HISTORY_DB_CONFIG = {
+  NAME: 'SaveHistoryDB',
+  VERSION: 1,
+  STORES: {
+    SAVES: 'saves',
+    METADATA: 'metadata',
+    INDEXES: 'indexes',
+  },
+} as const;
+
+export interface SaveHistoryDBSchema extends DBSchema {
+  [SAVE_HISTORY_DB_CONFIG.STORES.SAVES]: {
+    key: string;
+    value: Uint8Array;
+  };
+  [SAVE_HISTORY_DB_CONFIG.STORES.METADATA]: {
+    key: string;
+    value: Record<string, unknown>;
+  };
+  [SAVE_HISTORY_DB_CONFIG.STORES.INDEXES]: {
+    key: string;
+    value: Record<string, unknown>;
+  };
+}
