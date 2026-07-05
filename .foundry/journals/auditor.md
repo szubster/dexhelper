@@ -115,3 +115,8 @@ The Archive is maintained independently by the Tpm persona. The fact that a node
 
 **Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026) Enforcement**
 When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero, and absolute zero state) were comprehensively tested in `common.test.ts`. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions.
+
+## 2026-07-06: Verification of Feebas Seed Backend Parsing Epic
+
+**Lesson: Extending ADR 028 to Algorithmic Magic Numbers**
+When verifying `epic-036-058-feebas-backend-parsing`, the implementation successfully extracted the Feebas seed and correctly implemented the LCG algorithm. It also correctly adhered to `ADR 028: Relative Offsets & Magic Numbers` after a prior rejection (`story-058-152-refactor-feebas-magic-numbers`). Not only were the save file offsets refactored, but algorithmic magic numbers (like LCG multipliers, addends, and bit shifts) were also extracted into explicit, reusable constants at the module level. This confirms that the mandate against magic numbers applies to both memory operations and algorithmic implementations to improve code readability and maintainability.
