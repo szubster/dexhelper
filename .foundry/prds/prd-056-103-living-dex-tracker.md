@@ -2,12 +2,12 @@
 id: prd-056-103-living-dex-tracker
 type: PRD
 title: Specialized "Living Dex" Organization Tracker UI
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-03'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '18118594218217689703'
+jules_session_id: null
 pr_number: null
 parent: idea-056-living-dex-tracker
 tags:
@@ -38,4 +38,7 @@ We need a dedicated "Living Dex Tracker" view in the DexHelper UI.
 - Toggleable or accessible from the main DexHelper storage view.
 
 ## 4. Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into manageable Epics.
+- [x] Epic Planner: Break down this PRD into manageable Epics.
+- [ ] epic-103-133-living-dex-data-engine
+- [ ] epic-103-134-living-dex-grid-ui
+- [ ] epic-103-135-living-dex-evolution-highlighting

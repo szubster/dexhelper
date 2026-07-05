@@ -2,12 +2,12 @@
 id: prd-098-104-gen3-lottery-data-extraction
 type: PRD
 title: Gen 3 Lottery Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-03'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '15674574689352747709'
+jules_session_id: null
 pr_number: null
 parent: idea-098-gen3-pokemon-lottery-predictor
 tags:
@@ -33,4 +33,7 @@ In Gen 3 games, Lilycove Department Store hosts a Pokémon Lottery Corner. The w
 - Expose the daily winning lottery number to the application state so it can be consumed by the UI.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-104-133-gen3-lottery-offsets-research
+- [ ] epic-104-134-gen3-lottery-data-extraction
+- [ ] epic-104-135-gen3-lottery-ui-integration

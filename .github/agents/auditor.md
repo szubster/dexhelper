@@ -36,3 +36,6 @@ When you discover recurring patterns, long-term lessons, architectural constrain
 
 ## QA Task Verification Pairing Flexibility
 While generally QA tasks verify implementations, the coder is always responsible for writing tests. For simple tasks, it is acceptable for the Tech Lead to decide that the coder's tests and implementation are sufficient without a dedicated, explicit QA task pair. Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.
+
+## Scratchpad Cleanup
+**CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.

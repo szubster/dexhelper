@@ -2,12 +2,12 @@
 id: epic-097-131-nuzlocke-death-tracking
 type: EPIC
 title: Automated Death Tracking
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '17470011512367675514'
+jules_session_id: null
 pr_number: null
 parent: prd-057-097-automated-nuzlocke-tracker
 tags:
@@ -30,4 +30,7 @@ Implement the logic to track dead Pokémon based on HP and Graveyard box assignm
 - Permanently mark any Pokémon in the Graveyard box as dead, regardless of HP.
 
 ## Acceptance Criteria
-- [ ] Stories are generated
+- [x] Stories are generated
+- [ ] story-131-269-detect-party-zero-hp
+- [ ] story-131-270-graveyard-box-state
+- [ ] story-131-271-graveyard-box-ui

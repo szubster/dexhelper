@@ -2,10 +2,10 @@
 id: story-119-268-gen3-move-tutor-frlg-parsing
 type: STORY
 title: Parse Gen 3 FRLG Move Tutor Flags
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: 2026-07-03T00:00:00.000Z
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,4 +32,6 @@ As described in `research-055-247-gen3-move-tutor-offsets` (detailed in `gen3_mo
 - Data must be extracted using `DataView` as mandated by ADR 010.
 
 ## Acceptance Criteria
-- [ ] Create tasks for implementing DataView-based extraction of FRLG Move Tutor bits.
+- [x] Create tasks for implementing DataView-based extraction of FRLG Move Tutor bits.
+- [ ] task-268-261-gen3-move-tutor-frlg-parsing-impl
+- [ ] task-268-262-gen3-move-tutor-frlg-parsing-qa

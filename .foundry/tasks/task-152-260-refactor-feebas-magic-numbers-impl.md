@@ -2,7 +2,7 @@
 id: task-152-260-refactor-feebas-magic-numbers-impl
 type: TASK
 title: Refactor Feebas Magic Numbers Implementation
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-03'
 updated_at: '2026-07-04'
@@ -32,7 +32,7 @@ The code in `src/engine/gen3/feebas.ts` has already been updated to extract the 
 *   For save file parsing, all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Ensure `LCG_MULTIPLIER` and `LCG_ADDEND` constants are present.
-- [ ] Ensure `FEEBAS_SPOT_BIT_SHIFT` constant is present.
-- [ ] Ensure `FEEBAS_TOTAL_SPOTS`, `FEEBAS_VALID_SPOTS`, `FEEBAS_BOUNDARY` constants are present.
-- [ ] Ensure constants are exported at the module level.
+- [x] Ensure `LCG_MULTIPLIER` and `LCG_ADDEND` constants are present.
+- [x] Ensure `FEEBAS_SPOT_BIT_SHIFT` constant is present.
+- [x] Ensure `FEEBAS_TOTAL_SPOTS`, `FEEBAS_VALID_SPOTS`, `FEEBAS_BOUNDARY` constants are present.
+- [x] Ensure constants are exported at the module level.

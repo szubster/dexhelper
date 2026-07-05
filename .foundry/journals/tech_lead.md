@@ -126,3 +126,12 @@ When determining the next available sequence number for nodes using the `<type>-
 
 ### 2026-07-04 - Late Binding for Gen 3 NPC Trades
 Suspended story-119-259-gen3-npc-trade-parsing and spawned research-259-249-gen3-npc-trade-parsing. Gen 3 NPC Trade data structures/offsets were missing from the knowledge base, necessitating late binding to gather accurate constraints before drafting technical blueprints.
+When drafting task blueprints, use the Intelligent Verification Protocol: for tasks with complex logic or risk, explicitly create a matching verification TASK for the 'qa' persona; for simple or low-risk tasks, explicitly designate the 'coder' to self-verify.
+The Tech Lead persona's private memory is strictly `.foundry/journals/tech_lead.md` and must be used solely to log long-term lessons, architectural constraints, and recurring failures, never as an execution logbook. Universally applicable knowledge should instead be documented in `.foundry/docs/`.
+When drafting technical blueprints for Stories involving complex shared state or architecture (e.g., ADR 013, ADR 017), the blueprints must provide explicit architectural scaffolding instructions, such as instructing the coder to define React Context layers before implementing dependent UI components.
+When creating downstream nodes, you must append references to the newly generated child nodes as unchecked tasks (`- [ ] <exact_node_id>`) directly into the parent node's markdown body under an `## Acceptance Criteria` section. Use the exact Node ID, strictly omitting any file extensions or directory paths.
+
+## 2026-07-04: Empty PR Policy for Completed Children
+- **Observation**: When assigned to an `ACTIVE` story (e.g., `story-103-245-investigate-offset-linter`) where all of its dynamically generated child tasks (e.g., `task-245-249-investigate-offset-linter`) have already transitioned to `COMPLETED` in a prior execution loop, the Orchestrator expects the parent node to be explicitly verified.
+- **Action**: To transition the Story to `VERIFYING` without prematurely violating the DAG, the Tech Lead must explicitly check off the acceptance criteria and child node checkboxes in the Story's markdown body and submit an Empty PR. No new task nodes need to be generated if the existing completed tasks fully satisfy the Story's requirements.
+- **Lesson**: Do not hallucinate or spawn redundant fallback tasks when the existing child tasks are demonstrably `COMPLETED`. Instead, rely on the Empty PR policy to formalize the completion of the parent Story.
