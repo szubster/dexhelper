@@ -53,7 +53,10 @@ test('renders grid with pokemon', async () => {
         saveData: {
           generation: 1,
           partyDetails: [{ speciesId: 1, storageLocation: 'Party', level: 5, isShiny: false, otName: 'RED' }],
-          pcDetails: [{ speciesId: 4, storageLocation: 'Box 1', level: 10, isShiny: true, otName: 'BLUE' }],
+          pcDetails: [
+            { speciesId: 4, storageLocation: 'Box 1', level: 10, isShiny: true, otName: 'BLUE' },
+            { speciesId: 7, storageLocation: 'Box 1', level: 5, isShiny: false, isShinyCarrier: true, otName: 'GREEN' },
+          ],
         },
       }),
   );
@@ -63,6 +66,7 @@ test('renders grid with pokemon', async () => {
       pokemonList={[
         { id: 1, name: 'Bulbasaur' },
         { id: 4, name: 'Charmander' },
+        { id: 7, name: 'Squirtle' },
       ]}
     />,
   );
@@ -74,6 +78,8 @@ test('renders grid with pokemon', async () => {
   // Check box pokemon
   await expect.element(page.getByText('Charmander')).toBeInTheDocument();
   await expect.element(page.getByText('BLUE')).toBeInTheDocument();
+  await expect.element(page.getByText('Squirtle')).toBeInTheDocument();
+  await expect.element(page.getByText('GREEN')).toBeInTheDocument();
 
   // Click navigation
   const btn = page.getByText('Bulbasaur');

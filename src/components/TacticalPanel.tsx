@@ -4,7 +4,7 @@ import { CornerCrosshairs } from './CornerCrosshairs';
 import { LcdGrid } from './LcdGrid';
 
 interface TacticalPanelProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'emerald' | 'amber' | 'red' | 'purple' | 'blue' | 'pink' | 'white' | 'default';
+  variant?: 'emerald' | 'amber' | 'red' | 'purple' | 'blue' | 'pink' | 'white' | 'default' | 'cyan';
   className?: string;
   children?: React.ReactNode;
 }
@@ -20,6 +20,7 @@ export const TacticalPanel = React.forwardRef<HTMLDivElement, TacticalPanelProps
             'border-emerald-500/30 bg-emerald-500/5 hover:border-emerald-500/50 hover:bg-emerald-500/10':
               variant === 'emerald',
             'border-amber-500/30 bg-amber-500/5 hover:border-amber-500/50 hover:bg-amber-500/10': variant === 'amber',
+            'border-cyan-500/30 bg-cyan-500/5 hover:border-cyan-500/50 hover:bg-cyan-500/10': variant === 'cyan',
             'border-red-500/30 bg-red-500/5 hover:border-red-500/50 hover:bg-red-500/10': variant === 'red',
             'border-purple-500/30 bg-purple-500/5 hover:border-purple-500/50 hover:bg-purple-500/10':
               variant === 'purple',
@@ -44,6 +45,7 @@ export const TacticalPanel = React.forwardRef<HTMLDivElement, TacticalPanelProps
           className={cn('h-2 w-2 transition-colors', {
             'border-emerald-500/40 group-hover:border-emerald-400': variant === 'emerald',
             'border-amber-500/40 group-hover:border-amber-400': variant === 'amber',
+            'border-cyan-500/40 group-hover:border-cyan-400': variant === 'cyan',
             'border-red-500/40 group-hover:border-red-400': variant === 'red',
             'border-purple-500/40 group-hover:border-purple-400': variant === 'purple',
             'border-blue-500/40 group-hover:border-blue-400': variant === 'blue',

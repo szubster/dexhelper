@@ -31,11 +31,14 @@ const StorageCard = React.memo(
   }) => {
     const handleClick = React.useCallback(() => onNavigate(pokemon.id), [onNavigate, pokemon.id]);
 
-    let variant: 'storage-default' | 'storage-emerald' | 'storage-amber' | 'storage-red' = 'storage-default';
+    let variant: 'storage-default' | 'storage-emerald' | 'storage-amber' | 'storage-red' | 'storage-cyan' =
+      'storage-default';
     if (isDead) {
       variant = 'storage-red';
     } else if (p.isShiny) {
       variant = 'storage-amber';
+    } else if (p.isShinyCarrier) {
+      variant = 'storage-cyan';
     } else if (location === 'Party') {
       variant = 'storage-red';
     } else {
@@ -68,7 +71,11 @@ const StorageCard = React.memo(
         )}
         <div className="absolute top-3 left-3 font-bold font-mono text-[10px] text-zinc-600">LV.{p.level}</div>
         <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-1.5">
-          {p.isShiny && <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />}
+          {p.isShiny ? (
+            <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />
+          ) : p.isShinyCarrier ? (
+            <Sparkles size={14} className="text-cyan-400 drop-shadow-sm" />
+          ) : null}
           {p.otName && (
             <TacticalBadge variant="zinc" className="max-w-[60px] truncate px-1.5 py-0.5 font-mono">
               {p.otName}
@@ -197,6 +204,11 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
 
                     {/* Status LEDs */}
                     <div className="flex gap-2">
+                      {/* Carrier Anomaly LED */}
+                      <div
+                        className={`h-2 w-2 rounded-none border ${pokemonInLocation.some((p) => !p.p.isShiny && p.p.isShinyCarrier) ? 'animate-[pulse_1.5s_ease-in-out_infinite] border-cyan-400 bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
+                        title="Carrier Detector"
+                      />
                       {/* Shiny Anomaly LED */}
                       <div
                         className={`h-2 w-2 rounded-none border ${pokemonInLocation.some((p) => p.p.isShiny) ? 'animate-pulse border-amber-400 bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}

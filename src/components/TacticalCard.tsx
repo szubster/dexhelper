@@ -12,7 +12,15 @@ interface TacticalCardProps {
   className?: string;
   style?: React.CSSProperties;
   disabled?: boolean;
-  variant?: 'default' | 'emerald' | 'amber' | 'storage-default' | 'storage-emerald' | 'storage-amber' | 'storage-red';
+  variant?:
+    | 'default'
+    | 'emerald'
+    | 'amber'
+    | 'storage-default'
+    | 'storage-emerald'
+    | 'storage-amber'
+    | 'storage-red'
+    | 'storage-cyan';
 }
 
 // ⚡ Bolt: Wrapped TacticalCard in React.memo to prevent unnecessary DOM re-renders of up to 400 PC boxes when parent states change
@@ -33,6 +41,9 @@ export const TacticalCard = React.memo(
           break;
         case 'default':
           variantClasses = 'border-white/20 bg-zinc-900/50 hover:border-white/40 hover:bg-zinc-800/80';
+          break;
+        case 'storage-cyan':
+          variantClasses = 'bg-cyan-900/10 border-cyan-500/30 hover:bg-cyan-900/20';
           break;
         case 'storage-amber':
           variantClasses = 'bg-amber-900/10 border-amber-500/30 hover:bg-amber-900/20';
