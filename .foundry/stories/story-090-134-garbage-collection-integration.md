@@ -30,7 +30,9 @@ Determine the integration approach for the GC process and implement it using the
 With the zombie node detection engine and state transition logic implemented, the final step is to integrate these pieces. We need to decide whether the GC process runs synchronously within the main orchestrator (`.github/scripts/foundry-orchestrator.ts`) or as an independent scheduled script, and then execute that integration. This will ensure that remediated nodes (`FAILED` state) are correctly processed by the existing resurrection loop.
 
 ## Acceptance Criteria
-- [ ] Create task breakdown.
+- [x] Create task breakdown.
 
 ### Next Steps
-- [ ] Break down into Tasks.
+- [ ] task-134-264-gc-integration-impl
+- [ ] task-134-265-gc-integration-qa
+- [x] Break down into Tasks.
