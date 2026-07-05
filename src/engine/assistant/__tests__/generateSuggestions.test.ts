@@ -449,7 +449,7 @@ describe('generateSuggestions', () => {
       party: [],
       inventory: [],
       currentMapId: 0,
-      npcTradeFlags: 1 << 1, // Set tradeIndex 1
+      npcTradeFlags: Array.from({ length: 16 }, (_, i) => i === 1), // Set tradeIndex 1 to true
       partyDetails: [],
       pcDetails: [],
       trainerName: 'ASH',

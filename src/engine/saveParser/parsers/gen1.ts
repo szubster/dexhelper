@@ -717,6 +717,10 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     eventFlags,
     hiddenItemFlags,
     hiddenCoinFlags,
-    npcTradeFlags: view.getUint8(eventFlagsOffset - 16) | (view.getUint8(eventFlagsOffset - 15) << 8),
+    // Gen 1 trades: The 2 bytes are at eventFlagsOffset - 16 and - 15. We convert this into a boolean array.
+    npcTradeFlags: Array.from({ length: 16 }, (_, i) => {
+      const byte = view.getUint8(eventFlagsOffset - 16 + Math.floor(i / 8));
+      return (byte & (1 << (i % 8))) !== 0;
+    }),
   };
 }

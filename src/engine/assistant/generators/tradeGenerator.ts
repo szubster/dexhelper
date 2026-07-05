@@ -115,7 +115,7 @@ export function generateGiftAndTradeSuggestions(
     if (!missingIds.has(trade.receivedId)) continue;
 
     if (trade.tradeIndex !== undefined && saveData.npcTradeFlags !== undefined) {
-      const isClaimed = (saveData.npcTradeFlags & (1 << trade.tradeIndex)) !== 0;
+      const isClaimed = saveData.npcTradeFlags[trade.tradeIndex];
       if (isClaimed) continue;
     }
 
