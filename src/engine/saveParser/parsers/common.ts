@@ -230,6 +230,8 @@ export interface SaveData {
   /** Gen 3 specific: Battle Points (BP) balance */
   gen3TotalBattlePoints?: number;
   gen3BattlePoints?: number;
+  /** Gen 3 specific: Volcanic Ash gather count */
+  gen3VolcanicAsh?: number;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.

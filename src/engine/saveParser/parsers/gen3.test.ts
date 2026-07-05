@@ -16,6 +16,7 @@ import {
   parseGen3Roamer,
   parseGen3SecretBases,
   parseGen3TotalBattlePoints,
+  parseGen3VolcanicAsh,
 } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
@@ -950,6 +951,36 @@ describe('parseGen3SecretBases', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3SecretBases(view, 0, 'ruby')).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3VolcanicAsh', () => {
+  it('should parse Gen 3 Volcanic Ash gather count for Emerald', () => {
+    // Offset for Emerald is 0x142C. Let saveBlock1Offset = 0.
+    const buffer = new ArrayBuffer(0x142c + 2);
+    const view = new DataView(buffer);
+    view.setUint16(0x142c, 1234, true);
+
+    const ash = parseGen3VolcanicAsh(view, 0, 'emerald');
+    expect(ash).toBe(1234);
+  });
+
+  it('should parse Gen 3 Volcanic Ash gather count for Ruby/Sapphire', () => {
+    // Offset for R/S is 0x13D0. Let saveBlock1Offset = 100.
+    const buffer = new ArrayBuffer(100 + 0x13d0 + 2);
+    const view = new DataView(buffer);
+    view.setUint16(100 + 0x13d0, 5678, true);
+
+    const ash = parseGen3VolcanicAsh(view, 100, 'ruby');
+    expect(ash).toBe(5678);
+  });
+
+  it('should throw RangeError on out-of-bounds reads', () => {
+    // Buffer too small for Emerald offset
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3VolcanicAsh(view, 0, 'emerald')).toThrowError('The save file is corrupted or incomplete.');
   });
 });
 
