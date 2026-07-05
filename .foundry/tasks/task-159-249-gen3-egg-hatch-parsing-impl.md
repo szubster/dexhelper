@@ -2,12 +2,12 @@
 id: task-159-249-gen3-egg-hatch-parsing-impl
 type: TASK
 title: Implement Gen 3 Egg Hatch Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-02'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '657138697970413617'
+jules_session_id: null
 pr_number: null
 parent: story-106-159-gen3-egg-hatch-parsing
 tags:

@@ -2,12 +2,12 @@
 id: epic-097-130-nuzlocke-route-tracking
 type: EPIC
 title: Automated Route Tracking
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: '13148628970996678850'
+jules_session_id: null
 pr_number: null
 parent: prd-057-097-automated-nuzlocke-tracker
 tags:

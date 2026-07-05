@@ -2,10 +2,10 @@
 id: epic-103-133-living-dex-data-engine
 type: EPIC
 title: Living Dex Data Engine & Mapping
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

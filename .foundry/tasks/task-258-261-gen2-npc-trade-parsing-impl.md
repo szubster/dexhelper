@@ -1,11 +1,11 @@
 ---
 id: task-258-261-gen2-npc-trade-parsing-impl
 type: TASK
-title: "Implement Gen 2 NPC Trade Extraction"
-status: PENDING
+title: Implement Gen 2 NPC Trade Extraction
+status: READY
 owner_persona: coder
-created_at: "2026-07-04"
-updated_at: "2026-07-04"
+created_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement Gen 2 NPC Trade Extraction

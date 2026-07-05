@@ -2,10 +2,10 @@
 id: task-249-261-investigate-trick-house-offsets
 type: TASK
 title: Investigate Gen 3 Trick House Offsets
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - mechanics
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Task: Investigate Gen 3 Trick House Offsets

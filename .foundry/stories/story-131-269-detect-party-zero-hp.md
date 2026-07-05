@@ -2,10 +2,10 @@
 id: story-131-269-detect-party-zero-hp
 type: STORY
 title: Detect Party Zero HP as Dead
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

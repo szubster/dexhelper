@@ -2,10 +2,10 @@
 id: story-097-261-extract-pokemon-met-locations
 type: STORY
 title: Extract Pokémon Met Locations
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-03'
+updated_at: '2026-07-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
