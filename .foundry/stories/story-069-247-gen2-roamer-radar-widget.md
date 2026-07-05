@@ -32,5 +32,7 @@ Construct a UI component that displays a list of active Gen 2 roamers (Raikou, E
 - [ ] A dedicated UI component displays the list of active Gen 2 roamers.
 - [ ] The component shows the human-readable route location for each roamer.
 - [ ] Status tags are correctly displayed based on save data.
-- [ ] Tech Lead: Break down into tasks.
-- [ ] research-247-248-gen2-roamer-offsets
+- [x] Tech Lead: Break down into tasks.
+- [x] research-247-248-gen2-roamer-offsets
+- [ ] task-247-274-gen2-roamer-radar-impl
+- [ ] task-247-275-gen2-roamer-radar-qa
