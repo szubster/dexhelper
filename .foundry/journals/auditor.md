@@ -115,3 +115,6 @@ The Archive is maintained independently by the Tpm persona. The fact that a node
 
 **Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026) Enforcement**
 When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero, and absolute zero state) were comprehensively tested in `common.test.ts`. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions.
+
+## Learnings from epic-038-061-pokerus-state-exfiltration
+When dealing with compressed data like Pokerus status, explicit bitwise logic and masking must be used to isolate multi-value bitfields into discrete properties. This prevents bugs related to edge cases like a non-zero strain with zero days remaining (the 'cured' state).
