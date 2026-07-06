@@ -34,6 +34,7 @@ This epic extracts pure functions from `.github/scripts/foundry-orchestrator.ts`
 - Update the DAG orchestration tests to use the new module.
 
 ## Next Steps
+- [ ] story-053-278-extract-log-to-journal
 - [x] Story Owner: Write Story to create the `dag-utils.ts` module with pure functions and basic utilities.
   - Spawned: `.foundry/archive/stories/story-053-090-extract-dag-utilities.md`
 
