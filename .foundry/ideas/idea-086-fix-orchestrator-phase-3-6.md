@@ -2,12 +2,12 @@
 id: idea-086-fix-orchestrator-phase-3-6
 type: IDEA
 title: Fix orchestrator phase 3.6 for CANCELLED nodes
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-04'
-updated_at: '2026-07-05'
+updated_at: '2026-07-06'
 depends_on: []
-jules_session_id: '10534472287149271423'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

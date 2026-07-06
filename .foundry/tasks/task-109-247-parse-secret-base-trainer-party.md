@@ -2,10 +2,10 @@
 id: task-109-247-parse-secret-base-trainer-party
 type: TASK
 title: Implement Gen 3 Secret Base Trainer and Party Parsing
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-06-30'
-updated_at: '2026-07-05'
+updated_at: '2026-07-06'
 depends_on:
   - research-109-262-secret-base-party-offsets
 jules_session_id: null

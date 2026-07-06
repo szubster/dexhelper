@@ -2,12 +2,12 @@
 id: task-156-254-hidden-items-checklist-impl
 type: TASK
 title: Implement Hidden Items Checklist UI Component
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-01'
-updated_at: '2026-07-05'
+updated_at: '2026-07-06'
 depends_on: []
-jules_session_id: '15899760562925510572'
+jules_session_id: null
 pr_number: null
 parent: story-060-156-hidden-items-checklist-component
 tags:

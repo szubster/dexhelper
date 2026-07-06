@@ -2,13 +2,13 @@
 id: epic-036-058-feebas-backend-parsing
 type: EPIC
 title: Feebas Seed Backend Parsing
-status: ACTIVE
+status: VERIFYING
 owner_persona: story_owner
 created_at: '2026-06-05'
-updated_at: '2026-07-05'
+updated_at: '2026-07-06'
 depends_on:
   - research-036-007-feebas-seed-offset
-jules_session_id: '10154608524841637831'
+jules_session_id: null
 pr_number: null
 parent: prd-066-036-feebas-tile-predictor
 tags:
