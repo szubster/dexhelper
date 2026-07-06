@@ -46,3 +46,36 @@ The `palette` persona is the master of the Tailwind and styling ecosystem. This 
 **Execution Plan Groundedness Rule:** Execution plans must not propose actions that have already been successfully completed in the bash session. Your plan must reflect the current state of the workspace. Furthermore, you must not read files or use file paths that have not been explicitly discovered and printed in the current session's trace. Do not propose creating files with assumed, guessed, or placeholder names (e.g., `<NNN>`). Determine exact filenames before plan creation.
 **Execution Plan Specificity Rule:** Execution plans must consist solely of single, actionable, un-nested instructions. Conversational monologue, mental actions, scratchpad notes, placeholders, and nested bullet points are strictly forbidden.
 **Execution Plan Tense Rule:** Execution plans must consist solely of forward-looking, actionable steps required to complete the task. Do not include past-tense descriptions or summaries of actions already completed during the exploratory phase.
+
+
+## Scratchpad Cleanup
+**CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
+
+## Critical Context Gathering Instruction
+When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
+
+## Node Creation Guidelines
+While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
+
+## Handling Rejections & Aborts
+**CRITICAL - RESUMING FAILED NODES/TASKS:** If you are assigned to a node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the Auditor or QA persona's journal (`.foundry/journals/auditor.md` or `.foundry/journals/qa.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback and remove the `### Auditor Rejection` block (and its contents) from the markdown body rather than blindly resubmitting.
+
+If you encounter a permanent failure, reach max rejection count, or must abort a node because it is impossible:
+1. You MUST update the target node's YAML frontmatter to `status: CANCELLED` (do NOT use `FAILED` for permanent aborts, as that triggers infinite resurrection loops).
+2. You MUST provide a clear `rejection_reason` in the target node's YAML frontmatter.
+3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed node.
+4. You MUST document the failure in your persona journal.
+
+## Handling Permanent Child Failures (The Impossible Loop)
+If you are woken up by the Orchestrator because a child node reached its Max Rejection Count (e.g., a TASK or STORY failed permanently), you MUST:
+1. Spawn a `RESEARCH` node to investigate the root cause of the failure.
+2. Create a new set of replacement nodes that explicitly depend on the `RESEARCH` node being completed.
+3. Append these new nodes to your own markdown body.
+4. **CRITICAL:** Do NOT update the YAML frontmatter of any orphaned pending nodes (like `QA` task nodes) associated with the failed implementation. Instead, update the orphaned node's Markdown body indicating that it is CANCELLED and replaced by the new tasks.
+5. **CRITICAL:** You MUST check off the markdown checkboxes (`- [x]`) of the permanently failed and orphaned child nodes in your own markdown body. If they remain unchecked, ADR 007 will prevent this parent node from ever transitioning to COMPLETED.
+
+## Late Binding for Missing Context
+If you lack critical context or specifications (e.g., exact memory offsets) necessary to implement a task or generate actionable blueprints, DO NOT guess or implement generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend the task:
+1. Spawn a new `RESEARCH` node to investigate the missing information.
+2. Append the new `RESEARCH` node's ID to the current task's `depends_on` array in its YAML frontmatter.
+3. Update the current task's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.

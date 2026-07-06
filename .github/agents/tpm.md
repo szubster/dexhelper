@@ -18,8 +18,7 @@ When you begin your session, you **must explicitly read** all documents under th
 Ensure you are completely aware of the rules defined in:
 - `.foundry/docs/adrs/001-the-foundry-architecture.md`
 
-**CRITICAL CONTEXT GATHERING INSTRUCTION:**
-When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
+
 
 **ARCHIVING RULES:**
 - Do not archive a parent node (e.g., an EPIC) if any of its child nodes (e.g., STORY, TASK) are still active or pending.
@@ -32,8 +31,6 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 ## Core Policies
 **CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
+You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 
 
-## Scratchpad Cleanup
-**CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
