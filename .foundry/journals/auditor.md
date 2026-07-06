@@ -10,8 +10,6 @@ The implementation successfully parses Gen 1 using an absolute base offset (`0x2
 ### Tailwind v4 @utility Consolidation & Variant Inheritance
 Native Tailwind v4 `@utility` directive handles custom component definition exceptionally well compared to `@layer components` because variants (`hover:`, `active:`, etc.) are naturally inherited and parsed by v4's engine without requiring specific nested variants inside the utility block, unless defining specific internal overrides. This greatly reduces repetitive class usage. Pattern: tactical-* utilities correctly utilized Tailwind v4 native @utility to inherit hover and focus states naturally without nested variant requirements.
 
-### Strict Hierarchical Verification for Macro Nodes
-When verifying macro nodes like EPICs, it's critical to recursively check that all spawned descendant nodes (down to the TASK level) have fully transitioned to the COMPLETED state before submitting an empty PR. Relying solely on the parent node's acceptance criteria checkboxes or immediate child nodes can prematurely transition the node to VERIFYING, leading to system inconsistency as the actual implementation might not yet be merged into the codebase. This applies to all deep levels of the spawned sub-tree.
 
 ## Save File Parsing Strategy
 When implementing save file parsing, strictly use dynamic relative offset calculations (anchored to known base offsets) instead of absolute hardcoded offsets for extracting dynamic data blocks to ensure robustness against version-specific shifts and prevent regressions.
@@ -72,15 +70,9 @@ During the verification of `epic-045-071-documentation-macro-node-completion`, i
 **Context:** When integrating Gen 2 event flags (or any bitwise block), relying on the `DataView` API over raw `Uint8Array` manipulations is an established architectural standard (ADR 010).
 **Why this matters:** Simply extracting data is insufficient. A critical pattern emerged: robust implementation *requires* explicit unit tests that intentionally trigger and catch `RangeError` exceptions for out-of-bounds reads. This test-driven approach ensures the parsing engine fails gracefully on corrupted `.sav` files, propagating predictable validation errors to the UI layer instead of silent crashes. Future parsing tasks must couple `DataView` usage with these strict boundary failure tests.
 
-### Lesson: Macro Node Spawn Verification
-When evaluating macro nodes like IDEA, PRD, EPIC, or STORY, the Auditor must verify that the downstream child nodes were actually spawned and fully completed before transitioning the macro node to COMPLETED. If an IDEA node's acceptance criteria are marked as completed (e.g., "- [x] Product Manager: Convert this idea into a PRD"), but no corresponding PRD file actually exists in the codebase, the verification MUST fail. A macro node is only verified if its intent is actually realized in the implementation through its generated descendants.
+### Lesson: Strict Hierarchical Verification for Macro Nodes
+When evaluating macro nodes like IDEA, PRD, EPIC, or STORY, a recurring pattern of failure is agents submitting the macro node (with an Empty PR) without actually spawning or waiting for the required child nodes (e.g., the Product Manager marking an IDEA as complete without creating a PRD). The Auditor must verify that all spawned descendant child nodes (down to the TASK level) have fully transitioned to the COMPLETED or CANCELLED status before transitioning the macro node to COMPLETED. Relying solely on the parent node's acceptance criteria checkboxes can prematurely transition the node. If the child nodes do not exist or are incomplete, the macro node's intent is unrealized, and verification MUST fail, rejecting the submission back to the responsible agent.
 
-### Lesson: Macro Node Recurring Verification Failures
-When evaluating macro nodes (like IDEA, PRD), a recurring pattern of failure is agents submitting the macro node (with an Empty PR) without actually spawning the required child nodes (e.g., the Product Manager marking the IDEA as complete without creating the PRD). This violates the core invariant that macro nodes cannot complete until all of their descendant nodes in the DAG have reached the COMPLETED or CANCELLED status. If the child nodes do not exist, the macro node's intent is unrealized, and verification MUST fail, rejecting the submission back to the responsible agent to generate the downstream nodes.
-
-## 2026-07-02: Verification of Pokerus Bitwise Refactoring
-
-The previous rejection citing the inline bitwise logic implementation violation of ADR 026 has been successfully resolved. The logic was appropriately refactored into a standardized `parsePokerus` helper in `src/engine/saveParser/parsers/common.ts` and integrated correctly into the main parser, accompanied by comprehensive boundary state tests. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards.
 
 ## 2026-07-03: Verification of Dynamic Moves PP PokeData
 
@@ -105,28 +97,10 @@ During the verification of `epic-045-070-orchestrator-strict-completion`, the im
 **Why this matters:**
 This prevents macro nodes (like `IDEA`, `PRD`, `EPIC`, `STORY`) from prematurely transitioning to `VERIFYING` or `COMPLETED` when their functional requirements (delegated to child tasks spawned via markdown references) are not actually implemented. Enforcing strictness on macro node completion ensures that when an Epic is reported as complete, all spawned asynchronous research or follow-up tasks have also successfully fulfilled their contracts, protecting the structural integrity of the DAG.
 
-## 2026-07-04: Verification of Gen 2 Pokerus State Exfiltration
-
-**Lesson: Explicit Bitwise Extraction and Boundary Testing**
-When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026`. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero, and absolute zero state) were comprehensively tested. This ensures accurate rendering of pokerus indicators on the UI and protects against scaling regressions.
 ### Lesson: TPM Persona and Archive Directory
 The Archive is maintained independently by the Tpm persona. The fact that a node is not in the archive directory does not mean it's not complete.
-## 2026-07-05: Verification of Gen 2 Pokerus State Exfiltration Epic
-
-**Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026) Enforcement**
-When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero, and absolute zero state) were comprehensively tested in `common.test.ts`. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions.
-
-## Learnings from epic-038-061-pokerus-state-exfiltration
-When dealing with compressed data like Pokerus status, explicit bitwise logic and masking must be used to isolate multi-value bitfields into discrete properties. This prevents bugs related to edge cases like a non-zero strain with zero days remaining (the 'cured' state).
 ## 2026-07-06: Verification of Feebas Seed Backend Parsing Epic
 
 **Lesson: Extending ADR 028 to Algorithmic Magic Numbers**
 When verifying `epic-036-058-feebas-backend-parsing`, the implementation successfully extracted the Feebas seed and correctly implemented the LCG algorithm. It also correctly adhered to `ADR 028: Relative Offsets & Magic Numbers` after a prior rejection (`story-058-152-refactor-feebas-magic-numbers`). Not only were the save file offsets refactored, but algorithmic magic numbers (like LCG multipliers, addends, and bit shifts) were also extracted into explicit, reusable constants at the module level. This confirms that the mandate against magic numbers applies to both memory operations and algorithmic implementations to improve code readability and maintainability.
 
-## 2026-07-06: Final Audit of Feebas Seed Backend Parsing
-**Lesson: Extending ADR 028 to Algorithmic Magic Numbers (Confirmation)**
-The implementation of the LCG algorithm in `src/engine/gen3/feebas.ts` confirms that the mandate against magic numbers (ADR 028) strictly applies to both memory operations and algorithmic constants (like LCG multipliers, addends, and bit shifts). Extracting these into module-level constants ensures long-term readability and compliance with architectural rules.
-## 2026-07-06: Verification of Pokerus State Exfiltration Epic
-
-**Lesson: Verifying Epics with Downstream Architectural Refactors**
-When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation correctly adhered to the Acceptance Criteria, which included the completion of downstream child stories (`story-061-095-pokerus-byte-parsing`, `story-061-096-pokerus-tests`, `story-061-155-refactor-pokerus-bitwise`) and an ADR (`adr-061-026-bitwise-state-extraction`). The refactoring strictly enforced `ADR 026` by using explicit bitwise operators and constants for the `parsePokerus` helper. Checking the state of the codebase ensures that when a parent node transitions to `COMPLETED`, its intended functionality and architectural constraints are fully realized and verified by tests.
