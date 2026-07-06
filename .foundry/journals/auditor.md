@@ -130,5 +130,10 @@ The implementation of the LCG algorithm in `src/engine/gen3/feebas.ts` confirms 
 
 **Lesson: Verifying Epics with Downstream Architectural Refactors**
 When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation correctly adhered to the Acceptance Criteria, which included the completion of downstream child stories (`story-061-095-pokerus-byte-parsing`, `story-061-096-pokerus-tests`, `story-061-155-refactor-pokerus-bitwise`) and an ADR (`adr-061-026-bitwise-state-extraction`). The refactoring strictly enforced `ADR 026` by using explicit bitwise operators and constants for the `parsePokerus` helper. Checking the state of the codebase ensures that when a parent node transitions to `COMPLETED`, its intended functionality and architectural constraints are fully realized and verified by tests.
+
+## 2026-07-06: Verification of Relative Offsets ADR Epic
+
+**Lesson: Enforcing Constraints without Tooling**
+During the verification of `epic-053-103-relative-offsets-adr`, it was determined that tooling limitations in Biome and Oxlint prevent the creation of custom linter rules to flag inline magic numbers during dynamic save block extraction. Consequently, `ADR 028: Relative Offsets & Magic Numbers` was formally established. Because automated linting is unfeasible, this architectural constraint (mandating reusable module-level constants) must be rigorously and manually enforced during code review. Furthermore, a follow-up node (`idea-104-refactor-existing-parsers-adr-028`) was spawned to proactively refactor legacy code to comply with this new standard, ensuring technical debt does not accumulate.
 ### Lesson: Magic Numbers Verification (ADR 028)
 When verifying algorithmic implementations, such as the Feebas seed extraction (epic-036-058-feebas-backend-parsing), it is crucial to ensure that architectural constraints regarding magic numbers (ADR 028) are strictly followed. All algorithmic constants, memory offsets, lengths, and bit shifts must be extracted into explicit, reusable constants at the module level. This promotes long-term readability and maintainability.

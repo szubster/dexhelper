@@ -35,3 +35,7 @@ Currently, save file extraction uses absolute hardcoded offsets for dynamic bloc
 ## Child Stories
 - [x] .foundry/stories/story-103-245-investigate-offset-linter.md
 - [x] .foundry/stories/story-103-246-create-relative-offsets-adr.md
+
+## Auditor Learnings & Follow-ups
+Based on the finding that tooling cannot automatically enforce offset rules, a follow-up node has been spawned to retroactively apply ADR 028 to legacy parsing code:
+Follow-up spawned: idea-104-refactor-existing-parsers-adr-028
