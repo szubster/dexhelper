@@ -477,4 +477,40 @@ describe('gen2 parsers', () => {
       );
     });
   });
+
+  describe('Gen 2 NPC Trade Flags Parsing', () => {
+    it('should correctly extract npcTradeFlags for Gold/Silver', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Gold/Silver NPC trade flags offset is 0x250f
+      // Set to 85 (0b01010101). Flags are extracted from bit 0 to 6.
+      view.setUint8(0x250f, 85);
+
+      const data = parseGen2(view, false);
+      expect(data.npcTradeFlags).toBeDefined();
+      expect(data.npcTradeFlags).toHaveLength(7);
+      expect(data.npcTradeFlags).toEqual([true, false, true, false, true, false, true]);
+    });
+
+    it('should correctly extract npcTradeFlags for Crystal', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x2865, 1);
+      view.setUint8(0x2866, 1);
+      view.setUint8(0x2866 + 7, 1);
+
+      // Crystal NPC trade flags offset is 0x24eb
+      // Set to 42 (0b00101010). Flags are extracted from bit 0 to 6.
+      view.setUint8(0x24eb, 42);
+
+      const data = parseGen2(view, true);
+      expect(data.npcTradeFlags).toBeDefined();
+      expect(data.npcTradeFlags).toHaveLength(7);
+      expect(data.npcTradeFlags).toEqual([false, true, false, true, false, true, false]);
+    });
+  });
 });
