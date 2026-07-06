@@ -2,7 +2,7 @@
 id: story-053-278-extract-log-to-journal
 type: STORY
 title: Extract logToJournal Utility
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
