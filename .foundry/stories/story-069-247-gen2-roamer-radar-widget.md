@@ -2,8 +2,8 @@
 id: story-069-247-gen2-roamer-radar-widget
 type: STORY
 title: Gen 2 Roamer Radar Widget
-status: PENDING
-rejection_reason: ''
+status: CANCELLED
+rejection_reason: 'Parent epic cancelled'
 owner_persona: tech_lead
 created_at: '2026-06-30'
 updated_at: '2026-07-05'
@@ -34,5 +34,8 @@ Construct a UI component that displays a list of active Gen 2 roamers (Raikou, E
 - [ ] Status tags are correctly displayed based on save data.
 - [x] Tech Lead: Break down into tasks.
 - [x] research-247-248-gen2-roamer-offsets
-- [ ] task-247-274-gen2-roamer-radar-impl
-- [ ] task-247-275-gen2-roamer-radar-qa
+- [ ] ~task-247-274-gen2-roamer-radar-impl~ (CANCELLED)
+- [ ] ~task-247-275-gen2-roamer-radar-qa~ (CANCELLED)
+
+### CANCELLED
+This story is cancelled as its parent epic is cancelled.
