@@ -142,3 +142,7 @@ When verifying algorithmic implementations, such as the Feebas seed extraction (
 
 **Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026) Enforcement**
 When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero) were comprehensively tested. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions.
+## 2026-07-07: Verification of Gen 2 Pokerus State Exfiltration Epic
+
+**Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026) Enforcement**
+When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero) were comprehensively tested. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions.
