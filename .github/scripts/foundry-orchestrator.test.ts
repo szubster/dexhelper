@@ -2206,4 +2206,103 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(ideaContent).toContain('status: READY');
   });
 
+  test('Impossible Loop: Wakes up parent even if FAILED child has incomplete sub-children', () => {
+    // Epic 1: PENDING
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Story 1: Child of Epic 1, FAILED
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "FAILED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: "epic-001",
+      rejection_reason: "Manual rejection",
+      jules_session_id: "sess-1",
+    });
+
+    // Task 1: Child of Story 1, PENDING
+    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
+      id: "task-001",
+      type: "TASK",
+      title: "Task 1",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: "story-001",
+      jules_session_id: null,
+    });
+
+    main();
+
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    // Epic 1 SHOULD be promoted to READY so that story_owner can fix Story 1
+    expect(epicContent).toContain('status: READY');
+  });
+
+  test('Impossible Loop: Wakes up parent even if CANCELLED child has incomplete sub-children', () => {
+    // Epic 1: PENDING
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Story 1: Child of Epic 1, CANCELLED
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "CANCELLED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: "epic-001",
+      rejection_reason: "Max rejection count reached",
+      jules_session_id: "sess-1",
+    });
+
+    // Task 1: Child of Story 1, PENDING
+    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
+      id: "task-001",
+      type: "TASK",
+      title: "Task 1",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: "story-001",
+      jules_session_id: null,
+    });
+
+    main();
+
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: READY');
+  });
+
 });
