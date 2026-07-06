@@ -9,6 +9,7 @@ import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { EdgeLabel } from './EdgeLabel';
 
 interface AssistantPanelProps {
   saveData: SaveData;
@@ -103,9 +104,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
       <div className="relative flex flex-col justify-between gap-4 border border-zinc-800/80 bg-zinc-900/50 p-6 sm:flex-row sm:items-center">
         <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/20" />
         <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-emerald-500/50 via-amber-500/50 to-purple-500/50" />
-        <div className="tactical-text pointer-events-none absolute -top-2.5 left-4 bg-zinc-950 px-1 text-[9px] text-[var(--theme-primary)]">
-          SYS.ASST
-        </div>
+        <EdgeLabel className="pointer-events-none -top-2.5 left-4 text-[var(--theme-primary)]">SYS.ASST</EdgeLabel>
 
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-3">
@@ -180,9 +179,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                       <div
                         className={`flex items-center gap-3 border border-zinc-800 border-dashed bg-zinc-900/80 px-4 py-2`}
                       >
-                        <div className="tactical-text absolute -top-2 left-2 bg-zinc-950 px-1 text-[8px] text-zinc-500">
-                          SYS.CAT
-                        </div>
+                        <EdgeLabel className="-top-2 left-2 text-[8px]">SYS.CAT</EdgeLabel>
                         <div className={`${catStyle.bg} ${catStyle.color.replace('border-', 'text-')} p-1`}>
                           {catStyle.icon}
                         </div>

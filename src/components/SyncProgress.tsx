@@ -2,6 +2,7 @@ import { ArrowRightCircle, CheckCircle2, Database, Loader2 } from 'lucide-react'
 import { useEffect, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { cn } from '../utils/cn';
+import { EdgeLabel } from './EdgeLabel';
 import { LcdGrid } from './LcdGrid';
 import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalPanel } from './TacticalPanel';
@@ -127,9 +128,7 @@ export function SyncProgress() {
         <div className="flex flex-col bg-zinc-950/50 md:flex-row">
           {/* Left Pane: Uplink Status */}
           <div className="relative flex-1 border-white/5 border-r border-dashed p-6">
-            <span className="tactical-text absolute -top-2 left-4 bg-zinc-950 px-1 text-[9px] text-zinc-500">
-              [ UPLINK_STATUS ]
-            </span>
+            <EdgeLabel className="-top-2 left-4">[ UPLINK_STATUS ]</EdgeLabel>
 
             <div className="relative mx-auto flex aspect-square w-full max-w-[240px] items-center justify-center overflow-hidden border border-white/5 bg-zinc-900/50">
               <LcdGrid className="opacity-[0.05]" />
@@ -160,9 +159,7 @@ export function SyncProgress() {
 
           {/* Right Pane: Data Stream Matrix */}
           <div className="relative flex-[2] p-6">
-            <span className="tactical-text absolute -top-2 left-4 bg-zinc-950 px-1 text-[9px] text-zinc-500">
-              [ DATA_STREAM ]
-            </span>
+            <EdgeLabel className="-top-2 left-4">[ DATA_STREAM ]</EdgeLabel>
 
             <div className="grid h-full min-h-[200px] grid-cols-[repeat(20,minmax(0,1fr))] content-start gap-1">
               {Array.from({ length: matrixBlocks }).map((_, i) => {
