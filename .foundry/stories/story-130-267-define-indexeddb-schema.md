@@ -2,12 +2,12 @@
 id: story-130-267-define-indexeddb-schema
 type: STORY
 title: Define IndexedDB Schema
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-05'
+updated_at: '2026-07-06'
 depends_on: []
-jules_session_id: '12196964507626749849'
+jules_session_id: null
 pr_number: null
 parent: epic-099-130-indexeddb-schema-design
 tags:
