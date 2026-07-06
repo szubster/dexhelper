@@ -56,9 +56,9 @@ Based on an initial evaluation of the codebase:
 
 ## 5. Next Steps
 - [x] Epic Planner: Break this PRD down into executable Epics (e.g., Engine Parsing, Mapping Translation, UI Dashboard).
-- [ ] ~epic-043-067-roamer-data-extraction~ (CANCELLED)
-- [ ] ~epic-043-068-roamer-map-translation~ (CANCELLED)
-- [ ] ~epic-043-069-roamer-radar-ui~ (CANCELLED)
+- [x] ~epic-043-067-roamer-data-extraction~ (CANCELLED)
+- [x] ~epic-043-068-roamer-map-translation~ (CANCELLED)
+- [x] ~epic-043-069-roamer-radar-ui~ (CANCELLED)
 - [ ] research-043-263-roamer-tracking-remediation
 - [ ] epic-043-139-gen2-roamer-data-extraction
 - [ ] epic-043-140-gen2-roamer-map-translation
