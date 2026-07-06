@@ -76,12 +76,12 @@ export function generateEvolutionSuggestions(
       }
     }
 
-    if (closestOwnedParentId === undefined) return;
+    if (closestOwnedParentId === undefined) continue;
     const ownedInstances = instancesBySpecies.get(closestOwnedParentId) || [];
-    if (ownedInstances.length === 0) return;
+    if (ownedInstances.length === 0) continue;
 
     const immediateEvoTarget = apiData.pokemonMetadata?.[immediateEvoTargetId];
-    if (!immediateEvoTarget) return;
+    if (!immediateEvoTarget) continue;
 
     // If we're looking at a multi-stage evolution (e.g., target is Charizard, immediate is Charmeleon)
     // AND the intermediate stage (Charmeleon) is ALSO missing from the Pokedex,
@@ -89,11 +89,11 @@ export function generateEvolutionSuggestions(
     // the engine will already generate an identical "Evolve Charmander -> Charmeleon" suggestion
     // when it evaluates Charmeleon as a target. This prevents redundant duplicates.
     if (immediateEvoTargetId !== targetId && missingIds.has(immediateEvoTargetId)) {
-      return;
+      continue;
     }
 
     const details = immediateEvoTarget.det;
-    if (!details || details.length === 0) return;
+    if (!details || details.length === 0) continue;
 
     for (const detail of details) {
       const tr = detail.tr;
