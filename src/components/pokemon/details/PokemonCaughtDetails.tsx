@@ -98,24 +98,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
 
             {generation === 2 && (
               <div className="relative z-10 border-white/5 border-t border-dashed bg-black/60 p-4">
-                {(() => {
-                  const validation = getTimeCapsuleValidation(p.speciesId, p.moves);
-                  return validation.isEligible ? (
-                    <TacticalBadge
-                      variant="emerald"
-                      className="w-full justify-center rounded-none font-mono text-[9px] uppercase"
-                    >
-                      [ TIME CAPSULE COMPATIBLE ]
-                    </TacticalBadge>
-                  ) : (
-                    <TacticalBadge
-                      variant="red"
-                      className="w-full justify-center rounded-none font-mono text-[9px] uppercase"
-                    >
-                      {validation.reason}
-                    </TacticalBadge>
-                  );
-                })()}
+                <TimeCapsuleBadge speciesId={p.speciesId} moves={p.moves} />
               </div>
             )}
 
@@ -152,5 +135,23 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
         ))}
       </div>
     </div>
+  );
+}
+
+function TimeCapsuleBadge({ speciesId, moves }: { speciesId: number; moves: number[] }) {
+  const validation = getTimeCapsuleValidation(speciesId, moves);
+
+  if (validation.isEligible) {
+    return (
+      <TacticalBadge variant="emerald" className="w-full justify-center rounded-none font-mono text-[9px] uppercase">
+        [ TIME CAPSULE COMPATIBLE ]
+      </TacticalBadge>
+    );
+  }
+
+  return (
+    <TacticalBadge variant="red" className="w-full justify-center rounded-none font-mono text-[9px] uppercase">
+      {validation.reason}
+    </TacticalBadge>
   );
 }
