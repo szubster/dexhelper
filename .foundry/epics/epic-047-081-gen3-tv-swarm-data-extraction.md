@@ -44,8 +44,8 @@ This epic covers the backend logic to extract TV broadcast events and swarm trac
 
 - [ ] story-081-121-gen3-tv-block-dataview-parser
 - [x] story-081-122-gen3-rtc-extraction
-- [ ] story-081-123-gen3-active-swarm-parsing
-- [ ] story-081-124-gen3-event-forecast-schedule
-- [ ] research-081-144-gen3-rtc-strategy
+- [x] story-081-123-gen3-active-swarm-parsing
+- [x] story-081-124-gen3-event-forecast-schedule
+- [x] research-081-144-gen3-rtc-strategy
 - [x] story-081-144-gen3-rtc-fallback-strategy
 - [ ] story-081-279-gen3-ignore-emulator-trailing-bytes
