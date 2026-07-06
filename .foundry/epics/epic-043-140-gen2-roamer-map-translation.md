@@ -2,7 +2,7 @@
 id: epic-043-140-gen2-roamer-map-translation
 type: EPIC
 title: Gen 2 Roamer Map Translation
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-06'
 updated_at: '2026-07-06'

@@ -2,7 +2,7 @@
 id: epic-043-141-gen2-roamer-radar-ui
 type: EPIC
 title: Gen 2 Roamer Radar UI
-status: READY
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
@@ -14,7 +14,7 @@ parent: prd-070-043-roamer-tracking-dashboard
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

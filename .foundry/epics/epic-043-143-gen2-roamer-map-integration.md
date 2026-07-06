@@ -2,7 +2,7 @@
 id: epic-043-143-gen2-roamer-map-integration
 type: EPIC
 title: Gen 2 Roamer Map Integration
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-06'
 updated_at: '2026-07-06'

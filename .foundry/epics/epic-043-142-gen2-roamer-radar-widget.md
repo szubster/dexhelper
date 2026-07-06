@@ -2,7 +2,7 @@
 id: epic-043-142-gen2-roamer-radar-widget
 type: EPIC
 title: Gen 2 Roamer Radar Widget
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-06'
 updated_at: '2026-07-06'

@@ -2,7 +2,7 @@
 id: task-121-277-gen3-tv-block-parser-retry2-qa
 type: TASK
 title: QA Gen 3 TV Block DataView Parser (Retry 3)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-06'

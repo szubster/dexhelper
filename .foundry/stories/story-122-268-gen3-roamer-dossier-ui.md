@@ -2,10 +2,10 @@
 id: story-122-268-gen3-roamer-dossier-ui
 type: STORY
 title: Gen 3 Roamer Dossier UI
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-05'
+updated_at: '2026-07-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 
