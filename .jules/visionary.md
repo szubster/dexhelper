@@ -183,3 +183,7 @@
 ## 2026-07-05
 **Idea:** Gen 3 Trainer Card Stars & Achievements Dashboard
 **Learning:** Consolidating disparate game-spanning goals (like the 4-star Trainer Card in Emerald, which spans HoF, Pokédex, Contests, Battle Frontier) into a unified dashboard significantly increases user value for hardcore completionists. This pattern of turning fragmented in-game UI states into a cohesive macro-view should be repeated for other complex end-game challenges across generations.
+
+## 2026-07-06
+**Idea:** Gen 1-3 Missed Trainer Radar
+**Learning:** Expanding the app's capability beyond tracking items/Pokémon to include standard NPC battle state directly solves a major player friction point (grinding for EXP/EVs). By parsing the hidden event flags for defeated trainers, we can create a "bounty board" of missed battles. This reinforces DexHelper's vision as a premium companion app by turning static game knowledge and hidden save state into a personalized, actionable checklist, saving players from tedious backtracking and guesswork.
