@@ -44,6 +44,9 @@ This epic extracts pure functions from `.github/scripts/foundry-orchestrator.ts`
   - Spawned: `.foundry/stories/story-053-107-update-dag-orchestration-tests.md`
 
 ## Acceptance Criteria
-- [x] `dag-utils.ts` is created and contains the extracted pure functions and utilities.
+- [ ] `dag-utils.ts` is created and contains the extracted pure functions and utilities.
 - [x] New unit tests are written for `dag-utils.ts`.
 - [x] Existing tests still pass.
+
+### Auditor Rejection
+The `logToJournal` function was not extracted into `dag-utils.ts` and is still missing. `dag-utils.ts` only contains `todayISO`, `buildReverseDependencyGraph`, and `getOrphanedNodes`.
