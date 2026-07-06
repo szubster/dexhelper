@@ -656,16 +656,8 @@ function main(): void {
       // We ignore the parent node itself during this check because it's exactly what we want to find out
       // (if something OTHER than the parent is blocking the child).
       const parentPath = resolveNodePath(node.frontmatter.parent);
-      const ignoredPaths = [node.repoPath];
-      if (parentPath) ignoredPaths.push(parentPath);
 
-      if (isHierarchicallyIncomplete(node.repoPath, ignoredPaths)) {
-        continue;
-      }
       if (parentPath) {
-        if (isHierarchicallyIncomplete(parentPath, ignoredPaths)) {
-          continue;
-        }
         const parentNode = nodeMap.get(parentPath);
         if (
           parentNode &&
