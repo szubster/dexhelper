@@ -2,7 +2,7 @@
 id: research-043-263-roamer-tracking-remediation
 type: RESEARCH
 title: Roamer Tracking Remediation
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-06'
 updated_at: '2026-07-06'

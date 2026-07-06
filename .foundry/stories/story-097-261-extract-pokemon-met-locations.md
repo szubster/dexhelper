@@ -2,12 +2,12 @@
 id: story-097-261-extract-pokemon-met-locations
 type: STORY
 title: Extract Pokémon Met Locations
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-05'
+updated_at: '2026-07-06'
 depends_on: []
-jules_session_id: '991928838614774931'
+jules_session_id: null
 pr_number: null
 parent: epic-097-130-nuzlocke-route-tracking
 tags:
