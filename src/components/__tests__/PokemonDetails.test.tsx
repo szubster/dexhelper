@@ -109,4 +109,56 @@ describe('PokemonDetails', () => {
     // Check that we render the empty locations string "External cross-version extraction required" or similar from PokemonLocations component
     await expect.element(page.getByText(/DATA-SRC: UNKNOWN/i)).toBeVisible();
   });
+
+  it('renders shiny carrier badge correctly', async () => {
+    vi.spyOn(dexDataLoader, 'getPokemonDetails').mockResolvedValue({
+      pokemon: {
+        id: 7,
+        efrm: [],
+        eto: [],
+        det: [],
+        cr: 45,
+        baby: false,
+      } as unknown as import('../../db/schema').PokemonMetadata,
+      enc: [],
+      nameMap: { 7: 'Squirtle' },
+      areaNames: {},
+    });
+
+    const mockSaveData: SaveData = {
+      generation: 2,
+      party: [],
+      pc: [7],
+      owned: new Set([7]),
+      partyDetails: [],
+      // @ts-expect-error - strict typing allows partial structure for test
+      pcDetails: [{ speciesId: 7, isShiny: false, isShinyCarrier: true }],
+      badges: 0,
+      money: 0,
+      id: 1,
+      playerName: 'Ash',
+      timePlayed: '10:00',
+    };
+
+    const { container } = await render(
+      <QueryClientProvider client={queryClient}>
+        <PokemonDetails
+          pokemonId={7}
+          pokemonName="Squirtle"
+          gameVersion="crystal"
+          saveData={mockSaveData}
+          isLivingDex={true}
+          pokeball="poke"
+          onClose={() => {}}
+          onNavigate={() => {}}
+        />
+      </QueryClientProvider>,
+    );
+
+    await expect.element(page.getByRole('heading', { name: 'Squirtle' })).toBeVisible();
+
+    // Test for the cyan colored border dashed element for shiny carrier badge
+    const badge = container.querySelector('.border-cyan-500\\/50.border-dashed');
+    expect(badge).toBeInTheDocument();
+  });
 });
