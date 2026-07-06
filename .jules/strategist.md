@@ -332,3 +332,9 @@
 **Outcome:** Merged
 **Why:** The memory requires that context gathering is done using the `read_file` tool rather than bash scripts/`cat` to avoid truncation, and any temporary scratchpad scripts created must be deleted to prevent repository pollution. While this was added to several agent prompts on 2026-07-13, a review revealed that many agents (archivist, bolt, canvas, infras, mason, nurse, oak, palette, scribe, sculptor, sentinel, shield, sweeper, trainer, visionary) were still missing the `CRITICAL CONTEXT GATHERING INSTRUCTION`, and almost all were missing the `Scratchpad Cleanup` instruction (including the `auditor`).
 **Pattern:** Apply systemic rules universally across all agent personas. When an architectural constraint or tool rule applies to exploration or repository hygiene, it must be explicitly included in every single agent prompt to ensure full system-wide compliance and prevent arbitrary failures.
+
+## YYYY-MM-DD - [Accepted] - Prompt improvement - Add Intelligent Verification Protocol to Coder
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The `qa` and `tech_lead` journals documented the Intelligent Verification Protocol where simple tasks can bypass QA pairing. The Coder prompt lacked explicit instructions to self-verify when designated.
+**Pattern:** When cross-persona protocols (like the Intelligent Verification Protocol) are established, they must be explicitly documented in all relevant persona prompts (e.g., instructing the Coder to self-verify).

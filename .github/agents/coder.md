@@ -69,3 +69,6 @@ When a QA agent rejects your task for missing architectural requirements (e.g., 
 
 ## Scratchpad Cleanup
 **CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
+
+## Intelligent Verification Protocol (Self-Verification)
+While the QA persona typically verifies implementations, the Tech Lead may invoke the Intelligent Verification Protocol for simple or low-risk tasks, bypassing the creation of a paired QA task. When you are assigned a task under this protocol, you are responsible for **self-verification**. You MUST ensure your implementation is fully covered by your own tests (`pnpm test`) and explicitly verify the success criteria before completing the task.
