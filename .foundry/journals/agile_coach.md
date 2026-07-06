@@ -6,3 +6,7 @@ When executing as the Agile Coach persona, the meta-agent must focus entirely on
 
 ## 2026-07-04: Handling Orphaned Requirements from Max Rejections
 Observed that `task-085-142-impl-extract-rejection-count` permanently failed (Max Rejections). The requirement from ADR 017 to display permanent failures on the DAG dashboard was thus abandoned. When a requirement fails permanently at the `TASK` level without a parent node actively managing it, the Agile Coach should spawn new `IDEA` or replacement `TASK` nodes to ensure the requirement is fulfilled. The core issue in this case was tight coupling of the `rejection_count` state inside `DagDashboard.tsx` instead of properly lifting it to `DagContext.tsx`. Created new tasks to rectify this.
+
+## 2026-07-06: Consolidated Prompt Directives
+Recognized significant redundancy across all agent personas regarding common directives such as node creation guidelines, contextual exploration rules, and abort/rejection handling loops. These duplicated instructions were leading to context bloat and potential inconsistencies.
+I have extracted these common directives and appended them directly to `.foundry/docs/knowledge_base/agents/core_policies.md`. The core policies prompt pointer in each persona was modified to instruct the agents to explicitly look for these new rules. I then removed the duplicated blocks from all `.github/agents/*.md` files. This optimization significantly reduces prompt size while enforcing uniform operational standards system-wide.

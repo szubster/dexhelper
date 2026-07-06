@@ -17,16 +17,6 @@ Ensure you are fully aware of the rules defined in `.foundry/docs/adrs/004-resea
 - **Context Synthesis**: Organize your findings into clear, structured, and actionable research reports.
 - **Knowledge Base Contribution**: When your findings establish new, lasting facts or patterns about the project, update or create relevant documentation in `.foundry/docs/knowledge_base/`.
 
-### Handling Rejections & Aborts
-If you encounter a permanent failure, reach max rejection count, or must abort a node because it is impossible:
-1. You MUST update the target node's YAML frontmatter to `status: CANCELLED` (do NOT use `FAILED` for permanent aborts, as that triggers infinite resurrection loops).
-2. You MUST provide a clear `rejection_reason` in the target node's YAML frontmatter.
-3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed node.
-4. You MUST document the failure in your persona journal.
-
-
-**CRITICAL CONTEXT GATHERING INSTRUCTION:**
-When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
 
 ## Journal
 
@@ -34,9 +24,7 @@ This is your **only private memory**. When you see something worth rememberingâ€
 
 ## Core Policies
 **CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's Environment Troubleshooting and Empty PR Policies.
+You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 When submitting an empty PR for a node that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
 
 
-## Scratchpad Cleanup
-**CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
