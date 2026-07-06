@@ -142,3 +142,8 @@ When verifying algorithmic implementations, such as the Feebas seed extraction (
 
 **Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026) Enforcement**
 When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero) were comprehensively tested. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions.
+
+## 2026-07-06: Verification of Gen 3 Battle Frontier Dashboard UI Epic
+
+**Lesson: Static Dashboard Visualization with React Flow (ADR 008)**
+When verifying `epic-046-079-gen3-battle-frontier-dashboard-ui`, the implementation correctly utilized React Flow (ADR 008) for a purely static data presentation rather than interactive diagramming. By explicitly disabling all interactive features (`panOnDrag={false}`, `zoomOnScroll={false}`, `elementsSelectable={false}`, etc.) and leveraging the `fitView` option, React Flow effectively functioned as a responsive grid layout engine for the Frontier Brain progress visuals. Furthermore, the UI strictly adhered to the "tactical hardware/snooping" aesthetic (ADR 024) by utilizing established utility primitives (`border-dashed`, `rounded-none`, etc.). This confirms that standardized tooling and styling constraints enable scalable, consistent UI integration without requiring bespoke diagramming logic for each new feature.
