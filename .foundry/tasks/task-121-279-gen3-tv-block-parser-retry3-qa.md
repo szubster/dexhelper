@@ -1,13 +1,13 @@
 ---
-id: task-121-277-gen3-tv-block-parser-retry2-qa
+id: task-121-279-gen3-tv-block-parser-retry3-qa
 type: TASK
-title: QA Gen 3 TV Block DataView Parser (Retry 3)
-status: CANCELLED
+title: QA Gen 3 TV Block DataView Parser (Retry 4)
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
 depends_on:
-  - task-121-276-gen3-tv-block-parser-retry2-impl
+  - task-121-278-gen3-tv-block-parser-retry3-impl
 jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
@@ -17,11 +17,11 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: 'Replaced by task-121-278 and task-121-279'
+rejection_reason: ''
 notes: ''
 ---
 
-# Task: QA Gen 3 TV Block DataView Parser (Retry 3)
+# Task: QA Gen 3 TV Block DataView Parser (Retry 4)
 
 ## Description
 Verify the implementation of the Gen 3 TV block `DataView` parser to ensure it correctly and safely parses the data according to the architecture guidelines and the findings from `research-121-246-gen3-tv-block-parser-retry-failure`.
@@ -36,4 +36,3 @@ Verify the implementation of the Gen 3 TV block `DataView` parser to ensure it c
 - **Transient Failure:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - **Permanent Failure:** If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **Empty PR Protocol:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-**CANCELLED:** Replaced by task-121-278 and task-121-279
