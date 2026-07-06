@@ -49,16 +49,16 @@ Based on an initial evaluation of the codebase:
 
 ## 4. Acceptance Criteria
 - [x] ~Gen 3 save parser correctly extracts Latios/Latias map group and ID.~ (Gen 3 impossible)
-- [x] Gen 2 raw map coordinates are translated into recognizable Route names.
-- [x] A dedicated UI component displays the current location of any active roamers.
-- [x] The feature only displays roamers that have actually been released in the save file's event flags.
+- [ ] Gen 2 raw map coordinates are translated into recognizable Route names.
+- [ ] A dedicated UI component displays the current location of any active roamers.
+- [ ] The feature only displays roamers that have actually been released in the save file's event flags.
 - [x] Break down this PRD into Epics.
 
 ## 5. Next Steps
 - [x] Epic Planner: Break this PRD down into executable Epics (e.g., Engine Parsing, Mapping Translation, UI Dashboard).
-- [ ] ~epic-043-067-roamer-data-extraction~ (CANCELLED)
-- [ ] ~epic-043-068-roamer-map-translation~ (CANCELLED)
-- [ ] ~epic-043-069-roamer-radar-ui~ (CANCELLED)
+- [x] ~epic-043-067-roamer-data-extraction~ (CANCELLED)
+- [x] ~epic-043-068-roamer-map-translation~ (CANCELLED)
+- [x] ~epic-043-069-roamer-radar-ui~ (CANCELLED)
 - [ ] research-043-263-roamer-tracking-remediation
 - [ ] epic-043-139-gen2-roamer-data-extraction
 - [ ] epic-043-140-gen2-roamer-map-translation
