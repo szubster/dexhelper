@@ -37,3 +37,4 @@ Update Phase 3.6 in `foundry-orchestrator.ts` to ensure that `CANCELLED` nodes w
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+- [ ] prd-086-108-fix-orchestrator-phase-3-6
