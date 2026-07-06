@@ -2,12 +2,12 @@
 id: research-109-262-secret-base-party-offsets
 type: RESEARCH
 title: Investigate Gen 3 Secret Base Party Memory Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-04'
 updated_at: '2026-07-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4997444049407687930'
 pr_number: null
 parent: story-070-109-extract-mixed-record-trainer-data
 tags:
@@ -31,5 +31,5 @@ We need to implement parsing for the `SecretBaseParty` structure in Gen 3 save f
 - Document these findings in `.foundry/docs/knowledge_base/gen3_secret_base_offsets.md`.
 
 ## Acceptance Criteria
-- [ ] Research and document the 6 `SecretBaseParty` memory offsets.
-- [ ] Definitively resolve the `trainerName` and `trainerId` version differences and document them.
+- [x] Research and document the 6 `SecretBaseParty` memory offsets.
+- [x] Definitively resolve the `trainerName` and `trainerId` version differences and document them.

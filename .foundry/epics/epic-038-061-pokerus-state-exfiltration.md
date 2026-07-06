@@ -5,9 +5,9 @@ title: Pokerus State Exfiltration Epic
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-07'
-updated_at: '2026-07-05'
+updated_at: '2026-07-06'
 depends_on: []
-jules_session_id: '11110044178769763471'
+jules_session_id: '14309065937460788574'
 pr_number: null
 parent: prd-069-038-pokerus-tracker
 tags:

@@ -206,7 +206,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                     <div className="flex gap-2">
                       {/* Carrier Anomaly LED */}
                       <div
-                        className={`h-2 w-2 rounded-none border ${pokemonInLocation.some((p) => !p.p.isShiny && p.p.isShinyCarrier) ? 'animate-[pulse_1.5s_ease-in-out_infinite] border-cyan-400 bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
+                        className={`h-2 w-2 rounded-none border ${pokemonInLocation.some((p) => !p.p.isShiny && p.p.isShinyCarrier) ? 'animate-[pulse_1.5s_ease-in-out_infinite] border-cyan-400 border-dashed bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
                         title="Carrier Detector"
                       />
                       {/* Shiny Anomaly LED */}
