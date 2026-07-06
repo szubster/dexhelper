@@ -49,3 +49,4 @@ This epic covers the backend logic to extract TV broadcast events and swarm trac
 - [x] research-081-144-gen3-rtc-strategy
 - [x] story-081-144-gen3-rtc-fallback-strategy
 - [ ] story-081-279-gen3-ignore-emulator-trailing-bytes
+- [ ] story-081-282-gen3-mix-record-inherited-events
