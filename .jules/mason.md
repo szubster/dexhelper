@@ -148,3 +148,8 @@
 - **Why**: Standardizes the usage of the scanline overlay and ensures it's consistent across the application.
 - **Key Learnings**:
   - The `ScanlineOverlay` component already includes `pointer-events-none` and `absolute inset-0` classes, so we can replace raw `div` elements with it directly.
+## EdgeLabel Extraction
+- **What**: Extracted a repeated JSX pattern for absolute-positioned edge labels into a reusable `EdgeLabel` component.
+- **Why**: Reduced duplication of the verbose tactical utility classes `tactical-text absolute bg-zinc-950 px-1 text-[9px] text-zinc-500` across multiple components (`TacticalInput`, `SearchAndFilters`, `AssistantPanel`, `SyncProgress`).
+- **Key Learnings**:
+  - The extraction allows callers to pass specific positioning (like `-top-2.5 left-4`) or specific color overrides (like `text-[var(--theme-primary)]`) via the `className` prop while the internal component handles the shared tactical typography and background.

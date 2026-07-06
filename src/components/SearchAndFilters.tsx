@@ -2,8 +2,8 @@ import { Search } from 'lucide-react';
 import { useMemo, useRef } from 'react';
 import { FILTER_TYPES, type FilterType, useStore } from '../store';
 import { ClearFiltersBadge } from './ClearFiltersBadge';
+import { EdgeLabel } from './EdgeLabel';
 import { FilterBadge } from './FilterBadge';
-
 import { LocationSuggestions } from './LocationSuggestions';
 import { TacticalInput } from './TacticalInput';
 import { TacticalMultiSelectControl } from './TacticalMultiSelectControl';
@@ -43,9 +43,7 @@ export function SearchAndFilters() {
         <div className="flex flex-col gap-6 pt-3 xl:flex-row">
           {/* Left Pane: Query Uplink */}
           <div className="relative flex-1 border border-zinc-800 border-dashed bg-black/40 p-3">
-            <span className="tactical-text absolute -top-2 left-2 bg-zinc-950 px-1 text-[9px] text-zinc-500">
-              [ QUERY_UPLINK ]
-            </span>
+            <EdgeLabel className="-top-2 left-2">[ QUERY_UPLINK ]</EdgeLabel>
             <div className="flex items-center gap-3">
               <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/5">
                 <Search size={16} className="relative z-10 text-[var(--theme-primary)]" />
@@ -74,9 +72,7 @@ export function SearchAndFilters() {
 
           {/* Right Pane: Parameter Matrix */}
           <div className="relative flex-1 border border-zinc-800 border-dashed bg-black/40 p-3 xl:max-w-2xl">
-            <span className="tactical-text absolute -top-2 left-2 bg-zinc-950 px-1 text-[9px] text-zinc-500">
-              [ PARAMETER_MATRIX ]
-            </span>
+            <EdgeLabel className="-top-2 left-2">[ PARAMETER_MATRIX ]</EdgeLabel>
             <TacticalMultiSelectControl<FilterType>
               ariaLabel="Filter Pokémon"
               containerClassName="h-full justify-center"

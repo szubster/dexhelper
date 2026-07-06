@@ -2,6 +2,7 @@ import { X } from 'lucide-react';
 import React from 'react';
 import { cn } from '../utils/cn';
 import { CornerCrosshairs } from './CornerCrosshairs';
+import { EdgeLabel } from './EdgeLabel';
 import { TacticalIconButton } from './TacticalIconButton';
 
 interface TacticalInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value'> {
@@ -40,9 +41,9 @@ export const TacticalInput = React.forwardRef<HTMLInputElement, TacticalInputPro
         />
 
         {label && (
-          <div className="tactical-text pointer-events-none absolute -top-2 left-4 bg-zinc-950 px-1 text-[9px] text-zinc-500 transition-colors group-focus-within:text-[var(--theme-primary)]">
+          <EdgeLabel className="pointer-events-none -top-2 left-4 transition-colors group-focus-within:text-[var(--theme-primary)]">
             {label}
-          </div>
+          </EdgeLabel>
         )}
 
         {onClear && value && (
