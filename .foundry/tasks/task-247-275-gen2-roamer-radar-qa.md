@@ -2,7 +2,7 @@
 id: task-247-275-gen2-roamer-radar-qa
 type: TASK
 title: QA Gen 2 Roamer Radar Widget
-status: BLOCKED
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-05'
 updated_at: '2026-07-05'
@@ -12,7 +12,7 @@ pr_number: null
 parent: story-069-247-gen2-roamer-radar-widget
 tags: [qa, ui, gen2]
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Parent story cancelled'
 ---
 
 # QA Gen 2 Roamer Radar Widget
@@ -32,3 +32,6 @@ Verify the implementation of the Gen 2 Roamer Radar Widget.
 - [ ] Verify component correctly resolves human-readable route locations.
 - [ ] Verify status tags accurately reflect the save data (Active, Caught, Defeated).
 - [ ] Verify component adheres to the tactical aesthetic (ADR 024 / ADR 008 constraints).
+
+### CANCELLED
+This task is cancelled as its parent story is cancelled.

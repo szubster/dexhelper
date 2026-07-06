@@ -2,7 +2,7 @@
 id: task-247-274-gen2-roamer-radar-impl
 type: TASK
 title: Implement Gen 2 Roamer Radar Widget
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-05'
 updated_at: '2026-07-05'
@@ -12,7 +12,7 @@ pr_number: null
 parent: story-069-247-gen2-roamer-radar-widget
 tags: [ui, gen2, save-engine]
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Parent story cancelled'
 ---
 
 # Implement Gen 2 Roamer Radar Widget
@@ -38,3 +38,6 @@ Implement a UI component that displays a list of active Gen 2 roamers (Raikou, E
 - [ ] Show human-readable route for active roamers using `gen2MapLocations`.
 - [ ] Display visual tags indicating "Active", "Caught", "Defeated", or "Inactive" using `TacticalBadge`.
 - [ ] Add rendering integration into the dashboard if appropriate.
+
+### CANCELLED
+This task is cancelled as its parent story is cancelled.
