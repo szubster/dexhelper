@@ -57,7 +57,7 @@ DexHelper is transitioning from repetitive inline Tailwind classes to semantic c
 - [x] epic-071-099-migrate-complex-app-components-retry
 - [x] epic-071-100-tailwind-designer-persona-retry
 
-- [ ] epic-071-123-define-tailwind-v4-utilities-v2
-- [ ] epic-071-124-migrate-core-tactical-components-v2
-- [ ] epic-071-125-migrate-complex-app-components-v2
-- [ ] epic-071-126-tailwind-designer-persona-v2
+- [x] epic-071-123-define-tailwind-v4-utilities-v2
+- [x] epic-071-124-migrate-core-tactical-components-v2
+- [x] epic-071-125-migrate-complex-app-components-v2
+- [x] epic-071-126-tailwind-designer-persona-v2
