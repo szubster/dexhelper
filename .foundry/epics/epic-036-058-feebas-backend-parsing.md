@@ -27,7 +27,10 @@ Create a utility module that reads the parsed save file's data at the identified
 ## Acceptance Criteria
 - [x] Create a utility module for Feebas seed extraction.
 - [x] Implement Gen 3 algorithm to calculate the 6 tile coordinates based on the seed.
-- [x] Ensure fast calculation concurrent with save file hydration.
+- [ ] Ensure fast calculation concurrent with save file hydration.
 - [x] .foundry/stories/story-058-095-feebas-seed-extraction.md
 - [x] .foundry/stories/story-058-096-feebas-tile-calculation.md
 - [x] .foundry/stories/story-058-152-refactor-feebas-magic-numbers.md
+
+### Auditor Rejection
+While the utility module (`src/engine/gen3/feebas.ts`) was created and correctly extracts the seed and calculates the tiles, it is never actually integrated into the main save parsing pipeline. `parseGen3` in `src/engine/saveParser/parsers/gen3.ts` does not call `extractFeebasSeed` or `calculateFeebasTiles`, and the `SaveData` interface in `src/engine/saveParser/parsers/common.ts` is not updated to store this data. Therefore, the calculation is not occurring concurrently with save file hydration. You must spawn a new integration story to wire these utilities into `parseGen3` and map the coordinates to the `SaveData` schema.
