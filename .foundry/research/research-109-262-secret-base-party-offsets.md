@@ -31,5 +31,5 @@ We need to implement parsing for the `SecretBaseParty` structure in Gen 3 save f
 - Document these findings in `.foundry/docs/knowledge_base/gen3_secret_base_offsets.md`.
 
 ## Acceptance Criteria
-- [ ] Research and document the 6 `SecretBaseParty` memory offsets.
-- [ ] Definitively resolve the `trainerName` and `trainerId` version differences and document them.
+- [x] Research and document the 6 `SecretBaseParty` memory offsets.
+- [x] Definitively resolve the `trainerName` and `trainerId` version differences and document them.
