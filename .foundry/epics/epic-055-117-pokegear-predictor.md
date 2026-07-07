@@ -2,13 +2,13 @@
 id: epic-055-117-pokegear-predictor
 type: EPIC
 title: Pokegear Call Probability & Predictor Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-07-07'
 depends_on:
   - research-055-244-pokegear-mechanics
-jules_session_id: '18146347888712885333'
+jules_session_id: null
 pr_number: null
 parent: prd-090-055-pokegear-phone-tracker
 tags:

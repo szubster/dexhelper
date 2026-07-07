@@ -2,7 +2,7 @@
 id: story-116-283-parse-registered-numbers
 type: STORY
 title: Parse Registered Numbers
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-07'
 updated_at: '2026-07-07'
@@ -15,8 +15,8 @@ tags:
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Parse Registered Numbers
