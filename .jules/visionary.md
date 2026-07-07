@@ -187,3 +187,7 @@
 ## 2026-07-06
 **Idea:** Gen 1-3 Missed Trainer Radar
 **Learning:** Expanding the app's capability beyond tracking items/Pokémon to include standard NPC battle state directly solves a major player friction point (grinding for EXP/EVs). By parsing the hidden event flags for defeated trainers, we can create a "bounty board" of missed battles. This reinforces DexHelper's vision as a premium companion app by turning static game knowledge and hidden save state into a personalized, actionable checklist, saving players from tedious backtracking and guesswork.
+
+## 2026-07-07
+**Idea:** Gen 1-3 TM/HM Inventory & Compatibility Planner
+**Learning:** Targeting finite, high-value resources (like single-use TMs) that cause player "hoarding anxiety" is a highly effective way to provide utility. By combining the player's static Bag inventory with their dynamic PC Box contents to instantly show move compatibility and suggest potential learners, we transform DexHelper into a powerful strategic team-building planner, completely eliminating the tedious in-game process of manually checking every Pokémon.
