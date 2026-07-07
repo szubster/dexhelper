@@ -2,10 +2,10 @@
 id: epic-071-125-migrate-complex-app-components-v2
 type: EPIC
 title: Migrate Complex App Components V2
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-03'
+updated_at: '2026-07-07'
 depends_on:
   - epic-071-124-migrate-core-tactical-components-v2
 jules_session_id: null
