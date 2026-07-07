@@ -42,7 +42,7 @@ Implement the foundational logic to locate and read the TV broadcast data block 
 - [x] task-121-257-gen3-tv-block-parser-retry2-qa
 - [x] task-121-276-gen3-tv-block-parser-retry2-impl
 - [x] task-121-277-gen3-tv-block-parser-retry2-qa
-- [ ] task-121-278-gen3-tv-block-parser-retry3-impl
-- [ ] task-121-279-gen3-tv-block-parser-retry3-qa
+- [x] task-121-278-gen3-tv-block-parser-retry3-impl
+- [x] task-121-279-gen3-tv-block-parser-retry3-qa
 - [ ] task-121-280-gen3-tv-block-parser-retry4-impl
 - [ ] task-121-281-gen3-tv-block-parser-retry4-qa
