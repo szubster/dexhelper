@@ -2,13 +2,13 @@
 id: epic-049-087-dynamic-item-list-parsing
 type: EPIC
 title: Dynamic Generation of Items PokeData
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-13'
 updated_at: '2026-07-06'
 depends_on:
   - adr-049-025-dynamic-pokedata-parsing
-jules_session_id: null
+jules_session_id: '10396644324535709627'
 pr_number: null
 parent: prd-077-049-dynamic-pokedata-parsing
 tags:
@@ -39,3 +39,4 @@ Currently, valid item lists are either manually maintained or fetched ad-hoc. Ma
 
 - [x] story-087-128-dynamic-item-list-parsing
 - [x] story-087-245-item-list-validation
+- [ ] story-087-280-item-runtime-integration

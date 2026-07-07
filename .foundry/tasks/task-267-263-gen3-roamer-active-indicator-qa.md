@@ -2,10 +2,10 @@
 id: task-267-263-gen3-roamer-active-indicator-qa
 type: TASK
 title: Gen 3 Roamer Active Indicator UI QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-06'
 depends_on:
   - task-267-262-gen3-roamer-active-indicator-impl
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 # Gen 3 Roamer Active Indicator UI QA

@@ -5,10 +5,10 @@ title: Tailwind v4 @utility Consolidation
 status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-09'
-updated_at: '2026-07-06'
+updated_at: '2026-07-07'
 depends_on:
   - task-071-150-tailwind-v4-adr
-jules_session_id: '5207073777655543082'
+jules_session_id: '4166126570901794354'
 pr_number: null
 parent: idea-071-tailwind-v4-utilities-migration
 tags:
@@ -57,7 +57,7 @@ DexHelper is transitioning from repetitive inline Tailwind classes to semantic c
 - [x] epic-071-099-migrate-complex-app-components-retry
 - [x] epic-071-100-tailwind-designer-persona-retry
 
-- [ ] epic-071-123-define-tailwind-v4-utilities-v2
-- [ ] epic-071-124-migrate-core-tactical-components-v2
-- [ ] epic-071-125-migrate-complex-app-components-v2
-- [ ] epic-071-126-tailwind-designer-persona-v2
+- [x] epic-071-123-define-tailwind-v4-utilities-v2
+- [x] epic-071-124-migrate-core-tactical-components-v2
+- [x] epic-071-125-migrate-complex-app-components-v2
+- [x] epic-071-126-tailwind-designer-persona-v2

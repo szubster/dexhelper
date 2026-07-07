@@ -5,9 +5,9 @@ title: Roamer Tracking Dashboard PRD
 status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-09'
-updated_at: '2026-07-06'
+updated_at: '2026-07-07'
 depends_on: []
-jules_session_id: '2859534612099209224'
+jules_session_id: '11735229608338830735'
 pr_number: null
 parent: idea-070-roamer-tracking-dashboard
 tags:
@@ -49,17 +49,19 @@ Based on an initial evaluation of the codebase:
 
 ## 4. Acceptance Criteria
 - [x] ~Gen 3 save parser correctly extracts Latios/Latias map group and ID.~ (Gen 3 impossible)
-- [x] Gen 2 raw map coordinates are translated into recognizable Route names.
-- [x] A dedicated UI component displays the current location of any active roamers.
-- [x] The feature only displays roamers that have actually been released in the save file's event flags.
+- [ ] Gen 2 raw map coordinates are translated into recognizable Route names.
+- [ ] A dedicated UI component displays the current location of any active roamers.
+- [ ] The feature only displays roamers that have actually been released in the save file's event flags.
 - [x] Break down this PRD into Epics.
 
 ## 5. Next Steps
 - [x] Epic Planner: Break this PRD down into executable Epics (e.g., Engine Parsing, Mapping Translation, UI Dashboard).
-- [ ] ~epic-043-067-roamer-data-extraction~ (CANCELLED)
-- [ ] ~epic-043-068-roamer-map-translation~ (CANCELLED)
-- [ ] ~epic-043-069-roamer-radar-ui~ (CANCELLED)
+- [x] ~epic-043-067-roamer-data-extraction~ (CANCELLED)
+- [x] ~epic-043-068-roamer-map-translation~ (CANCELLED)
+- [x] ~epic-043-069-roamer-radar-ui~ (CANCELLED)
 - [ ] research-043-263-roamer-tracking-remediation
 - [ ] epic-043-139-gen2-roamer-data-extraction
 - [ ] epic-043-140-gen2-roamer-map-translation
-- [ ] epic-043-141-gen2-roamer-radar-ui
+- [x] ~epic-043-141-gen2-roamer-radar-ui~ (CANCELLED)
+- [ ] epic-043-142-gen2-roamer-radar-widget
+- [ ] epic-043-143-gen2-roamer-map-integration

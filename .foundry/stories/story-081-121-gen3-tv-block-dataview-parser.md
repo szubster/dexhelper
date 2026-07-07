@@ -5,9 +5,9 @@ title: Parse Gen 3 TV Block Data with DataView
 status: READY
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-07-06'
+updated_at: '2026-07-07'
 depends_on: []
-jules_session_id: '5126215581055255823'
+jules_session_id: null
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:
@@ -38,5 +38,7 @@ Implement the foundational logic to locate and read the TV broadcast data block 
 - [x] task-121-219-gen3-tv-block-parser-retry-impl
 - [x] task-121-220-gen3-tv-block-parser-retry-qa
 - [x] research-121-246-gen3-tv-block-parser-retry-failure
-- [ ] task-121-256-gen3-tv-block-parser-retry2-impl
-- [ ] task-121-257-gen3-tv-block-parser-retry2-qa
+- [x] task-121-256-gen3-tv-block-parser-retry2-impl
+- [x] task-121-257-gen3-tv-block-parser-retry2-qa
+- [ ] task-121-276-gen3-tv-block-parser-retry2-impl
+- [ ] task-121-277-gen3-tv-block-parser-retry2-qa
