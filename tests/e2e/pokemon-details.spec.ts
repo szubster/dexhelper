@@ -46,7 +46,7 @@ test.describe('Pokemon Details Modal', () => {
     await page.getByLabel('View details for Pidgey').click();
 
     // 3. Verify Location
-    await expect(page.getByText(/Field Distribution/i)).toBeVisible();
+    await expect(page.getByText(/Geospatial Telemetry/i)).toBeVisible();
 
     // The UI transforms names to uppercase, wait for load
     const locationList = page.getByTestId('location-list');
