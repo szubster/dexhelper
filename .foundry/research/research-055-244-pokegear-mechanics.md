@@ -31,6 +31,6 @@ Investigate and document the exact save file offsets, RNG mechanics, and state f
 - Document how swarm notifications and item-giving states (like evolutionary stones from specific NPCs) are stored and manipulated.
 
 ## Acceptance Criteria
-- [ ] Document registered number memory offsets
-- [ ] Document RNG call trigger logic
-- [ ] Document swarm and item-giving state flags
+- [x] Document registered number memory offsets
+- [x] Document RNG call trigger logic
+- [x] Document swarm and item-giving state flags

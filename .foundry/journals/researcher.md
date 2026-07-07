@@ -72,3 +72,5 @@ When documenting memory offsets or drafting parser requirements, it is a strict 
 
 ## Cloudflare Access Integration
 For applications utilizing Cloudflare Zero Trust (Cloudflare Access), the built-in authentication flow URLs, relative to the protected domain, are `/cdn-cgi/access/login` (login), `/cdn-cgi/access/logout` (session termination), and `/cdn-cgi/access/get-identity` (user information). These paths provide native integration without requiring complex manual OAuth configuration and callbacks.
+
+- Learned: When researching specific Gen 2 Pokegear phone call mechanics in pret/pokecrystal, core timer and RNG logic are deeply coupled across `engine/overworld/time.asm` (`CheckReceiveCallTimer`) and `engine/phone/phone.asm` (`CheckPhoneCall`). Memory offsets such as `wPhoneList`, `wSwarmFlags`, and `wDailyPhoneItemFlags` control the states, found in `ram/wram.asm`. This knowledge was extracted into the knowledge base to avoid redundant decompilation analysis in future implementation tasks.
