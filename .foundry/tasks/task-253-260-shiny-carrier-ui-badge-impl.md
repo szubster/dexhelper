@@ -2,7 +2,7 @@
 id: task-253-260-shiny-carrier-ui-badge-impl
 type: TASK
 title: Implement Shiny Carrier UI Badge
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-07'
 updated_at: '2026-07-07'
