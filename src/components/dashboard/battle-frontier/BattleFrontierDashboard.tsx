@@ -22,8 +22,15 @@ const FACILITY_NAMES: Record<keyof Gen3BattleFrontierWinStreaks, string> = {
   pyramid: 'BATTLE PYRAMID',
 };
 
-// biome-ignore lint/suspicious/noExplicitAny: Required for ReactFlow node typings
-const ProgressNode = ({ data }: any) => {
+export interface ProgressNodeData extends Record<string, unknown> {
+  label: string;
+  current: number;
+  target: number | null;
+  status: string | null;
+  statusColor: string;
+}
+
+const ProgressNode = ({ data }: { data: ProgressNodeData }) => {
   return (
     <div className="flex w-[180px] flex-col gap-0 border-2 border-zinc-700 border-dashed bg-black/80 font-mono text-white">
       <div className="border-zinc-700 border-b border-dashed bg-black/40 p-2 text-center font-black text-[10px] text-zinc-400 uppercase">
