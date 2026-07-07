@@ -34,3 +34,6 @@ Implement the logic to predict Pokegear call probability based on Gen 2 save fil
 ## Acceptance Criteria
 - [ ] Implement predictor logic based on RNG mechanics
 - [ ] Display call probabilities on the UI
+
+- [ ] story-117-283-pokegear-predictor-engine
+- [ ] story-117-284-pokegear-predictor-ui
