@@ -97,6 +97,19 @@ function isValidPair(p1: PokemonWithMetadata, p2: PokemonWithMetadata): boolean 
   return p1.eggGroups.some((group) => p2.eggGroups.includes(group));
 }
 
+/**
+ * Evaluates Gen 2's specific incest prevention mechanics based on Determinant Values (DVs).
+ *
+ * **Why this exists:**
+ * In Generation 2, DVs determine a Pokémon's stats and are inherited during breeding.
+ * To prevent "incest" (breeding a Pokémon with its parent or sibling), the game checks
+ * the DVs of the two parents. If their Defense DVs match, and their Special DVs match
+ * or differ by exactly 8, the game flags them as related and refuses to breed them.
+ *
+ * @param p1 - First parent candidate.
+ * @param p2 - Second parent candidate.
+ * @returns True if the pair is considered related and incompatible, false otherwise.
+ */
 function checkDvsIncompatible(p1: PokemonWithMetadata, p2: PokemonWithMetadata): boolean {
   if (p1.dvs && p2.dvs) {
     if (p1.dvs.defense === p2.dvs.defense) {
