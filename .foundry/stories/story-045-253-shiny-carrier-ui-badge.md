@@ -2,10 +2,10 @@
 id: story-045-253-shiny-carrier-ui-badge
 type: STORY
 title: Shiny Carrier UI Badge
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-02'
-updated_at: '2026-07-05'
+updated_at: '2026-07-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
