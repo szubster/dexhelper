@@ -1,7 +1,21 @@
-import { AlertTriangle, ArrowUpCircle, MapPin, Target } from 'lucide-react';
+import {
+  AlertTriangle,
+  ArrowUpCircle,
+  Crosshair,
+  Fish,
+  Navigation,
+  Radar,
+  Satellite,
+  Target,
+  Trees,
+  Waves,
+} from 'lucide-react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data/shared/staticData';
+import { cn } from '../../../utils/cn';
+import { HoverScanner } from '../../HoverScanner';
+import { LcdGrid } from '../../LcdGrid';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
@@ -31,35 +45,46 @@ export function PokemonLocations({
   loading,
 }: PokemonLocationsProps) {
   const currentVersionId = POKE_VERSION_MAP[gameVersion.toLowerCase()];
-
   const staticEnc = isValidStaticGameVersion(gameVersion) ? staticEncounters[pokemonId]?.[gameVersion] : undefined;
   const versionEnc = encounters.filter((e) => e.v === currentVersionId);
   const hasEncounters = (staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq;
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between border-white/5 border-b pb-4">
-        <SectionHeader title="Field Distribution" icon={<MapPin size={14} />} />
-        <TacticalBadge
-          variant="zinc"
-          className="border-white/10 bg-white/5 px-3 text-[10px] text-[var(--theme-primary)] backdrop-blur-md"
-        >
-          DATA-SRC: {gameVersion.toUpperCase()}
-        </TacticalBadge>
+      <div className="flex items-center justify-between border-[var(--theme-primary)]/20 border-b-2 border-dashed pb-4">
+        <SectionHeader
+          title="Geospatial Telemetry"
+          icon={<Satellite size={16} className="animate-pulse text-[var(--theme-primary)]" />}
+          colorClass="text-[var(--theme-primary)]"
+        />
+        <div className="hidden items-center gap-2 sm:flex">
+          <Radar size={14} className="animate-[spin_3s_linear_infinite] text-[var(--theme-primary)]" />
+          <TacticalBadge
+            variant="primary"
+            className="border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/10 px-3 text-[10px] text-[var(--theme-primary)] backdrop-blur-md"
+          >
+            [ SAT-LINK: {gameVersion.toUpperCase()} ]
+          </TacticalBadge>
+        </div>
       </div>
 
       {loading ? (
         <TacticalPanel className="h-40 animate-pulse rounded-none border border-dashed" />
       ) : (
-        <div className="relative z-10 grid grid-cols-1 gap-3" data-testid="location-list">
+        <div className="relative z-10 grid grid-cols-1 gap-4" data-testid="location-list">
           {hasEncounters ? (
             <>
               {evoReq && (
                 <LocationRow
                   icon={<ArrowUpCircle size={14} />}
-                  iconColorClass="bg-amber-500/10 text-amber-500"
-                  label={`Available via Evolving ${evoReq.fromName.toUpperCase()}`}
-                  badge={<TacticalBadge variant="amber">EVOLUTION</TacticalBadge>}
+                  iconColorClass="text-amber-400 bg-amber-400/10 border-amber-400/30"
+                  label={`LINK: EVOLVE ${evoReq.fromName.toUpperCase()}`}
+                  badge={
+                    <TacticalBadge variant="amber" className="py-0.5 text-[9px]">
+                      [ EVOLUTION ]
+                    </TacticalBadge>
+                  }
+                  variant="amber"
                 />
               )}
               {staticEnc?.map((loc, i) => (
@@ -67,60 +92,122 @@ export function PokemonLocations({
                   // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                   key={`static-${i}`}
                   icon={<Target size={14} />}
-                  iconColorClass="bg-red-500/10 text-red-500"
+                  iconColorClass="text-red-500 bg-red-500/10 border-red-500/30"
                   label={loc}
-                  badge={<TacticalBadge variant="red">STATIONARY</TacticalBadge>}
+                  badge={
+                    <TacticalBadge variant="red" className="py-0.5 text-[9px]">
+                      [ STATIONARY ]
+                    </TacticalBadge>
+                  }
+                  variant="red"
                 />
               ))}
-              {versionEnc.map((e) => {
-                return (
-                  <div
-                    key={`${e.aid}-${e.v}`}
-                    className="group flex flex-col space-y-3 rounded-none border border-white/5 border-dashed bg-zinc-900 p-4 transition-all hover:border-[var(--theme-primary)]/30"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="rounded-none bg-[var(--theme-primary)]/10 p-2 text-[var(--theme-primary)]">
-                          <MapPin size={14} />
-                        </div>
-                        <span className="font-bold text-xs uppercase tracking-wide transition-colors group-hover:text-white">
-                          {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        {e.d.map((d: CompactEncounterDetail, di: number) => (
-                          <TacticalBadge
-                            // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-                            key={di}
-                            variant="zinc"
-                            className="border-white/5 bg-white/5 py-0.5 text-zinc-500"
-                          >
-                            LV.{d.min}-{d.max}
-                          </TacticalBadge>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5 border-[var(--theme-primary)]/20 border-l-2 pl-1.5">
-                      {e.d.map((d: CompactEncounterDetail, di: number) => (
-                        <span
-                          // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-                          key={di}
-                          className="font-black text-[8px] text-[var(--theme-primary)]/70 uppercase"
-                        >
-                          • {REVERSE_METHOD_MAP[d.m]?.replace('-', ' ')} ({d.c}%)
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
+              {versionEnc.map((e) => (
+                <GeospatialNode
+                  key={`${e.aid}-${e.v}`}
+                  encounter={e}
+                  areaName={areaNames?.[e.aid] || `AREA #${e.aid}`}
+                />
+              ))}
             </>
           ) : (
-            // Fallback to other versions ONLY if missing in current (and no evolution path)
             <FallbackLocations gameVersion={gameVersion} encounters={encounters} areaNames={areaNames} />
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounter; areaName: string }) {
+  return (
+    <div className="group relative flex flex-col overflow-hidden rounded-none border border-zinc-800 border-dashed bg-black/40 transition-all duration-300 hover:border-[var(--theme-primary)]/50 hover:bg-zinc-900/60">
+      <LcdGrid className="opacity-[0.03] transition-opacity group-hover:opacity-[0.08]" />
+      <HoverScanner />
+
+      {/* Heavy Tactical Data Pipe */}
+      <div className="absolute top-0 bottom-0 left-0 w-1.5 border-[var(--theme-primary)]/30 border-r-2 border-dashed bg-[var(--theme-primary)]/10 transition-colors group-hover:border-[var(--theme-primary)] group-hover:bg-[var(--theme-primary)]/20" />
+
+      {/* Active LED */}
+      <div className="absolute top-3 left-[-2px] flex h-2.5 w-2.5 items-center justify-center border border-[var(--theme-primary)] bg-black shadow-[0_0_8px_var(--theme-primary)]">
+        <div className="h-1 w-1 animate-[pulse_2s_ease-in-out_infinite] bg-[var(--theme-primary)]" />
+      </div>
+
+      <div className="flex flex-col gap-4 p-4 pl-6">
+        {/* Header */}
+        <div className="flex items-start justify-between border-zinc-800/50 border-b border-dashed pb-3">
+          <div className="flex flex-col gap-1">
+            <span className="flex items-center gap-1.5 font-mono text-[9px] text-[var(--theme-primary)] uppercase tracking-widest">
+              <Crosshair size={10} /> [ ZONE_ID: {e.aid.toString().padStart(3, '0')} ]
+            </span>
+            <span className="font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors group-hover:text-[var(--theme-primary)]">
+              {areaName.toUpperCase()}
+            </span>
+          </div>
+          <div className="flex h-8 w-8 items-center justify-center rounded-none border border-[var(--theme-primary)]/20 bg-[var(--theme-primary)]/5 shadow-[inset_0_0_10px_rgba(var(--theme-primary-rgb),0.1)]">
+            <Navigation
+              size={14}
+              className="text-[var(--theme-primary)]/60 transition-colors group-hover:text-[var(--theme-primary)]"
+            />
+          </div>
+        </div>
+
+        {/* Vectors */}
+        <div className="flex flex-col gap-2">
+          <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ DETECTION VECTORS ]</span>
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+            {e.d.map((d: CompactEncounterDetail, di: number) => {
+              const methodStr = REVERSE_METHOD_MAP[d.m]?.toLowerCase() || 'unknown';
+              const isRod = methodStr.includes('rod');
+              const isSurf = methodStr === 'surf';
+              const isGrass = methodStr === 'walk';
+              const Icon = isRod ? Fish : isSurf ? Waves : isGrass ? Trees : Target;
+
+              const blocks = Math.ceil(d.c / 10);
+
+              return (
+                <div
+                  // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
+                  key={di}
+                  className="relative flex items-center gap-3 border border-zinc-800 border-dashed bg-zinc-950/80 p-2 transition-colors hover:border-[var(--theme-primary)]/40"
+                >
+                  <div className="flex h-8 w-8 items-center justify-center border border-white/5 bg-black text-[var(--theme-primary)]">
+                    <Icon size={14} />
+                  </div>
+                  <div className="flex flex-1 flex-col gap-1.5 pr-2">
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold font-mono text-[10px] text-zinc-300 uppercase">
+                        {methodStr.replace('-', ' ')}
+                      </span>
+                      <span className="border border-[var(--theme-primary)]/20 bg-[var(--theme-primary)]/10 px-1 font-black font-mono text-[10px] text-[var(--theme-primary)]">
+                        LV.{d.min}
+                        {d.min !== d.max ? `-${d.max}` : ''}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="flex flex-1 gap-[2px]">
+                        {Array.from({ length: 10 }).map((_, i) => (
+                          <div
+                            // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
+                            key={i}
+                            className={cn(
+                              'h-1.5 flex-1 rounded-none',
+                              i < blocks
+                                ? 'bg-[var(--theme-primary)] shadow-[0_0_5px_rgba(var(--theme-primary-rgb),0.5)]'
+                                : 'bg-zinc-800',
+                            )}
+                          />
+                        ))}
+                      </div>
+                      <span className="w-7 text-right font-black text-[9px] text-[var(--theme-primary)]">{d.c}%</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -135,28 +222,31 @@ function FallbackLocations({
   areaNames: Record<number, string> | undefined;
 }) {
   return (
-    <div className="space-y-3">
-      <div className="mb-2 flex items-center gap-2 font-black text-[10px] text-amber-500/60 uppercase italic tracking-widest">
-        <AlertTriangle size={12} /> Species unavailable in {gameVersion.toUpperCase()}. External cross-version
-        extraction required.
+    <div className="space-y-3 border border-red-500/30 border-dashed bg-red-950/10 p-4">
+      <div className="mb-2 flex items-center gap-2 font-black text-[10px] text-amber-500/80 uppercase tracking-widest">
+        <AlertTriangle size={14} className="animate-pulse text-amber-400" />[ SYS.ERR: TARGET NOT IN JURISDICTION (
+        {gameVersion.toUpperCase()}) ]
       </div>
-      {encounters.map((e) => (
-        <div
-          key={`${e.aid}-${e.v}`}
-          className="flex flex-col rounded-none border border-white/5 border-dashed bg-zinc-900/40 p-4 opacity-60"
-        >
-          <div className="flex items-center justify-between">
-            <span className="font-bold text-xs text-zinc-500 uppercase">
-              {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
-            </span>
-            <div className="flex gap-1">
-              <TacticalBadge variant="zinc" className="border-white/5 bg-white/5 px-1.5 py-0.5 text-[7px]">
+      <p className="mb-4 pl-6 font-mono text-[9px] text-zinc-400 uppercase">
+        External cross-version extraction required from the following coordinates:
+      </p>
+      <div className="grid grid-cols-1 gap-2 pl-6 sm:grid-cols-2">
+        {encounters.map((e) => (
+          <div
+            key={`${e.aid}-${e.v}`}
+            className="flex flex-col rounded-none border border-zinc-800 border-dashed bg-zinc-950 p-3 transition-colors hover:border-amber-500/30"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-[10px] text-zinc-300 uppercase tracking-wide">
+                {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
+              </span>
+              <TacticalBadge variant="amber" className="border-amber-500/20 bg-amber-500/5 px-1.5 py-0.5 text-[8px]">
                 V-ID: {e.v}
               </TacticalBadge>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

@@ -33,7 +33,7 @@ describe('PokemonLocations', () => {
     // Using pokemonId 2 (Ivysaur) to avoid picking up Bulbasaur's static encounter in 'red'
     await render(<PokemonLocations {...defaultProps} pokemonId={2} encounters={fallbackEncounters} />);
 
-    await expect.element(page.getByText(/Species unavailable in RED/i)).toBeInTheDocument();
+    await expect.element(page.getByText(/SYS.ERR: TARGET NOT IN JURISDICTION \(RED\)/i)).toBeInTheDocument();
     await expect.element(page.getByText('ROUTE 1')).toBeInTheDocument();
     await expect.element(page.getByText('V-ID: 2')).toBeInTheDocument();
   });
@@ -52,7 +52,7 @@ describe('PokemonLocations', () => {
     await render(<PokemonLocations {...defaultProps} pokemonId={2} encounters={versionEncounters} />);
 
     await expect.element(page.getByText('PALLET TOWN')).toBeInTheDocument();
-    await expect.element(page.getByText('LV.5-5')).toBeInTheDocument();
+    await expect.element(page.getByText('LV.5')).toBeInTheDocument();
     await expect.element(page.getByText(/WALK.*100%/i)).toBeInTheDocument();
   });
 
@@ -65,8 +65,8 @@ describe('PokemonLocations', () => {
 
     await render(<PokemonLocations {...defaultProps} evoReq={evoReq} />);
 
-    await expect.element(page.getByText(/Available via Evolving BULBASAUR/i)).toBeInTheDocument();
-    await expect.element(page.getByText('EVOLUTION')).toBeInTheDocument();
+    await expect.element(page.getByText(/LINK: EVOLVE BULBASAUR/i)).toBeInTheDocument();
+    await expect.element(page.getByText('[ EVOLUTION ]')).toBeInTheDocument();
   });
 
   it('renders static encounters correctly', async () => {
@@ -74,6 +74,6 @@ describe('PokemonLocations', () => {
     await render(<PokemonLocations {...defaultProps} pokemonId={1} gameVersion="red" />);
 
     await expect.element(page.getByText('PALLET TOWN')).toBeInTheDocument();
-    await expect.element(page.getByText('STATIONARY')).toBeInTheDocument();
+    await expect.element(page.getByText('[ STATIONARY ]')).toBeInTheDocument();
   });
 });
