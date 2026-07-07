@@ -19,6 +19,141 @@ interface AssistantSuggestionCardProps {
   areaNames?: Record<number, string> | undefined;
 }
 
+function CatchMethodSection({
+  catchMethods,
+  saveData,
+  areaNames,
+  getPokemonName,
+}: {
+  catchMethods: [string, { pid: number; enc: EncounterDetail }[]][];
+  saveData: SaveData;
+  areaNames?: Record<number, string> | undefined;
+  getPokemonName: (id: number) => string;
+}) {
+  return (
+    <>
+      {catchMethods.map(([method, pokes]: [string, { pid: number; enc: EncounterDetail }[]]) => {
+        const isRod = method.includes('rod');
+        const isSurf = method === 'surf';
+        const isGrass = method === 'walk';
+
+        let isOwned = true;
+        if (isRod) {
+          const genConfig = getGenerationConfig(saveData.generation);
+          const rodIds = genConfig.rodIds;
+          if (!rodIds) {
+            isOwned = false;
+          } else {
+            const rodId = method.includes('old') ? rodIds.OLD : method.includes('good') ? rodIds.GOOD : rodIds.SUPER;
+            isOwned =
+              saveData.inventory.some((i) => i.id === rodId) ||
+              (saveData.pcItems?.some((i) => i.id === rodId) ?? false);
+          }
+        }
+        const Icon = isRod ? Fish : isSurf ? Waves : isGrass ? Trees : Target;
+        const label = method.replace(/-/g, ' ').toUpperCase();
+
+        return (
+          <div
+            key={method}
+            className={`space-y-3 rounded-none border border-white/10 border-dashed bg-black/30 p-4 transition-opacity ${!isOwned ? 'opacity-40 grayscale-[0.5]' : ''}`}
+          >
+            <div className="flex items-center justify-between px-1">
+              <div className="flex items-center gap-2">
+                <Icon size={14} className={isOwned ? 'text-emerald-400' : 'text-zinc-500'} />
+                <span
+                  className={`font-black font-mono text-[10px] tracking-wider ${isOwned ? 'text-zinc-300' : 'text-zinc-500'}`}
+                >
+                  {label}
+                </span>
+              </div>
+              {!isOwned && (
+                <TacticalBadge variant="red" className="px-1.5 py-0.5 font-mono tracking-tighter">
+                  [ MISSING_ROD ]
+                </TacticalBadge>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-4">
+              {pokes.map(({ pid, enc }) => (
+                <div key={pid} className="group/sprite flex min-w-[56px] flex-col items-center gap-1.5">
+                  <Link
+                    to="/pokemon/$pokemonId"
+                    params={{ pokemonId: pid.toString() }}
+                    search={{ from: '/assistant' }}
+                    className="focus-visible:tactical-focus relative flex h-14 w-14 items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-800/80 p-2 shadow-md transition-all hover:scale-110 hover:border-emerald-500/50 hover:bg-zinc-700"
+                    title={getPokemonName(pid)}
+                    aria-label={`View details for ${getPokemonName(pid)}`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <PokemonSprite
+                      pokemonId={pid}
+                      generation={saveData.generation}
+                      alt={getPokemonName(pid)}
+                      className="h-full w-full object-contain"
+                    />
+                    <div className="absolute -top-1.5 -right-1.5 rounded-none border border-white/20 border-dashed bg-emerald-500 px-1.5 py-0.5 font-black font-mono text-[9px] text-white shadow-lg">
+                      {enc.chance}%
+                    </div>
+                  </Link>
+                  <div className="flex flex-col items-center leading-none">
+                    <span className="font-black text-[9px] text-white transition-colors group-hover/sprite:text-emerald-400">
+                      Lv. {enc.minLevel === enc.maxLevel ? enc.minLevel : `${enc.minLevel}-${enc.maxLevel}`}
+                    </span>
+                    {areaNames?.[enc.aid] && (
+                      <span className="max-w-[80px] truncate text-center text-[8px] text-zinc-500 uppercase">
+                        {areaNames[enc.aid]}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
+function PokemonListSection({
+  pokemonIds,
+  saveData,
+  getPokemonName,
+}: {
+  pokemonIds: number[];
+  saveData: SaveData;
+  getPokemonName: (id: number) => string;
+}) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {(pokemonIds || []).slice(0, 8).map((pid) => (
+        <Link
+          key={pid}
+          to="/pokemon/$pokemonId"
+          params={{ pokemonId: pid.toString() }}
+          search={{ from: '/assistant' }}
+          className="group/sprite focus-visible:tactical-focus relative h-10 w-10 rounded-none border border-white/10 border-dashed bg-black/40 p-1 transition-all hover:scale-110 hover:border-white/40 hover:bg-black/60"
+          title={getPokemonName(pid)}
+          aria-label={`View details for ${getPokemonName(pid)}`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <PokemonSprite
+            pokemonId={pid}
+            generation={saveData.generation}
+            alt={getPokemonName(pid)}
+            className="h-full w-full object-contain"
+          />
+        </Link>
+      ))}
+      {(pokemonIds?.length ?? 0) > 8 && (
+        <div className="flex h-10 w-10 items-center justify-center rounded-none border border-white/10 border-dashed bg-black/40 font-bold font-mono text-xs text-zinc-500">
+          +{(pokemonIds?.length ?? 0) - 8}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function AssistantSuggestionCard({
   suggestion: s,
   style,
@@ -140,116 +275,14 @@ export function AssistantSuggestionCard({
         {hasMultiple && (
           <div className={`relative z-20 mt-0 flex flex-col gap-4`}>
             {s.category === 'Catch' ? (
-              catchMethods.map(([method, pokes]: [string, { pid: number; enc: EncounterDetail }[]]) => {
-                const isRod = method.includes('rod');
-                const isSurf = method === 'surf';
-                const isGrass = method === 'walk';
-
-                let isOwned = true;
-                if (isRod) {
-                  const genConfig = getGenerationConfig(saveData.generation);
-                  const rodIds = genConfig.rodIds;
-                  if (!rodIds) {
-                    isOwned = false;
-                  } else {
-                    const rodId = method.includes('old')
-                      ? rodIds.OLD
-                      : method.includes('good')
-                        ? rodIds.GOOD
-                        : rodIds.SUPER;
-                    isOwned =
-                      saveData.inventory.some((i) => i.id === rodId) ||
-                      (saveData.pcItems?.some((i) => i.id === rodId) ?? false);
-                  }
-                }
-                const Icon = isRod ? Fish : isSurf ? Waves : isGrass ? Trees : Target;
-                const label = method.replace(/-/g, ' ').toUpperCase();
-
-                return (
-                  <div
-                    key={method}
-                    className={`space-y-3 rounded-none border border-white/10 border-dashed bg-black/30 p-4 transition-opacity ${!isOwned ? 'opacity-40 grayscale-[0.5]' : ''}`}
-                  >
-                    <div className="flex items-center justify-between px-1">
-                      <div className="flex items-center gap-2">
-                        <Icon size={14} className={isOwned ? 'text-emerald-400' : 'text-zinc-500'} />
-                        <span
-                          className={`font-black font-mono text-[10px] tracking-wider ${isOwned ? 'text-zinc-300' : 'text-zinc-500'}`}
-                        >
-                          {label}
-                        </span>
-                      </div>
-                      {!isOwned && (
-                        <TacticalBadge variant="red" className="px-1.5 py-0.5 font-mono tracking-tighter">
-                          [ MISSING_ROD ]
-                        </TacticalBadge>
-                      )}
-                    </div>
-                    <div className="flex flex-wrap gap-4">
-                      {pokes.map(({ pid, enc }) => (
-                        <div key={pid} className="group/sprite flex min-w-[56px] flex-col items-center gap-1.5">
-                          <Link
-                            to="/pokemon/$pokemonId"
-                            params={{ pokemonId: pid.toString() }}
-                            search={{ from: '/assistant' }}
-                            className="focus-visible:tactical-focus relative flex h-14 w-14 items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-800/80 p-2 shadow-md transition-all hover:scale-110 hover:border-emerald-500/50 hover:bg-zinc-700"
-                            title={getPokemonName(pid)}
-                            aria-label={`View details for ${getPokemonName(pid)}`}
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <PokemonSprite
-                              pokemonId={pid}
-                              generation={saveData.generation}
-                              alt={getPokemonName(pid)}
-                              className="h-full w-full object-contain"
-                            />
-                            <div className="absolute -top-1.5 -right-1.5 rounded-none border border-white/20 border-dashed bg-emerald-500 px-1.5 py-0.5 font-black font-mono text-[9px] text-white shadow-lg">
-                              {enc.chance}%
-                            </div>
-                          </Link>
-                          <div className="flex flex-col items-center leading-none">
-                            <span className="font-black text-[9px] text-white transition-colors group-hover/sprite:text-emerald-400">
-                              Lv. {enc.minLevel === enc.maxLevel ? enc.minLevel : `${enc.minLevel}-${enc.maxLevel}`}
-                            </span>
-                            {areaNames?.[enc.aid] && (
-                              <span className="max-w-[80px] truncate text-center text-[8px] text-zinc-500 uppercase">
-                                {areaNames[enc.aid]}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })
+              <CatchMethodSection
+                catchMethods={catchMethods}
+                saveData={saveData}
+                areaNames={areaNames}
+                getPokemonName={getPokemonName}
+              />
             ) : (
-              <div className="flex flex-wrap gap-2">
-                {(s.pokemonIds || []).slice(0, 8).map((pid) => (
-                  <Link
-                    key={pid}
-                    to="/pokemon/$pokemonId"
-                    params={{ pokemonId: pid.toString() }}
-                    search={{ from: '/assistant' }}
-                    className="group/sprite focus-visible:tactical-focus relative h-10 w-10 rounded-none border border-white/10 border-dashed bg-black/40 p-1 transition-all hover:scale-110 hover:border-white/40 hover:bg-black/60"
-                    title={getPokemonName(pid)}
-                    aria-label={`View details for ${getPokemonName(pid)}`}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <PokemonSprite
-                      pokemonId={pid}
-                      generation={saveData.generation}
-                      alt={getPokemonName(pid)}
-                      className="h-full w-full object-contain"
-                    />
-                  </Link>
-                ))}
-                {(s.pokemonIds?.length ?? 0) > 8 && (
-                  <div className="flex h-10 w-10 items-center justify-center rounded-none border border-white/10 border-dashed bg-black/40 font-bold font-mono text-xs text-zinc-500">
-                    +{(s.pokemonIds?.length ?? 0) - 8}
-                  </div>
-                )}
-              </div>
+              <PokemonListSection pokemonIds={s.pokemonIds || []} saveData={saveData} getPokemonName={getPokemonName} />
             )}
           </div>
         )}
