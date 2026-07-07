@@ -9,3 +9,6 @@ When creating child nodes and establishing `depends_on` or `parent` relationship
 
 While the orchestrator's graph resolution logic relies on the exact string value in the `parent:` frontmatter field to trace lineage (and is therefore resilient to formatting inconsistencies), adhering to the exact `<parent_NNN>` schema ensures the file system structure remains cleanly hierarchical and easily scannable by human operators.
 - **Lesson Learned:** The user prompt appended a reference link to `schema.md` (`### SCHEMA`) at the bottom of the node context. This must be preserved when overwriting the markdown file.
+
+## Empty PRs for Pre-existing Child Nodes
+When an Epic transitions to ACTIVE and assigns you as the Story Owner, check if the acceptance criteria already encompass all required child stories from previous iterations or cancelled task replacements (the "Impossible Loop"). If the required stories are already generated and appended to the markdown body, do not blindly generate duplicate stories. Instead, verify that any CANCELLED child nodes are properly checked off in the parent's markdown, and submit an empty PR to allow the DAG to progress, acting strictly as a passthrough validation step.
