@@ -1,0 +1,28 @@
+---
+id: idea-107-pokerus-strain-ui-tracker
+type: IDEA
+title: Pokerus Strain Specific UI Tracker
+status: PENDING
+owner_persona: product_manager
+created_at: "2026-07-09"
+updated_at: "2026-07-09"
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - pokerus
+  - ui
+research_references: []
+rejection_count: 0
+rejection_reason: ""
+notes: ""
+---
+
+# Pokerus Strain Specific UI Tracker
+
+## Description
+With the standardization of bitwise extraction for Pokerus (`parsePokerus` in `common.ts`), we now have discrete parsing for the specific "strain" of Pokerus (0-15). We should explore extending the Pokerus UI tracking capabilities to explicitly show the unique strain a Pokémon is infected with, allowing players to trace the lineage of the infection as it spreads through their party.
+
+## Acceptance Criteria
+- [ ] Product Manager: Convert this idea into a PRD.

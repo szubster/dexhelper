@@ -35,3 +35,5 @@ Read the specific byte flags for Pokerus for every Pokemon in the party and PC f
 
 ## Follow-up Nodes
 - [x] adr-061-026-bitwise-state-extraction
+
+Follow-up: idea-107-pokerus-strain-ui-tracker
