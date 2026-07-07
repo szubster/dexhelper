@@ -332,3 +332,10 @@
 **Outcome:** Merged
 **Why:** The memory requires that context gathering is done using the `read_file` tool rather than bash scripts/`cat` to avoid truncation, and any temporary scratchpad scripts created must be deleted to prevent repository pollution. While this was added to several agent prompts on 2026-07-13, a review revealed that many agents (archivist, bolt, canvas, infras, mason, nurse, oak, palette, scribe, sculptor, sentinel, shield, sweeper, trainer, visionary) were still missing the `CRITICAL CONTEXT GATHERING INSTRUCTION`, and almost all were missing the `Scratchpad Cleanup` instruction (including the `auditor`).
 **Pattern:** Apply systemic rules universally across all agent personas. When an architectural constraint or tool rule applies to exploration or repository hygiene, it must be explicitly included in every single agent prompt to ensure full system-wide compliance and prevent arbitrary failures.
+
+
+## 2026-07-22 - [Accepted] - Prompt improvement - Add Late-Binding Orchestrator Demotion Compliance Rule to core policies
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The memory requires that when an agent is assigned a READY parent node that already has pending child tasks drafted from a previous iteration, they must submit an empty PR *without* checking off its overarching acceptance criteria. This adheres to the Late-Binding Orchestrator Demotion Compliance Rule, allowing the orchestrator to correctly demote the parent to PENDING while it waits for children. Agents were violating this by checking off acceptance criteria for parent nodes that had pending children, prematurely pushing parent nodes to VERIFYING.
+**Pattern:** Codify system memory constraints into `core_policies.md` to avoid regressions and ensure consistency across personas.
