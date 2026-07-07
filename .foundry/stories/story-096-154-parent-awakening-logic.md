@@ -5,10 +5,10 @@ title: Parent Awakening Logic for Cancelled Nodes
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-20'
-updated_at: '2026-07-05'
+updated_at: '2026-07-06'
 depends_on:
   - story-096-153-max-rejection-cancellation
-jules_session_id: '6437079657807788156'
+jules_session_id: '15829948011637876882'
 pr_number: null
 parent: epic-052-096-automated-max-rejection-cancellation
 tags:

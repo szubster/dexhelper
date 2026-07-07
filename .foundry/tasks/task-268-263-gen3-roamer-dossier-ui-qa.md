@@ -2,10 +2,10 @@
 id: task-268-263-gen3-roamer-dossier-ui-qa
 type: TASK
 title: Gen 3 Roamer Dossier UI QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-04'
-updated_at: '2026-07-05'
+updated_at: '2026-07-06'
 depends_on:
   - task-268-262-gen3-roamer-dossier-ui-impl
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

@@ -5,9 +5,9 @@ title: Gen 3 TV Broadcast and Swarm Tracker Data Extraction
 status: READY
 owner_persona: story_owner
 created_at: '2026-06-12'
-updated_at: '2026-07-06'
+updated_at: '2026-07-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17773104484663356624'
 pr_number: null
 parent: prd-075-047-gen3-tv-swarm-tracker
 tags:
@@ -44,8 +44,8 @@ This epic covers the backend logic to extract TV broadcast events and swarm trac
 
 - [ ] story-081-121-gen3-tv-block-dataview-parser
 - [x] story-081-122-gen3-rtc-extraction
-- [ ] story-081-123-gen3-active-swarm-parsing
-- [ ] story-081-124-gen3-event-forecast-schedule
-- [ ] research-081-144-gen3-rtc-strategy
+- [x] story-081-123-gen3-active-swarm-parsing
+- [x] story-081-124-gen3-event-forecast-schedule
+- [x] research-081-144-gen3-rtc-strategy
 - [x] story-081-144-gen3-rtc-fallback-strategy
 - [ ] story-081-279-gen3-ignore-emulator-trailing-bytes
