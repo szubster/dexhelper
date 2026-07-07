@@ -43,7 +43,7 @@ DexHelper is transitioning from repetitive inline Tailwind classes to semantic c
 - Migrating generic unrepeated utility classes.
 
 ## Acceptance Criteria
-- [x] Epics are created to handle the migration in manageable chunks.
+- [ ] Epics are created to handle the migration in manageable chunks.
 
 
 - [x] epic-071-074-define-tailwind-v4-utilities
