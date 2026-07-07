@@ -43,7 +43,7 @@ export const TacticalCard = React.memo(
           variantClasses = 'border-white/20 bg-zinc-900/50 hover:border-white/40 hover:bg-zinc-800/80';
           break;
         case 'storage-cyan':
-          variantClasses = 'bg-cyan-900/10 border-cyan-500/30 hover:bg-cyan-900/20';
+          variantClasses = 'bg-cyan-900/10 border-cyan-500/50 border-dashed hover:bg-cyan-900/20';
           break;
         case 'storage-amber':
           variantClasses = 'bg-amber-900/10 border-amber-500/30 hover:bg-amber-900/20';
