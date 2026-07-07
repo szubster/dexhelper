@@ -107,7 +107,7 @@ describe('PokemonDetails', () => {
     await expect.element(page.getByRole('heading', { name: 'Charmander' })).toBeVisible();
 
     // Check that we render the empty locations string "External cross-version extraction required" or similar from PokemonLocations component
-    await expect.element(page.getByText(/DATA-SRC: UNKNOWN/i)).toBeVisible();
+    await expect.element(page.getByText(/SAT-LINK: UNKNOWN/i)).toBeVisible();
   });
 
   it('renders shiny carrier badge correctly', async () => {
