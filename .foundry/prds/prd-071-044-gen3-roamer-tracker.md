@@ -42,6 +42,6 @@ Provide an immediate, exact breakdown of a roaming legendary's internal state (N
 - [x] research-044-207-gen3-roamer-ui-alternatives
 - [x] epic-044-096-gen3-roamer-dashboard-ui-v2
 - [x] epic-044-122-gen3-roamer-dashboard-ui-v3
-- [x] epic-044-142-gen3-roamer-core-extraction-v3
-- [x] epic-044-143-gen3-roamer-iv-glitch-v3
-- [x] epic-044-144-gen3-roamer-dashboard-ui-v4
+- [ ] epic-044-142-gen3-roamer-core-extraction-v3
+- [ ] epic-044-143-gen3-roamer-iv-glitch-v3
+- [ ] epic-044-144-gen3-roamer-dashboard-ui-v4
