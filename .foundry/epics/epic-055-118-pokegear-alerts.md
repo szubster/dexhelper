@@ -34,3 +34,5 @@ Implement specific UI alerts and filtering for high-value Pokegear calls (swarms
 ## Acceptance Criteria
 - [ ] Implement filtering for swarm and item-giving calls
 - [ ] Create distinct UI alerts for high-value calls
+- [ ] story-118-286-filter-swarm-item-calls
+- [ ] story-118-287-highlight-high-value-calls-ui

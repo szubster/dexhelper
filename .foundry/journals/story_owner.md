@@ -12,3 +12,5 @@ While the orchestrator's graph resolution logic relies on the exact string value
 
 ## Empty PRs for Pre-existing Child Nodes
 When an Epic transitions to ACTIVE and assigns you as the Story Owner, check if the acceptance criteria already encompass all required child stories from previous iterations or cancelled task replacements (the "Impossible Loop"). If the required stories are already generated and appended to the markdown body, do not blindly generate duplicate stories. Instead, verify that any CANCELLED child nodes are properly checked off in the parent's markdown, and submit an empty PR to allow the DAG to progress, acting strictly as a passthrough validation step.
+
+- When breaking down epics with UI components, the 'tactical hardware/snooping' design constraint must be explicitly mandated in the story's requirements.
