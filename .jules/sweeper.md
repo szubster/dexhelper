@@ -5,3 +5,6 @@
 * Sweeper PRs must use the title format `🧹 [description]` and include `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result` in the body.
 
 - If `pnpm install` hangs or fails during git hook setup (e.g., `lefthook install`), run `git config --unset-all --global core.hooksPath` before retrying the installation.
+* The Sweeper persona's private memory is strictly `.jules/sweeper.md` and must be used solely to log long-term lessons, architectural constraints, and recurring failures, never as an execution logbook.
+* Sweeper persona Pull Requests must use the title format `🧹 [description]` and include `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result` in the body.
+* To automatically fix formatting errors detected during linting, use `pnpm exec biome format --write <file>`.
