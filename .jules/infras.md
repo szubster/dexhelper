@@ -98,3 +98,6 @@ Critical learnings:
 **Learning:** When attempting to add or upgrade a dependency at the workspace root level using `pnpm` in a monorepo setup (indicated by `pnpm-workspace.yaml`), you must explicitly include the `-w` or `--workspace-root` flag (e.g., `pnpm install -Dw @biomejs/biome@2.5.1`). Failing to do so will result in an `ERR_PNPM_ADDING_TO_ROOT` error and halt the installation process.
 ## 2026-06-25 - Vitest Coverage Parsing Errors
 **Learning:** The `coverage` blocks in `vitest.config.ts` must exclusively `include: ['src/**/*.ts', 'src/**/*.tsx']` and explicitly `exclude: ['**/*.json']` to prevent `rolldown` (used by `@vitest/coverage-v8`) from attempting to parse statically imported `.json` files as modules, which causes noisy syntax errors and breaks test suite exits.
+
+## 2026-06-25 - Strict Focus on Tooling, Not Application Code
+**Learning:** When tasked with improving development tooling (e.g., updating Biome, configuring Knip), strictly avoid modifying application logic or UI code to address tooling findings. For example, if configuring Knip reveals unused exports or dead code in the application (e.g., `SaveHistoryDBSchema`), do not delete that code. Focus solely on the configuration and integration of the tool itself. Modifying application code during an infrastructure task violates strict negative constraints.
