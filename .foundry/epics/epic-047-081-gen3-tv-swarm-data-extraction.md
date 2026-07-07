@@ -2,10 +2,10 @@
 id: epic-047-081-gen3-tv-swarm-data-extraction
 type: EPIC
 title: Gen 3 TV Broadcast and Swarm Tracker Data Extraction
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-12'
-updated_at: '2026-07-06'
+updated_at: '2026-07-07'
 depends_on: []
 jules_session_id: '17773104484663356624'
 pr_number: null
