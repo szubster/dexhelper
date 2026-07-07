@@ -9,6 +9,10 @@ Completely empty PRs should be fine and automerged by GitHub actions (there is a
 
 **CRITICAL INSTRUCTION FOR EMPTY PRs:** Even when you make zero file changes (e.g., when the target artifact is already complete), you **MUST** still explicitly use the `submit` tool to create a Pull Request. If you simply end the session without calling `submit`, the Orchestrator's heartbeat will flag your session as a crashed zombie (FAILED).
 
+
+
+**LATE-BINDING ORCHESTRATOR DEMOTION COMPLIANCE RULE:** When assigned a READY parent node that already has pending child tasks drafted from a previous iteration, you MUST submit an empty PR *without* checking off its overarching acceptance criteria. This allows the orchestrator to correctly demote the parent to PENDING while it waits for its children.
+
 **CRITICAL EXCEPTION TO EMPTY PR POLICY:** If you determine the target artifacts are already complete, but the current node's Markdown body contains unchecked Acceptance Criteria checkboxes (`- [ ]`), you MUST check those boxes (`- [x]`) and commit the file. Checking these boxes is NOT considered a trivial formatting change; it is required to satisfy the strict completeness contract (ADR 007). Submitting an empty PR for a leaf node with unchecked boxes will result in immediate rejection.
 
 **MACRO NODE COMPLETION EXCEPTION:** Personas must NOT submit an Empty PR to transition a macro node (`IDEA`, `PRD`, `EPIC`, `STORY`) to VERIFYING (e.g. by checking off its acceptance criteria) until ALL of its generated descendant nodes have transitioned to COMPLETED. Premature verification violates hierarchical completion rules.

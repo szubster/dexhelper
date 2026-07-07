@@ -5,7 +5,7 @@ title: Parse Gen 3 TV Block Data with DataView
 status: READY
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-07-06'
+updated_at: '2026-07-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -40,5 +40,7 @@ Implement the foundational logic to locate and read the TV broadcast data block 
 - [x] research-121-246-gen3-tv-block-parser-retry-failure
 - [x] task-121-256-gen3-tv-block-parser-retry2-impl
 - [x] task-121-257-gen3-tv-block-parser-retry2-qa
-- [ ] task-121-276-gen3-tv-block-parser-retry2-impl
-- [ ] task-121-277-gen3-tv-block-parser-retry2-qa
+- [x] task-121-276-gen3-tv-block-parser-retry2-impl
+- [x] task-121-277-gen3-tv-block-parser-retry2-qa
+- [ ] task-121-278-gen3-tv-block-parser-retry3-impl
+- [ ] task-121-279-gen3-tv-block-parser-retry3-qa

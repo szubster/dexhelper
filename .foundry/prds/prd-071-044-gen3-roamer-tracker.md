@@ -2,13 +2,13 @@
 id: prd-071-044-gen3-roamer-tracker
 type: PRD
 title: Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
-status: ACTIVE
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-09'
-updated_at: '2026-07-06'
+updated_at: '2026-07-07'
 depends_on:
   - research-071-138-gen3-roamer-offsets
-jules_session_id: '8155172117370487409'
+jules_session_id: '14263033104469645200'
 pr_number: null
 parent: idea-071-gen3-roamer-tracker
 tags:
@@ -42,6 +42,6 @@ Provide an immediate, exact breakdown of a roaming legendary's internal state (N
 - [x] research-044-207-gen3-roamer-ui-alternatives
 - [x] epic-044-096-gen3-roamer-dashboard-ui-v2
 - [x] epic-044-122-gen3-roamer-dashboard-ui-v3
-- [ ] epic-044-142-gen3-roamer-core-extraction-v3
-- [ ] epic-044-143-gen3-roamer-iv-glitch-v3
-- [ ] epic-044-144-gen3-roamer-dashboard-ui-v4
+- [x] epic-044-142-gen3-roamer-core-extraction-v3
+- [x] epic-044-143-gen3-roamer-iv-glitch-v3
+- [x] epic-044-144-gen3-roamer-dashboard-ui-v4

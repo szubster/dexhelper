@@ -16,14 +16,6 @@ When verifying macro nodes like EPICs, it's critical to recursively check that a
 ## Save File Parsing Strategy
 When implementing save file parsing, strictly use dynamic relative offset calculations (anchored to known base offsets) instead of absolute hardcoded offsets for extracting dynamic data blocks to ensure robustness against version-specific shifts and prevent regressions.
 
-### Lesson: Pokerus Bitwise Parsing and Cured State
-When extracting Pokerus state from an 8-bit integer, relying on bitwise operations requires explicitly handling boundary conditions like the "cured" state (where strain is non-zero but days remaining is 0). This is critical to distinguish from a completely uninfected state (all zeros) and prevents state regressions across generations. We have formally documented this requirement in `ADR 026: Bitwise State Extraction and Cured Boundaries` to act as an architectural constraint for future Gens.
-
-**Architectural Constraints & Learnings:**
-* In Gen 2, a Pokemon's Pokerus status is stored within a single raw byte at offset `+28` of its data structure.
-* The byte is structured as two bitfields: the upper 4 bits (`rawPokerus >> 4`) represent the virus *strain*, and the lower 4 bits (`rawPokerus & 0x0f`) denote the *days remaining*.
-* This offset map (`+28`) and its extraction strategy should be preserved and referenced when building cross-generation migration logic.
-
 ## 2026-06-19: Enforcing Reusable Constants for Memory Offsets
 **Constraint:**
 Always enforce the rule against inline magic numbers during verification. All memory offsets, bit lengths, and shifts must be defined as reusable, descriptive constants at the module level.
@@ -78,10 +70,6 @@ When evaluating macro nodes like IDEA, PRD, EPIC, or STORY, the Auditor must ver
 ### Lesson: Macro Node Recurring Verification Failures
 When evaluating macro nodes (like IDEA, PRD), a recurring pattern of failure is agents submitting the macro node (with an Empty PR) without actually spawning the required child nodes (e.g., the Product Manager marking the IDEA as complete without creating the PRD). This violates the core invariant that macro nodes cannot complete until all of their descendant nodes in the DAG have reached the COMPLETED or CANCELLED status. If the child nodes do not exist, the macro node's intent is unrealized, and verification MUST fail, rejecting the submission back to the responsible agent to generate the downstream nodes.
 
-## 2026-07-02: Verification of Pokerus Bitwise Refactoring
-
-The previous rejection citing the inline bitwise logic implementation violation of ADR 026 has been successfully resolved. The logic was appropriately refactored into a standardized `parsePokerus` helper in `src/engine/saveParser/parsers/common.ts` and integrated correctly into the main parser, accompanied by comprehensive boundary state tests. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards.
-
 ## 2026-07-03: Verification of Dynamic Moves PP PokeData
 
 **Lesson: Verifying Macro Nodes with Downstream Artifacts**
@@ -91,12 +79,6 @@ The implementation successfully shifted move parsing into the `scripts/generate-
 **Findings / Learnings:**
 During the verification of `epic-046-078-gen3-battle-frontier-data-extraction`, the parser implementation for Battle Frontier Data (Win Streaks, Symbols, Total BP, and BP) was reviewed. The implementation currently gates parsing of all Battle Frontier structures behind a hardcoded version check (`_forcedVersion === 'emerald'`), meaning none of this data is extracted for Ruby and Sapphire. While the Frontier itself was fully expanded in Emerald, Ruby and Sapphire *do* feature a Battle Tower. It is currently unresolved whether Ruby and Sapphire save files contain a different structural representation for their Battle Tower win streaks and records, or if the current extraction logic is simply overly restrictive. This gap requires further research to ensure comprehensive Gen 3 support.
 
-### Lesson: Strict Verification of Architectural ADRs (ADR 026)
-During the audit of `epic-038-061-pokerus-state-exfiltration`, the implementation correctly adhered to `ADR 026: Bitwise State Extraction and Cured Boundaries`. The logic was properly refactored to use explicit bitwise operators (`>>` and `&`) within a shared helper (`parsePokerus` in `common.ts`), moving away from localized inline parsing.
-
-**Why this matters:**
-This centralization and the explicit testing of boundary cases (specifically, the absolute zero uninfected state vs. the "cured" state where duration is zero but strain remains) completely prevented regressions when migrating the parsing engine across states. This highlights that Auditor rejections (like the previous rejection for this epic) are highly effective in enforcing architectural standards, and that comprehensive boundary testing on seemingly trivial numeric bitfields is critical for correct game state representation.
-
 ## 2026-07-03: Verification of Orchestrator Hierarchical Completion Checks
 
 **Pattern / Constraint:**
@@ -105,45 +87,27 @@ During the verification of `epic-045-070-orchestrator-strict-completion`, the im
 **Why this matters:**
 This prevents macro nodes (like `IDEA`, `PRD`, `EPIC`, `STORY`) from prematurely transitioning to `VERIFYING` or `COMPLETED` when their functional requirements (delegated to child tasks spawned via markdown references) are not actually implemented. Enforcing strictness on macro node completion ensures that when an Epic is reported as complete, all spawned asynchronous research or follow-up tasks have also successfully fulfilled their contracts, protecting the structural integrity of the DAG.
 
-## 2026-07-04: Verification of Gen 2 Pokerus State Exfiltration
+## 2026-07-04: TPM Persona and Archive Directory
+The Archive is maintained independently by the TPM persona. The fact that a node is not in the archive directory does not mean it is not complete.
+
+## 2026-07-06: Verification of Pokerus State Exfiltration (ADR 026)
 
 **Lesson: Explicit Bitwise Extraction and Boundary Testing**
-When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026`. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero, and absolute zero state) were comprehensively tested. This ensures accurate rendering of pokerus indicators on the UI and protects against scaling regressions.
-### Lesson: TPM Persona and Archive Directory
-The Archive is maintained independently by the Tpm persona. The fact that a node is not in the archive directory does not mean it's not complete.
-## 2026-07-05: Verification of Gen 2 Pokerus State Exfiltration Epic
+When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero, and absolute zero state) were comprehensively tested. The refactoring strictly enforced `ADR 026` by completing downstream child stories (`story-061-095-pokerus-byte-parsing`, `story-061-096-pokerus-tests`, `story-061-155-refactor-pokerus-bitwise`) and an ADR (`adr-061-026-bitwise-state-extraction`). This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions. When dealing with compressed data like Pokerus status, explicit bitwise logic and masking must be used to isolate multi-value bitfields into discrete properties to prevent bugs related to edge cases. Checking the state of the codebase ensures that when a parent node transitions to `COMPLETED`, its intended functionality and architectural constraints are fully realized and verified by tests.
 
-**Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026) Enforcement**
-When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero, and absolute zero state) were comprehensively tested in `common.test.ts`. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions.
+## 2026-07-06: Verification of Relative Offsets ADR Epic (ADR 028)
 
-## Learnings from epic-038-061-pokerus-state-exfiltration
-When dealing with compressed data like Pokerus status, explicit bitwise logic and masking must be used to isolate multi-value bitfields into discrete properties. This prevents bugs related to edge cases like a non-zero strain with zero days remaining (the 'cured' state).
-## 2026-07-06: Verification of Feebas Seed Backend Parsing Epic
-
-**Lesson: Extending ADR 028 to Algorithmic Magic Numbers**
-When verifying `epic-036-058-feebas-backend-parsing`, the implementation successfully extracted the Feebas seed and correctly implemented the LCG algorithm. It also correctly adhered to `ADR 028: Relative Offsets & Magic Numbers` after a prior rejection (`story-058-152-refactor-feebas-magic-numbers`). Not only were the save file offsets refactored, but algorithmic magic numbers (like LCG multipliers, addends, and bit shifts) were also extracted into explicit, reusable constants at the module level. This confirms that the mandate against magic numbers applies to both memory operations and algorithmic implementations to improve code readability and maintainability.
-
-## 2026-07-06: Final Audit of Feebas Seed Backend Parsing
-**Lesson: Extending ADR 028 to Algorithmic Magic Numbers (Confirmation)**
-The implementation of the LCG algorithm in `src/engine/gen3/feebas.ts` confirms that the mandate against magic numbers (ADR 028) strictly applies to both memory operations and algorithmic constants (like LCG multipliers, addends, and bit shifts). Extracting these into module-level constants ensures long-term readability and compliance with architectural rules.
-## 2026-07-06: Verification of Pokerus State Exfiltration Epic
-
-**Lesson: Verifying Epics with Downstream Architectural Refactors**
-When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation correctly adhered to the Acceptance Criteria, which included the completion of downstream child stories (`story-061-095-pokerus-byte-parsing`, `story-061-096-pokerus-tests`, `story-061-155-refactor-pokerus-bitwise`) and an ADR (`adr-061-026-bitwise-state-extraction`). The refactoring strictly enforced `ADR 026` by using explicit bitwise operators and constants for the `parsePokerus` helper. Checking the state of the codebase ensures that when a parent node transitions to `COMPLETED`, its intended functionality and architectural constraints are fully realized and verified by tests.
-
-## 2026-07-06: Verification of Relative Offsets ADR Epic
-
-**Lesson: Enforcing Constraints without Tooling**
-During the verification of `epic-053-103-relative-offsets-adr`, it was determined that tooling limitations in Biome and Oxlint prevent the creation of custom linter rules to flag inline magic numbers during dynamic save block extraction. Consequently, `ADR 028: Relative Offsets & Magic Numbers` was formally established. Because automated linting is unfeasible, this architectural constraint (mandating reusable module-level constants) must be rigorously and manually enforced during code review. Furthermore, a follow-up node (`idea-104-refactor-existing-parsers-adr-028`) was spawned to proactively refactor legacy code to comply with this new standard, ensuring technical debt does not accumulate.
-### Lesson: Magic Numbers Verification (ADR 028)
-When verifying algorithmic implementations, such as the Feebas seed extraction (epic-036-058-feebas-backend-parsing), it is crucial to ensure that architectural constraints regarding magic numbers (ADR 028) are strictly followed. All algorithmic constants, memory offsets, lengths, and bit shifts must be extracted into explicit, reusable constants at the module level. This promotes long-term readability and maintainability.
-
-## 2026-07-06: Verification of Gen 2 Pokerus State Exfiltration Epic
-
-**Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026) Enforcement**
-When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero) were comprehensively tested. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions.
+**Lesson: Extending ADR 028 to Algorithmic Magic Numbers & Enforcing Constraints without Tooling**
+When verifying algorithmic implementations, such as the Feebas seed extraction (`epic-036-058-feebas-backend-parsing`) and `epic-053-103-relative-offsets-adr`, it was determined that tooling limitations in Biome and Oxlint prevent the creation of custom linter rules to flag inline magic numbers during dynamic save block extraction. Consequently, `ADR 028: Relative Offsets & Magic Numbers` was formally established.
+Because automated linting is unfeasible, this architectural constraint (mandating reusable module-level constants) must be rigorously and manually enforced during code review. The implementation of the LCG algorithm correctly adhered to `ADR 028` by extracting not only save file offsets but also algorithmic magic numbers (like LCG multipliers, addends, and bit shifts) into explicit, reusable constants at the module level. This confirms that the mandate against magic numbers applies strictly to both memory operations and algorithmic implementations to improve code readability and maintainability. Furthermore, a follow-up node (`idea-104-refactor-existing-parsers-adr-028`) was spawned to proactively refactor legacy code to comply with this new standard, ensuring technical debt does not accumulate.
 
 ## 2026-07-06: Verification of Gen 3 Battle Frontier Dashboard UI Epic
 
+**Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026) Enforcement**
+When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero) were comprehensively tested. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions.
+## 2026-07-07: Verification of Gen 2 Pokerus State Exfiltration Epic
+
+**Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026) Enforcement**
+When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after a prior rejection. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks. Furthermore, boundary states (such as the "cured" state where strain is non-zero but days remaining is zero) were comprehensively tested. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions.
 **Lesson: Static Dashboard Visualization with React Flow (ADR 008)**
 When verifying `epic-046-079-gen3-battle-frontier-dashboard-ui`, the implementation correctly utilized React Flow (ADR 008) for a purely static data presentation rather than interactive diagramming. By explicitly disabling all interactive features (`panOnDrag={false}`, `zoomOnScroll={false}`, `elementsSelectable={false}`, etc.) and leveraging the `fitView` option, React Flow effectively functioned as a responsive grid layout engine for the Frontier Brain progress visuals. Furthermore, the UI strictly adhered to the "tactical hardware/snooping" aesthetic (ADR 024) by utilizing established utility primitives (`border-dashed`, `rounded-none`, etc.). This confirms that standardized tooling and styling constraints enable scalable, consistent UI integration without requiring bespoke diagramming logic for each new feature.

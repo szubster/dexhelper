@@ -1,8 +1,8 @@
 ---
-id: task-121-276-gen3-tv-block-parser-retry2-impl
+id: task-121-278-gen3-tv-block-parser-retry3-impl
 type: TASK
-title: Implement Gen 3 TV Block DataView Parser (Retry 3)
-status: CANCELLED
+title: Implement Gen 3 TV Block DataView Parser (Retry 4)
+status: READY
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
@@ -17,11 +17,11 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: 'Replaced by task-121-278 and task-121-279'
+rejection_reason: ''
 notes: ''
 ---
 
-# Task: Implement Gen 3 TV Block DataView Parser (Retry 3)
+# Task: Implement Gen 3 TV Block DataView Parser (Retry 4)
 
 ## Description
 This task requires you to implement the foundational logic to locate and read the TV broadcast data block from the Gen 3 save file structure, addressing the feedback from `research-121-246-gen3-tv-block-parser-retry-failure`.
@@ -48,4 +48,3 @@ Any out-of-bounds reads or structurally corrupt states within the TV block MUST 
 - **Transient Failure:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - **Permanent Failure:** If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **Empty PR Protocol:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-**CANCELLED:** Replaced by task-121-278 and task-121-279
