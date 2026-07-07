@@ -2,13 +2,13 @@
 id: task-253-261-shiny-carrier-ui-badge-qa
 type: TASK
 title: QA Shiny Carrier UI Badge
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-02'
-updated_at: '2026-07-06'
+updated_at: '2026-07-07'
 depends_on:
   - task-253-260-shiny-carrier-ui-badge-impl
-jules_session_id: null
+jules_session_id: '18144928464184165158'
 pr_number: null
 parent: story-045-253-shiny-carrier-ui-badge
 tags:
