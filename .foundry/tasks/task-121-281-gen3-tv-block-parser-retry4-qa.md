@@ -1,13 +1,13 @@
 ---
-id: task-121-279-gen3-tv-block-parser-retry3-qa
+id: task-121-281-gen3-tv-block-parser-retry4-qa
 type: TASK
-title: QA Gen 3 TV Block DataView Parser (Retry 4)
-status: CANCELLED
+title: QA Gen 3 TV Block DataView Parser (Retry 5)
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
 depends_on:
-  - task-121-278-gen3-tv-block-parser-retry3-impl
+  - task-121-280-gen3-tv-block-parser-retry4-impl
 jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
@@ -17,11 +17,11 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: "Max rejections reached"
+rejection_reason: ''
 notes: ''
 ---
 
-# Task: QA Gen 3 TV Block DataView Parser (Retry 4)
+# Task: QA Gen 3 TV Block DataView Parser (Retry 5)
 
 ## Description
 Verify the implementation of the Gen 3 TV block `DataView` parser to ensure it correctly and safely parses the data according to the architecture guidelines and the findings from `research-121-246-gen3-tv-block-parser-retry-failure`.
