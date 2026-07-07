@@ -35,3 +35,6 @@ Create a dashboard view displaying all registered Pokegear NPCs and their curren
 - [ ] Create UI for Active Callers Dashboard
 - [ ] Implement save file parsing for registered numbers
 - [ ] Integrate parsed data with dashboard UI
+- [ ] story-116-283-parse-registered-numbers
+- [ ] story-116-284-active-callers-dashboard-ui
+- [ ] story-116-285-integrate-registered-numbers-ui
