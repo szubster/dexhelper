@@ -2,10 +2,10 @@
 id: task-253-260-shiny-carrier-ui-badge-impl
 type: TASK
 title: Implement Shiny Carrier UI Badge
-status: COMPLETED
+status: PENDING
 owner_persona: coder
-created_at: '2026-07-02'
-updated_at: '2026-07-06'
+created_at: '2026-07-07'
+updated_at: '2026-07-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - gen2
   - frontend
 research_references: []
-rejection_count: 2
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
@@ -33,9 +33,9 @@ Implement a distinct UI badge/indicator for "Shiny Carrier" Pokémon in PC boxes
 - Ensure the visual distinction between Shiny Carriers and actual Shiny Pokémon is clear.
 
 ## Acceptance Criteria
-- [x] Badge component implemented and styled correctly according to ADR 008.
-- [x] Badge integrated into PC Box view.
-- [x] Badge integrated into Pokémon Detailed view.
+- [ ] Badge component implemented and styled correctly according to ADR 008.
+- [ ] Badge integrated into PC Box view.
+- [ ] Badge integrated into Pokémon Detailed view.
 
 ## Reminders
 - If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
