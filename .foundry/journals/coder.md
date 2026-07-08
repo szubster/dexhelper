@@ -102,3 +102,6 @@ In Generation 2, two Shiny or Shiny Carrier Pokémon cannot breed with each othe
 
 ## Investigation: Linter for Save Parsing Offsets
 Biome and Oxlint do not currently support custom JS linting rules. The built-in `noMagicNumbers` rule in Biome does not allow the granularity needed to specifically target `DataView` offset arguments, making it unsuitable for our strict save parsing guidelines. Introducing ESLint solely for this purpose would contradict our current tooling choices and add bloat. We should fall back to an ADR and code-review enforcement.
+
+## 2026-07-08: Impossible Task - Wrapping run_in_bash_session
+Task task-267-262-bash-timeout-wrapper-impl was cancelled because `run_in_bash_session` is a built-in platform tool provided to agents, not a script or function defined within this repository's codebase. It is therefore impossible to implement a wrapper or linter for it from within the repo.

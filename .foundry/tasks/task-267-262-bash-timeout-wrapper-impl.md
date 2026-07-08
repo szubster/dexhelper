@@ -2,7 +2,7 @@
 id: task-267-262-bash-timeout-wrapper-impl
 type: TASK
 title: Implement timeout wrapper for bash sessions
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-04'
 updated_at: '2026-07-08'
@@ -16,7 +16,7 @@ tags:
   - resilience
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'run_in_bash_session is a platform tool and cannot be modified from within the repo'
 notes: ''
 ---
 
