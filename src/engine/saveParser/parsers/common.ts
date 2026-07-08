@@ -111,6 +111,19 @@ export interface Gen3BerryPatch {
   watered4: boolean;
 }
 
+export interface Gen3MoveTutors {
+  swagger: boolean;
+  rollout: boolean;
+  furyCutter: boolean;
+  mimic: boolean;
+  metronome: boolean;
+  sleepTalk: boolean;
+  substitute: boolean;
+  dynamicPunch: boolean;
+  doubleEdge: boolean;
+  explosion: boolean;
+}
+
 export interface Gen3BattleFrontierWinStreaks {
   tower: { current: number; record: number };
   dome: { current: number; record: number };
@@ -230,6 +243,9 @@ export interface SaveData {
   /** Gen 3 specific: Battle Points (BP) balance */
   gen3TotalBattlePoints?: number;
   gen3BattlePoints?: number;
+  /** Gen 3 specific: Volcanic Ash gather count */
+  /** Gen 3 specific: Emerald Move Tutor usage */
+  gen3MoveTutors?: Gen3MoveTutors;
   /** Gen 3 specific: Volcanic Ash gather count */
   gen3VolcanicAsh?: number;
 }
