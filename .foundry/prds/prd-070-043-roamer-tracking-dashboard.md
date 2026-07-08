@@ -53,13 +53,9 @@ Based on an initial evaluation of the codebase:
 - [ ] A dedicated UI component displays the current location of any active roamers.
 - [ ] The feature only displays roamers that have actually been released in the save file's event flags.
 - [x] Break down this PRD into Epics.
-- [x] epic-043-067-roamer-data-extraction
-- [x] epic-043-068-roamer-map-translation
-- [x] epic-043-069-roamer-radar-ui
 - [ ] research-043-263-roamer-tracking-remediation
 - [ ] epic-043-139-gen2-roamer-data-extraction
 - [ ] epic-043-140-gen2-roamer-map-translation
-- [x] epic-043-141-gen2-roamer-radar-ui
 - [ ] epic-043-142-gen2-roamer-radar-widget
 - [ ] epic-043-143-gen2-roamer-map-integration
 
