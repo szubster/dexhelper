@@ -23,7 +23,7 @@ test.describe('Pokemon Details Modal', () => {
     await expect(page.getByText(/Status: Secured/i)).toBeVisible();
 
     // 6. Verify Evolution Section
-    await expect(page.getByRole('heading', { name: /Evolution/i })).toBeVisible();
+    await expect(page.getByText(/FORWARD EVOLUTION MATRIX/i)).toBeVisible();
     await expect(page.getByText('RAICHU')).toBeVisible();
 
     // 7. Test Navigation (Click on Raichu in evolutions)

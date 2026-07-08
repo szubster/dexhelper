@@ -135,11 +135,9 @@ describe('PokemonEvolutions', () => {
       />,
     );
 
-    await expect.element(page.getByText('Evolution')).toBeVisible();
-    await expect.element(page.getByText('FROM')).toBeVisible();
+    await expect.element(page.getByText('PRE-EVOLUTION MATRIX')).toBeVisible();
     await expect.element(page.getByText('BULBASAUR')).toBeVisible();
     await expect.element(page.getByText('METHOD: level 16')).toBeVisible();
-    await expect.element(page.getByText('OWNED')).toBeVisible();
 
     await page.getByRole('button', { name: 'Navigate to bulbasaur details' }).click();
     expect(mockOnNavigate).toHaveBeenCalledWith(1, 'bulbasaur');
@@ -181,7 +179,7 @@ describe('PokemonEvolutions', () => {
       />,
     );
 
-    await expect.element(page.getByText('Evolution')).toBeVisible();
+    await expect.element(page.getByText('FORWARD EVOLUTION MATRIX')).toBeVisible();
     await expect.element(page.getByText('IVYSAUR')).toBeVisible();
     await expect.element(page.getByText('VIA level 16')).toBeVisible();
     await expect.element(page.getByText('VENUSAUR')).toBeVisible();
@@ -210,8 +208,7 @@ describe('PokemonEvolutions', () => {
       />,
     );
 
-    await expect.element(page.getByText('Breeding Protocol')).toBeVisible();
-    await expect.element(page.getByText('CROSS-REF:')).toBeVisible();
+    await expect.element(page.getByText('BREEDING MATRIX')).toBeVisible();
     await expect.element(page.getByText('PIKACHU')).toBeVisible();
     await expect.element(page.getByText('RAICHU')).toBeVisible();
     await expect.element(page.getByText('pichu method')).toBeVisible();
