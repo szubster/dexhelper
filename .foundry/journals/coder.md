@@ -11,10 +11,8 @@
 ### React Flow Filter Integration
 - **Pattern**: When dynamically filtering nodes and edges passed to `ReactFlow`, explicitly pass filtered lists using `useMemo`. When dealing with `ReactFlow`'s `node.data`, which often has index signatures, explicitly use bracket notation `node.data['key']` instead of dot notation if TypeScript is configured strictly (`noPropertyAccessFromIndexSignature: true`). To appease Biome's `useLiteralKeys` rule, wrap the line with `// biome-ignore lint/complexity/useLiteralKeys: TSConfig requires bracket notation`.
 - **Learning**: Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`.
-Updated generation logic to pull condition_values from PokeAPI to attach bitmasked times. Successfully modified Gen2 strategy to append time-of-day warnings instead of strictly filtering.
 For Playwright E2E tests failing due to missing browser binaries or system dependencies in the test environment, explicitly run `pnpm exec playwright install chromium --with-deps` before executing tests.
 - Ensure that you accurately handle arrays like pokemonIds and localPids correctly by modifying both of them iteratively if needed to avoid bugs.
-- Found out Gen 2 Headbutt/Rock Smash didn't actually require badges internally despite some guides saying so.
 - Workaround vitest-browser-react pointer event issues on complex SVGs or wrappers (like ReactFlow) by evaluating the locator directly to the DOM element and calling .click()
 
 ## 2026-05-31: Foundry DAG ID Strictness
@@ -87,11 +85,7 @@ Furthermore, the `functions/_middleware.ts` file and these dependencies must be 
 4. It is *not* necessary to manually mark the current task as `FAILED` or provide a `rejection_reason` in the YAML frontmatter. Adding the new RESEARCH node to the `depends_on` array and submitting with unchecked acceptance criteria is sufficient for the orchestrator to keep the task suspended.
 
 ## 2026-06-18: Rejecting Task due to Max Rejections & Missing Dependencies
-Permanently failed `task-084-150-breeding-pair-algorithm-impl` since it reached the maximum rejection count of 3. The task lacked critical context (Gen 2 Egg Groups data and gender calculation logic), and its dependency `research-150-186-egg-groups-missing` was already CANCELLED via cascading cancellation. Its status has been updated to CANCELLED in the frontmatter, with a descriptive `rejection_reason`. Crucially, its acceptance criteria checkboxes were left unchecked, ensuring it does not mistakenly masquerade as successfully completed, correctly triggering its exit from the DAG.
-
 ## 2026-06-18: Rejecting Gen 3 Roamer Location Task
-Permanently failed \`task-108-161-gen3-roamer-location-impl\`. As discovered in \`research-108-187-gen3-roamer-location-offsets\`, the Gen 3 roamer's current map location (\`sRoamerLocation\`) and location history (\`sLocationHistory\`) are kept in dynamic \`EWRAM_DATA\` and are not directly saved to the \`.sav\` file. They re-initialize dynamically upon startup. Therefore, extracting the specific map group and number directly from the \`.sav\` file via DataView parsing is mathematically impossible. The task has been marked as CANCELLED in its frontmatter with a rejection reason, and its acceptance criteria have been left unchecked to exit the DAG gracefully.
-
 ## 2026-06-19: Late Binding for Breeding Algorithm
 Following the Late Binding pattern, `task-084-192-breeding-pair-algorithm-impl` was suspended (marked `FAILED` with a `rejection_reason` and unchecked checkboxes). A new `RESEARCH` node `research-192-209-egg-groups-missing-data` was spawned and appended to the `depends_on` array because the `PokemonMetadata` schema is missing `egg_groups` data and Gen 2 gender calculation logic (based on DVs and gender ratios) is unknown, making the algorithm impossible to implement safely.
 
@@ -99,8 +93,6 @@ Following the Late Binding pattern, `task-084-192-breeding-pair-algorithm-impl` 
 When assigned a task to extract Gen 3 roamer map coordinates (`mapId` and `mapGroup`) from a save file, the task MUST be cancelled or failed. Per `adr-108-027-gen3-roamer-location-impossible`, the exact map coordinates are exclusively stored in dynamic `EWRAM_DATA` during gameplay and are never serialized into the `.sav` battery save file. Any attempt to parse this data statically is mathematically impossible and will result in failure.
 
 ## 2026-06-27: Rejecting Task due to Missing Dependencies
-Permanently failed `task-084-192-breeding-pair-algorithm-impl`. The task lacked sufficient clarity and missing dependencies related to Egg Groups. It was cancelled and replaced by `task-084-204-breeding-pair-algorithm-impl`. Its status has been updated to CANCELLED in the frontmatter, with a descriptive `rejection_reason`. Its acceptance criteria checkboxes were left unchecked, ensuring it correctly exits the DAG without masquerading as successfully completed.
-
 ## 2026-06-29: Gen 2 Breeding Constraints
 In Generation 2, two Shiny or Shiny Carrier Pokémon cannot breed with each other. Shininess is determined by DVs, and Pokémon with identical or similar DVs are considered 'related' and incompatible for breeding. The breeding algorithm must explicitly exclude these pairs.
 
