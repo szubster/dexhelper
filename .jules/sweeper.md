@@ -5,3 +5,4 @@
 * Sweeper PRs must use the title format `🧹 [description]` and include `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result` in the body.
 
 - If `pnpm install` hangs or fails during git hook setup (e.g., `lefthook install`), run `git config --unset-all --global core.hooksPath` before retrying the installation.
+If `pnpm lint` or `biome check` fails due to formatting issues, use `pnpm biome format --write <filepath>` to resolve them.
