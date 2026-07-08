@@ -2,7 +2,7 @@
 id: story-081-290-gen3-rtc-fallback-strategy-replacement
 type: STORY
 title: Implement Gen 3 System Time Fallback Strategy Replacement
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-08'
 updated_at: '2026-07-08'
@@ -16,7 +16,7 @@ tags:
   - rtc
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'RTC data in Gen 3 is emulator dependent and highly unreliable. Event mapping must be RTC-independent.'
 notes: ''
 ---
 
