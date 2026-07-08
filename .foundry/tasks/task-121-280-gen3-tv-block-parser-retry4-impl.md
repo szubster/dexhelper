@@ -6,7 +6,8 @@ status: READY
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
-depends_on: []
+depends_on:
+  - research-121-285-gen3-tv-block-parser-retry3-failure
 jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser

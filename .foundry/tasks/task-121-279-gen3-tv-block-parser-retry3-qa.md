@@ -36,3 +36,6 @@ Verify the implementation of the Gen 3 TV block `DataView` parser to ensure it c
 - **Transient Failure:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - **Permanent Failure:** If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **Empty PR Protocol:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+### Auditor Rejection
+**CANCELLED:** This task has been cancelled and replaced by task-121-281 because its implementation task reached the max rejection count.
