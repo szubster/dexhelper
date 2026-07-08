@@ -38,10 +38,10 @@ Any out-of-bounds reads or structurally corrupt states within the TV block MUST 
 - Any size or ID constants must NOT be hardcoded inline inside `parseGen3MixRecords` or any other parsing function.
 
 ## Acceptance Criteria
-- [ ] The TV block extraction logic is built entirely using `DataView`.
-- [ ] All memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level. Inline magic numbers like 21 or 40 are completely removed.
-- [ ] Explicit error handling is in place to catch `RangeError` exceptions natively thrown by `DataView` on malformed saves.
-- [ ] New parsing functions conform to the existing Gen 1 and Gen 2 backward-compatible parsing interfaces without breaking them.
+- [x] The TV block extraction logic is built entirely using `DataView`.
+- [x] All memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level. Inline magic numbers like 21 or 40 are completely removed.
+- [x] Explicit error handling is in place to catch `RangeError` exceptions natively thrown by `DataView` on malformed saves.
+- [x] New parsing functions conform to the existing Gen 1 and Gen 2 backward-compatible parsing interfaces without breaking them.
 
 ## Important Protocols (For Coder)
 - **Transient Failure:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
