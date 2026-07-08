@@ -2,7 +2,7 @@
 id: task-268-284-document-indexeddb-schema-impl
 type: TASK
 title: Document SaveHistoryDB IndexedDB Schema
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-08'
 updated_at: '2026-07-08'

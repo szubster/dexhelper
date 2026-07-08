@@ -2,13 +2,13 @@
 id: story-130-268-document-indexeddb-schema
 type: STORY
 title: Document IndexedDB Schema
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-08'
 depends_on:
   - story-130-267-define-indexeddb-schema
-jules_session_id: '1648987664640770995'
+jules_session_id: null
 pr_number: null
 parent: epic-099-130-indexeddb-schema-design
 tags:
