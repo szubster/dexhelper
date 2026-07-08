@@ -1,5 +1,5 @@
 ---
-id: story-081-281-gen3-mix-record-inherited-events
+id: story-081-288-gen3-mix-record-inherited-events
 type: STORY
 title: Extract Gen 3 Mix Record Inherited Events
 status: READY
