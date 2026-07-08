@@ -62,9 +62,11 @@ const STATIC_GIFT_PIDS_GEN2 = Object.keys(STATIC_GIFT_DATA_GEN2).map((id) => par
  * @returns An object containing grouped maps, locations, encounters, and pokemon metadata required for the engine's synchronous pass.
  *
  * @remarks
- * This function handles database fetching, leveraging `DataLoader` (via `dexDataLoader`) for batched requests.
- * By pulling all structural, encounter, and metadata into a single memory object upfront, the `generateSuggestions`
- * function can execute purely synchronously without N+1 query overhead.
+ * **Why this design?**
+ * The suggestion engine must execute synchronously to avoid React state tearing and UI thread freezes.
+ * If the engine queried IndexedDB iteratively (e.g. `await getEncounter(id)`) inside the evaluation loop,
+ * the massive volume of promises would cause severe N+1 query overhead. By pre-fetching all required
+ * domain data upfront via `DataLoader` batches, `generateSuggestions` operates purely in memory.
  */
 export async function fetchAssistantApiData(saveData: SaveData, queryTargets: number[]) {
   const allLocations = await pokeDB.getLocations();
@@ -84,7 +86,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   }
 
   // ⚡ Bolt: Avoid N+1 and massive O(N) overhead by bulk querying specific ids instead of getAll.
-  // We use Sets to ensure unique PIDs, minimizing the database payload.
+  // Why Sets? Ensures unique PIDs, minimizing the database payload size and transmission time from IndexedDB.
   const targetPids = [...new Set([...queryTargets, ...localPids])];
   const targetEncounters = await pokeDB.getEncountersBulk(targetPids);
 
@@ -131,8 +133,8 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const pokemonMetadata: Record<number, PokemonMetadata | null> = {};
 
   // ⚡ Bolt: Replaced .forEach with for loop to avoid closure creation and function call overhead.
-  // Iterating manually prevents the V8 engine from constantly allocating new closure scopes,
-  // which is critical when processing hundreds of Pokémon in a tight loop.
+  // Why? Iterating manually prevents the V8 engine from constantly allocating new closure scopes,
+  // which causes GC (Garbage Collection) pauses when processing hundreds of Pokémon in a tight loop.
   for (let idx = 0; idx < allNeededPids.length; idx++) {
     const pid = allNeededPids[idx];
     if (pid !== undefined) {
@@ -141,7 +143,8 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     }
   }
 
-  // ⚡ Bolt: Removed Object.fromEntries(map(...)) chain to prevent intermediate array allocations (O(N) -> O(1) memory overhead)
+  // ⚡ Bolt: Removed Object.fromEntries(map(...)) chain to prevent intermediate array allocations
+  // Why? Transforming arrays iteratively directly into an object creates 0 intermediate tuples, reducing memory overhead from O(N) to O(1).
   const areaNames: Record<number, string> = {};
   for (let i = 0; i < allLocations.length; i++) {
     const loc = allLocations[i];
@@ -166,12 +169,13 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
  * in the Pokédex (or Living Dex). It then delegates out to several categorical sub-generators
  * (Catch, Gift, Trade, Evolution, Breed) to aggregate actionable advice on how to obtain them.
  *
- * It is fully synchronous and relies on `fetchAssistantApiData` having already loaded all required
- * mapping and metadata into memory (passed via `apiData`). It extensively uses Sets and Map caching
- * internally to maintain O(1) lookups during array processing, preventing UI thread blockage.
+ * **Architecture Note:**
+ * This function is fully synchronous. It relies on `fetchAssistantApiData` having already loaded all required
+ * mapping and metadata into memory (`apiData`). It extensively uses Sets and Map caching internally to
+ * maintain O(1) lookups during array processing, preventing UI thread blockage on low-end devices.
  *
  * @param saveData - The parsed binary save data indicating the player's progress, location, and inventory.
- * @param isLivingDex - If true, evaluates missing Pokémon based on exact quantity rather than just Pokédex flags (e.g., needing 3 Bulbasaur lines instead of just 1 Venusaur).
+ * @param isLivingDex - If true, evaluates missing Pokémon based on exact physical quantity rather than just Pokédex flags (e.g., needing 3 Bulbasaur lines instead of just 1 Venusaur).
  * @param manualVersion - Optional manual override for game version if auto-detection falls back to "unknown".
  * @param apiData - The pre-fetched, complete database of Pokémon metadata, evolution rules, and encounter tables.
  * @param strategy - The generation-specific strategy object containing mechanical rules (Gen 1 vs Gen 2 vs Gen 3).
@@ -190,7 +194,8 @@ export function generateSuggestions(
 
   const genConfig = getGenerationConfig(saveData.generation);
   const maxDex = genConfig.maxDex;
-  // ⚡ Bolt: Optimize O(n) array includes to O(1) Set has for missingIds and localPids
+  // ⚡ Bolt: Optimize O(n) array includes to O(1) Set has
+  // Why Sets? Set.has() is O(1) whereas Array.includes() is O(N), critical for tight lookup loops.
   const missingIds = new Set<number>();
 
   const ownedSet = isLivingDex
@@ -198,7 +203,8 @@ export function generateSuggestions(
     : saveData.owned || new Set<number>();
 
   const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
-  // ⚡ Bolt: Removed .filter().map() chain to prevent intermediate array allocations (O(N) -> O(1) memory overhead)
+  // ⚡ Bolt: Removed .filter().map() chain to prevent intermediate array allocations
+  // Why? Single manual iteration eliminates transient tuple objects, reducing GC spikes.
   const myOtIds = new Set<number>();
   for (let i = 0; i < allInstances.length; i++) {
     const p = allInstances[i];
@@ -225,7 +231,7 @@ export function generateSuggestions(
   const displayVersion = effectiveVersion === 'unknown' ? genConfig.defaultVersion : effectiveVersion;
   const displayVersionId = POKE_VERSION_MAP[displayVersion] || 1;
   // ⚡ Bolt: Use a manual loop instead of Array.from().slice() to eliminate intermediate array allocations.
-  // We strictly limit queryTargets to 100 to prevent the UI thread from freezing when evaluating massive
+  // Why? We strictly limit queryTargets to 100 to prevent the UI thread from freezing when evaluating massive
   // encounter graphs (e.g. processing a fresh save file where nearly all Pokémon are missing).
   const queryTargets: number[] = [];
   for (const pid of missingIds) {
@@ -299,7 +305,7 @@ export function generateSuggestions(
   );
 
   // ⚡ Bolt: Eliminate O(N) array tuple allocation during suggestion deduplication.
-  // We manually iterate and set Map values instead of `Array.from(new Set(suggestions))`
+  // Why? We manually iterate and set Map values instead of `Array.from(new Set(suggestions))`
   // because generating a massive intermediate array of tuples would cause significant garbage collection pauses.
   const uniqueMap = new Map<string, Suggestion>();
   for (let i = 0; i < suggestions.length; i++) {
