@@ -339,3 +339,8 @@
 **Outcome:** Merged
 **Why:** The memory requires that when an agent is assigned a READY parent node that already has pending child tasks drafted from a previous iteration, they must submit an empty PR *without* checking off its overarching acceptance criteria. This adheres to the Late-Binding Orchestrator Demotion Compliance Rule, allowing the orchestrator to correctly demote the parent to PENDING while it waits for children. Agents were violating this by checking off acceptance criteria for parent nodes that had pending children, prematurely pushing parent nodes to VERIFYING.
 **Pattern:** Codify system memory constraints into `core_policies.md` to avoid regressions and ensure consistency across personas.
+## 2026-07-23 - [Accepted] - Prompt improvement - Consolidate Journaling and YAML Policies
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The prompt evaluation identified massive duplication in the agent prompts where a huge block regarding the "Journaling rules" (logging long-term lessons vs execution logs) and "YAML frontmatter modification rules" was repeated verbatim across 26 different agents. This bloated the prompts and made updating the rules error-prone.
+**Pattern:** Consolidate duplicated core prompt instructions (e.g. journaling rules, YAML modification policies) into `.foundry/docs/knowledge_base/agents/core_policies.md` and instruct the agents to read it. This drastically reduces prompt size, creates a single source of truth, and allows global policy updates without touching 26 individual schedule files.
