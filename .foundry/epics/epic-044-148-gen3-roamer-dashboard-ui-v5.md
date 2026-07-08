@@ -1,15 +1,15 @@
 ---
-id: epic-044-145-gen3-roamer-dashboard-ui-v4
+id: epic-044-148-gen3-roamer-dashboard-ui-v5
 type: EPIC
-title: Gen 3 Roamer Dashboard UI v4
+title: Gen 3 Roamer Dashboard UI v5
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-08'
 updated_at: '2026-07-08'
 depends_on:
   - research-044-207-gen3-roamer-ui-alternatives
-  - epic-044-101-gen3-roamer-core-extraction-v2
-  - epic-044-102-gen3-roamer-iv-glitch-v2
+  - epic-044-146-gen3-roamer-core-extraction-v3
+  - epic-044-147-gen3-roamer-iv-glitch-v3
 jules_session_id: null
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
@@ -23,7 +23,7 @@ rejection_reason: ""
 notes: ""
 ---
 
-# Gen 3 Roamer Dashboard UI v4
+# Gen 3 Roamer Dashboard UI v5
 
 ## Objective
 Create a user interface to display the comprehensive breakdown of the roaming legendary's internal state without relying on Route Radar.
@@ -36,6 +36,3 @@ Develop a dashboard view that presents the exact state of the roaming Pokémon, 
 - [ ] Implement a visual warning indicator for the IV Glitch.
 - [ ] Ensure the UI adheres to the alternative design determined by the research phase.
 - [ ] Story Owner: Break down this Epic into executable Stories.
-
-### Epic Planner Rejection
-**CANCELLED:** This epic is cancelled and replaced by epic-044-148-gen3-roamer-dashboard-ui-v5.

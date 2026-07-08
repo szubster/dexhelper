@@ -1,10 +1,10 @@
 ---
-id: epic-044-101-gen3-roamer-core-extraction-v2
+id: epic-044-146-gen3-roamer-core-extraction-v3
 type: EPIC
-title: Gen 3 Roamer Core Extraction v2
-status: CANCELLED
+title: Gen 3 Roamer Core Extraction v3
+status: PENDING
 owner_persona: story_owner
-created_at: '2026-06-26'
+created_at: '2026-07-08'
 updated_at: '2026-07-08'
 depends_on:
   - research-044-207-gen3-roamer-ui-alternatives
@@ -17,11 +17,11 @@ tags:
 research_references:
   - research-071-138-gen3-roamer-offsets
 rejection_count: 0
-rejection_reason: Cancelled due to cascading cancellation from parent
-notes: ''
+rejection_reason: ""
+notes: ""
 ---
 
-# Gen 3 Roamer Core Extraction v2
+# Gen 3 Roamer Core Extraction v3
 
 ## Objective
 Extract the core data structure of the roaming legendary from Gen 3 save files, accounting for the new UI direction.
@@ -33,9 +33,4 @@ Parse the `Roamer` struct from the save file (SaveBlock1) to extract the IVs, Pe
 - [ ] Implement robust `DataView` parsing for the Gen 3 `Roamer` struct across all Gen 3 game versions.
 - [ ] Extract and expose the `active` boolean to determine if the roamer is currently available in the game world.
 - [ ] Write unit tests verifying extraction against known good save fixtures for each game version.
-- [x] Story Owner: Break down this Epic into executable Stories.
-- [ ] story-101-242-gen3-roamer-parser
-- [ ] story-101-243-gen3-roamer-state-schema
-
-### Epic Planner Rejection
-**CANCELLED:** This epic is cancelled and replaced by epic-044-146-gen3-roamer-core-extraction-v3.
+- [ ] Story Owner: Break down this Epic into executable Stories.

@@ -1,13 +1,13 @@
 ---
-id: epic-044-102-gen3-roamer-iv-glitch-v2
+id: epic-044-147-gen3-roamer-iv-glitch-v3
 type: EPIC
-title: Gen 3 Roamer IV Glitch Detection v2
-status: CANCELLED
+title: Gen 3 Roamer IV Glitch Detection v3
+status: PENDING
 owner_persona: story_owner
-created_at: '2026-06-26'
+created_at: '2026-07-08'
 updated_at: '2026-07-08'
 depends_on:
-  - epic-044-101-gen3-roamer-core-extraction-v2
+  - epic-044-146-gen3-roamer-core-extraction-v3
 jules_session_id: null
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
@@ -17,11 +17,11 @@ tags:
   - iv-glitch
 research_references: []
 rejection_count: 0
-rejection_reason: Cancelled due to cascading cancellation from parent
-notes: ''
+rejection_reason: ""
+notes: ""
 ---
 
-# Gen 3 Roamer IV Glitch Detection v2
+# Gen 3 Roamer IV Glitch Detection v3
 
 ## Objective
 Implement detection logic for the infamous "Roamer IV Glitch" affecting Gen 3 games.
@@ -33,8 +33,4 @@ Analyze the extracted IV bitfield from the `Roamer` struct. The glitch causes th
 - [ ] Implement a function to analyze the 32-bit IV field and detect the Roamer IV Glitch signature.
 - [ ] Return a clear boolean or enum state indicating if the glitch is present.
 - [ ] Write unit tests verifying the glitch detection logic with both glitched and non-glitched IV spreads.
-- [x] Story Owner: Break down this Epic into executable Stories.
-- [ ] story-102-244-gen3-roamer-iv-glitch-detector
-
-### Epic Planner Rejection
-**CANCELLED:** This epic is cancelled and replaced by epic-044-147-gen3-roamer-iv-glitch-v3.
+- [ ] Story Owner: Break down this Epic into executable Stories.
