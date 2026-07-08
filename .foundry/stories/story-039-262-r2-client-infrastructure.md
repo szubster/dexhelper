@@ -31,5 +31,5 @@ We need to establish the basic API bindings and infrastructure to connect to Clo
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] task-262-261-r2-client-impl
-- [ ] task-262-262-r2-client-qa
+- [x] task-262-261-r2-client-impl
+- [x] task-262-262-r2-client-qa
