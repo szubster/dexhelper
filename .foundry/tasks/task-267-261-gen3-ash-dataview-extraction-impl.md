@@ -1,11 +1,11 @@
 ---
 id: task-267-261-gen3-ash-dataview-extraction-impl
 type: TASK
-title: Implement Gen 3 Volcanic Ash Count DataView Extraction
-status: COMPLETED
+title: Implement Gen 3 Volcanic Ash Extraction
+status: PENDING
 owner_persona: coder
-created_at: '2026-07-04'
-updated_at: '2026-07-05'
+created_at: '2026-07-08'
+updated_at: '2026-07-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -21,7 +21,7 @@ rejection_reason: ''
 notes: ''
 ---
 
-# Implement Gen 3 Volcanic Ash Count DataView Extraction
+# Implement Gen 3 Volcanic Ash Extraction
 
 ## Context
 Based on research findings, the Volcanic Ash gather count is stored as game variable `0x4048`.
@@ -29,18 +29,15 @@ Based on research findings, the Volcanic Ash gather count is stored as game vari
 - Emerald Absolute Offset: `0x142C`
 - Ruby/Sapphire Absolute Offset: `0x13D0`
 
-## Requirements
-1. Extract the Volcanic Ash gather count using the `DataView` API.
-2. When parsing, you must properly catch `RangeError` exceptions to safely handle out-of-bounds reads.
-3. All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
+As per ADR 010, the DataView API MUST be used instead of raw `Uint8Array` manipulation.
+As per ADR 028, all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level. Inline magic numbers are explicitly forbidden.
 
 ## Acceptance Criteria
-- [x] Implement the extraction logic for Gen 3 Volcanic Ash count.
-- [x] Define reusable constants for all memory offsets (`0x142C`, `0x13D0`).
-- [x] Properly catch `RangeError` to handle out-of-bounds reads.
-- [x] Write unit tests for the extraction logic.
+- [ ] Implement Volcanic Ash DataView extraction logic for Gen 3 saves.
+- [ ] Define module-level constants for offsets (`0x142C`, `0x13D0`) and relative var array offset (`0x90`).
+- [ ] Write unit tests verifying correct extraction for Ruby/Sapphire and Emerald.
+- [ ] Write unit tests that trigger and catch `RangeError` exceptions for out-of-bounds reads.
 
-## Persona Instructions
-- **Coder**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- **Coder**: If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- **Coder**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+## Developer Instructions
+- **Failure conditions:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- **Completion conditions:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
