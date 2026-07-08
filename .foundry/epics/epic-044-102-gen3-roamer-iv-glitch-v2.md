@@ -2,10 +2,10 @@
 id: epic-044-102-gen3-roamer-iv-glitch-v2
 type: EPIC
 title: Gen 3 Roamer IV Glitch Detection v2
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-26'
-updated_at: '2026-06-26'
+updated_at: '2026-07-08'
 depends_on:
   - epic-044-101-gen3-roamer-core-extraction-v2
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - iv-glitch
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 
