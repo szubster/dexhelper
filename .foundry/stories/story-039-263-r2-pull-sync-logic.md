@@ -31,4 +31,6 @@ When a user logs in on a new device, the application must pull their latest save
 - Ensure the downloaded data hydrates the local application state.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-263-285-r2-pull-sync-logic-impl
+- [ ] task-263-286-r2-pull-sync-logic-qa
