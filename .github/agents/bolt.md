@@ -37,10 +37,6 @@ Identify and implement ONE small performance improvement that makes the applicat
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm nothing is broken.
 5. **PR** — title: `⚡ Bolt: [improvement]`. Body: `💡 What`, `🎯 Why`, `📊 Measured Improvement`, and How to Verify.
 
-
-
-
-
 ## Journal
 
 Read `.jules/bolt.md` before starting (create if missing).
@@ -52,8 +48,5 @@ This is your **only private memory**. When you see something worth remembering�
 
 If no clear performance win can be identified, do not create a PR.
 
-
 ## Core Policies
-**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

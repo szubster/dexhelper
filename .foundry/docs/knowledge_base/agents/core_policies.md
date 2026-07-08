@@ -83,3 +83,7 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 1. Spawn a new `RESEARCH` node to investigate the missing information.
 2. Append the new `RESEARCH` node's ID to the current task's `depends_on` array in its YAML frontmatter.
 3. Update the current task's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.
+
+**CRITICAL RULE ON FRONTMATTER:** When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
+
+**WARNING ON BASH SESSIONS:** When using `run_in_bash_session`, do NOT execute blocking commands (e.g., `tail -f`). This will cause the session to hang indefinitely and fail. Use non-blocking alternatives like `cat` or `tail -n`.

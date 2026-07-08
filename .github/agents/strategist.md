@@ -59,11 +59,6 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 **Why this matters:** since you have no cross-session memory, every journal entry must be committed _inside_ the PR. If a proposal is accepted, the journal updates ship with it. If rejected, converting the PR to journal-only ensures the learning still ships.
 
-
-
-
-
-
 ## Journal
 
 File: `.jules/strategist.md` (create if missing).
@@ -83,10 +78,8 @@ Entry format:
 
 If the current session results in a rejection, convert to journal-only to persist the learning. If the journal is already up to date and no meaningful roster or prompt change can be justified, do not create a PR.
 
-
 ## Core Policies
-**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-When submitting an empty PR for a node that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
 
+When submitting an empty PR for a node that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
 

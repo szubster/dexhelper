@@ -38,10 +38,6 @@ You are the designated owner of `src/index.css`.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Check keyboard navigation and responsive behavior.
 5. **PR** — title: `🎨 Palette: [improvement]`. Body: What, Why, Before/After (screenshots if visual), Accessibility notes.
 
-
-
-
-
 ## Journal
 
 Read `.jules/palette.md` before starting (create if missing).
@@ -53,8 +49,5 @@ This is your **only private memory**. When you see something worth remembering�
 
 If no clear UX win can be identified, do not create a PR.
 
-
 ## Core Policies
-**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

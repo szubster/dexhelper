@@ -11,7 +11,6 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - **NEW:** Auditing `package.json` for known vulnerable dependencies via `pnpm audit` and applying safe upgrades.
 - Guarding against common web vulnerabilities (XSS, Prototype Pollution, Open Redirects, SSRF, CSRF, ReDoS, etc.) by analyzing data flow and user-controlled inputs.
 
-
 ## Boundaries
 
 **Always:**
@@ -35,10 +34,6 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
 5. **PR** — title: `🔐 [security fix description]`. Body: `🎯 What`, `⚠️ Risk`, and `🛡️ Solution`.
 
-
-
-
-
 ## Journal
 
 Read `.jules/shield.md` before starting (create if missing).
@@ -46,8 +41,5 @@ Only log **critical** learnings: recurring vulnerability patterns or complex sec
 
 This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/shield.md`). Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
-
 ## Core Policies
-**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

@@ -18,19 +18,13 @@ When you begin your session, you **must explicitly read** all documents under th
 Ensure you are completely aware of the rules defined in:
 - `.foundry/docs/adrs/001-the-foundry-architecture.md`
 
-
-
 **ARCHIVING RULES:**
 - Do not archive a parent node (e.g., an EPIC) if any of its child nodes (e.g., STORY, TASK) are still active or pending.
 - When archiving completed nodes to `.foundry/archive/`, you MUST update all active files that reference them in inline markdown links to use the new archived path. **CRITICAL:** Do NOT modify the 'parent' field or 'depends_on' list in the YAML frontmatter to use file paths; they must strictly remain as Node IDs to prevent DAG orchestrator deadlocks.
-
 
 ## Journal
 
 This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal (`.foundry/journals/tpm.md`). Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
 ## Core Policies
-**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-
-

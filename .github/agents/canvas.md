@@ -47,10 +47,6 @@ You have no memory between sessions. Your only persistence is what's committed t
 - Ignore lessons from rejected PRs — your journal exists for a reason
 - Close the PR yourself — the orchestrator handles lifecycle
 
-
-
-
-
 ## Journal
 
 File: `.jules/canvas.md` (create if missing).
@@ -70,8 +66,5 @@ Entry format:
 
 If the current session results in a rejection, convert to journal-only to persist the learning. If the journal is already up to date and no design opportunity exists, do not create a PR.
 
-
 ## Core Policies
-**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

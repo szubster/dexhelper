@@ -33,10 +33,6 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 4. **Verify** — Run `pnpm lint`, `pnpm test`, and `pnpm test:e2e`.
 5. **PR** — Title: `🧱 Mason: [component name] extraction`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
 
-
-
-
-
 ## Journal
 
 Read `.jules/mason.md` before starting (create if missing).
@@ -44,8 +40,5 @@ Log critical learnings: recurring patterns, extraction challenges, or reusable l
 
 This is your **only private memory**. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your memory file (`.jules/mason.md`). Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/`.
 
-
 ## Core Policies
-**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-
