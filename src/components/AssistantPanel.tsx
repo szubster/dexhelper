@@ -99,6 +99,19 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
     [pokemonNameRecord],
   );
 
+  // ⚡ Bolt: Precompute grouped suggestions in useMemo to prevent O(N) inline reduce reallocation every render
+  const groupedSuggestions = React.useMemo(() => {
+    const acc: Partial<Record<SuggestionCategory, typeof suggestions>> = {};
+    for (let i = 0; i < suggestions.length; i++) {
+      const s = suggestions[i];
+      if (s) {
+        if (!acc[s.category]) acc[s.category] = [];
+        acc[s.category]?.push(s);
+      }
+    }
+    return acc;
+  }, [suggestions]);
+
   return (
     <div className="flex-1 space-y-6">
       <div className="relative flex flex-col justify-between gap-4 border border-zinc-800/80 bg-zinc-900/50 p-6 sm:flex-row sm:items-center">
@@ -153,14 +166,8 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
         </div>
       ) : (
         <div className="space-y-8">
-          {objectEntries(
-            suggestions.reduce<Partial<Record<SuggestionCategory, typeof suggestions>>>((acc, s) => {
-              if (!acc[s.category]) acc[s.category] = [];
-              acc[s.category]?.push(s);
-              return acc;
-            }, {}),
+          {objectEntries(groupedSuggestions)
             // Custom sort order for categories
-          )
             .sort(([a], [b]) => {
               // ⚡ Bolt: Use O(1) object lookup instead of array indexOf inside sort callback
               const orderA = isValidCategory(a) ? CATEGORY_ORDER[a] : 99;
