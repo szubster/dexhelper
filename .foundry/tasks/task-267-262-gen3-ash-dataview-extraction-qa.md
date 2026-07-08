@@ -36,8 +36,8 @@ Based on research findings, the Volcanic Ash gather count is stored as game vari
 3. Verify comprehensive test coverage exists and passes.
 
 ## Acceptance Criteria
-- [ ] Code review the implementation to ensure it meets requirements.
-- [ ] Verify test coverage is complete and successful.
+- [x] Code review the implementation to ensure it meets requirements.
+- [x] Verify test coverage is complete and successful.
 
 ## Persona Instructions
 - **QA**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
