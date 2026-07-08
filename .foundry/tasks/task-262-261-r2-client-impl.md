@@ -32,7 +32,7 @@ We need to establish the basic API bindings and infrastructure to connect to Clo
 - When drafting blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Set up the necessary R2 bindings.
-- [ ] Implement fundamental read operation for the save files.
-- [ ] Implement fundamental write operation for the save files.
-- [ ] Implement fundamental list operation for the save files.
+- [x] Set up the necessary R2 bindings.
+- [x] Implement fundamental read operation for the save files.
+- [x] Implement fundamental write operation for the save files.
+- [x] Implement fundamental list operation for the save files.
