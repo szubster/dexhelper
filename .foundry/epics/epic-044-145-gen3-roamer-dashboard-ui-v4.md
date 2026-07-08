@@ -1,14 +1,15 @@
 ---
-id: epic-044-144-gen3-roamer-dashboard-ui-v4
+id: epic-044-145-gen3-roamer-dashboard-ui-v4
 type: EPIC
 title: Gen 3 Roamer Dashboard UI v4
 status: PENDING
 owner_persona: story_owner
-created_at: '2026-07-06'
-updated_at: '2026-07-06'
+created_at: '2026-07-08'
+updated_at: '2026-07-08'
 depends_on:
-  - epic-044-142-gen3-roamer-core-extraction-v3
-  - epic-044-143-gen3-roamer-iv-glitch-v3
+  - research-044-207-gen3-roamer-ui-alternatives
+  - epic-044-101-gen3-roamer-core-extraction-v2
+  - epic-044-102-gen3-roamer-iv-glitch-v2
 jules_session_id: null
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
