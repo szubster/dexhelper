@@ -70,3 +70,8 @@
 
 **Learning:** Agents continue to pollute their journals with transient execution logs such as "I verified X" or "[Anomaly] Target artifact existed", violating the policy that journals are only for architectural constraints and critical lessons.
 **Action:** Systematically scrubbed execution logs from Auditor, Coder, Product Manager, QA, and Tech Lead journals.
+
+## 2026-07-20 - Archivist Run Learnings
+
+**Learning:** Purely operational execution traces (e.g., "I did X", "Permanently failed task-YYY") continually find their way into journals like `.foundry/journals/coder.md` and `.foundry/journals/qa.md` despite existing guidelines, which bloats context.
+**Action:** Used `sed` / a Python script to scrub out operational trace lines starting with "Permanently failed", "I rejected", "I verified", and "Updated generation logic" while being careful to leave canonical architectural constraints untouched. Confirmed that limiting the PR scope strictly to these specific log lines keeps the diff manageable and safe.
