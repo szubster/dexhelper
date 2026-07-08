@@ -24,6 +24,7 @@ import type {
   Gen3BattleFrontierSymbols,
   Gen3BattleFrontierWinStreaks,
   Gen3BerryPatch,
+  Gen3MoveTutors,
   Gen3Ribbons,
   Gen3SecretBase,
   Gen3TVShow,
@@ -149,6 +150,22 @@ const MISC_IV_EGG_ABILITY_OFFSET = 4;
 const IS_EGG_BIT_SHIFT = 30;
 const GROWTH_FRIENDSHIP_OFFSET = 4;
 const EGG_CYCLE_STEPS = 256;
+
+export const GEN3_EVENT_FLAGS_OFFSET = 0x1270;
+const EMERALD_MOVE_TUTOR_BYTE_1_OFFSET = 0x36;
+const EMERALD_MOVE_TUTOR_BYTE_2_OFFSET = 0x37;
+
+const MOVE_TUTOR_SWAGGER_BIT = 1;
+const MOVE_TUTOR_ROLLOUT_BIT = 2;
+const MOVE_TUTOR_FURY_CUTTER_BIT = 3;
+const MOVE_TUTOR_MIMIC_BIT = 4;
+const MOVE_TUTOR_METRONOME_BIT = 5;
+const MOVE_TUTOR_SLEEP_TALK_BIT = 6;
+const MOVE_TUTOR_SUBSTITUTE_BIT = 7;
+
+const MOVE_TUTOR_DYNAMIC_PUNCH_BIT = 0;
+const MOVE_TUTOR_DOUBLE_EDGE_BIT = 1;
+const MOVE_TUTOR_EXPLOSION_BIT = 2;
 
 export const GEN3_EMERALD_ASH_OFFSET = 0x142c;
 export const GEN3_RS_ASH_OFFSET = 0x13d0;
@@ -865,6 +882,15 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     let gen3BattleFrontierSymbols: Gen3BattleFrontierSymbols | undefined;
     let gen3TotalBattlePoints: number | undefined;
     let gen3BattlePoints: number | undefined;
+    let gen3MoveTutors: Gen3MoveTutors | undefined;
+    if (_forcedVersion === 'emerald') {
+      try {
+        gen3MoveTutors = parseGen3EmeraldMoveTutors(view, section1Offset);
+      } catch {
+        // Ignored
+      }
+    }
+
     if (_forcedVersion === 'emerald') {
       try {
         gen3BattleFrontierWinStreaks = parseGen3BattleFrontierWinStreaks(view, section2Offset);
@@ -920,6 +946,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
     if (gen3BattleFrontierSymbols) {
       result.gen3BattleFrontierSymbols = gen3BattleFrontierSymbols;
+    }
+    if (gen3MoveTutors !== undefined) {
+      result.gen3MoveTutors = gen3MoveTutors;
     }
     if (gen3TotalBattlePoints !== undefined) {
       result.gen3TotalBattlePoints = gen3TotalBattlePoints;
@@ -1024,6 +1053,40 @@ export function parseGen3PokeNews(view: DataView, offset: number) {
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete: Invalid PokeNews struct.');
+    }
+    throw error;
+  }
+}
+
+/**
+ * Parses the Emerald Move Tutor usage flags.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @returns An object containing boolean flags for each move tutor.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock1Offset: number) {
+  try {
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+    const byte1 = view.getUint8(baseOffset + EMERALD_MOVE_TUTOR_BYTE_1_OFFSET);
+    const byte2 = view.getUint8(baseOffset + EMERALD_MOVE_TUTOR_BYTE_2_OFFSET);
+
+    return {
+      swagger: !!((byte1 >> MOVE_TUTOR_SWAGGER_BIT) & 1),
+      rollout: !!((byte1 >> MOVE_TUTOR_ROLLOUT_BIT) & 1),
+      furyCutter: !!((byte1 >> MOVE_TUTOR_FURY_CUTTER_BIT) & 1),
+      mimic: !!((byte1 >> MOVE_TUTOR_MIMIC_BIT) & 1),
+      metronome: !!((byte1 >> MOVE_TUTOR_METRONOME_BIT) & 1),
+      sleepTalk: !!((byte1 >> MOVE_TUTOR_SLEEP_TALK_BIT) & 1),
+      substitute: !!((byte1 >> MOVE_TUTOR_SUBSTITUTE_BIT) & 1),
+      dynamicPunch: !!((byte2 >> MOVE_TUTOR_DYNAMIC_PUNCH_BIT) & 1),
+      doubleEdge: !!((byte2 >> MOVE_TUTOR_DOUBLE_EDGE_BIT) & 1),
+      explosion: !!((byte2 >> MOVE_TUTOR_EXPLOSION_BIT) & 1),
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }

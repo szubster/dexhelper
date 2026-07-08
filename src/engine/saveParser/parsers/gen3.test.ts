@@ -8,6 +8,7 @@ import {
   parseGen3BattlePoints,
   parseGen3ConditionStats,
   parseGen3EggSteps,
+  parseGen3EmeraldMoveTutors,
   parseGen3MirageIslandValue,
   parseGen3MixRecords,
   parseGen3PersonalityValue,
@@ -1062,5 +1063,37 @@ describe('parseGen3ActiveSwarm', () => {
     expect(() => parseGen3TotalBattlePoints(view, saveBlock2Offset)).toThrow(
       'The save file is corrupted or incomplete.',
     );
+  });
+});
+
+describe('parseGen3EmeraldMoveTutors', () => {
+  it('correctly parses emerald move tutors', () => {
+    const buffer = new ArrayBuffer(0x2000);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0;
+
+    // Set some bytes
+    view.setUint8(0x1270 + 0x36, 0b10101010);
+    view.setUint8(0x1270 + 0x37, 0b00000101);
+
+    const result = parseGen3EmeraldMoveTutors(view, saveBlock1Offset);
+    expect(result).toEqual({
+      swagger: true,
+      rollout: false,
+      furyCutter: true,
+      mimic: false,
+      metronome: true,
+      sleepTalk: false,
+      substitute: true,
+      dynamicPunch: true,
+      doubleEdge: false,
+      explosion: true,
+    });
+  });
+
+  it('throws correct error on out of bounds read', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+    expect(() => parseGen3EmeraldMoveTutors(view, 0)).toThrow('The save file is corrupted or incomplete.');
   });
 });
