@@ -33,4 +33,5 @@ Analyze the extracted IV bitfield from the `Roamer` struct. The glitch causes th
 - [ ] Implement a function to analyze the 32-bit IV field and detect the Roamer IV Glitch signature.
 - [ ] Return a clear boolean or enum state indicating if the glitch is present.
 - [ ] Write unit tests verifying the glitch detection logic with both glitched and non-glitched IV spreads.
+- [ ] story-150-293-gen3-roamer-iv-glitch-detection-logic
 - [ ] Story Owner: Break down this Epic into executable Stories.

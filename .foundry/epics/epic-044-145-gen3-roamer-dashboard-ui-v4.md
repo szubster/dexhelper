@@ -2,7 +2,7 @@
 id: epic-044-145-gen3-roamer-dashboard-ui-v4
 type: EPIC
 title: Gen 3 Roamer Dashboard UI v4
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-08'
 updated_at: '2026-07-08'
