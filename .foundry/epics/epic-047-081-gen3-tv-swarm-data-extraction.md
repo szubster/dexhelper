@@ -52,3 +52,5 @@ This epic covers the backend logic to extract TV broadcast events and swarm trac
 - [ ] story-081-281-gen3-system-time-fallback
 - [ ] story-081-282-gen3-manual-time-ui-overrides
 - [ ] story-081-288-gen3-mix-record-inherited-events
+- [ ] story-081-289-gen3-rtc-extraction-replacement
+- [ ] story-081-290-gen3-rtc-fallback-strategy-replacement
