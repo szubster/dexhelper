@@ -97,14 +97,14 @@ const BATTLE_POINTS_OFFSET = 0x1504;
 
 const TV_SHOWS_OFFSET = 0x27cc;
 const TV_SHOWS_COUNT = 25;
-const TV_SHOW_SIZE = 36;
+const TVSHOW_STRUCT_SIZE = 36;
 const TV_SHOW_KIND_OFFSET = 0;
 const TV_SHOW_ACTIVE_OFFSET = 1;
 
-const TV_SHOW_MIX_RECORD_START = 21;
-const TV_SHOW_MIX_RECORD_END = 40;
+const TVGROUP_RECORD_MIX_START = 21;
+const TVGROUP_RECORD_MIX_END = 40;
 
-const TV_SHOW_MASS_OUTBREAK = 41;
+const TVSHOW_MASS_OUTBREAK = 41;
 const MASS_OUTBREAK_SPECIES_OFFSET = 0x0c;
 const MASS_OUTBREAK_LOCATION_MAP_NUM_OFFSET = 0x10;
 const MASS_OUTBREAK_LOCATION_MAP_GROUP_OFFSET = 0x11;
@@ -462,7 +462,7 @@ export function parseGen3TVBlock(view: DataView, offset: number): Gen3TVShow[] {
   try {
     const shows: Gen3TVShow[] = [];
     for (let i = 0; i < TV_SHOWS_COUNT; i++) {
-      const itemOffset = offset + i * TV_SHOW_SIZE;
+      const itemOffset = offset + i * TVSHOW_STRUCT_SIZE;
       const kind = view.getUint8(itemOffset + TV_SHOW_KIND_OFFSET);
       const active = view.getUint8(itemOffset + TV_SHOW_ACTIVE_OFFSET) !== 0;
 
@@ -497,7 +497,7 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
 
   for (const show of shows) {
     // Check if the show is a Mix Record event (21 to 40)
-    if (show.active && show.kind >= TV_SHOW_MIX_RECORD_START && show.kind <= TV_SHOW_MIX_RECORD_END) {
+    if (show.active && show.kind >= TVGROUP_RECORD_MIX_START && show.kind <= TVGROUP_RECORD_MIX_END) {
       mixRecords.push({ kind: show.kind, active: show.active });
     }
   }
@@ -544,7 +544,7 @@ export function parseGen3ActiveSwarm(view: DataView, offset: number): Gen3Active
 
     for (const show of shows) {
       // Check if the show is a Mass Outbreak event and active
-      if (show.active && show.kind === TV_SHOW_MASS_OUTBREAK) {
+      if (show.active && show.kind === TVSHOW_MASS_OUTBREAK) {
         const speciesId = view.getUint16(show.itemOffset + MASS_OUTBREAK_SPECIES_OFFSET, true);
         const mapId = view.getUint8(show.itemOffset + MASS_OUTBREAK_LOCATION_MAP_NUM_OFFSET);
         const mapGroup = view.getUint8(show.itemOffset + MASS_OUTBREAK_LOCATION_MAP_GROUP_OFFSET);

@@ -999,7 +999,7 @@ describe('parseGen3ActiveSwarm', () => {
     const offset = 0;
 
     const itemOffset = offset + 2 * 36;
-    view.setUint8(itemOffset + 0, 41); // kind = 41 (TV_SHOW_MASS_OUTBREAK)
+    view.setUint8(itemOffset + 0, 41); // kind = 41 (TVSHOW_MASS_OUTBREAK)
     view.setUint8(itemOffset + 1, 1); // active = true
 
     view.setUint16(itemOffset + 0x0c, 273, true); // speciesId
@@ -1022,7 +1022,7 @@ describe('parseGen3ActiveSwarm', () => {
     const offset = 0;
 
     const itemOffset = offset;
-    view.setUint8(itemOffset + 0, 41); // kind = 41 (TV_SHOW_MASS_OUTBREAK)
+    view.setUint8(itemOffset + 0, 41); // kind = 41 (TVSHOW_MASS_OUTBREAK)
     view.setUint8(itemOffset + 1, 0); // active = false
 
     view.setUint16(itemOffset + 0x0c, 273, true);
