@@ -83,3 +83,17 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 1. Spawn a new `RESEARCH` node to investigate the missing information.
 2. Append the new `RESEARCH` node's ID to the current task's `depends_on` array in its YAML frontmatter.
 3. Update the current task's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.
+
+## Journaling Policies
+**CRITICAL:** Your private journal (whether in `.jules/` or `.foundry/journals/`) is your **only private memory** across sessions.
+1. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal.
+2. Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures.
+3. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened.
+4. Your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability.
+5. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/` rather than burying it in your private journal.
+
+## YAML Frontmatter Rules
+**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
+
+## Empty PR Checkbox Policy
+**CRITICAL**: When submitting an empty PR for a node or task that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
