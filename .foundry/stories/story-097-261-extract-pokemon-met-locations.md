@@ -29,4 +29,6 @@ Parse save files to extract the `met_location` for all Pokémon in the Party and
 - Extract `met_location` property for all caught Pokémon.
 
 ## Acceptance Criteria
-- [ ] Tasks are generated
+- [x] Tasks are generated
+- [ ] task-261-282-gen3-met-location-impl
+- [ ] task-261-283-gen3-met-location-qa
