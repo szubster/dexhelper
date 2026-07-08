@@ -22,7 +22,14 @@ export default defineConfig(() => {
       pokedataPlugin({ sourceDir }),
       foundryPlugin(),
       tanstackRouter(),
-      react(),
+      react({
+        // @ts-expect-error - babel options are valid for React compiler
+        babel: {
+          plugins: [
+            ["babel-plugin-react-compiler"]
+          ]
+        }
+      }),
       tailwindcss(),
       VitePWA({
         registerType: 'autoUpdate',
