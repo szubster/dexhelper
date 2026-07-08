@@ -16,3 +16,4 @@ When addressing a rejected PRD (`prd-071-044-gen3-roamer-tracker`) resulting fro
 3. Append these new epics as unchecked tasks (`- [ ]`) in the PRD's Acceptance Criteria.
 4. Set the `owner_persona` of the new epics to `story_owner`.
 5. Submit an empty PR for the PRD, allowing it to transition appropriately once all child nodes are completed.
+\nWhen drafting replacement epics, if a project requirement outlined in a parent node is deemed impossible by an architectural decision record (ADR), replacement child nodes must explicitly address the requirement and cite the restricting ADR in their `research_references`, rather than silently dropping it.

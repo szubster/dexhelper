@@ -48,3 +48,8 @@ Provide an immediate, exact breakdown of a roaming legendary's internal state (N
 - [ ] epic-044-148-gen3-roamer-dashboard-ui-v5
 - [ ] epic-044-149-gen3-roamer-core-extraction-v4
 - [ ] epic-044-150-gen3-roamer-iv-glitch-v4
+- [ ] epic-044-151-gen3-roamer-dashboard-ui-v6
+- [ ] epic-044-152-gen3-roamer-location-radar-v2
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
