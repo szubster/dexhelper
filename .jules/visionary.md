@@ -191,3 +191,6 @@
 ## 2026-07-07
 **Idea:** Gen 1-3 TM/HM Inventory & Compatibility Planner
 **Learning:** Targeting finite, high-value resources (like single-use TMs) that cause player "hoarding anxiety" is a highly effective way to provide utility. By combining the player's static Bag inventory with their dynamic PC Box contents to instantly show move compatibility and suggest potential learners, we transform DexHelper into a powerful strategic team-building planner, completely eliminating the tedious in-game process of manually checking every Pokémon.
+## 2026-07-08
+**Idea:** Gen 2 Shiny Breeding DV Compatibility Planner
+**Learning:** Generation 2 shiny hunting via breeding is highly sought after (1/64 odds) but relies on hidden Deterministic Values (DVs) which also control breeding compatibility (to prevent inbreeding). Surfacing this exact, hidden mathematical constraint from the parsed save file into a visual "breeding planner" provides immense unique value. It eliminates the hours of wasted time players spend trying to breed secretly incompatible Pokémon, perfectly reinforcing the app's premium utility focus.
