@@ -2,7 +2,7 @@
 id: story-148-295-gen3-roamer-glitch-warning-ui
 type: STORY
 title: Gen 3 Roamer Glitch Warning UI
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-08'
 updated_at: '2026-07-08'
@@ -17,7 +17,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 
