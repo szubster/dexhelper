@@ -33,7 +33,7 @@ Verify the implementation of the Cloudflare R2 client.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify setup of necessary R2 bindings.
-- [ ] Verify fundamental read operation for the save files.
-- [ ] Verify fundamental write operation for the save files.
-- [ ] Verify fundamental list operation for the save files.
+- [x] Verify setup of necessary R2 bindings.
+- [x] Verify fundamental read operation for the save files.
+- [x] Verify fundamental write operation for the save files.
+- [x] Verify fundamental list operation for the save files.
