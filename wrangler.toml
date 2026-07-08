@@ -1,3 +1,7 @@
 name = "dexhelper"
 compatibility_date = "2026-05-21"
 pages_build_output_dir = "dist"
+
+[[r2_buckets]]
+binding = "SAVES_BUCKET"
+bucket_name = "dexhelper-saves"
