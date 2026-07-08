@@ -2,7 +2,7 @@
 id: task-267-263-bash-timeout-wrapper-qa
 type: TASK
 title: QA timeout wrapper for bash sessions
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-04'
 updated_at: '2026-07-04'
@@ -17,11 +17,13 @@ tags:
   - resilience
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Implementation task failed permanently because platform tool cannot be modified'
 notes: ''
 ---
 
 # QA timeout wrapper for bash sessions
+
+**CANCELLED:** The implementation task failed permanently because `run_in_bash_session` is a platform tool and cannot be modified. This QA task is orphaned and replaced by the new tasks `research-267-287-bash-timeout-wrapper-failure` and `task-267-288-document-bash-timeout-limitation`.
 
 ## Overview
 Verify that the timeout wrapper for `run_in_bash_session` works correctly and interrupts commands that run over the specified threshold (e.g., 30 seconds).
