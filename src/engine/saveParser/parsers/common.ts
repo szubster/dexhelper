@@ -94,8 +94,20 @@ export interface Gen3ActiveSwarm {
   daysRemaining: number;
 }
 
+export interface Gen3SecretBasePartyMember {
+  personality: number;
+  moves: number[];
+  species: number;
+  heldItem: number;
+  level: number;
+  evs: number;
+}
+
 export interface Gen3SecretBase {
   secretBaseId: number;
+  trainerName: string;
+  trainerId: number;
+  party: Gen3SecretBasePartyMember[];
 }
 
 export interface Gen3BerryPatch {

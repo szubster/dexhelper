@@ -927,8 +927,8 @@ describe('parseGen3SecretBases', () => {
     const result = parseGen3SecretBases(view, saveBlock1Offset, 'ruby');
 
     expect(result).toHaveLength(2);
-    expect(result[0]).toEqual({ secretBaseId: 5 });
-    expect(result[1]).toEqual({ secretBaseId: 10 });
+    expect(result[0]?.secretBaseId).toEqual(5);
+    expect(result[1]?.secretBaseId).toEqual(10);
   });
 
   it('should parse Gen 3 Secret Bases for Emerald', () => {
@@ -943,7 +943,7 @@ describe('parseGen3SecretBases', () => {
     const result = parseGen3SecretBases(view, saveBlock1Offset, 'emerald');
 
     expect(result).toHaveLength(1);
-    expect(result[0]).toEqual({ secretBaseId: 42 });
+    expect(result[0]?.secretBaseId).toEqual(42);
   });
 
   it('should explicitly catch RangeError and throw corrupted file error on out-of-bounds reads', () => {

@@ -38,7 +38,7 @@ Implement the logic to extract:
 - **Failures:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort permanently (impossible or max rejections), you MUST update to `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement parsing for `trainerName` and `trainerId` within the Secret Base struct.
-- [ ] Implement parsing for the `SecretBaseParty` structure (6 Pokémon: personality, moves, species, heldItems, levels, EVs).
-- [ ] Ensure all offsets and sizes are module-level constants.
-- [ ] Exclusively use `DataView` API.
+- [x] Implement parsing for `trainerName` and `trainerId` within the Secret Base struct.
+- [x] Implement parsing for the `SecretBaseParty` structure (6 Pokémon: personality, moves, species, heldItems, levels, EVs).
+- [x] Ensure all offsets and sizes are module-level constants.
+- [x] Exclusively use `DataView` API.
