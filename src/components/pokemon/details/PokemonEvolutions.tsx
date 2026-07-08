@@ -1,13 +1,13 @@
-import { AlertTriangle, ArrowUpCircle, Check, ChevronRight, Heart, X } from 'lucide-react';
+import { AlertTriangle, ArrowUpCircle, Check, ChevronRight, Heart, RadioReceiver, Target, X } from 'lucide-react';
 import React from 'react';
 import { stadiumRewardsData } from '../../../engine/data/shared/staticData';
 import type { SaveData } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
+import { HoverScanner } from '../../HoverScanner';
 import { InlineLink } from '../../InlineLink';
-import { PanelWatermark } from '../../PanelWatermark';
-import { SectionHeader } from '../../SectionHeader';
+import { LcdGrid } from '../../LcdGrid';
 import { TacticalBadge } from '../../TacticalBadge';
-import { TacticalPanel } from '../../TacticalPanel';
+import { TelemetryDecoration } from '../../TelemetryDecoration';
 
 interface EvoReq {
   fromId: number;
@@ -61,49 +61,80 @@ function ProcurementStrategy({
   }, [pokemonId, saveData, gameVersion]);
 
   return (
-    <TacticalPanel
-      variant="red"
-      className="group col-span-1 space-y-4 rounded-none border border-dashed p-6 sm:col-span-2"
-    >
-      <PanelWatermark icon={<AlertTriangle size={80} />} className="group-hover:scale-110" />
-      <SectionHeader
-        className="relative z-10"
-        colorClass="text-red-400"
-        title="Procurement Strategy"
-        icon={<AlertTriangle size={14} />}
+    <div className="group relative col-span-1 flex flex-col overflow-hidden rounded-none border border-red-500/30 border-dashed bg-black/40 transition-all duration-300 hover:border-red-500/50 hover:bg-zinc-900/60 sm:col-span-2">
+      <LcdGrid className="opacity-[0.03] transition-opacity group-hover:opacity-[0.08]" />
+      <HoverScanner />
+
+      <TelemetryDecoration
+        label="PROCUREMENT_RATING: CRITICAL"
+        className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
+        textClassName="text-red-500"
       />
-      <div className="relative z-10 pr-12 font-bold text-sm text-zinc-300 leading-relaxed">
-        Species missing from Living Dex. Priority retrieval recommended via
-        {evoReq ? (
-          <>
-            {' '}
-            <InlineLink
-              aria-label={`Navigate to ${evoReq.fromName} details`}
-              onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
-              variant="red"
-            >
-              Evolving {evoReq.fromName.toUpperCase()}
-            </InlineLink>
-            .
-          </>
-        ) : (
-          <> field capture or specialized interaction.</>
-        )}
-        {stadiumRewards && (
-          <div className="mt-2 flex flex-wrap gap-2">
-            {stadiumRewards.rewards.map((r) => (
-              <TacticalBadge
-                key={r}
-                variant="red"
-                className="border-red-500/20 bg-red-500/10 py-0.5 text-[9px] text-red-500"
-              >
-                STADIUM {stadiumRewards.gen} REWARD: {r.toUpperCase()}
-              </TacticalBadge>
-            ))}
-          </div>
-        )}
+
+      <div className="absolute top-0 bottom-0 left-0 w-1.5 border-red-500/30 border-r-2 border-dashed bg-red-500/10 transition-colors group-hover:border-red-500 group-hover:bg-red-500/20" />
+
+      <div className="absolute top-3 left-[-2px] flex h-2.5 w-2.5 items-center justify-center border border-red-500 bg-black shadow-[0_0_8px_var(--theme-primary)]">
+        <div className="h-1 w-1 animate-[pulse_2s_ease-in-out_infinite] bg-red-500" />
       </div>
-    </TacticalPanel>
+
+      <div className="flex flex-col gap-4 p-4 pt-6 pl-6">
+        <div className="flex items-start justify-between border-red-500/20 border-b border-dashed pb-3">
+          <div className="flex flex-col gap-1">
+            <span className="flex items-center gap-1.5 font-mono text-[9px] text-red-500 uppercase tracking-widest">
+              <Target size={10} /> [ OBJECTIVE_LINK ]
+            </span>
+            <span className="font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors group-hover:text-red-400">
+              PROCUREMENT STRATEGY
+            </span>
+          </div>
+          <div className="flex h-8 w-8 items-center justify-center rounded-none border border-red-500/20 bg-red-500/5 shadow-[inset_0_0_10px_rgba(239,68,68,0.1)]">
+            <AlertTriangle size={14} className="text-red-500/60 transition-colors group-hover:text-red-500" />
+          </div>
+        </div>
+
+        <div className="relative z-10 flex flex-col gap-2">
+          <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ STATUS REPORT ]</span>
+          <div className="border border-red-500/30 border-dashed bg-zinc-950/80 p-3">
+            <div className="font-bold text-sm text-zinc-300 leading-relaxed">
+              Species missing from Living Dex. Priority retrieval recommended via
+              {evoReq ? (
+                <>
+                  {' '}
+                  <InlineLink
+                    aria-label={`Navigate to ${evoReq.fromName} details`}
+                    onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
+                    variant="red"
+                  >
+                    Evolving {evoReq.fromName.toUpperCase()}
+                  </InlineLink>
+                  .
+                </>
+              ) : (
+                <> field capture or specialized interaction.</>
+              )}
+            </div>
+          </div>
+          {stadiumRewards && (
+            <div className="mt-2 flex flex-col gap-2">
+              <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
+                [ ALTERNATE_EXTRACTION ]
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {stadiumRewards.rewards.map((r) => (
+                  <TacticalBadge
+                    key={r}
+                    variant="red"
+                    className="border-red-500/20 bg-red-500/10 py-0.5 text-[9px] text-red-500"
+                  >
+                    [ STADIUM {stadiumRewards.gen} REWARD: {r.toUpperCase()} ]
+                  </TacticalBadge>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -117,34 +148,65 @@ function EvolutionFrom({
   onNavigate: (id: number, name: string) => void;
 }) {
   return (
-    <TacticalPanel variant="purple" className="group space-y-4 rounded-none border border-dashed p-6">
-      <PanelWatermark icon={<ArrowUpCircle size={80} />} className="group-hover:rotate-12" />
-      <SectionHeader
-        className="relative z-10"
-        colorClass="text-purple-400"
-        title="Evolution"
-        icon={<ArrowUpCircle size={14} />}
+    <div className="group relative col-span-1 flex flex-col overflow-hidden rounded-none border border-purple-500/30 border-dashed bg-black/40 transition-all duration-300 hover:border-purple-500/50 hover:bg-zinc-900/60">
+      <LcdGrid className="opacity-[0.03] transition-opacity group-hover:opacity-[0.08]" />
+      <HoverScanner />
+
+      <TelemetryDecoration
+        label="PRE-EVOLUTION MATRIX"
+        className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
+        textClassName="text-purple-400"
       />
-      <div className="relative z-10 font-bold text-xs text-zinc-300 leading-relaxed">
-        FROM{' '}
-        <InlineLink
-          aria-label={`Navigate to ${evoReq.fromName} details`}
-          onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
-          variant="purple"
-        >
-          {evoReq.fromName.toUpperCase()}
-        </InlineLink>
-        <div className="mt-1 font-black text-[10px] text-purple-400/60 uppercase">METHOD: {evoReq.method}</div>
+
+      <div className="absolute top-0 bottom-0 left-0 w-1.5 border-purple-500/30 border-r-2 border-dashed bg-purple-500/10 transition-colors group-hover:border-purple-500 group-hover:bg-purple-500/20" />
+
+      <div className="absolute top-3 left-[-2px] flex h-2.5 w-2.5 items-center justify-center border border-purple-500 bg-black shadow-[0_0_8px_var(--theme-primary)]">
+        <div className="h-1 w-1 animate-[pulse_2s_ease-in-out_infinite] bg-purple-500" />
       </div>
-      <div
-        className={cn(
-          'relative z-10 inline-flex items-center gap-2 rounded-none px-3 py-1.5 font-black text-[10px] uppercase tracking-widest',
-          hasPreEvo ? 'bg-emerald-500/10 text-emerald-500' : 'bg-red-500/10 text-red-500',
-        )}
-      >
-        {hasPreEvo ? <Check size={12} /> : <X size={12} />} {hasPreEvo ? 'OWNED' : 'UNAVAILABLE'}
+
+      <div className="flex h-full flex-col gap-4 p-4 pt-6 pl-6">
+        <div className="flex items-start justify-between border-purple-500/20 border-b border-dashed pb-3">
+          <div className="flex flex-col gap-1">
+            <span className="flex items-center gap-1.5 font-mono text-[9px] text-purple-400 uppercase tracking-widest">
+              <ArrowUpCircle size={10} /> [ LINEAGE_LINK ]
+            </span>
+            <span className="font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors group-hover:text-purple-400">
+              ORIGIN SPECIES
+            </span>
+          </div>
+        </div>
+
+        <div className="relative z-10 flex flex-1 flex-col gap-2">
+          <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ PRE_EVOLUTION_LINK ]</span>
+          <div className="flex flex-1 flex-col justify-center border border-purple-500/30 border-dashed bg-zinc-950/80 p-3">
+            <div className="mb-2 font-bold text-sm text-zinc-300 leading-relaxed">
+              <InlineLink
+                aria-label={`Navigate to ${evoReq.fromName} details`}
+                onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
+                variant="purple"
+                className="font-mono text-[11px] text-purple-400"
+              >
+                [ {evoReq.fromName.toUpperCase()} ]
+              </InlineLink>
+            </div>
+            <div className="font-black text-[10px] text-purple-400/60 uppercase">METHOD: {evoReq.method}</div>
+            <div className="mt-4 flex items-center justify-between border-zinc-800 border-t border-dashed pt-2">
+              <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ ASSET_STATUS ]</span>
+              <div
+                className={cn(
+                  'relative z-10 inline-flex items-center gap-2 rounded-none border border-dashed px-2 py-1 font-black text-[9px] uppercase tracking-widest',
+                  hasPreEvo
+                    ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-500'
+                    : 'border-red-500/30 bg-red-500/10 text-red-500',
+                )}
+              >
+                {hasPreEvo ? <Check size={10} /> : <X size={10} />} {hasPreEvo ? 'SECURED' : 'UNAVAILABLE'}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </TacticalPanel>
+    </div>
   );
 }
 
@@ -157,30 +219,61 @@ function EvolutionTo({
 }) {
   if (!evolvesTo || evolvesTo.length === 0) return null;
   return (
-    <TacticalPanel variant="blue" className="group space-y-4 rounded-none border border-dashed p-6">
-      <PanelWatermark icon={<ChevronRight size={80} />} className="group-hover:-rotate-12" />
-      <SectionHeader
-        className="relative z-10"
-        colorClass="text-blue-400"
-        title="Evolution"
-        icon={<ChevronRight size={14} />}
+    <div className="group relative col-span-1 flex flex-col overflow-hidden rounded-none border border-blue-500/30 border-dashed bg-black/40 transition-all duration-300 hover:border-blue-500/50 hover:bg-zinc-900/60">
+      <LcdGrid className="opacity-[0.03] transition-opacity group-hover:opacity-[0.08]" />
+      <HoverScanner />
+
+      <TelemetryDecoration
+        label="FORWARD EVOLUTION MATRIX"
+        className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
+        textClassName="text-blue-400"
       />
-      <div className="relative z-10 space-y-4">
-        {evolvesTo.map((evo) => (
-          <div key={evo.id} className="font-bold text-xs text-zinc-300 leading-relaxed">
-            TO{' '}
-            <InlineLink
-              aria-label={`Navigate to ${evo.name} details`}
-              onClick={() => onNavigate(evo.id, evo.name)}
-              variant="blue"
-            >
-              {evo.name.toUpperCase()}
-            </InlineLink>
-            <div className="mt-1 font-black text-[10px] text-blue-400/60 uppercase">VIA {evo.method}</div>
-          </div>
-        ))}
+
+      <div className="absolute top-0 bottom-0 left-0 w-1.5 border-blue-500/30 border-r-2 border-dashed bg-blue-500/10 transition-colors group-hover:border-blue-500 group-hover:bg-blue-500/20" />
+
+      <div className="absolute top-3 left-[-2px] flex h-2.5 w-2.5 items-center justify-center border border-blue-500 bg-black shadow-[0_0_8px_var(--theme-primary)]">
+        <div className="h-1 w-1 animate-[pulse_2s_ease-in-out_infinite] bg-blue-500" />
       </div>
-    </TacticalPanel>
+
+      <div className="flex h-full flex-col gap-4 p-4 pt-6 pl-6">
+        <div className="flex items-start justify-between border-blue-500/20 border-b border-dashed pb-3">
+          <div className="flex flex-col gap-1">
+            <span className="flex items-center gap-1.5 font-mono text-[9px] text-blue-400 uppercase tracking-widest">
+              <ChevronRight size={10} /> [ TRAJECTORY_LINK ]
+            </span>
+            <span className="font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors group-hover:text-blue-400">
+              NEXT PHASE
+            </span>
+          </div>
+        </div>
+
+        <div className="relative z-10 flex flex-1 flex-col gap-2">
+          <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ EVOLUTION_TRAJECTORY ]</span>
+          <div className="flex flex-col gap-2">
+            {evolvesTo.map((evo) => (
+              <div
+                key={evo.id}
+                className="relative flex flex-col gap-1.5 border border-zinc-800 border-dashed bg-zinc-950/80 p-2 transition-colors hover:border-blue-500/40"
+              >
+                <div className="flex items-center justify-between">
+                  <InlineLink
+                    aria-label={`Navigate to ${evo.name} details`}
+                    onClick={() => onNavigate(evo.id, evo.name)}
+                    variant="blue"
+                    className="font-bold font-mono text-blue-400 text-sm tracking-tight"
+                  >
+                    [ {evo.name.toUpperCase()} ]
+                  </InlineLink>
+                </div>
+                <div className="border border-blue-500/20 bg-blue-500/10 px-2 py-1 font-black font-mono text-[9px] text-blue-400 uppercase">
+                  VIA {evo.method}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -192,39 +285,67 @@ function BreedingProtocol({
   onNavigate: (id: number, name: string) => void;
 }) {
   return (
-    <TacticalPanel
-      variant="pink"
-      className="group col-span-1 space-y-4 rounded-none border border-dashed p-6 sm:col-span-2"
-    >
-      <PanelWatermark icon={<Heart size={80} />} className="group-hover:scale-110" />
-      <SectionHeader
-        className="relative z-10"
-        colorClass="text-pink-400"
-        title="Breeding Protocol"
-        icon={<Heart size={14} />}
+    <div className="group relative col-span-1 flex flex-col overflow-hidden rounded-none border border-pink-500/30 border-dashed bg-black/40 transition-all duration-300 hover:border-pink-500/50 hover:bg-zinc-900/60 sm:col-span-2">
+      <LcdGrid className="opacity-[0.03] transition-opacity group-hover:opacity-[0.08]" />
+      <HoverScanner />
+
+      <TelemetryDecoration
+        label="BREEDING MATRIX"
+        className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
+        textClassName="text-pink-400"
       />
-      <div className="relative z-10 font-bold text-xs text-zinc-300 leading-relaxed">
-        CROSS-REF:{' '}
-        {breedingInfo.parentNames.map((name: string, i: number) => (
-          <React.Fragment key={name}>
-            <InlineLink
-              aria-label={`Navigate to ${name} details`}
-              onClick={() => {
-                const id = breedingInfo.parentIds[i];
-                if (id) onNavigate(id, name);
-              }}
-              variant="pink"
-            >
-              {name.toUpperCase()}
-            </InlineLink>
-            {i < breedingInfo.parentNames.length - 1 ? ', ' : ''}
-          </React.Fragment>
-        ))}
+
+      <div className="absolute top-0 bottom-0 left-0 w-1.5 border-pink-500/30 border-r-2 border-dashed bg-pink-500/10 transition-colors group-hover:border-pink-500 group-hover:bg-pink-500/20" />
+
+      <div className="absolute top-3 left-[-2px] flex h-2.5 w-2.5 items-center justify-center border border-pink-500 bg-black shadow-[0_0_8px_var(--theme-primary)]">
+        <div className="h-1 w-1 animate-[pulse_2s_ease-in-out_infinite] bg-pink-500" />
       </div>
-      <div className="relative z-10 rounded-none border border-pink-500/10 border-dashed bg-pink-500/5 p-3 font-black text-[9px] text-pink-400/60 uppercase italic leading-relaxed tracking-widest">
-        {breedingInfo.method}
+
+      <div className="flex flex-col gap-4 p-4 pt-6 pl-6">
+        <div className="flex items-start justify-between border-pink-500/20 border-b border-dashed pb-3">
+          <div className="flex flex-col gap-1">
+            <span className="flex items-center gap-1.5 font-mono text-[9px] text-pink-400 uppercase tracking-widest">
+              <RadioReceiver size={10} /> [ REPRODUCTION_LINK ]
+            </span>
+            <span className="font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors group-hover:text-pink-400">
+              BREEDING PROTOCOL
+            </span>
+          </div>
+          <div className="flex h-8 w-8 items-center justify-center rounded-none border border-pink-500/20 bg-pink-500/5 shadow-[inset_0_0_10px_rgba(236,72,153,0.1)]">
+            <Heart size={14} className="text-pink-500/60 transition-colors group-hover:text-pink-500" />
+          </div>
+        </div>
+
+        <div className="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="flex flex-col gap-2">
+            <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ CROSS_REFERENCE ]</span>
+            <div className="flex flex-wrap gap-2 border border-pink-500/30 border-dashed bg-zinc-950/80 p-3">
+              {breedingInfo.parentNames.map((name: string, i: number) => (
+                <React.Fragment key={name}>
+                  <InlineLink
+                    aria-label={`Navigate to ${name} details`}
+                    onClick={() => {
+                      const id = breedingInfo.parentIds[i];
+                      if (id) onNavigate(id, name);
+                    }}
+                    variant="pink"
+                    className="font-mono text-[11px] text-pink-400"
+                  >
+                    [ {name.toUpperCase()} ]
+                  </InlineLink>
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ METHODOLOGY ]</span>
+            <div className="relative z-10 rounded-none border border-pink-500/30 border-dashed bg-pink-500/10 p-3 font-black text-[10px] text-pink-400 uppercase leading-relaxed tracking-widest">
+              {breedingInfo.method}
+            </div>
+          </div>
+        </div>
       </div>
-    </TacticalPanel>
+    </div>
   );
 }
 

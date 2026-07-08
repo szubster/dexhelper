@@ -258,3 +258,9 @@
 **Outcome:** Accepted
 **Why:** The previous location list looked like a standard web interface list, which broke the immersion of the "Tactical Device" fantasy. By treating each encounter zone as a structured telemetry node and standardizing the UI elements to use active/status LEDs, monospaced fonts, and dashed borders, the component now perfectly aligns with the intelligence readout aesthetic.
 **Pattern:** For data lists representing physical coordinates, zones, or nodes, abandon standard web rows. Evolve them into "Telemetry Nodes" featuring dashed borders, data pipes, LcdGrids, and status LEDs. Use capitalized bracketed text (`[ ZONE_ID ]`) for meta-information to maintain absolute visual cohesion with the specialized hardware motif.
+
+## 2026-08-01 - [Accepted] - 🖼️ Canvas: Tactical Evolution Matrix Redesign
+**What:** Redesigned the `PokemonEvolutions.tsx` component into a "Tactical Evolution Matrix". Transformed the generic `TacticalPanel` standard layouts into "Evolution Matrix Nodes" utilizing data pipes, `<LcdGrid>`, `<HoverScanner>`, `<TelemetryDecoration>`, and "Active LED" nodes. Evolved the plain text descriptions into structured brackets like `[ PRE_EVOLUTION_LINK: {NAME} ]`, `[ EVOLUTION_TRAJECTORY: {NAME} ]`, and `[ CROSS_REFERENCE: {NAME} ]`.
+**Outcome:** Accepted
+**Why:** Brings the evolution layout fully in line with the established specialized hardware motif. Standard shaded text layouts break the "specialized hardware" immersion. Elevating the UI to a multi-node matrix reinforces the tactical intelligence readout aesthetic.
+**Pattern:** Elevate descriptive/informative sections about connected nodes (like evolutions or breeding) into structured matrix reads with dedicated "Active LEDs", heavy side borders (data pipes), and bracketed telemetry labels.
