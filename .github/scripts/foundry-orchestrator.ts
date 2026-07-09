@@ -651,7 +651,12 @@ function main(): void {
       }
     }
 
-    if ((node.frontmatter.status === 'FAILED' || node.frontmatter.status === 'CANCELLED') && node.frontmatter.rejection_reason) {
+    if (
+      (node.frontmatter.status === 'FAILED' || node.frontmatter.status === 'CANCELLED') &&
+      node.frontmatter.rejection_reason &&
+      node.frontmatter.rejection_reason !== 'Cancelled due to cascading cancellation from parent' &&
+      !node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:')
+    ) {
       // Skip waking up parent if the child is merely suspended (waiting for dependencies/children).
       // We ignore the parent node itself during this check because it's exactly what we want to find out
       // (if something OTHER than the parent is blocking the child).

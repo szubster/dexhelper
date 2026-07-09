@@ -2305,4 +2305,45 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(epicContent).toContain('status: READY');
   });
 
+  test("Impossible Loop: does not wake up parent if child was cancelled due to cascading cancellation", () => {
+    createValidTestNode(tmpDir, ".foundry/prds/prd-001.md", {
+      id: "prd-001",
+      type: "PRD",
+      title: "Pending PRD",
+      status: "PENDING",
+      owner_persona: "epic_planner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+    createValidTestNode(tmpDir, ".foundry/epics/epic-001.md", {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Cancelled Epic",
+      status: "CANCELLED",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      parent: "prd-001",
+      depends_on: [],
+      jules_session_id: null,
+      rejection_reason: "Cancelled due to cascading cancellation from parent",
+    });
+    createValidTestNode(tmpDir, ".foundry/epics/epic-002.md", {
+      id: "epic-002",
+      type: "EPIC",
+      title: "Incomplete Epic",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      parent: "prd-001",
+      depends_on: [],
+      jules_session_id: null,
+    });
+    main();
+    const prdContent = fs.readFileSync(path.join(tmpDir, ".foundry/prds/prd-001.md"), "utf-8");
+    expect(prdContent).toContain("status: PENDING");
+  });
 });
