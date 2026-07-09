@@ -1,10 +1,10 @@
 ---
 id: task-267-262-gen3-ash-dataview-extraction-qa
 type: TASK
-title: QA Gen 3 Volcanic Ash Count DataView Extraction
-status: COMPLETED
+title: QA Gen 3 Volcanic Ash Extraction
+status: PENDING
 owner_persona: qa
-created_at: '2026-07-04'
+created_at: '2026-07-08'
 updated_at: '2026-07-08'
 depends_on:
   - task-267-261-gen3-ash-dataview-extraction-impl
@@ -22,7 +22,7 @@ rejection_reason: ''
 notes: ''
 ---
 
-# QA Gen 3 Volcanic Ash Count DataView Extraction
+# QA Gen 3 Volcanic Ash Extraction
 
 ## Context
 Based on research findings, the Volcanic Ash gather count is stored as game variable `0x4048`.
@@ -30,16 +30,14 @@ Based on research findings, the Volcanic Ash gather count is stored as game vari
 - Emerald Absolute Offset: `0x142C`
 - Ruby/Sapphire Absolute Offset: `0x13D0`
 
-## Requirements
-1. Verify the extraction logic properly uses `DataView` API and catches `RangeError` exceptions for out-of-bounds reads.
-2. Ensure no magic numbers are used inline; all memory offsets and lengths must be module-level constants.
-3. Verify comprehensive test coverage exists and passes.
+The implementation task (`task-267-261-gen3-ash-dataview-extraction-impl`) requires extracting this data. As QA, you need to verify it.
 
 ## Acceptance Criteria
-- [x] Code review the implementation to ensure it meets requirements.
-- [x] Verify test coverage is complete and successful.
+- [ ] Verify that the DataView API is used instead of raw `Uint8Array` manipulation (ADR 010).
+- [ ] Verify that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, without inline magic numbers (ADR 028).
+- [ ] Verify unit tests correctly extract ash count for both Emerald and Ruby/Sapphire.
+- [ ] Verify unit tests correctly trigger and catch `RangeError` exceptions for out-of-bounds reads.
 
-## Persona Instructions
-- **QA**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- **QA**: If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- **QA**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+## Developer Instructions
+- **Failure conditions:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- **Completion conditions:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.

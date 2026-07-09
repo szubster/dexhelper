@@ -2,13 +2,13 @@
 id: task-267-262-gen3-move-tutor-emerald-qa
 type: TASK
 title: QA Emerald Move Tutor Extraction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-04'
-updated_at: '2026-07-08'
+updated_at: '2026-07-09'
 depends_on:
   - task-267-261-gen3-move-tutor-emerald-impl
-jules_session_id: null
+jules_session_id: '1730791805489136491'
 pr_number: null
 parent: story-119-267-gen3-move-tutor-emerald-parsing
 tags:

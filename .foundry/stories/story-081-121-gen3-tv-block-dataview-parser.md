@@ -5,9 +5,9 @@ title: Parse Gen 3 TV Block Data with DataView
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-07-08'
+updated_at: '2026-07-09'
 depends_on: []
-jules_session_id: '10207981641780515134'
+jules_session_id: '2531514179767849878'
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:

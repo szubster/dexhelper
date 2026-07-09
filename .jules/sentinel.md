@@ -1,3 +1,2 @@
 - When writing Vitest tests, always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()`) to satisfy strict Biome type-checking and avoid `any` usage.
-- When writing Playwright E2E tests for visual components, use `argosScreenshot(page, 'name')` from `@argos-ci/playwright` to ensure visual fidelity.
 - In Playwright E2E tests, always call `await waitForSync(page)` after navigation to ensure IndexedDB sync completes.
