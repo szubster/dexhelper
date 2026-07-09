@@ -18,6 +18,7 @@
  * is determined by `PV % 24`.
  */
 
+import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
 import type {
   GameVersion,
   Gen3ActiveSwarm,
@@ -655,11 +656,9 @@ export function parseGen3SecretBases(view: DataView, saveBlock1Offset: number, g
     const secretBases: Gen3SecretBase[] = [];
     for (let i = 0; i < SECRET_BASES_COUNT; i++) {
       const offset = baseOffset + i * SECRET_BASE_SIZE;
-      const secretBaseId = view.getUint8(offset);
-
-      // We only consider secret bases with an ID > 0 as active
-      if (secretBaseId > 0) {
-        secretBases.push({ secretBaseId });
+      const record = parseSecretBaseRecord(view, offset, gameVersion as GameVersion);
+      if (record) {
+        secretBases.push(record);
       }
     }
     return secretBases;
