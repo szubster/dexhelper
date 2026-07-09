@@ -38,6 +38,6 @@ The coder has implemented the parsing logic for Gen 3 Secret Base trainer inform
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `DataView` API is used exclusively.
-- [ ] Verify module-level constants are used instead of magic numbers for offsets.
-- [ ] Verify comprehensive unit tests are present.
+- [x] Verify `DataView` API is used exclusively.
+- [x] Verify module-level constants are used instead of magic numbers for offsets.
+- [x] Verify comprehensive unit tests are present.
