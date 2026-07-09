@@ -33,6 +33,7 @@ Provide an immediate, exact breakdown of a roaming legendary's internal state (N
 - Provide a Route Radar to map the roamer's current location index.
 
 ## Acceptance Criteria
+- [x] Break down into Epics
 - [x] epic-044-070-gen3-roamer-core-extraction
 - [x] epic-044-101-gen3-roamer-core-extraction-v2
 - [x] epic-044-071-gen3-roamer-iv-glitch
