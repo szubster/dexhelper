@@ -2,12 +2,12 @@
 id: story-113-267-gen3-ash-dataview-extraction
 type: STORY
 title: Extract Volcanic Ash Count via DataView
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-08'
+updated_at: '2026-07-09'
 depends_on: []
-jules_session_id: '17412270532249250513'
+jules_session_id: null
 pr_number: null
 parent: epic-054-113-gen3-ash-save-parsing
 tags:

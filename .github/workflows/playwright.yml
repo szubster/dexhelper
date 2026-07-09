@@ -36,9 +36,6 @@ jobs:
 
     - name: Run Playwright E2E tests
       run: pnpm test:e2e
-      env:
-        ARGOS_BUILD_NAME: "E2E"
-        ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
     - uses: actions/upload-artifact@v7
       if: ${{ !cancelled() }}
       with:

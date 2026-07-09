@@ -344,3 +344,10 @@
 **Outcome:** Merged
 **Why:** The prompt evaluation identified massive duplication in the agent prompts where a huge block regarding the "Journaling rules" (logging long-term lessons vs execution logs) and "YAML frontmatter modification rules" was repeated verbatim across 26 different agents. This bloated the prompts and made updating the rules error-prone.
 **Pattern:** Consolidate duplicated core prompt instructions (e.g. journaling rules, YAML modification policies) into `.foundry/docs/knowledge_base/agents/core_policies.md` and instruct the agents to read it. This drastically reduces prompt size, creates a single source of truth, and allows global policy updates without touching 26 individual schedule files.
+
+
+## 2026-07-24 - [Accepted] - Prompt improvement - Enforce explicit generic typing on vi.fn() mocks
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `coder` journal recorded that Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`. This rule is frequently missed during implementation.
+**Pattern:** Codify specific, recurring test framework constraints (like Vitest mock typing rules) directly into the implementer's prompt (Coder) to prevent recurring lint/test failures during the QA phase.
