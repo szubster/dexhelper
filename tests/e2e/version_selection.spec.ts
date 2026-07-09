@@ -1,5 +1,4 @@
 import { expect, test } from '@playwright/test';
-import { argosScreenshot } from '../../src/utils/argos';
 import { initializeWithSave } from './test-utils';
 
 test.describe('Version Selection', () => {

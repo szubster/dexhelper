@@ -1,6 +1,5 @@
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
-import { argosScreenshot } from '../../src/utils/argos';
 import { clearStorage, waitForSync } from './test-utils';
 
 test.describe('Save Management', () => {
@@ -36,6 +35,5 @@ test.describe('Save Management', () => {
     // 6. Verify it's still hydrated (persisted in localStorage)
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();
-
   });
 });

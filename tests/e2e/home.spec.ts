@@ -1,5 +1,4 @@
 import { expect, test } from '@playwright/test';
-import { argosScreenshot } from '../../src/utils/argos';
 
 test.describe('Dexhelper App', () => {
   test('should load the main page', async ({ page }) => {

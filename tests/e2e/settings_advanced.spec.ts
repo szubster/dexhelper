@@ -1,4 +1,3 @@
-import { argosScreenshot } from '../../src/utils/argos';
 import { expect, test } from '@playwright/test';
 import { initializeWithSave, waitForSync } from './test-utils';
 
@@ -26,7 +25,6 @@ test.describe('Advanced Settings Persistence', () => {
     // 3. Change Graveyard Box to Box 1
     await page.getByRole('radio', { name: '[ BOX 1 ]', exact: true }).click();
 
-
     // Close settings
     await page.getByRole('button', { name: 'Close settings' }).click();
 
@@ -49,6 +47,5 @@ test.describe('Advanced Settings Persistence', () => {
     await expect(page.getByRole('radio', { name: 'Yellow', exact: true })).toBeChecked();
     await expect(page.getByRole('radio', { name: 'Great Ball', exact: true })).toBeChecked();
     await expect(page.getByRole('radio', { name: '[ BOX 1 ]', exact: true })).toBeChecked();
-
   });
 });

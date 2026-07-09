@@ -1,4 +1,3 @@
-import { argosScreenshot } from '../../src/utils/argos';
 import { expect, test } from '@playwright/test';
 import { initializeWithSave, waitForSync } from './test-utils';
 
