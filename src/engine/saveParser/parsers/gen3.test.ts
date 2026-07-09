@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest';
 import {
   EMERALD_MOVE_TUTOR_BYTE_1_OFFSET,
   EMERALD_MOVE_TUTOR_BYTE_2_OFFSET,
+  FRLG_MOVE_TUTOR_BYTE_1_OFFSET,
+  FRLG_MOVE_TUTOR_BYTE_2_OFFSET,
+  FRLG_MOVE_TUTOR_BYTE_3_OFFSET,
+  FRLG_MOVE_TUTOR_BYTE_4_OFFSET,
   GEN3_EVENT_FLAGS_OFFSET,
   isGen3Save,
   parseGen3,
@@ -12,6 +16,7 @@ import {
   parseGen3ConditionStats,
   parseGen3EggSteps,
   parseGen3EmeraldMoveTutors,
+  parseGen3FRLGMoveTutors,
   parseGen3MirageIslandValue,
   parseGen3MixRecords,
   parseGen3PersonalityValue,
@@ -1098,5 +1103,55 @@ describe('parseGen3EmeraldMoveTutors', () => {
     const buffer = new ArrayBuffer(10);
     const view = new DataView(buffer);
     expect(() => parseGen3EmeraldMoveTutors(view, 0)).toThrow('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3FRLGMoveTutors', () => {
+  it('should correctly parse FRLG move tutor flags from valid FRLG data block', () => {
+    const buffer = new ArrayBuffer(0x2000);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0;
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+
+    // Set Byte 1: Double-Edge (0), Rock Slide (2), Mega Punch (4), Dream Eater (6) = 01010101 = 0x55
+    view.setUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_1_OFFSET, 0x55);
+
+    // Set Byte 2: Substitute (0), Seismic Toss (2), Metronome (4), Body Slam (6) = 01010101 = 0x55
+    view.setUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_2_OFFSET, 0x55);
+
+    // Set Byte 3: Blast Burn (7) = 10000000 = 0x80
+    view.setUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_3_OFFSET, 0x80);
+
+    // Set Byte 4: Hydro Cannon (0) = 00000001 = 0x01
+    view.setUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_4_OFFSET, 0x01);
+
+    const result = parseGen3FRLGMoveTutors(view, saveBlock1Offset);
+
+    expect(result).toEqual({
+      doubleEdge: true,
+      thunderWave: false,
+      rockSlide: true,
+      explosion: false,
+      megaPunch: true,
+      megaKick: false,
+      dreamEater: true,
+      softBoiled: false,
+      substitute: true,
+      swordsDance: false,
+      seismicToss: true,
+      counter: false,
+      metronome: true,
+      mimic: false,
+      bodySlam: true,
+      frenzyPlant: false,
+      blastBurn: true,
+      hydroCannon: true,
+    });
+  });
+
+  it('should catch RangeError and throw corrupted save error', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+    expect(() => parseGen3FRLGMoveTutors(view, 0)).toThrow('The save file is corrupted or incomplete.');
   });
 });

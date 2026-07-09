@@ -156,6 +156,11 @@ export const GEN3_EVENT_FLAGS_OFFSET = 0x1270;
 export const EMERALD_MOVE_TUTOR_BYTE_1_OFFSET = 0x36;
 export const EMERALD_MOVE_TUTOR_BYTE_2_OFFSET = 0x37;
 
+export const FRLG_MOVE_TUTOR_BYTE_1_OFFSET = 0x58;
+export const FRLG_MOVE_TUTOR_BYTE_2_OFFSET = 0x59;
+export const FRLG_MOVE_TUTOR_BYTE_3_OFFSET = 0x5b;
+export const FRLG_MOVE_TUTOR_BYTE_4_OFFSET = 0x5c;
+
 const MOVE_TUTOR_SWAGGER_BIT = 1;
 const MOVE_TUTOR_ROLLOUT_BIT = 2;
 const MOVE_TUTOR_FURY_CUTTER_BIT = 3;
@@ -167,6 +172,28 @@ const MOVE_TUTOR_SUBSTITUTE_BIT = 7;
 const MOVE_TUTOR_DYNAMIC_PUNCH_BIT = 0;
 const MOVE_TUTOR_DOUBLE_EDGE_BIT = 1;
 const MOVE_TUTOR_EXPLOSION_BIT = 2;
+
+const FRLG_MOVE_TUTOR_DOUBLE_EDGE_BIT = 0;
+const FRLG_MOVE_TUTOR_THUNDER_WAVE_BIT = 1;
+const FRLG_MOVE_TUTOR_ROCK_SLIDE_BIT = 2;
+const FRLG_MOVE_TUTOR_FRLG_EXPLOSION_BIT = 3;
+const FRLG_MOVE_TUTOR_MEGA_PUNCH_BIT = 4;
+const FRLG_MOVE_TUTOR_MEGA_KICK_BIT = 5;
+const FRLG_MOVE_TUTOR_DREAM_EATER_BIT = 6;
+const FRLG_MOVE_TUTOR_SOFT_BOILED_BIT = 7;
+
+const FRLG_MOVE_TUTOR_SUBSTITUTE_BIT = 0;
+const FRLG_MOVE_TUTOR_SWORDS_DANCE_BIT = 1;
+const FRLG_MOVE_TUTOR_SEISMIC_TOSS_BIT = 2;
+const FRLG_MOVE_TUTOR_COUNTER_BIT = 3;
+const FRLG_MOVE_TUTOR_METRONOME_BIT = 4;
+const FRLG_MOVE_TUTOR_MIMIC_BIT = 5;
+const FRLG_MOVE_TUTOR_BODY_SLAM_BIT = 6;
+
+const FRLG_MOVE_TUTOR_FRENZY_PLANT_BIT = 6;
+const FRLG_MOVE_TUTOR_BLAST_BURN_BIT = 7;
+
+const FRLG_MOVE_TUTOR_HYDRO_CANNON_BIT = 0;
 
 export const GEN3_EMERALD_ASH_OFFSET = 0x142c;
 export const GEN3_RS_ASH_OFFSET = 0x13d0;
@@ -888,6 +915,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       } catch {
         // Ignored
       }
+    } else if (_forcedVersion === 'firered' || _forcedVersion === 'leafgreen') {
+      try {
+        gen3MoveTutors = parseGen3FRLGMoveTutors(view, section1Offset);
+      } catch {
+        // Ignored
+      }
     }
 
     if (_forcedVersion === 'emerald') {
@@ -1082,6 +1115,50 @@ export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock1Offset: num
       dynamicPunch: !!((byte2 >> MOVE_TUTOR_DYNAMIC_PUNCH_BIT) & 1),
       doubleEdge: !!((byte2 >> MOVE_TUTOR_DOUBLE_EDGE_BIT) & 1),
       explosion: !!((byte2 >> MOVE_TUTOR_EXPLOSION_BIT) & 1),
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
+ * Parses the FRLG Move Tutor usage flags.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @returns An object containing boolean flags for each move tutor.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3FRLGMoveTutors(view: DataView, saveBlock1Offset: number) {
+  try {
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+    const byte1 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_1_OFFSET);
+    const byte2 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_2_OFFSET);
+    const byte3 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_3_OFFSET);
+    const byte4 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_4_OFFSET);
+
+    return {
+      doubleEdge: !!((byte1 >> FRLG_MOVE_TUTOR_DOUBLE_EDGE_BIT) & 1),
+      thunderWave: !!((byte1 >> FRLG_MOVE_TUTOR_THUNDER_WAVE_BIT) & 1),
+      rockSlide: !!((byte1 >> FRLG_MOVE_TUTOR_ROCK_SLIDE_BIT) & 1),
+      explosion: !!((byte1 >> FRLG_MOVE_TUTOR_FRLG_EXPLOSION_BIT) & 1),
+      megaPunch: !!((byte1 >> FRLG_MOVE_TUTOR_MEGA_PUNCH_BIT) & 1),
+      megaKick: !!((byte1 >> FRLG_MOVE_TUTOR_MEGA_KICK_BIT) & 1),
+      dreamEater: !!((byte1 >> FRLG_MOVE_TUTOR_DREAM_EATER_BIT) & 1),
+      softBoiled: !!((byte1 >> FRLG_MOVE_TUTOR_SOFT_BOILED_BIT) & 1),
+      substitute: !!((byte2 >> FRLG_MOVE_TUTOR_SUBSTITUTE_BIT) & 1),
+      swordsDance: !!((byte2 >> FRLG_MOVE_TUTOR_SWORDS_DANCE_BIT) & 1),
+      seismicToss: !!((byte2 >> FRLG_MOVE_TUTOR_SEISMIC_TOSS_BIT) & 1),
+      counter: !!((byte2 >> FRLG_MOVE_TUTOR_COUNTER_BIT) & 1),
+      metronome: !!((byte2 >> FRLG_MOVE_TUTOR_METRONOME_BIT) & 1),
+      mimic: !!((byte2 >> FRLG_MOVE_TUTOR_MIMIC_BIT) & 1),
+      bodySlam: !!((byte2 >> FRLG_MOVE_TUTOR_BODY_SLAM_BIT) & 1),
+      frenzyPlant: !!((byte3 >> FRLG_MOVE_TUTOR_FRENZY_PLANT_BIT) & 1),
+      blastBurn: !!((byte3 >> FRLG_MOVE_TUTOR_BLAST_BURN_BIT) & 1),
+      hydroCannon: !!((byte4 >> FRLG_MOVE_TUTOR_HYDRO_CANNON_BIT) & 1),
     };
   } catch (error) {
     if (error instanceof RangeError) {
