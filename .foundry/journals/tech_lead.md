@@ -149,3 +149,8 @@ When decomposing a STORY into TASK nodes, strictly follow the Intelligent Verifi
 ## 2026-07-07: Premature Story Verification
 - **Observation**: Attempted to transition a Story to VERIFYING by checking off its child tasks, violating a core directive.
 - **Constraint Enforced**: CRITICAL: Do NOT submit an Empty PR to transition a Story to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child TASK nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints. If a parent node has incomplete children (e.g. pending or active), you must leave its own acceptance criteria checkboxes unchecked to keep it in PENDING status.
+
+## 2026-07-09: Platform Tool Limitations
+- **Observation**: Task `task-267-262-bash-timeout-wrapper-impl` failed because `run_in_bash_session` is a platform tool and cannot be modified from within the repo.
+- **Action**: Spawned `research-267-287-bash-timeout-alternative` to investigate alternative architectural solutions and replaced the implementation and QA tasks.
+- **Lesson**: Platform tools like `run_in_bash_session` are outside the repository's control. Tasks attempting to modify them must be rejected or cancelled in favor of researching alternative architectural solutions.

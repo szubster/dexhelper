@@ -34,3 +34,5 @@ Verify that the timeout wrapper for `run_in_bash_session` works correctly and in
 
 ## Acceptance Criteria
 - [ ] Verify timeout wrapper interrupts long commands.
+
+CANCELLED: The implementation task was permanently cancelled because run_in_bash_session cannot be modified from within the repo. Replaced by task-267-289-bash-timeout-alternative-qa.
