@@ -124,16 +124,29 @@ export interface Gen3BerryPatch {
 }
 
 export interface Gen3MoveTutors {
-  swagger: boolean;
-  rollout: boolean;
-  furyCutter: boolean;
-  mimic: boolean;
-  metronome: boolean;
-  sleepTalk: boolean;
-  substitute: boolean;
-  dynamicPunch: boolean;
-  doubleEdge: boolean;
-  explosion: boolean;
+  swagger?: boolean;
+  rollout?: boolean;
+  furyCutter?: boolean;
+  mimic?: boolean;
+  metronome?: boolean;
+  sleepTalk?: boolean;
+  substitute?: boolean;
+  dynamicPunch?: boolean;
+  doubleEdge?: boolean;
+  explosion?: boolean;
+  thunderWave?: boolean;
+  rockSlide?: boolean;
+  megaPunch?: boolean;
+  megaKick?: boolean;
+  dreamEater?: boolean;
+  softBoiled?: boolean;
+  swordsDance?: boolean;
+  seismicToss?: boolean;
+  counter?: boolean;
+  bodySlam?: boolean;
+  frenzyPlant?: boolean;
+  blastBurn?: boolean;
+  hydroCannon?: boolean;
 }
 
 export interface Gen3BattleFrontierWinStreaks {

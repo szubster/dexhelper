@@ -57,6 +57,6 @@ According to `gen3_move_tutor_offsets.md`, the flags and offsets for FRLG are:
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement FRLG Move Tutor parsing logic using DataView.
-- [ ] Define all memory offsets, lengths, bit locations, and shifts as reusable constants at the module level.
-- [ ] Catch `RangeError` exceptions and gracefully handle out-of-bounds reads.
+- [x] Implement FRLG Move Tutor parsing logic using DataView.
+- [x] Define all memory offsets, lengths, bit locations, and shifts as reusable constants at the module level.
+- [x] Catch `RangeError` exceptions and gracefully handle out-of-bounds reads.
