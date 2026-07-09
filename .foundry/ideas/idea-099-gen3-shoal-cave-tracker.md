@@ -2,7 +2,7 @@
 id: idea-099-gen3-shoal-cave-tracker
 type: IDEA
 title: Gen 3 Shoal Cave Tide Tracker
-status: BLOCKED
+status: CANCELLED
 owner_persona: tpm
 created_at: '2026-07-02'
 updated_at: '2026-07-02'
