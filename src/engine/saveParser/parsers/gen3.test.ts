@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  EMERALD_MOVE_TUTOR_BYTE_1_OFFSET,
+  EMERALD_MOVE_TUTOR_BYTE_2_OFFSET,
+  GEN3_EVENT_FLAGS_OFFSET,
   isGen3Save,
   parseGen3,
   parseGen3ActiveSwarm,
@@ -1073,8 +1076,8 @@ describe('parseGen3EmeraldMoveTutors', () => {
     const saveBlock1Offset = 0;
 
     // Set some bytes
-    view.setUint8(0x1270 + 0x36, 0b10101010);
-    view.setUint8(0x1270 + 0x37, 0b00000101);
+    view.setUint8(GEN3_EVENT_FLAGS_OFFSET + EMERALD_MOVE_TUTOR_BYTE_1_OFFSET, 0b10101010);
+    view.setUint8(GEN3_EVENT_FLAGS_OFFSET + EMERALD_MOVE_TUTOR_BYTE_2_OFFSET, 0b00000101);
 
     const result = parseGen3EmeraldMoveTutors(view, saveBlock1Offset);
     expect(result).toEqual({

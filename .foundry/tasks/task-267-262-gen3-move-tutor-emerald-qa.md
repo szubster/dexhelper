@@ -40,7 +40,7 @@ The Coder (task-267-261-gen3-move-tutor-emerald-impl) has implemented logic to e
 *   If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify there are absolutely no inline magic numbers for any offsets or bit positions.
-- [ ] Verify `DataView` is used exclusively for memory reads and correctly catches `RangeError`s.
-- [ ] Verify the logic correctly extracts each of the 10 Emerald move tutor flags from the correct byte and bit.
-- [ ] Verify unit tests are comprehensive and pass.
+- [x] Verify there are absolutely no inline magic numbers for any offsets or bit positions.
+- [x] Verify `DataView` is used exclusively for memory reads and correctly catches `RangeError`s.
+- [x] Verify the logic correctly extracts each of the 10 Emerald move tutor flags from the correct byte and bit.
+- [x] Verify unit tests are comprehensive and pass.
