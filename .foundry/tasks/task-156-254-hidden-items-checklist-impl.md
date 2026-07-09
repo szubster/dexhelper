@@ -32,9 +32,9 @@ As part of the Missing Hidden Items Finder feature, we need a dedicated view to 
 - Connect the component to the hydrated save file state so that items acquired by the player are dynamically checked off.
 
 ## Acceptance Criteria
-- [ ] Checklist UI component is built and strictly follows ADR 008 (tactical aesthetic).
-- [ ] Checklist items are logically grouped (e.g. by route or region) and filterable.
-- [ ] Acquired items are dynamically checked off based on save file state.
+- [x] Checklist UI component is built and strictly follows ADR 008 (tactical aesthetic).
+- [x] Checklist items are logically grouped (e.g. by route or region) and filterable.
+- [x] Acquired items are dynamically checked off based on save file state.
 
 ## Persona Reminders
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

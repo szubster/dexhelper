@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-09'
 depends_on: []
-jules_session_id: '8551280250648888266'
+jules_session_id: '533673845880642653'
 pr_number: null
 parent: epic-057-127-bash-timeout-wrapper
 tags:
