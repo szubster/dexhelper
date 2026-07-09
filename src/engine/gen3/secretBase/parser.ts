@@ -8,7 +8,7 @@ export const TRAINER_NAME_LENGTH_RS = 7;
 export const TRAINER_NAME_LENGTH_EMERALD = 8;
 
 export const TRAINER_ID_OFFSET_RS = 0x09;
-export const TRAINER_ID_OFFSET_EMERALD = 0x0A;
+export const TRAINER_ID_OFFSET_EMERALD = 0x0a;
 export const TRAINER_ID_LENGTH = 4;
 
 export const PARTY_OFFSET = 0x34;

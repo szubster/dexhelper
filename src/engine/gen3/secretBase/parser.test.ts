@@ -64,9 +64,9 @@ describe('Secret Base Parser', () => {
       view.setUint8(6, 0xff);
       view.setUint8(7, 0xff);
       view.setUint8(8, 0xff);
-        view.setUint8(9, 0xff);
+      view.setUint8(9, 0xff);
 
-        view.setUint32(10, 1234567, true);
+      view.setUint32(10, 1234567, true);
 
       // Let's set some party data
       const partyOffset = 52;
