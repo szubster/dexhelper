@@ -194,3 +194,7 @@
 ## 2026-07-08
 **Idea:** Gen 2 Shiny Breeding DV Compatibility Planner
 **Learning:** Generation 2 shiny hunting via breeding is highly sought after (1/64 odds) but relies on hidden Deterministic Values (DVs) which also control breeding compatibility (to prevent inbreeding). Surfacing this exact, hidden mathematical constraint from the parsed save file into a visual "breeding planner" provides immense unique value. It eliminates the hours of wasted time players spend trying to breed secretly incompatible Pokémon, perfectly reinforcing the app's premium utility focus.
+
+## 2026-07-09
+**Idea:** Gen 2 Room Decoration Tracker
+**Learning:** Targeting unique, version-exclusive mechanics (like Gen 2 room decorations and Mom's savings) provides high utility. Since these are unlocked via hidden event flags or specific gameplay actions, extracting them directly from the save file transforms a guessing game into a predictable, manageable dashboard, reinforcing DexHelper as a premium companion app.

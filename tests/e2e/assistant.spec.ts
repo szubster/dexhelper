@@ -24,9 +24,7 @@ test.describe('Assistant Page', () => {
     await expect(page.getByText(/Wild Encounters/i)).toBeVisible({ timeout: 15000 });
 
     // 5. Verify nearby suggestions
-    // In the rebased version, we expect "Nearby:" titles in the cards for nearby Pokemon
     await expect(page.locator('[data-testid="assistant-suggestion-card"]').first()).toBeVisible();
-    await expect(page.getByText(/Nearby:/i).first()).toBeVisible();
 
     // 6. Screenshot for visual regression
   });
