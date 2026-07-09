@@ -1,5 +1,4 @@
 import { expect, test } from '@playwright/test';
-import { argosScreenshot } from '../../src/utils/argos';
 import { initializeWithSave } from './test-utils';
 
 test.describe('Assistant Page', () => {
@@ -30,7 +29,6 @@ test.describe('Assistant Page', () => {
     await expect(page.getByText(/Nearby:/i).first()).toBeVisible();
 
     // 6. Screenshot for visual regression
-    await argosScreenshot(page, 'assistant-nearby-suggestions');
   });
 
   test('should show local catch suggestions if applicable', async ({ page }) => {

@@ -12,7 +12,6 @@
 - **Testing**:
   - **Unit Tests**: Vitest.
   - **E2E Tests (Primary)**: Playwright (E2E-first strategy).
-  - **Visual Regression**: Argos CI (with `argosScreenshot`).
 - **Game Engine**: Custom logic for parsing saves (`engine/saveParser`), navigating maps (`engine/mapGraph`), and suggesting actions (`engine/assistant`).
 
 ## Codebase Structure

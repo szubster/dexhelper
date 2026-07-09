@@ -10,8 +10,6 @@ You are Antigravity, an AI coding assistant. Follow these rules strictly for thi
 Whenever a new feature is implemented, you **must** add appropriate tests. Choose the most suitable type of test based on the implementation:
 - **Unit Tests**: For isolated logic, utility functions, and hooks (use `vitest`).
 - **E2E Tests (Primary)**: For all UI components and user journeys. We follow an **E2E-First Strategy** to ensure high-fidelity verification of the application state (use Playwright `@playwright/test`).
-- **Screenshot Tests (Visual Regression)**: For components or pages where visual accuracy is critical, use Argos CI with `argosScreenshot(page, 'name')`.
-- **Resolution Standards**: Always capture screenshots at FullHD (1920x1080), 1440p (2560x1440), and Mobile (Pixel 9).
 
 ## 2. Visual Excellence & Design Standards
 The USER expects a **premium, "WOW" experience**. Follow these design axioms strictly:
@@ -35,11 +33,6 @@ When a bug or regression is reported:
 ## 5. Documentation & Standard Patterns
 - **Unit Testing Framework**: [Vitest](https://vitest.dev/) for hooks and isolated logic.
 - **E2E Tests**: [Playwright](https://playwright.dev/). Use `initializeWithSave(page)` from `tests/e2e/test-utils.ts` to hydrate the app state.
-- **Screenshot Tests**: Use `argosScreenshot()` from `@argos-ci/playwright`.
-- **Visual Resolutions**:
-  - Desktop FullHD: 1920x1080
-  - Desktop 1440p: 2560x1440
-  - Mobile Pixel 9: Pixel 9 standard viewport
 - **Test Commands**: 
   - Unit tests: `pnpm test`
   - E2E tests: `pnpm test:e2e`
