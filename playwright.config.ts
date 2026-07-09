@@ -16,11 +16,6 @@ export default defineConfig({
   workers: process.env['CI'] ? 2 : '50%',
   reporter: [
     ['html', { open: 'never' }],
-    ['@argos-ci/playwright/reporter', {
-      uploadToArgos: !!process.env['CI'],
-      buildName: process.env['ARGOS_BUILD_NAME'] || 'E2E',
-      ignoreUploadFailures: true,
-    }]
   ],
   use: {
     actionTimeout: 15000,
