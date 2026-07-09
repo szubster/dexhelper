@@ -149,6 +149,8 @@ When decomposing a STORY into TASK nodes, strictly follow the Intelligent Verifi
 ## 2026-07-07: Premature Story Verification
 - **Observation**: Attempted to transition a Story to VERIFYING by checking off its child tasks, violating a core directive.
 - **Constraint Enforced**: CRITICAL: Do NOT submit an Empty PR to transition a Story to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child TASK nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints. If a parent node has incomplete children (e.g. pending or active), you must leave its own acceptance criteria checkboxes unchecked to keep it in PENDING status.
+## 2026-07-09
+Drafted implementation and QA tasks for Emerald Move Tutor parsing. Checked off the task creation acceptance criteria on the story node, and appended the new tasks as unchecked checkboxes.
 
 ## 2026-07-09: Platform Tool Modification Constraints
 - **Observation**: Attempted to implement a timeout wrapper for `run_in_bash_session` but the task was rejected because platform tools cannot be modified from within the repo.
