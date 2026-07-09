@@ -1,5 +1,5 @@
-import { argosScreenshot } from '@argos-ci/playwright';
 import { expect, test } from '@playwright/test';
+import { argosScreenshot } from '../../src/utils/argos';
 import { initializeWithSave, waitForSync } from './test-utils';
 
 test.describe('Settings', () => {

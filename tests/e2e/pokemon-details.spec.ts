@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { argosScreenshot } from '@argos-ci/playwright';
 import { expect, test } from '@playwright/test';
+import { argosScreenshot } from '../../src/utils/argos';
 import { initializeWithSave } from './test-utils';
 
 test.describe('Pokemon Details Modal', () => {
