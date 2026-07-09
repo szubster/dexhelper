@@ -2,12 +2,12 @@
 id: task-254-260-shiny-carrier-breeding-view-impl
 type: TASK
 title: Implement Shiny Carrier Breeding View
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-02'
-updated_at: '2026-07-07'
+updated_at: '2026-07-09'
 depends_on: []
-jules_session_id: '16268428336963972146'
+jules_session_id: null
 pr_number: null
 parent: story-045-254-shiny-carrier-breeding-view
 tags:
