@@ -11,8 +11,13 @@ export async function argosScreenshot(
   name: string,
   options: Parameters<typeof originalArgosScreenshot>[2] = {},
 ) {
-  return originalArgosScreenshot(page, name, {
-    fullPage: false,
-    ...options,
-  });
+  try {
+    return await originalArgosScreenshot(page, name, {
+      fullPage: false,
+      ...options,
+    });
+  } catch (err) {
+    console.error(`Argos screenshot failed for ${name}:`, err);
+    return;
+  }
 }
