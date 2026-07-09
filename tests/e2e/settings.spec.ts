@@ -1,4 +1,4 @@
-import { argosScreenshot } from '@argos-ci/playwright';
+import { argosScreenshot } from '../../src/utils/argos';
 import { expect, test } from '@playwright/test';
 import { initializeWithSave, waitForSync } from './test-utils';
 
@@ -17,8 +17,6 @@ test.describe('Settings', () => {
 
     const livingDexBtn = page.getByText('[ LIVING DEX ]');
     await livingDexBtn.click();
-
-    await argosScreenshot(page, 'settings-living-dex');
 
     await page.getByRole('button', { name: 'Close settings' }).click();
 

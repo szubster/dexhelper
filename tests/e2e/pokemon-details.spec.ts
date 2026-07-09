@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { argosScreenshot } from '@argos-ci/playwright';
+import { argosScreenshot } from '../../src/utils/argos';
 import { expect, test } from '@playwright/test';
 import { initializeWithSave } from './test-utils';
 
@@ -31,7 +31,6 @@ test.describe('Pokemon Details Modal', () => {
     await expect(page.getByText(/\[ SUBJECT_ID: 026 \]/i)).toBeVisible();
     await expect(page.getByText('Raichu', { exact: true }).nth(0)).toBeVisible();
 
-    await argosScreenshot(page, 'pokemon-details-modal');
   });
 
   test('should show correct locations for the version', async ({ page }) => {
@@ -53,6 +52,5 @@ test.describe('Pokemon Details Modal', () => {
     await expect(locationList).toBeVisible({ timeout: 15000 });
     await expect(locationList.getByText('ROUTE 1', { exact: true })).toBeVisible({ timeout: 10000 });
 
-    await argosScreenshot(page, 'pokemon-details-locations');
   });
 });

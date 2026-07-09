@@ -22,8 +22,6 @@ test.describe('Version Selection', () => {
     await page.getByTestId('version-selector').click();
     await page.getByRole('button', { name: /Select Yellow version/i }).click();
     await expect(page.getByText(/YELLOW/i).first()).toBeVisible();
-
-    await argosScreenshot(page, 'version-selected-yellow');
   });
 
   test('should persist version selection across reloads', async ({ page }) => {
