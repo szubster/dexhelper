@@ -5,9 +5,9 @@ title: Implement Egg Move Precomputation in ETL
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-03'
-updated_at: '2026-07-08'
+updated_at: '2026-07-09'
 depends_on: []
-jules_session_id: '2919341791420593790'
+jules_session_id: '922315228167218480'
 pr_number: null
 parent: story-113-258-egg-move-pathfinding-core
 tags:

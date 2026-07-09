@@ -160,6 +160,7 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `human` | A human contributor. Bypasses Jules dispatch and heartbeat timeouts. |
 | `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
 | `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
+| `mechanic` | Ensures the Foundry is working as intended. Analyzes history and nodes to resolve deadlocks and loops. |
 | `researcher` | Responsible for exploratory tasks. Late-bound research nodes can be dynamically created by active nodes. Multiple researchers can be assigned to different sibling research nodes. |
 | `auditor` | Verifies artifacts against original intent, extracts learnings, and dynamically spawns follow-up nodes before archiving. |
 

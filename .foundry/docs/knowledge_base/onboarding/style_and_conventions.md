@@ -14,11 +14,6 @@ Following the project's `.agents/rules/testing_rules.md`:
 - **New Features**: Must include appropriate tests (Unit or E2E). We prioritize an **E2E-First Strategy** for all UI-facing features.
 - **Initialization**: All E2E tests must use `initializeWithSave(page)` from `tests/e2e/test-utils.ts` to ensure the application is correctly hydrated with a save file fixture.
 - **Bug Fixes**: Write a test to reproduce the bug *before* fixing it (Test-First Approach).
-- **Visual Accuracy**: Critical UI must have screenshot tests using Argos CI (`argosScreenshot`).
-- **Visual Resolutions**:
-  - Desktop FullHD: 1920x1080
-  - Desktop 1440p: 2560x1440
-  - Mobile Pixel 9: Pixel 9 standard viewport.
 - **Mocking**: Follow existing patterns in `src/hooks/useAssistant.test.ts`.
 
 ## Visual Excellence & Design Standards
