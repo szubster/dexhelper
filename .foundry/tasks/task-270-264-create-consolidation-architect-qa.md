@@ -2,8 +2,8 @@
 id: task-270-264-create-consolidation-architect-qa
 type: TASK
 title: QA Update Orchestrator Test Mappings for Architect Persona
-status: BLOCKED
-owner_persona: tpm
+status: PENDING
+owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
 depends_on:
@@ -17,7 +17,7 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_reason: ""
 notes: Created dynamically by Agile Coach to update mappings post prompt refactor.
 ---
 
