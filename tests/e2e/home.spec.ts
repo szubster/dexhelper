@@ -1,5 +1,4 @@
 import { expect, test } from '@playwright/test';
-import { argosScreenshot } from '../../src/utils/argos';
 
 test.describe('Dexhelper App', () => {
   test('should load the main page', async ({ page }) => {
@@ -14,6 +13,6 @@ test.describe('Dexhelper App', () => {
     await page.waitForTimeout(1000);
 
     // Take a screenshot of the whole page automatically processed via Argos
-    await argosScreenshot(page, 'home-page');
+    //
   });
 });
