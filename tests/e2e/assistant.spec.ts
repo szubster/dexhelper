@@ -30,6 +30,7 @@ test.describe('Assistant Page', () => {
     await expect(page.getByText(/Nearby:/i).first()).toBeVisible();
 
     // 6. Screenshot for visual regression
+    await page.waitForTimeout(1000);
     await argosScreenshot(page, 'assistant-nearby-suggestions');
   });
 

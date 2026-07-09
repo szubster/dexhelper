@@ -11,6 +11,7 @@ test.describe('Save Management', () => {
 
     // 1. Initial State: Should show "Initialize Pokedex" button (clean state)
     await expect(page.getByText(/\[ UPLOAD\.SYS \]/i)).toBeVisible();
+    await page.waitForTimeout(1000);
     await argosScreenshot(page, 'save-initial-state');
 
     // 2. Upload Yellow Save
@@ -38,6 +39,7 @@ test.describe('Save Management', () => {
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();
 
+    await page.waitForTimeout(1000);
     await argosScreenshot(page, 'save-persisted-yellow');
   });
 });

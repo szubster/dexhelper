@@ -23,6 +23,8 @@ test.describe('Version Selection', () => {
     await page.getByRole('button', { name: /Select Yellow version/i }).click();
     await expect(page.getByText(/YELLOW/i).first()).toBeVisible();
 
+    // Wait for any animations to finish to avoid screenshot flakiness
+    await page.waitForTimeout(1000);
     await argosScreenshot(page, 'version-selected-yellow');
   });
 

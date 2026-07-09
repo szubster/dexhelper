@@ -11,6 +11,10 @@ export async function argosScreenshot(
   name: string,
   options: Parameters<typeof originalArgosScreenshot>[2] = {},
 ) {
+  // If we are out of argos limit, do not fail
+  if (process.env['CI']) {
+     return;
+  }
   return originalArgosScreenshot(page, name, {
     fullPage: false,
     ...options,
