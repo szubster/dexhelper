@@ -264,3 +264,9 @@
 **Outcome:** Accepted
 **Why:** Brings the evolution layout fully in line with the established specialized hardware motif. Standard shaded text layouts break the "specialized hardware" immersion. Elevating the UI to a multi-node matrix reinforces the tactical intelligence readout aesthetic.
 **Pattern:** Elevate descriptive/informative sections about connected nodes (like evolutions or breeding) into structured matrix reads with dedicated "Active LEDs", heavy side borders (data pipes), and bracketed telemetry labels.
+
+## 2026-08-10 - [Accepted] - 🖼️ Canvas: Tactical Unown Encryption Matrix
+**What:** Redesigned the `UnownDexPanel` component into a "Tactical Unown Encryption Matrix". Replaced the generic flex-grid container with a `TacticalPanel` (cyan variant) featuring `TelemetryDecoration` (`SYS.UNKNOWN_ENCRYPTION_MATRIX`). The individual Unown form displays were upgraded from basic bordered squares to active "Decryption Nodes" with `CornerCrosshairs`, thick dashed data pipes, and bracketed telemetry labels (`[ ACQUIRED ]`, `[ ENCRYPTED ]`).
+**Outcome:** Accepted
+**Why:** Transforms a simple collectible tracker into an active intelligence deciphering interface, perfectly aligning with the established specialized hardware/snooping motif.
+**Pattern:** Elevate simple collection grids (like Unown forms or items) into active "Encryption/Decryption Matrices" by wrapping them in `TacticalPanel`, utilizing data pipe visuals, and adding strict uppercase bracketed telemetry copy to reinforce the tactical intelligence readout aesthetic.
