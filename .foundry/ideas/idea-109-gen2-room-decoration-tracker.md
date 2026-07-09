@@ -1,11 +1,11 @@
 ---
 id: idea-109-gen2-room-decoration-tracker
 type: IDEA
-title: "Gen 2 Room Decoration & Mom's Savings Tracker"
-status: PENDING
-owner_persona: "product_manager"
-created_at: "2026-07-09"
-updated_at: "2026-07-09"
+title: Gen 2 Room Decoration & Mom's Savings Tracker
+status: READY
+owner_persona: product_manager
+created_at: '2026-07-09'
+updated_at: '2026-07-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,8 +13,8 @@ parent: null
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 2 Room Decoration & Mom's Savings Tracker
