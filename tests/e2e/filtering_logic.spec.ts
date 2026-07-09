@@ -1,5 +1,4 @@
 import { expect, test } from '@playwright/test';
-import { argosScreenshot } from '../../src/utils/argos';
 import { initializeWithSave } from './test-utils';
 
 test.describe('Filtering Logic', () => {
@@ -17,8 +16,6 @@ test.describe('Filtering Logic', () => {
 
     // Bulbasaur (ID 1) should be hidden
     await expect(page.locator('[data-pokemon-id="1"]')).not.toBeVisible();
-
-    await argosScreenshot(page, 'filter-name-pikachu');
   });
 
   test('should filter by Secured (Owned) status', async ({ page }) => {
@@ -30,8 +27,6 @@ test.describe('Filtering Logic', () => {
 
     // 3. Bulbasaur (ID 1) is NOT in Yellow save by default, should be hidden
     await expect(page.locator('[data-pokemon-id="1"]')).not.toBeVisible();
-
-    await argosScreenshot(page, 'filter-status-secured');
   });
 
   test('should filter by Missing status', async ({ page }) => {
@@ -43,7 +38,5 @@ test.describe('Filtering Logic', () => {
 
     // 3. Pikachu (ID 25) should be hidden (Owned)
     await expect(page.locator('[data-pokemon-id="25"]')).not.toBeVisible();
-
-    await argosScreenshot(page, 'filter-status-missing');
   });
 });

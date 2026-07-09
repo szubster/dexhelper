@@ -10,13 +10,7 @@ All E2E tests must transition the application from an "Uninitialized" state to a
 - **Playwright Setup project**: Added a `setup` project in `playwright.config.ts` that runs once (`tests/e2e/setup.spec.ts`). It uploads a save file (Blue version) and waits for the Pokedex to sync.
 - **storageState**: The resulting browser state (IndexedDB + LocalStorage) is saved to `playwright/.auth/user.json` and reused by all subsequent E2E tests via the `storageState` config.
 
-## 2. Visual Regression (Argos CI)
-Visual accuracy is verified using `argosScreenshot(page, 'name')`.
-- **Desktop**: 1920x1080 (FullHD) and 2560x1440 (1440p).
-- **Mobile**: Pixel 9 standard viewport.
-- **Scrolling Fixes**: Ensure that the viewport is correctly configured to capture only the visible screen area for mobile (avoiding "full page" screenshots in mobile view).
-
-## 3. Locator Philosophy
+## 2. Locator Philosophy
 - Prefer user-visible locators like `getByText`, `getByLabel`, or `getByRole`.
 - **Exact Matching**: For generic strings like locations ("ROUTE 1"), always use `{ exact: true }` to avoid matching longer strings ("ROUTE 10", "ROUTE 11").
 - **Integrated Search**: The Pokedex uses an integrated search bar in the header. Use `page.getByPlaceholder('Search Pokémon...')` for reliable interactions.
