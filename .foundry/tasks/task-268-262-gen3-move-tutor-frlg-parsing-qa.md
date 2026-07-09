@@ -2,10 +2,10 @@
 id: task-268-262-gen3-move-tutor-frlg-parsing-qa
 type: TASK
 title: Verify Gen 3 FRLG Move Tutor Flags Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-09'
 depends_on:
   - task-268-261-gen3-move-tutor-frlg-parsing-impl
 jules_session_id: null
