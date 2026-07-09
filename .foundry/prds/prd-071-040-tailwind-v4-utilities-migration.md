@@ -8,7 +8,7 @@ created_at: '2026-06-09'
 updated_at: '2026-07-09'
 depends_on:
   - task-071-150-tailwind-v4-adr
-jules_session_id: '3973626004246723402'
+jules_session_id: '17521845438584051586'
 pr_number: null
 parent: idea-071-tailwind-v4-utilities-migration
 tags:

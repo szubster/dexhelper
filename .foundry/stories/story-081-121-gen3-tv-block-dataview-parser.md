@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-06-12'
 updated_at: '2026-07-09'
 depends_on: []
-jules_session_id: '17637224232001163920'
+jules_session_id: '14432273105528556590'
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:
