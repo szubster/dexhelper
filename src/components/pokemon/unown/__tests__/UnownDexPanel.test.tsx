@@ -21,7 +21,7 @@ describe('UnownDexPanel', () => {
   test('renders 0 / 26 discovered when no Unown forms are owned', async () => {
     await render(<UnownDexPanel yourPokemon={[]} />);
     await expect.element(page.getByText('0')).toBeInTheDocument();
-    await expect.element(page.getByText(/26 Forms Discovered/)).toBeInTheDocument();
+    await expect.element(page.getByText(/26 FORMS ACQUIRED/)).toBeInTheDocument();
   });
 
   test('renders correctly when multiple Unown forms are owned', async () => {
