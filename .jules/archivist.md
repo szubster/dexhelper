@@ -75,3 +75,8 @@
 
 **Learning:** Purely operational execution traces (e.g., "I did X", "Permanently failed task-YYY") continually find their way into journals like `.foundry/journals/coder.md` and `.foundry/journals/qa.md` despite existing guidelines, which bloats context.
 **Action:** Used `sed` / a Python script to scrub out operational trace lines starting with "Permanently failed", "I rejected", "I verified", and "Updated generation logic" while being careful to leave canonical architectural constraints untouched. Confirmed that limiting the PR scope strictly to these specific log lines keeps the diff manageable and safe.
+
+## 2026-07-09 - Archivist Run Learnings
+
+**Learning:** Purely operational execution traces (e.g., "Rejecting Task due to Max Rejections & Missing Dependencies") continually find their way into journals like `.foundry/journals/coder.md` and duplicate memory entries like "Verification of Gen 2 Pokerus State Exfiltration Epic" find their way into `.foundry/journals/auditor.md`. Also `.serena/memories/foundry/v2-transition-bootstrap.md` references the old completed `IDEA-002`.
+**Action:** Used `sed` to scrub out these lines from `.foundry/journals/coder.md` and `.foundry/journals/auditor.md`. Deleted `.serena/memories/foundry/v2-transition-bootstrap.md` which references old architecture.
