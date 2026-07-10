@@ -38,6 +38,6 @@ We need to extract the daily lottery PRNG seed to predict lottery numbers for th
 - **Empty PRs**: If you submit an empty PR for a completed task (e.g. simply creating the markdown file was the scope), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Create or update a document in `.foundry/docs/knowledge_base/` detailing the lottery offsets for Ruby, Sapphire, and Emerald.
-- [ ] Include the memory offset, data type/length, and the block in which it resides (e.g. SaveBlock1, SaveBlock2).
-- [ ] Verify that the offsets align with standard Gen 3 save file documentation (e.g., bulbapedia, smogon, or other romhacking resources).
+- [x] Create or update a document in `.foundry/docs/knowledge_base/` detailing the lottery offsets for Ruby, Sapphire, and Emerald.
+- [x] Include the memory offset, data type/length, and the block in which it resides (e.g. SaveBlock1, SaveBlock2).
+- [x] Verify that the offsets align with standard Gen 3 save file documentation (e.g., bulbapedia, smogon, or other romhacking resources).
