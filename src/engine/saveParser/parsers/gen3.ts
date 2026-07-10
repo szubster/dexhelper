@@ -161,6 +161,26 @@ export const FRLG_MOVE_TUTOR_BYTE_2_OFFSET = 0x59;
 export const FRLG_MOVE_TUTOR_BYTE_3_OFFSET = 0x5b;
 export const FRLG_MOVE_TUTOR_BYTE_4_OFFSET = 0x5c;
 
+// NPC Trade Flags (RSE)
+const FLAG_RUSTBORO_NPC_TRADE_COMPLETED = 0x99;
+const FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED = 0x9a;
+const FLAG_FORTREE_NPC_TRADE_COMPLETED = 0x9b;
+const FLAG_BATTLE_FRONTIER_TRADE_DONE = 0x9c; // Emerald Only
+
+// NPC Trade Flags (FRLG)
+const FLAG_DID_MIMIEN_TRADE = 0x248;
+const FLAG_DID_ZYNX_TRADE = 0x24a;
+const FLAG_DID_MS_NIDO_TRADE = 0x24b;
+const FLAG_DID_CH_DING_TRADE = 0x24d;
+const FLAG_DID_NINA_TRADE = 0x251;
+const FLAG_DID_MARC_TRADE = 0x257;
+const FLAG_DID_ESPHERE_TRADE = 0x274;
+const FLAG_DID_TANGENY_TRADE = 0x275;
+const FLAG_DID_SEELOR_TRADE = 0x276;
+
+const FLAG_BYTE_SHIFT = 3;
+const FLAG_BIT_MASK = 7;
+
 const MOVE_TUTOR_SWAGGER_BIT = 1;
 const MOVE_TUTOR_ROLLOUT_BIT = 2;
 const MOVE_TUTOR_FURY_CUTTER_BIT = 3;
@@ -931,15 +951,33 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     let gen3TotalBattlePoints: number | undefined;
     let gen3BattlePoints: number | undefined;
     let gen3MoveTutors: Gen3MoveTutors | undefined;
+    let gen3NPCTrades: Record<string, boolean> | undefined;
+
     if (_forcedVersion === 'emerald') {
       try {
         gen3MoveTutors = parseGen3EmeraldMoveTutors(view, section1Offset);
       } catch {
         // Ignored
       }
+      try {
+        gen3NPCTrades = parseGen3RSENPCTrades(view, section1Offset);
+      } catch {
+        // Ignored
+      }
+    } else if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire') {
+      try {
+        gen3NPCTrades = parseGen3RSENPCTrades(view, section1Offset);
+      } catch {
+        // Ignored
+      }
     } else if (_forcedVersion === 'firered' || _forcedVersion === 'leafgreen') {
       try {
         gen3MoveTutors = parseGen3FRLGMoveTutors(view, section1Offset);
+      } catch {
+        // Ignored
+      }
+      try {
+        gen3NPCTrades = parseGen3FRLGNPCTrades(view, section1Offset);
       } catch {
         // Ignored
       }
@@ -1009,6 +1047,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
     if (gen3BattlePoints !== undefined) {
       result.gen3BattlePoints = gen3BattlePoints;
+    }
+    if (gen3NPCTrades !== undefined) {
+      result.gen3NPCTrades = gen3NPCTrades;
     }
     return result;
   } catch (error) {
@@ -1154,6 +1195,75 @@ export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock1Offset: num
  * @returns An object containing boolean flags for each move tutor.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
+/**
+ * Parses the NPC trade completion flags from a Gen 3 RSE save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @returns An object containing boolean statuses for each RSE NPC trade.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3RSENPCTrades(view: DataView, saveBlock1Offset: number): Record<string, boolean> {
+  try {
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+
+    const readFlag = (flag: number) => {
+      const byteOffset = baseOffset + (flag >> FLAG_BYTE_SHIFT);
+      const bitIndex = flag & FLAG_BIT_MASK;
+      return !!((view.getUint8(byteOffset) >> bitIndex) & 1);
+    };
+
+    return {
+      RUSTBORO: readFlag(FLAG_RUSTBORO_NPC_TRADE_COMPLETED),
+      PACIFIDLOG: readFlag(FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED),
+      FORTREE: readFlag(FLAG_FORTREE_NPC_TRADE_COMPLETED),
+      BATTLE_FRONTIER: readFlag(FLAG_BATTLE_FRONTIER_TRADE_DONE), // Emerald only, but safe to extract
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
+ * Parses the NPC trade completion flags from a Gen 3 FRLG save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @returns An object containing boolean statuses for each FRLG NPC trade.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3FRLGNPCTrades(view: DataView, saveBlock1Offset: number): Record<string, boolean> {
+  try {
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+
+    const readFlag = (flag: number) => {
+      const byteOffset = baseOffset + (flag >> FLAG_BYTE_SHIFT);
+      const bitIndex = flag & FLAG_BIT_MASK;
+      return !!((view.getUint8(byteOffset) >> bitIndex) & 1);
+    };
+
+    return {
+      MIMIEN: readFlag(FLAG_DID_MIMIEN_TRADE),
+      ZYNX: readFlag(FLAG_DID_ZYNX_TRADE),
+      MS_NIDO: readFlag(FLAG_DID_MS_NIDO_TRADE),
+      CH_DING: readFlag(FLAG_DID_CH_DING_TRADE),
+      NINA: readFlag(FLAG_DID_NINA_TRADE),
+      MARC: readFlag(FLAG_DID_MARC_TRADE),
+      ESPHERE: readFlag(FLAG_DID_ESPHERE_TRADE),
+      TANGENY: readFlag(FLAG_DID_TANGENY_TRADE),
+      SEELOR: readFlag(FLAG_DID_SEELOR_TRADE),
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3FRLGMoveTutors(view: DataView, saveBlock1Offset: number) {
   try {
     const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;

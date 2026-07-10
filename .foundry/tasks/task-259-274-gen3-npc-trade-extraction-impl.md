@@ -38,5 +38,5 @@ Refer to `.foundry/docs/knowledge_base/gen3_npc_trade_offsets.md` for the exact 
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Define memory constants for all RSE and FRLG NPC trade flags at the module level.
-- [ ] Implement Gen 3 DataView parsers to extract NPC trade flags.
+- [x] Define memory constants for all RSE and FRLG NPC trade flags at the module level.
+- [x] Implement Gen 3 DataView parsers to extract NPC trade flags.

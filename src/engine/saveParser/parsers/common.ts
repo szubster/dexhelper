@@ -184,6 +184,8 @@ export interface SaveData {
   partyDetails: PokemonInstance[];
   /** Detailed structural data for all Pokémon stored in PC boxes. */
   pcDetails: PokemonInstance[];
+  /** In-game NPC trade status flags mapped by their flag name for Gen 3 games. */
+  gen3NPCTrades?: Record<string, boolean>;
   /** The specific game version detected or forced (e.g., 'red', 'crystal'). */
   gameVersion: GameVersion;
   /** Bitflag representation of the total number of gym badges obtained. */
