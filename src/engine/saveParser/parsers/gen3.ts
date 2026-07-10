@@ -211,6 +211,12 @@ export const GEN3_RS_ASH_OFFSET = 0x13d0;
  * If the section exists in both banks, it compares their `saveIndex` values (the number of times
  * the game has been saved) to return the offset of the most recent, non-corrupted write.
  *
+ * **Why this is needed:**
+ * Generation 3 uses an A/B bank flash memory architecture to prevent data corruption during saves.
+ * It alternates writing between two 56KB blocks (`0x0000` and `0xE000`). If power is lost mid-save,
+ * the older bank remains intact. The engine must scan both banks, verify the `0x08012025` signature,
+ * and compare the `saveIndex` values (the highest index represents the most recent successful save).
+ *
  * @param view - The raw save file DataView.
  * @param targetSectionId - The internal ID of the section to locate (e.g., 1 for SaveBlock1, 2 for SaveBlock2).
  * @returns The memory offset of the most recent section.
@@ -421,6 +427,16 @@ export function parseGen3EggSteps(
  *
  * *Note:* Gen 3 Pokémon roamer map locations are stored in dynamic EWRAM while the game is running
  * and are *not* serialized into the .sav battery save file. Therefore, only static attributes can be extracted.
+ *
+ * **Why memory offsets shift:**
+ * Game Freak continually modified the SaveBlock1 layout throughout Generation 3 to accommodate
+ * new mechanics. For example, FireRed/LeafGreen removed Secret Bases and Contests, while Emerald
+ * added Battle Frontier data, causing the Roamer block to shift to different static offsets
+ * across releases (`0x3144` in RS, `0x31DC` in Emerald, `0x30D0` in FRLG).
+ *
+ * **Data Packing:**
+ * To conserve memory, all 6 Individual Values (IVs) are bit-packed into a single 32-bit integer,
+ * rather than stored as separate bytes.
  *
  * @param view - The raw save file DataView.
  * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
@@ -634,6 +650,12 @@ export function parseGen3ConditionStats(view: DataView, offset: number) {
  * The Mirage Island value is a 16-bit random number generated daily by the game's RTC.
  * It is compared against the lower 16 bits of the Personality Values of all Pokémon in
  * the player's party to determine if Mirage Island spawns on Route 130.
+ *
+ * **Why this exists:**
+ * In Ruby, Sapphire, and Emerald, Mirage Island is a hidden location on Route 130 that only
+ * appears if the lower 16 bits of a party Pokémon's Personality Value (PV) matches this
+ * 16-bit randomly generated daily integer. The engine extracts this so the assistant can
+ * notify the user if they currently possess a matching Pokémon in their PC or Party.
  *
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to read the value from.
