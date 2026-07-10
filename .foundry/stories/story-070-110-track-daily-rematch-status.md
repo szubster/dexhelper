@@ -32,4 +32,6 @@ Players can battle the NPC trainers in Secret Bases once per day. We need to tra
 - Integrate this status into the extracted trainer data so the UI can display availability.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-110-299-gen3-secret-base-daily-rematch-impl
+- [ ] task-110-300-gen3-secret-base-daily-rematch-qa
