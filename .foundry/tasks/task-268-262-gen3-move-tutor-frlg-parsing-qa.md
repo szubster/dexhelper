@@ -34,7 +34,7 @@ Verify the implementation of FireRed and LeafGreen Move Tutor flags extraction.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify that the coder used DataView API to extract data.
-- [ ] Verify that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level.
-- [ ] Verify that `RangeError` is properly caught for out-of-bounds reads.
-- [ ] Verify that unit tests pass and cover the Move Tutor extraction for FRLG.
+- [x] Verify that the coder used DataView API to extract data.
+- [x] Verify that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level.
+- [x] Verify that `RangeError` is properly caught for out-of-bounds reads.
+- [x] Verify that unit tests pass and cover the Move Tutor extraction for FRLG.
