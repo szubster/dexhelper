@@ -5,7 +5,7 @@ title: Roamer Data Extraction
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-30'
+updated_at: '2026-07-10'
 depends_on: []
 jules_session_id: '2642757766813408295'
 pr_number: null
@@ -13,7 +13,10 @@ parent: prd-070-043-roamer-tracking-dashboard
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: 'Gen 3 roamer location extraction is impossible as the data is not serialized in the save file (per adr-108-027-gen3-roamer-location-impossible). Replaced by epic-044-101.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Gen 3 roamer location extraction is impossible as the data is
+  not serialized in the save file (per
+  adr-108-027-gen3-roamer-location-impossible). Replaced by epic-044-101.
 notes: ''
 ---
 

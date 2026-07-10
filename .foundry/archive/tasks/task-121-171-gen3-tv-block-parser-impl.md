@@ -5,7 +5,7 @@ title: Implement Gen 3 TV Block DataView Parser
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-13'
-updated_at: '2026-06-22'
+updated_at: '2026-07-10'
 depends_on:
   - research-121-171-gen3-tv-block-offsets
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 2
-rejection_reason: 'Reached max rejection count. Replaced by research-121-216 and task-121-217.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Reached max rejection count. Replaced by research-121-216 and
+  task-121-217.
 notes: ''
 ---
 

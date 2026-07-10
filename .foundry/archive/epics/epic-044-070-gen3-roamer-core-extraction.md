@@ -5,7 +5,7 @@ title: Gen 3 Roamer Core Extraction
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-07-02'
+updated_at: '2026-07-10'
 depends_on: []
 jules_session_id: '6294441102483369983'
 pr_number: null
@@ -16,7 +16,9 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: 'Cancelled and replaced by epic-044-101-gen3-roamer-core-extraction-v2.md'
+rejection_reason: >-
+  [ACKNOWLEDGED] Cancelled and replaced by
+  epic-044-101-gen3-roamer-core-extraction-v2.md
 notes: ''
 ---
 
