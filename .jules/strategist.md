@@ -351,3 +351,9 @@
 **Outcome:** Merged
 **Why:** The `coder` journal recorded that Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`. This rule is frequently missed during implementation.
 **Pattern:** Codify specific, recurring test framework constraints (like Vitest mock typing rules) directly into the implementer's prompt (Coder) to prevent recurring lint/test failures during the QA phase.
+
+## 2026-07-25 - [Accepted] - Prompt improvement - Consolidate Node Generation Rules
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The prompt evaluation identified massive duplication in the agent prompts where a huge block regarding the "NODE GENERATION RULES" (DAG ID strictness, sequence numbers, pipeline order, premature verification warnings) was repeated verbatim across the generative agents (`product_manager`, `epic_planner`, `story_owner`, `tech_lead`). This bloated the prompts and made updating the rules error-prone.
+**Pattern:** Consolidate duplicated core prompt instructions (e.g. node generation rules) into `.foundry/docs/knowledge_base/agents/core_policies.md` and instruct the agents to read it. This drastically reduces prompt size, creates a single source of truth, and allows global policy updates without touching multiple individual schedule files.
