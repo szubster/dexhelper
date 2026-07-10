@@ -26,7 +26,7 @@ rejection_reason: ''
 This Epic ensures that the orchestrator refactors and schema updates are heavily validated with automated testing, covering edge cases in DAG resolution with atomic nodes.
 
 ## Prerequisites
-- Completion of Orchestrator Script Refactor (`.foundry/epics/epic-008-atomic-handoff-orchestrator.md`)
+- Completion of Orchestrator Script Refactor (`.foundry/archive/epics/epic-008-atomic-handoff-orchestrator.md`)
 
 ## Acceptance Criteria
 - [x] Unit tests added for DAG resolution with strictly single-persona nodes.
