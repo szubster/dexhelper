@@ -15,7 +15,7 @@ tags:
   - ash
   - parsing
 research_references:
-  - .foundry/research/research-054-243-gen3-ash-gathering-offsets.md
+  - .foundry/archive/research/research-054-243-gen3-ash-gathering-offsets.md
 rejection_count: 0
 rejection_reason: ''
 notes: ''

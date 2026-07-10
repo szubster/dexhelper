@@ -42,7 +42,7 @@ None. This is the foundational engine epic.
 ## 4. Acceptance Criteria
 - [x] Story Owner: Break this Epic down into actionable Stories.
 - [ ] .foundry/archive/stories/story-053-090-health-scanner-diagnostic-models.md
-- [ ] .foundry/stories/story-053-091-health-scanner-gen1-checksum-validation.md
-- [ ] .foundry/stories/story-053-092-health-scanner-gen2-checksum-validation.md
-- [ ] .foundry/stories/story-053-093-health-scanner-pokemon-bounds-verification.md
+- [ ] .foundry/archive/stories/story-053-091-health-scanner-gen1-checksum-validation.md
+- [ ] .foundry/archive/stories/story-053-092-health-scanner-gen2-checksum-validation.md
+- [ ] .foundry/archive/stories/story-053-093-health-scanner-pokemon-bounds-verification.md
 - [ ] .foundry/stories/story-053-094-health-scanner-moveset-inventory-validation.md

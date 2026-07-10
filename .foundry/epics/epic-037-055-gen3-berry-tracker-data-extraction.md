@@ -40,5 +40,5 @@ As mandated by ADR 010 (`010-gen3-data-parsing.md`), all data parsing must stric
 - [ ] Serialize the extracted data using `msgpackr` and integrate with the runtime data API.
 
 ### Generated Stories
-- [ ] .foundry/stories/story-055-095-gen3-berry-data-parsing.md
+- [ ] .foundry/archive/stories/story-055-095-gen3-berry-data-parsing.md
 - [ ] .foundry/stories/story-055-096-gen3-berry-msgpack-integration.md
