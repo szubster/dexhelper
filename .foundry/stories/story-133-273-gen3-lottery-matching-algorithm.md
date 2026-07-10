@@ -30,4 +30,5 @@ Implement the logic to compare Pokémon OT IDs against the daily winning number.
 - Select the best matching Pokémon.
 
 ## Acceptance Criteria
-- [ ] Implement matching logic
+- [x] Implement matching logic
+- [ ] task-273-303-lottery-matching-core-logic
