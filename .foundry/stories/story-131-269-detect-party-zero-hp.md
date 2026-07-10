@@ -30,7 +30,7 @@ Implement logic to detect Pokémon in the party with 0 HP and mark them as dead.
 
 ## Acceptance Criteria
 - [x] Tasks are generated
-- [ ] task-269-263-detect-party-zero-hp-impl
+- [x] task-269-263-detect-party-zero-hp-impl
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
