@@ -23,6 +23,8 @@ notes: ''
 
 # Task: QA Gen 3 TV Block DataView Parser (Retry 5)
 
+CANCELLED: Replaced by task-121-305-gen3-tv-block-parser-retry5-qa.
+
 ## Description
 Verify the implementation of the Gen 3 TV block `DataView` parser to ensure it correctly and safely parses the data according to the architecture guidelines and the findings from `research-121-246-gen3-tv-block-parser-retry-failure`.
 
