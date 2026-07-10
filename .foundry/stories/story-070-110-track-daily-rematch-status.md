@@ -2,13 +2,13 @@
 id: story-070-110-track-daily-rematch-status
 type: STORY
 title: Track Gen 3 Secret Base Daily Rematch Status
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-10'
-updated_at: '2026-07-09'
+updated_at: '2026-07-10'
 depends_on:
   - story-070-109-extract-mixed-record-trainer-data
-jules_session_id: '12745778020139247265'
+jules_session_id: null
 pr_number: null
 parent: epic-045-070-gen3-secret-base-parsing
 tags:
