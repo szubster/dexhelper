@@ -58,6 +58,10 @@ Based on an initial evaluation of the codebase:
 - [ ] epic-043-140-gen2-roamer-map-translation
 - [ ] epic-043-142-gen2-roamer-radar-widget
 - [ ] epic-043-143-gen2-roamer-map-integration
+- [ ] epic-043-152-gen3-roamer-data-extraction
+- [ ] epic-043-153-gen3-roamer-map-translation
+- [ ] epic-043-154-gen3-roamer-radar-widget
+- [ ] epic-043-155-gen3-roamer-map-integration
 
 ## 5. Next Steps
 - [x] Epic Planner: Break this PRD down into executable Epics (e.g., Engine Parsing, Mapping Translation, UI Dashboard).
