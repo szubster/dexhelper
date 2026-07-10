@@ -2,12 +2,12 @@
 id: idea-102-gen3-trainer-card-stars
 type: IDEA
 title: Gen 3 Trainer Card Stars & Achievements Dashboard
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-05'
-updated_at: '2026-07-05'
+updated_at: '2026-07-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16044849192547544369'
 pr_number: null
 parent: null
 tags:
