@@ -18,7 +18,7 @@ tags:
   - save-parsing
   - qa
 research_references:
-  - .foundry/research/research-125-173-gen3-match-call-offsets.md
+  - .foundry/archive/research/research-125-173-gen3-match-call-offsets.md
 rejection_count: 0
 rejection_reason: ''
 notes: ''
