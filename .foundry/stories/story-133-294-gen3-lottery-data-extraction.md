@@ -1,11 +1,11 @@
 ---
-id: story-133-272-gen3-lottery-data-extraction
+id: story-133-294-gen3-lottery-data-extraction
 type: STORY
 title: Gen3 Lottery Data Extraction
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-05'
-updated_at: '2026-07-10'
+updated_at: '2026-07-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,5 +30,5 @@ Extract the daily winning lottery number from Gen3 save files.
 
 ## Acceptance Criteria
 - [x] Implement parser
-- [ ] task-272-301-gen3-lottery-data-extraction-impl
-- [ ] task-272-302-gen3-lottery-data-extraction-qa
+- [ ] task-294-301-gen3-lottery-data-extraction-impl
+- [ ] task-294-302-gen3-lottery-data-extraction-qa

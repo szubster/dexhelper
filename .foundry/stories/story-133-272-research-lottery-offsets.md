@@ -5,7 +5,7 @@ title: Research Lottery Offsets
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-05'
-updated_at: '2026-07-10'
+updated_at: '2026-07-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -24,7 +24,7 @@ Research the memory offsets for the daily lottery PRNG seed in Ruby, Sapphire, a
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-272-301-research-gen3-lottery-offsets
+- [ ] research-272-297-gen3-lottery-offsets
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

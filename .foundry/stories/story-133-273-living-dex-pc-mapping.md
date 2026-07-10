@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
 depends_on:
-  - story-133-272-living-dex-ghost-tracker
+  - .foundry/stories/story-133-295-living-dex-ghost-tracker.md
 jules_session_id: null
 pr_number: null
 parent: epic-103-133-living-dex-data-engine

@@ -1,15 +1,15 @@
 ---
-id: task-272-301-gen3-lottery-data-extraction-impl
+id: task-294-301-gen3-lottery-data-extraction-impl
 type: TASK
 title: Implement Gen3 Lottery Data Extraction
 status: READY
 owner_persona: coder
 created_at: '2026-07-10'
-updated_at: '2026-07-10'
+updated_at: '2026-07-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: story-133-272-gen3-lottery-data-extraction
+parent: story-133-294-gen3-lottery-data-extraction
 tags:
   - feature
   - gen3

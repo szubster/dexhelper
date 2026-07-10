@@ -31,7 +31,7 @@ Develop a logic module to iterate through the player's party and PC boxes to com
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-133-272-gen3-lottery-data-extraction
+- [ ] story-133-294-gen3-lottery-data-extraction
 - [ ] story-133-273-gen3-lottery-matching-algorithm
 - [ ] story-133-274-gen3-lottery-ui-integration
 
