@@ -343,6 +343,29 @@ function promoteNodeToFailedWithReason(node: ParsedNode, reason: string): void {
   info(`${dryTag}Flagged node as FAILED due to ${reason}: ${node.repoPath}`);
 }
 
+function acknowledgeNodeFailure(node: ParsedNode): void {
+  const dateStr = todayISO();
+  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+
+  const newReason = `[ACKNOWLEDGED] ${node.frontmatter.rejection_reason || ''}`.trim();
+  const newData = { ...node.frontmatter, rejection_reason: newReason, updated_at: dateStr };
+  const newContent = matter.stringify(node.body, newData);
+
+  if (!DRY_RUN) {
+    try {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+    } catch (e) {
+      warn(`Failed to write file: ${node.repoPath} — ${String(e)}`);
+      return;
+    }
+  }
+
+  node.frontmatter = newData as FoundryFrontmatter;
+  node.rawContent = newContent;
+
+  info(`${dryTag}Acknowledged failure in: ${node.repoPath}`);
+}
+
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
@@ -654,6 +677,7 @@ function main(): void {
     if (
       (node.frontmatter.status === 'FAILED' || node.frontmatter.status === 'CANCELLED') &&
       node.frontmatter.rejection_reason &&
+      !node.frontmatter.rejection_reason.startsWith('[ACKNOWLEDGED]') &&
       node.frontmatter.rejection_reason !== 'Cancelled due to cascading cancellation from parent' &&
       !node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:')
     ) {
@@ -677,10 +701,12 @@ function main(): void {
           } else {
             promoteNodeStatus(parentNode, parentNode.frontmatter.status, 'READY');
           }
+          acknowledgeNodeFailure(node);
         }
       } else if (node.frontmatter.owner_persona !== 'tpm') {
         info(`Impossible Loop: flagging node without parent for TPM: ${node.repoPath}`);
         promoteNodeToTpm(node);
+        acknowledgeNodeFailure(node);
       }
     }
   }
