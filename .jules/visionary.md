@@ -198,3 +198,7 @@
 ## 2026-07-09
 **Idea:** Gen 2 Room Decoration Tracker
 **Learning:** Targeting unique, version-exclusive mechanics (like Gen 2 room decorations and Mom's savings) provides high utility. Since these are unlocked via hidden event flags or specific gameplay actions, extracting them directly from the save file transforms a guessing game into a predictable, manageable dashboard, reinforcing DexHelper as a premium companion app.
+
+## 2026-07-10
+**Idea:** Gen 2 & Gen 3 NPC Size Record Assistant
+**Learning:** Targeting mathematically complex, hidden sub-mechanics (like Pokémon size generation, which uses a convoluted formula based on IVs/PID) provides incredible unique utility. Players are often tasked by NPCs (e.g., Fishing Gurus) to show them abnormally large Pokémon. Automating this calculation across all Box Pokémon completely eliminates trial-and-error, perfectly leveraging our programmatic parsing strengths to replace manual frustration with instant, actionable insight.
