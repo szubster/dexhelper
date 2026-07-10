@@ -5,7 +5,7 @@ title: Roamer Map Translation
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-30'
+updated_at: '2026-07-10'
 depends_on:
   - epic-043-067-roamer-data-extraction
 jules_session_id: '10427083293234593843'
@@ -14,7 +14,9 @@ parent: prd-070-043-roamer-tracking-dashboard
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: 'Dependency epic-043-067-roamer-data-extraction failed permanently due to Gen 3 roamer locations not being serialized in save files.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Dependency epic-043-067-roamer-data-extraction failed
+  permanently due to Gen 3 roamer locations not being serialized in save files.
 notes: ''
 ---
 

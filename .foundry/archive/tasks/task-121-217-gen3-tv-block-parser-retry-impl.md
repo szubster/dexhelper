@@ -5,7 +5,7 @@ title: Implement Gen 3 TV Block DataView Parser (Retry)
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-23'
-updated_at: '2026-06-23'
+updated_at: '2026-07-10'
 depends_on:
   - research-121-216-gen3-tv-block-parser-failure
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: 'Reached max rejection count. Replaced by task-121-219.'
+rejection_reason: '[ACKNOWLEDGED] Reached max rejection count. Replaced by task-121-219.'
 notes: ''
 ---
 

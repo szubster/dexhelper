@@ -5,7 +5,7 @@ title: Migrate Core Tactical Components
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-06-27'
+updated_at: '2026-07-10'
 depends_on:
   - epic-071-074-define-tailwind-v4-utilities
 jules_session_id: '5924211060719376072'
@@ -16,7 +16,7 @@ tags:
   - refactor
 research_references: []
 rejection_count: 0
-rejection_reason: 'CANCELLED because its parent epic-071-074 failed permanently'
+rejection_reason: '[ACKNOWLEDGED] CANCELLED because its parent epic-071-074 failed permanently'
 notes: ''
 ---
 
