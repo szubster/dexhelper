@@ -2,12 +2,12 @@
 id: task-270-263-graveyard-box-logic-impl
 type: TASK
 title: Graveyard Box State and Logic Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-05'
-updated_at: '2026-07-05'
+updated_at: '2026-07-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12965056851425860952'
 pr_number: null
 parent: story-131-270-graveyard-box-state
 tags:
