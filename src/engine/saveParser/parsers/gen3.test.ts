@@ -17,12 +17,14 @@ import {
   parseGen3EggSteps,
   parseGen3EmeraldMoveTutors,
   parseGen3FRLGMoveTutors,
+  parseGen3FRLGNPCTrades,
   parseGen3MirageIslandValue,
   parseGen3MixRecords,
   parseGen3PersonalityValue,
   parseGen3PokeNews,
   parseGen3Ribbons,
   parseGen3Roamer,
+  parseGen3RSENPCTrades,
   parseGen3SecretBases,
   parseGen3TotalBattlePoints,
   parseGen3VolcanicAsh,
@@ -1103,6 +1105,83 @@ describe('parseGen3EmeraldMoveTutors', () => {
     const buffer = new ArrayBuffer(10);
     const view = new DataView(buffer);
     expect(() => parseGen3EmeraldMoveTutors(view, 0)).toThrow('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3RSENPCTrades', () => {
+  it('correctly parses RSE NPC trade flags', () => {
+    const buffer = new ArrayBuffer(0x2000);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0;
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+
+    // FLAG_RUSTBORO_NPC_TRADE_COMPLETED = 0x99
+    // byteOffset = 0x99 / 8 = 19
+    // bitIndex = 0x99 % 8 = 1
+    // Set Rustboro and Fortree (0x9B -> byte 19, bit 3)
+    view.setUint8(baseOffset + 19, (1 << 1) | (1 << 3));
+
+    // FLAG_BATTLE_FRONTIER_TRADE_DONE = 0x9C
+    // byteOffset = 0x9C / 8 = 19
+    // bitIndex = 0x9C % 8 = 4
+    view.setUint8(baseOffset + 19, (1 << 1) | (1 << 3) | (1 << 4));
+
+    const result = parseGen3RSENPCTrades(view, saveBlock1Offset);
+    expect(result).toEqual({
+      RUSTBORO: true,
+      PACIFIDLOG: false,
+      FORTREE: true,
+      BATTLE_FRONTIER: true,
+    });
+  });
+
+  it('throws correct error on out of bounds read', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+    expect(() => parseGen3RSENPCTrades(view, 0)).toThrow('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3FRLGNPCTrades', () => {
+  it('correctly parses FRLG NPC trade flags', () => {
+    const buffer = new ArrayBuffer(0x2000);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0;
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+
+    // FLAG_DID_MIMIEN_TRADE = 0x248
+    // byteOffset = 0x248 / 8 = 73
+    // bitIndex = 0x248 % 8 = 0
+    view.setUint8(baseOffset + 73, 1 << 0);
+
+    // FLAG_DID_NINA_TRADE = 0x251
+    // byteOffset = 0x251 / 8 = 74
+    // bitIndex = 0x251 % 8 = 1
+    view.setUint8(baseOffset + 74, 1 << 1);
+
+    // FLAG_DID_SEELOR_TRADE = 0x276
+    // byteOffset = 0x276 / 8 = 78
+    // bitIndex = 0x276 % 8 = 6
+    view.setUint8(baseOffset + 78, 1 << 6);
+
+    const result = parseGen3FRLGNPCTrades(view, saveBlock1Offset);
+    expect(result).toEqual({
+      MIMIEN: true,
+      ZYNX: false,
+      MS_NIDO: false,
+      CH_DING: false,
+      NINA: true,
+      MARC: false,
+      ESPHERE: false,
+      TANGENY: false,
+      SEELOR: true,
+    });
+  });
+
+  it('throws correct error on out of bounds read', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+    expect(() => parseGen3FRLGNPCTrades(view, 0)).toThrow('The save file is corrupted or incomplete.');
   });
 });
 
