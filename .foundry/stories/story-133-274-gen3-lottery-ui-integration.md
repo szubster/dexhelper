@@ -2,12 +2,12 @@
 id: story-133-274-gen3-lottery-ui-integration
 type: STORY
 title: Gen3 Lottery UI Integration
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-05'
-updated_at: '2026-07-05'
+updated_at: '2026-07-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6456106549186661426'
 pr_number: null
 parent: epic-105-133-lottery-matching-logic
 tags:
