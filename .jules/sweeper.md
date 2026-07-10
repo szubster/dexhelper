@@ -5,3 +5,6 @@
 * Sweeper PRs must use the title format `🧹 [description]` and include `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result` in the body.
 
 - If `pnpm install` hangs or fails during git hook setup (e.g., `lefthook install`), run `git config --unset-all --global core.hooksPath` before retrying the installation.
+- The Sweeper persona's private journal is strictly `.jules/sweeper.md` and must adhere to the Journaling Policies defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+- Sweeper persona PRs must use the title format `🧹 [description]` and include `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result` in the pull request body.
+- When using static analysis tools like `knip` to find unused exports, explicitly verify candidates using a global repository search (e.g., `grep`) before removal to ensure they are not implicitly required by tests, mocks, or CI scripts.
