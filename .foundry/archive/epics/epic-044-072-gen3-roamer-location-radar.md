@@ -5,7 +5,7 @@ title: Gen 3 Roamer Location Radar
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-06-19'
+updated_at: '2026-07-10'
 depends_on: []
 jules_session_id: '18072430624236273510'
 pr_number: null
@@ -16,7 +16,9 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: 'Gen 3 roamer locations cannot be extracted statically from save files (as they live in EWRAM, per ADR-108-027).'
+rejection_reason: >-
+  [ACKNOWLEDGED] Gen 3 roamer locations cannot be extracted statically from save
+  files (as they live in EWRAM, per ADR-108-027).
 notes: ''
 ---
 

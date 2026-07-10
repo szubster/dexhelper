@@ -5,7 +5,7 @@ title: Roamer Radar UI
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-07-01'
+updated_at: '2026-07-10'
 depends_on:
   - epic-043-068-roamer-map-translation
 jules_session_id: null
@@ -14,7 +14,7 @@ parent: prd-070-043-roamer-tracking-dashboard
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: 'Replaced by epic-043-141-gen2-roamer-radar-ui'
+rejection_reason: '[ACKNOWLEDGED] Replaced by epic-043-141-gen2-roamer-radar-ui'
 notes: ''
 ---
 

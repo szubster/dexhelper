@@ -2,7 +2,7 @@
 id: epic-107-302-update-dashboard-rejection-count
 type: EPIC
 title: Update UI Views with Lifted Constant
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-10'
 updated_at: '2026-07-10'

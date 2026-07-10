@@ -5,7 +5,7 @@ title: Migrate Complex Application Components
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-06-28'
+updated_at: '2026-07-10'
 depends_on:
   - epic-071-075-migrate-core-tactical-components
 jules_session_id: '8935458465003324011'
@@ -16,7 +16,9 @@ tags:
   - refactor
 research_references: []
 rejection_count: 0
-rejection_reason: 'Dependency chain failed permanently. Replaced by epic-071-099-migrate-complex-app-components-retry.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Dependency chain failed permanently. Replaced by
+  epic-071-099-migrate-complex-app-components-retry.
 notes: ''
 ---
 
