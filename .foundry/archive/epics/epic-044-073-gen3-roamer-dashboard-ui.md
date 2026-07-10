@@ -5,7 +5,7 @@ title: Gen 3 Roamer Dashboard UI
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-07-02'
+updated_at: '2026-07-10'
 depends_on:
   - epic-044-070-gen3-roamer-core-extraction
   - epic-044-071-gen3-roamer-iv-glitch
@@ -19,7 +19,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: 'Location radar dependency is impossible (ADR-108-027).'
+rejection_reason: '[ACKNOWLEDGED] Location radar dependency is impossible (ADR-108-027).'
 notes: ''
 ---
 
