@@ -2,12 +2,12 @@
 id: task-269-263-detect-party-zero-hp-impl
 type: TASK
 title: Implement logic to detect party zero HP as dead
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-05'
 updated_at: '2026-07-10'
 depends_on: []
-jules_session_id: '2391853084338771484'
+jules_session_id: null
 pr_number: null
 parent: story-131-269-detect-party-zero-hp
 tags:

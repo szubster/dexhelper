@@ -5,7 +5,7 @@ title: Gen 3 Roamer Dashboard UI v2
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-20'
-updated_at: '2026-07-03'
+updated_at: '2026-07-10'
 depends_on:
   - research-044-207-gen3-roamer-ui-alternatives
   - epic-044-070-gen3-roamer-core-extraction
@@ -19,7 +19,10 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: 'Cancelled and replaced by epic-044-122-gen3-roamer-dashboard-ui-v3.md because its dependencies were cancelled and replaced.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Cancelled and replaced by
+  epic-044-122-gen3-roamer-dashboard-ui-v3.md because its dependencies were
+  cancelled and replaced.
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: task-272-301-research-gen3-lottery-offsets
 type: TASK
 title: Research Gen3 Lottery Offsets
-status: PENDING
+status: FAILED
 owner_persona: researcher
 created_at: '2026-07-05'
-updated_at: '2026-07-05'
+updated_at: '2026-07-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - gen3
   - research
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Invalid owner_persona mapping
 notes: ''
 ---
 

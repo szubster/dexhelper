@@ -2,7 +2,7 @@
 id: task-274-302-gen3-lottery-ui-integration-qa
 type: TASK
 title: Gen3 Lottery UI Integration - QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-10'
 updated_at: '2026-07-10'
