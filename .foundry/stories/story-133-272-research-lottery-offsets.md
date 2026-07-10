@@ -2,12 +2,12 @@
 id: story-133-272-research-lottery-offsets
 type: STORY
 title: Research Lottery Offsets
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-05'
 updated_at: '2026-07-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11626636320302515412'
 pr_number: null
 parent: epic-104-133-gen3-lottery-offsets-research
 tags:
