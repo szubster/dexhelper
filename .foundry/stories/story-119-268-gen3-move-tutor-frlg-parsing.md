@@ -2,10 +2,10 @@
 id: story-119-268-gen3-move-tutor-frlg-parsing
 type: STORY
 title: Parse Gen 3 FRLG Move Tutor Flags
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: 2026-07-03T00:00:00.000Z
-updated_at: '2026-07-05'
+updated_at: '2026-07-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
