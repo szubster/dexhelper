@@ -2,12 +2,12 @@
 id: task-272-301-research-gen3-lottery-offsets
 type: TASK
 title: Research Gen3 Lottery Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-07-05'
 updated_at: '2026-07-10'
 depends_on: []
-jules_session_id: '7878602475012188042'
+jules_session_id: null
 pr_number: null
 parent: story-133-272-research-lottery-offsets
 tags:
