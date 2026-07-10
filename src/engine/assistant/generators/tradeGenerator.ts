@@ -61,7 +61,13 @@ export function generateGiftAndTradeSuggestions(
   for (let i = 0; i < staticNpcTradeData.length; i++) {
     const t = staticNpcTradeData[i];
     if (t && t.gen === saveData.generation && (!t.versions || t.versions.includes(displayVersion))) {
-      validNpcTradeIds.add(t.receivedId);
+      let isClaimed = false;
+      if (t.tradeIndex !== undefined && saveData.npcTradeFlags !== undefined) {
+        isClaimed = saveData.npcTradeFlags[t.tradeIndex] ?? false;
+      }
+      if (!isClaimed) {
+        validNpcTradeIds.add(t.receivedId);
+      }
     }
   }
 
