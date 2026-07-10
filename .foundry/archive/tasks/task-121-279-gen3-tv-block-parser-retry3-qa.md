@@ -5,7 +5,7 @@ title: QA Gen 3 TV Block DataView Parser (Retry 4)
 status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-06'
-updated_at: '2026-07-06'
+updated_at: '2026-07-10'
 depends_on:
   - task-121-278-gen3-tv-block-parser-retry3-impl
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: "Max rejections reached"
+rejection_reason: '[ACKNOWLEDGED] Max rejections reached'
 notes: ''
 ---
 
