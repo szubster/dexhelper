@@ -28,4 +28,4 @@ Integrate the lottery matching logic into the UI state to expose the best match 
 - Include details: Winning Number, Best Match Pokémon, OT ID, Matched Digits, Prize Tier.
 
 ## Acceptance Criteria
-- [ ] Expose lottery state
+- [x] Expose lottery state
