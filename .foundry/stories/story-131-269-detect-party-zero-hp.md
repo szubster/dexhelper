@@ -2,12 +2,12 @@
 id: story-131-269-detect-party-zero-hp
 type: STORY
 title: Detect Party Zero HP as Dead
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-10'
 depends_on: []
-jules_session_id: '11445294329612087709'
+jules_session_id: null
 pr_number: null
 parent: epic-097-131-nuzlocke-death-tracking
 tags:
