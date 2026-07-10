@@ -36,4 +36,4 @@ We need to implement logic to detect Pokémon in the party with 0 HP and mark th
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Logic for detecting party Pokémon with 0 HP as dead is implemented and tested.
+- [x] Logic for detecting party Pokémon with 0 HP as dead is implemented and tested.

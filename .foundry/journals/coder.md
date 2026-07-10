@@ -105,3 +105,6 @@ Biome and Oxlint do not currently support custom JS linting rules. The built-in 
 
 ## 2026-07-08: Impossible Task - Wrapping run_in_bash_session
 Task task-267-262-bash-timeout-wrapper-impl was cancelled because `run_in_bash_session` is a built-in platform tool provided to agents, not a script or function defined within this repository's codebase. It is therefore impossible to implement a wrapper or linter for it from within the repo.
+
+## 2026-07-10: Self-Verification of Party Zero HP Detection
+In task `task-269-263-detect-party-zero-hp-impl`, I verified the existing implementation of `getDeadPokemon` in `src/engine/nuzlocke/tracker.ts`. The function correctly extracts party Pokémon that have fainted (HP is 0). I ran `pnpm test` and confirmed that the tests in `src/engine/nuzlocke/tracker.test.ts` cover this functionality and pass successfully. Per the Intelligent Verification Protocol, I have self-verified this simple, low-risk task and am submitting an empty PR with the checked acceptance criteria.
