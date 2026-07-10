@@ -23,7 +23,8 @@ notes: ''
 Research the memory offsets for the daily lottery PRNG seed in Ruby, Sapphire, and Emerald save files.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-272-301-research-gen3-lottery-offsets
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
