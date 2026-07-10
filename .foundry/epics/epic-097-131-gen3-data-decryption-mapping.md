@@ -15,7 +15,7 @@ tags:
   - gen3
   - save-engine
 research_references:
-  - .foundry/research/research-175-176-gen3-pokerus-extraction.md
+  - .foundry/archive/research/research-175-176-gen3-pokerus-extraction.md
 rejection_count: 0
 rejection_reason: ''
 notes: ''

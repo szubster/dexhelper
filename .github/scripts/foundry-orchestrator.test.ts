@@ -1464,7 +1464,7 @@ vi.doMock('node:url', async (importOriginal) => {
 
     const task1Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-001.md'), 'utf-8');
     expect(task1Content).toContain('status: CANCELLED');
-    expect(task1Content).toContain('rejection_reason: Max rejection count reached');
+    expect(task1Content).toContain("rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'");
 
     const task2Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
     expect(task2Content).toContain('status: CANCELLED');
