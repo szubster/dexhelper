@@ -101,3 +101,6 @@ Critical learnings:
 
 ## 2026-06-25 - Strict Focus on Tooling, Not Application Code
 **Learning:** When tasked with improving development tooling (e.g., updating Biome, configuring Knip), strictly avoid modifying application logic or UI code to address tooling findings. For example, if configuring Knip reveals unused exports or dead code in the application (e.g., `SaveHistoryDBSchema`), do not delete that code. Focus solely on the configuration and integration of the tool itself. Modifying application code during an infrastructure task violates strict negative constraints.
+
+## 2026-07-10 - Submitted Empty PR
+**Learning:** Evaluated adding `actionlint` to lint GitHub Actions workflows but discovered the CLI is not readily available as a binary via `pnpm` without additional setup that violates "do not introduce bloat" policies. Confirmed that the current infrastructure (Biome, Knip, Oxlint, Dependabot) is highly optimized and tests pass. Submitted an Empty PR as per system policies to advance the pipeline without forcing unnecessary changes.
