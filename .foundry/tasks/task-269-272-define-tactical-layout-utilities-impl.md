@@ -35,9 +35,9 @@ Define `@utility` primitives in `src/index.css` for `tactical-panel`, `tactical-
 - If you submit an empty PR for a completed task (e.g., they already exist), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `@utility tactical-panel` is properly defined.
-- [ ] `@utility tactical-card` is properly defined.
-- [ ] `@utility tactical-button` is properly defined.
+- [x] `@utility tactical-panel` is properly defined.
+- [x] `@utility tactical-card` is properly defined.
+- [x] `@utility tactical-button` is properly defined.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
