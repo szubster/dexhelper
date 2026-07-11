@@ -22,3 +22,8 @@ The implementer (`coder`) failed `task-121-219-gen3-tv-block-parser-retry-impl` 
 - Verified that `DataView` API is used exclusively in `src/engine/gen3/secretBase/parser.ts` for all read operations (e.g. `getUint32`, `getUint16`, `getUint8`).
 - Verified that all offsets, lengths, and bit locations are defined as reusable constants at the module level.
 - Verified that comprehensive unit tests are present, including checking for out-of-bounds reads throwing `The save file is corrupted or incomplete.` when catching `RangeError`.
+
+## 2026-07-11: Trick House Parser Rejection
+- **Date**: 2026-07-11
+- **Node**: task-276-304-gen3-trick-house-parser-impl
+- **Reason**: The developer failed to handle `RangeError` from the `DataView` API when checking for out-of-bounds reads. This is a critical requirement for parsers working with save file data to prevent crashes when dealing with corrupted or incomplete saves.
