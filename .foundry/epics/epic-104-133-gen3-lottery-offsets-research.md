@@ -24,7 +24,7 @@ Research and identify the memory offsets for the daily lottery PRNG seed in Ruby
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-133-272-research-lottery-offsets
+- [x] story-133-272-research-lottery-offsets
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
