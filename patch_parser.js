@@ -1,4 +1,6 @@
-export interface Gen3TrickHouse {
+const fs = require('fs');
+
+const data = `export interface Gen3TrickHouse {
   level: number;
   entranceState: number;
   enterFromCorridor: number;
@@ -16,9 +18,11 @@ export interface Gen3TrickHouse {
   landmarkFlag: boolean;
 }
 
+// Memory Offsets relative to SaveBlock1 Start
 export const SAVE_BLOCK_1_VARS_OFFSET = 0x139c;
 export const SAVE_BLOCK_1_FLAGS_OFFSET = 0x1270;
 
+// Variables offsets relative to SaveBlock1
 export const VAR_TRICK_HOUSE_LEVEL_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + (0x4044 - 0x4000) * 2;
 export const VAR_TRICK_HOUSE_ENTRANCE_STATE_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + (0x40a7 - 0x4000) * 2;
 export const VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + (0x40b5 - 0x4000) * 2;
@@ -81,3 +85,5 @@ export function parseTrickHouse(view: DataView, saveBlock1Offset: number): Gen3T
     throw error;
   }
 }
+`;
+fs.writeFileSync('src/engine/saveParser/gen3/trickHouse/parser.ts', data);

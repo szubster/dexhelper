@@ -1,4 +1,6 @@
-import { describe, expect, it } from 'vitest';
+const fs = require('fs');
+
+const data = `import { describe, expect, it } from 'vitest';
 import {
   FLAG_LANDMARK_TRICK_HOUSE_BIT,
   FLAG_LANDMARK_TRICK_HOUSE_BYTE_OFFSET,
@@ -70,3 +72,5 @@ describe('parseTrickHouse', () => {
     expect(() => parseTrickHouse(view, saveBlock1Offset)).toThrow('The save file is corrupted or incomplete.');
   });
 });
+`;
+fs.writeFileSync('src/engine/saveParser/gen3/trickHouse/parser.test.ts', data);

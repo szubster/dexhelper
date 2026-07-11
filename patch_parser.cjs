@@ -1,4 +1,6 @@
-export interface Gen3TrickHouse {
+const fs = require('fs');
+
+const data = `export interface Gen3TrickHouse {
   level: number;
   entranceState: number;
   enterFromCorridor: number;
@@ -81,3 +83,5 @@ export function parseTrickHouse(view: DataView, saveBlock1Offset: number): Gen3T
     throw error;
   }
 }
+`;
+fs.writeFileSync('src/engine/saveParser/gen3/trickHouse/parser.ts', data);
