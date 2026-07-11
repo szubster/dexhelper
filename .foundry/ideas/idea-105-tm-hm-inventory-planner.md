@@ -39,4 +39,5 @@ Leverage DexHelper's save parsing to read the player's Bag inventory and PC Box 
 This directly solves a massive anxiety and friction point in retro Pokémon games: resource management of finite, highly valuable items. By bridging the player's static inventory with their dynamic PC box contents, we turn DexHelper into an essential team-building planner, preventing players from having to check wikis for compatibility or hoard TMs endlessly. This perfectly aligns with the premium companion app philosophy.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to detail the save structure for the Item Bag across Gens 1-3 and the UI presentation.
+- [x] Product Manager: Convert this idea into a PRD to detail the save structure for the Item Bag across Gens 1-3 and the UI presentation.
+- [ ] prd-105-110-tm-hm-inventory-planner
