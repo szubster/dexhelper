@@ -160,6 +160,7 @@ When decomposing a STORY into TASK nodes, strictly follow the Intelligent Verifi
 - **Observation**: Assigned to story-070-109-extract-mixed-record-trainer-data where all its generated children (task-109-247, task-109-248, research-109-262) have completed successfully.
 - **Action**: Checked off the child checkboxes in the story markdown body and submitted an empty PR.
 - **Lesson**: Handing back control to the orchestrator properly.
+- 2026-07-11: Extracted `logToJournal` logic from `foundry-orchestrator.ts` to `dag-utils.ts` in task `task-278-304-extract-log-to-journal`.
 ## 2026-07-10
 
 - **story-119-259-gen3-npc-trade-parsing**: The previous implementation task `task-259-274` and QA task `task-259-275` failed. I marked them as `CANCELLED` and checked them off in the story's Acceptance Criteria. I drafted new replacement tasks `task-259-276` and `task-259-277` for the Coder and QA personas, ensuring they include explicit workflow reminders about handling transient vs. permanent failures, as well as strict constraints against using inline magic numbers for Gen 3 NPC Trade Extraction memory offsets.

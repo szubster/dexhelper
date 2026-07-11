@@ -31,3 +31,6 @@ The `logToJournal` function was missed in the initial extraction of DAG utilitie
 ## Acceptance Criteria
 - [ ] `logToJournal` is exported from `dag-utils.ts`.
 - [ ] `foundry-orchestrator.ts` uses `logToJournal` instead of inline `fs.appendFileSync`.
+
+### Child Tasks
+- [ ] task-278-304-extract-log-to-journal
