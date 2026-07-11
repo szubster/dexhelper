@@ -47,3 +47,6 @@ Validate the logic implemented for extracting Gen 3 Trick House progression stat
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+### QA Rejection
+- **Reason**: Implementation is missing a `try/catch` block for `RangeError` from the `DataView` API to properly handle out-of-bounds reads. Tests must also ensure that reading out-of-bounds throws an appropriate error, such as `The save file is corrupted or incomplete.`
