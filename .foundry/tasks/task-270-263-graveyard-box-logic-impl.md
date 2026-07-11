@@ -25,9 +25,9 @@ notes: ''
 Implement backend state and calculation logic for identifying Pokémon in the designated Graveyard Box as permanently dead.
 
 ## Contract / Acceptance Criteria
-- [ ] Add a backend configuration/state for specifying a "Graveyard Box" (e.g. integer `boxNumber`).
-- [ ] Implement logic so that any Pokémon located in the designated Graveyard Box is evaluated as "dead" (or flagged accordingly), regardless of its HP value.
-- [ ] All new state management patterns should align with current application architecture.
+- [x] Add a backend configuration/state for specifying a "Graveyard Box" (e.g. integer `boxNumber`).
+- [x] Implement logic so that any Pokémon located in the designated Graveyard Box is evaluated as "dead" (or flagged accordingly), regardless of its HP value.
+- [x] All new state management patterns should align with current application architecture.
 
 ## Instructions & Reminders for Coder
 - **Transient Failures:** If you experience a transient failure requiring a retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
