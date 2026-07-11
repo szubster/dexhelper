@@ -2,12 +2,12 @@
 id: research-043-263-roamer-tracking-remediation
 type: RESEARCH
 title: Roamer Tracking Remediation
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-06'
-updated_at: '2026-07-06'
+updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15210687136720325696'
 pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
 tags: []
