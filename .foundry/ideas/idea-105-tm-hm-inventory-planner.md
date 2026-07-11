@@ -2,12 +2,12 @@
 id: idea-105-tm-hm-inventory-planner
 type: IDEA
 title: Gen 1-3 TM/HM Inventory & Compatibility Planner
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-07'
-updated_at: '2026-07-07'
+updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17510627942871481337'
 pr_number: null
 parent: null
 tags:
