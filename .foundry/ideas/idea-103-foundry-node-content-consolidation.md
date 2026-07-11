@@ -38,9 +38,13 @@ Analyze and consolidate repeated content into centralized locations.
 - **Consistency:** All agents and nodes adhere to the same version of the rules.
 
 ## Next Steps
-- [ ] Product Manager: Audit current TASK/STORY templates for redundancy.
+- [x] Product Manager: Audit current TASK/STORY templates for redundancy.
 - [ ] Agile Coach: Update persona prompts to use centralized policy references.
 - [ ] Architect: Propose a technical mechanism for dynamic policy injection into Foundry nodes.
+
+## Acceptance Criteria
+- [ ] task-103-304-propose-dynamic-policy-injection-adr
+- [ ] prd-103-109-foundry-node-content-consolidation
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
