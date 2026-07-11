@@ -117,5 +117,9 @@ When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation suc
 - **Result**: Verification Passed.
 - **Notes**: The Epic was simply to break down the task of researching Gen 3 lottery offsets. The child story `story-133-272-research-lottery-offsets` and its child task `task-272-301-research-gen3-lottery-offsets` successfully ran and produced the research document `.foundry/docs/knowledge_base/gen3_lottery_offsets.md`. All child nodes are marked as COMPLETED. The Acceptance Criteria in the epic are checked. Submitting an empty PR to transition to COMPLETED.
 
+## epic-097-131-nuzlocke-death-tracking
+- **Node**: `story-131-269-detect-party-zero-hp`
+- **Result**: Verification Passed.
+- **Notes**: The Story was simply to detect party zero HP as dead. The child task `task-269-263-detect-party-zero-hp-impl` successfully implemented the `getDeadPokemon` function in `src/engine/nuzlocke/tracker.ts`. The child task is marked as COMPLETED. The Acceptance Criteria in the story are checked. Tests pass. Submitting an empty PR to transition to COMPLETED.
 ### Gen 3 Lottery Offsets Extraction
 When verifying `epic-104-133-gen3-lottery-offsets-research`, I learned that the 32-bit lottery PRNG seed in Gen 3 is split across two 16-bit variables. Crucially, the order of these variables (High/Low words) is swapped between Ruby/Sapphire and Emerald. Ruby/Sapphire stores the Low 16 bits first (at index 0x404B) and the High 16 bits second (at 0x404C), while Emerald stores the High 16 bits first (at 0x404B) and the Low 16 bits second (at 0x404C). This introduces a complexity in extracting a 32-bit value that we need to standardize.
