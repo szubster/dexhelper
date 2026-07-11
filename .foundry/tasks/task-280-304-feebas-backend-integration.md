@@ -25,12 +25,12 @@ notes: ''
 Update the `SaveData` interface and the `parseGen3` function to extract and calculate Feebas tile locations for RSE saves.
 
 ## Acceptance Criteria
-- [ ] Add `gen3FeebasTiles?: number[]` to the `SaveData` interface in `src/engine/saveParser/parsers/common.ts`.
-- [ ] In `src/engine/saveParser/parsers/gen3.ts`, modify `parseGen3(view, _forcedVersion)` to import `extractFeebasSeed` and `calculateFeebasTiles` from `../../gen3/feebas.ts`.
-- [ ] In `parseGen3`, if `_forcedVersion` is `'ruby'`, `'sapphire'`, or `'emerald'`, safely try to extract the seed and calculate the tiles, storing them in a local variable. Wrap this in a try-catch to prevent a malformed seed from failing the entire save parse.
-- [ ] Return the calculated tiles as `gen3FeebasTiles` in the returned `SaveData` object.
-- [ ] Update `src/engine/saveParser/parsers/gen3.test.ts` to include a test verifying `gen3FeebasTiles` populates correctly when valid versions are passed.
-- [ ] Ensure that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, preventing inline magic numbers.
+- [x] Add `gen3FeebasTiles?: number[]` to the `SaveData` interface in `src/engine/saveParser/parsers/common.ts`.
+- [x] In `src/engine/saveParser/parsers/gen3.ts`, modify `parseGen3(view, _forcedVersion)` to import `extractFeebasSeed` and `calculateFeebasTiles` from `../../gen3/feebas.ts`.
+- [x] In `parseGen3`, if `_forcedVersion` is `'ruby'`, `'sapphire'`, or `'emerald'`, safely try to extract the seed and calculate the tiles, storing them in a local variable. Wrap this in a try-catch to prevent a malformed seed from failing the entire save parse.
+- [x] Return the calculated tiles as `gen3FeebasTiles` in the returned `SaveData` object.
+- [x] Update `src/engine/saveParser/parsers/gen3.test.ts` to include a test verifying `gen3FeebasTiles` populates correctly when valid versions are passed.
+- [x] Ensure that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, preventing inline magic numbers.
 
 ## Failure Rules & Instructions
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
