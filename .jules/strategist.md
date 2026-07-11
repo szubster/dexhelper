@@ -357,3 +357,9 @@
 **Outcome:** Merged
 **Why:** The prompt evaluation identified massive duplication in the agent prompts where a huge block regarding the "NODE GENERATION RULES" (DAG ID strictness, sequence numbers, pipeline order, premature verification warnings) was repeated verbatim across the generative agents (`product_manager`, `epic_planner`, `story_owner`, `tech_lead`). This bloated the prompts and made updating the rules error-prone.
 **Pattern:** Consolidate duplicated core prompt instructions (e.g. node generation rules) into `.foundry/docs/knowledge_base/agents/core_policies.md` and instruct the agents to read it. This drastically reduces prompt size, creates a single source of truth, and allows global policy updates without touching multiple individual schedule files.
+
+## 2026-07-26 - [Accepted] - Prompt improvement - Enforce Coder adherence to DataView boundaries
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `qa.md` journal recorded a persistent failure pattern (`2026-06-30: Magic Numbers in Gen 3 Parser Retry`) where the `coder` repeatedly ignored the architectural constraint against using inline magic numbers for array bounds checking in save file parsers (like `parseGen3MixRecords`), despite explicit task instructions and previous rejections.
+**Pattern:** Codify specific, recurring architectural violations (like ignoring module-level constant requirements for DataView extraction limits) directly into the implementer's prompt (`coder.md`) to prevent brittle code and repetitive QA rejections.

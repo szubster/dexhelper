@@ -17,7 +17,7 @@ When modifying the Foundry Orchestrator (`.github/scripts/foundry-orchestrator.t
 
 
 ## Save File Parsing & Magic Numbers
-When implementing save file parsing or data definitions, you MUST explicitly define and use reusable constants for memory offsets, lengths, bit locations, and shifts at the module level. Strictly avoid using inline magic numbers (e.g., `0x2dd6`, `>> 4`) directly in parsing functions. This ensures robustness against version-specific shifts and prevents brittle code.
+When implementing save file parsing or data definitions, you MUST explicitly define and use reusable constants for memory offsets, lengths, bit locations, and shifts at the module level. Strictly avoid using inline magic numbers (e.g., `0x2dd6`, `>> 4`) directly in parsing functions. This ensures robustness against version-specific shifts and prevents brittle code. Furthermore, when using the `DataView` API for array bounds checking or extraction limits (e.g., max record counts), you MUST NOT use inline magic numbers; these bounds must also be defined as reusable constants at the module level.
 
 When parsing bitwise blocks (like event flag arrays) using the `DataView` API, you must explicitly map the specific bit offsets corresponding to target events. Just extracting the array is insufficient; explicitly identifying the individual bit offsets is required for downstream consumption.
 
