@@ -16,7 +16,7 @@ tags:
   - mechanics
 research_references: []
 rejection_count: 2
-rejection_reason: 'Max rejections reached missing RangeError handling'
+rejection_reason: '[ACKNOWLEDGED] Max rejections reached missing RangeError handling'
 notes: ''
 ---
 

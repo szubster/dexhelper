@@ -2,12 +2,12 @@
 id: task-288-304-gen3-mix-record-inherited-events-impl
 type: TASK
 title: Extract Gen 3 Mix Record Inherited Events Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: '9428336432462450616'
+jules_session_id: null
 pr_number: null
 parent: story-081-288-gen3-mix-record-inherited-events
 tags:
@@ -18,7 +18,7 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/gen3_tv_shows_and_events.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

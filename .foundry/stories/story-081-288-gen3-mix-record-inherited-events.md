@@ -2,7 +2,7 @@
 id: story-081-288-gen3-mix-record-inherited-events
 type: STORY
 title: Extract Gen 3 Mix Record Inherited Events
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
