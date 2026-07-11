@@ -29,11 +29,11 @@ Define the base layout-related `@utility` primitives in `src/index.css` to conso
 3. Ensure hover and focus states are correctly handled within the utility definition using nested states or leveraging Tailwind v4's native variant inheritance.
 
 ## Acceptance Criteria
-- [ ] `tactical-panel` utility is defined.
-- [ ] `tactical-card` utility is defined.
-- [ ] `tactical-button` utility is defined.
-- [ ] task-269-272-define-tactical-layout-utilities-impl
-- [ ] task-269-273-define-tactical-layout-utilities-qa
+- [x] `tactical-panel` utility is defined.
+- [x] `tactical-card` utility is defined.
+- [x] `tactical-button` utility is defined.
+- [x] task-269-272-define-tactical-layout-utilities-impl
+- [x] task-269-273-define-tactical-layout-utilities-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

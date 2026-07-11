@@ -169,3 +169,9 @@ When decomposing a STORY into TASK nodes, strictly follow the Intelligent Verifi
 ## 2026-07-10
 
 - **story-119-259-gen3-npc-trade-parsing**: The previous implementation task `task-259-274` and QA task `task-259-275` failed. I marked them as `CANCELLED` and checked them off in the story's Acceptance Criteria. I drafted new replacement tasks `task-259-276` and `task-259-277` for the Coder and QA personas, ensuring they include explicit workflow reminders about handling transient vs. permanent failures, as well as strict constraints against using inline magic numbers for Gen 3 NPC Trade Extraction memory offsets.
+
+## Tactical Layout Utilities Resolution
+**Date:** 2026-07-11
+**Context:** Story `story-123-269-define-tactical-layout-utilities` had generated tasks that were completed by the Coder and QA, but the Story node itself remained in `READY` state.
+**Learning:** This is an example of a "Late-Binding Parent" warning situation where a macro node's markdown checkboxes are not synchronized with its children's completion states. According to the `MAC0 NODE COMPLETION EXCEPTION`, since the generated descendant nodes (`task-269-272-define-tactical-layout-utilities-impl` and `task-269-273-define-tactical-layout-utilities-qa`) were completed, I was required to check off their corresponding acceptance criteria (including the implementation-specific criteria) in the parent node before submitting an Empty PR to transition the Story.
+**Action:** Always verify descendant node statuses to identify if manual sync of checkboxes is needed before submission.
