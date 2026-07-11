@@ -28,3 +28,7 @@ Research and identify the memory offsets for the daily lottery PRNG seed in Ruby
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+
+## Learnings & Follow-ups
+During this research epic, we discovered that the 32-bit Lottery PRNG seed is split across two 16-bit variables, and the High/Low ordering is swapped between R/S and Emerald. A follow-up IDEA node has been created to propose an architectural strategy for extracting these split variables:
+- [ ] idea-112-gen3-split-variable-extraction-strategy
