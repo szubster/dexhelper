@@ -22,3 +22,8 @@ The implementer (`coder`) failed `task-121-219-gen3-tv-block-parser-retry-impl` 
 - Verified that `DataView` API is used exclusively in `src/engine/gen3/secretBase/parser.ts` for all read operations (e.g. `getUint32`, `getUint16`, `getUint8`).
 - Verified that all offsets, lengths, and bit locations are defined as reusable constants at the module level.
 - Verified that comprehensive unit tests are present, including checking for out-of-bounds reads throwing `The save file is corrupted or incomplete.` when catching `RangeError`.
+
+## 2026-07-11 - Feebas Extraction Failed (Task: task-280-305-feebas-backend-integration-qa)
+The coder implemented the Feebas extraction logic using absolute memory offsets (`0x2dd6`) instead of making them relative to `section1Offset`. In Generation 3, save files utilize an A/B bank rotation system where data can either reside in `0x0000` or `0xE000`. By hardcoding the absolute offset, the parser will fail to read the active save data if it currently resides in Bank B.
+
+To enforce the architecture correctly, all dynamic save block extraction functions must receive the resolved offset from the parser engine (e.g., `section1Offset` or `section2Offset`) and apply relative memory offsets to correctly extract the active save data block. I have failed `task-280-304-feebas-backend-integration` and incremented its rejection count.
