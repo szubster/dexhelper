@@ -362,13 +362,18 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
 /**
  * Performs a structural check to verify if the binary data is a valid Generation 3 save.
  *
+ * @remarks
+ * **Why is this currently stubbed?**
+ * Unlike Gen 1 and Gen 2 which use simple SRAM, Gen 3 games use a flash memory chip
+ * with an A/B bank rotation system (`0x0000` and `0xE000`) to prevent corruption during saves.
+ * A proper validation requires scanning all 14 sectors in both banks to locate the `0x08012025`
+ * signature and verifying the checksums of the most recent `saveIndex`. Because the actual
+ * `parseGen3` function performs this exhaustive scan anyway, this check is currently bypassed
+ * (returning false) until a lightweight signature-only scanner is implemented to prevent
+ * double-reading the memory blocks during initial file detection.
+ *
  * @param view - The raw save file DataView.
  * @returns True if the structure looks like a valid Gen 3 save.
- *
- * @remarks
- * This is currently a placeholder implementation for scaffolding purposes. A full implementation
- * would scan both `0x0000` and `0xE000` memory banks for the `0x08012025` flash memory signature
- * to confirm the presence of Gen 3 save structures.
  */
 export function isGen3Save(view: DataView): boolean {
   try {
@@ -882,10 +887,23 @@ export function parseGen3BattleFrontierWinStreaks(
 /**
  * Main entry point for parsing a Generation 3 (R/S/E/FR/LG) save file.
  *
- * ## Execution Flow
- * 1. **Section Resolution:** Scans the A/B flash memory banks to locate the most recent, valid memory offsets for SaveBlock2 (Section 2) and SaveBlock1 (Section 1).
- * 2. **State Extraction:** Extracts world state data including Berry Patches, Secret Bases, PokeNews, Mix Records, Roaming Legendaries, and Mirage Island values.
- * 3. **Data Compilation:** Compiles the parsed values into a unified `SaveData` object. Note: Party and PC box parsing are currently stubbed in this scaffold.
+ * ## Execution Flow & Architecture
+ *
+ * 1. **Section Resolution (The A/B Flash System):**
+ *    Gen 3 games use flash memory, which is vulnerable to corruption if power is lost mid-write.
+ *    To solve this, the game alternates saving between Bank A (`0x0000`) and Bank B (`0xE000`).
+ *    This function *must* scan both banks to find `SaveBlock1` (player data) and `SaveBlock2` (system data),
+ *    comparing their internal `saveIndex` values to determine which bank contains the most recent,
+ *    uncorrupted save state.
+ *
+ * 2. **State Extraction:**
+ *    Once the active `SaveBlock1` and `SaveBlock2` offsets are resolved, it extracts world state data
+ *    including Berry Patches, Secret Bases, PokeNews, Mix Records, and Roaming Legendaries.
+ *
+ * 3. **Version Shifting:**
+ *    Unlike earlier generations, Gen 3 offsets shift wildly between Ruby/Sapphire, FireRed/LeafGreen,
+ *    and Emerald because Game Freak added new mechanics (like the Battle Frontier) into the middle
+ *    of the `SaveBlock1` struct.
  *
  * @param view - The raw save file DataView.
  * @param _forcedVersion - An optional game version override (e.g. 'ruby', 'emerald') to dictate memory offsets.

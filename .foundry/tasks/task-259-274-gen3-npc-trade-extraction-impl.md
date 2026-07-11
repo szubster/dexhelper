@@ -22,6 +22,8 @@ notes: ''
 
 # Implement Gen 3 NPC Trade Extraction
 
+CANCELLED: Replaced by task-259-276-gen3-npc-trade-extraction-impl
+
 ## Objective
 Implement DataView-based parsers to extract in-game NPC trade flags for all core Gen 3 versions (RSE/FRLG).
 

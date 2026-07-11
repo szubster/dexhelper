@@ -2,12 +2,12 @@
 id: task-134-264-gc-integration-impl
 type: TASK
 title: Garbage Collection Integration Logic (Impl)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-06'
-updated_at: '2026-07-05'
+updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11056417877182998'
 pr_number: null
 parent: story-090-134-garbage-collection-integration
 tags:

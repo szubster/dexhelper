@@ -23,6 +23,8 @@ notes: ''
 
 # Task: Implement Gen 3 TV Block DataView Parser (Retry 5)
 
+CANCELLED: Replaced by task-121-304-gen3-tv-block-parser-retry5-impl.
+
 ## Description
 This task requires you to implement the foundational logic to locate and read the TV broadcast data block from the Gen 3 save file structure, addressing the feedback from `research-121-246-gen3-tv-block-parser-retry-failure`.
 

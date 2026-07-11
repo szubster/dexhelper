@@ -23,6 +23,8 @@ notes: ''
 
 # QA Gen 3 NPC Trade Extraction
 
+CANCELLED: Replaced by task-259-277-gen3-npc-trade-extraction-qa
+
 ## Objective
 Verify the Gen 3 NPC Trade Extraction parser implementation.
 

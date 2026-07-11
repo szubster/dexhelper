@@ -2,12 +2,12 @@
 id: task-269-272-define-tactical-layout-utilities-impl
 type: TASK
 title: Implement Tactical Layout Utilities
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-06'
-updated_at: '2026-07-06'
+updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5340158802147443065'
 pr_number: null
 parent: story-123-269-define-tactical-layout-utilities
 tags:
@@ -35,9 +35,9 @@ Define `@utility` primitives in `src/index.css` for `tactical-panel`, `tactical-
 - If you submit an empty PR for a completed task (e.g., they already exist), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `@utility tactical-panel` is properly defined.
-- [ ] `@utility tactical-card` is properly defined.
-- [ ] `@utility tactical-button` is properly defined.
+- [x] `@utility tactical-panel` is properly defined.
+- [x] `@utility tactical-card` is properly defined.
+- [x] `@utility tactical-button` is properly defined.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

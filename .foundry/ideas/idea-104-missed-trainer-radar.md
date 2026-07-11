@@ -2,12 +2,12 @@
 id: idea-104-missed-trainer-radar
 type: IDEA
 title: Gen 1-3 Missed Trainer Radar
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: '9651663591636000441'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -38,4 +38,5 @@ Leverage DexHelper's capability to read event flags and hidden state from the sa
 This directly solves the classic retro gaming pain point of "I need more EXP, did I miss anyone on Route 13?". By surfacing hidden event flags, we transform static game knowledge into a highly personalized, actionable "bounty board". This aligns perfectly with DexHelper's vision as a premium companion app, helping players optimize their playthrough and eliminate tedious guesswork without needing to reference external guides.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to detail the event flags to parse for trainer battles across Gens 1-3 and define the UI presentation.
+- [x] Product Manager: Convert this idea into a PRD to detail the event flags to parse for trainer battles across Gens 1-3 and define the UI presentation.
+- [ ] prd-104-109-missed-trainer-radar

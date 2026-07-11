@@ -2,12 +2,12 @@
 id: prd-086-108-fix-orchestrator-phase-3-6
 type: PRD
 title: Fix orchestrator phase 3.6 for CANCELLED nodes
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: '4742368586600164807'
+jules_session_id: null
 pr_number: null
 parent: idea-086-fix-orchestrator-phase-3-6
 tags:
@@ -33,3 +33,4 @@ In `foundry-orchestrator.ts` Phase 3.6, nodes transitioning to `CANCELLED` statu
 - [ ] Phase 3.6 awakening logic supports `CANCELLED` nodes.
 - [ ] Parent nodes correctly awaken when child nodes are cancelled due to hitting max rejections.
 - [ ] Tests verify this exact behavior in `foundry-orchestrator.test.ts`.
+- [ ] epic-108-303-extend-phase-3-6-cancelled-nodes
