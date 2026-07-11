@@ -26,9 +26,9 @@ notes: ''
 Verify the backend state and calculation logic for identifying Pokémon in the designated Graveyard Box as permanently dead.
 
 ## Contract / Acceptance Criteria
-- [ ] Verify that there is a backend configuration/state for specifying a "Graveyard Box".
-- [ ] Verify the logic correctly marks any Pokémon in the Graveyard Box as dead, regardless of HP.
-- [ ] Ensure all relevant tests pass.
+- [x] Verify that there is a backend configuration/state for specifying a "Graveyard Box".
+- [x] Verify the logic correctly marks any Pokémon in the Graveyard Box as dead, regardless of HP.
+- [x] Ensure all relevant tests pass.
 
 ## Instructions & Reminders for QA
 - **Transient Failures:** If you experience a transient failure requiring a retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
