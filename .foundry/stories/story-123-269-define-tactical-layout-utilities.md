@@ -2,12 +2,12 @@
 id: story-123-269-define-tactical-layout-utilities
 type: STORY
 title: Define Tactical Layout Utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: '714609333114527444'
+jules_session_id: null
 pr_number: null
 parent: epic-071-123-define-tailwind-v4-utilities-v2
 tags:

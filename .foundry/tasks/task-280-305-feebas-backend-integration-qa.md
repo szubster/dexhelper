@@ -2,7 +2,7 @@
 id: task-280-305-feebas-backend-integration-qa
 type: TASK
 title: QA - Feebas Backend Integration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-11'

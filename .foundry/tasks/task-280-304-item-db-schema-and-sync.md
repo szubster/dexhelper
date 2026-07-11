@@ -2,12 +2,12 @@
 id: task-280-304-item-db-schema-and-sync
 type: TASK
 title: Add Items Schema and PokeDB Sync
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: '2586275593234808783'
+jules_session_id: null
 pr_number: null
 parent: story-087-280-item-runtime-integration
 tags:
