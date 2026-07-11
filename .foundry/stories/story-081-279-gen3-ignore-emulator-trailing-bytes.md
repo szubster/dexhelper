@@ -27,3 +27,5 @@ As required by ADR 025 and to replace the cancelled tasks from the previous fall
 
 ## Acceptance Criteria
 - [ ] Ensure that save file parsing engines gracefully ignore trailing emulator bytes without crashing.
+- [ ] task-279-304-gen3-ignore-emulator-trailing-bytes-impl
+- [ ] task-279-305-gen3-ignore-emulator-trailing-bytes-qa
