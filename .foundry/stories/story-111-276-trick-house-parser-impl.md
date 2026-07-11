@@ -2,12 +2,12 @@
 id: story-111-276-trick-house-parser-impl
 type: STORY
 title: Implement Gen 3 Trick House Parser
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: '16137700843482883805'
+jules_session_id: null
 pr_number: null
 parent: epic-054-111-trick-house-save-parsing
 tags:

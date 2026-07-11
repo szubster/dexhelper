@@ -2,12 +2,12 @@
 id: story-081-288-gen3-mix-record-inherited-events
 type: STORY
 title: Extract Gen 3 Mix Record Inherited Events
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: '2170234473892199461'
+jules_session_id: null
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:

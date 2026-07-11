@@ -2,7 +2,7 @@
 id: task-276-304-orchestrator-verifying-block
 type: TASK
 title: Remove VERIFYING allowances in orchestrator dependency checks
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-11'

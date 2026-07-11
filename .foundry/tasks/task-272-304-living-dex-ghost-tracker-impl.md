@@ -2,7 +2,7 @@
 id: task-272-304-living-dex-ghost-tracker-impl
 type: TASK
 title: Living Dex Ghost Tracker Impl
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-11'

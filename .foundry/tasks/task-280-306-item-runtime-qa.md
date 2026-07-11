@@ -2,10 +2,10 @@
 id: task-280-306-item-runtime-qa
 type: TASK
 title: QA - Item Data Runtime Integration
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-06'
-updated_at: '2026-07-06'
+updated_at: '2026-07-11'
 depends_on:
   - task-280-305-refactor-game-item-map
 jules_session_id: null
