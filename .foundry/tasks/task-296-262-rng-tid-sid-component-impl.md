@@ -1,5 +1,5 @@
 ---
-id: task-269-262-rng-tid-sid-component-impl
+id: task-296-262-rng-tid-sid-component-impl
 type: TASK
 title: Implement RNG TID and SID Display Component
 status: ACTIVE
@@ -9,7 +9,7 @@ updated_at: '2026-07-10'
 depends_on: []
 jules_session_id: '8585840362292370904'
 pr_number: null
-parent: story-130-269-rng-tid-sid-component
+parent: story-130-296-rng-tid-sid-component
 tags:
   - feature
   - rng

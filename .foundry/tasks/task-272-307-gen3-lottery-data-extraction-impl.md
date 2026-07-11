@@ -1,5 +1,5 @@
 ---
-id: task-272-301-gen3-lottery-data-extraction-impl
+id: task-272-307-gen3-lottery-data-extraction-impl
 type: TASK
 title: Implement Gen3 Lottery Data Extraction
 status: READY

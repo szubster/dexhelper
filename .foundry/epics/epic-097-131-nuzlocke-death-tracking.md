@@ -31,6 +31,6 @@ Implement the logic to track dead Pokémon based on HP and Graveyard box assignm
 
 ## Acceptance Criteria
 - [x] Stories are generated
-- [ ] story-131-269-detect-party-zero-hp
+- [ ] story-131-297-detect-party-zero-hp
 - [ ] story-131-270-graveyard-box-state
 - [ ] story-131-271-graveyard-box-ui

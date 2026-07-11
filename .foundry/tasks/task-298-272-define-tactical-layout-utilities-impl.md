@@ -1,5 +1,5 @@
 ---
-id: task-269-272-define-tactical-layout-utilities-impl
+id: task-298-272-define-tactical-layout-utilities-impl
 type: TASK
 title: Implement Tactical Layout Utilities
 status: READY
@@ -9,7 +9,7 @@ updated_at: '2026-07-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: story-123-269-define-tactical-layout-utilities
+parent: story-123-298-define-tactical-layout-utilities
 tags:
   - styling
   - tailwind

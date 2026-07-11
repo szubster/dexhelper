@@ -1,5 +1,5 @@
 ---
-id: story-127-269-epic-e2e-safeguard
+id: story-127-294-epic-e2e-safeguard
 type: STORY
 title: Enforce E2E Safeguards on Epics
 status: PENDING
@@ -29,8 +29,8 @@ Implement logic in `.github/scripts/foundry-orchestrator.ts` (or `foundry-heartb
 ## Acceptance Criteria
 - [ ] Implement E2E enforcement logic in orchestrator scripts.
 - [ ] Add unit tests for this new verification rule.
-- [ ] task-269-263-implement-e2e-safeguard
-- [ ] task-269-264-implement-e2e-safeguard-qa
+- [ ] task-294-263-implement-e2e-safeguard
+- [ ] task-294-264-implement-e2e-safeguard-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

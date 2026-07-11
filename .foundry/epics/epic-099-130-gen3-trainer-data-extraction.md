@@ -32,4 +32,4 @@ Extract the Trainer ID (TID) and Secret ID (SID) from a Gen 3 save file.
 
 ## Acceptance Criteria
 - [x] Story Owner: Convert this Epic into Stories.
-- [ ] story-130-269-extract-gen3-trainer-id-secret-id
+- [ ] story-130-295-extract-gen3-trainer-id-secret-id

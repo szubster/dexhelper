@@ -1,5 +1,5 @@
 ---
-id: task-269-263-implement-e2e-safeguard
+id: task-294-263-implement-e2e-safeguard
 type: TASK
 title: Implement E2E Safeguards on Epics
 status: ACTIVE
@@ -9,7 +9,7 @@ updated_at: '2026-07-10'
 depends_on: []
 jules_session_id: '11057593965590991890'
 pr_number: null
-parent: story-127-269-epic-e2e-safeguard
+parent: story-127-294-epic-e2e-safeguard
 tags:
   - process
   - orchestrator

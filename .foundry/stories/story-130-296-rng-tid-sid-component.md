@@ -1,5 +1,5 @@
 ---
-id: story-130-269-rng-tid-sid-component
+id: story-130-296-rng-tid-sid-component
 type: STORY
 title: RNG TID and SID Display Component
 status: PENDING
@@ -28,8 +28,8 @@ Design and implement a reusable UI component that clearly displays both the Trai
 - [x] Tech Lead: Generate actionable Tasks.
 - [ ] Component displays TID and SID.
 - [ ] Component includes a "Copy to Clipboard" feature that formats them appropriately for RNG tools.
-- [ ] task-269-262-rng-tid-sid-component-impl
-- [ ] task-269-263-rng-tid-sid-component-qa
+- [ ] task-296-262-rng-tid-sid-component-impl
+- [ ] task-296-263-rng-tid-sid-component-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

@@ -1,6 +1,6 @@
 ---
-id: task-272-301-research-gen3-lottery-offsets
-type: TASK
+id: research-272-311-gen3-lottery-offsets
+type: RESEARCH
 title: Research Gen3 Lottery Offsets
 status: COMPLETED
 owner_persona: researcher

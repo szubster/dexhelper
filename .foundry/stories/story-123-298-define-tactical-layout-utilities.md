@@ -1,5 +1,5 @@
 ---
-id: story-123-269-define-tactical-layout-utilities
+id: story-123-298-define-tactical-layout-utilities
 type: STORY
 title: Define Tactical Layout Utilities
 status: PENDING
@@ -32,8 +32,8 @@ Define the base layout-related `@utility` primitives in `src/index.css` to conso
 - [ ] `tactical-panel` utility is defined.
 - [ ] `tactical-card` utility is defined.
 - [ ] `tactical-button` utility is defined.
-- [ ] task-269-272-define-tactical-layout-utilities-impl
-- [ ] task-269-273-define-tactical-layout-utilities-qa
+- [ ] task-298-272-define-tactical-layout-utilities-impl
+- [ ] task-298-273-define-tactical-layout-utilities-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

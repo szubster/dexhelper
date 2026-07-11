@@ -1,5 +1,5 @@
 ---
-id: task-269-263-detect-party-zero-hp-impl
+id: task-297-263-detect-party-zero-hp-impl
 type: TASK
 title: Implement logic to detect party zero HP as dead
 status: COMPLETED
@@ -9,7 +9,7 @@ updated_at: '2026-07-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: story-131-269-detect-party-zero-hp
+parent: story-131-297-detect-party-zero-hp
 tags:
   - feature
   - nuzlocke

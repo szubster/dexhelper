@@ -1,5 +1,5 @@
 ---
-id: story-130-269-extract-gen3-trainer-id-secret-id
+id: story-130-295-extract-gen3-trainer-id-secret-id
 type: STORY
 title: Extract Gen 3 Trainer ID and Secret ID
 status: PENDING
@@ -30,8 +30,8 @@ Based on Bulbapedia's "Save data structure (Generation III)" documentation, the 
 
 ## Acceptance Criteria
 - [x] Create Tasks for the implementation.
-- [ ] task-269-263-gen3-trainer-id-secret-id-impl
-- [ ] task-269-264-gen3-trainer-id-secret-id-qa
+- [ ] task-295-263-gen3-trainer-id-secret-id-impl
+- [ ] task-295-264-gen3-trainer-id-secret-id-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
