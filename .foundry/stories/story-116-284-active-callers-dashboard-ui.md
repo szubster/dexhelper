@@ -2,12 +2,12 @@
 id: story-116-284-active-callers-dashboard-ui
 type: STORY
 title: Active Callers Dashboard UI
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-07-07'
+updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '120974048059358641'
 pr_number: null
 parent: epic-055-116-pokegear-active-callers
 tags:
