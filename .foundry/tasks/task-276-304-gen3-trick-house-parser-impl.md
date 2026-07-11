@@ -2,12 +2,12 @@
 id: task-276-304-gen3-trick-house-parser-impl
 type: TASK
 title: Implement Gen 3 Trick House Parser Core Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18366196878499574542'
 pr_number: null
 parent: story-111-276-trick-house-parser-impl
 tags:
