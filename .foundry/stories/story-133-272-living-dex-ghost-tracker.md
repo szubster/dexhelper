@@ -25,7 +25,9 @@ notes: ''
 This story focuses on implementing the data engine logic to determine which Pokémon are missing from the regional/national Pokédex (the "ghosts"). This is the first step in creating the Living Dex Tracker data engine.
 
 ## Acceptance Criteria
-- [ ] Determine how to track missing Pokémon in the regional/national Pokédex.
+- [x] Determine how to track missing Pokémon in the regional/national Pokédex.
+- [ ] task-272-304-living-dex-ghost-tracker-impl
+- [ ] task-272-305-living-dex-ghost-tracker-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
