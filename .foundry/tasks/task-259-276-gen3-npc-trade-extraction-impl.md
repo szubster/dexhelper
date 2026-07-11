@@ -1,10 +1,10 @@
 ---
-id: task-259-274-gen3-npc-trade-extraction-impl
+id: task-259-276-gen3-npc-trade-extraction-impl
 type: TASK
 title: Implement Gen 3 NPC Trade Extraction
-status: COMPLETED
+status: READY
 owner_persona: coder
-created_at: '2026-07-05'
+created_at: '2026-07-10'
 updated_at: '2026-07-10'
 depends_on: []
 jules_session_id: null
@@ -22,8 +22,6 @@ notes: ''
 
 # Implement Gen 3 NPC Trade Extraction
 
-CANCELLED: Replaced by task-259-276-gen3-npc-trade-extraction-impl
-
 ## Objective
 Implement DataView-based parsers to extract in-game NPC trade flags for all core Gen 3 versions (RSE/FRLG).
 
@@ -40,5 +38,5 @@ Refer to `.foundry/docs/knowledge_base/gen3_npc_trade_offsets.md` for the exact 
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Define memory constants for all RSE and FRLG NPC trade flags at the module level.
-- [x] Implement Gen 3 DataView parsers to extract NPC trade flags.
+- [ ] Define memory constants for all RSE and FRLG NPC trade flags at the module level.
+- [ ] Implement Gen 3 DataView parsers to extract NPC trade flags.
