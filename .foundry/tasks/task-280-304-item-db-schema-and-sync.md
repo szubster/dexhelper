@@ -42,8 +42,8 @@ This task will configure the `PokeDB` IndexedDB instance to store this item data
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Add `items` to `DB_CONFIG.STORES` in `src/db/schema.ts`.
-- [ ] Define the `ItemMetadata` interface and add the `items` object store to `PokeDBSchema`.
-- [ ] Update `PokeDataExport` to include `items`.
-- [ ] Implement inflation logic for the `items` array inside `syncData` in `src/db/PokeDB.ts`.
-- [ ] Ensure `pnpm type-check` and `pnpm lint` pass successfully.
+- [x] Add `items` to `DB_CONFIG.STORES` in `src/db/schema.ts`.
+- [x] Define the `ItemMetadata` interface and add the `items` object store to `PokeDBSchema`.
+- [x] Update `PokeDataExport` to include `items`.
+- [x] Implement inflation logic for the `items` array inside `syncData` in `src/db/PokeDB.ts`.
+- [x] Ensure `pnpm type-check` and `pnpm lint` pass successfully.

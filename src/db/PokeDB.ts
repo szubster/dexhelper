@@ -83,6 +83,7 @@ export const getDB = () => {
           [DB_CONFIG.STORES.ENCOUNTERS]: 'pid',
           [DB_CONFIG.STORES.LOCATIONS]: 'id',
           [DB_CONFIG.STORES.METADATA]: 'key',
+          [DB_CONFIG.STORES.ITEMS]: 'id',
         };
 
         // Always delete existing stores to ensure keyPaths are applied correctly
@@ -153,7 +154,13 @@ const syncData = async () => {
     };
 
     const tx = db.transaction(
-      [DB_CONFIG.STORES.POKEMON, DB_CONFIG.STORES.ENCOUNTERS, DB_CONFIG.STORES.LOCATIONS, DB_CONFIG.STORES.METADATA],
+      [
+        DB_CONFIG.STORES.POKEMON,
+        DB_CONFIG.STORES.ENCOUNTERS,
+        DB_CONFIG.STORES.LOCATIONS,
+        DB_CONFIG.STORES.ITEMS,
+        DB_CONFIG.STORES.METADATA,
+      ],
       'readwrite',
     );
 
@@ -161,12 +168,13 @@ const syncData = async () => {
     const pStore = tx.objectStore(DB_CONFIG.STORES.POKEMON);
     const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
     const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
+    const iStore = tx.objectStore(DB_CONFIG.STORES.ITEMS);
     const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
 
     // Clear old data
-    await Promise.all([pStore.clear(), eStore.clear(), lStore.clear(), mStore.clear()]);
+    await Promise.all([pStore.clear(), eStore.clear(), lStore.clear(), iStore.clear(), mStore.clear()]);
 
-    emit(1, 3, 'Pokemon');
+    emit(1, 4, 'Pokemon');
     const inflateChain = (links: CompactChainLink[] | undefined): CompactChainLink[] => {
       return (links || []).map((l) => ({
         ...l,
@@ -192,7 +200,7 @@ const syncData = async () => {
       });
     }
 
-    emit(2, 3, 'Encounters');
+    emit(2, 4, 'Encounters');
     for (const e of data.enc) {
       const inflatedEnc = e.enc.map((enc) => ({
         ...enc,
@@ -205,13 +213,18 @@ const syncData = async () => {
       void eStore.put({ pid: e.pid, enc: inflatedEnc });
     }
 
-    emit(3, 3, 'Locations');
+    emit(3, 4, 'Locations');
     for (const l of data.loc) {
       void lStore.put({
         ...DEFAULT_LOCATION,
         ...l,
         prnt: l.prnt, // stay undefined if omitted
       });
+    }
+
+    emit(4, 4, 'Items');
+    for (const item of data.items || []) {
+      void iStore.put(item);
     }
 
     await mStore.put({ key: 'hash', value: data.hash });

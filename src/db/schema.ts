@@ -7,11 +7,12 @@ import type { DBSchema } from 'idb';
 
 export const DB_CONFIG = {
   NAME: 'PokeDB',
-  VERSION: 9,
+  VERSION: 10,
   STORES: {
     POKEMON: 'pokemon',
     ENCOUNTERS: 'encounters',
     LOCATIONS: 'locations',
+    ITEMS: 'items',
     METADATA: 'metadata',
   },
 } as const;
@@ -141,6 +142,16 @@ export interface PokemonMetadata {
   det: CompactEvolutionDetail[]; // Evolutionary requirements to reach THIS pokemon from parent
 }
 
+export interface ItemMetadata {
+  id: number;
+  name: string;
+  cost?: number | undefined;
+  category?: number | undefined;
+  fling_p?: number | undefined;
+  effect?: string | undefined;
+  sprite?: string | undefined;
+}
+
 export interface HiddenItemData {
   flagOffset: number;
   flagBit: number;
@@ -153,6 +164,7 @@ export interface PokeDataExport {
   poke: PokemonMetadata[];
   enc: LocationAreaEncounters[];
   loc: UnifiedLocation[];
+  items: ItemMetadata[];
   hash: string;
   sourceSha?: string;
 }
@@ -165,6 +177,10 @@ export interface PokeDBSchema extends DBSchema {
   [DB_CONFIG.STORES.ENCOUNTERS]: {
     key: number;
     value: LocationAreaEncounters;
+  };
+  [DB_CONFIG.STORES.ITEMS]: {
+    key: number;
+    value: ItemMetadata;
   };
   [DB_CONFIG.STORES.LOCATIONS]: {
     key: number;
