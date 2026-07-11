@@ -25,5 +25,5 @@ notes: ''
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] Update Phase 3.6 of `foundry-orchestrator.ts` to expand the condition `node.frontmatter.status === 'FAILED'` to include `CANCELLED` nodes with a `rejection_reason`.
-- [ ] task-154-278-update-orchestrator-phase36-cancelled-logic-impl
+- [x] Update Phase 3.6 of `foundry-orchestrator.ts` to expand the condition `node.frontmatter.status === 'FAILED'` to include `CANCELLED` nodes with a `rejection_reason`.
+- [x] task-154-278-update-orchestrator-phase36-cancelled-logic-impl
