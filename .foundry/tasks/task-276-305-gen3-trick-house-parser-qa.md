@@ -2,7 +2,7 @@
 id: task-276-305-gen3-trick-house-parser-qa
 type: TASK
 title: QA Gen 3 Trick House Parser Implementation
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
@@ -17,8 +17,8 @@ tags:
   - mechanics
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

@@ -2,7 +2,7 @@
 id: task-280-305-feebas-backend-integration-qa
 type: TASK
 title: QA - Feebas Backend Integration
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
@@ -16,8 +16,8 @@ tags:
   - backend
   - save-parsing
   - qa
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
