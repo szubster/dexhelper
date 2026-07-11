@@ -30,5 +30,7 @@ Implement a parser using `DataView` to extract Trick House progression states fr
 - Extract puzzle states, entrance state, and completion flags.
 
 ## Acceptance Criteria
-- [ ] Parse `VAR_TRICK_HOUSE_LEVEL_OFFSET` and other progression variables.
-- [ ] Parse `FLAG_LANDMARK_TRICK_HOUSE`.
+- [x] Parse `VAR_TRICK_HOUSE_LEVEL_OFFSET` and other progression variables.
+- [x] Parse `FLAG_LANDMARK_TRICK_HOUSE`.
+- [ ] task-276-304-gen3-trick-house-parser-impl
+- [ ] task-276-305-gen3-trick-house-parser-qa
