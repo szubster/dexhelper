@@ -31,4 +31,6 @@ Extract Gen 2 roamer data and standardize the structure for roaming legendaries.
 - [ ] Gen 2 save parser correctly extracts the species ID, level, and map coordinates of roaming Pokémon.
 - [ ] Only released/active roamers are considered active.
 - [ ] The return structure in `common.ts` is standardized for Gen 2.
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Break down this Epic into executable Stories.
+- [ ] story-139-297-gen2-roamer-core-extraction
+- [ ] story-139-298-gen2-roamer-status-and-standardization
