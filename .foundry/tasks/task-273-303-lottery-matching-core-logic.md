@@ -36,8 +36,8 @@ Implement the logic to compare Pokémon OT IDs against the daily winning number.
 - Return the highest matching tier and the corresponding winning Pokémon.
 
 ## Acceptance Criteria
-- [ ] Implement matching algorithm for comparing OT ID and winning number
-- [ ] Write unit tests to cover different matching scenarios (no match, partial match, full match, zero-padded cases)
+- [x] Implement matching algorithm for comparing OT ID and winning number
+- [x] Write unit tests to cover different matching scenarios (no match, partial match, full match, zero-padded cases)
 
 ## Failure Rules & Instructions
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
