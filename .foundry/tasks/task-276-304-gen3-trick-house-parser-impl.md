@@ -2,7 +2,7 @@
 id: task-276-304-gen3-trick-house-parser-impl
 type: TASK
 title: Implement Gen 3 Trick House Parser Core Logic
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
@@ -16,7 +16,7 @@ tags:
   - mechanics
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Max rejections reached missing RangeError handling'
 notes: ''
 ---
 
@@ -56,3 +56,6 @@ The specific offsets needed to implement this are defined in:
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+
+### Cancelled
+Replaced by new tasks.
