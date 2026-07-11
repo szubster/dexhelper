@@ -170,6 +170,7 @@ export interface Gen3BattleFrontierSymbols {
 }
 
 export interface SaveData {
+  gen3TrickHouse?: import('./../gen3/trickHouse/parser').Gen3TrickHouse;
   /** The generation of the parsed save file (1 or 2). */
   generation: Generation;
   /** A set of Pokémon species IDs that have been caught (O(1) lookup). */
