@@ -29,3 +29,5 @@ Based on ADR 025 and the findings from `research-081-144-gen3-rtc-strategy`, thi
 ## Acceptance Criteria
 - [ ] Implement Manual UI Overrides to allow users to force a specific time state.
 - [ ] Adhere strictly to ADR 008 tactical hardware/snooping aesthetic: use sharp edges (rounded-none), avoid rounded corners, and use dashed borders (border-dashed) with monospaced telemetry fonts (font-mono).
+- [ ] task-282-304-gen3-manual-time-ui-overrides-impl
+- [ ] task-282-305-gen3-manual-time-ui-overrides-qa
