@@ -36,7 +36,8 @@ Create a centralized "Trainer Card Stars & Achievements Dashboard" that aggregat
 This feature strongly aligns with DexHelper's vision as a premium companion app for hardcore players. By centralizing widely distributed, hard-to-track completion data into a single, unified dashboard, we eliminate tedious in-game menu navigation and provide a highly satisfying "macro-view" of the player's ultimate endgame progress.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD outlining the specific save file offsets to parse and the UI layout for the dashboard.
+- [x] Product Manager: Convert this idea into a PRD outlining the specific save file offsets to parse and the UI layout for the dashboard.
+- [ ] prd-102-111-gen3-trainer-card-stars
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
