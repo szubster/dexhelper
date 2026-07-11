@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { AlertCircle, CheckCircle2, Monitor, Sparkles, X } from 'lucide-react';
+import { AlertCircle, CheckCircle2, Monitor, X } from 'lucide-react';
 import React, { useEffect } from 'react';
 import { dexDataLoader } from '../db/DexDataLoader';
 import { POKE_VERSION_MAP } from '../db/schema';
@@ -18,6 +18,7 @@ import { PokemonLocations } from './pokemon/details/PokemonLocations';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { UnownDexPanel } from './pokemon/unown/UnownDexPanel';
 import { ScanlineOverlay } from './ScanlineOverlay';
+import { ShinyBadge } from './ShinyBadge';
 import { TacticalIconButton } from './TacticalIconButton';
 import { TacticalModal } from './TacticalModal';
 
@@ -229,15 +230,7 @@ export function PokemonDetails({
               />
             </div>
 
-            {isShiny ? (
-              <div className="absolute -top-3 -right-3 z-20 animate-[pulse_3s_ease-in-out_infinite] rounded-none border border-amber-500/50 bg-amber-500/20 p-2 text-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.5)] backdrop-blur-sm">
-                <Sparkles size={18} />
-              </div>
-            ) : isShinyCarrier ? (
-              <div className="absolute -top-3 -right-3 z-20 animate-[pulse_3s_ease-in-out_infinite] rounded-none border border-cyan-500/50 border-dashed bg-cyan-500/20 p-2 text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.5)] backdrop-blur-sm">
-                <Sparkles size={18} />
-              </div>
-            ) : null}
+            <ShinyBadge isShiny={isShiny} isShinyCarrier={isShinyCarrier} size="md" />
           </div>
 
           <div className="w-full text-center sm:text-left">
