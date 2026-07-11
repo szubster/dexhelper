@@ -2,7 +2,7 @@
 id: task-276-305-gen3-trick-house-parser-qa
 type: TASK
 title: QA Gen 3 Trick House Parser Implementation
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-11'

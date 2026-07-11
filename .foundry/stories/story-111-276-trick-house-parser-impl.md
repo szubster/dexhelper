@@ -2,7 +2,7 @@
 id: story-111-276-trick-house-parser-impl
 type: STORY
 title: Implement Gen 3 Trick House Parser
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
