@@ -175,3 +175,6 @@ When decomposing a STORY into TASK nodes, strictly follow the Intelligent Verifi
 **Context:** Story `story-123-269-define-tactical-layout-utilities` had generated tasks that were completed by the Coder and QA, but the Story node itself remained in `READY` state.
 **Learning:** This is an example of a "Late-Binding Parent" warning situation where a macro node's markdown checkboxes are not synchronized with its children's completion states. According to the `MAC0 NODE COMPLETION EXCEPTION`, since the generated descendant nodes (`task-269-272-define-tactical-layout-utilities-impl` and `task-269-273-define-tactical-layout-utilities-qa`) were completed, I was required to check off their corresponding acceptance criteria (including the implementation-specific criteria) in the parent node before submitting an Empty PR to transition the Story.
 **Action:** Always verify descendant node statuses to identify if manual sync of checkboxes is needed before submission.
+
+## 2026-07-11: RangeError Handling
+When drafting save parser blueprints using DataView, explicitly mandate catching RangeError and throwing 'The save file is corrupted or incomplete.' to prevent QA rejections.

@@ -50,3 +50,6 @@ Validate the logic implemented for extracting Gen 3 Trick House progression stat
 
 ### QA Rejection
 - **Reason**: Implementation is missing a `try/catch` block for `RangeError` from the `DataView` API to properly handle out-of-bounds reads. Tests must also ensure that reading out-of-bounds throws an appropriate error, such as `The save file is corrupted or incomplete.`
+
+### Cancelled
+Replaced by new tasks.
