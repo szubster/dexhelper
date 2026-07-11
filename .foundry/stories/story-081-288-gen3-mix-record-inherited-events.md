@@ -27,3 +27,5 @@ Based on requirement 2.2, we must accurately extract data indicating if events w
 
 ## Acceptance Criteria
 - [ ] Implement extraction logic to parse inherited events data from Mix Records.
+- [ ] task-288-304-gen3-mix-record-inherited-events-impl
+- [ ] task-288-305-gen3-mix-record-inherited-events-qa
