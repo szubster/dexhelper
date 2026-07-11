@@ -29,3 +29,19 @@ Investigate the root cause of the `task-121-278-gen3-tv-block-parser-retry3-impl
 1. Analyze the failure feedback from QA or the Auditor for `task-121-278` and determine the exact root cause.
 2. Identify the correct module-level constant names and values that should replace these magic numbers based on the `gen3_tv_shows_and_events.md` or related knowledge base documents.
 3. Document these explicit constants so the next implementer blueprint can mandate their exact usage.
+
+## Findings
+The failure was due to hardcoded magic numbers for the TV block memory offsets. The following module-level constants must be used:
+- `TVGROUP_RECORD_MIX_START = 21`
+- `TVGROUP_RECORD_MIX_END = 40`
+- `TVSHOW_STRUCT_SIZE = 36`
+- `TV_SHOWS_COUNT = 25`
+- `TVSHOW_MASS_OUTBREAK = 41`
+- `OUTBREAK_MOVES_OFFSET = 0x04`
+- `OUTBREAK_SPECIES_OFFSET = 0x0C`
+- `OUTBREAK_MAP_NUM_OFFSET = 0x10`
+- `OUTBREAK_MAP_GROUP_OFFSET = 0x11`
+- `OUTBREAK_PROBABILITY_OFFSET = 0x13`
+- `OUTBREAK_LEVEL_OFFSET = 0x14`
+- `OUTBREAK_DAYS_BEFORE_OFFSET = 0x16`
+- `OUTBREAK_LANGUAGE_OFFSET = 0x18`
