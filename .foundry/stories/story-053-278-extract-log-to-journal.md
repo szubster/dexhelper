@@ -2,12 +2,12 @@
 id: story-053-278-extract-log-to-journal
 type: STORY
 title: Extract logToJournal Utility
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-06'
+updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6421165205811992602'
 parent: epic-036-053-shared-dag-utilities
 tags:
   - refactor
