@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-06-16'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: '12962930513988668777'
+jules_session_id: '6424090456910730363'
 pr_number: null
 parent: prd-079-052-automated-max-rejection-cancellation
 tags:
@@ -24,5 +24,5 @@ notes: ''
 
 ## Acceptance Criteria
 - [x] Break down into Stories.
-- [ ] story-096-153-max-rejection-cancellation
-- [ ] story-096-154-parent-awakening-logic
+- [x] story-096-153-max-rejection-cancellation
+- [x] story-096-154-parent-awakening-logic
