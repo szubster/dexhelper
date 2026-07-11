@@ -33,4 +33,7 @@ We have successfully generated `items.jsonl` dynamically and integrated it into 
 - [ ] Add the `items` object store in IndexedDB.
 - [ ] Implement inflation and storage logic for items in `PokeDB.ts` during `syncData`.
 - [ ] Replace usage of hardcoded item maps with queries to the new database store.
-- [ ] Break down this STORY into concrete TASK nodes for implementation.
+- [x] Break down this STORY into concrete TASK nodes for implementation.
+- [ ] task-280-304-item-db-schema-and-sync
+- [ ] task-280-305-refactor-game-item-map
+- [ ] task-280-306-item-runtime-qa
