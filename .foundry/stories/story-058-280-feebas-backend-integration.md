@@ -29,3 +29,5 @@ Integrate the Feebas seed extraction and tile calculation utilities (`extractFee
 - [ ] Update the `SaveData` interface in `src/engine/saveParser/parsers/common.ts` to include the Feebas tile coordinates.
 - [ ] Map the calculated coordinates to the updated `SaveData` schema during hydration.
 - [ ] Add unit/integration tests to verify Feebas data is correctly populated during save parsing.
+- [ ] task-280-304-feebas-backend-integration
+- [ ] task-280-305-feebas-backend-integration-qa
