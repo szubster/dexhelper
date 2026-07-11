@@ -25,4 +25,5 @@ notes: ''
 Create a dashboard view displaying all registered Pokegear NPCs.
 
 ## Acceptance Criteria
+- [x] Instantiated task-284-314-active-callers-dashboard-ui-impl
 - [ ] Build the active callers dashboard UI.
