@@ -111,3 +111,8 @@ When verifying `epic-046-079-gen3-battle-frontier-dashboard-ui`, it was noted th
 
 **Lesson: Explicit Bitwise Extraction and Boundary Testing (ADR 026 and ADR 028) Enforcement**
 When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation successfully adhered to `ADR 026` after prior rejections. The bitwise extraction of Pokerus (strain and days remaining) from the raw byte was correctly refactored into a shared utility (`parsePokerus` in `common.ts`) utilizing explicit bitwise shifts and masks defined as module-level constants (removing inline magic numbers as per `ADR 028`). Furthermore, correct boundary states (such as the "cured" state vs uninfected state) were comprehensively tested. This confirms that explicitly rejecting macro nodes effectively enforces architectural standards and protects against scaling regressions when transitioning from monolithic parsers to composable utilities.
+
+## epic-104-133-gen3-lottery-offsets-research
+- **Node**: `epic-104-133-gen3-lottery-offsets-research`
+- **Result**: Verification Passed.
+- **Notes**: The Epic was simply to break down the task of researching Gen 3 lottery offsets. The child story `story-133-272-research-lottery-offsets` and its child task `task-272-301-research-gen3-lottery-offsets` successfully ran and produced the research document `.foundry/docs/knowledge_base/gen3_lottery_offsets.md`. All child nodes are marked as COMPLETED. The Acceptance Criteria in the epic are checked. Submitting an empty PR to transition to COMPLETED.

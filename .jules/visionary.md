@@ -202,3 +202,7 @@
 ## 2026-07-10
 **Idea:** Gen 2 & Gen 3 NPC Size Record Assistant
 **Learning:** Targeting mathematically complex, hidden sub-mechanics (like Pokémon size generation, which uses a convoluted formula based on IVs/PID) provides incredible unique utility. Players are often tasked by NPCs (e.g., Fishing Gurus) to show them abnormally large Pokémon. Automating this calculation across all Box Pokémon completely eliminates trial-and-error, perfectly leveraging our programmatic parsing strengths to replace manual frustration with instant, actionable insight.
+
+## 2026-07-11
+**Idea:** Gen 1 & Gen 3 Safari Zone Tracking Dashboard
+**Learning:** Targeting specific, highly constrained sub-mechanics (like the Safari Zone) with hidden encounter tables provides an actionable way to extract value from dynamic save state. It perfectly fits the premium companion app model by eliminating wiki lookups and trial-and-error.

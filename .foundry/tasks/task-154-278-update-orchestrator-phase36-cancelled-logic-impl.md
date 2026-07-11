@@ -2,12 +2,12 @@
 id: task-154-278-update-orchestrator-phase36-cancelled-logic-impl
 type: TASK
 title: Update Orchestrator Phase 3.6 Cancelled Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-06'
-updated_at: '2026-07-06'
+updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16286799436423549942'
 pr_number: null
 parent: story-096-154-parent-awakening-logic
 tags:

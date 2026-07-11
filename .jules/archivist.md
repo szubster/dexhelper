@@ -35,25 +35,13 @@
 **Learning:** Memory entries that reference specific external instruction files (like `testing_rules.md`) can become inaccurate or broken if the referenced file is moved to a new directory structure (like `.agents/rules/`).
 **Action:** Corrected path references in `onboarding/style_and_conventions.md` to point to `.agents/rules/testing_rules.md` to ensure onboarding rules point to actual existent files.
 
-## 2026-07-02
-**Learning:** Multiple agents (Coder, QA, Tech Lead, Sweeper, Testing) were using their journals to log "I did X" actions, task verification records, and status updates instead of critical learnings. This bloats context windows and provides no value to future runs. The Empty PR Policy and Core Agent Policies are centralized, so agents do not need to log routine empty PRs.
-**Action:** Cleared out action logs and status updates from the affected journals. Ensure agents are strictly adhering to only logging universally applicable knowledge or constraints.
-
-## 2026-05-25 - Archivist Run Learnings
-**Learning:** Agents frequently append "correction" or "update" entries to their journals instead of modifying the original entry, leading to contradictions and bloat.
-**Action:** Replaced and consolidated contradictory/duplicate entries. Agents must be reminded to rewrite/update existing learnings rather than appending corrections.
-
-## 2026-06-10 - Archivist Run Learnings
-**Learning:** The TPM journal (`.foundry/journals/tpm.md`) was accumulating routine task verifications and state transitions instead of critical learnings.
-**Action:** Cleared out the transient status updates from the TPM journal to conserve context, as per the policy against logging routine actions.
-
 ## 2026-07-06 - Archivist Run Learnings
 **Learning:** Over time, agents logging redundant failures or rejections for the same task (e.g., `task-085-142`) creates duplicated entries in their journals (e.g., QA journal).
 **Action:** Consolidated the repeated rejection learnings in `.foundry/journals/qa.md` into a single canonical entry explaining the Missing Architectural Integration for ADR 013 & ADR 017. Also verified that `.foundry/journals/tpm.md` is cleared of routine status updates.
 
 ## 2026-07-08 - Archivist Run Learnings
-**Learning:** Foundry journals (`coder.md`, `tech_lead.md`, `auditor.md`, `story_owner.md`) frequently accumulate pure execution logs ("I did X", task verification records) and heavily duplicated pattern insights (e.g., Epic cancellation procedures).
-**Action:** Scrubbed pure execution logs to preserve context windows and consolidated duplicated pattern insights into canonical architectural constraints.
+**Learning:** Foundry journals (e.g., `coder.md`, `tech_lead.md`, `auditor.md`, `qa.md`, `product_manager.md`) continually accumulate pure operational execution logs ("I did X", "Permanently failed", "I verified", task verification records, and orchestrator state changes) despite existing guidelines. This bloats context windows and provides no value to future runs. The Empty PR Policy and Core Agent Policies are centralized, so agents do not need to log routine actions.
+**Action:** Systematically scrubbed operational execution trace lines starting with "I did", "Permanently failed", "I rejected", "I verified", "I implemented", "I reviewed", "Suspended", "Anomaly", and "Updated generation logic" using scripts. Agents are reminded to strictly adhere to logging only universally applicable architectural constraints and critical learnings.
 - The directory `.serena/memories/` is a symbolic link mapping to `../.foundry/docs/knowledge_base/`. Agents must be careful not to mistake it for a duplicate directory or attempt recursive operations that result in duplicate changes.
 
 ## 2026-07-15 - Archivist Run Learnings
@@ -65,11 +53,6 @@
 
 **Learning:** Duplicate entries inside journals (e.g. `.foundry/journals/auditor.md`) frequently happen when the same or similar concept is independently observed multiple times and recorded by the auditor without checking if it already exists. The auditor journal had heavily duplicated learnings for "Tailwind v4 @utility Consolidation", "QA Task Verification Pairing Flexibility", "Strict Hierarchical Verification for Macro Nodes", and "Pokerus Bitwise Parsing".
 **Action:** Consolidated duplicated pattern insights into canonical architectural constraints in the auditor journal, removing redundancy. Agents should check journals for existing similar entries before appending new ones.
-
-## 2026-07-16 - Archivist Run Learnings
-
-**Learning:** Agents continue to pollute their journals with transient execution logs such as "I verified X" or "[Anomaly] Target artifact existed", violating the policy that journals are only for architectural constraints and critical lessons.
-**Action:** Systematically scrubbed execution logs from Auditor, Coder, Product Manager, QA, and Tech Lead journals.
 
 ## 2026-07-20 - Archivist Run Learnings
 

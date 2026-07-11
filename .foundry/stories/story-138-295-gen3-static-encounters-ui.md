@@ -1,0 +1,31 @@
+---
+id: story-138-295-gen3-static-encounters-ui
+type: STORY
+title: Gen 3 Static Encounters UI
+status: PENDING
+owner_persona: tech_lead
+created_at: '2026-07-11'
+updated_at: '2026-07-11'
+depends_on:
+  - .foundry/stories/story-138-294-gen3-static-encounters-parsing.md
+jules_session_id: null
+pr_number: null
+parent: epic-106-138-gen3-static-encounters
+tags:
+  - gen3
+  - feature
+  - ui
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Gen 3 Static Encounters UI
+
+Implement a UI checklist to track Gen 3 static encounters using the extracted save file event flags.
+
+## Acceptance Criteria
+- [ ] Create UI components to display static encounter checklist.
+- [ ] The UI must strictly adhere to the 'tactical hardware/snooping' design constraint, utilizing styling primitives like sharp edges (e.g., `rounded-none`), dashed borders (e.g., `border-dashed`), and monospaced telemetry fonts.
+- [ ] Ensure the component integrates seamlessly with the Gen 3 dashboard.
