@@ -2,13 +2,13 @@
 id: task-276-305-gen3-trick-house-parser-qa
 type: TASK
 title: QA Gen 3 Trick House Parser Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on:
   - task-276-304-gen3-trick-house-parser-impl
-jules_session_id: '3536285056808101110'
+jules_session_id: null
 pr_number: null
 parent: story-111-276-trick-house-parser-impl
 tags:
