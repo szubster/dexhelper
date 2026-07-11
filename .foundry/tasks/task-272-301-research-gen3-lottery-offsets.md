@@ -3,7 +3,7 @@ id: task-272-301-research-gen3-lottery-offsets
 type: TASK
 title: Research Gen3 Lottery Offsets
 status: COMPLETED
-owner_persona: researcher
+owner_persona: coder
 created_at: '2026-07-05'
 updated_at: '2026-07-10'
 depends_on: []
