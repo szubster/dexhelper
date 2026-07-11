@@ -2,7 +2,7 @@
 id: task-270-311-define-tactical-form-utilities-impl
 type: TASK
 title: Define Tactical Form and Text Utilities (Impl)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-11'

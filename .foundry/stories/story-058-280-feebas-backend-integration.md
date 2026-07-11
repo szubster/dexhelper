@@ -2,7 +2,7 @@
 id: story-058-280-feebas-backend-integration
 type: STORY
 title: Integrate Feebas Utility into Save Parser
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-11'

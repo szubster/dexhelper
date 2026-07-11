@@ -2,7 +2,7 @@
 id: task-280-304-feebas-backend-integration
 type: TASK
 title: Integrate Feebas Logic into Gen 3 Save Parser
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
@@ -14,8 +14,8 @@ tags:
   - gen3
   - backend
   - save-parsing
-rejection_count: 1
-rejection_reason: 'The `extractFeebasSeed` function reads from an absolute memory offset (e.g. 0x2dd6) instead of being relative to `section1Offset` (SaveBlock1) as required by the Gen 3 A/B bank rotation system architecture. This will read from the wrong location if the active SaveBlock1 is in Bank B (0xE000).'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

@@ -2,7 +2,7 @@
 id: task-276-304-gen3-trick-house-parser-impl
 type: TASK
 title: Implement Gen 3 Trick House Parser Core Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - mechanics
 research_references: []
-rejection_count: 1
-rejection_reason: 'Missing RangeError handling for DataView out-of-bounds reads'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
