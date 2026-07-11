@@ -24,5 +24,5 @@ notes: ''
 
 ## Acceptance Criteria
 - [x] Break down into Stories.
-- [ ] story-096-153-max-rejection-cancellation
+- [x] story-096-153-max-rejection-cancellation
 - [ ] story-096-154-parent-awakening-logic
