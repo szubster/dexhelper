@@ -160,6 +160,11 @@ When decomposing a STORY into TASK nodes, strictly follow the Intelligent Verifi
 - **Observation**: Assigned to story-070-109-extract-mixed-record-trainer-data where all its generated children (task-109-247, task-109-248, research-109-262) have completed successfully.
 - **Action**: Checked off the child checkboxes in the story markdown body and submitted an empty PR.
 - **Lesson**: Handing back control to the orchestrator properly.
+
+## Gen 3 RTC Fallback Implementation Constraints
+- For Gen 3 RTC fallback implementation, we must require the Coder to explicitly create a React Context layer for complex shared state (like manual time toggles) before implementing UI components to prevent tight coupling, per architectural rules.
+- We must also require the Coder to strictly adhere to the tactical hardware aesthetic from ADR 008, specifically using `rounded-none`, `border-dashed`, and `font-mono`.
+- Because this feature involves complex shared state via React Context, a separate QA verification task is mandatory based on the Intelligent Verification Protocol.
 - 2026-07-11: Extracted `logToJournal` logic from `foundry-orchestrator.ts` to `dag-utils.ts` in task `task-278-304-extract-log-to-journal`.
 ## 2026-07-10
 
