@@ -38,7 +38,6 @@ describe('gen3 parser scaffolding', () => {
     expect(isGen3Save(view)).toBe(false);
   });
 
-
   it('should calculate feebas tiles properly within parseGen3', () => {
     const buffer = new ArrayBuffer(0x200000);
     const view = new DataView(buffer);
