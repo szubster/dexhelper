@@ -33,3 +33,8 @@ I have generated the necessary child epic nodes (`epic-071-123-define-tailwind-v
 **Context:** Processing PRD prd-070-043-roamer-tracking-dashboard.
 **Observation:** The PRD scoping explicitly includes Gen 3, but only Gen 2 Epics were generated. Created 4 missing Gen 3 Epics (epic-043-152 to 155).
 **Action:** Submitted PR with new epics and updated PRD checkboxes.
+
+## Session 2026-07-11
+**Context:** Processing PRD `prd-086-108-fix-orchestrator-phase-3-6`.
+**Observation:** The PRD requires a fix to extend Phase 3.6 of the `foundry-orchestrator.ts` logic to correctly handle nodes transitioning to `CANCELLED` status.
+**Action:** Generated the child Epic node `epic-108-303-extend-phase-3-6-cancelled-nodes` and appended it to the parent PRD's acceptance criteria as an unchecked task. Since all the required Epic generation is complete, but the generated child node must be completed before the PRD is finished, I will submit an empty PR directly to passthrough validation. This allows the Orchestrator to correctly calculate the DAG dependencies and demote the READY PRD node to PENDING state to enforce the strict macro node completion lifecycle. No other file changes are required for this PR.

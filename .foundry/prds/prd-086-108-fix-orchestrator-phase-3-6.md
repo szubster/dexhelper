@@ -33,3 +33,4 @@ In `foundry-orchestrator.ts` Phase 3.6, nodes transitioning to `CANCELLED` statu
 - [ ] Phase 3.6 awakening logic supports `CANCELLED` nodes.
 - [ ] Parent nodes correctly awaken when child nodes are cancelled due to hitting max rejections.
 - [ ] Tests verify this exact behavior in `foundry-orchestrator.test.ts`.
+- [ ] epic-108-303-extend-phase-3-6-cancelled-nodes
