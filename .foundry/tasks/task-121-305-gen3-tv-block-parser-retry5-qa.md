@@ -2,10 +2,10 @@
 id: task-121-305-gen3-tv-block-parser-retry5-qa
 type: TASK
 title: QA - Implement Gen 3 TV Block DataView Parser (Retry 6)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-10'
-updated_at: '2026-07-10'
+updated_at: '2026-07-11'
 depends_on:
   - task-121-304-gen3-tv-block-parser-retry5-impl
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 
