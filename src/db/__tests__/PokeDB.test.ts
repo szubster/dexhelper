@@ -150,16 +150,18 @@ describe('PokeDB', () => {
     const events = dispatchEventMock.mock.calls.map((call) => call[0] as CustomEvent);
     const progressEvents = events.filter((e) => e.type === 'pokedata-sync-progress');
 
-    expect(progressEvents).toHaveLength(3);
-    expect(progressEvents[0]?.detail).toEqual({ current: 1, total: 3, stage: 'Pokemon' });
-    expect(progressEvents[1]?.detail).toEqual({ current: 2, total: 3, stage: 'Encounters' });
-    expect(progressEvents[2]?.detail).toEqual({ current: 3, total: 3, stage: 'Locations' });
+    expect(progressEvents).toHaveLength(4);
+    expect(progressEvents[0]?.detail).toEqual({ current: 1, total: 4, stage: 'Pokemon' });
+    expect(progressEvents[1]?.detail).toEqual({ current: 2, total: 4, stage: 'Encounters' });
+    expect(progressEvents[2]?.detail).toEqual({ current: 3, total: 4, stage: 'Locations' });
+    expect(progressEvents[3]?.detail).toEqual({ current: 4, total: 4, stage: 'Items' });
 
     global.window = originalWindow;
   });
 
   it('syncs data correctly', async () => {
     const mockData = {
+      items: [],
       hash: 'new-hash',
       poke: [
         {
@@ -191,6 +193,7 @@ describe('PokeDB', () => {
 
   it('performs bulk operations for pokemons', async () => {
     const mockData = {
+      items: [],
       hash: 'bulk-hash',
       poke: [
         { id: 1, n: 'P1', cr: 10, gr: 1, baby: false, eto: [], efrm: [], det: [] },
@@ -231,6 +234,7 @@ describe('PokeDB', () => {
 
   it('inflates recursive evo chains correctly', async () => {
     const mockData = {
+      items: [],
       hash: 'evo-chain-hash',
       poke: [
         {
@@ -276,6 +280,7 @@ describe('PokeDB', () => {
 
   it('resolves area names correctly', async () => {
     const mockData = {
+      items: [],
       hash: 'area-hash',
       poke: [],
       enc: [],
@@ -341,6 +346,7 @@ describe('PokeDB', () => {
 
     it('getAllPokemon returns all pokemon', async () => {
       const mockData = {
+        items: [],
         hash: 'new-hash',
         poke: [
           { id: 1, n: 'Bulbasaur', cr: 45, gr: 1, baby: false, eto: [], efrm: [], det: [] },
@@ -366,6 +372,7 @@ describe('PokeDB', () => {
 
     it('getEncounters returns encounter data', async () => {
       const mockData = {
+        items: [],
         hash: 'new-hash',
         poke: [],
         enc: [{ pid: 1, enc: [] }],
@@ -383,6 +390,7 @@ describe('PokeDB', () => {
 
     it('getEncountersBulk returns correctly', async () => {
       const mockData = {
+        items: [],
         hash: 'new-hash',
         poke: [],
         enc: [
@@ -411,6 +419,7 @@ describe('PokeDB', () => {
 
     it('getAllEncounters returns all encounters', async () => {
       const mockData = {
+        items: [],
         hash: 'new-hash',
         poke: [],
         enc: [
@@ -435,6 +444,7 @@ describe('PokeDB', () => {
 
     it('getLocation returns location', async () => {
       const mockData = {
+        items: [],
         hash: 'new-hash',
         poke: [],
         enc: [],
@@ -452,6 +462,7 @@ describe('PokeDB', () => {
 
     it('getLocations returns all locations', async () => {
       const mockData = {
+        items: [],
         hash: 'new-hash',
         poke: [],
         enc: [],
@@ -476,6 +487,7 @@ describe('PokeDB', () => {
 
     it('getAreas returns area if found', async () => {
       const mockData = {
+        items: [],
         hash: 'new-hash',
         poke: [],
         enc: [],
@@ -494,6 +506,7 @@ describe('PokeDB', () => {
 
     it('getAllAreas returns all locations', async () => {
       const mockData = {
+        items: [],
         hash: 'new-hash',
         poke: [],
         enc: [],
@@ -515,6 +528,7 @@ describe('PokeDB', () => {
 
     it('getInverseIndex returns pids array', async () => {
       const mockData = {
+        items: [],
         hash: 'new-hash',
         poke: [],
         enc: [],
@@ -532,6 +546,7 @@ describe('PokeDB', () => {
 
     it('getInverseIndexBulk returns array of pids or undefined', async () => {
       const mockData = {
+        items: [],
         hash: 'new-hash-bulk',
         poke: [],
         enc: [],
