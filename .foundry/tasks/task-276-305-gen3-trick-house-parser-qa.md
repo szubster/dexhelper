@@ -37,11 +37,11 @@ Validate the logic implemented for extracting Gen 3 Trick House progression stat
 4. **Test Coverage:** Ensure the Coder included unit tests simulating Gen 3 SaveBlock1 buffers to validate correct extraction.
 
 ## Acceptance Criteria
-- [ ] Validated that all offsets and variables are defined as module-level constants.
-- [ ] Confirmed no inline magic numbers exist in the parsing logic.
-- [ ] Verified correct Little-Endian usage for variables.
-- [ ] Verified correct bitwise extraction for the landmark flag.
-- [ ] Verified unit test coverage for the implemented logic.
+- [x] Validated that all offsets and variables are defined as module-level constants.
+- [x] Confirmed no inline magic numbers exist in the parsing logic.
+- [x] Verified correct Little-Endian usage for variables.
+- [x] Verified correct bitwise extraction for the landmark flag.
+- [x] Verified unit test coverage for the implemented logic.
 
 ## Review Contracts
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
