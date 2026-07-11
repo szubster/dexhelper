@@ -33,6 +33,9 @@ Implement reusable sorting strategies (e.g., National Dex order, Type, Level, et
 3. **Cross-Generation Compatibility:** Ensure the sorting logic works correctly with Gen 1, Gen 2, and Gen 3 `PokeData` structures.
 
 ## Acceptance Criteria
-- [ ] Break down epic into stories for the standard interface and base implementations.
-- [ ] Break down epic into stories for standard strategies (Dex, Level, Type).
-- [ ] Break down epic into stories for Gen 1, Gen 2, and Gen 3 specific considerations and tests.
+- [x] Break down epic into stories for the standard interface and base implementations.
+- [x] Break down epic into stories for standard strategies (Dex, Level, Type).
+- [x] Break down epic into stories for Gen 1, Gen 2, and Gen 3 specific considerations and tests.
+- [ ] story-136-294-sorting-interface-base
+- [ ] story-136-295-sorting-standard-strategies
+- [ ] story-136-296-sorting-cross-gen-considerations
