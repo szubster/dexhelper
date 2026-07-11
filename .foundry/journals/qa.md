@@ -27,3 +27,7 @@ The implementer (`coder`) failed `task-121-219-gen3-tv-block-parser-retry-impl` 
 - **Date**: 2026-07-11
 - **Node**: task-276-304-gen3-trick-house-parser-impl
 - **Reason**: The developer failed to handle `RangeError` from the `DataView` API when checking for out-of-bounds reads. This is a critical requirement for parsers working with save file data to prevent crashes when dealing with corrupted or incomplete saves.
+## 2026-07-11 - Feebas Extraction Failed (Task: task-280-305-feebas-backend-integration-qa)
+The coder implemented the Feebas extraction logic using absolute memory offsets (`0x2dd6`) instead of making them relative to `section1Offset`. In Generation 3, save files utilize an A/B bank rotation system where data can either reside in `0x0000` or `0xE000`. By hardcoding the absolute offset, the parser will fail to read the active save data if it currently resides in Bank B.
+
+To enforce the architecture correctly, all dynamic save block extraction functions must receive the resolved offset from the parser engine (e.g., `section1Offset` or `section2Offset`) and apply relative memory offsets to correctly extract the active save data block. I have failed `task-280-304-feebas-backend-integration` and incremented its rejection count.
