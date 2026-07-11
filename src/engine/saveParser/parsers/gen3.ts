@@ -103,6 +103,8 @@ const TV_SHOWS_COUNT = 25;
 const TVSHOW_STRUCT_SIZE = 36;
 const TV_SHOW_KIND_OFFSET = 0;
 const TV_SHOW_ACTIVE_OFFSET = 1;
+const TV_SHOW_PAYLOAD_OFFSET = 2;
+const TV_SHOW_PAYLOAD_LENGTH = 34;
 
 const TVGROUP_RECORD_MIX_START = 21;
 const TVGROUP_RECORD_MIX_END = 40;
@@ -563,16 +565,27 @@ export function parseGen3TVBlock(view: DataView, offset: number): Gen3TVShow[] {
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 export function parseGen3MixRecords(view: DataView, offset: number) {
-  const mixRecords = [];
-  const shows = parseGen3TVBlock(view, offset);
+  try {
+    const mixRecords = [];
+    const shows = parseGen3TVBlock(view, offset);
 
-  for (const show of shows) {
-    // Check if the show is a Mix Record event (21 to 40)
-    if (show.active && show.kind >= TVGROUP_RECORD_MIX_START && show.kind <= TVGROUP_RECORD_MIX_END) {
-      mixRecords.push({ kind: show.kind, active: show.active });
+    for (const show of shows) {
+      // Check if the show is a Mix Record event (21 to 40)
+      if (show.active && show.kind >= TVGROUP_RECORD_MIX_START && show.kind <= TVGROUP_RECORD_MIX_END) {
+        const payloadStart = show.itemOffset + TV_SHOW_PAYLOAD_OFFSET;
+        const payload = new Uint8Array(
+          view.buffer.slice(view.byteOffset + payloadStart, view.byteOffset + payloadStart + TV_SHOW_PAYLOAD_LENGTH),
+        );
+        mixRecords.push({ kind: show.kind, active: show.active, payload });
+      }
     }
+    return mixRecords;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
   }
-  return mixRecords;
 }
 
 /**
