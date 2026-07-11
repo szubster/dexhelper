@@ -1061,7 +1061,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       ...(gen3ActiveSwarm !== undefined ? { gen3ActiveSwarm } : {}),
       roamingLegendaries,
       gen3VolcanicAsh,
-      gen3TrickHouse: parseTrickHouse(view),
+      gen3TrickHouse: parseTrickHouse(view, section1Offset),
     };
     if (gen3FeebasTiles !== undefined) {
       result.gen3FeebasTiles = gen3FeebasTiles;

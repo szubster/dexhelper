@@ -23,24 +23,25 @@ describe('parseTrickHouse', () => {
     // Let's allocate 0x2000 to be safe.
     const buffer = new ArrayBuffer(0x2000);
     const view = new DataView(buffer);
+    const saveBlock1Offset = 0x0;
 
-    view.setUint16(VAR_TRICK_HOUSE_LEVEL_OFFSET, 3, true);
-    view.setUint16(VAR_TRICK_HOUSE_ENTRANCE_STATE_OFFSET, 1, true);
-    view.setUint16(VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR_OFFSET, 0, true);
-    view.setUint16(VAR_TRICK_HOUSE_PRIZE_PICKUP_OFFSET, 2, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_LEVEL_OFFSET, 3, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_ENTRANCE_STATE_OFFSET, 1, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR_OFFSET, 0, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_PRIZE_PICKUP_OFFSET, 2, true);
 
-    view.setUint16(VAR_TRICK_HOUSE_PUZZLE_1_STATE_OFFSET, 2, true);
-    view.setUint16(VAR_TRICK_HOUSE_PUZZLE_2_STATE_OFFSET, 2, true);
-    view.setUint16(VAR_TRICK_HOUSE_PUZZLE_3_STATE_OFFSET, 1, true);
-    view.setUint16(VAR_TRICK_HOUSE_PUZZLE_4_STATE_OFFSET, 0, true);
-    view.setUint16(VAR_TRICK_HOUSE_PUZZLE_5_STATE_OFFSET, 0, true);
-    view.setUint16(VAR_TRICK_HOUSE_PUZZLE_6_STATE_OFFSET, 0, true);
-    view.setUint16(VAR_TRICK_HOUSE_PUZZLE_7_STATE_OFFSET, 0, true);
-    view.setUint16(VAR_TRICK_HOUSE_PUZZLE_8_STATE_OFFSET, 0, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_PUZZLE_1_STATE_OFFSET, 2, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_PUZZLE_2_STATE_OFFSET, 2, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_PUZZLE_3_STATE_OFFSET, 1, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_PUZZLE_4_STATE_OFFSET, 0, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_PUZZLE_5_STATE_OFFSET, 0, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_PUZZLE_6_STATE_OFFSET, 0, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_PUZZLE_7_STATE_OFFSET, 0, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_PUZZLE_8_STATE_OFFSET, 0, true);
 
-    view.setUint8(FLAG_LANDMARK_TRICK_HOUSE_BYTE_OFFSET, 1 << FLAG_LANDMARK_TRICK_HOUSE_BIT);
+    view.setUint8(saveBlock1Offset + FLAG_LANDMARK_TRICK_HOUSE_BYTE_OFFSET, 1 << FLAG_LANDMARK_TRICK_HOUSE_BIT);
 
-    const result = parseTrickHouse(view);
+    const result = parseTrickHouse(view, saveBlock1Offset);
 
     expect(result).toEqual({
       level: 3,
@@ -59,5 +60,13 @@ describe('parseTrickHouse', () => {
       },
       landmarkFlag: true,
     });
+  });
+
+  it('throws an error on corrupted save file', () => {
+    const buffer = new ArrayBuffer(0x10);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0x0;
+
+    expect(() => parseTrickHouse(view, saveBlock1Offset)).toThrow('The save file is corrupted or incomplete.');
   });
 });
