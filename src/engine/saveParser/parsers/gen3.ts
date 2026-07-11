@@ -19,6 +19,7 @@
  */
 
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
+import { parseTrickHouse } from '../gen3/trickHouse/parser';
 import type {
   GameVersion,
   Gen3ActiveSwarm,
@@ -1050,6 +1051,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       ...(gen3ActiveSwarm !== undefined ? { gen3ActiveSwarm } : {}),
       roamingLegendaries,
       gen3VolcanicAsh,
+      gen3TrickHouse: parseTrickHouse(view),
     };
     if (gen3BattleFrontierWinStreaks) {
       result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
