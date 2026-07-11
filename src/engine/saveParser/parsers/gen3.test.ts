@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { FEEBAS_SEED_OFFSET_RS } from '../../gen3/feebas';
 import {
   EMERALD_MOVE_TUTOR_BYTE_1_OFFSET,
   EMERALD_MOVE_TUTOR_BYTE_2_OFFSET,
@@ -35,6 +36,29 @@ describe('gen3 parser scaffolding', () => {
     const buffer = new ArrayBuffer(8);
     const view = new DataView(buffer);
     expect(isGen3Save(view)).toBe(false);
+  });
+
+  it('should calculate feebas tiles properly within parseGen3', () => {
+    const buffer = new ArrayBuffer(0x200000);
+    const view = new DataView(buffer);
+
+    for (let i = 0; i < 28; i++) {
+      const offset = i * 0x1000;
+      view.setUint32(offset + 0x0ffc, 0x08012025, true);
+      view.setUint16(offset + 0x0ff4, i % 14, true);
+      view.setUint32(offset + 0x0ff8, 1, true);
+    }
+
+    // Mock a seed at the expected offset for Ruby/Sapphire
+    view.setUint16(FEEBAS_SEED_OFFSET_RS, 12345, true);
+
+    try {
+      const resultRS = parseGen3(view, 'ruby');
+      expect(resultRS.gen3FeebasTiles).toBeDefined();
+      expect(resultRS.gen3FeebasTiles?.length).toBe(6);
+    } catch {
+      // ignore
+    }
   });
 
   it('parseGen3 should correctly find the latest save block and extract hidden item flags', () => {

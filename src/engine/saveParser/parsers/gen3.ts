@@ -18,6 +18,7 @@
  * is determined by `PV % 24`.
  */
 
+import { calculateFeebasTiles, extractFeebasSeed } from '../../gen3/feebas';
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
 import { parseTrickHouse } from '../gen3/trickHouse/parser';
 import type {
@@ -1024,6 +1025,15 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
     }
+    let gen3FeebasTiles: number[] | undefined;
+    if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire' || _forcedVersion === 'emerald') {
+      try {
+        const seed = extractFeebasSeed(view, _forcedVersion);
+        gen3FeebasTiles = calculateFeebasTiles(seed);
+      } catch {
+        // Ignored
+      }
+    }
 
     // Dummy scaffold values for now until fully implemented
     const result: SaveData = {
@@ -1053,6 +1063,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3VolcanicAsh,
       gen3TrickHouse: parseTrickHouse(view),
     };
+    if (gen3FeebasTiles !== undefined) {
+      result.gen3FeebasTiles = gen3FeebasTiles;
+    }
     if (gen3BattleFrontierWinStreaks) {
       result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
     }

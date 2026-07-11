@@ -187,6 +187,8 @@ export interface SaveData {
   pcDetails: PokemonInstance[];
   /** In-game NPC trade status flags mapped by their flag name for Gen 3 games. */
   gen3NPCTrades?: Record<string, boolean>;
+  /** Gen 3 specific: Calculated valid Feebas tile locations. */
+  gen3FeebasTiles?: number[];
   /** The specific game version detected or forced (e.g., 'red', 'crystal'). */
   gameVersion: GameVersion;
   /** Bitflag representation of the total number of gym badges obtained. */
