@@ -61,7 +61,7 @@ Mix Record shows are those where the `kind` ID is between `21` and `40` (inclusi
    - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Module-level constants are defined for `TVShow` offsets, lengths, and kind ID bounds.
-- [ ] Logic correctly parses the `TVShow` array from `SaveBlock1` at offset `0x27CC`.
-- [ ] Active Mix Record shows (kinds 21-40) are successfully isolated and extracted.
-- [ ] No inline magic numbers are used in the parsing implementation.
+- [x] Module-level constants are defined for `TVShow` offsets, lengths, and kind ID bounds.
+- [x] Logic correctly parses the `TVShow` array from `SaveBlock1` at offset `0x27CC`.
+- [x] Active Mix Record shows (kinds 21-40) are successfully isolated and extracted.
+- [x] No inline magic numbers are used in the parsing implementation.
