@@ -2,13 +2,13 @@
 id: task-270-264-graveyard-box-logic-qa
 type: TASK
 title: Graveyard Box State and Logic Verification
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-05'
 updated_at: '2026-07-11'
 depends_on:
   - task-270-263-graveyard-box-logic-impl
-jules_session_id: null
+jules_session_id: '6639683274573177621'
 pr_number: null
 parent: story-131-270-graveyard-box-state
 tags:
