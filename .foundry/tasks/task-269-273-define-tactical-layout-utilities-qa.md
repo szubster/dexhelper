@@ -33,9 +33,9 @@ Verify the implementation of `@utility tactical-panel`, `@utility tactical-card`
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verified `@utility tactical-panel` is correctly defined.
-- [ ] Verified `@utility tactical-card` is correctly defined.
-- [ ] Verified `@utility tactical-button` is correctly defined.
+- [x] Verified `@utility tactical-panel` is correctly defined.
+- [x] Verified `@utility tactical-card` is correctly defined.
+- [x] Verified `@utility tactical-button` is correctly defined.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
