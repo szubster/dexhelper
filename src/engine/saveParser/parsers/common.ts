@@ -79,11 +79,13 @@ export interface Gen3PokeNews {
 export interface Gen3MixRecord {
   kind: number;
   active: boolean;
+  payload?: Uint8Array;
 }
 
 export interface Gen3TVShow {
   kind: number;
   active: boolean;
+  payload?: Uint8Array;
   itemOffset: number;
 }
 

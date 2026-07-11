@@ -473,8 +473,8 @@ describe('parseGen3MixRecords', () => {
     const result = parseGen3MixRecords(view, 0);
 
     expect(result).toHaveLength(2);
-    expect(result[0]).toEqual({ kind: 22, active: true });
-    expect(result[1]).toEqual({ kind: 31, active: true });
+    expect(result[0]).toEqual({ kind: 22, active: true, payload: new Uint8Array(34) });
+    expect(result[1]).toEqual({ kind: 31, active: true, payload: new Uint8Array(34) });
   });
 
   it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
