@@ -123,3 +123,8 @@ When verifying `epic-038-061-pokerus-state-exfiltration`, the implementation suc
 - **Notes**: The Story was simply to detect party zero HP as dead. The child task `task-269-263-detect-party-zero-hp-impl` successfully implemented the `getDeadPokemon` function in `src/engine/nuzlocke/tracker.ts`. The child task is marked as COMPLETED. The Acceptance Criteria in the story are checked. Tests pass. Submitting an empty PR to transition to COMPLETED.
 ### Gen 3 Lottery Offsets Extraction
 When verifying `epic-104-133-gen3-lottery-offsets-research`, I learned that the 32-bit lottery PRNG seed in Gen 3 is split across two 16-bit variables. Crucially, the order of these variables (High/Low words) is swapped between Ruby/Sapphire and Emerald. Ruby/Sapphire stores the Low 16 bits first (at index 0x404B) and the High 16 bits second (at 0x404C), while Emerald stores the High 16 bits first (at 0x404B) and the Low 16 bits second (at 0x404C). This introduces a complexity in extracting a 32-bit value that we need to standardize.
+
+### epic-052-096-automated-max-rejection-cancellation
+- **Node**: `epic-052-096-automated-max-rejection-cancellation`
+- **Result**: Verification Passed.
+- **Notes**: The Epic was successfully broken down into stories `story-096-153-max-rejection-cancellation` and `story-096-154-parent-awakening-logic`. Both stories and their descendant task nodes were implemented, merged, and moved to COMPLETED status. The `foundry-orchestrator.ts` Phase 3.0 and Phase 3.6 correctly implemented the logic to handle max rejections and CANCELLED nodes, as verified by reading the scripts and running the test suite. All child nodes and their tasks are completely marked as `[x]`. I am submitting an empty PR to transition this node to COMPLETED.
