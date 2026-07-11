@@ -2,12 +2,12 @@
 id: idea-104-missed-trainer-radar
 type: IDEA
 title: Gen 1-3 Missed Trainer Radar
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: '9651663591636000441'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

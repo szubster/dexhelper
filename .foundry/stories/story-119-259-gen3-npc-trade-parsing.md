@@ -2,13 +2,13 @@
 id: story-119-259-gen3-npc-trade-parsing
 type: STORY
 title: Gen 3 NPC Trade Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-10'
+updated_at: '2026-07-11'
 depends_on:
   - research-259-249-gen3-npc-trade-parsing
-jules_session_id: '1364767736664999733'
+jules_session_id: null
 pr_number: null
 parent: epic-095-119-in-game-trade-data-extraction
 tags:

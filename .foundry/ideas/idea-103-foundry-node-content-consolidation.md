@@ -2,12 +2,12 @@
 id: idea-103-foundry-node-content-consolidation
 type: IDEA
 title: Foundry Node and Prompt Content Consolidation
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on: []
-jules_session_id: '906308884410537116'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

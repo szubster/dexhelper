@@ -2,10 +2,10 @@
 id: task-259-277-gen3-npc-trade-extraction-qa
 type: TASK
 title: QA Gen 3 NPC Trade Extraction
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-10'
-updated_at: '2026-07-10'
+updated_at: '2026-07-11'
 depends_on:
   - task-259-276-gen3-npc-trade-extraction-impl
 jules_session_id: null

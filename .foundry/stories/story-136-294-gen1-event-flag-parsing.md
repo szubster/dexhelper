@@ -1,11 +1,11 @@
 ---
 id: story-136-294-gen1-event-flag-parsing
 type: STORY
-title: "Gen 1 Event Flag Parsing"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-07-10"
-updated_at: "2026-07-10"
+title: Gen 1 Event Flag Parsing
+status: READY
+owner_persona: tech_lead
+created_at: '2026-07-10'
+updated_at: '2026-07-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - feature
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 1 Event Flag Parsing
