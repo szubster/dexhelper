@@ -30,3 +30,4 @@ Remove the incorrect `VERIFYING` allowances in dependency and parent status chec
 ## Acceptance Criteria
 - [ ] In `.github/scripts/foundry-orchestrator.ts`, find and remove the `&& dep.frontmatter.status !== 'VERIFYING'` allowance in the dependency check (around line 621).
 - [ ] Find and remove the `&& parentStatus !== 'VERIFYING'` allowance in the parent status check (around line 723).
+- [ ] task-276-304-orchestrator-verifying-block
