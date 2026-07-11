@@ -24,8 +24,10 @@ notes: ''
 Break down the Gen 3 static encounter checklist into stories.
 
 ## Acceptance Criteria
-- [ ] Create story for Gen 3 event flag parsing
-- [ ] Create story for Gen 3 checklist UI
+- [x] Create story for Gen 3 event flag parsing
+- [x] Create story for Gen 3 checklist UI
+- [ ] story-138-294-gen3-static-encounters-parsing
+- [ ] story-138-295-gen3-static-encounters-ui
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
