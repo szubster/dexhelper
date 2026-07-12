@@ -38,3 +38,19 @@ I have generated the necessary child epic nodes (`epic-071-123-define-tailwind-v
 **Context:** Processing PRD `prd-086-108-fix-orchestrator-phase-3-6`.
 **Observation:** The PRD requires a fix to extend Phase 3.6 of the `foundry-orchestrator.ts` logic to correctly handle nodes transitioning to `CANCELLED` status.
 **Action:** Generated the child Epic node `epic-108-303-extend-phase-3-6-cancelled-nodes` and appended it to the parent PRD's acceptance criteria as an unchecked task. Since all the required Epic generation is complete, but the generated child node must be completed before the PRD is finished, I will submit an empty PR directly to passthrough validation. This allows the Orchestrator to correctly calculate the DAG dependencies and demote the READY PRD node to PENDING state to enforce the strict macro node completion lifecycle. No other file changes are required for this PR.
+
+## Missed Trainer Radar PRD Breakdown
+Successfully broke down the "Missed Trainer Radar" PRD (`prd-104-109-missed-trainer-radar`) into three granular epics:
+- Gen 1 & 2 Data Extraction (`epic-109-306-missed-trainer-data-extraction-gen1-gen2`)
+- Gen 3 Data Extraction (`epic-109-307-missed-trainer-data-extraction-gen3`)
+- UI Dashboard (`epic-109-308-missed-trainer-radar-ui`)
+
+**Key Architectural Insights Applied:**
+- Included constraints for bitwise extraction and cured boundaries (ADR 026) for the flag parsing.
+- Included constraints for explicit relative offsets and constants (ADR 028) for the extraction layer.
+- Enforced the `DataView` API (ADR 010) specifically for the Gen 3 extraction layer.
+- Linked the UI epic to the "Smart Route Radar" architecture (ADR 018) for visualizing the missing encounters dynamically on the map.
+
+**Important Reminders:**
+- Temporary processing files (like `batch_*` logs from bash commands) must be manually deleted before committing to avoid polluting the workspace.
+- The `depends_on` array in the YAML frontmatter MUST use the bare node ID (e.g., `epic-109-306-missed-trainer-data-extraction-gen1-gen2`), not the relative file path.
