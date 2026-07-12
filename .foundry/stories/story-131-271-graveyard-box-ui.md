@@ -2,13 +2,13 @@
 id: story-131-271-graveyard-box-ui
 type: STORY
 title: Graveyard Box UI
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-12'
 depends_on:
   - story-131-270-graveyard-box-state
-jules_session_id: null
+jules_session_id: '12482810916114750951'
 pr_number: null
 parent: epic-097-131-nuzlocke-death-tracking
 tags:
