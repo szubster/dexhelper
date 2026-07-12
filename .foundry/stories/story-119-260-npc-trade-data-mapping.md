@@ -27,4 +27,6 @@ notes: ''
 Create a standard mapping connecting raw bitflags to specific NPC trade encounters (e.g., MUSCLE the Machop).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks for creating data maps across generations.
+- [x] Tech Lead: Break down into tasks for creating data maps across generations.
+- [ ] task-260-318-npc-trade-data-mapping-impl
+- [ ] task-260-319-npc-trade-data-mapping-qa
