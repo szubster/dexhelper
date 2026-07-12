@@ -24,4 +24,6 @@ notes: ''
 Extract the event flags for Gen 2 static encounters from the save file. This involves finding the offsets and bit positions for encounters like Sudowoodo, Snorlax, Red Gyarados, and Ho-Oh/Lugia, and exposing this data to the state management layer.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-294-316-gen2-static-encounter-flags-impl
+- [ ] task-294-317-gen2-static-encounter-flags-qa
