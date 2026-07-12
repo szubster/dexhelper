@@ -55,6 +55,8 @@ describe('Secret Base Parser', () => {
 
       view.setUint8(0, 15); // Base ID
 
+      view.setUint8(1, 1 << 5); // Set battledOwnerToday flag
+
       // "ASH\0\0\0\0"
       // Wait, A is 0x80, S is 0x92, H is 0x87 in GEN12_CHAR_MAP (or 0xFF for end)
       view.setUint8(2, 0x80);
@@ -78,6 +80,7 @@ describe('Secret Base Parser', () => {
       expect(record?.secretBaseId).toBe(15);
       expect(record?.trainerName).toBe('ASH');
       expect(record?.trainerId).toBe(1234567);
+      expect(record?.battledOwnerToday).toBe(true);
       expect(record?.party[0]?.species).toBe(1);
     });
 

@@ -1,6 +1,8 @@
 import { decodeGen12String, type GameVersion, type Gen3SecretBasePartyMember } from '../../saveParser/parsers/common';
 
 export const SECRET_BASE_SIZE = 160;
+export const FLAGS_OFFSET = 0x01;
+export const BATTLED_OWNER_TODAY_MASK = 1 << 5;
 export const SECRET_BASES_COUNT = 20;
 
 export const TRAINER_NAME_OFFSET = 0x02;
@@ -99,6 +101,9 @@ export function parseSecretBaseRecord(view: DataView, offset: number, gameVersio
       return null;
     }
 
+    const flags = view.getUint8(offset + FLAGS_OFFSET);
+    const battledOwnerToday = (flags & BATTLED_OWNER_TODAY_MASK) !== 0;
+
     const isEmerald = gameVersion === 'emerald';
     const trainerNameLength = isEmerald ? TRAINER_NAME_LENGTH_EMERALD : TRAINER_NAME_LENGTH_RS;
     const trainerIdOffset = isEmerald ? TRAINER_ID_OFFSET_EMERALD : TRAINER_ID_OFFSET_RS;
@@ -114,6 +119,7 @@ export function parseSecretBaseRecord(view: DataView, offset: number, gameVersio
       secretBaseId,
       trainerName,
       trainerId,
+      battledOwnerToday,
       party,
     };
   } catch (error) {

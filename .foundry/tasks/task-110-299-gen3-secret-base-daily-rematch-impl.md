@@ -34,8 +34,8 @@ notes: ''
 - Ensure this Boolean value is returned alongside the trainer data.
 
 ## Acceptance Criteria
-- [ ] Parse the `battledOwnerToday` flag.
-- [ ] Define reusable module-level constants for the offset and bitmask.
+- [x] Parse the `battledOwnerToday` flag.
+- [x] Define reusable module-level constants for the offset and bitmask.
 
 ## Important Notes
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
